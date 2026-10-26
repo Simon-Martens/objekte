@@ -1,17 +1,11 @@
-/target
-/frontend/node_modules
-/frontend/dist
-/frontend/.astro
-/.data
-
-
-/frontend/native/*.node
-
-/crates/server/assets/node_modules
-/crates/server/assets/dist
-
-/crates/server/assets/src/generated
-
-# Original local export; converted JSON is versioned in examples/musenalm.
+/target/
+/.data/
 /import/
 /scripts/__pycache__/
+
+# Generated files from the archived implementation.
+/deprecated/target/
+/deprecated/frontend/
+/deprecated/crates/server/assets/node_modules/
+/deprecated/crates/server/assets/dist/
+/deprecated/crates/server/assets/src/generated/

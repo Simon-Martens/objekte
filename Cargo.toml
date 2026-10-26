@@ -1,8 +1,7 @@
 [workspace]
-members = ["crates/core", "crates/search", "crates/node", "crates/server"]
+members = ["crates/core", "crates/cli"]
 resolver = "2"
 
 [workspace.package]
 edition = "2024"
 license = "MIT"
-
