@@ -218,7 +218,7 @@ Give opening two explicit meanings:
 | Operation | Work it is allowed to trigger |
 | --- | --- |
 | `load_repository` | Read configuration and schemas; derive metadata/collection graph |
-| `get_record(collection, id)` | Read and validate that file; retain its revision if caching is enabled |
+| `get_record(collection, id)` | Read/parse that file; cache its current bytes and schedule schema validation |
 | `open_view(collection)` | On demand, enumerate/read/reconcile/cache the source collection and return its default table |
 
 Calling `open_view` immediately after loading is a normal application opening flow.
@@ -362,12 +362,12 @@ require a particular plan for tiny fixtures. CLI prints actual view tables or JS
 
 Use one serialized update coordinator first. Reconciliation classifies path-set
 differences as added/removed/possibly changed; hashes determine content changes.
-Apply each validated batch to records, manifest, typed values, and outgoing edges
+Apply each stable source batch to records, manifest, typed values, and outgoing edges
 in one SQLite transaction. Do not rebuild unchanged rows. A filename rename is a
 deletion plus an addition because filename identity changed.
 
 Persist states such as absent, partial, building, current, and dirty. Publish a
-complete generation only after validation and a final inventory check. Interrupted
+complete source generation after the selected freshness checks; validation is a separate per-record state. Interrupted
 work remains untrusted; reopening reconciles it. A final check detects ordinary
 concurrent changes but does not turn independent filesystem files into an atomic
 snapshot. Bound retries and report continuing outside changes.
@@ -376,7 +376,7 @@ A schema change revalidates affected collections and rebuilds their extracted
 values/edges. A UI index-field change rebuilds affected indexes. A label/column/page
 size change alone need not rewrite the full record cache. A storage mapping or
 cache format change invalidates the affected namespace/generation. Invalid JSON
-must not leave an old row masquerading as current; report failure for affected views.
+replaces the old cached row with an explicit incorrect-JSON row. Content errors do not roll back a collection; operational failures still do.
 
 Watchers are a later addition to this mechanism. They mark paths dirty while the
 process is running, coalesce repeated events, and trigger reconciliation. They
@@ -411,7 +411,9 @@ Initial options, exposed through the CLI as their stages are implemented:
 | Application data directory | Explicit location for disposable library state |
 | Cache mode | `disabled` or `sqlite`; default-view behavior is otherwise equivalent |
 | SQLite page cache | `sqlite_cache_mib: Option<u32>`; default `Some(64)`, `None` uses SQLite's default; CLI `--sqlite-cache-mib N\|default` |
-| Ingestion workers | `ingest_workers`, 1–64; default available parallelism capped at 4; CLI `--ingest-workers N` |
+| Ingestion workers | `ingest_workers`, positive count; default CPU threads / 2 (minimum 1); CLI `--ingest-workers N` |
+| Background workers | `background_workers`, positive count; default CPU threads / 4 (minimum 1); CLI `--background-workers N` |
+| Validation | Library `Background` or `Manual`; CLI `--validation background\|manual\|wait`; explicit `cache validate --collection NAME` |
 | Fresh cache | Use a new cache namespace; never delete the whole application directory |
 | Reconciliation | Default `metadata-on-open`; `metadata-on-request`, strict `hash-on-open`, or `hash-on-request` |
 | Explicit refresh | Reconcile the requested collection now using the selected policy |
@@ -428,27 +430,30 @@ reuse, and timings. `fingerprint_nanos` measures compound manifest hashing insid
 `sync_nanos`; do not add it to the parent timer. UI watchers and scheduling remain
 in [UI.md](UI.md).
 
-SQLite page-cache limits and ingestion worker counts are library options. Fresh
-collections with an empty cached manifest use a private worker pool for stable-file
-reading, hashing, parsing, and schema validation. Batches contain at most 256 records
-and normally at most 8 MiB of source bytes; an oversized record runs alone. Parsed
-values and allocator overhead mean this is not a hard RSS limit. Results and errors
-are consumed in manifest order; SQLite writes and publication remain on one
-connection in the same collection transaction. Any failure rolls back the collection,
-and the existing final source-directory checks still run before commit. Partial or
-existing caches use the incremental path. Setting workers to 1 uses serial preparation.
-WAL and `synchronous=FULL` remain enabled. No background scheduling is needed for
-these synchronous library calls.
+Ingestion and background validation are library responsibilities. Fresh collection
+workers perform stable reads, hashing and parsing in batches of at most 256 records
+and normally 8 MiB source bytes (an oversized record runs alone). Ordered results go
+to one shared writer. Partial/existing collections keep incremental preparation.
+Syntactically incorrect JSON and schema-invalid values are retained, never omitted
+or allowed to roll back otherwise readable records. Filesystem instability and DB
+failures still abort the transaction. Source freshness (`current`) and record validity
+are independent. WAL and `synchronous=FULL` remain enabled.
 
-Deferred schema validation is a possible separate feature, not an ingestion option
-implemented here. It needs per-record `pending`/`valid`/`invalid` status tied to both
-content digest and schema hash, diagnostics, and explicit view/reference behavior for
-invalid records. Raw text storage can precede parsing, but malformed JSON cannot
-produce ordinary typed index values or reliable reference occurrences. Schema-invalid
-but syntactically valid records are a separate case. A raw staging cache must not
-claim the validated typed collection is current. Keep the two next ingestion tasks
-separate: eliminate digest lookups already answered by the manifest, and prepare
-collection-specific typed writes once.
+After ingestion commits, background workers validate bounded cached snapshots,
+collect all schema/domain diagnostics and return results to the same writer. An
+update compares `(collection, id, revision, digest, schema_hash)` and pending status;
+stale results are discarded. Status updates touch compact `record_validation` rows
+separate from raw payloads. Worker queues coalesce collection requests, while
+pending records are durable in SQLite. Shutdown need not drain the collection; the
+next use resumes pending work. The first implementation reparses cached bytes for
+validation rather than retaining all parsed documents in memory. It never rereads
+source files just to validate them. Separate timers report this extra decode work.
+
+See [validation.md](validation.md) for states, index/reference behavior, exact DB
+schema, API notifications and recovery semantics. Cache format 4 rebuilds old caches;
+there is no deployed-data migration framework yet. The next ingestion tasks remain:
+eliminate digest lookups already answered by the manifest, and prepare collection-
+specific typed writes once.
 
 Implemented command surface:
 

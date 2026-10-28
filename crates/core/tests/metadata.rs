@@ -83,7 +83,7 @@ fn only_changed_candidates_are_read_and_committed_manifest_is_reusable() {
     assert_eq!(m.manifest_loads, 1);
     assert_eq!(m.source_reads, 1);
     assert_eq!(m.hashes, 1);
-    assert_eq!(m.validations, 1);
+    assert_eq!(m.validations, 0);
     assert_eq!(m.rows_updated, 1);
     assert_eq!(m.metadata_reused, 6);
     assert_ne!(state(&r).0, before.0);
@@ -196,7 +196,7 @@ fn schema_and_index_changes_reuse_cached_bytes_but_rederive_required_parts() {
     });
     let v = r.open_view("books", &all()).unwrap();
     assert_eq!(v.metrics.source_reads, 0);
-    assert_eq!(v.metrics.validations, 7);
+    assert_eq!(v.metrics.validations, 0);
     assert_eq!(v.metrics.edges_removed, 2);
     f.edit(".editor/books/ui.json", |v| {
         v["list"]["sortable"]
@@ -235,7 +235,8 @@ fn failed_changes_do_not_publish_a_new_manifest() {
     r.open_view("books", &all()).unwrap();
     let before = state(&r);
     f.edit("data/books/a.json", |v| v["score"] = json!(42));
-    fs::write(f.root.join("data/books/b.json"), "broken").unwrap();
+    let db = rusqlite::Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap();
+    db.execute_batch("CREATE TRIGGER fail_update BEFORE UPDATE ON records WHEN NEW.id='a' BEGIN SELECT RAISE(ABORT,'test'); END").unwrap();
     assert!(r.refresh("books").is_err());
     assert_eq!(state(&r), before);
     assert!(

@@ -10,10 +10,14 @@ use std::{
     path::Path,
     time::{Duration, Instant},
 };
-const FORMAT: &str = "2";
+const FORMAT: &str = "4";
 pub(crate) struct Store {
     pub db: Connection,
     _lock: File,
+    default_cache_size: i64,
+    directory: std::path::PathBuf,
+    root: std::path::PathBuf,
+    identity: Option<(u64, u64)>,
 }
 #[derive(Debug, Clone)]
 pub(crate) struct State {
@@ -49,6 +53,7 @@ impl Store {
         fs2::FileExt::lock_exclusive(&lock).map_err(|e| io(&lock_path, e))?;
         let db = Connection::open(directory.join("cache.sqlite"))?;
         db.busy_timeout(Duration::from_secs(5))?;
+        let default_cache_size = db.pragma_query_value(None, "cache_size", |r| r.get(0))?;
         if let Some(mib) = cache_mib {
             // Negative cache_size values are kibibytes, independent of page size.
             // Apply on every connection: this setting is not persisted in the DB.
@@ -82,12 +87,14 @@ impl Store {
                     tx.execute_batch(&format!("DROP TABLE {name}"))?;
                 }
             }
-            tx.execute_batch("DROP TABLE IF EXISTS edges; DROP TABLE IF EXISTS records; DROP TABLE IF EXISTS collections;")?;
+            tx.execute_batch("DROP TABLE IF EXISTS edges; DROP TABLE IF EXISTS record_validation; DROP TABLE IF EXISTS records; DROP TABLE IF EXISTS collections;")?;
             tx.commit()?;
         }
         db.execute_batch("CREATE TABLE IF NOT EXISTS collections(name TEXT PRIMARY KEY,state TEXT NOT NULL,schema_hash TEXT NOT NULL DEFAULT '',mapping_hash TEXT NOT NULL DEFAULT '',index_hash TEXT NOT NULL DEFAULT '',revision INTEGER NOT NULL DEFAULT 0,manifest_hash TEXT NOT NULL DEFAULT '',record_count INTEGER NOT NULL DEFAULT 0,view_hash TEXT NOT NULL DEFAULT '');
-          CREATE TABLE IF NOT EXISTS records(collection TEXT NOT NULL,id TEXT NOT NULL,path TEXT NOT NULL,size INTEGER NOT NULL,modified TEXT NOT NULL,identity TEXT NOT NULL,digest TEXT NOT NULL,json TEXT NOT NULL,revision INTEGER NOT NULL,PRIMARY KEY(collection,id));
+          CREATE TABLE IF NOT EXISTS records(collection TEXT NOT NULL,id TEXT NOT NULL,path TEXT NOT NULL,size INTEGER NOT NULL,modified TEXT NOT NULL,identity TEXT NOT NULL,digest TEXT NOT NULL,json BLOB NOT NULL,revision INTEGER NOT NULL,PRIMARY KEY(collection,id));
+          CREATE TABLE IF NOT EXISTS record_validation(collection TEXT NOT NULL,id TEXT NOT NULL,parse_status TEXT NOT NULL,validation_state TEXT NOT NULL,validation_schema_hash TEXT NOT NULL,issues TEXT NOT NULL,PRIMARY KEY(collection,id)) WITHOUT ROWID;
           CREATE TABLE IF NOT EXISTS edges(source_collection TEXT NOT NULL,source_id TEXT NOT NULL,location TEXT NOT NULL,target_collection TEXT NOT NULL,target_id TEXT NOT NULL,PRIMARY KEY(source_collection,source_id,location,target_collection,target_id));
+          CREATE INDEX IF NOT EXISTS validation_pending ON record_validation(collection,id) WHERE validation_state='pending';
           CREATE INDEX IF NOT EXISTS edge_target ON edges(target_collection,target_id,source_collection,source_id);")?;
         let tx = db.unchecked_transaction()?;
         for (key, value) in [
@@ -98,7 +105,16 @@ impl Store {
             tx.execute("INSERT INTO meta(key,value) VALUES(?1,?2) ON CONFLICT(key) DO UPDATE SET value=excluded.value WHERE meta.value<>excluded.value",params![key,value])?;
         }
         tx.commit()?;
-        Ok(Self { db, _lock: lock })
+        let metadata =
+            fs::metadata(directory.join("cache.sqlite")).map_err(|e| io(directory, e))?;
+        Ok(Self {
+            directory: directory.into(),
+            root: root.into(),
+            identity: cache_identity(&metadata),
+            db,
+            _lock: lock,
+            default_cache_size,
+        })
     }
     pub fn state(&self, name: &str) -> Result<Option<State>> {
         Ok(self.db.query_row("SELECT state,schema_hash,mapping_hash,index_hash,revision,manifest_hash,record_count,view_hash FROM collections WHERE name=?1",[name],|r|Ok(State{state:r.get(0)?,schema:r.get(1)?,mapping:r.get(2)?,index:r.get(3)?,revision:r.get(4)?,manifest:r.get(5)?,records:r.get::<_,i64>(6)? as usize,view:r.get(7)?})).optional()?)
@@ -177,7 +193,7 @@ pub(crate) fn put_values(
     let mut values = vec![rusqlite::types::Value::Text(id.into())];
     for field in &c.indexes {
         if field.name != "@id" {
-            let s = scalar(id, value, &field.name);
+            let s = scalar(id, value, &field.name, c.fields.get(&field.name));
             values.push(s.state().into());
             values.push(s.sql());
         }
@@ -239,6 +255,8 @@ pub(crate) fn delete_record(
     has_values: bool,
     metrics: &mut Metrics,
 ) -> Result<()> {
+    db.prepare_cached("DELETE FROM record_validation WHERE collection=?1 AND id=?2")?
+        .execute(params![c.name, id])?;
     metrics.rows_deleted += db
         .prepare_cached("DELETE FROM records WHERE collection=?1 AND id=?2")?
         .execute(params![c.name, id])? as u64;
@@ -252,8 +270,136 @@ pub(crate) fn delete_record(
     Ok(())
 }
 
+// All foreground operations and validator results use this writer. The process-wide
+// registry also shares it between Repository handles. The file lock covers each
+// operation, not the idle lifetime of a repository, and coordinates other processes.
+pub(crate) struct Writer(std::sync::Mutex<Store>);
+pub(crate) struct WriterGuard<'a>(std::sync::MutexGuard<'a, Store>);
+impl std::ops::Deref for WriterGuard<'_> {
+    type Target = Store;
+    fn deref(&self) -> &Store {
+        &self.0
+    }
+}
+impl Drop for WriterGuard<'_> {
+    fn drop(&mut self) {
+        let _ = fs2::FileExt::unlock(&self.0._lock);
+    }
+}
+impl Writer {
+    pub fn open(
+        directory: &Path,
+        root: &Path,
+        budget: Option<u32>,
+    ) -> Result<std::sync::Arc<Self>> {
+        use std::sync::{Arc, Mutex, OnceLock, Weak};
+        static WRITERS: OnceLock<Mutex<BTreeMap<std::path::PathBuf, Weak<Writer>>>> =
+            OnceLock::new();
+        let mut writers = WRITERS
+            .get_or_init(Default::default)
+            .lock()
+            .map_err(|_| Error::Cache("writer registry poisoned".into()))?;
+        writers.retain(|_, w| w.strong_count() > 0);
+        if let Some(writer) = writers.get(directory).and_then(Weak::upgrade) {
+            return Ok(writer);
+        }
+        let store = Store::open(directory, root, budget)?;
+        fs2::FileExt::unlock(&store._lock).map_err(|e| io(directory, e))?;
+        let writer = Arc::new(Self(Mutex::new(store)));
+        writers.insert(directory.to_owned(), Arc::downgrade(&writer));
+        Ok(writer)
+    }
+    pub fn enter(&self, budget: Option<u32>) -> Result<WriterGuard<'_>> {
+        self.enter_inner(budget, true)
+    }
+    pub fn enter_existing(&self, budget: Option<u32>) -> Result<WriterGuard<'_>> {
+        self.enter_inner(budget, false)
+    }
+    fn enter_inner(&self, budget: Option<u32>, rebuild: bool) -> Result<WriterGuard<'_>> {
+        let store = self
+            .0
+            .lock()
+            .map_err(|_| Error::Cache("cache writer poisoned".into()))?;
+        fs2::FileExt::lock_exclusive(&store._lock).map_err(|e| io("cache lock", e))?;
+        let mut guard = WriterGuard(store);
+        let metadata = fs::metadata(guard.directory.join("cache.sqlite"));
+        let replaced = metadata.as_ref().is_err()
+            || metadata
+                .as_ref()
+                .is_ok_and(|m| cache_identity(m) != guard.identity);
+        if metadata.as_ref().is_ok_and(|m| m.len() < 100) {
+            return Err(Error::Cache("truncated SQLite cache".into()));
+        }
+        if !replaced {
+            let identity: String =
+                guard
+                    .db
+                    .query_row("SELECT value FROM meta WHERE key='repository'", [], |r| {
+                        r.get(0)
+                    })?;
+            if identity != guard.root.to_string_lossy() {
+                return Err(Error::Cache("repository identity mismatch".into()));
+            }
+        }
+        let obsolete = if replaced {
+            false
+        } else {
+            guard
+                .db
+                .query_row("SELECT value FROM meta WHERE key='format'", [], |r| {
+                    r.get::<_, String>(0)
+                })?
+                != FORMAT
+        };
+        if replaced || obsolete {
+            if !rebuild {
+                return Err(Error::Cache(
+                    "cache replaced during background validation; reopen repository".into(),
+                ));
+            }
+            fs2::FileExt::unlock(&guard._lock).map_err(|e| io(&guard.directory, e))?;
+            let replacement = Store::open(&guard.directory, &guard.root, budget)?;
+            *guard.0 = replacement;
+        }
+        guard.db.pragma_update(
+            None,
+            "cache_size",
+            budget.map_or(guard.default_cache_size, |m| -i64::from(m) * 1024),
+        )?;
+        Ok(guard)
+    }
+}
+
+fn cache_identity(metadata: &fs::Metadata) -> Option<(u64, u64)> {
+    #[cfg(unix)]
+    {
+        use std::os::unix::fs::MetadataExt;
+        Some((metadata.dev(), metadata.ino()))
+    }
+    #[cfg(not(unix))]
+    {
+        metadata
+            .created()
+            .ok()?
+            .duration_since(std::time::UNIX_EPOCH)
+            .ok()
+            .map(|t| (t.as_secs(), u64::from(t.subsec_nanos())))
+    }
+}
+
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn background_writer_does_not_recreate_a_deleted_cache() {
+        let temp = tempfile::tempdir().unwrap();
+        let cache = temp.path().join("cache");
+        let writer = super::Writer::open(&cache, temp.path(), Some(64)).unwrap();
+        std::fs::remove_dir_all(&cache).unwrap();
+        assert!(writer.enter_existing(Some(64)).is_err());
+        assert!(!cache.exists());
+        assert!(writer.enter(Some(64)).is_ok());
+        assert!(cache.exists());
+    }
     use super::*;
 
     #[test]

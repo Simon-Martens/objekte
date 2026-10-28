@@ -1,5 +1,6 @@
 use objekte_core::{
-    CacheMode, Direction, Freshness, Options, Repository, Sort, ViewRequest, ViewResult,
+    CacheMode, Direction, Freshness, Options, Repository, Sort, ValidationMode, ViewRequest,
+    ViewResult,
 };
 use serde_json::{Value, json};
 use std::{
@@ -21,17 +22,20 @@ Usage:
   objekte REPOSITORY relations --to COLLECTION/ID [--complete] [--check-targets]
   objekte REPOSITORY cache status
   objekte REPOSITORY cache refresh --collection NAME
+  objekte REPOSITORY cache validate --collection NAME
 
 Options:
   --data-dir PATH                 Application state directory
   --cache sqlite|disabled         Default: sqlite
   --sqlite-cache-mib N|default     SQLite page-cache budget per connection (default: 64 MiB)
-  --ingest-workers N              Fresh-cache preparation workers, 1–64 (default: up to 4)
+  --ingest-workers N              Fresh-cache workers (default: CPU threads / 2, minimum 1)
   --reconcile metadata-on-open|metadata-on-request|hash-on-open|hash-on-request
                                  Default: metadata-on-open
   --namespace NAME                Reuse a named cache (default: default)
   --fresh-cache                   Use a new namespace
   --output table|json|ndjson       Views default to table, other commands to json
+  --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
+  --validation background|manual|wait  Validation policy (default: background)
   --diagnostics                   Emit library counters/timings to stderr
   --help, --version
 
@@ -58,9 +62,25 @@ fn args() -> Result<Args, String> {
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--data-dir" | "--cache" | "--reconcile" | "--namespace" | "--output" | "--sort"
-            | "--direction" | "--columns" | "--limit" | "--offset" | "--collection" | "--from"
-            | "--to" | "--filter" | "--then-sort" | "--sqlite-cache-mib" | "--ingest-workers" => {
+            "--data-dir"
+            | "--cache"
+            | "--reconcile"
+            | "--namespace"
+            | "--output"
+            | "--sort"
+            | "--direction"
+            | "--columns"
+            | "--limit"
+            | "--offset"
+            | "--collection"
+            | "--from"
+            | "--to"
+            | "--filter"
+            | "--then-sort"
+            | "--sqlite-cache-mib"
+            | "--ingest-workers"
+            | "--background-workers"
+            | "--validation" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))
@@ -121,24 +141,30 @@ fn print_view(view: &ViewResult, output: &str) -> Result<(), Box<dyn std::error:
         "json" => println!("{}", serde_json::to_string_pretty(view)?),
         "ndjson" => {
             for row in &view.rows {
-                println!("{}", serde_json::to_string(row)?)
+                let mut value = serde_json::to_value(row)?;
+                value["state"] = serde_json::to_value(&view.states[&row.id])?;
+                println!("{}", serde_json::to_string(&value)?)
             }
         }
         "table" => {
-            let mut headers = vec!["ID".to_owned()];
+            let mut headers = vec!["ID".to_owned(), "STATUS".to_owned()];
             headers.extend(view.columns.iter().map(|s| cell(&json!(s))));
             let rows = view
                 .rows
                 .iter()
                 .map(|r| {
-                    std::iter::once(cell(&json!(r.id)))
-                        .chain(view.columns.iter().map(|f| {
-                            r.values
-                                .get(f)
-                                .map(cell)
-                                .unwrap_or_else(|| "<missing>".into())
-                        }))
-                        .collect::<Vec<_>>()
+                    [
+                        cell(&json!(r.id)),
+                        cell(&serde_json::to_value(view.states[&r.id].status).unwrap()),
+                    ]
+                    .into_iter()
+                    .chain(view.columns.iter().map(|f| {
+                        r.values
+                            .get(f)
+                            .map(cell)
+                            .unwrap_or_else(|| "<missing>".into())
+                    }))
+                    .collect::<Vec<_>>()
                 })
                 .collect::<Vec<_>>();
             let widths = (0..headers.len())
@@ -194,8 +220,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         .as_str();
     let expected = match command {
         "cache" => {
-            if !matches!(a.pos.get(2).map(String::as_str), Some("status" | "refresh")) {
-                return Err("cache requires status or refresh".into());
+            if !matches!(
+                a.pos.get(2).map(String::as_str),
+                Some("status" | "refresh" | "validate")
+            ) {
+                return Err("cache requires status, refresh, or validate".into());
             }
             3
         }
@@ -217,6 +246,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         "--cache",
         "--sqlite-cache-mib",
         "--ingest-workers",
+        "--background-workers",
+        "--validation",
         "--reconcile",
         "--namespace",
         "--output",
@@ -227,7 +258,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                     .contains(&key.as_str()),
                 "relations" => ["--from", "--to"].contains(&key.as_str()),
-                "cache" => a.pos[2] == "refresh" && key == "--collection",
+                "cache" => a.pos[2] != "status" && key == "--collection",
                 _ => false,
             };
         if !allowed {
@@ -284,8 +315,19 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if let Some(value) = a.values.get("--ingest-workers") {
         options.ingest_workers = value
             .parse()
-            .map_err(|_| "--ingest-workers requires an integer from 1 to 64")?;
+            .map_err(|_| "--ingest-workers requires a positive integer")?;
     }
+    if let Some(value) = a.values.get("--background-workers") {
+        options.background_workers = value
+            .parse()
+            .map_err(|_| "--background-workers requires a positive integer")?;
+    }
+    let validation = get("--validation", "background");
+    options.validation = match validation.as_str() {
+        "background" | "wait" => ValidationMode::Background,
+        "manual" => ValidationMode::Manual,
+        _ => return Err("--validation requires background, manual, or wait".into()),
+    };
     options.namespace = get("--namespace", "default");
     if a.flags.contains("--fresh-cache") {
         if a.values.contains_key("--namespace") {
@@ -307,13 +349,22 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let freshness = options.freshness;
     let sqlite_cache_mib = options.sqlite_cache_mib;
     let ingest_workers = options.ingest_workers;
+    let background_workers = options.background_workers;
+    let mut validation_wait_nanos = 0;
     let mut repo = Repository::load_repository(&a.pos[0], options)?;
     let mut view_hashes = None;
     let value = match command {
         "inspect" => Some(serde_json::to_value(repo.model())?),
-        "get" => Some(serde_json::to_value(
-            repo.get_record(&a.pos[2], &a.pos[3])?,
-        )?),
+        "get" => {
+            let mut record = repo.get_record(&a.pos[2], &a.pos[3])?;
+            if validation == "wait" {
+                let t = std::time::Instant::now();
+                repo.wait_for_validation()?;
+                validation_wait_nanos += t.elapsed().as_nanos();
+                record = repo.get_record(&a.pos[2], &a.pos[3])?;
+            }
+            Some(serde_json::to_value(record)?)
+        }
         "view" => {
             let c = repo.model().collection(&a.pos[2])?;
             let sort = if a.values.contains_key("--sort") || a.values.contains_key("--direction") {
@@ -366,7 +417,14 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),
             };
-            let view = repo.open_view(&a.pos[2], &request)?;
+            let mut view = repo.open_view(&a.pos[2], &request)?;
+            if validation == "wait" {
+                let t = std::time::Instant::now();
+                repo.wait_for_validation()?;
+                validation_wait_nanos += t.elapsed().as_nanos();
+                view = repo.open_view(&a.pos[2], &request)?;
+            }
+            view.metrics = repo.metrics().clone();
             view_hashes = Some(view.view_hashes.clone());
             print_view(&view, &output)?;
             None
@@ -409,18 +467,30 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                     .values
                     .get("--collection")
                     .ok_or("refresh requires --collection")?;
-                Some(serde_json::to_value(repo.refresh(c)?)?)
+                if a.pos[2] == "validate" {
+                    let t = std::time::Instant::now();
+                    let result = repo.validate_collection(c)?;
+                    validation_wait_nanos += t.elapsed().as_nanos();
+                    Some(serde_json::to_value(result)?)
+                } else {
+                    Some(serde_json::to_value(repo.refresh(c)?)?)
+                }
             }
         }
         _ => unreachable!(),
     };
+    if validation == "wait" {
+        let t = std::time::Instant::now();
+        repo.wait_for_validation()?;
+        validation_wait_nanos += t.elapsed().as_nanos();
+    }
     if let Some(value) = value {
         println!("{}", serde_json::to_string_pretty(&value)?)
     }
     if a.flags.contains("--diagnostics") {
         eprintln!(
             "{}",
-            json!({"metrics":repo.metrics(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"view_hashes":view_hashes})
+            json!({"metrics":repo.metrics(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":repo.validation_metrics(),"validation_wait_nanos":validation_wait_nanos,"view_hashes":view_hashes})
         )
     }
     Ok(())

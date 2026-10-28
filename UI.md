@@ -95,3 +95,21 @@ need for an event loop must not require the CLI to keep a session running.
 The initial library/CLI contract is in [implementation.md](implementation.md).
 The measured startup and query costs are in
 [the library profile](crates/bench/LIBRARY-PROFILE-2026-10-28.md).
+
+## Validation status available from the library
+
+The cache now distinguishes pending, valid, invalid and incorrect JSON per record.
+Render pending separately from known-invalid records. Views supply `states[id]`;
+record details include all JSON Pointer diagnostics and original values. Incorrect
+JSON rows still have ID/path and `get_record` supplies exact raw bytes for an editor.
+A malformed file replaces any older cached data; do not display the old row as current.
+
+Use `poll_validation_updates()` to receive coalesced collection changes after commits
+and requery visible rows. Workers and writer serialization live in the library. UI
+file watchers/background freshness checks still call `refresh`; validation workers
+are not file watchers and cannot observe edits until reconciliation sees them.
+`wait_for_validation()` is available for explicit completion flows and tests. Do not
+block the UI on it. Background failures surface through wait/poll APIs; pending work
+survives and can resume on a new repository handle. Ordinary schema errors are data,
+not background-job failures. Validity does not change query membership by itself;
+invalid typed fields have their own index state and raw values remain displayable.

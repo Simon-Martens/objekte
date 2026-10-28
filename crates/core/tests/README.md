@@ -16,9 +16,10 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
-| `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, ordered errors, rollback and dirty-cache recovery |
+| `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, retained content errors across batches and correction/revalidation |
+| `validation.rs` | Pending/restart recovery, wrong types, malformed JSON/UTF-8, all diagnostics, stale-result guards, schema changes, delete/recreate, background transaction failure, worker defaults/stacks, shared writer concurrency |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
-| CLI `cli.rs` | Real subprocesses, argument errors, table/JSON/NDJSON, cache options, reference commands, killed builder recovery |
+| CLI `cli.rs` | Real subprocesses, argument errors, table/JSON/NDJSON, cache options, validation modes/statuses, reference commands, killed builder recovery |
 
 Core unit tests also check byte-compatible buffered fingerprints across buffer
 boundaries, directory/symlink replacement, and Linux directory-relative metadata
@@ -101,11 +102,11 @@ also includes the query plan. Nanosecond timers have the following scopes:
 - `inventory_nanos`, `manifest_nanos`, `source_check_nanos`, `read_nanos`,
   `hash_nanos`, `parse_nanos`, `index_nanos`: portions of source processing.
   Source checks include opening candidates and before/after descriptor metadata; parse
-  time also includes validation. Index time covers table/index DDL, not all row writes.
+  time includes validation only for direct/cache-disabled execution. Index time covers table/index DDL, not all row writes.
 - `json_decode_nanos`, `validation_nanos`: decoding/conversion and schema/numeric-domain
   validation, respectively, inside `parse_nanos`; do not add these to that parent.
 - `parallel_prepare_nanos`: wall time creating the private pool and preparing bounded
-  batches for an empty collection cache. Per-file read/hash/decode/validation timers
+  batches for an empty collection cache. Per-file read/hash/decode timers
   are summed across workers and overlap in wall time. Do not add them to this timer
   or use their sum as elapsed build time. The surrounding `sync_nanos` is wall time.
 - `record_write_nanos`: looking up the previous digest and inserting/updating the
@@ -133,3 +134,11 @@ records whose source bytes were not read because their stamps were unchanged.
 The default policy is `metadata-on-open`; strict full-content hashing must be
 selected explicitly. View fingerprints describe definitions, not cached result
 sets or proof of current source contents.
+
+Background validation metrics are independent: `snapshot_read_nanos` reads bounded
+cached snapshots; `parallel_validation_nanos` measures worker wall time;
+`decode_nanos` and `validation_nanos` sum CPU work across workers; `write_nanos`
+includes acquiring the shared writer and conditionally publishing results. The CLI
+also logs `validation_wait_nanos`. Do not add nested/overlapping timers together.
+Full Musenalm acceptance now waits for background completion and asserts that every
+record is valid, as well as comparing complete ordered outputs and relationships.

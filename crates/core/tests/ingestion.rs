@@ -50,7 +50,7 @@ fn bounded_parallel_batches_match_serial_rows_edges_and_updates() {
         assert_eq!(view.rows, expected.rows);
         assert_eq!(view.view_hashes, expected.view_hashes);
         assert_eq!(view.metrics.source_reads, 607);
-        assert_eq!(view.metrics.validations, 607);
+        assert_eq!(view.metrics.validations, 0);
         assert_eq!(view.metrics.rows_inserted, 607);
         let actual_edges = edges(&repo);
         if let Some(expected_edges) = &expected_edges {
@@ -82,7 +82,7 @@ fn bounded_parallel_batches_match_serial_rows_edges_and_updates() {
         });
         let update = repo.refresh("books").unwrap();
         assert_eq!(update.rows_updated, 1);
-        assert_eq!(update.validations, 1);
+        assert_eq!(update.validations, 0);
         assert_eq!(update.edges_added, 1);
         assert_eq!(update.edges_removed, 1);
         assert_eq!(
@@ -100,58 +100,59 @@ fn bounded_parallel_batches_match_serial_rows_edges_and_updates() {
 }
 
 #[test]
-fn parallel_errors_are_ordered_and_roll_back_earlier_batches_then_recover() {
+fn parallel_content_errors_are_retained_across_batches_then_recover() {
     let f = Fixture::new();
     seed(&f);
-    let original = f.read("data/books/r0300.json");
     f.edit("data/books/r0300.json", |v| {
         v["score"] = json!("wrong type")
     });
     fs::write(f.root.join("data/books/r0301.json"), "malformed JSON").unwrap();
-    let mut first_error = None;
     for workers in [1, 2, 4] {
         let mut options = f.options(CacheMode::Sqlite);
         options.ingest_workers = workers;
         options.namespace = format!("error-{workers}");
         let mut repo = Repository::load_repository(&f.root, options).unwrap();
-        let error = repo.open_view("books", &all()).unwrap_err().to_string();
-        assert!(error.contains("r0300.json#/score"), "{error}");
-        if let Some(first_error) = &first_error {
-            assert_eq!(&error, first_error);
-        } else {
-            first_error = Some(error);
-        }
-        assert_eq!(repo.metrics().rows_inserted, 0);
-        assert_eq!(repo.metrics().edges_added, 0);
+        let view = repo.open_view("books", &all()).unwrap();
+        assert_eq!(view.total, Some(607));
         assert_eq!(
-            database(&repo)
-                .query_row("SELECT count(*) FROM records", [], |r| r.get::<_, i64>(0))
-                .unwrap(),
-            0
+            view.states["r0301"].status,
+            objekte_core::RecordStatus::IncorrectJson
         );
         assert_eq!(
-            database(&repo)
-                .query_row("SELECT count(*) FROM edges", [], |r| r.get::<_, i64>(0))
-                .unwrap(),
-            0
+            view.states["r0300"].status,
+            objekte_core::RecordStatus::Pending
+        );
+        let validated = repo.validate_collection("books").unwrap();
+        assert_eq!(validated.applied, 606);
+        let view = repo.open_view("books", &all()).unwrap();
+        assert_eq!(
+            view.states["r0300"].status,
+            objekte_core::RecordStatus::Invalid
         );
         assert!(
+            view.states["r0300"]
+                .issues
+                .iter()
+                .any(|i| i.location == "/score")
+        );
+        assert_eq!(
             repo.cache_status()
                 .unwrap()
                 .collections
                 .iter()
-                .any(|c| c.collection == "books" && c.state == "dirty")
+                .find(|c| c.collection == "books")
+                .unwrap()
+                .state,
+            "current"
         );
     }
-    f.write("data/books/r0300.json", &original);
-    f.write("data/books/r0301.json", &json!({"payload": null}));
+    f.write("data/books/r0300.json", &json!({"payload":null,"score":4}));
+    f.write("data/books/r0301.json", &json!({"payload":null}));
     let mut options = f.options(CacheMode::Sqlite);
     options.namespace = "error-4".into();
-    options.ingest_workers = 4;
-    let result = Repository::load_repository(&f.root, options)
-        .unwrap()
-        .open_view("books", &all())
-        .unwrap();
-    assert_eq!(result.total, Some(607));
-    assert_eq!(result.metrics.rows_inserted, 607);
+    let mut repo = Repository::load_repository(&f.root, options).unwrap();
+    let result = repo.open_view("books", &all()).unwrap();
+    assert_eq!(result.metrics.rows_inserted, 0);
+    assert_eq!(result.metrics.rows_updated, 2);
+    assert_eq!(repo.validate_collection("books").unwrap().applied, 2);
 }

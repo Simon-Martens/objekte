@@ -192,13 +192,22 @@ mod tests {
 
     #[test]
     fn full_parse_keeps_the_existing_nesting_limit() {
-        for depth in [1, 126, 127, 128, 200] {
-            let input = format!("{}0{}", "[".repeat(depth), "]".repeat(depth));
-            assert_eq!(
-                parse(&input).is_ok(),
-                serde_json::from_str::<Value>(&input).is_ok(),
-                "depth {depth}"
-            );
-        }
+        // Sonic's own recursion-limit test uses a 16 MiB stack: its unoptimized
+        // DOM decoder needs more than Rust's default 2 MiB test-thread stack.
+        std::thread::Builder::new()
+            .stack_size(16 * 1024 * 1024)
+            .spawn(|| {
+                for depth in [1, 126, 127, 128, 200] {
+                    let input = format!("{}0{}", "[".repeat(depth), "]".repeat(depth));
+                    assert_eq!(
+                        parse(&input).is_ok(),
+                        serde_json::from_str::<Value>(&input).is_ok(),
+                        "depth {depth}"
+                    );
+                }
+            })
+            .unwrap()
+            .join()
+            .unwrap();
     }
 }

@@ -128,8 +128,25 @@ fn malformed_or_invalid_files_cannot_expose_previous_cached_rows() {
         let mut r = f.repo(CacheMode::Sqlite);
         r.open_view("books", &all()).unwrap();
         fs::write(f.root.join("data/books/a.json"), bad).unwrap();
-        assert!(r.refresh("books").is_err());
-        assert!(r.open_view("books", &all()).is_err());
+        r.refresh("books").unwrap();
+        r.validate_collection("books").unwrap();
+        let view = r.open_view("books", &all()).unwrap();
+        let expected = if bad == "not json" {
+            objekte_core::RecordStatus::IncorrectJson
+        } else {
+            objekte_core::RecordStatus::Invalid
+        };
+        assert_eq!(view.states["a"].status, expected);
+        assert_eq!(view.total, Some(7));
+        assert_ne!(
+            view.rows
+                .iter()
+                .find(|r| r.id == "a")
+                .unwrap()
+                .values
+                .get("title"),
+            Some(&json!("Alpha"))
+        );
         let state = r
             .cache_status()
             .unwrap()
@@ -137,13 +154,13 @@ fn malformed_or_invalid_files_cannot_expose_previous_cached_rows() {
             .into_iter()
             .find(|c| c.collection == "books")
             .unwrap();
-        assert_eq!(state.state, "dirty");
-        assert!(!state.verified);
-        assert!(
-            f.repo(CacheMode::Sqlite)
-                .open_view("books", &all())
-                .is_err()
-        );
+        assert_eq!(state.state, "current");
+        assert!(state.verified);
+        let restarted = f
+            .repo(CacheMode::Sqlite)
+            .open_view("books", &all())
+            .unwrap();
+        assert_eq!(restarted.states["a"].status, expected);
     }
 }
 #[test]
@@ -184,7 +201,7 @@ fn transaction_failure_rolls_back_rows_and_preserves_dirty_state() {
     f.edit("data/books/a.json", |v| v["score"] = json!(-7));
     f.edit("data/books/b.json", |v| v["score"] = json!(-8));
     assert!(r.refresh("books").is_err());
-    let old: String = db
+    let old: Vec<u8> = db
         .query_row(
             "SELECT json FROM records WHERE collection='books' AND id='a'",
             [],
@@ -192,7 +209,7 @@ fn transaction_failure_rolls_back_rows_and_preserves_dirty_state() {
         )
         .unwrap();
     assert_eq!(
-        serde_json::from_str::<serde_json::Value>(&old).unwrap()["score"],
+        serde_json::from_slice::<serde_json::Value>(&old).unwrap()["score"],
         json!(2)
     );
     assert_eq!(
@@ -222,7 +239,7 @@ fn schema_change_revalidates_and_changes_relation_extraction() {
             .remove("x-relation");
     });
     let v = r.open_view("books", &all()).unwrap();
-    assert_eq!(v.metrics.validations, 7);
+    assert_eq!(v.metrics.validations, 0);
     assert_eq!(v.metrics.rows_updated, 0);
     assert_eq!(v.metrics.edges_removed, 2);
     let db = database(&r);
@@ -238,7 +255,15 @@ fn schema_change_revalidates_and_changes_relation_extraction() {
     f.edit(".editor/books/schema.json", |v| {
         v["required"].as_array_mut().unwrap().push(json!("title"))
     });
-    assert!(r.open_view("books", &all()).is_err());
+    r.open_view("books", &all()).unwrap();
+    r.validate_collection("books").unwrap();
+    assert!(
+        r.open_view("books", &all())
+            .unwrap()
+            .states
+            .values()
+            .any(|s| s.status == objekte_core::RecordStatus::Invalid)
+    );
 }
 #[test]
 fn source_mapping_change_does_not_reuse_old_records() {
@@ -409,13 +434,19 @@ fn symlink_sources_and_path_traversal_are_rejected() {
     }
 }
 #[test]
-fn failed_get_invalidates_a_previously_current_view() {
+fn malformed_get_replaces_a_previously_current_view() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Sqlite);
     r.open_view("books", &all()).unwrap();
     fs::write(f.root.join("data/books/a.json"), "broken").unwrap();
-    assert!(r.get_record("books", "a").is_err());
-    assert!(r.open_view("books", &all()).is_err());
+    assert_eq!(
+        r.get_record("books", "a").unwrap().unwrap().state.status,
+        objekte_core::RecordStatus::IncorrectJson
+    );
+    assert_eq!(
+        r.open_view("books", &all()).unwrap().states["a"].status,
+        objekte_core::RecordStatus::IncorrectJson
+    );
 }
 
 #[test]

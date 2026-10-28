@@ -1,7 +1,4 @@
-use crate::{
-    Result,
-    error::{config, record},
-};
+use crate::{Result, error::config};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{collections::BTreeMap, path::Path, sync::Arc};
@@ -71,15 +68,22 @@ impl Schema {
             validator: Arc::new(validator),
         })
     }
-    pub fn validate(&self, value: &Value, path: &Path) -> Result<()> {
-        // Valid records do not need diagnostic paths. Only build the existing
-        // detailed error on failure; schema-valid records still need numeric checks.
-        if !self.validator.is_valid(value)
-            && let Some(e) = self.validator.iter_errors(value).next()
-        {
-            return Err(record(path, e.instance_path().to_string(), e.to_string()));
-        }
-        numeric_domain(&self.field, value, path, "")
+    pub fn issues(&self, value: &Value) -> Vec<crate::ValidationIssue> {
+        let mut issues = if self.validator.is_valid(value) {
+            Vec::new()
+        } else {
+            self.validator
+                .iter_errors(value)
+                .map(|e| crate::ValidationIssue {
+                    location: e.instance_path().to_string(),
+                    schema_path: Some(e.schema_path().to_string()),
+                    code: "schema".into(),
+                    message: e.to_string(),
+                })
+                .collect::<Vec<_>>()
+        };
+        domain_issues(&self.field, value, "", &mut issues);
+        issues
     }
 }
 fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
@@ -245,31 +249,61 @@ pub(crate) fn check_number(v: &Value) -> std::result::Result<(), &'static str> {
     }
     Ok(())
 }
-fn numeric_domain(f: &Field, v: &Value, file: &Path, p: &str) -> Result<()> {
-    if v.is_null() {
-        return Ok(());
-    }
-    if matches!(f.kind, ValueType::Number | ValueType::Integer) {
-        check_number(v).map_err(|e| record(file, p, e))?;
-        // JSON Schema considers 1.0 an integer. Normalize such values exactly for SQL.
-        if f.kind == ValueType::Integer && v.as_i64().is_none() {
-            let n = v.as_f64().unwrap();
-            if !(-9223372036854775808.0..9223372036854775808.0).contains(&n) {
-                return Err(record(file, p, "integer exceeds signed 64-bit range"));
-            }
+pub(crate) fn indexable(f: &Field, v: &Value) -> bool {
+    match f.kind {
+        ValueType::String => v.is_string(),
+        ValueType::Boolean => v.is_boolean(),
+        ValueType::Number => v.is_number() && check_number(v).is_ok(),
+        ValueType::Integer => {
+            v.is_number()
+                && check_number(v).is_ok()
+                && (v.as_i64().is_some()
+                    || v.as_f64().is_some_and(|n| {
+                        n.fract() == 0.0
+                            && (-9223372036854775808.0..9223372036854775808.0).contains(&n)
+                    }))
         }
+        ValueType::Null => v.is_null(),
+        _ => false,
+    }
+}
+fn domain_issues(f: &Field, v: &Value, p: &str, out: &mut Vec<crate::ValidationIssue>) {
+    if v.is_null() {
+        return;
+    }
+    if v.is_number() && matches!(f.kind, ValueType::Number | ValueType::Integer) {
+        let error = check_number(v).err().or_else(|| {
+            (f.kind == ValueType::Integer
+                && v.as_i64().is_none()
+                && v.as_f64()
+                    .is_some_and(|n| !(-9223372036854775808.0..9223372036854775808.0).contains(&n)))
+            .then_some("integer exceeds signed 64-bit range")
+        });
+        if let Some(message) = error {
+            out.push(crate::ValidationIssue::new(p, "numeric_domain", message));
+        }
+    }
+    if f.relation.is_some()
+        && let Some(id) = v.as_str()
+        && !id.is_empty()
+        && let Err(e) = crate::repository::validate_id(id)
+    {
+        out.push(crate::ValidationIssue::new(
+            p,
+            "reference_id",
+            &e.to_string(),
+        ));
     }
     if let Some(obj) = v.as_object() {
         for (k, child) in &f.properties {
             if let Some(v) = obj.get(k) {
-                numeric_domain(child, v, file, &format!("{p}/{}", escape(k)))?
+                domain_issues(child, v, &format!("{p}/{}", escape(k)), out);
             }
         }
     }
     if let (Some(item), Some(vs)) = (&f.items, v.as_array()) {
         for (i, v) in vs.iter().enumerate() {
-            numeric_domain(item, v, file, &format!("{p}/{i}"))?
+            domain_issues(item, v, &format!("{p}/{i}"), out);
         }
     }
-    Ok(())
 }

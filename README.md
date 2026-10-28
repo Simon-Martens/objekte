@@ -54,17 +54,37 @@ control characters and abbreviates long cells; JSON output retains full values.
 application-data directory when `--data-dir` is omitted; the library always receives
 an explicit directory.
 
-Fresh collection caches prepare source records with up to four workers by default:
-stable-file reads, hashing, Sonic decoding, and schema validation run in bounded
-batches before ordered writes on one SQLite connection. Use `--ingest-workers 1`
-for serial preparation, or select 1–64 workers explicitly. Updates to an existing
-collection cache retain their incremental path. SQLite already uses WAL with
-`synchronous=FULL`. Its page-cache budget now defaults to 64 MiB per connection;
-`--sqlite-cache-mib 16` selects another budget, and `--sqlite-cache-mib default`
-uses SQLite's own default (normally about 2 MiB). The page-cache budget is not a
-limit on total process memory. These options never change cache identity or results.
-See the [ingestion measurements](crates/bench/INGESTION-TUNING-2026-10-28.md) for
-phase timings, memory costs, and the serial/parallel comparison.
+Fresh collection caches use `CPU threads / 2` ingestion workers by default (minimum
+one). Workers read stable files, hash and parse Sonic JSON in bounded batches. One
+shared SQLite writer stores records, typed keys and reference occurrences. Schema
+validation uses a separate pool of `CPU threads / 4` workers (minimum one); results
+return to that same writer. Both counts are configurable with `--ingest-workers`
+and `--background-workers`. Existing cache updates retain their incremental path.
+SQLite uses WAL, `synchronous=FULL`, and a 64 MiB page-cache budget by default.
+`--sqlite-cache-mib N|default` overrides it; this is not a total process-memory limit.
+
+Records have `pending`, `valid`, `invalid`, or `incorrect_json` status. Content errors
+never roll back ingestion: the latest source replaces the old cached row. Malformed
+JSON remains visible by ID/path and its exact bytes are retained. Parsed records
+stay queryable while validation runs; incompatible typed fields sort after missing
+values and do not match typed filters. Diagnostics use JSON Pointers into the original
+record. Views return per-row `states`; tables include STATUS and NDJSON includes state.
+
+`--validation background` is the default: return the view without waiting. A short CLI
+process may exit with validation still pending. Use `--validation wait` to wait and
+print completed statuses, or `--validation manual` to measure ingestion separately.
+`cache validate --collection NAME` resumes and waits for pending validation, including
+work left by an earlier process. It reconciles the collection first. Cache status
+reports counts by validation state. Without SQLite, validation runs inline.
+
+The library exposes `wait_for_validation()`, `validation_metrics()` and
+`poll_validation_updates()` (coalesced collection notifications after commit).
+Validation results only apply when ID, revision, content digest and schema hash still
+match. Pending work is durable; source changes reset it, schema changes requeue it,
+and UI-only changes retain diagnostics. See [the cache schema and validation flow](validation.md).
+The [validation-flow measurements](crates/bench/VALIDATION-FLOW-2026-10-28.md) separate
+first-view latency from completing validation. The two next ingestion optimizations—removing redundant digest lookups and preparing
+collection-specific writes once—remain separate work.
 
 ```sh
 cargo run --release -p objekte-cli -- examples/musenalm view contents --data-dir /tmp/objekte-fast --ingest-workers 4 --sqlite-cache-mib 64 --diagnostics

@@ -262,16 +262,25 @@ fn mixed_large_integer_and_fractional_comparison_is_exact() {
     );
 }
 #[test]
-fn numbers_outside_the_declared_domain_fail_without_rounding() {
+fn numbers_outside_the_declared_domain_are_diagnosed_without_rounding() {
     let f = Fixture::new();
     f.edit("data/books/a.json", |v| v["score"] = json!(u64::MAX));
     for mode in [CacheMode::Sqlite, CacheMode::Disabled] {
-        let e = f
-            .repo(mode)
-            .open_view("books", &all())
-            .unwrap_err()
-            .to_string();
-        assert!(e.contains("signed 64-bit"), "{e}");
+        let mut r = f.repo(mode);
+        r.open_view("books", &all()).unwrap();
+        r.validate_collection("books").unwrap();
+        let view = r.open_view("books", &all()).unwrap();
+        assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
+        assert!(
+            view.states["a"]
+                .issues
+                .iter()
+                .any(|i| i.message.contains("signed 64-bit"))
+        );
+        assert_eq!(
+            view.rows.iter().find(|r| r.id == "a").unwrap().values["score"],
+            json!(u64::MAX)
+        );
     }
 }
 #[test]
@@ -288,10 +297,13 @@ fn integral_json_floats_validate_as_integers_and_sort_correctly() {
     };
     assert_eq!(&ids(&parity(&f, &q).rows)[..2], &["b", "a"]);
     f.edit("data/books/a.json", |v| v["count"] = json!(1.5));
-    assert!(
+    assert_eq!(
         f.repo(CacheMode::Disabled)
             .open_view("books", &all())
-            .is_err()
+            .unwrap()
+            .states["a"]
+            .status,
+        objekte_core::RecordStatus::Invalid
     );
 }
 #[test]
@@ -434,7 +446,7 @@ fn generated_mutation_sequences_match_fresh_direct_execution() {
 }
 
 #[test]
-fn out_of_range_integer_lexemes_are_rejected_while_opaque_numbers_are_preserved() {
+fn out_of_range_integer_lexemes_are_diagnosed_while_opaque_numbers_are_preserved() {
     for number in [
         "-9223372036854775809",
         "18446744073709551616",
@@ -447,12 +459,16 @@ fn out_of_range_integer_lexemes_are_rejected_while_opaque_numbers_are_preserved(
         )
         .unwrap();
         for mode in [CacheMode::Sqlite, CacheMode::Disabled] {
+            let mut repo = f.repo(mode);
+            repo.open_view("books", &all()).unwrap();
+            repo.validate_collection("books").unwrap();
+            let view = repo.open_view("books", &all()).unwrap();
+            assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
             assert!(
-                f.repo(mode)
-                    .open_view("books", &all())
-                    .unwrap_err()
-                    .to_string()
-                    .contains("signed 64-bit")
+                view.states["a"]
+                    .issues
+                    .iter()
+                    .any(|i| i.message.contains("signed 64-bit"))
             );
         }
         std::fs::write(

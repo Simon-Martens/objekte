@@ -63,7 +63,7 @@ fn help_version_and_invalid_arguments() {
         vec![p, "view", "books", "--sqlite-cache-mib", "2097152"],
         vec![p, "view", "books", "--sqlite-cache-mib", "huge"],
         vec![p, "view", "books", "--ingest-workers", "0"],
-        vec![p, "view", "books", "--ingest-workers", "65"],
+        vec![p, "view", "books", "--background-workers", "0"],
         vec![p, "view", "books", "--ingest-workers", "many"],
     ] {
         assert!(!run(&f, &args).status.success(), "{args:?}");
@@ -385,4 +385,72 @@ fn killing_a_cache_builder_leaves_recoverable_state() {
         fs::read_dir(f.root.join("data/books")).unwrap().count(),
         5007
     );
+}
+
+#[test]
+fn validation_modes_resume_pending_and_expose_bad_records() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    f.edit("data/books/a.json", |v| v["score"] = json!("wrong"));
+    fs::write(f.root.join("data/books/b.json"), "broken").unwrap();
+    let page = value(run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--limit",
+            "50",
+            "--validation",
+            "manual",
+            "--output",
+            "json",
+        ],
+    ));
+    assert_eq!(page["states"]["a"]["status"], "pending");
+    assert_eq!(page["states"]["b"]["status"], "incorrect_json");
+    let output = run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--limit",
+            "50",
+            "--validation",
+            "wait",
+            "--background-workers",
+            "2",
+            "--output",
+            "json",
+            "--diagnostics",
+        ],
+    );
+    let diagnostic: Value = serde_json::from_slice(&output.stderr).unwrap();
+    assert_eq!(diagnostic["background_workers"], 2);
+    assert!(
+        diagnostic["validation_metrics"]["applied"]
+            .as_u64()
+            .unwrap()
+            >= 6
+    );
+    let page = value(output);
+    assert_eq!(page["states"]["a"]["status"], "invalid");
+    assert_eq!(page["states"]["b"]["status"], "incorrect_json");
+    assert_eq!(
+        value(run(&f, &[p, "cache", "validate", "--collection", "books"]))["applied"],
+        0
+    );
+    let status = value(run(&f, &[p, "cache", "status"]));
+    let books = status["collections"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|c| c["collection"] == "books")
+        .unwrap();
+    assert_eq!(books["validation"]["valid"], 5);
+    assert_eq!(books["validation"]["invalid"], 1);
+    let record = value(run(&f, &[p, "get", "books", "a", "--validation", "wait"]));
+    assert_eq!(record["state"]["status"], "invalid");
+    assert_eq!(record["data"]["score"], "wrong");
 }

@@ -35,6 +35,8 @@ impl Fixture {
     pub fn options(&self, mode: CacheMode) -> Options {
         let mut o = Options::new(&self.data);
         o.cache = mode;
+        // Reconciliation tests inspect ingestion independently of background scheduling.
+        o.validation = objekte_core::ValidationMode::Manual;
         o
     }
     pub fn repo(&self, mode: CacheMode) -> Repository {

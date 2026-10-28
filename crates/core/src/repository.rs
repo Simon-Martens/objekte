@@ -1,11 +1,13 @@
 use crate::{
-    Collection, Error, PathStep, RepositoryModel, Result, ViewRequest, ViewResult,
+    Collection, Error, PathStep, RecordState, RecordStatus, RepositoryModel, Result,
+    ValidationMetrics, ValidationMode, ViewRequest, ViewResult,
     config::{digest, fingerprint},
     error::{io, record},
     query::Plan,
     schema::escape,
     source::{Source, Stamp},
-    store::{self, Store},
+    store::{self, Store, Writer},
+    validation::{Document, Validator},
 };
 use rayon::prelude::*;
 use rusqlite::{OptionalExtension, params, params_from_iter};
@@ -16,6 +18,7 @@ use std::{
     fs,
     io::Read,
     path::{Component, Path, PathBuf},
+    sync::Arc,
     time::Instant,
 };
 
@@ -41,9 +44,11 @@ pub struct Options {
     pub namespace: String,
     /// Suggested SQLite page-cache budget per connection. None uses SQLite's default.
     pub sqlite_cache_mib: Option<u32>,
-    /// Workers for reading, hashing, parsing, and validating an empty collection cache.
+    /// Workers for reading, hashing, and parsing an empty collection cache.
     /// SQLite writes remain ordered on one connection. One disables parallel preparation.
     pub ingest_workers: usize,
+    pub background_workers: usize,
+    pub validation: ValidationMode,
 }
 impl Options {
     pub fn new(data_dir: impl Into<PathBuf>) -> Self {
@@ -53,7 +58,11 @@ impl Options {
             freshness: Freshness::MetadataOnOpen,
             namespace: "default".into(),
             sqlite_cache_mib: Some(64),
-            ingest_workers: std::thread::available_parallelism().map_or(1, |n| n.get().min(4)),
+            background_workers: std::thread::available_parallelism()
+                .map_or(1, |n| (n.get() / 4).max(1)),
+            validation: ValidationMode::Background,
+            ingest_workers: std::thread::available_parallelism()
+                .map_or(1, |n| (n.get() / 2).max(1)),
         }
     }
 }
@@ -111,6 +120,10 @@ pub struct Record {
     pub path: String,
     pub hash: String,
     pub data: Value,
+    pub state: RecordState,
+    /// Exact source bytes for the raw editor when JSON cannot be parsed.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub raw: Option<Vec<u8>>,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -134,6 +147,8 @@ pub struct Coverage {
     pub state: String,
     pub verified: bool,
     pub records: usize,
+    /// Counts by validation state; empty when no persistent coverage exists.
+    pub validation: BTreeMap<String, usize>,
     pub revision: i64,
     pub manifest_hash: Option<String>,
     pub view_hash: Option<String>,
@@ -151,11 +166,13 @@ pub struct CacheStatus {
     pub collections: Vec<Coverage>,
 }
 struct Raw {
-    json: String,
+    json: Vec<u8>,
     hash: String,
     stamp: Stamp,
 }
 pub struct Repository {
+    writer: Option<Arc<Writer>>,
+    validator: Option<Validator>,
     model: RepositoryModel,
     options: Options,
     metrics: Metrics,
@@ -166,10 +183,8 @@ pub struct Repository {
 impl Repository {
     /// Load configuration and schemas only. Does not enumerate records or create cache files.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
-        if !(1..=64).contains(&options.ingest_workers) {
-            return Err(Error::Request(
-                "ingest_workers must be between 1 and 64".into(),
-            ));
+        if options.ingest_workers == 0 || options.background_workers == 0 {
+            return Err(Error::Request("worker counts must be at least 1".into()));
         }
         if options
             .sqlite_cache_mib
@@ -192,6 +207,8 @@ impl Repository {
         }
         let model = RepositoryModel::load(root.as_ref())?;
         let repo = Self {
+            writer: None,
+            validator: None,
             model,
             options,
             metrics: Metrics::default(),
@@ -244,13 +261,21 @@ impl Repository {
         }
         Ok(path)
     }
-    fn store(&mut self) -> Result<Store> {
+    fn store(&mut self) -> Result<Arc<Writer>> {
         let t = Instant::now();
-        let s = Store::open(
-            &self.cache_directory()?,
-            &self.model.root,
-            self.options.sqlite_cache_mib,
-        )?;
+        let writer = match &self.writer {
+            Some(w) => w.clone(),
+            None => {
+                let w = Writer::open(
+                    &self.cache_directory()?,
+                    &self.model.root,
+                    self.options.sqlite_cache_mib,
+                )?;
+                self.writer = Some(w.clone());
+                w
+            }
+        };
+        let s = writer.enter(self.options.sqlite_cache_mib)?;
         s.db.execute_batch(
             "CREATE TABLE IF NOT EXISTS inputs(path TEXT PRIMARY KEY,digest TEXT NOT NULL)",
         )?;
@@ -263,7 +288,8 @@ impl Repository {
         }
         tx.commit()?;
         self.metrics.store_open_nanos += nanos(t);
-        Ok(s)
+        drop(s);
+        Ok(writer)
     }
     fn collection(&self, name: &str) -> Result<Collection> {
         Ok(self.model.collection(name)?.clone())
@@ -329,7 +355,7 @@ impl Repository {
             let hash = digest(&bytes);
             metrics.hash_nanos += nanos(t);
             metrics.hashes += 1;
-            let json = String::from_utf8(bytes).map_err(|e| record(&path, "", e))?;
+            let json = bytes;
             return Ok(Raw {
                 json,
                 hash,
@@ -338,29 +364,74 @@ impl Repository {
         }
         Err(Error::Unstable(path))
     }
-    fn parse(&mut self, c: &Collection, id: &str, json: &str, validate: bool) -> Result<Value> {
+    fn parse(&mut self, c: &Collection, id: &str, json: &[u8], validate: bool) -> Document {
         Self::parse_value(&mut self.metrics, c, id, json, validate)
     }
     fn parse_value(
         metrics: &mut Metrics,
         c: &Collection,
-        id: &str,
-        json: &str,
+        _id: &str,
+        json: &[u8],
         validate: bool,
-    ) -> Result<Value> {
-        let path = c.path.join(format!("{id}.json"));
+    ) -> Document {
         let t = Instant::now();
         metrics.parses += 1;
-        let value = crate::json::parse(json).map_err(|e| record(&path, "", e))?;
+        let mut doc = Document::parse(json);
         metrics.json_decode_nanos += nanos(t);
-        if validate {
-            let validation_start = Instant::now();
+        if validate && doc.state.status != RecordStatus::IncorrectJson {
+            let t = Instant::now();
+            doc.validate(c);
             metrics.validations += 1;
-            c.schema.validate(&value, &path)?;
-            metrics.validation_nanos += nanos(validation_start);
+            metrics.validation_nanos += nanos(t);
         }
         metrics.parse_nanos += nanos(t);
-        Ok(value)
+        doc
+    }
+    fn schedule_validation(&mut self, c: &Collection) -> Result<()> {
+        if self.options.cache == CacheMode::Disabled
+            || self.options.validation == ValidationMode::Manual
+        {
+            return Ok(());
+        }
+        self.enqueue_validation(c)
+    }
+    fn enqueue_validation(&mut self, c: &Collection) -> Result<()> {
+        if self.validator.is_none() {
+            let writer = self.store()?;
+            self.validator = Some(Validator::new(
+                writer,
+                self.options.background_workers,
+                self.options.sqlite_cache_mib,
+            )?);
+        }
+        self.validator.as_ref().unwrap().schedule(c.clone());
+        Ok(())
+    }
+    /// Wait for already scheduled validation. Does not refresh source files.
+    pub fn wait_for_validation(&self) -> Result<ValidationMetrics> {
+        self.validator
+            .as_ref()
+            .map_or_else(|| Ok(ValidationMetrics::default()), Validator::wait)
+    }
+    pub fn validation_metrics(&self) -> ValidationMetrics {
+        self.validator
+            .as_ref()
+            .map_or_else(ValidationMetrics::default, Validator::metrics)
+    }
+    /// Coalesced collection notifications published after validation commits.
+    pub fn poll_validation_updates(&self) -> Result<Vec<String>> {
+        self.validator
+            .as_ref()
+            .map_or_else(|| Ok(Vec::new()), Validator::updates)
+    }
+    /// Reconcile one collection and explicitly validate all pending cached records.
+    pub fn validate_collection(&mut self, name: &str) -> Result<ValidationMetrics> {
+        self.refresh(name)?;
+        if self.options.cache == CacheMode::Sqlite {
+            let c = self.collection(name)?;
+            self.enqueue_validation(&c)?;
+        }
+        self.wait_for_validation()
     }
     fn path(&self, c: &Collection, id: &str) -> String {
         c.path
@@ -397,8 +468,9 @@ impl Repository {
             let mut values = Vec::new();
             visit(data, &edge.path, "", &mut values);
             for (location, target_id) in values {
-                validate_id(&target_id)
-                    .map_err(|e| record(&c.path.join(format!("{id}.json")), &location, e))?;
+                if validate_id(&target_id).is_err() {
+                    continue;
+                }
                 out.push(RecordRelation {
                     source_collection: c.name.clone(),
                     source_id: id.into(),
@@ -443,7 +515,8 @@ impl Repository {
             {
                 self.memory_edges.remove(&(collection.into(), id.into()));
                 if self.options.cache == CacheMode::Sqlite {
-                    let s = self.store()?;
+                    let writer = self.store()?;
+                    let s = writer.enter(self.options.sqlite_cache_mib)?;
                     s.dirty(collection)?;
                     let tx = s.db.unchecked_transaction()?;
                     store::delete_record(&tx, &c, id, s.table_exists(&c)?, &mut self.metrics)?;
@@ -453,27 +526,19 @@ impl Repository {
             }
             Err(e) => {
                 if self.options.cache == CacheMode::Sqlite
-                    && let Ok(s) = self.store()
+                    && let Ok(writer) = self.store()
+                    && let Ok(s) = writer.enter(self.options.sqlite_cache_mib)
                 {
                     let _ = s.dirty(collection);
                 }
                 return Err(e);
             }
         };
-        let value = match self.parse(&c, id, &raw.json, true) {
-            Ok(v) => v,
-            Err(e) => {
-                if self.options.cache == CacheMode::Sqlite
-                    && let Ok(s) = self.store()
-                {
-                    let _ = s.dirty(collection);
-                }
-                return Err(e);
-            }
-        };
+        let mut value = self.parse(&c, id, &raw.json, self.options.cache == CacheMode::Disabled);
         let edges = self.extract(&c, id, &value)?;
         if self.options.cache == CacheMode::Sqlite {
-            let s = self.store()?;
+            let writer = self.store()?;
+            let s = writer.enter(self.options.sqlite_cache_mib)?;
             let old_state = s.state(collection)?;
             s.dirty(collection)?;
             let tx = s.db.unchecked_transaction()?;
@@ -495,7 +560,9 @@ impl Repository {
                 )?;
             }
             tx.commit()?;
+            value.state = cached_state(&s.db, collection, id)?;
         }
+        self.schedule_validation(&c)?;
         self.memory_edges
             .insert((collection.into(), id.into()), edges);
         Ok(Some(Record {
@@ -503,7 +570,9 @@ impl Repository {
             id: id.into(),
             path: self.path(&c, id),
             hash: raw.hash,
-            data: value,
+            raw: (value.state.status == RecordStatus::IncorrectJson).then_some(raw.json),
+            state: value.state,
+            data: value.data,
         }))
     }
     fn ingest_empty(
@@ -516,6 +585,8 @@ impl Repository {
     ) -> Result<()> {
         let t = Instant::now();
         let pool = rayon::ThreadPoolBuilder::new()
+            // Reserve sufficient virtual stack for Sonic's bounded nesting in debug builds.
+            .stack_size(16 * 1024 * 1024)
             .num_threads(self.options.ingest_workers.min(files.len()))
             .build()
             .map_err(|e| Error::Cache(format!("create ingestion workers: {e}")))?;
@@ -543,12 +614,12 @@ impl Repository {
                         let mut metrics = Metrics::default();
                         let result = (|| {
                             let raw = Self::read_raw(&mut metrics, source, id, Some(stamp))?;
-                            let value = Self::parse_value(&mut metrics, c, id, &raw.json, true)?;
+                            let value = Self::parse_value(&mut metrics, c, id, &raw.json, false);
                             Ok((raw, value))
                         })();
                         (metrics, result)
                     })
-                    .collect::<Vec<(Metrics, Result<(Raw, Value)>)>>()
+                    .collect::<Vec<(Metrics, Result<(Raw, Document)>)>>()
             });
             self.metrics.parallel_prepare_nanos += nanos(t);
             // Account for all worker attempts, including those after the first
@@ -569,7 +640,7 @@ impl Repository {
         c: &Collection,
         id: &str,
         raw: &Raw,
-        value: &Value,
+        value: &Document,
         values: bool,
     ) -> Result<()> {
         let t = Instant::now();
@@ -579,6 +650,7 @@ impl Repository {
             .optional()?;
         if exists.as_ref() != Some(&raw.hash) {
             db.prepare_cached("INSERT INTO records(collection,id,path,size,modified,identity,digest,json,revision) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,1) ON CONFLICT(collection,id) DO UPDATE SET path=excluded.path,size=excluded.size,modified=excluded.modified,identity=excluded.identity,digest=excluded.digest,json=excluded.json,revision=records.revision+1")?.execute(params![c.name,id,self.path(c,id),raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity,raw.hash,raw.json])?;
+            db.prepare_cached("INSERT INTO record_validation(collection,id,parse_status,validation_state,validation_schema_hash,issues) VALUES(?1,?2,?3,?4,?5,?6) ON CONFLICT(collection,id) DO UPDATE SET parse_status=excluded.parse_status,validation_state=excluded.validation_state,validation_schema_hash=excluded.validation_schema_hash,issues=excluded.issues")?.execute(params![c.name,id,if value.state.status == RecordStatus::IncorrectJson {"incorrect_json"} else {"parsed"},value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
             if exists.is_some() {
                 self.metrics.rows_updated += 1
             } else {
@@ -595,6 +667,8 @@ impl Repository {
                 raw.stamp.modified,
                 raw.stamp.identity
             ])?;
+            // A schema change invalidates diagnostics even if source bytes did not change.
+            db.execute("UPDATE record_validation SET validation_state=?3,validation_schema_hash=?4,issues=?5 WHERE collection=?1 AND id=?2 AND validation_schema_hash<>?4", params![c.name,id,value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
             self.metrics.rows_reused += 1;
         }
         self.metrics.record_write_nanos += nanos(t);
@@ -727,7 +801,7 @@ impl Repository {
                     let raw = self.raw_from(&source, id, Some(stamp))?;
                     let changed = old.is_none_or(|v| v.digest != raw.hash);
                     if changed || schema_changed {
-                        let value = self.parse(c, id, &raw.json, true)?;
+                        let value = self.parse(c, id, &raw.json, false);
                         self.put_record(&tx, c, id, &raw, &value, use_values)?;
                     } else {
                         self.metrics.rows_reused += 1;
@@ -736,7 +810,7 @@ impl Repository {
                             .execute(params![c.name,id,raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity])?;
                         }
                         if rebuild {
-                            let value = self.parse(c, id, &raw.json, false)?;
+                            let value = self.parse(c, id, &raw.json, false);
                             store::put_values(&tx, c, id, &value, &mut self.metrics)?;
                         }
                     }
@@ -745,12 +819,12 @@ impl Repository {
                     if schema_changed || rebuild {
                         // Cached bytes correspond to the unchanged manifest entry. Schema/index
                         // changes need revalidation/derivation, not another source-file read.
-                        let json: String = tx.query_row(
+                        let json: Vec<u8> = tx.query_row(
                             "SELECT json FROM records WHERE collection=?1 AND id=?2",
                             params![c.name, id],
-                            |r| r.get(0),
+                            |r| Ok(r.get_ref(0)?.as_bytes()?.to_vec()),
                         )?;
-                        let value = self.parse(c, id, &json, schema_changed)?;
+                        let value = self.parse(c, id, &json, false);
                         if schema_changed {
                             let raw = Raw {
                                 json,
@@ -803,11 +877,13 @@ impl Repository {
         let before = self.metrics.clone();
         let c = self.collection(collection)?;
         if self.options.cache == CacheMode::Sqlite {
-            let s = self.store()?;
+            let writer = self.store()?;
+            let s = writer.enter(self.options.sqlite_cache_mib)?;
             self.sync(&c, &s, false, true)?;
         } else {
             self.direct(&c, None)?;
         }
+        self.schedule_validation(&c)?;
         Ok(self.metrics.since(&before))
     }
     pub fn open_view(&mut self, collection: &str, request: &ViewRequest) -> Result<ViewResult> {
@@ -818,7 +894,8 @@ impl Repository {
         let mut result = if self.options.cache == CacheMode::Disabled {
             self.direct(&c, Some(&plan))?.unwrap()
         } else {
-            let s = self.store()?;
+            let writer = self.store()?;
+            let s = writer.enter(self.options.sqlite_cache_mib)?;
             self.sync(&c, &s, true, false)?;
             let t = Instant::now();
             let (where_sql, mut values) = plan.sql_where(&c);
@@ -836,7 +913,7 @@ impl Repository {
             // This fixed lowering does not need an adaptive optimizer or result cache.
             let order = plan.sql_order(&c);
             let sql = format!(
-                "WITH page AS MATERIALIZED (SELECT v.* FROM {table} v{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json FROM page v JOIN records r ON r.id=v.id AND r.collection=? ORDER BY {order}"
+                "WITH page AS MATERIALIZED (SELECT v.* FROM {table} v{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,h.validation_state,h.issues FROM page v JOIN records r ON r.id=v.id AND r.collection=? JOIN record_validation h ON h.collection=r.collection AND h.id=r.id ORDER BY {order}"
             );
             values.push((plan.limit as i64).into());
             values.push((plan.offset as i64).into());
@@ -851,7 +928,9 @@ impl Repository {
                     Ok((
                         r.get::<_, String>(0)?,
                         r.get::<_, String>(1)?,
-                        r.get::<_, String>(2)?,
+                        r.get_ref(2)?.as_bytes()?.to_vec(),
+                        r.get::<_, String>(3)?,
+                        r.get::<_, String>(4)?,
                     ))
                 })?
                 .collect::<std::result::Result<Vec<_>, _>>()?;
@@ -863,21 +942,36 @@ impl Repository {
                 .chain(std::iter::once(c.display.as_str()))
                 .filter(|field| *field != "@id")
                 .collect();
-            for (id, path, json) in rows {
-                let value = crate::json::project(&json, &fields)
-                    .map_err(|e| Error::Cache(format!("invalid cached JSON: {e}")))?;
+            let mut states = BTreeMap::new();
+            for (id, path, bytes, status, issues) in rows {
+                let state = RecordState::read(&status, &issues)?;
+                let value = if state.status == RecordStatus::IncorrectJson {
+                    Value::Null
+                } else {
+                    let json =
+                        std::str::from_utf8(&bytes).map_err(|e| Error::Cache(e.to_string()))?;
+                    if json.trim_start().starts_with('{') {
+                        crate::json::project(json, &fields)
+                    } else {
+                        crate::json::parse(json)
+                    }
+                    .map_err(|e| Error::Cache(format!("invalid cached JSON: {e}")))?
+                };
+                states.insert(id.clone(), state);
                 out.push(plan.row(&c, &id, path, &value));
             }
             self.metrics.query_nanos += nanos(t);
             ViewResult {
                 columns: plan.columns.clone(),
                 rows: out,
+                states,
                 total,
                 metrics: Metrics::default(),
                 query_plan,
                 view_hashes: plan.hashes.clone(),
             }
         };
+        self.schedule_validation(&c)?;
         result.metrics = self.metrics.since(&before);
         Ok(result)
     }
@@ -886,14 +980,16 @@ impl Repository {
         let (source, files) = self.inventory(c)?;
         let mut seen = BTreeMap::new();
         let mut rows = Vec::new();
+        let mut states = BTreeMap::new();
         let mut edges = BTreeMap::new();
         for id in files.keys() {
             let raw = self.raw_from(&source, id, files.get(id))?;
-            let data = self.parse(c, id, &raw.json, true)?;
+            let data = self.parse(c, id, &raw.json, true);
             edges.insert((c.name.clone(), id.clone()), self.extract(c, id, &data)?);
             if let Some(plan) = plan {
                 let t = Instant::now();
                 if plan.matches(id, &data) {
+                    states.insert(id.clone(), data.state.clone());
                     rows.push((
                         plan.keys(id, &data),
                         plan.row(c, id, self.path(c, id), &data),
@@ -915,7 +1011,7 @@ impl Repository {
             let t = Instant::now();
             rows.sort_by(|a, b| plan.compare(a, b));
             let total = plan.count.then_some(rows.len());
-            let rows = rows
+            let rows: Vec<_> = rows
                 .into_iter()
                 .skip(plan.offset)
                 .take(plan.limit)
@@ -924,6 +1020,10 @@ impl Repository {
             self.metrics.query_nanos += nanos(t);
             Ok(Some(ViewResult {
                 columns: plan.columns.clone(),
+                states: rows
+                    .iter()
+                    .map(|r| (r.id.clone(), states.remove(&r.id).unwrap()))
+                    .collect(),
                 rows,
                 total,
                 metrics: Metrics::default(),
@@ -943,9 +1043,13 @@ impl Repository {
             } else {
                 None
             };
+        let guard = store
+            .as_ref()
+            .map(|w| w.enter(self.options.sqlite_cache_mib))
+            .transpose()?;
         let mut collections = Vec::new();
         for name in self.model.collections.keys() {
-            collections.push(self.coverage(name, store.as_ref())?);
+            collections.push(self.coverage(name, guard.as_deref())?);
         }
         Ok(CacheStatus {
             directory,
@@ -963,7 +1067,11 @@ impl Repository {
                 [name],
                 |r| r.get::<_, i64>(0),
             )? as usize;
+            let validation = s.db.prepare("SELECT validation_state,count(*) FROM record_validation WHERE collection=?1 GROUP BY validation_state")?
+                .query_map([name], |r| Ok((r.get(0)?,r.get::<_, i64>(1)? as usize)))?
+                .collect::<std::result::Result<BTreeMap<_,_>,_>>()?;
             return Ok(Coverage {
+                validation,
                 collection: name.into(),
                 verified: state.state == "current"
                     && self.verified.get(name) == Some(&state.revision),
@@ -984,6 +1092,7 @@ impl Repository {
             verified: state == "current",
             state,
             records: self.memory_edges.keys().filter(|(n, _)| n == name).count(),
+            validation: BTreeMap::new(),
             revision: 0,
             manifest_hash: None,
             view_hash: None,
@@ -1033,7 +1142,8 @@ impl Repository {
         let mut edges = Vec::new();
         let mut coverage = Vec::new();
         if self.options.cache == CacheMode::Sqlite {
-            let s = self.store()?;
+            let writer = self.store()?;
+            let s = writer.enter(self.options.sqlite_cache_mib)?;
             if complete {
                 for source in &sources {
                     let c = self.collection(source)?;
@@ -1074,6 +1184,12 @@ impl Repository {
                     .filter(|e| e.target_collection == collection && e.target_id == id)
                     .cloned(),
             );
+        }
+        if complete {
+            for source in &sources {
+                let c = self.collection(source)?;
+                self.schedule_validation(&c)?;
+            }
         }
         if check_targets {
             self.resolve_targets(&mut edges)?;
@@ -1156,4 +1272,13 @@ impl Metrics {
         self.index_builds = before.index_builds;
         self.index_rows_written = before.index_rows_written;
     }
+}
+
+fn cached_state(db: &rusqlite::Connection, collection: &str, id: &str) -> Result<RecordState> {
+    let (status, issues): (String, String) = db.query_row(
+        "SELECT validation_state,issues FROM record_validation WHERE collection=?1 AND id=?2",
+        params![collection, id],
+        |r| Ok((r.get(0)?, r.get(1)?)),
+    )?;
+    RecordState::read(&status, &issues)
 }

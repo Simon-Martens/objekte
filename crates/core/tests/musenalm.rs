@@ -43,6 +43,15 @@ fn all_musenalm_collections_match_direct_execution() {
         assert_eq!(sql.rows, source.rows, "{name}");
         assert_eq!(sql.total, Some(count));
         assert_eq!(sql.metrics.rows_inserted, count as u64);
+        cached.wait_for_validation().unwrap();
+        let validated = cached.open_view(name, &q).unwrap();
+        assert!(
+            validated
+                .states
+                .values()
+                .all(|s| s.status == objekte_core::RecordStatus::Valid),
+            "{name} validation"
+        );
         let now = Instant::now();
         let warm = cached.open_view(name, &ViewRequest::default()).unwrap();
         let warm_us = now.elapsed().as_micros();

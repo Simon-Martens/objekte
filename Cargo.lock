@@ -2629,8 +2629,10 @@ dependencies = [
  "fraction",
  "getrandom 0.3.4",
  "itoa",
+ "jsonschema-macros",
  "jsonschema-regex",
  "jsonschema-value",
+ "num-bigint",
  "num-cmp",
  "num-traits",
  "percent-encoding",
@@ -2641,6 +2643,35 @@ dependencies = [
  "strum 0.28.0",
  "unicode-general-category",
  "uuid-simd",
+]
+
+[[package]]
+name = "jsonschema-macros"
+version = "0.59.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d51afbb8ac4451efcb123f2071e007cabb3de0eff1bc2293c8d64259c42ca58c"
+dependencies = [
+ "jsonschema-macros-core",
+ "proc-macro2",
+]
+
+[[package]]
+name = "jsonschema-macros-core"
+version = "0.59.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f6428834471c2bbb8d3ba2199fb927e504b02879ae8090550470ecbccfd9224a"
+dependencies = [
+ "fancy-regex",
+ "indexmap",
+ "jsonschema-regex",
+ "percent-encoding",
+ "proc-macro-crate",
+ "proc-macro2",
+ "quote",
+ "referencing",
+ "regex",
+ "serde_json",
+ "syn 2.0.119",
 ]
 
 [[package]]
@@ -2662,6 +2693,7 @@ dependencies = [
  "bytecount",
  "fraction",
  "getrandom 0.3.4",
+ "num-bigint",
  "num-cmp",
  "num-traits",
  "serde_json",

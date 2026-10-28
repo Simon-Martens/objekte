@@ -14,11 +14,11 @@ fn invalid_ingestion_options_fail_before_creating_application_data() {
         assert!(error.to_string().contains("sqlite_cache_mib"));
         assert!(!f.data.exists());
     }
-    for workers in [0, 65, usize::MAX] {
+    {
         let mut options = f.options(CacheMode::Sqlite);
-        options.ingest_workers = workers;
+        options.ingest_workers = 0;
         let error = Repository::load_repository(&f.root, options).err().unwrap();
-        assert!(error.to_string().contains("ingest_workers"));
+        assert!(error.to_string().contains("worker counts"));
         assert!(!f.data.exists());
     }
 }

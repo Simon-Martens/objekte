@@ -20,6 +20,10 @@ mod repository;
 mod schema;
 mod source;
 mod store;
+mod validation;
+pub use validation::{
+    RecordState, RecordStatus, ValidationIssue, ValidationMetrics, ValidationMode,
+};
 
 pub use config::{
     Collection, Direction, IndexField, ListOptions, RepositoryModel, Sort, ViewHashes,

@@ -51,6 +51,7 @@ pub struct ViewRow {
 #[derive(Debug, Clone, Serialize)]
 pub struct ViewResult {
     pub columns: Vec<String>,
+    pub states: BTreeMap<String, crate::RecordState>,
     pub rows: Vec<ViewRow>,
     pub total: Option<usize>,
     pub metrics: Metrics,
@@ -60,6 +61,7 @@ pub struct ViewResult {
 }
 #[derive(Debug, Clone)]
 pub(crate) enum Scalar {
+    Invalid,
     Missing,
     Null,
     Bool(bool),
@@ -71,6 +73,7 @@ impl Scalar {
     pub fn state(&self) -> i64 {
         match self {
             Self::Missing => 2,
+            Self::Invalid => 3,
             Self::Null => 1,
             _ => 0,
         }
@@ -78,7 +81,7 @@ impl Scalar {
     pub fn sql(&self) -> rusqlite::types::Value {
         use rusqlite::types::Value as S;
         match self {
-            Self::Missing | Self::Null => S::Null,
+            Self::Invalid | Self::Missing | Self::Null => S::Null,
             Self::Bool(v) => S::Integer(i64::from(*v)),
             Self::Int(v) => S::Integer(*v),
             Self::Real(v) => S::Real(*v),
@@ -99,9 +102,20 @@ impl Scalar {
             })
     }
 }
-pub(crate) fn scalar(id: &str, data: &Value, field: &str) -> Scalar {
+pub(crate) fn scalar(
+    id: &str,
+    data: &Value,
+    field: &str,
+    definition: Option<&crate::Field>,
+) -> Scalar {
     if field == "@id" {
         return Scalar::String(id.into());
+    }
+    if let (Some(v), Some(f)) = (data.get(field), definition)
+        && !v.is_null()
+        && !crate::schema::indexable(f, v)
+    {
+        return Scalar::Invalid;
     }
     scalar_value(data.get(field))
 }
@@ -115,13 +129,16 @@ fn scalar_value(value: Option<&Value>) -> Scalar {
             if let Some(n) = n.as_i64() {
                 Scalar::Int(n)
             } else {
-                Scalar::Real(n.as_f64().unwrap())
+                n.as_f64()
+                    .filter(|n| n.is_finite())
+                    .map_or(Scalar::Invalid, Scalar::Real)
             }
         }
-        _ => unreachable!("view compilation rejects nonscalar fields"),
+        _ => Scalar::Invalid,
     }
 }
 pub(crate) struct Plan {
+    fields: BTreeMap<String, crate::Field>,
     pub sorts: Vec<Sort>,
     pub hashes: ViewHashes,
     pub columns: Vec<String>,
@@ -197,6 +214,7 @@ impl Plan {
         );
         Ok(Self {
             sorts,
+            fields: c.fields.clone(),
             hashes,
             columns,
             filters: req.filters.clone(),
@@ -207,9 +225,9 @@ impl Plan {
     }
     pub fn matches(&self, id: &str, data: &Value) -> bool {
         self.filters.iter().all(|f| {
-            let lhs = scalar(id, data, &f.field);
+            let lhs = scalar(id, data, &f.field, self.fields.get(&f.field));
             let rhs = scalar_value(Some(&f.value));
-            if lhs.state() == 2 {
+            if lhs.state() >= 2 {
                 return false;
             }
             if lhs.state() == 1 || rhs.state() == 1 {
@@ -228,7 +246,7 @@ impl Plan {
     pub fn keys(&self, id: &str, data: &Value) -> Vec<Scalar> {
         self.sorts
             .iter()
-            .map(|s| scalar(id, data, &s.field))
+            .map(|s| scalar(id, data, &s.field, self.fields.get(&s.field)))
             .collect()
     }
     pub fn compare(&self, a: &(Vec<Scalar>, ViewRow), b: &(Vec<Scalar>, ViewRow)) -> Ordering {
