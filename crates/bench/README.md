@@ -8,6 +8,8 @@ The [28 October 2026 rerun](RERUN-2026-10-28.md) compares direct Rust, Node full
 
 The current library has separate reports for [Sonic parsing](SONIC-RS-2026-10-28.md)
 and [first-cache ingestion, phase timings, and Turso versions](INGESTION-2026-10-28.md).
+The follow-up [ingestion tuning report](INGESTION-TUNING-2026-10-28.md) measures
+parallel preparation, page-cache budgets, and validation costs in the active library.
 
 ## Shared scalar workload across current options
 

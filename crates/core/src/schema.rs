@@ -72,7 +72,11 @@ impl Schema {
         })
     }
     pub fn validate(&self, value: &Value, path: &Path) -> Result<()> {
-        if let Some(e) = self.validator.iter_errors(value).next() {
+        // Valid records do not need diagnostic paths. Only build the existing
+        // detailed error on failure; schema-valid records still need numeric checks.
+        if !self.validator.is_valid(value)
+            && let Some(e) = self.validator.iter_errors(value).next()
+        {
             return Err(record(path, e.instance_path().to_string(), e.to_string()));
         }
         numeric_domain(&self.field, value, path, "")

@@ -34,8 +34,9 @@ pub(crate) struct Cached {
 pub(crate) fn table(c: &Collection) -> String {
     format!("v_{}", digest(c.name.as_bytes()))
 }
+
 impl Store {
-    pub fn open(directory: &Path, root: &Path) -> Result<Self> {
+    pub fn open(directory: &Path, root: &Path, cache_mib: Option<u32>) -> Result<Self> {
         fs::create_dir_all(directory).map_err(|e| io(directory, e))?;
         let lock_path = directory.join("lock");
         let lock = OpenOptions::new()
@@ -48,6 +49,11 @@ impl Store {
         fs2::FileExt::lock_exclusive(&lock).map_err(|e| io(&lock_path, e))?;
         let db = Connection::open(directory.join("cache.sqlite"))?;
         db.busy_timeout(Duration::from_secs(5))?;
+        if let Some(mib) = cache_mib {
+            // Negative cache_size values are kibibytes, independent of page size.
+            // Apply on every connection: this setting is not persisted in the DB.
+            db.pragma_update(None, "cache_size", -i64::from(mib) * 1024)?;
+        }
         db.execute_batch("PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL; CREATE TABLE IF NOT EXISTS meta(key TEXT PRIMARY KEY,value TEXT NOT NULL);")?;
         let identity = root.to_str().unwrap();
         let existing: Option<String> = db
@@ -244,4 +250,43 @@ pub(crate) fn delete_record(
             .execute([id])?;
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn page_cache_budget_is_connection_local_and_keeps_wal_and_durability() {
+        let temp = tempfile::tempdir().unwrap();
+        let cache = temp.path().join("cache");
+        let default: i64 = Connection::open_in_memory()
+            .unwrap()
+            .query_row("PRAGMA cache_size", [], |r| r.get(0))
+            .unwrap();
+        for budget in [None, Some(1), Some(16), Some(64), None] {
+            let store = Store::open(&cache, temp.path(), budget).unwrap();
+            assert_eq!(
+                store
+                    .db
+                    .query_row("PRAGMA cache_size", [], |r| r.get::<_, i64>(0))
+                    .unwrap(),
+                budget.map_or(default, |mib| -i64::from(mib) * 1024)
+            );
+            assert_eq!(
+                store
+                    .db
+                    .query_row("PRAGMA journal_mode", [], |r| r.get::<_, String>(0))
+                    .unwrap(),
+                "wal"
+            );
+            assert_eq!(
+                store
+                    .db
+                    .query_row("PRAGMA synchronous", [], |r| r.get::<_, i64>(0))
+                    .unwrap(),
+                2
+            );
+        }
+    }
 }

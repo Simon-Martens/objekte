@@ -5,6 +5,25 @@ use std::fs;
 use support::*;
 
 #[test]
+fn invalid_ingestion_options_fail_before_creating_application_data() {
+    let f = Fixture::new();
+    for mib in [0, (i32::MAX as u32) / 1024 + 1, u32::MAX] {
+        let mut options = f.options(CacheMode::Sqlite);
+        options.sqlite_cache_mib = Some(mib);
+        let error = Repository::load_repository(&f.root, options).err().unwrap();
+        assert!(error.to_string().contains("sqlite_cache_mib"));
+        assert!(!f.data.exists());
+    }
+    for workers in [0, 65, usize::MAX] {
+        let mut options = f.options(CacheMode::Sqlite);
+        options.ingest_workers = workers;
+        let error = Repository::load_repository(&f.root, options).err().unwrap();
+        assert!(error.to_string().contains("ingest_workers"));
+        assert!(!f.data.exists());
+    }
+}
+
+#[test]
 fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
     let f = Fixture::new();
     fs::write(f.root.join("data/books/a.json"), "broken").unwrap();

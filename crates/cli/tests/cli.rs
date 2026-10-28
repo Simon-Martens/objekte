@@ -57,8 +57,48 @@ fn help_version_and_invalid_arguments() {
         vec![p, "view", "books", "--namespace", "../oops"],
         vec![p, "view", "books", "--limit"],
         vec![p, "relations", "--collections", "--check-targets"],
+        vec![p, "view", "books", "--sqlite-cache-mib"],
+        vec![p, "view", "books", "--sqlite-cache-mib", "0"],
+        vec![p, "view", "books", "--sqlite-cache-mib", "-1"],
+        vec![p, "view", "books", "--sqlite-cache-mib", "2097152"],
+        vec![p, "view", "books", "--sqlite-cache-mib", "huge"],
+        vec![p, "view", "books", "--ingest-workers", "0"],
+        vec![p, "view", "books", "--ingest-workers", "65"],
+        vec![p, "view", "books", "--ingest-workers", "many"],
     ] {
         assert!(!run(&f, &args).status.success(), "{args:?}");
+    }
+}
+
+#[test]
+fn sqlite_page_cache_budget_is_configurable_and_reported() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    for (budget, expected) in [
+        ("default", Value::Null),
+        ("16", json!(16)),
+        ("64", json!(64)),
+    ] {
+        let output = run(
+            &f,
+            &[
+                p,
+                "view",
+                "books",
+                "--sqlite-cache-mib",
+                budget,
+                "--ingest-workers",
+                "2",
+                "--output",
+                "json",
+                "--diagnostics",
+            ],
+        );
+        assert!(output.status.success());
+        let diagnostics: Value = serde_json::from_slice(&output.stderr).unwrap();
+        assert_eq!(diagnostics["sqlite_cache_mib"], expected);
+        assert_eq!(diagnostics["ingest_workers"], 2);
+        assert_eq!(value(output)["rows"].as_array().unwrap().len(), 3);
     }
 }
 #[test]

@@ -25,6 +25,8 @@ Usage:
 Options:
   --data-dir PATH                 Application state directory
   --cache sqlite|disabled         Default: sqlite
+  --sqlite-cache-mib N|default     SQLite page-cache budget per connection (default: 64 MiB)
+  --ingest-workers N              Fresh-cache preparation workers, 1–64 (default: up to 4)
   --reconcile metadata-on-open|metadata-on-request|hash-on-open|hash-on-request
                                  Default: metadata-on-open
   --namespace NAME                Reuse a named cache (default: default)
@@ -58,7 +60,7 @@ fn args() -> Result<Args, String> {
         match a.as_str() {
             "--data-dir" | "--cache" | "--reconcile" | "--namespace" | "--output" | "--sort"
             | "--direction" | "--columns" | "--limit" | "--offset" | "--collection" | "--from"
-            | "--to" | "--filter" | "--then-sort" => {
+            | "--to" | "--filter" | "--then-sort" | "--sqlite-cache-mib" | "--ingest-workers" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))
@@ -213,6 +215,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let common = [
         "--data-dir",
         "--cache",
+        "--sqlite-cache-mib",
+        "--ingest-workers",
         "--reconcile",
         "--namespace",
         "--output",
@@ -266,6 +270,22 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         "hash-on-request" => Freshness::HashOnRequest,
         _ => return Err("unknown reconciliation policy".into()),
     };
+    if let Some(value) = a.values.get("--sqlite-cache-mib") {
+        options.sqlite_cache_mib = if value == "default" {
+            None
+        } else {
+            Some(
+                value
+                    .parse()
+                    .map_err(|_| "--sqlite-cache-mib requires a positive integer or 'default'")?,
+            )
+        };
+    }
+    if let Some(value) = a.values.get("--ingest-workers") {
+        options.ingest_workers = value
+            .parse()
+            .map_err(|_| "--ingest-workers requires an integer from 1 to 64")?;
+    }
     options.namespace = get("--namespace", "default");
     if a.flags.contains("--fresh-cache") {
         if a.values.contains_key("--namespace") {
@@ -285,6 +305,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         return Err("this command supports --output json; table/ndjson are view formats".into());
     }
     let freshness = options.freshness;
+    let sqlite_cache_mib = options.sqlite_cache_mib;
+    let ingest_workers = options.ingest_workers;
     let mut repo = Repository::load_repository(&a.pos[0], options)?;
     let mut view_hashes = None;
     let value = match command {
@@ -398,7 +420,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if a.flags.contains("--diagnostics") {
         eprintln!(
             "{}",
-            json!({"metrics":repo.metrics(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"view_hashes":view_hashes})
+            json!({"metrics":repo.metrics(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"view_hashes":view_hashes})
         )
     }
     Ok(())

@@ -410,6 +410,8 @@ Initial options, exposed through the CLI as their stages are implemented:
 | Repository path | Explicit source repository |
 | Application data directory | Explicit location for disposable library state |
 | Cache mode | `disabled` or `sqlite`; default-view behavior is otherwise equivalent |
+| SQLite page cache | `sqlite_cache_mib: Option<u32>`; default `Some(64)`, `None` uses SQLite's default; CLI `--sqlite-cache-mib N\|default` |
+| Ingestion workers | `ingest_workers`, 1–64; default available parallelism capped at 4; CLI `--ingest-workers N` |
 | Fresh cache | Use a new cache namespace; never delete the whole application directory |
 | Reconciliation | Default `metadata-on-open`; `metadata-on-request`, strict `hash-on-open`, or `hash-on-request` |
 | Explicit refresh | Reconcile the requested collection now using the selected policy |
@@ -426,9 +428,27 @@ reuse, and timings. `fingerprint_nanos` measures compound manifest hashing insid
 `sync_nanos`; do not add it to the parent timer. UI watchers and scheduling remain
 in [UI.md](UI.md).
 
-Fixed memory budgets, SQLite page-cache limits, and worker counts can be exposed as
-library options when those mechanisms exist. They must not alter results. Start
-synchronously; background scheduling is unnecessary for the first correctness gates.
+SQLite page-cache limits and ingestion worker counts are library options. Fresh
+collections with an empty cached manifest use a private worker pool for stable-file
+reading, hashing, parsing, and schema validation. Batches contain at most 256 records
+and normally at most 8 MiB of source bytes; an oversized record runs alone. Parsed
+values and allocator overhead mean this is not a hard RSS limit. Results and errors
+are consumed in manifest order; SQLite writes and publication remain on one
+connection in the same collection transaction. Any failure rolls back the collection,
+and the existing final source-directory checks still run before commit. Partial or
+existing caches use the incremental path. Setting workers to 1 uses serial preparation.
+WAL and `synchronous=FULL` remain enabled. No background scheduling is needed for
+these synchronous library calls.
+
+Deferred schema validation is a possible separate feature, not an ingestion option
+implemented here. It needs per-record `pending`/`valid`/`invalid` status tied to both
+content digest and schema hash, diagnostics, and explicit view/reference behavior for
+invalid records. Raw text storage can precede parsing, but malformed JSON cannot
+produce ordinary typed index values or reliable reference occurrences. Schema-invalid
+but syntactically valid records are a separate case. A raw staging cache must not
+claim the validated typed collection is current. Keep the two next ingestion tasks
+separate: eliminate digest lookups already answered by the manifest, and prepare
+collection-specific typed writes once.
 
 Implemented command surface:
 

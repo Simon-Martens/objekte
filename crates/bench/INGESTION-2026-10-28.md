@@ -1,5 +1,9 @@
 # First-cache ingestion and Turso, 28 October 2026
 
+Follow-up: [parallel preparation and page-cache tuning](INGESTION-TUNING-2026-10-28.md)
+implements the worker and memory-budget experiments below. The manifest-lookup
+and collection-specific write preparation tasks remain next.
+
 The active library uses bundled SQLite through rusqlite 0.41. Turso is an optional
 benchmark dependency, pinned to 0.8.3. This investigation measures the actual
 library pipeline, including source checks, Sonic parsing, validation, relationships,

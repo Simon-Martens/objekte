@@ -3361,6 +3361,7 @@ dependencies = [
  "fs2",
  "jsonschema",
  "num-cmp",
+ "rayon",
  "rusqlite",
  "rustix 1.1.6",
  "serde",

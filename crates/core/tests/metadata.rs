@@ -15,6 +15,28 @@ fn state(r: &Repository) -> (String, i64, String) {
         )
         .unwrap()
 }
+
+#[test]
+fn changing_page_cache_budget_reuses_existing_records_and_indexes() {
+    let f = Fixture::new();
+    let mut options = f.options(CacheMode::Sqlite);
+    options.sqlite_cache_mib = None;
+    let mut original = Repository::load_repository(&f.root, options.clone()).unwrap();
+    let expected = original.open_view("books", &all()).unwrap();
+    let before = state(&original);
+    for budget in [Some(1), Some(16), Some(64), None] {
+        options.sqlite_cache_mib = budget;
+        let mut reopened = Repository::load_repository(&f.root, options.clone()).unwrap();
+        let actual = reopened.open_view("books", &all()).unwrap();
+        assert_eq!(actual.rows, expected.rows);
+        assert_eq!(actual.view_hashes, expected.view_hashes);
+        assert_eq!(actual.metrics.manifest_hits, 1);
+        assert_eq!(actual.metrics.source_reads, 0);
+        assert_eq!(actual.metrics.index_builds, 0);
+        assert_eq!(actual.metrics.validation_nanos, 0);
+        assert_eq!(state(&reopened), before);
+    }
+}
 #[test]
 fn unchanged_manifest_skips_sources_and_database_manifest_on_reopen() {
     let f = Fixture::new();

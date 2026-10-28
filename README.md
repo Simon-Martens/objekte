@@ -54,6 +54,22 @@ control characters and abbreviates long cells; JSON output retains full values.
 application-data directory when `--data-dir` is omitted; the library always receives
 an explicit directory.
 
+Fresh collection caches prepare source records with up to four workers by default:
+stable-file reads, hashing, Sonic decoding, and schema validation run in bounded
+batches before ordered writes on one SQLite connection. Use `--ingest-workers 1`
+for serial preparation, or select 1–64 workers explicitly. Updates to an existing
+collection cache retain their incremental path. SQLite already uses WAL with
+`synchronous=FULL`. Its page-cache budget now defaults to 64 MiB per connection;
+`--sqlite-cache-mib 16` selects another budget, and `--sqlite-cache-mib default`
+uses SQLite's own default (normally about 2 MiB). The page-cache budget is not a
+limit on total process memory. These options never change cache identity or results.
+See the [ingestion measurements](crates/bench/INGESTION-TUNING-2026-10-28.md) for
+phase timings, memory costs, and the serial/parallel comparison.
+
+```sh
+cargo run --release -p objekte-cli -- examples/musenalm view contents --data-dir /tmp/objekte-fast --ingest-workers 4 --sqlite-cache-mib 64 --diagnostics
+```
+
 `load_repository` only loads metadata. `open_view` enumerates/reconciles the requested
 collection. The default `metadata-on-open` policy fingerprints a sorted manifest
 once on first collection use per handle. Unchanged manifests reuse SQLite without

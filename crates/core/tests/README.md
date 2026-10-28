@@ -16,6 +16,7 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
+| `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, ordered errors, rollback and dirty-cache recovery |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
 | CLI `cli.rs` | Real subprocesses, argument errors, table/JSON/NDJSON, cache options, reference commands, killed builder recovery |
 
@@ -101,6 +102,12 @@ also includes the query plan. Nanosecond timers have the following scopes:
   `hash_nanos`, `parse_nanos`, `index_nanos`: portions of source processing.
   Source checks include opening candidates and before/after descriptor metadata; parse
   time also includes validation. Index time covers table/index DDL, not all row writes.
+- `json_decode_nanos`, `validation_nanos`: decoding/conversion and schema/numeric-domain
+  validation, respectively, inside `parse_nanos`; do not add these to that parent.
+- `parallel_prepare_nanos`: wall time creating the private pool and preparing bounded
+  batches for an empty collection cache. Per-file read/hash/decode/validation timers
+  are summed across workers and overlap in wall time. Do not add them to this timer
+  or use their sum as elapsed build time. The surrounding `sync_nanos` is wall time.
 - `record_write_nanos`: looking up the previous digest and inserting/updating the
   source payload and metadata in `put_record`.
 - `relation_extract_nanos`, `relation_write_nanos`: extracting reference occurrences

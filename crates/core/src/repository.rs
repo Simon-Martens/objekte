@@ -7,6 +7,7 @@ use crate::{
     source::{Source, Stamp},
     store::{self, Store},
 };
+use rayon::prelude::*;
 use rusqlite::{OptionalExtension, params, params_from_iter};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -38,6 +39,11 @@ pub struct Options {
     pub cache: CacheMode,
     pub freshness: Freshness,
     pub namespace: String,
+    /// Suggested SQLite page-cache budget per connection. None uses SQLite's default.
+    pub sqlite_cache_mib: Option<u32>,
+    /// Workers for reading, hashing, parsing, and validating an empty collection cache.
+    /// SQLite writes remain ordered on one connection. One disables parallel preparation.
+    pub ingest_workers: usize,
 }
 impl Options {
     pub fn new(data_dir: impl Into<PathBuf>) -> Self {
@@ -46,12 +52,17 @@ impl Options {
             cache: CacheMode::Sqlite,
             freshness: Freshness::MetadataOnOpen,
             namespace: "default".into(),
+            sqlite_cache_mib: Some(64),
+            ingest_workers: std::thread::available_parallelism().map_or(1, |n| n.get().min(4)),
         }
     }
 }
 macro_rules! metrics {($($f:ident),*)=>{
     #[derive(Debug,Default,Clone,PartialEq,Eq,Serialize)]pub struct Metrics{$(pub $f:u64,)*}
-    impl Metrics {pub fn since(&self,before:&Self)->Self{Self{$($f:self.$f.saturating_sub(before.$f),)*}}}
+    impl Metrics {
+        pub fn since(&self,before:&Self)->Self{Self{$($f:self.$f.saturating_sub(before.$f),)*}}
+        fn merge(&mut self, other: &Self) { $(self.$f = self.$f.saturating_add(other.$f);)* }
+    }
 }}
 metrics!(
     enumerations,
@@ -82,6 +93,9 @@ metrics!(
     read_nanos,
     hash_nanos,
     parse_nanos,
+    json_decode_nanos,
+    validation_nanos,
+    parallel_prepare_nanos,
     record_write_nanos,
     relation_extract_nanos,
     relation_write_nanos,
@@ -152,6 +166,20 @@ pub struct Repository {
 impl Repository {
     /// Load configuration and schemas only. Does not enumerate records or create cache files.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
+        if !(1..=64).contains(&options.ingest_workers) {
+            return Err(Error::Request(
+                "ingest_workers must be between 1 and 64".into(),
+            ));
+        }
+        if options
+            .sqlite_cache_mib
+            .is_some_and(|mib| mib == 0 || mib > (i32::MAX as u32) / 1024)
+        {
+            return Err(Error::Request(
+                "sqlite_cache_mib must be between 1 and 2097151, or None for SQLite's default"
+                    .into(),
+            ));
+        }
         if options.namespace.is_empty()
             || !options
                 .namespace
@@ -218,7 +246,11 @@ impl Repository {
     }
     fn store(&mut self) -> Result<Store> {
         let t = Instant::now();
-        let s = Store::open(&self.cache_directory()?, &self.model.root)?;
+        let s = Store::open(
+            &self.cache_directory()?,
+            &self.model.root,
+            self.options.sqlite_cache_mib,
+        )?;
         s.db.execute_batch(
             "CREATE TABLE IF NOT EXISTS inputs(path TEXT PRIMARY KEY,digest TEXT NOT NULL)",
         )?;
@@ -264,6 +296,14 @@ impl Repository {
         Ok(raw)
     }
     fn raw_from(&mut self, source: &Source, id: &str, expected: Option<&Stamp>) -> Result<Raw> {
+        Self::read_raw(&mut self.metrics, source, id, expected)
+    }
+    fn read_raw(
+        metrics: &mut Metrics,
+        source: &Source,
+        id: &str,
+        expected: Option<&Stamp>,
+    ) -> Result<Raw> {
         let path = source.path.join(format!("{id}.json"));
         for _ in 0..3 {
             let t = Instant::now();
@@ -272,23 +312,23 @@ impl Repository {
             if expected.is_some_and(|s| s != &before) {
                 return Err(Error::Unstable(path));
             }
-            self.metrics.source_check_nanos += nanos(t);
+            metrics.source_check_nanos += nanos(t);
             let t = Instant::now();
             let mut bytes = Vec::new();
             file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
-            self.metrics.read_nanos += nanos(t);
-            self.metrics.source_reads += 1;
-            self.metrics.source_bytes += bytes.len() as u64;
+            metrics.read_nanos += nanos(t);
+            metrics.source_reads += 1;
+            metrics.source_bytes += bytes.len() as u64;
             let t = Instant::now();
             let after = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-            self.metrics.source_check_nanos += nanos(t);
+            metrics.source_check_nanos += nanos(t);
             if before != after || bytes.len() as u64 != after.size {
                 continue;
             }
             let t = Instant::now();
             let hash = digest(&bytes);
-            self.metrics.hash_nanos += nanos(t);
-            self.metrics.hashes += 1;
+            metrics.hash_nanos += nanos(t);
+            metrics.hashes += 1;
             let json = String::from_utf8(bytes).map_err(|e| record(&path, "", e))?;
             return Ok(Raw {
                 json,
@@ -299,15 +339,27 @@ impl Repository {
         Err(Error::Unstable(path))
     }
     fn parse(&mut self, c: &Collection, id: &str, json: &str, validate: bool) -> Result<Value> {
+        Self::parse_value(&mut self.metrics, c, id, json, validate)
+    }
+    fn parse_value(
+        metrics: &mut Metrics,
+        c: &Collection,
+        id: &str,
+        json: &str,
+        validate: bool,
+    ) -> Result<Value> {
         let path = c.path.join(format!("{id}.json"));
         let t = Instant::now();
-        self.metrics.parses += 1;
+        metrics.parses += 1;
         let value = crate::json::parse(json).map_err(|e| record(&path, "", e))?;
+        metrics.json_decode_nanos += nanos(t);
         if validate {
-            self.metrics.validations += 1;
+            let validation_start = Instant::now();
+            metrics.validations += 1;
             c.schema.validate(&value, &path)?;
+            metrics.validation_nanos += nanos(validation_start);
         }
-        self.metrics.parse_nanos += nanos(t);
+        metrics.parse_nanos += nanos(t);
         Ok(value)
     }
     fn path(&self, c: &Collection, id: &str) -> String {
@@ -453,6 +505,63 @@ impl Repository {
             hash: raw.hash,
             data: value,
         }))
+    }
+    fn ingest_empty(
+        &mut self,
+        db: &rusqlite::Connection,
+        c: &Collection,
+        source: &Source,
+        files: &BTreeMap<String, Stamp>,
+        values: bool,
+    ) -> Result<()> {
+        let t = Instant::now();
+        let pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(self.options.ingest_workers.min(files.len()))
+            .build()
+            .map_err(|e| Error::Cache(format!("create ingestion workers: {e}")))?;
+        self.metrics.parallel_prepare_nanos += nanos(t);
+        let mut remaining = files.iter().peekable();
+        while remaining.peek().is_some() {
+            // Bound retained documents by both count and source-byte size. One
+            // oversized record is processed alone; this is not a total RSS limit.
+            let mut batch = Vec::new();
+            let mut bytes = 0_u64;
+            while let Some((_, stamp)) = remaining.peek() {
+                if !batch.is_empty()
+                    && (batch.len() >= 256 || bytes.saturating_add(stamp.size) > 8 * 1024 * 1024)
+                {
+                    break;
+                }
+                bytes = bytes.saturating_add(stamp.size);
+                batch.push(remaining.next().unwrap());
+            }
+            let t = Instant::now();
+            let prepared = pool.install(|| {
+                batch
+                    .par_iter()
+                    .map(|(id, stamp)| {
+                        let mut metrics = Metrics::default();
+                        let result = (|| {
+                            let raw = Self::read_raw(&mut metrics, source, id, Some(stamp))?;
+                            let value = Self::parse_value(&mut metrics, c, id, &raw.json, true)?;
+                            Ok((raw, value))
+                        })();
+                        (metrics, result)
+                    })
+                    .collect::<Vec<(Metrics, Result<(Raw, Value)>)>>()
+            });
+            self.metrics.parallel_prepare_nanos += nanos(t);
+            // Account for all worker attempts, including those after the first
+            // ordered error. Only this thread touches SQLite, in manifest order.
+            for (metrics, _) in &prepared {
+                self.metrics.merge(metrics);
+            }
+            for ((id, _), (_, result)) in batch.into_iter().zip(prepared) {
+                let (raw, value) = result?;
+                self.put_record(db, c, id, &raw, &value, values)?;
+            }
+        }
+        Ok(())
     }
     fn put_record(
         &mut self,
@@ -603,54 +712,59 @@ impl Repository {
             store::create_values(&tx, c, &mut self.metrics)?;
             self.metrics.index_nanos += nanos(t);
         }
-        for (id, stamp) in &files {
-            let old = if mapping_changed {
-                None
-            } else {
-                manifest.get(id)
-            };
-            let candidate = !metadata_mode || !complete || old.is_none_or(|v| &v.stamp != stamp);
-            if candidate {
-                let raw = self.raw_from(&source, id, Some(stamp))?;
-                let changed = old.is_none_or(|v| v.digest != raw.hash);
-                if changed || schema_changed {
-                    let value = self.parse(c, id, &raw.json, true)?;
-                    self.put_record(&tx, c, id, &raw, &value, use_values)?;
+        if manifest.is_empty() && self.options.ingest_workers > 1 && files.len() > 1 {
+            self.ingest_empty(&tx, c, &source, &files, use_values)?;
+        } else {
+            for (id, stamp) in &files {
+                let old = if mapping_changed {
+                    None
                 } else {
-                    self.metrics.rows_reused += 1;
-                    if old.is_some_and(|v| v.stamp != raw.stamp) {
-                        tx.prepare_cached("UPDATE records SET size=?3,modified=?4,identity=?5 WHERE collection=?1 AND id=?2")?
-                            .execute(params![c.name,id,raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity])?;
-                    }
-                    if rebuild {
-                        let value = self.parse(c, id, &raw.json, false)?;
-                        store::put_values(&tx, c, id, &value, &mut self.metrics)?;
-                    }
-                }
-            } else {
-                self.metrics.metadata_reused += 1;
-                if schema_changed || rebuild {
-                    // Cached bytes correspond to the unchanged manifest entry. Schema/index
-                    // changes need revalidation/derivation, not another source-file read.
-                    let json: String = tx.query_row(
-                        "SELECT json FROM records WHERE collection=?1 AND id=?2",
-                        params![c.name, id],
-                        |r| r.get(0),
-                    )?;
-                    let value = self.parse(c, id, &json, schema_changed)?;
-                    if schema_changed {
-                        let raw = Raw {
-                            json,
-                            hash: old.unwrap().digest.clone(),
-                            stamp: stamp.clone(),
-                        };
+                    manifest.get(id)
+                };
+                let candidate =
+                    !metadata_mode || !complete || old.is_none_or(|v| &v.stamp != stamp);
+                if candidate {
+                    let raw = self.raw_from(&source, id, Some(stamp))?;
+                    let changed = old.is_none_or(|v| v.digest != raw.hash);
+                    if changed || schema_changed {
+                        let value = self.parse(c, id, &raw.json, true)?;
                         self.put_record(&tx, c, id, &raw, &value, use_values)?;
                     } else {
                         self.metrics.rows_reused += 1;
-                        store::put_values(&tx, c, id, &value, &mut self.metrics)?;
+                        if old.is_some_and(|v| v.stamp != raw.stamp) {
+                            tx.prepare_cached("UPDATE records SET size=?3,modified=?4,identity=?5 WHERE collection=?1 AND id=?2")?
+                            .execute(params![c.name,id,raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity])?;
+                        }
+                        if rebuild {
+                            let value = self.parse(c, id, &raw.json, false)?;
+                            store::put_values(&tx, c, id, &value, &mut self.metrics)?;
+                        }
                     }
                 } else {
-                    self.metrics.rows_reused += 1;
+                    self.metrics.metadata_reused += 1;
+                    if schema_changed || rebuild {
+                        // Cached bytes correspond to the unchanged manifest entry. Schema/index
+                        // changes need revalidation/derivation, not another source-file read.
+                        let json: String = tx.query_row(
+                            "SELECT json FROM records WHERE collection=?1 AND id=?2",
+                            params![c.name, id],
+                            |r| r.get(0),
+                        )?;
+                        let value = self.parse(c, id, &json, schema_changed)?;
+                        if schema_changed {
+                            let raw = Raw {
+                                json,
+                                hash: old.unwrap().digest.clone(),
+                                stamp: stamp.clone(),
+                            };
+                            self.put_record(&tx, c, id, &raw, &value, use_values)?;
+                        } else {
+                            self.metrics.rows_reused += 1;
+                            store::put_values(&tx, c, id, &value, &mut self.metrics)?;
+                        }
+                    } else {
+                        self.metrics.rows_reused += 1;
+                    }
                 }
             }
         }
