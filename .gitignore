@@ -3,6 +3,11 @@
 /import/
 /scripts/__pycache__/
 
+# Generated files left by the active frontend checkout.
+/crates/server/assets/node_modules/
+/crates/server/assets/dist/
+/crates/server/assets/src/generated/
+
 # Generated files from the archived implementation.
 /deprecated/target/
 /deprecated/frontend/
