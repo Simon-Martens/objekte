@@ -3,14 +3,6 @@
   "path": "data/agents",
   "format": "json",
   "id": "filename",
-  "idPattern": "^[a-z0-9][a-z0-9-]*$",
   "schema": ".editor/collections/agents/schema.json",
-  "ui": ".editor/collections/agents/ui.json",
-  "operations": [
-    "read",
-    "create",
-    "update",
-    "rename",
-    "delete"
-  ]
+  "ui": ".editor/collections/agents/ui.json"
 }

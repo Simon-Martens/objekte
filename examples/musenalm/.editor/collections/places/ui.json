@@ -1,197 +1,21 @@
 {
   "label": "Places",
   "display": "name",
-  "singularLabel": "Place",
-  "icon": "ri-map-pin-line",
-  "position": 5,
-  "sidebarGroup": "Catalogue",
-  "fields": {
-    "/properties/name": {
-      "title": "Name",
-      "x-presentation": {
-        "preview": "hidden"
-      },
-      "translations": {
-        "de": {
-          "title": "Name"
-        }
-      }
-    },
-    "/properties/pseudonyms": {
-      "title": "Pseudonyms",
-      "x-presentation": {
-        "inline": true
-      },
-      "translations": {
-        "de": {
-          "title": "Pseudonyme"
-        }
-      }
-    },
-    "/properties/fictional": {
-      "title": "Fictional",
-      "translations": {
-        "de": {
-          "title": "Fiktiv"
-        }
-      }
-    },
-    "/properties/uri": {
-      "title": "Web link",
-      "x-presentation": {
-        "link": true
-      },
-      "translations": {
-        "de": {
-          "title": "Webadresse"
-        }
-      }
-    },
-    "/properties/created": {
-      "title": "Created",
-      "x-presentation": {
-        "secondary": true
-      },
-      "translations": {
-        "de": {
-          "title": "Erstellt"
-        }
-      }
-    },
-    "/properties/updated": {
-      "title": "Updated",
-      "x-presentation": {
-        "secondary": true
-      },
-      "translations": {
-        "de": {
-          "title": "Geändert"
-        }
-      }
-    },
-    "/properties/musenalm_id": {
-      "title": "Musenalm ID",
-      "x-presentation": {
-        "secondary": true
-      },
-      "translations": {
-        "de": {
-          "title": "AlmanachNr"
-        }
-      }
-    },
-    "/properties/edit_state": {
-      "title": "Review status",
-      "x-presentation": {
-        "secondary": true
-      },
-      "translations": {
-        "de": {
-          "title": "Bearbeitungsstand",
-          "x-optionLabels": {
-            "Unknown": "Unknown",
-            "ToDo": "ToDo",
-            "Seen": "Seen",
-            "Partially Edited": "Partially Edited",
-            "Waiting": "Waiting",
-            "Review": "Review",
-            "Edited": "Edited",
-            "": ""
-          }
-        }
-      }
-    },
-    "/properties/annotation": {
-      "title": "Notes",
-      "x-editor": "markdown",
-      "translations": {
-        "de": {
-          "title": "Anmerkungen"
-        }
-      }
-    },
-    "/properties/edit_comment": {
-      "title": "Editorial notes",
-      "x-editor": "markdown",
-      "x-presentation": {
-        "secondary": true
-      },
-      "translations": {
-        "de": {
-          "title": "Redaktionelle Anmerkungen"
-        }
-      }
-    },
-    "/properties/editor": {
-      "title": "Editor",
-      "x-presentation": {
-        "secondary": true
-      },
-      "translations": {
-        "de": {
-          "title": "Bearbeiter:in"
-        }
-      }
-    }
-  },
-  "fieldOrder": [
-    "name",
-    "pseudonyms",
-    "uri",
-    "annotation",
-    "fictional",
-    "created",
-    "updated",
-    "musenalm_id",
-    "edit_state",
-    "edit_comment",
-    "editor"
-  ],
-  "labels": {
-    "list": [
-      "name"
-    ],
-    "search": [
-      "name"
-    ],
-    "record": [
-      "name"
-    ],
-    "reference": [
-      "name"
-    ]
-  },
-  "search": [
-    "name",
-    "pseudonyms",
-    "uri",
-    "musenalm_id",
-    "edit_state",
-    "annotation",
-    "edit_comment"
-  ],
   "list": {
     "columns": [
       "name",
       "uri"
     ],
-    "defaultSort": {
-      "field": "_label",
-      "direction": "asc"
-    },
-    "autoFilters": false,
     "filters": [
       "edit_state"
+    ],
+    "defaultSort": {
+      "field": "name",
+      "direction": "asc"
+    },
+    "sortable": [
+      "name",
+      "musenalm_id"
     ]
-  },
-  "sidebarTree": false,
-  "presentation": {
-    "hideEmpty": true
-  },
-  "translations": {
-    "de": {
-      "label": "Orte",
-      "singularLabel": "Ort"
-    }
   }
 }

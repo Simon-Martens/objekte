@@ -3,8 +3,7 @@
   "type": "object",
   "properties": {
     "name": {
-      "type": "string",
-      "minLength": 1
+      "type": "string"
     },
     "pseudonyms": {
       "type": "string"
@@ -16,41 +15,25 @@
       "type": "string"
     },
     "created": {
-      "type": "string",
-      "readOnly": true
+      "type": "string"
     },
     "updated": {
-      "type": "string",
-      "readOnly": true
+      "type": "string"
     },
     "musenalm_id": {
       "type": "number"
     },
     "edit_state": {
-      "type": "string",
-      "enum": [
-        "Unknown",
-        "ToDo",
-        "Seen",
-        "Partially Edited",
-        "Waiting",
-        "Review",
-        "Edited",
-        ""
-      ]
+      "type": "string"
     },
     "annotation": {
-      "type": "string",
-      "x-content": "markdown"
+      "type": "string"
     },
     "edit_comment": {
-      "type": "string",
-      "x-content": "markdown"
+      "type": "string"
     },
     "editor": {
-      "type": "string",
-      "description": "Source users ID; that collection was not included in the export.",
-      "readOnly": true
+      "type": "string"
     }
   },
   "required": [

@@ -1,0 +1,18 @@
+{
+  "title": "é",
+  "score": 2,
+  "flag": true,
+  "status": "draft",
+  "payload": {
+    "html": "<p>Keep **markdown**</p>",
+    "nested": [
+      null,
+      {
+        "foo": 1
+      }
+    ]
+  },
+  "x.y": "g",
+  "quote\"slash/": "g",
+  "type": "literal property name"
+}

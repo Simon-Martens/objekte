@@ -1,185 +1,26 @@
 {
-  "label": "Beiträge",
-  "singularLabel": "Beitrag",
+  "label": "Contents",
   "display": "preferred_title",
-  "displayFallback": [
-    "title_statement"
-  ],
-  "icon": "ri-file-text-line",
-  "position": 2,
-  "sidebarGroup": "Content",
-  "showInSidebar": true,
-  "sidebarTree": false,
-  "pageSize": 50,
-  "fields": {
-    "": {
-      "title": "Beitrag"
-    },
-    "/properties/preferred_title": {
-      "title": "Bevorzugter Titel"
-    },
-    "/properties/variant_title": {
-      "title": "Abweichender Titel"
-    },
-    "/properties/parallel_title": {
-      "title": "Paralleltitel"
-    },
-    "/properties/title_statement": {
-      "title": "Titelangabe"
-    },
-    "/properties/subtitle_statement": {
-      "title": "Zusatz zum Titel"
-    },
-    "/properties/incipit_statement": {
-      "title": "Incipit"
-    },
-    "/properties/responsibility_statement": {
-      "title": "Verantwortlichkeitsangabe"
-    },
-    "/properties/place_statement": {
-      "title": "Ortsangabe"
-    },
-    "/properties/publication_statement": {
-      "title": "Veröffentlichungsangabe"
-    },
-    "/properties/year": {
-      "title": "Jahr"
-    },
-    "/properties/pseudonym": {
-      "title": "Pseudonym"
-    },
-    "/properties/language": {
-      "title": "Sprache"
-    },
-    "/properties/content_type": {
-      "title": "Inhaltstyp"
-    },
-    "/properties/extent": {
-      "title": "Umfang / Seiten"
-    },
-    "/properties/dimensions": {
-      "title": "Maße"
-    },
-    "/properties/musenalm_type": {
-      "title": "Musenalm-Typ"
-    },
-    "/properties/musenalm_pagination": {
-      "title": "Seitenzählung"
-    },
-    "/properties/scans": {
-      "title": "Scan-Dateinamen (Quellexport)"
-    },
-    "/properties/numbering": {
-      "title": "Reihenfolge"
-    },
-    "/properties/musenalm_id": {
-      "title": "Musenalm-Nummer"
-    },
-    "/properties/created": {
-      "title": "Erstellt"
-    },
-    "/properties/updated": {
-      "title": "Geändert"
-    },
-    "/properties/edit_state": {
-      "title": "Bearbeitungsstand"
-    },
-    "/properties/annotation": {
-      "title": "Anmerkungen",
-      "x-editor": "html"
-    },
-    "/properties/edit_comment": {
-      "title": "Bearbeitungsnotiz",
-      "x-editor": "html"
-    },
-    "/properties/editor": {
-      "title": "Quell-Editor-ID"
-    },
-    "/properties/contributors": {
-      "title": "Beteiligte"
-    },
-    "/properties/contributors/items/properties/id": {
-      "title": "Quell-Beziehungs-ID"
-    },
-    "/properties/contributors/items/properties/agents": {
-      "title": "Person / Körperschaft"
-    },
-    "/properties/contributors/items/properties/type": {
-      "title": "Rolle"
-    },
-    "/properties/contributors/items/properties/conjecture": {
-      "title": "Zugeschrieben"
-    },
-    "/properties/contributors/items/properties/uncertain": {
-      "title": "Unsicher"
-    },
-    "/properties/contributors/items/properties/created": {
-      "title": "Erstellt"
-    },
-    "/properties/contributors/items/properties/updated": {
-      "title": "Geändert"
-    },
-    "/properties/contributors/items/properties/annotation": {
-      "title": "Anmerkungen",
-      "x-editor": "html"
-    },
-    "/properties/contributors/items/properties/edit_comment": {
-      "title": "Bearbeitungsnotiz",
-      "x-editor": "html"
-    }
-  },
-  "fieldOrder": [
-    "preferred_title",
-    "year",
-    "numbering",
-    "contributors",
-    "incipit_statement",
-    "responsibility_statement",
-    "title_statement",
-    "musenalm_type",
-    "extent",
-    "annotation",
-    "variant_title",
-    "parallel_title",
-    "subtitle_statement",
-    "place_statement",
-    "publication_statement",
-    "pseudonym",
-    "language",
-    "content_type",
-    "dimensions",
-    "musenalm_pagination",
-    "scans",
-    "musenalm_id",
-    "created",
-    "updated",
-    "edit_state",
-    "edit_comment",
-    "editor"
-  ],
-  "search": [
-    "preferred_title",
-    "musenalm_id",
-    "title_statement",
-    "incipit_statement",
-    "responsibility_statement",
-    "annotation"
-  ],
   "list": {
     "columns": [
       "preferred_title",
       "year",
-      "musenalm_type",
+      "numbering",
       "extent"
     ],
-    "defaultSort": {
-      "field": "_label",
-      "direction": "asc"
-    },
     "filters": [
       "edit_state",
       "year"
     ],
-    "autoFilters": false
+    "defaultSort": {
+      "field": "preferred_title",
+      "direction": "asc"
+    },
+    "sortable": [
+      "preferred_title",
+      "year",
+      "numbering",
+      "musenalm_id"
+    ]
   }
 }

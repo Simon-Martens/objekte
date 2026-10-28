@@ -1,0 +1,8 @@
+{
+  "type": "data",
+  "path": "data/spare",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/spare/schema.json",
+  "ui": ".editor/spare/ui.json"
+}

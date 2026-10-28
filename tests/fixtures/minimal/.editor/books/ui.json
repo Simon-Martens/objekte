@@ -1,0 +1,33 @@
+{
+  "label": "Books",
+  "display": "title",
+  "list": {
+    "columns": [
+      "title",
+      "score",
+      "flag",
+      "status",
+      "x.y"
+    ],
+    "filters": [
+      "score",
+      "count",
+      "flag",
+      "status",
+      "@id"
+    ],
+    "defaultSort": {
+      "field": "score",
+      "direction": "asc"
+    },
+    "sortable": [
+      "score",
+      "count",
+      "flag",
+      "status",
+      "title",
+      "x.y",
+      "quote\"slash/"
+    ]
+  }
+}

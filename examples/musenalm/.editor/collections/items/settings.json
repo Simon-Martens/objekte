@@ -4,12 +4,5 @@
   "format": "json",
   "id": "filename",
   "schema": ".editor/collections/items/schema.json",
-  "ui": ".editor/collections/items/ui.json",
-  "operations": [
-    "read",
-    "create",
-    "update",
-    "rename",
-    "delete"
-  ]
+  "ui": ".editor/collections/items/ui.json"
 }

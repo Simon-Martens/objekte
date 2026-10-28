@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "ui": ".editor/ui.json",
+  "collections": {
+    "books": ".editor/books/settings.json",
+    "people": ".editor/people/settings.json",
+    "spare": ".editor/spare/settings.json"
+  }
+}

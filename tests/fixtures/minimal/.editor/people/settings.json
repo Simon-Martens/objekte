@@ -1,0 +1,8 @@
+{
+  "type": "data",
+  "path": "data/people",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/people/schema.json",
+  "ui": ".editor/people/ui.json"
+}

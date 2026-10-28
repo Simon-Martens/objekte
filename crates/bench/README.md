@@ -1,5 +1,11 @@
 # Objekte cache and embedded query benchmark
 
+These are historical experiments. The former core NDJSON cache is preserved here
+as `src/legacy_cache.rs` so its measurements remain reproducible. The new library
+and CLI are verified separately through the [library acceptance suite](../core/tests/README.md).
+
+The [28 October 2026 rerun](RERUN-2026-10-28.md) compares direct Rust, Node full objects, Rust SQLite JSONB on disk, and embedded qj across several collections and Musenalm nested workloads.
+
 ## Shared scalar workload across current options
 
 `shared-query-compare` accepts field names at runtime and checks four matching operations across embedded qj, embedded jaq, Rust full JSON, Rust field projection, SQLite JSONB in memory or on disk, and Node. `shared_query_compare_jq.py` runs the same queries through a fresh jq subprocess. Results and limitations are at the top of [Performance.md](../../Performance.md). The source files are only read. The NDJSON output and SQLite database are disposable generated artifacts.
@@ -9,6 +15,7 @@ cargo build --release -p objekte-bench --features sqlite-bench --bin shared-quer
 mkdir -p target/shared-bench
 target/release/shared-query-compare --engine prepare --source-dir examples/musenalm/data/contents --output target/shared-bench/contents.ndjson
 target/release/shared-query-compare --engine scan --source-dir examples/musenalm/data/contents
+target/release/shared-query-compare --engine rust-source --source-dir examples/musenalm/data/contents --number-field year --text-field preferred_title --lower 1800 --upper 1899 --needle almanach --runs 3
 target/release/shared-query-compare --engine rust-projected-source --source-dir examples/musenalm/data/contents --number-field year --text-field preferred_title --lower 1800 --upper 1899 --needle almanach --runs 3
 target/release/shared-query-compare --engine qj --input target/shared-bench/contents.ndjson --number-field year --text-field preferred_title --lower 1800 --upper 1899 --needle almanach --runs 3
 target/release/shared-query-compare --engine jaq --input target/shared-bench/contents.ndjson --number-field year --text-field preferred_title --lower 1800 --upper 1899 --needle almanach --runs 3

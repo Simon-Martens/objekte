@@ -1,0 +1,27 @@
+{
+  "title": "Alpha",
+  "score": 1.5,
+  "flag": false,
+  "status": "reviewed",
+  "person": "missing",
+  "links": [
+    {
+      "person": "p1"
+    },
+    {
+      "person": "p1"
+    }
+  ],
+  "payload": {
+    "html": "<p>Keep **markdown**</p>",
+    "nested": [
+      null,
+      {
+        "foo": 1
+      }
+    ]
+  },
+  "x.y": "b",
+  "quote\"slash/": "b",
+  "type": "literal property name"
+}

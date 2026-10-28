@@ -1,23 +1,5 @@
 {
-  "groups": [
-    {
-      "name": "Catalogue",
-      "label": "Catalogue",
-      "position": 0,
-      "translations": {
-        "de": {
-          "label": "Katalog"
-        }
-      }
-    }
-  ],
-  "defaults": {},
-  "collections": {},
-  "i18n": {
-    "defaultLanguage": "en",
-    "languages": {
-      "en": "English",
-      "de": "Deutsch"
-    }
+  "defaults": {
+    "pageSize": 50
   }
 }

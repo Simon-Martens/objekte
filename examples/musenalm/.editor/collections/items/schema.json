@@ -14,16 +14,8 @@
     "media": {
       "type": "array",
       "items": {
-        "type": "string",
-        "enum": [
-          "Original",
-          "Reproduktion",
-          "Mikrofiche",
-          "Digitalisat",
-          "URL"
-        ]
-      },
-      "default": []
+        "type": "string"
+      }
     },
     "condition": {
       "type": "string"
@@ -32,20 +24,16 @@
       "type": "array",
       "items": {
         "type": "string"
-      },
-      "default": [],
-      "description": "Original filenames; the XML export does not contain the scan files."
+      }
     },
     "uri": {
       "type": "string"
     },
     "created": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     },
     "updated": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     },
     "annotation": {
       "type": "string"
@@ -54,29 +42,16 @@
       "type": "string"
     },
     "edit_state": {
-      "type": "string",
-      "enum": [
-        "Unknown",
-        "ToDo",
-        "Seen",
-        "Partially Edited",
-        "Waiting",
-        "Review",
-        "Edited",
-        ""
-      ]
+      "type": "string"
     },
     "public": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "basis": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "editor": {
-      "type": "string",
-      "description": "Original editor ID. User accounts were not included in the export."
+      "type": "string"
     }
   },
   "required": [],

@@ -2,7 +2,9 @@
 use jaq_all::jaq_core::unwrap_valr;
 use jaq_all::json::Val as JaqValue;
 use jaq_all::{data, fmts};
-use objekte_core::cache;
+#[allow(dead_code)]
+mod legacy_cache;
+use legacy_cache as cache;
 use qj::io::{InputReader, ReaderOptions};
 use qj::jq::lang::execute::Jq;
 use qj::jq::lang::{CompileOptions, jq_compile_args};

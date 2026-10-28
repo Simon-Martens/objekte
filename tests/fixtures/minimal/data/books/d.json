@@ -1,0 +1,19 @@
+{
+  "title": null,
+  "score": null,
+  "flag": null,
+  "status": null,
+  "person": null,
+  "payload": {
+    "html": "<p>Keep **markdown**</p>",
+    "nested": [
+      null,
+      {
+        "foo": 1
+      }
+    ]
+  },
+  "x.y": "d",
+  "quote\"slash/": "d",
+  "type": "literal property name"
+}

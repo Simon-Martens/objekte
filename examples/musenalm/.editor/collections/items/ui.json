@@ -1,104 +1,24 @@
 {
-  "label": "Exemplare",
-  "singularLabel": "Exemplar",
+  "label": "Items",
   "display": "identifier",
-  "displayFallback": [],
-  "icon": "ri-archive-line",
-  "position": 5,
-  "sidebarGroup": "Content",
-  "showInSidebar": true,
-  "sidebarTree": false,
-  "pageSize": 50,
-  "fields": {
-    "": {
-      "title": "Exemplar"
-    },
-    "/properties/identifier": {
-      "title": "Signatur / Kennung"
-    },
-    "/properties/location": {
-      "title": "Standort"
-    },
-    "/properties/owner": {
-      "title": "Besitzer"
-    },
-    "/properties/media": {
-      "title": "Medienform"
-    },
-    "/properties/condition": {
-      "title": "Zustand"
-    },
-    "/properties/scans": {
-      "title": "Scan-Dateinamen (Quellexport)"
-    },
-    "/properties/uri": {
-      "title": "URI"
-    },
-    "/properties/created": {
-      "title": "Erstellt"
-    },
-    "/properties/updated": {
-      "title": "Geändert"
-    },
-    "/properties/annotation": {
-      "title": "Anmerkungen",
-      "x-editor": "html"
-    },
-    "/properties/edit_comment": {
-      "title": "Bearbeitungsnotiz",
-      "x-editor": "html"
-    },
-    "/properties/edit_state": {
-      "title": "Bearbeitungsstand"
-    },
-    "/properties/public": {
-      "title": "Öffentlich"
-    },
-    "/properties/basis": {
-      "title": "Grundlage"
-    },
-    "/properties/editor": {
-      "title": "Quell-Editor-ID"
-    }
-  },
-  "fieldOrder": [
-    "identifier",
-    "owner",
-    "location",
-    "media",
-    "condition",
-    "annotation",
-    "scans",
-    "uri",
-    "created",
-    "updated",
-    "edit_comment",
-    "edit_state",
-    "public",
-    "basis",
-    "editor"
-  ],
-  "search": [
-    "identifier",
-    "annotation",
-    "owner",
-    "location"
-  ],
   "list": {
     "columns": [
       "identifier",
       "owner",
-      "location",
-      "media"
+      "location"
     ],
-    "defaultSort": {
-      "field": "_label",
-      "direction": "asc"
-    },
     "filters": [
       "edit_state",
       "owner"
     ],
-    "autoFilters": false
+    "defaultSort": {
+      "field": "identifier",
+      "direction": "asc"
+    },
+    "sortable": [
+      "identifier",
+      "owner",
+      "location"
+    ]
   }
 }

@@ -1,0 +1,8 @@
+{
+  "type": "data",
+  "path": "data/books",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/books/schema.json",
+  "ui": ".editor/books/ui.json"
+}

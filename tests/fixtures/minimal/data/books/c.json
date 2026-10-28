@@ -1,0 +1,17 @@
+{
+  "title": "Alpha",
+  "score": 10,
+  "status": "draft",
+  "payload": {
+    "html": "<p>Keep **markdown**</p>",
+    "nested": [
+      null,
+      {
+        "foo": 1
+      }
+    ]
+  },
+  "x.y": "c",
+  "quote\"slash/": "c",
+  "type": "literal property name"
+}

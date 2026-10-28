@@ -1,0 +1,348 @@
+#[path = "../../core/tests/support/mod.rs"]
+mod support;
+use serde_json::{Value, json};
+use std::{
+    fs,
+    process::{Command, Output, Stdio},
+    time::{Duration, Instant},
+};
+use support::*;
+fn run(f: &Fixture, args: &[&str]) -> Output {
+    let mut c = Command::new(env!("CARGO_BIN_EXE_objekte"));
+    c.args(args).arg("--data-dir").arg(&f.data);
+    c.output().unwrap()
+}
+fn value(out: Output) -> Value {
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    serde_json::from_slice(&out.stdout).unwrap()
+}
+#[test]
+fn help_version_and_invalid_arguments() {
+    for arg in ["--help", "--version"] {
+        let o = Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .arg(arg)
+            .output()
+            .unwrap();
+        assert!(o.status.success());
+        assert!(String::from_utf8_lossy(&o.stdout).contains("objekte"));
+        if arg == "--help" {
+            assert!(
+                String::from_utf8_lossy(&o.stdout).contains("objekte REPOSITORY view COLLECTION")
+            );
+        }
+    }
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    for args in [vec![p], vec!["view", p, "books"]] {
+        let out = run(&f, &args);
+        assert_eq!(out.status.code(), Some(2));
+        assert!(String::from_utf8_lossy(&out.stderr).contains("objekte REPOSITORY COMMAND"));
+    }
+    for args in [
+        vec![p, "view"],
+        vec![p, "cache"],
+        vec![p, "cache", "unknown"],
+        vec![p, "cache", "status", "--collection", "books"],
+        vec![p, "view", "books", "--limt", "2"],
+        vec![p, "view", "books", "--limit", "0"],
+        vec![p, "view", "books", "--sort", "payload"],
+        vec![p, "get", "books", "../people/p1"],
+        vec![p, "view", "books", "--direction", "sideways"],
+        vec![p, "inspect", "--sort", "score"],
+        vec![p, "view", "books", "--filter", "score=wrong"],
+        vec![p, "view", "books", "--namespace", "../oops"],
+        vec![p, "view", "books", "--limit"],
+        vec![p, "relations", "--collections", "--check-targets"],
+    ] {
+        assert!(!run(&f, &args).status.success(), "{args:?}");
+    }
+}
+#[test]
+fn inspect_graph_and_status_are_lazy() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let model = value(run(&f, &[p, "inspect", "--collections", "--indexes"]));
+    assert_eq!(model["collections"].as_object().unwrap().len(), 3);
+    assert!(!f.data.exists());
+    let graph = value(run(&f, &[p, "relations", "--collections"]));
+    assert_eq!(graph["cycles"], json!([["books", "people"]]));
+    let status = value(run(&f, &[p, "cache", "status"]));
+    assert!(
+        status["collections"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|c| c["state"] == "absent")
+    );
+    assert!(!f.data.exists());
+}
+#[test]
+fn metadata_default_strict_mode_and_subsort_hashes_are_exposed() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    value(run(&f, &[p, "view", "books", "--output", "json"]));
+    let fast = value(run(&f, &[p, "view", "books", "--output", "json"]));
+    assert_eq!(fast["metrics"]["source_reads"], 0);
+    assert_eq!(fast["metrics"]["manifest_hits"], 1);
+    let strict = value(run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--reconcile",
+            "hash-on-open",
+            "--output",
+            "json",
+        ],
+    ));
+    assert_eq!(strict["metrics"]["hashes"], 7);
+    let out = run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--sort",
+            "status",
+            "--then-sort",
+            "score:desc",
+            "--then-sort",
+            "@id:desc",
+            "--output",
+            "json",
+            "--diagnostics",
+        ],
+    );
+    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let ordered = value(out);
+    assert_eq!(ordered["rows"][0]["id"], "c");
+    assert_eq!(ordered["view_hashes"], diagnostics["view_hashes"]);
+    assert_eq!(diagnostics["freshness"], "metadata_on_open");
+    assert_ne!(ordered["view_hashes"]["sort"], fast["view_hashes"]["sort"]);
+    for args in [
+        vec![p, "inspect", "--then-sort", "score:asc"],
+        vec![p, "view", "books", "--then-sort", "score:wrong"],
+        vec![p, "view", "books", "--then-sort", "title"],
+    ] {
+        assert!(!run(&f, &args).status.success());
+    }
+}
+#[test]
+fn cli_views_filters_paging_json_and_ndjson_use_library_semantics() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let v = value(run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--sort",
+            "score",
+            "--direction",
+            "desc",
+            "--filter",
+            "score>=2",
+            "--limit",
+            "2",
+            "--count",
+            "--output",
+            "json",
+        ],
+    ));
+    assert_eq!(v["total"], 3);
+    assert_eq!(v["rows"][0]["id"], "c");
+    assert_eq!(v["rows"][1]["id"], "a");
+    let out = run(
+        &f,
+        &[p, "view", "books", "--limit", "2", "--output", "ndjson"],
+    );
+    assert!(out.status.success());
+    let lines = String::from_utf8(out.stdout)
+        .unwrap()
+        .lines()
+        .map(|l| serde_json::from_str::<Value>(l).unwrap())
+        .collect::<Vec<_>>();
+    assert_eq!(lines.len(), 2);
+    assert_eq!(lines[0]["id"], "f");
+}
+#[test]
+fn table_output_preserves_literal_markup_and_escapes_control_characters() {
+    let f = Fixture::new();
+    f.edit("data/books/a.json", |v| {
+        v["title"] = json!("<b>HTML</b>\n**MD**\u{1b}[31m")
+    });
+    let p = f.root.to_str().unwrap();
+    let o = run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--filter",
+            "@id=a",
+            "--columns",
+            "title",
+            "--output",
+            "table",
+        ],
+    );
+    assert!(o.status.success());
+    let text = String::from_utf8(o.stdout).unwrap();
+    assert!(text.contains("<b>HTML</b>\\n**MD**"));
+    assert!(!text.contains('\u{1b}'));
+}
+#[test]
+fn reopen_refresh_and_fresh_namespace_are_observable() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let first = value(run(&f, &[p, "view", "books", "--output", "json"]));
+    assert_eq!(first["metrics"]["rows_inserted"], 7);
+    let reopened = value(run(&f, &[p, "view", "books", "--output", "json"]));
+    assert_eq!(reopened["metrics"]["rows_inserted"], 0);
+    assert_eq!(reopened["metrics"]["parses"], 0);
+    f.edit("data/books/a.json", |v| v["score"] = json!(-99));
+    let m = value(run(&f, &[p, "cache", "refresh", "--collection", "books"]));
+    assert_eq!(m["rows_updated"], 1);
+    let o = run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--fresh-cache",
+            "--output",
+            "json",
+            "--diagnostics",
+        ],
+    );
+    let diagnostic: Value = serde_json::from_slice(&o.stderr).unwrap();
+    assert!(
+        diagnostic["cache_directory"]
+            .as_str()
+            .unwrap()
+            .contains("run-")
+    );
+    assert_eq!(value(o)["metrics"]["rows_inserted"], 7);
+}
+#[test]
+fn disabled_cache_writes_no_app_data_and_matches_sqlite() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let direct = value(run(
+        &f,
+        &[
+            p, "view", "books", "--cache", "disabled", "--output", "json", "--count",
+        ],
+    ));
+    assert!(!f.data.exists());
+    let sql = value(run(
+        &f,
+        &[p, "view", "books", "--output", "json", "--count"],
+    ));
+    assert_eq!(direct["rows"], sql["rows"]);
+    assert_eq!(direct["total"], sql["total"]);
+}
+#[test]
+fn record_and_reference_commands_report_resolution_and_coverage() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let r = value(run(&f, &[p, "get", "books", "a"]));
+    assert_eq!(r["data"]["title"], "Beta");
+    let refs = value(run(
+        &f,
+        &[p, "relations", "--from", "books/b", "--check-targets"],
+    ));
+    assert!(
+        refs["edges"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .any(|e| e["target_state"] == "missing")
+    );
+    let refs = value(run(
+        &f,
+        &[p, "relations", "--to", "people/p1", "--complete"],
+    ));
+    assert_eq!(refs["edges"].as_array().unwrap().len(), 4);
+    assert_eq!(refs["coverage"][0]["verified"], true);
+}
+#[test]
+fn killing_a_cache_builder_leaves_recoverable_state() {
+    let f = Fixture::new();
+    for i in 0..5000 {
+        f.write(&format!("data/books/generated{i}.json"),&json!({"payload":"unchanged source ".repeat(30),"title":format!("Generated {i}"),"score":i}));
+    }
+    let p = f.root.to_str().unwrap();
+    let status = value(run(&f, &[p, "cache", "status"]));
+    let dbpath =
+        std::path::PathBuf::from(status["directory"].as_str().unwrap()).join("cache.sqlite");
+    let mut child = Command::new(env!("CARGO_BIN_EXE_objekte"))
+        .args([
+            p,
+            "view",
+            "books",
+            "--limit",
+            "1",
+            "--output",
+            "json",
+            "--data-dir",
+        ])
+        .arg(&f.data)
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()
+        .unwrap();
+    let deadline = Instant::now() + Duration::from_secs(15);
+    let mut saw_dirty = false;
+    while Instant::now() < deadline {
+        if dbpath.exists()
+            && let Ok(db) = rusqlite::Connection::open(&dbpath)
+        {
+            db.busy_timeout(Duration::from_millis(10)).unwrap();
+            if db
+                .query_row(
+                    "SELECT state FROM collections WHERE name='books'",
+                    [],
+                    |r| r.get::<_, String>(0),
+                )
+                .ok()
+                .as_deref()
+                == Some("dirty")
+            {
+                saw_dirty = true;
+                break;
+            }
+        }
+        if child.try_wait().unwrap().is_some() {
+            break;
+        }
+        std::thread::sleep(Duration::from_millis(2));
+    }
+    let _ = child.kill();
+    let _ = child.wait();
+    assert!(saw_dirty, "builder did not expose in-progress state");
+    let db = rusqlite::Connection::open(&dbpath).unwrap();
+    assert_eq!(
+        db.query_row("PRAGMA integrity_check", [], |r| r.get::<_, String>(0))
+            .unwrap(),
+        "ok"
+    );
+    drop(db);
+    let out = value(run(
+        &f,
+        &[
+            p, "view", "books", "--count", "--limit", "1", "--output", "json",
+        ],
+    ));
+    assert_eq!(out["total"], 5007);
+    assert_eq!(
+        fs::read_dir(f.root.join("data/books")).unwrap().count(),
+        5007
+    );
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Beta",
+  "score": 2,
+  "flag": true,
+  "status": "draft",
+  "person": "p1",
+  "links": [
+    {
+      "person": "p1"
+    }
+  ],
+  "payload": {
+    "html": "<p>Keep **markdown**</p>",
+    "nested": [
+      null,
+      {
+        "foo": 1
+      }
+    ]
+  },
+  "x.y": "a",
+  "quote\"slash/": "a",
+  "type": "literal property name"
+}

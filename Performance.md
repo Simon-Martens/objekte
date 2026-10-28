@@ -1,5 +1,28 @@
 # Performance findings
 
+The [disk-cache startup follow-up](crates/bench/CLI-LATENCY-2026-10-28.md) measures
+the current CLI using a copy of the application cache on Btrfs. Unchanged `contents`
+opens fell from **0.531 s to 0.374 s release**, and **1.706 s to 1.466 s debug**;
+`entries` fell from 90 ms to 32 ms release. Avoiding unchanged database writes,
+directory-relative metadata lookups on Linux, and buffered manifest hashing preserve
+existing cache fingerprints. The remaining `contents` delay is dominated by its
+133,948-file metadata inventory. Use `cargo run --release` when evaluating latency.
+
+The [metadata-manifest update](crates/bench/METADATA-MANIFEST-2026-10-28.md)
+previously reduced unchanged Musenalm `contents` CLI opens to **0.463 s release** (median of
+three processes), with one metadata inventory and zero source reads. Strict
+full-content checking remains available and takes 2.355 s. Separate compound view
+fingerprints and secondary sorts are now implemented; cache format 2 rebuilds
+older databases once.
+
+The [earlier full-hash startup profile](crates/bench/LIBRARY-PROFILE-2026-10-28.md)
+measured about 3.5 seconds to verify an unchanged cache in release mode and about
+1.4 ms for subsequent default views on the same repository handle. It established
+that source filesystem checks dominated startup while the title index was used
+correctly. These figures describe the implementation before the manifest update.
+
+A [fresh rerun on 28 October 2026](crates/bench/RERUN-2026-10-28.md) records direct Rust, Node full objects, Rust SQLite JSONB disk cache, and embedded qj on a different CPU. The historical measurements below remain separate.
+
 ## 28 October shared-workload correction
 
 The new [shared runner](crates/bench/src/bin/shared_query_compare.rs) used the **same records and checked complete result equality** for qj, jaq, jq, SQLite JSONB, Node, and native Rust. Field names are runtime arguments. It ran on Musenalm `contents` (133,948 files, 126.7 MB compact NDJSON) and Lenz `sekundaerliteratur` (2,133 files). The four operations were integer range count, range filter plus numeric/ID sort and first 50 rows, grouping by integer field, and ASCII case-insensitive text count. Musenalm results were 95,153 matches, 50 rows, 122 groups, and 909 text matches. This is a shared **scalar** workload, not the MVP's full nested/array/relation query contract.

@@ -1,82 +1,31 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "defaultTheme": {
-      "type": "string",
-      "title": "Default color theme",
-      "enum": [
-        "system",
-        "light",
-        "dark"
-      ],
-      "default": "system",
-      "description": "Used when a browser has no personal theme choice.",
-      "x-optionLabels": {
-        "system": "Follow device",
-        "light": "Light",
-        "dark": "Dark"
-      }
+      "type": "string"
     },
     "density": {
-      "type": "string",
-      "title": "Interface density",
-      "enum": [
-        "compact",
-        "comfortable"
-      ],
-      "default": "compact",
-      "description": "Spacing in lists and editor controls.",
-      "x-optionLabels": {
-        "compact": "Compact",
-        "comfortable": "Comfortable"
-      }
+      "type": "string"
     },
     "pageSize": {
-      "type": "integer",
-      "title": "Records per page",
-      "minimum": 10,
-      "maximum": 200,
-      "default": 50,
-      "description": "Rows in collection lists. Collection UI settings can override this default."
+      "type": "integer"
     },
     "editorFontSize": {
-      "type": "integer",
-      "title": "Source editor font size",
-      "minimum": 11,
-      "maximum": 20,
-      "default": 13,
-      "description": "Text size in JSON, Markdown and HTML source editors, in pixels."
+      "type": "integer"
     },
     "validationDelay": {
-      "type": "integer",
-      "title": "Live validation delay (ms)",
-      "minimum": 150,
-      "maximum": 2000,
-      "default": 400,
-      "description": "Milliseconds after typing before validation runs."
+      "type": "integer"
     },
     "markdownPreview": {
-      "type": "boolean",
-      "title": "Open Markdown previews by default",
-      "default": false,
-      "description": "Show the rendered preview when opening a Markdown field."
+      "type": "boolean"
     },
     "mediaThumbnails": {
-      "type": "boolean",
-      "title": "Show image thumbnails in media lists",
-      "default": true,
-      "description": "Show small image previews beside files in media collections."
+      "type": "boolean"
     },
     "tablePageSize": {
-      "type": "integer",
-      "title": "Rows per table page",
-      "minimum": 1,
-      "maximum": 100,
-      "default": 25,
-      "description": "Rows in an open Contents, Items or other embedded table, including the edit form. A field-specific page size takes precedence."
+      "type": "integer"
     }
   },
-  "additionalProperties": true,
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Editor instance settings"
+  "additionalProperties": true
 }

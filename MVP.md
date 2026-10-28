@@ -2,6 +2,8 @@
 
 Objekte is a schema-driven editor for structured, file-based repositories. This rebuild uses a Rust library and a command line interface first. A native Rust desktop UI calls the same library after the repository, query, and search behavior is correct and measured.
 
+[implementation.md](implementation.md) defines the first supported subset and takes precedence for implementation order. Start with minimal schema/UI parsing, collection relationships, lazy source/cache reads, record relationships, and indexed default tables. Query dependency tracking, query-specific caches, heuristic optimization, and the broader query/search capabilities below are later stages. The preliminary library and CLI now implement this subset; the former NDJSON cache is retained only in the historical benchmark crate.
+
 The files in a repository are authoritative. **All reads can fall back to those files, and all edits are made to those files.** The default Rust query path reads needed collections directly and reuses derived data in a bounded in-process cache. A disposable SQLite cache may accelerate hot views; it never becomes a second source of truth. The previous implementation and its MVP remain under `deprecated/` as references.
 
 ## Product boundaries
@@ -11,11 +13,11 @@ The files in a repository are authoritative. **All reads can fall back to those 
 | Repository and collection configuration | Collection paths, source formats, identity, permitted operations, schema assignments, and search fields |
 | JSON Schema | Stored structure, types, validation constraints, defaults explicitly declared by the schema, and semantic content annotations such as Markdown |
 | View definition | Source collection, parameters, filter, selected fields, relation expansion, ordering, pagination, and optional grouping |
-| UI options | Labels, visible columns and fields, controls, layout, formatting, and navigation presentation |
+| UI options | Labels, visible columns and fields, default list sort and filters, controls, layout, formatting, and navigation presentation |
 
-The schema must not encode a particular list layout. UI options must not change stored values or validation rules. A view selects data; UI options decide how to display its result. Views that return original records retain collection, ID, and source path so an editor can open the authoritative file. Aggregated or computed rows are read-only.
+The schema must not encode a particular list layout. UI options must not change stored values or validation rules. A view selects data; UI options supply the default list view and decide how to display its result. The library resolves those options into a query specification, including `list.defaultSort` (with `_label` resolved through the configured display field) and configured filters. Views that return original records retain collection, ID, and source path so an editor can open the authoritative file. Aggregated or computed rows are read-only.
 
-The library owns repository discovery, identity, validation, reference rules, safe writes, structural query execution, search, and structured results and errors. It must work for any configured JSON file collection, without collection-specific Rust structs or hard-coded field names. The CLI exercises the library's public API; it does not contain a separate implementation of repository behavior.
+The library owns repository discovery, identity, validation, reference rules, safe writes, structural query execution, search, view resolution, index planning, cache construction, source reconciliation, and cache invalidation/update. It must work for any configured JSON file collection, without collection-specific Rust structs or hard-coded field names. The CLI and later UI call the library's public API; neither contains cache policy or a separate implementation of repository behavior. Benchmarks exercise that API but do not implement its behavior.
 
 ## PocketBase as a product reference
 
@@ -40,7 +42,7 @@ We then tested cache formats and query engines against repositories with very di
 | DuckDB, Turso, SurrealDB | Earlier exploratory runs showed strengths in typed analytics, build speed, or nested indexes, but used different workloads and did not settle generic view semantics or external-file synchronization. | Retain their measurements as alternatives; do not add them to the MVP stack. |
 | Separate on-disk KV cache of records or result pages | Considered for default sorts, filters, and frequent queries. It can reuse results, but a new arbitrary query still scans without secondary indexes, and external edits require the same invalidation work. No equivalent on-disk KV benchmark has been run. | Use bounded in-process key-value reuse first. SQLite supplies optional persistent indexes when reuse alone is insufficient. |
 
-This leads to one query contract with two execution paths: source-backed Rust for every supported view, and SQLite only when an equivalent indexed plan is available and its generation is current. All writes go to original JSON files. Default and saved views reuse sorted IDs and projected fields in memory; frequently repeated ad hoc views can be admitted by a bounded heuristic. Cache files are disposable, so schema or source changes can invalidate and rebuild them instead of requiring complex migrations or dual writes.
+This leads to one library query contract with two execution paths: source-backed Rust for every supported view, and SQLite when an equivalent plan is available over a current cache generation. Indexed SQLite plans accelerate measured hot views; an unindexed SQLite scan remains an option when it is preferable to reading the sources again. All writes go to original JSON files. An indexed SQLite path need not construct an in-memory Rust projection for that view; it selects only the requested fields from the cached records. Bounded in-process reuse remains useful for direct queries and repeated view results. Cache files are disposable, so schema or source changes can invalidate and rebuild them instead of requiring complex migrations or dual writes.
 
 This is an architecture choice, not a claim that every arbitrary view already meets a latency target. The remaining gate is a generic implementation of nested paths, arrays, relations, grouping, and source-change handling, benchmarked through the same public API across the example and synthetic repositories.
 
@@ -96,28 +98,55 @@ Start with direct extraction from the configured source fields: parse a record, 
 
 ## Rust execution and cache tiers
 
-Opening a repository reads configuration and schemas; it does **not** load every collection. A view reads only its declared source collections. Opening or editing a record uses its original file. When IDs are filenames, a known-ID read can construct the path; other layouts may require an ID-to-path catalog. A first global filter, sort, group, or aggregate over an unindexed collection may have to inspect every record. Loading is lazy by collection and view, not a promise that a global view can avoid a collection scan.
+Loading repository metadata reads configuration and schemas; it does **not** load every collection. Opening a default view is a separate operation that can enumerate, read, reconcile, and cache its source collection. An application opening flow may call both operations. Opening or editing a record uses its original file. When IDs are filenames, a known-ID read can construct the path; other layouts may require an ID-to-path catalog. A first global filter, sort, group, or aggregate over an unindexed collection may have to inspect every record. Loading is lazy by collection and view, not a promise that a global view can avoid a collection scan.
+
+### Library-owned view and index planning
+
+The library resolves each collection's effective UI options into its default list view. It maps `list.defaultSort` to a stored field or source identity; `_label` resolves through the configured display field and fallback rule. Configured columns determine fields to return. `list.filters` identifies available filter controls; only an active filter value becomes a query predicate. An absent default sort falls back to deterministic ID order. Saved views use the same query specification, and ad hoc requests can override its parameters without changing the underlying UI configuration. JSON Schema supplies field types and declared `x-relation` targets; it does not dictate list layout or indexes. The library validates paths and types and never infers a relation merely from a matching field name or ID-like value.
+
+Initially the library derives indexed fields deterministically from identity, available filter controls, default sort, and the UI's explicit `list.sortable` fields, using schema types. Columns alone do not create indexes. There is no workload or frequency heuristic. Treat these indexes as adequate for the initial supported views; record real timings without adding query-specific caches or optimizer work yet. Indexed values may be typed derived columns or expression indexes over JSONB; the library records their source paths, types, collation, missing/null treatment, and semantics version. Direct and indexed execution must return the same complete ordered result. Record relationships use derived edges with indexes in both directions. Richer query-specific caches and adaptive optimization can follow later.
 
 The direct Rust executor compiles filters and field paths once per view. It extracts the fields and relation IDs that the view needs into compact runtime-selected projections, retains source identity, and streams when the operation allows it. Sorting retains compact keys and IDs; grouping retains group state. A new view may request any configured JSON field, so a projection for an earlier view cannot restrict what later views can query.
 
-The default in-process cache has two bounded layers:
+After the initial indexed-view implementation, in-process reuse can add two bounded layers:
 
 1. **Record/projection lookup:** key by repository, collection, ID, source revision, and the projection's field set. Reuse parsed fields while the source version is current. Do not duplicate full JSON trees for every view.
-2. **View results:** key by the canonical view definition, bound parameters, query-semantics version, and generations of all source collections and relations it depends on. Retain IDs, sort keys, counts, and small computed rows rather than copies of full records. Cache default and saved view sorts/filters after their first execution. Admit frequently repeated or expensive ad hoc views with a measured cost-and-frequency heuristic and evict by a fixed memory budget. A parameter change makes a different key.
+2. **View results (later):** define query dependencies before introducing query-specific result caches. Those caches can retain IDs, sort keys, counts, and small computed rows with bounded memory. Admission policies and incremental result repair are deferred; they are not prerequisites for collection/record relationships or the first indexed views.
 
 This key-value style reuse accelerates repeated views without a disk cache. It does not make an unseen filter or sort instant: a new global view still needs a scan or an index. Cache admission and eviction affect speed only, never results.
 
-**SQLite is the selected optional disk accelerator for hot views.** Keep one disposable database per repository, or per collection if measurements favor it, in the operating system's user cache directory. A cache row contains collection, ID, source path/revision, and JSONB data. Add expression indexes only for measured hot filter/sort paths and any relation lookup tables justified by real views. The Rust view API decides whether an equivalent SQLite plan is available; otherwise it executes directly over source files. Query semantics for missing fields, arrays, nulls, sorting, and relations must match the direct executor. Do not make SQLite a mandatory startup step or store original edits in it.
+**SQLite is the selected optional disk accelerator for configured views.** Initially keep one disposable database per repository in an application data directory supplied by the caller. The CLI chooses the OS application directory; tests supply temporary directories and select cache options through the same API. A cache row contains collection, ID, source path/revision, and complete JSONB data; a source manifest stores path, ID, file stamps, and a content digest. Indexed fields and relation edges are derived from those records. The library selects only the fields the result needs and supports direct source execution when caching is disabled or unavailable. Query semantics must match between the paths. Do not make SQLite a mandatory metadata-loading step or store original edits in it.
+
+### Library-owned cache lifecycle
+
+The library loads repository metadata without constructing SQLite. Opening a collection's view reconciles an existing generation before trusting it or builds the cache lazily if needed. Other collections need not be loaded. Building reads authoritative files, checks stable source revisions and JSON validity, applies the collection schema and relation declarations, writes records and source metadata into a new generation, and builds indexes derived from the configured filter/default-sort/sortable fields. It publishes the generation only after a final source check succeeds. A malformed or invalid source is reported rather than silently omitted. Start synchronously; background construction is a later library capability.
+
+The first implementation uses configured indexes and defers query-result caching and adaptive plan selection. An indexed SQLite view does not require a separate full Rust projection. Index creation and cache warming are library operations triggered by requesting a view and its configuration. The CLI can select cache/freshness options and request status, refresh, or rebuild through the same API without implementing those operations.
 
 The included Musenalm example has **148,486 JSON files and about 358 MB of JSON source bytes**, including 133,948 files in `contents`. Lenz has **3,263 JSON files and about 1.4 MB**. The [corrected benchmarks](Performance.md#28-october-shared-workload-correction) show that runtime-selected Rust projections can be fast, while an indexed SQLite cache can make repeated pages very fast. They do not yet measure the complete general view API. The first cache build, warm queries, memory, source inventory scan, and external edits must all be included in the decision for each collection/view.
 
 ### Cache freshness and failure behavior
 
-One library write atomically replaces the authoritative file, then invalidates its in-memory record and every dependent view. Failure to update a derived cache never rolls back a successful source-file edit. A SQLite cache is built as a new generation and published only when complete; the first implementation may rebuild an affected collection after a change rather than maintain complex incremental indexes. Targeted row refresh is a later optimization if rebuild cost requires it.
+For a write through the library, reread and compare the target source revision, validate the proposed value, and atomically replace the authoritative file. Then mark dependent in-memory results stale and update the affected SQLite record, source manifest, relation edges, and indexes in one transaction. SQLite maintains its indexes when a row changes. If that transaction fails, mark the cache generation dirty and use the direct executor or rebuild; a cache failure never rolls back a successful source-file edit or permits the old cached row to appear current.
 
-At startup and after a repository pull or another suspected bulk change, reconcile source paths and file stamps before trusting a persisted SQLite generation. A long-running UI uses file events to invalidate affected collections promptly and also reconciles on return to the app or explicit refresh, since watchers can miss events. If source freshness is uncertain, use the direct executor or rebuild the affected cache before returning an accelerated result. A source change invalidates dependent in-memory view results; a schema, collection configuration, reference definition, or query-semantics change invalidates affected compiled plans and SQLite generations. A changed SQLite layout is discarded and rebuilt, not migrated as authoritative data. Deletions and malformed JSON are reported from source and cannot be silently hidden by an old cache.
+For outside changes, use persistent metadata manifests and content hashes before
+watchers. The implemented default `metadata-on-open` policy enumerates a requested
+collection once and compares a compound manifest fingerprint. Equal metadata
+reuses the cache without source reads; changed entries select files to read/hash.
+Retain per-record stamps and content digests for targeted additions, updates, and
+deletions. Unix stamps include device/inode/ctime in addition to size/mtime.
+`hash-on-open` remains an explicit stronger policy that hashes every file, including
+unchanged metadata. Both policies have `*-on-request` variants; explicit refresh
+uses the selected policy. Metadata equality does not prove content equality.
+Separate schema, mapping, index, and view fingerprints prevent a filter/default
+sort/sub-sort/projection change from forcing unrelated record reads. Resolved views
+return their compound fingerprints; query-result caches remain deferred. See
+[implementation.md](implementation.md) for exact semantics and [UI.md](UI.md) for
+later watcher/background behavior.
 
-The cache is safe to delete at any time. The MVP includes cache status/rebuild controls and verifies that direct and accelerated paths return the same ordered results before treating a view as eligible for acceleration. A separate on-disk KV cache of arbitrary result pages is unnecessary initially: it would share the same invalidation problem while lacking SQLite's secondary indexes.
+Apply a small set of validated changes in a transaction: upsert changed and new records, remove deleted records, update relation edges and source metadata, and invalidate dependent in-process results. A rename is a removal plus an addition, with the usual identity and reference checks. For a large batch, changed schema or storage mapping, or an incompatible cache layout, rebuild only affected collections into new generations and publish them atomically after the stability checks required by the selected reconciliation policy. A change limited to UI columns or default sort recompiles views and may change indexes; it does not by itself require rewriting every JSONB row. If source freshness is uncertain while reconciliation or rebuilding is pending, do not serve the old SQLite generation as current: wait or use the direct executor. Deletions and malformed JSON must be reported from source, not hidden by an old cache.
+
+The cache is safe to delete at any time. The MVP includes library cache status/rebuild operations and verifies that direct and accelerated paths return the same ordered results before treating a view as eligible for acceleration. A separate on-disk KV cache of arbitrary result pages is unnecessary initially: it would share the same invalidation problem while lacking SQLite's secondary indexes.
 
 ## Repository correctness
 
@@ -127,22 +156,22 @@ Validation and writes operate on authoritative files. Query results can open an 
 
 ## CLI acceptance path
 
-The initial CLI should support commands equivalent to:
+The CLI is a thin caller of library operations. It passes repository and query inputs to the library and displays structured results; it does not decide when to scan files, build indexes, reconcile sources, or update caches. Commands put the repository first: `objekte REPOSITORY COMMAND`. The broader MVP should eventually support commands equivalent to:
 
 ```text
-objekte validate
-objekte get people goethe
-objekte list people --filter 'birthYear >= $from && tags ?= "poet"' --param from=1800 --sort birthYear,@id --limit 50
-objekte list people --filter 'author.name ~ "goethe"' --expand author --fields name,birthYear
-objekte view run people-by-birthplace
-objekte grep 'birthYear'
-objekte search 'Weimar'
-objekte search --regex '(?i)weimar|jena'
-objekte cache status
-objekte cache rebuild --collection people
+objekte REPOSITORY validate
+objekte REPOSITORY get people goethe
+objekte REPOSITORY list people --filter 'birthYear >= $from && tags ?= "poet"' --param from=1800 --sort birthYear,@id --limit 50
+objekte REPOSITORY list people --filter 'author.name ~ "goethe"' --expand author --fields name,birthYear
+objekte REPOSITORY view run people-by-birthplace
+objekte REPOSITORY grep 'birthYear'
+objekte REPOSITORY search 'Weimar'
+objekte REPOSITORY search --regex '(?i)weimar|jena'
+objekte REPOSITORY cache status
+objekte REPOSITORY cache rebuild --collection people
 ```
 
-The complete acceptance path is: open repository → validate → run an ad hoc record list and a named grouped view over source files → repeat a default view and exercise in-process reuse → raw grep → cleaned search → edit a source record → repeat all three access modes and observe the change. Build an optional SQLite generation for a hot view, compare its complete ordered result with direct execution, then edit a source record and confirm invalidation/fallback or refresh before reuse. Test external edits, Git pulls or bulk replacements, schema/config changes, deletions, malformed files, interrupted cache builds, and deletion of the entire cache directory. A cache miss or cache failure must still leave source-backed operations usable.
+The complete acceptance path exercises the library: open repository → validate → run an ad hoc record list and a named grouped view over source files → repeat a default view and exercise in-process reuse → raw grep → cleaned search → edit a source record → repeat all three access modes and observe the change. Let the library build an optional SQLite generation for a hot view, compare its complete ordered result with direct execution, then edit a source record and confirm invalidation/fallback or refresh before reuse. Test external edits, Git pulls or bulk replacements, schema/config changes, deletions, malformed files, interrupted cache builds, and deletion of the entire cache directory through the same library API. A cache miss or cache failure must still leave source-backed operations usable.
 
 ## General benchmark and performance decision gate
 
@@ -154,4 +183,8 @@ Measure cold and warm first-view latency, repeated queries, source enumeration, 
 
 ## Later UI
 
-After the CLI path is correct and fast enough, build a local native Rust desktop UI over the same library. Preserve schema-guided recursive browsing and editing of objects and arrays, reference navigation, and configurable views. Run source scans, cache reconciliation, and expensive queries away from the UI thread. The exact Rust UI toolkit is a later choice. The MVP does not require a web server, browser frontend, accounts, or network service.
+See [UI.md](UI.md) for the deferred UI backlog: optimistic delivery and patching,
+filesystem watching, background jobs, hover/idle prefetch, and persistent session
+management. These features are not prerequisites for the current CLI work.
+
+After the CLI path is correct and fast enough, build a local native Rust desktop UI over the same library. Preserve schema-guided recursive browsing and editing of objects and arrays, reference navigation, and configurable views. The library runs source scans, cache reconciliation, and expensive queries on its workers; the UI invokes operations and presents their status and results without owning cache behavior. The exact Rust UI toolkit is a later choice. The MVP does not require a web server, browser frontend, accounts, or network service.

@@ -1,53 +1,411 @@
-use objekte_core::cache;
-use std::path::PathBuf;
+use objekte_core::{
+    CacheMode, Direction, Freshness, Options, Repository, Sort, ViewRequest, ViewResult,
+};
+use serde_json::{Value, json};
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    path::PathBuf,
+    time::{SystemTime, UNIX_EPOCH},
+};
 
-fn help() {
-    println!("objekte — command line interface for the Objekte library");
-    println!();
-    println!("Usage:");
-    println!("  objekte cache build REPOSITORY COLLECTION [CACHE_DIRECTORY]");
-    println!("  objekte cache changes REPOSITORY COLLECTION [CACHE_DIRECTORY]");
-    println!("  objekte --version");
+const HELP: &str = "objekte — read-only file repository library driver
+
+Usage:
+  objekte REPOSITORY view COLLECTION [--sort FIELD] [--direction asc|desc]
+      [--then-sort FIELD:asc|desc]
+      [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
+  objekte REPOSITORY get COLLECTION ID
+  objekte REPOSITORY inspect [--collections] [--indexes]
+  objekte REPOSITORY relations --collections
+  objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
+  objekte REPOSITORY relations --to COLLECTION/ID [--complete] [--check-targets]
+  objekte REPOSITORY cache status
+  objekte REPOSITORY cache refresh --collection NAME
+
+Options:
+  --data-dir PATH                 Application state directory
+  --cache sqlite|disabled         Default: sqlite
+  --reconcile metadata-on-open|metadata-on-request|hash-on-open|hash-on-request
+                                 Default: metadata-on-open
+  --namespace NAME                Reuse a named cache (default: default)
+  --fresh-cache                   Use a new namespace
+  --output table|json|ndjson       Views default to table, other commands to json
+  --diagnostics                   Emit library counters/timings to stderr
+  --help, --version
+
+Examples:
+  objekte examples/musenalm view places --data-dir /tmp/objekte-a
+  objekte examples/musenalm view contents --sort numbering --limit 20 --diagnostics
+  objekte examples/musenalm view contents --filter 'year>=1800' --output json
+";
+struct Args {
+    pos: Vec<String>,
+    values: BTreeMap<String, String>,
+    flags: BTreeSet<String>,
+    filters: Vec<String>,
+    sub_sorts: Vec<String>,
 }
-
-fn main() {
-    let args: Vec<String> = std::env::args().skip(1).collect();
-    match args.as_slice() {
-        [] => help(),
-        [arg] if arg == "--help" || arg == "-h" => help(),
-        [arg] if arg == "--version" || arg == "-V" => {
-            println!("objekte {}", env!("CARGO_PKG_VERSION"));
+fn args() -> Result<Args, String> {
+    let mut out = Args {
+        pos: Vec::new(),
+        values: BTreeMap::new(),
+        flags: BTreeSet::new(),
+        filters: Vec::new(),
+        sub_sorts: Vec::new(),
+    };
+    let mut args = std::env::args().skip(1);
+    while let Some(a) = args.next() {
+        match a.as_str() {
+            "--data-dir" | "--cache" | "--reconcile" | "--namespace" | "--output" | "--sort"
+            | "--direction" | "--columns" | "--limit" | "--offset" | "--collection" | "--from"
+            | "--to" | "--filter" | "--then-sort" => {
+                let v = args
+                    .next()
+                    .filter(|s| !s.starts_with("--"))
+                    .ok_or_else(|| format!("{a} requires a value"))?;
+                if a == "--filter" {
+                    out.filters.push(v)
+                } else if a == "--then-sort" {
+                    out.sub_sorts.push(v)
+                } else if out.values.insert(a.clone(), v).is_some() {
+                    return Err(format!("duplicate option {a}"));
+                }
+            }
+            "--collections" | "--indexes" | "--count" | "--complete" | "--check-targets"
+            | "--fresh-cache" | "--diagnostics" => {
+                out.flags.insert(a);
+            }
+            "--help" | "-h" => {
+                print!("{HELP}");
+                std::process::exit(0)
+            }
+            "--version" | "-V" => {
+                println!("objekte {}", env!("CARGO_PKG_VERSION"));
+                std::process::exit(0)
+            }
+            a if a.starts_with('-') => return Err(format!("unknown option {a}")),
+            _ => out.pos.push(a),
         }
-        [group, action, repository, collection] | [group, action, repository, collection, _]
-            if group == "cache" && (action == "build" || action == "changes") =>
-        {
-            let root = PathBuf::from(repository);
-            let cache_root = args
-                .get(4)
-                .map(PathBuf::from)
-                .unwrap_or_else(cache::default_cache_root);
-            let result = if action == "build" {
-                cache::build_collection(&root, collection, &cache_root).map(|built| {
-                    println!("generation: {}", built.generation);
-                    println!("records: {}", built.index.records.len());
-                    println!("cache: {}", built.directory.display());
-                })
-            } else {
-                cache::detect_changes(&root, collection, &cache_root).map(|changes| {
-                    println!("changed sources: {}", changes.len());
-                    for path in changes {
-                        println!("{path}")
-                    }
-                })
-            };
-            if let Err(error) = result {
-                eprintln!("{error}");
-                std::process::exit(1);
+    }
+    Ok(out)
+}
+fn data_dir() -> Result<PathBuf, String> {
+    if let Some(p) = std::env::var_os("XDG_DATA_HOME") {
+        return Ok(PathBuf::from(p).join("objekte"));
+    }
+    if cfg!(windows) {
+        return std::env::var_os("LOCALAPPDATA")
+            .map(|p| PathBuf::from(p).join("objekte"))
+            .ok_or_else(|| "set --data-dir".into());
+    }
+    let home = std::env::var_os("HOME").ok_or_else(|| "set --data-dir".to_owned())?;
+    Ok(PathBuf::from(home).join(if cfg!(target_os = "macos") {
+        "Library/Application Support/objekte"
+    } else {
+        ".local/share/objekte"
+    }))
+}
+fn cell(value: &Value) -> String {
+    let text = value.to_string();
+    let mut chars = text.chars();
+    let mut out = chars.by_ref().take(100).collect::<String>();
+    if chars.next().is_some() {
+        out.push('…')
+    }
+    out
+}
+fn print_view(view: &ViewResult, output: &str) -> Result<(), Box<dyn std::error::Error>> {
+    match output {
+        "json" => println!("{}", serde_json::to_string_pretty(view)?),
+        "ndjson" => {
+            for row in &view.rows {
+                println!("{}", serde_json::to_string(row)?)
             }
         }
-        _ => {
-            eprintln!("Unknown command. Run 'objekte --help' for usage.");
-            std::process::exit(2);
+        "table" => {
+            let mut headers = vec!["ID".to_owned()];
+            headers.extend(view.columns.iter().map(|s| cell(&json!(s))));
+            let rows = view
+                .rows
+                .iter()
+                .map(|r| {
+                    std::iter::once(cell(&json!(r.id)))
+                        .chain(view.columns.iter().map(|f| {
+                            r.values
+                                .get(f)
+                                .map(cell)
+                                .unwrap_or_else(|| "<missing>".into())
+                        }))
+                        .collect::<Vec<_>>()
+                })
+                .collect::<Vec<_>>();
+            let widths = (0..headers.len())
+                .map(|i| {
+                    std::iter::once(headers[i].chars().count())
+                        .chain(rows.iter().map(|r| r[i].chars().count()))
+                        .max()
+                        .unwrap()
+                })
+                .collect::<Vec<_>>();
+            let print = |row: &[String]| {
+                println!(
+                    "{}",
+                    row.iter()
+                        .enumerate()
+                        .map(|(i, s)| format!("{}{}", s, " ".repeat(widths[i] - s.chars().count())))
+                        .collect::<Vec<_>>()
+                        .join(" | ")
+                )
+            };
+            print(&headers);
+            println!(
+                "{}",
+                widths
+                    .iter()
+                    .map(|w| "-".repeat(*w))
+                    .collect::<Vec<_>>()
+                    .join("-+-")
+            );
+            for row in rows {
+                print(&row)
+            }
+            if let Some(total) = view.total {
+                println!("{} rows shown; {total} matching records", view.rows.len())
+            }
         }
+        _ => return Err("output must be table, json, or ndjson".into()),
+    }
+    Ok(())
+}
+fn run() -> Result<(), Box<dyn std::error::Error>> {
+    let a = args()?;
+    if a.pos.is_empty() {
+        print!("{HELP}");
+        return Ok(());
+    }
+    let command = a
+        .pos
+        .get(1)
+        .ok_or(
+            "expected a command after REPOSITORY; usage: objekte REPOSITORY COMMAND; run --help",
+        )?
+        .as_str();
+    let expected = match command {
+        "cache" => {
+            if !matches!(a.pos.get(2).map(String::as_str), Some("status" | "refresh")) {
+                return Err("cache requires status or refresh".into());
+            }
+            3
+        }
+        "view" => 3,
+        "get" => 4,
+        "inspect" | "relations" => 2,
+        _ => {
+            return Err(format!(
+                "unknown command {command}; usage: objekte REPOSITORY COMMAND; run --help"
+            )
+            .into());
+        }
+    };
+    if a.pos.len() != expected {
+        return Err(format!("wrong arguments for {command}; run --help").into());
+    }
+    let common = [
+        "--data-dir",
+        "--cache",
+        "--reconcile",
+        "--namespace",
+        "--output",
+    ];
+    for key in a.values.keys() {
+        let allowed = common.contains(&key.as_str())
+            || match command {
+                "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
+                    .contains(&key.as_str()),
+                "relations" => ["--from", "--to"].contains(&key.as_str()),
+                "cache" => a.pos[2] == "refresh" && key == "--collection",
+                _ => false,
+            };
+        if !allowed {
+            return Err(format!("{key} is not valid for {command}").into());
+        }
+    }
+    for key in &a.flags {
+        let allowed = ["--fresh-cache", "--diagnostics"].contains(&key.as_str())
+            || match command {
+                "view" => key == "--count",
+                "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
+                "relations" => {
+                    ["--collections", "--complete", "--check-targets"].contains(&key.as_str())
+                }
+                _ => false,
+            };
+        if !allowed {
+            return Err(format!("{key} is not valid for {command}").into());
+        }
+    }
+    if command != "view" && (!a.filters.is_empty() || !a.sub_sorts.is_empty()) {
+        return Err("filters and sub-sorts require view".into());
+    }
+    let get =
+        |key: &str, default: &str| a.values.get(key).cloned().unwrap_or_else(|| default.into());
+    let mut options = Options::new(if let Some(p) = a.values.get("--data-dir") {
+        PathBuf::from(p)
+    } else {
+        data_dir()?
+    });
+    options.cache = match get("--cache", "sqlite").as_str() {
+        "sqlite" => CacheMode::Sqlite,
+        "disabled" => CacheMode::Disabled,
+        _ => return Err("cache must be sqlite or disabled".into()),
+    };
+    options.freshness = match get("--reconcile", "metadata-on-open").as_str() {
+        "metadata-on-open" => Freshness::MetadataOnOpen,
+        "metadata-on-request" => Freshness::MetadataOnRequest,
+        "hash-on-open" => Freshness::HashOnOpen,
+        "hash-on-request" => Freshness::HashOnRequest,
+        _ => return Err("unknown reconciliation policy".into()),
+    };
+    options.namespace = get("--namespace", "default");
+    if a.flags.contains("--fresh-cache") {
+        if a.values.contains_key("--namespace") {
+            return Err("choose --fresh-cache or --namespace".into());
+        }
+        options.namespace = format!(
+            "run-{}-{}",
+            std::process::id(),
+            SystemTime::now().duration_since(UNIX_EPOCH)?.as_nanos()
+        );
+    }
+    let output = get("--output", if command == "view" { "table" } else { "json" });
+    if !["table", "json", "ndjson"].contains(&output.as_str()) {
+        return Err("unknown output format".into());
+    }
+    if command != "view" && output != "json" {
+        return Err("this command supports --output json; table/ndjson are view formats".into());
+    }
+    let freshness = options.freshness;
+    let mut repo = Repository::load_repository(&a.pos[0], options)?;
+    let mut view_hashes = None;
+    let value = match command {
+        "inspect" => Some(serde_json::to_value(repo.model())?),
+        "get" => Some(serde_json::to_value(
+            repo.get_record(&a.pos[2], &a.pos[3])?,
+        )?),
+        "view" => {
+            let c = repo.model().collection(&a.pos[2])?;
+            let sort = if a.values.contains_key("--sort") || a.values.contains_key("--direction") {
+                Some(Sort {
+                    field: get("--sort", &c.list.default_sort.field),
+                    direction: match get("--direction", "asc").as_str() {
+                        "asc" => Direction::Asc,
+                        "desc" => Direction::Desc,
+                        _ => return Err("direction must be asc or desc".into()),
+                    },
+                })
+            } else {
+                None
+            };
+            let request = ViewRequest {
+                filters: a
+                    .filters
+                    .iter()
+                    .map(|f| c.parse_filter(f))
+                    .collect::<objekte_core::Result<_>>()?,
+                sort,
+                sub_sorts: if a.sub_sorts.is_empty() {
+                    None
+                } else {
+                    Some(
+                        a.sub_sorts
+                            .iter()
+                            .map(|s| {
+                                let (field, direction) = s
+                                    .rsplit_once(':')
+                                    .ok_or("--then-sort requires FIELD:asc or FIELD:desc")?;
+                                let direction = match direction {
+                                    "asc" => Direction::Asc,
+                                    "desc" => Direction::Desc,
+                                    _ => return Err("invalid sub-sort direction"),
+                                };
+                                Ok(Sort {
+                                    field: field.into(),
+                                    direction,
+                                })
+                            })
+                            .collect::<Result<Vec<_>, &str>>()?,
+                    )
+                },
+                columns: a
+                    .values
+                    .get("--columns")
+                    .map(|s| s.split(',').map(str::to_owned).collect()),
+                limit: a.values.get("--limit").map(|s| s.parse()).transpose()?,
+                offset: get("--offset", "0").parse()?,
+                count: a.flags.contains("--count"),
+            };
+            let view = repo.open_view(&a.pos[2], &request)?;
+            view_hashes = Some(view.view_hashes.clone());
+            print_view(&view, &output)?;
+            None
+        }
+        "relations" => {
+            let modes = usize::from(a.flags.contains("--collections"))
+                + usize::from(a.values.contains_key("--from"))
+                + usize::from(a.values.contains_key("--to"));
+            if modes != 1 {
+                return Err("relations requires exactly one of --collections, --from, --to".into());
+            }
+            if a.flags.contains("--collections") {
+                if a.flags.contains("--complete") || a.flags.contains("--check-targets") {
+                    return Err("record flags cannot be used with --collections".into());
+                }
+                Some(serde_json::to_value(&repo.model().graph)?)
+            } else {
+                let from = a.values.contains_key("--from");
+                let key = if from { "--from" } else { "--to" };
+                let (collection, id) = a.values[key]
+                    .split_once('/')
+                    .ok_or("reference must be COLLECTION/ID")?;
+                let check = a.flags.contains("--check-targets");
+                let refs = if from {
+                    if a.flags.contains("--complete") {
+                        return Err("--complete requires --to".into());
+                    }
+                    repo.references_from(collection, id, check)?
+                } else {
+                    repo.references_to(collection, id, a.flags.contains("--complete"), check)?
+                };
+                Some(serde_json::to_value(refs)?)
+            }
+        }
+        "cache" => {
+            if a.pos[2] == "status" {
+                Some(serde_json::to_value(repo.cache_status()?)?)
+            } else {
+                let c = a
+                    .values
+                    .get("--collection")
+                    .ok_or("refresh requires --collection")?;
+                Some(serde_json::to_value(repo.refresh(c)?)?)
+            }
+        }
+        _ => unreachable!(),
+    };
+    if let Some(value) = value {
+        println!("{}", serde_json::to_string_pretty(&value)?)
+    }
+    if a.flags.contains("--diagnostics") {
+        eprintln!(
+            "{}",
+            json!({"metrics":repo.metrics(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"view_hashes":view_hashes})
+        )
+    }
+    Ok(())
+}
+fn main() {
+    if let Err(e) = run() {
+        eprintln!("{e}");
+        std::process::exit(2)
     }
 }

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "count": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "flag": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "x.y": {
+      "type": "string"
+    },
+    "quote\"slash/": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "payload": {},
+    "person": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-relation": {
+        "collection": "people"
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "person": {
+            "type": "string",
+            "x-relation": {
+              "collection": "people"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "payload"
+  ],
+  "additionalProperties": false
+}

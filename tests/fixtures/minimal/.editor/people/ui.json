@@ -1,0 +1,17 @@
+{
+  "label": "People",
+  "display": "name",
+  "list": {
+    "columns": [
+      "name"
+    ],
+    "filters": [],
+    "defaultSort": {
+      "field": "name",
+      "direction": "asc"
+    },
+    "sortable": [
+      "name"
+    ]
+  }
+}
