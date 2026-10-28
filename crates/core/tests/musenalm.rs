@@ -35,11 +35,11 @@ fn all_musenalm_collections_match_direct_execution() {
         };
         let now = Instant::now();
         let source = direct.open_view(name, &q).unwrap();
-        let source_ms = now.elapsed().as_millis();
+        let source_ms = now.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(source.rows.len(), count);
         let now = Instant::now();
         let sql = cached.open_view(name, &q).unwrap();
-        let cold_ms = now.elapsed().as_millis();
+        let cold_ms = now.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(sql.rows, source.rows, "{name}");
         assert_eq!(sql.total, Some(count));
         assert_eq!(sql.metrics.rows_inserted, count as u64);
@@ -54,8 +54,15 @@ fn all_musenalm_collections_match_direct_execution() {
         );
         let now = Instant::now();
         let warm = cached.open_view(name, &ViewRequest::default()).unwrap();
-        let warm_us = now.elapsed().as_micros();
+        let warm_ms = now.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(warm.metrics.source_reads, 0);
+        assert!(
+            warm.query_plan
+                .iter()
+                .any(|p| p.contains("SCAN v USING INDEX j_") && p.contains("_asc")),
+            "{name}: {:?}",
+            warm.query_plan
+        );
         assert_eq!(
             warm.rows,
             source.rows.iter().take(50).cloned().collect::<Vec<_>>()
@@ -109,7 +116,7 @@ fn all_musenalm_collections_match_direct_execution() {
             assert_eq!(a.rows, b.rows, "{name} filter");
             assert_eq!(a.total, b.total);
         }
-        let item = json!({"collection":name,"records":count,"direct_full_ms":source_ms,"cold_sqlite_full_ms":cold_ms,"warm_page_us":warm_us,"build":sql.metrics});
+        let item = json!({"collection":name,"records":count,"direct_full_ms":source_ms,"cold_sqlite_full_ms":cold_ms,"warm_page_ms":warm_ms,"build":sql.metrics});
         println!("{item}");
         report.push(item);
     }

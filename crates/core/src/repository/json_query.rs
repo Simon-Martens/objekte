@@ -66,23 +66,26 @@ impl Repository {
         let writer = self.store()?;
         let s = writer.enter(self.options.sqlite_cache_mib)?;
         for c in collections {
-            self.sync(c, &s, false, false)?;
+            self.sync(c, &s, filter.uses_indexes(c), false)?;
             result
                 .dependencies
                 .revisions
                 .insert(c.name.clone(), s.state(&c.name)?.unwrap().revision);
         }
         let t = Instant::now();
-        crate::json_filter::register(&s.db)?;
-        let (predicate, mut bindings) = filter.sql();
-        let scope = collections
+        let mut bindings = Vec::new();
+        for c in collections {
+            filter.check_sql_cardinality(&s.db, c)?;
+        }
+        let selections = collections
             .iter()
             .map(|c| {
-                bindings.push(c.name.clone());
-                format!("?{}", bindings.len())
+                let predicate = filter.sql(c, &mut bindings);
+                let scope = crate::json_filter::indexes::quote(&c.name);
+                format!("SELECT r.collection,r.id FROM records r JOIN record_validation h USING(collection,id) WHERE r.collection={scope} AND h.parse_status='parsed' AND ({predicate})")
             })
             .collect::<Vec<_>>()
-            .join(",");
+            .join(" UNION ALL ");
         bindings.push(request.limit.to_string());
         let limit = bindings.len();
         bindings.push(request.offset.to_string());
@@ -95,11 +98,7 @@ impl Repository {
         // Materialize only matched identities. This deliberately examines all scoped
         // records before pagination, including scalar-cardinality errors outside the
         // returned page or in an otherwise false OR/AND branch. Never materialize JSON.
-        let sql = format!("WITH hits AS MATERIALIZED (
-            SELECT r.collection,r.id FROM records r
-            JOIN record_validation h USING(collection,id)
-            WHERE r.collection IN ({scope}) AND ({predicate})
-        ), page AS (
+        let sql = format!("WITH hits AS MATERIALIZED ({selections}), page AS (
             SELECT collection,id FROM hits ORDER BY collection COLLATE BINARY,id COLLATE BINARY LIMIT ?{limit} OFFSET ?{offset}
         )
         SELECT 1 AS summary,NULL AS collection,NULL AS id,NULL AS path,NULL AS digest,NULL AS json,NULL AS validation_state,NULL AS issues,{count} AS total

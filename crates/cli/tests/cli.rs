@@ -416,6 +416,7 @@ fn killing_a_cache_builder_leaves_recoverable_state() {
     let _ = child.wait();
     assert!(saw_dirty, "builder did not expose in-progress state");
     let db = rusqlite::Connection::open(&dbpath).unwrap();
+    objekte_core::register_cache_sqlite_functions(&db).unwrap();
     assert_eq!(
         db.query_row("PRAGMA integrity_check", [], |r| r.get::<_, String>(0))
             .unwrap(),
@@ -632,9 +633,10 @@ fn validate_without_cache_keeps_application_directory_absent() {
 fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
-    f.edit("data/books/a.json", |v| {
-        v["payload"] = json!({"year":1800,"tags":["poet","editor"]})
-    });
+    f.edit(
+        "data/books/a.json",
+        |v| v["payload"] = json!({"year":1800,"end":1900,"name":"ALPHA","tags":["poet","editor"]}),
+    );
     f.edit("data/people/p1.json", |v| {
         v["payload"] = json!({"year":"1800"})
     });
@@ -726,6 +728,18 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
         };
         assert_eq!(identities(&positional), identities(&scoped));
     }
+    let extended = value(run(
+        &f,
+        &[
+            p,
+            "query",
+            "books",
+            "payload.year < payload.end && payload.tags:length = 2 && payload.tags:each !~ 'admin%' && payload.name:lower = 'alpha'",
+            "--count",
+        ],
+    ));
+    assert_eq!(extended["total"], 1);
+    assert_eq!(extended["records"][0]["id"], "a");
     let out = run(
         &f,
         &[

@@ -292,7 +292,8 @@ impl Plan {
         }
     }
     pub fn sql_where(&self, c: &Collection) -> (String, Vec<rusqlite::types::Value>) {
-        let mut conditions = Vec::new();
+        use crate::json_filter::indexes::{quote, view_expr};
+        let mut conditions = vec![format!("v.collection={}", quote(&c.name))];
         let mut params = Vec::new();
         for f in &self.filters {
             let op = match f.operator {
@@ -307,11 +308,12 @@ impl Plan {
                 params.push(scalar_value(Some(&f.value)).sql());
                 continue;
             }
-            let i = c.indexes.iter().position(|i| i.name == f.field).unwrap();
+            let state = view_expr(c, &f.field, "v", true);
+            let value = view_expr(c, &f.field, "v", false);
             if f.value.is_null() {
-                conditions.push(format!("v.f{i}_s = 1"));
+                conditions.push(format!("{state} = 1"));
             } else {
-                conditions.push(format!("v.f{i}_s = 0 AND v.f{i}_v {op} ?"));
+                conditions.push(format!("{state} = 0 AND {value} {op} ?"));
                 params.push(scalar_value(Some(&f.value)).sql());
             }
         }
@@ -336,12 +338,33 @@ impl Plan {
                 if sort.field == "@id" {
                     format!("v.id {direction}")
                 } else {
-                    let i = c.indexes.iter().position(|i| i.name == sort.field).unwrap();
-                    format!("v.f{i}_s ASC, v.f{i}_v {direction}")
+                    let state = crate::json_filter::indexes::view_expr(c, &sort.field, "v", true);
+                    let value = crate::json_filter::indexes::view_expr(c, &sort.field, "v", false);
+                    format!("{state} ASC, {value} {direction}")
                 }
             })
             .collect::<Vec<_>>()
             .join(", ")
+    }
+    pub fn sql_page_keys(&self, c: &Collection) -> (String, String) {
+        let mut columns = String::new();
+        let mut order = Vec::new();
+        for (i, sort) in self.sorts.iter().enumerate() {
+            let direction = if sort.direction == Direction::Asc {
+                "ASC"
+            } else {
+                "DESC"
+            };
+            if sort.field == "@id" {
+                order.push(format!("p.id {direction}"));
+            } else {
+                let state = crate::json_filter::indexes::view_expr(c, &sort.field, "v", true);
+                let value = crate::json_filter::indexes::view_expr(c, &sort.field, "v", false);
+                columns.push_str(&format!(",{state} AS s{i},{value} AS k{i}"));
+                order.push(format!("p.s{i} ASC,p.k{i} {direction}"));
+            }
+        }
+        (columns, order.join(","))
     }
 }
 fn validate_filter(f: &Filter, kind: ValueType) -> Result<()> {

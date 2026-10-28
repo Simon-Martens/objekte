@@ -18,7 +18,9 @@ fn seed(f: &Fixture) {
 }
 
 fn database(repo: &Repository) -> Connection {
-    Connection::open(repo.cache_directory().unwrap().join("cache.sqlite")).unwrap()
+    let db = Connection::open(repo.cache_directory().unwrap().join("cache.sqlite")).unwrap();
+    objekte_core::register_cache_sqlite_functions(&db).unwrap();
+    db
 }
 
 fn edges(repo: &Repository) -> Vec<(String, String, String, String)> {

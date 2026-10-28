@@ -12,7 +12,8 @@ while individual records are still pending or invalid.
    failure stores `incorrect_json` plus a diagnostic; successful parses start `pending`.
    Invalid UTF-8 is preserved too. Parseable non-object roots are schema-invalid, not
    malformed JSON. The existing nesting limit is a parser limit.
-3. Extract usable typed values and declared references, then commit through one writer.
+3. Extract declared references and commit through one writer. SQLite derives keys
+   for any existing JSON expression indexes as the raw records are written.
    No worker accesses SQLite. Correctly typed fields of an otherwise invalid record
    remain queryable. Wrong types/out-of-range numbers have index state 3, after normal
    values (0), null (1), and missing (2), in either sort direction. State 3 never matches
@@ -72,10 +73,10 @@ Wait mode prints completed row statuses. Cache status
 reports per-state counts. Direct execution without SQLite validates inline and returns
 the same record diagnostics/query semantics without persistent work.
 
-## Current SQLite schema (cache format 4)
+## Current SQLite schema (cache format 5)
 
-The following is the shared schema; per-collection value tables are generated from
-schema/UI options. `json` stores exact raw bytes as a BLOB, including malformed JSON;
+The following is the shared schema; partial JSON expression indexes are generated
+from schema/UI options. `json` stores exact raw bytes as a BLOB, including malformed JSON;
 it is deliberately not constrained with `json_valid`. SQLite is not the JSON parser.
 
 ```sql
@@ -135,14 +136,18 @@ make old validation results appear applicable to the new schema: cache status
 reports incompatible configuration until reconciliation resets affected records to
 pending. Malformed JSON retains its parse-error status. Configuration refresh alone
 does not run validation or read source records. The ownership table is added to
-existing format-4 caches without rebuilding their records.
+the configuration manifest. The current format-5 storage upgrade separately rebuilds old disposable caches.
 
-Each `v_<sha256(collection)>` table has `id TEXT PRIMARY KEY` plus `fN_s INTEGER NOT
-NULL, fN_v` for each indexed field other than ID. Each field has ascending and descending
-indexes `(fN_s ASC, fN_v ASC|DESC, id ASC)`. Field numbers map to the ordered collection
-index specification. Compound view hashes describe query definitions; this change does
-not introduce multi-field SQLite indexes or query-specific caches.
+There are no per-collection value tables or stored field columns. Each configured
+field has partial expression indexes on `records.json`, restricted to its collection.
+View indexes use deterministic `objekte_view_state` / `objekte_view_value` expressions
+and preserve schema-aware ordering; general query indexes use `objekte_json_key`
+with the exact `objekte_json_v1` scalar collation. SQLite stores the derived keys in
+its indexes and maintains them with record INSERT/UPDATE/DELETE. Index definitions
+come from the configured filter/default-sort/sortable fields. SQLite statistics are
+collected when indexes are built. The library registers the Rust functions on every
+connection; external integrity checks can use `register_cache_sqlite_functions`.
 
 Format changes rebuild disposable tables on the next cache access. Deployment migrations
-are deferred. Redundant per-record digest lookups and per-record typed-write SQL assembly
-remain the next ingestion optimizations, independently measurable from this flow.
+are deferred. Redundant per-record digest lookups remain a later ingestion optimization. The
+per-record typed-table writes have been removed.

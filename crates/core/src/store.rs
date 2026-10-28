@@ -1,16 +1,14 @@
 use crate::{
-    Collection, Error, Metrics, RecordRelation, Result, config::digest, error::io, query::scalar,
-    source::Stamp,
+    Collection, Error, Metrics, RecordRelation, Result, config::digest, error::io, source::Stamp,
 };
-use rusqlite::{Connection, OptionalExtension, params, params_from_iter};
-use serde_json::Value;
+use rusqlite::{Connection, OptionalExtension, params};
 use std::{
     collections::{BTreeMap, BTreeSet},
     fs::{self, File, OpenOptions},
     path::Path,
     time::{Duration, Instant},
 };
-const FORMAT: &str = "4";
+const FORMAT: &str = "5";
 pub(crate) struct Store {
     pub db: Connection,
     _lock: File,
@@ -35,8 +33,24 @@ pub(crate) struct Cached {
     pub digest: String,
     pub stamp: Stamp,
 }
-pub(crate) fn table(c: &Collection) -> String {
-    format!("v_{}", digest(c.name.as_bytes()))
+fn index_prefix(c: &Collection) -> String {
+    format!("j_{}", digest(c.name.as_bytes()))
+}
+pub(crate) fn ordered_view_index(c: &Collection, sorts: &[crate::Sort]) -> Option<String> {
+    let prefix = index_prefix(c);
+    match sorts {
+        [id] if id.field == "@id" => Some(format!("{prefix}_identity")),
+        [field, id] if id.field == "@id" && id.direction == crate::Direction::Asc => {
+            let i = c.indexes.iter().position(|f| f.name == field.field)?;
+            let direction = if field.direction == crate::Direction::Asc {
+                "asc"
+            } else {
+                "desc"
+            };
+            Some(format!("{prefix}_{i}_{direction}"))
+        }
+        _ => None,
+    }
 }
 
 impl Store {
@@ -52,6 +66,7 @@ impl Store {
             .map_err(|e| io(&lock_path, e))?;
         fs2::FileExt::lock_exclusive(&lock).map_err(|e| io(&lock_path, e))?;
         let db = Connection::open(directory.join("cache.sqlite"))?;
+        crate::register_cache_sqlite_functions(&db)?;
         db.busy_timeout(Duration::from_secs(5))?;
         let default_cache_size = db.pragma_query_value(None, "cache_size", |r| r.get(0))?;
         if let Some(mib) = cache_mib {
@@ -145,69 +160,76 @@ impl Store {
         self.db.execute("INSERT INTO collections(name,state) VALUES(?1,'dirty') ON CONFLICT(name) DO UPDATE SET state='dirty'",[name])?;
         Ok(())
     }
-    pub fn table_exists(&self, c: &Collection) -> Result<bool> {
-        Ok(self.db.query_row(
-            "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name=?1)",
-            [table(c)],
-            |r| r.get(0),
-        )?)
+    pub fn has_indexes(&self, c: &Collection) -> Result<bool> {
+        let prefix = index_prefix(c);
+        let mut names = vec![format!("{prefix}_identity")];
+        for (i, f) in c.indexes.iter().enumerate() {
+            if f.name != "@id" {
+                for suffix in ["asc", "desc", "query"] {
+                    names.push(format!("{prefix}_{i}_{suffix}"));
+                }
+            }
+        }
+        for name in names {
+            if !self.db.query_row(
+                "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='index' AND name=?1)",
+                [name],
+                |r| r.get::<_, bool>(0),
+            )? {
+                return Ok(false);
+            }
+        }
+        Ok(true)
     }
 }
-pub(crate) fn create_values(db: &Connection, c: &Collection, metrics: &mut Metrics) -> Result<()> {
-    let table = table(c);
-    db.execute_batch(&format!("DROP TABLE IF EXISTS {table}"))?;
-    let columns = c
-        .indexes
-        .iter()
-        .enumerate()
-        .filter(|(_, f)| f.name != "@id")
-        .map(|(i, _)| format!(",f{i}_s INTEGER NOT NULL,f{i}_v"))
-        .collect::<String>();
-    db.execute_batch(&format!(
-        "CREATE TABLE {table}(id TEXT PRIMARY KEY{columns})"
-    ))?;
-    metrics.index_builds += 1;
+pub(crate) fn drop_indexes(db: &Connection, c: &Collection) -> Result<()> {
+    let prefix = index_prefix(c);
+    let mut stmt =
+        db.prepare("SELECT name FROM sqlite_master WHERE type='index' AND name GLOB ?1")?;
+    let names = stmt
+        .query_map([format!("{prefix}_*")], |r| r.get::<_, String>(0))?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
+    drop(stmt);
+    for name in names {
+        if name.bytes().all(|b| b.is_ascii_alphanumeric() || b == b'_') {
+            db.execute_batch(&format!("DROP INDEX {name}"))?;
+        }
+    }
     Ok(())
 }
 pub(crate) fn create_indexes(db: &Connection, c: &Collection, metrics: &mut Metrics) -> Result<()> {
-    let table = table(c);
+    use crate::json_filter::indexes::{field, key_expr, quote, view_expr};
+    let prefix = index_prefix(c);
+    let scope = format!(" WHERE collection={}", quote(&c.name));
+    db.execute_batch(&format!(
+        "CREATE INDEX {prefix}_identity ON records(id){scope}; ANALYZE {prefix}_identity"
+    ))?;
+    metrics.index_builds += 1;
     for (i, f) in c.indexes.iter().enumerate() {
         if f.name == "@id" {
             continue;
         }
+        let state = view_expr(c, &f.name, "", true);
+        let value = view_expr(c, &f.name, "", false);
         for (suffix, direction) in [("asc", "ASC"), ("desc", "DESC")] {
-            db.execute_batch(&format!(
-                "CREATE INDEX {table}_{i}_{suffix} ON {table}(f{i}_s ASC,f{i}_v {direction},id ASC)"
-            ))?;
+            db.execute_batch(&format!("CREATE INDEX {prefix}_{i}_{suffix} ON records({state} ASC,{value} {direction},id ASC){scope}; ANALYZE {prefix}_{i}_{suffix}"))?;
             metrics.index_builds += 1;
         }
+        let key = key_expr("", &field(&f.name));
+        db.execute_batch(&format!(
+            "CREATE INDEX {prefix}_{i}_query ON records({key},id){scope}; ANALYZE {prefix}_{i}_query"
+        ))?;
+        metrics.index_builds += 1;
     }
-    Ok(())
-}
-pub(crate) fn put_values(
-    db: &Connection,
-    c: &Collection,
-    id: &str,
-    value: &Value,
-    metrics: &mut Metrics,
-) -> Result<()> {
-    let t = Instant::now();
-    let mut values = vec![rusqlite::types::Value::Text(id.into())];
-    for field in &c.indexes {
-        if field.name != "@id" {
-            let s = scalar(id, value, &field.name, c.fields.get(&field.name));
-            values.push(s.state().into());
-            values.push(s.sql());
-        }
-    }
-    let params = vec!["?"; values.len()].join(",");
-    db.prepare_cached(&format!(
-        "INSERT OR REPLACE INTO {} VALUES({params})",
-        table(c)
-    ))?
-    .execute(params_from_iter(values))?;
-    metrics.index_rows_written += 1;
-    metrics.index_row_write_nanos += t.elapsed().as_nanos() as u64;
+    // Include the competing collection/ID access paths. Without their statistics
+    // SQLite can underestimate a full collection scan and ignore expression indexes.
+    db.execute_batch("ANALYZE sqlite_autoindex_records_1; ANALYZE record_validation;")?;
+    // Count source records indexed, not separate materialized field-table rows.
+    metrics.index_rows_written += db.query_row(
+        "SELECT count(*) FROM records WHERE collection=?1",
+        [&c.name],
+        |r| r.get::<_, i64>(0),
+    )? as u64;
     Ok(())
 }
 pub(crate) fn put_edges(
@@ -254,7 +276,6 @@ pub(crate) fn delete_record(
     db: &Connection,
     c: &Collection,
     id: &str,
-    has_values: bool,
     metrics: &mut Metrics,
 ) -> Result<()> {
     db.prepare_cached("DELETE FROM record_validation WHERE collection=?1 AND id=?2")?
@@ -265,10 +286,6 @@ pub(crate) fn delete_record(
     metrics.edges_removed += db
         .prepare_cached("DELETE FROM edges WHERE source_collection=?1 AND source_id=?2")?
         .execute(params![c.name, id])? as u64;
-    if has_values {
-        db.prepare_cached(&format!("DELETE FROM {} WHERE id=?1", table(c)))?
-            .execute([id])?;
-    }
     Ok(())
 }
 

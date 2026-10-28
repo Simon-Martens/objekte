@@ -44,3 +44,12 @@ pub use repository::{
     References, Repository, TargetState,
 };
 pub use schema::{Field, PathStep, ValueType};
+
+/// Register the deterministic functions and collation used by cache expression
+/// indexes on an externally opened SQLite connection (for example, before running
+/// `PRAGMA integrity_check`). Repository-managed connections register automatically.
+/// The database remains a disposable cache; authoritative edits belong in source files.
+pub fn register_cache_sqlite_functions(db: &rusqlite::Connection) -> Result<()> {
+    json_filter::register(db)?;
+    json_filter::indexes::register(db)
+}

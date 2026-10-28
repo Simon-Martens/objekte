@@ -112,7 +112,6 @@ metrics!(
     record_write_nanos,
     relation_extract_nanos,
     relation_write_nanos,
-    index_row_write_nanos,
     index_nanos,
     commit_nanos,
     query_nanos
@@ -575,7 +574,7 @@ impl Repository {
                     let s = writer.enter(self.options.sqlite_cache_mib)?;
                     s.dirty(collection)?;
                     let tx = s.db.unchecked_transaction()?;
-                    store::delete_record(&tx, &c, id, s.table_exists(&c)?, &mut self.metrics)?;
+                    store::delete_record(&tx, &c, id, &mut self.metrics)?;
                     tx.commit()?;
                 }
                 return Ok(None);
@@ -607,7 +606,7 @@ impl Repository {
                 old_state
                     .as_ref()
                     .is_some_and(|v| v.index == c.index_hash && v.schema == c.schema_hash)
-                    && s.table_exists(&c)?,
+                    && s.has_indexes(&c)?,
             )?;
             if old_state.as_ref().is_none_or(|s| s.state == "partial") {
                 tx.execute(
@@ -637,7 +636,7 @@ impl Repository {
         c: &Collection,
         source: &Source,
         files: &BTreeMap<String, Stamp>,
-        values: bool,
+        indexed: bool,
     ) -> Result<()> {
         let t = Instant::now();
         let pool = rayon::ThreadPoolBuilder::new()
@@ -685,7 +684,7 @@ impl Repository {
             }
             for ((id, _), (_, result)) in batch.into_iter().zip(prepared) {
                 let (raw, value) = result?;
-                self.put_record(db, c, id, &raw, &value, values)?;
+                self.put_record(db, c, id, &raw, &value, indexed)?;
             }
         }
         Ok(())
@@ -697,7 +696,7 @@ impl Repository {
         id: &str,
         raw: &Raw,
         value: &Document,
-        values: bool,
+        indexed: bool,
     ) -> Result<()> {
         let t = Instant::now();
         let exists: Option<String> = db
@@ -707,6 +706,9 @@ impl Repository {
         if exists.as_ref() != Some(&raw.hash) {
             db.prepare_cached("INSERT INTO records(collection,id,path,size,modified,identity,digest,json,revision) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,1) ON CONFLICT(collection,id) DO UPDATE SET path=excluded.path,size=excluded.size,modified=excluded.modified,identity=excluded.identity,digest=excluded.digest,json=excluded.json,revision=records.revision+1")?.execute(params![c.name,id,self.path(c,id),raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity,raw.hash,raw.json])?;
             db.prepare_cached("INSERT INTO record_validation(collection,id,parse_status,validation_state,validation_schema_hash,issues) VALUES(?1,?2,?3,?4,?5,?6) ON CONFLICT(collection,id) DO UPDATE SET parse_status=excluded.parse_status,validation_state=excluded.validation_state,validation_schema_hash=excluded.validation_schema_hash,issues=excluded.issues")?.execute(params![c.name,id,if value.state.status == RecordStatus::IncorrectJson {"incorrect_json"} else {"parsed"},value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
+            if indexed {
+                self.metrics.index_rows_written += 1;
+            }
             if exists.is_some() {
                 self.metrics.rows_updated += 1
             } else {
@@ -732,9 +734,6 @@ impl Repository {
         let edges = self.extract(c, id, value)?;
         self.metrics.relation_extract_nanos += nanos(t);
         store::put_edges(db, &c.name, id, &edges, &mut self.metrics)?;
-        if values {
-            store::put_values(db, c, id, value, &mut self.metrics)?;
-        }
         Ok(())
     }
     fn sync(
@@ -763,7 +762,7 @@ impl Repository {
         force: bool,
     ) -> Result<()> {
         let previous = s.state(&c.name)?;
-        let has_table = s.table_exists(c)?;
+        let has_indexes = s.has_indexes(c)?;
         let on_open = matches!(
             self.options.freshness,
             Freshness::MetadataOnOpen | Freshness::HashOnOpen
@@ -774,7 +773,7 @@ impl Repository {
                 p.state == "current"
                     && p.schema == c.schema_hash
                     && p.mapping == c.mapping_hash
-                    && (!request_indexes || (has_table && p.index == c.index_hash))
+                    && (!request_indexes || (has_indexes && p.index == c.index_hash))
                     && p.view == c.view_hashes.combined
                     && self.verified.get(&c.name) == Some(&p.revision)
             })
@@ -795,9 +794,9 @@ impl Repository {
             .is_some_and(|p| !p.mapping.is_empty() && p.mapping != c.mapping_hash);
         let schema_changed =
             previous.as_ref().is_none_or(|p| p.schema != c.schema_hash) || mapping_changed;
-        let use_values = request_indexes || has_table;
-        let rebuild = use_values
-            && (!has_table
+        let use_indexes = request_indexes || has_indexes;
+        let rebuild = use_indexes
+            && (!has_indexes
                 || mapping_changed
                 || previous.as_ref().is_none_or(|p| p.index != c.index_hash));
         let complete = previous.as_ref().is_some_and(|p| p.state == "current");
@@ -834,16 +833,16 @@ impl Repository {
         let tx = s.db.unchecked_transaction()?;
         if mapping_changed {
             for id in manifest.keys() {
-                store::delete_record(&tx, c, id, has_table, &mut self.metrics)?;
+                store::delete_record(&tx, c, id, &mut self.metrics)?;
             }
         }
         if rebuild {
             let t = Instant::now();
-            store::create_values(&tx, c, &mut self.metrics)?;
+            store::drop_indexes(&tx, c)?;
             self.metrics.index_nanos += nanos(t);
         }
         if manifest.is_empty() && self.options.ingest_workers > 1 && files.len() > 1 {
-            self.ingest_empty(&tx, c, &source, &files, use_values)?;
+            self.ingest_empty(&tx, c, &source, &files, use_indexes && !rebuild)?;
         } else {
             for (id, stamp) in &files {
                 let old = if mapping_changed {
@@ -858,40 +857,31 @@ impl Repository {
                     let changed = old.is_none_or(|v| v.digest != raw.hash);
                     if changed || schema_changed {
                         let value = self.parse(c, id, &raw.json, false);
-                        self.put_record(&tx, c, id, &raw, &value, use_values)?;
+                        self.put_record(&tx, c, id, &raw, &value, use_indexes && !rebuild)?;
                     } else {
                         self.metrics.rows_reused += 1;
                         if old.is_some_and(|v| v.stamp != raw.stamp) {
                             tx.prepare_cached("UPDATE records SET size=?3,modified=?4,identity=?5 WHERE collection=?1 AND id=?2")?
                             .execute(params![c.name,id,raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity])?;
                         }
-                        if rebuild {
-                            let value = self.parse(c, id, &raw.json, false);
-                            store::put_values(&tx, c, id, &value, &mut self.metrics)?;
-                        }
                     }
                 } else {
                     self.metrics.metadata_reused += 1;
-                    if schema_changed || rebuild {
-                        // Cached bytes correspond to the unchanged manifest entry. Schema/index
-                        // changes need revalidation/derivation, not another source-file read.
+                    if schema_changed {
+                        // Cached bytes correspond to the unchanged manifest entry. Schema
+                        // changes need revalidation, not another source-file read.
                         let json: Vec<u8> = tx.query_row(
                             "SELECT json FROM records WHERE collection=?1 AND id=?2",
                             params![c.name, id],
                             |r| Ok(r.get_ref(0)?.as_bytes()?.to_vec()),
                         )?;
                         let value = self.parse(c, id, &json, false);
-                        if schema_changed {
-                            let raw = Raw {
-                                json,
-                                hash: old.unwrap().digest.clone(),
-                                stamp: stamp.clone(),
-                            };
-                            self.put_record(&tx, c, id, &raw, &value, use_values)?;
-                        } else {
-                            self.metrics.rows_reused += 1;
-                            store::put_values(&tx, c, id, &value, &mut self.metrics)?;
-                        }
+                        let raw = Raw {
+                            json,
+                            hash: old.unwrap().digest.clone(),
+                            stamp: stamp.clone(),
+                        };
+                        self.put_record(&tx, c, id, &raw, &value, use_indexes && !rebuild)?;
                     } else {
                         self.metrics.rows_reused += 1;
                     }
@@ -900,7 +890,7 @@ impl Repository {
         }
         if !mapping_changed {
             for id in manifest.keys().filter(|id| !files.contains_key(*id)) {
-                store::delete_record(&tx, c, id, use_values, &mut self.metrics)?;
+                store::delete_record(&tx, c, id, &mut self.metrics)?;
             }
         }
         source.finish()?;
@@ -921,7 +911,7 @@ impl Repository {
             || self.metrics.rows_deleted != before.rows_deleted;
         let revision = previous.as_ref().map_or(0, |p| p.revision) + i64::from(changed);
         let t = Instant::now();
-        tx.execute("UPDATE collections SET state='current',schema_hash=?2,mapping_hash=?3,index_hash=?4,revision=?5,manifest_hash=?6,record_count=?7,view_hash=?8 WHERE name=?1",params![c.name,c.schema_hash,c.mapping_hash,if use_values{c.index_hash.as_str()}else{""},revision,manifest_hash,files.len() as i64,c.view_hashes.combined])?;
+        tx.execute("UPDATE collections SET state='current',schema_hash=?2,mapping_hash=?3,index_hash=?4,revision=?5,manifest_hash=?6,record_count=?7,view_hash=?8 WHERE name=?1",params![c.name,c.schema_hash,c.mapping_hash,if use_indexes{c.index_hash.as_str()}else{""},revision,manifest_hash,files.len() as i64,c.view_hashes.combined])?;
         tx.commit()?;
         self.metrics.commit_nanos += nanos(t);
         self.verified.insert(c.name.clone(), revision);
@@ -955,10 +945,9 @@ impl Repository {
             self.sync(&c, &s, true, false)?;
             let t = Instant::now();
             let (where_sql, mut values) = plan.sql_where(&c);
-            let table = store::table(&c);
             let total = if plan.count {
                 Some(s.db.query_row(
-                    &format!("SELECT count(*) FROM {table} v{where_sql}"),
+                    &format!("SELECT count(*) FROM records v{where_sql}"),
                     params_from_iter(values.iter()),
                     |r| r.get::<_, i64>(0),
                 )? as usize)
@@ -968,8 +957,19 @@ impl Repository {
             // Choose the page from compact typed keys before fetching JSON payloads.
             // This fixed lowering does not need an adaptive optimizer or result cache.
             let order = plan.sql_order(&c);
+            let (keys, page_order) = plan.sql_page_keys(&c);
+            // With no predicates and an exact ordering index, visiting only the page
+            // is always sufficient. Avoid a full JSON sort caused by collection-size
+            // estimates averaged across unrelated collections in the shared table.
+            let access = if plan.filters.is_empty() {
+                store::ordered_view_index(&c, &plan.sorts)
+                    .map(|name| format!(" INDEXED BY {name}"))
+                    .unwrap_or_default()
+            } else {
+                String::new()
+            };
             let sql = format!(
-                "WITH page AS MATERIALIZED (SELECT v.* FROM {table} v{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,h.validation_state,h.issues FROM page v JOIN records r ON r.id=v.id AND r.collection=? JOIN record_validation h ON h.collection=r.collection AND h.id=r.id ORDER BY {order}"
+                "WITH page AS MATERIALIZED (SELECT v.id{keys} FROM records v{access}{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,h.validation_state,h.issues FROM page p JOIN records r ON r.id=p.id AND r.collection=? JOIN record_validation h ON h.collection=r.collection AND h.id=r.id ORDER BY {page_order}"
             );
             values.push((plan.limit as i64).into());
             values.push((plan.offset as i64).into());

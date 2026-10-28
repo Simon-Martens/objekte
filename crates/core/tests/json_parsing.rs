@@ -51,6 +51,7 @@ fn malformed_cached_payloads_fail_even_when_the_field_is_not_projected() {
     let mut repo = f.repo(CacheMode::Sqlite);
     repo.open_view("books", &all()).unwrap();
     let db = Connection::open(repo.cache_directory().unwrap().join("cache.sqlite")).unwrap();
+    objekte_core::register_cache_sqlite_functions(&db).unwrap();
     for invalid in [r#"[1,]"#, r#"{"nested":[1,]}"#, r#"{"nested":"\x"}"#] {
         let text = format!(r#"{{"title":"valid","score":2,"payload":{invalid}}}"#);
         db.execute(

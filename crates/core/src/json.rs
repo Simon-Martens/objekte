@@ -5,7 +5,7 @@ use serde::{
     de::{self, DeserializeSeed, MapAccess, Visitor},
 };
 use serde_json::{Map, Value};
-use sonic_rs::{JsonValueTrait, ValueRef};
+use sonic_rs::{JsonContainerTrait, JsonValueTrait, ValueRef};
 use std::{collections::BTreeSet, fmt};
 
 pub(crate) struct ParsedValue(pub Value);
@@ -61,6 +61,50 @@ pub(crate) fn parse(json: &str) -> Result<Value, sonic_rs::Error> {
     sonic_rs::from_str::<ParsedValue>(json).map(|v| v.0)
 }
 
+/// Validate the entire Sonic DOM with the same depth rules as `parse`, but only
+/// convert the field needed by an expression index to the public Value tree.
+/// Unlike skip-based projection this also preserves errors in unselected fields.
+pub(crate) fn index_field(json: &str, field: &str) -> Result<Value, String> {
+    fn depth_check(v: &sonic_rs::Value, depth: usize) -> Result<(), String> {
+        if v.is_number() {
+            return Ok(());
+        }
+        match v.as_ref() {
+            ValueRef::Array(items) => {
+                if depth >= 127 {
+                    return Err("recursion limit exceeded".into());
+                }
+                for v in items {
+                    depth_check(v, depth + 1)?;
+                }
+            }
+            ValueRef::Object(items) => {
+                if depth >= 127 {
+                    return Err("recursion limit exceeded".into());
+                }
+                for (_, v) in items {
+                    depth_check(v, depth + 1)?;
+                }
+            }
+            _ => {}
+        }
+        Ok(())
+    }
+    let raw: sonic_rs::Value = sonic_rs::from_str(json).map_err(|e| e.to_string())?;
+    depth_check(&raw, 0)?;
+    if let Some(items) = raw.as_object() {
+        let mut out = Map::new();
+        for (name, value) in items {
+            if name == field {
+                out.insert(name.to_owned(), compatible(value, 1)?);
+            }
+        }
+        Ok(Value::Object(out))
+    } else {
+        compatible(&raw, 0)
+    }
+}
+
 /// Materialize requested top-level fields only. Scan all members, including
 /// duplicates, using Sonic's native skip behavior for unselected values.
 pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, sonic_rs::Error> {
@@ -98,6 +142,44 @@ pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, soni
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn index_projection_keeps_full_parse_errors_and_precise_selected_values() {
+        // Match the stack budget used by Sonic's existing deep-input tests.
+        std::thread::Builder::new()
+            .stack_size(16 * 1024 * 1024)
+            .spawn(|| {
+                let raw = r#"{"score":1,"ignored":{"huge":1e500},"sc\u006fre":9007199254740993}"#;
+                assert_eq!(
+                    index_field(raw, "score").unwrap()["score"],
+                    parse(raw).unwrap()["score"]
+                );
+                for raw in [
+                    r#"{"score":1,"ignored":"\x"}"#,
+                    r#"{"score":1,"ignored":[1,]}"#,
+                ] {
+                    assert!(parse(raw).is_err());
+                    assert!(index_field(raw, "score").is_err());
+                }
+                for depth in [120, 126, 127, 128, 130] {
+                    let raw = format!(
+                        "{{\"score\":1,\"ignored\":{}0{}}}",
+                        "[".repeat(depth),
+                        "]".repeat(depth)
+                    );
+                    assert_eq!(
+                        index_field(&raw, "score").is_ok(),
+                        parse(&raw).is_ok(),
+                        "{depth}"
+                    );
+                }
+                let raw = r#"[{"score":1},{"score":2}]"#;
+                assert_eq!(index_field(raw, "score").unwrap(), parse(raw).unwrap());
+            })
+            .unwrap()
+            .join()
+            .unwrap();
+    }
 
     #[test]
     fn full_values_preserve_numbers_and_existing_serialization() {

@@ -59,20 +59,23 @@ The schema-independent JSON subset is now implemented as `JsonFilter` and
 all registered collections or an explicit collection scope without UI field
 restrictions. [filters.md](filters.md) defines the current semantics, parameterized
 SQL implementation, and limits. Metadata/application fields, relation traversal,
-grouping, and general index selection remain later stages.
+and grouping remain later stages. Configured scalar comparisons now use JSON
+expression indexes; adaptive index selection remains deferred.
 
 The filter expression is deliberately PocketBase-like. Its MVP subset is:
 
 | Construct | Meaning |
 | --- | --- |
 | `field = value`, `!=`, `<`, `<=`, `>`, `>=` | Typed scalar comparisons without implicit string/number coercion |
-| `field ~ value`, `!~` | Case-insensitive literal substring match and its negation on strings; no SQL wildcards or regex in this mode |
+| `field ~ value`, `!~` | PocketBase-style LIKE matching on strings: `%`/`_` patterns, escaping, literal substring fallback, ASCII case handling |
 | `field ?= value`, `?!=`, `?<`, `?<=`, `?>`, `?>=`, `?~`, `?!~` | At least one value reached through an array path satisfies the corresponding comparison |
 | `&&`, `||`, parentheses | Boolean conjunction, disjunction, and grouping |
 | `exists(field)` | Distinguish a missing field from a field whose stored value is `null` |
 | `$parameter` | A typed value bound by the caller, never inserted into expression text |
+| `start < end` | Field-to-field comparisons |
+| `field:length`, `field:each`, `field:lower` | Array length, every-item comparison, ASCII lowercase |
 
-Field paths use dot notation for ordinary JSON object keys; bracket-quoted keys address names containing dots or other punctuation. Paths can traverse nested objects and arrays. Unprefixed paths refer to stored record data; the planned `@id` and `@path` operands will refer to source identity. A scalar comparison on a path that yields multiple values is an error: the `?` form must be used. An empty array never satisfies a `?` comparison. Missing fields match no comparison, including `!=`; explicit JSON `null` matches `= null` and does not match `!= null`. Type-incompatible ordered comparisons do not match. The exact case-folding algorithm and sort collation must be pinned and tested so results do not depend on the execution engine. These semantics are **Objekte's subset**, not a claim of PocketBase syntax compatibility; PocketBase applies different default behavior to array-like paths.
+Field paths use dot notation for ordinary JSON object keys; bracket-quoted keys address names containing dots or other punctuation. Paths can traverse nested objects and arrays. Unprefixed paths refer to stored record data; the planned `@id` and `@path` operands will refer to source identity. A scalar comparison on a path that yields multiple values is an error: the `?` form or explicit `:each` modifier must be used. An empty array never satisfies a `?` comparison. Missing fields match no comparison, including `!=`; explicit JSON `null` matches `= null` and does not match `!= null`. Type-incompatible ordered comparisons do not match. The exact case-folding algorithm and sort collation must be pinned and tested so results do not depend on the execution engine. These semantics are **Objekte's subset**, not a claim of PocketBase syntax compatibility; PocketBase applies different default behavior to array-like paths.
 
 The `?` prefix means **any**: `tags ?!= "poet"` is true when at least one tag differs from `"poet"`, which is not the same as saying that no tag equals `"poet"`. The implementation must test this distinction.
 
@@ -111,7 +114,7 @@ Loading repository metadata reads configuration and schemas; it does **not** loa
 
 The library resolves each collection's effective UI options into its default list view. It maps `list.defaultSort` to a stored field or source identity; `_label` resolves through the configured display field and fallback rule. Configured columns determine fields to return. `list.filters` identifies available filter controls; only an active filter value becomes a query predicate. An absent default sort falls back to deterministic ID order. Saved views use the same query specification, and ad hoc requests can override its parameters without changing the underlying UI configuration. JSON Schema supplies field types and declared `x-relation` targets; it does not dictate list layout or indexes. The library validates paths and types and never infers a relation merely from a matching field name or ID-like value.
 
-Initially the library derives indexed fields deterministically from identity, available filter controls, default sort, and the UI's explicit `list.sortable` fields, using schema types. Columns alone do not create indexes. There is no workload or frequency heuristic. Treat these indexes as adequate for the initial supported views; record real timings without adding query-specific caches or optimizer work yet. Indexed values may be typed derived columns or expression indexes over JSONB; the library records their source paths, types, collation, missing/null treatment, and semantics version. Direct and indexed execution must return the same complete ordered result. Record relationships use derived edges with indexes in both directions. Richer query-specific caches and adaptive optimization can follow later.
+Initially the library derives indexed fields deterministically from identity, available filter controls, default sort, and the UI's explicit `list.sortable` fields, using schema types. Columns alone do not create indexes. There is no workload or frequency heuristic. Treat these indexes as adequate for the initial supported views; record real timings without adding query-specific caches or optimizer work yet. Indexes are expression indexes over raw cached JSON, without extra stored field columns; the library records their source paths, types, collation, missing/null treatment, and semantics version. Direct and indexed execution must return the same complete ordered result. Record relationships use derived edges with indexes in both directions. Richer query-specific caches and adaptive optimization can follow later.
 
 The direct Rust executor compiles filters and field paths once per view. It extracts the fields and relation IDs that the view needs into compact runtime-selected projections, retains source identity, and streams when the operation allows it. Sorting retains compact keys and IDs; grouping retains group state. A new view may request any configured JSON field, so a projection for an earlier view cannot restrict what later views can query.
 
@@ -122,7 +125,7 @@ After the initial indexed-view implementation, in-process reuse can add two boun
 
 This key-value style reuse accelerates repeated views without a disk cache. It does not make an unseen filter or sort instant: a new global view still needs a scan or an index. Cache admission and eviction affect speed only, never results.
 
-**SQLite is the selected optional disk accelerator for configured views.** Initially keep one disposable database per repository in an application data directory supplied by the caller. The CLI chooses the OS application directory; tests supply temporary directories and select cache options through the same API. A cache row contains collection, ID, source path/revision, and complete JSONB data; a source manifest stores path, ID, file stamps, and a content digest. Indexed fields and relation edges are derived from those records. The library selects only the fields the result needs and supports direct source execution when caching is disabled or unavailable. Query semantics must match between the paths. Do not make SQLite a mandatory metadata-loading step or store original edits in it.
+**SQLite is the selected optional disk accelerator for configured views.** Initially keep one disposable database per repository in an application data directory supplied by the caller. The CLI chooses the OS application directory; tests supply temporary directories and select cache options through the same API. A cache row contains collection, ID, source path/revision, and complete raw JSON bytes; a source manifest stores path, ID, file stamps, and a content digest. Indexed fields and relation edges are derived from those records. The library selects only the fields the result needs and supports direct source execution when caching is disabled or unavailable. Query semantics must match between the paths. Do not make SQLite a mandatory metadata-loading step or store original edits in it.
 
 ### Library-owned cache lifecycle
 

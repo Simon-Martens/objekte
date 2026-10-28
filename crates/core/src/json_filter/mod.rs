@@ -1,6 +1,8 @@
 //! Schema-independent filters. SQL composition follows dbx's expression/bindings
 //! separation; semantics belong here, not to SQLite's implicit type conversions.
+pub(crate) mod indexes;
 mod parser;
+mod pattern;
 mod sql;
 
 use crate::{Error, Metrics, Record, Result, config::fingerprint};
@@ -23,7 +25,7 @@ pub enum JsonPathStep {
 }
 pub type JsonPath = Vec<JsonPathStep>;
 
-#[derive(Debug, Clone, Copy, Serialize)]
+#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 enum Op {
     Eq,
     Ne,
@@ -34,16 +36,62 @@ enum Op {
     Contains,
     NotContains,
 }
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+enum Modifier {
+    Length,
+    Each,
+    Lower,
+}
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+pub(crate) struct FieldOperand {
+    path: JsonPath,
+    modifier: Option<Modifier>,
+}
+#[derive(Debug, Clone, Serialize, Deserialize)]
+enum Operand {
+    Field(FieldOperand),
+    Literal(Value),
+}
+impl Operand {
+    fn each(&self) -> bool {
+        matches!(
+            self,
+            Self::Field(FieldOperand {
+                modifier: Some(Modifier::Each),
+                ..
+            })
+        )
+    }
+    fn select(&self, doc: &Value) -> Vec<Value> {
+        match self {
+            Self::Literal(v) => vec![v.clone()],
+            Self::Field(f) => f.select(doc),
+        }
+    }
+}
+impl FieldOperand {
+    fn select(&self, doc: &Value) -> Vec<Value> {
+        let selected = values(doc, &self.path, self.modifier != Some(Modifier::Length));
+        selected
+            .into_iter()
+            .filter_map(|v| match self.modifier {
+                Some(Modifier::Length) => v.as_array().map(|a| Value::from(a.len())),
+                Some(Modifier::Lower) => v.as_str().map(|s| Value::String(s.to_ascii_lowercase())),
+                _ => Some(v.clone()),
+            })
+            .collect()
+    }
+}
 #[derive(Debug, Clone, Serialize)]
 enum Expr {
     And(Vec<Expr>),
     Or(Vec<Expr>),
     Exists(JsonPath),
     Compare {
-        path: JsonPath,
+        left: Operand,
         op: Op,
         any: bool,
-        value: Value,
+        right: Operand,
     },
 }
 
@@ -52,7 +100,7 @@ enum Expr {
 pub struct JsonFilter {
     expr: Expr,
     paths: Vec<JsonPath>,
-    scalar_paths: Vec<JsonPath>,
+    scalar_paths: Vec<FieldOperand>,
     hash: String,
 }
 impl JsonFilter {
@@ -60,7 +108,7 @@ impl JsonFilter {
         let expr = parser::parse(text, parameters)?;
         let mut paths = BTreeSet::new();
         let mut scalar_paths = BTreeSet::new();
-        fn visit(e: &Expr, paths: &mut BTreeSet<JsonPath>, scalar: &mut BTreeSet<JsonPath>) {
+        fn visit(e: &Expr, paths: &mut BTreeSet<JsonPath>, scalar: &mut BTreeSet<FieldOperand>) {
             match e {
                 Expr::And(es) | Expr::Or(es) => {
                     for e in es {
@@ -70,16 +118,22 @@ impl JsonFilter {
                 Expr::Exists(p) => {
                     paths.insert(p.clone());
                 }
-                Expr::Compare { path, any, .. } => {
-                    paths.insert(path.clone());
-                    if !any {
-                        scalar.insert(path.clone());
+                Expr::Compare {
+                    left, right, any, ..
+                } => {
+                    for operand in [left, right] {
+                        if let Operand::Field(field) = operand {
+                            paths.insert(field.path.clone());
+                            if !any && !operand.each() {
+                                scalar.insert(field.clone());
+                            }
+                        }
                     }
                 }
             }
         }
         visit(&expr, &mut paths, &mut scalar_paths);
-        let hash = fingerprint("json-filter/v1", &(&expr, caseless::UNICODE_VERSION));
+        let hash = fingerprint("json-filter/v2", &expr);
         Ok(Self {
             expr,
             paths: paths.into_iter().collect(),
@@ -102,10 +156,24 @@ impl JsonFilter {
                 Expr::Or(es) => es.iter().any(|e| evaluate(e, doc)),
                 Expr::Exists(p) => !values(doc, p, false).is_empty(),
                 Expr::Compare {
-                    path, op, value, ..
-                } => values(doc, path, true)
-                    .iter()
-                    .any(|v| compare(v, *op, value)),
+                    left,
+                    op,
+                    any,
+                    right,
+                } => {
+                    let a = left.select(doc);
+                    let b = right.select(doc);
+                    if a.is_empty() || b.is_empty() {
+                        return false;
+                    }
+                    let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
+                    let test = |(a, b)| compare(a, *op, b, matches!(right, Operand::Field(_)));
+                    if !any && (left.each() || right.each()) {
+                        pairs.all(test)
+                    } else {
+                        pairs.any(test)
+                    }
+                }
             }
         }
         Ok(evaluate(&self.expr, value))
@@ -201,12 +269,12 @@ fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a V
     visit(doc, path, flatten, &mut out);
     out
 }
-fn check_paths(doc: &Value, paths: &[JsonPath]) -> Result<()> {
+fn check_paths(doc: &Value, paths: &[FieldOperand]) -> Result<()> {
     for path in paths {
-        if values(doc, path, true).len() > 1 {
+        if path.select(doc).len() > 1 {
             return Err(Error::Request(format!(
-                "path {} yields multiple values; use a '?' comparison",
-                serde_json::to_string(path).unwrap()
+                "path {} yields multiple values; use a '?' comparison or :each",
+                serde_json::to_string(&path.path).unwrap()
             )));
         }
     }
@@ -221,13 +289,15 @@ fn kind(value: &Value) -> &'static str {
         _ => "container",
     }
 }
-fn compare(left: &Value, op: Op, right: &Value) -> bool {
-    if kind(left) == "container" {
+fn compare(left: &Value, op: Op, right: &Value, right_field: bool) -> bool {
+    if kind(left) == "container" || kind(right) == "container" {
         return false;
     }
     if matches!(op, Op::Contains | Op::NotContains) {
         return match (left.as_str(), right.as_str()) {
-            (Some(a), Some(b)) => contains(a, b) == matches!(op, Op::Contains),
+            (Some(a), Some(b)) => {
+                pattern::Like::new(b, right_field).matches(a) == matches!(op, Op::Contains)
+            }
             _ => false,
         };
     }
@@ -247,9 +317,6 @@ fn compare(left: &Value, op: Op, right: &Value) -> bool {
         Op::Ge => matches!(ordering, Some(Ordering::Greater | Ordering::Equal)),
         _ => unreachable!(),
     }
-}
-fn contains(a: &str, b: &str) -> bool {
-    caseless::default_case_fold_str(a).contains(&caseless::default_case_fold_str(b))
 }
 
 /// Compare decimal JSON number lexemes without conversion to floating point or

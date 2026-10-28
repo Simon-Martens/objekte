@@ -106,7 +106,7 @@ impl Parser<'_> {
             }
             self.pos = saved;
         }
-        let path = self.path()?;
+        let left = self.operand()?;
         let any = self.take("?");
         let op = [
             ("!=", Op::Ne),
@@ -124,18 +124,19 @@ impl Parser<'_> {
         let Some(op) = op else {
             return self.error("expected comparison operator");
         };
-        let value = self.value()?;
-        if matches!(value, Value::Array(_) | Value::Object(_)) {
-            return self.error("comparison value must be a JSON scalar");
-        }
-        if matches!(op, Op::Contains | Op::NotContains) && !value.is_string() {
-            return self.error("substring comparison requires a string");
+        let right = self.operand()?;
+        for operand in [&left, &right] {
+            if matches!(op, Op::Contains | Op::NotContains)
+                && matches!(operand, Operand::Literal(v) if !v.is_string())
+            {
+                return self.error("pattern comparison requires strings");
+            }
         }
         Ok(Expr::Compare {
-            path,
+            left,
             op,
             any,
-            value,
+            right,
         })
     }
     fn ident(&mut self) -> Result<String> {
@@ -225,28 +226,67 @@ impl Parser<'_> {
             .map_err(|e| Error::Request(format!("filter at byte {}: {e}", self.pos)))?;
         Ok(value.as_str().unwrap().into())
     }
-    fn value(&mut self) -> Result<Value> {
+    fn operand(&mut self) -> Result<Operand> {
         self.ws();
         if self.take("$") {
             let key = self.ident()?;
-            return self
+            let value = self
                 .parameters
                 .get(&key)
                 .cloned()
-                .ok_or_else(|| Error::Request(format!("missing filter parameter ${key}")));
+                .ok_or_else(|| Error::Request(format!("missing filter parameter ${key}")))?;
+            return self.literal(value);
         }
         if matches!(self.peek(), Some('\'' | '"')) {
-            return self.string().map(Value::String);
+            return self.string().map(|s| Operand::Literal(Value::String(s)));
+        }
+        for (literal, value) in [
+            ("true", Value::Bool(true)),
+            ("false", Value::Bool(false)),
+            ("null", Value::Null),
+        ] {
+            if self.text[self.pos..].starts_with(literal)
+                && self.text[self.pos + literal.len()..]
+                    .chars()
+                    .next()
+                    .is_none_or(|c| !c.is_alphanumeric() && !matches!(c, '_' | '.' | '[' | ':'))
+            {
+                self.pos += literal.len();
+                return Ok(Operand::Literal(value));
+            }
+        }
+        if self
+            .peek()
+            .is_some_and(|c| c == '[' || c == '_' || c.is_alphabetic())
+        {
+            let path = self.path()?;
+            let modifier = if self.take(":") {
+                Some(match self.ident()?.as_str() {
+                    "length" => Modifier::Length,
+                    "each" => Modifier::Each,
+                    "lower" => Modifier::Lower,
+                    _ => return self.error("unknown modifier; expected :length, :each, or :lower"),
+                })
+            } else {
+                None
+            };
+            return Ok(Operand::Field(FieldOperand { path, modifier }));
         }
         let start = self.pos;
-        while self
-            .peek()
-            .is_some_and(|c| !c.is_whitespace() && !matches!(c, ')' | '&' | '|'))
-        {
+        while self.peek().is_some_and(|c| {
+            !c.is_whitespace() && !matches!(c, ')' | '&' | '|' | '<' | '>' | '=' | '!' | '~' | '?')
+        }) {
             self.bump();
         }
         let raw = &self.text[start..self.pos];
         let value = crate::json::parse(raw).map_err(|_| Error::Request(format!("filter at byte {start}: expected quoted string, number, true, false, null, or $parameter")))?;
-        Ok(value)
+        self.literal(value)
+    }
+    fn literal(&self, value: Value) -> Result<Operand> {
+        if matches!(value, Value::Array(_) | Value::Object(_)) {
+            self.error("comparison value must be a JSON scalar")
+        } else {
+            Ok(Operand::Literal(value))
+        }
     }
 }

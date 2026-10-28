@@ -5,89 +5,165 @@ use rusqlite::{
 };
 use std::sync::{Arc, Mutex};
 
-type CachedDocument = Arc<Mutex<Option<(String, Arc<Value>)>>>;
-fn failure(error: impl std::fmt::Display) -> rusqlite::Error {
+type CachedDocument = Arc<Mutex<Option<(Vec<u8>, Option<Arc<Value>>)>>>;
+pub(super) fn failure(error: impl std::fmt::Display) -> rusqlite::Error {
     rusqlite::Error::UserFunctionError(Box::new(std::io::Error::other(error.to_string())))
 }
-fn document(ctx: &Context<'_>, cache: &CachedDocument) -> rusqlite::Result<Arc<Value>> {
-    let hash = ctx.get_raw(1).as_str()?;
+fn document(ctx: &Context<'_>, cache: &CachedDocument) -> rusqlite::Result<Option<Arc<Value>>> {
+    let bytes = ctx.get_raw(0).as_bytes()?;
     let mut cached = cache.lock().map_err(failure)?;
     if let Some((previous, value)) = cached.as_ref()
-        && previous == hash
+        && previous == bytes
     {
         return Ok(value.clone());
     }
-    let bytes = ctx.get_raw(0).as_bytes()?;
-    let text = std::str::from_utf8(bytes).map_err(failure)?;
-    let value = Arc::new(crate::json::parse(text).map_err(failure)?);
-    *cached = Some((hash.into(), value.clone()));
+    let value = std::str::from_utf8(bytes)
+        .ok()
+        .and_then(|s| crate::json::parse(s).ok())
+        .map(Arc::new);
+    *cached = Some((bytes.to_vec(), value.clone()));
     Ok(value)
 }
-
-/// Installed for each SQL query. At most one decoded document is shared between
-/// path functions while scanning; no persistent JSON copy or result cache is built.
+fn envelope(v: &Value) -> Value {
+    let text = match v {
+        Value::String(s) => s.clone(),
+        Value::Number(n) => n.to_string(),
+        Value::Bool(b) => b.to_string(),
+        _ => String::new(),
+    };
+    serde_json::json!({"kind":kind(v), "value":text})
+}
 pub(crate) fn register(db: &Connection) -> Result<()> {
-    let flags = FunctionFlags::SQLITE_UTF8 | FunctionFlags::SQLITE_DETERMINISTIC;
+    let flags = FunctionFlags::SQLITE_UTF8
+        | FunctionFlags::SQLITE_DETERMINISTIC
+        | FunctionFlags::SQLITE_INNOCUOUS;
     let cache: CachedDocument = Arc::new(Mutex::new(None));
     let checks = cache.clone();
     db.create_scalar_function("objekte_check_paths", 3, flags, move |ctx| {
         let doc = document(ctx, &checks)?;
-        let paths = ctx.get_or_create_aux(2, |v| -> rusqlite::Result<Vec<JsonPath>> {
+        let paths = ctx.get_or_create_aux(2, |v| -> rusqlite::Result<Vec<FieldOperand>> {
             serde_json::from_str(v.as_str()?).map_err(failure)
         })?;
-        check_paths(&doc, &paths).map_err(failure)?;
+        if let Some(doc) = doc {
+            check_paths(&doc, &paths).map_err(failure)?;
+        }
         Ok(true)
     })?;
     db.create_scalar_function("objekte_values", 4, flags, move |ctx| {
         let doc = document(ctx, &cache)?;
-        let path = ctx.get_or_create_aux(2, |v| -> rusqlite::Result<JsonPath> {
+        let operand = ctx.get_or_create_aux(2, |v| -> rusqlite::Result<Operand> {
             serde_json::from_str(v.as_str()?).map_err(failure)
         })?;
         let flatten = ctx.get::<bool>(3)?;
-        let selected = values(&doc, &path, flatten)
-            .into_iter()
-            .map(|v| {
-                // Keep number lexemes as text and boolean tags separate from integers.
-                // SQLite's numeric JSON extraction would round some valid JSON values.
-                let value = match v {
-                    Value::String(s) => s.clone(),
-                    Value::Number(n) => n.to_string(),
-                    Value::Bool(b) => b.to_string(),
-                    _ => String::new(),
-                };
-                serde_json::json!({"kind":kind(v), "value":value})
+        let selected = doc
+            .map(|doc| {
+                if !flatten && let Operand::Field(f) = &*operand {
+                    values(&doc, &f.path, false)
+                        .into_iter()
+                        .map(envelope)
+                        .collect::<Vec<_>>()
+                } else {
+                    operand.select(&doc).iter().map(envelope).collect()
+                }
             })
-            .collect::<Vec<_>>();
+            .unwrap_or_default();
         serde_json::to_string(&selected).map_err(failure)
     })?;
     db.create_scalar_function("objekte_decimal_cmp", 2, flags, |ctx| {
-        let a = ctx.get_raw(0).as_str()?;
-        let b = ctx.get_raw(1).as_str()?;
-        // Only validated number lexemes reach this function from generated SQL.
-        Ok(match decimal_cmp(a, b) {
-            Ordering::Less => -1,
-            Ordering::Equal => 0,
-            Ordering::Greater => 1,
-        })
+        Ok(
+            match decimal_cmp(ctx.get_raw(0).as_str()?, ctx.get_raw(1).as_str()?) {
+                Ordering::Less => -1,
+                Ordering::Equal => 0,
+                Ordering::Greater => 1,
+            },
+        )
     })?;
-    db.create_scalar_function("objekte_contains", 2, flags, |ctx| {
-        let needle = ctx.get_or_create_aux(1, |v| -> rusqlite::Result<String> {
-            Ok(caseless::default_case_fold_str(v.as_str()?))
+    db.create_scalar_function("objekte_like", 3, flags, |ctx| {
+        let field = ctx.get::<bool>(2)?;
+        let pattern = ctx.get_or_create_aux(1, |v| -> rusqlite::Result<pattern::Like> {
+            Ok(pattern::Like::new(v.as_str()?, field))
         })?;
-        Ok(caseless::default_case_fold_str(ctx.get_raw(0).as_str()?).contains(needle.as_str()))
+        Ok(pattern.matches(ctx.get_raw(0).as_str()?))
     })?;
     Ok(())
 }
-
-impl JsonFilter {
-    /// The predicate is compiled over aliases r (records) and h (record_validation).
-    /// Values and paths are always bindings; no filter text becomes SQL syntax.
-    pub(crate) fn sql(&self) -> (String, Vec<String>) {
-        fn bind(bindings: &mut Vec<String>, value: String) -> String {
-            bindings.push(value);
-            format!("?{}", bindings.len())
+fn bind(bindings: &mut Vec<String>, value: String) -> String {
+    bindings.push(value);
+    format!("?{}", bindings.len())
+}
+fn selected(operand: &Operand, flatten: bool, bindings: &mut Vec<String>) -> String {
+    match operand {
+        Operand::Literal(v) => {
+            let e = envelope(v);
+            let value = bind(bindings, e["value"].as_str().unwrap().to_owned());
+            format!(
+                "json_array(json_object('kind','{}','value',{value}))",
+                kind(v)
+            )
         }
-        fn expr(e: &Expr, bindings: &mut Vec<String>) -> String {
+        Operand::Field(_) => {
+            let p = bind(bindings, serde_json::to_string(operand).unwrap());
+            format!("objekte_values(r.json,r.digest,{p},{})", u8::from(flatten))
+        }
+    }
+}
+fn indexed_comparison(
+    left: &Operand,
+    op: Op,
+    right: &Operand,
+    c: &crate::Collection,
+    bindings: &mut Vec<String>,
+) -> Option<String> {
+    let (field, op, value) = match (left, right) {
+        (Operand::Field(f), Operand::Literal(v)) => (f, op, v),
+        (Operand::Literal(v), Operand::Field(f)) => (
+            f,
+            match op {
+                Op::Lt => Op::Gt,
+                Op::Le => Op::Ge,
+                Op::Gt => Op::Lt,
+                Op::Ge => Op::Le,
+                op => op,
+            },
+            v,
+        ),
+        _ => return None,
+    };
+    if !indexes::indexed(c, field) || matches!(op, Op::Contains | Op::NotContains) {
+        return None;
+    }
+    let key = indexes::key_expr("r", field);
+    if matches!(op, Op::Eq) {
+        return Some(format!("{key}={}", bind(bindings, indexes::key(value))));
+    }
+    if matches!(op, Op::Ne) {
+        let rhs = bind(bindings, indexes::key(value));
+        return Some(format!(
+            "(({key}>='B' AND {key}<'C') OR ({key}>='N' AND {key}<'O') OR ({key}>='S' AND {key}<'T') OR {key}='Z') AND {key}<>{rhs}"
+        ));
+    }
+    let (lower, upper) = match value {
+        Value::Number(_) => ('N', 'O'),
+        Value::String(_) => ('S', 'T'),
+        _ => return Some("0".into()),
+    };
+    let op = match op {
+        Op::Lt => "<",
+        Op::Le => "<=",
+        Op::Gt => ">",
+        Op::Ge => ">=",
+        _ => unreachable!(),
+    };
+    let rhs = bind(bindings, indexes::key(value));
+    Some(format!(
+        "{key}>='{lower}' AND {key}<'{upper}' AND {key}{op}{rhs}"
+    ))
+}
+impl JsonFilter {
+    /// Indexed paths are compiler-escaped SQL literals so SQLite can recognize
+    /// expression indexes. All comparison values remain bound parameters.
+    pub(crate) fn sql(&self, c: &crate::Collection, bindings: &mut Vec<String>) -> String {
+        fn expr(e: &Expr, c: &crate::Collection, bindings: &mut Vec<String>) -> String {
             match e {
                 Expr::And(es) | Expr::Or(es) => {
                     let join = if matches!(e, Expr::And(_)) {
@@ -98,56 +174,53 @@ impl JsonFilter {
                     format!(
                         "({})",
                         es.iter()
-                            .map(|e| expr(e, bindings))
+                            .map(|e| format!("({})", expr(e, c, bindings)))
                             .collect::<Vec<_>>()
                             .join(join)
                     )
                 }
                 Expr::Exists(path) => {
-                    let p = bind(bindings, serde_json::to_string(path).unwrap());
-                    format!(
-                        "EXISTS (SELECT 1 FROM json_each(objekte_values(r.json,r.digest,{p},0)))"
-                    )
+                    let selection = selected(
+                        &Operand::Field(FieldOperand {
+                            path: path.clone(),
+                            modifier: None,
+                        }),
+                        false,
+                        bindings,
+                    );
+                    format!("EXISTS (SELECT 1 FROM json_each({selection}))")
                 }
                 Expr::Compare {
-                    path, op, value, ..
+                    left,
+                    op,
+                    any,
+                    right,
                 } => {
-                    let p = bind(bindings, serde_json::to_string(path).unwrap());
-                    let rhs_kind = kind(value);
-                    let rhs = bind(
-                        bindings,
-                        match value {
-                            Value::String(s) => s.clone(),
-                            _ => value.to_string(),
-                        },
+                    if !any && let Some(sql) = indexed_comparison(left, *op, right, c, bindings) {
+                        return sql;
+                    }
+                    let a = selected(left, true, bindings);
+                    let b = selected(right, true, bindings);
+                    let ak = "json_extract(a.value,'$.kind')";
+                    let av = "json_extract(a.value,'$.value')";
+                    let bk = "json_extract(b.value,'$.kind')";
+                    let bv = "json_extract(b.value,'$.value')";
+                    let equal = format!(
+                        "CASE WHEN {ak}<>{bk} OR {ak}='container' THEN 0 WHEN {ak}='number' THEN objekte_decimal_cmp({av},{bv})=0 ELSE {av}={bv} COLLATE BINARY END"
                     );
-                    let k = "json_extract(f.value,'$.kind')";
-                    let v = "json_extract(f.value,'$.value')";
-                    let cmp = if rhs_kind == "number" {
-                        format!("objekte_decimal_cmp({v},{rhs})")
-                    } else {
-                        String::new()
-                    };
-                    let eq = match rhs_kind {
-                        "null" => format!("{rhs}='null'"),
-                        "number" => format!("{cmp}=0"),
-                        _ => format!("{v}={rhs} COLLATE BINARY"),
-                    };
-                    let equal = format!("CASE WHEN {k}='{rhs_kind}' THEN {eq} ELSE 0 END");
                     let predicate = match op {
                         Op::Eq => equal,
-                        Op::Ne => format!("{k}<>'container' AND NOT ({equal})"),
+                        Op::Ne => {
+                            format!("{ak}<>'container' AND {bk}<>'container' AND NOT ({equal})")
+                        }
                         Op::Contains | Op::NotContains => {
-                            let cmp = if matches!(op, Op::Contains) {
-                                "<>"
-                            } else {
-                                "="
-                            };
+                            let yes = u8::from(matches!(op, Op::Contains));
+                            let field = u8::from(matches!(right, Operand::Field(_)));
                             format!(
-                                "CASE WHEN {k}='string' THEN objekte_contains({v},{rhs}){cmp}0 ELSE 0 END"
+                                "CASE WHEN {ak}='string' AND {bk}='string' THEN objekte_like({av},{bv},{field})={yes} ELSE 0 END"
                             )
                         }
-                        _ if matches!(rhs_kind, "number" | "string") => {
+                        _ => {
                             let op = match op {
                                 Op::Lt => "<",
                                 Op::Le => "<=",
@@ -155,28 +228,20 @@ impl JsonFilter {
                                 Op::Ge => ">=",
                                 _ => unreachable!(),
                             };
-                            let comparison = if rhs_kind == "number" {
-                                format!("{cmp}{op}0")
-                            } else {
-                                format!("{v}{op}{rhs} COLLATE BINARY")
-                            };
-                            format!("CASE WHEN {k}='{rhs_kind}' THEN {comparison} ELSE 0 END")
+                            format!(
+                                "CASE WHEN {ak}<>{bk} THEN 0 WHEN {ak}='number' THEN objekte_decimal_cmp({av},{bv}){op}0 WHEN {ak}='string' THEN {av}{op}{bv} COLLATE BINARY ELSE 0 END"
+                            )
                         }
-                        _ => format!("CASE WHEN {rhs} IS NULL THEN 0 ELSE 0 END"),
                     };
-                    format!(
-                        "EXISTS (SELECT 1 FROM json_each(objekte_values(r.json,r.digest,{p},1)) f WHERE {predicate})"
-                    )
+                    let from = format!("json_each({a}) a CROSS JOIN json_each({b}) b");
+                    if !any && (left.each() || right.each()) {
+                        format!("COALESCE((SELECT min({predicate}) FROM {from}),0)")
+                    } else {
+                        format!("EXISTS (SELECT 1 FROM {from} WHERE {predicate})")
+                    }
                 }
             }
         }
-        let mut bindings = vec![serde_json::to_string(&self.scalar_paths).unwrap()];
-        let predicate = expr(&self.expr, &mut bindings);
-        (
-            format!(
-                "CASE WHEN h.parse_status='parsed' THEN CASE WHEN objekte_check_paths(r.json,r.digest,?1) THEN {predicate} ELSE 0 END ELSE 0 END"
-            ),
-            bindings,
-        )
+        expr(&self.expr, c, bindings)
     }
 }

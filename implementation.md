@@ -306,9 +306,9 @@ Expose forward/backward relationships and their coverage through CLI inspection.
 
 ### Stage E — Indexed default views and table output
 
-Materialize typed scalar index values from `IndexSpec`; keep full source JSON text
-in the record cache. The first implementation uses materialized typed key tables
-and fetches record payloads only after choosing the requested page. Sonic-rs
+Create SQLite expression indexes from `IndexSpec` over the raw JSON in `records`;
+there are no additional stored field columns or per-collection value tables.
+Fetch record payloads only after choosing the requested page. Sonic-rs
 decodes the requested columns and label from each page record while skipping
 unselected payloads; separate persistent query projections remain later work.
 Full source/schema parsing also uses Sonic, adapting raw numeric values into the
@@ -316,7 +316,7 @@ existing validation/API representation without a floating-point conversion. Pres
 last-member-wins duplicate keys and the existing fingerprint serialization.
 Create ID, filter, default-sort, and sortable-field indexes when
 the collection's view is first requested. Store an index-spec fingerprint. Update
-typed values with changed rows; SQLite maintains the corresponding indexes.
+the raw JSON with changed rows; SQLite maintains the corresponding index keys.
 
 Use deterministic index construction. Start with `(field state, typed value, ID)`
 keys for configured scalar fields and the default order. Equality filter plus
@@ -494,10 +494,12 @@ validation rather than retaining all parsed documents in memory. It never reread
 source files just to validate them. Separate timers report this extra decode work.
 
 See [validation.md](validation.md) for states, index/reference behavior, exact DB
-schema, API notifications and recovery semantics. Cache format 4 rebuilds old caches;
-there is no deployed-data migration framework yet. The next ingestion tasks remain:
-eliminate digest lookups already answered by the manifest, and prepare collection-
-specific typed writes once.
+schema, API notifications and recovery semantics. Cache format 5 rebuilds old caches
+and replaces materialized fields with JSON expression indexes; there is no deployed-data
+migration framework yet. The next ingestion task is to eliminate digest lookups
+already answered by the manifest. Separate typed-table writes have been removed; SQLite maintains JSON
+expression indexes. Query comparisons on configured scalar fields use these indexes.
+The filter grammar also supports field operands, :length/:each/:lower, and LIKE patterns.
 
 Implemented command surface:
 

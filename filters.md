@@ -1,8 +1,8 @@
 # General JSON filters
 
-Implemented by `objekte-core`, independently of collection schema fields, UI filter
-controls, and existing typed view indexes. The same expression works on different
-collection shapes and on standalone JSON values.
+Implemented by `objekte-core`, independently of collection schema fields and UI
+filter controls. Configured fields have SQLite expression indexes on raw JSON.
+The same expression works on different collection shapes and standalone JSON values.
 
 ```sh
 # All currently registered collections
@@ -38,16 +38,22 @@ line. `--diagnostics` logs foreground/background metrics to stderr.
 | `field = value`, `==` | Equality using the actual JSON type; both spellings are accepted |
 | `!=` | Scalar inequality; different scalar types are unequal |
 | `<`, `<=`, `>`, `>=` | Number-to-number or string-to-string ordering only |
-| `~`, `!~` | Literal case-insensitive substring match or its negation, on strings only |
+| `~`, `!~` | PocketBase-style LIKE patterns or their negation, on strings only |
 | `?=`, `?!=`, `?<`, `?<=`, `?>`, `?>=`, `?~`, `?!~` | Any reached value satisfies the scalar comparison |
 | `&&`, `||`, `(...)` | AND, OR, grouping; AND binds more tightly than OR |
 | `exists(path)` | At least one value exists at the path, including null/objects/empty arrays |
 | `$name` | Typed scalar parameter provided separately from the expression |
+| `start < end` | Field-to-field comparison with strict JSON types on both sides |
+| `tags:length` | Number of immediate items in an array; other types yield no value |
+| `tags:each` | Require every reached value to match; `?` changes this to any |
+| `title:lower` | ASCII lowercase on string values; other types yield no value |
 
 Strings may use single or double quotes, with backslash escapes. Numbers use JSON
 syntax, including fractions and exponents. Other literals are `true`, `false`, and
-`null`. Bare string values, field-to-field comparisons, functions other than
-`exists`, and metadata/application identifiers are not supported in this version.
+`null`. Both operands can be fields, literals, or parameters. An unquoted name on
+the right is a field reference, not a string literal. Each field operand accepts one
+modifier. Functions other than `exists`, comments, relation traversal, and
+metadata/application identifiers are not supported in this version.
 
 `"1800" = 1800` is false and `"1800" != 1800` is true. Likewise `true` differs from
 `1`. JSON has one number type: `1800`, `1800.0`, and `1.8e3` compare equal. Numeric
@@ -61,18 +67,33 @@ Paths can use `address.city`, `["a.b"]["quote\"key"]`, `authors[0].name`, and
 `authors[*].name`. A field step traversing an array visits its members, so
 `authors.name` also reaches names in an array of objects. Comparisons flatten reached
 arrays recursively. Empty arrays yield no comparison values; scalar paths yielding
-more than one value are errors and require `?`. A single reached value may use either
+more than one value are errors and require `?` or `:each`. A single reached value may use either
 form. Objects themselves are not scalar comparison operands.
 
 `tags ?!= "poet"` matches `["poet", "editor"]`: some element differs. It does not
 mean that no element equals `"poet"`. Different predicates may match different
 array elements; same-element compound quantifiers are not implemented.
 
-Substring matching uses default, full, locale-independent Unicode 16.0 case folding
-through pinned `caseless 0.2.2`; `Straße` matches `STRASSE`. There is no accent removal
-or Unicode normalization. `%`, `_`, and regex punctuation are literal characters.
-Equality and ordered string comparisons are case-sensitive UTF-8 binary comparisons.
-All rules are shared by direct Rust and SQLite execution.
+`:each` requires a nonempty selection and every comparison to succeed. When both
+operands yield multiple values, this checks every pair; the `?` form checks whether
+any pair succeeds. Unmodified scalar operands still reject multiple values, even
+inside an otherwise false branch. An array's `:length` is computed before flattening;
+`[]:length` is zero (express it through a field, since array literals are unsupported).
+
+`~`/`!~` follow PocketBase's parameter-wrapping behavior and SQLite LIKE's ASCII case
+handling. For a literal or parameter containing an unescaped `%`, `%` matches any
+sequence, `_` matches one character, and backslash escapes a pattern character. No
+implicit surrounding wildcards are added: `"Liebe%"` is a prefix pattern. Without
+an unescaped `%`, the pattern becomes a literal substring search, including a literal
+underscore; `"a_b"` searches for that exact substring. Escaped `%`, `_`, and backslash
+remain literal. Filter string escapes are decoded first, so write `"100\\%"` to
+search for a literal percent. A pattern taken from another field is always surrounded
+by `%`, matching PocketBase's field-to-field behavior.
+
+Pattern matching and `:lower` fold ASCII letters only: `ALPHA` matches `alpha`, but
+`Ä` differs from `ä`, and `Straße` differs from `STRASSE`. Equality and ordered string
+comparisons remain case-sensitive UTF-8 binary comparisons. These rules are identical
+in the direct evaluator and SQL, and LIKE behavior is checked against SQLite itself.
 
 Parseable records remain queryable even if they fail their schema, including fields
 undeclared by the schema. Malformed JSON is retained in the cache with its existing
@@ -93,44 +114,64 @@ refresh or on-request policies observe subsequent edits. Query results are not c
 Each result records all scoped collection names and their persistent revisions plus
 the referenced JSON paths. Membership depends on nonmatching records and future
 additions too. Direct execution reports names/paths without persisted revisions.
-The filter hash includes the bound expression and Unicode semantics, independently
+The filter hash includes the bound expression and comparison semantics, independently
 of pagination or collection scope; it is not a complete result-cache key.
 
 The compiler uses the separation seen in PocketBase's
 [filter compiler](https://github.com/pocketbase/pocketbase/blob/master/tools/search/filter.go)
 and [dbx expressions](https://github.com/pocketbase/dbx/blob/master/expression.go):
 expression tree first, then SQL fragments and separate bound parameters. There is
-no Go dependency or embedded user SQL. Every path and value is bound; only known
-operators and compiler-generated SQL are emitted.
+no Go dependency or embedded user SQL. Comparison values are bound. For expression-index
+matching, configured paths are
+serialized and safely escaped as SQL literals; other paths remain bindings. Only
+known operators and compiler-generated SQL are emitted.
 
-SQLite executes the grouped predicates, correlated `EXISTS` subqueries, optional
-count, and pagination over `records`/`record_validation`. Registered Rust SQL
-functions supply compatible JSON path extraction, exact decimal comparison, and
-Unicode substring matching. The path accessor decodes raw cached bytes with Sonic
-and shares at most one decoded document between predicates during the query.
-`json_each` iterates typed selected values; number lexemes remain text until the exact
-comparator consumes them. This preserves last-member-wins duplicate keys and avoids
-the numeric conversion of SQLite's native JSON extraction. Original cached bytes
-remain unchanged; there is no second persistent JSON representation.
+SQLite executes grouped predicates, field-to-field comparisons, correlated `EXISTS`
+subqueries, optional count, and pagination over `records`/`record_validation`.
+Deterministic Rust SQL functions extract JSON values with Sonic, retaining duplicate
+last-member-wins semantics and exact numeric lexemes. There are no persisted field
+columns or per-collection value tables. SQLite expression indexes operate directly
+on `records.json`, and SQLite maintains them transactionally when records change.
 
-Scalar-path cardinality is checked for every scoped parseable record, regardless of
-boolean short-circuiting or the requested page. SQLite materializes matching IDs
-before paging; it does not materialize all record payloads. This first implementation
-therefore performs a full scoped scan even when the requested page is small. Existing
-UI-derived indexes are not selected by this compiler. General index optimization,
-relation traversal, sorting overrides, grouping, metadata fields, and query-result
-caching remain later work.
+Index fields still come only from the UI/schema configuration. A view or query that
+needs them builds the configured set lazily, with statistics collected using ANALYZE.
+Unfiltered views with an exact ordering index select it explicitly, avoiding full
+sorts caused by collection-size estimates in the shared records table.
+Each configured scalar field has expression indexes for schema-aware view ordering
+(ascending/descending, null/missing/invalid states) and an actual-JSON scalar key
+index for arbitrary queries. The latter indexes strings, booleans and exact decimal
+numbers separately, even when a value violates its schema. A custom deterministic
+collation compares numeric lexemes without float conversion. These indexes have
+different semantics; they all store derived keys only inside SQLite's indexes.
+
+Plain indexed field versus scalar literal/parameter comparisons (`=`, `!=`, ordered
+comparisons, and reversed operands) compile to matching index expressions. Boolean
+combinations can mix indexed predicates with general JSON checks. Field-to-field
+comparisons, modifiers, wildcard searches, and multi-value `?` comparisons currently
+use the general evaluator; SQLite's planner decides how to combine access paths.
+No additional index or result cache is created from query history.
+
+Scalar cardinality is checked over the whole scope before pagination: indexed fields
+seek a multi-value marker in their index; other scalar paths require a JSON scan.
+This preserves errors outside the returned page and across boolean branches. JSON
+query results are assembled from matching IDs before payloads are fetched. A small
+page can therefore still require scanning unindexed paths or collecting all matches.
+Metadata fields, relation traversal, grouping, and query-result caching remain later
+work. Cache format 5 rebuilds older disposable caches once, removing the old value
+tables. External SQLite connections that run integrity checks or modify the cache
+must first call `register_cache_sqlite_functions`; library connections do this
+already. Source files remain authoritative.
 
 Filters are limited to 16 KiB, 256 atoms/groups, 32 nested groups, and 32 path steps.
-Syntax, unbound parameters, nonscalar operands, and unknown collection names fail
+Syntax, unbound parameters, nonscalar literal operands, and unknown collection names fail
 before source enumeration or cache creation. Runtime cardinality errors fail the
 query instead of silently returning a partial page.
 
 ## Verification
 
 `crates/core/tests/json_filter.rs` checks direct/SQL equivalence, independent expected
-results, generated mixed-type comparisons, exact decimals, array semantics, missing/
-null, Unicode, quoted keys, duplicate keys, SQL injection-shaped values, scope,
+results, generated mixed-type comparisons, exact decimals, modifiers, array semantics, missing/
+null, Unicode/ASCII boundaries, quoted keys, duplicate keys, SQL injection-shaped values, scope,
 restart updates, dependencies, and pagination. CLI tests exercise typed parameters,
 all-collection/scoped queries, JSON/NDJSON, and millisecond output.
 
@@ -139,6 +180,8 @@ cargo test -p objekte-core -p objekte-cli
 cargo test --release -p objekte-core --test musenalm_json_filter -- --ignored --nocapture
 ```
 
-The [Musenalm measurements](crates/bench/JSON-FILTERS-2026-10-28.md) compare three
-global workloads against source execution. These unindexed scans should not be
-confused with indexed UI-view latency.
+`expression_indexes.rs` verifies actual index seeks, absence of materialized field
+columns/tables, type and precision parity, updates/deletions, reconfiguration, and
+restarts. [The initial scan measurements](crates/bench/JSON-FILTERS-2026-10-28.md)
+precede expression-index support; see [the expression-index measurements](crates/bench/JSON-EXPRESSION-INDEXES-2026-10-29.md)
+for the current implementation.

@@ -392,7 +392,7 @@ impl RepositoryModel {
                     }
                 })
                 .collect::<Vec<_>>();
-            let index_hash = fingerprint("typed-indexes/v1", &indexes);
+            let index_hash = fingerprint("json-expression-indexes/v1", &indexes);
             let schema_hash = fingerprint("schema/v1", &raw);
             let mapping_hash = fingerprint("mapping/v1", &(&source, &c.format, &c.id));
             let label = ui.label.unwrap_or_else(|| name.clone());

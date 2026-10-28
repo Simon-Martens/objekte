@@ -63,17 +63,18 @@ an explicit directory.
 of schema declarations and UI filter controls. Use `query COLLECTION FILTER` or add
 `--collection NAME` to restrict the scope. It supports typed comparisons (`"1800"`
 differs from `1800`, `true` from `1`), `&&`/`||`, nested paths, arrays with `?`
-operators, `exists(path)`, and bound
-`--param NAME=JSON` values. SQLite executes generated parameterized SQL; `--cache
-disabled` uses the same semantics over source files. These initial arbitrary queries
-scan the scoped JSON cache; they do not use the indexed `view` path. See
+operators, field-to-field comparisons, `:length`/`:each`/`:lower`, `exists(path)`,
+and bound `--param NAME=JSON` values. SQLite executes generated parameterized SQL;
+`--cache disabled` uses the same semantics over source files. Configured scalar
+comparisons use SQLite expression indexes directly on cached JSON;
+other predicates scan their JSON values. There are no extra stored field columns. See
 [filters.md](filters.md) for syntax, dependencies, limits, and measured performance.
 
 Fresh collection caches use `CPU threads / 2` ingestion workers by default (minimum
 one). Workers read stable files, hash and parse Sonic JSON in bounded batches. One
-shared SQLite writer stores records, typed keys and reference occurrences. Schema
-validation uses a separate pool of `CPU threads / 4` workers (minimum one); results
-return to that same writer. Both counts are configurable with `--ingest-workers`
+shared SQLite writer stores records and reference occurrences; SQLite maintains
+JSON expression indexes. Schema validation uses a separate pool of `CPU threads / 4`
+workers (minimum one); results return to that same writer. Both counts are configurable with `--ingest-workers`
 and `--background-workers`. Existing cache updates retain their incremental path.
 SQLite uses WAL, `synchronous=FULL`, and a 64 MiB page-cache budget by default.
 `--sqlite-cache-mib N|default` overrides it; this is not a total process-memory limit.
@@ -102,8 +103,8 @@ Validation results only apply when ID, revision, content digest and schema hash 
 match. Pending work is durable; source changes reset it, schema changes requeue it,
 and UI-only changes retain diagnostics. See [the cache schema and validation flow](validation.md).
 The [validation-flow measurements](crates/bench/VALIDATION-FLOW-2026-10-28.md) separate
-first-view latency from completing validation. The two next ingestion optimizations—removing redundant digest lookups and preparing
-collection-specific writes once—remain separate work.
+first-view latency from completing validation. Removing redundant digest lookups
+remains a separate ingestion optimization; separate typed-table writes are now gone.
 
 ```sh
 cargo run --release -p objekte-cli -- examples/musenalm view contents --data-dir /tmp/objekte-fast --ingest-workers 4 --sqlite-cache-mib 64 --diagnostics
@@ -151,7 +152,7 @@ and their combination. These fingerprints do not store query results or create
 additional SQL compound indexes. Schema/mapping, typed indexes, source manifests,
 and view settings have separate fingerprints.
 
-Cache format 4 rebuilds older disposable databases once. The initial build still
+Cache format 5 rebuilds older disposable databases once and removes the old per-collection field tables. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
 opens. `--diagnostics` logs the policy, view fingerprints, integer counters, and
 floating-point millisecond timings (`*_ms`) to stderr. All CLI JSON metrics also
