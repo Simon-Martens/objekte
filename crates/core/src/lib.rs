@@ -16,6 +16,7 @@ mod config_manifest;
 mod error;
 mod graph;
 mod json;
+mod json_filter;
 mod query;
 mod repository;
 mod schema;
@@ -34,6 +35,9 @@ pub use config_manifest::{
 };
 pub use error::{Error, Result};
 pub use graph::{CollectionGraph, CollectionRelation};
+pub use json_filter::{
+    JsonFilter, JsonPath, JsonPathStep, JsonQuery, JsonQueryDependencies, JsonQueryResult,
+};
 pub use query::{Filter, Operator, ViewRequest, ViewResult, ViewRow};
 pub use repository::{
     CacheMode, CacheStatus, Coverage, Freshness, Metrics, Options, Record, RecordRelation,

@@ -51,6 +51,10 @@ fn help_version_and_invalid_arguments() {
         vec![p, "validate", "books", "people"],
         vec![p, "validate", "missing"],
         vec![p, "validate", "--collection", "books"],
+        vec![p, "query"],
+        vec![p, "query", "score=1", "--param", "n=wrong"],
+        vec![p, "query", "score=1", "--param", "n=1", "--param", "n=2"],
+        vec![p, "inspect", "--param", "n=1"],
         vec![p, "view", "books", "--limt", "2"],
         vec![p, "view", "books", "--limit", "0"],
         vec![p, "view", "books", "--sort", "payload"],
@@ -618,4 +622,93 @@ fn validate_without_cache_keeps_application_directory_absent() {
     assert_millisecond_metrics(&diagnostics["metrics"]);
     assert_millisecond_metrics(&value(out));
     assert!(!f.data.exists());
+}
+
+#[test]
+fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    f.edit("data/books/a.json", |v| {
+        v["payload"] = json!({"year":1800,"tags":["poet","editor"]})
+    });
+    f.edit("data/people/p1.json", |v| {
+        v["payload"] = json!({"year":"1800"})
+    });
+    let out = run(
+        &f,
+        &[
+            p,
+            "query",
+            "payload.year=$year && payload.tags ?= 'poet'",
+            "--param",
+            "year=1800",
+            "--count",
+            "--diagnostics",
+            "--validation",
+            "manual",
+        ],
+    );
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    let diagnostic: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let result = value(out);
+    assert_millisecond_metrics(&result["metrics"]);
+    assert_eq!(result["metrics"], diagnostic["metrics"]);
+    assert_eq!(result["total"], 1);
+    assert_eq!(result["records"][0]["collection"], "books");
+    assert_eq!(result["records"][0]["id"], "a");
+    assert_eq!(
+        result["dependencies"]["collections"],
+        json!(["books", "people", "spare"])
+    );
+    let strings = value(run(
+        &f,
+        &[
+            p,
+            "query",
+            "payload.year=$year",
+            "--param",
+            r#"year="1800""#,
+            "--count",
+            "--validation",
+            "wait",
+        ],
+    ));
+    assert_eq!(strings["total"], 1);
+    assert_eq!(strings["records"][0]["collection"], "people");
+    let scoped = value(run(
+        &f,
+        &[
+            p,
+            "query",
+            "exists(payload)",
+            "--collection",
+            "books",
+            "--count",
+        ],
+    ));
+    assert!(
+        scoped["records"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|r| r["collection"] == "books")
+    );
+    let out = run(
+        &f,
+        &[
+            p,
+            "query",
+            "payload.year=1800",
+            "--cache",
+            "disabled",
+            "--output",
+            "ndjson",
+        ],
+    );
+    let record = value(out);
+    assert_eq!(record["id"], "a");
 }

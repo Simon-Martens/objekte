@@ -47,6 +47,8 @@ cargo run -p objekte-cli -- examples/musenalm cache refresh --collection content
 cargo run -p objekte-cli -- examples/musenalm cache status --data-dir /tmp/objekte-a
 cargo run -p objekte-cli -- examples/musenalm validate --data-dir /tmp/objekte-a
 cargo run -p objekte-cli -- examples/musenalm validate contents --data-dir /tmp/objekte-a
+cargo run -p objekte-cli -- examples/musenalm query 'year >= 1800 && preferred_title ~ "liebe"' --count
+cargo run -p objekte-cli -- examples/musenalm query 'contributors.agents ?= $agent' --param 'agent="1500"'
 ```
 
 Use `--cache disabled` for direct execution, `--fresh-cache` for a new isolated cache
@@ -55,6 +57,15 @@ control characters and abbreviates long cells; JSON output retains full values.
 `--help` lists record/reference operations and all options. The CLI chooses an OS
 application-data directory when `--data-dir` is omitted; the library always receives
 an explicit directory.
+
+`query FILTER` searches actual JSON across all registered collections, independently
+of schema declarations and UI filter controls. Add `--collection NAME` to restrict
+the scope. It supports typed comparisons (`"1800"` differs from `1800`, `true` from
+`1`), `&&`/`||`, nested paths, arrays with `?` operators, `exists(path)`, and bound
+`--param NAME=JSON` values. SQLite executes generated parameterized SQL; `--cache
+disabled` uses the same semantics over source files. These initial arbitrary queries
+scan the scoped JSON cache; they do not use the indexed `view` path. See
+[filters.md](filters.md) for syntax, dependencies, limits, and measured performance.
 
 Fresh collection caches use `CPU threads / 2` ingestion workers by default (minimum
 one). Workers read stable files, hash and parse Sonic JSON in bounded batches. One

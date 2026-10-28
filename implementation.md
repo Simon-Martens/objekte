@@ -433,6 +433,12 @@ authoritative files.
 
 ## 3. Runtime options and CLI as the test driver
 
+The next JSON-only query increment is implemented in [filters.md](filters.md):
+schema-independent filter parsing, typed SQL predicates, global or scoped source
+reconciliation, explicit path/collection dependencies, and a direct evaluator with
+matching semantics. The `query` command calls this library API. Query-result caches,
+adaptive index selection, metadata operands, and relation expansion remain deferred.
+
 The CLI chooses the OS application-data directory and passes it to the library.
 The library does not discover the user's home/cache location. Tests pass temporary
 directories and may reopen the same one or use a different directory per case.

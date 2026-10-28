@@ -17,6 +17,7 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
+| `json_filter.rs` | Schema-independent typed filters, exact numbers, Unicode, nested arrays, missing/null, parser limits, injection-shaped bindings, global scope, source changes, and direct/SQL parity |
 | `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, retained content errors across batches and correction/revalidation |
 | `validation.rs` | Pending/restart recovery, wrong types, malformed JSON/UTF-8, all diagnostics, stale-result guards, schema changes, delete/recreate, background transaction failure, worker defaults/stacks, shared writer concurrency |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
@@ -104,6 +105,7 @@ unchanged. Library timers have the following scopes:
   and initialization.
 - `configuration_nanos`: reading/comparing the persisted input manifest, verifying
   loaded configuration, and atomically committing changed digests/consumers.
+- `filter_compile_nanos`: parsing/binding a general JSON filter and computing its definition hash.
 - `sync_nanos`: the entire reconciliation call, including its fast reuse check.
 - `fingerprint_nanos`: constructing the compound source-manifest hash, inside sync.
 - `inventory_nanos`, `manifest_nanos`, `source_check_nanos`, `read_nanos`,

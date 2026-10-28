@@ -1,6 +1,6 @@
 use objekte_core::{
-    CacheMode, Direction, Freshness, Options, Repository, Sort, ValidationMode, ViewRequest,
-    ViewResult,
+    CacheMode, Direction, Freshness, JsonQuery, Options, Repository, Sort, ValidationMode,
+    ViewRequest, ViewResult,
 };
 use serde_json::{Value, json};
 use std::{
@@ -17,6 +17,8 @@ Usage:
       [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
   objekte REPOSITORY get COLLECTION ID
   objekte REPOSITORY validate [COLLECTION]
+  objekte REPOSITORY query FILTER [--collection NAME] [--param NAME=JSON]
+      [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -39,6 +41,7 @@ Options:
   --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
   --validation background|manual|wait  Validation policy (default: background)
   --diagnostics                   Emit counters and floating-point millisecond timings to stderr
+  --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --help, --version
 
 Examples:
@@ -52,6 +55,7 @@ struct Args {
     flags: BTreeSet<String>,
     filters: Vec<String>,
     sub_sorts: Vec<String>,
+    parameters: BTreeMap<String, Value>,
 }
 
 fn metrics_in_milliseconds(metrics: Value) -> Value {
@@ -80,6 +84,7 @@ fn args() -> Result<Args, String> {
         flags: BTreeSet::new(),
         filters: Vec::new(),
         sub_sorts: Vec::new(),
+        parameters: BTreeMap::new(),
     };
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
@@ -98,6 +103,7 @@ fn args() -> Result<Args, String> {
             | "--from"
             | "--to"
             | "--filter"
+            | "--param"
             | "--then-sort"
             | "--sqlite-cache-mib"
             | "--ingest-workers"
@@ -107,7 +113,17 @@ fn args() -> Result<Args, String> {
                     .next()
                     .filter(|s| !s.starts_with("--"))
                     .ok_or_else(|| format!("{a} requires a value"))?;
-                if a == "--filter" {
+                if a == "--param" {
+                    let (name, raw) = v.split_once('=').ok_or("--param requires NAME=JSON")?;
+                    if name.is_empty() {
+                        return Err("--param requires a name".into());
+                    }
+                    let value = serde_json::from_str(raw)
+                        .map_err(|e| format!("invalid --param JSON: {e}"))?;
+                    if out.parameters.insert(name.into(), value).is_some() {
+                        return Err(format!("duplicate parameter {name}"));
+                    }
+                } else if a == "--filter" {
                     out.filters.push(v)
                 } else if a == "--then-sort" {
                     out.sub_sorts.push(v)
@@ -256,7 +272,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         "validate" if a.pos.len() == 2 || a.pos.len() == 3 => a.pos.len(),
         "validate" => return Err("usage: objekte REPOSITORY validate [COLLECTION]".into()),
-        "view" => 3,
+        "view" | "query" => 3,
         "get" => 4,
         "inspect" | "relations" => 2,
         _ => {
@@ -285,6 +301,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             || match command {
                 "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                     .contains(&key.as_str()),
+                "query" => ["--collection", "--limit", "--offset"].contains(&key.as_str()),
                 "relations" => ["--from", "--to"].contains(&key.as_str()),
                 "cache" => {
                     matches!(a.pos[2].as_str(), "refresh" | "validate") && key == "--collection"
@@ -298,7 +315,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     for key in &a.flags {
         let allowed = ["--fresh-cache", "--diagnostics"].contains(&key.as_str())
             || match command {
-                "view" => key == "--count",
+                "view" | "query" => key == "--count",
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
                 "relations" => {
                     ["--collections", "--complete", "--check-targets"].contains(&key.as_str())
@@ -311,6 +328,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     if command != "view" && (!a.filters.is_empty() || !a.sub_sorts.is_empty()) {
         return Err("filters and sub-sorts require view".into());
+    }
+    if command != "query" && !a.parameters.is_empty() {
+        return Err("--param requires query".into());
     }
     let get =
         |key: &str, default: &str| a.values.get(key).cloned().unwrap_or_else(|| default.into());
@@ -373,8 +393,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if !["table", "json", "ndjson"].contains(&output.as_str()) {
         return Err("unknown output format".into());
     }
-    if command != "view" && output != "json" {
-        return Err("this command supports --output json; table/ndjson are view formats".into());
+    if command != "view" && output != "json" && !(command == "query" && output == "ndjson") {
+        return Err("this command supports --output json; ndjson requires view/query and table requires view".into());
     }
     let freshness = options.freshness;
     let sqlite_cache_mib = options.sqlite_cache_mib;
@@ -385,6 +405,34 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut view_hashes = None;
     let value = match command {
         "inspect" => Some(serde_json::to_value(repo.model())?),
+        "query" => {
+            let request = JsonQuery {
+                filter: a.pos[2].clone(),
+                parameters: a.parameters.clone(),
+                collections: a.values.get("--collection").map(|c| vec![c.clone()]),
+                limit: get("--limit", "50").parse()?,
+                offset: get("--offset", "0").parse()?,
+                count: a.flags.contains("--count"),
+            };
+            let mut result = repo.query_json(&request)?;
+            if validation == "wait" {
+                let t = std::time::Instant::now();
+                repo.wait_for_validation()?;
+                validation_wait_nanos += t.elapsed().as_nanos();
+                result = repo.query_json(&request)?;
+            }
+            if output == "ndjson" {
+                for record in &result.records {
+                    println!("{}", serde_json::to_string(record)?);
+                }
+                None
+            } else {
+                result.metrics = repo.metrics().clone();
+                let mut value = serde_json::to_value(result)?;
+                value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
+                Some(value)
+            }
+        }
         "validate" => {
             let t = std::time::Instant::now();
             let result = if let Some(collection) = a.pos.get(2) {

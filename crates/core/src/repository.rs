@@ -22,6 +22,7 @@ use std::{
     sync::Arc,
     time::Instant,
 };
+mod json_query;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -97,6 +98,7 @@ metrics!(
     reload_nanos,
     store_open_nanos,
     configuration_nanos,
+    filter_compile_nanos,
     sync_nanos,
     inventory_nanos,
     manifest_nanos,

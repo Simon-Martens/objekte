@@ -54,6 +54,13 @@ All three modes are MVP requirements. They have different semantics and explicit
 
 The MVP needs a **small, generic query model**, not the full jq language. Both ad hoc requests and saved views use the same query specification. It can list records from any configured collection, filter on its JSON fields, sort, paginate, select output fields, traverse declared relations, and return simple grouped results. The Rust library compiles this specification into a plan and executes it over original files or reusable in-memory projections. Supported hot views may use SQLite through the same API. qj, jaq, and jq remain benchmark/reference tools, not production requirements or user-facing languages.
 
+The schema-independent JSON subset is now implemented as `JsonFilter` and
+`Repository::query_json`, exposed by `objekte REPOSITORY query FILTER`. It supports
+all registered collections or an explicit collection scope without UI field
+restrictions. [filters.md](filters.md) defines the current semantics, parameterized
+SQL implementation, and limits. Metadata/application fields, relation traversal,
+grouping, and general index selection remain later stages.
+
 The filter expression is deliberately PocketBase-like. Its MVP subset is:
 
 | Construct | Meaning |
@@ -65,7 +72,7 @@ The filter expression is deliberately PocketBase-like. Its MVP subset is:
 | `exists(field)` | Distinguish a missing field from a field whose stored value is `null` |
 | `$parameter` | A typed value bound by the caller, never inserted into expression text |
 
-Field paths use dot notation for ordinary JSON object keys; bracket-quoted keys address names containing dots or other punctuation. Paths can traverse nested objects and arrays. Unprefixed paths refer to stored record data; `@id` and `@path` refer to source identity. A scalar comparison on a path that yields multiple values is an error: the `?` form must be used. An empty array never satisfies a `?` comparison. Missing fields match no comparison, including `!=`; explicit JSON `null` matches `= null` and `!= null` as a value. Type-incompatible ordered comparisons do not match. The exact case-folding algorithm and sort collation must be pinned and tested so results do not depend on the execution engine. These semantics are **Objekte's subset**, not a claim of PocketBase syntax compatibility; PocketBase applies different default behavior to array-like paths.
+Field paths use dot notation for ordinary JSON object keys; bracket-quoted keys address names containing dots or other punctuation. Paths can traverse nested objects and arrays. Unprefixed paths refer to stored record data; the planned `@id` and `@path` operands will refer to source identity. A scalar comparison on a path that yields multiple values is an error: the `?` form must be used. An empty array never satisfies a `?` comparison. Missing fields match no comparison, including `!=`; explicit JSON `null` matches `= null` and does not match `!= null`. Type-incompatible ordered comparisons do not match. The exact case-folding algorithm and sort collation must be pinned and tested so results do not depend on the execution engine. These semantics are **Objekte's subset**, not a claim of PocketBase syntax compatibility; PocketBase applies different default behavior to array-like paths.
 
 The `?` prefix means **any**: `tags ?!= "poet"` is true when at least one tag differs from `"poet"`, which is not the same as saying that no tag equals `"poet"`. The implementation must test this distinction.
 
