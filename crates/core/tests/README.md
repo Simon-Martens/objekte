@@ -28,8 +28,10 @@ that a cache hit does not commit changed database pages.
 Sonic parser unit tests compare values and serialized bytes against Serde for
 large numbers, exponents, negative zero, Unicode, duplicate/escaped keys, and the
 existing nesting limit. Projection tests cover missing/null fields, large skipped
-payloads, malformed skipped JSON, invalid Unicode surrogate escapes, and trailing
-input. The public/schema value representation and fingerprint serializer remain
+payloads, malformed skipped JSON, and trailing input. Skipped fields use Sonic's
+native skip behavior, without an extra pass to validate surrogate escapes; a test
+checks that unselected surrogate escapes do not trigger reparsing. The public/schema
+value representation and fingerprint serializer remain
 unchanged. Page parsing materializes only selected fields; its work is included in
 `query_nanos`, while `parses` counts full source/cache revalidation parses.
 

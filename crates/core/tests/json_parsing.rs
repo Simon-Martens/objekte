@@ -51,7 +51,7 @@ fn malformed_cached_payloads_fail_even_when_the_field_is_not_projected() {
     let mut repo = f.repo(CacheMode::Sqlite);
     repo.open_view("books", &all()).unwrap();
     let db = Connection::open(repo.cache_directory().unwrap().join("cache.sqlite")).unwrap();
-    for invalid in [r#"[1,]"#, r#""\ud800""#, r#"{"nested":"\udc00"}"#] {
+    for invalid in [r#"[1,]"#, r#"{"nested":[1,]}"#, r#"{"nested":"\x"}"#] {
         let text = format!(r#"{{"title":"valid","score":2,"payload":{invalid}}}"#);
         db.execute(
             "UPDATE records SET json=?1 WHERE collection='books' AND id='a'",

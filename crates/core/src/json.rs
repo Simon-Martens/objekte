@@ -62,7 +62,7 @@ pub(crate) fn parse(json: &str) -> Result<Value, sonic_rs::Error> {
 }
 
 /// Materialize requested top-level fields only. Scan all members, including
-/// duplicates, and validate skipped values and trailing input with Sonic.
+/// duplicates, using Sonic's native skip behavior for unselected values.
 pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, sonic_rs::Error> {
     struct Projection<'a>(&'a BTreeSet<&'a str>);
     impl<'de> DeserializeSeed<'de> for Projection<'_> {
@@ -83,14 +83,7 @@ pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, soni
                     let ParsedValue(value) = map.next_value()?;
                     object.insert(key, value);
                 } else {
-                    let skipped: sonic_rs::LazyValue<'de> = map.next_value()?;
-                    // Sonic's fast skip checks syntax but permits unpaired UTF-16
-                    // escapes. Fully validate escaped values without materializing
-                    // them into the public value representation.
-                    if skipped.as_raw_str().contains("\\u") {
-                        sonic_rs::from_str::<sonic_rs::Value>(skipped.as_raw_str())
-                            .map_err(de::Error::custom)?;
-                    }
+                    let _: sonic_rs::LazyValue<'de> = map.next_value()?;
                 }
             }
             Ok(Value::Object(object))
@@ -172,7 +165,6 @@ mod tests {
             r#"{"title":"ok","ignored":[1,]}"#,
             r#"{"title":"ok","ignored":01}"#,
             r#"{"title":"ok","ignored":"\x"}"#,
-            r#"{"title":"ok","ignored":"\ud800"}"#,
             r#"{"title":"ok","ignored":true false}"#,
             r#"{"title":"ok"} true"#,
             r#"{"title":"ok","ignored":{"a":1,}}"#,
@@ -187,6 +179,15 @@ mod tests {
             assert!(project(input, &BTreeSet::new()).is_err());
         }
         assert!(sonic_rs::from_slice::<ParsedValue>(b"{\"bad\":\"\xff\"}").is_err());
+    }
+
+    #[test]
+    fn projection_does_not_reparse_skipped_surrogate_escapes() {
+        let input = r#"{"ignored":{"values":["\ud800","\udc00","\ud83d\ude00"]},"title":"ok"}"#;
+        assert_eq!(
+            project(input, &BTreeSet::from(["title"])).unwrap(),
+            serde_json::json!({"title": "ok"})
+        );
     }
 
     #[test]
