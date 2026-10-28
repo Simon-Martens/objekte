@@ -92,10 +92,12 @@ to measure verification of unchanged files. Omit `--release` to compare debug co
 An optional final filename supplies a serialized `ViewRequest` for other sorts,
 filters, or pages. Timing excludes printing and result-equality checks.
 
-The CLI exposes the same integer counters with `--diagnostics`, converting timers
-to floating-point milliseconds and renaming their suffix to `*_ms` (for example,
-`sync_ms`). Library metrics and `--output json` retain nanoseconds; JSON view output
-also includes the query plan. Library timers have the following scopes:
+The CLI exposes the same integer counters in JSON results and with `--diagnostics`,
+converting timers to floating-point milliseconds and renaming their suffix to `*_ms`
+(for example, `sync_ms`). This includes view, cache-refresh, and validation results.
+Library metrics retain nanoseconds; JSON view output also includes the query plan.
+Only metric fields are converted; similarly named source-record fields remain
+unchanged. Library timers have the following scopes:
 
 - `reload_nanos`: checking configuration/schema/UI files and reloading changed metadata.
 - `store_open_nanos`: cache path resolution, lock acquisition, opening SQLite,

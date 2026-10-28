@@ -45,6 +45,8 @@ cargo run -p objekte-cli -- examples/musenalm inspect --collections --indexes
 cargo run -p objekte-cli -- examples/musenalm relations --collections
 cargo run -p objekte-cli -- examples/musenalm cache refresh --collection contents --data-dir /tmp/objekte-a
 cargo run -p objekte-cli -- examples/musenalm cache status --data-dir /tmp/objekte-a
+cargo run -p objekte-cli -- examples/musenalm validate --data-dir /tmp/objekte-a
+cargo run -p objekte-cli -- examples/musenalm validate contents --data-dir /tmp/objekte-a
 ```
 
 Use `--cache disabled` for direct execution, `--fresh-cache` for a new isolated cache
@@ -73,11 +75,15 @@ record. Views return per-row `states`; tables include STATUS and NDJSON includes
 `--validation background` is the default: return the view without waiting. A short CLI
 process may exit with validation still pending. Use `--validation wait` to wait and
 print completed statuses, or `--validation manual` to measure ingestion separately.
-`cache validate --collection NAME` resumes and waits for pending validation, including
-work left by an earlier process. It reconciles the collection first. Cache status
-reports counts by validation state. Without SQLite, validation runs inline.
+`validate` reconciles and validates all registered collections; `validate NAME`
+does the same for one collection. Both wait for completion, including pending work
+left by an earlier process, even with `--validation manual`. Unchanged, already
+validated records reuse their results. `cache validate --collection NAME` remains
+available. Cache status reports counts by validation state. Without SQLite,
+validation runs inline and creates no application data.
 
-The library exposes `wait_for_validation()`, `validation_metrics()` and
+The library exposes `validate_all()`, `validate_collection(name)`,
+`wait_for_validation()`, `validation_metrics()` and
 `poll_validation_updates()` (coalesced collection notifications after commit).
 Validation results only apply when ID, revision, content digest and schema hash still
 match. Pending work is durable; source changes reset it, schema changes requeue it,
@@ -135,8 +141,10 @@ and view settings have separate fingerprints.
 Cache format 4 rebuilds older disposable databases once. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
 opens. `--diagnostics` logs the policy, view fingerprints, integer counters, and
-floating-point millisecond timings (`*_ms`) to stderr. Library timers and the
-`--output json` metrics retain integer nanoseconds (`*_nanos`). `cache status`
+floating-point millisecond timings (`*_ms`) to stderr. All CLI JSON metrics also
+use `*_ms`, including views, refreshes, and validation commands; counters remain
+integers and source-record values remain unchanged. Library timers retain integer
+nanoseconds (`*_nanos`) internally. `cache status`
 exposes persisted manifest/view fingerprints.
 
 The implementation is read-only toward source files. Record writes, rendered

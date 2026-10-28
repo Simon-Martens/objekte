@@ -451,7 +451,7 @@ Initial options, exposed through the CLI as their stages are implemented:
 | SQLite page cache | `sqlite_cache_mib: Option<u32>`; default `Some(64)`, `None` uses SQLite's default; CLI `--sqlite-cache-mib N\|default` |
 | Ingestion workers | `ingest_workers`, positive count; default CPU threads / 2 (minimum 1); CLI `--ingest-workers N` |
 | Background workers | `background_workers`, positive count; default CPU threads / 4 (minimum 1); CLI `--background-workers N` |
-| Validation | Library `Background` or `Manual`; CLI `--validation background\|manual\|wait`; explicit `cache validate --collection NAME` |
+| Validation | Library `Background` or `Manual`, `validate_all()`/`validate_collection(name)`; CLI `--validation background\|manual\|wait`; explicit `validate [COLLECTION]` (all when omitted); legacy `cache validate --collection NAME` |
 | Fresh cache | Use a new cache namespace; never delete the whole application directory |
 | Reconciliation | Default `metadata-on-open`; `metadata-on-request`, strict `hash-on-open`, or `hash-on-request` |
 | Explicit refresh | Reconcile the requested collection now using the selected policy |

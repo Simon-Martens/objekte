@@ -476,6 +476,17 @@ impl Repository {
         }
         self.wait_for_validation()
     }
+    /// Reconcile and validate every registered collection, including unopened ones.
+    /// Uses the same validation policy and cumulative worker metrics as validating
+    /// individual collections. With caching disabled, validation runs inline.
+    pub fn validate_all(&mut self) -> Result<ValidationMetrics> {
+        self.reload()?;
+        let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
+        for name in names {
+            self.validate_collection(&name)?;
+        }
+        self.wait_for_validation()
+    }
     fn path(&self, c: &Collection, id: &str) -> String {
         c.path
             .join(format!("{id}.json"))

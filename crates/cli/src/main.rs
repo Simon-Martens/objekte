@@ -16,6 +16,7 @@ Usage:
       [--then-sort FIELD:asc|desc]
       [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
   objekte REPOSITORY get COLLECTION ID
+  objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -34,7 +35,7 @@ Options:
                                  Default: metadata-on-open
   --namespace NAME                Reuse a named cache (default: default)
   --fresh-cache                   Use a new namespace
-  --output table|json|ndjson       Views default to table, other commands to json
+  --output table|json|ndjson       Views default to table, other commands to json; timings in ms
   --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
   --validation background|manual|wait  Validation policy (default: background)
   --diagnostics                   Emit counters and floating-point millisecond timings to stderr
@@ -159,7 +160,11 @@ fn cell(value: &Value) -> String {
 }
 fn print_view(view: &ViewResult, output: &str) -> Result<(), Box<dyn std::error::Error>> {
     match output {
-        "json" => println!("{}", serde_json::to_string_pretty(view)?),
+        "json" => {
+            let mut value = serde_json::to_value(view)?;
+            value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
+            println!("{}", serde_json::to_string_pretty(&value)?);
+        }
         "ndjson" => {
             for row in &view.rows {
                 let mut value = serde_json::to_value(row)?;
@@ -249,6 +254,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             }
             3
         }
+        "validate" if a.pos.len() == 2 || a.pos.len() == 3 => a.pos.len(),
+        "validate" => return Err("usage: objekte REPOSITORY validate [COLLECTION]".into()),
         "view" => 3,
         "get" => 4,
         "inspect" | "relations" => 2,
@@ -378,6 +385,16 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let mut view_hashes = None;
     let value = match command {
         "inspect" => Some(serde_json::to_value(repo.model())?),
+        "validate" => {
+            let t = std::time::Instant::now();
+            let result = if let Some(collection) = a.pos.get(2) {
+                repo.validate_collection(collection)?
+            } else {
+                repo.validate_all()?
+            };
+            validation_wait_nanos += t.elapsed().as_nanos();
+            Some(metrics_in_milliseconds(serde_json::to_value(result)?))
+        }
         "get" => {
             let mut record = repo.get_record(&a.pos[2], &a.pos[3])?;
             if validation == "wait" {
@@ -496,9 +513,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                     let t = std::time::Instant::now();
                     let result = repo.validate_collection(c)?;
                     validation_wait_nanos += t.elapsed().as_nanos();
-                    Some(serde_json::to_value(result)?)
+                    Some(metrics_in_milliseconds(serde_json::to_value(result)?))
                 } else {
-                    Some(serde_json::to_value(repo.refresh(c)?)?)
+                    Some(metrics_in_milliseconds(serde_json::to_value(
+                        repo.refresh(c)?,
+                    )?))
                 }
             }
         }

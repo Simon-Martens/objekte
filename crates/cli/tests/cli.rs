@@ -48,6 +48,9 @@ fn help_version_and_invalid_arguments() {
         vec![p, "cache", "unknown"],
         vec![p, "cache", "status", "--collection", "books"],
         vec![p, "cache", "refresh-config", "--collection", "books"],
+        vec![p, "validate", "books", "people"],
+        vec![p, "validate", "missing"],
+        vec![p, "validate", "--collection", "books"],
         vec![p, "view", "books", "--limt", "2"],
         vec![p, "view", "books", "--limit", "0"],
         vec![p, "view", "books", "--sort", "payload"],
@@ -490,4 +493,129 @@ fn validation_modes_resume_pending_and_expose_bad_records() {
     let record = value(run(&f, &[p, "get", "books", "a", "--validation", "wait"]));
     assert_eq!(record["state"]["status"], "invalid");
     assert_eq!(record["data"]["score"], "wrong");
+}
+
+fn assert_millisecond_metrics(metrics: &Value) {
+    let fields = metrics.as_object().unwrap();
+    assert!(fields.keys().any(|key| key.ends_with("_ms")));
+    for (name, value) in fields {
+        assert!(!name.ends_with("_nanos"), "unconverted timer: {name}");
+        if name.ends_with("_ms") {
+            assert!(value.is_f64(), "{name}: {value}");
+            assert!(value.as_f64().unwrap() >= 0.0);
+        } else {
+            assert!(value.is_u64(), "counter {name}: {value}");
+        }
+    }
+}
+
+#[test]
+fn validate_accepts_one_or_all_collections_and_waits_even_in_manual_mode() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    f.edit("data/books/a.json", |v| v["score"] = json!("wrong"));
+    fs::write(f.root.join("data/books/b.json"), "broken").unwrap();
+    let single = value(run(&f, &[p, "validate", "books", "--validation", "manual"]));
+    assert_eq!(single["applied"], 6);
+    assert_millisecond_metrics(&single);
+    let status = value(run(&f, &[p, "cache", "status"]));
+    for collection in status["collections"].as_array().unwrap() {
+        if collection["collection"] == "books" {
+            assert_eq!(collection["validation"]["valid"], 5);
+            assert_eq!(collection["validation"]["invalid"], 1);
+            assert_eq!(collection["validation"]["incorrect_json"], 1);
+            assert!(collection["validation"]["pending"].is_null());
+        } else {
+            assert_eq!(collection["state"], "absent");
+        }
+    }
+    // The all-collections form must also reconcile later source edits.
+    f.edit("data/books/a.json", |v| v["score"] = json!(2));
+    let result = value(run(&f, &[p, "validate", "--validation", "manual"]));
+    assert!(result["applied"].as_u64().unwrap() > 1);
+    assert_millisecond_metrics(&result);
+    let status = value(run(&f, &[p, "cache", "status"]));
+    for collection in status["collections"].as_array().unwrap() {
+        assert_eq!(collection["state"], "current");
+        assert!(collection["validation"]["pending"].is_null());
+        if collection["collection"] == "books" {
+            assert_eq!(collection["validation"]["valid"], 6);
+        }
+    }
+    assert_eq!(value(run(&f, &[p, "validate"]))["applied"], 0);
+}
+
+#[test]
+fn every_cli_metrics_output_uses_milliseconds_without_changing_record_fields() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    f.edit(".editor/books/schema.json", |v| {
+        v["properties"]["duration_nanos"] = json!({"type":"integer"});
+    });
+    f.edit("data/books/a.json", |v| {
+        v["duration_nanos"] = json!(1234567);
+        v["payload"] = json!({"metrics":{"read_nanos":7654321}});
+    });
+    let out = run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--columns",
+            "duration_nanos",
+            "--limit",
+            "50",
+            "--output",
+            "json",
+            "--diagnostics",
+            "--validation",
+            "manual",
+        ],
+    );
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let view = value(out);
+    assert_eq!(view["metrics"], diagnostics["metrics"]);
+    assert_millisecond_metrics(&view["metrics"]);
+    assert_millisecond_metrics(&diagnostics["validation_metrics"]);
+    assert!(diagnostics["validation_wait_ms"].is_f64());
+    let row = view["rows"]
+        .as_array()
+        .unwrap()
+        .iter()
+        .find(|row| row["id"] == "a")
+        .unwrap();
+    assert_eq!(row["values"]["duration_nanos"], 1234567);
+    let record = value(run(&f, &[p, "get", "books", "a", "--validation", "manual"]));
+    assert_eq!(record["data"]["payload"]["metrics"]["read_nanos"], 7654321);
+    for args in [
+        vec![p, "cache", "refresh", "--collection", "books"],
+        vec![p, "cache", "validate", "--collection", "books"],
+        vec![p, "validate", "books"],
+        vec![p, "validate"],
+    ] {
+        assert_millisecond_metrics(&value(run(&f, &args)));
+    }
+}
+
+#[test]
+fn validate_without_cache_keeps_application_directory_absent() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let out = run(&f, &[p, "validate", "--cache", "disabled", "--diagnostics"]);
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    assert!(diagnostics["metrics"]["validations"].as_u64().unwrap() > 7);
+    assert_millisecond_metrics(&diagnostics["metrics"]);
+    assert_millisecond_metrics(&value(out));
+    assert!(!f.data.exists());
 }

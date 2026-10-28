@@ -36,8 +36,9 @@ while individual records are still pending or invalid.
    status snapshot; clients requery visible rows after notifications.
 
 `Options.validation` defaults to `Background`; `Manual` leaves work pending until
-`validate_collection(name)`. `wait_for_validation()` waits for queued work, not future
-requests, and returns cumulative validator metrics. `validation_metrics()` is a
+`validate_collection(name)`, or `validate_all()` for every registered collection.
+`wait_for_validation()` waits for queued work, not future requests, and returns
+cumulative validator metrics. `validation_metrics()` is a
 nonblocking snapshot; `poll_validation_updates()` drains collection notifications.
 Validator snapshot reads, parallel preparation wall time, decode/validation CPU time,
 and writer time are separate from foreground metrics. CPU times are summed across workers, not wall time.
@@ -61,8 +62,13 @@ work remains recoverable on a new handle. I/O errors, unstable reads, invalid pr
 configuration and DB failures can still fail operations; content errors cannot.
 
 The CLI supports `--validation background|manual|wait`, `--background-workers N`,
-`--ingest-workers N`, and `cache validate --collection NAME`. Background mode can
-exit before validation finishes. Wait mode prints completed row statuses. Cache status
+`--ingest-workers N`, and `validate [COLLECTION]`. Omitting the collection validates
+all registered collections; specifying it validates only that collection. Both
+reconcile source changes and wait even in manual mode. The existing
+`cache validate --collection NAME` form remains available. CLI JSON results and
+diagnostics display all metric durations as floating-point milliseconds (`*_ms`).
+Ordinary commands in background mode can exit before validation finishes.
+Wait mode prints completed row statuses. Cache status
 reports per-state counts. Direct execution without SQLite validates inline and returns
 the same record diagnostics/query semantics without persistent work.
 
