@@ -99,12 +99,22 @@ also includes the query plan. Nanosecond timers have the following scopes:
   `hash_nanos`, `parse_nanos`, `index_nanos`: portions of source processing.
   Source checks include opening candidates and before/after descriptor metadata; parse
   time also includes validation. Index time covers table/index DDL, not all row writes.
+- `record_write_nanos`: looking up the previous digest and inserting/updating the
+  source payload and metadata in `put_record`.
+- `relation_extract_nanos`, `relation_write_nanos`: extracting reference occurrences
+  for `put_record`, then comparing and updating persisted outgoing edges.
+- `index_row_write_nanos`: preparing and writing typed scalar rows, including
+  maintenance of indexes that already exist.
+- `commit_nanos`: publishing the reconciled collection state and committing its
+  transaction, including any SQLite work triggered by that commit.
 - `query_nanos`: query planning/execution, optional count, fetching page payloads,
   parsing the returned JSON, and constructing output rows. No terminal rendering.
 
 For cached views, source-processing timers are **inside** `sync_nanos`; do not add
-them to it. They do not account for every instruction (for example, record/edge
-writes and cleanup). Initial `load_repository` and total view latency are measured
+them to it. They do not account for every instruction (for example, deletion,
+metadata-only updates, and cleanup). Primary-key and existing secondary-index
+maintenance is included in row/edge write times, not `index_nanos`. Initial
+`load_repository` and total view latency are measured
 by the driver. Timings describe successful phases; a phase that errors may be only
 partly accounted for. Existing-cache runs do not imply a cold OS filesystem cache.
 

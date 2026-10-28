@@ -8,7 +8,7 @@ use std::{
     collections::{BTreeMap, BTreeSet},
     fs::{self, File, OpenOptions},
     path::Path,
-    time::Duration,
+    time::{Duration, Instant},
 };
 const FORMAT: &str = "2";
 pub(crate) struct Store {
@@ -167,6 +167,7 @@ pub(crate) fn put_values(
     value: &Value,
     metrics: &mut Metrics,
 ) -> Result<()> {
+    let t = Instant::now();
     let mut values = vec![rusqlite::types::Value::Text(id.into())];
     for field in &c.indexes {
         if field.name != "@id" {
@@ -182,6 +183,7 @@ pub(crate) fn put_values(
     ))?
     .execute(params_from_iter(values))?;
     metrics.index_rows_written += 1;
+    metrics.index_row_write_nanos += t.elapsed().as_nanos() as u64;
     Ok(())
 }
 pub(crate) fn put_edges(
@@ -191,6 +193,7 @@ pub(crate) fn put_edges(
     edges: &[RecordRelation],
     metrics: &mut Metrics,
 ) -> Result<()> {
+    let t = Instant::now();
     let mut stmt=db.prepare_cached("SELECT location,target_collection,target_id FROM edges WHERE source_collection=?1 AND source_id=?2")?;
     let old = stmt
         .query_map(params![c, id], |r| {
@@ -220,6 +223,7 @@ pub(crate) fn put_edges(
             .execute(params![c, id, location, target, target_id])?;
         metrics.edges_added += 1;
     }
+    metrics.relation_write_nanos += t.elapsed().as_nanos() as u64;
     Ok(())
 }
 pub(crate) fn delete_record(

@@ -82,7 +82,12 @@ metrics!(
     read_nanos,
     hash_nanos,
     parse_nanos,
+    record_write_nanos,
+    relation_extract_nanos,
+    relation_write_nanos,
+    index_row_write_nanos,
     index_nanos,
+    commit_nanos,
     query_nanos
 );
 #[derive(Debug, Clone, Serialize)]
@@ -458,12 +463,10 @@ impl Repository {
         value: &Value,
         values: bool,
     ) -> Result<()> {
+        let t = Instant::now();
         let exists: Option<String> = db
-            .query_row(
-                "SELECT digest FROM records WHERE collection=?1 AND id=?2",
-                params![c.name, id],
-                |r| r.get(0),
-            )
+            .prepare_cached("SELECT digest FROM records WHERE collection=?1 AND id=?2")?
+            .query_row(params![c.name, id], |r| r.get(0))
             .optional()?;
         if exists.as_ref() != Some(&raw.hash) {
             db.prepare_cached("INSERT INTO records(collection,id,path,size,modified,identity,digest,json,revision) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,1) ON CONFLICT(collection,id) DO UPDATE SET path=excluded.path,size=excluded.size,modified=excluded.modified,identity=excluded.identity,digest=excluded.digest,json=excluded.json,revision=records.revision+1")?.execute(params![c.name,id,self.path(c,id),raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity,raw.hash,raw.json])?;
@@ -485,7 +488,10 @@ impl Repository {
             ])?;
             self.metrics.rows_reused += 1;
         }
+        self.metrics.record_write_nanos += nanos(t);
+        let t = Instant::now();
         let edges = self.extract(c, id, value)?;
+        self.metrics.relation_extract_nanos += nanos(t);
         store::put_edges(db, &c.name, id, &edges, &mut self.metrics)?;
         if values {
             store::put_values(db, c, id, value, &mut self.metrics)?;
@@ -670,8 +676,10 @@ impl Repository {
             || self.metrics.rows_updated != before.rows_updated
             || self.metrics.rows_deleted != before.rows_deleted;
         let revision = previous.as_ref().map_or(0, |p| p.revision) + i64::from(changed);
+        let t = Instant::now();
         tx.execute("UPDATE collections SET state='current',schema_hash=?2,mapping_hash=?3,index_hash=?4,revision=?5,manifest_hash=?6,record_count=?7,view_hash=?8 WHERE name=?1",params![c.name,c.schema_hash,c.mapping_hash,if use_values{c.index_hash.as_str()}else{""},revision,manifest_hash,files.len() as i64,c.view_hashes.combined])?;
         tx.commit()?;
+        self.metrics.commit_nanos += nanos(t);
         self.verified.insert(c.name.clone(), revision);
         self.metrics.reconciliations += 1;
         Ok(())

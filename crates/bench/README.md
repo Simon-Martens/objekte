@@ -6,6 +6,9 @@ and CLI are verified separately through the [library acceptance suite](../core/t
 
 The [28 October 2026 rerun](RERUN-2026-10-28.md) compares direct Rust, Node full objects, Rust SQLite JSONB on disk, and embedded qj across several collections and Musenalm nested workloads.
 
+The current library has separate reports for [Sonic parsing](SONIC-RS-2026-10-28.md)
+and [first-cache ingestion, phase timings, and Turso versions](INGESTION-2026-10-28.md).
+
 ## Shared scalar workload across current options
 
 `shared-query-compare` accepts field names at runtime and checks four matching operations across embedded qj, embedded jaq, Rust full JSON, Rust field projection, SQLite JSONB in memory or on disk, and Node. `shared_query_compare_jq.py` runs the same queries through a fresh jq subprocess. Results and limitations are at the top of [Performance.md](../../Performance.md). The source files are only read. The NDJSON output and SQLite database are disposable generated artifacts.
