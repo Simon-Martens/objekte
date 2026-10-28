@@ -17,7 +17,7 @@ Usage:
       [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
   objekte REPOSITORY get COLLECTION ID
   objekte REPOSITORY validate [COLLECTION]
-  objekte REPOSITORY query FILTER [--collection NAME] [--param NAME=JSON]
+  objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
       [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
@@ -41,6 +41,7 @@ Options:
   --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
   --validation background|manual|wait  Validation policy (default: background)
   --diagnostics                   Emit counters and floating-point millisecond timings to stderr
+  --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --help, --version
 
@@ -48,6 +49,7 @@ Examples:
   objekte examples/musenalm view places --data-dir /tmp/objekte-a
   objekte examples/musenalm view contents --sort numbering --limit 20 --diagnostics
   objekte examples/musenalm view contents --filter 'year>=1800' --output json
+  objekte examples/musenalm query contents 'year >= 1800' --count
 ";
 struct Args {
     pos: Vec<String>,
@@ -272,7 +274,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         "validate" if a.pos.len() == 2 || a.pos.len() == 3 => a.pos.len(),
         "validate" => return Err("usage: objekte REPOSITORY validate [COLLECTION]".into()),
-        "view" | "query" => 3,
+        "query" if a.pos.len() == 3 || a.pos.len() == 4 => a.pos.len(),
+        "query" => return Err("usage: objekte REPOSITORY query [COLLECTION] FILTER".into()),
+        "view" => 3,
         "get" => 4,
         "inspect" | "relations" => 2,
         _ => {
@@ -284,6 +288,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     };
     if a.pos.len() != expected {
         return Err(format!("wrong arguments for {command}; run --help").into());
+    }
+    if command == "query" && a.pos.len() == 4 && a.values.contains_key("--collection") {
+        return Err("choose positional COLLECTION or --collection, not both".into());
     }
     let common = [
         "--data-dir",
@@ -406,10 +413,15 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     let value = match command {
         "inspect" => Some(serde_json::to_value(repo.model())?),
         "query" => {
+            let (filter, collection) = if a.pos.len() == 4 {
+                (&a.pos[3], Some(&a.pos[2]))
+            } else {
+                (&a.pos[2], a.values.get("--collection"))
+            };
             let request = JsonQuery {
-                filter: a.pos[2].clone(),
+                filter: filter.clone(),
                 parameters: a.parameters.clone(),
-                collections: a.values.get("--collection").map(|c| vec![c.clone()]),
+                collections: collection.map(|c| vec![c.clone()]),
                 limit: get("--limit", "50").parse()?,
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),

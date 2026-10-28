@@ -12,10 +12,17 @@ cargo run -p objekte-cli -- examples/musenalm query 'year >= 1800 && year < 1805
 cargo run -p objekte-cli -- examples/musenalm query 'preferred_title ~ "liebe"'
 cargo run -p objekte-cli -- examples/musenalm query 'contributors.agents ?= "1500"'
 
-# Optional collection scope; parameters are JSON, so these two values differ
+# Search one collection
+cargo run -p objekte-cli -- examples/musenalm query contents 'year >= 1800'
+
+# The --collection form is also supported; parameters below have different types
 cargo run -p objekte-cli -- examples/musenalm query 'year = $year' --param year=1800 --collection contents
 cargo run -p objekte-cli -- examples/musenalm query 'year = $year' --param 'year="1800"'
 ```
+
+Use `query COLLECTION FILTER` to search one collection, or `query FILTER` to search
+all registered collections. `query FILTER --collection NAME` is an equivalent
+scoped form; supply the collection once, either positionally or through the flag.
 
 Use `--limit N`, `--offset N`, and optional `--count`. Ordering is deterministic by
 `(collection, filename ID)`; default limit is 50. Results include each complete

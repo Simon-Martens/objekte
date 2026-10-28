@@ -52,6 +52,10 @@ fn help_version_and_invalid_arguments() {
         vec![p, "validate", "missing"],
         vec![p, "validate", "--collection", "books"],
         vec![p, "query"],
+        vec![p, "query", "missing", "score=1"],
+        vec![p, "query", "books", "score=1", "extra"],
+        vec![p, "query", "books", "score=1", "--collection", "people"],
+        vec![p, "query", "books", "score=1", "--collection", "books"],
         vec![p, "query", "score=1", "--param", "n=wrong"],
         vec![p, "query", "score=1", "--param", "n=1", "--param", "n=2"],
         vec![p, "inspect", "--param", "n=1"],
@@ -697,6 +701,31 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
             .iter()
             .all(|r| r["collection"] == "books")
     );
+    for cache in ["sqlite", "disabled"] {
+        let positional = value(run(
+            &f,
+            &[
+                p,
+                "query",
+                "books",
+                "exists(payload)",
+                "--cache",
+                cache,
+                "--count",
+            ],
+        ));
+        assert_eq!(positional["total"], scoped["total"]);
+        assert_eq!(positional["dependencies"]["collections"], json!(["books"]));
+        let identities = |result: &Value| {
+            result["records"]
+                .as_array()
+                .unwrap()
+                .iter()
+                .map(|r| (r["collection"].clone(), r["id"].clone()))
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(identities(&positional), identities(&scoped));
+    }
     let out = run(
         &f,
         &[

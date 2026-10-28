@@ -48,6 +48,7 @@ cargo run -p objekte-cli -- examples/musenalm cache status --data-dir /tmp/objek
 cargo run -p objekte-cli -- examples/musenalm validate --data-dir /tmp/objekte-a
 cargo run -p objekte-cli -- examples/musenalm validate contents --data-dir /tmp/objekte-a
 cargo run -p objekte-cli -- examples/musenalm query 'year >= 1800 && preferred_title ~ "liebe"' --count
+cargo run -p objekte-cli -- examples/musenalm query contents 'year >= 1800' --count
 cargo run -p objekte-cli -- examples/musenalm query 'contributors.agents ?= $agent' --param 'agent="1500"'
 ```
 
@@ -59,9 +60,10 @@ application-data directory when `--data-dir` is omitted; the library always rece
 an explicit directory.
 
 `query FILTER` searches actual JSON across all registered collections, independently
-of schema declarations and UI filter controls. Add `--collection NAME` to restrict
-the scope. It supports typed comparisons (`"1800"` differs from `1800`, `true` from
-`1`), `&&`/`||`, nested paths, arrays with `?` operators, `exists(path)`, and bound
+of schema declarations and UI filter controls. Use `query COLLECTION FILTER` or add
+`--collection NAME` to restrict the scope. It supports typed comparisons (`"1800"`
+differs from `1800`, `true` from `1`), `&&`/`||`, nested paths, arrays with `?`
+operators, `exists(path)`, and bound
 `--param NAME=JSON` values. SQLite executes generated parameterized SQL; `--cache
 disabled` uses the same semantics over source files. These initial arbitrary queries
 scan the scoped JSON cache; they do not use the indexed `view` path. See
