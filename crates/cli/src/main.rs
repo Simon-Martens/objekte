@@ -36,7 +36,7 @@ Options:
   --output table|json|ndjson       Views default to table, other commands to json
   --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
   --validation background|manual|wait  Validation policy (default: background)
-  --diagnostics                   Emit library counters/timings to stderr
+  --diagnostics                   Emit counters and floating-point millisecond timings to stderr
   --help, --version
 
 Examples:
@@ -51,6 +51,26 @@ struct Args {
     filters: Vec<String>,
     sub_sorts: Vec<String>,
 }
+
+fn metrics_in_milliseconds(metrics: Value) -> Value {
+    let Value::Object(fields) = metrics else {
+        unreachable!("library metrics serialize as an object")
+    };
+    Value::Object(
+        fields
+            .into_iter()
+            .map(|(name, value)| {
+                if let Some(phase) = name.strip_suffix("_nanos") {
+                    let nanos = value.as_u64().expect("library timers are u64 nanoseconds");
+                    (format!("{phase}_ms"), json!(nanos as f64 / 1_000_000.0))
+                } else {
+                    (name, value)
+                }
+            })
+            .collect(),
+    )
+}
+
 fn args() -> Result<Args, String> {
     let mut out = Args {
         pos: Vec::new(),
@@ -490,7 +510,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if a.flags.contains("--diagnostics") {
         eprintln!(
             "{}",
-            json!({"metrics":repo.metrics(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":repo.validation_metrics(),"validation_wait_nanos":validation_wait_nanos,"view_hashes":view_hashes})
+            json!({"metrics":metrics_in_milliseconds(json!(repo.metrics())),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":validation_wait_nanos as f64 / 1_000_000.0,"view_hashes":view_hashes})
         )
     }
     Ok(())

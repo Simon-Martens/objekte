@@ -110,10 +110,12 @@ and their combination. These fingerprints do not store query results or create
 additional SQL compound indexes. Schema/mapping, typed indexes, source manifests,
 and view settings have separate fingerprints.
 
-Cache format 2 rebuilds older disposable databases once. The initial build still
+Cache format 4 rebuilds older disposable databases once. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
-opens. `--diagnostics` logs the policy, view fingerprints, and phase counters/timers
-to stderr; `cache status` exposes persisted manifest/view fingerprints.
+opens. `--diagnostics` logs the policy, view fingerprints, integer counters, and
+floating-point millisecond timings (`*_ms`) to stderr. Library timers and the
+`--output json` metrics retain integer nanoseconds (`*_nanos`). `cache status`
+exposes persisted manifest/view fingerprints.
 
 The implementation is read-only toward source files. Record writes, rendered
 markup, richer queries, query-specific result caches, and a desktop UI are later

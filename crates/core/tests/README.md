@@ -91,8 +91,10 @@ to measure verification of unchanged files. Omit `--release` to compare debug co
 An optional final filename supplies a serialized `ViewRequest` for other sorts,
 filters, or pages. Timing excludes printing and result-equality checks.
 
-The CLI exposes the same library counters with `--diagnostics`; `--output json`
-also includes the query plan. Nanosecond timers have the following scopes:
+The CLI exposes the same integer counters with `--diagnostics`, converting timers
+to floating-point milliseconds and renaming their suffix to `*_ms` (for example,
+`sync_ms`). Library metrics and `--output json` retain nanoseconds; JSON view output
+also includes the query plan. Library timers have the following scopes:
 
 - `reload_nanos`: checking configuration/schema/UI files and reloading changed metadata.
 - `store_open_nanos`: cache path resolution, lock acquisition, opening SQLite,
@@ -139,6 +141,6 @@ Background validation metrics are independent: `snapshot_read_nanos` reads bound
 cached snapshots; `parallel_validation_nanos` measures worker wall time;
 `decode_nanos` and `validation_nanos` sum CPU work across workers; `write_nanos`
 includes acquiring the shared writer and conditionally publishing results. The CLI
-also logs `validation_wait_nanos`. Do not add nested/overlapping timers together.
+also logs `validation_wait_ms`. Do not add nested/overlapping timers together.
 Full Musenalm acceptance now waits for background completion and asserts that every
 record is valid, as well as comparing complete ordered outputs and relationships.
