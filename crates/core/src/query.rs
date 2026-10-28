@@ -391,7 +391,7 @@ impl Collection {
         let value = if kind == ValueType::String && value != "null" && !value.starts_with('"') {
             Value::String(value.into())
         } else {
-            serde_json::from_str(value)
+            crate::json::parse(value)
                 .map_err(|e| Error::Request(format!("invalid filter value: {e}")))?
         };
         let filter = Filter {

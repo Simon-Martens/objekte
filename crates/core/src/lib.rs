@@ -14,6 +14,7 @@
 mod config;
 mod error;
 mod graph;
+mod json;
 mod query;
 mod repository;
 mod schema;

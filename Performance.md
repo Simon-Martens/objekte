@@ -1,5 +1,12 @@
 # Performance findings
 
+The [Sonic-rs integration](crates/bench/SONIC-RS-2026-10-28.md) reduces the cached
+Musenalm `entries` query/row stage from **11.9 ms to 5.3 ms** by decoding selected
+page fields. `contents` remains about 1.4 ms; filesystem metadata dominates its
+CLI latency. Full source views are 3–6% slower with the compatibility conversion
+into the existing validation/API value type. Both compared builds use native CPU
+targeting; returned rows and existing cache fingerprints match.
+
 The [disk-cache startup follow-up](crates/bench/CLI-LATENCY-2026-10-28.md) measures
 the current CLI using a copy of the application cache on Btrfs. Unchanged `contents`
 opens fell from **0.531 s to 0.374 s release**, and **1.706 s to 1.466 s debug**;

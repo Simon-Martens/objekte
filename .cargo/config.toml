@@ -1,0 +1,4 @@
+[build]
+# Optimize local builds and benchmarks for the CPU compiling them.
+# Distribution and cross-compilation builds should override this CPU target.
+rustflags = ["-C", "target-cpu=native"]

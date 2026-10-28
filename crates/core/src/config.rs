@@ -4,7 +4,6 @@ use crate::{
     schema::Schema,
 };
 use serde::{Deserialize, Serialize};
-use serde_json::Value;
 use sha2::{Digest, Sha256};
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -231,7 +230,7 @@ fn read<T: serde::de::DeserializeOwned>(
     files: &mut BTreeMap<PathBuf, String>,
 ) -> Result<T> {
     let bytes = fs::read(path).map_err(|e| io(path, e))?;
-    let value = serde_json::from_slice(&bytes).map_err(|e| config(path, "", e))?;
+    let value = sonic_rs::from_slice(&bytes).map_err(|e| config(path, "", e))?;
     files.insert(path.to_owned(), digest(&bytes));
     Ok(value)
 }
@@ -310,7 +309,7 @@ impl RepositoryModel {
                 return Err(config(&p, "/path", "collection source directories overlap"));
             }
             let sp = inside(&root, &c.schema)?;
-            let raw: Value = read(&sp, &mut files)?;
+            let crate::json::ParsedValue(raw) = read(&sp, &mut files)?;
             let schema = Schema::compile(&raw, &sp)?;
             let up = inside(&root, &c.ui)?;
             let mut ui: UiFile = read(&up, &mut files)?;

@@ -36,7 +36,15 @@ need for an event loop must not require the CLI to keep a session running.
    freshness policy. These subscriptions are unnecessary for a single CLI command.
 
 4. **Background jobs.** Run verification, cache construction, queries, and other
-   expensive work away from the UI thread. Provide progress, cancellation, and
+   expensive work away from the UI thread. Background reconciliation is the normal
+   freshness mechanism while a project is open: the UI schedules library refreshes
+   for initial verification, watcher events, and periodic recovery checks. Users
+   need not manually refresh to observe external edits, and ordinary view
+   interactions need not trigger a full source scan. Keep the compatible cached
+   snapshot usable with its freshness state while work runs, then patch affected
+   views after the library commits the updated cache revision, as described above.
+   The library owns change detection and cache synchronization; the UI owns job
+   scheduling and presentation. Provide progress, cancellation, and
    completion/failure notifications through library APIs. Prioritize work needed
    by the visible view over speculative work. Bound concurrency and batch source
    changes; commit consistent updates before notifying consumers. Avoid holding
@@ -77,6 +85,8 @@ need for an event loop must not require the CLI to keep a session running.
   page boundaries, and totals correctly.
 - Changes made while the app is closed, event bursts, and missed events recover
   through reconciliation.
+- External edits while the UI remains open reach visible views through background
+  reconciliation without manual refresh or a full scan on every interaction.
 - Rapid sort/filter/navigation changes cannot display obsolete responses.
 - Hover and idle prefetch stay within configured budgets and yield to user work.
 - Cancellation, cache deletion, invalid files, and interrupted jobs preserve

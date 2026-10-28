@@ -307,9 +307,13 @@ Expose forward/backward relationships and their coverage through CLI inspection.
 
 Materialize typed scalar index values from `IndexSpec`; keep full source JSON text
 in the record cache. The first implementation uses materialized typed key tables
-and fetches record payloads only after choosing the requested page. Payloads for
-that page are parsed to select returned columns; query-specific projections remain
-later work. Create ID, filter, default-sort, and sortable-field indexes when
+and fetches record payloads only after choosing the requested page. Sonic-rs
+decodes the requested columns and label from each page record while skipping
+unselected payloads; separate persistent query projections remain later work.
+Full source/schema parsing also uses Sonic, adapting raw numeric values into the
+existing validation/API representation without a floating-point conversion. Preserve
+last-member-wins duplicate keys and the existing fingerprint serialization.
+Create ID, filter, default-sort, and sortable-field indexes when
 the collection's view is first requested. Store an index-spec fingerprint. Update
 typed values with changed rows; SQLite maintains the corresponding indexes.
 

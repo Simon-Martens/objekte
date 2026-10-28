@@ -297,7 +297,7 @@ impl Repository {
         let path = c.path.join(format!("{id}.json"));
         let t = Instant::now();
         self.metrics.parses += 1;
-        let value: Value = serde_json::from_str(json).map_err(|e| record(&path, "", e))?;
+        let value = crate::json::parse(json).map_err(|e| record(&path, "", e))?;
         if validate {
             self.metrics.validations += 1;
             c.schema.validate(&value, &path)?;
@@ -734,8 +734,15 @@ impl Repository {
                 })?
                 .collect::<std::result::Result<Vec<_>, _>>()?;
             let mut out = Vec::with_capacity(rows.len());
+            let fields = plan
+                .columns
+                .iter()
+                .map(String::as_str)
+                .chain(std::iter::once(c.display.as_str()))
+                .filter(|field| *field != "@id")
+                .collect();
             for (id, path, json) in rows {
-                let value = serde_json::from_str(&json)
+                let value = crate::json::project(&json, &fields)
                     .map_err(|e| Error::Cache(format!("invalid cached JSON: {e}")))?;
                 out.push(plan.row(&c, &id, path, &value));
             }

@@ -7,6 +7,7 @@ license.workspace = true
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["arbitrary_precision"] }
+sonic-rs = { version = "0.5.10", features = ["arbitrary_precision"] }
 thiserror = "2"
 jsonschema = { version = "0.59", default-features = false }
 sha2 = "0.10"

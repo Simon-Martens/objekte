@@ -15,6 +15,7 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `synchronization.rs` | Persisted hashes, equal-size/mtime edits, restart, targeted updates, partial inventories, schema/UI changes, transactions, concurrency, deleted/corrupt caches |
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
+| `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
 | CLI `cli.rs` | Real subprocesses, argument errors, table/JSON/NDJSON, cache options, reference commands, killed builder recovery |
 
@@ -23,6 +24,14 @@ boundaries, directory/symlink replacement, and Linux directory-relative metadata
 equivalence, including fractional timestamps before the Unix epoch. The unchanged
 reopen test observes SQLite's `data_version` from a separate connection to ensure
 that a cache hit does not commit changed database pages.
+
+Sonic parser unit tests compare values and serialized bytes against Serde for
+large numbers, exponents, negative zero, Unicode, duplicate/escaped keys, and the
+existing nesting limit. Projection tests cover missing/null fields, large skipped
+payloads, malformed skipped JSON, invalid Unicode surrogate escapes, and trailing
+input. The public/schema value representation and fingerprint serializer remain
+unchanged. Page parsing materializes only selected fields; its work is included in
+`query_nanos`, while `parses` counts full source/cache revalidation parses.
 
 Every fixture test uses a temporary source repository and application directory.
 The mutation test performs 60 deterministic add/edit/delete steps and compares four

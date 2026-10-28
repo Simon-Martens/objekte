@@ -30,6 +30,13 @@ Plain `cargo run` uses unoptimized debug code, including JSON validation and man
 serialization. Compilation is separate from the logged execution timers. Release
 and debug builds share compatible caches; switching builds does not require a rebuild.
 
+Workspace builds enable `-C target-cpu=native` through
+[`.cargo/config.toml`](.cargo/config.toml), for both debug and release builds.
+This permits instructions supported by the build machine's CPU. For distribution
+or cross-compilation, override it with an appropriate target CPU via `RUSTFLAGS`.
+Keep `--release` for performance measurements; CPU targeting does not enable
+release optimizations in debug builds.
+
 ```sh
 cargo run -p objekte-cli -- examples/musenalm view places --data-dir /tmp/objekte-a
 cargo run -p objekte-cli -- examples/musenalm view contents --data-dir /tmp/objekte-a --sort numbering --direction desc --limit 20 --diagnostics
@@ -76,6 +83,13 @@ The implementation is read-only toward source files. Record writes, rendered
 markup, richer queries, query-specific result caches, and a desktop UI are later
 stages. SQLite holds source JSON text and separate typed index values; it is safe
 to discard. A cache error is reported; direct mode remains available independently.
+
+JSON input is parsed with sonic-rs. Source records and schemas retain the public
+`serde_json::Value` representation for validation and API compatibility, preserving
+numeric precision and last-member-wins duplicate keys. Cached pages decode only
+their requested columns and label; unrelated payloads are skipped. Fingerprints
+and output serialization keep their existing Serde encoding, so this parser change
+does not require rebuilding compatible caches.
 
 ## Test
 
