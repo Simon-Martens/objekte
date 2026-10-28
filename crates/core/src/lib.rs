@@ -12,6 +12,7 @@
 //! # Ok::<(), objekte_core::Error>(())
 //! ```
 mod config;
+mod config_manifest;
 mod error;
 mod graph;
 mod json;
@@ -27,6 +28,9 @@ pub use validation::{
 
 pub use config::{
     Collection, Direction, IndexField, ListOptions, RepositoryModel, Sort, ViewHashes,
+};
+pub use config_manifest::{
+    ConfigurationChangeKind, ConfigurationChanges, ConfigurationInputChange,
 };
 pub use error::{Error, Result};
 pub use graph::{CollectionGraph, CollectionRelation};

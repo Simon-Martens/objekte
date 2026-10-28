@@ -100,6 +100,28 @@ including edits invisible to metadata. `metadata-on-request` and `hash-on-reques
 repeat their respective checks on every request. Explicit `refresh` uses the
 selected policy. Watchers and background/UI work remain deferred in [UI.md](UI.md).
 
+Configuration changes survive restarts too. Before using SQLite, the library reads
+the saved `inputs` digests, compares registered configuration/schema/UI files, maps
+added/modified/removed inputs to their consuming collections, and atomically updates
+the configuration manifest. Shared files retain all consumers. Collection caches
+keep their **applied** schema/mapping/index/view hashes until their own reconciliation
+succeeds; observing a new file digest does not mark an old cache current.
+
+`Repository::refresh_configuration()` performs only this configuration work. The
+CLI equivalent is:
+
+```sh
+cargo run -p objekte-cli -- examples/musenalm cache refresh-config --data-dir /tmp/objekte-a --diagnostics
+```
+
+It reports previous/current digests and affected collections without enumerating
+records. `cache status` exposes `configuration_current`, `applied_schema_hash`, and
+`expected_schema_hash`; completed validation remains a separate per-record state.
+Schema changes requeue validation on collection use, using cached bytes for unchanged
+source files. Formatting-only changes do not invalidate semantic caches. Diagnostics
+include the latest manifest comparison and `configuration_ms`. With caching disabled,
+the explicit refresh compares in-memory snapshots and writes no application data.
+
 `list.subSorts` adds ordered secondary keys after `defaultSort`; `--then-sort
 FIELD:asc|desc` can be repeated on the CLI. An explicit primary sort replaces the
 configured default order. Data-field sort keys must be declared sortable; ID is

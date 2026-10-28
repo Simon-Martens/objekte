@@ -21,6 +21,7 @@ Usage:
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
   objekte REPOSITORY relations --to COLLECTION/ID [--complete] [--check-targets]
   objekte REPOSITORY cache status
+  objekte REPOSITORY cache refresh-config
   objekte REPOSITORY cache refresh --collection NAME
   objekte REPOSITORY cache validate --collection NAME
 
@@ -242,9 +243,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         "cache" => {
             if !matches!(
                 a.pos.get(2).map(String::as_str),
-                Some("status" | "refresh" | "validate")
+                Some("status" | "refresh-config" | "refresh" | "validate")
             ) {
-                return Err("cache requires status, refresh, or validate".into());
+                return Err("cache requires status, refresh-config, refresh, or validate".into());
             }
             3
         }
@@ -278,7 +279,9 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
                 "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                     .contains(&key.as_str()),
                 "relations" => ["--from", "--to"].contains(&key.as_str()),
-                "cache" => a.pos[2] != "status" && key == "--collection",
+                "cache" => {
+                    matches!(a.pos[2].as_str(), "refresh" | "validate") && key == "--collection"
+                }
                 _ => false,
             };
         if !allowed {
@@ -482,6 +485,8 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         "cache" => {
             if a.pos[2] == "status" {
                 Some(serde_json::to_value(repo.cache_status()?)?)
+            } else if a.pos[2] == "refresh-config" {
+                Some(serde_json::to_value(repo.refresh_configuration()?)?)
             } else {
                 let c = a
                     .values
@@ -510,7 +515,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
     if a.flags.contains("--diagnostics") {
         eprintln!(
             "{}",
-            json!({"metrics":metrics_in_milliseconds(json!(repo.metrics())),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":validation_wait_nanos as f64 / 1_000_000.0,"view_hashes":view_hashes})
+            json!({"metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":validation_wait_nanos as f64 / 1_000_000.0,"view_hashes":view_hashes})
         )
     }
     Ok(())

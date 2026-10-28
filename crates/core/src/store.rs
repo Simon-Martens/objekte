@@ -90,7 +90,9 @@ impl Store {
             tx.execute_batch("DROP TABLE IF EXISTS edges; DROP TABLE IF EXISTS record_validation; DROP TABLE IF EXISTS records; DROP TABLE IF EXISTS collections;")?;
             tx.commit()?;
         }
-        db.execute_batch("CREATE TABLE IF NOT EXISTS collections(name TEXT PRIMARY KEY,state TEXT NOT NULL,schema_hash TEXT NOT NULL DEFAULT '',mapping_hash TEXT NOT NULL DEFAULT '',index_hash TEXT NOT NULL DEFAULT '',revision INTEGER NOT NULL DEFAULT 0,manifest_hash TEXT NOT NULL DEFAULT '',record_count INTEGER NOT NULL DEFAULT 0,view_hash TEXT NOT NULL DEFAULT '');
+        db.execute_batch("CREATE TABLE IF NOT EXISTS inputs(path TEXT PRIMARY KEY,digest TEXT NOT NULL);
+          CREATE TABLE IF NOT EXISTS input_collections(path TEXT NOT NULL,collection TEXT NOT NULL,PRIMARY KEY(path,collection)) WITHOUT ROWID;
+          CREATE TABLE IF NOT EXISTS collections(name TEXT PRIMARY KEY,state TEXT NOT NULL,schema_hash TEXT NOT NULL DEFAULT '',mapping_hash TEXT NOT NULL DEFAULT '',index_hash TEXT NOT NULL DEFAULT '',revision INTEGER NOT NULL DEFAULT 0,manifest_hash TEXT NOT NULL DEFAULT '',record_count INTEGER NOT NULL DEFAULT 0,view_hash TEXT NOT NULL DEFAULT '');
           CREATE TABLE IF NOT EXISTS records(collection TEXT NOT NULL,id TEXT NOT NULL,path TEXT NOT NULL,size INTEGER NOT NULL,modified TEXT NOT NULL,identity TEXT NOT NULL,digest TEXT NOT NULL,json BLOB NOT NULL,revision INTEGER NOT NULL,PRIMARY KEY(collection,id));
           CREATE TABLE IF NOT EXISTS record_validation(collection TEXT NOT NULL,id TEXT NOT NULL,parse_status TEXT NOT NULL,validation_state TEXT NOT NULL,validation_schema_hash TEXT NOT NULL,issues TEXT NOT NULL,PRIMARY KEY(collection,id)) WITHOUT ROWID;
           CREATE TABLE IF NOT EXISTS edges(source_collection TEXT NOT NULL,source_id TEXT NOT NULL,location TEXT NOT NULL,target_collection TEXT NOT NULL,target_id TEXT NOT NULL,PRIMARY KEY(source_collection,source_id,location,target_collection,target_id));

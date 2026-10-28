@@ -11,6 +11,7 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | Suite | Checks |
 | --- | --- |
 | `configuration.rs` | Strict profile, normalization, paths, exact intended index fields, collection cycles, lazy metadata loading |
+| `config_manifest.rs` | Persisted config diffs across restarts, shared/removed inputs, transactional ownership, applied versus observed schema versions, invalid config and failed update recovery, old-cache compatibility, no-op writes and disabled caching |
 | `relationships.rs` | Nested occurrences, forward/backward edges, partial coverage, cycles, additions/deletions, missing targets, pointer escaping |
 | `synchronization.rs` | Persisted hashes, equal-size/mtime edits, restart, targeted updates, partial inventories, schema/UI changes, transactions, concurrency, deleted/corrupt caches |
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
@@ -98,7 +99,9 @@ also includes the query plan. Library timers have the following scopes:
 
 - `reload_nanos`: checking configuration/schema/UI files and reloading changed metadata.
 - `store_open_nanos`: cache path resolution, lock acquisition, opening SQLite,
-  initialization, and saving configuration fingerprints.
+  and initialization.
+- `configuration_nanos`: reading/comparing the persisted input manifest, verifying
+  loaded configuration, and atomically committing changed digests/consumers.
 - `sync_nanos`: the entire reconciliation call, including its fast reuse check.
 - `fingerprint_nanos`: constructing the compound source-manifest hash, inside sync.
 - `inventory_nanos`, `manifest_nanos`, `source_check_nanos`, `read_nanos`,

@@ -47,6 +47,7 @@ fn help_version_and_invalid_arguments() {
         vec![p, "cache"],
         vec![p, "cache", "unknown"],
         vec![p, "cache", "status", "--collection", "books"],
+        vec![p, "cache", "refresh-config", "--collection", "books"],
         vec![p, "view", "books", "--limt", "2"],
         vec![p, "view", "books", "--limit", "0"],
         vec![p, "view", "books", "--sort", "payload"],
@@ -68,6 +69,42 @@ fn help_version_and_invalid_arguments() {
     ] {
         assert!(!run(&f, &args).status.success(), "{args:?}");
     }
+}
+
+#[test]
+fn configuration_manifest_is_shared_across_cli_processes() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let first = run(&f, &[p, "cache", "refresh-config", "--diagnostics"]);
+    assert!(
+        first.status.success(),
+        "{}",
+        String::from_utf8_lossy(&first.stderr)
+    );
+    let diagnostics: Value = serde_json::from_slice(&first.stderr).unwrap();
+    assert_eq!(diagnostics["metrics"]["source_reads"], 0);
+    assert_eq!(diagnostics["metrics"]["enumerations"], 0);
+    assert!(diagnostics["metrics"]["configuration_ms"].is_f64());
+    assert_eq!(value(first)["inputs"].as_array().unwrap().len(), 11);
+    f.edit(".editor/books/ui.json", |v| {
+        v["label"] = json!("Changed while closed")
+    });
+    let changes = value(run(&f, &[p, "cache", "refresh-config"]));
+    assert_eq!(changes["affected_collections"], json!(["books"]));
+    assert_eq!(changes["inputs"][0]["kind"], "modified");
+    assert_ne!(
+        changes["inputs"][0]["previous_digest"],
+        changes["inputs"][0]["digest"]
+    );
+    let status = value(run(&f, &[p, "cache", "status"]));
+    assert_eq!(status["configuration_changes"]["inputs"], json!([]));
+    assert!(
+        status["collections"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|c| c["state"] == "absent")
+    );
 }
 
 #[test]

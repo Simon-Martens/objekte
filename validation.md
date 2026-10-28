@@ -75,6 +75,9 @@ it is deliberately not constrained with `json_valid`. SQLite is not the JSON par
 ```sql
 CREATE TABLE meta(key TEXT PRIMARY KEY, value TEXT NOT NULL);
 CREATE TABLE inputs(path TEXT PRIMARY KEY, digest TEXT NOT NULL);
+CREATE TABLE input_collections(
+  path TEXT NOT NULL, collection TEXT NOT NULL, PRIMARY KEY(path,collection)
+) WITHOUT ROWID;
 CREATE TABLE collections(
   name TEXT PRIMARY KEY, state TEXT NOT NULL,
   schema_hash TEXT NOT NULL DEFAULT '', mapping_hash TEXT NOT NULL DEFAULT '',
@@ -111,6 +114,22 @@ requested for this snapshot. `issues` is a JSON array of `{location, schema_path
 code, message}`. Schema paths are optional for parser/domain errors. The schema validator enables
 arbitrary-precision support, matching the Sonic/Serde value representation; numbers
 outside the indexed numeric domain produce diagnostics without rounding or panics.
+
+`inputs` is the last successfully observed configuration manifest, not a validation
+checkpoint. Its digests are read and compared before they are replaced.
+`input_collections` associates inputs with direct consumers so modified/shared files
+and removed configuration can be attributed across restarts. Both tables update in
+one transaction. Removed registrations remove obsolete manifest entries, while
+collection caches remain disposable and can be reused if registered again.
+
+`collections.schema_hash` advances only when that collection's reconciliation
+commits. `record_validation.validation_schema_hash` identifies the schema for that
+record's pending or completed validation. An observed schema edit therefore cannot
+make old validation results appear applicable to the new schema: cache status
+reports incompatible configuration until reconciliation resets affected records to
+pending. Malformed JSON retains its parse-error status. Configuration refresh alone
+does not run validation or read source records. The ownership table is added to
+existing format-4 caches without rebuilding their records.
 
 Each `v_<sha256(collection)>` table has `id TEXT PRIMARY KEY` plus `fN_s INTEGER NOT
 NULL, fN_v` for each indexed field other than ID. Each field has ascending and descending

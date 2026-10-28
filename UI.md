@@ -35,6 +35,15 @@ need for an event loop must not require the CLI to keep a session running.
    trigger reconciliation. Define periodic recovery according to the chosen
    freshness policy. These subscriptions are unnecessary for a single CLI command.
 
+   The library now persists configuration digests and their collection consumers.
+   Use `refresh_configuration()` on startup and for configuration events. Its report
+   identifies changed input files and candidate collections; `cache status` exposes
+   applied versus expected schema hashes and `configuration_current`. Schedule
+   collection refreshes for affected active views. Also check persisted compatibility
+   on startup: a previous process may have observed new configuration without
+   updating a collection. An empty change report does not prove all caches are current.
+   Record files still need their separate collection manifest reconciliation.
+
 4. **Background jobs.** Run verification, cache construction, queries, and other
    expensive work away from the UI thread. Background reconciliation is the normal
    freshness mechanism while a project is open: the UI schedules library refreshes

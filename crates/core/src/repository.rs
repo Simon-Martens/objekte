@@ -1,7 +1,8 @@
 use crate::{
-    Collection, Error, PathStep, RecordState, RecordStatus, RepositoryModel, Result,
-    ValidationMetrics, ValidationMode, ViewRequest, ViewResult,
+    Collection, ConfigurationChanges, Error, PathStep, RecordState, RecordStatus, RepositoryModel,
+    Result, ValidationMetrics, ValidationMode, ViewRequest, ViewResult,
     config::{digest, fingerprint},
+    config_manifest::ConfigurationSnapshot,
     error::{io, record},
     query::Plan,
     schema::escape,
@@ -95,6 +96,7 @@ metrics!(
     fingerprint_nanos,
     reload_nanos,
     store_open_nanos,
+    configuration_nanos,
     sync_nanos,
     inventory_nanos,
     manifest_nanos,
@@ -146,6 +148,11 @@ pub struct Coverage {
     pub collection: String,
     pub state: String,
     pub verified: bool,
+    /// Whether existing derived data uses the currently loaded configuration.
+    /// This does not assert source freshness or completed record validation.
+    pub configuration_current: bool,
+    pub applied_schema_hash: Option<String>,
+    pub expected_schema_hash: String,
     pub records: usize,
     /// Counts by validation state; empty when no persistent coverage exists.
     pub validation: BTreeMap<String, usize>,
@@ -164,6 +171,7 @@ pub struct CacheStatus {
     pub mode: CacheMode,
     pub freshness: Freshness,
     pub collections: Vec<Coverage>,
+    pub configuration_changes: Option<ConfigurationChanges>,
 }
 struct Raw {
     json: Vec<u8>,
@@ -179,6 +187,8 @@ pub struct Repository {
     verified: BTreeMap<String, i64>,
     memory_edges: BTreeMap<(String, String), Vec<RecordRelation>>,
     memory_coverage: BTreeMap<String, String>,
+    observed_configuration: ConfigurationSnapshot,
+    configuration_changes: Option<ConfigurationChanges>,
 }
 impl Repository {
     /// Load configuration and schemas only. Does not enumerate records or create cache files.
@@ -209,6 +219,8 @@ impl Repository {
         let repo = Self {
             writer: None,
             validator: None,
+            observed_configuration: ConfigurationSnapshot::from_model(&model),
+            configuration_changes: None,
             model,
             options,
             metrics: Metrics::default(),
@@ -232,14 +244,49 @@ impl Repository {
         let t = Instant::now();
         if self.model.changed()? {
             let model = RepositoryModel::load(&self.model.root)?;
-            self.model = model;
-            self.verified.clear();
-            self.memory_edges.clear();
-            self.memory_coverage.clear();
-            self.cache_directory()?;
+            let previous = std::mem::replace(&mut self.model, model);
+            if let Err(error) = self.cache_directory() {
+                self.model = previous;
+                return Err(error);
+            }
+            let unchanged = |name: &str| {
+                previous
+                    .collections
+                    .get(name)
+                    .zip(self.model.collections.get(name))
+                    .is_some_and(|(old, new)| {
+                        old.schema_hash == new.schema_hash
+                            && old.mapping_hash == new.mapping_hash
+                            && old.index_hash == new.index_hash
+                            && old.view_hashes == new.view_hashes
+                    })
+            };
+            self.verified.retain(|name, _| unchanged(name));
+            self.memory_edges.retain(|(name, _), _| unchanged(name));
+            self.memory_coverage.retain(|name, _| unchanged(name));
         }
         self.metrics.reload_nanos += nanos(t);
         Ok(())
+    }
+    /// Most recent successful manifest comparison, not a durable event log.
+    pub fn configuration_changes(&self) -> Option<&ConfigurationChanges> {
+        self.configuration_changes.as_ref()
+    }
+    /// Observe configuration changes without enumerating or opening source records.
+    /// With SQLite this creates/updates the persisted manifest. Disabled caching
+    /// compares with this handle's previous snapshot and writes no application data.
+    pub fn refresh_configuration(&mut self) -> Result<ConfigurationChanges> {
+        self.reload()?;
+        if self.options.cache == CacheMode::Sqlite {
+            self.store()?;
+        } else {
+            let changes = self
+                .observed_configuration
+                .compare(&self.model, &BTreeSet::new());
+            self.observed_configuration = ConfigurationSnapshot::from_model(&self.model);
+            self.configuration_changes = Some(changes);
+        }
+        Ok(self.configuration_changes.clone().unwrap())
     }
     pub fn cache_directory(&self) -> Result<PathBuf> {
         let base = future_path(&self.options.data_dir)?;
@@ -276,18 +323,11 @@ impl Repository {
             }
         };
         let s = writer.enter(self.options.sqlite_cache_mib)?;
-        s.db.execute_batch(
-            "CREATE TABLE IF NOT EXISTS inputs(path TEXT PRIMARY KEY,digest TEXT NOT NULL)",
-        )?;
-        let tx = s.db.unchecked_transaction()?;
-        for (p, h) in &self.model.files {
-            tx.execute(
-                "INSERT INTO inputs(path,digest) VALUES(?1,?2) ON CONFLICT(path) DO UPDATE SET digest=excluded.digest WHERE inputs.digest<>excluded.digest",
-                params![p.to_string_lossy(), h],
-            )?;
-        }
-        tx.commit()?;
         self.metrics.store_open_nanos += nanos(t);
+        let t = Instant::now();
+        let result = s.reconcile_configuration(&self.model);
+        self.metrics.configuration_nanos += nanos(t);
+        self.configuration_changes = Some(result?);
         drop(s);
         Ok(writer)
     }
@@ -397,7 +437,10 @@ impl Repository {
     }
     fn enqueue_validation(&mut self, c: &Collection) -> Result<()> {
         if self.validator.is_none() {
-            let writer = self.store()?;
+            let writer = match &self.writer {
+                Some(writer) => writer.clone(),
+                None => self.store()?,
+            };
             self.validator = Some(Validator::new(
                 writer,
                 self.options.background_workers,
@@ -1056,12 +1099,18 @@ impl Repository {
             mode: self.options.cache,
             freshness: self.options.freshness,
             collections,
+            configuration_changes: store.as_ref().and(self.configuration_changes.clone()),
         })
     }
     fn coverage(&self, name: &str, s: Option<&Store>) -> Result<Coverage> {
         if let Some(s) = s
             && let Some(state) = s.state(name)?
         {
+            let c = self.model.collection(name)?;
+            let configuration_current = state.schema == c.schema_hash
+                && state.mapping == c.mapping_hash
+                && (state.index.is_empty() || state.index == c.index_hash)
+                && state.view == c.view_hashes.combined;
             let records = s.db.query_row(
                 "SELECT count(*) FROM records WHERE collection=?1",
                 [name],
@@ -1074,7 +1123,11 @@ impl Repository {
                 validation,
                 collection: name.into(),
                 verified: state.state == "current"
+                    && configuration_current
                     && self.verified.get(name) == Some(&state.revision),
+                configuration_current,
+                applied_schema_hash: (!state.schema.is_empty()).then_some(state.schema),
+                expected_schema_hash: c.schema_hash.clone(),
                 state: state.state,
                 records,
                 revision: state.revision,
@@ -1090,6 +1143,9 @@ impl Repository {
         Ok(Coverage {
             collection: name.into(),
             verified: state == "current",
+            configuration_current: state == "current",
+            applied_schema_hash: None,
+            expected_schema_hash: self.model.collection(name)?.schema_hash.clone(),
             state,
             records: self.memory_edges.keys().filter(|(n, _)| n == name).count(),
             validation: BTreeMap::new(),

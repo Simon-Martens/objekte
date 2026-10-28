@@ -163,6 +163,8 @@ pub struct RepositoryModel {
     pub graph: CollectionGraph,
     #[serde(skip)]
     pub(crate) files: BTreeMap<PathBuf, String>,
+    #[serde(skip)]
+    pub(crate) input_collections: BTreeMap<PathBuf, BTreeSet<String>>,
 }
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -231,7 +233,11 @@ fn read<T: serde::de::DeserializeOwned>(
 ) -> Result<T> {
     let bytes = fs::read(path).map_err(|e| io(path, e))?;
     let value = sonic_rs::from_slice(&bytes).map_err(|e| config(path, "", e))?;
-    files.insert(path.to_owned(), digest(&bytes));
+    let hash = digest(&bytes);
+    if files.get(path).is_some_and(|previous| previous != &hash) {
+        return Err(Error::Unstable(path.into()));
+    }
+    files.insert(path.to_owned(), hash);
     Ok(value)
 }
 fn scalar<'a>(
@@ -263,6 +269,7 @@ impl RepositoryModel {
             return Err(config(&root, "", "repository path must be UTF-8"));
         }
         let mut files = BTreeMap::new();
+        let mut input_collections = BTreeMap::<PathBuf, BTreeSet<String>>::new();
         let rp = inside(&root, ".editor/repository.json")?;
         let r: RepoFile = read(&rp, &mut files)?;
         if r.version != 2 {
@@ -275,6 +282,9 @@ impl RepositoryModel {
             Defaults::default()
         };
         let default_page = defaults.page_size.unwrap_or(50);
+        for path in files.keys() {
+            input_collections.insert(path.clone(), r.collections.keys().cloned().collect());
+        }
         if default_page == 0 || default_page > i64::MAX as usize {
             return Err(config(&rp, "/ui/defaults/pageSize", "invalid page size"));
         }
@@ -313,6 +323,12 @@ impl RepositoryModel {
             let schema = Schema::compile(&raw, &sp)?;
             let up = inside(&root, &c.ui)?;
             let mut ui: UiFile = read(&up, &mut files)?;
+            for path in [&p, &sp, &up] {
+                input_collections
+                    .entry(path.clone())
+                    .or_default()
+                    .insert(name.clone());
+            }
             let page_size = ui.page_size.unwrap_or(default_page);
             if page_size == 0 || page_size > i64::MAX as usize {
                 return Err(config(&up, "/pageSize", "invalid page size"));
@@ -408,12 +424,17 @@ impl RepositoryModel {
             );
         }
         let graph = CollectionGraph::build(&collections)?;
-        Ok(Self {
+        let model = Self {
             root,
             collections,
             graph,
             files,
-        })
+            input_collections,
+        };
+        if model.changed()? {
+            return Err(Error::Unstable(model.root.clone()));
+        }
+        Ok(model)
     }
     pub fn collection(&self, name: &str) -> Result<&Collection> {
         self.collections
@@ -422,7 +443,11 @@ impl RepositoryModel {
     }
     pub(crate) fn changed(&self) -> Result<bool> {
         for (p, hash) in &self.files {
-            let bytes = fs::read(p).map_err(|e| io(p, e))?;
+            let bytes = match fs::read(p) {
+                Ok(bytes) => bytes,
+                Err(e) if e.kind() == std::io::ErrorKind::NotFound => return Ok(true),
+                Err(e) => return Err(io(p, e)),
+            };
             if digest(&bytes) != *hash {
                 return Ok(true);
             }

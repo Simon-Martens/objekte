@@ -218,6 +218,7 @@ Give opening two explicit meanings:
 | Operation | Work it is allowed to trigger |
 | --- | --- |
 | `load_repository` | Read configuration and schemas; derive metadata/collection graph |
+| `refresh_configuration` | Compare/persist configuration digests and report affected collections; no source-record reads |
 | `get_record(collection, id)` | Read/parse that file; cache its current bytes and schedule schema validation |
 | `open_view(collection)` | On demand, enumerate/read/reconcile/cache the source collection and return its default table |
 
@@ -377,6 +378,43 @@ values/edges. A UI index-field change rebuilds affected indexes. A label/column/
 size change alone need not rewrite the full record cache. A storage mapping or
 cache format change invalidates the affected namespace/generation. Invalid JSON
 replaces the old cached row with an explicit incorrect-JSON row. Content errors do not roll back a collection; operational failures still do.
+
+Implemented configuration reconciliation uses two distinct checkpoints:
+
+1. **Observed inputs.** `inputs(path,digest)` holds SHA-256 hashes of registered
+   configuration/schema/UI files. `input_collections(path,collection)` records
+   direct consumers, including every consumer of a shared file. Repository settings
+   and root UI defaults conservatively depend on all registered collections.
+2. **Applied cache configuration.** Collection schema/mapping/index/view hashes
+   identify the versions applied by successful collection reconciliation. Each
+   record's validation status also carries its requested schema hash. Observing
+   inputs never advances these applied versions or declares validation complete.
+
+At SQLite access, read the previous input manifest before writing anything. Compare
+the union of old/new paths, classify added/modified/removed files, and union their
+old/new consumer sets. Compare semantic collection hashes to determine necessary
+work: a raw formatting change is observable without triggering revalidation.
+Commit input digest and consumer additions/removals together. Before committing,
+recheck the loaded files to reject a configuration that changed during loading or
+while waiting for the writer. Invalid/missing required configuration and transaction
+failures preserve the previous manifest. Removal from the registry permits removal
+of its old files; files still referenced by another collection remain tracked.
+
+`refresh_configuration()` exposes this operation independently of source scans;
+`cache refresh-config` is its CLI driver. Normal cache access also performs it.
+`load_repository` and inspection remain metadata-only and do not create a cache.
+Existing format-4 caches gain the ownership table without discarding records; an
+old changed input without ownership uses a conservative collection candidate set.
+
+Collection work remains lazy. A new observed manifest followed by a crash, a failed
+collection update, or opening only another collection cannot hide pending work:
+the next use still compares persisted applied hashes with current semantic hashes.
+`cache status` separates source coverage, configuration compatibility, applied/
+expected schema hashes, and record-validation counts. Reports describe the latest
+manifest comparison, not a durable event queue; another process may already have
+observed the changes. Per-collection applied versions remain the recovery authority.
+Data files use the separate source manifest algorithm above. No watcher or query
+cache is needed for either kind of restart detection.
 
 Watchers are a later addition to this mechanism. They mark paths dirty while the
 process is running, coalesce repeated events, and trigger reconciliation. They
