@@ -367,8 +367,9 @@ fn older_caches_gain_ownership_without_losing_applied_versions() {
     r.open_view("books", &all()).unwrap();
     let observer = db(&r);
     drop(r);
+    // INFO: A pre-migration cache has neither ownership nor migration history.
     observer
-        .execute_batch("DROP TABLE input_collections")
+        .execute_batch("DROP TABLE input_collections; DROP TABLE migrations")
         .unwrap();
     schema_change(&f);
     let mut r = f.repo(CacheMode::Sqlite);

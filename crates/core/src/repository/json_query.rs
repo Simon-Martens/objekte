@@ -97,7 +97,7 @@ impl Repository {
         } else {
             "NULL"
         };
-        // Materialize only matched identities. This deliberately examines all scoped
+        // INFO: Materialize only matched identities. This deliberately examines all scoped
         // records before pagination, including scalar-cardinality errors outside the
         // returned page or in an otherwise false OR/AND branch. Never materialize JSON.
         // CROSS JOIN fixes the payload lookup order: stale/skewed collection

@@ -25,6 +25,19 @@ file discovery, hashes, cache synchronization, index construction, and view data
 The CLI supplies options, invokes those operations, and formats their results as
 tables or machine-readable output. Tests and benchmarks call the same library.
 
+### Code map
+
+- `crates/core/src/repository.rs` defines the public repository state and options.
+  Its `repository/` modules own source reads, ingestion, reconciliation, validation,
+  relationships, coverage, views, and general JSON queries.
+- `crates/core/src/store.rs` opens SQLite and exposes cache state. Its `store/`
+  modules own records, indexes, the writer lock, SQL tracing, and migrations.
+- `crates/core/src/store/migrations/` contains numbered SQL schema steps. Startup
+  applies pending steps transactionally and records them in `migrations`; add a new
+  numbered step for a future schema change.
+- `crates/cli/src/args.rs`, `commands.rs`, and `output.rs` handle argument parsing,
+  command dispatch, and presentation respectively. `main.rs` only starts the CLI.
+
 ## 1. First data and configuration profile
 
 ### Musenalm data
@@ -514,8 +527,10 @@ source files just to validate them. Separate timers report this extra decode wor
 
 See [validation.md](validation.md) for states, index/reference behavior, exact DB
 schema, API notifications and recovery semantics. Cache format 6 rebuilds old caches
-and stores raw JSON once per collection with lazily constructed expression indexes; there is no deployed-data
-migration framework yet. The next ingestion task is to eliminate digest lookups
+and stores raw JSON once per collection with lazily constructed expression indexes.
+Startup migrations create the shared schema and record completed versions in the
+`migrations` table. An existing format-6 cache without migration history is adopted
+without rereading its records. The next ingestion task is to eliminate digest lookups
 already answered by the manifest. Separate typed-table writes have been removed; SQLite maintains JSON
 expression indexes. Query comparisons on configured scalar fields use these indexes.
 The filter grammar also supports field operands, :length/:each/:lower, and LIKE patterns.

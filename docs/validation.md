@@ -10,7 +10,7 @@ while individual records are still pending or invalid.
 - [x] Validate cached records in the background with durable pending state and stale-result guards.
 - [x] Report record status, diagnostics, metrics, and collection notifications through the library and CLI.
 - [x] Keep validation state separate from source freshness and recover pending work after restart.
-- [ ] Remove redundant per-record digest lookups during ingestion; deployment migrations remain deferred.
+- [ ] Remove redundant per-record digest lookups during ingestion.
 
 ## Implemented flow
 
@@ -97,6 +97,10 @@ it is deliberately not constrained with `json_valid`. SQLite is not the JSON par
 
 ```sql
 CREATE TABLE meta(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+CREATE TABLE migrations(
+  version INTEGER PRIMARY KEY, name TEXT NOT NULL,
+  applied_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE inputs(path TEXT PRIMARY KEY, digest TEXT NOT NULL);
 CREATE TABLE input_collections(
   path TEXT NOT NULL, collection TEXT NOT NULL, PRIMARY KEY(path,collection)
@@ -168,6 +172,8 @@ Index-definition version 3 accompanies cache format 6. Statistics for the collec
 primary key and new indexes are collected together. Library connections register the
 Rust functions; external integrity checks use `register_cache_sqlite_functions`.
 
-Format changes rebuild disposable tables on the next cache access. Deployment migrations
-are deferred. Redundant per-record digest lookups remain a later ingestion optimization. The
+Startup migrations create the shared tables from numbered SQL files and write a
+history row in the same transaction as each schema change. Existing format-6 caches
+without history are adopted without reingestion. Format changes rebuild disposable
+record tables on the next cache access. Redundant per-record digest lookups remain a later ingestion optimization. The
 per-record typed-table writes have been removed.

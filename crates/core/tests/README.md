@@ -27,6 +27,7 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
 | `json_filter.rs` | Typed filters, field operands/modifiers, LIKE patterns, exact numbers, nested arrays, missing/null, parser limits, injection-shaped bindings, global scope, source changes, and direct/SQL parity |
 | `expression_indexes.rs` | Real JSON expression-index seeks, covering-key reads with extraction disabled, lazy collection tables and view/query indexes, no field columns/value tables, format-5 rebuilds, precise types, edits/deletions, reconfiguration, and restart/rebuild |
+| `migrations.rs` | New cache schema, adoption of existing format-6 caches, one-time application, transactional retry after a failed schema step, and rejection of future migration history |
 | `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, retained content errors across batches and correction/revalidation |
 | `validation.rs` | Pending/restart recovery, wrong types, malformed JSON/UTF-8, all diagnostics, stale-result guards, schema changes, delete/recreate, background transaction failure, worker defaults/stacks, shared writer concurrency |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
