@@ -16,7 +16,7 @@ The initial in-memory index build took 525 ms and 520 ms in those two processes.
 
 The forward run's median candidate selection took 1.4 ms, and its median source scan and verification took 12.8 ms. The phases are medians over different cases and do not add up to a representative request. For `preferred_title ~ 'Liebe' && year = 1800`, intersecting text and typed postings selected 242 files and the full query took 1.8 ms. Common short strings can be less selective: `preferred_title = 'No. 11.'` opened 16,141 candidate files and took 17.4 ms with bigrams versus 6.4 ms with segments. Broad or negated queries may need to read most files, especially with `--count`.
 
-The published 43-case report predates the typed `OR` union planner. Its `year_or` row shows a full scan of 133,948 files and is **not a current timing** for indexed numeric branches. The current planner can union typed postings when every branch has a safe indexed candidate set; the full filter is still verified against source JSON. Mixed text/number `OR` may still scan broadly. Those cases need a fresh benchmark. The [release acceptance test](../crates/core/tests/musenalm_bigram.rs) compares complete ordered IDs and totals with direct evaluation for all 43 filters. Focused tests cover numeric `OR`, edits, exact decimals, arrays, Unicode, and candidate completeness.
+The published 43-case report predates the typed `OR` union planner. Its `year_or` row shows a full scan of 133,948 files and is **not a current timing** for indexed numeric branches. The current planner can union typed postings when every branch has a safe indexed candidate set; the full filter is still verified against source JSON. Mixed text/number `OR` may still scan broadly. Those cases need a fresh benchmark. The [release acceptance test](../crates/core/tests/musenalm_bigram.rs) compares complete ordered IDs and totals with direct evaluation for all 43 filters. An [independent source-file oracle](../crates/core/tests/json_query_oracle.rs) parses with `serde_json` and uses handwritten predicates to compare complete IDs against both bigram and segments for those same 43 filters; it is an opt-in release test. A smaller oracle fixture runs in the routine suite against all four query backends. Focused tests cover numeric `OR`, edits, exact decimals, arrays, Unicode, and candidate completeness.
 
 ## Measurement limits and next checks
 
@@ -24,12 +24,14 @@ The published 43-case report predates the typed `OR` union planner. Its `year_or
 - The 43-case report measures JSON filters, not the full configured view workload. View first-use, warm page, count, and sort costs need a current end-to-end comparison across memory, segments, and direct modes.
 - Candidate counts, file opens, source bytes, parsing, and validation should be reported by phase for broad matches, mixed text/number filters, and edits. A repeated-query benchmark should keep one repository handle open.
 - Compare complete outputs and ordering whenever changing the candidate planner; a fast prefilter cannot omit a real match.
+- The benchmark uses `--count`, so the in-memory backend must check every candidate to compute totals. Without a count, it now checks candidates in bounded parallel batches and stops after the requested page when global scalar-cardinality checks do not require a full scan. First-use index construction still visits the collection.
 
 Reproduce the published comparison from the repository root:
 
 ```sh
 cargo run --release -p objekte-core --example profile_bigram_query
 cargo test --release -p objekte-core --test musenalm_bigram -- --ignored --nocapture
+cargo test --release -p objekte-core --test json_query_oracle -- --ignored --nocapture
 ```
 
 ## Earlier experiments

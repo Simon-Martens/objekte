@@ -481,6 +481,11 @@ impl Repository {
                 .iter()
                 .any(|field| picker.has_array_value(field));
             let risk = cardinality_risk || array_risk;
+            // A later collection can contain an invalid array in a scalar field,
+            // so build its picker and check that risk even when the page is full.
+            if !request.count && !risk && result.records.len() == request.limit {
+                continue;
+            }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
             let entries = picker.candidate_records(
                 (!risk).then_some(values_pattern.as_deref()).flatten(),
@@ -489,98 +494,115 @@ impl Repository {
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
             let source = Source::open(&c.path)?;
-            let scan_started = Instant::now();
-            let outcomes = entries
-                .par_iter()
-                .map_init(
-                    || {
-                        (
-                            SearcherBuilder::new()
-                                .line_number(false)
-                                .bom_sniffing(false)
-                                .build(),
-                            Vec::with_capacity(4096),
-                        )
-                    },
-                    |(searcher, bytes), (id, stamp)| -> Result<ScanOutcome> {
-                        let open_started = Instant::now();
-                        let path = source.path.join(format!("{id}.json"));
-                        let mut file = source.file(id)?;
-                        let before = Stamp::from_metadata(
-                            &file.metadata().map_err(|e| io(&path, e))?,
-                            &path,
-                        )?;
-                        if &before != *stamp {
-                            return Err(Error::Unstable(path));
-                        }
-                        let file_open_nanos = nanos(open_started);
-                        let read_started = Instant::now();
-                        bytes.clear();
-                        file.read_to_end(bytes).map_err(|e| io(&path, e))?;
-                        let read_nanos = nanos(read_started);
-                        let (candidate, regex_nanos) = if let Some((matcher, _)) = prefilter {
-                            let regex_started = Instant::now();
-                            let mut sink = FirstMatch::default();
-                            searcher
-                                .search_slice(matcher, bytes, &mut sink)
-                                .map_err(|e| io(&path, e))?;
-                            (sink.0, nanos(regex_started))
-                        } else {
-                            (true, 0)
-                        };
-                        let mut outcome = ScanOutcome {
-                            candidate,
-                            file_open_nanos,
-                            read_nanos,
-                            regex_nanos,
-                            ..Default::default()
-                        };
-                        if candidate {
-                            outcome.source_bytes = bytes.len() as u64;
-                            let t = Instant::now();
-                            let doc = Document::parse(bytes);
-                            outcome.parse_nanos = nanos(t);
-                            if doc.state.status != RecordStatus::IncorrectJson {
-                                let t = Instant::now();
-                                outcome.matches = filter.matches(&doc.data)?;
-                                outcome.query_nanos = nanos(t);
-                            }
-                        }
-                        let after = Stamp::from_metadata(
-                            &file.metadata().map_err(|e| io(&path, e))?,
-                            &path,
-                        )?;
-                        if before != after || bytes.len() as u64 != after.size {
-                            return Err(Error::Unstable(path));
-                        }
-                        Ok(outcome)
-                    },
-                )
-                .collect::<Result<Vec<_>>>()?;
-            self.metrics.grep_scans += entries.len() as u64;
-            self.metrics.grep_bytes += entries.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
-            self.metrics.grep_nanos += nanos(scan_started);
             let mut page_matches = Vec::new();
-            for ((id, stamp), outcome) in entries.iter().zip(outcomes) {
-                self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
-                self.metrics.bigram_read_nanos += outcome.read_nanos;
-                self.metrics.bigram_regex_nanos += outcome.regex_nanos;
-                if outcome.candidate {
-                    self.metrics.grep_candidates += 1;
-                    self.metrics.source_reads += 1;
-                    self.metrics.source_bytes += outcome.source_bytes;
-                    self.metrics.parses += 1;
-                    self.metrics.parse_nanos += outcome.parse_nanos;
-                    self.metrics.json_decode_nanos += outcome.parse_nanos;
-                    self.metrics.query_nanos += outcome.query_nanos;
-                }
-                if outcome.matches {
-                    if matched >= request.offset
-                        && result.records.len() + page_matches.len() < request.limit
-                    {
-                        page_matches.push(((*id).to_owned(), (*stamp).clone()));
+            // Keep counted queries in one parallel batch. For an uncounted page,
+            // use bounded parallel batches and stop opening files once it fills.
+            let batch_size = if request.count || risk {
+                entries.len().max(1)
+            } else {
+                rayon::current_num_threads()
+                    .saturating_mul(8)
+                    .clamp(64, 512)
+            };
+            for batch in entries.chunks(batch_size) {
+                let scan_started = Instant::now();
+                let outcomes = batch
+                    .par_iter()
+                    .map_init(
+                        || {
+                            (
+                                SearcherBuilder::new()
+                                    .line_number(false)
+                                    .bom_sniffing(false)
+                                    .build(),
+                                Vec::with_capacity(4096),
+                            )
+                        },
+                        |(searcher, bytes), (id, stamp)| -> Result<ScanOutcome> {
+                            let open_started = Instant::now();
+                            let path = source.path.join(format!("{id}.json"));
+                            let mut file = source.file(id)?;
+                            let before = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if &before != *stamp {
+                                return Err(Error::Unstable(path));
+                            }
+                            let file_open_nanos = nanos(open_started);
+                            let read_started = Instant::now();
+                            bytes.clear();
+                            file.read_to_end(bytes).map_err(|e| io(&path, e))?;
+                            let read_nanos = nanos(read_started);
+                            let (candidate, regex_nanos) = if let Some((matcher, _)) = prefilter {
+                                let regex_started = Instant::now();
+                                let mut sink = FirstMatch::default();
+                                searcher
+                                    .search_slice(matcher, bytes, &mut sink)
+                                    .map_err(|e| io(&path, e))?;
+                                (sink.0, nanos(regex_started))
+                            } else {
+                                (true, 0)
+                            };
+                            let mut outcome = ScanOutcome {
+                                candidate,
+                                file_open_nanos,
+                                read_nanos,
+                                regex_nanos,
+                                ..Default::default()
+                            };
+                            if candidate {
+                                outcome.source_bytes = bytes.len() as u64;
+                                let t = Instant::now();
+                                let doc = Document::parse(bytes);
+                                outcome.parse_nanos = nanos(t);
+                                if doc.state.status != RecordStatus::IncorrectJson {
+                                    let t = Instant::now();
+                                    outcome.matches = filter.matches(&doc.data)?;
+                                    outcome.query_nanos = nanos(t);
+                                }
+                            }
+                            let after = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if before != after || bytes.len() as u64 != after.size {
+                                return Err(Error::Unstable(path));
+                            }
+                            Ok(outcome)
+                        },
+                    )
+                    .collect::<Result<Vec<_>>>()?;
+                self.metrics.grep_scans += batch.len() as u64;
+                self.metrics.grep_bytes += batch.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
+                self.metrics.grep_nanos += nanos(scan_started);
+                for ((id, stamp), outcome) in batch.iter().zip(outcomes) {
+                    self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
+                    self.metrics.bigram_read_nanos += outcome.read_nanos;
+                    self.metrics.bigram_regex_nanos += outcome.regex_nanos;
+                    if outcome.candidate {
+                        self.metrics.grep_candidates += 1;
+                        self.metrics.source_reads += 1;
+                        self.metrics.source_bytes += outcome.source_bytes;
+                        self.metrics.parses += 1;
+                        self.metrics.parse_nanos += outcome.parse_nanos;
+                        self.metrics.json_decode_nanos += outcome.parse_nanos;
+                        self.metrics.query_nanos += outcome.query_nanos;
                     }
-                    matched += 1;
+                    if outcome.matches {
+                        if matched >= request.offset
+                            && result.records.len() + page_matches.len() < request.limit
+                        {
+                            page_matches.push(((*id).to_owned(), (*stamp).clone()));
+                        }
+                        matched += 1;
+                    }
+                }
+                if !request.count
+                    && !risk
+                    && result.records.len() + page_matches.len() == request.limit
+                {
+                    break;
                 }
             }
             drop(entries);
