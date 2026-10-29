@@ -1,11 +1,16 @@
 //! Sonic JSON parsing with the existing public/schema value representation.
 //! Keep fingerprint serialization separate: its exact bytes are a cache contract.
+#[cfg(test)]
+use serde::de::{DeserializeSeed, MapAccess, Visitor};
 use serde::{
     Deserialize, Deserializer,
-    de::{self, DeserializeSeed, MapAccess, Visitor},
+    de::{self},
 };
 use serde_json::{Map, Value};
-use sonic_rs::{JsonContainerTrait, JsonValueTrait, ValueRef};
+#[cfg(test)]
+use sonic_rs::JsonContainerTrait;
+use sonic_rs::{JsonValueTrait, ValueRef};
+#[cfg(test)]
 use std::{collections::BTreeSet, fmt};
 
 
@@ -65,14 +70,44 @@ pub(crate) fn parse(json: &str) -> Result<Value, sonic_rs::Error> {
     sonic_rs::from_str::<ParsedValue>(json).map(|v| v.0)
 }
 
+/// Plain decoded scalar values for conservative text candidate selection.
+/// The non-printable separator prevents bigrams from crossing value boundaries.
+pub(crate) fn value_text(value: &Value, out: &mut String) {
+    match value {
+        Value::Array(items) => items.iter().for_each(|item| value_text(item, out)),
+        Value::Object(items) => items.values().for_each(|item| value_text(item, out)),
+        Value::String(s) => {
+            for ch in s.chars() {
+                out.push(if ch == '\n' || ch == '\r' {
+                    '\u{1f}'
+                } else {
+                    ch
+                });
+            }
+            out.push('\u{1f}');
+        }
+        Value::Number(n) => {
+            out.push_str(&n.to_string());
+            out.push('\u{1f}');
+        }
+        Value::Bool(v) => {
+            out.push_str(if *v { "true" } else { "false" });
+            out.push('\u{1f}');
+        }
+        Value::Null => out.push_str("null\u{1f}"),
+    }
+}
+
 /// Validate the entire Sonic DOM with the same depth rules as `parse`, but only
 /// convert the field needed by an expression index to the public Value tree.
 /// Unlike skip-based projection this also preserves errors in unselected fields.
+#[cfg(test)]
 pub(crate) fn index_field(json: &str, field: &str) -> Result<Value, String> {
     index_fields(json, |name| name == field)
 }
 
 /// Validate every value, but materialize only the requested top-level keys.
+#[cfg(test)]
 pub(crate) fn index_fields(json: &str, selected: impl Fn(&str) -> bool) -> Result<Value, String> {
     fn depth_check(v: &sonic_rs::Value, depth: usize) -> Result<(), String> {
         if v.is_number() {
@@ -116,6 +151,7 @@ pub(crate) fn index_fields(json: &str, selected: impl Fn(&str) -> bool) -> Resul
 
 /// Materialize requested top-level fields only. Scan all members, including
 /// duplicates, using Sonic's native skip behavior for unselected values.
+#[cfg(test)]
 pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, sonic_rs::Error> {
     // INFO: Deserialization seed selecting only requested fields from a record.
     struct Projection<'a>(&'a BTreeSet<&'a str>);
@@ -157,5 +193,5 @@ pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, soni
 }
 
 #[cfg(test)]
-#[path = "json.tests.rs"]
+#[path = "json.test.rs"]
 mod tests;

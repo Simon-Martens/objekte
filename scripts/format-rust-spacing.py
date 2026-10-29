@@ -105,6 +105,8 @@ def main() -> int:
 
     changed = []
     for path in sorted((ROOT / "crates").rglob("*.rs")):
+        if "target" in path.parts:
+            continue
         original = path.read_text()
         formatted = spaced(original)
         if original != formatted:

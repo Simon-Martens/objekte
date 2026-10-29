@@ -48,6 +48,9 @@ need for an event loop must not require the CLI to keep a session running.
    on startup: a previous process may have observed new configuration without
    updating a collection. An empty change report does not prove all caches are current.
    Record files still need their separate collection manifest reconciliation.
+   The JSON file picker can already refresh one ID or reconcile a full
+   inventory. A future watcher can feed changed paths to the targeted update,
+   coalesce bursts, and fall back to inventory refresh after missed events.
 
 4. **Background jobs.** Run verification, cache construction, queries, and other
    expensive work away from the UI thread. Background reconciliation is the normal
@@ -79,6 +82,9 @@ need for an event loop must not require the CLI to keep a session running.
    invalidation. Load collections lazily. Operation-scoped locks and transactions
    allow other clients to use the repository. Tuning this session lifetime is
    deferred until the UI work; it is not the current command performance target.
+   Track file access frequency in a persistent UI session if it measurably
+   improves result ranking or prefetch selection. Keep that ranking separate
+   from structural query membership and ID ordering.
 
 7. **Reject obsolete asynchronous results.** Tag requests with the view identity
    and parameters, request ID, and relevant cache revision. An earlier slow query

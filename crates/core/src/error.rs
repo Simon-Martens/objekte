@@ -1,3 +1,4 @@
+//! Repository errors with source-path context.
 use std::path::{Path, PathBuf};
 
 
@@ -27,8 +28,6 @@ pub enum Error {
     Unstable(PathBuf),
     #[error("cache: {0}")]
     Cache(String),
-    #[error("SQLite: {0}")]
-    Sql(#[from] rusqlite::Error),
 }
 
 

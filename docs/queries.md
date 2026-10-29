@@ -1,8 +1,8 @@
 # Musenalm query examples
 
 Run these commands from the project root. Each line is independent and uses the
-seven registered collections in `examples/musenalm`. The first SQLite query for a
-collection builds its disposable cache; later commands reuse it. Use `--release`
+seven registered collections in `examples/musenalm`. The default in-memory picker
+builds on first use of a collection and is reused within that process. Use `--release`
 for the large `contents` collection. Source JSON files are never changed.
 
 `query` reads stored JSON fields, including fields outside the collection's list
@@ -110,8 +110,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query pages 'data.descri
 
 ## Parameters, paging, and output
 
-Before searching, `query` completes pending validation in every collection in its
-scope. An explicitly scoped query rejects undeclared fields or
+Returned records are validated on demand. An explicitly scoped query rejects undeclared fields or
 incompatible literal types. An unscoped query skips incompatible collections.
 Schema-invalid JSON remains searchable through type-safe comparisons; malformed
 JSON does not match.
@@ -129,12 +128,17 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1
 # One JSON object per line, suitable for piping to another tool.
 cargo run --release -p objekte-cli -- examples/musenalm query items 'media ?= "Reproduktion"' --limit 3 --output ndjson
 
-# Direct source execution without a SQLite cache (small scope recommended).
-cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional = true' --cache disabled --count --limit 3
+# Direct source execution without an index (small scope recommended).
+cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional = true' --backend direct --cache disabled --count --limit 3
 
-# Keep result JSON on stdout and write every executed SQLite statement with its
-# duration_ms to stderr as JSON lines. The final line summarizes diagnostics.
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-sql.ndjson
+# Search source files with ripgrep, then verify candidate JSON with Sonic.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ "almanach"' --backend grep --count --limit 3
+
+# Default query: build values-only bigrams and ordered scalar postings in memory, then verify source candidates.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ "almanach"' --count --limit 3
+
+# Keep result JSON on stdout and write metrics to stderr as a diagnostics JSON line.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.ndjson
 ```
 
 ## Sorted table views

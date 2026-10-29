@@ -7,65 +7,63 @@ impl Repository {
     pub fn cache_status(&mut self) -> Result<CacheStatus> {
         self.reload()?;
         let directory = self.cache_directory()?;
-        let store =
-            if self.options.cache == CacheMode::Sqlite && directory.join("cache.sqlite").exists() {
-                Some(self.store()?)
-            } else {
-                None
-            };
-        let guard = store
-            .as_ref()
-            .map(|w| w.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics))
-            .transpose()?;
+        if self.options.cache == CacheMode::Segments {
+            if directory.join("segments").exists() {
+                self.segment_config_refresh()?;
+            }
+            let mut collections = Vec::new();
+            for name in self.model.collections.keys() {
+                let c = self.model.collection(name)?;
+                let snapshot = self.segment_snapshot(c)?;
+                let coverage = if let Some(snapshot) = snapshot {
+                    let configuration_current = snapshot.manifest.schema_hash == c.schema_hash
+                        && snapshot.manifest.mapping_hash == c.mapping_hash;
+                    Coverage {
+                        collection: name.clone(),
+                        state: if configuration_current {
+                            "current"
+                        } else {
+                            "dirty"
+                        }
+                        .into(),
+                        verified: configuration_current
+                            && self.verified.get(name) == Some(&snapshot.manifest.revision),
+                        configuration_current,
+                        applied_schema_hash: Some(snapshot.manifest.schema_hash.clone()),
+                        expected_schema_hash: c.schema_hash.clone(),
+                        records: snapshot.count(),
+                        validation: BTreeMap::new(),
+                        revision: snapshot.manifest.revision,
+                        manifest_hash: Some(snapshot.manifest.source_hash.clone()),
+                        view_hash: Some(c.view_hashes.combined.clone()),
+                    }
+                } else {
+                    self.coverage(name)?
+                };
+                collections.push(coverage);
+            }
+            return Ok(CacheStatus {
+                directory,
+                mode: self.options.cache,
+                freshness: self.options.freshness,
+                collections,
+                configuration_changes: self.configuration_changes.clone(),
+            });
+        }
         let mut collections = Vec::new();
         for name in self.model.collections.keys() {
-            collections.push(self.coverage(name, guard.as_deref())?);
+            collections.push(self.coverage(name)?);
         }
         Ok(CacheStatus {
             directory,
             mode: self.options.cache,
             freshness: self.options.freshness,
             collections,
-            configuration_changes: store.as_ref().and(self.configuration_changes.clone()),
+            configuration_changes: self.configuration_changes.clone(),
         })
     }
 
-    pub(super) fn coverage(&self, name: &str, s: Option<&Store>) -> Result<Coverage> {
-        if let Some(s) = s
-            && let Some(state) = s.state(name)?
-        {
-            let c = self.model.collection(name)?;
-            let configuration_current = state.schema == c.schema_hash
-                && state.mapping == c.mapping_hash
-                && (state.index.is_empty() || state.index == c.index_hash)
-                && state.view == c.view_hashes.combined;
-            let records = s.db.query_row(
-                &format!(
-                    "SELECT count(*) FROM {} WHERE collection=?1",
-                    store::record_table()
-                ),
-                [name],
-                |r| r.get::<_, i64>(0),
-            )? as usize;
-            let validation = s.db.prepare("SELECT validation_state,count(*) FROM records WHERE collection=?1 GROUP BY validation_state")?
-                .query_map([name], |r| Ok((r.get(0)?,r.get::<_, i64>(1)? as usize)))?
-                .collect::<std::result::Result<BTreeMap<_,_>,_>>()?;
-            return Ok(Coverage {
-                validation,
-                collection: name.into(),
-                verified: state.state == "current"
-                    && configuration_current
-                    && self.verified.get(name) == Some(&state.revision),
-                configuration_current,
-                applied_schema_hash: (!state.schema.is_empty()).then_some(state.schema),
-                expected_schema_hash: c.schema_hash.clone(),
-                state: state.state,
-                records,
-                revision: state.revision,
-                manifest_hash: (!state.manifest.is_empty()).then_some(state.manifest),
-                view_hash: (!state.view.is_empty()).then_some(state.view),
-            });
-        }
+    pub(super) fn coverage(&self, name: &str) -> Result<Coverage> {
         let state = self
             .memory_coverage
             .get(name)
@@ -78,7 +76,10 @@ impl Repository {
             applied_schema_hash: None,
             expected_schema_hash: self.model.collection(name)?.schema_hash.clone(),
             state,
-            records: self.memory_edges.keys().filter(|(n, _)| n == name).count(),
+            records: self.file_pickers.get(name).map_or_else(
+                || self.memory_edges.keys().filter(|(n, _)| n == name).count(),
+                crate::file_picker::FilePicker::len,
+            ),
             validation: BTreeMap::new(),
             revision: 0,
             manifest_hash: None,

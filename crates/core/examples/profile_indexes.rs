@@ -1,6 +1,6 @@
 //! Reproducible view/query comparison across library revisions.
 //! Usage: profile_indexes REPOSITORY DATA_DIR WORKLOAD.json [REPEATS]
-use objekte_core::{JsonQuery, Options, Repository, ViewRequest};
+use objekte_core::{CacheMode, JsonQuery, Options, Repository, ViewRequest};
 use serde::Deserialize;
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
@@ -89,9 +89,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     }
     let cases: Vec<Case> = serde_json::from_slice(&fs::read(&args[2])?)?;
     let mut options = Options::new(&args[1]);
+    options.cache = CacheMode::Segments;
     options.ingest_workers = 4;
     options.background_workers = 4;
-    options.sqlite_cache_mib = Some(64);
     let mut repo = Repository::load_repository(&args[0], options.clone())?;
     let mut digests = Vec::new();
     for case in &cases {

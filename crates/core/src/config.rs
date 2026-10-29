@@ -1,3 +1,4 @@
+//! Collection configuration, fingerprints, and view definitions.
 use crate::{
     CollectionGraph, Error, Field, Result, ValueType,
     error::{config, io},
@@ -46,7 +47,7 @@ pub(crate) fn fingerprint(domain: &str, value: &impl Serialize) -> String {
 }
 
 #[cfg(test)]
-#[path = "config.tests.rs"]
+#[path = "config.test.rs"]
 mod fingerprint_tests;
 
 
@@ -394,27 +395,23 @@ impl RepositoryModel {
             for sort in &order {
                 scalar(&schema.field.properties, &sort.field, &up)?;
             }
-            let names = ui
-                .list
-                .filters
+            let indexes = schema
+                .field
+                .properties
                 .iter()
-                .chain(sortable)
-                .chain(order.iter().map(|s| &s.field))
-                .cloned()
-                .chain(std::iter::once("@id".into()))
-                .collect::<BTreeSet<_>>();
-            let indexes = names
-                .into_iter()
-                .map(|name| {
-                    let f = schema.field.properties.get(&name);
-                    IndexField {
-                        name,
-                        kind: f.map_or(ValueType::String, |f| f.kind),
-                        nullable: f.is_some_and(|f| f.nullable),
-                    }
+                .filter(|(_, field)| {
+                    matches!(
+                        field.kind,
+                        ValueType::Number | ValueType::Integer | ValueType::Boolean
+                    ) || field.enum_values.is_some()
+                })
+                .map(|(name, field)| IndexField {
+                    name: name.clone(),
+                    kind: field.kind,
+                    nullable: field.nullable,
                 })
                 .collect::<Vec<_>>();
-            let index_hash = fingerprint("json-expression-indexes/v3", &indexes);
+            let index_hash = fingerprint("ordered-scalar-indexes/v1", &indexes);
             let schema_hash = fingerprint("schema/v1", &raw);
             let mapping_hash = fingerprint("mapping/v1", &(&source, &c.format, &c.id));
             let label = ui.label.unwrap_or_else(|| name.clone());

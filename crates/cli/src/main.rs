@@ -1,3 +1,4 @@
+//! Command-line entry point.
 mod args;
 mod commands;
 mod output;

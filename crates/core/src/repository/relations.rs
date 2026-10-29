@@ -97,57 +97,20 @@ impl Repository {
                     && path == c.path.join(format!("{id}.json")) =>
             {
                 self.memory_edges.remove(&(collection.into(), id.into()));
-                if self.options.cache == CacheMode::Sqlite {
-                    let writer = self.store()?;
-                    let s = writer
-                        .enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-                    s.dirty(collection)?;
-                    let tx = s.db.unchecked_transaction()?;
-                    store::delete_record(&tx, &c, id, &mut self.metrics)?;
-                    tx.commit()?;
+                if self.options.cache == CacheMode::Segments {
+                    self.sync_segments(&c, true)?;
                 }
                 return Ok(None);
             }
-            Err(e) => {
-                if self.options.cache == CacheMode::Sqlite
-                    && let Ok(writer) = self.store()
-                    && let Ok(s) =
-                        writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)
-                {
-                    let _ = s.dirty(collection);
-                }
-                return Err(e);
-            }
+            Err(e) => return Err(e),
         };
         let mut value = self.parse(&c, id, &raw.json, false);
-        let edges = self.extract(&c, id, &value)?;
-        if self.options.cache == CacheMode::Sqlite {
-            let writer = self.store()?;
-            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-            let old_state = s.state(collection)?;
-            s.dirty(collection)?;
-            let tx = s.db.unchecked_transaction()?;
-            self.put_record(
-                &tx,
-                &c,
-                id,
-                &raw,
-                &value,
-                (old_state
-                    .as_ref()
-                    .is_some_and(|v| v.index == c.index_hash && v.schema == c.schema_hash)
-                    && s.has_indexes(&c)?)
-                .then_some(&s.index_cache),
-            )?;
-            if old_state.as_ref().is_none_or(|s| s.state == "partial") {
-                tx.execute(
-                    "UPDATE collections SET state='partial' WHERE name=?1",
-                    [collection],
-                )?;
-            }
-            tx.commit()?;
-            value.state = cached_state(&s.db, collection, id)?;
+        if self.options.cache == CacheMode::Segments {
+            value.validate(&c);
+            self.metrics.validations += 1;
+            self.sync_segments(&c, true)?;
         }
+        let edges = self.extract(&c, id, &value)?;
         self.memory_edges
             .insert((collection.into(), id.into()), edges);
         Ok(Some(Record {
@@ -205,32 +168,26 @@ impl Repository {
             .collect::<BTreeSet<_>>();
         let mut edges = Vec::new();
         let mut coverage = Vec::new();
-        if self.options.cache == CacheMode::Sqlite {
-            let writer = self.store()?;
-            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-            if complete {
-                for source in &sources {
-                    let c = self.collection(source)?;
-                    self.sync(&c, &s, &[], false)?;
-                }
-            }
+        if self.options.cache == CacheMode::Segments {
             for source in &sources {
-                let mut stmt=s.db.prepare("SELECT source_collection,source_id,location,target_collection,target_id FROM edges WHERE target_collection=?1 AND target_id=?2 AND source_collection=?3 ORDER BY source_collection,source_id,location")?;
-                edges.extend(
-                    stmt.query_map(params![collection, id, source], |r| {
-                        Ok(RecordRelation {
-                            source_collection: r.get(0)?,
-                            source_id: r.get(1)?,
-                            location: r.get(2)?,
-                            target_collection: r.get(3)?,
-                            target_id: r.get(4)?,
-                            target_state: TargetState::Unknown,
-                        })
-                    })?
-                    .collect::<std::result::Result<Vec<_>, _>>()?,
+                let c = self.collection(source)?;
+                self.sync_segments(&c, false)?;
+                self.direct(&c, None, false)?;
+                coverage.push(
+                    self.cache_status()?
+                        .collections
+                        .into_iter()
+                        .find(|coverage| coverage.collection == *source)
+                        .unwrap(),
                 );
-                coverage.push(self.coverage(source, Some(&s))?);
             }
+            edges.extend(
+                self.memory_edges
+                    .values()
+                    .flatten()
+                    .filter(|edge| edge.target_collection == collection && edge.target_id == id)
+                    .cloned(),
+            );
         } else {
             if complete {
                 for source in &sources {
@@ -239,7 +196,7 @@ impl Repository {
                 }
             }
             for source in &sources {
-                coverage.push(self.coverage(source, None)?);
+                coverage.push(self.coverage(source)?);
             }
             edges.extend(
                 self.memory_edges

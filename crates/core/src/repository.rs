@@ -1,3 +1,4 @@
+//! Repository API, runtime options, metrics, and cache coordination.
 use crate::{
     Collection, ConfigurationChanges, Error, PathStep, RecordState, RecordStatus, RepositoryModel,
     Result, ValidationMetrics, ViewRequest, ViewResult,
@@ -7,11 +8,9 @@ use crate::{
     query::Plan,
     schema::escape,
     source::{Source, Stamp},
-    store::{self, Store, Writer},
-    validation::{Document, Validator},
+    validation::Document,
 };
 use rayon::prelude::*;
-use rusqlite::{OptionalExtension, params, params_from_iter};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{
@@ -19,15 +18,15 @@ use std::{
     fs,
     io::Read,
     path::{Component, Path, PathBuf},
-    sync::Arc,
+    sync::{Arc, Mutex},
     time::Instant,
 };
 
 mod coverage;
-mod ingestion;
 mod json_query;
 mod reconciliation;
 mod relations;
+mod segment_cache;
 mod source_records;
 mod validation_ops;
 mod views;
@@ -37,7 +36,8 @@ mod views;
 #[serde(rename_all = "snake_case")]
 pub enum CacheMode {
     Disabled,
-    Sqlite,
+    Memory,
+    Segments,
 }
 
 
@@ -51,21 +51,17 @@ pub enum Freshness {
 }
 
 
-// INFO: Runtime cache, freshness, worker, validation, and SQL diagnostic settings.
+// INFO: Runtime cache, freshness, and worker settings.
 #[derive(Debug, Clone, Serialize)]
 pub struct Options {
     pub data_dir: PathBuf,
     pub cache: CacheMode,
     pub freshness: Freshness,
     pub namespace: String,
-    /// Suggested SQLite page-cache budget per connection. None uses SQLite's default.
-    pub sqlite_cache_mib: Option<u32>,
-    /// Workers for reading, hashing, and parsing an empty collection cache.
-    /// SQLite writes remain ordered on one connection. One disables parallel preparation.
+    /// Compatibility option from the former cache; segment work uses Rayon threads.
     pub ingest_workers: usize,
+    /// Compatibility option; validation now runs on demand.
     pub background_workers: usize,
-    /// Emit one timed SQL statement per line to stderr while the SQLite cache is used.
-    pub sql_diagnostics: bool,
 }
 
 
@@ -73,13 +69,11 @@ impl Options {
     pub fn new(data_dir: impl Into<PathBuf>) -> Self {
         Self {
             data_dir: data_dir.into(),
-            cache: CacheMode::Sqlite,
+            cache: CacheMode::Memory,
             freshness: Freshness::MetadataOnOpen,
             namespace: "default".into(),
-            sqlite_cache_mib: Some(64),
             background_workers: std::thread::available_parallelism()
                 .map_or(1, |n| (n.get() / 4).max(1)),
-            sql_diagnostics: false,
             ingest_workers: std::thread::available_parallelism()
                 .map_or(1, |n| (n.get() / 2).max(1)),
         }
@@ -106,6 +100,7 @@ macro_rules! metrics {
             fn merge(&mut self, other: &Self) {
                 $(self.$field = self.$field.saturating_add(other.$field);)*
             }
+
         }
     };
 }
@@ -150,11 +145,28 @@ metrics!(
     relation_write_nanos,
     index_nanos,
     commit_nanos,
-    query_nanos
+    query_nanos,
+    grep_scans,
+    grep_candidates,
+    grep_bytes,
+    grep_nanos,
+    bigram_open_nanos,
+    bigram_refresh_nanos,
+    bigram_candidates_nanos,
+    bigram_file_open_nanos,
+    bigram_read_nanos,
+    bigram_regex_nanos,
+    bigram_materialize_nanos,
+    segment_sync_nanos,
+    segment_metadata_nanos,
+    segment_snapshot_nanos,
+    segment_index_nanos,
+    segment_verify_nanos,
+    segment_materialize_nanos
 );
 
 
-// INFO: Record identity, source path, JSON, digest, validation state, and raw bytes. Saved in Cache DB.
+// INFO: Record identity, source path, JSON, digest, validation state, and raw bytes. Derived from source files.
 #[derive(Debug, Clone, Serialize)]
 pub struct Record {
     pub collection: String,
@@ -169,6 +181,17 @@ pub struct Record {
 }
 
 
+/// Current or deleted source-record revision retained by the selected cache.
+#[derive(Debug, Clone, Serialize)]
+pub struct RecordRevision {
+    pub collection: String,
+    pub id: String,
+    pub revision: u64,
+    pub changed_at_nanos: u128,
+    pub present: bool,
+}
+
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum TargetState {
@@ -178,7 +201,7 @@ pub enum TargetState {
 }
 
 
-// INFO: A source-to-target edge. Saved in Cache DB. Target state is resolved on read.
+// INFO: A source-to-target edge. Derived from source files. Target state is resolved on read.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct RecordRelation {
     pub source_collection: String,
@@ -239,17 +262,20 @@ struct Raw {
 
 // INFO: Live handle for configuration, cache writes, validation, metrics, and coverage.
 pub struct Repository {
-    writer: Option<Arc<Writer>>,
-    validator: Option<Validator>,
     model: RepositoryModel,
     options: Options,
     metrics: Metrics,
     verified: BTreeMap<String, i64>,
     memory_edges: BTreeMap<(String, String), Vec<RecordRelation>>,
     memory_coverage: BTreeMap<String, String>,
+    segment_memory: Mutex<SegmentMemory>,
+    file_pickers: BTreeMap<String, crate::file_picker::FilePicker>,
     observed_configuration: ConfigurationSnapshot,
     configuration_changes: Option<ConfigurationChanges>,
 }
+
+
+type SegmentMemory = BTreeMap<String, (u64, Arc<Vec<segment_cache::Shard>>)>;
 
 
 impl Repository {
@@ -257,15 +283,6 @@ impl Repository {
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
         if options.ingest_workers == 0 || options.background_workers == 0 {
             return Err(Error::Request("worker counts must be at least 1".into()));
-        }
-        if options
-            .sqlite_cache_mib
-            .is_some_and(|mib| mib == 0 || mib > (i32::MAX as u32) / 1024)
-        {
-            return Err(Error::Request(
-                "sqlite_cache_mib must be between 1 and 2097151, or None for SQLite's default"
-                    .into(),
-            ));
         }
         if options.namespace.is_empty()
             || !options
@@ -279,8 +296,6 @@ impl Repository {
         }
         let model = RepositoryModel::load(root.as_ref())?;
         let repo = Self {
-            writer: None,
-            validator: None,
             observed_configuration: ConfigurationSnapshot::from_model(&model),
             configuration_changes: None,
             model,
@@ -289,6 +304,8 @@ impl Repository {
             verified: BTreeMap::new(),
             memory_edges: BTreeMap::new(),
             memory_coverage: BTreeMap::new(),
+            segment_memory: Mutex::new(BTreeMap::new()),
+            file_pickers: BTreeMap::new(),
         };
         repo.cache_directory()?;
         Ok(repo)
@@ -330,6 +347,7 @@ impl Repository {
             self.verified.retain(|name, _| unchanged(name));
             self.memory_edges.retain(|(name, _), _| unchanged(name));
             self.memory_coverage.retain(|name, _| unchanged(name));
+            self.file_pickers.clear();
         }
         self.metrics.reload_nanos += nanos(t);
         Ok(())
@@ -341,12 +359,12 @@ impl Repository {
     }
 
     /// Observe configuration changes without enumerating or opening source records.
-    /// With SQLite this creates/updates the persisted manifest. Disabled caching
+    /// With segments this creates/updates the persisted manifest. Disabled caching
     /// compares with this handle's previous snapshot and writes no application data.
     pub fn refresh_configuration(&mut self) -> Result<ConfigurationChanges> {
         self.reload()?;
-        if self.options.cache == CacheMode::Sqlite {
-            self.store()?;
+        if self.options.cache == CacheMode::Segments {
+            self.segment_config_refresh()?;
         } else {
             let changes = self.observed_configuration.compare(&self.model);
             self.observed_configuration = ConfigurationSnapshot::from_model(&self.model);
@@ -374,31 +392,6 @@ impl Repository {
             ));
         }
         Ok(path)
-    }
-
-    fn store(&mut self) -> Result<Arc<Writer>> {
-        let t = Instant::now();
-        let writer = match &self.writer {
-            Some(w) => w.clone(),
-            None => {
-                let w = Writer::open(
-                    &self.cache_directory()?,
-                    &self.model.root,
-                    self.options.sqlite_cache_mib,
-                    self.options.sql_diagnostics,
-                )?;
-                self.writer = Some(w.clone());
-                w
-            }
-        };
-        let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-        self.metrics.store_open_nanos += nanos(t);
-        let t = Instant::now();
-        let result = s.reconcile_configuration(&self.model);
-        self.metrics.configuration_nanos += nanos(t);
-        self.configuration_changes = Some(result?);
-        drop(s);
-        Ok(writer)
     }
 }
 
@@ -459,14 +452,4 @@ impl Metrics {
         self.index_builds = before.index_builds;
         self.index_rows_written = before.index_rows_written;
     }
-}
-
-
-fn cached_state(db: &rusqlite::Connection, collection: &str, id: &str) -> Result<RecordState> {
-    let (status, issues): (String, String) = db.query_row(
-        "SELECT validation_state,issues FROM records WHERE collection=?1 AND id=?2",
-        params![collection, id],
-        |r| Ok((r.get(0)?, r.get(1)?)),
-    )?;
-    RecordState::read(&status, &issues)
 }

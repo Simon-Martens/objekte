@@ -5,16 +5,18 @@ use crate::{
     output::{metrics_in_milliseconds, print_view},
 };
 use objekte_core::{
-    CacheMode, Direction, Freshness, JsonQuery, Options, Repository, Sort, ViewRequest,
+    CacheMode, Direction, Freshness, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
+    ViewRequest,
 };
 use serde_json::json;
 use std::{
     io::Write,
     path::PathBuf,
-    time::{SystemTime, UNIX_EPOCH},
+    time::{Instant, SystemTime, UNIX_EPOCH},
 };
 
 pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
+    let command_started = Instant::now();
     let a = args()?;
     if a.pos.is_empty() {
         print!("{HELP}");
@@ -60,7 +62,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let common = [
         "--data-dir",
         "--cache",
-        "--sqlite-cache-mib",
         "--ingest-workers",
         "--background-workers",
         "--reconcile",
@@ -72,7 +73,9 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             || match command {
                 "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                     .contains(&key.as_str()),
-                "query" => ["--collection", "--limit", "--offset"].contains(&key.as_str()),
+                "query" => {
+                    ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str())
+                }
                 "relations" => ["--from", "--to"].contains(&key.as_str()),
                 "cache" => {
                     matches!(a.pos[2].as_str(), "refresh" | "validate") && key == "--collection"
@@ -110,10 +113,11 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         data_dir()?
     });
-    options.cache = match get("--cache", "sqlite").as_str() {
-        "sqlite" => CacheMode::Sqlite,
+    options.cache = match get("--cache", "memory").as_str() {
+        "memory" => CacheMode::Memory,
+        "segments" => CacheMode::Segments,
         "disabled" => CacheMode::Disabled,
-        _ => return Err("cache must be sqlite or disabled".into()),
+        _ => return Err("cache must be memory, segments, or disabled".into()),
     };
     options.freshness = match get("--reconcile", "metadata-on-open").as_str() {
         "metadata-on-open" => Freshness::MetadataOnOpen,
@@ -122,17 +126,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "hash-on-request" => Freshness::HashOnRequest,
         _ => return Err("unknown reconciliation policy".into()),
     };
-    if let Some(value) = a.values.get("--sqlite-cache-mib") {
-        options.sqlite_cache_mib = if value == "default" {
-            None
-        } else {
-            Some(
-                value
-                    .parse()
-                    .map_err(|_| "--sqlite-cache-mib requires a positive integer or 'default'")?,
-            )
-        };
-    }
     if let Some(value) = a.values.get("--ingest-workers") {
         options.ingest_workers = value
             .parse()
@@ -144,7 +137,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             .map_err(|_| "--background-workers requires a positive integer")?;
     }
     options.namespace = get("--namespace", "default");
-    options.sql_diagnostics = a.flags.contains("--diagnostics");
     if a.flags.contains("--fresh-cache") {
         if a.values.contains_key("--namespace") {
             return Err("choose --fresh-cache or --namespace".into());
@@ -163,11 +155,12 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         return Err("this command supports --output json; ndjson requires view/query and table requires view".into());
     }
     let freshness = options.freshness;
-    let sqlite_cache_mib = options.sqlite_cache_mib;
     let ingest_workers = options.ingest_workers;
     let background_workers = options.background_workers;
     let mut validation_wait_nanos = 0;
+    let repository_load_started = Instant::now();
     let mut repo = Repository::load_repository(&a.pos[0], options)?;
+    let repository_load_ms = repository_load_started.elapsed().as_secs_f64() * 1_000.0;
     let mut view_hashes = None;
     let value = match command {
         "inspect" => Some(serde_json::to_value(repo.model())?),
@@ -184,6 +177,18 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 limit: get("--limit", "50").parse()?,
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),
+                backend: match get("--backend", "auto").as_str() {
+                    "auto" => JsonQueryBackend::Auto,
+                    "direct" => JsonQueryBackend::Direct,
+                    "segments" => JsonQueryBackend::Segments,
+                    "grep" | "rg" => JsonQueryBackend::Grep,
+                    "bigram" => JsonQueryBackend::Bigram,
+                    _ => {
+                        return Err(
+                            "query backend must be auto, direct, segments, grep, or bigram".into(),
+                        );
+                    }
+                },
             };
             let mut result = repo.query_json(&request)?;
             if output == "ndjson" {
@@ -194,7 +199,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             } else {
                 result.metrics = repo.metrics().clone();
                 let mut value = serde_json::to_value(result)?;
-                value.as_object_mut().unwrap().remove("sql");
                 value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
                 Some(value)
             }
@@ -329,11 +333,12 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         println!("{}", serde_json::to_string_pretty(&value)?)
     }
     if a.flags.contains("--diagnostics") {
-        writeln!(
-            std::io::stderr().lock(),
-            "{}",
-            json!({"type":"diagnostics","metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":(validation_wait_nanos + repo.metrics().validation_wait_nanos as u128) as f64 / 1_000_000.0,"view_hashes":view_hashes})
-        )?
+        let command_elapsed_ms = command_started.elapsed().as_secs_f64() * 1_000.0;
+        let mut diagnostics = json!({"type":"diagnostics","command_elapsed_ms":command_elapsed_ms,"repository_load_ms":repository_load_ms,"metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":(validation_wait_nanos + repo.metrics().validation_wait_nanos as u128) as f64 / 1_000_000.0,"view_hashes":view_hashes});
+        let drop_started = Instant::now();
+        drop(repo);
+        diagnostics["repository_drop_ms"] = json!(drop_started.elapsed().as_secs_f64() * 1_000.0);
+        writeln!(std::io::stderr().lock(), "{}", diagnostics)?
     }
     Ok(())
 }

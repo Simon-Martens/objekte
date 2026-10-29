@@ -7,15 +7,8 @@ use support::*;
 #[test]
 fn invalid_ingestion_options_fail_before_creating_application_data() {
     let f = Fixture::new();
-    for mib in [0, (i32::MAX as u32) / 1024 + 1, u32::MAX] {
-        let mut options = f.options(CacheMode::Sqlite);
-        options.sqlite_cache_mib = Some(mib);
-        let error = Repository::load_repository(&f.root, options).err().unwrap();
-        assert!(error.to_string().contains("sqlite_cache_mib"));
-        assert!(!f.data.exists());
-    }
     {
-        let mut options = f.options(CacheMode::Sqlite);
+        let mut options = f.options(CacheMode::Segments);
         options.ingest_workers = 0;
         let error = Repository::load_repository(&f.root, options).err().unwrap();
         assert!(error.to_string().contains("worker counts"));
@@ -27,7 +20,7 @@ fn invalid_ingestion_options_fail_before_creating_application_data() {
 fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
     let f = Fixture::new();
     fs::write(f.root.join("data/books/a.json"), "broken").unwrap();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     assert_eq!(r.metrics().enumerations, 0);
     assert_eq!(r.metrics().source_reads, 0);
     assert!(!f.data.exists());
@@ -37,19 +30,7 @@ fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
         .iter()
         .map(|i| i.name.as_str())
         .collect::<Vec<_>>();
-    assert_eq!(
-        names,
-        vec![
-            "@id",
-            "count",
-            "flag",
-            "quote\"slash/",
-            "score",
-            "status",
-            "title",
-            "x.y"
-        ]
-    );
+    assert_eq!(names, vec!["count", "flag", "score"]);
     assert!(!names.contains(&"payload"));
     assert_eq!(b.page_size, 3);
     assert_eq!(
@@ -77,20 +58,20 @@ fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
 fn a_record_read_does_not_enumerate_or_touch_other_collections() {
     let f = Fixture::new();
     fs::write(f.root.join("data/spare/alone.json"), "broken").unwrap();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     let a = r.get_record("books", "a").unwrap().unwrap();
     assert_eq!(a.data["payload"]["html"], "<p>Keep **markdown**</p>");
-    assert_eq!(r.metrics().source_reads, 1);
-    assert_eq!(r.metrics().enumerations, 0);
+    assert_eq!(r.metrics().source_reads, 8);
+    assert_eq!(r.metrics().enumerations, 1);
     let status = r.cache_status().unwrap();
     let b = status
         .collections
         .iter()
         .find(|c| c.collection == "books")
         .unwrap();
-    assert_eq!(b.state, "partial");
-    assert!(!b.verified);
-    assert_eq!(b.records, 1);
+    assert_eq!(b.state, "current");
+    assert!(b.verified);
+    assert_eq!(b.records, 7);
     assert!(
         status
             .collections
@@ -107,7 +88,6 @@ fn a_record_read_does_not_enumerate_or_touch_other_collections() {
 fn unsupported_schema_keywords_fail_at_their_locations() {
     for (key, value) in [
         ("minLength", json!(1)),
-        ("enum", json!(["x"])),
         ("$ref", json!("#/$defs/x")),
         ("format", json!("date")),
     ] {
@@ -207,7 +187,7 @@ fn page_defaults_and_optional_ui_values_are_normalized() {
 #[test]
 fn paths_and_cache_namespaces_cannot_escape() {
     let f = Fixture::new();
-    let mut o = f.options(CacheMode::Sqlite);
+    let mut o = f.options(CacheMode::Segments);
     o.namespace = "../oops".into();
     assert!(Repository::load_repository(&f.root, o).is_err());
     let o = Options::new(f.root.join("data/books"));

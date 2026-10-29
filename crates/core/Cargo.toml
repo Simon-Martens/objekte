@@ -7,15 +7,21 @@ license.workspace = true
 [dependencies]
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["arbitrary_precision"] }
+bincode = { version = "2", features = ["serde"] }
 sonic-rs = { version = "0.5.10", features = ["arbitrary_precision"] }
 thiserror = "2"
 jsonschema = { version = "0.59", default-features = false, features = ["arbitrary-precision"] }
 sha2 = "0.10"
-rusqlite = { version = "0.41", features = ["bundled", "functions", "collation", "trace"] }
 num-bigint = "0.4"
 fs2 = "0.4"
 num-cmp = "0.1"
 rayon = "1.11"
+grep-regex = "0.1"
+grep-searcher = "0.1"
+regex = "1"
+fff-search = { git = "https://github.com/dmtrKovalenko/fff.git", rev = "d1c7dd47130ca670ab71e7466a1a3b4a57d5348d" }
+regex-syntax = "0.8"
+smallvec = "1"
 
 [target.'cfg(unix)'.dependencies]
 rustix = { version = "1.1", features = ["fs"] }

@@ -5,7 +5,7 @@ use std::fs;
 use support::*;
 #[test]
 fn outgoing_edges_preserve_occurrences_and_missing_targets() {
-    for mode in [CacheMode::Disabled, CacheMode::Sqlite] {
+    for mode in [CacheMode::Disabled, CacheMode::Segments] {
         let f = Fixture::new();
         let mut r = f.repo(mode);
         let refs = r.references_from("books", "b", true).unwrap();
@@ -26,25 +26,23 @@ fn outgoing_edges_preserve_occurrences_and_missing_targets() {
         );
         assert_eq!(refs.edges[0].location, "/links/0/person");
         assert_eq!(refs.edges[1].location, "/links/1/person");
-        assert_eq!(r.metrics().source_reads, 1);
-        assert_eq!(r.metrics().enumerations, 0);
-        assert!(!refs.coverage[0].verified);
+        assert!(r.metrics().source_reads >= 1);
+        assert_eq!(refs.coverage[0].verified, mode == CacheMode::Segments);
     }
 }
 
 #[test]
-fn partial_backlinks_do_not_claim_unscanned_sources_are_empty() {
+fn segment_backlinks_scan_sources_on_demand() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     let refs = r.references_to("people", "p1", false, false).unwrap();
-    assert!(refs.edges.is_empty());
-    assert_eq!(refs.coverage[0].state, "absent");
-    assert!(!refs.coverage[0].verified);
-    assert_eq!(r.metrics().source_reads, 0);
+    assert_eq!(refs.edges.len(), 4);
+    assert_eq!(refs.coverage[0].state, "current");
+    assert!(refs.coverage[0].verified);
     r.get_record("books", "a").unwrap();
     let refs = r.references_to("people", "p1", false, false).unwrap();
-    assert_eq!(refs.edges.len(), 2);
-    assert_eq!(refs.coverage[0].state, "partial");
+    assert_eq!(refs.edges.len(), 4);
+    assert_eq!(refs.coverage[0].state, "current");
     let refs = r.references_to("people", "p1", true, true).unwrap();
     assert_eq!(refs.edges.len(), 4);
     assert!(refs.coverage[0].verified);
@@ -62,7 +60,7 @@ fn partial_backlinks_do_not_claim_unscanned_sources_are_empty() {
 #[test]
 fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     r.open_view("books", &all()).unwrap();
     f.edit("data/books/a.json", |v| {
         v["person"] = json!("p2");
@@ -70,8 +68,8 @@ fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
     });
     let m = r.refresh("books").unwrap();
     assert_eq!(m.rows_updated, 1);
-    assert_eq!(m.edges_removed, 2);
-    assert_eq!(m.edges_added, 1);
+    assert_eq!(m.edges_removed, 0);
+    assert_eq!(m.edges_added, 0);
     assert_eq!(
         r.references_to("people", "p1", true, true)
             .unwrap()
@@ -101,7 +99,7 @@ fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
 #[test]
 fn missing_targets_later_appear_without_source_record_changes() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     let refs = r.references_from("books", "b", true).unwrap();
     assert!(
         refs.edges
@@ -117,7 +115,7 @@ fn missing_targets_later_appear_without_source_record_changes() {
 #[test]
 fn deletion_removes_only_outgoing_edges_and_retains_incoming_edges() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     r.open_view("books", &all()).unwrap();
     r.refresh("people").unwrap();
     fs::remove_file(f.root.join("data/books/b.json")).unwrap();
@@ -136,9 +134,35 @@ fn deletion_removes_only_outgoing_edges_and_retains_incoming_edges() {
 }
 
 #[test]
+fn renaming_a_source_id_changes_backlinks_without_an_edge_cache() {
+    let f = Fixture::new();
+    let mut repo = f.repo(CacheMode::Segments);
+    assert_eq!(
+        repo.references_to("people", "p1", true, false)
+            .unwrap()
+            .edges
+            .len(),
+        4
+    );
+    fs::rename(
+        f.root.join("data/books/a.json"),
+        f.root.join("data/books/renamed.json"),
+    )
+    .unwrap();
+    repo.refresh("books").unwrap();
+    let edges = repo
+        .references_to("people", "p1", true, false)
+        .unwrap()
+        .edges;
+    assert_eq!(edges.len(), 4);
+    assert!(edges.iter().any(|edge| edge.source_id == "renamed"));
+    assert!(!edges.iter().any(|edge| edge.source_id == "a"));
+}
+
+#[test]
 fn null_empty_and_missing_references_produce_no_edges() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     for id in ["c", "d", "e"] {
         assert!(
             r.references_from("books", id, true)
@@ -163,29 +187,34 @@ fn direct_and_cached_backlinks_match_for_cycles() {
             .references_to(target, id, true, true)
             .unwrap();
         let b = f
-            .repo(CacheMode::Sqlite)
+            .repo(CacheMode::Segments)
+            .references_to(target, id, true, true)
+            .unwrap();
+        let segments = f
+            .repo(CacheMode::Segments)
             .references_to(target, id, true, true)
             .unwrap();
         assert_eq!(a.edges, b.edges);
+        assert_eq!(a.edges, segments.edges);
         assert!(b.coverage.iter().all(|c| c.verified));
     }
 }
 
 #[test]
-fn reopen_coverage_distinguishes_persisted_from_verified() {
+fn reopen_backlink_lookup_verifies_current_sources() {
     let f = Fixture::new();
-    f.repo(CacheMode::Sqlite).refresh("books").unwrap();
-    let mut r = f.repo(CacheMode::Sqlite);
+    f.repo(CacheMode::Segments).refresh("books").unwrap();
+    let mut r = f.repo(CacheMode::Segments);
     let partial = r.references_to("people", "p1", false, false).unwrap();
     assert_eq!(partial.coverage[0].state, "current");
-    assert!(!partial.coverage[0].verified);
+    assert!(partial.coverage[0].verified);
     assert!(
         partial
             .edges
             .iter()
             .all(|e| e.target_state == TargetState::Unknown)
     );
-    assert_eq!(r.metrics().source_reads, 0);
+    assert!(r.metrics().source_reads > 0);
     assert!(
         r.references_to("people", "p1", true, false)
             .unwrap()
@@ -202,7 +231,7 @@ fn concrete_reference_locations_escape_json_pointer_characters() {
     });
     f.edit("data/books/a.json", |v| v["a/b~c"] = json!("p1"));
     let refs = f
-        .repo(CacheMode::Sqlite)
+        .repo(CacheMode::Segments)
         .references_from("books", "a", false)
         .unwrap();
     assert!(refs.edges.iter().any(|e| e.location == "/a~1b~0c"));

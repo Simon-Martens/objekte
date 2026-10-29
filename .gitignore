@@ -1,4 +1,5 @@
 /target/
+/crates/bench/fff-compare/target/
 /.data/
 /import/
 /scripts/__pycache__/

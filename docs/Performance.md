@@ -1,3 +1,5 @@
+> Historical planning and benchmark document. Its SQLite cache recommendations describe an earlier implementation. The current segment cache is documented in [implementation.md](implementation.md).
+
 # Performance findings
 
 ## Implementation status since these experiments
@@ -5,6 +7,7 @@
 - [x] The Rust library and CLI now provide collection-neutral scalar views, lazy source/SQLite execution, reconciliation, and validation. See [implementation.md](implementation.md).
 - [x] General JSON filters cover nested paths and arrays, with complete direct/SQLite acceptance comparisons. See [filters.md](filters.md) and [the filter acceptance results](../crates/bench/JSON-FILTERS-2026-10-28.md).
 - [x] Cold build, warm query, and reopen costs for current expression indexes have been measured with a shared library workload. See [the cold-index comparison](../crates/bench/INDEX-COLD-BUILD-FIX-2026-10-29.md).
+- [x] The optional in-memory bigram and typed index has complete direct-source parity on 43 Musenalm filters and a warm comparison with segments. See [the current benchmark](../crates/bench/BIGRAM-VS-SEGMENTS-2026-10-29.md).
 - [ ] The full saved/grouped/relation-aware view contract, raw grep, cleaned search, source writes, and the declarative cross-repository benchmark remain open.
 
 The numbered engine experiments below are historical measurements. Their

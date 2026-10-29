@@ -1,5 +1,73 @@
+//! JSON filter execution across memory, segments, grep, and source files.
 use super::*;
-use crate::{JsonFilter, JsonQuery, JsonQueryDependencies, JsonQueryResult, RecordState};
+use crate::{
+    JsonFilter, JsonQuery, JsonQueryBackend, JsonQueryDependencies, JsonQueryResult,
+    json_filter::TypedPlan,
+};
+use grep_searcher::{MmapChoice, SearcherBuilder, Sink, SinkMatch};
+use std::io::{Seek, SeekFrom};
+
+
+/// Search sink that stops after one regex match.
+#[derive(Default)]
+struct FirstMatch(bool);
+
+
+impl Sink for FirstMatch {
+    type Error = std::io::Error;
+
+    fn matched(&mut self, _: &grep_searcher::Searcher, _: &SinkMatch<'_>) -> std::io::Result<bool> {
+        self.0 = true;
+        Ok(false)
+    }
+}
+
+
+/// Per-file verification result and phase timings.
+#[derive(Default)]
+struct ScanOutcome {
+    candidate: bool,
+    matches: bool,
+    source_bytes: u64,
+    parse_nanos: u64,
+    query_nanos: u64,
+    file_open_nanos: u64,
+    read_nanos: u64,
+    regex_nanos: u64,
+}
+
+
+// An unsupported OR child can match outside every known posting, so its whole
+// union is unbounded. An AND may still use the indexed children it knows.
+fn segment_typed_ids(
+    snapshot: &segment_cache::Snapshot,
+    plan: &TypedPlan,
+) -> Option<BTreeSet<String>> {
+    match plan {
+        TypedPlan::Term(field, operator, value) => {
+            snapshot.json_filter_ids(field, *operator, value)
+        }
+        TypedPlan::And(parts) => {
+            let mut combined: Option<BTreeSet<String>> = None;
+            for part in parts {
+                if let Some(ids) = segment_typed_ids(snapshot, part) {
+                    combined = Some(match combined {
+                        Some(old) => old.intersection(&ids).cloned().collect(),
+                        None => ids,
+                    });
+                }
+            }
+            combined
+        }
+        TypedPlan::Or(parts) => {
+            let mut combined = BTreeSet::new();
+            for part in parts {
+                combined.extend(segment_typed_ids(snapshot, part)?);
+            }
+            Some(combined)
+        }
+    }
+}
 
 
 impl Repository {
@@ -29,18 +97,18 @@ impl Repository {
             .iter()
             .map(|name| self.collection(name))
             .collect::<Result<Vec<_>>>()?;
-        if request.collections.is_some() {
-            if let Some(c) = collections.iter().find(|c| !filter.follows_schema(c)) {
-                return Err(Error::Request(format!(
-                    "filter does not follow the current schema of collection {}",
-                    c.name
-                )));
-            }
+        if request.collections.is_some()
+            && let Some(c) = collections.iter().find(|c| !filter.follows_schema(c))
+        {
+            return Err(Error::Request(format!(
+                "filter does not follow the current schema of collection {}",
+                c.name
+            )));
         }
         let searchable = collections
             .iter()
-            .cloned()
             .filter(|c| filter.follows_schema(c))
+            .cloned()
             .collect::<Vec<_>>();
         let mut result = JsonQueryResult {
             records: Vec::new(),
@@ -52,133 +120,158 @@ impl Repository {
             },
             filter_hash: filter.hash().into(),
             metrics: Metrics::default(),
-            sql: None,
-            bindings: Vec::new(),
             query_plan: Vec::new(),
         };
         if !collections.is_empty() {
-            if self.options.cache == CacheMode::Sqlite {
-                self.query_json_sql(request, &filter, &collections, &searchable, &mut result)?;
-            } else if !searchable.is_empty() {
-                self.query_json_direct(request, &filter, &searchable, &mut result)?;
+            match request.backend {
+                JsonQueryBackend::Segments if self.options.cache != CacheMode::Segments => {
+                    return Err(Error::Request(
+                        "segment query backend requires the segment cache".into(),
+                    ));
+                }
+                JsonQueryBackend::Segments if !searchable.is_empty() => {
+                    self.query_json_segments(request, &filter, &searchable, &mut result)?
+                }
+                JsonQueryBackend::Grep if !searchable.is_empty() => {
+                    self.query_json_grep(request, &filter, &searchable, &mut result)?
+                }
+                JsonQueryBackend::Auto | JsonQueryBackend::Bigram if !searchable.is_empty() => {
+                    self.query_json_bigram(request, &filter, &searchable, &mut result)?
+                }
+                JsonQueryBackend::Direct if !searchable.is_empty() => {
+                    self.query_json_direct(request, &filter, &searchable, &mut result)?
+                }
+                _ => {}
             }
         }
         result.metrics = self.metrics.since(&before);
         Ok(result)
     }
 
-    fn query_json_sql(
+    fn query_json_segments(
         &mut self,
         request: &JsonQuery,
         filter: &JsonFilter,
-        scope: &[Collection],
         collections: &[Collection],
         result: &mut JsonQueryResult,
     ) -> Result<()> {
-        let writer = self.store()?;
-        let pending = {
-            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-            let mut pending = Vec::new();
-            for c in scope {
-                self.sync(c, &s, &[], false)?;
-                if collections.iter().any(|selected| selected.name == c.name) {
-                    filter.ensure_query_indexes(&s.db, c, &mut self.metrics)?;
-                    result
-                        .dependencies
-                        .revisions
-                        .insert(c.name.clone(), s.state(&c.name)?.unwrap().revision);
-                }
-                let exists: bool = s.db.query_row(
-                    "SELECT EXISTS(SELECT 1 FROM records INDEXED BY validation_pending WHERE collection=?1 AND validation_state='pending')",
-                    [&c.name],
-                    |r| r.get(0),
-                )?;
-                if exists {
-                    pending.push(c.clone());
-                }
-            }
-            pending
-        };
-        for c in &pending {
-            self.enqueue_validation(c)?;
-        }
-        let wait_started = Instant::now();
-        self.wait_for_validation()?;
-        self.metrics.validation_wait_nanos += nanos(wait_started);
-        if collections.is_empty() {
-            return Ok(());
-        }
-        let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-        let t = Instant::now();
-        let mut bindings = Vec::new();
-        for c in collections {
-            filter.check_sql_cardinality(&s.db, c)?;
-        }
-        let selections = collections
-            .iter()
-            .map(|c| {
-                let predicate = filter.sql(c, &mut bindings);
-                let scope = crate::json_filter::indexes::quote(&c.name);
-                let table = store::record_table();
-                format!("SELECT {scope} AS collection,r.id FROM {table} r WHERE r.collection={scope} AND r.parse_status='parsed' AND ({predicate})")
-            })
-            .collect::<Vec<_>>()
-            .join(" UNION ALL ");
-        bindings.push(request.limit.to_string());
-        let limit = bindings.len();
-        bindings.push(request.offset.to_string());
-        let offset = bindings.len();
-        let count = if request.count {
-            "(SELECT count(*) FROM hits)"
+        let cardinality_risk = filter.needs_global_cardinality_check(collections);
+        let prefilter = if cardinality_risk {
+            None
         } else {
-            "NULL"
+            filter.values_prefilter()
         };
-        // INFO: Materialize only matched identities. This deliberately examines all scoped
-        // records before pagination, including scalar-cardinality errors outside the
-        // returned page or in an otherwise false OR/AND branch. Never materialize JSON.
-        // CROSS JOIN fixes the payload lookup order: stale/skewed collection
-        // statistics must not turn a small selected page into a full records scan.
-        let payloads = "SELECT 0,r.collection,r.id,r.path,r.digest,r.json,r.validation_state,r.issues,NULL FROM page p CROSS JOIN records r ON r.collection=p.collection AND r.id=p.id";
-        let sql = format!("WITH hits AS MATERIALIZED ({selections}), page AS MATERIALIZED (
-            SELECT collection,id FROM hits ORDER BY collection COLLATE BINARY,id COLLATE BINARY LIMIT ?{limit} OFFSET ?{offset}
-        )
-        SELECT 1 AS summary,NULL AS collection,NULL AS id,NULL AS path,NULL AS digest,NULL AS json,NULL AS validation_state,NULL AS issues,{count} AS total
-        UNION ALL
-        {payloads}
-        ORDER BY summary DESC,collection COLLATE BINARY,id COLLATE BINARY");
-        let mut explain = s.db.prepare(&format!("EXPLAIN QUERY PLAN {sql}"))?;
-        result.query_plan = explain
-            .query_map(params_from_iter(&bindings), |r| r.get(3))?
-            .collect::<std::result::Result<Vec<_>, _>>()?;
-        drop(explain);
-        let mut statement = s.db.prepare(&sql)?;
-        let mut rows = statement.query(params_from_iter(&bindings))?;
-        while let Some(row) = rows.next()? {
-            if row.get::<_, bool>(0)? {
-                result.total = row.get::<_, Option<i64>>(8)?.map(|n| n as usize);
-                continue;
+        result.query_plan = vec![match &prefilter {
+            Some((_, pattern)) => format!("parallel segment search {pattern}; Sonic verification"),
+            None => "segment ID scan; Sonic verification".into(),
+        }];
+        let mut matched = 0;
+        for c in collections {
+            let sync_started = Instant::now();
+            self.sync_segments(c, false)?;
+            self.metrics.segment_sync_nanos += nanos(sync_started);
+            let snapshot_started = Instant::now();
+            let snapshot = self
+                .segment_snapshot(c)?
+                .ok_or_else(|| Error::Cache("segment snapshot disappeared".into()))?;
+            self.metrics.segment_snapshot_nanos += nanos(snapshot_started);
+            result
+                .dependencies
+                .revisions
+                .insert(c.name.clone(), snapshot.manifest.revision);
+            let actual_array_risk = filter
+                .top_level_scalar_fields()
+                .iter()
+                .any(|field| snapshot.has_array_value(field));
+            let index_started = Instant::now();
+            let indexed = if cardinality_risk || actual_array_risk {
+                None
+            } else {
+                filter
+                    .typed_plan()
+                    .as_ref()
+                    .and_then(|plan| segment_typed_ids(&snapshot, plan))
+            };
+            self.metrics.segment_index_nanos += nanos(index_started);
+            let mut candidates =
+                if let Some((matcher, _)) = prefilter.as_ref().filter(|_| !actual_array_risk) {
+                    let t = Instant::now();
+                    let ids = snapshot.text_candidates(matcher)?;
+                    self.metrics.grep_scans += snapshot.shards.len() as u64;
+                    self.metrics.grep_candidates += ids.len() as u64;
+                    self.metrics.grep_nanos += nanos(t);
+                    ids
+                } else {
+                    let mut ids = indexed.as_ref().map_or_else(
+                        || {
+                            snapshot
+                                .entries()
+                                .map(|(id, _)| id.clone())
+                                .collect::<Vec<_>>()
+                        },
+                        |ids| ids.iter().cloned().collect::<Vec<_>>(),
+                    );
+                    ids.sort();
+                    ids
+                };
+            if let Some(indexed) = &indexed {
+                candidates.retain(|id| indexed.contains(id));
             }
-            let bytes = row
-                .get_ref(5)?
-                .as_bytes()
-                .map_err(|e| Error::Cache(e.to_string()))?;
-            let data = crate::json::parse(
-                std::str::from_utf8(bytes).map_err(|e| Error::Cache(e.to_string()))?,
-            )
-            .map_err(|e| Error::Cache(format!("invalid cached JSON: {e}")))?;
-            result.records.push(Record {
-                collection: row.get(1)?,
-                id: row.get(2)?,
-                path: row.get(3)?,
-                hash: row.get(4)?,
-                data,
-                state: RecordState::read(&row.get::<_, String>(6)?, &row.get::<_, String>(7)?)?,
-                raw: None,
-            });
+            let source = Source::open(&c.path)?;
+            let verify_started = Instant::now();
+            let outcomes = candidates
+                .par_iter()
+                .map(|id| -> Result<(bool, Metrics)> {
+                    let entry = snapshot
+                        .entry(id)
+                        .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
+                    let mut metrics = Metrics::default();
+                    let raw = Self::read_raw(&mut metrics, &source, id, Some(&entry.stamp))?;
+                    let doc = Self::parse_value(&mut metrics, c, id, &raw.json, false);
+                    let matches = if doc.state.status == RecordStatus::IncorrectJson {
+                        false
+                    } else {
+                        let t = Instant::now();
+                        let matches = filter.matches(&doc.data)?;
+                        metrics.query_nanos += nanos(t);
+                        matches
+                    };
+                    Ok((matches, metrics))
+                })
+                .collect::<Result<Vec<_>>>()?;
+            self.metrics.segment_verify_nanos += nanos(verify_started);
+            let materialize_started = Instant::now();
+            for (id, (matches, metrics)) in candidates.into_iter().zip(outcomes) {
+                self.metrics.merge(&metrics);
+                if matches {
+                    if matched >= request.offset && result.records.len() < request.limit {
+                        let entry = snapshot
+                            .entry(&id)
+                            .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
+                        let raw = self.raw_from(&source, &id, Some(&entry.stamp))?;
+                        let doc = self.parse(c, &id, &raw.json, true);
+                        if doc.state.status == RecordStatus::IncorrectJson
+                            || !filter.matches(&doc.data)?
+                        {
+                            return Err(Error::Unstable(c.path.join(format!("{id}.json"))));
+                        }
+                        result.records.push(Record {
+                            collection: c.name.clone(),
+                            id: id.clone(),
+                            path: self.path(c, &id),
+                            hash: raw.hash,
+                            data: doc.data,
+                            state: doc.state,
+                            raw: None,
+                        });
+                    }
+                    matched += 1;
+                }
+            }
+            self.metrics.segment_materialize_nanos += nanos(materialize_started);
+            source.finish()?;
         }
-        result.sql = Some(sql);
-        result.bindings = bindings;
-        self.metrics.query_nanos += nanos(t);
+        result.total = request.count.then_some(matched);
         Ok(())
     }
 
@@ -219,6 +312,299 @@ impl Repository {
         }
         result.total = request.count.then_some(matched);
         result.query_plan = vec!["direct source scan; compiled JSON filter".into()];
+        Ok(())
+    }
+
+    fn query_json_grep(
+        &mut self,
+        request: &JsonQuery,
+        filter: &JsonFilter,
+        collections: &[Collection],
+        result: &mut JsonQueryResult,
+    ) -> Result<()> {
+        let prefilter = filter.source_prefilter()?;
+        result.query_plan = vec![match &prefilter {
+            Some((_, pattern)) => format!(
+                "ripgrep parallel buffered file search ({}) with regex {pattern}; Sonic JSON verification",
+                rayon::current_num_threads()
+            ),
+            None => "source scan (no usable ripgrep prefilter); Sonic JSON verification".into(),
+        }];
+        let mut matched = 0;
+        for c in collections {
+            let (source, files) = self.inventory(c)?;
+            let entries = files.iter().collect::<Vec<_>>();
+            let scan_started = Instant::now();
+            let outcomes = entries
+                .par_iter()
+                .map_init(
+                    || {
+                        SearcherBuilder::new()
+                            .line_number(false)
+                            .bom_sniffing(false)
+                            .memory_map(MmapChoice::never())
+                            .build()
+                    },
+                    |searcher, entry| -> Result<ScanOutcome> {
+                        let (id, stamp) = *entry;
+                        let path = source.path.join(format!("{id}.json"));
+                        let mut file = source.file(id)?;
+                        let before = Stamp::from_metadata(
+                            &file.metadata().map_err(|e| io(&path, e))?,
+                            &path,
+                        )?;
+                        if &before != stamp {
+                            return Err(Error::Unstable(path));
+                        }
+                        let candidate = if let Some((matcher, _)) = &prefilter {
+                            let mut sink = FirstMatch::default();
+                            searcher
+                                .search_file(matcher, &file, &mut sink)
+                                .map_err(|e| io(&path, e))?;
+                            sink.0
+                        } else {
+                            true
+                        };
+                        let mut outcome = ScanOutcome {
+                            candidate,
+                            ..Default::default()
+                        };
+                        if candidate {
+                            file.seek(SeekFrom::Start(0)).map_err(|e| io(&path, e))?;
+                            let mut bytes = Vec::new();
+                            file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
+                            outcome.source_bytes = bytes.len() as u64;
+                            let t = Instant::now();
+                            let doc = Document::parse(&bytes);
+                            outcome.parse_nanos = nanos(t);
+                            if doc.state.status != RecordStatus::IncorrectJson {
+                                let t = Instant::now();
+                                outcome.matches = filter.matches(&doc.data)?;
+                                outcome.query_nanos = nanos(t);
+                            }
+                        }
+                        let after = Stamp::from_metadata(
+                            &file.metadata().map_err(|e| io(&path, e))?,
+                            &path,
+                        )?;
+                        if before != after || (candidate && outcome.source_bytes != after.size) {
+                            return Err(Error::Unstable(path));
+                        }
+                        Ok(outcome)
+                    },
+                )
+                .collect::<Result<Vec<_>>>()?;
+            self.metrics.grep_scans += entries.len() as u64;
+            self.metrics.grep_bytes += entries.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
+            self.metrics.grep_nanos += nanos(scan_started);
+            for ((id, stamp), outcome) in entries.into_iter().zip(outcomes) {
+                if outcome.candidate {
+                    self.metrics.grep_candidates += 1;
+                    self.metrics.source_reads += 1;
+                    self.metrics.source_bytes += outcome.source_bytes;
+                    self.metrics.parses += 1;
+                    self.metrics.parse_nanos += outcome.parse_nanos;
+                    self.metrics.json_decode_nanos += outcome.parse_nanos;
+                    self.metrics.query_nanos += outcome.query_nanos;
+                }
+                if outcome.matches {
+                    if matched >= request.offset && result.records.len() < request.limit {
+                        let raw = self.raw_from(&source, id, Some(stamp))?;
+                        let doc = self.parse(c, id, &raw.json, true);
+                        if doc.state.status == RecordStatus::IncorrectJson
+                            || !filter.matches(&doc.data)?
+                        {
+                            return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                        }
+                        result.records.push(Record {
+                            collection: c.name.clone(),
+                            id: id.clone(),
+                            path: self.path(c, id),
+                            hash: raw.hash,
+                            data: doc.data,
+                            state: doc.state,
+                            raw: None,
+                        });
+                    }
+                    matched += 1;
+                }
+            }
+            source.finish()?;
+            if self.inventory(c)?.1 != files {
+                return Err(Error::Unstable(c.path.clone()));
+            }
+        }
+        result.total = request.count.then_some(matched);
+        Ok(())
+    }
+
+    pub(super) fn ensure_picker(&mut self, c: &Collection) -> Result<()> {
+        let rebuild = !self.file_pickers.contains_key(&c.name)
+            || matches!(self.options.freshness, Freshness::HashOnRequest);
+        if rebuild {
+            let started = Instant::now();
+            self.file_pickers.insert(
+                c.name.clone(),
+                crate::file_picker::FilePicker::open_with_indexes(&c.path, &c.indexes, &c.fields)?,
+            );
+            self.metrics.bigram_open_nanos += nanos(started);
+        } else if self.options.freshness == Freshness::MetadataOnRequest {
+            let started = Instant::now();
+            self.file_pickers
+                .get_mut(&c.name)
+                .expect("picker exists")
+                .refresh()?;
+            self.metrics.bigram_refresh_nanos += nanos(started);
+        }
+        Ok(())
+    }
+
+    fn query_json_bigram(
+        &mut self,
+        request: &JsonQuery,
+        filter: &JsonFilter,
+        collections: &[Collection],
+        result: &mut JsonQueryResult,
+    ) -> Result<()> {
+        let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
+        let source_pattern = filter.source_prefilter()?;
+        let cardinality_risk = filter.needs_global_cardinality_check(collections);
+        let scalar_fields = filter.top_level_scalar_fields();
+        result.query_plan =
+            vec!["FFF values bigram candidates; source regex scan; Sonic verification".into()];
+        let mut matched = 0;
+        for c in collections {
+            self.ensure_picker(c)?;
+            let candidate_started = Instant::now();
+            let picker = self.file_pickers.get(&c.name).unwrap();
+            let array_risk = scalar_fields
+                .iter()
+                .any(|field| picker.has_array_value(field));
+            let risk = cardinality_risk || array_risk;
+            let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
+            let entries = picker.candidate_records(
+                (!risk).then_some(values_pattern.as_deref()).flatten(),
+                typed_plan.as_ref(),
+            );
+            self.metrics.bigram_candidates_nanos += nanos(candidate_started);
+            let prefilter = if risk { None } else { source_pattern.as_ref() };
+            let source = Source::open(&c.path)?;
+            let scan_started = Instant::now();
+            let outcomes = entries
+                .par_iter()
+                .map_init(
+                    || {
+                        (
+                            SearcherBuilder::new()
+                                .line_number(false)
+                                .bom_sniffing(false)
+                                .build(),
+                            Vec::with_capacity(4096),
+                        )
+                    },
+                    |(searcher, bytes), (id, stamp)| -> Result<ScanOutcome> {
+                        let open_started = Instant::now();
+                        let path = source.path.join(format!("{id}.json"));
+                        let mut file = source.file(id)?;
+                        let before = Stamp::from_metadata(
+                            &file.metadata().map_err(|e| io(&path, e))?,
+                            &path,
+                        )?;
+                        if &before != *stamp {
+                            return Err(Error::Unstable(path));
+                        }
+                        let file_open_nanos = nanos(open_started);
+                        let read_started = Instant::now();
+                        bytes.clear();
+                        file.read_to_end(bytes).map_err(|e| io(&path, e))?;
+                        let read_nanos = nanos(read_started);
+                        let (candidate, regex_nanos) = if let Some((matcher, _)) = prefilter {
+                            let regex_started = Instant::now();
+                            let mut sink = FirstMatch::default();
+                            searcher
+                                .search_slice(matcher, bytes, &mut sink)
+                                .map_err(|e| io(&path, e))?;
+                            (sink.0, nanos(regex_started))
+                        } else {
+                            (true, 0)
+                        };
+                        let mut outcome = ScanOutcome {
+                            candidate,
+                            file_open_nanos,
+                            read_nanos,
+                            regex_nanos,
+                            ..Default::default()
+                        };
+                        if candidate {
+                            outcome.source_bytes = bytes.len() as u64;
+                            let t = Instant::now();
+                            let doc = Document::parse(bytes);
+                            outcome.parse_nanos = nanos(t);
+                            if doc.state.status != RecordStatus::IncorrectJson {
+                                let t = Instant::now();
+                                outcome.matches = filter.matches(&doc.data)?;
+                                outcome.query_nanos = nanos(t);
+                            }
+                        }
+                        let after = Stamp::from_metadata(
+                            &file.metadata().map_err(|e| io(&path, e))?,
+                            &path,
+                        )?;
+                        if before != after || bytes.len() as u64 != after.size {
+                            return Err(Error::Unstable(path));
+                        }
+                        Ok(outcome)
+                    },
+                )
+                .collect::<Result<Vec<_>>>()?;
+            self.metrics.grep_scans += entries.len() as u64;
+            self.metrics.grep_bytes += entries.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
+            self.metrics.grep_nanos += nanos(scan_started);
+            let mut page_matches = Vec::new();
+            for ((id, stamp), outcome) in entries.iter().zip(outcomes) {
+                self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
+                self.metrics.bigram_read_nanos += outcome.read_nanos;
+                self.metrics.bigram_regex_nanos += outcome.regex_nanos;
+                if outcome.candidate {
+                    self.metrics.grep_candidates += 1;
+                    self.metrics.source_reads += 1;
+                    self.metrics.source_bytes += outcome.source_bytes;
+                    self.metrics.parses += 1;
+                    self.metrics.parse_nanos += outcome.parse_nanos;
+                    self.metrics.json_decode_nanos += outcome.parse_nanos;
+                    self.metrics.query_nanos += outcome.query_nanos;
+                }
+                if outcome.matches {
+                    if matched >= request.offset
+                        && result.records.len() + page_matches.len() < request.limit
+                    {
+                        page_matches.push(((*id).to_owned(), (*stamp).clone()));
+                    }
+                    matched += 1;
+                }
+            }
+            drop(entries);
+            let materialize_started = Instant::now();
+            for (id, stamp) in page_matches {
+                let raw = self.raw_from(&source, &id, Some(&stamp))?;
+                let doc = self.parse(c, &id, &raw.json, true);
+                if doc.state.status == RecordStatus::IncorrectJson || !filter.matches(&doc.data)? {
+                    return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                }
+                result.records.push(Record {
+                    collection: c.name.clone(),
+                    id: id.clone(),
+                    path: self.path(c, &id),
+                    hash: raw.hash,
+                    data: doc.data,
+                    state: doc.state,
+                    raw: None,
+                });
+            }
+            self.metrics.bigram_materialize_nanos += nanos(materialize_started);
+            source.finish()?;
+        }
+        result.total = request.count.then_some(matched);
         Ok(())
     }
 }

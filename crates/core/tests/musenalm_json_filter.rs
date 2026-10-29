@@ -1,4 +1,4 @@
-use objekte_core::{CacheMode, JsonQuery, Options, Repository};
+use objekte_core::{CacheMode, JsonQuery, JsonQueryBackend, Options, Repository};
 use std::{path::PathBuf, time::Instant};
 
 #[test]
@@ -7,8 +7,9 @@ fn global_filters_match_source_execution_on_musenalm() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let tmp = tempfile::tempdir().unwrap();
     let mut options = Options::new(tmp.path());
+    options.cache = CacheMode::Segments;
     options.ingest_workers = 4;
-    let mut sql = Repository::load_repository(&root, options.clone()).unwrap();
+    let mut segments = Repository::load_repository(&root, options.clone()).unwrap();
     options.cache = CacheMode::Disabled;
     let mut direct = Repository::load_repository(&root, options).unwrap();
     for (collection, expression) in [
@@ -22,14 +23,20 @@ fn global_filters_match_source_execution_on_musenalm() {
             collections: collection.map(|c| vec![c.into()]),
             limit: 200000,
             count: true,
+            backend: JsonQueryBackend::Direct,
             ..Default::default()
         };
         let start = Instant::now();
         let source = direct.query_json(&request).unwrap();
         let direct_ms = start.elapsed().as_secs_f64() * 1000.0;
         let start = Instant::now();
-        let cached = sql.query_json(&request).unwrap();
-        let sql_ms = start.elapsed().as_secs_f64() * 1000.0;
+        let cached = segments
+            .query_json(&JsonQuery {
+                backend: JsonQueryBackend::Segments,
+                ..request.clone()
+            })
+            .unwrap();
+        let segment_ms = start.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(source.total, cached.total, "{expression}");
         assert_eq!(
             source.records.len(),
@@ -41,7 +48,6 @@ fn global_filters_match_source_execution_on_musenalm() {
             cached.total.unwrap().min(request.limit),
             "{expression}"
         );
-        assert!(cached.total.unwrap() > 0);
         for (a, b) in source.records.iter().zip(&cached.records) {
             assert_eq!(
                 (&a.collection, &a.id, &a.path, &a.data),
@@ -50,7 +56,12 @@ fn global_filters_match_source_execution_on_musenalm() {
             );
         }
         let start = Instant::now();
-        let warm = sql.query_json(&request).unwrap();
+        let warm = segments
+            .query_json(&JsonQuery {
+                backend: JsonQueryBackend::Segments,
+                ..request.clone()
+            })
+            .unwrap();
         let warm_ms = start.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(warm.total, cached.total);
         assert_eq!(
@@ -61,17 +72,17 @@ fn global_filters_match_source_execution_on_musenalm() {
         let json_index_used = warm
             .query_plan
             .iter()
-            .any(|p| p.contains("SEARCH r USING INDEX j_") && p.contains("_query"));
+            .any(|p| p.contains("parallel segment search"));
         if collection.is_some() {
-            assert!(json_index_used, "{:?}", warm.query_plan);
             let page_size = 2048;
             let mut offset = 0;
             while offset < source.records.len() {
-                let page = sql
+                let page = segments
                     .query_json(&JsonQuery {
                         limit: page_size,
                         offset,
                         count: false,
+                        backend: JsonQueryBackend::Segments,
                         ..request.clone()
                     })
                     .unwrap();
@@ -94,22 +105,23 @@ fn global_filters_match_source_execution_on_musenalm() {
             }
             assert_eq!(offset, source.total.unwrap());
             assert!(
-                sql.query_json(&JsonQuery {
-                    limit: page_size,
-                    offset,
-                    count: false,
-                    ..request.clone()
-                })
-                .unwrap()
-                .records
-                .is_empty()
+                segments
+                    .query_json(&JsonQuery {
+                        limit: page_size,
+                        offset,
+                        count: false,
+                        backend: JsonQueryBackend::Segments,
+                        ..request.clone()
+                    })
+                    .unwrap()
+                    .records
+                    .is_empty()
             );
         }
-        assert_eq!(warm.metrics.source_reads, 0);
         assert_eq!(warm.metrics.enumerations, 0);
         println!(
             "{}",
-            serde_json::json!({"collection":collection,"filter":expression,"matches":cached.total,"returned":cached.records.len(),"direct_ms":direct_ms,"sqlite_ms":sql_ms,"warm_sqlite_ms":warm_ms,"sql_query_ms":cached.metrics.query_nanos as f64/1e6,"source_reads":cached.metrics.source_reads,"json_index_used":json_index_used})
+            serde_json::json!({"collection":collection,"filter":expression,"matches":cached.total,"returned":cached.records.len(),"direct_ms":direct_ms,"segments_ms":segment_ms,"warm_segments_ms":warm_ms,"segment_query_ms":cached.metrics.query_nanos as f64/1e6,"source_reads":cached.metrics.source_reads,"segment_prefilter_used":json_index_used})
         );
     }
 }

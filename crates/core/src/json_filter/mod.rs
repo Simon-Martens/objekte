@@ -1,10 +1,8 @@
-//! Schema-aware filters. SQL composition follows dbx's expression/bindings
-//! separation; semantics belong here, not to SQLite's implicit type conversions.
-pub(crate) mod indexes;
+//! Schema-aware filters evaluated against Sonic-parsed source JSON.
 mod parser;
 mod pattern;
+mod prefilter;
 mod schema;
-mod sql;
 
 use crate::{Error, Metrics, Record, Result, config::fingerprint};
 use num_bigint::BigInt;
@@ -14,8 +12,6 @@ use std::{
     cmp::Ordering,
     collections::{BTreeMap, BTreeSet},
 };
-
-pub(crate) use sql::register;
 
 
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
@@ -115,6 +111,15 @@ enum Expr {
 }
 
 
+/// A necessary typed candidate expression. Unsupported AND children can be
+/// omitted; an OR is useful only when every child has a safe candidate set.
+pub(crate) enum TypedPlan {
+    Term(String, crate::query::Operator, Value),
+    And(Vec<Self>),
+    Or(Vec<Self>),
+}
+
+
 // INFO: Compiled filter expression, referenced paths, and stable hash.
 /// A compiled, bound filter reusable across documents and collections.
 #[derive(Debug, Clone)]
@@ -127,6 +132,13 @@ pub struct JsonFilter {
 
 
 impl JsonFilter {
+    /// A necessary regex for finding candidates in raw JSON files.
+    /// Matching files still require full JSON parsing and filter evaluation.
+    pub fn source_candidate_pattern(&self) -> Result<Option<String>> {
+        self.source_prefilter()
+            .map(|pattern| pattern.map(|(_, text)| text))
+    }
+
     pub fn compile(text: &str, parameters: &BTreeMap<String, Value>) -> Result<Self> {
         let expr = parser::parse(text, parameters)?;
         let mut paths = BTreeSet::new();
@@ -173,7 +185,75 @@ impl JsonFilter {
         &self.hash
     }
 
-    /// Evaluate an already parsed JSON value with exactly the SQL execution semantics.
+    pub(crate) fn needs_global_cardinality_check(&self, collections: &[crate::Collection]) -> bool {
+        self.scalar_paths.iter().any(|path| {
+            let [JsonPathStep::Key(name)] = path.path.as_slice() else {
+                return true;
+            };
+            path.modifier != Some(Modifier::Length)
+                && collections.iter().any(|collection| {
+                    collection.fields.get(name).is_none_or(|field| {
+                        matches!(field.kind, crate::ValueType::Array | crate::ValueType::Any)
+                    })
+                })
+        })
+    }
+
+    pub(crate) fn top_level_scalar_fields(&self) -> Vec<String> {
+        self.scalar_paths
+            .iter()
+            .filter(|path| path.modifier != Some(Modifier::Length))
+            .filter_map(|path| match path.path.as_slice() {
+                [JsonPathStep::Key(name)] => Some(name.clone()),
+                _ => None,
+            })
+            .collect()
+    }
+
+    /// Necessary typed candidates for AND/OR filters. Exact JSON evaluation
+    /// still decides whether a candidate matches.
+    pub(crate) fn typed_plan(&self) -> Option<TypedPlan> {
+        use crate::query::Operator;
+        fn plan(expr: &Expr) -> Option<TypedPlan> {
+            match expr {
+                Expr::And(parts) => {
+                    let children = parts.iter().filter_map(plan).collect::<Vec<_>>();
+                    (!children.is_empty()).then_some(TypedPlan::And(children))
+                }
+                Expr::Or(parts) => {
+                    let children = parts.iter().map(plan).collect::<Option<Vec<_>>>()?;
+                    (!children.is_empty()).then_some(TypedPlan::Or(children))
+                }
+                Expr::Compare {
+                    left: Operand::Field(field),
+                    op,
+                    right: Operand::Literal(value),
+                    any: false,
+                } if field.modifier.is_none() && field.path.len() == 1 => {
+                    let JsonPathStep::Key(name) = &field.path[0] else {
+                        return None;
+                    };
+                    let operator = match op {
+                        Op::Eq => Operator::Eq,
+                        Op::Lt => Operator::Lt,
+                        Op::Le => Operator::Le,
+                        Op::Gt => Operator::Gt,
+                        Op::Ge => Operator::Ge,
+                        _ => return None,
+                    };
+                    if value.is_number() || value.is_boolean() || value.is_string() {
+                        Some(TypedPlan::Term(name.clone(), operator, value.clone()))
+                    } else {
+                        None
+                    }
+                }
+                _ => None,
+            }
+        }
+        plan(&self.expr)
+    }
+
+    /// Evaluate an already parsed JSON value with the same semantics as cached queries.
     pub fn matches(&self, value: &Value) -> Result<bool> {
         self.check_cardinality(value)?;
         fn evaluate(e: &Expr, doc: &Value) -> bool {
@@ -222,6 +302,20 @@ pub struct JsonQuery {
     pub limit: usize,
     pub offset: usize,
     pub count: bool,
+    /// Select a query backend. `Auto` uses the in-memory bigram index.
+    pub backend: JsonQueryBackend,
+}
+
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum JsonQueryBackend {
+    #[default]
+    Auto,
+    Direct,
+    Segments,
+    Grep,
+    Bigram,
 }
 
 
@@ -234,6 +328,7 @@ impl Default for JsonQuery {
             limit: 50,
             offset: 0,
             count: false,
+            backend: JsonQueryBackend::Auto,
         }
     }
 }
@@ -245,12 +340,12 @@ pub struct JsonQueryDependencies {
     /// All scoped collections, including nonmatching records and future additions.
     pub collections: Vec<String>,
     pub paths: Vec<JsonPath>,
-    /// Persistent content generations observed by the SQL query; empty in direct mode.
+    /// Persistent content revisions observed by a cached query; empty in direct mode.
     pub revisions: BTreeMap<String, i64>,
 }
 
 
-// INFO: Matched records, count, dependencies, metrics, and SQL diagnostics.
+// INFO: Matched records, count, dependencies, metrics, and query plan.
 #[derive(Debug, Clone, Serialize)]
 pub struct JsonQueryResult {
     pub records: Vec<Record>,
@@ -258,8 +353,6 @@ pub struct JsonQueryResult {
     pub dependencies: JsonQueryDependencies,
     pub filter_hash: String,
     pub metrics: Metrics,
-    pub sql: Option<String>,
-    pub bindings: Vec<String>,
     pub query_plan: Vec<String>,
 }
 
@@ -362,7 +455,7 @@ fn compare(left: &Value, op: Op, right: &Value, right_field: bool) -> bool {
 
 /// Compare decimal JSON number lexemes without conversion to floating point or
 /// allocating exponent-sized zero strings (including exponents outside i64).
-fn decimal_cmp(a: &str, b: &str) -> Ordering {
+pub(crate) fn decimal_cmp(a: &str, b: &str) -> Ordering {
     // The common integer case needs no allocation. Keep the exact decimal path
     // for fractional/exponential spellings and values outside signed 64 bits.
     if let (Ok(a), Ok(b)) = (a.parse::<i64>(), b.parse::<i64>()) {

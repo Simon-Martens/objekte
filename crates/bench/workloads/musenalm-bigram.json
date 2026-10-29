@@ -1,0 +1,231 @@
+[
+  {
+    "name": "title_almanach",
+    "filter": "preferred_title ~ 'almanach'",
+    "pattern": "almanach",
+    "insensitive": true
+  },
+  {
+    "name": "title_liebe",
+    "filter": "preferred_title ~ 'Liebe'",
+    "pattern": "Liebe",
+    "insensitive": true
+  },
+  {
+    "name": "title_goethe",
+    "filter": "preferred_title ~ 'Goethe'",
+    "pattern": "Goethe",
+    "insensitive": true
+  },
+  {
+    "name": "title_schiller",
+    "filter": "preferred_title ~ 'Schiller'",
+    "pattern": "Schiller",
+    "insensitive": true
+  },
+  {
+    "name": "title_gedicht",
+    "filter": "preferred_title ~ 'Gedicht'",
+    "pattern": "Gedicht",
+    "insensitive": true
+  },
+  {
+    "name": "title_mond",
+    "filter": "preferred_title ~ 'Mond'",
+    "pattern": "Mond",
+    "insensitive": true
+  },
+  {
+    "name": "variant_liebe",
+    "filter": "variant_title ~ 'Liebe'",
+    "pattern": "Liebe",
+    "insensitive": true
+  },
+  {
+    "name": "title_statement_mond",
+    "filter": "title_statement ~ 'Mond'",
+    "pattern": "Mond",
+    "insensitive": true
+  },
+  {
+    "name": "incipit_liebe",
+    "filter": "incipit_statement ~ 'Liebe'",
+    "pattern": "Liebe",
+    "insensitive": true
+  },
+  {
+    "name": "responsibility_goethe",
+    "filter": "responsibility_statement ~ 'Goethe'",
+    "pattern": "Goethe",
+    "insensitive": true
+  },
+  {
+    "name": "annotation_goethe",
+    "filter": "annotation ~ 'Goethe'",
+    "pattern": "Goethe",
+    "insensitive": true
+  },
+  {
+    "name": "publication_leipzig",
+    "filter": "publication_statement ~ 'Leipzig'",
+    "pattern": "Leipzig",
+    "insensitive": true
+  },
+  {
+    "name": "type_gedicht_lied",
+    "filter": "musenalm_type ?= 'Gedicht/Lied'",
+    "pattern": "Gedicht/Lied",
+    "insensitive": true
+  },
+  {
+    "name": "type_text",
+    "filter": "musenalm_type ?= 'Text'",
+    "pattern": "Text",
+    "insensitive": true
+  },
+  {
+    "name": "title_eq_mond",
+    "filter": "preferred_title = 'Der Mond'",
+    "pattern": "Der Mond"
+  },
+  {
+    "name": "title_eq_issue",
+    "filter": "preferred_title = 'No. 11.'",
+    "pattern": "No. 11."
+  },
+  {
+    "name": "title_prefix_lieb",
+    "filter": "preferred_title ~ 'Lieb%'",
+    "pattern": "Lieb",
+    "insensitive": true
+  },
+  {
+    "name": "title_like_mond",
+    "filter": "preferred_title ~ '%Mond%'",
+    "pattern": "Mond",
+    "insensitive": true
+  },
+  {
+    "name": "title_like_wildcard",
+    "filter": "preferred_title ~ 'M_nd'",
+    "pattern": "M.nd",
+    "mode": "regex",
+    "insensitive": true
+  },
+  {
+    "name": "title_regex_or",
+    "filter": "preferred_title ~ 'Liebe' || preferred_title ~ 'Mond'",
+    "pattern": "Liebe|Mond",
+    "mode": "regex",
+    "insensitive": true
+  },
+  {
+    "name": "year_eq_1800",
+    "filter": "year = 1800"
+  },
+  {
+    "name": "year_lt_1800",
+    "filter": "year < 1800"
+  },
+  {
+    "name": "pseudonym_true",
+    "filter": "pseudonym = true",
+    "pattern": "true"
+  },
+  {
+    "name": "pseudonym_false",
+    "filter": "pseudonym = false",
+    "pattern": "false"
+  },
+  {
+    "name": "numbering_ge_10",
+    "filter": "numbering >= 10"
+  },
+  {
+    "name": "musenalm_id_eq",
+    "filter": "musenalm_id = 56317"
+  },
+  {
+    "name": "title_liebe_year",
+    "filter": "preferred_title ~ 'Liebe' && year = 1800",
+    "pattern": "Liebe",
+    "insensitive": true
+  },
+  {
+    "name": "title_almanach_year",
+    "filter": "preferred_title ~ 'almanach' && year >= 1800",
+    "pattern": "almanach",
+    "insensitive": true
+  },
+  {
+    "name": "title_goethe_pseudonym",
+    "filter": "preferred_title ~ 'Goethe' && pseudonym = true",
+    "pattern": "Goethe",
+    "insensitive": true
+  },
+  {
+    "name": "title_gedicht_old",
+    "filter": "preferred_title ~ 'Gedicht' && year < 1800",
+    "pattern": "Gedicht",
+    "insensitive": true
+  },
+  {
+    "name": "type_gedicht_year",
+    "filter": "musenalm_type ?= 'Gedicht/Lied' && year >= 1800",
+    "pattern": "Gedicht/Lied",
+    "insensitive": true
+  },
+  {
+    "name": "title_like_regex_prefix",
+    "filter": "preferred_title ~ 'M%nd'",
+    "pattern": "M.*nd",
+    "mode": "regex",
+    "insensitive": true
+  },
+  {
+    "name": "mond_numbering",
+    "filter": "preferred_title ~ 'Mond' && numbering > 10",
+    "pattern": "Mond",
+    "insensitive": true
+  },
+  {
+    "name": "year_ne_1800",
+    "filter": "year != 1800"
+  },
+  {
+    "name": "title_not_mond",
+    "filter": "preferred_title !~ 'Mond'"
+  },
+  {
+    "name": "exists_title",
+    "filter": "exists(preferred_title)"
+  },
+  {
+    "name": "year_or",
+    "filter": "year = 1800 || year = 1900"
+  },
+  {
+    "name": "text_or_year",
+    "filter": "preferred_title ~ 'Mond' || year = 1800"
+  },
+  {
+    "name": "year_window",
+    "filter": "year >= 1800 && year < 1805"
+  },
+  {
+    "name": "year_and_bool",
+    "filter": "year = 1800 && pseudonym = true"
+  },
+  {
+    "name": "type_length",
+    "filter": "musenalm_type:length >= 2"
+  },
+  {
+    "name": "title_empty",
+    "filter": "preferred_title = ''"
+  },
+  {
+    "name": "year_null",
+    "filter": "year = null"
+  }
+]

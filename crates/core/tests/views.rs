@@ -8,14 +8,22 @@ fn parity(f: &Fixture, request: &ViewRequest) -> objekte_core::ViewResult {
         .repo(CacheMode::Disabled)
         .open_view("books", request)
         .unwrap();
-    let sql = f
-        .repo(CacheMode::Sqlite)
+    let segments = f
+        .repo(CacheMode::Segments)
         .open_view("books", request)
         .unwrap();
-    assert_eq!(sql.rows, direct.rows);
-    assert_eq!(sql.total, direct.total);
-    assert_eq!(sql.columns, direct.columns);
-    sql
+    let memory = f
+        .repo(CacheMode::Memory)
+        .open_view("books", request)
+        .unwrap();
+    assert_eq!(segments.rows, direct.rows);
+    assert_eq!(segments.total, direct.total);
+    assert_eq!(segments.columns, direct.columns);
+    assert_eq!(memory.rows, direct.rows);
+    assert_eq!(memory.total, direct.total);
+    assert_eq!(memory.columns, direct.columns);
+    assert_eq!(memory.states, segments.states);
+    segments
 }
 
 #[test]
@@ -140,20 +148,24 @@ fn projection_retains_identity_labels_and_json_types() {
 }
 
 #[test]
-fn warm_sqlite_views_read_no_sources_and_no_unrequested_collections() {
+fn warm_segment_views_read_only_the_requested_page_and_collection() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     let first = r.open_view("books", &all()).unwrap();
-    assert_eq!(first.metrics.source_reads, 7);
-    assert_eq!(first.metrics.parses, 7);
+    assert_eq!(first.metrics.source_reads, 14);
+    assert_eq!(first.metrics.parses, 14);
     assert_eq!(first.metrics.rows_inserted, 7);
     assert!(first.metrics.index_builds > 0);
     let warm = r.open_view("books", &all()).unwrap();
     assert_eq!(warm.rows, first.rows);
-    assert_eq!(warm.metrics.source_reads, 0);
+    assert_eq!(warm.metrics.source_reads, 7);
     assert_eq!(warm.metrics.enumerations, 0);
-    assert_eq!(warm.metrics.parses, 0);
-    assert!(warm.query_plan.iter().any(|s| s.contains("INDEX")));
+    assert_eq!(warm.metrics.parses, 7);
+    assert!(
+        warm.query_plan
+            .iter()
+            .any(|s| s.contains("ordered segment index"))
+    );
     let status = r.cache_status().unwrap();
     assert!(
         status
@@ -165,9 +177,60 @@ fn warm_sqlite_views_read_no_sources_and_no_unrequested_collections() {
 }
 
 #[test]
+fn warm_memory_views_read_only_the_requested_page() {
+    let f = Fixture::new();
+    let mut repo = f.repo(CacheMode::Memory);
+    let request = ViewRequest {
+        limit: Some(2),
+        count: true,
+        filters: vec![Filter {
+            field: "score".into(),
+            operator: Operator::Ge,
+            value: json!(2),
+        }],
+        ..Default::default()
+    };
+    let first = repo.open_view("books", &request).unwrap();
+    let warm = repo.open_view("books", &request).unwrap();
+    assert_eq!(first.rows, warm.rows);
+    assert_eq!(warm.total, Some(3));
+    assert_eq!(warm.metrics.source_reads, 2);
+    assert_eq!(warm.metrics.bigram_open_nanos, 0);
+    assert!(warm.query_plan[0].contains("ordered in-memory index"));
+    assert!(!f.data.join("segments").exists());
+}
+
+#[test]
+fn memory_revisions_and_ordered_keys_follow_edits_and_deletions() {
+    let f = Fixture::new();
+    let mut repo = f.repo(CacheMode::Memory);
+    repo.open_view("books", &all()).unwrap();
+    let before = repo.record_revision("books", "a").unwrap().unwrap();
+    f.edit("data/books/a.json", |value| value["score"] = json!(-42));
+    repo.refresh("books").unwrap();
+    let after = repo.record_revision("books", "a").unwrap().unwrap();
+    assert!(after.revision > before.revision);
+    assert!(after.changed_at_nanos >= before.changed_at_nanos);
+    assert_eq!(repo.open_view("books", &all()).unwrap().rows[0].id, "a");
+    std::fs::remove_file(f.root.join("data/books/a.json")).unwrap();
+    repo.refresh("books").unwrap();
+    let deleted = repo.record_revision("books", "a").unwrap().unwrap();
+    assert!(!deleted.present);
+    assert!(deleted.revision > after.revision);
+    assert!(
+        !repo
+            .open_view("books", &all())
+            .unwrap()
+            .rows
+            .iter()
+            .any(|row| row.id == "a")
+    );
+}
+
+#[test]
 fn scalar_filter_types_and_sort_permissions_are_checked_before_io() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     for filter in [
         Filter {
             field: "score".into(),
@@ -273,14 +336,19 @@ fn mixed_large_integer_and_fractional_comparison_is_exact() {
 fn numbers_outside_the_declared_domain_are_diagnosed_without_rounding() {
     let f = Fixture::new();
     f.edit("data/books/a.json", |v| v["score"] = json!(u64::MAX));
-    for mode in [CacheMode::Sqlite, CacheMode::Disabled] {
+    for mode in [CacheMode::Segments, CacheMode::Disabled] {
         let mut r = f.repo(mode);
         r.open_view("books", &all()).unwrap();
         r.validate_collection("books").unwrap();
         let view = r.open_view("books", &all()).unwrap();
-        if mode == CacheMode::Sqlite {
+        if mode == CacheMode::Segments {
             assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
-            assert!(view.states["a"].issues.iter().any(|i| i.message.contains("signed 64-bit")));
+            assert!(
+                view.states["a"]
+                    .issues
+                    .iter()
+                    .any(|i| i.message.contains("signed 64-bit"))
+            );
         } else {
             assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Pending);
             assert!(r.metrics().validations > 0);
@@ -307,7 +375,11 @@ fn integral_json_floats_validate_as_integers_and_sort_correctly() {
     assert_eq!(&ids(&parity(&f, &q).rows)[..2], &["b", "a"]);
     f.edit("data/books/a.json", |v| v["count"] = json!(1.5));
     assert_eq!(
-        f.repo(CacheMode::Disabled).open_view("books", &all()).unwrap().states["a"].status,
+        f.repo(CacheMode::Disabled)
+            .open_view("books", &all())
+            .unwrap()
+            .states["a"]
+            .status,
         objekte_core::RecordStatus::Pending
     );
 }
@@ -352,7 +424,7 @@ fn empty_collections_and_offsets_beyond_end_are_valid() {
 }
 
 #[test]
-fn sql_like_strings_remain_bound_values() {
+fn punctuation_strings_remain_literal_values() {
     let f = Fixture::new();
     f.edit("data/books/a.json", |v| v["status"] = json!("' OR 1=1; --"));
     let filter = Filter {
@@ -376,7 +448,7 @@ fn sql_like_strings_remain_bound_values() {
 #[test]
 fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     r.open_view("books", &all()).unwrap();
     f.edit(".editor/books/ui.json", |v| {
         v["label"] = json!("New label");
@@ -388,7 +460,7 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
     assert_eq!(v.columns, vec!["title"]);
     assert_eq!(v.metrics.rows_updated, 0);
     assert_eq!(v.metrics.index_builds, 0);
-    assert_eq!(v.metrics.parses, 0);
+    assert_eq!(v.metrics.parses, v.rows.len() as u64);
     f.edit(".editor/books/ui.json", |v| {
         v["list"]["sortable"]
             .as_array_mut()
@@ -396,17 +468,19 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
             .push(json!("type"))
     });
     let v = r.open_view("books", &all()).unwrap();
-    assert!(v.metrics.index_builds > 0);
+    assert_eq!(v.metrics.index_builds, 0);
     assert_eq!(v.metrics.rows_updated, 0);
-    assert_eq!(v.metrics.index_rows_written, 7);
-    assert_eq!(v.metrics.validations, 0);
+    assert_eq!(v.metrics.index_rows_written, 0);
+    assert_eq!(v.metrics.validations, v.rows.len() as u64);
 }
 
 #[test]
 fn generated_mutation_sequences_match_fresh_direct_execution() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Memory);
+    let mut segments = f.repo(CacheMode::Segments);
     r.open_view("books", &all()).unwrap();
+    segments.open_view("books", &all()).unwrap();
     let mut seed = 7u64;
     for step in 0..60 {
         seed = seed.wrapping_mul(6364136223846793005).wrapping_add(1);
@@ -423,6 +497,7 @@ fn generated_mutation_sequences_match_fresh_direct_execution() {
             f.write(&p,&json!({"title":format!("Title {}",seed%5),"score":score,"flag":seed.is_multiple_of(2),"status":if seed.is_multiple_of(3){"draft"}else{"reviewed"},"payload":null,"person":if seed.is_multiple_of(3){"p1"}else{"missing"}}));
         }
         r.refresh("books").unwrap();
+        segments.refresh("books").unwrap();
         for field in ["score", "title", "flag", "@id"] {
             let q = ViewRequest {
                 sort: Some(Sort {
@@ -447,10 +522,13 @@ fn generated_mutation_sequences_match_fresh_direct_execution() {
                 count: true,
                 ..Default::default()
             };
-            let sql = r.open_view("books", &q).unwrap();
+            let memory = r.open_view("books", &q).unwrap();
+            let packed = segments.open_view("books", &q).unwrap();
             let direct = f.repo(CacheMode::Disabled).open_view("books", &q).unwrap();
-            assert_eq!(sql.rows, direct.rows, "step {step}, {field}");
-            assert_eq!(sql.total, direct.total);
+            assert_eq!(memory.rows, direct.rows, "step {step}, {field}");
+            assert_eq!(memory.total, direct.total);
+            assert_eq!(packed.rows, direct.rows, "segments step {step}, {field}");
+            assert_eq!(packed.total, direct.total);
         }
     }
 }
@@ -468,14 +546,19 @@ fn out_of_range_integer_lexemes_are_diagnosed_while_opaque_numbers_are_preserved
             format!("{{\"payload\":null,\"score\":{number}}}"),
         )
         .unwrap();
-        for mode in [CacheMode::Sqlite, CacheMode::Disabled] {
+        for mode in [CacheMode::Segments, CacheMode::Disabled] {
             let mut repo = f.repo(mode);
             repo.open_view("books", &all()).unwrap();
             repo.validate_collection("books").unwrap();
             let view = repo.open_view("books", &all()).unwrap();
-            if mode == CacheMode::Sqlite {
+            if mode == CacheMode::Segments {
                 assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
-                assert!(view.states["a"].issues.iter().any(|i| i.message.contains("signed 64-bit")));
+                assert!(
+                    view.states["a"]
+                        .issues
+                        .iter()
+                        .any(|i| i.message.contains("signed 64-bit"))
+                );
             } else {
                 assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Pending);
                 assert!(repo.metrics().validations > 0);

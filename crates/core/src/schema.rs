@@ -1,3 +1,4 @@
+//! JSON Schema loading and field-type metadata.
 use crate::{Result, error::config};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -38,6 +39,8 @@ pub enum PathStep {
 pub struct Field {
     pub kind: ValueType,
     pub nullable: bool,
+    /// Declared JSON Schema alternatives, when this scalar is an enum.
+    pub enum_values: Option<Vec<Value>>,
     pub properties: BTreeMap<String, Field>,
     pub items: Option<Box<Field>>,
     pub relation: Option<String>,
@@ -119,6 +122,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "items",
             "required",
             "additionalProperties",
+            "enum",
             "x-relation",
         ]
         .contains(&k.as_str())
@@ -179,6 +183,24 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
     if obj.contains_key("items") && kind != ValueType::Array {
         return Err(config(file, p, "items requires array type"));
     }
+    let enum_values = if let Some(values) = obj.get("enum") {
+        if !kind.scalar() || kind == ValueType::Any {
+            return Err(config(file, p, "enum requires a scalar type"));
+        }
+        let values = values
+            .as_array()
+            .filter(|values| !values.is_empty())
+            .ok_or_else(|| config(file, p, "enum must be a nonempty array"))?;
+        if values.iter().any(|value| {
+            !value.is_null() && !indexable_kind(kind, value)
+                || value.is_null() && !nullable && kind != ValueType::Null
+        }) {
+            return Err(config(file, p, "enum values must match the declared type"));
+        }
+        Some(values.clone())
+    } else {
+        None
+    };
     if obj
         .get("additionalProperties")
         .is_some_and(|v| !v.is_boolean())
@@ -250,6 +272,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
     Ok(Field {
         kind,
         nullable,
+        enum_values,
         properties,
         items,
         relation,
@@ -270,7 +293,11 @@ pub(crate) fn check_number(v: &Value) -> std::result::Result<(), &'static str> {
 }
 
 pub(crate) fn indexable(f: &Field, v: &Value) -> bool {
-    match f.kind {
+    indexable_kind(f.kind, v)
+}
+
+fn indexable_kind(kind: ValueType, v: &Value) -> bool {
+    match kind {
         ValueType::String => v.is_string(),
         ValueType::Boolean => v.is_boolean(),
         ValueType::Number => v.is_number() && check_number(v).is_ok(),

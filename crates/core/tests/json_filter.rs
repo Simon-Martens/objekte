@@ -1,5 +1,5 @@
 mod support;
-use objekte_core::{CacheMode, JsonFilter, JsonQuery, Repository};
+use objekte_core::{CacheMode, Freshness, JsonFilter, JsonQuery, JsonQueryBackend, Repository};
 use serde_json::json;
 use std::{collections::BTreeMap, fs};
 use support::*;
@@ -11,10 +11,14 @@ fn fixture(docs: &[(&str, &str)]) -> Fixture {
         let mut schema: serde_json::Value =
             serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
         for field in [
-            "x", "name", "start", "end", "tags", "authors", "nested", "a",
-            "a.b", "empty", "nil\0key", "other", "n", "p", "missing",
+            "x", "name", "start", "end", "tags", "authors", "nested", "a", "a.b", "empty",
+            "nil\0key", "other", "n", "p", "missing",
         ] {
-            schema["properties"].as_object_mut().unwrap().entry(field).or_insert_with(|| json!({}));
+            schema["properties"]
+                .as_object_mut()
+                .unwrap()
+                .entry(field)
+                .or_insert_with(|| json!({}));
         }
         fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
         for entry in fs::read_dir(f.root.join("data").join(name)).unwrap() {
@@ -44,16 +48,86 @@ fn ids_for(r: &mut Repository, request: &JsonQuery) -> Vec<String> {
 
 fn check(f: &Fixture, cases: &[(&str, &[&str])]) {
     let mut direct = f.repo(CacheMode::Disabled);
-    let mut sql = f.repo(CacheMode::Sqlite);
+    let mut cached = f.repo(CacheMode::Segments);
+    let mut grep = f.repo(CacheMode::Disabled);
+    let mut bigram = f.repo(CacheMode::Disabled);
     for (filter, expected) in cases {
         let request = request(filter);
         assert_eq!(
-            ids_for(&mut direct, &request),
+            ids_for(
+                &mut direct,
+                &JsonQuery {
+                    backend: JsonQueryBackend::Direct,
+                    ..request.clone()
+                }
+            ),
             *expected,
             "direct: {filter}"
         );
-        assert_eq!(ids_for(&mut sql, &request), *expected, "SQL: {filter}");
+        assert_eq!(
+            ids_for(
+                &mut cached,
+                &JsonQuery {
+                    backend: JsonQueryBackend::Segments,
+                    ..request.clone()
+                }
+            ),
+            *expected,
+            "segments: {filter}"
+        );
+        assert_eq!(
+            ids_for(
+                &mut grep,
+                &JsonQuery {
+                    backend: JsonQueryBackend::Grep,
+                    ..request.clone()
+                }
+            ),
+            *expected,
+            "grep: {filter}"
+        );
+        assert_eq!(
+            ids_for(
+                &mut bigram,
+                &JsonQuery {
+                    backend: JsonQueryBackend::Bigram,
+                    ..request
+                }
+            ),
+            *expected,
+            "bigram: {filter}"
+        );
     }
+}
+
+#[test]
+fn grep_prefilter_keeps_json_unicode_escapes_and_boolean_branches() {
+    let f = fixture(&[
+        ("escaped_key", r#"{"\u0078":"L\u0069ebe"}"#),
+        ("escaped_punctuation", r#"{"x":"N\u006f. \u0031\u0031."}"#),
+        ("escaped_value", r#"{"x":"LOVE"}"#),
+        ("other", r#"{"other":"moon"}"#),
+    ]);
+    check(
+        &f,
+        &[
+            ("x = 'Liebe'", &["escaped_key"]),
+            ("x = 'No. 11.'", &["escaped_punctuation"]),
+            ("x ~ 'No. 11.'", &["escaped_punctuation"]),
+            ("x ~ 'liebe'", &["escaped_key"]),
+            ("x ~ 'lo%e'", &["escaped_value"]),
+            ("x ~ 'liebe' || other = 'moon'", &["escaped_key", "other"]),
+            (
+                "x ~ '%' || other = 'moon'",
+                &[
+                    "escaped_key",
+                    "escaped_punctuation",
+                    "escaped_value",
+                    "other",
+                ],
+            ),
+        ],
+    );
 }
 
 #[test]
@@ -108,7 +182,7 @@ fn actual_json_types_are_distinct_even_when_the_schema_disagrees() {
 }
 
 #[test]
-fn exact_decimal_numbers_never_pass_through_sqlite_floats() {
+fn exact_decimal_numbers_preserve_precision_across_backends() {
     let f = fixture(&[
         ("a", r#"{"x":9007199254740992}"#),
         ("b", r#"{"x":9007199254740993}"#),
@@ -121,15 +195,22 @@ fn exact_decimal_numbers_never_pass_through_sqlite_floats() {
         ("equivalent", r#"{"x":1.8e3}"#),
         ("integer", r#"{"x":1800.0}"#),
     ]);
+    let schema_path = f.root.join(".editor/books/schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    schema["properties"]["x"] = json!({"type":"number"});
+    fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
     check(
         &f,
         &[
             ("x = 9007199254740993", &["b"]),
+            ("x = 9007199254740992 || x = 9007199254740993", &["a", "b"]),
             ("x > 9007199254740992", &["b", "huge"]),
             ("x = 0.123456789012345678901234567890", &["c"]),
             ("x > 0.123456789012345678901234567890 && x < 1", &["d"]),
             ("x = 1e500", &["huge"]),
             ("x = 1e-500", &["tiny"]),
+            ("x = 1e500 || x = 1e-500", &["huge", "tiny"]),
             ("x < 0", &["negative"]),
             ("x = 0", &["zero"]),
             ("x = 1800", &["equivalent", "integer"]),
@@ -173,7 +254,7 @@ fn ambiguous_scalar_paths_error_even_outside_the_page_or_boolean_branch() {
         ("a", r#"{"tags":["poet"]}"#),
         ("z", r#"{"tags":["poet","editor"]}"#),
     ]);
-    for mode in [CacheMode::Sqlite, CacheMode::Disabled] {
+    for mode in [CacheMode::Segments, CacheMode::Disabled] {
         let mut r = f.repo(mode);
         for text in [
             "tags='poet'",
@@ -181,6 +262,11 @@ fn ambiguous_scalar_paths_error_even_outside_the_page_or_boolean_branch() {
             "exists(tags) || tags='poet'",
         ] {
             let mut q = request(text);
+            q.backend = if mode == CacheMode::Segments {
+                JsonQueryBackend::Segments
+            } else {
+                JsonQueryBackend::Direct
+            };
             q.limit = 1;
             q.count = false;
             assert!(
@@ -191,6 +277,256 @@ fn ambiguous_scalar_paths_error_even_outside_the_page_or_boolean_branch() {
                 "{text}"
             );
         }
+    }
+    let mut bigram = f.repo(CacheMode::Disabled);
+    for text in [
+        "tags='poet'",
+        "exists(missing) && tags='poet'",
+        "exists(tags) || tags='poet'",
+    ] {
+        let mut q = request(text);
+        q.backend = JsonQueryBackend::Bigram;
+        assert!(
+            bigram
+                .query_json(&q)
+                .unwrap_err()
+                .to_string()
+                .contains("multiple values"),
+            "{text}"
+        );
+    }
+}
+
+#[test]
+fn bigram_query_backend_reuses_index_and_follows_edits() {
+    let f = fixture(&[
+        ("a", r#"{"x":"Moonlight","n":1800}"#),
+        ("b", r#"{"x":"\u004doon","n":1900}"#),
+        ("c", r#"{"x":"Sunshine","n":1800}"#),
+        ("broken", "not json"),
+    ]);
+    let mut options = f.options(CacheMode::Disabled);
+    options.freshness = Freshness::MetadataOnRequest;
+    let mut bigram = Repository::load_repository(&f.root, options).unwrap();
+    let mut direct = f.repo(CacheMode::Disabled);
+    for filter in [
+        "x ~ 'Moon'",
+        "x = 'Moon'",
+        "x ~ 'Moon' && n >= 1800",
+        "n = 1800",
+    ] {
+        let mut q = request(filter);
+        q.collections = Some(vec!["books".into()]);
+        q.backend = JsonQueryBackend::Direct;
+        let expected = ids_for(&mut direct, &q);
+        q.backend = JsonQueryBackend::Bigram;
+        assert_eq!(ids_for(&mut bigram, &q), expected, "{filter}");
+        assert_eq!(ids_for(&mut bigram, &q), expected, "warm {filter}");
+    }
+    fs::write(
+        f.root.join("data/books/c.json"),
+        r#"{"x":"Moonrise","n":1800}"#,
+    )
+    .unwrap();
+    fs::remove_file(f.root.join("data/books/a.json")).unwrap();
+    fs::write(
+        f.root.join("data/books/d.json"),
+        r#"{"x":"Moonbeam","n":1800}"#,
+    )
+    .unwrap();
+    let mut q = request("x ~ 'Moon' && n >= 1800");
+    q.collections = Some(vec!["books".into()]);
+    q.backend = JsonQueryBackend::Direct;
+    let expected = ids_for(&mut direct, &q);
+    q.backend = JsonQueryBackend::Bigram;
+    assert_eq!(ids_for(&mut bigram, &q), expected);
+}
+
+#[test]
+fn bigram_refresh_detects_new_scalar_path_cardinality_errors() {
+    let f = fixture(&[("a", r#"{"x":"Moonlight"}"#), ("z", r#"{"x":"Sunshine"}"#)]);
+    let mut options = f.options(CacheMode::Disabled);
+    options.freshness = Freshness::MetadataOnRequest;
+    let mut repo = Repository::load_repository(&f.root, options).unwrap();
+    let mut q = request("x = 'Moonlight'");
+    q.backend = JsonQueryBackend::Bigram;
+    assert_eq!(ids_for(&mut repo, &q), ["a"]);
+
+    fs::write(
+        f.root.join("data/books/z.json"),
+        r#"{"x":["Sunshine","Starlight"]}"#,
+    )
+    .unwrap();
+    assert!(
+        repo.query_json(&q)
+            .unwrap_err()
+            .to_string()
+            .contains("multiple values")
+    );
+}
+
+#[test]
+fn bigram_typed_candidates_cover_numbers_booleans_enums_and_schema_invalid_values() {
+    let f = fixture(&[
+        ("a", r#"{"x":1800,"flag":true,"kind":"alpha"}"#),
+        ("b", r#"{"x":1800.0,"flag":false,"kind":"beta"}"#),
+        ("c", r#"{"x":1799,"flag":true,"kind":"zeta"}"#),
+        ("d", r#"{"x":1801,"flag":"true","kind":"beta"}"#),
+        ("e", r#"{"x":"1800","flag":false,"kind":"alpha"}"#),
+    ]);
+    let schema_path = f.root.join(".editor/books/schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    schema["properties"]["x"] = json!({"type":"number"});
+    schema["properties"]["flag"] = json!({"type":"boolean"});
+    schema["properties"]["kind"] = json!({"type":"string","enum":["alpha","beta"]});
+    fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
+    check(
+        &f,
+        &[
+            ("x = 1800", &["a", "b"]),
+            ("x > 1799 && x < 1801", &["a", "b"]),
+            ("x = '1800'", &[]),
+            ("flag = true", &["a", "c"]),
+            ("flag = false", &["b", "e"]),
+            ("flag = 'true'", &[]),
+            ("kind = 'beta'", &["b", "d"]),
+            ("kind > 'alpha'", &["b", "c", "d"]),
+            ("kind = 'zeta'", &["c"]),
+        ],
+    );
+
+    let mut options = f.options(CacheMode::Disabled);
+    options.freshness = Freshness::MetadataOnRequest;
+    let mut bigram = Repository::load_repository(&f.root, options).unwrap();
+    let mut q = request("x = 1800 && flag = true && kind = 'alpha'");
+    q.backend = JsonQueryBackend::Bigram;
+    assert_eq!(ids_for(&mut bigram, &q), ["a"]);
+    fs::write(
+        f.root.join("data/books/a.json"),
+        r#"{"x":1900,"flag":false,"kind":"beta"}"#,
+    )
+    .unwrap();
+    fs::write(
+        f.root.join("data/books/new.json"),
+        r#"{"x":1800,"flag":true,"kind":"alpha"}"#,
+    )
+    .unwrap();
+    assert_eq!(ids_for(&mut bigram, &q), ["new"]);
+    fs::remove_file(f.root.join("data/books/b.json")).unwrap();
+    assert_eq!(
+        ids_for(
+            &mut bigram,
+            &JsonQuery {
+                filter: "kind = 'beta'".into(),
+                ..q
+            }
+        ),
+        ["a", "d"]
+    );
+}
+
+#[test]
+fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
+    let docs = (0..80)
+        .map(|number| {
+            let name = if number == 3 || number == 54 {
+                "special"
+            } else {
+                "ordinary"
+            };
+            (
+                format!("r{number:03}"),
+                json!({"x":number,"flag":number % 2 == 0,"name":name}).to_string(),
+            )
+        })
+        .collect::<Vec<_>>();
+    let borrowed = docs
+        .iter()
+        .map(|(id, raw)| (id.as_str(), raw.as_str()))
+        .collect::<Vec<_>>();
+    let f = fixture(&borrowed);
+    let schema_path = f.root.join(".editor/books/schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    schema["properties"]["x"] = json!({"type":"number"});
+    schema["properties"]["flag"] = json!({"type":"boolean"});
+    schema["properties"]["name"] = json!({"type":"string"});
+    fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
+    check(
+        &f,
+        &[
+            ("x = 2 || x = 50", &["r002", "r050"]),
+            (
+                "(x >= 70 && x <= 72) || x = 2",
+                &["r002", "r070", "r071", "r072"],
+            ),
+            ("x = 2 || name ~ 'special'", &["r002", "r003", "r054"]),
+            (
+                "(x = 2 || name ~ 'special') && flag = true",
+                &["r002", "r054"],
+            ),
+        ],
+    );
+
+    let mut memory = f.repo(CacheMode::Memory);
+    let mut segments = f.repo(CacheMode::Segments);
+    let mut query = request("x = 2 || x = 50");
+    query.collections = Some(vec!["books".into()]);
+    let warm = memory.query_json(&query).unwrap();
+    assert_eq!(warm.total, Some(2));
+    let result = memory.query_json(&query).unwrap();
+    assert_eq!(result.metrics.grep_scans, 2);
+    query.filter = "(x = 2 || name ~ 'special') && flag = true".into();
+    let mixed = memory.query_json(&query).unwrap();
+    assert_eq!(mixed.total, Some(2));
+    assert_eq!(mixed.metrics.grep_scans, 40);
+    query.filter = "x = 2 || name ~ 'special'".into();
+    let unbounded = memory.query_json(&query).unwrap();
+    assert_eq!(unbounded.total, Some(3));
+    assert_eq!(unbounded.metrics.grep_scans, 80);
+    query.filter = "x = 2 || x = 50".into();
+    query.backend = JsonQueryBackend::Segments;
+    segments.query_json(&query).unwrap();
+    let result = segments.query_json(&query).unwrap();
+    assert_eq!(result.total, Some(2));
+    assert_eq!(result.metrics.source_reads, 4);
+
+    f.edit("data/books/r050.json", |record| record["x"] = json!(3));
+    memory.refresh("books").unwrap();
+    segments.refresh("books").unwrap();
+    query.filter = "x = 2 || x = 3".into();
+    query.backend = JsonQueryBackend::Auto;
+    let result = memory.query_json(&query).unwrap();
+    assert_eq!(
+        result
+            .records
+            .iter()
+            .map(|record| record.id.as_str())
+            .collect::<Vec<_>>(),
+        ["r002", "r003", "r050"]
+    );
+    assert_eq!(result.metrics.grep_scans, 3);
+    query.backend = JsonQueryBackend::Segments;
+    assert_eq!(ids_for(&mut segments, &query), ["r002", "r003", "r050"]);
+}
+
+#[test]
+fn typed_or_still_checks_scalar_cardinality_in_every_source_file() {
+    let f = fixture(&[("a", r#"{"x":2}"#), ("b", r#"{"x":[1,2]}"#)]);
+    let schema_path = f.root.join(".editor/books/schema.json");
+    let mut schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    schema["properties"]["x"] = json!({"type":"number"});
+    fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
+    for (mode, backend) in [
+        (CacheMode::Memory, JsonQueryBackend::Bigram),
+        (CacheMode::Segments, JsonQueryBackend::Segments),
+    ] {
+        let mut query = request("x = 2 || x = 3");
+        query.backend = backend;
+        let error = f.repo(mode).query_json(&query).unwrap_err();
+        assert!(error.to_string().contains("multiple values"), "{error}");
     }
 }
 
@@ -223,8 +559,22 @@ fn grouping_parameters_punctuation_and_unicode_contains_are_engine_independent()
     let mut q = request("x=$minimum || name=$name");
     q.parameters.insert("minimum".into(), json!(2));
     q.parameters.insert("name".into(), json!("O'Brien"));
-    for mode in [CacheMode::Disabled, CacheMode::Sqlite] {
-        assert_eq!(ids_for(&mut f.repo(mode), &q), ["b", "c"]);
+    for mode in [CacheMode::Disabled, CacheMode::Segments] {
+        let backend = if mode == CacheMode::Segments {
+            JsonQueryBackend::Segments
+        } else {
+            JsonQueryBackend::Direct
+        };
+        assert_eq!(
+            ids_for(
+                &mut f.repo(mode),
+                &JsonQuery {
+                    backend,
+                    ..q.clone()
+                }
+            ),
+            ["b", "c"]
+        );
     }
     let f = JsonFilter::compile(
         "name=$p",
@@ -257,7 +607,7 @@ fn last_duplicate_key_wins_and_malformed_json_never_matches() {
 #[test]
 fn invalid_requests_fail_before_creating_cache_or_enumerating_sources() {
     let f = fixture(&[]);
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     for text in [
         "",
         "x=",
@@ -286,6 +636,7 @@ fn invalid_requests_fail_before_creating_cache_or_enumerating_sources() {
     q.parameters.insert("p".into(), json!([1]));
     assert!(r.query_json(&q).is_err());
     let mut q = request("x=1");
+    q.backend = JsonQueryBackend::Segments;
     q.collections = Some(vec!["unknown".into()]);
     assert!(r.query_json(&q).is_err());
     assert_eq!(r.metrics().enumerations, 0);
@@ -297,8 +648,9 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     let f = fixture(&[("same", r#"{"x":1}"#)]);
     f.write("data/people/same.json", &json!({"x":1}));
     f.write("data/spare/same.json", &json!({"x":1}));
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     let mut q = request("x=1");
+    q.backend = JsonQueryBackend::Segments;
     q.limit = 1;
     q.offset = 1;
     let first = r.query_json(&q).unwrap();
@@ -308,10 +660,10 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     assert_eq!(first.dependencies.collections, ["books", "people", "spare"]);
     assert_eq!(first.dependencies.revisions.len(), 3);
     assert_eq!(first.dependencies.paths.len(), 1);
-    assert_eq!(first.metrics.source_reads, 3);
-    assert_eq!(first.metrics.index_builds, 0);
+    assert_eq!(first.metrics.source_reads, 7);
+    assert!(first.metrics.index_builds > 0);
     let next = r.query_json(&q).unwrap();
-    assert_eq!(next.metrics.source_reads, 0);
+    assert_eq!(next.metrics.source_reads, 4);
     assert_eq!(next.metrics.enumerations, 0);
     assert_eq!(first.filter_hash, next.filter_hash);
     q.offset = 100;
@@ -324,20 +676,15 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
         v["collections"].as_object_mut().unwrap().remove("spare");
     });
     drop(r);
-    let mut r = f.repo(CacheMode::Sqlite);
-    let all = r.query_json(&request("x=1")).unwrap();
+    let mut r = f.repo(CacheMode::Segments);
+    let all = r
+        .query_json(&JsonQuery {
+            backend: JsonQueryBackend::Segments,
+            ..request("x=1")
+        })
+        .unwrap();
     assert_eq!(all.total, Some(2));
     assert!(all.records.iter().all(|r| r.collection != "spare"));
-    let db = rusqlite::Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap();
-    assert_eq!(
-        db.query_row(
-            "SELECT count(*) FROM records WHERE collection='spare'",
-            [],
-            |r| r.get::<_, i64>(0)
-        )
-        .unwrap(),
-        1
-    );
 }
 
 #[test]
@@ -345,9 +692,10 @@ fn explicit_collection_scope_is_lazy_and_source_edits_are_reconciled_on_reopen()
     let f = fixture(&[("a", r#"{"x":1}"#)]);
     f.write("data/people/b.json", &json!({"x":1}));
     let mut q = request("x=1");
+    q.backend = JsonQueryBackend::Segments;
     q.collections = Some(vec!["books".into()]);
-    let mut r = f.repo(CacheMode::Sqlite);
-    assert_eq!(r.query_json(&q).unwrap().metrics.source_reads, 1);
+    let mut r = f.repo(CacheMode::Segments);
+    assert_eq!(r.query_json(&q).unwrap().metrics.source_reads, 3);
     assert_eq!(
         r.cache_status()
             .unwrap()
@@ -360,26 +708,25 @@ fn explicit_collection_scope_is_lazy_and_source_edits_are_reconciled_on_reopen()
     );
     drop(r);
     f.write("data/books/a.json", &json!({"x":"1"}));
-    let mut r = f.repo(CacheMode::Sqlite);
+    let mut r = f.repo(CacheMode::Segments);
     let changed = r.query_json(&q).unwrap();
-    assert_eq!(changed.metrics.source_reads, 1);
+    assert_eq!(changed.metrics.source_reads, 2);
     assert_eq!(changed.total, Some(0));
     q.collections = Some(vec![]);
     assert!(r.query_json(&q).unwrap().records.is_empty());
 }
 
 #[test]
-fn compiled_filter_parameters_and_sql_injection_remain_data() {
+fn compiled_filter_parameters_remain_literal_data() {
     let attack = "' OR 1=1; DROP TABLE records; --";
     let f = fixture(&[("a", r#"{"x":"safe"}"#)]);
     f.write("data/books/b.json", &json!({"x":attack}));
     let mut q = request("x=$value");
+    q.backend = JsonQueryBackend::Segments;
     q.parameters.insert("value".into(), json!(attack));
-    let result = f.repo(CacheMode::Sqlite).query_json(&q).unwrap();
+    let result = f.repo(CacheMode::Segments).query_json(&q).unwrap();
     assert_eq!(result.records.len(), 1);
     assert_eq!(result.records[0].id, "b");
-    assert!(!result.sql.as_ref().unwrap().contains(attack));
-    assert!(result.bindings.iter().any(|s| s == attack));
     let compiled = JsonFilter::compile(&q.filter, &q.parameters).unwrap();
     assert!(compiled.matches(&json!({"x":attack})).unwrap());
     assert!(!compiled.matches(&json!({"x":"safe"})).unwrap());
@@ -391,7 +738,7 @@ fn compiled_filter_parameters_and_sql_injection_remain_data() {
 }
 
 #[test]
-fn generated_json_values_and_comparisons_match_sql_execution() {
+fn generated_json_values_and_comparisons_match_direct_execution() {
     let f = fixture(&[]);
     let mut seed = 73_u64;
     for i in 0..80 {
@@ -410,14 +757,26 @@ fn generated_json_values_and_comparisons_match_sql_execution() {
         );
     }
     let mut direct = f.repo(CacheMode::Disabled);
-    let mut sql = f.repo(CacheMode::Sqlite);
+    let mut cached = f.repo(CacheMode::Segments);
     for op in ["=", "!=", "<", "<=", ">", ">="] {
         for literal in ["null", "true", "false", "0", "1", "1.0", "2.5", "'1'"] {
             for field in ["x", "nested.v ?"] {
                 let q = request(&format!("{field}{op}{literal}"));
                 assert_eq!(
-                    ids_for(&mut direct, &q),
-                    ids_for(&mut sql, &q),
+                    ids_for(
+                        &mut direct,
+                        &JsonQuery {
+                            backend: JsonQueryBackend::Direct,
+                            ..q.clone()
+                        }
+                    ),
+                    ids_for(
+                        &mut cached,
+                        &JsonQuery {
+                            backend: JsonQueryBackend::Segments,
+                            ..q.clone()
+                        }
+                    ),
                     "{}",
                     q.filter
                 );

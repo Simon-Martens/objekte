@@ -1,225 +1,45 @@
 # General JSON filters
 
-Implemented by `objekte-core` for fields declared by each collection's current
-schema. Configured fields have SQLite expression indexes on raw JSON. An unscoped
-query searches collections whose schemas support the filter.
+`Repository::query_json` compiles a filter for fields declared by the collection schema. The CLI exposes it through `objekte REPOSITORY query [COLLECTION] FILTER`. With no collection, it searches registered collections whose schemas support the expression. Results are ordered by collection and byte-sorted filename ID; `--limit`, `--offset`, and `--count` control pagination and a total count. See [Musenalm examples](queries.md).
 
-## Completion status
-
-- [x] Compile typed predicates, parameters, field paths, array operators, and modifiers.
-- [x] Match direct source evaluation against parameterized SQLite execution.
-- [x] Scope queries to one or all registered collections, with deterministic paging and optional counts.
-- [x] Build configured scalar JSON expression indexes lazily and report query dependencies.
-- [ ] Add metadata operands, relation traversal, grouping, and query-result caching.
-
-## Examples
-
-```sh
-# All currently registered collections
-cargo run -p objekte-cli -- examples/musenalm query 'year >= 1800 && year < 1805' --count
-
-# String matching and nested arrays
-cargo run -p objekte-cli -- examples/musenalm query 'preferred_title ~ "liebe"'
-cargo run -p objekte-cli -- examples/musenalm query 'contributors.agents ?= "1500"'
-
-# Search one collection
-cargo run -p objekte-cli -- examples/musenalm query contents 'year >= 1800'
-
-# The --collection form is also supported; parameters below have different types
-cargo run -p objekte-cli -- examples/musenalm query 'year = $year' --param year=1800 --collection contents
-cargo run -p objekte-cli -- examples/musenalm query 'year = $year' --param 'year="1800"'
-```
-
-Use `query COLLECTION FILTER` to search one collection, or `query FILTER` to search
-all registered collections. `query FILTER --collection NAME` is an equivalent
-scoped form; supply the collection once, either positionally or through the flag.
-
-Use `--limit N`, `--offset N`, and optional `--count`. Ordering is deterministic by
-`(collection, filename ID)`; default limit is 50. Results include each complete
-record, its collection, ID, path, content digest and validation status. JSON output
-also includes bindings, SQLite's query plan, filter hash, dependency metadata, and
-millisecond metrics. `--output ndjson` emits one matching record per line.
-`--diagnostics` streams one JSON line per executed SQLite statement to stderr,
-with its SQL text and `duration_ms`, and emits a `type: "diagnostics"` metrics
-line. The library's `JsonQueryResult` still exposes generated SQL for programmatic
-inspection. The flag itself does not change validation behavior; every JSON query
-waits for pending validation in its scope.
-
-## Syntax and semantics
+## Syntax
 
 | Construct | Meaning |
 | --- | --- |
-| `field = value`, `==` | Equality using the actual JSON type; both spellings are accepted |
-| `!=` | Scalar inequality; different scalar types are unequal |
-| `<`, `<=`, `>`, `>=` | Number-to-number or string-to-string ordering only |
-| `~`, `!~` | PocketBase-style LIKE patterns or their negation, on strings only |
-| `?=`, `?!=`, `?<`, `?<=`, `?>`, `?>=`, `?~`, `?!~` | Any reached value satisfies the scalar comparison |
-| `&&`, `||`, `(...)` | AND, OR, grouping; AND binds more tightly than OR |
-| `exists(path)` | At least one value exists at the path, including null/objects/empty arrays |
-| `$name` | Typed scalar parameter provided separately from the expression |
-| `start < end` | Field-to-field comparison with strict JSON types on both sides |
-| `tags:length` | Number of immediate items in an array; other types yield no value |
-| `tags:each` | Require every reached value to match; `?` changes this to any |
-| `title:lower` | ASCII lowercase on string values; other types yield no value |
+| `field = value`, `==`, `!=` | Equality or inequality using actual JSON scalar types |
+| `<`, `<=`, `>`, `>=` | Number-to-number or string-to-string ordering |
+| `~`, `!~` | LIKE-style string matching and its negation |
+| `?=`, `?!=`, `?<`, `?<=`, `?>`, `?>=`, `?~`, `?!~` | Any reached value satisfies the comparison |
+| `&&`, `||`, `(...)` | Boolean combination; AND binds more tightly |
+| `exists(path)` | At least one value exists, including null or an empty array |
+| `$name` | Typed scalar parameter supplied with `--param name=JSON` |
+| `start < end` | Field-to-field comparison |
+| `tags:length` | Immediate array length |
+| `tags:each` | Every reached value must match; requires a nonempty selection |
+| `title:lower` | ASCII lowercase applied to strings |
 
-Strings may use single or double quotes, with backslash escapes. Numbers use JSON
-syntax, including fractions and exponents. Other literals are `true`, `false`, and
-`null`. Both operands can be fields, literals, or parameters. An unquoted name on
-the right is a field reference, not a string literal. Each field operand accepts one
-modifier. Functions other than `exists`, comments, relation traversal, and
-metadata/application identifiers are not supported in this version.
+Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each field operand accepts one modifier. Functions other than `exists`, relation traversal, grouping, and metadata operands are outside this version.
 
-`"1800" = 1800` is false and `"1800" != 1800` is true. Likewise `true` differs from
-`1`. JSON has one number type: `1800`, `1800.0`, and `1.8e3` compare equal. Numeric
-comparison uses exact decimal lexemes, including numbers beyond i64/f64, without
-rounding or allocating exponent-sized zero strings. Booleans and null have equality
-semantics but no ordering. Missing fields match no comparison, including `!=` and
-`!~`; explicit null matches `= null` and differs from other scalar values.
+Paths can be `address.city`, `["a.b"]["quote\"key"]`, `authors[0].name`, or `authors[*].name`. A field step through an array visits its members, so `authors.name` also reaches names in an array of objects. Comparisons flatten reached arrays recursively. A scalar comparison that reaches multiple values is an error, including outside the returned page or in a false Boolean branch; use `?` or `:each` for that case. Empty arrays provide no comparison values. `tags ?!= "poet"` means at least one element differs from `poet`; it does not mean `poet` is absent.
 
-Unquoted key components use letters/underscore followed by letters/digits/underscore.
-Paths can use `address.city`, `["a.b"]["quote\"key"]`, `authors[0].name`, and
-`authors[*].name`. A field step traversing an array visits its members, so
-`authors.name` also reaches names in an array of objects. Comparisons flatten reached
-arrays recursively. Empty arrays yield no comparison values; scalar paths yielding
-more than one value are errors and require `?` or `:each`. A single reached value may use either
-form. Objects themselves are not scalar comparison operands.
+Actual JSON types are distinct: `"1800" = 1800` is false, and `true` differs from `1`. JSON numbers such as `1800`, `1800.0`, and `1.8e3` compare equal by exact decimal value, including values outside i64/f64 range. Equality and ordered string comparisons are case sensitive and bytewise. Missing fields match no comparison; explicit null matches `= null`. Booleans and null have equality semantics but no ordering.
 
-`tags ?!= "poet"` matches `["poet", "editor"]`: some element differs. It does not
-mean that no element equals `"poet"`. Different predicates may match different
-array elements; same-element compound quantifiers are not implemented.
+`~` wraps a pattern without an unescaped `%` for literal substring matching. With `%`, it is a LIKE-style pattern: `%` matches any sequence and `_` one character, with no implicit surrounding wildcards. Backslash escapes pattern characters. Matching folds ASCII case only; non-ASCII case is unchanged. A pattern from another field is surrounded by `%`.
 
-`:each` requires a nonempty selection and every comparison to succeed. When both
-operands yield multiple values, this checks every pair; the `?` form checks whether
-any pair succeeds. Unmodified scalar operands still reject multiple values, even
-inside an otherwise false branch. An array's `:length` is computed before flattening;
-`[]:length` is zero (express it through a field, since array literals are unsupported).
+## Execution
 
-`~`/`!~` follow PocketBase's parameter-wrapping behavior and SQLite LIKE's ASCII case
-handling. For a literal or parameter containing an unescaped `%`, `%` matches any
-sequence, `_` matches one character, and backslash escapes a pattern character. No
-implicit surrounding wildcards are added: `"Liebe%"` is a prefix pattern. Without
-an unescaped `%`, the pattern becomes a literal substring search, including a literal
-underscore; `"a_b"` searches for that exact substring. Escaped `%`, `_`, and backslash
-remain literal. Filter string escapes are decoded first, so write `"100\\%"` to
-search for a literal percent. A pattern taken from another field is always surrounded
-by `%`, matching PocketBase's field-to-field behavior.
+`--backend auto` (the default) uses the in-memory bigram and typed indexes. `--backend direct` evaluates original JSON files without an index. `--backend segments` requires the persistent segment cache; `--backend grep` searches original JSON files with ripgrep's parallel searcher. Every path uses the same compiled evaluator for final matching.
 
-Pattern matching and `:lower` fold ASCII letters only: `ALPHA` matches `alpha`, but
-`Ä` differs from `ä`, and `Straße` differs from `STRASSE`. Equality and ordered string
-comparisons remain case-sensitive UTF-8 binary comparisons. These rules are identical
-in the direct evaluator and SQL, and LIKE behavior is checked against SQLite itself.
+The in-memory backend builds consecutive and skip-one bigram postings over decoded scalar values and ordered postings for declared number, boolean, and enum fields on first use. It intersects safe text and typed candidates, and unions typed candidates across `OR` branches when every branch can be narrowed safely. It then opens source JSON and verifies the complete filter with Sonic. Changed files enter a conservative overlay until the index is rebuilt. It does not persist query data.
 
-Parseable records remain queryable even if they fail their schema, provided the
-requested field is declared. Actual values still receive type-safe comparisons.
-Malformed JSON is retained in the cache with its existing
-diagnostics but does not match a JSON predicate. No metadata filter is added here.
+The segment backend first checks persistent ordered lists for simple top-level scalar comparisons, including safe `OR` unions, and can extract a necessary text literal from `=` or `~`. It scans values-only shards with ripgrep, maps matched current lines to IDs, then opens candidate source files and uses Sonic to verify the full expression. Stale text lines have no current ID. Numeric ranges are conservatively widened before exact verification to prevent floating-point index keys from dropping a valid decimal. Nested paths, arrays, modifiers, Boolean expressions, and field-to-field comparisons still work; a query with no safe prefilter scans current IDs. Global scalar-cardinality checks are performed before pagination.
 
-## Library and execution
+The raw-file grep backend reuses checked source inventory and descriptors. It opens files in parallel, searches a necessary literal if one exists, parses candidates with Sonic, and verifies the complete filter. When no safe literal exists it parses every file. Scalar-cardinality errors in files excluded by the raw-byte prefilter may not be observed by this optional backend; the default bigram backend preserves global checking.
 
-`JsonFilter::compile(text, &parameters)` builds a reusable, bound expression tree.
-`filter.matches(&serde_json::Value)` checks a standalone parsed value.
-`Repository::query_json(&JsonQuery)` reconciles the requested scope and executes the
-filter. `JsonQuery.collections = None` means all registered collections; `Some([])`
-means none. `load_repository` remains lazy. An initial global query necessarily
-opens every registered collection; an explicit scope only opens those collections.
-Retained cache rows from removed registrations are excluded.
+Parseable records remain searchable even when they fail their schema, provided the requested path is declared. Malformed JSON never matches. Returned records are validated on demand. The cache stores neither validation status nor full JSON payloads. Each result includes dependency collection names, referenced paths, searchable collection revisions when cached, a filter hash, a query plan, and metrics. Direct execution has no persistent revision dependencies.
 
-The existing freshness policy applies. First use checks source manifests; explicit
-refresh or on-request policies observe subsequent edits. Query results are not cached.
-Each result records all scoped collection names, revisions for searchable collections,
-and the referenced JSON paths. Membership depends on nonmatching records and future
-additions too. Direct execution reports names/paths without persisted revisions.
-The filter hash includes the bound expression and comparison semantics, independently
-of pagination or collection scope; it is not a complete result-cache key.
-
-The compiler uses the separation seen in PocketBase's
-[filter compiler](https://github.com/pocketbase/pocketbase/blob/master/tools/search/filter.go)
-and [dbx expressions](https://github.com/pocketbase/dbx/blob/master/expression.go):
-expression tree first, then SQL fragments and separate bound parameters. There is
-no Go dependency or embedded user SQL. Comparison values are bound. For expression-index
-matching, configured paths are
-serialized and safely escaped as SQL literals; other paths remain bindings. Only
-known operators and compiler-generated SQL are emitted. Repeated path and value
-bindings reuse the same placeholder across collection branches.
-
-SQLite executes grouped predicates, field-to-field comparisons, correlated `EXISTS`
-subqueries, optional count, and pagination over the shared `records` table.
-Deterministic Rust SQL functions extract JSON values with Sonic, retaining duplicate
-last-member-wins semantics and exact numeric lexemes. There are no persisted field
-columns or per-collection value tables. SQLite expression indexes operate directly
-on the `records.json` column, and SQLite maintains them transactionally when records change.
-
-Index fields still come only from the UI/schema configuration. Physical indexes
-are created only when a requested view or query needs them: this is deterministic
-lazy construction, with no frequency heuristic. An exact unfiltered order needs its
-ascending or descending field index. Compound views and filters use a covering index
-containing ID and all configured view keys. Counts use a matching field index, the
-covering index for multiple fields, or the existing primary key when unfiltered.
-All permitted sorts remain supported. Indexes survive restart and SQLite maintains
-them on edits. Requesting an unused sort/filter can include a one-time construction
-cost; diagnostics report that cost, separately from warm query execution.
-
-View indexes encode schema-aware values and null/missing/invalid states. A general
-query separately creates the actual-JSON scalar key index when needed for a comparison
-or scalar-cardinality check. It distinguishes strings, booleans and exact decimal
-numbers even when the value violates its schema. Its deterministic collation compares
-numeric lexemes without float conversion. Derived keys exist only in SQLite indexes.
-
-Each collection's raw JSON and status are stored once in `records`, keyed by
-`(collection,id)`. Collection-specific partial indexes are created on demand.
-General queries union schema-compatible identity selections, paginate those identities,
-then fetch selected payloads from the shared table.
-The query fixes the page/record lookup order, and index/primary-key statistics
-are collected together so underestimated primary-key cardinality cannot mask a
-selective JSON index.
-
-Fresh ingestion creates only the required empty indexes and shares one parsed
-record's keys across writes. Later builds extract only their required fields while
-validating the entire JSON document. A transient key cache has a 128 MiB budget,
-separate from SQLite's page cache; exhaustion falls back to extraction. Within the
-writer transaction's immutable build phase, repeated passes can reuse verified keys
-by record ID. Writes invalidate this memoization; success/failure releases the guard.
-This is neither a persistent projection nor a query-result cache.
-
-Plain indexed field versus scalar literal/parameter comparisons (`=`, `!=`, ordered
-comparisons, and reversed operands) compile to matching index expressions. Boolean
-combinations can mix indexed predicates with general JSON checks. Field-to-field
-comparisons, modifiers, wildcard searches, and multi-value `?` comparisons currently
-use the general evaluator; SQLite's planner decides how to combine access paths.
-No additional index or result cache is created from query history.
-
-Scalar cardinality is checked before pagination: indexed fields seek a multi-value
-marker, while unindexed concrete-schema paths scan only schema-invalid records.
-Dynamic `any` paths still require a parsed-record scan. This preserves errors outside
-the returned page and across boolean branches. JSON
-query results are assembled from matching IDs before payloads are fetched. A small
-page can therefore still require scanning unindexed paths or collecting all matches.
-Metadata fields, relation traversal, grouping, and query-result caching remain later
-work. Cache format 7 rebuilds format 6 caches from source files. External SQLite
-connections that run integrity checks or modify the cache
-must first call `register_cache_sqlite_functions`; library connections do this
-already. Source files remain authoritative.
-
-Filters are limited to 16 KiB, 256 atoms/groups, 32 nested groups, and 32 path steps.
-Syntax, unbound parameters, nonscalar literal operands, and unknown collection names fail
-before source enumeration or cache creation. Runtime cardinality errors fail the
-query instead of silently returning a partial page.
+Filters are limited to 16 KiB, 256 atoms/groups, 32 nested groups, and 32 path steps. Syntax, unbound parameters, nonscalar literal operands, unknown collections, and incompatible explicitly scoped filters fail before source enumeration. Runtime cardinality errors fail the query instead of returning a partial page.
 
 ## Verification
 
-`crates/core/tests/json_filter.rs` checks direct/SQL equivalence, independent expected
-results, generated mixed-type comparisons, exact decimals, modifiers, array semantics, missing/
-null, Unicode/ASCII boundaries, quoted keys, duplicate keys, SQL injection-shaped values, scope,
-restart updates, dependencies, and pagination. CLI tests exercise typed parameters,
-all-collection/scoped queries, JSON/NDJSON, and millisecond output.
-
-```sh
-cargo test -p objekte-core -p objekte-cli
-cargo test --release -p objekte-core --test musenalm_json_filter -- --ignored --nocapture
-```
-
-`expression_indexes.rs` verifies actual index seeks, absence of materialized field
-columns/tables, type and precision parity, updates/deletions, reconfiguration, and
-restarts. [The initial scan measurements](crates/bench/JSON-FILTERS-2026-10-28.md)
-precede expression-index support; see [the repeated regression audit](crates/bench/INDEX-REGRESSION-AUDIT-2026-10-29.md)
-for the current implementation, including cold-build costs.
+`crates/core/tests/json_filter.rs` checks expected outputs and parity across bigram, segment, direct, and raw-file grep backends, including mixed types, exact decimals, nested arrays, Unicode, escaped keys, duplicate keys, parameters, scope, edits, and pagination. CLI tests exercise JSON and NDJSON output and diagnostics. The opt-in Musenalm test compares complete results over the example repository.

@@ -1,3 +1,4 @@
+//! Declared collection relationships and cycle discovery.
 use crate::{Collection, Field, PathStep, Result, error::config, schema::escape};
 use serde::Serialize;
 use std::collections::{BTreeMap, HashMap};

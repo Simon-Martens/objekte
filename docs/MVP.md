@@ -1,3 +1,5 @@
+> Historical planning and benchmark document. Its SQLite cache recommendations describe an earlier implementation. The current segment cache is documented in [implementation.md](implementation.md).
+
 # Objekte MVP: local repository library and CLI
 
 Objekte is a schema-driven editor for structured, file-based repositories. This rebuild uses a Rust library and a command line interface first. A native Rust desktop UI calls the same library after the repository, query, and search behavior is correct and measured.

@@ -1,3 +1,4 @@
+//! Scalar view requests, filtering, sorting, and projection.
 use crate::{
     Collection, Direction, Error, Metrics, Result, Sort, ValueType, ViewHashes,
     config::complete_order, schema::check_number,
@@ -74,7 +75,7 @@ pub struct ViewResult {
 }
 
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub(crate) enum Scalar {
     Invalid,
     Missing,
@@ -93,17 +94,6 @@ impl Scalar {
             Self::Invalid => 3,
             Self::Null => 1,
             _ => 0,
-        }
-    }
-
-    pub fn sql(&self) -> rusqlite::types::Value {
-        use rusqlite::types::Value as S;
-        match self {
-            Self::Invalid | Self::Missing | Self::Null => S::Null,
-            Self::Bool(v) => S::Integer(i64::from(*v)),
-            Self::Int(v) => S::Integer(*v),
-            Self::Real(v) => S::Real(*v),
-            Self::String(v) => S::Text(v.clone()),
         }
     }
 
@@ -141,7 +131,7 @@ pub(crate) fn scalar(
     scalar_value(data.get(field))
 }
 
-fn scalar_value(value: Option<&Value>) -> Scalar {
+pub(crate) fn scalar_value(value: Option<&Value>) -> Scalar {
     match value {
         None => Scalar::Missing,
         Some(Value::Null) => Scalar::Null,
@@ -280,7 +270,11 @@ impl Plan {
     }
 
     pub fn compare(&self, a: &(Vec<Scalar>, ViewRow), b: &(Vec<Scalar>, ViewRow)) -> Ordering {
-        for ((left, right), sort) in a.0.iter().zip(&b.0).zip(&self.sorts) {
+        self.compare_keys(&a.0, &b.0)
+    }
+
+    pub fn compare_keys(&self, a: &[Scalar], b: &[Scalar]) -> Ordering {
+        for ((left, right), sort) in a.iter().zip(b).zip(&self.sorts) {
             let cmp = left.state().cmp(&right.state()).then_with(|| {
                 let cmp = left.cmp(right);
                 if sort.direction == Direction::Desc {
@@ -321,84 +315,6 @@ impl Plan {
             label,
             values,
         }
-    }
-
-    pub fn sql_where(&self, c: &Collection) -> (String, Vec<rusqlite::types::Value>) {
-        use crate::json_filter::indexes::{quote, view_expr};
-        let mut conditions = vec![format!("v.collection={}", quote(&c.name))];
-        let mut params = Vec::new();
-        for f in &self.filters {
-            let op = match f.operator {
-                Operator::Eq => "=",
-                Operator::Lt => "<",
-                Operator::Le => "<=",
-                Operator::Gt => ">",
-                Operator::Ge => ">=",
-            };
-            if f.field == "@id" {
-                conditions.push(format!("v.id {op} ?"));
-                params.push(scalar_value(Some(&f.value)).sql());
-                continue;
-            }
-            let state = view_expr(c, &f.field, "v", true);
-            let value = view_expr(c, &f.field, "v", false);
-            if f.value.is_null() {
-                conditions.push(format!("{state} = 1"));
-            } else {
-                conditions.push(format!("{state} = 0 AND {value} {op} ?"));
-                params.push(scalar_value(Some(&f.value)).sql());
-            }
-        }
-        (
-            if conditions.is_empty() {
-                String::new()
-            } else {
-                format!(" WHERE {}", conditions.join(" AND "))
-            },
-            params,
-        )
-    }
-
-    pub fn sql_order(&self, c: &Collection) -> String {
-        self.sorts
-            .iter()
-            .map(|sort| {
-                let direction = if sort.direction == Direction::Asc {
-                    "ASC"
-                } else {
-                    "DESC"
-                };
-                if sort.field == "@id" {
-                    format!("v.id {direction}")
-                } else {
-                    let state = crate::json_filter::indexes::view_expr(c, &sort.field, "v", true);
-                    let value = crate::json_filter::indexes::view_expr(c, &sort.field, "v", false);
-                    format!("{state} ASC, {value} {direction}")
-                }
-            })
-            .collect::<Vec<_>>()
-            .join(", ")
-    }
-
-    pub fn sql_page_keys(&self, c: &Collection) -> (String, String) {
-        let mut columns = String::new();
-        let mut order = Vec::new();
-        for (i, sort) in self.sorts.iter().enumerate() {
-            let direction = if sort.direction == Direction::Asc {
-                "ASC"
-            } else {
-                "DESC"
-            };
-            if sort.field == "@id" {
-                order.push(format!("p.id {direction}"));
-            } else {
-                let state = crate::json_filter::indexes::view_expr(c, &sort.field, "v", true);
-                let value = crate::json_filter::indexes::view_expr(c, &sort.field, "v", false);
-                columns.push_str(&format!(",{state} AS s{i},{value} AS k{i}"));
-                order.push(format!("p.s{i} ASC,p.k{i} {direction}"));
-            }
-        }
-        (columns, order.join(","))
     }
 }
 

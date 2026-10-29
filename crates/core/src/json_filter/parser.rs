@@ -1,3 +1,4 @@
+//! Parser for the bounded JSON filter expression language.
 use super::*;
 
 const MAX_LENGTH: usize = 16 * 1024;

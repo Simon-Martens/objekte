@@ -8,11 +8,6 @@ impl JsonFilter {
     pub(crate) fn follows_schema(&self, c: &crate::Collection) -> bool {
         follows(&self.expr, &c.schema.field)
     }
-
-    pub(crate) fn scalar_path_is_dynamic(&self, c: &crate::Collection, path: &FieldOperand) -> bool {
-        resolve(&c.schema.field, &path.path)
-            .is_some_and(|(field, _)| field.kind == ValueType::Any)
-    }
 }
 
 
@@ -20,18 +15,25 @@ fn follows(expr: &Expr, root: &Field) -> bool {
     match expr {
         Expr::And(parts) | Expr::Or(parts) => parts.iter().all(|part| follows(part, root)),
         Expr::Exists(path) => resolve(root, path).is_some(),
-        Expr::Compare { left, op, any, right } => {
+        Expr::Compare {
+            left,
+            op,
+            any,
+            right,
+        } => {
             if matches!((left, right), (Operand::Literal(_), Operand::Literal(_))) {
                 return true;
             }
-            let (Some(a), Some(b)) = (operand_type(root, left, *any), operand_type(root, right, *any)) else {
+            let (Some(a), Some(b)) = (
+                operand_type(root, left, *any),
+                operand_type(root, right, *any),
+            ) else {
                 return false;
             };
             compatible(a, b, *op)
         }
     }
 }
-
 
 fn resolve<'a>(root: &'a Field, path: &[JsonPathStep]) -> Option<(&'a Field, bool)> {
     let mut field = root;
@@ -59,7 +61,6 @@ fn resolve<'a>(root: &'a Field, path: &[JsonPathStep]) -> Option<(&'a Field, boo
     }
     Some((field, multiple))
 }
-
 
 fn operand_type(root: &Field, operand: &Operand, any: bool) -> Option<ValueType> {
     match operand {
@@ -94,7 +95,6 @@ fn operand_type(root: &Field, operand: &Operand, any: bool) -> Option<ValueType>
         }
     }
 }
-
 
 fn compatible(a: ValueType, b: ValueType, op: Op) -> bool {
     if a == ValueType::Any || b == ValueType::Any {

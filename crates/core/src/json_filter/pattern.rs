@@ -1,4 +1,5 @@
-// PocketBase parameter wrapping and SQLite LIKE matching (ASCII case folding).
+//! LIKE-style string patterns with ASCII case folding.
+// PocketBase parameter wrapping and LIKE-style matching (ASCII case folding).
 
 
 #[derive(Clone, Debug)]
@@ -98,9 +99,30 @@ impl Like {
         }
         p == self.tokens.len()
     }
+
+    // A run of literal ASCII letters/digits is present in every matching string.
+    // Wildcards and punctuation break runs; the source scanner handles JSON escapes.
+    pub(super) fn required_ascii_runs(&self) -> Vec<String> {
+        let (mut runs, mut current) = (Vec::new(), String::new());
+        for token in &self.tokens {
+            if let Token::Char(c) = token
+                && c.is_ascii_alphanumeric()
+            {
+                current.push(*c);
+            } else {
+                if !current.is_empty() {
+                    runs.push(std::mem::take(&mut current));
+                }
+            }
+        }
+        if !current.is_empty() {
+            runs.push(current);
+        }
+        runs
+    }
 }
 
 
 #[cfg(test)]
-#[path = "pattern.tests.rs"]
+#[path = "pattern.test.rs"]
 mod tests;

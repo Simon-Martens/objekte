@@ -1,7 +1,6 @@
 //! Observed configuration is independent of the versions applied to cached records.
-use crate::{Error, RepositoryModel, Result, store::Store};
-use rusqlite::params;
-use serde::Serialize;
+use crate::RepositoryModel;
+use serde::{Deserialize, Serialize};
 use std::{
     collections::{BTreeMap, BTreeSet},
     path::PathBuf,
@@ -41,8 +40,8 @@ pub struct ConfigurationChanges {
 }
 
 
-// INFO: Configuration file digests and their direct collection owners. Saved in Cache DB.
-#[derive(Default, Clone)]
+// INFO: Configuration file digests and their direct collection owners. Saved in the segment configuration snapshot.
+#[derive(Default, Clone, Serialize, Deserialize)]
 pub(crate) struct ConfigurationSnapshot {
     files: BTreeMap<PathBuf, String>,
     owners: BTreeMap<PathBuf, BTreeSet<String>>,
@@ -96,73 +95,3 @@ impl ConfigurationSnapshot {
         report
     }
 }
-
-
-impl Store {
-    /// Called under the shared writer lock. Digest and ownership changes commit together;
-    /// collection/record validation versions advance only in their own reconciliation.
-    pub fn reconcile_configuration(&self, model: &RepositoryModel) -> Result<ConfigurationChanges> {
-        let tx = self.db.unchecked_transaction()?;
-        let files = tx
-            .prepare("SELECT path,digest FROM inputs")?
-            .query_map([], |r| {
-                Ok((PathBuf::from(r.get::<_, String>(0)?), r.get(1)?))
-            })?
-            .collect::<std::result::Result<BTreeMap<_, _>, _>>()?;
-        let pairs = tx
-            .prepare("SELECT path,collection FROM input_collections")?
-            .query_map([], |r| {
-                Ok((
-                    PathBuf::from(r.get::<_, String>(0)?),
-                    r.get::<_, String>(1)?,
-                ))
-            })?
-            .collect::<std::result::Result<BTreeSet<_>, _>>()?;
-        let mut owners = BTreeMap::<_, BTreeSet<_>>::new();
-        for (path, name) in &pairs {
-            owners.entry(path.clone()).or_default().insert(name.clone());
-        }
-        let previous = ConfigurationSnapshot { files, owners };
-        let mut report = previous.compare(model);
-        report.persistent = true;
-        for change in &report.inputs {
-            let path = model.root.join(&change.path);
-            match &change.digest {
-                Some(hash) => {
-                    tx.execute("INSERT INTO inputs(path,digest) VALUES(?1,?2) ON CONFLICT(path) DO UPDATE SET digest=excluded.digest", params![path.to_str().unwrap(), hash])?;
-                }
-                None => {
-                    tx.execute("DELETE FROM inputs WHERE path=?1", [path.to_str().unwrap()])?;
-                }
-            }
-        }
-        let current_pairs = model
-            .input_collections
-            .iter()
-            .flat_map(|(p, names)| names.iter().map(|n| (p.clone(), n.clone())))
-            .collect::<BTreeSet<_>>();
-        for (p, n) in pairs.difference(&current_pairs) {
-            tx.execute(
-                "DELETE FROM input_collections WHERE path=?1 AND collection=?2",
-                params![p.to_str().unwrap(), n],
-            )?;
-        }
-        for (p, n) in current_pairs.difference(&pairs) {
-            tx.execute(
-                "INSERT INTO input_collections(path,collection) VALUES(?1,?2)",
-                params![p.to_str().unwrap(), n],
-            )?;
-        }
-        // A handle loaded before another writer must not publish its obsolete snapshot.
-        if model.changed()? {
-            return Err(Error::Unstable(model.root.clone()));
-        }
-        tx.commit()?;
-        Ok(report)
-    }
-}
-
-
-#[cfg(test)]
-#[path = "config_manifest.tests.rs"]
-mod tests;

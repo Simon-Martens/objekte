@@ -15,7 +15,7 @@ Usage:
   objekte REPOSITORY get COLLECTION ID
   objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
-      [--limit N] [--offset N] [--count]
+      [--limit N] [--offset N] [--count] [--backend auto|direct|segments|grep|bigram]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -27,18 +27,18 @@ Usage:
 
 Options:
   --data-dir PATH                 Application state directory
-  --cache sqlite|disabled         Default: sqlite
-  --sqlite-cache-mib N|default     SQLite page-cache budget per connection (default: 64 MiB)
-  --ingest-workers N              Fresh-cache workers (default: CPU threads / 2, minimum 1)
+  --cache memory|segments|disabled Default: memory
+  --ingest-workers N              Compatibility option; segment builds use Rayon threads
   --reconcile metadata-on-open|metadata-on-request|hash-on-open|hash-on-request
                                  Default: metadata-on-open
   --namespace NAME                Reuse a named cache (default: default)
   --fresh-cache                   Use a new namespace
   --output table|json|ndjson       Views default to table, other commands to json; timings in ms
-  --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
-  --diagnostics                   Emit timed SQL and counters to stderr
+  --background-workers N          Compatibility option; validation runs on demand
+  --diagnostics                   Emit counters to stderr
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
+  --backend auto|direct|segments|grep|bigram Query engine; auto uses the in-memory bigram index
   --help, --version
 
 Examples:
@@ -88,9 +88,9 @@ pub(super) fn args() -> Result<Args, String> {
             | "--filter"
             | "--param"
             | "--then-sort"
-            | "--sqlite-cache-mib"
             | "--ingest-workers"
-            | "--background-workers" => {
+            | "--background-workers"
+            | "--backend" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))
