@@ -71,8 +71,8 @@ pub(crate) struct Cached {
 }
 
 
-pub(crate) fn record_table(collection: &str) -> String {
-    format!("records_{}", digest(collection.as_bytes()))
+pub(crate) fn record_table() -> &'static str {
+    "records"
 }
 
 
@@ -152,7 +152,7 @@ impl Store {
     pub fn manifest(&self, name: &str) -> Result<BTreeMap<String, Cached>> {
         let mut stmt = self.db.prepare(&format!(
             "SELECT id,digest,size,modified,identity FROM {} WHERE collection=?1",
-            record_table(name)
+            record_table()
         ))?;
         Ok(stmt
             .query_map([name], |r| {
@@ -172,23 +172,6 @@ impl Store {
     }
 
     pub fn dirty(&self, name: &str) -> Result<()> {
-        // INFO: Migrations create shared tables. Each collection's payload table
-        // is created on first use so untouched collections cost no cache space.
-        self.db.execute_batch(&format!(
-            "CREATE TABLE IF NOT EXISTS {} (
-                collection TEXT NOT NULL,
-                id TEXT NOT NULL,
-                path TEXT NOT NULL,
-                size INTEGER NOT NULL,
-                modified TEXT NOT NULL,
-                identity TEXT NOT NULL,
-                digest TEXT NOT NULL,
-                json BLOB NOT NULL,
-                revision INTEGER NOT NULL,
-                PRIMARY KEY (collection, id)
-            )",
-            record_table(name)
-        ))?;
         self.db.execute(
             "INSERT INTO collections(name,state) VALUES(?1,'dirty')
              ON CONFLICT(name) DO UPDATE SET state='dirty'",

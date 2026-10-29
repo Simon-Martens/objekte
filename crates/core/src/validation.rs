@@ -14,14 +14,6 @@ use std::{
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-pub enum ValidationMode {
-    Background,
-    Manual,
-}
-
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
-#[serde(rename_all = "snake_case")]
 pub enum RecordStatus {
     Pending,
     Valid,
@@ -301,7 +293,7 @@ impl Drop for Validator {
         q.stop = true;
         self.shared.changed.notify_all();
         // Do not block shutdown on a collection. An active bounded batch can finish;
-        // every remaining pending row is durable and picked up on the next use.
+        // every remaining pending row is durable for the next explicit run.
     }
 }
 
@@ -325,8 +317,8 @@ fn batch(
     let t = Instant::now();
     let jobs = {
         let s = writer.enter_existing(budget, sql_diagnostics)?;
-        let table = crate::store::record_table(&c.name);
-        let mut stmt = s.db.prepare(&format!("WITH pending AS MATERIALIZED (SELECT collection,id FROM record_validation WHERE collection=?1 AND validation_state='pending' AND validation_schema_hash=?2 ORDER BY id LIMIT 1024) SELECT r.id,r.revision,r.digest,r.json FROM pending v CROSS JOIN {table} r ON r.collection=v.collection AND r.id=v.id ORDER BY v.id"))?;
+        let table = crate::store::record_table();
+        let mut stmt = s.db.prepare(&format!("SELECT id,revision,digest,json FROM {table} WHERE collection=?1 AND validation_state='pending' AND validation_schema_hash=?2 ORDER BY id LIMIT 1024"))?;
         let mut rows = stmt.query(params![c.name, c.schema_hash])?;
         let mut jobs = Vec::new();
         let mut size = 0;
@@ -402,8 +394,8 @@ fn apply(
     schema: &str,
     state: &RecordState,
 ) -> Result<usize> {
-    let table = crate::store::record_table(collection);
-    Ok(db.prepare_cached(&format!("UPDATE record_validation SET validation_state=?6,issues=?7 WHERE collection=?1 AND id=?2 AND validation_schema_hash=?5 AND validation_state='pending' AND EXISTS(SELECT 1 FROM {table} r WHERE r.collection=?1 AND r.id=?2 AND r.revision=?3 AND r.digest=?4)"))?.execute(params![collection, job.id, job.revision, job.digest, schema, state.status.text(), serde_json::to_string(&state.issues).unwrap()])?)
+    let table = crate::store::record_table();
+    Ok(db.prepare_cached(&format!("UPDATE {table} SET validation_state=?6,issues=?7 WHERE collection=?1 AND id=?2 AND revision=?3 AND digest=?4 AND validation_schema_hash=?5 AND validation_state='pending'"))?.execute(params![collection, job.id, job.revision, job.digest, schema, state.status.text(), serde_json::to_string(&state.issues).unwrap()])?)
 }
 
 #[cfg(test)]

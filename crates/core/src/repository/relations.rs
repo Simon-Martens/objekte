@@ -119,7 +119,7 @@ impl Repository {
                 return Err(e);
             }
         };
-        let mut value = self.parse(&c, id, &raw.json, self.options.cache == CacheMode::Disabled);
+        let mut value = self.parse(&c, id, &raw.json, false);
         let edges = self.extract(&c, id, &value)?;
         if self.options.cache == CacheMode::Sqlite {
             let writer = self.store()?;
@@ -148,7 +148,6 @@ impl Repository {
             tx.commit()?;
             value.state = cached_state(&s.db, collection, id)?;
         }
-        self.schedule_validation(&c)?;
         self.memory_edges
             .insert((collection.into(), id.into()), edges);
         Ok(Some(Record {
@@ -236,7 +235,7 @@ impl Repository {
             if complete {
                 for source in &sources {
                     let c = self.collection(source)?;
-                    self.direct(&c, None)?;
+                    self.direct(&c, None, false)?;
                 }
             }
             for source in &sources {
@@ -249,12 +248,6 @@ impl Repository {
                     .filter(|e| e.target_collection == collection && e.target_id == id)
                     .cloned(),
             );
-        }
-        if complete {
-            for source in &sources {
-                let c = self.collection(source)?;
-                self.schedule_validation(&c)?;
-            }
         }
         if check_targets {
             self.resolve_targets(&mut edges)?;

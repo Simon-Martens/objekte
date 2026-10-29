@@ -24,7 +24,7 @@ mod source;
 mod store;
 mod validation;
 pub use validation::{
-    RecordState, RecordStatus, ValidationIssue, ValidationMetrics, ValidationMode,
+    RecordState, RecordStatus, ValidationIssue, ValidationMetrics,
 };
 
 pub use config::{

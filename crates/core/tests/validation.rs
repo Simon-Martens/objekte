@@ -1,5 +1,5 @@
 mod support;
-use objekte_core::{CacheMode, Direction, Options, RecordStatus, Repository, Sort, ValidationMode};
+use objekte_core::{CacheMode, Direction, Options, RecordStatus, Repository, Sort};
 use rusqlite::Connection;
 use serde_json::{Value, json};
 use std::fs;
@@ -10,7 +10,6 @@ fn db(r: &Repository) -> Connection {
 
 fn background(f: &Fixture) -> Repository {
     let mut o = f.options(CacheMode::Sqlite);
-    o.validation = ValidationMode::Background;
     o.background_workers = 2;
     Repository::load_repository(&f.root, o).unwrap()
 }
@@ -22,11 +21,10 @@ fn defaults_follow_cpu_divisors_and_keep_64_mib() {
     assert_eq!(o.ingest_workers, (cpus / 2).max(1));
     assert_eq!(o.background_workers, (cpus / 4).max(1));
     assert_eq!(o.sqlite_cache_mib, Some(64));
-    assert_eq!(o.validation, ValidationMode::Background);
 }
 
 #[test]
-fn background_is_lazy_publishes_after_commit_and_does_not_repeat_work() {
+fn validation_is_explicit_publishes_after_commit_and_does_not_repeat_work() {
     let f = Fixture::new();
     let mut r = background(&f);
     assert!(!f.data.exists());
@@ -39,7 +37,8 @@ fn background_is_lazy_publishes_after_commit_and_does_not_repeat_work() {
             .all(|s| s.status == RecordStatus::Pending)
     );
     assert_eq!(initial.metrics.validations, 0);
-    assert_eq!(r.wait_for_validation().unwrap().applied, 7);
+    assert_eq!(r.wait_for_validation().unwrap().applied, 0);
+    assert_eq!(r.validate_collection("books").unwrap().applied, 7);
     assert_eq!(r.poll_validation_updates().unwrap(), vec!["books"]);
     assert!(r.poll_validation_updates().unwrap().is_empty());
     let ready = r.open_view("books", &all()).unwrap();
@@ -65,7 +64,8 @@ fn pending_work_resumes_from_cache_without_source_reads() {
         r.open_view("books", &all()).unwrap().metrics.source_reads,
         0
     );
-    assert_eq!(r.wait_for_validation().unwrap().validated, 7);
+    assert_eq!(r.wait_for_validation().unwrap().validated, 0);
+    assert_eq!(r.validate_collection("books").unwrap().validated, 7);
     assert!(
         r.open_view("books", &all())
             .unwrap()
@@ -99,10 +99,7 @@ fn malformed_utf8_and_nonobject_json_remain_visible_and_exact() {
     );
     let exact: Vec<u8> = db(&r)
         .query_row(
-            &record_sql(
-                "books",
-                "SELECT json FROM records WHERE collection='books' AND id='a'",
-            ),
+            "SELECT json FROM records WHERE collection='books' AND id='a'",
             [],
             |r| r.get(0),
         )
@@ -256,7 +253,7 @@ fn validation_write_failure_is_reported_and_pending_work_survives() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Sqlite);
     r.open_view("books", &all()).unwrap();
-    db(&r).execute_batch("CREATE TRIGGER validation_failure BEFORE UPDATE OF validation_state ON record_validation WHEN NEW.id='b' BEGIN SELECT RAISE(ABORT,'validation test'); END").unwrap();
+    db(&r).execute_batch("CREATE TRIGGER validation_failure BEFORE UPDATE OF validation_state ON records WHEN NEW.id='b' BEGIN SELECT RAISE(ABORT,'validation test'); END").unwrap();
     assert!(
         r.validate_collection("books")
             .unwrap_err()
@@ -267,7 +264,7 @@ fn validation_write_failure_is_reported_and_pending_work_survives() {
     assert_eq!(
         db(&r)
             .query_row(
-                "SELECT count(*) FROM record_validation WHERE validation_state='pending'",
+                "SELECT count(*) FROM records WHERE validation_state='pending'",
                 [],
                 |r| r.get::<_, i64>(0)
             )
@@ -280,7 +277,7 @@ fn validation_write_failure_is_reported_and_pending_work_survives() {
     drop(r);
     let mut r = background(&f);
     r.open_view("books", &all()).unwrap();
-    assert_eq!(r.wait_for_validation().unwrap().applied, 7);
+    assert_eq!(r.validate_collection("books").unwrap().applied, 7);
 }
 
 #[test]
@@ -296,7 +293,7 @@ fn shared_writer_supports_concurrent_repository_handles() {
                         let collection = if i % 2 == 0 { "books" } else { "people" };
                         for _ in 0..3 {
                             r.open_view(collection, &all()).unwrap();
-                            r.wait_for_validation().unwrap();
+                            r.validate_collection(collection).unwrap();
                         }
                         assert!(
                             r.open_view(collection, &all())
@@ -328,7 +325,7 @@ fn parallel_parsing_and_validation_handle_the_supported_nesting_limit() {
             fs::write(f.root.join("data/books/a.json"), text).unwrap();
             let mut r = background(&f);
             r.open_view("books", &all()).unwrap();
-            assert_eq!(r.wait_for_validation().unwrap().applied, 7);
+            assert_eq!(r.validate_collection("books").unwrap().applied, 7);
             assert_eq!(
                 r.open_view("books", &all()).unwrap().states["a"].status,
                 RecordStatus::Valid
@@ -350,7 +347,7 @@ fn deletion_and_recreation_replace_both_payload_and_validation_identity() {
     assert_eq!(
         db(&r)
             .query_row(
-                "SELECT count(*) FROM record_validation WHERE collection='books' AND id='a'",
+                "SELECT count(*) FROM records WHERE collection='books' AND id='a'",
                 [],
                 |r| r.get::<_, i64>(0)
             )

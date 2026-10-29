@@ -3,8 +3,8 @@ use crate::{JsonFilter, JsonQuery, JsonQueryDependencies, JsonQueryResult, Recor
 
 
 impl Repository {
-    /// Query actual JSON values in all registered collections, or an explicit scope.
-    /// The schema/UI never restrict queryable paths. Ordering is (collection, id).
+    /// Query schema-declared JSON paths in all registered collections, or an explicit scope.
+    /// Ordering is (collection, id).
     pub fn query_json(&mut self, request: &JsonQuery) -> Result<JsonQueryResult> {
         let before = self.metrics.clone();
         let t = Instant::now();
@@ -29,6 +29,19 @@ impl Repository {
             .iter()
             .map(|name| self.collection(name))
             .collect::<Result<Vec<_>>>()?;
+        if request.collections.is_some() {
+            if let Some(c) = collections.iter().find(|c| !filter.follows_schema(c)) {
+                return Err(Error::Request(format!(
+                    "filter does not follow the current schema of collection {}",
+                    c.name
+                )));
+            }
+        }
+        let searchable = collections
+            .iter()
+            .cloned()
+            .filter(|c| filter.follows_schema(c))
+            .collect::<Vec<_>>();
         let mut result = JsonQueryResult {
             records: Vec::new(),
             total: request.count.then_some(0),
@@ -45,12 +58,9 @@ impl Repository {
         };
         if !collections.is_empty() {
             if self.options.cache == CacheMode::Sqlite {
-                self.query_json_sql(request, &filter, &collections, &mut result)?;
-                for c in &collections {
-                    self.schedule_validation(c)?;
-                }
-            } else {
-                self.query_json_direct(request, &filter, &collections, &mut result)?;
+                self.query_json_sql(request, &filter, &collections, &searchable, &mut result)?;
+            } else if !searchable.is_empty() {
+                self.query_json_direct(request, &filter, &searchable, &mut result)?;
             }
         }
         result.metrics = self.metrics.since(&before);
@@ -61,19 +71,44 @@ impl Repository {
         &mut self,
         request: &JsonQuery,
         filter: &JsonFilter,
+        scope: &[Collection],
         collections: &[Collection],
         result: &mut JsonQueryResult,
     ) -> Result<()> {
         let writer = self.store()?;
-        let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
-        for c in collections {
-            self.sync(c, &s, &[], false)?;
-            filter.ensure_query_indexes(&s.db, c, &mut self.metrics)?;
-            result
-                .dependencies
-                .revisions
-                .insert(c.name.clone(), s.state(&c.name)?.unwrap().revision);
+        let pending = {
+            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
+            let mut pending = Vec::new();
+            for c in scope {
+                self.sync(c, &s, &[], false)?;
+                if collections.iter().any(|selected| selected.name == c.name) {
+                    filter.ensure_query_indexes(&s.db, c, &mut self.metrics)?;
+                    result
+                        .dependencies
+                        .revisions
+                        .insert(c.name.clone(), s.state(&c.name)?.unwrap().revision);
+                }
+                let exists: bool = s.db.query_row(
+                    "SELECT EXISTS(SELECT 1 FROM records INDEXED BY validation_pending WHERE collection=?1 AND validation_state='pending')",
+                    [&c.name],
+                    |r| r.get(0),
+                )?;
+                if exists {
+                    pending.push(c.clone());
+                }
+            }
+            pending
+        };
+        for c in &pending {
+            self.enqueue_validation(c)?;
         }
+        let wait_started = Instant::now();
+        self.wait_for_validation()?;
+        self.metrics.validation_wait_nanos += nanos(wait_started);
+        if collections.is_empty() {
+            return Ok(());
+        }
+        let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
         let t = Instant::now();
         let mut bindings = Vec::new();
         for c in collections {
@@ -84,8 +119,8 @@ impl Repository {
             .map(|c| {
                 let predicate = filter.sql(c, &mut bindings);
                 let scope = crate::json_filter::indexes::quote(&c.name);
-                let table = store::record_table(&c.name);
-                format!("SELECT {scope} AS collection,r.id FROM {table} r CROSS JOIN record_validation h ON h.collection={scope} AND h.id=r.id WHERE r.collection={scope} AND h.parse_status='parsed' AND ({predicate})")
+                let table = store::record_table();
+                format!("SELECT {scope} AS collection,r.id FROM {table} r WHERE r.collection={scope} AND r.parse_status='parsed' AND ({predicate})")
             })
             .collect::<Vec<_>>()
             .join(" UNION ALL ");
@@ -103,11 +138,7 @@ impl Repository {
         // returned page or in an otherwise false OR/AND branch. Never materialize JSON.
         // CROSS JOIN fixes the payload lookup order: stale/skewed collection
         // statistics must not turn a small selected page into a full records scan.
-        let payloads = collections.iter().map(|c| {
-            let table = store::record_table(&c.name);
-            let scope = crate::json_filter::indexes::quote(&c.name);
-            format!("SELECT 0,r.collection,r.id,r.path,r.digest,r.json,h.validation_state,h.issues,NULL FROM page p CROSS JOIN {table} r ON r.collection={scope} AND r.id=p.id CROSS JOIN record_validation h ON h.collection={scope} AND h.id=p.id WHERE p.collection={scope}")
-        }).collect::<Vec<_>>().join(" UNION ALL ");
+        let payloads = "SELECT 0,r.collection,r.id,r.path,r.digest,r.json,r.validation_state,r.issues,NULL FROM page p CROSS JOIN records r ON r.collection=p.collection AND r.id=p.id";
         let sql = format!("WITH hits AS MATERIALIZED ({selections}), page AS MATERIALIZED (
             SELECT collection,id FROM hits ORDER BY collection COLLATE BINARY,id COLLATE BINARY LIMIT ?{limit} OFFSET ?{offset}
         )

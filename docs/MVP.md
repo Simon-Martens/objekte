@@ -67,7 +67,7 @@ CLI/library entry points now; raw grep and cleaned-content search are pending.
 
 The MVP needs a **small, generic query model**, not the full jq language. Both ad hoc requests and saved views use the same query specification. It can list records from any configured collection, filter on its JSON fields, sort, paginate, select output fields, traverse declared relations, and return simple grouped results. The Rust library compiles this specification into a plan and executes it over original files or reusable in-memory projections. Supported hot views may use SQLite through the same API. qj, jaq, and jq remain benchmark/reference tools, not production requirements or user-facing languages.
 
-The schema-independent JSON subset is now implemented as `JsonFilter` and
+The schema-aware JSON subset is now implemented as `JsonFilter` and
 `Repository::query_json`, exposed by `objekte REPOSITORY query FILTER`. It supports
 all registered collections or an explicit collection scope without UI field
 restrictions. [filters.md](filters.md) defines the current semantics, parameterized
@@ -142,7 +142,7 @@ This key-value style reuse accelerates repeated views without a disk cache. It d
 
 ### Library-owned cache lifecycle
 
-The library loads repository metadata without constructing SQLite. Opening a collection's view reconciles an existing generation before trusting it or builds the cache lazily if needed. Other collections need not be loaded. Building reads authoritative files, checks stable source revisions, parses JSON tolerantly and extracts usable typed values and declared relationships, writes raw bytes, per-record validation state and source metadata into a new generation, and builds indexes derived from the configured filter/default-sort/sortable fields. It publishes the generation only after a final source check succeeds. Malformed and schema-invalid sources remain visible with explicit diagnostics. Schema validation runs on background workers after ingestion commits; results are guarded by record revision, digest and schema hash. See [validation.md](validation.md). General background construction and UI scheduling remain later capabilities.
+The library loads repository metadata without constructing SQLite. Opening a collection's view reconciles an existing generation before trusting it or builds the cache lazily if needed. Other collections need not be loaded. Building reads authoritative files, checks stable source revisions, parses JSON tolerantly and extracts usable typed values and declared relationships, writes raw bytes, per-record validation state and source metadata into a new generation, and builds indexes derived from the configured filter/default-sort/sortable fields. It publishes the generation only after a final source check succeeds. Malformed and schema-invalid sources remain visible with explicit diagnostics. An explicit validation run uses worker threads after ingestion commits; results are guarded by record revision, digest and schema hash. See [validation.md](validation.md). General background construction and UI scheduling remain later capabilities.
 
 The first implementation uses configured indexes and defers query-result caching and adaptive plan selection. An indexed SQLite view does not require a separate full Rust projection. Index creation and cache warming are library operations triggered by requesting a view and its configuration. The CLI can select cache/freshness options and request status, refresh, or rebuild through the same API without implementing those operations.
 

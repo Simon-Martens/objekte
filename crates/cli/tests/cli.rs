@@ -72,6 +72,7 @@ fn help_version_and_invalid_arguments() {
         vec![p, "validate", "books", "people"],
         vec![p, "validate", "missing"],
         vec![p, "validate", "--collection", "books"],
+        vec![p, "view", "books", "--validation", "background"],
         vec![p, "query"],
         vec![p, "query", "missing", "score=1"],
         vec![p, "query", "books", "score=1", "extra"],
@@ -357,12 +358,10 @@ fn separate_cli_processes_serialize_updates_to_one_cache() {
             "books",
             "--output",
             "json",
-            "--validation",
-            "manual",
         ],
     ));
     f.edit("data/books/a.json", |v| v["score"] = json!(-99));
-    let status = value(run(&f, &[p, "cache", "status", "--validation", "manual"]));
+    let status = value(run(&f, &[p, "cache", "status"]));
     let lock_path = std::path::Path::new(status["directory"].as_str().unwrap()).join("lock");
     let lock = OpenOptions::new()
         .read(true)
@@ -379,8 +378,6 @@ fn separate_cli_processes_serialize_updates_to_one_cache() {
                 "--count",
                 "--output",
                 "json",
-                "--validation",
-                "manual",
                 "--data-dir",
             ])
             .arg(&f.data)
@@ -541,12 +538,12 @@ fn killing_a_cache_builder_leaves_recoverable_state() {
 }
 
 #[test]
-fn validation_modes_resume_pending_and_expose_bad_records() {
+fn query_completes_pending_validation_while_view_does_not() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
     f.edit("data/books/a.json", |v| v["score"] = json!("wrong"));
     fs::write(f.root.join("data/books/b.json"), "broken").unwrap();
-    let page = value(run(
+    let read = run(
         &f,
         &[
             p,
@@ -554,53 +551,41 @@ fn validation_modes_resume_pending_and_expose_bad_records() {
             "books",
             "--limit",
             "50",
-            "--validation",
-            "manual",
-            "--output",
-            "json",
-        ],
-    ));
-    assert_eq!(page["states"]["a"]["status"], "pending");
-    assert_eq!(page["states"]["b"]["status"], "incorrect_json");
-    let output = run(
-        &f,
-        &[
-            p,
-            "view",
-            "books",
-            "--limit",
-            "50",
-            "--validation",
-            "wait",
-            "--background-workers",
-            "2",
             "--output",
             "json",
             "--diagnostics",
         ],
     );
+    assert!(!sql_events(&read).iter().any(|event| {
+        event["sql"].as_str().unwrap().contains("WITH pending AS MATERIALIZED")
+    }));
+    let page = value(read);
+    assert_eq!(page["states"]["a"]["status"], "pending");
+    assert_eq!(page["states"]["b"]["status"], "incorrect_json");
+    let query = run(&f, &[p, "query", "books", "score >= 0", "--diagnostics"]);
+    assert!(sql_events(&query).iter().any(|event| {
+        event["sql"].as_str().unwrap().contains("SELECT id,revision,digest,json FROM records")
+    }));
+    assert_eq!(value(query)["records"][0]["state"]["status"], "valid");
+    let direct = run(&f, &[p, "query", "books", "score >= 0", "--cache", "disabled", "--diagnostics"]);
+    assert!(diagnostics(&direct)["metrics"]["validations"].as_u64().unwrap() > 0);
+    assert_eq!(value(direct)["records"][0]["state"]["status"], "valid");
+    let output = run(
+        &f,
+        &[
+            p,
+            "validate",
+            "books",
+            "--background-workers",
+            "2",
+            "--diagnostics",
+        ],
+    );
     let diagnostic = diagnostics(&output);
     assert_eq!(diagnostic["background_workers"], 2);
-    assert!(
-        diagnostic["validation_metrics"]["applied"]
-            .as_u64()
-            .unwrap()
-            >= 6
-    );
-    let traced = sql_events(&output);
-    assert!(traced.iter().any(|event| {
-        event["sql"]
-            .as_str()
-            .unwrap()
-            .contains("WITH pending AS MATERIALIZED")
-    }));
-    assert!(traced.iter().any(|event| {
-        event["sql"]
-            .as_str()
-            .unwrap()
-            .contains("UPDATE record_validation")
-    }));
-    let page = value(output);
+    assert_eq!(diagnostic["validation_metrics"]["applied"], 0);
+    assert_eq!(value(output)["applied"], 0);
+    let page = value(run(&f, &[p, "view", "books", "--limit", "50", "--output", "json"]));
     assert_eq!(page["states"]["a"]["status"], "invalid");
     assert_eq!(page["states"]["b"]["status"], "incorrect_json");
     assert_eq!(
@@ -616,7 +601,7 @@ fn validation_modes_resume_pending_and_expose_bad_records() {
         .unwrap();
     assert_eq!(books["validation"]["valid"], 5);
     assert_eq!(books["validation"]["invalid"], 1);
-    let record = value(run(&f, &[p, "get", "books", "a", "--validation", "wait"]));
+    let record = value(run(&f, &[p, "get", "books", "a"]));
     assert_eq!(record["state"]["status"], "invalid");
     assert_eq!(record["data"]["score"], "wrong");
 }
@@ -636,12 +621,12 @@ fn assert_millisecond_metrics(metrics: &Value) {
 }
 
 #[test]
-fn validate_accepts_one_or_all_collections_and_waits_even_in_manual_mode() {
+fn validate_accepts_one_or_all_collections_and_waits() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
     f.edit("data/books/a.json", |v| v["score"] = json!("wrong"));
     fs::write(f.root.join("data/books/b.json"), "broken").unwrap();
-    let single = value(run(&f, &[p, "validate", "books", "--validation", "manual"]));
+    let single = value(run(&f, &[p, "validate", "books"]));
     assert_eq!(single["applied"], 6);
     assert_millisecond_metrics(&single);
     let status = value(run(&f, &[p, "cache", "status"]));
@@ -657,7 +642,7 @@ fn validate_accepts_one_or_all_collections_and_waits_even_in_manual_mode() {
     }
     // The all-collections form must also reconcile later source edits.
     f.edit("data/books/a.json", |v| v["score"] = json!(2));
-    let result = value(run(&f, &[p, "validate", "--validation", "manual"]));
+    let result = value(run(&f, &[p, "validate"]));
     assert!(result["applied"].as_u64().unwrap() > 1);
     assert_millisecond_metrics(&result);
     let status = value(run(&f, &[p, "cache", "status"]));
@@ -695,8 +680,6 @@ fn every_cli_metrics_output_uses_milliseconds_without_changing_record_fields() {
             "--output",
             "json",
             "--diagnostics",
-            "--validation",
-            "manual",
         ],
     );
     assert!(
@@ -717,7 +700,7 @@ fn every_cli_metrics_output_uses_milliseconds_without_changing_record_fields() {
         .find(|row| row["id"] == "a")
         .unwrap();
     assert_eq!(row["values"]["duration_nanos"], 1234567);
-    let record = value(run(&f, &[p, "get", "books", "a", "--validation", "manual"]));
+    let record = value(run(&f, &[p, "get", "books", "a"]));
     assert_eq!(record["data"]["payload"]["metrics"]["read_nanos"], 7654321);
     for args in [
         vec![p, "cache", "refresh", "--collection", "books"],
@@ -767,8 +750,6 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
             "year=1800",
             "--count",
             "--diagnostics",
-            "--validation",
-            "manual",
         ],
     );
     assert!(
@@ -780,6 +761,7 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
     let result = value(out);
     assert_millisecond_metrics(&result["metrics"]);
     assert_eq!(result["metrics"], diagnostic["metrics"]);
+    assert!(diagnostic["validation_wait_ms"].as_f64().unwrap() > 0.0);
     assert_eq!(result["total"], 1);
     assert_eq!(result["records"][0]["collection"], "books");
     assert_eq!(result["records"][0]["id"], "a");
@@ -796,12 +778,9 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
             "--param",
             r#"year="1800""#,
             "--count",
-            "--validation",
-            "wait",
         ],
     ));
-    assert_eq!(strings["total"], 1);
-    assert_eq!(strings["records"][0]["collection"], "people");
+    assert_eq!(strings["total"], 0);
     let scoped = value(run(
         &f,
         &[
@@ -886,8 +865,6 @@ fn diagnostics_streams_every_executed_sql_statement_and_keeps_query_json_small()
             "score >= 2",
             "--count",
             "--diagnostics",
-            "--validation",
-            "manual",
         ],
     );
     assert!(
@@ -935,8 +912,6 @@ fn diagnostics_streams_every_executed_sql_statement_and_keeps_query_json_small()
             "--cache",
             "disabled",
             "--diagnostics",
-            "--validation",
-            "manual",
         ],
     );
     assert!(sql_events(&direct).is_empty());

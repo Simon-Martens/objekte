@@ -3,11 +3,9 @@ use super::*;
 #[test]
 fn stale_results_cannot_overwrite_edits_schema_changes_deletes_or_recreations() {
     let db = rusqlite::Connection::open_in_memory().unwrap();
-    let table = crate::store::record_table("books");
-    db.execute_batch(&format!("CREATE TABLE {table}(collection TEXT,id TEXT,revision INTEGER,digest TEXT);
-            CREATE TABLE record_validation(collection TEXT,id TEXT,validation_schema_hash TEXT,validation_state TEXT,issues TEXT);
-            INSERT INTO {table} VALUES('books','a',2,'new');
-            INSERT INTO record_validation VALUES('books','a','schema2','pending','[]');")).unwrap();
+    let table = crate::store::record_table();
+    db.execute_batch(&format!("CREATE TABLE {table}(collection TEXT,id TEXT,revision INTEGER,digest TEXT,validation_schema_hash TEXT,validation_state TEXT,issues TEXT);
+            INSERT INTO {table} VALUES('books','a',2,'new','schema2','pending','[]');")).unwrap();
     let result = RecordState {
         status: RecordStatus::Valid,
         issues: vec![],
@@ -36,12 +34,12 @@ fn stale_results_cannot_overwrite_edits_schema_changes_deletes_or_recreations() 
     db.execute(&format!("DELETE FROM {table}"), []).unwrap();
     assert_eq!(apply(&db, "books", &job, "schema2", &result).unwrap(), 0);
     db.execute_batch(
-            &format!("INSERT INTO {table} VALUES('books','a',1,'recreated'); UPDATE record_validation SET validation_state='pending'"),
+            &format!("INSERT INTO {table} VALUES('books','a',1,'recreated','schema2','pending','[]')"),
         )
         .unwrap();
     assert_eq!(apply(&db, "books", &job, "schema2", &result).unwrap(), 0);
     assert_eq!(
-        db.query_row("SELECT validation_state FROM record_validation", [], |r| {
+        db.query_row("SELECT validation_state FROM records", [], |r| {
             r.get::<_, String>(0)
         })
         .unwrap(),

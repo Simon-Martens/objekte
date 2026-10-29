@@ -4,7 +4,7 @@ use crate::{Error, Result};
 use rusqlite::{Connection, OptionalExtension, params};
 use std::path::Path;
 
-pub(super) const FORMAT: &str = "6";
+pub(super) const FORMAT: &str = "7";
 
 
 // INFO: Versioned SQL schema step and its history name.
@@ -70,10 +70,17 @@ pub(super) fn prepare(db: &Connection, root: &Path) -> Result<()> {
                 row.get(0)
             })
             .optional()?;
+        if format.as_deref() == Some("6") {
+            let tx = db.unchecked_transaction()?;
+            for name in &tables {
+                let quoted = name.replace('"', "\"\"");
+                tx.execute_batch(&format!("DROP TABLE \"{quoted}\""))?;
+            }
+            tx.commit()?;
+            return prepare(db, root);
+        }
         if format.as_deref().is_some_and(|stored| stored != FORMAT) {
-            return Err(Error::Cache(
-                "incompatible cache format; use --fresh-cache or remove its cache directory".into(),
-            ));
+            return Err(Error::Cache("incompatible cache format".into()));
         }
     }
 

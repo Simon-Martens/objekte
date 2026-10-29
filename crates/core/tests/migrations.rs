@@ -134,9 +134,9 @@ fn failed_migration_keeps_history_pending_and_retries_on_next_open() {
         [f.root.to_str().unwrap()],
     )
     .unwrap();
-    db.execute("INSERT INTO meta(key,value) VALUES('format','6')", [])
+    db.execute("INSERT INTO meta(key,value) VALUES('format','7')", [])
         .unwrap();
-    db.execute_batch("CREATE TABLE record_validation(unexpected TEXT)")
+    db.execute_batch("CREATE TABLE records(unexpected TEXT)")
         .unwrap();
     drop(db);
     assert!(
@@ -146,7 +146,7 @@ fn failed_migration_keeps_history_pending_and_retries_on_next_open() {
     );
     let db = database(&f);
     assert_eq!(applied(&db), [(1, "repository_metadata".into())]);
-    db.execute_batch("DROP TABLE record_validation").unwrap();
+    db.execute_batch("DROP TABLE records").unwrap();
     drop(db);
     let recovered = f
         .repo(CacheMode::Sqlite)
@@ -154,6 +154,33 @@ fn failed_migration_keeps_history_pending_and_retries_on_next_open() {
         .unwrap();
     assert_eq!(recovered.total, Some(7));
     assert_eq!(applied(&database(&f)).len(), 2);
+}
+
+
+#[test]
+fn previous_disposable_cache_format_is_rebuilt() {
+    let f = Fixture::new();
+    let mut repo = f.repo(CacheMode::Sqlite);
+    repo.open_view("books", &all()).unwrap();
+    let directory = repo.cache_directory().unwrap();
+    drop(repo);
+
+    let db = Connection::open(directory.join("cache.sqlite")).unwrap();
+    db.execute("UPDATE meta SET value='6' WHERE key='format'", []).unwrap();
+    db.execute_batch("CREATE TABLE obsolete_marker(value TEXT)").unwrap();
+    drop(db);
+
+    let mut repo = f.repo(CacheMode::Sqlite);
+    let view = repo.open_view("books", &all()).unwrap();
+    assert_eq!(view.total, Some(7));
+    assert_eq!(view.metrics.rows_inserted, 7);
+    let db = Connection::open(directory.join("cache.sqlite")).unwrap();
+    let obsolete: i64 = db.query_row(
+        "SELECT count(*) FROM sqlite_master WHERE name='obsolete_marker'",
+        [],
+        |row| row.get(0),
+    ).unwrap();
+    assert_eq!(obsolete, 0);
 }
 
 #[test]

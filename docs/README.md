@@ -19,7 +19,7 @@ watching, background jobs, and hover/idle prefetch.
 
 - [x] Load the restricted schema/UI profile and all seven Musenalm collections.
 - [x] Read records, inspect collection and record relationships, and validate source data.
-- [x] Serve scalar default views and schema-independent JSON filters through direct reads or SQLite.
+- [x] Serve scalar default views and schema-aware JSON filters through direct reads or SQLite.
 - [x] Reconcile source and configuration changes, maintain expression indexes, and expose cache diagnostics.
 - [ ] Add source-file writes, saved/grouped and relation-aware views, raw grep, cleaned search, and a desktop UI. See [MVP.md](MVP.md) and [UI.md](UI.md).
 
@@ -102,15 +102,17 @@ stay queryable while validation runs; incompatible typed fields sort after missi
 values and do not match typed filters. Diagnostics use JSON Pointers into the original
 record. Views return per-row `states`; tables include STATUS and NDJSON includes state.
 
-`--validation background` is the default: return the view without waiting. A short CLI
-process may exit with validation still pending. Use `--validation wait` to wait and
-print completed statuses, or `--validation manual` to measure ingestion separately.
-`validate` reconciles and validates all registered collections; `validate NAME`
-does the same for one collection. Both wait for completion, including pending work
-left by an earlier process, even with `--validation manual`. Unchanged, already
+Collection reads leave parsed records pending. `validate` reconciles and validates
+all registered collections; `validate NAME` does the same for one collection. Both
+wait for completion, including pending work left by an earlier process. Unchanged, already
 validated records reuse their results. `cache validate --collection NAME` remains
 available. Cache status reports counts by validation state. Without SQLite,
 validation runs inline and creates no application data.
+
+`query` validates pending records in its full scope
+before applying its filter. Schema-invalid but parseable records can still match
+when their actual field values satisfy the typed comparison. Malformed JSON is
+excluded from JSON searches.
 
 The library exposes `validate_all()`, `validate_collection(name)`,
 `wait_for_validation()`, `validation_metrics()` and
@@ -168,14 +170,14 @@ and their combination. These fingerprints do not store query results or create
 additional SQL compound indexes. Schema/mapping, typed indexes, source manifests,
 and view settings have separate fingerprints.
 
-Cache format 6 uses collection-local raw-record tables and stores no extracted field
-columns. Older pre-release caches are rejected; use `--fresh-cache` or remove that
-cache directory. The initial build still
+Cache format 7 stores every collection's raw records and per-record status in one
+`records` table, without extracted field columns. Format 6 caches are discarded and
+rebuilt from source files. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
 opens. `--diagnostics` streams each executed SQLite statement and its elapsed
 milliseconds as a JSON line on stderr, and logs the policy, view fingerprints,
 integer counters, and floating-point millisecond timings (`*_ms`) in a diagnostics
-line. The flag waits for scheduled background validation before exiting. Query
+line. The flag does not start validation. Query
 JSON omits the generated SQL text. All CLI JSON metrics also
 use `*_ms`, including views, refreshes, and validation commands; counters remain
 integers and source-record values remain unchanged. Library timers retain integer

@@ -30,7 +30,7 @@ impl Repository {
         requested_indexes: &[String],
         force: bool,
     ) -> Result<()> {
-        let table = store::record_table(&c.name);
+        let table = store::record_table();
         let previous = s.state(&c.name)?;
         let has_indexes = s.has_indexes(c)?;
         let requested_ready = s.has_requested_indexes(requested_indexes)?;
@@ -57,7 +57,7 @@ impl Repository {
                     s.index_cache.freeze()?;
                 }
                 store::create_indexes(&tx, c, requested_indexes, &mut self.metrics)?;
-                store::analyze_indexes(&tx, c, requested_indexes)?;
+                store::analyze_indexes(&tx, requested_indexes)?;
                 tx.execute(
                     "UPDATE collections SET index_hash=?2 WHERE name=?1",
                     params![c.name, c.index_hash],
@@ -208,7 +208,7 @@ impl Repository {
                 }
                 store::create_indexes(&tx, c, requested_indexes, &mut self.metrics)?;
             }
-            store::analyze_indexes(&tx, c, requested_indexes)?;
+            store::analyze_indexes(&tx, requested_indexes)?;
             self.metrics.index_nanos += nanos(t);
         }
         let changed = schema_changed
@@ -235,9 +235,8 @@ impl Repository {
             let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
             self.sync(&c, &s, &[], true)?;
         } else {
-            self.direct(&c, None)?;
+            self.direct(&c, None, false)?;
         }
-        self.schedule_validation(&c)?;
         Ok(self.metrics.since(&before))
     }
 }

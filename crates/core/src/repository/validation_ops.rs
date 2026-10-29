@@ -4,15 +4,6 @@ use super::*;
 
 
 impl Repository {
-    pub(super) fn schedule_validation(&mut self, c: &Collection) -> Result<()> {
-        if self.options.cache == CacheMode::Disabled
-            || self.options.validation == ValidationMode::Manual
-        {
-            return Ok(());
-        }
-        self.enqueue_validation(c)
-    }
-
     pub(super) fn enqueue_validation(&mut self, c: &Collection) -> Result<()> {
         if self.validator.is_none() {
             let writer = match &self.writer {
@@ -52,10 +43,14 @@ impl Repository {
 
     /// Reconcile one collection and explicitly validate all pending cached records.
     pub fn validate_collection(&mut self, name: &str) -> Result<ValidationMetrics> {
-        self.refresh(name)?;
         if self.options.cache == CacheMode::Sqlite {
+            self.refresh(name)?;
             let c = self.collection(name)?;
             self.enqueue_validation(&c)?;
+        } else {
+            self.reload()?;
+            let c = self.collection(name)?;
+            self.direct(&c, None, true)?;
         }
         self.wait_for_validation()
     }

@@ -42,12 +42,12 @@ impl Repository {
             let records = s.db.query_row(
                 &format!(
                     "SELECT count(*) FROM {} WHERE collection=?1",
-                    store::record_table(name)
+                    store::record_table()
                 ),
                 [name],
                 |r| r.get::<_, i64>(0),
             )? as usize;
-            let validation = s.db.prepare("SELECT validation_state,count(*) FROM record_validation WHERE collection=?1 GROUP BY validation_state")?
+            let validation = s.db.prepare("SELECT validation_state,count(*) FROM records WHERE collection=?1 GROUP BY validation_state")?
                 .query_map([name], |r| Ok((r.get(0)?,r.get::<_, i64>(1)? as usize)))?
                 .collect::<std::result::Result<BTreeMap<_,_>,_>>()?;
             return Ok(Coverage {

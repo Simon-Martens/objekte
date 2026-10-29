@@ -64,7 +64,7 @@ impl Repository {
         indexed: Option<&crate::json_filter::indexes::IndexCache>,
     ) -> Result<()> {
         let t = Instant::now();
-        let table = store::record_table(&c.name);
+        let table = store::record_table();
         let exists: Option<String> = db
             .prepare_cached(&format!(
                 "SELECT digest FROM {table} WHERE collection=?1 AND id=?2"
@@ -80,8 +80,7 @@ impl Repository {
             } else {
                 false
             };
-            db.prepare_cached(&format!("INSERT INTO {table}(collection,id,path,size,modified,identity,digest,json,revision) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,1) ON CONFLICT(collection,id) DO UPDATE SET path=excluded.path,size=excluded.size,modified=excluded.modified,identity=excluded.identity,digest=excluded.digest,json=excluded.json,revision={table}.revision+1"))?.execute(params![c.name,id,self.path(c,id),raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity,raw.hash,raw.json])?;
-            db.prepare_cached("INSERT INTO record_validation(collection,id,parse_status,validation_state,validation_schema_hash,issues) VALUES(?1,?2,?3,?4,?5,?6) ON CONFLICT(collection,id) DO UPDATE SET parse_status=excluded.parse_status,validation_state=excluded.validation_state,validation_schema_hash=excluded.validation_schema_hash,issues=excluded.issues")?.execute(params![c.name,id,if value.state.status == RecordStatus::IncorrectJson {"incorrect_json"} else {"parsed"},value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
+            db.prepare_cached(&format!("INSERT INTO {table}(collection,id,path,size,modified,identity,digest,json,revision,parse_status,validation_state,validation_schema_hash,issues) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,1,?9,?10,?11,?12) ON CONFLICT(collection,id) DO UPDATE SET path=excluded.path,size=excluded.size,modified=excluded.modified,identity=excluded.identity,digest=excluded.digest,json=excluded.json,revision={table}.revision+1,parse_status=excluded.parse_status,validation_state=excluded.validation_state,validation_schema_hash=excluded.validation_schema_hash,issues=excluded.issues"))?.execute(params![c.name,id,self.path(c,id),raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity,raw.hash,raw.json,if value.state.status == RecordStatus::IncorrectJson {"incorrect_json"} else {"parsed"},value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
             if maintained {
                 self.metrics.index_rows_written += 1;
             }
@@ -102,7 +101,7 @@ impl Repository {
                 raw.stamp.identity
             ])?;
             // FIX: A schema change invalidates diagnostics even if source bytes did not change.
-            db.execute("UPDATE record_validation SET validation_state=?3,validation_schema_hash=?4,issues=?5 WHERE collection=?1 AND id=?2 AND validation_schema_hash<>?4", params![c.name,id,value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
+            db.execute(&format!("UPDATE {table} SET validation_state=?3,validation_schema_hash=?4,issues=?5 WHERE collection=?1 AND id=?2 AND validation_schema_hash<>?4"), params![c.name,id,value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
             self.metrics.rows_reused += 1;
         }
         self.metrics.record_write_nanos += nanos(t);

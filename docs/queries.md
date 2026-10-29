@@ -104,11 +104,17 @@ cargo run --release -p objekte-cli -- examples/musenalm query items 'owner = "Th
 cargo run --release -p objekte-cli -- examples/musenalm query items 'media ?= "Reproduktion"' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm query items 'basis = false' --count --limit 3
 
-# Page data is opaque to its schema but remains queryable as JSON.
+# Page data has an open schema and remains queryable as JSON.
 cargo run --release -p objekte-cli -- examples/musenalm query pages 'data.description ~ "Musenalm"' --count --limit 3
 ```
 
 ## Parameters, paging, and output
+
+Before searching, `query` completes pending validation in every collection in its
+scope. An explicitly scoped query rejects undeclared fields or
+incompatible literal types. An unscoped query skips incompatible collections.
+Schema-invalid JSON remains searchable through type-safe comparisons; malformed
+JSON does not match.
 
 Parameters are JSON values. Keep the filter in single shell quotes so `$from`
 and `$to` reach the filter parser; quote a string parameter as JSON.
@@ -128,7 +134,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional 
 
 # Keep result JSON on stdout and write every executed SQLite statement with its
 # duration_ms to stderr as JSON lines. The final line summarizes diagnostics.
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --validation wait --diagnostics 2> /tmp/objekte-sql.ndjson
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-sql.ndjson
 ```
 
 ## Sorted table views

@@ -1,8 +1,9 @@
-//! Schema-independent filters. SQL composition follows dbx's expression/bindings
+//! Schema-aware filters. SQL composition follows dbx's expression/bindings
 //! separation; semantics belong here, not to SQLite's implicit type conversions.
 pub(crate) mod indexes;
 mod parser;
 mod pattern;
+mod schema;
 mod sql;
 
 use crate::{Error, Metrics, Record, Result, config::fingerprint};

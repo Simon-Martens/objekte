@@ -278,13 +278,13 @@ fn numbers_outside_the_declared_domain_are_diagnosed_without_rounding() {
         r.open_view("books", &all()).unwrap();
         r.validate_collection("books").unwrap();
         let view = r.open_view("books", &all()).unwrap();
-        assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
-        assert!(
-            view.states["a"]
-                .issues
-                .iter()
-                .any(|i| i.message.contains("signed 64-bit"))
-        );
+        if mode == CacheMode::Sqlite {
+            assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
+            assert!(view.states["a"].issues.iter().any(|i| i.message.contains("signed 64-bit")));
+        } else {
+            assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Pending);
+            assert!(r.metrics().validations > 0);
+        }
         assert_eq!(
             view.rows.iter().find(|r| r.id == "a").unwrap().values["score"],
             json!(u64::MAX)
@@ -307,12 +307,8 @@ fn integral_json_floats_validate_as_integers_and_sort_correctly() {
     assert_eq!(&ids(&parity(&f, &q).rows)[..2], &["b", "a"]);
     f.edit("data/books/a.json", |v| v["count"] = json!(1.5));
     assert_eq!(
-        f.repo(CacheMode::Disabled)
-            .open_view("books", &all())
-            .unwrap()
-            .states["a"]
-            .status,
-        objekte_core::RecordStatus::Invalid
+        f.repo(CacheMode::Disabled).open_view("books", &all()).unwrap().states["a"].status,
+        objekte_core::RecordStatus::Pending
     );
 }
 
@@ -477,13 +473,13 @@ fn out_of_range_integer_lexemes_are_diagnosed_while_opaque_numbers_are_preserved
             repo.open_view("books", &all()).unwrap();
             repo.validate_collection("books").unwrap();
             let view = repo.open_view("books", &all()).unwrap();
-            assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
-            assert!(
-                view.states["a"]
-                    .issues
-                    .iter()
-                    .any(|i| i.message.contains("signed 64-bit"))
-            );
+            if mode == CacheMode::Sqlite {
+                assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
+                assert!(view.states["a"].issues.iter().any(|i| i.message.contains("signed 64-bit")));
+            } else {
+                assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Pending);
+                assert!(repo.metrics().validations > 0);
+            }
         }
         std::fs::write(
             f.root.join("data/books/a.json"),

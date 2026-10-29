@@ -1,6 +1,6 @@
 use crate::{
     Collection, ConfigurationChanges, Error, PathStep, RecordState, RecordStatus, RepositoryModel,
-    Result, ValidationMetrics, ValidationMode, ViewRequest, ViewResult,
+    Result, ValidationMetrics, ViewRequest, ViewResult,
     config::{digest, fingerprint},
     config_manifest::ConfigurationSnapshot,
     error::{io, record},
@@ -64,7 +64,6 @@ pub struct Options {
     /// SQLite writes remain ordered on one connection. One disables parallel preparation.
     pub ingest_workers: usize,
     pub background_workers: usize,
-    pub validation: ValidationMode,
     /// Emit one timed SQL statement per line to stderr while the SQLite cache is used.
     pub sql_diagnostics: bool,
 }
@@ -80,7 +79,6 @@ impl Options {
             sqlite_cache_mib: Some(64),
             background_workers: std::thread::available_parallelism()
                 .map_or(1, |n| (n.get() / 4).max(1)),
-            validation: ValidationMode::Background,
             sql_diagnostics: false,
             ingest_workers: std::thread::available_parallelism()
                 .map_or(1, |n| (n.get() / 2).max(1)),
@@ -145,6 +143,7 @@ metrics!(
     parse_nanos,
     json_decode_nanos,
     validation_nanos,
+    validation_wait_nanos,
     parallel_prepare_nanos,
     record_write_nanos,
     relation_extract_nanos,
@@ -465,7 +464,7 @@ impl Metrics {
 
 fn cached_state(db: &rusqlite::Connection, collection: &str, id: &str) -> Result<RecordState> {
     let (status, issues): (String, String) = db.query_row(
-        "SELECT validation_state,issues FROM record_validation WHERE collection=?1 AND id=?2",
+        "SELECT validation_state,issues FROM records WHERE collection=?1 AND id=?2",
         params![collection, id],
         |r| Ok((r.get(0)?, r.get(1)?)),
     )?;

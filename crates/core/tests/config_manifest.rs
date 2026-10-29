@@ -334,7 +334,7 @@ fn collection_update_failure_cannot_erase_pending_schema_change() {
     let old = r.model().collections["books"].schema_hash.clone();
     schema_change(&f);
     r.refresh_configuration().unwrap();
-    observer.execute_batch(&record_sql("books", "CREATE TRIGGER fail_record BEFORE UPDATE ON records BEGIN SELECT RAISE(FAIL, 'record failure'); END;")).unwrap();
+    observer.execute_batch("CREATE TRIGGER fail_record BEFORE UPDATE ON records BEGIN SELECT RAISE(FAIL, 'record failure'); END;").unwrap();
     assert!(r.open_view("books", &all()).is_err());
     assert_eq!(
         observer
@@ -378,10 +378,7 @@ fn missing_ownership_table_is_not_silently_recreated() {
     assert_eq!(
         observer
             .query_row(
-                &record_sql(
-                    "books",
-                    "SELECT count(*) FROM records WHERE collection='books'"
-                ),
+                "SELECT count(*) FROM records WHERE collection='books'",
                 [],
                 |r| r.get::<_, i64>(0)
             )

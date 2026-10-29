@@ -49,12 +49,10 @@ pub(crate) fn delete_record(
     id: &str,
     metrics: &mut Metrics,
 ) -> Result<()> {
-    db.prepare_cached("DELETE FROM record_validation WHERE collection=?1 AND id=?2")?
-        .execute(params![c.name, id])?;
     metrics.rows_deleted += db
         .prepare_cached(&format!(
             "DELETE FROM {} WHERE collection=?1 AND id=?2",
-            record_table(&c.name)
+            record_table()
         ))?
         .execute(params![c.name, id])? as u64;
     metrics.edges_removed += db

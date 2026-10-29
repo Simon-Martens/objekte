@@ -44,7 +44,6 @@ impl Fixture {
         let mut o = Options::new(&self.data);
         o.cache = mode;
         // Reconciliation tests inspect ingestion independently of background scheduling.
-        o.validation = objekte_core::ValidationMode::Manual;
         o
     }
 
@@ -78,13 +77,4 @@ pub fn all() -> ViewRequest {
 
 pub fn ids(rows: &[ViewRow]) -> Vec<&str> {
     rows.iter().map(|r| r.id.as_str()).collect()
-}
-
-/// Physical raw-record table; no extracted field columns are stored here.
-pub fn record_sql(collection: &str, sql: &str) -> String {
-    use sha2::{Digest, Sha256};
-    sql.replace(
-        "records",
-        &format!("records_{:x}", Sha256::digest(collection.as_bytes())),
-    )
 }

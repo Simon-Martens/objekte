@@ -1,8 +1,8 @@
 # General JSON filters
 
-Implemented by `objekte-core`, independently of collection schema fields and UI
-filter controls. Configured fields have SQLite expression indexes on raw JSON.
-The same expression works on different collection shapes and standalone JSON values.
+Implemented by `objekte-core` for fields declared by each collection's current
+schema. Configured fields have SQLite expression indexes on raw JSON. An unscoped
+query searches collections whose schemas support the filter.
 
 ## Completion status
 
@@ -42,8 +42,8 @@ millisecond metrics. `--output ndjson` emits one matching record per line.
 `--diagnostics` streams one JSON line per executed SQLite statement to stderr,
 with its SQL text and `duration_ms`, and emits a `type: "diagnostics"` metrics
 line. The library's `JsonQueryResult` still exposes generated SQL for programmatic
-inspection. The flag waits for scheduled background validation before exiting, so
-its SQL is included.
+inspection. The flag itself does not change validation behavior; every JSON query
+waits for pending validation in its scope.
 
 ## Syntax and semantics
 
@@ -109,8 +109,9 @@ Pattern matching and `:lower` fold ASCII letters only: `ALPHA` matches `alpha`, 
 comparisons remain case-sensitive UTF-8 binary comparisons. These rules are identical
 in the direct evaluator and SQL, and LIKE behavior is checked against SQLite itself.
 
-Parseable records remain queryable even if they fail their schema, including fields
-undeclared by the schema. Malformed JSON is retained in the cache with its existing
+Parseable records remain queryable even if they fail their schema, provided the
+requested field is declared. Actual values still receive type-safe comparisons.
+Malformed JSON is retained in the cache with its existing
 diagnostics but does not match a JSON predicate. No metadata filter is added here.
 
 ## Library and execution
@@ -125,8 +126,8 @@ Retained cache rows from removed registrations are excluded.
 
 The existing freshness policy applies. First use checks source manifests; explicit
 refresh or on-request policies observe subsequent edits. Query results are not cached.
-Each result records all scoped collection names and their persistent revisions plus
-the referenced JSON paths. Membership depends on nonmatching records and future
+Each result records all scoped collection names, revisions for searchable collections,
+and the referenced JSON paths. Membership depends on nonmatching records and future
 additions too. Direct execution reports names/paths without persisted revisions.
 The filter hash includes the bound expression and comparison semantics, independently
 of pagination or collection scope; it is not a complete result-cache key.
@@ -138,14 +139,15 @@ expression tree first, then SQL fragments and separate bound parameters. There i
 no Go dependency or embedded user SQL. Comparison values are bound. For expression-index
 matching, configured paths are
 serialized and safely escaped as SQL literals; other paths remain bindings. Only
-known operators and compiler-generated SQL are emitted.
+known operators and compiler-generated SQL are emitted. Repeated path and value
+bindings reuse the same placeholder across collection branches.
 
 SQLite executes grouped predicates, field-to-field comparisons, correlated `EXISTS`
-subqueries, optional count, and pagination over collection-local raw-record tables and `record_validation`.
+subqueries, optional count, and pagination over the shared `records` table.
 Deterministic Rust SQL functions extract JSON values with Sonic, retaining duplicate
 last-member-wins semantics and exact numeric lexemes. There are no persisted field
 columns or per-collection value tables. SQLite expression indexes operate directly
-on each raw-record table’s `json` column, and SQLite maintains them transactionally when records change.
+on the `records.json` column, and SQLite maintains them transactionally when records change.
 
 Index fields still come only from the UI/schema configuration. Physical indexes
 are created only when a requested view or query needs them: this is deterministic
@@ -163,11 +165,11 @@ or scalar-cardinality check. It distinguishes strings, booleans and exact decima
 numbers even when the value violates its schema. Its deterministic collation compares
 numeric lexemes without float conversion. Derived keys exist only in SQLite indexes.
 
-Each collection's raw JSON is stored once in `records_<sha256(collection name)>`.
-Tables are created on collection use. Creating an index never scans another
-collection's raw rows. General queries union scoped identity selections, paginate
-those identities, then fetch each selected payload from its collection's table.
-The query fixes the page/record/health lookup order, and index/primary-key statistics
+Each collection's raw JSON and status are stored once in `records`, keyed by
+`(collection,id)`. Collection-specific partial indexes are created on demand.
+General queries union schema-compatible identity selections, paginate those identities,
+then fetch selected payloads from the shared table.
+The query fixes the page/record lookup order, and index/primary-key statistics
 are collected together so underestimated primary-key cardinality cannot mask a
 selective JSON index.
 
@@ -186,14 +188,15 @@ comparisons, modifiers, wildcard searches, and multi-value `?` comparisons curre
 use the general evaluator; SQLite's planner decides how to combine access paths.
 No additional index or result cache is created from query history.
 
-Scalar cardinality is checked over the whole scope before pagination: indexed fields
-seek a multi-value marker in their index; other scalar paths require a JSON scan.
-This preserves errors outside the returned page and across boolean branches. JSON
+Scalar cardinality is checked before pagination: indexed fields seek a multi-value
+marker, while unindexed concrete-schema paths scan only schema-invalid records.
+Dynamic `any` paths still require a parsed-record scan. This preserves errors outside
+the returned page and across boolean branches. JSON
 query results are assembled from matching IDs before payloads are fetched. A small
 page can therefore still require scanning unindexed paths or collecting all matches.
 Metadata fields, relation traversal, grouping, and query-result caching remain later
-work. Cache format 6 rejects older pre-release caches; use `--fresh-cache` or remove
-the cache directory. External SQLite connections that run integrity checks or modify the cache
+work. Cache format 7 rebuilds format 6 caches from source files. External SQLite
+connections that run integrity checks or modify the cache
 must first call `register_cache_sqlite_functions`; library connections do this
 already. Source files remain authoritative.
 

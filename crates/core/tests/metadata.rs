@@ -245,7 +245,7 @@ fn failed_changes_do_not_publish_a_new_manifest() {
     let before = state(&r);
     f.edit("data/books/a.json", |v| v["score"] = json!(42));
     let db = rusqlite::Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap();
-    db.execute_batch(&record_sql("books", "CREATE TRIGGER fail_update BEFORE UPDATE ON records WHEN NEW.id='a' BEGIN SELECT RAISE(ABORT,'test'); END")).unwrap();
+    db.execute_batch("CREATE TRIGGER fail_update BEFORE UPDATE ON records WHEN NEW.id='a' BEGIN SELECT RAISE(ABORT,'test'); END").unwrap();
     assert!(r.refresh("books").is_err());
     assert_eq!(state(&r), before);
     assert!(

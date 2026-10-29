@@ -462,7 +462,7 @@ impl JsonFilter {
                 if exists {
                     continue;
                 }
-                let table = crate::store::record_table(&c.name);
+                let table = crate::store::record_table();
                 let key = key_expr("", f);
                 let scope = quote(&c.name);
                 let tx = db.unchecked_transaction()?;
@@ -488,8 +488,9 @@ impl JsonFilter {
     /// Check scalar cardinality over the entire scope before pagination or boolean
     /// short circuiting. Indexed paths check the multi-value sentinel by index seek.
     pub(crate) fn check_sql_cardinality(&self, db: &Connection, c: &Collection) -> Result<()> {
-        let table = crate::store::record_table(&c.name);
-        let mut remaining = Vec::new();
+        let table = crate::store::record_table();
+        let mut concrete = Vec::new();
+        let mut dynamic = Vec::new();
         for f in &self.scalar_paths {
             if indexed(c, f) {
                 let JsonPathStep::Key(name) = &f.path[0] else {
@@ -508,11 +509,20 @@ impl JsonFilter {
                     )));
                 }
             } else {
-                remaining.push(f.clone());
+                if self.scalar_path_is_dynamic(c, f) {
+                    dynamic.push(f.clone());
+                } else {
+                    concrete.push(f.clone());
+                }
             }
         }
-        if !remaining.is_empty() {
-            db.query_row(&format!("SELECT count(*) FROM {table} r CROSS JOIN record_validation h USING(collection,id) WHERE r.collection=?1 AND h.parse_status='parsed' AND objekte_check_paths(r.json,r.digest,?2)"), rusqlite::params![c.name,serde_json::to_string(&remaining).unwrap()], |r| r.get::<_,i64>(0))?;
+        for (paths, state) in [
+            (concrete, "r.validation_state='invalid'"),
+            (dynamic, "r.parse_status='parsed'"),
+        ] {
+            if !paths.is_empty() {
+                db.query_row(&format!("SELECT count(*) FROM {table} r WHERE r.collection=?1 AND {state} AND objekte_check_paths(r.json,r.digest,?2)"), rusqlite::params![c.name,serde_json::to_string(&paths).unwrap()], |r| r.get::<_,i64>(0))?;
+            }
         }
         Ok(())
     }

@@ -43,7 +43,7 @@ fn all_musenalm_collections_match_direct_execution() {
         assert_eq!(sql.rows, source.rows, "{name}");
         assert_eq!(sql.total, Some(count));
         assert_eq!(sql.metrics.rows_inserted, count as u64);
-        cached.wait_for_validation().unwrap();
+        cached.validate_collection(name).unwrap();
         let validated = cached.open_view(name, &q).unwrap();
         assert!(
             validated

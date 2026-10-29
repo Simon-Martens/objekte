@@ -204,16 +204,13 @@ fn transaction_failure_rolls_back_rows_and_preserves_dirty_state() {
     let mut r = f.repo(CacheMode::Sqlite);
     r.open_view("books", &all()).unwrap();
     let db = database(&r);
-    db.execute_batch(&record_sql("books", "CREATE TRIGGER reject_b BEFORE UPDATE ON records WHEN NEW.id='b' BEGIN SELECT RAISE(ABORT,'injected failure'); END;")).unwrap();
+    db.execute_batch("CREATE TRIGGER reject_b BEFORE UPDATE ON records WHEN NEW.id='b' BEGIN SELECT RAISE(ABORT,'injected failure'); END;").unwrap();
     f.edit("data/books/a.json", |v| v["score"] = json!(-7));
     f.edit("data/books/b.json", |v| v["score"] = json!(-8));
     assert!(r.refresh("books").is_err());
     let old: Vec<u8> = db
         .query_row(
-            &record_sql(
-                "books",
-                "SELECT json FROM records WHERE collection='books' AND id='a'",
-            ),
+            "SELECT json FROM records WHERE collection='books' AND id='a'",
             [],
             |r| r.get(0),
         )
@@ -446,7 +443,7 @@ fn source_membership_change_during_reconciliation_rolls_back_and_recovers() {
     );
     assert_eq!(
         db.query_row(
-            &record_sql("books", "SELECT count(*) FROM records"),
+            "SELECT count(*) FROM records WHERE collection='books'",
             [],
             |row| { row.get::<_, i64>(0) }
         )
@@ -551,7 +548,7 @@ fn failed_transactions_do_not_report_rolled_back_writes_as_committed() {
     let mut r = f.repo(CacheMode::Sqlite);
     r.open_view("books", &all()).unwrap();
     r.reset_metrics();
-    database(&r).execute_batch(&record_sql("books", "CREATE TRIGGER fail_second BEFORE UPDATE ON records WHEN NEW.id='b' BEGIN SELECT RAISE(ABORT,'failure'); END;")).unwrap();
+    database(&r).execute_batch("CREATE TRIGGER fail_second BEFORE UPDATE ON records WHEN NEW.id='b' BEGIN SELECT RAISE(ABORT,'failure'); END;").unwrap();
     f.edit("data/books/a.json", |v| v["score"] = json!(7));
     f.edit("data/books/b.json", |v| v["score"] = json!(8));
     assert!(r.refresh("books").is_err());

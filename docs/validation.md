@@ -35,23 +35,24 @@ while individual records are still pending or invalid.
    derived fields or references; their ID/path remain visible in unfiltered views.
    Only safe, nonempty reference IDs produce edges. Shape/reference-ID errors become
    diagnostics; target existence is still a separate relationship check.
-4. After commit, a coordinator first selects a page from the partial pending index,
-   then joins its raw snapshots. Validation batches contain at most 1,024 records /
+4. On an explicit validation run or before a JSON query, a coordinator selects cached
+   pending snapshots. Validation batches contain at most 1,024 records /
    8 MiB source bytes (one oversized record alone). The coordinator releases
    the writer and validates on CPU threads / 4 background workers, minimum one.
    It reparses cached bytes, collects all schema/domain errors, and produces valid or
    invalid results. No source reread is necessary. Error pointers address original
    values, so diagnostics do not duplicate large source objects.
-5. Results return to the same shared writer/connection. Small `record_validation`
-   rows keep health updates separate from raw JSON payloads. A transaction updates only
+5. Results return to the same shared writer/connection. Status and issues live on the
+   record row. A transaction updates only
    pending rows whose collection, ID, revision, digest and schema hash match the job.
    Edits, deletions and schema changes cannot receive obsolete results. Validation
-   does not alter source freshness, record revision, query indexes or references.
+   does not alter source freshness, record revision, indexed field values or references.
 6. Publish coalesced collection notifications after commit. A view returns its own
    status snapshot; clients requery visible rows after notifications.
 
-`Options.validation` defaults to `Background`; `Manual` leaves work pending until
-`validate_collection(name)`, or `validate_all()` for every registered collection.
+Views and record reads leave work pending. `query_json` waits for pending work in
+all collections in its scope before evaluating its filter. Explicit
+`validate_collection(name)` and `validate_all()` also wait for completion.
 `wait_for_validation()` waits for queued work, not future requests, and returns
 cumulative validator metrics. `validation_metrics()` is a
 nonblocking snapshot; `poll_validation_updates()` drains collection notifications.
@@ -68,7 +69,7 @@ conditional update allows only one publication. SQLite uses WAL, FULL synchroniz
 and a 64 MiB page-cache budget by default. Counts and budget are caller-configurable.
 
 Closing a handle stops further batches without draining a collection; an active batch
-can finish. Pending rows survive shutdown and resume on the next collection use.
+can finish. Pending rows survive shutdown until the next explicit validation run.
 Malformed JSON needs no schema validation until its bytes change. Source edits reset
 validation; schema changes reset affected parsed records and rederive indexes/edges;
 UI-only changes retain diagnostics. No heuristics or query-result caches are introduced.
@@ -76,22 +77,20 @@ A background DB failure rolls back its batch and is reported by wait/poll. Pendi
 work remains recoverable on a new handle. I/O errors, unstable reads, invalid project
 configuration and DB failures can still fail operations; content errors cannot.
 
-The CLI supports `--validation background|manual|wait`, `--background-workers N`,
-`--ingest-workers N`, and `validate [COLLECTION]`. Omitting the collection validates
+The CLI supports `--background-workers N`, `--ingest-workers N`, and
+`validate [COLLECTION]`. Omitting the collection validates
 all registered collections; specifying it validates only that collection. Both
-reconcile source changes and wait even in manual mode. The existing
+reconcile source changes and wait. The existing
 `cache validate --collection NAME` form remains available. CLI JSON results and
 diagnostics display all metric durations as floating-point milliseconds (`*_ms`).
-Ordinary commands in background mode can exit before validation finishes.
-Wait mode prints completed row statuses. Cache status
-reports per-state counts. Direct execution without SQLite validates inline and returns
-the same record diagnostics/query semantics without persistent work.
+Ordinary read commands do not start validation. Cache status
+reports per-state counts. Explicit validation without SQLite runs inline and creates
+no persistent work.
 
-## Current SQLite schema (cache format 6)
+## Current SQLite schema (cache format 7)
 
-Metadata, validation and edges are shared. Raw-record tables are created lazily per
-collection; the example `records_<hash>` name below means `records_` followed by the
-SHA-256 of the collection name. A payload is stored once, without a shared duplicate.
+All collections share one `records` table keyed by `(collection,id)`. Status and
+diagnostics are stored on the same row as the raw JSON.
 Partial JSON expression indexes are generated from schema/UI options. `json` stores exact raw bytes as a BLOB, including malformed JSON;
 it is deliberately not constrained with `json_valid`. SQLite is not the JSON parser.
 
@@ -112,19 +111,15 @@ CREATE TABLE collections(
   manifest_hash TEXT NOT NULL DEFAULT '', record_count INTEGER NOT NULL DEFAULT 0,
   view_hash TEXT NOT NULL DEFAULT ''
 );
-CREATE TABLE records_<hash>(
+CREATE TABLE records(
   collection TEXT NOT NULL, id TEXT NOT NULL, path TEXT NOT NULL,
   size INTEGER NOT NULL, modified TEXT NOT NULL, identity TEXT NOT NULL,
   digest TEXT NOT NULL, json BLOB NOT NULL, revision INTEGER NOT NULL,
-  PRIMARY KEY(collection,id)
-);
-CREATE TABLE record_validation(
-  collection TEXT NOT NULL, id TEXT NOT NULL,
   parse_status TEXT NOT NULL, validation_state TEXT NOT NULL,
   validation_schema_hash TEXT NOT NULL, issues TEXT NOT NULL,
   PRIMARY KEY(collection,id)
-) WITHOUT ROWID;
-CREATE INDEX validation_pending ON record_validation(collection,id)
+);
+CREATE INDEX validation_pending ON records(collection,id)
   WHERE validation_state='pending';
 CREATE TABLE edges(
   source_collection TEXT NOT NULL, source_id TEXT NOT NULL, location TEXT NOT NULL,
@@ -134,7 +129,7 @@ CREATE TABLE edges(
 CREATE INDEX edge_target ON edges(target_collection,target_id,source_collection,source_id);
 ```
 
-`record_validation` is inserted/reset/deleted atomically with its source row.
+Status is inserted/reset/deleted atomically with its source row.
 `parse_status` is `parsed` or `incorrect_json`; `validation_state` is `pending`,
 `valid`, `invalid`, or `incorrect_json`. `validation_schema_hash` identifies the schema
 requested for this snapshot. `issues` is a JSON array of `{location, schema_path,
@@ -150,7 +145,7 @@ one transaction. Removed registrations remove obsolete manifest entries, while
 collection caches remain disposable and can be reused if registered again.
 
 `collections.schema_hash` advances only when that collection's reconciliation
-commits. `record_validation.validation_schema_hash` identifies the schema for that
+commits. `records.validation_schema_hash` identifies the schema for that
 record's pending or completed validation. An observed schema edit therefore cannot
 make old validation results appear applicable to the new schema: cache status
 reports incompatible configuration until reconciliation resets affected records to
@@ -168,12 +163,11 @@ SQLite stores and transactionally maintains the derived keys. Field permissions
 come from configured filter/default-sort/sortable fields; the requested operation
 determines which physical indexes to build. A covering index is created for compound
 filters/sorts. Unfiltered counts and ID orders use the existing primary key.
-Index-definition version 3 accompanies cache format 6. Statistics for the collection
+Index-definition version 3 accompanies cache format 7. Statistics for the collection
 primary key and new indexes are collected together. Library connections register the
 Rust functions; external integrity checks use `register_cache_sqlite_functions`.
 
 Startup migrations create the shared tables from numbered SQL files and write a
-history row in the same transaction as each schema change. Pre-release caches
-without migration history or with an incompatible format are rejected. Use
-`--fresh-cache` or remove their cache directory. Redundant per-record digest lookups remain a later ingestion optimization. The
+history row in the same transaction as each schema change. Format 6 caches are
+discarded and rebuilt from source files. Unknown cache formats are rejected. Redundant per-record digest lookups remain a later ingestion optimization. The
 per-record typed-table writes have been removed.

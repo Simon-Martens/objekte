@@ -92,6 +92,9 @@ pub(crate) fn register(db: &Connection) -> Result<()> {
 }
 
 fn bind(bindings: &mut Vec<String>, value: String) -> String {
+    if let Some(index) = bindings.iter().position(|bound| bound == &value) {
+        return format!("?{}", index + 1);
+    }
     bindings.push(value);
     format!("?{}", bindings.len())
 }
@@ -207,12 +210,39 @@ impl JsonFilter {
                     if !any && let Some(sql) = indexed_comparison(left, *op, right, c, bindings) {
                         return sql;
                     }
-                    let a = selected(left, true, bindings);
-                    let b = selected(right, true, bindings);
-                    let ak = "json_extract(a.value,'$.kind')";
-                    let av = "json_extract(a.value,'$.value')";
-                    let bk = "json_extract(b.value,'$.kind')";
-                    let bv = "json_extract(b.value,'$.value')";
+                    let (ak, av, bk, bv, from) = match (left, right) {
+                        (Operand::Field(_), Operand::Literal(value)) => {
+                            let a = selected(left, true, bindings);
+                            (
+                                "json_extract(a.value,'$.kind')".into(),
+                                "json_extract(a.value,'$.value')".into(),
+                                format!("'{}'", kind(value)),
+                                bind(bindings, envelope(value)["value"].as_str().unwrap().into()),
+                                format!("json_each({a}) a"),
+                            )
+                        }
+                        (Operand::Literal(value), Operand::Field(_)) => {
+                            let b = selected(right, true, bindings);
+                            (
+                                format!("'{}'", kind(value)),
+                                bind(bindings, envelope(value)["value"].as_str().unwrap().into()),
+                                "json_extract(b.value,'$.kind')".into(),
+                                "json_extract(b.value,'$.value')".into(),
+                                format!("json_each({b}) b"),
+                            )
+                        }
+                        _ => {
+                            let a = selected(left, true, bindings);
+                            let b = selected(right, true, bindings);
+                            (
+                                "json_extract(a.value,'$.kind')".into(),
+                                "json_extract(a.value,'$.value')".into(),
+                                "json_extract(b.value,'$.kind')".into(),
+                                "json_extract(b.value,'$.value')".into(),
+                                format!("json_each({a}) a CROSS JOIN json_each({b}) b"),
+                            )
+                        }
+                    };
                     let equal = format!(
                         "CASE WHEN {ak}<>{bk} OR {ak}='container' THEN 0 WHEN {ak}='number' THEN objekte_decimal_cmp({av},{bv})=0 ELSE {av}={bv} COLLATE BINARY END"
                     );
@@ -241,7 +271,6 @@ impl JsonFilter {
                             )
                         }
                     };
-                    let from = format!("json_each({a}) a CROSS JOIN json_each({b}) b");
                     if !any && (left.each() || right.each()) {
                         format!("COALESCE((SELECT min({predicate}) FROM {from}),0)")
                     } else {

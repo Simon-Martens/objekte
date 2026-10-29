@@ -36,8 +36,7 @@ Options:
   --fresh-cache                   Use a new namespace
   --output table|json|ndjson       Views default to table, other commands to json; timings in ms
   --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
-  --validation background|manual|wait  Validation policy (default: background)
-  --diagnostics                   Emit timed SQL and counters to stderr; await background validation
+  --diagnostics                   Emit timed SQL and counters to stderr
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --help, --version
@@ -91,8 +90,7 @@ pub(super) fn args() -> Result<Args, String> {
             | "--then-sort"
             | "--sqlite-cache-mib"
             | "--ingest-workers"
-            | "--background-workers"
-            | "--validation" => {
+            | "--background-workers" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))

@@ -14,7 +14,7 @@ pub(crate) fn scalar_query_index(c: &Collection, field: &str) -> String {
 pub(crate) fn ordered_view_index(c: &Collection, sorts: &[crate::Sort]) -> Option<String> {
     let prefix = index_prefix(c);
     match sorts {
-        [id] if id.field == "@id" => Some(format!("sqlite_autoindex_{}_1", record_table(&c.name))),
+        [id] if id.field == "@id" => Some(format!("sqlite_autoindex_{}_1", record_table())),
         [field, id] if id.field == "@id" && id.direction == crate::Direction::Asc => {
             let i = c.indexes.iter().position(|f| f.name == field.field)?;
             let direction = if field.direction == crate::Direction::Asc {
@@ -71,7 +71,7 @@ pub(crate) fn create_indexes(
     requested: &[String],
     metrics: &mut Metrics,
 ) -> Result<()> {
-    let table = record_table(&c.name);
+    let table = record_table();
     use crate::json_filter::indexes::{quote, view_expr};
     let prefix = index_prefix(c);
     let scope = format!(" WHERE collection={}", quote(&c.name));
@@ -122,13 +122,13 @@ pub(crate) fn create_indexes(
     Ok(())
 }
 
-pub(crate) fn analyze_indexes(db: &Connection, c: &Collection, requested: &[String]) -> Result<()> {
+pub(crate) fn analyze_indexes(db: &Connection, requested: &[String]) -> Result<()> {
     for name in requested {
         db.execute_batch(&format!("ANALYZE {name}"))?;
     }
     db.execute_batch(&format!(
         "ANALYZE sqlite_autoindex_{}_1",
-        record_table(&c.name)
+        record_table()
     ))?;
     Ok(())
 }
@@ -184,7 +184,7 @@ pub(crate) fn covering_view_index(c: &Collection) -> String {
 
 pub(crate) fn filter_view_index(c: &Collection, filters: &[crate::Filter]) -> String {
     if filters.is_empty() || filters.iter().all(|f| f.field == "@id") {
-        return format!("sqlite_autoindex_{}_1", record_table(&c.name));
+        return format!("sqlite_autoindex_{}_1", record_table());
     }
     if let Some(first) = filters.first()
         && first.field != "@id"

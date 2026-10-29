@@ -243,7 +243,7 @@ Give opening two explicit meanings:
 | --- | --- |
 | `load_repository` | Read configuration and schemas; derive metadata/collection graph |
 | `refresh_configuration` | Compare/persist configuration digests and report affected collections; no source-record reads |
-| `get_record(collection, id)` | Read/parse that file; cache its current bytes and schedule schema validation |
+| `get_record(collection, id)` | Read/parse that file and cache its current bytes and pending status |
 | `open_view(collection)` | On demand, enumerate/read/reconcile/cache the source collection and return its default table |
 
 Calling `open_view` immediately after loading is a normal application opening flow.
@@ -288,8 +288,7 @@ claim an atomic filesystem snapshot or detect every edit invisible to its stamps
 entries, and retain the final whole-inventory stability check. `metadata-on-request`
 and `hash-on-request` repeat their respective policies on every operation.
 `refresh` bypasses session reuse but follows the selected policy. Current cache
-format 6 rejects older pre-release caches; use a fresh namespace or remove the
-cache directory.
+format 7 rebuilds format 6 caches from source files.
 
 Gate: unchanged reopen has one enumeration and zero source reads/DB manifest
 loads; a single changed record causes one hash and targeted updates. Test metadata
@@ -331,7 +330,7 @@ Expose forward/backward relationships and their coverage through CLI inspection.
 
 ### Stage E — Indexed default views and table output (done)
 
-Create SQLite expression indexes from `IndexSpec` over raw JSON in collection-local `records_<sha256(name)>` tables;
+Create SQLite expression indexes from `IndexSpec` over raw JSON in the shared `records` table;
 there are no additional stored field columns or per-collection value tables.
 Fetch record payloads only after choosing the requested page. Sonic-rs
 decodes the requested columns and label from each page record while skipping
@@ -436,7 +435,7 @@ of its old files; files still referenced by another collection remain tracked.
 `refresh_configuration()` exposes this operation independently of source scans;
 `cache refresh-config` is its CLI driver. Normal cache access also performs it.
 `load_repository` and inspection remain metadata-only and do not create a cache.
-Cache format 6 rejects older pre-release databases. The configuration ownership
+Cache format 7 rebuilds format 6 databases. The configuration ownership
 table is part of the current cache schema.
 
 Collection work remains lazy. A new observed manifest followed by a crash, a failed
@@ -467,7 +466,7 @@ authoritative files.
 ## 3. Runtime options and CLI as the test driver
 
 The next JSON-only query increment is implemented in [filters.md](filters.md):
-schema-independent filter parsing, typed SQL predicates, global or scoped source
+schema-aware filter parsing, typed SQL predicates, global or scoped source
 reconciliation, explicit path/collection dependencies, and a direct evaluator with
 matching semantics. The `query` command calls this library API. Query-result caches,
 adaptive index selection, metadata operands, and relation expansion remain deferred.
@@ -490,7 +489,7 @@ Initial options, exposed through the CLI as their stages are implemented:
 | SQLite page cache | `sqlite_cache_mib: Option<u32>`; default `Some(64)`, `None` uses SQLite's default; CLI `--sqlite-cache-mib N\|default` |
 | Ingestion workers | `ingest_workers`, positive count; default CPU threads / 2 (minimum 1); CLI `--ingest-workers N` |
 | Background workers | `background_workers`, positive count; default CPU threads / 4 (minimum 1); CLI `--background-workers N` |
-| Validation | Library `Background` or `Manual`, `validate_all()`/`validate_collection(name)`; CLI `--validation background\|manual\|wait`; explicit `validate [COLLECTION]` (all when omitted); legacy `cache validate --collection NAME` |
+| Validation | Explicit library `validate_all()`/`validate_collection(name)`; CLI `validate [COLLECTION]` waits for completion (all when omitted); legacy `cache validate --collection NAME` |
 | Fresh cache | Use a new cache namespace; never delete the whole application directory |
 | Reconciliation | Default `metadata-on-open`; `metadata-on-request`, strict `hash-on-open`, or `hash-on-request` |
 | Explicit refresh | Reconcile the requested collection now using the selected policy |
@@ -507,7 +506,7 @@ reuse, and timings. `fingerprint_nanos` measures compound manifest hashing insid
 `sync_nanos`; do not add it to the parent timer. UI watchers and scheduling remain
 in [UI.md](UI.md).
 
-Ingestion and background validation are library responsibilities. Fresh collection
+Ingestion and explicit validation are library responsibilities. Fresh collection
 workers perform stable reads, hashing and parsing in batches of at most 256 records
 and normally 8 MiB source bytes (an oversized record runs alone). Ordered results go
 to one shared writer. Partial/existing collections keep incremental preparation.
@@ -516,19 +515,19 @@ or allowed to roll back otherwise readable records. Filesystem instability and D
 failures still abort the transaction. Source freshness (`current`) and record validity
 are independent. WAL and `synchronous=FULL` remain enabled.
 
-After ingestion commits, background workers validate bounded cached snapshots,
+When validation is explicitly requested or a JSON query begins, workers validate bounded cached snapshots,
 collect all schema/domain diagnostics and return results to the same writer. An
 update compares `(collection, id, revision, digest, schema_hash)` and pending status;
-stale results are discarded. Status updates touch compact `record_validation` rows
-separate from raw payloads. Worker queues coalesce collection requests, while
-pending records are durable in SQLite. Shutdown need not drain the collection; the
-next use resumes pending work. The first implementation reparses cached bytes for
+stale results are discarded. Status updates touch the shared `records` row.
+Worker queues coalesce collection requests, while pending records are durable in
+SQLite. Shutdown need not drain a collection; the next explicit validation or JSON
+query resumes pending work. The first implementation reparses cached bytes for
 validation rather than retaining all parsed documents in memory. It never rereads
 source files just to validate them. Separate timers report this extra decode work.
 
 See [validation.md](validation.md) for states, index/reference behavior, exact DB
-schema, API notifications and recovery semantics. Cache format 6 stores raw JSON
-once per collection with lazily constructed expression indexes.
+schema, API notifications and recovery semantics. Cache format 7 stores raw JSON
+and per-record status in one shared table with lazily constructed expression indexes.
 Startup migrations create the shared schema and record completed versions in the
 `migrations` table. Pre-release caches without migration history are rejected; use
 `--fresh-cache` or remove the cache directory. The next ingestion task is to eliminate digest lookups

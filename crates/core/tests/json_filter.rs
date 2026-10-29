@@ -7,6 +7,16 @@ use support::*;
 fn fixture(docs: &[(&str, &str)]) -> Fixture {
     let f = Fixture::new();
     for name in ["books", "people", "spare"] {
+        let schema_path = f.root.join(format!(".editor/{name}/schema.json"));
+        let mut schema: serde_json::Value =
+            serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+        for field in [
+            "x", "name", "start", "end", "tags", "authors", "nested", "a",
+            "a.b", "empty", "nil\0key", "other", "n", "p", "missing",
+        ] {
+            schema["properties"].as_object_mut().unwrap().entry(field).or_insert_with(|| json!({}));
+        }
+        fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
         for entry in fs::read_dir(f.root.join("data").join(name)).unwrap() {
             fs::remove_file(entry.unwrap().path()).unwrap();
         }
@@ -167,7 +177,7 @@ fn ambiguous_scalar_paths_error_even_outside_the_page_or_boolean_branch() {
         let mut r = f.repo(mode);
         for text in [
             "tags='poet'",
-            "exists(nope) && tags='poet'",
+            "exists(missing) && tags='poet'",
             "exists(tags) || tags='poet'",
         ] {
             let mut q = request(text);
@@ -321,10 +331,7 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     let db = rusqlite::Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap();
     assert_eq!(
         db.query_row(
-            &record_sql(
-                "spare",
-                "SELECT count(*) FROM records WHERE collection='spare'"
-            ),
+            "SELECT count(*) FROM records WHERE collection='spare'",
             [],
             |r| r.get::<_, i64>(0)
         )

@@ -51,7 +51,7 @@ fn fixture() -> Fixture {
 }
 
 #[test]
-fn collection_tables_and_view_indexes_are_lazy_and_reused_without_rescanning() {
+fn shared_records_and_view_indexes_are_reused_without_rescanning() {
     use objekte_core::{Direction, Sort, ViewRequest};
     let f = Fixture::new();
     let mut cached = f.repo(CacheMode::Sqlite);
@@ -60,13 +60,13 @@ fn collection_tables_and_view_indexes_are_lazy_and_reused_without_rescanning() {
     assert_eq!(first.metrics.index_rows_written, 7);
     let db = database(&cached);
     let tables: Vec<String> = db
-        .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name GLOB 'records_*'")
+        .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='records'")
         .unwrap()
         .query_map([], |r| r.get(0))
         .unwrap()
         .collect::<Result<_, _>>()
         .unwrap();
-    assert_eq!(tables, [record_sql("books", "records")]);
+    assert_eq!(tables, ["records"]);
     let default_indexes: i64 = db
         .query_row(
             "SELECT count(*) FROM sqlite_master WHERE type='index' AND name GLOB 'j_*'",
@@ -103,7 +103,8 @@ fn collection_tables_and_view_indexes_are_lazy_and_reused_without_rescanning() {
         .collect::<Result<_, _>>()
         .unwrap();
     for (index, table) in attached {
-        assert_eq!(index[2..66], table[8..]);
+        assert_eq!(table, "records");
+        assert!(index.starts_with("j_"));
     }
     drop(db);
     drop(cached);
@@ -123,7 +124,7 @@ fn format_five_cache_is_rejected_without_changing_sources() {
     cached.open_view("books", &all()).unwrap();
     let source = fs::read(f.root.join("data/books/a.json")).unwrap();
     let db = database(&cached);
-    db.execute_batch("CREATE TABLE records(collection TEXT,id TEXT,json BLOB); INSERT INTO records VALUES('obsolete','old','{}'); UPDATE meta SET value='5' WHERE key='format';").unwrap();
+    db.execute_batch("CREATE TABLE obsolete(collection TEXT,id TEXT,json BLOB); INSERT INTO obsolete VALUES('obsolete','old','{}'); UPDATE meta SET value='5' WHERE key='format';").unwrap();
     drop(db);
     drop(cached);
     let mut cached = f.repo(CacheMode::Sqlite);
@@ -281,7 +282,7 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
         .unwrap();
     assert!(!tables.iter().any(|t| t.starts_with("v_")), "{tables:?}");
     let columns = db
-        .prepare(&record_sql("books", "PRAGMA table_xinfo(records)"))
+        .prepare("PRAGMA table_xinfo(records)")
         .unwrap()
         .query_map([], |r| r.get::<_, String>(1))
         .unwrap()
@@ -298,7 +299,11 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
             "identity",
             "digest",
             "json",
-            "revision"
+            "revision",
+            "parse_status",
+            "validation_state",
+            "validation_schema_hash",
+            "issues"
         ]
     );
     let definitions = db
@@ -313,7 +318,7 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
             .iter()
             .any(|sql| sql.contains("objekte_json_key(json,"))
     );
-    assert!(definitions.iter().all(|sql| sql.contains("ON records_")));
+    assert!(definitions.iter().all(|sql| sql.contains("ON records")));
     assert_eq!(
         db.query_row("PRAGMA integrity_check", [], |r| r.get::<_, String>(0))
             .unwrap(),
@@ -322,8 +327,6 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
     let mut direct = f.repo(CacheMode::Disabled);
     for expression in [
         "score=1800",
-        "score='1800'",
-        "score=true",
         "score=null",
         "score!=1800",
         "score>9007199254740992",
@@ -333,7 +336,6 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
         "1800 <= score",
         "score=1800 || title='beta'",
         "score=1800 && title ~ 'alp%'",
-        "score<true",
         "score ?= 1802",
         "score:each >= 1800",
         "score ?!= 1800",
@@ -346,7 +348,7 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
     }
     assert_eq!(ids(&mut r, "score = 9007199254740993"), ["f"]);
     assert_eq!(ids(&mut r, "score=1800"), ["a"]);
-    assert_eq!(ids(&mut r, "score='1800'"), ["b"]);
+    assert!(r.query_json(&query("score='1800'")).is_err());
     // Scalar ambiguity must still be detected even in records an index would skip.
     f.write("data/books/z.json", &json!({"score":[1,2]}));
     r.refresh("books").unwrap();
@@ -373,7 +375,7 @@ fn expression_indexes_follow_edits_deletes_restarts_and_reconfiguration() {
     assert_eq!(delta.rows_inserted, 1);
     assert_eq!(delta.rows_deleted, 1);
     assert_eq!(ids(&mut r, "score=1800"), ["new"]);
-    assert_eq!(ids(&mut r, "score='1800'"), ["a", "b"]);
+    assert!(r.query_json(&query("score='1800'")).is_err());
     drop(r);
     let mut r = f.repo(CacheMode::Sqlite);
     assert_eq!(ids(&mut r, "score=1800"), ["new"]);
@@ -464,7 +466,7 @@ fn compound_views_read_covering_index_keys_without_json_functions() {
         "SELECT id, objekte_view_value(json,id,'[\"score\",\"number\"]') FROM records INDEXED BY {name} WHERE collection='books' ORDER BY objekte_view_state(json,id,'[\"score\",\"number\"]'),objekte_view_value(json,id,'[\"score\",\"number\"]'),objekte_view_state(json,id,'[\"title\",\"string\"]'),objekte_view_value(json,id,'[\"title\",\"string\"]') DESC,id LIMIT 50"
     );
     let ids = db
-        .prepare(&record_sql("books", &sql))
+        .prepare(&sql)
         .unwrap()
         .query_map([], |r| r.get::<_, String>(0))
         .unwrap()
@@ -502,10 +504,7 @@ fn configured_quoted_paths_and_comparison_values_remain_sql_data() {
     assert_eq!(
         database(&r)
             .query_row(
-                &record_sql(
-                    "books",
-                    "SELECT count(*) FROM records WHERE collection='books'"
-                ),
+                "SELECT count(*) FROM records WHERE collection='books'",
                 [],
                 |r| r.get::<_, i64>(0)
             )

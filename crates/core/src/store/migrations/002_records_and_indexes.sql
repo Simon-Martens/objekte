@@ -10,15 +10,22 @@ CREATE TABLE IF NOT EXISTS collections (
     view_hash TEXT NOT NULL DEFAULT ''
 );
 
-CREATE TABLE IF NOT EXISTS record_validation (
+CREATE TABLE IF NOT EXISTS records (
     collection TEXT NOT NULL,
     id TEXT NOT NULL,
+    path TEXT NOT NULL,
+    size INTEGER NOT NULL,
+    modified TEXT NOT NULL,
+    identity TEXT NOT NULL,
+    digest TEXT NOT NULL,
+    json BLOB NOT NULL,
+    revision INTEGER NOT NULL,
     parse_status TEXT NOT NULL,
     validation_state TEXT NOT NULL,
     validation_schema_hash TEXT NOT NULL,
     issues TEXT NOT NULL,
     PRIMARY KEY (collection, id)
-) WITHOUT ROWID;
+);
 
 CREATE TABLE IF NOT EXISTS edges (
     source_collection TEXT NOT NULL,
@@ -30,7 +37,7 @@ CREATE TABLE IF NOT EXISTS edges (
 );
 
 CREATE INDEX IF NOT EXISTS validation_pending
-    ON record_validation (collection, id)
+    ON records (collection, id)
     WHERE validation_state = 'pending';
 
 CREATE INDEX IF NOT EXISTS edge_target

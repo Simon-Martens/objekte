@@ -9,9 +9,9 @@ impl Repository {
         self.reload()?;
         let c = self.collection(collection)?;
         let plan = Plan::compile(&c, request)?;
-        let table = store::record_table(&c.name);
+        let table = store::record_table();
         let mut result = if self.options.cache == CacheMode::Disabled {
-            self.direct(&c, Some(&plan))?.unwrap()
+            self.direct(&c, Some(&plan), false)?.unwrap()
         } else {
             let writer = self.store()?;
             let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
@@ -37,7 +37,7 @@ impl Repository {
             let index = store::page_view_index(&c, &plan);
             let access = format!(" INDEXED BY {index}");
             let sql = format!(
-                "WITH page AS MATERIALIZED (SELECT v.id{keys} FROM {table} v{access}{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,h.validation_state,h.issues FROM page p CROSS JOIN {table} r ON r.id=p.id AND r.collection=? CROSS JOIN record_validation h ON h.collection=r.collection AND h.id=r.id ORDER BY {page_order}"
+                "WITH page AS MATERIALIZED (SELECT v.id{keys} FROM {table} v{access}{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,r.validation_state,r.issues FROM page p CROSS JOIN {table} r ON r.id=p.id AND r.collection=? ORDER BY {page_order}"
             );
             values.push((plan.limit as i64).into());
             values.push((plan.offset as i64).into());
@@ -95,7 +95,6 @@ impl Repository {
                 view_hashes: plan.hashes.clone(),
             }
         };
-        self.schedule_validation(&c)?;
         result.metrics = self.metrics.since(&before);
         Ok(result)
     }
@@ -104,6 +103,7 @@ impl Repository {
         &mut self,
         c: &Collection,
         plan: Option<&Plan>,
+        validate: bool,
     ) -> Result<Option<ViewResult>> {
         self.memory_coverage.insert(c.name.clone(), "dirty".into());
         let (source, files) = self.inventory(c)?;
@@ -113,7 +113,7 @@ impl Repository {
         let mut edges = BTreeMap::new();
         for id in files.keys() {
             let raw = self.raw_from(&source, id, files.get(id))?;
-            let data = self.parse(c, id, &raw.json, true);
+            let data = self.parse(c, id, &raw.json, validate);
             edges.insert((c.name.clone(), id.clone()), self.extract(c, id, &data)?);
             if let Some(plan) = plan {
                 let t = Instant::now();

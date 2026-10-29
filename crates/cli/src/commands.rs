@@ -5,22 +5,14 @@ use crate::{
     output::{metrics_in_milliseconds, print_view},
 };
 use objekte_core::{
-    CacheMode, Direction, Freshness, JsonQuery, Options, Repository, Sort, ValidationMode,
-    ViewRequest,
+    CacheMode, Direction, Freshness, JsonQuery, Options, Repository, Sort, ViewRequest,
 };
 use serde_json::json;
 use std::{
     io::Write,
     path::PathBuf,
-    time::{Instant, SystemTime, UNIX_EPOCH},
+    time::{SystemTime, UNIX_EPOCH},
 };
-
-fn wait_for_validation(repo: &Repository, elapsed_nanos: &mut u128) -> objekte_core::Result<()> {
-    let start = Instant::now();
-    repo.wait_for_validation()?;
-    *elapsed_nanos += start.elapsed().as_nanos();
-    Ok(())
-}
 
 pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let a = args()?;
@@ -71,7 +63,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "--sqlite-cache-mib",
         "--ingest-workers",
         "--background-workers",
-        "--validation",
         "--reconcile",
         "--namespace",
         "--output",
@@ -152,12 +143,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             .parse()
             .map_err(|_| "--background-workers requires a positive integer")?;
     }
-    let validation = get("--validation", "background");
-    options.validation = match validation.as_str() {
-        "background" | "wait" => ValidationMode::Background,
-        "manual" => ValidationMode::Manual,
-        _ => return Err("--validation requires background, manual, or wait".into()),
-    };
     options.namespace = get("--namespace", "default");
     options.sql_diagnostics = a.flags.contains("--diagnostics");
     if a.flags.contains("--fresh-cache") {
@@ -201,10 +186,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 count: a.flags.contains("--count"),
             };
             let mut result = repo.query_json(&request)?;
-            if validation == "wait" {
-                wait_for_validation(&repo, &mut validation_wait_nanos)?;
-                result = repo.query_json(&request)?;
-            }
             if output == "ndjson" {
                 for record in &result.records {
                     println!("{}", serde_json::to_string(record)?);
@@ -229,11 +210,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             Some(metrics_in_milliseconds(serde_json::to_value(result)?))
         }
         "get" => {
-            let mut record = repo.get_record(&a.pos[2], &a.pos[3])?;
-            if validation == "wait" {
-                wait_for_validation(&repo, &mut validation_wait_nanos)?;
-                record = repo.get_record(&a.pos[2], &a.pos[3])?;
-            }
+            let record = repo.get_record(&a.pos[2], &a.pos[3])?;
             Some(serde_json::to_value(record)?)
         }
         "view" => {
@@ -289,10 +266,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 count: a.flags.contains("--count"),
             };
             let mut view = repo.open_view(&a.pos[2], &request)?;
-            if validation == "wait" {
-                wait_for_validation(&repo, &mut validation_wait_nanos)?;
-                view = repo.open_view(&a.pos[2], &request)?;
-            }
             view.metrics = repo.metrics().clone();
             view_hashes = Some(view.view_hashes.clone());
             print_view(&view, &output)?;
@@ -352,11 +325,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         _ => unreachable!(),
     };
-    if validation == "wait" || (a.flags.contains("--diagnostics") && validation == "background") {
-        // INFO: Finish background validation while tracing is active so every
-        // SQLite statement from this CLI invocation reaches diagnostics.
-        wait_for_validation(&repo, &mut validation_wait_nanos)?;
-    }
     if let Some(value) = value {
         println!("{}", serde_json::to_string_pretty(&value)?)
     }
@@ -364,7 +332,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         writeln!(
             std::io::stderr().lock(),
             "{}",
-            json!({"type":"diagnostics","metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":validation_wait_nanos as f64 / 1_000_000.0,"view_hashes":view_hashes})
+            json!({"type":"diagnostics","metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":(validation_wait_nanos + repo.metrics().validation_wait_nanos as u128) as f64 / 1_000_000.0,"view_hashes":view_hashes})
         )?
     }
     Ok(())

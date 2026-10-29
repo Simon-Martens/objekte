@@ -1,4 +1,4 @@
-use objekte_core::{CacheMode, JsonQuery, Options, Repository, ValidationMode};
+use objekte_core::{CacheMode, JsonQuery, Options, Repository};
 use std::{path::PathBuf, time::Instant};
 
 #[test]
@@ -8,7 +8,6 @@ fn global_filters_match_source_execution_on_musenalm() {
     let tmp = tempfile::tempdir().unwrap();
     let mut options = Options::new(tmp.path());
     options.ingest_workers = 4;
-    options.validation = ValidationMode::Manual;
     let mut sql = Repository::load_repository(&root, options.clone()).unwrap();
     options.cache = CacheMode::Disabled;
     let mut direct = Repository::load_repository(&root, options).unwrap();
