@@ -2,7 +2,7 @@
 
 The source JSON files define the repository. `Repository::load_repository` loads configuration without scanning collections. `Options::new` selects `CacheMode::Memory`. Views and default JSON filters share a lazily built in-memory picker. `CacheMode::Segments` opts into persistent segment-backed views; `CacheMode::Disabled` executes views directly against source files.
 
-The code follows those boundaries: `file_picker/` owns inventory, bigram planning, typed postings, and ordered view keys; `json_filter/` owns syntax and evaluation; `repository/json_query.rs` and `repository/views.rs` execute requests. `repository/segment_cache.rs` owns snapshot reads and storage helpers, while `repository/segment_cache/sync.rs` reconciles and publishes updates. Unit tests live in separate `.test.rs` files; end-to-end tests live under `crates/core/tests/` and `crates/cli/tests/`.
+The code follows those boundaries: `file_picker/` owns inventory, bigram planning, typed postings, and ordered view keys; `json_filter/` owns syntax and evaluation; `repository/json_query.rs` handles the query API, with memory, segment, and source execution in `repository/json_query/`; `repository/views.rs` executes views. `repository/segment_cache.rs` owns snapshot reads and storage helpers, while `repository/segment_cache/sync.rs` reconciles and publishes updates. Unit tests live in separate `.test.rs` files; end-to-end tests live under `crates/core/tests/` and `crates/cli/tests/`.
 
 ## In-memory picker
 

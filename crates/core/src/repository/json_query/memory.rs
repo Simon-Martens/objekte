@@ -1,0 +1,200 @@
+//! In-memory bigram and typed-index JSON query execution.
+
+use super::*;
+use grep_searcher::SearcherBuilder;
+
+
+impl Repository {
+    /// Keep the picker available for memory queries, views, and reconciliation.
+    pub(in crate::repository) fn ensure_picker(&mut self, c: &Collection) -> Result<()> {
+        let rebuild = !self.file_pickers.contains_key(&c.name)
+            || matches!(self.options.freshness, Freshness::HashOnRequest);
+        if rebuild {
+            let started = Instant::now();
+            self.file_pickers.insert(
+                c.name.clone(),
+                crate::file_picker::FilePicker::open_with_indexes(&c.path, &c.indexes, &c.fields)?,
+            );
+            self.metrics.bigram_open_nanos += nanos(started);
+        } else if self.options.freshness == Freshness::MetadataOnRequest {
+            let started = Instant::now();
+            self.file_pickers
+                .get_mut(&c.name)
+                .expect("picker exists")
+                .refresh()?;
+            self.metrics.bigram_refresh_nanos += nanos(started);
+        }
+        Ok(())
+    }
+
+    pub(super) fn query_json_bigram(
+        &mut self,
+        request: &JsonQuery,
+        filter: &JsonFilter,
+        collections: &[Collection],
+        result: &mut QueryOutput<'_>,
+    ) -> Result<()> {
+        let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
+        let source_pattern = filter.source_prefilter()?;
+        let cardinality_risk = filter.needs_global_cardinality_check(collections);
+        let scalar_fields = filter.top_level_scalar_fields();
+        result.query_plan =
+            vec!["FFF values bigram candidates; source regex scan; Sonic verification".into()];
+        let mut matched = 0;
+        for c in collections {
+            self.ensure_picker(c)?;
+            let candidate_started = Instant::now();
+            let picker = self.file_pickers.get(&c.name).unwrap();
+            let array_risk = scalar_fields
+                .iter()
+                .any(|field| picker.has_array_value(field));
+            let risk = cardinality_risk || array_risk;
+            // A later collection can contain an invalid array in a scalar field,
+            // so build its picker and check that risk even when the page is full.
+            if !request.count && !risk && result.returned() == request.limit {
+                continue;
+            }
+            let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
+            let entries = picker.candidate_records(
+                (!risk).then_some(values_pattern.as_deref()).flatten(),
+                typed_plan.as_ref(),
+            );
+            self.metrics.bigram_candidates_nanos += nanos(candidate_started);
+            let prefilter = if risk { None } else { source_pattern.as_ref() };
+            let source = Source::open(&c.path)?;
+            // Collected counted queries keep the original full parallel scan.
+            // Streaming queries use bounded batches so rows can be emitted
+            // while later candidates are still being checked.
+            let batch_size = if (request.count || risk) && !result.streaming {
+                entries.len().max(1)
+            } else {
+                rayon::current_num_threads()
+                    .saturating_mul(8)
+                    .clamp(64, 512)
+            };
+            for batch in entries.chunks(batch_size) {
+                let mut page_matches = Vec::new();
+                let scan_started = Instant::now();
+                let outcomes = batch
+                    .par_iter()
+                    .map_init(
+                        || {
+                            (
+                                SearcherBuilder::new()
+                                    .line_number(false)
+                                    .bom_sniffing(false)
+                                    .build(),
+                                Vec::with_capacity(4096),
+                            )
+                        },
+                        |(searcher, bytes), (id, stamp)| -> Result<ScanOutcome> {
+                            let open_started = Instant::now();
+                            let path = source.path.join(format!("{id}.json"));
+                            let mut file = source.file(id)?;
+                            let before = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if &before != *stamp {
+                                return Err(Error::Unstable(path));
+                            }
+                            let file_open_nanos = nanos(open_started);
+                            let read_started = Instant::now();
+                            bytes.clear();
+                            file.read_to_end(bytes).map_err(|e| io(&path, e))?;
+                            let read_nanos = nanos(read_started);
+                            let (candidate, regex_nanos) = if let Some((matcher, _)) = prefilter {
+                                let regex_started = Instant::now();
+                                let mut sink = FirstMatch::default();
+                                searcher
+                                    .search_slice(matcher, bytes, &mut sink)
+                                    .map_err(|e| io(&path, e))?;
+                                (sink.0, nanos(regex_started))
+                            } else {
+                                (true, 0)
+                            };
+                            let mut outcome = ScanOutcome {
+                                candidate,
+                                file_open_nanos,
+                                read_nanos,
+                                regex_nanos,
+                                ..Default::default()
+                            };
+                            if candidate {
+                                outcome.source_bytes = bytes.len() as u64;
+                                let t = Instant::now();
+                                let doc = Document::parse(bytes);
+                                outcome.parse_nanos = nanos(t);
+                                if doc.state.status != RecordStatus::IncorrectJson {
+                                    let t = Instant::now();
+                                    outcome.matches = filter.matches(&doc.data)?;
+                                    outcome.query_nanos = nanos(t);
+                                }
+                            }
+                            let after = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if before != after || bytes.len() as u64 != after.size {
+                                return Err(Error::Unstable(path));
+                            }
+                            Ok(outcome)
+                        },
+                    )
+                    .collect::<Result<Vec<_>>>()?;
+                self.metrics.grep_scans += batch.len() as u64;
+                self.metrics.grep_bytes += batch.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
+                self.metrics.grep_nanos += nanos(scan_started);
+                for ((id, stamp), outcome) in batch.iter().zip(outcomes) {
+                    self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
+                    self.metrics.bigram_read_nanos += outcome.read_nanos;
+                    self.metrics.bigram_regex_nanos += outcome.regex_nanos;
+                    if outcome.candidate {
+                        self.metrics.grep_candidates += 1;
+                        self.metrics.source_reads += 1;
+                        self.metrics.source_bytes += outcome.source_bytes;
+                        self.metrics.parses += 1;
+                        self.metrics.parse_nanos += outcome.parse_nanos;
+                        self.metrics.json_decode_nanos += outcome.parse_nanos;
+                        self.metrics.query_nanos += outcome.query_nanos;
+                    }
+                    if outcome.matches {
+                        if matched >= request.offset
+                            && result.returned() + page_matches.len() < request.limit
+                        {
+                            page_matches.push(((*id).to_owned(), (*stamp).clone()));
+                        }
+                        matched += 1;
+                    }
+                }
+                let materialize_started = Instant::now();
+                for (id, stamp) in page_matches {
+                    let raw = Self::read_raw(&mut self.metrics, &source, &id, Some(&stamp))?;
+                    let doc = Self::parse_value(&mut self.metrics, c, &id, &raw.json, true);
+                    if doc.state.status == RecordStatus::IncorrectJson
+                        || !filter.matches(&doc.data)?
+                    {
+                        return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                    }
+                    result.push(Record {
+                        collection: c.name.clone(),
+                        id: id.clone(),
+                        path: self.path(c, &id),
+                        hash: raw.hash,
+                        data: doc.data,
+                        state: doc.state,
+                        raw: None,
+                    })?;
+                }
+                self.metrics.bigram_materialize_nanos += nanos(materialize_started);
+                if !request.count && !risk && result.returned() == request.limit {
+                    break;
+                }
+            }
+            drop(entries);
+            source.finish()?;
+        }
+        result.total = request.count.then_some(matched);
+        Ok(())
+    }
+}
