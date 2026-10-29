@@ -76,10 +76,13 @@ shared SQLite writer stores records and reference occurrences; SQLite maintains
 JSON expression indexes. Schema validation uses a separate pool of `CPU threads / 4`
 workers (minimum one); results return to that same writer. Both counts are configurable with `--ingest-workers`
 and `--background-workers`. Existing cache updates retain their incremental path.
-Bulk index construction also uses a temporary cache of extracted keys with a
-128 MiB retained-key budget, released when the build finishes. Compound views read
-keys from a covering JSON expression index. Additional scalar query indexes are
-built lazily when first needed. SQLite uses WAL, `synchronous=FULL`,
+Raw JSON is stored once, in a separate table for each opened collection. Indexes
+are built for the requested view/order/filter, not every permitted sort at startup.
+Fresh ingestion shares one record's extracted keys across index writes. Building a
+new index over existing records uses a temporary key cache with a 128 MiB budget,
+released on success or failure. Compound views use a covering JSON expression index;
+general scalar queries also build their indexes on first use. First use of a different
+sort/filter can therefore include index construction; later requests reuse it. SQLite uses WAL, `synchronous=FULL`,
 and a 64 MiB page-cache budget by default.
 `--sqlite-cache-mib N|default` overrides it; this is not a total process-memory limit.
 
@@ -156,7 +159,7 @@ and their combination. These fingerprints do not store query results or create
 additional SQL compound indexes. Schema/mapping, typed indexes, source manifests,
 and view settings have separate fingerprints.
 
-Cache format 5 rebuilds older disposable databases once and removes the old per-collection field tables. The initial build still
+Cache format 6 rebuilds older disposable databases once, replacing the shared raw-record table with collection-local raw-record tables. No extracted field columns are stored. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
 opens. `--diagnostics` logs the policy, view fingerprints, integer counters, and
 floating-point millisecond timings (`*_ms`) to stderr. All CLI JSON metrics also
@@ -210,3 +213,5 @@ retain the earlier engine experiments. The replaced NDJSON implementation now li
 only in `crates/bench/src/legacy_cache.rs`. Other older example repositories still
 use richer schema/UI profiles and need migration before the new strict loader can
 accept them.
+
+The [cold-index benchmark audit](crates/bench/INDEX-COLD-BUILD-FIX-2026-10-29.md) compares cold construction, first-use index costs, warm queries, and reopening against the former column-based cache.

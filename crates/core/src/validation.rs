@@ -270,7 +270,8 @@ fn batch(
     let t = Instant::now();
     let jobs = {
         let s = writer.enter_existing(budget)?;
-        let mut stmt = s.db.prepare("WITH pending AS MATERIALIZED (SELECT collection,id FROM record_validation WHERE collection=?1 AND validation_state='pending' AND validation_schema_hash=?2 ORDER BY id LIMIT 1024) SELECT r.id,r.revision,r.digest,r.json FROM pending v JOIN records r ON r.collection=v.collection AND r.id=v.id ORDER BY v.id")?;
+        let table = crate::store::record_table(&c.name);
+        let mut stmt = s.db.prepare(&format!("WITH pending AS MATERIALIZED (SELECT collection,id FROM record_validation WHERE collection=?1 AND validation_state='pending' AND validation_schema_hash=?2 ORDER BY id LIMIT 1024) SELECT r.id,r.revision,r.digest,r.json FROM pending v CROSS JOIN {table} r ON r.collection=v.collection AND r.id=v.id ORDER BY v.id"))?;
         let mut rows = stmt.query(params![c.name, c.schema_hash])?;
         let mut jobs = Vec::new();
         let mut size = 0;
@@ -345,7 +346,8 @@ fn apply(
     schema: &str,
     state: &RecordState,
 ) -> Result<usize> {
-    Ok(db.prepare_cached("UPDATE record_validation SET validation_state=?6,issues=?7 WHERE collection=?1 AND id=?2 AND validation_schema_hash=?5 AND validation_state='pending' AND EXISTS(SELECT 1 FROM records r WHERE r.collection=?1 AND r.id=?2 AND r.revision=?3 AND r.digest=?4)")?.execute(params![collection, job.id, job.revision, job.digest, schema, state.status.text(), serde_json::to_string(&state.issues).unwrap()])?)
+    let table = crate::store::record_table(collection);
+    Ok(db.prepare_cached(&format!("UPDATE record_validation SET validation_state=?6,issues=?7 WHERE collection=?1 AND id=?2 AND validation_schema_hash=?5 AND validation_state='pending' AND EXISTS(SELECT 1 FROM {table} r WHERE r.collection=?1 AND r.id=?2 AND r.revision=?3 AND r.digest=?4)"))?.execute(params![collection, job.id, job.revision, job.digest, schema, state.status.text(), serde_json::to_string(&state.issues).unwrap()])?)
 }
 
 #[cfg(test)]
@@ -354,10 +356,11 @@ mod tests {
     #[test]
     fn stale_results_cannot_overwrite_edits_schema_changes_deletes_or_recreations() {
         let db = rusqlite::Connection::open_in_memory().unwrap();
-        db.execute_batch("CREATE TABLE records(collection TEXT,id TEXT,revision INTEGER,digest TEXT);
+        let table = crate::store::record_table("books");
+        db.execute_batch(&format!("CREATE TABLE {table}(collection TEXT,id TEXT,revision INTEGER,digest TEXT);
             CREATE TABLE record_validation(collection TEXT,id TEXT,validation_schema_hash TEXT,validation_state TEXT,issues TEXT);
-            INSERT INTO records VALUES('books','a',2,'new');
-            INSERT INTO record_validation VALUES('books','a','schema2','pending','[]');").unwrap();
+            INSERT INTO {table} VALUES('books','a',2,'new');
+            INSERT INTO record_validation VALUES('books','a','schema2','pending','[]');")).unwrap();
         let result = RecordState {
             status: RecordStatus::Valid,
             issues: vec![],
@@ -383,10 +386,10 @@ mod tests {
         };
         assert_eq!(apply(&db, "books", &job, "schema2", &result).unwrap(), 1);
         assert_eq!(apply(&db, "books", &job, "schema2", &result).unwrap(), 0);
-        db.execute("DELETE FROM records", []).unwrap();
+        db.execute(&format!("DELETE FROM {table}"), []).unwrap();
         assert_eq!(apply(&db, "books", &job, "schema2", &result).unwrap(), 0);
         db.execute_batch(
-            "INSERT INTO records VALUES('books','a',1,'recreated'); UPDATE record_validation SET validation_state='pending'",
+            &format!("INSERT INTO {table} VALUES('books','a',1,'recreated'); UPDATE record_validation SET validation_state='pending'"),
         )
         .unwrap();
         assert_eq!(apply(&db, "books", &job, "schema2", &result).unwrap(), 0);

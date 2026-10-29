@@ -127,31 +127,43 @@ serialized and safely escaped as SQL literals; other paths remain bindings. Only
 known operators and compiler-generated SQL are emitted.
 
 SQLite executes grouped predicates, field-to-field comparisons, correlated `EXISTS`
-subqueries, optional count, and pagination over `records`/`record_validation`.
+subqueries, optional count, and pagination over collection-local raw-record tables and `record_validation`.
 Deterministic Rust SQL functions extract JSON values with Sonic, retaining duplicate
 last-member-wins semantics and exact numeric lexemes. There are no persisted field
 columns or per-collection value tables. SQLite expression indexes operate directly
-on `records.json`, and SQLite maintains them transactionally when records change.
+on each raw-record table’s `json` column, and SQLite maintains them transactionally when records change.
 
-Index fields still come only from the UI/schema configuration. A view or query that
-needs them builds the configured set lazily, with statistics collected using ANALYZE.
-Unfiltered views with an exact ordering index select it explicitly. Compound views
-and filters use a covering expression index containing ID and all configured view
-keys; they can sort/filter keys without decoding full records. Count queries use a
-matching field index when all predicates reference one field, otherwise the covering
-index. These choices are deterministic, not based on query history.
-Each configured scalar field has expression indexes for schema-aware view ordering
-(ascending/descending, null/missing/invalid states). Its additional actual-JSON scalar
-key index is built only when a general query first needs it for a comparison or
-scalar-cardinality check. It is then maintained and reused across restarts. The latter indexes strings, booleans and exact decimal
-numbers separately, even when a value violates its schema. A custom deterministic
-collation compares numeric lexemes without float conversion. These indexes have
-different semantics; they all store derived keys only inside SQLite's indexes.
-During a bulk build, ingestion seeds a temporary cache of extracted keys, keyed by
-content digest. Its retained-key budget is 128 MiB, separate from SQLite's page
-cache, with ordinary extraction as a correctness-preserving fallback when full.
-It is released after the build, including on failure. Incremental writes reuse one
-already-parsed document. This is not a persistent projection or query-result cache.
+Index fields still come only from the UI/schema configuration. Physical indexes
+are created only when a requested view or query needs them: this is deterministic
+lazy construction, with no frequency heuristic. An exact unfiltered order needs its
+ascending or descending field index. Compound views and filters use a covering index
+containing ID and all configured view keys. Counts use a matching field index, the
+covering index for multiple fields, or the existing primary key when unfiltered.
+All permitted sorts remain supported. Indexes survive restart and SQLite maintains
+them on edits. Requesting an unused sort/filter can include a one-time construction
+cost; diagnostics report that cost, separately from warm query execution.
+
+View indexes encode schema-aware values and null/missing/invalid states. A general
+query separately creates the actual-JSON scalar key index when needed for a comparison
+or scalar-cardinality check. It distinguishes strings, booleans and exact decimal
+numbers even when the value violates its schema. Its deterministic collation compares
+numeric lexemes without float conversion. Derived keys exist only in SQLite indexes.
+
+Each collection's raw JSON is stored once in `records_<sha256(collection name)>`.
+Tables are created on collection use. Creating an index never scans another
+collection's raw rows. General queries union scoped identity selections, paginate
+those identities, then fetch each selected payload from its collection's table.
+The query fixes the page/record/health lookup order, and index/primary-key statistics
+are collected together so underestimated primary-key cardinality cannot mask a
+selective JSON index.
+
+Fresh ingestion creates only the required empty indexes and shares one parsed
+record's keys across writes. Later builds extract only their required fields while
+validating the entire JSON document. A transient key cache has a 128 MiB budget,
+separate from SQLite's page cache; exhaustion falls back to extraction. Within the
+writer transaction's immutable build phase, repeated passes can reuse verified keys
+by record ID. Writes invalidate this memoization; success/failure releases the guard.
+This is neither a persistent projection nor a query-result cache.
 
 Plain indexed field versus scalar literal/parameter comparisons (`=`, `!=`, ordered
 comparisons, and reversed operands) compile to matching index expressions. Boolean
@@ -166,8 +178,7 @@ This preserves errors outside the returned page and across boolean branches. JSO
 query results are assembled from matching IDs before payloads are fetched. A small
 page can therefore still require scanning unindexed paths or collecting all matches.
 Metadata fields, relation traversal, grouping, and query-result caching remain later
-work. Cache format 5 rebuilds older disposable caches once, removing the old value
-tables. External SQLite connections that run integrity checks or modify the cache
+work. Cache format 6 rebuilds older disposable caches once, removing shared raw storage and old value tables. External SQLite connections that run integrity checks or modify the cache
 must first call `register_cache_sqlite_functions`; library connections do this
 already. Source files remain authoritative.
 

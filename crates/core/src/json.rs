@@ -65,6 +65,11 @@ pub(crate) fn parse(json: &str) -> Result<Value, sonic_rs::Error> {
 /// convert the field needed by an expression index to the public Value tree.
 /// Unlike skip-based projection this also preserves errors in unselected fields.
 pub(crate) fn index_field(json: &str, field: &str) -> Result<Value, String> {
+    index_fields(json, |name| name == field)
+}
+
+/// Validate every value, but materialize only the requested top-level keys.
+pub(crate) fn index_fields(json: &str, selected: impl Fn(&str) -> bool) -> Result<Value, String> {
     fn depth_check(v: &sonic_rs::Value, depth: usize) -> Result<(), String> {
         if v.is_number() {
             return Ok(());
@@ -95,7 +100,7 @@ pub(crate) fn index_field(json: &str, field: &str) -> Result<Value, String> {
     if let Some(items) = raw.as_object() {
         let mut out = Map::new();
         for (name, value) in items {
-            if name == field {
+            if selected(name) {
                 out.insert(name.to_owned(), compatible(value, 1)?);
             }
         }
@@ -154,6 +159,10 @@ mod tests {
                     index_field(raw, "score").unwrap()["score"],
                     parse(raw).unwrap()["score"]
                 );
+                let raw = r#"{"score":1,"title":"first","payload":{"large":[1e500]},"sc\u006fre":9007199254740993,"title":"last"}"#;
+                let full = parse(raw).unwrap();
+                let selected = index_fields(raw, |name| ["score", "title"].contains(&name)).unwrap();
+                assert_eq!(selected, serde_json::json!({"score":full["score"],"title":full["title"]}));
                 for raw in [
                     r#"{"score":1,"ignored":"\x"}"#,
                     r#"{"score":1,"ignored":[1,]}"#,

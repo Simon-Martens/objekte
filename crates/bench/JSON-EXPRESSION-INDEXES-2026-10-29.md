@@ -1,5 +1,7 @@
 # JSON expression indexes and filter extensions, 29 October 2026
 
+Historical measurements. The [cold-build fix and final comparison](INDEX-COLD-BUILD-FIX-2026-10-29.md) supersede the remaining cold-cache regression described here.
+
 These are the initial implementation measurements. See the subsequent
 [regression audit](INDEX-REGRESSION-AUDIT-2026-10-29.md) for repeated before/after
 measurements, additional fixes, and the remaining cold-build regression.

@@ -48,6 +48,145 @@ fn fixture() -> Fixture {
 }
 
 #[test]
+fn collection_tables_and_view_indexes_are_lazy_and_reused_without_rescanning() {
+    use objekte_core::{Direction, Sort, ViewRequest};
+    let f = Fixture::new();
+    let mut cached = f.repo(CacheMode::Sqlite);
+    let first = cached.open_view("books", &Default::default()).unwrap();
+    assert_eq!(first.metrics.index_builds, 1);
+    assert_eq!(first.metrics.index_rows_written, 7);
+    let db = database(&cached);
+    let tables: Vec<String> = db
+        .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name GLOB 'records_*'")
+        .unwrap()
+        .query_map([], |r| r.get(0))
+        .unwrap()
+        .collect::<Result<_, _>>()
+        .unwrap();
+    assert_eq!(tables, [record_sql("books", "records")]);
+    let default_indexes: i64 = db
+        .query_row(
+            "SELECT count(*) FROM sqlite_master WHERE type='index' AND name GLOB 'j_*'",
+            [],
+            |r| r.get(0),
+        )
+        .unwrap();
+    assert_eq!(default_indexes, 1);
+    let request = ViewRequest {
+        sort: Some(Sort {
+            field: "score".into(),
+            direction: Direction::Desc,
+        }),
+        ..Default::default()
+    };
+    let additional = cached.open_view("books", &request).unwrap();
+    assert_eq!(additional.metrics.index_builds, 1);
+    assert_eq!(additional.metrics.enumerations, 0);
+    assert_eq!(additional.metrics.source_reads, 0);
+    assert_eq!(additional.metrics.manifest_loads, 0);
+    assert_eq!(
+        additional.rows,
+        f.repo(CacheMode::Disabled)
+            .open_view("books", &request)
+            .unwrap()
+            .rows
+    );
+    cached.open_view("people", &Default::default()).unwrap();
+    let attached: Vec<(String, String)> = db
+        .prepare("SELECT name,tbl_name FROM sqlite_master WHERE type='index' AND name GLOB 'j_*'")
+        .unwrap()
+        .query_map([], |r| Ok((r.get(0)?, r.get(1)?)))
+        .unwrap()
+        .collect::<Result<_, _>>()
+        .unwrap();
+    for (index, table) in attached {
+        assert_eq!(index[2..66], table[8..]);
+    }
+    drop(db);
+    drop(cached);
+    let result = f
+        .repo(CacheMode::Sqlite)
+        .open_view("books", &request)
+        .unwrap();
+    assert_eq!(result.metrics.index_builds, 0);
+    assert_eq!(result.metrics.source_reads, 0);
+    assert_eq!(result.rows, additional.rows);
+}
+
+#[test]
+fn format_five_shared_records_are_rebuilt_without_changing_sources() {
+    let f = Fixture::new();
+    let mut cached = f.repo(CacheMode::Sqlite);
+    let before = cached.open_view("books", &all()).unwrap();
+    let source = fs::read(f.root.join("data/books/a.json")).unwrap();
+    let db = database(&cached);
+    db.execute_batch("CREATE TABLE records(collection TEXT,id TEXT,json BLOB); INSERT INTO records VALUES('obsolete','old','{}'); UPDATE meta SET value='5' WHERE key='format';").unwrap();
+    drop(db);
+    drop(cached);
+    let mut cached = f.repo(CacheMode::Sqlite);
+    let after = cached.open_view("books", &all()).unwrap();
+    assert_eq!(after.rows, before.rows);
+    assert_eq!(after.metrics.source_reads, 7);
+    let db = database(&cached);
+    assert_eq!(
+        db.query_row(
+            "SELECT count(*) FROM sqlite_master WHERE name='records'",
+            [],
+            |r| r.get::<_, i64>(0)
+        )
+        .unwrap(),
+        0
+    );
+    assert_eq!(
+        db.query_row("PRAGMA integrity_check", [], |r| r.get::<_, String>(0))
+            .unwrap(),
+        "ok"
+    );
+    assert_eq!(fs::read(f.root.join("data/books/a.json")).unwrap(), source);
+}
+
+#[test]
+fn refresh_invalidates_obsolete_indexes_and_later_requests_rebuild_from_cached_bytes() {
+    let f = Fixture::new();
+    let mut cached = f.repo(CacheMode::Sqlite);
+    cached.open_view("books", &Default::default()).unwrap();
+    f.edit(".editor/books/ui.json", |v| {
+        v["list"]["sortable"]
+            .as_array_mut()
+            .unwrap()
+            .push(json!("type"))
+    });
+    let refresh = cached.refresh("books").unwrap();
+    assert_eq!(refresh.source_reads, 0);
+    assert_eq!(refresh.index_builds, 0);
+    assert_eq!(refresh.index_rows_written, 0);
+    assert_eq!(
+        database(&cached)
+            .query_row(
+                "SELECT count(*) FROM sqlite_master WHERE type='index' AND name GLOB 'j_*'",
+                [],
+                |r| r.get::<_, i64>(0)
+            )
+            .unwrap(),
+        0
+    );
+    let queried = cached.query_json(&query("score >= 2")).unwrap();
+    assert_eq!(queried.metrics.index_builds, 1);
+    assert_eq!(queried.metrics.source_reads, 0);
+    let view = cached.open_view("books", &all()).unwrap();
+    assert_eq!(view.metrics.index_builds, 1);
+    assert_eq!(view.metrics.source_reads, 0);
+    assert_eq!(view.metrics.enumerations, 0);
+    assert_eq!(
+        view.rows,
+        f.repo(CacheMode::Disabled)
+            .open_view("books", &all())
+            .unwrap()
+            .rows
+    );
+}
+
+#[test]
 fn scalar_query_indexes_are_lazy_and_survive_reopen() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Sqlite);
@@ -141,7 +280,7 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
         .unwrap();
     assert!(!tables.iter().any(|t| t.starts_with("v_")), "{tables:?}");
     let columns = db
-        .prepare("PRAGMA table_xinfo(records)")
+        .prepare(&record_sql("books", "PRAGMA table_xinfo(records)"))
         .unwrap()
         .query_map([], |r| r.get::<_, String>(1))
         .unwrap()
@@ -173,7 +312,7 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
             .iter()
             .any(|sql| sql.contains("objekte_json_key(json,"))
     );
-    assert!(definitions.iter().all(|sql| sql.contains("ON records(")));
+    assert!(definitions.iter().all(|sql| sql.contains("ON records_")));
     assert_eq!(
         db.query_row("PRAGMA integrity_check", [], |r| r.get::<_, String>(0))
             .unwrap(),
@@ -277,7 +416,7 @@ fn expression_indexes_follow_edits_deletes_restarts_and_reconfiguration() {
             .query_row("SELECT value FROM meta WHERE key='format'", [], |r| r
                 .get::<_, String>(0))
             .unwrap(),
-        "5"
+        "6"
     );
 }
 
@@ -340,17 +479,17 @@ fn compound_views_read_covering_index_keys_without_json_functions() {
     for function in ["objekte_view_state", "objekte_view_value"] {
         db.create_scalar_function(
             function,
-            2,
+            3,
             rusqlite::functions::FunctionFlags::SQLITE_DETERMINISTIC,
             |_| -> rusqlite::Result<i64> { Err(rusqlite::Error::InvalidQuery) },
         )
         .unwrap();
     }
     let sql = format!(
-        "SELECT id, objekte_view_value(json,'[\"score\",\"number\"]') FROM records INDEXED BY {name} WHERE collection='books' ORDER BY objekte_view_state(json,'[\"score\",\"number\"]'),objekte_view_value(json,'[\"score\",\"number\"]'),objekte_view_state(json,'[\"title\",\"string\"]'),objekte_view_value(json,'[\"title\",\"string\"]') DESC,id LIMIT 50"
+        "SELECT id, objekte_view_value(json,id,'[\"score\",\"number\"]') FROM records INDEXED BY {name} WHERE collection='books' ORDER BY objekte_view_state(json,id,'[\"score\",\"number\"]'),objekte_view_value(json,id,'[\"score\",\"number\"]'),objekte_view_state(json,id,'[\"title\",\"string\"]'),objekte_view_value(json,id,'[\"title\",\"string\"]') DESC,id LIMIT 50"
     );
     let ids = db
-        .prepare(&sql)
+        .prepare(&record_sql("books", &sql))
         .unwrap()
         .query_map([], |r| r.get::<_, String>(0))
         .unwrap()
@@ -388,7 +527,10 @@ fn configured_quoted_paths_and_comparison_values_remain_sql_data() {
     assert_eq!(
         database(&r)
             .query_row(
-                "SELECT count(*) FROM records WHERE collection='books'",
+                &record_sql(
+                    "books",
+                    "SELECT count(*) FROM records WHERE collection='books'"
+                ),
                 [],
                 |r| r.get::<_, i64>(0)
             )

@@ -94,7 +94,10 @@ fn malformed_utf8_and_nonobject_json_remain_visible_and_exact() {
     );
     let exact: Vec<u8> = db(&r)
         .query_row(
-            "SELECT json FROM records WHERE collection='books' AND id='a'",
+            &record_sql(
+                "books",
+                "SELECT json FROM records WHERE collection='books' AND id='a'",
+            ),
             [],
             |r| r.get(0),
         )

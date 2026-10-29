@@ -1,5 +1,7 @@
 # Index regression audit, 29 October 2026
 
+Historical measurements. The [cold-build fix and final comparison](INDEX-COLD-BUILD-FIX-2026-10-29.md) supersede the remaining cold-cache regression described here.
+
 This follow-up checks the JSON-index change against `afe72d9e56`, the last
 materialized-column implementation, using the same benchmark driver, source files,
 settings and workload on both revisions. It also fixes regressions found in the

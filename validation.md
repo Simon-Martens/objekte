@@ -14,8 +14,10 @@ while individual records are still pending or invalid.
    malformed JSON. The existing nesting limit is a parser limit.
 3. Extract declared references and commit through one writer. SQLite derives keys
    for any existing JSON expression indexes as the raw records are written. Fresh
-   builds retain extracted keys temporarily (128 MiB budget) and bulk-build indexes
-   after ingestion in the same transaction; no extra field columns are written.
+   builds create only the requested empty indexes, then reuse one record's keys
+   across writes. Later index builds use a transient 128 MiB key budget and extract
+   only needed fields, validating the entire document. All work remains in the same
+   writer transaction; no extra field columns are written.
    No worker accesses SQLite. Correctly typed fields of an otherwise invalid record
    remain queryable. Wrong types/out-of-range numbers have index state 3, after normal
    values (0), null (1), and missing (2), in either sort direction. State 3 never matches
@@ -75,10 +77,12 @@ Wait mode prints completed row statuses. Cache status
 reports per-state counts. Direct execution without SQLite validates inline and returns
 the same record diagnostics/query semantics without persistent work.
 
-## Current SQLite schema (cache format 5)
+## Current SQLite schema (cache format 6)
 
-The following is the shared schema; partial JSON expression indexes are generated
-from schema/UI options. `json` stores exact raw bytes as a BLOB, including malformed JSON;
+Metadata, validation and edges are shared. Raw-record tables are created lazily per
+collection; the example `records_<hash>` name below means `records_` followed by the
+SHA-256 of the collection name. A payload is stored once, without a shared duplicate.
+Partial JSON expression indexes are generated from schema/UI options. `json` stores exact raw bytes as a BLOB, including malformed JSON;
 it is deliberately not constrained with `json_valid`. SQLite is not the JSON parser.
 
 ```sql
@@ -94,7 +98,7 @@ CREATE TABLE collections(
   manifest_hash TEXT NOT NULL DEFAULT '', record_count INTEGER NOT NULL DEFAULT 0,
   view_hash TEXT NOT NULL DEFAULT ''
 );
-CREATE TABLE records(
+CREATE TABLE records_<hash>(
   collection TEXT NOT NULL, id TEXT NOT NULL, path TEXT NOT NULL,
   size INTEGER NOT NULL, modified TEXT NOT NULL, identity TEXT NOT NULL,
   digest TEXT NOT NULL, json BLOB NOT NULL, revision INTEGER NOT NULL,
@@ -138,20 +142,21 @@ make old validation results appear applicable to the new schema: cache status
 reports incompatible configuration until reconciliation resets affected records to
 pending. Malformed JSON retains its parse-error status. Configuration refresh alone
 does not run validation or read source records. The ownership table is added to
-the configuration manifest. The current format-5 storage upgrade separately rebuilds old disposable caches.
+the configuration manifest. The current format-6 storage upgrade separately rebuilds old disposable caches.
 
-There are no per-collection value tables or stored field columns. Each configured
-field has partial expression indexes on `records.json`, restricted to its collection.
-View indexes use deterministic `objekte_view_state` / `objekte_view_value` expressions
-and preserve schema-aware ordering; lazily created general query indexes use `objekte_json_key`
-with the exact `objekte_json_v1` scalar collation. SQLite stores the derived keys in
-its indexes and maintains them with record INSERT/UPDATE/DELETE. Index definitions
-come from the configured filter/default-sort/sortable fields. SQLite statistics are
-collected when indexes are built. The ID index also covers the configured view
-keys for compound filters/sorts. Index-definition version 2 rebuilds earlier
-format-5 indexes from cached bytes without rereading unchanged source files.
-The library registers the Rust functions on every
-connection; external integrity checks can use `register_cache_sqlite_functions`.
+There are no extracted-value tables or stored field columns. Required view indexes
+use deterministic `objekte_view_state(json,id,spec)` and
+`objekte_view_value(json,id,spec)` expressions on that collection's raw table.
+General query indexes use `objekte_json_key(json,id,path)` with the exact
+`objekte_json_v1` collation. The record ID enables transaction-local reuse during
+index construction; the functions' result remains determined by the JSON and spec.
+SQLite stores and transactionally maintains the derived keys. Field permissions
+come from configured filter/default-sort/sortable fields; the requested operation
+determines which physical indexes to build. A covering index is created for compound
+filters/sorts. Unfiltered counts and ID orders use the existing primary key.
+Index-definition version 3 accompanies cache format 6. Statistics for the collection
+primary key and new indexes are collected together. Library connections register the
+Rust functions; external integrity checks use `register_cache_sqlite_functions`.
 
 Format changes rebuild disposable tables on the next cache access. Deployment migrations
 are deferred. Redundant per-record digest lookups remain a later ingestion optimization. The

@@ -55,7 +55,10 @@ fn malformed_cached_payloads_fail_even_when_the_field_is_not_projected() {
     for invalid in [r#"[1,]"#, r#"{"nested":[1,]}"#, r#"{"nested":"\x"}"#] {
         let text = format!(r#"{{"title":"valid","score":2,"payload":{invalid}}}"#);
         db.execute(
-            "UPDATE records SET json=?1 WHERE collection='books' AND id='a'",
+            &record_sql(
+                "books",
+                "UPDATE records SET json=?1 WHERE collection='books' AND id='a'",
+            ),
             [text],
         )
         .unwrap();

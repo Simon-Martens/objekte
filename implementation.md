@@ -306,7 +306,7 @@ Expose forward/backward relationships and their coverage through CLI inspection.
 
 ### Stage E — Indexed default views and table output
 
-Create SQLite expression indexes from `IndexSpec` over the raw JSON in `records`;
+Create SQLite expression indexes from `IndexSpec` over raw JSON in collection-local `records_<sha256(name)>` tables;
 there are no additional stored field columns or per-collection value tables.
 Fetch record payloads only after choosing the requested page. Sonic-rs
 decodes the requested columns and label from each page record while skipping
@@ -314,15 +314,20 @@ unselected payloads; separate persistent query projections remain later work.
 Full source/schema parsing also uses Sonic, adapting raw numeric values into the
 existing validation/API representation without a floating-point conversion. Preserve
 last-member-wins duplicate keys and the existing fingerprint serialization.
-Create ID, filter, default-sort, and sortable-field indexes when
-the collection's view is first requested. Store an index-spec fingerprint. Update
+Derive the permitted ID/filter/default-sort/sortable fields from the schema and UI.
+Create only the physical indexes required by the requested view; build other permitted
+orders/filters on their first use, without a frequency heuristic. Keep raw-table
+creation and source enumeration lazy per collection. Store an index-spec fingerprint. Update
 the raw JSON with changed rows; SQLite maintains the corresponding index keys.
 
 Use deterministic index construction. Start with `(field state, typed value, ID)`
 keys for configured scalar fields and the default order. A covering expression index
 also holds all configured view keys beside ID, allowing compound views without
-reparsing full records. Ingestion can seed a temporary, bounded key cache for bulk
-index construction; it is released on completion or failure. Equality filter plus
+reparsing full records. Fresh ingestion maintains the requested empty indexes using
+one parsed record at a time. Later index construction uses a bounded temporary key
+cache, released on completion or failure. An already verified open session can build
+another index directly from cached bytes without another source inventory. Collect
+statistics for the new indexes and the collection primary key together. Equality filter plus
 default sort may use a deterministically derived compound index. Avoid generating
 the power set of filter/sort combinations. Source/reverse reference indexes are
 also required for Stage D; they are bookkeeping, not a workload heuristic.
@@ -366,7 +371,7 @@ require a particular plan for tiny fixtures. CLI prints actual view tables or JS
 
 Use one serialized update coordinator first. Reconciliation classifies path-set
 differences as added/removed/possibly changed; hashes determine content changes.
-Apply each stable source batch to records, manifest, typed values, and outgoing edges
+Apply each stable source batch to records, manifest, derived index keys, and outgoing edges
 in one SQLite transaction. Do not rebuild unchanged rows. A filename rename is a
 deletion plus an addition because filename identity changed.
 
@@ -497,8 +502,8 @@ validation rather than retaining all parsed documents in memory. It never reread
 source files just to validate them. Separate timers report this extra decode work.
 
 See [validation.md](validation.md) for states, index/reference behavior, exact DB
-schema, API notifications and recovery semantics. Cache format 5 rebuilds old caches
-and replaces materialized fields with JSON expression indexes; there is no deployed-data
+schema, API notifications and recovery semantics. Cache format 6 rebuilds old caches
+and stores raw JSON once per collection with lazily constructed expression indexes; there is no deployed-data
 migration framework yet. The next ingestion task is to eliminate digest lookups
 already answered by the manifest. Separate typed-table writes have been removed; SQLite maintains JSON
 expression indexes. Query comparisons on configured scalar fields use these indexes.

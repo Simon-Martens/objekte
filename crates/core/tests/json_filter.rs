@@ -318,7 +318,10 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     let db = rusqlite::Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap();
     assert_eq!(
         db.query_row(
-            "SELECT count(*) FROM records WHERE collection='spare'",
+            &record_sql(
+                "spare",
+                "SELECT count(*) FROM records WHERE collection='spare'"
+            ),
             [],
             |r| r.get::<_, i64>(0)
         )

@@ -156,7 +156,16 @@ fn mixed_directions_null_missing_and_secondary_id_order_match_sqlite() {
 fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Sqlite);
-    r.open_view("books", &all()).unwrap();
+    // Materialize the compound-view index before changing the configured order.
+    // Permitted fields alone no longer imply that every index has been built.
+    r.open_view(
+        "books",
+        &ViewRequest {
+            sub_sorts: Some(vec![sort("title", Direction::Asc)]),
+            ..all()
+        },
+    )
+    .unwrap();
     let before = r.model().collection("books").unwrap().clone();
     f.edit(".editor/books/ui.json", |v| {
         v["list"]["subSorts"] = json!([{"field":"title","direction":"desc"}])
