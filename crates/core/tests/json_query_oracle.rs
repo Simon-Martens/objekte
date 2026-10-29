@@ -10,6 +10,7 @@ use serde::Deserialize;
 use serde_json::{Value, json};
 use std::{collections::BTreeMap, fs, path::Path};
 use support::Fixture;
+use unicode_casefold::UnicodeCaseFold;
 
 
 /// A named filter from the same workload used by the warm benchmark.
@@ -32,10 +33,11 @@ fn field_number(record: &Value, field: &str) -> Option<f64> {
     record.get(field)?.as_number()?.as_f64()
 }
 
-fn contains_ascii(record: &Value, field: &str, needle: &str) -> bool {
+fn contains_folded(record: &Value, field: &str, needle: &str) -> bool {
     field_text(record, field).is_some_and(|text| {
-        text.to_ascii_lowercase()
-            .contains(&needle.to_ascii_lowercase())
+        text.case_fold()
+            .collect::<String>()
+            .contains(&needle.case_fold().collect::<String>())
     })
 }
 
@@ -45,25 +47,24 @@ fn text_is(record: &Value, field: &str, expected: &str) -> bool {
 
 fn title_starts_with(record: &Value, prefix: &str) -> bool {
     field_text(record, "preferred_title").is_some_and(|text| {
-        text.to_ascii_lowercase()
-            .starts_with(&prefix.to_ascii_lowercase())
+        text.case_fold()
+            .collect::<String>()
+            .starts_with(&prefix.case_fold().collect::<String>())
     })
 }
 
 fn title_matches_m_one_nd(record: &Value) -> bool {
     field_text(record, "preferred_title").is_some_and(|title| {
-        let chars = title.chars().collect::<Vec<_>>();
-        chars.windows(4).any(|part| {
-            part[0].eq_ignore_ascii_case(&'m')
-                && part[2].eq_ignore_ascii_case(&'n')
-                && part[3].eq_ignore_ascii_case(&'d')
-        })
+        let chars = title.case_fold().collect::<Vec<_>>();
+        chars
+            .windows(4)
+            .any(|part| part[0] == 'm' && part[2] == 'n' && part[3] == 'd')
     })
 }
 
 fn title_matches_m_any_nd(record: &Value) -> bool {
     field_text(record, "preferred_title").is_some_and(|title| {
-        let title = title.to_ascii_lowercase();
+        let title = title.case_fold().collect::<String>();
         title.starts_with('m') && title.ends_with("nd")
     })
 }
@@ -91,29 +92,29 @@ fn year_is_not_1800(record: &Value) -> bool {
 // separate from the query language makes shared parser/evaluator bugs visible.
 fn oracle_matches(case: &str, record: &Value) -> bool {
     match case {
-        "title_almanach" => contains_ascii(record, "preferred_title", "almanach"),
-        "title_liebe" => contains_ascii(record, "preferred_title", "Liebe"),
-        "title_goethe" => contains_ascii(record, "preferred_title", "Goethe"),
-        "title_schiller" => contains_ascii(record, "preferred_title", "Schiller"),
-        "title_gedicht" => contains_ascii(record, "preferred_title", "Gedicht"),
-        "title_mond" => contains_ascii(record, "preferred_title", "Mond"),
-        "variant_liebe" => contains_ascii(record, "variant_title", "Liebe"),
-        "title_statement_mond" => contains_ascii(record, "title_statement", "Mond"),
-        "incipit_liebe" => contains_ascii(record, "incipit_statement", "Liebe"),
-        "responsibility_goethe" => contains_ascii(record, "responsibility_statement", "Goethe"),
-        "annotation_goethe" => contains_ascii(record, "annotation", "Goethe"),
-        "publication_leipzig" => contains_ascii(record, "publication_statement", "Leipzig"),
+        "title_almanach" => contains_folded(record, "preferred_title", "almanach"),
+        "title_liebe" => contains_folded(record, "preferred_title", "Liebe"),
+        "title_goethe" => contains_folded(record, "preferred_title", "Goethe"),
+        "title_schiller" => contains_folded(record, "preferred_title", "Schiller"),
+        "title_gedicht" => contains_folded(record, "preferred_title", "Gedicht"),
+        "title_mond" => contains_folded(record, "preferred_title", "Mond"),
+        "variant_liebe" => contains_folded(record, "variant_title", "Liebe"),
+        "title_statement_mond" => contains_folded(record, "title_statement", "Mond"),
+        "incipit_liebe" => contains_folded(record, "incipit_statement", "Liebe"),
+        "responsibility_goethe" => contains_folded(record, "responsibility_statement", "Goethe"),
+        "annotation_goethe" => contains_folded(record, "annotation", "Goethe"),
+        "publication_leipzig" => contains_folded(record, "publication_statement", "Leipzig"),
         "type_gedicht_lied" => has_array_text(record, "musenalm_type", "Gedicht/Lied"),
         "type_text" => has_array_text(record, "musenalm_type", "Text"),
         "title_eq_mond" => text_is(record, "preferred_title", "Der Mond"),
         "title_eq_issue" => text_is(record, "preferred_title", "No. 11."),
         "title_prefix_lieb" => title_starts_with(record, "Lieb"),
-        "title_like_mond" => contains_ascii(record, "preferred_title", "Mond"),
-        "title_like_wildcard" => contains_ascii(record, "preferred_title", "M_nd"),
+        "title_like_mond" => contains_folded(record, "preferred_title", "Mond"),
+        "title_like_wildcard" => contains_folded(record, "preferred_title", "M_nd"),
         "title_one_char_wildcard" => title_matches_m_one_nd(record),
         "title_regex_or" => {
-            contains_ascii(record, "preferred_title", "Liebe")
-                || contains_ascii(record, "preferred_title", "Mond")
+            contains_folded(record, "preferred_title", "Liebe")
+                || contains_folded(record, "preferred_title", "Mond")
         }
         "year_eq_1800" => number_is(record, "year", 1800.0),
         "year_lt_1800" => field_number(record, "year").is_some_and(|year| year < 1800.0),
@@ -122,18 +123,18 @@ fn oracle_matches(case: &str, record: &Value) -> bool {
         "numbering_ge_10" => field_number(record, "numbering").is_some_and(|number| number >= 10.0),
         "musenalm_id_eq" => number_is(record, "musenalm_id", 56317.0),
         "title_liebe_year" => {
-            contains_ascii(record, "preferred_title", "Liebe") && number_is(record, "year", 1800.0)
+            contains_folded(record, "preferred_title", "Liebe") && number_is(record, "year", 1800.0)
         }
         "title_almanach_year" => {
-            contains_ascii(record, "preferred_title", "almanach")
+            contains_folded(record, "preferred_title", "almanach")
                 && field_number(record, "year").is_some_and(|year| year >= 1800.0)
         }
         "title_goethe_pseudonym" => {
-            contains_ascii(record, "preferred_title", "Goethe")
+            contains_folded(record, "preferred_title", "Goethe")
                 && record.get("pseudonym") == Some(&json!(true))
         }
         "title_gedicht_old" => {
-            contains_ascii(record, "preferred_title", "Gedicht")
+            contains_folded(record, "preferred_title", "Gedicht")
                 && field_number(record, "year").is_some_and(|year| year < 1800.0)
         }
         "type_gedicht_year" => {
@@ -142,16 +143,16 @@ fn oracle_matches(case: &str, record: &Value) -> bool {
         }
         "title_like_regex_prefix" => title_matches_m_any_nd(record),
         "mond_numbering" => {
-            contains_ascii(record, "preferred_title", "Mond")
+            contains_folded(record, "preferred_title", "Mond")
                 && field_number(record, "numbering").is_some_and(|number| number > 10.0)
         }
         "year_ne_1800" => year_is_not_1800(record),
         "title_not_mond" => field_text(record, "preferred_title")
-            .is_some_and(|title| !title.to_ascii_lowercase().contains("mond")),
+            .is_some_and(|title| !title.case_fold().collect::<String>().contains("mond")),
         "exists_title" => record.get("preferred_title").is_some(),
         "year_or" => number_is(record, "year", 1800.0) || number_is(record, "year", 1900.0),
         "text_or_year" => {
-            contains_ascii(record, "preferred_title", "Mond") || number_is(record, "year", 1800.0)
+            contains_folded(record, "preferred_title", "Mond") || number_is(record, "year", 1800.0)
         }
         "year_window" => {
             field_number(record, "year").is_some_and(|year| (1800.0..1805.0).contains(&year))
@@ -309,7 +310,7 @@ fn independent_serde_oracle_checks_four_backends_on_edge_cases() {
     assert_eq!(cases.len(), selected.len());
     cases.push(Case {
         name: "title_one_char_wildcard".into(),
-        filter: "preferred_title ~ '%M_nd%'".into(),
+        filter: "preferred_title ~ :ignorecase('%M_nd%')".into(),
     });
     let (files, expected) = source_ids(&books, &cases);
     assert_eq!(files, 7);

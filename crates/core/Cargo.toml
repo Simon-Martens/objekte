@@ -22,6 +22,7 @@ regex = "1"
 fff-search = { git = "https://github.com/dmtrKovalenko/fff.git", rev = "d1c7dd47130ca670ab71e7466a1a3b4a57d5348d" }
 regex-syntax = "0.8"
 smallvec = "1"
+unicode-casefold = "0.2"
 
 [target.'cfg(unix)'.dependencies]
 rustix = { version = "1.1", features = ["fs"] }

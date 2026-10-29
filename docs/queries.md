@@ -23,7 +23,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional 
 cargo run --release -p objekte-cli -- examples/musenalm query pages 'key = "kontakt"' --count
 
 # An agent name and a string field.
-cargo run --release -p objekte-cli -- examples/musenalm query agents 'name ~ "Goethe"' --count
+cargo run --release -p objekte-cli -- examples/musenalm query agents 'name ~ :ignorecase("Goethe")' --count
 cargo run --release -p objekte-cli -- examples/musenalm query agents 'profession = "Text"' --count --limit 3
 
 # Omit COLLECTION to search all seven registered collections.
@@ -52,15 +52,16 @@ cargo run --release -p objekte-cli -- examples/musenalm query agents 'created < 
 
 ## Strings and patterns
 
-`~` searches for a literal substring when the pattern has no unescaped `%`. With
-`%`, it uses a LIKE-style wildcard pattern. Matching folds ASCII case only;
-ordinary `=` remains case-sensitive.
+`~` searches for a case-sensitive literal substring when the pattern has no
+unescaped `%`. With `%`, it uses a LIKE-style wildcard pattern. Wrap the pattern
+in `:ignorecase(...)` for Unicode case-insensitive matching; `Ä` matches `ä` and
+`ß` matches `ss`. Ordinary `=` remains case-sensitive.
 
 ```sh
 # Literal substring, prefix wildcard, and negated substring.
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ "almanach"' --count --limit 3
-cargo run --release -p objekte-cli -- examples/musenalm query series 'title ~ "Taschen%"' --count --limit 3
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title !~ "almanach" && year = 1800' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query series 'title ~ :ignorecase("Taschen%")' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title !~ :ignorecase("almanach") && year = 1800' --count --limit 3
 
 # ASCII lowercase modifier and a typed string parameter.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title:lower ~ "almanach"' --count --limit 3
@@ -136,10 +137,10 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'year >= 
 cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional = true' --backend direct --cache disabled --count --limit 3
 
 # Search source files with ripgrep, then verify candidate JSON with Sonic.
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ "almanach"' --backend grep --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --backend grep --count --limit 3
 
 # Default query: build values-only bigrams and ordered scalar postings in memory, then verify source candidates.
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ "almanach"' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --count --limit 3
 
 # Keep result JSON on stdout and write metrics to stderr as a diagnostics JSON line.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.ndjson

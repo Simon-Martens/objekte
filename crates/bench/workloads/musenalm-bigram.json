@@ -1,73 +1,73 @@
 [
   {
     "name": "title_almanach",
-    "filter": "preferred_title ~ 'almanach'",
+    "filter": "preferred_title ~ :ignorecase('almanach')",
     "pattern": "almanach",
     "insensitive": true
   },
   {
     "name": "title_liebe",
-    "filter": "preferred_title ~ 'Liebe'",
+    "filter": "preferred_title ~ :ignorecase('Liebe')",
     "pattern": "Liebe",
     "insensitive": true
   },
   {
     "name": "title_goethe",
-    "filter": "preferred_title ~ 'Goethe'",
+    "filter": "preferred_title ~ :ignorecase('Goethe')",
     "pattern": "Goethe",
     "insensitive": true
   },
   {
     "name": "title_schiller",
-    "filter": "preferred_title ~ 'Schiller'",
+    "filter": "preferred_title ~ :ignorecase('Schiller')",
     "pattern": "Schiller",
     "insensitive": true
   },
   {
     "name": "title_gedicht",
-    "filter": "preferred_title ~ 'Gedicht'",
+    "filter": "preferred_title ~ :ignorecase('Gedicht')",
     "pattern": "Gedicht",
     "insensitive": true
   },
   {
     "name": "title_mond",
-    "filter": "preferred_title ~ 'Mond'",
+    "filter": "preferred_title ~ :ignorecase('Mond')",
     "pattern": "Mond",
     "insensitive": true
   },
   {
     "name": "variant_liebe",
-    "filter": "variant_title ~ 'Liebe'",
+    "filter": "variant_title ~ :ignorecase('Liebe')",
     "pattern": "Liebe",
     "insensitive": true
   },
   {
     "name": "title_statement_mond",
-    "filter": "title_statement ~ 'Mond'",
+    "filter": "title_statement ~ :ignorecase('Mond')",
     "pattern": "Mond",
     "insensitive": true
   },
   {
     "name": "incipit_liebe",
-    "filter": "incipit_statement ~ 'Liebe'",
+    "filter": "incipit_statement ~ :ignorecase('Liebe')",
     "pattern": "Liebe",
     "insensitive": true
   },
   {
     "name": "responsibility_goethe",
-    "filter": "responsibility_statement ~ 'Goethe'",
+    "filter": "responsibility_statement ~ :ignorecase('Goethe')",
     "pattern": "Goethe",
     "insensitive": true
   },
   {
     "name": "annotation_goethe",
-    "filter": "annotation ~ 'Goethe'",
+    "filter": "annotation ~ :ignorecase('Goethe')",
     "pattern": "Goethe",
     "insensitive": true
   },
   {
     "name": "publication_leipzig",
-    "filter": "publication_statement ~ 'Leipzig'",
+    "filter": "publication_statement ~ :ignorecase('Leipzig')",
     "pattern": "Leipzig",
     "insensitive": true
   },
@@ -95,26 +95,26 @@
   },
   {
     "name": "title_prefix_lieb",
-    "filter": "preferred_title ~ 'Lieb%'",
+    "filter": "preferred_title ~ :ignorecase('Lieb%')",
     "pattern": "Lieb",
     "insensitive": true
   },
   {
     "name": "title_like_mond",
-    "filter": "preferred_title ~ '%Mond%'",
+    "filter": "preferred_title ~ :ignorecase('%Mond%')",
     "pattern": "Mond",
     "insensitive": true
   },
   {
     "name": "title_like_wildcard",
-    "filter": "preferred_title ~ 'M_nd'",
+    "filter": "preferred_title ~ :ignorecase('M_nd')",
     "pattern": "M.nd",
     "mode": "regex",
     "insensitive": true
   },
   {
     "name": "title_regex_or",
-    "filter": "preferred_title ~ 'Liebe' || preferred_title ~ 'Mond'",
+    "filter": "preferred_title ~ :ignorecase('Liebe') || preferred_title ~ :ignorecase('Mond')",
     "pattern": "Liebe|Mond",
     "mode": "regex",
     "insensitive": true
@@ -147,25 +147,25 @@
   },
   {
     "name": "title_liebe_year",
-    "filter": "preferred_title ~ 'Liebe' && year = 1800",
+    "filter": "preferred_title ~ :ignorecase('Liebe') && year = 1800",
     "pattern": "Liebe",
     "insensitive": true
   },
   {
     "name": "title_almanach_year",
-    "filter": "preferred_title ~ 'almanach' && year >= 1800",
+    "filter": "preferred_title ~ :ignorecase('almanach') && year >= 1800",
     "pattern": "almanach",
     "insensitive": true
   },
   {
     "name": "title_goethe_pseudonym",
-    "filter": "preferred_title ~ 'Goethe' && pseudonym = true",
+    "filter": "preferred_title ~ :ignorecase('Goethe') && pseudonym = true",
     "pattern": "Goethe",
     "insensitive": true
   },
   {
     "name": "title_gedicht_old",
-    "filter": "preferred_title ~ 'Gedicht' && year < 1800",
+    "filter": "preferred_title ~ :ignorecase('Gedicht') && year < 1800",
     "pattern": "Gedicht",
     "insensitive": true
   },
@@ -177,14 +177,14 @@
   },
   {
     "name": "title_like_regex_prefix",
-    "filter": "preferred_title ~ 'M%nd'",
+    "filter": "preferred_title ~ :ignorecase('M%nd')",
     "pattern": "M.*nd",
     "mode": "regex",
     "insensitive": true
   },
   {
     "name": "mond_numbering",
-    "filter": "preferred_title ~ 'Mond' && numbering > 10",
+    "filter": "preferred_title ~ :ignorecase('Mond') && numbering > 10",
     "pattern": "Mond",
     "insensitive": true
   },
@@ -194,7 +194,7 @@
   },
   {
     "name": "title_not_mond",
-    "filter": "preferred_title !~ 'Mond'"
+    "filter": "preferred_title !~ :ignorecase('Mond')"
   },
   {
     "name": "exists_title",
@@ -206,7 +206,7 @@
   },
   {
     "name": "text_or_year",
-    "filter": "preferred_title ~ 'Mond' || year = 1800"
+    "filter": "preferred_title ~ :ignorecase('Mond') || year = 1800"
   },
   {
     "name": "year_window",

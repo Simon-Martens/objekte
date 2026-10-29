@@ -215,8 +215,13 @@ fn build_cache(source_dir: &Path, dest: &Path) -> Result<ValuesCache> {
     })
 }
 
-fn matcher(needle: &Option<String>) -> Result<Option<RegexMatcher>> {
-    needle
+fn matcher(case: &Case) -> Result<Option<RegexMatcher>> {
+    // The historical experiment stores only original values. A Unicode fold
+    // can create an ASCII needle absent from those bytes (ß -> ss).
+    if case.filter.contains(":ignorecase(") {
+        return Ok(None);
+    }
+    case.needle
         .as_ref()
         .map(|s| RegexMatcher::new(&format!("(?i:{})", regex::escape(s))).map_err(Into::into))
         .transpose()
@@ -245,7 +250,7 @@ fn page(cache: &ValuesCache, hits: &[usize], candidates: usize) -> Result<QueryR
 
 fn per_file(cache: &ValuesCache, case: &Case, source_text: bool) -> Result<QueryResult> {
     let filter = JsonFilter::compile(&case.filter, &BTreeMap::new())?;
-    let matcher = matcher(&case.needle)?;
+    let matcher = matcher(case)?;
     let outcomes = cache
         .entries
         .par_iter()
@@ -287,7 +292,7 @@ fn per_file(cache: &ValuesCache, case: &Case, source_text: bool) -> Result<Query
 
 fn packed(cache: &ValuesCache, case: &Case) -> Result<QueryResult> {
     let filter = JsonFilter::compile(&case.filter, &BTreeMap::new())?;
-    let candidates = if let Some(matcher) = matcher(&case.needle)? {
+    let candidates = if let Some(matcher) = matcher(case)? {
         let mut candidates = Vec::new();
         let mut searcher = SearcherBuilder::new().bom_sniffing(false).build();
         searcher.search_path(
@@ -316,7 +321,7 @@ fn packed(cache: &ValuesCache, case: &Case) -> Result<QueryResult> {
 
 fn sharded(cache: &ValuesCache, case: &Case) -> Result<QueryResult> {
     let filter = JsonFilter::compile(&case.filter, &BTreeMap::new())?;
-    let mut candidates = if let Some(matcher) = matcher(&case.needle)? {
+    let mut candidates = if let Some(matcher) = matcher(case)? {
         cache
             .shards
             .par_iter()

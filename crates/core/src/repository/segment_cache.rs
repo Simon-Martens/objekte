@@ -14,7 +14,7 @@ use std::{
 
 mod sync;
 
-const VERSION: u32 = 5;
+const VERSION: u32 = 6;
 const COMPACT_STALE_PERCENT: u64 = 25;
 static TEMP_COUNTER: AtomicU64 = AtomicU64::new(0);
 

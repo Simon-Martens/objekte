@@ -1,6 +1,6 @@
 # Query benchmarks
 
-The current benchmarks exercise the repository's JSON query API against original source files and the optional segment cache. The [in-memory index comparison](BIGRAM-VS-SEGMENTS-2026-10-29.md) covers 43 warm filters with complete result parity. The [FFF comparison](FFF-VS-SEGMENTS-2026-10-29.md) covers 33 filters and candidate stages. Its standalone source is in [fff-compare](fff-compare/).
+The current benchmarks exercise the repository's JSON query API against original source files and the optional segment cache. The [in-memory index comparison](BIGRAM-VS-SEGMENTS-2026-10-29.md) covers 43 warm filters with complete result parity; its published timings predate the current Unicode `:ignorecase(...)` syntax. The workload files now mark those case-insensitive searches explicitly. The [FFF comparison](FFF-VS-SEGMENTS-2026-10-29.md) covers 33 filters and candidate stages. Its standalone source is in [fff-compare](fff-compare/).
 
 ## Segment cache and source grep
 
@@ -13,7 +13,7 @@ target/release/json-query-grep-compare --repo examples/musenalm --workload crate
 
 ## Values-only layout experiment
 
-`values-cache-compare` builds disposable per-record, single-pack, and 64-shard text files. It checks results against the current segment backend before timing. The [values-only report](VALUES-ONLY-CACHE-2026-10-29.md) and [shard follow-up](64-SHARD-VALUES-CACHE-2026-10-29.md) record the original measurements and limitations.
+`values-cache-compare` builds disposable per-record, single-pack, and 64-shard text files. It checks results against the current segment backend before timing. This historical layout has no Unicode-folded projection, so current `:ignorecase(...)` workload cases scan all its files to preserve correct results. The [values-only report](VALUES-ONLY-CACHE-2026-10-29.md) and [shard follow-up](64-SHARD-VALUES-CACHE-2026-10-29.md) record the original measurements and limitations.
 
 ```sh
 cargo build --release -p objekte-bench --bin values-cache-compare

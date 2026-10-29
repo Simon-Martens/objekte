@@ -231,7 +231,7 @@ impl Repository {
             let doc = self.parse(c, id, &raw.json, false);
             let mut text = String::new();
             if doc.state.status != RecordStatus::IncorrectJson {
-                crate::json::value_text(&doc.data, &mut text);
+                crate::json::indexed_value_text(&doc.data, &mut text);
             }
             text.push('\n');
             if let Some(previous) = &previous {

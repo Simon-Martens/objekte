@@ -12,6 +12,7 @@ use sonic_rs::JsonContainerTrait;
 use sonic_rs::{JsonValueTrait, ValueRef};
 #[cfg(test)]
 use std::{collections::BTreeSet, fmt};
+use unicode_casefold::UnicodeCaseFold;
 
 
 // INFO: Serde-compatible JSON value converted from Sonic's parser.
@@ -95,6 +96,22 @@ pub(crate) fn value_text(value: &Value, out: &mut String) {
             out.push('\u{1f}');
         }
         Value::Null => out.push_str("null\u{1f}"),
+    }
+}
+
+/// Append original values and any distinct Unicode-folded projection. Keeping
+/// both lets byte-oriented indexes narrow sensitive and caseless queries.
+pub(crate) fn indexed_value_text(value: &Value, out: &mut String) {
+    let start = out.len();
+    value_text(value, out);
+    let original = &out[start..];
+    if original.is_ascii() {
+        return;
+    }
+    let folded = original.case_fold().collect::<String>();
+    if folded != original.to_ascii_lowercase() {
+        out.push('\u{1f}');
+        out.push_str(&folded);
     }
 }
 

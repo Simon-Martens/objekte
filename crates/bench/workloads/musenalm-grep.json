@@ -1,11 +1,11 @@
 [
-  {"collection":"contents","filter":"preferred_title ~ 'almanach'","needle":"almanach"},
-  {"collection":"contents","filter":"preferred_title ~ 'Liebe'","needle":"Liebe"},
-  {"collection":"contents","filter":"preferred_title ~ 'Taschen%'","needle":"Taschen"},
-  {"collection":"contents","filter":"preferred_title ~ 'Gedicht'","needle":"Gedicht"},
-  {"collection":"contents","filter":"preferred_title ~ 'Mond'","needle":"Mond"},
-  {"collection":"contents","filter":"preferred_title ~ 'Schiller'","needle":"Schiller"},
-  {"collection":"contents","filter":"preferred_title ~ 'Goethe'","needle":"Goethe"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('almanach')","needle":"almanach"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Liebe')","needle":"Liebe"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Taschen%')","needle":"Taschen"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Gedicht')","needle":"Gedicht"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Mond')","needle":"Mond"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Schiller')","needle":"Schiller"},
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Goethe')","needle":"Goethe"},
   {"collection":"contents","filter":"preferred_title = 'Der Mond'","needle":"Der Mond"},
   {"collection":"contents","filter":"preferred_title = 'No. 11.'","needle":"No. 11."},
   {"collection":"contents","filter":"musenalm_type ?= 'Gedicht/Lied'","needle":"Gedicht/Lied"},
@@ -14,5 +14,5 @@
   {"collection":"contents","filter":"year = 1802"},
   {"collection":"contents","filter":"pseudonym = true","needle":"true"},
   {"collection":"contents","filter":"pseudonym = false","needle":"false"},
-  {"collection":"contents","filter":"preferred_title ~ 'Liebe' && year = 1800","needle":"Liebe"}
+  {"collection":"contents","filter":"preferred_title ~ :ignorecase('Liebe') && year = 1800","needle":"Liebe"}
 ]

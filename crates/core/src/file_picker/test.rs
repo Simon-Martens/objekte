@@ -59,6 +59,16 @@ fn indexes_decoded_values_with_stable_slots_and_targeted_updates() {
 }
 
 #[test]
+fn folded_index_candidates_do_not_change_exact_value_regex_results() {
+    let dir = tempfile::tempdir().unwrap();
+    put(dir.path(), "a", r#"{"title":"Straße"}"#);
+    let picker = FilePicker::open(dir.path()).unwrap();
+    assert_eq!(picker.regex_candidate_ids("STRASSE"), ["a"]);
+    assert!(picker.search_values_regex("STRASSE").unwrap().is_empty());
+    assert_eq!(picker.search_values_regex("Straße").unwrap(), ["a"]);
+}
+
+#[test]
 fn inventory_refresh_tracks_additions_removals_and_changes() {
     let dir = tempfile::tempdir().unwrap();
     put(dir.path(), "a", r#"{"title":"Alpha"}"#);
@@ -164,7 +174,7 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
         for &slot in &picker.sorted {
             let id = picker.id(slot).unwrap();
             let stamp = &picker.files[slot].as_ref().unwrap().stamp;
-            if projected_values(&source, picker.root(), id, stamp, &[], &picker.view)
+            if projected_values(&source, picker.root(), id, stamp, &[], &picker.view, false)
                 .unwrap()
                 .as_ref()
                 .is_some_and(|text| matcher.is_match(&text.bytes))
@@ -216,7 +226,7 @@ fn filter_regex_prefilter_never_loses_a_structural_match() {
     let picker = FilePicker::open(dir.path()).unwrap();
     for expression in [
         "title = 'Moon'",
-        "title ~ 'moon'",
+        "title ~ :ignorecase('moon')",
         "title ~ 'Moon%'",
         "title ~ 'Moon' && year >= 1800",
         "title ~ 'Moon' || title ~ 'Sun'",

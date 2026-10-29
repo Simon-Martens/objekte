@@ -12,7 +12,7 @@ mod view;
 use crate::{
     Direction, Error, Field, IndexField, Result,
     error::io,
-    json::{ParsedValue, value_text},
+    json::{ParsedValue, indexed_value_text, value_text},
     query::Operator,
     source::{Source, Stamp},
 };
@@ -183,8 +183,15 @@ impl FilePicker {
                     let slot = self.sorted[position];
                     seen[slot] = true;
                     if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
-                        let projection =
-                            projected_values(&source, &self.root, &id, &stamp, &[], &self.view)?;
+                        let projection = projected_values(
+                            &source,
+                            &self.root,
+                            &id,
+                            &stamp,
+                            &[],
+                            &self.view,
+                            false,
+                        )?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
@@ -202,7 +209,7 @@ impl FilePicker {
                 }
                 Err(_) => {
                     let projection =
-                        projected_values(&source, &self.root, &id, &stamp, &[], &self.view)?;
+                        projected_values(&source, &self.root, &id, &stamp, &[], &self.view, false)?;
                     let keys = projection
                         .as_ref()
                         .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
@@ -257,8 +264,15 @@ impl FilePicker {
                     Ok(position) => {
                         let slot = self.sorted[position];
                         if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
-                            let projection =
-                                projected_values(&source, &self.root, id, &stamp, &[], &self.view)?;
+                            let projection = projected_values(
+                                &source,
+                                &self.root,
+                                id,
+                                &stamp,
+                                &[],
+                                &self.view,
+                                false,
+                            )?;
                             let keys = projection
                                 .as_ref()
                                 .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
@@ -274,8 +288,15 @@ impl FilePicker {
                         }
                     }
                     Err(_) => {
-                        let projection =
-                            projected_values(&source, &self.root, id, &stamp, &[], &self.view)?;
+                        let projection = projected_values(
+                            &source,
+                            &self.root,
+                            id,
+                            &stamp,
+                            &[],
+                            &self.view,
+                            false,
+                        )?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
@@ -410,7 +431,8 @@ impl FilePicker {
             .map(|&id| -> Result<Option<String>> {
                 let slot = self.sorted[self.position(id).expect("candidate is live")];
                 let stamp = &self.files[slot].as_ref().expect("live candidate").stamp;
-                let text = projected_values(&source, &self.root, id, stamp, &[], &self.view)?;
+                let text =
+                    projected_values(&source, &self.root, id, stamp, &[], &self.view, false)?;
                 Ok(text
                     .as_ref()
                     .is_some_and(|text| matcher.is_match(&text.bytes))
@@ -462,9 +484,15 @@ impl FilePicker {
                         &ids[entry.id_start as usize..(entry.id_start + entry.id_len) as usize],
                     )
                     .expect("validated UTF-8 ID");
-                    if let Some(projection) =
-                        projected_values(source, root, id, &entry.stamp, indexed_fields, view)?
-                    {
+                    if let Some(projection) = projected_values(
+                        source,
+                        root,
+                        id,
+                        &entry.stamp,
+                        indexed_fields,
+                        view,
+                        true,
+                    )? {
                         let slot = chunk_index * 64 + within;
                         main.add_file_content(&skip, slot, &projection.bytes);
                         chunk_arrays.extend(projection.array_fields);
@@ -569,6 +597,7 @@ fn projected_values(
     stamp: &Stamp,
     indexed_fields: &[String],
     view: &ViewIndex,
+    folded_index: bool,
 ) -> Result<Option<Projection>> {
     let path = root.join(format!("{id}.json"));
     let mut file = source.file(id)?;
@@ -586,7 +615,11 @@ fn projected_values(
     let Ok(parsed) = sonic_rs::from_slice::<ParsedValue>(&raw) else {
         return Ok(None);
     };
-    value_text(&parsed.0, &mut values);
+    if folded_index {
+        indexed_value_text(&parsed.0, &mut values);
+    } else {
+        value_text(&parsed.0, &mut values);
+    }
     let array_fields = parsed.0.as_object().map_or_else(Vec::new, |fields| {
         fields
             .iter()

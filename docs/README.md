@@ -13,7 +13,7 @@ Objekte reads JSON collections from a repository. The JSON files are authoritati
 
 ```sh
 cargo test --workspace --all-targets
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ "almanach" && year >= 1800' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach") && year >= 1800' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm view contents --sort year --limit 10 --output json
 ```
 

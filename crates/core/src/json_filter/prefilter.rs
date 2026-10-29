@@ -73,7 +73,7 @@ fn field_run(operand: &Operand) -> String {
     }
 }
 
-fn atom_pattern(left: &Operand, op: Op, right: &Operand) -> Option<String> {
+fn atom_pattern(left: &Operand, op: Op, right: &Operand, ignore_case: bool) -> Option<String> {
     let field = [field_run(left), field_run(right)]
         .into_iter()
         .max_by_key(String::len)
@@ -83,8 +83,12 @@ fn atom_pattern(left: &Operand, op: Op, right: &Operand) -> Option<String> {
         | (Op::Eq, Operand::Literal(serde_json::Value::String(s)), Operand::Field(_)) => {
             ascii_runs(s)
         }
-        (Op::Contains, Operand::Field(_), Operand::Literal(serde_json::Value::String(s))) => {
-            Like::new(s, false).required_ascii_runs()
+        // Full folding can expand a source character (ß -> ss), so a folded
+        // literal is not necessarily present in the raw JSON source bytes.
+        (Op::Contains, Operand::Field(_), Operand::Literal(serde_json::Value::String(s)))
+            if !ignore_case =>
+        {
+            Like::new(s, false, ignore_case).required_ascii_runs()
         }
         (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::Bool(v)))
         | (Op::Eq, Operand::Literal(serde_json::Value::Bool(v)), Operand::Field(_)) => {
@@ -136,8 +140,12 @@ fn necessary(expr: &Expr) -> Option<String> {
             (!run.is_empty()).then(|| encoded_run(&run))
         }
         Expr::Compare {
-            left, op, right, ..
-        } => atom_pattern(left, *op, right),
+            left,
+            op,
+            right,
+            ignore_case,
+            ..
+        } => atom_pattern(left, *op, right, *ignore_case),
     }
 }
 
@@ -154,8 +162,8 @@ impl JsonFilter {
             .map(|matcher| (matcher, pattern)))
     }
 
-    /// Necessary text in decoded scalar values. Field names and JSON quoting
-    /// are deliberately absent from the values cache.
+    /// Necessary text in original or Unicode-folded scalar values. Field
+    /// names and JSON quoting are deliberately absent from the values cache.
     pub(crate) fn values_prefilter(&self) -> Option<(RegexMatcher, String)> {
         fn pattern(expr: &Expr) -> Option<String> {
             match expr {
@@ -166,7 +174,11 @@ impl JsonFilter {
                 }
                 Expr::Exists(_) => None,
                 Expr::Compare {
-                    left, op, right, ..
+                    left,
+                    op,
+                    right,
+                    ignore_case,
+                    ..
                 } => match (op, left, right) {
                     (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::String(s)))
                     | (Op::Eq, Operand::Literal(serde_json::Value::String(s)), Operand::Field(_)) => {
@@ -176,7 +188,10 @@ impl JsonFilter {
                         Op::Contains,
                         Operand::Field(_),
                         Operand::Literal(serde_json::Value::String(s)),
-                    ) => ordered_runs_regex(Like::new(s, false).required_ascii_runs(), true),
+                    ) => ordered_runs_regex(
+                        Like::new(s, false, *ignore_case).required_ascii_runs(),
+                        *ignore_case,
+                    ),
                     (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::Bool(v)))
                     | (Op::Eq, Operand::Literal(serde_json::Value::Bool(v)), Operand::Field(_)) => {
                         Some(v.to_string())

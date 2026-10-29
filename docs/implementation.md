@@ -6,7 +6,7 @@ The code follows those boundaries: `file_picker/` owns inventory, bigram plannin
 
 ## In-memory picker
 
-The picker enumerates JSON filenames, stores IDs in a byte arena with stable file slots, and builds consecutive and skip-one bigram postings over decoded scalar values. For every top-level declared number, integer, boolean, or enum field, it also stores ordered view keys and typed filter postings, independent of UI filter and sort declarations. Indexed view filters and simple sorts select a page from these keys, then read and validate only page files. Other view shapes scan candidates and sort in memory. JSON filter queries still parse source JSON candidates to verify the complete expression.
+The picker enumerates JSON filenames, stores IDs in a byte arena with stable file slots, and builds consecutive and skip-one bigram postings over decoded scalar values plus distinct Unicode-folded projections. For every top-level declared number, integer, boolean, or enum field, it also stores ordered view keys and typed filter postings, independent of UI filter and sort declarations. Indexed view filters and simple sorts select a page from these keys, then read and validate only page files. Other view shapes scan candidates and sort in memory. JSON filter queries still parse source JSON candidates to verify the complete expression.
 
 Changed files update their ordered view keys and revision timestamps immediately; bigram and JSON-filter typed postings use a conservative changed-file overlay until rebuild. Removed IDs leave revision tombstones. The picker lives only in the repository process. `refresh` applies external changes; request freshness policies can refresh it automatically.
 
@@ -23,9 +23,9 @@ Each collection has a directory under `<data-dir>/repositories/<root-digest>/<na
 | `text-NNNN-G.txt` | One values-only line for each appended record version; stale lines remain until compaction |
 | `LOCK` | Shared reader and exclusive writer lock |
 
-`segments/CONFIG.json` stores configuration input digests and ownership across restarts. Its own `LOCK` serializes changes. Cache format version 5 is disposable: incompatible or damaged snapshots rebuild from original files.
+`segments/CONFIG.json` stores configuration input digests and ownership across restarts. Its own `LOCK` serializes changes. Cache format version 6 is disposable: incompatible or damaged snapshots rebuild from original files.
 
-A text line contains decoded scalar values from the JSON document, without braces, field names, or quotes. Scalars are separated by ASCII unit separator (`0x1f`); newlines in strings are replaced by that separator so one record stays on one line. Text is a necessary-match prefilter, never the final query result. The parser reopens candidate source files and evaluates the full filter. Line numbers map back to IDs; stale lines have no current ID and cannot produce a result.
+A text line contains decoded scalar values from the JSON document, without braces, field names, or quotes. Scalars are separated by ASCII unit separator (`0x1f`); newlines in strings are replaced by that separator so one record stays on one line. When Unicode case folding changes bytes beyond ASCII lowercase, a folded projection follows the original values on the same line. Text is a necessary-match prefilter, never the final query result. The parser reopens candidate source files and evaluates the full filter. Line numbers map back to IDs; stale lines have no current ID and cannot produce a result.
 
 Metadata for each current ID stores its source size, modification nanoseconds and file identity (including ctime on Linux), content digest, record revision, change timestamp, text line/byte offset/length, typed keys, and array flags. Deletion tombstones retain the last revision and change time so recreating an ID advances its revision. IDs are byte-sorted in the metadata map. A stable hash assigns each ID to a shard. New caches use twice the Rayon worker count, capped by the number of records. Existing caches retain their shard count.
 

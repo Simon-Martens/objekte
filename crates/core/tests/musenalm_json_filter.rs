@@ -14,7 +14,7 @@ fn global_filters_match_source_execution_on_musenalm() {
     let mut direct = Repository::load_repository(&root, options).unwrap();
     for (collection, expression) in [
         (None, "year >= 1800 && year < 1805"),
-        (None, "preferred_title ~ 'liebe'"),
+        (None, "preferred_title ~ :ignorecase('liebe')"),
         (None, "contributors.agents ?= '1500' || exists(contents[0])"),
         (Some("contents"), "year >= 1800 && year < 1805"),
     ] {

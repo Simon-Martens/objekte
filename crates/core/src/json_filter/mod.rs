@@ -107,6 +107,7 @@ enum Expr {
         op: Op,
         any: bool,
         right: Operand,
+        ignore_case: bool,
     },
 }
 
@@ -168,7 +169,7 @@ impl JsonFilter {
             }
         }
         visit(&expr, &mut paths, &mut scalar_paths);
-        let hash = fingerprint("json-filter/v2", &expr);
+        let hash = fingerprint("json-filter/v3", &expr);
         Ok(Self {
             expr,
             paths: paths.into_iter().collect(),
@@ -229,6 +230,7 @@ impl JsonFilter {
                     op,
                     right: Operand::Literal(value),
                     any: false,
+                    ..
                 } if field.modifier.is_none() && field.path.len() == 1 => {
                     let JsonPathStep::Key(name) = &field.path[0] else {
                         return None;
@@ -266,6 +268,7 @@ impl JsonFilter {
                     op,
                     any,
                     right,
+                    ignore_case,
                 } => {
                     let a = left.select(doc);
                     let b = right.select(doc);
@@ -273,7 +276,9 @@ impl JsonFilter {
                         return false;
                     }
                     let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
-                    let test = |(a, b)| compare(a, *op, b, matches!(right, Operand::Field(_)));
+                    let test = |(a, b)| {
+                        compare(a, *op, b, matches!(right, Operand::Field(_)), *ignore_case)
+                    };
                     if !any && (left.each() || right.each()) {
                         pairs.all(test)
                     } else {
@@ -435,14 +440,15 @@ fn kind(value: &Value) -> &'static str {
     }
 }
 
-fn compare(left: &Value, op: Op, right: &Value, right_field: bool) -> bool {
+fn compare(left: &Value, op: Op, right: &Value, right_field: bool, ignore_case: bool) -> bool {
     if kind(left) == "container" || kind(right) == "container" {
         return false;
     }
     if matches!(op, Op::Contains | Op::NotContains) {
         return match (left.as_str(), right.as_str()) {
             (Some(a), Some(b)) => {
-                pattern::Like::new(b, right_field).matches(a) == matches!(op, Op::Contains)
+                pattern::Like::new(b, right_field, ignore_case).matches(a)
+                    == matches!(op, Op::Contains)
             }
             _ => false,
         };

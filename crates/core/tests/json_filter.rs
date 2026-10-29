@@ -114,9 +114,12 @@ fn grep_prefilter_keeps_json_unicode_escapes_and_boolean_branches() {
             ("x = 'Liebe'", &["escaped_key"]),
             ("x = 'No. 11.'", &["escaped_punctuation"]),
             ("x ~ 'No. 11.'", &["escaped_punctuation"]),
-            ("x ~ 'liebe'", &["escaped_key"]),
-            ("x ~ 'lo%e'", &["escaped_value"]),
-            ("x ~ 'liebe' || other = 'moon'", &["escaped_key", "other"]),
+            ("x ~ :ignorecase('liebe')", &["escaped_key"]),
+            ("x ~ :ignorecase('lo%e')", &["escaped_value"]),
+            (
+                "x ~ :ignorecase('liebe') || other = 'moon'",
+                &["escaped_key", "other"],
+            ),
             (
                 "x ~ '%' || other = 'moon'",
                 &[
@@ -128,6 +131,46 @@ fn grep_prefilter_keeps_json_unicode_escapes_and_boolean_branches() {
             ),
         ],
     );
+}
+
+#[test]
+fn contains_is_case_sensitive_unless_ignorecase_is_requested() {
+    let f = fixture(&[
+        ("a", r#"{"x":"G\u006fethe","p":"goethe","tags":["other"]}"#),
+        ("b", r#"{"x":"goethe","p":"Goethe","tags":["GOETHE"]}"#),
+        ("c", r#"{"x":"GOETHE","p":"goethe","tags":["else"]}"#),
+        ("d", r#"{"x":"Äpfel","p":"ä","tags":[]}"#),
+        ("e", r#"{"x":"äpfel","p":"Ä","tags":[]}"#),
+        ("f", r#"{"x":"Straße","p":"STRASSE","tags":[]}"#),
+        ("g", r#"{"x":"STRASSE","p":"straße","tags":[]}"#),
+    ]);
+    check(
+        &f,
+        &[
+            ("x ~ 'Goethe'", &["a"]),
+            ("x ~ 'goethe'", &["b"]),
+            ("x ~ :ignorecase('Goethe')", &["a", "b", "c"]),
+            ("x ~ :ignorecase('GOE%')", &["a", "b", "c"]),
+            ("x !~ 'Goethe'", &["b", "c", "d", "e", "f", "g"]),
+            ("x !~ :ignorecase('Goethe')", &["d", "e", "f", "g"]),
+            ("x ?~ :ignorecase('Goethe')", &["a", "b", "c"]),
+            ("tags ?~ :ignorecase('Goethe')", &["b"]),
+            ("x ~ :ignorecase(p)", &["a", "b", "c", "d", "e", "f", "g"]),
+            ("x ~ 'Ä'", &["d"]),
+            ("x ~ :ignorecase('Ä')", &["d", "e"]),
+            ("x ~ 'STRASSE'", &["g"]),
+            ("x ~ :ignorecase('STRASSE')", &["f", "g"]),
+        ],
+    );
+    let plain = JsonFilter::compile("x ~ 'Goethe'", &BTreeMap::new()).unwrap();
+    let folded = JsonFilter::compile(
+        "x ~ :ignorecase($term)",
+        &BTreeMap::from([("term".into(), json!("Goethe"))]),
+    )
+    .unwrap();
+    assert_ne!(plain.hash(), folded.hash());
+    assert!(!plain.matches(&json!({"x":"goethe"})).unwrap());
+    assert!(folded.matches(&json!({"x":"goethe"})).unwrap());
 }
 
 #[test]
@@ -548,7 +591,7 @@ fn grouping_parameters_punctuation_and_unicode_contains_are_engine_independent()
             (r#"["a.b"]["quote\"slash/"]='yes'"#, &["a"]),
             ("a.b='nested'", &["b"]),
             ("name ~ 'STRASSE äöü σσσ'", &[]),
-            ("name ~ 'STRAßE ÄÖÜ Σςσ'", &["a"]),
+            ("name ~ :ignorecase('STRAßE ÄÖÜ Σςσ')", &["a"]),
             ("name ~ '%_'", &["a", "b", "c"]),
             (r#"name ~ '\\%\\_'"#, &["a"]),
             ("empty ~ ''", &["a"]),
@@ -616,6 +659,10 @@ fn invalid_requests_fail_before_creating_cache_or_enumerating_sources() {
         "@id='a'",
         "x=1; DROP TABLE records",
         "x ~ 1",
+        "x = :ignorecase('a')",
+        "x ~ :ignorecase(1)",
+        "x ~ :wrong('a')",
+        "x ~ :ignorecase('a'",
         "x=[]",
         "x={}",
         "x=$missing",

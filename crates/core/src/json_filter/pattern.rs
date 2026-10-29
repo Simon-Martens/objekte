@@ -1,5 +1,7 @@
-//! LIKE-style string patterns with ASCII case folding.
-// PocketBase parameter wrapping and LIKE-style matching (ASCII case folding).
+//! LIKE-style string patterns with optional Unicode case folding.
+// PocketBase parameter wrapping and LIKE-style matching.
+
+use unicode_casefold::UnicodeCaseFold;
 
 
 #[derive(Clone, Debug)]
@@ -15,11 +17,20 @@ enum Token {
 pub(super) struct Like {
     tokens: Vec<Token>,
     valid: bool,
+    ignore_case: bool,
 }
 
 
 impl Like {
-    pub fn new(pattern: &str, field: bool) -> Self {
+    fn literal(tokens: &mut Vec<Token>, c: char, ignore_case: bool) {
+        if ignore_case {
+            tokens.extend(c.case_fold().map(Token::Char));
+        } else {
+            tokens.push(Token::Char(c));
+        }
+    }
+
+    pub fn new(pattern: &str, field: bool, ignore_case: bool) -> Self {
         let mut escaped = false;
         let has_percent = pattern.chars().any(|c| {
             if escaped {
@@ -42,24 +53,28 @@ impl Like {
         while let Some(c) = chars.next() {
             if c == '\\' {
                 if literal && !chars.peek().is_some_and(|c| matches!(c, '\\' | '%' | '_')) {
-                    tokens.push(Token::Char('\\'));
+                    Self::literal(&mut tokens, '\\', ignore_case);
                 } else if let Some(c) = chars.next() {
-                    tokens.push(Token::Char(c.to_ascii_lowercase()));
+                    Self::literal(&mut tokens, c, ignore_case);
                 } else {
                     valid = false;
                 }
             } else {
-                tokens.push(match c {
-                    '%' if !literal => Token::Any,
-                    '_' if !literal => Token::One,
-                    _ => Token::Char(c.to_ascii_lowercase()),
-                });
+                match c {
+                    '%' if !literal => tokens.push(Token::Any),
+                    '_' if !literal => tokens.push(Token::One),
+                    _ => Self::literal(&mut tokens, c, ignore_case),
+                }
             }
         }
         if literal || field {
             tokens.push(Token::Any);
         }
-        Self { tokens, valid }
+        Self {
+            tokens,
+            valid,
+            ignore_case,
+        }
     }
 
     pub fn matches(&self, text: &str) -> bool {
@@ -67,7 +82,11 @@ impl Like {
             return false;
         }
         // Iterative glob matching; bounded stack even for adversarial patterns.
-        let chars: Vec<_> = text.chars().map(|c| c.to_ascii_lowercase()).collect();
+        let chars: Vec<_> = if self.ignore_case {
+            text.case_fold().collect()
+        } else {
+            text.chars().collect()
+        };
         let (mut i, mut p, mut star) = (0, 0, None);
         while i < chars.len() {
             match self.tokens.get(p) {

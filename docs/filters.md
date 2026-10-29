@@ -8,7 +8,8 @@
 | --- | --- |
 | `field = value`, `==`, `!=` | Equality or inequality using actual JSON scalar types |
 | `<`, `<=`, `>`, `>=` | Number-to-number or string-to-string ordering |
-| `~`, `!~` | LIKE-style string matching and its negation |
+| `~`, `!~` | Case-sensitive LIKE-style string matching and its negation |
+| `field ~ :ignorecase("text")` | Unicode case-insensitive matching; also works with `!~`, `?~`, and `?!~` |
 | `?=`, `?!=`, `?<`, `?<=`, `?>`, `?>=`, `?~`, `?!~` | Any reached value satisfies the comparison |
 | `&&`, `||`, `(...)` | Boolean combination; AND binds more tightly |
 | `exists(path)` | At least one value exists, including null or an empty array |
@@ -18,19 +19,19 @@
 | `tags:each` | Every reached value must match; requires a nonempty selection |
 | `title:lower` | ASCII lowercase applied to strings |
 
-Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each field operand accepts one modifier. Functions other than `exists`, relation traversal, grouping, and metadata operands are outside this version.
+Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each field operand accepts one modifier. Apart from `exists` and the `:ignorecase` pattern wrapper, other functions, relation traversal, grouping, and metadata operands are outside this version.
 
 Paths can be `address.city`, `["a.b"]["quote\"key"]`, `authors[0].name`, or `authors[*].name`. A field step through an array visits its members, so `authors.name` also reaches names in an array of objects. Comparisons flatten reached arrays recursively. A scalar comparison that reaches multiple values is an error, including outside the returned page or in a false Boolean branch; use `?` or `:each` for that case. Empty arrays provide no comparison values. `tags ?!= "poet"` means at least one element differs from `poet`; it does not mean `poet` is absent.
 
 Actual JSON types are distinct: `"1800" = 1800` is false, and `true` differs from `1`. JSON numbers such as `1800`, `1800.0`, and `1.8e3` compare equal by exact decimal value, including values outside i64/f64 range. Equality and ordered string comparisons are case sensitive and bytewise. Missing fields match no comparison; explicit null matches `= null`. Booleans and null have equality semantics but no ordering.
 
-`~` wraps a pattern without an unescaped `%` for literal substring matching. With `%`, it is a LIKE-style pattern: `%` matches any sequence and `_` one character, with no implicit surrounding wildcards. Backslash escapes pattern characters. Matching folds ASCII case only; non-ASCII case is unchanged. A pattern from another field is surrounded by `%`.
+`~` wraps a pattern without an unescaped `%` for literal substring matching. With `%`, it is a LIKE-style pattern: `%` matches any sequence and `_` one character, with no implicit surrounding wildcards. Backslash escapes pattern characters. Plain `~` and `!~` are case sensitive. Wrap a string, parameter, or field pattern as `:ignorecase(...)` to use full Unicode case folding: `Ä` matches `ä`, and `ß` matches `ss`. This does not apply canonical Unicode normalization, so composed and decomposed accents remain distinct. In a folded wildcard pattern, `_` consumes one character of the folded text. A pattern from another field is surrounded by `%`.
 
 ## Execution
 
 `--backend auto` (the default) and explicit `--backend bigram` use the in-memory bigram and typed indexes, even if `--cache segments` is selected for views. `--backend direct` evaluates original JSON files without an index. `--backend segments` requires the persistent segment cache; `--backend grep` searches original JSON files with ripgrep's parallel searcher. Every path uses the same compiled evaluator for final matching.
 
-The in-memory backend builds consecutive and skip-one bigram postings over decoded scalar values and ordered postings for declared number, boolean, and enum fields on first use. It intersects safe text and typed candidates, and unions typed candidates across `OR` branches when every branch can be narrowed safely. It then opens source JSON and verifies the complete filter with Sonic. Changed files enter a conservative overlay until the index is rebuilt. It does not persist query data.
+The in-memory backend builds consecutive and skip-one bigram postings over decoded scalar values and ordered postings for declared number, boolean, and enum fields on first use. Values with a distinct Unicode-folded form contribute an additional projection to the text index. It intersects safe text and typed candidates, and unions typed candidates across `OR` branches when every branch can be narrowed safely. It then opens source JSON and verifies the complete filter with Sonic. Changed files enter a conservative overlay until the index is rebuilt. It does not persist query data.
 
 With `--count`, every selected candidate must be checked to compute the total. Without `--count`, the in-memory backend checks bounded batches in parallel and stops after filling the requested page, unless a possible scalar-cardinality error requires checking all source records. The first request still builds the collection's in-memory index.
 

@@ -456,13 +456,13 @@ fn incompatible_cache_version_is_rebuilt() {
     let current = directory.join("CURRENT.json");
     let mut manifest: serde_json::Value =
         serde_json::from_slice(&std::fs::read(&current).unwrap()).unwrap();
-    manifest["version"] = json!(0);
+    manifest["version"] = json!(5);
     std::fs::write(&current, serde_json::to_vec(&manifest).unwrap()).unwrap();
     let mut reopened = f.repo(CacheMode::Segments);
     assert_eq!(reopened.open_view("books", &all()).unwrap().total, Some(7));
     let rebuilt: serde_json::Value =
         serde_json::from_slice(&std::fs::read(current).unwrap()).unwrap();
-    assert_ne!(rebuilt["version"], 0);
+    assert_eq!(rebuilt["version"], 6);
 }
 
 #[test]

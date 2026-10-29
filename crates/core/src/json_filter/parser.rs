@@ -138,7 +138,21 @@ impl Parser<'_> {
         let Some(op) = op else {
             return self.error("expected comparison operator");
         };
-        let right = self.operand()?;
+        let ignore_case = self.take(":");
+        let right = if ignore_case {
+            if !matches!(op, Op::Contains | Op::NotContains) {
+                return self.error(":ignorecase is only valid with ~ and !~");
+            }
+            if self.ident()? != "ignorecase" {
+                return self.error("expected :ignorecase(pattern)");
+            }
+            self.need("(")?;
+            let operand = self.operand()?;
+            self.need(")")?;
+            operand
+        } else {
+            self.operand()?
+        };
         for operand in [&left, &right] {
             if matches!(op, Op::Contains | Op::NotContains)
                 && matches!(operand, Operand::Literal(v) if !v.is_string())
@@ -151,6 +165,7 @@ impl Parser<'_> {
             op,
             any,
             right,
+            ignore_case,
         })
     }
 

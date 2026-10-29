@@ -20,6 +20,7 @@ fn follows(expr: &Expr, root: &Field) -> bool {
             op,
             any,
             right,
+            ..
         } => {
             if matches!((left, right), (Operand::Literal(_), Operand::Literal(_))) {
                 return true;
