@@ -44,6 +44,10 @@ equivalence, including fractional timestamps before the Unix epoch. The unchange
 reopen test observes SQLite's `data_version` from a separate connection to ensure
 that a cache hit does not commit changed database pages.
 
+Unit test modules live beside their source files as `*.tests.rs`. Each production
+module includes its test file with `#[cfg(test)]` and `#[path = "name.tests.rs"]`;
+the Unix-only source tests retain their platform guard.
+
 Sonic parser unit tests compare values and serialized bytes against Serde for
 large numbers, exponents, negative zero, Unicode, duplicate/escaped keys, and the
 existing nesting limit. Projection tests cover missing/null fields, large skipped
