@@ -49,7 +49,7 @@ pub(crate) struct Store {
 }
 
 
-// INFO: Persisted collection cache state and applied configuration hashes.
+// INFO: Collection cache state and applied configuration hashes. Saved in Cache DB.
 #[derive(Debug, Clone)]
 pub(crate) struct State {
     pub state: String,
@@ -63,7 +63,7 @@ pub(crate) struct State {
 }
 
 
-// INFO: Record digest and source stamp from the cache manifest.
+// INFO: Record digest and source stamp from the cache manifest. Saved in Cache DB.
 #[derive(Debug, Clone)]
 pub(crate) struct Cached {
     pub digest: String,

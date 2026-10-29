@@ -155,7 +155,7 @@ metrics!(
 );
 
 
-// INFO: Record identity, source path, JSON, digest, validation state, and raw bytes.
+// INFO: Record identity, source path, JSON, digest, validation state, and raw bytes. Saved in Cache DB.
 #[derive(Debug, Clone, Serialize)]
 pub struct Record {
     pub collection: String,
@@ -179,7 +179,7 @@ pub enum TargetState {
 }
 
 
-// INFO: One source-to-target reference occurrence and target resolution state.
+// INFO: A source-to-target edge. Saved in Cache DB. Target state is resolved on read.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct RecordRelation {
     pub source_collection: String,

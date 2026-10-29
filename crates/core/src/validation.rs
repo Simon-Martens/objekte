@@ -52,7 +52,7 @@ impl RecordStatus {
 }
 
 
-// INFO: Diagnostic location, code, message, and optional schema path.
+// INFO: Diagnostic location, code, message, and optional schema path. Saved in Cache DB.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ValidationIssue {
     /// JSON Pointer into the original record. Its value remains available in Record.data.
@@ -75,7 +75,7 @@ impl ValidationIssue {
 }
 
 
-// INFO: Overall validation status and collected issues for one record.
+// INFO: Overall validation status and collected issues for one record. Saved in Cache DB.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct RecordState {
     pub status: RecordStatus,

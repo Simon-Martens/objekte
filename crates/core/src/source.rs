@@ -13,7 +13,7 @@ use std::{
 };
 
 
-// INFO: Source file size, modification time, and identity used for stability checks.
+// INFO: Source file size, modification time, and identity. Saved in Cache DB.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub(crate) struct Stamp {
     pub size: u64,

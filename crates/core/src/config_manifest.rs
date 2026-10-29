@@ -41,7 +41,7 @@ pub struct ConfigurationChanges {
 }
 
 
-// INFO: Configuration file digests and their direct collection owners.
+// INFO: Configuration file digests and their direct collection owners. Saved in Cache DB.
 #[derive(Default, Clone)]
 pub(crate) struct ConfigurationSnapshot {
     files: BTreeMap<PathBuf, String>,
