@@ -142,8 +142,8 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferre
 # Default query: build values-only bigrams and ordered scalar postings in memory, then verify source candidates.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --count --limit 3
 
-# Keep result JSON on stdout and write metrics to stderr as a diagnostics JSON line.
-cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.ndjson
+# Keep result JSON on stdout and write formatted diagnostics JSON to stderr.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.json
 ```
 
 `--output events` writes one JSON event per line and flushes each line. A record

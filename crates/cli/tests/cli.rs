@@ -28,13 +28,11 @@ fn value(out: Output) -> Value {
 }
 
 fn diagnostics(out: &Output) -> Value {
-    let entries = String::from_utf8_lossy(&out.stderr)
-        .lines()
-        .map(|line| serde_json::from_str::<Value>(line).unwrap())
-        .filter(|entry| entry["type"] == "diagnostics")
-        .collect::<Vec<_>>();
-    assert_eq!(entries.len(), 1);
-    entries.into_iter().next().unwrap()
+    let output = String::from_utf8_lossy(&out.stderr);
+    assert!(output.starts_with("{\n  \""), "{output}");
+    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    assert_eq!(diagnostics["type"], "diagnostics");
+    diagnostics
 }
 
 #[test]

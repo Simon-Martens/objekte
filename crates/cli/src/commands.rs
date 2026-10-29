@@ -374,7 +374,11 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         let drop_started = Instant::now();
         drop(repo);
         diagnostics["repository_drop_ms"] = json!(drop_started.elapsed().as_secs_f64() * 1_000.0);
-        writeln!(std::io::stderr().lock(), "{}", diagnostics)?
+        writeln!(
+            std::io::stderr().lock(),
+            "{}",
+            serde_json::to_string_pretty(&diagnostics)?
+        )?
     }
     Ok(())
 }

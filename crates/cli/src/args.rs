@@ -36,7 +36,7 @@ Options:
   --output table|json|ndjson|events
                                   Views default to table, other commands to json; events stream query records
   --background-workers N          Compatibility option; validation runs on demand
-  --diagnostics                   Emit counters to stderr
+  --diagnostics                   Emit formatted JSON counters to stderr
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --backend auto|direct|segments|grep|bigram Query engine; auto uses the in-memory bigram index
