@@ -6,11 +6,14 @@ use std::path::Path;
 
 pub(super) const FORMAT: &str = "6";
 
+
+// INFO: Versioned SQL schema step and its history name.
 struct Migration {
     version: i64,
     name: &'static str,
     sql: &'static str,
 }
+
 
 const MIGRATIONS: &[Migration] = &[
     Migration {

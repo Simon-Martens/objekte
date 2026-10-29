@@ -7,12 +7,14 @@ use support::*;
 fn db(r: &Repository) -> Connection {
     Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap()
 }
+
 fn background(f: &Fixture) -> Repository {
     let mut o = f.options(CacheMode::Sqlite);
     o.validation = ValidationMode::Background;
     o.background_workers = 2;
     Repository::load_repository(&f.root, o).unwrap()
 }
+
 #[test]
 fn defaults_follow_cpu_divisors_and_keep_64_mib() {
     let o = Options::new("unused");
@@ -22,6 +24,7 @@ fn defaults_follow_cpu_divisors_and_keep_64_mib() {
     assert_eq!(o.sqlite_cache_mib, Some(64));
     assert_eq!(o.validation, ValidationMode::Background);
 }
+
 #[test]
 fn background_is_lazy_publishes_after_commit_and_does_not_repeat_work() {
     let f = Fixture::new();
@@ -50,6 +53,7 @@ fn background_is_lazy_publishes_after_commit_and_does_not_repeat_work() {
     assert_eq!(r.wait_for_validation().unwrap().applied, 7);
     assert!(r.poll_validation_updates().unwrap().is_empty());
 }
+
 #[test]
 fn pending_work_resumes_from_cache_without_source_reads() {
     let f = Fixture::new();
@@ -70,6 +74,7 @@ fn pending_work_resumes_from_cache_without_source_reads() {
             .all(|s| s.status == RecordStatus::Valid)
     );
 }
+
 #[test]
 fn malformed_utf8_and_nonobject_json_remain_visible_and_exact() {
     let f = Fixture::new();
@@ -131,6 +136,7 @@ fn malformed_utf8_and_nonobject_json_remain_visible_and_exact() {
         RecordStatus::Valid
     );
 }
+
 #[test]
 fn all_diagnostics_and_valid_reference_occurrences_are_retained() {
     let f = Fixture::new();
@@ -172,6 +178,7 @@ fn all_diagnostics_and_valid_reference_occurrences_are_retained() {
             .is_empty()
     );
 }
+
 #[test]
 fn wrong_types_sort_after_missing_and_never_match_typed_filters() {
     let f = Fixture::new();
@@ -214,6 +221,7 @@ fn wrong_types_sort_after_missing_and_never_match_typed_filters() {
         }
     }
 }
+
 #[test]
 fn schema_changes_reset_diagnostics_without_source_reads_and_ui_changes_do_not() {
     let f = Fixture::new();
@@ -242,6 +250,7 @@ fn schema_changes_reset_diagnostics_without_source_reads_and_ui_changes_do_not()
     assert_eq!(r.open_view("books", &all()).unwrap().states, ready.states);
     assert_eq!(r.validate_collection("books").unwrap().applied, 14);
 }
+
 #[test]
 fn validation_write_failure_is_reported_and_pending_work_survives() {
     let f = Fixture::new();
@@ -273,6 +282,7 @@ fn validation_write_failure_is_reported_and_pending_work_survives() {
     r.open_view("books", &all()).unwrap();
     assert_eq!(r.wait_for_validation().unwrap().applied, 7);
 }
+
 #[test]
 fn shared_writer_supports_concurrent_repository_handles() {
     let f = Fixture::new();

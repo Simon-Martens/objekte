@@ -31,6 +31,7 @@ fn cell(value: &Value) -> String {
     }
     out
 }
+
 pub(super) fn print_view(
     view: &ViewResult,
     output: &str,

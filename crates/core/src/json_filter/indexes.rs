@@ -12,12 +12,14 @@ use std::sync::{Arc, Mutex};
 pub(crate) fn quote(s: &str) -> String {
     format!("'{}'", s.replace('\'', "''"))
 }
+
 pub(crate) fn field(name: &str) -> FieldOperand {
     FieldOperand {
         path: vec![JsonPathStep::Key(name.into())],
         modifier: None,
     }
 }
+
 pub(crate) fn key_expr(alias: &str, field: &FieldOperand) -> String {
     let json = if alias.is_empty() {
         "json".into()
@@ -34,10 +36,12 @@ pub(crate) fn key_expr(alias: &str, field: &FieldOperand) -> String {
         quote(&serde_json::to_string(field).unwrap())
     )
 }
+
 pub(crate) fn indexed(c: &Collection, f: &FieldOperand) -> bool {
     f.modifier.is_none()
         && matches!(&f.path[..], [JsonPathStep::Key(name)] if c.indexes.iter().any(|i| i.name == *name && name != "@id"))
 }
+
 pub(crate) fn view_expr(c: &Collection, name: &str, alias: &str, state: bool) -> String {
     let spec = serde_json::to_string(&(name, c.fields[name].kind)).unwrap();
     let json = if alias.is_empty() {
@@ -56,6 +60,7 @@ pub(crate) fn view_expr(c: &Collection, name: &str, alias: &str, state: bool) ->
         quote(&spec)
     )
 }
+
 pub(crate) fn key(v: &Value) -> String {
     match v {
         Value::Bool(v) => format!("B{}", u8::from(*v)),
@@ -65,6 +70,7 @@ pub(crate) fn key(v: &Value) -> String {
         _ => "O".into(),
     }
 }
+
 fn key_cmp(a: &str, b: &str) -> Ordering {
     if let (Some(a), Some(b)) = (a.strip_prefix('N'), b.strip_prefix('N')) {
         // Empty payload is the numeric range boundary, not a JSON number.
@@ -81,6 +87,9 @@ fn key_cmp(a: &str, b: &str) -> Ordering {
 type DocumentCache = Arc<Mutex<Option<(Vec<u8>, Option<String>, Option<Arc<Value>>)>>>;
 type PreparedKeys = Arc<Vec<(crate::query::Scalar, String)>>;
 type Building = Arc<Mutex<Option<BuildCache>>>;
+
+
+// INFO: Prepared JSON keys and memory budget for an index build.
 struct BuildCache {
     fields: Vec<(FieldOperand, Field)>,
     entries: HashMap<[u8; 32], PreparedKeys>,
@@ -90,6 +99,8 @@ struct BuildCache {
     budget: usize,
     maintaining: bool,
 }
+
+
 impl BuildCache {
     fn extract(&self, doc: Option<&Value>) -> PreparedKeys {
         Arc::new(
@@ -112,6 +123,7 @@ impl BuildCache {
                 .collect(),
         )
     }
+
     fn remember(&mut self, digest: [u8; 32], keys: &PreparedKeys) {
         if self.entries.contains_key(&digest) {
             return;
@@ -135,13 +147,21 @@ impl BuildCache {
         }
     }
 }
+
+
+// INFO: Per-connection decoded document and in-progress index caches.
 /// Transient keys during construction, or one decoded document during updates.
 /// No extracted fields are persisted outside SQLite's expression indexes.
 pub(crate) struct IndexCache {
     document: DocumentCache,
     building: Building,
 }
+
+
+// INFO: Guard that clears temporary index-build state when dropped.
 pub(crate) struct BuildGuard(Building);
+
+
 impl Drop for BuildGuard {
     fn drop(&mut self) {
         if let Ok(mut building) = self.0.lock() {
@@ -149,6 +169,8 @@ impl Drop for BuildGuard {
         }
     }
 }
+
+
 impl IndexCache {
     /// Returns true when the write maintains existing indexes, false when keys
     /// are being retained for the later bulk index build instead.
@@ -176,6 +198,7 @@ impl IndexCache {
             Some((bytes.to_vec(), None, value.map(|v| Arc::new(v.clone()))));
         Ok(true)
     }
+
     pub(crate) fn build(
         &self,
         c: &Collection,
@@ -202,6 +225,7 @@ impl IndexCache {
         });
         Ok(BuildGuard(self.building.clone()))
     }
+
     /// Only enable after all writes, while the writer transaction holds the
     /// collection stable. The first pass verifies actual JSON bytes by SHA-256;
     /// subsequent CREATE INDEX passes can reuse those keys by record identity.
@@ -217,6 +241,8 @@ impl IndexCache {
         Ok(())
     }
 }
+
+
 fn document_key(doc: Option<&Value>, field: &FieldOperand) -> String {
     let selected = doc.map(|d| field.select(d)).unwrap_or_default();
     match selected.as_slice() {
@@ -225,6 +251,7 @@ fn document_key(doc: Option<&Value>, field: &FieldOperand) -> String {
         _ => "M".into(),
     }
 }
+
 fn prepared<T>(
     ctx: &rusqlite::functions::Context<'_>,
     building: &Building,
@@ -285,6 +312,7 @@ fn prepared<T>(
     build.last = Some((bytes.to_vec(), keys));
     Ok(Some(result))
 }
+
 fn document(
     ctx: &rusqlite::functions::Context<'_>,
     cache: &DocumentCache,
@@ -308,6 +336,7 @@ fn document(
     *cache = Some((bytes.to_vec(), field.map(str::to_owned), doc.clone()));
     Ok(doc)
 }
+
 pub(crate) fn register(db: &Connection) -> Result<IndexCache> {
     let flags = FunctionFlags::SQLITE_UTF8
         | FunctionFlags::SQLITE_DETERMINISTIC
@@ -407,6 +436,7 @@ pub(crate) fn register(db: &Connection) -> Result<IndexCache> {
     })
 }
 
+
 impl JsonFilter {
     pub(crate) fn ensure_query_indexes(
         &self,
@@ -454,6 +484,7 @@ impl JsonFilter {
         metrics.index_nanos += start.elapsed().as_nanos() as u64;
         result
     }
+
     /// Check scalar cardinality over the entire scope before pagination or boolean
     /// short circuiting. Indexed paths check the multi-value sentinel by index seek.
     pub(crate) fn check_sql_cardinality(&self, db: &Connection, c: &Collection) -> Result<()> {
@@ -486,6 +517,7 @@ impl JsonFilter {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "indexes.tests.rs"]

@@ -8,7 +8,10 @@ use serde_json::{Map, Value};
 use sonic_rs::{JsonContainerTrait, JsonValueTrait, ValueRef};
 use std::{collections::BTreeSet, fmt};
 
+
+// INFO: Serde-compatible JSON value converted from Sonic's parser.
 pub(crate) struct ParsedValue(pub Value);
+
 
 impl<'de> Deserialize<'de> for ParsedValue {
     fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
@@ -16,6 +19,7 @@ impl<'de> Deserialize<'de> for ParsedValue {
         compatible(&value, 0).map(Self).map_err(de::Error::custom)
     }
 }
+
 
 // Sonic's DOM preserves duplicate object members. Insert in source order to retain
 // the library's last-member-wins contract. Convert raw numbers without an f64 hop.
@@ -113,18 +117,24 @@ pub(crate) fn index_fields(json: &str, selected: impl Fn(&str) -> bool) -> Resul
 /// Materialize requested top-level fields only. Scan all members, including
 /// duplicates, using Sonic's native skip behavior for unselected values.
 pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, sonic_rs::Error> {
+    // INFO: Deserialization seed selecting only requested fields from a record.
     struct Projection<'a>(&'a BTreeSet<&'a str>);
+
+
     impl<'de> DeserializeSeed<'de> for Projection<'_> {
         type Value = Value;
         fn deserialize<D: Deserializer<'de>>(self, de: D) -> Result<Value, D::Error> {
             de.deserialize_map(self)
         }
     }
+
+
     impl<'de> Visitor<'de> for Projection<'_> {
         type Value = Value;
         fn expecting(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
             f.write_str("a record object")
         }
+
         fn visit_map<M: MapAccess<'de>>(self, mut map: M) -> Result<Value, M::Error> {
             let mut object = Map::new();
             while let Some(key) = map.next_key::<String>()? {
@@ -138,6 +148,8 @@ pub(crate) fn project(json: &str, fields: &BTreeSet<&str>) -> Result<Value, soni
             Ok(Value::Object(object))
         }
     }
+
+
     let mut de = sonic_rs::Deserializer::from_str(json).use_rawnumber();
     let value = Projection(fields).deserialize(&mut de)?;
     de.end()?;

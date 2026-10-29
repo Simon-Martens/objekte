@@ -21,9 +21,11 @@ fn timed<T>(label: &str, f: impl FnOnce() -> T) -> T {
     report(label, start.elapsed());
     result
 }
+
 fn report(label: &str, elapsed: Duration) {
     println!("{label:28} {:>10.3} s", elapsed.as_secs_f64());
 }
+
 fn synthetic(root: &Path, count: usize) -> std::io::Result<()> {
     fs::create_dir_all(root.join(".editor/collections/items"))?;
     fs::create_dir_all(root.join("data/items"))?;
@@ -52,6 +54,7 @@ fn synthetic(root: &Path, count: usize) -> std::io::Result<()> {
     }
     Ok(())
 }
+
 fn qj_worker(files: Vec<PathBuf>, filter: &str) -> Result<usize, String> {
     let opts = CompileOptions::new(".");
     let code =
@@ -76,6 +79,7 @@ fn qj_worker(files: Vec<PathBuf>, filter: &str) -> Result<usize, String> {
     }
     Ok(count)
 }
+
 fn jaq_worker(files: Vec<PathBuf>, filter: &str) -> Result<usize, String> {
     let compiled = data::compile(filter).map_err(|_| "jaq compile error".to_owned())?;
     let runner = data::Runner::default();
@@ -98,6 +102,7 @@ fn jaq_worker(files: Vec<PathBuf>, filter: &str) -> Result<usize, String> {
     }
     Ok(count)
 }
+
 fn parallel(
     files: &[PathBuf],
     filter: &str,
@@ -124,6 +129,7 @@ fn parallel(
             .sum()
     })
 }
+
 fn queries(files: &[PathBuf], threads: usize, filters: &[String]) -> Result<(), String> {
     for filter in filters {
         println!("filter: {filter}");
@@ -140,6 +146,7 @@ fn queries(files: &[PathBuf], threads: usize, filters: &[String]) -> Result<(), 
     }
     Ok(())
 }
+
 fn qj_slurp(files: &[PathBuf]) -> Result<QjValue, String> {
     let names: Vec<OsString> = files.iter().map(|p| p.as_os_str().to_owned()).collect();
     let mut input = InputReader::new(names, ReaderOptions::default());
@@ -155,6 +162,7 @@ fn qj_slurp(files: &[PathBuf]) -> Result<QjValue, String> {
     }
     Ok(rows.into())
 }
+
 fn jaq_slurp(files: &[PathBuf]) -> Result<JaqValue, String> {
     let mut rows = Vec::new();
     for path in files {
@@ -165,6 +173,7 @@ fn jaq_slurp(files: &[PathBuf]) -> Result<JaqValue, String> {
     }
     Ok(rows.into_iter().collect())
 }
+
 fn qj_global(input: QjValue, filter: &str) -> Result<Vec<serde_json::Value>, String> {
     let opts = CompileOptions::new(".");
     let code =
@@ -179,6 +188,7 @@ fn qj_global(input: QjValue, filter: &str) -> Result<Vec<serde_json::Value>, Str
     }
     Ok(out)
 }
+
 fn jaq_global(input: JaqValue, filter: &str) -> Result<Vec<serde_json::Value>, String> {
     let compiled = data::compile(filter).map_err(|_| "jaq compile error".to_owned())?;
     let runner = data::Runner::default();
@@ -197,6 +207,7 @@ fn jaq_global(input: JaqValue, filter: &str) -> Result<Vec<serde_json::Value>, S
     )?;
     Ok(out)
 }
+
 fn global_queries(files: &[PathBuf], filters: &[String]) -> Result<(), String> {
     for filter in filters {
         println!("global filter: {filter}");
@@ -231,6 +242,7 @@ fn global_queries(files: &[PathBuf], filters: &[String]) -> Result<(), String> {
     }
     Ok(())
 }
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut repo = None;

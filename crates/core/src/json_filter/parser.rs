@@ -21,12 +21,17 @@ pub(super) fn parse(text: &str, parameters: &BTreeMap<String, Value>) -> Result<
     }
     Ok(expr)
 }
+
+
+// INFO: Filter text cursor, parameter bindings, and expression node count.
 struct Parser<'a> {
     text: &'a str,
     pos: usize,
     parameters: &'a BTreeMap<String, Value>,
     nodes: usize,
 }
+
+
 impl Parser<'_> {
     fn error<T>(&self, message: &str) -> Result<T> {
         Err(Error::Request(format!(
@@ -34,19 +39,23 @@ impl Parser<'_> {
             self.pos
         )))
     }
+
     fn ws(&mut self) {
         while self.peek().is_some_and(char::is_whitespace) {
             self.bump();
         }
     }
+
     fn peek(&self) -> Option<char> {
         self.text[self.pos..].chars().next()
     }
+
     fn bump(&mut self) -> Option<char> {
         let c = self.peek()?;
         self.pos += c.len_utf8();
         Some(c)
     }
+
     fn take(&mut self, s: &str) -> bool {
         self.ws();
         if self.text[self.pos..].starts_with(s) {
@@ -56,6 +65,7 @@ impl Parser<'_> {
             false
         }
     }
+
     fn need(&mut self, s: &str) -> Result<()> {
         if self.take(s) {
             Ok(())
@@ -63,6 +73,7 @@ impl Parser<'_> {
             self.error(&format!("expected {s}"))
         }
     }
+
     fn or(&mut self, depth: usize) -> Result<Expr> {
         let mut es = vec![self.and(depth)?];
         while self.take("||") {
@@ -74,6 +85,7 @@ impl Parser<'_> {
             Expr::Or(es)
         })
     }
+
     fn and(&mut self, depth: usize) -> Result<Expr> {
         let mut es = vec![self.atom(depth)?];
         while self.take("&&") {
@@ -85,6 +97,7 @@ impl Parser<'_> {
             Expr::And(es)
         })
     }
+
     fn atom(&mut self, depth: usize) -> Result<Expr> {
         self.nodes += 1;
         if depth >= MAX_DEPTH || self.nodes > MAX_NODES {
@@ -139,6 +152,7 @@ impl Parser<'_> {
             right,
         })
     }
+
     fn ident(&mut self) -> Result<String> {
         self.ws();
         let start = self.pos;
@@ -153,6 +167,7 @@ impl Parser<'_> {
         }
         Ok(self.text[start..self.pos].into())
     }
+
     fn path(&mut self) -> Result<JsonPath> {
         self.ws();
         let mut out = Vec::new();
@@ -193,6 +208,7 @@ impl Parser<'_> {
         }
         Ok(out)
     }
+
     fn string(&mut self) -> Result<String> {
         self.ws();
         let quote = self.bump().unwrap();
@@ -226,6 +242,7 @@ impl Parser<'_> {
             .map_err(|e| Error::Request(format!("filter at byte {}: {e}", self.pos)))?;
         Ok(value.as_str().unwrap().into())
     }
+
     fn operand(&mut self) -> Result<Operand> {
         self.ws();
         if self.take("$") {
@@ -282,6 +299,7 @@ impl Parser<'_> {
         let value = crate::json::parse(raw).map_err(|_| Error::Request(format!("filter at byte {start}: expected quoted string, number, true, false, null, or $parameter")))?;
         self.literal(value)
     }
+
     fn literal(&self, value: Value) -> Result<Operand> {
         if matches!(value, Value::Array(_) | Value::Object(_)) {
             self.error("comparison value must be a JSON scalar")

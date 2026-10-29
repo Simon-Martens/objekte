@@ -16,6 +16,7 @@ fn pinned_directory_survives_replacement_but_finish_rejects_it() {
     assert_eq!(text, "old");
     assert!(source.finish().is_err());
 }
+
 #[test]
 fn symlink_swapped_in_after_inventory_is_never_followed() {
     let temp = tempfile::tempdir().unwrap();
@@ -31,6 +32,7 @@ fn symlink_swapped_in_after_inventory_is_never_followed() {
     assert!(source.file("a").is_err());
     assert!(source.finish().is_err());
 }
+
 #[test]
 fn membership_changes_after_inventory_are_detected() {
     let temp = tempfile::tempdir().unwrap();
@@ -39,6 +41,7 @@ fn membership_changes_after_inventory_are_detected() {
     fs::write(temp.path().join("new.json"), "{}").unwrap();
     assert!(source.finish().is_err());
 }
+
 #[cfg(target_os = "linux")]
 #[test]
 fn relative_stat_preserves_manifest_stamps_including_pre_epoch_timestamps() {
@@ -63,6 +66,7 @@ fn relative_stat_preserves_manifest_stamps_including_pre_epoch_timestamps() {
         );
     }
 }
+
 #[cfg(target_os = "linux")]
 #[test]
 fn relative_stat_rejects_a_symlink_even_when_its_target_is_regular() {

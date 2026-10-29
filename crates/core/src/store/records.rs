@@ -42,6 +42,7 @@ pub(crate) fn put_edges(
     metrics.relation_write_nanos += t.elapsed().as_nanos() as u64;
     Ok(())
 }
+
 pub(crate) fn delete_record(
     db: &Connection,
     c: &Collection,

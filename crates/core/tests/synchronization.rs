@@ -31,6 +31,7 @@ fn strict_reopen_hashes_but_does_not_reparse_unchanged_sources() {
     assert_eq!(v.metrics.rows_updated, 0);
     assert_eq!(v.metrics.index_builds, 0);
 }
+
 #[test]
 fn offline_edit_with_identical_size_and_timestamp_is_found() {
     let f = Fixture::new();
@@ -61,6 +62,7 @@ fn offline_edit_with_identical_size_and_timestamp_is_found() {
     assert_eq!(v.metrics.parses, 1);
     assert_eq!(v.metrics.index_rows_written, 1);
 }
+
 #[test]
 fn explicit_refresh_and_hash_on_request_observe_live_edits() {
     let f = Fixture::new();
@@ -82,6 +84,7 @@ fn explicit_refresh_and_hash_on_request_observe_live_edits() {
     assert_eq!(v.metrics.rows_updated, 1);
     assert_ne!(v.rows[0].id, "a");
 }
+
 #[test]
 fn additions_deletions_and_filename_renames_are_targeted() {
     let f = Fixture::new();
@@ -117,6 +120,7 @@ fn additions_deletions_and_filename_renames_are_targeted() {
         .unwrap();
     assert_eq!(rows, 0);
 }
+
 #[test]
 fn malformed_or_invalid_files_cannot_expose_previous_cached_rows() {
     for bad in [
@@ -164,6 +168,7 @@ fn malformed_or_invalid_files_cannot_expose_previous_cached_rows() {
         assert_eq!(restarted.states["a"].status, expected);
     }
 }
+
 #[test]
 fn interrupted_generation_is_reconciled_before_reuse() {
     let f = Fixture::new();
@@ -192,6 +197,7 @@ fn interrupted_generation_is_reconciled_before_reuse() {
         "current"
     );
 }
+
 #[test]
 fn transaction_failure_rolls_back_rows_and_preserves_dirty_state() {
     let f = Fixture::new();
@@ -231,6 +237,7 @@ fn transaction_failure_rolls_back_rows_and_preserves_dirty_state() {
     assert_eq!(m.rows_updated, 2);
     assert_eq!(r.open_view("books", &all()).unwrap().rows[0].id, "b");
 }
+
 #[test]
 fn schema_change_revalidates_and_changes_relation_extraction() {
     let f = Fixture::new();
@@ -269,6 +276,7 @@ fn schema_change_revalidates_and_changes_relation_extraction() {
             .any(|s| s.status == objekte_core::RecordStatus::Invalid)
     );
 }
+
 #[test]
 fn source_mapping_change_does_not_reuse_old_records() {
     let f = Fixture::new();
@@ -288,6 +296,7 @@ fn source_mapping_change_does_not_reuse_old_records() {
     assert_eq!(v.metrics.rows_deleted, 7);
     assert_eq!(v.metrics.rows_inserted, 1);
 }
+
 #[test]
 fn deleted_cache_and_incompatible_format_rebuild_lazily() {
     let f = Fixture::new();
@@ -303,6 +312,7 @@ fn deleted_cache_and_incompatible_format_rebuild_lazily() {
     assert_eq!(v.metrics.rows_inserted, 7);
     assert_eq!(v.total, Some(7));
 }
+
 #[test]
 fn separate_repositories_namespaces_and_cache_modes_are_isolated() {
     let f = Fixture::new();
@@ -338,6 +348,7 @@ fn separate_repositories_namespaces_and_cache_modes_are_isolated() {
     assert_eq!(r.open_view("books", &all()).unwrap().rows, expected);
     assert!(!clean.exists());
 }
+
 #[test]
 fn wrong_repository_identity_is_rejected() {
     let f = Fixture::new();
@@ -356,6 +367,7 @@ fn wrong_repository_identity_is_rejected() {
             .contains("identity mismatch")
     );
 }
+
 #[test]
 fn simultaneous_handles_serialize_reconciliation() {
     let f = Fixture::new();
@@ -465,6 +477,7 @@ fn source_membership_change_during_reconciliation_rolls_back_and_recovers() {
         "current"
     );
 }
+
 #[test]
 fn get_refreshes_original_and_missing_reads_remove_stale_cache_rows() {
     let f = Fixture::new();
@@ -489,6 +502,7 @@ fn get_refreshes_original_and_missing_reads_remove_stale_cache_rows() {
     assert!(r.get_record("books", "a").unwrap().is_none());
     assert_eq!(r.open_view("books", &all()).unwrap().total, Some(6));
 }
+
 #[test]
 fn nested_source_layout_is_rejected_instead_of_silently_omitted() {
     let f = Fixture::new();
@@ -502,6 +516,7 @@ fn nested_source_layout_is_rejected_instead_of_silently_omitted() {
             .contains("nested")
     );
 }
+
 #[cfg(unix)]
 #[test]
 fn symlink_sources_and_path_traversal_are_rejected() {
@@ -518,6 +533,7 @@ fn symlink_sources_and_path_traversal_are_rejected() {
         assert!(r.get_record("books", id).is_err())
     }
 }
+
 #[test]
 fn malformed_get_replaces_a_previously_current_view() {
     let f = Fixture::new();
@@ -548,6 +564,7 @@ fn failed_transactions_do_not_report_rolled_back_writes_as_committed() {
     assert_eq!(r.metrics().index_rows_written, 0);
     assert!(r.metrics().source_reads >= 2);
 }
+
 #[test]
 fn missing_collection_directory_is_an_error_not_a_missing_record() {
     let f = Fixture::new();
@@ -555,6 +572,7 @@ fn missing_collection_directory_is_an_error_not_a_missing_record() {
     fs::remove_dir_all(f.root.join("data/books")).unwrap();
     assert!(r.get_record("books", "a").is_err());
 }
+
 #[test]
 fn a_corrupt_database_does_not_prevent_explicit_direct_reads() {
     let f = Fixture::new();

@@ -32,12 +32,14 @@ mod source_records;
 mod validation_ops;
 mod views;
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum CacheMode {
     Disabled,
     Sqlite,
 }
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -48,6 +50,8 @@ pub enum Freshness {
     HashOnRequest,
 }
 
+
+// INFO: Runtime cache, freshness, worker, validation, and SQL diagnostic settings.
 #[derive(Debug, Clone, Serialize)]
 pub struct Options {
     pub data_dir: PathBuf,
@@ -64,6 +68,7 @@ pub struct Options {
     /// Emit one timed SQL statement per line to stderr while the SQLite cache is used.
     pub sql_diagnostics: bool,
 }
+
 
 impl Options {
     pub fn new(data_dir: impl Into<PathBuf>) -> Self {
@@ -83,26 +88,30 @@ impl Options {
     }
 }
 
+
 macro_rules! metrics {
     ($($field:ident),* $(,)?) => {
-    #[derive(Debug, Default, Clone, PartialEq, Eq, Serialize)]
-    pub struct Metrics {
-        $(pub $field: u64,)*
-    }
+        // INFO: Cumulative operation counters and nanosecond timings.
+        #[derive(Debug, Default, Clone, PartialEq, Eq, Serialize)]
+        pub struct Metrics {
+            $(pub $field: u64,)*
+        }
 
-    impl Metrics {
-        pub fn since(&self, before: &Self) -> Self {
-            Self {
-                $($field: self.$field.saturating_sub(before.$field),)*
+
+        impl Metrics {
+            pub fn since(&self, before: &Self) -> Self {
+                Self {
+                    $($field: self.$field.saturating_sub(before.$field),)*
+                }
+            }
+
+            fn merge(&mut self, other: &Self) {
+                $(self.$field = self.$field.saturating_add(other.$field);)*
             }
         }
-
-        fn merge(&mut self, other: &Self) {
-            $(self.$field = self.$field.saturating_add(other.$field);)*
-        }
-    }
     };
 }
+
 metrics!(
     enumerations,
     source_reads,
@@ -145,6 +154,8 @@ metrics!(
     query_nanos
 );
 
+
+// INFO: Record identity, source path, JSON, digest, validation state, and raw bytes.
 #[derive(Debug, Clone, Serialize)]
 pub struct Record {
     pub collection: String,
@@ -158,6 +169,7 @@ pub struct Record {
     pub raw: Option<Vec<u8>>,
 }
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum TargetState {
@@ -166,6 +178,8 @@ pub enum TargetState {
     Missing,
 }
 
+
+// INFO: One source-to-target reference occurrence and target resolution state.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct RecordRelation {
     pub source_collection: String,
@@ -176,6 +190,8 @@ pub struct RecordRelation {
     pub target_state: TargetState,
 }
 
+
+// INFO: Cache completeness, configuration versions, and validation counts for a collection.
 #[derive(Debug, Clone, Serialize)]
 pub struct Coverage {
     pub collection: String,
@@ -194,12 +210,16 @@ pub struct Coverage {
     pub view_hash: Option<String>,
 }
 
+
+// INFO: Reference edges accompanied by collection coverage information.
 #[derive(Debug, Clone, Serialize)]
 pub struct References {
     pub edges: Vec<RecordRelation>,
     pub coverage: Vec<Coverage>,
 }
 
+
+// INFO: Cache location, policies, collection coverage, and configuration changes.
 #[derive(Debug, Clone, Serialize)]
 pub struct CacheStatus {
     pub directory: PathBuf,
@@ -208,12 +228,17 @@ pub struct CacheStatus {
     pub collections: Vec<Coverage>,
     pub configuration_changes: Option<ConfigurationChanges>,
 }
+
+
+// INFO: Stable source bytes, content digest, and descriptor stamp.
 struct Raw {
     json: Vec<u8>,
     hash: String,
     stamp: Stamp,
 }
 
+
+// INFO: Live handle for configuration, cache writes, validation, metrics, and coverage.
 pub struct Repository {
     writer: Option<Arc<Writer>>,
     validator: Option<Validator>,
@@ -226,6 +251,7 @@ pub struct Repository {
     observed_configuration: ConfigurationSnapshot,
     configuration_changes: Option<ConfigurationChanges>,
 }
+
 
 impl Repository {
     /// Load configuration and schemas only. Does not enumerate records or create cache files.
@@ -378,6 +404,8 @@ impl Repository {
         Ok(writer)
     }
 }
+
+
 pub(crate) fn validate_id(id: &str) -> Result<()> {
     if id.is_empty() || id == "." || id == ".." || id.contains(['/', '\\', '\0']) {
         Err(Error::Request(format!("invalid record ID {id:?}")))
@@ -421,6 +449,7 @@ fn future_path(path: &Path) -> Result<PathBuf> {
     Ok(out)
 }
 
+
 impl Metrics {
     fn rollback_writes(&mut self, before: &Self) {
         self.rows_inserted = before.rows_inserted;
@@ -434,6 +463,7 @@ impl Metrics {
         self.index_rows_written = before.index_rows_written;
     }
 }
+
 
 fn cached_state(db: &rusqlite::Connection, collection: &str, id: &str) -> Result<RecordState> {
     let (status, issues): (String, String) = db.query_row(

@@ -13,7 +13,7 @@ Run from the repository root:
 ```sh
 cargo test -p objekte-core -p objekte-cli
 cargo clippy -p objekte-core -p objekte-cli --all-targets -- -D warnings
-cargo fmt -p objekte-core -p objekte-cli --check
+python3 scripts/format-rust-spacing.py --check
 ```
 
 | Suite | Checks |
@@ -47,6 +47,10 @@ that a cache hit does not commit changed database pages.
 Unit test modules live beside their source files as `*.tests.rs`. Each production
 module includes its test file with `#[cfg(test)]` and `#[path = "name.tests.rs"]`;
 the Unix-only source tests retain their platform guard.
+
+Run `python3 scripts/format-rust-spacing.py` after editing Rust. It runs rustfmt,
+then keeps one empty line between functions and two around struct, enum, impl,
+and module blocks.
 
 Sonic parser unit tests compare values and serialized bytes against Serde for
 large numbers, exponents, negative zero, Unicode, duplicate/escaped keys, and the

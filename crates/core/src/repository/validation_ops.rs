@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl Repository {
     pub(super) fn schedule_validation(&mut self, c: &Collection) -> Result<()> {
         if self.options.cache == CacheMode::Disabled

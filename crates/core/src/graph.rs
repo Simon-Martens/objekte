@@ -1,18 +1,26 @@
 use crate::{Collection, Field, PathStep, Result, error::config, schema::escape};
 use serde::Serialize;
 use std::collections::{BTreeMap, HashMap};
+
+
+// INFO: Declared path from a source collection to a target collection.
 #[derive(Debug, Clone, Serialize)]
 pub struct CollectionRelation {
     pub source: String,
     pub path: Vec<PathStep>,
     pub target: String,
 }
+
+
+// INFO: Declared edges, connected components, and collection cycles.
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct CollectionGraph {
     pub edges: Vec<CollectionRelation>,
     pub components: Vec<Vec<String>>,
     pub cycles: Vec<Vec<String>>,
 }
+
+
 impl CollectionGraph {
     pub(crate) fn build(collections: &BTreeMap<String, Collection>) -> Result<Self> {
         let mut edges = Vec::new();

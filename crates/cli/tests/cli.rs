@@ -13,6 +13,7 @@ fn run(f: &Fixture, args: &[&str]) -> Output {
     c.args(args).arg("--data-dir").arg(&f.data);
     c.output().unwrap()
 }
+
 fn value(out: Output) -> Value {
     assert!(
         out.status.success(),
@@ -21,6 +22,7 @@ fn value(out: Output) -> Value {
     );
     serde_json::from_slice(&out.stdout).unwrap()
 }
+
 fn diagnostics(out: &Output) -> Value {
     let entries = String::from_utf8_lossy(&out.stderr)
         .lines()
@@ -30,6 +32,7 @@ fn diagnostics(out: &Output) -> Value {
     assert_eq!(entries.len(), 1);
     entries.into_iter().next().unwrap()
 }
+
 fn sql_events(out: &Output) -> Vec<Value> {
     String::from_utf8_lossy(&out.stderr)
         .lines()
@@ -37,6 +40,7 @@ fn sql_events(out: &Output) -> Vec<Value> {
         .filter(|entry| entry["type"] == "sql")
         .collect()
 }
+
 #[test]
 fn help_version_and_invalid_arguments() {
     for arg in ["--help", "--version"] {
@@ -166,6 +170,7 @@ fn sqlite_page_cache_budget_is_configurable_and_reported() {
         assert_eq!(value(output)["rows"].as_array().unwrap().len(), 3);
     }
 }
+
 #[test]
 fn inspect_graph_and_status_are_lazy() {
     let f = Fixture::new();
@@ -185,6 +190,7 @@ fn inspect_graph_and_status_are_lazy() {
     );
     assert!(!f.data.exists());
 }
+
 #[test]
 fn metadata_default_strict_mode_and_subsort_hashes_are_exposed() {
     let f = Fixture::new();
@@ -237,6 +243,7 @@ fn metadata_default_strict_mode_and_subsort_hashes_are_exposed() {
         assert!(!run(&f, &args).status.success());
     }
 }
+
 #[test]
 fn cli_views_filters_paging_json_and_ndjson_use_library_semantics() {
     let f = Fixture::new();
@@ -276,6 +283,7 @@ fn cli_views_filters_paging_json_and_ndjson_use_library_semantics() {
     assert_eq!(lines.len(), 2);
     assert_eq!(lines[0]["id"], "f");
 }
+
 #[test]
 fn table_output_preserves_literal_markup_and_escapes_control_characters() {
     let f = Fixture::new();
@@ -302,6 +310,7 @@ fn table_output_preserves_literal_markup_and_escapes_control_characters() {
     assert!(text.contains("<b>HTML</b>\\n**MD**"));
     assert!(!text.contains('\u{1b}'));
 }
+
 #[test]
 fn reopen_refresh_and_fresh_namespace_are_observable() {
     let f = Fixture::new();
@@ -410,6 +419,7 @@ fn separate_cli_processes_serialize_updates_to_one_cache() {
         1
     );
 }
+
 #[test]
 fn disabled_cache_writes_no_app_data_and_matches_sqlite() {
     let f = Fixture::new();
@@ -428,6 +438,7 @@ fn disabled_cache_writes_no_app_data_and_matches_sqlite() {
     assert_eq!(direct["rows"], sql["rows"]);
     assert_eq!(direct["total"], sql["total"]);
 }
+
 #[test]
 fn record_and_reference_commands_report_resolution_and_coverage() {
     let f = Fixture::new();
@@ -452,6 +463,7 @@ fn record_and_reference_commands_report_resolution_and_coverage() {
     assert_eq!(refs["edges"].as_array().unwrap().len(), 4);
     assert_eq!(refs["coverage"][0]["verified"], true);
 }
+
 #[test]
 fn killing_a_cache_builder_leaves_recoverable_state() {
     let f = Fixture::new();

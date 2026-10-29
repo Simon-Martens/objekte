@@ -1,15 +1,22 @@
 // PocketBase parameter wrapping and SQLite LIKE matching (ASCII case folding).
+
+
 #[derive(Clone, Debug)]
 enum Token {
     Any,
     One,
     Char(char),
 }
+
+
+// INFO: Compiled LIKE pattern tokens and validity state.
 #[derive(Debug)]
 pub(super) struct Like {
     tokens: Vec<Token>,
     valid: bool,
 }
+
+
 impl Like {
     pub fn new(pattern: &str, field: bool) -> Self {
         let mut escaped = false;
@@ -53,6 +60,7 @@ impl Like {
         }
         Self { tokens, valid }
     }
+
     pub fn matches(&self, text: &str) -> bool {
         if !self.valid {
             return false;
@@ -91,6 +99,7 @@ impl Like {
         p == self.tokens.len()
     }
 }
+
 
 #[cfg(test)]
 #[path = "pattern.tests.rs"]

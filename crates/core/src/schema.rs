@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{collections::BTreeMap, path::Path, sync::Arc};
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum ValueType {
@@ -15,17 +16,24 @@ pub enum ValueType {
     Null,
     Any,
 }
+
+
 impl ValueType {
     pub fn scalar(self) -> bool {
         !matches!(self, Self::Object | Self::Array | Self::Any)
     }
 }
+
+
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 #[serde(tag = "kind", content = "name", rename_all = "snake_case")]
 pub enum PathStep {
     Field(String),
     Each,
 }
+
+
+// INFO: Parsed schema field type, nullability, children, and relation target.
 #[derive(Debug, Clone, Serialize)]
 pub struct Field {
     pub kind: ValueType,
@@ -34,14 +42,21 @@ pub struct Field {
     pub items: Option<Box<Field>>,
     pub relation: Option<String>,
 }
+
+
+// INFO: Root field model paired with the compiled JSON Schema validator.
 #[derive(Clone)]
 pub(crate) struct Schema {
     pub field: Field,
     pub validator: Arc<jsonschema::Validator>,
 }
+
+
 pub(crate) fn escape(s: &str) -> String {
     s.replace('~', "~0").replace('/', "~1")
 }
+
+
 impl Schema {
     pub fn compile(value: &Value, path: &Path) -> Result<Self> {
         let field = parse(value, path, "", 0)?;
@@ -68,6 +83,7 @@ impl Schema {
             validator: Arc::new(validator),
         })
     }
+
     pub fn issues(&self, value: &Value) -> Vec<crate::ValidationIssue> {
         let mut issues = if self.validator.is_valid(value) {
             Vec::new()
@@ -86,6 +102,8 @@ impl Schema {
         issues
     }
 }
+
+
 fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
     if depth > 128 {
         return Err(config(file, p, "schema nesting exceeds 128"));
@@ -237,6 +255,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
         relation,
     })
 }
+
 pub(crate) fn check_number(v: &Value) -> std::result::Result<(), &'static str> {
     let Some(n) = v.as_number() else {
         return Ok(());
@@ -249,6 +268,7 @@ pub(crate) fn check_number(v: &Value) -> std::result::Result<(), &'static str> {
     }
     Ok(())
 }
+
 pub(crate) fn indexable(f: &Field, v: &Value) -> bool {
     match f.kind {
         ValueType::String => v.is_string(),
@@ -267,6 +287,7 @@ pub(crate) fn indexable(f: &Field, v: &Value) -> bool {
         _ => false,
     }
 }
+
 fn domain_issues(f: &Field, v: &Value, p: &str, out: &mut Vec<crate::ValidationIssue>) {
     if v.is_null() {
         return;

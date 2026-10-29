@@ -14,18 +14,25 @@ use std::{
 pub(crate) fn digest(bytes: &[u8]) -> String {
     format!("{:x}", Sha256::digest(bytes))
 }
+
 /// Version/domain tagged, unambiguously serialized compound fingerprint.
 pub(crate) fn fingerprint(domain: &str, value: &impl Serialize) -> String {
+    // INFO: Hash writer that feeds serialized configuration bytes into SHA-256.
     struct Sink(Sha256);
+
+
     impl std::io::Write for Sink {
         fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
             self.0.update(bytes);
             Ok(bytes.len())
         }
+
         fn flush(&mut self) -> std::io::Result<()> {
             Ok(())
         }
     }
+
+
     let mut sink = Sink(Sha256::new());
     {
         use std::io::Write;
@@ -42,6 +49,8 @@ pub(crate) fn fingerprint(domain: &str, value: &impl Serialize) -> String {
 #[path = "config.tests.rs"]
 mod fingerprint_tests;
 
+
+// INFO: Fingerprints for filter, sort, projection, and complete view definitions.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct ViewHashes {
     pub filters: String,
@@ -49,6 +58,8 @@ pub struct ViewHashes {
     pub projection: String,
     pub combined: String,
 }
+
+
 impl ViewHashes {
     pub(crate) fn new(
         filters: &impl Serialize,
@@ -68,6 +79,8 @@ impl ViewHashes {
         }
     }
 }
+
+
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Direction {
@@ -75,12 +88,17 @@ pub enum Direction {
     Asc,
     Desc,
 }
+
+
+// INFO: Field and direction for one ordered view key.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Sort {
     pub field: String,
     pub direction: Direction,
 }
+
+
 impl Default for Sort {
     fn default() -> Self {
         Self {
@@ -89,6 +107,9 @@ impl Default for Sort {
         }
     }
 }
+
+
+// INFO: Configured columns, filters, and sort choices for a collection view.
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields, rename_all = "camelCase")]
 pub struct ListOptions {
@@ -102,12 +123,18 @@ pub struct ListOptions {
     pub sub_sorts: Vec<Sort>,
     pub sortable: Option<Vec<String>>,
 }
+
+
+// INFO: Name, type, and nullability of a configured scalar index.
 #[derive(Debug, Clone, Serialize)]
 pub struct IndexField {
     pub name: String,
     pub kind: ValueType,
     pub nullable: bool,
 }
+
+
+// INFO: Resolved collection paths, schema, UI settings, fields, and hashes.
 #[derive(Clone, Serialize)]
 pub struct Collection {
     pub name: String,
@@ -127,6 +154,9 @@ pub struct Collection {
     #[serde(skip)]
     pub(crate) schema: Schema,
 }
+
+
+// INFO: Loaded repository root, collections, relationship graph, and input ownership.
 #[derive(Clone, Serialize)]
 pub struct RepositoryModel {
     pub root: PathBuf,
@@ -137,6 +167,9 @@ pub struct RepositoryModel {
     #[serde(skip)]
     pub(crate) input_collections: BTreeMap<PathBuf, BTreeSet<String>>,
 }
+
+
+// INFO: Repository-level JSON configuration before resolution.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct RepoFile {
@@ -144,6 +177,9 @@ struct RepoFile {
     ui: Option<String>,
     collections: BTreeMap<String, String>,
 }
+
+
+// INFO: Collection-level JSON configuration before resolution.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
 struct CollectionFile {
@@ -154,6 +190,9 @@ struct CollectionFile {
     schema: String,
     ui: String,
 }
+
+
+// INFO: Collection UI settings read from JSON.
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields, rename_all = "camelCase")]
 struct UiFile {
@@ -163,17 +202,24 @@ struct UiFile {
     #[serde(default)]
     list: ListOptions,
 }
+
+
+// INFO: Repository UI configuration containing shared defaults.
 #[derive(Default, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct RepoUi {
     #[serde(default)]
     defaults: Defaults,
 }
+
+
+// INFO: Default page size inherited by collection UI settings.
 #[derive(Default, Deserialize)]
 #[serde(deny_unknown_fields, rename_all = "camelCase")]
 struct Defaults {
     page_size: Option<usize>,
 }
+
 
 pub(crate) fn inside(root: &Path, relative: &str) -> Result<PathBuf> {
     let p = Path::new(relative);
@@ -198,6 +244,7 @@ pub(crate) fn inside(root: &Path, relative: &str) -> Result<PathBuf> {
     }
     Ok(canonical)
 }
+
 fn read<T: serde::de::DeserializeOwned>(
     path: &Path,
     files: &mut BTreeMap<PathBuf, String>,
@@ -211,6 +258,7 @@ fn read<T: serde::de::DeserializeOwned>(
     files.insert(path.to_owned(), hash);
     Ok(value)
 }
+
 fn scalar<'a>(
     fields: &'a BTreeMap<String, Field>,
     name: &str,
@@ -227,12 +275,15 @@ fn scalar<'a>(
     }
     Ok(Some(f))
 }
+
 fn unique(names: &[String], file: &Path) -> Result<()> {
     if names.iter().collect::<BTreeSet<_>>().len() != names.len() {
         return Err(config(file, "/list", "duplicate field"));
     }
     Ok(())
 }
+
+
 impl RepositoryModel {
     pub(crate) fn load(root: &Path) -> Result<Self> {
         let root = fs::canonicalize(root).map_err(|e| io(root, e))?;
@@ -407,11 +458,13 @@ impl RepositoryModel {
         }
         Ok(model)
     }
+
     pub fn collection(&self, name: &str) -> Result<&Collection> {
         self.collections
             .get(name)
             .ok_or_else(|| Error::Request(format!("unknown collection {name}")))
     }
+
     pub(crate) fn changed(&self) -> Result<bool> {
         for (p, hash) in &self.files {
             let bytes = match fs::read(p) {
@@ -426,6 +479,7 @@ impl RepositoryModel {
         Ok(false)
     }
 }
+
 
 pub(crate) fn complete_order(mut order: Vec<Sort>) -> Result<Vec<Sort>> {
     let mut names = BTreeSet::new();

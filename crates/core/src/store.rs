@@ -34,6 +34,8 @@ use trace::install_sql_trace;
 pub(crate) use writer::Writer;
 use writer::cache_identity;
 
+
+// INFO: Open SQLite connection, index cache, lock, identity, and tracing state.
 pub(crate) struct Store {
     pub db: Connection,
     pub index_cache: crate::json_filter::indexes::IndexCache,
@@ -46,6 +48,8 @@ pub(crate) struct Store {
     trace_installed: bool,
 }
 
+
+// INFO: Persisted collection cache state and applied configuration hashes.
 #[derive(Debug, Clone)]
 pub(crate) struct State {
     pub state: String,
@@ -58,15 +62,19 @@ pub(crate) struct State {
     pub view: String,
 }
 
+
+// INFO: Record digest and source stamp from the cache manifest.
 #[derive(Debug, Clone)]
 pub(crate) struct Cached {
     pub digest: String,
     pub stamp: Stamp,
 }
 
+
 pub(crate) fn record_table(collection: &str) -> String {
     format!("records_{}", digest(collection.as_bytes()))
 }
+
 
 impl Store {
     pub fn open(
@@ -189,6 +197,7 @@ impl Store {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "store.tests.rs"]

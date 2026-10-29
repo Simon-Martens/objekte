@@ -37,6 +37,7 @@ fn changing_page_cache_budget_reuses_existing_records_and_indexes() {
         assert_eq!(state(&reopened), before);
     }
 }
+
 #[test]
 fn unchanged_manifest_skips_sources_and_database_manifest_on_reopen() {
     let f = Fixture::new();
@@ -69,6 +70,7 @@ fn unchanged_manifest_skips_sources_and_database_manifest_on_reopen() {
         "unchanged reopen must not rewrite metadata or commit changed DB pages"
     );
 }
+
 #[test]
 fn only_changed_candidates_are_read_and_committed_manifest_is_reusable() {
     let f = Fixture::new();
@@ -96,6 +98,7 @@ fn only_changed_candidates_are_read_and_committed_manifest_is_reusable() {
     assert_eq!(next.metrics.source_reads, 0);
     assert!(next.rows.iter().any(|r| r.label == "A different title"));
 }
+
 #[test]
 fn metadata_only_change_rehashes_without_reparsing_or_reindexing() {
     let f = Fixture::new();
@@ -128,6 +131,7 @@ fn metadata_only_change_rehashes_without_reparsing_or_reindexing() {
         1
     );
 }
+
 #[test]
 fn deletion_only_needs_no_source_reads_and_empty_manifest_is_reusable() {
     let f = Fixture::new();
@@ -146,6 +150,7 @@ fn deletion_only_needs_no_source_reads_and_empty_manifest_is_reusable() {
     assert_eq!(v.total, Some(0));
     assert_eq!(v.metrics.manifest_hits, 1);
 }
+
 #[test]
 fn metadata_on_request_observes_edits_without_explicit_refresh() {
     let f = Fixture::new();
@@ -162,6 +167,7 @@ fn metadata_on_request_observes_edits_without_explicit_refresh() {
         1
     );
 }
+
 #[test]
 fn dirty_or_partial_state_cannot_take_the_manifest_shortcut() {
     for state in ["dirty", "partial", "building"] {
@@ -183,6 +189,7 @@ fn dirty_or_partial_state_cannot_take_the_manifest_shortcut() {
         assert_eq!(v.metrics.rows_updated, 0);
     }
 }
+
 #[test]
 fn schema_and_index_changes_reuse_cached_bytes_but_rederive_required_parts() {
     let f = Fixture::new();
@@ -210,6 +217,7 @@ fn schema_and_index_changes_reuse_cached_bytes_but_rederive_required_parts() {
     assert_eq!(v.metrics.index_rows_written, 7);
     assert!(v.metrics.index_builds > 0);
 }
+
 #[test]
 fn a_complete_relationship_cache_can_build_view_indexes_without_source_reads() {
     let f = Fixture::new();
@@ -228,6 +236,7 @@ fn a_complete_relationship_cache_can_build_view_indexes_without_source_reads() {
             .rows
     );
 }
+
 #[test]
 fn failed_changes_do_not_publish_a_new_manifest() {
     let f = Fixture::new();
@@ -245,6 +254,7 @@ fn failed_changes_do_not_publish_a_new_manifest() {
             .is_err()
     );
 }
+
 #[cfg(unix)]
 #[test]
 fn unix_ctime_detects_equal_size_edits_with_restored_mtime_in_metadata_mode() {

@@ -16,6 +16,7 @@ use std::{
 
 pub(crate) use sql::register;
 
+
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 #[serde(tag = "kind", content = "value", rename_all = "snake_case")]
 pub enum JsonPathStep {
@@ -23,7 +24,10 @@ pub enum JsonPathStep {
     Index(usize),
     Each,
 }
+
+
 pub type JsonPath = Vec<JsonPathStep>;
+
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 enum Op {
@@ -36,22 +40,31 @@ enum Op {
     Contains,
     NotContains,
 }
+
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 enum Modifier {
     Length,
     Each,
     Lower,
 }
+
+
+// INFO: JSON path and optional modifier used as a filter operand.
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 pub(crate) struct FieldOperand {
     path: JsonPath,
     modifier: Option<Modifier>,
 }
+
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 enum Operand {
     Field(FieldOperand),
     Literal(Value),
 }
+
+
 impl Operand {
     fn each(&self) -> bool {
         matches!(
@@ -62,6 +75,7 @@ impl Operand {
             })
         )
     }
+
     fn select(&self, doc: &Value) -> Vec<Value> {
         match self {
             Self::Literal(v) => vec![v.clone()],
@@ -69,6 +83,8 @@ impl Operand {
         }
     }
 }
+
+
 impl FieldOperand {
     fn select(&self, doc: &Value) -> Vec<Value> {
         let selected = values(doc, &self.path, self.modifier != Some(Modifier::Length));
@@ -82,6 +98,8 @@ impl FieldOperand {
             .collect()
     }
 }
+
+
 #[derive(Debug, Clone, Serialize)]
 enum Expr {
     And(Vec<Expr>),
@@ -95,6 +113,8 @@ enum Expr {
     },
 }
 
+
+// INFO: Compiled filter expression, referenced paths, and stable hash.
 /// A compiled, bound filter reusable across documents and collections.
 #[derive(Debug, Clone)]
 pub struct JsonFilter {
@@ -103,6 +123,8 @@ pub struct JsonFilter {
     scalar_paths: Vec<FieldOperand>,
     hash: String,
 }
+
+
 impl JsonFilter {
     pub fn compile(text: &str, parameters: &BTreeMap<String, Value>) -> Result<Self> {
         let expr = parser::parse(text, parameters)?;
@@ -141,12 +163,15 @@ impl JsonFilter {
             hash,
         })
     }
+
     pub fn paths(&self) -> &[JsonPath] {
         &self.paths
     }
+
     pub fn hash(&self) -> &str {
         &self.hash
     }
+
     /// Evaluate an already parsed JSON value with exactly the SQL execution semantics.
     pub fn matches(&self, value: &Value) -> Result<bool> {
         self.check_cardinality(value)?;
@@ -178,11 +203,14 @@ impl JsonFilter {
         }
         Ok(evaluate(&self.expr, value))
     }
+
     fn check_cardinality(&self, value: &Value) -> Result<()> {
         check_paths(value, &self.scalar_paths)
     }
 }
 
+
+// INFO: Filter text, bindings, scope, and pagination requested by a caller.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(default, deny_unknown_fields)]
 pub struct JsonQuery {
@@ -194,6 +222,8 @@ pub struct JsonQuery {
     pub offset: usize,
     pub count: bool,
 }
+
+
 impl Default for JsonQuery {
     fn default() -> Self {
         Self {
@@ -206,6 +236,9 @@ impl Default for JsonQuery {
         }
     }
 }
+
+
+// INFO: Collections, paths, and cache revisions observed by a query.
 #[derive(Debug, Clone, Serialize)]
 pub struct JsonQueryDependencies {
     /// All scoped collections, including nonmatching records and future additions.
@@ -214,6 +247,9 @@ pub struct JsonQueryDependencies {
     /// Persistent content generations observed by the SQL query; empty in direct mode.
     pub revisions: BTreeMap<String, i64>,
 }
+
+
+// INFO: Matched records, count, dependencies, metrics, and SQL diagnostics.
 #[derive(Debug, Clone, Serialize)]
 pub struct JsonQueryResult {
     pub records: Vec<Record>,
@@ -225,6 +261,7 @@ pub struct JsonQueryResult {
     pub bindings: Vec<String>,
     pub query_plan: Vec<String>,
 }
+
 
 fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a Value> {
     fn visit<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool, out: &mut Vec<&'a Value>) {
@@ -269,6 +306,7 @@ fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a V
     visit(doc, path, flatten, &mut out);
     out
 }
+
 fn check_paths(doc: &Value, paths: &[FieldOperand]) -> Result<()> {
     for path in paths {
         if path.select(doc).len() > 1 {
@@ -280,6 +318,7 @@ fn check_paths(doc: &Value, paths: &[FieldOperand]) -> Result<()> {
     }
     Ok(())
 }
+
 fn kind(value: &Value) -> &'static str {
     match value {
         Value::Null => "null",
@@ -289,6 +328,7 @@ fn kind(value: &Value) -> &'static str {
         _ => "container",
     }
 }
+
 fn compare(left: &Value, op: Op, right: &Value, right_field: bool) -> bool {
     if kind(left) == "container" || kind(right) == "container" {
         return false;
@@ -327,6 +367,7 @@ fn decimal_cmp(a: &str, b: &str) -> Ordering {
     if let (Ok(a), Ok(b)) = (a.parse::<i64>(), b.parse::<i64>()) {
         return a.cmp(&b);
     }
+
     fn parts(s: &str) -> (bool, String, BigInt) {
         let negative = s.starts_with('-');
         let s = s.strip_prefix('-').unwrap_or(s);

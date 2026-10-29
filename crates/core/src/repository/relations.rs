@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl Repository {
     pub(super) fn path(&self, c: &Collection, id: &str) -> String {
         c.path

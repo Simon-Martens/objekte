@@ -6,6 +6,7 @@ use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
 use std::{env, error::Error, fs, time::Instant};
 
+
 #[derive(Deserialize)]
 #[serde(tag = "kind", rename_all = "snake_case", deny_unknown_fields)]
 enum Case {
@@ -19,12 +20,15 @@ enum Case {
         request: JsonQuery,
     },
 }
+
+
 impl Case {
     fn name(&self) -> &str {
         match self {
             Self::View { name, .. } | Self::Query { name, .. } => name,
         }
     }
+
     fn run(&self, repo: &mut Repository) -> Result<Value, Box<dyn Error>> {
         let start = Instant::now();
         let (result, metrics, plan) = match self {
@@ -68,6 +72,8 @@ impl Case {
         )
     }
 }
+
+
 fn main() -> Result<(), Box<dyn Error>> {
     let args = env::args().skip(1).collect::<Vec<_>>();
     if !(3..=4).contains(&args.len()) {

@@ -9,6 +9,7 @@ type CachedDocument = Arc<Mutex<Option<(Vec<u8>, Option<Arc<Value>>)>>>;
 pub(super) fn failure(error: impl std::fmt::Display) -> rusqlite::Error {
     rusqlite::Error::UserFunctionError(Box::new(std::io::Error::other(error.to_string())))
 }
+
 fn document(ctx: &Context<'_>, cache: &CachedDocument) -> rusqlite::Result<Option<Arc<Value>>> {
     let bytes = ctx.get_raw(0).as_bytes()?;
     let mut cached = cache.lock().map_err(failure)?;
@@ -24,6 +25,7 @@ fn document(ctx: &Context<'_>, cache: &CachedDocument) -> rusqlite::Result<Optio
     *cached = Some((bytes.to_vec(), value.clone()));
     Ok(value)
 }
+
 fn envelope(v: &Value) -> Value {
     let text = match v {
         Value::String(s) => s.clone(),
@@ -33,6 +35,7 @@ fn envelope(v: &Value) -> Value {
     };
     serde_json::json!({"kind":kind(v), "value":text})
 }
+
 pub(crate) fn register(db: &Connection) -> Result<()> {
     let flags = FunctionFlags::SQLITE_UTF8
         | FunctionFlags::SQLITE_DETERMINISTIC
@@ -87,10 +90,12 @@ pub(crate) fn register(db: &Connection) -> Result<()> {
     })?;
     Ok(())
 }
+
 fn bind(bindings: &mut Vec<String>, value: String) -> String {
     bindings.push(value);
     format!("?{}", bindings.len())
 }
+
 fn selected(operand: &Operand, flatten: bool, bindings: &mut Vec<String>) -> String {
     match operand {
         Operand::Literal(v) => {
@@ -107,6 +112,7 @@ fn selected(operand: &Operand, flatten: bool, bindings: &mut Vec<String>) -> Str
         }
     }
 }
+
 fn indexed_comparison(
     left: &Operand,
     op: Op,
@@ -159,6 +165,8 @@ fn indexed_comparison(
         "{key}>='{lower}' AND {key}<'{upper}' AND {key}{op}{rhs}"
     ))
 }
+
+
 impl JsonFilter {
     /// Indexed paths are compiler-escaped SQL literals so SQLite can recognize
     /// expression indexes. All comparison values remain bound parameters.

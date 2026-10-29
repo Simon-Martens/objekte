@@ -72,6 +72,7 @@ fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
     );
     assert!(!f.data.exists());
 }
+
 #[test]
 fn a_record_read_does_not_enumerate_or_touch_other_collections() {
     let f = Fixture::new();
@@ -101,6 +102,7 @@ fn a_record_read_does_not_enumerate_or_touch_other_collections() {
     assert_eq!(view.total, Some(7));
     assert_eq!(view.metrics.source_reads, 7);
 }
+
 #[test]
 fn unsupported_schema_keywords_fail_at_their_locations() {
     for (key, value) in [
@@ -121,6 +123,7 @@ fn unsupported_schema_keywords_fail_at_their_locations() {
         assert!(e.contains("/properties/title"), "{e}");
     }
 }
+
 #[test]
 fn invalid_configuration_and_ui_are_rejected() {
     let cases = vec![
@@ -150,6 +153,7 @@ fn invalid_configuration_and_ui_are_rejected() {
         assert!(Repository::load_repository(&f.root, f.options(CacheMode::Disabled)).is_err());
     }
 }
+
 #[test]
 fn shape_profile_rejects_bad_types_and_relation_shapes() {
     for value in [
@@ -165,6 +169,7 @@ fn shape_profile_rejects_bad_types_and_relation_shapes() {
         assert!(Repository::load_repository(&f.root, f.options(CacheMode::Disabled)).is_err());
     }
 }
+
 #[test]
 fn unknown_targets_fail_but_self_references_are_valid() {
     let f = Fixture::new();
@@ -182,6 +187,7 @@ fn unknown_targets_fail_but_self_references_are_valid() {
     let r = f.repo(CacheMode::Disabled);
     assert!(r.model().graph.cycles.contains(&vec!["people".into()]));
 }
+
 #[test]
 fn page_defaults_and_optional_ui_values_are_normalized() {
     let f = Fixture::new();
@@ -197,6 +203,7 @@ fn page_defaults_and_optional_ui_values_are_normalized() {
         6
     );
 }
+
 #[test]
 fn paths_and_cache_namespaces_cannot_escape() {
     let f = Fixture::new();
@@ -211,6 +218,7 @@ fn paths_and_cache_namespaces_cannot_escape() {
     });
     assert!(Repository::load_repository(&f.root, f.options(CacheMode::Disabled)).is_err());
 }
+
 #[test]
 fn duplicate_and_overlapping_source_directories_fail() {
     let f = Fixture::new();
@@ -219,6 +227,7 @@ fn duplicate_and_overlapping_source_directories_fail() {
     });
     assert!(Repository::load_repository(&f.root, f.options(CacheMode::Disabled)).is_err());
 }
+
 #[test]
 fn declared_property_names_are_not_treated_as_keywords() {
     let f = Fixture::new();

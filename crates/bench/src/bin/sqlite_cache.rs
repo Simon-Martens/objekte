@@ -10,6 +10,8 @@ use std::time::{Instant, UNIX_EPOCH};
 
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
+
+// INFO: Source record ID and absolute and relative paths for cache benchmarks.
 #[derive(Clone)]
 struct Source {
     id: String,
@@ -17,10 +19,13 @@ struct Source {
     relative: String,
 }
 
+
+// INFO: Record ID and optional source for a benchmark cache update.
 struct Change {
     id: String,
     source: Option<Source>,
 }
+
 
 fn elapsed(label: &str, started: Instant) {
     println!("{label:31} {:>10.3} s", started.elapsed().as_secs_f64());

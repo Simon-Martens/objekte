@@ -9,10 +9,13 @@ use std::time::Instant;
 
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
+
+// INFO: Musenalm record ID and complete JSON value for the full-read benchmark.
 struct Row {
     id: String,
     data: Value,
 }
+
 
 fn secs(start: Instant) -> f64 {
     start.elapsed().as_secs_f64()

@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl Repository {
     pub(super) fn collection(&self, name: &str) -> Result<Collection> {
         Ok(self.model.collection(name)?.clone())

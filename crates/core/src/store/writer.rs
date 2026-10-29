@@ -5,9 +5,15 @@ use super::*;
 // INFO: Foreground operations and validator results share a process-wide writer.
 // The file lock covers each operation, including across processes, but is released
 // while a repository handle is idle.
+
+
+// INFO: Shared, mutex-protected SQLite store for serialized foreground writes.
 pub(crate) struct Writer(std::sync::Mutex<Store>);
 
+
+// INFO: Held writer operation that releases SQL tracing and the file lock on drop.
 pub(crate) struct WriterGuard<'a>(std::sync::MutexGuard<'a, Store>);
+
 
 impl std::ops::Deref for WriterGuard<'_> {
     type Target = Store;
@@ -17,12 +23,14 @@ impl std::ops::Deref for WriterGuard<'_> {
     }
 }
 
+
 impl Drop for WriterGuard<'_> {
     fn drop(&mut self) {
         self.0.trace_active.store(false, Ordering::Relaxed);
         let _ = fs2::FileExt::unlock(&self.0._lock);
     }
 }
+
 
 impl Writer {
     pub fn open(
@@ -123,6 +131,7 @@ impl Writer {
         Ok(guard)
     }
 }
+
 
 pub(super) fn cache_identity(metadata: &fs::Metadata) -> Option<(u64, u64)> {
     #[cfg(unix)]

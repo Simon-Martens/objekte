@@ -12,6 +12,8 @@ use std::{
     time::UNIX_EPOCH,
 };
 
+
+// INFO: Source file size, modification time, and identity used for stability checks.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub(crate) struct Stamp {
     pub size: u64,
@@ -20,9 +22,11 @@ pub(crate) struct Stamp {
     pub identity: String,
 }
 
+
 #[cfg(all(test, unix))]
 #[path = "source.tests.rs"]
 mod tests;
+
 
 impl Stamp {
     pub fn from_metadata(m: &Metadata, path: &Path) -> Result<Self> {
@@ -38,6 +42,7 @@ impl Stamp {
             identity: identity(m),
         })
     }
+
     #[cfg(target_os = "linux")]
     fn from_stat(m: &rustix::fs::Stat, path: &Path) -> Result<Self> {
         if rustix::fs::FileType::from_raw_mode(m.st_mode) != rustix::fs::FileType::RegularFile {
@@ -59,6 +64,8 @@ impl Stamp {
         })
     }
 }
+
+
 fn timestamp(m: &Metadata, path: &Path) -> Result<String> {
     Ok(
         match m
@@ -71,12 +78,14 @@ fn timestamp(m: &Metadata, path: &Path) -> Result<String> {
         },
     )
 }
+
 fn identity(m: &Metadata) -> String {
     #[cfg(unix)]
     {
         use std::os::unix::fs::MetadataExt;
         format!("{}:{}:{}:{}", m.dev(), m.ino(), m.ctime(), m.ctime_nsec())
     }
+
     #[cfg(not(unix))]
     {
         let _ = m;
@@ -84,12 +93,16 @@ fn identity(m: &Metadata) -> String {
     }
 }
 
+
+// INFO: Pinned source directory and its original identity for safe record reads.
 pub(crate) struct Source {
     pub path: PathBuf,
     #[cfg(unix)]
     directory: File,
     initial: (String, String),
 }
+
+
 impl Source {
     pub fn open(path: &Path) -> Result<Self> {
         if fs::canonicalize(path).map_err(|e| io(path, e))? != path {
@@ -99,6 +112,7 @@ impl Source {
                 "source directory identity changed; reload repository",
             ));
         }
+
         #[cfg(unix)]
         let directory = File::from(
             rustix::fs::open(
@@ -125,6 +139,7 @@ impl Source {
             initial: (timestamp(&m, path)?, identity(&m)),
         })
     }
+
     pub fn inventory(&self) -> Result<BTreeMap<String, Stamp>> {
         let mut files = BTreeMap::new();
         for entry in fs::read_dir(&self.path).map_err(|e| io(&self.path, e))? {
@@ -173,6 +188,7 @@ impl Source {
         self.finish()?;
         Ok(files)
     }
+
     pub fn file(&self, id: &str) -> Result<File> {
         validate_id(id)?;
         let name = format!("{id}.json");
@@ -192,6 +208,7 @@ impl Source {
             .map(File::from)
             .map_err(|e| io(&path, e.into()))
         }
+
         #[cfg(not(unix))]
         {
             Stamp::from_metadata(
@@ -201,6 +218,7 @@ impl Source {
             File::open(&path).map_err(|e| io(&path, e))
         }
     }
+
     /// Detect directory replacement and membership changes. This is not an atomic FS snapshot.
     pub fn finish(&self) -> Result<()> {
         let m = fs::symlink_metadata(&self.path).map_err(|e| io(&self.path, e))?;

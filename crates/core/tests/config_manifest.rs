@@ -8,6 +8,7 @@ use support::*;
 fn db(r: &Repository) -> Connection {
     Connection::open(r.cache_directory().unwrap().join("cache.sqlite")).unwrap()
 }
+
 fn inputs(db: &Connection) -> BTreeMap<String, String> {
     db.prepare("SELECT path,digest FROM inputs")
         .unwrap()
@@ -16,10 +17,12 @@ fn inputs(db: &Connection) -> BTreeMap<String, String> {
         .collect::<Result<_, _>>()
         .unwrap()
 }
+
 fn version(db: &Connection) -> i64 {
     db.query_row("PRAGMA data_version", [], |r| r.get(0))
         .unwrap()
 }
+
 fn schema_change(f: &Fixture) {
     f.edit(".editor/books/schema.json", |v| {
         v["properties"]["new_required"] = json!({"type":"string"});

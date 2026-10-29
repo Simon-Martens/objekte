@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl Repository {
     pub(super) fn ingest_empty(
         &mut self,
@@ -112,6 +113,7 @@ impl Repository {
         Ok(())
     }
 }
+
 
 const MAX_INGEST_BATCH_RECORDS: usize = 256;
 const MAX_INGEST_BATCH_BYTES: u64 = 8 * 1024 * 1024;

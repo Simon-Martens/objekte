@@ -11,6 +11,8 @@ use std::time::Instant;
 
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
+
+// INFO: Selected Musenalm content fields for the projected-read benchmark.
 #[derive(Deserialize)]
 struct Content {
     year: Option<i64>,
@@ -25,11 +27,17 @@ struct Content {
     #[serde(default)]
     contributors: Vec<Contributor>,
 }
+
+
+// INFO: Contributor agent data read by the projected benchmark.
 #[derive(Deserialize)]
 struct Contributor {
     #[serde(default)]
     agents: String,
 }
+
+
+// INFO: Entry links to content and item records in the projected benchmark.
 #[derive(Deserialize)]
 struct Entry {
     #[serde(default)]
@@ -37,32 +45,46 @@ struct Entry {
     #[serde(default)]
     items: Vec<SourceRef>,
 }
+
+
+// INFO: Optional source record ID inside a projected entry.
 #[derive(Deserialize)]
 struct SourceRef {
     source_id: Option<String>,
 }
+
+
+// INFO: Agent name read by the projected benchmark.
 #[derive(Deserialize)]
 struct Agent {
     #[serde(default)]
     name: String,
 }
+
+
+// INFO: Placeholder payload for benchmark collections with no selected fields.
 #[derive(Deserialize)]
 struct Empty {}
 
+
+// INFO: Record ID paired with a benchmark-specific projected payload.
 struct Row<T> {
     id: String,
     data: T,
 }
 
+
 fn secs(start: Instant) -> f64 {
     start.elapsed().as_secs_f64()
 }
+
 fn emit(metric: &str, seconds: f64, result: Value) {
     println!(
         "{}",
         json!({"metric":metric,"seconds":seconds,"result":result})
     );
 }
+
 fn memory() -> Value {
     let status = fs::read_to_string("/proc/self/status").unwrap_or_default();
     let kib = |name: &str| {
@@ -79,6 +101,7 @@ fn memory() -> Value {
     };
     json!({"rss_mib":kib("VmRSS:") as f64/1024.0,"peak_rss_mib":kib("VmHWM:") as f64/1024.0})
 }
+
 fn paths(dir: &Path) -> Result<Vec<PathBuf>> {
     let mut pending = vec![dir.to_owned()];
     let mut files = Vec::new();
@@ -96,6 +119,7 @@ fn paths(dir: &Path) -> Result<Vec<PathBuf>> {
     files.sort_unstable();
     Ok(files)
 }
+
 fn load<T: DeserializeOwned>(dir: &Path) -> Result<Vec<Row<T>>> {
     paths(dir)?
         .into_iter()
@@ -110,6 +134,7 @@ fn load<T: DeserializeOwned>(dir: &Path) -> Result<Vec<Row<T>>> {
         })
         .collect()
 }
+
 fn measure(mut query: impl FnMut() -> Value, runs: usize) -> (f64, Value) {
     let _ = query();
     let mut times = Vec::with_capacity(runs);
@@ -122,9 +147,11 @@ fn measure(mut query: impl FnMut() -> Value, runs: usize) -> (f64, Value) {
     times.sort_by(f64::total_cmp);
     (times[times.len() / 2], output)
 }
+
 fn century(row: &Row<Content>) -> bool {
     matches!(row.data.year, Some(1800..=1899))
 }
+
 fn edited(row: &Row<Content>) -> bool {
     century(row) && row.data.edit_state == "Edited"
 }

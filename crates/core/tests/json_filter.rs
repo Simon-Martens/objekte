@@ -16,6 +16,7 @@ fn fixture(docs: &[(&str, &str)]) -> Fixture {
     }
     f
 }
+
 fn request(filter: &str) -> JsonQuery {
     JsonQuery {
         filter: filter.into(),
@@ -24,11 +25,13 @@ fn request(filter: &str) -> JsonQuery {
         ..Default::default()
     }
 }
+
 fn ids_for(r: &mut Repository, request: &JsonQuery) -> Vec<String> {
     let result = r.query_json(request).unwrap();
     assert_eq!(result.total, Some(result.records.len()));
     result.records.into_iter().map(|r| r.id).collect()
 }
+
 fn check(f: &Fixture, cases: &[(&str, &[&str])]) {
     let mut direct = f.repo(CacheMode::Disabled);
     let mut sql = f.repo(CacheMode::Sqlite);

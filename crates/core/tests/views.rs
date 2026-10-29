@@ -17,6 +17,7 @@ fn parity(f: &Fixture, request: &ViewRequest) -> objekte_core::ViewResult {
     assert_eq!(sql.columns, direct.columns);
     sql
 }
+
 #[test]
 fn exact_numeric_order_null_missing_and_tie_breaks() {
     let f = Fixture::new();
@@ -37,6 +38,7 @@ fn exact_numeric_order_null_missing_and_tie_breaks() {
         vec!["c", "a", "g", "b", "f", "d", "e"]
     );
 }
+
 #[test]
 fn all_sortable_fields_directions_and_pagination_match() {
     let f = Fixture::new();
@@ -65,6 +67,7 @@ fn all_sortable_fields_directions_and_pagination_match() {
         }
     }
 }
+
 #[test]
 fn typed_filters_include_empty_and_null_results() {
     let f = Fixture::new();
@@ -113,6 +116,7 @@ fn typed_filters_include_empty_and_null_results() {
         vec!["a", "g"]
     );
 }
+
 #[test]
 fn projection_retains_identity_labels_and_json_types() {
     let f = Fixture::new();
@@ -134,6 +138,7 @@ fn projection_retains_identity_labels_and_json_types() {
     assert_eq!(v.rows.iter().find(|r| r.id == "e").unwrap().label, "e");
     assert_eq!(v.rows.iter().find(|r| r.id == "f").unwrap().label, "");
 }
+
 #[test]
 fn warm_sqlite_views_read_no_sources_and_no_unrequested_collections() {
     let f = Fixture::new();
@@ -158,6 +163,7 @@ fn warm_sqlite_views_read_no_sources_and_no_unrequested_collections() {
             .all(|c| c.state == "absent")
     );
 }
+
 #[test]
 fn scalar_filter_types_and_sort_permissions_are_checked_before_io() {
     let f = Fixture::new();
@@ -225,6 +231,7 @@ fn scalar_filter_types_and_sort_permissions_are_checked_before_io() {
     assert_eq!(r.metrics().source_reads, 0);
     assert!(!f.data.exists());
 }
+
 #[test]
 fn mixed_large_integer_and_fractional_comparison_is_exact() {
     let f = Fixture::new();
@@ -261,6 +268,7 @@ fn mixed_large_integer_and_fractional_comparison_is_exact() {
         vec!["a", "c"]
     );
 }
+
 #[test]
 fn numbers_outside_the_declared_domain_are_diagnosed_without_rounding() {
     let f = Fixture::new();
@@ -283,6 +291,7 @@ fn numbers_outside_the_declared_domain_are_diagnosed_without_rounding() {
         );
     }
 }
+
 #[test]
 fn integral_json_floats_validate_as_integers_and_sort_correctly() {
     let f = Fixture::new();
@@ -306,6 +315,7 @@ fn integral_json_floats_validate_as_integers_and_sort_correctly() {
         objekte_core::RecordStatus::Invalid
     );
 }
+
 #[test]
 fn strings_are_binary_case_sensitive_and_not_markup_rendered() {
     let f = Fixture::new();
@@ -333,6 +343,7 @@ fn strings_are_binary_case_sensitive_and_not_markup_rendered() {
     assert_eq!(ids(&v.rows), vec!["d", "a", "b", "c", "f", "e", "g"]);
     assert_eq!(v.rows[0].label, "**Markdown**");
 }
+
 #[test]
 fn empty_collections_and_offsets_beyond_end_are_valid() {
     let f = Fixture::new();
@@ -343,6 +354,7 @@ fn empty_collections_and_offsets_beyond_end_are_valid() {
     assert!(v.rows.is_empty());
     assert_eq!(v.total, Some(0));
 }
+
 #[test]
 fn sql_like_strings_remain_bound_values() {
     let f = Fixture::new();
@@ -364,6 +376,7 @@ fn sql_like_strings_remain_bound_values() {
         vec!["a"]
     );
 }
+
 #[test]
 fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
     let f = Fixture::new();
@@ -392,6 +405,7 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
     assert_eq!(v.metrics.index_rows_written, 7);
     assert_eq!(v.metrics.validations, 0);
 }
+
 #[test]
 fn generated_mutation_sequences_match_fresh_direct_execution() {
     let f = Fixture::new();

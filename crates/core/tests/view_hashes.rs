@@ -9,6 +9,7 @@ fn sort(field: &str, direction: Direction) -> Sort {
         direction,
     }
 }
+
 #[test]
 fn filter_hash_includes_values_operators_and_fields_but_not_and_order() {
     let f = Fixture::new();
@@ -55,6 +56,7 @@ fn filter_hash_includes_values_operators_and_fields_but_not_and_order() {
         assert_eq!(a.view_hashes.projection, b.view_hashes.projection);
     }
 }
+
 #[test]
 fn resolved_defaults_and_explicit_equivalent_request_share_hashes() {
     let f = Fixture::new();
@@ -74,6 +76,7 @@ fn resolved_defaults_and_explicit_equivalent_request_share_hashes() {
     let direct = f.repo(CacheMode::Disabled).open_view("books", &q).unwrap();
     assert_eq!(direct.view_hashes, b.view_hashes);
 }
+
 #[test]
 fn subsort_directions_and_priority_change_order_and_hashes() {
     let f = Fixture::new();
@@ -129,6 +132,7 @@ fn subsort_directions_and_priority_change_order_and_hashes() {
     let c = r.open_view("books", &reversed).unwrap();
     assert_ne!(a.view_hashes.sort, c.view_hashes.sort);
 }
+
 #[test]
 fn mixed_directions_null_missing_and_secondary_id_order_match_sqlite() {
     let f = Fixture::new();
@@ -152,6 +156,7 @@ fn mixed_directions_null_missing_and_secondary_id_order_match_sqlite() {
         }
     }
 }
+
 #[test]
 fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
     let f = Fixture::new();
@@ -208,6 +213,7 @@ fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
         .unwrap();
     assert_eq!(explicit.view_hashes, empty.view_hashes);
 }
+
 #[test]
 fn invalid_subsorts_fail_before_source_io() {
     let f = Fixture::new();
@@ -241,6 +247,7 @@ fn invalid_subsorts_fail_before_source_io() {
         );
     }
 }
+
 #[test]
 fn projection_pagination_and_count_are_part_of_resolved_view_fingerprint() {
     let f = Fixture::new();
@@ -268,6 +275,7 @@ fn projection_pagination_and_count_are_part_of_resolved_view_fingerprint() {
         assert_eq!(a.view_hashes.sort, b.view_hashes.sort);
     }
 }
+
 #[test]
 fn schema_json_formatting_does_not_change_semantic_fingerprints() {
     let f = Fixture::new();

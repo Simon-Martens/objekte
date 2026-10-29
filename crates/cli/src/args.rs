@@ -48,6 +48,9 @@ Examples:
   objekte examples/musenalm view contents --filter 'year>=1800' --output json
   objekte examples/musenalm query contents 'year >= 1800' --count
 ";
+
+
+// INFO: Parsed positional arguments, options, flags, filters, and query parameters.
 pub(super) struct Args {
     pub(super) pos: Vec<String>,
     pub(super) values: BTreeMap<String, String>,
@@ -56,6 +59,7 @@ pub(super) struct Args {
     pub(super) sub_sorts: Vec<String>,
     pub(super) parameters: BTreeMap<String, Value>,
 }
+
 
 pub(super) fn args() -> Result<Args, String> {
     let mut out = Args {
@@ -129,6 +133,7 @@ pub(super) fn args() -> Result<Args, String> {
     }
     Ok(out)
 }
+
 pub(super) fn data_dir() -> Result<PathBuf, String> {
     if let Some(p) = std::env::var_os("XDG_DATA_HOME") {
         return Ok(PathBuf::from(p).join("objekte"));

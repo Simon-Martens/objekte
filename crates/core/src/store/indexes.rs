@@ -5,10 +5,12 @@ use super::*;
 fn index_prefix(c: &Collection) -> String {
     format!("j_{}", digest(c.name.as_bytes()))
 }
+
 pub(crate) fn scalar_query_index(c: &Collection, field: &str) -> String {
     let i = c.indexes.iter().position(|f| f.name == field).unwrap();
     format!("{}_{i}_query", index_prefix(c))
 }
+
 pub(crate) fn ordered_view_index(c: &Collection, sorts: &[crate::Sort]) -> Option<String> {
     let prefix = index_prefix(c);
     match sorts {
@@ -25,6 +27,7 @@ pub(crate) fn ordered_view_index(c: &Collection, sorts: &[crate::Sort]) -> Optio
         _ => None,
     }
 }
+
 
 impl Store {
     pub fn has_indexes(&self, c: &Collection) -> Result<bool> {
@@ -45,6 +48,7 @@ impl Store {
     }
 }
 
+
 pub(crate) fn drop_indexes(db: &Connection, c: &Collection) -> Result<()> {
     let prefix = index_prefix(c);
     let mut stmt =
@@ -60,6 +64,7 @@ pub(crate) fn drop_indexes(db: &Connection, c: &Collection) -> Result<()> {
     }
     Ok(())
 }
+
 pub(crate) fn create_indexes(
     db: &Connection,
     c: &Collection,
@@ -116,6 +121,7 @@ pub(crate) fn create_indexes(
     )? as u64;
     Ok(())
 }
+
 pub(crate) fn analyze_indexes(db: &Connection, c: &Collection, requested: &[String]) -> Result<()> {
     for name in requested {
         db.execute_batch(&format!("ANALYZE {name}"))?;
@@ -134,6 +140,7 @@ fn index_exists(db: &Connection, name: &str) -> Result<bool> {
         |r| r.get(0),
     )?)
 }
+
 pub(crate) fn page_view_index(c: &Collection, plan: &crate::query::Plan) -> String {
     if plan.filters.is_empty() {
         ordered_view_index(c, &plan.sorts)
@@ -142,6 +149,7 @@ pub(crate) fn page_view_index(c: &Collection, plan: &crate::query::Plan) -> Stri
     }
     .unwrap_or_else(|| covering_view_index(c))
 }
+
 pub(crate) fn requested_view_indexes(c: &Collection, plan: &crate::query::Plan) -> Vec<String> {
     let mut names = vec![page_view_index(c, plan)];
     if plan.count {
@@ -153,6 +161,7 @@ pub(crate) fn requested_view_indexes(c: &Collection, plan: &crate::query::Plan) 
     names.retain(|name| name.starts_with("j_"));
     names
 }
+
 pub(crate) fn requested_view_fields(c: &Collection, names: &[String]) -> BTreeSet<String> {
     let prefix = index_prefix(c);
     c.indexes
@@ -168,9 +177,11 @@ pub(crate) fn requested_view_fields(c: &Collection, names: &[String]) -> BTreeSe
         .map(|(_, f)| f.name.clone())
         .collect()
 }
+
 pub(crate) fn covering_view_index(c: &Collection) -> String {
     format!("{}_identity", index_prefix(c))
 }
+
 pub(crate) fn filter_view_index(c: &Collection, filters: &[crate::Filter]) -> String {
     if filters.is_empty() || filters.iter().all(|f| f.field == "@id") {
         return format!("sqlite_autoindex_{}_1", record_table(&c.name));

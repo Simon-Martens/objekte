@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl Repository {
     pub fn cache_status(&mut self) -> Result<CacheStatus> {
         self.reload()?;

@@ -7,6 +7,7 @@ use std::{
     path::PathBuf,
 };
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum ConfigurationChangeKind {
@@ -15,6 +16,8 @@ pub enum ConfigurationChangeKind {
     Removed,
 }
 
+
+// INFO: One changed configuration file and its affected collections.
 #[derive(Debug, Clone, Serialize)]
 pub struct ConfigurationInputChange {
     /// Path relative to the repository root.
@@ -26,6 +29,8 @@ pub struct ConfigurationInputChange {
     pub collections: Vec<String>,
 }
 
+
+// INFO: Persisted or in-memory summary of changed inputs and candidate collections.
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct ConfigurationChanges {
     /// False when comparing only an in-memory snapshot with caching disabled.
@@ -35,11 +40,15 @@ pub struct ConfigurationChanges {
     pub affected_collections: Vec<String>,
 }
 
+
+// INFO: Configuration file digests and their direct collection owners.
 #[derive(Default, Clone)]
 pub(crate) struct ConfigurationSnapshot {
     files: BTreeMap<PathBuf, String>,
     owners: BTreeMap<PathBuf, BTreeSet<String>>,
 }
+
+
 impl ConfigurationSnapshot {
     pub fn from_model(model: &RepositoryModel) -> Self {
         Self {
@@ -47,6 +56,7 @@ impl ConfigurationSnapshot {
             owners: model.input_collections.clone(),
         }
     }
+
     pub fn compare(
         &self,
         model: &RepositoryModel,
@@ -93,6 +103,7 @@ impl ConfigurationSnapshot {
         report
     }
 }
+
 
 impl Store {
     /// Called under the shared writer lock. Digest and ownership changes commit together;
@@ -162,6 +173,7 @@ impl Store {
         Ok(report)
     }
 }
+
 
 #[cfg(test)]
 #[path = "config_manifest.tests.rs"]

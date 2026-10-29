@@ -5,11 +5,16 @@ use std::{
     fs,
     path::{Path, PathBuf},
 };
+
+
+// INFO: Temporary source repository and application data paths for tests.
 pub struct Fixture {
     pub temp: tempfile::TempDir,
     pub root: PathBuf,
     pub data: PathBuf,
 }
+
+
 pub fn copy(source: &Path, target: &Path) {
     fs::create_dir_all(target).unwrap();
     for e in fs::read_dir(source).unwrap() {
@@ -21,6 +26,8 @@ pub fn copy(source: &Path, target: &Path) {
         }
     }
 }
+
+
 impl Fixture {
     pub fn new() -> Self {
         let temp = tempfile::tempdir().unwrap();
@@ -32,6 +39,7 @@ impl Fixture {
         let data = temp.path().join("app");
         Self { temp, root, data }
     }
+
     pub fn options(&self, mode: CacheMode) -> Options {
         let mut o = Options::new(&self.data);
         o.cache = mode;
@@ -39,21 +47,27 @@ impl Fixture {
         o.validation = objekte_core::ValidationMode::Manual;
         o
     }
+
     pub fn repo(&self, mode: CacheMode) -> Repository {
         Repository::load_repository(&self.root, self.options(mode)).unwrap()
     }
+
     pub fn read(&self, path: &str) -> Value {
         serde_json::from_slice(&fs::read(self.root.join(path)).unwrap()).unwrap()
     }
+
     pub fn write(&self, path: &str, value: &Value) {
         fs::write(self.root.join(path), serde_json::to_vec(value).unwrap()).unwrap()
     }
+
     pub fn edit(&self, path: &str, f: impl FnOnce(&mut Value)) {
         let mut v = self.read(path);
         f(&mut v);
         self.write(path, &v)
     }
 }
+
+
 pub fn all() -> ViewRequest {
     ViewRequest {
         limit: Some(10000),
@@ -61,6 +75,7 @@ pub fn all() -> ViewRequest {
         ..Default::default()
     }
 }
+
 pub fn ids(rows: &[ViewRow]) -> Vec<&str> {
     rows.iter().map(|r| r.id.as_str()).collect()
 }

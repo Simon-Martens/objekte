@@ -13,10 +13,13 @@ use turso::Builder as TursoBuilder;
 
 type Result<T> = std::result::Result<T, Box<dyn Error>>;
 
+
+// INFO: Synthetic record ID and raw JSON used to compare query engines.
 struct Doc {
     id: String,
     raw: String,
 }
+
 
 fn synthetic(root: &Path, count: usize) -> Result<PathBuf> {
     let data = root.join("data/items");

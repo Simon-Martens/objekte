@@ -11,12 +11,15 @@ use std::{
     time::Instant,
 };
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum ValidationMode {
     Background,
     Manual,
 }
+
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum RecordStatus {
@@ -25,6 +28,8 @@ pub enum RecordStatus {
     Invalid,
     IncorrectJson,
 }
+
+
 impl RecordStatus {
     pub(crate) fn text(self) -> &'static str {
         match self {
@@ -34,6 +39,7 @@ impl RecordStatus {
             Self::IncorrectJson => "incorrect_json",
         }
     }
+
     pub(crate) fn read(s: &str) -> Result<Self> {
         match s {
             "pending" => Ok(Self::Pending),
@@ -44,6 +50,9 @@ impl RecordStatus {
         }
     }
 }
+
+
+// INFO: Diagnostic location, code, message, and optional schema path.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ValidationIssue {
     /// JSON Pointer into the original record. Its value remains available in Record.data.
@@ -52,6 +61,8 @@ pub struct ValidationIssue {
     pub code: String,
     pub message: String,
 }
+
+
 impl ValidationIssue {
     pub(crate) fn new(location: &str, code: &str, message: &str) -> Self {
         Self {
@@ -62,11 +73,16 @@ impl ValidationIssue {
         }
     }
 }
+
+
+// INFO: Overall validation status and collected issues for one record.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct RecordState {
     pub status: RecordStatus,
     pub issues: Vec<ValidationIssue>,
 }
+
+
 impl RecordState {
     pub(crate) fn read(status: &str, issues: &str) -> Result<Self> {
         Ok(Self {
@@ -76,16 +92,23 @@ impl RecordState {
         })
     }
 }
+
+
+// INFO: Parsed JSON value paired with its validation state.
 pub(crate) struct Document {
     pub data: Value,
     pub state: RecordState,
 }
+
+
 impl std::ops::Deref for Document {
     type Target = Value;
     fn deref(&self) -> &Value {
         &self.data
     }
 }
+
+
 impl Document {
     pub fn parse(bytes: &[u8]) -> Self {
         let parsed = std::str::from_utf8(bytes)
@@ -108,6 +131,7 @@ impl Document {
             },
         }
     }
+
     pub fn validate(&mut self, c: &Collection) {
         if self.state.status == RecordStatus::IncorrectJson {
             return;
@@ -120,6 +144,9 @@ impl Document {
         };
     }
 }
+
+
+// INFO: Counters and timings for background validation work.
 #[derive(Debug, Default, Clone, Serialize)]
 pub struct ValidationMetrics {
     pub validated: u64,
@@ -131,6 +158,9 @@ pub struct ValidationMetrics {
     pub validation_nanos: u64,
     pub write_nanos: u64,
 }
+
+
+// INFO: Pending validation jobs, lifecycle flags, updates, errors, and metrics.
 #[derive(Default)]
 struct Queue {
     jobs: BTreeMap<String, Collection>,
@@ -141,14 +171,22 @@ struct Queue {
     updates: BTreeSet<String>,
     metrics: ValidationMetrics,
 }
+
+
+// INFO: Mutex-protected validation queue and its wakeup condition variable.
 #[derive(Default)]
 struct Shared {
     queue: Mutex<Queue>,
     changed: Condvar,
 }
+
+
+// INFO: Handle to shared background validation state.
 pub(crate) struct Validator {
     shared: Arc<Shared>,
 }
+
+
 impl Validator {
     pub fn new(
         writer: Arc<Writer>,
@@ -222,6 +260,7 @@ impl Validator {
             .map_err(|e| Error::Cache(format!("start validation: {e}")))?;
         Ok(Self { shared })
     }
+
     pub fn schedule(&self, c: Collection) {
         let mut q = self.shared.queue.lock().unwrap();
         if !q.jobs.contains_key(&c.name) {
@@ -230,6 +269,7 @@ impl Validator {
         q.jobs.insert(c.name.clone(), c);
         self.shared.changed.notify_all();
     }
+
     pub fn wait(&self) -> Result<ValidationMetrics> {
         let mut q = self.shared.queue.lock().unwrap();
         while q.active || !q.jobs.is_empty() {
@@ -240,9 +280,11 @@ impl Validator {
         }
         Ok(q.metrics.clone())
     }
+
     pub fn metrics(&self) -> ValidationMetrics {
         self.shared.queue.lock().unwrap().metrics.clone()
     }
+
     pub fn updates(&self) -> Result<Vec<String>> {
         let mut q = self.shared.queue.lock().unwrap();
         if let Some(e) = &q.error {
@@ -251,6 +293,8 @@ impl Validator {
         Ok(std::mem::take(&mut q.updates).into_iter().collect())
     }
 }
+
+
 impl Drop for Validator {
     fn drop(&mut self) {
         let mut q = self.shared.queue.lock().unwrap();
@@ -260,12 +304,17 @@ impl Drop for Validator {
         // every remaining pending row is durable and picked up on the next use.
     }
 }
+
+
+// INFO: Cached record snapshot and version data for one validation task.
 struct Job {
     id: String,
     revision: i64,
     digest: String,
     bytes: Vec<u8>,
 }
+
+
 fn batch(
     writer: &Writer,
     pool: &rayon::ThreadPool,
@@ -345,6 +394,7 @@ fn batch(
     metrics.write_nanos = t.elapsed().as_nanos() as u64;
     Ok((true, metrics))
 }
+
 fn apply(
     db: &rusqlite::Connection,
     collection: &str,

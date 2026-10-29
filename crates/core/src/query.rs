@@ -10,6 +10,7 @@ use std::{
     collections::{BTreeMap, BTreeSet},
 };
 
+
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Operator {
@@ -19,6 +20,9 @@ pub enum Operator {
     Gt,
     Ge,
 }
+
+
+// INFO: Scalar field comparison operator and JSON value for a view filter.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Filter {
@@ -26,6 +30,9 @@ pub struct Filter {
     pub operator: Operator,
     pub value: Value,
 }
+
+
+// INFO: Caller-selected filters, ordering, projection, pagination, and count option.
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct ViewRequest {
@@ -40,6 +47,9 @@ pub struct ViewRequest {
     #[serde(default)]
     pub count: bool,
 }
+
+
+// INFO: One projected record with identity, label, and selected field values.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ViewRow {
     pub collection: String,
@@ -48,6 +58,9 @@ pub struct ViewRow {
     pub label: String,
     pub values: BTreeMap<String, Value>,
 }
+
+
+// INFO: View rows, validation states, count, metrics, plan, and definition hashes.
 #[derive(Debug, Clone, Serialize)]
 pub struct ViewResult {
     pub columns: Vec<String>,
@@ -59,6 +72,8 @@ pub struct ViewResult {
     /// Resolved query definition, not a cache of its results.
     pub view_hashes: ViewHashes,
 }
+
+
 #[derive(Debug, Clone)]
 pub(crate) enum Scalar {
     Invalid,
@@ -69,6 +84,8 @@ pub(crate) enum Scalar {
     Real(f64),
     String(String),
 }
+
+
 impl Scalar {
     pub fn state(&self) -> i64 {
         match self {
@@ -78,6 +95,7 @@ impl Scalar {
             _ => 0,
         }
     }
+
     pub fn sql(&self) -> rusqlite::types::Value {
         use rusqlite::types::Value as S;
         match self {
@@ -88,6 +106,7 @@ impl Scalar {
             Self::String(v) => S::Text(v.clone()),
         }
     }
+
     pub fn cmp(&self, other: &Self) -> Ordering {
         self.state()
             .cmp(&other.state())
@@ -102,6 +121,8 @@ impl Scalar {
             })
     }
 }
+
+
 pub(crate) fn scalar(
     id: &str,
     data: &Value,
@@ -119,6 +140,7 @@ pub(crate) fn scalar(
     }
     scalar_value(data.get(field))
 }
+
 fn scalar_value(value: Option<&Value>) -> Scalar {
     match value {
         None => Scalar::Missing,
@@ -137,6 +159,9 @@ fn scalar_value(value: Option<&Value>) -> Scalar {
         _ => Scalar::Invalid,
     }
 }
+
+
+// INFO: Validated view fields, filters, order, pagination, and definition hashes.
 pub(crate) struct Plan {
     fields: BTreeMap<String, crate::Field>,
     pub sorts: Vec<Sort>,
@@ -147,6 +172,8 @@ pub(crate) struct Plan {
     pub offset: usize,
     pub count: bool,
 }
+
+
 impl Plan {
     pub fn compile(c: &Collection, req: &ViewRequest) -> Result<Self> {
         let primary = req
@@ -223,6 +250,7 @@ impl Plan {
             count: req.count,
         })
     }
+
     pub fn matches(&self, id: &str, data: &Value) -> bool {
         self.filters.iter().all(|f| {
             let lhs = scalar(id, data, &f.field, self.fields.get(&f.field));
@@ -243,12 +271,14 @@ impl Plan {
             }
         })
     }
+
     pub fn keys(&self, id: &str, data: &Value) -> Vec<Scalar> {
         self.sorts
             .iter()
             .map(|s| scalar(id, data, &s.field, self.fields.get(&s.field)))
             .collect()
     }
+
     pub fn compare(&self, a: &(Vec<Scalar>, ViewRow), b: &(Vec<Scalar>, ViewRow)) -> Ordering {
         for ((left, right), sort) in a.0.iter().zip(&b.0).zip(&self.sorts) {
             let cmp = left.state().cmp(&right.state()).then_with(|| {
@@ -265,6 +295,7 @@ impl Plan {
         }
         Ordering::Equal
     }
+
     pub fn row(&self, c: &Collection, id: &str, path: String, data: &Value) -> ViewRow {
         let label = if c.display == "@id" {
             id.to_owned()
@@ -291,6 +322,7 @@ impl Plan {
             values,
         }
     }
+
     pub fn sql_where(&self, c: &Collection) -> (String, Vec<rusqlite::types::Value>) {
         use crate::json_filter::indexes::{quote, view_expr};
         let mut conditions = vec![format!("v.collection={}", quote(&c.name))];
@@ -326,6 +358,7 @@ impl Plan {
             params,
         )
     }
+
     pub fn sql_order(&self, c: &Collection) -> String {
         self.sorts
             .iter()
@@ -346,6 +379,7 @@ impl Plan {
             .collect::<Vec<_>>()
             .join(", ")
     }
+
     pub fn sql_page_keys(&self, c: &Collection) -> (String, String) {
         let mut columns = String::new();
         let mut order = Vec::new();
@@ -367,6 +401,8 @@ impl Plan {
         (columns, order.join(","))
     }
 }
+
+
 fn validate_filter(f: &Filter, kind: ValueType) -> Result<()> {
     if f.value.is_null() {
         if matches!(f.operator, Operator::Eq) && f.field != "@id" {
@@ -408,6 +444,8 @@ fn validate_filter(f: &Filter, kind: ValueType) -> Result<()> {
     }
     Ok(())
 }
+
+
 impl Collection {
     /// Parse one CLI filter. This deliberately is not a general expression language.
     pub fn parse_filter(&self, text: &str) -> Result<Filter> {

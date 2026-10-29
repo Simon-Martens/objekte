@@ -64,6 +64,7 @@ fn transaction_local_row_keys_verify_bytes_and_are_cleared_by_writes() {
         assert_eq!(read(r#"{"score":15}"#), "N15");
     }
 }
+
 #[test]
 fn build_cache_fallback_and_guard_cleanup_preserve_results() {
     let temp = tempfile::tempdir().unwrap();
@@ -124,6 +125,7 @@ fn build_cache_fallback_and_guard_cleanup_preserve_results() {
     assert!(failure.is_err());
     assert!(cache.building.lock().unwrap().is_none());
 }
+
 #[test]
 fn primed_documents_keep_all_fields_and_never_leak_across_bytes() {
     let db = Connection::open_in_memory().unwrap();

@@ -22,12 +22,14 @@ type Result<T> = std::result::Result<T, Box<dyn Error>>;
 fn secs(start: Instant) -> f64 {
     start.elapsed().as_secs_f64()
 }
+
 fn emit(metric: &str, seconds: f64, result: Json) {
     println!(
         "{}",
         json!({"metric":metric,"seconds":seconds,"result":result})
     );
 }
+
 fn memory() -> Json {
     let status = fs::read_to_string("/proc/self/status").unwrap_or_default();
     let kb = |name: &str| {
@@ -44,10 +46,12 @@ fn memory() -> Json {
     };
     json!({"rss_mib":kb("VmRSS:") as f64/1024.0,"peak_rss_mib":kb("VmHWM:") as f64/1024.0})
 }
+
 fn median(mut xs: Vec<f64>) -> f64 {
     xs.sort_by(f64::total_cmp);
     xs[xs.len() / 2]
 }
+
 fn measured(mut query: impl FnMut() -> Result<Json>, runs: usize) -> Result<(f64, Json)> {
     let _ = query()?;
     let mut times = Vec::with_capacity(runs);
@@ -59,6 +63,7 @@ fn measured(mut query: impl FnMut() -> Result<Json>, runs: usize) -> Result<(f64
     }
     Ok((median(times), out))
 }
+
 fn paths(dir: &Path) -> Result<Vec<PathBuf>> {
     let mut pending = vec![dir.to_path_buf()];
     let mut files = Vec::new();
@@ -76,6 +81,7 @@ fn paths(dir: &Path) -> Result<Vec<PathBuf>> {
     files.sort();
     Ok(files)
 }
+
 fn prepare(dir: &Path, output: &Path) -> Result<()> {
     let start = Instant::now();
     let files = paths(dir)?;
@@ -97,6 +103,7 @@ fn prepare(dir: &Path, output: &Path) -> Result<()> {
     );
     Ok(())
 }
+
 fn scan(dir: &Path) -> Result<()> {
     let start = Instant::now();
     let files = paths(dir)?;
@@ -111,9 +118,11 @@ fn scan(dir: &Path) -> Result<()> {
     );
     Ok(())
 }
+
 fn field_expr(field: &str) -> Result<String> {
     Ok(format!(".data[{}]", serde_json::to_string(field)?))
 }
+
 fn programs(
     number: &str,
     text: &str,
@@ -144,6 +153,7 @@ fn programs(
         ),
     ])
 }
+
 fn qj_load(path: &Path) -> Result<QjValue> {
     let mut reader = InputReader::new(vec![OsString::from(path)], ReaderOptions::default());
     let mut rows = Vec::new();
@@ -155,6 +165,7 @@ fn qj_load(path: &Path) -> Result<QjValue> {
     }
     Ok(rows.into())
 }
+
 fn qj_query(input: &QjValue, program: &str, runs: usize) -> Result<(f64, Json)> {
     let opts = CompileOptions::new(".");
     let code =
@@ -173,6 +184,7 @@ fn qj_query(input: &QjValue, program: &str, runs: usize) -> Result<(f64, Json)> 
         runs,
     )
 }
+
 fn jaq_load(path: &Path) -> Result<JaqValue> {
     let reader = BufReader::new(File::open(path)?);
     let mut rows = Vec::new();
@@ -181,6 +193,7 @@ fn jaq_load(path: &Path) -> Result<JaqValue> {
     }
     Ok(rows.into_iter().collect())
 }
+
 fn jaq_query(input: &JaqValue, program: &str, runs: usize) -> Result<(f64, Json)> {
     let compiled = data::compile(program).map_err(|_| "jaq compile error")?;
     let runner = data::Runner::default();
@@ -210,12 +223,14 @@ fn jaq_query(input: &JaqValue, program: &str, runs: usize) -> Result<(f64, Json)
         runs,
     )
 }
+
 fn rust_load(path: &Path) -> Result<Vec<Json>> {
     BufReader::new(File::open(path)?)
         .lines()
         .map(|line| Ok(serde_json::from_str(&line?)?))
         .collect()
 }
+
 fn rust_load_source(dir: &Path) -> Result<Vec<Json>> {
     paths(dir)?
         .into_iter()
@@ -226,11 +241,16 @@ fn rust_load_source(dir: &Path) -> Result<Vec<Json>> {
         })
         .collect()
 }
+
+
+// INFO: ID, numeric key, and text key selected for query comparison.
 struct ProjectedRow {
     id: String,
     number: Option<i64>,
     text: String,
 }
+
+
 fn project(id: String, data: &Json, number: &str, text: &str) -> ProjectedRow {
     ProjectedRow {
         id,
@@ -238,6 +258,7 @@ fn project(id: String, data: &Json, number: &str, text: &str) -> ProjectedRow {
         text: data[text].as_str().unwrap_or("").to_owned(),
     }
 }
+
 fn rust_projected_load(
     input: Option<&Path>,
     source: Option<&Path>,
@@ -271,6 +292,7 @@ fn rust_projected_load(
         })
         .collect()
 }
+
 fn rust_projected_query(rows: &[ProjectedRow], name: &str, lo: i64, hi: i64, needle: &str) -> Json {
     match name {
         "range_count" => json!(
@@ -306,6 +328,7 @@ fn rust_projected_query(rows: &[ProjectedRow], name: &str, lo: i64, hi: i64, nee
         _ => Json::Null,
     }
 }
+
 fn rust_query(
     rows: &[Json],
     name: &str,
@@ -354,6 +377,7 @@ fn rust_query(
         _ => Json::Null,
     }
 }
+
 fn sqlite_load(
     input: Option<&Path>,
     source: Option<&Path>,
@@ -396,6 +420,7 @@ fn sqlite_load(
     tx.commit()?;
     Ok(db)
 }
+
 fn sqlite_query(
     db: &Connection,
     name: &str,
@@ -481,6 +506,7 @@ fn sqlite_query(
         Ok(Json::Array(out))
     }
 }
+
 fn main() -> Result<()> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     let mut engine = String::new();

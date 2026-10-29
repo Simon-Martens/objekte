@@ -12,6 +12,7 @@ use walkdir::WalkDir;
 pub const SHARDS: usize = 64;
 const VERSION: u32 = 3;
 
+
 #[derive(Debug, Error)]
 pub enum CacheError {
     #[error("I/O error at {path}: {source}")]
@@ -37,6 +38,8 @@ pub enum CacheError {
         second: String,
     },
 }
+
+
 pub type Result<T> = std::result::Result<T, CacheError>;
 
 fn io(path: &Path, source: std::io::Error) -> CacheError {
@@ -45,6 +48,7 @@ fn io(path: &Path, source: std::io::Error) -> CacheError {
         source,
     }
 }
+
 fn read_json<T: serde::de::DeserializeOwned>(path: &Path) -> Result<T> {
     let file = File::open(path).map_err(|e| io(path, e))?;
     serde_json::from_reader(BufReader::new(file)).map_err(|e| CacheError::Json {
@@ -52,6 +56,7 @@ fn read_json<T: serde::de::DeserializeOwned>(path: &Path) -> Result<T> {
         source: e,
     })
 }
+
 fn write_json<T: Serialize>(path: &Path, value: &T) -> Result<()> {
     let file = File::create(path).map_err(|e| io(path, e))?;
     let mut out = BufWriter::new(file);
@@ -62,11 +67,15 @@ fn write_json<T: Serialize>(path: &Path, value: &T) -> Result<()> {
     out.flush().map_err(|e| io(path, e))
 }
 
+
+// INFO: File size and modification time used to detect legacy source changes.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
 pub struct SourceStamp {
     pub bytes: u64,
     pub modified_ns: u64,
 }
+
+
 fn stamp(path: &Path) -> Result<SourceStamp> {
     let meta = fs::metadata(path).map_err(|e| io(path, e))?;
     let modified = meta
@@ -89,6 +98,8 @@ fn stamp(path: &Path) -> Result<SourceStamp> {
     })
 }
 
+
+// INFO: Shard location, byte range, path, and source stamp for one record.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RecordLocation {
     pub path: String,
@@ -97,6 +108,9 @@ pub struct RecordLocation {
     pub length: u64,
     pub source: SourceStamp,
 }
+
+
+// INFO: Legacy collection metadata and record locations.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CollectionIndex {
     pub version: u32,
@@ -107,6 +121,9 @@ pub struct CollectionIndex {
     pub body_field: String,
     pub records: BTreeMap<String, RecordLocation>,
 }
+
+
+// INFO: Persisted legacy index metadata without record locations.
 #[derive(Serialize, Deserialize)]
 struct IndexManifest {
     version: u32,
@@ -116,6 +133,9 @@ struct IndexManifest {
     id_rule: String,
     body_field: String,
 }
+
+
+// INFO: ID, path, and JSON payload stored in a legacy shard.
 #[derive(Serialize, Deserialize)]
 pub struct CacheRow {
     // First key on every line, for inspection and cheap ID extraction.
@@ -123,17 +143,25 @@ pub struct CacheRow {
     pub path: String,
     pub data: Value,
 }
+
+
+// INFO: Opened legacy cache generation together with its collection index.
 #[derive(Debug, Clone)]
 pub struct CollectionCache {
     pub directory: PathBuf,
     pub generation: String,
     pub index: CollectionIndex,
 }
+
+
+// INFO: Published legacy generation directory used to locate shard files.
 #[derive(Debug, Clone)]
 pub struct CacheGeneration {
     pub directory: PathBuf,
     pub generation: String,
 }
+
+
 impl CacheGeneration {
     pub fn files(&self) -> Vec<PathBuf> {
         (0..SHARDS)
@@ -145,15 +173,19 @@ impl CacheGeneration {
             .collect()
     }
 }
+
+
 impl CollectionCache {
     pub fn shard_path(&self, shard: usize) -> PathBuf {
         self.directory
             .join(&self.generation)
             .join(format!("{shard:02x}.ndjson"))
     }
+
     pub fn files(&self) -> Vec<PathBuf> {
         (0..SHARDS).map(|shard| self.shard_path(shard)).collect()
     }
+
     pub fn read_record(&self, id: &str) -> Result<Option<CacheRow>> {
         use std::io::{Read, Seek, SeekFrom};
         let Some(loc) = self.index.records.get(id) else {
@@ -179,10 +211,15 @@ impl CollectionCache {
     }
 }
 
+
+// INFO: Repository configuration mapping collection names to settings files.
 #[derive(Deserialize)]
 struct RepositoryFile {
     collections: BTreeMap<String, String>,
 }
+
+
+// INFO: Legacy collection settings read from JSON.
 #[derive(Deserialize)]
 struct CollectionFile {
     #[serde(rename = "type")]
@@ -192,10 +229,16 @@ struct CollectionFile {
     id: Option<String>,
     content: Option<ContentMapping>,
 }
+
+
+// INFO: Optional JSON field containing a record body in legacy settings.
 #[derive(Deserialize)]
 struct ContentMapping {
     body: Option<String>,
 }
+
+
+// INFO: Resolved legacy collection paths and content rules.
 struct CollectionSpec {
     name: String,
     path: PathBuf,
@@ -203,6 +246,8 @@ struct CollectionSpec {
     id: String,
     body: String,
 }
+
+
 fn spec(root: &Path, name: &str) -> Result<CollectionSpec> {
     let repo_path = root.join(".editor/repository.json");
     let repo: RepositoryFile = read_json(&repo_path)?;
@@ -235,6 +280,7 @@ fn spec(root: &Path, name: &str) -> Result<CollectionSpec> {
             .unwrap_or_else(|| "body".into()),
     })
 }
+
 fn paths(spec: &CollectionSpec) -> Result<Vec<PathBuf>> {
     let extension = if spec.format == "json" { "json" } else { "md" };
     let mut files = Vec::new();
@@ -249,6 +295,7 @@ fn paths(spec: &CollectionSpec) -> Result<Vec<PathBuf>> {
     files.sort();
     Ok(files)
 }
+
 fn parse_record(spec: &CollectionSpec, path: &Path) -> Result<(String, Value)> {
     let data: Value = if spec.format == "json" {
         read_json(path)?
@@ -308,6 +355,7 @@ fn parse_record(spec: &CollectionSpec, path: &Path) -> Result<(String, Value)> {
     }
     Ok((id, data))
 }
+
 fn parse_stable_record(spec: &CollectionSpec, path: &Path) -> Result<(String, Value, SourceStamp)> {
     let before = stamp(path)?;
     let (id, data) = parse_record(spec, path)?;
@@ -320,6 +368,7 @@ fn parse_stable_record(spec: &CollectionSpec, path: &Path) -> Result<(String, Va
     }
     Ok((id, data, after))
 }
+
 fn rel(root: &Path, path: &Path) -> Result<String> {
     path.strip_prefix(root)
         .map_err(|e| CacheError::Config(e.to_string()))?
@@ -330,6 +379,7 @@ fn rel(root: &Path, path: &Path) -> Result<String> {
             message: "non-UTF-8 path".into(),
         })
 }
+
 fn shard(id: &str) -> usize {
     let mut h = 0xcbf29ce484222325_u64;
     for b in id.as_bytes() {
@@ -337,6 +387,7 @@ fn shard(id: &str) -> usize {
     }
     (h as usize) % SHARDS
 }
+
 fn generation() -> String {
     format!(
         "gen-{}-{}",
@@ -347,6 +398,7 @@ fn generation() -> String {
         std::process::id()
     )
 }
+
 fn collection_dir(root: &Path, cache_root: &Path, name: &str) -> Result<PathBuf> {
     let canonical = fs::canonicalize(root).map_err(|e| io(root, e))?;
     let mut h = 0xcbf29ce484222325_u64;
@@ -355,6 +407,7 @@ fn collection_dir(root: &Path, cache_root: &Path, name: &str) -> Result<PathBuf>
     }
     Ok(cache_root.join(format!("{h:016x}")).join(name))
 }
+
 pub fn default_cache_root() -> PathBuf {
     if let Some(path) = std::env::var_os("XDG_CACHE_HOME") {
         return PathBuf::from(path).join("objekte");
@@ -364,15 +417,18 @@ pub fn default_cache_root() -> PathBuf {
     }
     std::env::temp_dir().join("objekte")
 }
+
 fn publish(directory: &Path, generation: &str) -> Result<()> {
     let pointer = directory.join("CURRENT");
     let temp = directory.join(format!("CURRENT.{}.tmp", std::process::id()));
     fs::write(&temp, generation).map_err(|e| io(&temp, e))?;
     fs::rename(&temp, &pointer).map_err(|e| io(&pointer, e))
 }
+
 fn shard_index_path(generation_dir: &Path, shard: usize) -> PathBuf {
     generation_dir.join(format!("{shard:02x}.index.json"))
 }
+
 fn write_shard_index(generation_dir: &Path, shard: usize, index: &CollectionIndex) -> Result<()> {
     let records: BTreeMap<&str, &RecordLocation> = index
         .records
@@ -382,6 +438,7 @@ fn write_shard_index(generation_dir: &Path, shard: usize, index: &CollectionInde
         .collect();
     write_json(&shard_index_path(generation_dir, shard), &records)
 }
+
 fn write_manifest(generation_dir: &Path, index: &CollectionIndex) -> Result<()> {
     write_json(
         &generation_dir.join("manifest.json"),
@@ -395,6 +452,7 @@ fn write_manifest(generation_dir: &Path, index: &CollectionIndex) -> Result<()> 
         },
     )
 }
+
 fn open_manifest(
     root: &Path,
     name: &str,
@@ -425,10 +483,12 @@ fn open_manifest(
         manifest,
     ))
 }
+
 /// Open the published files for a collection scan without loading the ID index.
 pub fn open_generation(root: &Path, name: &str, cache_root: &Path) -> Result<CacheGeneration> {
     open_manifest(root, name, cache_root).map(|(generation, _)| generation)
 }
+
 /// Open the published files and load their ID index for targeted record access.
 pub fn open_collection(root: &Path, name: &str, cache_root: &Path) -> Result<CollectionCache> {
     let (snapshot, manifest) = open_manifest(root, name, cache_root)?;
@@ -459,6 +519,7 @@ pub fn open_collection(root: &Path, name: &str, cache_root: &Path) -> Result<Col
         index,
     })
 }
+
 pub fn build_collection(root: &Path, name: &str, cache_root: &Path) -> Result<CollectionCache> {
     let spec = spec(root, name)?;
     let directory = collection_dir(root, cache_root, name)?;

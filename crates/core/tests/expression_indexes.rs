@@ -13,17 +13,20 @@ fn query(text: &str) -> JsonQuery {
         ..Default::default()
     }
 }
+
 fn database(repo: &Repository) -> rusqlite::Connection {
     let db =
         rusqlite::Connection::open(repo.cache_directory().unwrap().join("cache.sqlite")).unwrap();
     register_cache_sqlite_functions(&db).unwrap();
     db
 }
+
 fn ids(repo: &mut Repository, text: &str) -> Vec<String> {
     let result = repo.query_json(&query(text)).unwrap();
     assert_eq!(result.total, Some(result.records.len()));
     result.records.into_iter().map(|r| r.id).collect()
 }
+
 fn fixture() -> Fixture {
     let f = Fixture::new();
     for e in fs::read_dir(f.root.join("data/books")).unwrap() {

@@ -1,5 +1,6 @@
 use std::path::{Path, PathBuf};
 
+
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
     #[error("I/O at {path}: {source}")]
@@ -29,6 +30,8 @@ pub enum Error {
     #[error("SQLite: {0}")]
     Sql(#[from] rusqlite::Error),
 }
+
+
 pub type Result<T> = std::result::Result<T, Error>;
 pub(crate) fn io(path: impl AsRef<Path>, source: std::io::Error) -> Error {
     Error::Io {
@@ -36,6 +39,7 @@ pub(crate) fn io(path: impl AsRef<Path>, source: std::io::Error) -> Error {
         source,
     }
 }
+
 pub(crate) fn config(path: &Path, location: impl Into<String>, message: impl ToString) -> Error {
     Error::Config {
         path: path.into(),
@@ -43,6 +47,7 @@ pub(crate) fn config(path: &Path, location: impl Into<String>, message: impl ToS
         message: message.to_string(),
     }
 }
+
 pub(crate) fn record(path: &Path, location: impl Into<String>, message: impl ToString) -> Error {
     Error::Record {
         path: path.into(),

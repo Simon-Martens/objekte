@@ -31,6 +31,7 @@ fn outgoing_edges_preserve_occurrences_and_missing_targets() {
         assert!(!refs.coverage[0].verified);
     }
 }
+
 #[test]
 fn partial_backlinks_do_not_claim_unscanned_sources_are_empty() {
     let f = Fixture::new();
@@ -57,6 +58,7 @@ fn partial_backlinks_do_not_claim_unscanned_sources_are_empty() {
             .all(|c| c.state == "absent")
     );
 }
+
 #[test]
 fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
     let f = Fixture::new();
@@ -95,6 +97,7 @@ fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
         TargetState::Present
     );
 }
+
 #[test]
 fn missing_targets_later_appear_without_source_record_changes() {
     let f = Fixture::new();
@@ -110,6 +113,7 @@ fn missing_targets_later_appear_without_source_record_changes() {
     assert_eq!(refs.edges.len(), 1);
     assert_eq!(refs.edges[0].target_state, TargetState::Present);
 }
+
 #[test]
 fn deletion_removes_only_outgoing_edges_and_retains_incoming_edges() {
     let f = Fixture::new();
@@ -130,6 +134,7 @@ fn deletion_removes_only_outgoing_edges_and_retains_incoming_edges() {
     assert_eq!(incoming.edges[0].source_id, "p1");
     assert_eq!(incoming.edges[0].target_state, TargetState::Missing);
 }
+
 #[test]
 fn null_empty_and_missing_references_produce_no_edges() {
     let f = Fixture::new();
@@ -143,6 +148,7 @@ fn null_empty_and_missing_references_produce_no_edges() {
         )
     }
 }
+
 #[test]
 fn direct_and_cached_backlinks_match_for_cycles() {
     let f = Fixture::new();
@@ -164,6 +170,7 @@ fn direct_and_cached_backlinks_match_for_cycles() {
         assert!(b.coverage.iter().all(|c| c.verified));
     }
 }
+
 #[test]
 fn reopen_coverage_distinguishes_persisted_from_verified() {
     let f = Fixture::new();

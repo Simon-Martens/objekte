@@ -1,6 +1,7 @@
 use super::*;
 use crate::{JsonFilter, JsonQuery, JsonQueryDependencies, JsonQueryResult, RecordState};
 
+
 impl Repository {
     /// Query actual JSON values in all registered collections, or an explicit scope.
     /// The schema/UI never restrict queryable paths. Ordering is (collection, id).

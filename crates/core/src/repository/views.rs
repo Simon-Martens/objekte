@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl Repository {
     pub fn open_view(&mut self, collection: &str, request: &ViewRequest) -> Result<ViewResult> {
         let before = self.metrics.clone();
