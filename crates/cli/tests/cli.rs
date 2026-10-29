@@ -858,7 +858,7 @@ fn bigram_cli_backend_matches_default_query_results() {
     ];
     let expected = value(run(&f, &args));
     assert!(!f.data.exists());
-    let actual = value(run(
+    let actual_output = run(
         &f,
         &[
             p,
@@ -868,8 +868,26 @@ fn bigram_cli_backend_matches_default_query_results() {
             "--count",
             "--backend",
             "bigram",
+            "--diagnostics",
         ],
-    ));
+    );
+    let diagnostic = diagnostics(&actual_output);
+    for phase in [
+        "bigram_inventory_ms",
+        "bigram_slots_ms",
+        "bigram_scan_ms",
+        "bigram_project_worker_ms",
+        "bigram_add_worker_ms",
+        "bigram_compress_ms",
+        "bigram_typed_ms",
+        "bigram_view_ms",
+    ] {
+        assert!(
+            diagnostic["metrics"][phase].as_f64().unwrap() > 0.0,
+            "{phase}"
+        );
+    }
+    let actual = value(actual_output);
     assert_eq!(actual["total"], 1);
     assert_eq!(actual["total"], expected["total"]);
     assert_eq!(actual["records"], expected["records"]);

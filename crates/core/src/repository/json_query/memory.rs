@@ -11,11 +11,19 @@ impl Repository {
             || matches!(self.options.freshness, Freshness::HashOnRequest);
         if rebuild {
             let started = Instant::now();
-            self.file_pickers.insert(
-                c.name.clone(),
-                crate::file_picker::FilePicker::open_with_indexes(&c.path, &c.indexes, &c.fields)?,
-            );
+            let picker =
+                crate::file_picker::FilePicker::open_with_indexes(&c.path, &c.indexes, &c.fields)?;
+            let timings = picker.build_timings();
+            self.file_pickers.insert(c.name.clone(), picker);
             self.metrics.bigram_open_nanos += nanos(started);
+            self.metrics.bigram_inventory_nanos += timings.inventory_nanos;
+            self.metrics.bigram_slots_nanos += timings.slots_nanos;
+            self.metrics.bigram_scan_nanos += timings.scan_nanos;
+            self.metrics.bigram_project_worker_nanos += timings.project_worker_nanos;
+            self.metrics.bigram_add_worker_nanos += timings.add_worker_nanos;
+            self.metrics.bigram_compress_nanos += timings.compress_nanos;
+            self.metrics.bigram_typed_nanos += timings.typed_nanos;
+            self.metrics.bigram_view_nanos += timings.view_nanos;
         } else if self.options.freshness == Freshness::MetadataOnRequest {
             let started = Instant::now();
             self.file_pickers

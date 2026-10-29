@@ -14,6 +14,22 @@ The [43-case Musenalm comparison](../crates/bench/BIGRAM-VS-SEGMENTS-2026-10-29.
 
 The initial in-memory index build took 525 ms and 520 ms in those two processes. A fresh CLI invocation creates a fresh process and pays that cost again; repeated requests on one `Repository` handle reuse the picker. The segment option persists its index across processes, but still has source freshness checks. One observed fresh CLI `year = 1800` run took 0.57 s with bigrams and 0.32 s with a built segment cache; this was not a controlled startup or memory comparison.
 
+### First-use index build breakdown
+
+The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading and projecting every source file, bigram compression, typed postings, and ordered view keys. On 29 October 2026, a single warm-filesystem-cache `contents` query over 133,948 JSON files gave these stage timings (milliseconds):
+
+| Stage | Release | Debug |
+| --- | ---: | ---: |
+| Directory inventory and stamps | 139 | 231 |
+| ID slots and rebuild table | 90 | 224 |
+| Parallel file scan, JSON projection, bigram insertion (wall time) | 162 | 1,044 |
+| Bigram compression | 15 | 79 |
+| Typed postings finalization | 195 | 1,720 |
+| Ordered view keys finalization | 102 | 532 |
+| **Total `bigram_open_ms`** | **712** | **3,852** |
+
+The stages leave a small amount of setup and cleanup outside their timers. The scan runs in parallel; `bigram_project_worker_ms` and `bigram_add_worker_ms` in diagnostics sum elapsed time across workers, including any waits, and therefore must not be added to wall timings. In this run, typed postings and ordered view keys together accounted for roughly 42% of release build time and 58% of debug build time. Both structures currently hold scalar-field information independently. The observed time depends on build profile, hardware, file cache, and collection. A fresh CLI process rebuilds these structures even if the same query ran immediately before.
+
 The forward run's median candidate selection took 1.4 ms, and its median source scan and verification took 12.8 ms. The phases are medians over different cases and do not add up to a representative request. For the old `preferred_title ~ 'Liebe' && year = 1800` query (now written with `:ignorecase('Liebe')`), intersecting text and typed postings selected 242 files and the full query took 1.8 ms. Common short strings can be less selective: `preferred_title = 'No. 11.'` opened 16,141 candidate files and took 17.4 ms with bigrams versus 6.4 ms with segments. Broad or negated queries may need to read most files, especially with `--count`.
 
 The published 43-case report predates the typed `OR` union planner. Its `year_or` row shows a full scan of 133,948 files and is **not a current timing** for indexed numeric branches. The current planner can union typed postings when every branch has a safe indexed candidate set; the full filter is still verified against source JSON. Mixed text/number `OR` may still scan broadly. Those cases need a fresh benchmark. The [release acceptance test](../crates/core/tests/musenalm_bigram.rs) compares complete ordered IDs and totals with direct evaluation for all 43 filters. An [independent source-file oracle](../crates/core/tests/json_query_oracle.rs) parses with `serde_json` and uses handwritten predicates to compare complete IDs against both bigram and segments for those same 43 filters; it is an opt-in release test. A smaller oracle fixture runs in the routine suite against all four query backends. Focused tests cover numeric `OR`, edits, exact decimals, arrays, Unicode, and candidate completeness.

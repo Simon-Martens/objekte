@@ -22,6 +22,8 @@ use std::{
     collections::{BTreeMap, BTreeSet},
     io::Read,
     path::{Path, PathBuf},
+    sync::atomic::{AtomicU64, Ordering},
+    time::Instant,
 };
 
 pub use git::GitState;
@@ -40,6 +42,20 @@ struct FileEntry {
 }
 
 
+/// Wall stages and summed worker time recorded while constructing a picker.
+#[derive(Clone, Copy, Default)]
+pub(crate) struct BuildTimings {
+    pub inventory_nanos: u64,
+    pub slots_nanos: u64,
+    pub scan_nanos: u64,
+    pub project_worker_nanos: u64,
+    pub add_worker_nanos: u64,
+    pub compress_nanos: u64,
+    pub typed_nanos: u64,
+    pub view_nanos: u64,
+}
+
+
 /// Stable numeric file slots plus a separate byte-sorted view of live IDs.
 /// Changed/new slots bypass the immutable bigram index until it is rebuilt.
 pub struct FilePicker {
@@ -54,6 +70,7 @@ pub struct FilePicker {
     index: BigramFilter,
     typed: TypedIndex,
     view: ViewIndex,
+    build_timings: BuildTimings,
 }
 
 
@@ -69,7 +86,9 @@ impl FilePicker {
     ) -> Result<Self> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open(&root)?;
+        let inventory_started = Instant::now();
         let inventory = source.inventory()?;
+        let inventory_nanos = elapsed_nanos(inventory_started);
         let mut indexed_fields = indexes
             .iter()
             .map(|field| field.name.clone())
@@ -88,10 +107,16 @@ impl FilePicker {
             index: BigramIndexBuilder::new(0).compress(None),
             view: ViewIndex::new(&indexed_fields, definitions),
             typed: TypedIndex::new(indexed_fields),
+            build_timings: BuildTimings {
+                inventory_nanos,
+                ..BuildTimings::default()
+            },
         };
+        let slots_started = Instant::now();
         for (id, stamp) in inventory {
             picker.insert(&id, stamp)?;
         }
+        picker.build_timings.slots_nanos = elapsed_nanos(slots_started);
         picker.rebuild_index_from_source(&source)?;
         source.finish()?;
         Ok(picker)
@@ -453,6 +478,7 @@ impl FilePicker {
     fn rebuild_index_from_source(&mut self, source: &Source) -> Result<()> {
         // Compact removed IDs while rebuilding; changed slots remain stable
         // between rebuilds and can be reassigned here with the fresh index.
+        let slots_started = Instant::now();
         let mut ids = Vec::with_capacity(self.id_bytes.len());
         let mut files = Vec::with_capacity(self.sorted.len());
         for &slot in &self.sorted {
@@ -471,6 +497,10 @@ impl FilePicker {
         let view_rows = std::sync::Mutex::new(Vec::new());
         let view = &self.view;
         let root = &self.root;
+        self.build_timings.slots_nanos += elapsed_nanos(slots_started);
+        let project_worker = AtomicU64::new(0);
+        let add_worker = AtomicU64::new(0);
+        let scan_started = Instant::now();
         files
             .par_chunks(64)
             .enumerate()
@@ -478,13 +508,16 @@ impl FilePicker {
                 let mut chunk_arrays = BTreeSet::new();
                 let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
                 let mut chunk_view = Vec::new();
+                let mut chunk_project_nanos = 0;
+                let mut chunk_add_nanos = 0;
                 for (within, entry) in chunk.iter().enumerate() {
                     let Some(entry) = entry else { continue };
                     let id = std::str::from_utf8(
                         &ids[entry.id_start as usize..(entry.id_start + entry.id_len) as usize],
                     )
                     .expect("validated UTF-8 ID");
-                    if let Some(projection) = projected_values(
+                    let project_started = Instant::now();
+                    let projection = projected_values(
                         source,
                         root,
                         id,
@@ -492,9 +525,13 @@ impl FilePicker {
                         indexed_fields,
                         view,
                         true,
-                    )? {
+                    )?;
+                    chunk_project_nanos += elapsed_nanos(project_started);
+                    if let Some(projection) = projection {
                         let slot = chunk_index * 64 + within;
+                        let add_started = Instant::now();
                         main.add_file_content(&skip, slot, &projection.bytes);
+                        chunk_add_nanos += elapsed_nanos(add_started);
                         chunk_arrays.extend(projection.array_fields);
                         chunk_view.push((slot, projection.view_keys));
                         for (field, key) in projection.typed_values {
@@ -506,6 +543,8 @@ impl FilePicker {
                     .lock()
                     .expect("array field lock")
                     .extend(chunk_arrays);
+                project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
+                add_worker.fetch_add(chunk_add_nanos, Ordering::Relaxed);
                 let mut rows = typed_rows.lock().expect("typed row lock");
                 for (all, chunk) in rows.iter_mut().zip(chunk_typed) {
                     all.extend(chunk);
@@ -513,8 +552,13 @@ impl FilePicker {
                 view_rows.lock().expect("view row lock").extend(chunk_view);
                 Ok(())
             })?;
+        self.build_timings.scan_nanos = elapsed_nanos(scan_started);
+        self.build_timings.project_worker_nanos = project_worker.load(Ordering::Relaxed);
+        self.build_timings.add_worker_nanos = add_worker.load(Ordering::Relaxed);
+        let compress_started = Instant::now();
         let mut index = main.compress(None);
         index.set_skip_index(skip.compress(Some(12))); // FFF's current skip-index cutoff.
+        self.build_timings.compress_nanos = elapsed_nanos(compress_started);
         source.finish()?;
         self.id_bytes = ids;
         self.files = files;
@@ -523,18 +567,26 @@ impl FilePicker {
         self.indexed_len = self.files.len();
         self.changed.clear();
         self.array_fields = array_fields.into_inner().expect("array field lock");
+        let typed_started = Instant::now();
         self.typed
             .replace_rows(typed_rows.into_inner().expect("typed row lock"));
+        self.build_timings.typed_nanos = elapsed_nanos(typed_started);
+        let view_started = Instant::now();
         self.view.replace(
             view_rows.into_inner().expect("view row lock"),
             &self.files,
             &self.id_bytes,
         );
+        self.build_timings.view_nanos = elapsed_nanos(view_started);
         Ok(())
     }
 
     pub fn index_bytes(&self) -> usize {
         self.index.heap_bytes()
+    }
+
+    pub(crate) fn build_timings(&self) -> BuildTimings {
+        self.build_timings
     }
 
     fn position(&self, id: &str) -> std::result::Result<usize, usize> {
@@ -578,6 +630,10 @@ fn now_nanos() -> u128 {
     std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
         .map_or(0, |time| time.as_nanos())
+}
+
+fn elapsed_nanos(started: Instant) -> u64 {
+    started.elapsed().as_nanos().min(u64::MAX as u128) as u64
 }
 
 
