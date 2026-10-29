@@ -67,6 +67,7 @@ impl Repository {
         let s = writer.enter(self.options.sqlite_cache_mib)?;
         for c in collections {
             self.sync(c, &s, filter.uses_indexes(c), false)?;
+            filter.ensure_query_indexes(&s.db, c, &mut self.metrics)?;
             result
                 .dependencies
                 .revisions
@@ -82,7 +83,7 @@ impl Repository {
             .map(|c| {
                 let predicate = filter.sql(c, &mut bindings);
                 let scope = crate::json_filter::indexes::quote(&c.name);
-                format!("SELECT r.collection,r.id FROM records r JOIN record_validation h USING(collection,id) WHERE r.collection={scope} AND h.parse_status='parsed' AND ({predicate})")
+                format!("SELECT {scope} AS collection,r.id FROM records r JOIN record_validation h ON h.collection={scope} AND h.id=r.id WHERE r.collection={scope} AND h.parse_status='parsed' AND ({predicate})")
             })
             .collect::<Vec<_>>()
             .join(" UNION ALL ");
@@ -98,13 +99,16 @@ impl Repository {
         // Materialize only matched identities. This deliberately examines all scoped
         // records before pagination, including scalar-cardinality errors outside the
         // returned page or in an otherwise false OR/AND branch. Never materialize JSON.
-        let sql = format!("WITH hits AS MATERIALIZED ({selections}), page AS (
+        // CROSS JOIN fixes the payload lookup order: stale/skewed collection
+        // statistics must not turn a small selected page into a full records scan.
+        let sql = format!("WITH hits AS MATERIALIZED ({selections}), page AS MATERIALIZED (
             SELECT collection,id FROM hits ORDER BY collection COLLATE BINARY,id COLLATE BINARY LIMIT ?{limit} OFFSET ?{offset}
         )
         SELECT 1 AS summary,NULL AS collection,NULL AS id,NULL AS path,NULL AS digest,NULL AS json,NULL AS validation_state,NULL AS issues,{count} AS total
         UNION ALL
         SELECT 0,r.collection,r.id,r.path,r.digest,r.json,h.validation_state,h.issues,NULL
-        FROM page p JOIN records r USING(collection,id) JOIN record_validation h USING(collection,id)
+        FROM page p CROSS JOIN records r ON r.collection=p.collection AND r.id=p.id
+        CROSS JOIN record_validation h ON h.collection=p.collection AND h.id=p.id
         ORDER BY summary DESC,collection COLLATE BINARY,id COLLATE BINARY");
         let mut explain = s.db.prepare(&format!("EXPLAIN QUERY PLAN {sql}"))?;
         result.query_plan = explain

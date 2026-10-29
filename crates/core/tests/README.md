@@ -18,11 +18,14 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
 | `json_filter.rs` | Typed filters, field operands/modifiers, LIKE patterns, exact numbers, nested arrays, missing/null, parser limits, injection-shaped bindings, global scope, source changes, and direct/SQL parity |
-| `expression_indexes.rs` | Real JSON expression-index seeks, no field columns/tables, precise typed queries, invalid values, edits/deletions, reconfiguration, and restart/rebuild |
+| `expression_indexes.rs` | Real JSON expression-index seeks, covering-key reads with extraction disabled, lazy query indexes, no field columns/tables, precise types, edits/deletions, reconfiguration, and restart/rebuild |
 | `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, retained content errors across batches and correction/revalidation |
 | `validation.rs` | Pending/restart recovery, wrong types, malformed JSON/UTF-8, all diagnostics, stale-result guards, schema changes, delete/recreate, background transaction failure, worker defaults/stacks, shared writer concurrency |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
 | CLI `cli.rs` | Real subprocesses, argument errors, table/JSON/NDJSON, cache options, validation modes/statuses, reference commands, killed builder recovery |
+
+Index unit tests exercise seeded keys, duplicate inputs, malformed values, zero-budget
+fallback, and cleanup after successful and failed builds.
 
 Core unit tests also check byte-compatible buffered fingerprints across buffer
 boundaries, directory/symlink replacement, and Linux directory-relative metadata
@@ -120,7 +123,8 @@ unchanged. Library timers have the following scopes:
   are summed across workers and overlap in wall time. Do not add them to this timer
   or use their sum as elapsed build time. The surrounding `sync_nanos` is wall time.
 - `record_write_nanos`: looking up the previous digest and inserting/updating the
-  source payload and metadata in `put_record`, including SQLite's expression-index maintenance.
+  source payload and metadata in `put_record`, including preparation of temporary
+  build keys or SQLite's maintenance of existing expression indexes.
 - `relation_extract_nanos`, `relation_write_nanos`: extracting reference occurrences
   for `put_record`, then comparing and updating persisted outgoing edges.
 - `index_rows_written`: source records feeding newly built expression indexes or
@@ -153,3 +157,26 @@ includes acquiring the shared writer and conditionally publishing results. The C
 also logs `validation_wait_ms`. Do not add nested/overlapping timers together.
 Full Musenalm acceptance now waits for background completion and asserts that every
 record is valid, as well as comparing complete ordered outputs and relationships.
+
+## Compare index revisions
+
+`crates/core/examples/profile_indexes.rs` runs a JSON workload through the library,
+checks repeated/reopened results, and emits all phase durations in milliseconds.
+`crates/bench/index-workload.json` covers all seven Musenalm default views, numeric
+sorting/filtering/counting, compound sorts, offsets, scoped/global JSON queries,
+wildcard searches, and nested-array queries.
+
+Build the same driver against each revision (copy it into older checkouts first),
+then run:
+
+```sh
+python3 crates/bench/compare_index_revisions.py /path/to/before-profile /path/to/after-profile \
+  examples/musenalm crates/bench/index-workload.json target/index-comparison \
+  --samples 3 --repeats 3
+```
+
+The runner alternates revision order, creates a fresh temporary database for each
+sample, and compares result digests across both revisions and every repetition.
+It saves raw JSON lines and median first/warm/reopen timings. Do not run competing
+CPU/I/O workloads alongside a timing comparison. Correctness tests assert actual
+index use; they avoid unstable wall-clock thresholds.

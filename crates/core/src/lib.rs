@@ -51,5 +51,5 @@ pub use schema::{Field, PathStep, ValueType};
 /// The database remains a disposable cache; authoritative edits belong in source files.
 pub fn register_cache_sqlite_functions(db: &rusqlite::Connection) -> Result<()> {
     json_filter::register(db)?;
-    json_filter::indexes::register(db)
+    json_filter::indexes::register(db).map(|_| ())
 }

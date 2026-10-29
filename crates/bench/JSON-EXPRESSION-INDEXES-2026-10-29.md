@@ -1,5 +1,9 @@
 # JSON expression indexes and filter extensions, 29 October 2026
 
+These are the initial implementation measurements. See the subsequent
+[regression audit](INDEX-REGRESSION-AUDIT-2026-10-29.md) for repeated before/after
+measurements, additional fixes, and the remaining cold-build regression.
+
 Measured on the AMD Ryzen 7 5700G (16 logical CPUs), rustc 1.96.0, release
 build with `target-cpu=native`. All seven Musenalm collections contain 148,486
 records. Every run uses a temporary application directory and a 64 MiB SQLite

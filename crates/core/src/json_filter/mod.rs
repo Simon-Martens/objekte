@@ -322,6 +322,11 @@ fn compare(left: &Value, op: Op, right: &Value, right_field: bool) -> bool {
 /// Compare decimal JSON number lexemes without conversion to floating point or
 /// allocating exponent-sized zero strings (including exponents outside i64).
 fn decimal_cmp(a: &str, b: &str) -> Ordering {
+    // The common integer case needs no allocation. Keep the exact decimal path
+    // for fractional/exponential spellings and values outside signed 64 bits.
+    if let (Ok(a), Ok(b)) = (a.parse::<i64>(), b.parse::<i64>()) {
+        return a.cmp(&b);
+    }
     fn parts(s: &str) -> (bool, String, BigInt) {
         let negative = s.starts_with('-');
         let s = s.strip_prefix('-').unwrap_or(s);

@@ -5,10 +5,10 @@ use jaq_all::json::Val as JaqValue;
 use jaq_all::{data, fmts};
 use qj::io::{InputReader, ReaderOptions};
 use qj::jq::lang::execute::Jq;
-use qj::jq::lang::{jq_compile_args, CompileOptions};
+use qj::jq::lang::{CompileOptions, jq_compile_args};
 use qj::jq::value::Value as QjValue;
-use rusqlite::{params, Connection};
-use serde_json::{json, Value as Json};
+use rusqlite::{Connection, params};
+use serde_json::{Value as Json, json};
 use std::collections::BTreeMap;
 use std::error::Error;
 use std::ffi::OsString;
@@ -273,10 +273,11 @@ fn rust_projected_load(
 }
 fn rust_projected_query(rows: &[ProjectedRow], name: &str, lo: i64, hi: i64, needle: &str) -> Json {
     match name {
-        "range_count" => json!(rows
-            .iter()
-            .filter(|r| r.number.is_some_and(|n| n >= lo && n <= hi))
-            .count()),
+        "range_count" => json!(
+            rows.iter()
+                .filter(|r| r.number.is_some_and(|n| n >= lo && n <= hi))
+                .count()
+        ),
         "range_page" => {
             let mut selected: Vec<_> = rows
                 .iter()
@@ -297,10 +298,11 @@ fn rust_projected_query(rows: &[ProjectedRow], name: &str, lo: i64, hi: i64, nee
             }
             json!(counts.into_iter().collect::<Vec<_>>())
         }
-        "text_count" => json!(rows
-            .iter()
-            .filter(|r| r.text.to_ascii_lowercase().contains(needle))
-            .count()),
+        "text_count" => json!(
+            rows.iter()
+                .filter(|r| r.text.to_ascii_lowercase().contains(needle))
+                .count()
+        ),
         _ => Json::Null,
     }
 }
@@ -315,10 +317,11 @@ fn rust_query(
 ) -> Json {
     let number_of = |row: &Json| row["data"][number].as_i64();
     match name {
-        "range_count" => json!(rows
-            .iter()
-            .filter(|r| number_of(r).is_some_and(|n| n >= lo && n <= hi))
-            .count()),
+        "range_count" => json!(
+            rows.iter()
+                .filter(|r| number_of(r).is_some_and(|n| n >= lo && n <= hi))
+                .count()
+        ),
         "range_page" => {
             let mut selected: Vec<_> = rows
                 .iter()
@@ -339,14 +342,15 @@ fn rust_query(
             }
             json!(counts.into_iter().collect::<Vec<_>>())
         }
-        "text_count" => json!(rows
-            .iter()
-            .filter(|r| r["data"][text]
-                .as_str()
-                .unwrap_or("")
-                .to_ascii_lowercase()
-                .contains(needle))
-            .count()),
+        "text_count" => json!(
+            rows.iter()
+                .filter(|r| r["data"][text]
+                    .as_str()
+                    .unwrap_or("")
+                    .to_ascii_lowercase()
+                    .contains(needle))
+                .count()
+        ),
         _ => Json::Null,
     }
 }
@@ -397,11 +401,11 @@ fn sqlite_query(
     name: &str,
     number: &str,
     text: &str,
-    lo: i64,
-    hi: i64,
+    range: (i64, i64),
     needle: &str,
     indexed: bool,
 ) -> Result<Json> {
+    let (lo, hi) = range;
     let n = format!("$.{}", number);
     let t = format!("$.{}", text);
     let indexed_sql = if indexed {
@@ -413,20 +417,34 @@ fn sqlite_query(
         }
         let x = format!("json_extract(data,'$.{}')", number);
         Some(match name {
-            "range_count" => format!("SELECT count(*) FROM records WHERE typeof({x}) IN ('integer','real') AND {x} BETWEEN ?1 AND ?2"),
-            "range_page" => format!("SELECT {x},id FROM records WHERE typeof({x}) IN ('integer','real') AND {x} BETWEEN ?1 AND ?2 ORDER BY {x},id LIMIT 50"),
-            "number_group" => format!("SELECT {x},count(*) FROM records WHERE typeof({x}) IN ('integer','real') GROUP BY {x} ORDER BY {x}"),
+            "range_count" => format!(
+                "SELECT count(*) FROM records WHERE typeof({x}) IN ('integer','real') AND {x} BETWEEN ?1 AND ?2"
+            ),
+            "range_page" => format!(
+                "SELECT {x},id FROM records WHERE typeof({x}) IN ('integer','real') AND {x} BETWEEN ?1 AND ?2 ORDER BY {x},id LIMIT 50"
+            ),
+            "number_group" => format!(
+                "SELECT {x},count(*) FROM records WHERE typeof({x}) IN ('integer','real') GROUP BY {x} ORDER BY {x}"
+            ),
             _ => String::new(),
         })
     } else {
         None
     };
-    let sql=match name {
-        "range_count"=>"SELECT count(*) FROM records WHERE json_type(data,?1) IN ('integer','real') AND json_extract(data,?1) BETWEEN ?2 AND ?3",
-        "range_page"=>"SELECT json_extract(data,?1),id FROM records WHERE json_type(data,?1) IN ('integer','real') AND json_extract(data,?1) BETWEEN ?2 AND ?3 ORDER BY json_extract(data,?1),id LIMIT 50",
-        "number_group"=>"SELECT json_extract(data,?1),count(*) FROM records WHERE json_type(data,?1) IN ('integer','real') GROUP BY json_extract(data,?1) ORDER BY json_extract(data,?1)",
-        "text_count"=>"SELECT count(*) FROM records WHERE instr(lower(coalesce(json_extract(data,?1),'')),?2)>0",
-        _=>return Err("unknown query".into()),
+    let sql = match name {
+        "range_count" => {
+            "SELECT count(*) FROM records WHERE json_type(data,?1) IN ('integer','real') AND json_extract(data,?1) BETWEEN ?2 AND ?3"
+        }
+        "range_page" => {
+            "SELECT json_extract(data,?1),id FROM records WHERE json_type(data,?1) IN ('integer','real') AND json_extract(data,?1) BETWEEN ?2 AND ?3 ORDER BY json_extract(data,?1),id LIMIT 50"
+        }
+        "number_group" => {
+            "SELECT json_extract(data,?1),count(*) FROM records WHERE json_type(data,?1) IN ('integer','real') GROUP BY json_extract(data,?1) ORDER BY json_extract(data,?1)"
+        }
+        "text_count" => {
+            "SELECT count(*) FROM records WHERE instr(lower(coalesce(json_extract(data,?1),'')),?2)>0"
+        }
+        _ => return Err("unknown query".into()),
     };
     let sql = indexed_sql
         .as_deref()
@@ -575,7 +593,7 @@ fn main() -> Result<()> {
             emit("load", secs(start), memory());
             for name in names {
                 let (time, result) = measured(
-                    || sqlite_query(&db, name, &number, &text, lo, hi, &needle, false),
+                    || sqlite_query(&db, name, &number, &text, (lo, hi), &needle, false),
                     runs,
                 )?;
                 emit(name, time, result);
@@ -600,7 +618,10 @@ fn main() -> Result<()> {
                 let start = Instant::now();
                 db.execute_batch(&format!("CREATE INDEX IF NOT EXISTS records_number_{} ON records(json_extract(data,'$.{}'),id)", number, number))?;
                 emit("index", secs(start), memory());
-                let plan_sql = format!("EXPLAIN QUERY PLAN SELECT id FROM records WHERE json_extract(data,'$.{}') BETWEEN ?1 AND ?2 ORDER BY json_extract(data,'$.{}'),id LIMIT 50", number, number);
+                let plan_sql = format!(
+                    "EXPLAIN QUERY PLAN SELECT id FROM records WHERE json_extract(data,'$.{}') BETWEEN ?1 AND ?2 ORDER BY json_extract(data,'$.{}'),id LIMIT 50",
+                    number, number
+                );
                 let mut plan_stmt = db.prepare(&plan_sql)?;
                 let plan = plan_stmt
                     .query_map(params![lo, hi], |row| row.get::<_, String>(3))?
@@ -609,7 +630,7 @@ fn main() -> Result<()> {
             }
             for name in names {
                 let (time, result) = measured(
-                    || sqlite_query(&db, name, &number, &text, lo, hi, &needle, indexed),
+                    || sqlite_query(&db, name, &number, &text, (lo, hi), &needle, indexed),
                     runs,
                 )?;
                 emit(name, time, result);

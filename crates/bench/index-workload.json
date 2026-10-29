@@ -1,0 +1,140 @@
+[
+  {
+    "kind": "view",
+    "name": "contents_default",
+    "collection": "contents",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "entries_default",
+    "collection": "entries",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "agents_default",
+    "collection": "agents",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "items_default",
+    "collection": "items",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "pages_default",
+    "collection": "pages",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "places_default",
+    "collection": "places",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "series_default",
+    "collection": "series",
+    "request": {}
+  },
+  {
+    "kind": "view",
+    "name": "contents_year_desc",
+    "collection": "contents",
+    "request": {
+      "sort": {
+        "field": "year",
+        "direction": "desc"
+      }
+    }
+  },
+  {
+    "kind": "view",
+    "name": "contents_year_filter",
+    "collection": "contents",
+    "request": {
+      "filters": [
+        {
+          "field": "year",
+          "operator": "ge",
+          "value": 1800
+        }
+      ],
+      "count": true
+    }
+  },
+  {
+    "kind": "view",
+    "name": "contents_compound",
+    "collection": "contents",
+    "request": {
+      "sort": {
+        "field": "year",
+        "direction": "asc"
+      },
+      "sub_sorts": [
+        {
+          "field": "numbering",
+          "direction": "desc"
+        }
+      ]
+    }
+  },
+  {
+    "kind": "view",
+    "name": "contents_offset",
+    "collection": "contents",
+    "request": {
+      "offset": 500,
+      "count": true
+    }
+  },
+  {
+    "kind": "query",
+    "name": "year",
+    "request": {
+      "filter": "year >= 1800 && year < 1805",
+      "collections": [
+        "contents"
+      ],
+      "limit": 50,
+      "count": true
+    }
+  },
+  {
+    "kind": "query",
+    "name": "all_year",
+    "request": {
+      "filter": "year >= 1800 && year < 1805",
+      "collections": null,
+      "limit": 50,
+      "count": true
+    }
+  },
+  {
+    "kind": "query",
+    "name": "text",
+    "request": {
+      "filter": "preferred_title ~ 'liebe'",
+      "collections": [
+        "contents"
+      ],
+      "limit": 50,
+      "count": true
+    }
+  },
+  {
+    "kind": "query",
+    "name": "nested",
+    "request": {
+      "filter": "contributors.agents ?= '1500' || exists(contents[0])",
+      "collections": null,
+      "limit": 50,
+      "count": true
+    }
+  }
+]

@@ -135,14 +135,23 @@ on `records.json`, and SQLite maintains them transactionally when records change
 
 Index fields still come only from the UI/schema configuration. A view or query that
 needs them builds the configured set lazily, with statistics collected using ANALYZE.
-Unfiltered views with an exact ordering index select it explicitly, avoiding full
-sorts caused by collection-size estimates in the shared records table.
+Unfiltered views with an exact ordering index select it explicitly. Compound views
+and filters use a covering expression index containing ID and all configured view
+keys; they can sort/filter keys without decoding full records. Count queries use a
+matching field index when all predicates reference one field, otherwise the covering
+index. These choices are deterministic, not based on query history.
 Each configured scalar field has expression indexes for schema-aware view ordering
-(ascending/descending, null/missing/invalid states) and an actual-JSON scalar key
-index for arbitrary queries. The latter indexes strings, booleans and exact decimal
+(ascending/descending, null/missing/invalid states). Its additional actual-JSON scalar
+key index is built only when a general query first needs it for a comparison or
+scalar-cardinality check. It is then maintained and reused across restarts. The latter indexes strings, booleans and exact decimal
 numbers separately, even when a value violates its schema. A custom deterministic
 collation compares numeric lexemes without float conversion. These indexes have
 different semantics; they all store derived keys only inside SQLite's indexes.
+During a bulk build, ingestion seeds a temporary cache of extracted keys, keyed by
+content digest. Its retained-key budget is 128 MiB, separate from SQLite's page
+cache, with ordinary extraction as a correctness-preserving fallback when full.
+It is released after the build, including on failure. Incremental writes reuse one
+already-parsed document. This is not a persistent projection or query-result cache.
 
 Plain indexed field versus scalar literal/parameter comparisons (`=`, `!=`, ordered
 comparisons, and reversed operands) compile to matching index expressions. Boolean
@@ -183,5 +192,5 @@ cargo test --release -p objekte-core --test musenalm_json_filter -- --ignored --
 `expression_indexes.rs` verifies actual index seeks, absence of materialized field
 columns/tables, type and precision parity, updates/deletions, reconfiguration, and
 restarts. [The initial scan measurements](crates/bench/JSON-FILTERS-2026-10-28.md)
-precede expression-index support; see [the expression-index measurements](crates/bench/JSON-EXPRESSION-INDEXES-2026-10-29.md)
-for the current implementation.
+precede expression-index support; see [the repeated regression audit](crates/bench/INDEX-REGRESSION-AUDIT-2026-10-29.md)
+for the current implementation, including cold-build costs.

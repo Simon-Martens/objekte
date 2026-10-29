@@ -319,7 +319,10 @@ the collection's view is first requested. Store an index-spec fingerprint. Updat
 the raw JSON with changed rows; SQLite maintains the corresponding index keys.
 
 Use deterministic index construction. Start with `(field state, typed value, ID)`
-keys for configured scalar fields and the default order. Equality filter plus
+keys for configured scalar fields and the default order. A covering expression index
+also holds all configured view keys beside ID, allowing compound views without
+reparsing full records. Ingestion can seed a temporary, bounded key cache for bulk
+index construction; it is released on completion or failure. Equality filter plus
 default sort may use a deterministically derived compound index. Avoid generating
 the power set of filter/sort combinations. Source/reverse reference indexes are
 also required for Stage D; they are bookkeeping, not a workload heuristic.

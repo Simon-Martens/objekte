@@ -48,6 +48,50 @@ fn fixture() -> Fixture {
 }
 
 #[test]
+fn scalar_query_indexes_are_lazy_and_survive_reopen() {
+    let f = Fixture::new();
+    let mut r = f.repo(CacheMode::Sqlite);
+    r.open_view("books", &Default::default()).unwrap();
+    let count = |r: &Repository| {
+        database(r)
+            .query_row(
+                "SELECT count(*) FROM sqlite_master WHERE type='index' AND name GLOB 'j_*_query'",
+                [],
+                |r| r.get::<_, i64>(0),
+            )
+            .unwrap()
+    };
+    assert_eq!(count(&r), 0);
+    for text in [
+        "exists(score)",
+        "score ?= 2",
+        "score:each >= 0",
+        "title:lower = 'alpha'",
+    ] {
+        assert_eq!(r.query_json(&query(text)).unwrap().metrics.index_builds, 0);
+        assert_eq!(count(&r), 0);
+    }
+    let first = r.query_json(&query("score >= 0")).unwrap();
+    assert_eq!(first.metrics.index_builds, 1);
+    assert_eq!(first.metrics.source_reads, 0);
+    assert_eq!(count(&r), 1);
+    drop(r);
+    let mut r = f.repo(CacheMode::Sqlite);
+    let next = r.query_json(&query("score >= 0")).unwrap();
+    assert_eq!(next.metrics.index_builds, 0);
+    assert_eq!(first.total, next.total);
+    assert_eq!(count(&r), 1);
+    assert_eq!(
+        r.query_json(&query("title = 'alpha'"))
+            .unwrap()
+            .metrics
+            .index_builds,
+        1
+    );
+    assert_eq!(count(&r), 2);
+}
+
+#[test]
 fn queries_seek_json_expression_indexes_without_stored_field_columns() {
     let f = fixture();
     let mut r = f.repo(CacheMode::Sqlite);
@@ -69,6 +113,14 @@ fn queries_seek_json_expression_indexes_without_stored_field_columns() {
                 && line.contains("_query")
                 && line.contains("<expr>")),
         "{:?}",
+        result.query_plan
+    );
+    assert!(
+        !result
+            .query_plan
+            .iter()
+            .any(|line| line.starts_with("SCAN r")),
+        "An indexed small page must not scan raw records during its payload join: {:?}",
         result.query_plan
     );
     let view = r.open_view("books", &Default::default()).unwrap();
@@ -202,6 +254,8 @@ fn expression_indexes_follow_edits_deletes_restarts_and_reconfiguration() {
     assert!(next.metrics.index_builds > 0);
     assert_eq!(ids(&mut r, "score=1800"), ["new"]);
     let db = database(&r);
+    let legacy_table = format!("v_{}", "0".repeat(64));
+    db.execute_batch(&format!("CREATE TABLE {legacy_table}(id TEXT PRIMARY KEY, f0_s INTEGER, f0_v); INSERT INTO {legacy_table} VALUES('old',0,1800);")).unwrap();
     db.execute("UPDATE meta SET value='4' WHERE key='format'", [])
         .unwrap();
     drop(db);
@@ -210,11 +264,99 @@ fn expression_indexes_follow_edits_deletes_restarts_and_reconfiguration() {
     assert_eq!(ids(&mut r, "score=1800"), ["new"]);
     assert_eq!(
         database(&r)
+            .query_row(
+                "SELECT count(*) FROM sqlite_master WHERE name=?1",
+                [&legacy_table],
+                |r| r.get::<_, i64>(0)
+            )
+            .unwrap(),
+        0
+    );
+    assert_eq!(
+        database(&r)
             .query_row("SELECT value FROM meta WHERE key='format'", [], |r| r
                 .get::<_, String>(0))
             .unwrap(),
         "5"
     );
+}
+
+#[test]
+fn compound_views_read_covering_index_keys_without_json_functions() {
+    use objekte_core::{Direction, Filter, Operator, Sort, ViewRequest};
+    let f = Fixture::new();
+    let mut cached = f.repo(CacheMode::Sqlite);
+    let mut direct = f.repo(CacheMode::Disabled);
+    for request in [
+        ViewRequest {
+            sort: Some(Sort {
+                field: "score".into(),
+                direction: Direction::Asc,
+            }),
+            sub_sorts: Some(vec![Sort {
+                field: "title".into(),
+                direction: Direction::Desc,
+            }]),
+            count: true,
+            ..Default::default()
+        },
+        ViewRequest {
+            filters: vec![Filter {
+                field: "score".into(),
+                operator: Operator::Ge,
+                value: json!(2),
+            }],
+            sort: Some(Sort {
+                field: "title".into(),
+                direction: Direction::Asc,
+            }),
+            count: true,
+            ..Default::default()
+        },
+    ] {
+        let actual = cached.open_view("books", &request).unwrap();
+        let expected = direct.open_view("books", &request).unwrap();
+        assert_eq!(actual.rows, expected.rows);
+        assert_eq!(actual.total, expected.total);
+        assert!(
+            actual
+                .query_plan
+                .iter()
+                .any(|p| p.contains("USING INDEX j_") && p.contains("_identity")),
+            "{:?}",
+            actual.query_plan
+        );
+    }
+    let db = database(&cached);
+    let name: String = db
+        .query_row(
+            "SELECT name FROM sqlite_master WHERE type='index' AND name GLOB 'j_*_identity'",
+            [],
+            |r| r.get(0),
+        )
+        .unwrap();
+    // Reading these keys must not call the extractors, even for secondary sorts.
+    // Failure functions make a hidden fallback to JSON parsing a hard test error.
+    for function in ["objekte_view_state", "objekte_view_value"] {
+        db.create_scalar_function(
+            function,
+            2,
+            rusqlite::functions::FunctionFlags::SQLITE_DETERMINISTIC,
+            |_| -> rusqlite::Result<i64> { Err(rusqlite::Error::InvalidQuery) },
+        )
+        .unwrap();
+    }
+    let sql = format!(
+        "SELECT id, objekte_view_value(json,'[\"score\",\"number\"]') FROM records INDEXED BY {name} WHERE collection='books' ORDER BY objekte_view_state(json,'[\"score\",\"number\"]'),objekte_view_value(json,'[\"score\",\"number\"]'),objekte_view_state(json,'[\"title\",\"string\"]'),objekte_view_value(json,'[\"title\",\"string\"]') DESC,id LIMIT 50"
+    );
+    let ids = db
+        .prepare(&sql)
+        .unwrap()
+        .query_map([], |r| r.get::<_, String>(0))
+        .unwrap()
+        .collect::<Result<Vec<_>, _>>()
+        .unwrap();
+    assert_eq!(ids.len(), 7);
 }
 
 #[test]

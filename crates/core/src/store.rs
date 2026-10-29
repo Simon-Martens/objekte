@@ -11,6 +11,7 @@ use std::{
 const FORMAT: &str = "5";
 pub(crate) struct Store {
     pub db: Connection,
+    pub index_cache: crate::json_filter::indexes::IndexCache,
     _lock: File,
     default_cache_size: i64,
     directory: std::path::PathBuf,
@@ -35,6 +36,10 @@ pub(crate) struct Cached {
 }
 fn index_prefix(c: &Collection) -> String {
     format!("j_{}", digest(c.name.as_bytes()))
+}
+pub(crate) fn scalar_query_index(c: &Collection, field: &str) -> String {
+    let i = c.indexes.iter().position(|f| f.name == field).unwrap();
+    format!("{}_{i}_query", index_prefix(c))
 }
 pub(crate) fn ordered_view_index(c: &Collection, sorts: &[crate::Sort]) -> Option<String> {
     let prefix = index_prefix(c);
@@ -66,7 +71,8 @@ impl Store {
             .map_err(|e| io(&lock_path, e))?;
         fs2::FileExt::lock_exclusive(&lock).map_err(|e| io(&lock_path, e))?;
         let db = Connection::open(directory.join("cache.sqlite"))?;
-        crate::register_cache_sqlite_functions(&db)?;
+        crate::json_filter::register(&db)?;
+        let index_cache = crate::json_filter::indexes::register(&db)?;
         db.busy_timeout(Duration::from_secs(5))?;
         let default_cache_size = db.pragma_query_value(None, "cache_size", |r| r.get(0))?;
         if let Some(mib) = cache_mib {
@@ -129,6 +135,7 @@ impl Store {
             root: root.into(),
             identity: cache_identity(&metadata),
             db,
+            index_cache,
             _lock: lock,
             default_cache_size,
         })
@@ -165,7 +172,7 @@ impl Store {
         let mut names = vec![format!("{prefix}_identity")];
         for (i, f) in c.indexes.iter().enumerate() {
             if f.name != "@id" {
-                for suffix in ["asc", "desc", "query"] {
+                for suffix in ["asc", "desc"] {
                     names.push(format!("{prefix}_{i}_{suffix}"));
                 }
             }
@@ -198,12 +205,28 @@ pub(crate) fn drop_indexes(db: &Connection, c: &Collection) -> Result<()> {
     Ok(())
 }
 pub(crate) fn create_indexes(db: &Connection, c: &Collection, metrics: &mut Metrics) -> Result<()> {
-    use crate::json_filter::indexes::{field, key_expr, quote, view_expr};
+    use crate::json_filter::indexes::{quote, view_expr};
     let prefix = index_prefix(c);
     let scope = format!(" WHERE collection={}", quote(&c.name));
-    db.execute_batch(&format!(
-        "CREATE INDEX {prefix}_identity ON records(id){scope}; ANALYZE {prefix}_identity"
-    ))?;
+    // One compact covering index supplies all configured view keys for compound
+    // orders/filters without reparsing full JSON or adding stored table columns.
+    let fields = c
+        .indexes
+        .iter()
+        .filter(|f| f.name != "@id")
+        .map(|f| {
+            format!(
+                ",{},{}",
+                view_expr(c, &f.name, "", true),
+                view_expr(c, &f.name, "", false)
+            )
+        })
+        .collect::<String>();
+    {
+        db.execute_batch(&format!(
+            "CREATE INDEX {prefix}_identity ON records(id{fields}){scope}"
+        ))?;
+    }
     metrics.index_builds += 1;
     for (i, f) in c.indexes.iter().enumerate() {
         if f.name == "@id" {
@@ -212,18 +235,10 @@ pub(crate) fn create_indexes(db: &Connection, c: &Collection, metrics: &mut Metr
         let state = view_expr(c, &f.name, "", true);
         let value = view_expr(c, &f.name, "", false);
         for (suffix, direction) in [("asc", "ASC"), ("desc", "DESC")] {
-            db.execute_batch(&format!("CREATE INDEX {prefix}_{i}_{suffix} ON records({state} ASC,{value} {direction},id ASC){scope}; ANALYZE {prefix}_{i}_{suffix}"))?;
+            db.execute_batch(&format!("CREATE INDEX {prefix}_{i}_{suffix} ON records({state} ASC,{value} {direction},id ASC){scope}"))?;
             metrics.index_builds += 1;
         }
-        let key = key_expr("", &field(&f.name));
-        db.execute_batch(&format!(
-            "CREATE INDEX {prefix}_{i}_query ON records({key},id){scope}; ANALYZE {prefix}_{i}_query"
-        ))?;
-        metrics.index_builds += 1;
     }
-    // Include the competing collection/ID access paths. Without their statistics
-    // SQLite can underestimate a full collection scan and ignore expression indexes.
-    db.execute_batch("ANALYZE sqlite_autoindex_records_1; ANALYZE record_validation;")?;
     // Count source records indexed, not separate materialized field-table rows.
     metrics.index_rows_written += db.query_row(
         "SELECT count(*) FROM records WHERE collection=?1",
@@ -231,6 +246,38 @@ pub(crate) fn create_indexes(db: &Connection, c: &Collection, metrics: &mut Metr
         |r| r.get::<_, i64>(0),
     )? as u64;
     Ok(())
+}
+pub(crate) fn analyze_indexes(db: &Connection, c: &Collection) -> Result<()> {
+    // Run after ingestion: statistics on an empty index would mislead the planner.
+    // Full statistics preserve collection estimates when their sizes differ greatly.
+    let prefix = index_prefix(c);
+    db.execute_batch(&format!("ANALYZE {prefix}_identity"))?;
+    for (i, f) in c.indexes.iter().enumerate() {
+        if f.name != "@id" {
+            for suffix in ["asc", "desc"] {
+                db.execute_batch(&format!("ANALYZE {prefix}_{i}_{suffix}"))?;
+            }
+        }
+    }
+    db.execute_batch("ANALYZE sqlite_autoindex_records_1; ANALYZE record_validation;")?;
+    Ok(())
+}
+pub(crate) fn covering_view_index(c: &Collection) -> String {
+    format!("{}_identity", index_prefix(c))
+}
+pub(crate) fn filter_view_index(c: &Collection, filters: &[crate::Filter]) -> String {
+    if let Some(first) = filters.first()
+        && first.field != "@id"
+        && filters.iter().all(|f| f.field == first.field)
+    {
+        let i = c
+            .indexes
+            .iter()
+            .position(|f| f.name == first.field)
+            .unwrap();
+        return format!("{}_{i}_asc", index_prefix(c));
+    }
+    covering_view_index(c)
 }
 pub(crate) fn put_edges(
     db: &Connection,

@@ -603,10 +603,11 @@ impl Repository {
                 id,
                 &raw,
                 &value,
-                old_state
+                (old_state
                     .as_ref()
                     .is_some_and(|v| v.index == c.index_hash && v.schema == c.schema_hash)
-                    && s.has_indexes(&c)?,
+                    && s.has_indexes(&c)?)
+                .then_some(&s.index_cache),
             )?;
             if old_state.as_ref().is_none_or(|s| s.state == "partial") {
                 tx.execute(
@@ -636,7 +637,7 @@ impl Repository {
         c: &Collection,
         source: &Source,
         files: &BTreeMap<String, Stamp>,
-        indexed: bool,
+        indexed: Option<&crate::json_filter::indexes::IndexCache>,
     ) -> Result<()> {
         let t = Instant::now();
         let pool = rayon::ThreadPoolBuilder::new()
@@ -696,7 +697,7 @@ impl Repository {
         id: &str,
         raw: &Raw,
         value: &Document,
-        indexed: bool,
+        indexed: Option<&crate::json_filter::indexes::IndexCache>,
     ) -> Result<()> {
         let t = Instant::now();
         let exists: Option<String> = db
@@ -704,9 +705,17 @@ impl Repository {
             .query_row(params![c.name, id], |r| r.get(0))
             .optional()?;
         if exists.as_ref() != Some(&raw.hash) {
+            let maintained = if let Some(index_cache) = indexed {
+                index_cache.prime(
+                    &raw.json,
+                    (value.state.status != RecordStatus::IncorrectJson).then_some(&value.data),
+                )?
+            } else {
+                false
+            };
             db.prepare_cached("INSERT INTO records(collection,id,path,size,modified,identity,digest,json,revision) VALUES(?1,?2,?3,?4,?5,?6,?7,?8,1) ON CONFLICT(collection,id) DO UPDATE SET path=excluded.path,size=excluded.size,modified=excluded.modified,identity=excluded.identity,digest=excluded.digest,json=excluded.json,revision=records.revision+1")?.execute(params![c.name,id,self.path(c,id),raw.stamp.size as i64,raw.stamp.modified,raw.stamp.identity,raw.hash,raw.json])?;
             db.prepare_cached("INSERT INTO record_validation(collection,id,parse_status,validation_state,validation_schema_hash,issues) VALUES(?1,?2,?3,?4,?5,?6) ON CONFLICT(collection,id) DO UPDATE SET parse_status=excluded.parse_status,validation_state=excluded.validation_state,validation_schema_hash=excluded.validation_schema_hash,issues=excluded.issues")?.execute(params![c.name,id,if value.state.status == RecordStatus::IncorrectJson {"incorrect_json"} else {"parsed"},value.state.status.text(),c.schema_hash,serde_json::to_string(&value.state.issues).unwrap()])?;
-            if indexed {
+            if maintained {
                 self.metrics.index_rows_written += 1;
             }
             if exists.is_some() {
@@ -841,8 +850,14 @@ impl Repository {
             store::drop_indexes(&tx, c)?;
             self.metrics.index_nanos += nanos(t);
         }
+        let _build = if rebuild {
+            Some(s.index_cache.build(c)?)
+        } else {
+            None
+        };
+        let indexed = use_indexes.then_some(&s.index_cache);
         if manifest.is_empty() && self.options.ingest_workers > 1 && files.len() > 1 {
-            self.ingest_empty(&tx, c, &source, &files, use_indexes && !rebuild)?;
+            self.ingest_empty(&tx, c, &source, &files, indexed)?;
         } else {
             for (id, stamp) in &files {
                 let old = if mapping_changed {
@@ -857,7 +872,7 @@ impl Repository {
                     let changed = old.is_none_or(|v| v.digest != raw.hash);
                     if changed || schema_changed {
                         let value = self.parse(c, id, &raw.json, false);
-                        self.put_record(&tx, c, id, &raw, &value, use_indexes && !rebuild)?;
+                        self.put_record(&tx, c, id, &raw, &value, indexed)?;
                     } else {
                         self.metrics.rows_reused += 1;
                         if old.is_some_and(|v| v.stamp != raw.stamp) {
@@ -881,7 +896,7 @@ impl Repository {
                             hash: old.unwrap().digest.clone(),
                             stamp: stamp.clone(),
                         };
-                        self.put_record(&tx, c, id, &raw, &value, use_indexes && !rebuild)?;
+                        self.put_record(&tx, c, id, &raw, &value, indexed)?;
                     } else {
                         self.metrics.rows_reused += 1;
                     }
@@ -902,6 +917,7 @@ impl Repository {
         if rebuild {
             let t = Instant::now();
             store::create_indexes(&tx, c, &mut self.metrics)?;
+            store::analyze_indexes(&tx, c)?;
             self.metrics.index_nanos += nanos(t);
         }
         let changed = schema_changed
@@ -946,8 +962,9 @@ impl Repository {
             let t = Instant::now();
             let (where_sql, mut values) = plan.sql_where(&c);
             let total = if plan.count {
+                let index = store::filter_view_index(&c, &plan.filters);
                 Some(s.db.query_row(
-                    &format!("SELECT count(*) FROM records v{where_sql}"),
+                    &format!("SELECT count(*) FROM records v INDEXED BY {index}{where_sql}"),
                     params_from_iter(values.iter()),
                     |r| r.get::<_, i64>(0),
                 )? as usize)
@@ -961,15 +978,15 @@ impl Repository {
             // With no predicates and an exact ordering index, visiting only the page
             // is always sufficient. Avoid a full JSON sort caused by collection-size
             // estimates averaged across unrelated collections in the shared table.
-            let access = if plan.filters.is_empty() {
+            let index = if plan.filters.is_empty() {
                 store::ordered_view_index(&c, &plan.sorts)
-                    .map(|name| format!(" INDEXED BY {name}"))
-                    .unwrap_or_default()
             } else {
-                String::new()
-            };
+                None
+            }
+            .unwrap_or_else(|| store::covering_view_index(&c));
+            let access = format!(" INDEXED BY {index}");
             let sql = format!(
-                "WITH page AS MATERIALIZED (SELECT v.id{keys} FROM records v{access}{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,h.validation_state,h.issues FROM page p JOIN records r ON r.id=p.id AND r.collection=? JOIN record_validation h ON h.collection=r.collection AND h.id=r.id ORDER BY {page_order}"
+                "WITH page AS MATERIALIZED (SELECT v.id{keys} FROM records v{access}{where_sql} ORDER BY {order} LIMIT ? OFFSET ?) SELECT r.id,r.path,r.json,h.validation_state,h.issues FROM page p CROSS JOIN records r ON r.id=p.id AND r.collection=? CROSS JOIN record_validation h ON h.collection=r.collection AND h.id=r.id ORDER BY {page_order}"
             );
             values.push((plan.limit as i64).into());
             values.push((plan.offset as i64).into());

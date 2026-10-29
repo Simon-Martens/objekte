@@ -76,7 +76,11 @@ shared SQLite writer stores records and reference occurrences; SQLite maintains
 JSON expression indexes. Schema validation uses a separate pool of `CPU threads / 4`
 workers (minimum one); results return to that same writer. Both counts are configurable with `--ingest-workers`
 and `--background-workers`. Existing cache updates retain their incremental path.
-SQLite uses WAL, `synchronous=FULL`, and a 64 MiB page-cache budget by default.
+Bulk index construction also uses a temporary cache of extracted keys with a
+128 MiB retained-key budget, released when the build finishes. Compound views read
+keys from a covering JSON expression index. Additional scalar query indexes are
+built lazily when first needed. SQLite uses WAL, `synchronous=FULL`,
+and a 64 MiB page-cache budget by default.
 `--sqlite-cache-mib N|default` overrides it; this is not a total process-memory limit.
 
 Records have `pending`, `valid`, `invalid`, or `incorrect_json` status. Content errors

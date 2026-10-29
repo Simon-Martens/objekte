@@ -200,7 +200,8 @@ fn main() -> Result<()> {
         agents.iter().map(|r| (r.id.as_str(), r)).collect();
     emit("build_id_maps", secs(start), json!({"memory":memory()}));
 
-    let queries: [(&str, Box<dyn Fn() -> Value + '_>); 9] = [
+    type Query<'a> = (&'static str, Box<dyn Fn() -> Value + 'a>);
+    let queries: [Query<'_>; 9] = [
         (
             "content_year_count",
             Box::new(|| {

@@ -13,7 +13,9 @@ while individual records are still pending or invalid.
    Invalid UTF-8 is preserved too. Parseable non-object roots are schema-invalid, not
    malformed JSON. The existing nesting limit is a parser limit.
 3. Extract declared references and commit through one writer. SQLite derives keys
-   for any existing JSON expression indexes as the raw records are written.
+   for any existing JSON expression indexes as the raw records are written. Fresh
+   builds retain extracted keys temporarily (128 MiB budget) and bulk-build indexes
+   after ingestion in the same transaction; no extra field columns are written.
    No worker accesses SQLite. Correctly typed fields of an otherwise invalid record
    remain queryable. Wrong types/out-of-range numbers have index state 3, after normal
    values (0), null (1), and missing (2), in either sort direction. State 3 never matches
@@ -141,11 +143,14 @@ the configuration manifest. The current format-5 storage upgrade separately rebu
 There are no per-collection value tables or stored field columns. Each configured
 field has partial expression indexes on `records.json`, restricted to its collection.
 View indexes use deterministic `objekte_view_state` / `objekte_view_value` expressions
-and preserve schema-aware ordering; general query indexes use `objekte_json_key`
+and preserve schema-aware ordering; lazily created general query indexes use `objekte_json_key`
 with the exact `objekte_json_v1` scalar collation. SQLite stores the derived keys in
 its indexes and maintains them with record INSERT/UPDATE/DELETE. Index definitions
 come from the configured filter/default-sort/sortable fields. SQLite statistics are
-collected when indexes are built. The library registers the Rust functions on every
+collected when indexes are built. The ID index also covers the configured view
+keys for compound filters/sorts. Index-definition version 2 rebuilds earlier
+format-5 indexes from cached bytes without rereading unchanged source files.
+The library registers the Rust functions on every
 connection; external integrity checks can use `register_cache_sqlite_functions`.
 
 Format changes rebuild disposable tables on the next cache access. Deployment migrations
