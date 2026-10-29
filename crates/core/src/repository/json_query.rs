@@ -64,7 +64,7 @@ impl Repository {
         result: &mut JsonQueryResult,
     ) -> Result<()> {
         let writer = self.store()?;
-        let s = writer.enter(self.options.sqlite_cache_mib)?;
+        let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
         for c in collections {
             self.sync(c, &s, &[], false)?;
             filter.ensure_query_indexes(&s.db, c, &mut self.metrics)?;

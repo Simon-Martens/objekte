@@ -1,11 +1,19 @@
 use crate::{
     Collection, Error, Metrics, RecordRelation, Result, config::digest, error::io, source::Stamp,
 };
-use rusqlite::{Connection, OptionalExtension, params};
+use rusqlite::{
+    Connection, OptionalExtension, params,
+    trace::{TraceEvent, TraceEventCodes},
+};
 use std::{
-    collections::{BTreeMap, BTreeSet},
+    collections::{BTreeMap, BTreeSet, HashMap},
     fs::{self, File, OpenOptions},
+    io::Write,
     path::Path,
+    sync::{
+        Arc,
+        atomic::{AtomicBool, Ordering},
+    },
     time::{Duration, Instant},
 };
 const FORMAT: &str = "6";
@@ -17,6 +25,8 @@ pub(crate) struct Store {
     directory: std::path::PathBuf,
     root: std::path::PathBuf,
     identity: Option<(u64, u64)>,
+    trace_active: Arc<AtomicBool>,
+    trace_installed: bool,
 }
 #[derive(Debug, Clone)]
 pub(crate) struct State {
@@ -62,7 +72,12 @@ pub(crate) fn ordered_view_index(c: &Collection, sorts: &[crate::Sort]) -> Optio
 }
 
 impl Store {
-    pub fn open(directory: &Path, root: &Path, cache_mib: Option<u32>) -> Result<Self> {
+    pub fn open(
+        directory: &Path,
+        root: &Path,
+        cache_mib: Option<u32>,
+        sql_diagnostics: bool,
+    ) -> Result<Self> {
         fs::create_dir_all(directory).map_err(|e| io(directory, e))?;
         let lock_path = directory.join("lock");
         let lock = OpenOptions::new()
@@ -73,7 +88,11 @@ impl Store {
             .open(&lock_path)
             .map_err(|e| io(&lock_path, e))?;
         fs2::FileExt::lock_exclusive(&lock).map_err(|e| io(&lock_path, e))?;
-        let db = Connection::open(directory.join("cache.sqlite"))?;
+        let mut db = Connection::open(directory.join("cache.sqlite"))?;
+        let trace_active = Arc::new(AtomicBool::new(sql_diagnostics));
+        if sql_diagnostics {
+            install_sql_trace(&mut db, trace_active.clone())?;
+        }
         crate::json_filter::register(&db)?;
         let index_cache = crate::json_filter::indexes::register(&db)?;
         db.busy_timeout(Duration::from_secs(5))?;
@@ -146,7 +165,17 @@ impl Store {
             index_cache,
             _lock: lock,
             default_cache_size,
+            trace_active,
+            trace_installed: sql_diagnostics,
         })
+    }
+    fn set_sql_trace(&mut self, enabled: bool) -> Result<()> {
+        if enabled && !self.trace_installed {
+            install_sql_trace(&mut self.db, self.trace_active.clone())?;
+            self.trace_installed = true;
+        }
+        self.trace_active.store(enabled, Ordering::Relaxed);
+        Ok(())
     }
     pub fn state(&self, name: &str) -> Result<Option<State>> {
         Ok(self.db.query_row("SELECT state,schema_hash,mapping_hash,index_hash,revision,manifest_hash,record_count,view_hash FROM collections WHERE name=?1",[name],|r|Ok(State{state:r.get(0)?,schema:r.get(1)?,mapping:r.get(2)?,index:r.get(3)?,revision:r.get(4)?,manifest:r.get(5)?,records:r.get::<_,i64>(6)? as usize,view:r.get(7)?})).optional()?)
@@ -192,6 +221,43 @@ impl Store {
         }
         Ok(true)
     }
+}
+
+fn install_sql_trace(db: &mut Connection, active: Arc<AtomicBool>) -> Result<()> {
+    let mut started: HashMap<String, Instant> = HashMap::new();
+    db.trace_v2(
+        TraceEventCodes::SQLITE_TRACE_STMT | TraceEventCodes::SQLITE_TRACE_PROFILE,
+        Some(move |event: TraceEvent<'_>| {
+            if !active.load(Ordering::Relaxed) {
+                return;
+            }
+            match event {
+                TraceEvent::Stmt(statement, _) => {
+                    started
+                        .entry(statement.sql().into_owned())
+                        .or_insert_with(Instant::now);
+                }
+                TraceEvent::Profile(statement, sqlite_duration) => {
+                    let sql = statement.sql().into_owned();
+                    let elapsed = started
+                        .remove(&sql)
+                        .map_or(sqlite_duration, |start| start.elapsed());
+                    let mut stderr = std::io::stderr().lock();
+                    let _ = writeln!(
+                        stderr,
+                        "{}",
+                        serde_json::json!({
+                            "type": "sql",
+                            "sql": sql,
+                            "duration_ms": elapsed.as_secs_f64() * 1000.0,
+                        })
+                    );
+                }
+                _ => {}
+            }
+        }),
+    )?;
+    Ok(())
 }
 pub(crate) fn drop_indexes(db: &Connection, c: &Collection) -> Result<()> {
     let prefix = index_prefix(c);
@@ -408,6 +474,7 @@ impl std::ops::Deref for WriterGuard<'_> {
 }
 impl Drop for WriterGuard<'_> {
     fn drop(&mut self) {
+        self.0.trace_active.store(false, Ordering::Relaxed);
         let _ = fs2::FileExt::unlock(&self.0._lock);
     }
 }
@@ -416,6 +483,7 @@ impl Writer {
         directory: &Path,
         root: &Path,
         budget: Option<u32>,
+        sql_diagnostics: bool,
     ) -> Result<std::sync::Arc<Self>> {
         use std::sync::{Arc, Mutex, OnceLock, Weak};
         static WRITERS: OnceLock<Mutex<BTreeMap<std::path::PathBuf, Weak<Writer>>>> =
@@ -428,25 +496,35 @@ impl Writer {
         if let Some(writer) = writers.get(directory).and_then(Weak::upgrade) {
             return Ok(writer);
         }
-        let store = Store::open(directory, root, budget)?;
+        let store = Store::open(directory, root, budget, sql_diagnostics)?;
         fs2::FileExt::unlock(&store._lock).map_err(|e| io(directory, e))?;
         let writer = Arc::new(Self(Mutex::new(store)));
         writers.insert(directory.to_owned(), Arc::downgrade(&writer));
         Ok(writer)
     }
-    pub fn enter(&self, budget: Option<u32>) -> Result<WriterGuard<'_>> {
-        self.enter_inner(budget, true)
+    pub fn enter(&self, budget: Option<u32>, sql_diagnostics: bool) -> Result<WriterGuard<'_>> {
+        self.enter_inner(budget, sql_diagnostics, true)
     }
-    pub fn enter_existing(&self, budget: Option<u32>) -> Result<WriterGuard<'_>> {
-        self.enter_inner(budget, false)
+    pub fn enter_existing(
+        &self,
+        budget: Option<u32>,
+        sql_diagnostics: bool,
+    ) -> Result<WriterGuard<'_>> {
+        self.enter_inner(budget, sql_diagnostics, false)
     }
-    fn enter_inner(&self, budget: Option<u32>, rebuild: bool) -> Result<WriterGuard<'_>> {
+    fn enter_inner(
+        &self,
+        budget: Option<u32>,
+        sql_diagnostics: bool,
+        rebuild: bool,
+    ) -> Result<WriterGuard<'_>> {
         let store = self
             .0
             .lock()
             .map_err(|_| Error::Cache("cache writer poisoned".into()))?;
         fs2::FileExt::lock_exclusive(&store._lock).map_err(|e| io("cache lock", e))?;
         let mut guard = WriterGuard(store);
+        guard.0.set_sql_trace(sql_diagnostics)?;
         let metadata = fs::metadata(guard.directory.join("cache.sqlite"));
         let replaced = metadata.as_ref().is_err()
             || metadata
@@ -483,7 +561,7 @@ impl Writer {
                 ));
             }
             fs2::FileExt::unlock(&guard._lock).map_err(|e| io(&guard.directory, e))?;
-            let replacement = Store::open(&guard.directory, &guard.root, budget)?;
+            let replacement = Store::open(&guard.directory, &guard.root, budget, sql_diagnostics)?;
             *guard.0 = replacement;
         }
         guard.db.pragma_update(
@@ -518,11 +596,11 @@ mod tests {
     fn background_writer_does_not_recreate_a_deleted_cache() {
         let temp = tempfile::tempdir().unwrap();
         let cache = temp.path().join("cache");
-        let writer = super::Writer::open(&cache, temp.path(), Some(64)).unwrap();
+        let writer = super::Writer::open(&cache, temp.path(), Some(64), false).unwrap();
         std::fs::remove_dir_all(&cache).unwrap();
-        assert!(writer.enter_existing(Some(64)).is_err());
+        assert!(writer.enter_existing(Some(64), false).is_err());
         assert!(!cache.exists());
-        assert!(writer.enter(Some(64)).is_ok());
+        assert!(writer.enter(Some(64), false).is_ok());
         assert!(cache.exists());
     }
     use super::*;
@@ -536,7 +614,7 @@ mod tests {
             .query_row("PRAGMA cache_size", [], |r| r.get(0))
             .unwrap();
         for budget in [None, Some(1), Some(16), Some(64), None] {
-            let store = Store::open(&cache, temp.path(), budget).unwrap();
+            let store = Store::open(&cache, temp.path(), budget, false).unwrap();
             assert_eq!(
                 store
                     .db

@@ -5,9 +5,20 @@ library and CLI have been replaced; the NDJSON experiment is retained only in th
 historical benchmark crate, with no compatibility requirement on the new API.
 The broader [MVP](MVP.md) describes later capabilities; this document determines
 the first supported subset and the order of work. Stages A–F are implemented in
-`crates/core` and exercised by `crates/cli`; see the [test guide](crates/core/tests/README.md). Query dependency tracking,
+`crates/core` and exercised by `crates/cli`; see the [test guide](../crates/core/tests/README.md). Persisted query dependency graphs,
 query-specific result caches, cost models, and adaptive index selection are later
 work, not prerequisites for this implementation.
+
+## Completion status
+
+- [x] Stage A: configuration, schema fields, and effective list options.
+- [x] Stage B: declared collection relationship graph.
+- [x] Stage C: lazy source reads, persistent manifests, and collection caches.
+- [x] Stage D: record relationship edges and coverage.
+- [x] Stage E: direct and indexed scalar views with table/JSON/NDJSON output.
+- [x] Stage F: targeted reconciliation and recovery.
+- [x] Additional increments: general JSON filters, configuration manifests, and background validation.
+- [ ] Source writes, saved/grouped views, relation-aware queries, search, query-result caches, and the desktop UI.
 
 The library owns configuration, validation, collection and record relationships,
 file discovery, hashes, cache synchronization, index construction, and view data.
@@ -163,7 +174,7 @@ Each stage leaves a usable library operation and a thin CLI entry point. Complet
 its correctness gate before moving to the next stage. The command names below are
 implemented CLI entry points; use `objekte --help` for their options.
 
-### Stage A — Parse configuration and derive fields
+### Stage A — Parse configuration and derive fields (done)
 
 Implement typed repository/collection/UI options and a normalized schema model.
 Keep file paths and schema locations on diagnostics. Normalize defaults once and
@@ -180,7 +191,7 @@ types, keywords, and invalid options produce precise errors. Tests assert that
 metadata loading performs no source-directory enumeration or record reads.
 Expose the normalized fields and intended indexes through CLI inspection.
 
-### Stage B — Collection relationships
+### Stage B — Collection relationships (done)
 
 Build a directed multigraph from declared `x-relation` nodes. An edge stores source
 collection, field location including array steps, and target collection. Register
@@ -211,7 +222,7 @@ unknown target, a self-reference, A→B→A, multiple edges, and unrelated colle
 CLI output can show the collection graph and its cycle groups without reading data.
 Do not build record relationships or query dependency graphs in this stage.
 
-### Stage C — Source reads, persistent manifest, and lazy collection cache
+### Stage C — Source reads, persistent manifest, and lazy collection cache (done)
 
 Give opening two explicit meanings:
 
@@ -263,8 +274,8 @@ claim an atomic filesystem snapshot or detect every edit invisible to its stamps
 `hash-on-open` remains strict: read/hash every file, including equal-metadata
 entries, and retain the final whole-inventory stability check. `metadata-on-request`
 and `hash-on-request` repeat their respective policies on every operation.
-`refresh` bypasses session reuse but follows the selected policy. Cache format 2
-rebuilds older disposable caches once.
+`refresh` bypasses session reuse but follows the selected policy. Current cache
+format 6 rebuilds older disposable caches once.
 
 Gate: unchanged reopen has one enumeration and zero source reads/DB manifest
 loads; a single changed record causes one hash and targeted updates. Test metadata
@@ -273,7 +284,7 @@ failed transactions, dirty/partial recovery, directory replacement, and symlink
 replacement after inventory. Strict mode must still find equal-size edits with
 restored mtime. Unix metadata mode separately tests ctime detection of that case.
 
-### Stage D — Individual record relationships
+### Stage D — Individual record relationships (done)
 
 Compile relation field paths from Stage B into extraction steps. For each record
 read during discovery/reconciliation, collect its references and store edges:
@@ -304,7 +315,7 @@ Gate: targeted edge updates, duplicate occurrences, unresolved targets later add
 deletion, nested arrays, record cycles, and explicit partial-coverage reporting.
 Expose forward/backward relationships and their coverage through CLI inspection.
 
-### Stage E — Indexed default views and table output
+### Stage E — Indexed default views and table output (done)
 
 Create SQLite expression indexes from `IndexSpec` over raw JSON in collection-local `records_<sha256(name)>` tables;
 there are no additional stored field columns or per-collection value tables.
@@ -367,7 +378,7 @@ including fractions, ties, null, missing, empty strings, and booleans. Verify th
 the intended indexes were created and expose SQLite plans for diagnostics; do not
 require a particular plan for tiny fixtures. CLI prints actual view tables or JSON.
 
-### Stage F — Targeted synchronization and failure recovery
+### Stage F — Targeted synchronization and failure recovery (done)
 
 Use one serialized update coordinator first. Reconciliation classifies path-set
 differences as added/removed/possibly changed; hashes determine content changes.
@@ -411,8 +422,8 @@ of its old files; files still referenced by another collection remain tracked.
 `refresh_configuration()` exposes this operation independently of source scans;
 `cache refresh-config` is its CLI driver. Normal cache access also performs it.
 `load_repository` and inspection remain metadata-only and do not create a cache.
-Existing format-4 caches gain the ownership table without discarding records; an
-old changed input without ownership uses a conservative collection candidate set.
+Cache format 6 rebuilds older disposable databases. The configuration ownership
+table is part of the current cache schema.
 
 Collection work remains lazy. A new observed manifest followed by a crash, a failed
 collection update, or opening only another collection cannot hide pending work:

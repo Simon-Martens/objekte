@@ -173,7 +173,7 @@ mod tests {
             std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/fixtures/minimal");
         let current = RepositoryModel::load(&root).unwrap();
         let directory = tempfile::tempdir().unwrap();
-        let store = Store::open(directory.path(), &current.root, None).unwrap();
+        let store = Store::open(directory.path(), &current.root, None, false).unwrap();
         store.reconcile_configuration(&current).unwrap();
         let path = current.files.keys().next().unwrap();
         let mut obsolete = current.clone();

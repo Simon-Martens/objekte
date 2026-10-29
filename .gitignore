@@ -14,3 +14,8 @@
 /deprecated/crates/server/assets/node_modules/
 /deprecated/crates/server/assets/dist/
 /deprecated/crates/server/assets/src/generated/
+
+.cargo/
+.codex/
+.agents/
+.aws/

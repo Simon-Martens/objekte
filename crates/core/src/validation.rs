@@ -150,7 +150,12 @@ pub(crate) struct Validator {
     shared: Arc<Shared>,
 }
 impl Validator {
-    pub fn new(writer: Arc<Writer>, workers: usize, budget: Option<u32>) -> Result<Self> {
+    pub fn new(
+        writer: Arc<Writer>,
+        workers: usize,
+        budget: Option<u32>,
+        sql_diagnostics: bool,
+    ) -> Result<Self> {
         let pool = rayon::ThreadPoolBuilder::new()
             // Reserve sufficient virtual stack for Sonic's bounded nesting in debug builds.
             .stack_size(16 * 1024 * 1024)
@@ -179,7 +184,7 @@ impl Validator {
                         }
                     };
                     let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                        batch(&writer, &pool, &c, budget)
+                        batch(&writer, &pool, &c, budget, sql_diagnostics)
                     }));
                     let mut q = state.queue.lock().unwrap();
                     q.active = false;
@@ -266,10 +271,11 @@ fn batch(
     pool: &rayon::ThreadPool,
     c: &Collection,
     budget: Option<u32>,
+    sql_diagnostics: bool,
 ) -> Result<(bool, ValidationMetrics)> {
     let t = Instant::now();
     let jobs = {
-        let s = writer.enter_existing(budget)?;
+        let s = writer.enter_existing(budget, sql_diagnostics)?;
         let table = crate::store::record_table(&c.name);
         let mut stmt = s.db.prepare(&format!("WITH pending AS MATERIALIZED (SELECT collection,id FROM record_validation WHERE collection=?1 AND validation_state='pending' AND validation_schema_hash=?2 ORDER BY id LIMIT 1024) SELECT r.id,r.revision,r.digest,r.json FROM pending v CROSS JOIN {table} r ON r.collection=v.collection AND r.id=v.id ORDER BY v.id"))?;
         let mut rows = stmt.query(params![c.name, c.schema_hash])?;
@@ -317,7 +323,7 @@ fn batch(
     });
     metrics.parallel_validation_nanos = t.elapsed().as_nanos() as u64;
     let t = Instant::now();
-    let s = writer.enter_existing(budget)?;
+    let s = writer.enter_existing(budget, sql_diagnostics)?;
     let tx = s.db.unchecked_transaction()?;
     for (job, (outcome, decode, validate)) in jobs.iter().zip(outcomes) {
         // IncorrectJson here indicates corrupted cached bytes, not a source error:

@@ -1,5 +1,13 @@
 # Preliminary implementation verification
 
+## Completion status
+
+- [x] Routine core and CLI tests cover the current restricted profile, relationships, views, JSON filters, reconciliation, indexes, and validation.
+- [x] Opt-in Musenalm acceptance covers all seven collections and full direct/SQLite result comparisons.
+- [ ] The broader MVP's saved/grouped/relation-aware views, search, and source writes need their own future acceptance tests.
+
+## Run
+
 Run from the repository root:
 
 ```sh
@@ -13,7 +21,7 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `configuration.rs` | Strict profile, normalization, paths, exact intended index fields, collection cycles, lazy metadata loading |
 | `config_manifest.rs` | Persisted config diffs across restarts, shared/removed inputs, transactional ownership, applied versus observed schema versions, invalid config and failed update recovery, old-cache compatibility, no-op writes and disabled caching |
 | `relationships.rs` | Nested occurrences, forward/backward edges, partial coverage, cycles, additions/deletions, missing targets, pointer escaping |
-| `synchronization.rs` | Persisted hashes, equal-size/mtime edits, restart, targeted updates, partial inventories, schema/UI changes, transactions, concurrency, deleted/corrupt caches |
+| `synchronization.rs` | Persisted hashes, equal-size/mtime edits, restart, targeted updates, source changes during reconciliation with rollback and recovery, partial inventories, schema/UI changes, transactions, concurrency, deleted/corrupt caches |
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
@@ -22,10 +30,12 @@ cargo fmt -p objekte-core -p objekte-cli --check
 | `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, retained content errors across batches and correction/revalidation |
 | `validation.rs` | Pending/restart recovery, wrong types, malformed JSON/UTF-8, all diagnostics, stale-result guards, schema changes, delete/recreate, background transaction failure, worker defaults/stacks, shared writer concurrency |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |
-| CLI `cli.rs` | Real subprocesses, argument errors, table/JSON/NDJSON, cache options, validation modes/statuses, reference commands, killed builder recovery |
+| CLI `cli.rs` | Real subprocesses, two clients contending for one cache lock, timed SQL diagnostics without SQL text in result JSON, argument errors, table/JSON/NDJSON, cache options, validation modes/statuses, reference commands, killed builder recovery |
 
 Index unit tests exercise seeded keys, duplicate inputs, malformed values, zero-budget
-fallback, and cleanup after successful and failed builds.
+fallback, and cleanup after successful and failed builds. The production ingest
+batch selector has boundary tests for 256 records, exactly 8 MiB, and a lone
+oversized record; `ingestion.rs` checks the resulting rows and edges.
 
 Core unit tests also check byte-compatible buffered fingerprints across buffer
 boundaries, directory/symlink replacement, and Linux directory-relative metadata
@@ -55,6 +65,7 @@ then reopens the database. Neither depends on a production fault-injection optio
 
 ```sh
 cargo test -p objekte-core --release --test musenalm -- --ignored --nocapture
+cargo test -p objekte-core --release --test musenalm_json_filter -- --ignored --nocapture
 ```
 
 This intentionally longer test is excluded from routine runs. It validates all
@@ -65,6 +76,9 @@ pages with zero source reads, and reopens every collection with hashes but no
 reparsing of unchanged records in explicit strict mode. Default metadata reopen
 checks every collection with zero source reads, and a compound numeric sort is
 compared against direct execution. It uses a fresh temporary application directory.
+The JSON filter acceptance test compares complete direct and SQLite results across
+the global filters and the scoped `contents` filter, then checks every scoped SQL
+page against the source result, including an empty page after the end.
 
 To retain the timing/counter report:
 

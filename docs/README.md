@@ -15,6 +15,14 @@ options and displays results.
 [UI.md](UI.md) tracks deferred UI work, including optimistic cached results,
 watching, background jobs, and hover/idle prefetch.
 
+## Implementation status
+
+- [x] Load the restricted schema/UI profile and all seven Musenalm collections.
+- [x] Read records, inspect collection and record relationships, and validate source data.
+- [x] Serve scalar default views and schema-independent JSON filters through direct reads or SQLite.
+- [x] Reconcile source and configuration changes, maintain expression indexes, and expose cache diagnostics.
+- [ ] Add source-file writes, saved/grouped and relation-aware views, raw grep, cleaned search, and a desktop UI. See [MVP.md](MVP.md) and [UI.md](UI.md).
+
 ## Run
 
 Put the repository first, then the command and its arguments:
@@ -69,6 +77,7 @@ and bound `--param NAME=JSON` values. SQLite executes generated parameterized SQ
 comparisons use SQLite expression indexes directly on cached JSON;
 other predicates scan their JSON values. There are no extra stored field columns. See
 [filters.md](filters.md) for syntax, dependencies, limits, and measured performance.
+For runnable commands using the bundled Musenalm data, see [queries.md](queries.md).
 
 Fresh collection caches use `CPU threads / 2` ingestion workers by default (minimum
 one). Workers read stable files, hash and parse Sonic JSON in bounded batches. One
@@ -161,8 +170,11 @@ and view settings have separate fingerprints.
 
 Cache format 6 rebuilds older disposable databases once, replacing the shared raw-record table with collection-local raw-record tables. No extracted field columns are stored. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
-opens. `--diagnostics` logs the policy, view fingerprints, integer counters, and
-floating-point millisecond timings (`*_ms`) to stderr. All CLI JSON metrics also
+opens. `--diagnostics` streams each executed SQLite statement and its elapsed
+milliseconds as a JSON line on stderr, and logs the policy, view fingerprints,
+integer counters, and floating-point millisecond timings (`*_ms`) in a diagnostics
+line. The flag waits for scheduled background validation before exiting. Query
+JSON omits the generated SQL text. All CLI JSON metrics also
 use `*_ms`, including views, refreshes, and validation commands; counters remain
 integers and source-record values remain unchanged. Library timers retain integer
 nanoseconds (`*_nanos`) internally. `cache status`
@@ -170,8 +182,9 @@ exposes persisted manifest/view fingerprints.
 
 The implementation is read-only toward source files. Record writes, rendered
 markup, richer queries, query-specific result caches, and a desktop UI are later
-stages. SQLite holds source JSON text and separate typed index values; it is safe
-to discard. A cache error is reported; direct mode remains available independently.
+stages. SQLite stores exact source JSON bytes and maintains typed expression indexes
+over them; it is safe to discard. A cache error is reported; direct mode remains
+available independently.
 
 JSON input is parsed with sonic-rs. Source records and schemas retain the public
 `serde_json::Value` representation for validation and API compatibility, preserving

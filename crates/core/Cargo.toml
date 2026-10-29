@@ -11,7 +11,7 @@ sonic-rs = { version = "0.5.10", features = ["arbitrary_precision"] }
 thiserror = "2"
 jsonschema = { version = "0.59", default-features = false, features = ["arbitrary-precision"] }
 sha2 = "0.10"
-rusqlite = { version = "0.41", features = ["bundled", "functions", "collation"] }
+rusqlite = { version = "0.41", features = ["bundled", "functions", "collation", "trace"] }
 num-bigint = "0.4"
 fs2 = "0.4"
 num-cmp = "0.1"

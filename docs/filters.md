@@ -4,6 +4,16 @@ Implemented by `objekte-core`, independently of collection schema fields and UI
 filter controls. Configured fields have SQLite expression indexes on raw JSON.
 The same expression works on different collection shapes and standalone JSON values.
 
+## Completion status
+
+- [x] Compile typed predicates, parameters, field paths, array operators, and modifiers.
+- [x] Match direct source evaluation against parameterized SQLite execution.
+- [x] Scope queries to one or all registered collections, with deterministic paging and optional counts.
+- [x] Build configured scalar JSON expression indexes lazily and report query dependencies.
+- [ ] Add metadata operands, relation traversal, grouping, and query-result caching.
+
+## Examples
+
 ```sh
 # All currently registered collections
 cargo run -p objekte-cli -- examples/musenalm query 'year >= 1800 && year < 1805' --count
@@ -27,9 +37,13 @@ scoped form; supply the collection once, either positionally or through the flag
 Use `--limit N`, `--offset N`, and optional `--count`. Ordering is deterministic by
 `(collection, filename ID)`; default limit is 50. Results include each complete
 record, its collection, ID, path, content digest and validation status. JSON output
-also includes generated SQL, bindings, SQLite's query plan, filter hash, dependency
-metadata, and millisecond metrics. `--output ndjson` emits one matching record per
-line. `--diagnostics` logs foreground/background metrics to stderr.
+also includes bindings, SQLite's query plan, filter hash, dependency metadata, and
+millisecond metrics. `--output ndjson` emits one matching record per line.
+`--diagnostics` streams one JSON line per executed SQLite statement to stderr,
+with its SQL text and `duration_ms`, and emits a `type: "diagnostics"` metrics
+line. The library's `JsonQueryResult` still exposes generated SQL for programmatic
+inspection. The flag waits for scheduled background validation before exiting, so
+its SQL is included.
 
 ## Syntax and semantics
 

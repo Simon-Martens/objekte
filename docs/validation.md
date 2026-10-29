@@ -4,6 +4,16 @@ Source files remain authoritative. All caches are disposable library state under
 application data directory supplied by the caller. Source reconciliation can be current
 while individual records are still pending or invalid.
 
+## Completion status
+
+- [x] Ingest stable source snapshots in bounded batches while retaining malformed and schema-invalid records.
+- [x] Validate cached records in the background with durable pending state and stale-result guards.
+- [x] Report record status, diagnostics, metrics, and collection notifications through the library and CLI.
+- [x] Keep validation state separate from source freshness and recover pending work after restart.
+- [ ] Remove redundant per-record digest lookups during ingestion; deployment migrations remain deferred.
+
+## Implemented flow
+
 1. Enumerate/compare manifests as before; read and hash changed candidates with the
    existing before/after stability checks. Fresh-cache preparation uses CPU threads / 2
    workers, minimum one. Batches are bounded to 256 records / 8 MiB source bytes,

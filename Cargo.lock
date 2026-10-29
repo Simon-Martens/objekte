@@ -3380,6 +3380,7 @@ dependencies = [
 name = "objekte-cli"
 version = "0.1.0"
 dependencies = [
+ "fs2",
  "objekte-core",
  "rusqlite",
  "serde_json",

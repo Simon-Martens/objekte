@@ -21,7 +21,7 @@ fn global_filters_match_source_execution_on_musenalm() {
         let request = JsonQuery {
             filter: expression.into(),
             collections: collection.map(|c| vec![c.into()]),
-            limit: if collection.is_some() { 50 } else { 200000 },
+            limit: 200000,
             count: true,
             ..Default::default()
         };
@@ -65,6 +65,46 @@ fn global_filters_match_source_execution_on_musenalm() {
             .any(|p| p.contains("SEARCH r USING INDEX j_") && p.contains("_query"));
         if collection.is_some() {
             assert!(json_index_used, "{:?}", warm.query_plan);
+            let page_size = 2048;
+            let mut offset = 0;
+            while offset < source.records.len() {
+                let page = sql
+                    .query_json(&JsonQuery {
+                        limit: page_size,
+                        offset,
+                        count: false,
+                        ..request.clone()
+                    })
+                    .unwrap();
+                let expected =
+                    &source.records[offset..(offset + page_size).min(source.records.len())];
+                assert_eq!(page.records.len(), expected.len(), "page at {offset}");
+                for (actual, expected) in page.records.iter().zip(expected) {
+                    assert_eq!(
+                        (&actual.collection, &actual.id, &actual.path, &actual.data),
+                        (
+                            &expected.collection,
+                            &expected.id,
+                            &expected.path,
+                            &expected.data
+                        ),
+                        "page at {offset}"
+                    );
+                }
+                offset += page.records.len();
+            }
+            assert_eq!(offset, source.total.unwrap());
+            assert!(
+                sql.query_json(&JsonQuery {
+                    limit: page_size,
+                    offset,
+                    count: false,
+                    ..request.clone()
+                })
+                .unwrap()
+                .records
+                .is_empty()
+            );
         }
         assert_eq!(warm.metrics.source_reads, 0);
         assert_eq!(warm.metrics.enumerations, 0);

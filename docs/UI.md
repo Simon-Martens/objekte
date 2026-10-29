@@ -5,6 +5,11 @@ CLI implementation. Current work focuses on fast repository opening, source
 comparison, cache updates, queries, and phase timings in individual commands.
 The features below are planned; this document does not make them implemented.
 
+## Completion status
+
+- [x] Library prerequisites: configuration/source reconciliation, cache status, record validation states, and coalesced validation notifications.
+- [ ] Persistent desktop UI and features 1–8 below.
+
 Repository semantics, dependency tracking, reconciliation, and caches remain
 library responsibilities. The UI supplies user intent and presents results. Its
 need for an event loop must not require the CLI to keep a session running.

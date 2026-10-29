@@ -2,9 +2,21 @@
 
 Objekte is a schema-driven editor for structured, file-based repositories. This rebuild uses a Rust library and a command line interface first. A native Rust desktop UI calls the same library after the repository, query, and search behavior is correct and measured.
 
-[implementation.md](implementation.md) defines the first supported subset and takes precedence for implementation order. Start with minimal schema/UI parsing, collection relationships, lazy source/cache reads, record relationships, and indexed default tables. Query dependency tracking, query-specific caches, heuristic optimization, and the broader query/search capabilities below are later stages. The preliminary library and CLI now implement this subset; the former NDJSON cache is retained only in the historical benchmark crate.
+[implementation.md](implementation.md) defines the first supported subset and takes precedence for implementation order. Start with minimal schema/UI parsing, collection relationships, lazy source/cache reads, record relationships, and indexed default tables. Persisted query dependency graphs, query-specific caches, heuristic optimization, and the broader query/search capabilities below are later stages. The preliminary library and CLI now implement this subset; the former NDJSON cache is retained only in the historical benchmark crate.
 
-The files in a repository are authoritative. **All reads can fall back to those files, and all edits are made to those files.** The default Rust query path reads needed collections directly and reuses derived data in a bounded in-process cache. A disposable SQLite cache may accelerate hot views; it never becomes a second source of truth. The previous implementation and its MVP remain under `deprecated/` as references.
+## Completion status
+
+- [x] Restricted schema/UI loading, collection and record relationships, direct record reads, and validation.
+- [x] Lazy SQLite collection caches, source/configuration reconciliation, expression indexes, and direct/SQLite scalar views.
+- [x] Schema-independent JSON filtering over nested paths and arrays, with scoped or all-collection queries and dependency metadata.
+- [ ] Saved/grouped views, relation traversal in queries, raw grep, and cleaned-content search.
+- [ ] Source-file create/update/rename/delete operations, query-result caching, and the desktop UI.
+
+The checked items describe the current library and CLI. The broader contract below
+also describes future features; a capability is complete only where the checked
+scope or [implementation.md](implementation.md) says it is implemented.
+
+The files in a repository are authoritative. **Current reads can use those files directly; source-file editing is still planned.** The direct Rust path reads needed collections. Bounded in-process query-result reuse is a later stage. A disposable SQLite cache accelerates supported views; it never becomes a second source of truth. The previous implementation and its MVP remain under `deprecated/` as references.
 
 ## Product boundaries
 
@@ -48,7 +60,8 @@ This is an architecture choice, not a claim that every arbitrary view already me
 
 ## Three access modes
 
-All three modes are MVP requirements. They have different semantics and explicit CLI/library entry points.
+All three modes are MVP requirements. Structural views and JSON filters have
+CLI/library entry points now; raw grep and cleaned-content search are pending.
 
 ### 1. Structural views and filters
 
@@ -156,7 +169,11 @@ later watcher/background behavior.
 
 Apply a small set of stable source changes in a transaction: upsert changed and new records, remove deleted records, update relation edges and source metadata, and invalidate dependent in-process results. A rename is a removal plus an addition, with the usual identity and reference checks. For a large batch, changed schema or storage mapping, or an incompatible cache layout, rebuild only affected collections into new generations and publish them atomically after the stability checks required by the selected reconciliation policy. A change limited to UI columns or default sort recompiles views and may change indexes; it does not by itself require rewriting every raw JSON row. If source freshness is uncertain while reconciliation or rebuilding is pending, do not serve the old SQLite generation as current: wait or use the direct executor. Deletions and malformed JSON must be reported from source, not hidden by an old cache.
 
-The cache is safe to delete at any time. The MVP includes library cache status/rebuild operations and verifies that direct and accelerated paths return the same ordered results before treating a view as eligible for acceleration. A separate on-disk KV cache of arbitrary result pages is unnecessary initially: it would share the same invalidation problem while lacking SQLite's secondary indexes.
+The cache is safe to delete at any time. The current library exposes cache status,
+refresh, and fresh-namespace options; direct and accelerated paths are checked for
+the supported views. A separate on-disk KV cache of arbitrary result pages is
+unnecessary initially: it would share the same invalidation problem while lacking
+SQLite's secondary indexes.
 
 ## Repository correctness
 

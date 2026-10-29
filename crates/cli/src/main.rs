@@ -5,6 +5,7 @@ use objekte_core::{
 use serde_json::{Value, json};
 use std::{
     collections::{BTreeMap, BTreeSet},
+    io::Write,
     path::PathBuf,
     time::{SystemTime, UNIX_EPOCH},
 };
@@ -40,7 +41,7 @@ Options:
   --output table|json|ndjson       Views default to table, other commands to json; timings in ms
   --background-workers N          Validation workers (default: CPU threads / 4, minimum 1)
   --validation background|manual|wait  Validation policy (default: background)
-  --diagnostics                   Emit counters and floating-point millisecond timings to stderr
+  --diagnostics                   Emit timed SQL and counters to stderr; await background validation
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --help, --version
@@ -386,6 +387,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         _ => return Err("--validation requires background, manual, or wait".into()),
     };
     options.namespace = get("--namespace", "default");
+    options.sql_diagnostics = a.flags.contains("--diagnostics");
     if a.flags.contains("--fresh-cache") {
         if a.values.contains_key("--namespace") {
             return Err("choose --fresh-cache or --namespace".into());
@@ -441,6 +443,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
             } else {
                 result.metrics = repo.metrics().clone();
                 let mut value = serde_json::to_value(result)?;
+                value.as_object_mut().unwrap().remove("sql");
                 value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
                 Some(value)
             }
@@ -583,7 +586,7 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         _ => unreachable!(),
     };
-    if validation == "wait" {
+    if validation == "wait" || (a.flags.contains("--diagnostics") && validation == "background") {
         let t = std::time::Instant::now();
         repo.wait_for_validation()?;
         validation_wait_nanos += t.elapsed().as_nanos();
@@ -592,10 +595,11 @@ fn run() -> Result<(), Box<dyn std::error::Error>> {
         println!("{}", serde_json::to_string_pretty(&value)?)
     }
     if a.flags.contains("--diagnostics") {
-        eprintln!(
+        writeln!(
+            std::io::stderr().lock(),
             "{}",
-            json!({"metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":validation_wait_nanos as f64 / 1_000_000.0,"view_hashes":view_hashes})
-        )
+            json!({"type":"diagnostics","metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"sqlite_cache_mib":sqlite_cache_mib,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation":validation,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":validation_wait_nanos as f64 / 1_000_000.0,"view_hashes":view_hashes})
+        )?
     }
     Ok(())
 }

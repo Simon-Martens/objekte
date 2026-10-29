@@ -1,5 +1,15 @@
 # Performance findings
 
+## Implementation status since these experiments
+
+- [x] The Rust library and CLI now provide collection-neutral scalar views, lazy source/SQLite execution, reconciliation, and validation. See [implementation.md](implementation.md).
+- [x] General JSON filters cover nested paths and arrays, with complete direct/SQLite acceptance comparisons. See [filters.md](filters.md) and [the filter acceptance results](../crates/bench/JSON-FILTERS-2026-10-28.md).
+- [x] Cold build, warm query, and reopen costs for current expression indexes have been measured with a shared library workload. See [the cold-index comparison](../crates/bench/INDEX-COLD-BUILD-FIX-2026-10-29.md).
+- [ ] The full saved/grouped/relation-aware view contract, raw grep, cleaned search, source writes, and the declarative cross-repository benchmark remain open.
+
+The numbered engine experiments below are historical measurements. Their
+"next" recommendations record decisions at the time, not the current work queue.
+
 The [Sonic-rs integration](crates/bench/SONIC-RS-2026-10-28.md) reduces the cached
 Musenalm `entries` query/row stage from **11.9 ms to 5.3 ms** by decoding selected
 page fields. `contents` remains about 1.4 ms; filesystem metadata dominates its
@@ -284,16 +294,16 @@ Rust wins several operations; Node wins others. These are implementation measure
 4. **Add indexes only for measured bottlenecks, without restricting query semantics.** SQLite's year, title, and status indexes paid off sharply, but an index for every possible JSON field adds storage and update cost. An unindexed query must still return the same result by scanning source records.
 5. **Keep source freshness and correctness separate from query speed.** Direct queries reread source files and see external changes on the next execution. A long-running process with in-memory reuse still needs invalidation; a persistent accelerator needs reconciliation. Neither in-memory arrays nor SQL JSONB replace JSON Schema validation, atomic source writes, conflict checks, or reference integrity.
 
-## Not yet measured
+## Remaining measurement gaps
 
-- A collection-neutral direct-file implementation of the MVP's filter and view specification: cold first view, repeated view, complete output serialization, relation traversal, grouping, and edits made externally.
-- Optional in-process reuse or persistent accelerators measured against that direct path, including their invalidation and refresh cost. The fixed-field Rust and Node projection benchmarks still opened every source file.
-- Cold disk startup with the OS page cache cleared; Node process startup and full UI rendering.
-- A full **seven-collection** comparison of qj, jaq, and SQL engines, plus a source-freshness check beyond walking and `stat`ing the files. The shared runner above compared the 133,948-file `contents` collection; the full Node benchmark covered the seven Musenalm `data` directories, not unrelated JSON configuration files.
-- Raw ripgrep over source files and cleaned-text search, including normalizer and search-index build costs.
-- Complete library writes to authoritative files, atomic writes, conflict detection, validation, and reference checks.
-- qj's specialized tape path, an indexed SQLite representation for nested links, and a production DuckDB cache with schema evolution.
-- A reusable benchmark runner that accepts declarative workload files and executes the same generic library API on Musenalm, Lenz, and generated repositories rather than hand-written dataset-specific loops.
+- [x] Collection-neutral scalar default views, JSON filters, cold first views, warm/reopened requests, complete direct/SQLite output comparisons, and external source reconciliation have current library measurements and acceptance tests. See [the test guide](../crates/core/tests/README.md), [filter acceptance](../crates/bench/JSON-FILTERS-2026-10-28.md), and [cold-index comparison](../crates/bench/INDEX-COLD-BUILD-FIX-2026-10-29.md).
+- [ ] Measure the remaining saved/grouped/relation-aware view contract and optional in-process result reuse. The fixed-field Rust and Node projection benchmarks still opened every source file.
+- [ ] Cold disk startup with the OS page cache cleared; Node process startup and full UI rendering.
+- [ ] A full **seven-collection** comparison of qj, jaq, and SQL engines, plus a source-freshness check beyond walking and `stat`ing the files. The shared runner above compared the 133,948-file `contents` collection; the full Node benchmark covered the seven Musenalm `data` directories, not unrelated JSON configuration files.
+- [ ] Raw ripgrep over source files and cleaned-text search, including normalizer and search-index build costs.
+- [ ] Complete library writes to authoritative files, atomic writes, conflict detection, validation, and reference checks.
+- [ ] qj's specialized tape path, an indexed SQLite representation for nested links, and a production DuckDB cache with schema evolution.
+- [ ] A reusable benchmark runner that accepts declarative workload files and executes the same generic library API on Musenalm, Lenz, and generated repositories rather than hand-written dataset-specific loops.
 
 ## Reproducing the main runs
 

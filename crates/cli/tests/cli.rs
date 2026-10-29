@@ -3,6 +3,7 @@ mod support;
 use serde_json::{Value, json};
 use std::{
     fs,
+    fs::OpenOptions,
     process::{Command, Output, Stdio},
     time::{Duration, Instant},
 };
@@ -19,6 +20,22 @@ fn value(out: Output) -> Value {
         String::from_utf8_lossy(&out.stderr)
     );
     serde_json::from_slice(&out.stdout).unwrap()
+}
+fn diagnostics(out: &Output) -> Value {
+    let entries = String::from_utf8_lossy(&out.stderr)
+        .lines()
+        .map(|line| serde_json::from_str::<Value>(line).unwrap())
+        .filter(|entry| entry["type"] == "diagnostics")
+        .collect::<Vec<_>>();
+    assert_eq!(entries.len(), 1);
+    entries.into_iter().next().unwrap()
+}
+fn sql_events(out: &Output) -> Vec<Value> {
+    String::from_utf8_lossy(&out.stderr)
+        .lines()
+        .map(|line| serde_json::from_str::<Value>(line).unwrap())
+        .filter(|entry| entry["type"] == "sql")
+        .collect()
 }
 #[test]
 fn help_version_and_invalid_arguments() {
@@ -92,7 +109,7 @@ fn configuration_manifest_is_shared_across_cli_processes() {
         "{}",
         String::from_utf8_lossy(&first.stderr)
     );
-    let diagnostics: Value = serde_json::from_slice(&first.stderr).unwrap();
+    let diagnostics = diagnostics(&first);
     assert_eq!(diagnostics["metrics"]["source_reads"], 0);
     assert_eq!(diagnostics["metrics"]["enumerations"], 0);
     assert!(diagnostics["metrics"]["configuration_ms"].is_f64());
@@ -143,7 +160,7 @@ fn sqlite_page_cache_budget_is_configurable_and_reported() {
             ],
         );
         assert!(output.status.success());
-        let diagnostics: Value = serde_json::from_slice(&output.stderr).unwrap();
+        let diagnostics = diagnostics(&output);
         assert_eq!(diagnostics["sqlite_cache_mib"], expected);
         assert_eq!(diagnostics["ingest_workers"], 2);
         assert_eq!(value(output)["rows"].as_array().unwrap().len(), 3);
@@ -206,7 +223,7 @@ fn metadata_default_strict_mode_and_subsort_hashes_are_exposed() {
             "--diagnostics",
         ],
     );
-    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let diagnostics = diagnostics(&out);
     let ordered = value(out);
     assert_eq!(ordered["rows"][0]["id"], "c");
     assert_eq!(ordered["view_hashes"], diagnostics["view_hashes"]);
@@ -309,7 +326,7 @@ fn reopen_refresh_and_fresh_namespace_are_observable() {
             "--diagnostics",
         ],
     );
-    let diagnostic: Value = serde_json::from_slice(&o.stderr).unwrap();
+    let diagnostic = diagnostics(&o);
     assert!(
         diagnostic["cache_directory"]
             .as_str()
@@ -317,6 +334,81 @@ fn reopen_refresh_and_fresh_namespace_are_observable() {
             .contains("run-")
     );
     assert_eq!(value(o)["metrics"]["rows_inserted"], 7);
+}
+
+#[test]
+fn separate_cli_processes_serialize_updates_to_one_cache() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    value(run(
+        &f,
+        &[
+            p,
+            "view",
+            "books",
+            "--output",
+            "json",
+            "--validation",
+            "manual",
+        ],
+    ));
+    f.edit("data/books/a.json", |v| v["score"] = json!(-99));
+    let status = value(run(&f, &[p, "cache", "status", "--validation", "manual"]));
+    let lock_path = std::path::Path::new(status["directory"].as_str().unwrap()).join("lock");
+    let lock = OpenOptions::new()
+        .read(true)
+        .write(true)
+        .open(lock_path)
+        .unwrap();
+    fs2::FileExt::lock_exclusive(&lock).unwrap();
+    let spawn = || {
+        Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args([
+                p,
+                "view",
+                "books",
+                "--count",
+                "--output",
+                "json",
+                "--validation",
+                "manual",
+                "--data-dir",
+            ])
+            .arg(&f.data)
+            .stdout(Stdio::piped())
+            .stderr(Stdio::piped())
+            .spawn()
+            .unwrap()
+    };
+    let mut first = spawn();
+    let mut second = spawn();
+    std::thread::sleep(Duration::from_millis(100));
+    assert!(first.try_wait().unwrap().is_none());
+    assert!(second.try_wait().unwrap().is_none());
+    fs2::FileExt::unlock(&lock).unwrap();
+    let finish = |mut child: std::process::Child| {
+        let deadline = Instant::now() + Duration::from_secs(15);
+        while child.try_wait().unwrap().is_none() {
+            if Instant::now() >= deadline {
+                child.kill().unwrap();
+                panic!("CLI process remained blocked after cache lock was released");
+            }
+            std::thread::sleep(Duration::from_millis(5));
+        }
+        let output = child.wait_with_output().unwrap();
+        let result = value(output);
+        assert_eq!(result["total"], 7);
+        assert_eq!(result["rows"][0]["id"], "a");
+        result
+    };
+    let first = finish(first);
+    let second = finish(second);
+    assert_eq!(first["rows"], second["rows"]);
+    assert_eq!(
+        first["metrics"]["rows_updated"].as_u64().unwrap()
+            + second["metrics"]["rows_updated"].as_u64().unwrap(),
+        1
+    );
 }
 #[test]
 fn disabled_cache_writes_no_app_data_and_matches_sqlite() {
@@ -475,7 +567,7 @@ fn validation_modes_resume_pending_and_expose_bad_records() {
             "--diagnostics",
         ],
     );
-    let diagnostic: Value = serde_json::from_slice(&output.stderr).unwrap();
+    let diagnostic = diagnostics(&output);
     assert_eq!(diagnostic["background_workers"], 2);
     assert!(
         diagnostic["validation_metrics"]["applied"]
@@ -483,6 +575,19 @@ fn validation_modes_resume_pending_and_expose_bad_records() {
             .unwrap()
             >= 6
     );
+    let traced = sql_events(&output);
+    assert!(traced.iter().any(|event| {
+        event["sql"]
+            .as_str()
+            .unwrap()
+            .contains("WITH pending AS MATERIALIZED")
+    }));
+    assert!(traced.iter().any(|event| {
+        event["sql"]
+            .as_str()
+            .unwrap()
+            .contains("UPDATE record_validation")
+    }));
     let page = value(output);
     assert_eq!(page["states"]["a"]["status"], "invalid");
     assert_eq!(page["states"]["b"]["status"], "incorrect_json");
@@ -587,7 +692,7 @@ fn every_cli_metrics_output_uses_milliseconds_without_changing_record_fields() {
         "{}",
         String::from_utf8_lossy(&out.stderr)
     );
-    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let diagnostics = diagnostics(&out);
     let view = value(out);
     assert_eq!(view["metrics"], diagnostics["metrics"]);
     assert_millisecond_metrics(&view["metrics"]);
@@ -622,7 +727,7 @@ fn validate_without_cache_keeps_application_directory_absent() {
         "{}",
         String::from_utf8_lossy(&out.stderr)
     );
-    let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let diagnostics = diagnostics(&out);
     assert!(diagnostics["metrics"]["validations"].as_u64().unwrap() > 7);
     assert_millisecond_metrics(&diagnostics["metrics"]);
     assert_millisecond_metrics(&value(out));
@@ -659,7 +764,7 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
         "{}",
         String::from_utf8_lossy(&out.stderr)
     );
-    let diagnostic: Value = serde_json::from_slice(&out.stderr).unwrap();
+    let diagnostic = diagnostics(&out);
     let result = value(out);
     assert_millisecond_metrics(&result["metrics"]);
     assert_eq!(result["metrics"], diagnostic["metrics"]);
@@ -754,4 +859,74 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
     );
     let record = value(out);
     assert_eq!(record["id"], "a");
+}
+
+#[test]
+fn diagnostics_streams_every_executed_sql_statement_and_keeps_query_json_small() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let out = run(
+        &f,
+        &[
+            p,
+            "query",
+            "books",
+            "score >= 2",
+            "--count",
+            "--diagnostics",
+            "--validation",
+            "manual",
+        ],
+    );
+    assert!(
+        out.status.success(),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
+    let events = sql_events(&out);
+    assert!(
+        events.len() > 10,
+        "expected cache setup, writes, and query SQL"
+    );
+    for event in &events {
+        assert!(event["sql"].as_str().is_some_and(|sql| !sql.is_empty()));
+        assert!(event["duration_ms"].as_f64().is_some_and(|ms| ms >= 0.0));
+    }
+    assert!(
+        events
+            .iter()
+            .any(|event| event["sql"].as_str().unwrap().contains("PRAGMA"))
+    );
+    assert!(
+        events
+            .iter()
+            .any(|event| event["sql"].as_str().unwrap().contains("INSERT INTO"))
+    );
+    assert!(events.iter().any(|event| {
+        event["sql"]
+            .as_str()
+            .unwrap()
+            .contains("WITH hits AS MATERIALIZED")
+    }));
+    assert_eq!(diagnostics(&out)["type"], "diagnostics");
+    let result = value(out);
+    assert!(result.get("sql").is_none());
+    assert_eq!(result["total"], 3);
+
+    let direct = run(
+        &f,
+        &[
+            p,
+            "query",
+            "books",
+            "score >= 2",
+            "--cache",
+            "disabled",
+            "--diagnostics",
+            "--validation",
+            "manual",
+        ],
+    );
+    assert!(sql_events(&direct).is_empty());
+    assert!(value(direct).get("sql").is_none());
 }

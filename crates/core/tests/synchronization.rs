@@ -6,6 +6,7 @@ use std::{
     fs,
     fs::FileTimes,
     sync::{Arc, Barrier},
+    time::{Duration, Instant},
 };
 use support::*;
 fn database(r: &Repository) -> Connection {
@@ -382,6 +383,87 @@ fn simultaneous_handles_serialize_reconciliation() {
     assert_eq!(views[0].rows, views[1].rows);
     assert_eq!(views[0].rows[0].id, "a");
     assert_eq!(views.iter().map(|v| v.metrics.rows_updated).sum::<u64>(), 1);
+}
+
+#[test]
+fn source_membership_change_during_reconciliation_rolls_back_and_recovers() {
+    let f = Fixture::new();
+    let mut repo = f.repo(CacheMode::Sqlite);
+    repo.open_view("books", &all()).unwrap();
+    let db = database(&repo);
+    for i in 0..5000 {
+        f.write(
+            &format!("data/books/generated{i:04}.json"),
+            &json!({"title": format!("Generated {i}"), "score": i, "payload": null}),
+        );
+    }
+    let worker = std::thread::spawn(move || repo.refresh("books"));
+    let deadline = Instant::now() + Duration::from_secs(15);
+    loop {
+        if db
+            .query_row(
+                "SELECT state FROM collections WHERE name='books'",
+                [],
+                |row| row.get::<_, String>(0),
+            )
+            .unwrap()
+            == "dirty"
+        {
+            break;
+        }
+        assert!(
+            Instant::now() < deadline,
+            "reconciliation did not become dirty"
+        );
+        std::thread::sleep(Duration::from_millis(2));
+    }
+    f.write(
+        "data/books/added-during-refresh.json",
+        &json!({"title":"Late", "score":-100, "payload":null}),
+    );
+    let error = worker.join().unwrap().unwrap_err();
+    assert!(
+        error
+            .to_string()
+            .contains("source changed during reconciliation"),
+        "{error}"
+    );
+    assert_eq!(
+        db.query_row(
+            "SELECT state FROM collections WHERE name='books'",
+            [],
+            |row| { row.get::<_, String>(0) }
+        )
+        .unwrap(),
+        "dirty"
+    );
+    assert_eq!(
+        db.query_row(
+            &record_sql("books", "SELECT count(*) FROM records"),
+            [],
+            |row| { row.get::<_, i64>(0) }
+        )
+        .unwrap(),
+        7,
+        "the failed transaction must not expose any of the new rows"
+    );
+    drop(db);
+    let mut reopened = f.repo(CacheMode::Sqlite);
+    let recovered = reopened.open_view("books", &all()).unwrap();
+    assert_eq!(recovered.total, Some(5008));
+    assert_eq!(recovered.metrics.rows_inserted, 5001);
+    assert_eq!(recovered.rows[0].id, "added-during-refresh");
+    assert_eq!(
+        reopened
+            .cache_status()
+            .unwrap()
+            .collections
+            .iter()
+            .find(|c| c.collection == "books")
+            .unwrap()
+            .state,
+        "current"
+    );
 }
 #[test]
 fn get_refreshes_original_and_missing_reads_remove_stale_cache_rows() {

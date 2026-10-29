@@ -51,6 +51,8 @@ pub struct Options {
     pub ingest_workers: usize,
     pub background_workers: usize,
     pub validation: ValidationMode,
+    /// Emit one timed SQL statement per line to stderr while the SQLite cache is used.
+    pub sql_diagnostics: bool,
 }
 impl Options {
     pub fn new(data_dir: impl Into<PathBuf>) -> Self {
@@ -63,6 +65,7 @@ impl Options {
             background_workers: std::thread::available_parallelism()
                 .map_or(1, |n| (n.get() / 4).max(1)),
             validation: ValidationMode::Background,
+            sql_diagnostics: false,
             ingest_workers: std::thread::available_parallelism()
                 .map_or(1, |n| (n.get() / 2).max(1)),
         }
@@ -318,12 +321,13 @@ impl Repository {
                     &self.cache_directory()?,
                     &self.model.root,
                     self.options.sqlite_cache_mib,
+                    self.options.sql_diagnostics,
                 )?;
                 self.writer = Some(w.clone());
                 w
             }
         };
-        let s = writer.enter(self.options.sqlite_cache_mib)?;
+        let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
         self.metrics.store_open_nanos += nanos(t);
         let t = Instant::now();
         let result = s.reconcile_configuration(&self.model);
@@ -446,6 +450,7 @@ impl Repository {
                 writer,
                 self.options.background_workers,
                 self.options.sqlite_cache_mib,
+                self.options.sql_diagnostics,
             )?);
         }
         self.validator.as_ref().unwrap().schedule(c.clone());
@@ -571,7 +576,8 @@ impl Repository {
                 self.memory_edges.remove(&(collection.into(), id.into()));
                 if self.options.cache == CacheMode::Sqlite {
                     let writer = self.store()?;
-                    let s = writer.enter(self.options.sqlite_cache_mib)?;
+                    let s = writer
+                        .enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
                     s.dirty(collection)?;
                     let tx = s.db.unchecked_transaction()?;
                     store::delete_record(&tx, &c, id, &mut self.metrics)?;
@@ -582,7 +588,8 @@ impl Repository {
             Err(e) => {
                 if self.options.cache == CacheMode::Sqlite
                     && let Ok(writer) = self.store()
-                    && let Ok(s) = writer.enter(self.options.sqlite_cache_mib)
+                    && let Ok(s) =
+                        writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)
                 {
                     let _ = s.dirty(collection);
                 }
@@ -593,7 +600,7 @@ impl Repository {
         let edges = self.extract(&c, id, &value)?;
         if self.options.cache == CacheMode::Sqlite {
             let writer = self.store()?;
-            let s = writer.enter(self.options.sqlite_cache_mib)?;
+            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
             let old_state = s.state(collection)?;
             s.dirty(collection)?;
             let tx = s.db.unchecked_transaction()?;
@@ -651,17 +658,7 @@ impl Repository {
         while remaining.peek().is_some() {
             // Bound retained documents by both count and source-byte size. One
             // oversized record is processed alone; this is not a total RSS limit.
-            let mut batch = Vec::new();
-            let mut bytes = 0_u64;
-            while let Some((_, stamp)) = remaining.peek() {
-                if !batch.is_empty()
-                    && (batch.len() >= 256 || bytes.saturating_add(stamp.size) > 8 * 1024 * 1024)
-                {
-                    break;
-                }
-                bytes = bytes.saturating_add(stamp.size);
-                batch.push(remaining.next().unwrap());
-            }
+            let batch = next_ingest_batch(&mut remaining);
             let t = Instant::now();
             let prepared = pool.install(|| {
                 batch
@@ -974,7 +971,7 @@ impl Repository {
         let c = self.collection(collection)?;
         if self.options.cache == CacheMode::Sqlite {
             let writer = self.store()?;
-            let s = writer.enter(self.options.sqlite_cache_mib)?;
+            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
             self.sync(&c, &s, &[], true)?;
         } else {
             self.direct(&c, None)?;
@@ -992,7 +989,7 @@ impl Repository {
             self.direct(&c, Some(&plan))?.unwrap()
         } else {
             let writer = self.store()?;
-            let s = writer.enter(self.options.sqlite_cache_mib)?;
+            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
             self.sync(&c, &s, &store::requested_view_indexes(&c, &plan), false)?;
             let t = Instant::now();
             let (where_sql, mut values) = plan.sql_where(&c);
@@ -1147,7 +1144,7 @@ impl Repository {
             };
         let guard = store
             .as_ref()
-            .map(|w| w.enter(self.options.sqlite_cache_mib))
+            .map(|w| w.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics))
             .transpose()?;
         let mut collections = Vec::new();
         for name in self.model.collections.keys() {
@@ -1261,7 +1258,7 @@ impl Repository {
         let mut coverage = Vec::new();
         if self.options.cache == CacheMode::Sqlite {
             let writer = self.store()?;
-            let s = writer.enter(self.options.sqlite_cache_mib)?;
+            let s = writer.enter(self.options.sqlite_cache_mib, self.options.sql_diagnostics)?;
             if complete {
                 for source in &sources {
                     let c = self.collection(source)?;
@@ -1344,6 +1341,28 @@ pub(crate) fn validate_id(id: &str) -> Result<()> {
         Ok(())
     }
 }
+const MAX_INGEST_BATCH_RECORDS: usize = 256;
+const MAX_INGEST_BATCH_BYTES: u64 = 8 * 1024 * 1024;
+
+fn next_ingest_batch<'a, I>(remaining: &mut std::iter::Peekable<I>) -> Vec<(&'a String, &'a Stamp)>
+where
+    I: Iterator<Item = (&'a String, &'a Stamp)>,
+{
+    let mut batch = Vec::new();
+    let mut bytes = 0_u64;
+    while let Some((_, stamp)) = remaining.peek() {
+        if !batch.is_empty()
+            && (batch.len() >= MAX_INGEST_BATCH_RECORDS
+                || bytes.saturating_add(stamp.size) > MAX_INGEST_BATCH_BYTES)
+        {
+            break;
+        }
+        bytes = bytes.saturating_add(stamp.size);
+        batch.push(remaining.next().unwrap());
+    }
+    batch
+}
+
 fn nanos(t: Instant) -> u64 {
     t.elapsed().as_nanos().min(u64::MAX as u128) as u64
 }
@@ -1399,4 +1418,52 @@ fn cached_state(db: &rusqlite::Connection, collection: &str, id: &str) -> Result
         |r| Ok((r.get(0)?, r.get(1)?)),
     )?;
     RecordState::read(&status, &issues)
+}
+
+#[cfg(test)]
+mod batch_tests {
+    use super::*;
+
+    fn partitions(sizes: impl IntoIterator<Item = u64>) -> Vec<(usize, u64)> {
+        let files = sizes
+            .into_iter()
+            .enumerate()
+            .map(|(i, size)| {
+                (
+                    format!("r{i:04}"),
+                    Stamp {
+                        size,
+                        modified: String::new(),
+                        identity: String::new(),
+                    },
+                )
+            })
+            .collect::<BTreeMap<_, _>>();
+        let mut remaining = files.iter().peekable();
+        let mut batches = Vec::new();
+        while remaining.peek().is_some() {
+            let batch = next_ingest_batch(&mut remaining);
+            let bytes = batch.iter().map(|(_, stamp)| stamp.size).sum();
+            assert!(batch.len() <= 256);
+            assert!(bytes <= 8 * 1024 * 1024 || batch.len() == 1);
+            batches.push((batch.len(), bytes));
+        }
+        batches
+    }
+
+    #[test]
+    fn preparation_batches_respect_record_and_byte_bounds() {
+        assert_eq!(
+            partitions(std::iter::repeat_n(1, 600)),
+            vec![(256, 256), (256, 256), (88, 88)]
+        );
+        assert_eq!(
+            partitions([4 * 1024 * 1024, 4 * 1024 * 1024, 1]),
+            vec![(2, 8 * 1024 * 1024), (1, 1)]
+        );
+        assert_eq!(
+            partitions([9 * 1024 * 1024, 1]),
+            vec![(1, 9 * 1024 * 1024), (1, 1)]
+        );
+    }
 }
