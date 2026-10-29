@@ -349,9 +349,7 @@ impl Repository {
         if self.options.cache == CacheMode::Sqlite {
             self.store()?;
         } else {
-            let changes = self
-                .observed_configuration
-                .compare(&self.model, &BTreeSet::new());
+            let changes = self.observed_configuration.compare(&self.model);
             self.observed_configuration = ConfigurationSnapshot::from_model(&self.model);
             self.configuration_changes = Some(changes);
         }

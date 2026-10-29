@@ -57,11 +57,7 @@ impl ConfigurationSnapshot {
         }
     }
 
-    pub fn compare(
-        &self,
-        model: &RepositoryModel,
-        fallback: &BTreeSet<String>,
-    ) -> ConfigurationChanges {
+    pub fn compare(&self, model: &RepositoryModel) -> ConfigurationChanges {
         let mut report = ConfigurationChanges::default();
         let mut affected = BTreeSet::new();
         for path in self
@@ -82,9 +78,6 @@ impl ConfigurationSnapshot {
                 .unwrap_or_default();
             if let Some(previous) = self.owners.get(path) {
                 owners.extend(previous.iter().cloned());
-            } else if old.is_some() {
-                // Older caches stored digests without consumers. Be conservative once.
-                owners.extend(fallback.iter().cloned());
             }
             affected.extend(owners.iter().cloned());
             report.inputs.push(ConfigurationInputChange {
@@ -129,13 +122,8 @@ impl Store {
         for (path, name) in &pairs {
             owners.entry(path.clone()).or_default().insert(name.clone());
         }
-        let mut fallback = tx
-            .prepare("SELECT name FROM collections")?
-            .query_map([], |r| r.get::<_, String>(0))?
-            .collect::<std::result::Result<BTreeSet<_>, _>>()?;
-        fallback.extend(model.collections.keys().cloned());
         let previous = ConfigurationSnapshot { files, owners };
-        let mut report = previous.compare(model, &fallback);
+        let mut report = previous.compare(model);
         report.persistent = true;
         for change in &report.inputs {
             let path = model.root.join(&change.path);

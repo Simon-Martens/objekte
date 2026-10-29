@@ -288,7 +288,8 @@ claim an atomic filesystem snapshot or detect every edit invisible to its stamps
 entries, and retain the final whole-inventory stability check. `metadata-on-request`
 and `hash-on-request` repeat their respective policies on every operation.
 `refresh` bypasses session reuse but follows the selected policy. Current cache
-format 6 rebuilds older disposable caches once.
+format 6 rejects older pre-release caches; use a fresh namespace or remove the
+cache directory.
 
 Gate: unchanged reopen has one enumeration and zero source reads/DB manifest
 loads; a single changed record causes one hash and targeted updates. Test metadata
@@ -435,7 +436,7 @@ of its old files; files still referenced by another collection remain tracked.
 `refresh_configuration()` exposes this operation independently of source scans;
 `cache refresh-config` is its CLI driver. Normal cache access also performs it.
 `load_repository` and inspection remain metadata-only and do not create a cache.
-Cache format 6 rebuilds older disposable databases. The configuration ownership
+Cache format 6 rejects older pre-release databases. The configuration ownership
 table is part of the current cache schema.
 
 Collection work remains lazy. A new observed manifest followed by a crash, a failed
@@ -526,11 +527,11 @@ validation rather than retaining all parsed documents in memory. It never reread
 source files just to validate them. Separate timers report this extra decode work.
 
 See [validation.md](validation.md) for states, index/reference behavior, exact DB
-schema, API notifications and recovery semantics. Cache format 6 rebuilds old caches
-and stores raw JSON once per collection with lazily constructed expression indexes.
+schema, API notifications and recovery semantics. Cache format 6 stores raw JSON
+once per collection with lazily constructed expression indexes.
 Startup migrations create the shared schema and record completed versions in the
-`migrations` table. An existing format-6 cache without migration history is adopted
-without rereading its records. The next ingestion task is to eliminate digest lookups
+`migrations` table. Pre-release caches without migration history are rejected; use
+`--fresh-cache` or remove the cache directory. The next ingestion task is to eliminate digest lookups
 already answered by the manifest. Separate typed-table writes have been removed; SQLite maintains JSON
 expression indexes. Query comparisons on configured scalar fields use these indexes.
 The filter grammar also supports field operands, :length/:each/:lower, and LIKE patterns.

@@ -113,7 +113,12 @@ impl Writer {
                 })?
                 != migrations::FORMAT
         };
-        if replaced || obsolete {
+        if obsolete {
+            return Err(Error::Cache(
+                "incompatible cache format; use --fresh-cache or remove its cache directory".into(),
+            ));
+        }
+        if replaced {
             if !rebuild {
                 return Err(Error::Cache(
                     "cache replaced during background validation; reopen repository".into(),

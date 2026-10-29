@@ -117,19 +117,17 @@ fn collection_tables_and_view_indexes_are_lazy_and_reused_without_rescanning() {
 }
 
 #[test]
-fn format_five_shared_records_are_rebuilt_without_changing_sources() {
+fn format_five_cache_is_rejected_without_changing_sources() {
     let f = Fixture::new();
     let mut cached = f.repo(CacheMode::Sqlite);
-    let before = cached.open_view("books", &all()).unwrap();
+    cached.open_view("books", &all()).unwrap();
     let source = fs::read(f.root.join("data/books/a.json")).unwrap();
     let db = database(&cached);
     db.execute_batch("CREATE TABLE records(collection TEXT,id TEXT,json BLOB); INSERT INTO records VALUES('obsolete','old','{}'); UPDATE meta SET value='5' WHERE key='format';").unwrap();
     drop(db);
     drop(cached);
     let mut cached = f.repo(CacheMode::Sqlite);
-    let after = cached.open_view("books", &all()).unwrap();
-    assert_eq!(after.rows, before.rows);
-    assert_eq!(after.metrics.source_reads, 7);
+    assert!(cached.open_view("books", &all()).is_err());
     let db = database(&cached);
     assert_eq!(
         db.query_row(
@@ -138,7 +136,7 @@ fn format_five_shared_records_are_rebuilt_without_changing_sources() {
             |r| r.get::<_, i64>(0)
         )
         .unwrap(),
-        0
+        1
     );
     assert_eq!(
         db.query_row("PRAGMA integrity_check", [], |r| r.get::<_, String>(0))
@@ -395,32 +393,6 @@ fn expression_indexes_follow_edits_deletes_restarts_and_reconfiguration() {
     assert_eq!(next.metrics.source_reads, 0);
     assert!(next.metrics.index_builds > 0);
     assert_eq!(ids(&mut r, "score=1800"), ["new"]);
-    let db = database(&r);
-    let legacy_table = format!("v_{}", "0".repeat(64));
-    db.execute_batch(&format!("CREATE TABLE {legacy_table}(id TEXT PRIMARY KEY, f0_s INTEGER, f0_v); INSERT INTO {legacy_table} VALUES('old',0,1800);")).unwrap();
-    db.execute("UPDATE meta SET value='4' WHERE key='format'", [])
-        .unwrap();
-    drop(db);
-    drop(r);
-    let mut r = f.repo(CacheMode::Sqlite);
-    assert_eq!(ids(&mut r, "score=1800"), ["new"]);
-    assert_eq!(
-        database(&r)
-            .query_row(
-                "SELECT count(*) FROM sqlite_master WHERE name=?1",
-                [&legacy_table],
-                |r| r.get::<_, i64>(0)
-            )
-            .unwrap(),
-        0
-    );
-    assert_eq!(
-        database(&r)
-            .query_row("SELECT value FROM meta WHERE key='format'", [], |r| r
-                .get::<_, String>(0))
-            .unwrap(),
-        "6"
-    );
 }
 
 #[test]

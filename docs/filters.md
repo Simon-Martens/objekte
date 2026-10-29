@@ -192,7 +192,8 @@ This preserves errors outside the returned page and across boolean branches. JSO
 query results are assembled from matching IDs before payloads are fetched. A small
 page can therefore still require scanning unindexed paths or collecting all matches.
 Metadata fields, relation traversal, grouping, and query-result caching remain later
-work. Cache format 6 rebuilds older disposable caches once, removing shared raw storage and old value tables. External SQLite connections that run integrity checks or modify the cache
+work. Cache format 6 rejects older pre-release caches; use `--fresh-cache` or remove
+the cache directory. External SQLite connections that run integrity checks or modify the cache
 must first call `register_cache_sqlite_functions`; library connections do this
 already. Source files remain authoritative.
 

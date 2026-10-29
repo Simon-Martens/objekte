@@ -168,7 +168,9 @@ and their combination. These fingerprints do not store query results or create
 additional SQL compound indexes. Schema/mapping, typed indexes, source manifests,
 and view settings have separate fingerprints.
 
-Cache format 6 rebuilds older disposable databases once, replacing the shared raw-record table with collection-local raw-record tables. No extracted field columns are stored. The initial build still
+Cache format 6 uses collection-local raw-record tables and stores no extracted field
+columns. Older pre-release caches are rejected; use `--fresh-cache` or remove that
+cache directory. The initial build still
 reads all source records; the new unchanged-manifest shortcut applies on later
 opens. `--diagnostics` streams each executed SQLite statement and its elapsed
 milliseconds as a JSON line on stderr, and logs the policy, view fingerprints,

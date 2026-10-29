@@ -364,27 +364,17 @@ fn collection_update_failure_cannot_erase_pending_schema_change() {
 }
 
 #[test]
-fn older_caches_gain_ownership_without_losing_applied_versions() {
+fn missing_ownership_table_is_not_silently_recreated() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Sqlite);
     r.open_view("books", &all()).unwrap();
     let observer = db(&r);
     drop(r);
-    // INFO: A pre-migration cache has neither ownership nor migration history.
     observer
-        .execute_batch("DROP TABLE input_collections; DROP TABLE migrations")
+        .execute_batch("DROP TABLE input_collections")
         .unwrap();
-    schema_change(&f);
     let mut r = f.repo(CacheMode::Sqlite);
-    // No previous ownership: conservative fallback, still lazy data reconciliation.
-    assert_eq!(
-        r.refresh_configuration().unwrap().affected_collections,
-        ["books", "people", "spare"]
-    );
-    assert_eq!(
-        r.open_view("books", &all()).unwrap().metrics.source_reads,
-        0
-    );
+    assert!(r.refresh_configuration().is_err());
     assert_eq!(
         observer
             .query_row(

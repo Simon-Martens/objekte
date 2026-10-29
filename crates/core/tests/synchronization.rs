@@ -298,16 +298,11 @@ fn source_mapping_change_does_not_reuse_old_records() {
 }
 
 #[test]
-fn deleted_cache_and_incompatible_format_rebuild_lazily() {
+fn deleted_cache_rebuilds_lazily() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Sqlite);
     r.open_view("books", &all()).unwrap();
     fs::remove_dir_all(r.cache_directory().unwrap()).unwrap();
-    let v = r.open_view("books", &all()).unwrap();
-    assert_eq!(v.metrics.rows_inserted, 7);
-    database(&r)
-        .execute("UPDATE meta SET value='old-format' WHERE key='format'", [])
-        .unwrap();
     let v = r.open_view("books", &all()).unwrap();
     assert_eq!(v.metrics.rows_inserted, 7);
     assert_eq!(v.total, Some(7));

@@ -20,31 +20,13 @@ fn applied(db: &Connection) -> Vec<(i64, String)> {
 }
 
 #[test]
-fn startup_migrations_create_schema_once_and_adopt_existing_cache() {
+fn startup_migrations_create_schema_once() {
     let f = Fixture::new();
     let first = f
         .repo(CacheMode::Sqlite)
         .open_view("books", &all())
         .unwrap();
     assert_eq!(first.total, Some(7));
-    let db = database(&f);
-    assert_eq!(
-        applied(&db),
-        [
-            (1, "repository_metadata".into()),
-            (2, "records_and_indexes".into())
-        ]
-    );
-    // INFO: format-6 caches from before migration tracking have populated records
-    // but no history table. Reopening must adopt their schema without data loss.
-    db.execute_batch("DROP TABLE migrations").unwrap();
-    drop(db);
-    let reopened = f
-        .repo(CacheMode::Sqlite)
-        .open_view("books", &all())
-        .unwrap();
-    assert_eq!(reopened.total, Some(7));
-    assert_eq!(reopened.metrics.rows_inserted, 0);
     let db = database(&f);
     assert_eq!(
         applied(&db),
@@ -78,12 +60,82 @@ fn startup_migrations_create_schema_once_and_adopt_existing_cache() {
 }
 
 #[test]
+fn a_cache_without_migration_history_is_rejected_without_data_loss() {
+    let f = Fixture::new();
+    f.repo(CacheMode::Sqlite)
+        .open_view("books", &all())
+        .unwrap();
+    let db = database(&f);
+    db.execute_batch("DROP TABLE migrations").unwrap();
+    drop(db);
+
+    assert!(
+        f.repo(CacheMode::Sqlite)
+            .open_view("books", &all())
+            .is_err()
+    );
+    let db = database(&f);
+    assert_eq!(
+        db.query_row("SELECT count(*) FROM collections", [], |row| row
+            .get::<_, i64>(0))
+            .unwrap(),
+        1
+    );
+}
+
+#[test]
+fn an_untracked_table_is_not_adopted_as_a_new_cache() {
+    let f = Fixture::new();
+    let directory = f.repo(CacheMode::Sqlite).cache_directory().unwrap();
+    fs::create_dir_all(&directory).unwrap();
+    let db = Connection::open(directory.join("cache.sqlite")).unwrap();
+    db.execute_batch(
+        "CREATE TABLE migrations(version INTEGER PRIMARY KEY,name TEXT NOT NULL,applied_at TEXT NOT NULL);
+         CREATE TABLE legacy_records(id TEXT PRIMARY KEY);",
+    )
+    .unwrap();
+    drop(db);
+
+    assert!(
+        f.repo(CacheMode::Sqlite)
+            .open_view("books", &all())
+            .is_err()
+    );
+    assert_eq!(
+        database(&f)
+            .query_row(
+                "SELECT count(*) FROM sqlite_master WHERE name='legacy_records'",
+                [],
+                |row| row.get::<_, i64>(0)
+            )
+            .unwrap(),
+        1
+    );
+}
+
+#[test]
 fn failed_migration_keeps_history_pending_and_retries_on_next_open() {
     let f = Fixture::new();
     let repo = f.repo(CacheMode::Sqlite);
     let directory = repo.cache_directory().unwrap();
     fs::create_dir_all(&directory).unwrap();
     let db = Connection::open(directory.join("cache.sqlite")).unwrap();
+    db.execute_batch(
+        "CREATE TABLE migrations(version INTEGER PRIMARY KEY,name TEXT NOT NULL,applied_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+         INSERT INTO migrations(version,name) VALUES(1,'repository_metadata');",
+    )
+    .unwrap();
+    db.execute_batch(include_str!(
+        "../src/store/migrations/001_repository_metadata.sql"
+    ))
+    .unwrap();
+    db.execute(
+        "INSERT INTO meta(key,value) VALUES('repository',?1)",
+        [f.root.to_str().unwrap()],
+    )
+    .unwrap();
+    db.execute("INSERT INTO meta(key,value) VALUES('format','6')", [])
+        .unwrap();
     db.execute_batch("CREATE TABLE record_validation(unexpected TEXT)")
         .unwrap();
     drop(db);

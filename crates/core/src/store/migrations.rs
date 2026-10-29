@@ -32,11 +32,29 @@ pub(super) fn prepare(db: &Connection, root: &Path) -> Result<()> {
     // INFO: journal_mode cannot be changed inside a transaction. Do it before migrations.
     db.execute_batch("PRAGMA journal_mode=WAL; PRAGMA synchronous=FULL;")?;
 
-    let had_meta: bool = db.query_row(
-        "SELECT EXISTS(SELECT 1 FROM sqlite_master WHERE type='table' AND name='meta')",
-        [],
-        |row| row.get(0),
-    )?;
+    let tables = db
+        .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")?
+        .query_map([], |row| row.get::<_, String>(0))?
+        .collect::<std::result::Result<Vec<_>, _>>()?;
+    let had_meta = tables.iter().any(|name| name == "meta");
+    let had_migrations = tables.iter().any(|name| name == "migrations");
+    let applied_count: i64 = if had_migrations {
+        db.query_row("SELECT count(*) FROM migrations", [], |row| row.get(0))?
+    } else {
+        0
+    };
+
+    // INFO: An untracked pre-release schema cannot be migrated safely. Require
+    // an explicit fresh namespace instead of inferring its table layout.
+    if (had_meta && (!had_migrations || applied_count == 0))
+        || (!had_meta && had_migrations && (applied_count != 0 || tables.len() != 1))
+        || (!had_meta && !had_migrations && !tables.is_empty())
+    {
+        return Err(Error::Cache(
+            "unrecognized cache schema; use --fresh-cache or remove its cache directory".into(),
+        ));
+    }
+
     let identity = root.to_str().unwrap();
     if had_meta {
         let existing: Option<String> = db
@@ -53,9 +71,9 @@ pub(super) fn prepare(db: &Connection, root: &Path) -> Result<()> {
             })
             .optional()?;
         if format.as_deref().is_some_and(|stored| stored != FORMAT) {
-            // INFO: Format changes invalidate derived records and indexes. Keep
-            // repository metadata so configuration ownership can be reconciled.
-            reset_incompatible_records(db)?;
+            return Err(Error::Cache(
+                "incompatible cache format; use --fresh-cache or remove its cache directory".into(),
+            ));
         }
     }
 
@@ -87,8 +105,6 @@ pub(super) fn prepare(db: &Connection, root: &Path) -> Result<()> {
             Some(_) => return Err(Error::Cache("cache migration history mismatch".into())),
             None => {}
         }
-        // INFO: The SQL uses IF NOT EXISTS so a format-6 cache built before
-        // migration tracking can acquire history without losing cached records.
         // INFO: The schema change and its history row commit together. A failed
         // migration leaves no marker, so the next open can retry it.
         let tx = db.unchecked_transaction()?;
@@ -113,34 +129,6 @@ pub(super) fn prepare(db: &Connection, root: &Path) -> Result<()> {
             params![key, value],
         )?;
     }
-    tx.commit()?;
-    Ok(())
-}
-
-fn reset_incompatible_records(db: &Connection) -> Result<()> {
-    let names = db
-        .prepare("SELECT name FROM sqlite_master WHERE type='table' AND (name GLOB 'v_*' OR name GLOB 'records_*')")?
-        .query_map([], |row| row.get::<_, String>(0))?
-        .collect::<std::result::Result<Vec<_>, _>>()?;
-    let tx = db.unchecked_transaction()?;
-    for name in names {
-        if name
-            .strip_prefix("v_")
-            .or_else(|| name.strip_prefix("records_"))
-            .is_some_and(|suffix| {
-                suffix.len() == 64 && suffix.bytes().all(|byte| byte.is_ascii_hexdigit())
-            })
-        {
-            tx.execute_batch(&format!("DROP TABLE {name}"))?;
-        }
-    }
-    tx.execute_batch(
-        "DROP TABLE IF EXISTS edges;
-                      DROP TABLE IF EXISTS record_validation;
-                      DROP TABLE IF EXISTS records;
-                      DROP TABLE IF EXISTS collections;
-                      DROP TABLE IF EXISTS migrations;",
-    )?;
     tx.commit()?;
     Ok(())
 }

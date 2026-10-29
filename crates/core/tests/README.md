@@ -19,15 +19,15 @@ python3 scripts/format-rust-spacing.py --check
 | Suite | Checks |
 | --- | --- |
 | `configuration.rs` | Strict profile, normalization, paths, exact intended index fields, collection cycles, lazy metadata loading |
-| `config_manifest.rs` | Persisted config diffs across restarts, shared/removed inputs, transactional ownership, applied versus observed schema versions, invalid config and failed update recovery, old-cache compatibility, no-op writes and disabled caching |
+| `config_manifest.rs` | Persisted config diffs across restarts, shared/removed inputs, transactional ownership, applied versus observed schema versions, invalid config and failed update recovery, missing-table rejection, no-op writes and disabled caching |
 | `relationships.rs` | Nested occurrences, forward/backward edges, partial coverage, cycles, additions/deletions, missing targets, pointer escaping |
 | `synchronization.rs` | Persisted hashes, equal-size/mtime edits, restart, targeted updates, source changes during reconciliation with rollback and recovery, partial inventories, schema/UI changes, transactions, concurrency, deleted/corrupt caches |
 | `metadata.rs` | Compound manifest reuse, zero-read/zero-write reopen, candidate-only hashing, metadata-only edits, empty collections, schema/index-only work, dirty recovery and atomic manifest publication |
 | `view_hashes.rs` | Component/combined fingerprints, filter permutation, resolved defaults, ordered secondary sorts, direct/SQLite parity and view-only invalidation |
 | `json_parsing.rs` | Sonic duplicate-key behavior across views/indexes/relationships, opaque precise numbers, and malformed unselected cached payloads |
 | `json_filter.rs` | Typed filters, field operands/modifiers, LIKE patterns, exact numbers, nested arrays, missing/null, parser limits, injection-shaped bindings, global scope, source changes, and direct/SQL parity |
-| `expression_indexes.rs` | Real JSON expression-index seeks, covering-key reads with extraction disabled, lazy collection tables and view/query indexes, no field columns/value tables, format-5 rebuilds, precise types, edits/deletions, reconfiguration, and restart/rebuild |
-| `migrations.rs` | New cache schema, adoption of existing format-6 caches, one-time application, transactional retry after a failed schema step, and rejection of future migration history |
+| `expression_indexes.rs` | Real JSON expression-index seeks, covering-key reads with extraction disabled, lazy collection tables and view/query indexes, no field columns/value tables, format-5 rejection, precise types, edits/deletions, reconfiguration, and restart/rebuild |
+| `migrations.rs` | New cache schema, rejection of caches without migration history, one-time application, transactional retry after a failed schema step, and rejection of future migration history |
 | `ingestion.rs` | Serial/parallel parity across batches and oversized records, exact reference occurrences, targeted updates, retained content errors across batches and correction/revalidation |
 | `validation.rs` | Pending/restart recovery, wrong types, malformed JSON/UTF-8, all diagnostics, stale-result guards, schema changes, delete/recreate, background transaction failure, worker defaults/stacks, shared writer concurrency |
 | `views.rs` | Golden orders, all declared sort fields/directions, filters, pagination, projection, precise mixed numeric comparisons, null/missing, SQL parameters, generated mutations |

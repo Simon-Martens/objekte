@@ -155,8 +155,8 @@ record's pending or completed validation. An observed schema edit therefore cann
 make old validation results appear applicable to the new schema: cache status
 reports incompatible configuration until reconciliation resets affected records to
 pending. Malformed JSON retains its parse-error status. Configuration refresh alone
-does not run validation or read source records. The ownership table is added to
-the configuration manifest. The current format-6 storage upgrade separately rebuilds old disposable caches.
+does not run validation or read source records. The ownership table is part of
+the current configuration manifest schema.
 
 There are no extracted-value tables or stored field columns. Required view indexes
 use deterministic `objekte_view_state(json,id,spec)` and
@@ -173,7 +173,7 @@ primary key and new indexes are collected together. Library connections register
 Rust functions; external integrity checks use `register_cache_sqlite_functions`.
 
 Startup migrations create the shared tables from numbered SQL files and write a
-history row in the same transaction as each schema change. Existing format-6 caches
-without history are adopted without reingestion. Format changes rebuild disposable
-record tables on the next cache access. Redundant per-record digest lookups remain a later ingestion optimization. The
+history row in the same transaction as each schema change. Pre-release caches
+without migration history or with an incompatible format are rejected. Use
+`--fresh-cache` or remove their cache directory. Redundant per-record digest lookups remain a later ingestion optimization. The
 per-record typed-table writes have been removed.
