@@ -129,6 +129,9 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1
 # One JSON object per line, suitable for piping to another tool.
 cargo run --release -p objekte-cli -- examples/musenalm query items 'media ?= "Reproduktion"' --limit 3 --output ndjson
 
+# Emit numbered records as they are verified, followed by completion metadata.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'year >= 1800' --count --limit 3 --output events
+
 # Direct source execution without an index (small scope recommended).
 cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional = true' --backend direct --cache disabled --count --limit 3
 
@@ -141,6 +144,17 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferre
 # Keep result JSON on stdout and write metrics to stderr as a diagnostics JSON line.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.ndjson
 ```
+
+`--output events` writes one JSON event per line and flushes each line. A record
+event has `type: "record"`, a one-based `ordinal`, `provisional: true`, and a
+complete `record`. After the query succeeds, a `type: "complete"` event supplies
+`returned`, `total` (`null` without `--count`), dependencies, filter hash, query
+plan, and metrics. If a later source or scalar-cardinality error occurs, the
+stream ends with `type: "error"`, a message, and `provisional_records`; the CLI
+exits nonzero. Consumers should treat earlier records as final only after the
+`complete` event. The first query still builds the in-memory index before
+records can arrive; parallel verification publishes finished batches in ID
+order. The existing `--output ndjson` writes raw records after the query finishes.
 
 ## Sorted table views
 

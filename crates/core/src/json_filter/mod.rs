@@ -357,6 +357,18 @@ pub struct JsonQueryResult {
 }
 
 
+// INFO: Final metadata returned after all streamed records are verified.
+#[derive(Debug, Clone, Serialize)]
+pub struct JsonQueryStreamSummary {
+    pub returned: usize,
+    pub total: Option<usize>,
+    pub dependencies: JsonQueryDependencies,
+    pub filter_hash: String,
+    pub metrics: Metrics,
+    pub query_plan: Vec<String>,
+}
+
+
 fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a Value> {
     fn visit<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool, out: &mut Vec<&'a Value>) {
         match path.split_first() {

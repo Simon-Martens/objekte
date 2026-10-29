@@ -35,7 +35,7 @@ pub use error::{Error, Result};
 pub use graph::{CollectionGraph, CollectionRelation};
 pub use json_filter::{
     JsonFilter, JsonPath, JsonPathStep, JsonQuery, JsonQueryBackend, JsonQueryDependencies,
-    JsonQueryResult,
+    JsonQueryResult, JsonQueryStreamSummary,
 };
 pub use query::{Filter, Operator, ViewRequest, ViewResult, ViewRow};
 pub use repository::{

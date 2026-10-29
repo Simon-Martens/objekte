@@ -2,10 +2,13 @@
 use super::*;
 use crate::{
     JsonFilter, JsonQuery, JsonQueryBackend, JsonQueryDependencies, JsonQueryResult,
-    json_filter::TypedPlan,
+    JsonQueryStreamSummary, json_filter::TypedPlan,
 };
 use grep_searcher::{MmapChoice, SearcherBuilder, Sink, SinkMatch};
-use std::io::{Seek, SeekFrom};
+use std::{
+    io::{Seek, SeekFrom},
+    ops::{Deref, DerefMut},
+};
 
 
 /// Search sink that stops after one regex match.
@@ -34,6 +37,48 @@ struct ScanOutcome {
     file_open_nanos: u64,
     read_nanos: u64,
     regex_nanos: u64,
+}
+
+
+// INFO: Shared page sink for collected and streamed queries. Streamed records
+// are validated before emission and are not retained in the result vector.
+struct QueryOutput<'a> {
+    result: JsonQueryResult,
+    returned: usize,
+    streaming: bool,
+    on_record: &'a mut dyn FnMut(usize, &Record) -> Result<()>,
+}
+
+
+impl QueryOutput<'_> {
+    fn push(&mut self, record: Record) -> Result<()> {
+        (self.on_record)(self.returned + 1, &record)?;
+        self.returned += 1;
+        if !self.streaming {
+            self.result.records.push(record);
+        }
+        Ok(())
+    }
+
+    fn returned(&self) -> usize {
+        self.returned
+    }
+}
+
+
+impl Deref for QueryOutput<'_> {
+    type Target = JsonQueryResult;
+
+    fn deref(&self) -> &Self::Target {
+        &self.result
+    }
+}
+
+
+impl DerefMut for QueryOutput<'_> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.result
+    }
 }
 
 
@@ -74,6 +119,35 @@ impl Repository {
     /// Query schema-declared JSON paths in all registered collections, or an explicit scope.
     /// Ordering is (collection, id).
     pub fn query_json(&mut self, request: &JsonQuery) -> Result<JsonQueryResult> {
+        let (result, _) = self.query_json_inner(request, false, &mut |_, _| Ok(()))?;
+        Ok(result)
+    }
+
+    /// Emit validated page records in (collection, ID) order. Records are
+    /// provisional until this method returns a summary; a later error means
+    /// callers must discard the emitted page. Ordinals start at one.
+    pub fn query_json_stream(
+        &mut self,
+        request: &JsonQuery,
+        mut on_record: impl FnMut(usize, &Record) -> Result<()>,
+    ) -> Result<JsonQueryStreamSummary> {
+        let (result, returned) = self.query_json_inner(request, true, &mut on_record)?;
+        Ok(JsonQueryStreamSummary {
+            returned,
+            total: result.total,
+            dependencies: result.dependencies,
+            filter_hash: result.filter_hash,
+            metrics: result.metrics,
+            query_plan: result.query_plan,
+        })
+    }
+
+    fn query_json_inner(
+        &mut self,
+        request: &JsonQuery,
+        streaming: bool,
+        on_record: &mut dyn FnMut(usize, &Record) -> Result<()>,
+    ) -> Result<(JsonQueryResult, usize)> {
         let before = self.metrics.clone();
         let t = Instant::now();
         if request.limit == 0
@@ -110,17 +184,22 @@ impl Repository {
             .filter(|c| filter.follows_schema(c))
             .cloned()
             .collect::<Vec<_>>();
-        let mut result = JsonQueryResult {
-            records: Vec::new(),
-            total: request.count.then_some(0),
-            dependencies: JsonQueryDependencies {
-                collections: names.into_iter().collect(),
-                paths: filter.paths().to_vec(),
-                revisions: BTreeMap::new(),
+        let mut result = QueryOutput {
+            result: JsonQueryResult {
+                records: Vec::new(),
+                total: request.count.then_some(0),
+                dependencies: JsonQueryDependencies {
+                    collections: names.into_iter().collect(),
+                    paths: filter.paths().to_vec(),
+                    revisions: BTreeMap::new(),
+                },
+                filter_hash: filter.hash().into(),
+                metrics: Metrics::default(),
+                query_plan: Vec::new(),
             },
-            filter_hash: filter.hash().into(),
-            metrics: Metrics::default(),
-            query_plan: Vec::new(),
+            returned: 0,
+            streaming,
+            on_record,
         };
         if !collections.is_empty() {
             match request.backend {
@@ -145,7 +224,7 @@ impl Repository {
             }
         }
         result.metrics = self.metrics.since(&before);
-        Ok(result)
+        Ok((result.result, result.returned))
     }
 
     fn query_json_segments(
@@ -153,7 +232,7 @@ impl Repository {
         request: &JsonQuery,
         filter: &JsonFilter,
         collections: &[Collection],
-        result: &mut JsonQueryResult,
+        result: &mut QueryOutput<'_>,
     ) -> Result<()> {
         let cardinality_risk = filter.needs_global_cardinality_check(collections);
         let prefilter = if cardinality_risk {
@@ -183,6 +262,14 @@ impl Repository {
                 .top_level_scalar_fields()
                 .iter()
                 .any(|field| snapshot.has_array_value(field));
+            if result.streaming
+                && !request.count
+                && !cardinality_risk
+                && !actual_array_risk
+                && result.returned() == request.limit
+            {
+                continue;
+            }
             let index_started = Instant::now();
             let indexed = if cardinality_risk || actual_array_risk {
                 None
@@ -218,57 +305,74 @@ impl Repository {
                 candidates.retain(|id| indexed.contains(id));
             }
             let source = Source::open(&c.path)?;
-            let verify_started = Instant::now();
-            let outcomes = candidates
-                .par_iter()
-                .map(|id| -> Result<(bool, Metrics)> {
-                    let entry = snapshot
-                        .entry(id)
-                        .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
-                    let mut metrics = Metrics::default();
-                    let raw = Self::read_raw(&mut metrics, &source, id, Some(&entry.stamp))?;
-                    let doc = Self::parse_value(&mut metrics, c, id, &raw.json, false);
-                    let matches = if doc.state.status == RecordStatus::IncorrectJson {
-                        false
-                    } else {
-                        let t = Instant::now();
-                        let matches = filter.matches(&doc.data)?;
-                        metrics.query_nanos += nanos(t);
-                        matches
-                    };
-                    Ok((matches, metrics))
-                })
-                .collect::<Result<Vec<_>>>()?;
-            self.metrics.segment_verify_nanos += nanos(verify_started);
-            let materialize_started = Instant::now();
-            for (id, (matches, metrics)) in candidates.into_iter().zip(outcomes) {
-                self.metrics.merge(&metrics);
-                if matches {
-                    if matched >= request.offset && result.records.len() < request.limit {
+            let batch_size = if result.streaming {
+                rayon::current_num_threads()
+                    .saturating_mul(8)
+                    .clamp(64, 512)
+            } else {
+                candidates.len().max(1)
+            };
+            for batch in candidates.chunks(batch_size) {
+                let verify_started = Instant::now();
+                let outcomes = batch
+                    .par_iter()
+                    .map(|id| -> Result<(bool, Metrics)> {
                         let entry = snapshot
-                            .entry(&id)
+                            .entry(id)
                             .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
-                        let raw = self.raw_from(&source, &id, Some(&entry.stamp))?;
-                        let doc = self.parse(c, &id, &raw.json, true);
-                        if doc.state.status == RecordStatus::IncorrectJson
-                            || !filter.matches(&doc.data)?
-                        {
-                            return Err(Error::Unstable(c.path.join(format!("{id}.json"))));
+                        let mut metrics = Metrics::default();
+                        let raw = Self::read_raw(&mut metrics, &source, id, Some(&entry.stamp))?;
+                        let doc = Self::parse_value(&mut metrics, c, id, &raw.json, false);
+                        let matches = if doc.state.status == RecordStatus::IncorrectJson {
+                            false
+                        } else {
+                            let t = Instant::now();
+                            let matches = filter.matches(&doc.data)?;
+                            metrics.query_nanos += nanos(t);
+                            matches
+                        };
+                        Ok((matches, metrics))
+                    })
+                    .collect::<Result<Vec<_>>>()?;
+                self.metrics.segment_verify_nanos += nanos(verify_started);
+                let materialize_started = Instant::now();
+                for (id, (matches, metrics)) in batch.iter().zip(outcomes) {
+                    self.metrics.merge(&metrics);
+                    if matches {
+                        if matched >= request.offset && result.returned() < request.limit {
+                            let entry = snapshot
+                                .entry(id)
+                                .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
+                            let raw = self.raw_from(&source, id, Some(&entry.stamp))?;
+                            let doc = self.parse(c, id, &raw.json, true);
+                            if doc.state.status == RecordStatus::IncorrectJson
+                                || !filter.matches(&doc.data)?
+                            {
+                                return Err(Error::Unstable(c.path.join(format!("{id}.json"))));
+                            }
+                            result.push(Record {
+                                collection: c.name.clone(),
+                                id: (*id).clone(),
+                                path: self.path(c, id),
+                                hash: raw.hash,
+                                data: doc.data,
+                                state: doc.state,
+                                raw: None,
+                            })?;
                         }
-                        result.records.push(Record {
-                            collection: c.name.clone(),
-                            id: id.clone(),
-                            path: self.path(c, &id),
-                            hash: raw.hash,
-                            data: doc.data,
-                            state: doc.state,
-                            raw: None,
-                        });
+                        matched += 1;
                     }
-                    matched += 1;
+                }
+                self.metrics.segment_materialize_nanos += nanos(materialize_started);
+                if result.streaming
+                    && !request.count
+                    && !cardinality_risk
+                    && !actual_array_risk
+                    && result.returned() == request.limit
+                {
+                    break;
                 }
             }
-            self.metrics.segment_materialize_nanos += nanos(materialize_started);
             source.finish()?;
         }
         result.total = request.count.then_some(matched);
@@ -280,7 +384,7 @@ impl Repository {
         request: &JsonQuery,
         filter: &JsonFilter,
         collections: &[Collection],
-        result: &mut JsonQueryResult,
+        result: &mut QueryOutput<'_>,
     ) -> Result<()> {
         let mut matched = 0;
         for c in collections {
@@ -290,8 +394,8 @@ impl Repository {
                 let doc = self.parse(c, id, &raw.json, true);
                 let t = Instant::now();
                 if doc.state.status != RecordStatus::IncorrectJson && filter.matches(&doc.data)? {
-                    if matched >= request.offset && result.records.len() < request.limit {
-                        result.records.push(Record {
+                    if matched >= request.offset && result.returned() < request.limit {
+                        result.push(Record {
                             collection: c.name.clone(),
                             id: id.clone(),
                             path: self.path(c, id),
@@ -299,7 +403,7 @@ impl Repository {
                             data: doc.data,
                             state: doc.state,
                             raw: None,
-                        });
+                        })?;
                     }
                     matched += 1;
                 }
@@ -320,7 +424,7 @@ impl Repository {
         request: &JsonQuery,
         filter: &JsonFilter,
         collections: &[Collection],
-        result: &mut JsonQueryResult,
+        result: &mut QueryOutput<'_>,
     ) -> Result<()> {
         let prefilter = filter.source_prefilter()?;
         result.query_plan = vec![match &prefilter {
@@ -334,99 +438,111 @@ impl Repository {
         for c in collections {
             let (source, files) = self.inventory(c)?;
             let entries = files.iter().collect::<Vec<_>>();
-            let scan_started = Instant::now();
-            let outcomes = entries
-                .par_iter()
-                .map_init(
-                    || {
-                        SearcherBuilder::new()
-                            .line_number(false)
-                            .bom_sniffing(false)
-                            .memory_map(MmapChoice::never())
-                            .build()
-                    },
-                    |searcher, entry| -> Result<ScanOutcome> {
-                        let (id, stamp) = *entry;
-                        let path = source.path.join(format!("{id}.json"));
-                        let mut file = source.file(id)?;
-                        let before = Stamp::from_metadata(
-                            &file.metadata().map_err(|e| io(&path, e))?,
-                            &path,
-                        )?;
-                        if &before != stamp {
-                            return Err(Error::Unstable(path));
-                        }
-                        let candidate = if let Some((matcher, _)) = &prefilter {
-                            let mut sink = FirstMatch::default();
-                            searcher
-                                .search_file(matcher, &file, &mut sink)
-                                .map_err(|e| io(&path, e))?;
-                            sink.0
-                        } else {
-                            true
-                        };
-                        let mut outcome = ScanOutcome {
-                            candidate,
-                            ..Default::default()
-                        };
-                        if candidate {
-                            file.seek(SeekFrom::Start(0)).map_err(|e| io(&path, e))?;
-                            let mut bytes = Vec::new();
-                            file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
-                            outcome.source_bytes = bytes.len() as u64;
-                            let t = Instant::now();
-                            let doc = Document::parse(&bytes);
-                            outcome.parse_nanos = nanos(t);
-                            if doc.state.status != RecordStatus::IncorrectJson {
-                                let t = Instant::now();
-                                outcome.matches = filter.matches(&doc.data)?;
-                                outcome.query_nanos = nanos(t);
+            let batch_size = if result.streaming {
+                rayon::current_num_threads()
+                    .saturating_mul(8)
+                    .clamp(64, 512)
+            } else {
+                entries.len().max(1)
+            };
+            for batch in entries.chunks(batch_size) {
+                let scan_started = Instant::now();
+                let outcomes = batch
+                    .par_iter()
+                    .map_init(
+                        || {
+                            SearcherBuilder::new()
+                                .line_number(false)
+                                .bom_sniffing(false)
+                                .memory_map(MmapChoice::never())
+                                .build()
+                        },
+                        |searcher, entry| -> Result<ScanOutcome> {
+                            let (id, stamp) = *entry;
+                            let path = source.path.join(format!("{id}.json"));
+                            let mut file = source.file(id)?;
+                            let before = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if &before != stamp {
+                                return Err(Error::Unstable(path));
                             }
-                        }
-                        let after = Stamp::from_metadata(
-                            &file.metadata().map_err(|e| io(&path, e))?,
-                            &path,
-                        )?;
-                        if before != after || (candidate && outcome.source_bytes != after.size) {
-                            return Err(Error::Unstable(path));
-                        }
-                        Ok(outcome)
-                    },
-                )
-                .collect::<Result<Vec<_>>>()?;
-            self.metrics.grep_scans += entries.len() as u64;
-            self.metrics.grep_bytes += entries.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
-            self.metrics.grep_nanos += nanos(scan_started);
-            for ((id, stamp), outcome) in entries.into_iter().zip(outcomes) {
-                if outcome.candidate {
-                    self.metrics.grep_candidates += 1;
-                    self.metrics.source_reads += 1;
-                    self.metrics.source_bytes += outcome.source_bytes;
-                    self.metrics.parses += 1;
-                    self.metrics.parse_nanos += outcome.parse_nanos;
-                    self.metrics.json_decode_nanos += outcome.parse_nanos;
-                    self.metrics.query_nanos += outcome.query_nanos;
-                }
-                if outcome.matches {
-                    if matched >= request.offset && result.records.len() < request.limit {
-                        let raw = self.raw_from(&source, id, Some(stamp))?;
-                        let doc = self.parse(c, id, &raw.json, true);
-                        if doc.state.status == RecordStatus::IncorrectJson
-                            || !filter.matches(&doc.data)?
-                        {
-                            return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
-                        }
-                        result.records.push(Record {
-                            collection: c.name.clone(),
-                            id: id.clone(),
-                            path: self.path(c, id),
-                            hash: raw.hash,
-                            data: doc.data,
-                            state: doc.state,
-                            raw: None,
-                        });
+                            let candidate = if let Some((matcher, _)) = &prefilter {
+                                let mut sink = FirstMatch::default();
+                                searcher
+                                    .search_file(matcher, &file, &mut sink)
+                                    .map_err(|e| io(&path, e))?;
+                                sink.0
+                            } else {
+                                true
+                            };
+                            let mut outcome = ScanOutcome {
+                                candidate,
+                                ..Default::default()
+                            };
+                            if candidate {
+                                file.seek(SeekFrom::Start(0)).map_err(|e| io(&path, e))?;
+                                let mut bytes = Vec::new();
+                                file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
+                                outcome.source_bytes = bytes.len() as u64;
+                                let t = Instant::now();
+                                let doc = Document::parse(&bytes);
+                                outcome.parse_nanos = nanos(t);
+                                if doc.state.status != RecordStatus::IncorrectJson {
+                                    let t = Instant::now();
+                                    outcome.matches = filter.matches(&doc.data)?;
+                                    outcome.query_nanos = nanos(t);
+                                }
+                            }
+                            let after = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if before != after || (candidate && outcome.source_bytes != after.size)
+                            {
+                                return Err(Error::Unstable(path));
+                            }
+                            Ok(outcome)
+                        },
+                    )
+                    .collect::<Result<Vec<_>>>()?;
+                self.metrics.grep_scans += batch.len() as u64;
+                self.metrics.grep_bytes += batch.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
+                self.metrics.grep_nanos += nanos(scan_started);
+                for ((id, stamp), outcome) in batch.iter().zip(outcomes) {
+                    if outcome.candidate {
+                        self.metrics.grep_candidates += 1;
+                        self.metrics.source_reads += 1;
+                        self.metrics.source_bytes += outcome.source_bytes;
+                        self.metrics.parses += 1;
+                        self.metrics.parse_nanos += outcome.parse_nanos;
+                        self.metrics.json_decode_nanos += outcome.parse_nanos;
+                        self.metrics.query_nanos += outcome.query_nanos;
                     }
-                    matched += 1;
+                    if outcome.matches {
+                        if matched >= request.offset && result.returned() < request.limit {
+                            let raw = self.raw_from(&source, id, Some(stamp))?;
+                            let doc = self.parse(c, id, &raw.json, true);
+                            if doc.state.status == RecordStatus::IncorrectJson
+                                || !filter.matches(&doc.data)?
+                            {
+                                return Err(Error::Unstable(
+                                    source.path.join(format!("{id}.json")),
+                                ));
+                            }
+                            result.push(Record {
+                                collection: c.name.clone(),
+                                id: (*id).clone(),
+                                path: self.path(c, id),
+                                hash: raw.hash,
+                                data: doc.data,
+                                state: doc.state,
+                                raw: None,
+                            })?;
+                        }
+                        matched += 1;
+                    }
                 }
             }
             source.finish()?;
@@ -464,7 +580,7 @@ impl Repository {
         request: &JsonQuery,
         filter: &JsonFilter,
         collections: &[Collection],
-        result: &mut JsonQueryResult,
+        result: &mut QueryOutput<'_>,
     ) -> Result<()> {
         let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
         let source_pattern = filter.source_prefilter()?;
@@ -483,7 +599,7 @@ impl Repository {
             let risk = cardinality_risk || array_risk;
             // A later collection can contain an invalid array in a scalar field,
             // so build its picker and check that risk even when the page is full.
-            if !request.count && !risk && result.records.len() == request.limit {
+            if !request.count && !risk && result.returned() == request.limit {
                 continue;
             }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
@@ -494,10 +610,10 @@ impl Repository {
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
             let source = Source::open(&c.path)?;
-            let mut page_matches = Vec::new();
-            // Keep counted queries in one parallel batch. For an uncounted page,
-            // use bounded parallel batches and stop opening files once it fills.
-            let batch_size = if request.count || risk {
+            // Collected counted queries keep the original full parallel scan.
+            // Streaming queries use bounded batches so rows can be emitted
+            // while later candidates are still being checked.
+            let batch_size = if (request.count || risk) && !result.streaming {
                 entries.len().max(1)
             } else {
                 rayon::current_num_threads()
@@ -505,6 +621,7 @@ impl Repository {
                     .clamp(64, 512)
             };
             for batch in entries.chunks(batch_size) {
+                let mut page_matches = Vec::new();
                 let scan_started = Instant::now();
                 let outcomes = batch
                     .par_iter()
@@ -591,39 +708,38 @@ impl Repository {
                     }
                     if outcome.matches {
                         if matched >= request.offset
-                            && result.records.len() + page_matches.len() < request.limit
+                            && result.returned() + page_matches.len() < request.limit
                         {
                             page_matches.push(((*id).to_owned(), (*stamp).clone()));
                         }
                         matched += 1;
                     }
                 }
-                if !request.count
-                    && !risk
-                    && result.records.len() + page_matches.len() == request.limit
-                {
+                let materialize_started = Instant::now();
+                for (id, stamp) in page_matches {
+                    let raw = Self::read_raw(&mut self.metrics, &source, &id, Some(&stamp))?;
+                    let doc = Self::parse_value(&mut self.metrics, c, &id, &raw.json, true);
+                    if doc.state.status == RecordStatus::IncorrectJson
+                        || !filter.matches(&doc.data)?
+                    {
+                        return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                    }
+                    result.push(Record {
+                        collection: c.name.clone(),
+                        id: id.clone(),
+                        path: self.path(c, &id),
+                        hash: raw.hash,
+                        data: doc.data,
+                        state: doc.state,
+                        raw: None,
+                    })?;
+                }
+                self.metrics.bigram_materialize_nanos += nanos(materialize_started);
+                if !request.count && !risk && result.returned() == request.limit {
                     break;
                 }
             }
             drop(entries);
-            let materialize_started = Instant::now();
-            for (id, stamp) in page_matches {
-                let raw = self.raw_from(&source, &id, Some(&stamp))?;
-                let doc = self.parse(c, &id, &raw.json, true);
-                if doc.state.status == RecordStatus::IncorrectJson || !filter.matches(&doc.data)? {
-                    return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
-                }
-                result.records.push(Record {
-                    collection: c.name.clone(),
-                    id: id.clone(),
-                    path: self.path(c, &id),
-                    hash: raw.hash,
-                    data: doc.data,
-                    state: doc.state,
-                    raw: None,
-                });
-            }
-            self.metrics.bigram_materialize_nanos += nanos(materialize_started);
             source.finish()?;
         }
         result.total = request.count.then_some(matched);

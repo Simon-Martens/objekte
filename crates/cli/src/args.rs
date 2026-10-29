@@ -33,7 +33,8 @@ Options:
                                  Default: metadata-on-open
   --namespace NAME                Reuse a named cache (default: default)
   --fresh-cache                   Use a new namespace
-  --output table|json|ndjson       Views default to table, other commands to json; timings in ms
+  --output table|json|ndjson|events
+                                  Views default to table, other commands to json; events stream query records
   --background-workers N          Compatibility option; validation runs on demand
   --diagnostics                   Emit counters to stderr
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target

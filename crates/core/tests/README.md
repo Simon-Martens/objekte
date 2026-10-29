@@ -12,6 +12,8 @@ The routine core suite covers configuration, source safety, JSON and filter sema
 
 `json_query_oracle.rs` has a routine fixture test that scans source files with `serde_json` and handwritten predicates, then checks complete IDs against all four backends. Its opt-in Musenalm test applies an independent predicate to every one of the 43 benchmark filters and checks complete IDs against bigram and segments. `json_query_limit.rs` checks bounded parallel page scanning and full scans for counts or global cardinality errors.
 
+`json_query_stream.rs` compares streamed pages and metadata against collected queries on all four backends, and checks that a late scalar-cardinality error invalidates previously emitted records. CLI subprocess tests verify numbered provisional events, final metadata, and a late error event.
+
 The two Musenalm acceptance tests are opt-in because they read all 148,486 example records:
 
 ```sh

@@ -2,7 +2,7 @@
 
 use crate::{
     args::{HELP, args, data_dir},
-    output::{metrics_in_milliseconds, print_view},
+    output::{metrics_in_milliseconds, print_view, write_query_event},
 };
 use objekte_core::{
     CacheMode, Direction, Freshness, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
@@ -148,11 +148,16 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         );
     }
     let output = get("--output", if command == "view" { "table" } else { "json" });
-    if !["table", "json", "ndjson"].contains(&output.as_str()) {
+    if !["table", "json", "ndjson", "events"].contains(&output.as_str()) {
         return Err("unknown output format".into());
     }
-    if command != "view" && output != "json" && !(command == "query" && output == "ndjson") {
-        return Err("this command supports --output json; ndjson requires view/query and table requires view".into());
+    let output_allowed = match command {
+        "view" => matches!(output.as_str(), "table" | "json" | "ndjson"),
+        "query" => matches!(output.as_str(), "json" | "ndjson" | "events"),
+        _ => output == "json",
+    };
+    if !output_allowed {
+        return Err("this output format is unavailable for the command".into());
     }
     let freshness = options.freshness;
     let ingest_workers = options.ingest_workers;
@@ -190,17 +195,48 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                     }
                 },
             };
-            let mut result = repo.query_json(&request)?;
-            if output == "ndjson" {
-                for record in &result.records {
-                    println!("{}", serde_json::to_string(record)?);
+            if output == "events" {
+                let stdout = std::io::stdout();
+                let mut writer = stdout.lock();
+                let mut delivered = 0;
+                let streamed = repo.query_json_stream(&request, |ordinal, record| {
+                    write_query_event(
+                        &mut writer,
+                        &json!({"type":"record","ordinal":ordinal,"provisional":true,"record":record}),
+                    )?;
+                    delivered = ordinal;
+                    Ok(())
+                });
+                match streamed {
+                    Ok(summary) => {
+                        let mut event = serde_json::to_value(summary)?;
+                        event["type"] = json!("complete");
+                        event["provisional"] = json!(false);
+                        event["metrics"] = metrics_in_milliseconds(event["metrics"].take());
+                        write_query_event(&mut writer, &event)?;
+                    }
+                    Err(error) => {
+                        let _ = write_query_event(
+                            &mut writer,
+                            &json!({"type":"error","message":error.to_string(),"provisional_records":delivered}),
+                        );
+                        return Err(error.into());
+                    }
                 }
                 None
             } else {
-                result.metrics = repo.metrics().clone();
-                let mut value = serde_json::to_value(result)?;
-                value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
-                Some(value)
+                let mut result = repo.query_json(&request)?;
+                if output == "ndjson" {
+                    for record in &result.records {
+                        println!("{}", serde_json::to_string(record)?);
+                    }
+                    None
+                } else {
+                    result.metrics = repo.metrics().clone();
+                    let mut value = serde_json::to_value(result)?;
+                    value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
+                    Some(value)
+                }
             }
         }
         "validate" => {

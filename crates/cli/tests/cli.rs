@@ -898,6 +898,112 @@ fn bigram_cli_backend_matches_default_query_results() {
 }
 
 #[test]
+fn query_events_stream_numbered_records_and_completion_metadata() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    for cache in ["memory", "segments"] {
+        let args = [
+            p,
+            "query",
+            "books",
+            "score >= 2",
+            "--count",
+            "--offset",
+            "1",
+            "--limit",
+            "2",
+            "--cache",
+            cache,
+        ];
+        let collected = value(run(&f, &args));
+        let mut event_args = args.to_vec();
+        event_args.extend(["--output", "events"]);
+        let output = run(&f, &event_args);
+        assert!(
+            output.status.success(),
+            "{}",
+            String::from_utf8_lossy(&output.stderr)
+        );
+        let events = String::from_utf8(output.stdout)
+            .unwrap()
+            .lines()
+            .map(|line| serde_json::from_str::<Value>(line).unwrap())
+            .collect::<Vec<_>>();
+        assert_eq!(events.len(), 3, "{cache}");
+        for (index, event) in events[..2].iter().enumerate() {
+            assert_eq!(event["type"], "record");
+            assert_eq!(event["ordinal"], index + 1);
+            assert_eq!(event["provisional"], true);
+            assert_eq!(event["record"], collected["records"][index]);
+        }
+        let complete = &events[2];
+        assert_eq!(complete["type"], "complete");
+        assert_eq!(complete["provisional"], false);
+        assert_eq!(complete["returned"], 2);
+        assert_eq!(complete["total"], collected["total"]);
+        assert_eq!(complete["filter_hash"], collected["filter_hash"]);
+        assert_eq!(complete["dependencies"], collected["dependencies"]);
+        assert_eq!(complete["query_plan"], collected["query_plan"]);
+        assert!(complete["metrics"]["query_ms"].is_number());
+    }
+}
+
+#[test]
+fn query_events_report_late_errors_after_provisional_records() {
+    let f = Fixture::new();
+    let books = f.root.join("data/books");
+    for entry in fs::read_dir(&books).unwrap() {
+        fs::remove_file(entry.unwrap().path()).unwrap();
+    }
+    for number in 0..600 {
+        fs::write(
+            books.join(format!("r{number:03}.json")),
+            serde_json::to_vec(&json!({"title":"hit","payload":null})).unwrap(),
+        )
+        .unwrap();
+    }
+    fs::write(
+        books.join("zbad.json"),
+        serde_json::to_vec(&json!({"title":["hit","other"],"payload":null})).unwrap(),
+    )
+    .unwrap();
+    let p = f.root.to_str().unwrap();
+    let output = run(
+        &f,
+        &[
+            p,
+            "query",
+            "books",
+            "title = 'hit'",
+            "--count",
+            "--limit",
+            "2",
+            "--output",
+            "events",
+            "--cache",
+            "memory",
+        ],
+    );
+    assert!(!output.status.success());
+    let events = String::from_utf8(output.stdout)
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str::<Value>(line).unwrap())
+        .collect::<Vec<_>>();
+    assert_eq!(events.len(), 3);
+    assert_eq!(events[0]["record"]["id"], "r000");
+    assert_eq!(events[1]["record"]["id"], "r001");
+    assert_eq!(events[2]["type"], "error");
+    assert_eq!(events[2]["provisional_records"], 2);
+    assert!(
+        events[2]["message"]
+            .as_str()
+            .unwrap()
+            .contains("multiple values")
+    );
+}
+
+#[test]
 fn diagnostics_reports_segment_query() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();

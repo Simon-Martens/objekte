@@ -1,7 +1,21 @@
-//! Table, JSON, and NDJSON presentation.
+//! Table, JSON, NDJSON, and streaming query-event presentation.
 
-use objekte_core::ViewResult;
+use objekte_core::{Error, Result as CoreResult, ViewResult};
 use serde_json::{Value, json};
+use std::io::{self, Write};
+
+
+/// Write and flush one query event so a CLI consumer can act immediately.
+pub(super) fn write_query_event(writer: &mut impl Write, event: &Value) -> CoreResult<()> {
+    let output_error = |source| Error::Io {
+        path: "<stdout>".into(),
+        source,
+    };
+    serde_json::to_writer(&mut *writer, event)
+        .map_err(|error| output_error(io::Error::other(error)))?;
+    writer.write_all(b"\n").map_err(output_error)?;
+    writer.flush().map_err(output_error)
+}
 
 pub(super) fn metrics_in_milliseconds(metrics: Value) -> Value {
     let Value::Object(fields) = metrics else {
