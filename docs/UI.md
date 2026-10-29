@@ -1,135 +1,32 @@
-# Deferred UI work
+# Deferred desktop UI work
 
-This is a backlog for the later persistent UI, not a requirement for the current
-CLI implementation. Current work focuses on fast repository opening, source
-comparison, cache updates, queries, and phase timings in individual commands.
-The features below are planned; this document does not make them implemented.
+There is no persistent desktop UI yet. The current Rust library and CLI provide source-backed views, JSON filters, validation commands, source refresh, and optional segment snapshots. The UI will keep a `Repository` handle open, schedule expensive calls away from its event loop, and present their results. The CLI remains a single-command caller.
 
-## Completion status
+## Library state the UI can use today
 
-- [x] Library prerequisites: configuration/source reconciliation, cache status, record validation states, and coalesced validation notifications.
-- [ ] Persistent desktop UI and features 1–8 below.
+- A lazily built in-memory picker supports repeated queries within one process. It has changed-file overlays, ordered scalar keys, per-record revisions, and deletion tombstones. `refresh(collection)` reconciles external changes by inventory; the picker also has a targeted `refresh_id` method for a future watcher or editor integration.
+- Optional segments persist source metadata, revision numbers, configuration digests, and cache generations across processes. The default memory mode keeps its indexes and revisions only in the active handle. `refresh_configuration()` reports changed inputs and affected collections; its report persists only in segment mode. `cache status` reports coverage and schema compatibility, but does not prove source freshness beyond the selected reconciliation policy.
+- Views and JSON queries expose query plans, metrics, and source-backed results. JSON query dependency metadata includes searched collections, paths, and a filter hash; persistent collection revisions are available with segments. A view result also has a view hash. These are inputs for future invalidation, not a complete query-result cache.
+- `get_record` reads the original file. It reports malformed JSON immediately; a parseable record may have `pending` schema status in memory mode. Query matches and memory/segment view pages are schema-validated when returned. Explicit `validate` scans source records. Validation status and diagnostics are not persisted in the cache; there are no validation workers or update notifications. `poll_validation_updates()` currently returns no updates, and `wait_for_validation()` has no queued work to wait for.
+- Incoming references are discovered from source on request. For complete coverage in memory mode, request `references_to(..., complete = true, ...)`; partial coverage only includes references already observed in this handle.
 
-Repository semantics, dependency tracking, reconciliation, and caches remain
-library responsibilities. The UI supplies user intent and presents results. Its
-need for an event loop must not require the CLI to keep a session running.
+## UI features to implement
 
-## Features
-
-1. **Optimistic delivery of cached results.** Return a compatible cached view
-   immediately, with an explicit freshness state, while verification runs. Check
-   repository identity and applicable schema/mapping/cache compatibility before
-   reusing it. Publish updated results after the library commits a consistent
-   cache revision. Distinguish cached results awaiting verification from results
-   verified under the selected reconciliation policy. If verification fails,
-   report the problem without presenting the previous snapshot as current.
-
-2. **Patch visible results after reconciliation.** Identify rows by collection
-   and record ID. Changes can affect values, ordering, filter membership, page
-   boundaries, labels, and totals. Reexecute affected active views through the
-   library and compare their results; the UI applies inserts, removals, moves,
-   and value updates while preserving selection and scroll position where
-   possible. Updating the fields of already visible rows alone is insufficient.
-   Finer dependency-based invalidation can follow the library's query work.
-
-3. **Filesystem watching for external changes.** Watch requested collections and
-   relevant configuration/schema/UI files. Coalesce event bursts and mark affected
-   paths dirty; the library reconciles additions, changes, removals, and renames.
-   Events are hints, not the sole source of truth. Startup reconciliation still
-   covers changes while the app was closed; dropped events or watcher failures
-   trigger reconciliation. Define periodic recovery according to the chosen
-   freshness policy. These subscriptions are unnecessary for a single CLI command.
-
-   The library now persists configuration digests and their collection consumers.
-   Use `refresh_configuration()` on startup and for configuration events. Its report
-   identifies changed input files and candidate collections; `cache status` exposes
-   applied versus expected schema hashes and `configuration_current`. Schedule
-   collection refreshes for affected active views. Also check persisted compatibility
-   on startup: a previous process may have observed new configuration without
-   updating a collection. An empty change report does not prove all caches are current.
-   Record files still need their separate collection manifest reconciliation.
-   The JSON file picker can already refresh one ID or reconcile a full
-   inventory. A future watcher can feed changed paths to the targeted update,
-   coalesce bursts, and fall back to inventory refresh after missed events.
-
-4. **Background jobs.** Run verification, cache construction, queries, and other
-   expensive work away from the UI thread. Background reconciliation is the normal
-   freshness mechanism while a project is open: the UI schedules library refreshes
-   for initial verification, watcher events, and periodic recovery checks. Users
-   need not manually refresh to observe external edits, and ordinary view
-   interactions need not trigger a full source scan. Keep the compatible cached
-   snapshot usable with its freshness state while work runs, then patch affected
-   views after the library commits the updated cache revision, as described above.
-   The library owns change detection and cache synchronization; the UI owns job
-   scheduling and presentation. Provide progress, cancellation, and
-   completion/failure notifications through library APIs. Prioritize work needed
-   by the visible view over speculative work. Bound concurrency and batch source
-   changes; commit consistent updates before notifying consumers. Avoid holding
-   an exclusive repository/cache lock throughout an entire UI session.
-
-5. **Prefetch on hover, focus, or idle time.** The UI can request a likely next
-   record, related view, or neighboring page before navigation, or warm explicitly
-   chosen data while the user is idle. Use the same library operations and cache
-   rules as ordinary requests. Delay fleeting hover requests, deduplicate work,
-   limit speculative I/O/memory, and cancel obsolete work. A prefetch remains
-   optional and must not block an explicit request or scan every collection.
-   This does not introduce heuristic index creation into the current CLI plan.
-
-6. **Reuse repository state and database connections.** Keep repository handles
-   alive for an open project and retain useful parsed metadata, prepared queries,
-   and connections where appropriate. Reuse must remain compatible with cache
-   deletion, another process updating the cache, configuration changes, and source
-   invalidation. Load collections lazily. Operation-scoped locks and transactions
-   allow other clients to use the repository. Tuning this session lifetime is
-   deferred until the UI work; it is not the current command performance target.
-   Track file access frequency in a persistent UI session if it measurably
-   improves result ranking or prefetch selection. Keep that ranking separate
-   from structural query membership and ID ordering.
-
-7. **Reject obsolete asynchronous results.** Tag requests with the view identity
-   and parameters, request ID, and relevant cache revision. An earlier slow query
-   or prefetch must not replace a newer sort, filter, page, or repository selection.
-   Cancel obsolete work when possible and discard its results when necessary.
-
-8. **Freshness, progress, and timing presentation.** Show whether a view is cached,
-   being checked, current under the selected policy, or affected by an error.
-   Retain library phase timers and structured logs, shared with the CLI. The UI
-   consumes these events for progress and troubleshooting; it does not implement
-   a second source scanner or cache updater. On project close, unsubscribe and
-   cancel background jobs; interruption must leave recoverable cache state.
+1. **Open and refresh in the background.** Keep repository handles alive while the project is open. Run first index builds, source reconciliation, queries, and explicit validation away from the UI thread. Show progress and errors without blocking navigation. Bound concurrency and cancel obsolete work.
+2. **Watch relevant paths.** Watch collection directories and configuration/schema/UI files. Coalesce bursts, refresh affected collections, and recover from missed events with an inventory pass. A watcher may use targeted file refresh for individual records, then fall back to a full refresh when events are incomplete. Git status is available on demand in the file picker; it is not a source-change watcher.
+3. **Show freshness honestly.** Distinguish a returned result, a result awaiting source verification, and a result verified under the selected freshness policy. Segment snapshots can be reused after compatibility checks; memory indexes are process-local. Do not present an older snapshot as current after reconciliation fails.
+4. **Patch visible views after changes.** Reexecute affected requests and compare by collection and record ID. Apply value, membership, ordering, page-boundary, and total-count changes while preserving selection and scroll position where possible. Query dependency metadata can help decide what to rerun, but the current library does not maintain live result subscriptions.
+5. **Reject obsolete asynchronous results.** Tag requests with view identity, parameters, and a request ID. A slow earlier filter, sort, or prefetch result must not replace a newer one. Cancel where practical and discard late results otherwise.
+6. **Prefetch selectively.** Hover, focus, adjacent pages, and idle time can warm likely next records or collections. Delay fleeting requests, deduplicate work, and cap memory and I/O. File-access frequency may improve prefetch or ranking in a persistent session; it must not change structural query membership or deterministic ID ordering.
+7. **Present record state and diagnostics.** Show `pending`, `valid`, `invalid`, and `incorrect_json` distinctly. A malformed record can still provide its ID/path and raw bytes through `get_record`. To show schema diagnostics for a parseable `get_record` response, the UI needs an explicit validation path or a library change that validates that response in all modes. Do not infer validity from typed cache keys.
+8. **Use phase timings for troubleshooting.** Display useful counters and timings from library responses. On project close, unsubscribe watchers and cancel jobs; an interrupted segment update must leave source files intact and a recoverable cache.
 
 ## Later acceptance checks
 
-- Cached rows can appear before verification finishes, with accurate freshness.
-- Reconciliation patches changed values, removals, ordering, filter membership,
-  page boundaries, and totals correctly.
-- Changes made while the app is closed, event bursts, and missed events recover
-  through reconciliation.
-- External edits while the UI remains open reach visible views through background
-  reconciliation without manual refresh or a full scan on every interaction.
-- Rapid sort/filter/navigation changes cannot display obsolete responses.
-- Hover and idle prefetch stay within configured budgets and yield to user work.
-- Cancellation, cache deletion, invalid files, and interrupted jobs preserve
-  authoritative source files and do not falsely report a verified view.
+- External edits, deletes, renames, configuration changes, event bursts, and missed watcher events reach visible results without requiring a full scan on every interaction.
+- A changed record can enter or leave a filtered page, move under a sort, alter a total, and update an incoming-reference view correctly.
+- Rapid navigation and cancellation never display an obsolete response as the latest one.
+- Background jobs report useful progress and failures; pending schema status is not mistaken for valid or invalid.
+- Cache deletion, interrupted writes, and invalid source files preserve the authoritative JSON files.
 
-The initial library/CLI contract is in [implementation.md](implementation.md).
-The measured startup and query costs are in
-[the library profile](crates/bench/LIBRARY-PROFILE-2026-10-28.md).
-
-## Validation status available from the library
-
-The cache now distinguishes pending, valid, invalid and incorrect JSON per record.
-Render pending separately from known-invalid records. Views supply `states[id]`;
-record details include all JSON Pointer diagnostics and original values. Incorrect
-JSON rows still have ID/path and `get_record` supplies exact raw bytes for an editor.
-A malformed file replaces any older cached data; do not display the old row as current.
-
-Use `poll_validation_updates()` to receive coalesced collection changes after commits
-and requery visible rows. Workers and writer serialization live in the library. UI
-file watchers/background freshness checks still call `refresh`; validation workers
-are not file watchers and cannot observe edits until reconciliation sees them.
-`wait_for_validation()` is available for explicit completion flows and tests. Do not
-block the UI on it. Background failures surface through wait/poll APIs; pending work
-survives and can resume on a new repository handle. Ordinary schema errors are data,
-not background-job failures. Validity does not change query membership by itself;
-invalid typed fields have their own index state and raw values remain displayable.
+The active cache contract is in [implementation.md](implementation.md), validation behavior in [validation.md](validation.md), and measured query costs in [Performance.md](Performance.md). Saved/grouped views, source-file write APIs, raw grep results, and cleaned-content search are separate product work in [MVP.md](MVP.md).

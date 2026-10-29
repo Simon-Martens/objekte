@@ -1,8 +1,9 @@
 # Musenalm query examples
 
 Run these commands from the project root. Each line is independent and uses the
-seven registered collections in `examples/musenalm`. The default in-memory picker
-builds on first use of a collection and is reused within that process. Use `--release`
+seven registered collections in `examples/musenalm`. Each command starts a new
+process and builds the default in-memory picker on first use of a collection;
+repeated queries on one library `Repository` handle reuse it. Use `--release`
 for the large `contents` collection. Source JSON files are never changed.
 
 `query` reads stored JSON fields, including fields outside the collection's list

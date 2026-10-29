@@ -28,7 +28,7 @@ Actual JSON types are distinct: `"1800" = 1800` is false, and `true` differs fro
 
 ## Execution
 
-`--backend auto` (the default) uses the in-memory bigram and typed indexes. `--backend direct` evaluates original JSON files without an index. `--backend segments` requires the persistent segment cache; `--backend grep` searches original JSON files with ripgrep's parallel searcher. Every path uses the same compiled evaluator for final matching.
+`--backend auto` (the default) and explicit `--backend bigram` use the in-memory bigram and typed indexes, even if `--cache segments` is selected for views. `--backend direct` evaluates original JSON files without an index. `--backend segments` requires the persistent segment cache; `--backend grep` searches original JSON files with ripgrep's parallel searcher. Every path uses the same compiled evaluator for final matching.
 
 The in-memory backend builds consecutive and skip-one bigram postings over decoded scalar values and ordered postings for declared number, boolean, and enum fields on first use. It intersects safe text and typed candidates, and unions typed candidates across `OR` branches when every branch can be narrowed safely. It then opens source JSON and verifies the complete filter with Sonic. Changed files enter a conservative overlay until the index is rebuilt. It does not persist query data.
 
@@ -36,7 +36,7 @@ The segment backend first checks persistent ordered lists for simple top-level s
 
 The raw-file grep backend reuses checked source inventory and descriptors. It opens files in parallel, searches a necessary literal if one exists, parses candidates with Sonic, and verifies the complete filter. When no safe literal exists it parses every file. Scalar-cardinality errors in files excluded by the raw-byte prefilter may not be observed by this optional backend; the default bigram backend preserves global checking.
 
-Parseable records remain searchable even when they fail their schema, provided the requested path is declared. Malformed JSON never matches. Returned records are validated on demand. The cache stores neither validation status nor full JSON payloads. Each result includes dependency collection names, referenced paths, searchable collection revisions when cached, a filter hash, a query plan, and metrics. Direct execution has no persistent revision dependencies.
+Parseable records remain searchable even when they fail their schema, provided the requested path is declared. Malformed JSON never matches. Returned records are validated on demand. The cache stores neither validation status nor full JSON payloads. Each result includes dependency collection names and paths, a filter hash, a query plan, and metrics. Segment-backed results also include persistent searchable collection revisions; the in-memory picker keeps only per-record revisions in its current process.
 
 Filters are limited to 16 KiB, 256 atoms/groups, 32 nested groups, and 32 path steps. Syntax, unbound parameters, nonscalar literal operands, unknown collections, and incompatible explicitly scoped filters fail before source enumeration. Runtime cardinality errors fail the query instead of returning a partial page.
 

@@ -8,7 +8,8 @@ Objekte reads JSON collections from a repository. The JSON files are authoritati
 - [Filter semantics](filters.md) describe exact matching, arrays, and backend selection.
 - [Validation](validation.md) explains on-demand JSON Schema checks.
 - [Cache implementation](implementation.md) describes snapshots, updates, revisions, and compaction.
-- [Performance results](Performance.md) retain historical engine comparisons; current behavior is described here.
+- [Performance results](Performance.md) summarize current warm queries and point to historical experiments.
+- [MVP and roadmap](MVP.md) separate implemented library features from later product work.
 
 ```sh
 cargo test --workspace --all-targets
@@ -22,4 +23,4 @@ The in-memory picker is built lazily per collection and reused for repeated quer
 
 All top-level fields declared as numbers, integers, booleans, or enums receive ordered lists, regardless of view configuration. String ordering is planned. View sorts and filters keep their existing permissions from collection UI settings; the cache's index coverage is broader than those permissions.
 
-Validation happens when records are returned or explicitly requested. JSON/schema status is not persisted in the cache. Reference occurrences are extracted from source records on request. Backlink lookup scans referring collections so edits, moves, and deletions become visible without a persisted edge table.
+Schema validation runs for JSON query matches, memory/segment view pages, explicit validation, and `get_record` in segment mode. A parseable `get_record` response in memory mode has `pending` status. Status is not persisted in the cache. Reference occurrences are extracted on request; complete backlink lookup scans referring collections, while the default memory lookup can report partial coverage.

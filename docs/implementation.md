@@ -12,7 +12,7 @@ Changed files update their ordered view keys and revision timestamps immediately
 
 ## Optional segment files
 
-## Files
+### Files
 
 Each collection has a directory under `<data-dir>/repositories/<root-digest>/<namespace>/segments/<collection-digest>/`:
 
@@ -29,22 +29,22 @@ A text line contains decoded scalar values from the JSON document, without brace
 
 Metadata for each current ID stores its source size, modification nanoseconds and file identity (including ctime on Linux), content digest, record revision, change timestamp, text line/byte offset/length, typed keys, and array flags. Deletion tombstones retain the last revision and change time so recreating an ID advances its revision. IDs are byte-sorted in the metadata map. A stable hash assigns each ID to a shard. New caches use twice the Rayon worker count, capped by the number of records. Existing caches retain their shard count.
 
-## Updates and publication
+### Updates and publication
 
 Reconciliation inventories the collection and compares its manifest. Unchanged stamps reuse metadata. Changed files are read and hashed; equal content updates only the stamp. A changed value appends a new line in its existing shard, clears the old line's ID, increments its record revision, and updates ordered lists. Deletions clear the current ID and its typed keys. Source JSON is never rewritten by cache maintenance.
 
 When stale text exceeds 25% of live text in a touched shard, only that shard is rewritten with current lines. The new metadata and text file are written and synced before `CURRENT.json` is replaced through a same-filesystem rename. Readers hold a shared lock for the whole snapshot search, so old shard files can be removed after publication without invalidating an active reader. The write lock covers reconciliation and publication. A future process can rebuild everything from source if a write is interrupted.
 
-## Reads
+## Query reads
 
 A general JSON filter can use a safe values-text literal and ordered scalar lists to narrow candidates. Ripgrep's `grep-searcher` scans shards in parallel; Sonic parses original JSON candidates and checks the complete expression, including exact numeric comparisons and global scalar cardinality. A view uses ordered lists for simple numeric, boolean, or enum ordering and reads the selected page from source. Other view shapes use candidate scanning and in-memory sort. The direct backend remains the reference for result parity.
 
-The default JSON filter query backend builds FFF-compatible consecutive and skip-one bigram postings over decoded scalar values, plus in-memory ordered postings for all declared number, boolean, and enum fields. FFF's regex syntax planner narrows text candidates; simple conjunctive scalar comparisons narrow them further. Edited files enter a conservative overlay until rebuild. Source JSON is still parsed and checked for every candidate. This index is built on first use and is not persisted. `--backend segments` and `--backend direct` remain available explicitly. Segment-backed views require `--cache segments`.
+The default JSON filter query backend builds FFF-compatible consecutive and skip-one bigram postings over decoded scalar values, plus in-memory ordered postings for all declared number, integer, boolean, and enum fields. FFF's regex syntax planner narrows text candidates; safe typed comparisons narrow them further. For `OR`, typed postings are unioned only when every branch has a safe indexed candidate set. Edited files enter a conservative overlay until rebuild. Source JSON is still parsed and checked for every candidate. This index is built on first use and is not persisted. `--backend segments`, `--backend direct`, and `--backend grep` remain available explicitly. Segment-backed views require `--cache segments`.
 
 Ordered lists are built for every top-level declared number, integer, boolean, and enum field, independent of UI filters and sorts. Null, missing, and invalid-type keys retain their view ordering. Current enum ordering is the scalar's bytewise value order. String ABC sorting is planned.
 
-JSON Schema validation is performed on demand for returned records and explicit `validate` commands. The cache stores neither validation states nor reference edges. Outgoing references are extracted from a requested record; incoming references are discovered by scanning referring source collections. `cache status` reports source/cache coverage and revisions, with an empty persisted-validation map.
+JSON Schema validation is performed for returned JSON query matches, memory/segment view pages, explicit `validate` commands, and `get_record` in segment mode. A parseable `get_record` response in memory mode is still `pending`; direct views also return parseable page records as `pending`. The cache stores neither validation states nor reference edges. Outgoing references are extracted from a requested record. Incoming references use previously observed edges in memory mode unless complete coverage is requested; segment mode scans referring source collections. `cache status` reports coverage and revisions, with an empty persisted-validation map.
 
 ## Freshness and limitations
 
-The default `metadata-on-open` policy verifies a collection on first use of a repository handle. `metadata-on-request` repeats the check. `hash-on-open` and `hash-on-request` rehash source contents according to the same timing policy. A same-handle edit under an on-open policy needs `refresh` to become visible; reading a changed page file before refresh can return `Unstable` instead of a stale result. Query results themselves are not cached. Page records are read from source after index selection, so a warm page still incurs those source reads. The cache is local to the machine and can be deleted at any time.
+The default `metadata-on-open` policy builds/checks a collection on first use of a repository handle. `metadata-on-request` repeats source metadata checks; `refresh` explicitly reconciles a collection. In segment mode, hash policies also compare source contents at the corresponding open/request point. For the in-memory picker, `hash-on-request` rebuilds it on each request; it does not maintain a separate persistent content-hash manifest. A same-handle edit under an on-open policy needs `refresh` to enter the picker; reading a changed page file before refresh can return `Unstable` instead of a stale result. Query results themselves are not cached. Page records are read from source after index selection, so a warm page still incurs those source reads. Segment cache files are local to the machine and can be deleted at any time.
