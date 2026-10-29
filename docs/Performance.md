@@ -16,7 +16,7 @@ The initial in-memory index build took 525 ms and 520 ms in those two processes.
 
 ### First-use index build breakdown
 
-The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading and projecting every source file, bigram compression, typed postings, and ordered view keys. On 29 October 2026, a single warm-filesystem-cache `contents` query over 133,948 JSON files gave these stage timings (milliseconds):
+The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading and projecting every source file, bigram compression, typed postings, and ordered view keys. Detailed stage timers are compiled only with the opt-in `index-timings` Cargo feature. Normal release builds omit their measurement code and their diagnostic fields; the overall `bigram_open_ms` remains available. On 29 October 2026, a single warm-filesystem-cache `contents` query over 133,948 JSON files gave these stage timings (milliseconds):
 
 | Stage | Release | Debug |
 | --- | ---: | ---: |
@@ -29,6 +29,12 @@ The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading a
 | **Total `bigram_open_ms`** | **712** | **3,852** |
 
 The stages leave a small amount of setup and cleanup outside their timers. The scan runs in parallel; `bigram_project_worker_ms` and `bigram_add_worker_ms` in diagnostics sum elapsed time across workers, including any waits, and therefore must not be added to wall timings. In this run, typed postings and ordered view keys together accounted for roughly 42% of release build time and 58% of debug build time. Both structures currently hold scalar-field information independently. The observed time depends on build profile, hardware, file cache, and collection. A fresh CLI process rebuilds these structures even if the same query ran immediately before.
+
+To collect the detailed timings in an optimized build:
+
+```sh
+cargo run --release -p objekte-cli --features index-timings -- examples/musenalm query contents 'year = 1800' --count --diagnostics
+```
 
 The forward run's median candidate selection took 1.4 ms, and its median source scan and verification took 12.8 ms. The phases are medians over different cases and do not add up to a representative request. For the old `preferred_title ~ 'Liebe' && year = 1800` query (now written with `:ignorecase('Liebe')`), intersecting text and typed postings selected 242 files and the full query took 1.8 ms. Common short strings can be less selective: `preferred_title = 'No. 11.'` opened 16,141 candidate files and took 17.4 ms with bigrams versus 6.4 ms with segments. Broad or negated queries may need to read most files, especially with `--count`.
 

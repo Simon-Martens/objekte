@@ -872,6 +872,7 @@ fn bigram_cli_backend_matches_default_query_results() {
         ],
     );
     let diagnostic = diagnostics(&actual_output);
+    #[cfg(feature = "index-timings")]
     for phase in [
         "bigram_inventory_ms",
         "bigram_slots_ms",
@@ -887,6 +888,9 @@ fn bigram_cli_backend_matches_default_query_results() {
             "{phase}"
         );
     }
+
+    #[cfg(not(feature = "index-timings"))]
+    assert!(diagnostic["metrics"].get("bigram_inventory_ms").is_none());
     let actual = value(actual_output);
     assert_eq!(actual["total"], 1);
     assert_eq!(actual["total"], expected["total"]);

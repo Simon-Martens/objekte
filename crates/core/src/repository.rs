@@ -81,24 +81,30 @@ impl Options {
 }
 
 
+// Propagate field attributes through arithmetic so feature-gated counters
+// disappear from Metrics and its operations together.
 macro_rules! metrics {
-    ($($field:ident),* $(,)?) => {
+    ($($(#[$field_attr:meta])* $field:ident),* $(,)?) => {
         // INFO: Cumulative operation counters and nanosecond timings.
         #[derive(Debug, Default, Clone, PartialEq, Eq, Serialize)]
         pub struct Metrics {
-            $(pub $field: u64,)*
+            $($(#[$field_attr])* pub $field: u64,)*
         }
 
 
         impl Metrics {
             pub fn since(&self, before: &Self) -> Self {
-                Self {
-                    $($field: self.$field.saturating_sub(before.$field),)*
-                }
+                let mut difference = Self::default();
+                $($(#[$field_attr])* {
+                    difference.$field = self.$field.saturating_sub(before.$field);
+                })*
+                difference
             }
 
             fn merge(&mut self, other: &Self) {
-                $(self.$field = self.$field.saturating_add(other.$field);)*
+                $($(#[$field_attr])* {
+                    self.$field = self.$field.saturating_add(other.$field);
+                })*
             }
 
         }
@@ -151,13 +157,21 @@ metrics!(
     grep_bytes,
     grep_nanos,
     bigram_open_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_inventory_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_slots_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_scan_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_project_worker_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_add_worker_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_compress_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_typed_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_view_nanos,
     bigram_refresh_nanos,
     bigram_candidates_nanos,
