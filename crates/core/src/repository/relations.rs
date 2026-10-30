@@ -68,14 +68,9 @@ impl Repository {
         Ok(out)
     }
 
-    /// Reads the authoritative file, even when a persistent cache exists.
+    /// Reads the authoritative file.
     pub fn get_record(&mut self, collection: &str, id: &str) -> Result<Option<Record>> {
-        let before = self.metrics.clone();
-        let result = self.get_record_inner(collection, id);
-        if result.is_err() {
-            self.metrics.rollback_writes(&before);
-        }
-        result
+        self.get_record_inner(collection, id)
     }
 
     pub(super) fn get_record_inner(
@@ -86,7 +81,6 @@ impl Repository {
         self.reload()?;
         let c = self.collection(collection)?;
         validate_id(id)?;
-        self.verified.remove(collection);
         self.memory_coverage
             .insert(collection.into(), "partial".into());
         let result = self.raw(&c, id);
@@ -97,19 +91,11 @@ impl Repository {
                     && path == c.path.join(format!("{id}.json")) =>
             {
                 self.memory_edges.remove(&(collection.into(), id.into()));
-                if self.options.cache == CacheMode::Segments {
-                    self.sync_segments(&c, true)?;
-                }
                 return Ok(None);
             }
             Err(e) => return Err(e),
         };
-        let mut value = self.parse(&c, id, &raw.json, false);
-        if self.options.cache == CacheMode::Segments {
-            value.validate(&c);
-            self.metrics.validations += 1;
-            self.sync_segments(&c, true)?;
-        }
+        let value = self.parse(&c, id, &raw.json, false);
         let edges = self.extract(&c, id, &value)?;
         self.memory_edges
             .insert((collection.into(), id.into()), edges);
@@ -168,44 +154,22 @@ impl Repository {
             .collect::<BTreeSet<_>>();
         let mut edges = Vec::new();
         let mut coverage = Vec::new();
-        if self.options.cache == CacheMode::Segments {
+        if complete {
             for source in &sources {
                 let c = self.collection(source)?;
-                self.sync_segments(&c, false)?;
                 self.direct(&c, None, false)?;
-                coverage.push(
-                    self.cache_status()?
-                        .collections
-                        .into_iter()
-                        .find(|coverage| coverage.collection == *source)
-                        .unwrap(),
-                );
             }
-            edges.extend(
-                self.memory_edges
-                    .values()
-                    .flatten()
-                    .filter(|edge| edge.target_collection == collection && edge.target_id == id)
-                    .cloned(),
-            );
-        } else {
-            if complete {
-                for source in &sources {
-                    let c = self.collection(source)?;
-                    self.direct(&c, None, false)?;
-                }
-            }
-            for source in &sources {
-                coverage.push(self.coverage(source)?);
-            }
-            edges.extend(
-                self.memory_edges
-                    .values()
-                    .flatten()
-                    .filter(|e| e.target_collection == collection && e.target_id == id)
-                    .cloned(),
-            );
         }
+        for source in &sources {
+            coverage.push(self.coverage(source)?);
+        }
+        edges.extend(
+            self.memory_edges
+                .values()
+                .flatten()
+                .filter(|e| e.target_collection == collection && e.target_id == id)
+                .cloned(),
+        );
         if check_targets {
             self.resolve_targets(&mut edges)?;
         }

@@ -4,6 +4,7 @@ use serde::Deserialize;
 use std::path::PathBuf;
 
 
+/// One filter and its expected source-derived result set.
 #[derive(Deserialize)]
 struct Case {
     name: String,
@@ -15,8 +16,7 @@ struct Case {
 #[ignore = "reads the 133,948 Musenalm content records across the complete query workload; run with --release --ignored --nocapture"]
 fn every_bigram_match_agrees_with_direct_source_evaluation() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
-    let temp = tempfile::tempdir().unwrap();
-    let mut options = Options::new(temp.path());
+    let mut options = Options::new();
     options.cache = CacheMode::Disabled;
     let mut direct = Repository::load_repository(&root, options.clone()).unwrap();
     let mut bigram = Repository::load_repository(&root, options).unwrap();

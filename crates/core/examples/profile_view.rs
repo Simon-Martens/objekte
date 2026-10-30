@@ -1,29 +1,27 @@
 //! Profile the same view repeatedly through one library session, then reopen it.
-//! Usage: profile_view REPOSITORY COLLECTION DATA_DIR [REQUESTS] [REQUEST.json]
+//! Usage: profile_view REPOSITORY COLLECTION [REQUESTS] [REQUEST.json]
 use objekte_core::{Options, Repository, ViewRequest};
 use serde_json::json;
 use std::{env, error::Error, fs, time::Instant};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let args = env::args().skip(1).collect::<Vec<_>>();
-    if !(3..=5).contains(&args.len()) {
-        return Err(
-            "usage: profile_view REPOSITORY COLLECTION DATA_DIR [REQUESTS] [REQUEST.json]".into(),
-        );
+    if !(2..=4).contains(&args.len()) {
+        return Err("usage: profile_view REPOSITORY COLLECTION [REQUESTS] [REQUEST.json]".into());
     }
     let repeats = args
-        .get(3)
+        .get(2)
         .map(|s| s.parse::<usize>())
         .transpose()?
         .unwrap_or(5);
     if repeats == 0 {
         return Err("REQUESTS must be positive".into());
     }
-    let request: ViewRequest = match args.get(4) {
+    let request: ViewRequest = match args.get(3) {
         Some(path) => serde_json::from_slice(&fs::read(path)?)?,
         None => ViewRequest::default(),
     };
-    let options = Options::new(&args[2]);
+    let options = Options::new();
     let t = Instant::now();
     let mut repo = Repository::load_repository(&args[0], options.clone())?;
     let load_ms = t.elapsed().as_secs_f64() * 1000.0;

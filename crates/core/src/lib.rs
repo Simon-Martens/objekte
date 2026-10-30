@@ -4,7 +4,7 @@
 //! ```no_run
 //! use objekte_core::{Options, Repository, ViewRequest};
 //! let mut repository = Repository::load_repository(
-//!     "examples/musenalm", Options::new("/tmp/objekte-example"),
+//!     "examples/musenalm", Options::new(),
 //! )?;
 //! let page = repository.open_view("places", &ViewRequest::default())?;
 //! assert!(page.rows.len() <= 50);
@@ -12,7 +12,7 @@
 //! # Ok::<(), objekte_core::Error>(())
 //! ```
 mod config;
-mod config_manifest;
+mod config_snapshot;
 mod error;
 pub mod file_picker;
 mod graph;
@@ -28,7 +28,7 @@ pub use validation::{RecordState, RecordStatus, ValidationIssue, ValidationMetri
 pub use config::{
     Collection, Direction, IndexField, ListOptions, RepositoryModel, Sort, ViewHashes,
 };
-pub use config_manifest::{
+pub use config_snapshot::{
     ConfigurationChangeKind, ConfigurationChanges, ConfigurationInputChange,
 };
 pub use error::{Error, Result};

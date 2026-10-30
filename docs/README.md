@@ -1,15 +1,16 @@
 # Objekte implementation
 
-Objekte reads JSON collections from a repository. The JSON files are authoritative. The default in-memory picker serves JSON filter queries and views. The optional segment cache has values-only text shards, per-record metadata, and ordered scalar lists.
+Objekte reads JSON collections from a repository. The source files are authoritative. An in-memory bigram and typed index serves default JSON filters and eligible views. It is built lazily per collection and reused while a `Repository` handle remains open.
 
 ## Start here
 
 - [Query examples](queries.md) show the CLI syntax on Musenalm.
 - [Filter semantics](filters.md) describe exact matching, arrays, and backend selection.
 - [Validation](validation.md) explains on-demand JSON Schema checks.
-- [Cache implementation](implementation.md) describes snapshots, updates, revisions, and compaction.
-- [Performance results](Performance.md) summarize current warm queries and point to historical experiments.
-- [MVP and roadmap](MVP.md) separate implemented library features from later product work.
+- [Index implementation](implementation.md) describes refresh, rebuild, and revision behavior.
+- [Code guidelines](code-guidelines.md) document source layout, comments, tests, and diagnostics.
+- [Performance results](Performance.md) summarize warm queries and historical experiments.
+- [MVP and roadmap](MVP.md) separate library features from later product work.
 
 ```sh
 cargo test --workspace --all-targets
@@ -17,10 +18,8 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferre
 cargo run --release -p objekte-cli -- examples/musenalm view contents --sort year --limit 10 --output json
 ```
 
-JSON filter queries use an in-memory bigram and typed index by default. Views use the same picker, with ordered in-memory keys for numeric, boolean, and enum fields. `--cache segments` enables the persistent segment cache for views; `--backend segments` selects it for JSON filters and requires `--cache segments`. `--cache disabled` makes views read source files directly. Each JSON query returns records in collection and byte-sorted ID order.
+`--cache memory` is the default. `--cache disabled` makes views scan source files directly. JSON queries also provide explicit `--backend direct` and `--backend grep` paths. Every JSON query returns records in collection and byte-sorted ID order, and verifies matches against source JSON.
 
-The in-memory picker is built lazily per collection and reused for repeated queries on the same repository handle. Refresh updates changed records, ordered keys, and deletion tombstones. It writes no application cache files. The optional segment cache persists across processes; its shards, compaction, revisions, and atomic snapshot publication are described in [implementation.md](implementation.md).
+The picker can be warmed or rebuilt per collection or across all collections using the `Repository` API. These operations write no application cache files. A new CLI invocation starts a new process and builds its own picker.
 
-All top-level fields declared as numbers, integers, booleans, or enums receive ordered lists, regardless of view configuration. String ordering is planned. View sorts and filters keep their existing permissions from collection UI settings; the cache's index coverage is broader than those permissions.
-
-Schema validation runs for JSON query matches, memory/segment view pages, explicit validation, and `get_record` in segment mode. A parseable `get_record` response in memory mode has `pending` status. Status is not persisted in the cache. Reference occurrences are extracted on request; complete backlink lookup scans referring collections, while the default memory lookup can report partial coverage.
+Schema validation runs for JSON query matches, in-memory view pages, and explicit validation. A parseable `get_record` response has `pending` schema status. Reference occurrences are extracted on request; complete backlink lookup scans referring collections.

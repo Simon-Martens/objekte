@@ -5,7 +5,7 @@ use std::fs;
 use support::*;
 #[test]
 fn outgoing_edges_preserve_occurrences_and_missing_targets() {
-    for mode in [CacheMode::Disabled, CacheMode::Segments] {
+    for mode in [CacheMode::Disabled, CacheMode::Memory] {
         let f = Fixture::new();
         let mut r = f.repo(mode);
         let refs = r.references_from("books", "b", true).unwrap();
@@ -27,22 +27,22 @@ fn outgoing_edges_preserve_occurrences_and_missing_targets() {
         assert_eq!(refs.edges[0].location, "/links/0/person");
         assert_eq!(refs.edges[1].location, "/links/1/person");
         assert!(r.metrics().source_reads >= 1);
-        assert_eq!(refs.coverage[0].verified, mode == CacheMode::Segments);
+        assert!(!refs.coverage[0].verified);
     }
 }
 
 #[test]
-fn segment_backlinks_scan_sources_on_demand() {
+fn complete_backlinks_scan_sources_on_demand() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let refs = r.references_to("people", "p1", false, false).unwrap();
-    assert_eq!(refs.edges.len(), 4);
-    assert_eq!(refs.coverage[0].state, "current");
-    assert!(refs.coverage[0].verified);
+    assert!(refs.edges.is_empty());
+    assert_eq!(refs.coverage[0].state, "absent");
+    assert!(!refs.coverage[0].verified);
     r.get_record("books", "a").unwrap();
     let refs = r.references_to("people", "p1", false, false).unwrap();
-    assert_eq!(refs.edges.len(), 4);
-    assert_eq!(refs.coverage[0].state, "current");
+    assert_eq!(refs.edges.len(), 2);
+    assert_eq!(refs.coverage[0].state, "partial");
     let refs = r.references_to("people", "p1", true, true).unwrap();
     assert_eq!(refs.edges.len(), 4);
     assert!(refs.coverage[0].verified);
@@ -60,16 +60,13 @@ fn segment_backlinks_scan_sources_on_demand() {
 #[test]
 fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     r.open_view("books", &all()).unwrap();
     f.edit("data/books/a.json", |v| {
         v["person"] = json!("p2");
         v["links"] = json!([])
     });
-    let m = r.refresh("books").unwrap();
-    assert_eq!(m.rows_updated, 1);
-    assert_eq!(m.edges_removed, 0);
-    assert_eq!(m.edges_added, 0);
+    r.refresh("books").unwrap();
     assert_eq!(
         r.references_to("people", "p1", true, true)
             .unwrap()
@@ -88,7 +85,6 @@ fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
     r.reset_metrics();
     let refs = r.references_to("people", "p2", true, true).unwrap();
     assert_eq!(refs.edges[0].target_state, TargetState::Missing);
-    assert_eq!(r.metrics().rows_updated, 0);
     f.write("data/people/p2.json", &json!({"name":"Back"}));
     assert_eq!(
         r.references_to("people", "p2", true, true).unwrap().edges[0].target_state,
@@ -99,7 +95,7 @@ fn backlink_changes_and_target_deletion_do_not_rewrite_referrers() {
 #[test]
 fn missing_targets_later_appear_without_source_record_changes() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let refs = r.references_from("books", "b", true).unwrap();
     assert!(
         refs.edges
@@ -115,7 +111,7 @@ fn missing_targets_later_appear_without_source_record_changes() {
 #[test]
 fn deletion_removes_only_outgoing_edges_and_retains_incoming_edges() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     r.open_view("books", &all()).unwrap();
     r.refresh("people").unwrap();
     fs::remove_file(f.root.join("data/books/b.json")).unwrap();
@@ -136,7 +132,7 @@ fn deletion_removes_only_outgoing_edges_and_retains_incoming_edges() {
 #[test]
 fn renaming_a_source_id_changes_backlinks_without_an_edge_cache() {
     let f = Fixture::new();
-    let mut repo = f.repo(CacheMode::Segments);
+    let mut repo = f.repo(CacheMode::Memory);
     assert_eq!(
         repo.references_to("people", "p1", true, false)
             .unwrap()
@@ -162,7 +158,7 @@ fn renaming_a_source_id_changes_backlinks_without_an_edge_cache() {
 #[test]
 fn null_empty_and_missing_references_produce_no_edges() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     for id in ["c", "d", "e"] {
         assert!(
             r.references_from("books", id, true)
@@ -187,34 +183,30 @@ fn direct_and_cached_backlinks_match_for_cycles() {
             .references_to(target, id, true, true)
             .unwrap();
         let b = f
-            .repo(CacheMode::Segments)
-            .references_to(target, id, true, true)
-            .unwrap();
-        let segments = f
-            .repo(CacheMode::Segments)
+            .repo(CacheMode::Memory)
             .references_to(target, id, true, true)
             .unwrap();
         assert_eq!(a.edges, b.edges);
-        assert_eq!(a.edges, segments.edges);
         assert!(b.coverage.iter().all(|c| c.verified));
     }
 }
 
 #[test]
-fn reopen_backlink_lookup_verifies_current_sources() {
+fn reopened_handle_needs_complete_backlink_scan() {
     let f = Fixture::new();
-    f.repo(CacheMode::Segments).refresh("books").unwrap();
-    let mut r = f.repo(CacheMode::Segments);
+    f.repo(CacheMode::Memory).refresh("books").unwrap();
+    let mut r = f.repo(CacheMode::Memory);
     let partial = r.references_to("people", "p1", false, false).unwrap();
-    assert_eq!(partial.coverage[0].state, "current");
-    assert!(partial.coverage[0].verified);
+    assert_eq!(partial.coverage[0].state, "absent");
+    assert!(!partial.coverage[0].verified);
+    assert!(partial.edges.is_empty());
     assert!(
         partial
             .edges
             .iter()
             .all(|e| e.target_state == TargetState::Unknown)
     );
-    assert!(r.metrics().source_reads > 0);
+    assert_eq!(r.metrics().source_reads, 0);
     assert!(
         r.references_to("people", "p1", true, false)
             .unwrap()
@@ -231,7 +223,7 @@ fn concrete_reference_locations_escape_json_pointer_characters() {
     });
     f.edit("data/books/a.json", |v| v["a/b~c"] = json!("p1"));
     let refs = f
-        .repo(CacheMode::Segments)
+        .repo(CacheMode::Memory)
         .references_from("books", "a", false)
         .unwrap();
     assert!(refs.edges.iter().any(|e| e.location == "/a~1b~0c"));

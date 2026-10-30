@@ -13,7 +13,7 @@ fn sort(field: &str, direction: Direction) -> Sort {
 #[test]
 fn filter_hash_includes_values_operators_and_fields_but_not_and_order() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let c = r.model().collection("books").unwrap();
     let filters = ["score>=2", "status=draft"]
         .iter()
@@ -60,7 +60,7 @@ fn filter_hash_includes_values_operators_and_fields_but_not_and_order() {
 #[test]
 fn resolved_defaults_and_explicit_equivalent_request_share_hashes() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let a = r.open_view("books", &ViewRequest::default()).unwrap();
     let c = r.model().collection("books").unwrap();
     let q = ViewRequest {
@@ -86,7 +86,7 @@ fn subsort_directions_and_priority_change_order_and_hashes() {
             v["score"] = json!(score);
         });
     }
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let filter = r
         .model()
         .collection("books")
@@ -148,10 +148,10 @@ fn mixed_directions_null_missing_and_secondary_id_order_match_direct() {
                     offset,
                     ..all()
                 };
-                let segments = f.repo(CacheMode::Segments).open_view("books", &q).unwrap();
+                let memory = f.repo(CacheMode::Memory).open_view("books", &q).unwrap();
                 let direct = f.repo(CacheMode::Disabled).open_view("books", &q).unwrap();
-                assert_eq!(segments.rows, direct.rows);
-                assert_eq!(segments.view_hashes, direct.view_hashes);
+                assert_eq!(memory.rows, direct.rows);
+                assert_eq!(memory.view_hashes, direct.view_hashes);
             }
         }
     }
@@ -160,7 +160,7 @@ fn mixed_directions_null_missing_and_secondary_id_order_match_direct() {
 #[test]
 fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     // Materialize the compound-view index before changing the configured order.
     // Permitted fields alone no longer imply that every index has been built.
     r.open_view(
@@ -183,7 +183,6 @@ fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
     assert_eq!(c.index_hash, before.index_hash);
     assert_eq!(actual.metrics.source_reads, actual.rows.len() as u64);
     assert_eq!(actual.metrics.parses, actual.rows.len() as u64);
-    assert_eq!(actual.metrics.index_builds, 0);
     assert_eq!(
         actual.rows,
         f.repo(CacheMode::Disabled)
@@ -217,7 +216,7 @@ fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
 #[test]
 fn invalid_subsorts_fail_before_source_io() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     for secondary in [
         vec![sort("score", Direction::Desc)],
         vec![sort("payload", Direction::Asc)],
@@ -242,7 +241,7 @@ fn invalid_subsorts_fail_before_source_io() {
     ] {
         f.edit(".editor/books/ui.json", |v| v["list"]["subSorts"] = sub);
         assert!(
-            objekte_core::Repository::load_repository(&f.root, f.options(CacheMode::Segments))
+            objekte_core::Repository::load_repository(&f.root, f.options(CacheMode::Memory))
                 .is_err()
         );
     }
@@ -251,7 +250,7 @@ fn invalid_subsorts_fail_before_source_io() {
 #[test]
 fn projection_pagination_and_count_are_part_of_resolved_view_fingerprint() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let a = r.open_view("books", &all()).unwrap();
     for q in [
         ViewRequest {
@@ -279,7 +278,7 @@ fn projection_pagination_and_count_are_part_of_resolved_view_fingerprint() {
 #[test]
 fn schema_json_formatting_does_not_change_semantic_fingerprints() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     r.open_view("books", &all()).unwrap();
     let before = r.model().collection("books").unwrap().clone();
     let schema = f.read(".editor/books/schema.json");

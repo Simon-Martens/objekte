@@ -48,7 +48,7 @@ fn ids_for(r: &mut Repository, request: &JsonQuery) -> Vec<String> {
 
 fn check(f: &Fixture, cases: &[(&str, &[&str])]) {
     let mut direct = f.repo(CacheMode::Disabled);
-    let mut cached = f.repo(CacheMode::Segments);
+    let mut cached = f.repo(CacheMode::Memory);
     let mut grep = f.repo(CacheMode::Disabled);
     let mut bigram = f.repo(CacheMode::Disabled);
     for (filter, expected) in cases {
@@ -68,12 +68,12 @@ fn check(f: &Fixture, cases: &[(&str, &[&str])]) {
             ids_for(
                 &mut cached,
                 &JsonQuery {
-                    backend: JsonQueryBackend::Segments,
+                    backend: JsonQueryBackend::Bigram,
                     ..request.clone()
                 }
             ),
             *expected,
-            "segments: {filter}"
+            "bigram: {filter}"
         );
         assert_eq!(
             ids_for(
@@ -297,7 +297,7 @@ fn ambiguous_scalar_paths_error_even_outside_the_page_or_boolean_branch() {
         ("a", r#"{"tags":["poet"]}"#),
         ("z", r#"{"tags":["poet","editor"]}"#),
     ]);
-    for mode in [CacheMode::Segments, CacheMode::Disabled] {
+    for mode in [CacheMode::Memory, CacheMode::Disabled] {
         let mut r = f.repo(mode);
         for text in [
             "tags='poet'",
@@ -305,8 +305,8 @@ fn ambiguous_scalar_paths_error_even_outside_the_page_or_boolean_branch() {
             "exists(tags) || tags='poet'",
         ] {
             let mut q = request(text);
-            q.backend = if mode == CacheMode::Segments {
-                JsonQueryBackend::Segments
+            q.backend = if mode == CacheMode::Memory {
+                JsonQueryBackend::Bigram
             } else {
                 JsonQueryBackend::Direct
             };
@@ -513,7 +513,6 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
     );
 
     let mut memory = f.repo(CacheMode::Memory);
-    let mut segments = f.repo(CacheMode::Segments);
     let mut query = request("x = 2 || x = 50");
     query.collections = Some(vec!["books".into()]);
     let warm = memory.query_json(&query).unwrap();
@@ -528,16 +527,8 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
     let unbounded = memory.query_json(&query).unwrap();
     assert_eq!(unbounded.total, Some(3));
     assert_eq!(unbounded.metrics.grep_scans, 80);
-    query.filter = "x = 2 || x = 50".into();
-    query.backend = JsonQueryBackend::Segments;
-    segments.query_json(&query).unwrap();
-    let result = segments.query_json(&query).unwrap();
-    assert_eq!(result.total, Some(2));
-    assert_eq!(result.metrics.source_reads, 4);
-
     f.edit("data/books/r050.json", |record| record["x"] = json!(3));
     memory.refresh("books").unwrap();
-    segments.refresh("books").unwrap();
     query.filter = "x = 2 || x = 3".into();
     query.backend = JsonQueryBackend::Auto;
     let result = memory.query_json(&query).unwrap();
@@ -550,8 +541,6 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
         ["r002", "r003", "r050"]
     );
     assert_eq!(result.metrics.grep_scans, 3);
-    query.backend = JsonQueryBackend::Segments;
-    assert_eq!(ids_for(&mut segments, &query), ["r002", "r003", "r050"]);
 }
 
 #[test]
@@ -564,7 +553,7 @@ fn typed_or_still_checks_scalar_cardinality_in_every_source_file() {
     fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
     for (mode, backend) in [
         (CacheMode::Memory, JsonQueryBackend::Bigram),
-        (CacheMode::Segments, JsonQueryBackend::Segments),
+        (CacheMode::Memory, JsonQueryBackend::Bigram),
     ] {
         let mut query = request("x = 2 || x = 3");
         query.backend = backend;
@@ -602,9 +591,9 @@ fn grouping_parameters_punctuation_and_unicode_contains_are_engine_independent()
     let mut q = request("x=$minimum || name=$name");
     q.parameters.insert("minimum".into(), json!(2));
     q.parameters.insert("name".into(), json!("O'Brien"));
-    for mode in [CacheMode::Disabled, CacheMode::Segments] {
-        let backend = if mode == CacheMode::Segments {
-            JsonQueryBackend::Segments
+    for mode in [CacheMode::Disabled, CacheMode::Memory] {
+        let backend = if mode == CacheMode::Memory {
+            JsonQueryBackend::Bigram
         } else {
             JsonQueryBackend::Direct
         };
@@ -650,7 +639,7 @@ fn last_duplicate_key_wins_and_malformed_json_never_matches() {
 #[test]
 fn invalid_requests_fail_before_creating_cache_or_enumerating_sources() {
     let f = fixture(&[]);
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     for text in [
         "",
         "x=",
@@ -683,7 +672,7 @@ fn invalid_requests_fail_before_creating_cache_or_enumerating_sources() {
     q.parameters.insert("p".into(), json!([1]));
     assert!(r.query_json(&q).is_err());
     let mut q = request("x=1");
-    q.backend = JsonQueryBackend::Segments;
+    q.backend = JsonQueryBackend::Bigram;
     q.collections = Some(vec!["unknown".into()]);
     assert!(r.query_json(&q).is_err());
     assert_eq!(r.metrics().enumerations, 0);
@@ -695,9 +684,9 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     let f = fixture(&[("same", r#"{"x":1}"#)]);
     f.write("data/people/same.json", &json!({"x":1}));
     f.write("data/spare/same.json", &json!({"x":1}));
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let mut q = request("x=1");
-    q.backend = JsonQueryBackend::Segments;
+    q.backend = JsonQueryBackend::Bigram;
     q.limit = 1;
     q.offset = 1;
     let first = r.query_json(&q).unwrap();
@@ -705,10 +694,9 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     assert_eq!(first.records[0].id, "same");
     assert_eq!(first.total, Some(3));
     assert_eq!(first.dependencies.collections, ["books", "people", "spare"]);
-    assert_eq!(first.dependencies.revisions.len(), 3);
     assert_eq!(first.dependencies.paths.len(), 1);
-    assert_eq!(first.metrics.source_reads, 7);
-    assert!(first.metrics.index_builds > 0);
+    assert_eq!(first.metrics.source_reads, 4);
+    assert!(first.metrics.bigram_open_nanos > 0);
     let next = r.query_json(&q).unwrap();
     assert_eq!(next.metrics.source_reads, 4);
     assert_eq!(next.metrics.enumerations, 0);
@@ -723,10 +711,10 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
         v["collections"].as_object_mut().unwrap().remove("spare");
     });
     drop(r);
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let all = r
         .query_json(&JsonQuery {
-            backend: JsonQueryBackend::Segments,
+            backend: JsonQueryBackend::Bigram,
             ..request("x=1")
         })
         .unwrap();
@@ -739,10 +727,10 @@ fn explicit_collection_scope_is_lazy_and_source_edits_are_reconciled_on_reopen()
     let f = fixture(&[("a", r#"{"x":1}"#)]);
     f.write("data/people/b.json", &json!({"x":1}));
     let mut q = request("x=1");
-    q.backend = JsonQueryBackend::Segments;
+    q.backend = JsonQueryBackend::Bigram;
     q.collections = Some(vec!["books".into()]);
-    let mut r = f.repo(CacheMode::Segments);
-    assert_eq!(r.query_json(&q).unwrap().metrics.source_reads, 3);
+    let mut r = f.repo(CacheMode::Memory);
+    assert_eq!(r.query_json(&q).unwrap().metrics.source_reads, 2);
     assert_eq!(
         r.cache_status()
             .unwrap()
@@ -755,9 +743,9 @@ fn explicit_collection_scope_is_lazy_and_source_edits_are_reconciled_on_reopen()
     );
     drop(r);
     f.write("data/books/a.json", &json!({"x":"1"}));
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let changed = r.query_json(&q).unwrap();
-    assert_eq!(changed.metrics.source_reads, 2);
+    assert_eq!(changed.metrics.source_reads, 1);
     assert_eq!(changed.total, Some(0));
     q.collections = Some(vec![]);
     assert!(r.query_json(&q).unwrap().records.is_empty());
@@ -769,9 +757,9 @@ fn compiled_filter_parameters_remain_literal_data() {
     let f = fixture(&[("a", r#"{"x":"safe"}"#)]);
     f.write("data/books/b.json", &json!({"x":attack}));
     let mut q = request("x=$value");
-    q.backend = JsonQueryBackend::Segments;
+    q.backend = JsonQueryBackend::Bigram;
     q.parameters.insert("value".into(), json!(attack));
-    let result = f.repo(CacheMode::Segments).query_json(&q).unwrap();
+    let result = f.repo(CacheMode::Memory).query_json(&q).unwrap();
     assert_eq!(result.records.len(), 1);
     assert_eq!(result.records[0].id, "b");
     let compiled = JsonFilter::compile(&q.filter, &q.parameters).unwrap();
@@ -804,7 +792,7 @@ fn generated_json_values_and_comparisons_match_direct_execution() {
         );
     }
     let mut direct = f.repo(CacheMode::Disabled);
-    let mut cached = f.repo(CacheMode::Segments);
+    let mut cached = f.repo(CacheMode::Memory);
     for op in ["=", "!=", "<", "<=", ">", ">="] {
         for literal in ["null", "true", "false", "0", "1", "1.0", "2.5", "'1'"] {
             for field in ["x", "nested.v ?"] {
@@ -820,7 +808,7 @@ fn generated_json_values_and_comparisons_match_direct_execution() {
                     ids_for(
                         &mut cached,
                         &JsonQuery {
-                            backend: JsonQueryBackend::Segments,
+                            backend: JsonQueryBackend::Bigram,
                             ..q.clone()
                         }
                     ),

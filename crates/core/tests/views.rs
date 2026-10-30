@@ -8,22 +8,14 @@ fn parity(f: &Fixture, request: &ViewRequest) -> objekte_core::ViewResult {
         .repo(CacheMode::Disabled)
         .open_view("books", request)
         .unwrap();
-    let segments = f
-        .repo(CacheMode::Segments)
-        .open_view("books", request)
-        .unwrap();
     let memory = f
         .repo(CacheMode::Memory)
         .open_view("books", request)
         .unwrap();
-    assert_eq!(segments.rows, direct.rows);
-    assert_eq!(segments.total, direct.total);
-    assert_eq!(segments.columns, direct.columns);
     assert_eq!(memory.rows, direct.rows);
     assert_eq!(memory.total, direct.total);
     assert_eq!(memory.columns, direct.columns);
-    assert_eq!(memory.states, segments.states);
-    segments
+    memory
 }
 
 #[test]
@@ -148,35 +140,6 @@ fn projection_retains_identity_labels_and_json_types() {
 }
 
 #[test]
-fn warm_segment_views_read_only_the_requested_page_and_collection() {
-    let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
-    let first = r.open_view("books", &all()).unwrap();
-    assert_eq!(first.metrics.source_reads, 14);
-    assert_eq!(first.metrics.parses, 14);
-    assert_eq!(first.metrics.rows_inserted, 7);
-    assert!(first.metrics.index_builds > 0);
-    let warm = r.open_view("books", &all()).unwrap();
-    assert_eq!(warm.rows, first.rows);
-    assert_eq!(warm.metrics.source_reads, 7);
-    assert_eq!(warm.metrics.enumerations, 0);
-    assert_eq!(warm.metrics.parses, 7);
-    assert!(
-        warm.query_plan
-            .iter()
-            .any(|s| s.contains("ordered segment index"))
-    );
-    let status = r.cache_status().unwrap();
-    assert!(
-        status
-            .collections
-            .iter()
-            .filter(|c| c.collection != "books")
-            .all(|c| c.state == "absent")
-    );
-}
-
-#[test]
 fn warm_memory_views_read_only_the_requested_page() {
     let f = Fixture::new();
     let mut repo = f.repo(CacheMode::Memory);
@@ -197,7 +160,7 @@ fn warm_memory_views_read_only_the_requested_page() {
     assert_eq!(warm.metrics.source_reads, 2);
     assert_eq!(warm.metrics.bigram_open_nanos, 0);
     assert!(warm.query_plan[0].contains("ordered in-memory index"));
-    assert!(!f.data.join("segments").exists());
+    assert!(!f.data.exists());
 }
 
 #[test]
@@ -230,7 +193,7 @@ fn memory_revisions_and_ordered_keys_follow_edits_and_deletions() {
 #[test]
 fn scalar_filter_types_and_sort_permissions_are_checked_before_io() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     for filter in [
         Filter {
             field: "score".into(),
@@ -336,12 +299,12 @@ fn mixed_large_integer_and_fractional_comparison_is_exact() {
 fn numbers_outside_the_declared_domain_are_diagnosed_without_rounding() {
     let f = Fixture::new();
     f.edit("data/books/a.json", |v| v["score"] = json!(u64::MAX));
-    for mode in [CacheMode::Segments, CacheMode::Disabled] {
+    for mode in [CacheMode::Memory, CacheMode::Disabled] {
         let mut r = f.repo(mode);
         r.open_view("books", &all()).unwrap();
         r.validate_collection("books").unwrap();
         let view = r.open_view("books", &all()).unwrap();
-        if mode == CacheMode::Segments {
+        if mode == CacheMode::Memory {
             assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
             assert!(
                 view.states["a"]
@@ -448,7 +411,7 @@ fn punctuation_strings_remain_literal_values() {
 #[test]
 fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
     let f = Fixture::new();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     r.open_view("books", &all()).unwrap();
     f.edit(".editor/books/ui.json", |v| {
         v["label"] = json!("New label");
@@ -458,8 +421,6 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
     let v = r.open_view("books", &ViewRequest::default()).unwrap();
     assert_eq!(v.rows.len(), 2);
     assert_eq!(v.columns, vec!["title"]);
-    assert_eq!(v.metrics.rows_updated, 0);
-    assert_eq!(v.metrics.index_builds, 0);
     assert_eq!(v.metrics.parses, v.rows.len() as u64);
     f.edit(".editor/books/ui.json", |v| {
         v["list"]["sortable"]
@@ -468,9 +429,6 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
             .push(json!("type"))
     });
     let v = r.open_view("books", &all()).unwrap();
-    assert_eq!(v.metrics.index_builds, 0);
-    assert_eq!(v.metrics.rows_updated, 0);
-    assert_eq!(v.metrics.index_rows_written, 0);
     assert_eq!(v.metrics.validations, v.rows.len() as u64);
 }
 
@@ -478,9 +436,7 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
 fn generated_mutation_sequences_match_fresh_direct_execution() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Memory);
-    let mut segments = f.repo(CacheMode::Segments);
     r.open_view("books", &all()).unwrap();
-    segments.open_view("books", &all()).unwrap();
     let mut seed = 7u64;
     for step in 0..60 {
         seed = seed.wrapping_mul(6364136223846793005).wrapping_add(1);
@@ -497,7 +453,6 @@ fn generated_mutation_sequences_match_fresh_direct_execution() {
             f.write(&p,&json!({"title":format!("Title {}",seed%5),"score":score,"flag":seed.is_multiple_of(2),"status":if seed.is_multiple_of(3){"draft"}else{"reviewed"},"payload":null,"person":if seed.is_multiple_of(3){"p1"}else{"missing"}}));
         }
         r.refresh("books").unwrap();
-        segments.refresh("books").unwrap();
         for field in ["score", "title", "flag", "@id"] {
             let q = ViewRequest {
                 sort: Some(Sort {
@@ -523,12 +478,9 @@ fn generated_mutation_sequences_match_fresh_direct_execution() {
                 ..Default::default()
             };
             let memory = r.open_view("books", &q).unwrap();
-            let packed = segments.open_view("books", &q).unwrap();
             let direct = f.repo(CacheMode::Disabled).open_view("books", &q).unwrap();
             assert_eq!(memory.rows, direct.rows, "step {step}, {field}");
             assert_eq!(memory.total, direct.total);
-            assert_eq!(packed.rows, direct.rows, "segments step {step}, {field}");
-            assert_eq!(packed.total, direct.total);
         }
     }
 }
@@ -546,12 +498,12 @@ fn out_of_range_integer_lexemes_are_diagnosed_while_opaque_numbers_are_preserved
             format!("{{\"payload\":null,\"score\":{number}}}"),
         )
         .unwrap();
-        for mode in [CacheMode::Segments, CacheMode::Disabled] {
+        for mode in [CacheMode::Memory, CacheMode::Disabled] {
             let mut repo = f.repo(mode);
             repo.open_view("books", &all()).unwrap();
             repo.validate_collection("books").unwrap();
             let view = repo.open_view("books", &all()).unwrap();
-            if mode == CacheMode::Segments {
+            if mode == CacheMode::Memory {
                 assert_eq!(view.states["a"].status, objekte_core::RecordStatus::Invalid);
                 assert!(
                     view.states["a"]

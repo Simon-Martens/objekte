@@ -41,7 +41,7 @@ impl Fixture {
     }
 
     pub fn options(&self, mode: CacheMode) -> Options {
-        let mut o = Options::new(&self.data);
+        let mut o = Options::new();
         o.cache = mode;
         // Reconciliation tests inspect ingestion independently of background scheduling.
         o

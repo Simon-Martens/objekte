@@ -1,5 +1,5 @@
-//! Compare the public JSON query API with a warm segment cache and source grep.
-use objekte_core::{CacheMode, JsonQuery, JsonQueryBackend, Options, Repository};
+//! Compare the public JSON query API with a warm bigram index and source grep.
+use objekte_core::{JsonQuery, JsonQueryBackend, Options, Repository};
 use serde::Deserialize;
 use serde_json::json;
 use std::{env, fs, path::PathBuf, time::Instant};
@@ -34,32 +34,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         "--workload",
         Some("crates/bench/workloads/musenalm-grep.json"),
     )?);
-    let data_dir = PathBuf::from(arg("--data-dir", Some("target/json-query-grep-cache"))?);
     let runs: usize = arg("--runs", Some("3"))?.parse()?;
     let limit: usize = arg("--limit", Some("50"))?.parse()?;
     if runs == 0 {
         return Err("--runs must be positive".into());
     }
     let cases: Vec<Case> = serde_json::from_slice(&fs::read(workload)?)?;
-    let mut options = Options::new(data_dir);
-    options.cache = CacheMode::Segments;
-    let mut repo = Repository::load_repository(root, options)?;
+    let mut repo = Repository::load_repository(root, Options::new())?;
     for case in &cases {
         let request = JsonQuery {
             filter: case.filter.clone(),
             collections: Some(vec![case.collection.clone()]),
             count: true,
             limit,
-            backend: JsonQueryBackend::Segments,
+            backend: JsonQueryBackend::Bigram,
             ..Default::default()
         };
-        let segment = repo.query_json(&request)?;
+        let bigram = repo.query_json(&request)?;
         let grep = repo.query_json(&JsonQuery {
             backend: JsonQueryBackend::Grep,
             ..request.clone()
         })?;
-        if segment.total != grep.total
-            || serde_json::to_value(&segment.records)? != serde_json::to_value(&grep.records)?
+        if bigram.total != grep.total
+            || serde_json::to_value(&bigram.records)? != serde_json::to_value(&grep.records)?
         {
             return Err(format!(
                 "backend result mismatch: {} / {}",
@@ -69,16 +66,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     for case in cases {
-        let mut segment_ms = Vec::new();
+        let mut bigram_ms = Vec::new();
         let mut grep_ms = Vec::new();
         let mut candidates = 0;
         let mut scans = 0;
         let mut matches = 0;
         for i in 0..runs {
             for backend in if i % 2 == 0 {
-                [JsonQueryBackend::Segments, JsonQueryBackend::Grep]
+                [JsonQueryBackend::Bigram, JsonQueryBackend::Grep]
             } else {
-                [JsonQueryBackend::Grep, JsonQueryBackend::Segments]
+                [JsonQueryBackend::Grep, JsonQueryBackend::Bigram]
             } {
                 let request = JsonQuery {
                     filter: case.filter.clone(),
@@ -93,7 +90,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 let ms = t.elapsed().as_secs_f64() * 1000.0;
                 matches = result.total.unwrap_or(0);
                 match backend {
-                    JsonQueryBackend::Segments => segment_ms.push(ms),
+                    JsonQueryBackend::Bigram => bigram_ms.push(ms),
                     JsonQueryBackend::Grep => {
                         grep_ms.push(ms);
                         candidates = result.metrics.grep_candidates;
@@ -108,7 +105,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             json!({
                 "collection": case.collection, "filter": case.filter, "matches": matches,
                 "source_files": scans, "grep_candidates": candidates,
-                "warm_segments_median_ms": median(&mut segment_ms),
+                "warm_bigram_median_ms": median(&mut bigram_ms),
                 "grep_median_ms": median(&mut grep_ms),
                 "limit": limit,
                 "runs": runs

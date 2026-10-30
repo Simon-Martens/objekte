@@ -1,10 +1,7 @@
-//! Command-line syntax and application data directory selection.
+//! Command-line syntax.
 
 use serde_json::Value;
-use std::{
-    collections::{BTreeMap, BTreeSet},
-    path::PathBuf,
-};
+use std::collections::{BTreeMap, BTreeSet};
 
 pub(super) const HELP: &str = "objekte — read-only file repository library driver
 
@@ -15,7 +12,7 @@ Usage:
   objekte REPOSITORY get COLLECTION ID
   objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
-      [--limit N] [--offset N] [--count] [--backend auto|direct|segments|grep|bigram]
+      [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -23,27 +20,24 @@ Usage:
   objekte REPOSITORY cache status
   objekte REPOSITORY cache refresh-config
   objekte REPOSITORY cache refresh --collection NAME
+  objekte REPOSITORY cache warm [--collection NAME]
+  objekte REPOSITORY cache rebuild [--collection NAME]
   objekte REPOSITORY cache validate --collection NAME
 
 Options:
-  --data-dir PATH                 Application state directory
-  --cache memory|segments|disabled Default: memory
-  --ingest-workers N              Compatibility option; segment builds use Rayon threads
-  --reconcile metadata-on-open|metadata-on-request|hash-on-open|hash-on-request
+  --cache memory|disabled         Default: memory
+  --reconcile metadata-on-open|metadata-on-request|hash-on-request
                                  Default: metadata-on-open
-  --namespace NAME                Reuse a named cache (default: default)
-  --fresh-cache                   Use a new namespace
   --output table|json|ndjson|events
                                   Views default to table, other commands to json; events stream query records
-  --background-workers N          Compatibility option; validation runs on demand
-  --diagnostics                   Emit formatted JSON counters to stderr
+  --diagnostic, --diagnostics     Emit pretty JSON diagnostics with time and level to stderr
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
-  --backend auto|direct|segments|grep|bigram Query engine; auto uses the in-memory bigram index
+  --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
   --help, --version
 
 Examples:
-  objekte examples/musenalm view places --data-dir /tmp/objekte-a
+  objekte examples/musenalm view places
   objekte examples/musenalm view contents --sort numbering --limit 20 --diagnostics
   objekte examples/musenalm view contents --filter 'year>=1800' --output json
   objekte examples/musenalm query contents 'year >= 1800' --count
@@ -73,25 +67,9 @@ pub(super) fn args() -> Result<Args, String> {
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--data-dir"
-            | "--cache"
-            | "--reconcile"
-            | "--namespace"
-            | "--output"
-            | "--sort"
-            | "--direction"
-            | "--columns"
-            | "--limit"
-            | "--offset"
-            | "--collection"
-            | "--from"
-            | "--to"
-            | "--filter"
-            | "--param"
-            | "--then-sort"
-            | "--ingest-workers"
-            | "--background-workers"
-            | "--backend" => {
+            "--cache" | "--reconcile" | "--output" | "--sort" | "--direction" | "--columns"
+            | "--limit" | "--offset" | "--collection" | "--from" | "--to" | "--filter"
+            | "--param" | "--then-sort" | "--backend" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))
@@ -115,8 +93,12 @@ pub(super) fn args() -> Result<Args, String> {
                 }
             }
             "--collections" | "--indexes" | "--count" | "--complete" | "--check-targets"
-            | "--fresh-cache" | "--diagnostics" => {
-                out.flags.insert(a);
+            | "--diagnostics" | "--diagnostic" => {
+                out.flags.insert(if a == "--diagnostic" {
+                    "--diagnostics".into()
+                } else {
+                    a
+                });
             }
             "--help" | "-h" => {
                 print!("{HELP}");
@@ -131,21 +113,4 @@ pub(super) fn args() -> Result<Args, String> {
         }
     }
     Ok(out)
-}
-
-pub(super) fn data_dir() -> Result<PathBuf, String> {
-    if let Some(p) = std::env::var_os("XDG_DATA_HOME") {
-        return Ok(PathBuf::from(p).join("objekte"));
-    }
-    if cfg!(windows) {
-        return std::env::var_os("LOCALAPPDATA")
-            .map(|p| PathBuf::from(p).join("objekte"))
-            .ok_or_else(|| "set --data-dir".into());
-    }
-    let home = std::env::var_os("HOME").ok_or_else(|| "set --data-dir".to_owned())?;
-    Ok(PathBuf::from(home).join(if cfg!(target_os = "macos") {
-        "Library/Application Support/objekte"
-    } else {
-        ".local/share/objekte"
-    }))
 }

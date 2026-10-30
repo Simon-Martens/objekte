@@ -9,11 +9,10 @@ use std::{path::PathBuf, time::Instant};
 #[ignore = "reads all 148,486 example records; run with --release --ignored --nocapture"]
 fn all_musenalm_collections_match_direct_execution() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
-    let temp = tempfile::tempdir().unwrap();
-    let mut segment_options = Options::new(temp.path());
-    segment_options.cache = CacheMode::Segments;
-    let mut cached = Repository::load_repository(&root, segment_options.clone()).unwrap();
-    let mut disabled = Options::new(temp.path());
+    let mut memory_options = Options::new();
+    memory_options.cache = CacheMode::Memory;
+    let mut cached = Repository::load_repository(&root, memory_options.clone()).unwrap();
+    let mut disabled = Options::new();
     disabled.cache = CacheMode::Disabled;
     let mut direct = Repository::load_repository(&root, disabled).unwrap();
     assert_eq!(cached.model().collections.len(), 7);
@@ -40,11 +39,10 @@ fn all_musenalm_collections_match_direct_execution() {
         let source_ms = now.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(source.rows.len(), count);
         let now = Instant::now();
-        let segment = cached.open_view(name, &q).unwrap();
+        let indexed = cached.open_view(name, &q).unwrap();
         let cold_ms = now.elapsed().as_secs_f64() * 1000.0;
-        assert_eq!(segment.rows, source.rows, "{name}");
-        assert_eq!(segment.total, Some(count));
-        assert_eq!(segment.metrics.rows_inserted, count as u64);
+        assert_eq!(indexed.rows, source.rows, "{name}");
+        assert_eq!(indexed.total, Some(count));
         cached.validate_collection(name).unwrap();
         let validated = cached.open_view(name, &q).unwrap();
         assert!(
@@ -119,11 +117,11 @@ fn all_musenalm_collections_match_direct_execution() {
             assert_eq!(a.rows, b.rows, "{name} filter");
             assert_eq!(a.total, b.total);
         }
-        let item = json!({"collection":name,"records":count,"direct_full_ms":source_ms,"cold_segments_full_ms":cold_ms,"warm_page_ms":warm_ms,"build":segment.metrics});
+        let item = json!({"collection":name,"records":count,"direct_full_ms":source_ms,"cold_memory_full_ms":cold_ms,"warm_page_ms":warm_ms,"build":indexed.metrics});
         println!("{item}");
         report.push(item);
     }
-    let mut metadata = Repository::load_repository(&root, segment_options).unwrap();
+    let mut metadata = Repository::load_repository(&root, memory_options).unwrap();
     for (name, count) in counts {
         let view = metadata
             .open_view(
@@ -136,7 +134,6 @@ fn all_musenalm_collections_match_direct_execution() {
             .unwrap();
         assert_eq!(view.total, Some(count));
         assert_eq!(view.metrics.enumerations, 1);
-        assert_eq!(view.metrics.manifest_hits, 1);
 
         assert_eq!(
             view.rows,
@@ -162,9 +159,9 @@ fn all_musenalm_collections_match_direct_execution() {
         direct.open_view("contents", &compound).unwrap().rows,
         cached.open_view("contents", &compound).unwrap().rows
     );
-    let mut strict = Options::new(temp.path());
-    strict.cache = CacheMode::Segments;
-    strict.freshness = Freshness::HashOnOpen;
+    let mut strict = Options::new();
+    strict.cache = CacheMode::Memory;
+    strict.freshness = Freshness::HashOnRequest;
     let mut reopened = Repository::load_repository(&root, strict).unwrap();
     for (name, count) in counts {
         let v = reopened
@@ -177,8 +174,6 @@ fn all_musenalm_collections_match_direct_execution() {
             )
             .unwrap();
         assert_eq!(v.total, Some(count));
-        assert!(v.metrics.hashes >= count as u64);
-        assert_eq!(v.metrics.rows_updated, 0);
     }
     if let Ok(path) = std::env::var("OBJEKTE_ACCEPTANCE_REPORT") {
         std::fs::write(

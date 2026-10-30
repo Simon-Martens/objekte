@@ -8,17 +8,7 @@ license.workspace = true
 name = "json-query-grep-compare"
 path = "src/bin/json_query_grep_compare.rs"
 
-[[bin]]
-name = "values-cache-compare"
-path = "src/bin/values_cache_compare.rs"
-
 [dependencies]
 objekte-core = { path = "../core" }
-sonic-rs = { version = "0.5.10", features = ["arbitrary_precision"] }
-grep-regex = "0.1"
-grep-searcher = "0.1"
-rayon = "1.11"
-regex = "1"
 serde_json = "1"
 serde = { version = "1", features = ["derive"] }
-tempfile = "3"

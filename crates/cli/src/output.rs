@@ -36,6 +36,19 @@ pub(super) fn metrics_in_milliseconds(metrics: Value) -> Value {
     )
 }
 
+/// Convert per-collection metrics returned by an all-collection index operation.
+pub(super) fn collection_metrics_in_milliseconds(metrics: Value) -> Value {
+    let Value::Object(collections) = metrics else {
+        unreachable!("collection metrics serialize as an object")
+    };
+    Value::Object(
+        collections
+            .into_iter()
+            .map(|(name, metrics)| (name, metrics_in_milliseconds(metrics)))
+            .collect(),
+    )
+}
+
 fn cell(value: &Value) -> String {
     let text = value.to_string();
     let mut chars = text.chars();

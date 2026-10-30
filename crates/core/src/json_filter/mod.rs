@@ -318,7 +318,6 @@ pub enum JsonQueryBackend {
     #[default]
     Auto,
     Direct,
-    Segments,
     Grep,
     Bigram,
 }
@@ -339,14 +338,12 @@ impl Default for JsonQuery {
 }
 
 
-// INFO: Collections, paths, and cache revisions observed by a query.
+// INFO: Collections and paths observed by a query.
 #[derive(Debug, Clone, Serialize)]
 pub struct JsonQueryDependencies {
     /// All scoped collections, including nonmatching records and future additions.
     pub collections: Vec<String>,
     pub paths: Vec<JsonPath>,
-    /// Persistent content revisions observed by a cached query; empty in direct mode.
-    pub revisions: BTreeMap<String, i64>,
 }
 
 

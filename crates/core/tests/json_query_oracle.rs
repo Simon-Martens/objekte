@@ -321,19 +321,11 @@ fn independent_serde_oracle_checks_four_backends_on_edge_cases() {
     assert_eq!(expected["year_null"], ["d"]);
     assert_eq!(expected["title_empty"], ["e"]);
     let mut memory = fixture.repo(CacheMode::Memory);
-    let mut segments = fixture.repo(CacheMode::Segments);
     let mut direct = fixture.repo(CacheMode::Disabled);
     let mut grep = fixture.repo(CacheMode::Disabled);
     for case in &cases {
         let ids = &expected[&case.name];
         assert_backend(&mut memory, "books", case, JsonQueryBackend::Bigram, ids);
-        assert_backend(
-            &mut segments,
-            "books",
-            case,
-            JsonQueryBackend::Segments,
-            ids,
-        );
         assert_backend(&mut direct, "books", case, JsonQueryBackend::Direct, ids);
         assert_backend(&mut grep, "books", case, JsonQueryBackend::Grep, ids);
     }
@@ -348,21 +340,10 @@ fn independent_serde_oracle_checks_every_musenalm_benchmark_filter() {
     assert_eq!(cases.len(), 43);
     let (files, expected) = source_ids(&contents, &cases);
     assert_eq!(files, 133_948);
-    let temp = tempfile::tempdir().unwrap();
-    let mut memory = Repository::load_repository(&root, Options::new(temp.path())).unwrap();
-    let mut options = Options::new(temp.path());
-    options.cache = CacheMode::Segments;
-    let mut segments = Repository::load_repository(&root, options).unwrap();
+    let mut memory = Repository::load_repository(&root, Options::new()).unwrap();
     for case in &cases {
         let ids = &expected[&case.name];
         assert_backend(&mut memory, "contents", case, JsonQueryBackend::Bigram, ids);
-        assert_backend(
-            &mut segments,
-            "contents",
-            case,
-            JsonQueryBackend::Segments,
-            ids,
-        );
         println!("{}: {} independently matched IDs", case.name, ids.len());
     }
 }

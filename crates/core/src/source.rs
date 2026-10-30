@@ -14,7 +14,7 @@ use std::{
 };
 
 
-// INFO: Source file size, modification time, and identity. Saved in segment metadata.
+// INFO: Source file size, modification time, and identity for freshness checks.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub(crate) struct Stamp {
     pub size: u64,

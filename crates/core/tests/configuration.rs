@@ -1,26 +1,14 @@
 mod support;
-use objekte_core::{CacheMode, Options, PathStep, Repository};
+use objekte_core::{CacheMode, PathStep, Repository};
 use serde_json::json;
 use std::fs;
 use support::*;
 
 #[test]
-fn invalid_ingestion_options_fail_before_creating_application_data() {
-    let f = Fixture::new();
-    {
-        let mut options = f.options(CacheMode::Segments);
-        options.ingest_workers = 0;
-        let error = Repository::load_repository(&f.root, options).err().unwrap();
-        assert!(error.to_string().contains("worker counts"));
-        assert!(!f.data.exists());
-    }
-}
-
-#[test]
 fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
     let f = Fixture::new();
     fs::write(f.root.join("data/books/a.json"), "broken").unwrap();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     assert_eq!(r.metrics().enumerations, 0);
     assert_eq!(r.metrics().source_reads, 0);
     assert!(!f.data.exists());
@@ -58,20 +46,20 @@ fn metadata_is_lazy_and_exposes_exact_indexes_and_cycles() {
 fn a_record_read_does_not_enumerate_or_touch_other_collections() {
     let f = Fixture::new();
     fs::write(f.root.join("data/spare/alone.json"), "broken").unwrap();
-    let mut r = f.repo(CacheMode::Segments);
+    let mut r = f.repo(CacheMode::Memory);
     let a = r.get_record("books", "a").unwrap().unwrap();
     assert_eq!(a.data["payload"]["html"], "<p>Keep **markdown**</p>");
-    assert_eq!(r.metrics().source_reads, 8);
-    assert_eq!(r.metrics().enumerations, 1);
+    assert_eq!(r.metrics().source_reads, 1);
+    assert_eq!(r.metrics().enumerations, 0);
     let status = r.cache_status().unwrap();
     let b = status
         .collections
         .iter()
         .find(|c| c.collection == "books")
         .unwrap();
-    assert_eq!(b.state, "current");
-    assert!(b.verified);
-    assert_eq!(b.records, 7);
+    assert_eq!(b.state, "partial");
+    assert!(!b.verified);
+    assert_eq!(b.records, 1);
     assert!(
         status
             .collections
@@ -185,14 +173,8 @@ fn page_defaults_and_optional_ui_values_are_normalized() {
 }
 
 #[test]
-fn paths_and_cache_namespaces_cannot_escape() {
+fn collection_paths_cannot_escape() {
     let f = Fixture::new();
-    let mut o = f.options(CacheMode::Segments);
-    o.namespace = "../oops".into();
-    assert!(Repository::load_repository(&f.root, o).is_err());
-    let o = Options::new(f.root.join("data/books"));
-    assert!(Repository::load_repository(&f.root, o).is_err());
-    assert!(!f.root.join("data/books/repositories").exists());
     f.edit(".editor/books/settings.json", |v| {
         v["path"] = json!("../other")
     });

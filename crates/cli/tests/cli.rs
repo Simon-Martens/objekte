@@ -3,18 +3,12 @@ mod support;
 use serde_json::{Value, json};
 use std::{
     fs,
-    fs::OpenOptions,
-    process::{Command, Output, Stdio},
-    time::{Duration, Instant},
+    process::{Command, Output},
 };
 use support::*;
-fn run(f: &Fixture, args: &[&str]) -> Output {
+fn run(_f: &Fixture, args: &[&str]) -> Output {
     let mut c = Command::new(env!("CARGO_BIN_EXE_objekte"));
     c.args(args);
-    if !args.contains(&"--cache") {
-        c.args(["--cache", "segments"]);
-    }
-    c.arg("--data-dir").arg(&f.data);
     c.output().unwrap()
 }
 
@@ -32,45 +26,41 @@ fn diagnostics(out: &Output) -> Value {
     assert!(output.starts_with("{\n  \""), "{output}");
     let diagnostics: Value = serde_json::from_slice(&out.stderr).unwrap();
     assert_eq!(diagnostics["type"], "diagnostics");
+    assert_eq!(diagnostics["level"], "info");
+    assert!(diagnostics["timestamp_unix_ms"].as_u64().unwrap() > 0);
+    assert!(diagnostics["command_elapsed_ms"].as_f64().unwrap() >= 0.0);
     diagnostics
 }
 
 #[test]
-fn explicit_segment_cache_reopens() {
+fn singular_diagnostic_flag_reports_pretty_json_for_success_and_error() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
-    let query = || {
-        Command::new(env!("CARGO_BIN_EXE_objekte"))
-            .args([
-                p,
-                "query",
-                "books",
-                "score >= 2",
-                "--count",
-                "--backend",
-                "segments",
-                "--cache",
-                "segments",
-                "--data-dir",
-            ])
-            .arg(&f.data)
-            .output()
-            .unwrap()
-    };
-    let first = value(query());
-    let second = value(query());
-    assert_eq!(first["total"], second["total"]);
-    assert_eq!(second["metrics"]["rows_inserted"], 0);
-    let status = value(
-        Command::new(env!("CARGO_BIN_EXE_objekte"))
-            .args([p, "cache", "status", "--cache", "segments", "--data-dir"])
-            .arg(&f.data)
-            .output()
-            .unwrap(),
-    );
-    assert_eq!(status["mode"], "segments");
-    let directory = std::path::Path::new(status["directory"].as_str().unwrap());
-    assert!(directory.join("segments").exists());
+    let success = run(&f, &[p, "cache", "status", "--diagnostic"]);
+    assert_eq!(diagnostics(&success)["level"], "info");
+    let failed = run(&f, &[p, "view", "missing", "--diagnostic"]);
+    assert!(!failed.status.success());
+    let raw = String::from_utf8(failed.stderr).unwrap();
+    assert!(raw.starts_with("{\n  \""));
+    let report: Value = serde_json::from_str(&raw).unwrap();
+    assert_eq!(report["type"], "diagnostics");
+    assert_eq!(report["level"], "error");
+    assert!(report["timestamp_unix_ms"].as_u64().unwrap() > 0);
+    assert!(report["command_elapsed_ms"].as_f64().unwrap() >= 0.0);
+    assert!(report["message"].as_str().unwrap().contains("missing"));
+}
+
+#[test]
+fn cache_warm_and_rebuild_report_metrics_for_one_or_all_collections() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let single = value(run(&f, &[p, "cache", "warm", "--collection", "books"]));
+    assert_millisecond_metrics(&single);
+    let all = value(run(&f, &[p, "cache", "rebuild"]));
+    assert_eq!(all.as_object().unwrap().len(), 3);
+    for metrics in all.as_object().unwrap().values() {
+        assert_millisecond_metrics(metrics);
+    }
 }
 
 #[test]
@@ -79,19 +69,8 @@ fn default_cache_uses_memory_for_views_and_queries() {
     let p = f.root.to_str().unwrap();
     let output = Command::new(env!("CARGO_BIN_EXE_objekte"))
         .args([
-            p,
-            "view",
-            "books",
-            "--sort",
-            "score",
-            "--limit",
-            "2",
-            "--count",
-            "--output",
-            "json",
-            "--data-dir",
+            p, "view", "books", "--sort", "score", "--limit", "2", "--count", "--output", "json",
         ])
-        .arg(&f.data)
         .output()
         .unwrap();
     let view = value(output);
@@ -105,8 +84,7 @@ fn default_cache_uses_memory_for_views_and_queries() {
     );
     assert!(!f.data.join("repositories").exists());
     let status = Command::new(env!("CARGO_BIN_EXE_objekte"))
-        .args([p, "cache", "status", "--data-dir"])
-        .arg(&f.data)
+        .args([p, "cache", "status"])
         .output()
         .unwrap();
     assert_eq!(value(status)["mode"], "memory");
@@ -160,6 +138,8 @@ fn help_version_and_invalid_arguments() {
         vec![p, "inspect", "--sort", "score"],
         vec![p, "view", "books", "--filter", "score=wrong"],
         vec![p, "view", "books", "--namespace", "../oops"],
+        vec![p, "view", "books", "--cache", "segments"],
+        vec![p, "query", "books", "score=1", "--backend", "segments"],
         vec![p, "view", "books", "--limit"],
         vec![p, "relations", "--collections", "--check-targets"],
         vec![p, "view", "books", "--ingest-workers", "0"],
@@ -168,42 +148,6 @@ fn help_version_and_invalid_arguments() {
     ] {
         assert!(!run(&f, &args).status.success(), "{args:?}");
     }
-}
-
-#[test]
-fn configuration_manifest_is_shared_across_cli_processes() {
-    let f = Fixture::new();
-    let p = f.root.to_str().unwrap();
-    let first = run(&f, &[p, "cache", "refresh-config", "--diagnostics"]);
-    assert!(
-        first.status.success(),
-        "{}",
-        String::from_utf8_lossy(&first.stderr)
-    );
-    let diagnostics = diagnostics(&first);
-    assert_eq!(diagnostics["metrics"]["source_reads"], 0);
-    assert_eq!(diagnostics["metrics"]["enumerations"], 0);
-    assert!(diagnostics["metrics"]["configuration_ms"].is_f64());
-    assert_eq!(value(first)["inputs"].as_array().unwrap().len(), 11);
-    f.edit(".editor/books/ui.json", |v| {
-        v["label"] = json!("Changed while closed")
-    });
-    let changes = value(run(&f, &[p, "cache", "refresh-config"]));
-    assert_eq!(changes["affected_collections"], json!(["books"]));
-    assert_eq!(changes["inputs"][0]["kind"], "modified");
-    assert_ne!(
-        changes["inputs"][0]["previous_digest"],
-        changes["inputs"][0]["digest"]
-    );
-    let status = value(run(&f, &[p, "cache", "status"]));
-    assert_eq!(status["configuration_changes"]["inputs"], json!([]));
-    assert!(
-        status["collections"]
-            .as_array()
-            .unwrap()
-            .iter()
-            .all(|c| c["state"] == "absent")
-    );
 }
 
 #[test]
@@ -236,7 +180,6 @@ fn metadata_default_strict_mode_and_subsort_hashes_are_exposed() {
         fast["metrics"]["source_reads"],
         fast["rows"].as_array().unwrap().len()
     );
-    assert_eq!(fast["metrics"]["manifest_hits"], 1);
     let strict = value(run(
         &f,
         &[
@@ -244,12 +187,12 @@ fn metadata_default_strict_mode_and_subsort_hashes_are_exposed() {
             "view",
             "books",
             "--reconcile",
-            "hash-on-open",
+            "hash-on-request",
             "--output",
             "json",
         ],
     ));
-    assert!(strict["metrics"]["hashes"].as_u64().unwrap() >= 7);
+    assert_eq!(strict["rows"], fast["rows"]);
     let out = run(
         &f,
         &[
@@ -350,110 +293,7 @@ fn table_output_preserves_literal_markup_and_escapes_control_characters() {
 }
 
 #[test]
-fn reopen_refresh_and_fresh_namespace_are_observable() {
-    let f = Fixture::new();
-    let p = f.root.to_str().unwrap();
-    let first = value(run(&f, &[p, "view", "books", "--output", "json"]));
-    assert_eq!(first["metrics"]["rows_inserted"], 7);
-    let reopened = value(run(&f, &[p, "view", "books", "--output", "json"]));
-    assert_eq!(reopened["metrics"]["rows_inserted"], 0);
-    assert_eq!(
-        reopened["metrics"]["parses"],
-        reopened["rows"].as_array().unwrap().len()
-    );
-    f.edit("data/books/a.json", |v| v["score"] = json!(-99));
-    let m = value(run(&f, &[p, "cache", "refresh", "--collection", "books"]));
-    assert_eq!(m["rows_updated"], 1);
-    let o = run(
-        &f,
-        &[
-            p,
-            "view",
-            "books",
-            "--fresh-cache",
-            "--output",
-            "json",
-            "--diagnostics",
-        ],
-    );
-    let diagnostic = diagnostics(&o);
-    assert!(
-        diagnostic["cache_directory"]
-            .as_str()
-            .unwrap()
-            .contains("run-")
-    );
-    assert_eq!(value(o)["metrics"]["rows_inserted"], 7);
-}
-
-#[test]
-fn separate_cli_processes_serialize_updates_to_one_cache() {
-    let f = Fixture::new();
-    let p = f.root.to_str().unwrap();
-    value(run(&f, &[p, "view", "books", "--output", "json"]));
-    f.edit("data/books/a.json", |v| v["score"] = json!(-99));
-    let status = value(run(&f, &[p, "cache", "status"]));
-    let lock_path = std::path::Path::new(status["directory"].as_str().unwrap())
-        .join("segments")
-        .join("LOCK");
-    let lock = OpenOptions::new()
-        .read(true)
-        .write(true)
-        .open(lock_path)
-        .unwrap();
-    fs2::FileExt::lock_exclusive(&lock).unwrap();
-    let spawn = || {
-        Command::new(env!("CARGO_BIN_EXE_objekte"))
-            .args([
-                p,
-                "view",
-                "books",
-                "--count",
-                "--output",
-                "json",
-                "--cache",
-                "segments",
-                "--data-dir",
-            ])
-            .arg(&f.data)
-            .stdout(Stdio::piped())
-            .stderr(Stdio::piped())
-            .spawn()
-            .unwrap()
-    };
-    let mut first = spawn();
-    let mut second = spawn();
-    std::thread::sleep(Duration::from_millis(100));
-    assert!(first.try_wait().unwrap().is_none());
-    assert!(second.try_wait().unwrap().is_none());
-    fs2::FileExt::unlock(&lock).unwrap();
-    let finish = |mut child: std::process::Child| {
-        let deadline = Instant::now() + Duration::from_secs(15);
-        while child.try_wait().unwrap().is_none() {
-            if Instant::now() >= deadline {
-                child.kill().unwrap();
-                panic!("CLI process remained blocked after cache lock was released");
-            }
-            std::thread::sleep(Duration::from_millis(5));
-        }
-        let output = child.wait_with_output().unwrap();
-        let result = value(output);
-        assert_eq!(result["total"], 7);
-        assert_eq!(result["rows"][0]["id"], "a");
-        result
-    };
-    let first = finish(first);
-    let second = finish(second);
-    assert_eq!(first["rows"], second["rows"]);
-    assert_eq!(
-        first["metrics"]["rows_updated"].as_u64().unwrap()
-            + second["metrics"]["rows_updated"].as_u64().unwrap(),
-        1
-    );
-}
-
-#[test]
-fn disabled_cache_writes_no_app_data_and_matches_segments() {
+fn disabled_cache_writes_no_app_data_and_matches_memory() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
     let direct = value(run(
@@ -463,12 +303,12 @@ fn disabled_cache_writes_no_app_data_and_matches_segments() {
         ],
     ));
     assert!(!f.data.exists());
-    let segments = value(run(
+    let memory = value(run(
         &f,
         &[p, "view", "books", "--output", "json", "--count"],
     ));
-    assert_eq!(direct["rows"], segments["rows"]);
-    assert_eq!(direct["total"], segments["total"]);
+    assert_eq!(direct["rows"], memory["rows"]);
+    assert_eq!(direct["total"], memory["total"]);
 }
 
 #[test]
@@ -494,29 +334,6 @@ fn record_and_reference_commands_report_resolution_and_coverage() {
     ));
     assert_eq!(refs["edges"].as_array().unwrap().len(), 4);
     assert_eq!(refs["coverage"][0]["verified"], true);
-}
-
-#[test]
-fn damaged_segment_snapshot_is_rebuilt_from_source() {
-    let f = Fixture::new();
-    let p = f.root.to_str().unwrap();
-    value(run(&f, &[p, "view", "books", "--output", "json"]));
-    let status = value(run(&f, &[p, "cache", "status"]));
-    let segments = std::path::Path::new(status["directory"].as_str().unwrap()).join("segments");
-    let collection = fs::read_dir(&segments)
-        .unwrap()
-        .map(|entry| entry.unwrap().path())
-        .find(|path| path.is_dir())
-        .unwrap();
-    fs::write(collection.join("CURRENT.json"), b"interrupted").unwrap();
-    let out = value(run(
-        &f,
-        &[
-            p, "view", "books", "--count", "--limit", "1", "--output", "json",
-        ],
-    ));
-    assert_eq!(out["total"], 7);
-    assert_eq!(fs::read_dir(f.root.join("data/books")).unwrap().count(), 7);
 }
 
 #[test]
@@ -562,20 +379,9 @@ fn query_and_view_validate_on_demand_without_stored_states() {
             > 0
     );
     assert_eq!(value(direct)["records"][0]["state"]["status"], "valid");
-    let output = run(
-        &f,
-        &[
-            p,
-            "validate",
-            "books",
-            "--background-workers",
-            "2",
-            "--diagnostics",
-        ],
-    );
+    let output = run(&f, &[p, "validate", "books", "--diagnostics"]);
     let diagnostic = diagnostics(&output);
-    assert_eq!(diagnostic["background_workers"], 2);
-    assert_eq!(diagnostic["validation_metrics"]["applied"], 0);
+    assert!(diagnostic["validation_wait_ms"].as_f64().unwrap() >= 0.0);
     assert_eq!(value(output)["applied"], 6);
     let page = value(run(
         &f,
@@ -587,16 +393,8 @@ fn query_and_view_validate_on_demand_without_stored_states() {
         value(run(&f, &[p, "cache", "validate", "--collection", "books"]))["applied"],
         6
     );
-    let status = value(run(&f, &[p, "cache", "status"]));
-    let books = status["collections"]
-        .as_array()
-        .unwrap()
-        .iter()
-        .find(|c| c["collection"] == "books")
-        .unwrap();
-    assert_eq!(books["validation"], json!({}));
     let record = value(run(&f, &[p, "get", "books", "a"]));
-    assert_eq!(record["state"]["status"], "invalid");
+    assert_eq!(record["state"]["status"], "pending");
     assert_eq!(record["data"]["score"], "wrong");
 }
 
@@ -624,23 +422,26 @@ fn validate_accepts_one_or_all_collections_and_waits() {
     assert_eq!(single["applied"], 6);
     assert_millisecond_metrics(&single);
     let status = value(run(&f, &[p, "cache", "status"]));
-    for collection in status["collections"].as_array().unwrap() {
-        if collection["collection"] == "books" {
-            assert_eq!(collection["validation"], json!({}));
-        } else {
-            assert_eq!(collection["state"], "absent");
-        }
-    }
+    assert!(
+        status["collections"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|collection| collection["state"] == "absent")
+    );
     // The all-collections form must also reconcile later source edits.
     f.edit("data/books/a.json", |v| v["score"] = json!(2));
     let result = value(run(&f, &[p, "validate"]));
     assert!(result["applied"].as_u64().unwrap() > 1);
     assert_millisecond_metrics(&result);
     let status = value(run(&f, &[p, "cache", "status"]));
-    for collection in status["collections"].as_array().unwrap() {
-        assert_eq!(collection["state"], "current");
-        assert_eq!(collection["validation"], json!({}));
-    }
+    assert!(
+        status["collections"]
+            .as_array()
+            .unwrap()
+            .iter()
+            .all(|collection| collection["state"] == "absent")
+    );
     assert!(
         value(run(&f, &[p, "validate"]))["applied"]
             .as_u64()
@@ -684,7 +485,6 @@ fn every_cli_metrics_output_uses_milliseconds_without_changing_record_fields() {
     let view = value(out);
     assert_eq!(view["metrics"], diagnostics["metrics"]);
     assert_millisecond_metrics(&view["metrics"]);
-    assert_millisecond_metrics(&diagnostics["validation_metrics"]);
     assert!(diagnostics["validation_wait_ms"].is_f64());
     let row = view["rows"]
         .as_array()
@@ -792,7 +592,7 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
             .iter()
             .all(|r| r["collection"] == "books")
     );
-    for cache in ["segments", "disabled"] {
+    for cache in ["memory", "disabled"] {
         let positional = value(run(
             &f,
             &[
@@ -921,7 +721,7 @@ fn bigram_cli_backend_matches_default_query_results() {
 fn query_events_stream_numbered_records_and_completion_metadata() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
-    for cache in ["memory", "segments"] {
+    for cache in ["memory", "disabled"] {
         let args = [
             p,
             "query",
@@ -1024,7 +824,7 @@ fn query_events_report_late_errors_after_provisional_records() {
 }
 
 #[test]
-fn diagnostics_reports_segment_query() {
+fn diagnostics_reports_bigram_query() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
     let out = run(
@@ -1036,7 +836,7 @@ fn diagnostics_reports_segment_query() {
             "score >= 2",
             "--count",
             "--backend",
-            "segments",
+            "bigram",
             "--diagnostics",
         ],
     );
@@ -1048,8 +848,8 @@ fn diagnostics_reports_segment_query() {
     assert_eq!(diagnostics(&out)["type"], "diagnostics");
     let result = value(out);
     assert_eq!(result["total"], 3);
-    assert_eq!(result["metrics"]["rows_inserted"], 7);
-    assert_eq!(result["metrics"]["grep_scans"], 0);
+    assert!(result["query_plan"][0].as_str().unwrap().contains("bigram"));
+    assert_eq!(result["metrics"]["grep_scans"], 3);
 
     let direct = run(
         &f,

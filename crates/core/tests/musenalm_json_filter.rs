@@ -5,11 +5,9 @@ use std::{path::PathBuf, time::Instant};
 #[ignore = "compares global JSON filters across all Musenalm records; run with --release --ignored --nocapture"]
 fn global_filters_match_source_execution_on_musenalm() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
-    let tmp = tempfile::tempdir().unwrap();
-    let mut options = Options::new(tmp.path());
-    options.cache = CacheMode::Segments;
-    options.ingest_workers = 4;
-    let mut segments = Repository::load_repository(&root, options.clone()).unwrap();
+    let mut options = Options::new();
+    options.cache = CacheMode::Memory;
+    let mut memory = Repository::load_repository(&root, options.clone()).unwrap();
     options.cache = CacheMode::Disabled;
     let mut direct = Repository::load_repository(&root, options).unwrap();
     for (collection, expression) in [
@@ -30,13 +28,13 @@ fn global_filters_match_source_execution_on_musenalm() {
         let source = direct.query_json(&request).unwrap();
         let direct_ms = start.elapsed().as_secs_f64() * 1000.0;
         let start = Instant::now();
-        let cached = segments
+        let cached = memory
             .query_json(&JsonQuery {
-                backend: JsonQueryBackend::Segments,
+                backend: JsonQueryBackend::Bigram,
                 ..request.clone()
             })
             .unwrap();
-        let segment_ms = start.elapsed().as_secs_f64() * 1000.0;
+        let bigram_ms = start.elapsed().as_secs_f64() * 1000.0;
         assert_eq!(source.total, cached.total, "{expression}");
         assert_eq!(
             source.records.len(),
@@ -56,9 +54,9 @@ fn global_filters_match_source_execution_on_musenalm() {
             );
         }
         let start = Instant::now();
-        let warm = segments
+        let warm = memory
             .query_json(&JsonQuery {
-                backend: JsonQueryBackend::Segments,
+                backend: JsonQueryBackend::Bigram,
                 ..request.clone()
             })
             .unwrap();
@@ -69,20 +67,17 @@ fn global_filters_match_source_execution_on_musenalm() {
             warm.total.unwrap().min(request.limit),
             "{expression}"
         );
-        let json_index_used = warm
-            .query_plan
-            .iter()
-            .any(|p| p.contains("parallel segment search"));
+        let json_index_used = warm.query_plan.iter().any(|p| p.contains("bigram"));
         if collection.is_some() {
             let page_size = 2048;
             let mut offset = 0;
             while offset < source.records.len() {
-                let page = segments
+                let page = memory
                     .query_json(&JsonQuery {
                         limit: page_size,
                         offset,
                         count: false,
-                        backend: JsonQueryBackend::Segments,
+                        backend: JsonQueryBackend::Bigram,
                         ..request.clone()
                     })
                     .unwrap();
@@ -105,12 +100,12 @@ fn global_filters_match_source_execution_on_musenalm() {
             }
             assert_eq!(offset, source.total.unwrap());
             assert!(
-                segments
+                memory
                     .query_json(&JsonQuery {
                         limit: page_size,
                         offset,
                         count: false,
-                        backend: JsonQueryBackend::Segments,
+                        backend: JsonQueryBackend::Bigram,
                         ..request.clone()
                     })
                     .unwrap()
@@ -121,7 +116,7 @@ fn global_filters_match_source_execution_on_musenalm() {
         assert_eq!(warm.metrics.enumerations, 0);
         println!(
             "{}",
-            serde_json::json!({"collection":collection,"filter":expression,"matches":cached.total,"returned":cached.records.len(),"direct_ms":direct_ms,"segments_ms":segment_ms,"warm_segments_ms":warm_ms,"segment_query_ms":cached.metrics.query_nanos as f64/1e6,"source_reads":cached.metrics.source_reads,"segment_prefilter_used":json_index_used})
+            serde_json::json!({"collection":collection,"filter":expression,"matches":cached.total,"returned":cached.records.len(),"direct_ms":direct_ms,"bigram_ms":bigram_ms,"warm_bigram_ms":warm_ms,"bigram_query_ms":cached.metrics.query_nanos as f64/1e6,"source_reads":cached.metrics.source_reads,"bigram_prefilter_used":json_index_used})
         );
     }
 }

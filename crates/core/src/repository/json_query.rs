@@ -1,4 +1,4 @@
-//! JSON filter execution across memory, segments, grep, and source files.
+//! JSON filter execution across memory, grep, and source files.
 use super::*;
 use crate::{
     JsonFilter, JsonQuery, JsonQueryBackend, JsonQueryDependencies, JsonQueryResult,
@@ -81,7 +81,6 @@ impl DerefMut for QueryOutput<'_> {
 
 
 mod memory;
-mod segments;
 mod source;
 
 
@@ -161,7 +160,6 @@ impl Repository {
                 dependencies: JsonQueryDependencies {
                     collections: names.into_iter().collect(),
                     paths: filter.paths().to_vec(),
-                    revisions: BTreeMap::new(),
                 },
                 filter_hash: filter.hash().into(),
                 metrics: Metrics::default(),
@@ -173,14 +171,6 @@ impl Repository {
         };
         if !collections.is_empty() {
             match request.backend {
-                JsonQueryBackend::Segments if self.options.cache != CacheMode::Segments => {
-                    return Err(Error::Request(
-                        "segment query backend requires the segment cache".into(),
-                    ));
-                }
-                JsonQueryBackend::Segments if !searchable.is_empty() => {
-                    self.query_json_segments(request, &filter, &searchable, &mut result)?
-                }
                 JsonQueryBackend::Grep if !searchable.is_empty() => {
                     self.query_json_grep(request, &filter, &searchable, &mut result)?
                 }

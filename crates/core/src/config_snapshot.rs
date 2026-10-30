@@ -1,6 +1,6 @@
-//! Observed configuration is independent of the versions applied to cached records.
+//! Configuration snapshots and changed-input reports for one repository handle.
 use crate::RepositoryModel;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 use std::{
     collections::{BTreeMap, BTreeSet},
     path::PathBuf,
@@ -29,19 +29,17 @@ pub struct ConfigurationInputChange {
 }
 
 
-// INFO: Persisted or in-memory summary of changed inputs and candidate collections.
+// INFO: Changed inputs and their candidate collections.
 #[derive(Debug, Clone, Default, Serialize)]
 pub struct ConfigurationChanges {
-    /// False when comparing only an in-memory snapshot with caching disabled.
-    pub persistent: bool,
     pub inputs: Vec<ConfigurationInputChange>,
-    /// Candidate collections; semantic hashes decide which cache work is necessary.
+    /// Candidate collections; semantic hashes decide which index work is necessary.
     pub affected_collections: Vec<String>,
 }
 
 
-// INFO: Configuration file digests and their direct collection owners. Saved in the segment configuration snapshot.
-#[derive(Default, Clone, Serialize, Deserialize)]
+// INFO: Configuration file digests and their direct collection owners.
+#[derive(Default, Clone)]
 pub(crate) struct ConfigurationSnapshot {
     files: BTreeMap<PathBuf, String>,
     owners: BTreeMap<PathBuf, BTreeSet<String>>,

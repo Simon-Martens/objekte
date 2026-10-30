@@ -1,19 +1,18 @@
 //! Command dispatch and library calls.
 
 use crate::{
-    args::{HELP, args, data_dir},
-    output::{metrics_in_milliseconds, print_view, write_query_event},
+    args::{HELP, args},
+    diagnostics::now_unix_ms,
+    output::{
+        collection_metrics_in_milliseconds, metrics_in_milliseconds, print_view, write_query_event,
+    },
 };
 use objekte_core::{
     CacheMode, Direction, Freshness, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
     ViewRequest,
 };
 use serde_json::json;
-use std::{
-    io::Write,
-    path::PathBuf,
-    time::{Instant, SystemTime, UNIX_EPOCH},
-};
+use std::{io::Write, time::Instant};
 
 pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let command_started = Instant::now();
@@ -33,9 +32,12 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "cache" => {
             if !matches!(
                 a.pos.get(2).map(String::as_str),
-                Some("status" | "refresh-config" | "refresh" | "validate")
+                Some("status" | "refresh-config" | "refresh" | "warm" | "rebuild" | "validate")
             ) {
-                return Err("cache requires status, refresh-config, refresh, or validate".into());
+                return Err(
+                    "cache requires status, refresh-config, refresh, warm, rebuild, or validate"
+                        .into(),
+                );
             }
             3
         }
@@ -59,15 +61,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     if command == "query" && a.pos.len() == 4 && a.values.contains_key("--collection") {
         return Err("choose positional COLLECTION or --collection, not both".into());
     }
-    let common = [
-        "--data-dir",
-        "--cache",
-        "--ingest-workers",
-        "--background-workers",
-        "--reconcile",
-        "--namespace",
-        "--output",
-    ];
+    let common = ["--cache", "--reconcile", "--output"];
     for key in a.values.keys() {
         let allowed = common.contains(&key.as_str())
             || match command {
@@ -78,7 +72,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 }
                 "relations" => ["--from", "--to"].contains(&key.as_str()),
                 "cache" => {
-                    matches!(a.pos[2].as_str(), "refresh" | "validate") && key == "--collection"
+                    matches!(
+                        a.pos[2].as_str(),
+                        "refresh" | "warm" | "rebuild" | "validate"
+                    ) && key == "--collection"
                 }
                 _ => false,
             };
@@ -87,7 +84,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
     }
     for key in &a.flags {
-        let allowed = ["--fresh-cache", "--diagnostics"].contains(&key.as_str())
+        let allowed = key == "--diagnostics"
             || match command {
                 "view" | "query" => key == "--count",
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
@@ -108,45 +105,18 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let get =
         |key: &str, default: &str| a.values.get(key).cloned().unwrap_or_else(|| default.into());
-    let mut options = Options::new(if let Some(p) = a.values.get("--data-dir") {
-        PathBuf::from(p)
-    } else {
-        data_dir()?
-    });
+    let mut options = Options::new();
     options.cache = match get("--cache", "memory").as_str() {
         "memory" => CacheMode::Memory,
-        "segments" => CacheMode::Segments,
         "disabled" => CacheMode::Disabled,
-        _ => return Err("cache must be memory, segments, or disabled".into()),
+        _ => return Err("cache must be memory or disabled".into()),
     };
     options.freshness = match get("--reconcile", "metadata-on-open").as_str() {
         "metadata-on-open" => Freshness::MetadataOnOpen,
         "metadata-on-request" => Freshness::MetadataOnRequest,
-        "hash-on-open" => Freshness::HashOnOpen,
         "hash-on-request" => Freshness::HashOnRequest,
         _ => return Err("unknown reconciliation policy".into()),
     };
-    if let Some(value) = a.values.get("--ingest-workers") {
-        options.ingest_workers = value
-            .parse()
-            .map_err(|_| "--ingest-workers requires a positive integer")?;
-    }
-    if let Some(value) = a.values.get("--background-workers") {
-        options.background_workers = value
-            .parse()
-            .map_err(|_| "--background-workers requires a positive integer")?;
-    }
-    options.namespace = get("--namespace", "default");
-    if a.flags.contains("--fresh-cache") {
-        if a.values.contains_key("--namespace") {
-            return Err("choose --fresh-cache or --namespace".into());
-        }
-        options.namespace = format!(
-            "run-{}-{}",
-            std::process::id(),
-            SystemTime::now().duration_since(UNIX_EPOCH)?.as_nanos()
-        );
-    }
     let output = get("--output", if command == "view" { "table" } else { "json" });
     if !["table", "json", "ndjson", "events"].contains(&output.as_str()) {
         return Err("unknown output format".into());
@@ -160,8 +130,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         return Err("this output format is unavailable for the command".into());
     }
     let freshness = options.freshness;
-    let ingest_workers = options.ingest_workers;
-    let background_workers = options.background_workers;
     let mut validation_wait_nanos = 0;
     let repository_load_started = Instant::now();
     let mut repo = Repository::load_repository(&a.pos[0], options)?;
@@ -185,13 +153,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 backend: match get("--backend", "auto").as_str() {
                     "auto" => JsonQueryBackend::Auto,
                     "direct" => JsonQueryBackend::Direct,
-                    "segments" => JsonQueryBackend::Segments,
                     "grep" | "rg" => JsonQueryBackend::Grep,
                     "bigram" => JsonQueryBackend::Bigram,
                     _ => {
-                        return Err(
-                            "query backend must be auto, direct, segments, grep, or bigram".into(),
-                        );
+                        return Err("query backend must be auto, direct, grep, or bigram".into());
                     }
                 },
             };
@@ -346,6 +311,19 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 Some(serde_json::to_value(repo.cache_status()?)?)
             } else if a.pos[2] == "refresh-config" {
                 Some(serde_json::to_value(repo.refresh_configuration()?)?)
+            } else if a.pos[2] == "warm" || a.pos[2] == "rebuild" {
+                let metrics = match (a.pos[2].as_str(), a.values.get("--collection")) {
+                    ("warm", Some(c)) => serde_json::to_value(repo.warm_bigram_index(c)?)?,
+                    ("warm", None) => serde_json::to_value(repo.warm_all_bigram_indexes()?)?,
+                    ("rebuild", Some(c)) => serde_json::to_value(repo.rebuild_bigram_index(c)?)?,
+                    ("rebuild", None) => serde_json::to_value(repo.rebuild_all_bigram_indexes()?)?,
+                    _ => unreachable!(),
+                };
+                Some(if a.values.contains_key("--collection") {
+                    metrics_in_milliseconds(metrics)
+                } else {
+                    collection_metrics_in_milliseconds(metrics)
+                })
             } else {
                 let c = a
                     .values
@@ -370,7 +348,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     if a.flags.contains("--diagnostics") {
         let command_elapsed_ms = command_started.elapsed().as_secs_f64() * 1_000.0;
-        let mut diagnostics = json!({"type":"diagnostics","command_elapsed_ms":command_elapsed_ms,"repository_load_ms":repository_load_ms,"metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"cache_directory":repo.cache_directory()?,"freshness":freshness,"ingest_workers":ingest_workers,"background_workers":background_workers,"validation_metrics":metrics_in_milliseconds(json!(repo.validation_metrics())),"validation_wait_ms":(validation_wait_nanos + repo.metrics().validation_wait_nanos as u128) as f64 / 1_000_000.0,"view_hashes":view_hashes});
+        let mut diagnostics = json!({"type":"diagnostics","level":"info","timestamp_unix_ms":now_unix_ms(),"command_elapsed_ms":command_elapsed_ms,"repository_load_ms":repository_load_ms,"metrics":metrics_in_milliseconds(json!(repo.metrics())),"configuration_changes":repo.configuration_changes(),"freshness":freshness,"validation_wait_ms":(validation_wait_nanos + repo.metrics().validation_wait_nanos as u128) as f64 / 1_000_000.0,"view_hashes":view_hashes});
         let drop_started = Instant::now();
         drop(repo);
         diagnostics["repository_drop_ms"] = json!(drop_started.elapsed().as_secs_f64() * 1_000.0);

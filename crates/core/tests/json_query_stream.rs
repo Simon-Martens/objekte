@@ -8,12 +8,8 @@ use std::fs;
 use support::Fixture;
 
 
-fn backend_repository(fixture: &Fixture, backend: JsonQueryBackend) -> Repository {
-    fixture.repo(if backend == JsonQueryBackend::Segments {
-        CacheMode::Segments
-    } else {
-        CacheMode::Memory
-    })
+fn backend_repository(fixture: &Fixture, _backend: JsonQueryBackend) -> Repository {
+    fixture.repo(CacheMode::Memory)
 }
 
 #[test]
@@ -21,7 +17,6 @@ fn streamed_pages_match_collected_queries_for_every_backend() {
     let fixture = Fixture::new();
     for backend in [
         JsonQueryBackend::Bigram,
-        JsonQueryBackend::Segments,
         JsonQueryBackend::Direct,
         JsonQueryBackend::Grep,
     ] {
@@ -103,7 +98,6 @@ fn a_late_scalar_error_invalidates_earlier_streamed_records() {
     .unwrap();
     for backend in [
         JsonQueryBackend::Bigram,
-        JsonQueryBackend::Segments,
         JsonQueryBackend::Direct,
         JsonQueryBackend::Grep,
     ] {

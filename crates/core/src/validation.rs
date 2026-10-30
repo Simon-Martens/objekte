@@ -97,15 +97,10 @@ impl Document {
 }
 
 
-// INFO: Counters and timings for background validation work.
+// INFO: Counters and elapsed time for an explicit validation request.
 #[derive(Debug, Default, Clone, Serialize)]
 pub struct ValidationMetrics {
     pub validated: u64,
     pub applied: u64,
-    pub stale: u64,
-    pub snapshot_read_nanos: u64,
-    pub parallel_validation_nanos: u64,
-    pub decode_nanos: u64,
     pub validation_nanos: u64,
-    pub write_nanos: u64,
 }

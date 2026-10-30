@@ -2,13 +2,6 @@
 
 use super::*;
 
-type ScannedView = (
-    Vec<crate::ViewRow>,
-    BTreeMap<String, RecordState>,
-    Option<usize>,
-    String,
-);
-
 
 impl Repository {
     pub fn open_view(&mut self, collection: &str, request: &ViewRequest) -> Result<ViewResult> {
@@ -19,7 +12,6 @@ impl Repository {
         let mut result = match self.options.cache {
             CacheMode::Disabled => self.direct(&c, Some(&plan), false)?.unwrap(),
             CacheMode::Memory => self.view_memory(&c, &plan)?,
-            CacheMode::Segments => self.view_segments(&c, &plan)?,
         };
         result.metrics = self.metrics.since(&before);
         Ok(result)
@@ -152,125 +144,6 @@ impl Repository {
             query_plan: vec![query_plan],
             view_hashes: plan.hashes.clone(),
         })
-    }
-
-    fn view_segments(&mut self, c: &Collection, plan: &Plan) -> Result<ViewResult> {
-        use crate::{Direction, query::scalar_value};
-        self.sync_segments(c, false)?;
-        let snapshot = self
-            .segment_snapshot(c)?
-            .ok_or_else(|| Error::Cache("segment snapshot disappeared".into()))?;
-        let mut candidates = snapshot
-            .entries()
-            .map(|(id, _)| id.clone())
-            .collect::<BTreeSet<_>>();
-        let mut all_filters_indexed = true;
-        for filter in &plan.filters {
-            if let Some(ids) = snapshot.indexed_filter_ids(
-                &filter.field,
-                filter.operator,
-                &scalar_value(Some(&filter.value)),
-            ) {
-                candidates = candidates.intersection(&ids).cloned().collect();
-            } else {
-                all_filters_indexed = false;
-            }
-        }
-        let first = &plan.sorts[0];
-        let indexed_order = if first.field == "@id" && plan.sorts.len() == 1 {
-            let mut ids = candidates.iter().cloned().collect::<Vec<_>>();
-            if first.direction == Direction::Desc {
-                ids.reverse();
-            }
-            Some(ids)
-        } else if plan.sorts.len() == 2
-            && plan.sorts[1].field == "@id"
-            && plan.sorts[1].direction == Direction::Asc
-        {
-            snapshot.ordered_ids(&first.field, first.direction == Direction::Desc)
-        } else {
-            None
-        };
-        let source = Source::open(&c.path)?;
-        let t = Instant::now();
-        let (rows, states, total, query_plan) = if all_filters_indexed {
-            if let Some(order) = indexed_order {
-                let total = plan.count.then_some(candidates.len());
-                let mut rows = Vec::new();
-                let mut states = BTreeMap::new();
-                for id in order
-                    .into_iter()
-                    .filter(|id| candidates.contains(id))
-                    .skip(plan.offset)
-                    .take(plan.limit)
-                {
-                    let entry = snapshot
-                        .entry(&id)
-                        .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
-                    let raw = self.raw_from(&source, &id, Some(&entry.stamp))?;
-                    let doc = self.parse(c, &id, &raw.json, true);
-                    rows.push(plan.row(c, &id, self.path(c, &id), &doc.data));
-                    states.insert(id, doc.state);
-                }
-                (
-                    rows,
-                    states,
-                    total,
-                    "ordered segment index; page source read".to_owned(),
-                )
-            } else {
-                self.view_segments_fallback(c, plan, &snapshot, &source, &candidates)?
-            }
-        } else {
-            self.view_segments_fallback(c, plan, &snapshot, &source, &candidates)?
-        };
-        source.finish()?;
-        self.metrics.query_nanos += nanos(t);
-        Ok(ViewResult {
-            columns: plan.columns.clone(),
-            rows,
-            states,
-            total,
-            metrics: Metrics::default(),
-            query_plan: vec![query_plan],
-            view_hashes: plan.hashes.clone(),
-        })
-    }
-
-    fn view_segments_fallback(
-        &mut self,
-        c: &Collection,
-        plan: &Plan,
-        snapshot: &segment_cache::Snapshot,
-        source: &Source,
-        candidates: &BTreeSet<String>,
-    ) -> Result<ScannedView> {
-        let mut matches = Vec::new();
-        for id in candidates {
-            let entry = snapshot
-                .entry(id)
-                .ok_or_else(|| Error::Cache(format!("segment ID {id} missing")))?;
-            let raw = self.raw_from(source, id, Some(&entry.stamp))?;
-            let doc = self.parse(c, id, &raw.json, false);
-            if plan.matches(id, &doc.data) {
-                matches.push((plan.keys(id, &doc.data), id.clone(), doc));
-            }
-        }
-        matches.sort_by(|a, b| plan.compare_keys(&a.0, &b.0));
-        let total = plan.count.then_some(matches.len());
-        let mut rows = Vec::new();
-        let mut states = BTreeMap::new();
-        for (_, id, mut doc) in matches.into_iter().skip(plan.offset).take(plan.limit) {
-            doc.validate(c);
-            rows.push(plan.row(c, &id, self.path(c, &id), &doc.data));
-            states.insert(id, doc.state);
-        }
-        Ok((
-            rows,
-            states,
-            total,
-            "segment candidate scan and in-memory sort".into(),
-        ))
     }
 
     pub(super) fn direct(
