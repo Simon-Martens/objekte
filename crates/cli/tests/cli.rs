@@ -849,7 +849,13 @@ fn diagnostics_reports_bigram_query() {
     let result = value(out);
     assert_eq!(result["total"], 3);
     assert!(result["query_plan"][0].as_str().unwrap().contains("bigram"));
-    assert_eq!(result["metrics"]["grep_scans"], 3);
+    assert_eq!(result["metrics"]["grep_scans"], 0);
+    assert!(
+        result["query_plan"][1]
+            .as_str()
+            .unwrap()
+            .contains("exact scalar")
+    );
 
     let direct = run(
         &f,

@@ -8,7 +8,7 @@ use crate::{
 use serde_json::Value;
 use std::{
     cmp::Ordering,
-    collections::{BTreeMap, BTreeSet},
+    collections::{BTreeMap, BTreeSet, HashMap, HashSet},
     ops::Bound::{Excluded, Included, Unbounded},
 };
 
@@ -93,16 +93,7 @@ impl TypedIndex {
     }
 
     pub(super) fn replace_rows(&mut self, rows: Vec<Vec<(TypedKey, usize)>>) {
-        self.postings = rows
-            .into_iter()
-            .map(|rows| {
-                let mut map = BTreeMap::<TypedKey, Vec<usize>>::new();
-                for (key, slot) in rows {
-                    map.entry(key).or_default().push(slot);
-                }
-                map
-            })
-            .collect();
+        self.postings = rows.into_iter().map(postings_for_rows).collect();
     }
 
     /// Evaluate necessary typed postings. Unknown AND children are skipped;
@@ -157,7 +148,7 @@ impl TypedIndex {
         }
     }
 
-    fn term_bits(
+    pub(super) fn term_bits(
         &self,
         field: &str,
         operator: Operator,
@@ -202,3 +193,66 @@ impl TypedIndex {
         Some(bits)
     }
 }
+
+
+fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usize>> {
+    let mut postings = BTreeMap::<TypedKey, Vec<usize>>::new();
+    if !should_group_rows(&rows) {
+        for (key, slot) in rows {
+            postings.entry(key).or_default().push(slot);
+        }
+        return postings;
+    }
+
+    let mut numbers = HashMap::<String, Vec<usize>>::new();
+    let mut strings = HashMap::<String, Vec<usize>>::new();
+    let mut booleans = [Vec::new(), Vec::new()];
+    for (key, slot) in rows {
+        match key {
+            TypedKey::Bool(value) => booleans[usize::from(value)].push(slot),
+            TypedKey::Number(raw) => numbers.entry(raw).or_default().push(slot),
+            TypedKey::String(raw) => strings.entry(raw).or_default().push(slot),
+        }
+    }
+    for (value, slots) in booleans.into_iter().enumerate() {
+        if !slots.is_empty() {
+            postings.insert(TypedKey::Bool(value != 0), slots);
+        }
+    }
+    for (raw, slots) in numbers {
+        // Equal JSON numbers can have different spellings (1, 1.0, 1e0).
+        // The ordered map merges those groups using exact decimal equality.
+        postings
+            .entry(TypedKey::Number(raw))
+            .or_default()
+            .extend(slots);
+    }
+    for (raw, slots) in strings {
+        postings.insert(TypedKey::String(raw), slots);
+    }
+    postings
+}
+
+fn should_group_rows(rows: &[(TypedKey, usize)]) -> bool {
+    if rows.len() < 2048 {
+        return false;
+    }
+    // Mostly unique fields would pay for a hash table and the ordered map.
+    // Sample raw spellings before choosing the grouping path.
+    let sample = rows.iter().take(1024);
+    let mut distinct = HashSet::new();
+    for (key, _) in sample {
+        let raw = match key {
+            TypedKey::Bool(false) => (0, "false"),
+            TypedKey::Bool(true) => (0, "true"),
+            TypedKey::Number(raw) => (1, raw.as_str()),
+            TypedKey::String(raw) => (2, raw.as_str()),
+        };
+        distinct.insert(raw);
+    }
+    distinct.len() * 4 < 1024 * 3
+}
+
+#[cfg(test)]
+#[path = "typed.test.rs"]
+mod tests;

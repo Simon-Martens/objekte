@@ -518,7 +518,13 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
     let warm = memory.query_json(&query).unwrap();
     assert_eq!(warm.total, Some(2));
     let result = memory.query_json(&query).unwrap();
-    assert_eq!(result.metrics.grep_scans, 2);
+    assert_eq!(result.metrics.grep_scans, 0);
+    assert!(
+        result
+            .query_plan
+            .iter()
+            .any(|step| step.contains("exact scalar"))
+    );
     query.filter = "(x = 2 || name ~ 'special') && flag = true".into();
     let mixed = memory.query_json(&query).unwrap();
     assert_eq!(mixed.total, Some(2));

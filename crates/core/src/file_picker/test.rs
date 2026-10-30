@@ -59,6 +59,34 @@ fn indexes_decoded_values_with_stable_slots_and_targeted_updates() {
 }
 
 #[test]
+fn record_candidates_follow_id_order_across_changed_and_deleted_slots() {
+    let dir = tempfile::tempdir().unwrap();
+    put(dir.path(), "a", r#"{"title":"Match"}"#);
+    put(dir.path(), "b", r#"{"title":"Match"}"#);
+    put(dir.path(), "c", r#"{"title":"Match"}"#);
+    for number in 0..100 {
+        put(dir.path(), &format!("z{number:03}"), r#"{"title":"Other"}"#);
+    }
+    let mut picker = FilePicker::open(dir.path()).unwrap();
+
+    put(dir.path(), "a", r#"{"title":"Changed"}"#);
+    picker.refresh_id("a").unwrap();
+    fs::remove_file(dir.path().join("c.json")).unwrap();
+    picker.refresh_id("c").unwrap();
+    put(dir.path(), "aa", r#"{"title":"Match"}"#);
+    picker.refresh_id("aa").unwrap();
+
+    let ids = picker
+        .candidate_records(Some("Match"), None, &[])
+        .into_iter()
+        .map(|(id, _)| id)
+        .collect::<Vec<_>>();
+    // The changed "a" bypasses its stale posting exactly once. The appended
+    // "aa" slot sorts before the older "b" slot and deleted "c" stays out.
+    assert_eq!(ids, ["a", "aa", "b"]);
+}
+
+#[test]
 fn folded_index_candidates_do_not_change_exact_value_regex_results() {
     let dir = tempfile::tempdir().unwrap();
     put(dir.path(), "a", r#"{"title":"Straße"}"#);
@@ -174,10 +202,18 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
         for &slot in &picker.sorted {
             let id = picker.id(slot).unwrap();
             let stamp = &picker.files[slot].as_ref().unwrap().stamp;
-            if projected_values(&source, picker.root(), id, stamp, &[], &picker.view, false)
-                .unwrap()
-                .as_ref()
-                .is_some_and(|text| matcher.is_match(&text.bytes))
+            if projected_values(
+                &source,
+                id,
+                stamp,
+                &[],
+                picker.presence.fields(),
+                &picker.view,
+                false,
+            )
+            .unwrap()
+            .as_ref()
+            .is_some_and(|text| matcher.is_match(&text.bytes))
             {
                 expected.push(id.to_owned());
             }

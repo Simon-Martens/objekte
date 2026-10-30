@@ -50,8 +50,10 @@ impl Repository {
         let source_pattern = filter.source_prefilter()?;
         let cardinality_risk = filter.needs_global_cardinality_check(collections);
         let scalar_fields = filter.top_level_scalar_fields();
+        let required_fields = filter.required_top_level_fields();
+        let exact_plan = filter.exact_index_plan();
         result.query_plan =
-            vec!["FFF values bigram candidates; source regex scan; Sonic verification".into()];
+            vec!["in-memory bigram, typed, and presence candidates; source verification".into()];
         let mut matched = 0;
         for c in collections {
             self.ensure_picker(c)?;
@@ -66,26 +68,72 @@ impl Repository {
             if !request.count && !risk && result.returned() == request.limit {
                 continue;
             }
+            if !risk
+                && let Some(entries) = exact_plan
+                    .as_ref()
+                    .and_then(|plan| picker.exact_records(plan))
+            {
+                self.metrics.bigram_candidates_nanos += nanos(candidate_started);
+                if result.query_plan.len() == 1 {
+                    result.query_plan.push(
+                        "exact scalar/presence index matches; source page verification".into(),
+                    );
+                }
+                Self::query_json_exact_records(
+                    &mut self.metrics,
+                    super::exact::ExactQuery {
+                        request,
+                        filter,
+                        collection: c,
+                        root: &self.model.root,
+                    },
+                    &entries,
+                    result,
+                    &mut matched,
+                )?;
+                continue;
+            }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
             let entries = picker.candidate_records(
                 (!risk).then_some(values_pattern.as_deref()).flatten(),
                 typed_plan.as_ref(),
+                if risk { &[] } else { &required_fields },
             );
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
             let source = Source::open(&c.path)?;
-            // Collected counted queries keep the original full parallel scan.
-            // Streaming queries use bounded batches so rows can be emitted
-            // while later candidates are still being checked.
-            let batch_size = if (request.count || risk) && !result.streaming {
-                entries.len().max(1)
+            // Counted queries and global-cardinality checks keep their full
+            // scan behavior. For pages, grow batches across misses to reduce
+            // barriers and reset after matches when the index was selective.
+            // Cap the first page batch on large machines to limit over-scan.
+            let full_scan = request.count || risk;
+            let base_chunk = rayon::current_num_threads()
+                .saturating_mul(4)
+                .clamp(32, 256);
+            let strong_prefilter = entries.len().saturating_mul(2) < picker.len();
+            let max_chunk = if strong_prefilter {
+                base_chunk.saturating_mul(8)
             } else {
-                rayon::current_num_threads()
-                    .saturating_mul(8)
-                    .clamp(64, 512)
+                base_chunk.saturating_mul(256).max(8192)
             };
-            for batch in entries.chunks(batch_size) {
+            let mut chunk_size = if full_scan {
+                if result.streaming {
+                    rayon::current_num_threads()
+                        .saturating_mul(8)
+                        .clamp(64, 512)
+                } else {
+                    entries.len().max(1)
+                }
+            } else {
+                base_chunk
+            };
+            let mut batch_start = 0;
+            while batch_start < entries.len() {
+                let batch_end = batch_start.saturating_add(chunk_size).min(entries.len());
+                let batch = &entries[batch_start..batch_end];
+                batch_start = batch_end;
                 let mut page_matches = Vec::new();
+                let matched_before = matched;
                 let scan_started = Instant::now();
                 let outcomes = batch
                     .par_iter()
@@ -201,6 +249,13 @@ impl Repository {
                 self.metrics.bigram_materialize_nanos += nanos(materialize_started);
                 if !request.count && !risk && result.returned() == request.limit {
                     break;
+                }
+                if !full_scan {
+                    if strong_prefilter && matched > matched_before {
+                        chunk_size = base_chunk;
+                    } else {
+                        chunk_size = chunk_size.saturating_mul(2).min(max_chunk);
+                    }
                 }
             }
             drop(entries);

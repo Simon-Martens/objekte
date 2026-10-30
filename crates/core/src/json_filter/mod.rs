@@ -121,6 +121,15 @@ pub(crate) enum TypedPlan {
 }
 
 
+/// Predicates whose complete match set an in-memory scalar index can decide.
+pub(crate) enum ExactPlan {
+    Present(String),
+    Term(String, crate::query::Operator, Value),
+    And(Vec<Self>),
+    Or(Vec<Self>),
+}
+
+
 // INFO: Compiled filter expression, referenced paths, and stable hash.
 /// A compiled, bound filter reusable across documents and collections.
 #[derive(Debug, Clone)]
@@ -211,6 +220,42 @@ impl JsonFilter {
             .collect()
     }
 
+    /// Top-level keys required by every possible match, including OR branches.
+    pub(crate) fn required_top_level_fields(&self) -> Vec<String> {
+        fn first_key(path: &JsonPath) -> Option<String> {
+            match path.first() {
+                Some(JsonPathStep::Key(key)) => Some(key.clone()),
+                _ => None,
+            }
+        }
+
+        fn required(expr: &Expr) -> BTreeSet<String> {
+            match expr {
+                Expr::And(parts) => parts.iter().flat_map(required).collect(),
+                Expr::Or(parts) => {
+                    let mut parts = parts.iter().map(required);
+                    let Some(mut common) = parts.next() else {
+                        return BTreeSet::new();
+                    };
+                    for part in parts {
+                        common.retain(|field| part.contains(field));
+                    }
+                    common
+                }
+                Expr::Exists(path) => first_key(path).into_iter().collect(),
+                Expr::Compare { left, right, .. } => [left, right]
+                    .into_iter()
+                    .filter_map(|operand| match operand {
+                        Operand::Field(field) => first_key(&field.path),
+                        Operand::Literal(_) => None,
+                    })
+                    .collect(),
+            }
+        }
+
+        required(&self.expr).into_iter().collect()
+    }
+
     /// Necessary typed candidates for AND/OR filters. Exact JSON evaluation
     /// still decides whether a candidate matches.
     pub(crate) fn typed_plan(&self) -> Option<TypedPlan> {
@@ -252,6 +297,50 @@ impl JsonFilter {
                 _ => None,
             }
         }
+        plan(&self.expr)
+    }
+
+    /// Use only simple top-level predicates with exact index semantics.
+    pub(crate) fn exact_index_plan(&self) -> Option<ExactPlan> {
+        use crate::query::Operator;
+
+        fn plan(expr: &Expr) -> Option<ExactPlan> {
+            match expr {
+                Expr::And(parts) => Some(ExactPlan::And(
+                    parts.iter().map(plan).collect::<Option<Vec<_>>>()?,
+                )),
+                Expr::Or(parts) => Some(ExactPlan::Or(
+                    parts.iter().map(plan).collect::<Option<Vec<_>>>()?,
+                )),
+                Expr::Exists(path) => match path.as_slice() {
+                    [JsonPathStep::Key(name)] => Some(ExactPlan::Present(name.clone())),
+                    _ => None,
+                },
+                Expr::Compare {
+                    left: Operand::Field(field),
+                    op,
+                    any: false,
+                    right: Operand::Literal(value),
+                    ignore_case: false,
+                } if field.modifier.is_none() => {
+                    let [JsonPathStep::Key(name)] = field.path.as_slice() else {
+                        return None;
+                    };
+                    let operator = match op {
+                        Op::Eq => Operator::Eq,
+                        Op::Lt => Operator::Lt,
+                        Op::Le => Operator::Le,
+                        Op::Gt => Operator::Gt,
+                        Op::Ge => Operator::Ge,
+                        _ => return None,
+                    };
+                    (value.is_number() || value.is_boolean() || value.is_string())
+                        .then(|| ExactPlan::Term(name.clone(), operator, value.clone()))
+                }
+                _ => None,
+            }
+        }
+
         plan(&self.expr)
     }
 

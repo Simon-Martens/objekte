@@ -4,7 +4,10 @@
 //! bigram index, and a changed-file overlay. Collection paths are flat, so IDs
 //! are stored once in a byte arena instead of FFF's general chunked path store.
 
+mod exact;
 mod git;
+mod presence;
+mod projection;
 mod regex_plan;
 mod typed;
 mod view;
@@ -12,7 +15,6 @@ mod view;
 use crate::{
     Direction, Error, Field, IndexField, Result,
     error::io,
-    json::{ParsedValue, indexed_value_text, value_text},
     query::Operator,
     source::{Source, Stamp},
 };
@@ -20,7 +22,6 @@ use fff_search::bigram_filter::{BigramFilter, BigramIndexBuilder};
 use rayon::prelude::*;
 use std::{
     collections::{BTreeMap, BTreeSet},
-    io::Read,
     path::{Path, PathBuf},
 };
 #[cfg(feature = "index-timings")]
@@ -30,6 +31,8 @@ use std::{
 };
 
 pub use git::GitState;
+use presence::PresenceIndex;
+use projection::projected_values;
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
@@ -72,6 +75,7 @@ pub struct FilePicker {
     changed: BTreeSet<usize>,
     array_fields: BTreeSet<String>,
     index: BigramFilter,
+    presence: PresenceIndex,
     typed: TypedIndex,
     view: ViewIndex,
     #[cfg(feature = "index-timings")]
@@ -112,6 +116,7 @@ impl FilePicker {
             changed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
             index: BigramIndexBuilder::new(0).compress(None),
+            presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
             typed: TypedIndex::new(indexed_fields),
             #[cfg(feature = "index-timings")]
@@ -122,8 +127,11 @@ impl FilePicker {
         };
         #[cfg(feature = "index-timings")]
         let slots_started = Instant::now();
+        // Source::inventory is already ordered by ID. Initial slots can be
+        // appended in final order without entering the changed-file overlay.
         for (id, stamp) in inventory {
-            picker.insert(&id, stamp)?;
+            let slot = picker.append_slot(&id, stamp, 1)?;
+            picker.sorted.push(slot);
         }
 
         #[cfg(feature = "index-timings")]
@@ -223,18 +231,25 @@ impl FilePicker {
                     if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
                         let projection = projected_values(
                             &source,
-                            &self.root,
                             &id,
                             &stamp,
                             &[],
+                            self.presence.fields(),
                             &self.view,
                             false,
                         )?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                        if let Some(projection) = projection {
-                            self.array_fields.extend(projection.array_fields);
+                        self.presence.update(
+                            slot,
+                            projection
+                                .as_ref()
+                                .map_or(&[], |p| p.present_fields.as_slice()),
+                        );
+                        if let Some(projection) = projection.as_ref() {
+                            self.array_fields
+                                .extend(projection.array_fields.iter().cloned());
                         }
                         let entry = self.files[slot].as_mut().expect("live sorted slot");
                         entry.stamp = stamp;
@@ -246,15 +261,29 @@ impl FilePicker {
                     }
                 }
                 Err(_) => {
-                    let projection =
-                        projected_values(&source, &self.root, &id, &stamp, &[], &self.view, false)?;
+                    let projection = projected_values(
+                        &source,
+                        &id,
+                        &stamp,
+                        &[],
+                        self.presence.fields(),
+                        &self.view,
+                        false,
+                    )?;
                     let keys = projection
                         .as_ref()
                         .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                    if let Some(projection) = projection {
-                        self.array_fields.extend(projection.array_fields);
+                    if let Some(projection) = projection.as_ref() {
+                        self.array_fields
+                            .extend(projection.array_fields.iter().cloned());
                     }
                     let slot = self.insert(&id, stamp)?;
+                    self.presence.update(
+                        slot,
+                        projection
+                            .as_ref()
+                            .map_or(&[], |p| p.present_fields.as_slice()),
+                    );
                     self.view.update(slot, keys, &self.files, &self.id_bytes);
                     seen.push(true);
                     debug_assert_eq!(slot + 1, seen.len());
@@ -275,6 +304,7 @@ impl FilePicker {
                 self.tombstones
                     .insert(id, (entry.revision + 1, now_nanos()));
                 self.changed.remove(&slot);
+                self.presence.remove(slot);
                 self.view.remove(slot);
                 changed += 1;
             }
@@ -304,18 +334,25 @@ impl FilePicker {
                         if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
                             let projection = projected_values(
                                 &source,
-                                &self.root,
                                 id,
                                 &stamp,
                                 &[],
+                                self.presence.fields(),
                                 &self.view,
                                 false,
                             )?;
                             let keys = projection
                                 .as_ref()
                                 .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                            if let Some(projection) = projection {
-                                self.array_fields.extend(projection.array_fields);
+                            self.presence.update(
+                                slot,
+                                projection
+                                    .as_ref()
+                                    .map_or(&[], |p| p.present_fields.as_slice()),
+                            );
+                            if let Some(projection) = projection.as_ref() {
+                                self.array_fields
+                                    .extend(projection.array_fields.iter().cloned());
                             }
                             let entry = self.files[slot].as_mut().expect("live sorted slot");
                             entry.stamp = stamp;
@@ -328,20 +365,27 @@ impl FilePicker {
                     Err(_) => {
                         let projection = projected_values(
                             &source,
-                            &self.root,
                             id,
                             &stamp,
                             &[],
+                            self.presence.fields(),
                             &self.view,
                             false,
                         )?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                        if let Some(projection) = projection {
-                            self.array_fields.extend(projection.array_fields);
+                        if let Some(projection) = projection.as_ref() {
+                            self.array_fields
+                                .extend(projection.array_fields.iter().cloned());
                         }
                         let slot = self.insert(id, stamp)?;
+                        self.presence.update(
+                            slot,
+                            projection
+                                .as_ref()
+                                .map_or(&[], |p| p.present_fields.as_slice()),
+                        );
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                     }
                 }
@@ -354,6 +398,7 @@ impl FilePicker {
                             .insert(id.to_owned(), (entry.revision + 1, now_nanos()));
                     }
                     self.changed.remove(&slot);
+                    self.presence.remove(slot);
                     self.view.remove(slot);
                 }
             }
@@ -427,12 +472,74 @@ impl FilePicker {
         &self,
         pattern: Option<&str>,
         typed_plan: Option<&crate::json_filter::TypedPlan>,
+        required_fields: &[String],
     ) -> Vec<(&str, &Stamp)> {
         let bits = pattern.and_then(|regex| regex_plan::candidates(&self.index, regex));
         let typed_bits = self
             .typed
             .candidate_bits(typed_plan, self.files.len(), &self.changed);
-        self.sorted
+        let presence_bits = self.presence.candidates(required_fields);
+        let count_bits =
+            |bits: &[u64]| -> usize { bits.iter().map(|word| word.count_ones() as usize).sum() };
+        let mut candidate_bits = None;
+        let mut needs_overlay = false;
+        let mut smallest = usize::MAX;
+        for (next, overlay) in [
+            (bits.as_deref(), true),
+            (typed_bits.as_deref(), false),
+            (presence_bits.as_deref(), false),
+        ] {
+            if let Some(next) = next {
+                let count =
+                    count_bits(next).saturating_add(if overlay { self.changed.len() } else { 0 });
+                if count < smallest {
+                    candidate_bits = Some(next);
+                    needs_overlay = overlay;
+                    smallest = count;
+                }
+            }
+        }
+        let selected = candidate_bits.and_then(|candidate_bits| {
+            // Sorting a dense candidate set costs more than checking the
+            // already sorted ID table. Enumerate set bits only when selective.
+            if smallest.saturating_mul(8) >= self.sorted.len() {
+                return None;
+            }
+            let mut slots = Vec::new();
+            for (word_index, &word) in candidate_bits.iter().enumerate() {
+                let mut remaining = word;
+                while remaining != 0 {
+                    let slot = word_index * 64 + remaining.trailing_zeros() as usize;
+                    remaining &= remaining - 1;
+                    if self.files.get(slot).is_some_and(Option::is_some) {
+                        slots.push(slot);
+                    }
+                }
+            }
+            if needs_overlay {
+                // New and changed files bypass immutable text postings. They
+                // may already have an old posting, so deduplicate below.
+                slots.extend(
+                    self.changed
+                        .iter()
+                        .copied()
+                        .filter(|&slot| self.files[slot].is_some()),
+                );
+            }
+            // Slots follow index insertion order; result rows follow byte ID
+            // order even after refresh appends new slots to the overlay.
+            slots.sort_unstable_by(|&left, &right| {
+                self.id(left)
+                    .expect("live candidate slot")
+                    .as_bytes()
+                    .cmp(self.id(right).expect("live candidate slot").as_bytes())
+            });
+            slots.dedup();
+            Some(slots)
+        });
+        selected
+            .as_deref()
+            .unwrap_or(&self.sorted)
             .iter()
             .copied()
             .filter(|&slot| {
@@ -444,7 +551,10 @@ impl FilePicker {
                 let typed_match = typed_bits
                     .as_ref()
                     .is_none_or(|bits| bits[slot / 64] & (1 << (slot % 64)) != 0);
-                text_match && typed_match
+                let presence_match = presence_bits
+                    .as_ref()
+                    .is_none_or(|bits| bits[slot / 64] & (1 << (slot % 64)) != 0);
+                text_match && typed_match && presence_match
             })
             .map(|slot| {
                 (
@@ -469,8 +579,7 @@ impl FilePicker {
             .map(|&id| -> Result<Option<String>> {
                 let slot = self.sorted[self.position(id).expect("candidate is live")];
                 let stamp = &self.files[slot].as_ref().expect("live candidate").stamp;
-                let text =
-                    projected_values(&source, &self.root, id, stamp, &[], &self.view, false)?;
+                let text = projected_values(&source, id, stamp, &[], &[], &self.view, false)?;
                 Ok(text
                     .as_ref()
                     .is_some_and(|text| matcher.is_match(&text.bytes))
@@ -489,28 +598,44 @@ impl FilePicker {
     }
 
     fn rebuild_index_from_source(&mut self, source: &Source) -> Result<()> {
-        // Compact removed IDs while rebuilding; changed slots remain stable
-        // between rebuilds and can be reassigned here with the fresh index.
+        // A fresh picker already has compact ID-ordered slots. Later edits can
+        // append slots or leave holes, in which case rebuild must compact them.
         #[cfg(feature = "index-timings")]
         let slots_started = Instant::now();
-        let mut ids = Vec::with_capacity(self.id_bytes.len());
-        let mut files = Vec::with_capacity(self.sorted.len());
-        for &slot in &self.sorted {
-            let mut entry = self.files[slot].as_ref().expect("live sorted slot").clone();
-            let id = self.id(slot).expect("validated ID");
-            entry.id_start = u32::try_from(ids.len())
-                .map_err(|_| Error::Cache("file picker ID arena exceeds 4 GiB".into()))?;
-            ids.extend_from_slice(id.as_bytes());
-            files.push(Some(entry));
-        }
+        let already_compact = self.sorted.len() == self.files.len()
+            && self
+                .sorted
+                .iter()
+                .enumerate()
+                .all(|(position, &slot)| position == slot);
+        let compacted = if already_compact {
+            None
+        } else {
+            let mut ids = Vec::with_capacity(self.id_bytes.len());
+            let mut files = Vec::with_capacity(self.sorted.len());
+            for &slot in &self.sorted {
+                let mut entry = self.files[slot].as_ref().expect("live sorted slot").clone();
+                let id = self.id(slot).expect("validated ID");
+                entry.id_start = u32::try_from(ids.len())
+                    .map_err(|_| Error::Cache("file picker ID arena exceeds 4 GiB".into()))?;
+                ids.extend_from_slice(id.as_bytes());
+                files.push(Some(entry));
+            }
+            Some((ids, files))
+        };
+        let (ids, files) = compacted.as_ref().map_or(
+            (self.id_bytes.as_slice(), self.files.as_slice()),
+            |(ids, files)| (ids.as_slice(), files.as_slice()),
+        );
         let main = BigramIndexBuilder::new(files.len());
         let skip = BigramIndexBuilder::new(files.len());
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
         let indexed_fields = self.typed.fields();
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
+        let presence_fields = self.presence.fields();
+        let presence_words = self.presence.build_words(files.len());
         let view_rows = std::sync::Mutex::new(Vec::new());
         let view = &self.view;
-        let root = &self.root;
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.slots_nanos += elapsed_nanos(slots_started);
@@ -543,10 +668,10 @@ impl FilePicker {
                     let project_started = Instant::now();
                     let projection = projected_values(
                         source,
-                        root,
                         id,
                         &entry.stamp,
                         indexed_fields,
+                        presence_fields,
                         view,
                         true,
                     )?;
@@ -564,6 +689,11 @@ impl FilePicker {
                             chunk_add_nanos += elapsed_nanos(add_started);
                         }
                         chunk_arrays.extend(projection.array_fields);
+                        PresenceIndex::add_build_row(
+                            &presence_words,
+                            slot,
+                            &projection.present_fields,
+                        );
                         chunk_view.push((slot, projection.view_keys));
                         for (field, key) in projection.typed_values {
                             chunk_typed[field].push((key, slot));
@@ -614,13 +744,16 @@ impl FilePicker {
             self.build_timings.compress_nanos = elapsed_nanos(compress_started);
         }
         source.finish()?;
-        self.id_bytes = ids;
-        self.files = files;
-        self.sorted = (0..self.files.len()).collect();
+        if let Some((ids, files)) = compacted {
+            self.id_bytes = ids;
+            self.files = files;
+            self.sorted = (0..self.files.len()).collect();
+        }
         self.index = index;
         self.indexed_len = self.files.len();
         self.changed.clear();
         self.array_fields = array_fields.into_inner().expect("array field lock");
+        self.presence.replace(presence_words);
         #[cfg(feature = "index-timings")]
         let typed_started = Instant::now();
         self.typed
@@ -663,6 +796,19 @@ impl FilePicker {
     }
 
     fn insert(&mut self, id: &str, stamp: Stamp) -> Result<usize> {
+        let position = self.position(id).expect_err("inserted ID must be new");
+        let revision = self
+            .tombstones
+            .get(id)
+            .map_or(1, |(revision, _)| revision + 1);
+        let slot = self.append_slot(id, stamp, revision)?;
+        self.tombstones.remove(id);
+        self.sorted.insert(position, slot);
+        self.changed.insert(slot);
+        Ok(slot)
+    }
+
+    fn append_slot(&mut self, id: &str, stamp: Stamp, revision: u64) -> Result<usize> {
         let start = u32::try_from(self.id_bytes.len())
             .map_err(|_| Error::Cache("file picker ID arena exceeds 4 GiB".into()))?;
         let len = u32::try_from(id.len())
@@ -670,21 +816,15 @@ impl FilePicker {
         let _ = start
             .checked_add(len)
             .ok_or_else(|| Error::Cache("file picker ID arena exceeds 4 GiB".into()))?;
-        let position = self.position(id).expect_err("inserted ID must be new");
         self.id_bytes.extend_from_slice(id.as_bytes());
         let slot = self.files.len();
         self.files.push(Some(FileEntry {
             id_start: start,
             id_len: len,
             stamp,
-            revision: self
-                .tombstones
-                .remove(id)
-                .map_or(1, |(revision, _)| revision + 1),
+            revision,
             changed_at_nanos: now_nanos(),
         }));
-        self.sorted.insert(position, slot);
-        self.changed.insert(slot);
         Ok(slot)
     }
 }
@@ -699,73 +839,6 @@ fn now_nanos() -> u128 {
 #[cfg(feature = "index-timings")]
 fn elapsed_nanos(started: Instant) -> u64 {
     started.elapsed().as_nanos().min(u64::MAX as u128) as u64
-}
-
-
-/// Search text and typed values extracted from one source document.
-struct Projection {
-    bytes: Vec<u8>,
-    array_fields: Vec<String>,
-    typed_values: Vec<(usize, TypedKey)>,
-    view_keys: Vec<crate::query::Scalar>,
-}
-
-
-fn projected_values(
-    source: &Source,
-    root: &Path,
-    id: &str,
-    stamp: &Stamp,
-    indexed_fields: &[String],
-    view: &ViewIndex,
-    folded_index: bool,
-) -> Result<Option<Projection>> {
-    let path = root.join(format!("{id}.json"));
-    let mut file = source.file(id)?;
-    let before = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-    if &before != stamp {
-        return Err(Error::Unstable(path));
-    }
-    let mut raw = Vec::new();
-    file.read_to_end(&mut raw).map_err(|e| io(&path, e))?;
-    let after = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-    if after != before {
-        return Err(Error::Unstable(path));
-    }
-    let mut values = String::new();
-    let Ok(parsed) = sonic_rs::from_slice::<ParsedValue>(&raw) else {
-        return Ok(None);
-    };
-    if folded_index {
-        indexed_value_text(&parsed.0, &mut values);
-    } else {
-        value_text(&parsed.0, &mut values);
-    }
-    let array_fields = parsed.0.as_object().map_or_else(Vec::new, |fields| {
-        fields
-            .iter()
-            .filter(|(_, value)| value.is_array())
-            .map(|(key, _)| key.clone())
-            .collect()
-    });
-    let typed_values = parsed.0.as_object().map_or_else(Vec::new, |fields| {
-        indexed_fields
-            .iter()
-            .enumerate()
-            .filter_map(|(index, name)| {
-                fields
-                    .get(name)
-                    .and_then(TypedKey::from_value)
-                    .map(|key| (index, key))
-            })
-            .collect()
-    });
-    Ok(Some(Projection {
-        bytes: values.into_bytes(),
-        array_fields,
-        typed_values,
-        view_keys: view.project(id, &parsed.0),
-    }))
 }
 
 #[cfg(test)]

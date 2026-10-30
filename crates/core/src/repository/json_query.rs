@@ -80,6 +80,7 @@ impl DerefMut for QueryOutput<'_> {
 }
 
 
+mod exact;
 mod memory;
 mod source;
 

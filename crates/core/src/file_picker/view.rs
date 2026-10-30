@@ -38,6 +38,10 @@ impl ViewIndex {
             .collect()
     }
 
+    pub(super) fn fields(&self) -> &[String] {
+        &self.fields
+    }
+
     pub(super) fn missing_keys(&self) -> Vec<Scalar> {
         vec![Scalar::Missing; self.fields.len()]
     }

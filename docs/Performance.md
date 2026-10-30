@@ -1,17 +1,17 @@
 # Performance of the current query path
 
-The default JSON filter backend builds an in-memory file picker on first use of a collection. It indexes decoded scalar values and distinct Unicode-folded projections with consecutive and skip-one bigrams, and creates typed postings for declared number, integer, boolean, and enum fields. Queries select candidates, scan original file bytes, parse candidates with Sonic, and evaluate the full expression. Views use ordered keys when their requested filter and sort can be indexed. See [implementation.md](implementation.md) for details.
+The default JSON filter backend builds an in-memory file picker on first use of a collection. It indexes decoded scalar values and distinct Unicode-folded projections with consecutive and skip-one bigrams, creates presence bits for declared top-level fields, and creates typed postings for declared number, integer, boolean, and enum fields. Covered scalar and presence queries count matches from the index and read only their returned page; other queries scan source candidates and verify them with Sonic. Views use ordered keys when their requested filter and sort can be indexed. See [implementation.md](implementation.md) for details.
 
 ## Current 16-case bigram versus source-grep run
 
-On 30 October 2026, `json-query-grep-compare` ran 16 Musenalm `contents` filters with `--count`, a 50-record page, three timed repetitions per backend, and alternating backend order. The 133,948-file collection was indexed and both backends were checked for complete result parity before timing. Each figure below is the median across the 16 per-case median times; the OS file cache was warm and uncontrolled.
+On 30 October 2026, after field-presence bits and exact scalar counts were added, `json-query-grep-compare` ran 16 Musenalm `contents` filters with `--count`, a 50-record page, three timed repetitions per backend, and alternating backend order. The 133,948-file collection was indexed and both backends were checked for complete result parity before timing. Each figure below is the median across the 16 per-case median times; the OS file cache was warm and uncontrolled.
 
 | Backend | Across-case median | Per-case range | Cases faster |
 | --- | ---: | ---: | ---: |
-| Warm in-memory bigram | 6.82 ms | 3.31–75.55 ms | 16 of 16 |
-| Source grep | 386.81 ms | 363.56–411.48 ms | 0 of 16 |
+| Warm in-memory bigram | 6.98 ms | 3.48–125.22 ms | 16 of 16 |
+| Source grep | 386.09 ms | 360.65–395.04 ms | 0 of 16 |
 
-The grep path still inventories all 133,948 source files for each counted request, even when its raw-byte prefilter finds fewer candidates. These measurements exclude first index construction and process startup. Reproduce with the command in the [benchmark index](../crates/bench/README.md).
+The grep path still inventories all 133,948 source files for each counted request, even when its raw-byte prefilter finds fewer candidates. The broad `pseudonym = false` case took 125 ms in memory because it checked metadata for 122,276 indexed matches; it remained faster than source grep's 384 ms for that case. These measurements exclude first index construction and process startup. Reproduce with the command in the [benchmark index](../crates/bench/README.md).
 
 ## Warm JSON filter queries
 
@@ -41,6 +41,16 @@ The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading a
 
 The stages leave a small amount of setup and cleanup outside their timers. The scan runs in parallel; `bigram_project_worker_ms` and `bigram_add_worker_ms` in diagnostics sum elapsed time across workers, including any waits, and therefore must not be added to wall timings. In this run, typed postings and ordered view keys together accounted for roughly 42% of release build time and 58% of debug build time. Both structures currently hold scalar-field information independently. The observed time depends on build profile, hardware, file cache, and collection. A fresh CLI process rebuilds these structures even if the same query ran immediately before.
 
+On 30 October 2026, after adding field-presence bits and exact scalar counts, three more release runs of `year = 1800 --count --limit 1` on the same 133,948-file collection gave a median first build of **724 ms**. Median stage times were inventory 131 ms, ID slots 89 ms, parallel scan/projection/add 174 ms, compression 17 ms, typed finalization 203 ms, and view ordering 106 ms. Presence bits are collected during the existing parse and are included in the scan stage. This small uncontrolled comparison does not establish a build-time regression or improvement over the earlier 712 ms run. Typed finalization and view ordering still account for about **43%** of first build time.
+
+After grouping repeated typed scalar keys, five release runs under the same workload gave median **633 ms** first build and **105 ms** typed finalization. The earlier three-run medians were 724 ms and 203 ms respectively. The new path samples each field and keeps the original ordered-map insertion for mostly unique values; numerically equal spellings are still merged exactly. These are small warm-filesystem-cache samples, so the difference is evidence for this workload rather than a cross-device guarantee.
+
+After bulk-loading the sorted inventory into final ID slots, five more release runs gave median **538 ms** first build and **12.6 ms** in the ID-slot stage. The previous five-run medians were 633 ms and 92.7 ms respectively. The fresh picker no longer fills a temporary changed-file set or copies its already compact table; later rebuilds still compact after additions or deletions. These warm-filesystem-cache samples indicate a useful improvement for this workload, not a cross-device guarantee.
+
+The index projection now walks Sonic's parsed tree directly and converts only selected top-level scalars for typed and view keys, avoiding a second full JSON tree. Five release runs after this change gave median **543 ms** first build and **174 ms** in parallel scan/projection/add, versus approximately 538 ms and 173 ms before it. There is no measured wall-time improvement on this workload; the change removes redundant full-tree materialization, but the index still parses every file once.
+
+Ordered view keys are required for current view behavior, so their approximately 103 ms finalization remains in the first build. Inventory is another roughly 130 ms; its path, metadata, and sorted-map construction are the next places to inspect. The values-only layout experiment is excluded because its approximately five-second build cost misses the startup target.
+
 To collect the detailed timings in an optimized build:
 
 ```sh
@@ -57,7 +67,7 @@ The published 43-case report predates the typed `OR` union planner. Its `year_or
 - The 43-case report measures JSON filters, not the full configured view workload. View first-use, warm page, count, and sort costs need a current end-to-end comparison across memory and direct modes.
 - Candidate counts, file opens, source bytes, parsing, and validation should be reported by phase for broad matches, mixed text/number filters, and edits. A repeated-query benchmark should keep one repository handle open.
 - Compare complete outputs and ordering whenever changing the candidate planner; a fast prefilter cannot omit a real match.
-- The benchmark uses `--count`, so the in-memory backend must check every candidate to compute totals. Without a count, it now checks candidates in bounded parallel batches and stops after the requested page when global scalar-cardinality checks do not require a full scan. First-use index construction still visits the collection.
+- The current 16-case benchmark includes exact scalar counts and field-presence bits. Counted queries check indexed matches by metadata for covered predicates; other expressions still verify each selected source candidate. Without a count, source scanning starts with a bounded parallel batch, grows batches after misses, and stops after the requested page when global scalar-cardinality checks do not require a full scan. First-use index construction still visits the collection.
 
 Run the current profiler and acceptance checks from the repository root:
 
