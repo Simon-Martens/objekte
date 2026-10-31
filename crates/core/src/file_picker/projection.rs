@@ -1,11 +1,15 @@
 //! Build index text and scalar keys from one Sonic tree without copying the full JSON tree.
 
-use super::{TypedKey, ViewIndex};
+use super::{
+    TypedKey, ViewIndex,
+    text::{TextContent, project_text},
+};
 use crate::{
     Error, Result,
     error::io,
     query::Scalar,
     source::{Source, Stamp},
+    text::TextRules,
 };
 use serde_json::{Map, Number, Value};
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
@@ -16,10 +20,18 @@ use unicode_casefold::UnicodeCaseFold;
 /// Decoded text and top-level keys extracted from one source document.
 pub(super) struct Projection {
     pub(super) bytes: Vec<u8>,
+    pub(super) text: Option<TextContent>,
     pub(super) array_fields: Vec<String>,
     pub(super) present_fields: Vec<usize>,
     pub(super) typed_values: Vec<(usize, TypedKey)>,
     pub(super) view_keys: Vec<Scalar>,
+}
+
+
+/// Optional projections produced during a source-file index scan.
+pub(super) struct ProjectionOptions<'a> {
+    pub(super) folded_index: bool,
+    pub(super) text_rules: Option<&'a TextRules>,
 }
 
 
@@ -32,6 +44,30 @@ pub(super) fn projected_values(
     view: &ViewIndex,
     folded_index: bool,
 ) -> Result<Option<Projection>> {
+    projected_values_with_text(
+        source,
+        id,
+        stamp,
+        indexed_fields,
+        presence_fields,
+        view,
+        ProjectionOptions {
+            folded_index,
+            text_rules: None,
+        },
+    )
+}
+
+/// Reuse the same source read and Sonic tree when full-text postings are active.
+pub(super) fn projected_values_with_text(
+    source: &Source,
+    id: &str,
+    stamp: &Stamp,
+    indexed_fields: &[String],
+    presence_fields: &[String],
+    view: &ViewIndex,
+    options: ProjectionOptions<'_>,
+) -> Result<Option<Projection>> {
     let path = source.path.join(format!("{id}.json"));
     let mut file = source.file(id)?;
     let before = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
@@ -41,7 +77,7 @@ pub(super) fn projected_values(
     let mut raw = Vec::new();
     file.read_to_end(&mut raw).map_err(|e| io(&path, e))?;
     let after = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-    if after != before {
+    if after != before || raw.len() as u64 != after.size {
         return Err(Error::Unstable(path));
     }
 
@@ -52,7 +88,7 @@ pub(super) fn projected_values(
     if append_values(&parsed, &mut values, 0).is_err() {
         return Ok(None);
     }
-    if folded_index && !values.is_ascii() {
+    if options.folded_index && !values.is_ascii() {
         let folded = values.case_fold().collect::<String>();
         if folded != values.to_ascii_lowercase() {
             values.push('\u{1f}');
@@ -105,6 +141,7 @@ pub(super) fn projected_values(
     let view_keys = view.project(id, &Value::Object(selected));
     Ok(Some(Projection {
         bytes: values.into_bytes(),
+        text: options.text_rules.map(|rules| project_text(&parsed, rules)),
         array_fields,
         present_fields,
         typed_values,

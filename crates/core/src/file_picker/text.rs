@@ -1,4 +1,4 @@
-//! Lazy bigram postings for every included JSON leaf value.
+//! Bigram postings for every included JSON leaf value.
 
 use super::*;
 use crate::text::{render_text, visit_sonic_text};
@@ -12,6 +12,75 @@ pub(super) struct TextIndex {
     clean: BigramFilter,
     raw: BigramFilter,
     indexed_len: usize,
+}
+
+
+/// Per-slot rendered and raw text extracted from an already parsed document.
+pub(super) struct TextContent {
+    pub(super) clean: Vec<u8>,
+    pub(super) raw: Vec<u8>,
+}
+
+
+/// Mutable posting builders shared by eager and lazy full-text construction.
+pub(super) struct TextIndexBuilders {
+    clean_main: BigramIndexBuilder,
+    clean_skip: BigramIndexBuilder,
+    raw_main: BigramIndexBuilder,
+    raw_skip: BigramIndexBuilder,
+    indexed_len: usize,
+}
+
+
+impl TextIndexBuilders {
+    pub(super) fn new(indexed_len: usize) -> Self {
+        Self {
+            clean_main: BigramIndexBuilder::new(indexed_len),
+            clean_skip: BigramIndexBuilder::new(indexed_len),
+            raw_main: BigramIndexBuilder::new(indexed_len),
+            raw_skip: BigramIndexBuilder::new(indexed_len),
+            indexed_len,
+        }
+    }
+
+    pub(super) fn add(&self, slot: usize, content: &TextContent) {
+        self.clean_main
+            .add_file_content(&self.clean_skip, slot, &content.clean);
+        self.raw_main
+            .add_file_content(&self.raw_skip, slot, &content.raw);
+    }
+
+    pub(super) fn finish(self) -> TextIndex {
+        let mut clean = self.clean_main.compress(None);
+        clean.set_skip_index(self.clean_skip.compress(Some(12)));
+        let mut raw = self.raw_main.compress(None);
+        raw.set_skip_index(self.raw_skip.compress(Some(12)));
+        TextIndex {
+            clean,
+            raw,
+            indexed_len: self.indexed_len,
+        }
+    }
+}
+
+
+pub(super) fn project_text(value: &SonicValue, rules: &TextRules) -> TextContent {
+    let mut clean = String::new();
+    let mut raw = String::new();
+    visit_sonic_text(value, rules, &mut |_, value, format| {
+        raw.push_str(value);
+        raw.push('\u{1f}');
+        if let Some(rendered) = render_text(value, format) {
+            clean.push_str(&rendered);
+            clean.push('\u{1f}');
+        }
+    });
+    append_folded(&mut clean);
+    append_folded(&mut raw);
+    TextContent {
+        clean: clean.into_bytes(),
+        raw: raw.into_bytes(),
+    }
 }
 
 
@@ -46,10 +115,7 @@ impl FilePicker {
     }
 
     pub(super) fn build_text_index_from_source(&mut self, source: &Source) -> Result<()> {
-        let clean_main = BigramIndexBuilder::new(self.files.len());
-        let clean_skip = BigramIndexBuilder::new(self.files.len());
-        let raw_main = BigramIndexBuilder::new(self.files.len());
-        let raw_skip = BigramIndexBuilder::new(self.files.len());
+        let builders = TextIndexBuilders::new(self.files.len());
         // FFF writes each posting word with a plain OR. A worker must own
         // all 64 slots in that word or simultaneous writes can lose bits.
         self.files.par_chunks(64).enumerate().try_for_each(
@@ -75,34 +141,13 @@ impl FilePicker {
                     let Ok(parsed) = sonic_rs::from_slice::<SonicValue>(&bytes) else {
                         continue;
                     };
-                    let mut clean = String::new();
-                    let mut raw = String::new();
-                    visit_sonic_text(&parsed, &self.text_rules, &mut |_, value, format| {
-                        raw.push_str(value);
-                        raw.push('\u{1f}');
-                        if let Some(rendered) = render_text(value, format) {
-                            clean.push_str(&rendered);
-                            clean.push('\u{1f}');
-                        }
-                    });
-                    append_folded(&mut clean);
-                    append_folded(&mut raw);
-                    clean_main.add_file_content(&clean_skip, slot, clean.as_bytes());
-                    raw_main.add_file_content(&raw_skip, slot, raw.as_bytes());
+                    builders.add(slot, &project_text(&parsed, &self.text_rules));
                 }
                 Ok(())
             },
         )?;
         source.finish()?;
-        let mut clean = clean_main.compress(None);
-        clean.set_skip_index(clean_skip.compress(Some(12)));
-        let mut raw = raw_main.compress(None);
-        raw.set_skip_index(raw_skip.compress(Some(12)));
-        self.text_index = Some(TextIndex {
-            clean,
-            raw,
-            indexed_len: self.files.len(),
-        });
+        self.text_index = Some(builders.finish());
         Ok(())
     }
 

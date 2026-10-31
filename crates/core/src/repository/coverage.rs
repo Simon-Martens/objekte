@@ -4,7 +4,7 @@ use super::*;
 
 
 impl Repository {
-    /// Compressed bigram heap bytes for a built collection picker.
+    /// Combined compressed normal and built full-text bigram heap bytes.
     pub fn index_bytes(&self, collection: &str) -> Result<Option<usize>> {
         self.model.collection(collection)?;
         Ok(self

@@ -14,6 +14,18 @@ Run with `cargo run --release -p objekte-bench --bin fts-query-mix -- examples/m
 
 Compressed base bigram postings: 16,093,219 bytes (15.35 MiB). Compressed FTS postings: 32,165,317 bytes (30.68 MiB). Combined compressed postings: 48,258,536 bytes (46.02 MiB). These posting sizes exclude file slots, typed indexes, allocator overhead, and temporary build memory; ready RSS includes them.
 
+### Shared source pass follow-up
+
+After changing markup-declared collections to build both indexes from the same file read and Sonic parse, three fresh release processes gave the following results. Each process ran one timed pass over the 30 queries; the table records only build and memory measurements. The initial build includes both indexes, and the explicit `warm_text_index` call afterward is a no-op. The schema overlay and source files match the measurements above.
+
+| Run | Combined build ms | Explicit FTS warm ms | Ready RSS MiB | Build peak RSS MiB |
+| ---: | ---: | ---: | ---: | ---: |
+| 1 | 777.2 | 0.1 | 222.4 | 431.6 |
+| 2 | 787.2 | 0.1 | 208.9 | 430.6 |
+| 3 | 783.5 | 0.1 | 239.4 | 434.9 |
+
+The previous two-pass builds totaled 818.3, 825.0, and 809.6 ms. The shared pass saved roughly 20–50 ms in this unpaired comparison while raising peak build RSS by roughly 65–90 MiB. Compressed posting sizes stayed identical, and all 30 query match counts matched the earlier shared-pass run. Ready RSS varies because allocator pages are not returned uniformly after the build.
+
 ## Counted queries
 
 `FTS cand.` counts files selected by the FTS bigram lookup before intersection with other JSON indexes. `Scans` counts files checked against source. `Parses` includes the extra parse of the returned page record. A zero in `FTS cand.` can also mean no safe FTS literal was available, so another planner path or a full scan was used.

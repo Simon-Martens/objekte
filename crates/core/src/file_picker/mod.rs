@@ -37,8 +37,8 @@ use crate::text::TextRules;
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 use presence::PresenceIndex;
-use projection::projected_values;
-use text::TextIndex;
+use projection::{ProjectionOptions, projected_values, projected_values_with_text};
+use text::{TextIndex, TextIndexBuilders};
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
@@ -83,6 +83,7 @@ pub struct FilePicker {
     array_fields: BTreeSet<String>,
     index: BigramFilter,
     text_rules: TextRules,
+    eager_text_index: bool,
     text_index: Option<TextIndex>,
     presence: PresenceIndex,
     typed: TypedIndex,
@@ -116,6 +117,8 @@ impl FilePicker {
             .collect::<Vec<_>>();
         indexed_fields.sort();
         indexed_fields.dedup();
+        let text_rules = TextRules::new(definitions);
+        let eager_text_index = text_rules.has_markup();
         let mut picker = Self {
             root,
             recursive,
@@ -127,7 +130,8 @@ impl FilePicker {
             changed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
             index: BigramIndexBuilder::new(0).compress(None),
-            text_rules: TextRules::new(definitions),
+            text_rules,
+            eager_text_index,
             text_index: None,
             presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
@@ -650,6 +654,10 @@ impl FilePicker {
         );
         let main = BigramIndexBuilder::new(files.len());
         let skip = BigramIndexBuilder::new(files.len());
+        // Once full-text postings are active, rebuild them with the normal
+        // postings so slot compaction never requires a second source pass.
+        let text_builders = (self.eager_text_index || self.text_index.is_some())
+            .then(|| TextIndexBuilders::new(files.len()));
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
         let indexed_fields = self.typed.fields();
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
@@ -688,14 +696,17 @@ impl FilePicker {
                         .expect("validated UTF-8 ID");
                         #[cfg(feature = "index-timings")]
                         let project_started = Instant::now();
-                        let projection = projected_values(
+                        let projection = projected_values_with_text(
                             source,
                             id,
                             &entry.stamp,
                             indexed_fields,
                             presence_fields,
                             view,
-                            true,
+                            ProjectionOptions {
+                                folded_index: true,
+                                text_rules: text_builders.as_ref().map(|_| &self.text_rules),
+                            },
                         )?;
                         #[cfg(feature = "index-timings")]
                         {
@@ -706,6 +717,11 @@ impl FilePicker {
                             #[cfg(feature = "index-timings")]
                             let add_started = Instant::now();
                             main.add_file_content(&skip, slot, &projection.bytes);
+                            if let (Some(builders), Some(text)) = (&text_builders, &projection.text)
+                            {
+                                builders.add(slot, text);
+                            }
+
                             #[cfg(feature = "index-timings")]
                             {
                                 chunk_add_nanos += elapsed_nanos(add_started);
@@ -775,11 +791,7 @@ impl FilePicker {
         self.index = index;
         self.indexed_len = self.files.len();
         self.changed.clear();
-        if self.text_index.take().is_some() {
-            // Slot compaction invalidates both text posting tables. Rebuild an
-            // active full-text index against the same new source snapshot.
-            self.build_text_index_from_source(source)?;
-        }
+        self.text_index = text_builders.map(TextIndexBuilders::finish);
         self.array_fields = array_fields.into_inner().expect("array field lock");
         self.presence.replace(presence_words);
         #[cfg(feature = "index-timings")]

@@ -1032,7 +1032,8 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
         &fixture,
         &[root, "cache", "warm-text", "--collection", "books"],
     ));
-    assert!(warmed["fts_open_ms"].as_f64().unwrap() > 0.0);
+    assert!(warmed["bigram_open_ms"].as_f64().unwrap() > 0.0);
+    assert_eq!(warmed["fts_open_ms"], 0.0);
 }
 
 #[test]

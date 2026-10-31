@@ -172,7 +172,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let base_ms = base_started.elapsed().as_secs_f64() * 1000.0;
     thread::sleep(Duration::from_millis(250));
     let base_rss_mib = mib("VmRSS:");
-    let base_bytes = repo.index_bytes("contents")?.unwrap_or(0);
+    let text_built_with_base = repo.text_index_bytes("contents")?.is_some();
+    let base_bytes = repo.index_bytes("contents")?.unwrap_or(0)
+        - repo.text_index_bytes("contents")?.unwrap_or(0);
     let fts_started = Instant::now();
     repo.warm_text_index("contents")?;
     let fts_ms = fts_started.elapsed().as_secs_f64() * 1000.0;
@@ -183,7 +185,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let total_index_bytes = repo.index_bytes("contents")?.unwrap_or(0);
     let cases = cases();
     eprintln!(
-        "base index {base_ms:.1} ms; FTS index {fts_ms:.1} ms; running {} cases x {runs}",
+        "initial index build {base_ms:.1} ms; explicit FTS warm {fts_ms:.1} ms; running {} cases x {runs}",
         cases.len()
     );
     println!(
@@ -191,6 +193,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         json!({
             "type":"setup", "repo":root, "collection":"contents", "cases":cases.len(), "runs":runs,
             "schema_overlay":{"annotation":"markdown","preferred_title":"plain","title_statement":"html","contributors[].annotation":"xml"},
+            "fts_built_with_base":text_built_with_base,
+            "combined_index_build_ms":base_ms+fts_ms,
             "base_index_build_ms":base_ms, "fts_index_build_ms":fts_ms,
             "rss_open_mib":opened_rss_mib, "rss_base_ready_mib":base_rss_mib,
             "rss_fts_ready_mib":ready_rss_mib, "rss_fts_delta_mib":ready_rss_mib-base_rss_mib,

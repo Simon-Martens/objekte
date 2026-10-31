@@ -1,6 +1,6 @@
-//! Full-text markup search and separate-index lifecycle.
+//! Full-text markup search and index lifecycle.
 
-use objekte_core::{CacheMode, Options, Repository, TextMode, TextQuery};
+use objekte_core::{CacheMode, JsonQuery, Options, Repository, TextMode, TextQuery};
 use serde_json::json;
 use std::{fs, path::Path};
 
@@ -180,7 +180,8 @@ fn pagination_and_rebuild_follow_source_changes() {
         );
     }
     let mut repo = Repository::open(root).unwrap();
-    assert!(repo.warm_text_index("books").unwrap().fts_open_nanos > 0);
+    assert!(repo.warm_bigram_index("books").unwrap().bigram_open_nanos > 0);
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
     assert_eq!(repo.warm_text_index("books").unwrap().fts_open_nanos, 0);
     let mut page = query("Help", TextMode::Word);
     page.offset = 1;
@@ -292,6 +293,87 @@ fn schema_annotation_is_optional_and_checked() {
         r#"{"type":"object","properties":{"md":{"type":"number","x-full-text":"markdown"}}}"#,
     );
     assert!(Repository::open(root).is_err());
+}
+
+#[test]
+fn schema_free_filter_fts_keeps_the_text_index_lazy() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(root, "data/books/a.json", r#"{"note":"**He**lp"}"#);
+    let mut repo = Repository::open(root).unwrap();
+    repo.warm_bigram_index("books").unwrap();
+    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+
+    let result = repo
+        .query_json(&JsonQuery {
+            filter: "note:fts ~ 'He'".into(),
+            collections: Some(vec!["books".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(1));
+    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+
+    assert_eq!(
+        repo.search_text(&query("Help", TextMode::Word))
+            .unwrap()
+            .total,
+        Some(0)
+    );
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
+}
+
+#[test]
+fn excluded_markup_does_not_force_eager_text_index() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(
+        root,
+        "data/books/.editor/schema.json",
+        r#"{"type":"object","properties":{"hidden":{"type":"string","x-full-text":"markdown","exclude_fts":true},"plain":{"type":"string","x-full-text":"plain"}}}"#,
+    );
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"hidden":"**Help**","plain":"Help"}"#,
+    );
+    let mut repo = Repository::open(root).unwrap();
+    repo.warm_bigram_index("books").unwrap();
+    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+    assert_eq!(
+        repo.search_text(&query("Help", TextMode::Word))
+            .unwrap()
+            .total,
+        Some(1)
+    );
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
+}
+
+#[test]
+fn declared_plain_fts_filter_builds_text_index_on_demand() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(
+        root,
+        "data/books/.editor/schema.json",
+        r#"{"type":"object","properties":{"plain":{"type":"string","x-full-text":"plain"}}}"#,
+    );
+    write(root, "data/books/a.json", r#"{"plain":"Help"}"#);
+    let mut repo = Repository::open(root).unwrap();
+    repo.warm_bigram_index("books").unwrap();
+    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+
+    let result = repo
+        .query_json(&JsonQuery {
+            filter: "plain:fts ~ 'Help'".into(),
+            collections: Some(vec!["books".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(1));
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
 }
 
 #[test]
