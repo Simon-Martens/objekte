@@ -21,7 +21,8 @@
       "type": "string"
     },
     "musenalm_id": {
-      "type": "number"
+      "type": "number",
+      "index": true
     },
     "edit_state": {
       "type": "string"

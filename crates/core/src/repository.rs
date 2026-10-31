@@ -1,7 +1,7 @@
 //! Repository API, runtime options, metrics, and in-memory index coordination.
 use crate::{
-    Collection, ConfigurationChanges, Error, PathStep, RecordState, RecordStatus, RepositoryModel,
-    Result, ValidationMetrics, ViewRequest, ViewResult,
+    Collection, ConfigurationChanges, Error, JsonPath, PathStep, RecordState, RecordStatus,
+    RepositoryModel, Result, ValidationMetrics, ViewRequest, ViewResult,
     config::digest,
     config_snapshot::ConfigurationSnapshot,
     error::{io, record},
@@ -240,6 +240,7 @@ pub struct Repository {
     memory_edges: BTreeMap<(String, String), Vec<RecordRelation>>,
     memory_coverage: BTreeMap<String, String>,
     file_pickers: BTreeMap<String, crate::file_picker::FilePicker>,
+    requested_postings: BTreeMap<String, BTreeSet<JsonPath>>,
     observed_configuration: ConfigurationSnapshot,
     configuration_changes: Option<ConfigurationChanges>,
 }
@@ -258,6 +259,7 @@ impl Repository {
             memory_edges: BTreeMap::new(),
             memory_coverage: BTreeMap::new(),
             file_pickers: BTreeMap::new(),
+            requested_postings: BTreeMap::new(),
         })
     }
 
@@ -293,6 +295,8 @@ impl Repository {
             self.memory_edges.retain(|(name, _), _| unchanged(name));
             self.memory_coverage.retain(|name, _| unchanged(name));
             self.file_pickers.clear();
+            self.requested_postings
+                .retain(|name, _| self.model.collections.contains_key(name));
         }
         self.metrics.reload_nanos += nanos(t);
         Ok(())

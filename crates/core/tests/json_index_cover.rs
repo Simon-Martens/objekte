@@ -31,6 +31,80 @@ fn fixture() -> Fixture {
     fixture
 }
 
+#[test]
+fn string_postings_cover_comparisons_when_opted_in() {
+    let fixture = fixture();
+    fixture.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["title"]["index"] = json!(true);
+    });
+    let mut repository = fixture.repo(CacheMode::Memory);
+    for filter in [
+        "title = 'keep'",
+        "title != 'skip'",
+        "title < 'skip'",
+        "title >= 'skip'",
+        "title ~ 'k%'",
+        "missing(title)",
+        "exists(title)",
+    ] {
+        let indexed = repository.query_json(&query(filter)).unwrap();
+        let direct = repository
+            .query_json(&JsonQuery {
+                backend: JsonQueryBackend::Direct,
+                ..query(filter)
+            })
+            .unwrap();
+        assert_eq!(indexed.total, direct.total, "{filter}");
+        assert_eq!(
+            indexed
+                .records
+                .iter()
+                .map(|record| &record.id)
+                .collect::<Vec<_>>(),
+            direct
+                .records
+                .iter()
+                .map(|record| &record.id)
+                .collect::<Vec<_>>(),
+            "{filter}"
+        );
+        assert_eq!(indexed.metrics.grep_scans, 0, "{filter}");
+    }
+}
+
+#[test]
+fn unindexed_scalar_queries_fall_back_to_source_verification() {
+    let fixture = fixture();
+    fixture.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["score"]
+            .as_object_mut()
+            .unwrap()
+            .remove("index");
+    });
+    let mut repository = fixture.repo(CacheMode::Memory);
+    let indexed = repository.query_json(&query("score >= 2")).unwrap();
+    let direct = repository
+        .query_json(&JsonQuery {
+            backend: JsonQueryBackend::Direct,
+            ..query("score >= 2")
+        })
+        .unwrap();
+    assert_eq!(indexed.total, direct.total);
+    assert_eq!(
+        indexed
+            .records
+            .iter()
+            .map(|record| &record.id)
+            .collect::<Vec<_>>(),
+        direct
+            .records
+            .iter()
+            .map(|record| &record.id)
+            .collect::<Vec<_>>()
+    );
+    assert!(indexed.metrics.grep_scans > 0);
+}
+
 fn query(filter: &str) -> JsonQuery {
     JsonQuery {
         filter: filter.into(),
@@ -62,6 +136,11 @@ fn covered_counts_page_without_parsing_non_page_matches() {
             .iter()
             .any(|step| step.contains("exact scalar"))
     );
+
+    let missing = repository.query_json(&query("missing(score)")).unwrap();
+    assert_eq!(missing.total, Some(1));
+    assert_eq!(missing.records[0].id, "d");
+    assert_eq!(missing.metrics.grep_scans, 0);
 
     for (filter, ids) in [
         ("score >= 2 && flag = true", vec!["a"]),

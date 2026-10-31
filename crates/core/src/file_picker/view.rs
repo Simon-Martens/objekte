@@ -1,4 +1,4 @@
-//! In-memory ordered view keys for every declared numeric, boolean, and enum field.
+//! In-memory ordered view keys for explicitly indexed scalar fields.
 use super::FileEntry;
 use crate::{
     Direction, Field,

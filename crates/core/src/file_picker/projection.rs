@@ -93,10 +93,13 @@ pub(super) fn projected_values(
         .iter()
         .enumerate()
         .filter_map(|(index, name)| {
-            selected
-                .get(name)
-                .and_then(TypedKey::from_value)
-                .map(|key| (index, key))
+            // Absence is a distinct posting from an explicit JSON null.
+            // Containers remain unposted because they are not scalar values.
+            match selected.get(name) {
+                Some(value) => TypedKey::from_value(value),
+                None => Some(TypedKey::Missing),
+            }
+            .map(|key| (index, key))
         })
         .collect();
     let view_keys = view.project(id, &Value::Object(selected));

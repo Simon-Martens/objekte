@@ -399,19 +399,14 @@ impl RepositoryModel {
                 .field
                 .properties
                 .iter()
-                .filter(|(_, field)| {
-                    matches!(
-                        field.kind,
-                        ValueType::Number | ValueType::Integer | ValueType::Boolean
-                    ) || field.enum_values.is_some()
-                })
+                .filter(|(_, field)| field.index)
                 .map(|(name, field)| IndexField {
                     name: name.clone(),
                     kind: field.kind,
                     nullable: field.nullable,
                 })
                 .collect::<Vec<_>>();
-            let index_hash = fingerprint("ordered-scalar-indexes/v1", &indexes);
+            let index_hash = fingerprint("ordered-scalar-indexes/v2", &indexes);
             let schema_hash = fingerprint("schema/v1", &raw);
             let mapping_hash = fingerprint("mapping/v1", &(&source, &c.format, &c.id));
             let label = ui.label.unwrap_or_else(|| name.clone());

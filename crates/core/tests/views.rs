@@ -376,6 +376,35 @@ fn strings_are_binary_case_sensitive_and_not_markup_rendered() {
 }
 
 #[test]
+fn opted_in_string_sort_uses_ordered_page_keys() {
+    let f = Fixture::new();
+    f.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["title"]["index"] = json!(true);
+    });
+    let request = ViewRequest {
+        sort: Some(Sort {
+            field: "title".into(),
+            direction: Direction::Asc,
+        }),
+        limit: Some(2),
+        count: true,
+        ..Default::default()
+    };
+    let expected = f
+        .repo(CacheMode::Disabled)
+        .open_view("books", &request)
+        .unwrap();
+    let actual = f
+        .repo(CacheMode::Memory)
+        .open_view("books", &request)
+        .unwrap();
+    assert_eq!(actual.rows, expected.rows);
+    assert_eq!(actual.total, expected.total);
+    assert_eq!(actual.metrics.source_reads, 2);
+    assert!(actual.query_plan[0].contains("ordered in-memory index"));
+}
+
+#[test]
 fn empty_collections_and_offsets_beyond_end_are_valid() {
     let f = Fixture::new();
     for e in std::fs::read_dir(f.root.join("data/books")).unwrap() {

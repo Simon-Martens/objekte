@@ -1,8 +1,7 @@
-//! Schema-aware filters evaluated against Sonic-parsed source JSON.
+//! Stored-JSON filters evaluated against Sonic-parsed source values.
 mod parser;
 mod pattern;
 mod prefilter;
-mod schema;
 
 use crate::{Error, Metrics, Record, Result, config::fingerprint};
 use num_bigint::BigInt;
@@ -102,6 +101,7 @@ enum Expr {
     And(Vec<Expr>),
     Or(Vec<Expr>),
     Exists(JsonPath),
+    Missing(JsonPath),
     Compare {
         left: Operand,
         op: Op,
@@ -115,7 +115,10 @@ enum Expr {
 /// A necessary typed candidate expression. Unsupported AND children can be
 /// omitted; an OR is useful only when every child has a safe candidate set.
 pub(crate) enum TypedPlan {
-    Term(String, IndexOp, Value),
+    Term(JsonPath, IndexOp, Value),
+    Present(JsonPath),
+    Missing(JsonPath),
+    Prefix(JsonPath, String),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -123,8 +126,10 @@ pub(crate) enum TypedPlan {
 
 /// Predicates whose complete match set an in-memory scalar index can decide.
 pub(crate) enum ExactPlan {
-    Present(String),
-    Term(String, IndexOp, Value),
+    Present(JsonPath),
+    Missing(JsonPath),
+    Term(JsonPath, IndexOp, Value),
+    Prefix(JsonPath, String),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -139,6 +144,39 @@ pub(crate) enum IndexOp {
     Le,
     Gt,
     Ge,
+}
+
+
+fn indexed_term(
+    left: &Operand,
+    op: Op,
+    right: &Operand,
+    any: bool,
+    ignore_case: bool,
+) -> Option<(JsonPath, IndexOp, Value)> {
+    if any || ignore_case {
+        return None;
+    }
+    let (field, value, reversed) = match (left, right) {
+        (Operand::Field(field), Operand::Literal(value)) => (field, value, false),
+        (Operand::Literal(value), Operand::Field(field)) => (field, value, true),
+        _ => return None,
+    };
+    if field.modifier.is_some()
+        || !(value.is_number() || value.is_boolean() || value.is_string() || value.is_null())
+    {
+        return None;
+    }
+    let operator = match (op, reversed) {
+        (Op::Eq, _) => IndexOp::Eq,
+        (Op::Ne, _) => IndexOp::Ne,
+        (Op::Lt, false) | (Op::Gt, true) => IndexOp::Lt,
+        (Op::Le, false) | (Op::Ge, true) => IndexOp::Le,
+        (Op::Gt, false) | (Op::Lt, true) => IndexOp::Gt,
+        (Op::Ge, false) | (Op::Le, true) => IndexOp::Ge,
+        _ => return None,
+    };
+    Some((field.path.clone(), operator, value.clone()))
 }
 
 
@@ -172,7 +210,7 @@ impl JsonFilter {
                         visit(e, paths, scalar);
                     }
                 }
-                Expr::Exists(p) => {
+                Expr::Exists(p) | Expr::Missing(p) => {
                     paths.insert(p.clone());
                 }
                 Expr::Compare {
@@ -203,21 +241,30 @@ impl JsonFilter {
         &self.paths
     }
 
+    /// Parse a standalone path using the JSON filter path syntax.
+    pub fn parse_path(text: &str) -> Result<JsonPath> {
+        parser::parse_path(text)
+    }
+
     pub fn hash(&self) -> &str {
         &self.hash
     }
 
-    pub(crate) fn needs_global_cardinality_check(&self, collections: &[crate::Collection]) -> bool {
+    pub(crate) fn needs_cardinality_check_in(
+        &self,
+        collection: &crate::Collection,
+        indexed_safe: impl Fn(&JsonPath) -> bool,
+    ) -> bool {
         self.scalar_paths.iter().any(|path| {
-            let [JsonPathStep::Key(name)] = path.path.as_slice() else {
-                return true;
-            };
-            path.modifier != Some(Modifier::Length)
-                && collections.iter().any(|collection| {
-                    collection.fields.get(name).is_none_or(|field| {
-                        matches!(field.kind, crate::ValueType::Array | crate::ValueType::Any)
-                    })
-                })
+            if path.modifier == Some(Modifier::Length) || indexed_safe(&path.path) {
+                return false;
+            }
+            match path.path.as_slice() {
+                [JsonPathStep::Key(name)] => collection.fields.get(name).is_none_or(|field| {
+                    matches!(field.kind, crate::ValueType::Array | crate::ValueType::Any)
+                }),
+                _ => true,
+            }
         })
     }
 
@@ -255,6 +302,7 @@ impl JsonFilter {
                     common
                 }
                 Expr::Exists(path) => first_key(path).into_iter().collect(),
+                Expr::Missing(_) => BTreeSet::new(),
                 Expr::Compare { left, right, .. } => [left, right]
                     .into_iter()
                     .filter_map(|operand| match operand {
@@ -281,42 +329,30 @@ impl JsonFilter {
                     let children = parts.iter().map(plan).collect::<Option<Vec<_>>>()?;
                     (!children.is_empty()).then_some(TypedPlan::Or(children))
                 }
+                Expr::Exists(path) => Some(TypedPlan::Present(path.clone())),
+                Expr::Missing(path) => Some(TypedPlan::Missing(path.clone())),
                 Expr::Compare {
                     left: Operand::Field(field),
-                    op,
-                    right: Operand::Literal(value),
+                    op: Op::Contains,
+                    right: Operand::Literal(Value::String(pattern)),
                     any: false,
-                    ..
-                } if field.modifier.is_none() && field.path.len() == 1 => {
-                    let JsonPathStep::Key(name) = &field.path[0] else {
-                        return None;
-                    };
-                    let operator = match op {
-                        Op::Eq => IndexOp::Eq,
-                        Op::Ne => IndexOp::Ne,
-                        Op::Lt => IndexOp::Lt,
-                        Op::Le => IndexOp::Le,
-                        Op::Gt => IndexOp::Gt,
-                        Op::Ge => IndexOp::Ge,
-                        _ => return None,
-                    };
-                    if value.is_number()
-                        || value.is_boolean()
-                        || value.is_string()
-                        || value.is_null()
-                    {
-                        Some(TypedPlan::Term(name.clone(), operator, value.clone()))
-                    } else {
-                        None
-                    }
-                }
-                _ => None,
+                    ignore_case: false,
+                } if field.modifier.is_none() => pattern::Like::anchored_prefix(pattern)
+                    .map(|prefix| TypedPlan::Prefix(field.path.clone(), prefix)),
+                Expr::Compare {
+                    left,
+                    op,
+                    right,
+                    any,
+                    ignore_case,
+                } => indexed_term(left, *op, right, *any, *ignore_case)
+                    .map(|(path, operator, value)| TypedPlan::Term(path, operator, value)),
             }
         }
         plan(&self.expr)
     }
 
-    /// Use only simple top-level predicates with exact index semantics.
+    /// Use only predicates with exact posting semantics.
     pub(crate) fn exact_index_plan(&self) -> Option<ExactPlan> {
         fn plan(expr: &Expr) -> Option<ExactPlan> {
             match expr {
@@ -326,36 +362,24 @@ impl JsonFilter {
                 Expr::Or(parts) => Some(ExactPlan::Or(
                     parts.iter().map(plan).collect::<Option<Vec<_>>>()?,
                 )),
-                Expr::Exists(path) => match path.as_slice() {
-                    [JsonPathStep::Key(name)] => Some(ExactPlan::Present(name.clone())),
-                    _ => None,
-                },
+                Expr::Exists(path) => Some(ExactPlan::Present(path.clone())),
+                Expr::Missing(path) => Some(ExactPlan::Missing(path.clone())),
                 Expr::Compare {
                     left: Operand::Field(field),
-                    op,
+                    op: Op::Contains,
                     any: false,
-                    right: Operand::Literal(value),
+                    right: Operand::Literal(Value::String(pattern)),
                     ignore_case: false,
-                } if field.modifier.is_none() => {
-                    let [JsonPathStep::Key(name)] = field.path.as_slice() else {
-                        return None;
-                    };
-                    let operator = match op {
-                        Op::Eq => IndexOp::Eq,
-                        Op::Ne => IndexOp::Ne,
-                        Op::Lt => IndexOp::Lt,
-                        Op::Le => IndexOp::Le,
-                        Op::Gt => IndexOp::Gt,
-                        Op::Ge => IndexOp::Ge,
-                        _ => return None,
-                    };
-                    (value.is_number()
-                        || value.is_boolean()
-                        || value.is_string()
-                        || value.is_null())
-                    .then(|| ExactPlan::Term(name.clone(), operator, value.clone()))
-                }
-                _ => None,
+                } if field.modifier.is_none() => pattern::Like::anchored_prefix(pattern)
+                    .map(|prefix| ExactPlan::Prefix(field.path.clone(), prefix)),
+                Expr::Compare {
+                    left,
+                    op,
+                    right,
+                    any,
+                    ignore_case,
+                } => indexed_term(left, *op, right, *any, *ignore_case)
+                    .map(|(path, operator, value)| ExactPlan::Term(path, operator, value)),
             }
         }
 
@@ -370,6 +394,7 @@ impl JsonFilter {
                 Expr::And(es) => es.iter().all(|e| evaluate(e, doc)),
                 Expr::Or(es) => es.iter().any(|e| evaluate(e, doc)),
                 Expr::Exists(p) => !values(doc, p, false).is_empty(),
+                Expr::Missing(p) => values(doc, p, false).is_empty(),
                 Expr::Compare {
                     left,
                     op,
@@ -478,7 +503,7 @@ pub struct JsonQueryStreamSummary {
 }
 
 
-fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a Value> {
+pub(crate) fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a Value> {
     fn visit<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool, out: &mut Vec<&'a Value>) {
         match path.split_first() {
             None => {

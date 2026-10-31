@@ -22,6 +22,22 @@ pub(super) struct Like {
 
 
 impl Like {
+    /// A case-sensitive LIKE prefix whose full match set an ordered string
+    /// index can decide. Other patterns still use source verification.
+    pub(super) fn anchored_prefix(pattern: &str) -> Option<String> {
+        let mut chars = pattern.chars().peekable();
+        let mut prefix = String::new();
+        while let Some(ch) = chars.next() {
+            match ch {
+                '\\' => prefix.push(chars.next()?),
+                '%' => return chars.all(|rest| rest == '%').then_some(prefix),
+                '_' => return None,
+                _ => prefix.push(ch),
+            }
+        }
+        None
+    }
+
     fn literal(tokens: &mut Vec<Token>, c: char, ignore_case: bool) {
         if ignore_case {
             tokens.extend(c.case_fold().map(Token::Char));

@@ -23,6 +23,25 @@ pub(super) fn parse(text: &str, parameters: &BTreeMap<String, Value>) -> Result<
     Ok(expr)
 }
 
+pub(super) fn parse_path(text: &str) -> Result<JsonPath> {
+    if text.len() > MAX_LENGTH {
+        return Err(Error::Request("path exceeds 16384 bytes".into()));
+    }
+    let parameters = BTreeMap::new();
+    let mut parser = Parser {
+        text,
+        pos: 0,
+        parameters: &parameters,
+        nodes: 0,
+    };
+    let path = parser.path()?;
+    parser.ws();
+    if parser.pos != text.len() {
+        return parser.error("unexpected token in path");
+    }
+    Ok(path)
+}
+
 
 // INFO: Filter text cursor, parameter bindings, and expression node count.
 struct Parser<'a> {
@@ -117,6 +136,15 @@ impl Parser<'_> {
                 let path = self.path()?;
                 self.need(")")?;
                 return Ok(Expr::Exists(path));
+            }
+            self.pos = saved;
+        }
+        if self.text[self.pos..].starts_with("missing") {
+            self.pos += 7;
+            if self.take("(") {
+                let path = self.path()?;
+                self.need(")")?;
+                return Ok(Expr::Missing(path));
             }
             self.pos = saved;
         }

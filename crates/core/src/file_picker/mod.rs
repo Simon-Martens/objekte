@@ -6,9 +6,11 @@
 
 mod exact;
 mod git;
+mod posting;
 mod presence;
 mod projection;
 mod regex_plan;
+mod scan_pool;
 mod typed;
 mod view;
 
@@ -167,6 +169,10 @@ impl FilePicker {
         )
     }
 
+    pub(crate) fn typed_scalar_safe(&self, path: &crate::JsonPath) -> bool {
+        self.typed.scalar_safe(path)
+    }
+
     pub(crate) fn view_ordered_slots(
         &self,
         field: &str,
@@ -311,6 +317,9 @@ impl FilePicker {
             }
         }
         self.sorted.retain(|&slot| seen[slot]);
+        if changed > 0 {
+            self.typed.invalidate_dynamic();
+        }
         Ok(changed)
     }
 
@@ -318,6 +327,7 @@ impl FilePicker {
     /// event, without enumerating the directory.
     pub fn refresh_id(&mut self, id: &str) -> Result<()> {
         crate::repository::validate_id(id)?;
+        self.typed.invalidate_dynamic();
         let source = Source::open(&self.root)?;
         let file = match source.file(id) {
             Ok(file) => Some(file),
@@ -648,79 +658,81 @@ impl FilePicker {
         let add_worker = AtomicU64::new(0);
         #[cfg(feature = "index-timings")]
         let scan_started = Instant::now();
-        files
-            .par_chunks(64)
-            .enumerate()
-            .try_for_each(|(chunk_index, chunk)| -> Result<()> {
-                let mut chunk_arrays = BTreeSet::new();
-                let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
-                let mut chunk_view = Vec::new();
-                #[cfg(feature = "index-timings")]
-                let mut chunk_project_nanos = 0;
-                #[cfg(feature = "index-timings")]
-                let mut chunk_add_nanos = 0;
-                for (within, entry) in chunk.iter().enumerate() {
-                    let Some(entry) = entry else { continue };
-                    let id = std::str::from_utf8(
-                        &ids[entry.id_start as usize..(entry.id_start + entry.id_len) as usize],
-                    )
-                    .expect("validated UTF-8 ID");
+        scan_pool::run(|| {
+            files
+                .par_chunks(64)
+                .enumerate()
+                .try_for_each(|(chunk_index, chunk)| -> Result<()> {
+                    let mut chunk_arrays = BTreeSet::new();
+                    let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
+                    let mut chunk_view = Vec::new();
                     #[cfg(feature = "index-timings")]
-                    let project_started = Instant::now();
-                    let projection = projected_values(
-                        source,
-                        id,
-                        &entry.stamp,
-                        indexed_fields,
-                        presence_fields,
-                        view,
-                        true,
-                    )?;
+                    let mut chunk_project_nanos = 0;
                     #[cfg(feature = "index-timings")]
-                    {
-                        chunk_project_nanos += elapsed_nanos(project_started);
-                    }
-                    if let Some(projection) = projection {
-                        let slot = chunk_index * 64 + within;
+                    let mut chunk_add_nanos = 0;
+                    for (within, entry) in chunk.iter().enumerate() {
+                        let Some(entry) = entry else { continue };
+                        let id = std::str::from_utf8(
+                            &ids[entry.id_start as usize..(entry.id_start + entry.id_len) as usize],
+                        )
+                        .expect("validated UTF-8 ID");
                         #[cfg(feature = "index-timings")]
-                        let add_started = Instant::now();
-                        main.add_file_content(&skip, slot, &projection.bytes);
+                        let project_started = Instant::now();
+                        let projection = projected_values(
+                            source,
+                            id,
+                            &entry.stamp,
+                            indexed_fields,
+                            presence_fields,
+                            view,
+                            true,
+                        )?;
                         #[cfg(feature = "index-timings")]
                         {
-                            chunk_add_nanos += elapsed_nanos(add_started);
+                            chunk_project_nanos += elapsed_nanos(project_started);
                         }
-                        chunk_arrays.extend(projection.array_fields);
-                        PresenceIndex::add_build_row(
-                            &presence_words,
-                            slot,
-                            &projection.present_fields,
-                        );
-                        chunk_view.push((slot, projection.view_keys));
-                        for (field, key) in projection.typed_values {
-                            chunk_typed[field].push((key, slot));
+                        if let Some(projection) = projection {
+                            let slot = chunk_index * 64 + within;
+                            #[cfg(feature = "index-timings")]
+                            let add_started = Instant::now();
+                            main.add_file_content(&skip, slot, &projection.bytes);
+                            #[cfg(feature = "index-timings")]
+                            {
+                                chunk_add_nanos += elapsed_nanos(add_started);
+                            }
+                            chunk_arrays.extend(projection.array_fields);
+                            PresenceIndex::add_build_row(
+                                &presence_words,
+                                slot,
+                                &projection.present_fields,
+                            );
+                            chunk_view.push((slot, projection.view_keys));
+                            for (field, key) in projection.typed_values {
+                                chunk_typed[field].push((key, slot));
+                            }
                         }
                     }
-                }
-                array_fields
-                    .lock()
-                    .expect("array field lock")
-                    .extend(chunk_arrays);
-                #[cfg(feature = "index-timings")]
-                {
-                    project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
-                }
+                    array_fields
+                        .lock()
+                        .expect("array field lock")
+                        .extend(chunk_arrays);
+                    #[cfg(feature = "index-timings")]
+                    {
+                        project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
+                    }
 
-                #[cfg(feature = "index-timings")]
-                {
-                    add_worker.fetch_add(chunk_add_nanos, Ordering::Relaxed);
-                }
-                let mut rows = typed_rows.lock().expect("typed row lock");
-                for (all, chunk) in rows.iter_mut().zip(chunk_typed) {
-                    all.extend(chunk);
-                }
-                view_rows.lock().expect("view row lock").extend(chunk_view);
-                Ok(())
-            })?;
+                    #[cfg(feature = "index-timings")]
+                    {
+                        add_worker.fetch_add(chunk_add_nanos, Ordering::Relaxed);
+                    }
+                    let mut rows = typed_rows.lock().expect("typed row lock");
+                    for (all, chunk) in rows.iter_mut().zip(chunk_typed) {
+                        all.extend(chunk);
+                    }
+                    view_rows.lock().expect("view row lock").extend(chunk_view);
+                    Ok(())
+                })
+        })?;
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.scan_nanos = elapsed_nanos(scan_started);
@@ -771,6 +783,19 @@ impl FilePicker {
             &self.files,
             &self.id_bytes,
         );
+        // Runtime path postings are rebuilt after slot compaction so their
+        // posting lists refer to the current immutable file table.
+        let runtime_paths = self.typed.dynamic_paths();
+        self.typed.invalidate_dynamic();
+        for path in runtime_paths {
+            if let Err(error) = self.build_posting(&path) {
+                // A source edit during this second pass can leave the fresh
+                // text snapshot behind. Require source verification next time.
+                self.changed.extend(self.sorted.iter().copied());
+                return Err(error);
+            }
+        }
+
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.view_nanos = elapsed_nanos(view_started);

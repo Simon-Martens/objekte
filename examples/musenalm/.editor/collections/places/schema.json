@@ -9,7 +9,8 @@
       "type": "string"
     },
     "fictional": {
-      "type": "boolean"
+      "type": "boolean",
+      "index": true
     },
     "uri": {
       "type": "string"
@@ -21,7 +22,8 @@
       "type": "string"
     },
     "musenalm_id": {
-      "type": "number"
+      "type": "number",
+      "index": true
     },
     "edit_state": {
       "type": "string"

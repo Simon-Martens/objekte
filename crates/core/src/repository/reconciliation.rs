@@ -1,9 +1,41 @@
 //! Source refresh.
 
 use super::*;
+use crate::JsonFilter;
 
 
 impl Repository {
+    /// Build or rebuild an ordered posting for one JSON path in a collection.
+    /// The path uses filter syntax, such as `year` or `contributors[0].type`.
+    pub fn build_posting(&mut self, collection: &str, path: &str) -> Result<()> {
+        let path = JsonFilter::parse_path(path)?;
+        self.reload()?;
+        let c = self.collection(collection)?;
+        self.ensure_picker(&c)?;
+        let picker = self
+            .file_pickers
+            .get_mut(collection)
+            .expect("picker exists");
+        picker.refresh()?;
+        picker.build_posting(&path)?;
+        self.requested_postings
+            .entry(collection.to_owned())
+            .or_default()
+            .insert(path);
+        Ok(())
+    }
+
+    /// Build or rebuild the same path posting in every registered collection.
+    pub fn build_posting_all(&mut self, path: &str) -> Result<()> {
+        JsonFilter::parse_path(path)?;
+        self.reload()?;
+        let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
+        for name in names {
+            self.build_posting(&name, path)?;
+        }
+        Ok(())
+    }
+
     /// Return the current or deleted record revision in this repository handle.
     pub fn record_revision(
         &mut self,

@@ -26,3 +26,33 @@ fn matching_handles_wrapping_wildcards_escapes_and_optional_unicode_folding() {
         );
     }
 }
+
+#[test]
+fn only_anchored_literal_prefixes_use_ordered_string_postings() {
+    for (pattern, expected) in [
+        ("A%", Some("A")),
+        ("%", Some("")),
+        (r"A\%%", Some("A%")),
+        (r"A\_%", Some("A_")),
+        ("A", None),
+        ("A%%", Some("A")),
+        ("A_%", None),
+        ("%A", None),
+        ("A%B%", None),
+    ] {
+        assert_eq!(
+            Like::anchored_prefix(pattern).as_deref(),
+            expected,
+            "{pattern}"
+        );
+        if let Some(prefix) = expected {
+            for text in ["", "A", "Ab", "A%", "A_b", "A%long", "BA", "ä"] {
+                assert_eq!(
+                    Like::new(pattern, false, false).matches(text),
+                    text.starts_with(prefix),
+                    "{pattern} {text}"
+                );
+            }
+        }
+    }
+}

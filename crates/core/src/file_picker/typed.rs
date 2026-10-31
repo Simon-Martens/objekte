@@ -1,7 +1,7 @@
-//! In-memory ordered postings for top-level numeric, boolean, and enum fields.
+//! In-memory B-tree postings for explicitly indexed top-level scalar fields.
 //! Immutable postings cover the indexed snapshot; changed slots are included
 //! conservatively until the next rebuild and verified against source JSON.
-use crate::json_filter::{IndexOp, TypedPlan, decimal_cmp};
+use crate::json_filter::{IndexOp, JsonPath, JsonPathStep, TypedPlan, decimal_cmp};
 use serde_json::Value;
 use std::{
     cmp::Ordering,
@@ -13,6 +13,7 @@ use std::{
 #[derive(Clone, Debug)]
 pub(super) enum TypedKey {
     Null,
+    Missing,
     Bool(bool),
     Number(String),
     String(String),
@@ -34,6 +35,7 @@ impl TypedKey {
         matches!(
             (self, other),
             (Self::Null, Self::Null)
+                | (Self::Missing, Self::Missing)
                 | (Self::Bool(_), Self::Bool(_))
                 | (Self::Number(_), Self::Number(_))
                 | (Self::String(_), Self::String(_))
@@ -48,6 +50,9 @@ impl Ord for TypedKey {
             (Self::Null, Self::Null) => Ordering::Equal,
             (Self::Null, _) => Ordering::Less,
             (_, Self::Null) => Ordering::Greater,
+            (Self::Missing, Self::Missing) => Ordering::Equal,
+            (Self::Missing, _) => Ordering::Less,
+            (_, Self::Missing) => Ordering::Greater,
             (Self::Bool(a), Self::Bool(b)) => a.cmp(b),
             (Self::Number(a), Self::Number(b)) => decimal_cmp(a, b),
             (Self::String(a), Self::String(b)) => a.cmp(b),
@@ -82,13 +87,27 @@ impl Eq for TypedKey {}
 pub(super) struct TypedIndex {
     fields: Vec<String>,
     postings: Vec<BTreeMap<TypedKey, Vec<usize>>>,
+    dynamic: BTreeMap<JsonPath, DynamicPosting>,
+}
+
+
+/// One caller-built path posting and its complete presence set.
+struct DynamicPosting {
+    postings: BTreeMap<TypedKey, Vec<usize>>,
+    present: Vec<u64>,
+    scalar_safe: bool,
+    fresh: bool,
 }
 
 
 impl TypedIndex {
     pub(super) fn new(fields: Vec<String>) -> Self {
         let postings = (0..fields.len()).map(|_| BTreeMap::new()).collect();
-        Self { fields, postings }
+        Self {
+            fields,
+            postings,
+            dynamic: BTreeMap::new(),
+        }
     }
 
     pub(super) fn fields(&self) -> &[String] {
@@ -97,6 +116,59 @@ impl TypedIndex {
 
     pub(super) fn replace_rows(&mut self, rows: Vec<Vec<(TypedKey, usize)>>) {
         self.postings = rows.into_iter().map(postings_for_rows).collect();
+    }
+
+    pub(super) fn dynamic_paths(&self) -> Vec<JsonPath> {
+        self.dynamic.keys().cloned().collect()
+    }
+
+    pub(super) fn invalidate_dynamic(&mut self) {
+        for field in self.dynamic.values_mut() {
+            field.fresh = false;
+        }
+    }
+
+    pub(super) fn scalar_safe(&self, path: &JsonPath) -> bool {
+        self.dynamic
+            .get(path)
+            .is_some_and(|field| field.scalar_safe && field.fresh)
+    }
+
+    pub(super) fn replace_path(
+        &mut self,
+        path: JsonPath,
+        rows: Vec<(TypedKey, usize)>,
+        present: Vec<u64>,
+        scalar_safe: bool,
+    ) {
+        let postings = postings_for_rows(rows);
+        if let Some(index) = self.static_index(&path) {
+            self.postings[index] = postings;
+        } else {
+            self.dynamic.insert(
+                path,
+                DynamicPosting {
+                    postings,
+                    present,
+                    scalar_safe,
+                    fresh: true,
+                },
+            );
+        }
+    }
+
+    fn static_index(&self, path: &JsonPath) -> Option<usize> {
+        let [JsonPathStep::Key(name)] = path.as_slice() else {
+            return None;
+        };
+        self.fields.binary_search(name).ok()
+    }
+
+    fn posting_for(&self, path: &JsonPath) -> Option<&BTreeMap<TypedKey, Vec<usize>>> {
+        if let Some(field) = self.dynamic.get(path) {
+            return (field.scalar_safe && field.fresh).then_some(&field.postings);
+        }
+        self.static_index(path).map(|index| &self.postings[index])
     }
 
     /// Evaluate necessary typed postings. Unknown AND children are skipped;
@@ -120,6 +192,9 @@ impl TypedIndex {
             TypedPlan::Term(path, operator, value) => {
                 self.term_bits(path, *operator, value, slot_count)
             }
+            TypedPlan::Missing(path) => self.missing_bits(path, slot_count),
+            TypedPlan::Present(path) => self.present_bits(path),
+            TypedPlan::Prefix(path, prefix) => self.prefix_bits(path, prefix, slot_count),
             TypedPlan::And(parts) => {
                 let mut combined: Option<Vec<u64>> = None;
                 for part in parts {
@@ -153,15 +228,12 @@ impl TypedIndex {
 
     pub(super) fn term_bits(
         &self,
-        field: &str,
+        path: &JsonPath,
         operator: IndexOp,
         value: &Value,
         slot_count: usize,
     ) -> Option<Vec<u64>> {
-        let index = self
-            .fields
-            .binary_search_by(|name| name.as_str().cmp(field))
-            .ok()?;
+        let postings = self.posting_for(path)?;
         let key = TypedKey::from_value(value)?;
         if matches!(key, TypedKey::Bool(_) | TypedKey::Null)
             && !matches!(operator, IndexOp::Eq | IndexOp::Ne)
@@ -169,7 +241,6 @@ impl TypedIndex {
             return None;
         }
         let mut bits = vec![0u64; slot_count.div_ceil(64)];
-        let postings = &self.postings[index];
         match operator {
             IndexOp::Eq => {
                 if let Some(slots) = postings.get(&key) {
@@ -179,10 +250,10 @@ impl TypedIndex {
                 }
             }
             IndexOp::Ne => {
-                // Missing fields and containers have no typed posting. Null and
-                // other scalar kinds do compare unequal to a numeric value.
+                // Missing fields are recorded for the index but do not match
+                // JSON comparisons. Null and other scalar kinds may differ.
                 for (candidate, slots) in postings {
-                    if candidate != &key {
+                    if candidate != &key && !matches!(candidate, TypedKey::Missing) {
                         for &slot in slots {
                             bits[slot / 64] |= 1 << (slot % 64);
                         }
@@ -211,6 +282,47 @@ impl TypedIndex {
         }
         Some(bits)
     }
+
+    pub(super) fn missing_bits(&self, path: &JsonPath, slot_count: usize) -> Option<Vec<u64>> {
+        let postings = self
+            .dynamic
+            .get(path)
+            .filter(|field| field.fresh)
+            .map(|field| &field.postings)
+            .or_else(|| self.static_index(path).map(|index| &self.postings[index]))?;
+        let mut bits = vec![0u64; slot_count.div_ceil(64)];
+        for &slot in postings.get(&TypedKey::Missing).into_iter().flatten() {
+            bits[slot / 64] |= 1 << (slot % 64);
+        }
+        Some(bits)
+    }
+
+    pub(super) fn present_bits(&self, path: &JsonPath) -> Option<Vec<u64>> {
+        self.dynamic
+            .get(path)
+            .filter(|field| field.fresh)
+            .map(|field| field.present.clone())
+    }
+
+    pub(super) fn prefix_bits(
+        &self,
+        path: &JsonPath,
+        prefix: &str,
+        slot_count: usize,
+    ) -> Option<Vec<u64>> {
+        let postings = self.posting_for(path)?;
+        let mut bits = vec![0u64; slot_count.div_ceil(64)];
+        for (key, slots) in postings.range(TypedKey::String(prefix.to_owned())..) {
+            let TypedKey::String(value) = key else { break };
+            if !value.starts_with(prefix) {
+                break;
+            }
+            for &slot in slots {
+                bits[slot / 64] |= 1 << (slot % 64);
+            }
+        }
+        Some(bits)
+    }
 }
 
 
@@ -227,9 +339,11 @@ fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usi
     let mut strings = HashMap::<String, Vec<usize>>::new();
     let mut booleans = [Vec::new(), Vec::new()];
     let mut nulls = Vec::new();
+    let mut missing = Vec::new();
     for (key, slot) in rows {
         match key {
             TypedKey::Null => nulls.push(slot),
+            TypedKey::Missing => missing.push(slot),
             TypedKey::Bool(value) => booleans[usize::from(value)].push(slot),
             TypedKey::Number(raw) => numbers.entry(raw).or_default().push(slot),
             TypedKey::String(raw) => strings.entry(raw).or_default().push(slot),
@@ -237,6 +351,9 @@ fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usi
     }
     if !nulls.is_empty() {
         postings.insert(TypedKey::Null, nulls);
+    }
+    if !missing.is_empty() {
+        postings.insert(TypedKey::Missing, missing);
     }
     for (value, slots) in booleans.into_iter().enumerate() {
         if !slots.is_empty() {
@@ -268,6 +385,7 @@ fn should_group_rows(rows: &[(TypedKey, usize)]) -> bool {
     for (key, _) in sample {
         let raw = match key {
             TypedKey::Null => (0, "null"),
+            TypedKey::Missing => (4, "missing"),
             TypedKey::Bool(false) => (1, "false"),
             TypedKey::Bool(true) => (1, "true"),
             TypedKey::Number(raw) => (2, raw.as_str()),

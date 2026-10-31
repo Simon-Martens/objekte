@@ -5,13 +5,13 @@ Objekte reads collections of JSON files through a Rust library and CLI. Source f
 ## Current capabilities
 
 - Repository configuration and JSON Schema load without enumerating every collection. Collections are opened lazily.
-- `get`, configured table `view`, and general `query` over declared JSON fields. Views support configured columns, filters, scalar sorts, secondary sorts, pagination, and optional counts. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
-- The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values and typed postings for every top-level declared number, integer, boolean, and enum field. The same picker supplies ordered keys for eligible views. Query candidates are checked against original JSON with Sonic; the index alone never decides a match.
+- `get`, configured table `view`, and general `query` over stored JSON fields. Views support configured columns, filters, scalar sorts, secondary sorts, pagination, and optional counts. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
+- The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Query candidates are checked against original JSON with Sonic; the index alone never decides a match.
 - `--cache disabled` makes views scan source files. JSON queries also offer explicit `direct` and raw-file `grep` backends. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
 - Explicit collection/all-collection validation, JSON/schema status on returned pages where validation runs, source refresh, configuration-change reporting, cache status, and per-record revision lookup. Revisions last only for the repository handle. Validation status is not stored in the index.
 - Declared outgoing references are extracted on request. Incoming references can be discovered by scanning referring source collections. The CLI's `relations --to ... --complete` requests complete coverage; `--check-targets` checks current target files. There is no persistent edge table or automatic source rewrite on a move/delete.
 
-The cache indexes fields independently of `list.filters`, `list.sortable`, and `list.defaultSort`. Those UI options still control which filters and sorts a view request may use. Enum ordering is bytewise; string ABC sorting is planned. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
+The schema's `index` opt-in is independent of `list.filters`, `list.sortable`, and `list.defaultSort`. Those UI options still control which filters and sorts a view request may use. String and enum ordering is bytewise. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
 
 ## Product boundaries
 
@@ -23,7 +23,7 @@ The cache indexes fields independently of `list.filters`, `list.sortable`, and `
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
 | CLI | Parse commands and display library results; no separate query or cache implementation |
 
-Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations, group records, or search metadata such as source path. Malformed JSON does not match a JSON query. A parseable schema-invalid record can still match a declared field. See [validation.md](validation.md) for the precise validation behavior.
+Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations, group records, or search metadata such as source path. Malformed JSON does not match a JSON query. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](validation.md) for the precise validation behavior.
 
 ## Work still planned
 

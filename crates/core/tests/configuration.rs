@@ -1,5 +1,5 @@
 mod support;
-use objekte_core::{CacheMode, PathStep, Repository};
+use objekte_core::{CacheMode, JsonQuery, PathStep, Repository};
 use serde_json::json;
 use std::fs;
 use support::*;
@@ -90,6 +90,86 @@ fn unsupported_schema_keywords_fail_at_their_locations() {
         assert!(e.contains(key), "{e}");
         assert!(e.contains("/properties/title"), "{e}");
     }
+}
+
+#[test]
+fn ordered_indexes_require_explicit_scalar_field_opt_in() {
+    let f = Fixture::new();
+    f.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["score"]
+            .as_object_mut()
+            .unwrap()
+            .remove("index");
+        schema["properties"]["flag"]
+            .as_object_mut()
+            .unwrap()
+            .remove("index");
+        schema["properties"]["title"]["index"] = json!(true);
+    });
+    let r = f.repo(CacheMode::Memory);
+    let names = r.model().collections["books"]
+        .indexes
+        .iter()
+        .map(|index| index.name.as_str())
+        .collect::<Vec<_>>();
+    assert_eq!(names, ["count", "title"]);
+}
+
+#[test]
+fn invalid_index_declarations_are_rejected() {
+    for (path, value, message) in [
+        (
+            "/properties/title",
+            json!("true"),
+            "index must be a boolean",
+        ),
+        (
+            "/properties/links",
+            json!(true),
+            "index requires a scalar type",
+        ),
+        (
+            "/properties/links/items/properties/person",
+            json!(true),
+            "index requires a top-level field",
+        ),
+    ] {
+        let f = Fixture::new();
+        f.edit(".editor/books/schema.json", |schema| {
+            schema.pointer_mut(path).unwrap()["index"] = value;
+        });
+        let error = Repository::load_repository(&f.root, f.options(CacheMode::Memory))
+            .err()
+            .unwrap()
+            .to_string();
+        assert!(error.contains(message), "{error}");
+        assert!(error.contains(path), "{error}");
+    }
+}
+
+#[test]
+fn changing_index_opt_in_replaces_the_live_picker() {
+    let f = Fixture::new();
+    let mut repository = f.repo(CacheMode::Memory);
+    let query = JsonQuery {
+        filter: "score = 2".into(),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        ..Default::default()
+    };
+    let before = repository.query_json(&query).unwrap();
+    assert_eq!(before.metrics.grep_scans, 0);
+
+    f.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["score"]
+            .as_object_mut()
+            .unwrap()
+            .remove("index");
+    });
+    repository.refresh_configuration().unwrap();
+    let after = repository.query_json(&query).unwrap();
+    assert_eq!(after.total, before.total);
+    assert!(after.metrics.grep_scans > 0);
 }
 
 #[test]

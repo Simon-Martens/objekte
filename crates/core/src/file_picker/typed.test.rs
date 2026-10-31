@@ -24,7 +24,14 @@ fn grouped_number_spellings_keep_exact_equality_and_ranges() {
             IndexOp::Lt => (json!(2), 3072),
             _ => unreachable!(),
         };
-        let bits = index.term_bits("score", operator, &value, 4096).unwrap();
+        let bits = index
+            .term_bits(
+                &vec![JsonPathStep::Key("score".into())],
+                operator,
+                &value,
+                4096,
+            )
+            .unwrap();
         assert_eq!(
             bits.iter().map(|word| word.count_ones()).sum::<u32>(),
             expected
@@ -36,12 +43,14 @@ fn grouped_number_spellings_keep_exact_equality_and_ranges() {
 }
 
 #[test]
-fn grouped_postings_keep_null_and_inequality() {
+fn grouped_postings_distinguish_null_and_missing() {
     let mut index = TypedIndex::new(vec!["score".into()]);
     let rows = (0..4096)
         .map(|slot| {
             let key = if slot % 10 == 0 {
                 TypedKey::Null
+            } else if slot % 10 == 1 {
+                TypedKey::Missing
             } else {
                 TypedKey::Number("1".into())
             };
@@ -49,13 +58,22 @@ fn grouped_postings_keep_null_and_inequality() {
         })
         .collect();
     index.replace_rows(vec![rows]);
+    assert_eq!(index.postings[0][&TypedKey::Null].len(), 410);
+    assert_eq!(index.postings[0][&TypedKey::Missing].len(), 410);
 
     for (operator, value, expected) in [
         (IndexOp::Eq, Value::Null, 410),
         (IndexOp::Ne, json!(1), 410),
-        (IndexOp::Ne, Value::Null, 3686),
+        (IndexOp::Ne, Value::Null, 3276),
     ] {
-        let bits = index.term_bits("score", operator, &value, 4096).unwrap();
+        let bits = index
+            .term_bits(
+                &vec![JsonPathStep::Key("score".into())],
+                operator,
+                &value,
+                4096,
+            )
+            .unwrap();
         assert_eq!(
             bits.iter().map(|word| word.count_ones()).sum::<u32>(),
             expected

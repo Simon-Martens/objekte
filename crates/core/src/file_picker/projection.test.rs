@@ -87,18 +87,17 @@ fn sonic_projection_matches_full_json_semantics() {
                 .collect()
         });
         assert_eq!(projection.present_fields, expected_present, "{raw}");
-        let expected_typed = object.map_or_else(Vec::new, |fields| {
-            indexed
-                .iter()
-                .enumerate()
-                .filter_map(|(index, name)| {
-                    fields
-                        .get(name)
-                        .and_then(TypedKey::from_value)
-                        .map(|key| (index, key))
-                })
-                .collect()
-        });
+        let expected_typed: Vec<_> = indexed
+            .iter()
+            .enumerate()
+            .filter_map(|(index, name)| {
+                match object.and_then(|fields| fields.get(name)) {
+                    Some(value) => TypedKey::from_value(value),
+                    None => Some(TypedKey::Missing),
+                }
+                .map(|key| (index, key))
+            })
+            .collect();
         assert_eq!(projection.typed_values, expected_typed, "{raw}");
         assert_eq!(
             serde_json::to_value(projection.view_keys).unwrap(),

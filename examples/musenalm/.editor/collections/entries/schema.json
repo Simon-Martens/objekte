@@ -30,13 +30,15 @@
       "type": "string"
     },
     "year": {
-      "type": "number"
+      "type": "number",
+      "index": true
     },
     "edition": {
       "type": "string"
     },
     "pseudonym": {
-      "type": "boolean"
+      "type": "boolean",
+      "index": true
     },
     "language": {
       "type": "array",
@@ -83,7 +85,8 @@
       "type": "string"
     },
     "musenalm_id": {
-      "type": "number"
+      "type": "number",
+      "index": true
     },
     "edit_state": {
       "type": "string"

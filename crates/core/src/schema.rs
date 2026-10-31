@@ -39,6 +39,8 @@ pub enum PathStep {
 pub struct Field {
     pub kind: ValueType,
     pub nullable: bool,
+    /// Opt in to ordered postings for this top-level scalar field.
+    pub index: bool,
     /// Declared JSON Schema alternatives, when this scalar is an enum.
     pub enum_values: Option<Vec<Value>>,
     pub properties: BTreeMap<String, Field>,
@@ -123,6 +125,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "required",
             "additionalProperties",
             "enum",
+            "index",
             "x-relation",
         ]
         .contains(&k.as_str())
@@ -174,6 +177,22 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
         "null" => ValueType::Null,
         "any" if obj.is_empty() => ValueType::Any,
         _ => return Err(config(file, p, "unsupported type")),
+    };
+    let index = match obj.get("index") {
+        None | Some(Value::Bool(false)) => false,
+        Some(Value::Bool(true)) => {
+            if !p
+                .strip_prefix("/properties/")
+                .is_some_and(|name| !name.contains('/'))
+            {
+                return Err(config(file, p, "index requires a top-level field"));
+            }
+            if !kind.scalar() {
+                return Err(config(file, p, "index requires a scalar type"));
+            }
+            true
+        }
+        Some(_) => return Err(config(file, p, "index must be a boolean")),
     };
     for k in ["properties", "required", "additionalProperties"] {
         if obj.contains_key(k) && kind != ValueType::Object {
@@ -272,6 +291,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
     Ok(Field {
         kind,
         nullable,
+        index,
         enum_values,
         properties,
         items,

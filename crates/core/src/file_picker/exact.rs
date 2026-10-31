@@ -54,7 +54,18 @@ impl FilePicker {
 
     fn exact_bits(&self, plan: &ExactPlan) -> Option<Vec<u64>> {
         match plan {
-            ExactPlan::Present(field) => Some(self.presence.bits(field)?.to_vec()),
+            ExactPlan::Present(path) => {
+                if let [crate::JsonPathStep::Key(name)] = path.as_slice()
+                    && let Some(bits) = self.presence.bits(name)
+                {
+                    return Some(bits.to_vec());
+                }
+                self.typed.present_bits(path)
+            }
+            ExactPlan::Missing(path) => self.typed.missing_bits(path, self.files.len()),
+            ExactPlan::Prefix(path, prefix) => {
+                self.typed.prefix_bits(path, prefix, self.files.len())
+            }
             ExactPlan::Term(field, operator, value) => {
                 self.typed
                     .term_bits(field, *operator, value, self.files.len())

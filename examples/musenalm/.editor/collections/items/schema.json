@@ -45,10 +45,12 @@
       "type": "string"
     },
     "public": {
-      "type": "boolean"
+      "type": "boolean",
+      "index": true
     },
     "basis": {
-      "type": "boolean"
+      "type": "boolean",
+      "index": true
     },
     "editor": {
       "type": "string"

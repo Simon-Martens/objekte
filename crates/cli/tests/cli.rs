@@ -91,6 +91,42 @@ fn default_cache_uses_memory_for_views_and_queries() {
 }
 
 #[test]
+fn query_accepts_undeclared_fields_and_collection_scope() {
+    let f = Fixture::new();
+    f.edit("data/books/a.json", |record| {
+        record["unlisted"] = json!("needle")
+    });
+    f.edit("data/people/p1.json", |record| {
+        record["unlisted"] = json!("needle")
+    });
+    let root = f.root.to_str().unwrap();
+
+    let all = value(run(&f, &[root, "query", "unlisted = 'needle'", "--count"]));
+    assert_eq!(all["total"], 2);
+
+    let books = value(run(
+        &f,
+        &[root, "query", "books", "unlisted = 'needle'", "--count"],
+    ));
+    assert_eq!(books["total"], 1);
+    assert_eq!(books["records"][0]["collection"], "books");
+
+    let people = value(run(
+        &f,
+        &[
+            root,
+            "query",
+            "unlisted = 'needle'",
+            "--collection",
+            "people",
+            "--count",
+        ],
+    ));
+    assert_eq!(people["total"], 1);
+    assert_eq!(people["records"][0]["collection"], "people");
+}
+
+#[test]
 fn help_version_and_invalid_arguments() {
     for arg in ["--help", "--version"] {
         let o = Command::new(env!("CARGO_BIN_EXE_objekte"))
@@ -573,7 +609,9 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
             "--count",
         ],
     ));
-    assert_eq!(strings["total"], 0);
+    assert_eq!(strings["total"], 1);
+    assert_eq!(strings["records"][0]["collection"], "people");
+    assert_eq!(strings["records"][0]["id"], "p1");
     let scoped = value(run(
         &f,
         &[

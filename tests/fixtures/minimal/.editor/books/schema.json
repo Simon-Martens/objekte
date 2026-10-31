@@ -12,19 +12,22 @@
       "type": [
         "number",
         "null"
-      ]
+      ],
+      "index": true
     },
     "count": {
       "type": [
         "integer",
         "null"
-      ]
+      ],
+      "index": true
     },
     "flag": {
       "type": [
         "boolean",
         "null"
-      ]
+      ],
+      "index": true
     },
     "status": {
       "type": [

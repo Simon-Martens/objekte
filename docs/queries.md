@@ -13,6 +13,11 @@ quoted, while numbers and booleans are not. A dotted path through an embedded
 array examines its values; it does not follow a declared relation to another
 record. See [filters.md](filters.md) for the exact operator semantics.
 
+`missing(path)` selects records without a value at that path; `null` is present,
+so `missing(year)` and `year = null` are different. A long-lived library caller
+can use `Repository::build_posting(collection, "path")` to add an ordered posting
+for a nested or undeclared path before querying it.
+
 ## First queries and collection scope
 
 ```sh
@@ -112,10 +117,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query pages 'data.descri
 
 ## Parameters, paging, and output
 
-Returned records are validated on demand. An explicitly scoped query rejects undeclared fields or
-incompatible literal types. An unscoped query skips incompatible collections.
-Schema-invalid JSON remains searchable through type-safe comparisons; malformed
-JSON does not match.
+Returned records are validated on demand. An explicitly scoped query searches only its selected collection, even for undeclared fields or literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON values decide comparisons; schema-invalid JSON remains searchable and malformed JSON does not match.
 
 Parameters are JSON values. Keep the filter in single shell quotes so `$from`
 and `$to` reach the filter parser; quote a string parameter as JSON.
@@ -139,7 +141,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional 
 # Search source files with ripgrep, then verify candidate JSON with Sonic.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --backend grep --count --limit 3
 
-# Default query: build values-only bigrams and ordered scalar postings in memory, then verify source candidates.
+# Default query: build values-only bigrams and opted-in ordered scalar postings in memory, then verify source candidates.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --count --limit 3
 
 # Keep result JSON on stdout and write formatted diagnostics JSON to stderr.

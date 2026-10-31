@@ -86,7 +86,7 @@ mod source;
 
 
 impl Repository {
-    /// Query schema-declared JSON paths in all registered collections, or an explicit scope.
+    /// Query stored JSON paths in all registered collections, or an explicit scope.
     /// Ordering is (collection, id).
     pub fn query_json(&mut self, request: &JsonQuery) -> Result<JsonQueryResult> {
         let (result, _) = self.query_json_inner(request, false, &mut |_, _| Ok(()))?;
@@ -141,19 +141,6 @@ impl Repository {
             .iter()
             .map(|name| self.collection(name))
             .collect::<Result<Vec<_>>>()?;
-        if request.collections.is_some()
-            && let Some(c) = collections.iter().find(|c| !filter.follows_schema(c))
-        {
-            return Err(Error::Request(format!(
-                "filter does not follow the current schema of collection {}",
-                c.name
-            )));
-        }
-        let searchable = collections
-            .iter()
-            .filter(|c| filter.follows_schema(c))
-            .cloned()
-            .collect::<Vec<_>>();
         let mut result = QueryOutput {
             result: JsonQueryResult {
                 records: Vec::new(),
@@ -172,16 +159,15 @@ impl Repository {
         };
         if !collections.is_empty() {
             match request.backend {
-                JsonQueryBackend::Grep if !searchable.is_empty() => {
-                    self.query_json_grep(request, &filter, &searchable, &mut result)?
+                JsonQueryBackend::Grep => {
+                    self.query_json_grep(request, &filter, &collections, &mut result)?
                 }
-                JsonQueryBackend::Auto | JsonQueryBackend::Bigram if !searchable.is_empty() => {
-                    self.query_json_bigram(request, &filter, &searchable, &mut result)?
+                JsonQueryBackend::Auto | JsonQueryBackend::Bigram => {
+                    self.query_json_bigram(request, &filter, &collections, &mut result)?
                 }
-                JsonQueryBackend::Direct if !searchable.is_empty() => {
-                    self.query_json_direct(request, &filter, &searchable, &mut result)?
+                JsonQueryBackend::Direct => {
+                    self.query_json_direct(request, &filter, &collections, &mut result)?
                 }
-                _ => {}
             }
         }
         result.metrics = self.metrics.since(&before);

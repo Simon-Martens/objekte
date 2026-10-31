@@ -139,6 +139,7 @@ fn necessary(expr: &Expr) -> Option<String> {
             let run = path_run(path);
             (!run.is_empty()).then(|| encoded_run(&run))
         }
+        Expr::Missing(_) => None,
         Expr::Compare {
             left,
             op,
@@ -172,7 +173,7 @@ impl JsonFilter {
                     let parts = parts.iter().map(pattern).collect::<Option<Vec<_>>>()?;
                     (!parts.is_empty()).then(|| format!("(?:{})", parts.join("|")))
                 }
-                Expr::Exists(_) => None,
+                Expr::Exists(_) | Expr::Missing(_) => None,
                 Expr::Compare {
                     left,
                     op,

@@ -101,6 +101,110 @@ fn check(f: &Fixture, cases: &[(&str, &[&str])]) {
 }
 
 #[test]
+fn missing_is_distinct_from_explicit_null_across_backends() {
+    let f = fixture(&[
+        ("a", r#"{"x":null}"#),
+        ("b", r#"{}"#),
+        ("c", r#"{"x":1}"#),
+        ("bad", "not JSON"),
+    ]);
+    check(
+        &f,
+        &[
+            ("missing(x)", &["b"]),
+            ("exists(x)", &["a", "c"]),
+            ("x = null", &["a"]),
+        ],
+    );
+}
+
+#[test]
+fn undeclared_fields_search_all_collections_or_an_explicit_scope() {
+    let f = fixture(&[
+        ("a", r#"{"custom":{"tag":"moon"},"score":"high"}"#),
+        ("b", r#"{"custom":{"tag":"sun"},"score":42}"#),
+    ]);
+    fs::write(
+        f.root.join("data/people/p3.json"),
+        r#"{"name":"P","custom":{"tag":"moon"}}"#,
+    )
+    .unwrap();
+    fs::write(
+        f.root.join("data/spare/s2.json"),
+        r#"{"name":"S","custom":{"tag":"moon"}}"#,
+    )
+    .unwrap();
+
+    for backend in [
+        JsonQueryBackend::Auto,
+        JsonQueryBackend::Bigram,
+        JsonQueryBackend::Direct,
+        JsonQueryBackend::Grep,
+    ] {
+        let mut repo = f.repo(CacheMode::Memory);
+        let mut query = request("custom.tag = 'moon'");
+        query.backend = backend;
+        let all = repo.query_json(&query).unwrap();
+        assert_eq!(all.total, Some(3), "{backend:?}");
+        assert_eq!(
+            all.records
+                .iter()
+                .map(|record| (record.collection.as_str(), record.id.as_str()))
+                .collect::<Vec<_>>(),
+            [("books", "a"), ("people", "p3"), ("spare", "s2")],
+            "{backend:?}"
+        );
+
+        query.collections = Some(vec!["people".into()]);
+        let scoped = repo.query_json(&query).unwrap();
+        assert_eq!(scoped.total, Some(1), "{backend:?}");
+        assert_eq!(scoped.records[0].collection, "people");
+        assert_eq!(scoped.records[0].id, "p3");
+
+        query.collections = Some(vec!["books".into()]);
+        query.filter = "score = 'high'".into();
+        let schema_incompatible = repo.query_json(&query).unwrap();
+        assert_eq!(schema_incompatible.total, Some(1), "{backend:?}");
+        assert_eq!(schema_incompatible.records[0].id, "a");
+
+        query.collections = None;
+        query.filter = "exists(custom.tag)".into();
+        assert_eq!(repo.query_json(&query).unwrap().total, Some(4));
+    }
+
+    let mut repo = f.repo(CacheMode::Memory);
+    let count = repo.query_json(&request("score = 42")).unwrap();
+    assert_eq!(count.total, Some(1));
+    assert_eq!(count.records[0].id, "b");
+    // Books still uses its declared numeric index; the other collections scan.
+    assert_eq!(count.metrics.grep_scans, 2);
+
+    let mut scoped = request("score = 42");
+    scoped.collections = Some(vec!["books".into()]);
+    assert_eq!(repo.query_json(&scoped).unwrap().metrics.grep_scans, 0);
+}
+
+#[test]
+fn undeclared_scalar_field_still_checks_later_collections_for_cardinality_errors() {
+    let f = fixture(&[("a", r#"{"score":42}"#)]);
+    fs::write(
+        f.root.join("data/people/p3.json"),
+        r#"{"name":"P","score":[1,2]}"#,
+    )
+    .unwrap();
+    let mut repo = f.repo(CacheMode::Memory);
+    let mut query = request("score = 42");
+    query.count = false;
+    query.limit = 1;
+    assert!(
+        repo.query_json(&query)
+            .unwrap_err()
+            .to_string()
+            .contains("multiple values")
+    );
+}
+
+#[test]
 fn grep_prefilter_keeps_json_unicode_escapes_and_boolean_branches() {
     let f = fixture(&[
         ("escaped_key", r#"{"\u0078":"L\u0069ebe"}"#),
@@ -241,7 +345,7 @@ fn exact_decimal_numbers_preserve_precision_across_backends() {
     let schema_path = f.root.join(".editor/books/schema.json");
     let mut schema: serde_json::Value =
         serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
-    schema["properties"]["x"] = json!({"type":"number"});
+    schema["properties"]["x"] = json!({"type":"number","index":true});
     fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
     check(
         &f,
@@ -420,19 +524,19 @@ fn bigram_typed_candidates_cover_numbers_booleans_enums_and_schema_invalid_value
     let schema_path = f.root.join(".editor/books/schema.json");
     let mut schema: serde_json::Value =
         serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
-    schema["properties"]["x"] = json!({"type":"number"});
-    schema["properties"]["flag"] = json!({"type":"boolean"});
-    schema["properties"]["kind"] = json!({"type":"string","enum":["alpha","beta"]});
+    schema["properties"]["x"] = json!({"type":"number","index":true});
+    schema["properties"]["flag"] = json!({"type":"boolean","index":true});
+    schema["properties"]["kind"] = json!({"type":"string","enum":["alpha","beta"],"index":true});
     fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
     check(
         &f,
         &[
             ("x = 1800", &["a", "b"]),
             ("x > 1799 && x < 1801", &["a", "b"]),
-            ("x = '1800'", &[]),
+            ("x = '1800'", &["e"]),
             ("flag = true", &["a", "c"]),
             ("flag = false", &["b", "e"]),
-            ("flag = 'true'", &[]),
+            ("flag = 'true'", &["d"]),
             ("kind = 'beta'", &["b", "d"]),
             ("kind > 'alpha'", &["b", "c", "d"]),
             ("kind = 'zeta'", &["c"]),
@@ -492,8 +596,8 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
     let schema_path = f.root.join(".editor/books/schema.json");
     let mut schema: serde_json::Value =
         serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
-    schema["properties"]["x"] = json!({"type":"number"});
-    schema["properties"]["flag"] = json!({"type":"boolean"});
+    schema["properties"]["x"] = json!({"type":"number","index":true});
+    schema["properties"]["flag"] = json!({"type":"boolean","index":true});
     schema["properties"]["name"] = json!({"type":"string"});
     fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
     check(
@@ -555,7 +659,7 @@ fn typed_or_still_checks_scalar_cardinality_in_every_source_file() {
     let schema_path = f.root.join(".editor/books/schema.json");
     let mut schema: serde_json::Value =
         serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
-    schema["properties"]["x"] = json!({"type":"number"});
+    schema["properties"]["x"] = json!({"type":"number","index":true});
     fs::write(&schema_path, serde_json::to_vec(&schema).unwrap()).unwrap();
     for (mode, backend) in [
         (CacheMode::Memory, JsonQueryBackend::Bigram),
