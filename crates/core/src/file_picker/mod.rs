@@ -32,13 +32,16 @@ use std::{
     sync::atomic::{AtomicU64, Ordering},
     time::Instant,
 };
+use unicode_casefold::UnicodeCaseFold;
 
 use crate::text::TextRules;
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 use presence::PresenceIndex;
-use projection::{ProjectionOptions, projected_values, projected_values_with_text};
-use text::{TextIndex, TextIndexBuilders};
+use projection::{
+    ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
+};
+use text::{TextIndex, TextIndexBuilders, project_malformed_text};
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
@@ -80,6 +83,7 @@ pub struct FilePicker {
     tombstones: BTreeMap<String, (u64, u128)>,
     indexed_len: usize,
     changed: BTreeSet<usize>,
+    malformed: BTreeSet<usize>,
     array_fields: BTreeSet<String>,
     index: BigramFilter,
     text_rules: TextRules,
@@ -118,7 +122,7 @@ impl FilePicker {
         indexed_fields.sort();
         indexed_fields.dedup();
         let text_rules = TextRules::new(definitions);
-        let eager_text_index = text_rules.has_markup();
+        let eager_text_index = text_rules.has_markup() || text_rules.has_exclusions();
         let mut picker = Self {
             root,
             recursive,
@@ -128,6 +132,7 @@ impl FilePicker {
             tombstones: BTreeMap::new(),
             indexed_len: 0,
             changed: BTreeSet::new(),
+            malformed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
             index: BigramIndexBuilder::new(0).compress(None),
             text_rules,
@@ -262,6 +267,11 @@ impl FilePicker {
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+                        if projection.is_none() {
+                            self.malformed.insert(slot);
+                        } else {
+                            self.malformed.remove(&slot);
+                        }
                         self.presence.update(
                             slot,
                             projection
@@ -299,6 +309,9 @@ impl FilePicker {
                             .extend(projection.array_fields.iter().cloned());
                     }
                     let slot = self.insert(&id, stamp)?;
+                    if projection.is_none() {
+                        self.malformed.insert(slot);
+                    }
                     self.presence.update(
                         slot,
                         projection
@@ -325,6 +338,7 @@ impl FilePicker {
                 self.tombstones
                     .insert(id, (entry.revision + 1, now_nanos()));
                 self.changed.remove(&slot);
+                self.malformed.remove(&slot);
                 self.presence.remove(slot);
                 self.view.remove(slot);
                 changed += 1;
@@ -369,6 +383,11 @@ impl FilePicker {
                             let keys = projection
                                 .as_ref()
                                 .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+                            if projection.is_none() {
+                                self.malformed.insert(slot);
+                            } else {
+                                self.malformed.remove(&slot);
+                            }
                             self.presence.update(
                                 slot,
                                 projection
@@ -405,6 +424,9 @@ impl FilePicker {
                                 .extend(projection.array_fields.iter().cloned());
                         }
                         let slot = self.insert(id, stamp)?;
+                        if projection.is_none() {
+                            self.malformed.insert(slot);
+                        }
                         self.presence.update(
                             slot,
                             projection
@@ -423,6 +445,7 @@ impl FilePicker {
                             .insert(id.to_owned(), (entry.revision + 1, now_nanos()));
                     }
                     self.changed.remove(&slot);
+                    self.malformed.remove(&slot);
                     self.presence.remove(slot);
                     self.view.remove(slot);
                 }
@@ -590,8 +613,8 @@ impl FilePicker {
             .collect()
     }
 
-    /// Complete regex search over the values projection. Source JSON is
-    /// reopened and parsed for each candidate; the index never decides truth.
+    /// Complete regex search over decoded values or malformed-file text.
+    /// Source bytes are reread for each candidate; the index never decides truth.
     pub fn search_values_regex(&self, pattern: &str) -> Result<Vec<String>> {
         let matcher = regex::bytes::RegexBuilder::new(pattern)
             .unicode(false)
@@ -604,11 +627,23 @@ impl FilePicker {
             .map(|&id| -> Result<Option<String>> {
                 let slot = self.sorted[self.position(id).expect("candidate is live")];
                 let stamp = &self.files[slot].as_ref().expect("live candidate").stamp;
-                let text = projected_values(&source, id, stamp, &[], &[], &self.view, false)?;
-                Ok(text
-                    .as_ref()
-                    .is_some_and(|text| matcher.is_match(&text.bytes))
-                    .then(|| id.to_owned()))
+                let text = projected_values_with_text(
+                    &source,
+                    id,
+                    stamp,
+                    &[],
+                    &[],
+                    &self.view,
+                    ProjectionOptions {
+                        folded_index: false,
+                        text_rules: None,
+                    },
+                )?;
+                let matched = match text {
+                    ProjectionOutcome::Valid(text) => matcher.is_match(&text.bytes),
+                    ProjectionOutcome::Malformed(text) => matcher.is_match(text.as_bytes()),
+                };
+                Ok(matched.then(|| id.to_owned()))
             })
             .collect::<Result<Vec<_>>>()?;
         source.finish()?;
@@ -659,6 +694,7 @@ impl FilePicker {
         let text_builders = (self.eager_text_index || self.text_index.is_some())
             .then(|| TextIndexBuilders::new(files.len()));
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
+        let malformed = std::sync::Mutex::new(BTreeSet::new());
         let indexed_fields = self.typed.fields();
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
         let presence_fields = self.presence.fields();
@@ -682,6 +718,7 @@ impl FilePicker {
                 .enumerate()
                 .try_for_each(|(chunk_index, chunk)| -> Result<()> {
                     let mut chunk_arrays = BTreeSet::new();
+                    let mut chunk_malformed = BTreeSet::new();
                     let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
                     let mut chunk_view = Vec::new();
                     #[cfg(feature = "index-timings")]
@@ -712,36 +749,56 @@ impl FilePicker {
                         {
                             chunk_project_nanos += elapsed_nanos(project_started);
                         }
-                        if let Some(projection) = projection {
-                            let slot = chunk_index * 64 + within;
-                            #[cfg(feature = "index-timings")]
-                            let add_started = Instant::now();
-                            main.add_file_content(&skip, slot, &projection.bytes);
-                            if let (Some(builders), Some(text)) = (&text_builders, &projection.text)
-                            {
-                                builders.add(slot, text);
+                        let slot = chunk_index * 64 + within;
+                        #[cfg(feature = "index-timings")]
+                        let add_started = Instant::now();
+                        match projection {
+                            ProjectionOutcome::Malformed(mut text) => {
+                                chunk_malformed.insert(slot);
+                                if let Some(builders) = &text_builders {
+                                    builders.add(slot, &project_malformed_text(&text));
+                                }
+                                if !text.is_ascii() {
+                                    let folded = text.case_fold().collect::<String>();
+                                    text.push('\u{1f}');
+                                    text.push_str(&folded);
+                                }
+                                main.add_file_content(&skip, slot, text.as_bytes());
                             }
+                            ProjectionOutcome::Valid(projection) => {
+                                main.add_file_content(&skip, slot, &projection.bytes);
+                                if let (Some(builders), Some(text)) =
+                                    (&text_builders, &projection.text)
+                                {
+                                    builders.add(slot, text);
+                                }
 
-                            #[cfg(feature = "index-timings")]
-                            {
-                                chunk_add_nanos += elapsed_nanos(add_started);
+                                chunk_arrays.extend(projection.array_fields);
+                                PresenceIndex::add_build_row(
+                                    &presence_words,
+                                    slot,
+                                    &projection.present_fields,
+                                );
+                                chunk_view.push((slot, projection.view_keys));
+                                for (field, key) in projection.typed_values {
+                                    chunk_typed[field].push((key, slot));
+                                }
                             }
-                            chunk_arrays.extend(projection.array_fields);
-                            PresenceIndex::add_build_row(
-                                &presence_words,
-                                slot,
-                                &projection.present_fields,
-                            );
-                            chunk_view.push((slot, projection.view_keys));
-                            for (field, key) in projection.typed_values {
-                                chunk_typed[field].push((key, slot));
-                            }
+                        }
+
+                        #[cfg(feature = "index-timings")]
+                        {
+                            chunk_add_nanos += elapsed_nanos(add_started);
                         }
                     }
                     array_fields
                         .lock()
                         .expect("array field lock")
                         .extend(chunk_arrays);
+                    malformed
+                        .lock()
+                        .expect("malformed lock")
+                        .extend(chunk_malformed);
                     #[cfg(feature = "index-timings")]
                     {
                         project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
@@ -791,6 +848,7 @@ impl FilePicker {
         self.index = index;
         self.indexed_len = self.files.len();
         self.changed.clear();
+        self.malformed = malformed.into_inner().expect("malformed lock");
         self.text_index = text_builders.map(TextIndexBuilders::finish);
         self.array_fields = array_fields.into_inner().expect("array field lock");
         self.presence.replace(presence_words);

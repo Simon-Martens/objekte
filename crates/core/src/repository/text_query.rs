@@ -101,6 +101,35 @@ impl TextMatcher {
         });
         matches.into_iter().collect()
     }
+
+    fn matches_malformed(&self, bytes: &[u8]) -> bool {
+        let text = crate::text::malformed_search_text(bytes);
+        let text = if self.raw {
+            text
+        } else {
+            render_text(&text, crate::TextFormat::Plain).expect("plain text renders")
+        };
+        if self.fold_word {
+            self.regex.is_match(&text.case_fold().collect::<String>())
+        } else {
+            self.regex.is_match(&text)
+        }
+    }
+
+    /// Normal postings retain scalar values but do not normalize whitespace.
+    /// Broad or whitespace-sensitive patterns therefore scan all file slots.
+    fn regular_candidate_pattern(&self) -> Option<&str> {
+        let pattern = self.candidate_pattern.as_deref()?;
+        if pattern.chars().any(char::is_whitespace)
+            || [r"\s", r"\n", r"\r", r"\t", r"\x", r"\u"]
+                .iter()
+                .any(|escape| pattern.contains(escape))
+        {
+            None
+        } else {
+            Some(pattern)
+        }
+    }
 }
 
 
@@ -133,18 +162,21 @@ impl Repository {
             .collect()
     }
 
-    /// Rebuild a full-text index after refreshing changed source files.
+    /// Refresh a collection and rebuild its separate full-text index if eligible.
     pub fn rebuild_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
         self.reload()?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let started = Instant::now();
-        self.file_pickers
+        let picker = self
+            .file_pickers
             .get_mut(collection)
-            .expect("picker exists")
-            .rebuild_text_index()?;
-        self.metrics.fts_open_nanos += nanos(started);
+            .expect("picker exists");
+        picker.rebuild_text_index()?;
+        if picker.text_index_bytes().is_some() {
+            self.metrics.fts_open_nanos += nanos(started);
+        }
         Ok(self.metrics.since(&before))
     }
 
@@ -211,6 +243,8 @@ impl Repository {
         let mut matched = 0;
         let mut hits = Vec::new();
         let mut returned = 0;
+        let mut used_regular_index = false;
+        let mut used_text_index = false;
         for name in names {
             let c = self.collection(&name)?;
             let rules = TextRules::new(&c.fields);
@@ -219,8 +253,16 @@ impl Repository {
                 source.inventory()?.into_iter().collect::<Vec<_>>()
             } else {
                 self.warm_text_index(&name)?;
-                self.file_pickers[&name].text_candidates(
-                    matcher.candidate_pattern.as_deref(),
+                let picker = &self.file_pickers[&name];
+                let has_text_index = picker.text_index_bytes().is_some();
+                used_text_index |= has_text_index;
+                used_regular_index |= !has_text_index;
+                picker.text_candidates(
+                    if has_text_index {
+                        matcher.candidate_pattern.as_deref()
+                    } else {
+                        matcher.regular_candidate_pattern()
+                    },
                     matcher.raw,
                     matcher.candidate_literal,
                 )
@@ -235,7 +277,11 @@ impl Repository {
                         let document = Self::parse_value(&mut metrics, &c, id, &raw.json, false);
                         let started = Instant::now();
                         let fields = if document.state.status == RecordStatus::IncorrectJson {
-                            Vec::new()
+                            if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
+                                vec!["$raw".into()]
+                            } else {
+                                Vec::new()
+                            }
                         } else {
                             matcher.matching_fields(
                                 &document.data,
@@ -262,13 +308,17 @@ impl Repository {
                 for (id, stamp, matched_fields) in page {
                     let raw = Self::read_raw(&mut self.metrics, &source, &id, Some(&stamp))?;
                     let document = Self::parse_value(&mut self.metrics, &c, &id, &raw.json, true);
-                    if document.state.status == RecordStatus::IncorrectJson
-                        || matcher.matching_fields(
-                            &document.data,
-                            &rules,
-                            requested_fields.as_ref(),
-                        ) != matched_fields
-                    {
+                    let malformed = document.state.status == RecordStatus::IncorrectJson;
+                    let verified_fields = if malformed {
+                        if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
+                            vec!["$raw".into()]
+                        } else {
+                            Vec::new()
+                        }
+                    } else {
+                        matcher.matching_fields(&document.data, &rules, requested_fields.as_ref())
+                    };
+                    if verified_fields != matched_fields {
                         return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
                     }
                     let hit = TextHit {
@@ -276,10 +326,12 @@ impl Repository {
                             collection: name.clone(),
                             id: id.clone(),
                             path: self.path(&c, &id),
+                            size_bytes: raw.stamp.size,
+                            modified_unix_nanos: raw.stamp.modified.clone(),
                             hash: raw.hash,
                             data: document.data,
                             state: document.state,
-                            raw: None,
+                            raw: malformed.then_some(raw.json),
                         },
                         fields: matched_fields,
                     };
@@ -305,6 +357,10 @@ impl Repository {
                 metrics: self.metrics.since(&before),
                 query_plan: vec![if self.options.cache == CacheMode::Disabled {
                     "direct full-text source scan; source verification".into()
+                } else if used_regular_index && used_text_index {
+                    "normal and full-text bigram candidates; source verification".into()
+                } else if used_regular_index {
+                    "normal bigram candidates; source text verification".into()
                 } else if matcher.raw {
                     "raw markup full-text bigram candidates; source verification".into()
                 } else {

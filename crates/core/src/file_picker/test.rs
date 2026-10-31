@@ -202,19 +202,24 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
         for &slot in &picker.sorted {
             let id = picker.id(slot).unwrap();
             let stamp = &picker.files[slot].as_ref().unwrap().stamp;
-            if projected_values(
+            let projection = projected_values_with_text(
                 &source,
                 id,
                 stamp,
                 &[],
                 picker.presence.fields(),
                 &picker.view,
-                false,
+                ProjectionOptions {
+                    folded_index: false,
+                    text_rules: None,
+                },
             )
-            .unwrap()
-            .as_ref()
-            .is_some_and(|text| matcher.is_match(&text.bytes))
-            {
+            .unwrap();
+            let matches = match projection {
+                ProjectionOutcome::Valid(text) => matcher.is_match(&text.bytes),
+                ProjectionOutcome::Malformed(text) => matcher.is_match(text.as_bytes()),
+            };
+            if matches {
                 expected.push(id.to_owned());
             }
         }

@@ -83,6 +83,18 @@ pub(super) fn project_text(value: &SonicValue, rules: &TextRules) -> TextContent
     }
 }
 
+/// Malformed files have no trustworthy field paths or markup declarations.
+pub(super) fn project_malformed_text(text: &str) -> TextContent {
+    let mut clean = render_text(text, crate::TextFormat::Plain).expect("plain text renders");
+    let mut raw = text.to_owned();
+    append_folded(&mut clean);
+    append_folded(&mut raw);
+    TextContent {
+        clean: clean.into_bytes(),
+        raw: raw.into_bytes(),
+    }
+}
+
 
 impl TextIndex {
     pub(super) fn heap_bytes(&self) -> usize {
@@ -96,8 +108,11 @@ impl FilePicker {
         self.text_index.as_ref().map(TextIndex::heap_bytes)
     }
 
-    /// Build full-text postings only when a caller asks for them.
+    /// Ensure the separate postings required by markup or exclusion rules.
     pub(crate) fn ensure_text_index(&mut self) -> Result<bool> {
+        if !self.eager_text_index {
+            return Ok(false);
+        }
         if self.text_index.is_some() {
             return Ok(false);
         }
@@ -138,10 +153,17 @@ impl FilePicker {
                     if before != after || bytes.len() as u64 != after.size {
                         return Err(Error::Unstable(path));
                     }
-                    let Ok(parsed) = sonic_rs::from_slice::<SonicValue>(&bytes) else {
-                        continue;
+                    let content = if self.malformed.contains(&slot) {
+                        project_malformed_text(&crate::text::malformed_search_text(&bytes))
+                    } else {
+                        match sonic_rs::from_slice::<SonicValue>(&bytes) {
+                            Ok(parsed) => project_text(&parsed, &self.text_rules),
+                            Err(_) => {
+                                project_malformed_text(&crate::text::malformed_search_text(&bytes))
+                            }
+                        }
                     };
-                    builders.add(slot, &project_text(&parsed, &self.text_rules));
+                    builders.add(slot, &content);
                 }
                 Ok(())
             },
@@ -158,9 +180,14 @@ impl FilePicker {
         raw: bool,
         literal: bool,
     ) -> Vec<(String, Stamp)> {
-        let index = self.text_index.as_ref().expect("full-text index is built");
+        let postings = self.text_index.as_ref().map_or(&self.index, |index| {
+            if raw { &index.raw } else { &index.clean }
+        });
+        let indexed_len = self
+            .text_index
+            .as_ref()
+            .map_or(self.indexed_len, |index| index.indexed_len);
         let bits = pattern.and_then(|pattern| {
-            let postings = if raw { &index.raw } else { &index.clean };
             if literal {
                 postings.query(pattern.as_bytes())
             } else {
@@ -172,7 +199,7 @@ impl FilePicker {
             .copied()
             .filter(|&slot| {
                 bits.as_ref().is_none_or(|bits| {
-                    slot >= index.indexed_len
+                    slot >= indexed_len
                         || self.changed.contains(&slot)
                         || BigramFilter::is_candidate(bits, slot)
                 })

@@ -46,6 +46,8 @@ impl Repository {
                     .to_string_lossy()
                     .into_owned(),
                 hash: raw.hash,
+                size_bytes: raw.stamp.size,
+                modified_unix_nanos: raw.stamp.modified.clone(),
                 data: doc.data,
                 state: doc.state,
                 raw: None,

@@ -1066,6 +1066,30 @@ fn cli_full_text_searches_undeclared_values_and_honors_exclusion() {
 }
 
 #[test]
+fn malformed_text_hits_include_file_metadata_in_cli_json() {
+    let fixture = Fixture::new();
+    let broken = br#"{"note":"M\u006fnd", broken"#;
+    fs::write(fixture.root.join("data/books/bad.json"), broken).unwrap();
+    let root = fixture.root.to_str().unwrap();
+
+    let result = value(run(
+        &fixture,
+        &[root, "query", "books", "note ~ 'Mond'", "--count"],
+    ));
+    assert_eq!(result["total"], 0);
+
+    let search = value(run(&fixture, &[root, "search", "books", "Mond", "--count"]));
+    assert_eq!(search["total"], 1);
+    assert_eq!(search["hits"][0]["fields"], json!(["$raw"]));
+    let record = &search["hits"][0]["record"];
+    assert_eq!(record["id"], "bad");
+    assert_eq!(record["state"]["status"], "incorrect_json");
+    assert_eq!(record["size_bytes"], broken.len());
+    assert!(record["modified_unix_nanos"].as_str().unwrap().len() > 10);
+    assert!(record["raw"].as_array().is_some());
+}
+
+#[test]
 fn cli_can_warm_and_search_a_schema_free_collection() {
     let temp = tempfile::tempdir().unwrap();
     let folder = temp.path().join("data/books");
@@ -1078,7 +1102,8 @@ fn cli_can_warm_and_search_a_schema_free_collection() {
             .output()
             .unwrap(),
     );
-    assert!(warmed["fts_open_ms"].as_f64().unwrap() > 0.0);
+    assert_eq!(warmed["fts_open_ms"], 0.0);
+    assert!(warmed["bigram_open_ms"].as_f64().unwrap() > 0.0);
     let found = value(
         Command::new(env!("CARGO_BIN_EXE_objekte"))
             .args([root, "search", "books", "Comet", "--count"])

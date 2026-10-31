@@ -9,7 +9,7 @@ use crate::{
     error::io,
     query::Scalar,
     source::{Source, Stamp},
-    text::TextRules,
+    text::{TextRules, malformed_search_text},
 };
 use serde_json::{Map, Number, Value};
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
@@ -25,6 +25,13 @@ pub(super) struct Projection {
     pub(super) present_fields: Vec<usize>,
     pub(super) typed_values: Vec<(usize, TypedKey)>,
     pub(super) view_keys: Vec<Scalar>,
+}
+
+
+/// Parsed projection or searchable fallback text for a malformed source file.
+pub(super) enum ProjectionOutcome {
+    Valid(Projection),
+    Malformed(String),
 }
 
 
@@ -44,16 +51,21 @@ pub(super) fn projected_values(
     view: &ViewIndex,
     folded_index: bool,
 ) -> Result<Option<Projection>> {
-    projected_values_with_text(
-        source,
-        id,
-        stamp,
-        indexed_fields,
-        presence_fields,
-        view,
-        ProjectionOptions {
-            folded_index,
-            text_rules: None,
+    Ok(
+        match projected_values_with_text(
+            source,
+            id,
+            stamp,
+            indexed_fields,
+            presence_fields,
+            view,
+            ProjectionOptions {
+                folded_index,
+                text_rules: None,
+            },
+        )? {
+            ProjectionOutcome::Valid(projection) => Some(projection),
+            ProjectionOutcome::Malformed(_) => None,
         },
     )
 }
@@ -67,7 +79,7 @@ pub(super) fn projected_values_with_text(
     presence_fields: &[String],
     view: &ViewIndex,
     options: ProjectionOptions<'_>,
-) -> Result<Option<Projection>> {
+) -> Result<ProjectionOutcome> {
     let path = source.path.join(format!("{id}.json"));
     let mut file = source.file(id)?;
     let before = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
@@ -82,11 +94,11 @@ pub(super) fn projected_values_with_text(
     }
 
     let Ok(parsed) = sonic_rs::from_slice::<SonicValue>(&raw) else {
-        return Ok(None);
+        return Ok(ProjectionOutcome::Malformed(malformed_search_text(&raw)));
     };
     let mut values = String::new();
     if append_values(&parsed, &mut values, 0).is_err() {
-        return Ok(None);
+        return Ok(ProjectionOutcome::Malformed(malformed_search_text(&raw)));
     }
     if options.folded_index && !values.is_ascii() {
         let folded = values.case_fold().collect::<String>();
@@ -120,7 +132,7 @@ pub(super) fn projected_values_with_text(
         }
         if let Some(value) = fields.get(name.as_str()) {
             let Ok(value) = scalar_projection(value) else {
-                return Ok(None);
+                return Ok(ProjectionOutcome::Malformed(malformed_search_text(&raw)));
             };
             selected.insert(name.clone(), value);
         }
@@ -139,7 +151,7 @@ pub(super) fn projected_values_with_text(
         })
         .collect();
     let view_keys = view.project(id, &Value::Object(selected));
-    Ok(Some(Projection {
+    Ok(ProjectionOutcome::Valid(Projection {
         bytes: values.into_bytes(),
         text: options.text_rules.map(|rules| project_text(&parsed, rules)),
         array_fields,

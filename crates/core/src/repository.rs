@@ -160,6 +160,9 @@ pub struct Record {
     pub collection: String,
     pub id: String,
     pub path: String,
+    pub size_bytes: u64,
+    /// Signed Unix nanoseconds as a decimal string, preserving pre-epoch times.
+    pub modified_unix_nanos: String,
     pub hash: String,
     pub data: Value,
     pub state: RecordState,

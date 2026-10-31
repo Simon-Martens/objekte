@@ -93,18 +93,20 @@ impl JsonFilter {
                 Expr::Compare {
                     left:
                         Operand::Field(FieldOperand {
-                            modifier: Some(Modifier::Rendered(_)),
+                            modifier: Some(Modifier::Rendered(format)),
                             ..
                         }),
                     op: Op::Contains,
                     right: Operand::Literal(Value::String(pattern)),
                     ignore_case,
                     ..
-                } => pattern::Like::new(pattern, false, *ignore_case)
-                    .required_ascii_runs()
-                    .into_iter()
-                    .max_by_key(String::len)
-                    .map(FtsPlan::Literal),
+                } if *format != TextFormat::Plain => {
+                    pattern::Like::new(pattern, false, *ignore_case)
+                        .required_ascii_runs()
+                        .into_iter()
+                        .max_by_key(String::len)
+                        .map(FtsPlan::Literal)
+                }
                 _ => None,
             }
         }

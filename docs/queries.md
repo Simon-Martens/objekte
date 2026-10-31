@@ -117,7 +117,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query pages 'data.descri
 
 ## Parameters, paging, and output
 
-Returned records are validated on demand. An explicitly scoped query searches only its selected collection, even for undeclared fields or literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON values decide comparisons; schema-invalid JSON remains searchable and malformed JSON does not match.
+Returned records are validated on demand. An explicitly scoped query searches only its selected collection, even for undeclared fields or literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON values decide comparisons; schema-invalid but parseable JSON remains searchable. Malformed JSON cannot match any field-based filter, including `:fts`. Standalone word and regex search can return malformed source files with `incorrect_json`, raw bytes, size, and modification time.
 
 Parameters are JSON values. Keep the filter in single shell quotes so `$from`
 and `$to` reach the filter parser; quote a string parameter as JSON.

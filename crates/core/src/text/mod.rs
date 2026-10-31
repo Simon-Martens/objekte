@@ -1,11 +1,13 @@
 //! Full-text requests and traversal of every searchable JSON leaf value.
 
+mod malformed;
 mod render;
 mod values;
 
 use crate::Record;
 use serde::{Deserialize, Serialize};
 
+pub(crate) use malformed::malformed_search_text;
 pub(crate) use render::render_text;
 pub(crate) use values::{TextRules, visit_json_text, visit_sonic_text};
 

@@ -103,6 +103,8 @@ impl Repository {
             collection: collection.into(),
             id: id.into(),
             path: self.path(&c, id),
+            size_bytes: raw.stamp.size,
+            modified_unix_nanos: raw.stamp.modified.clone(),
             hash: raw.hash,
             raw: (value.state.status == RecordStatus::IncorrectJson).then_some(raw.json),
             state: value.state,

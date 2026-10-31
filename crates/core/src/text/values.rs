@@ -41,6 +41,12 @@ impl TextRule {
             ) || self.properties.values().any(Self::has_markup)
                 || self.items.as_deref().is_some_and(Self::has_markup))
     }
+
+    fn has_exclusions(&self) -> bool {
+        self.excluded
+            || self.properties.values().any(Self::has_exclusions)
+            || self.items.as_deref().is_some_and(Self::has_exclusions)
+    }
 }
 
 
@@ -63,6 +69,10 @@ impl TextRules {
 
     pub(crate) fn has_markup(&self) -> bool {
         self.fields.values().any(TextRule::has_markup)
+    }
+
+    pub(crate) fn has_exclusions(&self) -> bool {
+        self.fields.values().any(TextRule::has_exclusions)
     }
 }
 

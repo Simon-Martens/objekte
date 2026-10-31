@@ -321,11 +321,11 @@ fn schema_free_filter_fts_keeps_the_text_index_lazy() {
             .total,
         Some(0)
     );
-    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
+    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
 }
 
 #[test]
-fn excluded_markup_does_not_force_eager_text_index() {
+fn excluded_markup_forces_eager_text_index() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
     write(
@@ -340,7 +340,7 @@ fn excluded_markup_does_not_force_eager_text_index() {
     );
     let mut repo = Repository::open(root).unwrap();
     repo.warm_bigram_index("books").unwrap();
-    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
     assert_eq!(
         repo.search_text(&query("Help", TextMode::Word))
             .unwrap()
@@ -351,7 +351,7 @@ fn excluded_markup_does_not_force_eager_text_index() {
 }
 
 #[test]
-fn declared_plain_fts_filter_builds_text_index_on_demand() {
+fn declared_plain_fts_filter_uses_normal_index() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
     write(
@@ -373,7 +373,7 @@ fn declared_plain_fts_filter_builds_text_index_on_demand() {
         })
         .unwrap();
     assert_eq!(result.total, Some(1));
-    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
+    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
 }
 
 #[test]
