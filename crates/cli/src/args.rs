@@ -6,6 +6,8 @@ use std::collections::{BTreeMap, BTreeSet};
 pub(super) const HELP: &str = "objekte — read-only file repository library driver
 
 Usage:
+  objekte [REPOSITORY]                  Open the interactive TUI (default repository: .)
+  objekte REPOSITORY tui                Open the interactive TUI explicitly
   objekte REPOSITORY view COLLECTION [--sort FIELD] [--direction asc|desc]
       [--then-sort FIELD:asc|desc]
       [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
@@ -13,7 +15,7 @@ Usage:
   objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
-  objekte REPOSITORY search [COLLECTION] PATTERN [--mode word|regex|raw-regex]
+  objekte REPOSITORY search [COLLECTION] PATTERN [--mode word|raw-word|regex|raw-regex]
       [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
@@ -38,9 +40,12 @@ Options:
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
-  --mode word|regex|raw-regex     Full-text word or regex search; raw-regex sees markup
+  --mode word|raw-word|regex|raw-regex
+                                  Full-text word or regex search; raw modes see markup
   --field PATH                    Limit full-text search to a JSON leaf path
   --case-sensitive                Match case exactly in full-text search
+                                  TUI: Tab changes mode; Ctrl+Tab changes collection;
+                                  Ctrl+R/F/E change regex, text, and word-case options
   --help, --version
 
 Examples:

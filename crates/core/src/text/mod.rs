@@ -18,6 +18,7 @@ pub(crate) use values::{TextRules, visit_json_text, visit_sonic_text};
 pub enum TextMode {
     #[default]
     Word,
+    WordRaw,
     RegexClean,
     RegexRaw,
 }
@@ -55,11 +56,14 @@ impl Default for TextQuery {
 }
 
 
-/// A matching record and the JSON leaf paths that matched it.
+/// A matching record, query field paths, and concrete matched leaf paths.
 #[derive(Debug, Clone, Serialize)]
 pub struct TextHit {
     pub record: Record,
+    /// Canonical paths such as `contents[].incipit_statement`.
     pub fields: Vec<String>,
+    /// Actual matched leaves such as `contents[9].incipit_statement`.
+    pub matched_paths: Vec<String>,
 }
 
 

@@ -99,6 +99,7 @@ fn cases() -> Vec<Case> {
                 id: filters.len() + index + 1,
                 kind: match mode {
                     TextMode::Word => "word",
+                    TextMode::WordRaw => "word_raw",
                     TextMode::RegexClean => "regex_clean",
                     TextMode::RegexRaw => "regex_raw",
                 },

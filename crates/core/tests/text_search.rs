@@ -82,6 +82,7 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
         ["a", "b", "c", "e"]
     );
     assert_eq!(result.hits[4 - 1].fields, ["notes[].body"]);
+    assert_eq!(result.hits[4 - 1].matched_paths, ["notes[0].body"]);
     assert_eq!(
         repo.search_text(&query("secret", TextMode::Word))
             .unwrap()
@@ -117,6 +118,55 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
     let mut sensitive = query("strasse", TextMode::Word);
     sensitive.case_sensitive = true;
     assert_eq!(repo.search_text(&sensitive).unwrap().total, Some(0));
+}
+
+#[test]
+fn returned_hits_identify_the_matching_array_element() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    let contents = (0..12)
+        .map(|index| json!({"incipit_statement": if index == 9 { "Wasser" } else { "Wind" }}))
+        .collect::<Vec<_>>();
+    write(
+        root,
+        "data/books/a.json",
+        &json!({"contents":contents,"tags":["Wind","Wasser"]}).to_string(),
+    );
+    let mut repo = Repository::open(root).unwrap();
+    let result = repo.search_text(&query("Wasser", TextMode::Word)).unwrap();
+    assert_eq!(result.total, Some(1));
+    assert_eq!(
+        result.hits[0].fields,
+        ["contents[].incipit_statement", "tags[]"]
+    );
+    assert_eq!(
+        result.hits[0].matched_paths,
+        ["contents[9].incipit_statement", "tags[1]"]
+    );
+}
+
+#[test]
+fn concrete_paths_keep_literal_brackets_separate_from_array_indices() {
+    let temp = tempfile::tempdir().unwrap();
+    write(
+        temp.path(),
+        "data/books/a.json",
+        r#"{"weird[]":[["Wind","Wasser"]]}"#,
+    );
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let result = repo.search_text(&query("Wasser", TextMode::Word)).unwrap();
+    assert_eq!(result.hits[0].fields, ["weird[][][]"]);
+    assert_eq!(result.hits[0].matched_paths, ["weird[][0][1]"]);
+}
+
+#[test]
+fn root_array_hits_use_the_detail_views_value_label() {
+    let temp = tempfile::tempdir().unwrap();
+    write(temp.path(), "data/books/a.json", r#"["Wind","Wasser"]"#);
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let result = repo.search_text(&query("Wasser", TextMode::Word)).unwrap();
+    assert_eq!(result.hits[0].fields, ["[]"]);
+    assert_eq!(result.hits[0].matched_paths, ["$value[1]"]);
 }
 
 #[test]
@@ -165,6 +215,47 @@ fn raw_regex_can_match_tags_while_clean_regex_cannot() {
             .collect::<Vec<_>>(),
         ["b"]
     );
+}
+
+#[test]
+fn raw_word_search_sees_markup_without_rendering_it() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    schema(root);
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"html":"<p>He<b>lp</b></p><script>secret</script>"}"#,
+    );
+    let mut repo = Repository::open(root).unwrap();
+    assert_eq!(
+        repo.search_text(&query("Help", TextMode::Word))
+            .unwrap()
+            .total,
+        Some(1)
+    );
+    assert_eq!(
+        repo.search_text(&query("Help", TextMode::WordRaw))
+            .unwrap()
+            .total,
+        Some(0)
+    );
+    assert_eq!(
+        repo.search_text(&query("secret", TextMode::WordRaw))
+            .unwrap()
+            .total,
+        Some(1)
+    );
+    assert_eq!(
+        repo.search_text(&query("secret", TextMode::Word))
+            .unwrap()
+            .total,
+        Some(0)
+    );
+    let mut sensitive = query("SECRET", TextMode::WordRaw);
+    sensitive.case_sensitive = true;
+    assert_eq!(repo.search_text(&sensitive).unwrap().total, Some(0));
+    assert!(repo.search_text(&query("  ", TextMode::WordRaw)).is_err());
 }
 
 #[test]

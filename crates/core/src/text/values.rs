@@ -81,13 +81,16 @@ impl TextRules {
 pub(crate) fn visit_json_text(
     value: &Value,
     rules: &TextRules,
-    visit: &mut impl FnMut(&str, &str, TextFormat),
+    include_indices: bool,
+    visit: &mut impl FnMut(&str, &[(usize, usize)], &str, TextFormat),
 ) {
     fn walk(
         value: &Value,
         rule: Option<&TextRule>,
         path: &mut String,
-        visit: &mut impl FnMut(&str, &str, TextFormat),
+        array_indices: &mut Vec<(usize, usize)>,
+        include_indices: bool,
+        visit: &mut impl FnMut(&str, &[(usize, usize)], &str, TextFormat),
     ) {
         if rule.is_some_and(|rule| rule.excluded) {
             return;
@@ -104,6 +107,8 @@ pub(crate) fn visit_json_text(
                         child,
                         rule.and_then(|rule| rule.properties.get(name)),
                         path,
+                        array_indices,
+                        include_indices,
                         visit,
                     );
                     path.truncate(length);
@@ -112,41 +117,68 @@ pub(crate) fn visit_json_text(
             Value::Array(items) => {
                 let length = path.len();
                 path.push_str("[]");
-                for child in items {
+                for (index, child) in items.iter().enumerate() {
+                    if include_indices {
+                        array_indices.push((length, index));
+                    }
                     walk(
                         child,
                         rule.and_then(|rule| rule.items.as_deref()),
                         path,
+                        array_indices,
+                        include_indices,
                         visit,
                     );
+                    if include_indices {
+                        array_indices.pop();
+                    }
                 }
                 path.truncate(length);
             }
             Value::String(text) => visit(
                 path,
+                array_indices,
                 text,
                 rule.and_then(|rule| rule.format)
                     .unwrap_or(TextFormat::Plain),
             ),
-            Value::Number(number) => visit(path, &number.to_string(), TextFormat::Plain),
+            Value::Number(number) => {
+                visit(path, array_indices, &number.to_string(), TextFormat::Plain)
+            }
             Value::Bool(boolean) => visit(
                 path,
+                array_indices,
                 if *boolean { "true" } else { "false" },
                 TextFormat::Plain,
             ),
-            Value::Null => visit(path, "null", TextFormat::Plain),
+            Value::Null => visit(path, array_indices, "null", TextFormat::Plain),
         }
     }
 
     let mut path = String::new();
+    let mut array_indices = Vec::new();
     if let Value::Object(fields) = value {
         for (name, child) in fields {
             path.push_str(name);
-            walk(child, rules.fields.get(name), &mut path, visit);
+            walk(
+                child,
+                rules.fields.get(name),
+                &mut path,
+                &mut array_indices,
+                include_indices,
+                visit,
+            );
             path.clear();
         }
     } else {
-        walk(value, None, &mut path, visit);
+        walk(
+            value,
+            None,
+            &mut path,
+            &mut array_indices,
+            include_indices,
+            visit,
+        );
     }
 }
 

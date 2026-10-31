@@ -217,11 +217,14 @@ fn help_version_and_invalid_arguments() {
     }
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
-    for args in [vec![p], vec!["view", p, "books"]] {
+    for args in [vec![p], vec![p, "tui"]] {
         let out = run(&f, &args);
         assert_eq!(out.status.code(), Some(2));
-        assert!(String::from_utf8_lossy(&out.stderr).contains("objekte REPOSITORY COMMAND"));
+        assert!(String::from_utf8_lossy(&out.stderr).contains("TUI requires a terminal"));
     }
+    let out = run(&f, &["view", p, "books"]);
+    assert_eq!(out.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&out.stderr).contains("objekte REPOSITORY COMMAND"));
     for args in [
         vec![p, "view"],
         vec![p, "cache"],
@@ -996,6 +999,20 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
         ],
     ));
     assert_eq!(raw["total"], 1);
+    let raw_word = value(run(
+        &fixture,
+        &[
+            root, "search", "books", "Help", "--mode", "raw-word", "--count",
+        ],
+    ));
+    assert_eq!(raw_word["total"], 0);
+    let raw_word = value(run(
+        &fixture,
+        &[
+            root, "search", "books", "He", "--mode", "raw-word", "--count",
+        ],
+    ));
+    assert_eq!(raw_word["total"], 1);
     let clean = value(run(
         &fixture,
         &[

@@ -3,6 +3,7 @@ mod args;
 mod commands;
 mod diagnostics;
 mod output;
+mod tui;
 
 fn main() {
     let started = std::time::Instant::now();

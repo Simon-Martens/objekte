@@ -13,7 +13,9 @@ index-timings = ["objekte-core/index-timings"]
 
 [dependencies]
 objekte-core = { path = "../core" }
+ratatui = { version = "0.30.2", default-features = false, features = ["crossterm", "layout-cache"] }
 serde_json = "1"
+unicode-width = "0.2"
 
 [dev-dependencies]
 tempfile = "3"

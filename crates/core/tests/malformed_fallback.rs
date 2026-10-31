@@ -200,6 +200,7 @@ fn full_text_fallback_matches_escaped_text_and_respects_field_scope() {
         RecordStatus::IncorrectJson
     );
     assert_eq!(result.hits[1].fields, ["$raw"]);
+    assert_eq!(result.hits[1].matched_paths, ["$raw"]);
     assert!(result.hits[1].record.raw.is_some());
 
     let raw = repo
@@ -296,6 +297,7 @@ fn exclusion_without_markup_builds_separate_index_with_malformed_text() {
     assert_eq!(result.total, Some(1));
     assert_eq!(result.hits[0].record.id, "broken");
     assert_eq!(result.hits[0].fields, ["$raw"]);
+    assert_eq!(result.hits[0].matched_paths, ["$raw"]);
 }
 
 #[test]

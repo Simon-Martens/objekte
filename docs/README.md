@@ -7,6 +7,7 @@ Repositories can discover collections without a manifest or schema. See [Collect
 ## Start here
 
 - [Query examples](queries.md) show the CLI syntax on Musenalm.
+- [Interactive terminal search](cli-tui.md) covers the TUI, search controls, and JSON export.
 - [Filter semantics](filters.md) describe exact matching, arrays, and backend selection.
 - [Full-text search](full-text.md) describes all-field indexing, markup formats, exclusions, search modes, and index lifecycle.
 - [Validation](validation.md) explains on-demand JSON Schema checks.
@@ -20,6 +21,7 @@ Repositories can discover collections without a manifest or schema. See [Collect
 cargo test --workspace --all-targets
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach") && year >= 1800' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm view contents --sort year --limit 10 --output json
+cargo run --release -p objekte-cli -- examples/musenalm
 ```
 
 `--cache memory` is the default. `--cache disabled` makes views scan source files directly. JSON queries also provide explicit `--backend direct` and `--backend grep` paths. Every JSON query returns records in collection and byte-sorted ID order, and verifies matches against source JSON.

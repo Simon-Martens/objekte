@@ -1,34 +1,38 @@
 //! Command dispatch and library calls.
 
 use crate::{
-    args::{HELP, args},
+    args::args,
     diagnostics::now_unix_ms,
     output::{
         collection_metrics_in_milliseconds, metrics_in_milliseconds, print_view, write_query_event,
     },
+    tui,
 };
 use objekte_core::{
     CacheMode, Direction, Freshness, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
     TextMode, TextQuery, ViewRequest,
 };
 use serde_json::json;
-use std::{io::Write, time::Instant};
+use std::{
+    io::{IsTerminal, Write},
+    time::Instant,
+};
 
 pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let command_started = Instant::now();
-    let a = args()?;
+    let mut a = args()?;
     if a.pos.is_empty() {
-        print!("{HELP}");
-        return Ok(());
+        a.pos.push(".".into());
     }
-    let command = a
-        .pos
-        .get(1)
-        .ok_or(
-            "expected a command after REPOSITORY; usage: objekte REPOSITORY COMMAND; run --help",
-        )?
-        .as_str();
+    let command = a.pos.get(1).map(String::as_str).unwrap_or("tui");
     let expected = match command {
+        "tui" => {
+            if a.pos.len() == 1 {
+                1
+            } else {
+                2
+            }
+        }
         "cache" => {
             if !matches!(
                 a.pos.get(2).map(String::as_str),
@@ -77,24 +81,26 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let common = ["--cache", "--reconcile", "--output"];
     for key in a.values.keys() {
-        let allowed = common.contains(&key.as_str())
-            || match command {
-                "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
-                    .contains(&key.as_str()),
-                "query" => {
-                    ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str())
-                }
-                "search" => ["--collection", "--limit", "--offset", "--mode", "--field"]
-                    .contains(&key.as_str()),
-                "relations" => ["--from", "--to"].contains(&key.as_str()),
-                "cache" => {
-                    matches!(
-                        a.pos[2].as_str(),
-                        "refresh" | "warm" | "rebuild" | "warm-text" | "rebuild-text" | "validate"
-                    ) && key == "--collection"
-                }
-                _ => false,
-            };
+        let allowed = (if command == "tui" {
+            ["--cache", "--reconcile"].contains(&key.as_str())
+        } else {
+            common.contains(&key.as_str())
+        }) || match command {
+            "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
+                .contains(&key.as_str()),
+            "query" => ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str()),
+            "search" => {
+                ["--collection", "--limit", "--offset", "--mode", "--field"].contains(&key.as_str())
+            }
+            "relations" => ["--from", "--to"].contains(&key.as_str()),
+            "cache" => {
+                matches!(
+                    a.pos[2].as_str(),
+                    "refresh" | "warm" | "rebuild" | "warm-text" | "rebuild-text" | "validate"
+                ) && key == "--collection"
+            }
+            _ => false,
+        };
         if !allowed {
             return Err(format!("{key} is not valid for {command}").into());
         }
@@ -134,6 +140,14 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "hash-on-request" => Freshness::HashOnRequest,
         _ => return Err("unknown reconciliation policy".into()),
     };
+    if command == "tui" {
+        if options.cache != CacheMode::Memory {
+            return Err("TUI requires --cache memory".into());
+        }
+        if !std::io::stdin().is_terminal() || !std::io::stdout().is_terminal() {
+            return Err("TUI requires a terminal on stdin and stdout; use query or search for one-shot output".into());
+        }
+    }
     let output = get("--output", if command == "view" { "table" } else { "json" });
     if !["table", "json", "ndjson", "events"].contains(&output.as_str()) {
         return Err("unknown output format".into());
@@ -153,6 +167,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let repository_load_ms = repository_load_started.elapsed().as_secs_f64() * 1_000.0;
     let mut view_hashes = None;
     let value = match command {
+        "tui" => {
+            tui::run(&mut repo)?;
+            None
+        }
         "inspect" => Some(serde_json::to_value(repo.model())?),
         "query" => {
             let (filter, collection) = if a.pos.len() == 4 {
@@ -229,9 +247,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             };
             let mode = match get("--mode", "word").as_str() {
                 "word" => TextMode::Word,
+                "raw-word" => TextMode::WordRaw,
                 "regex" => TextMode::RegexClean,
                 "raw-regex" => TextMode::RegexRaw,
-                _ => return Err("search mode must be word, regex, or raw-regex".into()),
+                _ => return Err("search mode must be word, raw-word, regex, or raw-regex".into()),
             };
             let request = TextQuery {
                 pattern: pattern.clone(),
