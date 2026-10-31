@@ -851,6 +851,7 @@ fn query_events_stream_numbered_records_and_completion_metadata() {
             cache,
         ];
         let collected = value(run(&f, &args));
+        assert!(collected["elapsed_ms"].as_f64().unwrap() >= 0.0);
         let mut event_args = args.to_vec();
         event_args.extend(["--output", "events"]);
         let output = run(&f, &event_args);
@@ -879,6 +880,7 @@ fn query_events_stream_numbered_records_and_completion_metadata() {
         assert_eq!(complete["filter_hash"], collected["filter_hash"]);
         assert_eq!(complete["dependencies"], collected["dependencies"]);
         assert_eq!(complete["query_plan"], collected["query_plan"]);
+        assert!(complete["elapsed_ms"].as_f64().unwrap() >= 0.0);
         assert!(complete["metrics"]["query_ms"].is_number());
     }
 }
@@ -999,6 +1001,7 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
         ],
     ));
     assert_eq!(raw["total"], 1);
+    assert!(raw["elapsed_ms"].as_f64().unwrap() >= 0.0);
     let raw_word = value(run(
         &fixture,
         &[
@@ -1044,6 +1047,7 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
     assert_eq!(events[0]["provisional"], true);
     assert_eq!(events[1]["type"], "complete");
     assert_eq!(events[1]["total"], 1);
+    assert!(events[1]["elapsed_ms"].as_f64().unwrap() >= 0.0);
 
     let warmed = value(run(
         &fixture,

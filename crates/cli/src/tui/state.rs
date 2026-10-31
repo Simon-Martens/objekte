@@ -7,7 +7,7 @@ use objekte_core::{
 };
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 
-const PAGE_SIZE: usize = 100;
+pub(super) const PAGE_SIZE: usize = 100;
 
 
 /// Whether the input is a field filter or a standalone full-text search.
@@ -222,6 +222,7 @@ pub(super) struct App<'a> {
     pub(super) pending_detail: Option<DetailEdge>,
     pub(super) last_request: Option<Request>,
     pub(super) total: Option<usize>,
+    pub(super) search_elapsed_ms: Option<f64>,
     pub(super) offset: usize,
     pub(super) selected: usize,
     pub(super) column_offset: usize,
@@ -264,6 +265,7 @@ impl<'a> App<'a> {
             pending_detail: None,
             last_request: None,
             total: None,
+            search_elapsed_ms: None,
             offset: 0,
             selected: 0,
             column_offset: 0,
@@ -357,6 +359,7 @@ impl<'a> App<'a> {
         self.searching = false;
         self.hits.clear();
         self.total = None;
+        self.search_elapsed_ms = None;
         self.selected = 0;
         self.column_offset = 0;
         let request = self.request();
@@ -374,19 +377,22 @@ impl<'a> App<'a> {
                 (
                     result.records.into_iter().map(Hit::Filter).collect(),
                     result.total,
+                    result.elapsed_ms,
                 )
             }),
             Request::Text(request) => self.repo.search_text(request).map(|result| {
                 (
                     result.hits.into_iter().map(Hit::Text).collect(),
                     result.total,
+                    result.elapsed_ms,
                 )
             }),
         };
         match result {
-            Ok((hits, total)) => {
+            Ok((hits, total, elapsed_ms)) => {
                 self.hits = hits;
                 self.total = total;
+                self.search_elapsed_ms = Some(elapsed_ms);
                 self.query_fields = queried_fields(&request);
                 self.last_request = Some(request);
                 self.focus = Focus::Results;
@@ -509,6 +515,7 @@ impl<'a> App<'a> {
         self.last_request = None;
         self.queued_search = false;
         self.total = None;
+        self.search_elapsed_ms = None;
         self.offset = 0;
         self.selected = 0;
         self.column_offset = 0;

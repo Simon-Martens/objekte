@@ -1,40 +1,44 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
+    "annotation": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "edit_comment": {
+      "type": "string"
+    },
+    "edit_state": {
+      "enum": [
+        "Edited"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "editor": {
+      "type": "string"
+    },
+    "fictional": {
+      "index": true,
+      "type": "boolean"
+    },
+    "musenalm_id": {
+      "index": true,
+      "type": "integer"
+    },
     "name": {
       "type": "string"
     },
     "pseudonyms": {
       "type": "string"
     },
-    "fictional": {
-      "type": "boolean",
-      "index": true
-    },
-    "uri": {
-      "type": "string"
-    },
-    "created": {
-      "type": "string"
-    },
     "updated": {
       "type": "string"
     },
-    "musenalm_id": {
-      "type": "number",
-      "index": true
-    },
-    "edit_state": {
-      "type": "string"
-    },
-    "annotation": {
-      "type": "string"
-    },
-    "edit_comment": {
-      "type": "string"
-    },
-    "editor": {
+    "uri": {
       "type": "string"
     }
   },
@@ -42,5 +46,5 @@
     "name",
     "musenalm_id"
   ],
-  "additionalProperties": false
+  "type": "object"
 }

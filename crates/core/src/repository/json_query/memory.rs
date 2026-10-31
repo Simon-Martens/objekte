@@ -1,8 +1,27 @@
 //! In-memory bigram and typed-index JSON query execution.
 
 use super::*;
-use crate::json_filter::FtsPlan;
+use crate::{Field, json_filter::FtsPlan};
 use grep_searcher::SearcherBuilder;
+use regex::bytes::Regex;
+use std::sync::OnceLock;
+
+static ESCAPED_KEY: OnceLock<Regex> = OnceLock::new();
+
+fn required_key_prefilters(required: &[String], fields: &BTreeMap<String, Field>) -> Vec<Regex> {
+    required
+        .iter()
+        .filter(|name| !fields.contains_key(*name))
+        .filter(|name| {
+            name.bytes()
+                .all(|byte| byte.is_ascii_alphanumeric() || byte == b'_')
+        })
+        .map(|name| {
+            Regex::new(&regex::escape(&format!("\"{name}\"")))
+                .expect("escaped ASCII key is a valid regex")
+        })
+        .collect()
+}
 
 fn fts_candidate_ids(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> BTreeSet<String> {
     match plan {
@@ -98,6 +117,8 @@ impl Repository {
         result.query_plan =
             vec!["in-memory bigram, typed, and presence candidates; source verification".into()];
         let mut matched = 0;
+        let escaped_key =
+            ESCAPED_KEY.get_or_init(|| Regex::new(r"\\u").expect("literal Unicode escape regex"));
         for c in collections {
             let filter = filter.for_fields(&c.fields);
             let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
@@ -128,6 +149,16 @@ impl Repository {
                 .iter()
                 .any(|field| picker.has_array_value(field));
             let risk = cardinality_risk || array_risk;
+            // This summary was built from decoded keys. It can only reject a
+            // collection when every indexed file lacks a mandatory key.
+            if !risk && picker.definitely_lacks_key(&required_fields) {
+                continue;
+            }
+            let key_prefilters = if risk {
+                Vec::new()
+            } else {
+                required_key_prefilters(&required_fields, &c.fields)
+            };
             // A later collection can contain an invalid array in a scalar field,
             // so build its picker and check that risk even when the page is full.
             if !request.count && !risk && result.returned() == request.limit {
@@ -245,16 +276,23 @@ impl Repository {
                             bytes.clear();
                             file.read_to_end(bytes).map_err(|e| io(&path, e))?;
                             let read_nanos = nanos(read_started);
-                            let (candidate, regex_nanos) = if let Some((matcher, _)) = prefilter {
-                                let regex_started = Instant::now();
+                            let regex_started = Instant::now();
+                            let source_candidate = if let Some((matcher, _)) = prefilter {
                                 let mut sink = FirstMatch::default();
                                 searcher
                                     .search_slice(matcher, bytes, &mut sink)
                                     .map_err(|e| io(&path, e))?;
-                                (sink.0, nanos(regex_started))
+                                sink.0
                             } else {
-                                (true, 0)
+                                true
                             };
+                            // A missing literal top-level key cannot match. Any
+                            // Unicode escape may encode a key, so keep those files.
+                            let candidate = source_candidate
+                                && (key_prefilters.is_empty()
+                                    || escaped_key.is_match(bytes)
+                                    || key_prefilters.iter().all(|regex| regex.is_match(bytes)));
+                            let regex_nanos = nanos(regex_started);
                             let mut outcome = ScanOutcome {
                                 candidate,
                                 file_open_nanos,

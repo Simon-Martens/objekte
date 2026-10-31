@@ -452,6 +452,11 @@ fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
         } else {
             ("Explore your JSON", "Enter a field filter above")
         };
+        let heading = if let Some(elapsed_ms) = app.search_elapsed_ms {
+            format!("{heading} · {elapsed_ms:.2} ms")
+        } else {
+            heading.to_owned()
+        };
         let height = area.height.min(3);
         let centered = Rect {
             y: area.y + area.height.saturating_sub(height) / 2,
@@ -531,8 +536,12 @@ fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
             app.total.unwrap_or(app.hits.len())
         )
     };
+    let elapsed = app
+        .search_elapsed_ms
+        .map(|elapsed_ms| format!("  ·  {elapsed_ms:.2} ms"))
+        .unwrap_or_default();
     let title = format!(
-        " RESULTS  ·  {range}  ·  columns {}–{}/{} ",
+        " RESULTS  ·  {range}{elapsed}  ·  columns {}–{}/{} ",
         start + 1,
         start + visible.len(),
         all.len()

@@ -7,6 +7,7 @@
 mod exact;
 mod git;
 mod infer;
+mod key_summary;
 mod posting;
 mod presence;
 mod projection;
@@ -39,6 +40,7 @@ use crate::text::TextRules;
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 pub(crate) use infer::ReferenceInventory;
+use key_summary::KeySummary;
 use presence::PresenceIndex;
 use projection::{
     ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
@@ -87,6 +89,7 @@ pub struct FilePicker {
     changed: BTreeSet<usize>,
     malformed: BTreeSet<usize>,
     array_fields: BTreeSet<String>,
+    key_summary: KeySummary,
     index: BigramFilter,
     text_rules: TextRules,
     eager_text_index: bool,
@@ -138,6 +141,7 @@ impl FilePicker {
             changed: BTreeSet::new(),
             malformed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
+            key_summary: KeySummary::default(),
             index: BigramIndexBuilder::new(0).compress(None),
             text_rules,
             eager_text_index,
@@ -218,6 +222,14 @@ impl FilePicker {
 
     pub(crate) fn has_array_value(&self, field: &str) -> bool {
         self.array_fields.contains(field)
+    }
+
+    pub(crate) fn definitely_lacks_key(&self, required: &[String]) -> bool {
+        // The immutable summary may predate refreshed or inserted files.
+        self.changed.is_empty()
+            && required
+                .iter()
+                .any(|name| !self.key_summary.might_contain(name))
     }
 
     fn id(&self, slot: usize) -> Option<&str> {
@@ -643,6 +655,7 @@ impl FilePicker {
                     ProjectionOptions {
                         folded_index: false,
                         text_rules: None,
+                        key_summary: None,
                     },
                 )?;
                 let matched = match text {
@@ -700,6 +713,7 @@ impl FilePicker {
         let text_builders = (self.eager_text_index || self.text_index.is_some())
             .then(|| TextIndexBuilders::new(files.len()));
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
+        let key_summary = std::sync::Mutex::new(KeySummary::default());
         let malformed = std::sync::Mutex::new(BTreeSet::new());
         let indexed_fields = self.typed.fields();
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
@@ -724,6 +738,7 @@ impl FilePicker {
                 .enumerate()
                 .try_for_each(|(chunk_index, chunk)| -> Result<()> {
                     let mut chunk_arrays = BTreeSet::new();
+                    let mut chunk_keys = KeySummary::default();
                     let mut chunk_malformed = BTreeSet::new();
                     let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
                     let mut chunk_view = Vec::new();
@@ -749,6 +764,7 @@ impl FilePicker {
                             ProjectionOptions {
                                 folded_index: true,
                                 text_rules: text_builders.as_ref().map(|_| &self.text_rules),
+                                key_summary: Some(&mut chunk_keys),
                             },
                         )?;
                         #[cfg(feature = "index-timings")]
@@ -801,6 +817,10 @@ impl FilePicker {
                         .lock()
                         .expect("array field lock")
                         .extend(chunk_arrays);
+                    key_summary
+                        .lock()
+                        .expect("key summary lock")
+                        .merge(chunk_keys);
                     malformed
                         .lock()
                         .expect("malformed lock")
@@ -857,6 +877,7 @@ impl FilePicker {
         self.malformed = malformed.into_inner().expect("malformed lock");
         self.text_index = text_builders.map(TextIndexBuilders::finish);
         self.array_fields = array_fields.into_inner().expect("array field lock");
+        self.key_summary = key_summary.into_inner().expect("key summary lock");
         self.presence.replace(presence_words);
         #[cfg(feature = "index-timings")]
         let typed_started = Instant::now();

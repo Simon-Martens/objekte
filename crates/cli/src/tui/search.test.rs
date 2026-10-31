@@ -4,8 +4,38 @@ use objekte_core::{JsonQuery, Repository, TextQuery};
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use std::{
     fs,
+    sync::mpsc::TrySendError,
     time::{Duration, Instant},
 };
+
+
+#[test]
+fn search_channel_fits_a_page_and_completion_without_ui_draining() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let record = repo.get_record("docs", "a").unwrap().unwrap();
+    let (sender, _receiver) = search_channel();
+    for _ in 0..PAGE_SIZE {
+        sender
+            .try_send(SearchUpdate::Hit(Box::new(Hit::Filter(record.clone()))))
+            .unwrap_or_else(|error| match error {
+                TrySendError::Full(_) => panic!("search page blocked on the UI"),
+                TrySendError::Disconnected(_) => panic!("search channel disconnected"),
+            });
+    }
+    assert!(
+        sender
+            .try_send(SearchUpdate::Finished {
+                repository: Box::new(repo),
+                total: Ok(Some(PAGE_SIZE)),
+                elapsed_ms: Some(1.0),
+            })
+            .is_ok()
+    );
+}
 
 #[test]
 fn streamed_hits_reach_the_ui_before_the_final_count() {
@@ -47,15 +77,18 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
     assert_eq!(app.hits.len(), 1);
     assert!(app.searching);
     assert_eq!(app.total, None);
+    assert_eq!(app.search_elapsed_ms, None);
     sender
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(Some(2)),
+            elapsed_ms: Some(12.5),
         })
         .unwrap();
     worker.drive(&mut app);
     assert!(!app.searching);
     assert_eq!(app.total, Some(2));
+    assert_eq!(app.search_elapsed_ms, Some(12.5));
     assert_eq!(app.hits[0].record().id, "a");
 }
 
@@ -84,6 +117,7 @@ fn real_query_worker_streams_ordered_hits_and_restores_repository() {
     }
     assert!(!app.searching);
     assert_eq!(app.total, Some(3));
+    assert!(app.search_elapsed_ms.is_some());
     assert_eq!(
         app.hits
             .iter()
@@ -279,6 +313,7 @@ fn late_stream_error_discards_provisional_rows() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Err("source changed during search".into()),
+            elapsed_ms: None,
         })
         .unwrap();
     worker.drive(&mut app);
@@ -332,6 +367,7 @@ fn changed_query_discards_old_events_then_runs_latest_request() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(Some(1)),
+            elapsed_ms: Some(99.0),
         })
         .unwrap();
     worker.drive(&mut app);
@@ -449,6 +485,7 @@ fn backlink_event_mounts_a_selectable_row_before_lookup_finishes() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(None),
+            elapsed_ms: None,
         })
         .unwrap();
     worker.drive(&mut app);
@@ -500,6 +537,7 @@ fn new_query_discards_stale_backlinks_and_reuses_the_warm_repository() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(None),
+            elapsed_ms: None,
         })
         .unwrap();
     worker.drive(&mut app);

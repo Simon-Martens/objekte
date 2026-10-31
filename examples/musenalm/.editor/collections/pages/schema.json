@@ -1,35 +1,45 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
+    "created": {
+      "type": "string"
+    },
+    "data": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "key": {
-      "type": "string"
-    },
-    "title": {
-      "type": "string"
-    },
-    "url": {
-      "type": "string"
-    },
-    "template": {
       "type": "string"
     },
     "layout": {
       "type": "string"
     },
+    "template": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
     "type": {
       "type": "string"
     },
-    "data": {},
-    "created": {
+    "updated": {
       "type": "string"
     },
-    "updated": {
+    "url": {
       "type": "string"
     }
   },
   "required": [
     "key"
   ],
-  "additionalProperties": false
+  "type": "object"
 }

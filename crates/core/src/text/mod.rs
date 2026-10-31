@@ -76,6 +76,8 @@ pub struct TextHit {
 pub struct TextQueryResult {
     pub hits: Vec<TextHit>,
     pub total: Option<usize>,
+    /// Wall-clock duration of this search in milliseconds.
+    pub elapsed_ms: f64,
     pub metrics: crate::Metrics,
     pub query_plan: Vec<String>,
 }
@@ -86,6 +88,8 @@ pub struct TextQueryResult {
 pub struct TextQueryStreamSummary {
     pub returned: usize,
     pub total: Option<usize>,
+    /// Wall-clock duration through the final streamed hit in milliseconds.
+    pub elapsed_ms: f64,
     pub metrics: crate::Metrics,
     pub query_plan: Vec<String>,
 }

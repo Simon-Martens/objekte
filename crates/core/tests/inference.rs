@@ -453,6 +453,7 @@ fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
                 "active":{"type":"string", "index":false, "exclude_fts":true, "x-full-text":"markdown"},
                 "category":{"type":"string", "index":false, "enum":["old"]},
                 "name":{"type":"string", "index":true},
+                "person":{"type":"string", "index":true, "x-relation":{"collection":"people"}},
                 "detail":{"type":"object", "properties":{
                     "rank":{"type":"string"},
                     "old":{"type":"string", "exclude_fts":true}
@@ -480,6 +481,8 @@ fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
     assert_eq!(fields["category"]["index"], true);
     assert_eq!(fields["name"]["type"], "string");
     assert_eq!(fields["name"]["index"], false);
+    assert_eq!(fields["person"]["index"], true);
+    assert_eq!(fields["person"]["x-relation"]["collection"], "people");
     assert_eq!(
         fields["detail"]["properties"]["rank"]["type"],
         json!(["integer", "null"])
@@ -497,6 +500,67 @@ fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
     assert!(paths.contains(&json!("detail.rank")));
     assert!(paths.contains(&json!("ghost.path")));
     assert!(!paths.contains(&json!("name")));
+}
+
+#[test]
+fn blank_strings_do_not_make_enums_but_remain_valid_in_real_enums() {
+    let temp = tempfile::tempdir().unwrap();
+    for id in 0..36 {
+        write(
+            temp.path(),
+            &format!("data/docs/{id}.json"),
+            json!({
+                "blank": "",
+                "whitespace": " \t ",
+                "rare": if id < 34 { "" } else { "once" },
+                "category": match id % 3 { 0 => "", 1 => "essay", _ => "letter" },
+            }),
+        );
+    }
+    write(
+        temp.path(),
+        ".editor/collections/docs/schema.json",
+        json!({
+            "type":"object",
+            "properties":{
+                "blank":{"type":"string", "enum":[""], "index":true},
+                "whitespace":{"type":"string", "enum":[" \t "], "index":true},
+                "rare":{"type":"string", "enum":["", "once"], "index":true},
+                "category":{"type":"string", "index":false}
+            }
+        }),
+    );
+    let mut repository = Repository::open(temp.path()).unwrap();
+    let report = repository
+        .infer_and_auto_index(
+            Some("docs"),
+            InferOptions {
+                auto_index: true,
+                write_schema: true,
+            },
+        )
+        .unwrap();
+    let docs = &report.collections[0];
+    for path in ["blank", "whitespace", "rare"] {
+        let inferred = field(docs, path);
+        assert_eq!(inferred.kind, InferredKind::String, "{path}");
+        assert!(!inferred.recommended_index, "{path}");
+    }
+    assert_eq!(field(docs, "category").kind, InferredKind::Enum);
+    let schema: Value = serde_json::from_slice(
+        &fs::read(temp.path().join(".editor/collections/docs/schema.json")).unwrap(),
+    )
+    .unwrap();
+    for path in ["blank", "whitespace", "rare"] {
+        assert_eq!(schema["properties"][path]["type"], "string", "{path}");
+        assert!(schema["properties"][path].get("enum").is_none(), "{path}");
+        assert_eq!(schema["properties"][path]["index"], false, "{path}");
+    }
+    assert_eq!(
+        schema["properties"]["category"]["enum"],
+        json!(["", "essay", "letter"])
+    );
+    assert_eq!(schema["properties"]["category"]["index"], true);
 }
 
 #[test]

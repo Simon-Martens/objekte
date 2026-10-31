@@ -125,9 +125,15 @@ fn escape_steps_back_to_input_and_q_quits_from_every_view() {
     press(&mut app, KeyCode::Esc, KeyModifiers::NONE);
     assert!(app.focus == Focus::Query);
     assert!(!app.done);
+    assert_eq!(app.input.text, "Moon");
     press(&mut app, KeyCode::Esc, KeyModifiers::NONE);
     assert!(app.focus == Focus::Query);
     assert!(!app.done);
+    assert!(app.input.text.is_empty());
+    assert_eq!(app.input.cursor, 0);
+    assert!(app.hits.is_empty());
+    assert!(app.last_request.is_none());
+    assert!(app.search_elapsed_ms.is_none());
 
     for focus in [
         Focus::Query,

@@ -61,7 +61,8 @@ pub(super) struct FieldStats {
     decimal_number: bool,
     multiple_values: bool,
     enum_counts: BTreeMap<String, usize>,
-    enum_values_seen: usize,
+    enum_nonblank_values_seen: usize,
+    enum_nonblank_records: usize,
     enum_key_bytes: usize,
     enum_rejected: bool,
     links: LinkVotes,
@@ -83,7 +84,8 @@ impl FieldStats {
             decimal_number: false,
             multiple_values: false,
             enum_counts: BTreeMap::new(),
-            enum_values_seen: 0,
+            enum_nonblank_values_seen: 0,
+            enum_nonblank_records: 0,
             enum_key_bytes: 0,
             enum_rejected: false,
             links: LinkVotes::default(),
@@ -119,9 +121,11 @@ impl FieldStats {
         }
         if !self.semantic_rejected {
             let mut link_in_record = false;
+            let mut enum_nonblank_in_record = false;
             for value in &observation.scalars {
                 if let TypedKey::String(text) = value {
                     self.observe_enum(text);
+                    enum_nonblank_in_record |= !text.trim().is_empty();
                     if !text.is_empty() {
                         link_in_record = true;
                     }
@@ -130,6 +134,9 @@ impl FieldStats {
             }
             if link_in_record {
                 self.link_records += 1;
+            }
+            if enum_nonblank_in_record {
+                self.enum_nonblank_records += 1;
             }
             for value in observation
                 .scalars
@@ -165,7 +172,8 @@ impl FieldStats {
     }
 
     fn observe_enum(&mut self, text: &str) {
-        self.enum_values_seen += 1;
+        // Blanks remain candidate values for validation, but cannot establish an enum.
+        self.enum_nonblank_values_seen += usize::from(!text.trim().is_empty());
         if self.enum_rejected {
             return;
         }
@@ -205,16 +213,22 @@ impl FieldStats {
         };
         let enum_values = if kind == InferredKind::String
             && !self.enum_rejected
-            && self.enum_values_seen >= 20
-            && self.present_records >= 10
-            && self.enum_counts.len() <= (self.enum_values_seen / 10).max(4)
+            && self.enum_nonblank_values_seen >= 20
+            && self.enum_nonblank_records >= 10
             && self
                 .enum_counts
-                .values()
-                .filter(|&&count| count >= 2)
+                .keys()
+                .filter(|value| !value.trim().is_empty())
+                .count()
+                <= (self.enum_nonblank_values_seen / 10).max(4)
+            && self
+                .enum_counts
+                .iter()
+                .filter(|entry| !entry.0.trim().is_empty() && *entry.1 >= 2)
+                .map(|entry| *entry.1)
                 .sum::<usize>()
                 * 5
-                >= self.enum_values_seen * 4
+                >= self.enum_nonblank_values_seen * 4
         {
             kind = InferredKind::Enum;
             Some(self.enum_counts.into_keys().collect())

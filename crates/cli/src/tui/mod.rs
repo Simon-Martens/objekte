@@ -171,7 +171,12 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
                 app.offset = 0;
                 app.search();
             }
-            KeyCode::Esc => {}
+            KeyCode::Esc => {
+                app.input.text.clear();
+                app.input.cursor = 0;
+                app.invalidate_results();
+                app.message.clear();
+            }
             _ => {
                 let before = app.input.text.clone();
                 app.input.key(key);

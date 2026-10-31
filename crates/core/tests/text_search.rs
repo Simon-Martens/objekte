@@ -420,6 +420,7 @@ fn streamed_hits_match_collected_hits_and_late_errors_invalidate_them() {
     request.limit = 2;
     request.offset = 1;
     let collected = repo.search_text(&request).unwrap();
+    assert!(collected.elapsed_ms.is_finite() && collected.elapsed_ms >= 0.0);
     let mut streamed = Vec::new();
     let summary = repo
         .search_text_stream(&request, |ordinal, hit| {
@@ -427,6 +428,7 @@ fn streamed_hits_match_collected_hits_and_late_errors_invalidate_them() {
             Ok(())
         })
         .unwrap();
+    assert!(summary.elapsed_ms.is_finite() && summary.elapsed_ms >= 0.0);
     assert_eq!(summary.total, collected.total);
     assert_eq!(summary.returned, 2);
     assert_eq!(streamed, [(1, "a001".into()), (2, "a002".into())]);

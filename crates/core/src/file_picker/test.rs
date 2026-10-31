@@ -212,6 +212,7 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
                 ProjectionOptions {
                     folded_index: false,
                     text_rules: None,
+                    key_summary: None,
                 },
             )
             .unwrap();

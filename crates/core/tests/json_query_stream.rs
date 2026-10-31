@@ -7,7 +7,6 @@ use serde_json::json;
 use std::fs;
 use support::Fixture;
 
-
 fn backend_repository(fixture: &Fixture, _backend: JsonQueryBackend) -> Repository {
     fixture.repo(CacheMode::Memory)
 }
@@ -39,6 +38,7 @@ fn streamed_pages_match_collected_queries_for_every_backend() {
                 };
                 let mut repository = backend_repository(&fixture, backend);
                 let collected = repository.query_json(&request).unwrap();
+                assert!(collected.elapsed_ms.is_finite() && collected.elapsed_ms >= 0.0);
                 let mut streamed = Vec::new();
                 let summary = repository
                     .query_json_stream(&request, |ordinal, record| {
@@ -46,6 +46,7 @@ fn streamed_pages_match_collected_queries_for_every_backend() {
                         Ok(())
                     })
                     .unwrap();
+                assert!(summary.elapsed_ms.is_finite() && summary.elapsed_ms >= 0.0);
                 assert_eq!(summary.returned, collected.records.len(), "{backend:?}");
                 assert_eq!(summary.total, collected.total, "{backend:?}");
                 assert_eq!(

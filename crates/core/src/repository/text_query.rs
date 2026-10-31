@@ -255,6 +255,7 @@ impl Repository {
         Ok(TextQueryStreamSummary {
             returned,
             total: result.total,
+            elapsed_ms: result.elapsed_ms,
             metrics: result.metrics,
             query_plan: result.query_plan,
         })
@@ -266,6 +267,7 @@ impl Repository {
         streaming: bool,
         on_hit: &mut dyn FnMut(usize, &TextHit) -> Result<()>,
     ) -> Result<(TextQueryResult, usize)> {
+        let started = Instant::now();
         let before = self.metrics.clone();
         if request.limit == 0
             || request.limit > i64::MAX as usize
@@ -417,6 +419,7 @@ impl Repository {
             TextQueryResult {
                 hits,
                 total: request.count.then_some(matched),
+                elapsed_ms: started.elapsed().as_secs_f64() * 1_000.0,
                 metrics: self.metrics.since(&before),
                 query_plan: vec![if self.options.cache == CacheMode::Disabled {
                     "direct full-text source scan; source verification".into()

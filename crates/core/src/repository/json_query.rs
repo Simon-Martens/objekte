@@ -105,6 +105,7 @@ impl Repository {
         Ok(JsonQueryStreamSummary {
             returned,
             total: result.total,
+            elapsed_ms: result.elapsed_ms,
             dependencies: result.dependencies,
             filter_hash: result.filter_hash,
             metrics: result.metrics,
@@ -118,6 +119,7 @@ impl Repository {
         streaming: bool,
         on_record: &mut dyn FnMut(usize, &Record) -> Result<()>,
     ) -> Result<(JsonQueryResult, usize)> {
+        let started = Instant::now();
         let before = self.metrics.clone();
         let t = Instant::now();
         if request.limit == 0
@@ -145,6 +147,7 @@ impl Repository {
             result: JsonQueryResult {
                 records: Vec::new(),
                 total: request.count.then_some(0),
+                elapsed_ms: 0.0,
                 dependencies: JsonQueryDependencies {
                     collections: names.into_iter().collect(),
                     paths: filter.paths().to_vec(),
@@ -171,6 +174,7 @@ impl Repository {
             }
         }
         result.metrics = self.metrics.since(&before);
+        result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
         Ok((result.result, result.returned))
     }
 }

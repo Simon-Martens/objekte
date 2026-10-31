@@ -1,61 +1,92 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "identifier": {
+    "annotation": {
       "type": "string"
     },
-    "location": {
-      "type": "string"
-    },
-    "owner": {
-      "type": "string"
-    },
-    "media": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+    "basis": {
+      "index": true,
+      "type": "boolean"
     },
     "condition": {
-      "type": "string"
-    },
-    "scans": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "uri": {
+      "enum": [
+        "",
+        "1b",
+        "2b",
+        "3b",
+        "40",
+        "4b",
+        "5b",
+        "6b",
+        "80",
+        "90"
+      ],
+      "index": true,
       "type": "string"
     },
     "created": {
-      "type": "string"
-    },
-    "updated": {
-      "type": "string"
-    },
-    "annotation": {
       "type": "string"
     },
     "edit_comment": {
       "type": "string"
     },
     "edit_state": {
+      "enum": [
+        "",
+        "Edited",
+        "Review"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "editor": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "media": {
+      "items": {
+        "enum": [
+          "Original",
+          "Reproduktion"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner": {
+      "enum": [
+        "",
+        "Theodor Springmann Stiftung"
+      ],
+      "index": true,
       "type": "string"
     },
     "public": {
-      "type": "boolean",
-      "index": true
+      "index": true,
+      "type": "boolean"
     },
-    "basis": {
-      "type": "boolean",
-      "index": true
+    "scans": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
-    "editor": {
+    "updated": {
+      "type": "string"
+    },
+    "uri": {
       "type": "string"
     }
   },
   "required": [],
-  "additionalProperties": false
+  "type": "object",
+  "x-index-paths": [
+    "media[*]"
+  ]
 }

@@ -2,6 +2,7 @@
 
 use super::{
     TypedKey, ViewIndex,
+    key_summary::KeySummary,
     text::{TextContent, project_text},
 };
 use crate::{
@@ -39,6 +40,7 @@ pub(super) enum ProjectionOutcome {
 pub(super) struct ProjectionOptions<'a> {
     pub(super) folded_index: bool,
     pub(super) text_rules: Option<&'a TextRules>,
+    pub(super) key_summary: Option<&'a mut KeySummary>,
 }
 
 
@@ -62,6 +64,7 @@ pub(super) fn projected_values(
             ProjectionOptions {
                 folded_index,
                 text_rules: None,
+                key_summary: None,
             },
         )? {
             ProjectionOutcome::Valid(projection) => Some(projection),
@@ -78,7 +81,7 @@ pub(super) fn projected_values_with_text(
     indexed_fields: &[String],
     presence_fields: &[String],
     view: &ViewIndex,
-    options: ProjectionOptions<'_>,
+    mut options: ProjectionOptions<'_>,
 ) -> Result<ProjectionOutcome> {
     let path = source.path.join(format!("{id}.json"));
     let mut file = source.file(id)?;
@@ -109,6 +112,11 @@ pub(super) fn projected_values_with_text(
     }
 
     let fields = top_level_fields(&parsed);
+    if let Some(summary) = options.key_summary.as_mut() {
+        for name in fields.keys() {
+            summary.add(name);
+        }
+    }
     let array_fields = fields
         .iter()
         .filter(|(_, value)| value.is_array())

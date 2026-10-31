@@ -242,7 +242,12 @@ fn merge_field(
                 object.insert("index".into(), Value::Bool(true));
                 changed = true;
             }
-        } else if object.get("index") == Some(&Value::Bool(true)) {
+        } else if object.get("index") == Some(&Value::Bool(true))
+            && !field.link.as_ref().is_some_and(|link| {
+                link.kind == InferredLinkKind::RecordId && link.resolved_values == link.total_values
+            })
+        {
+            // Preserve a manually indexed reference when inference confirms it.
             object.insert("index".into(), Value::Bool(false));
             changed = true;
         }

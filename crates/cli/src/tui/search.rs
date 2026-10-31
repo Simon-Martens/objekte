@@ -3,7 +3,7 @@
 use super::{
     navigation::BacklinkStatus,
     relations,
-    state::{App, DetailEdge, Focus, Hit, Request},
+    state::{App, DetailEdge, Focus, Hit, PAGE_SIZE, Request},
 };
 use objekte_core::{Error, InferOptions, InferenceReport, Record, Repository};
 use std::{
@@ -32,6 +32,7 @@ enum SearchUpdate {
     Finished {
         repository: Box<Repository>,
         total: Result<Option<usize>, String>,
+        elapsed_ms: Option<f64>,
     },
 }
 
@@ -166,6 +167,7 @@ impl SearchWorker {
                 Ok(SearchUpdate::Finished {
                     mut repository,
                     total,
+                    elapsed_ms,
                 }) => {
                     let current = running.current(app);
                     let kind = running.kind;
@@ -187,6 +189,7 @@ impl SearchWorker {
                         match total {
                             Ok(total) => {
                                 app.total = total;
+                                app.search_elapsed_ms = elapsed_ms;
                                 if let Some(edge) = app.pending_detail.take() {
                                     if app.hits.is_empty() {
                                         app.focus = Focus::Results;
@@ -213,6 +216,7 @@ impl SearchWorker {
                                 // complete query succeeds.
                                 app.hits.clear();
                                 app.total = None;
+                                app.search_elapsed_ms = None;
                                 app.last_request = None;
                                 app.query_fields.clear();
                                 app.pending_detail = None;
@@ -240,6 +244,7 @@ impl SearchWorker {
                         app.searching = false;
                         app.hits.clear();
                         app.total = None;
+                        app.search_elapsed_ms = None;
                         app.last_request = None;
                         app.query_fields.clear();
                         app.pending_detail = None;
@@ -339,28 +344,30 @@ impl SearchWorker {
         // repository. It is swapped back before another query or export.
         let placeholder = app.repo.fork_unindexed();
         let mut repository = std::mem::replace(app.repo, placeholder);
-        // Bound queued rows so large JSON records cannot accumulate behind a
-        // busy terminal renderer.
-        let (sender, receiver) = mpsc::sync_channel(16);
+        // One complete page and its final event fit without blocking the
+        // query on terminal redraws. Export uses a separate path.
+        let (sender, receiver) = search_channel();
         let cancel = Arc::new(AtomicBool::new(false));
         let worker_cancel = Arc::clone(&cancel);
         thread::spawn(move || {
-            let total = match request {
+            let result = match request {
                 Request::Filter(query) => repository
                     .query_json_stream(&query, |_, record| {
                         send_hit(&sender, &worker_cancel, Hit::Filter(record.clone()))
                     })
-                    .map(|summary| summary.total),
+                    .map(|summary| (summary.total, summary.elapsed_ms)),
                 Request::Text(query) => repository
                     .search_text_stream(&query, |_, hit| {
                         send_hit(&sender, &worker_cancel, Hit::Text(hit.clone()))
                     })
-                    .map(|summary| summary.total),
+                    .map(|summary| (summary.total, summary.elapsed_ms)),
             }
             .map_err(|error| error.to_string());
+            let elapsed_ms = result.as_ref().ok().map(|(_, elapsed_ms)| *elapsed_ms);
             let _ = sender.send(SearchUpdate::Finished {
                 repository: Box::new(repository),
-                total,
+                total: result.map(|(total, _)| total),
+                elapsed_ms,
             });
         });
         self.running = Some(Running {
@@ -392,6 +399,7 @@ impl SearchWorker {
             let _ = sender.send(SearchUpdate::Finished {
                 repository: Box::new(repository),
                 total: result.map(|()| None).map_err(|error| error.to_string()),
+                elapsed_ms: None,
             });
         });
         self.running = Some(Running {
@@ -403,6 +411,10 @@ impl SearchWorker {
     }
 }
 
+
+fn search_channel() -> (mpsc::SyncSender<SearchUpdate>, Receiver<SearchUpdate>) {
+    mpsc::sync_channel(PAGE_SIZE + 1)
+}
 
 fn send_hit(
     sender: &mpsc::SyncSender<SearchUpdate>,

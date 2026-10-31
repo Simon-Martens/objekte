@@ -1,9 +1,62 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "title": {
+    "annotation": {
       "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "edit_comment": {
+      "type": "string"
+    },
+    "edit_state": {
+      "enum": [
+        "Edited",
+        "Review",
+        "ToDo",
+        "Unknown"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "editor": {
+      "enum": [
+        "",
+        "gpj6tpa1lmk3vpy",
+        "hbwf3kmsfyyeo1u"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "type": "string",
+        "x-relation": {
+          "collection": "entries"
+        }
+      },
+      "type": "array"
+    },
+    "frequency": {
+      "enum": [
+        "",
+        "1818, 1818",
+        "Erscheinungsverlauf unbekannt, vermutl. ein Jg 1849",
+        "Erscheinungsverlauf unklar",
+        "Erscheinungsverlauf unklar; keine weiteren Jgg ermittelt",
+        "ein Jg 1777",
+        "ein Jg 1781",
+        "jährlich",
+        "weitere Jgg nicht ermittelt"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "musenalm_id": {
+      "index": true,
+      "type": "integer"
     },
     "pseudonyms": {
       "type": "string"
@@ -11,46 +64,14 @@
     "refs": {
       "type": "string"
     },
-    "frequency": {
-      "type": "string"
-    },
-    "created": {
-      "type": "string"
-    },
-    "updated": {
-      "type": "string"
-    },
-    "musenalm_id": {
-      "type": "number",
-      "index": true
-    },
-    "edit_state": {
-      "type": "string"
-    },
-    "annotation": {
-      "type": "string"
-    },
-    "edit_comment": {
-      "type": "string"
-    },
-    "editor": {
-      "type": "string"
-    },
-    "entries": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "x-relation": {
-          "collection": "entries"
-        }
-      }
-    },
     "related_entries": {
-      "type": "array",
       "items": {
-        "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "source_id": {
+          "annotation": {
+            "type": "string"
+          },
+          "created": {
             "type": "string"
           },
           "entry": {
@@ -59,10 +80,7 @@
               "collection": "entries"
             }
           },
-          "annotation": {
-            "type": "string"
-          },
-          "created": {
+          "source_id": {
             "type": "string"
           },
           "updated": {
@@ -72,13 +90,20 @@
         "required": [
           "entry"
         ],
-        "additionalProperties": false
-      }
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "title": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
     }
   },
   "required": [
     "title",
     "musenalm_id"
   ],
-  "additionalProperties": false
+  "type": "object"
 }

@@ -77,16 +77,21 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
     );
     app.input.text = "absent".into();
     app.search();
+    assert!(app.search_elapsed_ms.is_some());
+    app.search_elapsed_ms = Some(3.25);
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     let empty = screen(&terminal);
-    assert!(empty.contains("No matches"));
+    assert!(empty.contains("No matches · 3.25 ms"));
     assert!(empty.lines().last().unwrap().trim().is_empty());
 
     app.input.text = "Moon".into();
     app.search();
+    assert!(app.search_elapsed_ms.is_some());
+    app.search_elapsed_ms = Some(12.5);
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     let found = screen(&terminal);
     assert!(found.contains("RESULTS  ·  1–1 of 1"));
+    assert!(found.contains("12.50 ms"));
     assert!(!found.contains("matches · showing"));
     assert!(found.contains("collection  id       status"));
     assert!(found.contains("match"));

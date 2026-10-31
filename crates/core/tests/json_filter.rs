@@ -208,8 +208,9 @@ fn undeclared_fields_search_all_collections_or_an_explicit_scope() {
     let count = repo.query_json(&request("score = 42")).unwrap();
     assert_eq!(count.total, Some(1));
     assert_eq!(count.records[0].id, "b");
-    // Books still uses its declared numeric index; the other collections scan.
-    assert_eq!(count.metrics.grep_scans, 4);
+    // Books uses its declared numeric index; the other collections have no
+    // decoded `score` key and can be rejected before opening their files.
+    assert_eq!(count.metrics.grep_scans, 0);
 
     let mut scoped = request("score = 42");
     scoped.collections = Some(vec!["books".into()]);

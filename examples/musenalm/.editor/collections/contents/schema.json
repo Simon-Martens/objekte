@@ -1,137 +1,57 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
-    "preferred_title": {
-      "type": "string"
-    },
-    "variant_title": {
-      "type": "string"
-    },
-    "parallel_title": {
-      "type": "string"
-    },
-    "title_statement": {
-      "type": "string"
-    },
-    "subtitle_statement": {
-      "type": "string"
-    },
-    "incipit_statement": {
-      "type": "string"
-    },
-    "responsibility_statement": {
-      "type": "string"
-    },
-    "place_statement": {
-      "type": "string"
-    },
-    "publication_statement": {
-      "type": "string"
-    },
-    "year": {
-      "type": "number",
-      "index": true
-    },
-    "pseudonym": {
-      "type": "boolean",
-      "index": true
-    },
-    "language": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "content_type": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "extent": {
-      "type": "string"
-    },
-    "dimensions": {
-      "type": "string"
-    },
-    "musenalm_type": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "musenalm_pagination": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "scans": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "numbering": {
-      "type": "number",
-      "index": true
-    },
-    "musenalm_id": {
-      "type": "number",
-      "index": true
-    },
-    "created": {
-      "type": "string"
-    },
-    "updated": {
-      "type": "string"
-    },
-    "edit_state": {
-      "type": "string"
-    },
     "annotation": {
       "type": "string"
     },
-    "edit_comment": {
-      "type": "string"
-    },
-    "editor": {
-      "type": "string"
+    "content_type": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
     },
     "contributors": {
-      "type": "array",
       "items": {
-        "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "agents": {
             "type": "string",
             "x-relation": {
               "collection": "agents"
             }
           },
-          "type": {
+          "annotation": {
             "type": "string"
           },
           "conjecture": {
             "type": "boolean"
           },
-          "uncertain": {
-            "type": "boolean"
-          },
           "created": {
             "type": "string"
           },
-          "updated": {
-            "type": "string"
-          },
-          "annotation": {
-            "type": "string"
-          },
           "edit_comment": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "Autor:in",
+              "Herausgeber:in",
+              "Komponist:in",
+              "Kupferstecher:in",
+              "Künstler:in",
+              "Verlag",
+              "Zeichner:in"
+            ],
+            "type": "string"
+          },
+          "uncertain": {
+            "type": "boolean"
+          },
+          "updated": {
             "type": "string"
           }
         },
@@ -140,15 +60,154 @@
           "agents",
           "type"
         ],
-        "additionalProperties": false
-      }
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "created": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "string"
+    },
+    "edit_comment": {
+      "type": "string"
+    },
+    "edit_state": {
+      "enum": [
+        "Edited"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "editor": {
+      "enum": [
+        "",
+        "gpj6tpa1lmk3vpy",
+        "hbwf3kmsfyyeo1u"
+      ],
+      "index": true,
+      "type": "string"
     },
     "entry": {
+      "index": true,
       "type": "string",
       "x-relation": {
         "collection": "entries"
+      }
+    },
+    "extent": {
+      "type": "string"
+    },
+    "incipit_statement": {
+      "type": "string"
+    },
+    "language": {
+      "items": {
+        "type": "string"
       },
-      "index": true
+      "type": "array"
+    },
+    "musenalm_id": {
+      "index": true,
+      "type": "integer"
+    },
+    "musenalm_pagination": {
+      "items": {
+        "enum": [
+          "1. Arabische Seitenzählung",
+          "1. Römische Seitenzählung",
+          "2. Arabische Seitenzählung",
+          "2. Römische Seitenzählung",
+          "3. Arabische Seitenzählung",
+          "4. Arabische Seitenzählung",
+          "5. Arabische Seitenzählung",
+          "6. Arabische Seitenzählung",
+          "Arabische Seitenzählung",
+          "Römische Seitenzählung"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "musenalm_type": {
+      "items": {
+        "enum": [
+          "Corrigenda",
+          "Diagramm",
+          "Gedicht/Lied",
+          "Graphik",
+          "Graphik-Verzeichnis",
+          "Inhaltsverzeichnis",
+          "Kalendarium",
+          "Karte",
+          "Motto",
+          "Musikbeigabe",
+          "Musikbeigaben-Verzeichnis",
+          "Prosa",
+          "Rätsel",
+          "Sammlung",
+          "Spiegel",
+          "Tabelle",
+          "Tafel",
+          "Text",
+          "Titel",
+          "Trinkspruch",
+          "Umschlag",
+          "Widmung",
+          "graph. Anleitung",
+          "graph. Strickanleitung",
+          "graph. Tanzanleitung",
+          "szen. Darstellung"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "numbering": {
+      "index": true,
+      "type": "number"
+    },
+    "parallel_title": {
+      "type": "string"
+    },
+    "place_statement": {
+      "type": "string"
+    },
+    "preferred_title": {
+      "type": "string"
+    },
+    "pseudonym": {
+      "index": true,
+      "type": "boolean"
+    },
+    "publication_statement": {
+      "type": "string"
+    },
+    "responsibility_statement": {
+      "type": "string"
+    },
+    "scans": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "subtitle_statement": {
+      "type": "string"
+    },
+    "title_statement": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "variant_title": {
+      "type": "string"
+    },
+    "year": {
+      "index": true,
+      "type": "integer"
     }
   },
   "required": [
@@ -156,5 +215,12 @@
     "musenalm_id",
     "entry"
   ],
-  "additionalProperties": false
+  "type": "object",
+  "x-index-paths": [
+    "contributors[*].conjecture",
+    "contributors[*].type",
+    "contributors[*].uncertain",
+    "musenalm_pagination[*]",
+    "musenalm_type[*]"
+  ]
 }
