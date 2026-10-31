@@ -62,6 +62,22 @@ fn full_text_controls_choose_all_four_search_modes() {
 }
 
 #[test]
+fn full_text_input_finds_partial_words_in_the_result_table() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"name":"Lichtenberg"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.kind = SearchKind::Text;
+    app.input.text = "Lichtenber".into();
+    app.search();
+    assert_eq!(app.total, Some(1));
+    assert_eq!(app.hits.len(), 1);
+    assert_eq!(app.hits[0].matched_paths(), &["name".to_owned()]);
+}
+
+#[test]
 fn direct_controls_invalidate_results_and_respect_search_mode() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");

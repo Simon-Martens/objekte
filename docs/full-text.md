@@ -30,12 +30,12 @@ Four standalone search modes use the included fields:
 
 | Mode | What it matches | CLI |
 | --- | --- | --- |
-| Word | Whole words or phrases in rendered text; case insensitive by default | `search 'Help' --mode word` |
-| Raw word | Whole words in decoded source values with markup intact | `search 'Help' --mode raw-word` |
+| Word | Literal substrings in rendered text, including partial words; case insensitive by default | `search 'Help' --mode word` |
+| Raw word | Literal substrings in decoded source values with markup intact | `search 'Help' --mode raw-word` |
 | Rendered regex | Regex over rendered text without markup | `search 'Help\s+world' --mode regex` |
 | Raw regex | Regex over decoded field strings including Markdown, HTML, or XML markup | `search '<b>lp</b>' --mode raw-regex` |
 
-`--case-sensitive` applies to every mode. Word search uses Unicode word boundaries and Unicode case folding. Regex uses Rust regex syntax and its Unicode case-insensitive matching. Raw regex sees decoded JSON values for parseable files, so a JSON `\n` escape has already become a newline. For malformed files it searches the raw source plus best-effort unescaped text. All modes return matching records in collection and byte-sorted record ID order. Each hit has canonical `fields` for query scope, such as `contents[].incipit_statement`, and concrete `matched_paths` for the leaves that matched, such as `contents[9].incipit_statement`. These identify array elements, not character ranges. Use `--field annotation` or an array path such as `--field 'notes[].body'` to narrow the fields, and a positional collection or `--collection` to narrow the collections. `--limit`, `--offset`, and `--count` work as for filter queries.
+`--case-sensitive` applies to every mode. Word mode treats the input as literal text, so `Lichtenber` matches `Lichtenberg` and `chtenbe` matches within it. It uses Unicode case folding by default. For whole-word matching, use regex mode with boundaries such as `\bLichtenberg\b`. Regex uses Rust regex syntax and its Unicode case-insensitive matching. Raw regex sees decoded JSON values for parseable files, so a JSON `\n` escape has already become a newline. For malformed files it searches the raw source plus best-effort unescaped text. All modes return matching records in collection and byte-sorted record ID order. Each hit has canonical `fields` for query scope, such as `contents[].incipit_statement`, and concrete `matched_paths` for the leaves that matched, such as `contents[9].incipit_statement`. These identify array elements, not character ranges. Use `--field annotation` or an array path such as `--field 'notes[].body'` to narrow the fields, and a positional collection or `--collection` to narrow the collections. `--limit`, `--offset`, and `--count` work as for filter queries.
 
 The JSON filter language also accepts `:fts` on a field operand. It renders a field with a declared format before applying the ordinary comparison, so it composes with numbers, booleans, `&&`, `||`, `~`, `!~`, `=`, and `:ignorecase`:
 

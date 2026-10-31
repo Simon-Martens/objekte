@@ -72,17 +72,31 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
     let mut repo = Repository::open(root).unwrap();
 
     let result = repo.search_text(&query("Help", TextMode::Word)).unwrap();
-    assert_eq!(result.total, Some(4), "{:#?}", result.metrics);
+    assert_eq!(result.total, Some(5), "{:#?}", result.metrics);
     assert_eq!(
         result
             .hits
             .iter()
             .map(|hit| hit.record.id.as_str())
             .collect::<Vec<_>>(),
-        ["a", "b", "c", "e"]
+        ["a", "b", "c", "d", "e"]
     );
-    assert_eq!(result.hits[4 - 1].fields, ["notes[].body"]);
-    assert_eq!(result.hits[4 - 1].matched_paths, ["notes[0].body"]);
+    assert_eq!(result.hits[4].fields, ["notes[].body"]);
+    assert_eq!(result.hits[4].matched_paths, ["notes[0].body"]);
+    assert_eq!(
+        repo.search_text(&query("elp", TextMode::Word))
+            .unwrap()
+            .total,
+        Some(5)
+    );
+    assert_eq!(
+        repo.search_text(&query("per", TextMode::Word))
+            .unwrap()
+            .hits[0]
+            .record
+            .id,
+        "d"
+    );
     assert_eq!(
         repo.search_text(&query("secret", TextMode::Word))
             .unwrap()
@@ -115,9 +129,77 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
             .collect::<Vec<_>>(),
         ["f", "g"]
     );
+    assert_eq!(
+        repo.search_text(&query("strass", TextMode::Word))
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record.id.as_str())
+            .collect::<Vec<_>>(),
+        ["f", "g"]
+    );
     let mut sensitive = query("strasse", TextMode::Word);
     sensitive.case_sensitive = true;
     assert_eq!(repo.search_text(&sensitive).unwrap().total, Some(0));
+}
+
+#[test]
+fn literal_text_search_matches_prefix_infix_and_suffix_without_a_schema() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(root, "data/books/a.json", r#"{"title":"Lichtenberg"}"#);
+    write(root, "data/books/b.json", r#"{"title":"Lichtenberger"}"#);
+    write(root, "data/books/c.json", r#"{"title":"Berglicht"}"#);
+    write(root, "data/books/d.json", r#"{"title":"Lichtenberg"#);
+    let mut repo = Repository::open(root).unwrap();
+    let mut options = Options::new();
+    options.cache = CacheMode::Disabled;
+    let mut direct = Repository::builder(root).options(options).open().unwrap();
+
+    for (pattern, expected) in [
+        ("Lichtenber", vec!["a", "b", "d"]),
+        ("chtenbe", vec!["a", "b", "d"]),
+        ("berg", vec!["a", "b", "c", "d"]),
+        ("Lichten.*", vec![]),
+    ] {
+        let request = query(pattern, TextMode::Word);
+        for result in [
+            repo.search_text(&request).unwrap(),
+            direct.search_text(&request).unwrap(),
+        ] {
+            assert_eq!(
+                result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record.id.as_str())
+                    .collect::<Vec<_>>(),
+                expected,
+                "{pattern}"
+            );
+            assert_eq!(result.total, Some(expected.len()), "{pattern}");
+        }
+    }
+    let result = repo
+        .search_text(&query("Lichtenber", TextMode::Word))
+        .unwrap();
+    assert_eq!(result.hits[2].matched_paths, ["$raw"]);
+    assert_eq!(
+        repo.search_text(&query("Lichtenber", TextMode::WordRaw))
+            .unwrap()
+            .total,
+        Some(3)
+    );
+    assert_eq!(
+        repo.search_text(&query(r"\bLichtenber\b", TextMode::RegexClean))
+            .unwrap()
+            .total,
+        Some(0)
+    );
+    let mut sensitive = query("lichtenber", TextMode::Word);
+    sensitive.case_sensitive = true;
+    assert_eq!(repo.search_text(&sensitive).unwrap().total, Some(0));
+    sensitive.case_sensitive = false;
+    assert_eq!(repo.search_text(&sensitive).unwrap().total, Some(3));
 }
 
 #[test]

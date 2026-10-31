@@ -396,7 +396,7 @@ impl<'a> App<'a> {
         self.message = if self.regex {
             "Regex on; use inline flags such as (?i) for case-insensitive matching.".into()
         } else {
-            "Word search on; Ctrl+E changes case sensitivity.".into()
+            "Literal substring search on; Ctrl+E changes case sensitivity.".into()
         };
     }
 
@@ -426,9 +426,9 @@ impl<'a> App<'a> {
         self.invalidate_results();
         self.focus = Focus::Query;
         self.message = if self.case_sensitive {
-            "Word search is case-sensitive.".into()
+            "Literal search is case-sensitive.".into()
         } else {
-            "Word search is case-insensitive.".into()
+            "Literal search is case-insensitive.".into()
         };
     }
 

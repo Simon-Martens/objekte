@@ -79,7 +79,7 @@ impl TextMatcher {
             };
             let literal = regex::escape(&word);
             candidate_base = Some(word);
-            format!(r"\b{literal}\b")
+            literal
         } else {
             request.pattern.clone()
         };

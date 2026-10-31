@@ -27,7 +27,7 @@ objekte REPOSITORY search contents 'Goethe' --mode word --count --output ndjson
 | Esc | Return from detail, cancel export, or leave the UI |
 | Ctrl+C | Leave the UI |
 
-Filter mode shows only **Mode** and **Collection**. Full-text mode also shows **Regex** and **Text** (normalized or full). **Case** appears only when regex is off. Normalized full-text search renders declared Markdown, HTML, and XML, removes formatting, and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both use whole-word matching with the Case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex`, and `raw-regex`.
+Filter mode shows only **Mode** and **Collection**. Full-text mode also shows **Regex** and **Text** (normalized or full). **Case** appears only when regex is off. Normalized full-text search renders declared Markdown, HTML, and XML, removes formatting, and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the Case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex`, and `raw-regex`.
 
 Some terminals cannot report Ctrl+Tab separately from Tab. The UI requests enhanced keyboard reporting where available. In other terminals, use `[` and `]` from the result table to cycle collections.
 

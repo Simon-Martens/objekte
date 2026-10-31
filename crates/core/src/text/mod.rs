@@ -12,14 +12,18 @@ pub(crate) use render::render_text;
 pub(crate) use values::{TextRules, visit_json_text, visit_sonic_text};
 
 
-/// Which representation of a value a search matches.
+/// Which representation and matching syntax a search uses.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum TextMode {
     #[default]
+    /// Literal substring in rendered text, including partial words.
     Word,
+    /// Literal substring in decoded source values with markup intact.
     WordRaw,
+    /// Regex in rendered text.
     RegexClean,
+    /// Regex in decoded source values with markup intact.
     RegexRaw,
 }
 

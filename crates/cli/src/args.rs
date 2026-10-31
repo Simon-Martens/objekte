@@ -41,7 +41,7 @@ Options:
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
   --mode word|raw-word|regex|raw-regex
-                                  Full-text word or regex search; raw modes see markup
+                                  Literal substring or regex search; raw modes see markup
   --field PATH                    Limit full-text search to a JSON leaf path
   --case-sensitive                Match case exactly in full-text search
                                   TUI: Tab changes mode; Ctrl+Tab changes collection;
