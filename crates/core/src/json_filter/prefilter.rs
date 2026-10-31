@@ -2,7 +2,9 @@
 //! A missing pattern means scan every file. False positives are harmless; false
 //! negatives are not. ASCII runs account for JSON's optional \u escapes.
 
-use super::{Expr, FieldOperand, JsonFilter, JsonPath, JsonPathStep, Op, Operand, pattern::Like};
+use super::{
+    Expr, FieldOperand, JsonFilter, JsonPath, JsonPathStep, Modifier, Op, Operand, pattern::Like,
+};
 use crate::Result;
 use grep_regex::RegexMatcher;
 
@@ -73,7 +75,21 @@ fn field_run(operand: &Operand) -> String {
     }
 }
 
+fn rendered(operand: &Operand) -> bool {
+    matches!(
+        operand,
+        Operand::Field(FieldOperand {
+            modifier: Some(Modifier::Rendered(_)),
+            ..
+        })
+    )
+}
+
 fn atom_pattern(left: &Operand, op: Op, right: &Operand, ignore_case: bool) -> Option<String> {
+    if rendered(left) || rendered(right) {
+        // Markup can split a literal into fragments absent from source JSON.
+        return None;
+    }
     let field = [field_run(left), field_run(right)]
         .into_iter()
         .max_by_key(String::len)
@@ -174,6 +190,7 @@ impl JsonFilter {
                     (!parts.is_empty()).then(|| format!("(?:{})", parts.join("|")))
                 }
                 Expr::Exists(_) | Expr::Missing(_) => None,
+                Expr::Compare { left, right, .. } if rendered(left) || rendered(right) => None,
                 Expr::Compare {
                     left,
                     op,

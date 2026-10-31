@@ -20,6 +20,7 @@ mod query;
 mod repository;
 mod schema;
 mod source;
+mod text;
 mod validation;
 pub use validation::{RecordState, RecordStatus, ValidationIssue, ValidationMetrics};
 
@@ -40,4 +41,5 @@ pub use repository::{
     CacheMode, CacheStatus, Coverage, Freshness, Metrics, Options, Record, RecordRelation,
     RecordRevision, References, Repository, RepositoryBuilder, TargetState,
 };
-pub use schema::{Field, PathStep, ValueType};
+pub use schema::{Field, PathStep, TextFormat, ValueType};
+pub use text::{TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary};

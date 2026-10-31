@@ -7,6 +7,7 @@ Objekte reads collections of JSON files through a Rust library and CLI. Source f
 - Populated JSON folders are discovered as collections without a manifest. Optional schema bases group nested folders; indexes are opened lazily.
 - `get`, configured table `view`, and general `query` over stored JSON fields. Views support configured columns, filters, scalar sorts, secondary sorts, pagination, and optional counts. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
 - The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Query candidates are checked against original JSON with Sonic; the index alone never decides a match.
+- Every JSON leaf value is searchable through separate lazy bigram indexes. Schema fields can select plain, Markdown, HTML, or XML rendering or exclude a subtree. Word, rendered-regex, and raw-regex modes are available. See [full-text.md](full-text.md).
 - `--cache disabled` makes views scan source files. JSON queries also offer explicit `direct` and raw-file `grep` backends. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
 - Explicit collection/all-collection validation, JSON/schema status on returned pages where validation runs, source refresh, configuration-change reporting, cache status, and per-record revision lookup. Revisions last only for the repository handle. Validation status is not stored in the index.
 - Declared outgoing references are extracted on request. Incoming references can be discovered by scanning referring source collections. The CLI's `relations --to ... --complete` requests complete coverage; `--check-targets` checks current target files. There is no persistent edge table or automatic source rewrite on a move/delete.
@@ -29,7 +30,7 @@ Paths through embedded arrays inspect values in the same source record. JSON fil
 
 - Source-file create, update, move, and delete operations, with revision conflict checks, atomic writes, and reference handling. The current repository API does not rewrite referring JSON files.
 - Saved and grouped views, aggregates, relation traversal within a query, and metadata operands.
-- User-facing raw grep results with source line/offset and cleaned-content search. The `--backend grep` option is only a candidate prefilter for a structural JSON query; it returns matching records, not grep lines.
+- User-facing raw grep results with source line/offset. The `--backend grep` option is only a candidate prefilter for a structural JSON query; it returns matching records, not grep lines.
 - A persistent desktop UI with filesystem watching, background refresh, result patching, cancellation, and optional prefetch. [UI.md](UI.md) tracks this work.
 - Further measurements of first-use index construction, repeated queries, broad matches, external edits, and memory across multiple repositories. [Performance.md](Performance.md) summarizes the current measured query path and links historical experiments.
 

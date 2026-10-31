@@ -326,7 +326,11 @@ impl Parser<'_> {
                     "length" => Modifier::Length,
                     "each" => Modifier::Each,
                     "lower" => Modifier::Lower,
-                    _ => return self.error("unknown modifier; expected :length, :each, or :lower"),
+                    "fts" => Modifier::Fts,
+                    _ => {
+                        return self
+                            .error("unknown modifier; expected :length, :each, :lower, or :fts");
+                    }
                 })
             } else {
                 None

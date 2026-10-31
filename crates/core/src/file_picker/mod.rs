@@ -11,6 +11,7 @@ mod presence;
 mod projection;
 mod regex_plan;
 mod scan_pool;
+mod text;
 mod typed;
 mod view;
 
@@ -32,10 +33,12 @@ use std::{
     time::Instant,
 };
 
+use crate::text::TextRules;
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 use presence::PresenceIndex;
 use projection::projected_values;
+use text::TextIndex;
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
@@ -79,6 +82,8 @@ pub struct FilePicker {
     changed: BTreeSet<usize>,
     array_fields: BTreeSet<String>,
     index: BigramFilter,
+    text_rules: TextRules,
+    text_index: Option<TextIndex>,
     presence: PresenceIndex,
     typed: TypedIndex,
     view: ViewIndex,
@@ -122,6 +127,8 @@ impl FilePicker {
             changed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
             index: BigramIndexBuilder::new(0).compress(None),
+            text_rules: TextRules::new(definitions),
+            text_index: None,
             presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
             typed: TypedIndex::new(indexed_fields),
@@ -768,6 +775,11 @@ impl FilePicker {
         self.index = index;
         self.indexed_len = self.files.len();
         self.changed.clear();
+        if self.text_index.take().is_some() {
+            // Slot compaction invalidates both text posting tables. Rebuild an
+            // active full-text index against the same new source snapshot.
+            self.build_text_index_from_source(source)?;
+        }
         self.array_fields = array_fields.into_inner().expect("array field lock");
         self.presence.replace(presence_words);
         #[cfg(feature = "index-timings")]
@@ -808,6 +820,10 @@ impl FilePicker {
 
     pub fn index_bytes(&self) -> usize {
         self.index.heap_bytes()
+            + self
+                .text_index
+                .as_ref()
+                .map_or(0, |index| index.heap_bytes())
     }
 
     #[cfg(feature = "index-timings")]

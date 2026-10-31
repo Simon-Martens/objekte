@@ -8,10 +8,12 @@ Repositories can discover collections without a manifest or schema. See [Collect
 
 - [Query examples](queries.md) show the CLI syntax on Musenalm.
 - [Filter semantics](filters.md) describe exact matching, arrays, and backend selection.
+- [Full-text search](full-text.md) describes all-field indexing, markup formats, exclusions, search modes, and index lifecycle.
 - [Validation](validation.md) explains on-demand JSON Schema checks.
 - [Index implementation](implementation.md) describes refresh, rebuild, and revision behavior.
 - [Code guidelines](code-guidelines.md) document source layout, comments, tests, and diagnostics.
 - [Performance results](Performance.md) summarize warm queries and historical experiments.
+- [Full-text benchmark results](fts-benchmark-results.md) report build time, ready memory, and 30 warm searches on Musenalm.
 - [MVP and roadmap](MVP.md) separate library features from later product work.
 
 ```sh

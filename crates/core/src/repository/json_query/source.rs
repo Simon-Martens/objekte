@@ -15,6 +15,7 @@ impl Repository {
     ) -> Result<()> {
         let mut matched = 0;
         for c in collections {
+            let filter = filter.for_fields(&c.fields);
             let (source, files) = self.inventory(c)?;
             for (id, stamp) in &files {
                 let raw = self.raw_from(&source, id, Some(stamp))?;
@@ -53,16 +54,12 @@ impl Repository {
         collections: &[Collection],
         result: &mut QueryOutput<'_>,
     ) -> Result<()> {
-        let prefilter = filter.source_prefilter()?;
-        result.query_plan = vec![match &prefilter {
-            Some((_, pattern)) => format!(
-                "ripgrep parallel buffered file search ({}) with regex {pattern}; Sonic JSON verification",
-                rayon::current_num_threads()
-            ),
-            None => "source scan (no usable ripgrep prefilter); Sonic JSON verification".into(),
-        }];
+        result.query_plan =
+            vec!["ripgrep source prefilter where safe; Sonic JSON verification".into()];
         let mut matched = 0;
         for c in collections {
+            let filter = filter.for_fields(&c.fields);
+            let prefilter = filter.source_prefilter()?;
             let (source, files) = self.inventory(c)?;
             let entries = files.iter().collect::<Vec<_>>();
             let batch_size = if result.streaming {

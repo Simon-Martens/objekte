@@ -2,6 +2,8 @@
 
 `Repository::query_json` compiles a filter for stored JSON paths, including fields absent from a collection schema or collections with no schema. The CLI exposes it through `objekte REPOSITORY query [COLLECTION] FILTER` or `--collection NAME`. With no collection, it searches every discovered collection. Results are ordered by collection and byte-sorted relative record ID; `--limit`, `--offset`, and `--count` control pagination and a total count. See [Musenalm examples](queries.md).
 
+Use `annotation:fts ~ "Goet"` to compare rendered text when `annotation` has a schema `x-full-text` format. It can be combined with structural predicates, for example `year = 1822 && annotation:fts ~ "Goet"`. Without a declared text format, `:fts` evaluates the stored value just like the unmodified path. The separate FTS index contains all leaf values by default; schema `exclude_fts: true` omits a field and its descendants from that index. See [full-text.md](full-text.md) for formats and standalone word and regex search.
+
 ## Syntax
 
 | Construct | Meaning |

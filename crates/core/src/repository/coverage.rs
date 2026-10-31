@@ -4,6 +4,24 @@ use super::*;
 
 
 impl Repository {
+    /// Compressed bigram heap bytes for a built collection picker.
+    pub fn index_bytes(&self, collection: &str) -> Result<Option<usize>> {
+        self.model.collection(collection)?;
+        Ok(self
+            .file_pickers
+            .get(collection)
+            .map(|picker| picker.index_bytes()))
+    }
+
+    /// Compressed rendered and raw full-text posting bytes, when built.
+    pub fn text_index_bytes(&self, collection: &str) -> Result<Option<usize>> {
+        self.model.collection(collection)?;
+        Ok(self
+            .file_pickers
+            .get(collection)
+            .and_then(|picker| picker.text_index_bytes()))
+    }
+
     pub fn cache_status(&mut self) -> Result<CacheStatus> {
         self.reload()?;
         let mut collections = Vec::new();

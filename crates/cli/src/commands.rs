@@ -9,7 +9,7 @@ use crate::{
 };
 use objekte_core::{
     CacheMode, Direction, Freshness, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
-    ViewRequest,
+    TextMode, TextQuery, ViewRequest,
 };
 use serde_json::json;
 use std::{io::Write, time::Instant};
@@ -32,10 +32,19 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "cache" => {
             if !matches!(
                 a.pos.get(2).map(String::as_str),
-                Some("status" | "refresh-config" | "refresh" | "warm" | "rebuild" | "validate")
+                Some(
+                    "status"
+                        | "refresh-config"
+                        | "refresh"
+                        | "warm"
+                        | "rebuild"
+                        | "warm-text"
+                        | "rebuild-text"
+                        | "validate"
+                )
             ) {
                 return Err(
-                    "cache requires status, refresh-config, refresh, warm, rebuild, or validate"
+                    "cache requires status, refresh-config, refresh, warm, rebuild, warm-text, rebuild-text, or validate"
                         .into(),
                 );
             }
@@ -45,6 +54,8 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "validate" => return Err("usage: objekte REPOSITORY validate [COLLECTION]".into()),
         "query" if a.pos.len() == 3 || a.pos.len() == 4 => a.pos.len(),
         "query" => return Err("usage: objekte REPOSITORY query [COLLECTION] FILTER".into()),
+        "search" if a.pos.len() == 3 || a.pos.len() == 4 => a.pos.len(),
+        "search" => return Err("usage: objekte REPOSITORY search [COLLECTION] PATTERN".into()),
         "view" => 3,
         "get" => 4,
         "inspect" | "relations" => 2,
@@ -58,7 +69,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     if a.pos.len() != expected {
         return Err(format!("wrong arguments for {command}; run --help").into());
     }
-    if command == "query" && a.pos.len() == 4 && a.values.contains_key("--collection") {
+    if matches!(command, "query" | "search")
+        && a.pos.len() == 4
+        && a.values.contains_key("--collection")
+    {
         return Err("choose positional COLLECTION or --collection, not both".into());
     }
     let common = ["--cache", "--reconcile", "--output"];
@@ -70,11 +84,13 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 "query" => {
                     ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str())
                 }
+                "search" => ["--collection", "--limit", "--offset", "--mode", "--field"]
+                    .contains(&key.as_str()),
                 "relations" => ["--from", "--to"].contains(&key.as_str()),
                 "cache" => {
                     matches!(
                         a.pos[2].as_str(),
-                        "refresh" | "warm" | "rebuild" | "validate"
+                        "refresh" | "warm" | "rebuild" | "warm-text" | "rebuild-text" | "validate"
                     ) && key == "--collection"
                 }
                 _ => false,
@@ -87,6 +103,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         let allowed = key == "--diagnostics"
             || match command {
                 "view" | "query" => key == "--count",
+                "search" => ["--count", "--case-sensitive"].contains(&key.as_str()),
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
                 "relations" => {
                     ["--collections", "--complete", "--check-targets"].contains(&key.as_str())
@@ -123,7 +140,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     let output_allowed = match command {
         "view" => matches!(output.as_str(), "table" | "json" | "ndjson"),
-        "query" => matches!(output.as_str(), "json" | "ndjson" | "events"),
+        "query" | "search" => matches!(output.as_str(), "json" | "ndjson" | "events"),
         _ => output == "json",
     };
     if !output_allowed {
@@ -198,6 +215,71 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                     None
                 } else {
                     result.metrics = repo.metrics().clone();
+                    let mut value = serde_json::to_value(result)?;
+                    value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
+                    Some(value)
+                }
+            }
+        }
+        "search" => {
+            let (pattern, collection) = if a.pos.len() == 4 {
+                (&a.pos[3], Some(&a.pos[2]))
+            } else {
+                (&a.pos[2], a.values.get("--collection"))
+            };
+            let mode = match get("--mode", "word").as_str() {
+                "word" => TextMode::Word,
+                "regex" => TextMode::RegexClean,
+                "raw-regex" => TextMode::RegexRaw,
+                _ => return Err("search mode must be word, regex, or raw-regex".into()),
+            };
+            let request = TextQuery {
+                pattern: pattern.clone(),
+                mode,
+                case_sensitive: a.flags.contains("--case-sensitive"),
+                collections: collection.map(|name| vec![name.clone()]),
+                fields: a.values.get("--field").map(|field| vec![field.clone()]),
+                limit: get("--limit", "50").parse()?,
+                offset: get("--offset", "0").parse()?,
+                count: a.flags.contains("--count"),
+            };
+            if output == "events" {
+                let stdout = std::io::stdout();
+                let mut writer = stdout.lock();
+                let mut delivered = 0;
+                let streamed = repo.search_text_stream(&request, |ordinal, hit| {
+                    write_query_event(
+                        &mut writer,
+                        &json!({"type":"hit","ordinal":ordinal,"provisional":true,"hit":hit}),
+                    )?;
+                    delivered = ordinal;
+                    Ok(())
+                });
+                match streamed {
+                    Ok(summary) => {
+                        let mut event = serde_json::to_value(summary)?;
+                        event["type"] = json!("complete");
+                        event["provisional"] = json!(false);
+                        event["metrics"] = metrics_in_milliseconds(event["metrics"].take());
+                        write_query_event(&mut writer, &event)?;
+                    }
+                    Err(error) => {
+                        let _ = write_query_event(
+                            &mut writer,
+                            &json!({"type":"error","message":error.to_string(),"provisional_hits":delivered}),
+                        );
+                        return Err(error.into());
+                    }
+                }
+                None
+            } else {
+                let result = repo.search_text(&request)?;
+                if output == "ndjson" {
+                    for hit in &result.hits {
+                        println!("{}", serde_json::to_string(hit)?);
+                    }
+                    None
+                } else {
                     let mut value = serde_json::to_value(result)?;
                     value["metrics"] = metrics_in_milliseconds(value["metrics"].take());
                     Some(value)
@@ -311,12 +393,21 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 Some(serde_json::to_value(repo.cache_status()?)?)
             } else if a.pos[2] == "refresh-config" {
                 Some(serde_json::to_value(repo.refresh_configuration()?)?)
-            } else if a.pos[2] == "warm" || a.pos[2] == "rebuild" {
+            } else if matches!(
+                a.pos[2].as_str(),
+                "warm" | "rebuild" | "warm-text" | "rebuild-text"
+            ) {
                 let metrics = match (a.pos[2].as_str(), a.values.get("--collection")) {
                     ("warm", Some(c)) => serde_json::to_value(repo.warm_bigram_index(c)?)?,
                     ("warm", None) => serde_json::to_value(repo.warm_all_bigram_indexes()?)?,
                     ("rebuild", Some(c)) => serde_json::to_value(repo.rebuild_bigram_index(c)?)?,
                     ("rebuild", None) => serde_json::to_value(repo.rebuild_all_bigram_indexes()?)?,
+                    ("warm-text", Some(c)) => serde_json::to_value(repo.warm_text_index(c)?)?,
+                    ("warm-text", None) => serde_json::to_value(repo.warm_all_text_indexes()?)?,
+                    ("rebuild-text", Some(c)) => serde_json::to_value(repo.rebuild_text_index(c)?)?,
+                    ("rebuild-text", None) => {
+                        serde_json::to_value(repo.rebuild_all_text_indexes()?)?
+                    }
                     _ => unreachable!(),
                 };
                 Some(if a.values.contains_key("--collection") {

@@ -19,6 +19,17 @@ pub enum ValueType {
 }
 
 
+/// How an explicitly searchable string is rendered before full-text matching.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum TextFormat {
+    Plain,
+    Markdown,
+    Html,
+    Xml,
+}
+
+
 impl ValueType {
     pub fn scalar(self) -> bool {
         !matches!(self, Self::Object | Self::Array | Self::Any)
@@ -41,6 +52,11 @@ pub struct Field {
     pub nullable: bool,
     /// Opt in to ordered postings for this top-level scalar field.
     pub index: bool,
+    /// Rendering format for this full-text field; plain text is the default.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub text_format: Option<TextFormat>,
+    /// Omit this field and all descendants from full-text search.
+    pub exclude_fts: bool,
     /// Declared JSON Schema alternatives, when this scalar is an enum.
     pub enum_values: Option<Vec<Value>>,
     pub properties: BTreeMap<String, Field>,
@@ -126,6 +142,8 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "additionalProperties",
             "enum",
             "index",
+            "x-full-text",
+            "exclude_fts",
             "x-relation",
         ]
         .contains(&k.as_str())
@@ -193,6 +211,29 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             true
         }
         Some(_) => return Err(config(file, p, "index must be a boolean")),
+    };
+    let text_format = match obj.get("x-full-text") {
+        None => None,
+        Some(Value::String(format)) if kind == ValueType::String => Some(match format.as_str() {
+            "plain" => TextFormat::Plain,
+            "markdown" => TextFormat::Markdown,
+            "html" => TextFormat::Html,
+            "xml" => TextFormat::Xml,
+            _ => return Err(config(file, p, "unsupported x-full-text format")),
+        }),
+        Some(_) => {
+            return Err(config(
+                file,
+                p,
+                "x-full-text requires a string field and format",
+            ));
+        }
+    };
+    let exclude_fts = match obj.get("exclude_fts") {
+        None | Some(Value::Bool(false)) => false,
+        Some(Value::Bool(true)) if !p.is_empty() => true,
+        Some(Value::Bool(true)) => return Err(config(file, p, "exclude_fts requires a field")),
+        Some(_) => return Err(config(file, p, "exclude_fts must be a boolean")),
     };
     for k in ["properties", "required", "additionalProperties"] {
         if obj.contains_key(k) && kind != ValueType::Object {
@@ -292,6 +333,8 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
         kind,
         nullable,
         index,
+        text_format,
+        exclude_fts,
         enum_values,
         properties,
         items,

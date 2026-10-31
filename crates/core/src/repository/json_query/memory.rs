@@ -1,7 +1,34 @@
 //! In-memory bigram and typed-index JSON query execution.
 
 use super::*;
+use crate::json_filter::FtsPlan;
 use grep_searcher::SearcherBuilder;
+
+fn fts_candidate_ids(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> BTreeSet<String> {
+    match plan {
+        FtsPlan::Literal(literal) => picker
+            .text_candidates(Some(literal), false, true)
+            .into_iter()
+            .map(|(id, _)| id)
+            .collect(),
+        FtsPlan::And(children) => {
+            let mut children = children.iter();
+            let mut ids = children
+                .next()
+                .map(|child| fts_candidate_ids(picker, child))
+                .unwrap_or_default();
+            for child in children {
+                let next = fts_candidate_ids(picker, child);
+                ids.retain(|id| next.contains(id));
+            }
+            ids
+        }
+        FtsPlan::Or(children) => children
+            .iter()
+            .flat_map(|child| fts_candidate_ids(picker, child))
+            .collect(),
+    }
+}
 
 
 impl Repository {
@@ -56,16 +83,29 @@ impl Repository {
         collections: &[Collection],
         result: &mut QueryOutput<'_>,
     ) -> Result<()> {
-        let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
-        let source_pattern = filter.source_prefilter()?;
-        let scalar_fields = filter.top_level_scalar_fields();
-        let required_fields = filter.required_top_level_fields();
-        let exact_plan = filter.exact_index_plan();
         result.query_plan =
             vec!["in-memory bigram, typed, and presence candidates; source verification".into()];
         let mut matched = 0;
         for c in collections {
+            let filter = filter.for_fields(&c.fields);
+            let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
+            let source_pattern = filter.source_prefilter()?;
+            let scalar_fields = filter.top_level_scalar_fields();
+            let required_fields = filter.required_top_level_fields();
+            let exact_plan = filter.exact_index_plan();
+            let fts_plan = filter.fts_plan();
             self.ensure_picker(c)?;
+            if fts_plan.is_some() {
+                let started = Instant::now();
+                if self
+                    .file_pickers
+                    .get_mut(&c.name)
+                    .expect("picker exists")
+                    .ensure_text_index()?
+                {
+                    self.metrics.fts_open_nanos += nanos(started);
+                }
+            }
             let candidate_started = Instant::now();
             let picker = self.file_pickers.get(&c.name).unwrap();
             // Undeclared fields can have any JSON shape. Scan that collection
@@ -99,7 +139,7 @@ impl Repository {
                 Self::query_json_exact_records(
                     &mut self.metrics,
                     super::exact::ExactQuery {
-                        filter,
+                        filter: &filter,
                         collection: c,
                         root: &self.model.root,
                     },
@@ -110,11 +150,25 @@ impl Repository {
                 continue;
             }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
-            let entries = picker.candidate_records(
+            let mut entries = picker.candidate_records(
                 (!risk).then_some(values_pattern.as_deref()).flatten(),
                 typed_plan.as_ref(),
                 if risk { &[] } else { &required_fields },
             );
+            if !risk && let Some(plan) = &fts_plan {
+                let ids = fts_candidate_ids(picker, plan);
+                self.metrics.fts_candidates += ids.len() as u64;
+                entries.retain(|(id, _)| ids.contains(*id));
+                if !result
+                    .query_plan
+                    .iter()
+                    .any(|step| step.contains("full-text"))
+                {
+                    result
+                        .query_plan
+                        .push("rendered full-text bigram candidates".into());
+                }
+            }
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
             let source = Source::open_scoped(&c.path, c.recursive)?;

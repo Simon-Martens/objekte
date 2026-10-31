@@ -13,6 +13,8 @@ Usage:
   objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
+  objekte REPOSITORY search [COLLECTION] PATTERN [--mode word|regex|raw-regex]
+      [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -22,6 +24,8 @@ Usage:
   objekte REPOSITORY cache refresh --collection NAME
   objekte REPOSITORY cache warm [--collection NAME]
   objekte REPOSITORY cache rebuild [--collection NAME]
+  objekte REPOSITORY cache warm-text [--collection NAME]
+  objekte REPOSITORY cache rebuild-text [--collection NAME]
   objekte REPOSITORY cache validate --collection NAME
 
 Options:
@@ -29,11 +33,14 @@ Options:
   --reconcile metadata-on-open|metadata-on-request|hash-on-request
                                  Default: metadata-on-open
   --output table|json|ndjson|events
-                                  Views default to table, other commands to json; events stream query records
+                                  Views default to table, other commands to json; events stream query/search hits
   --diagnostic, --diagnostics     Emit pretty JSON diagnostics with time and level to stderr
   --collection NAME               Query scope (alternative to positional COLLECTION); cache target
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
+  --mode word|regex|raw-regex     Full-text word or regex search; raw-regex sees markup
+  --field PATH                    Limit full-text search to a JSON leaf path
+  --case-sensitive                Match case exactly in full-text search
   --help, --version
 
 Examples:
@@ -69,7 +76,7 @@ pub(super) fn args() -> Result<Args, String> {
         match a.as_str() {
             "--cache" | "--reconcile" | "--output" | "--sort" | "--direction" | "--columns"
             | "--limit" | "--offset" | "--collection" | "--from" | "--to" | "--filter"
-            | "--param" | "--then-sort" | "--backend" => {
+            | "--param" | "--then-sort" | "--backend" | "--mode" | "--field" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))
@@ -93,7 +100,7 @@ pub(super) fn args() -> Result<Args, String> {
                 }
             }
             "--collections" | "--indexes" | "--count" | "--complete" | "--check-targets"
-            | "--diagnostics" | "--diagnostic" => {
+            | "--case-sensitive" | "--diagnostics" | "--diagnostic" => {
                 out.flags.insert(if a == "--diagnostic" {
                     "--diagnostics".into()
                 } else {

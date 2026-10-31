@@ -26,6 +26,7 @@ mod json_query;
 mod reconciliation;
 mod relations;
 mod source_records;
+mod text_query;
 mod validation_ops;
 mod views;
 
@@ -92,6 +93,12 @@ macro_rules! metrics {
                 difference
             }
 
+            pub(crate) fn add_from(&mut self, other: &Self) {
+                $($(#[$field_attr])* {
+                    self.$field = self.$field.saturating_add(other.$field);
+                })*
+            }
+
         }
     };
 }
@@ -141,7 +148,9 @@ metrics!(
     bigram_file_open_nanos,
     bigram_read_nanos,
     bigram_regex_nanos,
-    bigram_materialize_nanos
+    bigram_materialize_nanos,
+    fts_open_nanos,
+    fts_candidates
 );
 
 

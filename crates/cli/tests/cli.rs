@@ -936,6 +936,159 @@ fn query_events_report_late_errors_after_provisional_records() {
 }
 
 #[test]
+fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
+    let fixture = Fixture::new();
+    fixture.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["title"]["x-full-text"] = json!("markdown");
+    });
+    fixture.edit("data/books/a.json", |record| {
+        record["title"] = json!("**He**lp");
+    });
+    let root = fixture.root.to_str().unwrap();
+    let visible = value(run(
+        &fixture,
+        &[
+            root, "search", "books", "Help", "--count", "--field", "title",
+        ],
+    ));
+    assert_eq!(visible["total"], 1);
+    assert_eq!(visible["hits"][0]["record"]["id"], "a");
+    assert_eq!(visible["hits"][0]["fields"], json!(["title"]));
+    let combined = value(run(
+        &fixture,
+        &[
+            root,
+            "query",
+            "books",
+            "score >= 1 && title:fts ~ 'Help'",
+            "--count",
+        ],
+    ));
+    assert_eq!(combined["total"], 1);
+    assert_eq!(combined["records"][0]["id"], "a");
+    let direct = value(run(
+        &fixture,
+        &[
+            root, "search", "books", "Help", "--cache", "disabled", "--count",
+        ],
+    ));
+    assert_eq!(direct["total"], 1);
+    assert!(direct["query_plan"][0].as_str().unwrap().contains("direct"));
+    let diagnostic_output = run(
+        &fixture,
+        &[root, "search", "books", "Help", "--diagnostics"],
+    );
+    assert!(diagnostic_output.status.success());
+    let diagnostic = diagnostics(&diagnostic_output);
+    assert_eq!(diagnostic["level"], "info");
+    assert!(diagnostic["timestamp_unix_ms"].as_u64().is_some());
+
+    let raw = value(run(
+        &fixture,
+        &[
+            root,
+            "search",
+            "books",
+            r"\*\*He\*\*lp",
+            "--mode",
+            "raw-regex",
+            "--count",
+        ],
+    ));
+    assert_eq!(raw["total"], 1);
+    let clean = value(run(
+        &fixture,
+        &[
+            root,
+            "search",
+            "books",
+            r"\*\*He\*\*lp",
+            "--mode",
+            "regex",
+            "--count",
+        ],
+    ));
+    assert_eq!(clean["total"], 0);
+
+    let output = run(
+        &fixture,
+        &[
+            root, "search", "books", "Help", "--count", "--output", "events",
+        ],
+    );
+    assert!(output.status.success());
+    let events = String::from_utf8(output.stdout)
+        .unwrap()
+        .lines()
+        .map(|line| serde_json::from_str::<Value>(line).unwrap())
+        .collect::<Vec<_>>();
+    assert_eq!(events.len(), 2);
+    assert_eq!(events[0]["type"], "hit");
+    assert_eq!(events[0]["provisional"], true);
+    assert_eq!(events[1]["type"], "complete");
+    assert_eq!(events[1]["total"], 1);
+
+    let warmed = value(run(
+        &fixture,
+        &[root, "cache", "warm-text", "--collection", "books"],
+    ));
+    assert!(warmed["fts_open_ms"].as_f64().unwrap() > 0.0);
+}
+
+#[test]
+fn cli_full_text_searches_undeclared_values_and_honors_exclusion() {
+    let fixture = Fixture::new();
+    fixture.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["secret"] = json!({"type":"string","exclude_fts":true});
+    });
+    fixture.edit("data/books/a.json", |record| {
+        record["custom_text"] = json!("Comet");
+        record["secret"] = json!("Forbidden");
+    });
+    let root = fixture.root.to_str().unwrap();
+    let found = value(run(
+        &fixture,
+        &[root, "search", "books", "Comet", "--count"],
+    ));
+    assert_eq!(found["total"], 1);
+    assert_eq!(found["hits"][0]["fields"], json!(["custom_text"]));
+    let excluded = value(run(
+        &fixture,
+        &[root, "search", "books", "Forbidden", "--count"],
+    ));
+    assert_eq!(excluded["total"], 0);
+    let ordinary = value(run(
+        &fixture,
+        &[root, "query", "books", "secret ~ 'Forbidden'", "--count"],
+    ));
+    assert_eq!(ordinary["total"], 1);
+}
+
+#[test]
+fn cli_can_warm_and_search_a_schema_free_collection() {
+    let temp = tempfile::tempdir().unwrap();
+    let folder = temp.path().join("data/books");
+    fs::create_dir_all(&folder).unwrap();
+    fs::write(folder.join("a.json"), r#"{"extra":{"note":"Comet"}}"#).unwrap();
+    let root = temp.path().to_str().unwrap();
+    let warmed = value(
+        Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args([root, "cache", "warm-text", "--collection", "books"])
+            .output()
+            .unwrap(),
+    );
+    assert!(warmed["fts_open_ms"].as_f64().unwrap() > 0.0);
+    let found = value(
+        Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args([root, "search", "books", "Comet", "--count"])
+            .output()
+            .unwrap(),
+    );
+    assert_eq!(found["total"], 1);
+    assert_eq!(found["hits"][0]["fields"], json!(["extra.note"]));
+}
+
+#[test]
 fn diagnostics_reports_bigram_query() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();

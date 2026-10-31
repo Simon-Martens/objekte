@@ -1,9 +1,11 @@
 //! Stored-JSON filters evaluated against Sonic-parsed source values.
+mod fts;
 mod parser;
 mod pattern;
 mod prefilter;
 
-use crate::{Error, Metrics, Record, Result, config::fingerprint};
+use crate::{Error, Metrics, Record, Result, TextFormat, config::fingerprint, text::render_text};
+pub(crate) use fts::FtsPlan;
 use num_bigint::BigInt;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -43,6 +45,8 @@ enum Modifier {
     Length,
     Each,
     Lower,
+    Fts,
+    Rendered(TextFormat),
 }
 
 
@@ -89,6 +93,10 @@ impl FieldOperand {
             .filter_map(|v| match self.modifier {
                 Some(Modifier::Length) => v.as_array().map(|a| Value::from(a.len())),
                 Some(Modifier::Lower) => v.as_str().map(|s| Value::String(s.to_ascii_lowercase())),
+                Some(Modifier::Rendered(format)) => v
+                    .as_str()
+                    .and_then(|text| render_text(text, format))
+                    .map(Value::String),
                 _ => Some(v.clone()),
             })
             .collect()
