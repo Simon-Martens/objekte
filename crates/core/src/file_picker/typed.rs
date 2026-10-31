@@ -1,10 +1,7 @@
 //! In-memory ordered postings for top-level numeric, boolean, and enum fields.
 //! Immutable postings cover the indexed snapshot; changed slots are included
 //! conservatively until the next rebuild and verified against source JSON.
-use crate::{
-    json_filter::{TypedPlan, decimal_cmp},
-    query::Operator,
-};
+use crate::json_filter::{IndexOp, TypedPlan, decimal_cmp};
 use serde_json::Value;
 use std::{
     cmp::Ordering,
@@ -15,6 +12,7 @@ use std::{
 
 #[derive(Clone, Debug)]
 pub(super) enum TypedKey {
+    Null,
     Bool(bool),
     Number(String),
     String(String),
@@ -24,6 +22,7 @@ pub(super) enum TypedKey {
 impl TypedKey {
     pub(super) fn from_value(value: &Value) -> Option<Self> {
         match value {
+            Value::Null => Some(Self::Null),
             Value::Bool(value) => Some(Self::Bool(*value)),
             Value::Number(value) => Some(Self::Number(value.as_str().to_owned())),
             Value::String(value) => Some(Self::String(value.clone())),
@@ -34,7 +33,8 @@ impl TypedKey {
     fn same_kind(&self, other: &Self) -> bool {
         matches!(
             (self, other),
-            (Self::Bool(_), Self::Bool(_))
+            (Self::Null, Self::Null)
+                | (Self::Bool(_), Self::Bool(_))
                 | (Self::Number(_), Self::Number(_))
                 | (Self::String(_), Self::String(_))
         )
@@ -45,6 +45,9 @@ impl TypedKey {
 impl Ord for TypedKey {
     fn cmp(&self, other: &Self) -> Ordering {
         match (self, other) {
+            (Self::Null, Self::Null) => Ordering::Equal,
+            (Self::Null, _) => Ordering::Less,
+            (_, Self::Null) => Ordering::Greater,
             (Self::Bool(a), Self::Bool(b)) => a.cmp(b),
             (Self::Number(a), Self::Number(b)) => decimal_cmp(a, b),
             (Self::String(a), Self::String(b)) => a.cmp(b),
@@ -114,8 +117,8 @@ impl TypedIndex {
 
     fn plan_bits(&self, plan: &TypedPlan, slot_count: usize) -> Option<Vec<u64>> {
         match plan {
-            TypedPlan::Term(field, operator, value) => {
-                self.term_bits(field, *operator, value, slot_count)
+            TypedPlan::Term(path, operator, value) => {
+                self.term_bits(path, *operator, value, slot_count)
             }
             TypedPlan::And(parts) => {
                 let mut combined: Option<Vec<u64>> = None;
@@ -151,7 +154,7 @@ impl TypedIndex {
     pub(super) fn term_bits(
         &self,
         field: &str,
-        operator: Operator,
+        operator: IndexOp,
         value: &Value,
         slot_count: usize,
     ) -> Option<Vec<u64>> {
@@ -160,33 +163,49 @@ impl TypedIndex {
             .binary_search_by(|name| name.as_str().cmp(field))
             .ok()?;
         let key = TypedKey::from_value(value)?;
-        if matches!(key, TypedKey::Bool(_)) && !matches!(operator, Operator::Eq) {
+        if matches!(key, TypedKey::Bool(_) | TypedKey::Null)
+            && !matches!(operator, IndexOp::Eq | IndexOp::Ne)
+        {
             return None;
         }
         let mut bits = vec![0u64; slot_count.div_ceil(64)];
         let postings = &self.postings[index];
-        if matches!(operator, Operator::Eq) {
-            if let Some(slots) = postings.get(&key) {
-                for &slot in slots {
-                    bits[slot / 64] |= 1 << (slot % 64);
+        match operator {
+            IndexOp::Eq => {
+                if let Some(slots) = postings.get(&key) {
+                    for &slot in slots {
+                        bits[slot / 64] |= 1 << (slot % 64);
+                    }
                 }
             }
-        } else {
-            // TypedKey orders numeric lexemes by exact decimal value. Range
-            // bounds therefore avoid visiting unrelated numeric postings.
-            let bounds = match operator {
-                Operator::Lt => (Unbounded, Excluded(key.clone())),
-                Operator::Le => (Unbounded, Included(key.clone())),
-                Operator::Gt => (Excluded(key.clone()), Unbounded),
-                Operator::Ge => (Included(key.clone()), Unbounded),
-                Operator::Eq => unreachable!(),
-            };
-            for (candidate, slots) in postings.range(bounds) {
-                if !candidate.same_kind(&key) {
-                    continue;
+            IndexOp::Ne => {
+                // Missing fields and containers have no typed posting. Null and
+                // other scalar kinds do compare unequal to a numeric value.
+                for (candidate, slots) in postings {
+                    if candidate != &key {
+                        for &slot in slots {
+                            bits[slot / 64] |= 1 << (slot % 64);
+                        }
+                    }
                 }
-                for &slot in slots {
-                    bits[slot / 64] |= 1 << (slot % 64);
+            }
+            IndexOp::Lt | IndexOp::Le | IndexOp::Gt | IndexOp::Ge => {
+                // TypedKey orders numeric lexemes by exact decimal value. Range
+                // bounds therefore avoid visiting unrelated numeric postings.
+                let bounds = match operator {
+                    IndexOp::Lt => (Unbounded, Excluded(key.clone())),
+                    IndexOp::Le => (Unbounded, Included(key.clone())),
+                    IndexOp::Gt => (Excluded(key.clone()), Unbounded),
+                    IndexOp::Ge => (Included(key.clone()), Unbounded),
+                    _ => unreachable!(),
+                };
+                for (candidate, slots) in postings.range(bounds) {
+                    if !candidate.same_kind(&key) {
+                        continue;
+                    }
+                    for &slot in slots {
+                        bits[slot / 64] |= 1 << (slot % 64);
+                    }
                 }
             }
         }
@@ -207,12 +226,17 @@ fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usi
     let mut numbers = HashMap::<String, Vec<usize>>::new();
     let mut strings = HashMap::<String, Vec<usize>>::new();
     let mut booleans = [Vec::new(), Vec::new()];
+    let mut nulls = Vec::new();
     for (key, slot) in rows {
         match key {
+            TypedKey::Null => nulls.push(slot),
             TypedKey::Bool(value) => booleans[usize::from(value)].push(slot),
             TypedKey::Number(raw) => numbers.entry(raw).or_default().push(slot),
             TypedKey::String(raw) => strings.entry(raw).or_default().push(slot),
         }
+    }
+    if !nulls.is_empty() {
+        postings.insert(TypedKey::Null, nulls);
     }
     for (value, slots) in booleans.into_iter().enumerate() {
         if !slots.is_empty() {
@@ -243,10 +267,11 @@ fn should_group_rows(rows: &[(TypedKey, usize)]) -> bool {
     let mut distinct = HashSet::new();
     for (key, _) in sample {
         let raw = match key {
-            TypedKey::Bool(false) => (0, "false"),
-            TypedKey::Bool(true) => (0, "true"),
-            TypedKey::Number(raw) => (1, raw.as_str()),
-            TypedKey::String(raw) => (2, raw.as_str()),
+            TypedKey::Null => (0, "null"),
+            TypedKey::Bool(false) => (1, "false"),
+            TypedKey::Bool(true) => (1, "true"),
+            TypedKey::Number(raw) => (2, raw.as_str()),
+            TypedKey::String(raw) => (3, raw.as_str()),
         };
         distinct.insert(raw);
     }

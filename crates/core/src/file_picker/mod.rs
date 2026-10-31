@@ -30,6 +30,7 @@ use std::{
     time::Instant,
 };
 
+pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 use presence::PresenceIndex;
 use projection::projected_values;

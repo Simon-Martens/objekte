@@ -115,7 +115,7 @@ enum Expr {
 /// A necessary typed candidate expression. Unsupported AND children can be
 /// omitted; an OR is useful only when every child has a safe candidate set.
 pub(crate) enum TypedPlan {
-    Term(String, crate::query::Operator, Value),
+    Term(String, IndexOp, Value),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -124,9 +124,21 @@ pub(crate) enum TypedPlan {
 /// Predicates whose complete match set an in-memory scalar index can decide.
 pub(crate) enum ExactPlan {
     Present(String),
-    Term(String, crate::query::Operator, Value),
+    Term(String, IndexOp, Value),
     And(Vec<Self>),
     Or(Vec<Self>),
+}
+
+
+/// Comparisons supported by JSON-query scalar postings.
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub(crate) enum IndexOp {
+    Eq,
+    Ne,
+    Lt,
+    Le,
+    Gt,
+    Ge,
 }
 
 
@@ -259,7 +271,6 @@ impl JsonFilter {
     /// Necessary typed candidates for AND/OR filters. Exact JSON evaluation
     /// still decides whether a candidate matches.
     pub(crate) fn typed_plan(&self) -> Option<TypedPlan> {
-        use crate::query::Operator;
         fn plan(expr: &Expr) -> Option<TypedPlan> {
             match expr {
                 Expr::And(parts) => {
@@ -281,14 +292,19 @@ impl JsonFilter {
                         return None;
                     };
                     let operator = match op {
-                        Op::Eq => Operator::Eq,
-                        Op::Lt => Operator::Lt,
-                        Op::Le => Operator::Le,
-                        Op::Gt => Operator::Gt,
-                        Op::Ge => Operator::Ge,
+                        Op::Eq => IndexOp::Eq,
+                        Op::Ne => IndexOp::Ne,
+                        Op::Lt => IndexOp::Lt,
+                        Op::Le => IndexOp::Le,
+                        Op::Gt => IndexOp::Gt,
+                        Op::Ge => IndexOp::Ge,
                         _ => return None,
                     };
-                    if value.is_number() || value.is_boolean() || value.is_string() {
+                    if value.is_number()
+                        || value.is_boolean()
+                        || value.is_string()
+                        || value.is_null()
+                    {
                         Some(TypedPlan::Term(name.clone(), operator, value.clone()))
                     } else {
                         None
@@ -302,8 +318,6 @@ impl JsonFilter {
 
     /// Use only simple top-level predicates with exact index semantics.
     pub(crate) fn exact_index_plan(&self) -> Option<ExactPlan> {
-        use crate::query::Operator;
-
         fn plan(expr: &Expr) -> Option<ExactPlan> {
             match expr {
                 Expr::And(parts) => Some(ExactPlan::And(
@@ -327,15 +341,19 @@ impl JsonFilter {
                         return None;
                     };
                     let operator = match op {
-                        Op::Eq => Operator::Eq,
-                        Op::Lt => Operator::Lt,
-                        Op::Le => Operator::Le,
-                        Op::Gt => Operator::Gt,
-                        Op::Ge => Operator::Ge,
+                        Op::Eq => IndexOp::Eq,
+                        Op::Ne => IndexOp::Ne,
+                        Op::Lt => IndexOp::Lt,
+                        Op::Le => IndexOp::Le,
+                        Op::Gt => IndexOp::Gt,
+                        Op::Ge => IndexOp::Ge,
                         _ => return None,
                     };
-                    (value.is_number() || value.is_boolean() || value.is_string())
-                        .then(|| ExactPlan::Term(name.clone(), operator, value.clone()))
+                    (value.is_number()
+                        || value.is_boolean()
+                        || value.is_string()
+                        || value.is_null())
+                    .then(|| ExactPlan::Term(name.clone(), operator, value.clone()))
                 }
                 _ => None,
             }

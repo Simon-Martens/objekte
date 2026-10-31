@@ -69,9 +69,13 @@ impl Repository {
                 continue;
             }
             if !risk
-                && let Some(entries) = exact_plan
-                    .as_ref()
-                    .and_then(|plan| picker.exact_records(plan))
+                && let Some(selection) = exact_plan.as_ref().and_then(|plan| {
+                    picker.exact_selection(
+                        plan,
+                        request.offset.saturating_sub(matched),
+                        request.limit.saturating_sub(result.returned()),
+                    )
+                })
             {
                 self.metrics.bigram_candidates_nanos += nanos(candidate_started);
                 if result.query_plan.len() == 1 {
@@ -82,12 +86,11 @@ impl Repository {
                 Self::query_json_exact_records(
                     &mut self.metrics,
                     super::exact::ExactQuery {
-                        request,
                         filter,
                         collection: c,
                         root: &self.model.root,
                     },
-                    &entries,
+                    &selection,
                     result,
                     &mut matched,
                 )?;

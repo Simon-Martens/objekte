@@ -7,4 +7,20 @@ cargo build --release -p objekte-bench --bin json-query-grep-compare
 target/release/json-query-grep-compare --repo examples/musenalm --workload crates/bench/workloads/musenalm-grep.json --runs 3
 ```
 
+The `json-query-mix` benchmark runs 50 unscoped filters against every
+schema-compatible collection with one warm repository handle. Each filter
+counts all matches and returns one record. It warms the indexes and runs each
+filter once before timing, then alternates case order across rounds. Output is
+NDJSON with a setup row followed by one row per filter.
+
+```sh
+cargo build --release -p objekte-bench --bin json-query-mix
+target/release/json-query-mix --repo examples/musenalm --runs 7
+```
+
+See [the October 31 baseline](QUERY-MIX-50-2026-10-31.md) for the full table
+before snapshot counts and null/inequality postings. The
+[after-change report](QUERY-INDEXED-COUNTS-AFTER-2026-10-31.md) compares the
+affected cases and links the full raw rerun.
+
 The dated reports in this directory record earlier architectures and experiments. The [43-case bigram versus segment report](BIGRAM-VS-SEGMENTS-2026-10-29.md) is historical evidence for the in-memory decision; its segment backend has been removed. The [FFF comparison](FFF-VS-SEGMENTS-2026-10-29.md) and [values-only layout study](VALUES-ONLY-CACHE-2026-10-29.md) likewise describe retired benchmark executables. Commands in those reports are archival and are not expected to run against the current workspace.

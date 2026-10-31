@@ -8,6 +8,10 @@ license.workspace = true
 name = "json-query-grep-compare"
 path = "src/bin/json_query_grep_compare.rs"
 
+[[bin]]
+name = "json-query-mix"
+path = "src/bin/json_query_mix.rs"
+
 [dependencies]
 objekte-core = { path = "../core" }
 serde_json = "1"

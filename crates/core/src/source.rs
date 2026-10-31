@@ -229,32 +229,6 @@ impl Source {
         }
     }
 
-    /// Check an indexed match without reading or parsing its contents.
-    pub fn check_stamp(&self, id: &str, expected: &Stamp) -> Result<()> {
-        validate_id(id)?;
-        let name = format!("{id}.json");
-        let path = self.path.join(&name);
-        #[cfg(target_os = "linux")]
-        let current = Stamp::from_stat(
-            &rustix::fs::statat(
-                &self.directory,
-                name.as_str(),
-                rustix::fs::AtFlags::SYMLINK_NOFOLLOW,
-            )
-            .map_err(|e| io(&path, e.into()))?,
-            &path,
-        )?;
-        #[cfg(not(target_os = "linux"))]
-        let current = Stamp::from_metadata(
-            &fs::symlink_metadata(&path).map_err(|e| io(&path, e))?,
-            &path,
-        )?;
-        if &current != expected {
-            return Err(Error::Unstable(path));
-        }
-        Ok(())
-    }
-
     /// Detect directory replacement and membership changes. This is not an atomic FS snapshot.
     pub fn finish(&self) -> Result<()> {
         let m = fs::symlink_metadata(&self.path).map_err(|e| io(&self.path, e))?;

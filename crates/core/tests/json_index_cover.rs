@@ -2,11 +2,10 @@
 
 mod support;
 
-use objekte_core::{CacheMode, JsonQuery};
+use objekte_core::{CacheMode, JsonQuery, JsonQueryBackend};
 use serde_json::json;
 use std::fs;
 use support::Fixture;
-
 
 fn fixture() -> Fixture {
     let fixture = Fixture::new();
@@ -117,18 +116,102 @@ fn presence_narrows_negation_and_refresh_updates_bits() {
 }
 
 #[test]
-fn covered_count_checks_metadata_of_skipped_matches() {
+fn covered_count_uses_snapshot_until_explicit_refresh() {
     let fixture = fixture();
     let mut repository = fixture.repo(CacheMode::Memory);
-    repository.query_json(&query("exists(score)")).unwrap();
+    repository.query_json(&query("score = 2")).unwrap();
     fixture.write(
         "data/books/a.json",
         &json!({"score":222,"title":"keep","payload":null}),
     );
-    let stale = repository.query_json(&JsonQuery {
-        offset: 1,
-        limit: 1,
-        ..query("exists(score)")
-    });
-    assert!(stale.unwrap_err().to_string().contains("changed"));
+    let snapshot = repository
+        .query_json(&JsonQuery {
+            offset: 1,
+            limit: 1,
+            ..query("score = 2")
+        })
+        .unwrap();
+    assert_eq!(snapshot.total, Some(1));
+    assert!(snapshot.records.is_empty());
+    assert_eq!(snapshot.metrics.grep_scans, 0);
+    assert_eq!(snapshot.metrics.parses, 0);
+
+    repository.refresh("books").unwrap();
+    assert_eq!(
+        repository.query_json(&query("score = 2")).unwrap().total,
+        Some(0)
+    );
+    assert_eq!(
+        repository.query_json(&query("score = 222")).unwrap().total,
+        Some(1)
+    );
+}
+
+#[test]
+fn typed_index_covers_null_inequality_and_every_numeric_bound() {
+    let fixture = fixture();
+    fixture.write("data/books/f.json", &json!({"score":"wrong type"}));
+    fixture.write("data/books/g.json", &json!({"score":{"nested":2}}));
+    let mut repository = fixture.repo(CacheMode::Memory);
+
+    for (filter, count, first_id) in [
+        ("score = null", 1, Some("c")),
+        ("score != null", 3, Some("a")),
+        ("score = 2", 1, Some("a")),
+        ("score != 2", 3, Some("b")),
+        ("score < 3", 1, Some("a")),
+        ("score <= 2", 1, Some("a")),
+        ("score > 2", 1, Some("b")),
+        ("score >= 2", 2, Some("a")),
+        ("score = 2 || score = null", 2, Some("a")),
+        ("score != 2 && flag = false", 1, Some("b")),
+        ("flag != true", 1, Some("b")),
+    ] {
+        let request = JsonQuery {
+            limit: 1,
+            ..query(filter)
+        };
+        let indexed = repository.query_json(&request).unwrap();
+        let direct = repository
+            .query_json(&JsonQuery {
+                backend: JsonQueryBackend::Direct,
+                ..request
+            })
+            .unwrap();
+        assert_eq!(indexed.total, Some(count), "{filter}");
+        assert_eq!(indexed.total, direct.total, "{filter}");
+        assert_eq!(
+            indexed.records.first().map(|r| r.id.as_str()),
+            first_id,
+            "{filter}"
+        );
+        assert_eq!(
+            indexed.records.first().map(|r| r.id.as_str()),
+            direct.records.first().map(|r| r.id.as_str()),
+            "{filter}"
+        );
+        assert_eq!(indexed.metrics.grep_scans, 0, "{filter}");
+        assert!(
+            indexed
+                .query_plan
+                .iter()
+                .any(|step| step.contains("exact scalar")),
+            "{filter}"
+        );
+    }
+}
+
+#[test]
+fn null_and_inequality_still_detect_scalar_array_errors() {
+    let fixture = fixture();
+    fixture.write("data/books/f.json", &json!({"score":[2,3]}));
+    let mut repository = fixture.repo(CacheMode::Memory);
+
+    for filter in ["score = null", "score != 2"] {
+        let error = repository.query_json(&query(filter)).unwrap_err();
+        assert!(
+            error.to_string().contains("multiple values"),
+            "{filter}: {error}"
+        );
+    }
 }
