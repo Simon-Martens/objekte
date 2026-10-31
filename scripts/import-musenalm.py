@@ -15,17 +15,38 @@ import re
 import shutil
 import tempfile
 import xml.etree.ElementTree as ET
-from musenalm_ui import EDITOR_SETTINGS_SCHEMA, LANGUAGES, configure, row_defaults
+
+TABLE_COLUMNS = {
+    'contents': ['preferred_title', 'agents', 'musenalm_type', 'extent'],
+    'items': ['identifier', 'owner', 'location', 'media'],
+    'agents': ['agent', 'type', 'annotation'],
+    'related_entries': ['entry', 'annotation'],
+}
+
+
+def row_defaults(schema):
+    """Keep embedded row defaults from the original XML import."""
+    for key, prop in schema.get('properties', {}).items():
+        if prop.get('type') == 'array' and prop.get('items', {}).get('type') == 'object':
+            item = prop['items']
+            if key in TABLE_COLUMNS:
+                initial = {}
+                for column in TABLE_COLUMNS[key]:
+                    kind = item['properties'].get(column, {}).get('type')
+                    choices = item['properties'].get(column, {}).get('enum')
+                    if kind in ('string', 'array') and (choices is None or '' in choices):
+                        initial[column] = [] if kind == 'array' else ''
+                item['default'] = initial
+            row_defaults(item)
+        elif prop.get('type') == 'object':
+            row_defaults(prop)
+    return schema
 
 NAMES = ('series', 'entries', 'items', 'contents', 'agents', 'places')
 PROJECT_NAMES = ('series', 'entries', 'agents', 'places')
 RELATIONS = ('R_entries_series', 'R_entries_agents', 'R_contents_agents')
 LABEL = dict(series='title', entries='preferred_title', items='identifier',
              contents='preferred_title', agents='name', places='name')
-ICONS = dict(series='ri-book-shelf-line', entries='ri-book-line', items='ri-archive-line',
-             contents='ri-file-text-line', agents='ri-user-line', places='ri-map-pin-line')
-
-
 def rows(path):
     context = ET.iterparse(path, events=('start', 'end'))
     _, root = next(context)
@@ -229,69 +250,15 @@ def import_project(source, destination):
     try:
         for name in PROJECT_NAMES:
             position = NAMES.index(name)
-            base = f'.editor/collections/{name}'
-            write(temporary / base / 'schema.json', row_defaults(schemas[name]))
-            write(temporary / base / 'settings.json', {
-                'type': 'data', 'path': 'data/' + name, 'format': 'json', 'id': 'filename',
-                'idPattern': '^[a-z0-9][a-z0-9-]*$', 'schema': base + '/schema.json', 'ui': base + '/ui.json',
-                'operations': ['read', 'create', 'update', 'rename', 'delete']})
-            ui_fields = {}
-            for f in fields[name]:
-                key = f['name']
-                if key not in schemas[name]['properties']:
-                    continue
-                config = {'title': key.replace('_', ' ').capitalize()}
-                if f['type'] in ('editor', 'json'):
-                    config['x-editor'] = 'markdown' if f['type'] == 'editor' else 'json'
-                ui_fields['/properties/' + key] = config
-            display = LABEL[name]
-            columns = [display] + (['year'] if name == 'entries' else ['musenalm_id'])
-            if name == 'series':
-                columns += ['entries']
-            ui = {'label': name.capitalize(), 'display': display, 'singularLabel': {'series': 'Series', 'entries': 'Entry', 'contents': 'Content', 'items': 'Item', 'agents': 'Agent', 'places': 'Place'}[name],
-                  'sidebarTree': False, 'icon': ICONS[name], 'position': position, 'sidebarGroup': 'Catalogue', 'fields': ui_fields,
-                  'fieldOrder': [display] + [k for k in schemas[name]['properties'] if k != display],
-                  'labels': {key: [display] for key in ('list', 'search', 'record', 'reference')},
-                  'search': [k for k, v in schemas[name]['properties'].items() if v.get('type') in ('string', 'number') and k not in ('created', 'updated', 'editor')],
-                  'list': {'columns': columns, 'defaultSort': {'field': '_label', 'direction': 'asc'}, 'autoFilters': False, 'filters': ['edit_state']}}
-            # Nested relationship notes use the same Markdown control.
-            for key in ('agents', 'related_entries'):
-                if key not in schemas[name]['properties']:
-                    continue
-                for prop in schemas[name]['properties'][key]['items']['properties']:
-                    config = {'title': prop.replace('_', ' ').capitalize()}
-                    if prop in ('annotation', 'edit_comment'):
-                        config['x-editor'] = 'markdown'
-                    ui_fields[f'/properties/{key}/items/properties/{prop}'] = config
-            if name == 'entries':
-                for child in ('items', 'contents'):
-                    prefix = f'/properties/{child}/items/properties'
-                    for prop in schemas[child]['properties']:
-                        if prop in ('entries', 'numbering'):
-                            continue
-                        config = {'title': prop.replace('_', ' ').capitalize()}
-                        if prop in ('annotation', 'edit_comment'):
-                            config['x-editor'] = 'markdown'
-                        if prop in ('edit_fielddata', 'musenalm_deprecated'):
-                            config['x-editor'] = 'json'
-                        ui_fields[f'{prefix}/{prop}'] = config
-                    ui_fields[f'{prefix}/source_id'] = {'title': 'Source id'}
-                    if child == 'contents':
-                        for prop in schemas['contents']['properties']['agents']['items']['properties']:
-                            config = {'title': prop.replace('_', ' ').capitalize()}
-                            if prop in ('annotation', 'edit_comment'):
-                                config['x-editor'] = 'markdown'
-                            ui_fields[f'{prefix}/agents/items/properties/{prop}'] = config
-            write(temporary / base / 'ui.json', configure(name, schemas[name], ui))
+            schema = row_defaults(schemas[name])
+            schema['x-objekte'] = {
+                'name': name, 'path': 'data/' + name,
+                'type': 'data', 'format': 'json', 'id': 'filename',
+            }
+            write(temporary / '.objekte/collections' / f'{name}.schema.json', schema)
             (temporary / 'data' / name).mkdir(parents=True)
             for identifier, record in data[name].items():
                 write(temporary / 'data' / name / (identifier + '.json'), record)
-        write(temporary / '.editor/repository.json', {'version': 2, 'ui': '.editor/ui.json', 'settings': 'settings.json',
-            'collections': {n: f'.editor/collections/{n}/settings.json' for n in PROJECT_NAMES},
-            'documents': {'editor-settings': {'schema': '.editor/settings.schema.json', 'files': ['settings.json']}}})
-        write(temporary / '.editor/ui.json', {'i18n': LANGUAGES, 'groups': [{'name': 'Catalogue', 'label': 'Catalogue', 'position': 0, 'translations': {'de': {'label': 'Katalog'}}}], 'defaults': {}, 'collections': {}})
-        write(temporary / '.editor/settings.schema.json', EDITOR_SETTINGS_SCHEMA)
-        write(temporary / 'settings.json', {})
         report = {'records': {n: len(data[n]) for n in PROJECT_NAMES},
                   'embedded_records': {n: len(data[n]) for n in ('items', 'contents')},
                   'embedded_relations': {n: len(data[n]) for n in RELATIONS},

@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "required": [
+    "Sort",
+    "Werk"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "x-ownership": {
+        "kind": "imported",
+        "editable": false,
+        "onCreate": "omit"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-content": "media"
+      }
+    },
+    "Sort": {
+      "type": "integer"
+    },
+    "Werk": {
+      "type": "string"
+    },
+    "Titelzeile": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Fundstelle": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Kommentare": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-content": "markdown"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-objekte": {
+    "name": "unselbstaendige_drucke",
+    "path": "data/unselbstaendige_drucke",
+    "type": "data",
+    "format": "json",
+    "id": "filename"
+  }
+}

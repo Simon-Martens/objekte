@@ -204,7 +204,10 @@ impl Source {
                 let path = entry.path();
                 let kind = entry.file_type().map_err(|error| io(&path, error))?;
                 if kind.is_dir() {
-                    if matches!(entry.file_name().to_str(), Some(".editor" | ".git")) {
+                    if matches!(
+                        entry.file_name().to_str(),
+                        Some(".editor" | ".objekte" | ".git")
+                    ) {
                         continue;
                     }
                     if self.recursive {

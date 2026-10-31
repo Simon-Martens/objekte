@@ -1,8 +1,0 @@
-{
-  "type": "data",
-  "path": "data/items",
-  "format": "json",
-  "id": "filename",
-  "schema": ".editor/collections/items/schema.json",
-  "ui": ".editor/collections/items/ui.json"
-}

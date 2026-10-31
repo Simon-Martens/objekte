@@ -8,9 +8,7 @@ pub(super) const HELP: &str = "objekte — read-only file repository library dri
 Usage:
   objekte [REPOSITORY]                  Open the interactive TUI (default repository: .)
   objekte REPOSITORY tui                Open the interactive TUI explicitly
-  objekte REPOSITORY view COLLECTION [--sort FIELD] [--direction asc|desc]
-      [--then-sort FIELD:asc|desc]
-      [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
+  objekte REPOSITORY view NAME [--arg NAME=JSON] [--query-arg QUERY.FIELD=JSON]
   objekte REPOSITORY get COLLECTION ID
   objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY inferschema [COLLECTION] [--no-auto-index]
@@ -37,11 +35,13 @@ Options:
   --reconcile metadata-on-open|metadata-on-request|hash-on-request
                                  Default: metadata-on-open
   --output table|json|ndjson|events
-                                  Views default to table, other commands to json; events stream query/search hits
+                                  Events stream query/search hits
   --diagnostic, --diagnostics     Emit pretty JSON diagnostics with time and level to stderr
   --collection NAME               Query or inference scope (alternative to positional COLLECTION); cache target
   --no-auto-index                 Infer types without new ordered posting rules
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
+  --arg NAME=JSON                  Bind a declared view argument
+  --query-arg QUERY.FIELD=JSON     Override a native query request field in a view
   --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
   --mode word|raw-word|regex|raw-regex
                                   Literal substring or regex search; raw modes see markup
@@ -52,9 +52,7 @@ Options:
   --help, --version
 
 Examples:
-  objekte examples/musenalm view places
-  objekte examples/musenalm view contents --sort numbering --limit 20 --diagnostics
-  objekte examples/musenalm view contents --filter 'year>=1800' --output json
+  objekte examples/musenalm view contents_list --arg page=2
   objekte examples/musenalm query contents 'year >= 1800' --count
   objekte examples/musenalm inferschema contents
   objekte examples/musenalm writeschema contents
@@ -69,6 +67,8 @@ pub(super) struct Args {
     pub(super) filters: Vec<String>,
     pub(super) sub_sorts: Vec<String>,
     pub(super) parameters: BTreeMap<String, Value>,
+    pub(super) view_arguments: BTreeMap<String, Value>,
+    pub(super) query_arguments: BTreeMap<String, BTreeMap<String, Value>>,
 }
 
 
@@ -80,26 +80,51 @@ pub(super) fn args() -> Result<Args, String> {
         filters: Vec::new(),
         sub_sorts: Vec::new(),
         parameters: BTreeMap::new(),
+        view_arguments: BTreeMap::new(),
+        query_arguments: BTreeMap::new(),
     };
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
             "--cache" | "--reconcile" | "--output" | "--sort" | "--direction" | "--columns"
             | "--limit" | "--offset" | "--collection" | "--from" | "--to" | "--filter"
-            | "--param" | "--then-sort" | "--backend" | "--mode" | "--field" => {
+            | "--param" | "--then-sort" | "--backend" | "--mode" | "--field" | "--arg"
+            | "--query-arg" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))
                     .ok_or_else(|| format!("{a} requires a value"))?;
-                if a == "--param" {
-                    let (name, raw) = v.split_once('=').ok_or("--param requires NAME=JSON")?;
+                if matches!(a.as_str(), "--param" | "--arg" | "--query-arg") {
+                    let (name, raw) = v.split_once('=').ok_or("argument requires NAME=JSON")?;
                     if name.is_empty() {
-                        return Err("--param requires a name".into());
+                        return Err("argument requires a name".into());
                     }
                     let value = serde_json::from_str(raw)
-                        .map_err(|e| format!("invalid --param JSON: {e}"))?;
-                    if out.parameters.insert(name.into(), value).is_some() {
-                        return Err(format!("duplicate parameter {name}"));
+                        .map_err(|e| format!("invalid argument JSON: {e}"))?;
+                    let target = match a.as_str() {
+                        "--param" => &mut out.parameters,
+                        "--arg" => &mut out.view_arguments,
+                        _ => {
+                            let (query, field) = name
+                                .split_once('.')
+                                .ok_or("--query-arg requires QUERY.FIELD=JSON")?;
+                            if query.is_empty() || field.is_empty() {
+                                return Err("--query-arg requires QUERY.FIELD=JSON".into());
+                            }
+                            if out
+                                .query_arguments
+                                .entry(query.into())
+                                .or_default()
+                                .insert(field.into(), value)
+                                .is_some()
+                            {
+                                return Err(format!("duplicate query argument {name}"));
+                            }
+                            continue;
+                        }
+                    };
+                    if target.insert(name.into(), value).is_some() {
+                        return Err(format!("duplicate argument {name}"));
                     }
                 } else if a == "--filter" {
                     out.filters.push(v)

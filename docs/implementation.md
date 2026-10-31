@@ -2,7 +2,7 @@
 
 Source JSON files define the repository. `Repository::open` discovers populated JSON folders without a manifest; optional schema bases group their descendant folders into one collection. See [collections.md](collections.md) for ownership and code APIs. `Repository::load_repository` still supports the older manifest and falls back to discovery when no manifest exists. `Options::new()` selects `CacheMode::Memory`; `CacheMode::Disabled` makes views scan source files directly. The in-memory picker serves views and default JSON filters. It is derived data, lives for one `Repository` handle, and writes no cache files.
 
-`file_picker/` owns source inventory, bigram planning, typed postings, field-presence bits, revisions, and ordered view keys. `file_picker/text.rs` owns the separate rendered and raw full-text indexes; `text/` traverses every JSON leaf and applies schema rendering and exclusion rules. `json_filter/` owns filter syntax and evaluation. `repository/json_query/` contains the in-memory and direct-source query paths; `repository/text_query.rs` handles full-text verification; `repository/views.rs` handles views. Tests live in separate files under `crates/core/tests/`, `crates/cli/tests/`, and `crates/cli/src/tui/*.test.rs`.
+`file_picker/` owns source inventory, bigram planning, typed postings, field-presence bits, revisions, and ordered view keys. `file_picker/text.rs` owns the separate rendered and raw full-text indexes; `text/` traverses every JSON leaf and applies schema rendering and exclusion rules. `json_filter/` owns filter syntax and evaluation. `repository/json_query/` contains the in-memory and direct-source query paths; `repository/text_query.rs` handles full-text verification; `view_definition.rs` loads and executes independent named views. `repository/views.rs` retains the older collection-view API for legacy repositories. Tests live in separate files under `crates/core/tests/`, `crates/cli/tests/`, and `crates/cli/src/tui/*.test.rs`.
 
 ## Index lifecycle
 
@@ -24,7 +24,7 @@ The default `auto` backend and explicit `bigram` backend select candidates throu
 
 `query_json_stream` emits validated page records through a callback in collection and ID order. Bounded candidate batches may run in parallel, then publish in order. The final summary confirms the total and metadata; a later error invalidates provisional records. The CLI's `--output events` writes the corresponding JSON lines.
 
-View sorting uses ordered keys for explicitly indexed scalar fields, including bytewise string order. Null, missing, and invalid-type positions retain their view order. UI settings still control which view filters and sorts are permitted.
+View sorting uses ordered keys for explicitly indexed scalar fields, including bytewise string order. Null, missing, and invalid-type positions retain their view order. The older collection-view API still uses legacy UI settings; independent named views use native query arguments.
 
 Schema validation runs for returned JSON query matches, in-memory view pages, and explicit validation commands only when a collection has a schema. A parseable `get_record` response remains `pending` until validated, or reports `no_schema` if no schema is attached. Schema-free views default to `@id`. No validation state or reference edge is stored in the index. Outgoing references are extracted from schema-declared paths in requested records; incoming references include previously observed edges unless complete coverage is requested, which scans referring source collections.
 

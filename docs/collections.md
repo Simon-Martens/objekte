@@ -1,12 +1,27 @@
 # Collections and optional schemas
 
-`Repository::open(root)` discovers JSON collections under `root/data/` when that folder exists, or under `root/` otherwise. A folder with at least one direct regular `*.json` file is a collection. Empty folders are not collections. Its name is the path relative to the data root, using `/` between components; JSON files directly in the data root use the name `@root`. `.editor` and `.git` folders are reserved metadata and are not scanned. Discovery reads directory entries but does not parse record JSON or build indexes.
+`Repository::open(root)` reads named schemas from `.objekte/collections/<name>.schema.json`. Each root schema has an `x-objekte` object declaring `name`, repository-relative `path`, `type: "data"`, `format: "json"`, and `id: "filename"`. The name must match its schema filename. The configured path owns all descendant JSON files. The source directory must contain at least one JSON file, and configured paths cannot overlap.
 
-A schema declaration has a **base folder**. Every JSON file in that folder or any descendant belongs to one collection named for the base. Descendant folders do not become separate collections, even if they contain JSON directly. Schema bases cannot be the same or overlap as ancestors and descendants. Without a schema base, each folder with direct JSON is independent. A malformed JSON file still counts for discovery and can match standalone word or regex searches; it cannot satisfy any field-based filter.
+Populated JSON folders without a named schema are still discovered under `root/data/` when that folder exists, or under `root/` otherwise. Each folder with a direct regular `*.json` file is one collection. Empty folders are not collections. Its name is its path relative to the data root, using `/` between components; JSON files directly in the data root use `@root`. `.objekte`, `.editor`, and `.git` folders are excluded from source discovery. Discovery lists directory entries but does not parse record JSON or build indexes.
+
+A schema declaration has a **base folder**. Every JSON file in that folder or any descendant belongs to its named collection. Descendant folders do not become separate collections, even if they contain JSON directly. Without a schema base, each folder with direct JSON is independent. A malformed JSON file still counts for discovery and can match standalone word or regex searches; it cannot satisfy any field-based filter.
 
 For example, `data/books/a.json` and `data/books/part/a.json` belong to `books` when `data/books` has a schema base. Their IDs are `a` and `part/a`. Without that schema base, `books` and `books/part` are separate collections, both with an `a` record. IDs are relative paths without the `.json` extension; their components cannot be empty, `.` or `..`. Nested file reads refuse symlinked parents and files.
 
-By convention, a schema is read from `<collection>/.editor/schema.json`. The older repository metadata location `.editor/collections/<name>/schema.json` is also supported; a local schema takes priority. A schema can also be supplied explicitly in code, which takes priority over both defaults. A schema-backed collection may have JSON only in descendant folders, but it must have at least one JSON file somewhere in its subtree. An optional `.editor/collections/<name>/ui.json` configures a schema-backed view. Without a schema, a view defaults to its `@id` column and sort; returned parseable records have `no_schema` status. Only schema-backed collections get automatic ordered postings from `"index": true`, validation, and declared reference extraction. The bigram picker and general JSON queries work for every collection. Callers may still build an ordered posting explicitly for a path without a schema.
+For example, `.objekte/collections/books.schema.json` can declare:
+
+```json
+{
+  "type": "object",
+  "properties": { "title": { "type": "string" } },
+  "x-objekte": {
+    "name": "books", "path": "data/books",
+    "type": "data", "format": "json", "id": "filename"
+  }
+}
+```
+
+A schema-backed collection may have JSON only in descendant folders, but it must have at least one JSON file somewhere in its subtree. Only schema-backed collections get automatic ordered postings from `"index": true`, validation, and declared reference extraction. The bigram picker and general JSON queries work for every collection. Callers may still build an ordered posting explicitly for a path without a schema. Views are defined separately under `.objekte/views/`; see [Independent views](views.md).
 
 ## Rust API
 
@@ -49,4 +64,4 @@ let grouped = Collection::open_with_schema(
 # Ok::<(), objekte_core::Error>(())
 ```
 
-Schema paths passed to `Repository::builder` are relative to the repository root or absolute. Keep schema files outside the JSON data tree or inside a reserved `.editor` folder so they cannot be mistaken for records. `Repository::load_repository(root, options)` continues to load the older `.editor/repository.json` manifest when present, and uses discovery when it is absent. Legacy collection settings may omit `schema` and `ui`; absent `schema` selects a local or shared default when available, then direct-file ownership. `refresh_configuration()` rescans collection boundaries after folders or schema declarations change. `refresh(collection)` updates source files within an existing collection.
+Schema paths passed to `Repository::builder` are relative to the repository root or absolute. Keep them under `.objekte` or elsewhere outside the JSON data tree. `Repository::load_repository(root, options)` uses the new layout when `.objekte` is present; otherwise, it retains support for older `.editor/repository.json` manifests. `refresh_configuration()` rescans collection boundaries and view files after additions or removals. `refresh(collection)` updates source files within an existing collection.

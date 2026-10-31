@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent": {
+            "type": "string",
+            "x-relation": {
+              "collection": "agents"
+            }
+          },
+          "annotation": {
+            "type": "string"
+          },
+          "conjecture": {
+            "type": "boolean"
+          },
+          "created": {
+            "type": "string"
+          },
+          "edit_comment": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "Druck",
+              "Herausgeber:in",
+              "Verlag"
+            ],
+            "type": "string"
+          },
+          "uncertain": {
+            "type": "boolean"
+          },
+          "updated": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "agent"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "annotation": {
+      "type": "string"
+    },
+    "carrier_type": {
+      "items": {
+        "enum": [
+          "Band"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "content_type": {
+      "items": {
+        "enum": [
+          "Text",
+          "unbewegtes Bild"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "created": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "string"
+    },
+    "edit_comment": {
+      "type": "string"
+    },
+    "edit_fielddata": {
+      "properties": {
+        "places": {
+          "properties": {
+            "conjecture": {
+              "type": "boolean"
+            }
+          },
+          "type": "object"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "edit_state": {
+      "enum": [
+        "Edited",
+        "Review",
+        "Seen",
+        "ToDo",
+        "Unknown"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "edition": {
+      "type": "string"
+    },
+    "editor": {
+      "enum": [
+        "",
+        "gpj6tpa1lmk3vpy",
+        "hbwf3kmsfyyeo1u"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "extent": {
+      "type": "string"
+    },
+    "incipit_statement": {
+      "type": "string"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "annotation": {
+            "type": "string"
+          },
+          "basis": {
+            "type": "boolean"
+          },
+          "condition": {
+            "enum": [
+              "",
+              "1b",
+              "2b",
+              "3b",
+              "40",
+              "4b",
+              "5b",
+              "6b",
+              "80",
+              "90"
+            ],
+            "type": "string"
+          },
+          "created": {
+            "type": "string"
+          },
+          "edit_comment": {
+            "type": "string"
+          },
+          "edit_state": {
+            "enum": [
+              "",
+              "Edited",
+              "Review"
+            ],
+            "type": "string"
+          },
+          "editor": {
+            "type": "string"
+          },
+          "identifier": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "media": {
+            "items": {
+              "enum": [
+                "Original",
+                "Reproduktion"
+              ],
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "owner": {
+            "enum": [
+              "",
+              "Theodor Springmann Stiftung"
+            ],
+            "type": "string"
+          },
+          "public": {
+            "type": "boolean"
+          },
+          "scans": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "updated": {
+            "type": "string"
+          },
+          "uri": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "language": {
+      "items": {
+        "enum": [
+          "fre",
+          "ger"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "musenalm_deprecated": {
+      "properties": {
+        "bearbeitet_am": {
+          "type": "string"
+        },
+        "bearbeitet_von": {
+          "enum": [
+            "jb",
+            "ms"
+          ],
+          "type": "string"
+        },
+        "biblio": {
+          "type": "integer"
+        },
+        "erfasst": {
+          "type": "boolean"
+        },
+        "gesichtet": {
+          "type": "boolean"
+        },
+        "norm": {
+          "type": "string"
+        },
+        "reihentitel": {
+          "type": "string"
+        },
+        "status": {
+          "items": {
+            "enum": [
+              "Fremde Herkunft",
+              "Original vorhanden",
+              "Reprint vorhanden"
+            ],
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "musenalm_id": {
+      "index": true,
+      "type": "integer"
+    },
+    "parallel_title": {
+      "type": "string"
+    },
+    "place_statement": {
+      "type": "string"
+    },
+    "places": {
+      "items": {
+        "type": "string",
+        "x-relation": {
+          "collection": "places"
+        }
+      },
+      "type": "array"
+    },
+    "preferred_title": {
+      "type": "string"
+    },
+    "pseudonym": {
+      "index": true,
+      "type": "boolean"
+    },
+    "publication_statement": {
+      "type": "string"
+    },
+    "refs": {
+      "type": "string"
+    },
+    "responsibility_statement": {
+      "type": "string"
+    },
+    "subtitle_statement": {
+      "type": "string"
+    },
+    "title_statement": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "variant_title": {
+      "type": "string"
+    },
+    "year": {
+      "index": true,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "preferred_title",
+    "musenalm_id"
+  ],
+  "type": "object",
+  "x-index-paths": [
+    "agents[*].conjecture",
+    "agents[*].type",
+    "agents[*].uncertain",
+    "carrier_type[*]",
+    "content_type[*]",
+    "edit_fielddata.places.conjecture",
+    "items[*].basis",
+    "items[*].condition",
+    "items[*].edit_state",
+    "items[*].media[*]",
+    "items[*].owner",
+    "items[*].public",
+    "language[*]",
+    "musenalm_deprecated.bearbeitet_von",
+    "musenalm_deprecated.biblio",
+    "musenalm_deprecated.erfasst",
+    "musenalm_deprecated.gesichtet",
+    "musenalm_deprecated.status[*]"
+  ],
+  "x-objekte": {
+    "name": "entries",
+    "path": "data/entries",
+    "type": "data",
+    "format": "json",
+    "id": "filename"
+  }
+}

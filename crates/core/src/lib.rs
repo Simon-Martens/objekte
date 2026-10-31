@@ -23,6 +23,7 @@ mod schema;
 mod source;
 mod text;
 mod validation;
+mod view_definition;
 pub use validation::{RecordState, RecordStatus, ValidationIssue, ValidationMetrics};
 
 pub use config::{
@@ -48,3 +49,7 @@ pub use repository::{
 };
 pub use schema::{Field, PathStep, TextFormat, ValueType};
 pub use text::{TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary};
+pub use view_definition::{
+    NamedViewResult, ViewArgument, ViewArgumentType, ViewDefinition, ViewQuery, ViewQueryResult,
+    ViewType,
+};

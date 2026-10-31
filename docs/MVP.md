@@ -5,22 +5,22 @@ Objekte reads collections of JSON files through a Rust library and CLI. Source f
 ## Current capabilities
 
 - Populated JSON folders are discovered as collections without a manifest. Optional schema bases group nested folders; indexes are opened lazily.
-- `get`, configured table `view`, and general `query` over stored JSON fields. Views support configured columns, filters, scalar sorts, secondary sorts, pagination, and optional counts. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
+- `get`, independent named `view`, and general `query` over stored JSON fields. Named views have typed arguments, list or single presentation types, and one or more JSON or full-text queries. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
 - The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Covered scalar predicates can count exact indexed matches; returned page records are still read and validated against source JSON.
 - Every JSON leaf value is searchable by default. Collections with declared Markdown, HTML, XML, or full-text exclusions build a separate rendered/raw full-text index pair; other collections use the normal bigram index. Word, rendered-regex, and raw-regex modes are available. See [full-text.md](full-text.md).
-- `--cache disabled` makes views scan source files. JSON queries also offer explicit `direct` and raw-file `grep` backends. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
+- JSON queries offer explicit `direct` and raw-file `grep` backends. `--cache disabled` still selects direct scans for the older collection-view API. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
 - Explicit collection/all-collection validation, JSON/schema status on returned pages where validation runs, source refresh, configuration-change reporting, cache status, and per-record revision lookup. Revisions last only for the repository handle. Validation status is not stored in the index.
 - Declared outgoing references are extracted on request. Incoming references can be discovered by scanning referring source collections. The CLI's `relations --to ... --complete` requests complete coverage; `--check-targets` checks current target files. There is no persistent edge table or automatic source rewrite on a move/delete.
 
-The schema's `index` opt-in is independent of `list.filters`, `list.sortable`, and `list.defaultSort`. Those UI options still control which filters and sorts a view request may use. String and enum ordering is bytewise. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
+The schema's `index` opt-in is independent of view definitions. Named views use the regular query APIs and do not grant collection-level filter or sort permissions. String and enum ordering is bytewise. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
 
 ## Product boundaries
 
 | Source | Responsibility now |
 | --- | --- |
-| Repository configuration | Optional schema bases, source identity, declared relations, and UI settings |
+| Repository configuration | Named schemas, source identity, and declared relations |
 | JSON Schema | Stored types and on-demand validation rules |
-| UI settings | Permitted view columns, filters, and sorts; presentation defaults |
+| View definitions | Repository-level list and single views, typed arguments, and queries |
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
 | CLI | One-shot commands and a read-only TUI over the library; no separate query or cache implementation |
 

@@ -1,4 +1,4 @@
-//! Collection configuration, fingerprints, and view definitions.
+//! Collection configuration, legacy view settings, and fingerprints.
 mod discovery;
 use crate::{
     CollectionGraph, Error, Field, Result, ValueType,
@@ -194,6 +194,7 @@ impl Collection {
 pub struct RepositoryModel {
     pub root: PathBuf,
     pub collections: BTreeMap<String, Collection>,
+    pub views: BTreeMap<String, crate::ViewDefinition>,
     pub graph: CollectionGraph,
     #[serde(skip)]
     pub(crate) files: BTreeMap<PathBuf, String>,
@@ -530,6 +531,7 @@ impl RepositoryModel {
         let model = Self {
             root,
             collections,
+            views: BTreeMap::new(),
             graph,
             files,
             input_collections,

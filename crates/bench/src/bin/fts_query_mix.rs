@@ -153,7 +153,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if runs == 0 {
         return Err("runs must be positive".into());
     }
-    let original = root.join(".editor/collections/contents/schema.json");
+    let original = root.join(".objekte/collections/contents.schema.json");
     let mut schema: Value = serde_json::from_slice(&fs::read(original)?)?;
     schema["properties"]["annotation"]["x-full-text"] = json!("markdown");
     schema["properties"]["preferred_title"]["x-full-text"] = json!("plain");

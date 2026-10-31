@@ -27,6 +27,11 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         a.pos.push(".".into());
     }
     let command = a.pos.get(1).map(String::as_str).unwrap_or("tui");
+    let legacy_view = command == "view"
+        && !std::path::Path::new(&a.pos[0]).join(".objekte").is_dir()
+        && std::path::Path::new(&a.pos[0])
+            .join(".editor/repository.json")
+            .is_file();
     let expected = match command {
         "tui" => {
             if a.pos.len() == 1 {
@@ -94,7 +99,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         } else {
             common.contains(&key.as_str())
         }) || match command {
-            "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
+            "view" if legacy_view => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                 .contains(&key.as_str()),
             "query" => ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str()),
             "inferschema" | "writeschema" => key == "--collection",
@@ -117,7 +122,8 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     for key in &a.flags {
         let allowed = key == "--diagnostics"
             || match command {
-                "view" | "query" => key == "--count",
+                "view" if legacy_view => key == "--count",
+                "query" => key == "--count",
                 "search" => ["--count", "--case-sensitive"].contains(&key.as_str()),
                 "inferschema" | "writeschema" => key == "--no-auto-index",
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
@@ -130,11 +136,16 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             return Err(format!("{key} is not valid for {command}").into());
         }
     }
-    if command != "view" && (!a.filters.is_empty() || !a.sub_sorts.is_empty()) {
-        return Err("filters and sub-sorts require view".into());
+    if (!a.filters.is_empty() || !a.sub_sorts.is_empty()) && !legacy_view {
+        return Err("collection view filters and sorts have been removed".into());
     }
     if command != "query" && !a.parameters.is_empty() {
         return Err("--param requires query".into());
+    }
+    if (command != "view" || legacy_view)
+        && (!a.view_arguments.is_empty() || !a.query_arguments.is_empty())
+    {
+        return Err("--arg and --query-arg require view".into());
     }
     let get =
         |key: &str, default: &str| a.values.get(key).cloned().unwrap_or_else(|| default.into());
@@ -158,12 +169,13 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             return Err("TUI requires a terminal on stdin and stdout; use query or search for one-shot output".into());
         }
     }
-    let output = get("--output", if command == "view" { "table" } else { "json" });
+    let output = get("--output", if legacy_view { "table" } else { "json" });
     if !["table", "json", "ndjson", "events"].contains(&output.as_str()) {
         return Err("unknown output format".into());
     }
     let output_allowed = match command {
-        "view" => matches!(output.as_str(), "table" | "json" | "ndjson"),
+        "view" if legacy_view => matches!(output.as_str(), "table" | "json" | "ndjson"),
+        "view" => output == "json",
         "query" | "search" => matches!(output.as_str(), "json" | "ndjson" | "events"),
         _ => output == "json",
     };
@@ -339,7 +351,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             let record = repo.get_record(&a.pos[2], &a.pos[3])?;
             Some(serde_json::to_value(record)?)
         }
-        "view" => {
+        "view" if legacy_view => {
             let c = repo.model().collection(&a.pos[2])?;
             let sort = if a.values.contains_key("--sort") || a.values.contains_key("--direction") {
                 Some(Sort {
@@ -396,6 +408,22 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             view_hashes = Some(view.view_hashes.clone());
             print_view(&view, &output)?;
             None
+        }
+        "view" => {
+            let mut value = serde_json::to_value(repo.run_view_with_query_arguments(
+                &a.pos[2],
+                &a.view_arguments,
+                &a.query_arguments,
+            )?)?;
+            for query in value["queries"]
+                .as_object_mut()
+                .expect("named query results")
+                .values_mut()
+            {
+                query["result"]["metrics"] =
+                    metrics_in_milliseconds(query["result"]["metrics"].take());
+            }
+            Some(value)
         }
         "relations" => {
             let modes = usize::from(a.flags.contains("--collections"))

@@ -336,7 +336,9 @@ impl Repository {
     /// Use the legacy manifest when present; otherwise discover JSON folders.
     /// Discovery lists filenames but does not parse records or build indexes.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
-        if root.as_ref().join(".editor/repository.json").is_file() {
+        if root.as_ref().join(".editor/repository.json").is_file()
+            && !root.as_ref().join(".objekte").is_dir()
+        {
             return Ok(Self::from_model(
                 RepositoryModel::load(root.as_ref())?,
                 options,

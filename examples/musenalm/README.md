@@ -1,9 +1,10 @@
 # Musenalm
 
 The real-data fixture for the first Objekte implementation profile. All seven JSON
-collections are registered in `.editor/repository.json`. Each has a minimal
-structural schema, collection settings, and scalar list options under
-`.editor/collections/`. The implementation contract is in
+collections have named schemas under `.objekte/collections/`. Each schema's
+`x-objekte` object declares its name, source directory, data type, JSON format,
+and filename identity. A sample named view lives under `.objekte/views/`.
+The implementation contract is in
 [implementation.md](../../docs/implementation.md).
 
 | Collection | Records | Initial use |
@@ -22,22 +23,19 @@ with `places`, then `agents`; use `series` and `entries` for relationships and
 `contents` for scale. `contents.numbering` includes 1,038 fractional values, so
 numeric sorting must support fractions from the beginning.
 
-## Minimal schema and UI
+## Minimal schemas and independent views
 
 Schemas retain properties, types, required fields, closed-object rules, arrays of
 embedded objects, and explicit `x-relation` declarations. Opaque imported JSON uses
 an empty schema. Rich validation, defaults, and presentation annotations have been
 removed for the first profile. HTML, Markdown, dates, and URLs remain strings.
 
-UI files specify a label, display field, scalar table columns, available filters,
-default sort, and `sortable` fields. The library derives typed indexed fields from
-these options and the schema. Filter controls are inactive until values are given.
-The repository UI supplies a default page size of 50. Nested values remain available
-through full record reads; the first table views do not expand them.
-
-Collection settings contain only source type/path/format, filename identity, and
-schema/UI paths. The former instance settings files remain as unregistered files;
-named documents and richer editor settings are outside this first profile.
+Collection schemas contain no view options. The separate `contents_list` view
+defines a list type, `page` and `from_year` arguments, and a JSON query. The
+coming UI can register its own default list, reference, and autocomplete views
+for any collection without changing those schemas. Indexes come only from the
+schema's `index` and `x-index-paths` declarations. Nested values remain available
+through full record reads and queries.
 
 ## Actual stored relationships
 
@@ -69,9 +67,8 @@ records passed the simplified schemas using a Draft 2020-12 validator. The
 31 October migration removed the embedded `entries.contents` copies and added
 one required `contents.entry` reference to each of the 133,948 standalone content
 files. Every reference resolves to one of the 4,928 entry files; 2,394 entries
-have at least one content. All configured display/filter/sort/table fields
-remain scalar schema fields. The full acceptance test validates all 148,486
-post-migration records and confirms direct and indexed views agree.
+have at least one content. The full acceptance test validates all 148,486
+post-migration records and confirms direct and indexed query paths agree.
 
 Standalone content payloads, inline HTML/Markdown, timestamps, identifiers, and
 filenames are preserved apart from the new `entry` field. Entry fields other than
@@ -82,4 +79,4 @@ Its `entries.contents` count describes the original embedded copies, which are
 no longer stored in entry files.
 The existing import/migration scripts describe earlier export/editor stages and do
 not reproduce this minimal configuration profile. The checked-in JSON data and
-the current schema/UI files are the acceptance fixture for the rebuild.
+the current named schemas and view file are the acceptance fixture for the rebuild.

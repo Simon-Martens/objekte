@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "required": [
+    "Jahr",
+    "Werk",
+    "Eintrag"
+  ],
+  "properties": {
+    "source": {
+      "type": "string",
+      "x-ownership": {
+        "kind": "imported",
+        "editable": false,
+        "onCreate": "omit"
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-content": "media"
+      }
+    },
+    "Jahr": {
+      "type": "integer"
+    },
+    "Sort": {
+      "type": "integer"
+    },
+    "Werk": {
+      "type": "string"
+    },
+    "Eintrag": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "Kommentare": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "x-content": "markdown"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "x-objekte": {
+    "name": "theaterauffuehrungen",
+    "path": "data/theaterauffuehrungen",
+    "type": "data",
+    "format": "json",
+    "id": "filename"
+  }
+}

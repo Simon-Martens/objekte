@@ -7,6 +7,7 @@ Repositories can discover collections without a manifest or schema. See [Collect
 ## Start here
 
 - [Query examples](queries.md) show the CLI syntax on Musenalm.
+- [Independent views](views.md) define named list and single views with arguments and queries.
 - [Interactive terminal search](cli-tui.md) covers the TUI, search controls, and JSON export.
 - [Filter semantics](filters.md) describe exact matching, arrays, and backend selection.
 - [Full-text search](full-text.md) describes all-field indexing, markup formats, exclusions, search modes, and index lifecycle.
@@ -21,12 +22,12 @@ Repositories can discover collections without a manifest or schema. See [Collect
 ```sh
 cargo test --workspace --all-targets
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach") && year >= 1800' --count --limit 3
-cargo run --release -p objekte-cli -- examples/musenalm view contents --sort year --limit 10 --output json
+cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg page=2
 cargo run --release -p objekte-cli -- examples/musenalm
 ```
 
-`--cache memory` is the default. `--cache disabled` makes views scan source files directly. JSON queries also provide explicit `--backend direct` and `--backend grep` paths. Every JSON query returns records in collection and byte-sorted ID order, and verifies matches against source JSON.
+`--cache memory` is the default. The older collection-view API uses `--cache disabled` to scan source files directly. Named views run their JSON or full-text queries through the usual query APIs; JSON queries also provide explicit `--backend direct` and `--backend grep` paths. Every JSON query returns records in collection and byte-sorted ID order, and verifies matches against source JSON.
 
 The picker can be warmed or rebuilt per collection or across all collections using the `Repository` API. These operations write no application cache files. A new CLI invocation starts a new process and builds its own picker.
 
-Where a schema exists, validation runs for JSON query matches, in-memory view pages, and explicit validation. A parseable `get_record` response has `pending` schema status; records without a schema have `no_schema` status. Reference occurrences are extracted from declared relations on request; complete backlink lookup scans referring collections.
+Where a schema exists, validation runs for JSON query matches, named view query matches, and explicit validation. A parseable `get_record` response has `pending` schema status; records without a schema have `no_schema` status. Reference occurrences are extracted from declared relations on request; complete backlink lookup scans referring collections.

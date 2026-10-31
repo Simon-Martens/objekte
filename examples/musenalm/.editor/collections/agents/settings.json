@@ -1,8 +1,0 @@
-{
-  "type": "data",
-  "path": "data/agents",
-  "format": "json",
-  "id": "filename",
-  "schema": ".editor/collections/agents/schema.json",
-  "ui": ".editor/collections/agents/ui.json"
-}

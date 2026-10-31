@@ -75,7 +75,7 @@ fn a_record_read_does_not_enumerate_or_touch_other_collections() {
 #[test]
 fn unsupported_schema_keywords_fail_at_their_locations() {
     for (key, value) in [
-        ("minLength", json!(1)),
+        ("maxLength", json!(1)),
         ("$ref", json!("#/$defs/x")),
         ("format", json!("date")),
     ] {

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "annotation": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string"
+    },
+    "edit_comment": {
+      "type": "string"
+    },
+    "edit_state": {
+      "enum": [
+        "Edited"
+      ],
+      "index": true,
+      "type": "string"
+    },
+    "editor": {
+      "type": "string"
+    },
+    "fictional": {
+      "index": true,
+      "type": "boolean"
+    },
+    "musenalm_id": {
+      "index": true,
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pseudonyms": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "uri": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "musenalm_id"
+  ],
+  "type": "object",
+  "x-objekte": {
+    "name": "places",
+    "path": "data/places",
+    "type": "data",
+    "format": "json",
+    "id": "filename"
+  }
+}

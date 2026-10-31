@@ -1,0 +1,21 @@
+{
+  "name": "contents_list",
+  "type": "list",
+  "arguments": {
+    "page": { "type": "integer", "default": 1 },
+    "from_year": { "type": "integer", "default": 1800 }
+  },
+  "queries": {
+    "contents": {
+      "type": "json",
+      "request": {
+        "filter": "year >= $from_year",
+        "parameters": { "from_year": { "$arg": "from_year" } },
+        "collections": ["contents"],
+        "limit": 25,
+        "offset": { "$page_offset": { "page": { "$arg": "page" }, "size": 25 } },
+        "count": true
+      }
+    }
+  }
+}

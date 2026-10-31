@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created": {
+      "type": "string"
+    },
+    "data": {
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "key": {
+      "type": "string"
+    },
+    "layout": {
+      "type": "string"
+    },
+    "template": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "key"
+  ],
+  "type": "object",
+  "x-objekte": {
+    "name": "pages",
+    "path": "data/pages",
+    "type": "data",
+    "format": "json",
+    "id": "filename"
+  }
+}

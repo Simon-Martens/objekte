@@ -159,14 +159,12 @@ exits nonzero. Consumers should treat earlier records as final only after the
 records can arrive; parallel verification publishes finished batches in ID
 order. The existing `--output ndjson` writes raw records after the query finishes.
 
-## Sorted table views
+## Named views
 
-`query` orders by collection and ID. Use `view` for configured scalar columns,
-filters, and sorts. Its `--filter` syntax is the simpler `FIELD=VALUE` form and
-only configured filter fields are permitted.
+`query` orders by collection and ID. Named views combine one or more native
+queries with typed arguments and a list or single presentation type. Their
+definitions are independent of collections; see [Independent views](views.md).
 
 ```sh
-cargo run --release -p objekte-cli -- examples/musenalm view contents --filter 'year>=1800' --sort numbering --direction desc --limit 10 --count
-cargo run --release -p objekte-cli -- examples/musenalm view contents --sort year --then-sort numbering:desc --limit 10
-cargo run --release -p objekte-cli -- examples/musenalm view entries --columns preferred_title,year,edit_state --limit 5 --output json
+cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg page=2
 ```

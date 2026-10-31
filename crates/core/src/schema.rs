@@ -187,6 +187,14 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "exclude_fts",
             "x-relation",
             "x-index-paths",
+            "x-objekte",
+            "default",
+            "minLength",
+            "minimum",
+            "uniqueItems",
+            "x-children",
+            "x-content",
+            "x-ownership",
         ]
         .contains(&k.as_str())
         {
@@ -206,8 +214,12 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "only the root Draft 2020-12 dialect declaration is supported",
         ));
     }
-    if !p.is_empty() && obj.contains_key("x-index-paths") {
-        return Err(config(file, p, "x-index-paths belongs at the schema root"));
+    if !p.is_empty() && (obj.contains_key("x-index-paths") || obj.contains_key("x-objekte")) {
+        return Err(config(
+            file,
+            p,
+            "x-index-paths and x-objekte belong at the schema root",
+        ));
     }
     let mut nullable = false;
     let type_name = match obj.get("type") {

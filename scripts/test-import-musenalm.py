@@ -72,7 +72,7 @@ class ImportTests(unittest.TestCase):
         self.assertEqual(set(p.name for p in (self.target/'data').iterdir()),set(migration.PROJECT_NAMES))
         self.assertEqual(sum(report['records'].values()),4)
         self.assertEqual(report['embedded_records'], {'items': 1, 'contents': 2})
-        schema = json.loads((self.target/'.editor/collections/entries/schema.json').read_text())
+        schema = json.loads((self.target/'.objekte/collections/entries.schema.json').read_text())
         self.assertEqual(schema['properties']['contents']['items']['properties']['agents']['items']['properties']['agent']['x-relation']['collection'], 'agents')
         self.assertNotIn('numbering', schema['properties']['contents']['items']['properties'])
         with self.assertRaisesRegex(ValueError,'already exists'): migration.import_project(self.source,self.target)

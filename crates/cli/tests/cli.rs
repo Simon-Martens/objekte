@@ -91,6 +91,52 @@ fn default_cache_uses_memory_for_views_and_queries() {
 }
 
 #[test]
+fn named_view_runs_from_objekte_layout_with_shared_and_native_arguments() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    fs::create_dir_all(root.join("data/books")).unwrap();
+    fs::create_dir_all(root.join(".objekte/collections")).unwrap();
+    fs::create_dir_all(root.join(".objekte/views")).unwrap();
+    fs::write(root.join("data/books/a.json"), r#"{"year":1800}"#).unwrap();
+    fs::write(root.join("data/books/b.json"), r#"{"year":1801}"#).unwrap();
+    fs::write(root.join(".objekte/collections/books.schema.json"), serde_json::to_vec(&json!({
+        "type":"object", "properties":{"year":{"type":"integer","index":true}},
+        "x-objekte":{"name":"books","path":"data/books","type":"data","format":"json","id":"filename"}
+    })).unwrap()).unwrap();
+    fs::write(
+        root.join(".objekte/views/books_list.view.json"),
+        serde_json::to_vec(&json!({
+            "name":"books_list","type":"list",
+            "arguments":{"from":{"type":"integer","default":1800}},
+            "queries":{"records":{"type":"json","request":{
+                "filter":"year >= $from","parameters":{"from":{"$arg":"from"}},
+                "collections":["books"],"limit":1,"count":true
+            }}}
+        }))
+        .unwrap(),
+    )
+    .unwrap();
+    let output = value(run(
+        &Fixture::new(),
+        &[
+            root.to_str().unwrap(),
+            "view",
+            "books_list",
+            "--arg",
+            "from=1801",
+            "--query-arg",
+            "records.limit=2",
+        ],
+    ));
+    assert_eq!(output["type"], "list");
+    assert_eq!(output["queries"]["records"]["result"]["total"], 1);
+    assert_eq!(
+        output["queries"]["records"]["result"]["records"][0]["id"],
+        "b"
+    );
+}
+
+#[test]
 fn query_accepts_undeclared_fields_and_collection_scope() {
     let f = Fixture::new();
     f.edit("data/books/a.json", |record| {
@@ -210,9 +256,7 @@ fn help_version_and_invalid_arguments() {
         assert!(o.status.success());
         assert!(String::from_utf8_lossy(&o.stdout).contains("objekte"));
         if arg == "--help" {
-            assert!(
-                String::from_utf8_lossy(&o.stdout).contains("objekte REPOSITORY view COLLECTION")
-            );
+            assert!(String::from_utf8_lossy(&o.stdout).contains("objekte REPOSITORY view NAME"));
         }
     }
     let f = Fixture::new();

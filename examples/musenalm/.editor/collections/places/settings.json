@@ -1,8 +1,0 @@
-{
-  "type": "data",
-  "path": "data/places",
-  "format": "json",
-  "id": "filename",
-  "schema": ".editor/collections/places/schema.json",
-  "ui": ".editor/collections/places/ui.json"
-}

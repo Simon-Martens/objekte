@@ -585,8 +585,6 @@ fn existing_musenalm_layout_discovers_its_seven_schema_collections() {
             .values()
             .all(|collection| collection.recursive && collection.schema_path.is_some())
     );
-    assert_eq!(
-        repo.model().collections["contents"].display,
-        "preferred_title"
-    );
+    assert_eq!(repo.model().collections["contents"].display, "@id");
+    assert!(repo.model().views.contains_key("contents_list"));
 }

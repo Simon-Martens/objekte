@@ -26,6 +26,8 @@ pub struct ConfigurationInputChange {
     pub digest: Option<String>,
     /// Direct consumers of this input, including former consumers of removed files.
     pub collections: Vec<String>,
+    /// Named views that directly read this file.
+    pub views: Vec<String>,
 }
 
 
@@ -35,6 +37,8 @@ pub struct ConfigurationChanges {
     pub inputs: Vec<ConfigurationInputChange>,
     /// Candidate collections; semantic hashes decide which index work is necessary.
     pub affected_collections: Vec<String>,
+    /// Named views whose definitions changed or appeared/disappeared.
+    pub affected_views: Vec<String>,
 }
 
 
@@ -44,6 +48,8 @@ pub(crate) struct ConfigurationSnapshot {
     files: BTreeMap<PathBuf, String>,
     owners: BTreeMap<PathBuf, BTreeSet<String>>,
     collections: BTreeSet<String>,
+    view_owners: BTreeMap<PathBuf, BTreeSet<String>>,
+    views: BTreeSet<String>,
 }
 
 
@@ -53,14 +59,28 @@ impl ConfigurationSnapshot {
             files: model.files.clone(),
             owners: model.input_collections.clone(),
             collections: model.collections.keys().cloned().collect(),
+            view_owners: model
+                .views
+                .iter()
+                .map(|(name, view)| (view.path.clone(), BTreeSet::from([name.clone()])))
+                .collect(),
+            views: model.views.keys().cloned().collect(),
         }
     }
 
     pub fn compare(&self, model: &RepositoryModel) -> ConfigurationChanges {
         let mut report = ConfigurationChanges::default();
         let mut affected = BTreeSet::new();
+        let mut affected_views = BTreeSet::new();
         let current = model.collections.keys().cloned().collect::<BTreeSet<_>>();
         affected.extend(self.collections.symmetric_difference(&current).cloned());
+        let current_views = model.views.keys().cloned().collect::<BTreeSet<_>>();
+        affected_views.extend(self.views.symmetric_difference(&current_views).cloned());
+        let new_view_owners = model
+            .views
+            .iter()
+            .map(|(name, view)| (view.path.clone(), BTreeSet::from([name.clone()])))
+            .collect::<BTreeMap<_, _>>();
         for path in self
             .files
             .keys()
@@ -81,6 +101,11 @@ impl ConfigurationSnapshot {
                 owners.extend(previous.iter().cloned());
             }
             affected.extend(owners.iter().cloned());
+            let mut views = new_view_owners.get(path).cloned().unwrap_or_default();
+            if let Some(previous) = self.view_owners.get(path) {
+                views.extend(previous.iter().cloned());
+            }
+            affected_views.extend(views.iter().cloned());
             report.inputs.push(ConfigurationInputChange {
                 path: path.strip_prefix(&model.root).unwrap_or(path).into(),
                 kind: match (old, new) {
@@ -91,9 +116,11 @@ impl ConfigurationSnapshot {
                 previous_digest: old.cloned(),
                 digest: new.cloned(),
                 collections: owners.into_iter().collect(),
+                views: views.into_iter().collect(),
             });
         }
         report.affected_collections = affected.into_iter().collect();
+        report.affected_views = affected_views.into_iter().collect();
         report
     }
 }
