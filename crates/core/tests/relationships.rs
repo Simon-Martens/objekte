@@ -32,6 +32,18 @@ fn outgoing_edges_preserve_occurrences_and_missing_targets() {
 }
 
 #[test]
+fn in_memory_record_exposes_declared_links_without_another_read() {
+    let fixture = Fixture::new();
+    let mut repository = fixture.repo(CacheMode::Memory);
+    let record = repository.get_record("books", "b").unwrap().unwrap();
+    repository.reset_metrics();
+    let links = repository.references_in_record(&record).unwrap();
+    assert_eq!(links.len(), 3);
+    assert_eq!(links[0].location, "/links/0/person");
+    assert_eq!(repository.metrics().source_reads, 0);
+}
+
+#[test]
 fn complete_backlinks_scan_sources_on_demand() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Memory);

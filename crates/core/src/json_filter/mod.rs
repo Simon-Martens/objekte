@@ -249,6 +249,37 @@ impl JsonFilter {
         &self.paths
     }
 
+    /// Referenced paths in first-use order, including both comparison operands.
+    pub fn paths_in_query_order(&self) -> Vec<JsonPath> {
+        fn visit(expr: &Expr, seen: &mut BTreeSet<JsonPath>, ordered: &mut Vec<JsonPath>) {
+            let mut push = |path: &JsonPath| {
+                if seen.insert(path.clone()) {
+                    ordered.push(path.clone());
+                }
+            };
+            match expr {
+                Expr::And(parts) | Expr::Or(parts) => {
+                    for part in parts {
+                        visit(part, seen, ordered);
+                    }
+                }
+                Expr::Exists(path) | Expr::Missing(path) => push(path),
+                Expr::Compare { left, right, .. } => {
+                    for operand in [left, right] {
+                        if let Operand::Field(field) = operand {
+                            push(&field.path);
+                        }
+                    }
+                }
+            }
+        }
+
+        let mut seen = BTreeSet::new();
+        let mut ordered = Vec::new();
+        visit(&self.expr, &mut seen, &mut ordered);
+        ordered
+    }
+
     /// Parse a standalone path using the JSON filter path syntax.
     pub fn parse_path(text: &str) -> Result<JsonPath> {
         parser::parse_path(text)

@@ -14,7 +14,7 @@ Repositories can discover collections without a manifest or schema. See [Collect
 - [Index implementation](implementation.md) describes refresh, rebuild, and revision behavior.
 - [Code guidelines](code-guidelines.md) document source layout, comments, tests, and diagnostics.
 - [Performance results](Performance.md) summarize warm queries and historical experiments.
-- [Full-text benchmark results](fts-benchmark-results.md) report build time, ready memory, and 30 warm searches on Musenalm.
+- [Full-text benchmark results](fts-benchmark-results.md) report historical build time, ready memory, and 30 warm searches on Musenalm before the `contents.entry` migration.
 - [MVP and roadmap](MVP.md) separate library features from later product work.
 
 ```sh

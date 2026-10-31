@@ -151,6 +151,7 @@ fn main() -> Result<()> {
     let agents = &collections["agents"];
     let items = &collections["items"];
     let content_by_id: HashMap<&str, &Row> = contents.iter().map(|r| (r.id.as_str(), r)).collect();
+    let entry_ids: HashSet<&str> = entries.iter().map(|r| r.id.as_str()).collect();
     let item_ids: HashSet<&str> = items.iter().map(|r| r.id.as_str()).collect();
     let agent_by_id: HashMap<&str, &Row> = agents.iter().map(|r| (r.id.as_str(), r)).collect();
     emit(
@@ -250,21 +251,17 @@ fn main() -> Result<()> {
             }),
         ),
         (
-            "entry_content_links",
+            "content_entry_links",
             Box::new(|| {
                 let mut links = 0;
                 let mut resolved = 0;
-                for entry in entries {
-                    if let Some(nested) = entry.data["contents"].as_array() {
-                        for child in nested {
-                            links += 1;
-                            if child["source_id"]
-                                .as_str()
-                                .is_some_and(|id| content_by_id.contains_key(id))
-                            {
-                                resolved += 1;
-                            }
-                        }
+                for content in contents {
+                    links += 1;
+                    if content.data["entry"]
+                        .as_str()
+                        .is_some_and(|id| entry_ids.contains(id))
+                    {
+                        resolved += 1;
                     }
                 }
                 json!([links, resolved, links - resolved])

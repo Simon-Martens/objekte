@@ -85,10 +85,10 @@ cargo run --release -p objekte-cli -- examples/musenalm query entries 'language 
 cargo run --release -p objekte-cli -- examples/musenalm query entries 'language:each = "ger"' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm query entries 'language ?!= "ger"' --count --limit 3
 
-# Array lengths and nested fields inside embedded entry contents.
-cargo run --release -p objekte-cli -- examples/musenalm query entries 'contents:length >= 50' --count --limit 3
-cargo run --release -p objekte-cli -- examples/musenalm query entries 'contents.year ?>= 1800' --count --limit 3
-cargo run --release -p objekte-cli -- examples/musenalm query entries 'exists(contents[0].source_id)' --count --limit 3
+# Array lengths and a reference from each standalone content to its entry.
+cargo run --release -p objekte-cli -- examples/musenalm query entries 'items:length >= 1' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'entry = "00fx8ln651na0e3"' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'entry = "00fx8ln651na0e3" && year >= 1800' --count --limit 3
 
 # Stored relation IDs are searchable as strings; these do not expand target records.
 cargo run --release -p objekte-cli -- examples/musenalm query entries 'places ?= "d7kbujq7399g22j"' --count --limit 3

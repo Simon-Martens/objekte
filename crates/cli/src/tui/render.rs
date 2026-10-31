@@ -1,27 +1,36 @@
 //! Responsive query, result table, detail, and export-prompt rendering.
 
 use super::{
-    detail,
+    detail, match_preview,
+    navigation::{BacklinkStatus, DetailSection},
     state::{App, Focus, Hit, Representation, SearchKind},
+    theme,
 };
+use objekte_core::RecordStatus;
 use ratatui::{
     Frame,
-    layout::{Constraint, Layout, Rect},
+    layout::{Alignment, Constraint, Layout, Rect},
     style::{Color, Modifier, Style},
     text::{Line, Span, Text},
-    widgets::{Block, Borders, Cell, Clear, Paragraph, Row, Table, TableState},
+    widgets::{Block, BorderType, Borders, Cell, Clear, Paragraph, Row, Table, TableState},
 };
 use serde_json::Value;
 use std::collections::BTreeSet;
 use unicode_width::{UnicodeWidthChar, UnicodeWidthStr};
 
 const CELL_MAX: usize = 25;
-
+const MATCH_MAX: usize = 65;
 
 fn clip(text: &str, max: usize) -> String {
+    if max == 0 {
+        return String::new();
+    }
     let mut out = String::new();
     let mut width = 0;
-    let clean = text.replace(['\n', '\r', '\t'], " ");
+    let clean = text
+        .chars()
+        .map(|ch| if ch.is_control() { ' ' } else { ch })
+        .collect::<String>();
     let full_width = UnicodeWidthStr::width(clean.as_str());
     let allowance = if full_width > max {
         max.saturating_sub(1)
@@ -52,7 +61,7 @@ fn preview(value: Option<&Value>) -> String {
     }
 }
 
-fn columns(hits: &[Hit]) -> Vec<String> {
+fn columns(hits: &[Hit], query_fields: &[String]) -> Vec<String> {
     let mut fields = BTreeSet::new();
     for hit in hits {
         if let Value::Object(object) = &hit.record().data {
@@ -61,10 +70,16 @@ fn columns(hits: &[Hit]) -> Vec<String> {
             fields.insert("$value".into());
         }
     }
-    ["@collection".into(), "@id".into(), "@status".into()]
-        .into_iter()
-        .chain(fields)
-        .collect()
+    let mut columns = vec!["@collection".into(), "@id".into(), "@status".into()];
+    if hits.iter().any(|hit| matches!(hit, Hit::Text(_))) {
+        columns.push("@match".into());
+    }
+    for field in query_fields {
+        columns.push(field.clone());
+        fields.remove(field);
+    }
+    columns.extend(fields);
+    columns
 }
 
 fn field(hit: &Hit, name: &str) -> String {
@@ -73,8 +88,21 @@ fn field(hit: &Hit, name: &str) -> String {
         "@collection" => clip(&record.collection, CELL_MAX),
         "@id" => clip(&record.id, CELL_MAX),
         "@status" => clip(&format!("{:?}", record.state.status), CELL_MAX),
+        "@match" => clip(
+            &match_preview::first_match(hit).unwrap_or_default(),
+            MATCH_MAX,
+        ),
         "$value" => preview(Some(&record.data)),
         name => preview(record.data.as_object().and_then(|object| object.get(name))),
+    }
+}
+
+fn status_color(status: RecordStatus) -> Color {
+    match status {
+        RecordStatus::Valid => theme::ACCENT,
+        RecordStatus::Invalid | RecordStatus::IncorrectJson => theme::ERROR,
+        RecordStatus::Pending => theme::WARNING,
+        RecordStatus::NoSchema => theme::MUTED,
     }
 }
 
@@ -83,15 +111,20 @@ fn visible_columns(all: &[String], hits: &[Hit], start: usize, width: u16) -> Ve
     let mut used = 0;
     let mut visible = Vec::new();
     for name in all.iter().skip(start) {
+        let maximum = if name == "@match" {
+            MATCH_MAX
+        } else {
+            CELL_MAX
+        };
         let natural = hits
             .iter()
             .map(|hit| UnicodeWidthStr::width(field(hit, name).as_str()))
             .chain(std::iter::once(UnicodeWidthStr::width(name.as_str())))
             .max()
             .unwrap_or(8)
-            .clamp(8, CELL_MAX);
+            .clamp(8, maximum);
         let remaining = available.saturating_sub(used);
-        if !visible.is_empty() && natural + 1 > remaining {
+        if !visible.is_empty() && (remaining < 8 || (name != "@match" && natural + 1 > remaining)) {
             break;
         }
         let cells = natural.min(remaining.max(1));
@@ -103,16 +136,23 @@ fn visible_columns(all: &[String], hits: &[Hit], start: usize, width: u16) -> Ve
 
 fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
     let title = match app.kind {
-        SearchKind::Filter => "Filter query  (Enter: run)",
-        SearchKind::Text => "Full-text query  (Enter: run)",
+        SearchKind::Filter => " FILTER QUERY  ·  Enter to search ",
+        SearchKind::Text => " FULL-TEXT SEARCH  ·  Enter to search ",
     };
     let block = Block::default()
-        .title(title)
-        .borders(Borders::ALL)
-        .border_style(if app.focus == Focus::Query {
-            Style::default().fg(Color::Cyan)
-        } else {
+        .title(Span::styled(
+            title,
             Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
+        ))
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .style(Style::default().bg(theme::PANEL).fg(theme::TEXT))
+        .border_style(if app.focus == Focus::Query {
+            Style::default().fg(theme::ACCENT)
+        } else {
+            Style::default().fg(theme::BORDER)
         });
     let inner = block.inner(area);
     frame.render_widget(block, area);
@@ -127,67 +167,314 @@ fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
         .map(|ch| UnicodeWidthChar::width(ch).unwrap_or(0))
         .sum::<usize>();
     let scroll = cursor_width.saturating_sub(inner.width.saturating_sub(1) as usize);
-    frame.render_widget(
-        Paragraph::new(app.input.text.as_str()).scroll((0, scroll as u16)),
-        inner,
-    );
+    let placeholder = match app.kind {
+        SearchKind::Filter => "year >= 1800 && annotation ~ 'Mond'",
+        SearchKind::Text => "Search names, annotations, and more…",
+    };
+    let line = if app.input.text.is_empty() {
+        Paragraph::new(placeholder).style(Style::default().fg(theme::MUTED).bg(theme::PANEL))
+    } else {
+        Paragraph::new(app.input.text.as_str())
+            .style(Style::default().fg(theme::TEXT).bg(theme::PANEL))
+            .scroll((0, scroll as u16))
+    };
+    frame.render_widget(line, inner);
     if app.focus == Focus::Query {
         frame.set_cursor_position((inner.x + (cursor_width - scroll) as u16, inner.y));
     }
 }
 
 pub(super) fn column_count(app: &App<'_>) -> usize {
-    columns(&app.hits).len()
+    columns(&app.hits, &app.query_fields).len()
 }
 
-fn control(label: String) -> Span<'static> {
-    Span::styled(format!(" {label} "), Style::default().fg(Color::Cyan))
-}
-
-fn controls(app: &App<'_>) -> Text<'static> {
-    let kind = if app.kind == SearchKind::Filter {
-        "Filter"
+fn mode_chip(label: &str, selected: bool) -> Span<'static> {
+    let style = if selected {
+        Style::default()
+            .fg(theme::BACKGROUND)
+            .bg(theme::ACCENT)
+            .add_modifier(Modifier::BOLD)
     } else {
-        "Full text"
+        Style::default().fg(theme::MUTED).bg(theme::PANEL)
     };
-    let first = Line::from(vec![
-        Span::raw(" Objekte "),
-        control(format!("Mode: {kind} (Tab)")),
-        control(format!("Collection: {} (Ctrl+Tab)", app.collection_label())),
-    ]);
-    let second = if app.kind == SearchKind::Text {
+    Span::styled(format!(" {label} "), style)
+}
+
+fn detail_chip(label: &str, selected: bool, compact: bool) -> Span<'static> {
+    let chip = mode_chip(label, selected);
+    if compact {
+        Span::styled(label.to_owned(), chip.style)
+    } else {
+        chip
+    }
+}
+
+fn option(label: String, active: bool) -> Span<'static> {
+    Span::styled(
+        format!(" {label}  "),
+        Style::default()
+            .fg(if active { theme::ACCENT } else { theme::MUTED })
+            .bg(theme::PANEL),
+    )
+}
+
+fn controls(app: &App<'_>, width: u16) -> Text<'static> {
+    let compact = width < 80;
+    let mut first = vec![
+        Span::styled(
+            if compact {
+                " ◆ OBJ  "
+            } else {
+                " ◆ OBJEKTE  "
+            },
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
+        ),
+        mode_chip("FTS", app.kind == SearchKind::Text),
+        Span::raw(" "),
+        mode_chip("FILTER", app.kind == SearchKind::Filter),
+        Span::styled("  Tab", Style::default().fg(theme::MUTED)),
+    ];
+    let left_width = first
+        .iter()
+        .map(|span| UnicodeWidthStr::width(span.content.as_ref()))
+        .sum::<usize>();
+    let collection_prefix = if compact {
+        "COL  "
+    } else {
+        "Ctrl+Tab  COLLECTION  "
+    };
+    let prefix_width = UnicodeWidthStr::width(collection_prefix);
+    let label = clip(
+        app.collection_label(),
+        (width as usize).saturating_sub(left_width + prefix_width + 1),
+    );
+    let right_width = prefix_width + UnicodeWidthStr::width(label.as_str());
+    let gap = (width as usize).saturating_sub(left_width + right_width);
+    first.push(Span::raw(" ".repeat(gap)));
+    first.push(Span::styled(
+        collection_prefix,
+        Style::default().fg(theme::MUTED),
+    ));
+    first.push(Span::styled(
+        label,
+        Style::default()
+            .fg(theme::TEXT)
+            .add_modifier(Modifier::BOLD),
+    ));
+    let first = Line::from(first);
+    let options_line = if app.kind == SearchKind::Text {
         let representation = if app.representation == Representation::Normalized {
             "normalized"
         } else {
             "full"
         };
-        let mut options = vec![
-            Span::raw("  "),
-            control(format!(
-                "Regex: {} (Ctrl+R)",
-                if app.regex { "on" } else { "off" }
-            )),
-            control(format!("Text: {representation} (Ctrl+F)")),
-        ];
+        let regex = if app.regex { "on" } else { "off" };
+        let mut options = vec![Span::raw("  ")];
+        if width < 52 {
+            options.push(option(format!("R:{regex}"), app.regex));
+            options.push(option(
+                format!(
+                    "F:{}",
+                    if app.representation == Representation::Normalized {
+                        "norm"
+                    } else {
+                        "full"
+                    }
+                ),
+                true,
+            ));
+            if !app.regex {
+                options.push(option(
+                    format!("E:{}", if app.case_sensitive { "exact" } else { "fold" }),
+                    app.case_sensitive,
+                ));
+            }
+            return Text::from(vec![first, Line::from(""), Line::from(options)]);
+        }
+        options.push(option(
+            if compact {
+                format!("Regex {regex} ^R")
+            } else {
+                format!("Regex: {regex}  Ctrl+R")
+            },
+            app.regex,
+        ));
+        options.push(option(
+            if compact {
+                format!("{representation} ^F")
+            } else {
+                format!("Text: {representation}  Ctrl+F")
+            },
+            true,
+        ));
         if !app.regex {
-            options.push(control(format!(
-                "Case: {} (Ctrl+E)",
-                if app.case_sensitive {
-                    "sensitive"
+            options.push(option(
+                if compact {
+                    format!(
+                        "{} ^E",
+                        if app.case_sensitive {
+                            "exact case"
+                        } else {
+                            "ignore case"
+                        }
+                    )
                 } else {
-                    "insensitive"
-                }
-            )));
+                    format!(
+                        "Case: {}  Ctrl+E",
+                        if app.case_sensitive {
+                            "sensitive"
+                        } else {
+                            "insensitive"
+                        }
+                    )
+                },
+                app.case_sensitive,
+            ));
         }
         Line::from(options)
     } else {
         Line::from("")
     };
-    Text::from(vec![first, second])
+    Text::from(vec![first, Line::from(""), options_line])
+}
+
+fn detail_header(app: &App<'_>, width: u16) -> Text<'static> {
+    let compact = width < 62;
+    let links = if compact {
+        "LINKS".to_owned()
+    } else {
+        format!("LINKS ({})", app.links.outgoing.len())
+    };
+    let backlinks = if compact {
+        "BACKLINKS".to_owned()
+    } else {
+        match app.links.status {
+            BacklinkStatus::Loading => format!("BACKLINKS ({}+)", app.links.incoming.len()),
+            _ => format!("BACKLINKS ({})", app.links.incoming.len()),
+        }
+    };
+    let mut top = vec![
+        Span::styled(
+            " ◆ OBJEKTE  ",
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
+        ),
+        detail_chip(
+            "FIELDS",
+            app.links.section == DetailSection::Fields,
+            compact,
+        ),
+        Span::raw(" "),
+        detail_chip(&links, app.links.section == DetailSection::Links, compact),
+        Span::raw(" "),
+        detail_chip(
+            &backlinks,
+            app.links.section == DetailSection::Backlinks,
+            compact,
+        ),
+    ];
+    let used = top
+        .iter()
+        .map(|span| UnicodeWidthStr::width(span.content.as_ref()))
+        .sum::<usize>();
+    let back = if width < 45 { "[ESC]" } else { "[ESC] BACK" };
+    if used + back.len() < width as usize {
+        top.push(Span::raw(" ".repeat(width as usize - used - back.len())));
+        top.push(Span::styled(
+            back,
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
+        ));
+    }
+    Text::from(vec![Line::from(top), Line::from("")])
+}
+
+fn detail_title(app: &App<'_>, width: u16) -> String {
+    let position = if app.searching {
+        format!("Record {} · searching…", app.offset + app.selected + 1)
+    } else {
+        format!(
+            "Record {} of {}",
+            app.offset + app.selected + 1,
+            app.total.unwrap_or(app.offset + app.hits.len())
+        )
+    };
+    let position = if app.links.override_hit.is_some() {
+        format!("Linked · {position}")
+    } else {
+        position
+    };
+    let collection = app.current_detail_hit().map_or_else(
+        || app.collection_label().to_uppercase(),
+        |hit| {
+            let record = hit.record();
+            if app.links.override_hit.is_some() {
+                format!("{}/{}", record.collection.to_uppercase(), record.id)
+            } else {
+                record.collection.to_uppercase()
+            }
+        },
+    );
+    // Reserve room for the record position before clipping the query text.
+    // The title's spaces, separators, and "Search: " label occupy 16 cells.
+    const TITLE_OVERHEAD: usize = 16;
+    let available = (width as usize).saturating_sub(2);
+    let position_width = UnicodeWidthStr::width(position.as_str());
+    let term_reserve = if app.input.text.is_empty() { 0 } else { 5 };
+    let collection = clip(
+        &collection,
+        available.saturating_sub(position_width + TITLE_OVERHEAD + term_reserve),
+    );
+    let term = clip(
+        &app.input.text,
+        available.saturating_sub(
+            UnicodeWidthStr::width(collection.as_str()) + position_width + TITLE_OVERHEAD,
+        ),
+    );
+    format!(" {collection} · Search: {term} · {position} ")
 }
 
 fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
-    let all = columns(&app.hits);
+    if app.hits.is_empty() {
+        let (heading, hint) = if app.searching {
+            ("Searching…", "Matching results will appear here")
+        } else if app.last_request.is_some() {
+            ("No matches", "Try a shorter phrase or another collection")
+        } else if app.kind == SearchKind::Text {
+            (
+                "Search the whole collection",
+                "Type a word, fragment, or phrase above",
+            )
+        } else {
+            ("Explore your JSON", "Enter a field filter above")
+        };
+        let height = area.height.min(3);
+        let centered = Rect {
+            y: area.y + area.height.saturating_sub(height) / 2,
+            height,
+            ..area
+        };
+        frame.render_widget(
+            Paragraph::new(Text::from(vec![
+                Line::styled(
+                    heading,
+                    Style::default()
+                        .fg(theme::TEXT)
+                        .add_modifier(Modifier::BOLD),
+                ),
+                Line::from(""),
+                Line::styled(hint, Style::default().fg(theme::MUTED)),
+            ]))
+            .alignment(Alignment::Center),
+            centered,
+        );
+        return;
+    }
+    let all = columns(&app.hits, &app.query_fields);
     let start = app.column_offset.min(all.len().saturating_sub(1));
     let visible = visible_columns(&all, &app.hits, start, area.width);
     let widths = visible
@@ -197,34 +484,79 @@ fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
     let header = Row::new(
         visible
             .iter()
-            .map(|(name, _)| Cell::from(clip(name, CELL_MAX)))
+            .map(|(name, _)| Cell::from(clip(name.trim_start_matches('@'), CELL_MAX)))
             .collect::<Vec<_>>(),
     )
     .style(
         Style::default()
-            .fg(Color::Yellow)
+            .fg(theme::MUTED)
+            .bg(theme::PANEL)
             .add_modifier(Modifier::BOLD),
     );
-    let rows = app.hits.iter().map(|hit| {
+    let rows = app.hits.iter().enumerate().map(|(index, hit)| {
         Row::new(
             visible
                 .iter()
-                .map(|(name, _)| Cell::from(field(hit, name)))
+                .map(|(name, width)| {
+                    let cell = Cell::from(clip(&field(hit, name), *width as usize));
+                    if name == "@status" {
+                        cell.style(Style::default().fg(status_color(hit.record().state.status)))
+                    } else {
+                        cell
+                    }
+                })
                 .collect::<Vec<_>>(),
         )
+        .style(
+            Style::default()
+                .bg(if index % 2 == 0 {
+                    theme::BACKGROUND
+                } else {
+                    theme::ROW_ALT
+                })
+                .fg(theme::TEXT),
+        )
     });
+    let range = if app.searching {
+        format!(
+            "{}–{} · searching…",
+            app.offset + 1,
+            app.offset + app.hits.len()
+        )
+    } else {
+        format!(
+            "{}–{} of {}",
+            app.offset + 1,
+            app.offset + app.hits.len(),
+            app.total.unwrap_or(app.hits.len())
+        )
+    };
     let title = format!(
-        "Results  page {}  columns {}–{}/{}",
-        app.offset / 100 + 1,
+        " RESULTS  ·  {range}  ·  columns {}–{}/{} ",
         start + 1,
         start + visible.len(),
         all.len()
     );
     let table = Table::new(rows, widths)
         .header(header)
-        .block(Block::default().title(title).borders(Borders::ALL))
+        .block(
+            Block::default()
+                .title(Span::styled(
+                    title,
+                    Style::default()
+                        .fg(theme::SECONDARY)
+                        .add_modifier(Modifier::BOLD),
+                ))
+                .borders(Borders::TOP)
+                .border_style(Style::default().fg(theme::BORDER)),
+        )
         .column_spacing(1)
-        .row_highlight_style(Style::default().bg(Color::DarkGray).fg(Color::White))
+        .row_highlight_style(
+            Style::default()
+                .bg(theme::SELECTED)
+                .fg(theme::TEXT)
+                .add_modifier(Modifier::BOLD),
+        )
         .highlight_symbol("› ");
     let mut state = TableState::default();
     if !app.hits.is_empty() {
@@ -234,7 +566,33 @@ fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
 }
 
 fn detail(frame: &mut Frame, app: &App<'_>, area: Rect) {
-    let Some(hit) = app.hits.get(app.selected) else {
+    let block = Block::default()
+        .title(Span::styled(
+            detail_title(app, area.width),
+            Style::default()
+                .fg(theme::SECONDARY)
+                .add_modifier(Modifier::BOLD),
+        ))
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .border_style(Style::default().fg(theme::BORDER));
+    let inner = block.inner(area);
+    frame.render_widget(block, area);
+    let area = inner;
+    if app.pending_detail.is_some() {
+        frame.render_widget(
+            Paragraph::new("Loading result page…")
+                .style(Style::default().fg(theme::MUTED))
+                .alignment(Alignment::Center),
+            area,
+        );
+        return;
+    }
+    if app.links.section != DetailSection::Fields {
+        relation_table(frame, app, area);
+        return;
+    }
+    let Some(hit) = app.current_detail_hit() else {
         return;
     };
     let left_width = area.width.saturating_sub(4).clamp(12, 34);
@@ -261,10 +619,10 @@ fn detail(frame: &mut Frame, app: &App<'_>, area: Rect) {
                         name,
                         if matched {
                             Style::default()
-                                .fg(Color::Yellow)
+                                .fg(theme::ACCENT)
                                 .add_modifier(Modifier::BOLD)
                         } else {
-                            Style::default()
+                            Style::default().fg(theme::MUTED)
                         },
                     )
                 })
@@ -277,9 +635,95 @@ fn detail(frame: &mut Frame, app: &App<'_>, area: Rect) {
         Paragraph::new(Text::from(
             values.into_iter().map(Line::from).collect::<Vec<_>>(),
         ))
+        .style(Style::default().fg(theme::TEXT))
         .scroll((offset, 0)),
         right,
     );
+}
+
+fn relation_table(frame: &mut Frame, app: &App<'_>, area: Rect) {
+    let backlinks = app.links.section == DetailSection::Backlinks;
+    let edges = if backlinks {
+        &app.links.incoming
+    } else {
+        &app.links.outgoing
+    };
+    let selected = if backlinks {
+        app.links.incoming_selected
+    } else {
+        app.links.outgoing_selected
+    };
+    if edges.is_empty() {
+        let hint = if backlinks {
+            match &app.links.status {
+                BacklinkStatus::Loading => "Searching for backlinks…",
+                BacklinkStatus::Error(error) => error.as_str(),
+                BacklinkStatus::None | BacklinkStatus::Complete => "No backlinks",
+            }
+        } else {
+            "No declared links"
+        };
+        frame.render_widget(
+            Paragraph::new(hint)
+                .style(Style::default().fg(theme::MUTED))
+                .alignment(Alignment::Center),
+            area,
+        );
+        return;
+    }
+    let headers = if backlinks {
+        ["collection", "id", "field"]
+    } else {
+        ["field", "collection", "id"]
+    };
+    let widths = [
+        Constraint::Percentage(34),
+        Constraint::Percentage(25),
+        Constraint::Percentage(41),
+    ];
+    // Keep rendering proportional to terminal height even for a target with
+    // thousands of incoming references.
+    let window = area.height.saturating_sub(1).max(1) as usize;
+    let start = selected
+        .saturating_sub(window / 2)
+        .min(edges.len().saturating_sub(window));
+    let end = (start + window).min(edges.len());
+    let rows = edges[start..end].iter().map(|edge| {
+        let values = if backlinks {
+            [
+                edge.source_collection.as_str(),
+                edge.source_id.as_str(),
+                edge.location.as_str(),
+            ]
+        } else {
+            [
+                edge.location.as_str(),
+                edge.target_collection.as_str(),
+                edge.target_id.as_str(),
+            ]
+        };
+        Row::new(values.into_iter().map(|value| Cell::from(clip(value, 80))))
+            .style(Style::default().fg(theme::TEXT))
+    });
+    let table = Table::new(rows, widths)
+        .header(
+            Row::new(headers).style(
+                Style::default()
+                    .fg(theme::MUTED)
+                    .add_modifier(Modifier::BOLD),
+            ),
+        )
+        .column_spacing(1)
+        .row_highlight_style(
+            Style::default()
+                .bg(theme::SELECTED)
+                .fg(theme::TEXT)
+                .add_modifier(Modifier::BOLD),
+        )
+        .highlight_symbol("› ");
+    let mut state =
+        TableState::default().with_selected(Some(selected.min(edges.len() - 1) - start));
+    frame.render_stateful_widget(table, area, &mut state);
 }
 
 fn export_prompt(frame: &mut Frame, app: &App<'_>, area: Rect) {
@@ -296,7 +740,17 @@ fn export_prompt(frame: &mut Frame, app: &App<'_>, area: Rect) {
     } else {
         "Export selected hit to a new JSON file"
     };
-    let block = Block::default().title(title).borders(Borders::ALL);
+    let block = Block::default()
+        .title(Span::styled(
+            title,
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
+        ))
+        .borders(Borders::ALL)
+        .border_type(BorderType::Rounded)
+        .border_style(Style::default().fg(theme::ACCENT))
+        .style(Style::default().bg(theme::PANEL).fg(theme::TEXT));
     let inner = block.inner(popup);
     frame.render_widget(block, popup);
     let cursor_width = app
@@ -308,41 +762,178 @@ fn export_prompt(frame: &mut Frame, app: &App<'_>, area: Rect) {
         .sum::<usize>();
     let scroll = cursor_width.saturating_sub(inner.width.saturating_sub(1) as usize);
     frame.render_widget(
-        Paragraph::new(app.export_input.text.as_str()).scroll((0, scroll as u16)),
+        Paragraph::new(app.export_input.text.as_str())
+            .style(Style::default().fg(theme::TEXT).bg(theme::PANEL))
+            .scroll((0, scroll as u16)),
         inner,
     );
     frame.set_cursor_position((inner.x + (cursor_width - scroll) as u16, inner.y));
 }
 
+fn key_hints(hints: &[(&str, &str)]) -> Line<'static> {
+    let mut spans = vec![Span::raw(" ")];
+    for (index, &(key, action)) in hints.iter().enumerate() {
+        if index > 0 {
+            spans.push(Span::raw("  "));
+        }
+        spans.push(Span::styled(
+            key.to_owned(),
+            Style::default()
+                .fg(theme::ACCENT)
+                .add_modifier(Modifier::BOLD),
+        ));
+        if !action.is_empty() {
+            spans.push(Span::styled(
+                format!(" {action}"),
+                Style::default().fg(theme::MUTED),
+            ));
+        }
+    }
+    Line::from(spans)
+}
+
+fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
+    if in_detail {
+        if app.links.section != DetailSection::Fields {
+            return if width < 60 {
+                key_hints(&[
+                    ("Tab", ""),
+                    ("↑↓", ""),
+                    ("Enter", ""),
+                    ("Esc", ""),
+                    ("q", ""),
+                ])
+            } else {
+                key_hints(&[
+                    ("Tab", "section"),
+                    ("↑↓", "rows"),
+                    ("Enter", "open"),
+                    ("Esc", "back"),
+                    ("q", "quit"),
+                ])
+            };
+        }
+        if width < 60 {
+            key_hints(&[
+                ("Tab", ""),
+                ("←→/p/n", ""),
+                ("↑↓", ""),
+                ("e", ""),
+                ("Esc", ""),
+                ("q", ""),
+            ])
+        } else {
+            key_hints(&[
+                ("Tab", "links"),
+                ("←→/p/n", "result"),
+                ("↑↓", "scroll"),
+                ("PgUp/Dn", "page"),
+                ("e", "export"),
+                ("Esc", "back"),
+                ("q", "quit"),
+            ])
+        }
+    } else if app.focus == Focus::Query {
+        if width < 60 {
+            key_hints(&[("Enter", ""), ("q", "")])
+        } else {
+            key_hints(&[("Enter", "search"), ("q", "quit")])
+        }
+    } else if width < 60 {
+        key_hints(&[
+            ("↑↓", ""),
+            ("←→", ""),
+            ("n/p", ""),
+            ("Esc", ""),
+            ("↵", ""),
+            ("a", ""),
+            ("e", ""),
+            ("q", ""),
+        ])
+    } else if width < 72 {
+        key_hints(&[
+            ("↑↓", "row"),
+            ("←→", "col"),
+            ("n/p", ""),
+            ("Esc", "input"),
+            ("↵", "go"),
+            ("a", "all"),
+            ("e", "hit"),
+            ("q", "quit"),
+        ])
+    } else {
+        key_hints(&[
+            ("↑↓", "rows"),
+            ("←→", "cols"),
+            ("n/p", "pages"),
+            ("Esc", "input"),
+            ("Enter", "open"),
+            ("a", "all"),
+            ("e", "hit"),
+            ("q", "quit"),
+        ])
+    }
+}
+
 pub(super) fn draw(frame: &mut Frame, app: &App<'_>) {
-    let [mode, input, status, body, footer] = Layout::vertical([
-        Constraint::Length(2),
-        Constraint::Length(3),
-        Constraint::Length(2),
-        Constraint::Fill(1),
-        Constraint::Length(2),
-    ])
-    .areas(frame.area());
-    frame.render_widget(Paragraph::new(controls(app)), mode);
-    query_line(frame, app, input);
-    frame.render_widget(Paragraph::new(app.message.as_str()), status);
+    frame.render_widget(
+        Block::default().style(Style::default().bg(theme::BACKGROUND)),
+        frame.area(),
+    );
     let in_detail = app.focus == Focus::Detail
         || (matches!(app.focus, Focus::ExportAll | Focus::ExportOne)
             && app.export_return_focus == Focus::Detail);
+    let show_footer = app.index_status.is_some() || in_detail || !app.hits.is_empty();
+    let [header, input, status, body, footer] = Layout::vertical([
+        Constraint::Length(if in_detail { 2 } else { 3 }),
+        Constraint::Length(if in_detail { 0 } else { 3 }),
+        Constraint::Length(if app.message.is_empty() { 0 } else { 2 }),
+        Constraint::Fill(1),
+        Constraint::Length(if show_footer { 1 } else { 0 }),
+    ])
+    .areas(frame.area());
+    if in_detail {
+        frame.render_widget(
+            Paragraph::new(detail_header(app, header.width))
+                .style(Style::default().bg(theme::BACKGROUND)),
+            header,
+        );
+    } else {
+        frame.render_widget(
+            Paragraph::new(controls(app, header.width))
+                .style(Style::default().bg(theme::BACKGROUND)),
+            header,
+        );
+        query_line(frame, app, input);
+    }
+    if !app.message.is_empty() {
+        frame.render_widget(
+            Paragraph::new(Line::from(vec![
+                Span::styled(" ●  ", Style::default().fg(theme::ACCENT)),
+                Span::styled(app.message.as_str(), Style::default().fg(theme::MUTED)),
+            ])),
+            status,
+        );
+    }
     if in_detail {
         detail(frame, app, body);
     } else {
         results(frame, app, body);
     }
-    let help = if in_detail {
-        " ←→ or p/n Result  ↑↓ Scroll  PgUp/PgDn Scroll page  e Export hit  Esc Back"
-    } else {
-        " Tab Mode  Ctrl+Tab Collection  Enter Search/Open  [ ] Collection in results\n ↑↓ Rows  ←→ Columns  n/p Pages  a Export all  e Export hit  / Query  q Quit"
-    };
-    frame.render_widget(
-        Paragraph::new(help).style(Style::default().fg(Color::Gray)),
-        footer,
-    );
+    if show_footer {
+        let line = if let Some(status) = &app.index_status {
+            Line::from(vec![
+                Span::styled(" ◐  ", Style::default().fg(theme::ACCENT)),
+                Span::styled(status.as_str(), Style::default().fg(theme::TEXT)),
+            ])
+        } else {
+            footer_hints(app, in_detail, footer.width)
+        };
+        frame.render_widget(
+            Paragraph::new(line).style(Style::default().bg(theme::PANEL)),
+            footer,
+        );
+    }
     if matches!(app.focus, Focus::ExportAll | Focus::ExportOne) {
         export_prompt(frame, app, frame.area());
     }

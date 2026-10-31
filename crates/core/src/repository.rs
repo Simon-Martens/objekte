@@ -365,6 +365,16 @@ impl Repository {
         &self.model
     }
 
+    /// Copy parsed configuration into an independent handle with no indexes.
+    /// A UI can warm this handle on another thread and adopt it when ready.
+    pub fn fork_unindexed(&self) -> Self {
+        Self::from_model(
+            self.model.clone(),
+            self.options.clone(),
+            self.discovery.clone(),
+        )
+    }
+
     pub fn metrics(&self) -> &Metrics {
         &self.metrics
     }

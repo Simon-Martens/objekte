@@ -48,7 +48,7 @@ The CLI still checks every filename and stamp once per invocation before returni
 current rows. This is O(number of files), even on a cache hit. A manifest hash
 avoids individual-record database comparisons and source reads; it does not avoid
 constructing the manifest. Removing this wait from first paint belongs to the
-deferred [UI optimistic-delivery work](../../UI.md).
+deferred [UI optimistic-delivery work](../../docs/UI.md).
 
 ## Initial cache construction
 

@@ -121,7 +121,7 @@ crash recovery, and CLI behavior. Workspace Clippy now passes with the SQLite
 benchmark feature too; small type aliases and a range tuple resolve pre-existing
 benchmark lint failures without changing benchmark semantics.
 
-Build the same [profile_indexes driver](../core/examples/profile_indexes.rs) against
+Build the same historical `profile_indexes` driver (removed) against
 both revisions (copy it into an older checkout before building), save each executable,
 then run:
 

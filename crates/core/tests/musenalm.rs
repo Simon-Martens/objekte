@@ -133,7 +133,7 @@ fn all_musenalm_collections_match_direct_execution() {
             )
             .unwrap();
         assert_eq!(view.total, Some(count));
-        assert_eq!(view.metrics.enumerations, 1);
+        assert_eq!(view.metrics.enumerations, 0);
 
         assert_eq!(
             view.rows,

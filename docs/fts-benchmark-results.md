@@ -1,6 +1,6 @@
 # Full-text benchmark on Musenalm
 
-Measured 2026-10-31 on a 13th Gen Intel Core i9-13900K (32 logical CPUs), Linux x86-64, release build. The `contents` collection has 133,948 JSON files (524 MiB on disk). Every JSON leaf value was included in the FTS index. A temporary schema overlay assigned `annotation` = Markdown, `preferred_title` = plain, `title_statement` = HTML, and `contributors[].annotation` = XML; it did not edit the example repository.
+Measured 2026-10-31 on a 13th Gen Intel Core i9-13900K (32 logical CPUs), Linux x86-64, release build. At the time, the `contents` collection had 133,948 JSON files (524 MiB on disk). The checked-in files now also contain an `entry` reference, so these build, memory, and query figures describe the earlier fixture. Every JSON leaf value was included in the FTS index. A temporary schema overlay assigned `annotation` = Markdown, `preferred_title` = plain, `title_statement` = HTML, and `contributors[].annotation` = XML; it did not edit the example repository.
 
 Run with `cargo run --release -p objekte-bench --bin fts-query-mix -- examples/musenalm 3`. Build time was measured once in each of three fresh processes. Ready RSS was sampled 250 ms after each build. Query results below are medians of three warm timed runs after one warm-up pass per case; each query counts all matches and returns one record.
 

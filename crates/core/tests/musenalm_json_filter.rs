@@ -13,7 +13,10 @@ fn global_filters_match_source_execution_on_musenalm() {
     for (collection, expression) in [
         (None, "year >= 1800 && year < 1805"),
         (None, "preferred_title ~ :ignorecase('liebe')"),
-        (None, "contributors.agents ?= '1500' || exists(contents[0])"),
+        (
+            None,
+            "contributors.agents ?= '1500' || entry = '00fx8ln651na0e3'",
+        ),
         (Some("contents"), "year >= 1800 && year < 1805"),
     ] {
         let request = JsonQuery {

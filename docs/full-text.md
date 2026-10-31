@@ -30,27 +30,27 @@ Four standalone search modes use the included fields:
 
 | Mode | What it matches | CLI |
 | --- | --- | --- |
-| Word | Literal substrings in rendered text, including partial words; case insensitive by default | `search 'Help' --mode word` |
-| Raw word | Literal substrings in decoded source values with markup intact | `search 'Help' --mode raw-word` |
-| Rendered regex | Regex over rendered text without markup | `search 'Help\s+world' --mode regex` |
-| Raw regex | Regex over decoded field strings including Markdown, HTML, or XML markup | `search '<b>lp</b>' --mode raw-regex` |
+| Word | Literal substrings in rendered text, including partial words; case insensitive by default | `cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help' --mode word --limit 3` |
+| Raw word | Literal substrings in decoded source values with markup intact | `cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help' --mode raw-word --limit 3` |
+| Rendered regex | Regex over rendered text without markup | `cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help\s+world' --mode regex --limit 3` |
+| Raw regex | Regex over decoded field strings including Markdown, HTML, or XML markup | `cargo run --release -p objekte-cli -- examples/musenalm search contents '<b>lp</b>' --mode raw-regex --limit 3` |
 
 `--case-sensitive` applies to every mode. Word mode treats the input as literal text, so `Lichtenber` matches `Lichtenberg` and `chtenbe` matches within it. It uses Unicode case folding by default. For whole-word matching, use regex mode with boundaries such as `\bLichtenberg\b`. Regex uses Rust regex syntax and its Unicode case-insensitive matching. Raw regex sees decoded JSON values for parseable files, so a JSON `\n` escape has already become a newline. For malformed files it searches the raw source plus best-effort unescaped text. All modes return matching records in collection and byte-sorted record ID order. Each hit has canonical `fields` for query scope, such as `contents[].incipit_statement`, and concrete `matched_paths` for the leaves that matched, such as `contents[9].incipit_statement`. These identify array elements, not character ranges. Use `--field annotation` or an array path such as `--field 'notes[].body'` to narrow the fields, and a positional collection or `--collection` to narrow the collections. `--limit`, `--offset`, and `--count` work as for filter queries.
 
 The JSON filter language also accepts `:fts` on a field operand. It renders a field with a declared format before applying the ordinary comparison, so it composes with numbers, booleans, `&&`, `||`, `~`, `!~`, `=`, and `:ignorecase`:
 
 ```sh
-objekte REPOSITORY query contents 'year = 1822 && annotation:fts ~ "Goet"' --count
-objekte REPOSITORY query contents 'annotation:fts ~ :ignorecase("GOET")' --count
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1822 && annotation:fts ~ "Goet"' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'annotation:fts ~ :ignorecase("GOET")' --count --limit 3
 ```
 
 Here `~` retains the filter language's LIKE-style matching; it is not a regex operator. Use `search --mode regex` for regex over rendered text. For a path with no declared `x-full-text` format, including in a schema-free collection or under `exclude_fts`, `:fts` has exactly the same matching behavior as omitting it. An explicit JSON filter can still search an excluded field. When the schema supplies an included format and a positive pattern has a usable literal, the filter planner intersects full-text bigram candidates with other safe JSON index candidates. Negated or broad patterns still verify source records.
 
 ```sh
-objekte REPOSITORY search COLLECTION 'Help' --mode word --count
-objekte REPOSITORY search COLLECTION 'Help\s+world' --mode regex --field annotation
-objekte REPOSITORY search COLLECTION '<b>lp</b>' --mode raw-regex --case-sensitive
-objekte REPOSITORY search COLLECTION 'Help' --output events
+cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help' --mode word --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help\s+world' --mode regex --field annotation --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm search contents '<b>lp</b>' --mode raw-regex --case-sensitive --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help' --output events --limit 3
 ```
 
 The library API uses `TextQuery` with `Repository::search_text(&query)` or `Repository::search_text_stream(&query, callback)`. The streaming callback receives numbered page hits as they become available. Treat them as provisional until the final summary: a later source error invalidates an earlier hit. The CLI `--output events` emits `hit`, `complete`, and `error` JSON lines with the same contract.
@@ -61,6 +61,6 @@ For a long-lived UI, `warm_text_index(collection)` and `warm_all_text_indexes()`
 
 `x-full-text` and `exclude_fts` are independent of the schema's scalar `index` setting, which creates ordered postings for JSON comparisons and views. Use `query` with `:fts` for structural combinations, or `search` for standalone word and regex modes.
 
-To repeat the release measurements on Musenalm, run `cargo run --release -p objekte-bench --bin fts-query-mix -- examples/musenalm 3`. The benchmark creates a temporary schema overlay for `contents` that marks `annotation` as Markdown, `preferred_title` as plain text, `title_statement` as HTML, and `contributors[].annotation` as XML. Every other leaf is included with plain rendering. It changes no example files. Each case counts every match and returns one record; the reported query time is the median of three warm runs. Ready-state RSS is sampled after each index build, while compressed posting bytes are reported separately.
+To measure the current Musenalm data, run `cargo run --release -p objekte-bench --bin fts-query-mix -- examples/musenalm 3`. The published [benchmark results](fts-benchmark-results.md) predate the addition of `contents.entry`, so new numbers will differ. The benchmark creates a temporary schema overlay for `contents` that marks `annotation` as Markdown, `preferred_title` as plain text, `title_statement` as HTML, and `contributors[].annotation` as XML. Every other leaf is included with plain rendering. It changes no example files. Each case counts every match and returns one record; the reported query time is the median of three warm runs. Ready-state RSS is sampled after each index build, while compressed posting bytes are reported separately.
 
 The complete 30-case measurements are in [fts-benchmark-results.md](fts-benchmark-results.md).

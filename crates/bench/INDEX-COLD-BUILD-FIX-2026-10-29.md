@@ -31,7 +31,7 @@ No extra field columns or persistent projections are introduced.
   a primary-key scan and ignore a selective JSON index.
 - Cache format 6 rebuilds older disposable databases once. The persisted configuration
   manifest remains independent of the schema versions applied to records. Source JSON
-  is unchanged. [validation.md](../../validation.md) documents the physical schema.
+  is unchanged. [validation.md](../../docs/validation.md) documents the physical schema.
 
 ## Repeated performance comparison
 
@@ -114,7 +114,7 @@ python3 crates/bench/compare_index_revisions.py BEFORE_PROFILE AFTER_PROFILE \
   --samples 3 --repeats 3
 ```
 
-Both executables must use the same [profile driver](../core/examples/profile_indexes.rs).
+Both executables must use the same historical `profile_indexes` driver (removed).
 The [runner](compare_index_revisions.py) removes its temporary databases and writes
 raw JSONL plus medians. This run's raw measurements are in ignored
 `target/index-comparison-cold-fix-2026-10-29/`. Hardware timings are reported rather

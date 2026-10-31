@@ -4,15 +4,15 @@ The real-data fixture for the first Objekte implementation profile. All seven JS
 collections are registered in `.editor/repository.json`. Each has a minimal
 structural schema, collection settings, and scalar list options under
 `.editor/collections/`. The implementation contract is in
-[implementation.md](../../implementation.md).
+[implementation.md](../../docs/implementation.md).
 
 | Collection | Records | Initial use |
 | --- | ---: | --- |
 | Places | 210 | First small default table; strings, numbers, booleans |
 | Agents | 4,010 | Larger table, long strings, opaque JSON/null |
 | Series | 1,202 | Reference arrays and embedded membership objects |
-| Entries | 4,928 | Large nested records and nested references |
-| Contents | 133,948 | Large collection; numeric and fractional sorting |
+| Entries | 4,928 | Entry metadata and references to agents and places |
+| Contents | 133,948 | Each content references one entry; numeric and fractional sorting |
 | Items | 4,180 | Arrays, booleans, owner filters |
 | Pages | 8 | Small collection with opaque JSON |
 | **Total** | **148,486** | |
@@ -45,33 +45,41 @@ named documents and richer editor settings are outside this first profile.
 - `series.related_entries` embeds additional membership objects; their `entry`
   field references an entry file.
 - `entries.places` contains references to place files.
-- `entries.agents[].agent` and
-  `entries.contents[].agents[].agent` reference agent files.
-- `entries.items` and `entries.contents` contain **embedded objects**, not child
-  IDs. Their `source_id` fields preserve provenance but declare no relation.
-- Standalone `contents` and `items` files also exist. Their shapes differ from the
-  embedded values; the library must not merge or synchronize them implicitly.
+- `entries.agents[].agent` references agent files.
+- `entries.items` contains embedded objects, not child IDs. Their `source_id`
+  fields preserve provenance but declare no relation.
+- Every standalone `contents.entry` references exactly one entry file. The
+  content is stored only in that standalone file; entry files contain no
+  `contents` list. The `entry` field has an ordered index for backlink searches.
+- Standalone `items` files also exist. Their shapes differ from the embedded
+  values; the library must not merge or synchronize them implicitly.
 - Standalone `contents.contributors[].agents` references agent files.
 
-The schema graph therefore links series to entries, entries to agents/places, and
-standalone contents to agents. Items and pages have no declared outgoing relations.
+The schema graph therefore links series to entries, entries to agents/places,
+and contents to entries/agents. Items and pages have no declared outgoing relations.
 `editor` IDs refer to users absent from this fixture and remain plain strings.
 
-Identity is `(collection, filename stem)`. An embedded value has no independent
-file identity. References inside it belong to its containing record.
+Identity is `(collection, filename stem)`. Embedded items and agents have no
+independent file identity. References inside them belong to their containing record.
 
 ## Verification and source preservation
 
-On 28 October 2026, all 148,486 source records passed the simplified schemas using
-a Draft 2020-12 validator. All 173,427 declared reference occurrences resolved to
-existing target files; this counts occurrences, including embedded copies, not
-distinct targets. All configured display/filter/sort/table fields resolve to scalar
-schema fields. Source-file content hashes were identical before and after this
-configuration change.
+On 28 October 2026, before the content-to-entry migration, all 148,486 source
+records passed the simplified schemas using a Draft 2020-12 validator. The
+31 October migration removed the embedded `entries.contents` copies and added
+one required `contents.entry` reference to each of the 133,948 standalone content
+files. Every reference resolves to one of the 4,928 entry files; 2,394 entries
+have at least one content. All configured display/filter/sort/table fields
+remain scalar schema fields. The full acceptance test validates all 148,486
+post-migration records and confirms direct and indexed views agree.
 
-JSON values, inline HTML/Markdown, timestamps, identifiers, and filenames are
-preserved. Null remains distinct from an empty string. The original XML export is
+Standalone content payloads, inline HTML/Markdown, timestamps, identifiers, and
+filenames are preserved apart from the new `entry` field. Entry fields other than
+the removed `contents` list are preserved. Null remains distinct from an empty
+string. The original XML export is
 local in the ignored `import/` directory; `import-report.json` describes its import.
+Its `entries.contents` count describes the original embedded copies, which are
+no longer stored in entry files.
 The existing import/migration scripts describe earlier export/editor stages and do
 not reproduce this minimal configuration profile. The checked-in JSON data and
 the current schema/UI files are the acceptance fixture for the rebuild.

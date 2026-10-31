@@ -104,4 +104,4 @@ JSON also cost time. An index does not make every predicate or every page consta
 Cache format 5 rebuilds older disposable caches once. Source JSON is unchanged.
 External connections checking integrity must register the cache SQL functions through
 `register_cache_sqlite_functions`; repository connections do so automatically.
-Syntax and current compatibility limits are documented in [filters.md](../../filters.md).
+Syntax and current compatibility limits are documented in [filters.md](../../docs/filters.md).

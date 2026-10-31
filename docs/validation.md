@@ -14,7 +14,7 @@ Every returned record includes its repository-relative path, source byte size, a
 Reference occurrences are also derived on request. `references_from` extracts declared edges from one source record. `references_to` reports the currently observed edges unless `--complete` requests a scan of all referring collections. `--check-targets` checks whether target source files currently exist. There are no persisted edge rows.
 
 ```sh
-cargo run -p objekte-cli -- examples/musenalm validate contents
-cargo run -p objekte-cli -- examples/musenalm get contents RECORD_ID
-cargo run -p objekte-cli -- examples/musenalm cache status
+cargo run --release -p objekte-cli -- examples/musenalm validate contents
+cargo run --release -p objekte-cli -- examples/musenalm get contents 00a2tiwxye101sh
+cargo run --release -p objekte-cli -- examples/musenalm cache status
 ```

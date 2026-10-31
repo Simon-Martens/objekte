@@ -1,13 +1,13 @@
 # Objekte: implemented library and next product work
 
-Objekte reads collections of JSON files through a Rust library and CLI. Source files are authoritative. The CLI is read-only; it can inspect, query, sort, validate, and find declared references. A desktop editor and source-file write operations are future work. See [queries.md](queries.md) for runnable commands and [filters.md](filters.md) for query semantics.
+Objekte reads collections of JSON files through a Rust library and CLI. Source files are authoritative. The CLI is read-only; it offers one-shot commands and an interactive TUI for searching, inspecting records, following declared links, and exporting results. A desktop editor and source-file write operations are future work. See [queries.md](queries.md) for runnable commands and [cli-tui.md](cli-tui.md) for the interactive controls.
 
 ## Current capabilities
 
 - Populated JSON folders are discovered as collections without a manifest. Optional schema bases group nested folders; indexes are opened lazily.
 - `get`, configured table `view`, and general `query` over stored JSON fields. Views support configured columns, filters, scalar sorts, secondary sorts, pagination, and optional counts. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
-- The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Query candidates are checked against original JSON with Sonic; the index alone never decides a match.
-- Every JSON leaf value is searchable through separate lazy bigram indexes. Schema fields can select plain, Markdown, HTML, or XML rendering or exclude a subtree. Word, rendered-regex, and raw-regex modes are available. See [full-text.md](full-text.md).
+- The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Covered scalar predicates can count exact indexed matches; returned page records are still read and validated against source JSON.
+- Every JSON leaf value is searchable by default. Collections with declared Markdown, HTML, XML, or full-text exclusions build a separate rendered/raw full-text index pair; other collections use the normal bigram index. Word, rendered-regex, and raw-regex modes are available. See [full-text.md](full-text.md).
 - `--cache disabled` makes views scan source files. JSON queries also offer explicit `direct` and raw-file `grep` backends. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
 - Explicit collection/all-collection validation, JSON/schema status on returned pages where validation runs, source refresh, configuration-change reporting, cache status, and per-record revision lookup. Revisions last only for the repository handle. Validation status is not stored in the index.
 - Declared outgoing references are extracted on request. Incoming references can be discovered by scanning referring source collections. The CLI's `relations --to ... --complete` requests complete coverage; `--check-targets` checks current target files. There is no persistent edge table or automatic source rewrite on a move/delete.
@@ -22,7 +22,7 @@ The schema's `index` opt-in is independent of `list.filters`, `list.sortable`, a
 | JSON Schema | Stored types and on-demand validation rules |
 | UI settings | Permitted view columns, filters, and sorts; presentation defaults |
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
-| CLI | Parse commands and display library results; no separate query or cache implementation |
+| CLI | One-shot commands and a read-only TUI over the library; no separate query or cache implementation |
 
 Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations, group records, or search metadata such as source path. Malformed JSON does not match a JSON query. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](validation.md) for the precise validation behavior.
 

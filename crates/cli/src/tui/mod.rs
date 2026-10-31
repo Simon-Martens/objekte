@@ -2,20 +2,29 @@
 
 mod detail;
 mod export;
+mod match_preview;
+mod navigation;
+mod relations;
 mod render;
+mod search;
 mod state;
+mod theme;
+mod warm;
 
-use self::state::{App, Focus};
+use self::{
+    navigation::DetailSection,
+    state::{App, Focus},
+};
 use objekte_core::Repository;
 use ratatui::crossterm::{
     event::{
         self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, KeyboardEnhancementFlags,
         PopKeyboardEnhancementFlags, PushKeyboardEnhancementFlags,
     },
-    execute, terminal,
+    execute,
 };
 use std::error::Error;
-
+use std::{sync::mpsc::TryRecvError, time::Duration};
 
 fn key(app: &mut App<'_>, key: KeyEvent) {
     if key.kind == KeyEventKind::Release {
@@ -24,6 +33,14 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
     if key.code == KeyCode::Char('c')
         && key.modifiers.contains(KeyModifiers::CONTROL)
         && !key.modifiers.contains(KeyModifiers::ALT)
+    {
+        app.done = true;
+        return;
+    }
+    if key.code == KeyCode::Char('q')
+        && !key
+            .modifiers
+            .intersects(KeyModifiers::CONTROL | KeyModifiers::ALT)
     {
         app.done = true;
         return;
@@ -40,12 +57,23 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
     }
     if app.focus == Focus::Detail {
         match key.code {
-            KeyCode::Esc | KeyCode::Backspace => app.focus = Focus::Results,
-            KeyCode::Up => app.detail_scroll = app.detail_scroll.saturating_sub(1),
-            KeyCode::Down => app.detail_scroll = app.detail_scroll.saturating_add(1),
+            KeyCode::Esc => app.close_detail(),
+            KeyCode::Backspace => app.leave_detail(),
+            KeyCode::Tab | KeyCode::BackTab => app.links.cycle_section(
+                key.code == KeyCode::BackTab || key.modifiers.contains(KeyModifiers::SHIFT),
+            ),
+            KeyCode::Up if app.links.section == DetailSection::Fields => {
+                app.detail_scroll = app.detail_scroll.saturating_sub(1)
+            }
+            KeyCode::Down if app.links.section == DetailSection::Fields => {
+                app.detail_scroll = app.detail_scroll.saturating_add(1)
+            }
+            KeyCode::Up => app.links.move_selection(false),
+            KeyCode::Down => app.links.move_selection(true),
             KeyCode::PageUp => app.detail_scroll = app.detail_scroll.saturating_sub(20),
             KeyCode::PageDown => app.detail_scroll = app.detail_scroll.saturating_add(20),
             KeyCode::Home => app.detail_scroll = 0,
+            KeyCode::Enter => app.open_selected_relation(),
             KeyCode::Left | KeyCode::Char('p') => app.detail_neighbor(false),
             KeyCode::Right | KeyCode::Char('n') => app.detail_neighbor(true),
             KeyCode::Char('e') => app.start_export(false),
@@ -81,8 +109,7 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
                 app.offset = 0;
                 app.search();
             }
-            KeyCode::Esc if !app.hits.is_empty() => app.focus = Focus::Results,
-            KeyCode::Esc => app.done = true,
+            KeyCode::Esc => {}
             _ => {
                 let before = app.input.text.clone();
                 app.input.key(key);
@@ -96,7 +123,7 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
     }
     match key.code {
         KeyCode::Char('/') => app.focus = Focus::Query,
-        KeyCode::Esc | KeyCode::Char('q') => app.done = true,
+        KeyCode::Esc => app.focus = Focus::Query,
         KeyCode::Up => app.selected = app.selected.saturating_sub(1),
         KeyCode::Down => {
             app.selected = (app.selected + 1).min(app.hits.len().saturating_sub(1));
@@ -109,9 +136,7 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
                 (app.column_offset + 1).min(render::column_count(app).saturating_sub(1));
         }
         KeyCode::Enter if !app.hits.is_empty() => {
-            app.detail_scroll = 0;
-            app.focus = Focus::Detail;
-            app.detail_position();
+            app.open_detail();
         }
         KeyCode::Char('n') | KeyCode::PageDown => app.next_page(),
         KeyCode::Char('p') | KeyCode::PageUp => app.previous_page(),
@@ -123,44 +148,94 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
     }
 }
 
-/// Warm every collection once, then reuse the same repository for all queries.
+fn pending_message(app: &App<'_>, pressed: KeyEvent) -> Option<&'static str> {
+    if pressed.kind == KeyEventKind::Release {
+        return None;
+    }
+    match (app.focus, pressed.code) {
+        (Focus::Query, KeyCode::Enter) if app.index_status.is_none() => Some("Searching…"),
+        (Focus::Results, KeyCode::Char('n') | KeyCode::PageDown) if app.can_next_page() => {
+            Some("Loading page…")
+        }
+        (Focus::Results, KeyCode::Char('p') | KeyCode::PageUp) if app.can_previous_page() => {
+            Some("Loading page…")
+        }
+        (Focus::ExportAll, KeyCode::Enter) => Some("Exporting all matches…"),
+        (Focus::ExportOne, KeyCode::Enter) => Some("Exporting selected hit…"),
+        _ => None,
+    }
+}
+
+fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
+    match update {
+        warm::WarmUpdate::Progress { completed, total } => {
+            app.index_status = Some(format!(
+                "Building indexes · {completed}/{total} collections ready"
+            ));
+        }
+        warm::WarmUpdate::Ready(mut built) => {
+            std::mem::swap(app.repo, &mut *built);
+            app.index_status = None;
+            if app.queued_search {
+                app.search();
+            } else {
+                app.message = "Indexes ready. Enter a query to search.".into();
+            }
+        }
+        warm::WarmUpdate::Failed(error) => {
+            app.index_status = None;
+            app.queued_search = false;
+            app.message = format!("Index build failed: {error}");
+        }
+    }
+}
+
+/// Show the UI after configuration loading while indexes warm in a worker.
 pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
     let mut terminal = ratatui::try_init()?;
-    let enhanced = matches!(terminal::supports_keyboard_enhancement(), Ok(true));
     // Keep ordinary text as UTF-8; encoding every key without its shifted
     // character turns Shift+A and layout-specific symbols into base keys.
-    if enhanced
-        && let Err(error) = execute!(
-            std::io::stdout(),
-            PushKeyboardEnhancementFlags(
-                KeyboardEnhancementFlags::DISAMBIGUATE_ESCAPE_CODES
-                    | KeyboardEnhancementFlags::REPORT_ALTERNATE_KEYS
-            )
+    // The support probe waits for a terminal reply and can stall startup for
+    // seconds. Unsupported terminals ignore this CSI sequence harmlessly.
+    if let Err(error) = execute!(
+        std::io::stdout(),
+        PushKeyboardEnhancementFlags(
+            KeyboardEnhancementFlags::DISAMBIGUATE_ESCAPE_CODES
+                | KeyboardEnhancementFlags::REPORT_ALTERNATE_KEYS
         )
-    {
+    ) {
         let _ = ratatui::try_restore();
         return Err(error.into());
     }
     let result = (|| -> Result<(), Box<dyn Error>> {
-        terminal.draw(|frame| {
-            frame.render_widget("Warming the in-memory bigram indexes…", frame.area());
-        })?;
-        repo.warm_all_bigram_indexes()?;
+        let total = repo.model().collections.len();
+        let updates = warm::start(repo);
         let mut app = App::new(repo);
+        let mut searches = search::SearchWorker::default();
+        app.async_search = true;
+        app.index_status = Some(format!("Building indexes · 0/{total} collections ready"));
         while !app.done {
+            loop {
+                match updates.try_recv() {
+                    Ok(update) => apply_warm_update(&mut app, update),
+                    Err(TryRecvError::Empty) => break,
+                    Err(TryRecvError::Disconnected) => {
+                        if app.index_status.is_some() {
+                            app.index_status = None;
+                            app.queued_search = false;
+                            app.message = "Index worker stopped unexpectedly.".into();
+                        }
+                        break;
+                    }
+                }
+            }
+            searches.drive(&mut app);
             terminal.draw(|frame| render::draw(frame, &app))?;
-            if let Event::Key(pressed) = event::read()? {
-                let pending = match (app.focus, pressed.code) {
-                    (Focus::Query, KeyCode::Enter) => Some("Searching…"),
-                    (
-                        Focus::Results,
-                        KeyCode::Char('n' | 'p') | KeyCode::PageDown | KeyCode::PageUp,
-                    ) => Some("Loading page…"),
-                    (Focus::ExportAll, KeyCode::Enter) => Some("Exporting all matches…"),
-                    (Focus::ExportOne, KeyCode::Enter) => Some("Exporting selected hit…"),
-                    _ => None,
-                };
-                if let Some(message) = pending {
+            let poll_ms = if app.searching { 20 } else { 100 };
+            if event::poll(Duration::from_millis(poll_ms))?
+                && let Event::Key(pressed) = event::read()?
+            {
+                if let Some(message) = pending_message(&app, pressed) {
                     app.message = message.into();
                     terminal.draw(|frame| render::draw(frame, &app))?;
                 }
@@ -169,11 +244,7 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
         }
         Ok(())
     })();
-    let pop = if enhanced {
-        execute!(std::io::stdout(), PopKeyboardEnhancementFlags)
-    } else {
-        Ok(())
-    };
+    let pop = execute!(std::io::stdout(), PopKeyboardEnhancementFlags);
     let restore = ratatui::try_restore();
     result?;
     pop?;

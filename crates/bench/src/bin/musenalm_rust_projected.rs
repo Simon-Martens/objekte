@@ -15,6 +15,7 @@ type Result<T> = std::result::Result<T, Box<dyn Error>>;
 // INFO: Selected Musenalm content fields for the projected-read benchmark.
 #[derive(Deserialize)]
 struct Content {
+    entry: String,
     year: Option<i64>,
     #[serde(default)]
     edit_state: String,
@@ -37,11 +38,9 @@ struct Contributor {
 }
 
 
-// INFO: Entry links to content and item records in the projected benchmark.
+// INFO: Entry links to embedded item records in the projected benchmark.
 #[derive(Deserialize)]
 struct Entry {
-    #[serde(default)]
-    contents: Vec<SourceRef>,
     #[serde(default)]
     items: Vec<SourceRef>,
 }
@@ -217,8 +216,7 @@ fn main() -> Result<()> {
     );
 
     let start = Instant::now();
-    let content_by_id: HashMap<&str, &Row<Content>> =
-        contents.iter().map(|r| (r.id.as_str(), r)).collect();
+    let entry_ids: HashSet<&str> = entries.iter().map(|r| r.id.as_str()).collect();
     let item_ids: HashSet<&str> = other_collections["items"]
         .iter()
         .map(|r| r.id.as_str())
@@ -310,20 +308,14 @@ fn main() -> Result<()> {
             }),
         ),
         (
-            "entry_content_links",
+            "content_entry_links",
             Box::new(|| {
                 let mut links = 0;
                 let mut resolved = 0;
-                for row in &entries {
-                    for child in &row.data.contents {
-                        links += 1;
-                        if child
-                            .source_id
-                            .as_deref()
-                            .is_some_and(|id| content_by_id.contains_key(id))
-                        {
-                            resolved += 1;
-                        }
+                for row in &contents {
+                    links += 1;
+                    if entry_ids.contains(row.data.entry.as_str()) {
+                        resolved += 1;
                     }
                 }
                 json!([links, resolved, links - resolved])

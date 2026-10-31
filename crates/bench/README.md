@@ -21,8 +21,10 @@ target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema
 
 `--no-schema` discovers the same data folders without loading their default
 schemas or ordered schema postings. The example repository is not modified.
-See the [50-query schema comparison](QUERY-SCHEMA-COMPARISON-2026-10-31.md)
-for both full result sets and raw NDJSON.
+Cases 34–36 now query `entries.items` and the `contents.entry` reference.
+The [50-query schema comparison](QUERY-SCHEMA-COMPARISON-2026-10-31.md)
+records the earlier fixture, when `entries.contents` was embedded; its saved
+numbers are historical and differ from a run of the current workload.
 
 See [the October 31 baseline](QUERY-MIX-50-2026-10-31.md) for the full table
 before snapshot counts and null/inequality postings. The

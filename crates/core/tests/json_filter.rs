@@ -1,5 +1,7 @@
 mod support;
-use objekte_core::{CacheMode, Freshness, JsonFilter, JsonQuery, JsonQueryBackend, Repository};
+use objekte_core::{
+    CacheMode, Freshness, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Repository,
+};
 use serde_json::json;
 use std::{collections::BTreeMap, fs};
 use support::*;
@@ -106,6 +108,28 @@ fn check(f: &Fixture, cases: &[(&str, &[&str])]) {
             "bigram: {filter}"
         );
     }
+}
+
+#[test]
+fn filter_paths_follow_first_use_across_boolean_groups_and_both_operands() {
+    let filter = JsonFilter::compile(
+        "z = a && missing(m) && (a = 1 || nested.value = 2) && exists(['preferred title'])",
+        &BTreeMap::new(),
+    )
+    .unwrap();
+    assert_eq!(
+        filter.paths_in_query_order(),
+        [
+            vec![JsonPathStep::Key("z".into())],
+            vec![JsonPathStep::Key("a".into())],
+            vec![JsonPathStep::Key("m".into())],
+            vec![
+                JsonPathStep::Key("nested".into()),
+                JsonPathStep::Key("value".into())
+            ],
+            vec![JsonPathStep::Key("preferred title".into())],
+        ]
+    );
 }
 
 #[test]

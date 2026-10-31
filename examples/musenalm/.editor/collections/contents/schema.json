@@ -142,11 +142,19 @@
         ],
         "additionalProperties": false
       }
+    },
+    "entry": {
+      "type": "string",
+      "x-relation": {
+        "collection": "entries"
+      },
+      "index": true
     }
   },
   "required": [
     "preferred_title",
-    "musenalm_id"
+    "musenalm_id",
+    "entry"
   ],
   "additionalProperties": false
 }

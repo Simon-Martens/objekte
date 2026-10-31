@@ -2,7 +2,6 @@ use super::*;
 use ratatui::crossterm::event::KeyModifiers;
 use std::fs;
 
-
 #[test]
 fn input_edits_unicode_at_character_boundaries() {
     let mut input = Input::default();
@@ -38,7 +37,10 @@ fn full_text_controls_choose_all_four_search_modes() {
     fs::write(collection.join("a.json"), r#"{"note":"**Help**"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Text;
+    assert!(app.kind == SearchKind::Text);
+    assert!(app.representation == Representation::Normalized);
+    assert!(!app.regex);
+    assert!(!app.case_sensitive);
     app.input.text = "Help".into();
     for (regex, representation, expected) in [
         (false, Representation::Normalized, TextMode::Word),
@@ -85,6 +87,7 @@ fn direct_controls_invalidate_results_and_respect_search_mode() {
     fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
+    app.kind = SearchKind::Filter;
     app.input.text = "note ~ 'Moon'".into();
     app.search();
     assert_eq!(app.hits.len(), 1);
@@ -102,8 +105,8 @@ fn direct_controls_invalidate_results_and_respect_search_mode() {
     app.cycle_collection(false);
     assert_eq!(app.collection_label(), "docs");
     assert!(app.focus == Focus::Results);
-    assert!(app.hits.is_empty());
-    assert!(app.last_request.is_none());
+    assert_eq!(app.hits.len(), 1);
+    assert!(app.last_request.is_some());
 
     app.toggle_mode();
     assert!(app.kind == SearchKind::Text);

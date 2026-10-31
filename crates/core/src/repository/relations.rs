@@ -136,6 +136,13 @@ impl Repository {
         Ok(References { edges, coverage })
     }
 
+    /// Extract declared outgoing links from a record already in memory.
+    /// This uses the schema graph without reopening the source file.
+    pub fn references_in_record(&self, record: &Record) -> Result<Vec<RecordRelation>> {
+        let collection = self.model.collection(&record.collection)?;
+        self.extract(collection, &record.id, &record.data)
+    }
+
     pub fn references_to(
         &mut self,
         collection: &str,

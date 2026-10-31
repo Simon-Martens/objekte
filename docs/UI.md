@@ -1,6 +1,6 @@
 # Deferred desktop UI work
 
-There is no persistent desktop UI yet. The current Rust library and CLI provide source-backed views, JSON filters, validation commands, source refresh, and in-memory indexes. The UI will keep a `Repository` handle open, schedule expensive calls away from its event loop, and present their results. The CLI remains a single-command caller.
+There is no persistent desktop UI yet. The Rust library provides source-backed views, JSON filters, validation commands, source refresh, and in-memory indexes. The CLI has both one-shot commands and a [read-only TUI](cli-tui.md) that keeps a repository handle open, builds indexes in a worker, streams search results, and loads backlinks asynchronously. The planned desktop UI will add filesystem watching, live refresh, and editing.
 
 ## Library state the UI can use today
 
@@ -11,7 +11,7 @@ There is no persistent desktop UI yet. The current Rust library and CLI provide 
 - `get_record` reads the original file. It reports malformed JSON immediately; a parseable record has `pending` status with a schema or `no_schema` without one. Query matches and in-memory view pages are schema-validated when a schema exists. Explicit `validate` scans schema-backed source records. Validation status and diagnostics are not persisted in the index; there are no validation workers or update notifications.
 - Incoming references are discovered from source on request. For complete coverage in memory mode, request `references_to(..., complete = true, ...)`; partial coverage only includes references already observed in this handle.
 
-## UI features to implement
+## Desktop UI features to implement
 
 1. **Open and refresh in the background.** Keep repository handles alive while the project is open. Run `warm_bigram_index`, `warm_text_index`, rebuilds, source reconciliation, queries, and explicit validation away from the UI thread. Show progress and errors without blocking navigation. Bound concurrency and cancel obsolete work.
 2. **Watch relevant paths.** Watch collection directories and configuration/schema/UI files. Coalesce bursts, refresh affected collections, and recover from missed events with an inventory pass. A watcher may use targeted file refresh for individual records, then fall back to a full refresh when events are incomplete. Evict a changed or deleted record from any future source-content cache. Git status is available on demand in the file picker; it is not a source-change watcher.

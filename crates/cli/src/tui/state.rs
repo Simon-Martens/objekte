@@ -1,6 +1,10 @@
 //! Search state, keyboard editing, and page navigation for the terminal UI.
 
-use objekte_core::{JsonQuery, JsonQueryBackend, Record, Repository, TextHit, TextMode, TextQuery};
+use super::navigation::DetailLinks;
+use objekte_core::{
+    JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Record, Repository, TextHit, TextMode,
+    TextQuery,
+};
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 
 const PAGE_SIZE: usize = 100;
@@ -72,6 +76,29 @@ impl Request {
             }),
         }
     }
+}
+
+
+fn queried_fields(request: &Request) -> Vec<String> {
+    let Request::Filter(query) = request else {
+        return Vec::new();
+    };
+    JsonFilter::compile(&query.filter, &query.parameters)
+        .map(|filter| {
+            let mut fields = Vec::new();
+            for path in filter.paths_in_query_order() {
+                let top = match path.first() {
+                    Some(JsonPathStep::Key(name)) => name.clone(),
+                    Some(JsonPathStep::Index(_) | JsonPathStep::Each) => "$value".into(),
+                    None => continue,
+                };
+                if !fields.contains(&top) {
+                    fields.push(top);
+                }
+            }
+            fields
+        })
+        .unwrap_or_default()
 }
 
 
@@ -156,6 +183,14 @@ pub(super) enum Focus {
 }
 
 
+/// Result to open after an adjacent detail page finishes streaming.
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub(super) enum DetailEdge {
+    First,
+    Last,
+}
+
+
 /// Long-lived repository handle and the current interactive query page.
 pub(super) struct App<'a> {
     pub(super) repo: &'a mut Repository,
@@ -170,13 +205,22 @@ pub(super) struct App<'a> {
     pub(super) export_return_focus: Focus,
     pub(super) focus: Focus,
     pub(super) hits: Vec<Hit>,
+    pub(super) query_fields: Vec<String>,
+    pub(super) async_search: bool,
+    pub(super) searching: bool,
+    pub(super) search_generation: u64,
+    pub(super) pending_search: Option<Request>,
+    pub(super) pending_detail: Option<DetailEdge>,
     pub(super) last_request: Option<Request>,
     pub(super) total: Option<usize>,
     pub(super) offset: usize,
     pub(super) selected: usize,
     pub(super) column_offset: usize,
     pub(super) detail_scroll: u16,
+    pub(super) links: DetailLinks,
     pub(super) message: String,
+    pub(super) index_status: Option<String>,
+    pub(super) queued_search: bool,
     pub(super) done: bool,
 }
 
@@ -187,7 +231,7 @@ impl<'a> App<'a> {
             collections: repo.model().collections.keys().cloned().collect(),
             repo,
             collection: 0,
-            kind: SearchKind::Filter,
+            kind: SearchKind::Text,
             representation: Representation::Normalized,
             regex: false,
             case_sensitive: false,
@@ -196,13 +240,22 @@ impl<'a> App<'a> {
             export_return_focus: Focus::Results,
             focus: Focus::Query,
             hits: Vec::new(),
+            query_fields: Vec::new(),
+            async_search: false,
+            searching: false,
+            search_generation: 0,
+            pending_search: None,
+            pending_detail: None,
             last_request: None,
             total: None,
             offset: 0,
             selected: 0,
             column_offset: 0,
             detail_scroll: 0,
-            message: "Enter a filter and press Enter. Tab switches search mode.".into(),
+            links: DetailLinks::default(),
+            message: "Search all collections. Enter a phrase and press Enter.".into(),
+            index_status: None,
+            queued_search: false,
             done: false,
         }
     }
@@ -255,11 +308,31 @@ impl<'a> App<'a> {
             self.message = "Enter a query first.".into();
             return;
         }
+        if self.index_status.is_some() {
+            self.queued_search = true;
+            self.message = "Search queued; indexes are still building.".into();
+            return;
+        }
+        self.queued_search = false;
+        self.links.reset();
+        self.search_generation = self.search_generation.wrapping_add(1);
+        self.pending_search = None;
+        self.pending_detail = None;
+        self.searching = false;
         self.hits.clear();
         self.total = None;
         self.selected = 0;
         self.column_offset = 0;
         let request = self.request();
+        if self.async_search {
+            self.query_fields = queried_fields(&request);
+            self.last_request = Some(request.clone());
+            self.pending_search = Some(request);
+            self.searching = true;
+            self.focus = Focus::Results;
+            self.message.clear();
+            return;
+        }
         let result = match &request {
             Request::Filter(request) => self.repo.query_json(request).map(|result| {
                 (
@@ -278,18 +351,10 @@ impl<'a> App<'a> {
             Ok((hits, total)) => {
                 self.hits = hits;
                 self.total = total;
+                self.query_fields = queried_fields(&request);
                 self.last_request = Some(request);
                 self.focus = Focus::Results;
-                self.message = format!(
-                    "{} matches; showing {}–{}.",
-                    total.unwrap_or(self.hits.len()),
-                    if self.hits.is_empty() {
-                        0
-                    } else {
-                        self.offset + 1
-                    },
-                    self.offset + self.hits.len()
-                );
+                self.message.clear();
             }
             Err(error) => {
                 self.last_request = None;
@@ -299,29 +364,65 @@ impl<'a> App<'a> {
         }
     }
 
+    pub(super) fn can_next_page(&self) -> bool {
+        self.last_request.is_some()
+            && !self.hits.is_empty()
+            && self.offset + self.hits.len() < self.total.unwrap_or(0)
+    }
+
+    pub(super) fn can_previous_page(&self) -> bool {
+        self.offset > 0 && self.last_request.is_some()
+    }
+
     pub(super) fn next_page(&mut self) {
-        if self.offset + self.hits.len() < self.total.unwrap_or(0) {
+        if self.searching {
+            self.message = "Wait for the current search to finish before paging.".into();
+            return;
+        }
+        if self.can_next_page() {
             self.offset += PAGE_SIZE;
             self.search();
+        } else {
+            self.message = if self.hits.is_empty() {
+                "No result pages.".into()
+            } else {
+                "Already on the last page.".into()
+            };
         }
     }
 
     pub(super) fn previous_page(&mut self) {
-        if self.offset > 0 {
+        if self.searching {
+            self.message = "Wait for the current search to finish before paging.".into();
+            return;
+        }
+        if self.can_previous_page() {
             self.offset = self.offset.saturating_sub(PAGE_SIZE);
             self.search();
+        } else {
+            self.message = if self.hits.is_empty() {
+                "No result pages.".into()
+            } else {
+                "Already on the first page.".into()
+            };
         }
     }
 
     pub(super) fn detail_position(&mut self) {
-        self.message = format!(
-            "Result {} of {}. Left/Right or p/n flips results.",
-            self.offset + self.selected + 1,
-            self.total.unwrap_or(self.offset + self.hits.len())
-        );
+        // The detail header owns record position and identity. Reserve the
+        // status line for errors and actions that need attention.
+        self.message.clear();
     }
 
     pub(super) fn detail_neighbor(&mut self, forward: bool) {
+        if self.links.override_hit.is_some() {
+            self.message = "Backspace returns to the previous item.".into();
+            return;
+        }
+        if self.searching {
+            self.message = "Wait for the current page to finish loading.".into();
+            return;
+        }
         if self.hits.is_empty() {
             return;
         }
@@ -330,6 +431,12 @@ impl<'a> App<'a> {
                 self.selected += 1;
             } else if self.offset + self.hits.len() < self.total.unwrap_or(0) {
                 self.next_page();
+                if self.async_search {
+                    self.pending_detail = Some(DetailEdge::First);
+                    self.focus = Focus::Detail;
+                    self.message = "Loading next result page…".into();
+                    return;
+                }
             } else {
                 return;
             }
@@ -337,6 +444,12 @@ impl<'a> App<'a> {
             self.selected -= 1;
         } else if self.offset > 0 {
             self.previous_page();
+            if self.async_search {
+                self.pending_detail = Some(DetailEdge::Last);
+                self.focus = Focus::Detail;
+                self.message = "Loading previous result page…".into();
+                return;
+            }
             self.selected = self.hits.len().saturating_sub(1);
         } else {
             return;
@@ -345,16 +458,36 @@ impl<'a> App<'a> {
             self.focus = Focus::Detail;
             self.detail_scroll = 0;
             self.detail_position();
+            self.prepare_detail_links();
         }
     }
 
     pub(super) fn invalidate_results(&mut self) {
+        self.links.reset();
+        self.search_generation = self.search_generation.wrapping_add(1);
         self.hits.clear();
+        self.query_fields.clear();
+        self.pending_search = None;
+        self.pending_detail = None;
+        self.searching = false;
         self.last_request = None;
+        self.queued_search = false;
         self.total = None;
         self.offset = 0;
         self.selected = 0;
         self.column_offset = 0;
+    }
+
+    fn refresh_after_selection(&mut self, message: String) {
+        let active = self.last_request.is_some() || self.queued_search;
+        self.invalidate_results();
+        if active {
+            // Selection changes start a fresh page of the same input.
+            self.search();
+        } else {
+            self.focus = Focus::Query;
+            self.message = message;
+        }
     }
 
     pub(super) fn cycle_collection(&mut self, backwards: bool) {
@@ -364,11 +497,10 @@ impl<'a> App<'a> {
         } else {
             (self.collection + 1) % count
         };
-        self.invalidate_results();
-        self.message = format!(
+        self.refresh_after_selection(format!(
             "Collection: {}. Ctrl+Tab cycles; [ and ] work in results.",
             self.collection_label()
-        );
+        ));
     }
 
     pub(super) fn toggle_mode(&mut self) {
@@ -391,13 +523,12 @@ impl<'a> App<'a> {
             return;
         }
         self.regex = !self.regex;
-        self.invalidate_results();
-        self.focus = Focus::Query;
-        self.message = if self.regex {
-            "Regex on; use inline flags such as (?i) for case-insensitive matching.".into()
+        let message = if self.regex {
+            "Regex on; use inline flags such as (?i) for case-insensitive matching."
         } else {
-            "Literal substring search on; Ctrl+E changes case sensitivity.".into()
+            "Literal substring search on; Ctrl+E changes case sensitivity."
         };
+        self.refresh_after_selection(message.into());
     }
 
     pub(super) fn toggle_representation(&mut self) {
@@ -409,13 +540,12 @@ impl<'a> App<'a> {
         } else {
             Representation::Normalized
         };
-        self.invalidate_results();
-        self.focus = Focus::Query;
-        self.message = if self.representation == Representation::Normalized {
-            "Normalized text: markup removed and whitespace collapsed.".into()
+        let message = if self.representation == Representation::Normalized {
+            "Normalized text: markup removed and whitespace collapsed."
         } else {
-            "Full text: decoded values with markup intact.".into()
+            "Full text: decoded values with markup intact."
         };
+        self.refresh_after_selection(message.into());
     }
 
     pub(super) fn toggle_case(&mut self) {
@@ -423,16 +553,19 @@ impl<'a> App<'a> {
             return;
         }
         self.case_sensitive = !self.case_sensitive;
-        self.invalidate_results();
-        self.focus = Focus::Query;
-        self.message = if self.case_sensitive {
-            "Literal search is case-sensitive.".into()
+        let message = if self.case_sensitive {
+            "Literal search is case-sensitive."
         } else {
-            "Literal search is case-insensitive.".into()
+            "Literal search is case-insensitive."
         };
+        self.refresh_after_selection(message.into());
     }
 
     pub(super) fn start_export(&mut self, all: bool) {
+        if self.searching {
+            self.message = "Wait for the search to finish before exporting.".into();
+            return;
+        }
         if self.last_request.is_none() || (!all && self.hits.is_empty()) {
             self.message = "Run a query and select a hit before exporting.".into();
             return;

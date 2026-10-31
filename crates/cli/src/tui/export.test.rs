@@ -11,6 +11,7 @@ fn export_all_and_selected_hit_include_source_metadata() {
     fs::write(collection.join("b.json"), r#"{"note":"Moon"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
+    app.kind = crate::tui::state::SearchKind::Filter;
     app.input.text = "note ~ 'Moon'".into();
     app.search();
     let request = app.last_request.clone().unwrap();
@@ -28,10 +29,10 @@ fn export_all_and_selected_hit_include_source_metadata() {
     );
 
     let one = temp.path().join("one.json");
-    write_one(&one, &request, &app.hits[0]).unwrap();
+    write_one(&one, Some(&request), &app.hits[0]).unwrap();
     let data: serde_json::Value = serde_json::from_slice(&fs::read(&one).unwrap()).unwrap();
     assert_eq!(data["hit"]["record"]["id"], "a");
-    assert!(write_one(&one, &request, &app.hits[0]).is_err());
+    assert!(write_one(&one, Some(&request), &app.hits[0]).is_err());
 }
 
 #[test]

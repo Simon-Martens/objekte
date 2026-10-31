@@ -9,7 +9,6 @@ use std::{
     path::{Path, PathBuf},
 };
 
-
 fn io_error(path: &Path, source: io::Error) -> Error {
     Error::Io {
         path: path.to_path_buf(),
@@ -80,17 +79,25 @@ fn write_all(
     outcome
 }
 
-fn write_one(path: &Path, request: &Request, hit: &Hit) -> Result<(), Box<dyn std::error::Error>> {
+fn write_one(
+    path: &Path,
+    request: Option<&Request>,
+    hit: &Hit,
+) -> Result<(), Box<dyn std::error::Error>> {
     let file = OpenOptions::new().write(true).create_new(true).open(path)?;
     let mut writer = BufWriter::new(file);
     let result = (|| -> Result<(), Box<dyn std::error::Error>> {
         let query = match request {
-            Request::Filter(query) => serde_json::to_value(query)?,
-            Request::Text(query) => serde_json::to_value(query)?,
+            Some(Request::Filter(query)) => serde_json::to_value(query)?,
+            Some(Request::Text(query)) => serde_json::to_value(query)?,
+            None => serde_json::Value::Null,
         };
-        let value = match hit {
-            Hit::Filter(record) => json!({"kind":"filter","query":query,"hit":{"record":record}}),
-            Hit::Text(hit) => json!({"kind":"full_text","query":query,"hit":hit}),
+        let value = match (request, hit) {
+            (None, _) => json!({"kind":"record","query":query,"hit":{"record":hit.record()}}),
+            (Some(_), Hit::Filter(record)) => {
+                json!({"kind":"filter","query":query,"hit":{"record":record}})
+            }
+            (Some(_), Hit::Text(hit)) => json!({"kind":"full_text","query":query,"hit":hit}),
         };
         serde_json::to_writer_pretty(&mut writer, &value)?;
         writer.write_all(b"\n")?;
@@ -121,10 +128,15 @@ impl App<'_> {
             write_all(self, &path, &request)
                 .map(|count| format!("Exported {count} hits to {}", path.display()))
         } else {
-            self.hits
-                .get(self.selected)
-                .ok_or_else(|| "No selected hit".into())
-                .and_then(|hit| write_one(&path, &request, hit))
+            let linked =
+                self.export_return_focus == Focus::Detail && self.links.override_hit.is_some();
+            let hit = if self.export_return_focus == Focus::Detail {
+                self.current_detail_hit()
+            } else {
+                self.hits.get(self.selected)
+            };
+            hit.ok_or_else(|| "No selected hit".into())
+                .and_then(|hit| write_one(&path, (!linked).then_some(&request), hit))
                 .map(|()| format!("Exported hit to {}", path.display()))
         };
         match result {
