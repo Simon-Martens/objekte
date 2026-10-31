@@ -405,14 +405,24 @@ fn opted_in_string_sort_uses_ordered_page_keys() {
 }
 
 #[test]
-fn empty_collections_and_offsets_beyond_end_are_valid() {
+fn empty_collections_are_rejected_and_offsets_beyond_end_are_valid() {
     let f = Fixture::new();
     for e in std::fs::read_dir(f.root.join("data/books")).unwrap() {
         std::fs::remove_file(e.unwrap().path()).unwrap()
     }
-    let v = parity(&f, &all());
+    assert!(
+        objekte_core::Repository::load_repository(&f.root, f.options(CacheMode::Memory)).is_err()
+    );
+    f.write("data/books/one.json", &json!({"title":"One"}));
+    let v = parity(
+        &f,
+        &ViewRequest {
+            offset: 100,
+            ..all()
+        },
+    );
     assert!(v.rows.is_empty());
-    assert_eq!(v.total, Some(0));
+    assert_eq!(v.total, Some(1));
 }
 
 #[test]

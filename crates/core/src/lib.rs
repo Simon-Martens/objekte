@@ -2,10 +2,8 @@
 //! Metadata loading is separate from opening a view. All source files are read-only.
 //!
 //! ```no_run
-//! use objekte_core::{Options, Repository, ViewRequest};
-//! let mut repository = Repository::load_repository(
-//!     "examples/musenalm", Options::new(),
-//! )?;
+//! use objekte_core::{Repository, ViewRequest};
+//! let mut repository = Repository::open("examples/musenalm")?;
 //! let page = repository.open_view("places", &ViewRequest::default())?;
 //! assert!(page.rows.len() <= 50);
 //! repository.refresh("places")?;
@@ -40,6 +38,6 @@ pub use json_filter::{
 pub use query::{Filter, Operator, ViewRequest, ViewResult, ViewRow};
 pub use repository::{
     CacheMode, CacheStatus, Coverage, Freshness, Metrics, Options, Record, RecordRelation,
-    RecordRevision, References, Repository, TargetState,
+    RecordRevision, References, Repository, RepositoryBuilder, TargetState,
 };
 pub use schema::{Field, PathStep, ValueType};

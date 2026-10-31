@@ -8,7 +8,7 @@ use std::io::Read;
 impl FilePicker {
     /// Replace one path's posting from the current source snapshot.
     pub(crate) fn build_posting(&mut self, path: &JsonPath) -> Result<()> {
-        let source = Source::open(&self.root)?;
+        let source = Source::open_scoped(&self.root, self.recursive)?;
         let entries = self
             .sorted
             .iter()

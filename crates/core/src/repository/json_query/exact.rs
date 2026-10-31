@@ -24,7 +24,7 @@ impl Repository {
         if selection.page.is_empty() {
             return Ok(());
         }
-        let source = Source::open(&query.collection.path)?;
+        let source = Source::open_scoped(&query.collection.path, query.collection.recursive)?;
         for &(id, stamp) in &selection.page {
             let started = Instant::now();
             let raw = Self::read_raw(metrics, &source, id, Some(stamp))?;

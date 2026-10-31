@@ -89,7 +89,7 @@ impl Repository {
                 None,
             )
         };
-        let source = Source::open(&c.path)?;
+        let source = Source::open_scoped(&c.path, c.recursive)?;
         let started = Instant::now();
         let (rows, states, total, query_plan) = if indexed {
             let mut rows = Vec::new();

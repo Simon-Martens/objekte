@@ -252,19 +252,15 @@ impl JsonFilter {
 
     pub(crate) fn needs_cardinality_check_in(
         &self,
-        collection: &crate::Collection,
         indexed_safe: impl Fn(&JsonPath) -> bool,
     ) -> bool {
         self.scalar_paths.iter().any(|path| {
             if path.modifier == Some(Modifier::Length) || indexed_safe(&path.path) {
                 return false;
             }
-            match path.path.as_slice() {
-                [JsonPathStep::Key(name)] => collection.fields.get(name).is_none_or(|field| {
-                    matches!(field.kind, crate::ValueType::Array | crate::ValueType::Any)
-                }),
-                _ => true,
-            }
+            // The picker separately records every top-level array field, so
+            // a direct key is scalar-safe when that array-risk set is empty.
+            !matches!(path.path.as_slice(), [JsonPathStep::Key(_)])
         })
     }
 

@@ -13,7 +13,7 @@ impl Repository {
         c: &Collection,
     ) -> Result<(Source, BTreeMap<String, Stamp>)> {
         let t = Instant::now();
-        let source = Source::open(&c.path)?;
+        let source = Source::open_scoped(&c.path, c.recursive)?;
         self.metrics.enumerations += 1;
         let files = source.inventory()?;
         self.metrics.inventory_nanos += nanos(t);
@@ -34,7 +34,7 @@ impl Repository {
 
     pub(super) fn raw(&mut self, c: &Collection, id: &str) -> Result<Raw> {
         let t = Instant::now();
-        let source = Source::open(&c.path)?;
+        let source = Source::open_scoped(&c.path, c.recursive)?;
         self.metrics.source_check_nanos += nanos(t);
         let raw = self.raw_from(&source, id, None)?;
         source.finish()?;
@@ -114,7 +114,10 @@ impl Repository {
         metrics.parses += 1;
         let mut doc = Document::parse(json);
         metrics.json_decode_nanos += nanos(t);
-        if validate && doc.state.status != RecordStatus::IncorrectJson {
+        if c.schema.is_none() && doc.state.status != RecordStatus::IncorrectJson {
+            doc.state.status = RecordStatus::NoSchema;
+        }
+        if validate && c.schema.is_some() && doc.state.status != RecordStatus::IncorrectJson {
             let t = Instant::now();
             doc.validate(c);
             metrics.validations += 1;

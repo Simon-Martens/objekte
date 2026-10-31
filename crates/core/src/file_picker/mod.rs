@@ -1,8 +1,8 @@
 //! A small JSON-only file picker and values-only content index.
 //!
 //! The layout follows FFF's separation of a stable file table, an immutable
-//! bigram index, and a changed-file overlay. Collection paths are flat, so IDs
-//! are stored once in a byte arena instead of FFF's general chunked path store.
+//! bigram index, and a changed-file overlay. Relative record IDs are stored
+//! once in a byte arena instead of FFF's general chunked path store.
 
 mod exact;
 mod git;
@@ -70,6 +70,7 @@ pub(crate) struct BuildTimings {
 /// Changed/new slots bypass the immutable bigram index until it is rebuilt.
 pub struct FilePicker {
     root: PathBuf,
+    recursive: bool,
     id_bytes: Vec<u8>,
     files: Vec<Option<FileEntry>>,
     sorted: Vec<usize>,
@@ -88,16 +89,17 @@ pub struct FilePicker {
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, &[], &BTreeMap::new())
+        Self::open_with_indexes(root, false, &[], &BTreeMap::new())
     }
 
     pub(crate) fn open_with_indexes(
         root: &Path,
+        recursive: bool,
         indexes: &[IndexField],
         definitions: &BTreeMap<String, Field>,
     ) -> Result<Self> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
-        let source = Source::open(&root)?;
+        let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
         let inventory_started = Instant::now();
         let inventory = source.inventory()?;
@@ -111,6 +113,7 @@ impl FilePicker {
         indexed_fields.dedup();
         let mut picker = Self {
             root,
+            recursive,
             id_bytes: Vec::new(),
             files: Vec::with_capacity(inventory.len()),
             sorted: Vec::with_capacity(inventory.len()),
@@ -226,7 +229,7 @@ impl FilePicker {
     /// Refreshes inventory from the authoritative directory. A few edits only
     /// enter the overlay; they never force a full bigram rebuild.
     pub fn refresh(&mut self) -> Result<usize> {
-        let source = Source::open(&self.root)?;
+        let source = Source::open_scoped(&self.root, self.recursive)?;
         let inventory = source.inventory()?;
         let mut seen = vec![false; self.files.len()];
         let mut changed = 0;
@@ -328,7 +331,7 @@ impl FilePicker {
     pub fn refresh_id(&mut self, id: &str) -> Result<()> {
         crate::repository::validate_id(id)?;
         self.typed.invalidate_dynamic();
-        let source = Source::open(&self.root)?;
+        let source = Source::open_scoped(&self.root, self.recursive)?;
         let file = match source.file(id) {
             Ok(file) => Some(file),
             Err(Error::Io { source, .. }) if source.kind() == std::io::ErrorKind::NotFound => None,
@@ -583,7 +586,7 @@ impl FilePicker {
             .unicode(false)
             .build()
             .map_err(|e| Error::Request(format!("invalid values regex: {e}")))?;
-        let source = Source::open(&self.root)?;
+        let source = Source::open_scoped(&self.root, self.recursive)?;
         let candidates = self.regex_candidate_ids(pattern);
         let matches = candidates
             .par_iter()
@@ -604,7 +607,7 @@ impl FilePicker {
     /// Rebuilds the immutable index after many edits. Source stamps are checked
     /// before and after every read so a racing edit cannot publish a bad index.
     pub fn rebuild_index(&mut self) -> Result<()> {
-        let source = Source::open(&self.root)?;
+        let source = Source::open_scoped(&self.root, self.recursive)?;
         self.rebuild_index_from_source(&source)
     }
 

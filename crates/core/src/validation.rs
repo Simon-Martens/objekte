@@ -7,6 +7,7 @@ use serde_json::Value;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum RecordStatus {
+    NoSchema,
     Pending,
     Valid,
     Invalid,
@@ -87,7 +88,11 @@ impl Document {
         if self.state.status == RecordStatus::IncorrectJson {
             return;
         }
-        self.state.issues = c.schema.issues(&self.data);
+        let Some(schema) = &c.schema else {
+            self.state.status = RecordStatus::NoSchema;
+            return;
+        };
+        self.state.issues = schema.issues(&self.data);
         self.state.status = if self.state.issues.is_empty() {
             RecordStatus::Valid
         } else {

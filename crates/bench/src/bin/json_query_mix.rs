@@ -36,6 +36,10 @@ fn arg(name: &str, default: &str) -> Result<String, Box<dyn std::error::Error>> 
     Ok(default.into())
 }
 
+fn flag(name: &str) -> bool {
+    env::args().any(|arg| arg == name)
+}
+
 fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error::Error>> {
     let request = JsonQuery {
         filter: case.filter.clone(),
@@ -71,7 +75,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     if cases.len() != 50 || cases.iter().enumerate().any(|(i, c)| c.id != i + 1) {
         return Err("workload must have 50 sequentially numbered cases".into());
     }
-    let mut repo = Repository::load_repository(root, Options::new())?;
+    let no_schema = flag("--no-schema");
+    let mut repo = if no_schema {
+        Repository::builder(&root)
+            .without_default_schemas()
+            .open()?
+    } else {
+        Repository::load_repository(&root, Options::new())?
+    };
     let collection_count = repo.model().collections.len();
     let warm_started = Instant::now();
     repo.warm_all_bigram_indexes()?;
@@ -110,7 +121,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         "{}",
         json!({"type": "setup", "cases": cases.len(), "runs": runs,
             "collections": collection_count, "index_warm_ms": warm_ms,
-            "count": true, "page_limit": 1, "backend": "bigram"})
+            "count": true, "page_limit": 1, "backend": "bigram",
+            "schema_mode": if no_schema { "none" } else { "configured" }})
     );
     for (case, mut case_samples) in cases.iter().zip(samples) {
         case_samples.sort_by(|a, b| a.ms.total_cmp(&b.ms));

@@ -8,7 +8,7 @@ target/release/json-query-grep-compare --repo examples/musenalm --workload crate
 ```
 
 The `json-query-mix` benchmark runs 50 unscoped filters against every
-schema-compatible collection with one warm repository handle. Each filter
+collection with one warm repository handle. Each filter
 counts all matches and returns one record. It warms the indexes and runs each
 filter once before timing, then alternates case order across rounds. Output is
 NDJSON with a setup row followed by one row per filter.
@@ -16,7 +16,13 @@ NDJSON with a setup row followed by one row per filter.
 ```sh
 cargo build --release -p objekte-bench --bin json-query-mix
 target/release/json-query-mix --repo examples/musenalm --runs 7
+target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema
 ```
+
+`--no-schema` discovers the same data folders without loading their default
+schemas or ordered schema postings. The example repository is not modified.
+See the [50-query schema comparison](QUERY-SCHEMA-COMPARISON-2026-10-31.md)
+for both full result sets and raw NDJSON.
 
 See [the October 31 baseline](QUERY-MIX-50-2026-10-31.md) for the full table
 before snapshot counts and null/inequality postings. The

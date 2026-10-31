@@ -186,11 +186,23 @@ impl Repository {
                 let c = self.model.collection(&edge.target_collection)?;
                 self.check_source(c)?;
                 let p = c.path.join(format!("{}.json", edge.target_id));
-                let state = match fs::symlink_metadata(&p) {
-                    Ok(m) if m.file_type().is_file() => TargetState::Present,
+                if !c.recursive && edge.target_id.contains('/') {
+                    known.insert(key, TargetState::Missing);
+                    edge.target_state = TargetState::Missing;
+                    continue;
+                }
+                let source = Source::open_scoped(&c.path, c.recursive)?;
+                let state = match source.file(&edge.target_id) {
+                    Ok(file) if file.metadata().map_err(|error| io(&p, error))?.is_file() => {
+                        TargetState::Present
+                    }
                     Ok(_) => return Err(record(&p, "", "reference target must be a regular file")),
-                    Err(e) if e.kind() == std::io::ErrorKind::NotFound => TargetState::Missing,
-                    Err(e) => return Err(io(&p, e)),
+                    Err(Error::Io { source, .. })
+                        if source.kind() == std::io::ErrorKind::NotFound =>
+                    {
+                        TargetState::Missing
+                    }
+                    Err(error) => return Err(error),
                 };
                 known.insert(key, state);
                 state

@@ -7,6 +7,9 @@ impl Repository {
     pub fn validate_collection(&mut self, name: &str) -> Result<ValidationMetrics> {
         self.reload()?;
         let c = self.collection(name)?;
+        if c.schema.is_none() {
+            return Ok(ValidationMetrics::default());
+        }
         let before = self.metrics.validations;
         let started = Instant::now();
         self.direct(&c, None, true)?;

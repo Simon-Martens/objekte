@@ -1,9 +1,11 @@
 //! Collection configuration, fingerprints, and view definitions.
+mod discovery;
 use crate::{
     CollectionGraph, Error, Field, Result, ValueType,
     error::{config, io},
     schema::Schema,
 };
+pub(crate) use discovery::Discovery;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::{
@@ -140,20 +142,49 @@ pub struct IndexField {
 pub struct Collection {
     pub name: String,
     pub path: PathBuf,
-    pub schema_path: PathBuf,
-    pub ui_path: PathBuf,
+    /// Descendants belong to this collection when a schema declares its base.
+    pub recursive: bool,
+    pub schema_path: Option<PathBuf>,
+    pub ui_path: Option<PathBuf>,
     pub label: String,
     pub display: String,
     pub page_size: usize,
     pub list: ListOptions,
     pub fields: BTreeMap<String, Field>,
     pub indexes: Vec<IndexField>,
-    pub schema_hash: String,
+    pub schema_hash: Option<String>,
     pub index_hash: String,
     pub mapping_hash: String,
     pub view_hashes: ViewHashes,
     #[serde(skip)]
-    pub(crate) schema: Schema,
+    pub(crate) schema: Option<Schema>,
+}
+
+
+impl Collection {
+    /// Open one populated JSON folder as a standalone collection.
+    pub fn open(folder: impl AsRef<Path>) -> Result<Self> {
+        Self::open_inner(folder.as_ref(), None)
+    }
+
+    /// Open one folder and group its entire subtree under the supplied schema.
+    pub fn open_with_schema(folder: impl AsRef<Path>, schema: impl AsRef<Path>) -> Result<Self> {
+        Self::open_inner(folder.as_ref(), Some(schema.as_ref()))
+    }
+
+    fn open_inner(folder: &Path, schema: Option<&Path>) -> Result<Self> {
+        let mut settings = Discovery {
+            data_root: Some(PathBuf::from(".")),
+            ..Discovery::default()
+        };
+        if let Some(path) = schema {
+            settings.schemas.push((PathBuf::from("."), path.to_owned()));
+        }
+        RepositoryModel::discover(folder, &settings)?
+            .collections
+            .remove("@root")
+            .ok_or_else(|| config(folder, "", "collection must contain a JSON file"))
+    }
 }
 
 
@@ -188,8 +219,8 @@ struct CollectionFile {
     path: String,
     format: String,
     id: String,
-    schema: String,
-    ui: String,
+    schema: Option<String>,
+    ui: Option<String>,
 }
 
 
@@ -312,7 +343,7 @@ impl RepositoryModel {
             return Err(config(&rp, "/ui/defaults/pageSize", "invalid page size"));
         }
         let mut collections = BTreeMap::new();
-        let mut sources = BTreeSet::new();
+        let mut sources = BTreeMap::<PathBuf, bool>::new();
         for (name, settings) in r.collections {
             if name.is_empty() {
                 return Err(config(&rp, "/collections", "empty collection name"));
@@ -334,29 +365,90 @@ impl RepositoryModel {
                     "source must be a separate data directory",
                 ));
             }
-            if !sources.insert(source.clone())
-                || sources.iter().any(|other| {
-                    other != &source && (other.starts_with(&source) || source.starts_with(other))
+            let schema_path = match c.schema.as_deref() {
+                Some(path) => Some(inside(&root, path)?),
+                None => {
+                    let local = source.join(".editor/schema.json");
+                    let shared = root
+                        .join(".editor/collections")
+                        .join(&name)
+                        .join("schema.json");
+                    if local.is_file() {
+                        Some(local)
+                    } else {
+                        shared.is_file().then_some(shared)
+                    }
+                }
+            };
+            let (schema, schema_hash, fields, indexes) = if let Some(sp) = &schema_path {
+                let crate::json::ParsedValue(raw) = read(sp, &mut files)?;
+                let schema = Schema::compile(&raw, sp)?;
+                let indexes = schema
+                    .field
+                    .properties
+                    .iter()
+                    .filter(|(_, field)| field.index)
+                    .map(|(name, field)| IndexField {
+                        name: name.clone(),
+                        kind: field.kind,
+                        nullable: field.nullable,
+                    })
+                    .collect();
+                let fields = schema.field.properties.clone();
+                (
+                    Some(schema),
+                    Some(fingerprint("schema/v1", &raw)),
+                    fields,
+                    indexes,
+                )
+            } else {
+                (None, None, BTreeMap::new(), Vec::new())
+            };
+            let recursive = schema.is_some();
+            if sources.insert(source.clone(), recursive).is_some()
+                || sources.iter().any(|(other, covered)| {
+                    other != &source
+                        && ((*covered && source.starts_with(other))
+                            || (recursive && other.starts_with(&source)))
                 })
             {
-                return Err(config(&p, "/path", "collection source directories overlap"));
+                return Err(config(&p, "/path", "schema base folders overlap"));
             }
-            let sp = inside(&root, &c.schema)?;
-            let crate::json::ParsedValue(raw) = read(&sp, &mut files)?;
-            let schema = Schema::compile(&raw, &sp)?;
-            let up = inside(&root, &c.ui)?;
-            let mut ui: UiFile = read(&up, &mut files)?;
-            for path in [&p, &sp, &up] {
+            if !discovery::has_json(&source, recursive)? {
+                return Err(config(&p, "/path", "collection must contain a JSON file"));
+            }
+            let ui_path = match c.ui.as_deref() {
+                Some(path) => Some(inside(&root, path)?),
+                None => {
+                    let default = root.join(".editor/collections").join(&name).join("ui.json");
+                    default.is_file().then_some(default)
+                }
+            };
+            let mut ui: UiFile = if let Some(up) = &ui_path {
+                read(up, &mut files)?
+            } else {
+                UiFile {
+                    label: None,
+                    display: "@id".into(),
+                    page_size: None,
+                    list: ListOptions::default(),
+                }
+            };
+            for path in std::iter::once(&p)
+                .chain(schema_path.iter())
+                .chain(ui_path.iter())
+            {
                 input_collections
                     .entry(path.clone())
                     .or_default()
                     .insert(name.clone());
             }
+            let up = ui_path.as_deref().unwrap_or(&p);
             let page_size = ui.page_size.unwrap_or(default_page);
             if page_size == 0 || page_size > i64::MAX as usize {
-                return Err(config(&up, "/pageSize", "invalid page size"));
+                return Err(config(up, "/pageSize", "invalid page size"));
             }
-            scalar(&schema.field.properties, &ui.display, &up)?;
+            scalar(&fields, &ui.display, up)?;
             if ui.list.columns.is_empty() {
                 ui.list.columns = vec![ui.display.clone()]
             }
@@ -365,7 +457,7 @@ impl RepositoryModel {
                     .chain(ui.list.sub_sorts.clone())
                     .collect(),
             )
-            .map_err(|e| config(&up, "/list/subSorts", e))?;
+            .map_err(|e| config(up, "/list/subSorts", e))?;
             if ui.list.sortable.is_none() {
                 ui.list.sortable = Some(
                     order
@@ -381,33 +473,21 @@ impl RepositoryModel {
                 .any(|s| s.field != "@id" && !sortable.contains(&s.field))
             {
                 return Err(config(
-                    &up,
+                    up,
                     "/list/sortable",
                     "default sort and sub-sorts must be sortable",
                 ));
             }
             for names in [&ui.list.columns, &ui.list.filters, sortable] {
-                unique(names, &up)?;
+                unique(names, up)?;
                 for name in names {
-                    scalar(&schema.field.properties, name, &up)?;
+                    scalar(&fields, name, up)?;
                 }
             }
             for sort in &order {
-                scalar(&schema.field.properties, &sort.field, &up)?;
+                scalar(&fields, &sort.field, up)?;
             }
-            let indexes = schema
-                .field
-                .properties
-                .iter()
-                .filter(|(_, field)| field.index)
-                .map(|(name, field)| IndexField {
-                    name: name.clone(),
-                    kind: field.kind,
-                    nullable: field.nullable,
-                })
-                .collect::<Vec<_>>();
             let index_hash = fingerprint("ordered-scalar-indexes/v2", &indexes);
-            let schema_hash = fingerprint("schema/v1", &raw);
             let mapping_hash = fingerprint("mapping/v1", &(&source, &c.format, &c.id));
             let label = ui.label.unwrap_or_else(|| name.clone());
             let view_hashes = ViewHashes::new(
@@ -421,13 +501,14 @@ impl RepositoryModel {
                 Collection {
                     name: name.clone(),
                     path: source,
-                    schema_path: sp,
-                    ui_path: up,
+                    recursive,
+                    schema_path,
+                    ui_path,
                     label,
                     display: ui.display,
                     page_size,
                     list: ui.list,
-                    fields: schema.field.properties.clone(),
+                    fields,
                     indexes,
                     schema_hash,
                     index_hash,

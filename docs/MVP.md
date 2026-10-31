@@ -4,7 +4,7 @@ Objekte reads collections of JSON files through a Rust library and CLI. Source f
 
 ## Current capabilities
 
-- Repository configuration and JSON Schema load without enumerating every collection. Collections are opened lazily.
+- Populated JSON folders are discovered as collections without a manifest. Optional schema bases group nested folders; indexes are opened lazily.
 - `get`, configured table `view`, and general `query` over stored JSON fields. Views support configured columns, filters, scalar sorts, secondary sorts, pagination, and optional counts. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. They return records in collection and byte-sorted ID order.
 - The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Query candidates are checked against original JSON with Sonic; the index alone never decides a match.
 - `--cache disabled` makes views scan source files. JSON queries also offer explicit `direct` and raw-file `grep` backends. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
@@ -17,7 +17,7 @@ The schema's `index` opt-in is independent of `list.filters`, `list.sortable`, a
 
 | Source | Responsibility now |
 | --- | --- |
-| Repository configuration | Collection paths, schemas, source identity, declared relations, and UI settings |
+| Repository configuration | Optional schema bases, source identity, declared relations, and UI settings |
 | JSON Schema | Stored types and on-demand validation rules |
 | UI settings | Permitted view columns, filters, and sorts; presentation defaults |
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |

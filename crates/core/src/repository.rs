@@ -2,7 +2,7 @@
 use crate::{
     Collection, ConfigurationChanges, Error, JsonPath, PathStep, RecordState, RecordStatus,
     RepositoryModel, Result, ValidationMetrics, ViewRequest, ViewResult,
-    config::digest,
+    config::{Discovery, digest},
     config_snapshot::ConfigurationSnapshot,
     error::{io, record},
     query::Plan,
@@ -201,7 +201,7 @@ pub struct Coverage {
     /// Whether existing derived data uses the currently loaded configuration.
     /// This does not assert source freshness or completed record validation.
     pub configuration_current: bool,
-    pub expected_schema_hash: String,
+    pub expected_schema_hash: Option<String>,
     pub records: usize,
 }
 
@@ -235,6 +235,7 @@ struct Raw {
 // INFO: Live handle for configuration, in-memory indexes, metrics, and coverage.
 pub struct Repository {
     model: RepositoryModel,
+    discovery: Option<Discovery>,
     options: Options,
     metrics: Metrics,
     memory_edges: BTreeMap<(String, String), Vec<RecordRelation>>,
@@ -246,21 +247,106 @@ pub struct Repository {
 }
 
 
+/// Code-level repository opening with optional schema bases.
+pub struct RepositoryBuilder {
+    root: std::path::PathBuf,
+    options: Options,
+    discovery: Discovery,
+}
+
+
+impl RepositoryBuilder {
+    /// Set cache and freshness policies before opening.
+    pub fn options(mut self, options: Options) -> Self {
+        self.options = options;
+        self
+    }
+
+    /// Discover collections below this root instead of the default `data` folder.
+    pub fn data_root(mut self, path: impl AsRef<Path>) -> Self {
+        self.discovery.data_root = Some(path.as_ref().to_owned());
+        self
+    }
+
+    /// Ignore conventional schema files; explicit `schema` calls still apply.
+    pub fn without_default_schemas(mut self) -> Self {
+        self.discovery.use_default_schemas = false;
+        self
+    }
+
+    /// Attach a schema to a folder relative to the data root. Its entire
+    /// subtree becomes one collection. Schema paths are relative to the repo.
+    pub fn schema(mut self, base: impl AsRef<Path>, path: impl AsRef<Path>) -> Self {
+        self.discovery
+            .schemas
+            .push((base.as_ref().to_owned(), path.as_ref().to_owned()));
+        self
+    }
+
+    /// Open the repository using discovered collection boundaries.
+    pub fn open(self) -> Result<Repository> {
+        let model = RepositoryModel::discover(&self.root, &self.discovery)?;
+        Ok(Repository::from_model(
+            model,
+            self.options,
+            Some(self.discovery),
+        ))
+    }
+}
+
+
 impl Repository {
-    /// Load configuration and schemas only. Does not enumerate records.
+    /// Discover populated JSON folders as collections using the default layout.
+    pub fn open(root: impl AsRef<Path>) -> Result<Self> {
+        Self::builder(root).open()
+    }
+
+    /// Discover collections and attach one explicitly supplied schema base.
+    pub fn open_with_schema(
+        root: impl AsRef<Path>,
+        base: impl AsRef<Path>,
+        schema: impl AsRef<Path>,
+    ) -> Result<Self> {
+        Self::builder(root).schema(base, schema).open()
+    }
+
+    /// Configure discovery and optional per-collection schemas in code.
+    pub fn builder(root: impl AsRef<Path>) -> RepositoryBuilder {
+        RepositoryBuilder {
+            root: root.as_ref().to_owned(),
+            options: Options::new(),
+            discovery: Discovery::default(),
+        }
+    }
+
+    /// Use the legacy manifest when present; otherwise discover JSON folders.
+    /// Discovery lists filenames but does not parse records or build indexes.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
-        let model = RepositoryModel::load(root.as_ref())?;
-        Ok(Self {
+        if root.as_ref().join(".editor/repository.json").is_file() {
+            return Ok(Self::from_model(
+                RepositoryModel::load(root.as_ref())?,
+                options,
+                None,
+            ));
+        }
+        let discovery = Discovery::default();
+        let model = RepositoryModel::discover(root.as_ref(), &discovery)?;
+        Ok(Self::from_model(model, options, Some(discovery)))
+    }
+
+    fn from_model(model: RepositoryModel, options: Options, discovery: Option<Discovery>) -> Self {
+        Self {
             observed_configuration: ConfigurationSnapshot::from_model(&model),
             configuration_changes: None,
             model,
+            discovery,
             options,
             metrics: Metrics::default(),
             memory_edges: BTreeMap::new(),
             memory_coverage: BTreeMap::new(),
             file_pickers: BTreeMap::new(),
             requested_postings: BTreeMap::new(),
-        })
+        }
     }
 
     pub fn model(&self) -> &RepositoryModel {
@@ -278,28 +364,42 @@ impl Repository {
     pub fn reload(&mut self) -> Result<()> {
         let t = Instant::now();
         if self.model.changed()? {
-            let model = RepositoryModel::load(&self.model.root)?;
-            let previous = std::mem::replace(&mut self.model, model);
-            let unchanged = |name: &str| {
-                previous
-                    .collections
-                    .get(name)
-                    .zip(self.model.collections.get(name))
-                    .is_some_and(|(old, new)| {
-                        old.schema_hash == new.schema_hash
-                            && old.mapping_hash == new.mapping_hash
-                            && old.index_hash == new.index_hash
-                            && old.view_hashes == new.view_hashes
-                    })
+            let model = if let Some(settings) = &self.discovery {
+                RepositoryModel::discover(&self.model.root, settings)?
+            } else {
+                RepositoryModel::load(&self.model.root)?
             };
-            self.memory_edges.retain(|(name, _), _| unchanged(name));
-            self.memory_coverage.retain(|name, _| unchanged(name));
-            self.file_pickers.clear();
-            self.requested_postings
-                .retain(|name, _| self.model.collections.contains_key(name));
+            self.replace_model(model);
         }
         self.metrics.reload_nanos += nanos(t);
         Ok(())
+    }
+
+    fn replace_model(&mut self, model: RepositoryModel) {
+        let previous = std::mem::replace(&mut self.model, model);
+        let unchanged = previous
+            .collections
+            .iter()
+            .filter_map(|(name, old)| {
+                self.model.collections.get(name).and_then(|new| {
+                    (old.path == new.path
+                        && old.recursive == new.recursive
+                        && old.schema_hash == new.schema_hash
+                        && old.mapping_hash == new.mapping_hash
+                        && old.index_hash == new.index_hash
+                        && old.view_hashes == new.view_hashes)
+                        .then(|| name.clone())
+                })
+            })
+            .collect::<BTreeSet<_>>();
+        // A newly discovered sibling does not invalidate a warm collection.
+        self.memory_edges
+            .retain(|(name, _), _| unchanged.contains(name));
+        self.memory_coverage
+            .retain(|name, _| unchanged.contains(name));
+        self.file_pickers.retain(|name, _| unchanged.contains(name));
+        self.requested_postings
+            .retain(|name, _| self.model.collections.contains_key(name));
     }
 
     /// Most recent successful configuration comparison in this handle.
@@ -310,6 +410,17 @@ impl Repository {
     /// Observe configuration changes without enumerating or opening source records.
     pub fn refresh_configuration(&mut self) -> Result<ConfigurationChanges> {
         self.reload()?;
+        let current = if let Some(settings) = &self.discovery {
+            RepositoryModel::discover(&self.model.root, settings)?
+        } else {
+            RepositoryModel::load(&self.model.root)?
+        };
+        if current.collections.keys().collect::<Vec<_>>()
+            != self.model.collections.keys().collect::<Vec<_>>()
+            || current.files != self.model.files
+        {
+            self.replace_model(current);
+        }
         let changes = self.observed_configuration.compare(&self.model);
         self.observed_configuration = ConfigurationSnapshot::from_model(&self.model);
         self.configuration_changes = Some(changes);
@@ -319,7 +430,11 @@ impl Repository {
 
 
 pub(crate) fn validate_id(id: &str) -> Result<()> {
-    if id.is_empty() || id == "." || id == ".." || id.contains(['/', '\\', '\0']) {
+    if id.contains(['\\', '\0'])
+        || id
+            .split('/')
+            .any(|part| part.is_empty() || part == "." || part == "..")
+    {
         Err(Error::Request(format!("invalid record ID {id:?}")))
     } else {
         Ok(())

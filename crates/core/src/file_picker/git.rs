@@ -58,7 +58,7 @@ pub(super) fn status(root: &Path) -> Result<Option<BTreeMap<String, GitState>>> 
         let Some(path) = path.strip_prefix(prefix) else {
             continue;
         };
-        if path.contains('/') || !path.ends_with(".json") {
+        if !path.ends_with(".json") {
             continue;
         }
         let id = &path[..path.len() - ".json".len()];

@@ -1,6 +1,8 @@
 # Objekte implementation
 
-Objekte reads JSON collections from a repository. The source files are authoritative. An in-memory bigram and typed index serves default JSON filters and eligible views. It is built lazily per collection and reused while a `Repository` handle remains open.
+Objekte reads JSON collections from a repository. The source files are authoritative. An in-memory bigram index serves default JSON filters; optional typed postings accelerate selected paths. Indexes are built lazily per collection and reused while a `Repository` handle remains open.
+
+Repositories can discover collections without a manifest or schema. See [Collection discovery and opening APIs](collections.md) for folder ownership, nested IDs, optional schemas, and code examples.
 
 ## Start here
 
@@ -22,4 +24,4 @@ cargo run --release -p objekte-cli -- examples/musenalm view contents --sort yea
 
 The picker can be warmed or rebuilt per collection or across all collections using the `Repository` API. These operations write no application cache files. A new CLI invocation starts a new process and builds its own picker.
 
-Schema validation runs for JSON query matches, in-memory view pages, and explicit validation. A parseable `get_record` response has `pending` schema status. Reference occurrences are extracted on request; complete backlink lookup scans referring collections.
+Where a schema exists, validation runs for JSON query matches, in-memory view pages, and explicit validation. A parseable `get_record` response has `pending` schema status; records without a schema have `no_schema` status. Reference occurrences are extracted from declared relations on request; complete backlink lookup scans referring collections.

@@ -50,7 +50,9 @@ impl CollectionGraph {
             }
         }
         for (name, c) in collections {
-            walk(name, &c.schema.field, &mut Vec::new(), &mut edges)
+            if let Some(schema) = &c.schema {
+                walk(name, &schema.field, &mut Vec::new(), &mut edges)
+            }
         }
         let names = collections.keys().cloned().collect::<Vec<_>>();
         let ids = names
@@ -71,7 +73,10 @@ impl CollectionGraph {
                     .collect::<String>()
                     + "/x-relation/collection";
                 return Err(config(
-                    &collections[&e.source].schema_path,
+                    collections[&e.source]
+                        .schema_path
+                        .as_deref()
+                        .expect("relations require a schema"),
                     pointer,
                     format!("unknown target collection {}", e.target),
                 ));

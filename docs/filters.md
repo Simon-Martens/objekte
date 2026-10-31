@@ -1,6 +1,6 @@
 # General JSON filters
 
-`Repository::query_json` compiles a filter for stored JSON paths, including fields absent from the collection schema. The CLI exposes it through `objekte REPOSITORY query [COLLECTION] FILTER` or `--collection NAME`. With no collection, it searches every registered collection. Results are ordered by collection and byte-sorted filename ID; `--limit`, `--offset`, and `--count` control pagination and a total count. See [Musenalm examples](queries.md).
+`Repository::query_json` compiles a filter for stored JSON paths, including fields absent from a collection schema or collections with no schema. The CLI exposes it through `objekte REPOSITORY query [COLLECTION] FILTER` or `--collection NAME`. With no collection, it searches every discovered collection. Results are ordered by collection and byte-sorted relative record ID; `--limit`, `--offset`, and `--count` control pagination and a total count. See [Musenalm examples](queries.md).
 
 ## Syntax
 
@@ -42,7 +42,7 @@ With `--count`, covered scalar and presence predicates count the current in-memo
 
 The raw-file grep backend reuses checked source inventory and descriptors. It opens files in parallel, searches a necessary literal if one exists, parses candidates with Sonic, and verifies the complete filter. When no safe literal exists it parses every file. Scalar-cardinality errors in files excluded by the raw-byte prefilter may not be observed by this optional backend; the default bigram backend preserves global checking.
 
-Parseable records remain searchable even when they fail their schema or the requested path is undeclared. Malformed JSON never matches. Returned records are validated on demand. The cache stores neither validation status nor full JSON payloads. Each result includes dependency collection names and paths, a filter hash, a query plan, and metrics. The in-memory picker keeps per-record revisions only in its current process.
+Parseable records remain searchable even when they fail their schema or the requested path is undeclared. Malformed JSON never matches. Returned records are validated on demand when a schema exists; otherwise they have `no_schema` status. The cache stores neither validation status nor full JSON payloads. Each result includes dependency collection names and paths, a filter hash, a query plan, and metrics. The in-memory picker keeps per-record revisions only in its current process.
 
 `Repository::query_json_stream` calls a synchronous callback with each validated page record and a one-based ordinal. It returns totals and query metadata only on success. The caller must hold emitted records provisionally until this return, because later candidates may reveal a source or scalar-cardinality error. The CLI exposes this as `--output events`; JSON and raw-record NDJSON retain their existing behavior.
 

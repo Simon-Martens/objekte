@@ -127,6 +127,80 @@ fn query_accepts_undeclared_fields_and_collection_scope() {
 }
 
 #[test]
+fn query_opens_a_discovered_repository_without_configuration_or_schema() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::create_dir_all(temp.path().join("data/books/part")).unwrap();
+    fs::write(temp.path().join("data/books/a.json"), r#"{"title":"Moon"}"#).unwrap();
+    fs::write(
+        temp.path().join("data/books/part/b.json"),
+        r#"{"title":"Moon"}"#,
+    )
+    .unwrap();
+    let output = Command::new(env!("CARGO_BIN_EXE_objekte"))
+        .args([
+            temp.path().to_str().unwrap(),
+            "query",
+            "title = 'Moon'",
+            "--count",
+        ])
+        .output()
+        .unwrap();
+    let result = value(output);
+    assert_eq!(result["total"], 2);
+    assert_eq!(result["records"][0]["collection"], "books");
+    assert_eq!(result["records"][1]["collection"], "books/part");
+    assert_eq!(result["records"][0]["state"]["status"], "no_schema");
+    let scoped = value(
+        Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args([
+                temp.path().to_str().unwrap(),
+                "query",
+                "books/part",
+                "title = 'Moon'",
+                "--count",
+            ])
+            .output()
+            .unwrap(),
+    );
+    assert_eq!(scoped["total"], 1);
+    assert_eq!(scoped["records"][0]["id"], "b");
+}
+
+#[test]
+fn default_schema_groups_nested_cli_records_and_accepts_relative_id() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::create_dir_all(temp.path().join("data/books/part")).unwrap();
+    fs::create_dir_all(temp.path().join(".editor/collections/books")).unwrap();
+    fs::write(temp.path().join("data/books/a.json"), r#"{"title":"A"}"#).unwrap();
+    fs::write(
+        temp.path().join("data/books/part/a.json"),
+        r#"{"title":"B"}"#,
+    )
+    .unwrap();
+    fs::write(
+        temp.path().join(".editor/collections/books/schema.json"),
+        r#"{"type":"object","properties":{"title":{"type":"string"}}}"#,
+    )
+    .unwrap();
+    let root = temp.path().to_str().unwrap();
+    let query = value(
+        Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args([root, "query", "books", "title >= 'A'", "--count"])
+            .output()
+            .unwrap(),
+    );
+    assert_eq!(query["total"], 2);
+    assert_eq!(query["records"][1]["id"], "part/a");
+    let record = value(
+        Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args([root, "get", "books", "part/a"])
+            .output()
+            .unwrap(),
+    );
+    assert_eq!(record["path"], "data/books/part/a.json");
+}
+
+#[test]
 fn help_version_and_invalid_arguments() {
     for arg in ["--help", "--version"] {
         let o = Command::new(env!("CARGO_BIN_EXE_objekte"))

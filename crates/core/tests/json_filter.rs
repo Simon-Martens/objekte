@@ -24,6 +24,14 @@ fn fixture(docs: &[(&str, &str)]) -> Fixture {
         for entry in fs::read_dir(f.root.join("data").join(name)).unwrap() {
             fs::remove_file(entry.unwrap().path()).unwrap();
         }
+        if name != "books" || docs.is_empty() {
+            // Keep declared collections populated without adding JSON matches.
+            fs::write(
+                f.root.join(format!("data/{name}/__sentinel.json")),
+                b"invalid JSON",
+            )
+            .unwrap();
+        }
     }
     for (id, raw) in docs {
         fs::write(f.root.join(format!("data/books/{id}.json")), raw).unwrap();
@@ -177,7 +185,7 @@ fn undeclared_fields_search_all_collections_or_an_explicit_scope() {
     assert_eq!(count.total, Some(1));
     assert_eq!(count.records[0].id, "b");
     // Books still uses its declared numeric index; the other collections scan.
-    assert_eq!(count.metrics.grep_scans, 2);
+    assert_eq!(count.metrics.grep_scans, 4);
 
     let mut scoped = request("score = 42");
     scoped.collections = Some(vec!["books".into()]);

@@ -11,8 +11,12 @@ impl Repository {
             || matches!(self.options.freshness, Freshness::HashOnRequest);
         if rebuild {
             let started = Instant::now();
-            let mut picker =
-                crate::file_picker::FilePicker::open_with_indexes(&c.path, &c.indexes, &c.fields)?;
+            let mut picker = crate::file_picker::FilePicker::open_with_indexes(
+                &c.path,
+                c.recursive,
+                &c.indexes,
+                &c.fields,
+            )?;
             if let Some(paths) = self.requested_postings.get(&c.name) {
                 for path in paths {
                     picker.build_posting(path)?;
@@ -67,7 +71,7 @@ impl Repository {
             // Undeclared fields can have any JSON shape. Scan that collection
             // for scalar cardinality errors without slowing indexed collections.
             let cardinality_risk =
-                filter.needs_cardinality_check_in(c, |path| picker.typed_scalar_safe(path));
+                filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path));
             let array_risk = scalar_fields
                 .iter()
                 .any(|field| picker.has_array_value(field));
@@ -113,7 +117,7 @@ impl Repository {
             );
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
-            let source = Source::open(&c.path)?;
+            let source = Source::open_scoped(&c.path, c.recursive)?;
             // Counted queries and global-cardinality checks keep their full
             // scan behavior. For pages, grow batches across misses to reduce
             // barriers and reset after matches when the index was selective.

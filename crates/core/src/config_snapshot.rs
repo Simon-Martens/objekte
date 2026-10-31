@@ -43,6 +43,7 @@ pub struct ConfigurationChanges {
 pub(crate) struct ConfigurationSnapshot {
     files: BTreeMap<PathBuf, String>,
     owners: BTreeMap<PathBuf, BTreeSet<String>>,
+    collections: BTreeSet<String>,
 }
 
 
@@ -51,12 +52,15 @@ impl ConfigurationSnapshot {
         Self {
             files: model.files.clone(),
             owners: model.input_collections.clone(),
+            collections: model.collections.keys().cloned().collect(),
         }
     }
 
     pub fn compare(&self, model: &RepositoryModel) -> ConfigurationChanges {
         let mut report = ConfigurationChanges::default();
         let mut affected = BTreeSet::new();
+        let current = model.collections.keys().cloned().collect::<BTreeSet<_>>();
+        affected.extend(self.collections.symmetric_difference(&current).cloned());
         for path in self
             .files
             .keys()
