@@ -32,6 +32,7 @@ pub use config_snapshot::{
     ConfigurationChangeKind, ConfigurationChanges, ConfigurationInputChange,
 };
 pub use error::{Error, Result};
+pub use file_picker::FieldProfile;
 pub use graph::{CollectionGraph, CollectionRelation};
 pub use json_filter::{
     JsonFilter, JsonPath, JsonPathStep, JsonQuery, JsonQueryBackend, JsonQueryDependencies,

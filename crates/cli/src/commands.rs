@@ -85,6 +85,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     for key in &a.flags {
         let allowed = key == "--diagnostics"
+            || key == "--infer-field-types"
             || match command {
                 "view" | "query" => key == "--count",
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
@@ -106,6 +107,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let get =
         |key: &str, default: &str| a.values.get(key).cloned().unwrap_or_else(|| default.into());
     let mut options = Options::new();
+    options.infer_field_types = a.flags.contains("--infer-field-types");
     options.cache = match get("--cache", "memory").as_str() {
         "memory" => CacheMode::Memory,
         "disabled" => CacheMode::Disabled,

@@ -64,6 +64,30 @@ fn cache_warm_and_rebuild_report_metrics_for_one_or_all_collections() {
 }
 
 #[test]
+fn inferred_field_flag_queries_undeclared_nested_values() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    fs::write(
+        f.root.join("data/books/a.json"),
+        r#"{"undocumented":{"score":7}}"#,
+    )
+    .unwrap();
+    let result = value(run(
+        &f,
+        &[
+            p,
+            "query",
+            "books",
+            "undocumented.score >= 7",
+            "--infer-field-types",
+            "--count",
+        ],
+    ));
+    assert_eq!(result["total"], 1);
+    assert_eq!(result["records"][0]["id"], "a");
+}
+
+#[test]
 fn default_cache_uses_memory_for_views_and_queries() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();
@@ -573,7 +597,7 @@ fn arbitrary_json_queries_support_parameters_scope_and_millisecond_diagnostics()
             "--count",
         ],
     ));
-    assert_eq!(strings["total"], 0);
+    assert_eq!(strings["total"], 1);
     let scoped = value(run(
         &f,
         &[

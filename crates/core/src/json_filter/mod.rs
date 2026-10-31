@@ -1,8 +1,7 @@
-//! Schema-aware filters evaluated against Sonic-parsed source JSON.
+//! Stored-JSON filters evaluated against Sonic-parsed source values.
 mod parser;
 mod pattern;
 mod prefilter;
-mod schema;
 
 use crate::{Error, Metrics, Record, Result, config::fingerprint};
 use num_bigint::BigInt;
@@ -24,6 +23,17 @@ pub enum JsonPathStep {
 
 
 pub type JsonPath = Vec<JsonPathStep>;
+
+fn key_path(path: &JsonPath) -> Option<Vec<String>> {
+    let keys = path
+        .iter()
+        .map(|step| match step {
+            JsonPathStep::Key(key) => Some(key.clone()),
+            JsonPathStep::Index(_) | JsonPathStep::Each => None,
+        })
+        .collect::<Option<Vec<_>>>()?;
+    (!keys.is_empty()).then_some(keys)
+}
 
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
@@ -115,7 +125,7 @@ enum Expr {
 /// A necessary typed candidate expression. Unsupported AND children can be
 /// omitted; an OR is useful only when every child has a safe candidate set.
 pub(crate) enum TypedPlan {
-    Term(String, IndexOp, Value),
+    Term(Vec<String>, IndexOp, Value),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -123,8 +133,8 @@ pub(crate) enum TypedPlan {
 
 /// Predicates whose complete match set an in-memory scalar index can decide.
 pub(crate) enum ExactPlan {
-    Present(String),
-    Term(String, IndexOp, Value),
+    Present(Vec<String>),
+    Term(Vec<String>, IndexOp, Value),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -207,27 +217,17 @@ impl JsonFilter {
         &self.hash
     }
 
-    pub(crate) fn needs_global_cardinality_check(&self, collections: &[crate::Collection]) -> bool {
-        self.scalar_paths.iter().any(|path| {
-            let [JsonPathStep::Key(name)] = path.path.as_slice() else {
-                return true;
-            };
-            path.modifier != Some(Modifier::Length)
-                && collections.iter().any(|collection| {
-                    collection.fields.get(name).is_none_or(|field| {
-                        matches!(field.kind, crate::ValueType::Array | crate::ValueType::Any)
-                    })
-                })
-        })
-    }
-
-    pub(crate) fn top_level_scalar_fields(&self) -> Vec<String> {
+    pub(crate) fn needs_global_cardinality_check(&self) -> bool {
         self.scalar_paths
             .iter()
-            .filter(|path| path.modifier != Some(Modifier::Length))
-            .filter_map(|path| match path.path.as_slice() {
-                [JsonPathStep::Key(name)] => Some(name.clone()),
-                _ => None,
+            .any(|path| key_path(&path.path).is_none())
+    }
+
+    pub(crate) fn scalar_key_paths(&self) -> Vec<(Vec<String>, bool)> {
+        self.scalar_paths
+            .iter()
+            .filter_map(|path| {
+                key_path(&path.path).map(|keys| (keys, path.modifier == Some(Modifier::Length)))
             })
             .collect()
     }
@@ -287,10 +287,8 @@ impl JsonFilter {
                     right: Operand::Literal(value),
                     any: false,
                     ..
-                } if field.modifier.is_none() && field.path.len() == 1 => {
-                    let JsonPathStep::Key(name) = &field.path[0] else {
-                        return None;
-                    };
+                } if field.modifier.is_none() => {
+                    let path = key_path(&field.path)?;
                     let operator = match op {
                         Op::Eq => IndexOp::Eq,
                         Op::Ne => IndexOp::Ne,
@@ -305,7 +303,7 @@ impl JsonFilter {
                         || value.is_string()
                         || value.is_null()
                     {
-                        Some(TypedPlan::Term(name.clone(), operator, value.clone()))
+                        Some(TypedPlan::Term(path, operator, value.clone()))
                     } else {
                         None
                     }
@@ -326,10 +324,7 @@ impl JsonFilter {
                 Expr::Or(parts) => Some(ExactPlan::Or(
                     parts.iter().map(plan).collect::<Option<Vec<_>>>()?,
                 )),
-                Expr::Exists(path) => match path.as_slice() {
-                    [JsonPathStep::Key(name)] => Some(ExactPlan::Present(name.clone())),
-                    _ => None,
-                },
+                Expr::Exists(path) => Some(ExactPlan::Present(key_path(path)?)),
                 Expr::Compare {
                     left: Operand::Field(field),
                     op,
@@ -337,9 +332,7 @@ impl JsonFilter {
                     right: Operand::Literal(value),
                     ignore_case: false,
                 } if field.modifier.is_none() => {
-                    let [JsonPathStep::Key(name)] = field.path.as_slice() else {
-                        return None;
-                    };
+                    let path = key_path(&field.path)?;
                     let operator = match op {
                         Op::Eq => IndexOp::Eq,
                         Op::Ne => IndexOp::Ne,
@@ -353,7 +346,7 @@ impl JsonFilter {
                         || value.is_boolean()
                         || value.is_string()
                         || value.is_null())
-                    .then(|| ExactPlan::Term(name.clone(), operator, value.clone()))
+                    .then(|| ExactPlan::Term(path, operator, value.clone()))
                 }
                 _ => None,
             }

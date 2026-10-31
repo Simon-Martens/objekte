@@ -1,6 +1,7 @@
-//! In-memory ordered postings for top-level numeric, boolean, and enum fields.
+//! In-memory ordered postings for configured and inferred scalar paths.
 //! Immutable postings cover the indexed snapshot; changed slots are included
 //! conservatively until the next rebuild and verified against source JSON.
+use super::observed::FieldPath;
 use crate::json_filter::{IndexOp, TypedPlan, decimal_cmp};
 use serde_json::Value;
 use std::{
@@ -80,19 +81,15 @@ impl Eq for TypedKey {}
 /// Immutable typed postings for the indexed collection snapshot.
 #[derive(Default)]
 pub(super) struct TypedIndex {
-    fields: Vec<String>,
+    fields: Vec<FieldPath>,
     postings: Vec<BTreeMap<TypedKey, Vec<usize>>>,
 }
 
 
 impl TypedIndex {
-    pub(super) fn new(fields: Vec<String>) -> Self {
+    pub(super) fn new(fields: Vec<FieldPath>) -> Self {
         let postings = (0..fields.len()).map(|_| BTreeMap::new()).collect();
         Self { fields, postings }
-    }
-
-    pub(super) fn fields(&self) -> &[String] {
-        &self.fields
     }
 
     pub(super) fn replace_rows(&mut self, rows: Vec<Vec<(TypedKey, usize)>>) {
@@ -153,14 +150,14 @@ impl TypedIndex {
 
     pub(super) fn term_bits(
         &self,
-        field: &str,
+        path: &[String],
         operator: IndexOp,
         value: &Value,
         slot_count: usize,
     ) -> Option<Vec<u64>> {
         let index = self
             .fields
-            .binary_search_by(|name| name.as_str().cmp(field))
+            .binary_search_by(|field| field.as_slice().cmp(path))
             .ok()?;
         let key = TypedKey::from_value(value)?;
         if matches!(key, TypedKey::Bool(_) | TypedKey::Null)

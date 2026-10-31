@@ -11,8 +11,12 @@ impl Repository {
             || matches!(self.options.freshness, Freshness::HashOnRequest);
         if rebuild {
             let started = Instant::now();
-            let picker =
-                crate::file_picker::FilePicker::open_with_indexes(&c.path, &c.indexes, &c.fields)?;
+            let picker = crate::file_picker::FilePicker::open_with_indexes(
+                &c.path,
+                &c.indexes,
+                &c.fields,
+                self.options.infer_field_types,
+            )?;
             #[cfg(feature = "index-timings")]
             let timings = picker.build_timings();
             self.file_pickers.insert(c.name.clone(), picker);
@@ -48,8 +52,8 @@ impl Repository {
     ) -> Result<()> {
         let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
         let source_pattern = filter.source_prefilter()?;
-        let cardinality_risk = filter.needs_global_cardinality_check(collections);
-        let scalar_fields = filter.top_level_scalar_fields();
+        let cardinality_risk = filter.needs_global_cardinality_check();
+        let scalar_paths = filter.scalar_key_paths();
         let required_fields = filter.required_top_level_fields();
         let exact_plan = filter.exact_index_plan();
         result.query_plan =
@@ -59,9 +63,9 @@ impl Repository {
             self.ensure_picker(c)?;
             let candidate_started = Instant::now();
             let picker = self.file_pickers.get(&c.name).unwrap();
-            let array_risk = scalar_fields
-                .iter()
-                .any(|field| picker.has_array_value(field));
+            let array_risk = scalar_paths.iter().any(|(path, is_length)| {
+                picker.has_multiple_values(path) || (!is_length && picker.has_array_at(path))
+            });
             let risk = cardinality_risk || array_risk;
             // A later collection can contain an invalid array in a scalar field,
             // so build its picker and check that risk even when the page is full.

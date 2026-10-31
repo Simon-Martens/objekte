@@ -3,7 +3,8 @@ use serde_json::json;
 
 #[test]
 fn grouped_number_spellings_keep_exact_equality_and_ranges() {
-    let mut index = TypedIndex::new(vec!["score".into()]);
+    let mut index = TypedIndex::new(vec![vec!["score".into()]]);
+    let path = vec!["score".into()];
     let rows = (0..4096)
         .map(|slot| {
             let raw = match slot % 4 {
@@ -24,7 +25,7 @@ fn grouped_number_spellings_keep_exact_equality_and_ranges() {
             IndexOp::Lt => (json!(2), 3072),
             _ => unreachable!(),
         };
-        let bits = index.term_bits("score", operator, &value, 4096).unwrap();
+        let bits = index.term_bits(&path, operator, &value, 4096).unwrap();
         assert_eq!(
             bits.iter().map(|word| word.count_ones()).sum::<u32>(),
             expected
@@ -37,7 +38,8 @@ fn grouped_number_spellings_keep_exact_equality_and_ranges() {
 
 #[test]
 fn grouped_postings_keep_null_and_inequality() {
-    let mut index = TypedIndex::new(vec!["score".into()]);
+    let mut index = TypedIndex::new(vec![vec!["score".into()]]);
+    let path = vec!["score".into()];
     let rows = (0..4096)
         .map(|slot| {
             let key = if slot % 10 == 0 {
@@ -55,7 +57,7 @@ fn grouped_postings_keep_null_and_inequality() {
         (IndexOp::Ne, json!(1), 410),
         (IndexOp::Ne, Value::Null, 3686),
     ] {
-        let bits = index.term_bits("score", operator, &value, 4096).unwrap();
+        let bits = index.term_bits(&path, operator, &value, 4096).unwrap();
         assert_eq!(
             bits.iter().map(|word| word.count_ones()).sum::<u32>(),
             expected

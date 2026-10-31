@@ -202,18 +202,10 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
         for &slot in &picker.sorted {
             let id = picker.id(slot).unwrap();
             let stamp = &picker.files[slot].as_ref().unwrap().stamp;
-            if projected_values(
-                &source,
-                id,
-                stamp,
-                &[],
-                picker.presence.fields(),
-                &picker.view,
-                false,
-            )
-            .unwrap()
-            .as_ref()
-            .is_some_and(|text| matcher.is_match(&text.bytes))
+            if projected_values(&source, id, stamp, &[], &picker.view, false)
+                .unwrap()
+                .as_ref()
+                .is_some_and(|text| matcher.is_match(&text.bytes))
             {
                 expected.push(id.to_owned());
             }

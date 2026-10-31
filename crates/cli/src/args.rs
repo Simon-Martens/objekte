@@ -26,6 +26,7 @@ Usage:
 
 Options:
   --cache memory|disabled         Default: memory
+  --infer-field-types              Build scalar indexes for observed fields (opt in)
   --reconcile metadata-on-open|metadata-on-request|hash-on-request
                                  Default: metadata-on-open
   --output table|json|ndjson|events
@@ -92,8 +93,14 @@ pub(super) fn args() -> Result<Args, String> {
                     return Err(format!("duplicate option {a}"));
                 }
             }
-            "--collections" | "--indexes" | "--count" | "--complete" | "--check-targets"
-            | "--diagnostics" | "--diagnostic" => {
+            "--collections"
+            | "--indexes"
+            | "--count"
+            | "--complete"
+            | "--check-targets"
+            | "--diagnostics"
+            | "--diagnostic"
+            | "--infer-field-types" => {
                 out.flags.insert(if a == "--diagnostic" {
                     "--diagnostics".into()
                 } else {

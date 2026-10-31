@@ -54,10 +54,21 @@ impl FilePicker {
 
     fn exact_bits(&self, plan: &ExactPlan) -> Option<Vec<u64>> {
         match plan {
-            ExactPlan::Present(field) => Some(self.presence.bits(field)?.to_vec()),
-            ExactPlan::Term(field, operator, value) => {
+            ExactPlan::Present(path) => Some(self.observed.presence_bits(path).to_vec()),
+            ExactPlan::Term(path, operator, value) => {
+                if value.is_null() {
+                    return match operator {
+                        crate::json_filter::IndexOp::Eq => {
+                            Some(self.observed.null_bits(path).to_vec())
+                        }
+                        crate::json_filter::IndexOp::Ne => {
+                            Some(self.observed.non_null_scalar_bits(path))
+                        }
+                        _ => None,
+                    };
+                }
                 self.typed
-                    .term_bits(field, *operator, value, self.files.len())
+                    .term_bits(path, *operator, value, self.files.len())
             }
             ExactPlan::And(parts) => {
                 let (first, rest) = parts.split_first()?;

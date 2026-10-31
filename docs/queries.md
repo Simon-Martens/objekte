@@ -112,10 +112,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query pages 'data.descri
 
 ## Parameters, paging, and output
 
-Returned records are validated on demand. An explicitly scoped query rejects undeclared fields or
-incompatible literal types. An unscoped query skips incompatible collections.
-Schema-invalid JSON remains searchable through type-safe comparisons; malformed
-JSON does not match.
+Returned records are validated on demand. Queries may use undeclared fields and literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON types decide comparisons; schema-invalid JSON remains searchable and malformed JSON does not match.
 
 Parameters are JSON values. Keep the filter in single shell quotes so `$from`
 and `$to` reach the filter parser; quote a string parameter as JSON.
@@ -141,6 +138,9 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferre
 
 # Default query: build values-only bigrams and ordered scalar postings in memory, then verify source candidates.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --count --limit 3
+
+# Opt in to ordered scalar postings inferred from observed paths, including nested keys.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'contributors.type = "Autor:in"' --infer-field-types --count --limit 3
 
 # Keep result JSON on stdout and write formatted diagnostics JSON to stderr.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.json

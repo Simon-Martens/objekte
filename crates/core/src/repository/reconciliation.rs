@@ -4,6 +4,14 @@ use super::*;
 
 
 impl Repository {
+    /// Inspect observed JSON field shapes after warming one collection.
+    pub fn field_profiles(&mut self, collection: &str) -> Result<Vec<crate::FieldProfile>> {
+        self.reload()?;
+        let c = self.collection(collection)?;
+        self.ensure_picker(&c)?;
+        Ok(self.file_pickers[collection].field_profiles())
+    }
+
     /// Return the current or deleted record revision in this repository handle.
     pub fn record_revision(
         &mut self,

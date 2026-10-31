@@ -12,6 +12,10 @@ path = "src/bin/json_query_grep_compare.rs"
 name = "json-query-mix"
 path = "src/bin/json_query_mix.rs"
 
+[[bin]]
+name = "index-build-infer"
+path = "src/bin/index_build_infer.rs"
+
 [dependencies]
 objekte-core = { path = "../core" }
 serde_json = "1"

@@ -47,13 +47,6 @@ fn sonic_projection_matches_full_json_semantics() {
     let dir = tempfile::tempdir().unwrap();
     let root = dir.path().canonicalize().unwrap();
     let indexed = vec!["flag".into(), "score".into(), "title".into()];
-    let present = vec![
-        "array".into(),
-        "flag".into(),
-        "payload".into(),
-        "score".into(),
-        "title".into(),
-    ];
     let view = ViewIndex::new(&indexed, &BTreeMap::new());
     for raw in [
         r#"{"title":"first","t\u0069tle":"last","payload":{"a":1,"a":2},"array":[{"x":0,"x":3}],"score":9007199254740993,"flag":true}"#,
@@ -64,7 +57,7 @@ fn sonic_projection_matches_full_json_semantics() {
         fs::write(root.join("a.json"), raw).unwrap();
         let source = Source::open(&root).unwrap();
         let stamp = source.inventory().unwrap().remove("a").unwrap();
-        let projection = projected_values(&source, "a", &stamp, &indexed, &present, &view, true)
+        let projection = projected_values(&source, "a", &stamp, &indexed, &view, true)
             .unwrap()
             .unwrap();
         let full = parse(raw).unwrap();
@@ -72,21 +65,6 @@ fn sonic_projection_matches_full_json_semantics() {
         reference_indexed_value_text(&full, &mut expected);
         assert_eq!(projection.bytes, expected.into_bytes(), "{raw}");
         let object = full.as_object();
-        let expected_arrays = object.map_or_else(Vec::new, |fields| {
-            fields
-                .iter()
-                .filter(|(_, value)| value.is_array())
-                .map(|(name, _)| name.clone())
-                .collect()
-        });
-        assert_eq!(projection.array_fields, expected_arrays, "{raw}");
-        let expected_present = object.map_or_else(Vec::new, |fields| {
-            fields
-                .keys()
-                .filter_map(|name| present.binary_search(name).ok())
-                .collect()
-        });
-        assert_eq!(projection.present_fields, expected_present, "{raw}");
         let expected_typed = object.map_or_else(Vec::new, |fields| {
             indexed
                 .iter()
@@ -117,10 +95,44 @@ fn malformed_json_does_not_enter_the_index() {
     let stamp = source.inventory().unwrap().remove("a").unwrap();
     let view = ViewIndex::new(&[], &BTreeMap::new());
     assert!(
-        projected_values(&source, "a", &stamp, &[], &[], &view, true)
+        projected_values(&source, "a", &stamp, &[], &view, true)
             .unwrap()
             .is_none()
     );
+}
+
+#[test]
+fn observed_paths_include_nested_array_children_and_last_duplicate_key() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path().canonicalize().unwrap();
+    fs::write(
+        root.join("a.json"),
+        r#"{"contributors":[{"type":"person"},{"type":null}],"x":1,"x":true}"#,
+    )
+    .unwrap();
+    let source = Source::open(&root).unwrap();
+    let stamp = source.inventory().unwrap().remove("a").unwrap();
+    let view = ViewIndex::new(&[], &BTreeMap::new());
+    let projection = projected_values(&source, "a", &stamp, &[], &view, true)
+        .unwrap()
+        .unwrap();
+    let nested = projection
+        .observed
+        .iter()
+        .find(|item| item.path == ["contributors", "type"])
+        .unwrap();
+    assert_eq!(nested.occurrences, 2);
+    assert_eq!(
+        nested.kinds,
+        ObservedKind::String.bit() | ObservedKind::Null.bit()
+    );
+    let x = projection
+        .observed
+        .iter()
+        .find(|item| item.path == ["x"])
+        .unwrap();
+    assert_eq!(x.kinds, ObservedKind::Boolean.bit());
+    assert_eq!(x.scalar, Some(TypedKey::Bool(true)));
 }
 
 #[test]
@@ -141,7 +153,7 @@ fn overwritten_deep_value_still_invalidates_index_projection() {
             let view = ViewIndex::new(&[], &BTreeMap::new());
             assert!(parse(&raw).is_err());
             assert!(
-                projected_values(&source, "a", &stamp, &[], &[], &view, true)
+                projected_values(&source, "a", &stamp, &[], &view, true)
                     .unwrap()
                     .is_none()
             );

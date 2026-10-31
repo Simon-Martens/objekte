@@ -23,7 +23,7 @@ The cache indexes fields independently of `list.filters`, `list.sortable`, and `
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
 | CLI | Parse commands and display library results; no separate query or cache implementation |
 
-Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations, group records, or search metadata such as source path. Malformed JSON does not match a JSON query. A parseable schema-invalid record can still match a declared field. See [validation.md](validation.md) for the precise validation behavior.
+Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations, group records, or search metadata such as source path. Malformed JSON does not match a JSON query. A parseable schema-invalid record can still match, and JSON filters may query undeclared paths. See [validation.md](validation.md) for the precise validation behavior.
 
 ## Work still planned
 

@@ -52,6 +52,8 @@ pub enum Freshness {
 pub struct Options {
     pub cache: CacheMode,
     pub freshness: Freshness,
+    /// Infer typed postings for observed JSON paths in addition to schema fields.
+    pub infer_field_types: bool,
 }
 
 
@@ -60,6 +62,7 @@ impl Options {
         Self {
             cache: CacheMode::Memory,
             freshness: Freshness::MetadataOnOpen,
+            infer_field_types: false,
         }
     }
 }

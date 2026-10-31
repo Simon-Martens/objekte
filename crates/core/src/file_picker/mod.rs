@@ -6,7 +6,7 @@
 
 mod exact;
 mod git;
-mod presence;
+mod observed;
 mod projection;
 mod regex_plan;
 mod typed;
@@ -32,7 +32,8 @@ use std::{
 
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
-use presence::PresenceIndex;
+pub use observed::FieldProfile;
+use observed::ObservedFields;
 use projection::projected_values;
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
@@ -74,9 +75,10 @@ pub struct FilePicker {
     tombstones: BTreeMap<String, (u64, u128)>,
     indexed_len: usize,
     changed: BTreeSet<usize>,
-    array_fields: BTreeSet<String>,
+    observed: ObservedFields,
+    configured_index_fields: Vec<String>,
+    infer_field_types: bool,
     index: BigramFilter,
-    presence: PresenceIndex,
     typed: TypedIndex,
     view: ViewIndex,
     #[cfg(feature = "index-timings")]
@@ -86,13 +88,14 @@ pub struct FilePicker {
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, &[], &BTreeMap::new())
+        Self::open_with_indexes(root, &[], &BTreeMap::new(), false)
     }
 
     pub(crate) fn open_with_indexes(
         root: &Path,
         indexes: &[IndexField],
         definitions: &BTreeMap<String, Field>,
+        infer_field_types: bool,
     ) -> Result<Self> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open(&root)?;
@@ -115,11 +118,12 @@ impl FilePicker {
             tombstones: BTreeMap::new(),
             indexed_len: 0,
             changed: BTreeSet::new(),
-            array_fields: BTreeSet::new(),
+            observed: ObservedFields::new(inventory.len(), infer_field_types, &indexed_fields),
+            configured_index_fields: indexed_fields.clone(),
+            infer_field_types,
             index: BigramIndexBuilder::new(0).compress(None),
-            presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
-            typed: TypedIndex::new(indexed_fields),
+            typed: TypedIndex::new(indexed_fields.into_iter().map(|name| vec![name]).collect()),
             #[cfg(feature = "index-timings")]
             build_timings: BuildTimings {
                 inventory_nanos,
@@ -156,6 +160,11 @@ impl FilePicker {
         self.sorted.is_empty()
     }
 
+    /// Actual field-path shapes in the current in-memory snapshot.
+    pub fn field_profiles(&self) -> Vec<FieldProfile> {
+        self.observed.profiles()
+    }
+
     pub(crate) fn sorted_slots(&self) -> &[usize] {
         &self.sorted
     }
@@ -185,8 +194,12 @@ impl FilePicker {
             .filter_bits(field, operator, value, self.files.len())
     }
 
-    pub(crate) fn has_array_value(&self, field: &str) -> bool {
-        self.array_fields.contains(field)
+    pub(crate) fn has_array_at(&self, path: &[String]) -> bool {
+        self.observed.has_array(path)
+    }
+
+    pub(crate) fn has_multiple_values(&self, path: &[String]) -> bool {
+        self.observed.has_multiple(path)
     }
 
     fn id(&self, slot: usize) -> Option<&str> {
@@ -230,28 +243,13 @@ impl FilePicker {
                     let slot = self.sorted[position];
                     seen[slot] = true;
                     if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
-                        let projection = projected_values(
-                            &source,
-                            &id,
-                            &stamp,
-                            &[],
-                            self.presence.fields(),
-                            &self.view,
-                            false,
-                        )?;
+                        let projection =
+                            projected_values(&source, &id, &stamp, &[], &self.view, false)?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                        self.presence.update(
-                            slot,
-                            projection
-                                .as_ref()
-                                .map_or(&[], |p| p.present_fields.as_slice()),
-                        );
-                        if let Some(projection) = projection.as_ref() {
-                            self.array_fields
-                                .extend(projection.array_fields.iter().cloned());
-                        }
+                        self.observed
+                            .update(slot, projection.as_ref().map(|p| p.observed.as_slice()));
                         let entry = self.files[slot].as_mut().expect("live sorted slot");
                         entry.stamp = stamp;
                         entry.revision += 1;
@@ -262,29 +260,15 @@ impl FilePicker {
                     }
                 }
                 Err(_) => {
-                    let projection = projected_values(
-                        &source,
-                        &id,
-                        &stamp,
-                        &[],
-                        self.presence.fields(),
-                        &self.view,
-                        false,
-                    )?;
+                    let projection =
+                        projected_values(&source, &id, &stamp, &[], &self.view, false)?;
                     let keys = projection
                         .as_ref()
                         .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                    if let Some(projection) = projection.as_ref() {
-                        self.array_fields
-                            .extend(projection.array_fields.iter().cloned());
-                    }
                     let slot = self.insert(&id, stamp)?;
-                    self.presence.update(
-                        slot,
-                        projection
-                            .as_ref()
-                            .map_or(&[], |p| p.present_fields.as_slice()),
-                    );
+                    if let Some(projection) = projection.as_ref() {
+                        self.observed.update(slot, Some(&projection.observed));
+                    }
                     self.view.update(slot, keys, &self.files, &self.id_bytes);
                     seen.push(true);
                     debug_assert_eq!(slot + 1, seen.len());
@@ -305,7 +289,7 @@ impl FilePicker {
                 self.tombstones
                     .insert(id, (entry.revision + 1, now_nanos()));
                 self.changed.remove(&slot);
-                self.presence.remove(slot);
+                self.observed.update(slot, None);
                 self.view.remove(slot);
                 changed += 1;
             }
@@ -333,28 +317,13 @@ impl FilePicker {
                     Ok(position) => {
                         let slot = self.sorted[position];
                         if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
-                            let projection = projected_values(
-                                &source,
-                                id,
-                                &stamp,
-                                &[],
-                                self.presence.fields(),
-                                &self.view,
-                                false,
-                            )?;
+                            let projection =
+                                projected_values(&source, id, &stamp, &[], &self.view, false)?;
                             let keys = projection
                                 .as_ref()
                                 .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                            self.presence.update(
-                                slot,
-                                projection
-                                    .as_ref()
-                                    .map_or(&[], |p| p.present_fields.as_slice()),
-                            );
-                            if let Some(projection) = projection.as_ref() {
-                                self.array_fields
-                                    .extend(projection.array_fields.iter().cloned());
-                            }
+                            self.observed
+                                .update(slot, projection.as_ref().map(|p| p.observed.as_slice()));
                             let entry = self.files[slot].as_mut().expect("live sorted slot");
                             entry.stamp = stamp;
                             entry.revision += 1;
@@ -364,29 +333,15 @@ impl FilePicker {
                         }
                     }
                     Err(_) => {
-                        let projection = projected_values(
-                            &source,
-                            id,
-                            &stamp,
-                            &[],
-                            self.presence.fields(),
-                            &self.view,
-                            false,
-                        )?;
+                        let projection =
+                            projected_values(&source, id, &stamp, &[], &self.view, false)?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                        if let Some(projection) = projection.as_ref() {
-                            self.array_fields
-                                .extend(projection.array_fields.iter().cloned());
-                        }
                         let slot = self.insert(id, stamp)?;
-                        self.presence.update(
-                            slot,
-                            projection
-                                .as_ref()
-                                .map_or(&[], |p| p.present_fields.as_slice()),
-                        );
+                        if let Some(projection) = projection.as_ref() {
+                            self.observed.update(slot, Some(&projection.observed));
+                        }
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                     }
                 }
@@ -399,7 +354,7 @@ impl FilePicker {
                             .insert(id.to_owned(), (entry.revision + 1, now_nanos()));
                     }
                     self.changed.remove(&slot);
-                    self.presence.remove(slot);
+                    self.observed.update(slot, None);
                     self.view.remove(slot);
                 }
             }
@@ -479,7 +434,7 @@ impl FilePicker {
         let typed_bits = self
             .typed
             .candidate_bits(typed_plan, self.files.len(), &self.changed);
-        let presence_bits = self.presence.candidates(required_fields);
+        let presence_bits = self.observed.candidates(required_fields);
         let count_bits =
             |bits: &[u64]| -> usize { bits.iter().map(|word| word.count_ones() as usize).sum() };
         let mut candidate_bits = None;
@@ -580,7 +535,7 @@ impl FilePicker {
             .map(|&id| -> Result<Option<String>> {
                 let slot = self.sorted[self.position(id).expect("candidate is live")];
                 let stamp = &self.files[slot].as_ref().expect("live candidate").stamp;
-                let text = projected_values(&source, id, stamp, &[], &[], &self.view, false)?;
+                let text = projected_values(&source, id, stamp, &[], &self.view, false)?;
                 Ok(text
                     .as_ref()
                     .is_some_and(|text| matcher.is_match(&text.bytes))
@@ -630,11 +585,13 @@ impl FilePicker {
         );
         let main = BigramIndexBuilder::new(files.len());
         let skip = BigramIndexBuilder::new(files.len());
-        let array_fields = std::sync::Mutex::new(BTreeSet::new());
-        let indexed_fields = self.typed.fields();
+        let indexed_fields = &self.configured_index_fields;
+        let observed = std::sync::Mutex::new(ObservedFields::new(
+            files.len(),
+            self.infer_field_types,
+            indexed_fields,
+        ));
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
-        let presence_fields = self.presence.fields();
-        let presence_words = self.presence.build_words(files.len());
         let view_rows = std::sync::Mutex::new(Vec::new());
         let view = &self.view;
         #[cfg(feature = "index-timings")]
@@ -652,8 +609,8 @@ impl FilePicker {
             .par_chunks(64)
             .enumerate()
             .try_for_each(|(chunk_index, chunk)| -> Result<()> {
-                let mut chunk_arrays = BTreeSet::new();
                 let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
+                let mut chunk_observed = Vec::new();
                 let mut chunk_view = Vec::new();
                 #[cfg(feature = "index-timings")]
                 let mut chunk_project_nanos = 0;
@@ -667,15 +624,8 @@ impl FilePicker {
                     .expect("validated UTF-8 ID");
                     #[cfg(feature = "index-timings")]
                     let project_started = Instant::now();
-                    let projection = projected_values(
-                        source,
-                        id,
-                        &entry.stamp,
-                        indexed_fields,
-                        presence_fields,
-                        view,
-                        true,
-                    )?;
+                    let projection =
+                        projected_values(source, id, &entry.stamp, indexed_fields, view, true)?;
                     #[cfg(feature = "index-timings")]
                     {
                         chunk_project_nanos += elapsed_nanos(project_started);
@@ -689,22 +639,20 @@ impl FilePicker {
                         {
                             chunk_add_nanos += elapsed_nanos(add_started);
                         }
-                        chunk_arrays.extend(projection.array_fields);
-                        PresenceIndex::add_build_row(
-                            &presence_words,
-                            slot,
-                            &projection.present_fields,
-                        );
+                        chunk_observed.push((slot, projection.observed));
                         chunk_view.push((slot, projection.view_keys));
                         for (field, key) in projection.typed_values {
                             chunk_typed[field].push((key, slot));
                         }
                     }
                 }
-                array_fields
-                    .lock()
-                    .expect("array field lock")
-                    .extend(chunk_arrays);
+                {
+                    let mut observed = observed.lock().expect("observed field lock");
+                    for (slot, paths) in chunk_observed {
+                        observed.add(slot, &paths);
+                    }
+                }
+
                 #[cfg(feature = "index-timings")]
                 {
                     project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
@@ -753,12 +701,19 @@ impl FilePicker {
         self.index = index;
         self.indexed_len = self.files.len();
         self.changed.clear();
-        self.array_fields = array_fields.into_inner().expect("array field lock");
-        self.presence.replace(presence_words);
+        self.observed = observed.into_inner().expect("observed field lock");
         #[cfg(feature = "index-timings")]
         let typed_started = Instant::now();
-        self.typed
-            .replace_rows(typed_rows.into_inner().expect("typed row lock"));
+        let mut all_rows = indexed_fields
+            .iter()
+            .cloned()
+            .map(|name| vec![name])
+            .zip(typed_rows.into_inner().expect("typed row lock"))
+            .collect::<BTreeMap<_, _>>();
+        all_rows.extend(self.observed.take_inferred());
+        let (fields, rows): (Vec<_>, Vec<_>) = all_rows.into_iter().unzip();
+        self.typed = TypedIndex::new(fields);
+        self.typed.replace_rows(rows);
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.typed_nanos = elapsed_nanos(typed_started);

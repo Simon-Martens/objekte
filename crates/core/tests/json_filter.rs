@@ -225,6 +225,78 @@ fn actual_json_types_are_distinct_even_when_the_schema_disagrees() {
 }
 
 #[test]
+fn undeclared_fields_and_nested_paths_work_across_backends() {
+    let f = fixture(&[
+        (
+            "a",
+            r#"{"undocumented":{"score":3,"kind":"alpha"},"contributors":[{"type":"author"}]}"#,
+        ),
+        (
+            "b",
+            r#"{"undocumented":{"score":null,"kind":"beta"},"contributors":[{"type":null}]}"#,
+        ),
+        (
+            "c",
+            r#"{"undocumented":{"score":7,"kind":"alpha"},"contributors":[]}"#,
+        ),
+        ("d", r#"{"undocumented":{"kind":true}}"#),
+        ("e", "{}"),
+    ]);
+    check(
+        &f,
+        &[
+            ("undocumented.score >= 3", &["a", "c"]),
+            ("undocumented.score = null", &["b"]),
+            ("undocumented.score != null", &["a", "c"]),
+            ("undocumented.kind = 'alpha'", &["a", "c"]),
+            ("exists(undocumented.score)", &["a", "b", "c"]),
+            ("exists(contributors.type)", &["a", "b"]),
+            ("contributors[0].type = 'author'", &["a"]),
+        ],
+    );
+    let mut options = f.options(CacheMode::Memory);
+    options.infer_field_types = true;
+    let mut inferred = Repository::load_repository(&f.root, options).unwrap();
+    for (filter, expected) in [
+        ("undocumented.score >= 3", &["a", "c"][..]),
+        ("undocumented.kind = 'alpha'", &["a", "c"][..]),
+        ("contributors.type = 'author'", &["a"][..]),
+    ] {
+        let mut query = request(filter);
+        query.collections = Some(vec!["books".into()]);
+        query.backend = JsonQueryBackend::Bigram;
+        assert_eq!(ids_for(&mut inferred, &query), expected, "{filter}");
+    }
+    let mut indexed_query = request("undocumented.score >= 3");
+    indexed_query.collections = Some(vec!["books".into()]);
+    indexed_query.backend = JsonQueryBackend::Bigram;
+    indexed_query.limit = 1;
+    let indexed_result = inferred.query_json(&indexed_query).unwrap();
+    assert_eq!(indexed_result.total, Some(2));
+    assert_eq!(indexed_result.metrics.parses, 1);
+    let mut nested_query = request("contributors.type = 'author'");
+    nested_query.collections = Some(vec!["books".into()]);
+    nested_query.backend = JsonQueryBackend::Bigram;
+    let nested_result = inferred.query_json(&nested_query).unwrap();
+    assert_eq!(nested_result.total, Some(1));
+    assert_eq!(nested_result.metrics.parses, 1);
+    let profiles = inferred.field_profiles("books").unwrap();
+    let score = profiles
+        .iter()
+        .find(|profile| profile.path == ["undocumented", "score"])
+        .unwrap();
+    assert_eq!(
+        (score.present, score.missing, score.nulls, score.numbers),
+        (3, 2, 1, 2)
+    );
+    let contributors = profiles
+        .iter()
+        .find(|profile| profile.path == ["contributors"])
+        .unwrap();
+    assert_eq!(contributors.arrays, 3);
+}
+
+#[test]
 fn exact_decimal_numbers_preserve_precision_across_backends() {
     let f = fixture(&[
         ("a", r#"{"x":9007199254740992}"#),
@@ -429,10 +501,10 @@ fn bigram_typed_candidates_cover_numbers_booleans_enums_and_schema_invalid_value
         &[
             ("x = 1800", &["a", "b"]),
             ("x > 1799 && x < 1801", &["a", "b"]),
-            ("x = '1800'", &[]),
+            ("x = '1800'", &["e"]),
             ("flag = true", &["a", "c"]),
             ("flag = false", &["b", "e"]),
-            ("flag = 'true'", &[]),
+            ("flag = 'true'", &["d"]),
             ("kind = 'beta'", &["b", "d"]),
             ("kind > 'alpha'", &["b", "c", "d"]),
             ("kind = 'zeta'", &["c"]),

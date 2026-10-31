@@ -8,7 +8,7 @@ target/release/json-query-grep-compare --repo examples/musenalm --workload crate
 ```
 
 The `json-query-mix` benchmark runs 50 unscoped filters against every
-schema-compatible collection with one warm repository handle. Each filter
+registered collection with one warm repository handle. Each filter
 counts all matches and returns one record. It warms the indexes and runs each
 filter once before timing, then alternates case order across rounds. Output is
 NDJSON with a setup row followed by one row per filter.
@@ -24,3 +24,15 @@ before snapshot counts and null/inequality postings. The
 affected cases and links the full raw rerun.
 
 The dated reports in this directory record earlier architectures and experiments. The [43-case bigram versus segment report](BIGRAM-VS-SEGMENTS-2026-10-29.md) is historical evidence for the in-memory decision; its segment backend has been removed. The [FFF comparison](FFF-VS-SEGMENTS-2026-10-29.md) and [values-only layout study](VALUES-ONLY-CACHE-2026-10-29.md) likewise describe retired benchmark executables. Commands in those reports are archival and are not expected to run against the current workspace.
+
+`index-build-infer` measures fresh process-local index construction for each
+collection. Run each mode in a separate process, after building release:
+
+```sh
+cargo build --release -p objekte-bench --bin index-build-infer
+target/release/index-build-infer examples/musenalm
+target/release/index-build-infer examples/musenalm --infer
+```
+
+See [the inference build report](INDEX-INFERENCE-2026-10-31.md) for five-run
+medians and peak resident memory.

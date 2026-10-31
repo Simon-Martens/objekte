@@ -1,6 +1,9 @@
 //! Build index text and scalar keys from one Sonic tree without copying the full JSON tree.
 
-use super::{TypedKey, ViewIndex};
+use super::{
+    TypedKey, ViewIndex,
+    observed::{FieldObservation, ObservedKind},
+};
 use crate::{
     Error, Result,
     error::io,
@@ -13,12 +16,11 @@ use std::{collections::BTreeMap, io::Read};
 use unicode_casefold::UnicodeCaseFold;
 
 
-/// Decoded text and top-level keys extracted from one source document.
+/// Decoded text, observed paths, and selected keys from one source document.
 pub(super) struct Projection {
     pub(super) bytes: Vec<u8>,
-    pub(super) array_fields: Vec<String>,
-    pub(super) present_fields: Vec<usize>,
     pub(super) typed_values: Vec<(usize, TypedKey)>,
+    pub(super) observed: Vec<FieldObservation>,
     pub(super) view_keys: Vec<Scalar>,
 }
 
@@ -28,7 +30,6 @@ pub(super) fn projected_values(
     id: &str,
     stamp: &Stamp,
     indexed_fields: &[String],
-    presence_fields: &[String],
     view: &ViewIndex,
     folded_index: bool,
 ) -> Result<Option<Projection>> {
@@ -60,20 +61,9 @@ pub(super) fn projected_values(
         }
     }
 
+    let observed = observed_fields(&parsed);
+
     let fields = top_level_fields(&parsed);
-    let array_fields = fields
-        .iter()
-        .filter(|(_, value)| value.is_array())
-        .map(|(name, _)| (*name).to_owned())
-        .collect();
-    let present_fields = fields
-        .keys()
-        .filter_map(|name| {
-            presence_fields
-                .binary_search_by(|field| field.as_str().cmp(name))
-                .ok()
-        })
-        .collect();
 
     // View and typed indexes need only these top-level scalars. Containers
     // receive an invalid-type placeholder, so nested trees are never copied.
@@ -102,11 +92,82 @@ pub(super) fn projected_values(
     let view_keys = view.project(id, &Value::Object(selected));
     Ok(Some(Projection {
         bytes: values.into_bytes(),
-        array_fields,
-        present_fields,
         typed_values,
+        observed,
         view_keys,
     }))
+}
+
+fn observed_fields(value: &SonicValue) -> Vec<FieldObservation> {
+    fn visit(
+        value: &SonicValue,
+        path: &mut Vec<String>,
+        observations: &mut BTreeMap<Vec<String>, FieldObservation>,
+        depth: usize,
+    ) {
+        if depth >= 128 {
+            return;
+        }
+        match value.as_ref() {
+            ValueRef::Object(_) => {
+                // Match full JSON parsing when an object repeats a key: the
+                // last value at that key is the one a query can reach.
+                for (name, child) in top_level_fields(value) {
+                    path.push(name.to_owned());
+                    let (kind, scalar) = observed_value(child);
+                    if let Some(previous) = observations.get_mut(path) {
+                        previous.kinds |= kind.bit();
+                        previous.occurrences += 1;
+                        previous.scalar = None;
+                    } else {
+                        observations.insert(
+                            path.clone(),
+                            FieldObservation {
+                                path: path.clone(),
+                                kinds: kind.bit(),
+                                occurrences: 1,
+                                scalar,
+                            },
+                        );
+                    }
+                    visit(child, path, observations, depth + 1);
+                    path.pop();
+                }
+            }
+            ValueRef::Array(items) => {
+                // Key paths descend through every array item. Explicit array
+                // positions remain source-verified by the query executor.
+                for item in items {
+                    visit(item, path, observations, depth + 1);
+                }
+            }
+            _ => {}
+        }
+    }
+
+    let mut observations = BTreeMap::new();
+    visit(value, &mut Vec::new(), &mut observations, 0);
+    observations.into_values().collect()
+}
+
+fn observed_value(value: &SonicValue) -> (ObservedKind, Option<TypedKey>) {
+    if let Some(number) = value.as_raw_number() {
+        return (
+            ObservedKind::Number,
+            Some(TypedKey::Number(number.as_str().to_owned())),
+        );
+    }
+    match value.as_ref() {
+        ValueRef::Null => (ObservedKind::Null, Some(TypedKey::Null)),
+        ValueRef::Bool(value) => (ObservedKind::Boolean, Some(TypedKey::Bool(value))),
+        ValueRef::String(value) => (
+            ObservedKind::String,
+            Some(TypedKey::String(value.to_owned())),
+        ),
+        ValueRef::Array(_) => (ObservedKind::Array, None),
+        ValueRef::Object(_) => (ObservedKind::Object, None),
+        ValueRef::Number(_) => unreachable!("raw numbers enabled"),
+    }
 }
 
 fn top_level_fields(value: &SonicValue) -> BTreeMap<&str, &SonicValue> {

@@ -1,6 +1,6 @@
 # Performance of the current query path
 
-The default JSON filter backend builds an in-memory file picker on first use of a collection. It indexes decoded scalar values and distinct Unicode-folded projections with consecutive and skip-one bigrams, creates presence bits for declared top-level fields, and creates typed postings for declared number, integer, boolean, and enum fields. Covered scalar and presence queries count matches from the index and read only their returned page; other queries scan source candidates and verify them with Sonic. Views use ordered keys when their requested filter and sort can be indexed. See [implementation.md](implementation.md) for details.
+The default JSON filter backend builds an in-memory file picker on first use of a collection. It indexes decoded scalar values and distinct Unicode-folded projections with consecutive and skip-one bigrams, records presence and JSON shapes for every observed key path, and creates typed postings for configured scalar fields. Optional inference adds ordered postings for observed numeric, boolean, and low-cardinality string paths. Covered scalar and presence queries count matches from the index and read only their returned page; other queries scan source candidates and verify them with Sonic. Views use ordered keys when their requested filter and sort can be indexed. See [implementation.md](implementation.md) for details.
 
 ## Current 16-case bigram versus source-grep run
 
