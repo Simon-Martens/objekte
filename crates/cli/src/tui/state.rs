@@ -2,8 +2,8 @@
 
 use super::navigation::DetailLinks;
 use objekte_core::{
-    JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Record, Repository, TextHit, TextMode,
-    TextQuery,
+    InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Record, Repository,
+    TextHit, TextMode, TextQuery,
 };
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 
@@ -180,6 +180,15 @@ pub(super) enum Focus {
     Detail,
     ExportAll,
     ExportOne,
+    Infer,
+    InferReady,
+}
+
+
+/// Scope and schema choice for an explicit background inference scan.
+pub(super) struct InferRequest {
+    pub(super) collection: Option<String>,
+    pub(super) auto_index: bool,
 }
 
 
@@ -221,6 +230,13 @@ pub(super) struct App<'a> {
     pub(super) message: String,
     pub(super) index_status: Option<String>,
     pub(super) queued_search: bool,
+    pub(super) infer_all: bool,
+    pub(super) infer_auto_index: bool,
+    pub(super) infer_return_focus: Focus,
+    pub(super) pending_inference: Option<InferRequest>,
+    pub(super) last_inference: Option<InferenceReport>,
+    pub(super) pending_schema_write: bool,
+    pub(super) inference_saved: bool,
     pub(super) done: bool,
 }
 
@@ -253,9 +269,17 @@ impl<'a> App<'a> {
             column_offset: 0,
             detail_scroll: 0,
             links: DetailLinks::default(),
-            message: "Search all collections. Enter a phrase and press Enter.".into(),
+            message: "Search all collections. Enter a phrase, or press Alt+I to infer fields."
+                .into(),
             index_status: None,
             queued_search: false,
+            infer_all: false,
+            infer_auto_index: true,
+            infer_return_focus: Focus::Query,
+            pending_inference: None,
+            last_inference: None,
+            pending_schema_write: false,
+            inference_saved: false,
             done: false,
         }
     }
@@ -265,6 +289,18 @@ impl<'a> App<'a> {
             "all collections"
         } else {
             &self.collections[self.collection - 1]
+        }
+    }
+
+    pub(super) fn open_inference(&mut self) {
+        self.infer_return_focus = self.focus;
+        self.focus = Focus::Infer;
+    }
+
+    pub(super) fn close_inference(&mut self) {
+        self.focus = self.infer_return_focus;
+        if self.queued_search {
+            self.search();
         }
     }
 

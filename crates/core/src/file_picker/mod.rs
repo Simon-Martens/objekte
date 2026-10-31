@@ -6,6 +6,7 @@
 
 mod exact;
 mod git;
+mod infer;
 mod posting;
 mod presence;
 mod projection;
@@ -37,6 +38,7 @@ use unicode_casefold::UnicodeCaseFold;
 use crate::text::TextRules;
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
+pub(crate) use infer::ReferenceInventory;
 use presence::PresenceIndex;
 use projection::{
     ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
@@ -91,6 +93,7 @@ pub struct FilePicker {
     text_index: Option<TextIndex>,
     presence: PresenceIndex,
     typed: TypedIndex,
+    inferred_paths: BTreeSet<crate::JsonPath>,
     view: ViewIndex,
     #[cfg(feature = "index-timings")]
     build_timings: BuildTimings,
@@ -99,13 +102,14 @@ pub struct FilePicker {
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, false, &[], &BTreeMap::new())
+        Self::open_with_indexes(root, false, &[], &[], &BTreeMap::new())
     }
 
     pub(crate) fn open_with_indexes(
         root: &Path,
         recursive: bool,
         indexes: &[IndexField],
+        advanced_paths: &[crate::JsonPath],
         definitions: &BTreeMap<String, Field>,
     ) -> Result<Self> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
@@ -141,6 +145,7 @@ impl FilePicker {
             presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
             typed: TypedIndex::new(indexed_fields),
+            inferred_paths: BTreeSet::new(),
             #[cfg(feature = "index-timings")]
             build_timings: BuildTimings {
                 inventory_nanos,
@@ -162,6 +167,7 @@ impl FilePicker {
         }
         picker.rebuild_index_from_source(&source)?;
         source.finish()?;
+        picker.build_postings(advanced_paths)?;
         Ok(picker)
     }
 
@@ -871,15 +877,15 @@ impl FilePicker {
         // Runtime path postings are rebuilt after slot compaction so their
         // posting lists refer to the current immutable file table.
         let runtime_paths = self.typed.dynamic_paths();
+        let inferred_paths = self.inferred_paths.clone();
         self.typed.invalidate_dynamic();
-        for path in runtime_paths {
-            if let Err(error) = self.build_posting(&path) {
-                // A source edit during this second pass can leave the fresh
-                // text snapshot behind. Require source verification next time.
-                self.changed.extend(self.sorted.iter().copied());
-                return Err(error);
-            }
+        if let Err(error) = self.build_postings(&runtime_paths) {
+            // A source edit during this second pass can leave the fresh
+            // text snapshot behind. Require source verification next time.
+            self.changed.extend(self.sorted.iter().copied());
+            return Err(error);
         }
+        self.inferred_paths = inferred_paths;
 
         #[cfg(feature = "index-timings")]
         {

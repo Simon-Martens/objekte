@@ -5,7 +5,7 @@ use super::{
     relations,
     state::{App, DetailEdge, Focus, Hit, Request},
 };
-use objekte_core::{Error, Record, Repository};
+use objekte_core::{Error, InferOptions, InferenceReport, Record, Repository};
 use std::{
     sync::{
         Arc,
@@ -20,6 +20,15 @@ use std::{
 enum SearchUpdate {
     Hit(Box<Hit>),
     Backlink(Box<Record>),
+    Inferred {
+        repository: Box<Repository>,
+        result: Result<InferenceReport, String>,
+    },
+    SchemaWritten {
+        repository: Box<Repository>,
+        report: InferenceReport,
+        result: Result<usize, String>,
+    },
     Finished {
         repository: Box<Repository>,
         total: Result<Option<usize>, String>,
@@ -32,6 +41,8 @@ enum SearchUpdate {
 enum JobKind {
     Search,
     Backlinks,
+    Inference,
+    SchemaWrite,
 }
 
 
@@ -50,6 +61,8 @@ impl Running {
             == match self.kind {
                 JobKind::Search => app.search_generation,
                 JobKind::Backlinks => app.links.generation,
+                JobKind::Inference => self.generation,
+                JobKind::SchemaWrite => self.generation,
             }
     }
 }
@@ -81,6 +94,75 @@ impl SearchWorker {
                         app.add_backlink_record(&record);
                     }
                 }
+                Ok(SearchUpdate::Inferred {
+                    mut repository,
+                    result,
+                }) => {
+                    std::mem::swap(app.repo, &mut *repository);
+                    self.running = None;
+                    app.index_status = None;
+                    app.message = match result {
+                        Ok(report) => {
+                            let paths: usize =
+                                report.collections.iter().map(|c| c.indexed_paths).sum();
+                            let schemas = report
+                                .collections
+                                .iter()
+                                .filter(|collection| {
+                                    app.repo
+                                        .model()
+                                        .collections
+                                        .get(&collection.collection)
+                                        .is_some_and(|current| current.schema_path.is_some())
+                                })
+                                .count();
+                            let message = if schemas == 0 {
+                                format!(
+                                    "Inferred {} collections in {:.0} ms · {} indexed paths · no schemas in scope",
+                                    report.collections.len(),
+                                    report.elapsed_ms,
+                                    paths
+                                )
+                            } else {
+                                format!(
+                                    "Inferred {} collections in {:.0} ms · {} indexed paths · W writes rules to schemas",
+                                    report.collections.len(),
+                                    report.elapsed_ms,
+                                    paths
+                                )
+                            };
+                            app.last_inference = Some(report);
+                            app.inference_saved = false;
+                            app.focus = Focus::InferReady;
+                            message
+                        }
+                        Err(error) => format!("Inference failed: {error}"),
+                    };
+                    break;
+                }
+                Ok(SearchUpdate::SchemaWritten {
+                    mut repository,
+                    report,
+                    result,
+                }) => {
+                    std::mem::swap(app.repo, &mut *repository);
+                    self.running = None;
+                    app.index_status = None;
+                    app.message = match result {
+                        Ok(count) => {
+                            app.last_inference = Some(report);
+                            app.inference_saved = true;
+                            format!(
+                                "Updated {count} schema files with inferred types and index rules."
+                            )
+                        }
+                        Err(error) => format!("Schema write failed: {error}"),
+                    };
+                    if app.queued_search && app.focus != Focus::InferReady {
+                        app.search();
+                    }
+                    break;
+                }
                 Ok(SearchUpdate::Finished {
                     mut repository,
                     total,
@@ -97,6 +179,9 @@ impl SearchWorker {
                                 BacklinkStatus::Error(error)
                             }
                         };
+                    } else if current && matches!(kind, JobKind::Inference | JobKind::SchemaWrite) {
+                        app.index_status = None;
+                        app.message = "Inference worker stopped unexpectedly.".into();
                     } else if current {
                         app.searching = false;
                         match total {
@@ -148,6 +233,9 @@ impl SearchWorker {
                         app.links.incoming.clear();
                         app.links.status =
                             BacklinkStatus::Error("Backlink worker stopped unexpectedly.".into());
+                    } else if current && matches!(kind, JobKind::Inference | JobKind::SchemaWrite) {
+                        app.index_status = None;
+                        app.message = "Indexing worker stopped unexpectedly.".into();
                     } else if current {
                         app.searching = false;
                         app.hits.clear();
@@ -163,7 +251,15 @@ impl SearchWorker {
                 }
             }
         }
-        if self.running.is_none()
+        if self.running.is_none() && app.index_status.is_none() && app.pending_schema_write {
+            app.pending_schema_write = false;
+            self.start_schema_write(app);
+        } else if self.running.is_none()
+            && app.index_status.is_none()
+            && let Some(request) = app.pending_inference.take()
+        {
+            self.start_inference(app, request);
+        } else if self.running.is_none()
             && app.index_status.is_none()
             && let Some(request) = app.pending_search.take()
         {
@@ -174,6 +270,68 @@ impl SearchWorker {
         {
             self.start_backlinks(app, target.collection, target.id);
         }
+    }
+
+    fn start_inference(&mut self, app: &mut App<'_>, request: super::state::InferRequest) {
+        let placeholder = app.repo.fork_unindexed();
+        let mut repository = std::mem::replace(app.repo, placeholder);
+        let (sender, receiver) = mpsc::sync_channel(1);
+        let cancel = Arc::new(AtomicBool::new(false));
+        app.last_inference = None;
+        app.inference_saved = false;
+        app.index_status = Some(if request.auto_index {
+            "Inferring fields and building advanced indexes…".into()
+        } else {
+            "Inferring fields…".into()
+        });
+        thread::spawn(move || {
+            let result = repository
+                .infer_and_auto_index(
+                    request.collection.as_deref(),
+                    InferOptions {
+                        auto_index: request.auto_index,
+                        write_schema: false,
+                    },
+                )
+                .map_err(|error| error.to_string());
+            let _ = sender.send(SearchUpdate::Inferred {
+                repository: Box::new(repository),
+                result,
+            });
+        });
+        self.running = Some(Running {
+            receiver,
+            cancel,
+            generation: 0,
+            kind: JobKind::Inference,
+        });
+    }
+
+    fn start_schema_write(&mut self, app: &mut App<'_>) {
+        let Some(mut report) = app.last_inference.clone() else {
+            return;
+        };
+        let placeholder = app.repo.fork_unindexed();
+        let mut repository = std::mem::replace(app.repo, placeholder);
+        let (sender, receiver) = mpsc::sync_channel(1);
+        let cancel = Arc::new(AtomicBool::new(false));
+        app.index_status = Some("Checking source and writing inferred schema rules…".into());
+        thread::spawn(move || {
+            let result = repository
+                .write_inferred_schema(&mut report)
+                .map_err(|error| error.to_string());
+            let _ = sender.send(SearchUpdate::SchemaWritten {
+                repository: Box::new(repository),
+                report,
+                result,
+            });
+        });
+        self.running = Some(Running {
+            receiver,
+            cancel,
+            generation: 0,
+            kind: JobKind::SchemaWrite,
+        });
     }
 
     fn start(&mut self, app: &mut App<'_>, request: Request) {

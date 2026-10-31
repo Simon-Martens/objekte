@@ -26,6 +26,34 @@ pub enum JsonPathStep {
 
 pub type JsonPath = Vec<JsonPathStep>;
 
+pub(crate) fn format_path(path: &JsonPath) -> String {
+    let mut formatted = String::new();
+    for step in path {
+        match step {
+            JsonPathStep::Key(key) => {
+                let simple = key
+                    .chars()
+                    .next()
+                    .is_some_and(|first| first == '_' || first.is_alphabetic())
+                    && key.chars().all(|ch| ch == '_' || ch.is_alphanumeric());
+                if simple {
+                    if !formatted.is_empty() {
+                        formatted.push('.');
+                    }
+                    formatted.push_str(key);
+                } else {
+                    formatted.push('[');
+                    formatted.push_str(&serde_json::to_string(key).expect("string serializes"));
+                    formatted.push(']');
+                }
+            }
+            JsonPathStep::Index(index) => formatted.push_str(&format!("[{index}]")),
+            JsonPathStep::Each => formatted.push_str("[*]"),
+        }
+    }
+    formatted
+}
+
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 enum Op {
@@ -124,6 +152,7 @@ enum Expr {
 /// omitted; an OR is useful only when every child has a safe candidate set.
 pub(crate) enum TypedPlan {
     Term(JsonPath, IndexOp, Value),
+    AnyTerm(JsonPath, IndexOp, Value),
     Present(JsonPath),
     Missing(JsonPath),
     Prefix(JsonPath, String),
@@ -137,6 +166,7 @@ pub(crate) enum ExactPlan {
     Present(JsonPath),
     Missing(JsonPath),
     Term(JsonPath, IndexOp, Value),
+    AnyTerm(JsonPath, IndexOp, Value),
     Prefix(JsonPath, String),
     And(Vec<Self>),
     Or(Vec<Self>),
@@ -159,10 +189,10 @@ fn indexed_term(
     left: &Operand,
     op: Op,
     right: &Operand,
-    any: bool,
+    _any: bool,
     ignore_case: bool,
 ) -> Option<(JsonPath, IndexOp, Value)> {
-    if any || ignore_case {
+    if ignore_case {
         return None;
     }
     let (field, value, reversed) = match (left, right) {
@@ -380,8 +410,15 @@ impl JsonFilter {
                     right,
                     any,
                     ignore_case,
-                } => indexed_term(left, *op, right, *any, *ignore_case)
-                    .map(|(path, operator, value)| TypedPlan::Term(path, operator, value)),
+                } => indexed_term(left, *op, right, *any, *ignore_case).map(
+                    |(path, operator, value)| {
+                        if *any {
+                            TypedPlan::AnyTerm(path, operator, value)
+                        } else {
+                            TypedPlan::Term(path, operator, value)
+                        }
+                    },
+                ),
             }
         }
         plan(&self.expr)
@@ -413,8 +450,15 @@ impl JsonFilter {
                     right,
                     any,
                     ignore_case,
-                } => indexed_term(left, *op, right, *any, *ignore_case)
-                    .map(|(path, operator, value)| ExactPlan::Term(path, operator, value)),
+                } => indexed_term(left, *op, right, *any, *ignore_case).map(
+                    |(path, operator, value)| {
+                        if *any {
+                            ExactPlan::AnyTerm(path, operator, value)
+                        } else {
+                            ExactPlan::Term(path, operator, value)
+                        }
+                    },
+                ),
             }
         }
 

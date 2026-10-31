@@ -42,12 +42,24 @@ impl Repository {
                 &c.path,
                 c.recursive,
                 &c.indexes,
+                &c.advanced_index_paths,
                 &c.fields,
             )?;
             if let Some(paths) = self.requested_postings.get(&c.name) {
-                for path in paths {
-                    picker.build_posting(path)?;
-                }
+                let additional = paths
+                    .iter()
+                    .filter(|path| !c.advanced_index_paths.contains(path))
+                    .cloned()
+                    .collect::<Vec<_>>();
+                picker.build_postings(&additional)?;
+            }
+            if let Some(paths) = self.auto_postings.get(&c.name) {
+                let inferred_only = paths
+                    .iter()
+                    .filter(|path| !c.advanced_index_paths.contains(path))
+                    .cloned()
+                    .collect();
+                picker.restore_inferred_paths(&inferred_only);
             }
 
             #[cfg(feature = "index-timings")]

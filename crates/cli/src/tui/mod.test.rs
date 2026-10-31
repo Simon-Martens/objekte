@@ -51,6 +51,36 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
 }
 
 #[test]
+fn inference_prompt_queues_selected_or_all_collections_and_advanced_index_choice() {
+    let temp = tempfile::tempdir().unwrap();
+    for collection in ["docs", "notes"] {
+        let folder = temp.path().join(format!("data/{collection}"));
+        fs::create_dir_all(&folder).unwrap();
+        fs::write(folder.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
+    }
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    press(&mut app, KeyCode::Tab, KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Char('i'), KeyModifiers::CONTROL);
+    assert!(app.focus == Focus::Infer);
+    press(&mut app, KeyCode::Char('a'), KeyModifiers::NONE);
+    press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
+    let request = app.pending_inference.take().unwrap();
+    assert_eq!(request.collection.as_deref(), Some("docs"));
+    assert!(!request.auto_index);
+    press(&mut app, KeyCode::Char('i'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Char('c'), KeyModifiers::NONE);
+    press(&mut app, KeyCode::Char('a'), KeyModifiers::NONE);
+    press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
+    let request = app.pending_inference.take().unwrap();
+    assert!(request.collection.is_none());
+    assert!(request.auto_index);
+    press(&mut app, KeyCode::Char('i'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Esc, KeyModifiers::NONE);
+    assert!(app.pending_inference.is_none());
+}
+
+#[test]
 fn result_fallback_cycles_collections_and_detail_still_opens() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");

@@ -152,6 +152,7 @@ pub struct Collection {
     pub list: ListOptions,
     pub fields: BTreeMap<String, Field>,
     pub indexes: Vec<IndexField>,
+    pub advanced_index_paths: Vec<crate::JsonPath>,
     pub schema_hash: Option<String>,
     pub index_hash: String,
     pub mapping_hash: String,
@@ -380,30 +381,33 @@ impl RepositoryModel {
                     }
                 }
             };
-            let (schema, schema_hash, fields, indexes) = if let Some(sp) = &schema_path {
-                let crate::json::ParsedValue(raw) = read(sp, &mut files)?;
-                let schema = Schema::compile(&raw, sp)?;
-                let indexes = schema
-                    .field
-                    .properties
-                    .iter()
-                    .filter(|(_, field)| field.index)
-                    .map(|(name, field)| IndexField {
-                        name: name.clone(),
-                        kind: field.kind,
-                        nullable: field.nullable,
-                    })
-                    .collect();
-                let fields = schema.field.properties.clone();
-                (
-                    Some(schema),
-                    Some(fingerprint("schema/v1", &raw)),
-                    fields,
-                    indexes,
-                )
-            } else {
-                (None, None, BTreeMap::new(), Vec::new())
-            };
+            let (schema, schema_hash, fields, indexes, advanced_index_paths) =
+                if let Some(sp) = &schema_path {
+                    let crate::json::ParsedValue(raw) = read(sp, &mut files)?;
+                    let schema = Schema::compile(&raw, sp)?;
+                    let advanced_index_paths = crate::schema::index_paths(&raw, sp)?;
+                    let indexes = schema
+                        .field
+                        .properties
+                        .iter()
+                        .filter(|(_, field)| field.index)
+                        .map(|(name, field)| IndexField {
+                            name: name.clone(),
+                            kind: field.kind,
+                            nullable: field.nullable,
+                        })
+                        .collect();
+                    let fields = schema.field.properties.clone();
+                    (
+                        Some(schema),
+                        Some(fingerprint("schema/v1", &raw)),
+                        fields,
+                        indexes,
+                        advanced_index_paths,
+                    )
+                } else {
+                    (None, None, BTreeMap::new(), Vec::new(), Vec::new())
+                };
             let recursive = schema.is_some();
             if sources.insert(source.clone(), recursive).is_some()
                 || sources.iter().any(|(other, covered)| {
@@ -487,7 +491,10 @@ impl RepositoryModel {
             for sort in &order {
                 scalar(&fields, &sort.field, up)?;
             }
-            let index_hash = fingerprint("ordered-scalar-indexes/v2", &indexes);
+            let index_hash = fingerprint(
+                "ordered-scalar-indexes/v3",
+                &(&indexes, &advanced_index_paths),
+            );
             let mapping_hash = fingerprint("mapping/v1", &(&source, &c.format, &c.id));
             let label = ui.label.unwrap_or_else(|| name.clone());
             let view_hashes = ViewHashes::new(
@@ -510,6 +517,7 @@ impl RepositoryModel {
                     list: ui.list,
                     fields,
                     indexes,
+                    advanced_index_paths,
                     schema_hash,
                     index_hash,
                     mapping_hash,

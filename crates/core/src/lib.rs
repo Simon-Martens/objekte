@@ -14,6 +14,7 @@ mod config_snapshot;
 mod error;
 pub mod file_picker;
 mod graph;
+mod inference;
 mod json;
 mod json_filter;
 mod query;
@@ -32,6 +33,10 @@ pub use config_snapshot::{
 };
 pub use error::{Error, Result};
 pub use graph::{CollectionGraph, CollectionRelation};
+pub use inference::{
+    CollectionInference, FieldInference, InferOptions, InferenceReport, InferredKind, InferredLink,
+    InferredLinkKind,
+};
 pub use json_filter::{
     JsonFilter, JsonPath, JsonPathStep, JsonQuery, JsonQueryBackend, JsonQueryDependencies,
     JsonQueryResult, JsonQueryStreamSummary,

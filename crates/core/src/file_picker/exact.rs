@@ -70,6 +70,10 @@ impl FilePicker {
                 self.typed
                     .term_bits(field, *operator, value, self.files.len())
             }
+            ExactPlan::AnyTerm(field, operator, value) => {
+                self.typed
+                    .any_term_bits(field, *operator, value, self.files.len())
+            }
             ExactPlan::And(parts) => {
                 let (first, rest) = parts.split_first()?;
                 let mut bits = self.exact_bits(first)?;

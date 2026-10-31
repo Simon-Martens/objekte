@@ -1,6 +1,7 @@
 use super::*;
 use crate::tui::{navigation::DetailSection, state::SearchKind};
-use objekte_core::{Repository, TextQuery};
+use objekte_core::{JsonQuery, Repository, TextQuery};
+use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use std::{
     fs,
     time::{Duration, Instant},
@@ -101,6 +102,114 @@ fn real_query_worker_streams_ordered_hits_and_restores_repository() {
             .total,
         Some(3)
     );
+}
+
+#[test]
+fn inference_worker_keeps_ui_responsive_and_returns_its_warm_repository() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    for id in 0..24 {
+        fs::write(
+            collection.join(format!("{id}.json")),
+            format!(
+                r#"{{"active":{},"kind":"{}"}}"#,
+                id % 2 == 0,
+                if id % 2 == 0 { "A" } else { "B" }
+            ),
+        )
+        .unwrap();
+    }
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.pending_inference = Some(crate::tui::state::InferRequest {
+        collection: Some("docs".into()),
+        auto_index: true,
+    });
+    let mut worker = SearchWorker::default();
+    worker.drive(&mut app);
+    assert!(app.index_status.is_some());
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while app.index_status.is_some() && Instant::now() < deadline {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(app.index_status.is_none());
+    assert!(app.focus == Focus::InferReady);
+    assert!(app.message.contains("indexed paths"), "{}", app.message);
+    let result = app
+        .repo
+        .query_json(&JsonQuery {
+            filter: "active = true".into(),
+            collections: Some(vec!["docs".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(12));
+    assert_eq!(result.metrics.grep_scans, 0);
+}
+
+#[test]
+fn completed_advanced_scan_offers_a_separate_schema_write() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    for id in 0..24 {
+        fs::write(
+            collection.join(format!("{id}.json")),
+            format!(r#"{{"active":{},"detail":{{"rank":{id}}}}}"#, id % 2 == 0),
+        )
+        .unwrap();
+    }
+    let schema_path = temp.path().join(".editor/collections/docs/schema.json");
+    fs::create_dir_all(schema_path.parent().unwrap()).unwrap();
+    fs::write(&schema_path, r#"{"type":"object","properties":{}}"#).unwrap();
+    let original = fs::read(&schema_path).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.pending_inference = Some(crate::tui::state::InferRequest {
+        collection: Some("docs".into()),
+        auto_index: true,
+    });
+    let mut worker = SearchWorker::default();
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while (app.pending_inference.is_some() || worker.running.is_some()) && Instant::now() < deadline
+    {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(app.focus == Focus::InferReady);
+    assert_eq!(fs::read(&schema_path).unwrap(), original);
+    crate::tui::key(
+        &mut app,
+        KeyEvent::new(KeyCode::Char('w'), KeyModifiers::NONE),
+    );
+    assert!(app.pending_schema_write);
+    while (app.pending_schema_write || worker.running.is_some()) && Instant::now() < deadline {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(app.inference_saved, "{}", app.message);
+    let schema: serde_json::Value =
+        serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    assert_eq!(schema["properties"]["active"]["index"], true);
+    assert!(
+        schema["x-index-paths"]
+            .as_array()
+            .unwrap()
+            .contains(&serde_json::json!("detail.rank"))
+    );
+    let mut reopened = Repository::open(temp.path()).unwrap();
+    let result = reopened
+        .query_json(&JsonQuery {
+            filter: "detail.rank >= 20".into(),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(4));
+    assert_eq!(result.metrics.grep_scans, 0);
 }
 
 #[test]

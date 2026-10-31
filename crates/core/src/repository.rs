@@ -22,6 +22,7 @@ use std::{
 };
 
 mod coverage;
+mod inference;
 mod json_query;
 mod reconciliation;
 mod relations;
@@ -254,6 +255,7 @@ pub struct Repository {
     memory_coverage: BTreeMap<String, String>,
     file_pickers: BTreeMap<String, crate::file_picker::FilePicker>,
     requested_postings: BTreeMap<String, BTreeSet<JsonPath>>,
+    auto_postings: BTreeMap<String, BTreeSet<JsonPath>>,
     observed_configuration: ConfigurationSnapshot,
     configuration_changes: Option<ConfigurationChanges>,
 }
@@ -358,6 +360,7 @@ impl Repository {
             memory_coverage: BTreeMap::new(),
             file_pickers: BTreeMap::new(),
             requested_postings: BTreeMap::new(),
+            auto_postings: BTreeMap::new(),
         }
     }
 
@@ -421,6 +424,8 @@ impl Repository {
             .retain(|name, _| unchanged.contains(name));
         self.file_pickers.retain(|name, _| unchanged.contains(name));
         self.requested_postings
+            .retain(|name, _| self.model.collections.contains_key(name));
+        self.auto_postings
             .retain(|name, _| self.model.collections.contains_key(name));
     }
 

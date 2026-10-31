@@ -18,6 +18,9 @@ impl Repository {
             .expect("picker exists");
         picker.refresh()?;
         picker.build_posting(&path)?;
+        if let Some(paths) = self.auto_postings.get_mut(collection) {
+            paths.remove(&path);
+        }
         self.requested_postings
             .entry(collection.to_owned())
             .or_default()

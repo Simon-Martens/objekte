@@ -96,6 +96,7 @@ struct DynamicPosting {
     postings: BTreeMap<TypedKey, Vec<usize>>,
     present: Vec<u64>,
     scalar_safe: bool,
+    complete_values: bool,
     fresh: bool,
 }
 
@@ -122,6 +123,14 @@ impl TypedIndex {
         self.dynamic.keys().cloned().collect()
     }
 
+    pub(super) fn has_posting(&self, path: &JsonPath) -> bool {
+        self.static_index(path).is_some() || self.dynamic.get(path).is_some_and(|field| field.fresh)
+    }
+
+    pub(super) fn remove_dynamic_path(&mut self, path: &JsonPath) {
+        self.dynamic.remove(path);
+    }
+
     pub(super) fn invalidate_dynamic(&mut self) {
         for field in self.dynamic.values_mut() {
             field.fresh = false;
@@ -140,6 +149,7 @@ impl TypedIndex {
         rows: Vec<(TypedKey, usize)>,
         present: Vec<u64>,
         scalar_safe: bool,
+        complete_values: bool,
     ) {
         let postings = postings_for_rows(rows);
         if let Some(index) = self.static_index(&path) {
@@ -151,6 +161,7 @@ impl TypedIndex {
                     postings,
                     present,
                     scalar_safe,
+                    complete_values,
                     fresh: true,
                 },
             );
@@ -166,7 +177,7 @@ impl TypedIndex {
 
     fn posting_for(&self, path: &JsonPath) -> Option<&BTreeMap<TypedKey, Vec<usize>>> {
         if let Some(field) = self.dynamic.get(path) {
-            return (field.scalar_safe && field.fresh).then_some(&field.postings);
+            return (field.complete_values && field.fresh).then_some(&field.postings);
         }
         self.static_index(path).map(|index| &self.postings[index])
     }
@@ -191,6 +202,9 @@ impl TypedIndex {
         match plan {
             TypedPlan::Term(path, operator, value) => {
                 self.term_bits(path, *operator, value, slot_count)
+            }
+            TypedPlan::AnyTerm(path, operator, value) => {
+                self.any_term_bits(path, *operator, value, slot_count)
             }
             TypedPlan::Missing(path) => self.missing_bits(path, slot_count),
             TypedPlan::Present(path) => self.present_bits(path),
@@ -281,6 +295,21 @@ impl TypedIndex {
             }
         }
         Some(bits)
+    }
+
+    pub(super) fn any_term_bits(
+        &self,
+        path: &JsonPath,
+        operator: IndexOp,
+        value: &Value,
+        slot_count: usize,
+    ) -> Option<Vec<u64>> {
+        // A schema scalar posting may omit invalid array values. Only a
+        // complete runtime posting can decide an existential comparison.
+        self.dynamic
+            .get(path)
+            .filter(|field| field.fresh && field.complete_values)?;
+        self.term_bits(path, operator, value, slot_count)
     }
 
     pub(super) fn missing_bits(&self, path: &JsonPath, slot_count: usize) -> Option<Vec<u64>> {

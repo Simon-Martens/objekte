@@ -1,8 +1,12 @@
 //! JSON Schema loading and field-type metadata.
-use crate::{Result, error::config};
+use crate::{JsonFilter, JsonPath, Result, error::config};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use std::{collections::BTreeMap, path::Path, sync::Arc};
+use std::{
+    collections::{BTreeMap, BTreeSet},
+    path::Path,
+    sync::Arc,
+};
 
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -80,6 +84,7 @@ pub(crate) fn escape(s: &str) -> String {
 
 impl Schema {
     pub fn compile(value: &Value, path: &Path) -> Result<Self> {
+        index_paths(value, path)?;
         let field = parse(value, path, "", 0)?;
         if field.kind != ValueType::Object || field.nullable {
             return Err(config(
@@ -125,6 +130,42 @@ impl Schema {
 }
 
 
+pub(crate) fn index_paths(value: &Value, file: &Path) -> Result<Vec<JsonPath>> {
+    let Some(paths) = value.get("x-index-paths") else {
+        return Ok(Vec::new());
+    };
+    let paths = paths
+        .as_array()
+        .filter(|paths| paths.len() <= 4096)
+        .ok_or_else(|| {
+            config(
+                file,
+                "/x-index-paths",
+                "expected an array of at most 4096 paths",
+            )
+        })?;
+    let mut unique = BTreeSet::new();
+    for (position, path) in paths.iter().enumerate() {
+        let text = path.as_str().ok_or_else(|| {
+            config(
+                file,
+                format!("/x-index-paths/{position}"),
+                "expected a path string",
+            )
+        })?;
+        let parsed = JsonFilter::parse_path(text)
+            .map_err(|error| config(file, format!("/x-index-paths/{position}"), error))?;
+        if !unique.insert(parsed) {
+            return Err(config(
+                file,
+                format!("/x-index-paths/{position}"),
+                "duplicate index path",
+            ));
+        }
+    }
+    Ok(unique.into_iter().collect())
+}
+
 fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
     if depth > 128 {
         return Err(config(file, p, "schema nesting exceeds 128"));
@@ -145,6 +186,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "x-full-text",
             "exclude_fts",
             "x-relation",
+            "x-index-paths",
         ]
         .contains(&k.as_str())
         {
@@ -163,6 +205,9 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             p,
             "only the root Draft 2020-12 dialect declaration is supported",
         ));
+    }
+    if !p.is_empty() && obj.contains_key("x-index-paths") {
+        return Err(config(file, p, "x-index-paths belongs at the schema root"));
     }
     let mut nullable = false;
     let type_name = match obj.get("type") {

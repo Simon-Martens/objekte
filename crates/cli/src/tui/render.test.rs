@@ -1,5 +1,5 @@
 use super::*;
-use objekte_core::{RecordRelation, Repository, TargetState};
+use objekte_core::{InferOptions, RecordRelation, Repository, TargetState};
 use ratatui::{Terminal, backend::TestBackend};
 use std::fs;
 
@@ -14,6 +14,32 @@ fn screen(terminal: &Terminal<TestBackend>) -> String {
         })
         .collect::<Vec<_>>()
         .join("\n")
+}
+
+#[test]
+fn advanced_index_prompt_and_post_scan_schema_action_are_visible() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"active":true}"#).unwrap();
+    let schema = temp.path().join(".editor/collections/docs/schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(schema, r#"{"type":"object","properties":{}}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let report = repo
+        .infer_and_auto_index(Some("docs"), InferOptions::default())
+        .unwrap();
+    let mut app = App::new(&mut repo);
+    let mut terminal = Terminal::new(TestBackend::new(80, 25)).unwrap();
+    app.focus = Focus::Infer;
+    terminal.draw(|frame| draw(frame, &app)).unwrap();
+    let before = screen(&terminal);
+    assert!(before.contains("A  Advanced indexing: on"));
+    app.last_inference = Some(report);
+    app.focus = Focus::InferReady;
+    terminal.draw(|frame| draw(frame, &app)).unwrap();
+    let after = screen(&terminal);
+    assert!(after.contains("W  Write types and index rules"));
 }
 
 #[test]

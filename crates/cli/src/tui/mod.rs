@@ -45,6 +45,13 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         app.done = true;
         return;
     }
+    if key.code == KeyCode::Char('i')
+        && key.modifiers.contains(KeyModifiers::ALT)
+        && matches!(app.focus, Focus::Query | Focus::Results)
+    {
+        app.open_inference();
+        return;
+    }
     if matches!(app.focus, Focus::ExportAll | Focus::ExportOne) {
         match key.code {
             KeyCode::Esc => app.focus = app.export_return_focus,
@@ -52,6 +59,57 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
             _ => {
                 app.export_input.key(key);
             }
+        }
+        return;
+    }
+    if app.focus == Focus::Infer {
+        match key.code {
+            KeyCode::Esc => app.close_inference(),
+            KeyCode::Char('c') => app.infer_all = !app.infer_all,
+            KeyCode::Char('a') => app.infer_auto_index = !app.infer_auto_index,
+            KeyCode::Enter => {
+                app.pending_inference = Some(state::InferRequest {
+                    collection: if app.infer_all || app.collection == 0 {
+                        None
+                    } else {
+                        Some(app.collections[app.collection - 1].clone())
+                    },
+                    auto_index: app.infer_auto_index,
+                });
+                app.focus = app.infer_return_focus;
+                app.message = "Inference queued…".into();
+            }
+            _ => {}
+        }
+        return;
+    }
+    if app.focus == Focus::InferReady {
+        match key.code {
+            KeyCode::Esc | KeyCode::Enter => app.close_inference(),
+            KeyCode::Char('w') if app.pending_schema_write || app.index_status.is_some() => {
+                app.message = "Schema write already queued or running.".into();
+            }
+            KeyCode::Char('w')
+                if !app.inference_saved
+                    && !app.pending_schema_write
+                    && app.index_status.is_none()
+                    && app.last_inference.as_ref().is_some_and(|report| {
+                        report.collections.iter().any(|collection| {
+                            app.repo
+                                .model()
+                                .collections
+                                .get(&collection.collection)
+                                .is_some_and(|current| current.schema_path.is_some())
+                        })
+                    }) =>
+            {
+                app.pending_schema_write = true;
+                app.message = "Schema write queued…".into();
+            }
+            KeyCode::Char('w') => {
+                app.message = "No unsaved inference for an existing schema.".into()
+            }
+            _ => {}
         }
         return;
     }
@@ -93,6 +151,10 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
                 'r' => app.toggle_regex(),
                 'f' => app.toggle_representation(),
                 'e' => app.toggle_case(),
+                'i' => {
+                    app.open_inference();
+                    return;
+                }
                 _ => return,
             },
             _ => return,
@@ -142,6 +204,7 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         KeyCode::Char('p') | KeyCode::PageUp => app.previous_page(),
         KeyCode::Char('a') => app.start_export(true),
         KeyCode::Char('e') => app.start_export(false),
+        KeyCode::Char('i') => app.open_inference(),
         KeyCode::Char('[') => app.cycle_collection(true),
         KeyCode::Char(']') => app.cycle_collection(false),
         _ => {}
