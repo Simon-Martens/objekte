@@ -1,5 +1,7 @@
 //! Command dispatch and library calls.
 
+mod inference;
+
 use crate::{
     args::args,
     diagnostics::now_unix_ms,
@@ -56,6 +58,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         }
         "validate" if a.pos.len() == 2 || a.pos.len() == 3 => a.pos.len(),
         "validate" => return Err("usage: objekte REPOSITORY validate [COLLECTION]".into()),
+        "inferschema" | "writeschema" if a.pos.len() == 2 || a.pos.len() == 3 => a.pos.len(),
+        "inferschema" | "writeschema" => {
+            return Err(format!("usage: objekte REPOSITORY {command} [COLLECTION]").into());
+        }
         "query" if a.pos.len() == 3 || a.pos.len() == 4 => a.pos.len(),
         "query" => return Err("usage: objekte REPOSITORY query [COLLECTION] FILTER".into()),
         "search" if a.pos.len() == 3 || a.pos.len() == 4 => a.pos.len(),
@@ -73,10 +79,12 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     if a.pos.len() != expected {
         return Err(format!("wrong arguments for {command}; run --help").into());
     }
-    if matches!(command, "query" | "search")
-        && a.pos.len() == 4
-        && a.values.contains_key("--collection")
-    {
+    let positional_collection = match command {
+        "query" | "search" => a.pos.len() == 4,
+        "inferschema" | "writeschema" => a.pos.len() == 3,
+        _ => false,
+    };
+    if positional_collection && a.values.contains_key("--collection") {
         return Err("choose positional COLLECTION or --collection, not both".into());
     }
     let common = ["--cache", "--reconcile", "--output"];
@@ -89,6 +97,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             "view" => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                 .contains(&key.as_str()),
             "query" => ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str()),
+            "inferschema" | "writeschema" => key == "--collection",
             "search" => {
                 ["--collection", "--limit", "--offset", "--mode", "--field"].contains(&key.as_str())
             }
@@ -110,6 +119,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             || match command {
                 "view" | "query" => key == "--count",
                 "search" => ["--count", "--case-sensitive"].contains(&key.as_str()),
+                "inferschema" | "writeschema" => key == "--no-auto-index",
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
                 "relations" => {
                     ["--collections", "--complete", "--check-targets"].contains(&key.as_str())
@@ -172,6 +182,16 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             None
         }
         "inspect" => Some(serde_json::to_value(repo.model())?),
+        "inferschema" | "writeschema" => {
+            let collection = a.pos.get(2).or_else(|| a.values.get("--collection"));
+            let report = inference::run(
+                &mut repo,
+                collection.map(String::as_str),
+                !a.flags.contains("--no-auto-index"),
+                command == "writeschema",
+            )?;
+            Some(serde_json::to_value(report)?)
+        }
         "query" => {
             let (filter, collection) = if a.pos.len() == 4 {
                 (&a.pos[3], Some(&a.pos[2]))

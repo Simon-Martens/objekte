@@ -98,6 +98,7 @@ impl FilePicker {
                     | InferredKind::Number
                     | InferredKind::Enum
             ) && !rows.is_empty();
+            field.recommended_index = auto_index && indexable;
             if auto_index && indexable && !self.typed.has_posting(&field.path) {
                 let mut present = vec![0u64; parsed_bits.len()];
                 for (_, slot) in &rows {
@@ -132,6 +133,7 @@ impl FilePicker {
             fields: reported,
             indexed_paths,
             schema_written: false,
+            auto_index_requested: auto_index,
             source_snapshot,
             schema_snapshot: None,
         })

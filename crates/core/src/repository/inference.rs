@@ -12,7 +12,7 @@ use crate::{
 impl Repository {
     /// Rescan one collection, or all collections, for nested field types.
     /// Ordered postings are built for inferred booleans, numbers, and enums
-    /// when `auto_index` is true. A present schema can be extended on request.
+    /// when `auto_index` is true. A present schema can be updated on request.
     pub fn infer_and_auto_index(
         &mut self,
         collection: Option<&str>,

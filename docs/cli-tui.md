@@ -18,7 +18,7 @@ cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe'
 | Ctrl+R | Toggle regex in full-text mode |
 | Ctrl+F | Toggle normalized or full text in full-text mode |
 | Ctrl+E | Toggle case sensitivity in full-text word mode |
-| Alt+I or Ctrl+I | Open field inference; C changes scope, A toggles advanced indexing, Enter scans. Afterward W writes discovered types and index rules to existing schemas. `i` also works from the results table. |
+| Alt+I or Ctrl+I | Open field inference, including in schema-backed collections; C changes scope, A toggles advanced indexing, Enter scans. Afterward W updates inferred field types and index rules in existing schemas. `i` also works from the results table. |
 | `[` / `]` in results | Flip collections directly from the result table |
 | Enter | Run the query, open a result, or open the selected link or backlink |
 | Up / Down | Select a result or relation row; scroll detail fields |

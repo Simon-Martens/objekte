@@ -164,7 +164,7 @@ fn completed_advanced_scan_offers_a_separate_schema_write() {
     }
     let schema_path = temp.path().join(".editor/collections/docs/schema.json");
     fs::create_dir_all(schema_path.parent().unwrap()).unwrap();
-    fs::write(&schema_path, r#"{"type":"object","properties":{}}"#).unwrap();
+    fs::write(&schema_path, r#"{"type":"object","properties":{"active":{"type":"string","index":false,"exclude_fts":true}}}"#).unwrap();
     let original = fs::read(&schema_path).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
@@ -193,7 +193,9 @@ fn completed_advanced_scan_offers_a_separate_schema_write() {
     assert!(app.inference_saved, "{}", app.message);
     let schema: serde_json::Value =
         serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
+    assert_eq!(schema["properties"]["active"]["type"], "boolean");
     assert_eq!(schema["properties"]["active"]["index"], true);
+    assert_eq!(schema["properties"]["active"]["exclude_fts"], true);
     assert!(
         schema["x-index-paths"]
             .as_array()

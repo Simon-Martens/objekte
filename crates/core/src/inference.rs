@@ -73,6 +73,8 @@ pub struct FieldInference {
     pub link: Option<InferredLink>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_format: Option<TextFormat>,
+    /// Whether the requested advanced scan recommends an ordered posting.
+    pub recommended_index: bool,
     pub indexed: bool,
 }
 
@@ -87,6 +89,7 @@ pub struct CollectionInference {
     pub fields: Vec<FieldInference>,
     pub indexed_paths: usize,
     pub schema_written: bool,
+    pub auto_index_requested: bool,
     #[serde(skip)]
     pub(crate) source_snapshot: String,
     #[serde(skip)]

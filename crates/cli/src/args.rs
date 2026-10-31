@@ -13,6 +13,8 @@ Usage:
       [--filter FIELD=VALUE] [--columns a,b] [--limit N] [--offset N] [--count]
   objekte REPOSITORY get COLLECTION ID
   objekte REPOSITORY validate [COLLECTION]
+  objekte REPOSITORY inferschema [COLLECTION] [--no-auto-index]
+  objekte REPOSITORY writeschema [COLLECTION] [--no-auto-index]
   objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
   objekte REPOSITORY search [COLLECTION] PATTERN [--mode word|raw-word|regex|raw-regex]
@@ -37,7 +39,8 @@ Options:
   --output table|json|ndjson|events
                                   Views default to table, other commands to json; events stream query/search hits
   --diagnostic, --diagnostics     Emit pretty JSON diagnostics with time and level to stderr
-  --collection NAME               Query scope (alternative to positional COLLECTION); cache target
+  --collection NAME               Query or inference scope (alternative to positional COLLECTION); cache target
+  --no-auto-index                 Infer types without new ordered posting rules
   --param NAME=JSON                Bind a typed query value (repeatable; quote JSON strings)
   --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
   --mode word|raw-word|regex|raw-regex
@@ -53,6 +56,8 @@ Examples:
   objekte examples/musenalm view contents --sort numbering --limit 20 --diagnostics
   objekte examples/musenalm view contents --filter 'year>=1800' --output json
   objekte examples/musenalm query contents 'year >= 1800' --count
+  objekte examples/musenalm inferschema contents
+  objekte examples/musenalm writeschema contents
 ";
 
 
@@ -105,7 +110,7 @@ pub(super) fn args() -> Result<Args, String> {
                 }
             }
             "--collections" | "--indexes" | "--count" | "--complete" | "--check-targets"
-            | "--case-sensitive" | "--diagnostics" | "--diagnostic" => {
+            | "--case-sensitive" | "--diagnostics" | "--diagnostic" | "--no-auto-index" => {
                 out.flags.insert(if a == "--diagnostic" {
                     "--diagnostics".into()
                 } else {

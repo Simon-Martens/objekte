@@ -199,7 +199,7 @@ fn optional_schema_write_preserves_declared_fields_and_adds_nested_types() {
     assert_eq!(properties["category"]["type"], "string");
     assert_eq!(properties["category"]["index"], true);
     assert_eq!(properties["active"]["type"], "boolean");
-    assert!(properties["active"].get("index").is_none());
+    assert_eq!(properties["active"]["index"], true);
     assert_eq!(
         properties["detail"]["properties"]["rank"]["type"],
         json!(["integer", "null"])
@@ -213,7 +213,7 @@ fn optional_schema_write_preserves_declared_fields_and_adds_nested_types() {
     );
     let advanced = schema["x-index-paths"].as_array().unwrap();
     assert!(advanced.contains(&json!("detail.rank")));
-    assert!(advanced.contains(&json!("active")));
+    assert!(!advanced.contains(&json!("active")));
     assert!(advanced.contains(&json!("items[*].score")));
     assert!(advanced.contains(&json!("detail[\"a.b\"]")));
     assert!(
@@ -285,6 +285,14 @@ fn completed_report_can_be_written_later_but_rejects_changed_source() {
 #[test]
 fn report_only_schema_write_records_types_without_new_index_rules() {
     let temp = fixture(true);
+    write(
+        temp.path(),
+        ".editor/collections/docs/schema.json",
+        json!({
+            "type":"object",
+            "properties":{"active":{"type":"string", "index":false, "exclude_fts":true}}
+        }),
+    );
     let mut repository = Repository::open(temp.path()).unwrap();
     repository
         .infer_and_auto_index(
@@ -305,6 +313,12 @@ fn report_only_schema_write_records_types_without_new_index_rules() {
     );
     assert!(schema.get("x-index-paths").is_none());
     assert!(schema["properties"]["category"].get("index").is_none());
+    assert_eq!(
+        schema["properties"]["active"],
+        json!({
+            "type":"boolean", "index":false, "exclude_fts":true
+        })
+    );
 }
 
 #[test]
@@ -355,7 +369,7 @@ fn changed_schema_blocks_later_write() {
 }
 
 #[test]
-fn explicit_index_false_is_not_saved_as_an_advanced_rule() {
+fn advanced_scan_replaces_existing_index_false() {
     let temp = fixture(true);
     write(
         temp.path(),
@@ -378,13 +392,111 @@ fn explicit_index_false_is_not_saved_as_an_advanced_rule() {
         &fs::read(temp.path().join(".editor/collections/docs/schema.json")).unwrap(),
     )
     .unwrap();
-    assert_eq!(schema["properties"]["active"]["index"], false);
+    assert_eq!(schema["properties"]["active"]["index"], true);
     assert!(
         !schema["x-index-paths"]
             .as_array()
             .unwrap()
             .contains(&json!("active"))
     );
+}
+
+#[test]
+fn mixed_field_clears_obsolete_index_without_replacing_its_schema_type() {
+    let temp = tempfile::tempdir().unwrap();
+    write(temp.path(), "data/docs/a.json", json!({"value":true}));
+    write(temp.path(), "data/docs/b.json", json!({"value":"text"}));
+    write(
+        temp.path(),
+        ".editor/collections/docs/schema.json",
+        json!({
+            "type":"object",
+            "properties":{"value":{"type":"string", "index":true, "exclude_fts":true}}
+        }),
+    );
+    let mut repository = Repository::open(temp.path()).unwrap();
+    let report = repository
+        .infer_and_auto_index(
+            Some("docs"),
+            InferOptions {
+                auto_index: true,
+                write_schema: true,
+            },
+        )
+        .unwrap();
+    assert_eq!(
+        field(&report.collections[0], "value").kind,
+        InferredKind::Mixed
+    );
+    let schema: Value = serde_json::from_slice(
+        &fs::read(temp.path().join(".editor/collections/docs/schema.json")).unwrap(),
+    )
+    .unwrap();
+    assert_eq!(
+        schema["properties"]["value"],
+        json!({
+            "type":"string", "index":false, "exclude_fts":true
+        })
+    );
+}
+
+#[test]
+fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
+    let temp = fixture(true);
+    write(
+        temp.path(),
+        ".editor/collections/docs/schema.json",
+        json!({
+            "type":"object",
+            "required":["active"],
+            "properties":{
+                "active":{"type":"string", "index":false, "exclude_fts":true, "x-full-text":"markdown"},
+                "category":{"type":"string", "index":false, "enum":["old"]},
+                "name":{"type":"string", "index":true},
+                "detail":{"type":"object", "properties":{
+                    "rank":{"type":"string"},
+                    "old":{"type":"string", "exclude_fts":true}
+                }},
+                "unobserved":{"type":"integer", "index":true}
+            },
+            "x-index-paths":["detail.rank", "name", "ghost.path"]
+        }),
+    );
+    let mut repository = Repository::open(temp.path()).unwrap();
+    let mut report = repository
+        .infer_and_auto_index(Some("docs"), InferOptions::default())
+        .unwrap();
+    assert_eq!(repository.write_inferred_schema(&mut report).unwrap(), 1);
+    let schema: Value = serde_json::from_slice(
+        &fs::read(temp.path().join(".editor/collections/docs/schema.json")).unwrap(),
+    )
+    .unwrap();
+    let fields = &schema["properties"];
+    assert_eq!(fields["active"]["type"], "boolean");
+    assert_eq!(fields["active"]["index"], true);
+    assert_eq!(fields["active"]["exclude_fts"], true);
+    assert!(fields["active"].get("x-full-text").is_none());
+    assert_eq!(fields["category"]["enum"], json!(["essay", "letter"]));
+    assert_eq!(fields["category"]["index"], true);
+    assert_eq!(fields["name"]["type"], "string");
+    assert_eq!(fields["name"]["index"], false);
+    assert_eq!(
+        fields["detail"]["properties"]["rank"]["type"],
+        json!(["integer", "null"])
+    );
+    assert_eq!(
+        fields["detail"]["properties"]["old"],
+        json!({"type":"string", "exclude_fts":true})
+    );
+    assert_eq!(
+        fields["unobserved"],
+        json!({"type":"integer", "index":true})
+    );
+    assert_eq!(schema["required"], json!(["active"]));
+    let paths = schema["x-index-paths"].as_array().unwrap();
+    assert!(paths.contains(&json!("detail.rank")));
+    assert!(paths.contains(&json!("ghost.path")));
+    assert!(!paths.contains(&json!("name")));
 }
 
 #[test]

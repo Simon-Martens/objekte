@@ -248,6 +248,7 @@ impl FieldStats {
                 enum_values,
                 link,
                 text_format,
+                recommended_index: false,
                 indexed: false,
             },
             if self.rows_rejected {
