@@ -6,7 +6,6 @@ use sonic_rs::Value as SonicValue;
 use std::io::Read;
 use unicode_casefold::UnicodeCaseFold;
 
-
 /// Separate postings over rendered visible text and decoded source markup.
 pub(super) struct TextIndex {
     clean: BigramFilter,
@@ -14,13 +13,11 @@ pub(super) struct TextIndex {
     indexed_len: usize,
 }
 
-
 /// Per-slot rendered and raw text extracted from an already parsed document.
 pub(super) struct TextContent {
     pub(super) clean: Vec<u8>,
     pub(super) raw: Vec<u8>,
 }
-
 
 /// Mutable posting builders shared by eager and lazy full-text construction.
 pub(super) struct TextIndexBuilders {
@@ -30,7 +27,6 @@ pub(super) struct TextIndexBuilders {
     raw_skip: BigramIndexBuilder,
     indexed_len: usize,
 }
-
 
 impl TextIndexBuilders {
     pub(super) fn new(indexed_len: usize) -> Self {
@@ -63,7 +59,6 @@ impl TextIndexBuilders {
     }
 }
 
-
 pub(super) fn project_text(value: &SonicValue, rules: &TextRules) -> TextContent {
     let mut clean = String::new();
     let mut raw = String::new();
@@ -95,13 +90,32 @@ pub(super) fn project_malformed_text(text: &str) -> TextContent {
     }
 }
 
-
 impl TextIndex {
+    pub(super) fn save_parts(&self) -> Result<(Vec<u8>, Vec<u8>, usize)> {
+        Ok((
+            self.clean.to_bytes()?,
+            self.raw.to_bytes()?,
+            self.indexed_len,
+        ))
+    }
+
+    pub(super) fn restore_parts(clean: &[u8], raw: &[u8], indexed_len: usize) -> Result<Self> {
+        let clean = BigramFilter::from_bytes(clean)?;
+        let raw = BigramFilter::from_bytes(raw)?;
+        if clean.file_count() != indexed_len || raw.file_count() != indexed_len {
+            return Err(Error::Cache("invalid secondary text index slots".into()));
+        }
+        Ok(Self {
+            clean,
+            raw,
+            indexed_len,
+        })
+    }
+
     pub(super) fn heap_bytes(&self) -> usize {
         self.clean.heap_bytes() + self.raw.heap_bytes()
     }
 }
-
 
 impl FilePicker {
     pub(crate) fn text_index_bytes(&self) -> Option<usize> {
@@ -217,7 +231,6 @@ impl FilePicker {
             .collect()
     }
 }
-
 
 fn append_folded(text: &mut String) {
     let folded = text.case_fold().collect::<String>();

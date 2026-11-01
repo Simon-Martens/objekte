@@ -20,7 +20,6 @@ fn invalid(message: &str) -> Error {
     Error::Cache(format!("invalid bigram snapshot: {message}"))
 }
 
-
 /// The file occupying one numeric bigram slot.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BigramFile {
@@ -32,7 +31,6 @@ pub struct BigramFile {
     /// Device, inode, and change time where the platform provides them.
     pub identity: String,
 }
-
 
 #[derive(Serialize, Deserialize)]
 struct Manifest {
@@ -46,7 +44,6 @@ struct Manifest {
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
 }
 
-
 #[derive(Serialize)]
 struct ManifestRef<'a> {
     source_root: &'a PathBuf,
@@ -56,7 +53,6 @@ struct ManifestRef<'a> {
     changed_slots: &'a [usize],
     changed_bigrams: &'a BTreeMap<usize, Vec<u16>>,
 }
-
 
 /// A restored compressed filter and the filename/change metadata for each slot.
 pub struct BigramSnapshot {
@@ -70,7 +66,6 @@ pub struct BigramSnapshot {
     pub changed_bigrams: BTreeMap<usize, Vec<u16>>,
     pub filter: BigramFilter,
 }
-
 
 fn current_git_commit(root: &Path) -> Result<Option<String>> {
     let output = match Command::new("git")
@@ -170,12 +165,7 @@ fn check_current(
     Ok(())
 }
 
-
 impl BigramSnapshot {
-    pub(crate) fn current_git_commit(root: &Path) -> Result<Option<String>> {
-        current_git_commit(root)
-    }
-
     /// Pair an already built filter with the exact source file slot order.
     pub fn new(
         source_root: &Path,

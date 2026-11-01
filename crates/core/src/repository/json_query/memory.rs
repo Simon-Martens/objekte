@@ -49,7 +49,6 @@ fn fts_candidate_ids(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) ->
     }
 }
 
-
 impl Repository {
     /// Keep the picker available for memory queries, views, and reconciliation.
     pub(in crate::repository) fn ensure_picker(&mut self, c: &Collection) -> Result<()> {
@@ -69,12 +68,18 @@ impl Repository {
                 &c.advanced_index_paths,
                 &c.fields,
                 snapshot,
+                cache_present.then_some(cache_path.as_path()),
             )?;
             if cache_present && (!picker.loaded_snapshot() || picker.snapshot_dirty()) {
                 let _ = picker.save_bigram_snapshot(&cache_path);
+            } else if cache_present && !picker.secondary_loaded() {
+                let _ = picker.save_secondary_snapshot(&cache_path);
             }
             if picker.loaded_snapshot() {
                 self.metrics.bigram_snapshot_loads += 1;
+            }
+            if picker.secondary_loaded() {
+                self.metrics.secondary_snapshot_loads += 1;
             }
             if let Some(paths) = self.requested_postings.get(&c.name) {
                 let additional = paths

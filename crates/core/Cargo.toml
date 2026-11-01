@@ -9,6 +9,7 @@ index-timings = []
 
 [dependencies]
 ahash = "0.8"
+bincode = "1.3"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["arbitrary_precision"] }
 sonic-rs = { version = "0.5.10", features = ["arbitrary_precision"] }

@@ -1,18 +1,18 @@
 //! Top-level JSON field presence for schema-declared paths.
 
 use crate::Field;
+use serde::{Deserialize, Serialize};
 use std::{
     collections::BTreeMap,
     sync::atomic::{AtomicU64, Ordering},
 };
 
-
 /// One bit per file slot for each declared top-level field.
+#[derive(Serialize, Deserialize)]
 pub(super) struct PresenceIndex {
     fields: Vec<String>,
     bits: Vec<Vec<u64>>,
 }
-
 
 impl PresenceIndex {
     pub(super) fn new(definitions: &BTreeMap<String, Field>) -> Self {
@@ -24,6 +24,11 @@ impl PresenceIndex {
 
     pub(super) fn fields(&self) -> &[String] {
         &self.fields
+    }
+
+    pub(super) fn valid_for_slots(&self, slots: usize) -> bool {
+        self.bits.len() == self.fields.len()
+            && self.bits.iter().all(|bits| bits.len() == slots.div_ceil(64))
     }
 
     pub(super) fn build_words(&self, slots: usize) -> Vec<Vec<AtomicU64>> {

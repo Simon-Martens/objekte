@@ -13,6 +13,7 @@ mod presence;
 mod projection;
 mod regex_plan;
 mod scan_pool;
+mod secondary;
 mod text;
 mod typed;
 mod view;
@@ -57,7 +58,6 @@ fn sorted_bigrams(bytes: &[u8]) -> Vec<u16> {
     keys
 }
 
-
 /// Stable slot metadata for one source JSON file.
 #[derive(Debug, Clone)]
 struct FileEntry {
@@ -68,7 +68,6 @@ struct FileEntry {
     changed_at_nanos: u128,
 }
 
-
 struct RestoredBigram {
     filter: BigramFilter,
     changed: BTreeSet<usize>,
@@ -76,7 +75,6 @@ struct RestoredBigram {
     newly_changed: BTreeSet<usize>,
     dirty: bool,
 }
-
 
 /// Wall stages and summed worker time recorded while constructing a picker.
 #[cfg(feature = "index-timings")]
@@ -92,7 +90,6 @@ pub(crate) struct BuildTimings {
     pub view_nanos: u64,
 }
 
-
 /// Stable numeric file slots plus a separate byte-sorted view of live IDs.
 /// Changed/new slots bypass the immutable bigram index until it is rebuilt.
 pub struct FilePicker {
@@ -104,7 +101,9 @@ pub struct FilePicker {
     tombstones: BTreeMap<String, (u64, u128)>,
     indexed_len: usize,
     loaded_snapshot: bool,
+    secondary_loaded: bool,
     snapshot_dirty: bool,
+    config_digest: [u8; 32],
     changed: BTreeSet<usize>,
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
     malformed: BTreeSet<usize>,
@@ -122,10 +121,9 @@ pub struct FilePicker {
     build_timings: BuildTimings,
 }
 
-
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, false, &[], &[], &BTreeMap::new(), None)
+        Self::open_with_indexes(root, false, &[], &[], &BTreeMap::new(), None, None)
     }
 
     pub(crate) fn open_with_indexes(
@@ -135,17 +133,13 @@ impl FilePicker {
         advanced_paths: &[crate::JsonPath],
         definitions: &BTreeMap<String, Field>,
         snapshot: Option<BigramSnapshot>,
+        snapshot_path: Option<&Path>,
     ) -> Result<Self> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
         let inventory_started = Instant::now();
         let inventory = source.inventory()?;
-        let current_commit = if snapshot.is_some() {
-            BigramSnapshot::current_git_commit(&root)?
-        } else {
-            None
-        };
         let restored = snapshot.and_then(|snapshot| {
             if snapshot.files.len() != inventory.len()
                 || !snapshot
@@ -158,7 +152,6 @@ impl FilePicker {
             }
             let mut changed = snapshot.changed_slots.into_iter().collect::<BTreeSet<_>>();
             let mut changed_bigrams = snapshot.changed_bigrams;
-            let previous = changed.len();
             let mut newly_changed = BTreeSet::new();
             for (slot, (file, (_, stamp))) in
                 snapshot.files.iter().zip(inventory.iter()).enumerate()
@@ -172,7 +165,7 @@ impl FilePicker {
                     changed_bigrams.remove(&slot);
                 }
             }
-            let dirty = changed.len() != previous || snapshot.git_commit != current_commit;
+            let dirty = !newly_changed.is_empty();
             Some(RestoredBigram {
                 filter: snapshot.filter,
                 changed,
@@ -200,7 +193,9 @@ impl FilePicker {
             tombstones: BTreeMap::new(),
             indexed_len: 0,
             loaded_snapshot: restored.is_some(),
+            secondary_loaded: false,
             snapshot_dirty: restored.as_ref().is_some_and(|restored| restored.dirty),
+            config_digest: secondary::config_digest(indexes, advanced_paths, definitions)?,
             changed: BTreeSet::new(),
             changed_bigrams: BTreeMap::new(),
             malformed: BTreeSet::new(),
@@ -233,9 +228,28 @@ impl FilePicker {
         {
             picker.build_timings.slots_nanos = elapsed_nanos(slots_started);
         }
-        picker.rebuild_index_from_source(&source, restored)?;
+        let loaded_secondary = restored.is_some()
+            && snapshot_path
+                .is_some_and(|path| picker.load_secondary_snapshot(path).unwrap_or(false));
+        if loaded_secondary {
+            let restored = restored.expect("checked restored snapshot");
+            picker.index = restored.filter;
+            picker.indexed_len = picker.files.len();
+            picker.changed = restored.changed;
+            picker.changed_bigrams = restored.changed_bigrams;
+            for slot in restored.newly_changed {
+                picker.update_restored_slot(&source, slot)?;
+            }
+        } else {
+            picker.rebuild_index_from_source(&source, restored)?;
+        }
         source.finish()?;
-        picker.build_postings(advanced_paths)?;
+        let missing = advanced_paths
+            .iter()
+            .filter(|path| !picker.typed.has_posting(path))
+            .cloned()
+            .collect::<Vec<_>>();
+        picker.build_postings(&missing)?;
         Ok(picker)
     }
 
@@ -283,11 +297,16 @@ impl FilePicker {
             &self.changed.iter().copied().collect::<Vec<_>>(),
             &self.changed_bigrams,
             &self.index,
-        )
+        )?;
+        self.save_secondary_snapshot(path)
     }
 
     pub(crate) fn loaded_snapshot(&self) -> bool {
         self.loaded_snapshot
+    }
+
+    pub(crate) fn secondary_loaded(&self) -> bool {
+        self.secondary_loaded
     }
 
     pub(crate) fn snapshot_dirty(&self) -> bool {
@@ -369,6 +388,51 @@ impl FilePicker {
 
     pub fn git_status(&self) -> Result<Option<BTreeMap<String, GitState>>> {
         git::status(&self.root)
+    }
+
+    fn update_restored_slot(&mut self, source: &Source, slot: usize) -> Result<()> {
+        let id = self.id(slot).expect("restored slot").to_owned();
+        let stamp = self.files[slot]
+            .as_ref()
+            .expect("restored file")
+            .stamp
+            .clone();
+        let projection = projected_values(
+            source,
+            &id,
+            &stamp,
+            &[],
+            self.presence.fields(),
+            &self.view,
+            true,
+        )?;
+        let keys = projection
+            .as_ref()
+            .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+        if projection.is_none() {
+            self.malformed.insert(slot);
+            self.changed_bigrams.remove(&slot);
+        } else {
+            self.malformed.remove(&slot);
+        }
+        self.presence.update(
+            slot,
+            projection
+                .as_ref()
+                .map_or(&[], |p| p.present_fields.as_slice()),
+        );
+        if let Some(projection) = projection.as_ref() {
+            self.array_fields
+                .extend(projection.array_fields.iter().cloned());
+            self.changed_bigrams
+                .insert(slot, sorted_bigrams(&projection.bytes));
+        }
+        self.key_summary.saturate();
+        let entry = self.files[slot].as_mut().expect("restored file");
+        entry.revision += 1;
+        entry.changed_at_nanos = now_nanos();
+        self.view.update(slot, keys, &self.files, &self.id_bytes);
+        Ok(())
     }
 
     /// Refreshes inventory from the authoritative directory. A few edits only
@@ -482,6 +546,7 @@ impl FilePicker {
         }
         self.sorted.retain(|&slot| seen[slot]);
         if changed > 0 {
+            self.key_summary.saturate();
             self.typed.invalidate_dynamic();
         }
         Ok(changed)
@@ -491,6 +556,7 @@ impl FilePicker {
     /// event, without enumerating the directory.
     pub fn refresh_id(&mut self, id: &str) -> Result<()> {
         crate::repository::validate_id(id)?;
+        self.key_summary.saturate();
         self.typed.invalidate_dynamic();
         let source = Source::open_scoped(&self.root, self.recursive)?;
         let file = match source.file(id) {
@@ -1157,7 +1223,6 @@ impl FilePicker {
         Ok(slot)
     }
 }
-
 
 fn now_nanos() -> u128 {
     std::time::SystemTime::now()

@@ -141,6 +141,11 @@ fn snapshot_records_git_commit_and_rejects_a_new_commit() {
     picker.save_bigram_snapshot(&path).unwrap();
     let restored = BigramSnapshot::load_checked(&path, temp.path(), false).unwrap();
     assert_eq!(restored.git_commit.as_deref(), Some(head.as_str()));
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("@root")
+        .unwrap();
+    let cached_bytes = fs::read(&cache).unwrap();
 
     fs::write(temp.path().join("README"), "another commit").unwrap();
     git(temp.path(), &["add", "README"]);
@@ -157,6 +162,10 @@ fn snapshot_records_git_commit_and_rejects_a_new_commit() {
         ],
     );
     assert!(BigramSnapshot::load_checked(&path, temp.path(), false).is_err());
+    let mut reopened = Repository::open(temp.path()).unwrap();
+    reopened.warm_bigram_index("@root").unwrap();
+    assert_eq!(reopened.metrics().secondary_snapshot_loads, 1);
+    assert_eq!(fs::read(&cache).unwrap(), cached_bytes);
 }
 
 #[test]
@@ -166,6 +175,7 @@ fn repository_loads_updates_and_resaves_its_bigram_cache() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let cache = repo.save_bigram_cache("@root").unwrap();
     assert!(cache.starts_with(temp.path().join(".objekte/.cache")));
+    assert!(cache.with_extension("secondary").is_file());
     assert_eq!(
         BigramSnapshot::load_checked(&cache, temp.path(), false)
             .unwrap()
@@ -178,6 +188,7 @@ fn repository_loads_updates_and_resaves_its_bigram_cache() {
     let mut reopened = Repository::open(temp.path()).unwrap();
     reopened.warm_bigram_index("@root").unwrap();
     assert_eq!(reopened.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(reopened.metrics().secondary_snapshot_loads, 1);
     let query = |term: &str| JsonQuery {
         filter: format!("text ~ '{term}'"),
         collections: Some(vec!["@root".into()]),
@@ -194,6 +205,7 @@ fn repository_loads_updates_and_resaves_its_bigram_cache() {
     let mut reopened_again = Repository::open(temp.path()).unwrap();
     reopened_again.warm_bigram_index("@root").unwrap();
     assert_eq!(reopened_again.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(reopened_again.metrics().secondary_snapshot_loads, 1);
     assert_eq!(fs::read(&cache).unwrap(), bytes);
 
     fs::write(temp.path().join("a.json"), r#"{"text":"delta"}"#).unwrap();
@@ -203,6 +215,21 @@ fn repository_loads_updates_and_resaves_its_bigram_cache() {
     assert_eq!(
         reopened_again.query_json(&query("delta")).unwrap().total,
         Some(1)
+    );
+
+    fs::write(temp.path().join("a.json"), r#"{"text":"epsilon"}"#).unwrap();
+    let mut changed_again = Repository::open(temp.path()).unwrap();
+    changed_again.warm_bigram_index("@root").unwrap();
+    assert_eq!(changed_again.metrics().secondary_snapshot_loads, 1);
+    assert_eq!(
+        changed_again.query_json(&query("epsilon")).unwrap().total,
+        Some(1)
+    );
+    assert!(
+        BigramSnapshot::load_checked(&cache, temp.path(), false)
+            .unwrap()
+            .changed_bigrams[&0]
+            .contains(&u16::from_be_bytes(*b"ep"))
     );
 
     fs::write(temp.path().join("b.json"), r#"{"text":"beta"}"#).unwrap();
@@ -227,5 +254,29 @@ fn repository_loads_updates_and_resaves_its_bigram_cache() {
     let mut after_corruption = Repository::open(temp.path()).unwrap();
     after_corruption.warm_bigram_index("@root").unwrap();
     assert_eq!(after_corruption.metrics().bigram_snapshot_loads, 0);
+    assert_eq!(after_corruption.metrics().secondary_snapshot_loads, 0);
     assert!(BigramSnapshot::load_checked(&cache, temp.path(), false).is_ok());
+}
+
+#[test]
+fn damaged_secondary_cache_is_rebuilt_once() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("@root")
+        .unwrap();
+    let sidecar = cache.with_extension("secondary");
+    let mut bytes = fs::read(&sidecar).unwrap();
+    *bytes.last_mut().unwrap() ^= 1;
+    fs::write(&sidecar, bytes).unwrap();
+
+    let mut rebuilt = Repository::open(temp.path()).unwrap();
+    rebuilt.warm_bigram_index("@root").unwrap();
+    assert_eq!(rebuilt.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(rebuilt.metrics().secondary_snapshot_loads, 0);
+
+    let mut restored = Repository::open(temp.path()).unwrap();
+    restored.warm_bigram_index("@root").unwrap();
+    assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
 }

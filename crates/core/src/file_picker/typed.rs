@@ -2,6 +2,7 @@
 //! Immutable postings cover the indexed snapshot; changed slots are included
 //! conservatively until the next rebuild and verified against source JSON.
 use crate::json_filter::{IndexOp, JsonPath, JsonPathStep, TypedPlan, decimal_cmp};
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{
     cmp::Ordering,
@@ -9,8 +10,7 @@ use std::{
     ops::Bound::{Excluded, Included, Unbounded},
 };
 
-
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub(super) enum TypedKey {
     Null,
     Missing,
@@ -18,7 +18,6 @@ pub(super) enum TypedKey {
     Number(String),
     String(String),
 }
-
 
 impl TypedKey {
     pub(super) fn from_value(value: &Value) -> Option<Self> {
@@ -43,7 +42,6 @@ impl TypedKey {
     }
 }
 
-
 impl Ord for TypedKey {
     fn cmp(&self, other: &Self) -> Ordering {
         match (self, other) {
@@ -64,13 +62,11 @@ impl Ord for TypedKey {
     }
 }
 
-
 impl PartialOrd for TypedKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl PartialEq for TypedKey {
     fn eq(&self, other: &Self) -> bool {
@@ -78,20 +74,55 @@ impl PartialEq for TypedKey {
     }
 }
 
-
 impl Eq for TypedKey {}
 
-
 /// Immutable typed postings for the indexed collection snapshot.
-#[derive(Default)]
+#[derive(Default, Serialize, Deserialize)]
 pub(super) struct TypedIndex {
     fields: Vec<String>,
     postings: Vec<BTreeMap<TypedKey, Vec<usize>>>,
+    #[serde(with = "path_map")]
     dynamic: BTreeMap<JsonPath, DynamicPosting>,
 }
 
+mod path_map {
+    use super::*;
+    use serde::{Deserializer, Serializer, ser::SerializeSeq};
+
+    pub(super) fn serialize<S>(
+        map: &BTreeMap<JsonPath, DynamicPosting>,
+        serializer: S,
+    ) -> std::result::Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        let mut sequence = serializer.serialize_seq(Some(map.len()))?;
+        for (path, posting) in map {
+            sequence.serialize_element(&(crate::json_filter::format_path(path), posting))?;
+        }
+        sequence.end()
+    }
+
+    pub(super) fn deserialize<'de, D>(
+        deserializer: D,
+    ) -> std::result::Result<BTreeMap<JsonPath, DynamicPosting>, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let entries = Vec::<(String, DynamicPosting)>::deserialize(deserializer)?;
+        let mut map = BTreeMap::new();
+        for (name, posting) in entries {
+            let path = crate::JsonFilter::parse_path(&name).map_err(serde::de::Error::custom)?;
+            if map.insert(path, posting).is_some() {
+                return Err(serde::de::Error::custom("duplicate posting path"));
+            }
+        }
+        Ok(map)
+    }
+}
 
 /// One caller-built path posting and its complete presence set.
+#[derive(Serialize, Deserialize)]
 struct DynamicPosting {
     postings: BTreeMap<TypedKey, Vec<usize>>,
     present: Vec<u64>,
@@ -99,7 +130,6 @@ struct DynamicPosting {
     complete_values: bool,
     fresh: bool,
 }
-
 
 impl TypedIndex {
     pub(super) fn new(fields: Vec<String>) -> Self {
@@ -113,6 +143,20 @@ impl TypedIndex {
 
     pub(super) fn fields(&self) -> &[String] {
         &self.fields
+    }
+
+    pub(super) fn valid_for_slots(&self, slots: usize) -> bool {
+        self.postings.len() == self.fields.len()
+            && self
+                .postings
+                .iter()
+                .flat_map(|postings| postings.values())
+                .chain(self.dynamic.values().flat_map(|posting| posting.postings.values()))
+                .all(|positions| positions.iter().all(|&slot| slot < slots))
+            && self
+                .dynamic
+                .values()
+                .all(|posting| posting.present.len() == slots.div_ceil(64))
     }
 
     pub(super) fn replace_rows(&mut self, rows: Vec<Vec<(TypedKey, usize)>>) {
@@ -353,7 +397,6 @@ impl TypedIndex {
         Some(bits)
     }
 }
-
 
 fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usize>> {
     let mut postings = BTreeMap::<TypedKey, Vec<usize>>::new();

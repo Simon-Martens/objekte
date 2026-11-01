@@ -101,7 +101,8 @@ fn startup_status_tracks_available_and_restored_snapshot() {
         );
     }
     assert_eq!(app.repo.metrics().bigram_snapshot_loads, 1);
-    assert!(app.message.contains("1 bigram snapshot restored"));
+    assert_eq!(app.repo.metrics().secondary_snapshot_loads, 1);
+    assert!(app.message.contains("1 index snapshot restored"));
 }
 
 #[test]

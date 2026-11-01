@@ -6,7 +6,6 @@ use std::{
     thread,
 };
 
-
 /// Progress from the worker, followed by one final repository or error.
 pub(super) enum WarmUpdate {
     Progress {
@@ -19,7 +18,6 @@ pub(super) enum WarmUpdate {
     Failed(String),
 }
 
-
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum WarmMode {
     Warm,
@@ -27,12 +25,11 @@ pub(super) enum WarmMode {
     Reindex,
 }
 
-
 pub(super) fn startup_status(repo: &Repository) -> String {
     let total = repo.model().collections.len();
     let has_cache = repo.model().collections.keys().any(|name| {
         repo.bigram_cache_path(name)
-            .is_ok_and(|path| path.is_file())
+            .is_ok_and(|path| path.is_file() && path.with_extension("secondary").is_file())
     });
     let action = if has_cache { "Restoring" } else { "Building" };
     format!("{action} indexes · 0/{total} collections ready")
@@ -64,7 +61,7 @@ pub(super) fn start(repo: &Repository, mode: WarmMode) -> Receiver<WarmUpdate> {
                     completed: index + 1,
                     total,
                     mode,
-                    restored: building.metrics().bigram_snapshot_loads,
+                    restored: building.metrics().secondary_snapshot_loads,
                 })
                 .is_err()
             {

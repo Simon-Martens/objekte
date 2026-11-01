@@ -1,9 +1,82 @@
 mod support;
 
-use objekte_core::{CacheMode, JsonQuery, Repository};
+use objekte_core::{CacheMode, JsonQuery, Repository, ViewRequest};
 use serde_json::json;
 use std::fs;
 use support::Fixture;
+
+#[test]
+fn saved_secondary_indexes_restore_typed_queries_and_ordered_views() {
+    let f = Fixture::new();
+    f.repo(CacheMode::Memory)
+        .save_bigram_cache("books")
+        .unwrap();
+    let mut restored = f.repo(CacheMode::Memory);
+    restored.warm_bigram_index("books").unwrap();
+    assert_eq!(restored.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
+
+    let query = JsonQuery {
+        filter: "score >= 2".into(),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        ..Default::default()
+    };
+    let expected = f.repo(CacheMode::Disabled).query_json(&query).unwrap();
+    let actual = restored.query_json(&query).unwrap();
+    assert_eq!(actual.total, expected.total);
+    assert_eq!(
+        actual
+            .records
+            .iter()
+            .map(|record| &record.id)
+            .collect::<Vec<_>>(),
+        expected
+            .records
+            .iter()
+            .map(|record| &record.id)
+            .collect::<Vec<_>>()
+    );
+
+    let request = ViewRequest {
+        count: true,
+        ..Default::default()
+    };
+    let expected = f
+        .repo(CacheMode::Disabled)
+        .open_view("books", &request)
+        .unwrap();
+    let actual = restored.open_view("books", &request).unwrap();
+    assert_eq!(actual.rows, expected.rows);
+    assert_eq!(actual.total, expected.total);
+}
+
+#[test]
+fn schema_change_rebuilds_only_secondary_cache_once() {
+    let f = Fixture::new();
+    f.repo(CacheMode::Memory)
+        .save_bigram_cache("books")
+        .unwrap();
+    f.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["title"]["index"] = json!(true);
+    });
+    let mut rebuilt = f.repo(CacheMode::Memory);
+    rebuilt.warm_bigram_index("books").unwrap();
+    assert_eq!(rebuilt.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(rebuilt.metrics().secondary_snapshot_loads, 0);
+
+    let mut restored = f.repo(CacheMode::Memory);
+    restored.warm_bigram_index("books").unwrap();
+    assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
+    let query = JsonQuery {
+        filter: "title = 'Atlas'".into(),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        ..Default::default()
+    };
+    let expected = f.repo(CacheMode::Disabled).query_json(&query).unwrap();
+    assert_eq!(restored.query_json(&query).unwrap().total, expected.total);
+}
 
 #[test]
 fn warm_one_then_all_builds_only_missing_collection_indexes() {

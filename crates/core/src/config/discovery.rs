@@ -45,7 +45,10 @@ struct CollectionMetadata {
 impl RepositoryModel {
     pub(crate) fn discover(root: &Path, settings: &Discovery) -> Result<Self> {
         let root = fs::canonicalize(root).map_err(|error| io(root, error))?;
-        if settings.use_default_schemas && root.join(".objekte").is_dir() {
+        if settings.use_default_schemas
+            && (root.join(".objekte/collections").is_dir()
+                || root.join(".objekte/views").is_dir())
+        {
             return Self::discover_objekte(&root, settings);
         }
         let data = match &settings.data_root {

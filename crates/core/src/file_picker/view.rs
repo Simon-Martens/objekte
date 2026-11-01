@@ -4,9 +4,9 @@ use crate::{
     Direction, Field,
     query::{Operator, Scalar, scalar, scalar_value},
 };
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{cmp::Ordering, collections::BTreeMap};
-
 
 /// Current sortable keys and live slot order for each typed field.
 pub(super) struct ViewIndex {
@@ -16,8 +16,43 @@ pub(super) struct ViewIndex {
     ordered: Vec<Vec<usize>>,
 }
 
+#[derive(Serialize, Deserialize)]
+pub(super) struct SavedViewIndex {
+    pub(super) fields: Vec<String>,
+    pub(super) keys: Vec<Vec<Scalar>>,
+    pub(super) ordered: Vec<Vec<usize>>,
+}
 
 impl ViewIndex {
+    pub(super) fn saved(&self) -> SavedViewIndex {
+        SavedViewIndex {
+            fields: self.fields.clone(),
+            keys: self.keys.clone(),
+            ordered: self.ordered.clone(),
+        }
+    }
+
+    pub(super) fn restore(&mut self, saved: SavedViewIndex, slots: usize) -> bool {
+        if saved.fields != self.fields
+            || saved.keys.len() != self.fields.len()
+            || saved.ordered.len() != self.fields.len()
+            || saved.keys.iter().any(|keys| keys.len() != slots)
+            || saved.ordered.iter().any(|order| order.len() != slots)
+        {
+            return false;
+        }
+        for order in &saved.ordered {
+            let mut seen = vec![false; slots];
+            for &slot in order {
+                if slot >= slots || std::mem::replace(&mut seen[slot], true) {
+                    return false;
+                }
+            }
+        }
+        self.keys = saved.keys;
+        self.ordered = saved.ordered;
+        true
+    }
     pub(super) fn new(fields: &[String], definitions: &BTreeMap<String, Field>) -> Self {
         Self {
             fields: fields.to_vec(),
@@ -169,7 +204,6 @@ impl ViewIndex {
         Some(bits)
     }
 }
-
 
 fn compare_slots(
     keys: &[Scalar],

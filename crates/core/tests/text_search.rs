@@ -42,6 +42,35 @@ fn query(pattern: &str, mode: TextMode) -> TextQuery {
 }
 
 #[test]
+fn saved_markup_index_restores_without_rebuilding_text_postings() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    schema(root);
+    write(root, "data/books/a.json", r#"{"html":"<b>Visible</b>"}"#);
+    write(root, "data/books/b.json", r#"{"html":"<i>Hidden</i>"}"#);
+    Repository::open(root)
+        .unwrap()
+        .save_bigram_cache("books")
+        .unwrap();
+    let mut restored = Repository::open(root).unwrap();
+    restored.warm_bigram_index("books").unwrap();
+    assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
+    assert_eq!(
+        restored.warm_text_index("books").unwrap().fts_open_nanos,
+        0
+    );
+    let result = restored.search_text(&query("Visible", TextMode::Word)).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record.id.as_str())
+            .collect::<Vec<_>>(),
+        ["a"]
+    );
+}
+
+#[test]
 fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();

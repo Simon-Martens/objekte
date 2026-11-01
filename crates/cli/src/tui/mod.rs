@@ -284,7 +284,7 @@ fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
             });
         }
         warm::WarmUpdate::Ready(mut built, mode) => {
-            let restored = built.metrics().bigram_snapshot_loads;
+            let restored = built.metrics().secondary_snapshot_loads;
             std::mem::swap(app.repo, &mut *built);
             app.index_status = None;
             if app.queued_search {
@@ -297,7 +297,7 @@ fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
                         } else {
                             "snapshots"
                         };
-                        format!("Indexes ready · {restored} bigram {noun} restored from cache.")
+                        format!("Indexes ready · {restored} index {noun} restored from cache.")
                     }
                     warm::WarmMode::Warm => "Indexes ready. Enter a query to search.".into(),
                     warm::WarmMode::Save => "Bigram caches saved.".into(),

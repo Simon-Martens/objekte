@@ -32,14 +32,12 @@ mod text_query;
 mod validation_ops;
 mod views;
 
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum CacheMode {
     Disabled,
     Memory,
 }
-
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -49,14 +47,12 @@ pub enum Freshness {
     HashOnRequest,
 }
 
-
 // INFO: In-memory picker and freshness settings.
 #[derive(Debug, Clone, Serialize)]
 pub struct Options {
     pub cache: CacheMode,
     pub freshness: Freshness,
 }
-
 
 impl Options {
     pub fn new() -> Self {
@@ -67,13 +63,11 @@ impl Options {
     }
 }
 
-
 impl Default for Options {
     fn default() -> Self {
         Self::new()
     }
 }
-
 
 // Propagate field attributes through arithmetic so feature-gated counters
 // disappear from Metrics and its operations together.
@@ -129,6 +123,7 @@ metrics!(
     grep_nanos,
     bigram_open_nanos,
     bigram_snapshot_loads,
+    secondary_snapshot_loads,
     bigram_rebuild_nanos,
     #[cfg(feature = "index-timings")]
     bigram_inventory_nanos,
@@ -156,7 +151,6 @@ metrics!(
     fts_candidates
 );
 
-
 // INFO: Record identity, source path, JSON, digest, validation state, and raw bytes. Derived from source files.
 #[derive(Debug, Clone, Serialize)]
 pub struct Record {
@@ -174,7 +168,6 @@ pub struct Record {
     pub raw: Option<Vec<u8>>,
 }
 
-
 /// Current or deleted source-record revision retained by the repository handle.
 #[derive(Debug, Clone, Serialize)]
 pub struct RecordRevision {
@@ -185,7 +178,6 @@ pub struct RecordRevision {
     pub present: bool,
 }
 
-
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum TargetState {
@@ -193,7 +185,6 @@ pub enum TargetState {
     Present,
     Missing,
 }
-
 
 // INFO: A source-to-target edge. Derived from source files. Target state is resolved on read.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -205,7 +196,6 @@ pub struct RecordRelation {
     pub target_id: String,
     pub target_state: TargetState,
 }
-
 
 // INFO: In-memory collection coverage and validation counts.
 #[derive(Debug, Clone, Serialize)]
@@ -220,14 +210,12 @@ pub struct Coverage {
     pub records: usize,
 }
 
-
 // INFO: Reference edges accompanied by collection coverage information.
 #[derive(Debug, Clone, Serialize)]
 pub struct References {
     pub edges: Vec<RecordRelation>,
     pub coverage: Vec<Coverage>,
 }
-
 
 // INFO: Picker policy, collection coverage, and configuration changes.
 #[derive(Debug, Clone, Serialize)]
@@ -238,14 +226,12 @@ pub struct CacheStatus {
     pub configuration_changes: Option<ConfigurationChanges>,
 }
 
-
 // INFO: Stable source bytes, content digest, and descriptor stamp.
 struct Raw {
     json: Vec<u8>,
     hash: String,
     stamp: Stamp,
 }
-
 
 // INFO: Live handle for configuration, in-memory indexes, metrics, and coverage.
 pub struct Repository {
@@ -262,14 +248,12 @@ pub struct Repository {
     configuration_changes: Option<ConfigurationChanges>,
 }
 
-
 /// Code-level repository opening with optional schema bases.
 pub struct RepositoryBuilder {
     root: std::path::PathBuf,
     options: Options,
     discovery: Discovery,
 }
-
 
 impl RepositoryBuilder {
     /// Set cache and freshness policies before opening.
@@ -309,7 +293,6 @@ impl RepositoryBuilder {
         ))
     }
 }
-
 
 impl Repository {
     /// Discover populated JSON folders as collections using the default layout.
@@ -471,7 +454,6 @@ impl Repository {
         Ok(self.configuration_changes.clone().unwrap())
     }
 }
-
 
 pub(crate) fn validate_id(id: &str) -> Result<()> {
     if id.contains(['\\', '\0'])
