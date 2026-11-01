@@ -54,7 +54,9 @@ fn sorted_query_and_text_events_emit_provisional_pages_and_cap_totals() {
             root,
             "search",
             "books",
-            "Alpha SORT BY score DESC",
+            "Alpha",
+            "--sort",
+            "score DESC && title ASC",
             "--count",
             "--limit",
             "2",
@@ -1088,7 +1090,7 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
             "books",
             "Help",
             "--filter",
-            "score >= $min",
+            "score >= $min SORT BY score DESC",
             "--param",
             "min=1",
             "--count",
@@ -1096,6 +1098,39 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
     ));
     assert_eq!(combined_search["total"], 1);
     assert_eq!(combined_search["hits"][0]["record"]["id"], "a");
+    let mixed_events = run(
+        &fixture,
+        &[
+            root,
+            "search",
+            "books",
+            "Help",
+            "--filter",
+            "score >= 1 SORT BY score DESC",
+            "--output",
+            "events",
+        ],
+    );
+    assert!(
+        mixed_events.status.success(),
+        "{}",
+        String::from_utf8_lossy(&mixed_events.stderr)
+    );
+    assert!(String::from_utf8_lossy(&mixed_events.stdout).contains("\"type\":\"page\""));
+    let conflict = run(
+        &fixture,
+        &[
+            root,
+            "search",
+            "books",
+            "Help",
+            "--filter",
+            "score >= 1 SORT BY score",
+            "--sort",
+            "title",
+        ],
+    );
+    assert!(!conflict.status.success());
     let direct = value(run(
         &fixture,
         &[

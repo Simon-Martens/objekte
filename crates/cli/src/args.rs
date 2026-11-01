@@ -15,8 +15,9 @@ Usage:
   objekte REPOSITORY writeschema [COLLECTION] [--no-auto-index]
   objekte REPOSITORY query [COLLECTION] 'FILTER SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
-  objekte REPOSITORY search [COLLECTION] 'PATTERN SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--mode word|raw-word|regex|raw-regex]
-      [--filter 'JSON FILTER'] [--param NAME=JSON] [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
+  objekte REPOSITORY search [COLLECTION] 'PATTERN' [--mode word|raw-word|regex|raw-regex]
+      [--filter 'JSON FILTER [SORT BY FIELD [ASC|DESC] [&& FIELD ...]]'] [--sort 'FIELD [ASC|DESC] [&& FIELD ...]']
+      [--param NAME=JSON] [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -50,6 +51,7 @@ Options:
                                   Literal substring or regex search; raw modes see markup
   --field PATH                    Limit full-text search to a JSON leaf path
   --filter EXPRESSION             Filter JSON records before full-text search
+  --sort TERMS                    Sort full-text matches by one or more fields
   --case-sensitive                Match case exactly in full-text search
                                   TUI: Tab changes mode; Ctrl+G switches combined input;
                                   Ctrl+Tab changes collection;
@@ -61,7 +63,7 @@ Examples:
   objekte examples/musenalm view contents_list --arg page=2
   objekte examples/musenalm query contents 'year >= 1800' --count
   objekte examples/musenalm query contents 'year >= 1800 SORT BY preferred_title' --count
-  objekte examples/musenalm search contents 'Wasser' --filter 'year >= 1800' --count
+  objekte examples/musenalm search contents 'Wasser' --filter 'year >= 1800' --sort 'preferred_title ASC' --count
   objekte examples/musenalm inferschema contents
   objekte examples/musenalm writeschema contents
 ";

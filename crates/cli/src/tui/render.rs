@@ -61,7 +61,7 @@ fn preview(value: Option<&Value>) -> String {
     }
 }
 
-fn columns(hits: &[Hit], query_fields: &[String]) -> Vec<String> {
+fn columns(hits: &[Hit], query_fields: &[String], sort_fields: &[String]) -> Vec<String> {
     let mut fields = BTreeSet::new();
     for hit in hits {
         if let Value::Object(object) = &hit.record().data {
@@ -77,6 +77,12 @@ fn columns(hits: &[Hit], query_fields: &[String]) -> Vec<String> {
     for field in query_fields {
         columns.push(field.clone());
         fields.remove(field);
+    }
+    for field in sort_fields {
+        if !columns.contains(field) {
+            columns.push(field.clone());
+            fields.remove(field);
+        }
     }
     columns.extend(fields);
     columns
@@ -143,7 +149,7 @@ fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
             &app.filter_input,
             app.focus == Focus::FilterInput,
             " JSON FILTER  ·  Ctrl+G switches input ",
-            "year >= 1800",
+            "year >= 1800 SORT BY preferred_title",
             filter,
         );
         query_box(
@@ -151,7 +157,7 @@ fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
             &app.input,
             app.focus == Focus::Query,
             " FULL-TEXT SEARCH  ·  Enter to search ",
-            "Wasser SORT BY preferred_title",
+            "Wasser",
             text,
         );
         return;
@@ -225,7 +231,7 @@ fn query_box(
 }
 
 pub(super) fn column_count(app: &App<'_>) -> usize {
-    columns(&app.hits, &app.query_fields).len()
+    columns(&app.hits, &app.query_fields, &app.sort_fields).len()
 }
 
 fn mode_chip(label: &str, selected: bool) -> Span<'static> {
@@ -526,7 +532,7 @@ fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
         );
         return;
     }
-    let all = columns(&app.hits, &app.query_fields);
+    let all = columns(&app.hits, &app.query_fields, &app.sort_fields);
     let start = app.column_offset.min(all.len().saturating_sub(1));
     let visible = visible_columns(&all, &app.hits, start, area.width);
     let widths = visible

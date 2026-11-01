@@ -17,7 +17,7 @@ use std::{
     collections::{BTreeMap, BTreeSet},
 };
 
-/// Split a trailing `SORT BY` clause from a field filter or text pattern.
+/// Split a trailing `SORT BY` clause from a field filter or UI input.
 pub fn split_sort_clause(input: &str) -> Result<(String, Vec<Sort>)> {
     let mut quote = None;
     let mut escaped = false;
@@ -58,6 +58,11 @@ pub fn split_sort_clause(input: &str) -> Result<(String, Vec<Sort>)> {
     };
     let before = input[..at].trim_end();
     let clause = input[at + 7..].trim();
+    Ok((before.to_owned(), parse_sort_terms(clause)?))
+}
+
+/// Parse sort terms supplied separately from a query, such as a CLI `--sort` value.
+pub fn parse_sort_terms(clause: &str) -> Result<Vec<Sort>> {
     if clause.is_empty() {
         return Err(Error::Request("SORT BY needs at least one field".into()));
     }
@@ -110,7 +115,7 @@ pub fn split_sort_clause(input: &str) -> Result<(String, Vec<Sort>)> {
             direction,
         });
     }
-    Ok((before.to_owned(), terms))
+    Ok(terms)
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

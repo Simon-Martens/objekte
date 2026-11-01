@@ -3,8 +3,8 @@
 use super::navigation::DetailLinks;
 use super::warm::WarmMode;
 use objekte_core::{
-    CollectionInventory, InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend,
-    Record, Repository, TextHit, TextMode, TextQuery,
+    CollectionInventory, Error, InferenceReport, JsonFilter, JsonPathStep, JsonQuery,
+    JsonQueryBackend, Record, Repository, Result, Sort, TextHit, TextMode, TextQuery,
 };
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use std::collections::VecDeque;
@@ -102,6 +102,34 @@ fn queried_fields(request: &Request) -> Vec<String> {
             fields
         })
         .unwrap_or_default()
+}
+
+fn ordered_fields(request: &Request) -> Vec<String> {
+    let sort: Vec<Sort> = match request {
+        Request::Filter(query) if !query.sort.is_empty() => query.sort.clone(),
+        Request::Filter(query) => objekte_core::split_sort_clause(&query.filter)
+            .map(|(_, sort)| sort)
+            .unwrap_or_default(),
+        Request::Text(query) => query.sort.clone(),
+    };
+    let mut fields = Vec::new();
+    for term in sort {
+        if term.field == "@id" {
+            continue;
+        }
+        let Ok(path) = JsonFilter::parse_path(&term.field) else {
+            continue;
+        };
+        let top = match path.first() {
+            Some(JsonPathStep::Key(name)) => name.clone(),
+            Some(JsonPathStep::Index(_) | JsonPathStep::Each) => "$value".into(),
+            None => continue,
+        };
+        if !fields.contains(&top) {
+            fields.push(top);
+        }
+    }
+    fields
 }
 
 /// Cursor-aware single-line text input shared by query and export prompts.
@@ -214,6 +242,7 @@ pub(super) struct App<'a> {
     pub(super) focus: Focus,
     pub(super) hits: Vec<Hit>,
     pub(super) query_fields: Vec<String>,
+    pub(super) sort_fields: Vec<String>,
     pub(super) async_search: bool,
     pub(super) searching: bool,
     pub(super) search_generation: u64,
@@ -263,6 +292,7 @@ impl<'a> App<'a> {
             focus: Focus::Query,
             hits: Vec::new(),
             query_fields: Vec::new(),
+            sort_fields: Vec::new(),
             async_search: false,
             searching: false,
             search_generation: 0,
@@ -320,8 +350,8 @@ impl<'a> App<'a> {
         (self.collection > 0).then(|| vec![self.collections[self.collection - 1].clone()])
     }
 
-    fn request(&self) -> Request {
-        match self.kind {
+    fn request(&self) -> Result<Request> {
+        Ok(match self.kind {
             SearchKind::Filter => Request::Filter(JsonQuery {
                 filter: self.input.text.clone(),
                 collections: self.scope(),
@@ -331,25 +361,43 @@ impl<'a> App<'a> {
                 backend: JsonQueryBackend::Auto,
                 ..Default::default()
             }),
-            SearchKind::Text | SearchKind::Combined => Request::Text(TextQuery {
-                pattern: self.input.text.clone(),
-                filter: (self.kind == SearchKind::Combined).then(|| self.filter_input.text.clone()),
-                mode: match (self.regex, self.representation) {
-                    (false, Representation::Normalized) => TextMode::Word,
-                    (false, Representation::Full) => TextMode::WordRaw,
-                    (true, Representation::Normalized) => TextMode::RegexClean,
-                    (true, Representation::Full) => TextMode::RegexRaw,
-                },
-                // Regex patterns carry their own (?i) flag. The case toggle
-                // applies only to literal word searches.
-                case_sensitive: self.regex || self.case_sensitive,
-                collections: self.scope(),
-                limit: PAGE_SIZE,
-                offset: self.offset,
-                count: true,
-                ..Default::default()
-            }),
-        }
+            SearchKind::Text | SearchKind::Combined => {
+                let (pattern, filter, sort) = if self.kind == SearchKind::Combined {
+                    let (filter, sort) = objekte_core::split_sort_clause(&self.filter_input.text)?;
+                    (self.input.text.clone(), Some(filter), sort)
+                } else {
+                    let (pattern, sort) = objekte_core::split_sort_clause(&self.input.text)?;
+                    let pattern =
+                        if !sort.is_empty() && pattern.starts_with('"') && pattern.ends_with('"') {
+                            serde_json::from_str::<String>(&pattern).map_err(|error| {
+                                Error::Request(format!("invalid quoted search pattern: {error}"))
+                            })?
+                        } else {
+                            pattern
+                        };
+                    (pattern, None, sort)
+                };
+                Request::Text(TextQuery {
+                    pattern,
+                    filter,
+                    sort,
+                    mode: match (self.regex, self.representation) {
+                        (false, Representation::Normalized) => TextMode::Word,
+                        (false, Representation::Full) => TextMode::WordRaw,
+                        (true, Representation::Normalized) => TextMode::RegexClean,
+                        (true, Representation::Full) => TextMode::RegexRaw,
+                    },
+                    // Regex patterns carry their own (?i) flag. The case toggle
+                    // applies only to literal word searches.
+                    case_sensitive: self.regex || self.case_sensitive,
+                    collections: self.scope(),
+                    limit: PAGE_SIZE,
+                    offset: self.offset,
+                    count: true,
+                    ..Default::default()
+                })
+            }
+        })
     }
 
     pub(super) fn search(&mut self) {
@@ -362,8 +410,21 @@ impl<'a> App<'a> {
             self.focus = Focus::FilterInput;
             return;
         }
-        if self.kind == SearchKind::Combined
-            && let Err(error) = JsonFilter::compile(&self.filter_input.text, &Default::default())
+        let request = match self.request() {
+            Ok(request) => request,
+            Err(error) => {
+                self.message = error.to_string();
+                self.focus = if self.kind == SearchKind::Combined {
+                    Focus::FilterInput
+                } else {
+                    Focus::Query
+                };
+                return;
+            }
+        };
+        if let Request::Text(text) = &request
+            && let Some(filter) = &text.filter
+            && let Err(error) = JsonFilter::compile(filter, &text.parameters)
         {
             self.message = error.to_string();
             self.focus = Focus::FilterInput;
@@ -386,9 +447,9 @@ impl<'a> App<'a> {
         self.search_elapsed_ms = None;
         self.selected = 0;
         self.column_offset = 0;
-        let request = self.request();
         if self.async_search {
             self.query_fields = queried_fields(&request);
+            self.sort_fields = ordered_fields(&request);
             self.last_request = Some(request.clone());
             self.pending_search = Some(request);
             self.searching = true;
@@ -421,6 +482,7 @@ impl<'a> App<'a> {
                 self.total_truncated = truncated;
                 self.search_elapsed_ms = Some(elapsed_ms);
                 self.query_fields = queried_fields(&request);
+                self.sort_fields = ordered_fields(&request);
                 self.last_request = Some(request);
                 self.focus = Focus::Results;
                 self.message.clear();
@@ -536,6 +598,7 @@ impl<'a> App<'a> {
         self.search_generation = self.search_generation.wrapping_add(1);
         self.hits.clear();
         self.query_fields.clear();
+        self.sort_fields.clear();
         self.pending_search = None;
         self.pending_detail = None;
         self.searching = false;

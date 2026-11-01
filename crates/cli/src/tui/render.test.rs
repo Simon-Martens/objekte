@@ -224,11 +224,11 @@ fn filter_table_puts_queried_fields_first_in_query_order() {
     let mut app = App::new(&mut repo);
     app.kind = SearchKind::Filter;
     app.input.text =
-        "zeta = 1 && missing(absent) && beta = true && nested.name = 'X' && zeta > 0".into();
+        "zeta = 1 && missing(absent) && beta = true && nested.name = 'X' && zeta > 0 SORT BY gamma DESC && zeta ASC".into();
     app.search();
     assert_eq!(app.hits.len(), 1);
     assert_eq!(
-        columns(&app.hits, &app.query_fields),
+        columns(&app.hits, &app.query_fields, &app.sort_fields),
         [
             "@collection",
             "@id",
@@ -237,16 +237,17 @@ fn filter_table_puts_queried_fields_first_in_query_order() {
             "absent",
             "beta",
             "nested",
-            "alpha",
             "gamma",
+            "alpha",
         ]
     );
+    assert_eq!(app.sort_fields, ["gamma", "zeta"]);
     assert_eq!(field(&app.hits[0], "absent"), "·");
 
     app.input.text = "beta = true && zeta = 1".into();
     app.search();
     assert_eq!(
-        &columns(&app.hits, &app.query_fields)[3..5],
+        &columns(&app.hits, &app.query_fields, &app.sort_fields)[3..5],
         ["beta", "zeta"]
     );
 }
@@ -267,7 +268,7 @@ fn full_text_table_previews_the_exact_matched_leaf_before_other_fields() {
     app.search();
     assert_eq!(app.hits[0].matched_paths(), ["notes[1].body"]);
     assert_eq!(
-        &columns(&app.hits, &app.query_fields)[..4],
+        &columns(&app.hits, &app.query_fields, &app.sort_fields)[..4],
         ["@collection", "@id", "@status", "@match"]
     );
     assert_eq!(
@@ -292,10 +293,10 @@ fn full_text_table_previews_the_exact_matched_leaf_before_other_fields() {
     app.input.text = "other = 'Venus'".into();
     app.search();
     assert_eq!(
-        &columns(&app.hits, &app.query_fields)[..3],
+        &columns(&app.hits, &app.query_fields, &app.sort_fields)[..3],
         ["@collection", "@id", "@status"]
     );
-    assert!(!columns(&app.hits, &app.query_fields).contains(&"@match".into()));
+    assert!(!columns(&app.hits, &app.query_fields, &app.sort_fields).contains(&"@match".into()));
 }
 
 #[test]
@@ -375,7 +376,13 @@ fn full_text_match_preview_is_capped_at_sixty_five_cells_and_supports_malformed_
     assert!(preview.ends_with('…'));
     assert_eq!(UnicodeWidthStr::width(preview.as_str()), 65);
     assert_eq!(
-        visible_columns(&columns(&app.hits, &app.query_fields), &app.hits, 3, 120)[0].1,
+        visible_columns(
+            &columns(&app.hits, &app.query_fields, &app.sort_fields),
+            &app.hits,
+            3,
+            120
+        )[0]
+        .1,
         65
     );
     let mut standard = Terminal::new(TestBackend::new(80, 20)).unwrap();
@@ -400,7 +407,7 @@ fn test_backend_renders_results_and_detail() {
     app.kind = SearchKind::Filter;
     app.input.text = "note ~ 'Hello'".into();
     app.search();
-    assert!(columns(&app.hits, &app.query_fields).contains(&"id".into()));
+    assert!(columns(&app.hits, &app.query_fields, &app.sort_fields).contains(&"id".into()));
     assert_eq!(field(&app.hits[0], "id"), "business");
     assert_eq!(field(&app.hits[0], "@id"), "a");
     let backend = TestBackend::new(80, 25);

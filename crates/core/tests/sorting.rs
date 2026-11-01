@@ -261,7 +261,11 @@ fn text_sort_stream_updates_and_collection_order() {
     let mut repository = repo(fixture.path(), CacheMode::Memory, 100);
     let mut direct = repo(fixture.path(), CacheMode::Disabled, 100);
     let request = TextQuery {
-        pattern: "token SORT BY title ASC".into(),
+        pattern: "token".into(),
+        sort: vec![Sort {
+            field: "title".into(),
+            direction: Direction::Asc,
+        }],
         count: true,
         limit: 4,
         ..Default::default()
@@ -401,11 +405,15 @@ fn single_pass_sorted_records_match_direct_records() {
 }
 
 #[test]
-fn quoted_fts_pattern_and_result_cap_work_together() {
+fn structured_fts_sort_and_result_cap_work_together() {
     let fixture = fixture();
     let mut repository = repo(fixture.path(), CacheMode::Memory, 3);
     let request = TextQuery {
-        pattern: "\"token\" SORT BY title DESC".into(),
+        pattern: "token".into(),
+        sort: vec![Sort {
+            field: "title".into(),
+            direction: Direction::Desc,
+        }],
         collections: Some(vec!["de".into()]),
         count: true,
         limit: 2,

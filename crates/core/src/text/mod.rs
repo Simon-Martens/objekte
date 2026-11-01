@@ -32,8 +32,9 @@ pub enum TextMode {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(default, deny_unknown_fields)]
 pub struct TextQuery {
+    /// Passed unchanged to the selected word or regex matcher.
     pub pattern: String,
-    /// Optional JSON field predicate applied before full-text matching.
+    /// Optional JSON field predicate applied before full-text matching; may end in `SORT BY`.
     pub filter: Option<String>,
     /// Typed parameters used by `filter`.
     pub parameters: BTreeMap<String, Value>,
@@ -45,7 +46,7 @@ pub struct TextQuery {
     pub limit: usize,
     pub offset: usize,
     pub count: bool,
-    /// Sort terms applied within each collection. Empty means ID order.
+    /// Sort terms applied to final matches within each collection. Empty means ID order.
     pub sort: Vec<crate::Sort>,
 }
 

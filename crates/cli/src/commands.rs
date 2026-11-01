@@ -12,7 +12,7 @@ use crate::{
 };
 use objekte_core::{
     CacheMode, Direction, Freshness, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
-    TextMode, TextQuery, ViewRequest,
+    TextMode, TextQuery, ViewRequest, parse_sort_terms,
 };
 use serde_json::json;
 use std::{
@@ -105,9 +105,15 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 .contains(&key.as_str()),
             "query" => ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str()),
             "inferschema" | "writeschema" => key == "--collection",
-            "search" => {
-                ["--collection", "--limit", "--offset", "--mode", "--field"].contains(&key.as_str())
-            }
+            "search" => [
+                "--collection",
+                "--limit",
+                "--offset",
+                "--mode",
+                "--field",
+                "--sort",
+            ]
+            .contains(&key.as_str()),
             "relations" => ["--from", "--to"].contains(&key.as_str()),
             "cache" => {
                 matches!(
@@ -326,15 +332,24 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 limit: get("--limit", "50").parse()?,
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),
-                sort: Vec::new(),
+                sort: a
+                    .values
+                    .get("--sort")
+                    .map(|value| parse_sort_terms(value))
+                    .transpose()?
+                    .unwrap_or_default(),
             };
             if output == "events" {
                 let stdout = std::io::stdout();
                 let mut writer = stdout.lock();
                 let mut delivered = 0;
-                let sorted = !objekte_core::split_sort_clause(&request.pattern)?
-                    .1
-                    .is_empty();
+                let filter_sort = request
+                    .filter
+                    .as_ref()
+                    .map(|filter| objekte_core::split_sort_clause(filter).map(|(_, sort)| sort))
+                    .transpose()?
+                    .unwrap_or_default();
+                let sorted = !request.sort.is_empty() || !filter_sort.is_empty();
                 let streamed = if sorted {
                     repo.search_text_stream_updates(&request, |page| {
                         write_query_event(

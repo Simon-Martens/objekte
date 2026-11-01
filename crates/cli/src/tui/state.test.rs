@@ -50,17 +50,24 @@ fn full_text_controls_choose_all_four_search_modes() {
     ] {
         app.regex = regex;
         app.representation = representation;
-        let Request::Text(request) = app.request() else {
+        let Request::Text(request) = app.request().unwrap() else {
             panic!("expected text request")
         };
         assert_eq!(request.mode, expected);
         assert_eq!(request.case_sensitive, regex);
     }
     app.collection = 1;
-    let Request::Text(request) = app.request() else {
+    let Request::Text(request) = app.request().unwrap() else {
         panic!("expected text request")
     };
     assert_eq!(request.collections, Some(vec!["docs".into()]));
+    app.input.text = "Help SORT BY note DESC".into();
+    let Request::Text(request) = app.request().unwrap() else {
+        panic!("expected text request")
+    };
+    assert_eq!(request.pattern, "Help");
+    assert_eq!(request.sort[0].field, "note");
+    assert_eq!(request.sort[0].direction, objekte_core::Direction::Desc);
 }
 
 #[test]
@@ -128,15 +135,21 @@ fn combined_mode_keeps_both_inputs_and_filters_text_results() {
     let mut app = App::new(&mut repo);
     app.input.text = "Moon".into();
     app.toggle_mode(false);
-    app.input.text = "year = 1800".into();
+    app.input.text = "year = 1800 SORT BY note DESC".into();
     app.toggle_mode(false);
     assert!(app.kind == SearchKind::Combined);
     assert_eq!(app.input.text, "Moon");
-    assert_eq!(app.filter_input.text, "year = 1800");
+    assert_eq!(app.filter_input.text, "year = 1800 SORT BY note DESC");
+    let Request::Text(request) = app.request().unwrap() else {
+        panic!("expected text request")
+    };
+    assert_eq!(request.filter.as_deref(), Some("year = 1800"));
+    assert_eq!(request.sort[0].field, "note");
     app.search();
     assert_eq!(app.total, Some(1));
     assert_eq!(app.hits[0].record().id, "a");
     assert_eq!(app.query_fields, ["year"]);
+    assert_eq!(app.sort_fields, ["note"]);
     app.filter_input.text = "year =".into();
     app.search();
     assert!(app.focus == Focus::FilterInput);

@@ -237,7 +237,7 @@ impl Repository {
 
     /// Search rendered words, rendered regex, or raw-markup regex in ID order.
     pub fn search_text(&mut self, request: &TextQuery) -> Result<TextQueryResult> {
-        let request = Self::normalized_text_sort(request)?;
+        let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
             return self.search_text_sorted(&request, &mut |_| Ok(()));
         }
@@ -252,7 +252,7 @@ impl Repository {
         request: &TextQuery,
         mut on_hit: impl FnMut(usize, &TextHit) -> Result<()>,
     ) -> Result<TextQueryStreamSummary> {
-        let request = Self::normalized_text_sort(request)?;
+        let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
             let result = self.search_text_sorted(&request, &mut |_| Ok(()))?;
             for (index, hit) in result.hits.iter().enumerate() {
@@ -284,7 +284,7 @@ impl Repository {
         request: &TextQuery,
         mut on_page: impl FnMut(&[TextHit]) -> Result<()>,
     ) -> Result<TextQueryStreamSummary> {
-        let request = Self::normalized_text_sort(request)?;
+        let request = Self::normalized_filter_sort(request)?;
         if request.sort.is_empty() {
             let mut page = Vec::new();
             return self.search_text_stream(&request, |_, hit| {
@@ -303,24 +303,19 @@ impl Repository {
         })
     }
 
-    fn normalized_text_sort(request: &TextQuery) -> Result<TextQuery> {
-        let (pattern, inline) = split_sort_clause(&request.pattern)?;
-        if !inline.is_empty() && !request.sort.is_empty() {
-            return Err(Error::Request(
-                "sort specified both in search text and request".into(),
-            ));
-        }
+    fn normalized_filter_sort(request: &TextQuery) -> Result<TextQuery> {
         let mut request = request.clone();
-        request.pattern =
-            if !inline.is_empty() && pattern.starts_with('"') && pattern.ends_with('"') {
-                serde_json::from_str::<String>(&pattern).map_err(|error| {
-                    Error::Request(format!("invalid quoted search pattern: {error}"))
-                })?
-            } else {
-                pattern
-            };
-        if !inline.is_empty() {
-            request.sort = inline;
+        if let Some(filter) = request.filter.as_ref() {
+            let (predicate, inline) = split_sort_clause(filter)?;
+            if !inline.is_empty() && !request.sort.is_empty() {
+                return Err(Error::Request(
+                    "sort specified both in JSON filter and request".into(),
+                ));
+            }
+            request.filter = Some(predicate);
+            if !inline.is_empty() {
+                request.sort = inline;
+            }
         }
         Ok(request)
     }

@@ -21,8 +21,8 @@ mod json_filter;
 mod query;
 mod repository;
 mod schema;
-mod source;
 mod sorting;
+mod source;
 mod text;
 mod validation;
 mod view_definition;
@@ -50,7 +50,7 @@ pub use repository::{
     RecordRelation, RecordRevision, References, Repository, RepositoryBuilder, TargetState,
 };
 pub use schema::{Field, PathStep, SortReduce, TextFormat, ValueType};
-pub use sorting::split_sort_clause;
+pub use sorting::{parse_sort_terms, split_sort_clause};
 pub use text::{TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary};
 pub use view_definition::{
     NamedViewResult, ViewArgument, ViewArgumentType, ViewDefinition, ViewQuery, ViewQueryResult,

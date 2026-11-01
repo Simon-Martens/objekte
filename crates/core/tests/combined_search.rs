@@ -1,4 +1,4 @@
-use objekte_core::{CacheMode, Options, Repository, TextMode, TextQuery};
+use objekte_core::{CacheMode, Direction, Options, Repository, Sort, TextMode, TextQuery};
 use serde_json::json;
 use std::{collections::BTreeMap, fs, path::Path};
 
@@ -38,6 +38,10 @@ fn fixture() -> tempfile::TempDir {
             json!({"year":1800,"title":"Auto","body":"water lake"}).to_string(),
         ),
         ("e", "{\"year\":1800,\"body\":\"Water\"".to_owned()),
+        (
+            "f",
+            json!({"year":1900,"body":"Water SORT BY title"}).to_string(),
+        ),
     ] {
         fs::write(docs.join(format!("{id}.json")), content).unwrap();
     }
@@ -91,9 +95,14 @@ fn filter_runs_before_text_with_cache_and_direct_scan() {
         query.mode = TextMode::RegexClean;
         query.pattern = "(?i)water.*".into();
         assert_eq!(ids(&mut repo, &query), ["a", "d"]);
-        query.pattern = "Water SORT BY title DESC".into();
+        query.pattern = "Water".into();
+        query.sort = vec![Sort {
+            field: "title".into(),
+            direction: Direction::Desc,
+        }];
         assert_eq!(ids(&mut repo, &query), ["a", "d"]);
         query.pattern = "Water".into();
+        query.sort.clear();
         query.mode = TextMode::Word;
         query.offset = 1;
         query.limit = 1;
@@ -117,6 +126,36 @@ fn filter_runs_before_text_with_cache_and_direct_scan() {
             assert_eq!(result.hits[0].record.id, "d");
             assert_eq!(restored.metrics().bigram_snapshot_loads, 1);
         }
+    }
+}
+
+#[test]
+fn fts_pattern_is_literal_and_mixed_filter_sort_uses_final_matches() {
+    let temp = fixture();
+    for cache in [CacheMode::Memory, CacheMode::Disabled] {
+        let mut repo = open(temp.path(), cache);
+        let literal = TextQuery {
+            pattern: "Water SORT BY title".into(),
+            ..Default::default()
+        };
+        assert_eq!(ids(&mut repo, &literal), ["f"]);
+        let mut query = TextQuery {
+            pattern: "Water".into(),
+            filter: Some("year = 1800 SORT BY title ASC".into()),
+            count: true,
+            limit: 1,
+            ..Default::default()
+        };
+        let result = repo.search_text(&query).unwrap();
+        assert_eq!(result.total, Some(2));
+        assert_eq!(result.hits[0].record.id, "d");
+        query.offset = 1;
+        assert_eq!(ids(&mut repo, &query), ["a"]);
+        query.sort = vec![Sort {
+            field: "title".into(),
+            direction: Direction::Asc,
+        }];
+        assert!(repo.search_text(&query).is_err());
     }
 }
 
