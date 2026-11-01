@@ -34,13 +34,13 @@ fn indexes_decoded_values_with_stable_slots_and_targeted_updates() {
     picker.refresh_id("a").unwrap();
     assert_eq!(picker.revision("a"), Some(a_revision + 1));
     assert_eq!(picker.position("a").map(|p| picker.sorted[p]), Ok(a_slot));
-    // The old posting remains in the immutable index; the changed slot is
-    // included conservatively until rebuild and exact matching checks it.
-    assert!(ids(&picker, Some(&["Moon".into()])).contains(&"a".into()));
+    // The changed slot uses its current overlay bigrams despite the old
+    // posting remaining in the immutable index.
+    assert!(!ids(&picker, Some(&["Moon".into()])).contains(&"a".into()));
     assert!(ids(&picker, Some(&["Sunrise".into()])).contains(&"a".into()));
 
     let source = Source::open(picker.root()).unwrap();
-    picker.rebuild_index_from_source(&source).unwrap();
+    picker.rebuild_index_from_source(&source, None).unwrap();
     assert_eq!(ids(&picker, Some(&["Moon".into()])), vec!["b"]);
     assert_eq!(ids(&picker, Some(&["Sunrise".into()])), vec!["a"]);
 
@@ -81,9 +81,9 @@ fn record_candidates_follow_id_order_across_changed_and_deleted_slots() {
         .into_iter()
         .map(|(id, _)| id)
         .collect::<Vec<_>>();
-    // The changed "a" bypasses its stale posting exactly once. The appended
+    // The changed "a" no longer matches its stale posting. The appended
     // "aa" slot sorts before the older "b" slot and deleted "c" stays out.
-    assert_eq!(ids, ["a", "aa", "b"]);
+    assert_eq!(ids, ["aa", "b"]);
 }
 
 #[test]
@@ -116,7 +116,7 @@ fn inventory_refresh_tracks_additions_removals_and_changes() {
             .any(|&slot| picker.id(slot) == Some("a"))
     );
     let source = Source::open(picker.root()).unwrap();
-    picker.rebuild_index_from_source(&source).unwrap();
+    picker.rebuild_index_from_source(&source, None).unwrap();
     assert!(ids(&picker, Some(&["Alpha".into()])).contains(&"a".into()));
     assert_eq!(picker.files.len(), picker.len());
     assert_eq!(picker.revision("a"), Some(revision + 1));

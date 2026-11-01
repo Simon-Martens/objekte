@@ -51,6 +51,32 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
 }
 
 #[test]
+fn cache_shortcuts_save_and_reindex_in_the_background() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    for (key_code, expected) in [
+        (KeyCode::Char('s'), warm::WarmMode::Save),
+        (KeyCode::Char('r'), warm::WarmMode::Reindex),
+    ] {
+        press(&mut app, key_code, KeyModifiers::ALT);
+        let mode = app.pending_cache_action.take().unwrap();
+        assert!(mode == expected);
+        app.index_status = Some("Working".into());
+        for update in warm::start(app.repo, mode) {
+            let ready = matches!(update, warm::WarmUpdate::Ready(..));
+            apply_warm_update(&mut app, update);
+            if ready {
+                break;
+            }
+        }
+        assert!(app.repo.bigram_cache_path("@root").unwrap().is_file());
+        assert!(app.index_status.is_none());
+    }
+}
+
+#[test]
 fn inference_prompt_queues_selected_or_all_collections_and_advanced_index_choice() {
     let temp = tempfile::tempdir().unwrap();
     for collection in ["docs", "notes"] {
@@ -226,7 +252,7 @@ fn index_warmup_keeps_input_available_and_runs_the_queued_search() {
         fs::write(folder.join("a.json"), format!(r#"{{"note":"{value}"}}"#)).unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
-    let updates = warm::start(&repo);
+    let updates = warm::start(&repo, warm::WarmMode::Warm);
     let mut app = App::new(&mut repo);
     app.index_status = Some("Building indexes · 0/2 collections ready".into());
     app.input.text = "Moon".into();
@@ -241,7 +267,7 @@ fn index_warmup_keeps_input_available_and_runs_the_queued_search() {
 
     loop {
         let update = updates.recv_timeout(Duration::from_secs(5)).unwrap();
-        let ready = matches!(update, warm::WarmUpdate::Ready(_));
+        let ready = matches!(update, warm::WarmUpdate::Ready(..));
         apply_warm_update(&mut app, update);
         if ready {
             break;

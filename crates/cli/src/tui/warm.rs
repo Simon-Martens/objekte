@@ -9,13 +9,25 @@ use std::{
 
 /// Progress from the worker, followed by one final repository or error.
 pub(super) enum WarmUpdate {
-    Progress { completed: usize, total: usize },
-    Ready(Box<Repository>),
+    Progress {
+        completed: usize,
+        total: usize,
+        mode: WarmMode,
+    },
+    Ready(Box<Repository>, WarmMode),
     Failed(String),
 }
 
 
-pub(super) fn start(repo: &Repository) -> Receiver<WarmUpdate> {
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub(super) enum WarmMode {
+    Warm,
+    Save,
+    Reindex,
+}
+
+
+pub(super) fn start(repo: &Repository, mode: WarmMode) -> Receiver<WarmUpdate> {
     let mut building = repo.fork_unindexed();
     let names = building
         .model()
@@ -27,7 +39,12 @@ pub(super) fn start(repo: &Repository) -> Receiver<WarmUpdate> {
     let (sender, receiver) = mpsc::channel();
     thread::spawn(move || {
         for (index, name) in names.iter().enumerate() {
-            if let Err(error) = building.warm_bigram_index(name) {
+            let result = match mode {
+                WarmMode::Warm => building.warm_bigram_index(name).map(|_| ()),
+                WarmMode::Save => building.save_bigram_cache(name).map(|_| ()),
+                WarmMode::Reindex => building.reindex_bigram_cache(name).map(|_| ()),
+            };
+            if let Err(error) = result {
                 let _ = sender.send(WarmUpdate::Failed(error.to_string()));
                 return;
             }
@@ -35,13 +52,14 @@ pub(super) fn start(repo: &Repository) -> Receiver<WarmUpdate> {
                 .send(WarmUpdate::Progress {
                     completed: index + 1,
                     total,
+                    mode,
                 })
                 .is_err()
             {
                 return;
             }
         }
-        let _ = sender.send(WarmUpdate::Ready(Box::new(building)));
+        let _ = sender.send(WarmUpdate::Ready(Box::new(building), mode));
     });
     receiver
 }

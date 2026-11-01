@@ -22,7 +22,7 @@ pub(super) fn run<T: Send>(work: impl FnOnce() -> Result<T> + Send) -> Result<T>
             .map_err(|error| Error::Cache(format!("cannot start index scan workers: {error}")))?;
 
         let result = pool.install(work);
-        // Sonic's parser and FFF keep scratch buffers in thread-local storage.
+        // Sonic's parser and the bigram builder keep thread-local scratch buffers.
         // Dropping Rayon alone requests shutdown. Explicit joins wait for TLS
         // destructors as well, before the ready index reaches its caller.
         drop(pool);

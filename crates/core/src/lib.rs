@@ -9,6 +9,7 @@
 //! repository.refresh("places")?;
 //! # Ok::<(), objekte_core::Error>(())
 //! ```
+pub mod bigram;
 mod config;
 mod config_snapshot;
 mod error;

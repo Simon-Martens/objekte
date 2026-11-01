@@ -26,6 +26,8 @@ Usage:
   objekte REPOSITORY cache refresh --collection NAME
   objekte REPOSITORY cache warm [--collection NAME]
   objekte REPOSITORY cache rebuild [--collection NAME]
+  objekte REPOSITORY cache save [--collection NAME]
+  objekte REPOSITORY cache reindex [--collection NAME]
   objekte REPOSITORY cache warm-text [--collection NAME]
   objekte REPOSITORY cache rebuild-text [--collection NAME]
   objekte REPOSITORY cache validate --collection NAME
@@ -48,7 +50,8 @@ Options:
   --field PATH                    Limit full-text search to a JSON leaf path
   --case-sensitive                Match case exactly in full-text search
                                   TUI: Tab changes mode; Ctrl+Tab changes collection;
-                                  Ctrl+R/F/E change regex, text, and word-case options
+                                  Ctrl+R/F/E change regex, text, and word-case options;
+                                  Alt+S saves indexes; Alt+R reindexes and saves
   --help, --version
 
 Examples:

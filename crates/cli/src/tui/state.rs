@@ -1,6 +1,7 @@
 //! Search state, keyboard editing, and page navigation for the terminal UI.
 
 use super::navigation::DetailLinks;
+use super::warm::WarmMode;
 use objekte_core::{
     InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Record, Repository,
     TextHit, TextMode, TextQuery,
@@ -230,6 +231,7 @@ pub(super) struct App<'a> {
     pub(super) links: DetailLinks,
     pub(super) message: String,
     pub(super) index_status: Option<String>,
+    pub(super) pending_cache_action: Option<WarmMode>,
     pub(super) queued_search: bool,
     pub(super) infer_all: bool,
     pub(super) infer_auto_index: bool,
@@ -271,9 +273,9 @@ impl<'a> App<'a> {
             column_offset: 0,
             detail_scroll: 0,
             links: DetailLinks::default(),
-            message: "Search all collections. Enter a phrase, or press Alt+I to infer fields."
-                .into(),
+            message: "Search all collections. Alt+S saves indexes; Alt+R reindexes all.".into(),
             index_status: None,
+            pending_cache_action: None,
             queued_search: false,
             infer_all: false,
             infer_auto_index: true,

@@ -1,7 +1,7 @@
 //! Regex-to-bigram candidate planning adapted from FFF at d1c7dd47 (MIT).
-//! See FFF-LICENSE. FFF's private column evaluator is replaced with the
-//! public `BigramFilter::query` API; an unavailable posting means scan all.
-use fff_search::bigram_filter::BigramFilter;
+//! See `../bigram/LICENSE`. FFF's private column evaluator is replaced with
+//! the local `BigramFilter::query` API; an unavailable posting means scan all.
+use crate::bigram::BigramFilter;
 use regex_syntax::hir::{Class, Hir, HirKind};
 use smallvec::SmallVec;
 
@@ -89,6 +89,15 @@ fn bitset_and(a: &mut [u64], b: &[u64]) {
 
 
 impl BigramQuery {
+    fn matches_overlay(&self, keys: &[u16]) -> bool {
+        match self {
+            Self::Any | Self::Skip1(_) => true,
+            Self::Consec(key) => keys.binary_search(key).is_ok(),
+            Self::And(children) => children.iter().all(|child| child.matches_overlay(keys)),
+            Self::Or(children) => children.iter().any(|child| child.matches_overlay(keys)),
+        }
+    }
+
     fn is_any(&self) -> bool {
         matches!(self, BigramQuery::Any)
     }
@@ -136,6 +145,20 @@ impl BigramQuery {
                 result
             }
         }
+    }
+}
+
+
+pub(super) struct OverlayQuery(BigramQuery);
+
+
+impl OverlayQuery {
+    pub(super) fn new(pattern: &str) -> Self {
+        Self(regex_to_bigram_query(pattern))
+    }
+
+    pub(super) fn matches(&self, keys: &[u16]) -> bool {
+        self.0.matches_overlay(keys)
     }
 }
 

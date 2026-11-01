@@ -1,6 +1,6 @@
 //! Candidate-planner correctness tests.
 use super::*;
-use fff_search::bigram_filter::BigramIndexBuilder;
+use crate::bigram::BigramIndexBuilder;
 
 /// Build a tiny index from the given file contents for testing.
 fn build_test_index(files: &[&[u8]]) -> BigramFilter {

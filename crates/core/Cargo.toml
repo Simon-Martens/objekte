@@ -8,6 +8,7 @@ license.workspace = true
 index-timings = []
 
 [dependencies]
+ahash = "0.8"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["arbitrary_precision"] }
 sonic-rs = { version = "0.5.10", features = ["arbitrary_precision"] }
@@ -20,7 +21,6 @@ rayon = "1.11"
 grep-regex = "0.1"
 grep-searcher = "0.1"
 regex = "1"
-fff-search = { git = "https://github.com/dmtrKovalenko/fff.git", rev = "d1c7dd47130ca670ab71e7466a1a3b4a57d5348d" }
 regex-syntax = "0.8"
 smallvec = "1"
 unicode-casefold = "0.2"
@@ -31,6 +31,7 @@ tempfile = "3"
 
 [target.'cfg(unix)'.dependencies]
 rustix = { version = "1.1", features = ["fs"] }
+libc = "0.2"
 
 [dev-dependencies]
 tempfile = "3"

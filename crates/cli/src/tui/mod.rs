@@ -52,6 +52,30 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         app.open_inference();
         return;
     }
+    if key.modifiers.contains(KeyModifiers::ALT)
+        && matches!(app.focus, Focus::Query | Focus::Results)
+        && matches!(key.code, KeyCode::Char('s' | 'S' | 'r' | 'R'))
+    {
+        if app.index_status.is_some() {
+            app.message = "Index work is already running.".into();
+        } else {
+            let mode = if matches!(key.code, KeyCode::Char('s' | 'S')) {
+                warm::WarmMode::Save
+            } else {
+                warm::WarmMode::Reindex
+            };
+            let search_again = !app.input.text.trim().is_empty();
+            app.invalidate_results();
+            app.queued_search = search_again;
+            app.pending_cache_action = Some(mode);
+            app.message = if mode == warm::WarmMode::Save {
+                "Saving bigram caches…".into()
+            } else {
+                "Reindexing all collections…".into()
+            };
+        }
+        return;
+    }
     if matches!(app.focus, Focus::ExportAll | Focus::ExportOne) {
         match key.code {
             KeyCode::Esc => app.focus = app.export_return_focus,
@@ -236,18 +260,34 @@ fn pending_message(app: &App<'_>, pressed: KeyEvent) -> Option<&'static str> {
 
 fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
     match update {
-        warm::WarmUpdate::Progress { completed, total } => {
+        warm::WarmUpdate::Progress {
+            completed,
+            total,
+            mode,
+        } => {
+            let action = if mode == warm::WarmMode::Reindex {
+                "Reindexing"
+            } else if mode == warm::WarmMode::Save {
+                "Saving"
+            } else {
+                "Building"
+            };
             app.index_status = Some(format!(
-                "Building indexes · {completed}/{total} collections ready"
+                "{action} indexes · {completed}/{total} collections ready"
             ));
         }
-        warm::WarmUpdate::Ready(mut built) => {
+        warm::WarmUpdate::Ready(mut built, mode) => {
             std::mem::swap(app.repo, &mut *built);
             app.index_status = None;
             if app.queued_search {
                 app.search();
             } else {
-                app.message = "Indexes ready. Enter a query to search.".into();
+                app.message = match mode {
+                    warm::WarmMode::Warm => "Indexes ready. Enter a query to search.",
+                    warm::WarmMode::Save => "Bigram caches saved.",
+                    warm::WarmMode::Reindex => "All indexes rebuilt and saved.",
+                }
+                .into();
             }
         }
         warm::WarmUpdate::Failed(error) => {
@@ -277,7 +317,7 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
     }
     let result = (|| -> Result<(), Box<dyn Error>> {
         let total = repo.model().collections.len();
-        let updates = warm::start(repo);
+        let mut updates = warm::start(repo, warm::WarmMode::Warm);
         let mut app = App::new(repo);
         let mut searches = search::SearchWorker::default();
         app.async_search = true;
@@ -308,6 +348,14 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
                     terminal.draw(|frame| render::draw(frame, &app))?;
                 }
                 key(&mut app, pressed);
+                if let Some(mode) = app.pending_cache_action.take() {
+                    updates = warm::start(app.repo, mode);
+                    app.index_status = Some(if mode == warm::WarmMode::Save {
+                        "Saving indexes · 0 collections ready".into()
+                    } else {
+                        "Reindexing indexes · 0 collections ready".into()
+                    });
+                }
             }
         }
         Ok(())

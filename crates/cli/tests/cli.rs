@@ -64,6 +64,22 @@ fn cache_warm_and_rebuild_report_metrics_for_one_or_all_collections() {
 }
 
 #[test]
+fn cache_save_and_reindex_write_repository_owned_snapshots() {
+    let f = Fixture::new();
+    let p = f.root.to_str().unwrap();
+    let saved = value(run(&f, &[p, "cache", "save"]));
+    assert_eq!(saved.as_object().unwrap().len(), 3);
+    for path in saved.as_object().unwrap().values() {
+        let path = std::path::Path::new(path.as_str().unwrap());
+        assert!(path.starts_with(f.root.join(".objekte/.cache")));
+        assert!(path.is_file());
+    }
+    let reindexed = value(run(&f, &[p, "cache", "reindex", "--collection", "books"]));
+    assert_eq!(reindexed["books"], saved["books"]);
+    assert!(std::path::Path::new(reindexed["books"].as_str().unwrap()).is_file());
+}
+
+#[test]
 fn default_cache_uses_memory_for_views_and_queries() {
     let f = Fixture::new();
     let p = f.root.to_str().unwrap();

@@ -17,13 +17,15 @@ mod text;
 mod typed;
 mod view;
 
+use crate::bigram::{
+    BigramFile, BigramFilter, BigramIndexBuilder, BigramSnapshot, extract_bigrams,
+};
 use crate::{
     Direction, Error, Field, IndexField, Result,
     error::io,
     query::Operator,
     source::{Source, Stamp},
 };
-use fff_search::bigram_filter::{BigramFilter, BigramIndexBuilder};
 use rayon::prelude::*;
 use std::{
     collections::{BTreeMap, BTreeSet},
@@ -49,6 +51,12 @@ use text::{TextIndex, TextIndexBuilders, project_malformed_text};
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
+fn sorted_bigrams(bytes: &[u8]) -> Vec<u16> {
+    let mut keys = extract_bigrams(bytes);
+    keys.sort_unstable();
+    keys
+}
+
 
 /// Stable slot metadata for one source JSON file.
 #[derive(Debug, Clone)]
@@ -58,6 +66,15 @@ struct FileEntry {
     stamp: Stamp,
     revision: u64,
     changed_at_nanos: u128,
+}
+
+
+struct RestoredBigram {
+    filter: BigramFilter,
+    changed: BTreeSet<usize>,
+    changed_bigrams: BTreeMap<usize, Vec<u16>>,
+    newly_changed: BTreeSet<usize>,
+    dirty: bool,
 }
 
 
@@ -86,7 +103,10 @@ pub struct FilePicker {
     sorted: Vec<usize>,
     tombstones: BTreeMap<String, (u64, u128)>,
     indexed_len: usize,
+    loaded_snapshot: bool,
+    snapshot_dirty: bool,
     changed: BTreeSet<usize>,
+    changed_bigrams: BTreeMap<usize, Vec<u16>>,
     malformed: BTreeSet<usize>,
     array_fields: BTreeSet<String>,
     key_summary: KeySummary,
@@ -105,7 +125,7 @@ pub struct FilePicker {
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, false, &[], &[], &BTreeMap::new())
+        Self::open_with_indexes(root, false, &[], &[], &BTreeMap::new(), None)
     }
 
     pub(crate) fn open_with_indexes(
@@ -114,12 +134,53 @@ impl FilePicker {
         indexes: &[IndexField],
         advanced_paths: &[crate::JsonPath],
         definitions: &BTreeMap<String, Field>,
+        snapshot: Option<BigramSnapshot>,
     ) -> Result<Self> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
         let inventory_started = Instant::now();
         let inventory = source.inventory()?;
+        let current_commit = if snapshot.is_some() {
+            BigramSnapshot::current_git_commit(&root)?
+        } else {
+            None
+        };
+        let restored = snapshot.and_then(|snapshot| {
+            if snapshot.files.len() != inventory.len()
+                || !snapshot
+                    .files
+                    .iter()
+                    .zip(inventory.iter())
+                    .all(|(file, (id, _))| file.id == *id && file.filename == format!("{id}.json"))
+            {
+                return None;
+            }
+            let mut changed = snapshot.changed_slots.into_iter().collect::<BTreeSet<_>>();
+            let mut changed_bigrams = snapshot.changed_bigrams;
+            let previous = changed.len();
+            let mut newly_changed = BTreeSet::new();
+            for (slot, (file, (_, stamp))) in
+                snapshot.files.iter().zip(inventory.iter()).enumerate()
+            {
+                if file.size_bytes != stamp.size
+                    || file.modified_unix_nanos != stamp.modified
+                    || file.identity != stamp.identity
+                {
+                    changed.insert(slot);
+                    newly_changed.insert(slot);
+                    changed_bigrams.remove(&slot);
+                }
+            }
+            let dirty = changed.len() != previous || snapshot.git_commit != current_commit;
+            Some(RestoredBigram {
+                filter: snapshot.filter,
+                changed,
+                changed_bigrams,
+                newly_changed,
+                dirty,
+            })
+        });
         #[cfg(feature = "index-timings")]
         let inventory_nanos = elapsed_nanos(inventory_started);
         let mut indexed_fields = indexes
@@ -138,7 +199,10 @@ impl FilePicker {
             sorted: Vec::with_capacity(inventory.len()),
             tombstones: BTreeMap::new(),
             indexed_len: 0,
+            loaded_snapshot: restored.is_some(),
+            snapshot_dirty: restored.as_ref().is_some_and(|restored| restored.dirty),
             changed: BTreeSet::new(),
+            changed_bigrams: BTreeMap::new(),
             malformed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
             key_summary: KeySummary::default(),
@@ -169,7 +233,7 @@ impl FilePicker {
         {
             picker.build_timings.slots_nanos = elapsed_nanos(slots_started);
         }
-        picker.rebuild_index_from_source(&source)?;
+        picker.rebuild_index_from_source(&source, restored)?;
         source.finish()?;
         picker.build_postings(advanced_paths)?;
         Ok(picker)
@@ -185,6 +249,53 @@ impl FilePicker {
 
     pub fn is_empty(&self) -> bool {
         self.sorted.is_empty()
+    }
+
+    /// Save the compressed normal bigram filter and its exact file-slot table.
+    /// Rebuild first if source changes currently live in the overlay.
+    pub fn save_bigram_snapshot(&self, path: &Path) -> Result<()> {
+        if self.indexed_len != self.files.len() || self.files.iter().any(Option::is_none) {
+            return Err(Error::Cache(
+                "rebuild the bigram index before saving a snapshot".into(),
+            ));
+        }
+        let files = self
+            .files
+            .iter()
+            .enumerate()
+            .map(|(slot, entry)| {
+                let entry = entry.as_ref().expect("checked file table");
+                let id = self.id(slot).expect("live snapshot slot").to_owned();
+                BigramFile {
+                    filename: format!("{id}.json"),
+                    id,
+                    size_bytes: entry.stamp.size,
+                    modified_unix_nanos: entry.stamp.modified.clone(),
+                    identity: entry.stamp.identity.clone(),
+                }
+            })
+            .collect::<Vec<_>>();
+        BigramSnapshot::save_filter_with_changes(
+            path,
+            &self.root,
+            self.recursive,
+            &files,
+            &self.changed.iter().copied().collect::<Vec<_>>(),
+            &self.changed_bigrams,
+            &self.index,
+        )
+    }
+
+    pub(crate) fn loaded_snapshot(&self) -> bool {
+        self.loaded_snapshot
+    }
+
+    pub(crate) fn snapshot_dirty(&self) -> bool {
+        self.snapshot_dirty
+    }
+
+    pub(crate) fn can_save_bigram_snapshot(&self) -> bool {
+        self.indexed_len == self.files.len() && self.files.iter().all(Option::is_some)
     }
 
     pub(crate) fn sorted_slots(&self) -> &[usize] {
@@ -280,7 +391,7 @@ impl FilePicker {
                             &[],
                             self.presence.fields(),
                             &self.view,
-                            false,
+                            true,
                         )?;
                         let keys = projection
                             .as_ref()
@@ -305,6 +416,12 @@ impl FilePicker {
                         entry.revision += 1;
                         entry.changed_at_nanos = now_nanos();
                         self.changed.insert(slot);
+                        if let Some(projection) = projection.as_ref() {
+                            self.changed_bigrams
+                                .insert(slot, sorted_bigrams(&projection.bytes));
+                        } else {
+                            self.changed_bigrams.remove(&slot);
+                        }
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                         changed += 1;
                     }
@@ -317,7 +434,7 @@ impl FilePicker {
                         &[],
                         self.presence.fields(),
                         &self.view,
-                        false,
+                        true,
                     )?;
                     let keys = projection
                         .as_ref()
@@ -356,6 +473,7 @@ impl FilePicker {
                 self.tombstones
                     .insert(id, (entry.revision + 1, now_nanos()));
                 self.changed.remove(&slot);
+                self.changed_bigrams.remove(&slot);
                 self.malformed.remove(&slot);
                 self.presence.remove(slot);
                 self.view.remove(slot);
@@ -396,7 +514,7 @@ impl FilePicker {
                                 &[],
                                 self.presence.fields(),
                                 &self.view,
-                                false,
+                                true,
                             )?;
                             let keys = projection
                                 .as_ref()
@@ -421,6 +539,12 @@ impl FilePicker {
                             entry.revision += 1;
                             entry.changed_at_nanos = now_nanos();
                             self.changed.insert(slot);
+                            if let Some(projection) = projection.as_ref() {
+                                self.changed_bigrams
+                                    .insert(slot, sorted_bigrams(&projection.bytes));
+                            } else {
+                                self.changed_bigrams.remove(&slot);
+                            }
                             self.view.update(slot, keys, &self.files, &self.id_bytes);
                         }
                     }
@@ -432,7 +556,7 @@ impl FilePicker {
                             &[],
                             self.presence.fields(),
                             &self.view,
-                            false,
+                            true,
                         )?;
                         let keys = projection
                             .as_ref()
@@ -463,6 +587,7 @@ impl FilePicker {
                             .insert(id.to_owned(), (entry.revision + 1, now_nanos()));
                     }
                     self.changed.remove(&slot);
+                    self.changed_bigrams.remove(&slot);
                     self.malformed.remove(&slot);
                     self.presence.remove(slot);
                     self.view.remove(slot);
@@ -475,6 +600,14 @@ impl FilePicker {
 
     /// Conservative candidates for an OR of necessary literal fragments.
     /// `None` means no safe prefilter; a missing posting also means scan all.
+    fn changed_matches_literal(&self, slot: usize, literal: &str) -> bool {
+        let Some(keys) = self.changed_bigrams.get(&slot) else {
+            return true;
+        };
+        let required = extract_bigrams(literal.as_bytes());
+        required.iter().all(|key| keys.binary_search(key).is_ok())
+    }
+
     fn candidates(&self, literals: Option<&[String]>) -> Vec<usize> {
         let Some(literals) = literals.filter(|terms| !terms.is_empty()) else {
             return self.sorted.clone();
@@ -490,11 +623,17 @@ impl FilePicker {
             .iter()
             .copied()
             .filter(|&slot| {
-                slot >= self.indexed_len
-                    || self.changed.contains(&slot)
-                    || bitsets
+                if slot >= self.indexed_len {
+                    true
+                } else if self.changed.contains(&slot) {
+                    literals
+                        .iter()
+                        .any(|literal| self.changed_matches_literal(slot, literal))
+                } else {
+                    bitsets
                         .iter()
                         .any(|bits| BigramFilter::is_candidate(bits, slot))
+                }
             })
             .collect()
     }
@@ -520,16 +659,22 @@ impl FilePicker {
     }
 
     fn regex_candidate_slots(&self, pattern: &str) -> Vec<usize> {
-        let Some(bits) = regex_plan::candidates(&self.index, pattern) else {
-            return self.sorted.clone();
-        };
+        let bits = regex_plan::candidates(&self.index, pattern);
+        let overlay = regex_plan::OverlayQuery::new(pattern);
         self.sorted
             .iter()
             .copied()
             .filter(|&slot| {
-                slot >= self.indexed_len
-                    || self.changed.contains(&slot)
-                    || BigramFilter::is_candidate(&bits, slot)
+                if slot >= self.indexed_len {
+                    true
+                } else if self.changed.contains(&slot) {
+                    self.changed_bigrams
+                        .get(&slot)
+                        .is_none_or(|keys| overlay.matches(keys))
+                } else {
+                    bits.as_ref()
+                        .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
+                }
             })
             .collect()
     }
@@ -541,6 +686,7 @@ impl FilePicker {
         required_fields: &[String],
     ) -> Vec<(&str, &Stamp)> {
         let bits = pattern.and_then(|regex| regex_plan::candidates(&self.index, regex));
+        let overlay = pattern.map(regex_plan::OverlayQuery::new);
         let typed_bits = self
             .typed
             .candidate_bits(typed_plan, self.files.len(), &self.changed);
@@ -609,11 +755,16 @@ impl FilePicker {
             .iter()
             .copied()
             .filter(|&slot| {
-                let text_match = bits.as_ref().is_none_or(|bits| {
-                    slot >= self.indexed_len
-                        || self.changed.contains(&slot)
-                        || BigramFilter::is_candidate(bits, slot)
-                });
+                let text_match = if slot >= self.indexed_len {
+                    true
+                } else if self.changed.contains(&slot) {
+                    self.changed_bigrams
+                        .get(&slot)
+                        .is_none_or(|keys| overlay.as_ref().is_none_or(|query| query.matches(keys)))
+                } else {
+                    bits.as_ref()
+                        .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
+                };
                 let typed_match = typed_bits
                     .as_ref()
                     .is_none_or(|bits| bits[slot / 64] & (1 << (slot % 64)) != 0);
@@ -673,10 +824,14 @@ impl FilePicker {
     /// before and after every read so a racing edit cannot publish a bad index.
     pub fn rebuild_index(&mut self) -> Result<()> {
         let source = Source::open_scoped(&self.root, self.recursive)?;
-        self.rebuild_index_from_source(&source)
+        self.rebuild_index_from_source(&source, None)
     }
 
-    fn rebuild_index_from_source(&mut self, source: &Source) -> Result<()> {
+    fn rebuild_index_from_source(
+        &mut self,
+        source: &Source,
+        restored: Option<RestoredBigram>,
+    ) -> Result<()> {
         // A fresh picker already has compact ID-ordered slots. Later edits can
         // append slots or leave holes, in which case rebuild must compact them.
         #[cfg(feature = "index-timings")]
@@ -715,6 +870,7 @@ impl FilePicker {
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
         let key_summary = std::sync::Mutex::new(KeySummary::default());
         let malformed = std::sync::Mutex::new(BTreeSet::new());
+        let overlay_bigrams = std::sync::Mutex::new(BTreeMap::new());
         let indexed_fields = self.typed.fields();
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
         let presence_fields = self.presence.fields();
@@ -785,10 +941,34 @@ impl FilePicker {
                                     text.push('\u{1f}');
                                     text.push_str(&folded);
                                 }
-                                main.add_file_content(&skip, slot, text.as_bytes());
+                                if restored.is_none() {
+                                    main.add_file_content(&skip, slot, text.as_bytes());
+                                } else if restored
+                                    .as_ref()
+                                    .is_some_and(|restored| restored.newly_changed.contains(&slot))
+                                {
+                                    let mut keys = extract_bigrams(text.as_bytes());
+                                    keys.sort_unstable();
+                                    overlay_bigrams
+                                        .lock()
+                                        .expect("overlay bigram lock")
+                                        .insert(slot, keys);
+                                }
                             }
                             ProjectionOutcome::Valid(projection) => {
-                                main.add_file_content(&skip, slot, &projection.bytes);
+                                if restored.is_none() {
+                                    main.add_file_content(&skip, slot, &projection.bytes);
+                                } else if restored
+                                    .as_ref()
+                                    .is_some_and(|restored| restored.newly_changed.contains(&slot))
+                                {
+                                    let mut keys = extract_bigrams(&projection.bytes);
+                                    keys.sort_unstable();
+                                    overlay_bigrams
+                                        .lock()
+                                        .expect("overlay bigram lock")
+                                        .insert(slot, keys);
+                                }
                                 if let (Some(builders), Some(text)) =
                                     (&text_builders, &projection.text)
                                 {
@@ -859,8 +1039,14 @@ impl FilePicker {
 
         #[cfg(feature = "index-timings")]
         let compress_started = Instant::now();
-        let mut index = main.compress(None);
-        index.set_skip_index(skip.compress(Some(12))); // FFF's current skip-index cutoff.
+        let (index, changed, mut changed_bigrams) = if let Some(restored) = restored {
+            (restored.filter, restored.changed, restored.changed_bigrams)
+        } else {
+            let mut index = main.compress(None);
+            index.set_skip_index(skip.compress(Some(12))); // FFF's current skip-index cutoff.
+            (index, BTreeSet::new(), BTreeMap::new())
+        };
+        changed_bigrams.extend(overlay_bigrams.into_inner().expect("overlay bigram lock"));
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.compress_nanos = elapsed_nanos(compress_started);
@@ -873,7 +1059,8 @@ impl FilePicker {
         }
         self.index = index;
         self.indexed_len = self.files.len();
-        self.changed.clear();
+        self.changed = changed;
+        self.changed_bigrams = changed_bigrams;
         self.malformed = malformed.into_inner().expect("malformed lock");
         self.text_index = text_builders.map(TextIndexBuilders::finish);
         self.array_fields = array_fields.into_inner().expect("array field lock");

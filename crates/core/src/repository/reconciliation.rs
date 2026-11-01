@@ -5,6 +5,25 @@ use crate::JsonFilter;
 
 
 impl Repository {
+    pub(in crate::repository) fn autosave_loaded_bigram_cache(
+        &mut self,
+        collection: &str,
+    ) -> Result<()> {
+        let path = self.bigram_cache_path(collection)?;
+        let picker = self
+            .file_pickers
+            .get_mut(collection)
+            .expect("picker exists");
+        if !picker.loaded_snapshot() {
+            return Ok(());
+        }
+        if !picker.can_save_bigram_snapshot() {
+            picker.rebuild_index()?;
+        }
+        let _ = picker.save_bigram_snapshot(&path);
+        Ok(())
+    }
+
     /// Build or rebuild an ordered posting for one JSON path in a collection.
     /// The path uses filter syntax, such as `year` or `contributors[0].type`.
     pub fn build_posting(&mut self, collection: &str, path: &str) -> Result<()> {
@@ -71,6 +90,69 @@ impl Repository {
         self.warm_bigram_index_for(&c)
     }
 
+    /// Save one collection's compressed bigram index and file-slot metadata.
+    /// Call `rebuild_bigram_index` first when an in-memory overlay is present.
+    pub fn save_bigram_snapshot(&mut self, collection: &str, path: &Path) -> Result<()> {
+        self.reload()?;
+        let c = self.collection(collection)?;
+        self.ensure_picker(&c)?;
+        self.file_pickers[collection].save_bigram_snapshot(path)
+    }
+
+    /// Save a collection's current bigram index in `.objekte/.cache`.
+    pub fn save_bigram_cache(&mut self, collection: &str) -> Result<std::path::PathBuf> {
+        self.reload()?;
+        let path = self.bigram_cache_path(collection)?;
+        let c = self.collection(collection)?;
+        self.ensure_picker(&c)?;
+        let picker = self
+            .file_pickers
+            .get_mut(collection)
+            .expect("picker exists");
+        if !picker.can_save_bigram_snapshot() {
+            picker.refresh()?;
+            picker.rebuild_index()?;
+        }
+        picker.save_bigram_snapshot(&path)?;
+        Ok(path)
+    }
+
+    /// Save the current bigram indexes for every collection.
+    pub fn save_all_bigram_caches(&mut self) -> Result<BTreeMap<String, std::path::PathBuf>> {
+        self.reload()?;
+        let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
+        names
+            .iter()
+            .map(|name| Ok((name.clone(), self.save_bigram_cache(name)?)))
+            .collect()
+    }
+
+    /// Read every source record again, rebuild one index, and replace its cache.
+    pub fn reindex_bigram_cache(&mut self, collection: &str) -> Result<std::path::PathBuf> {
+        self.reload()?;
+        let c = self.collection(collection)?;
+        self.ensure_picker(&c)?;
+        let picker = self
+            .file_pickers
+            .get_mut(collection)
+            .expect("picker exists");
+        picker.refresh()?;
+        picker.rebuild_index()?;
+        let path = self.bigram_cache_path(collection)?;
+        self.file_pickers[collection].save_bigram_snapshot(&path)?;
+        Ok(path)
+    }
+
+    /// Rebuild every collection and replace all saved bigram caches.
+    pub fn reindex_all_bigram_caches(&mut self) -> Result<BTreeMap<String, std::path::PathBuf>> {
+        self.reload()?;
+        let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
+        names
+            .iter()
+            .map(|name| Ok((name.clone(), self.reindex_bigram_cache(name)?)))
+            .collect()
+    }
+
     /// Warm every collection's process-local bigram picker, in name order.
     /// Call the single-collection method to report progress between collections.
     pub fn warm_all_bigram_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
@@ -130,7 +212,10 @@ impl Repository {
         match self.options.cache {
             CacheMode::Memory => {
                 if let Some(picker) = self.file_pickers.get_mut(collection) {
-                    picker.refresh()?;
+                    let changed = picker.refresh()?;
+                    if changed > 0 {
+                        self.autosave_loaded_bigram_cache(collection)?;
+                    }
                 } else {
                     self.ensure_picker(&c)?;
                 }

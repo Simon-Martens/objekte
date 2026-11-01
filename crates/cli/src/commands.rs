@@ -49,13 +49,15 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                         | "refresh"
                         | "warm"
                         | "rebuild"
+                        | "save"
+                        | "reindex"
                         | "warm-text"
                         | "rebuild-text"
                         | "validate"
                 )
             ) {
                 return Err(
-                    "cache requires status, refresh-config, refresh, warm, rebuild, warm-text, rebuild-text, or validate"
+                    "cache requires status, refresh-config, refresh, warm, rebuild, save, reindex, warm-text, rebuild-text, or validate"
                         .into(),
                 );
             }
@@ -110,7 +112,14 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             "cache" => {
                 matches!(
                     a.pos[2].as_str(),
-                    "refresh" | "warm" | "rebuild" | "warm-text" | "rebuild-text" | "validate"
+                    "refresh"
+                        | "warm"
+                        | "rebuild"
+                        | "save"
+                        | "reindex"
+                        | "warm-text"
+                        | "rebuild-text"
+                        | "validate"
                 ) && key == "--collection"
             }
             _ => false,
@@ -460,6 +469,22 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 Some(serde_json::to_value(repo.cache_status()?)?)
             } else if a.pos[2] == "refresh-config" {
                 Some(serde_json::to_value(repo.refresh_configuration()?)?)
+            } else if a.pos[2] == "save" {
+                Some(serde_json::to_value(
+                    if let Some(c) = a.values.get("--collection") {
+                        serde_json::json!({c: repo.save_bigram_cache(c)?})
+                    } else {
+                        serde_json::to_value(repo.save_all_bigram_caches()?)?
+                    },
+                )?)
+            } else if a.pos[2] == "reindex" {
+                Some(serde_json::to_value(
+                    if let Some(c) = a.values.get("--collection") {
+                        serde_json::json!({c: repo.reindex_bigram_cache(c)?})
+                    } else {
+                        serde_json::to_value(repo.reindex_all_bigram_caches()?)?
+                    },
+                )?)
             } else if matches!(
                 a.pos[2].as_str(),
                 "warm" | "rebuild" | "warm-text" | "rebuild-text"

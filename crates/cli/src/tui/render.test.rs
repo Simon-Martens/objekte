@@ -17,6 +17,22 @@ fn screen(terminal: &Terminal<TestBackend>) -> String {
 }
 
 #[test]
+fn cache_shortcut_hints_are_visible_in_query_and_results() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    let mut terminal = Terminal::new(TestBackend::new(160, 25)).unwrap();
+    for focus in [Focus::Query, Focus::Results] {
+        app.focus = focus;
+        terminal.draw(|frame| draw(frame, &app)).unwrap();
+        let rendered = screen(&terminal);
+        assert!(rendered.contains("Alt+S"));
+        assert!(rendered.contains("Alt+R"));
+    }
+}
+
+#[test]
 fn advanced_index_prompt_and_post_scan_schema_action_are_visible() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
@@ -64,7 +80,8 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
             .contains("Case: insensitive  Ctrl+E")
     );
     assert!(initial.contains("Search the whole collection"));
-    assert!(initial.lines().last().unwrap().trim().is_empty());
+    assert!(initial.lines().last().unwrap().contains("Alt+S"));
+    assert!(initial.lines().last().unwrap().contains("Alt+R"));
     app.index_status = Some("Building indexes · 0/1 collections ready".into());
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     let warming = screen(&terminal);
@@ -82,7 +99,7 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     let empty = screen(&terminal);
     assert!(empty.contains("No matches · 3.25 ms"));
-    assert!(empty.lines().last().unwrap().trim().is_empty());
+    assert!(empty.lines().last().unwrap().contains("Alt+S"));
 
     app.input.text = "Moon".into();
     app.search();

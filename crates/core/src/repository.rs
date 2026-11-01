@@ -2,6 +2,7 @@
 use crate::{
     Collection, ConfigurationChanges, Error, JsonPath, PathStep, RecordState, RecordStatus,
     RepositoryModel, Result, ValidationMetrics, ViewRequest, ViewResult,
+    bigram::BigramSnapshot,
     config::{Discovery, digest},
     config_snapshot::ConfigurationSnapshot,
     error::{io, record},
@@ -17,7 +18,7 @@ use std::{
     collections::{BTreeMap, BTreeSet},
     fs,
     io::Read,
-    path::Path,
+    path::{Path, PathBuf},
     time::Instant,
 };
 
@@ -127,6 +128,7 @@ metrics!(
     grep_bytes,
     grep_nanos,
     bigram_open_nanos,
+    bigram_snapshot_loads,
     bigram_rebuild_nanos,
     #[cfg(feature = "index-timings")]
     bigram_inventory_nanos,
@@ -337,7 +339,8 @@ impl Repository {
     /// Discovery lists filenames but does not parse records or build indexes.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
         if root.as_ref().join(".editor/repository.json").is_file()
-            && !root.as_ref().join(".objekte").is_dir()
+            && !root.as_ref().join(".objekte/collections").is_dir()
+            && !root.as_ref().join(".objekte/views").is_dir()
         {
             return Ok(Self::from_model(
                 RepositoryModel::load(root.as_ref())?,
@@ -368,6 +371,18 @@ impl Repository {
 
     pub fn model(&self) -> &RepositoryModel {
         &self.model
+    }
+
+    /// Repository-owned path for one collection's bigram snapshot.
+    pub fn bigram_cache_path(&self, collection: &str) -> Result<PathBuf> {
+        self.collection(collection)?;
+        use sha2::{Digest, Sha256};
+        let name = format!("{:x}", Sha256::digest(collection.as_bytes()));
+        Ok(self
+            .model
+            .root
+            .join(".objekte/.cache")
+            .join(format!("bigram-{name}.bin")))
     }
 
     /// Copy parsed configuration into an independent handle with no indexes.

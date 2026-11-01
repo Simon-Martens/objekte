@@ -949,10 +949,23 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
         }
     } else if app.focus == Focus::Query {
         if width < 60 {
-            key_hints(&[("Enter", ""), ("q", "")])
+            key_hints(&[("Enter", ""), ("Alt+S", ""), ("Alt+R", ""), ("q", "")])
         } else {
-            key_hints(&[("Enter", "search"), ("Alt+I", "infer"), ("q", "quit")])
+            key_hints(&[
+                ("Enter", "search"),
+                ("Alt+I", "infer"),
+                ("Alt+S", "save"),
+                ("Alt+R", "reindex"),
+                ("q", "quit"),
+            ])
         }
+    } else if app.hits.is_empty() {
+        key_hints(&[
+            ("Esc", "input"),
+            ("Alt+S", "save"),
+            ("Alt+R", "reindex"),
+            ("q", "quit"),
+        ])
     } else if width < 60 {
         key_hints(&[
             ("↑↓", ""),
@@ -996,6 +1009,8 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
             ("a", "all"),
             ("e", "hit"),
             ("i", "infer"),
+            ("Alt+S", "save"),
+            ("Alt+R", "reindex"),
             ("q", "quit"),
         ])
     }
@@ -1009,7 +1024,7 @@ pub(super) fn draw(frame: &mut Frame, app: &App<'_>) {
     let in_detail = app.focus == Focus::Detail
         || (matches!(app.focus, Focus::ExportAll | Focus::ExportOne)
             && app.export_return_focus == Focus::Detail);
-    let show_footer = app.index_status.is_some() || in_detail || !app.hits.is_empty();
+    let show_footer = true;
     let [header, input, status, body, footer] = Layout::vertical([
         Constraint::Length(if in_detail { 2 } else { 3 }),
         Constraint::Length(if in_detail { 0 } else { 3 }),

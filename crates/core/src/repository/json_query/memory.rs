@@ -57,13 +57,25 @@ impl Repository {
             || matches!(self.options.freshness, Freshness::HashOnRequest);
         if rebuild {
             let started = Instant::now();
+            let cache_path = self.bigram_cache_path(&c.name)?;
+            let cache_present = cache_path.is_file();
+            let snapshot = cache_present
+                .then(|| BigramSnapshot::load_scoped(&cache_path, &c.path, c.recursive).ok())
+                .flatten();
             let mut picker = crate::file_picker::FilePicker::open_with_indexes(
                 &c.path,
                 c.recursive,
                 &c.indexes,
                 &c.advanced_index_paths,
                 &c.fields,
+                snapshot,
             )?;
+            if cache_present && (!picker.loaded_snapshot() || picker.snapshot_dirty()) {
+                let _ = picker.save_bigram_snapshot(&cache_path);
+            }
+            if picker.loaded_snapshot() {
+                self.metrics.bigram_snapshot_loads += 1;
+            }
             if let Some(paths) = self.requested_postings.get(&c.name) {
                 let additional = paths
                     .iter()
@@ -98,10 +110,14 @@ impl Repository {
             }
         } else if self.options.freshness == Freshness::MetadataOnRequest {
             let started = Instant::now();
-            self.file_pickers
+            let changed = self
+                .file_pickers
                 .get_mut(&c.name)
                 .expect("picker exists")
                 .refresh()?;
+            if changed > 0 {
+                self.autosave_loaded_bigram_cache(&c.name)?;
+            }
             self.metrics.bigram_refresh_nanos += nanos(started);
         }
         Ok(())
