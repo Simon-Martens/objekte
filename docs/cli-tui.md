@@ -27,7 +27,7 @@ cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe'
 | a / e | Export all matches or the selected hit |
 | Esc | From an item, return to results; from results, focus the query input; from the input, clear the query and results; cancel export or inference prompt |
 | Backspace in detail | Return to the previously visited linked item, or to results if there is none |
-| q | Quit from any view, including the query input and export prompt |
+| Ctrl+Q | Quit from any view, including the query input and export prompt |
 | Ctrl+C | Leave the UI |
 
 Filter mode shows only **Mode** and **Collection**. Full-text mode also shows **Regex** and **Text** (normalized or full). **Case** appears only when regex is off. Normalized full-text search renders declared Markdown, HTML, and XML, removes formatting, and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the Case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex`, and `raw-regex`.

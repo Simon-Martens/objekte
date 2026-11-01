@@ -126,7 +126,7 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
         "Enter open",
         "a all",
         "e hit",
-        "q quit",
+        "Ctrl+Q quit",
     ] {
         assert!(footer.contains(label), "missing {label} in {footer}");
     }
@@ -135,7 +135,7 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     let query_footer = screen(&terminal).lines().last().unwrap().to_owned();
     assert!(query_footer.contains("Enter search"));
-    assert!(query_footer.contains("q quit"));
+    assert!(query_footer.contains("Ctrl+Q quit"));
     app.focus = Focus::Results;
 
     let mut narrow = Terminal::new(TestBackend::new(60, 20)).unwrap();
@@ -143,14 +143,14 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
     let compact = screen(&narrow);
     assert!(compact.lines().next().unwrap().ends_with("all collections"));
     assert!(compact.lines().nth(2).unwrap().contains("ignore case ^E"));
-    assert!(compact.lines().last().unwrap().contains("q quit"));
+    assert!(compact.lines().last().unwrap().contains("Ctrl+Q quit"));
 
     let mut tiny = Terminal::new(TestBackend::new(40, 15)).unwrap();
     tiny.draw(|frame| draw(frame, &app)).unwrap();
     let smallest = screen(&tiny);
     assert!(smallest.lines().next().unwrap().ends_with('…'));
     assert!(smallest.lines().nth(2).unwrap().contains("E:fold"));
-    assert!(smallest.lines().last().unwrap().contains("q"));
+    assert!(smallest.lines().last().unwrap().contains("Ctrl+Q"));
 
     app.focus = Focus::Detail;
     terminal.draw(|frame| draw(frame, &app)).unwrap();
@@ -158,10 +158,10 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
     for label in [
         "←→/p/n result",
         "↑↓ scroll",
-        "PgUp/Dn page",
+        "PgUp/Dn",
         "e export",
         "Esc back",
-        "q quit",
+        "Ctrl+Q quit",
     ] {
         assert!(
             detail_footer.contains(label),

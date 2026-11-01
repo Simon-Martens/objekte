@@ -194,7 +194,7 @@ fn result_fallback_cycles_collections_and_detail_still_opens() {
 }
 
 #[test]
-fn escape_steps_back_to_input_and_q_quits_from_every_view() {
+fn escape_steps_back_to_input_and_ctrl_q_quits_from_every_view() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
@@ -223,16 +223,24 @@ fn escape_steps_back_to_input_and_q_quits_from_every_view() {
     assert!(app.last_request.is_none());
     assert!(app.search_elapsed_ms.is_none());
 
+    press(&mut app, KeyCode::Char('q'), KeyModifiers::NONE);
+    assert_eq!(app.input.text, "q");
+    assert!(!app.done);
+
     for focus in [
         Focus::Query,
         Focus::Results,
         Focus::Detail,
         Focus::ExportAll,
         Focus::ExportOne,
+        Focus::Infer,
+        Focus::InferReady,
     ] {
         app.focus = focus;
         app.done = false;
         press(&mut app, KeyCode::Char('q'), KeyModifiers::NONE);
+        assert!(!app.done);
+        press(&mut app, KeyCode::Char('q'), KeyModifiers::CONTROL);
         assert!(app.done);
     }
 }

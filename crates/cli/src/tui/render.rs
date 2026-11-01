@@ -915,7 +915,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
                     ("↑↓", ""),
                     ("Enter", ""),
                     ("Esc", ""),
-                    ("q", ""),
+                    ("Ctrl+Q", ""),
                 ])
             } else {
                 key_hints(&[
@@ -923,7 +923,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
                     ("↑↓", "rows"),
                     ("Enter", "open"),
                     ("Esc", "back"),
-                    ("q", "quit"),
+                    ("Ctrl+Q", "quit"),
                 ])
             };
         }
@@ -934,29 +934,29 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
                 ("↑↓", ""),
                 ("e", ""),
                 ("Esc", ""),
-                ("q", ""),
+                ("Ctrl+Q", ""),
             ])
         } else {
             key_hints(&[
                 ("Tab", "links"),
                 ("←→/p/n", "result"),
                 ("↑↓", "scroll"),
-                ("PgUp/Dn", "page"),
+                ("PgUp/Dn", ""),
                 ("e", "export"),
                 ("Esc", "back"),
-                ("q", "quit"),
+                ("Ctrl+Q", "quit"),
             ])
         }
     } else if app.focus == Focus::Query {
         if width < 60 {
-            key_hints(&[("Enter", ""), ("Alt+S", ""), ("Alt+R", ""), ("q", "")])
+            key_hints(&[("Enter", ""), ("Alt+S", ""), ("Alt+R", ""), ("Ctrl+Q", "")])
         } else {
             key_hints(&[
                 ("Enter", "search"),
                 ("Alt+I", "infer"),
                 ("Alt+S", "save"),
                 ("Alt+R", "reindex"),
-                ("q", "quit"),
+                ("Ctrl+Q", "quit"),
             ])
         }
     } else if app.hits.is_empty() {
@@ -964,7 +964,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
             ("Esc", "input"),
             ("Alt+S", "save"),
             ("Alt+R", "reindex"),
-            ("q", "quit"),
+            ("Ctrl+Q", "quit"),
         ])
     } else if width < 60 {
         key_hints(&[
@@ -975,7 +975,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
             ("↵", ""),
             ("a", ""),
             ("e", ""),
-            ("q", ""),
+            ("Ctrl+Q", ""),
         ])
     } else if width < 72 {
         key_hints(&[
@@ -984,9 +984,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
             ("n/p", ""),
             ("Esc", "input"),
             ("↵", "go"),
-            ("a", "all"),
-            ("e", "hit"),
-            ("q", "quit"),
+            ("Ctrl+Q", "quit"),
         ])
     } else if width < 100 {
         key_hints(&[
@@ -997,7 +995,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
             ("Enter", "open"),
             ("a", "all"),
             ("e", "hit"),
-            ("q", "quit"),
+            ("Ctrl+Q", "quit"),
         ])
     } else {
         key_hints(&[
@@ -1011,7 +1009,7 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
             ("i", "infer"),
             ("Alt+S", "save"),
             ("Alt+R", "reindex"),
-            ("q", "quit"),
+            ("Ctrl+Q", "quit"),
         ])
     }
 }

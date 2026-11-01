@@ -37,10 +37,9 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         app.done = true;
         return;
     }
-    if key.code == KeyCode::Char('q')
-        && !key
-            .modifiers
-            .intersects(KeyModifiers::CONTROL | KeyModifiers::ALT)
+    if matches!(key.code, KeyCode::Char('q' | 'Q'))
+        && key.modifiers.contains(KeyModifiers::CONTROL)
+        && !key.modifiers.contains(KeyModifiers::ALT)
     {
         app.done = true;
         return;
