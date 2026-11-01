@@ -142,8 +142,7 @@ impl FilePicker {
             indexes,
             advanced_paths,
             definitions,
-            snapshot,
-            snapshot_path,
+            (snapshot, snapshot_path),
             false,
         )?
         .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
@@ -164,8 +163,7 @@ impl FilePicker {
             indexes,
             advanced_paths,
             definitions,
-            Some(snapshot),
-            Some(snapshot_path),
+            (Some(snapshot), Some(snapshot_path)),
             true,
         )
     }
@@ -176,10 +174,10 @@ impl FilePicker {
         indexes: &[IndexField],
         advanced_paths: &[crate::JsonPath],
         definitions: &BTreeMap<String, Field>,
-        snapshot: Option<BigramSnapshot>,
-        snapshot_path: Option<&Path>,
+        cached: (Option<BigramSnapshot>, Option<&Path>),
         unchecked: bool,
     ) -> Result<Option<Self>> {
+        let (snapshot, snapshot_path) = cached;
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
@@ -555,7 +553,7 @@ impl FilePicker {
                     seen[slot] = true;
                     if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
                         let projection = projected_values(
-                            &source,
+                            source,
                             &id,
                             &stamp,
                             &[],
@@ -598,7 +596,7 @@ impl FilePicker {
                 }
                 Err(_) => {
                     let projection = projected_values(
-                        &source,
+                        source,
                         &id,
                         &stamp,
                         &[],
