@@ -68,6 +68,7 @@ Examples:
   objekte examples/musenalm writeschema contents
 ";
 
+
 // INFO: Parsed positional arguments, options, flags, filters, and query parameters.
 pub(super) struct Args {
     pub(super) pos: Vec<String>,
@@ -79,6 +80,7 @@ pub(super) struct Args {
     pub(super) view_arguments: BTreeMap<String, Value>,
     pub(super) query_arguments: BTreeMap<String, BTreeMap<String, Value>>,
 }
+
 
 pub(super) fn args() -> Result<Args, String> {
     let mut out = Args {

@@ -15,6 +15,7 @@ use std::{
     thread,
 };
 
+
 /// One provisional row or the final query outcome and repository handle.
 enum SearchUpdate {
     Hit(Box<Hit>),
@@ -37,6 +38,7 @@ enum SearchUpdate {
     },
 }
 
+
 /// Which generation a repository-owning job belongs to.
 #[derive(Clone, Copy, PartialEq, Eq)]
 enum JobKind {
@@ -46,6 +48,7 @@ enum JobKind {
     SchemaWrite,
 }
 
+
 /// A query worker and its generation, allowing stale rows to be discarded.
 struct Running {
     receiver: Receiver<SearchUpdate>,
@@ -53,6 +56,7 @@ struct Running {
     generation: u64,
     kind: JobKind,
 }
+
 
 impl Running {
     fn current(&self, app: &App<'_>) -> bool {
@@ -66,11 +70,13 @@ impl Running {
     }
 }
 
+
 /// Drives one repository-owning worker at a time from the TUI event loop.
 #[derive(Default)]
 pub(super) struct SearchWorker {
     running: Option<Running>,
 }
+
 
 impl SearchWorker {
     pub(super) fn is_idle(&self) -> bool {
@@ -92,13 +98,19 @@ impl SearchWorker {
                 }
                 Ok(SearchUpdate::Page(page)) => {
                     if running.kind == JobKind::Search && running.current(app) && app.searching {
-                        let selected_id = app.hits.get(app.selected).map(|hit| {
-                            (hit.record().collection.clone(), hit.record().id.clone())
-                        });
+                        let selected_id = app
+                            .hits
+                            .get(app.selected)
+                            .map(|hit| (hit.record().collection.clone(), hit.record().id.clone()));
                         app.hits = page;
-                        app.selected = selected_id.and_then(|selected| app.hits.iter().position(|hit| {
-                            hit.record().collection == selected.0 && hit.record().id == selected.1
-                        })).unwrap_or_else(|| app.selected.min(app.hits.len().saturating_sub(1)));
+                        app.selected = selected_id
+                            .and_then(|selected| {
+                                app.hits.iter().position(|hit| {
+                                    hit.record().collection == selected.0
+                                        && hit.record().id == selected.1
+                                })
+                            })
+                            .unwrap_or_else(|| app.selected.min(app.hits.len().saturating_sub(1)));
                     }
                 }
                 Ok(SearchUpdate::Backlink(record)) => {
@@ -367,37 +379,52 @@ impl SearchWorker {
         thread::spawn(move || {
             let result = match request {
                 Request::Filter(query) => {
-                    let sorted = !query.sort.is_empty() || objekte_core::split_sort_clause(&query.filter)
-                        .is_ok_and(|(_, sorts)| !sorts.is_empty());
+                    let sorted = !query.sort.is_empty()
+                        || objekte_core::split_sort_clause(&query.filter)
+                            .is_ok_and(|(_, sorts)| !sorts.is_empty());
                     if sorted {
                         repository.query_json_stream_updates(&query, |page| {
-                            send_page(&sender, &worker_cancel, page.iter().cloned().map(Hit::Filter).collect())
+                            send_page(
+                                &sender,
+                                &worker_cancel,
+                                page.iter().cloned().map(Hit::Filter).collect(),
+                            )
                         })
                     } else {
                         repository.query_json_stream(&query, |_, record| {
                             send_hit(&sender, &worker_cancel, Hit::Filter(record.clone()))
                         })
-                    }.map(|summary| (summary.total, summary.truncated, summary.elapsed_ms))
+                    }
+                    .map(|summary| (summary.total, summary.truncated, summary.elapsed_ms))
                 }
                 Request::Text(query) => {
-                    let sorted = !query.sort.is_empty() || objekte_core::split_sort_clause(&query.pattern)
-                        .is_ok_and(|(_, sorts)| !sorts.is_empty());
+                    let sorted = !query.sort.is_empty()
+                        || objekte_core::split_sort_clause(&query.pattern)
+                            .is_ok_and(|(_, sorts)| !sorts.is_empty());
                     if sorted {
                         repository.search_text_stream_updates(&query, |page| {
-                            send_page(&sender, &worker_cancel, page.iter().cloned().map(Hit::Text).collect())
+                            send_page(
+                                &sender,
+                                &worker_cancel,
+                                page.iter().cloned().map(Hit::Text).collect(),
+                            )
                         })
                     } else {
                         repository.search_text_stream(&query, |_, hit| {
                             send_hit(&sender, &worker_cancel, Hit::Text(hit.clone()))
                         })
-                    }.map(|summary| (summary.total, summary.truncated, summary.elapsed_ms))
+                    }
+                    .map(|summary| (summary.total, summary.truncated, summary.elapsed_ms))
                 }
             }
             .map_err(|error| error.to_string());
             let elapsed_ms = result.as_ref().ok().map(|(_, _, elapsed_ms)| *elapsed_ms);
             let _ = sender.send(SearchUpdate::Finished {
                 repository: Box::new(repository),
-                total: result.as_ref().map(|(total, _, _)| *total).map_err(Clone::clone),
+                total: result
+                    .as_ref()
+                    .map(|(total, _, _)| *total)
+                    .map_err(Clone::clone),
                 truncated: result.as_ref().is_ok_and(|(_, truncated, _)| *truncated),
                 elapsed_ms,
             });
@@ -444,6 +471,7 @@ impl SearchWorker {
     }
 }
 
+
 fn search_channel() -> (mpsc::SyncSender<SearchUpdate>, Receiver<SearchUpdate>) {
     mpsc::sync_channel(PAGE_SIZE + 1)
 }
@@ -469,7 +497,8 @@ fn send_page(
     if cancel.load(Ordering::Relaxed) {
         return Err(Error::Request("search cancelled".into()));
     }
-    sender.send(SearchUpdate::Page(page))
+    sender
+        .send(SearchUpdate::Page(page))
         .map_err(|_| Error::Request("search UI disconnected".into()))
 }
 

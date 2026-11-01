@@ -11,6 +11,7 @@ use std::collections::VecDeque;
 
 pub(super) const PAGE_SIZE: usize = 100;
 
+
 /// Whether the input is a field filter or a standalone full-text search.
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum SearchKind {
@@ -19,6 +20,7 @@ pub(super) enum SearchKind {
     Combined,
 }
 
+
 /// Which full-text representation a query inspects.
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum Representation {
@@ -26,12 +28,14 @@ pub(super) enum Representation {
     Full,
 }
 
+
 /// A displayed row, retaining the match metadata returned by its search mode.
 #[derive(Clone)]
 pub(super) enum Hit {
     Filter(Record),
     Text(TextHit),
 }
+
 
 impl Hit {
     pub(super) fn record(&self) -> &Record {
@@ -49,12 +53,14 @@ impl Hit {
     }
 }
 
+
 /// Request used for the visible page and for complete export.
 #[derive(Clone)]
 pub(super) enum Request {
     Filter(JsonQuery),
     Text(TextQuery),
 }
+
 
 impl Request {
     pub(super) fn whole_result(&self) -> Self {
@@ -74,6 +80,7 @@ impl Request {
         }
     }
 }
+
 
 fn queried_fields(request: &Request) -> Vec<String> {
     let (source, parameters) = match request {
@@ -132,12 +139,14 @@ fn ordered_fields(request: &Request) -> Vec<String> {
     fields
 }
 
+
 /// Cursor-aware single-line text input shared by query and export prompts.
 #[derive(Default)]
 pub(super) struct Input {
     pub(super) text: String,
     pub(super) cursor: usize,
 }
+
 
 impl Input {
     fn byte_at(&self, character: usize) -> usize {
@@ -200,6 +209,7 @@ impl Input {
     }
 }
 
+
 /// Which panel currently consumes ordinary character and arrow keys.
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum Focus {
@@ -213,11 +223,13 @@ pub(super) enum Focus {
     InferReady,
 }
 
+
 /// Scope and schema choice for an explicit background inference scan.
 pub(super) struct InferRequest {
     pub(super) collection: Option<String>,
     pub(super) auto_index: bool,
 }
+
 
 /// Result to open after an adjacent detail page finishes streaming.
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -225,6 +237,7 @@ pub(super) enum DetailEdge {
     First,
     Last,
 }
+
 
 /// Long-lived repository handle and the current interactive query page.
 pub(super) struct App<'a> {
@@ -274,6 +287,7 @@ pub(super) struct App<'a> {
     pub(super) inference_saved: bool,
     pub(super) done: bool,
 }
+
 
 impl<'a> App<'a> {
     pub(super) fn new(repo: &'a mut Repository) -> Self {
@@ -734,6 +748,7 @@ impl<'a> App<'a> {
         };
     }
 }
+
 
 #[cfg(test)]
 #[path = "state.test.rs"]

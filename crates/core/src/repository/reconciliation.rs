@@ -3,6 +3,7 @@
 use super::*;
 use crate::JsonFilter;
 
+
 impl Repository {
     /// Restore a saved picker without waiting for source metadata checks.
     /// Until `apply_collection_inventory` runs, searches may use stale postings.

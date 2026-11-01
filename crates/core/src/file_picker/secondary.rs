@@ -4,17 +4,18 @@ use super::*;
 use bincode::Options;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
+use sort_index::{RestoredSortIndex, SavedSortIndex};
 use std::{
     fs,
     io::{Read, Seek, SeekFrom, Write},
 };
 use view::SavedViewIndex;
-use sort_index::{RestoredSortIndex, SavedSortIndex};
 
 const MAGIC: &[u8; 8] = b"OBJSEC03";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
 // A single declared sort order can exceed 1 GiB for multi-million-record collections.
 const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;
+
 
 #[derive(Serialize)]
 struct Saved<'a> {
@@ -30,6 +31,7 @@ struct Saved<'a> {
     text: &'a Option<(Vec<u8>, Vec<u8>, usize)>,
 }
 
+
 #[derive(Deserialize)]
 struct Restored {
     slots: usize,
@@ -44,17 +46,20 @@ struct Restored {
     text: Option<(Vec<u8>, Vec<u8>, usize)>,
 }
 
+
 struct DigestWriter<'a> {
     file: &'a mut fs::File,
     digest: &'a mut Sha256,
     bytes: &'a mut u64,
 }
 
+
 struct DigestReader<R> {
     inner: R,
     digest: Sha256,
     bytes: u64,
 }
+
 
 impl<R: Read> Read for DigestReader<R> {
     fn read(&mut self, buffer: &mut [u8]) -> std::io::Result<usize> {
@@ -64,6 +69,7 @@ impl<R: Read> Read for DigestReader<R> {
         Ok(read)
     }
 }
+
 
 impl Write for DigestWriter<'_> {
     fn write(&mut self, buffer: &[u8]) -> std::io::Result<usize> {
@@ -77,6 +83,7 @@ impl Write for DigestWriter<'_> {
         self.file.flush()
     }
 }
+
 
 fn sidecar(path: &Path) -> PathBuf {
     path.with_extension("secondary")
@@ -108,9 +115,10 @@ pub(super) fn config_digest(
         language,
         "icu_collator/2.4.0",
     ))
-        .map_err(|error| Error::Cache(format!("cannot encode index config: {error}")))?;
+    .map_err(|error| Error::Cache(format!("cannot encode index config: {error}")))?;
     Ok(Sha256::digest(bytes).into())
 }
+
 
 impl FilePicker {
     pub(super) fn load_secondary_snapshot(&mut self, path: &Path) -> Result<bool> {
@@ -123,9 +131,11 @@ impl FilePicker {
         if size < HEADER as u64 || size > MAX_BYTES {
             return Ok(false);
         }
-        let mut file = std::io::BufReader::new(fs::File::open(&sidecar).map_err(|error| io(&sidecar, error))?);
+        let mut file =
+            std::io::BufReader::new(fs::File::open(&sidecar).map_err(|error| io(&sidecar, error))?);
         let mut header = [0_u8; HEADER];
-        file.read_exact(&mut header).map_err(|error| io(&sidecar, error))?;
+        file.read_exact(&mut header)
+            .map_err(|error| io(&sidecar, error))?;
         if &header[..8] != MAGIC
             || header[8..40] != base_digest(path)?
             || header[40..72] != self.config_digest
@@ -136,7 +146,11 @@ impl FilePicker {
         if length != size - HEADER as u64 {
             return Ok(false);
         }
-        let mut reader = DigestReader { inner: file.take(length), digest: Sha256::new(), bytes: 0 };
+        let mut reader = DigestReader {
+            inner: file.take(length),
+            digest: Sha256::new(),
+            bytes: 0,
+        };
         let restored: Restored = match bincode::DefaultOptions::new()
             .with_limit(MAX_BYTES)
             .deserialize_from(&mut reader)
@@ -159,7 +173,10 @@ impl FilePicker {
         {
             return Ok(false);
         }
-        if !self.modified_order.restore(restored.modified_order, &self.files) {
+        if !self
+            .modified_order
+            .restore(restored.modified_order, &self.files)
+        {
             return Ok(false);
         }
         if !self.view.restore(restored.view, self.files.len()) {
@@ -202,7 +219,9 @@ impl FilePicker {
         fs::create_dir_all(parent).map_err(|error| io(parent, error))?;
         let mut temporary =
             tempfile::NamedTempFile::new_in(parent).map_err(|error| io(parent, error))?;
-        temporary.write_all(&[0; HEADER]).map_err(|error| io(&sidecar, error))?;
+        temporary
+            .write_all(&[0; HEADER])
+            .map_err(|error| io(&sidecar, error))?;
         let mut payload_bytes = 0_u64;
         let mut payload_digest = Sha256::new();
         {
@@ -213,25 +232,31 @@ impl FilePicker {
             };
             let mut buffered = std::io::BufWriter::with_capacity(64 * 1024, writer);
             bincode::DefaultOptions::new()
-                .serialize_into(&mut buffered, &Saved {
-                    slots: self.files.len(),
-                    modified_order: &modified_order,
-                    malformed: &self.malformed,
-                    array_fields: &self.array_fields,
-                    key_summary: &self.key_summary,
-                    presence: &self.presence,
-                    typed: &self.typed,
-                    view: &view,
-                    sort: &sort,
-                    text: &text,
-                })
+                .serialize_into(
+                    &mut buffered,
+                    &Saved {
+                        slots: self.files.len(),
+                        modified_order: &modified_order,
+                        malformed: &self.malformed,
+                        array_fields: &self.array_fields,
+                        key_summary: &self.key_summary,
+                        presence: &self.presence,
+                        typed: &self.typed,
+                        view: &view,
+                        sort: &sort,
+                        text: &text,
+                    },
+                )
                 .map_err(|error| Error::Cache(format!("cannot encode secondary index: {error}")))?;
             buffered.flush().map_err(|error| io(&sidecar, error))?;
         }
         if payload_bytes > MAX_BYTES - HEADER as u64 {
             return Err(Error::Cache("secondary index exceeds size limit".into()));
         }
-        temporary.as_file_mut().seek(SeekFrom::Start(0)).map_err(|error| io(&sidecar, error))?;
+        temporary
+            .as_file_mut()
+            .seek(SeekFrom::Start(0))
+            .map_err(|error| io(&sidecar, error))?;
         temporary
             .write_all(MAGIC)
             .map_err(|error| io(&sidecar, error))?;

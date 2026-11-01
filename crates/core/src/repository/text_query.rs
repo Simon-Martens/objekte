@@ -1,182 +1,17 @@
 //! Full-text search over all included JSON leaf values.
 
 use super::*;
-use crate::sorting::{SortBuffer, SortPlan, split_sort_clause};
+use crate::sorting::split_sort_clause;
 use crate::{
-    JsonFilter, TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary,
-    text::{TextRules, render_text, visit_json_text},
+    JsonFilter, TextHit, TextQuery, TextQueryResult, TextQueryStreamSummary, text::TextRules,
 };
-use regex::Regex;
 use std::collections::HashSet;
-use unicode_casefold::UnicodeCaseFold;
 
-/// Compiled matcher and conservative bigram prefilter for one request.
-struct TextMatcher {
-    regex: Regex,
-    candidate_pattern: Option<String>,
-    candidate_literal: bool,
-    raw: bool,
-    fold_word: bool,
-}
+mod matcher;
+mod sorted;
 
-/// Canonical query fields and, for returned hits, concrete indexed paths.
-struct TextMatches {
-    fields: Vec<String>,
-    matched_paths: Vec<String>,
-}
+use matcher::{TextMatcher, TextMatches};
 
-fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
-    if path.is_empty() {
-        return "$value".into();
-    }
-    let mut result = String::with_capacity(path.len() + indices.len() * 3);
-    if indices.first().is_some_and(|(offset, _)| *offset == 0) {
-        result.push_str("$value");
-    }
-    let mut start = 0;
-    for &(offset, index) in indices {
-        // Offsets locate traversal-inserted [] markers. Splitting on the text
-        // "[]" would mistake the same characters inside a JSON field name.
-        result.push_str(&path[start..offset]);
-        result.push('[');
-        result.push_str(&index.to_string());
-        result.push(']');
-        start = offset + 2;
-    }
-    result.push_str(&path[start..]);
-    result
-}
-
-impl TextMatcher {
-    fn compile(request: &TextQuery) -> Result<Self> {
-        if request.pattern.len() > 16 * 1024 || request.pattern.is_empty() {
-            return Err(Error::Request(
-                "text pattern must contain 1–16384 bytes".into(),
-            ));
-        }
-        let raw = matches!(request.mode, TextMode::WordRaw | TextMode::RegexRaw);
-        let word_mode = matches!(request.mode, TextMode::Word | TextMode::WordRaw);
-        let fold_word = word_mode && !request.case_sensitive;
-        let mut candidate_base = None;
-        let pattern = if word_mode {
-            let word = if raw {
-                request.pattern.clone()
-            } else {
-                render_text(&request.pattern, crate::TextFormat::Plain)
-                    .expect("plain rendering always succeeds")
-            };
-            if word.trim().is_empty() {
-                return Err(Error::Request(
-                    "word search needs non-whitespace text".into(),
-                ));
-            }
-            let word = if fold_word {
-                word.case_fold().collect::<String>()
-            } else {
-                word
-            };
-            let literal = regex::escape(&word);
-            candidate_base = Some(word);
-            literal
-        } else {
-            request.pattern.clone()
-        };
-        let regex = regex::RegexBuilder::new(&pattern)
-            .case_insensitive(!request.case_sensitive && !fold_word)
-            .build()
-            .map_err(|error| Error::Request(format!("invalid text regex: {error}")))?;
-        let candidate_base = candidate_base.as_deref().unwrap_or(&pattern);
-        let candidate_pattern = if word_mode {
-            Some(candidate_base.to_owned())
-        } else if !candidate_base.is_ascii() {
-            // Unicode regex folding may select byte sequences absent from a
-            // case-folded projection. Keep those searches conservative.
-            None
-        } else if !request.case_sensitive {
-            Some(format!("(?i:{candidate_base})"))
-        } else {
-            Some(candidate_base.to_owned())
-        };
-        Ok(Self {
-            regex,
-            candidate_pattern,
-            candidate_literal: word_mode,
-            raw,
-            fold_word,
-        })
-    }
-
-    fn matching_fields(
-        &self,
-        document: &Value,
-        rules: &TextRules,
-        selected: Option<&BTreeSet<&str>>,
-        include_indices: bool,
-    ) -> TextMatches {
-        let mut fields = BTreeSet::new();
-        let mut matched_paths = Vec::new();
-        visit_json_text(
-            document,
-            rules,
-            include_indices,
-            &mut |name, indices, value, format| {
-                if selected.is_some_and(|selected| !selected.contains(name)) {
-                    return;
-                }
-                let text = if self.raw {
-                    Some(value.to_owned())
-                } else {
-                    render_text(value, format)
-                };
-                if text.is_some_and(|text| {
-                    if self.fold_word {
-                        self.regex.is_match(&text.case_fold().collect::<String>())
-                    } else {
-                        self.regex.is_match(&text)
-                    }
-                }) {
-                    fields.insert(name.to_owned());
-                    if include_indices {
-                        matched_paths.push(indexed_path(name, indices));
-                    }
-                }
-            },
-        );
-        TextMatches {
-            fields: fields.into_iter().collect(),
-            matched_paths,
-        }
-    }
-
-    fn matches_malformed(&self, bytes: &[u8]) -> bool {
-        let text = crate::text::malformed_search_text(bytes);
-        let text = if self.raw {
-            text
-        } else {
-            render_text(&text, crate::TextFormat::Plain).expect("plain text renders")
-        };
-        if self.fold_word {
-            self.regex.is_match(&text.case_fold().collect::<String>())
-        } else {
-            self.regex.is_match(&text)
-        }
-    }
-
-    /// Normal postings retain scalar values but do not normalize whitespace.
-    /// Broad or whitespace-sensitive patterns therefore scan all file slots.
-    fn regular_candidate_pattern(&self) -> Option<&str> {
-        let pattern = self.candidate_pattern.as_deref()?;
-        if pattern.chars().any(char::is_whitespace)
-            || [r"\s", r"\n", r"\r", r"\t", r"\x", r"\u"]
-                .iter()
-                .any(|escape| pattern.contains(escape))
-        {
-            None
-        } else {
-            Some(pattern)
-        }
-    }
-}
 
 impl Repository {
     /// Build a collection's separate full-text index if it is not warm yet.
@@ -320,112 +155,6 @@ impl Repository {
         Ok(request)
     }
 
-    fn search_text_sorted(
-        &mut self,
-        request: &TextQuery,
-        on_page: &mut dyn FnMut(&[TextHit]) -> Result<()>,
-    ) -> Result<TextQueryResult> {
-        let started = Instant::now();
-        let before = self.metrics.clone();
-        if self.options.total_limit == 0 {
-            return Err(Error::Request(
-                "repository total_limit must be positive".into(),
-            ));
-        }
-        self.reload()?;
-        let names = request
-            .collections
-            .clone()
-            .unwrap_or_else(|| self.model.collections.keys().cloned().collect::<Vec<_>>());
-        let mut plans = BTreeMap::new();
-        let mut indexed_order = self.options.cache == CacheMode::Memory
-            && self.options.freshness != Freshness::HashOnRequest;
-        for name in &names {
-            let collection = self.collection(name)?;
-            plans.insert(name.clone(), SortPlan::compile(&collection, &request.sort)?);
-            if indexed_order {
-                self.ensure_picker(&collection)?;
-                indexed_order = self.file_pickers[name].has_sort_index(&request.sort)
-                    && self.file_pickers[name].verified();
-            }
-        }
-        if indexed_order && request.offset < self.options.total_limit && request.limit > 0 {
-            return self.search_text_indexed_order(request, on_page, started, &before);
-        }
-        let mut buffer = SortBuffer::new(
-            plans,
-            request.offset,
-            request.limit,
-            self.options.total_limit,
-        );
-        let mut scan = request.clone();
-        scan.offset = 0;
-        scan.limit = if indexed_order {
-            self.options
-                .total_limit
-                .saturating_add(1)
-                .min(i64::MAX as usize)
-        } else {
-            i64::MAX as usize
-        };
-        scan.count = !indexed_order;
-        let (mut result, _) = self.search_text_inner(&scan, true, &mut |_, hit| {
-            let record = &hit.record;
-            let changed =
-                buffer.insert(&record.collection, &record.id, &record.data, || hit.clone())?;
-            if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
-                let page = buffer.page().cloned().collect::<Vec<_>>();
-                on_page(&page)?;
-            }
-            Ok(())
-        }, None)?;
-        let page = buffer.page().cloned().collect::<Vec<_>>();
-        on_page(&page)?;
-        result.total = buffer.total(request.count);
-        result.truncated = buffer.truncated();
-        result.hits = buffer.into_page();
-        result.metrics = self.metrics.since(&before);
-        result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
-        result
-            .query_plan
-            .push("locale-aware sorted page; bounded result prefix".into());
-        Ok(result)
-    }
-
-    fn search_text_indexed_order(
-        &mut self,
-        request: &TextQuery,
-        on_page: &mut dyn FnMut(&[TextHit]) -> Result<()>,
-        started: Instant,
-        before: &Metrics,
-    ) -> Result<TextQueryResult> {
-        let mut scan = request.clone();
-        scan.count = true;
-        scan.limit = request.limit.min(self.options.total_limit - request.offset);
-        let stop_after = self.options.total_limit.saturating_add(1);
-        let mut page = Vec::new();
-        let (mut result, _) = self.search_text_inner(
-            &scan,
-            true,
-            &mut |_, hit| {
-                page.push(hit.clone());
-                on_page(&page)
-            },
-            Some(stop_after),
-        )?;
-        on_page(&page)?;
-        result.hits = page;
-        if !request.count {
-            result.total = None;
-        }
-        result.metrics = self.metrics.since(before);
-        result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
-        result
-            .query_plan
-            .push("indexed sort order; direct verified page".into());
-        Ok(result)
-    }
-
     fn search_text_inner(
         &mut self,
         request: &TextQuery,
@@ -496,6 +225,8 @@ impl Repository {
             let rules = TextRules::new(&c.fields);
             let source = Source::open_scoped(&c.path, c.recursive)?;
             let mut optimistic = false;
+            // Postings only narrow the candidate list. The source check below
+            // still decides whether a file matches the complete text query.
             let mut candidates = if self.options.cache == CacheMode::Disabled {
                 source.inventory()?.into_iter().collect::<Vec<_>>()
             } else {
@@ -557,6 +288,8 @@ impl Repository {
                 self.file_pickers[&name].order_candidates(&mut candidates, &request.sort);
             }
             self.metrics.fts_candidates += candidates.len() as u64;
+            // Verify a batch in parallel, then inspect its outcomes in the
+            // candidate order so sorted pages and callbacks remain ordered.
             for batch in candidates.chunks(256) {
                 let outcomes = batch
                     .par_iter()
@@ -619,6 +352,8 @@ impl Repository {
                         matched += 1;
                     }
                 }
+                // Only page hits need a second read for full matched paths,
+                // hashes, validation state, and a returned Record.
                 for (id, stamp, matched_fields) in page {
                     let raw = match Self::read_raw(
                         &mut self.metrics,
@@ -693,13 +428,15 @@ impl Repository {
                     }
                 }
                 if stop_after.is_some_and(|limit| matched >= limit)
-                    || !request.count && returned >= request.limit {
+                    || !request.count && returned >= request.limit
+                {
                     break;
                 }
             }
             source.finish()?;
             if stop_after.is_some_and(|limit| matched >= limit)
-                || !request.count && returned >= request.limit {
+                || !request.count && returned >= request.limit
+            {
                 break;
             }
         }

@@ -4,9 +4,11 @@ mod support;
 
 use objekte_core::{CacheMode, JsonQuery};
 use serde_json::json;
-use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    time::{Duration, UNIX_EPOCH},
+};
 use support::Fixture;
-
 
 #[test]
 fn uncounted_page_stops_after_a_parallel_batch_but_count_scans_all() {
@@ -22,9 +24,14 @@ fn uncounted_page_stops_after_a_parallel_batch_but_count_scans_all() {
             serde_json::to_vec(&json!({"title":"hit","payload":null})).unwrap(),
         )
         .unwrap();
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number))
-        ).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(
+                FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number)),
+            )
+            .unwrap();
     }
 
     let mut repository = fixture.repo(CacheMode::Memory);
@@ -81,9 +88,12 @@ fn uncounted_page_stops_after_a_parallel_batch_but_count_scans_all() {
     )
     .unwrap();
     let bad = books.join("r800.json");
-    File::options().write(true).open(&bad).unwrap().set_times(
-        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1))
-    ).unwrap();
+    File::options()
+        .write(true)
+        .open(&bad)
+        .unwrap()
+        .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1)))
+        .unwrap();
     repository.refresh("books").unwrap();
     assert!(
         repository

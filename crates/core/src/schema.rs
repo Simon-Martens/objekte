@@ -74,6 +74,7 @@ pub struct Field {
     pub relation: Option<String>,
 }
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum SortReduce {
@@ -145,6 +146,7 @@ impl Schema {
     }
 }
 
+
 pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<Vec<Vec<Sort>>> {
     fn validate(root: &Field, sort: &Sort, file: &Path) -> Result<()> {
         let path = JsonFilter::parse_path(&sort.field)
@@ -160,8 +162,13 @@ pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<V
                         reduction = reduction.or(field.sort_reduce);
                         field = field.items.as_deref().expect("array items");
                     }
-                    field = field.properties.get(&name).ok_or_else(||
-                        config(file, "/x-sort-indexes", format!("sort field {name} is not declared")))?;
+                    field = field.properties.get(&name).ok_or_else(|| {
+                        config(
+                            file,
+                            "/x-sort-indexes",
+                            format!("sort field {name} is not declared"),
+                        )
+                    })?;
                 }
                 crate::JsonPathStep::Each => {
                     if field.kind != ValueType::Array {
@@ -173,7 +180,11 @@ pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<V
                 }
                 crate::JsonPathStep::Index(_) => {
                     if field.kind != ValueType::Array {
-                        return Err(config(file, "/x-sort-indexes", "array index requires an array"));
+                        return Err(config(
+                            file,
+                            "/x-sort-indexes",
+                            "array index requires an array",
+                        ));
                     }
                     field = field.items.as_deref().expect("array items");
                 }
@@ -185,26 +196,44 @@ pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<V
             field = field.items.as_deref().expect("array items");
         }
         if !field.kind.scalar() {
-            return Err(config(file, "/x-sort-indexes", "sort index needs scalar values"));
+            return Err(config(
+                file,
+                "/x-sort-indexes",
+                "sort index needs scalar values",
+            ));
         }
         if repeated && reduction.is_none() {
-            return Err(config(file, "/x-sort-indexes", "array sort index needs x-sort-reduce"));
+            return Err(config(
+                file,
+                "/x-sort-indexes",
+                "array sort index needs x-sort-reduce",
+            ));
         }
         Ok(())
     }
+
     fn walk(field: &Field, path: &str, out: &mut Vec<Vec<Sort>>) {
         if field.sort_index {
-            out.push(vec![Sort { field: path.into(), direction: Direction::Asc }]);
+            out.push(vec![Sort {
+                field: path.into(),
+                direction: Direction::Asc,
+            }]);
         }
         for (name, child) in &field.properties {
-            let simple = name.chars().next().is_some_and(|c| c == '_' || c.is_alphabetic())
+            let simple = name
+                .chars()
+                .next()
+                .is_some_and(|c| c == '_' || c.is_alphabetic())
                 && name.chars().all(|c| c == '_' || c.is_alphanumeric());
             let next = if simple && path.is_empty() {
                 name.clone()
             } else if simple {
                 format!("{path}.{name}")
             } else {
-                format!("{path}[{}]", serde_json::to_string(name).expect("schema key serializes"))
+                format!(
+                    "{path}[{}]",
+                    serde_json::to_string(name).expect("schema key serializes")
+                )
             };
             walk(child, &next, out);
         }
@@ -215,24 +244,49 @@ pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<V
     let mut orders = Vec::new();
     walk(root, "", &mut orders);
     if let Some(composites) = value.get("x-sort-indexes") {
-        let composites = composites.as_array()
+        let composites = composites
+            .as_array()
             .filter(|items| items.len() <= 64)
-            .ok_or_else(|| config(file, "/x-sort-indexes", "expected at most 64 composite indexes"))?;
+            .ok_or_else(|| {
+                config(
+                    file,
+                    "/x-sort-indexes",
+                    "expected at most 64 composite indexes",
+                )
+            })?;
         for (index, item) in composites.iter().enumerate() {
-            let terms = item.as_array().filter(|terms| (2..=8).contains(&terms.len()))
-                .ok_or_else(|| config(file, format!("/x-sort-indexes/{index}"), "expected 2–8 sort terms"))?;
+            let terms = item
+                .as_array()
+                .filter(|terms| (2..=8).contains(&terms.len()))
+                .ok_or_else(|| {
+                    config(
+                        file,
+                        format!("/x-sort-indexes/{index}"),
+                        "expected 2–8 sort terms",
+                    )
+                })?;
             let mut order = Vec::new();
             for (term, value) in terms.iter().enumerate() {
                 let sort: Sort = serde_json::from_value(value.clone())
                     .map_err(|e| config(file, format!("/x-sort-indexes/{index}/{term}"), e))?;
                 if sort.field == "@id" {
-                    return Err(config(file, format!("/x-sort-indexes/{index}/{term}"), "@id is implicit"));
+                    return Err(config(
+                        file,
+                        format!("/x-sort-indexes/{index}/{term}"),
+                        "@id is implicit",
+                    ));
                 }
-                JsonFilter::parse_path(&sort.field).map_err(|e| {
-                    config(file, format!("/x-sort-indexes/{index}/{term}"), e)
-                })?;
-                if order.iter().any(|previous: &Sort| previous.field == sort.field) {
-                    return Err(config(file, format!("/x-sort-indexes/{index}/{term}"), "duplicate sort field"));
+                JsonFilter::parse_path(&sort.field)
+                    .map_err(|e| config(file, format!("/x-sort-indexes/{index}/{term}"), e))?;
+                if order
+                    .iter()
+                    .any(|previous: &Sort| previous.field == sort.field)
+                {
+                    return Err(config(
+                        file,
+                        format!("/x-sort-indexes/{index}/{term}"),
+                        "duplicate sort field",
+                    ));
                 }
                 order.push(sort);
             }
@@ -248,7 +302,6 @@ pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<V
     }
     Ok(orders)
 }
-
 
 pub(crate) fn index_paths(value: &Value, file: &Path) -> Result<Vec<JsonPath>> {
     let Some(paths) = value.get("x-index-paths") else {

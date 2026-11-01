@@ -304,7 +304,10 @@ fn default_schema_groups_nested_cli_records_and_accepts_relative_id() {
             .unwrap(),
     );
     assert_eq!(query["total"], 2);
-    let ids = query["records"].as_array().unwrap().iter()
+    let ids = query["records"]
+        .as_array()
+        .unwrap()
+        .iter()
         .map(|record| record["id"].as_str().unwrap())
         .collect::<std::collections::BTreeSet<_>>();
     assert_eq!(ids, ["a", "part/a"].into_iter().collect());
@@ -1014,9 +1017,14 @@ fn query_events_report_late_errors_after_provisional_records() {
             serde_json::to_vec(&json!({"title":"hit","payload":null})).unwrap(),
         )
         .unwrap();
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number))
-        ).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(
+                FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number)),
+            )
+            .unwrap();
     }
     fs::write(
         books.join("zbad.json"),
@@ -1024,9 +1032,12 @@ fn query_events_report_late_errors_after_provisional_records() {
     )
     .unwrap();
     let bad = books.join("zbad.json");
-    File::options().write(true).open(&bad).unwrap().set_times(
-        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1))
-    ).unwrap();
+    File::options()
+        .write(true)
+        .open(&bad)
+        .unwrap()
+        .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1)))
+        .unwrap();
     let p = f.root.to_str().unwrap();
     let output = run(
         &f,

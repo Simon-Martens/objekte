@@ -1,7 +1,6 @@
 use objekte_core::Repository;
 use std::path::PathBuf;
 
-
 #[test]
 fn musenalm_content_points_to_its_entry_without_an_embedded_copy() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");

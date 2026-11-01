@@ -10,6 +10,7 @@ use std::{
     ops::Bound::{Excluded, Included, Unbounded},
 };
 
+
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub(super) enum TypedKey {
     Null,
@@ -18,6 +19,7 @@ pub(super) enum TypedKey {
     Number(String),
     String(String),
 }
+
 
 impl TypedKey {
     pub(super) fn from_value(value: &Value) -> Option<Self> {
@@ -42,6 +44,7 @@ impl TypedKey {
     }
 }
 
+
 impl Ord for TypedKey {
     fn cmp(&self, other: &Self) -> Ordering {
         match (self, other) {
@@ -62,11 +65,13 @@ impl Ord for TypedKey {
     }
 }
 
+
 impl PartialOrd for TypedKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
 
 impl PartialEq for TypedKey {
     fn eq(&self, other: &Self) -> bool {
@@ -74,7 +79,9 @@ impl PartialEq for TypedKey {
     }
 }
 
+
 impl Eq for TypedKey {}
+
 
 /// Immutable typed postings for the indexed collection snapshot.
 #[derive(Default, Serialize, Deserialize)]
@@ -84,6 +91,7 @@ pub(super) struct TypedIndex {
     #[serde(with = "path_map")]
     dynamic: BTreeMap<JsonPath, DynamicPosting>,
 }
+
 
 mod path_map {
     use super::*;
@@ -121,6 +129,7 @@ mod path_map {
     }
 }
 
+
 /// One caller-built path posting and its complete presence set.
 #[derive(Serialize, Deserialize)]
 struct DynamicPosting {
@@ -130,6 +139,7 @@ struct DynamicPosting {
     complete_values: bool,
     fresh: bool,
 }
+
 
 impl TypedIndex {
     pub(super) fn new(fields: Vec<String>) -> Self {
@@ -151,7 +161,11 @@ impl TypedIndex {
                 .postings
                 .iter()
                 .flat_map(|postings| postings.values())
-                .chain(self.dynamic.values().flat_map(|posting| posting.postings.values()))
+                .chain(
+                    self.dynamic
+                        .values()
+                        .flat_map(|posting| posting.postings.values()),
+                )
                 .all(|positions| positions.iter().all(|&slot| slot < slots))
             && self
                 .dynamic
@@ -397,6 +411,7 @@ impl TypedIndex {
         Some(bits)
     }
 }
+
 
 fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usize>> {
     let mut postings = BTreeMap::<TypedKey, Vec<usize>>::new();

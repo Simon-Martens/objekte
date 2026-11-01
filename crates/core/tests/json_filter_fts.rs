@@ -2,7 +2,11 @@
 
 use objekte_core::{JsonQuery, JsonQueryBackend, Repository};
 use serde_json::json;
-use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    path::Path,
+    time::{Duration, UNIX_EPOCH},
+};
 
 fn write(root: &Path, path: &str, bytes: &str) {
     let path = root.join(path);
@@ -13,9 +17,14 @@ fn write(root: &Path, path: &str, bytes: &str) {
 fn order_by_id(root: &Path, ids: &[&str]) {
     for (rank, id) in ids.iter().enumerate() {
         let path = root.join(format!("data/books/{id}.json"));
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - rank as u64))
-        ).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(
+                FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - rank as u64)),
+            )
+            .unwrap();
     }
 }
 

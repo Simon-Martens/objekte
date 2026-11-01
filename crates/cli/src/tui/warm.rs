@@ -6,6 +6,7 @@ use std::{
     thread,
 };
 
+
 /// Progress from the worker, followed by one final repository or error.
 pub(super) enum WarmUpdate {
     Progress {
@@ -20,12 +21,14 @@ pub(super) enum WarmUpdate {
     Failed(String),
 }
 
+
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum WarmMode {
     Warm,
     Save,
     Reindex,
 }
+
 
 pub(super) fn startup_status(repo: &Repository) -> String {
     let total = repo.model().collections.len();

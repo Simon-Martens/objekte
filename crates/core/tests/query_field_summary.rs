@@ -3,7 +3,6 @@
 use objekte_core::{JsonQuery, Repository};
 use std::{fs, path::Path};
 
-
 fn write(root: &Path, collection: &str, id: &str, json: &str) {
     let directory = root.join("data").join(collection);
     fs::create_dir_all(&directory).unwrap();

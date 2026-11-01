@@ -7,12 +7,14 @@ use std::{
     collections::{BTreeMap, BTreeSet},
 };
 
+
 #[derive(Clone, Eq, PartialEq)]
 struct Key {
     modified: i128,
     id: String,
     slot: u32,
 }
+
 
 impl Ord for Key {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -24,11 +26,13 @@ impl Ord for Key {
     }
 }
 
+
 impl PartialOrd for Key {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
 
 #[derive(Default)]
 pub(super) struct ModifiedOrder {
@@ -38,6 +42,7 @@ pub(super) struct ModifiedOrder {
     by_slot: BTreeMap<u32, Key>,
     superseded_count: usize,
 }
+
 
 fn id<'a>(entry: &FileEntry, ids: &'a [u8]) -> &'a str {
     let start = entry.id_start as usize;
@@ -51,6 +56,7 @@ fn timestamp(entry: &FileEntry) -> i128 {
         .parse()
         .expect("validated modification time")
 }
+
 
 impl ModifiedOrder {
     pub(super) fn rebuild(&mut self, files: &[Option<FileEntry>], ids: &[u8]) {
@@ -174,6 +180,7 @@ impl ModifiedOrder {
     }
 }
 
+
 pub(super) struct ModifiedIter<'a> {
     order: &'a ModifiedOrder,
     files: &'a [Option<FileEntry>],
@@ -181,6 +188,7 @@ pub(super) struct ModifiedIter<'a> {
     base_at: usize,
     overlay: std::iter::Peekable<std::collections::btree_set::Iter<'a, Key>>,
 }
+
 
 impl Iterator for ModifiedIter<'_> {
     type Item = u32;

@@ -3,7 +3,11 @@
 use objekte_core::{
     CacheMode, JsonQuery, JsonQueryBackend, Options, RecordStatus, Repository, TextMode, TextQuery,
 };
-use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    path::Path,
+    time::{Duration, UNIX_EPOCH},
+};
 
 fn write(root: &Path, id: &str, bytes: &[u8]) {
     let directory = root.join("data/docs");
@@ -13,9 +17,12 @@ fn write(root: &Path, id: &str, bytes: &[u8]) {
 
 fn modified(root: &Path, id: &str, seconds: u64) {
     let path = root.join(format!("data/docs/{id}.json"));
-    File::options().write(true).open(&path).unwrap().set_times(
-        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
-    ).unwrap();
+    File::options()
+        .write(true)
+        .open(&path)
+        .unwrap()
+        .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds)))
+        .unwrap();
 }
 
 fn query(repo: &mut Repository, backend: JsonQueryBackend, filter: &str) -> Vec<String> {

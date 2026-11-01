@@ -3,7 +3,11 @@ use objekte_core::{
     CacheMode, Freshness, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Repository,
 };
 use serde_json::json;
-use std::{collections::BTreeMap, fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
+use std::{
+    collections::BTreeMap,
+    fs::{self, File, FileTimes},
+    time::{Duration, UNIX_EPOCH},
+};
 use support::*;
 
 fn fixture(docs: &[(&str, &str)]) -> Fixture {
@@ -42,11 +46,15 @@ fn fixture(docs: &[(&str, &str)]) -> Fixture {
     ids.sort_unstable();
     for (rank, id) in ids.into_iter().enumerate() {
         let path = f.root.join(format!("data/books/{id}.json"));
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(
-                UNIX_EPOCH + Duration::from_secs(1_000_000 - rank as u64)
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(
+                FileTimes::new()
+                    .set_modified(UNIX_EPOCH + Duration::from_secs(1_000_000 - rank as u64)),
             )
-        ).unwrap();
+            .unwrap();
     }
     f
 }

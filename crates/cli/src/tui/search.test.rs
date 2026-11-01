@@ -8,7 +8,6 @@ use std::{
     time::{Duration, Instant, UNIX_EPOCH},
 };
 
-
 #[test]
 fn search_channel_fits_a_page_and_completion_without_ui_draining() {
     let temp = tempfile::tempdir().unwrap();
@@ -100,11 +99,16 @@ fn sorted_page_updates_keep_selection_by_record_identity() {
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
     for (id, title) in [("a", "Zulu"), ("b", "Alpha"), ("c", "Beta")] {
-        fs::write(collection.join(format!("{id}.json")),
-            format!(r#"{{"title":"{title}","note":"Moon"}}"#)).unwrap();
+        fs::write(
+            collection.join(format!("{id}.json")),
+            format!(r#"{{"title":"{title}","note":"Moon"}}"#),
+        )
+        .unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
-    let records = ["a", "b", "c"].into_iter().map(|id| repo.get_record("docs", id).unwrap().unwrap())
+    let records = ["a", "b", "c"]
+        .into_iter()
+        .map(|id| repo.get_record("docs", id).unwrap().unwrap())
         .collect::<Vec<_>>();
     let mut app = App::new(&mut repo);
     app.async_search = true;
@@ -114,19 +118,40 @@ fn sorted_page_updates_keep_selection_by_record_identity() {
     let placeholder = app.repo.fork_unindexed();
     let repository = std::mem::replace(app.repo, placeholder);
     let (sender, receiver) = mpsc::channel();
-    let mut worker = SearchWorker { running: Some(Running {
-        receiver, cancel: Arc::new(AtomicBool::new(false)),
-        generation: app.search_generation, kind: JobKind::Search,
-    }) };
-    sender.send(SearchUpdate::Page(vec![Hit::Filter(records[0].clone()), Hit::Filter(records[2].clone())])).unwrap();
+    let mut worker = SearchWorker {
+        running: Some(Running {
+            receiver,
+            cancel: Arc::new(AtomicBool::new(false)),
+            generation: app.search_generation,
+            kind: JobKind::Search,
+        }),
+    };
+    sender
+        .send(SearchUpdate::Page(vec![
+            Hit::Filter(records[0].clone()),
+            Hit::Filter(records[2].clone()),
+        ]))
+        .unwrap();
     worker.drive(&mut app);
     app.selected = 0;
-    sender.send(SearchUpdate::Page(vec![Hit::Filter(records[1].clone()), Hit::Filter(records[2].clone()), Hit::Filter(records[0].clone())])).unwrap();
+    sender
+        .send(SearchUpdate::Page(vec![
+            Hit::Filter(records[1].clone()),
+            Hit::Filter(records[2].clone()),
+            Hit::Filter(records[0].clone()),
+        ]))
+        .unwrap();
     worker.drive(&mut app);
     assert_eq!(app.hits[app.selected].record().id, "a");
     assert_eq!(app.selected, 2);
-    sender.send(SearchUpdate::Finished { repository: Box::new(repository), total: Ok(Some(3)),
-        truncated: false, elapsed_ms: Some(1.0) }).unwrap();
+    sender
+        .send(SearchUpdate::Finished {
+            repository: Box::new(repository),
+            total: Ok(Some(3)),
+            truncated: false,
+            elapsed_ms: Some(1.0),
+        })
+        .unwrap();
     worker.drive(&mut app);
     assert!(!app.searching);
 }
@@ -138,15 +163,18 @@ fn real_query_worker_streams_ordered_hits_and_restores_repository() {
     fs::create_dir_all(&collection).unwrap();
     for id in ["b", "a", "c"] {
         let path = collection.join(format!("{id}.json"));
-        fs::write(
-            &path,
-            format!(r#"{{"note":"Moon {id}"}}"#),
-        )
-        .unwrap();
-        let seconds = match id { "a" => 300, "b" => 200, _ => 100 };
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
-        ).unwrap();
+        fs::write(&path, format!(r#"{{"note":"Moon {id}"}}"#)).unwrap();
+        let seconds = match id {
+            "a" => 300,
+            "b" => 200,
+            _ => 100,
+        };
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds)))
+            .unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
@@ -437,14 +465,15 @@ fn detail_navigation_reopens_the_correct_hit_after_streamed_page_changes() {
     fs::create_dir_all(&collection).unwrap();
     for number in 0..101 {
         let path = collection.join(format!("{number:03}.json"));
-        fs::write(
-            &path,
-            r#"{"note":"Moon"}"#,
-        )
-        .unwrap();
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number))
-        ).unwrap();
+        fs::write(&path, r#"{"note":"Moon"}"#).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(
+                FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number)),
+            )
+            .unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);

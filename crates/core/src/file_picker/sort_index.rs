@@ -9,12 +9,14 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{borrow::Cow, cmp::Ordering, collections::BTreeMap};
 
+
 pub(super) struct SortIndex {
     definitions: Vec<Vec<Sort>>,
     plans: Vec<SortPlan>,
     keys: Vec<Vec<Vec<SortValue>>>,
     ordered: Vec<Vec<usize>>,
 }
+
 
 #[derive(Serialize)]
 pub(super) struct SavedSortIndex<'a> {
@@ -23,12 +25,14 @@ pub(super) struct SavedSortIndex<'a> {
     ordered: &'a [Vec<usize>],
 }
 
+
 #[derive(Deserialize)]
 pub(super) struct RestoredSortIndex {
     definitions: Vec<Vec<Sort>>,
     keys: Vec<Vec<Vec<SortValue>>>,
     ordered: Vec<Vec<usize>>,
 }
+
 
 impl SortIndex {
     pub(super) fn supports(&self, sorts: &[Sort]) -> bool {
@@ -40,6 +44,7 @@ impl SortIndex {
                     && definition[0].field == requested.field
                     && definition[0].direction == Direction::Asc))
     }
+
     pub(super) fn new(
         definitions: &[Vec<Sort>],
         fields: &BTreeMap<String, Field>,
@@ -154,6 +159,8 @@ impl SortIndex {
         let ascending = &self.ordered[index];
         let keys = &self.keys[index];
         let mut descending = Vec::with_capacity(ascending.len());
+        // Reverse value groups, not the entire array: equal keys must keep
+        // their ascending ID tie-break, including for DESC queries.
         for rank in 0..=2 {
             let start = ascending.partition_point(|&slot| keys[slot][0].rank() < rank);
             let mut end = ascending.partition_point(|&slot| keys[slot][0].rank() <= rank);
@@ -245,6 +252,7 @@ impl SortIndex {
         true
     }
 }
+
 
 fn compare(
     plan: &SortPlan,

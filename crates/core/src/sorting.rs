@@ -1,4 +1,12 @@
-//! Query sort syntax, locale-aware keys, and deterministic scalar ordering.
+//! Locale-aware sort keys and deterministic scalar ordering.
+//!
+//! Parsing and bounded result retention live in small neighboring modules.
+
+mod buffer;
+mod parser;
+
+pub(crate) use buffer::SortBuffer;
+pub use parser::{parse_sort_terms, split_sort_clause};
 
 use crate::{
     Collection, Direction, Error, JsonFilter, JsonPath, JsonPathStep, Result, Sort,
@@ -12,111 +20,8 @@ use icu_collator::{
 use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
-use std::{
-    cmp::Ordering,
-    collections::{BTreeMap, BTreeSet},
-};
+use std::{cmp::Ordering, collections::BTreeMap};
 
-/// Split a trailing `SORT BY` clause from a field filter or UI input.
-pub fn split_sort_clause(input: &str) -> Result<(String, Vec<Sort>)> {
-    let mut quote = None;
-    let mut escaped = false;
-    let mut candidate = None;
-    for (at, ch) in input.char_indices() {
-        if escaped {
-            escaped = false;
-            continue;
-        }
-        if ch == '\\' {
-            escaped = true;
-            continue;
-        }
-        if let Some(q) = quote {
-            if ch == q {
-                quote = None;
-            }
-            continue;
-        }
-        if ch == '\'' || ch == '"' {
-            quote = Some(ch);
-            continue;
-        }
-        if input[at..]
-            .get(..7)
-            .is_some_and(|token| token.eq_ignore_ascii_case("SORT BY"))
-            && (at == 0 || input[..at].chars().last().is_some_and(char::is_whitespace))
-            && input[at + 7..]
-                .chars()
-                .next()
-                .is_none_or(char::is_whitespace)
-        {
-            candidate = Some(at);
-        }
-    }
-    let Some(at) = candidate else {
-        return Ok((input.to_owned(), Vec::new()));
-    };
-    let before = input[..at].trim_end();
-    let clause = input[at + 7..].trim();
-    Ok((before.to_owned(), parse_sort_terms(clause)?))
-}
-
-/// Parse sort terms supplied separately from a query, such as a CLI `--sort` value.
-pub fn parse_sort_terms(clause: &str) -> Result<Vec<Sort>> {
-    if clause.is_empty() {
-        return Err(Error::Request("SORT BY needs at least one field".into()));
-    }
-    let mut boundaries = vec![0];
-    let mut quote = None;
-    let mut escaped = false;
-    for (at, ch) in clause.char_indices() {
-        if escaped {
-            escaped = false;
-        } else if ch == '\\' {
-            escaped = true;
-        } else if let Some(delimiter) = quote {
-            if ch == delimiter {
-                quote = None;
-            }
-        } else if ch == '\'' || ch == '"' {
-            quote = Some(ch);
-        } else if clause[at..].starts_with("&&") {
-            boundaries.push(at + 2);
-        }
-    }
-    let mut seen = BTreeSet::new();
-    let mut terms = Vec::new();
-    for (index, &start) in boundaries.iter().enumerate() {
-        let end = boundaries
-            .get(index + 1)
-            .map_or(clause.len(), |next| next - 2);
-        let raw = &clause[start..end];
-        let raw = raw.trim();
-        if raw.is_empty() {
-            return Err(Error::Request("empty SORT BY term".into()));
-        }
-        let (field, direction) = match raw.rsplit_once(char::is_whitespace) {
-            Some((field, word)) if word.eq_ignore_ascii_case("asc") => {
-                (field.trim_end(), Direction::Asc)
-            }
-            Some((field, word)) if word.eq_ignore_ascii_case("desc") => {
-                (field.trim_end(), Direction::Desc)
-            }
-            _ => (raw, Direction::Asc),
-        };
-        if field != "@id" {
-            JsonFilter::parse_path(field)?;
-        }
-        if !seen.insert(field) {
-            return Err(Error::Request(format!("duplicate SORT BY field {field}")));
-        }
-        terms.push(Sort {
-            field: field.into(),
-            direction,
-        });
-    }
-    Ok(terms)
-}
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub(crate) enum SortValue {
@@ -127,6 +32,7 @@ pub(crate) enum SortValue {
     Missing,
     Invalid,
 }
+
 
 impl SortValue {
     pub(crate) fn rank(&self) -> u8 {
@@ -158,6 +64,8 @@ impl SortValue {
     }
 }
 
+
+/// A sort field with its resolved path, reduction rule, and ICU collator.
 struct Term {
     path: JsonPath,
     direction: Direction,
@@ -165,10 +73,12 @@ struct Term {
     collator: CollatorBorrowed<'static>,
 }
 
+
 /// One collection's sort semantics; collections themselves never interleave.
 pub(crate) struct SortPlan {
     terms: Vec<Term>,
 }
+
 
 impl SortPlan {
     pub(crate) fn compile(collection: &Collection, sorts: &[Sort]) -> Result<Self> {
@@ -226,6 +136,8 @@ impl SortPlan {
                 .parse()
                 .map_err(|_| Error::Request(format!("invalid sort language {language}")))?;
             let mut options = CollatorOptions::default();
+            // Secondary strength keeps case variants together while retaining
+            // accent distinctions such as German A and Ä.
             options.strength = Some(Strength::Secondary);
             let collator = CollatorBorrowed::try_new(locale.into(), options).map_err(|error| {
                 Error::Request(format!("cannot use sort language {language}: {error}"))
@@ -301,6 +213,7 @@ impl SortPlan {
     }
 }
 
+
 impl Term {
     fn value(&self, value: &Value) -> SortValue {
         match value {
@@ -316,128 +229,5 @@ impl Term {
             }
             _ => SortValue::Invalid,
         }
-    }
-}
-
-struct Entry<T> {
-    collection: String,
-    id: String,
-    keys: Vec<SortValue>,
-    value: T,
-}
-
-/// Keeps only the best accessible prefix while an unindexed scan proceeds.
-pub(crate) struct SortBuffer<T> {
-    plans: BTreeMap<String, SortPlan>,
-    entries: Vec<Entry<T>>,
-    keep: usize,
-    offset: usize,
-    page_size: usize,
-    total_limit: usize,
-    seen: usize,
-}
-
-impl<T> SortBuffer<T> {
-    pub(crate) fn new(
-        plans: BTreeMap<String, SortPlan>,
-        offset: usize,
-        page_size: usize,
-        total_limit: usize,
-    ) -> Self {
-        Self {
-            plans,
-            entries: Vec::new(),
-            keep: offset.saturating_add(page_size).min(total_limit),
-            offset,
-            page_size,
-            total_limit,
-            seen: 0,
-        }
-    }
-
-    pub(crate) fn insert(
-        &mut self,
-        collection: &str,
-        id: &str,
-        data: &Value,
-        value: impl FnOnce() -> T,
-    ) -> Result<bool> {
-        if self.keep == 0 {
-            self.seen += 1;
-            return Ok(false);
-        }
-        let keys = self.project(collection, id, data)?;
-        Ok(self.insert_keys(collection, id, keys, value))
-    }
-
-    pub(crate) fn project(
-        &self,
-        collection: &str,
-        id: &str,
-        data: &Value,
-    ) -> Result<Vec<SortValue>> {
-        self.plans[collection].project(id, data)
-    }
-
-    pub(crate) fn insert_keys(
-        &mut self,
-        collection: &str,
-        id: &str,
-        keys: Vec<SortValue>,
-        value: impl FnOnce() -> T,
-    ) -> bool {
-        self.seen += 1;
-        if self.keep == 0 {
-            return false;
-        }
-        let plan = &self.plans[collection];
-        let position =
-            self.entries
-                .partition_point(|entry| match entry.collection.as_str().cmp(collection) {
-                    Ordering::Less => true,
-                    Ordering::Greater => false,
-                    Ordering::Equal => plan.compare(&entry.keys, &entry.id, &keys, id).is_lt(),
-                });
-        if position >= self.keep {
-            return false;
-        }
-        self.entries.insert(
-            position,
-            Entry {
-                collection: collection.into(),
-                id: id.into(),
-                keys,
-                value: value(),
-            },
-        );
-        if self.entries.len() > self.keep {
-            self.entries.pop();
-        }
-        true
-    }
-
-    pub(crate) fn seen(&self) -> usize {
-        self.seen
-    }
-    pub(crate) fn total(&self, count: bool) -> Option<usize> {
-        count.then_some(self.seen.min(self.total_limit))
-    }
-    pub(crate) fn truncated(&self) -> bool {
-        self.seen > self.total_limit
-    }
-    pub(crate) fn page(&self) -> impl Iterator<Item = &T> {
-        self.entries
-            .iter()
-            .skip(self.offset)
-            .take(self.page_size)
-            .map(|entry| &entry.value)
-    }
-    pub(crate) fn into_page(self) -> Vec<T> {
-        self.entries
-            .into_iter()
-            .skip(self.offset)
-            .take(self.page_size)
-            .map(|entry| entry.value)
-            .collect()
     }
 }

@@ -32,12 +32,14 @@ mod text_query;
 mod validation_ops;
 mod views;
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum CacheMode {
     Disabled,
     Memory,
 }
+
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -47,6 +49,7 @@ pub enum Freshness {
     HashOnRequest,
 }
 
+
 // INFO: In-memory picker and freshness settings.
 #[derive(Debug, Clone, Serialize)]
 pub struct Options {
@@ -55,6 +58,7 @@ pub struct Options {
     /// Maximum number of matches accessible across all pages of a query.
     pub total_limit: usize,
 }
+
 
 impl Options {
     pub fn new() -> Self {
@@ -66,11 +70,13 @@ impl Options {
     }
 }
 
+
 impl Default for Options {
     fn default() -> Self {
         Self::new()
     }
 }
+
 
 // Propagate field attributes through arithmetic so feature-gated counters
 // disappear from Metrics and its operations together.
@@ -154,6 +160,7 @@ metrics!(
     fts_candidates
 );
 
+
 // INFO: Record identity, source path, JSON, digest, validation state, and raw bytes. Derived from source files.
 #[derive(Debug, Clone, Serialize)]
 pub struct Record {
@@ -171,6 +178,7 @@ pub struct Record {
     pub raw: Option<Vec<u8>>,
 }
 
+
 /// Current or deleted source-record revision retained by the repository handle.
 #[derive(Debug, Clone, Serialize)]
 pub struct RecordRevision {
@@ -181,6 +189,7 @@ pub struct RecordRevision {
     pub present: bool,
 }
 
+
 /// A source inventory collected separately from a repository's live index.
 pub struct CollectionInventory {
     collection: String,
@@ -189,6 +198,7 @@ pub struct CollectionInventory {
     files: BTreeMap<String, Stamp>,
 }
 
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum TargetState {
@@ -196,6 +206,7 @@ pub enum TargetState {
     Present,
     Missing,
 }
+
 
 // INFO: A source-to-target edge. Derived from source files. Target state is resolved on read.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -207,6 +218,7 @@ pub struct RecordRelation {
     pub target_id: String,
     pub target_state: TargetState,
 }
+
 
 // INFO: In-memory collection coverage and validation counts.
 #[derive(Debug, Clone, Serialize)]
@@ -221,12 +233,14 @@ pub struct Coverage {
     pub records: usize,
 }
 
+
 // INFO: Reference edges accompanied by collection coverage information.
 #[derive(Debug, Clone, Serialize)]
 pub struct References {
     pub edges: Vec<RecordRelation>,
     pub coverage: Vec<Coverage>,
 }
+
 
 // INFO: Picker policy, collection coverage, and configuration changes.
 #[derive(Debug, Clone, Serialize)]
@@ -237,12 +251,14 @@ pub struct CacheStatus {
     pub configuration_changes: Option<ConfigurationChanges>,
 }
 
+
 // INFO: Stable source bytes, content digest, and descriptor stamp.
 struct Raw {
     json: Vec<u8>,
     hash: String,
     stamp: Stamp,
 }
+
 
 // INFO: Live handle for configuration, in-memory indexes, metrics, and coverage.
 pub struct Repository {
@@ -259,12 +275,14 @@ pub struct Repository {
     configuration_changes: Option<ConfigurationChanges>,
 }
 
+
 /// Code-level repository opening with optional schema bases.
 pub struct RepositoryBuilder {
     root: std::path::PathBuf,
     options: Options,
     discovery: Discovery,
 }
+
 
 impl RepositoryBuilder {
     /// Set cache and freshness policies before opening.
@@ -297,7 +315,9 @@ impl RepositoryBuilder {
     /// Open the repository using discovered collection boundaries.
     pub fn open(self) -> Result<Repository> {
         if self.options.total_limit == 0 {
-            return Err(Error::Request("repository total_limit must be positive".into()));
+            return Err(Error::Request(
+                "repository total_limit must be positive".into(),
+            ));
         }
         let model = RepositoryModel::discover(&self.root, &self.discovery)?;
         Ok(Repository::from_model(
@@ -307,6 +327,7 @@ impl RepositoryBuilder {
         ))
     }
 }
+
 
 impl Repository {
     /// Discover populated JSON folders as collections using the default layout.
@@ -336,7 +357,9 @@ impl Repository {
     /// Discovery lists filenames but does not parse records or build indexes.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
         if options.total_limit == 0 {
-            return Err(Error::Request("repository total_limit must be positive".into()));
+            return Err(Error::Request(
+                "repository total_limit must be positive".into(),
+            ));
         }
         if root.as_ref().join(".editor/repository.json").is_file()
             && !root.as_ref().join(".objekte/collections").is_dir()
@@ -471,6 +494,7 @@ impl Repository {
         Ok(self.configuration_changes.clone().unwrap())
     }
 }
+
 
 pub(crate) fn validate_id(id: &str) -> Result<()> {
     if id.contains(['\\', '\0'])

@@ -46,8 +46,7 @@ impl RepositoryModel {
     pub(crate) fn discover(root: &Path, settings: &Discovery) -> Result<Self> {
         let root = fs::canonicalize(root).map_err(|error| io(root, error))?;
         if settings.use_default_schemas
-            && (root.join(".objekte/collections").is_dir()
-                || root.join(".objekte/views").is_dir())
+            && (root.join(".objekte/collections").is_dir() || root.join(".objekte/views").is_dir())
         {
             return Self::discover_objekte(&root, settings);
         }
@@ -203,7 +202,14 @@ impl RepositoryModel {
                         sort_indexes,
                     )
                 } else {
-                    (None, None, BTreeMap::new(), Vec::new(), Vec::new(), Vec::new())
+                    (
+                        None,
+                        None,
+                        BTreeMap::new(),
+                        Vec::new(),
+                        Vec::new(),
+                        Vec::new(),
+                    )
                 };
             let ui_candidate = root.join(".editor/collections").join(&name).join("ui.json");
             let (ui_path, mut ui) = if schema.is_some() && ui_candidate.is_file() {

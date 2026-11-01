@@ -3,7 +3,6 @@ use crate::json::parse;
 use std::fs;
 use unicode_casefold::UnicodeCaseFold;
 
-
 fn reference_value_text(value: &Value, out: &mut String) {
     match value {
         Value::Array(items) => items
@@ -65,9 +64,10 @@ fn sonic_projection_matches_full_json_semantics() {
         fs::write(root.join("a.json"), raw).unwrap();
         let source = Source::open(&root).unwrap();
         let stamp = source.inventory().unwrap().remove("a").unwrap();
-        let projection = projected_values(&source, "a", &stamp, &indexed, &present, &view, &sort, true)
-            .unwrap()
-            .unwrap();
+        let projection =
+            projected_values(&source, "a", &stamp, &indexed, &present, &view, &sort, true)
+                .unwrap()
+                .unwrap();
         let full = parse(raw).unwrap();
         let mut expected = String::new();
         reference_indexed_value_text(&full, &mut expected);

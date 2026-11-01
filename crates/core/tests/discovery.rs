@@ -185,9 +185,15 @@ fn default_schema_claims_all_descendants_with_relative_record_ids() {
         .query_json(&request("year >= 1800", Some("books")))
         .unwrap();
     assert_eq!(result.total, Some(3));
-    let by_id = result.records.iter().map(|r| (r.id.as_str(), r))
+    let by_id = result
+        .records
+        .iter()
+        .map(|r| (r.id.as_str(), r))
         .collect::<std::collections::BTreeMap<_, _>>();
-    assert_eq!(by_id.keys().copied().collect::<Vec<_>>(), ["a", "part/a", "part/deep/b"]);
+    assert_eq!(
+        by_id.keys().copied().collect::<Vec<_>>(),
+        ["a", "part/a", "part/deep/b"]
+    );
     assert_eq!(by_id["part/a"].path, "data/books/part/a.json");
     assert_eq!(by_id["a"].state.status, RecordStatus::Valid);
     assert_eq!(by_id["part/deep/b"].state.status, RecordStatus::Invalid);

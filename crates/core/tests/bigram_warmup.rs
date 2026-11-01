@@ -2,7 +2,10 @@ mod support;
 
 use objekte_core::{CacheMode, JsonQuery, Repository, ViewRequest};
 use serde_json::json;
-use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    time::{Duration, UNIX_EPOCH},
+};
 use support::Fixture;
 
 #[test]
@@ -146,9 +149,12 @@ fn explicit_rebuild_refreshes_membership_and_retains_revisions() {
     f.write("data/books/z.json", &added);
     for (id, seconds) in [("a", 200), ("z", 300)] {
         let path = f.root.join(format!("data/books/{id}.json"));
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
-        ).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds)))
+            .unwrap();
     }
     let rebuilt = repo.rebuild_bigram_index("books").unwrap();
     assert!(rebuilt.bigram_rebuild_nanos > 0);

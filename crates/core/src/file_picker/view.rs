@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{cmp::Ordering, collections::BTreeMap};
 
+
 /// Current sortable keys and live slot order for each typed field.
 pub(super) struct ViewIndex {
     fields: Vec<String>,
@@ -16,12 +17,14 @@ pub(super) struct ViewIndex {
     ordered: Vec<Vec<usize>>,
 }
 
+
 #[derive(Serialize, Deserialize)]
 pub(super) struct SavedViewIndex {
     pub(super) fields: Vec<String>,
     pub(super) keys: Vec<Vec<Scalar>>,
     pub(super) ordered: Vec<Vec<usize>>,
 }
+
 
 impl ViewIndex {
     pub(super) fn saved(&self) -> SavedViewIndex {
@@ -53,6 +56,7 @@ impl ViewIndex {
         self.ordered = saved.ordered;
         true
     }
+
     pub(super) fn new(fields: &[String], definitions: &BTreeMap<String, Field>) -> Self {
         Self {
             fields: fields.to_vec(),
@@ -204,6 +208,7 @@ impl ViewIndex {
         Some(bits)
     }
 }
+
 
 fn compare_slots(
     keys: &[Scalar],

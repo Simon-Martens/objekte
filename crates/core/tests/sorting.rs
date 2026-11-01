@@ -597,10 +597,12 @@ fn changing_root_language_rebuilds_saved_sort_keys() {
     let mut restored = repo(fixture.path(), CacheMode::Memory, 100);
     let mut direct = repo(fixture.path(), CacheMode::Disabled, 100);
     let fast = restored.query_json(&query).unwrap();
-    let plain = direct.query_json(&JsonQuery {
-        backend: JsonQueryBackend::Direct,
-        ..query
-    }).unwrap();
+    let plain = direct
+        .query_json(&JsonQuery {
+            backend: JsonQueryBackend::Direct,
+            ..query
+        })
+        .unwrap();
     assert_eq!(ids(&fast), ids(&plain));
     assert!(
         fast.query_plan

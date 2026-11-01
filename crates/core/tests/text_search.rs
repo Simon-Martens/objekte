@@ -2,7 +2,11 @@
 
 use objekte_core::{CacheMode, JsonQuery, Options, Repository, TextMode, TextQuery};
 use serde_json::json;
-use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    path::Path,
+    time::{Duration, UNIX_EPOCH},
+};
 
 fn write(root: &Path, relative: &str, value: &str) {
     let path = root.join(relative);
@@ -12,9 +16,12 @@ fn write(root: &Path, relative: &str, value: &str) {
 
 fn modified(root: &Path, relative: &str, seconds: u64) {
     let path = root.join(relative);
-    File::options().write(true).open(&path).unwrap().set_times(
-        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
-    ).unwrap();
+    File::options()
+        .write(true)
+        .open(&path)
+        .unwrap()
+        .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds)))
+        .unwrap();
 }
 
 fn schema(root: &Path) {
@@ -62,11 +69,10 @@ fn saved_markup_index_restores_without_rebuilding_text_postings() {
     let mut restored = Repository::open(root).unwrap();
     restored.warm_bigram_index("books").unwrap();
     assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
-    assert_eq!(
-        restored.warm_text_index("books").unwrap().fts_open_nanos,
-        0
-    );
-    let result = restored.search_text(&query("Visible", TextMode::Word)).unwrap();
+    assert_eq!(restored.warm_text_index("books").unwrap().fts_open_nanos, 0);
+    let result = restored
+        .search_text(&query("Visible", TextMode::Word))
+        .unwrap();
     assert_eq!(
         result
             .hits

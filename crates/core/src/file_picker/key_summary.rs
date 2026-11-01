@@ -1,10 +1,12 @@
 //! Conservative summary of decoded top-level keys in one index snapshot.
 
+
 /// A small Bloom filter: collisions cost a scan, but never hide a real key.
 #[derive(Clone, Copy, Default, serde::Serialize, serde::Deserialize)]
 pub(super) struct KeySummary {
     words: [u64; 16],
 }
+
 
 impl KeySummary {
     pub(super) fn saturate(&mut self) {

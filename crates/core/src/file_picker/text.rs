@@ -6,6 +6,7 @@ use sonic_rs::Value as SonicValue;
 use std::io::Read;
 use unicode_casefold::UnicodeCaseFold;
 
+
 /// Separate postings over rendered visible text and decoded source markup.
 pub(super) struct TextIndex {
     clean: BigramFilter,
@@ -13,11 +14,13 @@ pub(super) struct TextIndex {
     indexed_len: usize,
 }
 
+
 /// Per-slot rendered and raw text extracted from an already parsed document.
 pub(super) struct TextContent {
     pub(super) clean: Vec<u8>,
     pub(super) raw: Vec<u8>,
 }
+
 
 /// Mutable posting builders shared by eager and lazy full-text construction.
 pub(super) struct TextIndexBuilders {
@@ -27,6 +30,7 @@ pub(super) struct TextIndexBuilders {
     raw_skip: BigramIndexBuilder,
     indexed_len: usize,
 }
+
 
 impl TextIndexBuilders {
     pub(super) fn new(indexed_len: usize) -> Self {
@@ -59,6 +63,7 @@ impl TextIndexBuilders {
     }
 }
 
+
 pub(super) fn project_text(value: &SonicValue, rules: &TextRules) -> TextContent {
     let mut clean = String::new();
     let mut raw = String::new();
@@ -90,6 +95,7 @@ pub(super) fn project_malformed_text(text: &str) -> TextContent {
     }
 }
 
+
 impl TextIndex {
     pub(super) fn save_parts(&self) -> Result<(Vec<u8>, Vec<u8>, usize)> {
         Ok((
@@ -116,6 +122,7 @@ impl TextIndex {
         self.clean.heap_bytes() + self.raw.heap_bytes()
     }
 }
+
 
 impl FilePicker {
     pub(crate) fn text_index_bytes(&self) -> Option<usize> {
@@ -210,8 +217,11 @@ impl FilePicker {
             }
         });
         let slots: Box<dyn Iterator<Item = usize> + '_> = if newest_first {
-            Box::new(self.modified_order.iter(&self.files, &self.id_bytes)
-                .map(|slot| slot as usize))
+            Box::new(
+                self.modified_order
+                    .iter(&self.files, &self.id_bytes)
+                    .map(|slot| slot as usize),
+            )
         } else {
             Box::new(self.sorted.iter().copied())
         };
@@ -236,6 +246,7 @@ impl FilePicker {
             .collect()
     }
 }
+
 
 fn append_folded(text: &mut String) {
     let folded = text.case_fold().collect::<String>();

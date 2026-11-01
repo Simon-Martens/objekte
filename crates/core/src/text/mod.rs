@@ -13,6 +13,7 @@ pub(crate) use malformed::malformed_search_text;
 pub(crate) use render::render_text;
 pub(crate) use values::{TextRules, visit_json_text, visit_sonic_text};
 
+
 /// Which representation and matching syntax a search uses.
 #[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -27,6 +28,7 @@ pub enum TextMode {
     /// Regex in decoded source values with markup intact.
     RegexRaw,
 }
+
 
 /// Full-text search, optionally scoped to collections and JSON leaf paths.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -50,6 +52,7 @@ pub struct TextQuery {
     pub sort: Vec<crate::Sort>,
 }
 
+
 impl Default for TextQuery {
     fn default() -> Self {
         Self {
@@ -68,6 +71,7 @@ impl Default for TextQuery {
     }
 }
 
+
 /// A matching record, query field paths, and concrete matched leaf paths.
 #[derive(Debug, Clone, Serialize)]
 pub struct TextHit {
@@ -77,6 +81,7 @@ pub struct TextHit {
     /// Actual matched leaves such as `contents[9].incipit_statement`.
     pub matched_paths: Vec<String>,
 }
+
 
 /// Page of full-text hits with optional total and query metrics.
 #[derive(Debug, Clone, Serialize)]
@@ -89,6 +94,7 @@ pub struct TextQueryResult {
     pub metrics: crate::Metrics,
     pub query_plan: Vec<String>,
 }
+
 
 /// Final count and metrics after streamed full-text hits are verified.
 #[derive(Debug, Clone, Serialize)]

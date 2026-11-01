@@ -2,18 +2,22 @@
 
 Source JSON files define the repository. `Repository::open` discovers populated JSON folders without a manifest; optional schema bases group their descendant folders into one collection. See [collections.md](collections.md) for ownership and code APIs. `Repository::load_repository` still supports the older manifest and falls back to discovery when no manifest exists. `Options::new()` selects `CacheMode::Memory`; `CacheMode::Disabled` makes views scan source files directly. The in-memory picker serves views and default JSON filters. Its bigram filter can be saved to `.objekte/.cache`; an existing saved filter is loaded and refreshed automatically.
 
-`bigram/` contains the local FFF-derived content-fed builder, compressed filter, and changed-file overlay, with the upstream tests and MIT license. `file_picker/` owns source inventory, bigram planning, typed postings, field-presence bits, revisions, and ordered view keys. `file_picker/text.rs` owns the separate rendered and raw full-text indexes; `text/` traverses every JSON leaf and applies schema rendering and exclusion rules. `json_filter/` owns filter syntax and evaluation. `repository/json_query/` contains the in-memory and direct-source query paths; `repository/text_query.rs` handles full-text verification; `view_definition.rs` loads and executes independent named views. `repository/views.rs` retains the older collection-view API for legacy repositories. Tests live in separate files under `crates/core/tests/`, `crates/cli/tests/`, and `crates/cli/src/tui/*.test.rs`.
+`bigram/` contains the local FFF-derived content-fed builder, compressed filter, and changed-file overlay, with the upstream tests and MIT license. `file_picker/mod.rs` owns the stable file table and construction; `file_picker/refresh.rs`, `rebuild.rs`, and `candidates.rs` own live edits, immutable reconstruction, and candidate selection. Smaller modules own typed postings, presence bits, sort orders, and the rendered/raw full-text indexes. `text/` traverses every JSON leaf and applies schema rendering and exclusion rules. `json_filter/` owns filter syntax and evaluation. `repository/json_query/` separates in-memory, direct-source, and sorted execution; `repository/text_query/` separates matching and sorted execution from the main full-text verifier. `view_definition.rs` loads and executes independent named views. `repository/views.rs` retains the older collection-view API for legacy repositories. See [the core code map](code-map.md) for the query flow and test locations.
 
-`sorting.rs` compiles `SORT BY` clauses and generates ICU4X secondary-strength
+`sorting/parser.rs` compiles `SORT BY` clauses; `sorting.rs` generates ICU4X secondary-strength
 collation keys for strings. Case differences compare equal, accent differences
 remain significant, and collection/ID resolves ties. `file_picker/sort_index.rs`
 stores schema-declared single and composite orders. Single-field descending
 order is derived from its ascending index while preserving ID order within
-equal values. Sorted JSON queries verify candidates in bounded parallel batches
-and reuse the parsed match for the sort buffer, validating records only when
-they enter the accessible page. An unindexed sort maintains only the best accessible prefix and publishes
-provisional page replacements. The secondary snapshot contains sort keys and
-orders, bound to the schema and pinned collation version.
+equal values. With a verified matching sort index, JSON and full-text queries
+visit candidates in index order and emit the accessible page directly. They
+stop after the batch containing a match beyond the repository cap, which
+determines truncation.
+When no matching index is usable, `sorting/buffer.rs` maintains only the best
+accessible prefix and publishes provisional page replacements. Its JSON path
+reuses parsed matches and validates only retained records. The secondary
+snapshot contains sort keys and orders, bound to the schema root language and
+pinned collation version.
 
 Default JSON and full-text queries visit each collection's matching files by
 modification time, newest first, with byte-sorted ID breaking ties.

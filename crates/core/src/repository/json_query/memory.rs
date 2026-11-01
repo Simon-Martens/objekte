@@ -49,6 +49,7 @@ fn fts_candidate_ids(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) ->
     }
 }
 
+
 impl Repository {
     /// Keep the picker available for memory queries, views, and reconciliation.
     pub(in crate::repository) fn ensure_picker(&mut self, c: &Collection) -> Result<()> {
@@ -245,8 +246,11 @@ impl Repository {
                         .push("rendered full-text bigram candidates".into());
                 }
             }
-            if !request.sort.is_empty() && picker.order_candidate_refs(&mut entries, &request.sort) {
-                result.query_plan.push("schema-declared ordered sort index".into());
+            if !request.sort.is_empty() && picker.order_candidate_refs(&mut entries, &request.sort)
+            {
+                result
+                    .query_plan
+                    .push("schema-declared ordered sort index".into());
             }
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
@@ -403,7 +407,9 @@ impl Repository {
                             && result.returned() + page_matches.len() < request.limit
                         {
                             if capture_candidate {
-                                let (document, hash, actual_stamp) = outcome.projected.take()
+                                let (document, hash, actual_stamp) = outcome
+                                    .projected
+                                    .take()
                                     .expect("sorted match has parsed document");
                                 result.push_candidate(c, id, &actual_stamp, document, hash)?;
                             } else {

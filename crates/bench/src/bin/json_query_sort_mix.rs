@@ -5,6 +5,7 @@ use serde::Deserialize;
 use serde_json::json;
 use std::{env, fs, path::PathBuf, time::Instant};
 
+
 #[derive(Deserialize)]
 struct Case {
     id: usize,
@@ -13,6 +14,7 @@ struct Case {
     collection: String,
     sort: String,
 }
+
 
 struct Sample {
     ms: f64,
@@ -23,6 +25,7 @@ struct Sample {
     parses: u64,
     indexed: bool,
 }
+
 
 fn arg(name: &str, default: &str) -> Result<String, Box<dyn std::error::Error>> {
     let mut args = env::args().skip(1);

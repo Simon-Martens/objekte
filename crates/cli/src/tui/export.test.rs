@@ -1,14 +1,25 @@
 use super::*;
 use objekte_core::Repository;
-use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    time::{Duration, UNIX_EPOCH},
+};
 
 #[test]
 fn export_all_and_selected_hit_include_source_metadata() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
-    fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
-    fs::write(collection.join("b.json"), r#"{"note":"Moon"}"#).unwrap();
+    for (id, modified) in [("a", 2000), ("b", 1000)] {
+        let path = collection.join(format!("{id}.json"));
+        fs::write(&path, r#"{"note":"Moon"}"#).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(modified)))
+            .unwrap();
+    }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.kind = crate::tui::state::SearchKind::Filter;
@@ -42,14 +53,15 @@ fn export_all_ignores_the_visible_page_and_preserves_text_hit_fields() {
     fs::create_dir_all(&collection).unwrap();
     for index in 0..103 {
         let path = collection.join(format!("r{index:03}.json"));
-        fs::write(
-            &path,
-            r#"{"note":"Moon"}"#,
-        )
-        .unwrap();
-        File::options().write(true).open(&path).unwrap().set_times(
-            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - index))
-        ).unwrap();
+        fs::write(&path, r#"{"note":"Moon"}"#).unwrap();
+        File::options()
+            .write(true)
+            .open(&path)
+            .unwrap()
+            .set_times(
+                FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - index)),
+            )
+            .unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);

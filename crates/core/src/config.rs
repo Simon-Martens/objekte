@@ -411,7 +411,14 @@ impl RepositoryModel {
                         sort_indexes,
                     )
                 } else {
-                    (None, None, BTreeMap::new(), Vec::new(), Vec::new(), Vec::new())
+                    (
+                        None,
+                        None,
+                        BTreeMap::new(),
+                        Vec::new(),
+                        Vec::new(),
+                        Vec::new(),
+                    )
                 };
             let recursive = schema.is_some();
             if sources.insert(source.clone(), recursive).is_some()

@@ -1,7 +1,9 @@
+use super::table::{field, visible_columns};
 use super::*;
 use objekte_core::{InferOptions, RecordRelation, Repository, TargetState};
 use ratatui::{Terminal, backend::TestBackend};
 use std::fs;
+use unicode_width::UnicodeWidthStr;
 
 fn screen(terminal: &Terminal<TestBackend>) -> String {
     let buffer = terminal.backend().buffer();

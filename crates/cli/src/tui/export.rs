@@ -53,22 +53,23 @@ fn write_all(
         let mut first = true;
         let (total, truncated) = match &whole {
             Request::Filter(query) => {
-                let summary = app.repo
-                    .query_json_stream(query, |_, record| {
-                        append_hit(&mut writer, path, &mut first, &json!({"record":record}))
-                    })?;
+                let summary = app.repo.query_json_stream(query, |_, record| {
+                    append_hit(&mut writer, path, &mut first, &json!({"record":record}))
+                })?;
                 (summary.total, summary.truncated)
             }
             Request::Text(query) => {
-                let summary = app.repo
-                    .search_text_stream(query, |_, hit| {
-                        append_hit(&mut writer, path, &mut first, &json!(hit))
-                    })?;
+                let summary = app.repo.search_text_stream(query, |_, hit| {
+                    append_hit(&mut writer, path, &mut first, &json!(hit))
+                })?;
                 (summary.total, summary.truncated)
             }
         };
         let exported = total.unwrap_or(0);
-        write!(writer, "\n  ],\n  \"total\": {exported},\n  \"truncated\": {truncated}\n}}\n")?;
+        write!(
+            writer,
+            "\n  ],\n  \"total\": {exported},\n  \"truncated\": {truncated}\n}}\n"
+        )?;
         writer.flush()?;
         Ok(exported)
     })();

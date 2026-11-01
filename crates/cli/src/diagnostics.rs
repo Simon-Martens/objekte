@@ -3,7 +3,6 @@
 use serde_json::json;
 use std::time::{SystemTime, UNIX_EPOCH};
 
-
 /// Current Unix epoch time in milliseconds for diagnostic events.
 pub(super) fn now_unix_ms() -> u128 {
     SystemTime::now()

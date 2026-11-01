@@ -26,6 +26,7 @@ fn invalid(message: &str) -> Error {
     Error::Cache(format!("invalid bigram snapshot: {message}"))
 }
 
+
 /// The file occupying one numeric bigram slot.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct BigramFile {
@@ -37,6 +38,7 @@ pub struct BigramFile {
     /// Device, inode, and change time where the platform provides them.
     pub identity: String,
 }
+
 
 #[derive(Serialize, Deserialize)]
 struct Manifest {
@@ -50,8 +52,10 @@ struct Manifest {
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
 }
 
+
 /// V2 stores only data that cannot be reconstructed from the record ID.
 struct CompactFilesRef<'a>(&'a [BigramFile]);
+
 
 impl Serialize for CompactFilesRef<'_> {
     fn serialize<S: Serializer>(&self, serializer: S) -> std::result::Result<S::Ok, S::Error> {
@@ -68,11 +72,14 @@ impl Serialize for CompactFilesRef<'_> {
     }
 }
 
+
 struct CompactFiles(Vec<BigramFile>);
+
 
 impl<'de> Deserialize<'de> for CompactFiles {
     fn deserialize<D: Deserializer<'de>>(deserializer: D) -> std::result::Result<Self, D::Error> {
         struct FilesVisitor;
+
 
         impl<'de> Visitor<'de> for FilesVisitor {
             type Value = CompactFiles;
@@ -104,9 +111,11 @@ impl<'de> Deserialize<'de> for CompactFiles {
             }
         }
 
+
         deserializer.deserialize_seq(FilesVisitor)
     }
 }
+
 
 #[derive(Serialize)]
 struct ManifestBinaryRef<'a> {
@@ -118,6 +127,7 @@ struct ManifestBinaryRef<'a> {
     changed_bigrams: &'a BTreeMap<usize, Vec<u16>>,
 }
 
+
 #[derive(Deserialize)]
 struct ManifestBinary {
     source_root: PathBuf,
@@ -127,6 +137,7 @@ struct ManifestBinary {
     changed_slots: Vec<usize>,
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
 }
+
 
 impl From<ManifestBinary> for Manifest {
     fn from(value: ManifestBinary) -> Self {
@@ -141,6 +152,7 @@ impl From<ManifestBinary> for Manifest {
     }
 }
 
+
 /// A restored compressed filter and the filename/change metadata for each slot.
 pub struct BigramSnapshot {
     pub source_root: PathBuf,
@@ -153,6 +165,7 @@ pub struct BigramSnapshot {
     pub changed_bigrams: BTreeMap<usize, Vec<u16>>,
     pub filter: BigramFilter,
 }
+
 
 fn current_git_commit(root: &Path) -> Result<Option<String>> {
     let output = match Command::new("git")
@@ -257,6 +270,7 @@ fn check_current(
     }
     Ok(())
 }
+
 
 impl BigramSnapshot {
     /// Pair an already built filter with the exact source file slot order.
@@ -481,6 +495,7 @@ impl BigramSnapshot {
             .collect()
     }
 }
+
 
 #[cfg(test)]
 mod tests {

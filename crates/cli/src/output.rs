@@ -4,7 +4,6 @@ use objekte_core::{Error, Result as CoreResult, ViewResult};
 use serde_json::{Value, json};
 use std::io::{self, Write};
 
-
 /// Write and flush one query event so a CLI consumer can act immediately.
 pub(super) fn write_query_event(writer: &mut impl Write, event: &Value) -> CoreResult<()> {
     let output_error = |source| Error::Io {

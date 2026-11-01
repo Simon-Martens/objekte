@@ -4,7 +4,11 @@ mod support;
 
 use objekte_core::{CacheMode, JsonQuery, JsonQueryBackend};
 use serde_json::json;
-use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
+use std::{
+    fs::{self, File, FileTimes},
+    path::Path,
+    time::{Duration, UNIX_EPOCH},
+};
 use support::Fixture;
 
 fn fixture() -> Fixture {
@@ -35,9 +39,12 @@ fn fixture() -> Fixture {
 }
 
 fn set_modified(path: &Path, seconds: u64) {
-    File::options().write(true).open(path).unwrap().set_times(
-        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
-    ).unwrap();
+    File::options()
+        .write(true)
+        .open(path)
+        .unwrap()
+        .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds)))
+        .unwrap();
 }
 
 #[test]

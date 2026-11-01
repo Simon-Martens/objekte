@@ -45,7 +45,10 @@ pub(super) struct ProjectionOptions<'a> {
 }
 
 
-#[expect(clippy::too_many_arguments, reason = "projection borrows each index independently")]
+#[expect(
+    clippy::too_many_arguments,
+    reason = "projection borrows each index independently"
+)]
 pub(super) fn projected_values(
     source: &Source,
     id: &str,
@@ -78,7 +81,10 @@ pub(super) fn projected_values(
 }
 
 /// Reuse the same source read and Sonic tree when full-text postings are active.
-#[expect(clippy::too_many_arguments, reason = "projection borrows each index independently")]
+#[expect(
+    clippy::too_many_arguments,
+    reason = "projection borrows each index independently"
+)]
 pub(super) fn projected_values_with_text(
     source: &Source,
     id: &str,

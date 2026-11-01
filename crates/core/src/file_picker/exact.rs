@@ -45,9 +45,12 @@ impl FilePicker {
             });
             Box::new(slots.into_iter())
         } else {
-            Box::new(self.modified_order.iter(&self.files, &self.id_bytes)
-                .map(|slot| slot as usize)
-                .filter(|&slot| bits[slot / 64] & (1_u64 << (slot % 64)) != 0))
+            Box::new(
+                self.modified_order
+                    .iter(&self.files, &self.id_bytes)
+                    .map(|slot| slot as usize)
+                    .filter(|&slot| bits[slot / 64] & (1_u64 << (slot % 64)) != 0),
+            )
         };
         for slot in slots.skip(offset).take(limit) {
             let entry = self.files[slot].as_ref().expect("live exact slot");
