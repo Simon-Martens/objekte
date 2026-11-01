@@ -13,6 +13,7 @@ pub(super) enum WarmUpdate {
         completed: usize,
         total: usize,
         mode: WarmMode,
+        restored: u64,
     },
     Ready(Box<Repository>, WarmMode),
     Failed(String),
@@ -26,6 +27,16 @@ pub(super) enum WarmMode {
     Reindex,
 }
 
+
+pub(super) fn startup_status(repo: &Repository) -> String {
+    let total = repo.model().collections.len();
+    let has_cache = repo.model().collections.keys().any(|name| {
+        repo.bigram_cache_path(name)
+            .is_ok_and(|path| path.is_file())
+    });
+    let action = if has_cache { "Restoring" } else { "Building" };
+    format!("{action} indexes · 0/{total} collections ready")
+}
 
 pub(super) fn start(repo: &Repository, mode: WarmMode) -> Receiver<WarmUpdate> {
     let mut building = repo.fork_unindexed();
@@ -53,6 +64,7 @@ pub(super) fn start(repo: &Repository, mode: WarmMode) -> Receiver<WarmUpdate> {
                     completed: index + 1,
                     total,
                     mode,
+                    restored: building.metrics().bigram_snapshot_loads,
                 })
                 .is_err()
             {

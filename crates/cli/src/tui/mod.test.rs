@@ -77,6 +77,34 @@ fn cache_shortcuts_save_and_reindex_in_the_background() {
 }
 
 #[test]
+fn startup_status_tracks_available_and_restored_snapshot() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    assert!(warm::startup_status(&repo).starts_with("Building indexes"));
+    repo.save_bigram_cache("@root").unwrap();
+    assert!(warm::startup_status(&repo).starts_with("Restoring indexes"));
+
+    let mut app = App::new(&mut repo);
+    app.index_status = Some(warm::startup_status(app.repo));
+    for update in warm::start(app.repo, warm::WarmMode::Warm) {
+        let ready = matches!(update, warm::WarmUpdate::Ready(..));
+        apply_warm_update(&mut app, update);
+        if ready {
+            break;
+        }
+        assert!(
+            app.index_status
+                .as_deref()
+                .unwrap()
+                .starts_with("Restoring indexes")
+        );
+    }
+    assert_eq!(app.repo.metrics().bigram_snapshot_loads, 1);
+    assert!(app.message.contains("1 bigram snapshot restored"));
+}
+
+#[test]
 fn inference_prompt_queues_selected_or_all_collections_and_advanced_index_choice() {
     let temp = tempfile::tempdir().unwrap();
     for collection in ["docs", "notes"] {

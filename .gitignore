@@ -3,6 +3,7 @@
 /.data/
 /import/
 /scripts/__pycache__/
+**/.objekte/.cache/
 
 # Generated files left by the active frontend checkout.
 /crates/server/assets/node_modules/

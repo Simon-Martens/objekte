@@ -264,30 +264,45 @@ fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
             completed,
             total,
             mode,
+            restored,
         } => {
             let action = if mode == warm::WarmMode::Reindex {
                 "Reindexing"
             } else if mode == warm::WarmMode::Save {
                 "Saving"
+            } else if restored > 0 {
+                "Restoring"
             } else {
                 "Building"
             };
-            app.index_status = Some(format!(
-                "{action} indexes · {completed}/{total} collections ready"
-            ));
+            app.index_status = Some(if mode == warm::WarmMode::Warm && restored > 0 {
+                format!(
+                    "{action} indexes · {completed}/{total} collections ready · {restored} from cache"
+                )
+            } else {
+                format!("{action} indexes · {completed}/{total} collections ready")
+            });
         }
         warm::WarmUpdate::Ready(mut built, mode) => {
+            let restored = built.metrics().bigram_snapshot_loads;
             std::mem::swap(app.repo, &mut *built);
             app.index_status = None;
             if app.queued_search {
                 app.search();
             } else {
                 app.message = match mode {
-                    warm::WarmMode::Warm => "Indexes ready. Enter a query to search.",
-                    warm::WarmMode::Save => "Bigram caches saved.",
-                    warm::WarmMode::Reindex => "All indexes rebuilt and saved.",
-                }
-                .into();
+                    warm::WarmMode::Warm if restored > 0 => {
+                        let noun = if restored == 1 {
+                            "snapshot"
+                        } else {
+                            "snapshots"
+                        };
+                        format!("Indexes ready · {restored} bigram {noun} restored from cache.")
+                    }
+                    warm::WarmMode::Warm => "Indexes ready. Enter a query to search.".into(),
+                    warm::WarmMode::Save => "Bigram caches saved.".into(),
+                    warm::WarmMode::Reindex => "All indexes rebuilt and saved.".into(),
+                };
             }
         }
         warm::WarmUpdate::Failed(error) => {
@@ -316,12 +331,12 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
         return Err(error.into());
     }
     let result = (|| -> Result<(), Box<dyn Error>> {
-        let total = repo.model().collections.len();
+        let startup_status = warm::startup_status(repo);
         let mut updates = warm::start(repo, warm::WarmMode::Warm);
         let mut app = App::new(repo);
         let mut searches = search::SearchWorker::default();
         app.async_search = true;
-        app.index_status = Some(format!("Building indexes · 0/{total} collections ready"));
+        app.index_status = Some(startup_status);
         while !app.done {
             loop {
                 match updates.try_recv() {
