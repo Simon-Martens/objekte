@@ -4,6 +4,7 @@ use objekte_core::bigram::{
 };
 use objekte_core::file_picker::FilePicker;
 use objekte_core::{JsonQuery, Repository, TextMode, TextQuery};
+use sha2::{Digest, Sha256};
 use std::{fs, path::Path, process::Command};
 
 #[test]
@@ -280,6 +281,83 @@ fn damaged_secondary_cache_is_rebuilt_once() {
     let mut restored = Repository::open(temp.path()).unwrap();
     restored.warm_bigram_index("@root").unwrap();
     assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
+}
+
+#[test]
+fn legacy_json_snapshot_and_secondary_cache_restore_together() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("@root")
+        .unwrap();
+    let snapshot = BigramSnapshot::load(&cache).unwrap();
+    let manifest = serde_json::to_vec(&serde_json::json!({
+        "source_root": snapshot.source_root,
+        "recursive": snapshot.recursive,
+        "git_commit": snapshot.git_commit,
+        "files": snapshot.files,
+        "changed_slots": snapshot.changed_slots,
+        "changed_bigrams": snapshot.changed_bigrams,
+    }))
+    .unwrap();
+    let filter = snapshot.filter.to_bytes().unwrap();
+    let mut digest = Sha256::new();
+    digest.update(&manifest);
+    digest.update(&filter);
+    let digest = digest.finalize();
+    let mut old = Vec::new();
+    old.extend_from_slice(b"OBJSNP01");
+    old.extend_from_slice(&(manifest.len() as u64).to_le_bytes());
+    old.extend_from_slice(&(filter.len() as u64).to_le_bytes());
+    old.extend_from_slice(&digest);
+    old.extend_from_slice(&manifest);
+    old.extend_from_slice(&filter);
+    fs::write(&cache, old).unwrap();
+
+    let sidecar = cache.with_extension("secondary");
+    let mut secondary = fs::read(&sidecar).unwrap();
+    secondary[8..40].copy_from_slice(&digest);
+    fs::write(&sidecar, secondary).unwrap();
+
+    let mut restored = Repository::open(temp.path()).unwrap();
+    assert!(restored.restore_cached_index_unchecked("@root").unwrap());
+    assert_eq!(restored.metrics().bigram_snapshot_loads, 1);
+    let query = TextQuery {
+        pattern: "alpha".into(),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(restored.search_text(&query).unwrap().total, Some(1));
+
+    let mut verified = Repository::open(temp.path()).unwrap();
+    verified.warm_bigram_index("@root").unwrap();
+    assert_eq!(verified.metrics().secondary_snapshot_loads, 1);
+}
+
+#[test]
+fn unordered_manifest_falls_back_without_fast_restore() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    fs::write(temp.path().join("b.json"), r#"{"text":"beta"}"#).unwrap();
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("@root")
+        .unwrap();
+    let mut snapshot = BigramSnapshot::load(&cache).unwrap();
+    snapshot.files.swap(0, 1);
+    snapshot.save(&cache).unwrap();
+
+    let mut restored = Repository::open(temp.path()).unwrap();
+    assert!(!restored.restore_cached_index_unchecked("@root").unwrap());
+    restored.warm_bigram_index("@root").unwrap();
+    assert_eq!(restored.metrics().bigram_snapshot_loads, 0);
+    let query = TextQuery {
+        pattern: "alpha".into(),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(restored.search_text(&query).unwrap().total, Some(1));
 }
 
 #[test]
