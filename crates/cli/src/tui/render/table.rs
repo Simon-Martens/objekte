@@ -148,7 +148,10 @@ pub(super) fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
                 "Type a word, fragment, or phrase above",
             )
         } else {
-            ("Explore your JSON", "Enter a field filter above")
+            (
+                "Search or filter your JSON",
+                "Enter text or a field filter above",
+            )
         };
         let heading = if let Some(elapsed_ms) = app.search_elapsed_ms {
             format!("{heading} · {elapsed_ms:.2} ms")

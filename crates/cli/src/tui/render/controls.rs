@@ -48,12 +48,7 @@ pub(super) fn controls(app: &App<'_>, width: u16) -> Text<'static> {
         ),
         mode_chip("FTS", app.kind == SearchKind::Text),
         Span::raw(" "),
-        mode_chip("FILTER", app.kind == SearchKind::Filter),
-        Span::raw(" "),
-        mode_chip(
-            if width < 60 { "B" } else { "BOTH" },
-            app.kind == SearchKind::Combined,
-        ),
+        mode_chip("FILTER ON", app.kind == SearchKind::FilterOn),
         Span::styled("  Tab", Style::default().fg(theme::MUTED)),
     ];
     let left_width = first
@@ -84,7 +79,7 @@ pub(super) fn controls(app: &App<'_>, width: u16) -> Text<'static> {
             .add_modifier(Modifier::BOLD),
     ));
     let first = Line::from(first);
-    let options_line = if app.kind != SearchKind::Filter {
+    let options_line = {
         let representation = if app.representation == Representation::Normalized {
             "normalized"
         } else {
@@ -154,8 +149,6 @@ pub(super) fn controls(app: &App<'_>, width: u16) -> Text<'static> {
             ));
         }
         Line::from(options)
-    } else {
-        Line::from("")
     };
     Text::from(vec![first, Line::from(""), options_line])
 }

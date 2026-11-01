@@ -69,7 +69,9 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
             } else {
                 warm::WarmMode::Reindex
             };
-            let search_again = !app.input.text.trim().is_empty();
+            let search_again = !app.input.text.trim().is_empty()
+                || (app.kind == state::SearchKind::FilterOn
+                    && !app.filter_input.text.trim().is_empty());
             app.invalidate_results();
             app.queued_search = search_again;
             app.pending_cache_action = Some(mode);
@@ -184,7 +186,7 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
                     app.open_inference();
                     return;
                 }
-                'g' if app.kind == state::SearchKind::Combined => {
+                'g' if app.kind == state::SearchKind::FilterOn => {
                     app.focus = if app.focus == Focus::FilterInput {
                         Focus::Query
                     } else {
@@ -198,9 +200,7 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         return;
     }
     if matches!(key.code, KeyCode::Tab | KeyCode::BackTab) {
-        app.toggle_mode(
-            key.code == KeyCode::BackTab || key.modifiers.contains(KeyModifiers::SHIFT),
-        );
+        app.toggle_mode();
         return;
     }
     if matches!(app.focus, Focus::Query | Focus::FilterInput) {

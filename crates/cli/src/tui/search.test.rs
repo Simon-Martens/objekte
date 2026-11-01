@@ -330,8 +330,8 @@ fn filter_query_uses_the_same_hit_event_path() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.kind = SearchKind::Filter;
-    app.input.text = "note ~ 'Moon'".into();
+    app.kind = SearchKind::FilterOn;
+    app.filter_input.text = "note ~ 'Moon'".into();
     app.search();
     let mut worker = SearchWorker::default();
     let deadline = Instant::now() + Duration::from_secs(5);

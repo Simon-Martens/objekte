@@ -19,12 +19,12 @@ fn screen(terminal: &Terminal<TestBackend>) -> String {
 }
 
 #[test]
-fn combined_mode_renders_two_editable_queries() {
+fn filter_on_renders_two_editable_queries() {
     let temp = tempfile::tempdir().unwrap();
     fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Combined;
+    app.kind = SearchKind::FilterOn;
     app.input.text = "alpha".into();
     app.filter_input.text = "year >= 1800".into();
     app.focus = Focus::FilterInput;
@@ -224,8 +224,8 @@ fn filter_table_puts_queried_fields_first_in_query_order() {
     .unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Filter;
-    app.input.text =
+    app.kind = SearchKind::FilterOn;
+    app.filter_input.text =
         "zeta = 1 && missing(absent) && beta = true && nested.name = 'X' && zeta > 0 SORT BY gamma DESC && zeta ASC".into();
     app.search();
     assert_eq!(app.hits.len(), 1);
@@ -246,7 +246,7 @@ fn filter_table_puts_queried_fields_first_in_query_order() {
     assert_eq!(app.sort_fields, ["gamma", "zeta"]);
     assert_eq!(field(&app.hits[0], "absent"), "·");
 
-    app.input.text = "beta = true && zeta = 1".into();
+    app.filter_input.text = "beta = true && zeta = 1".into();
     app.search();
     assert_eq!(
         &columns(&app.hits, &app.query_fields, &app.sort_fields)[3..5],
@@ -291,8 +291,9 @@ fn full_text_table_previews_the_exact_matched_leaf_before_other_fields() {
     assert!(standard_screen.lines().nth(7).unwrap().contains("match"));
     assert!(standard_screen.contains("notes[1].body: Moonlight"));
 
-    app.kind = SearchKind::Filter;
-    app.input.text = "other = 'Venus'".into();
+    app.kind = SearchKind::FilterOn;
+    app.input.text.clear();
+    app.filter_input.text = "other = 'Venus'".into();
     app.search();
     assert_eq!(
         &columns(&app.hits, &app.query_fields, &app.sort_fields)[..3],
@@ -406,8 +407,8 @@ fn test_backend_renders_results_and_detail() {
     .unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Filter;
-    app.input.text = "note ~ 'Hello'".into();
+    app.kind = SearchKind::FilterOn;
+    app.filter_input.text = "note ~ 'Hello'".into();
     app.search();
     assert!(columns(&app.hits, &app.query_fields, &app.sort_fields).contains(&"id".into()));
     assert_eq!(field(&app.hits[0], "id"), "business");
@@ -516,13 +517,13 @@ fn only_available_search_options_are_rendered() {
     app.regex = true;
     assert!(!labels(&app).contains("Case:"));
 
-    app.kind = SearchKind::Filter;
+    app.kind = SearchKind::FilterOn;
     let filter = labels(&app);
-    assert!(filter.contains("FILTER"));
-    assert!(!filter.contains("Regex:"));
-    assert!(!filter.contains("Text:"));
+    assert!(filter.contains("FILTER ON"));
+    assert!(filter.contains("Regex:"));
+    assert!(filter.contains("Text:"));
     assert!(!filter.contains("Case:"));
-    assert!(!filter.contains("Compare JSON fields"));
+    assert!(!filter.contains("BOTH"));
     let filter_lines = controls(&app, 80);
     assert!(
         filter_lines.lines[1].spans.is_empty()
@@ -531,19 +532,15 @@ fn only_available_search_options_are_rendered() {
                 .iter()
                 .all(|span| span.content.trim().is_empty())
     );
-    assert!(
-        filter_lines.lines[2].spans.is_empty()
-            || filter_lines.lines[2]
-                .spans
-                .iter()
-                .all(|span| span.content.trim().is_empty())
-    );
+    assert!(!filter_lines.lines[2].spans.is_empty());
     let mut terminal = Terminal::new(TestBackend::new(80, 20)).unwrap();
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     let rendered = screen(&terminal);
     assert!(rendered.lines().nth(1).unwrap().trim().is_empty());
-    assert!(rendered.lines().nth(2).unwrap().trim().is_empty());
+    assert!(rendered.lines().nth(2).unwrap().contains("Regex:"));
     assert!(rendered.lines().nth(3).unwrap().starts_with('╭'));
+    assert!(rendered.contains("JSON FILTER"));
+    assert!(rendered.contains("FULL-TEXT SEARCH"));
     app.collection = 1;
     terminal.draw(|frame| draw(frame, &app)).unwrap();
     assert!(screen(&terminal).lines().next().unwrap().ends_with("docs"));

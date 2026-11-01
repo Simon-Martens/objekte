@@ -22,8 +22,8 @@ fn export_all_and_selected_hit_include_source_metadata() {
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = crate::tui::state::SearchKind::Filter;
-    app.input.text = "note ~ 'Moon'".into();
+    app.kind = crate::tui::state::SearchKind::FilterOn;
+    app.filter_input.text = "note ~ 'Moon'".into();
     app.search();
     let request = app.last_request.clone().unwrap();
 

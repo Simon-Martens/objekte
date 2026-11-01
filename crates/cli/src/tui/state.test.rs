@@ -87,15 +87,15 @@ fn full_text_input_finds_partial_words_in_the_result_table() {
 }
 
 #[test]
-fn direct_controls_invalidate_results_and_respect_search_mode() {
+fn direct_controls_invalidate_results_with_filter_on() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
     fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Filter;
-    app.input.text = "note ~ 'Moon'".into();
+    app.kind = SearchKind::FilterOn;
+    app.filter_input.text = "note ~ 'Moon'".into();
     app.search();
     assert_eq!(app.hits.len(), 1);
     assert!(app.last_request.is_some());
@@ -104,8 +104,8 @@ fn direct_controls_invalidate_results_and_respect_search_mode() {
     app.toggle_regex();
     app.toggle_representation();
     app.toggle_case();
-    assert!(!app.regex);
-    assert!(app.representation == Representation::Normalized);
+    assert!(app.regex);
+    assert!(app.representation == Representation::Full);
     assert!(!app.case_sensitive);
     assert_eq!(app.hits.len(), 1);
 
@@ -115,17 +115,17 @@ fn direct_controls_invalidate_results_and_respect_search_mode() {
     assert_eq!(app.hits.len(), 1);
     assert!(app.last_request.is_some());
 
-    app.toggle_mode(false);
-    assert!(app.kind == SearchKind::Combined);
+    app.toggle_mode();
+    assert!(app.kind == SearchKind::Text);
     assert!(app.focus == Focus::Query);
     app.toggle_regex();
-    assert!(app.regex);
+    assert!(!app.regex);
     app.toggle_case();
-    assert!(!app.case_sensitive);
+    assert!(app.case_sensitive);
 }
 
 #[test]
-fn combined_mode_keeps_both_inputs_and_filters_text_results() {
+fn filter_on_keeps_both_inputs_and_filters_text_results() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
@@ -134,10 +134,9 @@ fn combined_mode_keeps_both_inputs_and_filters_text_results() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.input.text = "Moon".into();
-    app.toggle_mode(false);
-    app.input.text = "year = 1800 SORT BY note DESC".into();
-    app.toggle_mode(false);
-    assert!(app.kind == SearchKind::Combined);
+    app.toggle_mode();
+    app.filter_input.text = "year = 1800 SORT BY note DESC".into();
+    assert!(app.kind == SearchKind::FilterOn);
     assert_eq!(app.input.text, "Moon");
     assert_eq!(app.filter_input.text, "year = 1800 SORT BY note DESC");
     let Request::Text(request) = app.request().unwrap() else {
@@ -154,4 +153,82 @@ fn combined_mode_keeps_both_inputs_and_filters_text_results() {
     app.search();
     assert!(app.focus == Focus::FilterInput);
     assert!(!app.message.is_empty());
+}
+
+#[test]
+fn filter_on_accepts_either_input_and_fts_sort_wins() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(
+        collection.join("a.json"),
+        r#"{"year":1800,"note":"Moon","rank":2}"#,
+    )
+    .unwrap();
+    fs::write(
+        collection.join("b.json"),
+        r#"{"year":1900,"note":"Sun","rank":3}"#,
+    )
+    .unwrap();
+    fs::write(
+        collection.join("c.json"),
+        r#"{"year":2000,"note":"Moon","rank":1}"#,
+    )
+    .unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.toggle_mode();
+
+    app.input.text = "Moon".into();
+    let Request::Text(fts) = app.request().unwrap() else {
+        panic!("expected FTS")
+    };
+    assert!(fts.filter.is_none());
+    app.search();
+    assert_eq!(app.total, Some(2));
+
+    app.input.text.clear();
+    app.filter_input.text = "year >= 1800 SORT BY year ASC".into();
+    let Request::Filter(filter) = app.request().unwrap() else {
+        panic!("expected filter")
+    };
+    assert_eq!(filter.sort[0].field, "year");
+    app.search();
+    assert_eq!(app.total, Some(3));
+    assert_eq!(app.hits[0].record().id, "a");
+    assert!(matches!(app.hits[0], Hit::Filter(_)));
+
+    app.input.text = "Moon SORT BY rank ASC".into();
+    let Request::Text(both) = app.request().unwrap() else {
+        panic!("expected combined FTS")
+    };
+    assert_eq!(both.filter.as_deref(), Some("year >= 1800"));
+    assert_eq!(both.sort.len(), 1);
+    assert_eq!(both.sort[0].field, "rank");
+    app.search();
+    assert_eq!(app.total, Some(2));
+    assert_eq!(app.hits[0].record().id, "c");
+    assert_eq!(app.hits[1].record().id, "a");
+    assert_eq!(app.sort_fields, ["rank"]);
+
+    app.input.text = "SORT BY rank ASC".into();
+    let Request::Filter(filter) = app.request().unwrap() else {
+        panic!("expected filter")
+    };
+    assert_eq!(filter.sort[0].field, "rank");
+    app.search();
+    assert_eq!(app.hits[0].record().id, "c");
+
+    app.input.text = "Moon".into();
+    app.toggle_mode();
+    let Request::Text(fts) = app.request().unwrap() else {
+        panic!("expected FTS")
+    };
+    assert!(fts.filter.is_none());
+    app.toggle_mode();
+    assert_eq!(app.filter_input.text, "year >= 1800 SORT BY year ASC");
+
+    app.input.text.clear();
+    app.filter_input.text.clear();
+    assert!(app.request().is_err());
 }

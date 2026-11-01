@@ -52,7 +52,7 @@ pub(super) fn draw(frame: &mut Frame, app: &App<'_>) {
         Constraint::Length(if in_detail { 2 } else { 3 }),
         Constraint::Length(if in_detail {
             0
-        } else if app.kind == SearchKind::Combined {
+        } else if app.kind == SearchKind::FilterOn {
             6
         } else {
             3

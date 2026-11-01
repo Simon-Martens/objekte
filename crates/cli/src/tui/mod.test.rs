@@ -22,11 +22,11 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     let mut app = App::new(&mut repo);
     assert!(app.kind == SearchKind::Text);
     press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
-    assert!(app.kind == SearchKind::Filter);
+    assert!(app.kind == SearchKind::FilterOn);
     press(&mut app, KeyCode::F(2), KeyModifiers::NONE);
-    assert!(app.kind == SearchKind::Filter);
+    assert!(app.kind == SearchKind::FilterOn);
     press(&mut app, KeyCode::Char('r'), KeyModifiers::CONTROL);
-    assert!(!app.regex);
+    assert!(app.regex);
     press(&mut app, KeyCode::Tab, KeyModifiers::CONTROL);
     assert_eq!(app.collection_label(), "docs");
     press(&mut app, KeyCode::Tab, KeyModifiers::CONTROL);
@@ -39,8 +39,6 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     assert_eq!(app.collection_label(), "docs");
     assert!(app.focus == Focus::Query);
 
-    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
-    assert!(app.kind == SearchKind::Combined);
     press(&mut app, KeyCode::Char('g'), KeyModifiers::CONTROL);
     assert!(app.focus == Focus::FilterInput);
     press(&mut app, KeyCode::Char('x'), KeyModifiers::NONE);
@@ -50,13 +48,14 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
     assert!(app.representation == Representation::Full);
     press(&mut app, KeyCode::Char('e'), KeyModifiers::CONTROL);
-    assert!(app.case_sensitive);
+    assert!(!app.case_sensitive);
     press(&mut app, KeyCode::Char('r'), KeyModifiers::CONTROL);
-    assert!(app.regex);
+    assert!(!app.regex);
     press(&mut app, KeyCode::Char('e'), KeyModifiers::CONTROL);
     assert!(app.case_sensitive);
     press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
-    assert!(app.kind == SearchKind::Filter);
+    assert!(app.kind == SearchKind::Text);
+    assert_eq!(app.filter_input.text, "x");
 }
 
 #[test]
@@ -185,8 +184,8 @@ fn result_fallback_cycles_collections_and_detail_still_opens() {
     fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Filter;
-    app.input.text = "note ~ 'Moon'".into();
+    app.kind = SearchKind::FilterOn;
+    app.filter_input.text = "note ~ 'Moon'".into();
     press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
     assert_eq!(app.hits.len(), 1);
     assert!(app.focus == Focus::Results);
@@ -367,9 +366,10 @@ fn filter_input_accepts_shifted_letters_and_altgr_symbols() {
     fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Filter;
-    app.input.text = "note ".into();
-    app.input.cursor = 5;
+    app.kind = SearchKind::FilterOn;
+    app.focus = Focus::FilterInput;
+    app.filter_input.text = "note ".into();
+    app.filter_input.cursor = 5;
     press(
         &mut app,
         KeyCode::Char('~'),
@@ -382,7 +382,7 @@ fn filter_input_accepts_shifted_letters_and_altgr_symbols() {
     for ch in "oon'".chars() {
         press(&mut app, KeyCode::Char(ch), KeyModifiers::NONE);
     }
-    assert_eq!(app.input.text, "note ~ 'Moon'");
+    assert_eq!(app.filter_input.text, "note ~ 'Moon'");
     press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
     assert_eq!(app.hits.len(), 1);
 }
@@ -406,8 +406,8 @@ fn detail_navigation_crosses_query_pages_in_both_directions() {
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = SearchKind::Filter;
-    app.input.text = "note ~ 'Moon'".into();
+    app.kind = SearchKind::FilterOn;
+    app.filter_input.text = "note ~ 'Moon'".into();
     press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
     assert_eq!(app.hits.len(), 100);
     assert_eq!(app.total, Some(102));

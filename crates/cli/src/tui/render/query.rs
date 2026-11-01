@@ -4,7 +4,7 @@ use super::*;
 use unicode_width::UnicodeWidthChar;
 
 pub(super) fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
-    if app.kind == SearchKind::Combined {
+    if app.kind == SearchKind::FilterOn {
         let [filter, text] =
             Layout::vertical([Constraint::Length(3), Constraint::Length(3)]).areas(area);
         query_box(
@@ -20,27 +20,17 @@ pub(super) fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
             &app.input,
             app.focus == Focus::Query,
             " FULL-TEXT SEARCH  ·  Enter to search ",
-            "Wasser",
+            "Wasser SORT BY preferred_title",
             text,
         );
         return;
     }
-    let title = match app.kind {
-        SearchKind::Filter => " FILTER QUERY  ·  Enter to search ",
-        SearchKind::Text => " FULL-TEXT SEARCH  ·  Enter to search ",
-        SearchKind::Combined => unreachable!(),
-    };
-    let placeholder = match app.kind {
-        SearchKind::Filter => "year >= 1800 SORT BY preferred_title",
-        SearchKind::Text => "Wasser SORT BY preferred_title",
-        SearchKind::Combined => unreachable!(),
-    };
     query_box(
         frame,
         &app.input,
         app.focus == Focus::Query,
-        title,
-        placeholder,
+        " FULL-TEXT SEARCH  ·  Enter to search ",
+        "Wasser SORT BY preferred_title",
         area,
     );
 }
