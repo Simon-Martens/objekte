@@ -179,14 +179,7 @@ impl SortPlan {
         Self::compile_fields_with_language(&collection.fields, sorts, language)
     }
 
-    pub(crate) fn compile_fields(
-        fields: &BTreeMap<String, crate::Field>,
-        sorts: &[Sort],
-    ) -> Result<Self> {
-        Self::compile_fields_with_language(fields, sorts, None)
-    }
-
-    fn compile_fields_with_language(
+    pub(crate) fn compile_fields_with_language(
         fields: &BTreeMap<String, crate::Field>,
         sorts: &[Sort],
         default_language: Option<&str>,

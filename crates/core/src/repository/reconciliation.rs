@@ -33,6 +33,9 @@ impl Repository {
             &c.advanced_index_paths,
             &c.sort_indexes,
             &c.fields,
+            c.schema
+                .as_ref()
+                .and_then(|schema| schema.field.language.as_deref()),
             snapshot,
             &path,
         )?

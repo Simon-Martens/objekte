@@ -130,7 +130,17 @@ pub struct FilePicker {
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, false, &[], &[], &[], &BTreeMap::new(), None, None)
+        Self::open_with_indexes(
+            root,
+            false,
+            &[],
+            &[],
+            &[],
+            &BTreeMap::new(),
+            None,
+            None,
+            None,
+        )
     }
 
     #[expect(clippy::too_many_arguments, reason = "index configuration is borrowed from repository metadata")]
@@ -141,6 +151,7 @@ impl FilePicker {
         advanced_paths: &[crate::JsonPath],
         sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
+        language: Option<&str>,
         snapshot: Option<BigramSnapshot>,
         snapshot_path: Option<&Path>,
     ) -> Result<Self> {
@@ -151,6 +162,7 @@ impl FilePicker {
             advanced_paths,
             sort_indexes,
             definitions,
+            language,
             (snapshot, snapshot_path),
             false,
         )?
@@ -165,6 +177,7 @@ impl FilePicker {
         advanced_paths: &[crate::JsonPath],
         sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
+        language: Option<&str>,
         snapshot: BigramSnapshot,
         snapshot_path: &Path,
     ) -> Result<Option<Self>> {
@@ -175,6 +188,7 @@ impl FilePicker {
             advanced_paths,
             sort_indexes,
             definitions,
+            language,
             (Some(snapshot), Some(snapshot_path)),
             true,
         )
@@ -188,6 +202,7 @@ impl FilePicker {
         advanced_paths: &[crate::JsonPath],
         sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
+        language: Option<&str>,
         cached: (Option<BigramSnapshot>, Option<&Path>),
         unchecked: bool,
     ) -> Result<Option<Self>> {
@@ -296,7 +311,13 @@ impl FilePicker {
             secondary_loaded: false,
             verified: !unchecked,
             snapshot_dirty: restored.as_ref().is_some_and(|restored| restored.dirty),
-            config_digest: secondary::config_digest(indexes, advanced_paths, sort_indexes, definitions)?,
+            config_digest: secondary::config_digest(
+                indexes,
+                advanced_paths,
+                sort_indexes,
+                definitions,
+                language,
+            )?,
             changed: BTreeSet::new(),
             changed_bigrams: BTreeMap::new(),
             malformed: BTreeSet::new(),
@@ -308,7 +329,7 @@ impl FilePicker {
             text_index: None,
             presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
-            sort: SortIndex::new(sort_indexes, definitions)?,
+            sort: SortIndex::new(sort_indexes, definitions, language)?,
             typed: TypedIndex::new(indexed_fields),
             inferred_paths: BTreeSet::new(),
             #[cfg(feature = "index-timings")]

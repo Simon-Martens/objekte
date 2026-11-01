@@ -109,17 +109,17 @@ mod source;
 
 impl Repository {
     /// Query stored JSON paths in all registered collections, or an explicit scope.
-    /// Ordering is (collection, id).
+    /// Results follow the requested sort, or modification time by default.
     pub fn query_json(&mut self, request: &JsonQuery) -> Result<JsonQueryResult> {
         let request = Self::normalized_json_sort(request)?;
         if !request.sort.is_empty() {
             return self.query_json_sorted(&request, &mut |_| Ok(()));
         }
-        let (result, _) = self.query_json_inner(&request, false, &mut |_, _| Ok(()), None)?;
+        let (result, _) = self.query_json_inner(&request, false, &mut |_, _| Ok(()), None, None)?;
         Ok(result)
     }
 
-    /// Emit validated page records in (collection, ID) order. Records are
+    /// Emit validated page records in query order. Records are
     /// provisional until this method returns a summary; a later error means
     /// callers must discard the emitted page. Ordinals start at one.
     pub fn query_json_stream(
@@ -140,7 +140,7 @@ impl Repository {
                 metrics: result.metrics, query_plan: result.query_plan,
             });
         }
-        let (result, returned) = self.query_json_inner(&request, true, &mut on_record, None)?;
+        let (result, returned) = self.query_json_inner(&request, true, &mut on_record, None, None)?;
         Ok(JsonQueryStreamSummary {
             returned,
             total: result.total,
@@ -213,8 +213,11 @@ impl Repository {
                 let scoped = filter.for_fields(&collection.fields);
                 let risky = scoped.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
                     || scoped.top_level_scalar_fields().iter().any(|field| picker.has_array_value(field));
-                indexed_order = picker.has_sort_index(&request.sort) && !risky;
+                indexed_order = picker.has_sort_index(&request.sort) && picker.verified() && !risky;
             }
+        }
+        if indexed_order && request.offset < self.options.total_limit && request.limit > 0 {
+            return self.query_json_indexed_order(request, on_page, started, &before);
         }
         let mut buffer = SortBuffer::new(plans, request.offset, request.limit, self.options.total_limit);
         let mut scan = request.clone();
@@ -250,7 +253,7 @@ impl Repository {
                 }
                 Ok(())
             };
-            self.query_json_inner(&scan, true, &mut |_, _| Ok(()), Some(&mut on_candidate))?
+            self.query_json_inner(&scan, true, &mut |_, _| Ok(()), Some(&mut on_candidate), None)?
         } else {
             self.query_json_inner(&scan, true, &mut |_, record| {
                 let changed = buffer.insert(&record.collection, &record.id, &record.data, || record.clone())?;
@@ -259,7 +262,7 @@ impl Repository {
                     on_page(&page)?;
                 }
                 Ok(())
-            }, None)?
+            }, None, None)?
         };
         self.metrics.add_from(&selected_validation);
         let page = buffer.page().cloned().collect::<Vec<_>>();
@@ -273,12 +276,48 @@ impl Repository {
         Ok(result)
     }
 
+    fn query_json_indexed_order(
+        &mut self,
+        request: &JsonQuery,
+        on_page: &mut dyn FnMut(&[Record]) -> Result<()>,
+        started: Instant,
+        before: &Metrics,
+    ) -> Result<JsonQueryResult> {
+        let mut scan = request.clone();
+        scan.count = true;
+        scan.limit = request.limit.min(self.options.total_limit - request.offset);
+        let stop_after = self.options.total_limit.saturating_add(1);
+        let mut page = Vec::new();
+        let (mut result, _) = self.query_json_inner(
+            &scan,
+            true,
+            &mut |_, record| {
+                page.push(record.clone());
+                on_page(&page)
+            },
+            None,
+            Some(stop_after),
+        )?;
+        on_page(&page)?;
+        result.records = page;
+        if !request.count {
+            result.total = None;
+        }
+        result.metrics = self.metrics.since(before);
+        result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
+        result
+            .query_plan
+            .push("indexed sort order; direct verified page".into());
+        Ok(result)
+    }
+
     fn query_json_inner<'a>(
         &mut self,
         request: &JsonQuery,
         streaming: bool,
         on_record: &'a mut dyn FnMut(usize, &Record) -> Result<()>,
         on_candidate: Option<&'a mut CandidateCallback<'a>>,
+        stop_after: Option<usize>,
     ) -> Result<(JsonQueryResult, usize)> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -337,7 +376,7 @@ impl Repository {
                     self.query_json_grep(request, &filter, &collections, &mut result)?
                 }
                 JsonQueryBackend::Auto | JsonQueryBackend::Bigram => {
-                    self.query_json_bigram(request, &filter, &collections, &mut result)?
+                    self.query_json_bigram(request, &filter, &collections, &mut result, stop_after)?
                 }
                 JsonQueryBackend::Direct => {
                     self.query_json_direct(request, &filter, &collections, &mut result)?

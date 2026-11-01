@@ -68,6 +68,9 @@ impl Repository {
                 &c.advanced_index_paths,
                 &c.sort_indexes,
                 &c.fields,
+                c.schema
+                    .as_ref()
+                    .and_then(|schema| schema.field.language.as_deref()),
                 snapshot,
                 cache_present.then_some(cache_path.as_path()),
             )?;
@@ -135,6 +138,7 @@ impl Repository {
         filter: &JsonFilter,
         collections: &[Collection],
         result: &mut QueryOutput<'_>,
+        stop_after: Option<usize>,
     ) -> Result<()> {
         result.query_plan =
             vec!["in-memory bigram, typed, and presence candidates; source verification".into()];
@@ -142,6 +146,9 @@ impl Repository {
         let escaped_key =
             ESCAPED_KEY.get_or_init(|| Regex::new(r"\\u").expect("literal Unicode escape regex"));
         for c in collections {
+            if stop_after.is_some_and(|limit| matched >= limit) {
+                break;
+            }
             let filter = filter.for_fields(&c.fields);
             let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
             let source_pattern = filter.source_prefilter()?;
@@ -444,6 +451,9 @@ impl Repository {
                     })?;
                 }
                 self.metrics.bigram_materialize_nanos += nanos(materialize_started);
+                if stop_after.is_some_and(|limit| matched >= limit) {
+                    break;
+                }
                 if !request.count && !risk && result.returned() == request.limit {
                     break;
                 }

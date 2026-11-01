@@ -241,7 +241,7 @@ impl Repository {
         if !request.sort.is_empty() {
             return self.search_text_sorted(&request, &mut |_| Ok(()));
         }
-        self.search_text_inner(&request, false, &mut |_, _| Ok(()))
+        self.search_text_inner(&request, false, &mut |_, _| Ok(()), None)
             .map(|(result, _)| result)
     }
 
@@ -267,7 +267,7 @@ impl Repository {
                 query_plan: result.query_plan,
             });
         }
-        let (result, returned) = self.search_text_inner(&request, true, &mut on_hit)?;
+        let (result, returned) = self.search_text_inner(&request, true, &mut on_hit, None)?;
         Ok(TextQueryStreamSummary {
             returned,
             total: result.total,
@@ -345,8 +345,12 @@ impl Repository {
             plans.insert(name.clone(), SortPlan::compile(&collection, &request.sort)?);
             if indexed_order {
                 self.ensure_picker(&collection)?;
-                indexed_order = self.file_pickers[name].has_sort_index(&request.sort);
+                indexed_order = self.file_pickers[name].has_sort_index(&request.sort)
+                    && self.file_pickers[name].verified();
             }
+        }
+        if indexed_order && request.offset < self.options.total_limit && request.limit > 0 {
+            return self.search_text_indexed_order(request, on_page, started, &before);
         }
         let mut buffer = SortBuffer::new(
             plans,
@@ -374,7 +378,7 @@ impl Repository {
                 on_page(&page)?;
             }
             Ok(())
-        })?;
+        }, None)?;
         let page = buffer.page().cloned().collect::<Vec<_>>();
         on_page(&page)?;
         result.total = buffer.total(request.count);
@@ -388,11 +392,46 @@ impl Repository {
         Ok(result)
     }
 
+    fn search_text_indexed_order(
+        &mut self,
+        request: &TextQuery,
+        on_page: &mut dyn FnMut(&[TextHit]) -> Result<()>,
+        started: Instant,
+        before: &Metrics,
+    ) -> Result<TextQueryResult> {
+        let mut scan = request.clone();
+        scan.count = true;
+        scan.limit = request.limit.min(self.options.total_limit - request.offset);
+        let stop_after = self.options.total_limit.saturating_add(1);
+        let mut page = Vec::new();
+        let (mut result, _) = self.search_text_inner(
+            &scan,
+            true,
+            &mut |_, hit| {
+                page.push(hit.clone());
+                on_page(&page)
+            },
+            Some(stop_after),
+        )?;
+        on_page(&page)?;
+        result.hits = page;
+        if !request.count {
+            result.total = None;
+        }
+        result.metrics = self.metrics.since(before);
+        result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
+        result
+            .query_plan
+            .push("indexed sort order; direct verified page".into());
+        Ok(result)
+    }
+
     fn search_text_inner(
         &mut self,
         request: &TextQuery,
         streaming: bool,
         on_hit: &mut dyn FnMut(usize, &TextHit) -> Result<()>,
+        stop_after: Option<usize>,
     ) -> Result<(TextQueryResult, usize)> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -449,6 +488,9 @@ impl Repository {
         let mut used_text_index = false;
         let mut used_filter_index = false;
         for name in names {
+            if stop_after.is_some_and(|limit| matched >= limit) {
+                break;
+            }
             let c = self.collection(&name)?;
             let collection_filter = filter.as_ref().map(|filter| filter.for_fields(&c.fields));
             let rules = TextRules::new(&c.fields);
@@ -650,12 +692,14 @@ impl Repository {
                         hits.push(hit);
                     }
                 }
-                if !request.count && returned >= request.limit {
+                if stop_after.is_some_and(|limit| matched >= limit)
+                    || !request.count && returned >= request.limit {
                     break;
                 }
             }
             source.finish()?;
-            if !request.count && returned >= request.limit {
+            if stop_after.is_some_and(|limit| matched >= limit)
+                || !request.count && returned >= request.limit {
                 break;
             }
         }

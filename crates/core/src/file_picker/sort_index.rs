@@ -40,10 +40,14 @@ impl SortIndex {
                     && definition[0].field == requested.field
                     && definition[0].direction == Direction::Asc))
     }
-    pub(super) fn new(definitions: &[Vec<Sort>], fields: &BTreeMap<String, Field>) -> Result<Self> {
+    pub(super) fn new(
+        definitions: &[Vec<Sort>],
+        fields: &BTreeMap<String, Field>,
+        language: Option<&str>,
+    ) -> Result<Self> {
         let plans = definitions
             .iter()
-            .map(|sorts| SortPlan::compile_fields(fields, sorts))
+            .map(|sorts| SortPlan::compile_fields_with_language(fields, sorts, language))
             .collect::<Result<Vec<_>>>()?;
         Ok(Self {
             definitions: definitions.to_vec(),

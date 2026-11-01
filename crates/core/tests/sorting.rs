@@ -209,6 +209,11 @@ fn german_case_and_umlauts_match_direct_and_indexed_sorts() {
             .iter()
             .any(|step| step.contains("ordered sort index"))
     );
+    assert!(
+        got.query_plan
+            .iter()
+            .any(|step| step.contains("direct verified page"))
+    );
 }
 
 #[test]
@@ -424,6 +429,87 @@ fn structured_fts_sort_and_result_cap_work_together() {
     assert!(result.truncated);
     assert_eq!(result.hits.len(), 2);
     assert_eq!(result.hits[0].record.id, "07");
+    assert!(
+        result
+            .query_plan
+            .iter()
+            .any(|step| step.contains("direct verified page"))
+    );
+}
+
+#[test]
+fn indexed_pages_match_direct_across_locales_and_mixed_search() {
+    let fixture = fixture();
+    let mut indexed = repo(fixture.path(), CacheMode::Memory, 5);
+    let mut direct = repo(fixture.path(), CacheMode::Disabled, 5);
+    for (collection, sort) in [
+        ("de", "title ASC"),
+        ("de", "title DESC"),
+        ("de", "rank DESC && title ASC"),
+        ("de", "genre ASC"),
+        ("en", "title ASC"),
+        ("sv", "title ASC"),
+    ] {
+        for (count, offset) in [(false, 0), (true, 2), (false, 4)] {
+            let query = JsonQuery {
+                filter: format!("rank >= 0 SORT BY {sort}"),
+                collections: Some(vec![collection.into()]),
+                count,
+                limit: 2,
+                offset,
+                ..Default::default()
+            };
+            let fast = indexed.query_json(&query).unwrap();
+            let plain = direct
+                .query_json(&JsonQuery {
+                    backend: JsonQueryBackend::Direct,
+                    ..query
+                })
+                .unwrap();
+            assert_eq!(
+                ids(&fast),
+                ids(&plain),
+                "{collection} {sort} {count} {offset}"
+            );
+            assert_eq!(fast.total, plain.total);
+            assert_eq!(fast.truncated, plain.truncated);
+            assert!(
+                fast.query_plan
+                    .iter()
+                    .any(|step| step.contains("direct verified page"))
+            );
+        }
+    }
+
+    let request = TextQuery {
+        pattern: "token".into(),
+        filter: Some("rank >= 1 SORT BY title ASC".into()),
+        collections: Some(vec!["de".into()]),
+        count: true,
+        limit: 2,
+        offset: 2,
+        ..Default::default()
+    };
+    let fast = indexed.search_text(&request).unwrap();
+    let plain = direct.search_text(&request).unwrap();
+    assert_eq!(
+        fast.hits
+            .iter()
+            .map(|hit| hit.record.id.as_str())
+            .collect::<Vec<_>>(),
+        plain
+            .hits
+            .iter()
+            .map(|hit| hit.record.id.as_str())
+            .collect::<Vec<_>>()
+    );
+    assert_eq!(fast.total, plain.total);
+    assert_eq!(fast.truncated, plain.truncated);
+    assert!(
+        fast.query_plan
+            .iter()
+            .any(|step| step.contains("direct verified page"))
+    );
 }
 
 #[test]
@@ -486,6 +572,41 @@ fn restored_sort_index_and_refresh_follow_source() {
     );
     restored.refresh("de").unwrap();
     assert_eq!(ids(&restored.query_json(&query).unwrap())[0], "de/07");
+}
+
+#[test]
+fn changing_root_language_rebuilds_saved_sort_keys() {
+    let fixture = fixture();
+    let query = JsonQuery {
+        filter: "rank >= 0 SORT BY title ASC".into(),
+        collections: Some(vec!["de".into()]),
+        count: true,
+        limit: 8,
+        ..Default::default()
+    };
+    let mut original = repo(fixture.path(), CacheMode::Memory, 100);
+    original.query_json(&query).unwrap();
+    original.save_bigram_cache("de").unwrap();
+    drop(original);
+
+    let path = fixture.path().join(".objekte/collections/de.schema.json");
+    let mut schema: serde_json::Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+    schema["x-language"] = json!("sv");
+    fs::write(path, serde_json::to_vec(&schema).unwrap()).unwrap();
+
+    let mut restored = repo(fixture.path(), CacheMode::Memory, 100);
+    let mut direct = repo(fixture.path(), CacheMode::Disabled, 100);
+    let fast = restored.query_json(&query).unwrap();
+    let plain = direct.query_json(&JsonQuery {
+        backend: JsonQueryBackend::Direct,
+        ..query
+    }).unwrap();
+    assert_eq!(ids(&fast), ids(&plain));
+    assert!(
+        fast.query_plan
+            .iter()
+            .any(|step| step.contains("direct verified page"))
+    );
 }
 
 #[test]

@@ -98,8 +98,16 @@ pub(super) fn config_digest(
     advanced_paths: &[crate::JsonPath],
     sort_indexes: &[Vec<crate::Sort>],
     definitions: &BTreeMap<String, Field>,
+    language: Option<&str>,
 ) -> Result<[u8; 32]> {
-    let bytes = serde_json::to_vec(&(indexes, advanced_paths, sort_indexes, definitions, "icu_collator/2.4.0"))
+    let bytes = serde_json::to_vec(&(
+        indexes,
+        advanced_paths,
+        sort_indexes,
+        definitions,
+        language,
+        "icu_collator/2.4.0",
+    ))
         .map_err(|error| Error::Cache(format!("cannot encode index config: {error}")))?;
     Ok(Sha256::digest(bytes).into())
 }
