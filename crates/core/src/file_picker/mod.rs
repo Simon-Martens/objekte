@@ -177,65 +177,88 @@ impl FilePicker {
         cached: (Option<BigramSnapshot>, Option<&Path>),
         unchecked: bool,
     ) -> Result<Option<Self>> {
-        let (snapshot, snapshot_path) = cached;
+        let (mut snapshot, snapshot_path) = cached;
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
         let inventory_started = Instant::now();
-        let inventory = if unchecked {
-            snapshot
-                .as_ref()
-                .expect("unchecked restore has a snapshot")
-                .files
-                .iter()
-                .map(|file| {
-                    (
-                        file.id.clone(),
-                        Stamp {
-                            size: file.size_bytes,
-                            modified: file.modified_unix_nanos.clone(),
-                            identity: file.identity.clone(),
-                        },
-                    )
-                })
-                .collect()
-        } else {
-            source.inventory()?
-        };
-        let restored = snapshot.and_then(|snapshot| {
-            if snapshot.files.len() != inventory.len()
-                || !snapshot
+        let inventory: Vec<(String, Stamp)> = if unchecked {
+            if snapshot.as_ref().is_some_and(|snapshot| {
+                snapshot
                     .files
-                    .iter()
-                    .zip(inventory.iter())
-                    .all(|(file, (id, _))| file.id == *id && file.filename == format!("{id}.json"))
-            {
-                return None;
+                    .windows(2)
+                    .any(|pair| pair[0].id >= pair[1].id)
+            }) {
+                source.finish()?;
+                return Ok(None);
             }
-            let mut changed = snapshot.changed_slots.into_iter().collect::<BTreeSet<_>>();
-            let mut changed_bigrams = snapshot.changed_bigrams;
-            let mut newly_changed = BTreeSet::new();
-            for (slot, (file, (_, stamp))) in
-                snapshot.files.iter().zip(inventory.iter()).enumerate()
-            {
-                if file.size_bytes != stamp.size
-                    || file.modified_unix_nanos != stamp.modified
-                    || file.identity != stamp.identity
-                {
-                    changed.insert(slot);
-                    newly_changed.insert(slot);
-                    changed_bigrams.remove(&slot);
-                }
-            }
-            let dirty = !newly_changed.is_empty();
-            Some(RestoredBigram {
-                filter: snapshot.filter,
-                changed,
-                changed_bigrams,
-                newly_changed,
-                dirty,
+            std::mem::take(
+                &mut snapshot
+                    .as_mut()
+                    .expect("unchecked restore has a snapshot")
+                    .files,
+            )
+            .into_iter()
+            .map(|file| {
+                (
+                    file.id,
+                    Stamp {
+                        size: file.size_bytes,
+                        modified: file.modified_unix_nanos,
+                        identity: file.identity,
+                    },
+                )
             })
-        });
+            .collect()
+        } else {
+            source.inventory()?.into_iter().collect()
+        };
+        let restored = if unchecked {
+            snapshot.map(|snapshot| RestoredBigram {
+                filter: snapshot.filter,
+                changed: snapshot.changed_slots.into_iter().collect(),
+                changed_bigrams: snapshot.changed_bigrams,
+                newly_changed: BTreeSet::new(),
+                dirty: false,
+            })
+        } else {
+            snapshot.and_then(|snapshot| {
+                if snapshot.files.len() != inventory.len()
+                    || !snapshot
+                        .files
+                        .iter()
+                        .zip(inventory.iter())
+                        .all(|(file, (id, _))| {
+                            file.id == *id && file.filename == format!("{id}.json")
+                        })
+                {
+                    return None;
+                }
+                let mut changed = snapshot.changed_slots.into_iter().collect::<BTreeSet<_>>();
+                let mut changed_bigrams = snapshot.changed_bigrams;
+                let mut newly_changed = BTreeSet::new();
+                for (slot, (file, (_, stamp))) in
+                    snapshot.files.iter().zip(inventory.iter()).enumerate()
+                {
+                    if file.size_bytes != stamp.size
+                        || file.modified_unix_nanos != stamp.modified
+                        || file.identity != stamp.identity
+                    {
+                        changed.insert(slot);
+                        newly_changed.insert(slot);
+                        changed_bigrams.remove(&slot);
+                    }
+                }
+                let dirty = !newly_changed.is_empty();
+                Some(RestoredBigram {
+                    filter: snapshot.filter,
+                    changed,
+                    changed_bigrams,
+                    newly_changed,
+                    dirty,
+                })
+            })
+        };
         #[cfg(feature = "index-timings")]
         let inventory_nanos = elapsed_nanos(inventory_started);
         let mut indexed_fields = indexes

@@ -66,6 +66,7 @@ fn snapshot_restores_slot_files_and_rejects_source_changes() {
     let picker = FilePicker::open(temp.path()).unwrap();
     let path = temp.path().join("index.bigram");
     picker.save_bigram_snapshot(&path).unwrap();
+    assert_eq!(&fs::read(&path).unwrap()[..8], b"OBJSNP02");
     let mut repository = Repository::open(temp.path()).unwrap();
     repository
         .save_bigram_snapshot("@root", &temp.path().join("repository.bigram"))

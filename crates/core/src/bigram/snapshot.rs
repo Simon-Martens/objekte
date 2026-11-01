@@ -2,17 +2,23 @@
 
 use super::BigramFilter;
 use crate::{Error, Result, error::io, repository::validate_id, source::Source};
-use serde::{Deserialize, Serialize};
+use bincode::Options;
+use serde::{
+    Deserialize, Deserializer, Serialize, Serializer,
+    de::{SeqAccess, Visitor},
+    ser::SerializeSeq,
+};
 use sha2::{Digest, Sha256};
 use std::{
-    collections::{BTreeMap, BTreeSet},
-    fs,
+    collections::{BTreeMap, HashSet},
+    fmt, fs,
     io::Write,
     path::{Path, PathBuf},
     process::Command,
 };
 
-const MAGIC: &[u8; 8] = b"OBJSNP01";
+const MAGIC_JSON: &[u8; 8] = b"OBJSNP01";
+const MAGIC_BINARY: &[u8; 8] = b"OBJSNP02";
 const HEADER_LEN: usize = 8 + 8 + 8 + 32;
 const MAX_SNAPSHOT_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 
@@ -44,14 +50,95 @@ struct Manifest {
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
 }
 
+/// V2 stores only data that cannot be reconstructed from the record ID.
+struct CompactFilesRef<'a>(&'a [BigramFile]);
+
+impl Serialize for CompactFilesRef<'_> {
+    fn serialize<S: Serializer>(&self, serializer: S) -> std::result::Result<S::Ok, S::Error> {
+        let mut files = serializer.serialize_seq(Some(self.0.len()))?;
+        for file in self.0 {
+            files.serialize_element(&(
+                &file.id,
+                file.size_bytes,
+                &file.modified_unix_nanos,
+                &file.identity,
+            ))?;
+        }
+        files.end()
+    }
+}
+
+struct CompactFiles(Vec<BigramFile>);
+
+impl<'de> Deserialize<'de> for CompactFiles {
+    fn deserialize<D: Deserializer<'de>>(deserializer: D) -> std::result::Result<Self, D::Error> {
+        struct FilesVisitor;
+
+        impl<'de> Visitor<'de> for FilesVisitor {
+            type Value = CompactFiles;
+
+            fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+                formatter.write_str("a sequence of compact file records")
+            }
+
+            fn visit_seq<A: SeqAccess<'de>>(
+                self,
+                mut sequence: A,
+            ) -> std::result::Result<Self::Value, A::Error> {
+                // The length comes from cache bytes. Limit speculative
+                // allocation even when their checksum is internally valid.
+                let mut files = Vec::with_capacity(sequence.size_hint().unwrap_or(0).min(65_536));
+                while let Some((id, size_bytes, modified_unix_nanos, identity)) =
+                    sequence.next_element::<(String, u64, String, String)>()?
+                {
+                    let filename = format!("{id}.json");
+                    files.push(BigramFile {
+                        id,
+                        filename,
+                        size_bytes,
+                        modified_unix_nanos,
+                        identity,
+                    });
+                }
+                Ok(CompactFiles(files))
+            }
+        }
+
+        deserializer.deserialize_seq(FilesVisitor)
+    }
+}
+
 #[derive(Serialize)]
-struct ManifestRef<'a> {
+struct ManifestBinaryRef<'a> {
     source_root: &'a PathBuf,
     recursive: bool,
     git_commit: &'a Option<String>,
-    files: &'a [BigramFile],
+    files: CompactFilesRef<'a>,
     changed_slots: &'a [usize],
     changed_bigrams: &'a BTreeMap<usize, Vec<u16>>,
+}
+
+#[derive(Deserialize)]
+struct ManifestBinary {
+    source_root: PathBuf,
+    recursive: bool,
+    git_commit: Option<String>,
+    files: CompactFiles,
+    changed_slots: Vec<usize>,
+    changed_bigrams: BTreeMap<usize, Vec<u16>>,
+}
+
+impl From<ManifestBinary> for Manifest {
+    fn from(value: ManifestBinary) -> Self {
+        Self {
+            source_root: value.source_root,
+            recursive: value.recursive,
+            git_commit: value.git_commit,
+            files: value.files.0,
+            changed_slots: value.changed_slots,
+            changed_bigrams: value.changed_bigrams,
+        }
+    }
 }
 
 /// A restored compressed filter and the filename/change metadata for each slot.
@@ -93,13 +180,19 @@ fn validate_files(files: &[BigramFile], file_count: usize) -> Result<()> {
     if files.len() != file_count {
         return Err(invalid("file count differs from filter slots"));
     }
-    let mut ids = BTreeSet::new();
-    let mut filenames = BTreeSet::new();
+    // Repository snapshots are written in ID order. Validate that common
+    // layout without building millions of temporary tree nodes. Public
+    // snapshots may be unordered, so retain a duplicate check for those.
+    let mut unordered_ids = files
+        .windows(2)
+        .any(|pair| pair[0].id >= pair[1].id)
+        .then(|| HashSet::with_capacity(files.len()));
     for file in files {
         validate_id(&file.id).map_err(|_| invalid("invalid file ID"))?;
-        if file.filename != format!("{}.json", file.id)
-            || !ids.insert(&file.id)
-            || !filenames.insert(&file.filename)
+        if file.filename.strip_suffix(".json") != Some(file.id.as_str())
+            || unordered_ids
+                .as_mut()
+                .is_some_and(|ids| !ids.insert(file.id.as_str()))
             || file.modified_unix_nanos.parse::<i128>().is_err()
             || file.size_bytes > i64::MAX as u64
         {
@@ -192,11 +285,11 @@ impl BigramSnapshot {
     pub fn save(&self, path: &Path) -> Result<()> {
         Self::write_parts(
             path,
-            ManifestRef {
+            ManifestBinaryRef {
                 source_root: &self.source_root,
                 recursive: self.recursive,
                 git_commit: &self.git_commit,
-                files: &self.files,
+                files: CompactFilesRef(&self.files),
                 changed_slots: &self.changed_slots,
                 changed_bigrams: &self.changed_bigrams,
             },
@@ -238,11 +331,11 @@ impl BigramSnapshot {
         check_current(&source_root, recursive, &git_commit, files)?;
         Self::write_parts(
             path,
-            ManifestRef {
+            ManifestBinaryRef {
                 source_root: &source_root,
                 recursive,
                 git_commit: &git_commit,
-                files,
+                files: CompactFilesRef(files),
                 changed_slots,
                 changed_bigrams,
             },
@@ -250,35 +343,42 @@ impl BigramSnapshot {
         )
     }
 
-    fn write_parts(path: &Path, manifest: ManifestRef<'_>, filter: &BigramFilter) -> Result<()> {
-        validate_files(manifest.files, filter.file_count())?;
+    fn write_parts(
+        path: &Path,
+        manifest: ManifestBinaryRef<'_>,
+        filter: &BigramFilter,
+    ) -> Result<()> {
+        validate_files(manifest.files.0, filter.file_count())?;
         validate_changes(manifest.changed_slots, filter.file_count())?;
         validate_changed_bigrams(manifest.changed_slots, manifest.changed_bigrams)?;
-        let manifest = serde_json::to_vec(&manifest)
+        let manifest = bincode::DefaultOptions::new()
+            .serialize(&manifest)
             .map_err(|error| Error::Cache(format!("cannot encode bigram manifest: {error}")))?;
         let filter = filter.to_bytes()?;
-        let mut bytes = Vec::with_capacity(HEADER_LEN + manifest.len() + filter.len());
-        bytes.extend_from_slice(MAGIC);
-        bytes.extend_from_slice(&(manifest.len() as u64).to_le_bytes());
-        bytes.extend_from_slice(&(filter.len() as u64).to_le_bytes());
+        let size = HEADER_LEN
+            .checked_add(manifest.len())
+            .and_then(|size| size.checked_add(filter.len()))
+            .ok_or_else(|| invalid("snapshot exceeds size limit"))?;
+        if size as u64 > MAX_SNAPSHOT_BYTES {
+            return Err(invalid("snapshot exceeds size limit"));
+        }
         let mut digest = Sha256::new();
         digest.update(&manifest);
         digest.update(&filter);
-        bytes.extend_from_slice(&digest.finalize());
-        bytes.extend_from_slice(&manifest);
-        bytes.extend_from_slice(&filter);
-        if bytes.len() as u64 > MAX_SNAPSHOT_BYTES {
-            return Err(invalid("snapshot exceeds size limit"));
-        }
+        let mut header = [0_u8; HEADER_LEN];
+        header[..8].copy_from_slice(MAGIC_BINARY);
+        header[8..16].copy_from_slice(&(manifest.len() as u64).to_le_bytes());
+        header[16..24].copy_from_slice(&(filter.len() as u64).to_le_bytes());
+        header[24..].copy_from_slice(&digest.finalize());
         let parent = path
             .parent()
             .ok_or_else(|| invalid("snapshot needs a parent directory"))?;
         fs::create_dir_all(parent).map_err(|error| io(parent, error))?;
         let mut temporary =
             tempfile::NamedTempFile::new_in(parent).map_err(|error| io(parent, error))?;
-        temporary
-            .write_all(&bytes)
-            .map_err(|error| io(path, error))?;
+        for part in [&header[..], &manifest, &filter] {
+            temporary.write_all(part).map_err(|error| io(path, error))?;
+        }
         temporary
             .as_file()
             .sync_all()
@@ -296,7 +396,7 @@ impl BigramSnapshot {
             return Err(invalid("snapshot exceeds size limit"));
         }
         let bytes = fs::read(path).map_err(|error| io(path, error))?;
-        if bytes.len() < HEADER_LEN || &bytes[..8] != MAGIC {
+        if bytes.len() < HEADER_LEN || (&bytes[..8] != MAGIC_JSON && &bytes[..8] != MAGIC_BINARY) {
             return Err(invalid("unknown format version"));
         }
         let manifest_len = usize::try_from(u64::from_le_bytes(bytes[8..16].try_into().unwrap()))
@@ -318,8 +418,16 @@ impl BigramSnapshot {
         if digest.finalize().as_slice() != &bytes[24..HEADER_LEN] {
             return Err(invalid("snapshot checksum differs"));
         }
-        let manifest: Manifest = serde_json::from_slice(manifest_bytes)
-            .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
+        let manifest: Manifest = if &bytes[..8] == MAGIC_JSON {
+            serde_json::from_slice(manifest_bytes)
+                .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?
+        } else {
+            let binary: ManifestBinary = bincode::DefaultOptions::new()
+                .with_limit(MAX_SNAPSHOT_BYTES)
+                .deserialize(manifest_bytes)
+                .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
+            binary.into()
+        };
         let filter = BigramFilter::from_bytes(filter_bytes)?;
         validate_files(&manifest.files, filter.file_count())?;
         validate_changes(&manifest.changed_slots, filter.file_count())?;
@@ -371,5 +479,48 @@ impl BigramSnapshot {
             })
             .map(|(_, file)| file)
             .collect()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reads_legacy_json_manifest_snapshot() {
+        let temp = tempfile::tempdir().unwrap();
+        let filter = crate::bigram::build_bigram_index_from_content(&[Some(b"alpha")]);
+        let manifest = serde_json::to_vec(&Manifest {
+            source_root: temp.path().to_owned(),
+            recursive: false,
+            git_commit: None,
+            files: vec![BigramFile {
+                id: "a".into(),
+                filename: "a.json".into(),
+                size_bytes: 5,
+                modified_unix_nanos: "1".into(),
+                identity: String::new(),
+            }],
+            changed_slots: Vec::new(),
+            changed_bigrams: BTreeMap::new(),
+        })
+        .unwrap();
+        let encoded_filter = filter.to_bytes().unwrap();
+        let mut digest = Sha256::new();
+        digest.update(&manifest);
+        digest.update(&encoded_filter);
+        let mut bytes = Vec::new();
+        bytes.extend_from_slice(MAGIC_JSON);
+        bytes.extend_from_slice(&(manifest.len() as u64).to_le_bytes());
+        bytes.extend_from_slice(&(encoded_filter.len() as u64).to_le_bytes());
+        bytes.extend_from_slice(&digest.finalize());
+        bytes.extend_from_slice(&manifest);
+        bytes.extend_from_slice(&encoded_filter);
+        let path = temp.path().join("legacy.bigram");
+        fs::write(&path, bytes).unwrap();
+
+        let restored = BigramSnapshot::load(&path).unwrap();
+        assert_eq!(restored.files[0].filename, "a.json");
+        assert_eq!(restored.candidate_files(b"alpha").len(), 1);
     }
 }

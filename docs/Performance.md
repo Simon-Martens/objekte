@@ -33,6 +33,10 @@ The historical [43-case Musenalm comparison](../crates/bench/BIGRAM-VS-SEGMENTS-
 
 The initial in-memory index build took 525 ms and 520 ms in those two processes. A fresh CLI invocation creates a fresh process and pays that cost again; repeated requests on one `Repository` handle reuse the picker. The segment figures below describe a removed backend and remain only as comparison evidence. Its fresh CLI observations were not controlled startup or memory measurements.
 
+### Saved snapshot restore
+
+Snapshot restore can be measured separately from source inventory with `cargo run --release -p objekte-bench --bin snapshot_restore -- REPOSITORY COLLECTION 3`; add `--save` to time snapshot serialization and writing. On the local 133,948-record Musenalm `contents` cache, three warm-cache runs before the manifest changes had approximately 128 ms snapshot decoding and 270 ms unchecked picker publication. Linear manifest validation, direct slot loading, and the compact binary manifest brought the final two warm runs to 57–58 ms decoding and 175 ms publication. The main snapshot shrank from 39 MB to 27 MB; its 17 MB secondary companion was unchanged. Writing the new snapshot took about 30 ms in the final two warm runs. These measurements do not include the background filesystem inventory and do not predict the exact gain on a five-million-record collection.
+
 ### First-use index build breakdown
 
 The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading and projecting every source file, bigram compression, typed postings, and ordered view keys. Detailed stage timers are compiled only with the opt-in `index-timings` Cargo feature. Normal release builds omit their measurement code and their diagnostic fields; the overall `bigram_open_ms` remains available. On 29 October 2026, a single warm-filesystem-cache `contents` query over 133,948 JSON files gave these stage timings (milliseconds):
