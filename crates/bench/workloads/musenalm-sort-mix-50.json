@@ -1,0 +1,352 @@
+[
+  {
+    "id": 1,
+    "kind": "substring",
+    "filter": "annotation ~ 'Mond'",
+    "sort": "annotation ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 2,
+    "kind": "negated substring",
+    "filter": "annotation !~ 'Mond'",
+    "sort": "preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 3,
+    "kind": "case folded substring",
+    "filter": "annotation ~ :ignorecase('Mond')",
+    "sort": "year DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 4,
+    "kind": "negated case folded",
+    "filter": "annotation !~ :ignorecase('Mond')",
+    "sort": "preferred_title DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 5,
+    "kind": "field presence",
+    "filter": "exists(annotation)",
+    "sort": "year ASC && preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 6,
+    "kind": "null equality",
+    "filter": "year = null",
+    "sort": "numbering ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 7,
+    "kind": "numeric equality",
+    "filter": "year = 1800",
+    "sort": "year DESC && preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 8,
+    "kind": "numeric inequality",
+    "filter": "year != 1800",
+    "sort": "preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 9,
+    "kind": "numeric lower bound",
+    "filter": "year >= 1800",
+    "sort": "preferred_title DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 10,
+    "kind": "numeric upper bound",
+    "filter": "year < 1800",
+    "sort": "year ASC && preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 11,
+    "kind": "numeric range",
+    "filter": "year >= 1800 && year < 1805",
+    "sort": "numbering DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 12,
+    "kind": "numeric OR",
+    "filter": "year = 1800 || year = 1801",
+    "sort": "@id DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 13,
+    "kind": "boolean true",
+    "filter": "pseudonym = true",
+    "sort": "pseudonym ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 14,
+    "kind": "boolean false",
+    "filter": "pseudonym = false",
+    "sort": "created DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 15,
+    "kind": "array any substring",
+    "filter": "musenalm_type ?~ 'Gedicht'",
+    "sort": "place_statement ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 16,
+    "kind": "number AND boolean",
+    "filter": "year = 1800 && pseudonym = true",
+    "sort": "year ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 17,
+    "kind": "parentheses AND OR",
+    "filter": "(year = 1800 || year = 1801) && pseudonym = true",
+    "sort": "preferred_title DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 18,
+    "kind": "fractional number",
+    "filter": "numbering = 0.1",
+    "sort": "numbering ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 19,
+    "kind": "field comparison",
+    "filter": "numbering < year",
+    "sort": "year DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 20,
+    "kind": "folded title substring",
+    "filter": "preferred_title ~ :ignorecase('almanach')",
+    "sort": "preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 21,
+    "kind": "title substring",
+    "filter": "preferred_title ~ 'Mond'",
+    "sort": "title_statement ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 22,
+    "kind": "negated title substring",
+    "filter": "preferred_title !~ 'Mond'",
+    "sort": "annotation DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 23,
+    "kind": "prefix wildcard",
+    "filter": "preferred_title ~ :ignorecase('Taschen%')",
+    "sort": "publication_statement ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 24,
+    "kind": "lowercase modifier",
+    "filter": "preferred_title:lower ~ 'almanach'",
+    "sort": "preferred_title DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 25,
+    "kind": "title equality",
+    "filter": "preferred_title = 'Der Mond'",
+    "sort": "variant_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 26,
+    "kind": "negated array substring",
+    "filter": "musenalm_type ?!~ 'Gedicht'",
+    "sort": "musenalm_id ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 27,
+    "kind": "agent name substring",
+    "filter": "name ~ :ignorecase('Goethe')",
+    "sort": "name ASC",
+    "collection": "agents"
+  },
+  {
+    "id": 28,
+    "kind": "string equality",
+    "filter": "profession = 'Text'",
+    "sort": "profession ASC",
+    "collection": "agents"
+  },
+  {
+    "id": 29,
+    "kind": "agent boolean",
+    "filter": "corporate_body = true",
+    "sort": "corporate_body DESC",
+    "collection": "agents"
+  },
+  {
+    "id": 30,
+    "kind": "date field comparison",
+    "filter": "created < updated",
+    "sort": "created ASC",
+    "collection": "agents"
+  },
+  {
+    "id": 31,
+    "kind": "array any equality",
+    "filter": "language ?= 'ger'",
+    "sort": "preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 32,
+    "kind": "array any inequality",
+    "filter": "language ?!= 'ger'",
+    "sort": "updated ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 33,
+    "kind": "array every equality",
+    "filter": "language:each = 'ger'",
+    "sort": "musenalm_id DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 34,
+    "kind": "entry item array length",
+    "filter": "items:length >= 1",
+    "sort": "preferred_title ASC",
+    "collection": "entries"
+  },
+  {
+    "id": 35,
+    "kind": "content entry reference",
+    "filter": "entry = '00fx8ln651na0e3'",
+    "sort": "entry ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 36,
+    "kind": "indexed entry presence",
+    "filter": "exists(entry)",
+    "sort": "year ASC && preferred_title ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 37,
+    "kind": "relation ID in array",
+    "filter": "places ?= 'd7kbujq7399g22j'",
+    "sort": "place_statement ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 38,
+    "kind": "nested array string",
+    "filter": "agents.type ?= 'Verlag'",
+    "sort": "title_statement ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 39,
+    "kind": "nested relation ID",
+    "filter": "contributors.agents ?= '5e64t7ca8x2wyim'",
+    "sort": "responsibility_statement ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 40,
+    "kind": "enum array equality",
+    "filter": "musenalm_type ?= 'Gedicht/Lied'",
+    "sort": "preferred_title DESC",
+    "collection": "contents"
+  },
+  {
+    "id": 41,
+    "kind": "nested enum equality",
+    "filter": "contributors.type ?= 'Autor:in'",
+    "sort": "year ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 42,
+    "kind": "contributors length",
+    "filter": "contributors:length > 0",
+    "sort": "annotation ASC",
+    "collection": "contents"
+  },
+  {
+    "id": 43,
+    "kind": "series array length",
+    "filter": "entries:length >= 3",
+    "sort": "title ASC",
+    "collection": "series"
+  },
+  {
+    "id": 44,
+    "kind": "series ID membership",
+    "filter": "entries ?= '1o25nw5kc1t9ko4'",
+    "sort": "frequency DESC",
+    "collection": "series"
+  },
+  {
+    "id": 45,
+    "kind": "item string AND boolean",
+    "filter": "owner = 'Theodor Springmann Stiftung' && basis = true",
+    "sort": "owner ASC",
+    "collection": "items"
+  },
+  {
+    "id": 46,
+    "kind": "item array equality",
+    "filter": "media ?= 'Reproduktion'",
+    "sort": "condition DESC",
+    "collection": "items"
+  },
+  {
+    "id": 47,
+    "kind": "item boolean false",
+    "filter": "basis = false",
+    "sort": "basis ASC",
+    "collection": "items"
+  },
+  {
+    "id": 48,
+    "kind": "place boolean",
+    "filter": "fictional = true",
+    "sort": "name ASC",
+    "collection": "places"
+  },
+  {
+    "id": 49,
+    "kind": "page key equality",
+    "filter": "key = 'kontakt'",
+    "sort": "key ASC",
+    "collection": "pages"
+  },
+  {
+    "id": 50,
+    "kind": "open schema nested text",
+    "filter": "data.description ~ 'Musenalm'",
+    "sort": "data.description ASC",
+    "collection": "pages"
+  }
+]

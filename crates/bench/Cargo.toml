@@ -13,6 +13,10 @@ name = "json-query-mix"
 path = "src/bin/json_query_mix.rs"
 
 [[bin]]
+name = "json-query-sort-mix"
+path = "src/bin/json_query_sort_mix.rs"
+
+[[bin]]
 name = "fts-query-mix"
 path = "src/bin/fts_query_mix.rs"
 
