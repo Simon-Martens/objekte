@@ -338,6 +338,69 @@ fn unindexed_sort_stream_replaces_provisional_pages() {
 }
 
 #[test]
+fn unindexed_bigram_sort_reads_each_match_once() {
+    let fixture = fixture();
+    let mut repository = repo(fixture.path(), CacheMode::Memory, 100);
+    repository.warm_bigram_index("de").unwrap();
+    repository.reset_metrics();
+    let result = repository
+        .query_json(&JsonQuery {
+            filter: "rank >= 0 SORT BY meta.label ASC".into(),
+            collections: Some(vec!["de".into()]),
+            count: true,
+            limit: 3,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(8));
+    assert_eq!(result.metrics.source_reads, 8);
+    assert_eq!(result.metrics.parses, 8);
+    assert_eq!(
+        result
+            .records
+            .iter()
+            .map(|record| record.id.as_str())
+            .collect::<Vec<_>>(),
+        ["08", "07", "06"]
+    );
+    assert!(result.records.iter().all(|record| !record.hash.is_empty()));
+}
+
+#[test]
+fn single_pass_sorted_records_match_direct_records() {
+    let fixture = fixture();
+    let mut indexed = repo(fixture.path(), CacheMode::Memory, 100);
+    let mut direct = repo(fixture.path(), CacheMode::Disabled, 100);
+    for filter in [
+        "rank >= 0 SORT BY meta.label ASC",
+        "rank >= 0 SORT BY title DESC",
+        "rank >= 0 SORT BY rank DESC && title ASC",
+    ] {
+        let request = JsonQuery {
+            filter: filter.into(),
+            collections: Some(vec!["de".into()]),
+            count: true,
+            limit: 4,
+            offset: 2,
+            ..Default::default()
+        };
+        let fast = indexed.query_json(&request).unwrap();
+        let plain = direct
+            .query_json(&JsonQuery {
+                backend: JsonQueryBackend::Direct,
+                ..request
+            })
+            .unwrap();
+        assert_eq!(fast.total, plain.total, "{filter}");
+        assert_eq!(
+            serde_json::to_value(fast.records).unwrap(),
+            serde_json::to_value(plain.records).unwrap(),
+            "{filter}"
+        );
+    }
+}
+
+#[test]
 fn quoted_fts_pattern_and_result_cap_work_together() {
     let fixture = fixture();
     let mut repository = repo(fixture.path(), CacheMode::Memory, 3);

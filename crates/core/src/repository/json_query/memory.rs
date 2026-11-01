@@ -274,6 +274,7 @@ impl Repository {
                 let batch = &entries[batch_start..batch_end];
                 batch_start = batch_end;
                 let mut page_matches = Vec::new();
+                let capture_candidate = result.on_candidate.is_some();
                 let matched_before = matched;
                 let scan_started = Instant::now();
                 let outcomes = batch
@@ -337,6 +338,7 @@ impl Repository {
                                 regex_nanos,
                                 ..Default::default()
                             };
+                            let mut matched_document = None;
                             if candidate {
                                 outcome.source_bytes = bytes.len() as u64;
                                 let t = Instant::now();
@@ -347,6 +349,9 @@ impl Repository {
                                     outcome.matches = filter.matches(&doc.data)?;
                                     outcome.query_nanos = nanos(t);
                                 }
+                                if outcome.matches && capture_candidate {
+                                    matched_document = Some(doc);
+                                }
                             }
                             let after = Stamp::from_metadata(
                                 &file.metadata().map_err(|e| io(&path, e))?,
@@ -355,6 +360,12 @@ impl Repository {
                             if before != after || bytes.len() as u64 != after.size {
                                 return Err(Error::Unstable(path));
                             }
+                            if let Some(doc) = matched_document {
+                                let started = Instant::now();
+                                let hash = digest(bytes);
+                                outcome.hash_nanos = nanos(started);
+                                outcome.projected = Some((doc, hash, after));
+                            }
                             Ok(outcome)
                         },
                     )
@@ -362,10 +373,14 @@ impl Repository {
                 self.metrics.grep_scans += batch.len() as u64;
                 self.metrics.grep_bytes += batch.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
                 self.metrics.grep_nanos += nanos(scan_started);
-                for ((id, stamp), outcome) in batch.iter().zip(outcomes) {
+                for ((id, stamp), mut outcome) in batch.iter().zip(outcomes) {
                     self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
                     self.metrics.bigram_read_nanos += outcome.read_nanos;
                     self.metrics.bigram_regex_nanos += outcome.regex_nanos;
+                    if outcome.projected.is_some() {
+                        self.metrics.hash_nanos += outcome.hash_nanos;
+                        self.metrics.hashes += 1;
+                    }
                     if outcome.candidate {
                         self.metrics.grep_candidates += 1;
                         self.metrics.source_reads += 1;
@@ -379,7 +394,13 @@ impl Repository {
                         if matched >= request.offset
                             && result.returned() + page_matches.len() < request.limit
                         {
-                            page_matches.push(((*id).to_owned(), (*stamp).clone()));
+                            if capture_candidate {
+                                let (document, hash, actual_stamp) = outcome.projected.take()
+                                    .expect("sorted match has parsed document");
+                                result.push_candidate(c, id, &actual_stamp, document, hash)?;
+                            } else {
+                                page_matches.push(((*id).to_owned(), (*stamp).clone()));
+                            }
                         }
                         matched += 1;
                     }

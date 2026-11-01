@@ -35,7 +35,12 @@ struct ScanOutcome {
     file_open_nanos: u64,
     read_nanos: u64,
     regex_nanos: u64,
+    hash_nanos: u64,
+    projected: Option<(Document, String, Stamp)>,
 }
+
+type CandidateCallback<'a> =
+    dyn FnMut(&Collection, &str, &Stamp, Document, String) -> Result<()> + 'a;
 
 
 // INFO: Shared page sink for collected and streamed queries. Backends use its
@@ -46,6 +51,7 @@ struct QueryOutput<'a> {
     returned: usize,
     streaming: bool,
     on_record: &'a mut dyn FnMut(usize, &Record) -> Result<()>,
+    on_candidate: Option<&'a mut CandidateCallback<'a>>,
 }
 
 
@@ -61,6 +67,21 @@ impl QueryOutput<'_> {
 
     fn returned(&self) -> usize {
         self.returned
+    }
+
+    fn push_candidate(
+        &mut self,
+        collection: &Collection,
+        id: &str,
+        stamp: &Stamp,
+        document: Document,
+        hash: String,
+    ) -> Result<()> {
+        self.on_candidate.as_mut().expect("candidate callback")(
+            collection, id, stamp, document, hash,
+        )?;
+        self.returned += 1;
+        Ok(())
     }
 }
 
@@ -94,7 +115,7 @@ impl Repository {
         if !request.sort.is_empty() {
             return self.query_json_sorted(&request, &mut |_| Ok(()));
         }
-        let (result, _) = self.query_json_inner(&request, false, &mut |_, _| Ok(()))?;
+        let (result, _) = self.query_json_inner(&request, false, &mut |_, _| Ok(()), None)?;
         Ok(result)
     }
 
@@ -119,7 +140,7 @@ impl Repository {
                 metrics: result.metrics, query_plan: result.query_plan,
             });
         }
-        let (result, returned) = self.query_json_inner(&request, true, &mut on_record)?;
+        let (result, returned) = self.query_json_inner(&request, true, &mut on_record, None)?;
         Ok(JsonQueryStreamSummary {
             returned,
             total: result.total,
@@ -201,14 +222,46 @@ impl Repository {
         scan.limit = if indexed_order { self.options.total_limit.saturating_add(1).min(i64::MAX as usize) }
             else { i64::MAX as usize };
         scan.count = !indexed_order;
-        let (mut result, _) = self.query_json_inner(&scan, true, &mut |_, record| {
-            let changed = buffer.insert(&record.collection, &record.id, &record.data, || record.clone())?;
-            if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
-                let page = buffer.page().cloned().collect::<Vec<_>>();
-                on_page(&page)?;
-            }
-            Ok(())
-        })?;
+        let mut selected_validation = Metrics::default();
+        let root = self.model.root.clone();
+        let (mut result, _) = if matches!(scan.backend, JsonQueryBackend::Auto | JsonQueryBackend::Bigram) {
+            let mut on_candidate = |collection: &Collection, id: &str, stamp: &Stamp, mut document: Document, hash: String| {
+                let keys = buffer.project(&collection.name, id, &document.data)?;
+                let changed = buffer.insert_keys(&collection.name, id, keys, || {
+                    if collection.schema.is_some() {
+                        let started = Instant::now();
+                        document.validate(collection);
+                        selected_validation.validations += 1;
+                        selected_validation.validation_nanos += nanos(started);
+                    } else {
+                        document.state.status = RecordStatus::NoSchema;
+                    }
+                    Record {
+                        collection: collection.name.clone(), id: id.into(),
+                        path: collection.path.join(format!("{id}.json")).strip_prefix(&root)
+                            .expect("record is within repository").to_string_lossy().into_owned(),
+                        size_bytes: stamp.size, modified_unix_nanos: stamp.modified.clone(),
+                        hash, data: document.data, state: document.state, raw: None,
+                    }
+                });
+                if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
+                    let page = buffer.page().cloned().collect::<Vec<_>>();
+                    on_page(&page)?;
+                }
+                Ok(())
+            };
+            self.query_json_inner(&scan, true, &mut |_, _| Ok(()), Some(&mut on_candidate))?
+        } else {
+            self.query_json_inner(&scan, true, &mut |_, record| {
+                let changed = buffer.insert(&record.collection, &record.id, &record.data, || record.clone())?;
+                if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
+                    let page = buffer.page().cloned().collect::<Vec<_>>();
+                    on_page(&page)?;
+                }
+                Ok(())
+            }, None)?
+        };
+        self.metrics.add_from(&selected_validation);
         let page = buffer.page().cloned().collect::<Vec<_>>();
         on_page(&page)?;
         result.total = buffer.total(request.count);
@@ -220,11 +273,12 @@ impl Repository {
         Ok(result)
     }
 
-    fn query_json_inner(
+    fn query_json_inner<'a>(
         &mut self,
         request: &JsonQuery,
         streaming: bool,
-        on_record: &mut dyn FnMut(usize, &Record) -> Result<()>,
+        on_record: &'a mut dyn FnMut(usize, &Record) -> Result<()>,
+        on_candidate: Option<&'a mut CandidateCallback<'a>>,
     ) -> Result<(JsonQueryResult, usize)> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -275,6 +329,7 @@ impl Repository {
             returned: 0,
             streaming,
             on_record,
+            on_candidate,
         };
         if !collections.is_empty() {
             match request.backend {

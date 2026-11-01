@@ -52,3 +52,5 @@ target/release/json-query-sort-mix --repo examples/musenalm --scope relevant --r
 
 The [November 1 report](SORT-MIX-50-2026-11-01.md) includes every case and
 links the raw NDJSON results for both scopes.
+The [single-pass rerun](SORT-MIX-50-SINGLE-PASS-2026-11-01.md) compares all 50
+sorted cases before and after reusing parsed matches from candidate verification.

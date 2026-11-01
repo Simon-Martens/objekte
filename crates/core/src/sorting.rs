@@ -364,12 +364,35 @@ impl<T> SortBuffer<T> {
         data: &Value,
         value: impl FnOnce() -> T,
     ) -> Result<bool> {
-        self.seen += 1;
         if self.keep == 0 {
+            self.seen += 1;
             return Ok(false);
         }
+        let keys = self.project(collection, id, data)?;
+        Ok(self.insert_keys(collection, id, keys, value))
+    }
+
+    pub(crate) fn project(
+        &self,
+        collection: &str,
+        id: &str,
+        data: &Value,
+    ) -> Result<Vec<SortValue>> {
+        self.plans[collection].project(id, data)
+    }
+
+    pub(crate) fn insert_keys(
+        &mut self,
+        collection: &str,
+        id: &str,
+        keys: Vec<SortValue>,
+        value: impl FnOnce() -> T,
+    ) -> bool {
+        self.seen += 1;
+        if self.keep == 0 {
+            return false;
+        }
         let plan = &self.plans[collection];
-        let keys = plan.project(id, data)?;
         let position =
             self.entries
                 .partition_point(|entry| match entry.collection.as_str().cmp(collection) {
@@ -378,7 +401,7 @@ impl<T> SortBuffer<T> {
                     Ordering::Equal => plan.compare(&entry.keys, &entry.id, &keys, id).is_lt(),
                 });
         if position >= self.keep {
-            return Ok(false);
+            return false;
         }
         self.entries.insert(
             position,
@@ -392,7 +415,7 @@ impl<T> SortBuffer<T> {
         if self.entries.len() > self.keep {
             self.entries.pop();
         }
-        Ok(true)
+        true
     }
 
     pub(crate) fn seen(&self) -> usize {

@@ -9,8 +9,9 @@ collation keys for strings. Case differences compare equal, accent differences
 remain significant, and collection/ID resolves ties. `file_picker/sort_index.rs`
 stores schema-declared single and composite orders. Single-field descending
 order is derived from its ascending index while preserving ID order within
-equal values. Sorted queries verify candidates in bounded parallel batches;
-an unindexed sort maintains only the best accessible prefix and publishes
+equal values. Sorted JSON queries verify candidates in bounded parallel batches
+and reuse the parsed match for the sort buffer, validating records only when
+they enter the accessible page. An unindexed sort maintains only the best accessible prefix and publishes
 provisional page replacements. The secondary snapshot contains sort keys and
 orders, bound to the schema and pinned collation version.
 
