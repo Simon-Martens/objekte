@@ -108,11 +108,37 @@ fn direct_controls_invalidate_results_and_respect_search_mode() {
     assert_eq!(app.hits.len(), 1);
     assert!(app.last_request.is_some());
 
-    app.toggle_mode();
-    assert!(app.kind == SearchKind::Text);
+    app.toggle_mode(false);
+    assert!(app.kind == SearchKind::Combined);
     assert!(app.focus == Focus::Query);
     app.toggle_regex();
     assert!(app.regex);
     app.toggle_case();
     assert!(!app.case_sensitive);
+}
+
+#[test]
+fn combined_mode_keeps_both_inputs_and_filters_text_results() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"year":1800,"note":"Moon"}"#).unwrap();
+    fs::write(collection.join("b.json"), r#"{"year":1900,"note":"Moon"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.input.text = "Moon".into();
+    app.toggle_mode(false);
+    app.input.text = "year = 1800".into();
+    app.toggle_mode(false);
+    assert!(app.kind == SearchKind::Combined);
+    assert_eq!(app.input.text, "Moon");
+    assert_eq!(app.filter_input.text, "year = 1800");
+    app.search();
+    assert_eq!(app.total, Some(1));
+    assert_eq!(app.hits[0].record().id, "a");
+    assert_eq!(app.query_fields, ["year"]);
+    app.filter_input.text = "year =".into();
+    app.search();
+    assert!(app.focus == Focus::FilterInput);
+    assert!(!app.message.is_empty());
 }

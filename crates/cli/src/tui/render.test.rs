@@ -17,6 +17,26 @@ fn screen(terminal: &Terminal<TestBackend>) -> String {
 }
 
 #[test]
+fn combined_mode_renders_two_editable_queries() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.kind = SearchKind::Combined;
+    app.input.text = "alpha".into();
+    app.filter_input.text = "year >= 1800".into();
+    app.focus = Focus::FilterInput;
+    let mut terminal = Terminal::new(TestBackend::new(100, 20)).unwrap();
+    terminal.draw(|frame| draw(frame, &app)).unwrap();
+    let rendered = screen(&terminal);
+    assert!(rendered.contains("JSON FILTER"));
+    assert!(rendered.contains("year >= 1800"));
+    assert!(rendered.contains("FULL-TEXT SEARCH"));
+    assert!(rendered.contains("alpha"));
+    assert!(rendered.contains("Ctrl+G input"));
+}
+
+#[test]
 fn cache_shortcut_hints_are_visible_in_query_and_results() {
     let temp = tempfile::tempdir().unwrap();
     fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();

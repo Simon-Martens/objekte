@@ -16,6 +16,7 @@ pub(super) const PAGE_SIZE: usize = 100;
 pub(super) enum SearchKind {
     Filter,
     Text,
+    Combined,
 }
 
 /// Which full-text representation a query inspects.
@@ -75,12 +76,17 @@ impl Request {
 }
 
 fn queried_fields(request: &Request) -> Vec<String> {
-    let Request::Filter(query) = request else {
-        return Vec::new();
+    let (source, parameters) = match request {
+        Request::Filter(query) => (&query.filter, &query.parameters),
+        Request::Text(query) => match &query.filter {
+            Some(filter) => (filter, &query.parameters),
+            None => return Vec::new(),
+        },
     };
-    let filter = objekte_core::split_sort_clause(&query.filter)
-        .map(|(filter, _)| filter).unwrap_or_else(|_| query.filter.clone());
-    JsonFilter::compile(&filter, &query.parameters)
+    let filter = objekte_core::split_sort_clause(source)
+        .map(|(filter, _)| filter)
+        .unwrap_or_else(|_| source.clone());
+    JsonFilter::compile(&filter, parameters)
         .map(|filter| {
             let mut fields = Vec::new();
             for path in filter.paths_in_query_order() {
@@ -170,6 +176,7 @@ impl Input {
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum Focus {
     Query,
+    FilterInput,
     Results,
     Detail,
     ExportAll,
@@ -201,6 +208,7 @@ pub(super) struct App<'a> {
     pub(super) regex: bool,
     pub(super) case_sensitive: bool,
     pub(super) input: Input,
+    pub(super) filter_input: Input,
     pub(super) export_input: Input,
     pub(super) export_return_focus: Focus,
     pub(super) focus: Focus,
@@ -249,6 +257,7 @@ impl<'a> App<'a> {
             regex: false,
             case_sensitive: false,
             input: Input::default(),
+            filter_input: Input::default(),
             export_input: Input::default(),
             export_return_focus: Focus::Results,
             focus: Focus::Query,
@@ -322,8 +331,9 @@ impl<'a> App<'a> {
                 backend: JsonQueryBackend::Auto,
                 ..Default::default()
             }),
-            SearchKind::Text => Request::Text(TextQuery {
+            SearchKind::Text | SearchKind::Combined => Request::Text(TextQuery {
                 pattern: self.input.text.clone(),
+                filter: (self.kind == SearchKind::Combined).then(|| self.filter_input.text.clone()),
                 mode: match (self.regex, self.representation) {
                     (false, Representation::Normalized) => TextMode::Word,
                     (false, Representation::Full) => TextMode::WordRaw,
@@ -345,6 +355,18 @@ impl<'a> App<'a> {
     pub(super) fn search(&mut self) {
         if self.input.text.trim().is_empty() {
             self.message = "Enter a query first.".into();
+            return;
+        }
+        if self.kind == SearchKind::Combined && self.filter_input.text.trim().is_empty() {
+            self.message = "Enter a JSON filter first.".into();
+            self.focus = Focus::FilterInput;
+            return;
+        }
+        if self.kind == SearchKind::Combined
+            && let Err(error) = JsonFilter::compile(&self.filter_input.text, &Default::default())
+        {
+            self.message = error.to_string();
+            self.focus = Focus::FilterInput;
             return;
         }
         if self.index_status.is_some() && !self.reconciling {
@@ -552,23 +574,36 @@ impl<'a> App<'a> {
         ));
     }
 
-    pub(super) fn toggle_mode(&mut self) {
-        self.kind = if self.kind == SearchKind::Filter {
-            SearchKind::Text
-        } else {
-            SearchKind::Filter
+    pub(super) fn toggle_mode(&mut self, backwards: bool) {
+        self.kind = match (self.kind, backwards) {
+            (SearchKind::Text, false) | (SearchKind::Combined, true) => {
+                std::mem::swap(&mut self.input, &mut self.filter_input);
+                SearchKind::Filter
+            }
+            (SearchKind::Filter, false) => {
+                std::mem::swap(&mut self.input, &mut self.filter_input);
+                SearchKind::Combined
+            }
+            (SearchKind::Filter, true) => {
+                std::mem::swap(&mut self.input, &mut self.filter_input);
+                SearchKind::Text
+            }
+            (SearchKind::Text, true) => SearchKind::Combined,
+            (SearchKind::Combined, false) => SearchKind::Text,
         };
         self.invalidate_results();
         self.focus = Focus::Query;
-        self.message = if self.kind == SearchKind::Filter {
-            "Filter mode: compare JSON fields.".into()
-        } else {
-            "Full-text mode: search included values.".into()
+        self.message = match self.kind {
+            SearchKind::Filter => "Filter mode: compare JSON fields.".into(),
+            SearchKind::Text => "Full-text mode: search included values.".into(),
+            SearchKind::Combined => {
+                "Combined mode: JSON filter first, then full-text. Ctrl+G switches inputs.".into()
+            }
         };
     }
 
     pub(super) fn toggle_regex(&mut self) {
-        if self.kind != SearchKind::Text {
+        if self.kind == SearchKind::Filter {
             return;
         }
         self.regex = !self.regex;
@@ -581,7 +616,7 @@ impl<'a> App<'a> {
     }
 
     pub(super) fn toggle_representation(&mut self) {
-        if self.kind != SearchKind::Text {
+        if self.kind == SearchKind::Filter {
             return;
         }
         self.representation = if self.representation == Representation::Normalized {
@@ -598,7 +633,7 @@ impl<'a> App<'a> {
     }
 
     pub(super) fn toggle_case(&mut self) {
-        if self.kind != SearchKind::Text || self.regex {
+        if self.kind == SearchKind::Filter || self.regex {
             return;
         }
         self.case_sensitive = !self.case_sensitive;

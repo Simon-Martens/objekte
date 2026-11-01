@@ -3,7 +3,7 @@
 use super::{
     detail, match_preview,
     navigation::{BacklinkStatus, DetailSection},
-    state::{App, Focus, Hit, Representation, SearchKind},
+    state::{App, Focus, Hit, Input, Representation, SearchKind},
     theme,
 };
 use objekte_core::RecordStatus;
@@ -135,10 +135,55 @@ fn visible_columns(all: &[String], hits: &[Hit], start: usize, width: u16) -> Ve
 }
 
 fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
+    if app.kind == SearchKind::Combined {
+        let [filter, text] =
+            Layout::vertical([Constraint::Length(3), Constraint::Length(3)]).areas(area);
+        query_box(
+            frame,
+            &app.filter_input,
+            app.focus == Focus::FilterInput,
+            " JSON FILTER  ·  Ctrl+G switches input ",
+            "year >= 1800",
+            filter,
+        );
+        query_box(
+            frame,
+            &app.input,
+            app.focus == Focus::Query,
+            " FULL-TEXT SEARCH  ·  Enter to search ",
+            "Wasser SORT BY preferred_title",
+            text,
+        );
+        return;
+    }
     let title = match app.kind {
         SearchKind::Filter => " FILTER QUERY  ·  Enter to search ",
         SearchKind::Text => " FULL-TEXT SEARCH  ·  Enter to search ",
+        SearchKind::Combined => unreachable!(),
     };
+    let placeholder = match app.kind {
+        SearchKind::Filter => "year >= 1800 SORT BY preferred_title",
+        SearchKind::Text => "Wasser SORT BY preferred_title",
+        SearchKind::Combined => unreachable!(),
+    };
+    query_box(
+        frame,
+        &app.input,
+        app.focus == Focus::Query,
+        title,
+        placeholder,
+        area,
+    );
+}
+
+fn query_box(
+    frame: &mut Frame,
+    input: &Input,
+    focused: bool,
+    title: &str,
+    placeholder: &str,
+    area: Rect,
+) {
     let block = Block::default()
         .title(Span::styled(
             title,
@@ -149,7 +194,7 @@ fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
         .borders(Borders::ALL)
         .border_type(BorderType::Rounded)
         .style(Style::default().bg(theme::PANEL).fg(theme::TEXT))
-        .border_style(if app.focus == Focus::Query {
+        .border_style(if focused {
             Style::default().fg(theme::ACCENT)
         } else {
             Style::default().fg(theme::BORDER)
@@ -159,27 +204,22 @@ fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
     if inner.width == 0 || inner.height == 0 {
         return;
     }
-    let cursor_width = app
-        .input
+    let cursor_width = input
         .text
         .chars()
-        .take(app.input.cursor)
+        .take(input.cursor)
         .map(|ch| UnicodeWidthChar::width(ch).unwrap_or(0))
         .sum::<usize>();
     let scroll = cursor_width.saturating_sub(inner.width.saturating_sub(1) as usize);
-    let placeholder = match app.kind {
-        SearchKind::Filter => "year >= 1800 SORT BY preferred_title",
-        SearchKind::Text => "Wasser SORT BY preferred_title",
-    };
-    let line = if app.input.text.is_empty() {
+    let line = if input.text.is_empty() {
         Paragraph::new(placeholder).style(Style::default().fg(theme::MUTED).bg(theme::PANEL))
     } else {
-        Paragraph::new(app.input.text.as_str())
+        Paragraph::new(input.text.as_str())
             .style(Style::default().fg(theme::TEXT).bg(theme::PANEL))
             .scroll((0, scroll as u16))
     };
     frame.render_widget(line, inner);
-    if app.focus == Focus::Query {
+    if focused {
         frame.set_cursor_position((inner.x + (cursor_width - scroll) as u16, inner.y));
     }
 }
@@ -234,6 +274,11 @@ fn controls(app: &App<'_>, width: u16) -> Text<'static> {
         mode_chip("FTS", app.kind == SearchKind::Text),
         Span::raw(" "),
         mode_chip("FILTER", app.kind == SearchKind::Filter),
+        Span::raw(" "),
+        mode_chip(
+            if width < 60 { "B" } else { "BOTH" },
+            app.kind == SearchKind::Combined,
+        ),
         Span::styled("  Tab", Style::default().fg(theme::MUTED)),
     ];
     let left_width = first
@@ -264,7 +309,7 @@ fn controls(app: &App<'_>, width: u16) -> Text<'static> {
             .add_modifier(Modifier::BOLD),
     ));
     let first = Line::from(first);
-    let options_line = if app.kind == SearchKind::Text {
+    let options_line = if app.kind != SearchKind::Filter {
         let representation = if app.representation == Representation::Normalized {
             "normalized"
         } else {
@@ -951,12 +996,13 @@ fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'static> {
                 ("Ctrl+Q", "quit"),
             ])
         }
-    } else if app.focus == Focus::Query {
+    } else if matches!(app.focus, Focus::Query | Focus::FilterInput) {
         if width < 60 {
-            key_hints(&[("Enter", ""), ("Alt+S", ""), ("Alt+R", ""), ("Ctrl+Q", "")])
+            key_hints(&[("Enter", ""), ("Ctrl+G", ""), ("Alt+S", ""), ("Ctrl+Q", "")])
         } else {
             key_hints(&[
                 ("Enter", "search"),
+                ("Ctrl+G", "input"),
                 ("Alt+I", "infer"),
                 ("Alt+S", "save"),
                 ("Alt+R", "reindex"),
@@ -1029,7 +1075,13 @@ pub(super) fn draw(frame: &mut Frame, app: &App<'_>) {
     let show_footer = true;
     let [header, input, status, body, footer] = Layout::vertical([
         Constraint::Length(if in_detail { 2 } else { 3 }),
-        Constraint::Length(if in_detail { 0 } else { 3 }),
+        Constraint::Length(if in_detail {
+            0
+        } else if app.kind == SearchKind::Combined {
+            6
+        } else {
+            3
+        }),
         Constraint::Length(if app.message.is_empty() { 0 } else { 2 }),
         Constraint::Fill(1),
         Constraint::Length(if show_footer { 1 } else { 0 }),

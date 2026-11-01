@@ -1,12 +1,13 @@
 //! Full-text search over all included JSON leaf values.
 
 use super::*;
+use crate::sorting::{SortBuffer, SortPlan, split_sort_clause};
 use crate::{
-    TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary,
+    JsonFilter, TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary,
     text::{TextRules, render_text, visit_json_text},
 };
-use crate::sorting::{SortBuffer, SortPlan, split_sort_clause};
 use regex::Regex;
+use std::collections::HashSet;
 use unicode_casefold::UnicodeCaseFold;
 
 /// Compiled matcher and conservative bigram prefilter for one request.
@@ -258,9 +259,12 @@ impl Repository {
                 on_hit(index + 1, hit)?;
             }
             return Ok(TextQueryStreamSummary {
-                returned: result.hits.len(), total: result.total,
-                truncated: result.truncated, elapsed_ms: result.elapsed_ms,
-                metrics: result.metrics, query_plan: result.query_plan,
+                returned: result.hits.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
             });
         }
         let (result, returned) = self.search_text_inner(&request, true, &mut on_hit)?;
@@ -290,25 +294,34 @@ impl Repository {
         }
         let result = self.search_text_sorted(&request, &mut on_page)?;
         Ok(TextQueryStreamSummary {
-            returned: result.hits.len(), total: result.total,
-            truncated: result.truncated, elapsed_ms: result.elapsed_ms,
-            metrics: result.metrics, query_plan: result.query_plan,
+            returned: result.hits.len(),
+            total: result.total,
+            truncated: result.truncated,
+            elapsed_ms: result.elapsed_ms,
+            metrics: result.metrics,
+            query_plan: result.query_plan,
         })
     }
 
     fn normalized_text_sort(request: &TextQuery) -> Result<TextQuery> {
         let (pattern, inline) = split_sort_clause(&request.pattern)?;
         if !inline.is_empty() && !request.sort.is_empty() {
-            return Err(Error::Request("sort specified both in search text and request".into()));
+            return Err(Error::Request(
+                "sort specified both in search text and request".into(),
+            ));
         }
         let mut request = request.clone();
-        request.pattern = if !inline.is_empty() && pattern.starts_with('"') && pattern.ends_with('"') {
-            serde_json::from_str::<String>(&pattern)
-                .map_err(|error| Error::Request(format!("invalid quoted search pattern: {error}")))?
-        } else {
-            pattern
-        };
-        if !inline.is_empty() { request.sort = inline; }
+        request.pattern =
+            if !inline.is_empty() && pattern.starts_with('"') && pattern.ends_with('"') {
+                serde_json::from_str::<String>(&pattern).map_err(|error| {
+                    Error::Request(format!("invalid quoted search pattern: {error}"))
+                })?
+            } else {
+                pattern
+            };
+        if !inline.is_empty() {
+            request.sort = inline;
+        }
         Ok(request)
     }
 
@@ -320,10 +333,15 @@ impl Repository {
         let started = Instant::now();
         let before = self.metrics.clone();
         if self.options.total_limit == 0 {
-            return Err(Error::Request("repository total_limit must be positive".into()));
+            return Err(Error::Request(
+                "repository total_limit must be positive".into(),
+            ));
         }
         self.reload()?;
-        let names = request.collections.clone().unwrap_or_else(|| self.model.collections.keys().cloned().collect::<Vec<_>>());
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect::<Vec<_>>());
         let mut plans = BTreeMap::new();
         let mut indexed_order = self.options.cache == CacheMode::Memory
             && self.options.freshness != Freshness::HashOnRequest;
@@ -335,15 +353,27 @@ impl Repository {
                 indexed_order = self.file_pickers[name].has_sort_index(&request.sort);
             }
         }
-        let mut buffer = SortBuffer::new(plans, request.offset, request.limit, self.options.total_limit);
+        let mut buffer = SortBuffer::new(
+            plans,
+            request.offset,
+            request.limit,
+            self.options.total_limit,
+        );
         let mut scan = request.clone();
         scan.offset = 0;
-        scan.limit = if indexed_order { self.options.total_limit.saturating_add(1).min(i64::MAX as usize) }
-            else { i64::MAX as usize };
+        scan.limit = if indexed_order {
+            self.options
+                .total_limit
+                .saturating_add(1)
+                .min(i64::MAX as usize)
+        } else {
+            i64::MAX as usize
+        };
         scan.count = !indexed_order;
         let (mut result, _) = self.search_text_inner(&scan, true, &mut |_, hit| {
             let record = &hit.record;
-            let changed = buffer.insert(&record.collection, &record.id, &record.data, || hit.clone())?;
+            let changed =
+                buffer.insert(&record.collection, &record.id, &record.data, || hit.clone())?;
             if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
                 let page = buffer.page().cloned().collect::<Vec<_>>();
                 on_page(&page)?;
@@ -357,7 +387,9 @@ impl Repository {
         result.hits = buffer.into_page();
         result.metrics = self.metrics.since(&before);
         result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
-        result.query_plan.push("locale-aware sorted page; bounded result prefix".into());
+        result
+            .query_plan
+            .push("locale-aware sorted page; bounded result prefix".into());
         Ok(result)
     }
 
@@ -376,14 +408,31 @@ impl Repository {
             return Err(Error::Request("invalid text pagination".into()));
         }
         if self.options.total_limit == 0 {
-            return Err(Error::Request("repository total_limit must be positive".into()));
+            return Err(Error::Request(
+                "repository total_limit must be positive".into(),
+            ));
         }
         let mut bounded = request.clone();
         if request.sort.is_empty() {
-            bounded.limit = request.limit.min(self.options.total_limit.saturating_sub(request.offset));
+            bounded.limit = request
+                .limit
+                .min(self.options.total_limit.saturating_sub(request.offset));
         }
         let request = &bounded;
         let matcher = TextMatcher::compile(request)?;
+        let filter = request
+            .filter
+            .as_ref()
+            .map(|source| {
+                if source.trim().is_empty() {
+                    return Err(Error::Request("text filter must not be empty".into()));
+                }
+                JsonFilter::compile(source, &request.parameters)
+            })
+            .transpose()?;
+        if filter.is_none() && !request.parameters.is_empty() {
+            return Err(Error::Request("text parameters require a filter".into()));
+        }
         self.reload()?;
         let names = request
             .collections
@@ -403,8 +452,10 @@ impl Repository {
         let mut returned = 0;
         let mut used_regular_index = false;
         let mut used_text_index = false;
+        let mut used_filter_index = false;
         for name in names {
             let c = self.collection(&name)?;
+            let collection_filter = filter.as_ref().map(|filter| filter.for_fields(&c.fields));
             let rules = TextRules::new(&c.fields);
             let source = Source::open_scoped(&c.path, c.recursive)?;
             let mut optimistic = false;
@@ -427,6 +478,37 @@ impl Repository {
                     matcher.candidate_literal,
                 )
             };
+            if let Some(filter) = &collection_filter
+                && self.options.cache != CacheMode::Disabled
+                && candidates.len() > 4096
+            {
+                let picker = &self.file_pickers[&name];
+                let scalar_fields = filter.top_level_scalar_fields();
+                let risk = filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
+                    || scalar_fields
+                        .iter()
+                        .any(|field| picker.has_array_value(field));
+                if !risk {
+                    let required = filter.required_top_level_fields();
+                    let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
+                    let typed_plan = filter.typed_plan();
+                    if values_pattern.is_some() || typed_plan.is_some() || !required.is_empty() {
+                        let allowed = picker.candidate_records(
+                            values_pattern.as_deref(),
+                            typed_plan.as_ref(),
+                            &required,
+                        );
+                        if allowed.len() < candidates.len() {
+                            let allowed = allowed
+                                .into_iter()
+                                .map(|(id, _)| id)
+                                .collect::<HashSet<_>>();
+                            candidates.retain(|(id, _)| allowed.contains(id.as_str()));
+                            used_filter_index = true;
+                        }
+                    }
+                }
+            }
             if !request.sort.is_empty() && self.options.cache != CacheMode::Disabled {
                 self.file_pickers[&name].order_candidates(&mut candidates, &request.sort);
             }
@@ -452,7 +534,16 @@ impl Repository {
                         };
                         let document = Self::parse_value(&mut metrics, &c, id, &raw.json, false);
                         let started = Instant::now();
-                        let fields = if document.state.status == RecordStatus::IncorrectJson {
+                        let passes_filter = match &collection_filter {
+                            Some(_) if document.state.status == RecordStatus::IncorrectJson => {
+                                false
+                            }
+                            Some(filter) => filter.matches(&document.data)?,
+                            None => true,
+                        };
+                        let fields = if !passes_filter {
+                            Vec::new()
+                        } else if document.state.status == RecordStatus::IncorrectJson {
                             if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
                                 vec!["$raw".into()]
                             } else {
@@ -501,6 +592,15 @@ impl Repository {
                     };
                     let document = Self::parse_value(&mut self.metrics, &c, &id, &raw.json, true);
                     let malformed = document.state.status == RecordStatus::IncorrectJson;
+                    if let Some(filter) = &collection_filter {
+                        let passes = !malformed && filter.matches(&document.data)?;
+                        if !passes {
+                            if optimistic {
+                                continue;
+                            }
+                            return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                        }
+                    }
                     let verified = if malformed {
                         if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
                             TextMatches {
@@ -557,24 +657,33 @@ impl Repository {
                 break;
             }
         }
+        let mut query_plan = vec![if self.options.cache == CacheMode::Disabled {
+            "direct full-text source scan; source verification".into()
+        } else if used_regular_index && used_text_index {
+            "normal and full-text bigram candidates; source verification".into()
+        } else if used_regular_index {
+            "normal bigram candidates; source text verification".into()
+        } else if matcher.raw {
+            "raw markup full-text bigram candidates; source verification".into()
+        } else {
+            "rendered full-text bigram candidates; source verification".into()
+        }];
+        if used_filter_index {
+            query_plan
+                .push("JSON filter index candidates; filter before full-text verification".into());
+        } else if filter.is_some() {
+            query_plan.push("JSON filter before full-text verification".into());
+        }
         Ok((
             TextQueryResult {
                 hits,
-                total: request.count.then_some(matched.min(self.options.total_limit)),
+                total: request
+                    .count
+                    .then_some(matched.min(self.options.total_limit)),
                 truncated: matched > self.options.total_limit,
                 elapsed_ms: started.elapsed().as_secs_f64() * 1_000.0,
                 metrics: self.metrics.since(&before),
-                query_plan: vec![if self.options.cache == CacheMode::Disabled {
-                    "direct full-text source scan; source verification".into()
-                } else if used_regular_index && used_text_index {
-                    "normal and full-text bigram candidates; source verification".into()
-                } else if used_regular_index {
-                    "normal bigram candidates; source text verification".into()
-                } else if matcher.raw {
-                    "raw markup full-text bigram candidates; source verification".into()
-                } else {
-                    "rendered full-text bigram candidates; source verification".into()
-                }],
+                query_plan,
             },
             returned,
         ))

@@ -47,6 +47,8 @@ verification proceeds; completion fixes the final page. Alphabetic ordering
 uses schema language metadata and ignores case, independently of search case
 matching. Repository `total_limit` caps accessible matches across pages.
 
+Add `--filter 'year >= 1800'` to `search` to run a JSON field predicate before the full-text matcher. `--param NAME=JSON` binds typed values in that predicate. For example, `search contents 'Wasser SORT BY preferred_title' --filter 'year >= $min' --param min=1800 --count` returns only records that satisfy both conditions. The API exposes the same combination through `TextQuery.filter` and `TextQuery.parameters`. The filter runs before text matching, counts, paging, and sorting. When safe, its typed, presence, and bigram candidates narrow the full-text candidate set. A malformed JSON file cannot satisfy the filter.
+
 The JSON filter language also accepts `:fts` on a field operand. It renders a field with a declared format before applying the ordinary comparison, so it composes with numbers, booleans, `&&`, `||`, `~`, `!~`, `=`, and `:ignorecase`:
 
 ```sh
@@ -69,7 +71,7 @@ The regular JSON bigram index serves filter queries and standalone word or regex
 
 For a long-lived UI, `warm_text_index(collection)` and `warm_all_text_indexes()` ensure eligible full-text indexes exist after startup. `rebuild_text_index(collection)` and `rebuild_all_text_indexes()` refresh and replace eligible indexes. These methods do not build a separate pair for schema-free or plain-only collections. The CLI exposes `cache warm-text` and `cache rebuild-text`, optionally with `--collection NAME`; each CLI invocation has its own process and cache. `refresh(collection)` admits added and changed files through a conservative overlay until rebuild, and removes deleted files from candidates. A full bigram rebuild also rebuilds an active full-text index in the same file pass.
 
-`x-full-text` and `exclude_fts` are independent of the schema's scalar `index` setting, which creates ordered postings for JSON comparisons and views. Use `query` with `:fts` for structural combinations, or `search` for standalone word and regex modes.
+`x-full-text` and `exclude_fts` are independent of the schema's scalar `index` setting, which creates ordered postings for JSON comparisons and views. Use `query` with `:fts` for field-specific rendered comparisons, or `search --filter` to combine any JSON predicate with standalone word or regex modes.
 
 To measure the current Musenalm data, run `cargo run --release -p objekte-bench --bin fts-query-mix -- examples/musenalm 3`. The published [benchmark results](fts-benchmark-results.md) predate the addition of `contents.entry`, so new numbers will differ. The benchmark creates a temporary schema overlay for `contents` that marks `annotation` as Markdown, `preferred_title` as plain text, `title_statement` as HTML, and `contributors[].annotation` as XML. Every other leaf is included with plain rendering. It changes no example files. Each case counts every match and returns one record; the reported query time is the median of three warm runs. Ready-state RSS is sampled after each index build, while compressed posting bytes are reported separately.
 

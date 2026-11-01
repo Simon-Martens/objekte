@@ -16,7 +16,7 @@ Usage:
   objekte REPOSITORY query [COLLECTION] 'FILTER SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
   objekte REPOSITORY search [COLLECTION] 'PATTERN SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--mode word|raw-word|regex|raw-regex]
-      [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
+      [--filter 'JSON FILTER'] [--param NAME=JSON] [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
   objekte REPOSITORY relations --from COLLECTION/ID [--check-targets]
@@ -49,8 +49,10 @@ Options:
   --mode word|raw-word|regex|raw-regex
                                   Literal substring or regex search; raw modes see markup
   --field PATH                    Limit full-text search to a JSON leaf path
+  --filter EXPRESSION             Filter JSON records before full-text search
   --case-sensitive                Match case exactly in full-text search
-                                  TUI: Tab changes mode; Ctrl+Tab changes collection;
+                                  TUI: Tab changes mode; Ctrl+G switches combined input;
+                                  Ctrl+Tab changes collection;
                                   Ctrl+R/F/E change regex, text, and word-case options;
                                   Alt+S saves indexes; Alt+R reindexes and saves
   --help, --version
@@ -59,10 +61,10 @@ Examples:
   objekte examples/musenalm view contents_list --arg page=2
   objekte examples/musenalm query contents 'year >= 1800' --count
   objekte examples/musenalm query contents 'year >= 1800 SORT BY preferred_title' --count
+  objekte examples/musenalm search contents 'Wasser' --filter 'year >= 1800' --count
   objekte examples/musenalm inferschema contents
   objekte examples/musenalm writeschema contents
 ";
-
 
 // INFO: Parsed positional arguments, options, flags, filters, and query parameters.
 pub(super) struct Args {
@@ -75,7 +77,6 @@ pub(super) struct Args {
     pub(super) view_arguments: BTreeMap<String, Value>,
     pub(super) query_arguments: BTreeMap<String, BTreeMap<String, Value>>,
 }
-
 
 pub(super) fn args() -> Result<Args, String> {
     let mut out = Args {
@@ -91,10 +92,10 @@ pub(super) fn args() -> Result<Args, String> {
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--cache" | "--reconcile" | "--total-limit" | "--output" | "--sort" | "--direction" | "--columns"
-            | "--limit" | "--offset" | "--collection" | "--from" | "--to" | "--filter"
-            | "--param" | "--then-sort" | "--backend" | "--mode" | "--field" | "--arg"
-            | "--query-arg" => {
+            "--cache" | "--reconcile" | "--total-limit" | "--output" | "--sort" | "--direction"
+            | "--columns" | "--limit" | "--offset" | "--collection" | "--from" | "--to"
+            | "--filter" | "--param" | "--then-sort" | "--backend" | "--mode" | "--field"
+            | "--arg" | "--query-arg" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))

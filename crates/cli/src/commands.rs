@@ -145,11 +145,14 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             return Err(format!("{key} is not valid for {command}").into());
         }
     }
-    if (!a.filters.is_empty() || !a.sub_sorts.is_empty()) && !legacy_view {
+    if command == "search" && a.filters.len() > 1 {
+        return Err("search accepts one --filter".into());
+    }
+    if ((!a.filters.is_empty() && command != "search") || !a.sub_sorts.is_empty()) && !legacy_view {
         return Err("collection view filters and sorts have been removed".into());
     }
-    if command != "query" && !a.parameters.is_empty() {
-        return Err("--param requires query".into());
+    if !matches!(command, "query" | "search") && !a.parameters.is_empty() {
+        return Err("--param requires query or search".into());
     }
     if (command != "view" || legacy_view)
         && (!a.view_arguments.is_empty() || !a.query_arguments.is_empty())
@@ -245,11 +248,15 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 let stdout = std::io::stdout();
                 let mut writer = stdout.lock();
                 let mut delivered = 0;
-                let sorted = !objekte_core::split_sort_clause(&request.filter)?.1.is_empty();
+                let sorted = !objekte_core::split_sort_clause(&request.filter)?
+                    .1
+                    .is_empty();
                 let streamed = if sorted {
                     repo.query_json_stream_updates(&request, |page| {
-                        write_query_event(&mut writer,
-                            &json!({"type":"page","provisional":true,"records":page}))?;
+                        write_query_event(
+                            &mut writer,
+                            &json!({"type":"page","provisional":true,"records":page}),
+                        )?;
                         delivered = page.len();
                         Ok(())
                     })
@@ -310,6 +317,8 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             };
             let request = TextQuery {
                 pattern: pattern.clone(),
+                filter: a.filters.first().cloned(),
+                parameters: a.parameters.clone(),
                 mode,
                 case_sensitive: a.flags.contains("--case-sensitive"),
                 collections: collection.map(|name| vec![name.clone()]),
@@ -323,11 +332,15 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 let stdout = std::io::stdout();
                 let mut writer = stdout.lock();
                 let mut delivered = 0;
-                let sorted = !objekte_core::split_sort_clause(&request.pattern)?.1.is_empty();
+                let sorted = !objekte_core::split_sort_clause(&request.pattern)?
+                    .1
+                    .is_empty();
                 let streamed = if sorted {
                     repo.search_text_stream_updates(&request, |page| {
-                        write_query_event(&mut writer,
-                            &json!({"type":"page","provisional":true,"hits":page}))?;
+                        write_query_event(
+                            &mut writer,
+                            &json!({"type":"page","provisional":true,"hits":page}),
+                        )?;
                         delivered = page.len();
                         Ok(())
                     })

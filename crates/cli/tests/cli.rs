@@ -37,13 +37,44 @@ fn sorted_query_and_text_events_emit_provisional_pages_and_cap_totals() {
     let fixture = Fixture::new();
     let root = fixture.root.to_str().unwrap();
     for args in [
-        vec![root, "query", "books", "score >= 0 SORT BY title DESC", "--count", "--limit", "2", "--total-limit", "3", "--output", "events"],
-        vec![root, "search", "books", "Alpha SORT BY score DESC", "--count", "--limit", "2", "--total-limit", "1", "--output", "events"],
+        vec![
+            root,
+            "query",
+            "books",
+            "score >= 0 SORT BY title DESC",
+            "--count",
+            "--limit",
+            "2",
+            "--total-limit",
+            "3",
+            "--output",
+            "events",
+        ],
+        vec![
+            root,
+            "search",
+            "books",
+            "Alpha SORT BY score DESC",
+            "--count",
+            "--limit",
+            "2",
+            "--total-limit",
+            "1",
+            "--output",
+            "events",
+        ],
     ] {
         let output = run(&fixture, &args);
-        assert!(output.status.success(), "{}", String::from_utf8_lossy(&output.stderr));
-        let events = String::from_utf8(output.stdout).unwrap().lines()
-            .map(|line| serde_json::from_str::<Value>(line).unwrap()).collect::<Vec<_>>();
+        assert!(
+            output.status.success(),
+            "{}",
+            String::from_utf8_lossy(&output.stderr)
+        );
+        let events = String::from_utf8(output.stdout)
+            .unwrap()
+            .lines()
+            .map(|line| serde_json::from_str::<Value>(line).unwrap())
+            .collect::<Vec<_>>();
         assert!(events.iter().any(|event| event["type"] == "page"));
         assert_eq!(events.last().unwrap()["type"], "complete");
         assert!(events.last().unwrap()["truncated"].as_bool().unwrap());
@@ -1049,6 +1080,22 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
     ));
     assert_eq!(combined["total"], 1);
     assert_eq!(combined["records"][0]["id"], "a");
+    let combined_search = value(run(
+        &fixture,
+        &[
+            root,
+            "search",
+            "books",
+            "Help",
+            "--filter",
+            "score >= $min",
+            "--param",
+            "min=1",
+            "--count",
+        ],
+    ));
+    assert_eq!(combined_search["total"], 1);
+    assert_eq!(combined_search["hits"][0]["record"]["id"], "a");
     let direct = value(run(
         &fixture,
         &[

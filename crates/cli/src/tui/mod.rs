@@ -46,13 +46,19 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
     }
     if key.code == KeyCode::Char('i')
         && key.modifiers.contains(KeyModifiers::ALT)
-        && matches!(app.focus, Focus::Query | Focus::Results)
+        && matches!(
+            app.focus,
+            Focus::Query | Focus::FilterInput | Focus::Results
+        )
     {
         app.open_inference();
         return;
     }
     if key.modifiers.contains(KeyModifiers::ALT)
-        && matches!(app.focus, Focus::Query | Focus::Results)
+        && matches!(
+            app.focus,
+            Focus::Query | Focus::FilterInput | Focus::Results
+        )
         && matches!(key.code, KeyCode::Char('s' | 'S' | 'r' | 'R'))
     {
         if app.index_status.is_some() {
@@ -178,6 +184,13 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
                     app.open_inference();
                     return;
                 }
+                'g' if app.kind == state::SearchKind::Combined => {
+                    app.focus = if app.focus == Focus::FilterInput {
+                        Focus::Query
+                    } else {
+                        Focus::FilterInput
+                    };
+                }
                 _ => return,
             },
             _ => return,
@@ -185,25 +198,37 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         return;
     }
     if matches!(key.code, KeyCode::Tab | KeyCode::BackTab) {
-        app.toggle_mode();
+        app.toggle_mode(
+            key.code == KeyCode::BackTab || key.modifiers.contains(KeyModifiers::SHIFT),
+        );
         return;
     }
-    if app.focus == Focus::Query {
+    if matches!(app.focus, Focus::Query | Focus::FilterInput) {
         match key.code {
             KeyCode::Enter => {
                 app.offset = 0;
                 app.search();
             }
             KeyCode::Esc => {
-                app.input.text.clear();
-                app.input.cursor = 0;
+                let input = if app.focus == Focus::FilterInput {
+                    &mut app.filter_input
+                } else {
+                    &mut app.input
+                };
+                input.text.clear();
+                input.cursor = 0;
                 app.invalidate_results();
                 app.message.clear();
             }
             _ => {
-                let before = app.input.text.clone();
-                app.input.key(key);
-                if app.input.text != before {
+                let input = if app.focus == Focus::FilterInput {
+                    &mut app.filter_input
+                } else {
+                    &mut app.input
+                };
+                let before = input.text.clone();
+                input.key(key);
+                if input.text != before {
                     app.invalidate_results();
                     app.message = "Query changed; press Enter to search.".into();
                 }
@@ -244,7 +269,9 @@ fn pending_message(app: &App<'_>, pressed: KeyEvent) -> Option<&'static str> {
         return None;
     }
     match (app.focus, pressed.code) {
-        (Focus::Query, KeyCode::Enter) if app.index_status.is_none() || app.reconciling => {
+        (Focus::Query | Focus::FilterInput, KeyCode::Enter)
+            if app.index_status.is_none() || app.reconciling =>
+        {
             Some("Searching…")
         }
         (Focus::Results, KeyCode::Char('n') | KeyCode::PageDown) if app.can_next_page() => {

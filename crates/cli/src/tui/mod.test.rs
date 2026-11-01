@@ -37,7 +37,13 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     assert!(app.focus == Focus::Query);
 
     press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
-    assert!(app.kind == SearchKind::Text);
+    assert!(app.kind == SearchKind::Combined);
+    press(&mut app, KeyCode::Char('g'), KeyModifiers::CONTROL);
+    assert!(app.focus == Focus::FilterInput);
+    press(&mut app, KeyCode::Char('x'), KeyModifiers::NONE);
+    assert_eq!(app.filter_input.text, "x");
+    press(&mut app, KeyCode::Char('g'), KeyModifiers::CONTROL);
+    assert!(app.focus == Focus::Query);
     press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
     assert!(app.representation == Representation::Full);
     press(&mut app, KeyCode::Char('e'), KeyModifiers::CONTROL);
