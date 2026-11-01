@@ -3,7 +3,7 @@ use objekte_core::{
     CacheMode, Freshness, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Repository,
 };
 use serde_json::json;
-use std::{collections::BTreeMap, fs};
+use std::{collections::BTreeMap, fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
 use support::*;
 
 fn fixture(docs: &[(&str, &str)]) -> Fixture {
@@ -37,6 +37,16 @@ fn fixture(docs: &[(&str, &str)]) -> Fixture {
     }
     for (id, raw) in docs {
         fs::write(f.root.join(format!("data/books/{id}.json")), raw).unwrap();
+    }
+    let mut ids = docs.iter().map(|(id, _)| *id).collect::<Vec<_>>();
+    ids.sort_unstable();
+    for (rank, id) in ids.into_iter().enumerate() {
+        let path = f.root.join(format!("data/books/{id}.json"));
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(
+                UNIX_EPOCH + Duration::from_secs(1_000_000 - rank as u64)
+            )
+        ).unwrap();
     }
     f
 }
@@ -681,7 +691,7 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
             .iter()
             .map(|record| record.id.as_str())
             .collect::<Vec<_>>(),
-        ["r002", "r003", "r050"]
+        ["r050", "r002", "r003"]
     );
     assert_eq!(result.metrics.grep_scans, 3);
 }

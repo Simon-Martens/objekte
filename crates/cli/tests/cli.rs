@@ -2,8 +2,9 @@
 mod support;
 use serde_json::{Value, json};
 use std::{
-    fs,
+    fs::{self, File, FileTimes},
     process::{Command, Output},
+    time::{Duration, UNIX_EPOCH},
 };
 use support::*;
 fn run(_f: &Fixture, args: &[&str]) -> Output {
@@ -303,7 +304,10 @@ fn default_schema_groups_nested_cli_records_and_accepts_relative_id() {
             .unwrap(),
     );
     assert_eq!(query["total"], 2);
-    assert_eq!(query["records"][1]["id"], "part/a");
+    let ids = query["records"].as_array().unwrap().iter()
+        .map(|record| record["id"].as_str().unwrap())
+        .collect::<std::collections::BTreeSet<_>>();
+    assert_eq!(ids, ["a", "part/a"].into_iter().collect());
     let record = value(
         Command::new(env!("CARGO_BIN_EXE_objekte"))
             .args([root, "get", "books", "part/a"])
@@ -1004,17 +1008,25 @@ fn query_events_report_late_errors_after_provisional_records() {
         fs::remove_file(entry.unwrap().path()).unwrap();
     }
     for number in 0..600 {
+        let path = books.join(format!("r{number:03}.json"));
         fs::write(
-            books.join(format!("r{number:03}.json")),
+            &path,
             serde_json::to_vec(&json!({"title":"hit","payload":null})).unwrap(),
         )
         .unwrap();
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number))
+        ).unwrap();
     }
     fs::write(
         books.join("zbad.json"),
         serde_json::to_vec(&json!({"title":["hit","other"],"payload":null})).unwrap(),
     )
     .unwrap();
+    let bad = books.join("zbad.json");
+    File::options().write(true).open(&bad).unwrap().set_times(
+        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1))
+    ).unwrap();
     let p = f.root.to_str().unwrap();
     let output = run(
         &f,

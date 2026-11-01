@@ -3,9 +3,9 @@ use crate::tui::{navigation::DetailSection, state::SearchKind};
 use objekte_core::{JsonQuery, Repository, TextQuery};
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use std::{
-    fs,
+    fs::{self, File, FileTimes},
     sync::mpsc::TrySendError,
-    time::{Duration, Instant},
+    time::{Duration, Instant, UNIX_EPOCH},
 };
 
 
@@ -137,11 +137,16 @@ fn real_query_worker_streams_ordered_hits_and_restores_repository() {
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
     for id in ["b", "a", "c"] {
+        let path = collection.join(format!("{id}.json"));
         fs::write(
-            collection.join(format!("{id}.json")),
+            &path,
             format!(r#"{{"note":"Moon {id}"}}"#),
         )
         .unwrap();
+        let seconds = match id { "a" => 300, "b" => 200, _ => 100 };
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
+        ).unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
@@ -431,11 +436,15 @@ fn detail_navigation_reopens_the_correct_hit_after_streamed_page_changes() {
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
     for number in 0..101 {
+        let path = collection.join(format!("{number:03}.json"));
         fs::write(
-            collection.join(format!("{number:03}.json")),
+            &path,
             r#"{"note":"Moon"}"#,
         )
         .unwrap();
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number))
+        ).unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);

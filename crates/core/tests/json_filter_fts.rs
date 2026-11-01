@@ -2,12 +2,21 @@
 
 use objekte_core::{JsonQuery, JsonQueryBackend, Repository};
 use serde_json::json;
-use std::{fs, path::Path};
+use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
 
 fn write(root: &Path, path: &str, bytes: &str) {
     let path = root.join(path);
     fs::create_dir_all(path.parent().unwrap()).unwrap();
     fs::write(path, bytes).unwrap();
+}
+
+fn order_by_id(root: &Path, ids: &[&str]) {
+    for (rank, id) in ids.iter().enumerate() {
+        let path = root.join(format!("data/books/{id}.json"));
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - rank as u64))
+        ).unwrap();
+    }
 }
 
 fn ids(repo: &mut Repository, filter: &str, backend: JsonQueryBackend) -> Vec<String> {
@@ -64,6 +73,7 @@ fn fts_composes_with_filters_and_keeps_backend_parity() {
         "data/books/d.json",
         r#"{"year":1900,"annotation":"Other","notes":[{"body":"<p>Goet<b>he</b></p>"}]}"#,
     );
+    order_by_id(root, &["a", "b", "c", "d"]);
     let cases: &[(&str, &[&str])] = &[
         ("year = 1822 && annotation:fts ~ 'Goet'", &["a", "c"]),
         ("annotation:fts ~ 'Goethe'", &["a", "b", "c"]),
@@ -111,6 +121,7 @@ fn fts_is_an_ordinary_operand_without_schema() {
         "data/books/b.json",
         r#"{"annotation":"Goethe","year":1822}"#,
     );
+    order_by_id(root, &["a", "b"]);
     let mut repo = Repository::open(root).unwrap();
     for backend in [
         JsonQueryBackend::Bigram,

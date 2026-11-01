@@ -4,7 +4,7 @@ mod support;
 
 use objekte_core::{CacheMode, JsonQuery, JsonQueryBackend};
 use serde_json::json;
-use std::fs;
+use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
 use support::Fixture;
 
 fn fixture() -> Fixture {
@@ -28,7 +28,16 @@ fn fixture() -> Fixture {
         fixture.write(&format!("data/books/{id}.json"), &value);
     }
     fs::write(books.join("e.json"), b"not JSON").unwrap();
+    for (id, seconds) in [("a", 500), ("b", 400), ("c", 300), ("d", 200), ("e", 100)] {
+        set_modified(&books.join(format!("{id}.json")), seconds);
+    }
     fixture
+}
+
+fn set_modified(path: &Path, seconds: u64) {
+    File::options().write(true).open(path).unwrap().set_times(
+        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
+    ).unwrap();
 }
 
 #[test]
@@ -180,6 +189,7 @@ fn presence_narrows_negation_and_refresh_updates_bits() {
 
     fixture.write("data/books/b.json", &json!({"title":"skip","payload":null}));
     fixture.write("data/books/f.json", &json!({"score":4,"payload":null}));
+    set_modified(&fixture.root.join("data/books/f.json"), 600);
     repository.refresh("books").unwrap();
     let present = repository.query_json(&query("exists(score)")).unwrap();
     assert_eq!(present.total, Some(3));
@@ -189,7 +199,7 @@ fn presence_narrows_negation_and_refresh_updates_bits() {
             .iter()
             .map(|record| record.id.as_str())
             .collect::<Vec<_>>(),
-        ["a", "c", "f"]
+        ["f", "a", "c"]
     );
     assert_eq!(present.metrics.grep_scans, 3);
 }
@@ -231,6 +241,8 @@ fn typed_index_covers_null_inequality_and_every_numeric_bound() {
     let fixture = fixture();
     fixture.write("data/books/f.json", &json!({"score":"wrong type"}));
     fixture.write("data/books/g.json", &json!({"score":{"nested":2}}));
+    set_modified(&fixture.root.join("data/books/f.json"), 50);
+    set_modified(&fixture.root.join("data/books/g.json"), 40);
     let mut repository = fixture.repo(CacheMode::Memory);
 
     for (filter, count, first_id) in [

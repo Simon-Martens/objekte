@@ -11,7 +11,7 @@ use std::{
 use view::SavedViewIndex;
 use sort_index::{RestoredSortIndex, SavedSortIndex};
 
-const MAGIC: &[u8; 8] = b"OBJSEC02";
+const MAGIC: &[u8; 8] = b"OBJSEC03";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
 // A single declared sort order can exceed 1 GiB for multi-million-record collections.
 const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -19,6 +19,7 @@ const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 #[derive(Serialize)]
 struct Saved<'a> {
     slots: usize,
+    modified_order: &'a [u32],
     malformed: &'a BTreeSet<usize>,
     array_fields: &'a BTreeSet<String>,
     key_summary: &'a KeySummary,
@@ -32,6 +33,7 @@ struct Saved<'a> {
 #[derive(Deserialize)]
 struct Restored {
     slots: usize,
+    modified_order: Vec<u32>,
     malformed: BTreeSet<usize>,
     array_fields: BTreeSet<String>,
     key_summary: KeySummary,
@@ -149,6 +151,9 @@ impl FilePicker {
         {
             return Ok(false);
         }
+        if !self.modified_order.restore(restored.modified_order, &self.files) {
+            return Ok(false);
+        }
         if !self.view.restore(restored.view, self.files.len()) {
             return Ok(false);
         }
@@ -178,6 +183,7 @@ impl FilePicker {
     pub(crate) fn save_secondary_snapshot(&self, path: &Path) -> Result<()> {
         let view = self.view.saved();
         let sort = self.sort.saved();
+        let modified_order = self.modified_order.snapshot(&self.files, &self.id_bytes);
         let text = self
             .text_index
             .as_ref()
@@ -201,6 +207,7 @@ impl FilePicker {
             bincode::DefaultOptions::new()
                 .serialize_into(&mut buffered, &Saved {
                     slots: self.files.len(),
+                    modified_order: &modified_order,
                     malformed: &self.malformed,
                     array_fields: &self.array_fields,
                     key_summary: &self.key_summary,

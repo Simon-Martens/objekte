@@ -26,7 +26,7 @@ cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg
 cargo run --release -p objekte-cli -- examples/musenalm
 ```
 
-`--cache memory` is the default. The older collection-view API uses `--cache disabled` to scan source files directly. Named views run their JSON or full-text queries through the usual query APIs; JSON queries also provide explicit `--backend direct` and `--backend grep` paths. Every JSON query returns records in collection and byte-sorted ID order, and verifies matches against source JSON.
+`--cache memory` is the default. The older collection-view API uses `--cache disabled` to scan source files directly. Named views run their JSON or full-text queries through the usual query APIs; JSON queries also provide explicit `--backend direct` and `--backend grep` paths. By default, JSON queries return records by collection, then file modification time newest first, with ID breaking ties. Matches are verified against source JSON.
 
 The picker can be warmed or rebuilt per collection or across all collections using the `Repository` API. These operations write no application cache files. A new CLI invocation starts a new process and builds its own picker.
 

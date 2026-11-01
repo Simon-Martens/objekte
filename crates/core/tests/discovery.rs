@@ -185,17 +185,12 @@ fn default_schema_claims_all_descendants_with_relative_record_ids() {
         .query_json(&request("year >= 1800", Some("books")))
         .unwrap();
     assert_eq!(result.total, Some(3));
-    assert_eq!(
-        result
-            .records
-            .iter()
-            .map(|r| r.id.as_str())
-            .collect::<Vec<_>>(),
-        ["a", "part/a", "part/deep/b"]
-    );
-    assert_eq!(result.records[1].path, "data/books/part/a.json");
-    assert_eq!(result.records[0].state.status, RecordStatus::Valid);
-    assert_eq!(result.records[2].state.status, RecordStatus::Invalid);
+    let by_id = result.records.iter().map(|r| (r.id.as_str(), r))
+        .collect::<std::collections::BTreeMap<_, _>>();
+    assert_eq!(by_id.keys().copied().collect::<Vec<_>>(), ["a", "part/a", "part/deep/b"]);
+    assert_eq!(by_id["part/a"].path, "data/books/part/a.json");
+    assert_eq!(by_id["a"].state.status, RecordStatus::Valid);
+    assert_eq!(by_id["part/deep/b"].state.status, RecordStatus::Invalid);
     let direct = repo
         .query_json(&JsonQuery {
             backend: JsonQueryBackend::Direct,
@@ -361,7 +356,7 @@ fn code_supplied_schema_and_data_root_override_defaults() {
         .unwrap();
     assert_eq!(indexed.total, Some(2));
     assert_eq!(indexed.metrics.grep_scans, 0);
-    assert_eq!(indexed.records[1].id, "part/a");
+    assert!(indexed.records.iter().any(|record| record.id == "part/a"));
     assert_eq!(repo.model().collections["other"].schema_path, None);
 }
 

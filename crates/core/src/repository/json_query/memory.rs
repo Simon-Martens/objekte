@@ -26,7 +26,7 @@ fn required_key_prefilters(required: &[String], fields: &BTreeMap<String, Field>
 fn fts_candidate_ids(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> BTreeSet<String> {
     match plan {
         FtsPlan::Literal(literal) => picker
-            .text_candidates(Some(literal), false, true)
+            .text_candidates(Some(literal), false, true, false)
             .into_iter()
             .map(|(id, _)| id)
             .collect(),
@@ -218,10 +218,11 @@ impl Repository {
                 continue;
             }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
-            let mut entries = picker.candidate_records(
+            let mut entries = picker.candidate_records_ordered(
                 (!risk).then_some(values_pattern.as_deref()).flatten(),
                 typed_plan.as_ref(),
                 if risk { &[] } else { &required_fields },
+                request.sort.is_empty(),
             );
             if !risk && let Some(plan) = &fts_plan {
                 let ids = fts_candidate_ids(picker, plan);

@@ -187,12 +187,13 @@ impl FilePicker {
         Ok(())
     }
 
-    /// Candidate file IDs in byte order. Missing regex postings scan all files.
+    /// Candidate file IDs in ID or modification-time order. Missing regex postings scan all files.
     pub(crate) fn text_candidates(
         &self,
         pattern: Option<&str>,
         raw: bool,
         literal: bool,
+        newest_first: bool,
     ) -> Vec<(String, Stamp)> {
         let postings = self.text_index.as_ref().map_or(&self.index, |index| {
             if raw { &index.raw } else { &index.clean }
@@ -208,9 +209,13 @@ impl FilePicker {
                 regex_plan::candidates(postings, pattern)
             }
         });
-        self.sorted
-            .iter()
-            .copied()
+        let slots: Box<dyn Iterator<Item = usize> + '_> = if newest_first {
+            Box::new(self.modified_order.iter(&self.files, &self.id_bytes)
+                .map(|slot| slot as usize))
+        } else {
+            Box::new(self.sorted.iter().copied())
+        };
+        slots
             .filter(|&slot| {
                 bits.as_ref().is_none_or(|bits| {
                     slot >= indexed_len

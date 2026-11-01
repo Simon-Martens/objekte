@@ -3,12 +3,19 @@
 use objekte_core::{
     CacheMode, JsonQuery, JsonQueryBackend, Options, RecordStatus, Repository, TextMode, TextQuery,
 };
-use std::{fs, path::Path, time::UNIX_EPOCH};
+use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
 
 fn write(root: &Path, id: &str, bytes: &[u8]) {
     let directory = root.join("data/docs");
     fs::create_dir_all(&directory).unwrap();
     fs::write(directory.join(format!("{id}.json")), bytes).unwrap();
+}
+
+fn modified(root: &Path, id: &str, seconds: u64) {
+    let path = root.join(format!("data/docs/{id}.json"));
+    File::options().write(true).open(&path).unwrap().set_times(
+        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
+    ).unwrap();
 }
 
 fn query(repo: &mut Repository, backend: JsonQueryBackend, filter: &str) -> Vec<String> {
@@ -45,6 +52,8 @@ fn malformed_text_never_matches_filter_queries_and_has_source_metadata() {
     write(root, "a_valid", br#"{"note":"Mond","year":1822}"#);
     let broken = br#"{"note":"M\u006fnd", "year":1822, broken"#;
     write(root, "b_broken", broken);
+    modified(root, "a_valid", 200);
+    modified(root, "b_broken", 100);
 
     for backend in [
         JsonQueryBackend::Bigram,
@@ -136,6 +145,7 @@ fn eager_full_text_postings_and_streams_include_malformed_files_in_id_order() {
             br#"{"note":"Other"}"#
         };
         write(root, &format!("r{number:03}"), bytes);
+        modified(root, &format!("r{number:03}"), 1000 - number);
     }
     let mut repo = Repository::open(root).unwrap();
     repo.warm_bigram_index("docs").unwrap();
@@ -189,6 +199,8 @@ fn full_text_fallback_matches_escaped_text_and_respects_field_scope() {
     let root = temp.path();
     write(root, "a_valid", br#"{"note":"Mond"}"#);
     write(root, "b_broken", br#"{"note":"M\u006fnd", broken"#);
+    modified(root, "a_valid", 200);
+    modified(root, "b_broken", 100);
     let mut repo = Repository::open(root).unwrap();
 
     let result = repo

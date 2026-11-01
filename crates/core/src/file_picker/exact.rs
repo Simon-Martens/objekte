@@ -12,8 +12,8 @@ pub(crate) struct ExactSelection<'a> {
 
 
 impl FilePicker {
-    /// Count exact snapshot matches and select only the requested page in ID
-    /// order. Changed slots still require source verification.
+    /// Count exact snapshot matches and select only the requested page in
+    /// modification-time order. Changed slots still require source verification.
     pub(crate) fn exact_selection(
         &self,
         plan: &ExactPlan,
@@ -29,25 +29,29 @@ impl FilePicker {
         if limit == 0 || offset >= count {
             return Some(ExactSelection { count, page });
         }
-        // With no changed overlay, live slots remain in rebuild ID order.
-        // The bits cover live slots, so a popcount gets the full snapshot count
-        // without visiting every file or checking per-file metadata.
-        let mut skipped = 0;
-        for (word_index, word) in bits.iter().enumerate() {
-            let mut remaining = *word;
-            while remaining != 0 {
-                let slot = word_index * 64 + remaining.trailing_zeros() as usize;
-                remaining &= remaining - 1;
-                if skipped < offset {
-                    skipped += 1;
-                    continue;
-                }
-                let entry = self.files[slot].as_ref().expect("live exact slot");
-                page.push((self.id(slot).expect("live exact slot"), &entry.stamp));
-                if page.len() == limit {
-                    return Some(ExactSelection { count, page });
+        // Sparse matches are cheaper to gather and sort; dense matches are
+        // cheaper to intersect with the persistent modification-time order.
+        let slots: Box<dyn Iterator<Item = usize> + '_> = if count.saturating_mul(8) < self.len() {
+            let mut slots = Vec::with_capacity(count);
+            for (word_index, word) in bits.iter().enumerate() {
+                let mut remaining = *word;
+                while remaining != 0 {
+                    slots.push(word_index * 64 + remaining.trailing_zeros() as usize);
+                    remaining &= remaining - 1;
                 }
             }
+            slots.sort_unstable_by(|&a, &b| {
+                ModifiedOrder::compare_slots(&self.files, &self.id_bytes, a, b)
+            });
+            Box::new(slots.into_iter())
+        } else {
+            Box::new(self.modified_order.iter(&self.files, &self.id_bytes)
+                .map(|slot| slot as usize)
+                .filter(|&slot| bits[slot / 64] & (1_u64 << (slot % 64)) != 0))
+        };
+        for slot in slots.skip(offset).take(limit) {
+            let entry = self.files[slot].as_ref().expect("live exact slot");
+            page.push((self.id(slot).expect("live exact slot"), &entry.stamp));
         }
         Some(ExactSelection { count, page })
     }

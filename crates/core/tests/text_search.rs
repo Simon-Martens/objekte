@@ -2,12 +2,19 @@
 
 use objekte_core::{CacheMode, JsonQuery, Options, Repository, TextMode, TextQuery};
 use serde_json::json;
-use std::{fs, path::Path};
+use std::{fs::{self, File, FileTimes}, path::Path, time::{Duration, UNIX_EPOCH}};
 
 fn write(root: &Path, relative: &str, value: &str) {
     let path = root.join(relative);
     fs::create_dir_all(path.parent().unwrap()).unwrap();
     fs::write(path, value).unwrap();
+}
+
+fn modified(root: &Path, relative: &str, seconds: u64) {
+    let path = root.join(relative);
+    File::options().write(true).open(&path).unwrap().set_times(
+        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds))
+    ).unwrap();
 }
 
 fn schema(root: &Path) {
@@ -98,6 +105,9 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
     );
     write(root, "data/books/f.json", r#"{"md":"Straße"}"#);
     write(root, "data/books/g.json", r#"{"md":"STRASSE"}"#);
+    for (rank, id) in ["a", "b", "c", "d", "e", "f", "g"].into_iter().enumerate() {
+        modified(root, &format!("data/books/{id}.json"), 1000 - rank as u64);
+    }
     let mut repo = Repository::open(root).unwrap();
 
     let result = repo.search_text(&query("Help", TextMode::Word)).unwrap();
@@ -180,6 +190,9 @@ fn literal_text_search_matches_prefix_infix_and_suffix_without_a_schema() {
     write(root, "data/books/b.json", r#"{"title":"Lichtenberger"}"#);
     write(root, "data/books/c.json", r#"{"title":"Berglicht"}"#);
     write(root, "data/books/d.json", r#"{"title":"Lichtenberg"#);
+    for (rank, id) in ["a", "b", "c", "d"].into_iter().enumerate() {
+        modified(root, &format!("data/books/{id}.json"), 1000 - rank as u64);
+    }
     let mut repo = Repository::open(root).unwrap();
     let mut options = Options::new();
     options.cache = CacheMode::Disabled;
@@ -381,6 +394,9 @@ fn pagination_and_rebuild_follow_source_changes() {
             r#"{"md":"**Help**"}"#,
         );
     }
+    for (rank, id) in ["a", "b", "c", "d"].into_iter().enumerate() {
+        modified(root, &format!("data/books/{id}.json"), 1000 - rank as u64);
+    }
     let mut repo = Repository::open(root).unwrap();
     assert!(repo.warm_bigram_index("books").unwrap().bigram_open_nanos > 0);
     assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
@@ -444,6 +460,10 @@ fn streamed_hits_match_collected_hits_and_late_errors_invalidate_them() {
         );
     }
     write(root, "data/books/zbad.json", r#"{"md":"**Help**"}"#);
+    for id in 0..300 {
+        modified(root, &format!("data/books/a{id:03}.json"), 1000 - id);
+    }
+    modified(root, "data/books/zbad.json", 1);
     let mut repo = Repository::open(root).unwrap();
     let mut request = query("Help", TextMode::Word);
     request.limit = 2;

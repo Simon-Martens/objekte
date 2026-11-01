@@ -235,7 +235,7 @@ impl Repository {
             .collect()
     }
 
-    /// Search rendered words, rendered regex, or raw-markup regex in ID order.
+    /// Search rendered words, rendered regex, or raw-markup regex newest first.
     pub fn search_text(&mut self, request: &TextQuery) -> Result<TextQueryResult> {
         let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
@@ -471,6 +471,7 @@ impl Repository {
                     },
                     matcher.raw,
                     matcher.candidate_literal,
+                    request.sort.is_empty(),
                 )
             };
             if let Some(filter) = &collection_filter
@@ -504,7 +505,13 @@ impl Repository {
                     }
                 }
             }
-            if !request.sort.is_empty() && self.options.cache != CacheMode::Disabled {
+            if request.sort.is_empty() && self.options.cache == CacheMode::Disabled {
+                candidates.sort_unstable_by(|a, b| {
+                    let a_time = a.1.modified.parse::<i128>().expect("validated timestamp");
+                    let b_time = b.1.modified.parse::<i128>().expect("validated timestamp");
+                    b_time.cmp(&a_time).then_with(|| a.0.cmp(&b.0))
+                });
+            } else if !request.sort.is_empty() && self.options.cache != CacheMode::Disabled {
                 self.file_pickers[&name].order_candidates(&mut candidates, &request.sort);
             }
             self.metrics.fts_candidates += candidates.len() as u64;

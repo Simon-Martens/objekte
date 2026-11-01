@@ -1,6 +1,6 @@
 use super::*;
 use objekte_core::Repository;
-use std::fs;
+use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
 
 #[test]
 fn export_all_and_selected_hit_include_source_metadata() {
@@ -41,11 +41,15 @@ fn export_all_ignores_the_visible_page_and_preserves_text_hit_fields() {
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
     for index in 0..103 {
+        let path = collection.join(format!("r{index:03}.json"));
         fs::write(
-            collection.join(format!("r{index:03}.json")),
+            &path,
             r#"{"note":"Moon"}"#,
         )
         .unwrap();
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - index))
+        ).unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);

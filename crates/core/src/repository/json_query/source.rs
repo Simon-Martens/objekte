@@ -17,7 +17,13 @@ impl Repository {
         for c in collections {
             let filter = filter.for_fields(&c.fields);
             let (source, files) = self.inventory(c)?;
-            for (id, stamp) in &files {
+            let mut entries = files.iter().collect::<Vec<_>>();
+            entries.sort_unstable_by(|a, b| {
+                let a_time = a.1.modified.parse::<i128>().expect("validated timestamp");
+                let b_time = b.1.modified.parse::<i128>().expect("validated timestamp");
+                b_time.cmp(&a_time).then_with(|| a.0.cmp(b.0))
+            });
+            for (id, stamp) in entries {
                 let raw = self.raw_from(&source, id, Some(stamp))?;
                 let doc = self.parse(c, id, &raw.json, true);
                 let t = Instant::now();
@@ -63,7 +69,12 @@ impl Repository {
             let filter = filter.for_fields(&c.fields);
             let prefilter = filter.source_prefilter()?;
             let (source, files) = self.inventory(c)?;
-            let entries = files.iter().collect::<Vec<_>>();
+            let mut entries = files.iter().collect::<Vec<_>>();
+            entries.sort_unstable_by(|a, b| {
+                let a_time = a.1.modified.parse::<i128>().expect("validated timestamp");
+                let b_time = b.1.modified.parse::<i128>().expect("validated timestamp");
+                b_time.cmp(&a_time).then_with(|| a.0.cmp(b.0))
+            });
             let batch_size = if result.streaming {
                 rayon::current_num_threads()
                     .saturating_mul(8)

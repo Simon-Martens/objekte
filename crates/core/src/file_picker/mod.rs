@@ -8,6 +8,7 @@ mod exact;
 mod git;
 mod infer;
 mod key_summary;
+mod modified_order;
 mod posting;
 mod presence;
 mod projection;
@@ -45,6 +46,7 @@ pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 pub(crate) use infer::ReferenceInventory;
 use key_summary::KeySummary;
+use modified_order::ModifiedOrder;
 use presence::PresenceIndex;
 use projection::{
     ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
@@ -100,6 +102,7 @@ pub struct FilePicker {
     id_bytes: Vec<u8>,
     files: Vec<Option<FileEntry>>,
     sorted: Vec<usize>,
+    modified_order: ModifiedOrder,
     tombstones: BTreeMap<String, (u64, u128)>,
     indexed_len: usize,
     loaded_snapshot: bool,
@@ -286,6 +289,7 @@ impl FilePicker {
             id_bytes: Vec::new(),
             files: Vec::with_capacity(inventory.len()),
             sorted: Vec::with_capacity(inventory.len()),
+            modified_order: ModifiedOrder::default(),
             tombstones: BTreeMap::new(),
             indexed_len: 0,
             loaded_snapshot: restored.is_some(),
@@ -352,6 +356,11 @@ impl FilePicker {
             picker.key_summary.saturate();
         } else {
             picker.rebuild_index_from_source(&source, restored)?;
+        }
+        if !loaded_secondary {
+            picker.modified_order.rebuild(&picker.files, &picker.id_bytes);
+        } else {
+            picker.modified_order.maybe_compact(&picker.files, &picker.id_bytes);
         }
         source.finish()?;
         let missing = advanced_paths
@@ -620,6 +629,7 @@ impl FilePicker {
         entry.changed_at_nanos = now_nanos();
         self.view.update(slot, keys, &self.files, &self.id_bytes);
         self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
+        self.modified_order.touch(slot, &self.files, &self.id_bytes);
         Ok(())
     }
 
@@ -701,6 +711,7 @@ impl FilePicker {
                         }
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                         self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
+                        self.modified_order.touch(slot, &self.files, &self.id_bytes);
                         changed += 1;
                     }
                 }
@@ -760,10 +771,12 @@ impl FilePicker {
                 self.presence.remove(slot);
                 self.view.remove(slot);
                 self.sort.remove(slot);
+                self.modified_order.touch(slot, &self.files, &self.id_bytes);
                 changed += 1;
             }
         }
         self.sorted.retain(|&slot| seen[slot]);
+        self.modified_order.maybe_compact(&self.files, &self.id_bytes);
         if changed > 0 {
             self.key_summary.saturate();
             self.typed.invalidate_dynamic();
@@ -835,6 +848,7 @@ impl FilePicker {
                             }
                             self.view.update(slot, keys, &self.files, &self.id_bytes);
                             self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
+                            self.modified_order.touch(slot, &self.files, &self.id_bytes);
                         }
                     }
                     Err(_) => {
@@ -885,10 +899,12 @@ impl FilePicker {
                     self.presence.remove(slot);
                     self.view.remove(slot);
                     self.sort.remove(slot);
+                    self.modified_order.touch(slot, &self.files, &self.id_bytes);
                 }
             }
         }
         source.finish()?;
+        self.modified_order.maybe_compact(&self.files, &self.id_bytes);
         Ok(())
     }
 
@@ -979,6 +995,16 @@ impl FilePicker {
         typed_plan: Option<&crate::json_filter::TypedPlan>,
         required_fields: &[String],
     ) -> Vec<(&str, &Stamp)> {
+        self.candidate_records_ordered(pattern, typed_plan, required_fields, false)
+    }
+
+    pub(crate) fn candidate_records_ordered(
+        &self,
+        pattern: Option<&str>,
+        typed_plan: Option<&crate::json_filter::TypedPlan>,
+        required_fields: &[String],
+        newest_first: bool,
+    ) -> Vec<(&str, &Stamp)> {
         let bits = pattern.and_then(|regex| regex_plan::candidates(&self.index, regex));
         let overlay = pattern.map(regex_plan::OverlayQuery::new);
         let typed_bits = self
@@ -1032,22 +1058,32 @@ impl FilePicker {
                         .filter(|&slot| self.files[slot].is_some()),
                 );
             }
-            // Slots follow index insertion order; result rows follow byte ID
-            // order even after refresh appends new slots to the overlay.
-            slots.sort_unstable_by(|&left, &right| {
-                self.id(left)
-                    .expect("live candidate slot")
-                    .as_bytes()
-                    .cmp(self.id(right).expect("live candidate slot").as_bytes())
-            });
+            // Slots follow index insertion order; choose the requested result
+            // order after including any appended changed-file slots.
+            if newest_first {
+                slots.sort_unstable_by(|&left, &right| {
+                    ModifiedOrder::compare_slots(&self.files, &self.id_bytes, left, right)
+                });
+            } else {
+                slots.sort_unstable_by(|&left, &right| {
+                    self.id(left)
+                        .expect("live candidate slot")
+                        .as_bytes()
+                        .cmp(self.id(right).expect("live candidate slot").as_bytes())
+                });
+            }
             slots.dedup();
             Some(slots)
         });
-        selected
-            .as_deref()
-            .unwrap_or(&self.sorted)
-            .iter()
-            .copied()
+        let slots: Box<dyn Iterator<Item = usize> + '_> = if let Some(selected) = selected.as_ref() {
+            Box::new(selected.iter().copied())
+        } else if newest_first {
+            Box::new(self.modified_order.iter(&self.files, &self.id_bytes)
+                .map(|slot| slot as usize))
+        } else {
+            Box::new(self.sorted.iter().copied())
+        };
+        slots
             .filter(|&slot| {
                 let text_match = if slot >= self.indexed_len {
                     true
@@ -1119,7 +1155,9 @@ impl FilePicker {
     /// before and after every read so a racing edit cannot publish a bad index.
     pub fn rebuild_index(&mut self) -> Result<()> {
         let source = Source::open_scoped(&self.root, self.recursive)?;
-        self.rebuild_index_from_source(&source, None)
+        self.rebuild_index_from_source(&source, None)?;
+        self.modified_order.rebuild(&self.files, &self.id_bytes);
+        Ok(())
     }
 
     fn rebuild_index_from_source(
@@ -1440,6 +1478,7 @@ impl FilePicker {
         self.tombstones.remove(id);
         self.sorted.insert(position, slot);
         self.changed.insert(slot);
+        self.modified_order.touch(slot, &self.files, &self.id_bytes);
         Ok(slot)
     }
 

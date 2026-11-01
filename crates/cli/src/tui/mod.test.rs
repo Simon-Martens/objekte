@@ -1,7 +1,7 @@
 use super::*;
 use crate::tui::state::{Representation, SearchKind};
 use objekte_core::Repository;
-use std::{fs, time::Duration};
+use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
 
 fn press(app: &mut App<'_>, code: KeyCode, modifiers: KeyModifiers) {
     key(app, KeyEvent::new(code, modifiers));
@@ -390,11 +390,15 @@ fn detail_navigation_crosses_query_pages_in_both_directions() {
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
     for index in 0..102 {
+        let path = collection.join(format!("item_{index:03}.json"));
         fs::write(
-            collection.join(format!("item_{index:03}.json")),
+            &path,
             format!(r#"{{"note":"Moon","number":{index}}}"#),
         )
         .unwrap();
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - index))
+        ).unwrap();
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);

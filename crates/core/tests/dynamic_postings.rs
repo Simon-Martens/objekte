@@ -2,7 +2,7 @@ mod support;
 
 use objekte_core::{CacheMode, Freshness, JsonQuery, JsonQueryBackend, Repository};
 use serde_json::json;
-use std::fs;
+use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
 use support::Fixture;
 
 
@@ -33,6 +33,12 @@ fn fixture() -> Fixture {
         fixture.write(&format!("data/books/{id}.json"), &value);
     }
     fs::write(fixture.root.join("data/books/bad.json"), b"invalid JSON").unwrap();
+    for (rank, id) in ["a", "b", "c", "d", "e"].into_iter().enumerate() {
+        let path = fixture.root.join(format!("data/books/{id}.json"));
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - rank as u64))
+        ).unwrap();
+    }
     fixture
 }
 

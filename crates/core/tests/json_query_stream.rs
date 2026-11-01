@@ -4,7 +4,7 @@ mod support;
 
 use objekte_core::{CacheMode, JsonQuery, JsonQueryBackend, Repository};
 use serde_json::json;
-use std::fs;
+use std::{fs::{self, File, FileTimes}, time::{Duration, UNIX_EPOCH}};
 use support::Fixture;
 
 fn backend_repository(fixture: &Fixture, _backend: JsonQueryBackend) -> Repository {
@@ -86,17 +86,25 @@ fn a_late_scalar_error_invalidates_earlier_streamed_records() {
         fs::remove_file(entry.unwrap().path()).unwrap();
     }
     for number in 0..600 {
+        let path = books.join(format!("r{number:03}.json"));
         fs::write(
-            books.join(format!("r{number:03}.json")),
+            &path,
             serde_json::to_vec(&json!({"title":"hit","payload":null})).unwrap(),
         )
         .unwrap();
+        File::options().write(true).open(&path).unwrap().set_times(
+            FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000 - number))
+        ).unwrap();
     }
     fs::write(
         books.join("zbad.json"),
         serde_json::to_vec(&json!({"title":["hit","other"],"payload":null})).unwrap(),
     )
     .unwrap();
+    let bad = books.join("zbad.json");
+    File::options().write(true).open(&bad).unwrap().set_times(
+        FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1))
+    ).unwrap();
     for backend in [
         JsonQueryBackend::Bigram,
         JsonQueryBackend::Direct,
