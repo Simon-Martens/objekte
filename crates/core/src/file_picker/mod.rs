@@ -14,6 +14,7 @@ mod projection;
 mod regex_plan;
 mod scan_pool;
 mod secondary;
+mod sort_index;
 mod text;
 mod typed;
 mod view;
@@ -51,6 +52,7 @@ use projection::{
 use text::{TextIndex, TextIndexBuilders, project_malformed_text};
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
+use sort_index::SortIndex;
 
 fn sorted_bigrams(bytes: &[u8]) -> Vec<u16> {
     let mut keys = extract_bigrams(bytes);
@@ -118,20 +120,23 @@ pub struct FilePicker {
     typed: TypedIndex,
     inferred_paths: BTreeSet<crate::JsonPath>,
     view: ViewIndex,
+    sort: SortIndex,
     #[cfg(feature = "index-timings")]
     build_timings: BuildTimings,
 }
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
-        Self::open_with_indexes(root, false, &[], &[], &BTreeMap::new(), None, None)
+        Self::open_with_indexes(root, false, &[], &[], &[], &BTreeMap::new(), None, None)
     }
 
+    #[expect(clippy::too_many_arguments, reason = "index configuration is borrowed from repository metadata")]
     pub(crate) fn open_with_indexes(
         root: &Path,
         recursive: bool,
         indexes: &[IndexField],
         advanced_paths: &[crate::JsonPath],
+        sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
         snapshot: Option<BigramSnapshot>,
         snapshot_path: Option<&Path>,
@@ -141,6 +146,7 @@ impl FilePicker {
             recursive,
             indexes,
             advanced_paths,
+            sort_indexes,
             definitions,
             (snapshot, snapshot_path),
             false,
@@ -148,11 +154,13 @@ impl FilePicker {
         .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
     }
 
+    #[expect(clippy::too_many_arguments, reason = "index configuration is borrowed from repository metadata")]
     pub(crate) fn open_cached_unchecked(
         root: &Path,
         recursive: bool,
         indexes: &[IndexField],
         advanced_paths: &[crate::JsonPath],
+        sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
         snapshot: BigramSnapshot,
         snapshot_path: &Path,
@@ -162,17 +170,20 @@ impl FilePicker {
             recursive,
             indexes,
             advanced_paths,
+            sort_indexes,
             definitions,
             (Some(snapshot), Some(snapshot_path)),
             true,
         )
     }
 
+    #[expect(clippy::too_many_arguments, reason = "index configuration is borrowed from repository metadata")]
     fn open_inner(
         root: &Path,
         recursive: bool,
         indexes: &[IndexField],
         advanced_paths: &[crate::JsonPath],
+        sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
         cached: (Option<BigramSnapshot>, Option<&Path>),
         unchecked: bool,
@@ -281,7 +292,7 @@ impl FilePicker {
             secondary_loaded: false,
             verified: !unchecked,
             snapshot_dirty: restored.as_ref().is_some_and(|restored| restored.dirty),
-            config_digest: secondary::config_digest(indexes, advanced_paths, definitions)?,
+            config_digest: secondary::config_digest(indexes, advanced_paths, sort_indexes, definitions)?,
             changed: BTreeSet::new(),
             changed_bigrams: BTreeMap::new(),
             malformed: BTreeSet::new(),
@@ -293,6 +304,7 @@ impl FilePicker {
             text_index: None,
             presence: PresenceIndex::new(definitions),
             view: ViewIndex::new(&indexed_fields, definitions),
+            sort: SortIndex::new(sort_indexes, definitions)?,
             typed: TypedIndex::new(indexed_fields),
             inferred_paths: BTreeSet::new(),
             #[cfg(feature = "index-timings")]
@@ -426,6 +438,73 @@ impl FilePicker {
         &self.sorted
     }
 
+    pub(crate) fn has_sort_index(&self, sorts: &[crate::Sort]) -> bool {
+        if matches!(sorts, [sort] if sort.field == "@id") { return true; }
+        self.sort.supports(sorts)
+    }
+
+    /// Reorder conservative candidates by a matching schema-declared sort index.
+    pub(crate) fn order_candidates(
+        &self,
+        entries: &mut Vec<(String, Stamp)>,
+        sorts: &[crate::Sort],
+    ) -> bool {
+        if let [sort] = sorts && sort.field == "@id" {
+            if sort.direction == Direction::Desc { entries.reverse(); }
+            return true;
+        }
+        if !self.sort.supports(sorts) { return false; }
+        if entries.len().saturating_mul(8) < self.len() {
+            let mut keyed = entries.drain(..).filter_map(|entry| {
+                self.position(&entry.0).ok().map(|position| (self.sorted[position], entry))
+            }).collect::<Vec<_>>();
+            keyed.sort_by(|a, b| self.sort.compare_slots(sorts, a.0, b.0, &self.files, &self.id_bytes)
+                .expect("matching sort index"));
+            entries.extend(keyed.into_iter().map(|(_, entry)| entry));
+        } else {
+            let order = self.sort.order(sorts).expect("supported sort index");
+            let mut slots = std::iter::repeat_with(|| None)
+                .take(self.files.len()).collect::<Vec<Option<(String, Stamp)>>>();
+            for entry in entries.drain(..) {
+                if let Ok(position) = self.position(&entry.0) {
+                    slots[self.sorted[position]] = Some(entry);
+                }
+            }
+            entries.extend(order.iter().filter_map(|&slot| slots[slot].take()));
+        }
+        true
+    }
+
+    pub(crate) fn order_candidate_refs<'a>(
+        &self,
+        entries: &mut Vec<(&'a str, &'a Stamp)>,
+        sorts: &[crate::Sort],
+    ) -> bool {
+        if let [sort] = sorts && sort.field == "@id" {
+            if sort.direction == Direction::Desc { entries.reverse(); }
+            return true;
+        }
+        if !self.sort.supports(sorts) { return false; }
+        if entries.len().saturating_mul(8) < self.len() {
+            let mut keyed = entries.drain(..).filter_map(|entry| {
+                self.position(entry.0).ok().map(|position| (self.sorted[position], entry))
+            }).collect::<Vec<_>>();
+            keyed.sort_by(|a, b| self.sort.compare_slots(sorts, a.0, b.0, &self.files, &self.id_bytes)
+                .expect("matching sort index"));
+            entries.extend(keyed.into_iter().map(|(_, entry)| entry));
+        } else {
+            let order = self.sort.order(sorts).expect("supported sort index");
+            let mut slots = vec![None; self.files.len()];
+            for entry in entries.drain(..) {
+                if let Ok(position) = self.position(entry.0) {
+                    slots[self.sorted[position]] = Some(entry);
+                }
+            }
+            entries.extend(order.iter().filter_map(|&slot| slots[slot].take()));
+        }
+        true
+    }
+
     pub(crate) fn view_record(&self, slot: usize) -> (&str, &Stamp) {
         (
             self.id(slot).expect("live view slot"),
@@ -509,11 +588,14 @@ impl FilePicker {
             &[],
             self.presence.fields(),
             &self.view,
+            &self.sort,
             true,
         )?;
         let keys = projection
             .as_ref()
             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+        let sort_keys = projection.as_ref()
+            .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
         if projection.is_none() {
             self.malformed.insert(slot);
             self.changed_bigrams.remove(&slot);
@@ -537,6 +619,7 @@ impl FilePicker {
         entry.revision += 1;
         entry.changed_at_nanos = now_nanos();
         self.view.update(slot, keys, &self.files, &self.id_bytes);
+        self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
         Ok(())
     }
 
@@ -582,11 +665,14 @@ impl FilePicker {
                             &[],
                             self.presence.fields(),
                             &self.view,
+                            &self.sort,
                             true,
                         )?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+                        let sort_keys = projection.as_ref()
+                            .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
                         if projection.is_none() {
                             self.malformed.insert(slot);
                         } else {
@@ -614,6 +700,7 @@ impl FilePicker {
                             self.changed_bigrams.remove(&slot);
                         }
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
+                        self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
                         changed += 1;
                     }
                 }
@@ -625,11 +712,14 @@ impl FilePicker {
                         &[],
                         self.presence.fields(),
                         &self.view,
+                        &self.sort,
                         true,
                     )?;
                     let keys = projection
                         .as_ref()
                         .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+                    let sort_keys = projection.as_ref()
+                        .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
                     if let Some(projection) = projection.as_ref() {
                         self.array_fields
                             .extend(projection.array_fields.iter().cloned());
@@ -645,6 +735,7 @@ impl FilePicker {
                             .map_or(&[], |p| p.present_fields.as_slice()),
                     );
                     self.view.update(slot, keys, &self.files, &self.id_bytes);
+                    self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
                     seen.push(true);
                     debug_assert_eq!(slot + 1, seen.len());
                     changed += 1;
@@ -668,6 +759,7 @@ impl FilePicker {
                 self.malformed.remove(&slot);
                 self.presence.remove(slot);
                 self.view.remove(slot);
+                self.sort.remove(slot);
                 changed += 1;
             }
         }
@@ -707,11 +799,14 @@ impl FilePicker {
                                 &[],
                                 self.presence.fields(),
                                 &self.view,
+                                &self.sort,
                                 true,
                             )?;
                             let keys = projection
                                 .as_ref()
                                 .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+                            let sort_keys = projection.as_ref()
+                                .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
                             if projection.is_none() {
                                 self.malformed.insert(slot);
                             } else {
@@ -739,6 +834,7 @@ impl FilePicker {
                                 self.changed_bigrams.remove(&slot);
                             }
                             self.view.update(slot, keys, &self.files, &self.id_bytes);
+                            self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
                         }
                     }
                     Err(_) => {
@@ -749,11 +845,14 @@ impl FilePicker {
                             &[],
                             self.presence.fields(),
                             &self.view,
+                            &self.sort,
                             true,
                         )?;
                         let keys = projection
                             .as_ref()
                             .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
+                        let sort_keys = projection.as_ref()
+                            .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
                         if let Some(projection) = projection.as_ref() {
                             self.array_fields
                                 .extend(projection.array_fields.iter().cloned());
@@ -769,6 +868,7 @@ impl FilePicker {
                                 .map_or(&[], |p| p.present_fields.as_slice()),
                         );
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
+                        self.sort.update(slot, sort_keys, &self.files, &self.id_bytes);
                     }
                 }
             }
@@ -784,6 +884,7 @@ impl FilePicker {
                     self.malformed.remove(&slot);
                     self.presence.remove(slot);
                     self.view.remove(slot);
+                    self.sort.remove(slot);
                 }
             }
         }
@@ -996,6 +1097,7 @@ impl FilePicker {
                     &[],
                     &[],
                     &self.view,
+                    &self.sort,
                     ProjectionOptions {
                         folded_index: false,
                         text_rules: None,
@@ -1069,7 +1171,9 @@ impl FilePicker {
         let presence_fields = self.presence.fields();
         let presence_words = self.presence.build_words(files.len());
         let view_rows = std::sync::Mutex::new(Vec::new());
+        let sort_rows = std::sync::Mutex::new(Vec::new());
         let view = &self.view;
+        let sort = &self.sort;
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.slots_nanos += elapsed_nanos(slots_started);
@@ -1091,6 +1195,7 @@ impl FilePicker {
                     let mut chunk_malformed = BTreeSet::new();
                     let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
                     let mut chunk_view = Vec::new();
+                    let mut chunk_sort = Vec::new();
                     #[cfg(feature = "index-timings")]
                     let mut chunk_project_nanos = 0;
                     #[cfg(feature = "index-timings")]
@@ -1110,6 +1215,7 @@ impl FilePicker {
                             indexed_fields,
                             presence_fields,
                             view,
+                            sort,
                             ProjectionOptions {
                                 folded_index: true,
                                 text_rules: text_builders.as_ref().map(|_| &self.text_rules),
@@ -1175,6 +1281,7 @@ impl FilePicker {
                                     &projection.present_fields,
                                 );
                                 chunk_view.push((slot, projection.view_keys));
+                                chunk_sort.push((slot, projection.sort_keys));
                                 for (field, key) in projection.typed_values {
                                     chunk_typed[field].push((key, slot));
                                 }
@@ -1212,6 +1319,7 @@ impl FilePicker {
                         all.extend(chunk);
                     }
                     view_rows.lock().expect("view row lock").extend(chunk_view);
+                    sort_rows.lock().expect("sort row lock").extend(chunk_sort);
                     Ok(())
                 })
         })?;
@@ -1272,6 +1380,11 @@ impl FilePicker {
         let view_started = Instant::now();
         self.view.replace(
             view_rows.into_inner().expect("view row lock"),
+            &self.files,
+            &self.id_bytes,
+        );
+        self.sort.replace(
+            sort_rows.into_inner().expect("sort row lock"),
             &self.files,
             &self.id_bytes,
         );

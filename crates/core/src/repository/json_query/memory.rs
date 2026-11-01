@@ -66,6 +66,7 @@ impl Repository {
                 c.recursive,
                 &c.indexes,
                 &c.advanced_index_paths,
+                &c.sort_indexes,
                 &c.fields,
                 snapshot,
                 cache_present.then_some(cache_path.as_path()),
@@ -186,7 +187,8 @@ impl Repository {
             if !request.count && !risk && result.returned() == request.limit {
                 continue;
             }
-            if !optimistic
+            if request.sort.is_empty()
+                && !optimistic
                 && !risk
                 && let Some(selection) = exact_plan.as_ref().and_then(|plan| {
                     picker.exact_selection(
@@ -234,6 +236,9 @@ impl Repository {
                         .query_plan
                         .push("rendered full-text bigram candidates".into());
                 }
+            }
+            if !request.sort.is_empty() && picker.order_candidate_refs(&mut entries, &request.sort) {
+                result.query_plan.push("schema-declared ordered sort index".into());
             }
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };

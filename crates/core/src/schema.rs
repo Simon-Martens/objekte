@@ -1,5 +1,5 @@
 //! JSON Schema loading and field-type metadata.
-use crate::{JsonFilter, JsonPath, Result, error::config};
+use crate::{Direction, JsonFilter, JsonPath, Result, Sort, error::config};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::{
@@ -56,6 +56,12 @@ pub struct Field {
     pub nullable: bool,
     /// Opt in to ordered postings for this top-level scalar field.
     pub index: bool,
+    /// Locale inherited from the schema root, or overridden on this field.
+    pub language: Option<String>,
+    /// Build an ordered index for this scalar path.
+    pub sort_index: bool,
+    /// Reduction used when a sort path reaches multiple values.
+    pub sort_reduce: Option<SortReduce>,
     /// Rendering format for this full-text field; plain text is the default.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_format: Option<TextFormat>,
@@ -66,6 +72,15 @@ pub struct Field {
     pub properties: BTreeMap<String, Field>,
     pub items: Option<Box<Field>>,
     pub relation: Option<String>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum SortReduce {
+    Min,
+    Max,
+    First,
+    Last,
 }
 
 
@@ -85,7 +100,8 @@ pub(crate) fn escape(s: &str) -> String {
 impl Schema {
     pub fn compile(value: &Value, path: &Path) -> Result<Self> {
         index_paths(value, path)?;
-        let field = parse(value, path, "", 0)?;
+        let field = parse(value, path, "", 0, None)?;
+        sort_indexes(value, &field, path)?;
         if field.kind != ValueType::Object || field.nullable {
             return Err(config(
                 path,
@@ -129,6 +145,110 @@ impl Schema {
     }
 }
 
+pub(crate) fn sort_indexes(value: &Value, root: &Field, file: &Path) -> Result<Vec<Vec<Sort>>> {
+    fn validate(root: &Field, sort: &Sort, file: &Path) -> Result<()> {
+        let path = JsonFilter::parse_path(&sort.field)
+            .map_err(|error| config(file, "/x-sort-indexes", error))?;
+        let mut field = root;
+        let mut repeated = false;
+        let mut reduction = None;
+        for step in path {
+            match step {
+                crate::JsonPathStep::Key(name) => {
+                    if field.kind == ValueType::Array {
+                        repeated = true;
+                        reduction = reduction.or(field.sort_reduce);
+                        field = field.items.as_deref().expect("array items");
+                    }
+                    field = field.properties.get(&name).ok_or_else(||
+                        config(file, "/x-sort-indexes", format!("sort field {name} is not declared")))?;
+                }
+                crate::JsonPathStep::Each => {
+                    if field.kind != ValueType::Array {
+                        return Err(config(file, "/x-sort-indexes", "[*] requires an array"));
+                    }
+                    repeated = true;
+                    reduction = reduction.or(field.sort_reduce);
+                    field = field.items.as_deref().expect("array items");
+                }
+                crate::JsonPathStep::Index(_) => {
+                    if field.kind != ValueType::Array {
+                        return Err(config(file, "/x-sort-indexes", "array index requires an array"));
+                    }
+                    field = field.items.as_deref().expect("array items");
+                }
+            }
+        }
+        if field.kind == ValueType::Array {
+            repeated = true;
+            reduction = reduction.or(field.sort_reduce);
+            field = field.items.as_deref().expect("array items");
+        }
+        if !field.kind.scalar() {
+            return Err(config(file, "/x-sort-indexes", "sort index needs scalar values"));
+        }
+        if repeated && reduction.is_none() {
+            return Err(config(file, "/x-sort-indexes", "array sort index needs x-sort-reduce"));
+        }
+        Ok(())
+    }
+    fn walk(field: &Field, path: &str, out: &mut Vec<Vec<Sort>>) {
+        if field.sort_index {
+            out.push(vec![Sort { field: path.into(), direction: Direction::Asc }]);
+        }
+        for (name, child) in &field.properties {
+            let simple = name.chars().next().is_some_and(|c| c == '_' || c.is_alphabetic())
+                && name.chars().all(|c| c == '_' || c.is_alphanumeric());
+            let next = if simple && path.is_empty() {
+                name.clone()
+            } else if simple {
+                format!("{path}.{name}")
+            } else {
+                format!("{path}[{}]", serde_json::to_string(name).expect("schema key serializes"))
+            };
+            walk(child, &next, out);
+        }
+        if let Some(items) = &field.items {
+            walk(items, &format!("{path}[*]"), out);
+        }
+    }
+    let mut orders = Vec::new();
+    walk(root, "", &mut orders);
+    if let Some(composites) = value.get("x-sort-indexes") {
+        let composites = composites.as_array()
+            .filter(|items| items.len() <= 64)
+            .ok_or_else(|| config(file, "/x-sort-indexes", "expected at most 64 composite indexes"))?;
+        for (index, item) in composites.iter().enumerate() {
+            let terms = item.as_array().filter(|terms| (2..=8).contains(&terms.len()))
+                .ok_or_else(|| config(file, format!("/x-sort-indexes/{index}"), "expected 2–8 sort terms"))?;
+            let mut order = Vec::new();
+            for (term, value) in terms.iter().enumerate() {
+                let sort: Sort = serde_json::from_value(value.clone())
+                    .map_err(|e| config(file, format!("/x-sort-indexes/{index}/{term}"), e))?;
+                if sort.field == "@id" {
+                    return Err(config(file, format!("/x-sort-indexes/{index}/{term}"), "@id is implicit"));
+                }
+                JsonFilter::parse_path(&sort.field).map_err(|e| {
+                    config(file, format!("/x-sort-indexes/{index}/{term}"), e)
+                })?;
+                if order.iter().any(|previous: &Sort| previous.field == sort.field) {
+                    return Err(config(file, format!("/x-sort-indexes/{index}/{term}"), "duplicate sort field"));
+                }
+                order.push(sort);
+            }
+            orders.push(order);
+        }
+    }
+    orders.sort();
+    orders.dedup();
+    for order in &orders {
+        for sort in order {
+            validate(root, sort, file)?;
+        }
+    }
+    Ok(orders)
+}
+
 
 pub(crate) fn index_paths(value: &Value, file: &Path) -> Result<Vec<JsonPath>> {
     let Some(paths) = value.get("x-index-paths") else {
@@ -166,7 +286,13 @@ pub(crate) fn index_paths(value: &Value, file: &Path) -> Result<Vec<JsonPath>> {
     Ok(unique.into_iter().collect())
 }
 
-fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
+fn parse(
+    v: &Value,
+    file: &Path,
+    p: &str,
+    depth: usize,
+    inherited_language: Option<&str>,
+) -> Result<Field> {
     if depth > 128 {
         return Err(config(file, p, "schema nesting exceeds 128"));
     }
@@ -183,6 +309,10 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "additionalProperties",
             "enum",
             "index",
+            "x-language",
+            "x-sort-index",
+            "x-sort-reduce",
+            "x-sort-indexes",
             "x-full-text",
             "exclude_fts",
             "x-relation",
@@ -214,13 +344,26 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             "only the root Draft 2020-12 dialect declaration is supported",
         ));
     }
-    if !p.is_empty() && (obj.contains_key("x-index-paths") || obj.contains_key("x-objekte")) {
+    if !p.is_empty()
+        && (obj.contains_key("x-index-paths")
+            || obj.contains_key("x-objekte")
+            || obj.contains_key("x-sort-indexes"))
+    {
         return Err(config(
             file,
             p,
-            "x-index-paths and x-objekte belong at the schema root",
+            "root index and collection settings belong at the schema root",
         ));
     }
+    let language = match obj.get("x-language") {
+        Some(Value::String(tag)) if !tag.is_empty() => {
+            tag.parse::<icu_locale_core::Locale>()
+                .map_err(|_| config(file, p, "x-language needs a BCP 47 language tag"))?;
+            Some(tag.clone())
+        }
+        Some(_) => return Err(config(file, p, "x-language needs a BCP 47 language tag")),
+        None => inherited_language.map(str::to_owned),
+    };
     let mut nullable = false;
     let type_name = match obj.get("type") {
         None if obj.is_empty() => "any",
@@ -268,6 +411,25 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             true
         }
         Some(_) => return Err(config(file, p, "index must be a boolean")),
+    };
+    let sort_index = match obj.get("x-sort-index") {
+        None | Some(Value::Bool(false)) => false,
+        Some(Value::Bool(true)) if kind.scalar() && !p.is_empty() => true,
+        Some(Value::Bool(true)) => {
+            return Err(config(file, p, "x-sort-index requires a scalar field"));
+        }
+        Some(_) => return Err(config(file, p, "x-sort-index must be a boolean")),
+    };
+    let sort_reduce = match obj.get("x-sort-reduce") {
+        None => None,
+        Some(Value::String(value)) if kind == ValueType::Array => Some(match value.as_str() {
+            "min" => SortReduce::Min,
+            "max" => SortReduce::Max,
+            "first" => SortReduce::First,
+            "last" => SortReduce::Last,
+            _ => return Err(config(file, p, "invalid x-sort-reduce")),
+        }),
+        Some(_) => return Err(config(file, p, "x-sort-reduce requires an array field")),
     };
     let text_format = match obj.get("x-full-text") {
         None => None,
@@ -337,6 +499,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
                     file,
                     &format!("{p}/properties/{}", escape(name)),
                     depth + 1,
+                    language.as_deref(),
                 )?,
             );
         }
@@ -362,6 +525,7 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
             file,
             &format!("{p}/items"),
             depth + 1,
+            language.as_deref(),
         )?))
     } else {
         None
@@ -390,6 +554,9 @@ fn parse(v: &Value, file: &Path, p: &str, depth: usize) -> Result<Field> {
         kind,
         nullable,
         index,
+        language,
+        sort_index,
+        sort_reduce,
         text_format,
         exclude_fts,
         enum_values,

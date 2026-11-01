@@ -94,10 +94,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     if positional_collection && a.values.contains_key("--collection") {
         return Err("choose positional COLLECTION or --collection, not both".into());
     }
-    let common = ["--cache", "--reconcile", "--output"];
+    let common = ["--cache", "--reconcile", "--total-limit", "--output"];
     for key in a.values.keys() {
         let allowed = (if command == "tui" {
-            ["--cache", "--reconcile"].contains(&key.as_str())
+            ["--cache", "--reconcile", "--total-limit"].contains(&key.as_str())
         } else {
             common.contains(&key.as_str())
         }) || match command {
@@ -170,6 +170,10 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         "hash-on-request" => Freshness::HashOnRequest,
         _ => return Err("unknown reconciliation policy".into()),
     };
+    options.total_limit = get("--total-limit", "10000").parse()?;
+    if options.total_limit == 0 {
+        return Err("--total-limit must be positive".into());
+    }
     if command == "tui" {
         if options.cache != CacheMode::Memory {
             return Err("TUI requires --cache memory".into());
@@ -226,6 +230,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 limit: get("--limit", "50").parse()?,
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),
+                sort: Vec::new(),
                 backend: match get("--backend", "auto").as_str() {
                     "auto" => JsonQueryBackend::Auto,
                     "direct" => JsonQueryBackend::Direct,
@@ -240,14 +245,24 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 let stdout = std::io::stdout();
                 let mut writer = stdout.lock();
                 let mut delivered = 0;
-                let streamed = repo.query_json_stream(&request, |ordinal, record| {
-                    write_query_event(
-                        &mut writer,
-                        &json!({"type":"record","ordinal":ordinal,"provisional":true,"record":record}),
-                    )?;
-                    delivered = ordinal;
-                    Ok(())
-                });
+                let sorted = !objekte_core::split_sort_clause(&request.filter)?.1.is_empty();
+                let streamed = if sorted {
+                    repo.query_json_stream_updates(&request, |page| {
+                        write_query_event(&mut writer,
+                            &json!({"type":"page","provisional":true,"records":page}))?;
+                        delivered = page.len();
+                        Ok(())
+                    })
+                } else {
+                    repo.query_json_stream(&request, |ordinal, record| {
+                        write_query_event(
+                            &mut writer,
+                            &json!({"type":"record","ordinal":ordinal,"provisional":true,"record":record}),
+                        )?;
+                        delivered = ordinal;
+                        Ok(())
+                    })
+                };
                 match streamed {
                     Ok(summary) => {
                         let mut event = serde_json::to_value(summary)?;
@@ -302,19 +317,30 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 limit: get("--limit", "50").parse()?,
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),
+                sort: Vec::new(),
             };
             if output == "events" {
                 let stdout = std::io::stdout();
                 let mut writer = stdout.lock();
                 let mut delivered = 0;
-                let streamed = repo.search_text_stream(&request, |ordinal, hit| {
-                    write_query_event(
-                        &mut writer,
-                        &json!({"type":"hit","ordinal":ordinal,"provisional":true,"hit":hit}),
-                    )?;
-                    delivered = ordinal;
-                    Ok(())
-                });
+                let sorted = !objekte_core::split_sort_clause(&request.pattern)?.1.is_empty();
+                let streamed = if sorted {
+                    repo.search_text_stream_updates(&request, |page| {
+                        write_query_event(&mut writer,
+                            &json!({"type":"page","provisional":true,"hits":page}))?;
+                        delivered = page.len();
+                        Ok(())
+                    })
+                } else {
+                    repo.search_text_stream(&request, |ordinal, hit| {
+                        write_query_event(
+                            &mut writer,
+                            &json!({"type":"hit","ordinal":ordinal,"provisional":true,"hit":hit}),
+                        )?;
+                        delivered = ordinal;
+                        Ok(())
+                    })
+                };
                 match streamed {
                     Ok(summary) => {
                         let mut event = serde_json::to_value(summary)?;

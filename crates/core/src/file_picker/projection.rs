@@ -1,7 +1,7 @@
 //! Build index text and scalar keys from one Sonic tree without copying the full JSON tree.
 
 use super::{
-    TypedKey, ViewIndex,
+    SortIndex, TypedKey, ViewIndex,
     key_summary::KeySummary,
     text::{TextContent, project_text},
 };
@@ -26,6 +26,7 @@ pub(super) struct Projection {
     pub(super) present_fields: Vec<usize>,
     pub(super) typed_values: Vec<(usize, TypedKey)>,
     pub(super) view_keys: Vec<Scalar>,
+    pub(super) sort_keys: Vec<Vec<crate::sorting::SortValue>>,
 }
 
 
@@ -44,6 +45,7 @@ pub(super) struct ProjectionOptions<'a> {
 }
 
 
+#[expect(clippy::too_many_arguments, reason = "projection borrows each index independently")]
 pub(super) fn projected_values(
     source: &Source,
     id: &str,
@@ -51,6 +53,7 @@ pub(super) fn projected_values(
     indexed_fields: &[String],
     presence_fields: &[String],
     view: &ViewIndex,
+    sort: &SortIndex,
     folded_index: bool,
 ) -> Result<Option<Projection>> {
     Ok(
@@ -61,6 +64,7 @@ pub(super) fn projected_values(
             indexed_fields,
             presence_fields,
             view,
+            sort,
             ProjectionOptions {
                 folded_index,
                 text_rules: None,
@@ -74,6 +78,7 @@ pub(super) fn projected_values(
 }
 
 /// Reuse the same source read and Sonic tree when full-text postings are active.
+#[expect(clippy::too_many_arguments, reason = "projection borrows each index independently")]
 pub(super) fn projected_values_with_text(
     source: &Source,
     id: &str,
@@ -81,6 +86,7 @@ pub(super) fn projected_values_with_text(
     indexed_fields: &[String],
     presence_fields: &[String],
     view: &ViewIndex,
+    sort: &SortIndex,
     mut options: ProjectionOptions<'_>,
 ) -> Result<ProjectionOutcome> {
     let path = source.path.join(format!("{id}.json"));
@@ -159,6 +165,13 @@ pub(super) fn projected_values_with_text(
         })
         .collect();
     let view_keys = view.project(id, &Value::Object(selected));
+    let sort_keys = if sort.is_empty() {
+        Vec::new()
+    } else {
+        let data: Value = serde_json::from_slice(&raw)
+            .map_err(|error| Error::Cache(format!("cannot project sort keys: {error}")))?;
+        sort.project(id, &data)?
+    };
     Ok(ProjectionOutcome::Valid(Projection {
         bytes: values.into_bytes(),
         text: options.text_rules.map(|rules| project_text(&parsed, rules)),
@@ -166,6 +179,7 @@ pub(super) fn projected_values_with_text(
         present_fields,
         typed_values,
         view_keys,
+        sort_keys,
     }))
 }
 

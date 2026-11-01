@@ -55,6 +55,7 @@ fn sonic_projection_matches_full_json_semantics() {
         "title".into(),
     ];
     let view = ViewIndex::new(&indexed, &BTreeMap::new());
+    let sort = super::SortIndex::new(&[], &BTreeMap::new()).unwrap();
     for raw in [
         r#"{"title":"first","t\u0069tle":"last","payload":{"a":1,"a":2},"array":[{"x":0,"x":3}],"score":9007199254740993,"flag":true}"#,
         r#"{"score":1e500,"title":"Straße\n🐈","flag":null,"payload":[1.0,-0,0.123456789012345678901234567890]}"#,
@@ -64,7 +65,7 @@ fn sonic_projection_matches_full_json_semantics() {
         fs::write(root.join("a.json"), raw).unwrap();
         let source = Source::open(&root).unwrap();
         let stamp = source.inventory().unwrap().remove("a").unwrap();
-        let projection = projected_values(&source, "a", &stamp, &indexed, &present, &view, true)
+        let projection = projected_values(&source, "a", &stamp, &indexed, &present, &view, &sort, true)
             .unwrap()
             .unwrap();
         let full = parse(raw).unwrap();
@@ -115,8 +116,9 @@ fn malformed_json_does_not_enter_the_index() {
     let source = Source::open(&root).unwrap();
     let stamp = source.inventory().unwrap().remove("a").unwrap();
     let view = ViewIndex::new(&[], &BTreeMap::new());
+    let sort = super::SortIndex::new(&[], &BTreeMap::new()).unwrap();
     assert!(
-        projected_values(&source, "a", &stamp, &[], &[], &view, true)
+        projected_values(&source, "a", &stamp, &[], &[], &view, &sort, true)
             .unwrap()
             .is_none()
     );
@@ -138,9 +140,10 @@ fn overwritten_deep_value_still_invalidates_index_projection() {
             let source = Source::open(&root).unwrap();
             let stamp = source.inventory().unwrap().remove("a").unwrap();
             let view = ViewIndex::new(&[], &BTreeMap::new());
+            let sort = super::SortIndex::new(&[], &BTreeMap::new()).unwrap();
             assert!(parse(&raw).is_err());
             assert!(
-                projected_values(&source, "a", &stamp, &[], &[], &view, true)
+                projected_values(&source, "a", &stamp, &[], &[], &view, &sort, true)
                     .unwrap()
                     .is_none()
             );

@@ -78,7 +78,9 @@ fn queried_fields(request: &Request) -> Vec<String> {
     let Request::Filter(query) = request else {
         return Vec::new();
     };
-    JsonFilter::compile(&query.filter, &query.parameters)
+    let filter = objekte_core::split_sort_clause(&query.filter)
+        .map(|(filter, _)| filter).unwrap_or_else(|_| query.filter.clone());
+    JsonFilter::compile(&filter, &query.parameters)
         .map(|filter| {
             let mut fields = Vec::new();
             for path in filter.paths_in_query_order() {
@@ -211,6 +213,7 @@ pub(super) struct App<'a> {
     pub(super) pending_detail: Option<DetailEdge>,
     pub(super) last_request: Option<Request>,
     pub(super) total: Option<usize>,
+    pub(super) total_truncated: bool,
     pub(super) search_elapsed_ms: Option<f64>,
     pub(super) offset: usize,
     pub(super) selected: usize,
@@ -258,6 +261,7 @@ impl<'a> App<'a> {
             pending_detail: None,
             last_request: None,
             total: None,
+            total_truncated: false,
             search_elapsed_ms: None,
             offset: 0,
             selected: 0,
@@ -356,6 +360,7 @@ impl<'a> App<'a> {
         self.searching = false;
         self.hits.clear();
         self.total = None;
+        self.total_truncated = false;
         self.search_elapsed_ms = None;
         self.selected = 0;
         self.column_offset = 0;
@@ -374,6 +379,7 @@ impl<'a> App<'a> {
                 (
                     result.records.into_iter().map(Hit::Filter).collect(),
                     result.total,
+                    result.truncated,
                     result.elapsed_ms,
                 )
             }),
@@ -381,14 +387,16 @@ impl<'a> App<'a> {
                 (
                     result.hits.into_iter().map(Hit::Text).collect(),
                     result.total,
+                    result.truncated,
                     result.elapsed_ms,
                 )
             }),
         };
         match result {
-            Ok((hits, total, elapsed_ms)) => {
+            Ok((hits, total, truncated, elapsed_ms)) => {
                 self.hits = hits;
                 self.total = total;
+                self.total_truncated = truncated;
                 self.search_elapsed_ms = Some(elapsed_ms);
                 self.query_fields = queried_fields(&request);
                 self.last_request = Some(request);
@@ -512,6 +520,7 @@ impl<'a> App<'a> {
         self.last_request = None;
         self.queued_search = false;
         self.total = None;
+        self.total_truncated = false;
         self.search_elapsed_ms = None;
         self.offset = 0;
         self.selected = 0;

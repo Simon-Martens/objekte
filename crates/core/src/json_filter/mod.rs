@@ -518,6 +518,8 @@ pub struct JsonQuery {
     pub limit: usize,
     pub offset: usize,
     pub count: bool,
+    /// Sort terms applied within each collection. Empty means ID order.
+    pub sort: Vec<crate::Sort>,
     /// Select a query backend. `Auto` uses the in-memory bigram index.
     pub backend: JsonQueryBackend,
 }
@@ -543,6 +545,7 @@ impl Default for JsonQuery {
             limit: 50,
             offset: 0,
             count: false,
+            sort: Vec::new(),
             backend: JsonQueryBackend::Auto,
         }
     }
@@ -563,6 +566,7 @@ pub struct JsonQueryDependencies {
 pub struct JsonQueryResult {
     pub records: Vec<Record>,
     pub total: Option<usize>,
+    pub truncated: bool,
     /// Wall-clock duration of this search in milliseconds.
     pub elapsed_ms: f64,
     pub dependencies: JsonQueryDependencies,
@@ -577,6 +581,7 @@ pub struct JsonQueryResult {
 pub struct JsonQueryStreamSummary {
     pub returned: usize,
     pub total: Option<usize>,
+    pub truncated: bool,
     /// Wall-clock duration through the final streamed record in milliseconds.
     pub elapsed_ms: f64,
     pub dependencies: JsonQueryDependencies,

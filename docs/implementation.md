@@ -4,9 +4,19 @@ Source JSON files define the repository. `Repository::open` discovers populated 
 
 `bigram/` contains the local FFF-derived content-fed builder, compressed filter, and changed-file overlay, with the upstream tests and MIT license. `file_picker/` owns source inventory, bigram planning, typed postings, field-presence bits, revisions, and ordered view keys. `file_picker/text.rs` owns the separate rendered and raw full-text indexes; `text/` traverses every JSON leaf and applies schema rendering and exclusion rules. `json_filter/` owns filter syntax and evaluation. `repository/json_query/` contains the in-memory and direct-source query paths; `repository/text_query.rs` handles full-text verification; `view_definition.rs` loads and executes independent named views. `repository/views.rs` retains the older collection-view API for legacy repositories. Tests live in separate files under `crates/core/tests/`, `crates/cli/tests/`, and `crates/cli/src/tui/*.test.rs`.
 
+`sorting.rs` compiles `SORT BY` clauses and generates ICU4X secondary-strength
+collation keys for strings. Case differences compare equal, accent differences
+remain significant, and collection/ID resolves ties. `file_picker/sort_index.rs`
+stores schema-declared single and composite orders. Single-field descending
+order is derived from its ascending index while preserving ID order within
+equal values. Sorted queries verify candidates in bounded parallel batches;
+an unindexed sort maintains only the best accessible prefix and publishes
+provisional page replacements. The secondary snapshot contains sort keys and
+orders, bound to the schema and pinned collation version.
+
 ## Index lifecycle
 
-The picker enumerates JSON files within a collection boundary, stores relative IDs in a byte arena with stable slots, and builds consecutive and skip-one bigram postings over decoded scalar values and distinct Unicode-folded projections. One Sonic JSON tree supplies the text projection and field-presence bits; only top-level scalar fields marked `"index": true` are converted for typed postings and ordered view keys. It no longer copies the full tree into a second JSON representation during index construction. Typed postings use per-field `BTreeMap` keys for numbers, booleans, strings, explicit null, and a separate missing-field key. Missing means a valid JSON record omits that field; malformed JSON has no typed postings, but its raw and best-effort JSON-unescaped text enters the bigram postings for standalone word and regex search. Malformed JSON cannot match a field-based filter. Missing never matches a JSON comparison, including `!=`. Indexed views select a page from ordered keys, then read the page files. Other views scan candidates and sort in memory.
+The picker enumerates JSON files within a collection boundary, stores relative IDs in a byte arena with stable slots, and builds consecutive and skip-one bigram postings over decoded scalar values and distinct Unicode-folded projections. One Sonic JSON tree supplies the text projection and field-presence bits; only top-level scalar fields marked `"index": true` are converted for typed postings and ordered view keys. Declared sort indexes also project locale-aware keys from the source JSON. Typed postings use per-field `BTreeMap` keys for numbers, booleans, strings, explicit null, and a separate missing-field key. Missing means a valid JSON record omits that field; malformed JSON has no typed postings, but its raw and best-effort JSON-unescaped text enters the bigram postings for standalone word and regex search. Malformed JSON cannot match a field-based filter. Missing never matches a JSON comparison, including `!=`. Indexed views select a page from ordered keys, then read the page files. Other views scan candidates and sort in memory.
 
 The picker builds lazily per collection. `refresh(collection)` applies external edits, deletes, and additions. Changed files update ordered view keys and revision timestamps; a conservative overlay keeps bigram and typed filtering complete until rebuild. Removed IDs leave revision tombstones in the handle.
 

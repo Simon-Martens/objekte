@@ -175,6 +175,7 @@
       "type": "string"
     },
     "preferred_title": {
+      "x-sort-index": true,
       "type": "string"
     },
     "pseudonym": {
@@ -223,11 +224,18 @@
     "musenalm_pagination[*]",
     "musenalm_type[*]"
   ],
+  "x-language": "de",
   "x-objekte": {
     "name": "contents",
     "path": "data/contents",
     "type": "data",
     "format": "json",
     "id": "filename"
-  }
+  },
+  "x-sort-indexes": [
+    [
+      { "field": "year", "direction": "asc" },
+      { "field": "preferred_title", "direction": "asc" }
+    ]
+  ]
 }

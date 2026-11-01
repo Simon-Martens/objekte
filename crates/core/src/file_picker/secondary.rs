@@ -6,13 +6,15 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::{
     fs,
-    io::{Read, Write},
+    io::{Read, Seek, SeekFrom, Write},
 };
 use view::SavedViewIndex;
+use sort_index::{RestoredSortIndex, SavedSortIndex};
 
-const MAGIC: &[u8; 8] = b"OBJSEC01";
+const MAGIC: &[u8; 8] = b"OBJSEC02";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
-const MAX_BYTES: u64 = 1024 * 1024 * 1024;
+// A single declared sort order can exceed 1 GiB for multi-million-record collections.
+const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 
 #[derive(Serialize)]
 struct Saved<'a> {
@@ -23,6 +25,7 @@ struct Saved<'a> {
     presence: &'a PresenceIndex,
     typed: &'a TypedIndex,
     view: &'a SavedViewIndex,
+    sort: &'a SavedSortIndex<'a>,
     text: &'a Option<(Vec<u8>, Vec<u8>, usize)>,
 }
 
@@ -35,7 +38,42 @@ struct Restored {
     presence: PresenceIndex,
     typed: TypedIndex,
     view: SavedViewIndex,
+    sort: RestoredSortIndex,
     text: Option<(Vec<u8>, Vec<u8>, usize)>,
+}
+
+struct DigestWriter<'a> {
+    file: &'a mut fs::File,
+    digest: &'a mut Sha256,
+    bytes: &'a mut u64,
+}
+
+struct DigestReader<R> {
+    inner: R,
+    digest: Sha256,
+    bytes: u64,
+}
+
+impl<R: Read> Read for DigestReader<R> {
+    fn read(&mut self, buffer: &mut [u8]) -> std::io::Result<usize> {
+        let read = self.inner.read(buffer)?;
+        self.digest.update(&buffer[..read]);
+        self.bytes += read as u64;
+        Ok(read)
+    }
+}
+
+impl Write for DigestWriter<'_> {
+    fn write(&mut self, buffer: &[u8]) -> std::io::Result<usize> {
+        let written = self.file.write(buffer)?;
+        self.digest.update(&buffer[..written]);
+        *self.bytes += written as u64;
+        Ok(written)
+    }
+
+    fn flush(&mut self) -> std::io::Result<()> {
+        self.file.flush()
+    }
 }
 
 fn sidecar(path: &Path) -> PathBuf {
@@ -56,9 +94,10 @@ fn base_digest(path: &Path) -> Result<[u8; 32]> {
 pub(super) fn config_digest(
     indexes: &[IndexField],
     advanced_paths: &[crate::JsonPath],
+    sort_indexes: &[Vec<crate::Sort>],
     definitions: &BTreeMap<String, Field>,
 ) -> Result<[u8; 32]> {
-    let bytes = serde_json::to_vec(&(indexes, advanced_paths, definitions))
+    let bytes = serde_json::to_vec(&(indexes, advanced_paths, sort_indexes, definitions, "icu_collator/2.4.0"))
         .map_err(|error| Error::Cache(format!("cannot encode index config: {error}")))?;
     Ok(Sha256::digest(bytes).into())
 }
@@ -74,26 +113,30 @@ impl FilePicker {
         if size < HEADER as u64 || size > MAX_BYTES {
             return Ok(false);
         }
-        let bytes = fs::read(&sidecar).map_err(|error| io(&sidecar, error))?;
-        if &bytes[..8] != MAGIC
-            || bytes[8..40] != base_digest(path)?
-            || bytes[40..72] != self.config_digest
+        let mut file = std::io::BufReader::new(fs::File::open(&sidecar).map_err(|error| io(&sidecar, error))?);
+        let mut header = [0_u8; HEADER];
+        file.read_exact(&mut header).map_err(|error| io(&sidecar, error))?;
+        if &header[..8] != MAGIC
+            || header[8..40] != base_digest(path)?
+            || header[40..72] != self.config_digest
         {
             return Ok(false);
         }
-        let length = u64::from_le_bytes(bytes[72..80].try_into().expect("length"));
-        if length != (bytes.len() - HEADER) as u64
-            || bytes[80..112] != Sha256::digest(&bytes[HEADER..]).as_slice()[..]
-        {
+        let length = u64::from_le_bytes(header[72..80].try_into().expect("length"));
+        if length != size - HEADER as u64 {
             return Ok(false);
         }
+        let mut reader = DigestReader { inner: file.take(length), digest: Sha256::new(), bytes: 0 };
         let restored: Restored = match bincode::DefaultOptions::new()
             .with_limit(MAX_BYTES)
-            .deserialize(&bytes[HEADER..])
+            .deserialize_from(&mut reader)
         {
             Ok(restored) => restored,
             Err(_) => return Ok(false),
         };
+        if reader.bytes != length || header[80..112] != reader.digest.finalize().as_slice()[..] {
+            return Ok(false);
+        }
         if restored.slots != self.files.len()
             || restored.presence.fields() != self.presence.fields()
             || !restored.presence.valid_for_slots(self.files.len())
@@ -107,6 +150,9 @@ impl FilePicker {
             return Ok(false);
         }
         if !self.view.restore(restored.view, self.files.len()) {
+            return Ok(false);
+        }
+        if !self.sort.restore(restored.sort, self.files.len()) {
             return Ok(false);
         }
         let text_index = match restored.text {
@@ -131,31 +177,46 @@ impl FilePicker {
 
     pub(crate) fn save_secondary_snapshot(&self, path: &Path) -> Result<()> {
         let view = self.view.saved();
+        let sort = self.sort.saved();
         let text = self
             .text_index
             .as_ref()
             .map(TextIndex::save_parts)
             .transpose()?;
-        let payload = bincode::DefaultOptions::new()
-            .serialize(&Saved {
-                slots: self.files.len(),
-                malformed: &self.malformed,
-                array_fields: &self.array_fields,
-                key_summary: &self.key_summary,
-                presence: &self.presence,
-                typed: &self.typed,
-                view: &view,
-                text: &text,
-            })
-            .map_err(|error| Error::Cache(format!("cannot encode secondary index: {error}")))?;
-        if payload.len() as u64 > MAX_BYTES - HEADER as u64 {
-            return Err(Error::Cache("secondary index exceeds size limit".into()));
-        }
         let sidecar = sidecar(path);
         let parent = sidecar.parent().expect("sidecar has parent");
         fs::create_dir_all(parent).map_err(|error| io(parent, error))?;
         let mut temporary =
             tempfile::NamedTempFile::new_in(parent).map_err(|error| io(parent, error))?;
+        temporary.write_all(&[0; HEADER]).map_err(|error| io(&sidecar, error))?;
+        let mut payload_bytes = 0_u64;
+        let mut payload_digest = Sha256::new();
+        {
+            let writer = DigestWriter {
+                file: temporary.as_file_mut(),
+                digest: &mut payload_digest,
+                bytes: &mut payload_bytes,
+            };
+            let mut buffered = std::io::BufWriter::with_capacity(64 * 1024, writer);
+            bincode::DefaultOptions::new()
+                .serialize_into(&mut buffered, &Saved {
+                    slots: self.files.len(),
+                    malformed: &self.malformed,
+                    array_fields: &self.array_fields,
+                    key_summary: &self.key_summary,
+                    presence: &self.presence,
+                    typed: &self.typed,
+                    view: &view,
+                    sort: &sort,
+                    text: &text,
+                })
+                .map_err(|error| Error::Cache(format!("cannot encode secondary index: {error}")))?;
+            buffered.flush().map_err(|error| io(&sidecar, error))?;
+        }
+        if payload_bytes > MAX_BYTES - HEADER as u64 {
+            return Err(Error::Cache("secondary index exceeds size limit".into()));
+        }
+        temporary.as_file_mut().seek(SeekFrom::Start(0)).map_err(|error| io(&sidecar, error))?;
         temporary
             .write_all(MAGIC)
             .map_err(|error| io(&sidecar, error))?;
@@ -166,13 +227,10 @@ impl FilePicker {
             .write_all(&self.config_digest)
             .map_err(|error| io(&sidecar, error))?;
         temporary
-            .write_all(&(payload.len() as u64).to_le_bytes())
+            .write_all(&payload_bytes.to_le_bytes())
             .map_err(|error| io(&sidecar, error))?;
         temporary
-            .write_all(&Sha256::digest(&payload))
-            .map_err(|error| io(&sidecar, error))?;
-        temporary
-            .write_all(&payload)
+            .write_all(&payload_digest.finalize())
             .map_err(|error| io(&sidecar, error))?;
         temporary
             .as_file()

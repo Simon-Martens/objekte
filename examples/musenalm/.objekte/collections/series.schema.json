@@ -106,6 +106,7 @@
     "musenalm_id"
   ],
   "type": "object",
+  "x-language": "de",
   "x-objekte": {
     "name": "series",
     "path": "data/series",

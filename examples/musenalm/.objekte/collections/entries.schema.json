@@ -348,6 +348,7 @@
     "musenalm_deprecated.gesichtet",
     "musenalm_deprecated.status[*]"
   ],
+  "x-language": "de",
   "x-objekte": {
     "name": "entries",
     "path": "data/entries",

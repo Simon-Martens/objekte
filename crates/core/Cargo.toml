@@ -25,6 +25,8 @@ regex = "1"
 regex-syntax = "0.8"
 smallvec = "1"
 unicode-casefold = "0.2"
+icu_collator = "=2.4.0"
+icu_locale_core = "=2.4.0"
 pulldown-cmark = { version = "0.13.5", default-features = false }
 html5gum = "0.8.4"
 quick-xml = "0.38.4"

@@ -18,6 +18,7 @@ use std::{
 /// One provisional row or the final query outcome and repository handle.
 enum SearchUpdate {
     Hit(Box<Hit>),
+    Page(Vec<Hit>),
     Backlink(Box<Record>),
     Inferred {
         repository: Box<Repository>,
@@ -31,6 +32,7 @@ enum SearchUpdate {
     Finished {
         repository: Box<Repository>,
         total: Result<Option<usize>, String>,
+        truncated: bool,
         elapsed_ms: Option<f64>,
     },
 }
@@ -86,6 +88,17 @@ impl SearchWorker {
                 Ok(SearchUpdate::Hit(hit)) => {
                     if running.kind == JobKind::Search && running.current(app) && app.searching {
                         app.hits.push(*hit);
+                    }
+                }
+                Ok(SearchUpdate::Page(page)) => {
+                    if running.kind == JobKind::Search && running.current(app) && app.searching {
+                        let selected_id = app.hits.get(app.selected).map(|hit| {
+                            (hit.record().collection.clone(), hit.record().id.clone())
+                        });
+                        app.hits = page;
+                        app.selected = selected_id.and_then(|selected| app.hits.iter().position(|hit| {
+                            hit.record().collection == selected.0 && hit.record().id == selected.1
+                        })).unwrap_or_else(|| app.selected.min(app.hits.len().saturating_sub(1)));
                     }
                 }
                 Ok(SearchUpdate::Backlink(record)) => {
@@ -165,6 +178,7 @@ impl SearchWorker {
                 Ok(SearchUpdate::Finished {
                     mut repository,
                     total,
+                    truncated,
                     elapsed_ms,
                 }) => {
                     let current = running.current(app);
@@ -187,6 +201,7 @@ impl SearchWorker {
                         match total {
                             Ok(total) => {
                                 app.total = total;
+                                app.total_truncated = truncated;
                                 app.search_elapsed_ms = elapsed_ms;
                                 if let Some(edge) = app.pending_detail.take() {
                                     if app.hits.is_empty() {
@@ -214,6 +229,7 @@ impl SearchWorker {
                                 // complete query succeeds.
                                 app.hits.clear();
                                 app.total = None;
+                                app.total_truncated = false;
                                 app.search_elapsed_ms = None;
                                 app.last_request = None;
                                 app.query_fields.clear();
@@ -242,6 +258,7 @@ impl SearchWorker {
                         app.searching = false;
                         app.hits.clear();
                         app.total = None;
+                        app.total_truncated = false;
                         app.search_elapsed_ms = None;
                         app.last_request = None;
                         app.query_fields.clear();
@@ -349,22 +366,39 @@ impl SearchWorker {
         let worker_cancel = Arc::clone(&cancel);
         thread::spawn(move || {
             let result = match request {
-                Request::Filter(query) => repository
-                    .query_json_stream(&query, |_, record| {
-                        send_hit(&sender, &worker_cancel, Hit::Filter(record.clone()))
-                    })
-                    .map(|summary| (summary.total, summary.elapsed_ms)),
-                Request::Text(query) => repository
-                    .search_text_stream(&query, |_, hit| {
-                        send_hit(&sender, &worker_cancel, Hit::Text(hit.clone()))
-                    })
-                    .map(|summary| (summary.total, summary.elapsed_ms)),
+                Request::Filter(query) => {
+                    let sorted = !query.sort.is_empty() || objekte_core::split_sort_clause(&query.filter)
+                        .is_ok_and(|(_, sorts)| !sorts.is_empty());
+                    if sorted {
+                        repository.query_json_stream_updates(&query, |page| {
+                            send_page(&sender, &worker_cancel, page.iter().cloned().map(Hit::Filter).collect())
+                        })
+                    } else {
+                        repository.query_json_stream(&query, |_, record| {
+                            send_hit(&sender, &worker_cancel, Hit::Filter(record.clone()))
+                        })
+                    }.map(|summary| (summary.total, summary.truncated, summary.elapsed_ms))
+                }
+                Request::Text(query) => {
+                    let sorted = !query.sort.is_empty() || objekte_core::split_sort_clause(&query.pattern)
+                        .is_ok_and(|(_, sorts)| !sorts.is_empty());
+                    if sorted {
+                        repository.search_text_stream_updates(&query, |page| {
+                            send_page(&sender, &worker_cancel, page.iter().cloned().map(Hit::Text).collect())
+                        })
+                    } else {
+                        repository.search_text_stream(&query, |_, hit| {
+                            send_hit(&sender, &worker_cancel, Hit::Text(hit.clone()))
+                        })
+                    }.map(|summary| (summary.total, summary.truncated, summary.elapsed_ms))
+                }
             }
             .map_err(|error| error.to_string());
-            let elapsed_ms = result.as_ref().ok().map(|(_, elapsed_ms)| *elapsed_ms);
+            let elapsed_ms = result.as_ref().ok().map(|(_, _, elapsed_ms)| *elapsed_ms);
             let _ = sender.send(SearchUpdate::Finished {
                 repository: Box::new(repository),
-                total: result.map(|(total, _)| total),
+                total: result.as_ref().map(|(total, _, _)| *total).map_err(Clone::clone),
+                truncated: result.as_ref().is_ok_and(|(_, truncated, _)| *truncated),
                 elapsed_ms,
             });
         });
@@ -397,6 +431,7 @@ impl SearchWorker {
             let _ = sender.send(SearchUpdate::Finished {
                 repository: Box::new(repository),
                 total: result.map(|()| None).map_err(|error| error.to_string()),
+                truncated: false,
                 elapsed_ms: None,
             });
         });
@@ -423,6 +458,18 @@ fn send_hit(
     }
     sender
         .send(SearchUpdate::Hit(Box::new(hit)))
+        .map_err(|_| Error::Request("search UI disconnected".into()))
+}
+
+fn send_page(
+    sender: &mpsc::SyncSender<SearchUpdate>,
+    cancel: &AtomicBool,
+    page: Vec<Hit>,
+) -> objekte_core::Result<()> {
+    if cancel.load(Ordering::Relaxed) {
+        return Err(Error::Request("search cancelled".into()));
+    }
+    sender.send(SearchUpdate::Page(page))
         .map_err(|_| Error::Request("search UI disconnected".into()))
 }
 

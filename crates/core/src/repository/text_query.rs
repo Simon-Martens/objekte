@@ -5,6 +5,7 @@ use crate::{
     TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary,
     text::{TextRules, render_text, visit_json_text},
 };
+use crate::sorting::{SortBuffer, SortPlan, split_sort_clause};
 use regex::Regex;
 use unicode_casefold::UnicodeCaseFold;
 
@@ -235,7 +236,11 @@ impl Repository {
 
     /// Search rendered words, rendered regex, or raw-markup regex in ID order.
     pub fn search_text(&mut self, request: &TextQuery) -> Result<TextQueryResult> {
-        self.search_text_inner(request, false, &mut |_, _| Ok(()))
+        let request = Self::normalized_text_sort(request)?;
+        if !request.sort.is_empty() {
+            return self.search_text_sorted(&request, &mut |_| Ok(()));
+        }
+        self.search_text_inner(&request, false, &mut |_, _| Ok(()))
             .map(|(result, _)| result)
     }
 
@@ -246,14 +251,114 @@ impl Repository {
         request: &TextQuery,
         mut on_hit: impl FnMut(usize, &TextHit) -> Result<()>,
     ) -> Result<TextQueryStreamSummary> {
-        let (result, returned) = self.search_text_inner(request, true, &mut on_hit)?;
+        let request = Self::normalized_text_sort(request)?;
+        if !request.sort.is_empty() {
+            let result = self.search_text_sorted(&request, &mut |_| Ok(()))?;
+            for (index, hit) in result.hits.iter().enumerate() {
+                on_hit(index + 1, hit)?;
+            }
+            return Ok(TextQueryStreamSummary {
+                returned: result.hits.len(), total: result.total,
+                truncated: result.truncated, elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics, query_plan: result.query_plan,
+            });
+        }
+        let (result, returned) = self.search_text_inner(&request, true, &mut on_hit)?;
         Ok(TextQueryStreamSummary {
             returned,
             total: result.total,
+            truncated: result.truncated,
             elapsed_ms: result.elapsed_ms,
             metrics: result.metrics,
             query_plan: result.query_plan,
         })
+    }
+
+    /// Publish provisional sorted page snapshots while verification proceeds.
+    pub fn search_text_stream_updates(
+        &mut self,
+        request: &TextQuery,
+        mut on_page: impl FnMut(&[TextHit]) -> Result<()>,
+    ) -> Result<TextQueryStreamSummary> {
+        let request = Self::normalized_text_sort(request)?;
+        if request.sort.is_empty() {
+            let mut page = Vec::new();
+            return self.search_text_stream(&request, |_, hit| {
+                page.push(hit.clone());
+                on_page(&page)
+            });
+        }
+        let result = self.search_text_sorted(&request, &mut on_page)?;
+        Ok(TextQueryStreamSummary {
+            returned: result.hits.len(), total: result.total,
+            truncated: result.truncated, elapsed_ms: result.elapsed_ms,
+            metrics: result.metrics, query_plan: result.query_plan,
+        })
+    }
+
+    fn normalized_text_sort(request: &TextQuery) -> Result<TextQuery> {
+        let (pattern, inline) = split_sort_clause(&request.pattern)?;
+        if !inline.is_empty() && !request.sort.is_empty() {
+            return Err(Error::Request("sort specified both in search text and request".into()));
+        }
+        let mut request = request.clone();
+        request.pattern = if !inline.is_empty() && pattern.starts_with('"') && pattern.ends_with('"') {
+            serde_json::from_str::<String>(&pattern)
+                .map_err(|error| Error::Request(format!("invalid quoted search pattern: {error}")))?
+        } else {
+            pattern
+        };
+        if !inline.is_empty() { request.sort = inline; }
+        Ok(request)
+    }
+
+    fn search_text_sorted(
+        &mut self,
+        request: &TextQuery,
+        on_page: &mut dyn FnMut(&[TextHit]) -> Result<()>,
+    ) -> Result<TextQueryResult> {
+        let started = Instant::now();
+        let before = self.metrics.clone();
+        if self.options.total_limit == 0 {
+            return Err(Error::Request("repository total_limit must be positive".into()));
+        }
+        self.reload()?;
+        let names = request.collections.clone().unwrap_or_else(|| self.model.collections.keys().cloned().collect::<Vec<_>>());
+        let mut plans = BTreeMap::new();
+        let mut indexed_order = self.options.cache == CacheMode::Memory
+            && self.options.freshness != Freshness::HashOnRequest;
+        for name in &names {
+            let collection = self.collection(name)?;
+            plans.insert(name.clone(), SortPlan::compile(&collection, &request.sort)?);
+            if indexed_order {
+                self.ensure_picker(&collection)?;
+                indexed_order = self.file_pickers[name].has_sort_index(&request.sort);
+            }
+        }
+        let mut buffer = SortBuffer::new(plans, request.offset, request.limit, self.options.total_limit);
+        let mut scan = request.clone();
+        scan.offset = 0;
+        scan.limit = if indexed_order { self.options.total_limit.saturating_add(1).min(i64::MAX as usize) }
+            else { i64::MAX as usize };
+        scan.count = !indexed_order;
+        let (mut result, _) = self.search_text_inner(&scan, true, &mut |_, hit| {
+            let record = &hit.record;
+            let changed = buffer.insert(&record.collection, &record.id, &record.data, || hit.clone())?;
+            if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
+                let page = buffer.page().cloned().collect::<Vec<_>>();
+                on_page(&page)?;
+            }
+            Ok(())
+        })?;
+        let page = buffer.page().cloned().collect::<Vec<_>>();
+        on_page(&page)?;
+        result.total = buffer.total(request.count);
+        result.truncated = buffer.truncated();
+        result.hits = buffer.into_page();
+        result.metrics = self.metrics.since(&before);
+        result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
+        result.query_plan.push("locale-aware sorted page; bounded result prefix".into());
+        Ok(result)
     }
 
     fn search_text_inner(
@@ -270,6 +375,14 @@ impl Repository {
         {
             return Err(Error::Request("invalid text pagination".into()));
         }
+        if self.options.total_limit == 0 {
+            return Err(Error::Request("repository total_limit must be positive".into()));
+        }
+        let mut bounded = request.clone();
+        if request.sort.is_empty() {
+            bounded.limit = request.limit.min(self.options.total_limit.saturating_sub(request.offset));
+        }
+        let request = &bounded;
         let matcher = TextMatcher::compile(request)?;
         self.reload()?;
         let names = request
@@ -295,7 +408,7 @@ impl Repository {
             let rules = TextRules::new(&c.fields);
             let source = Source::open_scoped(&c.path, c.recursive)?;
             let mut optimistic = false;
-            let candidates = if self.options.cache == CacheMode::Disabled {
+            let mut candidates = if self.options.cache == CacheMode::Disabled {
                 source.inventory()?.into_iter().collect::<Vec<_>>()
             } else {
                 self.warm_text_index(&name)?;
@@ -314,6 +427,9 @@ impl Repository {
                     matcher.candidate_literal,
                 )
             };
+            if !request.sort.is_empty() && self.options.cache != CacheMode::Disabled {
+                self.file_pickers[&name].order_candidates(&mut candidates, &request.sort);
+            }
             self.metrics.fts_candidates += candidates.len() as u64;
             for batch in candidates.chunks(256) {
                 let outcomes = batch
@@ -444,7 +560,8 @@ impl Repository {
         Ok((
             TextQueryResult {
                 hits,
-                total: request.count.then_some(matched),
+                total: request.count.then_some(matched.min(self.options.total_limit)),
+                truncated: matched > self.options.total_limit,
                 elapsed_ms: started.elapsed().as_secs_f64() * 1_000.0,
                 metrics: self.metrics.since(&before),
                 query_plan: vec![if self.options.cache == CacheMode::Disabled {

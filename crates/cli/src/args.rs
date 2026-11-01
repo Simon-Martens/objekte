@@ -13,9 +13,9 @@ Usage:
   objekte REPOSITORY validate [COLLECTION]
   objekte REPOSITORY inferschema [COLLECTION] [--no-auto-index]
   objekte REPOSITORY writeschema [COLLECTION] [--no-auto-index]
-  objekte REPOSITORY query [COLLECTION] FILTER [--param NAME=JSON]
+  objekte REPOSITORY query [COLLECTION] 'FILTER SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
-  objekte REPOSITORY search [COLLECTION] PATTERN [--mode word|raw-word|regex|raw-regex]
+  objekte REPOSITORY search [COLLECTION] 'PATTERN SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--mode word|raw-word|regex|raw-regex]
       [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
   objekte REPOSITORY relations --collections
@@ -36,8 +36,9 @@ Options:
   --cache memory|disabled         Default: memory
   --reconcile metadata-on-open|metadata-on-request|hash-on-request
                                  Default: metadata-on-open
+  --total-limit N                 Maximum accessible matches per query (default: 10000)
   --output table|json|ndjson|events
-                                  Events stream query/search hits
+                                  Sorted events publish provisional page replacements
   --diagnostic, --diagnostics     Emit pretty JSON diagnostics with time and level to stderr
   --collection NAME               Query or inference scope (alternative to positional COLLECTION); cache target
   --no-auto-index                 Infer types without new ordered posting rules
@@ -57,6 +58,7 @@ Options:
 Examples:
   objekte examples/musenalm view contents_list --arg page=2
   objekte examples/musenalm query contents 'year >= 1800' --count
+  objekte examples/musenalm query contents 'year >= 1800 SORT BY preferred_title' --count
   objekte examples/musenalm inferschema contents
   objekte examples/musenalm writeschema contents
 ";
@@ -89,7 +91,7 @@ pub(super) fn args() -> Result<Args, String> {
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--cache" | "--reconcile" | "--output" | "--sort" | "--direction" | "--columns"
+            "--cache" | "--reconcile" | "--total-limit" | "--output" | "--sort" | "--direction" | "--columns"
             | "--limit" | "--offset" | "--collection" | "--from" | "--to" | "--filter"
             | "--param" | "--then-sort" | "--backend" | "--mode" | "--field" | "--arg"
             | "--query-arg" => {

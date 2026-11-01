@@ -35,7 +35,17 @@ Four standalone search modes use the included fields:
 | Rendered regex | Regex over rendered text without markup | `cargo run --release -p objekte-cli -- examples/musenalm search contents 'Help\s+world' --mode regex --limit 3` |
 | Raw regex | Regex over decoded field strings including Markdown, HTML, or XML markup | `cargo run --release -p objekte-cli -- examples/musenalm search contents '<b>lp</b>' --mode raw-regex --limit 3` |
 
-`--case-sensitive` applies to every mode. Word mode treats the input as literal text, so `Lichtenber` matches `Lichtenberg` and `chtenbe` matches within it. It uses Unicode case folding by default. For whole-word matching, use regex mode with boundaries such as `\bLichtenberg\b`. Regex uses Rust regex syntax and its Unicode case-insensitive matching. Raw regex sees decoded JSON values for parseable files, so a JSON `\n` escape has already become a newline. For malformed files it searches the raw source plus best-effort unescaped text. All modes return matching records in collection and byte-sorted record ID order. Each hit has canonical `fields` for query scope, such as `contents[].incipit_statement`, and concrete `matched_paths` for the leaves that matched, such as `contents[9].incipit_statement`. These identify array elements, not character ranges. Use `--field annotation` or an array path such as `--field 'notes[].body'` to narrow the fields, and a positional collection or `--collection` to narrow the collections. `--limit`, `--offset`, and `--count` work as for filter queries.
+`--case-sensitive` applies to every mode. Word mode treats the input as literal text, so `Lichtenber` matches `Lichtenberg` and `chtenbe` matches within it. It uses Unicode case folding by default. For whole-word matching, use regex mode with boundaries such as `\bLichtenberg\b`. Regex uses Rust regex syntax and its Unicode case-insensitive matching. Raw regex sees decoded JSON values for parseable files, so a JSON `\n` escape has already become a newline. For malformed files it searches the raw source plus best-effort unescaped text. By default, all modes return matching records in collection and byte-sorted record ID order. Each hit has canonical `fields` for query scope, such as `contents[].incipit_statement`, and concrete `matched_paths` for the leaves that matched, such as `contents[9].incipit_statement`. These identify array elements, not character ranges. Use `--field annotation` or an array path such as `--field 'notes[].body'` to narrow the fields, and a positional collection or `--collection` to narrow the collections. `--limit`, `--offset`, and `--count` work as for filter queries.
+
+Append a `SORT BY` clause to order matches within each collection, for example
+`'Wasser SORT BY preferred_title ASC && year DESC'`. To include a literal
+`SORT BY` phrase in the search pattern while also sorting, quote the pattern
+inside the query text: `'"SORT BY" SORT BY preferred_title'`. The Rust
+`TextQuery.sort` field accepts the same terms separately. Sorted `--output
+events` uses provisional `page` events whose `hits` arrays can change as
+verification proceeds; completion fixes the final page. Alphabetic ordering
+uses schema language metadata and ignores case, independently of search case
+matching. Repository `total_limit` caps accessible matches across pages.
 
 The JSON filter language also accepts `:fts` on a field operand. It renders a field with a declared format before applying the ordinary comparison, so it composes with numbers, booleans, `&&`, `||`, `~`, `!~`, `=`, and `:ignorecase`:
 

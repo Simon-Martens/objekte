@@ -84,7 +84,7 @@ impl ViewHashes {
 }
 
 
-#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Direction {
     #[default]
@@ -94,10 +94,11 @@ pub enum Direction {
 
 
 // INFO: Field and direction for one ordered view key.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Sort {
     pub field: String,
+    #[serde(default)]
     pub direction: Direction,
 }
 
@@ -153,6 +154,7 @@ pub struct Collection {
     pub fields: BTreeMap<String, Field>,
     pub indexes: Vec<IndexField>,
     pub advanced_index_paths: Vec<crate::JsonPath>,
+    pub sort_indexes: Vec<Vec<Sort>>,
     pub schema_hash: Option<String>,
     pub index_hash: String,
     pub mapping_hash: String,
@@ -382,11 +384,12 @@ impl RepositoryModel {
                     }
                 }
             };
-            let (schema, schema_hash, fields, indexes, advanced_index_paths) =
+            let (schema, schema_hash, fields, indexes, advanced_index_paths, sort_indexes) =
                 if let Some(sp) = &schema_path {
                     let crate::json::ParsedValue(raw) = read(sp, &mut files)?;
                     let schema = Schema::compile(&raw, sp)?;
                     let advanced_index_paths = crate::schema::index_paths(&raw, sp)?;
+                    let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, sp)?;
                     let indexes = schema
                         .field
                         .properties
@@ -405,9 +408,10 @@ impl RepositoryModel {
                         fields,
                         indexes,
                         advanced_index_paths,
+                        sort_indexes,
                     )
                 } else {
-                    (None, None, BTreeMap::new(), Vec::new(), Vec::new())
+                    (None, None, BTreeMap::new(), Vec::new(), Vec::new(), Vec::new())
                 };
             let recursive = schema.is_some();
             if sources.insert(source.clone(), recursive).is_some()
@@ -494,7 +498,7 @@ impl RepositoryModel {
             }
             let index_hash = fingerprint(
                 "ordered-scalar-indexes/v3",
-                &(&indexes, &advanced_index_paths),
+                &(&indexes, &advanced_index_paths, &sort_indexes),
             );
             let mapping_hash = fingerprint("mapping/v1", &(&source, &c.format, &c.id));
             let label = ui.label.unwrap_or_else(|| name.clone());
@@ -519,6 +523,7 @@ impl RepositoryModel {
                     fields,
                     indexes,
                     advanced_index_paths,
+                    sort_indexes,
                     schema_hash,
                     index_hash,
                     mapping_hash,

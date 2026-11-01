@@ -23,6 +23,29 @@ For example, `.objekte/collections/books.schema.json` can declare:
 
 A schema-backed collection may have JSON only in descendant folders, but it must have at least one JSON file somewhere in its subtree. Only schema-backed collections get automatic ordered postings from `"index": true`, validation, and declared reference extraction. The bigram picker and general JSON queries work for every collection. Callers may still build an ordered posting explicitly for a path without a schema. Views are defined separately under `.objekte/views/`; see [Independent views](views.md).
 
+For alphabetical sorting, put `"x-language": "de"` at the schema root to
+apply German collation to string and string-enum fields. A field can override
+that language with its own `x-language`; without either declaration, English
+collation is used. Language tags use BCP 47. Case is ignored while accents
+remain significant. A scalar field can opt into an ordered sort index with
+`"x-sort-index": true`, independently of its filter `"index": true` posting.
+
+Composite indexes are extra ordered indexes declared at the schema root. For
+example, at the end of a schema:
+
+```json
+"x-sort-indexes": [[
+  { "field": "year", "direction": "desc" },
+  { "field": "title", "direction": "asc" }
+]]
+```
+
+Each index covers that exact order, with filename ID as a final tie breaker.
+A single-field ascending index also serves descending queries. A sort path
+that reaches multiple array values requires `"x-sort-reduce": "min"` (or
+`max`, `first`, `last`) on the array field. Undeclared sort orders still work
+through a bounded in-memory top-page selection after source verification.
+
 ## Rust API
 
 ```rust,no_run

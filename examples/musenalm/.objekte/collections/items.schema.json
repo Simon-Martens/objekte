@@ -89,6 +89,7 @@
   "x-index-paths": [
     "media[*]"
   ],
+  "x-language": "de",
   "x-objekte": {
     "name": "items",
     "path": "data/items",

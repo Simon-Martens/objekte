@@ -209,6 +209,7 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
                 &[],
                 picker.presence.fields(),
                 &picker.view,
+                &picker.sort,
                 ProjectionOptions {
                     folded_index: false,
                     text_rules: None,

@@ -42,6 +42,7 @@
     "key"
   ],
   "type": "object",
+  "x-language": "de",
   "x-objekte": {
     "name": "pages",
     "path": "data/pages",

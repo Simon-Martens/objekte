@@ -7,7 +7,7 @@ repeated queries on one library `Repository` handle reuse it. Use `--release`
 for the large `contents` collection. Source JSON files are never changed.
 
 `query` reads stored JSON fields, including fields outside the collection's list
-UI. It returns complete records in `(collection, filename ID)` order. The default
+UI. It returns complete records in `(collection, filename ID)` order by default. The default
 page has 50 records; `--count` requests a total. String values in filters are
 quoted, while numbers and booleans are not. A dotted path through an embedded
 array examines its values; it does not follow a declared relation to another
@@ -117,6 +117,29 @@ cargo run --release -p objekte-cli -- examples/musenalm query pages 'data.descri
 
 ## Parameters, paging, and output
 
+Append `SORT BY field [ASC|DESC]` to a filter, with further terms separated by `&&`:
+
+```sh
+objekte examples/musenalm query contents 'year >= 1800 SORT BY preferred_title ASC' --limit 25 --count
+objekte examples/musenalm query contents 'year >= 1800 SORT BY year DESC && preferred_title ASC' --limit 25
+```
+
+Sorting stays within each collection; collections remain in name order, and
+filename ID breaks ties. `ASC` is the default. Strings and string enums use
+case-insensitive, accent-sensitive Unicode collation: English by default or
+the schema's `x-language` value. Null, missing, and invalid values follow
+valid values in both directions. The Rust `JsonQuery.sort` field also accepts
+an ordered list of `Sort` terms without an inline clause. An indexed order
+verifies candidates in sort order and can stream stable rows; an unindexed
+order scans candidates and sends provisional page replacements before the
+final page is known. See [collection schemas](collections.md) for index rules.
+
+The repository's `Options.total_limit` sets the maximum accessible matches
+across all pages and exports (default 10,000). `--total-limit N` sets it for a
+CLI invocation. A counted result reports the capped total and `truncated:
+true` when more matches exist; the TUI displays a trailing `+`. An unindexed
+sort still examines all candidates to find the best page.
+
 Returned records are validated on demand. An explicitly scoped query searches only its selected collection, even for undeclared fields or literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON values decide comparisons; schema-invalid but parseable JSON remains searchable. Malformed JSON cannot match any field-based filter, including `:fts`. Standalone word and regex search can return malformed source files with `incorrect_json`, raw bytes, size, and modification time.
 
 Parameters are JSON values. Keep the filter in single shell quotes so `$from`
@@ -148,7 +171,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferre
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'year = 1800' --count --limit 3 --diagnostics 2> /tmp/objekte-diagnostics.json
 ```
 
-`--output events` writes one JSON event per line and flushes each line. A record
+`--output events` writes one JSON event per line and flushes each line. An unsorted record
 event has `type: "record"`, a one-based `ordinal`, `provisional: true`, and a
 complete `record`. After the query succeeds, a `type: "complete"` event supplies
 `returned`, `total` (`null` without `--count`), dependencies, filter hash, query
@@ -158,6 +181,9 @@ exits nonzero. Consumers should treat earlier records as final only after the
 `complete` event. The first query still builds the in-memory index before
 records can arrive; parallel verification publishes finished batches in ID
 order. The existing `--output ndjson` writes raw records after the query finishes.
+For a sorted query, provisional `page` events contain the current ordered
+`records` array; later pages may replace earlier ones. The `complete` event
+confirms the final page and carries `truncated`.
 
 ## Named views
 

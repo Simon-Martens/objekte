@@ -31,6 +31,7 @@ fn search_channel_fits_a_page_and_completion_without_ui_draining() {
             .try_send(SearchUpdate::Finished {
                 repository: Box::new(repo),
                 total: Ok(Some(PAGE_SIZE)),
+                truncated: false,
                 elapsed_ms: Some(1.0),
             })
             .is_ok()
@@ -82,6 +83,7 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(Some(2)),
+            truncated: false,
             elapsed_ms: Some(12.5),
         })
         .unwrap();
@@ -90,6 +92,43 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
     assert_eq!(app.total, Some(2));
     assert_eq!(app.search_elapsed_ms, Some(12.5));
     assert_eq!(app.hits[0].record().id, "a");
+}
+
+#[test]
+fn sorted_page_updates_keep_selection_by_record_identity() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    for (id, title) in [("a", "Zulu"), ("b", "Alpha"), ("c", "Beta")] {
+        fs::write(collection.join(format!("{id}.json")),
+            format!(r#"{{"title":"{title}","note":"Moon"}}"#)).unwrap();
+    }
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let records = ["a", "b", "c"].into_iter().map(|id| repo.get_record("docs", id).unwrap().unwrap())
+        .collect::<Vec<_>>();
+    let mut app = App::new(&mut repo);
+    app.async_search = true;
+    app.input.text = "Moon SORT BY title".into();
+    app.search();
+    app.pending_search.take();
+    let placeholder = app.repo.fork_unindexed();
+    let repository = std::mem::replace(app.repo, placeholder);
+    let (sender, receiver) = mpsc::channel();
+    let mut worker = SearchWorker { running: Some(Running {
+        receiver, cancel: Arc::new(AtomicBool::new(false)),
+        generation: app.search_generation, kind: JobKind::Search,
+    }) };
+    sender.send(SearchUpdate::Page(vec![Hit::Filter(records[0].clone()), Hit::Filter(records[2].clone())])).unwrap();
+    worker.drive(&mut app);
+    app.selected = 0;
+    sender.send(SearchUpdate::Page(vec![Hit::Filter(records[1].clone()), Hit::Filter(records[2].clone()), Hit::Filter(records[0].clone())])).unwrap();
+    worker.drive(&mut app);
+    assert_eq!(app.hits[app.selected].record().id, "a");
+    assert_eq!(app.selected, 2);
+    sender.send(SearchUpdate::Finished { repository: Box::new(repository), total: Ok(Some(3)),
+        truncated: false, elapsed_ms: Some(1.0) }).unwrap();
+    worker.drive(&mut app);
+    assert!(!app.searching);
 }
 
 #[test]
@@ -313,6 +352,7 @@ fn late_stream_error_discards_provisional_rows() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Err("source changed during search".into()),
+            truncated: false,
             elapsed_ms: None,
         })
         .unwrap();
@@ -367,6 +407,7 @@ fn changed_query_discards_old_events_then_runs_latest_request() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(Some(1)),
+            truncated: false,
             elapsed_ms: Some(99.0),
         })
         .unwrap();
@@ -485,6 +526,7 @@ fn backlink_event_mounts_a_selectable_row_before_lookup_finishes() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(None),
+            truncated: false,
             elapsed_ms: None,
         })
         .unwrap();
@@ -537,6 +579,7 @@ fn new_query_discards_stale_backlinks_and_reuses_the_warm_repository() {
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
             total: Ok(None),
+            truncated: false,
             elapsed_ms: None,
         })
         .unwrap();

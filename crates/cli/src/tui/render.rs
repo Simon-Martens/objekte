@@ -168,8 +168,8 @@ fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
         .sum::<usize>();
     let scroll = cursor_width.saturating_sub(inner.width.saturating_sub(1) as usize);
     let placeholder = match app.kind {
-        SearchKind::Filter => "year >= 1800 && annotation ~ 'Mond'",
-        SearchKind::Text => "Search names, annotations, and more…",
+        SearchKind::Filter => "year >= 1800 SORT BY preferred_title",
+        SearchKind::Text => "Wasser SORT BY preferred_title",
     };
     let line = if app.input.text.is_empty() {
         Paragraph::new(placeholder).style(Style::default().fg(theme::MUTED).bg(theme::PANEL))
@@ -397,10 +397,12 @@ fn detail_title(app: &App<'_>, width: u16) -> String {
     let position = if app.searching {
         format!("Record {} · searching…", app.offset + app.selected + 1)
     } else {
+        let suffix = if app.total_truncated { "+" } else { "" };
         format!(
-            "Record {} of {}",
+            "Record {} of {}{}",
             app.offset + app.selected + 1,
-            app.total.unwrap_or(app.offset + app.hits.len())
+            app.total.unwrap_or(app.offset + app.hits.len()),
+            suffix,
         )
     };
     let position = if app.links.override_hit.is_some() {
@@ -529,11 +531,13 @@ fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
             app.offset + app.hits.len()
         )
     } else {
+        let suffix = if app.total_truncated { "+" } else { "" };
         format!(
-            "{}–{} of {}",
+            "{}–{} of {}{}",
             app.offset + 1,
             app.offset + app.hits.len(),
-            app.total.unwrap_or(app.hits.len())
+            app.total.unwrap_or(app.hits.len()),
+            suffix,
         )
     };
     let elapsed = app

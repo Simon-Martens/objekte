@@ -22,6 +22,7 @@ mod query;
 mod repository;
 mod schema;
 mod source;
+mod sorting;
 mod text;
 mod validation;
 mod view_definition;
@@ -48,7 +49,8 @@ pub use repository::{
     CacheMode, CacheStatus, CollectionInventory, Coverage, Freshness, Metrics, Options, Record,
     RecordRelation, RecordRevision, References, Repository, RepositoryBuilder, TargetState,
 };
-pub use schema::{Field, PathStep, TextFormat, ValueType};
+pub use schema::{Field, PathStep, SortReduce, TextFormat, ValueType};
+pub use sorting::split_sort_clause;
 pub use text::{TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary};
 pub use view_definition::{
     NamedViewResult, ViewArgument, ViewArgumentType, ViewDefinition, ViewQuery, ViewQueryResult,

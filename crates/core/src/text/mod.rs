@@ -41,6 +41,8 @@ pub struct TextQuery {
     pub limit: usize,
     pub offset: usize,
     pub count: bool,
+    /// Sort terms applied within each collection. Empty means ID order.
+    pub sort: Vec<crate::Sort>,
 }
 
 
@@ -55,6 +57,7 @@ impl Default for TextQuery {
             limit: 50,
             offset: 0,
             count: false,
+            sort: Vec::new(),
         }
     }
 }
@@ -76,6 +79,7 @@ pub struct TextHit {
 pub struct TextQueryResult {
     pub hits: Vec<TextHit>,
     pub total: Option<usize>,
+    pub truncated: bool,
     /// Wall-clock duration of this search in milliseconds.
     pub elapsed_ms: f64,
     pub metrics: crate::Metrics,
@@ -88,6 +92,7 @@ pub struct TextQueryResult {
 pub struct TextQueryStreamSummary {
     pub returned: usize,
     pub total: Option<usize>,
+    pub truncated: bool,
     /// Wall-clock duration through the final streamed hit in milliseconds.
     pub elapsed_ms: f64,
     pub metrics: crate::Metrics,

@@ -52,6 +52,8 @@ pub enum Freshness {
 pub struct Options {
     pub cache: CacheMode,
     pub freshness: Freshness,
+    /// Maximum number of matches accessible across all pages of a query.
+    pub total_limit: usize,
 }
 
 impl Options {
@@ -59,6 +61,7 @@ impl Options {
         Self {
             cache: CacheMode::Memory,
             freshness: Freshness::MetadataOnOpen,
+            total_limit: 10_000,
         }
     }
 }
@@ -293,6 +296,9 @@ impl RepositoryBuilder {
 
     /// Open the repository using discovered collection boundaries.
     pub fn open(self) -> Result<Repository> {
+        if self.options.total_limit == 0 {
+            return Err(Error::Request("repository total_limit must be positive".into()));
+        }
         let model = RepositoryModel::discover(&self.root, &self.discovery)?;
         Ok(Repository::from_model(
             model,
@@ -329,6 +335,9 @@ impl Repository {
     /// Use the legacy manifest when present; otherwise discover JSON folders.
     /// Discovery lists filenames but does not parse records or build indexes.
     pub fn load_repository(root: impl AsRef<Path>, options: Options) -> Result<Self> {
+        if options.total_limit == 0 {
+            return Err(Error::Request("repository total_limit must be positive".into()));
+        }
         if root.as_ref().join(".editor/repository.json").is_file()
             && !root.as_ref().join(".objekte/collections").is_dir()
             && !root.as_ref().join(".objekte/views").is_dir()

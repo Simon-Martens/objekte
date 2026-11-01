@@ -31,6 +31,7 @@ impl Repository {
             c.recursive,
             &c.indexes,
             &c.advanced_index_paths,
+            &c.sort_indexes,
             &c.fields,
             snapshot,
             &path,

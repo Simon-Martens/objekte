@@ -171,12 +171,13 @@ impl RepositoryModel {
             }
             let name = collection_name(&data, &directory.path)?;
             let schema_path = schema_bases.get(&directory.path).cloned();
-            let (schema, schema_hash, fields, indexes, advanced_index_paths) =
+            let (schema, schema_hash, fields, indexes, advanced_index_paths, sort_indexes) =
                 if let Some(path) = &schema_path {
                     let path = fs::canonicalize(path).map_err(|error| io(path, error))?;
                     let crate::json::ParsedValue(raw) = read(&path, &mut files)?;
                     let schema = Schema::compile(&raw, &path)?;
                     let advanced_index_paths = crate::schema::index_paths(&raw, &path)?;
+                    let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &path)?;
                     let indexes = schema
                         .field
                         .properties
@@ -199,9 +200,10 @@ impl RepositoryModel {
                         fields,
                         indexes,
                         advanced_index_paths,
+                        sort_indexes,
                     )
                 } else {
-                    (None, None, BTreeMap::new(), Vec::new(), Vec::new())
+                    (None, None, BTreeMap::new(), Vec::new(), Vec::new(), Vec::new())
                 };
             let ui_candidate = root.join(".editor/collections").join(&name).join("ui.json");
             let (ui_path, mut ui) = if schema.is_some() && ui_candidate.is_file() {
@@ -258,7 +260,7 @@ impl RepositoryModel {
             let mapping_hash = fingerprint("mapping/v2", &(&directory.path, schema_base));
             let index_hash = fingerprint(
                 "ordered-scalar-indexes/v3",
-                &(&indexes, &advanced_index_paths),
+                &(&indexes, &advanced_index_paths, &sort_indexes),
             );
             let label = ui.label.unwrap_or_else(|| name.clone());
             let view_hashes = ViewHashes::new(
@@ -282,6 +284,7 @@ impl RepositoryModel {
                     fields,
                     indexes,
                     advanced_index_paths,
+                    sort_indexes,
                     schema_hash,
                     index_hash,
                     mapping_hash,
@@ -411,6 +414,7 @@ impl RepositoryModel {
             }
             let schema = Schema::compile(&raw, &schema_path)?;
             let advanced_index_paths = crate::schema::index_paths(&raw, &schema_path)?;
+            let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &schema_path)?;
             let indexes = schema
                 .field
                 .properties
@@ -426,7 +430,7 @@ impl RepositoryModel {
             let schema_hash = Some(fingerprint("schema/v1", &raw));
             let index_hash = fingerprint(
                 "ordered-scalar-indexes/v3",
-                &(&indexes, &advanced_index_paths),
+                &(&indexes, &advanced_index_paths, &sort_indexes),
             );
             let mapping_hash = fingerprint(
                 "mapping/v3",
@@ -452,6 +456,7 @@ impl RepositoryModel {
                     fields,
                     indexes,
                     advanced_index_paths,
+                    sort_indexes,
                     schema_hash,
                     index_hash,
                     mapping_hash: mapping_hash.clone(),
@@ -489,6 +494,7 @@ impl RepositoryModel {
                     fields: BTreeMap::new(),
                     indexes: Vec::new(),
                     advanced_index_paths: Vec::new(),
+                    sort_indexes: Vec::new(),
                     schema_hash: None,
                     index_hash: fingerprint("ordered-scalar-indexes/v3", &()),
                     mapping_hash: mapping_hash.clone(),

@@ -51,24 +51,24 @@ fn write_all(
             serde_json::to_string(&query)?
         )?;
         let mut first = true;
-        let total = match &whole {
+        let (total, truncated) = match &whole {
             Request::Filter(query) => {
-                app.repo
+                let summary = app.repo
                     .query_json_stream(query, |_, record| {
                         append_hit(&mut writer, path, &mut first, &json!({"record":record}))
-                    })?
-                    .total
+                    })?;
+                (summary.total, summary.truncated)
             }
             Request::Text(query) => {
-                app.repo
+                let summary = app.repo
                     .search_text_stream(query, |_, hit| {
                         append_hit(&mut writer, path, &mut first, &json!(hit))
-                    })?
-                    .total
+                    })?;
+                (summary.total, summary.truncated)
             }
         };
         let exported = total.unwrap_or(0);
-        write!(writer, "\n  ],\n  \"total\": {exported}\n}}\n")?;
+        write!(writer, "\n  ],\n  \"total\": {exported},\n  \"truncated\": {truncated}\n}}\n")?;
         writer.flush()?;
         Ok(exported)
     })();
