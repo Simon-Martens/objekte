@@ -22,3 +22,5 @@
 .agents/
 .aws/
 .cache/
+
+examples/en_wikidata_5M_entities/
