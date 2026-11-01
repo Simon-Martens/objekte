@@ -102,6 +102,7 @@ pub struct FilePicker {
     indexed_len: usize,
     loaded_snapshot: bool,
     secondary_loaded: bool,
+    verified: bool,
     snapshot_dirty: bool,
     config_digest: [u8; 32],
     changed: BTreeSet<usize>,
@@ -135,11 +136,74 @@ impl FilePicker {
         snapshot: Option<BigramSnapshot>,
         snapshot_path: Option<&Path>,
     ) -> Result<Self> {
+        Self::open_inner(
+            root,
+            recursive,
+            indexes,
+            advanced_paths,
+            definitions,
+            snapshot,
+            snapshot_path,
+            false,
+        )?
+        .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
+    }
+
+    pub(crate) fn open_cached_unchecked(
+        root: &Path,
+        recursive: bool,
+        indexes: &[IndexField],
+        advanced_paths: &[crate::JsonPath],
+        definitions: &BTreeMap<String, Field>,
+        snapshot: BigramSnapshot,
+        snapshot_path: &Path,
+    ) -> Result<Option<Self>> {
+        Self::open_inner(
+            root,
+            recursive,
+            indexes,
+            advanced_paths,
+            definitions,
+            Some(snapshot),
+            Some(snapshot_path),
+            true,
+        )
+    }
+
+    fn open_inner(
+        root: &Path,
+        recursive: bool,
+        indexes: &[IndexField],
+        advanced_paths: &[crate::JsonPath],
+        definitions: &BTreeMap<String, Field>,
+        snapshot: Option<BigramSnapshot>,
+        snapshot_path: Option<&Path>,
+        unchecked: bool,
+    ) -> Result<Option<Self>> {
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
         let inventory_started = Instant::now();
-        let inventory = source.inventory()?;
+        let inventory = if unchecked {
+            snapshot
+                .as_ref()
+                .expect("unchecked restore has a snapshot")
+                .files
+                .iter()
+                .map(|file| {
+                    (
+                        file.id.clone(),
+                        Stamp {
+                            size: file.size_bytes,
+                            modified: file.modified_unix_nanos.clone(),
+                            identity: file.identity.clone(),
+                        },
+                    )
+                })
+                .collect()
+        } else {
+            source.inventory()?
+        };
         let restored = snapshot.and_then(|snapshot| {
             if snapshot.files.len() != inventory.len()
                 || !snapshot
@@ -194,6 +258,7 @@ impl FilePicker {
             indexed_len: 0,
             loaded_snapshot: restored.is_some(),
             secondary_loaded: false,
+            verified: !unchecked,
             snapshot_dirty: restored.as_ref().is_some_and(|restored| restored.dirty),
             config_digest: secondary::config_digest(indexes, advanced_paths, definitions)?,
             changed: BTreeSet::new(),
@@ -211,7 +276,7 @@ impl FilePicker {
             inferred_paths: BTreeSet::new(),
             #[cfg(feature = "index-timings")]
             build_timings: BuildTimings {
-                inventory_nanos,
+                inventory_nanos: if unchecked { 0 } else { inventory_nanos },
                 ..BuildTimings::default()
             },
         };
@@ -229,8 +294,13 @@ impl FilePicker {
             picker.build_timings.slots_nanos = elapsed_nanos(slots_started);
         }
         let loaded_secondary = restored.is_some()
+            && (!unchecked || !definitions.is_empty())
             && snapshot_path
                 .is_some_and(|path| picker.load_secondary_snapshot(path).unwrap_or(false));
+        if unchecked && !loaded_secondary && !definitions.is_empty() {
+            source.finish()?;
+            return Ok(None);
+        }
         if loaded_secondary {
             let restored = restored.expect("checked restored snapshot");
             picker.index = restored.filter;
@@ -240,6 +310,13 @@ impl FilePicker {
             for slot in restored.newly_changed {
                 picker.update_restored_slot(&source, slot)?;
             }
+        } else if unchecked {
+            let restored = restored.expect("unchecked restore has a snapshot");
+            picker.index = restored.filter;
+            picker.indexed_len = picker.files.len();
+            picker.changed = restored.changed;
+            picker.changed_bigrams = restored.changed_bigrams;
+            picker.key_summary.saturate();
         } else {
             picker.rebuild_index_from_source(&source, restored)?;
         }
@@ -249,8 +326,11 @@ impl FilePicker {
             .filter(|path| !picker.typed.has_posting(path))
             .cloned()
             .collect::<Vec<_>>();
+        if unchecked && !missing.is_empty() {
+            return Ok(None);
+        }
         picker.build_postings(&missing)?;
-        Ok(picker)
+        Ok(Some(picker))
     }
 
     pub fn root(&self) -> &Path {
@@ -307,6 +387,10 @@ impl FilePicker {
 
     pub(crate) fn secondary_loaded(&self) -> bool {
         self.secondary_loaded
+    }
+
+    pub(crate) fn verified(&self) -> bool {
+        self.verified
     }
 
     pub(crate) fn snapshot_dirty(&self) -> bool {
@@ -440,6 +524,28 @@ impl FilePicker {
     pub fn refresh(&mut self) -> Result<usize> {
         let source = Source::open_scoped(&self.root, self.recursive)?;
         let inventory = source.inventory()?;
+        let changed = self.refresh_from_inventory(&source, inventory)?;
+        source.finish()?;
+        self.verified = true;
+        Ok(changed)
+    }
+
+    pub(crate) fn reconcile_inventory(
+        &mut self,
+        inventory: BTreeMap<String, Stamp>,
+    ) -> Result<usize> {
+        let source = Source::open_scoped(&self.root, self.recursive)?;
+        let changed = self.refresh_from_inventory(&source, inventory)?;
+        source.finish()?;
+        self.verified = true;
+        Ok(changed)
+    }
+
+    fn refresh_from_inventory(
+        &mut self,
+        source: &Source,
+        inventory: BTreeMap<String, Stamp>,
+    ) -> Result<usize> {
         let mut seen = vec![false; self.files.len()];
         let mut changed = 0;
         for (id, stamp) in inventory {

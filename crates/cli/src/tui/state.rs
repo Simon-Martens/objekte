@@ -3,13 +3,13 @@
 use super::navigation::DetailLinks;
 use super::warm::WarmMode;
 use objekte_core::{
-    InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend, Record, Repository,
-    TextHit, TextMode, TextQuery,
+    CollectionInventory, InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend,
+    Record, Repository, TextHit, TextMode, TextQuery,
 };
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
+use std::collections::VecDeque;
 
 pub(super) const PAGE_SIZE: usize = 100;
-
 
 /// Whether the input is a field filter or a standalone full-text search.
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -18,7 +18,6 @@ pub(super) enum SearchKind {
     Text,
 }
 
-
 /// Which full-text representation a query inspects.
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum Representation {
@@ -26,14 +25,12 @@ pub(super) enum Representation {
     Full,
 }
 
-
 /// A displayed row, retaining the match metadata returned by its search mode.
 #[derive(Clone)]
 pub(super) enum Hit {
     Filter(Record),
     Text(TextHit),
 }
-
 
 impl Hit {
     pub(super) fn record(&self) -> &Record {
@@ -51,14 +48,12 @@ impl Hit {
     }
 }
 
-
 /// Request used for the visible page and for complete export.
 #[derive(Clone)]
 pub(super) enum Request {
     Filter(JsonQuery),
     Text(TextQuery),
 }
-
 
 impl Request {
     pub(super) fn whole_result(&self) -> Self {
@@ -78,7 +73,6 @@ impl Request {
         }
     }
 }
-
 
 fn queried_fields(request: &Request) -> Vec<String> {
     let Request::Filter(query) = request else {
@@ -102,14 +96,12 @@ fn queried_fields(request: &Request) -> Vec<String> {
         .unwrap_or_default()
 }
 
-
 /// Cursor-aware single-line text input shared by query and export prompts.
 #[derive(Default)]
 pub(super) struct Input {
     pub(super) text: String,
     pub(super) cursor: usize,
 }
-
 
 impl Input {
     fn byte_at(&self, character: usize) -> usize {
@@ -172,7 +164,6 @@ impl Input {
     }
 }
 
-
 /// Which panel currently consumes ordinary character and arrow keys.
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub(super) enum Focus {
@@ -185,13 +176,11 @@ pub(super) enum Focus {
     InferReady,
 }
 
-
 /// Scope and schema choice for an explicit background inference scan.
 pub(super) struct InferRequest {
     pub(super) collection: Option<String>,
     pub(super) auto_index: bool,
 }
-
 
 /// Result to open after an adjacent detail page finishes streaming.
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -199,7 +188,6 @@ pub(super) enum DetailEdge {
     First,
     Last,
 }
-
 
 /// Long-lived repository handle and the current interactive query page.
 pub(super) struct App<'a> {
@@ -231,6 +219,10 @@ pub(super) struct App<'a> {
     pub(super) links: DetailLinks,
     pub(super) message: String,
     pub(super) index_status: Option<String>,
+    pub(super) reconciling: bool,
+    pub(super) inventory_complete: bool,
+    pub(super) pending_inventories: VecDeque<CollectionInventory>,
+    pub(super) reconciled_files: usize,
     pub(super) pending_cache_action: Option<WarmMode>,
     pub(super) queued_search: bool,
     pub(super) infer_all: bool,
@@ -242,7 +234,6 @@ pub(super) struct App<'a> {
     pub(super) inference_saved: bool,
     pub(super) done: bool,
 }
-
 
 impl<'a> App<'a> {
     pub(super) fn new(repo: &'a mut Repository) -> Self {
@@ -275,6 +266,10 @@ impl<'a> App<'a> {
             links: DetailLinks::default(),
             message: "Search all collections. Alt+S saves indexes; Alt+R reindexes all.".into(),
             index_status: None,
+            reconciling: false,
+            inventory_complete: false,
+            pending_inventories: VecDeque::new(),
+            reconciled_files: 0,
             pending_cache_action: None,
             queued_search: false,
             infer_all: false,
@@ -348,7 +343,7 @@ impl<'a> App<'a> {
             self.message = "Enter a query first.".into();
             return;
         }
-        if self.index_status.is_some() {
+        if self.index_status.is_some() && !self.reconciling {
             self.queued_search = true;
             self.message = "Search queued; indexes are still building.".into();
             return;
@@ -632,7 +627,6 @@ impl<'a> App<'a> {
         };
     }
 }
-
 
 #[cfg(test)]
 #[path = "state.test.rs"]

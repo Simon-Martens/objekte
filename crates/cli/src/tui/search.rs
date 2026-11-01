@@ -15,7 +15,6 @@ use std::{
     thread,
 };
 
-
 /// One provisional row or the final query outcome and repository handle.
 enum SearchUpdate {
     Hit(Box<Hit>),
@@ -36,7 +35,6 @@ enum SearchUpdate {
     },
 }
 
-
 /// Which generation a repository-owning job belongs to.
 #[derive(Clone, Copy, PartialEq, Eq)]
 enum JobKind {
@@ -46,7 +44,6 @@ enum JobKind {
     SchemaWrite,
 }
 
-
 /// A query worker and its generation, allowing stale rows to be discarded.
 struct Running {
     receiver: Receiver<SearchUpdate>,
@@ -54,7 +51,6 @@ struct Running {
     generation: u64,
     kind: JobKind,
 }
-
 
 impl Running {
     fn current(&self, app: &App<'_>) -> bool {
@@ -68,15 +64,17 @@ impl Running {
     }
 }
 
-
 /// Drives one repository-owning worker at a time from the TUI event loop.
 #[derive(Default)]
 pub(super) struct SearchWorker {
     running: Option<Running>,
 }
 
-
 impl SearchWorker {
+    pub(super) fn is_idle(&self) -> bool {
+        self.running.is_none()
+    }
+
     pub(super) fn drive(&mut self, app: &mut App<'_>) {
         if let Some(running) = &self.running
             && !running.current(app)
@@ -265,7 +263,7 @@ impl SearchWorker {
         {
             self.start_inference(app, request);
         } else if self.running.is_none()
-            && app.index_status.is_none()
+            && (app.index_status.is_none() || app.reconciling)
             && let Some(request) = app.pending_search.take()
         {
             self.start(app, request);
@@ -410,7 +408,6 @@ impl SearchWorker {
         });
     }
 }
-
 
 fn search_channel() -> (mpsc::SyncSender<SearchUpdate>, Receiver<SearchUpdate>) {
     mpsc::sync_channel(PAGE_SIZE + 1)

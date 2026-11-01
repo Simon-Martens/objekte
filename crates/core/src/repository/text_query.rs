@@ -8,7 +8,6 @@ use crate::{
 use regex::Regex;
 use unicode_casefold::UnicodeCaseFold;
 
-
 /// Compiled matcher and conservative bigram prefilter for one request.
 struct TextMatcher {
     regex: Regex,
@@ -18,13 +17,11 @@ struct TextMatcher {
     fold_word: bool,
 }
 
-
 /// Canonical query fields and, for returned hits, concrete indexed paths.
 struct TextMatches {
     fields: Vec<String>,
     matched_paths: Vec<String>,
 }
-
 
 fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
     if path.is_empty() {
@@ -47,7 +44,6 @@ fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
     result.push_str(&path[start..]);
     result
 }
-
 
 impl TextMatcher {
     fn compile(request: &TextQuery) -> Result<Self> {
@@ -180,7 +176,6 @@ impl TextMatcher {
     }
 }
 
-
 impl Repository {
     /// Build a collection's separate full-text index if it is not warm yet.
     pub fn warm_text_index(&mut self, collection: &str) -> Result<Metrics> {
@@ -299,11 +294,13 @@ impl Repository {
             let c = self.collection(&name)?;
             let rules = TextRules::new(&c.fields);
             let source = Source::open_scoped(&c.path, c.recursive)?;
+            let mut optimistic = false;
             let candidates = if self.options.cache == CacheMode::Disabled {
                 source.inventory()?.into_iter().collect::<Vec<_>>()
             } else {
                 self.warm_text_index(&name)?;
                 let picker = &self.file_pickers[&name];
+                optimistic = !picker.verified();
                 let has_text_index = picker.text_index_bytes().is_some();
                 used_text_index |= has_text_index;
                 used_regular_index |= !has_text_index;
@@ -323,7 +320,20 @@ impl Repository {
                     .par_iter()
                     .map(|(id, stamp)| -> Result<(Vec<String>, Metrics)> {
                         let mut metrics = Metrics::default();
-                        let raw = Self::read_raw(&mut metrics, &source, id, Some(stamp))?;
+                        let raw = match Self::read_raw(
+                            &mut metrics,
+                            &source,
+                            id,
+                            (!optimistic).then_some(stamp),
+                        ) {
+                            Ok(raw) => raw,
+                            Err(Error::Io { source: error, .. })
+                                if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                            {
+                                return Ok((Vec::new(), metrics));
+                            }
+                            Err(error) => return Err(error),
+                        };
                         let document = Self::parse_value(&mut metrics, &c, id, &raw.json, false);
                         let started = Instant::now();
                         let fields = if document.state.status == RecordStatus::IncorrectJson {
@@ -359,7 +369,20 @@ impl Repository {
                     }
                 }
                 for (id, stamp, matched_fields) in page {
-                    let raw = Self::read_raw(&mut self.metrics, &source, &id, Some(&stamp))?;
+                    let raw = match Self::read_raw(
+                        &mut self.metrics,
+                        &source,
+                        &id,
+                        (!optimistic).then_some(&stamp),
+                    ) {
+                        Ok(raw) => raw,
+                        Err(Error::Io { source: error, .. })
+                            if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                        {
+                            continue;
+                        }
+                        Err(error) => return Err(error),
+                    };
                     let document = Self::parse_value(&mut self.metrics, &c, &id, &raw.json, true);
                     let malformed = document.state.status == RecordStatus::IncorrectJson;
                     let verified = if malformed {
@@ -383,6 +406,9 @@ impl Repository {
                         )
                     };
                     if verified.fields != matched_fields {
+                        if optimistic {
+                            continue;
+                        }
                         return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
                     }
                     let hit = TextHit {

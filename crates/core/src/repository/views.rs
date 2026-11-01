@@ -2,7 +2,6 @@
 
 use super::*;
 
-
 impl Repository {
     pub fn open_view(&mut self, collection: &str, request: &ViewRequest) -> Result<ViewResult> {
         let before = self.metrics.clone();
@@ -21,6 +20,7 @@ impl Repository {
         use crate::Direction;
         self.ensure_picker(c)?;
         let picker = self.file_pickers.get(&c.name).expect("picker exists");
+        let optimistic = !picker.verified();
         let mut bits: Option<Vec<u64>> = None;
         let mut all_filters_indexed = true;
         for filter in &plan.filters {
@@ -95,7 +95,15 @@ impl Repository {
             let mut rows = Vec::new();
             let mut states = BTreeMap::new();
             for (id, stamp) in entries {
-                let raw = self.raw_from(&source, &id, Some(&stamp))?;
+                let raw = match self.raw_from(&source, &id, (!optimistic).then_some(&stamp)) {
+                    Ok(raw) => raw,
+                    Err(Error::Io { source: error, .. })
+                        if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                    {
+                        continue;
+                    }
+                    Err(error) => return Err(error),
+                };
                 let doc = self.parse(c, &id, &raw.json, true);
                 rows.push(plan.row(c, &id, self.path(c, &id), &doc.data));
                 states.insert(id, doc.state);
@@ -109,7 +117,15 @@ impl Repository {
         } else {
             let mut matches = Vec::new();
             for (id, stamp) in entries {
-                let raw = self.raw_from(&source, &id, Some(&stamp))?;
+                let raw = match self.raw_from(&source, &id, (!optimistic).then_some(&stamp)) {
+                    Ok(raw) => raw,
+                    Err(Error::Io { source: error, .. })
+                        if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                    {
+                        continue;
+                    }
+                    Err(error) => return Err(error),
+                };
                 let doc = self.parse(c, &id, &raw.json, false);
                 if plan.matches(&id, &doc.data) {
                     matches.push((plan.keys(&id, &doc.data), id, doc));

@@ -3,7 +3,7 @@ use objekte_core::bigram::{
     build_bigram_index_from_content, extract_bigrams,
 };
 use objekte_core::file_picker::FilePicker;
-use objekte_core::{JsonQuery, Repository};
+use objekte_core::{JsonQuery, Repository, TextMode, TextQuery};
 use std::{fs, path::Path, process::Command};
 
 #[test]
@@ -279,4 +279,118 @@ fn damaged_secondary_cache_is_rebuilt_once() {
     let mut restored = Repository::open(temp.path()).unwrap();
     restored.warm_bigram_index("@root").unwrap();
     assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
+}
+
+#[test]
+fn unchecked_restore_searches_before_inventory_then_patches_changed_files() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("@root")
+        .unwrap();
+    fs::remove_file(cache.with_extension("secondary")).unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"omega"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    assert!(repo.restore_cached_index_unchecked("@root").unwrap());
+    assert_eq!(repo.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(repo.metrics().secondary_snapshot_loads, 0);
+    let query = |pattern: &str| TextQuery {
+        pattern: pattern.into(),
+        mode: TextMode::Word,
+        case_sensitive: true,
+        collections: Some(vec!["@root".into()]),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(repo.search_text(&query("alpha")).unwrap().total, Some(0));
+    assert_eq!(repo.search_text(&query("omega")).unwrap().total, Some(1));
+    let inventory = repo.collect_collection_inventory("@root").unwrap();
+    assert_eq!(repo.apply_collection_inventory(inventory).unwrap(), 1);
+    assert_eq!(repo.search_text(&query("omega")).unwrap().total, Some(1));
+    assert_eq!(
+        BigramSnapshot::load_checked(&cache, temp.path(), false)
+            .unwrap()
+            .changed_slots,
+        vec![0]
+    );
+}
+
+#[test]
+fn unchecked_restore_reconciles_added_and_deleted_files() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    fs::write(temp.path().join("b.json"), r#"{"text":"beta"}"#).unwrap();
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("@root")
+        .unwrap();
+    fs::remove_file(temp.path().join("a.json")).unwrap();
+    fs::write(temp.path().join("c.json"), r#"{"text":"gamma"}"#).unwrap();
+
+    let mut repo = Repository::open(temp.path()).unwrap();
+    assert!(repo.restore_cached_index_unchecked("@root").unwrap());
+    let query = |pattern: &str| TextQuery {
+        pattern: pattern.into(),
+        mode: TextMode::Word,
+        case_sensitive: true,
+        collections: Some(vec!["@root".into()]),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(repo.search_text(&query("alpha")).unwrap().total, Some(0));
+    assert_eq!(repo.search_text(&query("gamma")).unwrap().total, Some(0));
+
+    let inventory = repo.collect_collection_inventory("@root").unwrap();
+    assert_eq!(repo.apply_collection_inventory(inventory).unwrap(), 2);
+    assert_eq!(repo.search_text(&query("gamma")).unwrap().total, Some(1));
+    let saved = BigramSnapshot::load_checked(&cache, temp.path(), false).unwrap();
+    assert_eq!(
+        saved
+            .files
+            .iter()
+            .map(|file| file.id.as_str())
+            .collect::<Vec<_>>(),
+        vec!["b", "c"]
+    );
+}
+
+#[test]
+fn unchecked_restore_reconciles_schema_index_postings() {
+    let temp = tempfile::tempdir().unwrap();
+    let records = temp.path().join("data/records");
+    let schemas = temp.path().join(".objekte/collections");
+    fs::create_dir_all(&records).unwrap();
+    fs::create_dir_all(&schemas).unwrap();
+    fs::write(records.join("a.json"), r#"{"title":"Alpha"}"#).unwrap();
+    fs::write(
+        schemas.join("books.schema.json"),
+        r#"{"type":"object","properties":{"title":{"type":"string","index":true}},"x-objekte":{"name":"books","path":"data/records","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    let cache = Repository::open(temp.path())
+        .unwrap()
+        .save_bigram_cache("books")
+        .unwrap();
+    fs::write(records.join("a.json"), r#"{"title":"Omega"}"#).unwrap();
+
+    let mut repo = Repository::open(temp.path()).unwrap();
+    assert!(repo.restore_cached_index_unchecked("books").unwrap());
+    assert_eq!(repo.metrics().secondary_snapshot_loads, 1);
+    let query = |title: &str| JsonQuery {
+        filter: format!("title = '{title}'"),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(repo.query_json(&query("Alpha")).unwrap().total, Some(0));
+    assert_eq!(repo.query_json(&query("Omega")).unwrap().total, Some(0));
+    let inventory = repo.collect_collection_inventory("books").unwrap();
+    assert_eq!(repo.apply_collection_inventory(inventory).unwrap(), 1);
+    assert_eq!(repo.query_json(&query("Omega")).unwrap().total, Some(1));
+
+    let mut reopened = Repository::open(temp.path()).unwrap();
+    assert!(reopened.restore_cached_index_unchecked("books").unwrap());
+    assert_eq!(reopened.query_json(&query("Omega")).unwrap().total, Some(1));
+    assert!(cache.with_extension("secondary").is_file());
 }

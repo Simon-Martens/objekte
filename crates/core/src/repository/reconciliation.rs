@@ -3,8 +3,81 @@
 use super::*;
 use crate::JsonFilter;
 
-
 impl Repository {
+    /// Restore a saved picker without waiting for source metadata checks.
+    /// Until `apply_collection_inventory` runs, searches may use stale postings.
+    pub fn restore_cached_index_unchecked(&mut self, collection: &str) -> Result<bool> {
+        self.reload()?;
+        if self.options.cache != CacheMode::Memory
+            || self.options.freshness != Freshness::MetadataOnOpen
+        {
+            return Ok(false);
+        }
+        let c = self.collection(collection)?;
+        if self.file_pickers.contains_key(collection) {
+            return Ok(true);
+        }
+        let path = self.bigram_cache_path(collection)?;
+        if !path.is_file() {
+            return Ok(false);
+        }
+        let started = Instant::now();
+        let snapshot = match BigramSnapshot::load_scoped(&path, &c.path, c.recursive) {
+            Ok(snapshot) => snapshot,
+            Err(_) => return Ok(false),
+        };
+        let Some(picker) = crate::file_picker::FilePicker::open_cached_unchecked(
+            &c.path,
+            c.recursive,
+            &c.indexes,
+            &c.advanced_index_paths,
+            &c.fields,
+            snapshot,
+            &path,
+        )?
+        else {
+            return Ok(false);
+        };
+        self.metrics.bigram_snapshot_loads += 1;
+        self.metrics.secondary_snapshot_loads += u64::from(picker.secondary_loaded());
+        self.metrics.bigram_open_nanos += nanos(started);
+        self.file_pickers.insert(c.name, picker);
+        Ok(true)
+    }
+
+    /// Check file metadata in a separate worker without locking the live picker.
+    pub fn collect_collection_inventory(&self, collection: &str) -> Result<CollectionInventory> {
+        let c = self.collection(collection)?;
+        let source = Source::open_scoped(&c.path, c.recursive)?;
+        let files = source.inventory()?;
+        Ok(CollectionInventory {
+            collection: c.name,
+            path: c.path,
+            recursive: c.recursive,
+            files,
+        })
+    }
+
+    /// Reconcile one collected inventory into the live picker and save changes.
+    pub fn apply_collection_inventory(&mut self, inventory: CollectionInventory) -> Result<usize> {
+        self.reload()?;
+        let c = self.collection(&inventory.collection)?;
+        if c.path != inventory.path || c.recursive != inventory.recursive {
+            return Err(Error::Cache(
+                "collection scope changed during inventory".into(),
+            ));
+        }
+        let picker = self
+            .file_pickers
+            .get_mut(&inventory.collection)
+            .ok_or_else(|| Error::Cache("collection index is unavailable".into()))?;
+        let changed = picker.reconcile_inventory(inventory.files)?;
+        if changed > 0 {
+            self.autosave_loaded_bigram_cache(&inventory.collection)?;
+        }
+        Ok(changed)
+    }
+
     pub(in crate::repository) fn autosave_loaded_bigram_cache(
         &mut self,
         collection: &str,

@@ -87,22 +87,55 @@ fn startup_status_tracks_available_and_restored_snapshot() {
 
     let mut app = App::new(&mut repo);
     app.index_status = Some(warm::startup_status(app.repo));
+    let searches = search::SearchWorker::default();
     for update in warm::start(app.repo, warm::WarmMode::Warm) {
+        let checked = matches!(update, warm::WarmUpdate::Checked);
+        apply_warm_update(&mut app, update);
+        drive_reconciliation(&mut app, &searches);
+        if checked {
+            break;
+        }
+    }
+    assert_eq!(app.repo.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(app.repo.metrics().secondary_snapshot_loads, 0);
+    assert!(app.message.contains("File check complete"));
+    assert!(app.index_status.is_none());
+}
+
+#[test]
+fn cached_search_is_available_before_background_inventory_finishes() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"text":"alpha"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    repo.save_bigram_cache("@root").unwrap();
+    let updates = warm::start(&repo, warm::WarmMode::Warm);
+    let mut app = App::new(&mut repo);
+    app.index_status = Some(warm::startup_status(app.repo));
+    loop {
+        let update = updates.recv_timeout(Duration::from_secs(5)).unwrap();
         let ready = matches!(update, warm::WarmUpdate::Ready(..));
         apply_warm_update(&mut app, update);
         if ready {
             break;
         }
-        assert!(
-            app.index_status
-                .as_deref()
-                .unwrap()
-                .starts_with("Restoring indexes")
-        );
     }
-    assert_eq!(app.repo.metrics().bigram_snapshot_loads, 1);
-    assert_eq!(app.repo.metrics().secondary_snapshot_loads, 1);
-    assert!(app.message.contains("1 index snapshot restored"));
+    assert!(app.reconciling);
+    assert!(app.index_status.is_some());
+    app.input.text = "alpha".into();
+    press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
+    assert_eq!(app.total, Some(1));
+    assert!(!app.queued_search);
+
+    let searches = search::SearchWorker::default();
+    for update in updates {
+        let checked = matches!(update, warm::WarmUpdate::Checked);
+        apply_warm_update(&mut app, update);
+        drive_reconciliation(&mut app, &searches);
+        if checked {
+            break;
+        }
+    }
+    assert!(app.index_status.is_none());
 }
 
 #[test]

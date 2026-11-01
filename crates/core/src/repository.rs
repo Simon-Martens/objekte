@@ -178,6 +178,14 @@ pub struct RecordRevision {
     pub present: bool,
 }
 
+/// A source inventory collected separately from a repository's live index.
+pub struct CollectionInventory {
+    collection: String,
+    path: PathBuf,
+    recursive: bool,
+    files: BTreeMap<String, Stamp>,
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum TargetState {

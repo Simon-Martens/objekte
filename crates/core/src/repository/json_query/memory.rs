@@ -162,6 +162,7 @@ impl Repository {
             }
             let candidate_started = Instant::now();
             let picker = self.file_pickers.get(&c.name).unwrap();
+            let optimistic = !picker.verified();
             // Undeclared fields can have any JSON shape. Scan that collection
             // for scalar cardinality errors without slowing indexed collections.
             let cardinality_risk =
@@ -185,7 +186,8 @@ impl Repository {
             if !request.count && !risk && result.returned() == request.limit {
                 continue;
             }
-            if !risk
+            if !optimistic
+                && !risk
                 && let Some(selection) = exact_plan.as_ref().and_then(|plan| {
                     picker.exact_selection(
                         plan,
@@ -284,12 +286,21 @@ impl Repository {
                         |(searcher, bytes), (id, stamp)| -> Result<ScanOutcome> {
                             let open_started = Instant::now();
                             let path = source.path.join(format!("{id}.json"));
-                            let mut file = source.file(id)?;
+                            let mut file = match source.file(id) {
+                                Ok(file) => file,
+                                Err(Error::Io { source: error, .. })
+                                    if optimistic
+                                        && error.kind() == std::io::ErrorKind::NotFound =>
+                                {
+                                    return Ok(ScanOutcome::default());
+                                }
+                                Err(error) => return Err(error),
+                            };
                             let before = Stamp::from_metadata(
                                 &file.metadata().map_err(|e| io(&path, e))?,
                                 &path,
                             )?;
-                            if &before != *stamp {
+                            if !optimistic && &before != *stamp {
                                 return Err(Error::Unstable(path));
                             }
                             let file_open_nanos = nanos(open_started);
@@ -370,11 +381,27 @@ impl Repository {
                 }
                 let materialize_started = Instant::now();
                 for (id, stamp) in page_matches {
-                    let raw = Self::read_raw(&mut self.metrics, &source, &id, Some(&stamp))?;
+                    let raw = match Self::read_raw(
+                        &mut self.metrics,
+                        &source,
+                        &id,
+                        (!optimistic).then_some(&stamp),
+                    ) {
+                        Ok(raw) => raw,
+                        Err(Error::Io { source: error, .. })
+                            if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                        {
+                            continue;
+                        }
+                        Err(error) => return Err(error),
+                    };
                     let doc = Self::parse_value(&mut self.metrics, c, &id, &raw.json, true);
                     if doc.state.status == RecordStatus::IncorrectJson
                         || !filter.matches(&doc.data)?
                     {
+                        if optimistic {
+                            continue;
+                        }
                         return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
                     }
                     result.push(Record {

@@ -245,7 +245,9 @@ fn pending_message(app: &App<'_>, pressed: KeyEvent) -> Option<&'static str> {
         return None;
     }
     match (app.focus, pressed.code) {
-        (Focus::Query, KeyCode::Enter) if app.index_status.is_none() => Some("Searching…"),
+        (Focus::Query, KeyCode::Enter) if app.index_status.is_none() || app.reconciling => {
+            Some("Searching…")
+        }
         (Focus::Results, KeyCode::Char('n') | KeyCode::PageDown) if app.can_next_page() => {
             Some("Loading page…")
         }
@@ -285,8 +287,14 @@ fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
         }
         warm::WarmUpdate::Ready(mut built, mode) => {
             let restored = built.metrics().secondary_snapshot_loads;
+            let bigram_restored = built.metrics().bigram_snapshot_loads;
             std::mem::swap(app.repo, &mut *built);
-            app.index_status = None;
+            app.reconciling = mode == warm::WarmMode::Warm && bigram_restored > 0;
+            app.inventory_complete = false;
+            app.reconciled_files = 0;
+            app.index_status = app
+                .reconciling
+                .then(|| "Checking files in background · search available".into());
             if app.queued_search {
                 app.search();
             } else {
@@ -297,18 +305,62 @@ fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
                         } else {
                             "snapshots"
                         };
-                        format!("Indexes ready · {restored} index {noun} restored from cache.")
+                        format!("Search ready · {restored} index {noun} restored; checking files.")
                     }
-                    warm::WarmMode::Warm => "Indexes ready. Enter a query to search.".into(),
+                    warm::WarmMode::Warm if bigram_restored > 0 => {
+                        "Search ready from saved bigram index; checking files.".into()
+                    }
+                    warm::WarmMode::Warm => "Search ready. Enter a query to search.".into(),
                     warm::WarmMode::Save => "Bigram caches saved.".into(),
                     warm::WarmMode::Reindex => "All indexes rebuilt and saved.".into(),
                 };
             }
         }
+        warm::WarmUpdate::Inventory(inventory) => {
+            app.pending_inventories.push_back(inventory);
+        }
+        warm::WarmUpdate::Checked => {
+            app.inventory_complete = true;
+        }
         warm::WarmUpdate::Failed(error) => {
             app.index_status = None;
-            app.queued_search = false;
-            app.message = format!("Index build failed: {error}");
+            if app.reconciling {
+                app.reconciling = false;
+                app.pending_inventories.clear();
+                app.message = format!("File check failed; search may be stale: {error}");
+            } else {
+                app.queued_search = false;
+                app.message = format!("Index build failed: {error}");
+            }
+        }
+    }
+}
+
+fn drive_reconciliation(app: &mut App<'_>, searches: &search::SearchWorker) {
+    if !app.reconciling || !searches.is_idle() {
+        return;
+    }
+    if let Some(inventory) = app.pending_inventories.pop_front() {
+        match app.repo.apply_collection_inventory(inventory) {
+            Ok(changed) => {
+                app.reconciled_files += changed;
+                if changed > 0 && app.last_request.is_some() && app.focus == Focus::Results {
+                    app.search();
+                }
+            }
+            Err(error) => {
+                app.message = format!("File check failed; search may be stale: {error}");
+            }
+        }
+    }
+    if app.inventory_complete && app.pending_inventories.is_empty() && searches.is_idle() {
+        app.reconciling = false;
+        app.index_status = None;
+        if !app.searching && app.message.starts_with("Search ready") {
+            app.message = format!(
+                "File check complete · {} changed files updated.",
+                app.reconciled_files
+            );
         }
     }
 }
@@ -343,7 +395,7 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
                     Ok(update) => apply_warm_update(&mut app, update),
                     Err(TryRecvError::Empty) => break,
                     Err(TryRecvError::Disconnected) => {
-                        if app.index_status.is_some() {
+                        if app.index_status.is_some() && !app.inventory_complete {
                             app.index_status = None;
                             app.queued_search = false;
                             app.message = "Index worker stopped unexpectedly.".into();
@@ -353,6 +405,7 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
                 }
             }
             searches.drive(&mut app);
+            drive_reconciliation(&mut app, &searches);
             terminal.draw(|frame| render::draw(frame, &app))?;
             let poll_ms = if app.searching { 20 } else { 100 };
             if event::poll(Duration::from_millis(poll_ms))?
@@ -364,6 +417,8 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
                 }
                 key(&mut app, pressed);
                 if let Some(mode) = app.pending_cache_action.take() {
+                    app.reconciling = false;
+                    app.pending_inventories.clear();
                     updates = warm::start(app.repo, mode);
                     app.index_status = Some(if mode == warm::WarmMode::Save {
                         "Saving indexes · 0 collections ready".into()
