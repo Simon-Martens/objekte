@@ -1,5 +1,4 @@
 - System fields: mod date, file name + path, status, creation date, size, line numbers
-- Pre bloom filter --- pre-bigram index for groups of 64 files
-  // Problem: for simple things they become almost all 1
+ // DONE: @system fields -- but can't use in SORT BY expressions
 - Other structured data: md + frontmatter, yaml, toml, XML
 - Integrate th fts into query syntax? ("Test" && "Test" || "Test" as valid query)
