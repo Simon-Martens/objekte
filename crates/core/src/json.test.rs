@@ -118,6 +118,13 @@ fn malformed_json_is_rejected_even_in_unselected_fields() {
             "projected: {input}"
         );
     }
+    for input in [
+        r#"{"title":"first","title":"\ud800"}"#,
+        r#"{"title":"first","title":{"nested":"\udc00"}}"#,
+        r#"{"title":"ok","ignored":1e}"#,
+    ] {
+        assert!(parse(input).is_err(), "full parse: {input}");
+    }
     for input in ["null", "[]", "1", r#""text""#] {
         assert!(project(input, &BTreeSet::new()).is_err());
     }

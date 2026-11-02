@@ -1,7 +1,7 @@
 //! Caller-built ordered postings for one or several JSON paths.
 
 use super::*;
-use crate::{JsonPath, json::ParsedValue, json_filter::values};
+use crate::{JsonPath, json_filter::values};
 use std::{io::Read, sync::Mutex};
 
 
@@ -107,8 +107,7 @@ impl FilePicker {
                     if before != after || raw.len() as u64 != after.size {
                         return Err(Error::Unstable(file_path));
                     }
-                    let Ok(ParsedValue(document)) = sonic_rs::from_slice::<ParsedValue>(&raw)
-                    else {
+                    let Ok(document) = serde_json::from_slice::<serde_json::Value>(&raw) else {
                         continue;
                     };
                     for (path, posting) in paths.iter().zip(local.iter_mut()) {

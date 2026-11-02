@@ -175,7 +175,7 @@ impl RepositoryModel {
             let (schema, schema_hash, fields, indexes, advanced_index_paths, sort_indexes) =
                 if let Some(path) = &schema_path {
                     let path = fs::canonicalize(path).map_err(|error| io(path, error))?;
-                    let crate::json::ParsedValue(raw) = read(&path, &mut files)?;
+                    let raw: serde_json::Value = read(&path, &mut files)?;
                     let schema = Schema::compile(&raw, &path)?;
                     let advanced_index_paths = crate::schema::index_paths(&raw, &path)?;
                     let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &path)?;
@@ -372,7 +372,7 @@ impl RepositoryModel {
                 ));
             };
             let file_name = file_name.to_owned();
-            let crate::json::ParsedValue(raw) = read(&schema_path, &mut files)?;
+            let raw: serde_json::Value = read(&schema_path, &mut files)?;
             let metadata: CollectionMetadata =
                 serde_json::from_value(raw.get("x-objekte").cloned().ok_or_else(|| {
                     config(

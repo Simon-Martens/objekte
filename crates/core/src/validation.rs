@@ -63,9 +63,7 @@ impl std::ops::Deref for Document {
 
 impl Document {
     pub fn parse(bytes: &[u8]) -> Self {
-        let parsed = std::str::from_utf8(bytes)
-            .map_err(|e| e.to_string())
-            .and_then(|s| crate::json::parse(s).map_err(|e| e.to_string()));
+        let parsed = serde_json::from_slice(bytes).map_err(|e| e.to_string());
         match parsed {
             Ok(data) => Self {
                 data,

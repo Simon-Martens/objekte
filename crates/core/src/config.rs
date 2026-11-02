@@ -289,7 +289,7 @@ fn read<T: serde::de::DeserializeOwned>(
     files: &mut BTreeMap<PathBuf, String>,
 ) -> Result<T> {
     let bytes = fs::read(path).map_err(|e| io(path, e))?;
-    let value = sonic_rs::from_slice(&bytes).map_err(|e| config(path, "", e))?;
+    let value = serde_json::from_slice(&bytes).map_err(|e| config(path, "", e))?;
     let hash = digest(&bytes);
     if files.get(path).is_some_and(|previous| previous != &hash) {
         return Err(Error::Unstable(path.into()));
@@ -389,7 +389,7 @@ impl RepositoryModel {
             };
             let (schema, schema_hash, fields, indexes, advanced_index_paths, sort_indexes) =
                 if let Some(sp) = &schema_path {
-                    let crate::json::ParsedValue(raw) = read(sp, &mut files)?;
+                    let raw: serde_json::Value = read(sp, &mut files)?;
                     let schema = Schema::compile(&raw, sp)?;
                     let advanced_index_paths = crate::schema::index_paths(&raw, sp)?;
                     let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, sp)?;

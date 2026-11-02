@@ -1,23 +1,29 @@
-//! Sonic JSON parsing with the existing public/schema value representation.
+//! Parse public JSON values directly; index projection uses Sonic separately.
 //! Keep fingerprint serialization separate: its exact bytes are a cache contract.
 #[cfg(test)]
 use serde::de::{DeserializeSeed, MapAccess, Visitor};
+#[cfg(test)]
 use serde::{
     Deserialize, Deserializer,
     de::{self},
 };
-use serde_json::{Map, Value};
+#[cfg(test)]
+use serde_json::Map;
+use serde_json::Value;
 #[cfg(test)]
 use sonic_rs::JsonContainerTrait;
+#[cfg(test)]
 use sonic_rs::{JsonValueTrait, ValueRef};
 #[cfg(test)]
 use std::{collections::BTreeSet, fmt};
 
 
 // INFO: Serde-compatible JSON value converted from Sonic's parser.
+#[cfg(test)]
 pub(crate) struct ParsedValue(pub Value);
 
 
+#[cfg(test)]
 impl<'de> Deserialize<'de> for ParsedValue {
     fn deserialize<D: Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
         let value = sonic_rs::Value::deserialize(deserializer)?;
@@ -28,6 +34,7 @@ impl<'de> Deserialize<'de> for ParsedValue {
 
 // Sonic's DOM preserves duplicate object members. Insert in source order to retain
 // the library's last-member-wins contract. Convert raw numbers without an f64 hop.
+#[cfg(test)]
 fn compatible(value: &sonic_rs::Value, depth: usize) -> Result<Value, String> {
     // as_ref() attempts a finite numeric conversion; inspect raw numbers first
     // so opaque large integers and exponents never become rounded values or null.
@@ -66,8 +73,8 @@ fn compatible(value: &sonic_rs::Value, depth: usize) -> Result<Value, String> {
     }
 }
 
-pub(crate) fn parse(json: &str) -> Result<Value, sonic_rs::Error> {
-    sonic_rs::from_str::<ParsedValue>(json).map(|v| v.0)
+pub(crate) fn parse(json: &str) -> Result<Value, serde_json::Error> {
+    serde_json::from_str(json)
 }
 
 /// Validate the entire Sonic DOM with the same depth rules as `parse`, but only
