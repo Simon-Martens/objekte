@@ -198,6 +198,32 @@ impl FilePicker {
         )
     }
 
+    /// Time complete early restoration of a profile's base and secondary snapshot.
+    #[cfg(feature = "index-timings")]
+    pub fn profile_restore_collection(
+        collection: &crate::Collection,
+        encoding: BigramEncoding,
+        snapshot_path: &Path,
+    ) -> Result<Self> {
+        let snapshot = BigramSnapshot::load(snapshot_path)?;
+        Self::open_cached_unchecked(
+            &collection.path,
+            collection.recursive,
+            &collection.indexes,
+            &collection.advanced_index_paths,
+            &collection.sort_indexes,
+            &collection.fields,
+            collection
+                .schema
+                .as_ref()
+                .and_then(|schema| schema.field.language.as_deref()),
+            snapshot,
+            snapshot_path,
+            collection.bigram_encoding.unwrap_or(encoding),
+        )?
+        .ok_or_else(|| Error::Cache("profile snapshot could not be restored".into()))
+    }
+
     #[expect(
         clippy::too_many_arguments,
         reason = "index configuration is borrowed from repository metadata"

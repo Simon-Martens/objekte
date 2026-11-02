@@ -125,6 +125,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let secondary_serialize = picker.profile_secondary_snapshot(&snapshot)?;
     let snapshot_base_bytes = fs::metadata(&snapshot)?.len();
     let snapshot_secondary_bytes = fs::metadata(snapshot.with_extension("secondary"))?.len();
+    let restore_started = Instant::now();
+    let restored = FilePicker::profile_restore_collection(&collection, encoding, &snapshot)?;
+    let snapshot_restore_wall_nanos = restore_started.elapsed().as_nanos();
+    if restored.len() != picker.len()
+        || serde_json::to_value(restored.profile_index_sizes())?
+            != serde_json::to_value(&index_sizes)?
+    {
+        return Err("restored index differs from the built index".into());
+    }
 
     println!(
         "{}",
@@ -142,6 +151,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "index_sizes": index_sizes,
             "stages": build_timings,
             "snapshot_save_wall_nanos": snapshot_save_wall_nanos,
+            "snapshot_restore_wall_nanos": snapshot_restore_wall_nanos,
             "secondary_serialize": secondary_serialize,
             "snapshot_base_bytes": snapshot_base_bytes,
             "snapshot_secondary_bytes": snapshot_secondary_bytes,

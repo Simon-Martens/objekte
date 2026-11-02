@@ -32,6 +32,13 @@ query-result checks, and remaining allocation sources. The
 
 ## Index-build stage profiles
 
+The [index-build optimization report](INDEX-BUILD-OPTIMIZATION-2026-11-02.md)
+compares four independent construction changes across the same four FTS
+profiles, with per-stage build timing, peak RSS, the 50/100-query and FTS
+regression checks, and final snapshot restoration. Its raw runs are linked from
+the report. The profiler now times complete base-plus-secondary restoration
+after saving a temporary snapshot.
+
 The [November 2 index-build report](INDEX-BUILD-PROFILE-2026-11-02.md) measures
 cache-free construction, source read and parsing, general and field text
 projection, three posting-insertion stages, all three compression stages,
