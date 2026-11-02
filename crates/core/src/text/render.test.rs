@@ -47,3 +47,18 @@ fn all_unicode_whitespace_is_collapsed() {
         Some("He llo world".into())
     );
 }
+
+#[test]
+fn plain_text_large_input_keeps_exact_normalization() {
+    let source = format!(
+        "  {}\u{2003}{}  ",
+        "Abc ".repeat(20_000),
+        "Straße".repeat(5_000)
+    );
+    let rendered = render_text(&source, TextFormat::Plain).unwrap();
+    assert!(rendered.starts_with("Abc Abc"));
+    assert!(rendered.contains("Abc Straße"));
+    assert!(rendered.ends_with("Straße"));
+    assert!(!rendered.contains("  "));
+    assert_eq!(render_text("", TextFormat::Plain), Some(String::new()));
+}

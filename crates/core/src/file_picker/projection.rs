@@ -187,7 +187,10 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     }
     if options.folded_index && !values.is_ascii() {
         let folded = values.case_fold().collect::<String>();
-        if folded != values.to_ascii_lowercase() {
+        if !folded
+            .bytes()
+            .eq(values.bytes().map(|byte| byte.to_ascii_lowercase()))
+        {
             values.push('\u{1f}');
             values.push_str(&folded);
         }

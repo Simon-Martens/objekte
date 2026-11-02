@@ -60,6 +60,7 @@ fn sonic_projection_matches_full_json_semantics() {
         r#"{"title":"first","t\u0069tle":"last","payload":{"a":1,"a":2},"array":[{"x":0,"x":3}],"score":9007199254740993,"flag":true}"#,
         r#"{"score":1e500,"title":"Straße\n🐈","flag":null,"payload":[1.0,-0,0.123456789012345678901234567890]}"#,
         r#"{"title":["invalid for scalar view"],"score":{"nested":1},"payload":false}"#,
+        r#"{"title":"Äpfel Straße Σ ς İ и 中文","payload":"Straße"}"#,
         "null",
     ] {
         fs::write(root.join("a.json"), raw).unwrap();

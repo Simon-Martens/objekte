@@ -1,9 +1,40 @@
 //! Apply inventory changes and individual file edits to live indexes.
 
+use super::projection::Projection;
 use super::*;
 
 
 impl FilePicker {
+    /// Consume a local projection after all borrowed index computations finish.
+    /// New slots lie beyond the immutable index, so only existing slots need
+    /// changed-bigram overlays.
+    fn apply_refresh_projection(
+        &mut self,
+        slot: usize,
+        projection: Option<Projection>,
+        overlay: bool,
+    ) -> (
+        Vec<crate::query::Scalar>,
+        Vec<Vec<crate::sorting::SortValue>>,
+    ) {
+        let Some(projection) = projection else {
+            self.malformed.insert(slot);
+            self.presence.update(slot, &[]);
+            if overlay {
+                self.changed_bigrams.remove(&slot);
+            }
+            return (self.view.missing_keys(), self.sort.missing_keys());
+        };
+        self.malformed.remove(&slot);
+        self.presence.update(slot, &projection.present_fields);
+        if overlay {
+            self.changed_bigrams
+                .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
+        }
+        self.array_fields.extend(projection.array_fields);
+        (projection.view_keys, projection.sort_keys)
+    }
+
     pub(super) fn update_restored_slot(&mut self, source: &Source, slot: usize) -> Result<()> {
         let id = self.id(slot).expect("restored slot").to_owned();
         let stamp = self.files[slot]
@@ -21,30 +52,7 @@ impl FilePicker {
             &self.sort,
             true,
         )?;
-        let keys = projection
-            .as_ref()
-            .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-        let sort_keys = projection
-            .as_ref()
-            .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
-        if projection.is_none() {
-            self.malformed.insert(slot);
-            self.changed_bigrams.remove(&slot);
-        } else {
-            self.malformed.remove(&slot);
-        }
-        self.presence.update(
-            slot,
-            projection
-                .as_ref()
-                .map_or(&[], |p| p.present_fields.as_slice()),
-        );
-        if let Some(projection) = projection.as_ref() {
-            self.array_fields
-                .extend(projection.array_fields.iter().cloned());
-            self.changed_bigrams
-                .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
-        }
+        let (keys, sort_keys) = self.apply_refresh_projection(slot, projection, true);
         self.key_summary.saturate();
         let entry = self.files[slot].as_mut().expect("restored file");
         entry.revision += 1;
@@ -101,38 +109,13 @@ impl FilePicker {
                             &self.sort,
                             true,
                         )?;
-                        let keys = projection
-                            .as_ref()
-                            .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                        let sort_keys = projection
-                            .as_ref()
-                            .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
-                        if projection.is_none() {
-                            self.malformed.insert(slot);
-                        } else {
-                            self.malformed.remove(&slot);
-                        }
-                        self.presence.update(
-                            slot,
-                            projection
-                                .as_ref()
-                                .map_or(&[], |p| p.present_fields.as_slice()),
-                        );
-                        if let Some(projection) = projection.as_ref() {
-                            self.array_fields
-                                .extend(projection.array_fields.iter().cloned());
-                        }
                         let entry = self.files[slot].as_mut().expect("live sorted slot");
                         entry.stamp = stamp;
                         entry.revision += 1;
                         entry.changed_at_nanos = now_nanos();
                         self.changed.insert(slot);
-                        if let Some(projection) = projection.as_ref() {
-                            self.changed_bigrams
-                                .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
-                        } else {
-                            self.changed_bigrams.remove(&slot);
-                        }
+                        let (keys, sort_keys) =
+                            self.apply_refresh_projection(slot, projection, true);
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                         self.sort
                             .update(slot, sort_keys, &self.files, &self.id_bytes);
@@ -151,26 +134,8 @@ impl FilePicker {
                         &self.sort,
                         true,
                     )?;
-                    let keys = projection
-                        .as_ref()
-                        .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                    let sort_keys = projection
-                        .as_ref()
-                        .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
-                    if let Some(projection) = projection.as_ref() {
-                        self.array_fields
-                            .extend(projection.array_fields.iter().cloned());
-                    }
                     let slot = self.insert(&id, stamp)?;
-                    if projection.is_none() {
-                        self.malformed.insert(slot);
-                    }
-                    self.presence.update(
-                        slot,
-                        projection
-                            .as_ref()
-                            .map_or(&[], |p| p.present_fields.as_slice()),
-                    );
+                    let (keys, sort_keys) = self.apply_refresh_projection(slot, projection, false);
                     self.view.update(slot, keys, &self.files, &self.id_bytes);
                     self.sort
                         .update(slot, sort_keys, &self.files, &self.id_bytes);
@@ -243,38 +208,13 @@ impl FilePicker {
                                 &self.sort,
                                 true,
                             )?;
-                            let keys = projection
-                                .as_ref()
-                                .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                            let sort_keys = projection
-                                .as_ref()
-                                .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
-                            if projection.is_none() {
-                                self.malformed.insert(slot);
-                            } else {
-                                self.malformed.remove(&slot);
-                            }
-                            self.presence.update(
-                                slot,
-                                projection
-                                    .as_ref()
-                                    .map_or(&[], |p| p.present_fields.as_slice()),
-                            );
-                            if let Some(projection) = projection.as_ref() {
-                                self.array_fields
-                                    .extend(projection.array_fields.iter().cloned());
-                            }
                             let entry = self.files[slot].as_mut().expect("live sorted slot");
                             entry.stamp = stamp;
                             entry.revision += 1;
                             entry.changed_at_nanos = now_nanos();
                             self.changed.insert(slot);
-                            if let Some(projection) = projection.as_ref() {
-                                self.changed_bigrams
-                                    .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
-                            } else {
-                                self.changed_bigrams.remove(&slot);
-                            }
+                            let (keys, sort_keys) =
+                                self.apply_refresh_projection(slot, projection, true);
                             self.view.update(slot, keys, &self.files, &self.id_bytes);
                             self.sort
                                 .update(slot, sort_keys, &self.files, &self.id_bytes);
@@ -292,26 +232,9 @@ impl FilePicker {
                             &self.sort,
                             true,
                         )?;
-                        let keys = projection
-                            .as_ref()
-                            .map_or_else(|| self.view.missing_keys(), |p| p.view_keys.clone());
-                        let sort_keys = projection
-                            .as_ref()
-                            .map_or_else(|| self.sort.missing_keys(), |p| p.sort_keys.clone());
-                        if let Some(projection) = projection.as_ref() {
-                            self.array_fields
-                                .extend(projection.array_fields.iter().cloned());
-                        }
                         let slot = self.insert(id, stamp)?;
-                        if projection.is_none() {
-                            self.malformed.insert(slot);
-                        }
-                        self.presence.update(
-                            slot,
-                            projection
-                                .as_ref()
-                                .map_or(&[], |p| p.present_fields.as_slice()),
-                        );
+                        let (keys, sort_keys) =
+                            self.apply_refresh_projection(slot, projection, false);
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                         self.sort
                             .update(slot, sort_keys, &self.files, &self.id_bytes);

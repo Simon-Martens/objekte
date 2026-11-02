@@ -159,6 +159,7 @@ impl FilePicker {
         // all 64 slots in that word or simultaneous writes can lose bits.
         self.files.par_chunks(64).enumerate().try_for_each(
             |(chunk_index, entries)| -> Result<()> {
+                let mut bytes = Vec::new();
                 for (within, entry) in entries.iter().enumerate() {
                     let Some(entry) = entry else { continue };
                     let slot = chunk_index * 64 + within;
@@ -170,7 +171,7 @@ impl FilePicker {
                     if before != entry.stamp {
                         return Err(Error::Unstable(path));
                     }
-                    let mut bytes = Vec::new();
+                    bytes.clear();
                     file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
                     let after =
                         Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;

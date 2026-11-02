@@ -7,7 +7,7 @@ use quick_xml::{escape::unescape, events::Event as XmlEvent, reader::Reader};
 
 pub(crate) fn render_text(source: &str, format: TextFormat) -> Option<String> {
     let visible = match format {
-        TextFormat::Plain => source.to_owned(),
+        TextFormat::Plain => return Some(normalize_whitespace(source)),
         TextFormat::Markdown => markdown_text(source)?,
         TextFormat::Html => html_text(source)?,
         TextFormat::Xml => xml_text(source)?,
