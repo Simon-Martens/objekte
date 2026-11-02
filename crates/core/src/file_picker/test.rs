@@ -190,6 +190,23 @@ fn inventory_refresh_tracks_additions_removals_and_changes() {
 }
 
 #[test]
+fn inventory_refresh_can_remove_every_slot_and_recreate_an_id() {
+    let dir = tempfile::tempdir().unwrap();
+    put(dir.path(), "a", r#"{"title":"Alpha"}"#);
+    put(dir.path(), "b", r#"{"title":"Beta"}"#);
+    let mut picker = FilePicker::open(dir.path()).unwrap();
+    fs::remove_file(dir.path().join("a.json")).unwrap();
+    fs::remove_file(dir.path().join("b.json")).unwrap();
+    assert_eq!(picker.refresh().unwrap(), 2);
+    assert!(picker.is_empty());
+    assert!(picker.sorted_slots().is_empty());
+    put(dir.path(), "a", r#"{"title":"Again"}"#);
+    assert_eq!(picker.refresh().unwrap(), 1);
+    assert_eq!(picker.revision("a"), Some(3));
+    assert_eq!(ids(&picker, None), ["a"]);
+}
+
+#[test]
 fn git_status_is_available_on_demand() {
     let dir = tempfile::tempdir().unwrap();
     let root = dir.path().join("data/records");

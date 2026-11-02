@@ -179,6 +179,49 @@ impl ViewIndex {
         }
     }
 
+    /// Store a changed key without shifting any order; bulk refresh merges
+    /// all affected slots after it has projected the complete delta.
+    pub(super) fn set_keys(&mut self, slot: usize, values: Vec<Scalar>) {
+        for (field, value) in values.into_iter().enumerate() {
+            if self.keys[field].len() <= slot {
+                self.keys[field].resize(slot + 1, Scalar::Missing);
+            }
+            self.keys[field][slot] = value;
+        }
+    }
+
+    pub(super) fn merge_changed(
+        &mut self,
+        affected: &[bool],
+        live_changed: &[usize],
+        files: &[Option<FileEntry>],
+        id_bytes: &[u8],
+    ) {
+        let mut changed = Vec::with_capacity(live_changed.len());
+        for field in 0..self.fields.len() {
+            let mut old = std::mem::take(&mut self.ordered[field]);
+            old.retain(|&slot| !affected[slot]);
+            changed.clear();
+            changed.extend_from_slice(live_changed);
+            changed
+                .sort_unstable_by(|&a, &b| compare_slots(&self.keys[field], a, b, files, id_bytes));
+            let mut merged = Vec::with_capacity(old.len() + changed.len());
+            let (mut a, mut b) = (0, 0);
+            while a < old.len() && b < changed.len() {
+                if compare_slots(&self.keys[field], old[a], changed[b], files, id_bytes).is_le() {
+                    merged.push(old[a]);
+                    a += 1;
+                } else {
+                    merged.push(changed[b]);
+                    b += 1;
+                }
+            }
+            merged.extend_from_slice(&old[a..]);
+            merged.extend_from_slice(&changed[b..]);
+            self.ordered[field] = merged;
+        }
+    }
+
     pub(super) fn remove(&mut self, slot: usize) {
         for order in &mut self.ordered {
             if let Some(position) = order.iter().position(|&current| current == slot) {

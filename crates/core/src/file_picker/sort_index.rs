@@ -193,6 +193,62 @@ impl SortIndex {
         }
     }
 
+    pub(super) fn set_keys(&mut self, slot: usize, values: Vec<Vec<SortValue>>) {
+        let needed = (slot + 1) * self.width;
+        if self.keys.len() < needed {
+            self.keys.resize(needed, SortValue::Missing);
+        }
+        for (index, value) in values.into_iter().enumerate() {
+            let start = slot * self.width + self.offsets[index];
+            for (target, value) in self.keys[start..start + value.len()].iter_mut().zip(value) {
+                *target = value;
+            }
+        }
+    }
+
+    pub(super) fn merge_changed(
+        &mut self,
+        affected: &[bool],
+        live_changed: &[usize],
+        files: &[Option<FileEntry>],
+        ids: &[u8],
+    ) {
+        let mut changed = Vec::with_capacity(live_changed.len());
+        for index in 0..self.plans.len() {
+            let mut old = std::mem::take(&mut self.ordered[index]);
+            old.retain(|&slot| !affected[slot]);
+            changed.clear();
+            changed.extend_from_slice(live_changed);
+            let compare_slots = |a, b| {
+                compare(
+                    &self.plans[index],
+                    &self.keys,
+                    self.width,
+                    self.offsets[index],
+                    a,
+                    b,
+                    files,
+                    ids,
+                )
+            };
+            changed.sort_unstable_by(|&a, &b| compare_slots(a, b));
+            let mut merged = Vec::with_capacity(old.len() + changed.len());
+            let (mut a, mut b) = (0, 0);
+            while a < old.len() && b < changed.len() {
+                if compare_slots(old[a], changed[b]).is_le() {
+                    merged.push(old[a]);
+                    a += 1;
+                } else {
+                    merged.push(changed[b]);
+                    b += 1;
+                }
+            }
+            merged.extend_from_slice(&old[a..]);
+            merged.extend_from_slice(&changed[b..]);
+            self.ordered[index] = merged;
+        }
+    }
+
     pub(super) fn remove(&mut self, slot: usize) {
         for order in &mut self.ordered {
             if let Some(at) = order.iter().position(|&current| current == slot) {

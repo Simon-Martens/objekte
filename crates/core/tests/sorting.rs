@@ -575,6 +575,96 @@ fn restored_sort_index_and_refresh_follow_source() {
 }
 
 #[test]
+fn bulk_refresh_orders_match_direct_rebuild_and_single_edit() {
+    let fixture = tempfile::tempdir().unwrap();
+    schema(fixture.path(), "de", Some("de"));
+    for number in 0..80 {
+        write(
+            fixture.path(),
+            "de",
+            &format!("{number:03}"),
+            json!({"title":format!("Titel {number:03}"),"rank":number % 9,"text":"token"}),
+        );
+    }
+    let mut indexed = repo(fixture.path(), CacheMode::Memory, 1000);
+    indexed.warm_bigram_index("de").unwrap();
+    for number in 0..25 {
+        write(
+            fixture.path(),
+            "de",
+            &format!("{number:03}"),
+            json!({"title":if number % 2 == 0 { "Äpfel" } else { "Apfel" },
+                "rank":number % 7,"text":"token updated"}),
+        );
+    }
+    for number in 25..45 {
+        fs::remove_file(fixture.path().join(format!("data/de/{number:03}.json"))).unwrap();
+    }
+    for number in 80..105 {
+        write(
+            fixture.path(),
+            "de",
+            &format!("{number:03}"),
+            json!({"title":if number % 2 == 0 { "Straße" } else { "Aal" },
+                "rank":number % 7,"text":"token new"}),
+        );
+    }
+    fs::write(fixture.path().join("data/de/050.json"), "invalid json").unwrap();
+    indexed.refresh("de").unwrap();
+
+    let check = |indexed: &mut Repository| {
+        let mut direct = repo(fixture.path(), CacheMode::Disabled, 1000);
+        for filter in [
+            "rank >= 0 SORT BY title ASC",
+            "rank >= 0 SORT BY title DESC",
+            "rank >= 0 SORT BY rank DESC && title ASC",
+        ] {
+            let query = JsonQuery {
+                filter: filter.into(),
+                collections: Some(vec!["de".into()]),
+                count: true,
+                limit: 200,
+                ..Default::default()
+            };
+            let fast = indexed.query_json(&query).unwrap();
+            let plain = direct
+                .query_json(&JsonQuery {
+                    backend: JsonQueryBackend::Direct,
+                    ..query
+                })
+                .unwrap();
+            assert_eq!(ids(&fast), ids(&plain), "{filter}");
+            assert_eq!(fast.total, plain.total, "{filter}");
+        }
+    };
+    check(&mut indexed);
+    write(
+        fixture.path(),
+        "de",
+        "050",
+        json!({"title":"Ähre","rank":4,"text":"token restored"}),
+    );
+    indexed.refresh("de").unwrap();
+    check(&mut indexed);
+    for entry in fs::read_dir(fixture.path().join("data/de")).unwrap() {
+        let path = entry.unwrap().path();
+        if path.file_name().unwrap() != "050.json" {
+            fs::remove_file(path).unwrap();
+        }
+    }
+    indexed.refresh("de").unwrap();
+    check(&mut indexed);
+    write(
+        fixture.path(),
+        "de",
+        "070",
+        json!({"title":"Aal","rank":1,"text":"token recreated"}),
+    );
+    indexed.refresh("de").unwrap();
+    check(&mut indexed);
+}
+
+#[test]
 fn collected_indexed_sort_stops_before_scanning_the_full_candidate_set() {
     let fixture = tempfile::tempdir().unwrap();
     schema(fixture.path(), "de", Some("de"));

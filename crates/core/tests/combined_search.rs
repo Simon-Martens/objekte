@@ -1,6 +1,11 @@
 use objekte_core::{CacheMode, Direction, Options, Repository, Sort, TextMode, TextQuery};
 use serde_json::json;
-use std::{collections::BTreeMap, fs, path::Path};
+use std::{
+    collections::BTreeMap,
+    fs::{self, File, FileTimes},
+    path::Path,
+    time::{Duration, UNIX_EPOCH},
+};
 
 fn fixture() -> tempfile::TempDir {
     let temp = tempfile::tempdir().unwrap();
@@ -44,6 +49,16 @@ fn fixture() -> tempfile::TempDir {
         ),
     ] {
         fs::write(docs.join(format!("{id}.json")), content).unwrap();
+    }
+    // Default search order uses modification time; fix equal times so these
+    // assertions test ID tie-breaking rather than filesystem clock jitter.
+    for id in ["a", "b", "c", "d", "e", "f"] {
+        File::options()
+            .write(true)
+            .open(docs.join(format!("{id}.json")))
+            .unwrap()
+            .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(1000)))
+            .unwrap();
     }
     temp
 }
