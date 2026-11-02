@@ -1,0 +1,1 @@
+{"text":"Dies kann helfen, die Performance zu verbessern, da die Anzahl der Aktoren, die pro Szene gerendert werden müssen, reduziert wird, denn dadurch wird auch die Anzahl der Draw-Calls pro Frame verringert."}

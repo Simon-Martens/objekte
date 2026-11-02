@@ -19,7 +19,7 @@ SHA256 = {
     "fra": "0013db37d9081956e910769a29901bd3a3c34fca3051fc2839cd9b85e73ea133",
     "jpn": "5fbaa0f02f0d9bebcb60b3a481e2c49e01d08b136bae5f77496273a4b7fbc683",
     "pol": "156572f69e8cad38901679010f59ca596784feca86c97940febba9f8538e869a",
-    "rus": "2f78e5a68873ee586b29a36f6daa45ec8ab90edda6defc9b2911a4857b211b7",
+    "rus": "2f78e5a68873ee586b29a36f6daa45ec8ab90edda6defc9b2911a4857b211b7e",
     "spa": "96323c33f61720dce3f15d41c7e3d375d19de2acd1eebf106cb28dc476360217",
     "zho": "ba219ac3a5b9e13f2653690ab67a03a184cab6019cbbb374791fd4cc7446a7e1",
 }
@@ -63,10 +63,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path)
     parser.add_argument("--per-language", type=int, default=50_000)
+    parser.add_argument("--archive-dir", type=Path)
     args = parser.parse_args()
     if not 1 <= args.per_language <= 100_000:
         parser.error("--per-language must be 1–100000")
-    archive_dir = args.root / "archives"
+    archive_dir = args.archive_dir or args.root / "archives"
     data_dir = args.root / "data" / "texts"
     archive_dir.mkdir(parents=True, exist_ok=True)
     data_dir.mkdir(parents=True, exist_ok=True)

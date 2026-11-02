@@ -6,8 +6,9 @@ The corpus contains 400,000 JSON records in one schema-free `texts` collection: 
 50,000 sentences from each of eight Leipzig Corpora Collection 2020 news archives. Languages
 are Arabic, German, French, Japanese, Polish, Russian, Spanish, and Chinese. The source sentences
 are real text; `prepare_leipzig_corpus.py` generates the JSON files. The corpus was held on
-Linux `/tmp` (tmpfs); its JSON files occupy 1.6 GiB of tmpfs allocation. The archives and
-generated corpus are not committed. Hardware: Intel Core i9-13900K.
+Linux `/tmp` (tmpfs); its JSON files occupy 1.6 GiB of tmpfs allocation. The
+same JSON files are now committed under [examples/leipzig-multilingual](../../examples/leipzig-multilingual/README.md).
+The source archives are not committed. Hardware: Intel Core i9-13900K.
 
 Each of the [50 filters](workloads/leipzig-multilingual-50.json) ran with the Bigram JSON backend,
 `count=true`, one returned record, and the repository’s 10,000-result cap. Every index was
@@ -104,8 +105,13 @@ The SHA-256 values pin the exact inputs used here.
 ## Reproduce
 
 ```sh
-python3 crates/bench/prepare_leipzig_corpus.py /tmp/objekte-leipzig-2020 --per-language 50000
+# Run directly against the committed example. Storage performance may differ from tmpfs.
 cargo build --release -p objekte-bench --bin json-query-mix
+target/release/json-query-mix --repo examples/leipzig-multilingual --workload crates/bench/workloads/leipzig-multilingual-50.json --no-schema --runs 7 --bigram-encoding ascii
+target/release/json-query-mix --repo examples/leipzig-multilingual --workload crates/bench/workloads/leipzig-multilingual-50.json --no-schema --runs 7 --bigram-encoding utf8_bytes
+
+# Recreate the tmpfs corpus used for the recorded timings.
+python3 crates/bench/prepare_leipzig_corpus.py /tmp/objekte-leipzig-2020 --per-language 50000
 target/release/json-query-mix --repo /tmp/objekte-leipzig-2020 --workload crates/bench/workloads/leipzig-multilingual-50.json --no-schema --runs 7 --bigram-encoding ascii
 target/release/json-query-mix --repo /tmp/objekte-leipzig-2020 --workload crates/bench/workloads/leipzig-multilingual-50.json --no-schema --runs 7 --bigram-encoding utf8_bytes
 ```

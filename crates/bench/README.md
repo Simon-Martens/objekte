@@ -44,8 +44,9 @@ The [November 2 encoding comparison](BIGRAM-50-QUERY-2026-11-02.md) runs all
 
 The [400,000-record multilingual comparison](BIGRAM-FOREIGN-50-2026-11-02.md)
 uses 50 searches over Leipzig news sentences in eight languages. The
-[corpus preparation script](prepare_leipzig_corpus.py) downloads pinned source
-archives and writes JSON files outside the repository; the report links the
+[example corpus](../../examples/leipzig-multilingual/README.md) contains the
+JSON files and data attribution. The [preparation script](prepare_leipzig_corpus.py)
+downloads pinned source archives and recreates them; the report links the
 workload and all six raw benchmark runs.
 
 `--no-schema` discovers the same data folders without loading their default

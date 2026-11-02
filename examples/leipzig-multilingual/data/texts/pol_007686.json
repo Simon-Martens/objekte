@@ -1,0 +1,1 @@
+{"text":"Ciekawa własność: mając dowolnego stringa w konwencji C, można od razu wyciągnąć z niego jednobajtowy klucz, gdyż takie stringi są szyfrowane razem z bajtem zerowym na końcu, więc ostatni bajt szyfrogramu jest jednocześnie kluczem."}
