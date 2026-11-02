@@ -39,6 +39,8 @@ struct CollectionMetadata {
     r#type: String,
     format: String,
     id: String,
+    #[serde(default)]
+    bigram_encoding: Option<crate::BigramEncoding>,
 }
 
 
@@ -280,6 +282,7 @@ impl RepositoryModel {
                 Collection {
                     name,
                     path: directory.path.clone(),
+                    bigram_encoding: None,
                     recursive: schema_base,
                     schema_path,
                     ui_path,
@@ -452,6 +455,7 @@ impl RepositoryModel {
                 Collection {
                     name: metadata.name,
                     path: source,
+                    bigram_encoding: metadata.bigram_encoding,
                     recursive: true,
                     schema_path: Some(schema_path),
                     ui_path: None,
@@ -490,6 +494,7 @@ impl RepositoryModel {
                 Collection {
                     name: name.clone(),
                     path: directory.path.clone(),
+                    bigram_encoding: None,
                     recursive: false,
                     schema_path: None,
                     ui_path: None,

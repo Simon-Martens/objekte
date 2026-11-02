@@ -43,7 +43,7 @@ impl FilePicker {
             self.array_fields
                 .extend(projection.array_fields.iter().cloned());
             self.changed_bigrams
-                .insert(slot, sorted_bigrams(&projection.bytes));
+                .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
         }
         self.key_summary.saturate();
         let entry = self.files[slot].as_mut().expect("restored file");
@@ -129,7 +129,7 @@ impl FilePicker {
                         self.changed.insert(slot);
                         if let Some(projection) = projection.as_ref() {
                             self.changed_bigrams
-                                .insert(slot, sorted_bigrams(&projection.bytes));
+                                .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
                         } else {
                             self.changed_bigrams.remove(&slot);
                         }
@@ -271,7 +271,7 @@ impl FilePicker {
                             self.changed.insert(slot);
                             if let Some(projection) = projection.as_ref() {
                                 self.changed_bigrams
-                                    .insert(slot, sorted_bigrams(&projection.bytes));
+                                    .insert(slot, sorted_bigrams(&projection.bytes, self.encoding));
                             } else {
                                 self.changed_bigrams.remove(&slot);
                             }

@@ -94,7 +94,7 @@ fn base_digest(path: &Path) -> Result<[u8; 32]> {
     let mut header = [0_u8; 56];
     file.read_exact(&mut header)
         .map_err(|error| io(path, error))?;
-    if &header[..8] != b"OBJSNP01" && &header[..8] != b"OBJSNP02" {
+    if &header[..8] != b"OBJSNP01" && &header[..8] != b"OBJSNP02" && &header[..8] != b"OBJSNP03" {
         return Err(Error::Cache("unknown bigram snapshot version".into()));
     }
     Ok(header[24..56].try_into().expect("digest length"))
@@ -106,6 +106,7 @@ pub(super) fn config_digest(
     sort_indexes: &[Vec<crate::Sort>],
     definitions: &BTreeMap<String, Field>,
     language: Option<&str>,
+    encoding: BigramEncoding,
 ) -> Result<[u8; 32]> {
     let bytes = serde_json::to_vec(&(
         indexes,
@@ -113,6 +114,7 @@ pub(super) fn config_digest(
         sort_indexes,
         definitions,
         language,
+        encoding,
         "icu_collator/2.4.0",
     ))
     .map_err(|error| Error::Cache(format!("cannot encode index config: {error}")))?;
@@ -187,7 +189,10 @@ impl FilePicker {
         }
         let text_index = match restored.text {
             Some((clean, raw, len)) if len == self.files.len() => {
-                Some(TextIndex::restore_parts(&clean, &raw, len)?)
+                match TextIndex::restore_parts(&clean, &raw, len, self.encoding) {
+                    Ok(index) => Some(index),
+                    Err(_) => return Ok(false),
+                }
             }
             Some(_) => return Ok(false),
             None => None,

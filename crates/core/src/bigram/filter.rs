@@ -4,6 +4,7 @@
 use ahash::AHashMap;
 use rayon::iter::{IndexedParallelIterator, IntoParallelRefIterator, ParallelIterator};
 use rayon::slice::ParallelSlice;
+use serde::{Deserialize, Serialize};
 use std::cell::UnsafeCell;
 use std::sync::atomic::{AtomicU16, AtomicUsize, Ordering};
 use std::sync::{Mutex, OnceLock};
@@ -21,10 +22,66 @@ pub(super) const NO_COLUMN: u16 = u16::MAX;
 
 /// Bigram keys only ever pair printable bytes (32..=126) which is 95 ^ 2
 pub const BIGRAM_KEY_SLOTS: usize = 95 * 95;
+const UTF8_KEY_SLOTS: usize = 1 << 16;
+const MAX_UTF8_COLUMNS: usize = u16::MAX as usize;
+
+
+/// Byte-pair encoding used by a compressed bigram index.
+#[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum BigramEncoding {
+    #[default]
+    Ascii,
+    Utf8Bytes,
+}
+
+
+impl BigramEncoding {
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::Ascii => "ascii",
+            Self::Utf8Bytes => "utf8_bytes",
+        }
+    }
+
+    pub fn parse(value: &str) -> Option<Self> {
+        match value {
+            "ascii" => Some(Self::Ascii),
+            "utf8_bytes" => Some(Self::Utf8Bytes),
+            _ => None,
+        }
+    }
+
+    pub(crate) const fn key_slots(self) -> usize {
+        match self {
+            Self::Ascii => BIGRAM_KEY_SLOTS,
+            Self::Utf8Bytes => UTF8_KEY_SLOTS,
+        }
+    }
+
+    pub(crate) const fn max_columns(self) -> usize {
+        match self {
+            Self::Ascii => MAX_BIGRAM_COLUMNS,
+            Self::Utf8Bytes => MAX_UTF8_COLUMNS,
+        }
+    }
+
+    #[inline]
+    pub(crate) const fn usable(self, byte: u8) -> bool {
+        match self {
+            Self::Ascii => byte >= 32 && byte <= 126,
+            Self::Utf8Bytes => (byte >= 32 && byte <= 126) || byte >= 128,
+        }
+    }
+}
+
 
 // Slot in the compact lookup for a printable bigram key (`hi << 8 | lo`).
 #[inline(always)]
-fn key_slot(key: u16) -> usize {
+fn key_slot(key: u16, encoding: BigramEncoding) -> usize {
+    if encoding == BigramEncoding::Utf8Bytes {
+        return key as usize;
+    }
     let hi = (key >> 8) as usize;
     let lo = (key & 0xFF) as usize;
     debug_assert!((32..=126).contains(&hi) && (32..=126).contains(&lo));
@@ -60,12 +117,15 @@ thread_local! {
 /// Temporary sync dense builder for the bigram index.
 /// Builds from the many threads reading file contents in parallel
 pub struct BigramIndexBuilder {
+    encoding: BigramEncoding,
     // we use lookup as atomics only in the builder because it is filled by the rayon threads
     // the actual index uses pure u16 for the allocations
     lookup: Vec<AtomicU16>,
     /// Flat bitset data, materialised on first use. Stays `None` when the OS
     /// refuses the mapping: the index then compresses to nothing (no prefilter).
     col_data: OnceLock<Option<UnsafeCell<ColumnSlab>>>,
+    /// UTF-8 columns are allocated on observation, never for the whole key space.
+    utf8_cols: Option<Vec<OnceLock<Option<UnsafeCell<ColumnSlab>>>>>,
     next_column: Mutex<u16>,
     words: usize,
     file_count: usize,
@@ -81,12 +141,22 @@ unsafe impl Sync for BigramIndexBuilder {}
 
 impl BigramIndexBuilder {
     pub fn new(file_count: usize) -> Self {
+        Self::new_with_encoding(file_count, BigramEncoding::Ascii)
+    }
+
+    pub fn new_with_encoding(file_count: usize, encoding: BigramEncoding) -> Self {
         let words = file_count.div_ceil(64);
-        let mut lookup = Vec::with_capacity(BIGRAM_KEY_SLOTS);
-        lookup.resize_with(BIGRAM_KEY_SLOTS, || AtomicU16::new(NO_COLUMN));
+        let mut lookup = Vec::with_capacity(encoding.key_slots());
+        lookup.resize_with(encoding.key_slots(), || AtomicU16::new(NO_COLUMN));
         Self {
+            encoding,
             lookup,
             col_data: OnceLock::new(),
+            utf8_cols: (encoding == BigramEncoding::Utf8Bytes).then(|| {
+                std::iter::repeat_with(OnceLock::new)
+                    .take(MAX_UTF8_COLUMNS)
+                    .collect()
+            }),
             next_column: Mutex::new(0),
             words,
             file_count,
@@ -114,12 +184,26 @@ impl BigramIndexBuilder {
     /// `|=` writes under the partitioning invariant.
     #[inline(always)]
     fn col_data_ptr(&self) -> Option<*mut u64> {
+        if self.encoding == BigramEncoding::Utf8Bytes {
+            return Some(std::ptr::null_mut());
+        }
         Some(unsafe { (*self.col_data_cell()?.get()).as_mut_ptr() })
+    }
+
+    #[inline(always)]
+    fn column_ptr(&self, column: u16, base: *mut u64) -> Option<*mut u64> {
+        if let Some(columns) = &self.utf8_cols {
+            let cell = columns[column as usize]
+                .get_or_init(|| ColumnSlab::new(self.words).map(UnsafeCell::new))
+                .as_ref()?;
+            return Some(unsafe { (*cell.get()).as_mut_ptr() });
+        }
+        Some(unsafe { base.add(column as usize * self.words) })
     }
 
     #[inline]
     fn get_or_alloc_column(&self, key: u16) -> u16 {
-        let slot = key_slot(key);
+        let slot = key_slot(key, self.encoding);
         let current = self.lookup[slot].load(Ordering::Relaxed);
         if current != NO_COLUMN {
             return current;
@@ -129,7 +213,7 @@ impl BigramIndexBuilder {
         if current != NO_COLUMN {
             return current;
         }
-        if *next == MAX_BIGRAM_COLUMNS as u16 {
+        if *next as usize == self.encoding.max_columns() {
             return NO_COLUMN;
         }
         let column = *next;
@@ -174,7 +258,17 @@ impl BigramIndexBuilder {
                 buf.resize(len.next_power_of_two().max(4096), 0);
             }
 
-            normalize_bytes(content, &mut buf[..len]);
+            if self.encoding == BigramEncoding::Ascii {
+                normalize_bytes(content, &mut buf[..len]);
+            } else {
+                for (out, &byte) in buf[..len].iter_mut().zip(content) {
+                    *out = if self.encoding.usable(byte) {
+                        byte.to_ascii_lowercase()
+                    } else {
+                        0
+                    };
+                }
+            }
             let n = &buf[..len];
 
             // Both paths record the identical bigram set; the split exists
@@ -302,7 +396,7 @@ impl BigramIndexBuilder {
         word_idx: usize,
         bit_mask: u64,
         col_base: *mut u64,
-        words: usize,
+        _words: usize,
     ) {
         let k = key as usize;
         let w = k >> 6;
@@ -314,9 +408,11 @@ impl BigramIndexBuilder {
                 *seen.get_unchecked_mut(w) = prev | bit;
             }
             let col = self.get_or_alloc_column(key);
-            if col != NO_COLUMN {
+            if col != NO_COLUMN
+                && let Some(base) = self.column_ptr(col, col_base)
+            {
                 unsafe {
-                    let p = col_base.add(col as usize * words + word_idx);
+                    let p = base.add(word_idx);
                     *p |= bit_mask;
                 }
             }
@@ -330,7 +426,6 @@ impl BigramIndexBuilder {
         bit_mask: u64,
         col_base: *mut u64,
     ) {
-        let words = self.words;
         // SEEN_WORDS is a multiple of 8, so the remainder is always empty.
         for (blk, block) in seen.as_chunks::<8>().0.iter().enumerate() {
             // OR-test whole blocks so the mostly-empty bitmap scans fast.
@@ -348,9 +443,11 @@ impl BigramIndexBuilder {
                     let key = (w << 6 | bits.trailing_zeros() as usize) as u16;
                     bits &= bits - 1;
                     let col = self.get_or_alloc_column(key);
-                    if col != NO_COLUMN {
+                    if col != NO_COLUMN
+                        && let Some(base) = self.column_ptr(col, col_base)
+                    {
                         unsafe {
-                            let p = col_base.add(col as usize * words + word_idx);
+                            let p = base.add(word_idx);
                             *p |= bit_mask;
                         }
                     }
@@ -380,13 +477,28 @@ impl BigramIndexBuilder {
         let dense_bytes = words * 8; // cost of one dense column
 
         let old_lookup = self.lookup;
+        let mut available = vec![true; cols];
         // If no file ever populated content, col_data was never
         // materialised. Treat as empty — every column falls through.
-        let mut col_data: Option<ColumnSlab> = self
-            .col_data
-            .into_inner()
-            .flatten()
-            .map(UnsafeCell::into_inner);
+        let mut col_data: Option<ColumnSlab> = if let Some(columns) = self.utf8_cols {
+            let mut slab = cols.checked_mul(words).and_then(ColumnSlab::new);
+            if let Some(slab) = slab.as_mut() {
+                for (col, cell) in columns.into_iter().take(cols).enumerate() {
+                    if let Some(Some(cell)) = cell.into_inner() {
+                        slab.as_mut_slice()[col * words..(col + 1) * words]
+                            .copy_from_slice(&cell.into_inner());
+                    } else {
+                        available[col] = false;
+                    }
+                }
+            }
+            slab
+        } else {
+            self.col_data
+                .into_inner()
+                .flatten()
+                .map(UnsafeCell::into_inner)
+        };
 
         // Pass 1: pick the columns worth keeping, in slab order so the in-place
         // compaction below only ever moves a column towards the front.
@@ -394,13 +506,17 @@ impl BigramIndexBuilder {
         if let Some(col_data) = col_data.as_deref() {
             for (slot, old_col) in old_lookup.iter().enumerate() {
                 let old_col = old_col.load(Ordering::Relaxed);
-                if old_col == NO_COLUMN || old_col as usize >= cols {
+                if old_col == NO_COLUMN || old_col as usize >= cols || !available[old_col as usize]
+                {
                     continue;
                 }
 
                 let col_start = old_col as usize * words;
                 let bitset = &col_data[col_start..col_start + words];
                 let popcount: u32 = bitset.iter().map(|w| w.count_ones()).sum();
+                if popcount == 0 {
+                    continue;
+                }
 
                 if min_density_pct.is_some_and(|min_pct| {
                     populated == 0 || (popcount as usize) * 100 < populated * min_pct as usize
@@ -418,7 +534,7 @@ impl BigramIndexBuilder {
             }
         }
         kept.sort_unstable_by_key(|&(_, old_col, _)| old_col);
-        let mut rare_keys = vec![0u64; BIGRAM_KEY_SLOTS.div_ceil(64)];
+        let mut rare_keys = vec![0u64; self.encoding.key_slots().div_ceil(64)];
         if min_density_pct.is_none() {
             for &(slot, _, count) in &kept {
                 if (count as usize) * 4 < dense_bytes {
@@ -450,7 +566,7 @@ impl BigramIndexBuilder {
 
         // Pass 3: compact dense columns to the front of the builder slab (no
         // copy into a fresh buffer) and number sparse ones after them.
-        let mut lookup: Vec<u16> = vec![NO_COLUMN; BIGRAM_KEY_SLOTS];
+        let mut lookup: Vec<u16> = vec![NO_COLUMN; self.encoding.key_slots()];
         let mut dense_count: usize = 0;
         let mut sparse_slots: Vec<usize> = Vec::new();
         let mut sparse_offsets: Vec<u32> = vec![0];
@@ -459,6 +575,12 @@ impl BigramIndexBuilder {
         for ((slot, old_col, _), sparse) in kept.iter().zip(encoded) {
             match sparse {
                 Some(bytes) => {
+                    // Offsets are u32 in the binary format. If sparse storage
+                    // reaches that limit, leave this key unconstrained instead
+                    // of wrapping an offset and risking false negatives.
+                    if bytes.len() > u32::MAX as usize - sparse_data.len() {
+                        continue;
+                    }
                     sparse_slots.push(*slot);
                     sparse_data.extend_from_slice(&bytes);
                     sparse_offsets.push(sparse_data.len() as u32);
@@ -489,6 +611,7 @@ impl BigramIndexBuilder {
         sparse_data.shrink_to_fit();
 
         BigramFilter {
+            encoding: self.encoding,
             rare_keys,
             lookup,
             dense_data,
@@ -572,10 +695,10 @@ pub(crate) enum ColumnRef<'a> {
 unsafe impl Send for BigramIndexBuilder {}
 
 
-/// Inverted bigram index with optional "skip-1" extension
-/// Copmressed into bitset for minimal usage, the layout of this struct actually matters
+/// Compressed inverted bigram index with an optional skip-one extension.
 #[derive(Debug)]
 pub struct BigramFilter {
+    pub(super) encoding: BigramEncoding,
     pub(super) lookup: Vec<u16>,
     pub(super) rare_keys: Vec<u64>,
     /// Flat buffer of all dense column data laid out at fixed stride `words`.
@@ -590,9 +713,8 @@ pub struct BigramFilter {
     pub(super) file_count: usize,
     pub(super) populated: usize,
     /// Optional skip-1 bigram index (stride 2). Built from character pairs
-    /// at distance 2, e.g. "ABCDE" → (A,C),(B,D),(C,E). ANDead with the
-    /// consecutive bigram candidates during query to dramatically reduce
-    /// false positives.
+    /// at distance 2, e.g. "ABCDE" → (A,C),(B,D),(C,E). Intersected with
+    /// consecutive bigram candidates to reduce false positives.
     pub(super) skip_index: Option<Box<BigramFilter>>,
 }
 
@@ -615,6 +737,11 @@ impl BigramFilter {
         if pattern.len() < 2 {
             return None;
         }
+        if self.encoding == BigramEncoding::Utf8Bytes
+            && std::str::from_utf8(pattern).is_ok_and(|text| text.chars().any(char::is_control))
+        {
+            return None;
+        }
 
         let mut result = vec![u64::MAX; self.words];
         if !self.file_count.is_multiple_of(64) {
@@ -626,7 +753,7 @@ impl BigramFilter {
 
         let mut prev = pattern[0];
         for &b in &pattern[1..] {
-            if (32..=126).contains(&prev) && (32..=126).contains(&b) {
+            if self.encoding.usable(prev) && self.encoding.usable(b) {
                 let key = (prev.to_ascii_lowercase() as u16) << 8 | b.to_ascii_lowercase() as u16;
                 if let Some(col) = self.column_ref(key) {
                     Self::and_column(&mut result, col);
@@ -636,7 +763,7 @@ impl BigramFilter {
             prev = b;
         }
 
-        // strid-1 bigrams
+        // Skip-one bigrams.
         if let Some(skip) = &self.skip_index
             && pattern.len() >= 3
             && let Some(skip_candidates) = skip.query_skip(pattern)
@@ -662,7 +789,7 @@ impl BigramFilter {
         for i in 0..pattern.len().saturating_sub(2) {
             let a = pattern[i];
             let b = pattern[i + 2];
-            if (32..=126).contains(&a) && (32..=126).contains(&b) {
+            if self.encoding.usable(a) && self.encoding.usable(b) {
                 let key = (a.to_ascii_lowercase() as u16) << 8 | b.to_ascii_lowercase() as u16;
                 if let Some(col) = self.column_ref(key) {
                     Self::and_column(&mut result, col);
@@ -708,7 +835,7 @@ impl BigramFilter {
         if self.column(key) == NO_COLUMN {
             return None;
         }
-        let slot = key_slot(key);
+        let slot = key_slot(key, self.encoding);
         if self.rare_keys[slot / 64] & (1 << (slot % 64)) != 0 {
             return None;
         }
@@ -729,6 +856,7 @@ impl BigramFilter {
 
     /// Attach a skip-1 bigram index for tighter candidate filtering.
     pub fn set_skip_index(&mut self, skip: BigramFilter) {
+        assert_eq!(self.encoding, skip.encoding, "skip index encoding differs");
         self.skip_index = Some(Box::new(skip));
     }
 
@@ -749,6 +877,10 @@ impl BigramFilter {
 
     pub fn file_count(&self) -> usize {
         self.file_count
+    }
+
+    pub fn encoding(&self) -> BigramEncoding {
+        self.encoding
     }
 
     pub fn columns_used(&self) -> usize {
@@ -783,14 +915,13 @@ impl BigramFilter {
     pub fn column(&self, key: u16) -> u16 {
         let hi = key >> 8;
         let lo = key & 0xFF;
-        if !(32..=126).contains(&hi) || !(32..=126).contains(&lo) {
+        if !self.encoding.usable(hi as u8) || !self.encoding.usable(lo as u8) {
             return NO_COLUMN;
         }
-        self.lookup[key_slot(key)]
+        self.lookup[key_slot(key, self.encoding)]
     }
 
-    /// Compact lookup table: [`BIGRAM_KEY_SLOTS`] entries mapping printable
-    /// bigram slots (see [`Self::column`]) to column index.
+    /// Lookup table mapping mode-specific byte-pair slots to column indices.
     pub fn lookup(&self) -> &[u16] {
         &self.lookup
     }
@@ -835,6 +966,7 @@ impl BigramFilter {
             None => (ColumnSlab::empty(), 0),
         };
         Self {
+            encoding: BigramEncoding::Ascii,
             lookup,
             rare_keys: vec![0; BIGRAM_KEY_SLOTS.div_ceil(64)],
             dense_data,
@@ -964,6 +1096,10 @@ unsafe fn normalize_bytes_neon(src: &[u8], dst: &mut [u8]) {
 }
 
 pub fn extract_bigrams(content: &[u8]) -> Vec<u16> {
+    extract_bigrams_with_encoding(content, BigramEncoding::Ascii)
+}
+
+pub fn extract_bigrams_with_encoding(content: &[u8], encoding: BigramEncoding) -> Vec<u16> {
     if content.len() < 2 {
         return Vec::new();
     }
@@ -973,7 +1109,7 @@ pub fn extract_bigrams(content: &[u8]) -> Vec<u16> {
 
     let mut prev = content[0];
     for &b in &content[1..] {
-        if (32..=126).contains(&prev) && (32..=126).contains(&b) {
+        if encoding.usable(prev) && encoding.usable(b) {
             let key = (prev.to_ascii_lowercase() as u16) << 8 | b.to_ascii_lowercase() as u16;
             let word = key as usize / 64;
             let bit = 1u64 << (key as usize % 64);
@@ -994,6 +1130,7 @@ pub fn extract_bigrams(content: &[u8]) -> Vec<u16> {
 /// and cleared when the base index is rebuilt.
 #[derive(Debug)]
 pub struct BigramOverlay {
+    encoding: BigramEncoding,
     /// Per-file bigram sets for files modified since the base was built.
     /// Key = file slot in the base snapshot.
     modified: AHashMap<usize, Vec<u16>>,
@@ -1009,8 +1146,13 @@ pub struct BigramOverlay {
 
 impl BigramOverlay {
     pub fn new(base_file_count: usize) -> Self {
+        Self::new_with_encoding(base_file_count, BigramEncoding::Ascii)
+    }
+
+    pub fn new_with_encoding(base_file_count: usize, encoding: BigramEncoding) -> Self {
         let words = base_file_count.div_ceil(64);
         Self {
+            encoding,
             modified: AHashMap::new(),
             tombstones: vec![0u64; words],
             base_file_count,
@@ -1018,7 +1160,10 @@ impl BigramOverlay {
     }
 
     pub fn modify_file(&mut self, file_idx: usize, content: &[u8]) {
-        self.modified.insert(file_idx, extract_bigrams(content));
+        self.modified.insert(
+            file_idx,
+            extract_bigrams_with_encoding(content, self.encoding),
+        );
     }
 
     pub fn delete_file(&mut self, file_idx: usize) {
@@ -1070,8 +1215,15 @@ pub const SKIP_INDEX_MIN_DENSITY_PCT: u32 = 12;
 /// Build an index from caller-provided content in file-slot order. `None`
 /// leaves a slot unindexed. Parallel chunks own disjoint 64-slot bitset words.
 pub fn build_bigram_index_from_content(contents: &[Option<&[u8]>]) -> BigramFilter {
-    let builder = BigramIndexBuilder::new(contents.len());
-    let skip_builder = BigramIndexBuilder::new(contents.len());
+    build_bigram_index_from_content_with_encoding(contents, BigramEncoding::Ascii)
+}
+
+pub fn build_bigram_index_from_content_with_encoding(
+    contents: &[Option<&[u8]>],
+    encoding: BigramEncoding,
+) -> BigramFilter {
+    let builder = BigramIndexBuilder::new_with_encoding(contents.len(), encoding);
+    let skip_builder = BigramIndexBuilder::new_with_encoding(contents.len(), encoding);
     contents
         .par_chunks(64)
         .enumerate()
@@ -1264,7 +1416,7 @@ mod tests {
         if (k >> 8) < 32 || (k >> 8) > 126 || (k & 0xFF) < 32 || (k & 0xFF) > 126 {
             return false;
         }
-        let col = b.lookup[key_slot(k)].load(Ordering::Relaxed);
+        let col = b.lookup[key_slot(k, BigramEncoding::Ascii)].load(Ordering::Relaxed);
         if col == NO_COLUMN {
             return false;
         }
@@ -1417,8 +1569,8 @@ mod tests {
         let key_zw = key(b'z', b'w');
 
         // file 0 has "xy" but not "zw"
-        let col_xy = consec.lookup[key_slot(key_xy)].load(Ordering::Relaxed);
-        let col_zw = consec.lookup[key_slot(key_zw)].load(Ordering::Relaxed);
+        let col_xy = consec.lookup[key_slot(key_xy, BigramEncoding::Ascii)].load(Ordering::Relaxed);
+        let col_zw = consec.lookup[key_slot(key_zw, BigramEncoding::Ascii)].load(Ordering::Relaxed);
         let bitset_xy = consec.column_bitset(col_xy)[0];
         let bitset_zw = consec.column_bitset(col_zw)[0];
         assert_eq!(bitset_xy & 0b01, 0b01, "file 0 should have xy");
@@ -1489,8 +1641,8 @@ mod tests {
 
         let kab = key(b'a', b'b');
         let kcd = key(b'c', b'd');
-        let col_ab = consec.lookup[key_slot(kab)].load(Ordering::Relaxed);
-        let col_cd = consec.lookup[key_slot(kcd)].load(Ordering::Relaxed);
+        let col_ab = consec.lookup[key_slot(kab, BigramEncoding::Ascii)].load(Ordering::Relaxed);
+        let col_cd = consec.lookup[key_slot(kcd, BigramEncoding::Ascii)].load(Ordering::Relaxed);
 
         let ab_bitset = consec.column_bitset(col_ab);
         let cd_bitset = consec.column_bitset(col_cd);

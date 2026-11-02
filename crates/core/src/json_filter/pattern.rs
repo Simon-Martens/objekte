@@ -155,6 +155,26 @@ impl Like {
         }
         runs
     }
+
+    /// Literal Unicode runs guaranteed by this LIKE pattern. Tokens already
+    /// contain folded characters when matching ignores case.
+    pub(super) fn required_unicode_runs(&self) -> Vec<String> {
+        let (mut runs, mut current) = (Vec::new(), String::new());
+        for token in &self.tokens {
+            if let Token::Char(c) = token
+                && c.is_alphanumeric()
+                && !c.is_control()
+            {
+                current.push(*c);
+            } else if !current.is_empty() {
+                runs.push(std::mem::take(&mut current));
+            }
+        }
+        if !current.is_empty() {
+            runs.push(current);
+        }
+        runs
+    }
 }
 
 

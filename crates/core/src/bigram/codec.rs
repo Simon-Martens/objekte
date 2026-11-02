@@ -2,13 +2,13 @@
 
 use super::{
     BigramFilter, ColumnSlab,
-    filter::{BIGRAM_KEY_SLOTS, MAX_BIGRAM_COLUMNS, NO_COLUMN},
+    filter::{BigramEncoding, NO_COLUMN},
 };
 use crate::{Error, Result};
 use std::collections::BTreeSet;
 
-const MAGIC: &[u8; 8] = b"OBJBG001";
-const RARE_WORDS: usize = BIGRAM_KEY_SLOTS.div_ceil(64);
+const LEGACY_MAGIC: &[u8; 8] = b"OBJBG001";
+const MAGIC: &[u8; 8] = b"OBJBG002";
 
 fn bad(message: &str) -> Error {
     Error::Cache(format!("invalid bigram filter: {message}"))
@@ -101,9 +101,20 @@ fn write_filter(filter: &BigramFilter, out: &mut Vec<u8>, depth: usize) -> Resul
     if depth > 1 || depth == 1 && filter.skip_index.is_some() {
         return Err(bad("nested skip index"));
     }
-    if filter.lookup.len() != BIGRAM_KEY_SLOTS || filter.rare_keys.len() != RARE_WORDS {
+    if filter.lookup.len() != filter.encoding.key_slots()
+        || filter.rare_keys.len() != filter.encoding.key_slots().div_ceil(64)
+        || filter.columns_used() > filter.encoding.max_columns()
+        || filter
+            .skip_index
+            .as_ref()
+            .is_some_and(|skip| skip.encoding != filter.encoding)
+    {
         return Err(bad("lookup dimensions"));
     }
+    let identifier = filter.encoding.as_str().as_bytes();
+    out.push(identifier.len() as u8);
+    out.extend_from_slice(identifier);
+    put_u32(out, filter.lookup.len() as u32);
     put_u64(out, filter.file_count)?;
     put_u64(out, filter.populated)?;
     put_u64(out, filter.words)?;
@@ -170,9 +181,19 @@ fn sparse_valid(data: &[u8], file_count: usize) -> bool {
     true
 }
 
-fn read_filter(reader: &mut Reader<'_>, depth: usize) -> Result<BigramFilter> {
+fn read_filter(reader: &mut Reader<'_>, depth: usize, legacy: bool) -> Result<BigramFilter> {
     if depth > 1 {
         return Err(bad("nested skip index"));
+    }
+    let encoding = if legacy {
+        BigramEncoding::Ascii
+    } else {
+        let len = reader.u8()? as usize;
+        let name = std::str::from_utf8(reader.take(len)?).map_err(|_| bad("unknown encoding"))?;
+        BigramEncoding::parse(name).ok_or_else(|| bad("unknown encoding"))?
+    };
+    if !legacy && reader.u32()? as usize != encoding.key_slots() {
+        return Err(bad("lookup dimensions"));
     }
     let file_count = reader.usize()?;
     let populated = reader.usize()?;
@@ -180,18 +201,18 @@ fn read_filter(reader: &mut Reader<'_>, depth: usize) -> Result<BigramFilter> {
     let dense_count = reader.usize()?;
     if words != file_count.div_ceil(64)
         || populated > file_count
-        || dense_count > MAX_BIGRAM_COLUMNS
+        || dense_count > encoding.max_columns()
     {
         return Err(bad("invalid dimensions"));
     }
-    let lookup = reader.u16s(BIGRAM_KEY_SLOTS)?;
-    let rare_keys = reader.u64s(RARE_WORDS)?;
+    let lookup = reader.u16s(encoding.key_slots())?;
+    let rare_keys = reader.u64s(encoding.key_slots().div_ceil(64))?;
     let dense_len = dense_count
         .checked_mul(words)
         .ok_or_else(|| bad("length overflow"))?;
     let dense = reader.u64s(dense_len)?;
     let offset_count = reader.u32()? as usize;
-    if offset_count == 0 || offset_count > MAX_BIGRAM_COLUMNS + 1 {
+    if offset_count == 0 || offset_count > encoding.max_columns() + 1 {
         return Err(bad("invalid sparse offsets"));
     }
     let sparse_offsets = reader.u32s(offset_count)?;
@@ -203,12 +224,15 @@ fn read_filter(reader: &mut Reader<'_>, depth: usize) -> Result<BigramFilter> {
     if sparse_offsets[0] != 0
         || sparse_offsets.last().copied() != Some(sparse_len_u32)
         || sparse_offsets.windows(2).any(|pair| pair[0] > pair[1])
-        || used_columns > MAX_BIGRAM_COLUMNS
+        || used_columns > encoding.max_columns()
         || lookup.iter().any(|&column| {
             column != NO_COLUMN && (usize::from(column) >= used_columns || !seen.insert(column))
         })
     {
         return Err(bad("invalid column table"));
+    }
+    if seen.len() != used_columns {
+        return Err(bad("unreferenced column"));
     }
     for pair in sparse_offsets.windows(2) {
         if !sparse_valid(&sparse_data[pair[0] as usize..pair[1] as usize], file_count) {
@@ -217,17 +241,18 @@ fn read_filter(reader: &mut Reader<'_>, depth: usize) -> Result<BigramFilter> {
     }
     let skip_index = match reader.u8()? {
         0 => None,
-        1 if depth == 0 => Some(Box::new(read_filter(reader, depth + 1)?)),
+        1 if depth == 0 => Some(Box::new(read_filter(reader, depth + 1, legacy)?)),
         _ => return Err(bad("invalid skip index flag")),
     };
     if skip_index
         .as_ref()
-        .is_some_and(|skip| skip.file_count != file_count)
+        .is_some_and(|skip| skip.file_count != file_count || skip.encoding != encoding)
     {
         return Err(bad("skip index file count differs"));
     }
     let dense_data = ColumnSlab::from_vec(dense).ok_or_else(|| bad("cannot allocate columns"))?;
     Ok(BigramFilter {
+        encoding,
         lookup,
         rare_keys,
         dense_data,
@@ -253,10 +278,12 @@ impl BigramFilter {
     /// Restore a filter from its versioned binary representation.
     pub fn from_bytes(bytes: &[u8]) -> Result<Self> {
         let mut reader = Reader { bytes, position: 0 };
-        if reader.take(MAGIC.len())? != MAGIC {
-            return Err(bad("unknown format version"));
-        }
-        let filter = read_filter(&mut reader, 0)?;
+        let legacy = match reader.take(MAGIC.len())? {
+            value if value == MAGIC => false,
+            value if value == LEGACY_MAGIC => true,
+            _ => return Err(bad("unknown format version")),
+        };
+        let filter = read_filter(&mut reader, 0, legacy)?;
         if reader.position != bytes.len() {
             return Err(bad("trailing data"));
         }

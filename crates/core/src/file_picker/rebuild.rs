@@ -49,12 +49,12 @@ impl FilePicker {
         );
         // Workers project source files once. Their local rows are merged into
         // the immutable filter and each secondary index after the scan.
-        let main = BigramIndexBuilder::new(files.len());
-        let skip = BigramIndexBuilder::new(files.len());
+        let main = BigramIndexBuilder::new_with_encoding(files.len(), self.encoding);
+        let skip = BigramIndexBuilder::new_with_encoding(files.len(), self.encoding);
         // Once full-text postings are active, rebuild them with the normal
         // postings so slot compaction never requires a second source pass.
         let text_builders = (self.eager_text_index || self.text_index.is_some())
-            .then(|| TextIndexBuilders::new(files.len()));
+            .then(|| TextIndexBuilders::new(files.len(), self.encoding));
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
         let key_summary = std::sync::Mutex::new(KeySummary::default());
         let malformed = std::sync::Mutex::new(BTreeSet::new());
@@ -139,7 +139,10 @@ impl FilePicker {
                                     .as_ref()
                                     .is_some_and(|restored| restored.newly_changed.contains(&slot))
                                 {
-                                    let mut keys = extract_bigrams(text.as_bytes());
+                                    let mut keys = extract_bigrams_with_encoding(
+                                        text.as_bytes(),
+                                        self.encoding,
+                                    );
                                     keys.sort_unstable();
                                     overlay_bigrams
                                         .lock()
@@ -154,7 +157,10 @@ impl FilePicker {
                                     .as_ref()
                                     .is_some_and(|restored| restored.newly_changed.contains(&slot))
                                 {
-                                    let mut keys = extract_bigrams(&projection.bytes);
+                                    let mut keys = extract_bigrams_with_encoding(
+                                        &projection.bytes,
+                                        self.encoding,
+                                    );
                                     keys.sort_unstable();
                                     overlay_bigrams
                                         .lock()

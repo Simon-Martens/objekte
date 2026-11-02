@@ -111,7 +111,7 @@ impl FilePicker {
         let Some(keys) = self.changed_bigrams.get(&slot) else {
             return true;
         };
-        let required = extract_bigrams(literal.as_bytes());
+        let required = extract_bigrams_with_encoding(literal.as_bytes(), self.encoding);
         required.iter().all(|key| keys.binary_search(key).is_ok())
     }
 
@@ -125,6 +125,26 @@ impl FilePicker {
                 return self.sorted.clone();
             };
             bitsets.push(bits);
+        }
+        if self.changed.is_empty() && self.indexed_len == self.files.len() {
+            if let [bits] = bitsets.as_slice() {
+                return self
+                    .sorted
+                    .iter()
+                    .copied()
+                    .filter(|&slot| BigramFilter::is_candidate(bits, slot))
+                    .collect();
+            }
+            return self
+                .sorted
+                .iter()
+                .copied()
+                .filter(|&slot| {
+                    bitsets
+                        .iter()
+                        .any(|bits| BigramFilter::is_candidate(bits, slot))
+                })
+                .collect();
         }
         self.sorted
             .iter()

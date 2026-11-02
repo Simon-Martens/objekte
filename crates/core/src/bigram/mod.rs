@@ -11,7 +11,9 @@ mod snapshot;
 
 use column_slab::ColumnSlab;
 pub use filter::{
-    BIGRAM_KEY_SLOTS, BigramFilter, BigramIndexBuilder, BigramOverlay, SKIP_INDEX_MIN_DENSITY_PCT,
-    build_bigram_index_from_content, extract_bigrams, release_thread_buffers,
+    BIGRAM_KEY_SLOTS, BigramEncoding, BigramFilter, BigramIndexBuilder, BigramOverlay,
+    SKIP_INDEX_MIN_DENSITY_PCT, build_bigram_index_from_content,
+    build_bigram_index_from_content_with_encoding, extract_bigrams, extract_bigrams_with_encoding,
+    release_thread_buffers,
 };
 pub use snapshot::{BigramFile, BigramSnapshot};

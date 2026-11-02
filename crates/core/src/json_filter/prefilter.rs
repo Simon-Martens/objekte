@@ -7,6 +7,7 @@ use super::{
 };
 use crate::Result;
 use grep_regex::RegexMatcher;
+use unicode_casefold::UnicodeCaseFold;
 
 fn longest_run(text: &str) -> String {
     let (mut best, mut current) = (String::new(), String::new());
@@ -199,16 +200,22 @@ impl JsonFilter {
                     ..
                 } => match (op, left, right) {
                     (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::String(s)))
-                    | (Op::Eq, Operand::Literal(serde_json::Value::String(s)), Operand::Field(_)) => {
-                        ordered_runs_regex(ascii_runs(s), false)
+                    | (Op::Eq, Operand::Literal(serde_json::Value::String(s)), Operand::Field(_)) =>
+                    {
+                        let literal = if *ignore_case {
+                            s.case_fold().collect::<String>()
+                        } else {
+                            s.clone()
+                        };
+                        (!literal.chars().any(char::is_control)).then(|| regex::escape(&literal))
                     }
                     (
                         Op::Contains,
                         Operand::Field(_),
                         Operand::Literal(serde_json::Value::String(s)),
                     ) => ordered_runs_regex(
-                        Like::new(s, false, *ignore_case).required_ascii_runs(),
-                        *ignore_case,
+                        Like::new(s, false, *ignore_case).required_unicode_runs(),
+                        false,
                     ),
                     (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::Bool(v)))
                     | (Op::Eq, Operand::Literal(serde_json::Value::Bool(v)), Operand::Field(_)) => {

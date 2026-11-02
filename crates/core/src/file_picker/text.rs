@@ -33,12 +33,12 @@ pub(super) struct TextIndexBuilders {
 
 
 impl TextIndexBuilders {
-    pub(super) fn new(indexed_len: usize) -> Self {
+    pub(super) fn new(indexed_len: usize, encoding: BigramEncoding) -> Self {
         Self {
-            clean_main: BigramIndexBuilder::new(indexed_len),
-            clean_skip: BigramIndexBuilder::new(indexed_len),
-            raw_main: BigramIndexBuilder::new(indexed_len),
-            raw_skip: BigramIndexBuilder::new(indexed_len),
+            clean_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            clean_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            raw_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            raw_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
             indexed_len,
         }
     }
@@ -105,10 +105,19 @@ impl TextIndex {
         ))
     }
 
-    pub(super) fn restore_parts(clean: &[u8], raw: &[u8], indexed_len: usize) -> Result<Self> {
+    pub(super) fn restore_parts(
+        clean: &[u8],
+        raw: &[u8],
+        indexed_len: usize,
+        encoding: BigramEncoding,
+    ) -> Result<Self> {
         let clean = BigramFilter::from_bytes(clean)?;
         let raw = BigramFilter::from_bytes(raw)?;
-        if clean.file_count() != indexed_len || raw.file_count() != indexed_len {
+        if clean.file_count() != indexed_len
+            || raw.file_count() != indexed_len
+            || clean.encoding() != encoding
+            || raw.encoding() != encoding
+        {
             return Err(Error::Cache("invalid secondary text index slots".into()));
         }
         Ok(Self {
@@ -151,7 +160,7 @@ impl FilePicker {
     }
 
     pub(super) fn build_text_index_from_source(&mut self, source: &Source) -> Result<()> {
-        let builders = TextIndexBuilders::new(self.files.len());
+        let builders = TextIndexBuilders::new(self.files.len(), self.encoding);
         // FFF writes each posting word with a plain OR. A worker must own
         // all 64 slots in that word or simultaneous writes can lose bits.
         self.files.par_chunks(64).enumerate().try_for_each(

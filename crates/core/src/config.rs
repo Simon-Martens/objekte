@@ -143,6 +143,9 @@ pub struct IndexField {
 pub struct Collection {
     pub name: String,
     pub path: PathBuf,
+    /// Explicit collection override; otherwise the repository option applies.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub bigram_encoding: Option<crate::BigramEncoding>,
     /// Descendants belong to this collection when a schema declares its base.
     pub recursive: bool,
     pub schema_path: Option<PathBuf>,
@@ -520,6 +523,7 @@ impl RepositoryModel {
                 Collection {
                     name: name.clone(),
                     path: source,
+                    bigram_encoding: None,
                     recursive,
                     schema_path,
                     ui_path,

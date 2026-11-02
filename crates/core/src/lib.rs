@@ -10,6 +10,7 @@
 //! # Ok::<(), objekte_core::Error>(())
 //! ```
 pub mod bigram;
+pub use bigram::BigramEncoding;
 mod config;
 mod config_snapshot;
 mod error;

@@ -1,6 +1,6 @@
 //! A portable filter snapshot with an explicit slot-to-file manifest.
 
-use super::BigramFilter;
+use super::{BigramEncoding, BigramFilter};
 use crate::{Error, Result, error::io, repository::validate_id, source::Source};
 use bincode::Options;
 use serde::{
@@ -19,6 +19,7 @@ use std::{
 
 const MAGIC_JSON: &[u8; 8] = b"OBJSNP01";
 const MAGIC_BINARY: &[u8; 8] = b"OBJSNP02";
+const MAGIC_ENCODING: &[u8; 8] = b"OBJSNP03";
 const HEADER_LEN: usize = 8 + 8 + 8 + 32;
 const MAX_SNAPSHOT_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 
@@ -50,6 +51,8 @@ struct Manifest {
     changed_slots: Vec<usize>,
     #[serde(default)]
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
+    #[serde(default)]
+    bigram_encoding: BigramEncoding,
 }
 
 
@@ -125,6 +128,7 @@ struct ManifestBinaryRef<'a> {
     files: CompactFilesRef<'a>,
     changed_slots: &'a [usize],
     changed_bigrams: &'a BTreeMap<usize, Vec<u16>>,
+    bigram_encoding: &'static str,
 }
 
 
@@ -139,6 +143,19 @@ struct ManifestBinary {
 }
 
 
+/// V3 binary manifest with an explicit encoding identifier.
+#[derive(Deserialize)]
+struct ManifestBinaryV3 {
+    source_root: PathBuf,
+    recursive: bool,
+    git_commit: Option<String>,
+    files: CompactFiles,
+    changed_slots: Vec<usize>,
+    changed_bigrams: BTreeMap<usize, Vec<u16>>,
+    bigram_encoding: String,
+}
+
+
 impl From<ManifestBinary> for Manifest {
     fn from(value: ManifestBinary) -> Self {
         Self {
@@ -148,7 +165,26 @@ impl From<ManifestBinary> for Manifest {
             files: value.files.0,
             changed_slots: value.changed_slots,
             changed_bigrams: value.changed_bigrams,
+            bigram_encoding: BigramEncoding::Ascii,
         }
+    }
+}
+
+
+impl TryFrom<ManifestBinaryV3> for Manifest {
+    type Error = Error;
+
+    fn try_from(value: ManifestBinaryV3) -> Result<Self> {
+        Ok(Self {
+            source_root: value.source_root,
+            recursive: value.recursive,
+            git_commit: value.git_commit,
+            files: value.files.0,
+            changed_slots: value.changed_slots,
+            changed_bigrams: value.changed_bigrams,
+            bigram_encoding: BigramEncoding::parse(&value.bigram_encoding)
+                .ok_or_else(|| invalid("unknown encoding"))?,
+        })
     }
 }
 
@@ -306,6 +342,7 @@ impl BigramSnapshot {
                 files: CompactFilesRef(&self.files),
                 changed_slots: &self.changed_slots,
                 changed_bigrams: &self.changed_bigrams,
+                bigram_encoding: self.filter.encoding().as_str(),
             },
             &self.filter,
         )
@@ -352,6 +389,7 @@ impl BigramSnapshot {
                 files: CompactFilesRef(files),
                 changed_slots,
                 changed_bigrams,
+                bigram_encoding: filter.encoding().as_str(),
             },
             filter,
         )
@@ -365,6 +403,9 @@ impl BigramSnapshot {
         validate_files(manifest.files.0, filter.file_count())?;
         validate_changes(manifest.changed_slots, filter.file_count())?;
         validate_changed_bigrams(manifest.changed_slots, manifest.changed_bigrams)?;
+        if manifest.bigram_encoding != filter.encoding().as_str() {
+            return Err(invalid("manifest encoding differs from filter"));
+        }
         let manifest = bincode::DefaultOptions::new()
             .serialize(&manifest)
             .map_err(|error| Error::Cache(format!("cannot encode bigram manifest: {error}")))?;
@@ -380,7 +421,7 @@ impl BigramSnapshot {
         digest.update(&manifest);
         digest.update(&filter);
         let mut header = [0_u8; HEADER_LEN];
-        header[..8].copy_from_slice(MAGIC_BINARY);
+        header[..8].copy_from_slice(MAGIC_ENCODING);
         header[8..16].copy_from_slice(&(manifest.len() as u64).to_le_bytes());
         header[16..24].copy_from_slice(&(filter.len() as u64).to_le_bytes());
         header[24..].copy_from_slice(&digest.finalize());
@@ -410,7 +451,11 @@ impl BigramSnapshot {
             return Err(invalid("snapshot exceeds size limit"));
         }
         let bytes = fs::read(path).map_err(|error| io(path, error))?;
-        if bytes.len() < HEADER_LEN || (&bytes[..8] != MAGIC_JSON && &bytes[..8] != MAGIC_BINARY) {
+        if bytes.len() < HEADER_LEN
+            || (&bytes[..8] != MAGIC_JSON
+                && &bytes[..8] != MAGIC_BINARY
+                && &bytes[..8] != MAGIC_ENCODING)
+        {
             return Err(invalid("unknown format version"));
         }
         let manifest_len = usize::try_from(u64::from_le_bytes(bytes[8..16].try_into().unwrap()))
@@ -435,14 +480,23 @@ impl BigramSnapshot {
         let manifest: Manifest = if &bytes[..8] == MAGIC_JSON {
             serde_json::from_slice(manifest_bytes)
                 .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?
-        } else {
+        } else if &bytes[..8] == MAGIC_BINARY {
             let binary: ManifestBinary = bincode::DefaultOptions::new()
                 .with_limit(MAX_SNAPSHOT_BYTES)
                 .deserialize(manifest_bytes)
                 .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
             binary.into()
+        } else {
+            let binary: ManifestBinaryV3 = bincode::DefaultOptions::new()
+                .with_limit(MAX_SNAPSHOT_BYTES)
+                .deserialize(manifest_bytes)
+                .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
+            binary.try_into()?
         };
         let filter = BigramFilter::from_bytes(filter_bytes)?;
+        if manifest.bigram_encoding != filter.encoding() {
+            return Err(invalid("manifest encoding differs from filter"));
+        }
         validate_files(&manifest.files, filter.file_count())?;
         validate_changes(&manifest.changed_slots, filter.file_count())?;
         validate_changed_bigrams(&manifest.changed_slots, &manifest.changed_bigrams)?;
@@ -498,44 +552,5 @@ impl BigramSnapshot {
 
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn reads_legacy_json_manifest_snapshot() {
-        let temp = tempfile::tempdir().unwrap();
-        let filter = crate::bigram::build_bigram_index_from_content(&[Some(b"alpha")]);
-        let manifest = serde_json::to_vec(&Manifest {
-            source_root: temp.path().to_owned(),
-            recursive: false,
-            git_commit: None,
-            files: vec![BigramFile {
-                id: "a".into(),
-                filename: "a.json".into(),
-                size_bytes: 5,
-                modified_unix_nanos: "1".into(),
-                identity: String::new(),
-            }],
-            changed_slots: Vec::new(),
-            changed_bigrams: BTreeMap::new(),
-        })
-        .unwrap();
-        let encoded_filter = filter.to_bytes().unwrap();
-        let mut digest = Sha256::new();
-        digest.update(&manifest);
-        digest.update(&encoded_filter);
-        let mut bytes = Vec::new();
-        bytes.extend_from_slice(MAGIC_JSON);
-        bytes.extend_from_slice(&(manifest.len() as u64).to_le_bytes());
-        bytes.extend_from_slice(&(encoded_filter.len() as u64).to_le_bytes());
-        bytes.extend_from_slice(&digest.finalize());
-        bytes.extend_from_slice(&manifest);
-        bytes.extend_from_slice(&encoded_filter);
-        let path = temp.path().join("legacy.bigram");
-        fs::write(&path, bytes).unwrap();
-
-        let restored = BigramSnapshot::load(&path).unwrap();
-        assert_eq!(restored.files[0].filename, "a.json");
-        assert_eq!(restored.candidate_files(b"alpha").len(), 1);
-    }
-}
+#[path = "snapshot.test.rs"]
+mod tests;

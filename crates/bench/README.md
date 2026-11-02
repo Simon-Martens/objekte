@@ -1,5 +1,24 @@
 # Query benchmarks
 
+## Bigram encoding comparison
+
+`bigram-encoding-compare` builds a fresh picker with one encoding per process,
+then measures peak resident memory, compressed index size, snapshot save/load,
+and candidate-only query latency. Run both modes against the same directory or
+the built-in multilingual corpus. The benchmark does not modify the repository.
+
+```sh
+cargo build --release -p objekte-bench --bin bigram-encoding-compare
+target/release/bigram-encoding-compare ascii examples/musenalm/data/contents
+target/release/bigram-encoding-compare utf8_bytes examples/musenalm/data/contents
+target/release/bigram-encoding-compare ascii synthetic:24000
+target/release/bigram-encoding-compare utf8_bytes synthetic:24000
+```
+
+Peak RSS is read from Linux `/proc/self/status`; it is `null` elsewhere. The
+[November 2 comparison](BIGRAM-ENCODING-2026-11-02.md) records the measurements
+and candidate counts.
+
 The active `json-query-grep-compare` benchmark checks complete result pages and counts, then alternates in-memory bigram and source-grep backend order over a workload. It reports median wall time and candidate counts as NDJSON.
 
 ```sh

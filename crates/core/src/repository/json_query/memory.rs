@@ -74,6 +74,7 @@ impl Repository {
                     .and_then(|schema| schema.field.language.as_deref()),
                 snapshot,
                 cache_present.then_some(cache_path.as_path()),
+                c.bigram_encoding.unwrap_or(self.options.bigram_encoding),
             )?;
             if cache_present && (!picker.loaded_snapshot() || picker.snapshot_dirty()) {
                 let _ = picker.save_bigram_snapshot(&cache_path);

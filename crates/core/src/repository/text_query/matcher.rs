@@ -90,7 +90,7 @@ impl TextMatcher {
         let candidate_base = candidate_base.as_deref().unwrap_or(&pattern);
         let candidate_pattern = if word_mode {
             Some(candidate_base.to_owned())
-        } else if !candidate_base.is_ascii() {
+        } else if !candidate_base.is_ascii() && !request.case_sensitive {
             // Unicode regex folding may select byte sequences absent from a
             // case-folded projection. Keep those searches conservative.
             None

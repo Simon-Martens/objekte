@@ -35,6 +35,7 @@ Usage:
 
 Options:
   --cache memory|disabled         Default: memory
+  --bigram-encoding ascii|utf8_bytes Default: ascii (schema x-objekte may override)
   --reconcile metadata-on-open|metadata-on-request|hash-on-request
                                  Default: metadata-on-open
   --total-limit N                 Maximum accessible matches per query (default: 10000)
@@ -53,7 +54,7 @@ Options:
   --filter EXPRESSION             Filter JSON records before full-text search
   --sort TERMS                    Sort full-text matches by one or more fields
   --case-sensitive                Match case exactly in full-text search
-                                  TUI: Tab changes mode; Ctrl+G switches combined input;
+                                  TUI: Tab toggles Filter ON; Ctrl+G switches inputs;
                                   Ctrl+Tab changes collection;
                                   Ctrl+R/F/E change regex, text, and word-case options;
                                   Alt+S saves indexes; Alt+R reindexes and saves
@@ -96,10 +97,10 @@ pub(super) fn args() -> Result<Args, String> {
     let mut args = std::env::args().skip(1);
     while let Some(a) = args.next() {
         match a.as_str() {
-            "--cache" | "--reconcile" | "--total-limit" | "--output" | "--sort" | "--direction"
-            | "--columns" | "--limit" | "--offset" | "--collection" | "--from" | "--to"
-            | "--filter" | "--param" | "--then-sort" | "--backend" | "--mode" | "--field"
-            | "--arg" | "--query-arg" => {
+            "--cache" | "--bigram-encoding" | "--reconcile" | "--total-limit" | "--output"
+            | "--sort" | "--direction" | "--columns" | "--limit" | "--offset" | "--collection"
+            | "--from" | "--to" | "--filter" | "--param" | "--then-sort" | "--backend"
+            | "--mode" | "--field" | "--arg" | "--query-arg" => {
                 let v = args
                     .next()
                     .filter(|s| !s.starts_with("--"))

@@ -2,7 +2,7 @@
 use crate::{
     Collection, ConfigurationChanges, Error, JsonPath, PathStep, RecordState, RecordStatus,
     RepositoryModel, Result, ValidationMetrics, ViewRequest, ViewResult,
-    bigram::BigramSnapshot,
+    bigram::{BigramEncoding, BigramSnapshot},
     config::{Discovery, digest},
     config_snapshot::ConfigurationSnapshot,
     error::{io, record},
@@ -55,6 +55,7 @@ pub enum Freshness {
 pub struct Options {
     pub cache: CacheMode,
     pub freshness: Freshness,
+    pub bigram_encoding: BigramEncoding,
     /// Maximum number of matches accessible across all pages of a query.
     pub total_limit: usize,
 }
@@ -65,6 +66,7 @@ impl Options {
         Self {
             cache: CacheMode::Memory,
             freshness: Freshness::MetadataOnOpen,
+            bigram_encoding: BigramEncoding::Ascii,
             total_limit: 10_000,
         }
     }
@@ -247,6 +249,8 @@ pub struct References {
 pub struct CacheStatus {
     pub mode: CacheMode,
     pub freshness: Freshness,
+    /// Effective bigram encoding for each collection, including schema overrides.
+    pub bigram_encodings: BTreeMap<String, BigramEncoding>,
     pub collections: Vec<Coverage>,
     pub configuration_changes: Option<ConfigurationChanges>,
 }

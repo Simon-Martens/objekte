@@ -34,6 +34,38 @@ fn diagnostics(out: &Output) -> Value {
 }
 
 #[test]
+fn cli_selects_utf8_bigram_encoding_for_schema_free_collections() {
+    let fixture = Fixture::new();
+    let root = fixture.root.to_str().unwrap();
+    let status = value(run(
+        &fixture,
+        &[
+            root,
+            "cache",
+            "status",
+            "--bigram-encoding",
+            "utf8_bytes",
+            "--output",
+            "json",
+        ],
+    ));
+    assert_eq!(status["bigram_encodings"]["books"], "utf8_bytes");
+    let output = run(
+        &fixture,
+        &[
+            root,
+            "cache",
+            "status",
+            "--bigram-encoding",
+            "invalid",
+            "--output",
+            "json",
+        ],
+    );
+    assert!(!output.status.success());
+}
+
+#[test]
 fn sorted_query_and_text_events_emit_provisional_pages_and_cap_totals() {
     let fixture = Fixture::new();
     let root = fixture.root.to_str().unwrap();

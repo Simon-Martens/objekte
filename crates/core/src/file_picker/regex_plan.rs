@@ -1,7 +1,7 @@
 //! Regex-to-bigram candidate planning adapted from FFF at d1c7dd47 (MIT).
 //! See `../bigram/LICENSE`. FFF's private column evaluator is replaced with
 //! the local `BigramFilter::query` API; an unavailable posting means scan all.
-use crate::bigram::BigramFilter;
+use crate::bigram::{BigramEncoding, BigramFilter};
 use regex_syntax::hir::{Class, Hir, HirKind};
 use smallvec::SmallVec;
 
@@ -591,7 +591,43 @@ fn simplify_or(children: Vec<BigramQuery>) -> BigramQuery {
 }
 
 pub(super) fn candidates(index: &BigramFilter, pattern: &str) -> Option<Vec<u64>> {
-    regex_to_bigram_query(pattern).evaluate(index)
+    let ascii = regex_to_bigram_query(pattern).evaluate(index);
+    if index.encoding() != BigramEncoding::Utf8Bytes || pattern.contains("(?i") {
+        return ascii;
+    }
+    // A mandatory literal in the byte HIR is present in every regex match.
+    // Use it to narrow non-ASCII patterns without changing the ASCII planner.
+    let mut parser = regex_syntax::ParserBuilder::new()
+        .unicode(false)
+        .utf8(false)
+        .build();
+    let unicode = parser
+        .parse(pattern)
+        .ok()
+        .and_then(|hir| mandatory_literal(&hir))
+        .filter(|bytes| bytes.iter().any(|byte| *byte >= 128))
+        .and_then(|bytes| index.query(&bytes));
+    match (ascii, unicode) {
+        (Some(mut ascii), Some(unicode)) => {
+            bitset_and(&mut ascii, &unicode);
+            Some(ascii)
+        }
+        (Some(ascii), None) => Some(ascii),
+        (None, unicode) => unicode,
+    }
+}
+
+fn mandatory_literal(hir: &Hir) -> Option<Vec<u8>> {
+    match hir.kind() {
+        HirKind::Literal(literal) => Some(literal.0.to_vec()),
+        HirKind::Capture(capture) => mandatory_literal(&capture.sub),
+        HirKind::Repetition(repetition) if repetition.min > 0 => mandatory_literal(&repetition.sub),
+        HirKind::Concat(parts) => parts
+            .iter()
+            .filter_map(mandatory_literal)
+            .max_by_key(Vec::len),
+        _ => None,
+    }
 }
 
 #[cfg(test)]

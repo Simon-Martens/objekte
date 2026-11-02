@@ -94,10 +94,22 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     if positional_collection && a.values.contains_key("--collection") {
         return Err("choose positional COLLECTION or --collection, not both".into());
     }
-    let common = ["--cache", "--reconcile", "--total-limit", "--output"];
+    let common = [
+        "--cache",
+        "--bigram-encoding",
+        "--reconcile",
+        "--total-limit",
+        "--output",
+    ];
     for key in a.values.keys() {
         let allowed = (if command == "tui" {
-            ["--cache", "--reconcile", "--total-limit"].contains(&key.as_str())
+            [
+                "--cache",
+                "--bigram-encoding",
+                "--reconcile",
+                "--total-limit",
+            ]
+            .contains(&key.as_str())
         } else {
             common.contains(&key.as_str())
         }) || match command {
@@ -168,6 +180,11 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     let get =
         |key: &str, default: &str| a.values.get(key).cloned().unwrap_or_else(|| default.into());
     let mut options = Options::new();
+    options.bigram_encoding = match get("--bigram-encoding", "ascii").as_str() {
+        "ascii" => objekte_core::BigramEncoding::Ascii,
+        "utf8_bytes" => objekte_core::BigramEncoding::Utf8Bytes,
+        value => return Err(format!("unknown bigram encoding: {value}").into()),
+    };
     options.cache = match get("--cache", "memory").as_str() {
         "memory" => CacheMode::Memory,
         "disabled" => CacheMode::Disabled,

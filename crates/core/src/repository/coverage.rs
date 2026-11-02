@@ -31,6 +31,19 @@ impl Repository {
         Ok(CacheStatus {
             mode: self.options.cache,
             freshness: self.options.freshness,
+            bigram_encodings: self
+                .model
+                .collections
+                .iter()
+                .map(|(name, collection)| {
+                    (
+                        name.clone(),
+                        collection
+                            .bigram_encoding
+                            .unwrap_or(self.options.bigram_encoding),
+                    )
+                })
+                .collect(),
             collections,
             configuration_changes: self.configuration_changes.clone(),
         })

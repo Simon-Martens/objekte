@@ -26,7 +26,8 @@ mod typed;
 mod view;
 
 use crate::bigram::{
-    BigramFile, BigramFilter, BigramIndexBuilder, BigramSnapshot, extract_bigrams,
+    BigramEncoding, BigramFile, BigramFilter, BigramIndexBuilder, BigramSnapshot,
+    extract_bigrams_with_encoding,
 };
 use crate::{
     Direction, Error, Field, IndexField, Result,
@@ -61,8 +62,8 @@ use text::{TextIndex, TextIndexBuilders, project_malformed_text};
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
-fn sorted_bigrams(bytes: &[u8]) -> Vec<u16> {
-    let mut keys = extract_bigrams(bytes);
+fn sorted_bigrams(bytes: &[u8], encoding: BigramEncoding) -> Vec<u16> {
+    let mut keys = extract_bigrams_with_encoding(bytes, encoding);
     keys.sort_unstable();
     keys
 }
@@ -109,6 +110,7 @@ pub(crate) struct BuildTimings {
 pub struct FilePicker {
     root: PathBuf,
     recursive: bool,
+    encoding: BigramEncoding,
     id_bytes: Vec<u8>,
     files: Vec<Option<FileEntry>>,
     sorted: Vec<usize>,
@@ -141,6 +143,10 @@ pub struct FilePicker {
 
 impl FilePicker {
     pub fn open(root: &Path) -> Result<Self> {
+        Self::open_with_encoding(root, BigramEncoding::Ascii)
+    }
+
+    pub fn open_with_encoding(root: &Path, encoding: BigramEncoding) -> Result<Self> {
         Self::open_with_indexes(
             root,
             false,
@@ -151,6 +157,7 @@ impl FilePicker {
             None,
             None,
             None,
+            encoding,
         )
     }
 
@@ -168,6 +175,7 @@ impl FilePicker {
         language: Option<&str>,
         snapshot: Option<BigramSnapshot>,
         snapshot_path: Option<&Path>,
+        encoding: BigramEncoding,
     ) -> Result<Self> {
         Self::open_inner(
             root,
@@ -179,6 +187,7 @@ impl FilePicker {
             language,
             (snapshot, snapshot_path),
             false,
+            encoding,
         )?
         .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
     }
@@ -197,6 +206,7 @@ impl FilePicker {
         language: Option<&str>,
         snapshot: BigramSnapshot,
         snapshot_path: &Path,
+        encoding: BigramEncoding,
     ) -> Result<Option<Self>> {
         Self::open_inner(
             root,
@@ -208,6 +218,7 @@ impl FilePicker {
             language,
             (Some(snapshot), Some(snapshot_path)),
             true,
+            encoding,
         )
     }
 
@@ -225,8 +236,18 @@ impl FilePicker {
         language: Option<&str>,
         cached: (Option<BigramSnapshot>, Option<&Path>),
         unchecked: bool,
+        encoding: BigramEncoding,
     ) -> Result<Option<Self>> {
         let (mut snapshot, snapshot_path) = cached;
+        if snapshot
+            .as_ref()
+            .is_some_and(|saved| saved.filter.encoding() != encoding)
+        {
+            if unchecked {
+                return Ok(None);
+            }
+            snapshot = None;
+        }
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
@@ -321,6 +342,7 @@ impl FilePicker {
         let mut picker = Self {
             root,
             recursive,
+            encoding,
             id_bytes: Vec::new(),
             files: Vec::with_capacity(inventory.len()),
             sorted: Vec::with_capacity(inventory.len()),
@@ -337,13 +359,14 @@ impl FilePicker {
                 sort_indexes,
                 definitions,
                 language,
+                encoding,
             )?,
             changed: BTreeSet::new(),
             changed_bigrams: BTreeMap::new(),
             malformed: BTreeSet::new(),
             array_fields: BTreeSet::new(),
             key_summary: KeySummary::default(),
-            index: BigramIndexBuilder::new(0).compress(None),
+            index: BigramIndexBuilder::new_with_encoding(0, encoding).compress(None),
             text_rules,
             eager_text_index,
             text_index: None,

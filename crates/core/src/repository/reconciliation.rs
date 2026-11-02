@@ -27,6 +27,9 @@ impl Repository {
             Ok(snapshot) => snapshot,
             Err(_) => return Ok(false),
         };
+        if snapshot.filter.encoding() != c.bigram_encoding.unwrap_or(self.options.bigram_encoding) {
+            return Ok(false);
+        }
         let Some(picker) = crate::file_picker::FilePicker::open_cached_unchecked(
             &c.path,
             c.recursive,
@@ -39,6 +42,7 @@ impl Repository {
                 .and_then(|schema| schema.field.language.as_deref()),
             snapshot,
             &path,
+            c.bigram_encoding.unwrap_or(self.options.bigram_encoding),
         )?
         else {
             return Ok(false);
