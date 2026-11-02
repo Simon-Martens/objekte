@@ -37,11 +37,13 @@ struct ScanOutcome {
     regex_nanos: u64,
     hash_nanos: u64,
     projected: Option<(Document, String, Stamp)>,
+    reusable: Option<Box<(Document, Vec<u8>)>>,
 }
 
 
 type CandidateCallback<'a> =
     dyn FnMut(&Collection, &str, &Stamp, Document, String) -> Result<()> + 'a;
+type OwnedRecordCallback<'a> = dyn FnMut(Record) -> Result<()> + 'a;
 
 
 // INFO: Shared page sink for collected and streamed queries. Backends use its
@@ -52,17 +54,22 @@ struct QueryOutput<'a> {
     returned: usize,
     streaming: bool,
     on_record: &'a mut dyn FnMut(usize, &Record) -> Result<()>,
+    on_owned: Option<&'a mut OwnedRecordCallback<'a>>,
     on_candidate: Option<&'a mut CandidateCallback<'a>>,
 }
 
 
 impl QueryOutput<'_> {
     fn push(&mut self, record: Record) -> Result<()> {
-        (self.on_record)(self.returned + 1, &record)?;
-        self.returned += 1;
-        if !self.streaming {
-            self.result.records.push(record);
+        if let Some(callback) = self.on_owned.as_mut() {
+            callback(record)?;
+        } else {
+            (self.on_record)(self.returned + 1, &record)?;
+            if !self.streaming {
+                self.result.records.push(record);
+            }
         }
+        self.returned += 1;
         Ok(())
     }
 
@@ -117,7 +124,8 @@ impl Repository {
         if !request.sort.is_empty() {
             return self.query_json_sorted(&request, None);
         }
-        let (result, _) = self.query_json_inner(&request, false, &mut |_, _| Ok(()), None, None)?;
+        let (result, _) =
+            self.query_json_inner(&request, false, &mut |_, _| Ok(()), None, None, None)?;
         Ok(result)
     }
 
@@ -147,7 +155,7 @@ impl Repository {
             });
         }
         let (result, returned) =
-            self.query_json_inner(&request, true, &mut on_record, None, None)?;
+            self.query_json_inner(&request, true, &mut on_record, None, None, None)?;
         Ok(JsonQueryStreamSummary {
             returned,
             total: result.total,
@@ -169,9 +177,26 @@ impl Repository {
         let request = Self::normalized_json_sort(request)?;
         if request.sort.is_empty() {
             let mut page = Vec::new();
-            return self.query_json_stream(&request, |_, record| {
-                page.push(record.clone());
-                on_page(&page)
+            let (result, returned) = self.query_json_inner(
+                &request,
+                true,
+                &mut |_, _| Ok(()),
+                Some(&mut |record| {
+                    page.push(record);
+                    on_page(&page)
+                }),
+                None,
+                None,
+            )?;
+            return Ok(JsonQueryStreamSummary {
+                returned,
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                dependencies: result.dependencies,
+                filter_hash: result.filter_hash,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
             });
         }
         let result = self.query_json_sorted(&request, Some(&mut on_page))?;
@@ -207,6 +232,7 @@ impl Repository {
         request: &JsonQuery,
         streaming: bool,
         on_record: &'a mut dyn FnMut(usize, &Record) -> Result<()>,
+        on_owned: Option<&'a mut OwnedRecordCallback<'a>>,
         on_candidate: Option<&'a mut CandidateCallback<'a>>,
         stop_after: Option<usize>,
     ) -> Result<(JsonQueryResult, usize)> {
@@ -263,6 +289,7 @@ impl Repository {
             returned: 0,
             streaming,
             on_record,
+            on_owned,
             on_candidate,
         };
         if !collections.is_empty() {

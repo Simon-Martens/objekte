@@ -62,27 +62,27 @@ impl Repository {
             &scan,
             true,
             &mut |_, hit| {
-                let record = &hit.record;
-                let changed =
-                    buffer.insert(&record.collection, &record.id, &record.data, || hit.clone())?;
+                let keys =
+                    buffer.project(&hit.record.collection, &hit.record.id, &hit.record.data)?;
+                let changed = buffer
+                    .insert_owned_keys(keys, hit, |hit| (&hit.record.collection, &hit.record.id));
                 if changed
                     && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64))
                     && let Some(callback) = on_page.as_deref_mut()
                 {
-                    let page = buffer.page().cloned().collect::<Vec<_>>();
-                    callback(&page)?;
+                    buffer.with_page(callback)?;
                 }
                 Ok(())
             },
             None,
         )?;
-        if let Some(callback) = on_page {
-            let page = buffer.page().cloned().collect::<Vec<_>>();
-            callback(&page)?;
-        }
         result.total = buffer.total(request.count);
         result.truncated = buffer.truncated();
-        result.hits = buffer.into_page();
+        let page = buffer.into_page();
+        if let Some(callback) = on_page {
+            callback(&page)?;
+        }
+        result.hits = page;
         result.metrics = self.metrics.since(&before);
         result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
         result
@@ -110,7 +110,7 @@ impl Repository {
                 &scan,
                 true,
                 &mut |_, hit| {
-                    page.push(hit.clone());
+                    page.push(hit);
                     on_page(&page)
                 },
                 Some(stop_after),

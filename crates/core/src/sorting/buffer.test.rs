@@ -1,6 +1,6 @@
 use super::*;
 use crate::{Direction, Sort};
-use std::cell::Cell;
+use std::{cell::Cell, rc::Rc};
 
 fn plans(direction: Direction) -> BTreeMap<String, SortPlan> {
     let sorts = [Sort {
@@ -71,6 +71,12 @@ fn heap_pages_match_full_sort_at_every_callback_checkpoint() {
                     expected,
                     "direction={direction:?}, offset={offset}, arrival={arrival}"
                 );
+                buffer
+                    .with_page(|page| {
+                        assert_eq!(page, expected);
+                        Ok(())
+                    })
+                    .unwrap();
             }
             assert!(constructed.get() <= input.len());
             assert_eq!(buffer.seen(), input.len());
@@ -93,4 +99,37 @@ fn rejected_candidates_do_not_construct_payloads() {
     );
     assert!(buffer.insert_keys("a", "better", vec![SortValue::Number("0".into())], || 0));
     assert_eq!(buffer.into_page(), [0]);
+}
+
+#[test]
+fn callback_error_restores_owned_page_and_drops_each_payload_once() {
+    struct Payload(Rc<Cell<usize>>);
+
+
+    impl Drop for Payload {
+        fn drop(&mut self) {
+            self.0.set(self.0.get() + 1);
+        }
+    }
+
+
+    let dropped = Rc::new(Cell::new(0));
+    let mut buffer = SortBuffer::new(plans(Direction::Asc), 0, 2, 10);
+    for (id, rank) in [("b", "2"), ("a", "1")] {
+        buffer.insert_keys("a", id, vec![SortValue::Number(rank.into())], || {
+            Payload(dropped.clone())
+        });
+    }
+    assert!(matches!(
+        buffer.with_page(|page| {
+            assert_eq!(page.len(), 2);
+            Err(Error::Request("callback failed".into()))
+        }),
+        Err(Error::Request(_))
+    ));
+    assert_eq!(dropped.get(), 0);
+    let page = buffer.into_page();
+    assert_eq!(page.len(), 2);
+    drop(page);
+    assert_eq!(dropped.get(), 2);
 }

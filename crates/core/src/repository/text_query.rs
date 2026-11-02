@@ -6,11 +6,19 @@ use crate::sorting::split_sort_clause;
 use crate::{
     JsonFilter, TextHit, TextQuery, TextQueryResult, TextQueryStreamSummary, text::TextRules,
 };
+use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 mod matcher;
 mod sorted;
 
 use matcher::{TextMatcher, TextMatches};
+
+
+struct TextScanOutcome {
+    fields: Vec<String>,
+    metrics: Metrics,
+    reusable: Option<Box<(Document, Vec<u8>)>>,
+}
 
 
 impl Repository {
@@ -102,7 +110,8 @@ impl Repository {
                 query_plan: result.query_plan,
             });
         }
-        let (result, returned) = self.search_text_inner(&request, true, &mut on_hit, None)?;
+        let (result, returned) =
+            self.search_text_inner(&request, true, &mut |index, hit| on_hit(index, &hit), None)?;
         Ok(TextQueryStreamSummary {
             returned,
             total: result.total,
@@ -122,9 +131,22 @@ impl Repository {
         let request = Self::normalized_filter_sort(request)?;
         if request.sort.is_empty() {
             let mut page = Vec::new();
-            return self.search_text_stream(&request, |_, hit| {
-                page.push(hit.clone());
-                on_page(&page)
+            let (result, returned) = self.search_text_inner(
+                &request,
+                true,
+                &mut |_, hit| {
+                    page.push(hit);
+                    on_page(&page)
+                },
+                None,
+            )?;
+            return Ok(TextQueryStreamSummary {
+                returned,
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
             });
         }
         let result = self.search_text_sorted(&request, Some(&mut on_page))?;
@@ -159,7 +181,7 @@ impl Repository {
         &mut self,
         request: &TextQuery,
         streaming: bool,
-        on_hit: &mut dyn FnMut(usize, &TextHit) -> Result<()>,
+        on_hit: &mut dyn FnMut(usize, TextHit) -> Result<()>,
         stop_after: Option<usize>,
     ) -> Result<(TextQueryResult, usize)> {
         let started = Instant::now();
@@ -316,9 +338,15 @@ impl Repository {
                 if batch.is_empty() {
                     break;
                 }
+                let retain_page = request.sort.is_empty()
+                    && returned < request.limit
+                    && matched.saturating_add(batch.len()) > request.offset;
+                let retain_limit = batch.len().min(64);
+                let retained_bytes = AtomicUsize::new(0);
                 let outcomes = batch
                     .par_iter()
-                    .map(|(id, stamp)| -> Result<(Vec<String>, Metrics)> {
+                    .enumerate()
+                    .map(|(position, (id, stamp))| -> Result<TextScanOutcome> {
                         let mut metrics = Metrics::default();
                         let raw = match Self::read_raw(
                             &mut metrics,
@@ -330,7 +358,11 @@ impl Repository {
                             Err(Error::Io { source: error, .. })
                                 if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
                             {
-                                return Ok((Vec::new(), metrics));
+                                return Ok(TextScanOutcome {
+                                    fields: Vec::new(),
+                                    metrics,
+                                    reusable: None,
+                                });
                             }
                             Err(error) => return Err(error),
                         };
@@ -364,22 +396,58 @@ impl Repository {
                         metrics.query_nanos += nanos(started);
                         metrics.grep_scans += 1;
                         metrics.grep_bytes += stamp.size;
-                        Ok((fields, metrics))
+                        let reusable = if !fields.is_empty()
+                            && retain_page
+                            && position < retain_limit
+                            && raw.json.len() <= 1024 * 1024
+                        {
+                            let cost = raw.json.len().saturating_mul(8);
+                            if retained_bytes
+                                .try_update(
+                                    AtomicOrdering::Relaxed,
+                                    AtomicOrdering::Relaxed,
+                                    |used| {
+                                        used.checked_add(cost)
+                                            .filter(|&next| next <= 8 * 1024 * 1024)
+                                    },
+                                )
+                                .is_ok()
+                            {
+                                Some(Box::new((document, raw.json.clone())))
+                            } else {
+                                None
+                            }
+                        } else {
+                            None
+                        };
+                        Ok(TextScanOutcome {
+                            fields,
+                            metrics,
+                            reusable,
+                        })
                     })
                     .collect::<Result<Vec<_>>>()?;
                 let mut page = Vec::new();
-                for ((id, stamp), (fields, metrics)) in batch.iter().zip(outcomes) {
+                for (
+                    (id, stamp),
+                    TextScanOutcome {
+                        fields,
+                        metrics,
+                        reusable,
+                    },
+                ) in batch.iter().zip(outcomes)
+                {
                     self.metrics.add_from(&metrics);
                     if !fields.is_empty() {
                         if matched >= request.offset && returned + page.len() < request.limit {
-                            page.push(((*id).to_owned(), (*stamp).clone(), fields));
+                            page.push(((*id).to_owned(), (*stamp).clone(), fields, reusable));
                         }
                         matched += 1;
                     }
                 }
                 // Only page hits need a second read for full matched paths,
                 // hashes, validation state, and a returned Record.
-                for (id, stamp, matched_fields) in page {
+                for (id, stamp, matched_fields, reusable) in page {
                     let raw = match Self::read_raw(
                         &mut self.metrics,
                         &source,
@@ -394,7 +462,27 @@ impl Repository {
                         }
                         Err(error) => return Err(error),
                     };
-                    let document = Self::parse_value(&mut self.metrics, &c, &id, &raw.json, true);
+                    let document = if let Some(reusable) = reusable
+                        && reusable.1 == raw.json
+                    {
+                        let (mut document, _) = *reusable;
+                        if c.schema.is_none()
+                            && document.state.status != RecordStatus::IncorrectJson
+                        {
+                            document.state.status = RecordStatus::NoSchema;
+                        }
+                        if c.schema.is_some()
+                            && document.state.status != RecordStatus::IncorrectJson
+                        {
+                            let started = Instant::now();
+                            document.validate(&c);
+                            self.metrics.validations += 1;
+                            self.metrics.validation_nanos += nanos(started);
+                        }
+                        document
+                    } else {
+                        Self::parse_value(&mut self.metrics, &c, &id, &raw.json, true)
+                    };
                     let malformed = document.state.status == RecordStatus::IncorrectJson;
                     if let Some(filter) = &collection_filter {
                         let passes = !malformed && filter.matches(&document.data)?;
@@ -446,11 +534,12 @@ impl Repository {
                         fields: matched_fields,
                         matched_paths: verified.matched_paths,
                     };
-                    on_hit(returned + 1, &hit)?;
-                    returned += 1;
-                    if !streaming {
+                    if streaming {
+                        on_hit(returned + 1, hit)?;
+                    } else {
                         hits.push(hit);
                     }
+                    returned += 1;
                 }
                 if stop_after.is_some_and(|limit| matched >= limit)
                     || !request.count && returned >= request.limit

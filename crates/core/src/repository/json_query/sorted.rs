@@ -112,8 +112,7 @@ impl Repository {
                     && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64))
                     && let Some(callback) = on_page.as_deref_mut()
                 {
-                    let page = buffer.page().cloned().collect::<Vec<_>>();
-                    callback(&page)?;
+                    buffer.with_page(callback)?;
                 }
                 Ok(())
             };
@@ -121,6 +120,7 @@ impl Repository {
                 &scan,
                 true,
                 &mut |_, _| Ok(()),
+                None,
                 Some(&mut on_candidate),
                 None,
             )?
@@ -128,32 +128,31 @@ impl Repository {
             self.query_json_inner(
                 &scan,
                 true,
-                &mut |_, record| {
-                    let changed =
-                        buffer.insert(&record.collection, &record.id, &record.data, || {
-                            record.clone()
-                        })?;
+                &mut |_, _| Ok(()),
+                Some(&mut |record: Record| {
+                    let keys = buffer.project(&record.collection, &record.id, &record.data)?;
+                    let changed = buffer
+                        .insert_owned_keys(keys, record, |record| (&record.collection, &record.id));
                     if changed
                         && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64))
                         && let Some(callback) = on_page.as_deref_mut()
                     {
-                        let page = buffer.page().cloned().collect::<Vec<_>>();
-                        callback(&page)?;
+                        buffer.with_page(callback)?;
                     }
                     Ok(())
-                },
+                }),
                 None,
                 None,
             )?
         };
         self.metrics.add_from(&selected_validation);
-        if let Some(callback) = on_page {
-            let page = buffer.page().cloned().collect::<Vec<_>>();
-            callback(&page)?;
-        }
         result.total = buffer.total(request.count);
         result.truncated = buffer.truncated();
-        result.records = buffer.into_page();
+        let page = buffer.into_page();
+        if let Some(callback) = on_page {
+            callback(&page)?;
+        }
+        result.records = page;
         result.metrics = self.metrics.since(&before);
         result.elapsed_ms = started.elapsed().as_secs_f64() * 1_000.0;
         result
@@ -180,10 +179,11 @@ impl Repository {
             let (mut result, returned) = self.query_json_inner(
                 &scan,
                 true,
-                &mut |_, record| {
-                    page.push(record.clone());
+                &mut |_, _| Ok(()),
+                Some(&mut |record| {
+                    page.push(record);
                     on_page(&page)
-                },
+                }),
                 None,
                 Some(stop_after),
             )?;
@@ -191,7 +191,14 @@ impl Repository {
             result.records = page;
             (result, returned)
         } else {
-            self.query_json_inner(&scan, false, &mut |_, _| Ok(()), None, Some(stop_after))?
+            self.query_json_inner(
+                &scan,
+                false,
+                &mut |_, _| Ok(()),
+                None,
+                None,
+                Some(stop_after),
+            )?
         };
         if !request.count {
             result.total = None;

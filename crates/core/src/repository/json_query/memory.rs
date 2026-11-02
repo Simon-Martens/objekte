@@ -4,7 +4,10 @@ use super::*;
 use crate::{Field, json_filter::FtsPlan};
 use grep_searcher::SearcherBuilder;
 use regex::bytes::Regex;
-use std::sync::OnceLock;
+use std::sync::{
+    OnceLock,
+    atomic::{AtomicUsize, Ordering as AtomicOrdering},
+};
 
 static ESCAPED_KEY: OnceLock<Regex> = OnceLock::new();
 
@@ -308,10 +311,17 @@ impl Repository {
                 }
                 let mut page_matches = Vec::new();
                 let capture_candidate = result.on_candidate.is_some();
+                let retain_page = request.sort.is_empty()
+                    && !capture_candidate
+                    && result.returned() < request.limit
+                    && matched.saturating_add(batch.len()) > request.offset;
+                let retained_bytes = AtomicUsize::new(0);
+                let retain_limit = batch.len().min(64);
                 let matched_before = matched;
                 let scan_started = Instant::now();
                 let outcomes = batch
                     .par_iter()
+                    .enumerate()
                     .map_init(
                         || {
                             (
@@ -322,7 +332,7 @@ impl Repository {
                                 Vec::with_capacity(4096),
                             )
                         },
-                        |(searcher, bytes), &slot| -> Result<ScanOutcome> {
+                        |(searcher, bytes), (position, &slot)| -> Result<ScanOutcome> {
                             let (id, stamp) = picker.view_record(slot);
                             let open_started = Instant::now();
                             let path = source.path.join(format!("{id}.json"));
@@ -383,8 +393,30 @@ impl Repository {
                                     outcome.matches = filter.matches(&doc.data)?;
                                     outcome.query_nanos = nanos(t);
                                 }
-                                if outcome.matches && capture_candidate {
-                                    matched_document = Some(doc);
+                                if outcome.matches {
+                                    if capture_candidate {
+                                        matched_document = Some(doc);
+                                    } else if retain_page
+                                        && position < retain_limit
+                                        && bytes.len() <= 1024 * 1024
+                                    {
+                                        // Bound speculative parsed trees and raw bytes. The
+                                        // later source read still decides freshness exactly.
+                                        let cost = bytes.len().saturating_mul(8);
+                                        if retained_bytes
+                                            .try_update(
+                                                AtomicOrdering::Relaxed,
+                                                AtomicOrdering::Relaxed,
+                                                |used| {
+                                                    used.checked_add(cost)
+                                                        .filter(|&next| next <= 8 * 1024 * 1024)
+                                                },
+                                            )
+                                            .is_ok()
+                                        {
+                                            outcome.reusable = Some(Box::new((doc, bytes.clone())));
+                                        }
+                                    }
                                 }
                             }
                             let after = Stamp::from_metadata(
@@ -439,14 +471,18 @@ impl Repository {
                                     .expect("sorted match has parsed document");
                                 result.push_candidate(c, id, &actual_stamp, document, hash)?;
                             } else {
-                                page_matches.push((id.to_owned(), stamp.clone()));
+                                page_matches.push((
+                                    id.to_owned(),
+                                    stamp.clone(),
+                                    outcome.reusable.take(),
+                                ));
                             }
                         }
                         matched += 1;
                     }
                 }
                 let materialize_started = Instant::now();
-                for (id, stamp) in page_matches {
+                for (id, stamp, reusable) in page_matches {
                     let raw = match Self::read_raw(
                         &mut self.metrics,
                         &source,
@@ -461,7 +497,22 @@ impl Repository {
                         }
                         Err(error) => return Err(error),
                     };
-                    let doc = Self::parse_value(&mut self.metrics, c, &id, &raw.json, true);
+                    let doc = if let Some(reusable) = reusable
+                        && reusable.1 == raw.json
+                    {
+                        let (mut document, _) = *reusable;
+                        if c.schema.is_none() {
+                            document.state.status = RecordStatus::NoSchema;
+                        } else {
+                            let started = Instant::now();
+                            document.validate(c);
+                            self.metrics.validations += 1;
+                            self.metrics.validation_nanos += nanos(started);
+                        }
+                        document
+                    } else {
+                        Self::parse_value(&mut self.metrics, c, &id, &raw.json, true)
+                    };
                     if doc.state.status == RecordStatus::IncorrectJson
                         || !filter.matches(&doc.data)?
                     {

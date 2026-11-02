@@ -1,4 +1,7 @@
-use objekte_core::{CacheMode, Direction, Options, Repository, Sort, TextMode, TextQuery};
+use objekte_core::{
+    CacheMode, Direction, JsonQuery, JsonQueryBackend, Options, Repository, Sort, TextMode,
+    TextQuery,
+};
 use serde_json::json;
 use std::{
     collections::BTreeMap,
@@ -230,5 +233,45 @@ fn selective_json_index_intersects_broad_full_text_candidates() {
     assert_eq!(
         ids(&mut open(temp.path(), CacheMode::Disabled), &query),
         ["a", "d"]
+    );
+}
+
+#[test]
+fn unchanged_page_reuses_parsed_documents_but_rechecks_source_bytes() {
+    let temp = fixture();
+    let mut repo = open(temp.path(), CacheMode::Memory);
+    repo.warm_bigram_index("books").unwrap();
+    repo.warm_text_index("books").unwrap();
+    let json = repo
+        .query_json(&JsonQuery {
+            filter: "body ~ 'Water'".into(),
+            collections: Some(vec!["books".into()]),
+            backend: JsonQueryBackend::Bigram,
+            limit: 2,
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(json.records.len(), 2);
+    assert!(
+        json.metrics.parses < json.metrics.source_reads,
+        "{:?}",
+        json.metrics
+    );
+
+    let text = repo
+        .search_text(&TextQuery {
+            pattern: "Water".into(),
+            collections: Some(vec!["books".into()]),
+            limit: 2,
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(text.hits.len(), 2);
+    assert!(
+        text.metrics.parses < text.metrics.source_reads,
+        "{:?}",
+        text.metrics
     );
 }
