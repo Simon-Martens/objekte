@@ -237,11 +237,10 @@ fn selective_json_index_intersects_broad_full_text_candidates() {
 }
 
 #[test]
-fn unchanged_page_reuses_parsed_documents_but_rechecks_source_bytes() {
+fn unchanged_json_page_rereads_for_source_freshness() {
     let temp = fixture();
     let mut repo = open(temp.path(), CacheMode::Memory);
     repo.warm_bigram_index("books").unwrap();
-    repo.warm_text_index("books").unwrap();
     let json = repo
         .query_json(&JsonQuery {
             filter: "body ~ 'Water'".into(),
@@ -253,11 +252,15 @@ fn unchanged_page_reuses_parsed_documents_but_rechecks_source_bytes() {
         })
         .unwrap();
     assert_eq!(json.records.len(), 2);
-    assert!(
-        json.metrics.parses < json.metrics.source_reads,
-        "{:?}",
-        json.metrics
-    );
+    assert_eq!(json.metrics.parses, json.metrics.source_reads);
+}
+
+#[test]
+fn unchanged_text_page_reuses_parsed_documents_but_rechecks_source_bytes() {
+    let temp = fixture();
+    let mut repo = open(temp.path(), CacheMode::Memory);
+    repo.warm_bigram_index("books").unwrap();
+    repo.warm_text_index("books").unwrap();
 
     let text = repo
         .search_text(&TextQuery {

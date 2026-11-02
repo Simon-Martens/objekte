@@ -4,10 +4,7 @@ use super::*;
 use crate::{Field, json_filter::FtsPlan};
 use grep_searcher::SearcherBuilder;
 use regex::bytes::Regex;
-use std::sync::{
-    OnceLock,
-    atomic::{AtomicUsize, Ordering as AtomicOrdering},
-};
+use std::sync::OnceLock;
 
 static ESCAPED_KEY: OnceLock<Regex> = OnceLock::new();
 
@@ -279,11 +276,11 @@ impl Repository {
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
             let prefilter = if risk { None } else { source_pattern.as_ref() };
             let source = Source::open_scoped(&c.path, c.recursive)?;
-            // Counted queries and global-cardinality checks keep their full
-            // scan behavior. For pages, grow batches across misses to reduce
-            // barriers and reset after matches when the index was selective.
-            // Cap the first page batch on large machines to limit over-scan.
-            let full_scan = request.count || risk;
+            // Counted queries and global-cardinality checks scan every
+            // candidate unless an indexed sort reaches its total cap. For
+            // capped pages, grow batches across misses to reduce barriers
+            // and reset after matches when the index was selective.
+            let full_scan = (request.count || risk) && stop_after.is_none();
             let base_chunk = rayon::current_num_threads()
                 .saturating_mul(4)
                 .clamp(32, 256);
@@ -294,12 +291,16 @@ impl Repository {
                 base_chunk.saturating_mul(256).max(8192)
             };
             let mut chunk_size = if full_scan {
-                // A sorted indexed page also stops after the accessible cap.
-                // Keep its batches bounded even when records are collected
-                // directly rather than emitted through a progress callback.
-                rayon::current_num_threads()
-                    .saturating_mul(8)
-                    .clamp(64, 512)
+                // Count-only scans carry small outcomes and benefit from fewer
+                // parallel barriers. Keep streaming and retained-document
+                // batches smaller for callback progression and bounded memory.
+                if result.on_candidate.is_some() || result.streaming {
+                    rayon::current_num_threads()
+                        .saturating_mul(8)
+                        .clamp(64, 512)
+                } else {
+                    4096
+                }
             } else {
                 base_chunk
             };
@@ -311,17 +312,10 @@ impl Repository {
                 }
                 let mut page_matches = Vec::new();
                 let capture_candidate = result.on_candidate.is_some();
-                let retain_page = request.sort.is_empty()
-                    && !capture_candidate
-                    && result.returned() < request.limit
-                    && matched.saturating_add(batch.len()) > request.offset;
-                let retained_bytes = AtomicUsize::new(0);
-                let retain_limit = batch.len().min(64);
                 let matched_before = matched;
                 let scan_started = Instant::now();
                 let outcomes = batch
                     .par_iter()
-                    .enumerate()
                     .map_init(
                         || {
                             (
@@ -332,7 +326,7 @@ impl Repository {
                                 Vec::with_capacity(4096),
                             )
                         },
-                        |(searcher, bytes), (position, &slot)| -> Result<ScanOutcome> {
+                        |(searcher, bytes), &slot| -> Result<ScanOutcome> {
                             let (id, stamp) = picker.view_record(slot);
                             let open_started = Instant::now();
                             let path = source.path.join(format!("{id}.json"));
@@ -393,30 +387,8 @@ impl Repository {
                                     outcome.matches = filter.matches(&doc.data)?;
                                     outcome.query_nanos = nanos(t);
                                 }
-                                if outcome.matches {
-                                    if capture_candidate {
-                                        matched_document = Some(doc);
-                                    } else if retain_page
-                                        && position < retain_limit
-                                        && bytes.len() <= 1024 * 1024
-                                    {
-                                        // Bound speculative parsed trees and raw bytes. The
-                                        // later source read still decides freshness exactly.
-                                        let cost = bytes.len().saturating_mul(8);
-                                        if retained_bytes
-                                            .try_update(
-                                                AtomicOrdering::Relaxed,
-                                                AtomicOrdering::Relaxed,
-                                                |used| {
-                                                    used.checked_add(cost)
-                                                        .filter(|&next| next <= 8 * 1024 * 1024)
-                                                },
-                                            )
-                                            .is_ok()
-                                        {
-                                            outcome.reusable = Some(Box::new((doc, bytes.clone())));
-                                        }
-                                    }
+                                if outcome.matches && capture_candidate {
+                                    matched_document = Some(doc);
                                 }
                             }
                             let after = Stamp::from_metadata(
@@ -471,18 +443,14 @@ impl Repository {
                                     .expect("sorted match has parsed document");
                                 result.push_candidate(c, id, &actual_stamp, document, hash)?;
                             } else {
-                                page_matches.push((
-                                    id.to_owned(),
-                                    stamp.clone(),
-                                    outcome.reusable.take(),
-                                ));
+                                page_matches.push((id.to_owned(), stamp.clone()));
                             }
                         }
                         matched += 1;
                     }
                 }
                 let materialize_started = Instant::now();
-                for (id, stamp, reusable) in page_matches {
+                for (id, stamp) in page_matches {
                     let raw = match Self::read_raw(
                         &mut self.metrics,
                         &source,
@@ -497,22 +465,7 @@ impl Repository {
                         }
                         Err(error) => return Err(error),
                     };
-                    let doc = if let Some(reusable) = reusable
-                        && reusable.1 == raw.json
-                    {
-                        let (mut document, _) = *reusable;
-                        if c.schema.is_none() {
-                            document.state.status = RecordStatus::NoSchema;
-                        } else {
-                            let started = Instant::now();
-                            document.validate(c);
-                            self.metrics.validations += 1;
-                            self.metrics.validation_nanos += nanos(started);
-                        }
-                        document
-                    } else {
-                        Self::parse_value(&mut self.metrics, c, &id, &raw.json, true)
-                    };
+                    let doc = Self::parse_value(&mut self.metrics, c, &id, &raw.json, true);
                     if doc.state.status == RecordStatus::IncorrectJson
                         || !filter.matches(&doc.data)?
                     {

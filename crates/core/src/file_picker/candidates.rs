@@ -150,6 +150,14 @@ impl SlotSelection {
         if let SlotMembership::Sparse(slots) = &self.membership {
             return Box::new(slots.iter().copied());
         }
+        if matches!(self.membership, SlotMembership::All) && newest_first && sorts.is_empty() {
+            return Box::new(
+                picker
+                    .modified_order
+                    .iter(&picker.files, &picker.id_bytes)
+                    .map(|slot| slot as usize),
+            );
+        }
         let order: Box<dyn Iterator<Item = usize> + 'a> = if let [sort] = sorts
             && sort.field == "@id"
         {

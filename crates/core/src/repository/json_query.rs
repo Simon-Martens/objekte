@@ -37,7 +37,6 @@ struct ScanOutcome {
     regex_nanos: u64,
     hash_nanos: u64,
     projected: Option<(Document, String, Stamp)>,
-    reusable: Option<Box<(Document, Vec<u8>)>>,
 }
 
 
