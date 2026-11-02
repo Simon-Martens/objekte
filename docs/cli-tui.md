@@ -20,6 +20,8 @@ cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe'
 | Ctrl+R | Toggle regex for the FTS input |
 | Ctrl+T | Toggle normalized or full text for the FTS input |
 | Ctrl+E | Toggle case sensitivity for literal FTS searches |
+| Alt+S | Save the current indexes under `.objekte/.cache` |
+| Alt+R | Rebuild all indexes from source and save them |
 | Alt+I or Ctrl+I | Open field inference, including in schema-backed collections; C changes scope, A toggles advanced indexing, Enter scans. Afterward W updates inferred field types and index rules in existing schemas. `i` also works from the results table. |
 | `[` / `]` in results | Flip collections directly from the result table |
 | Enter | Run the query, open a result, or open the selected link or backlink |

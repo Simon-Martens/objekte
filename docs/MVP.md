@@ -1,6 +1,6 @@
 # Objekte: implemented library and next product work
 
-Objekte reads collections of JSON files through a Rust library and CLI. Source files are authoritative. The CLI is read-only; it offers one-shot commands and an interactive TUI for searching, inspecting records, following declared links, and exporting results. A desktop editor and source-file write operations are future work. See [queries.md](queries.md) for runnable commands and [cli-tui.md](cli-tui.md) for the interactive controls.
+Objekte reads collections of JSON files through a Rust library and CLI. Source records are authoritative and are not edited by the CLI. The CLI offers one-shot commands and an interactive TUI for searching, inspecting records, following declared links, and exporting results; cache and schema commands can write derived or configuration files. A desktop record editor and source-record write operations are future work. See [queries.md](queries.md) for runnable commands and [cli-tui.md](cli-tui.md) for the interactive controls.
 
 ## Current capabilities
 
@@ -12,7 +12,7 @@ Objekte reads collections of JSON files through a Rust library and CLI. Source f
 - Explicit collection/all-collection validation, JSON/schema status on returned pages where validation runs, source refresh, configuration-change reporting, cache status, and per-record revision lookup. Revisions last only for the repository handle. Validation status is not stored in the index.
 - Declared outgoing references are extracted on request. Incoming references can be discovered by scanning referring source collections. The CLI's `relations --to ... --complete` requests complete coverage; `--check-targets` checks current target files. There is no persistent edge table or automatic source rewrite on a move/delete.
 
-The schema's `index` opt-in is independent of view definitions. Named views use the regular query APIs and do not grant collection-level filter or sort permissions. String and enum ordering is bytewise. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
+The schema's `index` opt-in is independent of view definitions. Named views use the regular query APIs and do not grant collection-level filter or sort permissions. Explicit query sorting uses case-insensitive, accent-sensitive collation, English by default or the schema's declared language. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
 
 ## Product boundaries
 
@@ -22,7 +22,7 @@ The schema's `index` opt-in is independent of view definitions. Named views use 
 | JSON Schema | Stored types and on-demand validation rules |
 | View definitions | Repository-level list and single views, typed arguments, and queries |
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
-| CLI | One-shot commands and a read-only TUI over the library; no separate query or cache implementation |
+| CLI | One-shot commands and a TUI that does not edit source records; no separate query or cache implementation |
 
 Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations or group records. Metadata operands can select source path, size, timestamps, and validation status; malformed JSON can match metadata predicates, but has no stored JSON paths. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](validation.md) for the precise validation behavior.
 

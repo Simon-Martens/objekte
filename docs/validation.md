@@ -4,7 +4,7 @@ Original JSON files are authoritative. Sonic parses records when an index is bui
 
 - `Repository::get_record` returns the current file. A parseable record has `pending` status with a schema or `no_schema` without one. Malformed JSON is returned with `incorrect_json`, a null parsed value, and the raw bytes.
 - `Repository::open_view` validates returned page records in memory mode. Direct mode returns parseable page records with `pending` schema status. Filtering and sorting operate on parsed values; malformed JSON cannot satisfy a view filter.
-- `Repository::query_json` validates parseable returned matches. A parseable record can match any stored field even if it violates its schema or the field is undeclared. Malformed JSON cannot match a field-based filter, including `:fts`. Standalone word and regex search can return a malformed file with `incorrect_json`, a syntax issue, and raw source bytes.
+- `Repository::query_json` validates parseable returned matches. A filter using `@status` validates every parseable candidate before comparing its status. A parseable record can match any stored field even if it violates its schema or the field is undeclared. Malformed JSON has no JSON field paths, but can match source metadata predicates such as `@status = "incorrect_json"`. Standalone word and regex search can also return it with a syntax issue and raw source bytes.
 - Named views execute these same JSON or full-text query APIs, so their returned records follow the same validation rules.
 - `Repository::validate_collection` and `validate_all` scan and validate schema-backed collections explicitly. A schema-free collection reports zero validations. These calls do not publish cache validation states.
 

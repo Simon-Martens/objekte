@@ -1,24 +1,29 @@
-# Objekte implementation
+# Objekte documentation
 
-Objekte reads JSON collections from a repository. The source files are authoritative. An in-memory bigram index serves default JSON filters; optional typed postings accelerate selected paths. Indexes are built lazily per collection and reused while a `Repository` handle remains open.
+Objekte reads JSON files as the source of truth. Collections can be discovered
+from folders or declared in `.objekte/collections/`; named views live separately
+in `.objekte/views/`. Search indexes are derived data. A repository handle
+builds or restores them on first use, and saved snapshots live under
+`.objekte/.cache`.
 
-Repositories can discover collections without a manifest or schema. See [Collection discovery and opening APIs](collections.md) for folder ownership, nested IDs, optional schemas, and code examples.
+## Use the library and CLI
 
-## Start here
+- [Collections and schemas](collections.md): discovery, nested IDs, and index declarations.
+- [Query examples](queries.md): runnable Musenalm commands, sorting, and output.
+- [Filter language](filters.md): JSON paths, metadata fields, operators, and backends.
+- [Full-text search](full-text.md): word and regex modes, rendering, and exclusions.
+- [Independent views](views.md): repository-level definitions, arguments, and queries.
+- [Terminal UI](cli-tui.md): search controls, result navigation, and export.
+- [Validation](validation.md): JSON and schema status on source records.
+- [Field inference](inference.md): detected types, runtime postings, and schema updates.
 
-- [Query examples](queries.md) show the CLI syntax on Musenalm.
-- [Independent views](views.md) define named list and single views with arguments and queries.
-- [Interactive terminal search](cli-tui.md) covers the TUI, search controls, and JSON export.
-- [Filter semantics](filters.md) describe exact matching, arrays, and backend selection.
-- [Full-text search](full-text.md) describes all-field indexing, markup formats, exclusions, search modes, and index lifecycle.
-- [Validation](validation.md) explains on-demand JSON Schema checks.
-- [Index implementation](implementation.md) describes refresh, rebuild, and revision behavior.
-- [Core and TUI code map](code-map.md) follows queries and terminal rendering through their modules.
-- [On-demand field inference](inference.md) explains type and relation detection, automatic postings, and optional schema updates.
-- [Code guidelines](code-guidelines.md) document source layout, comments, tests, and diagnostics.
-- [Performance results](Performance.md) summarize warm queries and historical experiments.
-- [Full-text benchmark results](fts-benchmark-results.md) report historical build time, ready memory, and 30 warm searches on Musenalm before the `contents.entry` migration.
-- [MVP and roadmap](MVP.md) separate library features from later product work.
+## Understand and extend the implementation
+
+- [Index and cache lifecycle](implementation.md): construction, snapshots, refresh, and source verification.
+- [Core and TUI code map](code-map.md): entry points and module responsibilities.
+- [Code guidelines](code-guidelines.md): layout, comments, tests, and diagnostics.
+- [Performance](Performance.md): current benchmark entry points and measurement limits.
+- [Current capabilities and roadmap](MVP.md), with a separate [desktop UI plan](UI.md).
 
 ```sh
 cargo test --workspace --all-targets
@@ -27,8 +32,8 @@ cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg
 cargo run --release -p objekte-cli -- examples/musenalm
 ```
 
-`--cache memory` is the default. The older collection-view API uses `--cache disabled` to scan source files directly. Named views run their JSON or full-text queries through the usual query APIs; JSON queries also provide explicit `--backend direct` and `--backend grep` paths. By default, JSON queries return records by collection, then file modification time newest first, with ID breaking ties. Matches are verified against source JSON.
-
-The picker can be warmed or rebuilt per collection or across all collections using the `Repository` API. These operations write no application cache files. A new CLI invocation starts a new process and builds its own picker.
-
-Where a schema exists, validation runs for JSON query matches, named view query matches, and explicit validation. A parseable `get_record` response has `pending` schema status; records without a schema have `no_schema` status. Reference occurrences are extracted from declared relations on request; complete backlink lookup scans referring collections.
+The default JSON query backend uses the in-memory picker and verifies source
+records. Queries return collections in name order, with records newest first
+by file modification time and ID breaking ties. `--backend direct` scans source
+files; `--backend grep` uses ripgrep as a conservative source prefilter. The
+CLI's `cache save` and `cache reindex` commands manage index snapshots.

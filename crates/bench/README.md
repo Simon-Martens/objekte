@@ -123,3 +123,17 @@ The [November 1 report](SORT-MIX-50-2026-11-01.md) includes every case and
 links the raw NDJSON results for both scopes.
 The [single-pass rerun](SORT-MIX-50-SINGLE-PASS-2026-11-01.md) compares all 50
 sorted cases before and after reusing parsed matches from candidate verification.
+
+## Full-text and historical measurements
+
+The [30-case full-text report](FTS-MUSENALM-2026-10-31.md) records build time,
+resident memory, and warm searches on an earlier Musenalm fixture with a
+temporary rendering schema overlay. Reproduce the workload with:
+
+```sh
+cargo run --release -p objekte-bench --bin fts-query-mix -- examples/musenalm 3
+```
+
+The [historical query performance notes](QUERY-PERFORMANCE-HISTORY.md) collect
+older comparisons and build-stage measurements. Some commands there refer to
+removed binaries; use the current commands above for new measurements.

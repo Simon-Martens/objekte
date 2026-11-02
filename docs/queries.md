@@ -2,15 +2,15 @@
 
 Run these commands from the project root. Each line is independent and uses the
 seven registered collections in `examples/musenalm`. Each command starts a new
-process and builds the default in-memory picker on first use of a collection;
+process and builds or restores an index on first use of a collection;
 repeated queries on one library `Repository` handle reuse it. Use `--release`
 for the large `contents` collection. Source JSON files are never changed.
 
-`query` reads stored JSON fields, including fields outside the collection's list
-UI. It returns complete records in `(collection, filename ID)` order by default. The default
-page has 50 records; `--count` requests a total. String values in filters are
-quoted, while numbers and booleans are not. A dotted path through an embedded
-array examines its values; it does not follow a declared relation to another
+`query` reads stored JSON fields and source metadata. It returns collections in
+name order and records by modification time, newest first, with ID breaking
+ties. The default page has 50 records; `--count` requests a total. String values
+in filters are quoted, while numbers and booleans are not. A dotted path through
+an embedded array examines its values; it does not follow a declared relation to another
 record. See [filters.md](filters.md) for the exact operator semantics.
 
 `missing(path)` selects records without a value at that path; `null` is present,
@@ -71,6 +71,20 @@ cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferre
 # ASCII lowercase modifier and a typed string parameter.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title:lower ~ "almanach"' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm query agents 'profession = $job' --param 'job="Text"' --count --limit 3
+```
+
+## Source metadata
+
+Metadata operands begin with `@`. Sizes use decimal units such as `KB` or
+binary units such as `KiB`. Unquoted dates compare whole UTC periods, so
+`2026-10` means that month. Modification and creation times depend on the
+local checkout and filesystem. See [filter semantics](filters.md) for all
+metadata fields and date operators.
+
+```sh
+cargo run --release -p objekte-cli -- examples/musenalm query contents '@size > 1KB && year = 1800' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query entries '@modified >= 2026-10 && @filename ~ "0%.json"' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query pages '@status = "valid" && @created != null' --count --limit 3
 ```
 
 ## Arrays and nested JSON
@@ -140,7 +154,7 @@ CLI invocation. A counted result reports the capped total and `truncated:
 true` when more matches exist; the TUI displays a trailing `+`. An unindexed
 sort still examines all candidates to find the best page.
 
-Returned records are validated on demand. An explicitly scoped query searches only its selected collection, even for undeclared fields or literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON values decide comparisons; schema-invalid but parseable JSON remains searchable. Malformed JSON cannot match any field-based filter, including `:fts`. Standalone word and regex search can return malformed source files with `incorrect_json`, raw bytes, size, and modification time.
+Returned records are validated on demand. An explicitly scoped query searches only its selected collection, even for undeclared fields or literal types that disagree with the schema. An unscoped query searches every collection. Actual JSON values decide comparisons; schema-invalid but parseable JSON remains searchable. Malformed JSON has no JSON field paths, but can match source metadata predicates such as `@status = "incorrect_json"`. Standalone word and regex search can also return malformed source files with raw bytes, size, and modification time.
 
 Parameters are JSON values. Keep the filter in single shell quotes so `$from`
 and `$to` reach the filter parser; quote a string parameter as JSON.
@@ -164,7 +178,7 @@ cargo run --release -p objekte-cli -- examples/musenalm query places 'fictional 
 # Search source files with ripgrep, then verify candidate JSON with Sonic.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --backend grep --count --limit 3
 
-# Default query: build values-only bigrams and opted-in ordered scalar postings in memory, then verify source candidates.
+# Default query: build or restore bigrams and ordered postings, then verify source candidates.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'preferred_title ~ :ignorecase("almanach")' --count --limit 3
 
 # Keep result JSON on stdout and write formatted diagnostics JSON to stderr.
@@ -178,18 +192,20 @@ complete `record`. After the query succeeds, a `type: "complete"` event supplies
 plan, and metrics. If a later source or scalar-cardinality error occurs, the
 stream ends with `type: "error"`, a message, and `provisional_records`; the CLI
 exits nonzero. Consumers should treat earlier records as final only after the
-`complete` event. The first query still builds the in-memory index before
-records can arrive; parallel verification publishes finished batches in ID
-order. The existing `--output ndjson` writes raw records after the query finishes.
+`complete` event. Index construction or restoration completes before records
+can arrive; parallel verification publishes finished batches in default
+modification-time order. The existing `--output ndjson` writes raw records after
+the query finishes.
 For a sorted query, provisional `page` events contain the current ordered
 `records` array; later pages may replace earlier ones. The `complete` event
 confirms the final page and carries `truncated`.
 
 ## Named views
 
-`query` orders by collection and ID. Named views combine one or more native
-queries with typed arguments and a list or single presentation type. Their
-definitions are independent of collections; see [Independent views](views.md).
+`query` orders by collection, then modification time and ID. Named views combine
+one or more native queries with typed arguments and a list or single presentation
+type. Their definitions are independent of collections; see
+[Independent views](views.md).
 
 ```sh
 cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg page=2

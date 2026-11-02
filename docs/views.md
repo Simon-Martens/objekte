@@ -5,9 +5,11 @@ Views live at `.objekte/views/<name>.view.json`. They are repository-level defin
 Each view has a `name` matching its filename, a presentation `type` (`list` or `single`), optional typed `arguments`, and one or more named `queries`. The type tells the UI how to present the result; it does not limit the cardinality of auxiliary queries. Each query is a native JSON or full-text request, with its own filter/pattern, collection scope, pagination, count, and other query arguments. Named query results are returned together.
 
 Native query requests can include a `sort` array of `{ "field": "title",
-"direction": "asc" }` terms. JSON filters and full-text patterns may also
-include a trailing `SORT BY title ASC && year DESC` clause. Collections remain
-separate in the output, with filename ID breaking equal sort keys.
+"direction": "asc" }` terms. JSON filters may also include a trailing
+`SORT BY title ASC && year DESC` clause. Full-text patterns are passed as
+patterns; their sort belongs in the request's `sort` array. The TUI accepts an
+appended sort in its full-text box and splits it before calling core. Collections
+remain separate in the output, with filename ID breaking equal sort keys.
 
 ```json
 {
