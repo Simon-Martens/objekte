@@ -575,6 +575,34 @@ fn restored_sort_index_and_refresh_follow_source() {
 }
 
 #[test]
+fn collected_indexed_sort_stops_before_scanning_the_full_candidate_set() {
+    let fixture = tempfile::tempdir().unwrap();
+    schema(fixture.path(), "de", Some("de"));
+    for number in 0..600 {
+        write(
+            fixture.path(),
+            "de",
+            &format!("{number:04}"),
+            json!({"title":format!("title-{number:04}"),"rank":1,"text":"token"}),
+        );
+    }
+    let mut repository = repo(fixture.path(), CacheMode::Memory, 3);
+    let result = repository
+        .query_json(&JsonQuery {
+            filter: "rank >= 0 SORT BY title ASC".into(),
+            collections: Some(vec!["de".into()]),
+            count: true,
+            limit: 2,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(3));
+    assert!(result.truncated);
+    assert_eq!(ids(&result), ["de/0000", "de/0001"]);
+    assert!(result.metrics.source_reads < 600, "{:?}", result.metrics);
+}
+
+#[test]
 fn changing_root_language_rebuilds_saved_sort_keys() {
     let fixture = fixture();
     let query = JsonQuery {

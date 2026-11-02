@@ -271,7 +271,10 @@ impl Repository {
                 base_chunk.saturating_mul(256).max(8192)
             };
             let mut chunk_size = if full_scan {
-                if result.streaming {
+                // A sorted indexed page also stops after the accessible cap.
+                // Keep its batches bounded even when records are collected
+                // directly rather than emitted through a progress callback.
+                if result.streaming || stop_after.is_some() {
                     rayon::current_num_threads()
                         .saturating_mul(8)
                         .clamp(64, 512)

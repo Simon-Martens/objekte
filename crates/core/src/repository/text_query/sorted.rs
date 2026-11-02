@@ -3,12 +3,14 @@
 use super::*;
 use crate::sorting::{SortBuffer, SortPlan};
 
+type PageCallback<'a> = dyn FnMut(&[TextHit]) -> Result<()> + 'a;
+
 
 impl Repository {
     pub(super) fn search_text_sorted(
         &mut self,
         request: &TextQuery,
-        on_page: &mut dyn FnMut(&[TextHit]) -> Result<()>,
+        mut on_page: Option<&mut PageCallback<'_>>,
     ) -> Result<TextQueryResult> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -63,16 +65,21 @@ impl Repository {
                 let record = &hit.record;
                 let changed =
                     buffer.insert(&record.collection, &record.id, &record.data, || hit.clone())?;
-                if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
+                if changed
+                    && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64))
+                    && let Some(callback) = on_page.as_deref_mut()
+                {
                     let page = buffer.page().cloned().collect::<Vec<_>>();
-                    on_page(&page)?;
+                    callback(&page)?;
                 }
                 Ok(())
             },
             None,
         )?;
-        let page = buffer.page().cloned().collect::<Vec<_>>();
-        on_page(&page)?;
+        if let Some(callback) = on_page {
+            let page = buffer.page().cloned().collect::<Vec<_>>();
+            callback(&page)?;
+        }
         result.total = buffer.total(request.count);
         result.truncated = buffer.truncated();
         result.hits = buffer.into_page();
@@ -87,7 +94,7 @@ impl Repository {
     fn search_text_indexed_order(
         &mut self,
         request: &TextQuery,
-        on_page: &mut dyn FnMut(&[TextHit]) -> Result<()>,
+        on_page: Option<&mut PageCallback<'_>>,
         started: Instant,
         before: &Metrics,
     ) -> Result<TextQueryResult> {
@@ -97,18 +104,23 @@ impl Repository {
         // Verify one match past the cap to distinguish a full page from a
         // truncated result without scanning the remaining candidates.
         let stop_after = self.options.total_limit.saturating_add(1);
-        let mut page = Vec::new();
-        let (mut result, _) = self.search_text_inner(
-            &scan,
-            true,
-            &mut |_, hit| {
-                page.push(hit.clone());
-                on_page(&page)
-            },
-            Some(stop_after),
-        )?;
-        on_page(&page)?;
-        result.hits = page;
+        let (mut result, _) = if let Some(on_page) = on_page {
+            let mut page = Vec::new();
+            let (mut result, returned) = self.search_text_inner(
+                &scan,
+                true,
+                &mut |_, hit| {
+                    page.push(hit.clone());
+                    on_page(&page)
+                },
+                Some(stop_after),
+            )?;
+            on_page(&page)?;
+            result.hits = page;
+            (result, returned)
+        } else {
+            self.search_text_inner(&scan, false, &mut |_, _| Ok(()), Some(stop_after))?
+        };
         if !request.count {
             result.total = None;
         }

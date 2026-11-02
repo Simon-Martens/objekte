@@ -3,12 +3,14 @@
 use super::*;
 use crate::sorting::{SortBuffer, SortPlan};
 
+type PageCallback<'a> = dyn FnMut(&[Record]) -> Result<()> + 'a;
+
 
 impl Repository {
     pub(super) fn query_json_sorted(
         &mut self,
         request: &JsonQuery,
-        on_page: &mut dyn FnMut(&[Record]) -> Result<()>,
+        mut on_page: Option<&mut PageCallback<'_>>,
     ) -> Result<JsonQueryResult> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -106,9 +108,12 @@ impl Repository {
                         raw: None,
                     }
                 });
-                if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
+                if changed
+                    && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64))
+                    && let Some(callback) = on_page.as_deref_mut()
+                {
                     let page = buffer.page().cloned().collect::<Vec<_>>();
-                    on_page(&page)?;
+                    callback(&page)?;
                 }
                 Ok(())
             };
@@ -128,9 +133,12 @@ impl Repository {
                         buffer.insert(&record.collection, &record.id, &record.data, || {
                             record.clone()
                         })?;
-                    if changed && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64)) {
+                    if changed
+                        && (buffer.seen() <= 16 || buffer.seen().is_multiple_of(64))
+                        && let Some(callback) = on_page.as_deref_mut()
+                    {
                         let page = buffer.page().cloned().collect::<Vec<_>>();
-                        on_page(&page)?;
+                        callback(&page)?;
                     }
                     Ok(())
                 },
@@ -139,8 +147,10 @@ impl Repository {
             )?
         };
         self.metrics.add_from(&selected_validation);
-        let page = buffer.page().cloned().collect::<Vec<_>>();
-        on_page(&page)?;
+        if let Some(callback) = on_page {
+            let page = buffer.page().cloned().collect::<Vec<_>>();
+            callback(&page)?;
+        }
         result.total = buffer.total(request.count);
         result.truncated = buffer.truncated();
         result.records = buffer.into_page();
@@ -155,7 +165,7 @@ impl Repository {
     fn query_json_indexed_order(
         &mut self,
         request: &JsonQuery,
-        on_page: &mut dyn FnMut(&[Record]) -> Result<()>,
+        on_page: Option<&mut PageCallback<'_>>,
         started: Instant,
         before: &Metrics,
     ) -> Result<JsonQueryResult> {
@@ -165,19 +175,24 @@ impl Repository {
         // One match beyond the cap is enough to report truncation; later
         // matches cannot change the accessible page or capped total.
         let stop_after = self.options.total_limit.saturating_add(1);
-        let mut page = Vec::new();
-        let (mut result, _) = self.query_json_inner(
-            &scan,
-            true,
-            &mut |_, record| {
-                page.push(record.clone());
-                on_page(&page)
-            },
-            None,
-            Some(stop_after),
-        )?;
-        on_page(&page)?;
-        result.records = page;
+        let (mut result, _) = if let Some(on_page) = on_page {
+            let mut page = Vec::new();
+            let (mut result, returned) = self.query_json_inner(
+                &scan,
+                true,
+                &mut |_, record| {
+                    page.push(record.clone());
+                    on_page(&page)
+                },
+                None,
+                Some(stop_after),
+            )?;
+            on_page(&page)?;
+            result.records = page;
+            (result, returned)
+        } else {
+            self.query_json_inner(&scan, false, &mut |_, _| Ok(()), None, Some(stop_after))?
+        };
         if !request.count {
             result.total = None;
         }

@@ -74,7 +74,7 @@ impl Repository {
     pub fn search_text(&mut self, request: &TextQuery) -> Result<TextQueryResult> {
         let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
-            return self.search_text_sorted(&request, &mut |_| Ok(()));
+            return self.search_text_sorted(&request, None);
         }
         self.search_text_inner(&request, false, &mut |_, _| Ok(()), None)
             .map(|(result, _)| result)
@@ -89,7 +89,7 @@ impl Repository {
     ) -> Result<TextQueryStreamSummary> {
         let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
-            let result = self.search_text_sorted(&request, &mut |_| Ok(()))?;
+            let result = self.search_text_sorted(&request, None)?;
             for (index, hit) in result.hits.iter().enumerate() {
                 on_hit(index + 1, hit)?;
             }
@@ -127,7 +127,7 @@ impl Repository {
                 on_page(&page)
             });
         }
-        let result = self.search_text_sorted(&request, &mut on_page)?;
+        let result = self.search_text_sorted(&request, Some(&mut on_page))?;
         Ok(TextQueryStreamSummary {
             returned: result.hits.len(),
             total: result.total,

@@ -115,7 +115,7 @@ impl Repository {
     pub fn query_json(&mut self, request: &JsonQuery) -> Result<JsonQueryResult> {
         let request = Self::normalized_json_sort(request)?;
         if !request.sort.is_empty() {
-            return self.query_json_sorted(&request, &mut |_| Ok(()));
+            return self.query_json_sorted(&request, None);
         }
         let (result, _) = self.query_json_inner(&request, false, &mut |_, _| Ok(()), None, None)?;
         Ok(result)
@@ -131,7 +131,7 @@ impl Repository {
     ) -> Result<JsonQueryStreamSummary> {
         let request = Self::normalized_json_sort(request)?;
         if !request.sort.is_empty() {
-            let result = self.query_json_sorted(&request, &mut |_| Ok(()))?;
+            let result = self.query_json_sorted(&request, None)?;
             for (index, record) in result.records.iter().enumerate() {
                 on_record(index + 1, record)?;
             }
@@ -174,7 +174,7 @@ impl Repository {
                 on_page(&page)
             });
         }
-        let result = self.query_json_sorted(&request, &mut on_page)?;
+        let result = self.query_json_sorted(&request, Some(&mut on_page))?;
         Ok(JsonQueryStreamSummary {
             returned: result.records.len(),
             total: result.total,
