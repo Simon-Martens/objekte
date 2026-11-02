@@ -56,6 +56,51 @@ fn query(pattern: &str, mode: TextMode) -> TextQuery {
 }
 
 #[test]
+fn candidate_reads_hash_only_returned_hits() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    schema(root);
+    write(root, "data/books/a.json", r#"{"plain":"alpha"}"#);
+    write(root, "data/books/b.json", r#"{"plain":"beta"}"#);
+    let mut repo = Repository::open(root).unwrap();
+    let mut rejected = query("a", TextMode::Word);
+    rejected.filter = Some("@size > 1MB".into());
+    let rejected = repo.search_text(&rejected).unwrap();
+    assert_eq!(rejected.total, Some(0));
+    assert!(rejected.metrics.source_reads > 0);
+    assert_eq!(rejected.metrics.hashes, 0);
+
+    let accepted = repo.search_text(&query("alpha", TextMode::Word)).unwrap();
+    assert_eq!(accepted.total, Some(1));
+    assert_eq!(accepted.metrics.hashes, accepted.hits.len() as u64);
+    assert_eq!(
+        accepted.hits[0].record.hash,
+        repo.get_record("books", "a").unwrap().unwrap().hash
+    );
+}
+
+#[test]
+fn large_full_text_hit_keeps_its_source_hash() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    schema(root);
+    let body = format!("{}needle", "x".repeat(2_000_000));
+    write(
+        root,
+        "data/books/large.json",
+        &json!({"plain": body}).to_string(),
+    );
+    let mut repo = Repository::open(root).unwrap();
+    let result = repo.search_text(&query("needle", TextMode::Word)).unwrap();
+    assert_eq!(result.total, Some(1));
+    assert_eq!(result.metrics.hashes, 1);
+    assert_eq!(
+        result.hits[0].record.hash,
+        repo.get_record("books", "large").unwrap().unwrap().hash
+    );
+}
+
+#[test]
 fn saved_markup_index_restores_without_rebuilding_text_postings() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();

@@ -170,6 +170,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     {
         repo.warm_bigram_index(&collection)?;
     }
+    if matches!(
+        case.as_str(),
+        "text-sorted" | "text-updates" | "text-broad" | "text-selective" | "text-zero"
+    ) {
+        repo.warm_text_index(&collection)?;
+    }
     let view = ViewRequest {
         filters: vec![Filter {
             field: "category".into(),
@@ -245,7 +251,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 );
             }
         }
-        "text-sorted" | "text-updates" => {
+        "text-sorted" | "text-updates" | "text-broad" | "text-selective" | "text-zero" => {
+            let pattern = match case.as_str() {
+                "text-broad" => "e".to_owned(),
+                "text-selective" => "Goethe".to_owned(),
+                "text-zero" => "ZZZunlikelyNoMatch123".to_owned(),
+                _ => pattern,
+            };
             let request = TextQuery {
                 pattern,
                 mode: TextMode::Word,
@@ -280,6 +292,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         "truncated":result.truncated,
                         "reads":result.metrics.source_reads,
                         "parses":result.metrics.parses,
+                        "hashes":result.metrics.hashes,
                     }),
                 );
             }

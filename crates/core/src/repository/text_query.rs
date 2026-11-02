@@ -346,111 +346,122 @@ impl Repository {
                 let outcomes = batch
                     .par_iter()
                     .enumerate()
-                    .map(|(position, (id, stamp))| -> Result<TextScanOutcome> {
-                        let mut metrics = Metrics::default();
-                        let raw = match Self::read_raw(
-                            &mut metrics,
-                            &source,
-                            id,
-                            (!optimistic).then_some(stamp),
-                        ) {
-                            Ok(raw) => raw,
-                            Err(Error::Io { source: error, .. })
-                                if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                    // Reuse each buffer for several files while keeping enough
+                    // parallel tasks for broad candidate batches.
+                    .with_min_len(4)
+                    .map_init(
+                        Vec::new,
+                        |bytes, (position, (id, stamp))| -> Result<TextScanOutcome> {
+                            let mut metrics = Metrics::default();
+                            let read = match Self::read_verified_into(
+                                &mut metrics,
+                                &source,
+                                id,
+                                (!optimistic).then_some(stamp),
+                                bytes,
+                            ) {
+                                Ok(raw) => raw,
+                                Err(Error::Io { source: error, .. })
+                                    if optimistic
+                                        && error.kind() == std::io::ErrorKind::NotFound =>
+                                {
+                                    return Ok(TextScanOutcome {
+                                        fields: Vec::new(),
+                                        metrics,
+                                        reusable: None,
+                                    });
+                                }
+                                Err(error) => return Err(error),
+                            };
+                            let mut document = Self::parse_value(&mut metrics, &c, id, bytes, false);
+                            if collection_filter
+                                .as_ref()
+                                .is_some_and(JsonFilter::uses_status)
+                                && document.state.status != RecordStatus::IncorrectJson
                             {
-                                return Ok(TextScanOutcome {
-                                    fields: Vec::new(),
-                                    metrics,
-                                    reusable: None,
-                                });
+                                let started = Instant::now();
+                                document.validate(&c);
+                                if c.schema.is_some() {
+                                    metrics.validations += 1;
+                                    metrics.validation_nanos += nanos(started);
+                                }
                             }
-                            Err(error) => return Err(error),
-                        };
-                        let mut document =
-                            Self::parse_value(&mut metrics, &c, id, &raw.json, false);
-                        if collection_filter
-                            .as_ref()
-                            .is_some_and(JsonFilter::uses_status)
-                            && document.state.status != RecordStatus::IncorrectJson
-                        {
                             let started = Instant::now();
-                            document.validate(&c);
-                            if c.schema.is_some() {
-                                metrics.validations += 1;
-                                metrics.validation_nanos += nanos(started);
-                            }
-                        }
-                        let started = Instant::now();
-                        let passes_filter = match &collection_filter {
-                            Some(filter) => {
-                                let path = filter.uses_source_path().then(|| {
-                                    relative_collection
-                                        .join(format!("{id}.json"))
-                                        .to_string_lossy()
-                                        .into_owned()
-                                });
-                                filter.matches_source(
-                                    &document.data,
-                                    id,
-                                    path.as_deref().unwrap_or(""),
-                                    &raw.stamp,
-                                    raw.created,
-                                    document.state.status,
-                                )?
-                            }
-                            None => true,
-                        };
-                        let fields = if !passes_filter {
-                            Vec::new()
-                        } else if document.state.status == RecordStatus::IncorrectJson {
-                            if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
-                                vec!["$raw".into()]
-                            } else {
+                            let passes_filter = match &collection_filter {
+                                Some(filter) => {
+                                    let path = filter.uses_source_path().then(|| {
+                                        relative_collection
+                                            .join(format!("{id}.json"))
+                                            .to_string_lossy()
+                                            .into_owned()
+                                    });
+                                    filter.matches_source(
+                                        &document.data,
+                                        id,
+                                        path.as_deref().unwrap_or(""),
+                                        &read.stamp,
+                                        read.created,
+                                        document.state.status,
+                                    )?
+                                }
+                                None => true,
+                            };
+                            let fields = if !passes_filter {
                                 Vec::new()
-                            }
-                        } else {
-                            matcher
-                                .matching_fields(
-                                    &document.data,
-                                    &rules,
-                                    requested_fields.as_ref(),
-                                    false,
-                                )
-                                .fields
-                        };
-                        metrics.query_nanos += nanos(started);
-                        metrics.grep_scans += 1;
-                        metrics.grep_bytes += stamp.size;
-                        let reusable = if !fields.is_empty()
-                            && retain_page
-                            && position < retain_limit
-                            && raw.json.len() <= 1024 * 1024
-                        {
-                            let cost = raw.json.len().saturating_mul(8);
-                            if retained_bytes
-                                .try_update(
-                                    AtomicOrdering::Relaxed,
-                                    AtomicOrdering::Relaxed,
-                                    |used| {
-                                        used.checked_add(cost)
-                                            .filter(|&next| next <= 8 * 1024 * 1024)
-                                    },
-                                )
-                                .is_ok()
+                            } else if document.state.status == RecordStatus::IncorrectJson {
+                                if requested_fields.is_none() && matcher.matches_malformed(bytes) {
+                                    vec!["$raw".into()]
+                                } else {
+                                    Vec::new()
+                                }
+                            } else {
+                                matcher
+                                    .matching_fields(
+                                        &document.data,
+                                        &rules,
+                                        requested_fields.as_ref(),
+                                        false,
+                                    )
+                                    .fields
+                            };
+                            metrics.query_nanos += nanos(started);
+                            metrics.grep_scans += 1;
+                            metrics.grep_bytes += stamp.size;
+                            let reusable = if !fields.is_empty()
+                                && retain_page
+                                && position < retain_limit
+                                && bytes.len() <= 1024 * 1024
+                                && bytes.capacity() <= bytes.len().saturating_mul(4).max(4096)
                             {
-                                Some(Box::new((document, raw.json.clone())))
+                                let cost = bytes.capacity().saturating_mul(8);
+                                if retained_bytes
+                                    .try_update(
+                                        AtomicOrdering::Relaxed,
+                                        AtomicOrdering::Relaxed,
+                                        |used| {
+                                            used.checked_add(cost)
+                                                .filter(|&next| next <= 8 * 1024 * 1024)
+                                        },
+                                    )
+                                    .is_ok()
+                                {
+                                    Some(Box::new((document, std::mem::take(bytes))))
+                                } else {
+                                    None
+                                }
                             } else {
                                 None
+                            };
+                            if bytes.capacity() > 1024 * 1024 {
+                                *bytes = Vec::new();
                             }
-                        } else {
-                            None
-                        };
-                        Ok(TextScanOutcome {
-                            fields,
-                            metrics,
-                            reusable,
-                        })
-                    })
+                            Ok(TextScanOutcome {
+                                fields,
+                                metrics,
+                                reusable,
+                            })
+                        },
+                    )
                     .collect::<Result<Vec<_>>>()?;
                 let mut page = Vec::new();
                 for (

@@ -3,6 +3,12 @@
 use super::*;
 
 
+pub(super) struct VerifiedReadMetadata {
+    pub stamp: Stamp,
+    pub created: Option<i128>,
+}
+
+
 impl Repository {
     pub(super) fn collection(&self, name: &str) -> Result<Collection> {
         Ok(self.model.collection(name)?.clone())
@@ -56,6 +62,29 @@ impl Repository {
         id: &str,
         expected: Option<&Stamp>,
     ) -> Result<Raw> {
+        let mut json = Vec::new();
+        let metadata = Self::read_verified_into(metrics, source, id, expected, &mut json)?;
+        let t = Instant::now();
+        let hash = digest(&json);
+        metrics.hash_nanos += nanos(t);
+        metrics.hashes += 1;
+        Ok(Raw {
+            json,
+            hash,
+            stamp: metadata.stamp,
+            created: metadata.created,
+        })
+    }
+
+    /// Read through the pinned source directory, retrying an unstable descriptor.
+    /// The caller owns the reusable buffer; unsuccessful candidates need no hash.
+    pub(super) fn read_verified_into(
+        metrics: &mut Metrics,
+        source: &Source,
+        id: &str,
+        expected: Option<&Stamp>,
+        bytes: &mut Vec<u8>,
+    ) -> Result<VerifiedReadMetadata> {
         let path = source.path.join(format!("{id}.json"));
         // INFO: A source file may change during a read. Compare descriptor stamps
         // before and after, then retry rather than caching an inconsistent snapshot.
@@ -68,8 +97,8 @@ impl Repository {
             }
             metrics.source_check_nanos += nanos(t);
             let t = Instant::now();
-            let mut bytes = Vec::new();
-            file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
+            bytes.clear();
+            file.read_to_end(bytes).map_err(|e| io(&path, e))?;
             metrics.read_nanos += nanos(t);
             metrics.source_reads += 1;
             metrics.source_bytes += bytes.len() as u64;
@@ -80,14 +109,7 @@ impl Repository {
             if before != after || bytes.len() as u64 != after.size {
                 continue;
             }
-            let t = Instant::now();
-            let hash = digest(&bytes);
-            metrics.hash_nanos += nanos(t);
-            metrics.hashes += 1;
-            let json = bytes;
-            return Ok(Raw {
-                json,
-                hash,
+            return Ok(VerifiedReadMetadata {
                 stamp: after,
                 created: crate::source::created_timestamp(&after_metadata),
             });
