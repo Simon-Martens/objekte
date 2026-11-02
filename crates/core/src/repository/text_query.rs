@@ -373,7 +373,8 @@ impl Repository {
                                 }
                                 Err(error) => return Err(error),
                             };
-                            let mut document = Self::parse_value(&mut metrics, &c, id, bytes, false);
+                            let mut document =
+                                Self::parse_value(&mut metrics, &c, id, bytes, false);
                             if collection_filter
                                 .as_ref()
                                 .is_some_and(JsonFilter::uses_status)
