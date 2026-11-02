@@ -512,32 +512,44 @@ impl BigramIndexBuilder {
 
         let old_lookup = self.lookup;
         let mut available = vec![true; cols];
-        // If no file ever populated content, col_data was never
-        // materialised. Treat as empty — every column falls through.
-        let mut col_data: Option<ColumnSlab> = if let Some(columns) = self.utf8_cols {
-            let mut slab = cols.checked_mul(words).and_then(ColumnSlab::new);
-            if let Some(slab) = slab.as_mut() {
-                for (col, cell) in columns.into_iter().take(cols).enumerate() {
-                    if let Some(Some(cell)) = cell.into_inner() {
-                        slab.as_mut_slice()[col * words..(col + 1) * words]
-                            .copy_from_slice(&cell.into_inner());
-                    } else {
-                        available[col] = false;
-                    }
-                }
-            }
-            slab
-        } else {
+        // UTF-8 builders already own one slab per observed column. Read them
+        // directly; only columns retained as dense need a final flat copy.
+        let utf8_columns = self.utf8_cols.map(|columns| {
+            columns
+                .into_iter()
+                .take(cols)
+                .enumerate()
+                .map(|(col, cell)| {
+                    let slab = cell.into_inner().flatten().map(UnsafeCell::into_inner);
+                    available[col] = slab.is_some();
+                    slab
+                })
+                .collect::<Vec<_>>()
+        });
+        // ASCII retains its existing in-place compaction path.
+        let mut col_data: Option<ColumnSlab> = if utf8_columns.is_none() {
             self.col_data
                 .into_inner()
                 .flatten()
                 .map(UnsafeCell::into_inner)
+        } else {
+            None
+        };
+
+        let column = |old_col: u16| -> &[u64] {
+            let col = old_col as usize;
+            if let Some(columns) = &utf8_columns {
+                columns[col].as_deref().expect("available UTF-8 column")
+            } else {
+                let start = col * words;
+                &col_data.as_deref().expect("available ASCII slab")[start..start + words]
+            }
         };
 
         // Pass 1: pick the columns worth keeping, in slab order so the in-place
         // compaction below only ever moves a column towards the front.
         let mut kept: Vec<(usize, u16, u32)> = Vec::new();
-        if let Some(col_data) = col_data.as_deref() {
+        if utf8_columns.is_some() || col_data.is_some() {
             for (slot, old_col) in old_lookup.iter().enumerate() {
                 let old_col = old_col.load(Ordering::Relaxed);
                 if old_col == NO_COLUMN || old_col as usize >= cols || !available[old_col as usize]
@@ -545,8 +557,7 @@ impl BigramIndexBuilder {
                     continue;
                 }
 
-                let col_start = old_col as usize * words;
-                let bitset = &col_data[col_start..col_start + words];
+                let bitset = column(old_col);
                 let popcount: u32 = bitset.iter().map(|w| w.count_ones()).sum();
                 if popcount == 0 {
                     continue;
@@ -577,11 +588,6 @@ impl BigramIndexBuilder {
                 }
             }
         }
-        let column = |old_col: u16| -> &[u64] {
-            let start = old_col as usize * words;
-            &col_data.as_deref().expect("kept columns imply a slab")[start..start + words]
-        };
-
         // Low-density columns become gap lists when that encodes smaller than a dense bitset.
         let encode = |&(_, old_col, popcount): &(usize, u16, u32)| -> Option<Vec<u8>> {
             if (popcount as usize) >= dense_bytes {
@@ -598,6 +604,13 @@ impl BigramIndexBuilder {
         } else {
             kept.par_iter().map(encode).collect()
         };
+        let dense_target = encoded.iter().filter(|entry| entry.is_none()).count();
+        let mut utf8_dense = utf8_columns.as_ref().map(|_| {
+            dense_target
+                .checked_mul(words)
+                .and_then(ColumnSlab::new)
+                .unwrap_or_else(ColumnSlab::empty)
+        });
 
         // Pass 3: compact dense columns to the front of the builder slab (no
         // copy into a fresh buffer) and number sparse ones after them.
@@ -621,23 +634,35 @@ impl BigramIndexBuilder {
                     sparse_offsets.push(sparse_data.len() as u32);
                 }
                 None => {
-                    let src = *old_col as usize * words;
                     let dst = dense_count * words;
-                    if src != dst {
-                        let slab = col_data.as_mut().expect("kept columns imply a slab");
-                        slab.as_mut_slice().copy_within(src..src + words, dst);
+                    if let Some(slab) = utf8_dense.as_mut() {
+                        if dst + words > slab.len() {
+                            continue;
+                        }
+                        slab.as_mut_slice()[dst..dst + words].copy_from_slice(
+                            utf8_columns.as_ref().expect("UTF-8 columns")[*old_col as usize]
+                                .as_deref()
+                                .expect("kept UTF-8 column"),
+                        );
+                    } else {
+                        let src = *old_col as usize * words;
+                        if src != dst {
+                            let slab = col_data.as_mut().expect("kept columns imply a slab");
+                            slab.as_mut_slice().copy_within(src..src + words, dst);
+                        }
                     }
                     lookup[*slot] = dense_count as u16;
                     dense_count += 1;
                 }
             }
         }
-        let dense_data = match col_data {
-            Some(mut slab) => {
-                slab.truncate(dense_count * words);
-                slab
-            }
-            None => ColumnSlab::empty(),
+        let dense_data = if let Some(slab) = utf8_dense {
+            slab
+        } else if let Some(mut slab) = col_data {
+            slab.truncate(dense_count * words);
+            slab
+        } else {
+            ColumnSlab::empty()
         };
 
         for (i, slot) in sparse_slots.into_iter().enumerate() {
