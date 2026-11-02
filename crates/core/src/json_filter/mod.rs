@@ -9,6 +9,7 @@ pub(crate) use fts::FtsPlan;
 use num_bigint::BigInt;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use smallvec::SmallVec;
 use std::{
     cmp::Ordering,
     collections::{BTreeMap, BTreeSet},
@@ -93,6 +94,26 @@ enum Operand {
 }
 
 
+/// A selected source value or a scalar computed by a field modifier.
+enum SelectedValue<'a> {
+    Borrowed(&'a Value),
+    Owned(Value),
+}
+
+
+impl SelectedValue<'_> {
+    fn value(&self) -> &Value {
+        match self {
+            Self::Borrowed(value) => value,
+            Self::Owned(value) => value,
+        }
+    }
+}
+
+
+type SelectedValues<'a> = SmallVec<[SelectedValue<'a>; 1]>;
+
+
 impl Operand {
     fn each(&self) -> bool {
         matches!(
@@ -104,9 +125,9 @@ impl Operand {
         )
     }
 
-    fn select(&self, doc: &Value) -> Vec<Value> {
+    fn select<'a>(&'a self, doc: &'a Value) -> SelectedValues<'a> {
         match self {
-            Self::Literal(v) => vec![v.clone()],
+            Self::Literal(value) => SmallVec::from_buf([SelectedValue::Borrowed(value)]),
             Self::Field(f) => f.select(doc),
         }
     }
@@ -114,20 +135,58 @@ impl Operand {
 
 
 impl FieldOperand {
-    fn select(&self, doc: &Value) -> Vec<Value> {
-        let selected = values(doc, &self.path, self.modifier != Some(Modifier::Length));
+    fn select<'a>(&self, doc: &'a Value) -> SelectedValues<'a> {
+        let mut selected = SelectedValues::new();
+        visit_values(
+            doc,
+            &self.path,
+            self.modifier != Some(Modifier::Length),
+            &mut |value| {
+                let selected_value = match self.modifier {
+                    Some(Modifier::Length) => value
+                        .as_array()
+                        .map(|array| SelectedValue::Owned(Value::from(array.len()))),
+                    Some(Modifier::Lower) => value
+                        .as_str()
+                        .map(|text| SelectedValue::Owned(Value::String(text.to_ascii_lowercase()))),
+                    Some(Modifier::Rendered(format)) => value
+                        .as_str()
+                        .and_then(|text| render_text(text, format))
+                        .map(|text| SelectedValue::Owned(Value::String(text))),
+                    _ => Some(SelectedValue::Borrowed(value)),
+                };
+                if let Some(value) = selected_value {
+                    selected.push(value);
+                }
+                true
+            },
+        );
         selected
-            .into_iter()
-            .filter_map(|v| match self.modifier {
-                Some(Modifier::Length) => v.as_array().map(|a| Value::from(a.len())),
-                Some(Modifier::Lower) => v.as_str().map(|s| Value::String(s.to_ascii_lowercase())),
-                Some(Modifier::Rendered(format)) => v
-                    .as_str()
-                    .and_then(|text| render_text(text, format))
-                    .map(Value::String),
-                _ => Some(v.clone()),
-            })
-            .collect()
+    }
+
+    fn more_than_one(&self, doc: &Value) -> bool {
+        let mut count = 0;
+        visit_values(
+            doc,
+            &self.path,
+            self.modifier != Some(Modifier::Length),
+            &mut |value| {
+                let eligible = match self.modifier {
+                    Some(Modifier::Length) => value.is_array(),
+                    Some(Modifier::Lower) => value.is_string(),
+                    Some(Modifier::Rendered(format)) => value
+                        .as_str()
+                        .and_then(|text| render_text(text, format))
+                        .is_some(),
+                    _ => true,
+                };
+                if eligible {
+                    count += 1;
+                }
+                count < 2
+            },
+        );
+        count > 1
     }
 }
 
@@ -487,8 +546,14 @@ impl JsonFilter {
                         return false;
                     }
                     let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
-                    let test = |(a, b)| {
-                        compare(a, *op, b, matches!(right, Operand::Field(_)), *ignore_case)
+                    let test = |(a, b): (&SelectedValue<'_>, &SelectedValue<'_>)| {
+                        compare(
+                            a.value(),
+                            *op,
+                            b.value(),
+                            matches!(right, Operand::Field(_)),
+                            *ignore_case,
+                        )
                     };
                     if !any && (left.each() || right.each()) {
                         pairs.all(test)
@@ -592,52 +657,77 @@ pub struct JsonQueryStreamSummary {
 
 
 pub(crate) fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -> Vec<&'a Value> {
-    fn visit<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool, out: &mut Vec<&'a Value>) {
+    let mut out = Vec::new();
+    visit_values(doc, path, flatten, &mut |value| {
+        out.push(value);
+        true
+    });
+    out
+}
+
+/// Visit selected values in path order. Returning false stops traversal early.
+fn visit_values<'a>(
+    doc: &'a Value,
+    path: &[JsonPathStep],
+    flatten: bool,
+    emit: &mut impl FnMut(&'a Value) -> bool,
+) -> bool {
+    fn visit<'a>(
+        doc: &'a Value,
+        path: &[JsonPathStep],
+        flatten: bool,
+        emit: &mut impl FnMut(&'a Value) -> bool,
+    ) -> bool {
         match path.split_first() {
             None => {
                 if flatten && let Value::Array(items) = doc {
                     for item in items {
-                        visit(item, path, flatten, out);
+                        if !visit(item, path, flatten, emit) {
+                            return false;
+                        }
                     }
                 } else {
-                    out.push(doc);
+                    return emit(doc);
                 }
             }
             Some((JsonPathStep::Key(key), rest)) => match doc {
                 Value::Object(map) => {
                     if let Some(v) = map.get(key) {
-                        visit(v, rest, flatten, out);
+                        return visit(v, rest, flatten, emit);
                     }
                 }
                 Value::Array(items) => {
                     for item in items {
-                        visit(item, path, flatten, out);
+                        if !visit(item, path, flatten, emit) {
+                            return false;
+                        }
                     }
                 }
                 _ => {}
             },
             Some((JsonPathStep::Index(i), rest)) => {
                 if let Some(v) = doc.as_array().and_then(|a| a.get(*i)) {
-                    visit(v, rest, flatten, out);
+                    return visit(v, rest, flatten, emit);
                 }
             }
             Some((JsonPathStep::Each, rest)) => {
                 if let Value::Array(items) = doc {
                     for item in items {
-                        visit(item, rest, flatten, out);
+                        if !visit(item, rest, flatten, emit) {
+                            return false;
+                        }
                     }
                 }
             }
         }
+        true
     }
-    let mut out = Vec::new();
-    visit(doc, path, flatten, &mut out);
-    out
+    visit(doc, path, flatten, emit)
 }
 
 fn check_paths(doc: &Value, paths: &[FieldOperand]) -> Result<()> {
     for path in paths {
-        if path.select(doc).len() > 1 {
+        if path.more_than_one(doc) {
             return Err(Error::Request(format!(
                 "path {} yields multiple values; use a '?' comparison or :each",
                 serde_json::to_string(&path.path).unwrap()
@@ -687,6 +777,10 @@ fn compare(left: &Value, op: Op, right: &Value, right_field: bool, ignore_case: 
         _ => unreachable!(),
     }
 }
+
+#[cfg(test)]
+#[path = "mod.test.rs"]
+mod tests;
 
 /// Compare decimal JSON number lexemes without conversion to floating point or
 /// allocating exponent-sized zero strings (including exponents outside i64).
