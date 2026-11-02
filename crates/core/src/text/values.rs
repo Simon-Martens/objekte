@@ -74,6 +74,18 @@ impl TextRules {
     pub(crate) fn has_exclusions(&self) -> bool {
         self.fields.values().any(TextRule::has_exclusions)
     }
+
+    pub(crate) fn scalar_format(&self, name: &str) -> Option<TextFormat> {
+        let rule = self.fields.get(name);
+        if rule.is_some_and(|rule| rule.excluded) {
+            None
+        } else {
+            Some(
+                rule.and_then(|rule| rule.format)
+                    .unwrap_or(TextFormat::Plain),
+            )
+        }
+    }
 }
 
 
@@ -186,13 +198,14 @@ pub(crate) fn visit_json_text(
 pub(crate) fn visit_sonic_text(
     value: &SonicValue,
     rules: &TextRules,
-    visit: &mut impl FnMut(&str, &str, TextFormat),
+    visit: &mut impl FnMut(&str, &str, TextFormat, bool),
 ) {
     fn walk(
         value: &SonicValue,
         rule: Option<&TextRule>,
         path: &mut String,
-        visit: &mut impl FnMut(&str, &str, TextFormat),
+        top_level: bool,
+        visit: &mut impl FnMut(&str, &str, TextFormat, bool),
     ) {
         if rule.is_some_and(|rule| rule.excluded) {
             return;
@@ -201,7 +214,7 @@ pub(crate) fn visit_sonic_text(
             // Source verification uses serde_json::Number, whose spelling can
             // differ from the source lexeme (for example exponent notation).
             if let Ok(number) = number.as_str().parse::<serde_json::Number>() {
-                visit(path, &number.to_string(), TextFormat::Plain);
+                visit(path, &number.to_string(), TextFormat::Plain, top_level);
             }
             return;
         }
@@ -222,6 +235,7 @@ pub(crate) fn visit_sonic_text(
                         child,
                         rule.and_then(|rule| rule.properties.get(name)),
                         path,
+                        false,
                         visit,
                     );
                     path.truncate(length);
@@ -235,6 +249,7 @@ pub(crate) fn visit_sonic_text(
                         child,
                         rule.and_then(|rule| rule.items.as_deref()),
                         path,
+                        false,
                         visit,
                     );
                 }
@@ -245,13 +260,15 @@ pub(crate) fn visit_sonic_text(
                 text,
                 rule.and_then(|rule| rule.format)
                     .unwrap_or(TextFormat::Plain),
+                top_level,
             ),
             ValueRef::Bool(boolean) => visit(
                 path,
                 if boolean { "true" } else { "false" },
                 TextFormat::Plain,
+                top_level,
             ),
-            ValueRef::Null => visit(path, "null", TextFormat::Plain),
+            ValueRef::Null => visit(path, "null", TextFormat::Plain, top_level),
             ValueRef::Number(_) => unreachable!("raw numbers enabled"),
         }
     }
@@ -264,10 +281,10 @@ pub(crate) fn visit_sonic_text(
         }
         for (name, child) in last {
             path.push_str(name);
-            walk(child, rules.fields.get(name), &mut path, visit);
+            walk(child, rules.fields.get(name), &mut path, true, visit);
             path.clear();
         }
     } else {
-        walk(value, None, &mut path, visit);
+        walk(value, None, &mut path, false, visit);
     }
 }

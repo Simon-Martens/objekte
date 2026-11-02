@@ -268,6 +268,8 @@ impl Repository {
                     },
                     matcher.raw,
                     matcher.candidate_literal,
+                    requested_fields.as_ref(),
+                    |value, format| matcher.matches_value(value, format),
                 ));
             }
             if let Some(filter) = &collection_filter
@@ -284,7 +286,9 @@ impl Repository {
                         .any(|field| picker.has_array_value(field));
                 if !risk {
                     let required = filter.required_top_level_fields();
-                    let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
+                    let values_pattern = (!filter.references_indexed_field(picker.typed_fields()))
+                        .then(|| filter.values_prefilter().map(|(_, pattern)| pattern))
+                        .flatten();
                     let typed_plan = filter.typed_plan();
                     if values_pattern.is_some() || typed_plan.is_some() || !required.is_empty() {
                         let allowed = picker.candidate_slot_selection(

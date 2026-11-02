@@ -261,10 +261,13 @@ impl FilePicker {
         encoding: BigramEncoding,
     ) -> Result<Option<Self>> {
         let (mut snapshot, snapshot_path) = cached;
-        if snapshot
+        let scalar_snapshot = snapshot
             .as_ref()
-            .is_some_and(|saved| saved.filter.encoding() != encoding)
-        {
+            .is_some_and(BigramSnapshot::uses_scalar_postings);
+        if snapshot.as_ref().is_some_and(|saved| {
+            saved.filter.encoding() != encoding
+                || (!indexes.is_empty() && !saved.uses_scalar_postings())
+        }) {
             if unchecked {
                 return Ok(None);
             }
@@ -421,6 +424,16 @@ impl FilePicker {
             && (!unchecked || !definitions.is_empty())
             && snapshot_path
                 .is_some_and(|path| picker.load_secondary_snapshot(path).unwrap_or(false));
+        if scalar_snapshot && !loaded_secondary {
+            // Without the companion's configuration fingerprint, an older
+            // base filter may omit fields that are no longer typed-indexed.
+            if unchecked {
+                source.finish()?;
+                return Ok(None);
+            }
+            picker.loaded_snapshot = false;
+            picker.snapshot_dirty = false;
+        }
         if unchecked && !loaded_secondary && !definitions.is_empty() {
             source.finish()?;
             return Ok(None);
@@ -442,7 +455,14 @@ impl FilePicker {
             picker.changed_bigrams = restored.changed_bigrams;
             picker.key_summary.saturate();
         } else {
-            picker.rebuild_index_from_source(&source, restored)?;
+            picker.rebuild_index_from_source(
+                &source,
+                if scalar_snapshot && !loaded_secondary {
+                    None
+                } else {
+                    restored
+                },
+            )?;
         }
         if !loaded_secondary {
             picker
@@ -494,6 +514,7 @@ impl FilePicker {
             &self.changed.iter().copied().collect::<Vec<_>>(),
             &self.changed_bigrams,
             &self.index,
+            !self.typed.fields().is_empty(),
         )?;
         self.save_secondary_snapshot(path)
     }
@@ -535,6 +556,10 @@ impl FilePicker {
 
     pub(crate) fn typed_scalar_safe(&self, path: &crate::JsonPath) -> bool {
         self.typed.scalar_safe(path)
+    }
+
+    pub(crate) fn typed_fields(&self) -> &[String] {
+        self.typed.fields()
     }
 
     pub(crate) fn view_ordered_slots(

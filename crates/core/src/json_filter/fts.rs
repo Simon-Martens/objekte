@@ -41,7 +41,13 @@ fn declared_format(fields: &BTreeMap<String, Field>, path: &JsonPath) -> Option<
 
 fn bind_field(field: &mut FieldOperand, fields: &BTreeMap<String, Field>) {
     if field.modifier == Some(Modifier::Fts) {
-        field.modifier = declared_format(fields, &field.path).map(Modifier::Rendered);
+        field.modifier = if let [JsonPathStep::Key(name)] = field.path.as_slice()
+            && fields.get(name).is_some_and(|declared| declared.index)
+        {
+            None
+        } else {
+            declared_format(fields, &field.path).map(Modifier::Rendered)
+        };
     }
 }
 

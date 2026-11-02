@@ -6,6 +6,7 @@ use crate::{
     text::{render_text, visit_json_text},
 };
 use regex::Regex;
+use std::borrow::Cow;
 use unicode_casefold::UnicodeCaseFold;
 
 
@@ -16,6 +17,7 @@ pub(super) struct TextMatcher {
     pub(super) candidate_literal: bool,
     pub(super) raw: bool,
     fold_word: bool,
+    ascii_word: Option<Vec<u8>>,
 }
 
 
@@ -50,6 +52,33 @@ fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
 
 
 impl TextMatcher {
+    fn ascii_contains(text: &[u8], word: &[u8]) -> bool {
+        text.windows(word.len())
+            .any(|part| part.eq_ignore_ascii_case(word))
+    }
+
+    pub(super) fn matches_value(&self, value: &str, format: crate::TextFormat) -> bool {
+        let text = if self.raw
+            || (format == crate::TextFormat::Plain && !value.chars().any(char::is_whitespace))
+        {
+            Some(Cow::Borrowed(value))
+        } else {
+            render_text(value, format).map(Cow::Owned)
+        };
+        text.is_some_and(|text| {
+            if let Some(word) = &self.ascii_word
+                && text.is_ascii()
+            {
+                return Self::ascii_contains(text.as_bytes(), word);
+            }
+            if self.fold_word {
+                self.regex.is_match(&text.case_fold().collect::<String>())
+            } else {
+                self.regex.is_match(&text)
+            }
+        })
+    }
+
     pub(super) fn compile(request: &TextQuery) -> Result<Self> {
         if request.pattern.len() > 16 * 1024 || request.pattern.is_empty() {
             return Err(Error::Request(
@@ -88,6 +117,8 @@ impl TextMatcher {
             .build()
             .map_err(|error| Error::Request(format!("invalid text regex: {error}")))?;
         let candidate_base = candidate_base.as_deref().unwrap_or(&pattern);
+        let ascii_word = (word_mode && fold_word && candidate_base.is_ascii())
+            .then(|| candidate_base.as_bytes().to_vec());
         let candidate_pattern = if word_mode {
             Some(candidate_base.to_owned())
         } else if !candidate_base.is_ascii() && !request.case_sensitive {
@@ -105,6 +136,7 @@ impl TextMatcher {
             candidate_literal: word_mode,
             raw,
             fold_word,
+            ascii_word,
         })
     }
 
@@ -125,18 +157,7 @@ impl TextMatcher {
                 if selected.is_some_and(|selected| !selected.contains(name)) {
                     return;
                 }
-                let text = if self.raw {
-                    Some(value.to_owned())
-                } else {
-                    render_text(value, format)
-                };
-                if text.is_some_and(|text| {
-                    if self.fold_word {
-                        self.regex.is_match(&text.case_fold().collect::<String>())
-                    } else {
-                        self.regex.is_match(&text)
-                    }
-                }) {
+                if self.matches_value(value, format) {
                     fields.insert(name.to_owned());
                     if include_indices {
                         matched_paths.push(indexed_path(name, indices));

@@ -12,6 +12,9 @@ use crate::{
 };
 pub(crate) use fts::FtsPlan;
 pub(crate) use metadata_plan::{MetadataDecision, MetadataIdHint, MetadataPathHint};
+pub(crate) fn like_pattern(pattern: &str, ignore_case: bool) -> pattern::Like {
+    pattern::Like::new(pattern, false, ignore_case)
+}
 use num_bigint::BigInt;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -310,6 +313,7 @@ pub(crate) enum TypedPlan {
     Present(JsonPath),
     Missing(JsonPath),
     Prefix(JsonPath, String),
+    Like(JsonPath, String, bool),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -559,6 +563,31 @@ impl JsonFilter {
             .collect()
     }
 
+    pub(crate) fn references_indexed_field(&self, indexed: &[String]) -> bool {
+        fn operand_indexed(operand: &Operand, indexed: &[String]) -> bool {
+            matches!(operand, Operand::Field(FieldOperand {
+                path,
+                metadata: None,
+                ..
+            }) if matches!(path.first(), Some(JsonPathStep::Key(name)) if indexed.binary_search(name).is_ok()))
+        }
+
+        fn references(expr: &Expr, indexed: &[String]) -> bool {
+            match expr {
+                Expr::And(parts) | Expr::Or(parts) => {
+                    parts.iter().any(|part| references(part, indexed))
+                }
+                Expr::Exists(path) | Expr::Missing(path) => {
+                    matches!(path.first(), Some(JsonPathStep::Key(name)) if indexed.binary_search(name).is_ok())
+                }
+                Expr::Compare { left, right, .. } => {
+                    operand_indexed(left, indexed) || operand_indexed(right, indexed)
+                }
+            }
+        }
+        references(&self.expr, indexed)
+    }
+
     /// Top-level keys required by every possible match, including OR branches.
     pub(crate) fn required_top_level_fields(&self) -> Vec<String> {
         fn first_key(path: &JsonPath) -> Option<String> {
@@ -616,10 +645,16 @@ impl JsonFilter {
                     op: Op::Contains,
                     right: Operand::Literal(Value::String(pattern)),
                     any: false,
-                    ignore_case: false,
+                    ignore_case,
                 } if field.modifier.is_none() && field.metadata.is_none() => {
-                    pattern::Like::anchored_prefix(pattern)
-                        .map(|prefix| TypedPlan::Prefix(field.path.clone(), prefix))
+                    if !ignore_case && let Some(prefix) = pattern::Like::anchored_prefix(pattern) {
+                        return Some(TypedPlan::Prefix(field.path.clone(), prefix));
+                    }
+                    Some(TypedPlan::Like(
+                        field.path.clone(),
+                        pattern.clone(),
+                        *ignore_case,
+                    ))
                 }
                 Expr::Compare {
                     left,

@@ -31,8 +31,17 @@ fn reference_value_text(value: &Value, out: &mut String) {
     }
 }
 
-fn reference_indexed_value_text(value: &Value, out: &mut String) {
-    reference_value_text(value, out);
+fn reference_indexed_value_text(value: &Value, indexed: &[String], out: &mut String) {
+    if let Some(fields) = value.as_object() {
+        for (name, child) in fields {
+            if indexed.binary_search(name).is_ok() && !child.is_array() && !child.is_object() {
+                continue;
+            }
+            reference_value_text(child, out);
+        }
+    } else {
+        reference_value_text(value, out);
+    }
     if !out.is_ascii() {
         let folded = out.case_fold().collect::<String>();
         if folded != out.to_ascii_lowercase() {
@@ -72,7 +81,7 @@ fn sonic_projection_matches_full_json_semantics() {
                 .unwrap();
         let full = parse(raw).unwrap();
         let mut expected = String::new();
-        reference_indexed_value_text(&full, &mut expected);
+        reference_indexed_value_text(&full, &indexed, &mut expected);
         assert_eq!(projection.bytes, expected.into_bytes(), "{raw}");
         let object = full.as_object();
         let expected_arrays = object.map_or_else(Vec::new, |fields| {

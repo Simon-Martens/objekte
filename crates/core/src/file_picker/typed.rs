@@ -174,6 +174,47 @@ impl TypedIndex {
         &self.fields
     }
 
+    /// Match distinct scalar keys once, then expand their immutable postings.
+    /// Changed and appended slots are verified from source by the caller.
+    pub(super) fn text_matching_bits(
+        &self,
+        slot_count: usize,
+        selected: Option<&BTreeSet<&str>>,
+        rules: &crate::text::TextRules,
+        mut matches: impl FnMut(&str, crate::TextFormat) -> bool,
+    ) -> Option<Vec<u64>> {
+        let mut bits: Option<Vec<u64>> = None;
+        for (name, postings) in self.fields.iter().zip(&self.postings) {
+            if selected.is_some_and(|fields| !fields.contains(name.as_str())) {
+                continue;
+            }
+            let Some(format) = rules.scalar_format(name) else {
+                continue;
+            };
+            let bits = bits.get_or_insert_with(|| vec![0_u64; slot_count.div_ceil(64)]);
+            for (key, slots) in postings {
+                let value = match key {
+                    TypedKey::String(value) | TypedKey::Number(value) => value.as_str(),
+                    TypedKey::Bool(true) => "true",
+                    TypedKey::Bool(false) => "false",
+                    TypedKey::Null => "null",
+                    TypedKey::Missing => continue,
+                };
+                let format = if matches!(key, TypedKey::String(_)) {
+                    format
+                } else {
+                    crate::TextFormat::Plain
+                };
+                if matches(value, format) {
+                    for &slot in slots {
+                        bits[slot / 64] |= 1 << (slot % 64);
+                    }
+                }
+            }
+        }
+        bits
+    }
+
     pub(super) fn valid_for_slots(&self, slots: usize) -> bool {
         self.postings.len() == self.fields.len()
             && self
@@ -286,6 +327,9 @@ impl TypedIndex {
             TypedPlan::Missing(path) => self.missing_bits(path, slot_count),
             TypedPlan::Present(path) => self.present_bits(path),
             TypedPlan::Prefix(path, prefix) => self.prefix_bits(path, prefix, slot_count),
+            TypedPlan::Like(path, pattern, ignore_case) => {
+                self.like_bits(path, pattern, *ignore_case, slot_count)
+            }
             TypedPlan::And(parts) => {
                 let mut combined: Option<Vec<u64>> = None;
                 for part in parts {
@@ -425,6 +469,28 @@ impl TypedIndex {
             }
             for &slot in slots {
                 bits[slot / 64] |= 1 << (slot % 64);
+            }
+        }
+        Some(bits)
+    }
+
+    fn like_bits(
+        &self,
+        path: &JsonPath,
+        pattern: &str,
+        ignore_case: bool,
+        slot_count: usize,
+    ) -> Option<Vec<u64>> {
+        let postings = self.posting_for(path)?;
+        let matcher = crate::json_filter::like_pattern(pattern, ignore_case);
+        let mut bits = vec![0_u64; slot_count.div_ceil(64)];
+        for (key, slots) in postings {
+            if let TypedKey::String(value) = key
+                && matcher.matches(value)
+            {
+                for &slot in slots {
+                    bits[slot / 64] |= 1 << (slot % 64);
+                }
             }
         }
         Some(bits)

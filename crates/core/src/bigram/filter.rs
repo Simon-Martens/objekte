@@ -612,6 +612,7 @@ impl BigramIndexBuilder {
 
         BigramFilter {
             encoding: self.encoding,
+            scalar_postings: false,
             rare_keys,
             lookup,
             dense_data,
@@ -699,6 +700,8 @@ unsafe impl Send for BigramIndexBuilder {}
 #[derive(Debug)]
 pub struct BigramFilter {
     pub(super) encoding: BigramEncoding,
+    /// Snapshot projection marker; standalone filter encoding does not use it.
+    pub(super) scalar_postings: bool,
     pub(super) lookup: Vec<u16>,
     pub(super) rare_keys: Vec<u64>,
     /// Flat buffer of all dense column data laid out at fixed stride `words`.
@@ -967,6 +970,7 @@ impl BigramFilter {
         };
         Self {
             encoding: BigramEncoding::Ascii,
+            scalar_postings: false,
             lookup,
             rare_keys: vec![0; BIGRAM_KEY_SLOTS.div_ceil(64)],
             dense_data,

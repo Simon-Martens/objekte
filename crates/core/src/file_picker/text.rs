@@ -64,10 +64,21 @@ impl TextIndexBuilders {
 }
 
 
-pub(super) fn project_text(value: &SonicValue, rules: &TextRules) -> TextContent {
+pub(super) fn project_text(
+    value: &SonicValue,
+    rules: &TextRules,
+    indexed_fields: &[String],
+) -> TextContent {
     let mut clean = String::new();
     let mut raw = String::new();
-    visit_sonic_text(value, rules, &mut |_, value, format| {
+    visit_sonic_text(value, rules, &mut |path, value, format, top_level| {
+        if top_level
+            && indexed_fields
+                .binary_search_by(|field| field.as_str().cmp(path))
+                .is_ok()
+        {
+            return;
+        }
         raw.push_str(value);
         raw.push('\u{1f}');
         if let Some(rendered) = render_text(value, format) {
@@ -169,11 +180,24 @@ impl FilePicker {
         pattern: Option<&str>,
         raw: bool,
         literal: bool,
+        selected: Option<&std::collections::BTreeSet<&str>>,
+        matches: impl FnMut(&str, crate::TextFormat) -> bool,
     ) -> super::candidates::SlotSelection {
-        super::candidates::SlotSelection::from_bits(
-            self,
-            self.text_candidate_bits(pattern, raw, literal),
-        )
+        let mut bits = self.text_candidate_bits(pattern, raw, literal);
+        if let Some(base) = bits.as_mut() {
+            let typed = self.typed.text_matching_bits(
+                self.files.len(),
+                selected,
+                &self.text_rules,
+                matches,
+            );
+            if let Some(typed) = typed {
+                for (word, additional) in base.iter_mut().zip(typed) {
+                    *word |= additional;
+                }
+            }
+        }
+        super::candidates::SlotSelection::from_bits(self, bits)
     }
 
     pub(crate) fn text_index_bytes(&self) -> Option<usize> {
@@ -230,7 +254,9 @@ impl FilePicker {
                         project_malformed_text(&crate::text::malformed_search_text(&bytes))
                     } else {
                         match sonic_rs::from_slice::<SonicValue>(&bytes) {
-                            Ok(parsed) => project_text(&parsed, &self.text_rules),
+                            Ok(parsed) => {
+                                project_text(&parsed, &self.text_rules, self.typed.fields())
+                            }
                             Err(_) => {
                                 project_malformed_text(&crate::text::malformed_search_text(&bytes))
                             }

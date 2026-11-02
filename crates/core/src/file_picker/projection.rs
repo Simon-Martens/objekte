@@ -179,7 +179,7 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
         return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
     };
     let mut values = String::new();
-    if append_values(&parsed, &mut values, 0).is_err() {
+    if append_values_except_indexed(&parsed, indexed_fields, &mut values).is_err() {
         return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
     }
     if let Some((paths, rows, slot)) = postings {
@@ -245,7 +245,9 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     };
     Ok(ProjectionOutcome::Valid(Projection {
         bytes: values.into_bytes(),
-        text: options.text_rules.map(|rules| project_text(&parsed, rules)),
+        text: options
+            .text_rules
+            .map(|rules| project_text(&parsed, rules, indexed_fields)),
         array_fields,
         present_fields,
         typed_values,
@@ -351,6 +353,36 @@ fn append_values(
             for value in last.values() {
                 append_values(value, out, depth + 1)?;
             }
+        }
+    }
+    Ok(())
+}
+
+/// Keep invalid container values searchable. Only scalar values that have a
+/// complete typed posting can be omitted from the general bigram projection.
+fn append_values_except_indexed(
+    value: &SonicValue,
+    indexed_fields: &[String],
+    out: &mut String,
+) -> std::result::Result<(), ()> {
+    let ValueRef::Object(fields) = value.as_ref() else {
+        return append_values(value, out, 0);
+    };
+    let mut last = BTreeMap::new();
+    for (name, child) in fields {
+        if let Some(previous) = last.insert(name, child) {
+            validate_value(previous, 1)?;
+        }
+    }
+    for (name, child) in last {
+        if indexed_fields
+            .binary_search_by(|field| field.as_str().cmp(name))
+            .is_ok()
+            && !matches!(child.as_ref(), ValueRef::Array(_) | ValueRef::Object(_))
+        {
+            validate_value(child, 1)?;
+        } else {
+            append_values(child, out, 1)?;
         }
     }
     Ok(())

@@ -68,7 +68,7 @@ fn corrupted_secondary_payload_is_rebuilt_without_publishing_its_view_columns() 
 
     let mut restored = f.repo(CacheMode::Memory);
     restored.warm_bigram_index("books").unwrap();
-    assert_eq!(restored.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(restored.metrics().bigram_snapshot_loads, 0);
     assert_eq!(restored.metrics().secondary_snapshot_loads, 0);
     let request = ViewRequest {
         count: true,
@@ -84,7 +84,7 @@ fn corrupted_secondary_payload_is_rebuilt_without_publishing_its_view_columns() 
 }
 
 #[test]
-fn older_secondary_layout_is_a_cache_miss_but_portable_filter_restores() {
+fn older_secondary_layout_rebuilds_scalar_projection() {
     let f = Fixture::new();
     let path = f
         .repo(CacheMode::Memory)
@@ -97,7 +97,7 @@ fn older_secondary_layout_is_a_cache_miss_but_portable_filter_restores() {
 
     let mut reopened = f.repo(CacheMode::Memory);
     reopened.warm_bigram_index("books").unwrap();
-    assert_eq!(reopened.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(reopened.metrics().bigram_snapshot_loads, 0);
     assert_eq!(reopened.metrics().secondary_snapshot_loads, 0);
     let query = JsonQuery {
         filter: "score >= 2".into(),
@@ -114,7 +114,7 @@ fn older_secondary_layout_is_a_cache_miss_but_portable_filter_restores() {
 }
 
 #[test]
-fn schema_change_rebuilds_only_secondary_cache_once() {
+fn schema_change_rebuilds_base_and_secondary_cache_once() {
     let f = Fixture::new();
     f.repo(CacheMode::Memory)
         .save_bigram_cache("books")
@@ -124,7 +124,7 @@ fn schema_change_rebuilds_only_secondary_cache_once() {
     });
     let mut rebuilt = f.repo(CacheMode::Memory);
     rebuilt.warm_bigram_index("books").unwrap();
-    assert_eq!(rebuilt.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(rebuilt.metrics().bigram_snapshot_loads, 0);
     assert_eq!(rebuilt.metrics().secondary_snapshot_loads, 0);
 
     let mut restored = f.repo(CacheMode::Memory);

@@ -20,6 +20,7 @@ use std::{
 const MAGIC_JSON: &[u8; 8] = b"OBJSNP01";
 const MAGIC_BINARY: &[u8; 8] = b"OBJSNP02";
 const MAGIC_ENCODING: &[u8; 8] = b"OBJSNP03";
+const MAGIC_SCALAR_POSTINGS: &[u8; 8] = b"OBJSNP04";
 const HEADER_LEN: usize = 8 + 8 + 8 + 32;
 const MAX_SNAPSHOT_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 
@@ -437,6 +438,7 @@ impl BigramSnapshot {
                 bigram_encoding: self.filter.encoding().as_str(),
             },
             &self.filter,
+            self.filter.scalar_postings,
         )
     }
 
@@ -477,9 +479,14 @@ impl BigramSnapshot {
             changed_slots,
             changed_bigrams,
             filter,
+            false,
         )
     }
 
+    #[expect(
+        clippy::too_many_arguments,
+        reason = "snapshot metadata and encoding are independent inputs"
+    )]
     pub(crate) fn save_filter_with_changes_borrowed<F: SnapshotFiles + ?Sized>(
         path: &Path,
         source_root: &Path,
@@ -488,6 +495,7 @@ impl BigramSnapshot {
         changed_slots: &[usize],
         changed_bigrams: &BTreeMap<usize, Vec<u16>>,
         filter: &BigramFilter,
+        scalar_postings: bool,
     ) -> Result<()> {
         let source_root = fs::canonicalize(source_root).map_err(|error| io(source_root, error))?;
         let git_commit = current_git_commit(&source_root)?;
@@ -504,13 +512,19 @@ impl BigramSnapshot {
                 bigram_encoding: filter.encoding().as_str(),
             },
             filter,
+            scalar_postings,
         )
+    }
+
+    pub(crate) fn uses_scalar_postings(&self) -> bool {
+        self.filter.scalar_postings
     }
 
     fn write_parts<F: SnapshotFiles + ?Sized>(
         path: &Path,
         manifest: ManifestBinaryRef<'_, F>,
         filter: &BigramFilter,
+        scalar_postings: bool,
     ) -> Result<()> {
         validate_files_ref(manifest.files.0, filter.file_count())?;
         validate_changes(manifest.changed_slots, filter.file_count())?;
@@ -551,7 +565,11 @@ impl BigramSnapshot {
             )
         };
         let mut header = [0_u8; HEADER_LEN];
-        header[..8].copy_from_slice(MAGIC_ENCODING);
+        header[..8].copy_from_slice(if scalar_postings {
+            MAGIC_SCALAR_POSTINGS
+        } else {
+            MAGIC_ENCODING
+        });
         header[8..16].copy_from_slice(&manifest_len.to_le_bytes());
         header[16..24].copy_from_slice(&filter_len.to_le_bytes());
         header[24..].copy_from_slice(&digest);
@@ -588,7 +606,8 @@ impl BigramSnapshot {
         if size < HEADER_LEN as u64
             || (&header[..8] != MAGIC_JSON
                 && &header[..8] != MAGIC_BINARY
-                && &header[..8] != MAGIC_ENCODING)
+                && &header[..8] != MAGIC_ENCODING
+                && &header[..8] != MAGIC_SCALAR_POSTINGS)
         {
             return Err(invalid("unknown format version"));
         }
@@ -648,7 +667,7 @@ impl BigramSnapshot {
             }
             manifest
         };
-        let filter = {
+        let mut filter = {
             let mut section = (&mut reader).take(filter_len);
             BigramFilter::read_from(&mut section, filter_len)?
         };
@@ -666,6 +685,7 @@ impl BigramSnapshot {
         if manifest.bigram_encoding != filter.encoding() {
             return Err(invalid("manifest encoding differs from filter"));
         }
+        filter.scalar_postings = &header[..8] == MAGIC_SCALAR_POSTINGS;
         validate_files(&manifest.files, filter.file_count())?;
         validate_changes(&manifest.changed_slots, filter.file_count())?;
         validate_changed_bigrams(&manifest.changed_slots, &manifest.changed_bigrams)?;

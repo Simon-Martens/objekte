@@ -197,6 +197,9 @@ impl Repository {
             }
             let candidate_started = Instant::now();
             let picker = self.file_pickers.get(&c.name).unwrap();
+            let values_pattern = (!filter.references_indexed_field(picker.typed_fields()))
+                .then_some(values_pattern)
+                .flatten();
             let optimistic = !picker.verified();
             // Undeclared fields can have any JSON shape. Scan that collection
             // for scalar cardinality errors without slowing indexed collections.

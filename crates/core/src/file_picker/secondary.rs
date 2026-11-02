@@ -136,7 +136,11 @@ fn base_digest(path: &Path) -> Result<[u8; 32]> {
     let mut header = [0_u8; 56];
     file.read_exact(&mut header)
         .map_err(|error| io(path, error))?;
-    if &header[..8] != b"OBJSNP01" && &header[..8] != b"OBJSNP02" && &header[..8] != b"OBJSNP03" {
+    if &header[..8] != b"OBJSNP01"
+        && &header[..8] != b"OBJSNP02"
+        && &header[..8] != b"OBJSNP03"
+        && &header[..8] != b"OBJSNP04"
+    {
         return Err(Error::Cache("unknown bigram snapshot version".into()));
     }
     Ok(header[24..56].try_into().expect("digest length"))
@@ -157,7 +161,11 @@ pub(super) fn config_digest(
         definitions,
         language,
         encoding,
-        "icu_collator/2.4.0",
+        if indexes.is_empty() {
+            "icu_collator/2.4.0"
+        } else {
+            "icu_collator/2.4.0/scalar_postings_v1"
+        },
     ))
     .map_err(|error| Error::Cache(format!("cannot encode index config: {error}")))?;
     Ok(Sha256::digest(bytes).into())

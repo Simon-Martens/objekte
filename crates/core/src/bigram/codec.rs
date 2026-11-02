@@ -411,6 +411,7 @@ fn read_filter<R: Read>(
     }
     Ok(BigramFilter {
         encoding,
+        scalar_postings: false,
         lookup,
         rare_keys,
         dense_data,

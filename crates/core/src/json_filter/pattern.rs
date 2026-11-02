@@ -14,7 +14,7 @@ enum Token {
 
 // INFO: Compiled LIKE pattern tokens and validity state.
 #[derive(Debug)]
-pub(super) struct Like {
+pub(crate) struct Like {
     tokens: Vec<Token>,
     valid: bool,
     ignore_case: bool,
