@@ -1,14 +1,14 @@
-*Objekte* allows to query, filter, select and sort json file datasets just like a real DB. It works with or without using json schema for type hints; including validation. It builds and maintain efficient B-Tree indices for structual access to selected paths and provides very fast full-text search and grep matching in field values. It supports specially declared string types (eg. markdown or XML). 
+*objekte* allows to query, filter, select and sort json file datasets just like a DB. It works with or without using json schema for type hints; it includes querying validation state. It builds and maintains efficient B-Tree indices for structual access to selected paths and provides very fast full-text search and grep matching in field values, supporting specially declared string types (eg. markdown or XML). 
 
-**Important:** we use a small in-memory index to speed up queries. Objekte is therefore not a replacement for *jq* or other one-shot-query engines. Also, we provide text search features just like full Regex, unescaping, markdown and XML Tag skips etc. For very basic access to the raw bytes use *ripgrep*.
+**Important:** objekte uses a small in-memory index to speed up queries. It is therefore not a replacement for **jq** or other one-shot-query engines. Also, it provides text search features like full regex support, JSON unescaping, markdown and XML Tag skips, whitespace normaization etc. If very basic access to the raw bytes of the files is enough use **ripgrep**.
 
-The goal of objekte is to provide conveniant access to potentially millions of data files via full-text or structured queries. To archieve low millisecond results, the library builds different kinds of indeces: for bools, enums & numbers it builds B-Trees, for full text indexing it builds multiple levels of tracked bigram bloom filters. All indices can be marshalled, read and updated.
+The goal of objekte is to provide conveniant access to potentially millions of data files via full-text or structured queries. To archieve low millisecond results, the library builds different kinds of indeces: for bools, enums & numbers it builds B-Trees, for full text indexing it builds multiple layers of somewhat bloom-like tracked bigram filters. All indices can be marshalled, read and updated.
 
-Ojekte is heavily SIMD-accelerated and requires AVX2 (Ineel & AMD) or AdvSIMD (ARM & Mac) support. It consists of three parts:
+objekte is heavily SIMD-accelerated and requires AVX2/NEON instructions support by the CPU. It consists of three parts:
 
-- The library: used to privide all the neccessary index, search and query functionality.
-- A cmd/TUI: used mainly for testing, allows quick queries against a data repository
-- A GUI: unfinished.
+- **Core library:** used to privide all the neccessary index, search and query functionality
+- **cli/TUI:** used mainly for testing, allows quick queries against a data repository
+- **GUI:** unfinished
 
 - [Collections and schemas](collections.md): discovery, nested IDs, and index declarations.
 - [Query examples](queries.md): runnable Musenalm commands, sorting, and output.
