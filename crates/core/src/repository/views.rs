@@ -49,11 +49,7 @@ impl Repository {
         }
         let first = &plan.sorts[0];
         let order = if first.field == "@id" && plan.sorts.len() == 1 {
-            let mut order = picker.sorted_slots().to_vec();
-            if first.direction == Direction::Desc {
-                order.reverse();
-            }
-            Some(order)
+            Some(picker.view_id_order(first.direction))
         } else if plan.sorts.len() == 2
             && plan.sorts[1].field == "@id"
             && plan.sorts[1].direction == Direction::Asc
@@ -71,9 +67,8 @@ impl Repository {
             let order = order.expect("indexed order");
             let total = plan
                 .count
-                .then(|| order.iter().filter(|&&slot| included(slot)).count());
+                .then(|| order.clone().filter(|&slot| included(slot)).count());
             let entries = order
-                .into_iter()
                 .filter(|&slot| included(slot))
                 .skip(plan.offset)
                 .take(plan.limit)

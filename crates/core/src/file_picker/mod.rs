@@ -541,8 +541,12 @@ impl FilePicker {
         &self,
         field: &str,
         direction: Direction,
-    ) -> Option<Vec<usize>> {
+    ) -> Option<view::ViewOrder<'_>> {
         self.view.ordered_slots(field, direction)
+    }
+
+    pub(crate) fn view_id_order(&self, direction: Direction) -> view::ViewOrder<'_> {
+        view::ViewOrder::ids(&self.sorted, direction)
     }
 
     pub(crate) fn view_filter_bits(

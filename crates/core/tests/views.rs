@@ -69,6 +69,56 @@ fn all_sortable_fields_directions_and_pagination_match() {
 }
 
 #[test]
+fn borrowed_index_order_matches_direct_pages_with_states_and_filters() {
+    let f = Fixture::new();
+    f.edit("data/books/a.json", |value| {
+        value["score"] = json!("invalid")
+    });
+    std::fs::write(f.root.join("data/books/g.json"), b"{malformed").unwrap();
+    let mut direct = f.repo(CacheMode::Disabled);
+    let mut memory = f.repo(CacheMode::Memory);
+    for field in ["@id", "score"] {
+        for direction in [Direction::Asc, Direction::Desc] {
+            for count in [false, true] {
+                for offset in [0, 1, 3, 7, 20] {
+                    for filters in [
+                        vec![],
+                        vec![Filter {
+                            field: "status".into(),
+                            operator: Operator::Eq,
+                            value: json!("draft"),
+                        }],
+                    ] {
+                        let request = ViewRequest {
+                            filters,
+                            sort: Some(Sort {
+                                field: field.into(),
+                                direction,
+                            }),
+                            offset,
+                            limit: Some(2),
+                            count,
+                            ..Default::default()
+                        };
+                        let expected = direct.open_view("books", &request).unwrap();
+                        let actual = memory.open_view("books", &request).unwrap();
+                        assert_eq!(actual.rows, expected.rows, "{field} {direction:?} {offset}");
+                        assert_eq!(actual.total, expected.total);
+                        if request.filters.is_empty() {
+                            assert!(
+                                actual.query_plan[0].contains("ordered in-memory index"),
+                                "{field} {direction:?} {offset} {:?}",
+                                actual.query_plan
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn large_unindexed_prefix_matches_independent_order_with_ties() {
     let f = Fixture::new();
     let mut expected = Vec::new();

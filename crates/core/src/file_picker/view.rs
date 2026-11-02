@@ -21,6 +21,96 @@ pub(super) struct ViewIndex {
 }
 
 
+/// Traverse an existing slot order without copying it for a small page.
+#[derive(Clone)]
+pub(crate) enum ViewOrder<'a> {
+    Asc(std::iter::Copied<std::slice::Iter<'a, usize>>),
+    DescIds(std::iter::Copied<std::iter::Rev<std::slice::Iter<'a, usize>>>),
+    DescValues(DescendingValues<'a>),
+}
+
+
+#[derive(Clone)]
+pub(crate) struct DescendingValues<'a> {
+    order: &'a [usize],
+    keys: &'a [Scalar],
+    next_end: usize,
+    group_at: usize,
+    group_end: usize,
+    tail_at: usize,
+}
+
+
+impl<'a> ViewOrder<'a> {
+    pub(crate) fn ids(order: &'a [usize], direction: Direction) -> Self {
+        match direction {
+            Direction::Asc => Self::Asc(order.iter().copied()),
+            Direction::Desc => Self::DescIds(order.iter().rev().copied()),
+        }
+    }
+
+    fn values(order: &'a [usize], keys: &'a [Scalar], direction: Direction) -> Self {
+        match direction {
+            Direction::Asc => Self::Asc(order.iter().copied()),
+            Direction::Desc => {
+                let valid_end = order.partition_point(|&slot| keys[slot].state() == 0);
+                Self::DescValues(DescendingValues {
+                    order,
+                    keys,
+                    next_end: valid_end,
+                    group_at: valid_end,
+                    group_end: valid_end,
+                    tail_at: valid_end,
+                })
+            }
+        }
+    }
+}
+
+
+impl Iterator for ViewOrder<'_> {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            Self::Asc(order) => order.next(),
+            Self::DescIds(order) => order.next(),
+            Self::DescValues(order) => order.next(),
+        }
+    }
+}
+
+
+impl Iterator for DescendingValues<'_> {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.group_at < self.group_end {
+            let slot = self.order[self.group_at];
+            self.group_at += 1;
+            return Some(slot);
+        }
+        if self.next_end > 0 {
+            let end = self.next_end;
+            let mut start = end - 1;
+            while start > 0
+                && self.keys[self.order[start - 1]].cmp(&self.keys[self.order[end - 1]])
+                    == Ordering::Equal
+            {
+                start -= 1;
+            }
+            self.next_end = start;
+            self.group_at = start + 1;
+            self.group_end = end;
+            return Some(self.order[start]);
+        }
+        let slot = self.order.get(self.tail_at).copied();
+        self.tail_at += usize::from(slot.is_some());
+        slot
+    }
+}
+
+
 #[derive(Serialize)]
 pub(super) struct SavedViewIndex<'a> {
     fields: &'a [String],
@@ -230,33 +320,16 @@ impl ViewIndex {
         }
     }
 
-    pub(super) fn ordered_slots(&self, field: &str, direction: Direction) -> Option<Vec<usize>> {
+    pub(super) fn ordered_slots(&self, field: &str, direction: Direction) -> Option<ViewOrder<'_>> {
         let index = self
             .fields
             .binary_search_by(|name| name.as_str().cmp(field))
             .ok()?;
-        let order = &self.ordered[index];
-        if direction == Direction::Asc {
-            return Some(order.clone());
-        }
-        // States retain their ascending order. Reverse only the order of
-        // distinct valid values, keeping IDs ascending within equal keys.
-        let valid_end = order.partition_point(|&slot| self.keys[index][slot].state() == 0);
-        let mut result = Vec::with_capacity(order.len());
-        let mut end = valid_end;
-        while end > 0 {
-            let mut start = end - 1;
-            while start > 0
-                && self.keys[index][order[start - 1]].cmp(&self.keys[index][order[end - 1]])
-                    == Ordering::Equal
-            {
-                start -= 1;
-            }
-            result.extend_from_slice(&order[start..end]);
-            end = start;
-        }
-        result.extend_from_slice(&order[valid_end..]);
-        Some(result)
+        Some(ViewOrder::values(
+            &self.ordered[index],
+            &self.keys[index],
+            direction,
+        ))
     }
 
     pub(super) fn filter_bits(
