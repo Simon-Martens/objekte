@@ -1,12 +1,14 @@
-# Objekte documentation
+*Objekte* allows to query, filter, select and sort json file datasets just like a real DB. It works with or without using json schema for type hints; including validation. It builds and maintain efficient B-Tree indices for structual access to selected paths and provides very fast full-text search and grep matching in field values. It supports specially declared string types (eg. markdown or XML). 
 
-Objekte reads JSON files as the source of truth. Collections can be discovered
-from folders or declared in `.objekte/collections/`; named views live separately
-in `.objekte/views/`. Search indexes are derived data. A repository handle
-builds or restores them on first use, and saved snapshots live under
-`.objekte/.cache`.
+**Important:** we use a small in-memory index to speed up queries. Objekte is therefore not a replacement for *jq* or other one-shot-query engines. Also, we provide text search features just like full Regex, unescaping, markdown and XML Tag skips etc. For very basic access to the raw bytes use *ripgrep*.
 
-## Use the library and CLI
+The goal of objekte is to provide conveniant access to potentially millions of data files via full-text or structured queries. To archieve low millisecond results, the library builds different kinds of indeces: for bools, enums & numbers it builds B-Trees, for full text indexing it builds multiple levels of tracked bigram bloom filters. All indices can be marshalled, read and updated.
+
+Ojekte is heavily SIMD-accelerated and requires AVX2 (Ineel & AMD) or AdvSIMD (ARM & Mac) support. It consists of three parts:
+
+- The library: used to privide all the neccessary index, search and query functionality.
+- A cmd/TUI: used mainly for testing, allows quick queries against a data repository
+- A GUI: unfinished.
 
 - [Collections and schemas](collections.md): discovery, nested IDs, and index declarations.
 - [Query examples](queries.md): runnable Musenalm commands, sorting, and output.
