@@ -15,12 +15,32 @@ pub(crate) fn render_text(source: &str, format: TextFormat) -> Option<String> {
     Some(normalize_whitespace(&visible))
 }
 
+/// Append one independently normalized leaf, retaining the destination's capacity.
+pub(crate) fn render_text_into(source: &str, format: TextFormat, output: &mut String) -> bool {
+    if format == TextFormat::Plain {
+        normalize_whitespace_into(source, output);
+        return true;
+    }
+    if let Some(rendered) = render_text(source, format) {
+        output.push_str(&rendered);
+        true
+    } else {
+        false
+    }
+}
+
 fn normalize_whitespace(source: &str) -> String {
     let mut output = String::with_capacity(source.len());
+    normalize_whitespace_into(source, &mut output);
+    output
+}
+
+fn normalize_whitespace_into(source: &str, output: &mut String) {
+    let start = output.len();
     let mut pending_space = false;
     for ch in source.chars() {
         if ch.is_whitespace() {
-            pending_space = !output.is_empty();
+            pending_space = output.len() > start;
         } else {
             if pending_space {
                 output.push(' ');
@@ -29,7 +49,6 @@ fn normalize_whitespace(source: &str) -> String {
             output.push(ch);
         }
     }
-    output
 }
 
 fn boundary(output: &mut String) {

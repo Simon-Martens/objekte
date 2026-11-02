@@ -62,3 +62,14 @@ fn plain_text_large_input_keeps_exact_normalization() {
     assert!(!rendered.contains("  "));
     assert_eq!(render_text("", TextFormat::Plain), Some(String::new()));
 }
+
+#[test]
+fn rendering_into_reused_buffer_preserves_each_leaf_boundary() {
+    let mut output = String::from("previous");
+    for source in ["  A  b  ", "\tÄpfel\u{2003}Straße  ", " ", "C"] {
+        let expected = render_text(source, TextFormat::Plain).unwrap();
+        let start = output.len();
+        assert!(render_text_into(source, TextFormat::Plain, &mut output));
+        assert_eq!(&output[start..], expected);
+    }
+}

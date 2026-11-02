@@ -4,13 +4,11 @@ use super::*;
 use crate::json_filter::MetadataIdHint;
 use std::borrow::Cow;
 
-
 enum SlotMembership {
     All,
     Bits(Vec<u64>),
     Sparse(Vec<usize>),
 }
-
 
 /// Candidate membership is independent of the picker's stable result order.
 /// Sparse candidates keep slots; broad queries keep one bitset or no table.
@@ -18,7 +16,6 @@ pub(crate) struct SlotSelection {
     membership: SlotMembership,
     count: usize,
 }
-
 
 impl SlotSelection {
     pub(crate) fn clear(&mut self) {
@@ -222,7 +219,6 @@ impl SlotSelection {
         Box::new(order.filter(|&slot| picker.files[slot].is_some() && self.contains(slot)))
     }
 }
-
 
 impl FilePicker {
     pub(crate) fn metadata_exact_ready(&self) -> bool {
@@ -543,6 +539,8 @@ impl FilePicker {
                         text_rules: None,
                         text_paths: &[],
                         key_summary: None,
+                        text_scratch: None,
+                        values_scratch: None,
                         #[cfg(feature = "index-timings")]
                         timings: None,
                     },

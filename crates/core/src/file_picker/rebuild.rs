@@ -2,7 +2,6 @@
 
 use super::*;
 
-
 impl FilePicker {
     /// Rebuilds the immutable index after many edits. Source stamps are checked
     /// before and after every read so a racing edit cannot publish a bad index.
@@ -134,6 +133,8 @@ impl FilePicker {
                             .map(|_| ChunkRows::new())
                             .collect::<Vec<_>>();
                         let mut read_buffer = Vec::new();
+                        let mut text_scratch = None;
+                        let mut values_scratch = None;
                         #[cfg(feature = "index-timings")]
                         let mut chunk_project_nanos = 0;
                         #[cfg(feature = "index-timings")]
@@ -165,6 +166,8 @@ impl FilePicker {
                                     text_rules: text_builders.as_ref().map(|_| &self.text_rules),
                                     text_paths: &self.text_paths,
                                     key_summary: Some(&mut chunk_keys),
+                                    text_scratch: Some(&mut text_scratch),
+                                    values_scratch: Some(&mut values_scratch),
                                     #[cfg(feature = "index-timings")]
                                     timings: Some(&mut chunk_stages.projection),
                                 },
@@ -190,8 +193,11 @@ impl FilePicker {
                                     if let Some(builders) = &text_builders {
                                         #[cfg(feature = "index-timings")]
                                         let text_timer = StageTimer::start();
-                                        let content =
-                                            project_malformed_text(&text, self.text_paths.len());
+                                        let mut content =
+                                            text_scratch.take().unwrap_or_else(|| {
+                                                text::TextContent::new(self.text_paths.len())
+                                            });
+                                        project_malformed_text_into(&text, &mut content);
                                         #[cfg(feature = "index-timings")]
                                         {
                                             chunk_stages.projection.field_text += text_timer.stop();
@@ -207,6 +213,7 @@ impl FilePicker {
 
                                         #[cfg(not(feature = "index-timings"))]
                                         builders.add(slot, &content);
+                                        text_scratch = Some(content);
                                     }
 
                                     #[cfg(feature = "index-timings")]
@@ -243,7 +250,7 @@ impl FilePicker {
                                             .insert(slot, keys);
                                     }
                                 }
-                                ProjectionOutcome::Valid(projection) => {
+                                ProjectionOutcome::Valid(mut projection) => {
                                     if restored.is_none() {
                                         #[cfg(feature = "index-timings")]
                                         let main_timer = StageTimer::start();
@@ -279,6 +286,8 @@ impl FilePicker {
                                         #[cfg(not(feature = "index-timings"))]
                                         builders.add(slot, text);
                                     }
+                                    text_scratch = projection.text.take();
+                                    values_scratch = Some(std::mem::take(&mut projection.bytes));
 
                                     chunk_arrays.extend(projection.array_fields);
                                     PresenceIndex::add_build_row(

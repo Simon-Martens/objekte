@@ -6,8 +6,9 @@ use std::sync::atomic::{AtomicBool, Ordering};
 mod projection;
 mod query;
 
-pub(super) use projection::{project_malformed_text, project_text};
-
+pub(super) use projection::{
+    project_malformed_text, project_malformed_text_into, project_text, project_text_into,
+};
 
 /// Combined visible text plus two filters for each declared full-text field.
 pub(super) struct TextIndex {
@@ -21,7 +22,6 @@ pub(super) struct TextIndex {
     pub(super) field_compress: StageMeasurement,
 }
 
-
 /// Immutable decoded and rendered postings for one schema path.
 pub(super) struct FieldTextIndex {
     pub(super) path: crate::JsonPath,
@@ -31,20 +31,39 @@ pub(super) struct FieldTextIndex {
     pub(super) clean_present: bool,
 }
 
-
 /// Two projections of one field in one source document.
 pub(super) struct FieldTextContent {
-    normal: Vec<u8>,
-    clean: Vec<u8>,
+    normal: String,
+    clean: String,
 }
-
 
 /// Per-slot text extracted from an already parsed document.
 pub(super) struct TextContent {
-    pub(super) global_clean: Vec<u8>,
+    pub(super) global_clean: String,
     pub(super) fields: Vec<FieldTextContent>,
 }
 
+impl TextContent {
+    pub(super) fn new(field_count: usize) -> Self {
+        Self {
+            global_clean: String::new(),
+            fields: (0..field_count)
+                .map(|_| FieldTextContent {
+                    normal: String::new(),
+                    clean: String::new(),
+                })
+                .collect(),
+        }
+    }
+
+    fn clear(&mut self) {
+        self.global_clean.clear();
+        for field in &mut self.fields {
+            field.normal.clear();
+            field.clean.clear();
+        }
+    }
+}
 
 /// Mutable posting builders for a field's two representations.
 struct FieldTextBuilders {
@@ -57,7 +76,6 @@ struct FieldTextBuilders {
     clean_present: AtomicBool,
 }
 
-
 /// Mutable posting builders shared by eager and lazy full-text construction.
 pub(super) struct TextIndexBuilders {
     global_clean_main: BigramIndexBuilder,
@@ -66,7 +84,6 @@ pub(super) struct TextIndexBuilders {
     fields: Vec<FieldTextBuilders>,
     indexed_len: usize,
 }
-
 
 impl TextIndexBuilders {
     pub(super) fn new(
@@ -120,7 +137,7 @@ impl TextIndexBuilders {
         self.global_clean_main.add_file_content(
             &self.global_clean_skip,
             slot,
-            &content.global_clean,
+            content.global_clean.as_bytes(),
         );
     }
 
@@ -132,12 +149,16 @@ impl TextIndexBuilders {
             if !bytes.clean.is_empty() {
                 builders.clean_present.store(true, Ordering::Relaxed);
             }
-            builders
-                .normal_main
-                .add_file_content(&builders.normal_skip, slot, &bytes.normal);
-            builders
-                .clean_main
-                .add_file_content(&builders.clean_skip, slot, &bytes.clean);
+            builders.normal_main.add_file_content(
+                &builders.normal_skip,
+                slot,
+                bytes.normal.as_bytes(),
+            );
+            builders.clean_main.add_file_content(
+                &builders.clean_skip,
+                slot,
+                bytes.clean.as_bytes(),
+            );
         }
     }
 
@@ -181,7 +202,6 @@ impl TextIndexBuilders {
         }
     }
 }
-
 
 impl TextIndex {
     pub(super) fn filters(&self) -> (&BigramFilter, bool, &[FieldTextIndex], usize) {

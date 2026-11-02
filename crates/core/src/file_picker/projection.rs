@@ -3,7 +3,7 @@
 use super::{
     SortIndex, TypedKey, ViewIndex,
     key_summary::KeySummary,
-    text::{TextContent, project_text},
+    text::{TextContent, project_text_into},
 };
 #[cfg(feature = "index-timings")]
 use super::{StageTimer, profile::ProjectionStages};
@@ -20,7 +20,6 @@ use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{collections::BTreeMap, io::Read};
 use unicode_casefold::UnicodeCaseFold;
 
-
 /// Decoded text and top-level keys extracted from one source document.
 pub(super) struct Projection {
     pub(super) bytes: Vec<u8>,
@@ -32,13 +31,11 @@ pub(super) struct Projection {
     pub(super) sort_keys: Vec<Vec<crate::sorting::SortValue>>,
 }
 
-
 /// Parsed projection or searchable fallback text for a malformed source file.
 pub(super) enum ProjectionOutcome {
     Valid(Projection),
     Malformed(String),
 }
-
 
 /// Optional projections produced during a source-file index scan.
 pub(super) struct ProjectionOptions<'a> {
@@ -46,10 +43,11 @@ pub(super) struct ProjectionOptions<'a> {
     pub(super) text_rules: Option<&'a TextRules>,
     pub(super) text_paths: &'a [JsonPath],
     pub(super) key_summary: Option<&'a mut KeySummary>,
+    pub(super) text_scratch: Option<&'a mut Option<TextContent>>,
+    pub(super) values_scratch: Option<&'a mut Option<Vec<u8>>>,
     #[cfg(feature = "index-timings")]
     pub(super) timings: Option<&'a mut ProjectionStages>,
 }
-
 
 #[expect(
     clippy::too_many_arguments,
@@ -79,6 +77,8 @@ pub(super) fn projected_values(
                 text_rules: None,
                 text_paths: &[],
                 key_summary: None,
+                text_scratch: None,
+                values_scratch: None,
                 #[cfg(feature = "index-timings")]
                 timings: None,
             },
@@ -209,7 +209,15 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     };
     #[cfg(feature = "index-timings")]
     let values_timer = StageTimer::start();
-    let mut values = String::new();
+    let mut values = String::from_utf8(
+        options
+            .values_scratch
+            .as_mut()
+            .and_then(|scratch| scratch.take())
+            .unwrap_or_default(),
+    )
+    .expect("previous decoded projection is UTF-8");
+    values.clear();
     if append_values_except_indexed(&parsed, indexed_fields, options.text_paths, &mut values)
         .is_err()
     {
@@ -284,7 +292,18 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     let text = if let Some(rules) = options.text_rules {
         #[cfg(feature = "index-timings")]
         let text_timer = StageTimer::start();
-        let content = project_text(&parsed, rules, indexed_fields, options.text_paths);
+        let mut content = options
+            .text_scratch
+            .as_mut()
+            .and_then(|scratch| scratch.take())
+            .unwrap_or_else(|| TextContent::new(options.text_paths.len()));
+        project_text_into(
+            &parsed,
+            rules,
+            indexed_fields,
+            options.text_paths,
+            &mut content,
+        );
         #[cfg(feature = "index-timings")]
         if let Some(timings) = options.timings.as_mut() {
             timings.field_text += text_timer.stop();

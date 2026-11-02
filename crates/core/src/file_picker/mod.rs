@@ -67,7 +67,7 @@ use projection::{
     projected_values_with_text_buffer_and_sort,
 };
 use sort_index::SortIndex;
-use text::{TextIndex, TextIndexBuilders, project_malformed_text};
+use text::{TextIndex, TextIndexBuilders, project_malformed_text_into};
 use typed::{TypedIndex, TypedKey};
 use view::ViewIndex;
 
