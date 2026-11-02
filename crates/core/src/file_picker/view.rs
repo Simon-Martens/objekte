@@ -6,6 +6,7 @@ use crate::{
     Direction, Field,
     query::{Operator, Scalar, scalar_value},
 };
+use rayon::prelude::*;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
@@ -230,13 +231,19 @@ impl ViewIndex {
         id_bytes: &[u8],
     ) -> Vec<Vec<usize>> {
         debug_assert_eq!(columns.len(), self.fields.len());
-        (0..self.fields.len())
-            .map(|field| {
-                let mut slots = (0..files.len()).collect::<Vec<_>>();
-                slots.sort_by(|&a, &b| compare_slots(&columns[field], a, b, files, id_bytes));
-                slots
-            })
-            .collect()
+        let order_field = |field: usize| {
+            let mut slots = (0..files.len()).collect::<Vec<_>>();
+            slots.sort_by(|&a, &b| compare_slots(columns[field].as_slice(), a, b, files, id_bytes));
+            slots
+        };
+        if self.fields.len() >= 2 && files.len() >= 8192 {
+            (0..self.fields.len())
+                .into_par_iter()
+                .map(order_field)
+                .collect()
+        } else {
+            (0..self.fields.len()).map(order_field).collect()
+        }
     }
 
     pub(super) fn apply_columns(&mut self, columns: Vec<Vec<Scalar>>, ordered: Vec<Vec<usize>>) {
