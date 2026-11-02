@@ -56,8 +56,10 @@ cargo build --release -p objekte-bench --bin json-query-grep-compare
 target/release/json-query-grep-compare --repo examples/musenalm --workload crates/bench/workloads/musenalm-grep.json --runs 3
 ```
 
-The `json-query-mix` benchmark runs 50 unscoped filters against every
-collection with one warm repository handle. Each filter
+The `json-query-mix` benchmark runs 100 unscoped filters against every
+collection with one warm repository handle. The first 50 are the original
+JSON-field workload; cases 51–100 exercise source metadata fields, byte-size
+units, UTC date periods, status, and combinations with JSON fields. Each filter
 counts all matches and returns one record. It warms the indexes and runs each
 filter once before timing, then alternates case order across rounds. Output is
 NDJSON with a setup row followed by one row per filter.
@@ -68,6 +70,13 @@ target/release/json-query-mix --repo examples/musenalm --runs 7
 target/release/json-query-mix --repo examples/musenalm --runs 7 --bigram-encoding utf8_bytes
 target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema
 ```
+
+Use `--workload crates/bench/workloads/musenalm-mix-50.json` to rerun the
+original 50-case workload. Historical reports below refer to that workload.
+Modification and creation timestamps depend on the local checkout and
+filesystem, so metadata case counts can differ between machines.
+The [100-query metadata report](QUERY-MIX-100-METADATA-2026-11-02.md) lists
+all new filters and the ASCII/UTF-8 byte timings.
 
 The [November 2 encoding comparison](BIGRAM-50-QUERY-2026-11-02.md) runs all
 50 configured-schema queries with both bigram encodings and records each result.

@@ -71,6 +71,6 @@ Schema postings made 13 filters at least twice as fast, especially `exists(annot
 
 ```sh
 cargo build --release -p objekte-bench --bin json-query-mix
-target/release/json-query-mix --repo examples/musenalm --runs 7 > crates/bench/results/musenalm-mix-50-with-schema-2026-10-31.ndjson
-target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema > crates/bench/results/musenalm-mix-50-without-schema-2026-10-31.ndjson
+target/release/json-query-mix --repo examples/musenalm --workload crates/bench/workloads/musenalm-mix-50.json --runs 7 > crates/bench/results/musenalm-mix-50-with-schema-2026-10-31.ndjson
+target/release/json-query-mix --repo examples/musenalm --workload crates/bench/workloads/musenalm-mix-50.json --runs 7 --no-schema > crates/bench/results/musenalm-mix-50-without-schema-2026-10-31.ndjson
 ```

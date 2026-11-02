@@ -148,8 +148,8 @@ Case times are the median of the three per-process medians. Candidate, scan, par
 
 ```sh
 cargo build --release -p objekte-bench --bins
-target/release/json-query-mix --repo examples/musenalm --runs 7
-target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema
+target/release/json-query-mix --repo examples/musenalm --workload crates/bench/workloads/musenalm-mix-50.json --runs 7
+target/release/json-query-mix --repo examples/musenalm --workload crates/bench/workloads/musenalm-mix-50.json --runs 7 --no-schema
 target/release/json-query-grep-compare --repo examples/musenalm --workload crates/bench/workloads/musenalm-grep.json --runs 3
 target/release/fts-query-mix examples/musenalm 3  # repeat in three fresh processes
 ```

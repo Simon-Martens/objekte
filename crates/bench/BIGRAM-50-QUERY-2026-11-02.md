@@ -84,5 +84,5 @@ queries, so this run supports near-equal search latency for this mostly ASCII wo
 - utf8_bytes, process 2: [NDJSON](results/musenalm-mix-50-utf8-bytes-2026-11-02-repeat2.ndjson), sum 1441.18 ms; index warm 674.4 ms; 7 snapshots restored.
 - utf8_bytes, process 3: [NDJSON](results/musenalm-mix-50-utf8-bytes-2026-11-02-repeat3.ndjson), sum 1484.78 ms; index warm 2495.0 ms; 0 snapshots restored.
 
-Run `target/release/json-query-mix --repo examples/musenalm --runs 7 --bigram-encoding ascii`
+Run `target/release/json-query-mix --repo examples/musenalm --workload crates/bench/workloads/musenalm-mix-50.json --runs 7 --bigram-encoding ascii`
 or replace `ascii` with `utf8_bytes`. The [bench README](README.md) has build instructions.

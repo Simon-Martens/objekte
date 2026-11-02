@@ -67,15 +67,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let root = PathBuf::from(arg("--repo", "examples/musenalm")?);
     let workload = PathBuf::from(arg(
         "--workload",
-        "crates/bench/workloads/musenalm-mix-50.json",
+        "crates/bench/workloads/musenalm-mix-100.json",
     )?);
     let runs: usize = arg("--runs", "3")?.parse()?;
     if runs == 0 {
         return Err("--runs must be positive".into());
     }
     let cases: Vec<Case> = serde_json::from_slice(&fs::read(workload)?)?;
-    if cases.len() != 50 || cases.iter().enumerate().any(|(i, c)| c.id != i + 1) {
-        return Err("workload must have 50 sequentially numbered cases".into());
+    if cases.is_empty() || cases.iter().enumerate().any(|(i, c)| c.id != i + 1) {
+        return Err("workload must have sequentially numbered cases".into());
     }
     let no_schema = flag("--no-schema");
     let encoding_name = arg("--bigram-encoding", "ascii")?;
@@ -162,4 +162,51 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
     }
     Ok(())
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::Case;
+    use objekte_core::JsonFilter;
+    use std::collections::{BTreeMap, BTreeSet};
+
+    #[test]
+    fn hundred_case_workload_preserves_originals_and_covers_metadata_fields() {
+        let original: Vec<Case> =
+            serde_json::from_str(include_str!("../../workloads/musenalm-mix-50.json")).unwrap();
+        let extended: Vec<Case> =
+            serde_json::from_str(include_str!("../../workloads/musenalm-mix-100.json")).unwrap();
+        assert_eq!(original.len(), 50);
+        assert_eq!(extended.len(), 100);
+        for (index, (old, new)) in original.iter().zip(&extended).enumerate() {
+            assert_eq!(old.id, index + 1);
+            assert_eq!(
+                (&new.id, &new.kind, &new.filter),
+                (&old.id, &old.kind, &old.filter)
+            );
+        }
+        let mut fields = BTreeSet::new();
+        for (index, case) in extended[50..].iter().enumerate() {
+            assert_eq!(case.id, index + 51);
+            let filter = JsonFilter::compile(&case.filter, &BTreeMap::new()).unwrap();
+            assert!(!filter.metadata_fields().is_empty(), "case {}", case.id);
+            fields.extend(filter.metadata_fields().iter().cloned());
+        }
+        assert_eq!(
+            fields,
+            [
+                "@created",
+                "@filename",
+                "@id",
+                "@modified",
+                "@path",
+                "@size",
+                "@status",
+            ]
+            .into_iter()
+            .map(str::to_owned)
+            .collect()
+        );
+    }
 }
