@@ -12,26 +12,32 @@ use sonic_rs::Value as SonicValue;
 use std::{borrow::Cow, cmp::Ordering, collections::BTreeMap};
 
 
+/// Locale-aware sort keys stored in slot-major, fixed-width rows.
 pub(super) struct SortIndex {
     definitions: Vec<Vec<Sort>>,
     plans: Vec<SortPlan>,
-    keys: Vec<Vec<Vec<SortValue>>>,
+    offsets: Vec<usize>,
+    width: usize,
+    /// All fixed-width sort terms for a slot are adjacent in this vector.
+    keys: Vec<SortValue>,
     ordered: Vec<Vec<usize>>,
 }
 
 
+/// Borrowed sidecar representation of the retained sort keys and slot orders.
 #[derive(Serialize)]
 pub(super) struct SavedSortIndex<'a> {
     definitions: &'a [Vec<Sort>],
-    keys: &'a [Vec<Vec<SortValue>>],
+    keys: &'a [SortValue],
     ordered: &'a [Vec<usize>],
 }
 
 
+/// Owned sidecar representation checked before it replaces live sort data.
 #[derive(Deserialize)]
 pub(super) struct RestoredSortIndex {
     definitions: Vec<Vec<Sort>>,
-    keys: Vec<Vec<Vec<SortValue>>>,
+    keys: Vec<SortValue>,
     ordered: Vec<Vec<usize>>,
 }
 
@@ -56,9 +62,19 @@ impl SortIndex {
             .iter()
             .map(|sorts| SortPlan::compile_fields_with_language(fields, sorts, language))
             .collect::<Result<Vec<_>>>()?;
+        let mut offsets = Vec::with_capacity(plans.len());
+        let mut width = 0usize;
+        for plan in &plans {
+            offsets.push(width);
+            width = width
+                .checked_add(plan.term_count())
+                .ok_or_else(|| crate::Error::Request("too many sort terms".into()))?;
+        }
         Ok(Self {
             definitions: definitions.to_vec(),
-            keys: vec![Vec::new(); plans.len()],
+            offsets,
+            width,
+            keys: Vec::new(),
             ordered: vec![Vec::new(); plans.len()],
             plans,
         })
@@ -66,6 +82,10 @@ impl SortIndex {
 
     pub(super) fn is_empty(&self) -> bool {
         self.plans.is_empty()
+    }
+
+    pub(super) fn key_width(&self) -> usize {
+        self.width
     }
 
     #[cfg(test)]
@@ -83,36 +103,56 @@ impl SortIndex {
             .collect()
     }
 
+    pub(super) fn project_sonic_into(
+        &self,
+        id: &str,
+        data: &SonicValue,
+        output: &mut [SortValue],
+    ) -> Result<()> {
+        debug_assert_eq!(output.len(), self.width);
+        for (index, plan) in self.plans.iter().enumerate() {
+            let start = self.offsets[index];
+            plan.project_sonic_into(id, data, &mut output[start..start + plan.term_count()])?;
+        }
+        Ok(())
+    }
+
     pub(super) fn missing_keys(&self) -> Vec<Vec<SortValue>> {
         self.plans.iter().map(SortPlan::missing_keys).collect()
     }
 
-    pub(super) fn replace(
-        &mut self,
-        rows: Vec<(usize, Vec<Vec<SortValue>>)>,
+    pub(super) fn ordered_flat(
+        &self,
+        keys: &[SortValue],
         files: &[Option<FileEntry>],
         ids: &[u8],
-    ) {
-        self.keys = self
-            .plans
-            .iter()
-            .map(|plan| vec![plan.missing_keys(); files.len()])
-            .collect();
-        for (slot, values) in rows {
-            for (index, key) in values.into_iter().enumerate() {
-                self.keys[index][slot] = key;
-            }
-        }
-        self.ordered = self
-            .plans
+    ) -> Vec<Vec<usize>> {
+        assert_eq!(keys.len(), files.len() * self.width);
+        self.plans
             .iter()
             .enumerate()
             .map(|(index, plan)| {
                 let mut order = (0..files.len()).collect::<Vec<_>>();
-                order.sort_by(|&a, &b| compare(plan, &self.keys[index], a, b, files, ids));
+                order.sort_by(|&a, &b| {
+                    compare(
+                        plan,
+                        keys,
+                        self.width,
+                        self.offsets[index],
+                        a,
+                        b,
+                        files,
+                        ids,
+                    )
+                });
                 order
             })
-            .collect();
+            .collect()
+    }
+
+    pub(super) fn apply_flat(&mut self, keys: Vec<SortValue>, ordered: Vec<Vec<usize>>) {
+        self.keys = keys;
+        self.ordered = ordered;
     }
 
     pub(super) fn update(
@@ -122,19 +162,31 @@ impl SortIndex {
         files: &[Option<FileEntry>],
         ids: &[u8],
     ) {
+        let needed = (slot + 1) * self.width;
+        if self.keys.len() < needed {
+            self.keys.resize(needed, SortValue::Missing);
+        }
         for (index, value) in values.into_iter().enumerate() {
-            let keys = &mut self.keys[index];
-            if keys.len() <= slot {
-                keys.resize(slot + 1, self.plans[index].missing_keys());
+            let start = slot * self.width + self.offsets[index];
+            for (target, value) in self.keys[start..start + value.len()].iter_mut().zip(value) {
+                *target = value;
             }
-            keys[slot] = value;
             let order = &mut self.ordered[index];
             if let Some(at) = order.iter().position(|&current| current == slot) {
                 order.remove(at);
             }
             let position = order
                 .binary_search_by(|&current| {
-                    compare(&self.plans[index], keys, current, slot, files, ids)
+                    compare(
+                        &self.plans[index],
+                        &self.keys,
+                        self.width,
+                        self.offsets[index],
+                        current,
+                        slot,
+                        files,
+                        ids,
+                    )
                 })
                 .unwrap_or_else(|at| at);
             order.insert(position, slot);
@@ -167,18 +219,18 @@ impl SortIndex {
                 && definition[0].direction == Direction::Asc
         })?;
         let ascending = &self.ordered[index];
-        let keys = &self.keys[index];
+        let first_key = |slot: usize| &self.keys[slot * self.width + self.offsets[index]];
         let mut descending = Vec::with_capacity(ascending.len());
         // Reverse value groups, not the entire array: equal keys must keep
         // their ascending ID tie-break, including for DESC queries.
         for rank in 0..=2 {
-            let start = ascending.partition_point(|&slot| keys[slot][0].rank() < rank);
-            let mut end = ascending.partition_point(|&slot| keys[slot][0].rank() <= rank);
+            let start = ascending.partition_point(|&slot| first_key(slot).rank() < rank);
+            let mut end = ascending.partition_point(|&slot| first_key(slot).rank() <= rank);
             while end > start {
                 let mut group = end - 1;
                 while group > start
-                    && keys[ascending[group - 1]][0]
-                        .compare(&keys[ascending[end - 1]][0], Direction::Asc)
+                    && first_key(ascending[group - 1])
+                        .compare(first_key(ascending[end - 1]), Direction::Asc)
                         .is_eq()
                 {
                     group -= 1;
@@ -187,7 +239,7 @@ impl SortIndex {
                 end = group;
             }
         }
-        let valid_end = ascending.partition_point(|&slot| keys[slot][0].rank() < 3);
+        let valid_end = ascending.partition_point(|&slot| first_key(slot).rank() < 3);
         descending.extend_from_slice(&ascending[valid_end..]);
         Some(Cow::Owned(descending))
     }
@@ -207,7 +259,9 @@ impl SortIndex {
         {
             return Some(compare(
                 &self.plans[index],
-                &self.keys[index],
+                &self.keys,
+                self.width,
+                self.offsets[index],
                 a,
                 b,
                 files,
@@ -220,7 +274,8 @@ impl SortIndex {
                 && definition[0].field == requested.field
                 && definition[0].direction == Direction::Asc
         })?;
-        let order = self.keys[index][a][0].compare(&self.keys[index][b][0], requested.direction);
+        let key = |slot: usize| &self.keys[slot * self.width + self.offsets[index]];
+        let order = key(a).compare(key(b), requested.direction);
         if order.is_eq() {
             let id = |slot: usize| {
                 let entry = files[slot].as_ref().expect("live sort slot");
@@ -240,11 +295,10 @@ impl SortIndex {
         }
     }
 
-    pub(super) fn restore(&mut self, saved: RestoredSortIndex, slots: usize) -> bool {
+    pub(super) fn can_restore(&self, saved: &RestoredSortIndex, slots: usize) -> bool {
         if saved.definitions != self.definitions
-            || saved.keys.len() != self.plans.len()
+            || Some(saved.keys.len()) != slots.checked_mul(self.width)
             || saved.ordered.len() != self.plans.len()
-            || saved.keys.iter().any(|keys| keys.len() != slots)
             || saved.ordered.iter().any(|order| order.len() != slots)
         {
             return false;
@@ -257,16 +311,25 @@ impl SortIndex {
                 }
             }
         }
+        true
+    }
+
+    pub(super) fn apply_restored(&mut self, saved: RestoredSortIndex) {
         self.keys = saved.keys;
         self.ordered = saved.ordered;
-        true
     }
 }
 
 
+#[expect(
+    clippy::too_many_arguments,
+    reason = "comparison borrows fixed key storage and slot metadata"
+)]
 fn compare(
     plan: &SortPlan,
-    keys: &[Vec<SortValue>],
+    keys: &[SortValue],
+    width: usize,
+    offset: usize,
     a: usize,
     b: usize,
     files: &[Option<FileEntry>],
@@ -277,5 +340,11 @@ fn compare(
         std::str::from_utf8(&ids[entry.id_start as usize..(entry.id_start + entry.id_len) as usize])
             .expect("validated ID")
     };
-    plan.compare(&keys[a], id(a), &keys[b], id(b))
+    let terms = plan.term_count();
+    plan.compare(
+        &keys[a * width + offset..a * width + offset + terms],
+        id(a),
+        &keys[b * width + offset..b * width + offset + terms],
+        id(b),
+    )
 }

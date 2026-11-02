@@ -10,6 +10,7 @@ use num_bigint::BigInt;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use smallvec::SmallVec;
+use sonic_rs::{Value as SonicValue, ValueRef};
 use std::{
     cmp::Ordering,
     collections::{BTreeMap, BTreeSet},
@@ -663,6 +664,69 @@ pub(crate) fn values<'a>(doc: &'a Value, path: &[JsonPathStep], flatten: bool) -
         true
     });
     out
+}
+
+/// Sonic traversal with implicit array descent and last-key-wins behavior.
+pub(crate) fn sonic_values<'a>(
+    document: &'a SonicValue,
+    path: &[JsonPathStep],
+    flatten: bool,
+) -> Vec<&'a SonicValue> {
+    fn visit<'a>(
+        document: &'a SonicValue,
+        path: &[JsonPathStep],
+        flatten: bool,
+        out: &mut Vec<&'a SonicValue>,
+    ) {
+        match path.split_first() {
+            None => {
+                if flatten && let ValueRef::Array(items) = document.as_ref() {
+                    for item in items {
+                        visit(item, path, flatten, out);
+                    }
+                } else {
+                    out.push(document);
+                }
+            }
+            Some((JsonPathStep::Key(key), rest)) => match document.as_ref() {
+                ValueRef::Object(fields) => {
+                    let mut last = None;
+                    for (name, value) in fields {
+                        if name == key {
+                            last = Some(value);
+                        }
+                    }
+                    if let Some(value) = last {
+                        visit(value, rest, flatten, out);
+                    }
+                }
+                ValueRef::Array(items) => {
+                    for item in items {
+                        visit(item, path, flatten, out);
+                    }
+                }
+                _ => {}
+            },
+            Some((JsonPathStep::Index(index), rest)) => {
+                if let ValueRef::Array(items) = document.as_ref()
+                    && let Some(value) = items.get(*index)
+                {
+                    visit(value, rest, flatten, out);
+                }
+            }
+            Some((JsonPathStep::Each, rest)) => {
+                if let ValueRef::Array(items) = document.as_ref() {
+                    for item in items {
+                        visit(item, rest, flatten, out);
+                    }
+                }
+            }
+        }
+    }
+
+    let mut selected = Vec::new();
+    visit(document, path, flatten, &mut selected);
+    selected
 }
 
 /// Visit selected values in path order. Returning false stops traversal early.

@@ -85,12 +85,12 @@ impl ModifiedOrder {
         self.superseded_count = 0;
     }
 
-    pub(super) fn restore(&mut self, order: Vec<u32>, files: &[Option<FileEntry>]) -> bool {
+    pub(super) fn valid_saved_order(order: &[u32], files: &[Option<FileEntry>]) -> bool {
         if order.len() != files.iter().filter(|entry| entry.is_some()).count() {
             return false;
         }
         let mut seen = vec![0_u64; files.len().div_ceil(64)];
-        for &slot in &order {
+        for &slot in order {
             let slot = slot as usize;
             if !files.get(slot).is_some_and(Option::is_some) {
                 return false;
@@ -102,12 +102,15 @@ impl ModifiedOrder {
             }
             *word |= bit;
         }
+        true
+    }
+
+    pub(super) fn apply_restored(&mut self, order: Vec<u32>) {
         self.base = order;
         self.superseded.clear();
         self.overlay.clear();
         self.by_slot.clear();
         self.superseded_count = 0;
-        true
     }
 
     fn is_superseded(&self, slot: u32) -> bool {

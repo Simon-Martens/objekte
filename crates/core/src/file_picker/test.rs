@@ -87,6 +87,34 @@ fn record_candidates_follow_id_order_across_changed_and_deleted_slots() {
 }
 
 #[test]
+fn failed_rebuild_keeps_the_previous_slot_table_and_filter() {
+    let dir = tempfile::tempdir().unwrap();
+    for number in 0..128 {
+        put(
+            dir.path(),
+            &format!("d{number:03}"),
+            r#"{"title":"Original"}"#,
+        );
+    }
+    let mut picker = FilePicker::open(dir.path()).unwrap();
+    let original_filter = picker.index.to_bytes().unwrap();
+    let original_sorted = picker.sorted.clone();
+    let original_ids = picker.id_bytes.clone();
+
+    // The final file has a different descriptor stamp when workers reach it.
+    put(dir.path(), "d127", r#"{"title":"Changed and longer"}"#);
+    let source = Source::open(picker.root()).unwrap();
+    assert!(matches!(
+        picker.rebuild_index_from_source(&source, None),
+        Err(Error::Unstable(_))
+    ));
+    assert_eq!(picker.index.to_bytes().unwrap(), original_filter);
+    assert_eq!(picker.sorted, original_sorted);
+    assert_eq!(picker.id_bytes, original_ids);
+    assert_eq!(picker.indexed_len, 128);
+}
+
+#[test]
 fn folded_index_candidates_do_not_change_exact_value_regex_results() {
     let dir = tempfile::tempdir().unwrap();
     put(dir.path(), "a", r#"{"title":"Straße"}"#);

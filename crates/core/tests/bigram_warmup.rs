@@ -84,6 +84,36 @@ fn corrupted_secondary_payload_is_rebuilt_without_publishing_its_view_columns() 
 }
 
 #[test]
+fn older_secondary_layout_is_a_cache_miss_but_portable_filter_restores() {
+    let f = Fixture::new();
+    let path = f
+        .repo(CacheMode::Memory)
+        .save_bigram_cache("books")
+        .unwrap();
+    let sidecar = path.with_extension("secondary");
+    let mut bytes = fs::read(&sidecar).unwrap();
+    bytes[..8].copy_from_slice(b"OBJSEC03");
+    fs::write(&sidecar, bytes).unwrap();
+
+    let mut reopened = f.repo(CacheMode::Memory);
+    reopened.warm_bigram_index("books").unwrap();
+    assert_eq!(reopened.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(reopened.metrics().secondary_snapshot_loads, 0);
+    let query = JsonQuery {
+        filter: "score >= 2".into(),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        ..Default::default()
+    };
+    let expected = f.repo(CacheMode::Disabled).query_json(&query).unwrap();
+    assert_eq!(reopened.query_json(&query).unwrap().total, expected.total);
+
+    let mut restored = f.repo(CacheMode::Memory);
+    restored.warm_bigram_index("books").unwrap();
+    assert_eq!(restored.metrics().secondary_snapshot_loads, 1);
+}
+
+#[test]
 fn schema_change_rebuilds_only_secondary_cache_once() {
     let f = Fixture::new();
     f.repo(CacheMode::Memory)

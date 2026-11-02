@@ -4,6 +4,7 @@
 use crate::json_filter::{IndexOp, JsonPath, JsonPathStep, TypedPlan, decimal_cmp};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{
     cmp::Ordering,
     collections::{BTreeMap, BTreeSet, HashMap, HashSet},
@@ -29,6 +30,24 @@ impl TypedKey {
             Value::Number(value) => Some(Self::Number(value.as_str().to_owned())),
             Value::String(value) => Some(Self::String(value.clone())),
             _ => None,
+        }
+    }
+
+    /// Retain only the final posting key from the validated Sonic tree.
+    pub(super) fn from_sonic(value: &SonicValue) -> Option<Self> {
+        if let Some(raw) = value.as_raw_number() {
+            let number: serde_json::Number = raw
+                .as_str()
+                .parse()
+                .expect("projection validated every JSON number");
+            return Some(Self::Number(number.as_str().to_owned()));
+        }
+        match value.as_ref() {
+            ValueRef::Null => Some(Self::Null),
+            ValueRef::Bool(value) => Some(Self::Bool(value)),
+            ValueRef::String(value) => Some(Self::String(value.to_owned())),
+            ValueRef::Number(_) => unreachable!("raw numbers enabled"),
+            ValueRef::Array(_) | ValueRef::Object(_) => None,
         }
     }
 

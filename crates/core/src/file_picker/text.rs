@@ -97,22 +97,16 @@ pub(super) fn project_malformed_text(text: &str) -> TextContent {
 
 
 impl TextIndex {
-    pub(super) fn save_parts(&self) -> Result<(Vec<u8>, Vec<u8>, usize)> {
-        Ok((
-            self.clean.to_bytes()?,
-            self.raw.to_bytes()?,
-            self.indexed_len,
-        ))
+    pub(super) fn filters(&self) -> (&BigramFilter, &BigramFilter, usize) {
+        (&self.clean, &self.raw, self.indexed_len)
     }
 
-    pub(super) fn restore_parts(
-        clean: &[u8],
-        raw: &[u8],
+    pub(super) fn from_filters(
+        clean: BigramFilter,
+        raw: BigramFilter,
         indexed_len: usize,
         encoding: BigramEncoding,
     ) -> Result<Self> {
-        let clean = BigramFilter::from_bytes(clean)?;
-        let raw = BigramFilter::from_bytes(raw)?;
         if clean.file_count() != indexed_len
             || raw.file_count() != indexed_len
             || clean.encoding() != encoding

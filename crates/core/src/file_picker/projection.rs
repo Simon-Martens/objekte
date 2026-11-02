@@ -9,10 +9,11 @@ use crate::{
     Error, Result,
     error::io,
     query::Scalar,
+    sorting::SortValue,
     source::{Source, Stamp},
     text::{TextRules, malformed_search_text},
 };
-use serde_json::{Map, Number, Value};
+use serde_json::Number;
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{collections::BTreeMap, io::Read};
 use unicode_casefold::UnicodeCaseFold;
@@ -123,8 +124,43 @@ pub(super) fn projected_values_with_text_buffer(
     presence_fields: &[String],
     view: &ViewIndex,
     sort: &SortIndex,
+    options: ProjectionOptions<'_>,
+    raw: &mut Vec<u8>,
+) -> Result<ProjectionOutcome> {
+    projected_values_with_text_buffer_and_sort(
+        source,
+        id,
+        stamp,
+        indexed_fields,
+        presence_fields,
+        view,
+        sort,
+        options,
+        raw,
+        None,
+        None,
+        None,
+    )
+}
+
+/// Rebuild can write fixed-width sort keys into its worker-owned chunk.
+#[expect(
+    clippy::too_many_arguments,
+    reason = "projection borrows independent indexes and output"
+)]
+pub(super) fn projected_values_with_text_buffer_and_sort(
+    source: &Source,
+    id: &str,
+    stamp: &Stamp,
+    indexed_fields: &[String],
+    presence_fields: &[String],
+    view: &ViewIndex,
+    sort: &SortIndex,
     mut options: ProjectionOptions<'_>,
     raw: &mut Vec<u8>,
+    sort_output: Option<&mut [SortValue]>,
+    view_output: Option<(&mut [&mut [Scalar]], usize)>,
+    postings: Option<(&[crate::JsonPath], &mut [super::posting::ChunkRows], usize)>,
 ) -> Result<ProjectionOutcome> {
     let path = source.path.join(format!("{id}.json"));
     let mut file = source.file(id)?;
@@ -145,6 +181,9 @@ pub(super) fn projected_values_with_text_buffer(
     let mut values = String::new();
     if append_values(&parsed, &mut values, 0).is_err() {
         return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
+    }
+    if let Some((paths, rows, slot)) = postings {
+        super::posting::project_document(&parsed, slot, paths, rows);
     }
     if options.folded_index && !values.is_ascii() {
         let folded = values.case_fold().collect::<String>();
@@ -174,35 +213,29 @@ pub(super) fn projected_values_with_text_buffer(
         })
         .collect();
 
-    // View and typed indexes need only these top-level scalars. Containers
-    // receive an invalid-type placeholder, so nested trees are never copied.
-    let mut selected = Map::new();
-    for name in view.fields().iter().chain(indexed_fields) {
-        if selected.contains_key(name) {
-            continue;
-        }
-        if let Some(value) = fields.get(name.as_str()) {
-            let Ok(value) = scalar_projection(value) else {
-                return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
-            };
-            selected.insert(name.clone(), value);
-        }
-    }
     let typed_values = indexed_fields
         .iter()
         .enumerate()
         .filter_map(|(index, name)| {
             // Absence is a distinct posting from an explicit JSON null.
             // Containers remain unposted because they are not scalar values.
-            match selected.get(name) {
-                Some(value) => TypedKey::from_value(value),
+            match fields.get(name.as_str()) {
+                Some(value) => TypedKey::from_sonic(value),
                 None => Some(TypedKey::Missing),
             }
             .map(|key| (index, key))
         })
         .collect();
-    let view_keys = view.project(id, &Value::Object(selected));
-    let sort_keys = if sort.is_empty() {
+    let view_keys = if let Some((columns, within)) = view_output {
+        view.project_sonic_into_columns(id, &fields, columns, within);
+        Vec::new()
+    } else {
+        view.project_sonic(id, &fields)
+    };
+    let sort_keys = if let Some(output) = sort_output {
+        sort.project_sonic_into(id, &parsed, output)?;
+        Vec::new()
+    } else if sort.is_empty() {
         Vec::new()
     } else {
         sort.project_sonic(id, &parsed)?
@@ -237,20 +270,6 @@ fn exact_number(value: &SonicValue) -> std::result::Result<Number, ()> {
         .map_err(|_| ())
 }
 
-fn scalar_projection(value: &SonicValue) -> std::result::Result<Value, ()> {
-    if value.as_raw_number().is_some() {
-        return exact_number(value).map(Value::Number);
-    }
-    Ok(match value.as_ref() {
-        ValueRef::Null => Value::Null,
-        ValueRef::Bool(value) => Value::Bool(value),
-        ValueRef::String(value) => Value::String(value.to_owned()),
-        ValueRef::Number(_) => unreachable!("raw numbers enabled"),
-        ValueRef::Array(_) => Value::Array(Vec::new()),
-        ValueRef::Object(_) => Value::Object(Map::new()),
-    })
-}
-
 fn validate_value(value: &SonicValue, depth: usize) -> std::result::Result<(), ()> {
     if value.as_raw_number().is_some() {
         exact_number(value)?;
@@ -276,6 +295,10 @@ fn validate_value(value: &SonicValue, depth: usize) -> std::result::Result<(), (
         _ => {}
     }
     Ok(())
+}
+
+pub(super) fn valid_document(value: &SonicValue) -> bool {
+    validate_value(value, 0).is_ok()
 }
 
 fn append_values(

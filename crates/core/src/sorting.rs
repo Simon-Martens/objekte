@@ -10,7 +10,7 @@ pub use parser::{parse_sort_terms, split_sort_clause};
 
 use crate::{
     Collection, Direction, Error, JsonFilter, JsonPath, JsonPathStep, Result, Sort,
-    json_filter::{decimal_cmp, values},
+    json_filter::{decimal_cmp, sonic_values, values},
     schema::SortReduce,
 };
 use icu_collator::{
@@ -157,6 +157,10 @@ impl SortPlan {
         vec![SortValue::Missing; self.terms.len()]
     }
 
+    pub(crate) fn term_count(&self) -> usize {
+        self.terms.len()
+    }
+
     pub(crate) fn project(&self, id: &str, data: &Value) -> Result<Vec<SortValue>> {
         self.terms
             .iter()
@@ -174,17 +178,28 @@ impl SortPlan {
 
     /// Project directly from the tree used by the other index projections.
     pub(crate) fn project_sonic(&self, id: &str, data: &SonicValue) -> Result<Vec<SortValue>> {
-        self.terms
-            .iter()
-            .map(|term| {
-                if term.path.is_empty() {
-                    return Ok(SortValue::String(id.as_bytes().to_vec()));
-                }
-                term.select(sonic_values(data, &term.path), |value| {
+        let mut output = self.missing_keys();
+        self.project_sonic_into(id, data, &mut output)?;
+        Ok(output)
+    }
+
+    pub(crate) fn project_sonic_into(
+        &self,
+        id: &str,
+        data: &SonicValue,
+        output: &mut [SortValue],
+    ) -> Result<()> {
+        debug_assert_eq!(output.len(), self.terms.len());
+        for (term, target) in self.terms.iter().zip(output) {
+            *target = if term.path.is_empty() {
+                SortValue::String(id.as_bytes().to_vec())
+            } else {
+                term.select(sonic_values(data, &term.path, true), |value| {
                     term.value_sonic(value)
-                })
-            })
-            .collect()
+                })?
+            };
+        }
+        Ok(())
     }
 
     pub(crate) fn compare(
@@ -284,60 +299,4 @@ impl Term {
             _ => SortValue::Invalid,
         })
     }
-}
-
-
-/// Match JSON path traversal, including implicit array descent on key steps.
-fn sonic_values<'a>(data: &'a SonicValue, path: &[JsonPathStep]) -> Vec<&'a SonicValue> {
-    fn visit<'a>(data: &'a SonicValue, path: &[JsonPathStep], out: &mut Vec<&'a SonicValue>) {
-        match path.split_first() {
-            None => {
-                if let ValueRef::Array(items) = data.as_ref() {
-                    for item in items {
-                        visit(item, path, out);
-                    }
-                } else {
-                    out.push(data);
-                }
-            }
-            Some((JsonPathStep::Key(key), rest)) => match data.as_ref() {
-                ValueRef::Object(fields) => {
-                    // Sonic preserves duplicate object members. JSON evaluation
-                    // keeps the final member, including in nested objects.
-                    let mut last = None;
-                    for (name, value) in fields {
-                        if name == key {
-                            last = Some(value);
-                        }
-                    }
-                    if let Some(value) = last {
-                        visit(value, rest, out);
-                    }
-                }
-                ValueRef::Array(items) => {
-                    for item in items {
-                        visit(item, path, out);
-                    }
-                }
-                _ => {}
-            },
-            Some((JsonPathStep::Index(index), rest)) => {
-                if let ValueRef::Array(items) = data.as_ref()
-                    && let Some(value) = items.get(*index)
-                {
-                    visit(value, rest, out);
-                }
-            }
-            Some((JsonPathStep::Each, rest)) => {
-                if let ValueRef::Array(items) = data.as_ref() {
-                    for item in items {
-                        visit(item, rest, out);
-                    }
-                }
-            }
-        }
-    }
-    let mut out = Vec::new();
-    visit(data, path, &mut out);
-    out
 }

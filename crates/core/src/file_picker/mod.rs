@@ -53,10 +53,11 @@ pub use git::GitState;
 pub(crate) use infer::ReferenceInventory;
 use key_summary::KeySummary;
 use modified_order::ModifiedOrder;
+use posting::{ChunkRows, PostingRows, merge_chunk};
 use presence::PresenceIndex;
 use projection::{
     ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
-    projected_values_with_text_buffer,
+    projected_values_with_text_buffer_and_sort,
 };
 use sort_index::SortIndex;
 use text::{TextIndex, TextIndexBuilders, project_malformed_text};
@@ -134,6 +135,7 @@ pub struct FilePicker {
     text_index: Option<TextIndex>,
     presence: PresenceIndex,
     typed: TypedIndex,
+    advanced_paths: Vec<crate::JsonPath>,
     inferred_paths: BTreeSet<crate::JsonPath>,
     view: ViewIndex,
     sort: SortIndex,
@@ -393,6 +395,7 @@ impl FilePicker {
             view: ViewIndex::new(&indexed_fields, definitions),
             sort: SortIndex::new(sort_indexes, definitions, language)?,
             typed: TypedIndex::new(indexed_fields),
+            advanced_paths: advanced_paths.to_vec(),
             inferred_paths: BTreeSet::new(),
             #[cfg(feature = "index-timings")]
             build_timings: BuildTimings {

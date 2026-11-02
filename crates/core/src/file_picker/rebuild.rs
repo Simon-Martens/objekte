@@ -59,12 +59,40 @@ impl FilePicker {
         let key_summary = std::sync::Mutex::new(KeySummary::default());
         let malformed = std::sync::Mutex::new(BTreeSet::new());
         let overlay_bigrams = std::sync::Mutex::new(BTreeMap::new());
-        let indexed_fields = self.typed.fields();
+        let indexed_fields = self.typed.fields().to_vec();
         let typed_rows = std::sync::Mutex::new(vec![Vec::new(); indexed_fields.len()]);
+        let posting_paths = self
+            .advanced_paths
+            .iter()
+            .cloned()
+            .chain(self.typed.dynamic_paths())
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .collect::<Vec<_>>();
+        let posting_builders = posting_paths
+            .iter()
+            .map(|_| std::sync::Mutex::new(PostingRows::new(files.len())))
+            .collect::<Vec<_>>();
         let presence_fields = self.presence.fields();
         let presence_words = self.presence.build_words(files.len());
-        let view_rows = std::sync::Mutex::new(Vec::new());
-        let sort_rows = std::sync::Mutex::new(Vec::new());
+        let view_width = self.view.field_count();
+        let mut view_columns = vec![vec![crate::query::Scalar::Missing; files.len()]; view_width];
+        let sort_width = self.sort.key_width();
+        let mut sort_keys = vec![crate::sorting::SortValue::Missing; files.len() * sort_width];
+        let chunk_count = files.len().div_ceil(64);
+        let sort_slices: Vec<Option<&mut [crate::sorting::SortValue]>> = if sort_width == 0 {
+            (0..chunk_count).map(|_| None).collect()
+        } else {
+            sort_keys.chunks_mut(64 * sort_width).map(Some).collect()
+        };
+        let mut view_slices = (0..chunk_count)
+            .map(|_| Vec::<&mut [crate::query::Scalar]>::with_capacity(view_width))
+            .collect::<Vec<_>>();
+        for column in &mut view_columns {
+            for (chunk, slice) in column.chunks_mut(64).enumerate() {
+                view_slices[chunk].push(slice);
+            }
+        }
         let view = &self.view;
         let sort = &self.sort;
         #[cfg(feature = "index-timings")]
@@ -81,148 +109,160 @@ impl FilePicker {
         scan_pool::run(|| {
             files
                 .par_chunks(64)
+                .zip(sort_slices.into_par_iter())
+                .zip(view_slices.into_par_iter())
                 .enumerate()
-                .try_for_each(|(chunk_index, chunk)| -> Result<()> {
-                    let mut chunk_arrays = BTreeSet::new();
-                    let mut chunk_keys = KeySummary::default();
-                    let mut chunk_malformed = BTreeSet::new();
-                    let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
-                    let mut chunk_view = Vec::new();
-                    let mut chunk_sort = Vec::new();
-                    let mut read_buffer = Vec::new();
-                    #[cfg(feature = "index-timings")]
-                    let mut chunk_project_nanos = 0;
-                    #[cfg(feature = "index-timings")]
-                    let mut chunk_add_nanos = 0;
-                    for (within, entry) in chunk.iter().enumerate() {
-                        let Some(entry) = entry else { continue };
-                        let id = std::str::from_utf8(
-                            &ids[entry.id_start as usize..(entry.id_start + entry.id_len) as usize],
-                        )
-                        .expect("validated UTF-8 ID");
+                .try_for_each(
+                    |(chunk_index, ((chunk, mut sort_chunk), mut view_chunk))| -> Result<()> {
+                        let mut chunk_arrays = BTreeSet::new();
+                        let mut chunk_keys = KeySummary::default();
+                        let mut chunk_malformed = BTreeSet::new();
+                        let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
+                        let mut chunk_postings = posting_paths
+                            .iter()
+                            .map(|_| ChunkRows::new())
+                            .collect::<Vec<_>>();
+                        let mut read_buffer = Vec::new();
                         #[cfg(feature = "index-timings")]
-                        let project_started = Instant::now();
-                        let projection = projected_values_with_text_buffer(
-                            source,
-                            id,
-                            &entry.stamp,
-                            indexed_fields,
-                            presence_fields,
-                            view,
-                            sort,
-                            ProjectionOptions {
-                                folded_index: true,
-                                text_rules: text_builders.as_ref().map(|_| &self.text_rules),
-                                key_summary: Some(&mut chunk_keys),
-                            },
-                            &mut read_buffer,
-                        )?;
+                        let mut chunk_project_nanos = 0;
                         #[cfg(feature = "index-timings")]
-                        {
-                            chunk_project_nanos += elapsed_nanos(project_started);
-                        }
-                        let slot = chunk_index * 64 + within;
-                        #[cfg(feature = "index-timings")]
-                        let add_started = Instant::now();
-                        match projection {
-                            ProjectionOutcome::Malformed(mut text) => {
-                                chunk_malformed.insert(slot);
-                                if let Some(builders) = &text_builders {
-                                    builders.add(slot, &project_malformed_text(&text));
+                        let mut chunk_add_nanos = 0;
+                        for (within, entry) in chunk.iter().enumerate() {
+                            let Some(entry) = entry else { continue };
+                            let id = std::str::from_utf8(
+                                &ids[entry.id_start as usize
+                                    ..(entry.id_start + entry.id_len) as usize],
+                            )
+                            .expect("validated UTF-8 ID");
+                            #[cfg(feature = "index-timings")]
+                            let project_started = Instant::now();
+                            let sort_output = sort_chunk.as_deref_mut().map(|keys| {
+                                &mut keys[within * sort_width..(within + 1) * sort_width]
+                            });
+                            let projection = projected_values_with_text_buffer_and_sort(
+                                source,
+                                id,
+                                &entry.stamp,
+                                &indexed_fields,
+                                presence_fields,
+                                view,
+                                sort,
+                                ProjectionOptions {
+                                    folded_index: true,
+                                    text_rules: text_builders.as_ref().map(|_| &self.text_rules),
+                                    key_summary: Some(&mut chunk_keys),
+                                },
+                                &mut read_buffer,
+                                sort_output,
+                                (view_width > 0).then_some((view_chunk.as_mut_slice(), within)),
+                                (!posting_paths.is_empty()).then_some((
+                                    posting_paths.as_slice(),
+                                    chunk_postings.as_mut_slice(),
+                                    chunk_index * 64 + within,
+                                )),
+                            )?;
+                            #[cfg(feature = "index-timings")]
+                            {
+                                chunk_project_nanos += elapsed_nanos(project_started);
+                            }
+                            let slot = chunk_index * 64 + within;
+                            #[cfg(feature = "index-timings")]
+                            let add_started = Instant::now();
+                            match projection {
+                                ProjectionOutcome::Malformed(mut text) => {
+                                    chunk_malformed.insert(slot);
+                                    if let Some(builders) = &text_builders {
+                                        builders.add(slot, &project_malformed_text(&text));
+                                    }
+                                    if !text.is_ascii() {
+                                        let folded = text.case_fold().collect::<String>();
+                                        text.push('\u{1f}');
+                                        text.push_str(&folded);
+                                    }
+                                    if restored.is_none() {
+                                        main.add_file_content(&skip, slot, text.as_bytes());
+                                    } else if restored.as_ref().is_some_and(|restored| {
+                                        restored.newly_changed.contains(&slot)
+                                    }) {
+                                        let mut keys = extract_bigrams_with_encoding(
+                                            text.as_bytes(),
+                                            self.encoding,
+                                        );
+                                        keys.sort_unstable();
+                                        overlay_bigrams
+                                            .lock()
+                                            .expect("overlay bigram lock")
+                                            .insert(slot, keys);
+                                    }
                                 }
-                                if !text.is_ascii() {
-                                    let folded = text.case_fold().collect::<String>();
-                                    text.push('\u{1f}');
-                                    text.push_str(&folded);
-                                }
-                                if restored.is_none() {
-                                    main.add_file_content(&skip, slot, text.as_bytes());
-                                } else if restored
-                                    .as_ref()
-                                    .is_some_and(|restored| restored.newly_changed.contains(&slot))
-                                {
-                                    let mut keys = extract_bigrams_with_encoding(
-                                        text.as_bytes(),
-                                        self.encoding,
+                                ProjectionOutcome::Valid(projection) => {
+                                    if restored.is_none() {
+                                        main.add_file_content(&skip, slot, &projection.bytes);
+                                    } else if restored.as_ref().is_some_and(|restored| {
+                                        restored.newly_changed.contains(&slot)
+                                    }) {
+                                        let mut keys = extract_bigrams_with_encoding(
+                                            &projection.bytes,
+                                            self.encoding,
+                                        );
+                                        keys.sort_unstable();
+                                        overlay_bigrams
+                                            .lock()
+                                            .expect("overlay bigram lock")
+                                            .insert(slot, keys);
+                                    }
+                                    if let (Some(builders), Some(text)) =
+                                        (&text_builders, &projection.text)
+                                    {
+                                        builders.add(slot, text);
+                                    }
+
+                                    chunk_arrays.extend(projection.array_fields);
+                                    PresenceIndex::add_build_row(
+                                        &presence_words,
+                                        slot,
+                                        &projection.present_fields,
                                     );
-                                    keys.sort_unstable();
-                                    overlay_bigrams
-                                        .lock()
-                                        .expect("overlay bigram lock")
-                                        .insert(slot, keys);
+                                    for (field, key) in projection.typed_values {
+                                        chunk_typed[field].push((key, slot));
+                                    }
                                 }
                             }
-                            ProjectionOutcome::Valid(projection) => {
-                                if restored.is_none() {
-                                    main.add_file_content(&skip, slot, &projection.bytes);
-                                } else if restored
-                                    .as_ref()
-                                    .is_some_and(|restored| restored.newly_changed.contains(&slot))
-                                {
-                                    let mut keys = extract_bigrams_with_encoding(
-                                        &projection.bytes,
-                                        self.encoding,
-                                    );
-                                    keys.sort_unstable();
-                                    overlay_bigrams
-                                        .lock()
-                                        .expect("overlay bigram lock")
-                                        .insert(slot, keys);
-                                }
-                                if let (Some(builders), Some(text)) =
-                                    (&text_builders, &projection.text)
-                                {
-                                    builders.add(slot, text);
-                                }
 
-                                chunk_arrays.extend(projection.array_fields);
-                                PresenceIndex::add_build_row(
-                                    &presence_words,
-                                    slot,
-                                    &projection.present_fields,
-                                );
-                                chunk_view.push((slot, projection.view_keys));
-                                chunk_sort.push((slot, projection.sort_keys));
-                                for (field, key) in projection.typed_values {
-                                    chunk_typed[field].push((key, slot));
-                                }
+                            #[cfg(feature = "index-timings")]
+                            {
+                                chunk_add_nanos += elapsed_nanos(add_started);
                             }
+                        }
+                        array_fields
+                            .lock()
+                            .expect("array field lock")
+                            .extend(chunk_arrays);
+                        key_summary
+                            .lock()
+                            .expect("key summary lock")
+                            .merge(chunk_keys);
+                        malformed
+                            .lock()
+                            .expect("malformed lock")
+                            .extend(chunk_malformed);
+                        #[cfg(feature = "index-timings")]
+                        {
+                            project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
                         }
 
                         #[cfg(feature = "index-timings")]
                         {
-                            chunk_add_nanos += elapsed_nanos(add_started);
+                            add_worker.fetch_add(chunk_add_nanos, Ordering::Relaxed);
                         }
-                    }
-                    array_fields
-                        .lock()
-                        .expect("array field lock")
-                        .extend(chunk_arrays);
-                    key_summary
-                        .lock()
-                        .expect("key summary lock")
-                        .merge(chunk_keys);
-                    malformed
-                        .lock()
-                        .expect("malformed lock")
-                        .extend(chunk_malformed);
-                    #[cfg(feature = "index-timings")]
-                    {
-                        project_worker.fetch_add(chunk_project_nanos, Ordering::Relaxed);
-                    }
-
-                    #[cfg(feature = "index-timings")]
-                    {
-                        add_worker.fetch_add(chunk_add_nanos, Ordering::Relaxed);
-                    }
-                    let mut rows = typed_rows.lock().expect("typed row lock");
-                    for (all, chunk) in rows.iter_mut().zip(chunk_typed) {
-                        all.extend(chunk);
-                    }
-                    view_rows.lock().expect("view row lock").extend(chunk_view);
-                    sort_rows.lock().expect("sort row lock").extend(chunk_sort);
-                    Ok(())
-                })
+                        let mut rows = typed_rows.lock().expect("typed row lock");
+                        for (all, chunk) in rows.iter_mut().zip(chunk_typed) {
+                            all.extend(chunk);
+                        }
+                        merge_chunk(&posting_builders, chunk_postings);
+                        Ok(())
+                    },
+                )
         })?;
         #[cfg(feature = "index-timings")]
         {
@@ -253,7 +293,41 @@ impl FilePicker {
         {
             self.build_timings.compress_nanos = elapsed_nanos(compress_started);
         }
-        // Publish only after all source reads and projections succeed.
+
+        #[cfg(feature = "index-timings")]
+        let typed_started = Instant::now();
+        let mut typed = TypedIndex::new(indexed_fields);
+        typed.replace_rows(typed_rows.into_inner().expect("typed row lock"));
+        for (path, builder) in posting_paths.into_iter().zip(posting_builders) {
+            let builder = builder.into_inner().expect("posting row lock");
+            typed.replace_path(
+                path,
+                builder.rows,
+                builder.present,
+                builder.scalar_safe,
+                builder.complete_values,
+            );
+        }
+
+        #[cfg(feature = "index-timings")]
+        {
+            self.build_timings.typed_nanos = elapsed_nanos(typed_started);
+        }
+
+        #[cfg(feature = "index-timings")]
+        let view_started = Instant::now();
+        let view_order = self.view.ordered_columns(&view_columns, files, ids);
+        let sort_order = self.sort.ordered_flat(&sort_keys, files, ids);
+        #[cfg(feature = "index-timings")]
+        {
+            self.build_timings.view_nanos = elapsed_nanos(view_started);
+        }
+        let text_index = text_builders.map(TextIndexBuilders::finish);
+        let malformed = malformed.into_inner().expect("malformed lock");
+        let array_fields = array_fields.into_inner().expect("array field lock");
+        let key_summary = key_summary.into_inner().expect("key summary lock");
+
+        // All fallible work and sorting is complete before replacing live slots.
         source.finish()?;
         if let Some((ids, files)) = compacted {
             self.id_bytes = ids;
@@ -264,49 +338,14 @@ impl FilePicker {
         self.indexed_len = self.files.len();
         self.changed = changed;
         self.changed_bigrams = changed_bigrams;
-        self.malformed = malformed.into_inner().expect("malformed lock");
-        self.text_index = text_builders.map(TextIndexBuilders::finish);
-        self.array_fields = array_fields.into_inner().expect("array field lock");
-        self.key_summary = key_summary.into_inner().expect("key summary lock");
+        self.malformed = malformed;
+        self.text_index = text_index;
+        self.array_fields = array_fields;
+        self.key_summary = key_summary;
         self.presence.replace(presence_words);
-        #[cfg(feature = "index-timings")]
-        let typed_started = Instant::now();
-        self.typed
-            .replace_rows(typed_rows.into_inner().expect("typed row lock"));
-        #[cfg(feature = "index-timings")]
-        {
-            self.build_timings.typed_nanos = elapsed_nanos(typed_started);
-        }
-
-        #[cfg(feature = "index-timings")]
-        let view_started = Instant::now();
-        self.view.replace(
-            view_rows.into_inner().expect("view row lock"),
-            &self.files,
-            &self.id_bytes,
-        );
-        self.sort.replace(
-            sort_rows.into_inner().expect("sort row lock"),
-            &self.files,
-            &self.id_bytes,
-        );
-        // Runtime path postings are rebuilt after slot compaction so their
-        // posting lists refer to the current immutable file table.
-        let runtime_paths = self.typed.dynamic_paths();
-        let inferred_paths = self.inferred_paths.clone();
-        self.typed.invalidate_dynamic();
-        if let Err(error) = self.build_postings(&runtime_paths) {
-            // A source edit during this second pass can leave the fresh
-            // text snapshot behind. Require source verification next time.
-            self.changed.extend(self.sorted.iter().copied());
-            return Err(error);
-        }
-        self.inferred_paths = inferred_paths;
-
-        #[cfg(feature = "index-timings")]
-        {
-            self.build_timings.view_nanos = elapsed_nanos(view_started);
-        }
+        self.typed = typed;
+        self.view.apply_columns(view_columns, view_order);
+        self.sort.apply_flat(sort_keys, sort_order);
         Ok(())
     }
 }

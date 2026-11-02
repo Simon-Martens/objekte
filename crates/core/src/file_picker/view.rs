@@ -1,11 +1,14 @@
 //! In-memory ordered view keys for explicitly indexed scalar fields.
 use super::FileEntry;
+#[cfg(test)]
+use crate::query::scalar;
 use crate::{
     Direction, Field,
-    query::{Operator, Scalar, scalar, scalar_value},
+    query::{Operator, Scalar, scalar_value},
 };
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{cmp::Ordering, collections::BTreeMap};
 
 
@@ -36,6 +39,10 @@ pub(super) struct RestoredViewIndex {
 
 
 impl ViewIndex {
+    pub(super) fn field_count(&self) -> usize {
+        self.fields.len()
+    }
+
     pub(super) fn saved(&self) -> SavedViewIndex<'_> {
         SavedViewIndex {
             fields: &self.fields,
@@ -44,7 +51,7 @@ impl ViewIndex {
         }
     }
 
-    pub(super) fn restore(&mut self, saved: RestoredViewIndex, slots: usize) -> bool {
+    pub(super) fn can_restore(&self, saved: &RestoredViewIndex, slots: usize) -> bool {
         if saved.fields != self.fields
             || saved.keys.len() != self.fields.len()
             || saved.ordered.len() != self.fields.len()
@@ -61,9 +68,12 @@ impl ViewIndex {
                 }
             }
         }
+        true
+    }
+
+    pub(super) fn apply_restored(&mut self, saved: RestoredViewIndex) {
         self.keys = saved.keys;
         self.ordered = saved.ordered;
-        true
     }
 
     pub(super) fn new(fields: &[String], definitions: &BTreeMap<String, Field>) -> Self {
@@ -78,6 +88,7 @@ impl ViewIndex {
         }
     }
 
+    #[cfg(test)]
     pub(super) fn project(&self, id: &str, data: &Value) -> Vec<Scalar> {
         self.fields
             .iter()
@@ -86,33 +97,61 @@ impl ViewIndex {
             .collect()
     }
 
-    pub(super) fn fields(&self) -> &[String] {
-        &self.fields
+    /// Project retained view scalars directly from the validated source tree.
+    pub(super) fn project_sonic(
+        &self,
+        id: &str,
+        fields: &BTreeMap<&str, &SonicValue>,
+    ) -> Vec<Scalar> {
+        self.fields
+            .iter()
+            .zip(&self.definitions)
+            .map(|(name, definition)| scalar_sonic(id, name, definition.as_ref(), fields))
+            .collect()
+    }
+
+    /// Each worker owns disjoint 64-slot slices of the final field columns.
+    pub(super) fn project_sonic_into_columns(
+        &self,
+        id: &str,
+        fields: &BTreeMap<&str, &SonicValue>,
+        columns: &mut [&mut [Scalar]],
+        within: usize,
+    ) {
+        debug_assert_eq!(columns.len(), self.fields.len());
+        for ((name, definition), column) in self
+            .fields
+            .iter()
+            .zip(&self.definitions)
+            .zip(columns.iter_mut())
+        {
+            column[within] = scalar_sonic(id, name, definition.as_ref(), fields);
+        }
     }
 
     pub(super) fn missing_keys(&self) -> Vec<Scalar> {
         vec![Scalar::Missing; self.fields.len()]
     }
 
-    pub(super) fn replace(
-        &mut self,
-        rows: Vec<(usize, Vec<Scalar>)>,
+    pub(super) fn ordered_columns(
+        &self,
+        columns: &[Vec<Scalar>],
         files: &[Option<FileEntry>],
         id_bytes: &[u8],
-    ) {
-        self.keys = vec![vec![Scalar::Missing; files.len()]; self.fields.len()];
-        for (slot, values) in rows {
-            for (field, value) in values.into_iter().enumerate() {
-                self.keys[field][slot] = value;
-            }
-        }
-        self.ordered = (0..self.fields.len())
+    ) -> Vec<Vec<usize>> {
+        debug_assert_eq!(columns.len(), self.fields.len());
+        (0..self.fields.len())
             .map(|field| {
                 let mut slots = (0..files.len()).collect::<Vec<_>>();
-                slots.sort_by(|&a, &b| compare_slots(&self.keys[field], a, b, files, id_bytes));
+                slots.sort_by(|&a, &b| compare_slots(&columns[field], a, b, files, id_bytes));
                 slots
             })
-            .collect();
+            .collect()
+    }
+
+    pub(super) fn apply_columns(&mut self, columns: Vec<Vec<Scalar>>, ordered: Vec<Vec<usize>>) {
+        self.keys = columns;
+        self.ordered = ordered;
     }
 
     pub(super) fn update(
@@ -218,6 +257,50 @@ impl ViewIndex {
     }
 }
 
+
+fn scalar_sonic(
+    id: &str,
+    name: &str,
+    definition: Option<&Field>,
+    fields: &BTreeMap<&str, &SonicValue>,
+) -> Scalar {
+    if name == "@id" {
+        return Scalar::String(id.to_owned());
+    }
+    let Some(value) = fields.get(name) else {
+        return Scalar::Missing;
+    };
+    if let Some(raw) = value.as_raw_number() {
+        let number: serde_json::Number = raw
+            .as_str()
+            .parse()
+            .expect("projection validated every JSON number");
+        let number = Value::Number(number);
+        if definition.is_some_and(|field| !crate::schema::indexable(field, &number)) {
+            return Scalar::Invalid;
+        }
+        return scalar_value(Some(&number));
+    }
+    match value.as_ref() {
+        ValueRef::Null => Scalar::Null,
+        ValueRef::Bool(value) => {
+            if definition.is_some_and(|field| field.kind != crate::ValueType::Boolean) {
+                Scalar::Invalid
+            } else {
+                Scalar::Bool(value)
+            }
+        }
+        ValueRef::String(value) => {
+            if definition.is_some_and(|field| field.kind != crate::ValueType::String) {
+                Scalar::Invalid
+            } else {
+                Scalar::String(value.to_owned())
+            }
+        }
+        ValueRef::Number(_) => unreachable!("raw numbers enabled"),
+        ValueRef::Array(_) | ValueRef::Object(_) => Scalar::Invalid,
+    }
+}
 
 #[cfg(test)]
 #[path = "view.test.rs"]

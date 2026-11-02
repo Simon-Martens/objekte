@@ -1,21 +1,22 @@
 //! Caller-built ordered postings for one or several JSON paths.
 
 use super::*;
-use crate::{JsonPath, json_filter::values};
+use crate::{JsonPath, json_filter::sonic_values};
+use sonic_rs::Value as SonicValue;
 use std::{io::Read, sync::Mutex};
 
 
 /// Accumulated rows and presence bits for one path across all worker chunks.
-struct PostingRows {
-    rows: Vec<(TypedKey, usize)>,
-    present: Vec<u64>,
-    scalar_safe: bool,
-    complete_values: bool,
+pub(super) struct PostingRows {
+    pub(super) rows: Vec<(TypedKey, usize)>,
+    pub(super) present: Vec<u64>,
+    pub(super) scalar_safe: bool,
+    pub(super) complete_values: bool,
 }
 
 
 impl PostingRows {
-    fn new(slots: usize) -> Self {
+    pub(super) fn new(slots: usize) -> Self {
         Self {
             rows: Vec::new(),
             present: vec![0; slots.div_ceil(64)],
@@ -27,7 +28,7 @@ impl PostingRows {
 
 
 /// Small per-chunk rows merged once rather than locking for every file.
-struct ChunkRows {
+pub(super) struct ChunkRows {
     rows: Vec<(TypedKey, usize)>,
     present: Vec<usize>,
     scalar_safe: bool,
@@ -36,13 +37,53 @@ struct ChunkRows {
 
 
 impl ChunkRows {
-    fn new() -> Self {
+    pub(super) fn new() -> Self {
         Self {
             rows: Vec::new(),
             present: Vec::new(),
             scalar_safe: true,
             complete_values: true,
         }
+    }
+}
+
+
+pub(super) fn project_document(
+    document: &SonicValue,
+    slot: usize,
+    paths: &[JsonPath],
+    rows: &mut [ChunkRows],
+) {
+    for (path, posting) in paths.iter().zip(rows) {
+        let present = !sonic_values(document, path, false).is_empty();
+        if present {
+            posting.present.push(slot);
+        }
+        let selected = sonic_values(document, path, true);
+        posting.scalar_safe &= selected.len() <= 1;
+        if !present {
+            posting.rows.push((TypedKey::Missing, slot));
+        } else {
+            for value in selected {
+                if let Some(key) = TypedKey::from_sonic(value) {
+                    posting.rows.push((key, slot));
+                } else {
+                    posting.complete_values = false;
+                }
+            }
+        }
+    }
+}
+
+pub(super) fn merge_chunk(builders: &[Mutex<PostingRows>], chunks: Vec<ChunkRows>) {
+    for (builder, chunk) in builders.iter().zip(chunks) {
+        let mut builder = builder.lock().expect("posting row lock");
+        builder.rows.extend(chunk.rows);
+        for slot in chunk.present {
+            builder.present[slot / 64] |= 1 << (slot % 64);
+        }
+        builder.scalar_safe &= chunk.scalar_safe;
+        builder.complete_values &= chunk.complete_values;
     }
 }
 
@@ -65,82 +106,49 @@ impl FilePicker {
             return Ok(());
         }
         let source = Source::open_scoped(&self.root, self.recursive)?;
-        let entries = self
-            .sorted
-            .iter()
-            .map(|&slot| {
-                (
-                    slot,
-                    self.id(slot).expect("live posting slot").to_owned(),
-                    self.files[slot]
-                        .as_ref()
-                        .expect("live posting slot")
-                        .stamp
-                        .clone(),
-                )
-            })
-            .collect::<Vec<_>>();
         let builders = paths
             .iter()
             .map(|_| Mutex::new(PostingRows::new(self.files.len())))
             .collect::<Vec<_>>();
         scan_pool::run(|| {
-            entries.par_chunks(64).try_for_each(|chunk| -> Result<()> {
-                let mut local = paths.iter().map(|_| ChunkRows::new()).collect::<Vec<_>>();
-                for (slot, id, stamp) in chunk {
-                    let file_path = source.path.join(format!("{id}.json"));
-                    let mut file = source.file(id)?;
-                    let before = Stamp::from_metadata(
-                        &file.metadata().map_err(|error| io(&file_path, error))?,
-                        &file_path,
-                    )?;
-                    if &before != stamp {
-                        return Err(Error::Unstable(file_path));
-                    }
+            self.sorted
+                .par_chunks(64)
+                .try_for_each(|chunk| -> Result<()> {
+                    let mut local = paths.iter().map(|_| ChunkRows::new()).collect::<Vec<_>>();
                     let mut raw = Vec::new();
-                    file.read_to_end(&mut raw)
-                        .map_err(|error| io(&file_path, error))?;
-                    let after = Stamp::from_metadata(
-                        &file.metadata().map_err(|error| io(&file_path, error))?,
-                        &file_path,
-                    )?;
-                    if before != after || raw.len() as u64 != after.size {
-                        return Err(Error::Unstable(file_path));
-                    }
-                    let Ok(document) = serde_json::from_slice::<serde_json::Value>(&raw) else {
-                        continue;
-                    };
-                    for (path, posting) in paths.iter().zip(local.iter_mut()) {
-                        let present = !values(&document, path, false).is_empty();
-                        if present {
-                            posting.present.push(*slot);
+                    for &slot in chunk {
+                        let id = self.id(slot).expect("live posting slot");
+                        let stamp = &self.files[slot].as_ref().expect("live posting slot").stamp;
+                        let file_path = source.path.join(format!("{id}.json"));
+                        let mut file = source.file(id)?;
+                        let before = Stamp::from_metadata(
+                            &file.metadata().map_err(|error| io(&file_path, error))?,
+                            &file_path,
+                        )?;
+                        if &before != stamp {
+                            return Err(Error::Unstable(file_path));
                         }
-                        let selected = values(&document, path, true);
-                        posting.scalar_safe &= selected.len() <= 1;
-                        if !present {
-                            posting.rows.push((TypedKey::Missing, *slot));
-                        } else {
-                            for value in selected {
-                                if let Some(key) = TypedKey::from_value(value) {
-                                    posting.rows.push((key, *slot));
-                                } else {
-                                    posting.complete_values = false;
-                                }
-                            }
+                        raw.clear();
+                        file.read_to_end(&mut raw)
+                            .map_err(|error| io(&file_path, error))?;
+                        let after = Stamp::from_metadata(
+                            &file.metadata().map_err(|error| io(&file_path, error))?,
+                            &file_path,
+                        )?;
+                        if before != after || raw.len() as u64 != after.size {
+                            return Err(Error::Unstable(file_path));
                         }
+                        let Ok(document) = sonic_rs::from_slice::<SonicValue>(&raw) else {
+                            continue;
+                        };
+                        if !super::projection::valid_document(&document) {
+                            continue;
+                        }
+                        project_document(&document, slot, &paths, &mut local);
                     }
-                }
-                for (builder, chunk) in builders.iter().zip(local) {
-                    let mut builder = builder.lock().expect("posting row lock");
-                    builder.rows.extend(chunk.rows);
-                    for slot in chunk.present {
-                        builder.present[slot / 64] |= 1 << (slot % 64);
-                    }
-                    builder.scalar_safe &= chunk.scalar_safe;
-                    builder.complete_values &= chunk.complete_values;
-                }
-                Ok(())
-            })
+                    merge_chunk(&builders, local);
+                    Ok(())
+                })
         })?;
         source.finish()?;
         for (path, builder) in paths.into_iter().zip(builders) {
