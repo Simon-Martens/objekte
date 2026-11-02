@@ -193,13 +193,45 @@ impl JsonFilter {
 
     /// Necessary text in original or Unicode-folded scalar values. Field
     /// names and JSON quoting are deliberately absent from the values cache.
+    #[cfg(test)]
     pub(crate) fn values_prefilter(&self) -> Option<(RegexMatcher, String)> {
-        fn pattern(expr: &Expr) -> Option<String> {
+        self.values_prefilter_with_path()
+            .map(|(matcher, pattern, _)| (matcher, pattern))
+    }
+
+    /// Keep the field path when the necessary pattern belongs to one field.
+    /// An OR across different fields must search every value partition.
+    pub(crate) fn values_prefilter_with_path(
+        &self,
+    ) -> Option<(RegexMatcher, String, Option<JsonPath>)> {
+        fn pattern(expr: &Expr) -> Option<(String, Option<JsonPath>)> {
             match expr {
-                Expr::And(parts) => parts.iter().filter_map(pattern).max_by_key(String::len),
+                Expr::And(parts) => parts
+                    .iter()
+                    .filter_map(pattern)
+                    .max_by_key(|(pattern, _)| pattern.len()),
                 Expr::Or(parts) => {
                     let parts = parts.iter().map(pattern).collect::<Option<Vec<_>>>()?;
-                    (!parts.is_empty()).then(|| format!("(?:{})", parts.join("|")))
+                    if parts.is_empty() {
+                        return None;
+                    }
+                    let shared_path = parts[0].1.clone();
+                    let path = parts
+                        .iter()
+                        .all(|(_, candidate)| *candidate == shared_path)
+                        .then_some(shared_path)
+                        .flatten();
+                    Some((
+                        format!(
+                            "(?:{})",
+                            parts
+                                .iter()
+                                .map(|(pattern, _)| pattern.as_str())
+                                .collect::<Vec<_>>()
+                                .join("|")
+                        ),
+                        path,
+                    ))
                 }
                 Expr::Exists(_) | Expr::Missing(_) => None,
                 Expr::Compare { left, right, .. }
@@ -223,36 +255,57 @@ impl JsonFilter {
                     right,
                     ignore_case,
                     ..
-                } => match (op, left, right) {
-                    (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::String(s)))
-                    | (Op::Eq, Operand::Literal(serde_json::Value::String(s)), Operand::Field(_)) =>
-                    {
-                        let literal = if *ignore_case {
-                            s.case_fold().collect::<String>()
-                        } else {
-                            s.clone()
-                        };
-                        (!literal.chars().any(char::is_control)).then(|| regex::escape(&literal))
-                    }
-                    (
-                        Op::Contains,
-                        Operand::Field(_),
-                        Operand::Literal(serde_json::Value::String(s)),
-                    ) => ordered_runs_regex(
-                        Like::new(s, false, *ignore_case).required_unicode_runs(),
-                        false,
-                    ),
-                    (Op::Eq, Operand::Field(_), Operand::Literal(serde_json::Value::Bool(v)))
-                    | (Op::Eq, Operand::Literal(serde_json::Value::Bool(v)), Operand::Field(_)) => {
-                        Some(v.to_string())
-                    }
-                    _ => None,
-                },
+                } => {
+                    let path = [left, right].iter().find_map(|operand| match operand {
+                        Operand::Field(field) => Some(field.path.clone()),
+                        _ => None,
+                    });
+                    let value = match (op, left, right) {
+                        (
+                            Op::Eq,
+                            Operand::Field(_),
+                            Operand::Literal(serde_json::Value::String(s)),
+                        )
+                        | (
+                            Op::Eq,
+                            Operand::Literal(serde_json::Value::String(s)),
+                            Operand::Field(_),
+                        ) => {
+                            let literal = if *ignore_case {
+                                s.case_fold().collect::<String>()
+                            } else {
+                                s.clone()
+                            };
+                            (!literal.chars().any(char::is_control))
+                                .then(|| regex::escape(&literal))
+                        }
+                        (
+                            Op::Contains,
+                            Operand::Field(_),
+                            Operand::Literal(serde_json::Value::String(s)),
+                        ) => ordered_runs_regex(
+                            Like::new(s, false, *ignore_case).required_unicode_runs(),
+                            false,
+                        ),
+                        (
+                            Op::Eq,
+                            Operand::Field(_),
+                            Operand::Literal(serde_json::Value::Bool(v)),
+                        )
+                        | (
+                            Op::Eq,
+                            Operand::Literal(serde_json::Value::Bool(v)),
+                            Operand::Field(_),
+                        ) => Some(v.to_string()),
+                        _ => None,
+                    };
+                    value.map(|pattern| (pattern, path))
+                }
             }
         }
-        let pattern = pattern(&self.expr)?;
+        let (pattern, path) = pattern(&self.expr)?;
         RegexMatcher::new(&pattern)
             .ok()
-            .map(|matcher| (matcher, pattern))
+            .map(|matcher| (matcher, pattern, path))
     }
 }

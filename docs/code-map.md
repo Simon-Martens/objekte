@@ -26,7 +26,7 @@ The sorted query modules choose between two routes. A matching schema sort index
 | `file_picker/sort_index.rs` | Store locale-aware single and composite sort keys and ordered slot views |
 | `file_picker/modified_order.rs` | Maintain default newest-first order over stable slots |
 | `file_picker/secondary.rs` | Save and restore typed, presence, sort, and other secondary indexes |
-| `file_picker/text.rs` | Maintain the separate rendered/raw full-text postings when needed |
+| `file_picker/text.rs`, `text/projection.rs`, `text/query.rs` | Build combined and per-field postings, project source values, and choose text candidates |
 
 The immutable bigram filter and changed-file overlay live in `bigram/`. A restored cache can be used before filesystem reconciliation finishes, so `FilePicker::verified()` gates the direct sorted path. Refresh patches changed files into the overlay; rebuild creates a new immutable index. Saved sort keys include the schema language in their configuration fingerprint.
 

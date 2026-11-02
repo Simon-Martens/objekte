@@ -1,6 +1,6 @@
 //! Schema rules and matching traversal for source and index representations.
 
-use crate::{Field, TextFormat};
+use crate::{Field, JsonPath, JsonPathStep, TextFormat};
 use serde_json::Value;
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::collections::BTreeMap;
@@ -73,6 +73,34 @@ impl TextRules {
 
     pub(crate) fn has_exclusions(&self) -> bool {
         self.fields.values().any(TextRule::has_exclusions)
+    }
+
+    /// Explicit full-text paths. Array members share one posting filter.
+    pub(crate) fn registered_paths(&self) -> Vec<JsonPath> {
+        fn collect(rule: &TextRule, path: &mut JsonPath, out: &mut Vec<JsonPath>) {
+            if rule.excluded {
+                return;
+            }
+            if rule.format.is_some() && rule.properties.is_empty() && rule.items.is_none() {
+                out.push(path.clone());
+            }
+            for (name, child) in &rule.properties {
+                path.push(JsonPathStep::Key(name.clone()));
+                collect(child, path, out);
+                path.pop();
+            }
+            if let Some(item) = &rule.items {
+                path.push(JsonPathStep::Each);
+                collect(item, path, out);
+                path.pop();
+            }
+        }
+        let mut paths = Vec::new();
+        for (name, rule) in &self.fields {
+            let mut path = vec![JsonPathStep::Key(name.clone())];
+            collect(rule, &mut path, &mut paths);
+        }
+        paths
     }
 
     pub(crate) fn scalar_format(&self, name: &str) -> Option<TextFormat> {
@@ -198,23 +226,42 @@ pub(crate) fn visit_json_text(
 pub(crate) fn visit_sonic_text(
     value: &SonicValue,
     rules: &TextRules,
-    visit: &mut impl FnMut(&str, &str, TextFormat, bool),
+    visit: &mut impl FnMut(&str, &JsonPath, Option<&JsonPath>, &str, TextFormat, bool),
 ) {
     fn walk(
         value: &SonicValue,
         rule: Option<&TextRule>,
         path: &mut String,
+        steps: &mut JsonPath,
+        fallback: Option<&JsonPath>,
         top_level: bool,
-        visit: &mut impl FnMut(&str, &str, TextFormat, bool),
+        visit: &mut impl FnMut(&str, &JsonPath, Option<&JsonPath>, &str, TextFormat, bool),
     ) {
         if rule.is_some_and(|rule| rule.excluded) {
             return;
         }
+        // Only malformed containers at declared scalar fields need to keep
+        // their descendants in that field's candidate index.
+        let invalid_origin = if rule.is_some_and(|rule| rule.format.is_some())
+            && matches!(value.as_ref(), ValueRef::Array(_) | ValueRef::Object(_))
+        {
+            Some(steps.clone())
+        } else {
+            None
+        };
+        let fallback = invalid_origin.as_ref().or(fallback);
         if let Some(number) = value.as_raw_number() {
             // Source verification uses serde_json::Number, whose spelling can
             // differ from the source lexeme (for example exponent notation).
             if let Ok(number) = number.as_str().parse::<serde_json::Number>() {
-                visit(path, &number.to_string(), TextFormat::Plain, top_level);
+                visit(
+                    path,
+                    steps,
+                    fallback,
+                    &number.to_string(),
+                    TextFormat::Plain,
+                    top_level,
+                );
             }
             return;
         }
@@ -231,32 +278,42 @@ pub(crate) fn visit_sonic_text(
                         path.push('.');
                     }
                     path.push_str(name);
+                    steps.push(JsonPathStep::Key(name.to_owned()));
                     walk(
                         child,
                         rule.and_then(|rule| rule.properties.get(name)),
                         path,
+                        steps,
+                        fallback,
                         false,
                         visit,
                     );
+                    steps.pop();
                     path.truncate(length);
                 }
             }
             ValueRef::Array(items) => {
                 let length = path.len();
                 path.push_str("[]");
+                steps.push(JsonPathStep::Each);
                 for child in items {
                     walk(
                         child,
                         rule.and_then(|rule| rule.items.as_deref()),
                         path,
+                        steps,
+                        fallback,
                         false,
                         visit,
                     );
                 }
+                steps.pop();
                 path.truncate(length);
             }
             ValueRef::String(text) => visit(
                 path,
+                steps,
+                fallback,
                 text,
                 rule.and_then(|rule| rule.format)
                     .unwrap_or(TextFormat::Plain),
@@ -264,16 +321,19 @@ pub(crate) fn visit_sonic_text(
             ),
             ValueRef::Bool(boolean) => visit(
                 path,
+                steps,
+                fallback,
                 if boolean { "true" } else { "false" },
                 TextFormat::Plain,
                 top_level,
             ),
-            ValueRef::Null => visit(path, "null", TextFormat::Plain, top_level),
+            ValueRef::Null => visit(path, steps, fallback, "null", TextFormat::Plain, top_level),
             ValueRef::Number(_) => unreachable!("raw numbers enabled"),
         }
     }
 
     let mut path = String::new();
+    let mut steps = Vec::new();
     if let ValueRef::Object(fields) = value.as_ref() {
         let mut last = BTreeMap::new();
         for (name, child) in fields {
@@ -281,10 +341,20 @@ pub(crate) fn visit_sonic_text(
         }
         for (name, child) in last {
             path.push_str(name);
-            walk(child, rules.fields.get(name), &mut path, true, visit);
+            steps.push(JsonPathStep::Key(name.to_owned()));
+            walk(
+                child,
+                rules.fields.get(name),
+                &mut path,
+                &mut steps,
+                None,
+                true,
+                visit,
+            );
+            steps.pop();
             path.clear();
         }
     } else {
-        walk(value, None, &mut path, false, visit);
+        walk(value, None, &mut path, &mut steps, None, false, visit);
     }
 }

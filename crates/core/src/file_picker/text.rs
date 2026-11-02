@@ -1,283 +1,195 @@
-//! Bigram postings for every included JSON leaf value.
+//! Full-text postings for rendered text and individually declared fields.
 
 use super::*;
-use crate::text::{render_text, visit_sonic_text};
-use sonic_rs::Value as SonicValue;
-use std::io::Read;
-use unicode_casefold::UnicodeCaseFold;
+use std::sync::atomic::{AtomicBool, Ordering};
+
+mod projection;
+mod query;
+
+pub(super) use projection::{project_malformed_text, project_text};
 
 
-/// Separate postings over rendered visible text and decoded source markup.
+/// Combined visible text plus two filters for each declared full-text field.
 pub(super) struct TextIndex {
-    clean: BigramFilter,
-    raw: BigramFilter,
+    global_clean: BigramFilter,
+    global_clean_present: bool,
+    fields: Vec<FieldTextIndex>,
     indexed_len: usize,
 }
 
 
-/// Per-slot rendered and raw text extracted from an already parsed document.
+/// Immutable decoded and rendered postings for one schema path.
+pub(super) struct FieldTextIndex {
+    pub(super) path: crate::JsonPath,
+    pub(super) normal: BigramFilter,
+    pub(super) clean: BigramFilter,
+    pub(super) normal_present: bool,
+    pub(super) clean_present: bool,
+}
+
+
+/// Two projections of one field in one source document.
+pub(super) struct FieldTextContent {
+    normal: Vec<u8>,
+    clean: Vec<u8>,
+}
+
+
+/// Per-slot text extracted from an already parsed document.
 pub(super) struct TextContent {
-    pub(super) clean: Vec<u8>,
-    pub(super) raw: Vec<u8>,
+    pub(super) global_clean: Vec<u8>,
+    pub(super) fields: Vec<FieldTextContent>,
+}
+
+
+/// Mutable posting builders for a field's two representations.
+struct FieldTextBuilders {
+    path: crate::JsonPath,
+    normal_main: BigramIndexBuilder,
+    normal_skip: BigramIndexBuilder,
+    clean_main: BigramIndexBuilder,
+    clean_skip: BigramIndexBuilder,
+    normal_present: AtomicBool,
+    clean_present: AtomicBool,
 }
 
 
 /// Mutable posting builders shared by eager and lazy full-text construction.
 pub(super) struct TextIndexBuilders {
-    clean_main: BigramIndexBuilder,
-    clean_skip: BigramIndexBuilder,
-    raw_main: BigramIndexBuilder,
-    raw_skip: BigramIndexBuilder,
+    global_clean_main: BigramIndexBuilder,
+    global_clean_skip: BigramIndexBuilder,
+    global_clean_present: AtomicBool,
+    fields: Vec<FieldTextBuilders>,
     indexed_len: usize,
 }
 
 
 impl TextIndexBuilders {
-    pub(super) fn new(indexed_len: usize, encoding: BigramEncoding) -> Self {
+    pub(super) fn new(
+        indexed_len: usize,
+        encoding: BigramEncoding,
+        paths: &[crate::JsonPath],
+    ) -> Self {
         Self {
-            clean_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-            clean_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-            raw_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-            raw_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            global_clean_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            global_clean_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            global_clean_present: AtomicBool::new(false),
+            fields: paths
+                .iter()
+                .map(|path| FieldTextBuilders {
+                    path: path.clone(),
+                    normal_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+                    normal_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+                    clean_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+                    clean_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+                    normal_present: AtomicBool::new(false),
+                    clean_present: AtomicBool::new(false),
+                })
+                .collect(),
             indexed_len,
         }
     }
 
     pub(super) fn add(&self, slot: usize, content: &TextContent) {
-        self.clean_main
-            .add_file_content(&self.clean_skip, slot, &content.clean);
-        self.raw_main
-            .add_file_content(&self.raw_skip, slot, &content.raw);
+        if !content.global_clean.is_empty() {
+            self.global_clean_present.store(true, Ordering::Relaxed);
+        }
+        self.global_clean_main.add_file_content(
+            &self.global_clean_skip,
+            slot,
+            &content.global_clean,
+        );
+        for (builders, bytes) in self.fields.iter().zip(&content.fields) {
+            if !bytes.normal.is_empty() {
+                builders.normal_present.store(true, Ordering::Relaxed);
+            }
+            if !bytes.clean.is_empty() {
+                builders.clean_present.store(true, Ordering::Relaxed);
+            }
+            builders
+                .normal_main
+                .add_file_content(&builders.normal_skip, slot, &bytes.normal);
+            builders
+                .clean_main
+                .add_file_content(&builders.clean_skip, slot, &bytes.clean);
+        }
     }
 
     pub(super) fn finish(self) -> TextIndex {
-        let mut clean = self.clean_main.compress(None);
-        clean.set_skip_index(self.clean_skip.compress(Some(12)));
-        let mut raw = self.raw_main.compress(None);
-        raw.set_skip_index(self.raw_skip.compress(Some(12)));
+        let mut global_clean = self.global_clean_main.compress(None);
+        global_clean.set_skip_index(self.global_clean_skip.compress(Some(12)));
+        let fields = self
+            .fields
+            .into_iter()
+            .map(|builders| {
+                let mut normal = builders.normal_main.compress_field(None);
+                normal.set_skip_index(builders.normal_skip.compress_field(Some(12)));
+                let mut clean = builders.clean_main.compress_field(None);
+                clean.set_skip_index(builders.clean_skip.compress_field(Some(12)));
+                FieldTextIndex {
+                    path: builders.path,
+                    normal,
+                    clean,
+                    normal_present: builders.normal_present.load(Ordering::Relaxed),
+                    clean_present: builders.clean_present.load(Ordering::Relaxed),
+                }
+            })
+            .collect();
         TextIndex {
-            clean,
-            raw,
+            global_clean,
+            global_clean_present: self.global_clean_present.load(Ordering::Relaxed),
+            fields,
             indexed_len: self.indexed_len,
         }
     }
 }
 
 
-pub(super) fn project_text(
-    value: &SonicValue,
-    rules: &TextRules,
-    indexed_fields: &[String],
-) -> TextContent {
-    let mut clean = String::new();
-    let mut raw = String::new();
-    visit_sonic_text(value, rules, &mut |path, value, format, top_level| {
-        if top_level
-            && indexed_fields
-                .binary_search_by(|field| field.as_str().cmp(path))
-                .is_ok()
-        {
-            return;
-        }
-        raw.push_str(value);
-        raw.push('\u{1f}');
-        if let Some(rendered) = render_text(value, format) {
-            clean.push_str(&rendered);
-            clean.push('\u{1f}');
-        }
-    });
-    append_folded(&mut clean);
-    append_folded(&mut raw);
-    TextContent {
-        clean: clean.into_bytes(),
-        raw: raw.into_bytes(),
-    }
-}
-
-/// Malformed files have no trustworthy field paths or markup declarations.
-pub(super) fn project_malformed_text(text: &str) -> TextContent {
-    let mut clean = render_text(text, crate::TextFormat::Plain).expect("plain text renders");
-    let mut raw = text.to_owned();
-    append_folded(&mut clean);
-    append_folded(&mut raw);
-    TextContent {
-        clean: clean.into_bytes(),
-        raw: raw.into_bytes(),
-    }
-}
-
-
 impl TextIndex {
-    pub(super) fn filters(&self) -> (&BigramFilter, &BigramFilter, usize) {
-        (&self.clean, &self.raw, self.indexed_len)
+    pub(super) fn filters(&self) -> (&BigramFilter, bool, &[FieldTextIndex], usize) {
+        (
+            &self.global_clean,
+            self.global_clean_present,
+            &self.fields,
+            self.indexed_len,
+        )
     }
 
     pub(super) fn from_filters(
-        clean: BigramFilter,
-        raw: BigramFilter,
+        global_clean: BigramFilter,
+        global_clean_present: bool,
+        fields: Vec<FieldTextIndex>,
         indexed_len: usize,
         encoding: BigramEncoding,
+        paths: &[crate::JsonPath],
     ) -> Result<Self> {
-        if clean.file_count() != indexed_len
-            || raw.file_count() != indexed_len
-            || clean.encoding() != encoding
-            || raw.encoding() != encoding
+        if global_clean.file_count() != indexed_len
+            || global_clean.encoding() != encoding
+            || fields.len() != paths.len()
+            || fields.iter().zip(paths).any(|(field, expected)| {
+                field.path != *expected
+                    || field.normal.file_count() != indexed_len
+                    || field.normal.encoding() != encoding
+                    || field.clean.file_count() != indexed_len
+                    || field.clean.encoding() != encoding
+            })
         {
             return Err(Error::Cache("invalid secondary text index slots".into()));
         }
         Ok(Self {
-            clean,
-            raw,
+            global_clean,
+            global_clean_present,
+            fields,
             indexed_len,
         })
     }
 
     pub(super) fn heap_bytes(&self) -> usize {
-        self.clean.heap_bytes() + self.raw.heap_bytes()
-    }
-}
-
-
-impl FilePicker {
-    /// A missing posting is unknown, represented by `None`. Changed slots and
-    /// slots appended after index construction remain conservative candidates.
-    pub(crate) fn text_candidate_bits(
-        &self,
-        pattern: Option<&str>,
-        raw: bool,
-        literal: bool,
-    ) -> Option<Vec<u64>> {
-        let postings = self.text_index.as_ref().map_or(&self.index, |index| {
-            if raw { &index.raw } else { &index.clean }
-        });
-        let indexed_len = self
-            .text_index
-            .as_ref()
-            .map_or(self.indexed_len, |index| index.indexed_len);
-        let mut bits = pattern.and_then(|pattern| {
-            if literal {
-                postings.query(pattern.as_bytes())
-            } else {
-                regex_plan::candidates(postings, pattern)
-            }
-        })?;
-        bits.resize(self.files.len().div_ceil(64), 0);
-        for &slot in &self.changed {
-            if self.files[slot].is_some() {
-                bits[slot / 64] |= 1 << (slot % 64);
-            }
-        }
-        for slot in indexed_len..self.files.len() {
-            if self.files[slot].is_some() {
-                bits[slot / 64] |= 1 << (slot % 64);
-            }
-        }
-        Some(bits)
-    }
-
-    pub(crate) fn text_candidate_selection(
-        &self,
-        pattern: Option<&str>,
-        raw: bool,
-        literal: bool,
-        selected: Option<&std::collections::BTreeSet<&str>>,
-        matches: impl FnMut(&str, crate::TextFormat) -> bool,
-    ) -> super::candidates::SlotSelection {
-        let mut bits = self.text_candidate_bits(pattern, raw, literal);
-        if let Some(base) = bits.as_mut() {
-            let typed = self.typed.text_matching_bits(
-                self.files.len(),
-                selected,
-                &self.text_rules,
-                matches,
-            );
-            if let Some(typed) = typed {
-                for (word, additional) in base.iter_mut().zip(typed) {
-                    *word |= additional;
-                }
-            }
-        }
-        super::candidates::SlotSelection::from_bits(self, bits)
-    }
-
-    pub(crate) fn text_index_bytes(&self) -> Option<usize> {
-        self.text_index.as_ref().map(TextIndex::heap_bytes)
-    }
-
-    /// Ensure the separate postings required by markup or exclusion rules.
-    pub(crate) fn ensure_text_index(&mut self) -> Result<bool> {
-        if !self.eager_text_index {
-            return Ok(false);
-        }
-        if self.text_index.is_some() {
-            return Ok(false);
-        }
-        let source = Source::open_scoped(&self.root, self.recursive)?;
-        self.build_text_index_from_source(&source)?;
-        source.finish()?;
-        Ok(true)
-    }
-
-    pub(crate) fn rebuild_text_index(&mut self) -> Result<()> {
-        self.refresh()?;
-        self.text_index = None;
-        self.ensure_text_index()?;
-        Ok(())
-    }
-
-    pub(super) fn build_text_index_from_source(&mut self, source: &Source) -> Result<()> {
-        let builders = TextIndexBuilders::new(self.files.len(), self.encoding);
-        // FFF writes each posting word with a plain OR. A worker must own
-        // all 64 slots in that word or simultaneous writes can lose bits.
-        self.files.par_chunks(64).enumerate().try_for_each(
-            |(chunk_index, entries)| -> Result<()> {
-                let mut bytes = Vec::new();
-                for (within, entry) in entries.iter().enumerate() {
-                    let Some(entry) = entry else { continue };
-                    let slot = chunk_index * 64 + within;
-                    let id = self.id(slot).expect("live text-index slot");
-                    let path = source.path.join(format!("{id}.json"));
-                    let mut file = source.file(id)?;
-                    let before =
-                        Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-                    if before != entry.stamp {
-                        return Err(Error::Unstable(path));
-                    }
-                    bytes.clear();
-                    file.read_to_end(&mut bytes).map_err(|e| io(&path, e))?;
-                    let after =
-                        Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-                    if before != after || bytes.len() as u64 != after.size {
-                        return Err(Error::Unstable(path));
-                    }
-                    let content = if self.malformed.contains(&slot) {
-                        project_malformed_text(&crate::text::malformed_search_text(&bytes))
-                    } else {
-                        match sonic_rs::from_slice::<SonicValue>(&bytes) {
-                            Ok(parsed) => {
-                                project_text(&parsed, &self.text_rules, self.typed.fields())
-                            }
-                            Err(_) => {
-                                project_malformed_text(&crate::text::malformed_search_text(&bytes))
-                            }
-                        }
-                    };
-                    builders.add(slot, &content);
-                }
-                Ok(())
-            },
-        )?;
-        source.finish()?;
-        self.text_index = Some(builders.finish());
-        Ok(())
-    }
-}
-
-
-fn append_folded(text: &mut String) {
-    let folded = text.case_fold().collect::<String>();
-    if folded != *text {
-        text.push('\u{1e}');
-        text.push_str(&folded);
+        self.global_clean.heap_bytes()
+            + self
+                .fields
+                .iter()
+                .map(|field| field.normal.heap_bytes() + field.clean.heap_bytes())
+                .sum::<usize>()
     }
 }

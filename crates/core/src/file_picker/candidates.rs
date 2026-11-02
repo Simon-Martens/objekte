@@ -286,13 +286,29 @@ impl FilePicker {
     /// Select conservative JSON candidates without materializing an ID/stamp
     /// pair per file. Selective postings enumerate set bits; broad postings
     /// scan the existing order once and retain only membership bits.
+    #[cfg(test)]
     pub(crate) fn candidate_slot_selection(
         &self,
         pattern: Option<&str>,
         typed_plan: Option<&crate::json_filter::TypedPlan>,
         required_fields: &[String],
     ) -> SlotSelection {
-        let bits = pattern.and_then(|regex| regex_plan::candidates(&self.index, regex));
+        self.candidate_slot_selection_for_path(pattern, None, typed_plan, required_fields)
+    }
+
+    pub(crate) fn candidate_slot_selection_for_path(
+        &self,
+        pattern: Option<&str>,
+        path: Option<&crate::JsonPath>,
+        typed_plan: Option<&crate::json_filter::TypedPlan>,
+        required_fields: &[String],
+    ) -> SlotSelection {
+        let bits = pattern.and_then(|regex| {
+            path.map_or_else(
+                || self.raw_candidate_bits(regex, false),
+                |path| self.field_candidate_bits(regex, path, false, false),
+            )
+        });
         let overlay = pattern.map(regex_plan::OverlayQuery::new);
         let typed_bits = self
             .typed
@@ -325,9 +341,11 @@ impl FilePicker {
             let text_match = if slot >= self.indexed_len {
                 true
             } else if self.changed.contains(&slot) {
-                self.changed_bigrams
-                    .get(&slot)
-                    .is_none_or(|keys| overlay.as_ref().is_none_or(|query| query.matches(keys)))
+                !self.text_paths.is_empty()
+                    || self
+                        .changed_bigrams
+                        .get(&slot)
+                        .is_none_or(|keys| overlay.as_ref().is_none_or(|query| query.matches(keys)))
             } else {
                 bits.as_ref()
                     .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
@@ -410,7 +428,7 @@ impl FilePicker {
         };
         let mut bitsets = Vec::with_capacity(literals.len());
         for literal in literals {
-            let Some(bits) = self.index.query(literal.as_bytes()) else {
+            let Some(bits) = self.raw_candidate_bits(literal, true) else {
                 return self.sorted.clone();
             };
             bitsets.push(bits);
@@ -442,9 +460,10 @@ impl FilePicker {
                 if slot >= self.indexed_len {
                     true
                 } else if self.changed.contains(&slot) {
-                    literals
-                        .iter()
-                        .any(|literal| self.changed_matches_literal(slot, literal))
+                    !self.text_paths.is_empty()
+                        || literals
+                            .iter()
+                            .any(|literal| self.changed_matches_literal(slot, literal))
                 } else {
                     bitsets
                         .iter()
@@ -475,7 +494,7 @@ impl FilePicker {
     }
 
     fn regex_candidate_slots(&self, pattern: &str) -> Vec<usize> {
-        let bits = regex_plan::candidates(&self.index, pattern);
+        let bits = self.raw_candidate_bits(pattern, false);
         let overlay = regex_plan::OverlayQuery::new(pattern);
         self.sorted
             .iter()
@@ -484,9 +503,11 @@ impl FilePicker {
                 if slot >= self.indexed_len {
                     true
                 } else if self.changed.contains(&slot) {
-                    self.changed_bigrams
-                        .get(&slot)
-                        .is_none_or(|keys| overlay.matches(keys))
+                    !self.text_paths.is_empty()
+                        || self
+                            .changed_bigrams
+                            .get(&slot)
+                            .is_none_or(|keys| overlay.matches(keys))
                 } else {
                     bits.as_ref()
                         .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
@@ -520,6 +541,7 @@ impl FilePicker {
                     ProjectionOptions {
                         folded_index: false,
                         text_rules: None,
+                        text_paths: &[],
                         key_summary: None,
                     },
                 )?;

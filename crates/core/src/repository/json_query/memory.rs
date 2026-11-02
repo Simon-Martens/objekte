@@ -28,7 +28,9 @@ fn required_key_prefilters(required: &[String], fields: &BTreeMap<String, Field>
 
 fn fts_candidate_bits(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> Option<Vec<u64>> {
     match plan {
-        FtsPlan::Literal(literal) => picker.text_candidate_bits(Some(literal), false, true),
+        FtsPlan::Literal(literal, path) => {
+            picker.text_field_candidate_bits(literal, path, true, true)
+        }
         FtsPlan::And(children) => {
             let mut children = children.iter();
             let mut bits = children
@@ -177,7 +179,7 @@ impl Repository {
                 .strip_prefix(&self.model.root)
                 .expect("scoped collection")
                 .to_path_buf();
-            let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
+            let values_prefilter = filter.values_prefilter_with_path();
             let source_pattern = filter.source_prefilter()?;
             let scalar_fields = filter.top_level_scalar_fields();
             let required_fields = filter.required_top_level_fields();
@@ -197,9 +199,13 @@ impl Repository {
             }
             let candidate_started = Instant::now();
             let picker = self.file_pickers.get(&c.name).unwrap();
-            let values_pattern = (!filter.references_indexed_field(picker.typed_fields()))
-                .then_some(values_pattern)
-                .flatten();
+            let values_prefilter = (!filter.references_indexed_field(picker.typed_fields())
+                || values_prefilter
+                    .as_ref()
+                    .and_then(|(_, _, path)| path.as_ref())
+                    .is_some_and(|path| picker.has_text_field_path(path)))
+            .then_some(values_prefilter)
+            .flatten();
             let optimistic = !picker.verified();
             // Undeclared fields can have any JSON shape. Scan that collection
             // for scalar cardinality errors without slowing indexed collections.
@@ -255,8 +261,21 @@ impl Repository {
                 continue;
             }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
-            let mut selection = picker.candidate_slot_selection(
-                (!risk).then_some(values_pattern.as_deref()).flatten(),
+            let mut selection = picker.candidate_slot_selection_for_path(
+                (!risk)
+                    .then(|| {
+                        values_prefilter
+                            .as_ref()
+                            .map(|(_, pattern, _)| pattern.as_str())
+                    })
+                    .flatten(),
+                (!risk)
+                    .then(|| {
+                        values_prefilter
+                            .as_ref()
+                            .and_then(|(_, _, path)| path.as_ref())
+                    })
+                    .flatten(),
                 typed_plan.as_ref(),
                 if risk { &[] } else { &required_fields },
             );

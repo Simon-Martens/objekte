@@ -6,7 +6,7 @@ use crate::{Field, ValueType};
 
 /// Necessary full-text candidates for a Boolean filter subtree.
 pub(crate) enum FtsPlan {
-    Literal(String),
+    Literal(String, JsonPath),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -36,18 +36,22 @@ fn declared_format(fields: &BTreeMap<String, Field>, path: &JsonPath) -> Option<
             return None;
         }
     }
-    field.text_format
+    field.text_format.or_else(|| {
+        (field.kind == ValueType::Array)
+            .then(|| {
+                field
+                    .items
+                    .as_deref()
+                    .filter(|item| !item.exclude_fts)
+                    .and_then(|item| item.text_format)
+            })
+            .flatten()
+    })
 }
 
 fn bind_field(field: &mut FieldOperand, fields: &BTreeMap<String, Field>) {
     if field.modifier == Some(Modifier::Fts) {
-        field.modifier = if let [JsonPathStep::Key(name)] = field.path.as_slice()
-            && fields.get(name).is_some_and(|declared| declared.index)
-        {
-            None
-        } else {
-            declared_format(fields, &field.path).map(Modifier::Rendered)
-        };
+        field.modifier = declared_format(fields, &field.path).map(Modifier::Rendered);
     }
 }
 
@@ -99,20 +103,19 @@ impl JsonFilter {
                 Expr::Compare {
                     left:
                         Operand::Field(FieldOperand {
-                            modifier: Some(Modifier::Rendered(format)),
+                            modifier: Some(Modifier::Rendered(_)),
+                            path,
                             ..
                         }),
                     op: Op::Contains,
                     right: Operand::Literal(Value::String(pattern)),
                     ignore_case,
                     ..
-                } if *format != TextFormat::Plain => {
-                    pattern::Like::new(pattern, false, *ignore_case)
-                        .required_ascii_runs()
-                        .into_iter()
-                        .max_by_key(String::len)
-                        .map(FtsPlan::Literal)
-                }
+                } => pattern::Like::new(pattern, false, *ignore_case)
+                    .required_unicode_runs()
+                    .into_iter()
+                    .max_by_key(String::len)
+                    .map(|literal| FtsPlan::Literal(literal, path.clone())),
                 _ => None,
             }
         }

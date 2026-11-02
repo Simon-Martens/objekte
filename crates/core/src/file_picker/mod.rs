@@ -132,6 +132,7 @@ pub struct FilePicker {
     key_summary: KeySummary,
     index: BigramFilter,
     text_rules: TextRules,
+    text_paths: Vec<crate::JsonPath>,
     eager_text_index: bool,
     text_index: Option<TextIndex>,
     presence: PresenceIndex,
@@ -363,7 +364,11 @@ impl FilePicker {
         indexed_fields.sort();
         indexed_fields.dedup();
         let text_rules = TextRules::new(definitions);
-        let eager_text_index = text_rules.has_markup() || text_rules.has_exclusions();
+        let mut text_paths = text_rules.registered_paths();
+        text_paths.sort();
+        text_paths.dedup();
+        let eager_text_index =
+            text_rules.has_markup() || text_rules.has_exclusions() || !text_paths.is_empty();
         let mut picker = Self {
             root,
             recursive,
@@ -393,6 +398,7 @@ impl FilePicker {
             key_summary: KeySummary::default(),
             index: BigramIndexBuilder::new_with_encoding(0, encoding).compress(None),
             text_rules,
+            text_paths,
             eager_text_index,
             text_index: None,
             presence: PresenceIndex::new(definitions),
@@ -424,7 +430,7 @@ impl FilePicker {
             && (!unchecked || !definitions.is_empty())
             && snapshot_path
                 .is_some_and(|path| picker.load_secondary_snapshot(path).unwrap_or(false));
-        if scalar_snapshot && !loaded_secondary {
+        if (scalar_snapshot || !picker.text_paths.is_empty()) && !loaded_secondary {
             // Without the companion's configuration fingerprint, an older
             // base filter may omit fields that are no longer typed-indexed.
             if unchecked {
@@ -457,7 +463,7 @@ impl FilePicker {
         } else {
             picker.rebuild_index_from_source(
                 &source,
-                if scalar_snapshot && !loaded_secondary {
+                if (scalar_snapshot || !picker.text_paths.is_empty()) && !loaded_secondary {
                     None
                 } else {
                     restored

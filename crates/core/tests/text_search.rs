@@ -626,7 +626,7 @@ fn excluded_markup_forces_eager_text_index() {
 }
 
 #[test]
-fn declared_plain_fts_filter_uses_normal_index() {
+fn declared_plain_fts_field_builds_separate_indexes() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
     write(
@@ -637,7 +637,7 @@ fn declared_plain_fts_filter_uses_normal_index() {
     write(root, "data/books/a.json", r#"{"plain":"Help"}"#);
     let mut repo = Repository::open(root).unwrap();
     repo.warm_bigram_index("books").unwrap();
-    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
 
     let result = repo
         .query_json(&JsonQuery {
@@ -648,7 +648,7 @@ fn declared_plain_fts_filter_uses_normal_index() {
         })
         .unwrap();
     assert_eq!(result.total, Some(1));
-    assert_eq!(repo.text_index_bytes("books").unwrap(), None);
+    assert!(repo.text_index_bytes("books").unwrap().unwrap() > 0);
 }
 
 #[test]

@@ -6,7 +6,7 @@ use super::{
     text::{TextContent, project_text},
 };
 use crate::{
-    Error, Result,
+    Error, JsonPath, JsonPathStep, Result,
     error::io,
     query::Scalar,
     sorting::SortValue,
@@ -42,6 +42,7 @@ pub(super) enum ProjectionOutcome {
 pub(super) struct ProjectionOptions<'a> {
     pub(super) folded_index: bool,
     pub(super) text_rules: Option<&'a TextRules>,
+    pub(super) text_paths: &'a [JsonPath],
     pub(super) key_summary: Option<&'a mut KeySummary>,
 }
 
@@ -72,6 +73,7 @@ pub(super) fn projected_values(
             ProjectionOptions {
                 folded_index,
                 text_rules: None,
+                text_paths: &[],
                 key_summary: None,
             },
         )? {
@@ -179,7 +181,9 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
         return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
     };
     let mut values = String::new();
-    if append_values_except_indexed(&parsed, indexed_fields, &mut values).is_err() {
+    if append_values_except_indexed(&parsed, indexed_fields, options.text_paths, &mut values)
+        .is_err()
+    {
         return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
     }
     if let Some((paths, rows, slot)) = postings {
@@ -247,7 +251,7 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
         bytes: values.into_bytes(),
         text: options
             .text_rules
-            .map(|rules| project_text(&parsed, rules, indexed_fields)),
+            .map(|rules| project_text(&parsed, rules, indexed_fields, options.text_paths)),
         array_fields,
         present_fields,
         typed_values,
@@ -310,7 +314,14 @@ fn append_values(
     value: &SonicValue,
     out: &mut String,
     depth: usize,
+    path: &mut JsonPath,
+    separate: &[JsonPath],
 ) -> std::result::Result<(), ()> {
+    if separate.binary_search(path).is_ok()
+        && !matches!(value.as_ref(), ValueRef::Array(_) | ValueRef::Object(_))
+    {
+        return validate_value(value, depth);
+    }
     if value.as_raw_number().is_some() {
         out.push_str(&exact_number(value)?.to_string());
         out.push('\u{1f}');
@@ -335,7 +346,9 @@ fn append_values(
                 return Err(());
             }
             for value in values {
-                append_values(value, out, depth + 1)?;
+                path.push(JsonPathStep::Each);
+                append_values(value, out, depth + 1, path, separate)?;
+                path.pop();
             }
         }
         ValueRef::Object(values) => {
@@ -350,8 +363,10 @@ fn append_values(
                     validate_value(previous, depth + 1)?;
                 }
             }
-            for value in last.values() {
-                append_values(value, out, depth + 1)?;
+            for (name, value) in last {
+                path.push(JsonPathStep::Key(name.to_owned()));
+                append_values(value, out, depth + 1, path, separate)?;
+                path.pop();
             }
         }
     }
@@ -363,10 +378,11 @@ fn append_values(
 fn append_values_except_indexed(
     value: &SonicValue,
     indexed_fields: &[String],
+    separate: &[JsonPath],
     out: &mut String,
 ) -> std::result::Result<(), ()> {
     let ValueRef::Object(fields) = value.as_ref() else {
-        return append_values(value, out, 0);
+        return append_values(value, out, 0, &mut Vec::new(), separate);
     };
     let mut last = BTreeMap::new();
     for (name, child) in fields {
@@ -382,7 +398,13 @@ fn append_values_except_indexed(
         {
             validate_value(child, 1)?;
         } else {
-            append_values(child, out, 1)?;
+            append_values(
+                child,
+                out,
+                1,
+                &mut vec![JsonPathStep::Key(name.to_owned())],
+                separate,
+            )?;
         }
     }
     Ok(())

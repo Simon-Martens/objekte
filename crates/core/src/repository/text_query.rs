@@ -286,13 +286,24 @@ impl Repository {
                         .any(|field| picker.has_array_value(field));
                 if !risk {
                     let required = filter.required_top_level_fields();
-                    let values_pattern = (!filter.references_indexed_field(picker.typed_fields()))
-                        .then(|| filter.values_prefilter().map(|(_, pattern)| pattern))
-                        .flatten();
+                    let values_prefilter = filter.values_prefilter_with_path();
+                    let values_prefilter = (!filter
+                        .references_indexed_field(picker.typed_fields())
+                        || values_prefilter
+                            .as_ref()
+                            .and_then(|(_, _, path)| path.as_ref())
+                            .is_some_and(|path| picker.has_text_field_path(path)))
+                    .then_some(values_prefilter)
+                    .flatten();
                     let typed_plan = filter.typed_plan();
-                    if values_pattern.is_some() || typed_plan.is_some() || !required.is_empty() {
-                        let allowed = picker.candidate_slot_selection(
-                            values_pattern.as_deref(),
+                    if values_prefilter.is_some() || typed_plan.is_some() || !required.is_empty() {
+                        let allowed = picker.candidate_slot_selection_for_path(
+                            values_prefilter
+                                .as_ref()
+                                .map(|(_, pattern, _)| pattern.as_str()),
+                            values_prefilter
+                                .as_ref()
+                                .and_then(|(_, _, path)| path.as_ref()),
                             typed_plan.as_ref(),
                             &required,
                         );

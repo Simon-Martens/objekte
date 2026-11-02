@@ -13,7 +13,7 @@ use view::{RestoredViewIndex, SavedViewIndex};
 
 // Flat sort-key storage changes the secondary payload. Older sidecars are
 // cache misses; their portable bigram snapshot remains reusable.
-const MAGIC: &[u8; 8] = b"OBJSEC04";
+const MAGIC: &[u8; 8] = b"OBJSEC05";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
 // A single declared sort order can exceed 1 GiB for multi-million-record collections.
 const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -32,6 +32,9 @@ struct Saved<'a> {
     view: &'a SavedViewIndex<'a>,
     sort: &'a SavedSortIndex<'a>,
     text: bool,
+    text_paths: Vec<String>,
+    global_clean_present: bool,
+    field_presence: Vec<(bool, bool)>,
 }
 
 
@@ -48,6 +51,9 @@ struct Restored {
     view: RestoredViewIndex,
     sort: RestoredSortIndex,
     text: bool,
+    text_paths: Vec<String>,
+    global_clean_present: bool,
+    field_presence: Vec<(bool, bool)>,
 }
 
 
@@ -217,14 +223,40 @@ impl FilePicker {
             Err(_) => return Ok(false),
         };
         let text_index = if restored.text {
-            let clean = match read_filter_section(&mut reader, length) {
+            if restored.text_paths
+                != self
+                    .text_paths
+                    .iter()
+                    .map(|path| serde_json::to_string(path).expect("path serializes"))
+                    .collect::<Vec<_>>()
+                || restored.field_presence.len() != self.text_paths.len()
+            {
+                return Ok(false);
+            }
+            let global_clean = match read_filter_section(&mut reader, length) {
                 Ok(filter) => filter,
                 Err(_) => return Ok(false),
             };
-            let raw = match read_filter_section(&mut reader, length) {
-                Ok(filter) => filter,
-                Err(_) => return Ok(false),
-            };
+            let mut fields = Vec::with_capacity(self.text_paths.len());
+            for (path, &(normal_present, clean_present)) in
+                self.text_paths.iter().zip(&restored.field_presence)
+            {
+                let normal = match read_filter_section(&mut reader, length) {
+                    Ok(filter) => filter,
+                    Err(_) => return Ok(false),
+                };
+                let clean = match read_filter_section(&mut reader, length) {
+                    Ok(filter) => filter,
+                    Err(_) => return Ok(false),
+                };
+                fields.push(text::FieldTextIndex {
+                    path: path.clone(),
+                    normal,
+                    clean,
+                    normal_present,
+                    clean_present,
+                });
+            }
             let mut encoded_len = [0_u8; 8];
             if reader.read_exact(&mut encoded_len).is_err() {
                 return Ok(false);
@@ -233,11 +265,24 @@ impl FilePicker {
             if indexed_len != self.files.len() as u64 {
                 return Ok(false);
             }
-            match TextIndex::from_filters(clean, raw, self.files.len(), self.encoding) {
+            match TextIndex::from_filters(
+                global_clean,
+                restored.global_clean_present,
+                fields,
+                self.files.len(),
+                self.encoding,
+                &self.text_paths,
+            ) {
                 Ok(index) => Some(index),
                 Err(_) => return Ok(false),
             }
         } else {
+            if !restored.text_paths.is_empty()
+                || restored.global_clean_present
+                || !restored.field_presence.is_empty()
+            {
+                return Ok(false);
+            }
             None
         };
         let decoded_bytes = consumed(&reader);
@@ -277,6 +322,19 @@ impl FilePicker {
     pub(crate) fn save_secondary_snapshot(&self, path: &Path) -> Result<()> {
         let view = self.view.saved();
         let sort = self.sort.saved();
+        let (global_clean_present, field_presence) =
+            self.text_index
+                .as_ref()
+                .map_or((false, Vec::new()), |text| {
+                    let (_, present, fields, _) = text.filters();
+                    (
+                        present,
+                        fields
+                            .iter()
+                            .map(|field| (field.normal_present, field.clean_present))
+                            .collect(),
+                    )
+                });
         let modified_order = self.modified_order.snapshot(&self.files, &self.id_bytes);
         let sidecar = sidecar(path);
         let parent = sidecar.parent().expect("sidecar has parent");
@@ -309,12 +367,23 @@ impl FilePicker {
                         view: &view,
                         sort: &sort,
                         text: self.text_index.is_some(),
+                        text_paths: self
+                            .text_paths
+                            .iter()
+                            .map(|path| serde_json::to_string(path).expect("path serializes"))
+                            .collect(),
+                        global_clean_present,
+                        field_presence,
                     },
                 )
                 .map_err(|error| Error::Cache(format!("cannot encode secondary index: {error}")))?;
             if let Some(text) = &self.text_index {
-                let (clean, raw, indexed_len) = text.filters();
-                for filter in [clean, raw] {
+                let (global_clean, _, fields, indexed_len) = text.filters();
+                for filter in std::iter::once(global_clean).chain(
+                    fields
+                        .iter()
+                        .flat_map(|field| [&field.normal, &field.clean]),
+                ) {
                     let length = filter.encoded_len()?;
                     buffered
                         .write_all(&length.to_le_bytes())

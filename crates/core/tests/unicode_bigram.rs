@@ -324,6 +324,19 @@ fn schema_override_and_unicode_secondary_cache_restore() {
         ..Default::default()
     };
     assert_eq!(reopened.search_text(&query).unwrap().total, Some(1));
+    let field_query = TextQuery {
+        fields: Some(vec!["body".into()]),
+        ..query.clone()
+    };
+    assert_eq!(reopened.search_text(&field_query).unwrap().total, Some(1));
+    let rendered_filter = JsonQuery {
+        filter: "body:fts ~ '中文'".into(),
+        count: true,
+        ..Default::default()
+    };
+    let rendered_result = reopened.query_json(&rendered_filter).unwrap();
+    assert_eq!(rendered_result.total, Some(1));
+    assert_eq!(rendered_result.metrics.fts_candidates, 1);
 
     let schema_path = schemas.join("docs.schema.json");
     let mut schema: serde_json::Value =

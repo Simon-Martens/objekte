@@ -161,7 +161,7 @@ fn btree_scalars_reach_text_and_filter_verification() {
                 JsonQueryBackend::Bigram
             )
             .1,
-            0
+            usize::from(rendered)
         );
         let cache = indexed.save_bigram_cache("books").unwrap();
         assert_eq!(&fs::read(&cache).unwrap()[..8], b"OBJSNP04");

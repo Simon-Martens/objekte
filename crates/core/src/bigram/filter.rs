@@ -470,10 +470,26 @@ impl BigramIndexBuilder {
     /// Ubiquitous columns (≥90%) are omitted because they barely filter.
     #[inline(always)]
     pub fn compress(self, min_density_pct: Option<u32>) -> BigramFilter {
+        self.compress_with_density_base(min_density_pct, None)
+    }
+
+    /// Field postings must use all collection slots as the density base. A
+    /// pair present in the only populated field is still rare in the corpus.
+    pub(crate) fn compress_field(self, min_density_pct: Option<u32>) -> BigramFilter {
+        let file_count = self.file_count;
+        self.compress_with_density_base(min_density_pct, Some(file_count))
+    }
+
+    fn compress_with_density_base(
+        self,
+        min_density_pct: Option<u32>,
+        density_base: Option<usize>,
+    ) -> BigramFilter {
         let cols = self.columns_used() as usize;
         let words = self.words;
         let file_count = self.file_count;
         let populated = self.populated.load(Ordering::Relaxed);
+        let density_population = density_base.unwrap_or(populated);
         let dense_bytes = words * 8; // cost of one dense column
 
         let old_lookup = self.lookup;
@@ -519,14 +535,15 @@ impl BigramIndexBuilder {
                 }
 
                 if min_density_pct.is_some_and(|min_pct| {
-                    populated == 0 || (popcount as usize) * 100 < populated * min_pct as usize
+                    density_population == 0
+                        || (popcount as usize) * 100 < density_population * min_pct as usize
                 }) {
                     continue;
                 }
 
                 // Drop ubiquitous bigrams — columns ≥90% ones carry almost no
                 // filtering power and just waste memory + AND cycles.
-                if populated > 0 && (popcount as usize) * 10 >= populated * 9 {
+                if density_population > 0 && (popcount as usize) * 10 >= density_population * 9 {
                     continue;
                 }
 

@@ -54,7 +54,7 @@ impl FilePicker {
         // Once full-text postings are active, rebuild them with the normal
         // postings so slot compaction never requires a second source pass.
         let text_builders = (self.eager_text_index || self.text_index.is_some())
-            .then(|| TextIndexBuilders::new(files.len(), self.encoding));
+            .then(|| TextIndexBuilders::new(files.len(), self.encoding, &self.text_paths));
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
         let key_summary = std::sync::Mutex::new(KeySummary::default());
         let malformed = std::sync::Mutex::new(BTreeSet::new());
@@ -150,6 +150,7 @@ impl FilePicker {
                                 ProjectionOptions {
                                     folded_index: true,
                                     text_rules: text_builders.as_ref().map(|_| &self.text_rules),
+                                    text_paths: &self.text_paths,
                                     key_summary: Some(&mut chunk_keys),
                                 },
                                 &mut read_buffer,
@@ -172,7 +173,10 @@ impl FilePicker {
                                 ProjectionOutcome::Malformed(mut text) => {
                                     chunk_malformed.insert(slot);
                                     if let Some(builders) = &text_builders {
-                                        builders.add(slot, &project_malformed_text(&text));
+                                        builders.add(
+                                            slot,
+                                            &project_malformed_text(&text, self.text_paths.len()),
+                                        );
                                     }
                                     if !text.is_ascii() {
                                         let folded = text.case_fold().collect::<String>();
