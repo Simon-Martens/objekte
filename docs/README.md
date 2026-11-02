@@ -1,6 +1,6 @@
 *objekte* allows to query, filter, select and sort json file datasets just like a DB. It works with or without using json schema for type hints; it includes querying validation state. It builds and maintains efficient B-Tree indices for structual access to selected paths and provides very fast full-text search and grep matching in field values, supporting specially declared string types (eg. markdown or XML). 
 
-**Important:** objekte uses a small in-memory index to speed up queries. It is therefore not a replacement for **jq** or other one-shot-query engines. Also, it provides text search features like full regex support, JSON unescaping, markdown and XML Tag skips, whitespace normaization etc. If very basic access to the raw bytes of the files is enough use **ripgrep**.
+**Important:** objekte uses a small in-memory index to speed up queries. It is therefore not a replacement for **jq** or other one-shot-query engines. Also, it provides text search features like full regex support, JSON unescaping, markdown and XML Tag skips, whitespace normalisation etc. If very basic access to the raw bytes of the files is enough for the task at hand use **ripgrep**.
 
 The goal of objekte is to provide conveniant access to potentially millions of data files via full-text or structured queries. To archieve low millisecond results, the library builds different kinds of indeces: for bools, enums & numbers it builds B-Trees, for full text indexing it builds multiple layers of somewhat bloom-like tracked bigram filters. All indices can be marshalled, read and updated.
 
