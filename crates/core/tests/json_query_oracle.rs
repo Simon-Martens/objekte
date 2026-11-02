@@ -223,11 +223,13 @@ fn assert_backend(
         "{} {backend:?} total",
         case.name
     );
-    let actual = result
+    let mut actual = result
         .records
         .into_iter()
         .map(|record| record.id)
         .collect::<Vec<_>>();
+    // This oracle checks membership; default query order is modification time.
+    actual.sort_unstable();
     assert_eq!(actual, expected, "{} {backend:?} IDs", case.name);
 }
 
@@ -340,7 +342,9 @@ fn independent_serde_oracle_checks_every_musenalm_benchmark_filter() {
     assert_eq!(cases.len(), 43);
     let (files, expected) = source_ids(&contents, &cases);
     assert_eq!(files, 133_948);
-    let mut memory = Repository::load_repository(&root, Options::new()).unwrap();
+    let mut options = Options::new();
+    options.total_limit = files;
+    let mut memory = Repository::load_repository(&root, options).unwrap();
     for case in &cases {
         let ids = &expected[&case.name];
         assert_backend(&mut memory, "contents", case, JsonQueryBackend::Bigram, ids);
