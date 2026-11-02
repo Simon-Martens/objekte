@@ -1,6 +1,14 @@
 //! Scalar view planning, indexed page reads, and direct execution.
 
 use super::*;
+use crate::query::ViewSelection;
+
+
+/// Retain full JSON only when the final page still needs schema validation.
+enum RetainedView {
+    Unvalidated(String, Document),
+    Ready(crate::ViewRow, RecordState),
+}
 
 
 impl Repository {
@@ -59,7 +67,7 @@ impl Repository {
                 .is_none_or(|bits| bits[slot / 64] & (1 << (slot % 64)) != 0)
         };
         let indexed = all_filters_indexed && order.is_some();
-        let (entries, total): (Vec<(String, Stamp)>, Option<usize>) = if indexed {
+        let (entries, indexed_total): (Vec<(String, Stamp)>, Option<usize>) = if indexed {
             let order = order.expect("indexed order");
             let total = plan
                 .count
@@ -76,19 +84,7 @@ impl Repository {
                 .collect();
             (entries, total)
         } else {
-            (
-                picker
-                    .sorted_slots()
-                    .iter()
-                    .copied()
-                    .filter(|&slot| included(slot))
-                    .map(|slot| {
-                        let (id, stamp) = picker.view_record(slot);
-                        (id.to_owned(), stamp.clone())
-                    })
-                    .collect(),
-                None,
-            )
+            (Vec::new(), None)
         };
         let source = Source::open_scoped(&c.path, c.recursive)?;
         let started = Instant::now();
@@ -112,12 +108,26 @@ impl Repository {
             (
                 rows,
                 states,
-                total,
+                indexed_total,
                 "ordered in-memory index; page source read".into(),
             )
         } else {
-            let mut matches = Vec::new();
-            for (id, stamp) in entries {
+            let mut selected = ViewSelection::new(plan);
+            // Acquire each picker record only for the duration of one read.
+            // The scan never materializes an all-files candidate vector.
+            let slots = picker.sorted_slots().len();
+            for position in 0..slots {
+                let candidate = {
+                    let picker = &self.file_pickers[&c.name];
+                    let slot = picker.sorted_slots()[position];
+                    included(slot).then(|| {
+                        let (id, stamp) = picker.view_record(slot);
+                        (id.to_owned(), stamp.clone())
+                    })
+                };
+                let Some((id, stamp)) = candidate else {
+                    continue;
+                };
                 let raw = match self.raw_from(&source, &id, (!optimistic).then_some(&stamp)) {
                     Ok(raw) => raw,
                     Err(Error::Io { source: error, .. })
@@ -129,17 +139,31 @@ impl Repository {
                 };
                 let doc = self.parse(c, &id, &raw.json, false);
                 if plan.matches(&id, &doc.data) {
-                    matches.push((plan.keys(&id, &doc.data), id, doc));
+                    selected.consider(plan.keys(&id, &doc.data), || {
+                        if c.schema.is_some() && doc.state.status != RecordStatus::IncorrectJson {
+                            RetainedView::Unvalidated(id, doc)
+                        } else {
+                            let row = plan.row(c, &id, self.path(c, &id), &doc.data);
+                            RetainedView::Ready(row, doc.state)
+                        }
+                    });
                 }
             }
-            matches.sort_by(|a, b| plan.compare_keys(&a.0, &b.0));
-            let total = plan.count.then_some(matches.len());
+            let total = selected.total();
             let mut rows = Vec::new();
             let mut states = BTreeMap::new();
-            for (_, id, mut doc) in matches.into_iter().skip(plan.offset).take(plan.limit) {
-                doc.validate(c);
-                rows.push(plan.row(c, &id, self.path(c, &id), &doc.data));
-                states.insert(id, doc.state);
+            for retained in selected.into_page() {
+                match retained {
+                    RetainedView::Unvalidated(id, mut doc) => {
+                        doc.validate(c);
+                        rows.push(plan.row(c, &id, self.path(c, &id), &doc.data));
+                        states.insert(id, doc.state);
+                    }
+                    RetainedView::Ready(row, state) => {
+                        states.insert(row.id.clone(), state);
+                        rows.push(row);
+                    }
+                }
             }
             (
                 rows,
@@ -172,8 +196,7 @@ impl Repository {
         self.memory_coverage.insert(c.name.clone(), "dirty".into());
         let (source, files) = self.inventory(c)?;
         let mut seen = BTreeMap::new();
-        let mut rows = Vec::new();
-        let mut states = BTreeMap::new();
+        let mut selected = plan.map(ViewSelection::new);
         let mut edges = BTreeMap::new();
         for id in files.keys() {
             let raw = self.raw_from(&source, id, files.get(id))?;
@@ -182,11 +205,12 @@ impl Repository {
             if let Some(plan) = plan {
                 let t = Instant::now();
                 if plan.matches(id, &data) {
-                    states.insert(id.clone(), data.state.clone());
-                    rows.push((
-                        plan.keys(id, &data),
-                        plan.row(c, id, self.path(c, id), &data),
-                    ));
+                    selected
+                        .as_mut()
+                        .expect("view selection")
+                        .consider(plan.keys(id, &data), || {
+                            (plan.row(c, id, self.path(c, id), &data), data.state.clone())
+                        });
                 }
                 self.metrics.query_nanos += nanos(t);
             }
@@ -202,21 +226,18 @@ impl Repository {
             .insert(c.name.clone(), "current".into());
         if let Some(plan) = plan {
             let t = Instant::now();
-            rows.sort_by(|a, b| plan.compare(a, b));
-            let total = plan.count.then_some(rows.len());
-            let rows: Vec<_> = rows
-                .into_iter()
-                .skip(plan.offset)
-                .take(plan.limit)
-                .map(|(_, r)| r)
+            let selected = selected.expect("view selection");
+            let total = selected.total();
+            let page = selected.into_page();
+            let states = page
+                .iter()
+                .map(|(row, state)| (row.id.clone(), state.clone()))
                 .collect();
+            let rows = page.into_iter().map(|(row, _)| row).collect();
             self.metrics.query_nanos += nanos(t);
             Ok(Some(ViewResult {
                 columns: plan.columns.clone(),
-                states: rows
-                    .iter()
-                    .map(|r| (r.id.clone(), states.remove(&r.id).unwrap()))
-                    .collect(),
+                states,
                 rows,
                 total,
                 metrics: Metrics::default(),

@@ -24,6 +24,10 @@ path = "src/bin/fts_query_mix.rs"
 name = "bigram-encoding-compare"
 path = "src/bin/bigram_encoding_compare.rs"
 
+[[bin]]
+name = "core-allocation"
+path = "src/bin/core_allocation.rs"
+
 [dependencies]
 objekte-core = { path = "../core" }
 serde_json = "1"

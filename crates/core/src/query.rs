@@ -11,6 +11,9 @@ use std::{
     collections::{BTreeMap, BTreeSet},
 };
 
+mod selection;
+pub(crate) use selection::ViewSelection;
+
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -267,10 +270,6 @@ impl Plan {
             .iter()
             .map(|s| scalar(id, data, &s.field, self.fields.get(&s.field)))
             .collect()
-    }
-
-    pub fn compare(&self, a: &(Vec<Scalar>, ViewRow), b: &(Vec<Scalar>, ViewRow)) -> Ordering {
-        self.compare_keys(&a.0, &b.0)
     }
 
     pub fn compare_keys(&self, a: &[Scalar], b: &[Scalar]) -> Ordering {

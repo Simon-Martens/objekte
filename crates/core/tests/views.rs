@@ -69,6 +69,63 @@ fn all_sortable_fields_directions_and_pagination_match() {
 }
 
 #[test]
+fn large_unindexed_prefix_matches_independent_order_with_ties() {
+    let f = Fixture::new();
+    let mut expected = Vec::new();
+    for number in 0..512 {
+        let id = format!("zz_{number:04}");
+        let score = (number * 37) % 17;
+        let title = format!("title_{:04}", 511 - number);
+        f.write(
+            &format!("data/books/{id}.json"),
+            &json!({"title":title,"score":score,"status":"bulk","payload":{"nested":"value"}}),
+        );
+        expected.push((id, score, title));
+    }
+    expected.sort_by(|a, b| {
+        b.1.cmp(&a.1)
+            .then_with(|| a.2.cmp(&b.2))
+            .then_with(|| a.0.cmp(&b.0))
+    });
+    let request = ViewRequest {
+        filters: vec![Filter {
+            field: "status".into(),
+            operator: Operator::Eq,
+            value: json!("bulk"),
+        }],
+        sort: Some(Sort {
+            field: "score".into(),
+            direction: Direction::Desc,
+        }),
+        sub_sorts: Some(vec![Sort {
+            field: "title".into(),
+            direction: Direction::Asc,
+        }]),
+        offset: 400,
+        limit: Some(25),
+        count: true,
+        ..Default::default()
+    };
+    let expected_ids = expected[400..425]
+        .iter()
+        .map(|row| row.0.as_str())
+        .collect::<Vec<_>>();
+    let direct = f
+        .repo(CacheMode::Disabled)
+        .open_view("books", &request)
+        .unwrap();
+    let memory = f
+        .repo(CacheMode::Memory)
+        .open_view("books", &request)
+        .unwrap();
+    assert_eq!(ids(&direct.rows), expected_ids);
+    assert_eq!(ids(&memory.rows), expected_ids);
+    assert_eq!(direct.total, Some(512));
+    assert_eq!(memory.total, Some(512));
+    assert_eq!(memory.rows, direct.rows);
+}
+
+#[test]
 fn typed_filters_include_empty_and_null_results() {
     let f = Fixture::new();
     let r = f.repo(CacheMode::Disabled);
