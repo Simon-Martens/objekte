@@ -48,6 +48,7 @@ use std::{
 use unicode_casefold::UnicodeCaseFold;
 
 use crate::text::TextRules;
+pub(crate) use candidates::SlotSelection;
 pub(crate) use exact::ExactSelection;
 pub use git::GitState;
 pub(crate) use infer::ReferenceInventory;
@@ -519,6 +520,10 @@ impl FilePicker {
 
     pub(crate) fn sorted_slots(&self) -> &[usize] {
         &self.sorted
+    }
+
+    pub(crate) fn slot_count(&self) -> usize {
+        self.files.len()
     }
 
     pub(crate) fn view_record(&self, slot: usize) -> (&str, &Stamp) {

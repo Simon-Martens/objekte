@@ -128,6 +128,54 @@ impl TextIndex {
 
 
 impl FilePicker {
+    /// A missing posting is unknown, represented by `None`. Changed slots and
+    /// slots appended after index construction remain conservative candidates.
+    pub(crate) fn text_candidate_bits(
+        &self,
+        pattern: Option<&str>,
+        raw: bool,
+        literal: bool,
+    ) -> Option<Vec<u64>> {
+        let postings = self.text_index.as_ref().map_or(&self.index, |index| {
+            if raw { &index.raw } else { &index.clean }
+        });
+        let indexed_len = self
+            .text_index
+            .as_ref()
+            .map_or(self.indexed_len, |index| index.indexed_len);
+        let mut bits = pattern.and_then(|pattern| {
+            if literal {
+                postings.query(pattern.as_bytes())
+            } else {
+                regex_plan::candidates(postings, pattern)
+            }
+        })?;
+        bits.resize(self.files.len().div_ceil(64), 0);
+        for &slot in &self.changed {
+            if self.files[slot].is_some() {
+                bits[slot / 64] |= 1 << (slot % 64);
+            }
+        }
+        for slot in indexed_len..self.files.len() {
+            if self.files[slot].is_some() {
+                bits[slot / 64] |= 1 << (slot % 64);
+            }
+        }
+        Some(bits)
+    }
+
+    pub(crate) fn text_candidate_selection(
+        &self,
+        pattern: Option<&str>,
+        raw: bool,
+        literal: bool,
+    ) -> super::candidates::SlotSelection {
+        super::candidates::SlotSelection::from_bits(
+            self,
+            self.text_candidate_bits(pattern, raw, literal),
+        )
+    }
+
     pub(crate) fn text_index_bytes(&self) -> Option<usize> {
         self.text_index.as_ref().map(TextIndex::heap_bytes)
     }
@@ -196,58 +244,6 @@ impl FilePicker {
         source.finish()?;
         self.text_index = Some(builders.finish());
         Ok(())
-    }
-
-    /// Candidate file IDs in ID or modification-time order. Missing regex postings scan all files.
-    pub(crate) fn text_candidates(
-        &self,
-        pattern: Option<&str>,
-        raw: bool,
-        literal: bool,
-        newest_first: bool,
-    ) -> Vec<(String, Stamp)> {
-        let postings = self.text_index.as_ref().map_or(&self.index, |index| {
-            if raw { &index.raw } else { &index.clean }
-        });
-        let indexed_len = self
-            .text_index
-            .as_ref()
-            .map_or(self.indexed_len, |index| index.indexed_len);
-        let bits = pattern.and_then(|pattern| {
-            if literal {
-                postings.query(pattern.as_bytes())
-            } else {
-                regex_plan::candidates(postings, pattern)
-            }
-        });
-        let slots: Box<dyn Iterator<Item = usize> + '_> = if newest_first {
-            Box::new(
-                self.modified_order
-                    .iter(&self.files, &self.id_bytes)
-                    .map(|slot| slot as usize),
-            )
-        } else {
-            Box::new(self.sorted.iter().copied())
-        };
-        slots
-            .filter(|&slot| {
-                bits.as_ref().is_none_or(|bits| {
-                    slot >= indexed_len
-                        || self.changed.contains(&slot)
-                        || BigramFilter::is_candidate(bits, slot)
-                })
-            })
-            .map(|slot| {
-                (
-                    self.id(slot).expect("live text candidate").to_owned(),
-                    self.files[slot]
-                        .as_ref()
-                        .expect("live text candidate")
-                        .stamp
-                        .clone(),
-                )
-            })
-            .collect()
     }
 }
 

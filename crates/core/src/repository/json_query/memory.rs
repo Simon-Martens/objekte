@@ -23,29 +23,46 @@ fn required_key_prefilters(required: &[String], fields: &BTreeMap<String, Field>
         .collect()
 }
 
-fn fts_candidate_ids(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> BTreeSet<String> {
+fn fts_candidate_bits(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> Option<Vec<u64>> {
     match plan {
-        FtsPlan::Literal(literal) => picker
-            .text_candidates(Some(literal), false, true, false)
-            .into_iter()
-            .map(|(id, _)| id)
-            .collect(),
+        FtsPlan::Literal(literal) => picker.text_candidate_bits(Some(literal), false, true),
         FtsPlan::And(children) => {
             let mut children = children.iter();
-            let mut ids = children
+            let mut bits = children
                 .next()
-                .map(|child| fts_candidate_ids(picker, child))
-                .unwrap_or_default();
+                .map(|child| fts_candidate_bits(picker, child))
+                .unwrap_or_else(|| Some(vec![0; picker.slot_count().div_ceil(64)]));
             for child in children {
-                let next = fts_candidate_ids(picker, child);
-                ids.retain(|id| next.contains(id));
+                let next = fts_candidate_bits(picker, child);
+                bits = match (bits, next) {
+                    (Some(mut left), Some(right)) => {
+                        for (word, next) in left.iter_mut().zip(right) {
+                            *word &= next;
+                        }
+                        Some(left)
+                    }
+                    (left @ Some(_), None) => left,
+                    (None, right) => right,
+                };
             }
-            ids
+            bits
         }
-        FtsPlan::Or(children) => children
-            .iter()
-            .flat_map(|child| fts_candidate_ids(picker, child))
-            .collect(),
+        FtsPlan::Or(children) => {
+            let mut bits = Some(vec![0; picker.slot_count().div_ceil(64)]);
+            for child in children {
+                let next = fts_candidate_bits(picker, child);
+                bits = match (bits, next) {
+                    (Some(mut left), Some(right)) => {
+                        for (word, next) in left.iter_mut().zip(right) {
+                            *word |= next;
+                        }
+                        Some(left)
+                    }
+                    _ => None,
+                };
+            }
+            bits
+        }
     }
 }
 
@@ -227,16 +244,18 @@ impl Repository {
                 continue;
             }
             let typed_plan = (!risk).then(|| filter.typed_plan()).flatten();
-            let mut entries = picker.candidate_records_ordered(
+            let mut selection = picker.candidate_slot_selection(
                 (!risk).then_some(values_pattern.as_deref()).flatten(),
                 typed_plan.as_ref(),
                 if risk { &[] } else { &required_fields },
-                request.sort.is_empty(),
             );
             if !risk && let Some(plan) = &fts_plan {
-                let ids = fts_candidate_ids(picker, plan);
-                self.metrics.fts_candidates += ids.len() as u64;
-                entries.retain(|(id, _)| ids.contains(*id));
+                let bits = fts_candidate_bits(picker, plan);
+                self.metrics.fts_candidates += bits
+                    .as_ref()
+                    .map_or(picker.len(), |bits| picker.count_live_bits(bits))
+                    as u64;
+                selection.intersect_bits(picker, bits);
                 if !result
                     .query_plan
                     .iter()
@@ -247,8 +266,9 @@ impl Repository {
                         .push("rendered full-text bigram candidates".into());
                 }
             }
-            if !request.sort.is_empty() && picker.order_candidate_refs(&mut entries, &request.sort)
-            {
+            let indexed_sort =
+                selection.order_sparse(picker, request.sort.is_empty(), &request.sort);
+            if !request.sort.is_empty() && indexed_sort {
                 result
                     .query_plan
                     .push("schema-declared ordered sort index".into());
@@ -264,7 +284,7 @@ impl Repository {
             let base_chunk = rayon::current_num_threads()
                 .saturating_mul(4)
                 .clamp(32, 256);
-            let strong_prefilter = entries.len().saturating_mul(2) < picker.len();
+            let strong_prefilter = selection.len().saturating_mul(2) < picker.len();
             let max_chunk = if strong_prefilter {
                 base_chunk.saturating_mul(8)
             } else {
@@ -274,21 +294,18 @@ impl Repository {
                 // A sorted indexed page also stops after the accessible cap.
                 // Keep its batches bounded even when records are collected
                 // directly rather than emitted through a progress callback.
-                if result.streaming || stop_after.is_some() {
-                    rayon::current_num_threads()
-                        .saturating_mul(8)
-                        .clamp(64, 512)
-                } else {
-                    entries.len().max(1)
-                }
+                rayon::current_num_threads()
+                    .saturating_mul(8)
+                    .clamp(64, 512)
             } else {
                 base_chunk
             };
-            let mut batch_start = 0;
-            while batch_start < entries.len() {
-                let batch_end = batch_start.saturating_add(chunk_size).min(entries.len());
-                let batch = &entries[batch_start..batch_end];
-                batch_start = batch_end;
+            let mut entries = selection.ordered(picker, request.sort.is_empty(), &request.sort);
+            loop {
+                let batch = entries.by_ref().take(chunk_size).collect::<Vec<_>>();
+                if batch.is_empty() {
+                    break;
+                }
                 let mut page_matches = Vec::new();
                 let capture_candidate = result.on_candidate.is_some();
                 let matched_before = matched;
@@ -305,7 +322,8 @@ impl Repository {
                                 Vec::with_capacity(4096),
                             )
                         },
-                        |(searcher, bytes), (id, stamp)| -> Result<ScanOutcome> {
+                        |(searcher, bytes), &slot| -> Result<ScanOutcome> {
+                            let (id, stamp) = picker.view_record(slot);
                             let open_started = Instant::now();
                             let path = source.path.join(format!("{id}.json"));
                             let mut file = match source.file(id) {
@@ -322,7 +340,7 @@ impl Repository {
                                 &file.metadata().map_err(|e| io(&path, e))?,
                                 &path,
                             )?;
-                            if !optimistic && &before != *stamp {
+                            if !optimistic && &before != stamp {
                                 return Err(Error::Unstable(path));
                             }
                             let file_open_nanos = nanos(open_started);
@@ -387,9 +405,13 @@ impl Repository {
                     )
                     .collect::<Result<Vec<_>>>()?;
                 self.metrics.grep_scans += batch.len() as u64;
-                self.metrics.grep_bytes += batch.iter().map(|(_, stamp)| stamp.size).sum::<u64>();
+                self.metrics.grep_bytes += batch
+                    .iter()
+                    .map(|&slot| picker.view_record(slot).1.size)
+                    .sum::<u64>();
                 self.metrics.grep_nanos += nanos(scan_started);
-                for ((id, stamp), mut outcome) in batch.iter().zip(outcomes) {
+                for (&slot, mut outcome) in batch.iter().zip(outcomes) {
+                    let (id, stamp) = picker.view_record(slot);
                     self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
                     self.metrics.bigram_read_nanos += outcome.read_nanos;
                     self.metrics.bigram_regex_nanos += outcome.regex_nanos;
@@ -417,7 +439,7 @@ impl Repository {
                                     .expect("sorted match has parsed document");
                                 result.push_candidate(c, id, &actual_stamp, document, hash)?;
                             } else {
-                                page_matches.push(((*id).to_owned(), (*stamp).clone()));
+                                page_matches.push((id.to_owned(), stamp.clone()));
                             }
                         }
                         matched += 1;
@@ -475,7 +497,6 @@ impl Repository {
                     }
                 }
             }
-            drop(entries);
             source.finish()?;
         }
         result.total = request.count.then_some(matched);

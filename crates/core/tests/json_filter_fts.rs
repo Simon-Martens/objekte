@@ -94,6 +94,10 @@ fn fts_composes_with_filters_and_keeps_backend_parity() {
             "annotation:fts ~ 'Goethe' || year = 1900",
             &["a", "b", "c", "d"],
         ),
+        (
+            "(annotation:fts ~ 'Goethe' && year = 1822) || (notes.body:fts ?~ 'Goethe' && year = 1900)",
+            &["a", "c", "d"],
+        ),
         ("plain:fts ~ 'Goethe'", &[]),
         ("plain:fts ~ 'Goet'", &["a"]),
         ("excluded:fts ~ 'Goethe'", &[]),

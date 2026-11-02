@@ -76,14 +76,53 @@ fn record_candidates_follow_id_order_across_changed_and_deleted_slots() {
     put(dir.path(), "aa", r#"{"title":"Match"}"#);
     picker.refresh_id("aa").unwrap();
 
-    let ids = picker
-        .candidate_records(Some("Match"), None, &[])
-        .into_iter()
-        .map(|(id, _)| id)
+    let mut candidates = picker.candidate_slot_selection(Some("Match"), None, &[]);
+    candidates.order_sparse(&picker, false, &[]);
+    let ids = candidates
+        .ordered(&picker, false, &[])
+        .map(|slot| picker.id(slot).unwrap())
         .collect::<Vec<_>>();
     // The changed "a" no longer matches its stale posting. The appended
     // "aa" slot sorts before the older "b" slot and deleted "c" stays out.
     assert_eq!(ids, ["aa", "b"]);
+}
+
+#[test]
+fn slot_selection_keeps_live_matches_across_posting_word_boundaries() {
+    for count in [63, 64, 65, 127, 128, 129] {
+        let dir = tempfile::tempdir().unwrap();
+        for number in 0..count {
+            put(
+                dir.path(),
+                &format!("d{number:03}"),
+                if number % 3 == 0 {
+                    r#"{"title":"Needle"}"#
+                } else {
+                    r#"{"title":"Other"}"#
+                },
+            );
+        }
+        let mut picker = FilePicker::open(dir.path()).unwrap();
+        fs::remove_file(dir.path().join("d000.json")).unwrap();
+        picker.refresh_id("d000").unwrap();
+        put(dir.path(), "aa", r#"{"title":"Needle"}"#);
+        picker.refresh_id("aa").unwrap();
+        let mut selection = picker.candidate_slot_selection(Some("Needle"), None, &[]);
+        selection.order_sparse(&picker, false, &[]);
+        let actual = selection
+            .ordered(&picker, false, &[])
+            .map(|slot| picker.id(slot).unwrap().to_owned())
+            .collect::<Vec<_>>();
+        let expected = std::iter::once("aa".to_owned())
+            .chain(
+                (1..count)
+                    .filter(|number| number % 3 == 0)
+                    .map(|number| format!("d{number:03}")),
+            )
+            .collect::<Vec<_>>();
+        assert_eq!(actual, expected, "count={count}");
+        assert_eq!(selection.len(), expected.len());
+    }
 }
 
 #[test]

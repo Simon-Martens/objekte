@@ -1,108 +1,306 @@
 //! Conservative posting candidates and schema-declared result order.
 
 use super::*;
+use std::borrow::Cow;
+
+
+enum SlotMembership {
+    All,
+    Bits(Vec<u64>),
+    Sparse(Vec<usize>),
+}
+
+
+/// Candidate membership is independent of the picker's stable result order.
+/// Sparse candidates keep slots; broad queries keep one bitset or no table.
+pub(crate) struct SlotSelection {
+    membership: SlotMembership,
+    count: usize,
+}
+
+
+impl SlotSelection {
+    pub(super) fn from_bits(picker: &FilePicker, bits: Option<Vec<u64>>) -> Self {
+        let mut selection = Self {
+            membership: SlotMembership::All,
+            count: picker.len(),
+        };
+        selection.intersect_bits(picker, bits);
+        if selection.count.saturating_mul(8) < picker.len()
+            && let SlotMembership::Bits(bits) = &selection.membership
+        {
+            let mut slots = Vec::with_capacity(selection.count);
+            for (word_index, &word) in bits.iter().enumerate() {
+                let mut remaining = word;
+                while remaining != 0 {
+                    let slot = word_index * 64 + remaining.trailing_zeros() as usize;
+                    remaining &= remaining - 1;
+                    if picker.files.get(slot).is_some_and(Option::is_some) {
+                        slots.push(slot);
+                    }
+                }
+            }
+            selection.membership = SlotMembership::Sparse(slots);
+        }
+        selection
+    }
+
+    pub(crate) fn len(&self) -> usize {
+        self.count
+    }
+
+    fn contains(&self, slot: usize) -> bool {
+        match &self.membership {
+            SlotMembership::All => true,
+            SlotMembership::Bits(bits) => bits
+                .get(slot / 64)
+                .is_some_and(|word| word & (1 << (slot % 64)) != 0),
+            SlotMembership::Sparse(slots) => slots.contains(&slot),
+        }
+    }
+
+    pub(crate) fn intersect_bits(&mut self, picker: &FilePicker, bits: Option<Vec<u64>>) {
+        let Some(bits) = bits else { return };
+        match &mut self.membership {
+            SlotMembership::All => self.membership = SlotMembership::Bits(bits),
+            SlotMembership::Bits(current) => {
+                for (word, next) in current.iter_mut().zip(bits) {
+                    *word &= next;
+                }
+            }
+            SlotMembership::Sparse(slots) => slots.retain(|&slot| {
+                bits.get(slot / 64)
+                    .is_some_and(|word| word & (1 << (slot % 64)) != 0)
+            }),
+        }
+        self.count = match &self.membership {
+            SlotMembership::All => picker.len(),
+            SlotMembership::Sparse(slots) => slots.len(),
+            SlotMembership::Bits(bits) => picker.count_live_bits(bits),
+        };
+    }
+
+    pub(crate) fn intersect(&mut self, picker: &FilePicker, other: Self) {
+        if matches!(self.membership, SlotMembership::All) {
+            *self = other;
+            return;
+        }
+        match other.membership {
+            SlotMembership::All => {}
+            SlotMembership::Bits(bits) => self.intersect_bits(picker, Some(bits)),
+            SlotMembership::Sparse(slots) => {
+                let slots = match &self.membership {
+                    SlotMembership::Sparse(current) => slots
+                        .into_iter()
+                        .filter(|slot| current.binary_search(slot).is_ok())
+                        .collect::<Vec<_>>(),
+                    _ => slots
+                        .into_iter()
+                        .filter(|&slot| self.contains(slot))
+                        .collect::<Vec<_>>(),
+                };
+                self.count = slots.len();
+                self.membership = SlotMembership::Sparse(slots);
+            }
+        }
+    }
+
+    pub(crate) fn order_sparse(
+        &mut self,
+        picker: &FilePicker,
+        newest_first: bool,
+        sorts: &[crate::Sort],
+    ) -> bool {
+        let indexed = matches!(sorts, [sort] if sort.field == "@id") || picker.sort.supports(sorts);
+        let SlotMembership::Sparse(slots) = &mut self.membership else {
+            return indexed;
+        };
+        if indexed {
+            if let [sort] = sorts
+                && sort.field == "@id"
+            {
+                slots.sort_unstable_by(|&a, &b| picker.id(a).cmp(&picker.id(b)));
+                if sort.direction == Direction::Desc {
+                    slots.reverse();
+                }
+            } else {
+                slots.sort_unstable_by(|&a, &b| {
+                    picker
+                        .sort
+                        .compare_slots(sorts, a, b, &picker.files, &picker.id_bytes)
+                        .expect("supported sort")
+                });
+            }
+        } else if newest_first {
+            slots.sort_unstable_by(|&a, &b| {
+                ModifiedOrder::compare_slots(&picker.files, &picker.id_bytes, a, b)
+            });
+        } else {
+            slots.sort_unstable_by(|&a, &b| picker.id(a).cmp(&picker.id(b)));
+        }
+        indexed
+    }
+
+    pub(crate) fn ordered<'a>(
+        &'a self,
+        picker: &'a FilePicker,
+        newest_first: bool,
+        sorts: &[crate::Sort],
+    ) -> Box<dyn Iterator<Item = usize> + 'a> {
+        if let SlotMembership::Sparse(slots) = &self.membership {
+            return Box::new(slots.iter().copied());
+        }
+        let order: Box<dyn Iterator<Item = usize> + 'a> = if let [sort] = sorts
+            && sort.field == "@id"
+        {
+            if sort.direction == Direction::Desc {
+                Box::new(picker.sorted.iter().rev().copied())
+            } else {
+                Box::new(picker.sorted.iter().copied())
+            }
+        } else if let Some(order) = picker.sort.order(sorts) {
+            match order {
+                Cow::Borrowed(slots) => Box::new(slots.iter().copied()),
+                Cow::Owned(slots) => Box::new(slots.into_iter()),
+            }
+        } else if newest_first {
+            Box::new(
+                picker
+                    .modified_order
+                    .iter(&picker.files, &picker.id_bytes)
+                    .map(|slot| slot as usize),
+            )
+        } else {
+            Box::new(picker.sorted.iter().copied())
+        };
+        Box::new(order.filter(|&slot| picker.files[slot].is_some() && self.contains(slot)))
+    }
+}
 
 
 impl FilePicker {
+    pub(crate) fn count_live_bits(&self, bits: &[u64]) -> usize {
+        let mut count = 0;
+        for (word_index, &word) in bits.iter().enumerate() {
+            let mut remaining = word;
+            while remaining != 0 {
+                let slot = word_index * 64 + remaining.trailing_zeros() as usize;
+                remaining &= remaining - 1;
+                count += usize::from(self.files.get(slot).is_some_and(Option::is_some));
+            }
+        }
+        count
+    }
+
+    /// Select conservative JSON candidates without materializing an ID/stamp
+    /// pair per file. Selective postings enumerate set bits; broad postings
+    /// scan the existing order once and retain only membership bits.
+    pub(crate) fn candidate_slot_selection(
+        &self,
+        pattern: Option<&str>,
+        typed_plan: Option<&crate::json_filter::TypedPlan>,
+        required_fields: &[String],
+    ) -> SlotSelection {
+        let bits = pattern.and_then(|regex| regex_plan::candidates(&self.index, regex));
+        let overlay = pattern.map(regex_plan::OverlayQuery::new);
+        let typed_bits = self
+            .typed
+            .candidate_bits(typed_plan, self.files.len(), &self.changed);
+        let presence_bits = self.presence.candidates(required_fields);
+        if bits.is_none() && typed_bits.is_none() && presence_bits.is_none() {
+            return SlotSelection {
+                membership: SlotMembership::All,
+                count: self.len(),
+            };
+        }
+        let mut smallest: Option<(&[u64], bool, usize)> = None;
+        for (next, changed) in [
+            (bits.as_deref(), true),
+            (typed_bits.as_deref(), false),
+            (presence_bits.as_deref(), false),
+        ] {
+            if let Some(next) = next {
+                let count = next
+                    .iter()
+                    .map(|word| word.count_ones() as usize)
+                    .sum::<usize>()
+                    .saturating_add(if changed { self.changed.len() } else { 0 });
+                if smallest.is_none_or(|(_, _, previous)| count < previous) {
+                    smallest = Some((next, changed, count));
+                }
+            }
+        }
+        let matches = |slot: usize| {
+            let text_match = if slot >= self.indexed_len {
+                true
+            } else if self.changed.contains(&slot) {
+                self.changed_bigrams
+                    .get(&slot)
+                    .is_none_or(|keys| overlay.as_ref().is_none_or(|query| query.matches(keys)))
+            } else {
+                bits.as_ref()
+                    .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
+            };
+            let typed_match = typed_bits.as_ref().is_none_or(|bits| {
+                bits.get(slot / 64)
+                    .is_some_and(|word| word & (1 << (slot % 64)) != 0)
+            });
+            let presence_match = presence_bits.as_ref().is_none_or(|bits| {
+                bits.get(slot / 64)
+                    .is_some_and(|word| word & (1 << (slot % 64)) != 0)
+            });
+            text_match && typed_match && presence_match
+        };
+        if let Some((candidate_bits, needs_overlay, count)) = smallest
+            && count.saturating_mul(8) < self.len()
+        {
+            let mut slots = Vec::with_capacity(count);
+            for (word_index, &word) in candidate_bits.iter().enumerate() {
+                let mut remaining = word;
+                while remaining != 0 {
+                    let slot = word_index * 64 + remaining.trailing_zeros() as usize;
+                    remaining &= remaining - 1;
+                    if self.files.get(slot).is_some_and(Option::is_some) {
+                        slots.push(slot);
+                    }
+                }
+            }
+            if needs_overlay {
+                slots.extend(
+                    self.changed
+                        .iter()
+                        .copied()
+                        .filter(|&slot| self.files[slot].is_some()),
+                );
+            }
+            slots.sort_unstable();
+            slots.dedup();
+            slots.retain(|&slot| matches(slot));
+            let count = slots.len();
+            return SlotSelection {
+                membership: SlotMembership::Sparse(slots),
+                count,
+            };
+        }
+        let mut selected = vec![0; self.files.len().div_ceil(64)];
+        let mut count = 0;
+        for &slot in &self.sorted {
+            if matches(slot) {
+                selected[slot / 64] |= 1 << (slot % 64);
+                count += 1;
+            }
+        }
+        SlotSelection {
+            membership: SlotMembership::Bits(selected),
+            count,
+        }
+    }
+
     pub(crate) fn has_sort_index(&self, sorts: &[crate::Sort]) -> bool {
         if matches!(sorts, [sort] if sort.field == "@id") {
             return true;
         }
         self.sort.supports(sorts)
-    }
-
-    /// Reorder conservative candidates by a matching schema-declared sort index.
-    pub(crate) fn order_candidates(
-        &self,
-        entries: &mut Vec<(String, Stamp)>,
-        sorts: &[crate::Sort],
-    ) -> bool {
-        if let [sort] = sorts
-            && sort.field == "@id"
-        {
-            if sort.direction == Direction::Desc {
-                entries.reverse();
-            }
-            return true;
-        }
-        if !self.sort.supports(sorts) {
-            return false;
-        }
-        // Sparse matches are cheaper to sort by key. Dense matches are cheaper
-        // to place in a slot table and read in the index's existing order.
-        if entries.len().saturating_mul(8) < self.len() {
-            let mut keyed = entries
-                .drain(..)
-                .filter_map(|entry| {
-                    self.position(&entry.0)
-                        .ok()
-                        .map(|position| (self.sorted[position], entry))
-                })
-                .collect::<Vec<_>>();
-            keyed.sort_by(|a, b| {
-                self.sort
-                    .compare_slots(sorts, a.0, b.0, &self.files, &self.id_bytes)
-                    .expect("matching sort index")
-            });
-            entries.extend(keyed.into_iter().map(|(_, entry)| entry));
-        } else {
-            let order = self.sort.order(sorts).expect("supported sort index");
-            let mut slots = std::iter::repeat_with(|| None)
-                .take(self.files.len())
-                .collect::<Vec<Option<(String, Stamp)>>>();
-            for entry in entries.drain(..) {
-                if let Ok(position) = self.position(&entry.0) {
-                    slots[self.sorted[position]] = Some(entry);
-                }
-            }
-            entries.extend(order.iter().filter_map(|&slot| slots[slot].take()));
-        }
-        true
-    }
-
-    pub(crate) fn order_candidate_refs<'a>(
-        &self,
-        entries: &mut Vec<(&'a str, &'a Stamp)>,
-        sorts: &[crate::Sort],
-    ) -> bool {
-        if let [sort] = sorts
-            && sort.field == "@id"
-        {
-            if sort.direction == Direction::Desc {
-                entries.reverse();
-            }
-            return true;
-        }
-        if !self.sort.supports(sorts) {
-            return false;
-        }
-        // The borrowed version uses the same two paths without cloning IDs.
-        if entries.len().saturating_mul(8) < self.len() {
-            let mut keyed = entries
-                .drain(..)
-                .filter_map(|entry| {
-                    self.position(entry.0)
-                        .ok()
-                        .map(|position| (self.sorted[position], entry))
-                })
-                .collect::<Vec<_>>();
-            keyed.sort_by(|a, b| {
-                self.sort
-                    .compare_slots(sorts, a.0, b.0, &self.files, &self.id_bytes)
-                    .expect("matching sort index")
-            });
-            entries.extend(keyed.into_iter().map(|(_, entry)| entry));
-        } else {
-            let order = self.sort.order(sorts).expect("supported sort index");
-            let mut slots = vec![None; self.files.len()];
-            for entry in entries.drain(..) {
-                if let Ok(position) = self.position(entry.0) {
-                    slots[self.sorted[position]] = Some(entry);
-                }
-            }
-            entries.extend(order.iter().filter_map(|&slot| slots[slot].take()));
-        }
-        true
     }
 
     /// Conservative candidates for an OR of necessary literal fragments.
@@ -202,133 +400,6 @@ impl FilePicker {
                     bits.as_ref()
                         .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
                 }
-            })
-            .collect()
-    }
-
-    pub(crate) fn candidate_records(
-        &self,
-        pattern: Option<&str>,
-        typed_plan: Option<&crate::json_filter::TypedPlan>,
-        required_fields: &[String],
-    ) -> Vec<(&str, &Stamp)> {
-        self.candidate_records_ordered(pattern, typed_plan, required_fields, false)
-    }
-
-    pub(crate) fn candidate_records_ordered(
-        &self,
-        pattern: Option<&str>,
-        typed_plan: Option<&crate::json_filter::TypedPlan>,
-        required_fields: &[String],
-        newest_first: bool,
-    ) -> Vec<(&str, &Stamp)> {
-        let bits = pattern.and_then(|regex| regex_plan::candidates(&self.index, regex));
-        let overlay = pattern.map(regex_plan::OverlayQuery::new);
-        let typed_bits = self
-            .typed
-            .candidate_bits(typed_plan, self.files.len(), &self.changed);
-        let presence_bits = self.presence.candidates(required_fields);
-        let count_bits =
-            |bits: &[u64]| -> usize { bits.iter().map(|word| word.count_ones() as usize).sum() };
-        let mut candidate_bits = None;
-        let mut needs_overlay = false;
-        let mut smallest = usize::MAX;
-        for (next, overlay) in [
-            (bits.as_deref(), true),
-            (typed_bits.as_deref(), false),
-            (presence_bits.as_deref(), false),
-        ] {
-            if let Some(next) = next {
-                let count =
-                    count_bits(next).saturating_add(if overlay { self.changed.len() } else { 0 });
-                if count < smallest {
-                    candidate_bits = Some(next);
-                    needs_overlay = overlay;
-                    smallest = count;
-                }
-            }
-        }
-        let selected = candidate_bits.and_then(|candidate_bits| {
-            // Sorting a dense candidate set costs more than checking the
-            // already sorted ID table. Enumerate set bits only when selective.
-            if smallest.saturating_mul(8) >= self.sorted.len() {
-                return None;
-            }
-            let mut slots = Vec::new();
-            for (word_index, &word) in candidate_bits.iter().enumerate() {
-                let mut remaining = word;
-                while remaining != 0 {
-                    let slot = word_index * 64 + remaining.trailing_zeros() as usize;
-                    remaining &= remaining - 1;
-                    if self.files.get(slot).is_some_and(Option::is_some) {
-                        slots.push(slot);
-                    }
-                }
-            }
-            if needs_overlay {
-                // New and changed files bypass immutable text postings. They
-                // may already have an old posting, so deduplicate below.
-                slots.extend(
-                    self.changed
-                        .iter()
-                        .copied()
-                        .filter(|&slot| self.files[slot].is_some()),
-                );
-            }
-            // Slots follow index insertion order; choose the requested result
-            // order after including any appended changed-file slots.
-            if newest_first {
-                slots.sort_unstable_by(|&left, &right| {
-                    ModifiedOrder::compare_slots(&self.files, &self.id_bytes, left, right)
-                });
-            } else {
-                slots.sort_unstable_by(|&left, &right| {
-                    self.id(left)
-                        .expect("live candidate slot")
-                        .as_bytes()
-                        .cmp(self.id(right).expect("live candidate slot").as_bytes())
-                });
-            }
-            slots.dedup();
-            Some(slots)
-        });
-        let slots: Box<dyn Iterator<Item = usize> + '_> = if let Some(selected) = selected.as_ref()
-        {
-            Box::new(selected.iter().copied())
-        } else if newest_first {
-            Box::new(
-                self.modified_order
-                    .iter(&self.files, &self.id_bytes)
-                    .map(|slot| slot as usize),
-            )
-        } else {
-            Box::new(self.sorted.iter().copied())
-        };
-        slots
-            .filter(|&slot| {
-                let text_match = if slot >= self.indexed_len {
-                    true
-                } else if self.changed.contains(&slot) {
-                    self.changed_bigrams
-                        .get(&slot)
-                        .is_none_or(|keys| overlay.as_ref().is_none_or(|query| query.matches(keys)))
-                } else {
-                    bits.as_ref()
-                        .is_none_or(|bits| BigramFilter::is_candidate(bits, slot))
-                };
-                let typed_match = typed_bits
-                    .as_ref()
-                    .is_none_or(|bits| bits[slot / 64] & (1 << (slot % 64)) != 0);
-                let presence_match = presence_bits
-                    .as_ref()
-                    .is_none_or(|bits| bits[slot / 64] & (1 << (slot % 64)) != 0);
-                text_match && typed_match && presence_match
-            })
-            .map(|slot| {
-                (
-                    self.id(slot).expect("live candidate slot"),
-                    &self.files[slot].as_ref().expect("live candidate").stamp,
-                )
             })
             .collect()
     }

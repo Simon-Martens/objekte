@@ -1,11 +1,11 @@
 //! Full-text search over all included JSON leaf values.
 
 use super::*;
+use crate::file_picker::SlotSelection;
 use crate::sorting::split_sort_clause;
 use crate::{
     JsonFilter, TextHit, TextQuery, TextQueryResult, TextQueryStreamSummary, text::TextRules,
 };
-use std::collections::HashSet;
 
 mod matcher;
 mod sorted;
@@ -227,8 +227,10 @@ impl Repository {
             let mut optimistic = false;
             // Postings only narrow the candidate list. The source check below
             // still decides whether a file matches the complete text query.
-            let mut candidates = if self.options.cache == CacheMode::Disabled {
-                source.inventory()?.into_iter().collect::<Vec<_>>()
+            let mut inventory = None;
+            let mut selection: Option<SlotSelection> = None;
+            if self.options.cache == CacheMode::Disabled {
+                inventory = Some(source.inventory()?.into_iter().collect::<Vec<_>>());
             } else {
                 self.warm_text_index(&name)?;
                 let picker = &self.file_pickers[&name];
@@ -236,7 +238,7 @@ impl Repository {
                 let has_text_index = picker.text_index_bytes().is_some();
                 used_text_index |= has_text_index;
                 used_regular_index |= !has_text_index;
-                picker.text_candidates(
+                selection = Some(picker.text_candidate_selection(
                     if has_text_index {
                         matcher.candidate_pattern.as_deref()
                     } else {
@@ -244,12 +246,13 @@ impl Repository {
                     },
                     matcher.raw,
                     matcher.candidate_literal,
-                    request.sort.is_empty(),
-                )
-            };
+                ));
+            }
             if let Some(filter) = &collection_filter
                 && self.options.cache != CacheMode::Disabled
-                && candidates.len() > 4096
+                && selection
+                    .as_ref()
+                    .is_some_and(|selection| selection.len() > 4096)
             {
                 let picker = &self.file_pickers[&name];
                 let scalar_fields = filter.top_level_scalar_fields();
@@ -262,35 +265,57 @@ impl Repository {
                     let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
                     let typed_plan = filter.typed_plan();
                     if values_pattern.is_some() || typed_plan.is_some() || !required.is_empty() {
-                        let allowed = picker.candidate_records(
+                        let allowed = picker.candidate_slot_selection(
                             values_pattern.as_deref(),
                             typed_plan.as_ref(),
                             &required,
                         );
-                        if allowed.len() < candidates.len() {
-                            let allowed = allowed
-                                .into_iter()
-                                .map(|(id, _)| id)
-                                .collect::<HashSet<_>>();
-                            candidates.retain(|(id, _)| allowed.contains(id.as_str()));
+                        if allowed.len() < selection.as_ref().unwrap().len() {
+                            selection.as_mut().unwrap().intersect(picker, allowed);
                             used_filter_index = true;
                         }
                     }
                 }
             }
-            if request.sort.is_empty() && self.options.cache == CacheMode::Disabled {
-                candidates.sort_unstable_by(|a, b| {
+            if request.sort.is_empty()
+                && let Some(inventory) = inventory.as_mut()
+            {
+                inventory.sort_unstable_by(|a, b| {
                     let a_time = a.1.modified.parse::<i128>().expect("validated timestamp");
                     let b_time = b.1.modified.parse::<i128>().expect("validated timestamp");
                     b_time.cmp(&a_time).then_with(|| a.0.cmp(&b.0))
                 });
-            } else if !request.sort.is_empty() && self.options.cache != CacheMode::Disabled {
-                self.file_pickers[&name].order_candidates(&mut candidates, &request.sort);
+            } else if let Some(selection) = selection.as_mut() {
+                selection.order_sparse(
+                    &self.file_pickers[&name],
+                    request.sort.is_empty(),
+                    &request.sort,
+                );
             }
-            self.metrics.fts_candidates += candidates.len() as u64;
+            self.metrics.fts_candidates += inventory.as_ref().map_or_else(
+                || selection.as_ref().expect("memory candidates").len(),
+                Vec::len,
+            ) as u64;
+            let mut candidates: Box<dyn Iterator<Item = (&str, &Stamp)> + '_> =
+                if let Some(inventory) = inventory.as_ref() {
+                    Box::new(inventory.iter().map(|(id, stamp)| (id.as_str(), stamp)))
+                } else {
+                    let picker = &self.file_pickers[&name];
+                    Box::new(
+                        selection
+                            .as_ref()
+                            .expect("memory candidates")
+                            .ordered(picker, request.sort.is_empty(), &request.sort)
+                            .map(move |slot| picker.view_record(slot)),
+                    )
+                };
             // Verify a batch in parallel, then inspect its outcomes in the
             // candidate order so sorted pages and callbacks remain ordered.
-            for batch in candidates.chunks(256) {
+            loop {
+                let batch = candidates.by_ref().take(256).collect::<Vec<_>>();
+                if batch.is_empty() {
+                    break;
+                }
                 let outcomes = batch
                     .par_iter()
                     .map(|(id, stamp)| -> Result<(Vec<String>, Metrics)> {
@@ -347,7 +372,7 @@ impl Repository {
                     self.metrics.add_from(&metrics);
                     if !fields.is_empty() {
                         if matched >= request.offset && returned + page.len() < request.limit {
-                            page.push((id.clone(), stamp.clone(), fields));
+                            page.push(((*id).to_owned(), (*stamp).clone(), fields));
                         }
                         matched += 1;
                     }
