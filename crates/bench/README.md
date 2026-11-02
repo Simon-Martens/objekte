@@ -1,5 +1,25 @@
 # Query benchmarks
 
+## Downloadable million-record examples
+
+Two preparation scripts create schema-free Objekte collections under `examples/`.
+The generated example directories, including downloaded source archives and JSON
+files, are ignored by Git. Each script defaults to one million records and can
+be rerun after an interruption.
+
+```sh
+python3 crates/bench/prepare_amazon_reviews.py
+python3 crates/bench/prepare_nyc311.py
+```
+
+The [Amazon Reviews'23 Musical Instruments source](https://amazon-reviews-2023.github.io/main.html)
+is downloaded as JSONL gzip and split into `examples/amazon-reviews-2023/data/reviews/`.
+The [NYC 311 source](https://data.cityofnewyork.us/resource/erm2-nwe9.json)
+is fetched in ordered API pages and split into `examples/nyc311/data/requests/`.
+Use `--limit N --root PATH` to build a separate smaller fixture. Amazon also
+accepts `--archive FILE.jsonl.gz`; NYC accepts `--page-size N`. NYC's API is
+live, so a fresh import can contain changed records.
+
 ## Core allocation and copying
 
 The [November 2 allocation report](CORE-ALLOCATION-2026-11-02.md) compares

@@ -3,6 +3,7 @@
 /.data/
 /import/
 /scripts/__pycache__/
+/crates/bench/__pycache__/
 **/.objekte/.cache/
 
 # Generated files left by the active frontend checkout.
@@ -24,3 +25,7 @@
 .cache/
 
 examples/en_wikidata_5M_entities/
+
+# Downloadable million-record benchmark examples.
+/examples/amazon-reviews-2023/
+/examples/nyc311/
