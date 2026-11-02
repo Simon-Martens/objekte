@@ -91,6 +91,102 @@ fn key_slot(key: u16, encoding: BigramEncoding) -> usize {
 /// 1024 × u64 = 8 KB covers all 65536 possible bigram keys.
 const SEEN_WORDS: usize = 1024;
 
+/// Reusable posting words for one ASCII 64-slot chunk. Each key is published
+/// once after all documents in the chunk have contributed their bits.
+pub(crate) struct ChunkPostingAccumulator {
+    consecutive: Vec<u64>,
+    skip_one: Vec<u64>,
+    touched_consecutive: Vec<usize>,
+    touched_skip_one: Vec<usize>,
+    populated: usize,
+}
+
+impl ChunkPostingAccumulator {
+    pub(crate) fn new_ascii() -> Self {
+        Self {
+            consecutive: vec![0; BIGRAM_KEY_SLOTS],
+            skip_one: vec![0; BIGRAM_KEY_SLOTS],
+            touched_consecutive: Vec::new(),
+            touched_skip_one: Vec::new(),
+            populated: 0,
+        }
+    }
+
+    pub(crate) fn add(&mut self, slot: usize, content: &[u8]) {
+        if content.len() < 2 {
+            return;
+        }
+        self.populated += 1;
+        let bit = 1u64 << (slot % 64);
+        NORM_BUF.with_borrow_mut(|buffer| {
+            if buffer.len() < content.len() {
+                buffer.resize(content.len().next_power_of_two().max(4096), 0);
+            }
+            normalize_bytes(content, &mut buffer[..content.len()]);
+            let bytes = &buffer[..content.len()];
+            let mut previous = bytes[0];
+            let mut current = bytes[1];
+            if previous != 0 && current != 0 {
+                self.record((previous as u16) << 8 | current as u16, bit, false);
+            }
+            for &next in &bytes[2..] {
+                if next != 0 {
+                    if current != 0 {
+                        self.record((current as u16) << 8 | next as u16, bit, false);
+                    }
+                    if previous != 0 {
+                        self.record((previous as u16) << 8 | next as u16, bit, true);
+                    }
+                }
+                previous = current;
+                current = next;
+            }
+        });
+    }
+
+    #[inline]
+    fn record(&mut self, key: u16, bit: u64, skip: bool) {
+        let slot = key_slot(key, BigramEncoding::Ascii);
+        let (masks, touched) = if skip {
+            (&mut self.skip_one, &mut self.touched_skip_one)
+        } else {
+            (&mut self.consecutive, &mut self.touched_consecutive)
+        };
+        if masks[slot] == 0 {
+            touched.push(slot);
+        }
+        masks[slot] |= bit;
+    }
+
+    pub(crate) fn publish(
+        &mut self,
+        main: &BigramIndexBuilder,
+        skip: &BigramIndexBuilder,
+        word: usize,
+    ) {
+        if let (Some(main_base), Some(skip_base)) = (main.col_data_ptr(), skip.col_data_ptr()) {
+            main.publish_chunk_word(
+                word,
+                main_base,
+                &self.consecutive,
+                &self.touched_consecutive,
+            );
+            skip.publish_chunk_word(word, skip_base, &self.skip_one, &self.touched_skip_one);
+            main.populated.fetch_add(self.populated, Ordering::Relaxed);
+            skip.populated.fetch_add(self.populated, Ordering::Relaxed);
+        }
+        for &slot in &self.touched_consecutive {
+            self.consecutive[slot] = 0;
+        }
+        for &slot in &self.touched_skip_one {
+            self.skip_one[slot] = 0;
+        }
+        self.touched_consecutive.clear();
+        self.touched_skip_one.clear();
+        self.populated = 0;
+    }
+}
+
 /// Below this many bitset words (512 KB) sparse encoding runs inline instead of on the pool.
 const PARALLEL_ENCODE_MIN_WORDS: usize = 1 << 16;
 
@@ -140,6 +236,20 @@ unsafe impl Sync for BigramIndexBuilder {}
 
 
 impl BigramIndexBuilder {
+    fn publish_chunk_word(&self, word: usize, base: *mut u64, masks: &[u64], touched: &[usize]) {
+        debug_assert_eq!(self.encoding, BigramEncoding::Ascii);
+        for &slot in touched {
+            let key = (((slot / 95 + 32) as u16) << 8) | (slot % 95 + 32) as u16;
+            let column = self.get_or_alloc_column(key);
+            if column != NO_COLUMN
+                && let Some(column_base) = self.column_ptr(column, base)
+            {
+                // Each Rayon task owns one complete, disjoint posting word.
+                unsafe { *column_base.add(word) |= masks[slot] };
+            }
+        }
+    }
+
     pub fn new(file_count: usize) -> Self {
         Self::new_with_encoding(file_count, BigramEncoding::Ascii)
     }
@@ -1347,6 +1457,51 @@ pub fn release_thread_buffers() {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn chunk_postings_match_document_insertion_across_word_boundaries() {
+        let contents = (0..135)
+            .map(|slot| match slot % 7 {
+                0 => None,
+                1 => Some(b"a".as_slice()),
+                2 => Some(b"Alpha Alpha zq".as_slice()),
+                3 => Some(b"a\x1fb\n\tZQ".as_slice()),
+                4 => Some(b"BETA beta".as_slice()),
+                5 => Some(b"M\xc3\xbcller".as_slice()),
+                _ => Some(b"ordinary content".as_slice()),
+            })
+            .collect::<Vec<_>>();
+        let per_document = BigramIndexBuilder::new(contents.len());
+        let per_document_skip = BigramIndexBuilder::new(contents.len());
+        let chunked = BigramIndexBuilder::new(contents.len());
+        let chunked_skip = BigramIndexBuilder::new(contents.len());
+        let mut scratch = ChunkPostingAccumulator::new_ascii();
+        for (chunk_number, chunk) in contents.chunks(64).enumerate() {
+            for (within, content) in chunk.iter().enumerate() {
+                if let Some(content) = content {
+                    let slot = chunk_number * 64 + within;
+                    per_document.add_file_content(&per_document_skip, slot, content);
+                    scratch.add(slot, content);
+                }
+            }
+            scratch.publish(&chunked, &chunked_skip, chunk_number);
+        }
+        assert_eq!(
+            per_document.populated.load(Ordering::Relaxed),
+            chunked.populated.load(Ordering::Relaxed)
+        );
+        let mut expected = per_document.compress(None);
+        expected.set_skip_index(per_document_skip.compress(Some(12)));
+        let mut actual = chunked.compress(None);
+        actual.set_skip_index(chunked_skip.compress(Some(12)));
+        for pattern in [b"alpha".as_slice(), b"zq", b"beta", b"ordinary", b"Muller"] {
+            assert_eq!(
+                actual.query(pattern),
+                expected.query(pattern),
+                "{pattern:?}"
+            );
+        }
+    }
 
     fn sparse_roundtrip(bitset: &[u64]) {
         let mut data = Vec::new();

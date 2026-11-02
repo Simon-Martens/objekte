@@ -81,6 +81,78 @@ struct FieldTextBuilders {
     clean_present: AtomicBool,
 }
 
+/// ASCII posting masks reused by one scan task across its 64-slot chunks.
+pub(super) struct TextChunkAccumulator {
+    global: ChunkPostingAccumulator,
+    fields: Vec<(ChunkPostingAccumulator, ChunkPostingAccumulator)>,
+}
+
+impl TextChunkAccumulator {
+    pub(super) fn new(field_count: usize) -> Self {
+        Self {
+            global: ChunkPostingAccumulator::new_ascii(),
+            fields: (0..field_count)
+                .map(|_| {
+                    (
+                        ChunkPostingAccumulator::new_ascii(),
+                        ChunkPostingAccumulator::new_ascii(),
+                    )
+                })
+                .collect(),
+        }
+    }
+
+    pub(super) fn add_global(
+        &mut self,
+        builders: &TextIndexBuilders,
+        slot: usize,
+        content: &TextContent,
+    ) {
+        if !content.global_clean.is_empty() {
+            builders.global_clean_present.store(true, Ordering::Relaxed);
+        }
+        self.global.add(slot, content.global_clean.as_bytes());
+    }
+
+    pub(super) fn add_fields(
+        &mut self,
+        builders: &TextIndexBuilders,
+        slot: usize,
+        content: &TextContent,
+    ) {
+        for (((normal, clean), bytes), builder) in self
+            .fields
+            .iter_mut()
+            .zip(&content.fields)
+            .zip(&builders.fields)
+        {
+            if !bytes.normal.is_empty() {
+                builder.normal_present.store(true, Ordering::Relaxed);
+            }
+            if !bytes.clean.is_empty() {
+                builder.clean_present.store(true, Ordering::Relaxed);
+            }
+            normal.add(slot, bytes.normal.as_bytes());
+            clean.add(slot, bytes.clean.as_bytes());
+        }
+    }
+
+    pub(super) fn publish_global(&mut self, builders: &TextIndexBuilders, word: usize) {
+        self.global.publish(
+            &builders.global_clean_main,
+            &builders.global_clean_skip,
+            word,
+        );
+    }
+
+    pub(super) fn publish_fields(&mut self, builders: &TextIndexBuilders, word: usize) {
+        for ((normal, clean), builders) in self.fields.iter_mut().zip(&builders.fields) {
+            normal.publish(&builders.normal_main, &builders.normal_skip, word);
+            clean.publish(&builders.clean_main, &builders.clean_skip, word);
+        }
+    }
+}
+
 /// One independently owned consecutive/skip-one posting pair.
 struct CompressionJob {
     order: usize,
@@ -366,5 +438,68 @@ impl TextIndex {
                         + (field.normal_observed.len() + field.clean_observed.len()) * 8
                 })
                 .sum::<usize>()
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn chunked_field_postings_match_document_insertion() {
+        let paths = vec![
+            vec![crate::JsonPathStep::Key("title".into())],
+            vec![crate::JsonPathStep::Key("body".into())],
+        ];
+        let count = 135;
+        let expected = TextIndexBuilders::new(count, BigramEncoding::Ascii, &paths);
+        let chunked = TextIndexBuilders::new(count, BigramEncoding::Ascii, &paths);
+        let mut scratch = TextChunkAccumulator::new(paths.len());
+        for slot in 0..count {
+            let mut content = TextContent::new(paths.len());
+            if slot % 11 == 0 {
+                content.global_clean.push_str("outside value");
+            }
+            if slot % 5 == 0 {
+                content.fields[0].normal.push_str("**Müller**");
+                content.fields[0].clean.push_str("Müller");
+            }
+            if slot % 7 == 0 {
+                content.fields[1].normal.push_str("<b>needle</b>");
+                content.fields[1].clean.push_str("needle");
+            }
+            expected.add(slot, &content);
+            scratch.add_global(&chunked, slot, &content);
+            scratch.add_fields(&chunked, slot, &content);
+            if slot % 64 == 63 || slot + 1 == count {
+                let word = slot / 64;
+                scratch.publish_global(&chunked, word);
+                scratch.publish_fields(&chunked, word);
+            }
+        }
+        let expected = expected.finish();
+        let actual = chunked.finish();
+        assert_eq!(actual.global_clean_observed, expected.global_clean_observed);
+        assert_eq!(actual.global_clean_present, expected.global_clean_present);
+        for pattern in ["outside", "Muller", "needle", "value"] {
+            assert_eq!(
+                actual.global_clean.query(pattern.as_bytes()),
+                expected.global_clean.query(pattern.as_bytes())
+            );
+            for (actual, expected) in actual.fields.iter().zip(&expected.fields) {
+                assert_eq!(
+                    actual.normal.query(pattern.as_bytes()),
+                    expected.normal.query(pattern.as_bytes())
+                );
+                assert_eq!(
+                    actual.clean.query(pattern.as_bytes()),
+                    expected.clean.query(pattern.as_bytes())
+                );
+                assert_eq!(actual.normal_observed, expected.normal_observed);
+                assert_eq!(actual.clean_observed, expected.clean_observed);
+                assert_eq!(actual.normal_present, expected.normal_present);
+                assert_eq!(actual.clean_present, expected.clean_present);
+            }
+        }
     }
 }

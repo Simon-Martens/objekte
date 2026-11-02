@@ -28,8 +28,8 @@ mod typed;
 mod view;
 
 use crate::bigram::{
-    BigramEncoding, BigramFileRef, BigramFilter, BigramIndexBuilder, BigramSnapshot, SnapshotFiles,
-    extract_bigrams_with_encoding,
+    BigramEncoding, BigramFileRef, BigramFilter, BigramIndexBuilder, BigramSnapshot,
+    ChunkPostingAccumulator, SnapshotFiles, extract_bigrams_with_encoding,
 };
 use crate::{
     Direction, Error, Field, IndexField, Result,

@@ -10,6 +10,7 @@ mod filter;
 mod snapshot;
 
 use column_slab::ColumnSlab;
+pub(crate) use filter::ChunkPostingAccumulator;
 pub use filter::{
     BIGRAM_KEY_SLOTS, BigramEncoding, BigramFilter, BigramIndexBuilder, BigramOverlay,
     SKIP_INDEX_MIN_DENSITY_PCT, build_bigram_index_from_content,

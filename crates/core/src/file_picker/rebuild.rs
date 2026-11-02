@@ -129,8 +129,20 @@ impl FilePicker {
                 .zip(sort_slices.into_par_iter())
                 .zip(view_slices.into_par_iter())
                 .enumerate()
-                .try_for_each(
-                    |(chunk_index, ((chunk, mut sort_chunk), mut view_chunk))| -> Result<()> {
+                .try_for_each_init(
+                    || {
+                        let ascii = restored.is_none() && self.encoding == BigramEncoding::Ascii;
+                        (
+                            ascii.then(ChunkPostingAccumulator::new_ascii),
+                            // Field scratch has a fixed cost per worker. The
+                            // measured small collection did not amortize it.
+                            (ascii && text_builders.is_some() && files.len() >= 250_000)
+                                .then(|| text::TextChunkAccumulator::new(self.text_paths.len())),
+                        )
+                    },
+                    |(accumulator, text_accumulator),
+                     (chunk_index, ((chunk, mut sort_chunk), mut view_chunk))|
+                     -> Result<()> {
                         let mut chunk_arrays = BTreeSet::new();
                         let mut chunk_keys = KeySummary::default();
                         let mut chunk_malformed = BTreeSet::new();
@@ -210,16 +222,32 @@ impl FilePicker {
                                             chunk_stages.projection.field_text += text_timer.stop();
                                         }
 
-                                        #[cfg(feature = "index-timings")]
-                                        {
-                                            let (global, fields) =
-                                                builders.add_profiled(slot, &content);
-                                            chunk_stages.rendered_insert += global;
-                                            chunk_stages.field_insert += fields;
+                                        if let Some(accumulator) = text_accumulator.as_mut() {
+                                            #[cfg(feature = "index-timings")]
+                                            let timer = StageTimer::start();
+                                            accumulator.add_global(builders, slot, &content);
+                                            #[cfg(feature = "index-timings")]
+                                            {
+                                                chunk_stages.rendered_insert += timer.stop();
+                                            }
+                                            #[cfg(feature = "index-timings")]
+                                            let timer = StageTimer::start();
+                                            accumulator.add_fields(builders, slot, &content);
+                                            #[cfg(feature = "index-timings")]
+                                            {
+                                                chunk_stages.field_insert += timer.stop();
+                                            }
+                                        } else {
+                                            #[cfg(feature = "index-timings")]
+                                            {
+                                                let (global, fields) =
+                                                    builders.add_profiled(slot, &content);
+                                                chunk_stages.rendered_insert += global;
+                                                chunk_stages.field_insert += fields;
+                                            }
+                                            #[cfg(not(feature = "index-timings"))]
+                                            builders.add(slot, &content);
                                         }
-
-                                        #[cfg(not(feature = "index-timings"))]
-                                        builders.add(slot, &content);
                                         text_scratch = Some(content);
                                     }
 
@@ -238,7 +266,11 @@ impl FilePicker {
                                     if restored.is_none() {
                                         #[cfg(feature = "index-timings")]
                                         let main_timer = StageTimer::start();
-                                        main.add_file_content(&skip, slot, text.as_bytes());
+                                        if let Some(accumulator) = accumulator.as_mut() {
+                                            accumulator.add(slot, text.as_bytes());
+                                        } else {
+                                            main.add_file_content(&skip, slot, text.as_bytes());
+                                        }
                                         #[cfg(feature = "index-timings")]
                                         {
                                             chunk_stages.main_insert += main_timer.stop();
@@ -261,7 +293,11 @@ impl FilePicker {
                                     if restored.is_none() {
                                         #[cfg(feature = "index-timings")]
                                         let main_timer = StageTimer::start();
-                                        main.add_file_content(&skip, slot, &projection.bytes);
+                                        if let Some(accumulator) = accumulator.as_mut() {
+                                            accumulator.add(slot, &projection.bytes);
+                                        } else {
+                                            main.add_file_content(&skip, slot, &projection.bytes);
+                                        }
                                         #[cfg(feature = "index-timings")]
                                         {
                                             chunk_stages.main_insert += main_timer.stop();
@@ -282,16 +318,32 @@ impl FilePicker {
                                     if let (Some(builders), Some(text)) =
                                         (&text_builders, &projection.text)
                                     {
-                                        #[cfg(feature = "index-timings")]
-                                        {
-                                            let (global, fields) =
-                                                builders.add_profiled(slot, text);
-                                            chunk_stages.rendered_insert += global;
-                                            chunk_stages.field_insert += fields;
+                                        if let Some(accumulator) = text_accumulator.as_mut() {
+                                            #[cfg(feature = "index-timings")]
+                                            let timer = StageTimer::start();
+                                            accumulator.add_global(builders, slot, text);
+                                            #[cfg(feature = "index-timings")]
+                                            {
+                                                chunk_stages.rendered_insert += timer.stop();
+                                            }
+                                            #[cfg(feature = "index-timings")]
+                                            let timer = StageTimer::start();
+                                            accumulator.add_fields(builders, slot, text);
+                                            #[cfg(feature = "index-timings")]
+                                            {
+                                                chunk_stages.field_insert += timer.stop();
+                                            }
+                                        } else {
+                                            #[cfg(feature = "index-timings")]
+                                            {
+                                                let (global, fields) =
+                                                    builders.add_profiled(slot, text);
+                                                chunk_stages.rendered_insert += global;
+                                                chunk_stages.field_insert += fields;
+                                            }
+                                            #[cfg(not(feature = "index-timings"))]
+                                            builders.add(slot, text);
                                         }
-
-                                        #[cfg(not(feature = "index-timings"))]
-                                        builders.add(slot, text);
                                     }
                                     text_scratch = projection.text.take();
                                     values_scratch = Some(std::mem::take(&mut projection.bytes));
@@ -311,6 +363,33 @@ impl FilePicker {
                             #[cfg(feature = "index-timings")]
                             {
                                 chunk_add_nanos += elapsed_nanos(add_started);
+                            }
+                        }
+                        if let Some(accumulator) = accumulator.as_mut() {
+                            #[cfg(feature = "index-timings")]
+                            let main_timer = StageTimer::start();
+                            accumulator.publish(&main, &skip, chunk_index);
+                            #[cfg(feature = "index-timings")]
+                            {
+                                chunk_stages.main_insert += main_timer.stop();
+                            }
+                        }
+                        if let (Some(accumulator), Some(builders)) =
+                            (text_accumulator.as_mut(), text_builders.as_ref())
+                        {
+                            #[cfg(feature = "index-timings")]
+                            let timer = StageTimer::start();
+                            accumulator.publish_global(builders, chunk_index);
+                            #[cfg(feature = "index-timings")]
+                            {
+                                chunk_stages.rendered_insert += timer.stop();
+                            }
+                            #[cfg(feature = "index-timings")]
+                            let timer = StageTimer::start();
+                            accumulator.publish_fields(builders, chunk_index);
+                            #[cfg(feature = "index-timings")]
+                            {
+                                chunk_stages.field_insert += timer.stop();
                             }
                         }
                         array_fields
