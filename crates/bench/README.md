@@ -1,5 +1,15 @@
 # Query benchmarks
 
+## Core allocation and copying
+
+The [November 2 allocation report](CORE-ALLOCATION-2026-11-02.md) compares
+four core changes on a 20,000-record nested fixture and Musenalm. It records
+allocation counts, cumulative bytes, peak live heap, peak RSS, wall time,
+query-result checks, and remaining allocation sources. The
+[fixture generator](generate_allocation_fixture.py),
+[benchmark executable](src/bin/core_allocation.rs), and
+[runner](run_core_allocation.py) reproduce the measurements.
+
 ## Bigram encoding comparison
 
 `bigram-encoding-compare` builds a fresh picker with one encoding per process,

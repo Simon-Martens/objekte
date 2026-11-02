@@ -9,7 +9,7 @@ use std::{
     fs,
     io::{Read, Seek, SeekFrom, Write},
 };
-use view::SavedViewIndex;
+use view::{RestoredViewIndex, SavedViewIndex};
 
 const MAGIC: &[u8; 8] = b"OBJSEC03";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
@@ -26,7 +26,7 @@ struct Saved<'a> {
     key_summary: &'a KeySummary,
     presence: &'a PresenceIndex,
     typed: &'a TypedIndex,
-    view: &'a SavedViewIndex,
+    view: &'a SavedViewIndex<'a>,
     sort: &'a SavedSortIndex<'a>,
     text: &'a Option<(Vec<u8>, Vec<u8>, usize)>,
 }
@@ -41,7 +41,7 @@ struct Restored {
     key_summary: KeySummary,
     presence: PresenceIndex,
     typed: TypedIndex,
-    view: SavedViewIndex,
+    view: RestoredViewIndex,
     sort: RestoredSortIndex,
     text: Option<(Vec<u8>, Vec<u8>, usize)>,
 }

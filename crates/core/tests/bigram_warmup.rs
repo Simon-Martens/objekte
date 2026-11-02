@@ -55,6 +55,35 @@ fn saved_secondary_indexes_restore_typed_queries_and_ordered_views() {
 }
 
 #[test]
+fn corrupted_secondary_payload_is_rebuilt_without_publishing_its_view_columns() {
+    let f = Fixture::new();
+    let path = f
+        .repo(CacheMode::Memory)
+        .save_bigram_cache("books")
+        .unwrap();
+    let sidecar = path.with_extension("secondary");
+    let mut bytes = fs::read(&sidecar).unwrap();
+    *bytes.last_mut().unwrap() ^= 1;
+    fs::write(&sidecar, bytes).unwrap();
+
+    let mut restored = f.repo(CacheMode::Memory);
+    restored.warm_bigram_index("books").unwrap();
+    assert_eq!(restored.metrics().bigram_snapshot_loads, 1);
+    assert_eq!(restored.metrics().secondary_snapshot_loads, 0);
+    let request = ViewRequest {
+        count: true,
+        ..Default::default()
+    };
+    let expected = f
+        .repo(CacheMode::Disabled)
+        .open_view("books", &request)
+        .unwrap();
+    let actual = restored.open_view("books", &request).unwrap();
+    assert_eq!(actual.rows, expected.rows);
+    assert_eq!(actual.total, expected.total);
+}
+
+#[test]
 fn schema_change_rebuilds_only_secondary_cache_once() {
     let f = Fixture::new();
     f.repo(CacheMode::Memory)

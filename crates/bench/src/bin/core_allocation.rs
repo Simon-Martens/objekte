@@ -163,7 +163,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         options.cache = CacheMode::Disabled;
     }
     let mut repo = Repository::load_repository(&root, options.clone())?;
-    if case != "cold-build" && case != "snapshot-restore" && case != "view-direct" {
+    if case != "cold-build"
+        && case != "snapshot-load-existing"
+        && case != "snapshot-restore"
+        && case != "view-direct"
+    {
         repo.warm_bigram_index(&collection)?;
     }
     let view = ViewRequest {
@@ -286,6 +290,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 &case,
                 sample,
                 json!({"reads":metrics.source_reads,"parses":metrics.parses}),
+            );
+        }
+        "snapshot-load-existing" => {
+            let (metrics, sample) = measure(|| repo.warm_bigram_index(&collection))?;
+            print(
+                &case,
+                sample,
+                json!({
+                    "snapshot_loads":metrics.bigram_snapshot_loads,
+                    "secondary_loads":metrics.secondary_snapshot_loads,
+                }),
             );
         }
         "rebuild" => {

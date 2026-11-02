@@ -18,8 +18,17 @@ pub(super) struct ViewIndex {
 }
 
 
-#[derive(Serialize, Deserialize)]
-pub(super) struct SavedViewIndex {
+#[derive(Serialize)]
+pub(super) struct SavedViewIndex<'a> {
+    fields: &'a [String],
+    keys: &'a [Vec<Scalar>],
+    ordered: &'a [Vec<usize>],
+}
+
+
+/// Owned values read from a secondary-index snapshot.
+#[derive(Deserialize)]
+pub(super) struct RestoredViewIndex {
     pub(super) fields: Vec<String>,
     pub(super) keys: Vec<Vec<Scalar>>,
     pub(super) ordered: Vec<Vec<usize>>,
@@ -27,15 +36,15 @@ pub(super) struct SavedViewIndex {
 
 
 impl ViewIndex {
-    pub(super) fn saved(&self) -> SavedViewIndex {
+    pub(super) fn saved(&self) -> SavedViewIndex<'_> {
         SavedViewIndex {
-            fields: self.fields.clone(),
-            keys: self.keys.clone(),
-            ordered: self.ordered.clone(),
+            fields: &self.fields,
+            keys: &self.keys,
+            ordered: &self.ordered,
         }
     }
 
-    pub(super) fn restore(&mut self, saved: SavedViewIndex, slots: usize) -> bool {
+    pub(super) fn restore(&mut self, saved: RestoredViewIndex, slots: usize) -> bool {
         if saved.fields != self.fields
             || saved.keys.len() != self.fields.len()
             || saved.ordered.len() != self.fields.len()
@@ -209,6 +218,10 @@ impl ViewIndex {
     }
 }
 
+
+#[cfg(test)]
+#[path = "view.test.rs"]
+mod tests;
 
 fn compare_slots(
     keys: &[Scalar],
