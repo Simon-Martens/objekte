@@ -6,7 +6,7 @@ The goal of objekte is to provide conveniant access to potentially millions of d
 
 objekte is heavily SIMD-accelerated and requires AVX2/NEON instructions support by the CPU. It consists of three parts:
 
-- **Core library:** used to privide all the neccessary index, search and query functionality
+- **Core library:** used to privide all the neccessary index, search and query functionality. Can be used as standalone library.
 - **cli/TUI:** used mainly for testing, allows quick queries against a data repository
 - **GUI:** unfinished
 
