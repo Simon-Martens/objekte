@@ -806,7 +806,7 @@ fn invalid_requests_fail_before_creating_cache_or_enumerating_sources() {
         "x=",
         "x=unknown()",
         "x===1",
-        "@id='a'",
+        "@unknown='a'",
         "x=1; DROP TABLE records",
         "x ~ 1",
         "x = :ignorecase('a')",

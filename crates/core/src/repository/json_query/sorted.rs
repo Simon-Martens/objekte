@@ -74,7 +74,8 @@ impl Repository {
         let (mut result, _) = if matches!(
             scan.backend,
             JsonQueryBackend::Auto | JsonQueryBackend::Bigram
-        ) {
+        ) && !filter.has_metadata()
+        {
             let mut on_candidate = |collection: &Collection,
                                     id: &str,
                                     stamp: &Stamp,

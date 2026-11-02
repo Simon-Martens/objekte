@@ -81,6 +81,15 @@ fn timestamp(m: &Metadata, path: &Path) -> Result<String> {
     )
 }
 
+pub(crate) fn created_timestamp(m: &Metadata) -> Option<i128> {
+    m.created()
+        .ok()
+        .map(|time| match time.duration_since(UNIX_EPOCH) {
+            Ok(duration) => duration.as_nanos() as i128,
+            Err(error) => -(error.duration().as_nanos() as i128),
+        })
+}
+
 fn identity(m: &Metadata) -> String {
     #[cfg(unix)]
     {

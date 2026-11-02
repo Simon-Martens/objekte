@@ -36,6 +36,8 @@ struct ScanOutcome {
     read_nanos: u64,
     regex_nanos: u64,
     hash_nanos: u64,
+    validation_nanos: u64,
+    validated: bool,
     projected: Option<(Document, String, Stamp)>,
 }
 
@@ -280,6 +282,7 @@ impl Repository {
                 dependencies: JsonQueryDependencies {
                     collections: names.into_iter().collect(),
                     paths: filter.paths().to_vec(),
+                    metadata_fields: filter.metadata_fields().to_vec(),
                 },
                 filter_hash: filter.hash().into(),
                 metrics: Metrics::default(),

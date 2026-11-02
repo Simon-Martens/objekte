@@ -261,6 +261,7 @@ struct Raw {
     json: Vec<u8>,
     hash: String,
     stamp: Stamp,
+    created: Option<i128>,
 }
 
 

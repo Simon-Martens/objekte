@@ -87,6 +87,17 @@ fn rendered(operand: &Operand) -> bool {
 }
 
 fn atom_pattern(left: &Operand, op: Op, right: &Operand, ignore_case: bool) -> Option<String> {
+    if [left, right].iter().any(|operand| {
+        matches!(
+            operand,
+            Operand::Field(FieldOperand {
+                metadata: Some(_),
+                ..
+            })
+        )
+    }) {
+        return None;
+    }
     if rendered(left) || rendered(right) {
         // Markup can split a literal into fragments absent from source JSON.
         return None;
@@ -191,7 +202,21 @@ impl JsonFilter {
                     (!parts.is_empty()).then(|| format!("(?:{})", parts.join("|")))
                 }
                 Expr::Exists(_) | Expr::Missing(_) => None,
-                Expr::Compare { left, right, .. } if rendered(left) || rendered(right) => None,
+                Expr::Compare { left, right, .. }
+                    if rendered(left)
+                        || rendered(right)
+                        || [left, right].iter().any(|operand| {
+                            matches!(
+                                operand,
+                                Operand::Field(FieldOperand {
+                                    metadata: Some(_),
+                                    ..
+                                })
+                            )
+                        }) =>
+                {
+                    None
+                }
                 Expr::Compare {
                     left,
                     op,

@@ -6,17 +6,21 @@ fn unmodified_fields_and_literals_borrow_large_values() {
     let field = FieldOperand {
         path: vec![JsonPathStep::Key("payload".into())],
         modifier: None,
+        metadata: None,
     };
-    let selected = field.select(&document);
+    let selected = field.select(&document, None);
     assert_eq!(selected.len(), 1);
-    assert!(std::ptr::eq(selected[0].value(), &document["payload"]));
+    assert!(std::ptr::eq(
+        selected[0].value().unwrap(),
+        &document["payload"]
+    ));
 
     let literal = Operand::Literal(serde_json::json!({"text": "y".repeat(256 * 1024)}));
-    let selected = literal.select(&document);
+    let selected = literal.select(&document, None);
     let Operand::Literal(value) = &literal else {
         unreachable!()
     };
-    assert!(std::ptr::eq(selected[0].value(), value));
+    assert!(std::ptr::eq(selected[0].value().unwrap(), value));
 }
 
 #[test]
@@ -25,6 +29,7 @@ fn cardinality_counts_only_values_eligible_for_a_modifier() {
     let lower = FieldOperand {
         path: vec![JsonPathStep::Key("items".into())],
         modifier: Some(Modifier::Lower),
+        metadata: None,
     };
     assert!(lower.more_than_one(&document));
     let one = serde_json::json!({"items": [1, "A", false]});
@@ -33,9 +38,13 @@ fn cardinality_counts_only_values_eligible_for_a_modifier() {
     let length = FieldOperand {
         path: vec![JsonPathStep::Key("items".into())],
         modifier: Some(Modifier::Length),
+        metadata: None,
     };
     assert!(!length.more_than_one(&document));
-    assert_eq!(length.select(&document)[0].value(), &Value::from(4));
+    assert_eq!(
+        length.select(&document, None)[0].value(),
+        Some(&Value::from(4))
+    );
 }
 
 #[test]
@@ -43,6 +52,33 @@ fn later_branch_cardinality_is_checked_before_short_circuit() {
     let filter = JsonFilter::compile("name = 'match' || items = 'A'", &BTreeMap::new()).unwrap();
     let document = serde_json::json!({"name": "match", "items": ["A", "B"]});
     assert!(matches!(filter.matches(&document), Err(Error::Request(_))));
+}
+
+#[test]
+fn unit_literals_compare_exact_byte_counts() {
+    let metadata = FileMetadata {
+        id: "a",
+        path: "data/a.json",
+        size: 1_000,
+        modified: 0,
+        created: None,
+        status: RecordStatus::NoSchema,
+    };
+    for (filter, expected) in [
+        ("@size = 1KB", true),
+        ("@size = 1KiB", false),
+        ("@size < 1KiB", true),
+        ("@size > 0.5KB", true),
+        ("1KB = @size", true),
+    ] {
+        let filter = JsonFilter::compile(filter, &BTreeMap::new()).unwrap();
+        assert_eq!(
+            filter
+                .matches_with_metadata(&Value::Null, Some(&metadata))
+                .unwrap(),
+            expected
+        );
+    }
 }
 
 /// The pre-optimization implementation is intentionally independent of the

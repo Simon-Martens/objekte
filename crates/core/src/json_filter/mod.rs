@@ -3,8 +3,12 @@ mod fts;
 mod parser;
 mod pattern;
 mod prefilter;
+mod temporal;
 
-use crate::{Error, Metrics, Record, Result, TextFormat, config::fingerprint, text::render_text};
+use crate::{
+    Error, Metrics, Record, RecordStatus, Result, TextFormat, config::fingerprint, source::Stamp,
+    text::render_text,
+};
 pub(crate) use fts::FtsPlan;
 use num_bigint::BigInt;
 use serde::{Deserialize, Serialize};
@@ -85,6 +89,46 @@ enum Modifier {
 pub(crate) struct FieldOperand {
     path: JsonPath,
     modifier: Option<Modifier>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    metadata: Option<MetadataField>,
+}
+
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+enum MetadataField {
+    Id,
+    Filename,
+    Path,
+    Size,
+    Modified,
+    Created,
+    Status,
+}
+
+
+impl MetadataField {
+    fn as_str(self) -> &'static str {
+        match self {
+            Self::Id => "id",
+            Self::Filename => "filename",
+            Self::Path => "path",
+            Self::Size => "size",
+            Self::Modified => "modified",
+            Self::Created => "created",
+            Self::Status => "status",
+        }
+    }
+}
+
+
+#[derive(Clone, Copy)]
+pub(crate) struct FileMetadata<'a> {
+    pub id: &'a str,
+    pub path: &'a str,
+    pub size: u64,
+    pub modified: i128,
+    pub created: Option<i128>,
+    pub status: RecordStatus,
 }
 
 
@@ -92,6 +136,8 @@ pub(crate) struct FieldOperand {
 enum Operand {
     Field(FieldOperand),
     Literal(Value),
+    SizeBytes(u64),
+    Temporal(temporal::Period),
 }
 
 
@@ -99,14 +145,17 @@ enum Operand {
 enum SelectedValue<'a> {
     Borrowed(&'a Value),
     Owned(Value),
+    Time(i128),
+    Period(temporal::Period),
 }
 
 
 impl SelectedValue<'_> {
-    fn value(&self) -> &Value {
+    fn value(&self) -> Option<&Value> {
         match self {
-            Self::Borrowed(value) => value,
-            Self::Owned(value) => value,
+            Self::Borrowed(value) => Some(value),
+            Self::Owned(value) => Some(value),
+            Self::Time(_) | Self::Period(_) => None,
         }
     }
 }
@@ -126,17 +175,57 @@ impl Operand {
         )
     }
 
-    fn select<'a>(&'a self, doc: &'a Value) -> SelectedValues<'a> {
+    fn select<'a>(
+        &'a self,
+        doc: &'a Value,
+        metadata: Option<&FileMetadata<'_>>,
+    ) -> SelectedValues<'a> {
         match self {
             Self::Literal(value) => SmallVec::from_buf([SelectedValue::Borrowed(value)]),
-            Self::Field(f) => f.select(doc),
+            Self::SizeBytes(bytes) => {
+                SmallVec::from_buf([SelectedValue::Owned(Value::from(*bytes))])
+            }
+            Self::Temporal(period) => SmallVec::from_buf([SelectedValue::Period(*period)]),
+            Self::Field(f) => f.select(doc, metadata),
         }
     }
 }
 
 
 impl FieldOperand {
-    fn select<'a>(&self, doc: &'a Value) -> SelectedValues<'a> {
+    fn select<'a>(
+        &self,
+        doc: &'a Value,
+        metadata: Option<&FileMetadata<'_>>,
+    ) -> SelectedValues<'a> {
+        if let Some(field) = self.metadata {
+            let Some(metadata) = metadata else {
+                return SelectedValues::new();
+            };
+            let value = match field {
+                MetadataField::Id => SelectedValue::Owned(Value::String(metadata.id.into())),
+                MetadataField::Filename => SelectedValue::Owned(Value::String(
+                    metadata.path.rsplit('/').next().unwrap_or("").into(),
+                )),
+                MetadataField::Path => SelectedValue::Owned(Value::String(metadata.path.into())),
+                MetadataField::Size => SelectedValue::Owned(Value::from(metadata.size)),
+                MetadataField::Modified => SelectedValue::Time(metadata.modified),
+                MetadataField::Created => metadata
+                    .created
+                    .map_or(SelectedValue::Owned(Value::Null), SelectedValue::Time),
+                MetadataField::Status => SelectedValue::Owned(Value::String(
+                    match metadata.status {
+                        RecordStatus::NoSchema => "no_schema",
+                        RecordStatus::Pending => "pending",
+                        RecordStatus::Valid => "valid",
+                        RecordStatus::Invalid => "invalid",
+                        RecordStatus::IncorrectJson => "incorrect_json",
+                    }
+                    .into(),
+                )),
+            };
+            return SmallVec::from_buf([value]);
+        }
         let mut selected = SelectedValues::new();
         visit_values(
             doc,
@@ -166,6 +255,9 @@ impl FieldOperand {
     }
 
     fn more_than_one(&self, doc: &Value) -> bool {
+        if self.metadata.is_some() {
+            return false;
+        }
         let mut count = 0;
         visit_values(
             doc,
@@ -261,6 +353,7 @@ fn indexed_term(
         _ => return None,
     };
     if field.modifier.is_some()
+        || field.metadata.is_some()
         || !(value.is_number() || value.is_boolean() || value.is_string() || value.is_null())
     {
         return None;
@@ -285,6 +378,7 @@ pub struct JsonFilter {
     expr: Expr,
     paths: Vec<JsonPath>,
     scalar_paths: Vec<FieldOperand>,
+    metadata_fields: Vec<String>,
     hash: String,
 }
 
@@ -301,11 +395,17 @@ impl JsonFilter {
         let expr = parser::parse(text, parameters)?;
         let mut paths = BTreeSet::new();
         let mut scalar_paths = BTreeSet::new();
-        fn visit(e: &Expr, paths: &mut BTreeSet<JsonPath>, scalar: &mut BTreeSet<FieldOperand>) {
+        let mut metadata_fields = BTreeSet::new();
+        fn visit(
+            e: &Expr,
+            paths: &mut BTreeSet<JsonPath>,
+            scalar: &mut BTreeSet<FieldOperand>,
+            metadata: &mut BTreeSet<String>,
+        ) {
             match e {
                 Expr::And(es) | Expr::Or(es) => {
                     for e in es {
-                        visit(e, paths, scalar);
+                        visit(e, paths, scalar, metadata);
                     }
                 }
                 Expr::Exists(p) | Expr::Missing(p) => {
@@ -316,27 +416,78 @@ impl JsonFilter {
                 } => {
                     for operand in [left, right] {
                         if let Operand::Field(field) = operand {
-                            paths.insert(field.path.clone());
-                            if !any && !operand.each() {
-                                scalar.insert(field.clone());
+                            if let Some(name) = field.metadata {
+                                metadata.insert(format!("@{}", name.as_str()));
+                            } else {
+                                paths.insert(field.path.clone());
+                                if !any && !operand.each() {
+                                    scalar.insert(field.clone());
+                                }
                             }
                         }
                     }
                 }
             }
         }
-        visit(&expr, &mut paths, &mut scalar_paths);
+        visit(&expr, &mut paths, &mut scalar_paths, &mut metadata_fields);
         let hash = fingerprint("json-filter/v3", &expr);
         Ok(Self {
             expr,
             paths: paths.into_iter().collect(),
             scalar_paths: scalar_paths.into_iter().collect(),
+            metadata_fields: metadata_fields.into_iter().collect(),
             hash,
         })
     }
 
     pub fn paths(&self) -> &[JsonPath] {
         &self.paths
+    }
+
+    pub fn metadata_fields(&self) -> &[String] {
+        &self.metadata_fields
+    }
+
+    pub(crate) fn uses_status(&self) -> bool {
+        self.metadata_fields.iter().any(|field| field == "@status")
+    }
+
+    pub(crate) fn has_metadata(&self) -> bool {
+        !self.metadata_fields.is_empty()
+    }
+
+    pub(crate) fn uses_source_path(&self) -> bool {
+        self.metadata_fields
+            .iter()
+            .any(|field| field == "@path" || field == "@filename")
+    }
+
+    pub(crate) fn matches_source(
+        &self,
+        value: &Value,
+        id: &str,
+        path: &str,
+        stamp: &Stamp,
+        created: Option<i128>,
+        status: RecordStatus,
+    ) -> Result<bool> {
+        if !self.has_metadata() {
+            return if status == RecordStatus::IncorrectJson {
+                Ok(false)
+            } else {
+                self.matches(value)
+            };
+        }
+        let normalized_path = self.uses_source_path().then(|| path.replace('\\', "/"));
+        let metadata = FileMetadata {
+            id,
+            path: normalized_path.as_deref().unwrap_or(path),
+            size: stamp.size,
+            modified: stamp.modified.parse().expect("validated source timestamp"),
+            created,
+            status,
+        };
+        self.matches_with_metadata(value, Some(&metadata))
     }
 
     /// Referenced paths in first-use order, including both comparison operands.
@@ -356,7 +507,9 @@ impl JsonFilter {
                 Expr::Exists(path) | Expr::Missing(path) => push(path),
                 Expr::Compare { left, right, .. } => {
                     for operand in [left, right] {
-                        if let Operand::Field(field) = operand {
+                        if let Operand::Field(field) = operand
+                            && field.metadata.is_none()
+                        {
                             push(&field.path);
                         }
                     }
@@ -431,8 +584,8 @@ impl JsonFilter {
                 Expr::Compare { left, right, .. } => [left, right]
                     .into_iter()
                     .filter_map(|operand| match operand {
-                        Operand::Field(field) => first_key(&field.path),
-                        Operand::Literal(_) => None,
+                        Operand::Field(field) if field.metadata.is_none() => first_key(&field.path),
+                        _ => None,
                     })
                     .collect(),
             }
@@ -462,8 +615,10 @@ impl JsonFilter {
                     right: Operand::Literal(Value::String(pattern)),
                     any: false,
                     ignore_case: false,
-                } if field.modifier.is_none() => pattern::Like::anchored_prefix(pattern)
-                    .map(|prefix| TypedPlan::Prefix(field.path.clone(), prefix)),
+                } if field.modifier.is_none() && field.metadata.is_none() => {
+                    pattern::Like::anchored_prefix(pattern)
+                        .map(|prefix| TypedPlan::Prefix(field.path.clone(), prefix))
+                }
                 Expr::Compare {
                     left,
                     op,
@@ -502,8 +657,10 @@ impl JsonFilter {
                     any: false,
                     right: Operand::Literal(Value::String(pattern)),
                     ignore_case: false,
-                } if field.modifier.is_none() => pattern::Like::anchored_prefix(pattern)
-                    .map(|prefix| ExactPlan::Prefix(field.path.clone(), prefix)),
+                } if field.modifier.is_none() && field.metadata.is_none() => {
+                    pattern::Like::anchored_prefix(pattern)
+                        .map(|prefix| ExactPlan::Prefix(field.path.clone(), prefix))
+                }
                 Expr::Compare {
                     left,
                     op,
@@ -527,11 +684,24 @@ impl JsonFilter {
 
     /// Evaluate an already parsed JSON value with the same semantics as cached queries.
     pub fn matches(&self, value: &Value) -> Result<bool> {
+        if !self.metadata_fields.is_empty() {
+            return Err(Error::Request(
+                "metadata operands require a source record".into(),
+            ));
+        }
+        self.matches_with_metadata(value, None)
+    }
+
+    pub(crate) fn matches_with_metadata(
+        &self,
+        value: &Value,
+        metadata: Option<&FileMetadata<'_>>,
+    ) -> Result<bool> {
         self.check_cardinality(value)?;
-        fn evaluate(e: &Expr, doc: &Value) -> bool {
+        fn evaluate(e: &Expr, doc: &Value, metadata: Option<&FileMetadata<'_>>) -> bool {
             match e {
-                Expr::And(es) => es.iter().all(|e| evaluate(e, doc)),
-                Expr::Or(es) => es.iter().any(|e| evaluate(e, doc)),
+                Expr::And(es) => es.iter().all(|e| evaluate(e, doc, metadata)),
+                Expr::Or(es) => es.iter().any(|e| evaluate(e, doc, metadata)),
                 Expr::Exists(p) => !values(doc, p, false).is_empty(),
                 Expr::Missing(p) => values(doc, p, false).is_empty(),
                 Expr::Compare {
@@ -541,17 +711,17 @@ impl JsonFilter {
                     right,
                     ignore_case,
                 } => {
-                    let a = left.select(doc);
-                    let b = right.select(doc);
+                    let a = left.select(doc, metadata);
+                    let b = right.select(doc, metadata);
                     if a.is_empty() || b.is_empty() {
                         return false;
                     }
                     let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
                     let test = |(a, b): (&SelectedValue<'_>, &SelectedValue<'_>)| {
-                        compare(
-                            a.value(),
+                        compare_selected(
+                            a,
                             *op,
-                            b.value(),
+                            b,
                             matches!(right, Operand::Field(_)),
                             *ignore_case,
                         )
@@ -564,7 +734,7 @@ impl JsonFilter {
                 }
             }
         }
-        Ok(evaluate(&self.expr, value))
+        Ok(evaluate(&self.expr, value, metadata))
     }
 
     fn check_cardinality(&self, value: &Value) -> Result<()> {
@@ -624,6 +794,8 @@ pub struct JsonQueryDependencies {
     /// All scoped collections, including nonmatching records and future additions.
     pub collections: Vec<String>,
     pub paths: Vec<JsonPath>,
+    #[serde(skip_serializing_if = "Vec::is_empty")]
+    pub metadata_fields: Vec<String>,
 }
 
 
@@ -808,6 +980,44 @@ fn kind(value: &Value) -> &'static str {
         Value::Number(_) => "number",
         Value::String(_) => "string",
         _ => "container",
+    }
+}
+
+fn compare_selected(
+    left: &SelectedValue<'_>,
+    op: Op,
+    right: &SelectedValue<'_>,
+    right_field: bool,
+    ignore_case: bool,
+) -> bool {
+    match (left, right) {
+        (SelectedValue::Time(instant), SelectedValue::Period(period)) => {
+            temporal::compare(*instant, op, *period)
+        }
+        (SelectedValue::Period(period), SelectedValue::Time(instant)) => {
+            let reversed = match op {
+                Op::Lt => Op::Gt,
+                Op::Le => Op::Ge,
+                Op::Gt => Op::Lt,
+                Op::Ge => Op::Le,
+                other => other,
+            };
+            temporal::compare(*instant, reversed, *period)
+        }
+        (SelectedValue::Time(a), SelectedValue::Time(b)) => match op {
+            Op::Eq => a == b,
+            Op::Ne => a != b,
+            Op::Lt => a < b,
+            Op::Le => a <= b,
+            Op::Gt => a > b,
+            Op::Ge => a >= b,
+            Op::Contains | Op::NotContains => false,
+        },
+        _ => match (left.value(), right.value()) {
+            (Some(a), Some(b)) => compare(a, op, b, right_field, ignore_case),
+            (Some(_), None) | (None, Some(_)) => matches!(op, Op::Ne),
+            _ => false,
+        },
     }
 }
 

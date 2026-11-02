@@ -74,7 +74,8 @@ impl Repository {
             metrics.source_reads += 1;
             metrics.source_bytes += bytes.len() as u64;
             let t = Instant::now();
-            let after = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
+            let after_metadata = file.metadata().map_err(|e| io(&path, e))?;
+            let after = Stamp::from_metadata(&after_metadata, &path)?;
             metrics.source_check_nanos += nanos(t);
             if before != after || bytes.len() as u64 != after.size {
                 continue;
@@ -88,6 +89,7 @@ impl Repository {
                 json,
                 hash,
                 stamp: after,
+                created: crate::source::created_timestamp(&after_metadata),
             });
         }
         Err(Error::Unstable(path))

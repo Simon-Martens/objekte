@@ -169,6 +169,11 @@ impl Repository {
                 break;
             }
             let filter = filter.for_fields(&c.fields);
+            let relative_collection = c
+                .path
+                .strip_prefix(&self.model.root)
+                .expect("scoped collection")
+                .to_path_buf();
             let values_pattern = filter.values_prefilter().map(|(_, pattern)| pattern);
             let source_pattern = filter.source_prefilter()?;
             let scalar_fields = filter.top_level_scalar_fields();
@@ -340,10 +345,9 @@ impl Repository {
                                 }
                                 Err(error) => return Err(error),
                             };
-                            let before = Stamp::from_metadata(
-                                &file.metadata().map_err(|e| io(&path, e))?,
-                                &path,
-                            )?;
+                            let before_metadata = file.metadata().map_err(|e| io(&path, e))?;
+                            let before = Stamp::from_metadata(&before_metadata, &path)?;
+                            let created = crate::source::created_timestamp(&before_metadata);
                             if !optimistic && &before != stamp {
                                 return Err(Error::Unstable(path));
                             }
@@ -380,13 +384,32 @@ impl Repository {
                             if candidate {
                                 outcome.source_bytes = bytes.len() as u64;
                                 let t = Instant::now();
-                                let doc = Document::parse(bytes);
+                                let mut doc = Document::parse(bytes);
                                 outcome.parse_nanos = nanos(t);
-                                if doc.state.status != RecordStatus::IncorrectJson {
-                                    let t = Instant::now();
-                                    outcome.matches = filter.matches(&doc.data)?;
-                                    outcome.query_nanos = nanos(t);
+                                if filter.uses_status()
+                                    && doc.state.status != RecordStatus::IncorrectJson
+                                {
+                                    let started = Instant::now();
+                                    doc.validate(c);
+                                    outcome.validation_nanos = nanos(started);
+                                    outcome.validated = c.schema.is_some();
                                 }
+                                let t = Instant::now();
+                                let metadata_path = filter.uses_source_path().then(|| {
+                                    relative_collection
+                                        .join(format!("{id}.json"))
+                                        .to_string_lossy()
+                                        .into_owned()
+                                });
+                                outcome.matches = filter.matches_source(
+                                    &doc.data,
+                                    id,
+                                    metadata_path.as_deref().unwrap_or(""),
+                                    &before,
+                                    created,
+                                    doc.state.status,
+                                )?;
+                                outcome.query_nanos = nanos(t);
                                 if outcome.matches && capture_candidate {
                                     matched_document = Some(doc);
                                 }
@@ -431,6 +454,8 @@ impl Repository {
                         self.metrics.parse_nanos += outcome.parse_nanos;
                         self.metrics.json_decode_nanos += outcome.parse_nanos;
                         self.metrics.query_nanos += outcome.query_nanos;
+                        self.metrics.validation_nanos += outcome.validation_nanos;
+                        self.metrics.validations += u64::from(outcome.validated);
                     }
                     if outcome.matches {
                         if matched >= request.offset
@@ -466,24 +491,31 @@ impl Repository {
                         Err(error) => return Err(error),
                     };
                     let doc = Self::parse_value(&mut self.metrics, c, &id, &raw.json, true);
-                    if doc.state.status == RecordStatus::IncorrectJson
-                        || !filter.matches(&doc.data)?
-                    {
+                    let metadata_path = filter.uses_source_path().then(|| self.path(c, &id));
+                    if !filter.matches_source(
+                        &doc.data,
+                        &id,
+                        metadata_path.as_deref().unwrap_or(""),
+                        &raw.stamp,
+                        raw.created,
+                        doc.state.status,
+                    )? {
                         if optimistic {
                             continue;
                         }
                         return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
                     }
+                    let malformed = doc.state.status == RecordStatus::IncorrectJson;
                     result.push(Record {
                         collection: c.name.clone(),
                         id: id.clone(),
-                        path: self.path(c, &id),
+                        path: metadata_path.unwrap_or_else(|| self.path(c, &id)),
                         size_bytes: raw.stamp.size,
                         modified_unix_nanos: raw.stamp.modified.clone(),
                         hash: raw.hash,
                         data: doc.data,
                         state: doc.state,
-                        raw: None,
+                        raw: malformed.then_some(raw.json),
                     })?;
                 }
                 self.metrics.bigram_materialize_nanos += nanos(materialize_started);

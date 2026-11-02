@@ -188,6 +188,48 @@ impl Parser<'_> {
                 return self.error("pattern comparison requires strings");
             }
         }
+        for (special, other) in [(&left, &right), (&right, &left)] {
+            match special {
+                Operand::Temporal(_)
+                    if !matches!(
+                        other,
+                        Operand::Field(FieldOperand {
+                            metadata: Some(MetadataField::Modified | MetadataField::Created),
+                            ..
+                        })
+                    ) =>
+                {
+                    return self.error("date/time literals require @modified or @created");
+                }
+                Operand::SizeBytes(_)
+                    if !matches!(
+                        other,
+                        Operand::Field(FieldOperand {
+                            metadata: Some(MetadataField::Size),
+                            ..
+                        })
+                    ) =>
+                {
+                    return self.error("byte-size units require @size");
+                }
+                _ => {}
+            }
+        }
+        if matches!(op, Op::Contains | Op::NotContains)
+            && [&left, &right].iter().any(|operand| {
+                matches!(
+                    operand,
+                    Operand::Field(FieldOperand {
+                        metadata: Some(
+                            MetadataField::Size | MetadataField::Modified | MetadataField::Created
+                        ),
+                        ..
+                    })
+                )
+            })
+        {
+            return self.error("~ is only valid for string metadata fields");
+        }
         Ok(Expr::Compare {
             left,
             op,
@@ -289,6 +331,23 @@ impl Parser<'_> {
 
     fn operand(&mut self) -> Result<Operand> {
         self.ws();
+        if self.take("@") {
+            let field = match self.ident()?.as_str() {
+                "id" => MetadataField::Id,
+                "filename" => MetadataField::Filename,
+                "path" => MetadataField::Path,
+                "size" => MetadataField::Size,
+                "modified" => MetadataField::Modified,
+                "created" => MetadataField::Created,
+                "status" => MetadataField::Status,
+                _ => return self.error("unknown metadata field"),
+            };
+            return Ok(Operand::Field(FieldOperand {
+                path: Vec::new(),
+                modifier: None,
+                metadata: Some(field),
+            }));
+        }
         if self.take("$") {
             let key = self.ident()?;
             let value = self
@@ -335,7 +394,11 @@ impl Parser<'_> {
             } else {
                 None
             };
-            return Ok(Operand::Field(FieldOperand { path, modifier }));
+            return Ok(Operand::Field(FieldOperand {
+                path,
+                modifier,
+                metadata: None,
+            }));
         }
         let start = self.pos;
         while self.peek().is_some_and(|c| {
@@ -344,8 +407,18 @@ impl Parser<'_> {
             self.bump();
         }
         let raw = &self.text[start..self.pos];
-        let value = crate::json::parse(raw).map_err(|_| Error::Request(format!("filter at byte {start}: expected quoted string, number, true, false, null, or $parameter")))?;
-        self.literal(value)
+        if raw.len() >= 7 && raw.as_bytes().get(4) == Some(&b'-') {
+            return Ok(Operand::Temporal(super::temporal::parse(raw)?));
+        }
+        if let Ok(value) = crate::json::parse(raw) {
+            return self.literal(value);
+        }
+        if let Some(bytes) = size_literal(raw)? {
+            return Ok(Operand::SizeBytes(bytes));
+        }
+        Err(Error::Request(format!(
+            "filter at byte {start}: expected quoted string, number, date/time, byte size, true, false, null, or $parameter"
+        )))
     }
 
     fn literal(&self, value: Value) -> Result<Operand> {
@@ -355,4 +428,62 @@ impl Parser<'_> {
             Ok(Operand::Literal(value))
         }
     }
+}
+
+
+fn size_literal(raw: &str) -> Result<Option<u64>> {
+    let Some(split) = raw.find(|ch: char| ch.is_ascii_alphabetic()) else {
+        return Ok(None);
+    };
+    let (number, unit) = raw.split_at(split);
+    let factor: u128 = match unit {
+        "B" => 1,
+        "KB" => 1_000,
+        "MB" => 1_000_000,
+        "GB" => 1_000_000_000,
+        "TB" => 1_000_000_000_000,
+        "KiB" => 1_024,
+        "MiB" => 1_048_576,
+        "GiB" => 1_073_741_824,
+        "TiB" => 1_099_511_627_776,
+        _ => return Err(Error::Request(format!("unknown byte-size unit {unit}"))),
+    };
+    let (whole, fraction) = number.split_once('.').unwrap_or((number, ""));
+    if whole.is_empty()
+        || !whole.bytes().all(|byte| byte.is_ascii_digit())
+        || !fraction.bytes().all(|byte| byte.is_ascii_digit())
+        || fraction.len() > 18
+        || (number.contains('.') && fraction.is_empty())
+    {
+        return Err(Error::Request("invalid byte-size literal".into()));
+    }
+    let whole = whole
+        .parse::<u128>()
+        .map_err(|_| Error::Request("byte-size literal is too large".into()))?;
+    let divisor = 10_u128.pow(fraction.len() as u32);
+    let fractional = if fraction.is_empty() {
+        0
+    } else {
+        fraction
+            .parse::<u128>()
+            .map_err(|_| Error::Request("invalid byte-size literal".into()))?
+    };
+    let bytes = whole
+        .checked_mul(factor)
+        .and_then(|value| {
+            fractional.checked_mul(factor).and_then(|extra| {
+                extra
+                    .checked_div(divisor)
+                    .and_then(|extra| value.checked_add(extra))
+            })
+        })
+        .ok_or_else(|| Error::Request("byte-size literal is too large".into()))?;
+    if !(fractional * factor).is_multiple_of(divisor) {
+        return Err(Error::Request(
+            "byte-size literal must resolve to whole bytes".into(),
+        ));
+    }
+    Ok(Some(u64::try_from(bytes).map_err(|_| {
+        Error::Request("byte-size literal exceeds u64 bytes".into())
+    })?))
 }

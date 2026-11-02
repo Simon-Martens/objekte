@@ -21,8 +21,25 @@ Use `annotation:fts ~ "Goet"` to compare rendered text when `annotation` has a s
 | `tags:length` | Immediate array length |
 | `tags:each` | Every reached value must match; requires a nonempty selection |
 | `title:lower` | ASCII lowercase applied to strings |
+| `@id`, `@filename`, `@path` | Source ID, basename including `.json`, and repository-relative path |
+| `@size` | Source byte length, with optional decimal or binary unit |
+| `@modified`, `@created` | File timestamps compared with unquoted UTC date/time periods |
+| `@status` | `valid`, `invalid`, `no_schema`, or `incorrect_json` |
 
-Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each field operand accepts one modifier. Apart from `exists`, `missing`, and the `:ignorecase` pattern wrapper, other functions, relation traversal, grouping, and metadata operands are outside this version.
+Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each JSON field operand accepts one modifier. Metadata operands begin with `@`, so a JSON key named `@size` remains accessible as `["@size"]`. Apart from `exists`, `missing`, and the `:ignorecase` pattern wrapper, other functions, relation traversal, and grouping are outside this version.
+
+~~~text
+@size > 1KB && @modified >= 2026-05
+@path ~ "data/books/%" && @filename ~ "draft%"
+@status = "incorrect_json" || title ~ "draft"
+@created = null
+~~~
+
+`@size` measures bytes. Bare numbers and `B` mean bytes. `KB`, `MB`, `GB`, and `TB` use powers of 1,000; `KiB`, `MiB`, `GiB`, and `TiB` use powers of 1,024. Decimal amounts such as `1.5MB` are accepted when they resolve to a whole number of bytes; amounts requiring rounding are rejected. Units apply only to `@size`. `@id` excludes `.json`; `@filename` includes it. `@path` is relative to the repository root and uses `/` separators.
+
+Metadata filters require a source record and are evaluated by repository queries. `JsonFilter::matches` on a standalone JSON value returns an error for filters containing metadata operands.
+
+An unquoted time literal denotes its entire UTC period: `2026-05` is May, `2026-12-04` is one day, and `2026-12-04T14:30Z` is one minute. A time of day requires `Z` or an explicit offset such as `+01:00`; seconds and up to nine fractional digits are supported. `=` selects timestamps within the period, `!=` those outside it, `<` timestamps before its start, `<=` timestamps before its end, `>` timestamps at or after its end, and `>=` timestamps at or after its start. Date/time literals currently require `@modified` or `@created`; schema-declared time fields can use the same syntax in a later extension. Creation time is `null` when the filesystem cannot provide it. Unix ctime is not treated as creation time.
 
 Paths can be `address.city`, `["a.b"]["quote\"key"]`, `authors[0].name`, or `authors[*].name`. A field step through an array visits its members, so `authors.name` also reaches names in an array of objects. Comparisons flatten reached arrays recursively. A scalar comparison that reaches multiple values is an error, including outside the returned page or in a false Boolean branch; use `?` or `:each` for that case. Empty arrays provide no comparison values. `tags ?!= "poet"` means at least one element differs from `poet`; it does not mean `poet` is absent.
 
@@ -44,7 +61,7 @@ With `--count`, covered scalar and presence predicates count the current in-memo
 
 The raw-file grep backend reuses checked source inventory and descriptors. It opens files in parallel, searches a necessary literal if one exists, parses candidates with Sonic, and verifies the complete filter. When no safe literal exists it parses every file. Scalar-cardinality errors in files excluded by the raw-byte prefilter may not be observed by this optional backend; the default bigram backend preserves global checking.
 
-Parseable records remain searchable even when they fail their schema or the requested path is undeclared. Malformed JSON cannot match any field-based filter, including `:fts`, because its field paths cannot be verified. Standalone word and regex search can match malformed source text; see [full-text.md](full-text.md). Every returned record includes source byte size and signed modification time in decimal Unix nanoseconds; creation time is not returned. Parseable returned records are validated on demand when a schema exists; otherwise they have `no_schema` status. The cache stores neither validation status nor full JSON payloads. Collected results and final stream summaries include `elapsed_ms`, the wall-clock duration of the core search call, along with dependency collections and paths, a filter hash, a query plan, and metrics. The in-memory picker keeps per-record revisions only in its current process.
+Parseable records remain searchable even when they fail their schema or the requested path is undeclared. Malformed JSON has no JSON field paths, but can match metadata predicates such as `@status = "incorrect_json"` or `@size > 1KB`, including within Boolean combinations. Standalone word and regex search can also match malformed source text; see [full-text.md](full-text.md). Every returned record includes source byte size and signed modification time in decimal Unix nanoseconds; creation time is used for filtering but is not returned. `@status` validates every parseable candidate with a schema before comparison, so broad status queries may cost substantially more than size or modification-time checks. The cache stores neither validation status nor full JSON payloads. Collected results and final stream summaries include `elapsed_ms`, the wall-clock duration of the core search call, along with dependency collections, JSON paths, metadata fields, a filter hash, a query plan, and metrics. The in-memory picker keeps per-record revisions only in its current process.
 
 `Repository::query_json_stream` calls a synchronous callback with each validated page record and a one-based ordinal. It returns totals and query metadata only on success. The caller must hold emitted records provisionally until this return, because later candidates may reveal a source or scalar-cardinality error. The CLI exposes this as `--output events`; JSON and raw-record NDJSON retain their existing behavior.
 
