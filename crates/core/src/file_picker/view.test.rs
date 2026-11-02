@@ -21,7 +21,10 @@ fn borrowed_view_columns_encode_like_legacy_owned_columns() {
 #[test]
 fn parallel_field_order_matches_independent_serial_sort() {
     let count = 9_000;
-    let index = ViewIndex::new(&["a".into(), "b".into(), "c".into()], &BTreeMap::new());
+    let index = ViewIndex::new(
+        &["a".into(), "b".into(), "c".into(), "d".into()],
+        &BTreeMap::new(),
+    );
     let mut ids = Vec::new();
     let files = (0..count)
         .map(|slot| {
@@ -55,11 +58,23 @@ fn parallel_field_order_matches_independent_serial_sort() {
         (0..count)
             .map(|slot| Scalar::Int((count - slot) as i64))
             .collect::<Vec<_>>(),
+        (0..count)
+            .map(|slot| Scalar::Bool(slot % 2 == 0))
+            .collect::<Vec<_>>(),
     ];
-    let parallel = index.ordered_columns(&columns, &files, &ids);
+    let parallel = index.ordered_columns(&columns, &files, &ids, true);
     for (field, order) in parallel.iter().enumerate() {
         let mut serial = (0..count).collect::<Vec<_>>();
         serial.sort_by(|&a, &b| compare_slots(&columns[field], a, b, &files, &ids));
         assert_eq!(*order, serial, "field {field}");
+    }
+
+    let mut unordered_files = files;
+    unordered_files.swap(0, 1);
+    let fallback = index.ordered_columns(&columns, &unordered_files, &ids, false);
+    for (field, order) in fallback.iter().enumerate() {
+        let mut serial = (0..count).collect::<Vec<_>>();
+        serial.sort_by(|&a, &b| compare_slots(&columns[field], a, b, &unordered_files, &ids));
+        assert_eq!(*order, serial, "unordered field {field}");
     }
 }

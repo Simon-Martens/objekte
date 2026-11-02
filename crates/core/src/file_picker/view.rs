@@ -229,11 +229,19 @@ impl ViewIndex {
         columns: &[Vec<Scalar>],
         files: &[Option<FileEntry>],
         id_bytes: &[u8],
+        id_ordered_slots: bool,
     ) -> Vec<Vec<usize>> {
         debug_assert_eq!(columns.len(), self.fields.len());
         let order_field = |field: usize| {
             let mut slots = (0..files.len()).collect::<Vec<_>>();
-            slots.sort_by(|&a, &b| compare_slots(columns[field].as_slice(), a, b, files, id_bytes));
+            if id_ordered_slots {
+                // Stable sorting preserves the initial ID order for equal keys.
+                slots.sort_by(|&a, &b| columns[field][a].cmp(&columns[field][b]));
+            } else {
+                slots.sort_by(|&a, &b| {
+                    compare_slots(columns[field].as_slice(), a, b, files, id_bytes)
+                });
+            }
             slots
         };
         if self.fields.len() >= 2 && files.len() >= 8192 {

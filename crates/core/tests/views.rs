@@ -298,6 +298,40 @@ fn memory_revisions_and_ordered_keys_follow_edits_and_deletions() {
 }
 
 #[test]
+fn compacted_rebuild_keeps_id_ties_in_both_directions() {
+    let f = Fixture::new();
+    let mut memory = f.repo(CacheMode::Memory);
+    memory.open_view("books", &all()).unwrap();
+    f.write(
+        "data/books/aa.json",
+        &json!({"title":"Repeat","score":2,"flag":true,"status":"draft"}),
+    );
+    std::fs::remove_file(f.root.join("data/books/c.json")).unwrap();
+    memory.refresh("books").unwrap();
+    memory.rebuild_bigram_index("books").unwrap();
+    for field in ["score", "title", "flag"] {
+        for direction in [Direction::Asc, Direction::Desc] {
+            let request = ViewRequest {
+                sort: Some(Sort {
+                    field: field.into(),
+                    direction,
+                }),
+                limit: Some(100),
+                count: true,
+                ..all()
+            };
+            let direct = f
+                .repo(CacheMode::Disabled)
+                .open_view("books", &request)
+                .unwrap();
+            let indexed = memory.open_view("books", &request).unwrap();
+            assert_eq!(indexed.rows, direct.rows, "{field} {direction:?}");
+            assert_eq!(indexed.total, direct.total);
+        }
+    }
+}
+
+#[test]
 fn scalar_filter_types_and_sort_permissions_are_checked_before_io() {
     let f = Fixture::new();
     let mut r = f.repo(CacheMode::Memory);

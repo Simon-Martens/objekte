@@ -50,6 +50,13 @@ impl FilePicker {
             (self.id_bytes.as_slice(), self.files.as_slice()),
             |(ids, files)| (ids.as_slice(), files.as_slice()),
         );
+        // `sorted` is ID-ordered. Existing compact slots equal `sorted`, and
+        // compaction copies `sorted` in that order, so slot order is ID order.
+        debug_assert!(
+            self.sorted
+                .windows(2)
+                .all(|pair| self.id(pair[0]) <= self.id(pair[1]))
+        );
         // Workers project source files once. Their local rows are merged into
         // the immutable filter and each secondary index after the scan.
         let main = BigramIndexBuilder::new_with_encoding(files.len(), self.encoding);
@@ -398,7 +405,7 @@ impl FilePicker {
 
         #[cfg(feature = "index-timings")]
         let view_started = Instant::now();
-        let view_order = self.view.ordered_columns(&view_columns, files, ids);
+        let view_order = self.view.ordered_columns(&view_columns, files, ids, true);
         let sort_order = self.sort.ordered_flat(&sort_keys, files, ids);
         #[cfg(feature = "index-timings")]
         {
