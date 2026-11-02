@@ -1,5 +1,6 @@
 //! Stored-JSON filters evaluated against Sonic-parsed source values.
 mod fts;
+mod metadata_plan;
 mod parser;
 mod pattern;
 mod prefilter;
@@ -10,6 +11,7 @@ use crate::{
     text::render_text,
 };
 pub(crate) use fts::FtsPlan;
+pub(crate) use metadata_plan::{MetadataDecision, MetadataIdHint, MetadataPathHint};
 use num_bigint::BigInt;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;

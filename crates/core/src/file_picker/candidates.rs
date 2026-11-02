@@ -1,6 +1,7 @@
 //! Conservative posting candidates and schema-declared result order.
 
 use super::*;
+use crate::json_filter::MetadataIdHint;
 use std::borrow::Cow;
 
 
@@ -20,6 +21,43 @@ pub(crate) struct SlotSelection {
 
 
 impl SlotSelection {
+    pub(crate) fn clear(&mut self) {
+        self.membership = SlotMembership::Sparse(Vec::new());
+        self.count = 0;
+    }
+
+    pub(crate) fn retain(&mut self, picker: &FilePicker, mut keep: impl FnMut(usize) -> bool) {
+        match &mut self.membership {
+            SlotMembership::All => {
+                let mut bits = vec![0_u64; picker.slot_count().div_ceil(64)];
+                for &slot in &picker.sorted {
+                    if keep(slot) {
+                        bits[slot / 64] |= 1_u64 << (slot % 64);
+                    }
+                }
+                self.membership = SlotMembership::Bits(bits);
+            }
+            SlotMembership::Sparse(slots) => slots.retain(|&slot| keep(slot)),
+            SlotMembership::Bits(bits) => {
+                for (word_index, word) in bits.iter_mut().enumerate() {
+                    let mut remaining = *word;
+                    while remaining != 0 {
+                        let slot = word_index * 64 + remaining.trailing_zeros() as usize;
+                        remaining &= remaining - 1;
+                        if !keep(slot) {
+                            *word &= !(1_u64 << (slot % 64));
+                        }
+                    }
+                }
+            }
+        }
+        self.count = match &self.membership {
+            SlotMembership::All => picker.len(),
+            SlotMembership::Sparse(slots) => slots.len(),
+            SlotMembership::Bits(bits) => picker.count_live_bits(bits),
+        };
+    }
+
     pub(super) fn from_bits(picker: &FilePicker, bits: Option<Vec<u64>>) -> Self {
         let mut selection = Self {
             membership: SlotMembership::All,
@@ -187,6 +225,51 @@ impl SlotSelection {
 
 
 impl FilePicker {
+    pub(crate) fn metadata_exact_ready(&self) -> bool {
+        self.verified() && self.changed.is_empty()
+    }
+
+    pub(crate) fn metadata_id_selection(&self, hint: &MetadataIdHint) -> Option<SlotSelection> {
+        let slots: Vec<usize> = match hint {
+            MetadataIdHint::Exact(id) => self
+                .position(id)
+                .ok()
+                .map(|pos| self.sorted[pos])
+                .into_iter()
+                .collect(),
+            MetadataIdHint::Filename(id) => {
+                if self.recursive
+                    && self
+                        .sorted
+                        .iter()
+                        .any(|&slot| self.id(slot).is_some_and(|id| id.contains('/')))
+                {
+                    return None;
+                }
+                self.position(id)
+                    .ok()
+                    .map(|pos| self.sorted[pos])
+                    .into_iter()
+                    .collect()
+            }
+            MetadataIdHint::Prefix(prefix) => {
+                let start = self
+                    .sorted
+                    .partition_point(|&slot| self.id(slot).is_some_and(|id| id < prefix.as_str()));
+                self.sorted[start..]
+                    .iter()
+                    .copied()
+                    .take_while(|&slot| self.id(slot).is_some_and(|id| id.starts_with(prefix)))
+                    .collect()
+            }
+        };
+        let count = slots.len();
+        Some(SlotSelection {
+            membership: SlotMembership::Sparse(slots),
+            count,
+        })
+    }
+
     pub(crate) fn count_live_bits(&self, bits: &[u64]) -> usize {
         let mut count = 0;
         for (word_index, &word) in bits.iter().enumerate() {

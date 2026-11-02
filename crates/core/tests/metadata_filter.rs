@@ -148,6 +148,69 @@ fn metadata_filters_match_across_all_backends() {
 }
 
 #[test]
+fn inventory_predicates_avoid_unrelated_source_reads() {
+    let fixture = fixture();
+    let mut repo = repo(fixture.path(), CacheMode::Memory);
+    for (filter, total, max_reads) in [
+        ("@id = 'may'", 1, 1),
+        ("@filename = 'june.json'", 1, 1),
+        ("@id = 'absent'", 0, 0),
+        ("@id ~ 'ma%'", 1, 1),
+        ("@size > 1MB", 0, 0),
+        ("@path ~ 'data/elsewhere/%'", 0, 0),
+        ("x = 1 && @id = 'june'", 0, 1),
+        ("@status = 'valid' && @id = 'absent'", 0, 0),
+    ] {
+        let indexed = repo
+            .query_json(&query(filter, JsonQueryBackend::Bigram))
+            .unwrap();
+        let direct = repo
+            .query_json(&query(filter, JsonQueryBackend::Direct))
+            .unwrap();
+        assert_eq!(indexed.total, Some(total), "{filter}");
+        assert_eq!(indexed.total, direct.total, "{filter}");
+        assert_eq!(
+            indexed
+                .records
+                .iter()
+                .map(|record| &record.id)
+                .collect::<Vec<_>>(),
+            direct
+                .records
+                .iter()
+                .map(|record| &record.id)
+                .collect::<Vec<_>>(),
+            "{filter}"
+        );
+        assert!(
+            indexed.metrics.source_reads <= max_reads,
+            "{filter}: {:?}",
+            indexed.metrics
+        );
+    }
+    let malformed = repo
+        .query_json(&query("@id = 'broken'", JsonQueryBackend::Bigram))
+        .unwrap();
+    assert_eq!(malformed.total, Some(1));
+    assert_eq!(malformed.metrics.source_reads, 1);
+    assert_eq!(
+        malformed.records[0].state.status,
+        RecordStatus::IncorrectJson
+    );
+    assert!(malformed.records[0].raw.is_some());
+
+    let mut sorted = query("@id != 'absent' SORT BY @id ASC", JsonQueryBackend::Bigram);
+    sorted.offset = 1;
+    sorted.limit = 1;
+    let indexed = repo.query_json(&sorted).unwrap();
+    sorted.backend = JsonQueryBackend::Direct;
+    let direct = repo.query_json(&sorted).unwrap();
+    assert_eq!(indexed.total, direct.total);
+    assert_eq!(indexed.records[0].id, direct.records[0].id);
+    assert_eq!(indexed.records[0].state, direct.records[0].state);
+}
+
+#[test]
 fn metadata_filters_keep_sorted_and_streamed_results_consistent() {
     let fixture = fixture();
     for backend in [

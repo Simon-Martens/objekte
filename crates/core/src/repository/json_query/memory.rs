@@ -1,7 +1,10 @@
 //! In-memory bigram and typed-index JSON query execution.
 
 use super::*;
-use crate::{Field, json_filter::FtsPlan};
+use crate::{
+    Field,
+    json_filter::{FileMetadata, FtsPlan, MetadataDecision, MetadataPathHint},
+};
 use grep_searcher::SearcherBuilder;
 use regex::bytes::Regex;
 use std::sync::OnceLock;
@@ -254,6 +257,51 @@ impl Repository {
                 typed_plan.as_ref(),
                 if risk { &[] } else { &required_fields },
             );
+            if filter.has_metadata() && !risk {
+                let relative = relative_collection.to_string_lossy().replace('\\', "/");
+                let root = if relative.is_empty() {
+                    String::new()
+                } else {
+                    format!("{relative}/")
+                };
+                if let Some(hint) = filter.metadata_path_hint() {
+                    let disjoint = match hint {
+                        MetadataPathHint::Exact(path) => !path.starts_with(&root),
+                        MetadataPathHint::Prefix(prefix) => {
+                            !prefix.starts_with(&root) && !root.starts_with(&prefix)
+                        }
+                    };
+                    if disjoint {
+                        selection.clear();
+                    }
+                }
+                if let Some(hint) = filter.metadata_id_hint()
+                    && let Some(ids) = picker.metadata_id_selection(&hint)
+                {
+                    selection.intersect(picker, ids);
+                }
+                if selection.len() > 0 && !filter.metadata_path_covers_root(&root) {
+                    let needs_path = filter.uses_source_path();
+                    selection.retain(picker, |slot| {
+                        let (id, stamp) = picker.view_record(slot);
+                        let path = needs_path.then(|| {
+                            if relative.is_empty() {
+                                format!("{id}.json")
+                            } else {
+                                format!("{relative}/{id}.json")
+                            }
+                        });
+                        filter.metadata_decision(&FileMetadata {
+                            id,
+                            path: path.as_deref().unwrap_or(""),
+                            size: stamp.size,
+                            modified: stamp.modified.parse().expect("validated timestamp"),
+                            created: None,
+                            status: RecordStatus::Pending,
+                        }) != MetadataDecision::False
+                    });
+                }
+            }
             if !risk && let Some(plan) = &fts_plan {
                 let bits = fts_candidate_bits(picker, plan);
                 self.metrics.fts_candidates += bits
@@ -279,6 +327,34 @@ impl Repository {
                     .push("schema-declared ordered sort index".into());
             }
             self.metrics.bigram_candidates_nanos += nanos(candidate_started);
+            if filter.metadata_only()
+                && picker.metadata_exact_ready()
+                && !risk
+                && (request.sort.is_empty() || indexed_sort)
+            {
+                result
+                    .query_plan
+                    .push("exact inventory metadata; source page verification".into());
+                let count = selection.len();
+                let page = selection
+                    .ordered(picker, request.sort.is_empty(), &request.sort)
+                    .skip(request.offset.saturating_sub(matched))
+                    .take(request.limit.saturating_sub(result.returned()))
+                    .map(|slot| picker.view_record(slot))
+                    .collect::<Vec<_>>();
+                Self::query_json_metadata_records(
+                    &mut self.metrics,
+                    super::exact::ExactQuery {
+                        filter: &filter,
+                        collection: c,
+                        root: &self.model.root,
+                    },
+                    &page,
+                    result,
+                )?;
+                matched += count;
+                continue;
+            }
             let prefilter = if risk { None } else { source_pattern.as_ref() };
             let source = Source::open_scoped(&c.path, c.recursive)?;
             // Counted queries and global-cardinality checks scan every
