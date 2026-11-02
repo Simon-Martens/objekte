@@ -35,8 +35,12 @@ NDJSON with a setup row followed by one row per filter.
 ```sh
 cargo build --release -p objekte-bench --bin json-query-mix
 target/release/json-query-mix --repo examples/musenalm --runs 7
+target/release/json-query-mix --repo examples/musenalm --runs 7 --bigram-encoding utf8_bytes
 target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema
 ```
+
+The [November 2 encoding comparison](BIGRAM-50-QUERY-2026-11-02.md) runs all
+50 configured-schema queries with both bigram encodings and records each result.
 
 `--no-schema` discovers the same data folders without loading their default
 schemas or ordered schema postings. The example repository is not modified.

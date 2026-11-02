@@ -1,6 +1,6 @@
 //! Measure a diverse set of full-scope JSON queries with one warm repository.
 
-use objekte_core::{JsonQuery, JsonQueryBackend, Options, Repository};
+use objekte_core::{BigramEncoding, JsonQuery, JsonQueryBackend, Options, Repository};
 use serde::Deserialize;
 use serde_json::json;
 use std::{env, fs, path::PathBuf, time::Instant};
@@ -19,6 +19,7 @@ struct Case {
 struct Sample {
     ms: f64,
     total: usize,
+    first_id: Option<String>,
     scans: u64,
     reads: u64,
     parses: u64,
@@ -54,6 +55,7 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
     Ok(Sample {
         ms: started.elapsed().as_secs_f64() * 1000.0,
         total: result.total.ok_or("missing exact count")?,
+        first_id: result.records.first().map(|record| record.id.clone()),
         scans: result.metrics.grep_scans,
         reads: result.metrics.source_reads,
         parses: result.metrics.parses,
@@ -76,17 +78,33 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Err("workload must have 50 sequentially numbered cases".into());
     }
     let no_schema = flag("--no-schema");
+    let encoding_name = arg("--bigram-encoding", "ascii")?;
+    let encoding = BigramEncoding::parse(&encoding_name)
+        .ok_or("--bigram-encoding must be ascii or utf8_bytes")?;
+    let mut options = Options::new();
+    options.bigram_encoding = encoding;
     let mut repo = if no_schema {
         Repository::builder(&root)
             .without_default_schemas()
+            .options(options)
             .open()?
     } else {
-        Repository::load_repository(&root, Options::new())?
+        Repository::load_repository(&root, options)?
     };
     let collection_count = repo.model().collections.len();
+    if repo
+        .cache_status()?
+        .bigram_encodings
+        .values()
+        .any(|active| *active != encoding)
+    {
+        return Err("collection encoding override conflicts with benchmark mode".into());
+    }
     let warm_started = Instant::now();
     repo.warm_all_bigram_indexes()?;
     let warm_ms = warm_started.elapsed().as_secs_f64() * 1000.0;
+    let snapshot_loads = repo.metrics().bigram_snapshot_loads;
+    let secondary_loads = repo.metrics().secondary_snapshot_loads;
     eprintln!("warm index: {warm_ms:.1} ms across {collection_count} collections");
 
     // Check every filter once before timing and bring source pages into the same
@@ -95,7 +113,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .iter()
         .map(|case| {
             run(&mut repo, case)
-                .map(|sample| sample.total)
+                .map(|sample| (sample.total, sample.first_id))
                 .map_err(|error| format!("case {} ({}): {error}", case.id, case.filter))
         })
         .collect::<Result<Vec<_>, _>>()?;
@@ -110,8 +128,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         };
         for index in order {
             let sample = run(&mut repo, &cases[index])?;
-            if sample.total != expected[index] {
-                return Err(format!("case {} changed its count", cases[index].id).into());
+            if (sample.total, sample.first_id.as_ref())
+                != (expected[index].0, expected[index].1.as_ref())
+            {
+                return Err(format!("case {} changed its result", cases[index].id).into());
             }
             samples[index].push(sample);
         }
@@ -121,7 +141,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         "{}",
         json!({"type": "setup", "cases": cases.len(), "runs": runs,
             "collections": collection_count, "index_warm_ms": warm_ms,
+            "snapshot_loads": snapshot_loads, "secondary_loads": secondary_loads,
             "count": true, "page_limit": 1, "backend": "bigram",
+            "bigram_encoding": encoding.as_str(),
             "schema_mode": if no_schema { "none" } else { "configured" }})
     );
     for (case, mut case_samples) in cases.iter().zip(samples) {
@@ -131,6 +153,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "{}",
             json!({"type": "case", "id": case.id, "kind": case.kind,
                 "filter": case.filter, "matches": median.total,
+                "first_id": median.first_id,
                 "median_ms": median.ms, "min_ms": case_samples[0].ms,
                 "max_ms": case_samples[runs - 1].ms,
                 "scans": median.scans, "source_reads": median.reads,
