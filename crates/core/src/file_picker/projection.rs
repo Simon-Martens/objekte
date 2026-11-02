@@ -93,7 +93,38 @@ pub(super) fn projected_values_with_text(
     presence_fields: &[String],
     view: &ViewIndex,
     sort: &SortIndex,
+    options: ProjectionOptions<'_>,
+) -> Result<ProjectionOutcome> {
+    let mut raw = Vec::new();
+    projected_values_with_text_buffer(
+        source,
+        id,
+        stamp,
+        indexed_fields,
+        presence_fields,
+        view,
+        sort,
+        options,
+        &mut raw,
+    )
+}
+
+/// Parallel rebuild workers reuse this buffer only after each owned projection
+/// is complete. No returned projection borrows from it.
+#[expect(
+    clippy::too_many_arguments,
+    reason = "projection borrows each index independently"
+)]
+pub(super) fn projected_values_with_text_buffer(
+    source: &Source,
+    id: &str,
+    stamp: &Stamp,
+    indexed_fields: &[String],
+    presence_fields: &[String],
+    view: &ViewIndex,
+    sort: &SortIndex,
     mut options: ProjectionOptions<'_>,
+    raw: &mut Vec<u8>,
 ) -> Result<ProjectionOutcome> {
     let path = source.path.join(format!("{id}.json"));
     let mut file = source.file(id)?;
@@ -101,19 +132,19 @@ pub(super) fn projected_values_with_text(
     if &before != stamp {
         return Err(Error::Unstable(path));
     }
-    let mut raw = Vec::new();
-    file.read_to_end(&mut raw).map_err(|e| io(&path, e))?;
+    raw.clear();
+    file.read_to_end(raw).map_err(|e| io(&path, e))?;
     let after = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
     if after != before || raw.len() as u64 != after.size {
         return Err(Error::Unstable(path));
     }
 
-    let Ok(parsed) = sonic_rs::from_slice::<SonicValue>(&raw) else {
-        return Ok(ProjectionOutcome::Malformed(malformed_search_text(&raw)));
+    let Ok(parsed) = sonic_rs::from_slice::<SonicValue>(raw) else {
+        return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
     };
     let mut values = String::new();
     if append_values(&parsed, &mut values, 0).is_err() {
-        return Ok(ProjectionOutcome::Malformed(malformed_search_text(&raw)));
+        return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
     }
     if options.folded_index && !values.is_ascii() {
         let folded = values.case_fold().collect::<String>();
@@ -152,7 +183,7 @@ pub(super) fn projected_values_with_text(
         }
         if let Some(value) = fields.get(name.as_str()) {
             let Ok(value) = scalar_projection(value) else {
-                return Ok(ProjectionOutcome::Malformed(malformed_search_text(&raw)));
+                return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
             };
             selected.insert(name.clone(), value);
         }
@@ -174,9 +205,7 @@ pub(super) fn projected_values_with_text(
     let sort_keys = if sort.is_empty() {
         Vec::new()
     } else {
-        let data: Value = serde_json::from_slice(&raw)
-            .map_err(|error| Error::Cache(format!("cannot project sort keys: {error}")))?;
-        sort.project(id, &data)?
+        sort.project_sonic(id, &parsed)?
     };
     Ok(ProjectionOutcome::Valid(Projection {
         bytes: values.into_bytes(),

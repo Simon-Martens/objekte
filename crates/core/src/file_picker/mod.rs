@@ -56,6 +56,7 @@ use modified_order::ModifiedOrder;
 use presence::PresenceIndex;
 use projection::{
     ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
+    projected_values_with_text_buffer,
 };
 use sort_index::SortIndex;
 use text::{TextIndex, TextIndexBuilders, project_malformed_text};

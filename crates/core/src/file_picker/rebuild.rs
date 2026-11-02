@@ -89,6 +89,7 @@ impl FilePicker {
                     let mut chunk_typed = vec![Vec::new(); indexed_fields.len()];
                     let mut chunk_view = Vec::new();
                     let mut chunk_sort = Vec::new();
+                    let mut read_buffer = Vec::new();
                     #[cfg(feature = "index-timings")]
                     let mut chunk_project_nanos = 0;
                     #[cfg(feature = "index-timings")]
@@ -101,7 +102,7 @@ impl FilePicker {
                         .expect("validated UTF-8 ID");
                         #[cfg(feature = "index-timings")]
                         let project_started = Instant::now();
-                        let projection = projected_values_with_text(
+                        let projection = projected_values_with_text_buffer(
                             source,
                             id,
                             &entry.stamp,
@@ -114,6 +115,7 @@ impl FilePicker {
                                 text_rules: text_builders.as_ref().map(|_| &self.text_rules),
                                 key_summary: Some(&mut chunk_keys),
                             },
+                            &mut read_buffer,
                         )?;
                         #[cfg(feature = "index-timings")]
                         {

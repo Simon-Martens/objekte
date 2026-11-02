@@ -6,7 +6,9 @@ use crate::{
     sorting::{SortPlan, SortValue},
 };
 use serde::{Deserialize, Serialize};
+#[cfg(test)]
 use serde_json::Value;
+use sonic_rs::Value as SonicValue;
 use std::{borrow::Cow, cmp::Ordering, collections::BTreeMap};
 
 
@@ -66,10 +68,18 @@ impl SortIndex {
         self.plans.is_empty()
     }
 
+    #[cfg(test)]
     pub(super) fn project(&self, id: &str, data: &Value) -> Result<Vec<Vec<SortValue>>> {
         self.plans
             .iter()
             .map(|plan| plan.project(id, data))
+            .collect()
+    }
+
+    pub(super) fn project_sonic(&self, id: &str, data: &SonicValue) -> Result<Vec<Vec<SortValue>>> {
+        self.plans
+            .iter()
+            .map(|plan| plan.project_sonic(id, data))
             .collect()
     }
 

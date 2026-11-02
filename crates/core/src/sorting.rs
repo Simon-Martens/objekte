@@ -20,6 +20,7 @@ use icu_collator::{
 use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{cmp::Ordering, collections::BTreeMap};
 
 
@@ -163,33 +164,25 @@ impl SortPlan {
                 if term.path.is_empty() {
                     return Ok(SortValue::String(id.as_bytes().to_vec()));
                 }
-                let found = values(data, &term.path, true);
-                if found.is_empty() {
-                    return Ok(SortValue::Missing);
+                term.select(
+                    values(data, &term.path, true),
+                    |value| Ok(term.value(value)),
+                )
+            })
+            .collect()
+    }
+
+    /// Project directly from the tree used by the other index projections.
+    pub(crate) fn project_sonic(&self, id: &str, data: &SonicValue) -> Result<Vec<SortValue>> {
+        self.terms
+            .iter()
+            .map(|term| {
+                if term.path.is_empty() {
+                    return Ok(SortValue::String(id.as_bytes().to_vec()));
                 }
-                if found.len() == 1 {
-                    return Ok(term.value(found[0]));
-                }
-                let Some(reduce) = term.reduce else {
-                    return Err(Error::Request(
-                        "sorting a multivalued path requires x-sort-reduce in the schema".into(),
-                    ));
-                };
-                let selected = match reduce {
-                    SortReduce::First => term.value(found[0]),
-                    SortReduce::Last => term.value(found[found.len() - 1]),
-                    SortReduce::Min => found
-                        .into_iter()
-                        .map(|v| term.value(v))
-                        .min_by(|a, b| a.compare(b, Direction::Asc))
-                        .unwrap(),
-                    SortReduce::Max => found
-                        .into_iter()
-                        .map(|v| term.value(v))
-                        .max_by(|a, b| a.compare(b, Direction::Asc))
-                        .unwrap(),
-                };
-                Ok(selected)
+                term.select(sonic_values(data, &term.path), |value| {
+                    term.value_sonic(value)
+                })
             })
             .collect()
     }
@@ -215,6 +208,44 @@ impl SortPlan {
 
 
 impl Term {
+    fn select<V>(
+        &self,
+        values: Vec<&V>,
+        convert: impl Fn(&V) -> Result<SortValue>,
+    ) -> Result<SortValue> {
+        match values.len() {
+            0 => return Ok(SortValue::Missing),
+            1 => return convert(values[0]),
+            _ => {}
+        }
+        let Some(reduce) = self.reduce else {
+            return Err(Error::Request(
+                "sorting a multivalued path requires x-sort-reduce in the schema".into(),
+            ));
+        };
+        if reduce == SortReduce::First {
+            return convert(values[0]);
+        }
+        if reduce == SortReduce::Last {
+            return convert(values[values.len() - 1]);
+        }
+        let mut values = values.into_iter();
+        let mut best = convert(values.next().expect("nonempty sort values"))?;
+        for value in values {
+            let next = convert(value)?;
+            let order = next.compare(&best, Direction::Asc);
+            // Iterator::max_by selects the last equal item; min_by keeps
+            // the first. Numeric lexemes may compare equal but serialize
+            // differently, so this tie rule preserves stored keys.
+            if (reduce == SortReduce::Min && order.is_lt())
+                || (reduce == SortReduce::Max && !order.is_lt())
+            {
+                best = next;
+            }
+        }
+        Ok(best)
+    }
+
     fn value(&self, value: &Value) -> SortValue {
         match value {
             Value::Null => SortValue::Null,
@@ -230,4 +261,83 @@ impl Term {
             _ => SortValue::Invalid,
         }
     }
+
+    fn value_sonic(&self, value: &SonicValue) -> Result<SortValue> {
+        if let Some(raw) = value.as_raw_number() {
+            let number: serde_json::Number = raw
+                .as_str()
+                .parse()
+                .map_err(|error| Error::Cache(format!("cannot project sort number: {error}")))?;
+            return Ok(SortValue::Number(number.to_string()));
+        }
+        Ok(match value.as_ref() {
+            ValueRef::Null => SortValue::Null,
+            ValueRef::Bool(value) => SortValue::Bool(value),
+            ValueRef::String(value) => {
+                let mut key = Vec::new();
+                self.collator
+                    .write_sort_key_to(value, &mut key)
+                    .expect("Vec accepts bytes");
+                SortValue::String(key)
+            }
+            ValueRef::Number(_) => unreachable!("raw numbers enabled"),
+            _ => SortValue::Invalid,
+        })
+    }
+}
+
+
+/// Match JSON path traversal, including implicit array descent on key steps.
+fn sonic_values<'a>(data: &'a SonicValue, path: &[JsonPathStep]) -> Vec<&'a SonicValue> {
+    fn visit<'a>(data: &'a SonicValue, path: &[JsonPathStep], out: &mut Vec<&'a SonicValue>) {
+        match path.split_first() {
+            None => {
+                if let ValueRef::Array(items) = data.as_ref() {
+                    for item in items {
+                        visit(item, path, out);
+                    }
+                } else {
+                    out.push(data);
+                }
+            }
+            Some((JsonPathStep::Key(key), rest)) => match data.as_ref() {
+                ValueRef::Object(fields) => {
+                    // Sonic preserves duplicate object members. JSON evaluation
+                    // keeps the final member, including in nested objects.
+                    let mut last = None;
+                    for (name, value) in fields {
+                        if name == key {
+                            last = Some(value);
+                        }
+                    }
+                    if let Some(value) = last {
+                        visit(value, rest, out);
+                    }
+                }
+                ValueRef::Array(items) => {
+                    for item in items {
+                        visit(item, path, out);
+                    }
+                }
+                _ => {}
+            },
+            Some((JsonPathStep::Index(index), rest)) => {
+                if let ValueRef::Array(items) = data.as_ref()
+                    && let Some(value) = items.get(*index)
+                {
+                    visit(value, rest, out);
+                }
+            }
+            Some((JsonPathStep::Each, rest)) => {
+                if let ValueRef::Array(items) = data.as_ref() {
+                    for item in items {
+                        visit(item, rest, out);
+                    }
+                }
+            }
+        }
+    }
+    let mut out = Vec::new();
+    visit(data, path, &mut out);
+    out
 }

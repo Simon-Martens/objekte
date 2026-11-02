@@ -152,3 +152,62 @@ fn overwritten_deep_value_still_invalidates_index_projection() {
         .join()
         .unwrap();
 }
+
+#[test]
+fn sonic_sort_keys_match_full_json_for_nested_duplicate_and_exact_numbers() {
+    let dir = tempfile::tempdir().unwrap();
+    let root = dir.path().canonicalize().unwrap();
+    let schema = crate::schema::Schema::compile(
+        &serde_json::json!({
+            "type":"object",
+            "properties":{
+                "title":{"type":["string","null"]},
+                "meta":{"type":"object","properties":{"label":{"type":"string"}}},
+                "tags":{"type":"array","items":{"type":"string"},"x-sort-reduce":"min"},
+                "people":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"}}},"x-sort-reduce":"max"},
+                "number":{"type":"number"},
+                "big":{"type":"number"},
+                "numbers":{"type":"array","items":{"type":"number"},"x-sort-reduce":"max"}
+            }
+        }),
+        &root.join("schema.json"),
+    )
+    .unwrap();
+    let definitions = [
+        "title",
+        "meta.label",
+        "tags",
+        "people.name",
+        "number",
+        "big",
+        "numbers",
+    ]
+    .into_iter()
+    .map(|field| {
+        vec![crate::Sort {
+            field: field.into(),
+            direction: crate::Direction::Asc,
+        }]
+    })
+    .collect::<Vec<_>>();
+    let sort = SortIndex::new(&definitions, &schema.field.properties, Some("de")).unwrap();
+    let view = ViewIndex::new(&[], &BTreeMap::new());
+    for raw in [
+        r#"{"title":"old","title":"Äpfel","meta":{"label":"old","label":"Müller"},"tags":["z","ä","a"],"people":[{"name":"A","name":"B"},{"name":"Ä"}],"number":9007199254740993,"big":1e500,"numbers":[1.0,1.00]}"#,
+        r#"{"title":null,"meta":{},"tags":[],"people":[{"name":"Straße"}],"number":-0,"big":0.123456789012345678901234567890}"#,
+        r#"{"title":"last","number":1.00,"big":-9007199254740993}"#,
+    ] {
+        fs::write(root.join("a.json"), raw).unwrap();
+        let source = Source::open(&root).unwrap();
+        let stamp = source.inventory().unwrap().remove("a").unwrap();
+        let projected = projected_values(&source, "a", &stamp, &[], &[], &view, &sort, true)
+            .unwrap()
+            .unwrap();
+        let full = parse(raw).unwrap();
+        assert_eq!(
+            projected.sort_keys,
+            sort.project("a", &full).unwrap(),
+            "{raw}"
+        );
+    }
+}
