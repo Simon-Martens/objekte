@@ -102,18 +102,24 @@ impl BigramQuery {
         matches!(self, BigramQuery::Any)
     }
 
-    fn evaluate(&self, index: &BigramFilter) -> Option<Vec<u64>> {
+    fn evaluate(&self, index: &BigramFilter, observed: Option<&[u64]>) -> Option<Vec<u64>> {
         match self {
             BigramQuery::Any => None,
 
-            BigramQuery::Consec(key) => index.query(&[(*key >> 8) as u8, *key as u8]),
+            BigramQuery::Consec(key) => {
+                if observed.is_some_and(|keys| index.excludes_observed_key(*key, keys)) {
+                    Some(vec![0; index.file_count().div_ceil(64)])
+                } else {
+                    index.query(&[(*key >> 8) as u8, *key as u8])
+                }
+            }
 
             BigramQuery::Skip1(key) => index.skip_index()?.query(&[(*key >> 8) as u8, *key as u8]),
 
             BigramQuery::And(children) => {
                 let mut result: Option<Vec<u64>> = None;
                 for child in children {
-                    if let Some(child_bits) = child.evaluate(index) {
+                    if let Some(child_bits) = child.evaluate(index, observed) {
                         result = Some(match result {
                             None => child_bits,
                             Some(mut r) => {
@@ -133,7 +139,7 @@ impl BigramQuery {
                 let mut result: Option<Vec<u64>> = None;
                 for child in children {
                     // Any branch can't be filtered -> whole OR can't be filtered
-                    let child_bits = child.evaluate(index)?;
+                    let child_bits = child.evaluate(index, observed)?;
                     result = Some(match result {
                         None => child_bits,
                         Some(mut r) => {
@@ -591,7 +597,15 @@ fn simplify_or(children: Vec<BigramQuery>) -> BigramQuery {
 }
 
 pub(super) fn candidates(index: &BigramFilter, pattern: &str) -> Option<Vec<u64>> {
-    let ascii = regex_to_bigram_query(pattern).evaluate(index);
+    candidates_with_observed(index, pattern, None)
+}
+
+pub(super) fn candidates_with_observed(
+    index: &BigramFilter,
+    pattern: &str,
+    observed: Option<&[u64]>,
+) -> Option<Vec<u64>> {
+    let ascii = regex_to_bigram_query(pattern).evaluate(index, observed);
     if index.encoding() != BigramEncoding::Utf8Bytes || pattern.contains("(?i") {
         return ascii;
     }

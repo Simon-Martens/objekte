@@ -78,7 +78,7 @@ fn literal_pattern() {
     let q = regex_to_bigram_query("hello");
     assert!(!q.is_any());
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     assert!(!BigramFilter::is_candidate(&candidates, 1));
     assert!(BigramFilter::is_candidate(&candidates, 2));
@@ -95,7 +95,7 @@ fn alternation() {
     let q = regex_to_bigram_query("foo|bar");
     assert!(!q.is_any());
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     assert!(BigramFilter::is_candidate(&candidates, 1));
     // xyz doesn't contain foo or bar bigrams
@@ -113,7 +113,7 @@ fn wildcard_concat() {
     let q = regex_to_bigram_query("foo.*bar");
     assert!(!q.is_any());
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     // file 1 and 2 should be filtered (missing bigrams from "bar" / "foo")
     assert!(!BigramFilter::is_candidate(&candidates, 1));
@@ -132,7 +132,7 @@ fn sparse1_across_dot() {
     let q = regex_to_bigram_query("a.b");
     assert!(!q.is_any());
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     assert!(BigramFilter::is_candidate(&candidates, 1));
     assert!(!BigramFilter::is_candidate(&candidates, 2));
@@ -150,7 +150,7 @@ fn sparse1_across_digit() {
     let q = regex_to_bigram_query(r"foo\dbar");
     assert!(!q.is_any());
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     // file 1 may or may not match depending on what bigrams are in the index
     // (it has all the literal bigrams and also o,b as both consec and skip-1)
@@ -187,7 +187,7 @@ fn optional_group_excluded() {
         b"xyz only",          // 2: nothing
     ]);
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     assert!(BigramFilter::is_candidate(&candidates, 1));
     assert!(!BigramFilter::is_candidate(&candidates, 2));
@@ -205,7 +205,7 @@ fn repetition_min2_cross_boundary() {
         b"xyz",    // 2: nothing
     ]);
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     assert!(!BigramFilter::is_candidate(&candidates, 2));
 }
@@ -233,7 +233,7 @@ fn character_class_cross_boundary() {
     let q = regex_to_bigram_query("[abc]de");
     assert!(!q.is_any());
 
-    let candidates = q.evaluate(&idx).unwrap();
+    let candidates = q.evaluate(&idx, None).unwrap();
     assert!(BigramFilter::is_candidate(&candidates, 0));
     assert!(BigramFilter::is_candidate(&candidates, 1));
     assert!(BigramFilter::is_candidate(&candidates, 2));

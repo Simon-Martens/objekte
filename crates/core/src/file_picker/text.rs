@@ -10,11 +10,12 @@ pub(super) use projection::{
     project_malformed_text, project_malformed_text_into, project_text, project_text_into,
 };
 
-/// Combined visible text plus two filters for each declared full-text field.
+/// Rendered text outside declared fields plus two filters for each field.
 pub(super) struct TextIndex {
     global_clean: BigramFilter,
     global_clean_present: bool,
-    fields: Vec<FieldTextIndex>,
+    pub(super) global_clean_observed: Vec<u64>,
+    pub(super) fields: Vec<FieldTextIndex>,
     indexed_len: usize,
     #[cfg(feature = "index-timings")]
     pub(super) rendered_compress: StageMeasurement,
@@ -31,6 +32,8 @@ pub(super) struct FieldTextIndex {
     pub(super) clean: BigramFilter,
     pub(super) normal_present: bool,
     pub(super) clean_present: bool,
+    pub(super) normal_observed: Vec<u64>,
+    pub(super) clean_observed: Vec<u64>,
 }
 
 /// Two projections of one field in one source document.
@@ -89,6 +92,7 @@ struct CompressionJob {
 struct CompressedJob {
     order: usize,
     filter: BigramFilter,
+    observed: Vec<u64>,
     #[cfg(feature = "index-timings")]
     duration: StageMeasurement,
 }
@@ -96,6 +100,7 @@ struct CompressedJob {
 fn compress_pair(job: CompressionJob) -> CompressedJob {
     #[cfg(feature = "index-timings")]
     let timer = StageTimer::start();
+    let observed = job.main.observed_keys();
     let mut filter = if job.field {
         job.main.compress_field(None)
     } else {
@@ -109,6 +114,7 @@ fn compress_pair(job: CompressionJob) -> CompressedJob {
     CompressedJob {
         order: job.order,
         filter,
+        observed,
         #[cfg(feature = "index-timings")]
         duration: timer.stop(),
     }
@@ -263,20 +269,29 @@ impl TextIndexBuilders {
                     total
                 });
         let mut compressed = compressed.into_iter();
-        let global_clean = compressed.next().expect("global rendered index").filter;
+        let global = compressed.next().expect("global rendered index");
+        let global_clean = global.filter;
+        let global_clean_observed = global.observed;
         let fields = metadata
             .into_iter()
-            .map(|(path, normal_present, clean_present)| FieldTextIndex {
-                path,
-                normal: compressed.next().expect("normal field index").filter,
-                clean: compressed.next().expect("rendered field index").filter,
-                normal_present,
-                clean_present,
+            .map(|(path, normal_present, clean_present)| {
+                let normal = compressed.next().expect("normal field index");
+                let clean = compressed.next().expect("rendered field index");
+                FieldTextIndex {
+                    path,
+                    normal: normal.filter,
+                    clean: clean.filter,
+                    normal_present,
+                    clean_present,
+                    normal_observed: normal.observed,
+                    clean_observed: clean.observed,
+                }
             })
             .collect();
         TextIndex {
             global_clean,
             global_clean_present: self.global_clean_present.load(Ordering::Relaxed),
+            global_clean_observed,
             fields,
             indexed_len: self.indexed_len,
             #[cfg(feature = "index-timings")]
@@ -302,6 +317,7 @@ impl TextIndex {
     pub(super) fn from_filters(
         global_clean: BigramFilter,
         global_clean_present: bool,
+        global_clean_observed: Vec<u64>,
         fields: Vec<FieldTextIndex>,
         indexed_len: usize,
         encoding: BigramEncoding,
@@ -309,6 +325,7 @@ impl TextIndex {
     ) -> Result<Self> {
         if global_clean.file_count() != indexed_len
             || global_clean.encoding() != encoding
+            || global_clean_observed.len() != encoding.key_slots().div_ceil(64)
             || fields.len() != paths.len()
             || fields.iter().zip(paths).any(|(field, expected)| {
                 field.path != *expected
@@ -316,6 +333,8 @@ impl TextIndex {
                     || field.normal.encoding() != encoding
                     || field.clean.file_count() != indexed_len
                     || field.clean.encoding() != encoding
+                    || field.normal_observed.len() != encoding.key_slots().div_ceil(64)
+                    || field.clean_observed.len() != encoding.key_slots().div_ceil(64)
             })
         {
             return Err(Error::Cache("invalid secondary text index slots".into()));
@@ -323,6 +342,7 @@ impl TextIndex {
         Ok(Self {
             global_clean,
             global_clean_present,
+            global_clean_observed,
             fields,
             indexed_len,
             #[cfg(feature = "index-timings")]
@@ -336,10 +356,15 @@ impl TextIndex {
 
     pub(super) fn heap_bytes(&self) -> usize {
         self.global_clean.heap_bytes()
+            + self.global_clean_observed.len() * 8
             + self
                 .fields
                 .iter()
-                .map(|field| field.normal.heap_bytes() + field.clean.heap_bytes())
+                .map(|field| {
+                    field.normal.heap_bytes()
+                        + field.clean.heap_bytes()
+                        + (field.normal_observed.len() + field.clean_observed.len()) * 8
+                })
                 .sum::<usize>()
     }
 }

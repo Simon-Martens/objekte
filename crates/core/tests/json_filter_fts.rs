@@ -284,6 +284,28 @@ fn declared_fields_have_independent_normal_and_rendered_postings() {
         "{:?}",
         full_text.metrics
     );
+    let alternatives = repo
+        .search_text(&TextQuery {
+            pattern: "htmlneedle|titleonlyneedle".into(),
+            mode: TextMode::RegexClean,
+            collections: Some(vec!["books".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(
+        alternatives
+            .hits
+            .iter()
+            .map(|hit| hit.record.id.as_str())
+            .collect::<std::collections::BTreeSet<_>>(),
+        ["d007", "d009"].into_iter().collect()
+    );
+    assert!(
+        alternatives.metrics.source_reads < 20,
+        "{:?}",
+        alternatives.metrics
+    );
     for (pattern, mode) in [
         ("renderedneedle", TextMode::Word),
         (r"\*\*renderedneedle\*\*", TextMode::RegexRaw),

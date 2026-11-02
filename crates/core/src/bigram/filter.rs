@@ -464,6 +464,24 @@ impl BigramIndexBuilder {
         *self.next_column.lock().expect("bigram column lock")
     }
 
+    /// Keys observed during construction, including columns later omitted by
+    /// compression. If allocation was exhausted, leave every key possible.
+    pub(crate) fn observed_keys(&self) -> Vec<u64> {
+        let mut keys = vec![0; self.encoding.key_slots().div_ceil(64)];
+        let exhausted = self.columns_used() as usize == self.encoding.max_columns()
+            || self.col_data.get().is_some_and(Option::is_none);
+        if exhausted {
+            keys.fill(u64::MAX);
+            return keys;
+        }
+        for (slot, column) in self.lookup.iter().enumerate() {
+            if column.load(Ordering::Relaxed) != NO_COLUMN {
+                keys[slot / 64] |= 1 << (slot % 64);
+            }
+        }
+        keys
+    }
+
     /// Compress the dense builder into a compact `BigramFilter`.
     ///
     /// Keeps rare columns as gap lists unless `min_density_pct` excludes them.
@@ -751,6 +769,37 @@ fn bitset_and(result: &mut [u64], bitset: &[u64]) {
 
 
 impl BigramFilter {
+    pub(crate) fn excludes_observed_key(&self, key: u16, observed: &[u64]) -> bool {
+        if observed.len() != self.lookup.len().div_ceil(64) {
+            return false;
+        }
+        let a = (key >> 8) as u8;
+        let b = key as u8;
+        if !self.encoding.usable(a) || !self.encoding.usable(b) {
+            return false;
+        }
+        let slot = key_slot(key, self.encoding);
+        observed[slot / 64] & (1 << (slot % 64)) == 0
+    }
+
+    /// A missing observed byte pair proves that an ASCII literal cannot occur
+    /// in this partition, even when compression omitted other columns.
+    pub(crate) fn excludes_ascii_literal(&self, pattern: &str, observed: &[u64]) -> bool {
+        let bytes = pattern.as_bytes();
+        if bytes.len() < 2
+            || !pattern.is_ascii()
+            || !bytes.iter().all(|&byte| self.encoding.usable(byte))
+            || observed.len() != self.lookup.len().div_ceil(64)
+        {
+            return false;
+        }
+        bytes.windows(2).any(|pair| {
+            let key =
+                (pair[0].to_ascii_lowercase() as u16) << 8 | pair[1].to_ascii_lowercase() as u16;
+            self.excludes_observed_key(key, observed)
+        })
+    }
+
     /// AND the posting lists for all query bigrams (consecutive + skip).
     /// Returns None if no query bigrams are tracked.
     pub fn query(&self, pattern: &[u8]) -> Option<Vec<u64>> {

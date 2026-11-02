@@ -37,23 +37,25 @@ impl FilePicker {
         }
         let mut bits = vec![0; self.indexed_len.div_ceil(64)];
         for field in filters {
-            let (filter, present) = if clean {
-                (&field.clean, field.clean_present)
+            let (filter, present, observed) = if clean {
+                (&field.clean, field.clean_present, &field.clean_observed)
             } else {
-                (&field.normal, field.normal_present)
+                (&field.normal, field.normal_present, &field.normal_observed)
             };
             if !present {
+                continue;
+            }
+            if literal && filter.excludes_ascii_literal(pattern, observed) {
                 continue;
             }
             let next = if literal {
                 filter.query(pattern.as_bytes())
             } else {
-                regex_plan::candidates(filter, pattern)
+                regex_plan::candidates_with_observed(filter, pattern, Some(observed))
             };
             let Some(next) = next else {
                 // An omitted field column is unknown, not an empty match.
-                // The combined rendered filter remains a safe, selective
-                // fallback for a rendered field predicate.
+                // The rendered partitions cannot rule this field out.
                 return if clean {
                     self.clean_candidate_bits(pattern, literal)
                 } else {
@@ -120,18 +122,44 @@ impl FilePicker {
         let Some(text) = &self.text_index else {
             return self.raw_candidate_bits(pattern, literal);
         };
-        let query = |filter: &BigramFilter| {
+        let query = |filter: &BigramFilter, observed: &[u64]| {
             if literal {
                 filter.query(pattern.as_bytes())
             } else {
-                regex_plan::candidates(filter, pattern)
+                regex_plan::candidates_with_observed(filter, pattern, Some(observed))
             }
         };
-        if text.global_clean_present {
-            query(&text.global_clean)
-        } else {
-            Some(vec![0; text.indexed_len.div_ceil(64)])
+        let mut bits = vec![0; text.indexed_len.div_ceil(64)];
+        if text.global_clean_present
+            && !(literal
+                && text
+                    .global_clean
+                    .excludes_ascii_literal(pattern, &text.global_clean_observed))
+        {
+            let next = query(&text.global_clean, &text.global_clean_observed)?;
+            for (word, extra) in bits.iter_mut().zip(next) {
+                *word |= extra;
+            }
         }
+        for field in &text.fields {
+            if !field.clean_present {
+                continue;
+            }
+            if literal
+                && field
+                    .clean
+                    .excludes_ascii_literal(pattern, &field.clean_observed)
+            {
+                continue;
+            }
+            // Each field is a separate partition. Evaluate the full pattern
+            // within each filter before unioning its complete candidates.
+            let next = query(&field.clean, &field.clean_observed)?;
+            for (word, extra) in bits.iter_mut().zip(next) {
+                *word |= extra;
+            }
+        }
+        Some(bits)
     }
 
     /// A missing posting is unknown, represented by `None`. Changed slots and
@@ -194,18 +222,21 @@ impl FilePicker {
             let field = text.fields.iter().find(|field| {
                 matches!(field.path.as_slice(), [crate::JsonPathStep::Key(key)] if key == name)
             })?;
-            let (filter, present) = if raw {
-                (&field.normal, field.normal_present)
+            let (filter, present, observed) = if raw {
+                (&field.normal, field.normal_present, &field.normal_observed)
             } else {
-                (&field.clean, field.clean_present)
+                (&field.clean, field.clean_present, &field.clean_observed)
             };
             if !present {
+                continue;
+            }
+            if literal && filter.excludes_ascii_literal(pattern, observed) {
                 continue;
             }
             let next = if literal {
                 filter.query(pattern.as_bytes())
             } else {
-                regex_plan::candidates(filter, pattern)
+                regex_plan::candidates_with_observed(filter, pattern, Some(observed))
             };
             let Some(next) = next else {
                 return Some(None);

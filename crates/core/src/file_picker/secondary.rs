@@ -13,7 +13,8 @@ use view::{RestoredViewIndex, SavedViewIndex};
 
 // Flat sort-key storage changes the secondary payload. Older sidecars are
 // cache misses; their portable bigram snapshot remains reusable.
-const MAGIC: &[u8; 8] = b"OBJSEC05";
+// The global rendered filter now holds only text outside registered fields.
+const MAGIC: &[u8; 8] = b"OBJSEC06";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
 // A single declared sort order can exceed 1 GiB for multi-million-record collections.
 const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;
@@ -35,6 +36,9 @@ struct Saved<'a> {
     text_paths: Vec<String>,
     global_clean_present: bool,
     field_presence: Vec<(bool, bool)>,
+    global_clean_observed: &'a [u64],
+    field_normal_observed: Vec<&'a [u64]>,
+    field_clean_observed: Vec<&'a [u64]>,
 }
 
 
@@ -54,6 +58,9 @@ struct Restored {
     text_paths: Vec<String>,
     global_clean_present: bool,
     field_presence: Vec<(bool, bool)>,
+    global_clean_observed: Vec<u64>,
+    field_normal_observed: Vec<Vec<u64>>,
+    field_clean_observed: Vec<Vec<u64>>,
 }
 
 
@@ -238,6 +245,8 @@ impl FilePicker {
                     .map(|path| serde_json::to_string(path).expect("path serializes"))
                     .collect::<Vec<_>>()
                 || restored.field_presence.len() != self.text_paths.len()
+                || restored.field_normal_observed.len() != self.text_paths.len()
+                || restored.field_clean_observed.len() != self.text_paths.len()
             {
                 return Ok(false);
             }
@@ -246,8 +255,13 @@ impl FilePicker {
                 Err(_) => return Ok(false),
             };
             let mut fields = Vec::with_capacity(self.text_paths.len());
-            for (path, &(normal_present, clean_present)) in
-                self.text_paths.iter().zip(&restored.field_presence)
+            for ((path, &(normal_present, clean_present)), (normal_observed, clean_observed)) in
+                self.text_paths.iter().zip(&restored.field_presence).zip(
+                    restored
+                        .field_normal_observed
+                        .into_iter()
+                        .zip(restored.field_clean_observed),
+                )
             {
                 let normal = match read_filter_section(&mut reader, length) {
                     Ok(filter) => filter,
@@ -263,6 +277,8 @@ impl FilePicker {
                     clean,
                     normal_present,
                     clean_present,
+                    normal_observed,
+                    clean_observed,
                 });
             }
             let mut encoded_len = [0_u8; 8];
@@ -276,6 +292,7 @@ impl FilePicker {
             match TextIndex::from_filters(
                 global_clean,
                 restored.global_clean_present,
+                restored.global_clean_observed,
                 fields,
                 self.files.len(),
                 self.encoding,
@@ -288,6 +305,9 @@ impl FilePicker {
             if !restored.text_paths.is_empty()
                 || restored.global_clean_present
                 || !restored.field_presence.is_empty()
+                || !restored.global_clean_observed.is_empty()
+                || !restored.field_normal_observed.is_empty()
+                || !restored.field_clean_observed.is_empty()
             {
                 return Ok(false);
             }
@@ -382,6 +402,25 @@ impl FilePicker {
                             .collect(),
                         global_clean_present,
                         field_presence,
+                        global_clean_observed: self
+                            .text_index
+                            .as_ref()
+                            .map_or(&[], |text| text.global_clean_observed.as_slice()),
+                        field_normal_observed: self.text_index.as_ref().map_or(
+                            Vec::new(),
+                            |text| {
+                                text.fields
+                                    .iter()
+                                    .map(|field| field.normal_observed.as_slice())
+                                    .collect()
+                            },
+                        ),
+                        field_clean_observed: self.text_index.as_ref().map_or(Vec::new(), |text| {
+                            text.fields
+                                .iter()
+                                .map(|field| field.clean_observed.as_slice())
+                                .collect()
+                        }),
                     },
                 )
                 .map_err(|error| Error::Cache(format!("cannot encode secondary index: {error}")))?;

@@ -40,11 +40,8 @@ pub(in crate::file_picker) fn project_text_into(
             fields[index].normal.push_str(value);
             fields[index].normal.push('\u{1f}');
             let clean = &mut fields[index].clean;
-            let start = clean.len();
             if render_text_into(value, format, clean) {
-                global_clean.push_str(&clean[start..]);
                 clean.push('\u{1f}');
-                global_clean.push('\u{1f}');
             }
         } else if render_text_into(value, format, global_clean) {
             global_clean.push('\u{1f}');
@@ -145,11 +142,8 @@ mod tests {
                     content.fields[index].normal.push_str(value);
                     content.fields[index].normal.push('\u{1f}');
                     let clean = &mut content.fields[index].clean;
-                    let start = clean.len();
                     if render_text_into(value, format, clean) {
-                        content.global_clean.push_str(&clean[start..]);
                         clean.push('\u{1f}');
-                        content.global_clean.push('\u{1f}');
                     }
                 } else if render_text_into(value, format, &mut content.global_clean) {
                     content.global_clean.push('\u{1f}');
