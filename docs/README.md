@@ -10,6 +10,8 @@ objekte is heavily SIMD-accelerated and requires AVX2/NEON instructions support 
 - **cli/TUI:** used mainly for testing, allows quick queries against a data repository
 - **GUI:** unfinished
 
+## Some documentation 
+
 - [Collections and schemas](collections.md): discovery, nested IDs, and index declarations.
 - [Query examples](queries.md): runnable Musenalm commands, sorting, and output.
 - [Filter language](filters.md): JSON paths, metadata fields, operators, and backends.
