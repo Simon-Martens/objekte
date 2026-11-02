@@ -175,6 +175,7 @@ fn configured_subsort_changes_only_view_hash_when_fields_are_already_indexed() {
     f.edit(".editor/books/ui.json", |v| {
         v["list"]["subSorts"] = json!([{"field":"title","direction":"desc"}])
     });
+    r.reload().unwrap();
     let actual = r.open_view("books", &all()).unwrap();
     let c = r.model().collection("books").unwrap();
     assert_ne!(c.view_hashes.sort, before.view_hashes.sort);

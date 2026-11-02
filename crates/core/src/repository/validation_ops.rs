@@ -5,7 +5,6 @@ use super::*;
 
 impl Repository {
     pub fn validate_collection(&mut self, name: &str) -> Result<ValidationMetrics> {
-        self.reload()?;
         let c = self.collection(name)?;
         if c.schema.is_none() {
             return Ok(ValidationMetrics::default());
@@ -22,7 +21,6 @@ impl Repository {
     }
 
     pub fn validate_all(&mut self) -> Result<ValidationMetrics> {
-        self.reload()?;
         let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
         let mut total = ValidationMetrics::default();
         for name in names {

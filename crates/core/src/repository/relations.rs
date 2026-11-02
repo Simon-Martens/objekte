@@ -78,7 +78,6 @@ impl Repository {
         collection: &str,
         id: &str,
     ) -> Result<Option<Record>> {
-        self.reload()?;
         let c = self.collection(collection)?;
         validate_id(id)?;
         self.memory_coverage
@@ -150,7 +149,6 @@ impl Repository {
         complete: bool,
         check_targets: bool,
     ) -> Result<References> {
-        self.reload()?;
         self.model.collection(collection)?;
         validate_id(id)?;
         let sources = self

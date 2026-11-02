@@ -8,7 +8,6 @@ impl Repository {
     /// Restore a saved picker without waiting for source metadata checks.
     /// Until `apply_collection_inventory` runs, searches may use stale postings.
     pub fn restore_cached_index_unchecked(&mut self, collection: &str) -> Result<bool> {
-        self.reload()?;
         if self.options.cache != CacheMode::Memory
             || self.options.freshness != Freshness::MetadataOnOpen
         {
@@ -69,7 +68,6 @@ impl Repository {
 
     /// Reconcile one collected inventory into the live picker and save changes.
     pub fn apply_collection_inventory(&mut self, inventory: CollectionInventory) -> Result<usize> {
-        self.reload()?;
         let c = self.collection(&inventory.collection)?;
         if c.path != inventory.path || c.recursive != inventory.recursive {
             return Err(Error::Cache(
@@ -110,7 +108,6 @@ impl Repository {
     /// The path uses filter syntax, such as `year` or `contributors[0].type`.
     pub fn build_posting(&mut self, collection: &str, path: &str) -> Result<()> {
         let path = JsonFilter::parse_path(path)?;
-        self.reload()?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let picker = self
@@ -132,7 +129,6 @@ impl Repository {
     /// Build or rebuild the same path posting in every registered collection.
     pub fn build_posting_all(&mut self, path: &str) -> Result<()> {
         JsonFilter::parse_path(path)?;
-        self.reload()?;
         let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
         for name in names {
             self.build_posting(&name, path)?;
@@ -146,7 +142,6 @@ impl Repository {
         collection: &str,
         id: &str,
     ) -> Result<Option<RecordRevision>> {
-        self.reload()?;
         let c = self.collection(collection)?;
         validate_id(id)?;
         if self.options.cache == CacheMode::Disabled {
@@ -167,7 +162,6 @@ impl Repository {
     /// Build the process-local bigram picker for one collection if needed.
     /// An existing picker follows the configured freshness policy.
     pub fn warm_bigram_index(&mut self, collection: &str) -> Result<Metrics> {
-        self.reload()?;
         let c = self.collection(collection)?;
         self.warm_bigram_index_for(&c)
     }
@@ -175,7 +169,6 @@ impl Repository {
     /// Save one collection's compressed bigram index and file-slot metadata.
     /// Call `rebuild_bigram_index` first when an in-memory overlay is present.
     pub fn save_bigram_snapshot(&mut self, collection: &str, path: &Path) -> Result<()> {
-        self.reload()?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         self.file_pickers[collection].save_bigram_snapshot(path)
@@ -183,7 +176,6 @@ impl Repository {
 
     /// Save a collection's current bigram index in `.objekte/.cache`.
     pub fn save_bigram_cache(&mut self, collection: &str) -> Result<std::path::PathBuf> {
-        self.reload()?;
         let path = self.bigram_cache_path(collection)?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
@@ -201,7 +193,6 @@ impl Repository {
 
     /// Save the current bigram indexes for every collection.
     pub fn save_all_bigram_caches(&mut self) -> Result<BTreeMap<String, std::path::PathBuf>> {
-        self.reload()?;
         let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
         names
             .iter()
@@ -211,7 +202,6 @@ impl Repository {
 
     /// Read every source record again, rebuild one index, and replace its cache.
     pub fn reindex_bigram_cache(&mut self, collection: &str) -> Result<std::path::PathBuf> {
-        self.reload()?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let picker = self
@@ -227,7 +217,6 @@ impl Repository {
 
     /// Rebuild every collection and replace all saved bigram caches.
     pub fn reindex_all_bigram_caches(&mut self) -> Result<BTreeMap<String, std::path::PathBuf>> {
-        self.reload()?;
         let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
         names
             .iter()
@@ -238,7 +227,6 @@ impl Repository {
     /// Warm every collection's process-local bigram picker, in name order.
     /// Call the single-collection method to report progress between collections.
     pub fn warm_all_bigram_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
-        self.reload()?;
         let collections = self.model.collections.values().cloned().collect::<Vec<_>>();
         collections
             .iter()
@@ -250,7 +238,6 @@ impl Repository {
     /// indexes. Rebuilding an existing picker retains its record revisions and
     /// deletion tombstones.
     pub fn rebuild_bigram_index(&mut self, collection: &str) -> Result<Metrics> {
-        self.reload()?;
         let c = self.collection(collection)?;
         self.rebuild_bigram_index_for(&c)
     }
@@ -258,7 +245,6 @@ impl Repository {
     /// Rebuild every collection's process-local bigram and scalar indexes, in
     /// name order. Earlier collections remain rebuilt if a later one fails.
     pub fn rebuild_all_bigram_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
-        self.reload()?;
         let collections = self.model.collections.values().cloned().collect::<Vec<_>>();
         collections
             .iter()
@@ -288,7 +274,6 @@ impl Repository {
     }
 
     pub fn refresh(&mut self, collection: &str) -> Result<Metrics> {
-        self.reload()?;
         let before = self.metrics.clone();
         let c = self.collection(collection)?;
         match self.options.cache {

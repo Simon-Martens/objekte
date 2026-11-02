@@ -1,7 +1,9 @@
 //! Reconcile inferred field types and posting rules in an existing JSON Schema.
 
 use crate::{
-    CollectionInference, FieldInference, InferredKind, InferredLinkKind, JsonPathStep, Result,
+    CollectionInference, Error, FieldInference, InferredKind, InferredLinkKind, JsonPathStep,
+    Result,
+    config::digest,
     error::{config, io},
     schema::{Schema, index_paths},
 };
@@ -13,8 +15,18 @@ use std::{
     path::Path,
 };
 
-pub(super) fn extend_schema(path: &Path, report: &CollectionInference) -> Result<bool> {
+pub(super) fn extend_schema(
+    path: &Path,
+    report: &CollectionInference,
+    expected_digest: &str,
+) -> Result<bool> {
     let raw = fs::read(path).map_err(|error| io(path, error))?;
+    if digest(&raw) != expected_digest {
+        return Err(Error::Request(format!(
+            "schema changed since inference for {}",
+            report.collection
+        )));
+    }
     let mut schema: Value =
         serde_json::from_slice(&raw).map_err(|error| config(path, "", error))?;
     let mut fields = report.fields.iter().collect::<Vec<_>>();
@@ -86,6 +98,13 @@ pub(super) fn extend_schema(path: &Path, report: &CollectionInference) -> Result
                 .permissions(),
         )
         .map_err(|error| io(path, error))?;
+    let latest = fs::read(path).map_err(|error| io(path, error))?;
+    if digest(&latest) != expected_digest {
+        return Err(Error::Request(format!(
+            "schema changed since inference for {}",
+            report.collection
+        )));
+    }
     temporary
         .persist(path)
         .map_err(|error| io(path, error.error))?;

@@ -23,7 +23,6 @@ impl Repository {
     }
 
     pub fn cache_status(&mut self) -> Result<CacheStatus> {
-        self.reload()?;
         let mut collections = Vec::new();
         for name in self.model.collections.keys() {
             collections.push(self.coverage(name)?);

@@ -44,6 +44,6 @@ cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg
 cargo run --release -p objekte-cli -- examples/musenalm view contents_list --arg from_year=1820 --query-arg contents.limit=10
 ```
 
-View definitions are checked when the repository opens. Existing view files reload when their bytes change; `refresh_configuration()` discovers additions and removals. The current TUI remains a general search interface and does not register default views.
+View definitions are loaded when the repository opens. Changes to existing view files and added or removed views take effect only after `Repository::reload()` or `refresh_configuration()`. The current TUI remains a general search interface and does not register default views.
 
 For older `.editor` repositories, the former collection `view` command and its list settings remain available as a compatibility path. New `.objekte` repositories use only named views.

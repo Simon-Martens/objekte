@@ -564,6 +564,7 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
         v["pageSize"] = json!(2);
         v["list"]["columns"] = json!(["title"])
     });
+    r.reload().unwrap();
     let v = r.open_view("books", &ViewRequest::default()).unwrap();
     assert_eq!(v.rows.len(), 2);
     assert_eq!(v.columns, vec!["title"]);
@@ -574,6 +575,7 @@ fn ui_only_changes_rebuild_only_the_necessary_cache_parts() {
             .unwrap()
             .push(json!("type"))
     });
+    r.reload().unwrap();
     let v = r.open_view("books", &all()).unwrap();
     assert_eq!(v.metrics.validations, v.rows.len() as u64);
 }

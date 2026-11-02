@@ -14,7 +14,6 @@ enum RetainedView {
 impl Repository {
     pub fn open_view(&mut self, collection: &str, request: &ViewRequest) -> Result<ViewResult> {
         let before = self.metrics.clone();
-        self.reload()?;
         let c = self.collection(collection)?;
         let plan = Plan::compile(&c, request)?;
         let mut result = match self.options.cache {

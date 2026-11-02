@@ -262,7 +262,6 @@ impl Repository {
         let request = &bounded;
         let filter = JsonFilter::compile(&request.filter, &request.parameters)?;
         self.metrics.filter_compile_nanos += nanos(t);
-        self.reload()?;
         let names = request
             .collections
             .clone()

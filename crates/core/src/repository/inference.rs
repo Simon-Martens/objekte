@@ -4,7 +4,9 @@ mod schema_write;
 
 use super::*;
 use crate::{
-    InferOptions, InferenceReport, config::fingerprint, file_picker::ReferenceInventory,
+    InferOptions, InferenceReport,
+    config::{digest, fingerprint},
+    file_picker::ReferenceInventory,
     source::Source,
 };
 
@@ -19,7 +21,6 @@ impl Repository {
         options: InferOptions,
     ) -> Result<InferenceReport> {
         let started = Instant::now();
-        self.reload()?;
         let collections = if let Some(name) = collection {
             vec![self.collection(name)?]
         } else {
@@ -69,7 +70,6 @@ impl Repository {
     /// Persist the rules and types from a completed scan in existing schemas.
     /// Source and schema snapshots are checked before any schema is changed.
     pub fn write_inferred_schema(&mut self, report: &mut InferenceReport) -> Result<usize> {
-        self.reload()?;
         if ReferenceInventory::build(&self.model)?.snapshot() != report.reference_snapshot {
             return Err(Error::Request(
                 "repository source changed since inference; rerun advanced indexing".into(),
@@ -82,6 +82,21 @@ impl Repository {
                     "schema changed since inference for {}",
                     scanned.collection
                 )));
+            }
+            if let Some(path) = current.schema_path.as_deref() {
+                let expected = self.model.files.get(path).ok_or_else(|| {
+                    Error::Request(format!(
+                        "schema changed since inference for {}",
+                        scanned.collection
+                    ))
+                })?;
+                let raw = fs::read(path).map_err(|error| io(path, error))?;
+                if digest(&raw) != *expected {
+                    return Err(Error::Request(format!(
+                        "schema changed since inference for {}",
+                        scanned.collection
+                    )));
+                }
             }
             let source = Source::open_scoped(&current.path, current.recursive)?;
             let inventory = source.inventory()?;
@@ -99,12 +114,10 @@ impl Repository {
         for scanned in &mut report.collections {
             let current = self.collection(&scanned.collection)?;
             if let Some(path) = current.schema_path.as_deref() {
-                scanned.schema_written = schema_write::extend_schema(path, scanned)?;
+                let expected = self.model.files.get(path).expect("loaded schema digest");
+                scanned.schema_written = schema_write::extend_schema(path, scanned, expected)?;
                 written += usize::from(scanned.schema_written);
             }
-        }
-        if written > 0 {
-            self.reload()?;
         }
         Ok(written)
     }

@@ -216,6 +216,10 @@ fn optional_schema_write_preserves_declared_fields_and_adds_nested_types() {
     assert!(!advanced.contains(&json!("active")));
     assert!(advanced.contains(&json!("items[*].score")));
     assert!(advanced.contains(&json!("detail[\"a.b\"]")));
+    assert!(!repository.model().collections["docs"]
+        .fields
+        .contains_key("category"));
+    repository.reload().unwrap();
     assert!(
         !repository
             .infer_and_auto_index(

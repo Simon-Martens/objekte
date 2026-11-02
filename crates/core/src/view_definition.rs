@@ -284,7 +284,6 @@ impl Repository {
         arguments: &BTreeMap<String, Value>,
         query_arguments: &BTreeMap<String, BTreeMap<String, Value>>,
     ) -> Result<NamedViewResult> {
-        self.reload()?;
         let view = self
             .model()
             .views

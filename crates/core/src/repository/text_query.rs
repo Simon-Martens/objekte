@@ -25,7 +25,6 @@ impl Repository {
     /// Build a collection's separate full-text index if it is not warm yet.
     pub fn warm_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
-        self.reload()?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let started = Instant::now();
@@ -42,7 +41,6 @@ impl Repository {
 
     /// Warm all collections' full-text indexes.
     pub fn warm_all_text_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
-        self.reload()?;
         let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
         names
             .iter()
@@ -53,7 +51,6 @@ impl Repository {
     /// Refresh a collection and rebuild its separate full-text index if eligible.
     pub fn rebuild_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
-        self.reload()?;
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let started = Instant::now();
@@ -70,7 +67,6 @@ impl Repository {
 
     /// Rebuild every collection's full-text index.
     pub fn rebuild_all_text_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
-        self.reload()?;
         let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
         names
             .iter()
@@ -218,7 +214,6 @@ impl Repository {
         if filter.is_none() && !request.parameters.is_empty() {
             return Err(Error::Request("text parameters require a filter".into()));
         }
-        self.reload()?;
         let names = request
             .collections
             .clone()

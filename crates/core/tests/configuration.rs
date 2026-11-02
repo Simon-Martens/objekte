@@ -166,10 +166,38 @@ fn changing_index_opt_in_replaces_the_live_picker() {
             .unwrap()
             .remove("index");
     });
+    for _ in 0..3 {
+        repository.reset_metrics();
+        let unchanged = repository.query_json(&query).unwrap();
+        assert_eq!(unchanged.total, before.total);
+        assert_eq!(unchanged.metrics.grep_scans, 0);
+        assert_eq!(repository.metrics().reload_nanos, 0);
+    }
     repository.refresh_configuration().unwrap();
     let after = repository.query_json(&query).unwrap();
     assert_eq!(after.total, before.total);
     assert!(after.metrics.grep_scans > 0);
+}
+
+#[test]
+fn explicit_reload_applies_schema_changes_without_refresh_reporting() {
+    let f = Fixture::new();
+    let mut repository = f.repo(CacheMode::Memory);
+    let query = JsonQuery {
+        filter: "score = 2".into(),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(repository.query_json(&query).unwrap().metrics.grep_scans, 0);
+    f.edit(".editor/books/schema.json", |schema| {
+        schema["properties"]["score"]
+            .as_object_mut()
+            .unwrap()
+            .remove("index");
+    });
+    repository.reload().unwrap();
+    assert!(repository.query_json(&query).unwrap().metrics.grep_scans > 0);
 }
 
 #[test]

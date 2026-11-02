@@ -19,7 +19,6 @@ impl Repository {
                 "repository total_limit must be positive".into(),
             ));
         }
-        self.reload()?;
         let names = request
             .collections
             .clone()

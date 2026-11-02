@@ -417,6 +417,9 @@ fn explicit_configuration_refresh_discovers_new_populated_folders() {
     let mut repo = Repository::open(root).unwrap();
     repo.warm_bigram_index("books").unwrap();
     write(root, "data/notes/n.json", "{}");
+    assert!(!repo.model().collections.contains_key("notes"));
+    repo.query_json(&request("missing(title)", None)).unwrap();
+    assert!(!repo.model().collections.contains_key("notes"));
     let changes = repo.refresh_configuration().unwrap();
     assert_eq!(changes.affected_collections, ["notes"]);
     assert!(repo.model().collections.contains_key("notes"));

@@ -431,16 +431,16 @@ impl Repository {
         self.metrics = Metrics::default()
     }
 
+    /// Explicitly rediscover repository configuration and retain indexes for
+    /// collections whose effective configuration has not changed.
     pub fn reload(&mut self) -> Result<()> {
         let t = Instant::now();
-        if self.model.changed()? {
-            let model = if let Some(settings) = &self.discovery {
-                RepositoryModel::discover(&self.model.root, settings)?
-            } else {
-                RepositoryModel::load(&self.model.root)?
-            };
-            self.replace_model(model);
-        }
+        let model = if let Some(settings) = &self.discovery {
+            RepositoryModel::discover(&self.model.root, settings)?
+        } else {
+            RepositoryModel::load(&self.model.root)?
+        };
+        self.replace_model(model);
         self.metrics.reload_nanos += nanos(t);
         Ok(())
     }
@@ -479,20 +479,10 @@ impl Repository {
         self.configuration_changes.as_ref()
     }
 
-    /// Observe configuration changes without enumerating or opening source records.
+    /// Explicitly reload configuration and report changes since the previous
+    /// configuration observation.
     pub fn refresh_configuration(&mut self) -> Result<ConfigurationChanges> {
         self.reload()?;
-        let current = if let Some(settings) = &self.discovery {
-            RepositoryModel::discover(&self.model.root, settings)?
-        } else {
-            RepositoryModel::load(&self.model.root)?
-        };
-        if current.collections.keys().collect::<Vec<_>>()
-            != self.model.collections.keys().collect::<Vec<_>>()
-            || current.files != self.model.files
-        {
-            self.replace_model(current);
-        }
         let changes = self.observed_configuration.compare(&self.model);
         self.observed_configuration = ConfigurationSnapshot::from_model(&self.model);
         self.configuration_changes = Some(changes);
