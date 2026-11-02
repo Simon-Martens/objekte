@@ -377,10 +377,11 @@ impl FilePicker {
             .collect::<Vec<_>>();
         indexed_fields.sort();
         indexed_fields.dedup();
-        let text_rules = TextRules::new(definitions);
+        let mut text_rules = TextRules::new(definitions);
         let mut text_paths = text_rules.registered_paths();
         text_paths.sort();
         text_paths.dedup();
+        text_rules.compile_index_fields(&text_paths);
         let eager_text_index =
             text_rules.has_markup() || text_rules.has_exclusions() || !text_paths.is_empty();
         let mut picker = Self {
