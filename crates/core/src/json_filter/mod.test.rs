@@ -44,3 +44,94 @@ fn later_branch_cardinality_is_checked_before_short_circuit() {
     let document = serde_json::json!({"name": "match", "items": ["A", "B"]});
     assert!(matches!(filter.matches(&document), Err(Error::Request(_))));
 }
+
+/// The pre-optimization implementation is intentionally independent of the
+/// borrowed-digit comparator above.
+fn decimal_cmp_reference(a: &str, b: &str) -> Ordering {
+    fn parts(lexeme: &str) -> (bool, String, BigInt) {
+        let negative = lexeme.starts_with('-');
+        let unsigned = lexeme.strip_prefix('-').unwrap_or(lexeme);
+        let (mantissa, exponent) = unsigned.split_once(['e', 'E']).unwrap_or((unsigned, "0"));
+        let fraction = mantissa.split_once('.').map_or(0, |(_, rest)| rest.len());
+        let digits = mantissa.replace('.', "").trim_start_matches('0').to_owned();
+        let exponent: BigInt = exponent.parse().unwrap();
+        let magnitude = exponent - BigInt::from(fraction) + BigInt::from(digits.len());
+        (negative && !digits.is_empty(), digits, magnitude)
+    }
+    let (an, a, am) = parts(a);
+    let (bn, b, bm) = parts(b);
+    if an != bn {
+        return if an {
+            Ordering::Less
+        } else {
+            Ordering::Greater
+        };
+    }
+    let order = if a.is_empty() || b.is_empty() {
+        (!a.is_empty()).cmp(&(!b.is_empty()))
+    } else {
+        am.cmp(&bm).then_with(|| {
+            a.bytes()
+                .chain(std::iter::repeat(b'0'))
+                .zip(b.bytes().chain(std::iter::repeat(b'0')))
+                .take(a.len().max(b.len()))
+                .find_map(|(a, b)| (a != b).then(|| a.cmp(&b)))
+                .unwrap_or(Ordering::Equal)
+        })
+    };
+    if an { order.reverse() } else { order }
+}
+
+#[test]
+fn borrowed_decimal_comparator_matches_exact_reference() {
+    let mut values = vec![
+        "0".to_owned(),
+        "-0".into(),
+        "0.000e999".into(),
+        "-0e-999".into(),
+        "1".into(),
+        "1.0".into(),
+        "10e-1".into(),
+        "-1".into(),
+        "0.000001".into(),
+        "1e-6".into(),
+        "-0.000001".into(),
+        "9007199254740992".into(),
+        "9007199254740993".into(),
+        "9223372036854775808".into(),
+        "-9223372036854775809".into(),
+        "1e+00003".into(),
+        "1E-00003".into(),
+        "1e170141183460469231731687303715884105727".into(),
+        "1e170141183460469231731687303715884105728".into(),
+        "1e-170141183460469231731687303715884105728".into(),
+        "1e-170141183460469231731687303715884105729".into(),
+        "1.00000000000000000000000000000000000000000001".into(),
+        "1.00000000000000000000000000000000000000000002".into(),
+    ];
+    for i in 1..=40 {
+        values.push(format!(
+            "{}{}.{}e{}",
+            if i % 3 == 0 { "-" } else { "" },
+            i,
+            "0".repeat(i),
+            i * 2
+        ));
+    }
+    for a in &values {
+        for b in &values {
+            let actual = decimal_cmp(a, b);
+            assert_eq!(actual, decimal_cmp_reference(a, b), "{a} versus {b}");
+            assert_eq!(actual, decimal_cmp(b, a).reverse(), "{a} versus {b}");
+        }
+    }
+    for a in &values {
+        for b in values.iter().step_by(3) {
+            for c in values.iter().step_by(5) {
+                if decimal_cmp(a, b).is_le() && decimal_cmp(b, c).is_le() {
+                    assert!(decimal_cmp(a, c).is_le(), "{a}, {b}, {c}");
+                }
+            }
+        }
+    }
+}

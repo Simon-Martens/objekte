@@ -846,45 +846,118 @@ fn compare(left: &Value, op: Op, right: &Value, right_field: bool, ignore_case: 
 #[path = "mod.test.rs"]
 mod tests;
 
-/// Compare decimal JSON number lexemes without conversion to floating point or
-/// allocating exponent-sized zero strings (including exponents outside i64).
+
+/// A decimal lexeme split without materializing its normalized digits.
+struct DecimalParts<'a> {
+    negative: bool,
+    mantissa: &'a str,
+    exponent: &'a str,
+    fraction_len: usize,
+    leading_zeros: usize,
+    significant_len: usize,
+}
+
+
+impl<'a> DecimalParts<'a> {
+    fn parse(lexeme: &'a str) -> Self {
+        let negative = lexeme.starts_with('-');
+        let unsigned = lexeme.strip_prefix('-').unwrap_or(lexeme);
+        let (mantissa, exponent) = unsigned.split_once(['e', 'E']).unwrap_or((unsigned, "0"));
+        let fraction_len = mantissa
+            .split_once('.')
+            .map_or(0, |(_, fraction)| fraction.len());
+        let leading_zeros = mantissa
+            .bytes()
+            .filter(|&byte| byte != b'.')
+            .take_while(|&byte| byte == b'0')
+            .count();
+        let significant_len = mantissa.len() - usize::from(mantissa.contains('.')) - leading_zeros;
+        Self {
+            negative: negative && significant_len != 0,
+            mantissa,
+            exponent,
+            fraction_len,
+            leading_zeros,
+            significant_len,
+        }
+    }
+
+    fn digits(&self) -> impl Iterator<Item = u8> + '_ {
+        self.mantissa
+            .bytes()
+            .filter(|&byte| byte != b'.')
+            .skip(self.leading_zeros)
+    }
+
+    fn magnitude(&self) -> DecimalMagnitude {
+        if let (Ok(exponent), Ok(fraction), Ok(digits)) = (
+            self.exponent.parse::<i128>(),
+            i128::try_from(self.fraction_len),
+            i128::try_from(self.significant_len),
+        ) && let Some(magnitude) = exponent
+            .checked_sub(fraction)
+            .and_then(|value| value.checked_add(digits))
+        {
+            return DecimalMagnitude::Small(magnitude);
+        }
+        let exponent: BigInt = self.exponent.parse().expect("validated JSON exponent");
+        DecimalMagnitude::Big(
+            exponent - BigInt::from(self.fraction_len) + BigInt::from(self.significant_len),
+        )
+    }
+}
+
+
+enum DecimalMagnitude {
+    Small(i128),
+    Big(BigInt),
+}
+
+
+impl DecimalMagnitude {
+    fn cmp(&self, other: &Self) -> Ordering {
+        match (self, other) {
+            (Self::Small(a), Self::Small(b)) => a.cmp(b),
+            (Self::Big(a), Self::Big(b)) => a.cmp(b),
+            (Self::Small(a), Self::Big(b)) => BigInt::from(*a).cmp(b),
+            (Self::Big(a), Self::Small(b)) => a.cmp(&BigInt::from(*b)),
+        }
+    }
+}
+
+
+/// Compare validated decimal JSON number lexemes exactly. Ordinary fractional
+/// and exponential values use borrowed digits and fixed-width magnitudes.
 pub(crate) fn decimal_cmp(a: &str, b: &str) -> Ordering {
-    // The common integer case needs no allocation. Keep the exact decimal path
-    // for fractional/exponential spellings and values outside signed 64 bits.
     if let (Ok(a), Ok(b)) = (a.parse::<i64>(), b.parse::<i64>()) {
         return a.cmp(&b);
     }
-
-    fn parts(s: &str) -> (bool, String, BigInt) {
-        let negative = s.starts_with('-');
-        let s = s.strip_prefix('-').unwrap_or(s);
-        let (mantissa, exp) = s.split_once(['e', 'E']).unwrap_or((s, "0"));
-        let fraction = mantissa.split_once('.').map_or(0, |(_, f)| f.len());
-        let digits = mantissa.replace('.', "").trim_start_matches('0').to_owned();
-        let exp: BigInt = exp.parse().expect("validated JSON exponent");
-        let magnitude = exp - BigInt::from(fraction) + BigInt::from(digits.len());
-        (negative && !digits.is_empty(), digits, magnitude)
+    let a = DecimalParts::parse(a);
+    let b = DecimalParts::parse(b);
+    if a.significant_len == 0 || b.significant_len == 0 {
+        return match (a.significant_len == 0, b.significant_len == 0) {
+            (true, true) => Ordering::Equal,
+            (true, false) if b.negative => Ordering::Greater,
+            (true, false) => Ordering::Less,
+            (false, true) if a.negative => Ordering::Less,
+            (false, true) => Ordering::Greater,
+            _ => unreachable!(),
+        };
     }
-    let (an, a, am) = parts(a);
-    let (bn, b, bm) = parts(b);
-    if an != bn {
-        return if an {
+    if a.negative != b.negative {
+        return if a.negative {
             Ordering::Less
         } else {
             Ordering::Greater
         };
     }
-    let order = if a.is_empty() || b.is_empty() {
-        (!a.is_empty()).cmp(&(!b.is_empty()))
-    } else {
-        am.cmp(&bm).then_with(|| {
-            a.bytes()
-                .chain(std::iter::repeat(b'0'))
-                .zip(b.bytes().chain(std::iter::repeat(b'0')))
-                .take(a.len().max(b.len()))
-                .find_map(|(a, b)| (a != b).then(|| a.cmp(&b)))
-                .unwrap_or(Ordering::Equal)
-        })
-    };
-    if an { order.reverse() } else { order }
+    let order = a.magnitude().cmp(&b.magnitude()).then_with(|| {
+        a.digits()
+            .chain(std::iter::repeat(b'0'))
+            .zip(b.digits().chain(std::iter::repeat(b'0')))
+            .take(a.significant_len.max(b.significant_len))
+            .find_map(|(a, b)| (a != b).then(|| a.cmp(&b)))
+            .unwrap_or(Ordering::Equal)
+    });
+    if a.negative { order.reverse() } else { order }
 }
