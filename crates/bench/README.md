@@ -42,6 +42,12 @@ target/release/json-query-mix --repo examples/musenalm --runs 7 --no-schema
 The [November 2 encoding comparison](BIGRAM-50-QUERY-2026-11-02.md) runs all
 50 configured-schema queries with both bigram encodings and records each result.
 
+The [400,000-record multilingual comparison](BIGRAM-FOREIGN-50-2026-11-02.md)
+uses 50 searches over Leipzig news sentences in eight languages. The
+[corpus preparation script](prepare_leipzig_corpus.py) downloads pinned source
+archives and writes JSON files outside the repository; the report links the
+workload and all six raw benchmark runs.
+
 `--no-schema` discovers the same data folders without loading their default
 schemas or ordered schema postings. The example repository is not modified.
 Cases 34–36 now query `entries.items` and the `contents.entry` reference.

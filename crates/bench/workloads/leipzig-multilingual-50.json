@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "kind": "Arabic",
+    "filter": "text ~ 'كورونا'"
+  },
+  {
+    "id": 2,
+    "kind": "Arabic",
+    "filter": "text ~ 'فيروس'"
+  },
+  {
+    "id": 3,
+    "kind": "Arabic",
+    "filter": "text ~ 'الحكومة'"
+  },
+  {
+    "id": 4,
+    "kind": "Arabic",
+    "filter": "text ~ 'لبنان'"
+  },
+  {
+    "id": 5,
+    "kind": "Arabic",
+    "filter": "text ~ 'الأمريكية'"
+  },
+  {
+    "id": 6,
+    "kind": "Arabic",
+    "filter": "text ~ 'برلين'"
+  },
+  {
+    "id": 7,
+    "kind": "German",
+    "filter": "text ~ 'über'"
+  },
+  {
+    "id": 8,
+    "kind": "German",
+    "filter": "text ~ 'können'"
+  },
+  {
+    "id": 9,
+    "kind": "German",
+    "filter": "text ~ 'müssen'"
+  },
+  {
+    "id": 10,
+    "kind": "German",
+    "filter": "text ~ 'dafür'"
+  },
+  {
+    "id": 11,
+    "kind": "German",
+    "filter": "text ~ 'möglich'"
+  },
+  {
+    "id": 12,
+    "kind": "German folded",
+    "filter": "text ~ :ignorecase('ÜBER')"
+  },
+  {
+    "id": 13,
+    "kind": "French",
+    "filter": "text ~ 'être'"
+  },
+  {
+    "id": 14,
+    "kind": "French",
+    "filter": "text ~ 'après'"
+  },
+  {
+    "id": 15,
+    "kind": "French",
+    "filter": "text ~ 'président'"
+  },
+  {
+    "id": 16,
+    "kind": "French",
+    "filter": "text ~ 'pandémie'"
+  },
+  {
+    "id": 17,
+    "kind": "French",
+    "filter": "text ~ 'première'"
+  },
+  {
+    "id": 18,
+    "kind": "French folded",
+    "filter": "text ~ :ignorecase('ÊTRE')"
+  },
+  {
+    "id": 19,
+    "kind": "Japanese",
+    "filter": "text ~ 'コロナ'"
+  },
+  {
+    "id": 20,
+    "kind": "Japanese",
+    "filter": "text ~ '感染'"
+  },
+  {
+    "id": 21,
+    "kind": "Japanese",
+    "filter": "text ~ 'ゲーム'"
+  },
+  {
+    "id": 22,
+    "kind": "Japanese",
+    "filter": "text ~ '東京'"
+  },
+  {
+    "id": 23,
+    "kind": "Japanese",
+    "filter": "text ~ '政府'"
+  },
+  {
+    "id": 24,
+    "kind": "Japanese",
+    "filter": "text ~ '東京都'"
+  },
+  {
+    "id": 25,
+    "kind": "Polish",
+    "filter": "text ~ 'będzie'"
+  },
+  {
+    "id": 26,
+    "kind": "Polish",
+    "filter": "text ~ 'które'"
+  },
+  {
+    "id": 27,
+    "kind": "Polish",
+    "filter": "text ~ 'może'"
+  },
+  {
+    "id": 28,
+    "kind": "Polish",
+    "filter": "text ~ 'także'"
+  },
+  {
+    "id": 29,
+    "kind": "Polish",
+    "filter": "text ~ 'również'"
+  },
+  {
+    "id": 30,
+    "kind": "Polish folded",
+    "filter": "text ~ :ignorecase('BĘDZIE')"
+  },
+  {
+    "id": 31,
+    "kind": "Russian",
+    "filter": "text ~ 'время'"
+  },
+  {
+    "id": 32,
+    "kind": "Russian",
+    "filter": "text ~ 'России'"
+  },
+  {
+    "id": 33,
+    "kind": "Russian",
+    "filter": "text ~ 'человек'"
+  },
+  {
+    "id": 34,
+    "kind": "Russian",
+    "filter": "text ~ 'коронавируса'"
+  },
+  {
+    "id": 35,
+    "kind": "Russian",
+    "filter": "text ~ 'лечение'"
+  },
+  {
+    "id": 36,
+    "kind": "Russian folded",
+    "filter": "text ~ :ignorecase('РОССИИ')"
+  },
+  {
+    "id": 37,
+    "kind": "Spanish",
+    "filter": "text ~ 'también'"
+  },
+  {
+    "id": 38,
+    "kind": "Spanish",
+    "filter": "text ~ 'años'"
+  },
+  {
+    "id": 39,
+    "kind": "Spanish",
+    "filter": "text ~ 'país'"
+  },
+  {
+    "id": 40,
+    "kind": "Spanish",
+    "filter": "text ~ 'situación'"
+  },
+  {
+    "id": 41,
+    "kind": "Spanish",
+    "filter": "text ~ 'México'"
+  },
+  {
+    "id": 42,
+    "kind": "Spanish folded",
+    "filter": "text ~ :ignorecase('PAÍS')"
+  },
+  {
+    "id": 43,
+    "kind": "Chinese",
+    "filter": "text ~ '习近平'"
+  },
+  {
+    "id": 44,
+    "kind": "Chinese",
+    "filter": "text ~ '总书记'"
+  },
+  {
+    "id": 45,
+    "kind": "Chinese",
+    "filter": "text ~ '加拿大'"
+  },
+  {
+    "id": 46,
+    "kind": "Chinese",
+    "filter": "text ~ '特朗普'"
+  },
+  {
+    "id": 47,
+    "kind": "Chinese",
+    "filter": "text ~ '年轻人'"
+  },
+  {
+    "id": 48,
+    "kind": "Chinese",
+    "filter": "text ~ '不可能'"
+  },
+  {
+    "id": 49,
+    "kind": "ASCII control",
+    "filter": "text ~ 'Berlin'"
+  },
+  {
+    "id": 50,
+    "kind": "ASCII control",
+    "filter": "text ~ 'Paris'"
+  }
+]
