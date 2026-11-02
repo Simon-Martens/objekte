@@ -35,7 +35,7 @@ fn filter_on_renders_two_editable_queries() {
     assert!(rendered.contains("year >= 1800"));
     assert!(rendered.contains("FULL-TEXT SEARCH"));
     assert!(rendered.contains("alpha"));
-    assert!(rendered.contains("Ctrl+G input"));
+    assert!(rendered.contains("Tab focus"));
 }
 
 #[test]
@@ -52,6 +52,26 @@ fn cache_shortcut_hints_are_visible_in_query_and_results() {
         assert!(rendered.contains("Alt+S"));
         assert!(rendered.contains("Alt+R"));
     }
+}
+
+#[test]
+fn result_border_and_row_selection_follow_table_focus() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"note":"Moon"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.input.text = "Moon".into();
+    app.search();
+    let mut terminal = Terminal::new(TestBackend::new(80, 20)).unwrap();
+
+    terminal.draw(|frame| draw(frame, &app)).unwrap();
+    assert_eq!(terminal.backend().buffer().cell((0, 6)).unwrap().fg, theme::ACCENT);
+    assert_eq!(terminal.backend().buffer().cell((3, 8)).unwrap().bg, theme::SELECTED);
+
+    app.focus = Focus::Query;
+    terminal.draw(|frame| draw(frame, &app)).unwrap();
+    assert_eq!(terminal.backend().buffer().cell((0, 6)).unwrap().fg, theme::SECONDARY);
+    assert_eq!(terminal.backend().buffer().cell((3, 8)).unwrap().bg, theme::BACKGROUND);
 }
 
 #[test]
@@ -144,7 +164,7 @@ fn default_fts_layout_and_result_styles_fit_standard_terminals() {
         "↑↓ rows",
         "←→ cols",
         "n/p pages",
-        "Esc input",
+        "Tab input",
         "Enter open",
         "a all",
         "e hit",

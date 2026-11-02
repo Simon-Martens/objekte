@@ -49,7 +49,7 @@ pub(super) fn controls(app: &App<'_>, width: u16) -> Text<'static> {
         mode_chip("FTS", app.kind == SearchKind::Text),
         Span::raw(" "),
         mode_chip("FILTER ON", app.kind == SearchKind::FilterOn),
-        Span::styled("  Tab", Style::default().fg(theme::MUTED)),
+        Span::styled("  Ctrl+F", Style::default().fg(theme::MUTED)),
     ];
     let left_width = first
         .iter()
@@ -118,9 +118,9 @@ pub(super) fn controls(app: &App<'_>, width: u16) -> Text<'static> {
         ));
         options.push(option(
             if compact {
-                format!("{representation} ^F")
+                format!("{representation} ^T")
             } else {
-                format!("Text: {representation}  Ctrl+F")
+                format!("Text: {representation}  Ctrl+T")
             },
             true,
         ));

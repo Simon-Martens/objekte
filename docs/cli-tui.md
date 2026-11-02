@@ -1,6 +1,6 @@
 # Interactive terminal search
 
-Run `cargo run --release -p objekte-cli -- examples/musenalm` from the project root to open the terminal UI. The installed `objekte` binary also accepts a repository path, defaults to the current directory, and accepts an optional `tui` subcommand. The UI opens in full-text mode, searching all collections with literal, case-insensitive substrings. Tab toggles Filter ON: a JSON filter box appears above the FTS search. After configuration and schemas load, the interface opens while a worker builds the in-memory indexes. The footer reports build progress. You can type immediately; a search submitted during warmup runs automatically when the indexes are ready. The UI requires a terminal on stdin and stdout. There is no editing mode.
+Run `cargo run --release -p objekte-cli -- examples/musenalm` from the project root to open the terminal UI. The installed `objekte` binary also accepts a repository path, defaults to the current directory, and accepts an optional `tui` subcommand. The UI opens in full-text mode, searching all collections with literal, case-insensitive substrings. Ctrl+F turns Filter ON or OFF: a JSON filter box appears above the FTS search. After configuration and schemas load, the interface opens while a worker builds the in-memory indexes. The footer reports build progress. You can type immediately; a search submitted during warmup runs automatically when the indexes are ready. The UI requires a terminal on stdin and stdout. There is no editing mode.
 
 One-shot commands remain available for scripts and pipes:
 
@@ -14,11 +14,11 @@ cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe'
 
 | Key | Action |
 | --- | --- |
-| Tab / Shift+Tab | Toggle Filter ON; in detail, cycle Fields, Links, and Backlinks |
-| Ctrl+G | Switch between JSON filter and full-text inputs when Filter ON |
+| Tab / Shift+Tab | Cycle between the full-text input, JSON filter input (when shown), and results table (when a search has rows); in detail, cycle Fields, Links, and Backlinks |
+| Ctrl+F | Turn the JSON filter input on or off |
 | Ctrl+Tab / Ctrl+Shift+Tab | Cycle collections forward or backward |
 | Ctrl+R | Toggle regex for the FTS input |
-| Ctrl+F | Toggle normalized or full text for the FTS input |
+| Ctrl+T | Toggle normalized or full text for the FTS input |
 | Ctrl+E | Toggle case sensitivity for literal FTS searches |
 | Alt+I or Ctrl+I | Open field inference, including in schema-backed collections; C changes scope, A toggles advanced indexing, Enter scans. Afterward W updates inferred field types and index rules in existing schemas. `i` also works from the results table. |
 | `[` / `]` in results | Flip collections directly from the result table |
@@ -27,12 +27,12 @@ cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe'
 | Left / Right | Scroll result columns horizontally; flip through hits in detail, including across result pages |
 | n / p | Next or previous 100-result page in results; next or previous hit in detail |
 | a / e | Export all matches or the selected hit |
-| Esc | From an item, return to results; from results, focus the query input; from the input, clear the query and results; cancel export or inference prompt |
+| Esc | From an item, return to results; from results, clear the result list and focus the full-text input while keeping both input values; from an active input, clear that input and results; cancel export or inference prompt |
 | Backspace in detail | Return to the previously visited linked item, or to results if there is none |
 | Ctrl+Q | Quit from any view, including the query input and export prompt |
 | Ctrl+C | Leave the UI |
 
-The FTS input is always visible. Filter ON shows the JSON predicate above it. Either input may be empty; if both contain terms, the predicate selects records first, then the FTS matcher searches their included values. Ctrl+G moves between the boxes; Enter searches from either box. **Regex** and **Text** (normalized or full) control the FTS input in both modes. **Case** appears only when regex is off. Normalized full-text search renders declared Markdown, HTML, and XML, removes formatting, and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the Case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex`, and `raw-regex`.
+The FTS input is always visible. Filter ON shows the JSON predicate above it. Either input may be empty; if both contain terms, the predicate selects records first, then the FTS matcher searches their included values. Tab and Shift+Tab move between the boxes and the table; Enter searches from either box. **Regex** and **Text** (normalized or full) control the FTS input in both modes. **Case** appears only when regex is off. Normalized full-text search renders declared Markdown, HTML, and XML, removes formatting, and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the Case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex`, and `raw-regex`.
 
 Some terminals cannot report Ctrl+Tab separately from Tab. The UI requests enhanced keyboard reporting where available. In other terminals, use `[` and `]` from the result table to cycle collections.
 

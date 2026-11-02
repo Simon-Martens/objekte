@@ -21,7 +21,7 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     assert!(app.kind == SearchKind::Text);
-    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
     assert!(app.kind == SearchKind::FilterOn);
     press(&mut app, KeyCode::F(2), KeyModifiers::NONE);
     assert!(app.kind == SearchKind::FilterOn);
@@ -39,13 +39,13 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     assert_eq!(app.collection_label(), "docs");
     assert!(app.focus == Focus::Query);
 
-    press(&mut app, KeyCode::Char('g'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
     assert!(app.focus == Focus::FilterInput);
     press(&mut app, KeyCode::Char('x'), KeyModifiers::NONE);
     assert_eq!(app.filter_input.text, "x");
-    press(&mut app, KeyCode::Char('g'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
     assert!(app.focus == Focus::Query);
-    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Char('t'), KeyModifiers::CONTROL);
     assert!(app.representation == Representation::Full);
     press(&mut app, KeyCode::Char('e'), KeyModifiers::CONTROL);
     assert!(!app.case_sensitive);
@@ -53,9 +53,77 @@ fn shortcuts_switch_modes_collections_and_available_text_options() {
     assert!(!app.regex);
     press(&mut app, KeyCode::Char('e'), KeyModifiers::CONTROL);
     assert!(app.case_sensitive);
-    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
+    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
     assert!(app.kind == SearchKind::Text);
     assert_eq!(app.filter_input.text, "x");
+}
+
+#[test]
+fn tab_cycles_inputs_and_table_and_escape_clears_only_the_active_input() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"note":"Moon"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.input.text = "Moon".into();
+    app.input.cursor = 4;
+
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
+    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
+    assert!(app.focus == Focus::Query);
+
+    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
+    app.filter_input.text = "note ~ 'Moon'".into();
+    app.filter_input.cursor = app.filter_input.text.chars().count();
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::FilterInput);
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
+    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
+    assert!(app.focus == Focus::FilterInput);
+    press(&mut app, KeyCode::Esc, KeyModifiers::NONE);
+    assert!(app.filter_input.text.is_empty());
+    assert_eq!(app.input.text, "Moon");
+
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
+    press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Results);
+    assert_eq!(app.hits.len(), 1);
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::FilterInput);
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Results);
+    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
+    assert!(app.focus == Focus::FilterInput);
+    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
+    assert!(app.focus == Focus::Query);
+    press(&mut app, KeyCode::BackTab, KeyModifiers::SHIFT);
+    assert!(app.focus == Focus::Results);
+    press(&mut app, KeyCode::Esc, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
+    assert!(app.hits.is_empty());
+    assert_eq!(app.input.text, "Moon");
+    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
+    assert!(app.kind == SearchKind::Text);
+    assert_eq!(app.input.text, "Moon");
+}
+
+#[test]
+fn no_matches_never_focuses_the_result_table() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), r#"{"note":"Moon"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.input.text = "absent".into();
+    press(&mut app, KeyCode::Enter, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
+    assert!(app.last_request.is_some());
+    assert!(app.hits.is_empty());
+    press(&mut app, KeyCode::Tab, KeyModifiers::NONE);
+    assert!(app.focus == Focus::Query);
 }
 
 #[test]
@@ -222,6 +290,8 @@ fn escape_steps_back_to_input_and_ctrl_q_quits_from_every_view() {
     assert!(app.focus == Focus::Query);
     assert!(!app.done);
     assert_eq!(app.input.text, "Moon");
+    assert!(app.hits.is_empty());
+    assert!(app.last_request.is_none());
     press(&mut app, KeyCode::Esc, KeyModifiers::NONE);
     assert!(app.focus == Focus::Query);
     assert!(!app.done);
@@ -307,13 +377,13 @@ fn active_full_text_search_refreshes_when_options_change() {
     press(&mut app, KeyCode::Char('e'), KeyModifiers::CONTROL);
     assert_eq!(app.total, Some(2));
 
-    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Char('t'), KeyModifiers::CONTROL);
     assert_eq!(app.total, Some(1));
     assert_eq!(app.hits[0].record().id, "b");
     press(&mut app, KeyCode::Char('r'), KeyModifiers::CONTROL);
     assert_eq!(app.total, Some(0));
     assert!(app.hits.is_empty());
-    press(&mut app, KeyCode::Char('f'), KeyModifiers::CONTROL);
+    press(&mut app, KeyCode::Char('t'), KeyModifiers::CONTROL);
     assert_eq!(app.total, Some(1));
     assert_eq!(app.hits[0].record().id, "a");
     press(&mut app, KeyCode::Char('r'), KeyModifiers::CONTROL);

@@ -476,7 +476,7 @@ impl<'a> App<'a> {
             self.last_request = Some(request.clone());
             self.pending_search = Some(request);
             self.searching = true;
-            self.focus = Focus::Results;
+            self.focus = Focus::Query;
             self.message.clear();
             return;
         }
@@ -507,7 +507,11 @@ impl<'a> App<'a> {
                 self.query_fields = queried_fields(&request);
                 self.sort_fields = ordered_fields(&request);
                 self.last_request = Some(request);
-                self.focus = Focus::Results;
+                self.focus = if self.hits.is_empty() {
+                    Focus::Query
+                } else {
+                    Focus::Results
+                };
                 self.message.clear();
             }
             Err(error) => {
@@ -635,6 +639,10 @@ impl<'a> App<'a> {
         self.column_offset = 0;
     }
 
+    pub(super) fn has_result_table(&self) -> bool {
+        self.last_request.is_some() && !self.hits.is_empty()
+    }
+
     fn refresh_after_selection(&mut self, message: String) {
         let active = self.last_request.is_some() || self.queued_search;
         self.invalidate_results();
@@ -670,7 +678,7 @@ impl<'a> App<'a> {
         self.message = match self.kind {
             SearchKind::Text => "Full-text mode: search included values.".into(),
             SearchKind::FilterOn => {
-                "Filter on: use either input or both. Ctrl+G switches inputs.".into()
+                "Filter on: use either input or both. Tab switches focus.".into()
             }
         };
     }

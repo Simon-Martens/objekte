@@ -180,18 +180,12 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
             }
             KeyCode::Char(ch) => match ch.to_ascii_lowercase() {
                 'r' => app.toggle_regex(),
-                'f' => app.toggle_representation(),
+                'f' => app.toggle_mode(),
+                't' => app.toggle_representation(),
                 'e' => app.toggle_case(),
                 'i' => {
                     app.open_inference();
                     return;
-                }
-                'g' if app.kind == state::SearchKind::FilterOn => {
-                    app.focus = if app.focus == Focus::FilterInput {
-                        Focus::Query
-                    } else {
-                        Focus::FilterInput
-                    };
                 }
                 _ => return,
             },
@@ -200,7 +194,23 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
         return;
     }
     if matches!(key.code, KeyCode::Tab | KeyCode::BackTab) {
-        app.toggle_mode();
+        let backwards = key.code == KeyCode::BackTab || key.modifiers.contains(KeyModifiers::SHIFT);
+        app.focus = match (app.kind, app.focus, backwards, app.has_result_table()) {
+            (state::SearchKind::FilterOn, Focus::Query, _, false) => Focus::FilterInput,
+            (state::SearchKind::FilterOn, Focus::FilterInput, _, false) => Focus::Query,
+            (state::SearchKind::FilterOn, Focus::Results, _, false) => Focus::Query,
+            (state::SearchKind::Text, Focus::Results, _, false) => Focus::Query,
+            (state::SearchKind::Text, Focus::Query, _, false) => Focus::Query,
+            (state::SearchKind::FilterOn, Focus::Query, false, true) => Focus::FilterInput,
+            (state::SearchKind::FilterOn, Focus::FilterInput, false, true) => Focus::Results,
+            (state::SearchKind::FilterOn, Focus::Results, false, true) => Focus::Query,
+            (state::SearchKind::FilterOn, Focus::Query, true, true) => Focus::Results,
+            (state::SearchKind::FilterOn, Focus::Results, true, true) => Focus::FilterInput,
+            (state::SearchKind::FilterOn, Focus::FilterInput, true, true) => Focus::Query,
+            (state::SearchKind::Text, Focus::Query, _, true) => Focus::Results,
+            (state::SearchKind::Text, Focus::Results, _, true) => Focus::Query,
+            _ => app.focus,
+        };
         return;
     }
     if matches!(app.focus, Focus::Query | Focus::FilterInput) {
@@ -238,7 +248,11 @@ fn key(app: &mut App<'_>, key: KeyEvent) {
     }
     match key.code {
         KeyCode::Char('/') => app.focus = Focus::Query,
-        KeyCode::Esc => app.focus = Focus::Query,
+        KeyCode::Esc => {
+            app.invalidate_results();
+            app.focus = Focus::Query;
+            app.message.clear();
+        }
         KeyCode::Up => app.selected = app.selected.saturating_sub(1),
         KeyCode::Down => {
             app.selected = (app.selected + 1).min(app.hits.len().saturating_sub(1));

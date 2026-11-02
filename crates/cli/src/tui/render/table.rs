@@ -249,6 +249,7 @@ pub(super) fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
         start + visible.len(),
         all.len()
     );
+    let focused = app.focus == Focus::Results && app.has_result_table();
     let table = Table::new(rows, widths)
         .header(header)
         .block(
@@ -256,11 +257,11 @@ pub(super) fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
                 .title(Span::styled(
                     title,
                     Style::default()
-                        .fg(theme::SECONDARY)
+                        .fg(if focused { theme::ACCENT } else { theme::SECONDARY })
                         .add_modifier(Modifier::BOLD),
                 ))
                 .borders(Borders::TOP)
-                .border_style(Style::default().fg(theme::BORDER)),
+                .border_style(Style::default().fg(if focused { theme::ACCENT } else { theme::BORDER })),
         )
         .column_spacing(1)
         .row_highlight_style(
@@ -271,7 +272,7 @@ pub(super) fn results(frame: &mut Frame, app: &App<'_>, area: Rect) {
         )
         .highlight_symbol("› ");
     let mut state = TableState::default();
-    if !app.hits.is_empty() {
+    if focused {
         state.select(Some(app.selected.min(app.hits.len() - 1)));
     }
     frame.render_stateful_widget(table, area, &mut state);

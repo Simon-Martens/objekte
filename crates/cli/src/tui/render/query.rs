@@ -11,7 +11,7 @@ pub(super) fn query_line(frame: &mut Frame, app: &App<'_>, area: Rect) {
             frame,
             &app.filter_input,
             app.focus == Focus::FilterInput,
-            " JSON FILTER  ·  Ctrl+G switches input ",
+            " JSON FILTER  ·  Tab switches focus ",
             "year >= 1800 SORT BY preferred_title",
             filter,
         );

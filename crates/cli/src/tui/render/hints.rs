@@ -66,21 +66,30 @@ pub(super) fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'
             ])
         }
     } else if matches!(app.focus, Focus::Query | Focus::FilterInput) {
+        let tab_available = app.kind == SearchKind::FilterOn || app.has_result_table();
         if width < 60 {
-            key_hints(&[("Enter", ""), ("Ctrl+G", ""), ("Alt+S", ""), ("Ctrl+Q", "")])
+            let mut hints = vec![("Enter", "")];
+            if tab_available {
+                hints.push(("Tab", ""));
+            }
+            hints.extend([("Alt+S", ""), ("Ctrl+Q", "")]);
+            key_hints(&hints)
         } else {
-            key_hints(&[
-                ("Enter", "search"),
-                ("Ctrl+G", "input"),
+            let mut hints = vec![("Enter", "search")];
+            if tab_available {
+                hints.push(("Tab", "focus"));
+            }
+            hints.extend([
                 ("Alt+I", "infer"),
                 ("Alt+S", "save"),
                 ("Alt+R", "reindex"),
                 ("Ctrl+Q", "quit"),
-            ])
+            ]);
+            key_hints(&hints)
         }
     } else if app.hits.is_empty() {
         key_hints(&[
-            ("Esc", "input"),
+            ("Tab", "input"),
             ("Alt+S", "save"),
             ("Alt+R", "reindex"),
             ("Ctrl+Q", "quit"),
@@ -101,7 +110,7 @@ pub(super) fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'
             ("↑↓", "row"),
             ("←→", "col"),
             ("n/p", ""),
-            ("Esc", "input"),
+            ("Tab", "input"),
             ("↵", "go"),
             ("Ctrl+Q", "quit"),
         ])
@@ -110,7 +119,7 @@ pub(super) fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'
             ("↑↓", "rows"),
             ("←→", "cols"),
             ("n/p", "pages"),
-            ("Esc", "input"),
+            ("Tab", "input"),
             ("Enter", "open"),
             ("a", "all"),
             ("e", "hit"),
@@ -121,7 +130,7 @@ pub(super) fn footer_hints(app: &App<'_>, in_detail: bool, width: u16) -> Line<'
             ("↑↓", "rows"),
             ("←→", "cols"),
             ("n/p", "pages"),
-            ("Esc", "input"),
+            ("Tab", "input"),
             ("Enter", "open"),
             ("a", "all"),
             ("e", "hit"),

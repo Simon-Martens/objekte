@@ -93,6 +93,9 @@ impl SearchWorker {
             match running.receiver.try_recv() {
                 Ok(SearchUpdate::Hit(hit)) => {
                     if running.kind == JobKind::Search && running.current(app) && app.searching {
+                        if app.hits.is_empty() && matches!(app.focus, Focus::Query | Focus::FilterInput) {
+                            app.focus = Focus::Results;
+                        }
                         app.hits.push(*hit);
                     }
                 }
@@ -103,6 +106,13 @@ impl SearchWorker {
                             .get(app.selected)
                             .map(|hit| (hit.record().collection.clone(), hit.record().id.clone()));
                         app.hits = page;
+                        if app.hits.is_empty() && app.focus == Focus::Results {
+                            app.focus = Focus::Query;
+                        } else if !app.hits.is_empty()
+                            && matches!(app.focus, Focus::Query | Focus::FilterInput)
+                        {
+                            app.focus = Focus::Results;
+                        }
                         app.selected = selected_id
                             .and_then(|selected| {
                                 app.hits.iter().position(|hit| {
@@ -217,7 +227,7 @@ impl SearchWorker {
                                 app.search_elapsed_ms = elapsed_ms;
                                 if let Some(edge) = app.pending_detail.take() {
                                     if app.hits.is_empty() {
-                                        app.focus = Focus::Results;
+                                        app.focus = Focus::Query;
                                         app.message = "No results on this page.".into();
                                     } else {
                                         app.selected = if edge == DetailEdge::Last {
@@ -233,6 +243,9 @@ impl SearchWorker {
                                 } else if app.focus == Focus::Detail && !app.hits.is_empty() {
                                     app.detail_position();
                                 } else {
+                                    if app.hits.is_empty() && app.focus == Focus::Results {
+                                        app.focus = Focus::Query;
+                                    }
                                     app.message.clear();
                                 }
                             }
