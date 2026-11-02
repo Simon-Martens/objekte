@@ -14,6 +14,8 @@ mod key_summary;
 mod modified_order;
 mod posting;
 mod presence;
+#[cfg(feature = "index-timings")]
+mod profile;
 mod projection;
 mod rebuild;
 mod refresh;
@@ -56,6 +58,10 @@ use key_summary::KeySummary;
 use modified_order::ModifiedOrder;
 use posting::{ChunkRows, PostingRows, merge_chunk};
 use presence::PresenceIndex;
+#[cfg(feature = "index-timings")]
+pub use profile::{BuildTimings, FieldIndexSize, IndexSizes, StageMeasurement};
+#[cfg(feature = "index-timings")]
+use profile::{StageTimer, WorkerStages};
 use projection::{
     ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
     projected_values_with_text_buffer_and_sort,
@@ -90,21 +96,6 @@ struct RestoredBigram {
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
     newly_changed: BTreeSet<usize>,
     dirty: bool,
-}
-
-
-/// Wall stages and summed worker time recorded while constructing a picker.
-#[cfg(feature = "index-timings")]
-#[derive(Clone, Copy, Default)]
-pub(crate) struct BuildTimings {
-    pub inventory_nanos: u64,
-    pub slots_nanos: u64,
-    pub scan_nanos: u64,
-    pub project_worker_nanos: u64,
-    pub add_worker_nanos: u64,
-    pub compress_nanos: u64,
-    pub typed_nanos: u64,
-    pub view_nanos: u64,
 }
 
 
@@ -181,6 +172,29 @@ impl FilePicker {
             None,
             None,
             encoding,
+        )
+    }
+
+    /// Profile a fresh collection build without consulting repository caches.
+    #[cfg(feature = "index-timings")]
+    pub fn profile_collection(
+        collection: &crate::Collection,
+        encoding: BigramEncoding,
+    ) -> Result<Self> {
+        Self::open_with_indexes(
+            &collection.path,
+            collection.recursive,
+            &collection.indexes,
+            &collection.advanced_index_paths,
+            &collection.sort_indexes,
+            &collection.fields,
+            collection
+                .schema
+                .as_ref()
+                .and_then(|schema| schema.field.language.as_deref()),
+            None,
+            None,
+            collection.bigram_encoding.unwrap_or(encoding),
         )
     }
 
@@ -639,7 +653,29 @@ impl FilePicker {
     }
 
     #[cfg(feature = "index-timings")]
-    pub(crate) fn build_timings(&self) -> BuildTimings {
+    pub fn profile_index_sizes(&self) -> IndexSizes {
+        let mut sizes = IndexSizes {
+            main_bytes: self.index.heap_bytes(),
+            rendered_global_bytes: 0,
+            fields: Vec::new(),
+        };
+        if let Some(text) = &self.text_index {
+            let (rendered, _, fields, _) = text.filters();
+            sizes.rendered_global_bytes = rendered.heap_bytes();
+            sizes.fields = fields
+                .iter()
+                .map(|field| FieldIndexSize {
+                    path: crate::json_filter::format_path(&field.path),
+                    normal_bytes: field.normal.heap_bytes(),
+                    rendered_bytes: field.clean.heap_bytes(),
+                })
+                .collect();
+        }
+        sizes
+    }
+
+    #[cfg(feature = "index-timings")]
+    pub fn build_timings(&self) -> BuildTimings {
         self.build_timings
     }
 

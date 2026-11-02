@@ -30,6 +30,29 @@ query-result checks, and remaining allocation sources. The
 [benchmark executable](src/bin/core_allocation.rs), and
 [runner](run_core_allocation.py) reproduce the measurements.
 
+## Index-build stage profiles
+
+The [November 2 index-build report](INDEX-BUILD-PROFILE-2026-11-02.md) measures
+cache-free construction, source read and parsing, general and field text
+projection, three posting-insertion stages, all three compression stages,
+secondary serialization, peak RSS, and compressed sizes. It covers Musenalm,
+Lenz, Leipzig, and the two materialized million-record examples. The
+[runner](run_index_build_profiles.py),
+[profile executable](src/bin/index_build_profile.rs), and
+[raw 30-run result file](results/index-build-profile-2026-11-02.ndjson) make the
+measurements reproducible:
+
+```sh
+python3 crates/bench/prepare_amazon_reviews.py
+python3 crates/bench/prepare_nyc311.py
+python3 crates/bench/run_index_build_profiles.py --runs 3
+```
+
+The profiler compiles with `index-timings`; normal builds omit the stage clocks.
+Each profile starts a new process and ignores saved index caches. The generated
+Amazon and NYC source repositories stay under ignored `examples/` directories;
+only the reproducible benchmark code and results are committed.
+
 ## Bigram encoding comparison
 
 `bigram-encoding-compare` builds a fresh picker with one encoding per process,

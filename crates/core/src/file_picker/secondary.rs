@@ -179,6 +179,14 @@ pub(super) fn config_digest(
 
 
 impl FilePicker {
+    /// Re-serialize the sidecar alone after a base snapshot has been written.
+    #[cfg(feature = "index-timings")]
+    pub fn profile_secondary_snapshot(&self, path: &Path) -> Result<super::StageMeasurement> {
+        let timer = super::StageTimer::start();
+        self.save_secondary_snapshot(path)?;
+        Ok(timer.stop())
+    }
+
     pub(super) fn load_secondary_snapshot(&mut self, path: &Path) -> Result<bool> {
         let sidecar = sidecar(path);
         let size = match fs::metadata(&sidecar) {

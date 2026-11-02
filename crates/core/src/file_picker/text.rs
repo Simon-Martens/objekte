@@ -15,6 +15,10 @@ pub(super) struct TextIndex {
     global_clean_present: bool,
     fields: Vec<FieldTextIndex>,
     indexed_len: usize,
+    #[cfg(feature = "index-timings")]
+    pub(super) rendered_compress: StageMeasurement,
+    #[cfg(feature = "index-timings")]
+    pub(super) field_compress: StageMeasurement,
 }
 
 
@@ -91,6 +95,25 @@ impl TextIndexBuilders {
     }
 
     pub(super) fn add(&self, slot: usize, content: &TextContent) {
+        self.add_global(slot, content);
+        self.add_fields(slot, content);
+    }
+
+    #[cfg(feature = "index-timings")]
+    pub(super) fn add_profiled(
+        &self,
+        slot: usize,
+        content: &TextContent,
+    ) -> (StageMeasurement, StageMeasurement) {
+        let global_timer = StageTimer::start();
+        self.add_global(slot, content);
+        let global = global_timer.stop();
+        let field_timer = StageTimer::start();
+        self.add_fields(slot, content);
+        (global, field_timer.stop())
+    }
+
+    fn add_global(&self, slot: usize, content: &TextContent) {
         if !content.global_clean.is_empty() {
             self.global_clean_present.store(true, Ordering::Relaxed);
         }
@@ -99,6 +122,9 @@ impl TextIndexBuilders {
             slot,
             &content.global_clean,
         );
+    }
+
+    fn add_fields(&self, slot: usize, content: &TextContent) {
         for (builders, bytes) in self.fields.iter().zip(&content.fields) {
             if !bytes.normal.is_empty() {
                 builders.normal_present.store(true, Ordering::Relaxed);
@@ -116,8 +142,14 @@ impl TextIndexBuilders {
     }
 
     pub(super) fn finish(self) -> TextIndex {
+        #[cfg(feature = "index-timings")]
+        let rendered_timer = StageTimer::start();
         let mut global_clean = self.global_clean_main.compress(None);
         global_clean.set_skip_index(self.global_clean_skip.compress(Some(12)));
+        #[cfg(feature = "index-timings")]
+        let rendered_compress = rendered_timer.stop();
+        #[cfg(feature = "index-timings")]
+        let field_timer = StageTimer::start();
         let fields = self
             .fields
             .into_iter()
@@ -135,11 +167,17 @@ impl TextIndexBuilders {
                 }
             })
             .collect();
+        #[cfg(feature = "index-timings")]
+        let field_compress = field_timer.stop();
         TextIndex {
             global_clean,
             global_clean_present: self.global_clean_present.load(Ordering::Relaxed),
             fields,
             indexed_len: self.indexed_len,
+            #[cfg(feature = "index-timings")]
+            rendered_compress,
+            #[cfg(feature = "index-timings")]
+            field_compress,
         }
     }
 }
@@ -181,6 +219,10 @@ impl TextIndex {
             global_clean_present,
             fields,
             indexed_len,
+            #[cfg(feature = "index-timings")]
+            rendered_compress: StageMeasurement::default(),
+            #[cfg(feature = "index-timings")]
+            field_compress: StageMeasurement::default(),
         })
     }
 

@@ -543,6 +543,8 @@ impl FilePicker {
                         text_rules: None,
                         text_paths: &[],
                         key_summary: None,
+                        #[cfg(feature = "index-timings")]
+                        timings: None,
                     },
                 )?;
                 let matched = match text {

@@ -5,6 +5,8 @@ use super::{
     key_summary::KeySummary,
     text::{TextContent, project_text},
 };
+#[cfg(feature = "index-timings")]
+use super::{StageTimer, profile::ProjectionStages};
 use crate::{
     Error, JsonPath, JsonPathStep, Result,
     error::io,
@@ -44,6 +46,8 @@ pub(super) struct ProjectionOptions<'a> {
     pub(super) text_rules: Option<&'a TextRules>,
     pub(super) text_paths: &'a [JsonPath],
     pub(super) key_summary: Option<&'a mut KeySummary>,
+    #[cfg(feature = "index-timings")]
+    pub(super) timings: Option<&'a mut ProjectionStages>,
 }
 
 
@@ -75,6 +79,8 @@ pub(super) fn projected_values(
                 text_rules: None,
                 text_paths: &[],
                 key_summary: None,
+                #[cfg(feature = "index-timings")]
+                timings: None,
             },
         )? {
             ProjectionOutcome::Valid(projection) => Some(projection),
@@ -164,6 +170,8 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     view_output: Option<(&mut [&mut [Scalar]], usize)>,
     postings: Option<(&[crate::JsonPath], &mut [super::posting::ChunkRows], usize)>,
 ) -> Result<ProjectionOutcome> {
+    #[cfg(feature = "index-timings")]
+    let read_timer = StageTimer::start();
     let path = source.path.join(format!("{id}.json"));
     let mut file = source.file(id)?;
     let before = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
@@ -177,9 +185,30 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
         return Err(Error::Unstable(path));
     }
 
-    let Ok(parsed) = sonic_rs::from_slice::<SonicValue>(raw) else {
-        return Ok(ProjectionOutcome::Malformed(malformed_search_text(raw)));
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.read += read_timer.stop();
+    }
+
+    #[cfg(feature = "index-timings")]
+    let parse_timer = StageTimer::start();
+    let parsed = sonic_rs::from_slice::<SonicValue>(raw);
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.parse += parse_timer.stop();
+    }
+    let Ok(parsed) = parsed else {
+        #[cfg(feature = "index-timings")]
+        let values_timer = StageTimer::start();
+        let text = malformed_search_text(raw);
+        #[cfg(feature = "index-timings")]
+        if let Some(timings) = options.timings.as_mut() {
+            timings.values += values_timer.stop();
+        }
+        return Ok(ProjectionOutcome::Malformed(text));
     };
+    #[cfg(feature = "index-timings")]
+    let values_timer = StageTimer::start();
     let mut values = String::new();
     if append_values_except_indexed(&parsed, indexed_fields, options.text_paths, &mut values)
         .is_err()
@@ -198,6 +227,11 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
             values.push('\u{1f}');
             values.push_str(&folded);
         }
+    }
+
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.values += values_timer.stop();
     }
 
     let fields = top_level_fields(&parsed);
@@ -247,11 +281,21 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     } else {
         sort.project_sonic(id, &parsed)?
     };
+    let text = if let Some(rules) = options.text_rules {
+        #[cfg(feature = "index-timings")]
+        let text_timer = StageTimer::start();
+        let content = project_text(&parsed, rules, indexed_fields, options.text_paths);
+        #[cfg(feature = "index-timings")]
+        if let Some(timings) = options.timings.as_mut() {
+            timings.field_text += text_timer.stop();
+        }
+        Some(content)
+    } else {
+        None
+    };
     Ok(ProjectionOutcome::Valid(Projection {
         bytes: values.into_bytes(),
-        text: options
-            .text_rules
-            .map(|rules| project_text(&parsed, rules, indexed_fields, options.text_paths)),
+        text,
         array_fields,
         present_fields,
         typed_values,

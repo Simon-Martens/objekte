@@ -7,6 +7,10 @@ impl FilePicker {
     /// Rebuilds the immutable index after many edits. Source stamps are checked
     /// before and after every read so a racing edit cannot publish a bad index.
     pub fn rebuild_index(&mut self) -> Result<()> {
+        #[cfg(feature = "index-timings")]
+        {
+            self.build_timings = BuildTimings::default();
+        }
         let source = Source::open_scoped(&self.root, self.recursive)?;
         self.rebuild_index_from_source(&source, None)?;
         self.modified_order.rebuild(&self.files, &self.id_bytes);
@@ -97,6 +101,11 @@ impl FilePicker {
         let sort = &self.sort;
         #[cfg(feature = "index-timings")]
         {
+            self.build_timings.workers = rayon::current_num_threads();
+        }
+
+        #[cfg(feature = "index-timings")]
+        {
             self.build_timings.slots_nanos += elapsed_nanos(slots_started);
         }
 
@@ -104,6 +113,8 @@ impl FilePicker {
         let project_worker = AtomicU64::new(0);
         #[cfg(feature = "index-timings")]
         let add_worker = AtomicU64::new(0);
+        #[cfg(feature = "index-timings")]
+        let worker_stages = std::sync::Mutex::new(WorkerStages::default());
         #[cfg(feature = "index-timings")]
         let scan_started = Instant::now();
         scan_pool::run(|| {
@@ -127,6 +138,8 @@ impl FilePicker {
                         let mut chunk_project_nanos = 0;
                         #[cfg(feature = "index-timings")]
                         let mut chunk_add_nanos = 0;
+                        #[cfg(feature = "index-timings")]
+                        let mut chunk_stages = WorkerStages::default();
                         for (within, entry) in chunk.iter().enumerate() {
                             let Some(entry) = entry else { continue };
                             let id = std::str::from_utf8(
@@ -152,6 +165,8 @@ impl FilePicker {
                                     text_rules: text_builders.as_ref().map(|_| &self.text_rules),
                                     text_paths: &self.text_paths,
                                     key_summary: Some(&mut chunk_keys),
+                                    #[cfg(feature = "index-timings")]
+                                    timings: Some(&mut chunk_stages.projection),
                                 },
                                 &mut read_buffer,
                                 sort_output,
@@ -173,18 +188,47 @@ impl FilePicker {
                                 ProjectionOutcome::Malformed(mut text) => {
                                     chunk_malformed.insert(slot);
                                     if let Some(builders) = &text_builders {
-                                        builders.add(
-                                            slot,
-                                            &project_malformed_text(&text, self.text_paths.len()),
-                                        );
+                                        #[cfg(feature = "index-timings")]
+                                        let text_timer = StageTimer::start();
+                                        let content =
+                                            project_malformed_text(&text, self.text_paths.len());
+                                        #[cfg(feature = "index-timings")]
+                                        {
+                                            chunk_stages.projection.field_text += text_timer.stop();
+                                        }
+
+                                        #[cfg(feature = "index-timings")]
+                                        {
+                                            let (global, fields) =
+                                                builders.add_profiled(slot, &content);
+                                            chunk_stages.rendered_insert += global;
+                                            chunk_stages.field_insert += fields;
+                                        }
+
+                                        #[cfg(not(feature = "index-timings"))]
+                                        builders.add(slot, &content);
                                     }
+
+                                    #[cfg(feature = "index-timings")]
+                                    let values_timer = StageTimer::start();
                                     if !text.is_ascii() {
                                         let folded = text.case_fold().collect::<String>();
                                         text.push('\u{1f}');
                                         text.push_str(&folded);
                                     }
+
+                                    #[cfg(feature = "index-timings")]
+                                    {
+                                        chunk_stages.projection.values += values_timer.stop();
+                                    }
                                     if restored.is_none() {
+                                        #[cfg(feature = "index-timings")]
+                                        let main_timer = StageTimer::start();
                                         main.add_file_content(&skip, slot, text.as_bytes());
+                                        #[cfg(feature = "index-timings")]
+                                        {
+                                            chunk_stages.main_insert += main_timer.stop();
+                                        }
                                     } else if restored.as_ref().is_some_and(|restored| {
                                         restored.newly_changed.contains(&slot)
                                     }) {
@@ -201,7 +245,13 @@ impl FilePicker {
                                 }
                                 ProjectionOutcome::Valid(projection) => {
                                     if restored.is_none() {
+                                        #[cfg(feature = "index-timings")]
+                                        let main_timer = StageTimer::start();
                                         main.add_file_content(&skip, slot, &projection.bytes);
+                                        #[cfg(feature = "index-timings")]
+                                        {
+                                            chunk_stages.main_insert += main_timer.stop();
+                                        }
                                     } else if restored.as_ref().is_some_and(|restored| {
                                         restored.newly_changed.contains(&slot)
                                     }) {
@@ -218,6 +268,15 @@ impl FilePicker {
                                     if let (Some(builders), Some(text)) =
                                         (&text_builders, &projection.text)
                                     {
+                                        #[cfg(feature = "index-timings")]
+                                        {
+                                            let (global, fields) =
+                                                builders.add_profiled(slot, text);
+                                            chunk_stages.rendered_insert += global;
+                                            chunk_stages.field_insert += fields;
+                                        }
+
+                                        #[cfg(not(feature = "index-timings"))]
                                         builders.add(slot, text);
                                     }
 
@@ -258,6 +317,7 @@ impl FilePicker {
                         #[cfg(feature = "index-timings")]
                         {
                             add_worker.fetch_add(chunk_add_nanos, Ordering::Relaxed);
+                            *worker_stages.lock().expect("worker stage lock") += chunk_stages;
                         }
                         let mut rows = typed_rows.lock().expect("typed row lock");
                         for (all, chunk) in rows.iter_mut().zip(chunk_typed) {
@@ -281,10 +341,18 @@ impl FilePicker {
         #[cfg(feature = "index-timings")]
         {
             self.build_timings.add_worker_nanos = add_worker.load(Ordering::Relaxed);
+            let stages = worker_stages.into_inner().expect("worker stage lock");
+            self.build_timings.source_read = stages.projection.read;
+            self.build_timings.json_parse = stages.projection.parse;
+            self.build_timings.general_values = stages.projection.values;
+            self.build_timings.field_text = stages.projection.field_text;
+            self.build_timings.main_insert = stages.main_insert;
+            self.build_timings.rendered_insert = stages.rendered_insert;
+            self.build_timings.field_insert = stages.field_insert;
         }
 
         #[cfg(feature = "index-timings")]
-        let compress_started = Instant::now();
+        let compress_timer = StageTimer::start();
         let (index, changed, mut changed_bigrams) = if let Some(restored) = restored {
             (restored.filter, restored.changed, restored.changed_bigrams)
         } else {
@@ -295,7 +363,8 @@ impl FilePicker {
         changed_bigrams.extend(overlay_bigrams.into_inner().expect("overlay bigram lock"));
         #[cfg(feature = "index-timings")]
         {
-            self.build_timings.compress_nanos = elapsed_nanos(compress_started);
+            self.build_timings.main_compress = compress_timer.stop();
+            self.build_timings.compress_nanos = self.build_timings.main_compress.wall_nanos;
         }
 
         #[cfg(feature = "index-timings")]
@@ -327,6 +396,11 @@ impl FilePicker {
             self.build_timings.view_nanos = elapsed_nanos(view_started);
         }
         let text_index = text_builders.map(TextIndexBuilders::finish);
+        #[cfg(feature = "index-timings")]
+        if let Some(text) = &text_index {
+            self.build_timings.rendered_compress = text.rendered_compress;
+            self.build_timings.field_compress = text.field_compress;
+        }
         let malformed = malformed.into_inner().expect("malformed lock");
         let array_fields = array_fields.into_inner().expect("array field lock");
         let key_summary = key_summary.into_inner().expect("key summary lock");

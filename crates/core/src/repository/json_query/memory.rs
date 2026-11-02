@@ -138,6 +138,8 @@ impl Repository {
                 self.metrics.bigram_project_worker_nanos += timings.project_worker_nanos;
                 self.metrics.bigram_add_worker_nanos += timings.add_worker_nanos;
                 self.metrics.bigram_compress_nanos += timings.compress_nanos;
+                self.metrics.bigram_rendered_compress_nanos += timings.rendered_compress.wall_nanos;
+                self.metrics.bigram_field_compress_nanos += timings.field_compress.wall_nanos;
                 self.metrics.bigram_typed_nanos += timings.typed_nanos;
                 self.metrics.bigram_view_nanos += timings.view_nanos;
             }

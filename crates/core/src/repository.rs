@@ -149,6 +149,10 @@ metrics!(
     #[cfg(feature = "index-timings")]
     bigram_compress_nanos,
     #[cfg(feature = "index-timings")]
+    bigram_rendered_compress_nanos,
+    #[cfg(feature = "index-timings")]
+    bigram_field_compress_nanos,
+    #[cfg(feature = "index-timings")]
     bigram_typed_nanos,
     #[cfg(feature = "index-timings")]
     bigram_view_nanos,

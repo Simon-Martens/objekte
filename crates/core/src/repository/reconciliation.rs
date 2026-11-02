@@ -266,7 +266,22 @@ impl Repository {
             self.metrics.bigram_refresh_nanos += nanos(started);
             let started = Instant::now();
             picker.rebuild_index()?;
+            #[cfg(feature = "index-timings")]
+            let timings = picker.build_timings();
             self.metrics.bigram_rebuild_nanos += nanos(started);
+            #[cfg(feature = "index-timings")]
+            {
+                self.metrics.bigram_inventory_nanos += timings.inventory_nanos;
+                self.metrics.bigram_slots_nanos += timings.slots_nanos;
+                self.metrics.bigram_scan_nanos += timings.scan_nanos;
+                self.metrics.bigram_project_worker_nanos += timings.project_worker_nanos;
+                self.metrics.bigram_add_worker_nanos += timings.add_worker_nanos;
+                self.metrics.bigram_compress_nanos += timings.compress_nanos;
+                self.metrics.bigram_rendered_compress_nanos += timings.rendered_compress.wall_nanos;
+                self.metrics.bigram_field_compress_nanos += timings.field_compress.wall_nanos;
+                self.metrics.bigram_typed_nanos += timings.typed_nanos;
+                self.metrics.bigram_view_nanos += timings.view_nanos;
+            }
         } else {
             self.ensure_picker(c)?;
         }

@@ -46,6 +46,8 @@ Snapshot restore can be measured separately from source inventory with `cargo ru
 
 The CLI's `bigram_open_ms` includes directory inventory, the ID table, reading and projecting every source file, bigram compression, typed postings, and ordered view keys. Detailed stage timers are compiled only with the opt-in `index-timings` Cargo feature. Normal release builds omit their measurement code and their diagnostic fields; the overall `bigram_open_ms` remains available. On 29 October 2026, a single warm-filesystem-cache `contents` query over 133,948 JSON files gave these stage timings (milliseconds):
 
+The historical `Bigram compression` row measured the main normal filter only. Current builds may also compress a combined rendered filter and separate normal/rendered filters for every declared FTS field. The [November 2 stage profile](INDEX-BUILD-PROFILE-2026-11-02.md) measures all three compression groups independently; its numbers supersede this row for the current architecture.
+
 | Stage | Release | Debug |
 | --- | ---: | ---: |
 | Directory inventory and stamps | 139 | 231 |
