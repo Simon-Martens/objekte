@@ -26,7 +26,7 @@ mod typed;
 mod view;
 
 use crate::bigram::{
-    BigramEncoding, BigramFile, BigramFilter, BigramIndexBuilder, BigramSnapshot,
+    BigramEncoding, BigramFileRef, BigramFilter, BigramIndexBuilder, BigramSnapshot, SnapshotFiles,
     extract_bigrams_with_encoding,
 };
 use crate::{
@@ -139,6 +139,24 @@ pub struct FilePicker {
     sort: SortIndex,
     #[cfg(feature = "index-timings")]
     build_timings: BuildTimings,
+}
+
+
+impl SnapshotFiles for FilePicker {
+    fn len(&self) -> usize {
+        self.files.len()
+    }
+
+    fn entry(&self, slot: usize) -> BigramFileRef<'_> {
+        let entry = self.files[slot].as_ref().expect("checked snapshot slot");
+        BigramFileRef {
+            id: self.id(slot).expect("validated snapshot ID"),
+            size_bytes: entry.stamp.size,
+            modified_unix_nanos: &entry.stamp.modified,
+            identity: &entry.stamp.identity,
+            filename_valid: true,
+        }
+    }
 }
 
 
@@ -464,27 +482,11 @@ impl FilePicker {
                 "rebuild the bigram index before saving a snapshot".into(),
             ));
         }
-        let files = self
-            .files
-            .iter()
-            .enumerate()
-            .map(|(slot, entry)| {
-                let entry = entry.as_ref().expect("checked file table");
-                let id = self.id(slot).expect("live snapshot slot").to_owned();
-                BigramFile {
-                    filename: format!("{id}.json"),
-                    id,
-                    size_bytes: entry.stamp.size,
-                    modified_unix_nanos: entry.stamp.modified.clone(),
-                    identity: entry.stamp.identity.clone(),
-                }
-            })
-            .collect::<Vec<_>>();
-        BigramSnapshot::save_filter_with_changes(
+        BigramSnapshot::save_filter_with_changes_borrowed(
             path,
             &self.root,
             self.recursive,
-            &files,
+            self,
             &self.changed.iter().copied().collect::<Vec<_>>(),
             &self.changed_bigrams,
             &self.index,

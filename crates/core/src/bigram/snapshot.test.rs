@@ -51,7 +51,7 @@ fn reads_legacy_binary_manifest_as_ascii() {
         source_root: &'a PathBuf,
         recursive: bool,
         git_commit: &'a Option<String>,
-        files: CompactFilesRef<'a>,
+        files: CompactFilesRef<'a, [BigramFile]>,
         changed_slots: &'a [usize],
         changed_bigrams: &'a BTreeMap<usize, Vec<u16>>,
     }
@@ -59,7 +59,7 @@ fn reads_legacy_binary_manifest_as_ascii() {
 
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path().to_path_buf();
-    let files = vec![BigramFile {
+    let files = [BigramFile {
         id: "a".into(),
         filename: "a.json".into(),
         size_bytes: 5,
@@ -72,7 +72,7 @@ fn reads_legacy_binary_manifest_as_ascii() {
             source_root: &root,
             recursive: false,
             git_commit: &None,
-            files: CompactFilesRef(&files),
+            files: CompactFilesRef(&files[..]),
             changed_slots: &[],
             changed_bigrams: &BTreeMap::new(),
         })
@@ -98,7 +98,7 @@ fn rejects_unknown_manifest_encoding_with_valid_checksum() {
         &[Some("Müller".as_bytes())],
         BigramEncoding::Utf8Bytes,
     );
-    let files = vec![BigramFile {
+    let files = [BigramFile {
         id: "a".into(),
         filename: "a.json".into(),
         size_bytes: 7,
@@ -111,7 +111,7 @@ fn rejects_unknown_manifest_encoding_with_valid_checksum() {
             source_root: &source_root,
             recursive: false,
             git_commit: &None,
-            files: CompactFilesRef(&files),
+            files: CompactFilesRef(&files[..]),
             changed_slots: &[],
             changed_bigrams: &BTreeMap::new(),
             bigram_encoding: "utf8_bytes",
