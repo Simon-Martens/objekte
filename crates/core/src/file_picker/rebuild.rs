@@ -409,6 +409,7 @@ impl FilePicker {
         if let Some(text) = &text_index {
             self.build_timings.rendered_compress = text.rendered_compress;
             self.build_timings.field_compress = text.field_compress;
+            self.build_timings.text_compress_nanos = text.text_compress_nanos;
         }
         let malformed = malformed.into_inner().expect("malformed lock");
         let array_fields = array_fields.into_inner().expect("array field lock");

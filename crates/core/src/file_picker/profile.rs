@@ -111,6 +111,7 @@ pub struct BuildTimings {
     pub main_compress: StageMeasurement,
     pub rendered_compress: StageMeasurement,
     pub field_compress: StageMeasurement,
+    pub text_compress_nanos: u64,
     pub typed_nanos: u64,
     pub view_nanos: u64,
 }
