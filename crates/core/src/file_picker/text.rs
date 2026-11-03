@@ -83,19 +83,19 @@ struct FieldTextBuilders {
 
 /// ASCII posting masks reused by one scan task across its 64-slot chunks.
 pub(super) struct TextChunkAccumulator {
-    global: ChunkPostingAccumulator,
-    fields: Vec<(ChunkPostingAccumulator, ChunkPostingAccumulator)>,
+    global: PostingChunkAccumulator,
+    fields: Vec<(PostingChunkAccumulator, PostingChunkAccumulator)>,
 }
 
 impl TextChunkAccumulator {
-    pub(super) fn new(field_count: usize) -> Self {
+    pub(super) fn new(field_count: usize, encoding: BigramEncoding) -> Self {
         Self {
-            global: ChunkPostingAccumulator::new_ascii(),
+            global: PostingChunkAccumulator::new(encoding),
             fields: (0..field_count)
                 .map(|_| {
                     (
-                        ChunkPostingAccumulator::new_ascii(),
-                        ChunkPostingAccumulator::new_ascii(),
+                        PostingChunkAccumulator::new(encoding),
+                        PostingChunkAccumulator::new(encoding),
                     )
                 })
                 .collect(),
@@ -207,24 +207,50 @@ impl TextIndexBuilders {
         encoding: BigramEncoding,
         paths: &[crate::JsonPath],
     ) -> Self {
+        let builder = || BigramIndexBuilder::new_with_encoding(indexed_len, encoding);
         Self {
-            global_clean_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-            global_clean_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+            global_clean_main: builder(),
+            global_clean_skip: builder(),
             global_clean_present: AtomicBool::new(false),
             fields: paths
                 .iter()
                 .map(|path| FieldTextBuilders {
                     path: path.clone(),
-                    normal_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-                    normal_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-                    clean_main: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
-                    clean_skip: BigramIndexBuilder::new_with_encoding(indexed_len, encoding),
+                    normal_main: builder(),
+                    normal_skip: builder(),
+                    clean_main: builder(),
+                    clean_skip: builder(),
                     normal_present: AtomicBool::new(false),
                     clean_present: AtomicBool::new(false),
                 })
                 .collect(),
             indexed_len,
         }
+    }
+
+    pub(super) fn new_sparse_utf8(indexed_len: usize, paths: &[crate::JsonPath]) -> Option<Self> {
+        let global_clean_main = BigramIndexBuilder::new_sparse_utf8(indexed_len)?;
+        let global_clean_skip = BigramIndexBuilder::new_sparse_utf8(indexed_len)?;
+        let mut fields = Vec::new();
+        fields.try_reserve_exact(paths.len()).ok()?;
+        for path in paths {
+            fields.push(FieldTextBuilders {
+                path: path.clone(),
+                normal_main: BigramIndexBuilder::new_sparse_utf8(indexed_len)?,
+                normal_skip: BigramIndexBuilder::new_sparse_utf8(indexed_len)?,
+                clean_main: BigramIndexBuilder::new_sparse_utf8(indexed_len)?,
+                clean_skip: BigramIndexBuilder::new_sparse_utf8(indexed_len)?,
+                normal_present: AtomicBool::new(false),
+                clean_present: AtomicBool::new(false),
+            });
+        }
+        Some(Self {
+            global_clean_main,
+            global_clean_skip,
+            global_clean_present: AtomicBool::new(false),
+            fields,
+            indexed_len,
+        })
     }
 
     pub(super) fn add(&self, slot: usize, content: &TextContent) {
@@ -452,53 +478,59 @@ mod tests {
             vec![crate::JsonPathStep::Key("body".into())],
         ];
         let count = 135;
-        let expected = TextIndexBuilders::new(count, BigramEncoding::Ascii, &paths);
-        let chunked = TextIndexBuilders::new(count, BigramEncoding::Ascii, &paths);
-        let mut scratch = TextChunkAccumulator::new(paths.len());
-        for slot in 0..count {
-            let mut content = TextContent::new(paths.len());
-            if slot % 11 == 0 {
-                content.global_clean.push_str("outside value");
+        for encoding in [BigramEncoding::Ascii, BigramEncoding::Utf8Bytes] {
+            let expected = TextIndexBuilders::new(count, encoding, &paths);
+            let chunked = if encoding == BigramEncoding::Utf8Bytes {
+                TextIndexBuilders::new_sparse_utf8(count, &paths).unwrap()
+            } else {
+                TextIndexBuilders::new(count, encoding, &paths)
+            };
+            let mut scratch = TextChunkAccumulator::new(paths.len(), encoding);
+            for slot in 0..count {
+                let mut content = TextContent::new(paths.len());
+                if slot % 11 == 0 {
+                    content.global_clean.push_str("outside value");
+                }
+                if slot % 5 == 0 {
+                    content.fields[0].normal.push_str("**Müller**");
+                    content.fields[0].clean.push_str("Müller");
+                }
+                if slot % 7 == 0 {
+                    content.fields[1].normal.push_str("<b>needle</b>");
+                    content.fields[1].clean.push_str("needle");
+                }
+                expected.add(slot, &content);
+                scratch.add_global(&chunked, slot, &content);
+                scratch.add_fields(&chunked, slot, &content);
+                if slot % 64 == 63 || slot + 1 == count {
+                    let word = slot / 64;
+                    scratch.publish_global(&chunked, word);
+                    scratch.publish_fields(&chunked, word);
+                }
             }
-            if slot % 5 == 0 {
-                content.fields[0].normal.push_str("**Müller**");
-                content.fields[0].clean.push_str("Müller");
-            }
-            if slot % 7 == 0 {
-                content.fields[1].normal.push_str("<b>needle</b>");
-                content.fields[1].clean.push_str("needle");
-            }
-            expected.add(slot, &content);
-            scratch.add_global(&chunked, slot, &content);
-            scratch.add_fields(&chunked, slot, &content);
-            if slot % 64 == 63 || slot + 1 == count {
-                let word = slot / 64;
-                scratch.publish_global(&chunked, word);
-                scratch.publish_fields(&chunked, word);
-            }
-        }
-        let expected = expected.finish();
-        let actual = chunked.finish();
-        assert_eq!(actual.global_clean_observed, expected.global_clean_observed);
-        assert_eq!(actual.global_clean_present, expected.global_clean_present);
-        for pattern in ["outside", "Muller", "needle", "value"] {
-            assert_eq!(
-                actual.global_clean.query(pattern.as_bytes()),
-                expected.global_clean.query(pattern.as_bytes())
-            );
-            for (actual, expected) in actual.fields.iter().zip(&expected.fields) {
+            let expected = expected.finish();
+            let actual = chunked.finish();
+            assert_eq!(actual.global_clean_observed, expected.global_clean_observed);
+            assert_eq!(actual.global_clean_present, expected.global_clean_present);
+            for pattern in ["outside", "Muller", "needle", "value"] {
                 assert_eq!(
-                    actual.normal.query(pattern.as_bytes()),
-                    expected.normal.query(pattern.as_bytes())
+                    actual.global_clean.query(pattern.as_bytes()),
+                    expected.global_clean.query(pattern.as_bytes())
                 );
-                assert_eq!(
-                    actual.clean.query(pattern.as_bytes()),
-                    expected.clean.query(pattern.as_bytes())
-                );
-                assert_eq!(actual.normal_observed, expected.normal_observed);
-                assert_eq!(actual.clean_observed, expected.clean_observed);
-                assert_eq!(actual.normal_present, expected.normal_present);
-                assert_eq!(actual.clean_present, expected.clean_present);
+                for (actual, expected) in actual.fields.iter().zip(&expected.fields) {
+                    assert_eq!(
+                        actual.normal.query(pattern.as_bytes()),
+                        expected.normal.query(pattern.as_bytes())
+                    );
+                    assert_eq!(
+                        actual.clean.query(pattern.as_bytes()),
+                        expected.clean.query(pattern.as_bytes())
+                    );
+                    assert_eq!(actual.normal_observed, expected.normal_observed);
+                    assert_eq!(actual.clean_observed, expected.clean_observed);
+                    assert_eq!(actual.normal_present, expected.normal_present);
+                    assert_eq!(actual.clean_present, expected.clean_present);
+                }
             }
         }
     }

@@ -29,7 +29,7 @@ mod view;
 
 use crate::bigram::{
     BigramEncoding, BigramFileRef, BigramFilter, BigramIndexBuilder, BigramSnapshot,
-    ChunkPostingAccumulator, SnapshotFiles, extract_bigrams_with_encoding,
+    PostingChunkAccumulator, SnapshotFiles, extract_bigrams_with_encoding,
 };
 use crate::{
     Direction, Error, Field, IndexField, Result,

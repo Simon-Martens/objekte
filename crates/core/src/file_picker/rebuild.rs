@@ -59,12 +59,48 @@ impl FilePicker {
         );
         // Workers project source files once. Their local rows are merged into
         // the immutable filter and each secondary index after the scan.
-        let main = BigramIndexBuilder::new_with_encoding(files.len(), self.encoding);
-        let skip = BigramIndexBuilder::new_with_encoding(files.len(), self.encoding);
+        let sparse_pair = if restored.is_none() && self.encoding == BigramEncoding::Utf8Bytes {
+            BigramIndexBuilder::new_sparse_utf8(files.len()).and_then(|main| {
+                BigramIndexBuilder::new_sparse_utf8(files.len()).map(|skip| (main, skip))
+            })
+        } else {
+            None
+        };
+        let sparse_utf8 = sparse_pair.is_some();
+        let (main, skip) = sparse_pair.unwrap_or_else(|| {
+            (
+                BigramIndexBuilder::new_with_encoding(files.len(), self.encoding),
+                BigramIndexBuilder::new_with_encoding(files.len(), self.encoding),
+            )
+        });
         // Once full-text postings are active, rebuild them with the normal
         // postings so slot compaction never requires a second source pass.
-        let text_builders = (self.eager_text_index || self.text_index.is_some())
-            .then(|| TextIndexBuilders::new(files.len(), self.encoding, &self.text_paths));
+        let (text_builders, sparse_text) = if self.eager_text_index || self.text_index.is_some() {
+            if sparse_utf8 {
+                match TextIndexBuilders::new_sparse_utf8(files.len(), &self.text_paths) {
+                    Some(builders) => (Some(builders), true),
+                    None => (
+                        Some(TextIndexBuilders::new(
+                            files.len(),
+                            self.encoding,
+                            &self.text_paths,
+                        )),
+                        false,
+                    ),
+                }
+            } else {
+                (
+                    Some(TextIndexBuilders::new(
+                        files.len(),
+                        self.encoding,
+                        &self.text_paths,
+                    )),
+                    false,
+                )
+            }
+        } else {
+            (None, false)
+        };
         let array_fields = std::sync::Mutex::new(BTreeSet::new());
         let key_summary = std::sync::Mutex::new(KeySummary::default());
         let malformed = std::sync::Mutex::new(BTreeSet::new());
@@ -131,13 +167,23 @@ impl FilePicker {
                 .enumerate()
                 .try_for_each_init(
                     || {
-                        let ascii = restored.is_none() && self.encoding == BigramEncoding::Ascii;
+                        let build = restored.is_none();
                         (
-                            ascii.then(ChunkPostingAccumulator::new_ascii),
+                            (build && (self.encoding == BigramEncoding::Ascii || sparse_utf8))
+                                .then(|| PostingChunkAccumulator::new(self.encoding)),
                             // Field scratch has a fixed cost per worker. The
                             // measured small collection did not amortize it.
-                            (ascii && text_builders.is_some() && files.len() >= 250_000)
-                                .then(|| text::TextChunkAccumulator::new(self.text_paths.len())),
+                            (build
+                                && text_builders.is_some()
+                                && (sparse_text
+                                    || self.encoding == BigramEncoding::Ascii
+                                        && files.len() >= 250_000))
+                                .then(|| {
+                                    text::TextChunkAccumulator::new(
+                                        self.text_paths.len(),
+                                        self.encoding,
+                                    )
+                                }),
                         )
                     },
                     |(accumulator, text_accumulator),

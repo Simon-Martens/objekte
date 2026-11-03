@@ -6,7 +6,7 @@ use rayon::iter::{IndexedParallelIterator, IntoParallelRefIterator, ParallelIter
 use rayon::slice::ParallelSlice;
 use serde::{Deserialize, Serialize};
 use std::cell::UnsafeCell;
-use std::sync::atomic::{AtomicU16, AtomicUsize, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU16, AtomicUsize, Ordering};
 use std::sync::{Mutex, OnceLock};
 
 use super::ColumnSlab;
@@ -99,6 +99,121 @@ pub(crate) struct ChunkPostingAccumulator {
     touched_consecutive: Vec<usize>,
     touched_skip_one: Vec<usize>,
     populated: usize,
+}
+
+/// Sparse UTF-8 masks for one 64-slot chunk. Hash entries are reused across
+/// chunks; each touched pair is merged into its posting list once per chunk.
+pub(crate) struct Utf8ChunkPostingAccumulator {
+    consecutive: AHashMap<u16, u64>,
+    skip_one: AHashMap<u16, u64>,
+    populated: usize,
+}
+
+type SparsePostingColumns = Vec<Mutex<Vec<(u32, u64)>>>;
+
+pub(crate) enum PostingChunkAccumulator {
+    Ascii(ChunkPostingAccumulator),
+    Utf8(Utf8ChunkPostingAccumulator),
+}
+
+impl PostingChunkAccumulator {
+    pub(crate) fn new(encoding: BigramEncoding) -> Self {
+        match encoding {
+            BigramEncoding::Ascii => Self::Ascii(ChunkPostingAccumulator::new_ascii()),
+            BigramEncoding::Utf8Bytes => Self::Utf8(Utf8ChunkPostingAccumulator::new()),
+        }
+    }
+
+    pub(crate) fn add(&mut self, slot: usize, content: &[u8]) {
+        match self {
+            Self::Ascii(accumulator) => accumulator.add(slot, content),
+            Self::Utf8(accumulator) => accumulator.add(slot, content),
+        }
+    }
+
+    pub(crate) fn publish(
+        &mut self,
+        main: &BigramIndexBuilder,
+        skip: &BigramIndexBuilder,
+        word: usize,
+    ) {
+        match self {
+            Self::Ascii(accumulator) => accumulator.publish(main, skip, word),
+            Self::Utf8(accumulator) => accumulator.publish(main, skip, word),
+        }
+    }
+}
+
+impl Utf8ChunkPostingAccumulator {
+    pub(crate) fn new() -> Self {
+        Self {
+            consecutive: AHashMap::new(),
+            skip_one: AHashMap::new(),
+            populated: 0,
+        }
+    }
+
+    pub(crate) fn add(&mut self, slot: usize, content: &[u8]) {
+        if content.len() < 2 {
+            return;
+        }
+        self.populated += 1;
+        let bit = 1u64 << (slot % 64);
+        NORM_BUF.with_borrow_mut(|buffer| {
+            if buffer.len() < content.len() {
+                buffer.resize(content.len().next_power_of_two().max(4096), 0);
+            }
+            for (output, &byte) in buffer[..content.len()].iter_mut().zip(content) {
+                *output = if BigramEncoding::Utf8Bytes.usable(byte) {
+                    byte.to_ascii_lowercase()
+                } else {
+                    0
+                };
+            }
+            let bytes = &buffer[..content.len()];
+            let mut previous = bytes[0];
+            let mut current = bytes[1];
+            if previous != 0 && current != 0 {
+                *self
+                    .consecutive
+                    .entry((previous as u16) << 8 | current as u16)
+                    .or_default() |= bit;
+            }
+            for &next in &bytes[2..] {
+                if next != 0 {
+                    if current != 0 {
+                        *self
+                            .consecutive
+                            .entry((current as u16) << 8 | next as u16)
+                            .or_default() |= bit;
+                    }
+                    if previous != 0 {
+                        *self
+                            .skip_one
+                            .entry((previous as u16) << 8 | next as u16)
+                            .or_default() |= bit;
+                    }
+                }
+                previous = current;
+                current = next;
+            }
+        });
+    }
+
+    pub(crate) fn publish(
+        &mut self,
+        main: &BigramIndexBuilder,
+        skip: &BigramIndexBuilder,
+        word: usize,
+    ) {
+        main.publish_sparse_chunk(word, &self.consecutive);
+        skip.publish_sparse_chunk(word, &self.skip_one);
+        main.populated.fetch_add(self.populated, Ordering::Relaxed);
+        skip.populated.fetch_add(self.populated, Ordering::Relaxed);
+        self.consecutive.clear();
+        self.skip_one.clear();
+        self.populated = 0;
+    }
 }
 
 impl ChunkPostingAccumulator {
@@ -222,6 +337,8 @@ pub struct BigramIndexBuilder {
     col_data: OnceLock<Option<UnsafeCell<ColumnSlab>>>,
     /// UTF-8 columns are allocated on observation, never for the whole key space.
     utf8_cols: Option<Vec<OnceLock<Option<UnsafeCell<ColumnSlab>>>>>,
+    sparse_utf8_cols: Option<SparsePostingColumns>,
+    sparse_failed: AtomicBool,
     next_column: Mutex<u16>,
     words: usize,
     file_count: usize,
@@ -267,10 +384,58 @@ impl BigramIndexBuilder {
                     .take(MAX_UTF8_COLUMNS)
                     .collect()
             }),
+            sparse_utf8_cols: None,
+            sparse_failed: AtomicBool::new(false),
             next_column: Mutex::new(0),
             words,
             file_count,
             populated: AtomicUsize::new(0),
+        }
+    }
+
+    pub(crate) fn new_sparse_utf8(file_count: usize) -> Option<Self> {
+        let mut lookup = Vec::new();
+        lookup.try_reserve_exact(UTF8_KEY_SLOTS).ok()?;
+        lookup.resize_with(UTF8_KEY_SLOTS, || AtomicU16::new(NO_COLUMN));
+        let mut columns = Vec::new();
+        columns.try_reserve_exact(MAX_UTF8_COLUMNS).ok()?;
+        columns.resize_with(MAX_UTF8_COLUMNS, || Mutex::new(Vec::new()));
+        Some(Self {
+            encoding: BigramEncoding::Utf8Bytes,
+            lookup,
+            col_data: OnceLock::new(),
+            utf8_cols: None,
+            sparse_utf8_cols: Some(columns),
+            sparse_failed: AtomicBool::new(false),
+            next_column: Mutex::new(0),
+            words: file_count.div_ceil(64),
+            file_count,
+            populated: AtomicUsize::new(0),
+        })
+    }
+
+    fn publish_sparse_chunk(&self, word: usize, masks: &AHashMap<u16, u64>) {
+        let columns = self
+            .sparse_utf8_cols
+            .as_ref()
+            .expect("sparse UTF-8 builder");
+        let Ok(word) = u32::try_from(word) else {
+            self.sparse_failed.store(true, Ordering::Relaxed);
+            return;
+        };
+        for (&key, &mask) in masks {
+            let column = self.get_or_alloc_column(key);
+            if column == NO_COLUMN {
+                continue;
+            }
+            let mut blocks = columns[column as usize]
+                .lock()
+                .expect("sparse posting lock");
+            if blocks.len() == blocks.capacity() && blocks.try_reserve(1).is_err() {
+                self.sparse_failed.store(true, Ordering::Relaxed);
+                return;
+            }
+            blocks.push((word, mask));
         }
     }
 
@@ -344,6 +509,13 @@ impl BigramIndexBuilder {
     #[doc(hidden)] // `pub` (via `#[doc(hidden)]`) only for benchmarking
     pub fn add_file_content(&self, skip_builder: &Self, file_idx: usize, content: &[u8]) {
         if content.len() < 2 {
+            return;
+        }
+
+        if self.sparse_utf8_cols.is_some() {
+            let mut chunk = Utf8ChunkPostingAccumulator::new();
+            chunk.add(file_idx, content);
+            chunk.publish(self, skip_builder, file_idx / 64);
             return;
         }
 
@@ -578,7 +750,8 @@ impl BigramIndexBuilder {
     /// compression. If allocation was exhausted, leave every key possible.
     pub(crate) fn observed_keys(&self) -> Vec<u64> {
         let mut keys = vec![0; self.encoding.key_slots().div_ceil(64)];
-        let exhausted = self.columns_used() as usize == self.encoding.max_columns()
+        let exhausted = self.sparse_failed.load(Ordering::Relaxed)
+            || self.columns_used() as usize == self.encoding.max_columns()
             || self.col_data.get().is_some_and(Option::is_none);
         if exhausted {
             keys.fill(u64::MAX);
@@ -590,6 +763,163 @@ impl BigramIndexBuilder {
             }
         }
         keys
+    }
+
+    fn compress_sparse_utf8(
+        self,
+        min_density_pct: Option<u32>,
+        density_base: Option<usize>,
+    ) -> BigramFilter {
+        enum Kept {
+            Dense {
+                slot: usize,
+                blocks: Vec<(u32, u64)>,
+            },
+            Sparse {
+                slot: usize,
+                bytes: Vec<u8>,
+            },
+        }
+
+        let cols = self.columns_used() as usize;
+        let words = self.words;
+        let file_count = self.file_count;
+        let populated = self.populated.load(Ordering::Relaxed);
+        if self.sparse_failed.load(Ordering::Relaxed) {
+            return BigramFilter {
+                encoding: self.encoding,
+                scalar_postings: false,
+                rare_keys: vec![0; self.encoding.key_slots().div_ceil(64)],
+                lookup: vec![NO_COLUMN; self.encoding.key_slots()],
+                dense_data: ColumnSlab::empty(),
+                dense_count: 0,
+                sparse_offsets: vec![0],
+                sparse_data: Vec::new(),
+                words,
+                file_count,
+                populated,
+                skip_index: None,
+            };
+        }
+        let density_population = density_base.unwrap_or(populated);
+        let dense_bytes = words * 8;
+        let mut keys_by_column = vec![usize::MAX; cols];
+        for (slot, column) in self.lookup.iter().enumerate() {
+            let column = column.load(Ordering::Relaxed);
+            if column != NO_COLUMN {
+                keys_by_column[column as usize] = slot;
+            }
+        }
+        let mut rare_keys = vec![0u64; self.encoding.key_slots().div_ceil(64)];
+        let mut kept = Vec::new();
+        for (column, lock) in self
+            .sparse_utf8_cols
+            .expect("sparse UTF-8 columns")
+            .into_iter()
+            .take(cols)
+            .enumerate()
+        {
+            let slot = keys_by_column[column];
+            let mut blocks = lock.into_inner().expect("sparse posting lock");
+            if blocks.is_empty() {
+                continue;
+            }
+            blocks.sort_unstable_by_key(|entry| entry.0);
+            let mut end = 0;
+            for index in 0..blocks.len() {
+                let (block, mask) = blocks[index];
+                if end > 0 && blocks[end - 1].0 == block {
+                    blocks[end - 1].1 |= mask;
+                } else {
+                    blocks[end] = (block, mask);
+                    end += 1;
+                }
+            }
+            blocks.truncate(end);
+            let popcount = blocks
+                .iter()
+                .map(|entry| entry.1.count_ones() as usize)
+                .sum::<usize>();
+            if popcount == 0
+                || min_density_pct.is_some_and(|min_pct| {
+                    density_population == 0
+                        || popcount * 100 < density_population * min_pct as usize
+                })
+                || density_population > 0 && popcount * 10 >= density_population * 9
+            {
+                continue;
+            }
+            if min_density_pct.is_none() && popcount * 4 < dense_bytes {
+                rare_keys[slot / 64] |= 1 << (slot % 64);
+            }
+            let mut bytes = Vec::with_capacity(popcount.min(dense_bytes) + 8);
+            if popcount < dense_bytes {
+                encode_sparse_blocks(&blocks, &mut bytes);
+            }
+            if popcount < dense_bytes && bytes.len() < dense_bytes {
+                kept.push(Kept::Sparse { slot, bytes });
+            } else {
+                kept.push(Kept::Dense { slot, blocks });
+            }
+        }
+        let dense_target = kept
+            .iter()
+            .filter(|entry| matches!(entry, Kept::Dense { .. }))
+            .count();
+        let mut dense_data = dense_target
+            .checked_mul(words)
+            .and_then(ColumnSlab::new)
+            .unwrap_or_else(ColumnSlab::empty);
+        let mut lookup = vec![NO_COLUMN; self.encoding.key_slots()];
+        let mut dense_count = 0;
+        let mut sparse_slots = Vec::new();
+        let mut sparse_offsets = vec![0u32];
+        let mut sparse_data = Vec::new();
+        for entry in kept {
+            match entry {
+                Kept::Dense { slot, blocks } => {
+                    let start = dense_count * words;
+                    if start + words > dense_data.len() {
+                        continue;
+                    }
+                    let target = &mut dense_data.as_mut_slice()[start..start + words];
+                    for (block, mask) in blocks {
+                        if let Some(word) = target.get_mut(block as usize) {
+                            *word = mask;
+                        }
+                    }
+                    lookup[slot] = dense_count as u16;
+                    dense_count += 1;
+                }
+                Kept::Sparse { slot, bytes } => {
+                    if bytes.len() > u32::MAX as usize - sparse_data.len() {
+                        continue;
+                    }
+                    sparse_slots.push(slot);
+                    sparse_data.extend_from_slice(&bytes);
+                    sparse_offsets.push(sparse_data.len() as u32);
+                }
+            }
+        }
+        dense_data.truncate(dense_count * words);
+        for (index, slot) in sparse_slots.into_iter().enumerate() {
+            lookup[slot] = (dense_count + index) as u16;
+        }
+        sparse_data.shrink_to_fit();
+        BigramFilter {
+            encoding: self.encoding,
+            scalar_postings: false,
+            rare_keys,
+            lookup,
+            dense_data,
+            dense_count,
+            sparse_offsets,
+            sparse_data,
+            words,
+            file_count,
+            populated,
+            skip_index: None,
+        }
     }
 
     /// Compress the dense builder into a compact `BigramFilter`.
@@ -613,6 +943,9 @@ impl BigramIndexBuilder {
         min_density_pct: Option<u32>,
         density_base: Option<usize>,
     ) -> BigramFilter {
+        if self.sparse_utf8_cols.is_some() {
+            return self.compress_sparse_utf8(min_density_pct, density_base);
+        }
         let cols = self.columns_used() as usize;
         let words = self.words;
         let file_count = self.file_count;
@@ -808,6 +1141,24 @@ fn encode_sparse_column(bitset: &[u64], out: &mut Vec<u8>) {
             bits &= bits - 1;
             let mut gap = pos - prev;
             prev = pos;
+            while gap >= 0x80 {
+                out.push((gap as u8) | 0x80);
+                gap >>= 7;
+            }
+            out.push(gap as u8);
+        }
+    }
+}
+
+fn encode_sparse_blocks(blocks: &[(u32, u64)], out: &mut Vec<u8>) {
+    let mut previous = 0usize;
+    for &(block, mask) in blocks {
+        let mut bits = mask;
+        while bits != 0 {
+            let position = block as usize * 64 + bits.trailing_zeros() as usize;
+            bits &= bits - 1;
+            let mut gap = position - previous;
+            previous = position;
             while gap >= 0x80 {
                 out.push((gap as u8) | 0x80);
                 gap >>= 7;
@@ -1501,6 +1852,72 @@ mod tests {
                 "{pattern:?}"
             );
         }
+    }
+
+    #[test]
+    fn sparse_utf8_chunk_postings_match_dense_builder() {
+        let count = 135;
+        let dense = BigramIndexBuilder::new_with_encoding(count, BigramEncoding::Utf8Bytes);
+        let dense_skip = BigramIndexBuilder::new_with_encoding(count, BigramEncoding::Utf8Bytes);
+        let sparse = BigramIndexBuilder::new_sparse_utf8(count).unwrap();
+        let sparse_skip = BigramIndexBuilder::new_sparse_utf8(count).unwrap();
+        let mut chunk = Utf8ChunkPostingAccumulator::new();
+        for slot in 0..count {
+            let value = match slot % 6 {
+                0 => "Müller Straße",
+                1 => "中文 日本語",
+                2 => "Привет مرحبا",
+                3 => "😀😀 français",
+                4 => "A\u{1f}B",
+                _ => "ordinary English text",
+            };
+            dense.add_file_content(&dense_skip, slot, value.as_bytes());
+            chunk.add(slot, value.as_bytes());
+            if slot % 64 == 63 || slot + 1 == count {
+                chunk.publish(&sparse, &sparse_skip, slot / 64);
+            }
+        }
+        let mut expected = dense.compress(None);
+        expected.set_skip_index(dense_skip.compress(Some(12)));
+        let mut actual = sparse.compress(None);
+        actual.set_skip_index(sparse_skip.compress(Some(12)));
+        assert_eq!(actual.populated(), expected.populated());
+        for pattern in [
+            "Müller",
+            "Straße",
+            "中文",
+            "日本語",
+            "Привет",
+            "مرحبا",
+            "😀",
+            "français",
+            "English",
+            "A\u{1f}B",
+        ] {
+            assert_eq!(
+                actual.query(pattern.as_bytes()),
+                expected.query(pattern.as_bytes()),
+                "{pattern}"
+            );
+        }
+        let restored = BigramFilter::from_bytes(&actual.to_bytes().unwrap()).unwrap();
+        for pattern in ["Müller", "中文", "Привет", "😀", "English"] {
+            assert_eq!(
+                restored.query(pattern.as_bytes()),
+                actual.query(pattern.as_bytes())
+            );
+        }
+    }
+
+    #[test]
+    fn sparse_utf8_allocation_failure_drops_constraints_conservatively() {
+        let builder = BigramIndexBuilder::new_sparse_utf8(64).unwrap();
+        let skip = BigramIndexBuilder::new_sparse_utf8(64).unwrap();
+        builder.add_file_content(&skip, 3, "中文 needle".as_bytes());
+        builder.sparse_failed.store(true, Ordering::Relaxed);
+        assert!(builder.observed_keys().iter().all(|&word| word == u64::MAX));
+        let filter = builder.compress(None);
+        assert!(filter.query("needle".as_bytes()).is_none());
     }
 
     fn sparse_roundtrip(bitset: &[u64]) {
