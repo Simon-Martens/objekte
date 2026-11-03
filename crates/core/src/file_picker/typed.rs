@@ -415,6 +415,20 @@ impl TypedIndex {
         self.static_index(path).is_some() || self.dynamic.get(path).is_some_and(|field| field.fresh)
     }
 
+    /// Every non-null value a usable posting holds for `path`, with the
+    /// number of distinct slots holding it, in key order.
+    pub(super) fn value_counts(&self, path: &JsonPath) -> Option<Vec<(TypedKey, usize)>> {
+        let postings = self.posting_for(path)?;
+        Some(
+            postings
+                .iter()
+                .filter(|(key, _)| !matches!(key, TypedKey::Null | TypedKey::Missing))
+                .map(|(key, slots)| (key.clone(), distinct_slots(slots)))
+                .filter(|(_, count)| *count > 0)
+                .collect(),
+        )
+    }
+
     pub(super) fn remove_dynamic_path(&mut self, path: &JsonPath) {
         self.dynamic.remove(path);
     }
@@ -682,6 +696,18 @@ impl TypedIndex {
     }
 }
 
+
+/// Slots in a posting list. Lists are sorted and deduplicated lazily, and a
+/// record holding a value twice must count once.
+fn distinct_slots(slots: &[usize]) -> usize {
+    if slots.windows(2).all(|pair| pair[0] < pair[1]) {
+        return slots.len();
+    }
+    let mut sorted = slots.to_vec();
+    sorted.sort_unstable();
+    sorted.dedup();
+    sorted.len()
+}
 
 fn postings_for_rows(rows: Vec<(TypedKey, usize)>) -> BTreeMap<TypedKey, Vec<usize>> {
     let mut postings = BTreeMap::<TypedKey, Vec<usize>>::new();

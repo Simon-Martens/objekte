@@ -20,6 +20,13 @@ so `missing(year)` and `year = null` are different. A long-lived library caller
 can use `Repository::build_posting(collection, "path")` to add an ordered posting
 for a nested or undeclared path before querying it.
 
+`Repository::value_counts(collection, "path", limit)` returns the most common
+values of an indexed path with the number of records holding each, read from the
+posting without opening source files. A record that holds a value twice counts
+once; `null` and missing values are left out. It returns `None` when the path has
+no current posting in that handle, for example before the collection is indexed.
+The TUI uses it to suggest values after a comparison.
+
 ## First queries and collection scope
 
 ```sh

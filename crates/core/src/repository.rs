@@ -33,6 +33,9 @@ mod source_changes;
 mod source_records;
 mod text_query;
 mod validation_ops;
+mod value_counts;
+
+pub use value_counts::ValueCount;
 mod views;
 
 

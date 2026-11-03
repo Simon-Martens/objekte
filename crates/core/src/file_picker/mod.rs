@@ -654,6 +654,29 @@ impl FilePicker {
         )
     }
 
+    /// Values of an indexed path and how many records hold each, or `None`
+    /// without a current posting for it.
+    pub(crate) fn value_counts(
+        &self,
+        path: &crate::JsonPath,
+    ) -> Option<Vec<(serde_json::Value, usize)>> {
+        let counts = self.typed.value_counts(path)?;
+        Some(
+            counts
+                .into_iter()
+                .filter_map(|(key, count)| {
+                    let value = match key {
+                        TypedKey::Bool(value) => serde_json::Value::Bool(value),
+                        TypedKey::String(text) => serde_json::Value::String(text),
+                        TypedKey::Number(raw) => serde_json::from_str(&raw).ok()?,
+                        TypedKey::Null | TypedKey::Missing => return None,
+                    };
+                    Some((value, count))
+                })
+                .collect(),
+        )
+    }
+
     pub(crate) fn typed_scalar_safe(&self, path: &crate::JsonPath) -> bool {
         self.typed.scalar_safe(path)
     }
