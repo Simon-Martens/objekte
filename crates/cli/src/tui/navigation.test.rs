@@ -1,5 +1,10 @@
 use super::*;
-use crate::tui::{render, search::SearchWorker};
+use crate::tui::{
+    app::{Overlay, View},
+    input::Input,
+    search::SearchWorker,
+    view,
+};
 use objekte_core::Repository;
 use ratatui::{
     Terminal,
@@ -25,7 +30,7 @@ fn screen(terminal: &Terminal<TestBackend>) -> String {
 }
 
 fn press(app: &mut App<'_>, code: KeyCode) {
-    crate::tui::key(app, KeyEvent::new(code, KeyModifiers::NONE));
+    crate::tui::keys::key(app, KeyEvent::new(code, KeyModifiers::NONE));
 }
 
 #[test]
@@ -67,14 +72,14 @@ fn escape_returns_from_a_relation_tab_to_results() {
     fs::write(collection.join("a.json"), r#"{"note":"Moon"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     app.open_detail();
     app.links.section = DetailSection::Backlinks;
 
     press(&mut app, KeyCode::Esc);
 
-    assert!(app.focus == Focus::Results);
+    assert!(app.view == View::Results);
 }
 
 #[test]
@@ -97,7 +102,7 @@ fn backlinks_arrive_in_detail_and_both_table_directions_open_by_id() {
     fs::write(people.join("p.json"), r#"{"name":"Alice"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.input.text = "Alice".into();
+    app.search = Input::with_text("Alice");
     app.search();
     app.open_detail();
     assert_eq!(
@@ -109,8 +114,8 @@ fn backlinks_arrive_in_detail_and_both_table_directions_open_by_id() {
     press(&mut app, KeyCode::Tab);
     press(&mut app, KeyCode::Tab);
     assert!(app.links.section == DetailSection::Backlinks);
-    terminal.draw(|frame| render::draw(frame, &app)).unwrap();
-    assert!(screen(&terminal).contains("Searching for backlinks"));
+    terminal.draw(|frame| view::draw(frame, &app)).unwrap();
+    assert!(screen(&terminal).contains("Looking for records that link here"));
 
     let mut worker = SearchWorker::default();
     let deadline = Instant::now() + Duration::from_secs(5);
@@ -121,16 +126,19 @@ fn backlinks_arrive_in_detail_and_both_table_directions_open_by_id() {
     assert!(matches!(app.links.status, BacklinkStatus::Complete));
     assert_eq!(app.links.incoming.len(), 1);
     assert_eq!(app.links.incoming[0].source_id, "b");
-    terminal.draw(|frame| render::draw(frame, &app)).unwrap();
+    terminal.draw(|frame| view::draw(frame, &app)).unwrap();
     let backlinks = screen(&terminal);
-    assert!(backlinks.lines().next().unwrap().contains("BACKLINKS (1)"));
+    assert!(backlinks.contains("3 Backlinks 1"));
     assert!(backlinks.contains("books"));
     press(&mut app, KeyCode::Enter);
     assert_eq!(app.current_detail_hit().unwrap().record().id, "b");
     assert_eq!(app.links.outgoing.len(), 1);
-    app.start_export(false);
+    app.open_export(false);
     let exported = temp.path().join("linked.json");
-    app.export_input.text = exported.to_string_lossy().into_owned();
+    let Some(Overlay::Export { input, .. }) = app.overlay.as_mut() else {
+        panic!("export dialog");
+    };
+    *input = Input::with_text(&exported.to_string_lossy());
     app.finish_export();
     let value: serde_json::Value = serde_json::from_slice(&fs::read(exported).unwrap()).unwrap();
     assert_eq!(value["kind"], "record");
@@ -138,14 +146,8 @@ fn backlinks_arrive_in_detail_and_both_table_directions_open_by_id() {
     assert_eq!(value["hit"]["record"]["id"], "b");
     press(&mut app, KeyCode::Tab);
     assert!(app.links.section == DetailSection::Links);
-    terminal.draw(|frame| render::draw(frame, &app)).unwrap();
-    assert!(
-        screen(&terminal)
-            .lines()
-            .next()
-            .unwrap()
-            .contains("LINKS (1)")
-    );
+    terminal.draw(|frame| view::draw(frame, &app)).unwrap();
+    assert!(screen(&terminal).contains("2 Links 1"));
     press(&mut app, KeyCode::Enter);
     assert_eq!(app.current_detail_hit().unwrap().record().id, "p");
     press(&mut app, KeyCode::Backspace);
@@ -153,7 +155,7 @@ fn backlinks_arrive_in_detail_and_both_table_directions_open_by_id() {
     press(&mut app, KeyCode::Backspace);
     assert_eq!(app.current_detail_hit().unwrap().record().id, "p");
     press(&mut app, KeyCode::Esc);
-    assert!(app.focus == Focus::Results);
+    assert!(app.view == View::Results);
 }
 
 #[test]
@@ -172,12 +174,18 @@ fn missing_link_target_reports_its_identity_without_leaving_detail() {
     fs::write(people.join("p.json"), r#"{"name":"Alice"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     app.open_detail();
     app.links.section = DetailSection::Links;
     app.open_selected_relation();
-    assert!(app.focus == Focus::Detail);
+    assert!(app.view == View::Detail);
     assert_eq!(app.current_detail_hit().unwrap().record().id, "b");
-    assert!(app.message.contains("Missing target: people/gone"));
+    assert!(
+        app.notice
+            .as_ref()
+            .unwrap()
+            .text
+            .contains("Missing record people/gone")
+    );
 }

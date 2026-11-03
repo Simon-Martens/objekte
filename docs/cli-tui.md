@@ -1,6 +1,6 @@
 # Interactive terminal search
 
-Run `cargo run --release -p objekte-cli -- examples/musenalm` from the project root to open the terminal UI. The installed `objekte` binary also accepts a repository path, defaults to the current directory, and accepts an optional `tui` subcommand. The UI opens in full-text mode, searching all collections with literal, case-insensitive substrings. Ctrl+F turns Filter ON or OFF: a JSON filter box appears above the FTS search. After configuration and schemas load, the interface opens while a worker builds the in-memory indexes. The footer reports build progress. You can type immediately; a search submitted during warmup runs automatically when the indexes are ready. The UI requires a terminal on stdin and stdout. There is no editing mode.
+Run `cargo run --release -p objekte-cli -- examples/musenalm` from the project root to open the terminal UI. The installed `objekte` binary also accepts a repository path. It defaults to the current directory and accepts an optional `tui` subcommand. The interface opens once configuration and schemas have loaded. A worker builds the in-memory indexes meanwhile, and the header reports its progress. You can type immediately: a search started during warmup runs as soon as the indexes are ready. The UI needs a terminal on stdin and stdout. It is read-only.
 
 One-shot commands remain available for scripts and pipes:
 
@@ -10,38 +10,79 @@ cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe'
 cargo run --release -p objekte-cli -- examples/musenalm search contents 'Goethe' --filter 'year >= 1800' --count
 ```
 
-## Search controls
+## Layout
+
+The screen layout never changes; only its content does. From top to bottom:
+
+- **Header:** the collection being searched (Ctrl+O changes it) and the index status.
+- **Search line:** full-text search. Option chips at its right show case (Alt+C), regex (Alt+R) and normalized or full text (Alt+T).
+- **Filter line:** a JSON filter, as in [queries](queries.md).
+- **Summary rule:** the match count, search time and sort, plus the visible row range. A query error also appears here.
+- **Results:** shown on the left. A preview of the selected record appears on the right when the terminal is at least 110 columns wide; Ctrl+P hides or shows it.
+- **Footer:** key hints for the current state, or a short notice.
+
+Typing searches as you go: a search starts 180 ms after the last key, and Enter searches at once. While you type, a filter that does not parse yet is only hinted at in the summary rule, and the previous results stay. Enter on such a filter shows it as an error. When the query is unchanged, Enter opens the selected record. Esc clears the active line, and a second Esc clears both.
+
+## Keys
 
 | Key | Action |
 | --- | --- |
-| Tab / Shift+Tab | Cycle between the full-text input, JSON filter input (when shown), and results table (when a search has rows); in detail, cycle Fields, Links, and Backlinks |
-| Ctrl+F | Turn the JSON filter input on or off |
-| Ctrl+Tab / Ctrl+Shift+Tab | Cycle collections forward or backward |
-| Ctrl+R | Toggle regex for the FTS input |
-| Ctrl+T | Toggle normalized or full text for the FTS input |
-| Ctrl+E | Toggle case sensitivity for literal FTS searches |
-| Alt+S | Save the current indexes under `.objekte/.cache` |
-| Alt+R | Rebuild all indexes from source and save them |
-| Alt+I or Ctrl+I | Open field inference, including in schema-backed collections; C changes scope, A toggles advanced indexing, Enter scans. Afterward W updates inferred field types and index rules in existing schemas. `i` also works from the results table. |
-| `[` / `]` in results | Flip collections directly from the result table |
-| Enter | Run the query, open a result, or open the selected link or backlink |
-| Up / Down | Select a result or relation row; scroll detail fields |
-| Left / Right | Scroll result columns horizontally; flip through hits in detail, including across result pages |
-| n / p | Next or previous 100-result page in results; next or previous hit in detail |
-| a / e | Export all matches or the selected hit |
-| Esc | From an item, return to results; from results, clear the result list and focus the full-text input while keeping both input values; from an active input, clear that input and results; cancel export or inference prompt |
-| Backspace in detail | Return to the previously visited linked item, or to results if there is none |
-| Ctrl+Q | Quit from any view, including the query input and export prompt |
-| Ctrl+C | Leave the UI |
+| typing | Edit the active line; search after a short pause |
+| Tab | From Search, move to Filter; in Filter, complete from the schema |
+| Shift+Tab | Switch between Search and Filter |
+| ↑ ↓, PgUp PgDn, mouse wheel | Move the selection; more rows load as you approach the end |
+| Ctrl+Home / Ctrl+End | First or last result |
+| Alt+← / Alt+→ | Scroll result columns; the identity columns stay |
+| Enter | Search, or open the selected record |
+| Esc | Close suggestions, then clear the line |
+| Ctrl+O | Choose the collection, or all collections |
+| Ctrl+K | Action palette: export, inference, saving and rebuilding indexes, all toggles |
+| Alt+C / Alt+R / Alt+T | Case-sensitive, regex, normalized or full text |
+| Ctrl+P | Show or hide the preview |
+| F1 | All keys |
+| Ctrl+Q / Ctrl+C | Quit |
 
-The FTS input is always visible. Filter ON shows the JSON predicate above it. Either input may be empty; if both contain terms, the predicate selects records first, then the FTS matcher searches their included values. Tab and Shift+Tab move between the boxes and the table; Enter searches from either box. **Regex** and **Text** (normalized or full) control the FTS input in both modes. **Case** appears only when regex is off. Normalized full-text search renders declared Markdown, HTML, and XML, removes formatting, and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the Case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex`, and `raw-regex`.
+Line editing supports Home/End, Ctrl+A/Ctrl+E, Ctrl+←/→ (move by word), Ctrl+W or Alt+Backspace (delete a word), and Ctrl+U (delete to the start of the line).
 
-Some terminals cannot report Ctrl+Tab separately from Tab. The UI requests enhanced keyboard reporting where available. In other terminals, use `[` and `]` from the result table to cycle collections.
+## Filter completion
 
-Changing collections or full-text options reruns an active search from its first page. Append `SORT BY title ASC && year DESC` to either input to sort within each collection. System fields such as `@size` and rendered `title:fts` terms work as in [queries](queries.md). If both inputs specify a sort, the FTS input wins, even when it has no search term. `ASC` is optional. The TUI splits an appended clause from full-text input into structured sort terms before calling core. In the core API, a full-text pattern is always matched literally. To search for the literal phrase `SORT BY` while also appending a sort in the TUI, quote the pattern. Sorting applies to records that pass both the filter and full-text matcher. Searches run on a background worker; default-order rows stream by collection and modification time, newest first, with ID breaking ties. With an indexed sort, verified rows stream in sort order after parallel batches. Without an index, provisional sorted pages replace earlier pages as better matches arrive. The total and elapsed search time in milliseconds appear when the search completes, including searches with no matches. A trailing `+` on the total means the repository's result limit was reached. Rows shown during a search are provisional and are cleared if a later error occurs. Paging and export become available after completion. Result paging stops at the first and last pages and reports the boundary in the status line.
+Tab in the Filter line completes from the collection schemas, scoped to the chosen collection. It offers:
 
-The result table has one row per record. It shows collection, ID, status, and top-level JSON fields; full-text results also show the first matched leaf as `field: value` directly after status. This match preview is at most 65 terminal cells wide. Queried fields appear after the metadata in first-use order. Sort fields follow them in sort order, without duplicating a queried field. A nested query or sort path promotes its top-level field. Other columns are at most 25 cells wide, with an ellipsis for longer text; object and array cells show their sizes. The table heading shows the current result range and total. Left and Right reveal further columns. Enter opens a separate detail view. The Objekte mark and Fields, Links, and Backlinks tabs share its first line, with `[ESC] BACK` at the right. One blank line separates them from a boxed detail panel. Its heading contains the collection, `Search:` term, and record position; the fields or relation table follow inside the box. The search box and its options disappear. Left and Right flip through hits, including across query pages; Up and Down scroll the current hit. The view hides empty fields, joins string arrays with commas, and indents complex array items under their original `[index]` numbers. Values wrap at whitespace within an 80-cell column, even on wider terminals. Full-text hits highlight matched leaf labels using exact array indices. A collapsed string-array row is highlighted if any of its strings matched. There is one blank line between metadata and entry data. File size is shown in decimal KB.
+- **Fields:** with their types and collections. Nested object fields and array items are included. Relation fields continue into the linked collection's fields, matching implicit relation traversal. Keys that are not identifiers are inserted in bracket form, such as `["first edition"]`.
+- **System fields, functions and modifiers:** `@id`, `@modified` and the other system fields, `exists(…)` and `missing(…)`, and `:fts`, `:lower`, `:length` and `:each` after a colon.
+- **Operators:** chosen for the field type. Numbers get comparisons, text gets `~` and `!~`, booleans only `=` and `!=`, and arrays add the `?` any-value forms.
+- **Values:** enum members (also inside an opened quote), `true`, `false`, `null`, `@status` values, and `@now`-style date macros for date-like fields.
+- **Connectives:** `&&`, `||`, `SORT BY`, and then sort fields and `ASC`/`DESC`.
 
-Schemas with `x-relation` declarations define which fields link to which collections. In an item view, Tab cycles through Fields, Links, and Backlinks. Links show the declared field location and target collection/ID; Backlinks show referring collection/ID and field location. Up and Down select a relation row, and Enter opens its record by collection and ID. Backspace returns through visited items; Esc returns directly to the results list. Backlinks are found with indexed filter queries on a background worker; the item opens immediately and backlink rows appear as the lookup proceeds. Without a declared relation, the corresponding table is empty. A missing target reports an error when opened.
+Tab inserts the only candidate that starts with the typed text, or extends the text to the longest shared prefix. Otherwise it opens a list. ↑ and ↓ choose in the list, Tab or Enter inserts, and Esc closes it. Tab on a complete object or relation field name steps into its fields. Collections without a schema offer only system fields and functions.
 
-Export asks for a path to a **new** JSON file and never overwrites an existing file. `a` streams every accessible match through the query API, independent of the current page, up to the repository's configured total limit. The export contains the query, total, truncation flag, and hits. Each hit contains its record and metadata: collection, ID, path, byte size, modification time, hash, and validation state. Full-text hits also contain canonical `fields` and concrete `matched_paths`, such as `contents[9].incipit_statement`. `e` writes the selected hit with the same metadata. For a record reached through a link, `e` writes that record with `kind: "record"` and no originating query. An export error removes a partial new file.
+## Searching
+
+Either line may be empty. If both have content, the filter selects records first, and the full-text matcher then searches their included values. Normalized full text renders declared Markdown, HTML and XML, removes formatting and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex` and `raw-regex`.
+
+Append `SORT BY title ASC && year DESC` to either line to sort within each collection. System fields such as `@size`, and rendered `title:fts` terms, work as in [queries](queries.md). If both lines specify a sort, the Search line wins, even with no search term. To search for the literal phrase `SORT BY` while also appending a sort, quote the pattern.
+
+Searches run on a background worker, and a newer query cancels an older one. Rows in default order stream by collection and modification time, newest first, with ID breaking ties. Rows with an indexed sort stream in sort order. Without an index, provisional sorted pages replace earlier ones as better matches arrive. The selected record keeps its place on screen while that happens: the selection follows the record, not the row number. After a refresh, the selected record also stays at the same screen row. The total and the elapsed time appear when the search completes. A trailing `+` means the repository's result limit was reached. Rows load 100 at a time as you scroll; there are no pages. Rows shown during a search are cleared if the search later fails.
+
+## Results and records
+
+The table has one row per record. It shows the collection (when searching all collections), the ID and a status dot. Full-text results then show the first matched leaf as `field: value`. Queried fields, sort fields and top-level JSON fields follow. Column widths are fixed when a column first appears, so rows never shift as more results arrive. Object and array cells show their size.
+
+Enter opens the record. Its title row, with the record's position in the results, and its tabs replace the query lines; everything else stays in place. In the record view:
+
+- 1, 2 and 3, or Tab and Shift+Tab, switch between **Fields**, **Links** and **Backlinks**.
+- ← and → step to the previous or next result, loading more rows when needed.
+- ↑ and ↓ scroll the fields, or choose a link.
+- Esc returns to the results.
+
+The fields view hides empty values, joins string arrays with commas, and indents array items under their `[index]`. Field names that the full-text search matched are highlighted. Metadata (path, size, modification time, hash, matched paths) comes first.
+
+Schemas with `x-relation` declarations define which fields link to which collections. Links show each field and its target; Backlinks show the records that refer to this one. Backlinks are found on a background worker, and rows appear while the lookup proceeds. Enter opens the selected linked record. Backspace walks back through the linked records you visited, and Esc returns straight to the results. Opening a missing target reports an error.
+
+## Actions
+
+Ctrl+K lists every action with its shortcut; typing filters the list. It includes:
+
+- **Export all matches / Export selected record.** Each asks for a path to a **new** JSON file and never overwrites an existing one. Exporting all streams every match through the query API, up to the repository's total limit; the file holds the query, the total, the truncation flag and the hits. Each hit carries its record and metadata: collection, ID, path, size, modification time, hash and validation state. Full-text hits also carry `fields` and concrete `matched_paths`, such as `contents[9].incipit_statement`. A record reached through a link is exported with `kind: "record"` and no query. An export error removes the partial file.
+- **Infer fields and index rules.** C switches between the current collection and all collections, A toggles advanced indexing, and Enter scans. Afterwards, W writes the inferred field types and index rules to the existing schema files.
+- **Save indexes to disk** under `.objekte/.cache`, and **Rebuild all indexes and save**.

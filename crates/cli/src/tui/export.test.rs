@@ -22,8 +22,7 @@ fn export_all_and_selected_hit_include_source_metadata() {
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = crate::tui::state::SearchKind::FilterOn;
-    app.filter_input.text = "note ~ 'Moon'".into();
+    app.filter = crate::tui::input::Input::with_text("note ~ 'Moon'");
     app.search();
     let request = app.last_request.clone().unwrap();
 
@@ -65,12 +64,9 @@ fn export_all_ignores_the_visible_page_and_preserves_text_hit_fields() {
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.kind = crate::tui::state::SearchKind::Text;
-    app.input.text = "Moon".into();
+    app.search = crate::tui::input::Input::with_text("Moon");
     app.search();
     assert_eq!(app.hits.len(), 100);
-    app.next_page();
-    assert_eq!(app.hits.len(), 3);
     let request = app.last_request.clone().unwrap();
     let all = temp.path().join("all-text.json");
     assert_eq!(write_all(&mut app, &all, &request).unwrap(), 103);

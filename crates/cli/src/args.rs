@@ -55,10 +55,8 @@ Options:
   --filter EXPRESSION             Filter JSON records before full-text search
   --sort TERMS                    Sort full-text matches by one or more fields
   --case-sensitive                Match case exactly in full-text search
-                                  TUI: Tab switches inputs/table; Ctrl+F toggles Filter ON;
-                                  Ctrl+Tab changes collection;
-                                  Ctrl+R/T/E change regex, text, and word-case options;
-                                  Alt+S saves indexes; Alt+R reindexes and saves
+                                  TUI: type to search; Tab moves to Filter and completes
+                                  fields there; Ctrl+O collection; Ctrl+K actions; F1 keys
   --help, --version
 
 Examples:

@@ -1,6 +1,6 @@
 //! Resolve an exact full-text hit path to the source value shown in the table.
 
-use super::state::Hit;
+use super::app::Hit;
 use serde_json::Value;
 
 fn value_at_path<'a>(value: &'a Value, target: &str, path: &str) -> Option<&'a Value> {

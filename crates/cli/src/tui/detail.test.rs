@@ -1,5 +1,5 @@
 use super::*;
-use crate::tui::state::Hit;
+use crate::tui::app::Hit;
 use objekte_core::Repository;
 use std::fs;
 
@@ -19,7 +19,8 @@ fn detail_preserves_nested_fields_and_long_values() {
         names,
         values,
         matched,
-    } = columns(&Hit::Filter(record), 16, 12);
+        ..
+    } = columns(&Hit::Filter(record), 16, 30, true);
     assert_eq!(names.len(), values.len());
     assert!(matched.iter().all(|matched| !matched));
     assert!(names.iter().any(|name| name == "outer"));
@@ -44,7 +45,7 @@ fn detail_compacts_arrays_hides_empty_fields_and_separates_metadata_once() {
     .unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let record = repo.get_record("docs", "a").unwrap().unwrap();
-    let rows = rows(&Hit::Filter(record));
+    let rows = rows(&Hit::Filter(record), true);
     let data_start = rows
         .iter()
         .position(|row| row.name.is_empty() && row.value.is_empty())
@@ -92,16 +93,17 @@ fn detail_compacts_arrays_hides_empty_fields_and_separates_metadata_once() {
 }
 
 #[test]
-fn wrapping_preserves_newlines_and_unicode() {
-    assert_eq!(wrap("ab\n🐈cd", 2), ["ab", "🐈", "cd"]);
-    assert_eq!(wrap("a\tb", 8), [r"a\tb"]);
+fn names_truncate_and_values_wrap_preserving_newlines_and_unicode() {
+    assert_eq!(truncate("abcdef", 4), "abc…");
+    assert_eq!(truncate("a\tb", 8), r"a\tb");
+    assert_eq!(truncate("ab", 2), "ab");
     assert_eq!(wrap_value("word word word", 9), ["word ", "word word"]);
     assert_eq!(wrap_value("abcdefghijk", 5), ["abcde", "fghij", "k"]);
     assert_eq!(wrap_value("one\n🐈 a", 4), ["one", "🐈 a"]);
 }
 
 #[test]
-fn matched_text_paths_mark_leaf_labels_and_values_stop_at_eighty_cells() {
+fn matched_text_paths_mark_leaf_labels_and_values_stop_at_a_hundred_cells() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
@@ -126,7 +128,7 @@ fn matched_text_paths_mark_leaf_labels_and_values_stop_at_eighty_cells() {
     assert_eq!(hit.fields, ["notes[].body", "tags[]"]);
     assert_eq!(hit.matched_paths, ["notes[0].body", "tags[0]"]);
     let hit = Hit::Text(hit);
-    let rows = rows(&hit);
+    let rows = rows(&hit, true);
     assert!(
         rows.iter()
             .any(|row| row.name == "  [0] body" && row.matched)
@@ -145,13 +147,13 @@ fn matched_text_paths_mark_leaf_labels_and_values_stop_at_eighty_cells() {
             .iter()
             .any(|row| row.name == "      other" && row.matched)
     );
-    let columns = columns(&hit, 30, 200);
+    let columns = columns(&hit, 30, 200, true);
     assert_eq!(columns.names.len(), columns.matched.len());
     assert!(
         columns
             .values
             .iter()
-            .all(|line| UnicodeWidthStr::width(line.as_str()) <= 80)
+            .all(|line| UnicodeWidthStr::width(line.as_str()) <= 100)
     );
     let body_index = columns
         .names
@@ -159,5 +161,19 @@ fn matched_text_paths_mark_leaf_labels_and_values_stop_at_eighty_cells() {
         .position(|name| name == "  [0] body")
         .unwrap();
     assert!(columns.matched[body_index]);
+    assert!(columns.names_width <= 30);
     assert!(columns.values[body_index].ends_with(' '));
+}
+
+#[test]
+fn preview_rows_leave_out_metadata() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"title":"Moon"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let record = repo.get_record("docs", "a").unwrap().unwrap();
+    let rows = rows(&Hit::Filter(record), false);
+    assert_eq!(rows.len(), 1);
+    assert_eq!(rows[0].name, "title");
 }

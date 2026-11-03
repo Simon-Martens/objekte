@@ -1,6 +1,6 @@
 //! Link and backlink state for the selected record in the detail view.
 
-use super::state::{App, Focus, Hit};
+use super::app::{App, Hit};
 use objekte_core::{Record, RecordRelation};
 
 
@@ -121,17 +121,6 @@ impl App<'_> {
             .or_else(|| self.hits.get(self.selected))
     }
 
-    pub(super) fn open_detail(&mut self) {
-        if self.hits.is_empty() {
-            return;
-        }
-        self.links.reset();
-        self.focus = Focus::Detail;
-        self.detail_scroll = 0;
-        self.detail_position();
-        self.prepare_detail_links();
-    }
-
     pub(super) fn prepare_detail_links(&mut self) {
         self.links.generation = self.links.generation.wrapping_add(1);
         self.links.outgoing.clear();
@@ -187,7 +176,7 @@ impl App<'_> {
 
     pub(super) fn open_selected_relation(&mut self) {
         let Some(edge) = self.links.selected_relation() else {
-            self.message = "Select a link or backlink first.".into();
+            self.notice("Select a link or backlink first");
             return;
         };
         let (collection, id) = if self.links.section == DetailSection::Links {
@@ -203,31 +192,27 @@ impl App<'_> {
                 self.links.section = DetailSection::Fields;
                 self.detail_scroll = 0;
                 self.prepare_detail_links();
-                self.message =
-                    format!("Opened {collection}/{id}. Backspace returns to the previous item.");
             }
-            Ok(None) => self.message = format!("Missing target: {collection}/{id}"),
-            Err(error) => self.message = format!("Cannot open {collection}/{id}: {error}"),
+            Ok(None) => self.error(format!("Missing record {collection}/{id}")),
+            Err(error) => self.error(format!("Cannot open {collection}/{id}: {error}")),
         }
     }
 
+    /// Return to the previously visited linked record, or to the results.
     pub(super) fn leave_detail(&mut self) {
         if let Some(previous) = self.links.history.pop() {
             self.links.override_hit = previous;
             self.links.section = DetailSection::Fields;
             self.detail_scroll = 0;
             self.prepare_detail_links();
-            self.detail_position();
         } else {
             self.close_detail();
         }
     }
 
-    pub(super) fn close_detail(&mut self) {
-        self.links.reset();
-        self.focus = Focus::Results;
-        self.pending_detail = None;
-        self.message.clear();
+    /// How many linked records lead back to the result list.
+    pub(super) fn history_depth(&self) -> usize {
+        self.links.history.len()
     }
 }
 

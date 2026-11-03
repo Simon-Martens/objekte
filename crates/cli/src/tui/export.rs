@@ -1,6 +1,7 @@
 //! JSON export of one hit or the complete query result stream.
 
-use super::state::{App, Focus, Hit, Request};
+use super::app::Request;
+use super::app::{App, Hit, Overlay, View};
 use objekte_core::Error;
 use serde_json::json;
 use std::{
@@ -114,38 +115,40 @@ fn write_one(
 
 
 impl App<'_> {
+    /// Write the export chosen in the open export dialog.
     pub(super) fn finish_export(&mut self) {
-        let path = PathBuf::from(self.export_input.text.trim());
-        if path.as_os_str().is_empty() {
-            self.message = "Choose a JSON file path.".into();
-            return;
-        }
-        let Some(request) = self.last_request.clone() else {
-            self.message = "Run a query before exporting.".into();
-            self.focus = self.export_return_focus;
+        let Some(Overlay::Export { all, input }) = &self.overlay else {
             return;
         };
-        let result = if self.focus == Focus::ExportAll {
-            write_all(self, &path, &request)
-                .map(|count| format!("Exported {count} hits to {}", path.display()))
+        let (all, path) = (*all, PathBuf::from(input.text.trim()));
+        if path.as_os_str().is_empty() {
+            self.notice("Choose a JSON file path");
+            return;
+        }
+        let linked = self.view == View::Detail && self.links.override_hit.is_some();
+        let request = self.last_request.clone();
+        let result = if all {
+            match &request {
+                Some(request) => write_all(self, &path, request)
+                    .map(|count| format!("Exported {count} matches to {}", path.display())),
+                None => Err("Search before exporting matches".into()),
+            }
         } else {
-            let linked =
-                self.export_return_focus == Focus::Detail && self.links.override_hit.is_some();
-            let hit = if self.export_return_focus == Focus::Detail {
+            let hit = if self.view == View::Detail {
                 self.current_detail_hit()
             } else {
-                self.hits.get(self.selected)
+                self.selected_hit()
             };
-            hit.ok_or_else(|| "No selected hit".into())
-                .and_then(|hit| write_one(&path, (!linked).then_some(&request), hit))
-                .map(|()| format!("Exported hit to {}", path.display()))
+            hit.ok_or_else(|| "No record selected".into())
+                .and_then(|hit| write_one(&path, request.as_ref().filter(|_| !linked), hit))
+                .map(|()| format!("Exported record to {}", path.display()))
         };
         match result {
             Ok(message) => {
-                self.message = message;
-                self.focus = self.export_return_focus;
+                self.overlay = None;
+                self.notice(message);
             }
-            Err(error) => self.message = format!("Export failed: {error}"),
+            Err(error) => self.error(format!("Export failed: {error}")),
         }
     }
 }

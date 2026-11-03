@@ -1,6 +1,6 @@
 //! Full record fields arranged as compact, synchronized name and value columns.
 
-use super::state::Hit;
+use super::app::Hit;
 use serde_json::Value;
 use unicode_width::{UnicodeWidthChar, UnicodeWidthStr};
 
@@ -15,6 +15,8 @@ struct DetailRow {
 
 /// Wrapped detail lines with a matching-field marker for each name line.
 pub(super) struct DetailColumns {
+    /// Width of the name column actually used.
+    pub(super) names_width: usize,
     pub(super) names: Vec<String>,
     pub(super) values: Vec<String>,
     pub(super) matched: Vec<bool>,
@@ -146,7 +148,7 @@ fn size_kb(size_bytes: u64) -> String {
     format!("{:.2} KB", size_bytes as f64 / 1_000.0)
 }
 
-fn rows(hit: &Hit) -> Vec<DetailRow> {
+fn rows(hit: &Hit, metadata: bool) -> Vec<DetailRow> {
     let record = hit.record();
     let mut rows = vec![
         DetailRow {
@@ -193,6 +195,9 @@ fn rows(hit: &Hit) -> Vec<DetailRow> {
         });
     }
     rows.retain(|row| !row.value.trim().is_empty());
+    if !metadata {
+        rows.clear();
+    }
     let mut entry = Vec::new();
     if let Some(raw) = &record.raw {
         let raw = String::from_utf8_lossy(raw);
@@ -217,14 +222,14 @@ fn rows(hit: &Hit) -> Vec<DetailRow> {
             &mut entry,
         );
     }
-    if !entry.is_empty() {
+    if !entry.is_empty() && !rows.is_empty() {
         rows.push(DetailRow {
             name: String::new(),
             value: String::new(),
             matched: false,
         });
-        rows.extend(entry);
     }
+    rows.extend(entry);
     rows
 }
 
@@ -244,26 +249,24 @@ fn visible_text(text: &str) -> String {
     visible
 }
 
-/// Wrap labels without dropping characters, including source newlines.
-fn wrap(text: &str, width: usize) -> Vec<String> {
-    let width = width.max(1);
-    let mut lines = vec![String::new()];
+/// Shorten a label to one line, marking the cut with an ellipsis.
+fn truncate(text: &str, width: usize) -> String {
+    let text = visible_text(text).replace('\n', " ");
+    if UnicodeWidthStr::width(text.as_str()) <= width {
+        return text;
+    }
+    let mut out = String::new();
     let mut used = 0;
-    for ch in visible_text(text).chars() {
-        if ch == '\n' {
-            lines.push(String::new());
-            used = 0;
-            continue;
-        }
+    for ch in text.chars() {
         let cells = UnicodeWidthChar::width(ch).unwrap_or(0);
-        if used + cells > width && used > 0 {
-            lines.push(String::new());
-            used = 0;
+        if used + cells + 1 > width {
+            break;
         }
-        lines.last_mut().expect("one line").push(ch);
+        out.push(ch);
         used += cells;
     }
-    lines
+    out.push('…');
+    out
 }
 
 /// Prefer a whitespace boundary, but split a word if it cannot fit.
@@ -306,13 +309,29 @@ fn wrap_value(text: &str, width: usize) -> Vec<String> {
     lines
 }
 
-pub(super) fn columns(hit: &Hit, names_width: usize, values_width: usize) -> DetailColumns {
+/// Name and value lines. Names take one line each, as wide as the widest
+/// name up to `max_names_width`; values wrap in the rest of `width`.
+/// Without `metadata`, only the record's own fields are listed.
+pub(super) fn columns(
+    hit: &Hit,
+    max_names_width: usize,
+    width: usize,
+    metadata: bool,
+) -> DetailColumns {
+    let rows = rows(hit, metadata);
+    let names_width = rows
+        .iter()
+        .map(|row| UnicodeWidthStr::width(row.name.as_str()))
+        .max()
+        .unwrap_or(0)
+        .clamp(4, max_names_width.max(4));
+    let values_width = width.saturating_sub(names_width + 2).clamp(10, 100);
     let mut names = Vec::new();
     let mut values = Vec::new();
     let mut matched = Vec::new();
-    for row in rows(hit) {
-        let left = wrap(&row.name, names_width);
-        let right = wrap_value(&row.value, values_width.min(80));
+    for row in rows {
+        let left = [truncate(&row.name, names_width)];
+        let right = wrap_value(&row.value, values_width);
         let height = left.len().max(right.len());
         for line in 0..height {
             names.push(left.get(line).cloned().unwrap_or_default());
@@ -321,6 +340,7 @@ pub(super) fn columns(hit: &Hit, names_width: usize, values_width: usize) -> Det
         }
     }
     DetailColumns {
+        names_width,
         names,
         values,
         matched,

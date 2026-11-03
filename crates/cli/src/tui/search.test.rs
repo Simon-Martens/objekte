@@ -1,5 +1,9 @@
 use super::*;
-use crate::tui::{navigation::DetailSection, state::SearchKind};
+use crate::tui::{
+    app::{Overlay, View},
+    input::Input,
+    navigation::DetailSection,
+};
 use objekte_core::{JsonQuery, Options, Repository, TextQuery};
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use std::{
@@ -55,7 +59,7 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
         .remove(0);
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     app.pending_search.take();
 
@@ -66,7 +70,7 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
         running: Some(Running {
             receiver,
             cancel: Arc::new(AtomicBool::new(false)),
-            generation: app.search_generation,
+            generation: app.generation,
             kind: JobKind::Search,
         }),
     };
@@ -77,7 +81,7 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
     assert_eq!(app.hits.len(), 1);
     assert!(app.searching);
     assert_eq!(app.total, None);
-    assert_eq!(app.search_elapsed_ms, None);
+    assert_eq!(app.elapsed_ms, None);
     sender
         .send(SearchUpdate::Finished {
             repository: Box::new(repository),
@@ -89,7 +93,7 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
     worker.drive(&mut app);
     assert!(!app.searching);
     assert_eq!(app.total, Some(2));
-    assert_eq!(app.search_elapsed_ms, Some(12.5));
+    assert_eq!(app.elapsed_ms, Some(12.5));
     assert_eq!(app.hits[0].record().id, "a");
 }
 
@@ -114,7 +118,7 @@ fn background_tui_searches_reuse_verified_text_and_filter_pages() {
     let mut app = App::new(&mut repo);
     app.async_search = true;
     let mut worker = SearchWorker::default();
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     let deadline = Instant::now() + Duration::from_secs(5);
     while app.searching && Instant::now() < deadline {
@@ -136,9 +140,8 @@ fn background_tui_searches_reuse_verified_text_and_filter_pages() {
     assert_eq!(app.hits.len(), 2);
     assert!(app.repo.metrics().ordered_result_hits > 0);
 
-    app.kind = SearchKind::FilterOn;
-    app.input.text.clear();
-    app.filter_input.text = "note ~ 'Moon'".into();
+    app.search.clear();
+    app.filter = Input::with_text("note ~ 'Moon'");
     app.search();
     let deadline = Instant::now() + Duration::from_secs(5);
     while app.searching && Instant::now() < deadline {
@@ -179,7 +182,7 @@ fn sorted_page_updates_keep_selection_by_record_identity() {
         .collect::<Vec<_>>();
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.input.text = "Moon SORT BY title".into();
+    app.search = Input::with_text("Moon SORT BY title");
     app.search();
     app.pending_search.take();
     let placeholder = app.repo.fork_unindexed();
@@ -189,7 +192,7 @@ fn sorted_page_updates_keep_selection_by_record_identity() {
         running: Some(Running {
             receiver,
             cancel: Arc::new(AtomicBool::new(false)),
-            generation: app.search_generation,
+            generation: app.generation,
             kind: JobKind::Search,
         }),
     };
@@ -246,7 +249,7 @@ fn real_query_worker_streams_ordered_hits_and_restores_repository() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     let mut worker = SearchWorker::default();
     let deadline = Instant::now() + Duration::from_secs(5);
@@ -256,7 +259,7 @@ fn real_query_worker_streams_ordered_hits_and_restores_repository() {
     }
     assert!(!app.searching);
     assert_eq!(app.total, Some(3));
-    assert!(app.search_elapsed_ms.is_some());
+    assert!(app.elapsed_ms.is_some());
     assert_eq!(
         app.hits
             .iter()
@@ -295,7 +298,7 @@ fn inference_worker_keeps_ui_responsive_and_returns_its_warm_repository() {
     }
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.pending_inference = Some(crate::tui::state::InferRequest {
+    app.pending_inference = Some(crate::tui::app::InferRequest {
         collection: Some("docs".into()),
         auto_index: true,
     });
@@ -308,8 +311,7 @@ fn inference_worker_keeps_ui_responsive_and_returns_its_warm_repository() {
         thread::sleep(Duration::from_millis(1));
     }
     assert!(app.index_status.is_none());
-    assert!(app.focus == Focus::InferReady);
-    assert!(app.message.contains("indexed paths"), "{}", app.message);
+    assert!(matches!(app.overlay, Some(Overlay::InferReady)));
     let result = app
         .repo
         .query_json(&JsonQuery {
@@ -341,7 +343,7 @@ fn completed_advanced_scan_offers_a_separate_schema_write() {
     let original = fs::read(&schema_path).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.pending_inference = Some(crate::tui::state::InferRequest {
+    app.pending_inference = Some(crate::tui::app::InferRequest {
         collection: Some("docs".into()),
         auto_index: true,
     });
@@ -352,9 +354,9 @@ fn completed_advanced_scan_offers_a_separate_schema_write() {
         worker.drive(&mut app);
         thread::sleep(Duration::from_millis(1));
     }
-    assert!(app.focus == Focus::InferReady);
+    assert!(matches!(app.overlay, Some(Overlay::InferReady)));
     assert_eq!(fs::read(&schema_path).unwrap(), original);
-    crate::tui::key(
+    crate::tui::keys::key(
         &mut app,
         KeyEvent::new(KeyCode::Char('w'), KeyModifiers::NONE),
     );
@@ -363,7 +365,11 @@ fn completed_advanced_scan_offers_a_separate_schema_write() {
         worker.drive(&mut app);
         thread::sleep(Duration::from_millis(1));
     }
-    assert!(app.inference_saved, "{}", app.message);
+    assert!(
+        app.inference_saved,
+        "{:?}",
+        app.notice.as_ref().map(|notice| &notice.text)
+    );
     let schema: serde_json::Value =
         serde_json::from_slice(&fs::read(&schema_path).unwrap()).unwrap();
     assert_eq!(schema["properties"]["active"]["type"], "boolean");
@@ -397,8 +403,7 @@ fn filter_query_uses_the_same_hit_event_path() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.kind = SearchKind::FilterOn;
-    app.filter_input.text = "note ~ 'Moon'".into();
+    app.filter = Input::with_text("note ~ 'Moon'");
     app.search();
     let mut worker = SearchWorker::default();
     let deadline = Instant::now() + Duration::from_secs(5);
@@ -429,7 +434,7 @@ fn late_stream_error_discards_provisional_rows() {
         .remove(0);
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     app.pending_search.take();
     let placeholder = app.repo.fork_unindexed();
@@ -439,7 +444,7 @@ fn late_stream_error_discards_provisional_rows() {
         running: Some(Running {
             receiver,
             cancel: Arc::new(AtomicBool::new(false)),
-            generation: app.search_generation,
+            generation: app.generation,
             kind: JobKind::Search,
         }),
     };
@@ -460,8 +465,9 @@ fn late_stream_error_discards_provisional_rows() {
     assert!(app.hits.is_empty());
     assert!(!app.searching);
     assert!(app.last_request.is_none());
-    assert!(app.focus == Focus::Query);
-    assert!(app.message.contains("source changed"));
+    assert!(app.view == View::Results);
+    let notice = app.notice.as_ref().unwrap();
+    assert!(notice.error && notice.text.contains("source changed"));
 }
 
 #[test]
@@ -482,10 +488,10 @@ fn changed_query_discards_old_events_then_runs_latest_request() {
         .remove(0);
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     app.pending_search.take();
-    let old_generation = app.search_generation;
+    let old_generation = app.generation;
     let placeholder = app.repo.fork_unindexed();
     let repository = std::mem::replace(app.repo, placeholder);
     let (sender, receiver) = mpsc::channel();
@@ -498,7 +504,7 @@ fn changed_query_discards_old_events_then_runs_latest_request() {
             kind: JobKind::Search,
         }),
     };
-    app.input.text = "Sun".into();
+    app.search = Input::with_text("Sun");
     app.search();
     sender
         .send(SearchUpdate::Hit(Box::new(Hit::Text(old_hit))))
@@ -545,7 +551,7 @@ fn detail_navigation_reopens_the_correct_hit_after_streamed_page_changes() {
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.async_search = true;
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     let mut worker = SearchWorker::default();
     app.search();
     let deadline = Instant::now() + Duration::from_secs(5);
@@ -555,35 +561,25 @@ fn detail_navigation_reopens_the_correct_hit_after_streamed_page_changes() {
     }
     assert_eq!(app.total, Some(101));
     assert_eq!(app.hits.len(), 100);
-    app.focus = Focus::Detail;
     app.selected = 99;
-    app.detail_neighbor(true);
+    app.open_detail();
+    // Stepping past the last loaded row loads the next rows first.
+    app.detail_step(true);
     assert!(app.searching);
-    assert!(app.pending_detail == Some(DetailEdge::First));
     let deadline = Instant::now() + Duration::from_secs(5);
     while app.searching && Instant::now() < deadline {
         worker.drive(&mut app);
         thread::sleep(Duration::from_millis(1));
     }
     assert!(!app.searching);
-    assert!(app.focus == Focus::Detail);
-    assert_eq!(app.offset, 100);
-    assert_eq!(app.selected, 0);
-    assert_eq!(app.hits[0].record().id, "100");
-
-    app.detail_neighbor(false);
-    assert!(app.pending_detail == Some(DetailEdge::Last));
-    let deadline = Instant::now() + Duration::from_secs(5);
-    while app.searching && Instant::now() < deadline {
-        worker.drive(&mut app);
-        thread::sleep(Duration::from_millis(1));
-    }
-    assert!(!app.searching);
-    assert!(app.focus == Focus::Detail);
-    assert_eq!(app.offset, 0);
-    assert_eq!(app.selected, 99);
-    assert_eq!(app.hits[99].record().id, "099");
+    assert!(app.view == View::Detail);
+    assert_eq!(app.hits.len(), 101);
+    assert_eq!(app.selected, 100);
+    assert_eq!(app.current_detail_hit().unwrap().record().id, "100");
+    app.detail_step(false);
+    assert_eq!(app.current_detail_hit().unwrap().record().id, "099");
 }
+
 
 #[test]
 fn backlink_event_mounts_a_selectable_row_before_lookup_finishes() {
@@ -601,7 +597,7 @@ fn backlink_event_mounts_a_selectable_row_before_lookup_finishes() {
     fs::write(people.join("p.json"), r#"{"name":"Alice"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.input.text = "Alice".into();
+    app.search = Input::with_text("Alice");
     app.search();
     app.open_detail();
     assert!(matches!(app.links.status, BacklinkStatus::Loading));
@@ -656,7 +652,7 @@ fn new_query_discards_stale_backlinks_and_reuses_the_warm_repository() {
     fs::write(people.join("p.json"), r#"{"name":"Alice"}"#).unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
-    app.input.text = "Alice".into();
+    app.search = Input::with_text("Alice");
     app.search();
     app.open_detail();
     let source = app.repo.get_record("books", "b").unwrap().unwrap();
@@ -675,7 +671,7 @@ fn new_query_discards_stale_backlinks_and_reuses_the_warm_repository() {
         }),
     };
     app.async_search = true;
-    app.input.text = "Moon".into();
+    app.search = Input::with_text("Moon");
     app.search();
     sender
         .send(SearchUpdate::Backlink(Box::new(source)))
