@@ -150,18 +150,18 @@ impl<'a, F: SnapshotFiles + ?Sized> ManifestRef<'a, F> {
         changed_bigrams: &'a BTreeMap<usize, Vec<u16>>,
         bigram_encoding: &'static str,
         scalar_postings: bool,
-    ) -> Self {
-        Self {
+    ) -> Result<Self> {
+        Ok(Self {
             source_root,
             recursive,
             git_commit,
-            id_bytes: files.id_arena(),
+            id_bytes: files.id_arena()?,
             entries: EntriesRef(files),
             changed_slots,
             changed_bigrams,
             bigram_encoding,
             scalar_postings,
-        }
+        })
     }
 
     pub(super) fn files(&self) -> &F {

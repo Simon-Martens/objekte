@@ -162,8 +162,8 @@ impl SnapshotFiles for FilePicker {
         }
     }
 
-    fn id_arena(&self) -> Cow<'_, [u8]> {
-        Cow::Borrowed(&self.id_bytes)
+    fn id_arena(&self) -> Result<Cow<'_, [u8]>> {
+        Ok(Cow::Borrowed(&self.id_bytes))
     }
 }
 

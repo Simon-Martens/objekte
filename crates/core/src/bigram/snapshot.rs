@@ -137,12 +137,22 @@ pub(crate) trait SnapshotFiles {
     fn len(&self) -> usize;
     fn entry(&self, slot: usize) -> BigramFileRef<'_>;
 
-    fn id_arena(&self) -> Cow<'_, [u8]> {
+    fn id_arena(&self) -> Result<Cow<'_, [u8]>> {
+        let length = (0..self.len()).try_fold(0usize, |sum, slot| {
+            sum.checked_add(self.entry(slot).id.len())
+                .ok_or_else(|| invalid("ID arena length overflow"))
+        })?;
+        if length > u32::MAX as usize || length as u64 > MAX_SNAPSHOT_BYTES {
+            return Err(invalid("ID arena too large"));
+        }
         let mut bytes = Vec::new();
+        bytes
+            .try_reserve_exact(length)
+            .map_err(|_| invalid("cannot allocate ID arena"))?;
         for slot in 0..self.len() {
             bytes.extend_from_slice(self.entry(slot).id.as_bytes());
         }
-        Cow::Owned(bytes)
+        Ok(Cow::Owned(bytes))
     }
 }
 
@@ -358,7 +368,7 @@ impl CompactSnapshot {
         if files.windows(2).any(|pair| pair[0].id >= pair[1].id) {
             return Err(invalid("unordered cached file IDs"));
         }
-        let arena = files.as_slice().id_arena().into_owned();
+        let arena = files.as_slice().id_arena()?.into_owned();
         let mut entries = Vec::with_capacity(files.len());
         let mut start = 0_u32;
         let changed_at_nanos = crate::file_picker::now_nanos();
@@ -591,7 +601,7 @@ impl BigramSnapshot {
                 &self.changed_bigrams,
                 self.filter.encoding().as_str(),
                 self.filter.scalar_postings,
-            ),
+            )?,
             &self.filter,
         )
     }
@@ -665,7 +675,7 @@ impl BigramSnapshot {
                 changed_bigrams,
                 filter.encoding().as_str(),
                 scalar_postings,
-            ),
+            )?,
             filter,
         )
     }
