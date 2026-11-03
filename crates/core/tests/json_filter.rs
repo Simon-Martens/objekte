@@ -687,7 +687,8 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
     query.filter = "x = 2 || name ~ 'special'".into();
     let unbounded = memory.query_json(&query).unwrap();
     assert_eq!(unbounded.total, Some(3));
-    assert_eq!(unbounded.metrics.grep_scans, 80);
+    assert_eq!(unbounded.metrics.grep_scans, 40);
+    assert!(unbounded.metrics.predicate_cache_hits > 0);
     f.edit("data/books/r050.json", |record| record["x"] = json!(3));
     memory.refresh("books").unwrap();
     query.filter = "x = 2 || x = 3".into();
@@ -859,7 +860,8 @@ fn repository_scope_paging_and_dependencies_include_unopened_collections() {
     assert_eq!(first.metrics.source_reads, 4);
     assert!(first.metrics.bigram_open_nanos > 0);
     let next = r.query_json(&q).unwrap();
-    assert_eq!(next.metrics.source_reads, 4);
+    assert_eq!(next.metrics.source_reads, 1);
+    assert!(next.metrics.predicate_cache_hits > 0);
     assert_eq!(next.metrics.enumerations, 0);
     assert_eq!(first.filter_hash, next.filter_hash);
     q.offset = 100;

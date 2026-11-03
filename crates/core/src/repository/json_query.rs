@@ -39,6 +39,9 @@ struct ScanOutcome {
     validation_nanos: u64,
     validated: bool,
     projected: Option<(Document, String, Stamp)>,
+    cache_skipped: bool,
+    cached_terms: u64,
+    term_results: smallvec::SmallVec<[u8; 4]>,
 }
 
 

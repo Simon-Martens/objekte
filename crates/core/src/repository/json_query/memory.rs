@@ -3,13 +3,73 @@
 use super::*;
 use crate::{
     Field,
+    file_picker::SlotSelection,
     json_filter::{FileMetadata, FtsPlan, MetadataDecision, MetadataPathHint},
+    repository::{
+        ordered_result_cache::{OrderedCoverage, OrderedResultKey},
+        predicate_cache::PredicateCacheKey,
+    },
 };
 use grep_searcher::SearcherBuilder;
 use regex::bytes::Regex;
 use std::sync::OnceLock;
 
 static ESCAPED_KEY: OnceLock<Regex> = OnceLock::new();
+
+fn known_truth(
+    entry: &crate::repository::predicate_cache::VerifiedPredicateEntry,
+    slot: usize,
+) -> Option<bool> {
+    entry.known(slot)
+}
+
+/// A verified conjunction plus exact scalar postings can prove a larger
+/// conjunction without opening its non-page source files.
+fn complete_cached_conjunction(
+    cache: &mut crate::repository::predicate_cache::VerifiedPredicateCache,
+    filter: &JsonFilter,
+    collection: &str,
+    picker: &crate::file_picker::FilePicker,
+) -> Option<Vec<u64>> {
+    let terms = filter.cache_conjuncts();
+    if !(2..=8).contains(&terms.len()) {
+        return None;
+    }
+    let full_mask = (1_usize << terms.len()) - 1;
+    let mut best = None::<(usize, Vec<u64>)>;
+    for mask in 1..full_mask {
+        let expression = if mask.count_ones() == 1 {
+            terms[mask.trailing_zeros() as usize].cache_expression()
+        } else {
+            let indices = (0..terms.len())
+                .filter(|index| mask & (1 << index) != 0)
+                .collect::<Vec<_>>();
+            filter.cache_subset(&indices).cache_expression()
+        };
+        let key = PredicateCacheKey {
+            collection: collection.to_owned(),
+            expression,
+        };
+        if let Some(entry) = cache.get(&key).filter(|entry| entry.complete)
+            && best
+                .as_ref()
+                .is_none_or(|(previous, _)| mask.count_ones() > previous.count_ones())
+        {
+            best = Some((mask, entry.matched.clone()));
+        }
+    }
+    let (mask, mut matches) = best?;
+    for (index, term) in terms.iter().enumerate() {
+        if mask & (1 << index) != 0 {
+            continue;
+        }
+        let posting = picker.exact_match_bits(&term.exact_index_plan()?)?;
+        for (word, next) in matches.iter_mut().zip(posting) {
+            *word &= next;
+        }
+    }
+    Some(matches)
+}
 
 fn required_key_prefilters(required: &[String], fields: &BTreeMap<String, Field>) -> Vec<Regex> {
     required
@@ -78,6 +138,7 @@ impl Repository {
         let rebuild = !self.file_pickers.contains_key(&c.name)
             || matches!(self.options.freshness, Freshness::HashOnRequest);
         if rebuild {
+            self.query_cache.invalidate(&c.name);
             let started = Instant::now();
             let cache_path = self.bigram_cache_path(&c.name)?;
             let cache_present = cache_path.is_file();
@@ -151,6 +212,7 @@ impl Repository {
                 .expect("picker exists")
                 .refresh()?;
             if changed > 0 {
+                self.query_cache.invalidate(&c.name);
                 self.autosave_loaded_bigram_cache(&c.name)?;
             }
             self.metrics.bigram_refresh_nanos += nanos(started);
@@ -169,6 +231,9 @@ impl Repository {
         result.query_plan =
             vec!["in-memory bigram, typed, and presence candidates; source verification".into()];
         let mut matched = 0;
+        let mut pending_cache = Vec::new();
+        let mut pending_ordered = Vec::new();
+        let evictions_before = self.query_cache.evictions();
         let escaped_key =
             ESCAPED_KEY.get_or_init(|| Regex::new(r"\\u").expect("literal Unicode escape regex"));
         for c in collections {
@@ -196,6 +261,7 @@ impl Repository {
                     .expect("picker exists")
                     .ensure_text_index()?
                 {
+                    self.query_cache.invalidate(&c.name);
                     self.metrics.fts_open_nanos += nanos(started);
                 }
             }
@@ -230,6 +296,183 @@ impl Repository {
             // A later collection can contain an invalid array in a scalar field,
             // so build its picker and check that risk even when the page is full.
             if !request.count && !risk && result.returned() == request.limit {
+                continue;
+            }
+            let cache_key = (self.options.cache == CacheMode::Memory
+                && self.options.freshness != Freshness::HashOnRequest
+                && self.query_cache.enabled()
+                && !result.streaming
+                && picker.verified()
+                && picker.slot_count() <= u32::MAX as usize
+                && !risk
+                && !filter.has_metadata())
+            .then(|| PredicateCacheKey {
+                collection: c.name.clone(),
+                expression: filter.cache_expression(),
+            });
+            if let Some(key) = cache_key.as_ref()
+                && !self
+                    .query_cache
+                    .get(key)
+                    .is_some_and(|entry| entry.complete)
+            {
+                let branches = filter.cache_disjuncts();
+                if branches.len() > 1 {
+                    let mut union = None::<Vec<u64>>;
+                    for branch in branches {
+                        let branch_key = PredicateCacheKey {
+                            collection: c.name.clone(),
+                            expression: branch.cache_expression(),
+                        };
+                        let Some(entry) = self
+                            .query_cache
+                            .get(&branch_key)
+                            .filter(|entry| entry.complete)
+                        else {
+                            union = None;
+
+
+                            break;
+                        };
+                        if let Some(matched) = &mut union {
+                            for (word, next) in matched.iter_mut().zip(&entry.matched) {
+                                *word |= next;
+                            }
+                        } else {
+                            union = Some(entry.matched.clone());
+                        }
+                    }
+                    if let Some(matched) = union {
+                        self.query_cache.record_bits(
+                            key.clone(),
+                            vec![u64::MAX; matched.len()],
+                            matched,
+                            true,
+                        );
+                    }
+                }
+            }
+            if let Some(key) = cache_key.as_ref()
+                && result.on_candidate.is_none()
+                && !self
+                    .query_cache
+                    .get(key)
+                    .is_some_and(|entry| entry.complete)
+                && let Some(matches) =
+                    complete_cached_conjunction(&mut self.query_cache, &filter, &c.name, picker)
+            {
+                self.query_cache.record_bits(
+                    key.clone(),
+                    vec![u64::MAX; matches.len()],
+                    matches,
+                    true,
+                );
+            }
+            if let Some(key) = cache_key.as_ref()
+                && result.on_candidate.is_none()
+                && (request.sort.is_empty() || picker.has_sort_index(&request.sort))
+            {
+                let order_key = OrderedResultKey {
+                    predicate: key.clone(),
+                    sort: serde_json::to_vec(&request.sort).expect("sort serializes"),
+                };
+                if let Some((slots, coverage)) = self.query_cache.ordered(&order_key)
+                    && coverage != OrderedCoverage::Complete
+                {
+                    let capped_count = request.count
+                        && coverage == OrderedCoverage::CappedPrefix
+                        && collections.len() == 1
+                        && stop_after.is_some();
+                    let start = request.offset.saturating_sub(matched).min(slots.len());
+                    let remaining = request.limit.saturating_sub(result.returned());
+                    if (!request.count || capped_count)
+                        && remaining > 0
+                        && start.saturating_add(remaining) <= slots.len()
+                    {
+                        let page = slots[start..start + remaining]
+                            .iter()
+                            .map(|&slot| picker.view_record(slot as usize))
+                            .collect::<Vec<_>>();
+                        Self::query_json_metadata_records(
+                            &mut self.metrics,
+                            super::exact::ExactQuery {
+                                filter: &filter,
+                                collection: c,
+                                root: &self.model.root,
+                            },
+                            &page,
+                            result,
+                        )?;
+                        self.metrics.ordered_result_hits += 1;
+                        matched += if capped_count {
+                            self.options.total_limit.saturating_add(1)
+                        } else {
+                            slots.len()
+                        };
+                        self.metrics.bigram_candidates_nanos += nanos(candidate_started);
+                        continue;
+                    }
+                }
+            }
+            if let Some(key) = cache_key.as_ref()
+                && result.on_candidate.is_none()
+                && (request.sort.is_empty() || picker.has_sort_index(&request.sort))
+                && let Some(bits) = self
+                    .query_cache
+                    .get(key)
+                    .and_then(|entry| entry.complete.then(|| entry.matched.clone()))
+            {
+                let order_key = OrderedResultKey {
+                    predicate: key.clone(),
+                    sort: serde_json::to_vec(&request.sort).expect("sort serializes"),
+                };
+                let (count, page_slots) = if let Some((slots, OrderedCoverage::Complete)) =
+                    self.query_cache.ordered(&order_key)
+                {
+                    self.metrics.ordered_result_hits += 1;
+                    let start = request.offset.saturating_sub(matched).min(slots.len());
+                    let end = start
+                        .saturating_add(request.limit.saturating_sub(result.returned()))
+                        .min(slots.len());
+                    (slots.len(), slots[start..end].to_vec())
+                } else {
+                    let mut selection = SlotSelection::from_bits(picker, Some(bits));
+                    selection.order_sparse(picker, request.sort.is_empty(), &request.sort);
+                    let slots = selection
+                        .ordered(picker, request.sort.is_empty(), &request.sort)
+                        .map(|slot| u32::try_from(slot).expect("picker slots fit u32"))
+                        .collect::<Vec<_>>();
+                    let start = request.offset.saturating_sub(matched).min(slots.len());
+                    let end = start
+                        .saturating_add(request.limit.saturating_sub(result.returned()))
+                        .min(slots.len());
+                    let page = slots[start..end].to_vec();
+                    let count = slots.len();
+                    self.query_cache.insert_ordered(order_key, slots);
+                    (count, page)
+                };
+                self.metrics.predicate_cache_hits += 1;
+                let page = page_slots
+                    .iter()
+                    .map(|&slot| picker.view_record(slot as usize))
+                    .collect::<Vec<_>>();
+                Self::query_json_metadata_records(
+                    &mut self.metrics,
+                    super::exact::ExactQuery {
+                        filter: &filter,
+                        collection: c,
+                        root: &self.model.root,
+                    },
+                    &page,
+                    result,
+                )?;
+                matched += count;
+                if !request.sort.is_empty() {
+                    result
+                        .query_plan
+                        .push("schema-declared ordered sort index".into());
+                }
+                self.metrics.bigram_candidates_nanos += nanos(candidate_started);
                 continue;
             }
             if request.sort.is_empty()
@@ -343,6 +586,83 @@ impl Repository {
                         .push("rendered full-text bigram candidates".into());
                 }
             }
+            let mut conjuncts = Vec::new();
+            let mut term_keys = Vec::new();
+            let mut term_snapshots = Vec::new();
+            let mut omitted_terms = Vec::new();
+            let mut full_snapshot = None;
+            let mut disjunction = false;
+            if let Some(key) = cache_key.as_ref()
+                && result.on_candidate.is_none()
+            {
+                full_snapshot = self.query_cache.get(key).cloned();
+                let disjuncts = filter.cache_disjuncts();
+                disjunction = disjuncts.len() > 1;
+                conjuncts = if disjunction {
+                    disjuncts
+                } else {
+                    filter.cache_conjuncts()
+                };
+                omitted_terms = vec![false; conjuncts.len()];
+                if !disjunction && (2..=8).contains(&conjuncts.len()) {
+                    let mut best = None;
+                    for mask in 1_usize..(1_usize << conjuncts.len()) - 1 {
+                        if mask.count_ones() < 2 {
+                            continue;
+                        }
+                        let indices = (0..conjuncts.len())
+                            .filter(|index| mask & (1 << index) != 0)
+                            .collect::<Vec<_>>();
+                        let subset = filter.cache_subset(&indices);
+                        let key = PredicateCacheKey {
+                            collection: c.name.clone(),
+                            expression: subset.cache_expression(),
+                        };
+                        if let Some(entry) = self.query_cache.get(&key)
+                            && entry.complete
+                            && best.as_ref().is_none_or(
+                                |(_, size, _): &(Vec<usize>, usize, Vec<u64>)| {
+                                    indices.len() > *size
+                                },
+                            )
+                        {
+                            best =
+                                Some((indices, mask.count_ones() as usize, entry.matched.clone()));
+                        }
+                    }
+                    if let Some((indices, _, bits)) = best {
+                        selection.intersect_bits(picker, Some(bits));
+                        for index in indices {
+                            omitted_terms[index] = true;
+                        }
+                        self.metrics.predicate_cache_hits += 1;
+                    }
+                }
+                for (index, term) in conjuncts.iter().enumerate() {
+                    if omitted_terms[index] || term.exact_index_plan().is_some() {
+                        term_keys.push(None);
+                        term_snapshots.push(None);
+                        continue;
+                    }
+                    let term_key = PredicateCacheKey {
+                        collection: c.name.clone(),
+                        expression: term.cache_expression(),
+                    };
+                    let snapshot = self.query_cache.get(&term_key).cloned();
+                    if !disjunction
+                        && let Some(entry) = snapshot.as_ref().filter(|entry| entry.complete)
+                    {
+                        selection.intersect_bits(picker, Some(entry.matched.clone()));
+                        omitted_terms[index] = true;
+                        self.metrics.predicate_cache_hits += 1;
+                        term_keys.push(None);
+                        term_snapshots.push(None);
+                        continue;
+                    }
+                    term_snapshots.push(snapshot);
+                    term_keys.push(Some(term_key));
+                }
+            }
             let indexed_sort =
                 selection.order_sparse(picker, request.sort.is_empty(), &request.sort);
             if !request.sort.is_empty() && indexed_sort {
@@ -410,9 +730,31 @@ impl Repository {
                 base_chunk
             };
             let mut entries = selection.ordered(picker, request.sort.is_empty(), &request.sort);
+            let mut observed = cache_key.as_ref().map(|_| {
+                (
+                    vec![0_u64; picker.slot_count().div_ceil(64)],
+                    vec![0_u64; picker.slot_count().div_ceil(64)],
+                )
+            });
+            let mut ordered_matches = Vec::new();
+            let max_ordered_slots = self.options.query_cache_bytes / 8;
+            let mut ordered_truncated = false;
+            let mut term_observed = term_keys
+                .iter()
+                .map(|key| {
+                    key.as_ref().map(|_| {
+                        (
+                            vec![0_u64; picker.slot_count().div_ceil(64)],
+                            vec![0_u64; picker.slot_count().div_ceil(64)],
+                        )
+                    })
+                })
+                .collect::<Vec<_>>();
+            let mut complete = false;
             loop {
                 let batch = entries.by_ref().take(chunk_size).collect::<Vec<_>>();
                 if batch.is_empty() {
+                    complete = true;
                     break;
                 }
                 let mut page_matches = Vec::new();
@@ -432,6 +774,40 @@ impl Repository {
                             )
                         },
                         |(searcher, bytes), &slot| -> Result<ScanOutcome> {
+                            if let Some(matches) = full_snapshot
+                                .as_ref()
+                                .and_then(|entry| known_truth(entry, slot))
+                            {
+                                return Ok(ScanOutcome {
+                                    matches,
+                                    cache_skipped: true,
+                                    ..Default::default()
+                                });
+                            }
+                            let mut cached_terms = 0;
+                            let mut known_result = None;
+                            for (index, snapshot) in term_snapshots.iter().enumerate() {
+                                if omitted_terms[index] {
+                                    continue;
+                                }
+                                if let Some(matches) =
+                                    snapshot.as_ref().and_then(|entry| known_truth(entry, slot))
+                                {
+                                    cached_terms += 1;
+                                    if matches == disjunction {
+                                        known_result = Some(matches);
+                                        break;
+                                    }
+                                }
+                            }
+                            if let Some(matches) = known_result {
+                                return Ok(ScanOutcome {
+                                    matches,
+                                    cache_skipped: true,
+                                    cached_terms,
+                                    ..Default::default()
+                                });
+                            }
                             let (id, stamp) = picker.view_record(slot);
                             let open_started = Instant::now();
                             let path = source.path.join(format!("{id}.json"));
@@ -478,6 +854,7 @@ impl Repository {
                                 file_open_nanos,
                                 read_nanos,
                                 regex_nanos,
+                                cached_terms,
                                 ..Default::default()
                             };
                             let mut matched_document = None;
@@ -501,14 +878,41 @@ impl Repository {
                                         .to_string_lossy()
                                         .into_owned()
                                 });
-                                outcome.matches = filter.matches_source(
-                                    &doc.data,
-                                    id,
-                                    metadata_path.as_deref().unwrap_or(""),
-                                    &before,
-                                    created,
-                                    doc.state.status,
-                                )?;
+                                if conjuncts.is_empty() {
+                                    outcome.matches = filter.matches_source(
+                                        &doc.data,
+                                        id,
+                                        metadata_path.as_deref().unwrap_or(""),
+                                        &before,
+                                        created,
+                                        doc.state.status,
+                                    )?;
+                                } else if doc.state.status != RecordStatus::IncorrectJson {
+                                    filter.check_cardinality(&doc.data)?;
+                                    outcome.matches = !disjunction;
+                                    outcome.term_results =
+                                        smallvec::SmallVec::from_elem(0_u8, conjuncts.len());
+                                    for (index, term) in conjuncts.iter().enumerate() {
+                                        if omitted_terms[index] {
+                                            continue;
+                                        }
+                                        let matches = if let Some(known) = term_snapshots[index]
+                                            .as_ref()
+                                            .and_then(|entry| known_truth(entry, slot))
+                                        {
+                                            known
+                                        } else {
+                                            let matches = term.matches(&doc.data)?;
+                                            outcome.term_results[index] =
+                                                if matches { 2 } else { 1 };
+                                            matches
+                                        };
+                                        if matches == disjunction {
+                                            outcome.matches = matches;
+                                            break;
+                                        }
+                                    }
+                                }
                                 outcome.query_nanos = nanos(t);
                                 if outcome.matches && capture_candidate {
                                     matched_document = Some(doc);
@@ -531,13 +935,39 @@ impl Repository {
                         },
                     )
                     .collect::<Result<Vec<_>>>()?;
-                self.metrics.grep_scans += batch.len() as u64;
+                self.metrics.grep_scans += outcomes
+                    .iter()
+                    .filter(|outcome| !outcome.cache_skipped)
+                    .count() as u64;
                 self.metrics.grep_bytes += batch
                     .iter()
-                    .map(|&slot| picker.view_record(slot).1.size)
+                    .zip(&outcomes)
+                    .filter(|(_, outcome)| !outcome.cache_skipped)
+                    .map(|(&slot, _)| picker.view_record(slot).1.size)
                     .sum::<u64>();
                 self.metrics.grep_nanos += nanos(scan_started);
                 for (&slot, mut outcome) in batch.iter().zip(outcomes) {
+                    self.metrics.predicate_cache_hits += u64::from(outcome.cache_skipped);
+                    self.metrics.partial_evaluation_hits += outcome.cached_terms;
+                    for (index, &value) in outcome.term_results.iter().enumerate() {
+                        if value == 0 {
+                            continue;
+                        }
+                        if let Some((evaluated, matched)) = term_observed[index].as_mut() {
+                            let bit = 1_u64 << (slot % 64);
+                            evaluated[slot / 64] |= bit;
+                            if value == 2 {
+                                matched[slot / 64] |= bit;
+                            }
+                        }
+                    }
+                    if let Some((evaluated, matches)) = observed.as_mut() {
+                        let bit = 1_u64 << (slot % 64);
+                        evaluated[slot / 64] |= bit;
+                        if outcome.matches {
+                            matches[slot / 64] |= bit;
+                        }
+                    }
                     let (id, stamp) = picker.view_record(slot);
                     self.metrics.bigram_file_open_nanos += outcome.file_open_nanos;
                     self.metrics.bigram_read_nanos += outcome.read_nanos;
@@ -558,6 +988,14 @@ impl Repository {
                         self.metrics.validations += u64::from(outcome.validated);
                     }
                     if outcome.matches {
+                        if cache_key.is_some() {
+                            if ordered_matches.len() < max_ordered_slots {
+                                ordered_matches
+                                    .push(u32::try_from(slot).expect("picker slots fit u32"));
+                            } else {
+                                ordered_truncated = true;
+                            }
+                        }
                         if matched >= request.offset
                             && result.returned() + page_matches.len() < request.limit
                         {
@@ -634,7 +1072,43 @@ impl Repository {
                 }
             }
             source.finish()?;
+            if let (Some(key), Some((evaluated, matches))) = (cache_key, observed) {
+                if request.sort.is_empty() || indexed_sort {
+                    let coverage = if ordered_truncated {
+                        OrderedCoverage::Prefix
+                    } else if complete {
+                        OrderedCoverage::Complete
+                    } else if stop_after.is_some_and(|limit| matched >= limit) {
+                        OrderedCoverage::CappedPrefix
+                    } else {
+                        OrderedCoverage::Prefix
+                    };
+                    pending_ordered.push((
+                        OrderedResultKey {
+                            predicate: key.clone(),
+                            sort: serde_json::to_vec(&request.sort).expect("sort serializes"),
+                        },
+                        ordered_matches,
+                        coverage,
+                    ));
+                }
+                pending_cache.push((key, evaluated, matches, complete));
+            }
+            for (key, observed) in term_keys.into_iter().zip(term_observed) {
+                if let (Some(key), Some((evaluated, matches))) = (key, observed) {
+                    pending_cache.push((key, evaluated, matches, false));
+                }
+            }
         }
+        for (key, evaluated, matches, complete) in pending_cache {
+            self.query_cache
+                .record_bits(key, evaluated, matches, complete);
+        }
+        for (key, slots, coverage) in pending_ordered {
+            self.query_cache
+                .insert_ordered_with_coverage(key, slots, coverage);
+        }
+        self.metrics.cache_evictions += self.query_cache.evictions() - evictions_before;
         result.total = request.count.then_some(matched);
         Ok(())
     }

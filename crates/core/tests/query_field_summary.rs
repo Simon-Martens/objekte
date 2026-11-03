@@ -48,7 +48,8 @@ fn absent_collection_keys_are_skipped_but_escaped_and_refreshed_keys_match() {
     repo.rebuild_bigram_index("absent").unwrap();
     let rebuilt = query(&mut repo, "flag = true");
     assert_eq!(rebuilt.total, Some(3));
-    assert_eq!(rebuilt.metrics.grep_scans, 103);
+    assert_eq!(rebuilt.metrics.grep_scans, 101);
+    assert!(rebuilt.metrics.predicate_cache_hits >= 2);
     assert!(rebuilt.metrics.parses <= 6, "{:#?}", rebuilt.metrics);
 }
 

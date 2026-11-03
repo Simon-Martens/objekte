@@ -78,7 +78,8 @@ fn uncounted_page_stops_after_a_parallel_batch_but_count_scans_all() {
         })
         .unwrap();
     assert_eq!(counted.total, Some(800));
-    assert_eq!(counted.metrics.grep_scans, 800);
+    assert_eq!(counted.metrics.grep_scans, 0);
+    assert!(counted.metrics.predicate_cache_hits > 0);
 
     // A schema-invalid array later in ID order must still raise the global
     // scalar-cardinality error, even for an uncounted first page.
