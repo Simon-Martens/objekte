@@ -1,15 +1,17 @@
 //! A portable filter snapshot with an explicit slot-to-file manifest.
 
 use super::{BigramEncoding, BigramFilter};
+mod compact;
 use crate::{Error, Result, error::io, repository::validate_id, source::Source};
 use bincode::Options;
 use serde::{
-    Deserialize, Deserializer, Serialize, Serializer,
+    Deserialize, Deserializer, Serialize,
     de::{SeqAccess, Visitor},
-    ser::SerializeSeq,
 };
+use serde::{Serializer, ser::SerializeSeq};
 use sha2::{Digest, Sha256};
 use std::{
+    borrow::Cow,
     collections::{BTreeMap, HashSet},
     fmt, fs,
     io::{BufReader, BufWriter, Read, Seek, SeekFrom, Write},
@@ -21,6 +23,7 @@ const MAGIC_JSON: &[u8; 8] = b"OBJSNP01";
 const MAGIC_BINARY: &[u8; 8] = b"OBJSNP02";
 const MAGIC_ENCODING: &[u8; 8] = b"OBJSNP03";
 const MAGIC_SCALAR_POSTINGS: &[u8; 8] = b"OBJSNP04";
+const MAGIC_COMPACT: &[u8; 8] = b"OBJSNP05";
 const HEADER_LEN: usize = 8 + 8 + 8 + 32;
 const MAX_SNAPSHOT_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 
@@ -29,6 +32,7 @@ const MAX_SNAPSHOT_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 #[derive(Default)]
 pub(crate) struct SnapshotLoadTimings {
     pub base_checksum_nanos: u64,
+    pub base_decode_checksum_nanos: u64,
     pub manifest_decode_nanos: u64,
     pub base_filter_decode_nanos: u64,
     pub manifest_validation_nanos: u64,
@@ -66,13 +70,21 @@ impl Write for DigestWriter<'_> {
 struct DigestReader<R> {
     inner: R,
     digest: Sha256,
+    #[cfg(feature = "index-timings")]
+    hash_nanos: u64,
 }
 
 
 impl<R: Read> Read for DigestReader<R> {
     fn read(&mut self, buffer: &mut [u8]) -> std::io::Result<usize> {
         let read = self.inner.read(buffer)?;
+        #[cfg(feature = "index-timings")]
+        let started = std::time::Instant::now();
         self.digest.update(&buffer[..read]);
+        #[cfg(feature = "index-timings")]
+        {
+            self.hash_nanos += started.elapsed().as_nanos() as u64;
+        }
         Ok(read)
     }
 }
@@ -124,6 +136,14 @@ pub(crate) struct BigramFileRef<'a> {
 pub(crate) trait SnapshotFiles {
     fn len(&self) -> usize;
     fn entry(&self, slot: usize) -> BigramFileRef<'_>;
+
+    fn id_arena(&self) -> Cow<'_, [u8]> {
+        let mut bytes = Vec::new();
+        for slot in 0..self.len() {
+            bytes.extend_from_slice(self.entry(slot).id.as_bytes());
+        }
+        Cow::Owned(bytes)
+    }
 }
 
 
@@ -294,6 +314,128 @@ pub struct BigramSnapshot {
 }
 
 
+/// Validated internal form used by early restoration without public file objects.
+pub(crate) struct CompactSnapshot {
+    pub source_root: PathBuf,
+    pub recursive: bool,
+    pub git_commit: Option<String>,
+    pub id_bytes: Vec<u8>,
+    pub entries: Vec<Option<crate::file_picker::FileEntry>>,
+    pub changed_slots: Vec<usize>,
+    pub changed_bigrams: BTreeMap<usize, Vec<u16>>,
+    pub filter: BigramFilter,
+}
+
+
+impl CompactSnapshot {
+    pub(crate) fn uses_scalar_postings(&self) -> bool {
+        self.filter.scalar_postings
+    }
+
+    fn from_manifest(manifest: compact::DecodedManifest, filter: BigramFilter) -> Self {
+        Self {
+            source_root: manifest.source_root,
+            recursive: manifest.recursive,
+            git_commit: manifest.git_commit,
+            id_bytes: manifest.id_bytes,
+            entries: manifest.entries.0,
+            changed_slots: manifest.changed_slots,
+            changed_bigrams: manifest.changed_bigrams,
+            filter,
+        }
+    }
+
+    fn from_public(snapshot: BigramSnapshot) -> Result<Self> {
+        let BigramSnapshot {
+            source_root,
+            recursive,
+            git_commit,
+            files,
+            changed_slots,
+            changed_bigrams,
+            filter,
+        } = snapshot;
+        if files.windows(2).any(|pair| pair[0].id >= pair[1].id) {
+            return Err(invalid("unordered cached file IDs"));
+        }
+        let arena = files.as_slice().id_arena().into_owned();
+        let mut entries = Vec::with_capacity(files.len());
+        let mut start = 0_u32;
+        let changed_at_nanos = crate::file_picker::now_nanos();
+        for file in files {
+            let len = u32::try_from(file.id.len()).map_err(|_| invalid("ID too long"))?;
+            entries.push(Some(crate::file_picker::FileEntry {
+                id_start: start,
+                id_len: len,
+                stamp: crate::source::Stamp {
+                    size: file.size_bytes,
+                    modified: file.modified_unix_nanos,
+                    identity: file.identity,
+                },
+                revision: 1,
+                changed_at_nanos,
+            }));
+            start = start
+                .checked_add(len)
+                .ok_or_else(|| invalid("ID arena too large"))?;
+        }
+        Ok(Self {
+            source_root,
+            recursive,
+            git_commit,
+            id_bytes: arena,
+            entries,
+            changed_slots,
+            changed_bigrams,
+            filter,
+        })
+    }
+
+    fn into_public(self) -> BigramSnapshot {
+        let files = self
+            .entries
+            .into_iter()
+            .map(|entry| {
+                let entry = entry.expect("validated compact entry");
+                let start = entry.id_start as usize;
+                let end = start + entry.id_len as usize;
+                let id = std::str::from_utf8(&self.id_bytes[start..end])
+                    .expect("validated ID")
+                    .to_owned();
+                BigramFile {
+                    filename: format!("{id}.json"),
+                    id,
+                    size_bytes: entry.stamp.size,
+                    modified_unix_nanos: entry.stamp.modified,
+                    identity: entry.stamp.identity,
+                }
+            })
+            .collect();
+        BigramSnapshot {
+            source_root: self.source_root,
+            recursive: self.recursive,
+            git_commit: self.git_commit,
+            files,
+            changed_slots: self.changed_slots,
+            changed_bigrams: self.changed_bigrams,
+            filter: self.filter,
+        }
+    }
+}
+
+
+enum LoadedSnapshot {
+    Public(BigramSnapshot),
+    Compact(CompactSnapshot),
+}
+
+
+enum DecodedManifest {
+    Legacy(Manifest),
+    Compact(compact::DecodedManifest),
+}
+
+
 fn current_git_commit(root: &Path) -> Result<Option<String>> {
     let output = match Command::new("git")
         .arg("-C")
@@ -440,17 +582,17 @@ impl BigramSnapshot {
     pub fn save(&self, path: &Path) -> Result<()> {
         Self::write_parts(
             path,
-            ManifestBinaryRef {
-                source_root: &self.source_root,
-                recursive: self.recursive,
-                git_commit: &self.git_commit,
-                files: CompactFilesRef(&self.files[..]),
-                changed_slots: &self.changed_slots,
-                changed_bigrams: &self.changed_bigrams,
-                bigram_encoding: self.filter.encoding().as_str(),
-            },
+            compact::ManifestRef::new(
+                &self.source_root,
+                self.recursive,
+                &self.git_commit,
+                &self.files[..],
+                &self.changed_slots,
+                &self.changed_bigrams,
+                self.filter.encoding().as_str(),
+                self.filter.scalar_postings,
+            ),
             &self.filter,
-            self.filter.scalar_postings,
         )
     }
 
@@ -514,17 +656,17 @@ impl BigramSnapshot {
         check_current_files(&source_root, recursive, &git_commit, files)?;
         Self::write_parts(
             path,
-            ManifestBinaryRef {
-                source_root: &source_root,
+            compact::ManifestRef::new(
+                &source_root,
                 recursive,
-                git_commit: &git_commit,
-                files: CompactFilesRef(files),
+                &git_commit,
+                files,
                 changed_slots,
                 changed_bigrams,
-                bigram_encoding: filter.encoding().as_str(),
-            },
+                filter.encoding().as_str(),
+                scalar_postings,
+            ),
             filter,
-            scalar_postings,
         )
     }
 
@@ -534,16 +676,22 @@ impl BigramSnapshot {
 
     fn write_parts<F: SnapshotFiles + ?Sized>(
         path: &Path,
-        manifest: ManifestBinaryRef<'_, F>,
+        manifest: compact::ManifestRef<'_, F>,
         filter: &BigramFilter,
-        scalar_postings: bool,
     ) -> Result<()> {
-        validate_files_ref(manifest.files.0, filter.file_count())?;
+        validate_files_ref(manifest.files(), filter.file_count())?;
+        if manifest.id_bytes.len() > u32::MAX as usize {
+            return Err(invalid("ID arena too large"));
+        }
         validate_changes(manifest.changed_slots, filter.file_count())?;
         validate_changed_bigrams(manifest.changed_slots, manifest.changed_bigrams)?;
         if manifest.bigram_encoding != filter.encoding().as_str() {
             return Err(invalid("manifest encoding differs from filter"));
         }
+        // Public snapshots may have unique but unordered slots. Keep their
+        // established format, since a V5 ID arena requires ascending IDs.
+        let legacy_unordered = (1..manifest.files().len())
+            .any(|slot| manifest.files().entry(slot - 1).id >= manifest.files().entry(slot).id);
         let parent = path
             .parent()
             .ok_or_else(|| invalid("snapshot needs a parent directory"))?;
@@ -560,9 +708,30 @@ impl BigramSnapshot {
                 bytes: 0,
             };
             let mut buffered = BufWriter::with_capacity(64 * 1024, writer);
-            bincode::DefaultOptions::new()
-                .serialize_into(&mut buffered, &manifest)
-                .map_err(|error| Error::Cache(format!("cannot encode bigram manifest: {error}")))?;
+            if legacy_unordered {
+                bincode::DefaultOptions::new()
+                    .serialize_into(
+                        &mut buffered,
+                        &ManifestBinaryRef {
+                            source_root: manifest.source_root,
+                            recursive: manifest.recursive,
+                            git_commit: manifest.git_commit,
+                            files: CompactFilesRef(manifest.files()),
+                            changed_slots: manifest.changed_slots,
+                            changed_bigrams: manifest.changed_bigrams,
+                            bigram_encoding: manifest.bigram_encoding,
+                        },
+                    )
+                    .map_err(|error| {
+                        Error::Cache(format!("cannot encode bigram manifest: {error}"))
+                    })?;
+            } else {
+                bincode::DefaultOptions::new()
+                    .serialize_into(&mut buffered, &manifest)
+                    .map_err(|error| {
+                        Error::Cache(format!("cannot encode bigram manifest: {error}"))
+                    })?;
+            }
             buffered.flush().map_err(|error| io(path, error))?;
             let manifest_len = buffered.get_ref().bytes;
             filter.write_to(&mut buffered)?;
@@ -577,10 +746,14 @@ impl BigramSnapshot {
             )
         };
         let mut header = [0_u8; HEADER_LEN];
-        header[..8].copy_from_slice(if scalar_postings {
-            MAGIC_SCALAR_POSTINGS
+        header[..8].copy_from_slice(if legacy_unordered {
+            if manifest.scalar_postings {
+                MAGIC_SCALAR_POSTINGS
+            } else {
+                MAGIC_ENCODING
+            }
         } else {
-            MAGIC_ENCODING
+            MAGIC_COMPACT
         });
         header[8..16].copy_from_slice(&manifest_len.to_le_bytes());
         header[16..24].copy_from_slice(&filter_len.to_le_bytes());
@@ -604,24 +777,56 @@ impl BigramSnapshot {
 
     /// Read a snapshot for inspection. Use `load_checked` before querying files.
     pub fn load(path: &Path) -> Result<Self> {
-        Self::load_inner(
-            path,
-            #[cfg(feature = "index-timings")]
-            &mut SnapshotLoadTimings::default(),
+        Ok(
+            match Self::load_inner(
+                path,
+                #[cfg(feature = "index-timings")]
+                &mut SnapshotLoadTimings::default(),
+            )? {
+                LoadedSnapshot::Public(snapshot) => snapshot,
+                LoadedSnapshot::Compact(snapshot) => snapshot.into_public(),
+            },
         )
     }
 
     #[cfg(feature = "index-timings")]
-    pub(crate) fn load_profiled(path: &Path) -> Result<(Self, SnapshotLoadTimings)> {
+    pub(crate) fn load_profiled(path: &Path) -> Result<(CompactSnapshot, SnapshotLoadTimings)> {
         let mut timings = SnapshotLoadTimings::default();
         let snapshot = Self::load_inner(path, &mut timings)?;
-        Ok((snapshot, timings))
+        Ok((
+            match snapshot {
+                LoadedSnapshot::Public(snapshot) => CompactSnapshot::from_public(snapshot)?,
+                LoadedSnapshot::Compact(snapshot) => snapshot,
+            },
+            timings,
+        ))
+    }
+
+    pub(crate) fn load_scoped_compact(
+        path: &Path,
+        source_root: &Path,
+        recursive: bool,
+    ) -> Result<CompactSnapshot> {
+        let snapshot = Self::load_inner(
+            path,
+            #[cfg(feature = "index-timings")]
+            &mut SnapshotLoadTimings::default(),
+        )?;
+        let snapshot = match snapshot {
+            LoadedSnapshot::Public(snapshot) => CompactSnapshot::from_public(snapshot)?,
+            LoadedSnapshot::Compact(snapshot) => snapshot,
+        };
+        let source_root = fs::canonicalize(source_root).map_err(|error| io(source_root, error))?;
+        if snapshot.source_root != source_root || snapshot.recursive != recursive {
+            return Err(Error::Cache("bigram snapshot source scope changed".into()));
+        }
+        Ok(snapshot)
     }
 
     fn load_inner(
         path: &Path,
         #[cfg(feature = "index-timings")] timings: &mut SnapshotLoadTimings,
-    ) -> Result<Self> {
+    ) -> Result<LoadedSnapshot> {
         let size = fs::metadata(path).map_err(|error| io(path, error))?.len();
         if size > MAX_SNAPSHOT_BYTES {
             return Err(invalid("snapshot exceeds size limit"));
@@ -637,7 +842,8 @@ impl BigramSnapshot {
             || (&header[..8] != MAGIC_JSON
                 && &header[..8] != MAGIC_BINARY
                 && &header[..8] != MAGIC_ENCODING
-                && &header[..8] != MAGIC_SCALAR_POSTINGS)
+                && &header[..8] != MAGIC_SCALAR_POSTINGS
+                && &header[..8] != MAGIC_COMPACT)
         {
             return Err(invalid("unknown format version"));
         }
@@ -680,27 +886,38 @@ impl BigramSnapshot {
             DigestReader {
                 inner: file.into_inner(),
                 digest: Sha256::new(),
+                #[cfg(feature = "index-timings")]
+                hash_nanos: 0,
             },
         );
         #[cfg(feature = "index-timings")]
         let manifest_started = std::time::Instant::now();
         let manifest = {
             let mut section = (&mut reader).take(manifest_len);
-            let manifest: Manifest = if &header[..8] == MAGIC_JSON {
-                serde_json::from_reader(&mut section)
-                    .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?
+            let manifest = if &header[..8] == MAGIC_JSON {
+                DecodedManifest::Legacy(
+                    serde_json::from_reader(&mut section).map_err(|error| {
+                        Error::Cache(format!("invalid bigram manifest: {error}"))
+                    })?,
+                )
             } else if &header[..8] == MAGIC_BINARY {
                 let binary: ManifestBinary = bincode::DefaultOptions::new()
                     .with_limit(manifest_len)
                     .deserialize_from(&mut section)
                     .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
-                binary.into()
+                DecodedManifest::Legacy(binary.into())
+            } else if &header[..8] == MAGIC_COMPACT {
+                let binary: compact::DecodedManifest = bincode::DefaultOptions::new()
+                    .with_limit(manifest_len)
+                    .deserialize_from(&mut section)
+                    .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
+                DecodedManifest::Compact(binary)
             } else {
                 let binary: ManifestBinaryV3 = bincode::DefaultOptions::new()
                     .with_limit(manifest_len)
                     .deserialize_from(&mut section)
                     .map_err(|error| Error::Cache(format!("invalid bigram manifest: {error}")))?;
-                binary.try_into()?
+                DecodedManifest::Legacy(binary.try_into()?)
             };
             if section.limit() != 0 {
                 return Err(invalid("manifest has trailing data"));
@@ -721,7 +938,7 @@ impl BigramSnapshot {
         #[cfg(feature = "index-timings")]
         {
             timings.base_filter_decode_nanos = filter_started.elapsed().as_nanos() as u64;
-            timings.posting_columns = filter.columns_used();
+            timings.posting_columns = filter.profile_total_columns();
         }
         let mut trailing = [0_u8; 1];
         if reader
@@ -731,32 +948,52 @@ impl BigramSnapshot {
         {
             return Err(invalid("snapshot has trailing data"));
         }
-        if reader.into_inner().digest.finalize().as_slice() != &header[24..HEADER_LEN] {
-            return Err(invalid("snapshot changed during decode"));
+        let digest_reader = reader.into_inner();
+        #[cfg(feature = "index-timings")]
+        {
+            timings.base_decode_checksum_nanos = digest_reader.hash_nanos;
         }
-        if manifest.bigram_encoding != filter.encoding() {
-            return Err(invalid("manifest encoding differs from filter"));
+        if digest_reader.digest.finalize().as_slice() != &header[24..HEADER_LEN] {
+            return Err(invalid("snapshot changed during decode"));
         }
 
         #[cfg(feature = "index-timings")]
         let validation_started = std::time::Instant::now();
-        filter.scalar_postings = &header[..8] == MAGIC_SCALAR_POSTINGS;
-        validate_files(&manifest.files, filter.file_count())?;
-        validate_changes(&manifest.changed_slots, filter.file_count())?;
-        validate_changed_bigrams(&manifest.changed_slots, &manifest.changed_bigrams)?;
+        let snapshot = match manifest {
+            DecodedManifest::Legacy(manifest) => {
+                if manifest.bigram_encoding != filter.encoding() {
+                    return Err(invalid("manifest encoding differs from filter"));
+                }
+                filter.scalar_postings = &header[..8] == MAGIC_SCALAR_POSTINGS;
+                validate_files(&manifest.files, filter.file_count())?;
+                validate_changes(&manifest.changed_slots, filter.file_count())?;
+                validate_changed_bigrams(&manifest.changed_slots, &manifest.changed_bigrams)?;
+                LoadedSnapshot::Public(Self {
+                    source_root: manifest.source_root,
+                    recursive: manifest.recursive,
+                    git_commit: manifest.git_commit,
+                    files: manifest.files,
+                    changed_slots: manifest.changed_slots,
+                    changed_bigrams: manifest.changed_bigrams,
+                    filter,
+                })
+            }
+            DecodedManifest::Compact(manifest) => {
+                if BigramEncoding::parse(&manifest.bigram_encoding) != Some(filter.encoding()) {
+                    return Err(invalid("manifest encoding differs from filter"));
+                }
+                filter.scalar_postings = manifest.scalar_postings;
+                manifest.validate(filter.file_count())?;
+                validate_changes(&manifest.changed_slots, filter.file_count())?;
+                validate_changed_bigrams(&manifest.changed_slots, &manifest.changed_bigrams)?;
+                LoadedSnapshot::Compact(CompactSnapshot::from_manifest(manifest, filter))
+            }
+        };
         #[cfg(feature = "index-timings")]
         {
             timings.manifest_validation_nanos = validation_started.elapsed().as_nanos() as u64;
         }
-        Ok(Self {
-            source_root: manifest.source_root,
-            recursive: manifest.recursive,
-            git_commit: manifest.git_commit,
-            files: manifest.files,
-            changed_slots: manifest.changed_slots,
-            changed_bigrams: manifest.changed_bigrams,
-            filter,
-        })
+        Ok(snapshot)
     }
 
     /// Restore only when every ID, filename, stamp, and Git commit still agrees.

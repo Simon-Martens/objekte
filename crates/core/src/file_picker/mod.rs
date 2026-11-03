@@ -29,7 +29,7 @@ mod view;
 
 use crate::bigram::{
     BigramEncoding, BigramFileRef, BigramFilter, BigramIndexBuilder, BigramSnapshot,
-    PostingChunkAccumulator, SnapshotFiles, extract_bigrams_with_encoding,
+    CompactSnapshot, PostingChunkAccumulator, SnapshotFiles, extract_bigrams_with_encoding,
 };
 use crate::{
     Direction, Error, Field, IndexField, Result,
@@ -39,6 +39,7 @@ use crate::{
 };
 use rayon::prelude::*;
 use std::{
+    borrow::Cow,
     collections::{BTreeMap, BTreeSet},
     path::{Path, PathBuf},
 };
@@ -80,12 +81,12 @@ fn sorted_bigrams(bytes: &[u8], encoding: BigramEncoding) -> Vec<u16> {
 
 /// Stable slot metadata for one source JSON file.
 #[derive(Debug, Clone)]
-struct FileEntry {
-    id_start: u32,
-    id_len: u32,
-    stamp: Stamp,
-    revision: u64,
-    changed_at_nanos: u128,
+pub(crate) struct FileEntry {
+    pub(crate) id_start: u32,
+    pub(crate) id_len: u32,
+    pub(crate) stamp: Stamp,
+    pub(crate) revision: u64,
+    pub(crate) changed_at_nanos: u128,
 }
 
 
@@ -96,6 +97,12 @@ struct RestoredBigram {
     changed_bigrams: BTreeMap<usize, Vec<u16>>,
     newly_changed: BTreeSet<usize>,
     dirty: bool,
+}
+
+
+enum CacheSnapshot {
+    Public(BigramSnapshot),
+    Compact(CompactSnapshot),
 }
 
 
@@ -154,6 +161,10 @@ impl SnapshotFiles for FilePicker {
             filename_valid: true,
         }
     }
+
+    fn id_arena(&self) -> Cow<'_, [u8]> {
+        Cow::Borrowed(&self.id_bytes)
+    }
 }
 
 
@@ -207,6 +218,7 @@ impl FilePicker {
         encoding: BigramEncoding,
         snapshot_path: &Path,
     ) -> Result<Self> {
+        let _ = BigramFilter::take_sparse_validation_nanos();
         let started = Instant::now();
         let (snapshot, load) = BigramSnapshot::load_profiled(snapshot_path)?;
         let mut picker = Self::open_cached_unchecked(
@@ -226,11 +238,14 @@ impl FilePicker {
         )?
         .ok_or_else(|| Error::Cache("profile snapshot could not be restored".into()))?;
         picker.restore_timings.base_checksum_nanos = load.base_checksum_nanos;
+        picker.restore_timings.base_decode_checksum_nanos = load.base_decode_checksum_nanos;
         picker.restore_timings.manifest_decode_nanos = load.manifest_decode_nanos;
         picker.restore_timings.base_filter_decode_nanos = load.base_filter_decode_nanos;
         picker.restore_timings.manifest_validation_nanos = load.manifest_validation_nanos;
         picker.restore_timings.snapshot_bytes_read += load.bytes_read;
         picker.restore_timings.posting_columns += load.posting_columns;
+        picker.restore_timings.sparse_validation_nanos =
+            BigramFilter::take_sparse_validation_nanos();
         picker.restore_timings.restore_total_nanos = elapsed_nanos(started);
         Ok(picker)
     }
@@ -259,7 +274,7 @@ impl FilePicker {
             sort_indexes,
             definitions,
             language,
-            (snapshot, snapshot_path),
+            (snapshot.map(CacheSnapshot::Public), snapshot_path),
             false,
             encoding,
         )?
@@ -278,7 +293,7 @@ impl FilePicker {
         sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
         language: Option<&str>,
-        snapshot: BigramSnapshot,
+        snapshot: CompactSnapshot,
         snapshot_path: &Path,
         encoding: BigramEncoding,
     ) -> Result<Option<Self>> {
@@ -290,7 +305,7 @@ impl FilePicker {
             sort_indexes,
             definitions,
             language,
-            (Some(snapshot), Some(snapshot_path)),
+            (Some(CacheSnapshot::Compact(snapshot)), Some(snapshot_path)),
             true,
             encoding,
         )
@@ -308,17 +323,21 @@ impl FilePicker {
         sort_indexes: &[Vec<crate::Sort>],
         definitions: &BTreeMap<String, Field>,
         language: Option<&str>,
-        cached: (Option<BigramSnapshot>, Option<&Path>),
+        cached: (Option<CacheSnapshot>, Option<&Path>),
         unchecked: bool,
         encoding: BigramEncoding,
     ) -> Result<Option<Self>> {
         let (mut snapshot, snapshot_path) = cached;
-        let scalar_snapshot = snapshot
-            .as_ref()
-            .is_some_and(BigramSnapshot::uses_scalar_postings);
+        let scalar_snapshot = snapshot.as_ref().is_some_and(|saved| match saved {
+            CacheSnapshot::Public(saved) => saved.uses_scalar_postings(),
+            CacheSnapshot::Compact(saved) => saved.uses_scalar_postings(),
+        });
         if snapshot.as_ref().is_some_and(|saved| {
-            saved.filter.encoding() != encoding
-                || (!indexes.is_empty() && !saved.uses_scalar_postings())
+            let filter = match saved {
+                CacheSnapshot::Public(saved) => &saved.filter,
+                CacheSnapshot::Compact(saved) => &saved.filter,
+            };
+            filter.encoding() != encoding || (!indexes.is_empty() && !scalar_snapshot)
         }) {
             if unchecked {
                 return Ok(None);
@@ -330,46 +349,30 @@ impl FilePicker {
         #[cfg(feature = "index-timings")]
         let inventory_started = Instant::now();
         let inventory: Vec<(String, Stamp)> = if unchecked {
-            if snapshot.as_ref().is_some_and(|snapshot| {
-                snapshot
-                    .files
-                    .windows(2)
-                    .any(|pair| pair[0].id >= pair[1].id)
-            }) {
-                source.finish()?;
-                return Ok(None);
-            }
-            std::mem::take(
-                &mut snapshot
-                    .as_mut()
-                    .expect("unchecked restore has a snapshot")
-                    .files,
-            )
-            .into_iter()
-            .map(|file| {
-                (
-                    file.id,
-                    Stamp {
-                        size: file.size_bytes,
-                        modified: file.modified_unix_nanos,
-                        identity: file.identity,
-                    },
-                )
-            })
-            .collect()
+            Vec::new()
         } else {
             source.inventory()?.into_iter().collect()
         };
-        let restored = if unchecked {
-            snapshot.map(|snapshot| RestoredBigram {
-                filter: snapshot.filter,
-                changed: snapshot.changed_slots.into_iter().collect(),
-                changed_bigrams: snapshot.changed_bigrams,
+        let (compact_files, restored) = if unchecked {
+            let CacheSnapshot::Compact(saved) = snapshot
+                .take()
+                .expect("unchecked restore has a compact snapshot")
+            else {
+                unreachable!("unchecked restore always uses compact snapshots");
+            };
+            let restored = RestoredBigram {
+                filter: saved.filter,
+                changed: saved.changed_slots.into_iter().collect(),
+                changed_bigrams: saved.changed_bigrams,
                 newly_changed: BTreeSet::new(),
                 dirty: false,
-            })
+            };
+            (Some((saved.id_bytes, saved.entries)), Some(restored))
         } else {
-            snapshot.and_then(|snapshot| {
+            let restored = snapshot.and_then(|snapshot| {
+                let CacheSnapshot::Public(snapshot) = snapshot else {
+                    unreachable!("checked restore uses public snapshots");
+                };
                 if snapshot.files.len() != inventory.len()
                     || !snapshot
                         .files
@@ -404,7 +407,8 @@ impl FilePicker {
                     newly_changed,
                     dirty,
                 })
-            })
+            });
+            (None, restored)
         };
         #[cfg(feature = "index-timings")]
         let inventory_nanos = elapsed_nanos(inventory_started);
@@ -426,8 +430,16 @@ impl FilePicker {
             recursive,
             encoding,
             id_bytes: Vec::new(),
-            files: Vec::with_capacity(inventory.len()),
-            sorted: Vec::with_capacity(inventory.len()),
+            files: Vec::with_capacity(
+                compact_files
+                    .as_ref()
+                    .map_or(inventory.len(), |(_, e)| e.len()),
+            ),
+            sorted: Vec::with_capacity(
+                compact_files
+                    .as_ref()
+                    .map_or(inventory.len(), |(_, e)| e.len()),
+            ),
             modified_order: ModifiedOrder::default(),
             tombstones: BTreeMap::new(),
             indexed_len: 0,
@@ -471,9 +483,15 @@ impl FilePicker {
         let slots_started = Instant::now();
         // Source::inventory is already ordered by ID. Initial slots can be
         // appended in final order without entering the changed-file overlay.
-        for (id, stamp) in inventory {
-            let slot = picker.append_slot(&id, stamp, 1)?;
-            picker.sorted.push(slot);
+        if let Some((id_bytes, entries)) = compact_files {
+            picker.id_bytes = id_bytes;
+            picker.files = entries;
+            picker.sorted.extend(0..picker.files.len());
+        } else {
+            for (id, stamp) in inventory {
+                let slot = picker.append_slot(&id, stamp, 1)?;
+                picker.sorted.push(slot);
+            }
         }
 
         #[cfg(feature = "index-timings")]
@@ -774,7 +792,7 @@ impl FilePicker {
 }
 
 
-fn now_nanos() -> u128 {
+pub(crate) fn now_nanos() -> u128 {
     std::time::SystemTime::now()
         .duration_since(std::time::UNIX_EPOCH)
         .map_or(0, |time| time.as_nanos())

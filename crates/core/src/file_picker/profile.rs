@@ -139,6 +139,7 @@ pub struct IndexSizes {
 #[derive(Clone, Copy, Default, Serialize)]
 pub struct RestoreTimings {
     pub base_checksum_nanos: u64,
+    pub base_decode_checksum_nanos: u64,
     pub manifest_decode_nanos: u64,
     pub base_filter_decode_nanos: u64,
     pub manifest_validation_nanos: u64,
@@ -147,6 +148,7 @@ pub struct RestoreTimings {
     pub secondary_filter_decode_nanos: u64,
     pub secondary_validation_nanos: u64,
     pub secondary_checksum_nanos: u64,
+    pub sparse_validation_nanos: u64,
     pub restore_total_nanos: u64,
     pub snapshot_bytes_read: u64,
     pub restored_files: usize,

@@ -161,6 +161,7 @@ fn base_digest(path: &Path) -> Result<[u8; 32]> {
         && &header[..8] != b"OBJSNP02"
         && &header[..8] != b"OBJSNP03"
         && &header[..8] != b"OBJSNP04"
+        && &header[..8] != b"OBJSNP05"
     {
         return Err(Error::Cache("unknown bigram snapshot version".into()));
     }
@@ -276,7 +277,7 @@ impl FilePicker {
             };
             #[cfg(feature = "index-timings")]
             {
-                self.restore_timings.posting_columns += global_clean.columns_used();
+                self.restore_timings.posting_columns += global_clean.profile_total_columns();
             }
             let mut fields = Vec::with_capacity(self.text_paths.len());
             for ((path, &(normal_present, clean_present)), (normal_observed, clean_observed)) in
@@ -298,7 +299,7 @@ impl FilePicker {
                 #[cfg(feature = "index-timings")]
                 {
                     self.restore_timings.posting_columns +=
-                        normal.columns_used() + clean.columns_used();
+                        normal.profile_total_columns() + clean.profile_total_columns();
                 }
                 fields.push(text::FieldTextIndex {
                     path: path.clone(),

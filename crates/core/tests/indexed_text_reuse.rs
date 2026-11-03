@@ -164,7 +164,7 @@ fn btree_scalars_reach_text_and_filter_verification() {
             usize::from(rendered)
         );
         let cache = indexed.save_bigram_cache("books").unwrap();
-        assert_eq!(&fs::read(&cache).unwrap()[..8], b"OBJSNP04");
+        assert_eq!(&fs::read(&cache).unwrap()[..8], b"OBJSNP05");
         let snapshot = BigramSnapshot::load(&cache).unwrap();
         assert!(!snapshot.filter.has_key(u16::from_be_bytes(*b"zx")));
         let mut restored = repository(temp.path(), CacheMode::Memory);
@@ -227,7 +227,7 @@ fn btree_scalars_reach_text_and_filter_verification() {
             .1,
             1
         );
-        assert_eq!(&fs::read(cache).unwrap()[..8], b"OBJSNP04");
+        assert_eq!(&fs::read(cache).unwrap()[..8], b"OBJSNP05");
         fs::write(
             temp.path().join("data/books/g.json"),
             r#"{"category":"freshnewvalue","rank":11,"flag":true,"note":"ordinary"}"#,
@@ -273,7 +273,7 @@ fn legacy_projection_cache_is_rebuilt_before_search() {
         text_ids(&mut reopened, "ZXQmarker", TextMode::Word, Some("category")).1,
         1
     );
-    assert_eq!(&fs::read(&cache).unwrap()[..8], b"OBJSNP04");
+    assert_eq!(&fs::read(&cache).unwrap()[..8], b"OBJSNP05");
 }
 
 #[test]

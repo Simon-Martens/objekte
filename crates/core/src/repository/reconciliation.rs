@@ -22,7 +22,7 @@ impl Repository {
             return Ok(false);
         }
         let started = Instant::now();
-        let snapshot = match BigramSnapshot::load_scoped(&path, &c.path, c.recursive) {
+        let snapshot = match BigramSnapshot::load_scoped_compact(&path, &c.path, c.recursive) {
             Ok(snapshot) => snapshot,
             Err(_) => return Ok(false),
         };

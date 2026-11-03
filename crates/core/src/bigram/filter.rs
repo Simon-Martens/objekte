@@ -1442,6 +1442,12 @@ impl BigramFilter {
         self.dense_count + self.sparse_count()
     }
 
+    #[cfg(feature = "index-timings")]
+    pub(crate) fn profile_total_columns(&self) -> usize {
+        self.columns_used()
+            + self.skip_index.as_ref().map_or(0, |skip| skip.profile_total_columns())
+    }
+
     /// Number of columns stored as varint gap lists.
     pub fn sparse_count(&self) -> usize {
         self.sparse_offsets.len().saturating_sub(1)

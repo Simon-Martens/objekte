@@ -5,10 +5,17 @@ use super::{
     filter::{BigramEncoding, NO_COLUMN},
 };
 use crate::{Error, Result};
+#[cfg(feature = "index-timings")]
+use std::{cell::Cell, time::Instant};
 use std::{
     collections::BTreeSet,
     io::{Read, Write},
 };
+
+#[cfg(feature = "index-timings")]
+thread_local! {
+    static SPARSE_VALIDATION_NANOS: Cell<u64> = const { Cell::new(0) };
+}
 
 const LEGACY_MAGIC: &[u8; 8] = b"OBJBG001";
 const MAGIC: &[u8; 8] = b"OBJBG002";
@@ -393,11 +400,23 @@ fn read_filter<R: Read>(
     if seen.len() != used_columns {
         return Err(bad("unreferenced column"));
     }
+
+    #[cfg(feature = "index-timings")]
+    let sparse_started = Instant::now();
     for pair in sparse_offsets.windows(2) {
         if !sparse_valid(&sparse_data[pair[0] as usize..pair[1] as usize], file_count) {
             return Err(bad("invalid sparse column"));
         }
     }
+
+    #[cfg(feature = "index-timings")]
+    SPARSE_VALIDATION_NANOS.with(|total| {
+        total.set(
+            total
+                .get()
+                .saturating_add(sparse_started.elapsed().as_nanos() as u64),
+        );
+    });
     let skip_index = match reader.u8()? {
         0 => None,
         1 if depth == 0 => Some(Box::new(read_filter(reader, depth + 1, legacy)?)),
@@ -427,6 +446,11 @@ fn read_filter<R: Read>(
 
 
 impl BigramFilter {
+    #[cfg(feature = "index-timings")]
+    pub(crate) fn take_sparse_validation_nanos() -> u64 {
+        SPARSE_VALIDATION_NANOS.with(|total| total.replace(0))
+    }
+
     pub(crate) fn encoded_len(&self) -> Result<u64> {
         body_len(self, 0)?
             .checked_add(MAGIC.len() as u64)

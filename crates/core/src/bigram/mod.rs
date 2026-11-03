@@ -18,4 +18,4 @@ pub use filter::{
     release_thread_buffers,
 };
 pub use snapshot::{BigramFile, BigramSnapshot};
-pub(crate) use snapshot::{BigramFileRef, SnapshotFiles};
+pub(crate) use snapshot::{BigramFileRef, CompactSnapshot, SnapshotFiles};
