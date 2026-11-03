@@ -1,4 +1,9 @@
-//! Visible-text extraction and whitespace normalization for declared formats.
+//! Visible-text extraction and normalization for declared formats.
+//!
+//! Normalized full-text search reads every string the same way: Unicode
+//! punctuation becomes a space, and runs of whitespace collapse to one
+//! space, trimmed at both ends. `Goethe, Johann` and `Goethe,Johann` both
+//! read `Goethe Johann`.
 
 use crate::TextFormat;
 use html5gum::{Token, Tokenizer};
@@ -35,11 +40,57 @@ fn normalize_whitespace(source: &str) -> String {
     output
 }
 
+/// Whether a character is Unicode punctuation (general category `P*`:
+/// connectors, dashes, brackets, quotes, and other marks). Symbols such as
+/// `$`, `+`, `€`, or `©` are not punctuation.
+pub(crate) fn is_punctuation(ch: char) -> bool {
+    use icu_properties::{
+        CodePointMapData,
+        props::{GeneralCategory, GeneralCategoryGroup},
+    };
+    if ch.is_ascii() {
+        // The ASCII members of `P*`, without a table lookup.
+        return matches!(
+            ch,
+            '!' | '"'
+                | '#'
+                | '%'
+                | '&'
+                | '\''
+                | '('
+                | ')'
+                | '*'
+                | ','
+                | '-'
+                | '.'
+                | '/'
+                | ':'
+                | ';'
+                | '?'
+                | '@'
+                | '['
+                | '\\'
+                | ']'
+                | '_'
+                | '{'
+                | '}'
+        );
+    }
+    GeneralCategoryGroup::Punctuation.contains(CodePointMapData::<GeneralCategory>::new().get(ch))
+}
+
+/// Whether normalizing would change `text`: it has whitespace to collapse
+/// or punctuation to drop.
+pub(crate) fn needs_normalizing(text: &str) -> bool {
+    text.chars()
+        .any(|ch| ch.is_whitespace() || is_punctuation(ch))
+}
+
 fn normalize_whitespace_into(source: &str, output: &mut String) {
     let start = output.len();
     let mut pending_space = false;
     for ch in source.chars() {
-        if ch.is_whitespace() {
+        if ch.is_whitespace() || is_punctuation(ch) {
             pending_space = output.len() > start;
         } else {
             if pending_space {

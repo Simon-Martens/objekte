@@ -607,3 +607,21 @@ fn enter_searches_when_the_suggestion_is_already_typed() {
     assert!(app.completion.is_none());
     assert!(app.error_confirmed, "Enter searched the unfinished filter");
 }
+
+#[test]
+fn highlights_ignore_punctuation_like_the_search() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"title":"„Goethe“, Johann – Faust"}"#).unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.search = Input::with_text("goethe johann faust");
+    app.search();
+    assert_eq!(app.hits.len(), 1);
+    let highlight = app.highlight.as_ref().unwrap();
+    assert_eq!(
+        highlight.find("„Goethe“, Johann – Faust").unwrap().as_str(),
+        "Goethe“, Johann – Faust"
+    );
+}

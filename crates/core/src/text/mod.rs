@@ -10,7 +10,7 @@ use serde_json::Value;
 use std::collections::BTreeMap;
 
 pub(crate) use malformed::malformed_search_text;
-pub(crate) use render::{render_text, render_text_into};
+pub(crate) use render::{is_punctuation, needs_normalizing, render_text, render_text_into};
 #[cfg(test)]
 pub(crate) use values::visit_sonic_text;
 pub(crate) use values::{TextRules, visit_json_text, visit_sonic_index_text};

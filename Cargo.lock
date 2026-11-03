@@ -1127,6 +1127,7 @@ dependencies = [
  "html5gum",
  "icu_collator",
  "icu_locale_core",
+ "icu_properties",
  "jsonschema",
  "libc",
  "num-bigint",

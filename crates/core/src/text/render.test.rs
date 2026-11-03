@@ -7,7 +7,7 @@ fn markdown_removes_formatting_and_backslash_escapes() {
             "**He**lp\n\nA [link](https://example.com) and \\*star\\*",
             TextFormat::Markdown
         ),
-        Some("Help A link and *star*".into())
+        Some("Help A link and star".into())
     );
 }
 
@@ -18,7 +18,7 @@ fn html_removes_tags_metadata_and_decodes_entities() {
             "<p><strong>He</strong>lp &amp; world</p><script>hidden</script><p>Next</p>",
             TextFormat::Html
         ),
-        Some("Help & world Next".into())
+        Some("Help world Next".into())
     );
     assert_eq!(
         render_text(
@@ -36,7 +36,7 @@ fn xml_removes_tags_and_decodes_entities_and_cdata() {
             "<root><p><b>He</b>lp &amp; world</p><p><![CDATA[Next]]></p></root>",
             TextFormat::Xml
         ),
-        Some("Help & world Next".into())
+        Some("Help world Next".into())
     );
 }
 
@@ -71,5 +71,39 @@ fn rendering_into_reused_buffer_preserves_each_leaf_boundary() {
         let start = output.len();
         assert!(render_text_into(source, TextFormat::Plain, &mut output));
         assert_eq!(&output[start..], expected);
+    }
+}
+
+#[test]
+fn unicode_punctuation_becomes_one_space_and_symbols_stay() {
+    assert_eq!(
+        render_text("„Goethe“ – Werke…, Bd. 1/2 (¿Qué?)", TextFormat::Plain),
+        Some("Goethe Werke Bd 1 2 Qué".into())
+    );
+    assert_eq!(
+        render_text("Goethe,Johann  W.", TextFormat::Plain),
+        Some("Goethe Johann W".into())
+    );
+    assert_eq!(
+        render_text("€ 5 + 3 = 8 © $ ~ |", TextFormat::Plain),
+        Some("€ 5 + 3 = 8 © $ ~ |".into())
+    );
+    assert_eq!(render_text("... !!", TextFormat::Plain), Some(String::new()));
+    assert!(!needs_normalizing("Goethe"));
+    assert!(needs_normalizing("Goethe,"));
+    assert!(needs_normalizing("a b"));
+}
+
+#[test]
+fn ascii_punctuation_shortcut_agrees_with_the_unicode_category() {
+    use icu_properties::{
+        CodePointMapData,
+        props::{GeneralCategory, GeneralCategoryGroup},
+    };
+    for byte in 0u8..128 {
+        let ch = char::from(byte);
+        let unicode = GeneralCategoryGroup::Punctuation
+            .contains(CodePointMapData::<GeneralCategory>::new().get(ch));
+        assert_eq!(is_punctuation(ch), unicode, "{ch:?}");
     }
 }

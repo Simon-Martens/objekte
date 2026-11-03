@@ -235,6 +235,59 @@ impl Like {
 }
 
 
+/// Normalize a `~` pattern for a rendered (`:fts`) field, as the field's
+/// text is: punctuation becomes a space, whitespace runs collapse, and the
+/// ends are trimmed. `%` and `_` stay wildcards where they are wildcards;
+/// without `%` the pattern is a literal, so `_` is punctuation there.
+pub(crate) fn normalize_rendered_like(pattern: &str) -> String {
+    let mut escaped = false;
+    let has_percent = pattern.chars().any(|c| {
+        if escaped {
+            escaped = false;
+            false
+        } else if c == '\\' {
+            escaped = true;
+            false
+        } else {
+            c == '%'
+        }
+    });
+    let literal = !has_percent;
+    let mut out = String::with_capacity(pattern.len());
+    let mut pending_space = false;
+    let push = |out: &mut String, text: &str, pending_space: &mut bool| {
+        if *pending_space && !out.is_empty() {
+            out.push(' ');
+        }
+        *pending_space = false;
+        out.push_str(text);
+    };
+    let mut chars = pattern.chars().peekable();
+    while let Some(c) = chars.next() {
+        // An escaped character is literal text.
+        let (c, escaped) = if c == '\\' {
+            if literal && !chars.peek().is_some_and(|c| matches!(c, '\\' | '%' | '_')) {
+                ('\\', false)
+            } else if let Some(next) = chars.next() {
+                (next, true)
+            } else {
+                break;
+            }
+        } else {
+            (c, false)
+        };
+        if !escaped && !literal && matches!(c, '%' | '_') {
+            push(&mut out, &c.to_string(), &mut pending_space);
+        } else if c.is_whitespace() || crate::text::is_punctuation(c) {
+            pending_space = true;
+        } else {
+            push(&mut out, &c.to_string(), &mut pending_space);
+        }
+    }
+    out
+}
+
+
 #[cfg(test)]
 #[path = "pattern.test.rs"]
 mod tests;

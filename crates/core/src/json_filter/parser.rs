@@ -250,6 +250,22 @@ impl Parser<'_> {
         {
             return self.error("~ is only valid for string metadata fields");
         }
+        // A rendered (`:fts`) field reads without punctuation, so a string
+        // compared with it is normalized the same way.
+        let right = match (&left, right) {
+            (
+                Operand::Field(FieldOperand {
+                    modifier: Some(Modifier::Fts | Modifier::Rendered(_)),
+                    ..
+                }),
+                Operand::Literal(Value::String(text)),
+            ) => Operand::Literal(Value::String(if matches!(op, Op::Contains | Op::NotContains) {
+                super::pattern::normalize_rendered_like(&text)
+            } else {
+                crate::text::render_text(&text, crate::TextFormat::Plain).unwrap_or(text)
+            })),
+            (_, right) => right,
+        };
         Ok(Expr::Compare {
             left,
             op,

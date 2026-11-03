@@ -194,7 +194,8 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
         Some(0)
     );
     assert_eq!(
-        repo.search_text(&query("Help +the +\\*world\\*", TextMode::RegexClean))
+        // Normalized text has no punctuation: `*world*` reads `world`.
+        repo.search_text(&query("Help +the +world$", TextMode::RegexClean))
             .unwrap()
             .hits
             .iter()
@@ -203,7 +204,7 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
         ["a"]
     );
     assert_eq!(
-        repo.search_text(&query("Help & world", TextMode::RegexClean))
+        repo.search_text(&query("Help world", TextMode::RegexClean))
             .unwrap()
             .hits[0]
             .record
@@ -253,7 +254,8 @@ fn literal_text_search_matches_prefix_infix_and_suffix_without_a_schema() {
         ("Lichtenber", vec!["a", "b", "d"]),
         ("chtenbe", vec!["a", "b", "d"]),
         ("berg", vec!["a", "b", "c", "d"]),
-        ("Lichten.*", vec![]),
+        // Punctuation in the pattern is ignored like in the text.
+        ("Lichten.*", vec!["a", "b", "d"]),
     ] {
         let request = query(pattern, TextMode::Word);
         for result in [
@@ -860,4 +862,78 @@ fn disabled_cache_scans_marked_source_fields_directly() {
     assert_eq!(result.total, Some(1));
     assert_eq!(result.hits[0].record.id, "a");
     assert!(result.query_plan[0].contains("direct"));
+}
+
+#[test]
+fn normalized_search_ignores_punctuation_and_raw_search_keeps_it() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(root, "data/books/a.json", r#"{"title":"Goethe, Johann W."}"#);
+    write(root, "data/books/b.json", r#"{"title":"Graphik-Verzeichnis"}"#);
+    write(root, "data/books/c.json", r#"{"title":"„Faust“ – eine Tragödie"}"#);
+    let mut repo = Repository::open(root).unwrap();
+    let mut options = Options::new();
+    options.cache = CacheMode::Disabled;
+    let mut direct = Repository::builder(root).options(options).open().unwrap();
+    for (pattern, mode, expected) in [
+        ("Goethe Johann", TextMode::Word, vec!["a"]),
+        ("goethe,johann", TextMode::Word, vec!["a"]),
+        ("Johann W.", TextMode::Word, vec!["a"]),
+        ("Graphik Verzeichnis", TextMode::Word, vec!["b"]),
+        ("Graphik-Verzeichnis", TextMode::Word, vec!["b"]),
+        ("Faust eine", TextMode::Word, vec!["c"]),
+        ("Faust – eine", TextMode::Word, vec!["c"]),
+        ("^Faust eine", TextMode::RegexClean, vec!["c"]),
+        // Full text keeps the source characters.
+        ("Goethe, Johann", TextMode::WordRaw, vec!["a"]),
+        ("Goethe Johann", TextMode::WordRaw, vec![]),
+    ] {
+        let request = query(pattern, mode);
+        for result in [
+            repo.search_text(&request).unwrap(),
+            direct.search_text(&request).unwrap(),
+        ] {
+            let ids = result
+                .hits
+                .iter()
+                .map(|hit| hit.record.id.as_str())
+                .collect::<Vec<_>>();
+            assert_eq!(ids, expected, "{pattern} in {mode:?}");
+        }
+    }
+    let error = repo.search_text(&query(", –", TextMode::Word)).unwrap_err();
+    assert!(error.to_string().contains("letters or digits"), "{error}");
+}
+
+#[test]
+fn rendered_filter_terms_compare_without_punctuation() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    schema(root);
+    write(root, "data/books/a.json", r#"{"md":"**Goethe**, Johann — *Faust*!"}"#);
+    write(root, "data/books/b.json", r#"{"md":"Schiller"}"#);
+    let mut repo = Repository::open(root).unwrap();
+    for (filter, expected) in [
+        ("md:fts ~ 'Goethe, Johann'", vec!["a"]),
+        ("md:fts ~ 'Johann — Faust'", vec!["a"]),
+        ("md:fts ~ 'Goethe%Faust'", vec!["a"]),
+        ("md:fts = 'Goethe Johann Faust'", vec!["a"]),
+        ("md:fts = '„Goethe“, Johann – Faust.'", vec!["a"]),
+        ("md:fts ~ 'Goethe,Johann' && md:fts !~ 'Schiller'", vec!["a"]),
+    ] {
+        let result = repo
+            .query_json(&JsonQuery {
+                filter: filter.into(),
+                count: true,
+                limit: 10,
+                ..Default::default()
+            })
+            .unwrap();
+        let ids = result
+            .records
+            .iter()
+            .map(|record| record.id.as_str())
+            .collect::<Vec<_>>();
+        assert_eq!(ids, expected, "{filter}");
+    }
 }

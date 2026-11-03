@@ -1460,6 +1460,25 @@ fn highlighter(request: &Request) -> Option<regex::Regex> {
     }
     let source = match query.mode {
         TextMode::RegexClean | TextMode::RegexRaw => pattern.to_owned(),
+        // Normalized search ignores punctuation: between the words, any
+        // run of whitespace or Unicode punctuation matches.
+        TextMode::Word => {
+            let separator = regex::Regex::new(r"[\s\p{P}]+").expect("valid separator");
+            let words = separator
+                .split(pattern)
+                .filter(|word| !word.is_empty())
+                .map(regex::escape)
+                .collect::<Vec<_>>();
+            if words.is_empty() {
+                return None;
+            }
+            let joined = words.join(r"[\s\p{P}]+");
+            if query.case_sensitive {
+                joined
+            } else {
+                format!("(?i){joined}")
+            }
+        }
         _ if query.case_sensitive => regex::escape(pattern),
         _ => format!("(?i){}", regex::escape(pattern)),
     };

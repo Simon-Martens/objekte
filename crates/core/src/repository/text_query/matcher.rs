@@ -59,7 +59,7 @@ impl TextMatcher {
 
     pub(super) fn matches_value(&self, value: &str, format: crate::TextFormat) -> bool {
         let text = if self.raw
-            || (format == crate::TextFormat::Plain && !value.chars().any(char::is_whitespace))
+            || (format == crate::TextFormat::Plain && !crate::text::needs_normalizing(value))
         {
             Some(Cow::Borrowed(value))
         } else {
@@ -98,7 +98,8 @@ impl TextMatcher {
             };
             if word.trim().is_empty() {
                 return Err(Error::Request(
-                    "word search needs non-whitespace text".into(),
+                    "word search needs letters or digits; punctuation and whitespace are ignored"
+                        .into(),
                 ));
             }
             let word = if fold_word {
