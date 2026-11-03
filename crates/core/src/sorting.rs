@@ -9,8 +9,9 @@ pub(crate) use buffer::SortBuffer;
 pub use parser::{parse_sort_terms, split_sort_clause};
 
 use crate::{
-    Collection, Direction, Error, JsonFilter, JsonPath, JsonPathStep, Result, Sort,
-    json_filter::{decimal_cmp, sonic_values, values},
+    Collection, Direction, Error, JsonFilter, JsonPath, JsonPathStep, RecordStatus, Result, Sort,
+    TextFormat,
+    json_filter::{MetadataField, decimal_cmp, declared_format, sonic_values, values},
     schema::SortReduce,
 };
 use icu_collator::{
@@ -21,7 +22,7 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
-use std::{cmp::Ordering, collections::BTreeMap};
+use std::{cmp::Ordering, collections::BTreeMap, path::Path};
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -66,12 +67,74 @@ impl SortValue {
 }
 
 
-/// A sort field with its resolved path, reduction rule, and ICU collator.
+/// A sort field with its resolved source, reduction rule, and ICU collator.
 struct Term {
-    path: JsonPath,
+    key: TermKey,
     direction: Direction,
     reduce: Option<SortReduce>,
     collator: CollatorBorrowed<'static>,
+}
+
+
+enum TermKey {
+    /// A JSON path; `rendered` holds a declared `:fts` format.
+    Path {
+        path: JsonPath,
+        rendered: Option<TextFormat>,
+    },
+    System(MetadataField),
+}
+
+
+/// Source-file facts for `@` sort fields. Paths and creation time are
+/// derived only when a sort term asks for them.
+pub(crate) struct SortRecord<'a> {
+    pub id: &'a str,
+    pub collection_path: &'a Path,
+    pub root: &'a Path,
+    pub size: u64,
+    /// Signed Unix nanoseconds as a decimal string.
+    pub modified: &'a str,
+    pub status: RecordStatus,
+}
+
+
+impl SortRecord<'_> {
+    fn file(&self) -> std::path::PathBuf {
+        self.collection_path.join(format!("{}.json", self.id))
+    }
+
+    /// IDs, paths, and status names order bytewise, like the ID tie-break.
+    fn value(&self, field: MetadataField) -> SortValue {
+        match field {
+            MetadataField::Id => SortValue::String(self.id.as_bytes().to_vec()),
+            MetadataField::Filename => {
+                let name = self.id.rsplit('/').next().unwrap_or(self.id);
+                SortValue::String(format!("{name}.json").into_bytes())
+            }
+            MetadataField::Path => {
+                let file = self.file();
+                let relative = file.strip_prefix(self.root).unwrap_or(&file);
+                SortValue::String(relative.to_string_lossy().replace('\\', "/").into_bytes())
+            }
+            MetadataField::Size => SortValue::Number(self.size.to_string()),
+            MetadataField::Modified => SortValue::Number(self.modified.to_owned()),
+            // Creation time is not kept in the index; read it only for this sort.
+            MetadataField::Created => std::fs::metadata(self.file())
+                .ok()
+                .and_then(|metadata| crate::source::created_timestamp(&metadata))
+                .map_or(SortValue::Null, |nanos| {
+                    SortValue::Number(nanos.to_string())
+                }),
+            MetadataField::Status => SortValue::String(self.status.as_str().as_bytes().to_vec()),
+        }
+    }
+}
+
+
+/// Whether a sort is the default newest-first order with ID tie-breaks.
+pub(crate) fn is_default_order(sorts: &[Sort]) -> bool {
+    matches!(sorts, [sort] if sort.field == "@modified" && sort.direction == Direction::Desc)
 }
 
 
@@ -97,11 +160,26 @@ impl SortPlan {
     ) -> Result<Self> {
         let mut terms = Vec::with_capacity(sorts.len());
         for sort in sorts {
-            let path = if sort.field == "@id" {
-                Vec::new()
-            } else {
-                JsonFilter::parse_path(&sort.field)?
+            if let Some(name) = sort.field.strip_prefix('@') {
+                let field = MetadataField::parse(name).ok_or_else(|| {
+                    Error::Request(format!("unknown system sort field {}", sort.field))
+                })?;
+                terms.push(Term {
+                    key: TermKey::System(field),
+                    direction: sort.direction,
+                    reduce: None,
+                    collator: collator(default_language.unwrap_or("en"))?,
+                });
+                continue;
+            }
+            let (field, rendered) = match sort.field.strip_suffix(":fts") {
+                Some(field) => (field, true),
+                None => (sort.field.as_str(), false),
             };
+            let path = JsonFilter::parse_path(field)?;
+            // Like a `:fts` filter operand, an undeclared path sorts by its
+            // stored value.
+            let rendered = rendered.then(|| declared_format(fields, &path)).flatten();
             let mut current: Option<&crate::Field> = None;
             let mut at_root = true;
             let mut language = default_language.unwrap_or("en");
@@ -133,24 +211,21 @@ impl SortPlan {
                     reduce = reduce.or(field.sort_reduce);
                 }
             }
-            let locale: Locale = language
-                .parse()
-                .map_err(|_| Error::Request(format!("invalid sort language {language}")))?;
-            let mut options = CollatorOptions::default();
-            // Secondary strength keeps case variants together while retaining
-            // accent distinctions such as German A and Ä.
-            options.strength = Some(Strength::Secondary);
-            let collator = CollatorBorrowed::try_new(locale.into(), options).map_err(|error| {
-                Error::Request(format!("cannot use sort language {language}: {error}"))
-            })?;
             terms.push(Term {
-                path,
+                key: TermKey::Path { path, rendered },
                 direction: sort.direction,
                 reduce,
-                collator,
+                collator: collator(language)?,
             });
         }
         Ok(Self { terms })
+    }
+
+    /// Whether projecting needs each record's validated status.
+    pub(crate) fn uses_status(&self) -> bool {
+        self.terms
+            .iter()
+            .any(|term| matches!(term.key, TermKey::System(MetadataField::Status)))
     }
 
     pub(crate) fn missing_keys(&self) -> Vec<SortValue> {
@@ -161,17 +236,34 @@ impl SortPlan {
         self.terms.len()
     }
 
+    /// Project a declared sort index from serde values, for parity tests.
+    #[cfg(test)]
     pub(crate) fn project(&self, id: &str, data: &Value) -> Result<Vec<SortValue>> {
         self.terms
             .iter()
-            .map(|term| {
-                if term.path.is_empty() {
-                    return Ok(SortValue::String(id.as_bytes().to_vec()));
+            .map(|term| match &term.key {
+                TermKey::System(MetadataField::Id) => Ok(SortValue::String(id.as_bytes().to_vec())),
+                TermKey::System(_) => Err(unindexable()),
+                TermKey::Path { path, .. } => {
+                    term.select(values(data, path, true), |value| Ok(term.value(value)))
                 }
-                term.select(
-                    values(data, &term.path, true),
-                    |value| Ok(term.value(value)),
-                )
+            })
+            .collect()
+    }
+
+    /// Project a query result, including source-file `@` fields.
+    pub(crate) fn project_record(
+        &self,
+        record: &SortRecord<'_>,
+        data: &Value,
+    ) -> Result<Vec<SortValue>> {
+        self.terms
+            .iter()
+            .map(|term| match &term.key {
+                TermKey::System(field) => Ok(record.value(*field)),
+                TermKey::Path { path, .. } => {
+                    term.select(values(data, path, true), |value| Ok(term.value(value)))
+                }
             })
             .collect()
     }
@@ -191,12 +283,13 @@ impl SortPlan {
     ) -> Result<()> {
         debug_assert_eq!(output.len(), self.terms.len());
         for (term, target) in self.terms.iter().zip(output) {
-            *target = if term.path.is_empty() {
-                SortValue::String(id.as_bytes().to_vec())
-            } else {
-                term.select(sonic_values(data, &term.path, true), |value| {
-                    term.value_sonic(value)
-                })?
+            *target = match &term.key {
+                TermKey::System(MetadataField::Id) => SortValue::String(id.as_bytes().to_vec()),
+                TermKey::System(_) => return Err(unindexable()),
+                TermKey::Path { path, .. } => term
+                    .select(sonic_values(data, path, true), |value| {
+                        term.value_sonic(value)
+                    })?,
             };
         }
         Ok(())
@@ -266,15 +359,33 @@ impl Term {
             Value::Null => SortValue::Null,
             Value::Bool(value) => SortValue::Bool(*value),
             Value::Number(value) => SortValue::Number(value.to_string()),
-            Value::String(value) => {
-                let mut key = Vec::new();
-                self.collator
-                    .write_sort_key_to(value, &mut key)
-                    .expect("Vec accepts bytes");
-                SortValue::String(key)
-            }
+            Value::String(value) => self.string(value),
             _ => SortValue::Invalid,
         }
+    }
+
+    /// Collate a string, after rendering it for a declared `:fts` sort.
+    fn string(&self, value: &str) -> SortValue {
+        let rendered;
+        let value = match self.key {
+            TermKey::Path {
+                rendered: Some(format),
+                ..
+            } => match crate::text::render_text(value, format) {
+                Some(text) => {
+                    rendered = text;
+                    rendered.as_str()
+                }
+                // Unparseable markup, such as malformed XML, has no rendered text.
+                None => return SortValue::Invalid,
+            },
+            _ => value,
+        };
+        let mut key = Vec::new();
+        self.collator
+            .write_sort_key_to(value, &mut key)
+            .expect("Vec accepts bytes");
+        SortValue::String(key)
     }
 
     fn value_sonic(&self, value: &SonicValue) -> Result<SortValue> {
@@ -288,15 +399,27 @@ impl Term {
         Ok(match value.as_ref() {
             ValueRef::Null => SortValue::Null,
             ValueRef::Bool(value) => SortValue::Bool(value),
-            ValueRef::String(value) => {
-                let mut key = Vec::new();
-                self.collator
-                    .write_sort_key_to(value, &mut key)
-                    .expect("Vec accepts bytes");
-                SortValue::String(key)
-            }
+            ValueRef::String(value) => self.string(value),
             ValueRef::Number(_) => unreachable!("raw numbers enabled"),
             _ => SortValue::Invalid,
         })
     }
+}
+
+
+fn unindexable() -> Error {
+    Error::Request("system sort fields other than @id cannot be indexed".into())
+}
+
+
+fn collator(language: &str) -> Result<CollatorBorrowed<'static>> {
+    let locale: Locale = language
+        .parse()
+        .map_err(|_| Error::Request(format!("invalid sort language {language}")))?;
+    let mut options = CollatorOptions::default();
+    // Secondary strength keeps case variants together while retaining
+    // accent distinctions such as German A and Ä.
+    options.strength = Some(Strength::Secondary);
+    CollatorBorrowed::try_new(locale.into(), options)
+        .map_err(|error| Error::Request(format!("cannot use sort language {language}: {error}")))
 }

@@ -51,10 +51,14 @@ impl<T> SortBuffer<T> {
     pub(crate) fn project(
         &self,
         collection: &str,
-        id: &str,
+        record: &SortRecord<'_>,
         data: &Value,
     ) -> Result<Vec<SortValue>> {
-        self.plans[collection].project(id, data)
+        self.plans[collection].project_record(record, data)
+    }
+
+    pub(crate) fn uses_status(&self) -> bool {
+        self.plans.values().any(SortPlan::uses_status)
     }
 
     pub(crate) fn insert_keys(

@@ -14,6 +14,17 @@ impl Repository {
         Ok(self.model.collection(name)?.clone())
     }
 
+    /// Absolute source directories, for sort projections of `@` fields.
+    pub(super) fn collection_paths(&self, names: &[String]) -> BTreeMap<String, PathBuf> {
+        names
+            .iter()
+            .filter_map(|name| {
+                let collection = self.model.collections.get(name)?;
+                Some((name.clone(), collection.path.clone()))
+            })
+            .collect()
+    }
+
     pub(super) fn inventory(
         &mut self,
         c: &Collection,

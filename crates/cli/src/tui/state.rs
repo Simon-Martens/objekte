@@ -123,7 +123,8 @@ fn ordered_fields(request: &Request) -> Vec<String> {
         if term.field == "@id" {
             continue;
         }
-        let Ok(path) = JsonFilter::parse_path(&term.field) else {
+        let field = term.field.strip_suffix(":fts").unwrap_or(&term.field);
+        let Ok(path) = JsonFilter::parse_path(field) else {
             continue;
         };
         let top = match path.first() {

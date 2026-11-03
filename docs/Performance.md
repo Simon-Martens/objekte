@@ -18,7 +18,7 @@ definitions. Recent measurements include:
 | [Sorted queries](../crates/bench/SORT-MIX-50-SINGLE-PASS-2026-11-01.md) | Indexed and unindexed sorts over the original 50 JSON filters |
 | [Full-text search](../crates/bench/FTS-MUSENALM-2026-10-31.md) | An earlier Musenalm fixture with 30 FTS queries and a schema overlay |
 
-Run the current 100-case query mix from the repository root:
+Run the current 120-case query mix, including 20 sorted cases, from the repository root:
 
 ```sh
 cargo build --release -p objekte-bench --bin json-query-mix

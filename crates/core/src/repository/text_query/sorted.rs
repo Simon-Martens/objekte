@@ -1,7 +1,7 @@
 //! Execute sorted text pages with an index or a bounded fallback buffer.
 
 use super::*;
-use crate::sorting::{SortBuffer, SortPlan};
+use crate::sorting::{SortBuffer, SortPlan, SortRecord};
 
 type PageCallback<'a> = dyn FnMut(&[TextHit]) -> Result<()> + 'a;
 
@@ -57,12 +57,22 @@ impl Repository {
             i64::MAX as usize
         };
         scan.count = !indexed_order;
+        let root = self.model.root.clone();
+        let collection_paths = self.collection_paths(&names);
         let (mut result, _) = self.search_text_inner(
             &scan,
             true,
             &mut |_, hit| {
-                let keys =
-                    buffer.project(&hit.record.collection, &hit.record.id, &hit.record.data)?;
+                // Returned text hits are already validated.
+                let source = SortRecord {
+                    id: &hit.record.id,
+                    collection_path: &collection_paths[&hit.record.collection],
+                    root: &root,
+                    size: hit.record.size_bytes,
+                    modified: &hit.record.modified_unix_nanos,
+                    status: hit.record.state.status,
+                };
+                let keys = buffer.project(&hit.record.collection, &source, &hit.record.data)?;
                 let changed = buffer
                     .insert_owned_keys(keys, hit, |hit| (&hit.record.collection, &hit.record.id));
                 if changed

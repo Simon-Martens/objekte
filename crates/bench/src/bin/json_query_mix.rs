@@ -175,17 +175,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 #[cfg(test)]
 mod tests {
     use super::Case;
-    use objekte_core::JsonFilter;
+    use objekte_core::{JsonFilter, split_sort_clause};
     use std::collections::{BTreeMap, BTreeSet};
 
     #[test]
-    fn hundred_case_workload_preserves_originals_and_covers_metadata_fields() {
+    fn workload_preserves_originals_and_covers_metadata_fields() {
         let original: Vec<Case> =
             serde_json::from_str(include_str!("../../workloads/musenalm-mix-50.json")).unwrap();
         let extended: Vec<Case> =
             serde_json::from_str(include_str!("../../workloads/musenalm-mix-100.json")).unwrap();
         assert_eq!(original.len(), 50);
-        assert_eq!(extended.len(), 100);
+        assert_eq!(extended.len(), 120);
         for (index, (old, new)) in original.iter().zip(&extended).enumerate() {
             assert_eq!(old.id, index + 1);
             assert_eq!(
@@ -194,7 +194,7 @@ mod tests {
             );
         }
         let mut fields = BTreeSet::new();
-        for (index, case) in extended[50..].iter().enumerate() {
+        for (index, case) in extended[50..100].iter().enumerate() {
             assert_eq!(case.id, index + 51);
             let filter = JsonFilter::compile(&case.filter, &BTreeMap::new()).unwrap();
             assert!(!filter.metadata_fields().is_empty(), "case {}", case.id);
@@ -215,5 +215,31 @@ mod tests {
             .map(str::to_owned)
             .collect()
         );
+    }
+
+    #[test]
+    fn sort_cases_cover_every_system_field_and_rendered_sorts() {
+        let extended: Vec<Case> =
+            serde_json::from_str(include_str!("../../workloads/musenalm-mix-100.json")).unwrap();
+        let mut fields = BTreeSet::new();
+        for (index, case) in extended[100..].iter().enumerate() {
+            assert_eq!(case.id, index + 101);
+            let (filter, sort) = split_sort_clause(&case.filter).unwrap();
+            assert!(!sort.is_empty(), "case {}", case.id);
+            JsonFilter::compile(&filter, &BTreeMap::new()).unwrap();
+            fields.extend(sort.into_iter().map(|term| term.field));
+        }
+        for field in [
+            "@created",
+            "@filename",
+            "@id",
+            "@modified",
+            "@path",
+            "@size",
+            "@status",
+            "preferred_title:fts",
+        ] {
+            assert!(fields.contains(field), "{field}");
+        }
     }
 }

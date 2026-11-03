@@ -38,7 +38,8 @@ struct ScanOutcome {
     hash_nanos: u64,
     validation_nanos: u64,
     validated: bool,
-    projected: Option<(Document, String, Stamp)>,
+    /// A retained match, with source bytes only for malformed JSON.
+    projected: Option<(Document, String, Stamp, Option<Vec<u8>>)>,
     cache_skipped: bool,
     cached_terms: u64,
     term_results: smallvec::SmallVec<[u8; 4]>,
@@ -46,7 +47,7 @@ struct ScanOutcome {
 
 
 type CandidateCallback<'a> =
-    dyn FnMut(&Collection, &str, &Stamp, Document, String) -> Result<()> + 'a;
+    dyn FnMut(&Collection, &str, &Stamp, Document, String, Option<Vec<u8>>) -> Result<()> + 'a;
 type OwnedRecordCallback<'a> = dyn FnMut(Record) -> Result<()> + 'a;
 
 
@@ -88,9 +89,10 @@ impl QueryOutput<'_> {
         stamp: &Stamp,
         document: Document,
         hash: String,
+        raw: Option<Vec<u8>>,
     ) -> Result<()> {
         self.on_candidate.as_mut().expect("candidate callback")(
-            collection, id, stamp, document, hash,
+            collection, id, stamp, document, hash, raw,
         )?;
         self.returned += 1;
         Ok(())
@@ -227,6 +229,10 @@ impl Repository {
         request.filter = filter;
         if !inline.is_empty() {
             request.sort = inline;
+        }
+        // Newest first with ID tie-breaks is already the unsorted order.
+        if crate::sorting::is_default_order(&request.sort) {
+            request.sort.clear();
         }
         Ok(request)
     }

@@ -10,7 +10,7 @@ use crate::{
     Error, Metrics, Record, RecordStatus, Result, TextFormat, config::fingerprint, source::Stamp,
     text::render_text,
 };
-pub(crate) use fts::FtsPlan;
+pub(crate) use fts::{FtsPlan, declared_format};
 pub(crate) use metadata_plan::{MetadataDecision, MetadataIdHint, MetadataPathHint};
 pub(crate) fn like_pattern(pattern: &str, ignore_case: bool) -> pattern::Like {
     pattern::Like::new(pattern, false, ignore_case)
@@ -100,7 +100,7 @@ pub(crate) struct FieldOperand {
 
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
-enum MetadataField {
+pub(crate) enum MetadataField {
     Id,
     Filename,
     Path,
@@ -112,6 +112,20 @@ enum MetadataField {
 
 
 impl MetadataField {
+    /// Resolve a system field name without its `@` prefix.
+    pub(crate) fn parse(name: &str) -> Option<Self> {
+        Some(match name {
+            "id" => Self::Id,
+            "filename" => Self::Filename,
+            "path" => Self::Path,
+            "size" => Self::Size,
+            "modified" => Self::Modified,
+            "created" => Self::Created,
+            "status" => Self::Status,
+            _ => return None,
+        })
+    }
+
     fn as_str(self) -> &'static str {
         match self {
             Self::Id => "id",
@@ -218,16 +232,9 @@ impl FieldOperand {
                 MetadataField::Created => metadata
                     .created
                     .map_or(SelectedValue::Owned(Value::Null), SelectedValue::Time),
-                MetadataField::Status => SelectedValue::Owned(Value::String(
-                    match metadata.status {
-                        RecordStatus::NoSchema => "no_schema",
-                        RecordStatus::Pending => "pending",
-                        RecordStatus::Valid => "valid",
-                        RecordStatus::Invalid => "invalid",
-                        RecordStatus::IncorrectJson => "incorrect_json",
-                    }
-                    .into(),
-                )),
+                MetadataField::Status => {
+                    SelectedValue::Owned(Value::String(metadata.status.as_str().into()))
+                }
             };
             return SmallVec::from_buf([value]);
         }

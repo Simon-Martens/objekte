@@ -720,6 +720,7 @@ impl Repository {
             if filter.metadata_only()
                 && picker.metadata_exact_ready()
                 && !risk
+                && result.on_candidate.is_none()
                 && (request.sort.is_empty() || indexed_sort)
             {
                 result
@@ -977,7 +978,11 @@ impl Repository {
                             let started = Instant::now();
                             let hash = digest(bytes);
                             outcome.hash_nanos = nanos(started);
-                            outcome.projected = Some((doc, hash, after));
+                            // Only metadata predicates can match malformed JSON;
+                            // its record returns the source bytes.
+                            let raw = (doc.state.status == RecordStatus::IncorrectJson)
+                                .then(|| bytes.clone());
+                            outcome.projected = Some((doc, hash, after, raw));
                         }
                         Ok(outcome)
                     })
@@ -1047,11 +1052,11 @@ impl Repository {
                             && result.returned() + page_matches.len() < request.limit
                         {
                             if capture_candidate {
-                                let (document, hash, actual_stamp) = outcome
+                                let (document, hash, actual_stamp, raw) = outcome
                                     .projected
                                     .take()
                                     .expect("sorted match has parsed document");
-                                result.push_candidate(c, id, &actual_stamp, document, hash)?;
+                                result.push_candidate(c, id, &actual_stamp, document, hash, raw)?;
                             } else {
                                 page_matches.push((id.to_owned(), stamp.clone()));
                             }

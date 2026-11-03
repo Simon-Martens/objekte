@@ -332,15 +332,8 @@ impl Parser<'_> {
     fn operand(&mut self) -> Result<Operand> {
         self.ws();
         if self.take("@") {
-            let field = match self.ident()?.as_str() {
-                "id" => MetadataField::Id,
-                "filename" => MetadataField::Filename,
-                "path" => MetadataField::Path,
-                "size" => MetadataField::Size,
-                "modified" => MetadataField::Modified,
-                "created" => MetadataField::Created,
-                "status" => MetadataField::Status,
-                _ => return self.error("unknown metadata field"),
+            let Some(field) = MetadataField::parse(&self.ident()?) else {
+                return self.error("unknown metadata field");
             };
             return Ok(Operand::Field(FieldOperand {
                 path: Vec::new(),

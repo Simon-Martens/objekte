@@ -12,7 +12,10 @@ pub(crate) enum FtsPlan {
 }
 
 
-fn declared_format(fields: &BTreeMap<String, Field>, path: &JsonPath) -> Option<TextFormat> {
+pub(crate) fn declared_format(
+    fields: &BTreeMap<String, Field>,
+    path: &JsonPath,
+) -> Option<TextFormat> {
     let (JsonPathStep::Key(first), rest) = path.split_first()? else {
         return None;
     };

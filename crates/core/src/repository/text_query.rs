@@ -177,6 +177,10 @@ impl Repository {
                 request.sort = inline;
             }
         }
+        // Newest first with ID tie-breaks is already the unsorted order.
+        if crate::sorting::is_default_order(&request.sort) {
+            request.sort.clear();
+        }
         Ok(request)
     }
 

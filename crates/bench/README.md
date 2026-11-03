@@ -86,10 +86,14 @@ cargo build --release -p objekte-bench --bin json-query-grep-compare
 target/release/json-query-grep-compare --repo examples/musenalm --workload crates/bench/workloads/musenalm-grep.json --runs 3
 ```
 
-The `json-query-mix` benchmark runs 100 unscoped filters against every
+The `json-query-mix` benchmark runs 120 unscoped filters against every
 collection with one warm repository handle. The first 50 are the original
 JSON-field workload; cases 51–100 exercise source metadata fields, byte-size
-units, UTC date periods, status, and combinations with JSON fields. Each filter
+units, UTC date periods, status, and combinations with JSON fields. Cases
+101–120 add `SORT BY` clauses over every system field, `:fts` rendered sorts,
+and indexed and unindexed JSON fields. The workload file keeps its
+`musenalm-mix-100.json` name; reports before 3 November 2026 cover its first
+100 cases. Each filter
 counts all matches and returns one record. It warms the indexes and runs each
 filter once before timing, then alternates case order across rounds. Output is
 NDJSON with a setup row followed by one row per filter.

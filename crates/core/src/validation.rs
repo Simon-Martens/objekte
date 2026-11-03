@@ -15,6 +15,20 @@ pub enum RecordStatus {
 }
 
 
+impl RecordStatus {
+    /// The serialized name used by `@status` filters and sorts.
+    pub(crate) fn as_str(self) -> &'static str {
+        match self {
+            Self::NoSchema => "no_schema",
+            Self::Pending => "pending",
+            Self::Valid => "valid",
+            Self::Invalid => "invalid",
+            Self::IncorrectJson => "incorrect_json",
+        }
+    }
+}
+
+
 // INFO: Diagnostic location, code, message, and optional schema path. Computed on demand.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ValidationIssue {

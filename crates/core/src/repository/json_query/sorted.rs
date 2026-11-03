@@ -1,7 +1,7 @@
 //! Route sorted JSON pages to the verified index or bounded fallback.
 
 use super::*;
-use crate::sorting::{SortBuffer, SortPlan};
+use crate::sorting::{SortBuffer, SortPlan, SortRecord};
 
 type PageCallback<'a> = dyn FnMut(&[Record]) -> Result<()> + 'a;
 
@@ -70,26 +70,47 @@ impl Repository {
         scan.count = !indexed_order;
         let mut selected_validation = Metrics::default();
         let root = self.model.root.clone();
+        let collection_paths = self.collection_paths(&names);
+        let status_sort = buffer.uses_status();
         let (mut result, _) = if matches!(
             scan.backend,
             JsonQueryBackend::Auto | JsonQueryBackend::Bigram
-        ) && !filter.has_metadata()
-        {
+        ) {
             let mut on_candidate = |collection: &Collection,
                                     id: &str,
                                     stamp: &Stamp,
                                     mut document: Document,
-                                    hash: String| {
-                let keys = buffer.project(&collection.name, id, &document.data)?;
-                let changed = buffer.insert_keys(&collection.name, id, keys, || {
-                    if collection.schema.is_some() {
+                                    hash: String,
+                                    raw: Option<Vec<u8>>| {
+                let mut validate = |document: &mut Document| {
+                    // Malformed JSON keeps its status and has no schema state.
+                    if document.state.status == RecordStatus::IncorrectJson {
+                        return;
+                    }
+                    if collection.schema.is_none() {
+                        document.state.status = RecordStatus::NoSchema;
+                    } else if document.state.status == RecordStatus::Pending {
                         let started = Instant::now();
                         document.validate(collection);
                         selected_validation.validations += 1;
                         selected_validation.validation_nanos += nanos(started);
-                    } else {
-                        document.state.status = RecordStatus::NoSchema;
                     }
+                };
+                // Only a status sort needs every candidate's validation state.
+                if status_sort {
+                    validate(&mut document);
+                }
+                let record = SortRecord {
+                    id,
+                    collection_path: &collection.path,
+                    root: &root,
+                    size: stamp.size,
+                    modified: &stamp.modified,
+                    status: document.state.status,
+                };
+                let keys = buffer.project(&collection.name, &record, &document.data)?;
+                let changed = buffer.insert_keys(&collection.name, id, keys, || {
+                    validate(&mut document);
                     Record {
                         collection: collection.name.clone(),
                         id: id.into(),
@@ -105,7 +126,7 @@ impl Repository {
                         hash,
                         data: document.data,
                         state: document.state,
-                        raw: None,
+                        raw,
                     }
                 });
                 if changed
@@ -130,7 +151,15 @@ impl Repository {
                 true,
                 &mut |_, _| Ok(()),
                 Some(&mut |record: Record| {
-                    let keys = buffer.project(&record.collection, &record.id, &record.data)?;
+                    let source = SortRecord {
+                        id: &record.id,
+                        collection_path: &collection_paths[&record.collection],
+                        root: &root,
+                        size: record.size_bytes,
+                        modified: &record.modified_unix_nanos,
+                        status: record.state.status,
+                    };
+                    let keys = buffer.project(&record.collection, &source, &record.data)?;
                     let changed = buffer
                         .insert_owned_keys(keys, record, |record| (&record.collection, &record.id));
                     if changed

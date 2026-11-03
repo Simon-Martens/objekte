@@ -148,6 +148,23 @@ verifies candidates in sort order and can stream stable rows; an unindexed
 order scans candidates and sends provisional page replacements before the
 final page is known. See [collection schemas](collections.md) for index rules.
 
+Sort terms can also name source system fields: `@id`, `@filename`, `@path`,
+`@size`, `@modified`, `@created`, and `@status`. IDs, filenames, paths, and
+status names order bytewise, like the ID tie-break; size and times order
+numerically. `@created` is null on filesystems without a creation time and
+sorts after real values. Only `@status` validates every matching record before
+it is ordered; the other system fields use stored file metadata, and
+`@created` reads it once per match. `SORT BY @modified DESC` alone is the
+default order and runs unsorted. Append `:fts` to a field with a declared
+`x-full-text` format to sort by its rendered text, so `**Zeta**` sorts as
+`Zeta`; on an undeclared field, `:fts` sorts by the stored value. System and
+`:fts` terms never use a schema sort index.
+
+```sh
+objekte examples/musenalm query contents 'year = 1800 SORT BY @size DESC && @id' --limit 25
+objekte examples/musenalm query contents 'exists(annotation) SORT BY @status && annotation:fts' --limit 25
+```
+
 The repository's `Options.total_limit` sets the maximum accessible matches
 across all pages and exports (default 10,000). `--total-limit N` sets it for a
 CLI invocation. A counted result reports the capped total and `truncated:

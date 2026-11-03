@@ -90,8 +90,12 @@ pub fn parse_sort_terms(clause: &str) -> Result<Vec<Sort>> {
             }
             _ => (raw, Direction::Asc),
         };
-        if field != "@id" {
-            JsonFilter::parse_path(field)?;
+        if let Some(name) = field.strip_prefix('@') {
+            if crate::json_filter::MetadataField::parse(name).is_none() {
+                return Err(Error::Request(format!("unknown system sort field {field}")));
+            }
+        } else {
+            JsonFilter::parse_path(field.strip_suffix(":fts").unwrap_or(field))?;
         }
         if !seen.insert(field) {
             return Err(Error::Request(format!("duplicate SORT BY field {field}")));
