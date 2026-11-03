@@ -50,6 +50,7 @@ impl Repository {
         self.metrics.secondary_snapshot_loads += u64::from(picker.secondary_loaded());
         self.metrics.bigram_open_nanos += nanos(started);
         self.file_pickers.insert(c.name, picker);
+        self.query_cache.invalidate(collection);
         Ok(true)
     }
 
@@ -80,6 +81,7 @@ impl Repository {
             .ok_or_else(|| Error::Cache("collection index is unavailable".into()))?;
         let changed = picker.reconcile_inventory(inventory.files)?;
         if changed > 0 {
+            self.query_cache.invalidate(&inventory.collection);
             self.autosave_loaded_bigram_cache(&inventory.collection)?;
         }
         Ok(changed)
@@ -99,6 +101,7 @@ impl Repository {
         }
         if !picker.can_save_bigram_snapshot() {
             picker.rebuild_index()?;
+            self.query_cache.invalidate(collection);
         }
         let _ = picker.save_bigram_snapshot(&path);
         Ok(())
@@ -114,8 +117,12 @@ impl Repository {
             .file_pickers
             .get_mut(collection)
             .expect("picker exists");
-        picker.refresh()?;
+        let changed = picker.refresh()?;
+        if changed > 0 {
+            self.query_cache.invalidate(collection);
+        }
         picker.build_posting(&path)?;
+        self.query_cache.invalidate(collection);
         if let Some(paths) = self.auto_postings.get_mut(collection) {
             paths.remove(&path);
         }
@@ -184,8 +191,12 @@ impl Repository {
             .get_mut(collection)
             .expect("picker exists");
         if !picker.can_save_bigram_snapshot() {
-            picker.refresh()?;
+            let changed = picker.refresh()?;
+            if changed > 0 {
+                self.query_cache.invalidate(collection);
+            }
             picker.rebuild_index()?;
+            self.query_cache.invalidate(collection);
         }
         picker.save_bigram_snapshot(&path)?;
         Ok(path)
@@ -208,8 +219,12 @@ impl Repository {
             .file_pickers
             .get_mut(collection)
             .expect("picker exists");
-        picker.refresh()?;
+        let changed = picker.refresh()?;
+        if changed > 0 {
+            self.query_cache.invalidate(collection);
+        }
         picker.rebuild_index()?;
+        self.query_cache.invalidate(collection);
         let path = self.bigram_cache_path(collection)?;
         self.file_pickers[collection].save_bigram_snapshot(&path)?;
         Ok(path)
@@ -262,10 +277,14 @@ impl Repository {
         let before = self.metrics.clone();
         if let Some(picker) = self.file_pickers.get_mut(&c.name) {
             let started = Instant::now();
-            picker.refresh()?;
+            let changed = picker.refresh()?;
+            if changed > 0 {
+                self.query_cache.invalidate(&c.name);
+            }
             self.metrics.bigram_refresh_nanos += nanos(started);
             let started = Instant::now();
             picker.rebuild_index()?;
+            self.query_cache.invalidate(&c.name);
             #[cfg(feature = "index-timings")]
             let timings = picker.build_timings();
             self.metrics.bigram_rebuild_nanos += nanos(started);
@@ -296,6 +315,7 @@ impl Repository {
                 if let Some(picker) = self.file_pickers.get_mut(collection) {
                     let changed = picker.refresh()?;
                     if changed > 0 {
+                        self.query_cache.invalidate(collection);
                         self.autosave_loaded_bigram_cache(collection)?;
                     }
                 } else {

@@ -25,6 +25,8 @@ use std::{
 mod coverage;
 mod inference;
 mod json_query;
+mod ordered_result_cache;
+mod predicate_cache;
 mod reconciliation;
 mod relations;
 mod source_records;
@@ -58,6 +60,8 @@ pub struct Options {
     pub bigram_encoding: BigramEncoding,
     /// Maximum number of matches accessible across all pages of a query.
     pub total_limit: usize,
+    /// Process-local verified-query cache budget in bytes; zero disables it.
+    pub query_cache_bytes: usize,
 }
 
 
@@ -68,6 +72,7 @@ impl Options {
             freshness: Freshness::MetadataOnOpen,
             bigram_encoding: BigramEncoding::Ascii,
             total_limit: 10_000,
+            query_cache_bytes: 64 * 1024 * 1024,
         }
     }
 }
@@ -163,7 +168,11 @@ metrics!(
     bigram_regex_nanos,
     bigram_materialize_nanos,
     fts_open_nanos,
-    fts_candidates
+    fts_candidates,
+    predicate_cache_hits,
+    ordered_result_hits,
+    partial_evaluation_hits,
+    cache_evictions
 );
 
 
@@ -282,6 +291,7 @@ pub struct Repository {
     auto_postings: BTreeMap<String, BTreeSet<JsonPath>>,
     observed_configuration: ConfigurationSnapshot,
     configuration_changes: Option<ConfigurationChanges>,
+    query_cache: predicate_cache::VerifiedPredicateCache,
 }
 
 
@@ -386,6 +396,13 @@ impl Repository {
     }
 
     fn from_model(model: RepositoryModel, options: Options, discovery: Option<Discovery>) -> Self {
+        let query_cache = predicate_cache::VerifiedPredicateCache::new(
+            if options.cache == CacheMode::Memory && options.freshness != Freshness::HashOnRequest {
+                options.query_cache_bytes
+            } else {
+                0
+            },
+        );
         Self {
             observed_configuration: ConfigurationSnapshot::from_model(&model),
             configuration_changes: None,
@@ -398,6 +415,7 @@ impl Repository {
             file_pickers: BTreeMap::new(),
             requested_postings: BTreeMap::new(),
             auto_postings: BTreeMap::new(),
+            query_cache,
         }
     }
 
@@ -429,6 +447,11 @@ impl Repository {
 
     pub fn metrics(&self) -> &Metrics {
         &self.metrics
+    }
+
+    /// Allocated bytes estimated for verified predicates and ordered slot lists.
+    pub fn query_cache_bytes(&self) -> usize {
+        self.query_cache.bytes()
     }
 
     pub fn reset_metrics(&mut self) {
@@ -476,6 +499,11 @@ impl Repository {
             .retain(|name, _| self.model.collections.contains_key(name));
         self.auto_postings
             .retain(|name, _| self.model.collections.contains_key(name));
+        for name in previous.collections.keys() {
+            if !unchanged.contains(name) {
+                self.query_cache.invalidate(name);
+            }
+        }
     }
 
     /// Most recent successful configuration comparison in this handle.

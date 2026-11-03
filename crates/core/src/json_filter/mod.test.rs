@@ -24,6 +24,27 @@ fn unmodified_fields_and_literals_borrow_large_values() {
 }
 
 #[test]
+fn cache_identity_ignores_boolean_order_and_bound_parameter_spelling() {
+    let left = JsonFilter::compile(
+        "year = $year && (city = 'Berlin' && name = 'Müller')",
+        &[("year".into(), serde_json::json!(1820))].into(),
+    )
+    .unwrap();
+    let right = JsonFilter::compile(
+        "name = 'Müller' && city = 'Berlin' && year = 1820",
+        &BTreeMap::new(),
+    )
+    .unwrap();
+    assert_eq!(left.cache_expression(), right.cache_expression());
+    let different = JsonFilter::compile(
+        "year = 1830 && city = 'Berlin' && name = 'Müller'",
+        &BTreeMap::new(),
+    )
+    .unwrap();
+    assert_ne!(left.cache_expression(), different.cache_expression());
+}
+
+#[test]
 fn cardinality_counts_only_values_eligible_for_a_modifier() {
     let document = serde_json::json!({"items": [1, "A", false, "B"]});
     let lower = FieldOperand {

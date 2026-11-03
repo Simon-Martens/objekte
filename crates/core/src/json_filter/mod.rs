@@ -390,6 +390,108 @@ pub struct JsonFilter {
 
 
 impl JsonFilter {
+    /// Stable, schema-bound expression bytes for verified-result identity.
+    /// Only error-safe callers may use commutative Boolean normalization.
+    pub(crate) fn cache_expression(&self) -> Vec<u8> {
+        fn encode(expr: &Expr) -> Vec<u8> {
+            fn children<'a>(expr: &'a Expr, and: bool, out: &mut Vec<&'a Expr>) {
+                match (and, expr) {
+                    (true, Expr::And(parts)) | (false, Expr::Or(parts)) => {
+                        for part in parts {
+                            children(part, and, out);
+                        }
+                    }
+                    _ => out.push(expr),
+                }
+            }
+            let kind = match expr {
+                Expr::And(_) => Some(0_u8),
+                Expr::Or(_) => Some(1_u8),
+                _ => None,
+            };
+            let Some(kind) = kind else {
+                return serde_json::to_vec(expr).expect("filter expression serializes");
+            };
+            let mut parts = Vec::new();
+            children(expr, kind == 0, &mut parts);
+            let mut encoded = parts.into_iter().map(encode).collect::<Vec<_>>();
+            encoded.sort();
+            let mut result = vec![kind];
+            for part in encoded {
+                result.extend_from_slice(&(part.len() as u64).to_le_bytes());
+                result.extend_from_slice(&part);
+            }
+            result
+        }
+        encode(&self.expr)
+    }
+
+    /// Top-level conjuncts retain the already bound field semantics.
+    pub(crate) fn cache_conjuncts(&self) -> Vec<Self> {
+        fn append(expr: &Expr, out: &mut Vec<Expr>) {
+            if let Expr::And(parts) = expr {
+                for part in parts {
+                    append(part, out);
+                }
+            } else {
+                out.push(expr.clone());
+            }
+        }
+        let mut parts = Vec::new();
+        append(&self.expr, &mut parts);
+        parts
+            .into_iter()
+            .map(|expr| Self {
+                expr,
+                paths: Vec::new(),
+                scalar_paths: Vec::new(),
+                metadata_fields: Vec::new(),
+                hash: String::new(),
+            })
+            .collect()
+    }
+
+    pub(crate) fn cache_disjuncts(&self) -> Vec<Self> {
+        fn append(expr: &Expr, out: &mut Vec<Expr>) {
+            if let Expr::Or(parts) = expr {
+                for part in parts {
+                    append(part, out);
+                }
+            } else {
+                out.push(expr.clone());
+            }
+        }
+        let mut parts = Vec::new();
+        append(&self.expr, &mut parts);
+        parts
+            .into_iter()
+            .map(|expr| Self {
+                expr,
+                paths: Vec::new(),
+                scalar_paths: Vec::new(),
+                metadata_fields: Vec::new(),
+                hash: String::new(),
+            })
+            .collect()
+    }
+
+    pub(crate) fn cache_subset(&self, indices: &[usize]) -> Self {
+        let conjuncts = self.cache_conjuncts();
+        let expr = Expr::And(
+            indices
+                .iter()
+                .map(|&index| conjuncts[index].expr.clone())
+                .collect(),
+        );
+        Self {
+            expr,
+            paths: Vec::new(),
+            scalar_paths: Vec::new(),
+            metadata_fields: Vec::new(),
+            hash: String::new(),
+        }
+    }
+
     /// A necessary regex for finding candidates in raw JSON files.
     /// Matching files still require full JSON parsing and filter evaluation.
     pub fn source_candidate_pattern(&self) -> Result<Option<String>> {
@@ -774,7 +876,7 @@ impl JsonFilter {
         Ok(evaluate(&self.expr, value, metadata))
     }
 
-    fn check_cardinality(&self, value: &Value) -> Result<()> {
+    pub(crate) fn check_cardinality(&self, value: &Value) -> Result<()> {
         check_paths(value, &self.scalar_paths)
     }
 }
