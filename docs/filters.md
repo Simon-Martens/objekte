@@ -27,7 +27,7 @@ Use `annotation:fts ~ "Goet"` to compare rendered text when `annotation` has a s
 | `published = 2026-05` | JSON date strings compared with the same UTC periods |
 | `@status` | `valid`, `invalid`, `no_schema`, or `incorrect_json` |
 
-Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each JSON field operand accepts one modifier. Metadata operands begin with `@`, so a JSON key named `@size` remains accessible as `["@size"]`. Apart from `exists`, `missing`, and the `:ignorecase` pattern wrapper, other functions, relation traversal, and grouping are outside this version.
+Strings use single or double quotes and backslash escapes. Numbers use JSON syntax, including fractions and exponents. Other literals are `true`, `false`, and `null`. An unquoted name on the right is a field reference. Each JSON field operand accepts one modifier. Metadata operands begin with `@`, so a JSON key named `@size` remains accessible as `["@size"]`. Apart from `exists`, `missing`, and the `:ignorecase` pattern wrapper, other functions and grouping are outside this version. Paths can follow schema relations; see [Relations](#relations).
 
 ~~~text
 @size > 1KB && @modified >= 2026-05
@@ -49,6 +49,16 @@ Paths can be `address.city`, `["a.b"]["quote\"key"]`, `authors[0].name`, or `aut
 Actual JSON types are distinct: `"1800" = 1800` is false, and `true` differs from `1`. JSON numbers such as `1800`, `1800.0`, and `1.8e3` compare equal by exact decimal value, including values outside i64/f64 range. Equality and ordered string comparisons are case sensitive and bytewise. Missing fields match no comparison; explicit null matches `= null`. Booleans and null have equality semantics but no ordering.
 
 `~` wraps a pattern without an unescaped `%` for literal substring matching. With `%`, it is a LIKE-style pattern: `%` matches any sequence and `_` one character, with no implicit surrounding wildcards. Backslash escapes pattern characters. Plain `~` and `!~` are case sensitive. Wrap a string, parameter, or field pattern as `:ignorecase(...)` to use full Unicode case folding: `Ä` matches `ä`, and `ß` matches `ss`. This does not apply canonical Unicode normalization, so composed and decomposed accents remain distinct. In a folded wildcard pattern, `_` consumes one character of the folded text. A pattern from another field is surrounded by `%`.
+
+## Relations
+
+A path that continues past a field whose schema declares `"x-relation": {"collection": "people"}` reads the linked record, as if that record were embedded at the field. `author.name = 'Ada'` compares the `name` of the person whose ID `author` stores; `author = 'ada'` still compares the ID itself. A relation can also be declared on array items, so `editors.name ?= 'Ada'` checks every linked editor, and relations chain across collections: `author.city.name = 'Berlin'`.
+
+Every filter rule applies unchanged to linked values: implicit array traversal, `?` comparisons, `:each`, `:length`, `:lower`, `:ignorecase`, date literals, field-to-field comparisons such as `year > author.born`, `exists(author.born)`, and `missing(author.born)`. Several linked values need `?` or `:each`, exactly like an embedded array. `:fts` renders a linked value with the format its own collection declares. `SORT BY author.name` sorts by linked values; schema sort indexes do not cover them, so these sorts use the bounded fallback.
+
+Relations exist only where a schema declares them. In a schema-free collection, or for an undeclared field, a dotted path is ordinary JSON traversal, so an unscoped query decides per collection. A declared relation follows ID strings only: a dangling ID, or an embedded object or number in a relation field, reaches no linked value.
+
+A query reads each linked collection it needs once, keeping only the members its paths use, and evaluates the linked condition there first. The IDs that match then narrow the source records: through typed postings when the relation field is an indexed top-level field, and otherwise through bigram candidates for those IDs. Only the remaining records are read and checked exactly. A scalar comparison is not narrowed when the source field or a linked record has several values, because a skipped record could otherwise hide a cardinality error. Linked records are read from source for every query, and the verified-query cache skips relation queries, so edits to a linked collection are always visible.
 
 ## Execution
 

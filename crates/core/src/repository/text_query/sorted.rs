@@ -1,7 +1,7 @@
 //! Execute sorted text pages with an index or a bounded fallback buffer.
 
 use super::*;
-use crate::sorting::{SortBuffer, SortPlan, SortRecord};
+use crate::sorting::{SortBuffer, SortRecord};
 
 type PageCallback<'a> = dyn FnMut(&[TextHit]) -> Result<()> + 'a;
 
@@ -28,7 +28,7 @@ impl Repository {
             && self.options.freshness != Freshness::HashOnRequest;
         for name in &names {
             let collection = self.collection(name)?;
-            plans.insert(name.clone(), SortPlan::compile(&collection, &request.sort)?);
+            plans.insert(name.clone(), self.sort_plan(&collection, &request.sort)?);
             if indexed_order {
                 self.ensure_picker(&collection)?;
                 indexed_order = self.file_pickers[name].has_sort_index(&request.sort)

@@ -11,7 +11,9 @@ pub use parser::{parse_sort_terms, split_sort_clause};
 use crate::{
     Collection, Direction, Error, JsonFilter, JsonPath, JsonPathStep, RecordStatus, Result, Sort,
     TextFormat,
-    json_filter::{MetadataField, decimal_cmp, declared_format, sonic_values, values},
+    json_filter::{
+        MetadataField, RelationContext, decimal_cmp, declared_format, sonic_values, values,
+    },
     schema::SortReduce,
 };
 use icu_collator::{
@@ -22,7 +24,7 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
-use std::{cmp::Ordering, collections::BTreeMap, path::Path};
+use std::{cmp::Ordering, collections::BTreeMap, path::Path, sync::Arc};
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -81,6 +83,8 @@ enum TermKey {
     Path {
         path: JsonPath,
         rendered: Option<TextFormat>,
+        /// Whether the term asked for `:fts`, resolved again across relations.
+        fts: bool,
     },
     System(MetadataField),
 }
@@ -141,6 +145,8 @@ pub(crate) fn is_default_order(sorts: &[Sort]) -> bool {
 /// One collection's sort semantics; collections themselves never interleave.
 pub(crate) struct SortPlan {
     terms: Vec<Term>,
+    /// The collection and linked records for terms that follow relations.
+    relations: Option<(String, Arc<RelationContext>)>,
 }
 
 
@@ -172,14 +178,14 @@ impl SortPlan {
                 });
                 continue;
             }
-            let (field, rendered) = match sort.field.strip_suffix(":fts") {
+            let (field, fts) = match sort.field.strip_suffix(":fts") {
                 Some(field) => (field, true),
                 None => (sort.field.as_str(), false),
             };
             let path = JsonFilter::parse_path(field)?;
             // Like a `:fts` filter operand, an undeclared path sorts by its
             // stored value.
-            let rendered = rendered.then(|| declared_format(fields, &path)).flatten();
+            let rendered = fts.then(|| declared_format(fields, &path)).flatten();
             let mut current: Option<&crate::Field> = None;
             let mut at_root = true;
             let mut language = default_language.unwrap_or("en");
@@ -212,13 +218,54 @@ impl SortPlan {
                 }
             }
             terms.push(Term {
-                key: TermKey::Path { path, rendered },
+                key: TermKey::Path {
+                    path,
+                    rendered,
+                    fts,
+                },
                 direction: sort.direction,
                 reduce,
                 collator: collator(language)?,
             });
         }
-        Ok(Self { terms })
+        Ok(Self {
+            terms,
+            relations: None,
+        })
+    }
+
+    /// JSON paths of this plan's terms.
+    pub(crate) fn paths(&self) -> Vec<JsonPath> {
+        self.terms
+            .iter()
+            .filter_map(|term| match &term.key {
+                TermKey::Path { path, .. } => Some(path.clone()),
+                TermKey::System(_) => None,
+            })
+            .collect()
+    }
+
+    /// Read terms that follow relations from `collection` through `context`.
+    pub(crate) fn bind_relations(&mut self, collection: &str, context: Arc<RelationContext>) {
+        for term in &mut self.terms {
+            if let TermKey::Path {
+                path,
+                rendered,
+                fts: true,
+            } = &mut term.key
+                && let Some(format) = context.rendered(collection, path)
+            {
+                *rendered = format;
+            }
+        }
+        self.relations = Some((collection.to_owned(), context));
+    }
+
+    fn reached<'a>(&'a self, data: &'a Value, path: &JsonPath) -> Vec<&'a Value> {
+        self.relations
+            .as_ref()
+            .and_then(|(collection, context)| context.values(collection, data, path, true))
+            .unwrap_or_else(|| values(data, path, true))
     }
 
     /// Whether projecting needs each record's validated status.
@@ -262,7 +309,7 @@ impl SortPlan {
             .map(|term| match &term.key {
                 TermKey::System(field) => Ok(record.value(*field)),
                 TermKey::Path { path, .. } => {
-                    term.select(values(data, path, true), |value| Ok(term.value(value)))
+                    term.select(self.reached(data, path), |value| Ok(term.value(value)))
                 }
             })
             .collect()

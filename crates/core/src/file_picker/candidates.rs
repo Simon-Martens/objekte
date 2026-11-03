@@ -424,6 +424,37 @@ impl FilePicker {
         required.iter().all(|key| keys.binary_search(key).is_ok())
     }
 
+    /// Typed candidates for a top-level field equal to any of `ids`.
+    pub(crate) fn typed_id_bits(
+        &self,
+        path: &crate::JsonPath,
+        ids: &std::collections::BTreeSet<String>,
+    ) -> Option<Vec<u64>> {
+        use crate::json_filter::{IndexOp, TypedPlan};
+        let plan = TypedPlan::Or(
+            ids.iter()
+                .map(|id| {
+                    TypedPlan::Term(
+                        path.clone(),
+                        IndexOp::Eq,
+                        serde_json::Value::String(id.clone()),
+                    )
+                })
+                .collect(),
+        );
+        self.typed
+            .candidate_bits(Some(&plan), self.files.len(), &self.changed)
+    }
+
+    /// Conservative candidates containing any of `literals`, as a bitset.
+    pub(crate) fn literal_union_bits(&self, literals: &[String]) -> Option<Vec<u64>> {
+        let mut bits = vec![0_u64; self.slot_count().div_ceil(64)];
+        for slot in self.candidates(Some(literals)) {
+            bits[slot / 64] |= 1 << (slot % 64);
+        }
+        Some(bits)
+    }
+
     pub(super) fn candidates(&self, literals: Option<&[String]>) -> Vec<usize> {
         let Some(literals) = literals.filter(|terms| !terms.is_empty()) else {
             return self.sorted.clone();

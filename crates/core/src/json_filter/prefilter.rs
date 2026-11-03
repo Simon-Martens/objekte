@@ -167,7 +167,8 @@ fn necessary(expr: &Expr) -> Option<String> {
             let run = path_run(path);
             (!run.is_empty()).then(|| encoded_run(&run))
         }
-        Expr::Missing(_) => None,
+        // A related value is in the linked file, not in this source.
+        Expr::Missing(_) | Expr::Relation(_) => None,
         Expr::Compare {
             left,
             op,
@@ -233,7 +234,7 @@ impl JsonFilter {
                         path,
                     ))
                 }
-                Expr::Exists(_) | Expr::Missing(_) => None,
+                Expr::Exists(_) | Expr::Missing(_) | Expr::Relation(_) => None,
                 Expr::Compare { left, right, .. }
                     if rendered(left)
                         || rendered(right)

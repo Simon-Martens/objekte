@@ -205,7 +205,10 @@ impl Repository {
                 cache_present.then_some(cache_path.as_path()),
                 c.bigram_encoding.unwrap_or(self.options.bigram_encoding),
             )?;
-            if cache_present && (!picker.loaded_snapshot() || picker.snapshot_dirty()) {
+            // A saved overlay of many changed files would disable indexed lookups.
+            let compacted = picker.compact_large_overlay()?;
+            if cache_present && (compacted || !picker.loaded_snapshot() || picker.snapshot_dirty())
+            {
                 let _ = picker.save_bigram_snapshot(&cache_path);
             } else if cache_present && !picker.secondary_loaded() {
                 let _ = picker.save_secondary_snapshot(&cache_path);
@@ -286,7 +289,7 @@ impl Repository {
             if stop_after.is_some_and(|limit| matched >= limit) {
                 break;
             }
-            let filter = filter.for_fields(&c.fields);
+            let filter = self.bind_filter(filter, c)?;
             let relative_collection = c
                 .path
                 .strip_prefix(&self.model.root)
@@ -351,7 +354,9 @@ impl Repository {
                 && picker.verified()
                 && picker.slot_count() <= u32::MAX as usize
                 && !risk
-                && !filter.has_metadata())
+                && !filter.has_metadata()
+                // Linked records can change without this collection changing.
+                && !filter.has_relations())
             .then(|| PredicateCacheKey {
                 collection: c.name.clone(),
                 expression: filter.cache_expression(),
@@ -634,6 +639,20 @@ impl Repository {
                     result
                         .query_plan
                         .push("rendered full-text bigram candidates".into());
+                }
+            }
+            if !risk && filter.has_relations() {
+                // Semi-join: the linked collection was queried first; keep
+                // records whose relation values include a matching ID.
+                for (path, ids) in filter.relation_semijoins(|path| {
+                    picker.typed_scalar_safe(path)
+                        || matches!(path.as_slice(), [crate::JsonPathStep::Key(field)]
+                            if !picker.has_array_value(field))
+                }) {
+                    selection.intersect_bits(picker, picker.relation_candidate_bits(&path, &ids));
+                    result
+                        .query_plan
+                        .push(format!("relation semi-join: {} linked IDs", ids.len()));
                 }
             }
             let mut conjuncts = Vec::new();

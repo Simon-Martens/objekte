@@ -8,7 +8,7 @@ fn unmodified_fields_and_literals_borrow_large_values() {
         modifier: None,
         metadata: None,
     };
-    let selected = field.select(&document, None);
+    let selected = field.select(&document, None, None);
     assert_eq!(selected.len(), 1);
     assert!(std::ptr::eq(
         selected[0].value().unwrap(),
@@ -16,7 +16,7 @@ fn unmodified_fields_and_literals_borrow_large_values() {
     ));
 
     let literal = Operand::Literal(serde_json::json!({"text": "y".repeat(256 * 1024)}));
-    let selected = literal.select(&document, None);
+    let selected = literal.select(&document, None, None);
     let Operand::Literal(value) = &literal else {
         unreachable!()
     };
@@ -52,18 +52,18 @@ fn cardinality_counts_only_values_eligible_for_a_modifier() {
         modifier: Some(Modifier::Lower),
         metadata: None,
     };
-    assert!(lower.more_than_one(&document));
+    assert!(lower.more_than_one(&document, None));
     let one = serde_json::json!({"items": [1, "A", false]});
-    assert!(!lower.more_than_one(&one));
+    assert!(!lower.more_than_one(&one, None));
 
     let length = FieldOperand {
         path: vec![JsonPathStep::Key("items".into())],
         modifier: Some(Modifier::Length),
         metadata: None,
     };
-    assert!(!length.more_than_one(&document));
+    assert!(!length.more_than_one(&document, None));
     assert_eq!(
-        length.select(&document, None)[0].value(),
+        length.select(&document, None, None)[0].value(),
         Some(&Value::from(4))
     );
 }

@@ -170,6 +170,7 @@ impl FilePicker {
         let changes = self.refresh_from_inventory(&source, inventory)?;
         source.finish()?;
         self.verified = true;
+        self.compact_large_overlay()?;
         Ok(changes)
     }
 
@@ -181,6 +182,7 @@ impl FilePicker {
         let changes = self.refresh_from_inventory(&source, inventory)?;
         source.finish()?;
         self.verified = true;
+        self.compact_large_overlay()?;
         Ok(changes.len())
     }
 
@@ -372,6 +374,7 @@ impl FilePicker {
         }
         self.modified_order
             .maybe_compact(&self.files, &self.id_bytes);
+        self.compact_large_overlay()?;
         Ok(changes)
     }
 

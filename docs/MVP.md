@@ -24,12 +24,12 @@ The schema's `index` opt-in is independent of view definitions. Named views use 
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
 | CLI | One-shot commands and a TUI that does not edit source records; no separate query or cache implementation |
 
-Paths through embedded arrays inspect values in the same source record. JSON filters do not traverse declared relations or group records. Metadata operands can select source path, size, timestamps, and validation status; malformed JSON can match metadata predicates, but has no stored JSON paths. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](validation.md) for the precise validation behavior.
+Paths through embedded arrays inspect values in the same source record. Paths past a schema-declared relation read the linked record; see [filters.md](filters.md#relations). JSON filters do not group records. Metadata operands can select source path, size, timestamps, and validation status; malformed JSON can match metadata predicates, but has no stored JSON paths. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](validation.md) for the precise validation behavior.
 
 ## Work still planned
 
 - Source-file create, update, move, and delete operations, with revision conflict checks, atomic writes, and reference handling. The current repository API does not rewrite referring JSON files.
-- Saved and grouped views, aggregates, and relation traversal within a query.
+- Saved and grouped views and aggregates.
 - User-facing raw grep results with source line/offset. The `--backend grep` option is only a candidate prefilter for a structural JSON query; it returns matching records, not grep lines.
 - A persistent desktop UI with filesystem watching, background refresh, result patching, cancellation, and optional prefetch. [UI.md](UI.md) tracks this work.
 - Further measurements of first-use index construction, repeated queries, broad matches, external edits, and memory across multiple repositories. [Performance.md](Performance.md) summarizes the current measured query path and links historical experiments.

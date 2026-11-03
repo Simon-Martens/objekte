@@ -252,7 +252,10 @@ impl Repository {
                 break;
             }
             let c = self.collection(&name)?;
-            let collection_filter = filter.as_ref().map(|filter| filter.for_fields(&c.fields));
+            let collection_filter = filter
+                .as_ref()
+                .map(|filter| self.bind_filter(filter, &c))
+                .transpose()?;
             let relative_collection = c
                 .path
                 .strip_prefix(&self.model.root)
@@ -349,8 +352,10 @@ impl Repository {
                 && (!streaming || self.options.stream_query_cache)
             {
                 let picker = &self.file_pickers[&name];
+                // Linked records can change without this collection changing.
                 let safe_filter = collection_filter.as_ref().is_none_or(|filter| {
                     !filter.has_metadata()
+                        && !filter.has_relations()
                         && !filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
                         && !filter
                             .top_level_scalar_fields()

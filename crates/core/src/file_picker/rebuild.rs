@@ -3,7 +3,23 @@
 use super::*;
 
 
+/// Changed slots stay candidates for every typed and bigram lookup until a
+/// rebuild. Past this share of the collection, the index is rebuilt.
+const OVERLAY_SHARE: usize = 32;
+const OVERLAY_MIN: usize = 512;
+
+
 impl FilePicker {
+    /// Rebuild when the changed-file overlay has grown so large that indexed
+    /// lookups no longer narrow candidates, as after touching every file.
+    pub(crate) fn compact_large_overlay(&mut self) -> Result<bool> {
+        if self.changed.len() <= (self.files.len() / OVERLAY_SHARE).max(OVERLAY_MIN) {
+            return Ok(false);
+        }
+        self.rebuild_index()?;
+        Ok(true)
+    }
+
     /// Rebuilds the immutable index after many edits. Source stamps are checked
     /// before and after every read so a racing edit cannot publish a bad index.
     pub fn rebuild_index(&mut self) -> Result<()> {

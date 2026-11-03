@@ -1,7 +1,7 @@
 //! Route sorted JSON pages to the verified index or bounded fallback.
 
 use super::*;
-use crate::sorting::{SortBuffer, SortPlan, SortRecord};
+use crate::sorting::{SortBuffer, SortRecord};
 
 type PageCallback<'a> = dyn FnMut(&[Record]) -> Result<()> + 'a;
 
@@ -32,7 +32,7 @@ impl Repository {
             && self.options.freshness != Freshness::HashOnRequest;
         for name in &names {
             let collection = self.collection(name)?;
-            plans.insert(name.clone(), SortPlan::compile(&collection, &request.sort)?);
+            plans.insert(name.clone(), self.sort_plan(&collection, &request.sort)?);
             if indexed_order {
                 self.ensure_picker(&collection)?;
                 let picker = &self.file_pickers[name];

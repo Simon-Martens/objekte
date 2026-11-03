@@ -15,7 +15,7 @@ impl Repository {
     ) -> Result<()> {
         let mut matched = 0;
         for c in collections {
-            let filter = filter.for_fields(&c.fields);
+            let filter = self.bind_filter(filter, c)?;
             let (source, files) = self.inventory(c)?;
             let mut entries = files.iter().collect::<Vec<_>>();
             entries.sort_unstable_by(|a, b| {
@@ -75,7 +75,7 @@ impl Repository {
             vec!["ripgrep source prefilter where safe; Sonic JSON verification".into()];
         let mut matched = 0;
         for c in collections {
-            let filter = filter.for_fields(&c.fields);
+            let filter = self.bind_filter(filter, c)?;
             let prefilter = filter.source_prefilter()?;
             let (source, files) = self.inventory(c)?;
             let relative_collection = c

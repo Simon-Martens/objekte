@@ -10,8 +10,10 @@ for the large `contents` collection. Source JSON files are never changed.
 name order and records by modification time, newest first, with ID breaking
 ties. The default page has 50 records; `--count` requests a total. String values
 in filters are quoted, while numbers and booleans are not. A dotted path through
-an embedded array examines its values; it does not follow a declared relation to another
-record. See [filters.md](filters.md) for the exact operator semantics.
+an embedded array examines its values. A path that continues past a field with a
+schema `x-relation` reads the linked record, as if it were embedded there:
+`entry.preferred_title` in `contents` compares the title of the linked entry.
+See [filters.md](filters.md#relations) for the exact semantics.
 
 `missing(path)` selects records without a value at that path; `null` is present,
 so `missing(year)` and `year = null` are different. A long-lived library caller
@@ -104,10 +106,16 @@ cargo run --release -p objekte-cli -- examples/musenalm query entries 'items:len
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'entry = "00fx8ln651na0e3"' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'entry = "00fx8ln651na0e3" && year >= 1800' --count --limit 3
 
-# Stored relation IDs are searchable as strings; these do not expand target records.
+# A relation field alone compares the stored ID.
 cargo run --release -p objekte-cli -- examples/musenalm query entries 'places ?= "d7kbujq7399g22j"' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm query entries 'agents.type ?= "Verlag"' --count --limit 3
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'contributors.agents ?= "5e64t7ca8x2wyim"' --count --limit 3
+
+# Paths past a declared relation read the linked records, including several hops,
+# arrays of relations, field comparisons, and sorting.
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'entry.year = 1800 SORT BY entry.preferred_title' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query contents 'contributors.agents.name ?~ "%Goethe%"' --count --limit 3
+cargo run --release -p objekte-cli -- examples/musenalm query series 'entries.places.name ?= "Leipzig"' --count --limit 3
 
 # Other arrays in the contents and series collections.
 cargo run --release -p objekte-cli -- examples/musenalm query contents 'musenalm_type ?= "Gedicht/Lied"' --count --limit 3

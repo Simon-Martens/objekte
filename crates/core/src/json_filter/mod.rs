@@ -4,6 +4,7 @@ mod metadata_plan;
 mod parser;
 mod pattern;
 mod prefilter;
+mod relation;
 mod temporal;
 
 use crate::{
@@ -12,6 +13,7 @@ use crate::{
 };
 pub(crate) use fts::{FtsPlan, declared_format};
 pub(crate) use metadata_plan::{MetadataDecision, MetadataIdHint, MetadataPathHint};
+pub(crate) use relation::RelationContext;
 pub(crate) fn like_pattern(pattern: &str, ignore_case: bool) -> pattern::Like {
     pattern::Like::new(pattern, false, ignore_case)
 }
@@ -198,6 +200,7 @@ impl Operand {
         &'a self,
         doc: &'a Value,
         metadata: Option<&FileMetadata<'_>>,
+        relations: Relations<'a>,
     ) -> SelectedValues<'a> {
         match self {
             Self::Literal(value) => SmallVec::from_buf([SelectedValue::Borrowed(value)]),
@@ -205,7 +208,7 @@ impl Operand {
                 SmallVec::from_buf([SelectedValue::Owned(Value::from(*bytes))])
             }
             Self::Temporal(period) => SmallVec::from_buf([SelectedValue::Period(*period)]),
-            Self::Field(f) => f.select(doc, metadata),
+            Self::Field(f) => f.select(doc, metadata, relations),
         }
     }
 }
@@ -216,6 +219,7 @@ impl FieldOperand {
         &self,
         doc: &'a Value,
         metadata: Option<&FileMetadata<'_>>,
+        relations: Relations<'a>,
     ) -> SelectedValues<'a> {
         if let Some(field) = self.metadata {
             let Some(metadata) = metadata else {
@@ -239,61 +243,79 @@ impl FieldOperand {
             return SmallVec::from_buf([value]);
         }
         let mut selected = SelectedValues::new();
-        visit_values(
-            doc,
-            &self.path,
-            self.modifier != Some(Modifier::Length),
-            &mut |value| {
-                let selected_value = match self.modifier {
-                    Some(Modifier::Length) => value
-                        .as_array()
-                        .map(|array| SelectedValue::Owned(Value::from(array.len()))),
-                    Some(Modifier::Lower) => value
-                        .as_str()
-                        .map(|text| SelectedValue::Owned(Value::String(text.to_ascii_lowercase()))),
-                    Some(Modifier::Rendered(format)) => value
-                        .as_str()
-                        .and_then(|text| render_text(text, format))
-                        .map(|text| SelectedValue::Owned(Value::String(text))),
-                    _ => Some(SelectedValue::Borrowed(value)),
-                };
-                if let Some(value) = selected_value {
-                    selected.push(value);
-                }
-                true
-            },
-        );
+        self.visit(doc, relations, &mut |value| {
+            if let Some(value) = self.modified(value) {
+                selected.push(value);
+            }
+            true
+        });
         selected
     }
 
-    fn more_than_one(&self, doc: &Value) -> bool {
+    /// Visit raw values at this path, following bound relations.
+    fn visit<'a>(
+        &self,
+        doc: &'a Value,
+        relations: Relations<'a>,
+        emit: &mut impl FnMut(&'a Value) -> bool,
+    ) {
+        let flatten = self.modifier != Some(Modifier::Length);
+        if let Some(found) = relations
+            .and_then(|(collection, context)| context.values(collection, doc, &self.path, flatten))
+        {
+            for value in found {
+                if !emit(value) {
+                    return;
+                }
+            }
+        } else {
+            visit_values(doc, &self.path, flatten, emit);
+        }
+    }
+
+    fn modified<'a>(&self, value: &'a Value) -> Option<SelectedValue<'a>> {
+        match self.modifier {
+            Some(Modifier::Length) => value
+                .as_array()
+                .map(|array| SelectedValue::Owned(Value::from(array.len()))),
+            Some(Modifier::Lower) => value
+                .as_str()
+                .map(|text| SelectedValue::Owned(Value::String(text.to_ascii_lowercase()))),
+            Some(Modifier::Rendered(format)) => value
+                .as_str()
+                .and_then(|text| render_text(text, format))
+                .map(|text| SelectedValue::Owned(Value::String(text))),
+            _ => Some(SelectedValue::Borrowed(value)),
+        }
+    }
+
+    fn more_than_one<'a>(&self, doc: &'a Value, relations: Relations<'a>) -> bool {
         if self.metadata.is_some() {
             return false;
         }
         let mut count = 0;
-        visit_values(
-            doc,
-            &self.path,
-            self.modifier != Some(Modifier::Length),
-            &mut |value| {
-                let eligible = match self.modifier {
-                    Some(Modifier::Length) => value.is_array(),
-                    Some(Modifier::Lower) => value.is_string(),
-                    Some(Modifier::Rendered(format)) => value
-                        .as_str()
-                        .and_then(|text| render_text(text, format))
-                        .is_some(),
-                    _ => true,
-                };
-                if eligible {
-                    count += 1;
-                }
-                count < 2
-            },
-        );
+        self.visit(doc, relations, &mut |value| {
+            let eligible = match self.modifier {
+                Some(Modifier::Length) => value.is_array(),
+                Some(Modifier::Lower) => value.is_string(),
+                Some(Modifier::Rendered(format)) => value
+                    .as_str()
+                    .and_then(|text| render_text(text, format))
+                    .is_some(),
+                _ => true,
+            };
+            if eligible {
+                count += 1;
+            }
+            count < 2
+        });
         count > 1
     }
 }
+
+
+/// A bound relation context and the collection whose records it evaluates.
+type Relations<'a> = Option<(&'a str, &'a RelationContext)>;
 
 
 #[derive(Debug, Clone, Serialize)]
@@ -309,6 +331,9 @@ enum Expr {
         right: Operand,
         ignore_case: bool,
     },
+    /// A comparison or presence test that follows a schema relation. Index
+    /// planners treat it as unconstrained; evaluation reads linked records.
+    Relation(Box<Expr>),
 }
 
 
@@ -393,6 +418,8 @@ pub struct JsonFilter {
     scalar_paths: Vec<FieldOperand>,
     metadata_fields: Vec<String>,
     hash: String,
+    /// The collection and linked records bound for relation paths.
+    relations: Option<(String, std::sync::Arc<RelationContext>)>,
 }
 
 
@@ -454,6 +481,7 @@ impl JsonFilter {
                 scalar_paths: Vec::new(),
                 metadata_fields: Vec::new(),
                 hash: String::new(),
+                relations: self.relations.clone(),
             })
             .collect()
     }
@@ -478,6 +506,7 @@ impl JsonFilter {
                 scalar_paths: Vec::new(),
                 metadata_fields: Vec::new(),
                 hash: String::new(),
+                relations: self.relations.clone(),
             })
             .collect()
     }
@@ -496,6 +525,7 @@ impl JsonFilter {
             scalar_paths: Vec::new(),
             metadata_fields: Vec::new(),
             hash: String::new(),
+            relations: self.relations.clone(),
         }
     }
 
@@ -523,6 +553,7 @@ impl JsonFilter {
                         visit(e, paths, scalar, metadata);
                     }
                 }
+                Expr::Relation(e) => visit(e, paths, scalar, metadata),
                 Expr::Exists(p) | Expr::Missing(p) => {
                     paths.insert(p.clone());
                 }
@@ -552,6 +583,7 @@ impl JsonFilter {
             scalar_paths: scalar_paths.into_iter().collect(),
             metadata_fields: metadata_fields.into_iter().collect(),
             hash,
+            relations: None,
         })
     }
 
@@ -634,6 +666,7 @@ impl JsonFilter {
                         visit(part, seen, ordered);
                     }
                 }
+                Expr::Relation(part) => visit(part, seen, ordered),
                 Expr::Exists(path) | Expr::Missing(path) => push(path),
                 Expr::Compare { left, right, .. } => {
                     for operand in [left, right] {
@@ -667,7 +700,11 @@ impl JsonFilter {
         indexed_safe: impl Fn(&JsonPath) -> bool,
     ) -> bool {
         self.scalar_paths.iter().any(|path| {
-            if path.modifier == Some(Modifier::Length) || indexed_safe(&path.path) {
+            // Relation paths are checked against their linked records.
+            if path.modifier == Some(Modifier::Length)
+                || indexed_safe(&path.path)
+                || self.is_relation_path(&path.path)
+            {
                 return false;
             }
             // The picker separately records every top-level array field, so
@@ -701,6 +738,8 @@ impl JsonFilter {
                 Expr::And(parts) | Expr::Or(parts) => {
                     parts.iter().any(|part| references(part, indexed))
                 }
+                // Relation operands use the linked collection, not this index.
+                Expr::Relation(_) => false,
                 Expr::Exists(path) | Expr::Missing(path) => {
                     matches!(path.first(), Some(JsonPathStep::Key(name)) if indexed.binary_search(name).is_ok())
                 }
@@ -724,6 +763,7 @@ impl JsonFilter {
         fn required(expr: &Expr) -> BTreeSet<String> {
             match expr {
                 Expr::And(parts) => parts.iter().flat_map(required).collect(),
+                Expr::Relation(_) => BTreeSet::new(),
                 Expr::Or(parts) => {
                     let mut parts = parts.iter().map(required);
                     let Some(mut common) = parts.next() else {
@@ -758,6 +798,7 @@ impl JsonFilter {
                     let children = parts.iter().filter_map(plan).collect::<Vec<_>>();
                     (!children.is_empty()).then_some(TypedPlan::And(children))
                 }
+                Expr::Relation(_) => None,
                 Expr::Or(parts) => {
                     let children = parts.iter().map(plan).collect::<Option<Vec<_>>>()?;
                     (!children.is_empty()).then_some(TypedPlan::Or(children))
@@ -807,6 +848,7 @@ impl JsonFilter {
                 Expr::And(parts) => Some(ExactPlan::And(
                     parts.iter().map(plan).collect::<Option<Vec<_>>>()?,
                 )),
+                Expr::Relation(_) => None,
                 Expr::Or(parts) => Some(ExactPlan::Or(
                     parts.iter().map(plan).collect::<Option<Vec<_>>>()?,
                 )),
@@ -859,47 +901,19 @@ impl JsonFilter {
         metadata: Option<&FileMetadata<'_>>,
     ) -> Result<bool> {
         self.check_cardinality(value)?;
-        fn evaluate(e: &Expr, doc: &Value, metadata: Option<&FileMetadata<'_>>) -> bool {
-            match e {
-                Expr::And(es) => es.iter().all(|e| evaluate(e, doc, metadata)),
-                Expr::Or(es) => es.iter().any(|e| evaluate(e, doc, metadata)),
-                Expr::Exists(p) => !values(doc, p, false).is_empty(),
-                Expr::Missing(p) => values(doc, p, false).is_empty(),
-                Expr::Compare {
-                    left,
-                    op,
-                    any,
-                    right,
-                    ignore_case,
-                } => {
-                    let a = left.select(doc, metadata);
-                    let b = right.select(doc, metadata);
-                    if a.is_empty() || b.is_empty() {
-                        return false;
-                    }
-                    let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
-                    let test = |(a, b): (&SelectedValue<'_>, &SelectedValue<'_>)| {
-                        compare_selected(
-                            a,
-                            *op,
-                            b,
-                            matches!(right, Operand::Field(_)),
-                            *ignore_case,
-                        )
-                    };
-                    if !any && (left.each() || right.each()) {
-                        pairs.all(test)
-                    } else {
-                        pairs.any(test)
-                    }
-                }
-            }
-        }
-        Ok(evaluate(&self.expr, value, metadata))
+        let relations = self
+            .relations
+            .as_ref()
+            .map(|(collection, context)| (collection.as_str(), context.as_ref()));
+        Ok(evaluate(&self.expr, value, metadata, relations))
     }
 
     pub(crate) fn check_cardinality(&self, value: &Value) -> Result<()> {
-        check_paths(value, &self.scalar_paths)
+        let relations = self
+            .relations
+            .as_ref()
+            .map(|(collection, context)| (collection.as_str(), context.as_ref()));
+        check_paths(value, &self.scalar_paths, relations)
     }
 }
 
@@ -1122,9 +1136,53 @@ fn visit_values<'a>(
     visit(doc, path, flatten, emit)
 }
 
-fn check_paths(doc: &Value, paths: &[FieldOperand]) -> Result<()> {
+fn evaluate<'a>(
+    e: &'a Expr,
+    doc: &'a Value,
+    metadata: Option<&FileMetadata<'_>>,
+    relations: Relations<'a>,
+) -> bool {
+    match e {
+        Expr::And(es) => es.iter().all(|e| evaluate(e, doc, metadata, relations)),
+        Expr::Or(es) => es.iter().any(|e| evaluate(e, doc, metadata, relations)),
+        Expr::Relation(e) => evaluate(e, doc, metadata, relations),
+        Expr::Exists(p) => !reached(doc, p, relations).is_empty(),
+        Expr::Missing(p) => reached(doc, p, relations).is_empty(),
+        Expr::Compare {
+            left,
+            op,
+            any,
+            right,
+            ignore_case,
+        } => {
+            let a = left.select(doc, metadata, relations);
+            let b = right.select(doc, metadata, relations);
+            if a.is_empty() || b.is_empty() {
+                return false;
+            }
+            let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
+            let test = |(a, b): (&SelectedValue<'_>, &SelectedValue<'_>)| {
+                compare_selected(a, *op, b, matches!(right, Operand::Field(_)), *ignore_case)
+            };
+            if !any && (left.each() || right.each()) {
+                pairs.all(test)
+            } else {
+                pairs.any(test)
+            }
+        }
+    }
+}
+
+/// Values at a presence-test path, following bound relations.
+fn reached<'a>(doc: &'a Value, path: &JsonPath, relations: Relations<'a>) -> Vec<&'a Value> {
+    relations
+        .and_then(|(collection, context)| context.values(collection, doc, path, false))
+        .unwrap_or_else(|| values(doc, path, false))
+}
+
+fn check_paths<'a>(doc: &'a Value, paths: &[FieldOperand], relations: Relations<'a>) -> Result<()> {
     for path in paths {
-        if path.more_than_one(doc) {
+        if path.more_than_one(doc, relations) {
             return Err(Error::Request(format!(
                 "path {} yields multiple values; use a '?' comparison or :each",
                 serde_json::to_string(&path.path).unwrap()

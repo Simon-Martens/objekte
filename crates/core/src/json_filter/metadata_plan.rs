@@ -51,7 +51,7 @@ impl JsonFilter {
             match expr {
                 Expr::And(parts) | Expr::Or(parts) => parts.iter().all(all),
                 Expr::Compare { left, right, .. } => available(left) && available(right),
-                Expr::Exists(_) | Expr::Missing(_) => false,
+                Expr::Exists(_) | Expr::Missing(_) | Expr::Relation(_) => false,
             }
         }
         self.has_metadata() && all(&self.expr)
@@ -117,8 +117,8 @@ impl JsonFilter {
                     ignore_case,
                 } if available(left) && available(right) => {
                     let doc = Value::Null;
-                    let a = left.select(&doc, Some(metadata));
-                    let b = right.select(&doc, Some(metadata));
+                    let a = left.select(&doc, Some(metadata), None);
+                    let b = right.select(&doc, Some(metadata), None);
                     if a.is_empty() || b.is_empty() {
                         return MetadataDecision::False;
                     }

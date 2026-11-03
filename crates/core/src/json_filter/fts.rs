@@ -75,7 +75,8 @@ fn bind_expr(expr: &mut Expr, fields: &BTreeMap<String, Field>) {
             bind_operand(left, fields);
             bind_operand(right, fields);
         }
-        Expr::Exists(_) | Expr::Missing(_) => {}
+        // Relation operands were bound against their linked schema.
+        Expr::Exists(_) | Expr::Missing(_) | Expr::Relation(_) => {}
     }
 }
 
@@ -87,7 +88,9 @@ impl JsonFilter {
         let mut bound = self.clone();
         bind_expr(&mut bound.expr, fields);
         for field in &mut bound.scalar_paths {
-            bind_field(field, fields);
+            if !self.is_relation_path(&field.path) {
+                bind_field(field, fields);
+            }
         }
         bound
     }
