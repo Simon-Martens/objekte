@@ -2,6 +2,10 @@
 
 use super::*;
 use crate::file_picker::SlotSelection;
+use crate::repository::{
+    ordered_result_cache::{OrderedCoverage, OrderedResultKey},
+    predicate_cache::PredicateCacheKey,
+};
 use crate::sorting::split_sort_clause;
 use crate::{
     JsonFilter, TextHit, TextQuery, TextQueryResult, TextQueryStreamSummary, text::TextRules,
@@ -18,6 +22,7 @@ struct TextScanOutcome {
     fields: Vec<String>,
     metrics: Metrics,
     reusable: Option<Box<(Document, Vec<u8>)>>,
+    cached_match: Option<bool>,
 }
 
 
@@ -34,6 +39,7 @@ impl Repository {
             .expect("picker exists")
             .ensure_text_index()?
         {
+            self.query_cache.invalidate(collection);
             self.metrics.fts_open_nanos += nanos(started);
         }
         Ok(self.metrics.since(&before))
@@ -59,6 +65,7 @@ impl Repository {
             .get_mut(collection)
             .expect("picker exists");
         picker.rebuild_text_index()?;
+        self.query_cache.invalidate(collection);
         if picker.text_index_bytes().is_some() {
             self.metrics.fts_open_nanos += nanos(started);
         }
@@ -233,6 +240,9 @@ impl Repository {
         let mut used_regular_index = false;
         let mut used_text_index = false;
         let mut used_filter_index = false;
+        let mut pending_cache = Vec::new();
+        let mut pending_ordered = Vec::new();
+        let evictions_before = self.query_cache.evictions();
         for name in names {
             if stop_after.is_some_and(|limit| matched >= limit) {
                 break;
@@ -329,13 +339,190 @@ impl Repository {
                     &request.sort,
                 );
             }
+            let cache_key = if self.options.cache == CacheMode::Memory
+                && self.options.freshness != Freshness::HashOnRequest
+                && self.query_cache.enabled()
+                && !streaming
+            {
+                let picker = &self.file_pickers[&name];
+                let safe_filter = collection_filter.as_ref().is_none_or(|filter| {
+                    !filter.has_metadata()
+                        && !filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
+                        && !filter
+                            .top_level_scalar_fields()
+                            .iter()
+                            .any(|field| picker.has_array_value(field))
+                });
+                (picker.verified() && picker.slot_count() <= u32::MAX as usize && safe_filter).then(
+                    || PredicateCacheKey {
+                        collection: name.clone(),
+                        expression: serde_json::to_vec(&(
+                            "text-query/v1",
+                            &request.pattern,
+                            request.mode,
+                            request.case_sensitive,
+                            &requested_fields,
+                            collection_filter.as_ref().map(JsonFilter::cache_expression),
+                        ))
+                        .expect("text query key serializes"),
+                    },
+                )
+            } else {
+                None
+            };
+            if let Some(key) = cache_key.as_ref()
+                && (request.sort.is_empty()
+                    || self.file_pickers[&name].has_sort_index(&request.sort))
+            {
+                let picker = &self.file_pickers[&name];
+                let order_key = OrderedResultKey {
+                    predicate: key.clone(),
+                    sort: serde_json::to_vec(&request.sort).expect("sort serializes"),
+                };
+                let complete_bits = self
+                    .query_cache
+                    .get(key)
+                    .and_then(|entry| entry.complete.then(|| entry.matched.clone()));
+                let mut cached_page = None;
+                if let Some((slots, coverage)) = self.query_cache.ordered(&order_key) {
+                    let start = request.offset.saturating_sub(matched).min(slots.len());
+                    let remaining = request.limit.saturating_sub(returned);
+                    let capped_count = request.count
+                        && coverage == OrderedCoverage::CappedPrefix
+                        && request
+                            .collections
+                            .as_ref()
+                            .is_some_and(|names| names.len() == 1)
+                        && stop_after.is_some();
+                    if coverage == OrderedCoverage::Complete
+                        || ((!request.count || capped_count)
+                            && remaining > 0
+                            && start.saturating_add(remaining) <= slots.len())
+                    {
+                        let end = start.saturating_add(remaining).min(slots.len());
+                        cached_page = Some((slots.len(), slots[start..end].to_vec(), capped_count));
+                        self.metrics.ordered_result_hits += 1;
+                    }
+                }
+                if cached_page.is_none()
+                    && let Some(bits) = complete_bits
+                {
+                    let mut cached_selection = SlotSelection::from_bits(picker, Some(bits));
+                    cached_selection.order_sparse(picker, request.sort.is_empty(), &request.sort);
+                    let slots = cached_selection
+                        .ordered(picker, request.sort.is_empty(), &request.sort)
+                        .map(|slot| u32::try_from(slot).expect("picker slots fit u32"))
+                        .collect::<Vec<_>>();
+                    let start = request.offset.saturating_sub(matched).min(slots.len());
+                    let end = start
+                        .saturating_add(request.limit.saturating_sub(returned))
+                        .min(slots.len());
+                    let page = slots[start..end].to_vec();
+                    let count = slots.len();
+                    self.query_cache.insert_ordered(order_key, slots);
+                    cached_page = Some((count, page, false));
+                }
+                if let Some((count, page_slots, capped_count)) = cached_page {
+                    self.metrics.predicate_cache_hits += 1;
+                    for slot in page_slots {
+                        let (id, stamp) = picker.view_record(slot as usize);
+                        let raw = Self::read_raw(&mut self.metrics, &source, id, Some(stamp))?;
+                        let document =
+                            Self::parse_value(&mut self.metrics, &c, id, &raw.json, true);
+                        if let Some(filter) = &collection_filter
+                            && !filter.matches_source(
+                                &document.data,
+                                id,
+                                "",
+                                &raw.stamp,
+                                raw.created,
+                                document.state.status,
+                            )?
+                        {
+                            return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                        }
+                        let malformed = document.state.status == RecordStatus::IncorrectJson;
+                        let verified = if malformed {
+                            if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
+                                TextMatches {
+                                    fields: vec!["$raw".into()],
+                                    matched_paths: vec!["$raw".into()],
+                                }
+                            } else {
+                                TextMatches {
+                                    fields: Vec::new(),
+                                    matched_paths: Vec::new(),
+                                }
+                            }
+                        } else {
+                            matcher.matching_fields(
+                                &document.data,
+                                &rules,
+                                requested_fields.as_ref(),
+                                true,
+                            )
+                        };
+                        if verified.fields.is_empty() {
+                            return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
+                        }
+                        let hit = TextHit {
+                            record: Record {
+                                collection: name.clone(),
+                                id: id.to_owned(),
+                                path: self.path(&c, id),
+                                size_bytes: raw.stamp.size,
+                                modified_unix_nanos: raw.stamp.modified,
+                                hash: raw.hash,
+                                data: document.data,
+                                state: document.state,
+                                raw: malformed.then_some(raw.json),
+                            },
+                            fields: verified.fields,
+                            matched_paths: verified.matched_paths,
+                        };
+                        if streaming {
+                            on_hit(returned + 1, hit)?;
+                        } else {
+                            hits.push(hit);
+                        }
+                        returned += 1;
+                    }
+                    matched += if capped_count {
+                        self.options.total_limit.saturating_add(1)
+                    } else {
+                        count
+                    };
+                    source.finish()?;
+                    if stop_after.is_some_and(|limit| matched >= limit)
+                        || !request.count && returned >= request.limit
+                    {
+                        break;
+                    }
+                    continue;
+                }
+            }
             self.metrics.fts_candidates += inventory.as_ref().map_or_else(
                 || selection.as_ref().expect("memory candidates").len(),
                 Vec::len,
             ) as u64;
-            let mut candidates: Box<dyn Iterator<Item = (&str, &Stamp)> + '_> =
+            let cache_snapshot = cache_key
+                .as_ref()
+                .and_then(|key| self.query_cache.get(key).cloned());
+            let mut observed = cache_key.as_ref().map(|_| {
+                let words = self.file_pickers[&name].slot_count().div_ceil(64);
+                (vec![0_u64; words], vec![0_u64; words])
+            });
+            let mut ordered_matches = Vec::new();
+            let max_ordered_slots = self.options.query_cache_bytes / 8;
+            let mut ordered_truncated = false;
+            let mut complete = false;
+            let mut candidates: Box<dyn Iterator<Item = (Option<usize>, &str, &Stamp)> + '_> =
                 if let Some(inventory) = inventory.as_ref() {
-                    Box::new(inventory.iter().map(|(id, stamp)| (id.as_str(), stamp)))
+                    Box::new(
+                        inventory
+                            .iter()
+                            .map(|(id, stamp)| (None, id.as_str(), stamp)),
+                    )
                 } else {
                     let picker = &self.file_pickers[&name];
                     Box::new(
@@ -343,7 +530,10 @@ impl Repository {
                             .as_ref()
                             .expect("memory candidates")
                             .ordered(picker, request.sort.is_empty(), &request.sort)
-                            .map(move |slot| picker.view_record(slot)),
+                            .map(move |slot| {
+                                let (id, stamp) = picker.view_record(slot);
+                                (Some(slot), id, stamp)
+                            }),
                     )
                 };
             // Verify a batch in parallel, then inspect its outcomes in the
@@ -351,6 +541,7 @@ impl Repository {
             loop {
                 let batch = candidates.by_ref().take(256).collect::<Vec<_>>();
                 if batch.is_empty() {
+                    complete = true;
                     break;
                 }
                 let retain_page = request.sort.is_empty()
@@ -366,8 +557,18 @@ impl Repository {
                     .with_min_len(4)
                     .map_init(
                         Vec::new,
-                        |bytes, (position, (id, stamp))| -> Result<TextScanOutcome> {
+                        |bytes, (position, (slot, id, stamp))| -> Result<TextScanOutcome> {
                             let mut metrics = Metrics::default();
+                            if let Some(matches) = slot.and_then(|slot| {
+                                cache_snapshot.as_ref().and_then(|entry| entry.known(slot))
+                            }) {
+                                return Ok(TextScanOutcome {
+                                    fields: Vec::new(),
+                                    metrics,
+                                    reusable: None,
+                                    cached_match: Some(matches),
+                                });
+                            }
                             let read = match Self::read_verified_into(
                                 &mut metrics,
                                 &source,
@@ -384,6 +585,7 @@ impl Repository {
                                         fields: Vec::new(),
                                         metrics,
                                         reusable: None,
+                                        cached_match: None,
                                     });
                                 }
                                 Err(error) => return Err(error),
@@ -475,31 +677,60 @@ impl Repository {
                                 fields,
                                 metrics,
                                 reusable,
+                                cached_match: None,
                             })
                         },
                     )
                     .collect::<Result<Vec<_>>>()?;
                 let mut page = Vec::new();
                 for (
-                    (id, stamp),
+                    (slot, id, stamp),
                     TextScanOutcome {
                         fields,
                         metrics,
                         reusable,
+                        cached_match,
                     },
                 ) in batch.iter().zip(outcomes)
                 {
                     self.metrics.add_from(&metrics);
-                    if !fields.is_empty() {
+                    if cached_match.is_some() {
+                        self.metrics.partial_evaluation_hits += 1;
+                    }
+                    let is_match = cached_match.unwrap_or(!fields.is_empty());
+                    if let (Some(slot), Some((evaluated, matches))) = (*slot, observed.as_mut()) {
+                        let bit = 1_u64 << (slot % 64);
+                        evaluated[slot / 64] |= bit;
+                        if is_match {
+                            matches[slot / 64] |= bit;
+                        }
+                    }
+                    if is_match {
+                        if let Some(slot) = *slot
+                            && cache_key.is_some()
+                        {
+                            if ordered_matches.len() < max_ordered_slots {
+                                ordered_matches
+                                    .push(u32::try_from(slot).expect("picker slots fit u32"));
+                            } else {
+                                ordered_truncated = true;
+                            }
+                        }
                         if matched >= request.offset && returned + page.len() < request.limit {
-                            page.push(((*id).to_owned(), (*stamp).clone(), fields, reusable));
+                            page.push((
+                                (*id).to_owned(),
+                                (*stamp).clone(),
+                                fields,
+                                reusable,
+                                cached_match.is_some(),
+                            ));
                         }
                         matched += 1;
                     }
                 }
                 // Only page hits need a second read for full matched paths,
                 // hashes, validation state, and a returned Record.
-                for (id, stamp, matched_fields, reusable) in page {
+                for (id, stamp, matched_fields, reusable, from_cache) in page {
                     let raw = match Self::read_raw(
                         &mut self.metrics,
                         &source,
@@ -571,7 +802,9 @@ impl Repository {
                             true,
                         )
                     };
-                    if verified.fields != matched_fields {
+                    if (!from_cache && verified.fields != matched_fields)
+                        || verified.fields.is_empty()
+                    {
                         if optimistic {
                             continue;
                         }
@@ -589,7 +822,11 @@ impl Repository {
                             state: document.state,
                             raw: malformed.then_some(raw.json),
                         },
-                        fields: matched_fields,
+                        fields: if from_cache {
+                            verified.fields
+                        } else {
+                            matched_fields
+                        },
                         matched_paths: verified.matched_paths,
                     };
                     if streaming {
@@ -606,12 +843,44 @@ impl Repository {
                 }
             }
             source.finish()?;
+            if let (Some(key), Some((evaluated, matches))) = (cache_key, observed) {
+                if request.sort.is_empty() || self.file_pickers[&name].has_sort_index(&request.sort)
+                {
+                    let coverage = if ordered_truncated {
+                        OrderedCoverage::Prefix
+                    } else if complete {
+                        OrderedCoverage::Complete
+                    } else if stop_after.is_some_and(|limit| matched >= limit) {
+                        OrderedCoverage::CappedPrefix
+                    } else {
+                        OrderedCoverage::Prefix
+                    };
+                    pending_ordered.push((
+                        OrderedResultKey {
+                            predicate: key.clone(),
+                            sort: serde_json::to_vec(&request.sort).expect("sort serializes"),
+                        },
+                        ordered_matches,
+                        coverage,
+                    ));
+                }
+                pending_cache.push((key, evaluated, matches, complete));
+            }
             if stop_after.is_some_and(|limit| matched >= limit)
                 || !request.count && returned >= request.limit
             {
                 break;
             }
         }
+        for (key, evaluated, matches, complete) in pending_cache {
+            self.query_cache
+                .record_bits(key, evaluated, matches, complete);
+        }
+        for (key, slots, coverage) in pending_ordered {
+            self.query_cache
+                .insert_ordered_with_coverage(key, slots, coverage);
+        }
+        self.metrics.cache_evictions += self.query_cache.evictions() - evictions_before;
         let mut query_plan = vec![if self.options.cache == CacheMode::Disabled {
             "direct full-text source scan; source verification".into()
         } else if used_regular_index && used_text_index {
