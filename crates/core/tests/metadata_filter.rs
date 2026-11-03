@@ -267,7 +267,9 @@ fn metadata_filter_combines_with_text_and_rejects_bad_literals() {
         "@modified = 2023-02-29",
         "@created > 2026-05-01T12:00",
         "x = 1KB",
-        "x = 2026-05",
+        "@size = 2026-05",
+        "2026-05 = 2026-06",
+        "x ~ 2026-05",
     ] {
         assert!(
             JsonFilter::compile(filter, &BTreeMap::new()).is_err(),

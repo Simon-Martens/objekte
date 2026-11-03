@@ -194,12 +194,16 @@ impl Parser<'_> {
                     if !matches!(
                         other,
                         Operand::Field(FieldOperand {
-                            metadata: Some(MetadataField::Modified | MetadataField::Created),
+                            metadata: None | Some(MetadataField::Modified | MetadataField::Created),
                             ..
                         })
                     ) =>
                 {
-                    return self.error("date/time literals require @modified or @created");
+                    return self
+                        .error("date/time literals require a JSON field, @modified, or @created");
+                }
+                Operand::Temporal(_) if matches!(op, Op::Contains | Op::NotContains) => {
+                    return self.error("~ cannot compare date/time literals");
                 }
                 Operand::SizeBytes(_)
                     if !matches!(

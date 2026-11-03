@@ -1165,6 +1165,21 @@ fn compare_selected(
             };
             temporal::compare(*instant, reversed, *period)
         }
+        // A JSON string in date/time literal syntax is the start instant of
+        // its own period; other values keep ordinary type-mismatch semantics.
+        (value, SelectedValue::Period(period)) if let Some(instant) = value_instant(value) => {
+            temporal::compare(instant, op, *period)
+        }
+        (SelectedValue::Period(period), value) if let Some(instant) = value_instant(value) => {
+            let reversed = match op {
+                Op::Lt => Op::Gt,
+                Op::Le => Op::Ge,
+                Op::Gt => Op::Lt,
+                Op::Ge => Op::Le,
+                other => other,
+            };
+            temporal::compare(instant, reversed, *period)
+        }
         (SelectedValue::Time(a), SelectedValue::Time(b)) => match op {
             Op::Eq => a == b,
             Op::Ne => a != b,
@@ -1180,6 +1195,11 @@ fn compare_selected(
             _ => false,
         },
     }
+}
+
+fn value_instant(value: &SelectedValue<'_>) -> Option<i128> {
+    let text = value.value()?.as_str()?;
+    temporal::parse(text).ok().map(|period| period.start)
 }
 
 fn compare(left: &Value, op: Op, right: &Value, right_field: bool, ignore_case: bool) -> bool {
