@@ -5,6 +5,7 @@
 pub(super) mod overlay;
 pub(super) mod record;
 pub(super) mod results;
+mod syntax;
 pub(super) mod theme;
 
 use super::app::{App, Line, Representation, View};
@@ -12,7 +13,7 @@ use super::input::Input;
 use ratatui::{
     Frame,
     layout::{Constraint, Layout, Position, Rect},
-    style::{Modifier, Style},
+    style::{Color, Modifier, Style},
     text::{Line as TextLine, Span},
     widgets::Paragraph,
 };
@@ -73,6 +74,7 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &App<'_>) {
     }
     footer(frame, app, areas.footer);
     overlay::draw(frame, app, &areas);
+    theme::remap(frame.buffer_mut());
 }
 
 
@@ -185,7 +187,32 @@ fn query_line(frame: &mut Frame<'_>, app: &App<'_>, line: Line, area: Rect) {
             frame.set_cursor_position(Position::new(text_area.x, text_area.y));
         }
     } else {
-        draw_input(frame, input, text_area, active, Style::new().fg(TEXT));
+        let styles = if line == Line::Filter {
+            syntax::filter_styles(&input.text)
+        } else {
+            vec![Style::new().fg(TEXT); input.len()]
+        };
+        // Point at the character a filter error names.
+        let mark = app
+            .query_error
+            .as_ref()
+            .filter(|(failed, _)| *failed == line)
+            .and_then(|(_, error)| syntax::error_position(&input.text, error))
+            .map(|at| {
+                let color = if app.error_confirmed { RED } else { AMBER };
+                (
+                    at,
+                    Style::new()
+                        .add_modifier(Modifier::UNDERLINED)
+                        .underline_color(color)
+                        .bg(if app.error_confirmed {
+                            MATCH
+                        } else {
+                            Color::Reset
+                        }),
+                )
+            });
+        draw_styled_input(frame, input, text_area, active, &styles, mark);
     }
     frame.render_widget(Paragraph::new(TextLine::from(chips)), chip_area);
 }
@@ -230,25 +257,51 @@ pub(super) fn draw_input(
     active: bool,
     style: Style,
 ) {
+    let styles = vec![style; input.len()];
+    draw_styled_input(frame, input, area, active, &styles, None);
+}
+
+/// Draw an input with one style per character, scrolled so the cursor
+/// stays visible. `mark` underlines one character, or the end of the text.
+pub(super) fn draw_styled_input(
+    frame: &mut Frame<'_>,
+    input: &Input,
+    area: Rect,
+    active: bool,
+    styles: &[Style],
+    mark: Option<(usize, Style)>,
+) {
     let width = area.width.max(1) as usize;
     let before = input.text.chars().take(input.cursor).collect::<String>();
     let cursor_column = before.width();
     let skip_columns = cursor_column.saturating_sub(width.saturating_sub(1));
     let mut skipped = 0;
-    let visible = input
-        .text
-        .chars()
-        .skip_while(|ch| {
-            let w = unicode_width::UnicodeWidthChar::width(*ch).unwrap_or(0);
-            if skipped + w <= skip_columns {
-                skipped += w;
-                true
-            } else {
-                false
-            }
-        })
-        .collect::<String>();
-    frame.render_widget(Paragraph::new(Span::styled(visible, style)), area);
+    let mut spans: Vec<Span<'static>> = Vec::new();
+    let mut count = 0;
+    for (index, ch) in input.text.chars().enumerate() {
+        count = index + 1;
+        let w = unicode_width::UnicodeWidthChar::width(ch).unwrap_or(0);
+        if skipped + w <= skip_columns && spans.is_empty() {
+            skipped += w;
+            continue;
+        }
+        let mut style = styles.get(index).copied().unwrap_or_default();
+        if let Some((at, marked)) = mark
+            && at == index
+        {
+            style = style.patch(marked);
+        }
+        match spans.last_mut() {
+            Some(last) if last.style == style => last.content.to_mut().push(ch),
+            _ => spans.push(Span::styled(ch.to_string(), style)),
+        }
+    }
+    if let Some((at, marked)) = mark
+        && at >= count
+    {
+        spans.push(Span::styled(" ", marked));
+    }
+    frame.render_widget(Paragraph::new(TextLine::from(spans)), area);
     if active {
         let x = area.x + (cursor_column - skipped).min(width.saturating_sub(1)) as u16;
         frame.set_cursor_position(Position::new(x, area.y));
@@ -364,6 +417,30 @@ fn duration(ms: f64) -> String {
 
 
 fn footer(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
+    if app.view == View::Detail
+        && let Some(input) = &app.record.find_input
+    {
+        let [label, text] =
+            Layout::horizontal([Constraint::Length(8), Constraint::Fill(1)]).areas(area);
+        frame.render_widget(
+            Paragraph::new(Span::styled(
+                " Find ❯ ",
+                Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
+            )),
+            label,
+        );
+        let count = app.record_find_count();
+        let note = format!(" {count} {} ", if count == 1 { "match" } else { "matches" });
+        let [text, note_area] =
+            Layout::horizontal([Constraint::Fill(1), Constraint::Length(note.width() as u16)])
+                .areas(text);
+        draw_input(frame, input, text, true, Style::new().fg(TEXT));
+        frame.render_widget(
+            Paragraph::new(Span::styled(note, Style::new().fg(DIM))),
+            note_area,
+        );
+        return;
+    }
     if let Some(notice) = &app.notice
         && notice.at.elapsed() < super::app::NOTICE_TIME
     {
@@ -388,10 +465,13 @@ fn footer(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
     let mut spans = vec![Span::raw(" ")];
     let mut width = 1;
     for (key, action) in keys {
-        let item = key.width() + action.width() + 3;
+        // `key action` plus three spaces before the next hint; the last
+        // hint may end at the edge.
+        let item = key.width() + 1 + action.width();
         if width + item > area.width as usize {
             break;
         }
+        let item = item + 3;
         width += item;
         spans.push(Span::styled(
             key,
@@ -410,18 +490,31 @@ fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
     match app.view {
         View::Detail => {
             let fields = app.links.section == super::navigation::DetailSection::Fields;
-            let mut keys = vec![
-                ("←→", "previous / next"),
-                ("Tab", "fields · links · backlinks"),
-                ("↑↓", if fields { "scroll" } else { "choose" }),
-            ];
-            if !fields {
+            let mut keys = Vec::new();
+            if fields && !app.record.find.is_empty() {
+                keys.push(("n N", "next / previous match"));
+                keys.push(("Esc", "end find"));
+            }
+            keys.push(("←→", "previous / next"));
+            keys.push(("Tab", "fields · links · backlinks"));
+            if fields && app.record.raw {
+                keys.extend([("r", "fields"), ("/", "find"), ("Y", "copy record")]);
+            } else if fields {
+                keys.extend([
+                    ("Enter", "follow link / fold"),
+                    ("f", "filter by value"),
+                    ("y", "copy"),
+                    ("/", "find"),
+                    ("r", "raw JSON"),
+                    ("e", "edit"),
+                ]);
+            } else {
                 keys.push(("Enter", "open"));
             }
             if app.history_depth() > 0 {
                 keys.push(("Backspace", "back"));
             }
-            keys.extend([("Esc", "results"), ("Ctrl+K", "actions"), ("F1", "help")]);
+            keys.extend([("Esc", "results"), ("F1", "help")]);
             keys
         }
         View::Results => {
@@ -451,6 +544,37 @@ fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
     }
 }
 
+
+/// `text` in `style`, with every match of `patterns` marked.
+pub(super) fn marked(text: &str, style: Style, patterns: &[&regex::Regex]) -> Vec<Span<'static>> {
+    let mut ranges = patterns
+        .iter()
+        .flat_map(|pattern| pattern.find_iter(text).map(|found| found.range()))
+        .filter(|range| !range.is_empty())
+        .collect::<Vec<_>>();
+    if ranges.is_empty() {
+        return vec![Span::styled(text.to_owned(), style)];
+    }
+    ranges.sort_by_key(|range| range.start);
+    let mark = style.bg(MATCH).fg(TEXT).add_modifier(Modifier::BOLD);
+    let mut spans = Vec::new();
+    let mut at = 0;
+    for range in ranges {
+        if range.end <= at {
+            continue;
+        }
+        let start = range.start.max(at);
+        if start > at {
+            spans.push(Span::styled(text[at..start].to_owned(), style));
+        }
+        spans.push(Span::styled(text[start..range.end].to_owned(), mark));
+        at = range.end;
+    }
+    if at < text.len() {
+        spans.push(Span::styled(text[at..].to_owned(), style));
+    }
+    spans
+}
 
 /// A braille spinner frame derived from the clock.
 pub(super) fn spinner() -> &'static str {

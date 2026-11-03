@@ -222,7 +222,10 @@ fn collection_picker_scopes_the_search() {
     app.search();
     assert_eq!(app.hits.len(), 3);
     press_with(&mut app, KeyCode::Char('o'), KeyModifiers::CONTROL);
-    assert!(matches!(app.overlay, Some(Overlay::Collections(_))));
+    assert!(matches!(
+        app.overlay,
+        Some(Overlay::List(crate::tui::lists::ListKind::Collections, _))
+    ));
     type_text(&mut app, "note");
     press(&mut app, KeyCode::Enter);
     assert!(app.overlay.is_none());
@@ -367,4 +370,69 @@ fn control_d_and_u_page_through_results() {
     press_with(&mut app, KeyCode::Char('u'), KeyModifiers::CONTROL);
     assert_eq!(app.selected, 9);
     assert_eq!(app.search.text, "Moon", "paging does not edit the line");
+}
+
+#[test]
+fn clicks_select_rows_and_a_double_click_opens_the_record() {
+    let (_temp, mut repo) = repository(5);
+    let mut app = App::new(&mut repo);
+    app.search = Input::with_text("Moon");
+    app.search();
+    screen(&app, 120, 30);
+    let area = app.table_area.get();
+    let start = Instant::now();
+    keys::click(&mut app, area.x + 4, area.y + 3, start);
+    assert_eq!(app.selected, 2);
+    assert_eq!(app.view, View::Results);
+    keys::click(
+        &mut app,
+        area.x + 4,
+        area.y + 3,
+        start + Duration::from_millis(200),
+    );
+    assert_eq!(app.view, View::Detail);
+    // In the record, clicks pick the tab and the field.
+    screen(&app, 120, 30);
+    let tabs = app.tabs_area.get();
+    keys::click(&mut app, tabs.x + 18, tabs.y, start);
+    assert_eq!(
+        app.links.section,
+        crate::tui::navigation::DetailSection::Links
+    );
+    keys::click(&mut app, tabs.x + 5, tabs.y, start);
+    screen(&app, 120, 30);
+    let fields = app.record_area.get();
+    keys::click(
+        &mut app,
+        fields.x + 2,
+        fields.y + 1,
+        start + Duration::from_secs(5),
+    );
+    assert_eq!(app.record.cursor, 1);
+}
+
+#[test]
+fn value_completion_reads_counts_from_the_index() {
+    let temp = tempfile::tempdir().unwrap();
+    let schema = temp.path().join(".objekte/collections/docs.schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(
+        schema,
+        r#"{"type":"object","properties":{"kind":{"type":"string","index":true},"n":{"type":"integer"}},"x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    write_docs(temp.path(), 5);
+    let mut repo = Repository::open(temp.path()).unwrap();
+    repo.diff("docs").unwrap();
+    let mut app = App::new(&mut repo);
+    app.filter = Input::with_text("kind = ");
+    app.line = Line::Filter;
+    app.refresh_completion(false);
+    let found = app.completion.as_ref().expect("values");
+    let shown = found
+        .items
+        .iter()
+        .map(|item| (item.label.as_str(), item.detail.as_str()))
+        .collect::<Vec<_>>();
+    assert_eq!(shown, [("even", "3 records"), ("odd", "2 records")]);
 }

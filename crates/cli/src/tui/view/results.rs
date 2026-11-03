@@ -3,7 +3,7 @@
 
 use super::super::app::{App, Hit};
 use super::super::match_preview;
-use super::{clip, theme::*};
+use super::{clip, marked, theme::*};
 use objekte_core::RecordStatus;
 use ratatui::{
     Frame,
@@ -63,7 +63,10 @@ pub(in super::super) fn status_color(status: RecordStatus) -> ratatui::style::Co
 /// The columns that fit, starting with the fixed identity columns.
 fn visible_columns(app: &App<'_>, width: u16) -> Vec<(usize, u16)> {
     let fixed = app.fixed_columns();
-    let order = (0..fixed).chain(fixed + app.column_offset..app.columns.len());
+    let hidden = app.settings.hidden(app.scope_name());
+    let order = (0..fixed)
+        .chain(fixed + app.column_offset..app.columns.len())
+        .filter(|&index| !hidden.contains(&app.columns[index].key));
     let mut used = 2;
     let mut out = Vec::new();
     for index in order {
@@ -87,6 +90,7 @@ fn visible_columns(app: &App<'_>, width: u16) -> Vec<(usize, u16)> {
 pub(in super::super) fn table(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
     let rows = area.height.saturating_sub(1) as usize;
     app.visible_rows.set(rows.max(1));
+    app.table_area.set(area);
     let columns = visible_columns(app, area.width);
     // Header row.
     let mut header = vec![Span::raw("  ")];
@@ -122,7 +126,14 @@ pub(in super::super) fn table(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) 
         }];
         for (column, width) in &columns {
             let key = app.columns[*column].key.as_str();
-            spans.extend(cell(hit, key, *width as usize, base, selected));
+            spans.extend(cell(
+                hit,
+                key,
+                *width as usize,
+                base,
+                selected,
+                app.highlight.as_ref(),
+            ));
             spans.push(Span::styled(" ".repeat(GAP as usize), base));
         }
         let used = spans.iter().map(|span| span.content.width()).sum::<usize>();
@@ -141,7 +152,15 @@ pub(in super::super) fn table(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) 
     }
 }
 
-fn cell(hit: &Hit, key: &str, width: usize, base: Style, selected: bool) -> Vec<Span<'static>> {
+fn cell(
+    hit: &Hit,
+    key: &str,
+    width: usize,
+    base: Style,
+    selected: bool,
+    highlight: Option<&regex::Regex>,
+) -> Vec<Span<'static>> {
+    let marks = highlight.into_iter().collect::<Vec<_>>();
     let record = hit.record();
     let text_style = if selected {
         base.fg(TEXT).add_modifier(Modifier::BOLD)
@@ -172,14 +191,15 @@ fn cell(hit: &Hit, key: &str, width: usize, base: Style, selected: bool) -> Vec<
                         rest,
                     );
                     let used = path.width() + 2 + value.width();
-                    vec![
+                    let mut spans = vec![
                         Span::styled(path, base.fg(FAINT)),
                         Span::styled(": ", base.fg(FAINT)),
-                        Span::styled(value, text_style),
-                        Span::styled(" ".repeat(width.saturating_sub(used)), base),
-                    ]
+                    ];
+                    spans.extend(marked(&value, text_style, &marks));
+                    spans.push(Span::styled(" ".repeat(width.saturating_sub(used)), base));
+                    spans
                 }
-                None => vec![Span::styled(pad(&clip(&text, width), width), text_style)],
+                None => marked(&pad(&clip(&text, width), width), text_style, &marks),
             }
         }
         key => {
@@ -189,7 +209,7 @@ fn cell(hit: &Hit, key: &str, width: usize, base: Style, selected: bool) -> Vec<
             } else {
                 text_style
             };
-            vec![Span::styled(pad(&clip(&text, width), width), style)]
+            marked(&pad(&clip(&text, width), width), style, &marks)
         }
     }
 }

@@ -3,7 +3,10 @@
 
 use super::complete::{self, Completion};
 use super::input::Input;
+use super::lists::{Breakdown, Deferred, ListKind};
 use super::navigation::DetailLinks;
+use super::record_view::RecordState;
+use super::settings::Settings;
 use super::warm::WarmMode;
 use objekte_core::{
     CollectionInventory, InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend,
@@ -12,16 +15,24 @@ use objekte_core::{
 use std::{
     cell::Cell,
     collections::VecDeque,
+    path::PathBuf,
     time::{Duration, Instant},
 };
 use unicode_width::UnicodeWidthStr;
 
 pub(super) const PAGE_SIZE: usize = 100;
+
+/// Indexed value counts per collection and path.
+pub(super) type ValueCountCache =
+    std::collections::HashMap<(String, String), Option<Vec<objekte_core::ValueCount>>>;
 /// Pause after the last keystroke before a live search starts.
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
 /// Load the next page when the selection is this close to the end.
 const LOAD_AHEAD: usize = 30;
 /// How long a notice stays in the footer.
+/// After typing, Enter confirms the query for this long before it opens
+/// the selected record.
+pub(super) const ENTER_GRACE: Duration = Duration::from_millis(1000);
 pub(super) const NOTICE_TIME: Duration = Duration::from_secs(6);
 
 
@@ -184,14 +195,29 @@ pub(super) enum Action {
     InferFields,
     SaveIndexes,
     RebuildIndexes,
+    History,
+    SavedQueries,
+    SaveQuery,
+    SortBy,
+    Columns,
+    Breakdown,
+    RefreshFiles,
+    EditRecord,
+    ToggleTheme,
     Help,
     Quit,
 }
 
 
 impl Action {
-    pub(super) const ALL: [Self; 12] = [
+    pub(super) const ALL: [Self; 21] = [
         Self::ChooseCollection,
+        Self::History,
+        Self::SavedQueries,
+        Self::SaveQuery,
+        Self::SortBy,
+        Self::Columns,
+        Self::Breakdown,
         Self::ExportAll,
         Self::ExportRecord,
         Self::TogglePreview,
@@ -201,6 +227,9 @@ impl Action {
         Self::InferFields,
         Self::SaveIndexes,
         Self::RebuildIndexes,
+        Self::RefreshFiles,
+        Self::EditRecord,
+        Self::ToggleTheme,
         Self::Help,
         Self::Quit,
     ];
@@ -217,6 +246,15 @@ impl Action {
             Self::InferFields => "Infer fields and index rules…",
             Self::SaveIndexes => "Save indexes to disk",
             Self::RebuildIndexes => "Rebuild all indexes and save",
+            Self::History => "Recent queries…",
+            Self::SavedQueries => "Saved queries…",
+            Self::SaveQuery => "Save this query…",
+            Self::SortBy => "Sort by…",
+            Self::Columns => "Show or hide columns…",
+            Self::Breakdown => "Count values of a field…",
+            Self::RefreshFiles => "Check files for changes",
+            Self::EditRecord => "Open record in editor",
+            Self::ToggleTheme => "Switch light / dark colours",
             Self::Help => "Keyboard shortcuts",
             Self::Quit => "Quit",
         }
@@ -230,6 +268,13 @@ impl Action {
             Self::ToggleCase => "Alt+C",
             Self::ToggleText => "Alt+T",
             Self::Help => "F1",
+            Self::RefreshFiles => "F5",
+            Self::History => "Ctrl+R",
+            Self::SavedQueries => "Ctrl+B",
+            Self::SaveQuery => "Ctrl+S",
+            Self::SortBy => "Alt+S",
+            Self::Breakdown => "Alt+B",
+            Self::EditRecord => "Alt+E",
             Self::Quit => "Ctrl+Q",
             _ => "",
         }
@@ -247,8 +292,8 @@ pub(super) struct Chooser {
 
 /// A dialog drawn over the screen; it receives all keys.
 pub(super) enum Overlay {
-    Collections(Chooser),
-    Palette(Chooser),
+    List(ListKind, Chooser),
+    SaveQuery(Input),
     Help,
     Export { all: bool, input: Input },
     Infer,
@@ -333,7 +378,18 @@ pub(super) struct App<'a> {
     /// Synchronous search for tests; the TUI runs a background worker.
     pub(super) async_search: bool,
 
-    pub(super) detail_scroll: usize,
+    pub(super) record: RecordState,
+    /// Matches of the shown search, highlighted in cells and records.
+    pub(super) highlight: Option<regex::Regex>,
+    /// Width of the record view's field column in the last frame.
+    pub(super) record_width: Cell<usize>,
+    /// Where the last frame drew the result rows and the record fields,
+    /// for mouse clicks.
+    pub(super) table_area: Cell<ratatui::layout::Rect>,
+    pub(super) record_area: Cell<ratatui::layout::Rect>,
+    pub(super) tabs_area: Cell<ratatui::layout::Rect>,
+    /// The last click, to recognize a double click.
+    pub(super) last_click: Option<(Instant, usize)>,
     pub(super) links: DetailLinks,
 
     pub(super) index_status: Option<String>,
@@ -349,6 +405,26 @@ pub(super) struct App<'a> {
     pub(super) pending_schema_write: bool,
     pub(super) inference_saved: bool,
     pub(super) done: bool,
+    pub(super) settings: Settings,
+    /// Fields and example values from the loaded results, for completion.
+    pub(super) seen: complete::Seen,
+    /// Indexed value counts read for completion, until the next search.
+    pub(super) value_counts: std::cell::RefCell<ValueCountCache>,
+    /// When a query line last changed.
+    pub(super) last_edit: Option<Instant>,
+    /// The selection moved since the query last changed.
+    pub(super) selection_moved: bool,
+    /// Text to put on the clipboard after this frame.
+    pub(super) clipboard: Option<String>,
+    /// Work that waits until no worker has borrowed the repository.
+    pub(super) deferred: Vec<Deferred>,
+    /// Value counts shown in the breakdown list.
+    pub(super) breakdown: Option<Breakdown>,
+    /// Matches per collection for the shown query, and whether the count
+    /// reached the result limit.
+    pub(super) collection_counts: Option<(std::collections::BTreeMap<String, usize>, bool)>,
+    /// Where settings are saved; none in tests.
+    pub(super) settings_path: Option<PathBuf>,
 }
 
 
@@ -392,7 +468,13 @@ impl<'a> App<'a> {
             dirty: None,
             queued_search: false,
             async_search: false,
-            detail_scroll: 0,
+            record: RecordState::default(),
+            highlight: None,
+            record_width: Cell::new(80),
+            table_area: Cell::new(Default::default()),
+            record_area: Cell::new(Default::default()),
+            tabs_area: Cell::new(Default::default()),
+            last_click: None,
             links: DetailLinks::default(),
             index_status: None,
             reconciling: false,
@@ -407,6 +489,119 @@ impl<'a> App<'a> {
             pending_schema_write: false,
             inference_saved: false,
             done: false,
+            settings: Settings::default(),
+            seen: complete::Seen::default(),
+            value_counts: Default::default(),
+            last_edit: None,
+            selection_moved: false,
+            clipboard: None,
+            deferred: Vec::new(),
+            breakdown: None,
+            collection_counts: None,
+            settings_path: None,
+        }
+    }
+
+    /// Load `.objekte/.cache/tui.json` and apply its theme.
+    pub(super) fn load_settings(&mut self) {
+        let path = Settings::path(&self.repo.model().root);
+        match Settings::load(&path) {
+            Ok(settings) => self.settings = settings,
+            Err(error) => self.error(format!("Settings ignored: {error}")),
+        }
+        let light = match self.settings.theme.as_deref() {
+            Some("light") => true,
+            Some("dark") => false,
+            _ => super::view::theme::detect_light().unwrap_or(false),
+        };
+        super::view::theme::set_light(light);
+        self.settings_path = Some(path);
+    }
+
+    /// Copy text to the terminal's clipboard.
+    pub(super) fn copy(&mut self, text: Option<String>, what: &str) {
+        match text {
+            Some(text) => {
+                let lines = text.lines().count().max(1);
+                self.clipboard = Some(text);
+                self.notice(if lines == 1 {
+                    format!("Copied the {what}")
+                } else {
+                    format!("Copied the {what} ({lines} lines)")
+                });
+            }
+            None => self.notice("Nothing to copy"),
+        }
+    }
+
+    /// Open the shown record's file in `$VISUAL` or `$EDITOR`.
+    pub(super) fn edit_record(&mut self) {
+        let hit = if self.view == View::Detail {
+            self.current_detail_hit()
+        } else {
+            self.selected_hit()
+        };
+        let Some(hit) = hit else {
+            self.notice("Select a record to edit");
+            return;
+        };
+        let path = std::path::Path::new(&hit.record().path);
+        let path = if path.is_absolute() {
+            path.to_owned()
+        } else {
+            self.repo.model().root.join(path)
+        };
+        self.defer(Deferred::Edit(path));
+    }
+
+    /// Add the current query to the history.
+    pub(super) fn remember_query(&mut self) {
+        let query = self.current_query();
+        if self.settings.history.last() == Some(&query) {
+            return;
+        }
+        self.settings.remember(query);
+        self.save_settings();
+    }
+
+    pub(super) fn current_query(&self) -> super::settings::Query {
+        super::settings::Query {
+            search: self.search.text.clone(),
+            filter: self.filter.text.clone(),
+            collection: self.scope_name().map(str::to_owned),
+        }
+    }
+
+    /// Put a stored query back on the lines and search for it.
+    pub(super) fn restore_query(&mut self, query: &super::settings::Query) {
+        self.search = Input::with_text(&query.search);
+        self.filter = Input::with_text(&query.filter);
+        self.line = if query.search.is_empty() && !query.filter.is_empty() {
+            Line::Filter
+        } else {
+            Line::Search
+        };
+        let scope = match &query.collection {
+            Some(name) => match self.collections.iter().position(|known| known == name) {
+                Some(index) => index + 1,
+                None => {
+                    self.notice(format!("Collection {name} no longer exists; searching all"));
+                    0
+                }
+            },
+            None => 0,
+        };
+        self.scope = scope;
+        self.completion = None;
+        self.search();
+    }
+
+    pub(super) fn save_settings(&mut self) {
+        let Some(path) = &self.settings_path else {
+            return;
+        };
+        if let Err(error) = self.settings.save(path) {
+            self.error(format!("Cannot save settings: {error}"));
         }
     }
 
@@ -450,6 +645,8 @@ impl<'a> App<'a> {
     /// The query lines changed: search again shortly.
     pub(super) fn edited(&mut self) {
         self.dirty = Some(Instant::now());
+        self.last_edit = Some(Instant::now());
+        self.selection_moved = false;
         if self.completion.is_some() {
             self.refresh_completion(false);
         }
@@ -475,7 +672,21 @@ impl<'a> App<'a> {
     /// Open or update completion for the filter line. With `insert`, a
     /// single candidate or a shared prefix is inserted immediately.
     pub(super) fn refresh_completion(&mut self, insert: bool) {
-        let schema = complete::Schema::new(&self.repo.model().collections, self.scope_name());
+        let repo = &*self.repo;
+        let cache = &self.value_counts;
+        let counts = |collection: &str, path: &str| {
+            let key = (collection.to_owned(), path.to_owned());
+            if let Some(known) = cache.borrow().get(&key) {
+                return known.clone();
+            }
+            // Read once per search; a large index is not re-read per key.
+            let found = repo.value_counts(collection, path, 40).ok().flatten();
+            cache.borrow_mut().insert(key, found.clone());
+            found
+        };
+        let schema = complete::Schema::new(&self.repo.model().collections, self.scope_name())
+            .with_seen(&self.seen)
+            .with_counts(&counts);
         let found = complete::complete(&self.filter.text, self.filter.cursor, &schema);
         let Some(found) = found else {
             self.completion = None;
@@ -658,6 +869,8 @@ impl<'a> App<'a> {
         if reset_view {
             self.column_offset = 0;
         }
+        self.highlight = highlighter(&request);
+        self.collection_counts = None;
         self.last_request = Some(request.clone());
         self.links.generation = self.links.generation.wrapping_add(1);
         // Informational notices are stale once the user searches.
@@ -679,6 +892,7 @@ impl<'a> App<'a> {
         self.pending_search = None;
         self.searching = false;
         self.last_request = None;
+        self.highlight = None;
         self.hits.clear();
         self.columns.clear();
         self.total = None;
@@ -810,6 +1024,11 @@ impl<'a> App<'a> {
                     // The search finished without any rows.
                     self.take_fresh();
                 }
+                self.value_counts.borrow_mut().clear();
+                self.seen = complete::Seen::from_records(
+                    self.hits.iter().map(Hit::record),
+                    &self.repo.model().collections,
+                );
                 self.restore = None;
                 self.total = total;
                 self.truncated = truncated;
@@ -897,8 +1116,18 @@ impl<'a> App<'a> {
         }
         let last = self.hits.len() - 1;
         self.selected = self.selected.saturating_add_signed(delta).min(last);
+        self.selection_moved = true;
         self.keep_visible();
         self.load_more();
+    }
+
+    /// Whether Enter should open the selected record rather than confirm
+    /// the query: the user moved to a row, or stopped typing a while ago.
+    pub(super) fn enter_opens(&self, now: Instant) -> bool {
+        self.selection_moved
+            || self
+                .last_edit
+                .is_none_or(|at| now.duration_since(at) >= ENTER_GRACE)
     }
 
     pub(super) fn select_first(&mut self) {
@@ -993,7 +1222,7 @@ impl<'a> App<'a> {
         }
         self.links.reset();
         self.view = View::Detail;
-        self.detail_scroll = 0;
+        self.record.reset();
         self.completion = None;
         self.prepare_detail_links();
     }
@@ -1027,14 +1256,11 @@ impl<'a> App<'a> {
         }
         self.keep_visible();
         self.load_more();
-        self.detail_scroll = 0;
+        self.record.reset();
         self.links.reset();
         self.prepare_detail_links();
     }
 
-    pub(super) fn scroll_detail(&mut self, delta: isize) {
-        self.detail_scroll = self.detail_scroll.saturating_add_signed(delta);
-    }
 
     // ----- dialogs --------------------------------------------------------
 
@@ -1089,11 +1315,18 @@ impl<'a> App<'a> {
     pub(super) fn run_action(&mut self, action: Action) {
         self.overlay = None;
         match action {
-            Action::ChooseCollection => {
-                self.overlay = Some(Overlay::Collections(Chooser {
-                    selected: self.scope,
-                    ..Default::default()
-                }))
+            Action::ChooseCollection => self.open_list(ListKind::Collections),
+            Action::History => self.open_list(ListKind::History),
+            Action::SavedQueries => self.open_list(ListKind::Saved),
+            Action::SaveQuery => self.open_save_query(),
+            Action::SortBy => self.open_list(ListKind::SortBy),
+            Action::Columns => self.open_list(ListKind::Columns),
+            Action::Breakdown => {
+                if self.last_request.is_some() {
+                    self.open_list(ListKind::BreakdownField);
+                } else {
+                    self.notice("Search first, then count values");
+                }
             }
             Action::ExportAll => self.open_export(true),
             Action::ExportRecord => self.open_export(false),
@@ -1104,33 +1337,17 @@ impl<'a> App<'a> {
             Action::InferFields => self.open_inference(),
             Action::SaveIndexes => self.queue_cache_action(WarmMode::Save),
             Action::RebuildIndexes => self.queue_cache_action(WarmMode::Reindex),
+            Action::RefreshFiles => self.defer(Deferred::Refresh),
+            Action::EditRecord => self.edit_record(),
+            Action::ToggleTheme => {
+                let light = !super::view::theme::is_light();
+                super::view::theme::set_light(light);
+                self.settings.theme = Some(if light { "light" } else { "dark" }.into());
+                self.save_settings();
+            }
             Action::Help => self.overlay = Some(Overlay::Help),
             Action::Quit => self.done = true,
         }
-    }
-
-    /// Palette actions matching the typed filter.
-    pub(super) fn palette_actions(&self, filter: &str) -> Vec<Action> {
-        let filter = filter.to_lowercase();
-        Action::ALL
-            .into_iter()
-            .filter(|action| action.label().to_lowercase().contains(&filter))
-            .collect()
-    }
-
-    /// Collection choices matching the typed filter, as scope indices.
-    pub(super) fn collection_choices(&self, filter: &str) -> Vec<usize> {
-        let filter = filter.to_lowercase();
-        (0..=self.collections.len())
-            .filter(|&scope| {
-                let name = if scope == 0 {
-                    "all collections"
-                } else {
-                    &self.collections[scope - 1]
-                };
-                name.to_lowercase().contains(&filter)
-            })
-            .collect()
     }
 }
 
@@ -1167,6 +1384,23 @@ fn shared_prefix<'s>(mut items: impl Iterator<Item = &'s str>) -> String {
         prefix = prefix.chars().take(common).collect();
     }
     prefix
+}
+
+/// A regex for the text the search matched, if it searched text.
+fn highlighter(request: &Request) -> Option<regex::Regex> {
+    let Request::Text(query) = request else {
+        return None;
+    };
+    let pattern = query.pattern.trim();
+    if pattern.is_empty() {
+        return None;
+    }
+    let source = match query.mode {
+        TextMode::RegexClean | TextMode::RegexRaw => pattern.to_owned(),
+        _ if query.case_sensitive => regex::escape(pattern),
+        _ => format!("(?i){}", regex::escape(pattern)),
+    };
+    regex::Regex::new(&source).ok()
 }
 
 fn starts_with_ignore_case(text: &str, prefix: &str) -> bool {

@@ -5,7 +5,7 @@ use objekte_core::{Record, RecordRelation};
 
 
 /// Which part of the detail view consumes Up and Down.
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub(super) enum DetailSection {
     Fields,
     Links,
@@ -190,7 +190,7 @@ impl App<'_> {
                 self.links.history.push(self.links.override_hit.take());
                 self.links.override_hit = Some(Hit::Filter(record));
                 self.links.section = DetailSection::Fields;
-                self.detail_scroll = 0;
+                self.record.reset();
                 self.prepare_detail_links();
             }
             Ok(None) => self.error(format!("Missing record {collection}/{id}")),
@@ -203,7 +203,7 @@ impl App<'_> {
         if let Some(previous) = self.links.history.pop() {
             self.links.override_hit = previous;
             self.links.section = DetailSection::Fields;
-            self.detail_scroll = 0;
+            self.record.reset();
             self.prepare_detail_links();
         } else {
             self.close_detail();

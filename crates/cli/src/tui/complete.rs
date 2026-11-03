@@ -5,8 +5,141 @@
 //! Field paths follow nested properties, array items, and `x-relation`
 //! fields into the linked collection's schema.
 
-use objekte_core::{Collection, Field, ValueType};
+use objekte_core::{Collection, Field, Record, ValueCount, ValueType};
+use serde_json::Value;
 use std::collections::BTreeMap;
+
+/// Records sampled for fields and example values.
+const SAMPLED: usize = 300;
+static NO_FIELDS: BTreeMap<String, Field> = BTreeMap::new();
+
+
+/// Fields and example values seen in loaded results. Collections without a
+/// schema complete from these; schema fields show an example value.
+#[derive(Default)]
+pub(super) struct Seen {
+    fields: BTreeMap<String, BTreeMap<String, Field>>,
+    /// First value per collection and dotted path, such as `entry.year`.
+    samples: BTreeMap<(String, String), String>,
+}
+
+
+impl Seen {
+    pub(super) fn from_records<'r>(
+        records: impl Iterator<Item = &'r Record>,
+        schemas: &BTreeMap<String, Collection>,
+    ) -> Self {
+        let mut seen = Self::default();
+        for record in records.take(SAMPLED) {
+            let Value::Object(map) = &record.data else {
+                continue;
+            };
+            let shapeless = schemas
+                .get(&record.collection)
+                .is_none_or(|collection| collection.fields.is_empty());
+            for (name, value) in map {
+                seen.sample(&record.collection, name, value, 0);
+                if shapeless {
+                    let fields = seen.fields.entry(record.collection.clone()).or_default();
+                    merge(fields, name, value, 0);
+                }
+            }
+        }
+        seen
+    }
+
+    fn sample(&mut self, collection: &str, path: &str, value: &Value, depth: usize) {
+        if depth > 8 {
+            return;
+        }
+        match value {
+            Value::Object(map) => {
+                for (name, child) in map {
+                    self.sample(collection, &format!("{path}.{name}"), child, depth + 1);
+                }
+            }
+            Value::Array(items) => {
+                if let Some(first) = items.iter().find(|item| !item.is_null()) {
+                    self.sample(collection, path, first, depth + 1);
+                }
+            }
+            Value::Null => {}
+            Value::String(text) if text.trim().is_empty() => {}
+            scalar => {
+                self.samples
+                    .entry((collection.to_owned(), path.to_owned()))
+                    .or_insert_with(|| {
+                        let text = match scalar {
+                            Value::String(text) => {
+                                text.split_whitespace().collect::<Vec<_>>().join(" ")
+                            }
+                            other => other.to_string(),
+                        };
+                        let mut short = text.chars().take(24).collect::<String>();
+                        if text.chars().count() > 24 {
+                            short.push('…');
+                        }
+                        short
+                    });
+            }
+        }
+    }
+}
+
+
+/// Add a seen value's shape to `fields`.
+fn merge(fields: &mut BTreeMap<String, Field>, name: &str, value: &Value, depth: usize) {
+    if value.is_null() || depth > 8 {
+        return;
+    }
+    let field = fields
+        .entry(name.to_owned())
+        .or_insert_with(|| shape(value));
+    match value {
+        Value::Object(map) if field.kind == ValueType::Object => {
+            for (child, child_value) in map {
+                merge(&mut field.properties, child, child_value, depth + 1);
+            }
+        }
+        Value::Array(items) if field.kind == ValueType::Array => {
+            for item in items.iter().filter(|item| !item.is_null()) {
+                let entry = field.items.get_or_insert_with(|| Box::new(shape(item)));
+                if let (Value::Object(map), ValueType::Object) = (item, entry.kind) {
+                    for (child, child_value) in map {
+                        merge(&mut entry.properties, child, child_value, depth + 1);
+                    }
+                }
+            }
+        }
+        _ => {}
+    }
+}
+
+fn shape(value: &Value) -> Field {
+    Field {
+        kind: match value {
+            Value::Object(_) => ValueType::Object,
+            Value::Array(_) => ValueType::Array,
+            Value::String(_) => ValueType::String,
+            Value::Number(number) if number.is_i64() || number.is_u64() => ValueType::Integer,
+            Value::Number(_) => ValueType::Number,
+            Value::Bool(_) => ValueType::Boolean,
+            Value::Null => ValueType::Null,
+        },
+        nullable: true,
+        index: false,
+        language: None,
+        sort_index: false,
+        sort_reduce: None,
+        text_format: None,
+        exclude_fts: false,
+        enum_values: None,
+        suggested_values: None,
+        properties: BTreeMap::new(),
+        items: None,
+        relation: None,
+    }
+}
 
 
 /// What kind of thing a candidate inserts; shown as a small icon.
@@ -96,9 +229,18 @@ const MODIFIERS: [(&str, &str); 4] = [
 
 /// Field schemas of the collections in scope, with access to every
 /// collection for following relations.
+/// Looks up the most common values of an indexed path in a collection.
+pub(super) type Counter<'a> = &'a dyn Fn(&str, &str) -> Option<Vec<ValueCount>>;
+
+/// Most common values offered after a comparison.
+const TOP_VALUES: usize = 40;
+
+
 pub(super) struct Schema<'a> {
     scope: Vec<&'a Collection>,
     all: &'a BTreeMap<String, Collection>,
+    seen: Option<&'a Seen>,
+    counts: Option<Counter<'a>>,
 }
 
 
@@ -110,14 +252,71 @@ impl<'a> Schema<'a> {
                 .filter(|collection| scope.is_none_or(|name| collection.name == name))
                 .collect(),
             all,
+            seen: None,
+            counts: None,
         }
+    }
+
+    /// Offer the most common indexed values after a comparison.
+    pub(super) fn with_counts(mut self, counts: Counter<'a>) -> Self {
+        self.counts = Some(counts);
+        self
+    }
+
+    /// Indexed values of `path` across the scope, most records first.
+    fn top_values(&self, path: &str) -> Vec<(Value, usize)> {
+        let Some(counts) = self.counts else {
+            return Vec::new();
+        };
+        let mut merged = Vec::<(Value, usize)>::new();
+        for collection in &self.scope {
+            for found in counts(&collection.name, path).into_iter().flatten() {
+                match merged.iter_mut().find(|(value, _)| *value == found.value) {
+                    Some((_, records)) => *records += found.records,
+                    None => merged.push((found.value, found.records)),
+                }
+            }
+        }
+        merged.sort_by_key(|(_, records)| std::cmp::Reverse(*records));
+        merged.truncate(TOP_VALUES);
+        merged
+    }
+
+    /// Complete collections without a schema from fields seen in results.
+    pub(super) fn with_seen(mut self, seen: &'a Seen) -> Self {
+        self.seen = Some(seen);
+        self
+    }
+
+    /// Declared fields, or the fields seen in results without a schema.
+    fn fields_of(&self, collection: &'a Collection) -> &'a BTreeMap<String, Field> {
+        if !collection.fields.is_empty() {
+            return &collection.fields;
+        }
+        self.seen
+            .and_then(|seen| seen.fields.get(&collection.name))
+            .unwrap_or(&NO_FIELDS)
+    }
+
+    /// Whether a collection's fields come from results, not a schema.
+    fn guessed(&self, collection: &str) -> bool {
+        self.all
+            .get(collection)
+            .is_some_and(|collection| collection.fields.is_empty())
+    }
+
+    fn sample(&self, collection: &str, path: &str) -> Option<&'a str> {
+        self.seen?
+            .samples
+            .get(&(collection.to_owned(), path.to_owned()))
+            .map(String::as_str)
     }
 
     /// Children of the field reached by `segments`, merged across the scope.
     fn children(&self, segments: &[String]) -> BTreeMap<String, (&'a Field, String)> {
         let mut out = BTreeMap::new();
         for collection in &self.scope {
-            if let Some(fields) = self.walk(&collection.fields, segments) {
+            if let Some(fields) = self.walk(self.fields_of(collection), segments) {
                 for (name, field) in fields {
                     out.entry(name.clone())
                         .or_insert_with(|| (field, collection.name.clone()));
@@ -144,7 +343,10 @@ impl<'a> Schema<'a> {
     fn properties(&self, field: &'a Field) -> Option<&'a BTreeMap<String, Field>> {
         let field = items(field);
         if let Some(target) = &field.relation {
-            return self.all.get(target).map(|collection| &collection.fields);
+            return self
+                .all
+                .get(target)
+                .map(|collection| self.fields_of(collection));
         }
         (!field.properties.is_empty()).then_some(&field.properties)
     }
@@ -153,7 +355,7 @@ impl<'a> Schema<'a> {
     fn field(&self, segments: &[String]) -> Option<&'a Field> {
         let (last, parents) = segments.split_last()?;
         self.scope.iter().find_map(|collection| {
-            self.walk(&collection.fields, parents)
+            self.walk(self.fields_of(collection), parents)
                 .and_then(|fields| fields.get(last))
         })
     }
@@ -275,6 +477,9 @@ fn filter(items: Vec<Candidate>, typed: &str) -> Vec<Candidate> {
                 0
             } else if label.contains(&typed) {
                 1
+            } else if subsequence(&label, &typed) {
+                // Fuzzy: `prtit` finds `preferred_title`.
+                2
             } else {
                 return None;
             };
@@ -283,6 +488,13 @@ fn filter(items: Vec<Candidate>, typed: &str) -> Vec<Candidate> {
         .collect::<Vec<_>>();
     ranked.sort_by_key(|(rank, _)| *rank);
     ranked.into_iter().map(|(_, item)| item).take(60).collect()
+}
+
+
+/// Whether the characters of `typed` appear in `label` in order.
+fn subsequence(label: &str, typed: &str) -> bool {
+    let mut label = label.chars();
+    typed.chars().all(|wanted| label.any(|ch| ch == wanted))
 }
 
 
@@ -493,6 +705,19 @@ pub(super) fn complete(text: &str, cursor: usize, schema: &Schema<'_>) -> Option
                         && field.enum_values.is_none()
                 }),
             };
+            // Real values from the index show whether the field holds dates.
+            let counted = items
+                .iter()
+                .filter(|item| item.detail.ends_with(" records"))
+                .collect::<Vec<_>>();
+            let dated = dated
+                && (counted.is_empty()
+                    || counted.iter().any(|item| {
+                        let label = item.label.as_bytes();
+                        label.len() >= 7
+                            && label[..4].iter().all(u8::is_ascii_digit)
+                            && label[4] == b'-'
+                    }));
             items.extend(
                 MACROS
                     .iter()
@@ -587,15 +812,26 @@ fn fields(schema: &Schema<'_>, token: &str) -> Vec<Candidate> {
             } else {
                 Kind::Field
             };
-            let scope_note = if schema.scope.len() > 1 {
-                format!(" · {collection}")
-            } else {
-                String::new()
-            };
+            let mut detail = type_name(field);
+            if schema.scope.len() > 1 {
+                detail.push_str(&format!(" · {collection}"));
+            }
+            if schema.guessed(&collection) {
+                detail.push_str(" · seen");
+            }
+            let dotted = segments
+                .iter()
+                .chain(std::iter::once(&name))
+                .cloned()
+                .collect::<Vec<_>>()
+                .join(".");
+            if let Some(sample) = schema.sample(&collection, &dotted) {
+                detail.push_str(&format!(" · e.g. {sample}"));
+            }
             Candidate {
                 insert: join_path(&segments, &name),
                 label: name,
-                detail: format!("{}{scope_note}", type_name(field)),
+                detail,
                 kind,
             }
         })
@@ -666,25 +902,41 @@ fn values(schema: &Schema<'_>, path: &str) -> Vec<Candidate> {
             .map(|status| value(format!("'{status}'"), status, "status"))
             .collect();
     }
+    let mut out = Vec::new();
+    // The values that actually occur, most common first, from the index.
+    if !path.starts_with('@') {
+        for (found, records) in schema.top_values(path) {
+            let (insert, label) = match &found {
+                Value::String(text) => (quote(text), text.clone()),
+                other => (other.to_string(), other.to_string()),
+            };
+            out.push(value(insert, &label, &format!("{records} records")));
+        }
+    }
     let Some((mut segments, last)) = split_path(path) else {
-        return Vec::new();
+        return out;
     };
     if !last.is_empty() {
         segments.push(last);
     }
     let Some(field) = schema.field(&segments) else {
-        return Vec::new();
+        return out;
     };
     let field = items(field);
-    let mut out = Vec::new();
+    let mut push = |candidate: Candidate| {
+        if !out
+            .iter()
+            .any(|known: &Candidate| known.insert == candidate.insert)
+        {
+            out.push(candidate);
+        }
+    };
     if let Some(members) = &field.enum_values {
         for member in members {
             match member {
-                serde_json::Value::String(text) => {
-                    out.push(value(quote(text), text, "enum"));
-                }
+                Value::String(text) => push(value(quote(text), text, "enum")),
                 other if !other.is_null() => {
-                    out.push(value(other.to_string(), &other.to_string(), "enum"));
+                    push(value(other.to_string(), &other.to_string(), "enum"));
                 }
                 _ => {}
             }
@@ -694,15 +946,15 @@ fn values(schema: &Schema<'_>, path: &str) -> Vec<Candidate> {
         && let Some(suggested) = &field.suggested_values
     {
         for text in suggested {
-            out.push(value(quote(text), text, "seen"));
+            push(value(quote(text), text, "seen"));
         }
     }
     if field.kind == ValueType::Boolean {
-        out.push(value("true".into(), "true", "boolean"));
-        out.push(value("false".into(), "false", "boolean"));
+        push(value("true".into(), "true", "boolean"));
+        push(value("false".into(), "false", "boolean"));
     }
     if field.nullable {
-        out.push(value("null".into(), "null", "null"));
+        push(value("null".into(), "null", "null"));
     }
     out
 }

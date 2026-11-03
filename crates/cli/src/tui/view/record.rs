@@ -1,10 +1,10 @@
 //! One record: the preview beside the results and the full detail view.
 
 use super::super::app::{App, Hit, status_name};
-use super::super::detail;
 use super::super::navigation::{BacklinkStatus, DetailSection};
+use super::super::record_view::Layout;
 use super::results::status_color;
-use super::{Areas, clip, spinner, theme::*};
+use super::{Areas, clip, marked, spinner, theme::*};
 use objekte_core::RecordRelation;
 use ratatui::{
     Frame,
@@ -13,6 +13,7 @@ use ratatui::{
     text::{Line, Span},
     widgets::{Paragraph, Scrollbar, ScrollbarOrientation, ScrollbarState},
 };
+use regex::Regex;
 use unicode_width::UnicodeWidthStr;
 
 
@@ -31,29 +32,63 @@ fn identity(hit: &Hit) -> Vec<Span<'static>> {
     ]
 }
 
-/// Field lines: dim names, highlighted when the search matched them.
-fn field_lines(hit: &Hit, width: u16, metadata: bool) -> (Vec<Line<'static>>, usize) {
-    let columns = detail::columns(
-        hit,
-        (width as usize * 2 / 5).max(10),
-        width as usize,
-        metadata,
-    );
+/// How to draw field lines.
+struct Paint<'r> {
+    /// Search and find patterns to mark in values.
+    marks: Vec<&'r Regex>,
+    /// Shown row under the cursor, in the record view.
+    cursor: Option<usize>,
+    /// Pointers with validation problems.
+    problems: &'r [String],
+    /// Pointers that link to other records.
+    links: &'r [String],
+}
+
+
+/// Field lines `range` of a laid-out record: dim names, highlighted when
+/// the search matched them, values with matches marked.
+fn field_lines(
+    layout: &Layout,
+    range: std::ops::Range<usize>,
+    width: u16,
+    paint: &Paint<'_>,
+) -> Vec<Line<'static>> {
+    let columns = &layout.columns;
     let names_width = columns.names_width;
-    let lines = columns
-        .names
-        .iter()
-        .zip(&columns.values)
-        .zip(&columns.matched)
-        .map(|((name, value), matched)| {
-            let name_style = if *matched {
-                Style::new().fg(ACCENT).add_modifier(Modifier::BOLD)
+    range
+        .filter(|&line| line < columns.names.len())
+        .map(|line| {
+            let row_index = columns.row[line];
+            let row = &layout.rows[row_index];
+            let first = line == 0 || columns.row[line - 1] != row_index;
+            let chosen = paint.cursor == Some(row_index);
+            let base = if chosen {
+                Style::new().bg(SELECTED)
             } else {
-                Style::new().fg(DIM)
+                Style::new()
             };
-            let marker = if *matched { "▸ " } else { "  " };
-            Line::from(vec![
-                Span::styled(marker, Style::new().fg(ACCENT)),
+            let problem = !row.pointer.is_empty()
+                && paint.problems.iter().any(|pointer| {
+                    *pointer == row.pointer || pointer.starts_with(&format!("{}/", row.pointer))
+                });
+            let linked = paint.links.contains(&row.pointer);
+            let name_style = if problem {
+                base.fg(RED).add_modifier(Modifier::BOLD)
+            } else if columns.matched[line] {
+                base.fg(ACCENT).add_modifier(Modifier::BOLD)
+            } else if chosen {
+                base.fg(TEXT).add_modifier(Modifier::BOLD)
+            } else {
+                base.fg(DIM)
+            };
+            let marker = match (chosen && first, columns.matched[line]) {
+                (true, _) => "▌ ",
+                (false, true) => "▸ ",
+                _ => "  ",
+            };
+            let name = &columns.names[line];
+            let mut spans = vec![
+                Span::styled(marker, base.fg(ACCENT)),
                 Span::styled(
                     format!(
                         "{name}{}",
@@ -61,17 +96,41 @@ fn field_lines(hit: &Hit, width: u16, metadata: bool) -> (Vec<Line<'static>>, us
                     ),
                     name_style,
                 ),
-                Span::raw("  "),
-                Span::styled(value.clone(), Style::new().fg(TEXT)),
-            ])
+                Span::styled("  ", base),
+            ];
+            let value = &columns.values[line];
+            if first && row.branch {
+                let text = match layout.hidden[row_index] {
+                    0 => String::new(),
+                    hidden => format!("▸ {hidden} folded"),
+                };
+                spans.push(Span::styled(text, base.fg(FAINT)));
+            } else {
+                let style = if linked {
+                    base.fg(VIOLET)
+                } else {
+                    base.fg(TEXT)
+                };
+                spans.extend(marked(value, style, &paint.marks));
+                if first && linked {
+                    spans.push(Span::styled("  →", base.fg(VIOLET)));
+                }
+            }
+            if chosen {
+                let used = spans.iter().map(|span| span.content.width()).sum::<usize>();
+                spans.push(Span::styled(
+                    " ".repeat((width as usize).saturating_sub(used)),
+                    base,
+                ));
+            }
+            Line::from(spans)
         })
-        .collect::<Vec<_>>();
-    let count = lines.len();
-    (lines, count)
+        .collect()
 }
 
 
-/// The selected record beside the results, separated by a thin rule.
+/// The selected record beside the results, separated by a thin rule. It
+/// opens at the first field the search matched.
 pub(in super::super) fn preview(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
     for y in area.top()..area.bottom() {
         frame.render_widget(
@@ -96,24 +155,47 @@ pub(in super::super) fn preview(frame: &mut Frame<'_>, app: &App<'_>, area: Rect
         Paragraph::new(Line::from(head)),
         Rect { height: 1, ..inner },
     );
-    let (lines, _) = field_lines(hit, inner.width.saturating_sub(2), false);
+    let width = inner.width.saturating_sub(2);
+    let layout = app.record.layout(hit, false, width as usize, false);
     let body = Rect {
         y: inner.y + 2,
         height: inner.height.saturating_sub(2),
         ..inner
     };
-    let shown = lines.len().min(body.height as usize);
-    let hidden = lines.len() - shown;
-    let mut lines = lines
-        .into_iter()
-        .take(body.height as usize)
-        .collect::<Vec<_>>();
-    if hidden > 0 && !lines.is_empty() {
-        let last = lines.len() - 1;
-        lines[last] = Line::styled(
-            format!("  … {} more lines · Enter opens the record", hidden + 1),
+    let height = body.height as usize;
+    let total = layout.columns.names.len();
+    if height == 0 || total == 0 {
+        return;
+    }
+    // Start a little above the first match when it would be hidden.
+    let start = match layout.first_match {
+        Some(line) if line + 1 >= height => {
+            line.saturating_sub(2).min(total.saturating_sub(height - 1))
+        }
+        _ => 0,
+    };
+    let paint = Paint {
+        marks: app.highlight.iter().collect(),
+        cursor: None,
+        problems: &[],
+        links: &[],
+    };
+    let mut lines = Vec::new();
+    if start > 0 {
+        lines.push(Line::styled(
+            format!("  … {start} lines above"),
             Style::new().fg(FAINT),
-        );
+        ));
+    }
+    let room = height - lines.len();
+    let below = total.saturating_sub(start + room);
+    let take = if below > 0 { room - 1 } else { room };
+    lines.extend(field_lines(&layout, start..start + take, width, &paint));
+    if below > 0 {
+        lines.push(Line::styled(
+            format!("  … {} more lines · Enter opens the record", below + 1),
+            Style::new().fg(FAINT),
+        ));
     }
     frame.render_widget(Paragraph::new(lines), body);
 }
@@ -165,6 +247,7 @@ pub(in super::super) fn detail(frame: &mut Frame<'_>, app: &App<'_>, areas: &Are
     } else {
         format!("Backlinks {}", app.links.incoming.len())
     };
+    app.tabs_area.set(areas.filter);
     frame.render_widget(
         Paragraph::new(Line::from(vec![
             Span::raw("   "),
@@ -220,32 +303,145 @@ pub(in super::super) fn detail(frame: &mut Frame<'_>, app: &App<'_>, areas: &Are
 }
 
 fn fields(frame: &mut Frame<'_>, app: &App<'_>, hit: &Hit, area: Rect) {
-    let (lines, count) = field_lines(hit, area.width.saturating_sub(2).min(120), true);
-    let height = area.height as usize;
-    let scroll = app.detail_scroll.min(count.saturating_sub(height));
-    let visible = lines
-        .into_iter()
-        .skip(scroll)
-        .take(height)
-        .collect::<Vec<_>>();
-    frame.render_widget(Paragraph::new(visible), area);
-    if count > height {
-        let mut state = ScrollbarState::new(count.saturating_sub(height)).position(scroll);
-        frame.render_stateful_widget(
-            Scrollbar::new(ScrollbarOrientation::VerticalRight)
-                .begin_symbol(None)
-                .end_symbol(None)
-                .track_symbol(Some("│"))
-                .track_style(Style::new().fg(FAINT))
-                .thumb_style(Style::new().fg(DIM)),
+    let record = hit.record();
+    let find = app.record.find_regex();
+    let mut marks = app.highlight.iter().collect::<Vec<_>>();
+    marks.extend(find.iter());
+    // Validation problems come first, at most a few lines of them.
+    let issues = &record.state.issues;
+    let mut top = 0;
+    if !issues.is_empty() && area.height > 6 {
+        let shown = issues.len().min(4);
+        let mut lines = vec![Line::from(vec![
+            Span::styled(" ✗ ", Style::new().fg(RED).add_modifier(Modifier::BOLD)),
+            Span::styled(
+                format!(
+                    "{} validation {}",
+                    issues.len(),
+                    if issues.len() == 1 {
+                        "problem"
+                    } else {
+                        "problems"
+                    }
+                ),
+                Style::new().fg(RED).add_modifier(Modifier::BOLD),
+            ),
+        ])];
+        for issue in issues.iter().take(shown) {
+            let location = if issue.location.is_empty() {
+                "/"
+            } else {
+                &issue.location
+            };
+            lines.push(Line::from(vec![
+                Span::styled(format!("   {location}  "), Style::new().fg(DIM)),
+                Span::styled(issue.message.clone(), Style::new().fg(RED)),
+            ]));
+        }
+        if issues.len() > shown {
+            lines.push(Line::styled(
+                format!("   … {} more", issues.len() - shown),
+                Style::new().fg(FAINT),
+            ));
+        }
+        top = lines.len() as u16 + 1;
+        frame.render_widget(
+            Paragraph::new(lines),
             Rect {
-                x: area.right(),
-                width: 1,
+                height: top - 1,
                 ..area
             },
-            &mut state,
         );
     }
+    let area = Rect {
+        y: area.y + top,
+        height: area.height.saturating_sub(top),
+        ..area
+    };
+    let height = area.height as usize;
+    app.record.height.set(height.max(1));
+    let width = area.width.saturating_sub(2).min(120);
+    app.record_width.set(width as usize);
+    if app.record.raw {
+        raw(frame, app, hit, area, &marks);
+        return;
+    }
+    app.record_area.set(area);
+    let layout = app.record.layout(hit, true, width as usize, true);
+    let count = layout.columns.names.len();
+    let cursor = app.record.cursor.min(layout.rows.len().saturating_sub(1));
+    // Scroll as little as possible to keep the cursor row in view.
+    let lines_of = layout.lines_of(cursor);
+    let mut scroll = app.record.scroll.get().min(count.saturating_sub(height));
+    if lines_of.start < scroll {
+        scroll = lines_of.start;
+    } else if lines_of.end > scroll + height {
+        scroll = lines_of.end.saturating_sub(height).min(lines_of.start);
+    }
+    app.record.scroll.set(scroll);
+    let problems = issues
+        .iter()
+        .map(|issue| issue.location.clone())
+        .collect::<Vec<_>>();
+    let links = app
+        .links
+        .outgoing
+        .iter()
+        .map(|edge| edge.location.clone())
+        .collect::<Vec<_>>();
+    let paint = Paint {
+        marks,
+        cursor: Some(cursor),
+        problems: &problems,
+        links: &links,
+    };
+    let visible = field_lines(&layout, scroll..scroll + height, width, &paint);
+    frame.render_widget(Paragraph::new(visible), area);
+    scrollbar(frame, area, count, height, scroll);
+}
+
+fn raw(frame: &mut Frame<'_>, app: &App<'_>, hit: &Hit, area: Rect, marks: &[&Regex]) {
+    let lines = app.record.raw_lines(hit);
+    let height = area.height as usize;
+    let scroll = app
+        .record
+        .scroll
+        .get()
+        .min(lines.len().saturating_sub(height));
+    app.record.scroll.set(scroll);
+    let text = lines
+        .iter()
+        .skip(scroll)
+        .take(height)
+        .map(|line| {
+            let mut spans = vec![Span::raw("  ")];
+            spans.extend(marked(line, Style::new().fg(TEXT), marks));
+            Line::from(spans)
+        })
+        .collect::<Vec<_>>();
+    frame.render_widget(Paragraph::new(text), area);
+    scrollbar(frame, area, lines.len(), height, scroll);
+}
+
+fn scrollbar(frame: &mut Frame<'_>, area: Rect, count: usize, height: usize, scroll: usize) {
+    if count <= height {
+        return;
+    }
+    let mut state = ScrollbarState::new(count.saturating_sub(height)).position(scroll);
+    frame.render_stateful_widget(
+        Scrollbar::new(ScrollbarOrientation::VerticalRight)
+            .begin_symbol(None)
+            .end_symbol(None)
+            .track_symbol(Some("│"))
+            .track_style(Style::new().fg(FAINT))
+            .thumb_style(Style::new().fg(DIM)),
+        Rect {
+            x: area.right(),
+            width: 1,
+            ..area
+        },
+        &mut state,
+    );
 }
 
 fn relations(

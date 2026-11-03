@@ -1,11 +1,12 @@
 //! Floating elements: the completion popup and modal dialogs.
 
-use super::super::app::{Action, App, Chooser, Overlay};
+use super::super::app::{App, Chooser, Overlay};
 use super::super::complete::Kind;
+use super::super::lists::{ListItem, ListKind};
 use super::{Areas, LABEL, clip, draw_input, theme::*};
 use ratatui::{
     Frame,
-    layout::{Position, Rect},
+    layout::{Constraint, Layout, Position, Rect},
     style::{Modifier, Style},
     text::{Line, Span},
     widgets::{Block, BorderType, Borders, Clear, Paragraph},
@@ -20,29 +21,40 @@ pub(in super::super) fn draw(frame: &mut Frame<'_>, app: &App<'_>, areas: &Areas
     let area = frame.area();
     match &app.overlay {
         None => {}
-        Some(Overlay::Collections(chooser)) => {
-            let items = app
-                .collection_choices(&chooser.input.text)
-                .into_iter()
-                .map(|scope| {
-                    let name = if scope == 0 {
-                        "all collections".to_string()
-                    } else {
-                        app.collections[scope - 1].clone()
-                    };
-                    let note = if scope == app.scope { "current" } else { "" };
-                    (name, note.to_string())
-                })
-                .collect::<Vec<_>>();
-            list_dialog(frame, area, "Search in", chooser, &items, "type to filter");
+        Some(Overlay::List(kind, chooser)) => {
+            let items = app.list_items(*kind, &chooser.input.text);
+            let title = match (kind, &app.breakdown) {
+                (ListKind::Breakdown, Some(breakdown)) => format!(
+                    "{} · {} records{}",
+                    breakdown.field,
+                    breakdown.records,
+                    if breakdown.truncated { "+" } else { "" }
+                ),
+                _ => kind.title().to_string(),
+            };
+            list_dialog(frame, area, &title, *kind, chooser, &items);
         }
-        Some(Overlay::Palette(chooser)) => {
-            let items = app
-                .palette_actions(&chooser.input.text)
-                .into_iter()
-                .map(|action: Action| (action.label().to_string(), action.shortcut().to_string()))
-                .collect::<Vec<_>>();
-            list_dialog(frame, area, "Actions", chooser, &items, "type a command");
+        Some(Overlay::SaveQuery(input)) => {
+            let inner = dialog(frame, area, "Save this query", 64, 7);
+            frame.render_widget(
+                Paragraph::new(Span::styled(
+                    "Name it to find it again with Ctrl+B. The same name replaces it.",
+                    Style::new().fg(DIM).bg(PANEL),
+                )),
+                Rect { height: 1, ..inner },
+            );
+            frame.render_widget(
+                Paragraph::new(Span::styled("❯ ", Style::new().fg(ACCENT).bg(PANEL))),
+                Rect::new(inner.x, inner.y + 2, 2, 1),
+            );
+            draw_input(
+                frame,
+                input,
+                Rect::new(inner.x + 2, inner.y + 2, inner.width.saturating_sub(2), 1),
+                true,
+                Style::new().fg(TEXT).bg(PANEL),
+            );
+            keys_line(frame, inner, &[("Enter", "save"), ("Esc", "cancel")]);
         }
         Some(Overlay::Help) => help(frame, area),
         Some(Overlay::Export { all, input }) => {
@@ -234,17 +246,22 @@ fn keys_line(frame: &mut Frame<'_>, inner: Rect, keys: &[(&str, &str)]) {
     );
 }
 
-/// A filterable list: the collection picker and the action palette.
+/// A filterable list dialog.
 fn list_dialog(
     frame: &mut Frame<'_>,
     area: Rect,
     title: &str,
+    kind: ListKind,
     chooser: &Chooser,
-    items: &[(String, String)],
-    hint: &str,
+    items: &[ListItem],
 ) {
-    let rows = items.len().clamp(1, 12) as u16;
-    let inner = dialog(frame, area, title, 60, rows + 5);
+    let rows = items.len().clamp(1, 14) as u16;
+    let width = if kind == ListKind::History || kind == ListKind::Saved {
+        84
+    } else {
+        64
+    };
+    let inner = dialog(frame, area, title, width, rows + 5);
     frame.render_widget(
         Paragraph::new(Span::styled("❯ ", Style::new().fg(ACCENT).bg(PANEL))),
         Rect::new(inner.x, inner.y, 2, 1),
@@ -253,7 +270,7 @@ fn list_dialog(
     if chooser.input.text.is_empty() {
         frame.render_widget(
             Paragraph::new(Span::styled(
-                hint.to_string(),
+                kind.placeholder(),
                 Style::new().fg(FAINT).bg(PANEL),
             )),
             input_area,
@@ -277,14 +294,25 @@ fn list_dialog(
     );
     let list = Rect::new(inner.x, inner.y + 2, inner.width, rows);
     if items.is_empty() {
+        let empty = match kind {
+            ListKind::History => "No queries yet. Enter remembers a query.",
+            ListKind::Saved => "Nothing saved yet. Ctrl+S saves the current query.",
+            _ => "No matches",
+        };
         frame.render_widget(
-            Paragraph::new(Span::styled("No matches", Style::new().fg(DIM).bg(PANEL))),
+            Paragraph::new(Span::styled(empty, Style::new().fg(DIM).bg(PANEL))),
             list,
         );
     }
     let selected = chooser.selected.min(items.len().saturating_sub(1));
     let start = selected.saturating_sub(rows as usize - 1);
-    for (row, (index, (label, note))) in items
+    // Notes form a right-aligned column, so counts and bars line up.
+    let note_column = items
+        .iter()
+        .map(|item| item.note.width())
+        .max()
+        .unwrap_or(0);
+    for (row, (index, item)) in items
         .iter()
         .enumerate()
         .skip(start)
@@ -297,30 +325,53 @@ fn list_dialog(
         } else {
             Style::new().bg(PANEL)
         };
-        let label = clip(label, list.width.saturating_sub(12) as usize);
-        let fill = (list.width as usize).saturating_sub(label.width() + note.width() + 3);
+        let mut spans = vec![Span::styled(
+            if chosen { "▌ " } else { "  " },
+            base.fg(ACCENT),
+        )];
+        if let Some(checked) = item.checked {
+            spans.push(Span::styled(
+                if checked { "☑ " } else { "☐ " },
+                base.fg(if checked { ACCENT } else { DIM }),
+            ));
+        }
+        let bar_width = if item.bar.is_some() { 12 } else { 0 };
+        let note_width = note_column;
+        let room = (list.width as usize)
+            .saturating_sub(4 + note_width + bar_width + 2 * usize::from(item.checked.is_some()));
+        let label = clip(&item.label, room);
+        let label_style = if chosen {
+            base.fg(TEXT).add_modifier(Modifier::BOLD)
+        } else if item.checked == Some(false) {
+            base.fg(DIM)
+        } else {
+            base.fg(TEXT)
+        };
+        spans.push(Span::styled(label.clone(), label_style));
+        let used = spans.iter().map(|span| span.content.width()).sum::<usize>();
+        let fill = (list.width as usize).saturating_sub(used + note_width + bar_width + 1);
+        spans.push(Span::styled(" ".repeat(fill), base));
+        if let Some(share) = item.bar {
+            let cells = ((share * 10.0).round() as usize).clamp(1, 10);
+            spans.push(Span::styled(
+                format!("{}{} ", "█".repeat(cells), " ".repeat(10 - cells)),
+                base.fg(ACCENT),
+            ));
+        }
+        spans.push(Span::styled(
+            format!(
+                "{}{} ",
+                " ".repeat(note_column.saturating_sub(item.note.width())),
+                item.note
+            ),
+            base.fg(DIM),
+        ));
         frame.render_widget(
-            Paragraph::new(Line::from(vec![
-                Span::styled(if chosen { "▌ " } else { "  " }, base.fg(ACCENT)),
-                Span::styled(
-                    label,
-                    if chosen {
-                        base.fg(TEXT).add_modifier(Modifier::BOLD)
-                    } else {
-                        base.fg(TEXT)
-                    },
-                ),
-                Span::styled(" ".repeat(fill), base),
-                Span::styled(format!("{note} "), base.fg(DIM)),
-            ])),
+            Paragraph::new(Line::from(spans)),
             Rect::new(list.x, list.y + row as u16, list.width, 1),
         );
     }
-    keys_line(
-        frame,
-        inner,
-        &[("↑↓", "choose"), ("Enter", "select"), ("Esc", "close")],
-    );
+    keys_line(frame, inner, kind.keys());
 }
 
 
@@ -435,64 +486,87 @@ fn completion(frame: &mut Frame<'_>, app: &App<'_>, areas: &Areas) {
 }
 
 
-const HELP: [(&str, &[(&str, &str)]); 4] = [
+type Section = (&'static str, &'static [(&'static str, &'static str)]);
+
+const HELP_LEFT: [Section; 3] = [
     (
         "Search",
         &[
-            ("type", "search as you type; Enter searches at once"),
-            ("Tab", "to Filter; in Filter, complete from the schema"),
-            ("Shift+Tab", "switch between Search and Filter"),
-            ("↑↓  PgUp PgDn", "move; more results load as you go"),
-            ("Ctrl+U  Ctrl+D", "page up / page down"),
-            ("Ctrl+Home  Ctrl+End", "first / last result"),
-            ("Enter", "open the selected record"),
-            ("Esc", "close suggestions, then clear the line"),
-            ("Alt+←→", "show more columns"),
+            ("type", "search as you type"),
+            ("Enter", "search now; then open the record"),
+            ("Tab", "to Filter; there, complete fields"),
+            ("Shift+Tab", "switch Search and Filter"),
+            ("↑↓  PgUp PgDn", "move; more rows load as you go"),
+            ("Ctrl+U  Ctrl+D", "page up / down"),
+            ("Ctrl+Home  End", "first / last result"),
+            ("Alt+←→", "scroll columns"),
+            ("mouse", "click selects, double click opens"),
+            ("Esc", "close suggestions, clear the line"),
+        ],
+    ),
+    (
+        "Queries and results",
+        &[
+            ("Ctrl+R", "recent queries"),
+            ("Ctrl+S  Ctrl+B", "save query / saved queries"),
+            ("Alt+S", "sort by a column"),
+            ("Alt+B", "count values of a field"),
+            ("Ctrl+O", "choose the collection"),
+            ("F5", "check files for changes"),
+            ("Alt+E", "open the record in $EDITOR"),
         ],
     ),
     (
         "Options",
         &[
-            ("Ctrl+O", "choose the collection"),
-            ("Alt+C  Alt+R  Alt+T", "case · regex · full text"),
+            ("Alt+C Alt+R Alt+T", "case · regex · full text"),
             ("Ctrl+P", "show or hide the preview"),
-            ("Ctrl+K", "actions: export, infer, save, rebuild"),
-        ],
-    ),
-    (
-        "Record",
-        &[
-            ("Tab  1 2 3", "fields · links · backlinks"),
-            ("←→", "previous / next result"),
-            ("Enter", "open the selected link"),
-            ("Backspace", "back to the previous record"),
-            ("Esc", "back to the results"),
-        ],
-    ),
-    (
-        "Editing",
-        &[
-            ("Ctrl+A  Ctrl+E", "start / end of line"),
-            ("Ctrl+W", "delete word"),
-            ("Ctrl+←→", "move by word"),
+            ("Ctrl+K", "all actions, columns, colours"),
             ("Ctrl+Q", "quit"),
         ],
     ),
 ];
 
-fn help(frame: &mut Frame<'_>, area: Rect) {
-    let rows = HELP.iter().map(|(_, keys)| keys.len() + 2).sum::<usize>() as u16 + 1;
-    let inner = dialog(frame, area, "Keyboard", 72, rows + 2);
+const HELP_RIGHT: [Section; 2] = [
+    (
+        "Record",
+        &[
+            ("1 2 3  Tab", "fields · links · backlinks"),
+            ("←→", "previous / next result"),
+            ("↑↓  PgUp PgDn", "move between fields"),
+            ("Enter", "follow a link, fold a branch"),
+            ("Space", "fold or unfold"),
+            ("f", "filter by this value"),
+            ("b", "count values of this field"),
+            ("y  Y", "copy value / whole record"),
+            ("/  n  N", "find in the record"),
+            ("r", "raw JSON"),
+            ("e", "open in $EDITOR"),
+            ("Backspace", "back to the previous record"),
+            ("Esc", "back to the results"),
+        ],
+    ),
+    (
+        "Editing a line",
+        &[
+            ("Ctrl+A  Ctrl+E", "start / end of line"),
+            ("Ctrl+W", "delete a word"),
+            ("Ctrl+←→", "move by word"),
+        ],
+    ),
+];
+
+fn help_lines(sections: &[Section], key_width: usize) -> Vec<Line<'static>> {
     let mut lines = Vec::new();
-    for (section, keys) in HELP {
+    for (section, keys) in sections {
         lines.push(Line::styled(
-            section,
+            *section,
             Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
         ));
-        for (key, text) in keys {
+        for (key, text) in *keys {
             lines.push(Line::from(vec![
                 Span::styled(
-                    format!("  {key:<22}"),
+                    format!("  {key:<key_width$}"),
                     Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
                 ),
                 Span::styled(*text, Style::new().fg(DIM)),
@@ -500,6 +574,38 @@ fn help(frame: &mut Frame<'_>, area: Rect) {
         }
         lines.push(Line::raw(""));
     }
-    frame.render_widget(Paragraph::new(lines).style(Style::new().bg(PANEL)), inner);
+    lines
+}
+
+fn help(frame: &mut Frame<'_>, area: Rect) {
+    let left = help_lines(&HELP_LEFT, 19);
+    let right = help_lines(&HELP_RIGHT, 15);
+    let wide = area.width >= 110;
+    let rows = if wide {
+        left.len().max(right.len())
+    } else {
+        left.len() + right.len()
+    } as u16;
+    let inner = dialog(
+        frame,
+        area,
+        "Keyboard",
+        if wide { 108 } else { 60 },
+        rows + 3,
+    );
+    let body = Rect {
+        height: inner.height.saturating_sub(1),
+        ..inner
+    };
+    if wide {
+        let [first, second] =
+            Layout::horizontal([Constraint::Length(56), Constraint::Fill(1)]).areas(body);
+        frame.render_widget(Paragraph::new(left).style(Style::new().bg(PANEL)), first);
+        frame.render_widget(Paragraph::new(right).style(Style::new().bg(PANEL)), second);
+    } else {
+        let mut lines = left;
+        lines.extend(right);
+        frame.render_widget(Paragraph::new(lines).style(Style::new().bg(PANEL)), body);
+    }
     keys_line(frame, inner, &[("Esc", "close")]);
 }

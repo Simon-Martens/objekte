@@ -20,7 +20,10 @@ fn detail_preserves_nested_fields_and_long_values() {
         values,
         matched,
         ..
-    } = columns(&Hit::Filter(record), 16, 30, true);
+    } = {
+        let rows = rows(&Hit::Filter(record), true);
+        columns(&rows.iter().collect::<Vec<_>>(), 16, 30)
+    };
     assert_eq!(names.len(), values.len());
     assert!(matched.iter().all(|matched| !matched));
     assert!(names.iter().any(|name| name == "outer"));
@@ -147,7 +150,8 @@ fn matched_text_paths_mark_leaf_labels_and_values_stop_at_a_hundred_cells() {
             .iter()
             .any(|row| row.name == "      other" && row.matched)
     );
-    let columns = columns(&hit, 30, 200, true);
+    let all = super::rows(&hit, true);
+    let columns = columns(&all.iter().collect::<Vec<_>>(), 30, 200);
     assert_eq!(columns.names.len(), columns.matched.len());
     assert!(
         columns

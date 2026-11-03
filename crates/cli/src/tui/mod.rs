@@ -8,12 +8,16 @@ mod app;
 mod complete;
 mod detail;
 mod export;
+mod files;
 mod input;
 mod keys;
+mod lists;
 mod match_preview;
 mod navigation;
+mod record_view;
 mod relations;
 mod search;
+mod settings;
 mod view;
 mod warm;
 
@@ -139,6 +143,36 @@ fn drive_reconciliation(app: &mut App<'_>, searches: &search::SearchWorker) {
     }
 }
 
+/// Leave the screen to the editor, then take it back. Returns whether the
+/// editor exited successfully.
+fn edit_externally(
+    terminal: &mut ratatui::DefaultTerminal,
+    path: &std::path::Path,
+) -> Result<bool, Box<dyn Error>> {
+    let command = files::editor();
+    execute!(
+        std::io::stdout(),
+        DisableMouseCapture,
+        PopKeyboardEnhancementFlags
+    )?;
+    ratatui::try_restore()?;
+    let status = std::process::Command::new(&command[0])
+        .args(&command[1..])
+        .arg(path)
+        .status();
+    *terminal = ratatui::try_init()?;
+    execute!(
+        std::io::stdout(),
+        PushKeyboardEnhancementFlags(
+            KeyboardEnhancementFlags::DISAMBIGUATE_ESCAPE_CODES
+                | KeyboardEnhancementFlags::REPORT_ALTERNATE_KEYS
+        ),
+        EnableMouseCapture
+    )?;
+    terminal.clear()?;
+    Ok(status?.success())
+}
+
 /// Show the UI after configuration loading while indexes warm in a worker.
 pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
     let mut terminal = ratatui::try_init()?;
@@ -161,6 +195,7 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
         let startup_status = warm::startup_status(repo);
         let mut updates = warm::start(repo, warm::WarmMode::Warm);
         let mut app = App::new(repo);
+        app.load_settings();
         let mut searches = search::SearchWorker::default();
         app.async_search = true;
         app.index_status = Some(startup_status);
@@ -197,12 +232,34 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
                     Event::Mouse(mouse) => match mouse.kind {
                         MouseEventKind::ScrollDown => keys::wheel(&mut app, 3),
                         MouseEventKind::ScrollUp => keys::wheel(&mut app, -3),
+                        MouseEventKind::Down(event::MouseButton::Left) => {
+                            keys::click(&mut app, mouse.column, mouse.row, Instant::now());
+                        }
                         _ => {}
                     },
                     _ => {}
                 }
                 if app.done || !event::poll(Duration::ZERO)? {
                     break;
+                }
+            }
+            if let Some(text) = app.clipboard.take() {
+                use std::io::Write;
+                let mut stdout = std::io::stdout();
+                stdout.write_all(files::osc52(&text).as_bytes())?;
+                stdout.flush()?;
+            }
+            // Some work needs the repository, which a running search or
+            // backlink lookup has borrowed; it waits until it is back.
+            if !app.deferred.is_empty()
+                && searches.is_idle()
+                && app.pending_search.is_none()
+                && let Some(path) = app.run_deferred()
+            {
+                match edit_externally(&mut terminal, &path) {
+                    Ok(true) => app.apply_edit(&path),
+                    Ok(false) => app.error("The editor reported an error"),
+                    Err(error) => app.error(format!("Cannot start the editor: {error}")),
                 }
             }
             if let Some(mode) = app.pending_cache_action.take() {

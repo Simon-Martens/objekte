@@ -1109,6 +1109,8 @@ version = "0.1.0"
 dependencies = [
  "objekte-core",
  "ratatui",
+ "regex",
+ "serde",
  "serde_json",
  "tempfile",
  "unicode-width",

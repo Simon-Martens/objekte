@@ -183,3 +183,80 @@ fn suggested_values_from_inference_are_offered() {
     assert!(found.contains(&"poem".to_string()), "{found:?}");
     assert_eq!(accept("genre = pr", Some("books")), "genre = 'prose'");
 }
+
+#[test]
+fn fuzzy_matches_rank_after_substrings() {
+    let found = labels("ttl", Some("books"));
+    assert_eq!(
+        found.first().map(String::as_str),
+        Some("title"),
+        "{found:?}"
+    );
+    assert!(labels("zzz", Some("books")).is_empty());
+}
+
+#[test]
+fn collections_without_a_schema_complete_from_seen_records() {
+    let (temp, _) = repository();
+    write(
+        temp.path(),
+        "data/notes/n.json",
+        json!({"topic":"Moon","meta":{"pages":12},"tags":[{"label":"x"}]}),
+    );
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let record = repo.get_record("notes", "n").unwrap().unwrap();
+    let seen = Seen::from_records([&record].into_iter(), &repo.model().collections);
+    let schema = Schema::new(&repo.model().collections, Some("notes")).with_seen(&seen);
+    let found = complete("", 0, &schema).unwrap();
+    let topic = found
+        .items
+        .iter()
+        .find(|item| item.label == "topic")
+        .unwrap();
+    assert!(topic.detail.contains("seen"), "{}", topic.detail);
+    assert!(topic.detail.contains("e.g. Moon"), "{}", topic.detail);
+    let nested = complete("meta.", 5, &schema).unwrap();
+    assert_eq!(nested.items[0].label, "pages");
+    let items = complete("tags.", 5, &schema).unwrap();
+    assert_eq!(items.items[0].label, "label");
+    // Without seen records, a schema-free collection has no fields.
+    let bare = Schema::new(&repo.model().collections, Some("notes"));
+    assert!(
+        complete("", 0, &bare)
+            .unwrap()
+            .items
+            .iter()
+            .all(|item| item.label != "topic")
+    );
+}
+
+#[test]
+fn indexed_values_come_first_with_their_counts() {
+    let (_temp, repo) = repository();
+    let counts = |collection: &str, path: &str| {
+        (collection == "books" && path == "status").then(|| {
+            vec![
+                objekte_core::ValueCount {
+                    value: json!("published"),
+                    records: 40,
+                },
+                objekte_core::ValueCount {
+                    value: json!("draft"),
+                    records: 3,
+                },
+            ]
+        })
+    };
+    let schema = Schema::new(&repo.model().collections, Some("books")).with_counts(&counts);
+    let found = complete("status = ", 9, &schema).unwrap();
+    let shown = found
+        .items
+        .iter()
+        .map(|item| (item.label.as_str(), item.detail.as_str()))
+        .collect::<Vec<_>>();
+    assert_eq!(shown[0], ("published", "40 records"));
+    assert_eq!(shown[1], ("draft", "3 records"));
+    // Declared members that never occur still follow, once.
+    assert_eq!(shown[2], ("out of print", "enum"));
+    assert_eq!(shown.len(), 3);
+}

@@ -74,6 +74,8 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
             kind: JobKind::Search,
         }),
     };
+    // Newest file first: which one that is depends on file times.
+    let expected = Hit::Text(first.clone()).record().id.clone();
     sender
         .send(SearchUpdate::Hit(Box::new(Hit::Text(first))))
         .unwrap();
@@ -94,7 +96,7 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
     assert!(!app.searching);
     assert_eq!(app.total, Some(2));
     assert_eq!(app.elapsed_ms, Some(12.5));
-    assert_eq!(app.hits[0].record().id, "a");
+    assert_eq!(app.hits[0].record().id, expected);
 }
 
 #[test]

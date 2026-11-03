@@ -5,11 +5,54 @@ use serde_json::Value;
 use unicode_width::{UnicodeWidthChar, UnicodeWidthStr};
 
 
-/// One structural field or metadata item in the detail panel.
-struct DetailRow {
-    name: String,
-    value: String,
-    matched: bool,
+/// One structural field or metadata item in the record view.
+pub(super) struct DetailRow {
+    /// Indented label, such as `  [0] name`.
+    pub(super) name: String,
+    pub(super) value: String,
+    pub(super) matched: bool,
+    /// JSON Pointer into the record; empty for metadata and separators.
+    pub(super) pointer: String,
+    /// Filter path with implicit array traversal, such as
+    /// `contributors.agents`, or a system field for metadata.
+    pub(super) filter_path: String,
+    /// The single scalar value of a leaf, for filtering by it.
+    pub(super) scalar: Option<Value>,
+    /// Inside an array, so a filter path reaches several values.
+    pub(super) many: bool,
+    /// An object or array whose children follow as deeper rows.
+    pub(super) branch: bool,
+}
+
+
+impl DetailRow {
+    fn meta(name: &str, value: String, filter_path: &str) -> Self {
+        Self {
+            name: name.into(),
+            scalar: (!filter_path.is_empty()).then(|| Value::String(value.clone())),
+            value,
+            matched: false,
+            pointer: String::new(),
+            filter_path: filter_path.into(),
+            branch: false,
+            many: false,
+        }
+    }
+
+    fn separator() -> Self {
+        Self::meta("", String::new(), "")
+    }
+
+    pub(super) fn is_separator(&self) -> bool {
+        self.name.is_empty() && self.value.is_empty()
+    }
+
+    /// Whether `ancestor` (a branch pointer) contains this row.
+    pub(super) fn is_inside(&self, ancestor: &str) -> bool {
+        self.pointer.len() > ancestor.len()
+            && self.pointer.starts_with(ancestor)
+            && self.pointer.as_bytes()[ancestor.len()] == b'/'
+    }
 }
 
 
@@ -20,6 +63,8 @@ pub(super) struct DetailColumns {
     pub(super) names: Vec<String>,
     pub(super) values: Vec<String>,
     pub(super) matched: Vec<bool>,
+    /// The input row each line belongs to.
+    pub(super) row: Vec<usize>,
 }
 
 
@@ -40,14 +85,81 @@ fn visible(value: &Value) -> bool {
     }
 }
 
+fn identifier(name: &str) -> bool {
+    let mut chars = name.chars();
+    chars
+        .next()
+        .is_some_and(|first| first == '_' || first.is_alphabetic())
+        && chars.all(|ch| ch == '_' || ch.is_alphanumeric())
+}
+
+/// Where a walk is in the record, in the three path notations.
+#[derive(Clone)]
+struct Place {
+    /// As reported in matched paths: `notes[0].body`.
+    matched: String,
+    pointer: String,
+    filter: String,
+    many: bool,
+}
+
+
+impl Place {
+    fn root(name: &str) -> Self {
+        Self {
+            matched: name.into(),
+            pointer: format!("/{}", escape_pointer(name)),
+            filter: if identifier(name) {
+                name.into()
+            } else {
+                format!("[{}]", serde_json::to_string(name).expect("string"))
+            },
+            many: false,
+        }
+    }
+
+    fn key(&self, name: &str) -> Self {
+        Self {
+            matched: format!("{}.{name}", self.matched),
+            pointer: format!("{}/{}", self.pointer, escape_pointer(name)),
+            filter: if identifier(name) {
+                format!("{}.{name}", self.filter)
+            } else {
+                format!(
+                    "{}[{}]",
+                    self.filter,
+                    serde_json::to_string(name).expect("string")
+                )
+            },
+            many: self.many,
+        }
+    }
+
+    /// Arrays are traversed implicitly in filters, so the index is dropped.
+    fn index(&self, index: usize) -> Self {
+        Self {
+            matched: format!("{}[{index}]", self.matched),
+            pointer: format!("{}/{index}", self.pointer),
+            filter: self.filter.clone(),
+            many: true,
+        }
+    }
+}
+
+
+fn escape_pointer(name: &str) -> String {
+    name.replace('~', "~0").replace('/', "~1")
+}
+
 fn array_item(
     index: usize,
     value: &Value,
     depth: usize,
-    path: &str,
+    place: &Place,
     matched: &[String],
     rows: &mut Vec<DetailRow>,
 ) {
+    let place = place.index(index);
     if let Value::Object(fields) = value {
         let mut first = true;
         for (name, child) in fields.iter().filter(|(_, child)| visible(child)) {
@@ -58,18 +170,11 @@ fn array_item(
             } else {
                 format!("    {name}")
             };
-            walk(
-                &label,
-                child,
-                depth,
-                &format!("{path}.{name}"),
-                matched,
-                rows,
-            );
+            walk(&label, child, depth, &place.key(name), matched, rows);
             first = false;
         }
     } else {
-        walk(&format!("[{index}]"), value, depth, path, matched, rows);
+        walk(&format!("[{index}]"), value, depth, &place, matched, rows);
     }
 }
 
@@ -77,7 +182,7 @@ fn walk(
     name: &str,
     value: &Value,
     depth: usize,
-    path: &str,
+    place: &Place,
     matched: &[String],
     rows: &mut Vec<DetailRow>,
 ) {
@@ -85,62 +190,55 @@ fn walk(
         return;
     }
     let label = format!("{}{}", "  ".repeat(depth), name);
+    let row = |value: String, matched: bool, scalar: Option<Value>, branch: bool| DetailRow {
+        name: label.clone(),
+        value,
+        matched,
+        pointer: place.pointer.clone(),
+        filter_path: place.filter.clone(),
+        scalar,
+        branch,
+        many: place.many,
+    };
     match value {
         Value::Object(fields) => {
-            rows.push(DetailRow {
-                name: label,
-                value: String::new(),
-                matched: false,
-            });
+            rows.push(row(String::new(), false, None, true));
             for (name, value) in fields {
-                walk(
-                    name,
-                    value,
-                    depth + 1,
-                    &format!("{path}.{name}"),
-                    matched,
-                    rows,
-                );
+                walk(name, value, depth + 1, &place.key(name), matched, rows);
             }
         }
         Value::Array(items) => {
             if items.iter().all(|item| item.is_string()) {
-                let item_prefix = format!("{path}[");
+                let item_prefix = format!("{}[", place.matched);
                 let values = items
                     .iter()
                     .filter_map(Value::as_str)
                     .filter(|text| !text.trim().is_empty())
                     .collect::<Vec<_>>();
-                rows.push(DetailRow {
-                    name: label,
-                    value: values.join(", "),
-                    matched: matched.iter().any(|field| field.starts_with(&item_prefix)),
-                });
+                let single = (values.len() == 1).then(|| Value::String(values[0].into()));
+                rows.push(row(
+                    values.join(", "),
+                    matched.iter().any(|field| field.starts_with(&item_prefix)),
+                    single,
+                    false,
+                ));
+                // A string array always reaches several values.
+                rows.last_mut().expect("pushed").many = true;
                 return;
             }
-            rows.push(DetailRow {
-                name: label,
-                value: String::new(),
-                matched: false,
-            });
+            rows.push(row(String::new(), false, None, true));
             for (index, value) in items.iter().enumerate() {
                 if visible(value) {
-                    array_item(
-                        index,
-                        value,
-                        depth + 1,
-                        &format!("{path}[{index}]"),
-                        matched,
-                        rows,
-                    );
+                    array_item(index, value, depth + 1, place, matched, rows);
                 }
             }
         }
-        _ => rows.push(DetailRow {
-            name: label,
-            value: value_text(value),
-            matched: matched.iter().any(|field| field == path),
-        }),
+        _ => rows.push(row(
+            value_text(value),
+            matched.contains(&place.matched),
+            Some(value.clone()),
+            false,
+        )),
     }
 }
 
@@ -148,51 +246,29 @@ fn size_kb(size_bytes: u64) -> String {
     format!("{:.2} KB", size_bytes as f64 / 1_000.0)
 }
 
-fn rows(hit: &Hit, metadata: bool) -> Vec<DetailRow> {
+/// Every row of a record: metadata first (unless `metadata` is false),
+/// then the record's own fields in order.
+pub(super) fn rows(hit: &Hit, metadata: bool) -> Vec<DetailRow> {
     let record = hit.record();
     let mut rows = vec![
-        DetailRow {
-            name: "collection".into(),
-            value: record.collection.clone(),
-            matched: false,
-        },
-        DetailRow {
-            name: "id".into(),
-            value: record.id.clone(),
-            matched: false,
-        },
-        DetailRow {
-            name: "path".into(),
-            value: record.path.clone(),
-            matched: false,
-        },
-        DetailRow {
-            name: "status".into(),
-            value: format!("{:?}", record.state.status),
-            matched: false,
-        },
-        DetailRow {
-            name: "size".into(),
-            value: size_kb(record.size_bytes),
-            matched: false,
-        },
-        DetailRow {
-            name: "modified_unix_nanos".into(),
-            value: record.modified_unix_nanos.clone(),
-            matched: false,
-        },
-        DetailRow {
-            name: "hash".into(),
-            value: record.hash.clone(),
-            matched: false,
-        },
+        DetailRow::meta("collection", record.collection.clone(), "@collection"),
+        DetailRow::meta("id", record.id.clone(), "@id"),
+        DetailRow::meta("path", record.path.clone(), "@path"),
+        DetailRow::meta("status", format!("{:?}", record.state.status), ""),
+        DetailRow::meta("size", size_kb(record.size_bytes), ""),
+        DetailRow::meta(
+            "modified_unix_nanos",
+            record.modified_unix_nanos.clone(),
+            "",
+        ),
+        DetailRow::meta("hash", record.hash.clone(), ""),
     ];
     if !hit.matched_paths().is_empty() {
-        rows.push(DetailRow {
-            name: "matched paths".into(),
-            value: hit.matched_paths().join(", "),
-            matched: false,
-        });
+        rows.push(DetailRow::meta(
+            "matched paths",
+            hit.matched_paths().join(", "),
+            "",
+        ));
     }
     rows.retain(|row| !row.value.trim().is_empty());
     if !metadata {
@@ -202,32 +278,39 @@ fn rows(hit: &Hit, metadata: bool) -> Vec<DetailRow> {
     if let Some(raw) = &record.raw {
         let raw = String::from_utf8_lossy(raw);
         if !raw.trim().is_empty() {
-            entry.push(DetailRow {
-                name: "$raw".into(),
-                value: raw.into_owned(),
-                matched: hit.matched_paths().iter().any(|field| field == "$raw"),
-            });
+            let mut row = DetailRow::meta("$raw", raw.into_owned(), "");
+            row.matched = hit.matched_paths().iter().any(|field| field == "$raw");
+            entry.push(row);
         }
     } else if let Value::Object(fields) = &record.data {
         for (name, value) in fields {
-            walk(name, value, 0, name, hit.matched_paths(), &mut entry);
+            walk(
+                name,
+                value,
+                0,
+                &Place::root(name),
+                hit.matched_paths(),
+                &mut entry,
+            );
         }
     } else {
+        let place = Place {
+            matched: "$value".into(),
+            pointer: String::new(),
+            filter: "$value".into(),
+            many: false,
+        };
         walk(
             "$value",
             &record.data,
             0,
-            "$value",
+            &place,
             hit.matched_paths(),
             &mut entry,
         );
     }
     if !entry.is_empty() && !rows.is_empty() {
-        rows.push(DetailRow {
-            name: String::new(),
-            value: String::new(),
-            matched: false,
-        });
+        rows.push(DetailRow::separator());
     }
     rows.extend(entry);
     rows
@@ -309,16 +392,10 @@ fn wrap_value(text: &str, width: usize) -> Vec<String> {
     lines
 }
 
-/// Name and value lines. Names take one line each, as wide as the widest
-/// name up to `max_names_width`; values wrap in the rest of `width`.
-/// Without `metadata`, only the record's own fields are listed.
-pub(super) fn columns(
-    hit: &Hit,
-    max_names_width: usize,
-    width: usize,
-    metadata: bool,
-) -> DetailColumns {
-    let rows = rows(hit, metadata);
+/// Name and value lines for `rows`. Names take one line each, as wide as
+/// the widest name up to `max_names_width`; values wrap in the rest of
+/// `width`.
+pub(super) fn columns(rows: &[&DetailRow], max_names_width: usize, width: usize) -> DetailColumns {
     let names_width = rows
         .iter()
         .map(|row| UnicodeWidthStr::width(row.name.as_str()))
@@ -326,25 +403,27 @@ pub(super) fn columns(
         .unwrap_or(0)
         .clamp(4, max_names_width.max(4));
     let values_width = width.saturating_sub(names_width + 2).clamp(10, 100);
-    let mut names = Vec::new();
-    let mut values = Vec::new();
-    let mut matched = Vec::new();
-    for row in rows {
-        let left = [truncate(&row.name, names_width)];
+    let mut out = DetailColumns {
+        names_width,
+        names: Vec::new(),
+        values: Vec::new(),
+        matched: Vec::new(),
+        row: Vec::new(),
+    };
+    for (index, row) in rows.iter().enumerate() {
         let right = wrap_value(&row.value, values_width);
-        let height = left.len().max(right.len());
-        for line in 0..height {
-            names.push(left.get(line).cloned().unwrap_or_default());
-            values.push(right.get(line).cloned().unwrap_or_default());
-            matched.push(row.matched && line < left.len());
+        for (line, value) in right.into_iter().enumerate() {
+            out.names.push(if line == 0 {
+                truncate(&row.name, names_width)
+            } else {
+                String::new()
+            });
+            out.values.push(value);
+            out.matched.push(row.matched && line == 0);
+            out.row.push(index);
         }
     }
-    DetailColumns {
-        names_width,
-        names,
-        values,
-        matched,
-    }
+    out
 }
 
 #[cfg(test)]
