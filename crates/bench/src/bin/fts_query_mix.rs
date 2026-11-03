@@ -1,6 +1,6 @@
 //! Release benchmark for schema-bound full-text index and mixed searches.
 
-use objekte_core::{JsonQuery, JsonQueryBackend, Repository, TextMode, TextQuery};
+use objekte_core::{JsonQuery, JsonQueryBackend, Options, Repository, TextMode, TextQuery};
 use serde_json::{Value, json};
 use std::{
     env, fs,
@@ -28,6 +28,8 @@ struct Sample {
     candidates: u64,
     scans: u64,
     parses: u64,
+    cache_hits: u64,
+    ordered_hits: u64,
 }
 
 
@@ -141,6 +143,8 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
         candidates: metrics.fts_candidates,
         scans: metrics.grep_scans,
         parses: metrics.parses,
+        cache_hits: metrics.predicate_cache_hits,
+        ordered_hits: metrics.ordered_result_hits,
     })
 }
 
@@ -150,6 +154,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .map(PathBuf::from)
         .unwrap_or_else(|| PathBuf::from("examples/musenalm"));
     let runs: usize = env::args().nth(2).unwrap_or_else(|| "3".into()).parse()?;
+    let cache_mib: usize = env::args().nth(3).unwrap_or_else(|| "64".into()).parse()?;
     if runs == 0 {
         return Err("runs must be positive".into());
     }
@@ -163,9 +168,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut temporary_schema = tempfile::NamedTempFile::new()?;
     temporary_schema.write_all(serde_json::to_string(&schema)?.as_bytes())?;
     temporary_schema.flush()?;
+    let mut options = Options::new();
+    options.query_cache_bytes = cache_mib * 1024 * 1024;
     let mut repo = Repository::builder(&root)
         .without_default_schemas()
         .schema("contents", temporary_schema.path())
+        .options(options)
         .open()?;
     let opened_rss_mib = mib("VmRSS:");
     let base_started = Instant::now();
@@ -202,7 +210,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "peak_rss_after_build_mib":ready_peak_rss_mib,
             "base_index_bytes":base_bytes, "fts_index_bytes":text_bytes,
             "total_index_bytes":total_index_bytes,
-            "count_all":true, "page_limit":1
+            "count_all":true, "page_limit":1, "query_cache_mib":cache_mib
         })
     );
     let expected = cases
@@ -236,7 +244,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "type":"case", "id":case.id, "kind":case.kind, "query":case.query, "field":case.field,
                 "matches":median.matches, "median_ms":median.ms, "min_ms":runs.first().unwrap().ms,
                 "max_ms":runs.last().unwrap().ms, "fts_candidates":median.candidates,
-                "scans":median.scans, "parses":median.parses
+                "scans":median.scans, "parses":median.parses,
+                "cache_hits":median.cache_hits, "ordered_hits":median.ordered_hits
             })
         );
     }

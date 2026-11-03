@@ -21,6 +21,10 @@ name = "fts-query-mix"
 path = "src/bin/fts_query_mix.rs"
 
 [[bin]]
+name = "query-cache"
+path = "src/bin/query_cache.rs"
+
+[[bin]]
 name = "bigram-encoding-compare"
 path = "src/bin/bigram_encoding_compare.rs"
 
@@ -35,6 +39,7 @@ required-features = ["index-timings"]
 
 [features]
 index-timings = ["objekte-core/index-timings"]
+allocation-profile = []
 
 [dependencies]
 objekte-core = { path = "../core" }

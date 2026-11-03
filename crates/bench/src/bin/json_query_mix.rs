@@ -24,6 +24,8 @@ struct Sample {
     reads: u64,
     parses: u64,
     source_check_ms: f64,
+    cache_hits: u64,
+    ordered_hits: u64,
 }
 
 
@@ -60,6 +62,8 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
         reads: result.metrics.source_reads,
         parses: result.metrics.parses,
         source_check_ms: result.metrics.source_check_nanos as f64 / 1_000_000.0,
+        cache_hits: result.metrics.predicate_cache_hits,
+        ordered_hits: result.metrics.ordered_result_hits,
     })
 }
 
@@ -83,6 +87,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .ok_or("--bigram-encoding must be ascii or utf8_bytes")?;
     let mut options = Options::new();
     options.bigram_encoding = encoding;
+    options.query_cache_bytes = arg("--query-cache-mib", "64")?.parse::<usize>()? * 1024 * 1024;
     let mut repo = if no_schema {
         Repository::builder(&root)
             .without_default_schemas()
@@ -143,6 +148,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "collections": collection_count, "index_warm_ms": warm_ms,
             "snapshot_loads": snapshot_loads, "secondary_loads": secondary_loads,
             "count": true, "page_limit": 1, "backend": "bigram",
+            "query_cache_bytes": repo.query_cache_bytes(),
             "bigram_encoding": encoding.as_str(),
             "schema_mode": if no_schema { "none" } else { "configured" }})
     );
@@ -158,6 +164,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "max_ms": case_samples[runs - 1].ms,
                 "scans": median.scans, "source_reads": median.reads,
                 "parses": median.parses,
+                "cache_hits": median.cache_hits, "ordered_hits": median.ordered_hits,
                 "source_check_ms": median.source_check_ms})
         );
     }
