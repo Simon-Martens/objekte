@@ -192,3 +192,41 @@ fn borrowed_decimal_comparator_matches_exact_reference() {
         }
     }
 }
+
+#[test]
+fn now_macros_compare_with_dates_numbers_and_fixed_time() {
+    let now = temporal::parse("2024-02-29T23:59:59.5Z").unwrap().start;
+    let document = serde_json::json!({
+        "due": "2024-02-29T10:00Z",
+        "older": "2024-01-15",
+        "year": 2024,
+        "weekday": 4
+    });
+    let matches = |filter: &str| {
+        JsonFilter::compile_at(filter, &BTreeMap::new(), now)
+            .unwrap()
+            .matches(&document)
+            .unwrap()
+    };
+    for filter in [
+        "due >= @todayStart && due <= @todayEnd",
+        "due < @now && due > @yesterday",
+        "due < @tomorrow",
+        "older < @monthStart && older >= @yearStart",
+        "due <= @monthEnd && due <= @yearEnd",
+        "@now > due",
+        "year = @year && weekday = @weekday",
+        "@month = 2 && @day = 29 && @hour = 23 && @minute = 59 && @second = 59",
+    ] {
+        assert!(matches(filter), "{filter}");
+    }
+    for filter in ["due < @todayStart", "older >= @monthStart", "year != @year"] {
+        assert!(!matches(filter), "{filter}");
+    }
+    for filter in ["@today = due", "@now = @yesterday", "@size = @now"] {
+        assert!(
+            JsonFilter::compile_at(filter, &BTreeMap::new(), now).is_err(),
+            "{filter}"
+        );
+    }
+}

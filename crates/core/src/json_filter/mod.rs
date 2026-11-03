@@ -537,7 +537,20 @@ impl JsonFilter {
     }
 
     pub fn compile(text: &str, parameters: &BTreeMap<String, Value>) -> Result<Self> {
-        let expr = parser::parse(text, parameters)?;
+        Self::compile_expr(parser::parse(text, parameters)?)
+    }
+
+    /// Compile with `@now` macros evaluated at `now` (Unix nanoseconds).
+    #[cfg(test)]
+    pub(crate) fn compile_at(
+        text: &str,
+        parameters: &BTreeMap<String, Value>,
+        now: i128,
+    ) -> Result<Self> {
+        Self::compile_expr(parser::parse_at(text, parameters, now)?)
+    }
+
+    fn compile_expr(expr: Expr) -> Result<Self> {
         let mut paths = BTreeSet::new();
         let mut scalar_paths = BTreeSet::new();
         let mut metadata_fields = BTreeSet::new();

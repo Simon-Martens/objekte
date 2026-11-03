@@ -2,6 +2,7 @@
 
 use crate::{Error, Result};
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 
 
 #[derive(Debug, Clone, Copy, Deserialize, Serialize)]
@@ -143,6 +144,67 @@ pub(super) fn parse(text: &str) -> Result<Period> {
     Ok(Period {
         start,
         end: start + step,
+    })
+}
+
+const DAY: i128 = 86_400_000_000_000;
+
+
+// Proleptic Gregorian civil date of days relative to the Unix epoch.
+fn civil_from_days(days: i64) -> (i64, i64, i64) {
+    let z = days + 719_468;
+    let era = z.div_euclid(146_097);
+    let doe = z - era * 146_097;
+    let yoe = (doe - doe / 1_460 + doe / 36_524 - doe / 146_096) / 365;
+    let doy = doe - (365 * yoe + yoe / 4 - yoe / 100);
+    let mp = (5 * doy + 2) / 153;
+    let day = doy - (153 * mp + 2) / 5 + 1;
+    let month = if mp < 10 { mp + 3 } else { mp - 9 };
+    (yoe + era * 400 + i64::from(month <= 2), month, day)
+}
+
+fn day_start(year: i64, month: i64, day: i64) -> i128 {
+    i128::from(days_from_civil(year, month, day)) * DAY
+}
+
+/// PocketBase-style `@now` macros in UTC at `now` (Unix nanoseconds).
+/// Date and time macros are instants; `*End` macros are the last nanosecond
+/// of their period, so `<= @todayEnd` covers the whole day. Number macros
+/// count from zero for the second, minute, hour, and weekday (Sunday).
+pub(super) fn macro_operand(name: &str, now: i128) -> Option<super::Operand> {
+    let instant = |at: i128| {
+        super::Operand::Temporal(Period {
+            start: at,
+            end: at + 1,
+        })
+    };
+    let number = |value: i128| super::Operand::Literal(Value::from(value as i64));
+    let days = now.div_euclid(DAY);
+    let since_midnight = now.rem_euclid(DAY);
+    let (year, month, day) = civil_from_days(days as i64);
+    let (next_year, next_month) = if month == 12 {
+        (year + 1, 1)
+    } else {
+        (year, month + 1)
+    };
+    Some(match name {
+        "now" => instant(now),
+        "second" => number(since_midnight / 1_000_000_000 % 60),
+        "minute" => number(since_midnight / 60_000_000_000 % 60),
+        "hour" => number(since_midnight / 3_600_000_000_000),
+        "weekday" => number((days + 4).rem_euclid(7)),
+        "day" => number(i128::from(day)),
+        "month" => number(i128::from(month)),
+        "year" => number(i128::from(year)),
+        "yesterday" => instant(now - DAY),
+        "tomorrow" => instant(now + DAY),
+        "todayStart" => instant(days * DAY),
+        "todayEnd" => instant(days * DAY + DAY - 1),
+        "monthStart" => instant(day_start(year, month, 1)),
+        "monthEnd" => instant(day_start(next_year, next_month, 1) - 1),
+        "yearStart" => instant(day_start(year, 1, 1)),
+        "yearEnd" => instant(day_start(year + 1, 1, 1) - 1),
+        _ => return None,
     })
 }
 

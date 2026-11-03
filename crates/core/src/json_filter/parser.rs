@@ -6,6 +6,18 @@ const MAX_NODES: usize = 256;
 const MAX_DEPTH: usize = 32;
 
 pub(super) fn parse(text: &str, parameters: &BTreeMap<String, Value>) -> Result<Expr> {
+    let now = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .map_or(0, |elapsed| elapsed.as_nanos() as i128);
+    parse_at(text, parameters, now)
+}
+
+/// Parse with `@now` macros evaluated at `now` (Unix nanoseconds).
+pub(super) fn parse_at(
+    text: &str,
+    parameters: &BTreeMap<String, Value>,
+    now: i128,
+) -> Result<Expr> {
     if text.len() > MAX_LENGTH {
         return Err(Error::Request("filter exceeds 16384 bytes".into()));
     }
@@ -14,6 +26,7 @@ pub(super) fn parse(text: &str, parameters: &BTreeMap<String, Value>) -> Result<
         pos: 0,
         parameters,
         nodes: 0,
+        now,
     };
     let expr = p.or(0)?;
     p.ws();
@@ -33,6 +46,7 @@ pub(super) fn parse_path(text: &str) -> Result<JsonPath> {
         pos: 0,
         parameters: &parameters,
         nodes: 0,
+        now: 0,
     };
     let path = parser.path()?;
     parser.ws();
@@ -49,6 +63,8 @@ struct Parser<'a> {
     pos: usize,
     parameters: &'a BTreeMap<String, Value>,
     nodes: usize,
+    /// Unix nanoseconds that `@now` macros resolve against.
+    now: i128,
 }
 
 
@@ -336,8 +352,12 @@ impl Parser<'_> {
     fn operand(&mut self) -> Result<Operand> {
         self.ws();
         if self.take("@") {
-            let Some(field) = MetadataField::parse(&self.ident()?) else {
-                return self.error("unknown metadata field");
+            let name = self.ident()?;
+            if let Some(operand) = super::temporal::macro_operand(&name, self.now) {
+                return Ok(operand);
+            }
+            let Some(field) = MetadataField::parse(&name) else {
+                return self.error("unknown metadata field or @now macro");
             };
             return Ok(Operand::Field(FieldOperand {
                 path: Vec::new(),

@@ -407,3 +407,28 @@ fn inventory_predicates_stay_exact_with_a_changed_file_overlay() {
         assert_eq!(indexed.metrics.grep_scans, 0, "{filter}");
     }
 }
+
+#[test]
+fn now_macros_compare_with_file_times() {
+    let fixture = fixture();
+    let mut repo = repo(fixture.path(), CacheMode::Memory);
+    // The fixture files are dated 2026; "fresh" is touched now.
+    fs::write(
+        fixture.path().join("data/books/fresh.json"),
+        json!({"x":1}).to_string(),
+    )
+    .unwrap();
+    for (filter, total) in [
+        ("@modified <= @now", 4),
+        ("@modified > @tomorrow", 0),
+        ("@modified >= @yesterday", 1),
+        ("@modified >= @todayStart", 1),
+        ("@modified <= @todayEnd && @modified <= @yearEnd", 4),
+        ("@modified < 2000 || @year >= 2026", 4),
+    ] {
+        for backend in [JsonQueryBackend::Bigram, JsonQueryBackend::Direct] {
+            let result = repo.query_json(&query(filter, backend)).unwrap();
+            assert_eq!(result.total, Some(total), "{filter} {backend:?}");
+        }
+    }
+}
