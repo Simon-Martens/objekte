@@ -2,6 +2,7 @@
 
 use super::projection::Projection;
 use super::*;
+use crate::repository::SourceChanges;
 
 
 struct StagedProjection {
@@ -159,12 +160,17 @@ impl FilePicker {
     /// Refreshes inventory from the authoritative directory. A few edits only
     /// enter the overlay; they never force a full bigram rebuild.
     pub fn refresh(&mut self) -> Result<usize> {
+        Ok(self.refresh_changes()?.len())
+    }
+
+    /// Like `refresh`, but reports the created, changed, and deleted IDs.
+    pub(crate) fn refresh_changes(&mut self) -> Result<SourceChanges> {
         let source = Source::open_scoped(&self.root, self.recursive)?;
         let inventory = source.inventory()?;
-        let changed = self.refresh_from_inventory(&source, inventory)?;
+        let changes = self.refresh_from_inventory(&source, inventory)?;
         source.finish()?;
         self.verified = true;
-        Ok(changed)
+        Ok(changes)
     }
 
     pub(crate) fn reconcile_inventory(
@@ -172,17 +178,17 @@ impl FilePicker {
         inventory: BTreeMap<String, Stamp>,
     ) -> Result<usize> {
         let source = Source::open_scoped(&self.root, self.recursive)?;
-        let changed = self.refresh_from_inventory(&source, inventory)?;
+        let changes = self.refresh_from_inventory(&source, inventory)?;
         source.finish()?;
         self.verified = true;
-        Ok(changed)
+        Ok(changes.len())
     }
 
     fn refresh_from_inventory(
         &mut self,
         source: &Source,
         inventory: BTreeMap<String, Stamp>,
-    ) -> Result<usize> {
+    ) -> Result<SourceChanges> {
         let old_slots = self.files.len();
         let mut seen = vec![false; old_slots];
         let mut pending = Vec::new();
@@ -219,8 +225,9 @@ impl FilePicker {
             .collect::<Vec<_>>();
         let changed = pending.len() + deleted.len();
         if changed == 0 {
-            return Ok(0);
+            return Ok(SourceChanges::default());
         }
+        let mut changes = SourceChanges::default();
         let final_arena = self
             .id_bytes
             .len()
@@ -281,6 +288,11 @@ impl FilePicker {
             if existing || batch {
                 self.modified_order.touch(slot, &self.files, &self.id_bytes);
             }
+            if existing {
+                changes.changed.push(entry.id);
+            } else {
+                changes.created.push(entry.id);
+            }
         }
         for slot in deleted {
             let entry = self.files[slot].take().expect("deleted live slot");
@@ -290,7 +302,8 @@ impl FilePicker {
                 .expect("validated ID")
                 .to_owned();
             self.tombstones
-                .insert(id, (entry.revision + 1, now_nanos()));
+                .insert(id.clone(), (entry.revision + 1, now_nanos()));
+            changes.deleted.push(id);
             self.changed.remove(&slot);
             self.changed_bigrams.remove(&slot);
             self.malformed.remove(&slot);
@@ -331,16 +344,43 @@ impl FilePicker {
             .maybe_compact(&self.files, &self.id_bytes);
         self.key_summary.saturate();
         self.typed.invalidate_dynamic();
-        Ok(changed)
+        changes.deleted.sort();
+        Ok(changes)
     }
 
-    /// Updates a single path after an application edit or a future watcher
-    /// event, without enumerating the directory.
+    /// Updates a single path after an application edit, without
+    /// enumerating the directory.
     pub fn refresh_id(&mut self, id: &str) -> Result<()> {
-        crate::repository::validate_id(id)?;
-        self.key_summary.saturate();
-        self.typed.invalidate_dynamic();
+        self.refresh_ids(&[id.to_owned()]).map(|_| ())
+    }
+
+    /// Reconcile listed IDs with their current source files: a present file
+    /// is created or changed, an absent one deleted. Unchanged IDs are skipped.
+    pub(crate) fn refresh_ids(&mut self, ids: &[String]) -> Result<SourceChanges> {
+        for id in ids {
+            crate::repository::validate_id(id)?;
+        }
         let source = Source::open_scoped(&self.root, self.recursive)?;
+        let mut changes = SourceChanges::default();
+        for id in ids {
+            self.refresh_one(&source, id, &mut changes)?;
+        }
+        source.finish()?;
+        if !changes.is_empty() {
+            self.key_summary.saturate();
+            self.typed.invalidate_dynamic();
+        }
+        self.modified_order
+            .maybe_compact(&self.files, &self.id_bytes);
+        Ok(changes)
+    }
+
+    fn refresh_one(
+        &mut self,
+        source: &Source,
+        id: &str,
+        changes: &mut SourceChanges,
+    ) -> Result<()> {
         let file = match source.file(id) {
             Ok(file) => Some(file),
             Err(Error::Io { source, .. }) if source.kind() == std::io::ErrorKind::NotFound => None,
@@ -356,7 +396,7 @@ impl FilePicker {
                         let slot = self.sorted[position];
                         if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
                             let projection = projected_values(
-                                &source,
+                                source,
                                 id,
                                 &stamp,
                                 &[],
@@ -376,11 +416,12 @@ impl FilePicker {
                             self.sort
                                 .update(slot, sort_keys, &self.files, &self.id_bytes);
                             self.modified_order.touch(slot, &self.files, &self.id_bytes);
+                            changes.changed.push(id.to_owned());
                         }
                     }
                     Err(_) => {
                         let projection = projected_values(
-                            &source,
+                            source,
                             id,
                             &stamp,
                             &[],
@@ -395,6 +436,7 @@ impl FilePicker {
                         self.view.update(slot, keys, &self.files, &self.id_bytes);
                         self.sort
                             .update(slot, sort_keys, &self.files, &self.id_bytes);
+                        changes.created.push(id.to_owned());
                     }
                 }
             }
@@ -412,12 +454,10 @@ impl FilePicker {
                     self.view.remove(slot);
                     self.sort.remove(slot);
                     self.modified_order.touch(slot, &self.files, &self.id_bytes);
+                    changes.deleted.push(id.to_owned());
                 }
             }
         }
-        source.finish()?;
-        self.modified_order
-            .maybe_compact(&self.files, &self.id_bytes);
         Ok(())
     }
 }

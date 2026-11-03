@@ -29,6 +29,7 @@ mod ordered_result_cache;
 mod predicate_cache;
 mod reconciliation;
 mod relations;
+mod source_changes;
 mod source_records;
 mod text_query;
 mod validation_ops;
@@ -206,6 +207,51 @@ pub struct RecordRevision {
     pub revision: u64,
     pub changed_at_nanos: u128,
     pub present: bool,
+}
+
+
+/// A source edit the application reports after changing files itself.
+/// Paths are absolute or relative to the repository root and end in `.json`.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum SourceChange {
+    Created(PathBuf),
+    Changed(PathBuf),
+    Deleted(PathBuf),
+    Moved { from: PathBuf, to: PathBuf },
+}
+
+
+/// Record IDs that a refresh created, changed, or deleted in one collection.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct SourceChanges {
+    pub created: Vec<String>,
+    pub changed: Vec<String>,
+    pub deleted: Vec<String>,
+}
+
+
+impl SourceChanges {
+    pub fn len(&self) -> usize {
+        self.created.len() + self.changed.len() + self.deleted.len()
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+}
+
+
+/// The outcome of `diff` or `apply_source_changes` for one collection.
+#[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+pub struct CollectionChanges {
+    #[serde(flatten)]
+    pub changes: SourceChanges,
+    /// False when this handle had no index for the collection yet. Its next
+    /// load diffs any disk cache against the source files.
+    pub indexed: bool,
+    /// The disk cache rewritten after the changes, if one exists.
+    pub saved_cache: Option<PathBuf>,
 }
 
 

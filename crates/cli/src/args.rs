@@ -29,6 +29,7 @@ Usage:
   objekte REPOSITORY cache rebuild [--collection NAME]
   objekte REPOSITORY cache save [--collection NAME]
   objekte REPOSITORY cache reindex [--collection NAME]
+  objekte REPOSITORY cache diff [--collection NAME]
   objekte REPOSITORY cache warm-text [--collection NAME]
   objekte REPOSITORY cache rebuild-text [--collection NAME]
   objekte REPOSITORY cache validate --collection NAME

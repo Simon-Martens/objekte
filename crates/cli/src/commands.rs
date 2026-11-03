@@ -51,13 +51,14 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                         | "rebuild"
                         | "save"
                         | "reindex"
+                        | "diff"
                         | "warm-text"
                         | "rebuild-text"
                         | "validate"
                 )
             ) {
                 return Err(
-                    "cache requires status, refresh-config, refresh, warm, rebuild, save, reindex, warm-text, rebuild-text, or validate"
+                    "cache requires status, refresh-config, refresh, warm, rebuild, save, reindex, diff, warm-text, rebuild-text, or validate"
                         .into(),
                 );
             }
@@ -135,6 +136,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                         | "rebuild"
                         | "save"
                         | "reindex"
+                        | "diff"
                         | "warm-text"
                         | "rebuild-text"
                         | "validate"
@@ -549,6 +551,12 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                         serde_json::to_value(repo.save_all_bigram_caches()?)?
                     },
                 )?)
+            } else if a.pos[2] == "diff" {
+                Some(if let Some(c) = a.values.get("--collection") {
+                    serde_json::json!({c: repo.diff(c)?})
+                } else {
+                    serde_json::to_value(repo.diff_all()?)?
+                })
             } else if a.pos[2] == "reindex" {
                 Some(serde_json::to_value(
                     if let Some(c) = a.values.get("--collection") {

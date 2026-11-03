@@ -240,3 +240,37 @@ fn concrete_reference_locations_escape_json_pointer_characters() {
         .unwrap();
     assert!(refs.edges.iter().any(|e| e.location == "/a~1b~0c"));
 }
+
+#[test]
+fn reported_source_changes_drop_stale_observed_backlinks() {
+    let f = Fixture::new();
+    let mut r = f.repo(CacheMode::Memory);
+    r.get_record("books", "a").unwrap();
+    let refs = r.references_to("people", "p1", false, false).unwrap();
+    assert_eq!(refs.edges.len(), 2);
+    f.edit("data/books/a.json", |value| {
+        value["person"] = json!("p2");
+        value["links"] = json!([]);
+    });
+    let report = r
+        .apply_source_changes(&[objekte_core::SourceChange::Changed(
+            f.root.join("data/books/a.json"),
+        )])
+        .unwrap();
+    // `get_record` builds no index, so the edit is not itemized.
+    assert!(!report["books"].indexed);
+    assert!(
+        r.references_to("people", "p1", false, false)
+            .unwrap()
+            .edges
+            .is_empty()
+    );
+    r.get_record("books", "a").unwrap();
+    assert_eq!(
+        r.references_to("people", "p2", false, false)
+            .unwrap()
+            .edges
+            .len(),
+        1
+    );
+}
