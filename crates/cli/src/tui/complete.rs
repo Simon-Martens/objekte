@@ -233,7 +233,7 @@ const MODIFIERS: [(&str, &str); 4] = [
 pub(super) type Counter<'a> = &'a dyn Fn(&str, &str) -> Option<Vec<ValueCount>>;
 
 /// Most common values offered after a comparison.
-const TOP_VALUES: usize = 40;
+const TOP_VALUES: usize = 200;
 
 
 pub(super) struct Schema<'a> {
@@ -896,6 +896,9 @@ fn operators(schema: &Schema<'_>, path: &str) -> Vec<(&'static str, &'static str
     pick(&names)
 }
 
+/// Values a compared field can take, sorted by value: enum members in
+/// declared order, then booleans, numbers by size, text alphabetically,
+/// and `null` last. Values from the index carry their record counts.
 fn values(schema: &Schema<'_>, path: &str) -> Vec<Candidate> {
     let value = |insert: String, label: &str, detail: &str| Candidate {
         insert,
@@ -909,61 +912,102 @@ fn values(schema: &Schema<'_>, path: &str) -> Vec<Candidate> {
             .map(|status| value(format!("'{status}'"), status, "status"))
             .collect();
     }
-    let mut out = Vec::new();
-    // The values that actually occur, most common first, from the index.
+    // Each candidate with the JSON value it stands for, for sorting.
+    let mut found = Vec::<(Value, Candidate)>::new();
+    let mut push = |json: Value, candidate: Candidate| {
+        if !found
+            .iter()
+            .any(|(_, known)| known.insert == candidate.insert)
+        {
+            found.push((json, candidate));
+        }
+    };
     if !path.starts_with('@') {
-        for (found, records) in schema.top_values(path) {
-            let (insert, label) = match &found {
+        for (json, records) in schema.top_values(path) {
+            let (insert, label) = match &json {
                 Value::String(text) => (quote(text), text.clone()),
                 other => (other.to_string(), other.to_string()),
             };
-            out.push(value(insert, &label, &format!("{records} records")));
+            push(json, value(insert, &label, &format!("{records} records")));
         }
     }
-    let Some((mut segments, last)) = split_path(path) else {
-        return out;
-    };
-    if !last.is_empty() {
-        segments.push(last);
-    }
-    let Some(field) = schema.field(&segments) else {
-        return out;
-    };
-    let field = items(field);
-    let mut push = |candidate: Candidate| {
-        if !out
-            .iter()
-            .any(|known: &Candidate| known.insert == candidate.insert)
-        {
-            out.push(candidate);
+    let field = split_path(path).and_then(|(mut segments, last)| {
+        if !last.is_empty() {
+            segments.push(last);
         }
-    };
-    if let Some(members) = &field.enum_values {
-        for member in members {
+        schema.field(&segments)
+    });
+    let field = field.map(items);
+    let members = field.and_then(|field| field.enum_values.as_ref());
+    if let Some(field) = field {
+        for member in members.into_iter().flatten() {
             match member {
-                Value::String(text) => push(value(quote(text), text, "enum")),
+                Value::String(text) => push(member.clone(), value(quote(text), text, "enum")),
                 other if !other.is_null() => {
-                    push(value(other.to_string(), &other.to_string(), "enum"));
+                    push(
+                        other.clone(),
+                        value(other.to_string(), &other.to_string(), "enum"),
+                    );
                 }
                 _ => {}
             }
         }
-    }
-    if field.enum_values.is_none()
-        && let Some(suggested) = &field.suggested_values
-    {
-        for text in suggested {
-            push(value(quote(text), text, "seen"));
+        if members.is_none()
+            && let Some(suggested) = &field.suggested_values
+        {
+            for text in suggested {
+                push(
+                    Value::String(text.clone()),
+                    value(quote(text), text, "seen"),
+                );
+            }
+        }
+        if field.kind == ValueType::Boolean {
+            push(
+                Value::Bool(false),
+                value("false".into(), "false", "boolean"),
+            );
+            push(Value::Bool(true), value("true".into(), "true", "boolean"));
+        }
+        if field.nullable {
+            push(Value::Null, value("null".into(), "null", "null"));
         }
     }
-    if field.kind == ValueType::Boolean {
-        push(value("true".into(), "true", "boolean"));
-        push(value("false".into(), "false", "boolean"));
-    }
-    if field.nullable {
-        push(value("null".into(), "null", "null"));
-    }
-    out
+    found.sort_by(|(a, _), (b, _)| value_order(a, b, members));
+    found.into_iter().map(|(_, candidate)| candidate).collect()
+}
+
+/// Enum members in declared order first, then false before true, numbers
+/// by size, text alphabetically ignoring case, and `null` last.
+fn value_order(a: &Value, b: &Value, members: Option<&Vec<Value>>) -> std::cmp::Ordering {
+    use std::cmp::Ordering;
+    let declared = |value: &Value| {
+        members
+            .and_then(|members| members.iter().position(|member| member == value))
+            .unwrap_or(usize::MAX)
+    };
+    let group = |value: &Value| match value {
+        Value::Bool(_) => 0,
+        Value::Number(_) => 1,
+        Value::String(_) => 2,
+        Value::Null => 4,
+        _ => 3,
+    };
+    declared(a)
+        .cmp(&declared(b))
+        .then_with(|| group(a).cmp(&group(b)))
+        .then_with(|| match (a, b) {
+            (Value::Bool(a), Value::Bool(b)) => a.cmp(b),
+            (Value::Number(a), Value::Number(b)) => {
+                let (x, y) = (a.as_f64().unwrap_or(0.0), b.as_f64().unwrap_or(0.0));
+                x.partial_cmp(&y).unwrap_or(Ordering::Equal)
+            }
+            (Value::String(a), Value::String(b)) => a
+                .to_lowercase()
+                .cmp(&b.to_lowercase())
+                .then_with(|| a.cmp(b)),
+            _ => Ordering::Equal,
+        })
 }
 
 

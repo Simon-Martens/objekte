@@ -230,33 +230,85 @@ fn collections_without_a_schema_complete_from_seen_records() {
     );
 }
 
-#[test]
-fn indexed_values_come_first_with_their_counts() {
-    let (_temp, repo) = repository();
-    let counts = |collection: &str, path: &str| {
-        (collection == "books" && path == "status").then(|| {
-            vec![
-                objekte_core::ValueCount {
-                    value: json!("published"),
-                    records: 40,
-                },
-                objekte_core::ValueCount {
-                    value: json!("draft"),
-                    records: 3,
-                },
-            ]
-        })
-    };
-    let schema = Schema::new(&repo.model().collections, Some("books")).with_counts(&counts);
-    let found = complete("status = ", 9, &schema).unwrap();
-    let shown = found
-        .items
+fn counted(pairs: &[(Value, usize)]) -> Vec<objekte_core::ValueCount> {
+    pairs
         .iter()
-        .map(|item| (item.label.as_str(), item.detail.as_str()))
-        .collect::<Vec<_>>();
-    assert_eq!(shown[0], ("published", "40 records"));
-    assert_eq!(shown[1], ("draft", "3 records"));
-    // Declared members that never occur still follow, once.
-    assert_eq!(shown[2], ("out of print", "enum"));
-    assert_eq!(shown.len(), 3);
+        .map(|(value, records)| objekte_core::ValueCount {
+            value: value.clone(),
+            records: *records,
+        })
+        .collect()
+}
+
+fn value_labels(
+    text: &str,
+    counts: &dyn Fn(&str, &str) -> Option<Vec<objekte_core::ValueCount>>,
+) -> Vec<(String, String)> {
+    let (_temp, repo) = repository();
+    let schema = Schema::new(&repo.model().collections, Some("books")).with_counts(counts);
+    complete(text, text.chars().count(), &schema)
+        .unwrap()
+        .items
+        .into_iter()
+        .filter(|item| item.kind == Kind::Value)
+        .map(|item| (item.label, item.detail))
+        .collect()
+}
+
+
+#[test]
+fn enum_values_keep_their_declared_order_and_show_counts() {
+    let counts = |_: &str, path: &str| {
+        (path == "status").then(|| counted(&[(json!("published"), 40), (json!("draft"), 3)]))
+    };
+    let shown = value_labels("status = ", &counts);
+    assert_eq!(
+        shown,
+        [
+            ("draft".to_string(), "3 records".to_string()),
+            ("published".into(), "40 records".into()),
+            ("out of print".into(), "enum".into()),
+        ]
+    );
+}
+
+#[test]
+fn numbers_sort_by_size_and_text_alphabetically() {
+    let counts = |_: &str, path: &str| match path {
+        "year" => Some(counted(&[
+            (json!(1900), 10),
+            (json!(1800), 3),
+            (json!(950), 1),
+        ])),
+        "title" => Some(counted(&[
+            (json!("beta"), 5),
+            (json!("Alpha"), 1),
+            (json!("gamma"), 2),
+        ])),
+        _ => None,
+    };
+    let years = value_labels("year = ", &counts);
+    assert_eq!(
+        years
+            .iter()
+            .map(|(label, _)| label.as_str())
+            .collect::<Vec<_>>(),
+        ["950", "1800", "1900"]
+    );
+    let titles = value_labels("title = ", &counts);
+    assert_eq!(
+        titles
+            .iter()
+            .map(|(label, _)| label.as_str())
+            .collect::<Vec<_>>(),
+        ["Alpha", "beta", "gamma"]
+    );
+    let flags = value_labels("printed = ", &counts);
+    assert_eq!(
+        flags
+            .iter()
+            .map(|(label, _)| label.as_str())
+            .collect::<Vec<_>>(),
+        ["false", "true"]
+    );
 }

@@ -690,7 +690,7 @@ impl<'a> App<'a> {
                 return known.clone();
             }
             // Read once per search; a large index is not re-read per key.
-            let found = repo.value_counts(collection, path, 40).ok().flatten();
+            let found = repo.value_counts(collection, path, 200).ok().flatten();
             cache.borrow_mut().insert(key, found.clone());
             found
         };
