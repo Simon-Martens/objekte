@@ -102,6 +102,15 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
             let rows = app.visible_rows.get().max(2) - 1;
             app.move_selection(-(rows as isize));
         }
+        // Vim-style paging; these replace line editing's Ctrl+U here.
+        KeyCode::Char('u') if control => {
+            let rows = app.visible_rows.get().max(2) - 1;
+            app.move_selection(-(rows as isize));
+        }
+        KeyCode::Char('d') if control => {
+            let rows = app.visible_rows.get().max(2) - 1;
+            app.move_selection(rows as isize);
+        }
         KeyCode::PageDown => {
             let rows = app.visible_rows.get().max(2) - 1;
             app.move_selection(rows as isize);
@@ -140,8 +149,15 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
 }
 
 
-fn detail(app: &mut App<'_>, key: KeyEvent) {
+fn detail(app: &mut App<'_>, mut key: KeyEvent) {
     let page = app.visible_rows.get().max(2) as isize - 1;
+    if key.modifiers.contains(KeyModifiers::CONTROL) {
+        key.code = match key.code {
+            KeyCode::Char('u') => KeyCode::PageUp,
+            KeyCode::Char('d') => KeyCode::PageDown,
+            other => other,
+        };
+    }
     match key.code {
         KeyCode::Esc => app.close_detail(),
         KeyCode::Backspace => app.leave_detail(),

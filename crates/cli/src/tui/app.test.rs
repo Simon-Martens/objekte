@@ -334,3 +334,37 @@ fn option_chips_are_bold_exactly_when_active() {
     app.toggle_regex();
     assert!(bold(&app, ".*"));
 }
+
+#[test]
+fn array_cells_show_only_their_length() {
+    let temp = tempfile::tempdir().unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(
+        collection.join("a.json"),
+        r#"{"tags":[{"a":1},{"a":2},{"a":3}]}"#,
+    )
+    .unwrap();
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let record = repo.get_record("docs", "a").unwrap().unwrap();
+    assert_eq!(
+        view::results::cell_text(&Hit::Filter(record), "tags"),
+        "[3]"
+    );
+}
+
+#[test]
+fn control_d_and_u_page_through_results() {
+    let (_temp, mut repo) = repository(60);
+    let mut app = App::new(&mut repo);
+    app.visible_rows.set(10);
+    app.search = Input::with_text("Moon");
+    app.search();
+    press_with(&mut app, KeyCode::Char('d'), KeyModifiers::CONTROL);
+    assert_eq!(app.selected, 9);
+    press_with(&mut app, KeyCode::Char('d'), KeyModifiers::CONTROL);
+    assert_eq!(app.selected, 18);
+    press_with(&mut app, KeyCode::Char('u'), KeyModifiers::CONTROL);
+    assert_eq!(app.selected, 9);
+    assert_eq!(app.search.text, "Moon", "paging does not edit the line");
+}

@@ -44,7 +44,7 @@ fn value_text(value: &Value) -> String {
             .filter_map(Value::as_str)
             .collect::<Vec<_>>()
             .join(", "),
-        Value::Array(items) => format!("[{} items]", items.len()),
+        Value::Array(items) => format!("[{}]", items.len()),
         Value::Object(map) => format!("{{{} fields}}", map.len()),
         other => other.to_string(),
     }

@@ -31,6 +31,7 @@ Typing searches as you go: a search starts 180 ms after the last key, and Enter 
 | Tab | From Search, move to Filter; in Filter, complete from the schema |
 | Shift+Tab | Switch between Search and Filter |
 | ↑ ↓, PgUp PgDn, mouse wheel | Move the selection; more rows load as you approach the end |
+| Ctrl+U / Ctrl+D | Page up or down, in the results and in a record |
 | Ctrl+Home / Ctrl+End | First or last result |
 | Alt+← / Alt+→ | Scroll result columns; the identity columns stay |
 | Enter | Search, or open the selected record |
@@ -42,7 +43,7 @@ Typing searches as you go: a search starts 180 ms after the last key, and Enter 
 | F1 | All keys |
 | Ctrl+Q / Ctrl+C | Quit |
 
-Line editing supports Home/End, Ctrl+A/Ctrl+E, Ctrl+←/→ (move by word), Ctrl+W or Alt+Backspace (delete a word), and Ctrl+U (delete to the start of the line).
+Line editing supports Home/End, Ctrl+A/Ctrl+E, Ctrl+←/→ (move by word), and Ctrl+W or Alt+Backspace (delete a word).
 
 ## Filter completion
 

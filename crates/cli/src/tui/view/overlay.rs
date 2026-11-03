@@ -443,6 +443,7 @@ const HELP: [(&str, &[(&str, &str)]); 4] = [
             ("Tab", "to Filter; in Filter, complete from the schema"),
             ("Shift+Tab", "switch between Search and Filter"),
             ("↑↓  PgUp PgDn", "move; more results load as you go"),
+            ("Ctrl+U  Ctrl+D", "page up / page down"),
             ("Ctrl+Home  Ctrl+End", "first / last result"),
             ("Enter", "open the selected record"),
             ("Esc", "close suggestions, then clear the line"),
@@ -472,7 +473,7 @@ const HELP: [(&str, &[(&str, &str)]); 4] = [
         "Editing",
         &[
             ("Ctrl+A  Ctrl+E", "start / end of line"),
-            ("Ctrl+W  Ctrl+U", "delete word / to start of line"),
+            ("Ctrl+W", "delete word"),
             ("Ctrl+←→", "move by word"),
             ("Ctrl+Q", "quit"),
         ],
