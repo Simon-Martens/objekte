@@ -2,3 +2,4 @@
  // DONE: @system fields -- but can't use in SORT BY expressions
 - Other structured data: md + frontmatter, yaml, toml, XML
 - Integrate th fts into query syntax? ("Test" && "Test" || "Test" as valid query)
+- io_uring: Compio etc. esp. for file scanning
