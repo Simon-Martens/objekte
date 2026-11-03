@@ -100,7 +100,7 @@ On a field:
 | r | Show the raw JSON instead of fields |
 | e | Open the record in the editor |
 
-Folded branches stay folded when you step to the next record. The fields view hides empty values, joins string arrays with commas, and indents array items under their `[index]`. Field names that the search matched are marked, and fields that link to other records are violet with an arrow. A record that fails validation lists its problems above the fields, and the fields concerned are red. Metadata (path, size, modification time, hash, matched paths) comes first; `f` on the collection, ID or path filters by `@collection`, `@id` or `@path`.
+Arrays start folded and show their length, such as `▸ [3]`; an array that holds a search match starts open. Find (`/`) also searches folded fields and opens the folds on the way to a match. What you fold or unfold stays that way when you step to the next record. The fields view hides empty values, joins string arrays with commas, and indents array items under their `[index]`. Field names that the search matched are marked, and fields that link to other records are violet with an arrow. A record that fails validation lists its problems above the fields, and the fields concerned are red. Metadata (path, size, modification time, hash, matched paths) comes first; `f` on the collection, ID or path filters by `@collection`, `@id` or `@path`.
 
 Copying uses the terminal's clipboard sequence (OSC 52). It works over SSH; in tmux, enable `set-clipboard on`.
 

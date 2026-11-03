@@ -18,11 +18,13 @@ fn repository() -> (tempfile::TempDir, Repository) {
     (temp, repo)
 }
 
+/// The record about the moon, with its `people` array unfolded.
 fn open<'a>(repo: &'a mut Repository) -> App<'a> {
     let mut app = App::new(repo);
     app.search = Input::with_text("Moon");
     app.search();
     app.open_detail();
+    app.record.set_folded("/people", false);
     app
 }
 
@@ -72,7 +74,7 @@ fn space_folds_a_branch_and_keeps_it_folded_for_the_next_record() {
         .unwrap();
     assert_eq!(layout.hidden[people], 4);
     // On a leaf, Space folds the enclosing branch.
-    app.record.toggle("/people");
+    app.record.set_folded("/people", false);
     select(&mut app, "[0] name");
     app.record_toggle();
     assert_eq!(app.record_layout().unwrap().rows.len(), before - 4);
@@ -169,7 +171,7 @@ fn layouts_are_cached_until_the_record_or_folding_changes() {
     let mut app = open(&mut repo);
     let first = app.record_layout().unwrap();
     assert!(Rc::ptr_eq(&first, &app.record_layout().unwrap()));
-    app.record.toggle("/people");
+    app.record.set_folded("/people", true);
     assert!(!Rc::ptr_eq(&first, &app.record_layout().unwrap()));
 }
 
@@ -177,11 +179,52 @@ fn layouts_are_cached_until_the_record_or_folding_changes() {
 fn find_searches_folded_fields_and_unfolds_the_match() {
     let (_temp, mut repo) = repository();
     let mut app = open(&mut repo);
-    app.record.toggle("/people");
+    app.record.set_folded("/people", true);
     app.record.find = "bob".into();
     assert_eq!(app.record_find_count(), 1);
     app.record_find_next(true);
     assert!(app.record.collapsed.is_empty(), "the match is shown");
     let layout = app.record_layout().unwrap();
     assert_eq!(layout.rows[app.record.cursor].pointer, "/people/1/name");
+}
+
+#[test]
+fn arrays_start_folded_unless_the_search_matched_inside() {
+    let (_temp, mut repo) = repository();
+    let mut app = App::new(&mut repo);
+    app.search = Input::with_text("Moon");
+    app.search();
+    app.open_detail();
+    let layout = app.record_layout().unwrap();
+    let people = layout
+        .rows
+        .iter()
+        .position(|row| row.name == "people")
+        .unwrap();
+    assert_eq!(layout.hidden[people], 4, "folded by default");
+    assert_eq!(layout.rows[people].members, 2, "shown as [2]");
+    assert!(
+        !layout
+            .rows
+            .iter()
+            .any(|row| row.pointer.starts_with("/people/"))
+    );
+    // Enter unfolds it, and it stays open for the next record.
+    app.record.cursor = people;
+    app.record_enter();
+    assert_eq!(app.record_layout().unwrap().hidden[people], 0);
+    assert!(app.record.expanded.contains("/people"));
+    // A search that matched inside the array shows it open.
+    app.close_detail();
+    app.record.expanded.clear();
+    app.search = Input::with_text("Bob");
+    app.search();
+    app.open_detail();
+    let layout = app.record_layout().unwrap();
+    assert!(
+        layout
+            .rows
+            .iter()
+            .any(|row| row.pointer == "/people/1/name")
+    );
 }

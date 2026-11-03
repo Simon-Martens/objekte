@@ -66,9 +66,10 @@ pub(super) struct RecordState {
     pub(super) scroll: Cell<usize>,
     /// Body height from the last frame.
     pub(super) height: Cell<usize>,
-    /// Pointers of collapsed branches. Kept when stepping between records
-    /// of the same shape.
+    /// Branches the user folded, and arrays the user unfolded; arrays
+    /// start folded. Both are kept when stepping to the next record.
     pub(super) collapsed: BTreeSet<String>,
+    pub(super) expanded: BTreeSet<String>,
     collapsed_version: u64,
     /// Pretty JSON instead of field rows.
     pub(super) raw: bool,
@@ -89,11 +90,30 @@ impl RecordState {
         self.find_input = None;
     }
 
-    pub(super) fn toggle(&mut self, pointer: &str) {
-        if !self.collapsed.remove(pointer) {
+    /// Fold or unfold one branch.
+    pub(super) fn set_folded(&mut self, pointer: &str, folded: bool) {
+        if folded {
+            self.expanded.remove(pointer);
             self.collapsed.insert(pointer.to_owned());
+        } else {
+            self.collapsed.remove(pointer);
+            self.expanded.insert(pointer.to_owned());
         }
         self.collapsed_version += 1;
+    }
+
+    /// Whether a branch is folded: by the user, or as an array nobody
+    /// opened that holds no search match.
+    fn folded(&self, row: &DetailRow, matched: &[String]) -> bool {
+        row.branch
+            && (self.collapsed.contains(&row.pointer)
+                || row.array
+                    && !self.expanded.contains(&row.pointer)
+                    && !matched.iter().any(|pointer| {
+                        pointer.len() > row.pointer.len()
+                            && pointer.starts_with(&row.pointer)
+                            && pointer.as_bytes()[row.pointer.len()] == b'/'
+                    }))
     }
 
     /// The find pattern: literal and case-insensitive.
@@ -128,6 +148,11 @@ impl RecordState {
             return Rc::clone(layout);
         }
         let all = detail::rows(hit, metadata);
+        let matched = all
+            .iter()
+            .filter(|row| row.matched)
+            .map(|row| row.pointer.clone())
+            .collect::<Vec<_>>();
         let mut rows = Vec::new();
         let mut hidden = Vec::new();
         let mut hiding: Option<String> = None;
@@ -139,7 +164,7 @@ impl RecordState {
                 }
                 hiding = None;
             }
-            if collapse && row.branch && self.collapsed.contains(&row.pointer) {
+            if collapse && self.folded(&row, &matched) {
                 hiding = Some(row.pointer.clone());
             }
             rows.push(row);
@@ -266,7 +291,8 @@ impl App<'_> {
         }
         if row.branch {
             let pointer = row.pointer.clone();
-            self.record.toggle(&pointer);
+            let folded = layout.hidden[cursor] > 0;
+            self.record.set_folded(&pointer, !folded);
         }
     }
 
@@ -278,7 +304,8 @@ impl App<'_> {
         let row = &layout.rows[cursor];
         if row.branch {
             let pointer = row.pointer.clone();
-            self.record.toggle(&pointer);
+            let folded = layout.hidden[cursor] > 0;
+            self.record.set_folded(&pointer, !folded);
             return;
         }
         // On a leaf, fold the nearest enclosing branch and select it.
@@ -287,7 +314,7 @@ impl App<'_> {
             .find(|&index| layout.rows[index].branch && row.is_inside(&layout.rows[index].pointer))
         {
             let pointer = layout.rows[parent].pointer.clone();
-            self.record.toggle(&pointer);
+            self.record.set_folded(&pointer, true);
             self.record.cursor = parent;
         }
     }
@@ -441,15 +468,18 @@ impl App<'_> {
             return;
         };
         let target = &all.rows[index];
-        let folded = self
-            .record
-            .collapsed
+        // Open every branch on the way to the match.
+        let ancestors = all
+            .rows
             .iter()
-            .filter(|pointer| target.is_inside(pointer))
-            .cloned()
+            .filter(|row| row.branch && target.is_inside(&row.pointer))
+            .map(|row| row.pointer.clone())
             .collect::<Vec<_>>();
-        for pointer in folded {
-            self.record.toggle(&pointer);
+        for pointer in ancestors {
+            if self.record.collapsed.contains(&pointer) || !self.record.expanded.contains(&pointer)
+            {
+                self.record.set_folded(&pointer, false);
+            }
         }
         let (pointer, name) = (target.pointer.clone(), target.name.clone());
         if let Some(layout) = self.record_layout()

@@ -100,9 +100,10 @@ fn field_lines(
             ];
             let value = &columns.values[line];
             if first && row.branch {
-                let text = match layout.hidden[row_index] {
-                    0 => String::new(),
-                    hidden => format!("▸ {hidden} folded"),
+                let text = match (layout.hidden[row_index], row.array) {
+                    (0, _) => String::new(),
+                    (_, true) => format!("▸ [{}]", row.members),
+                    (_, false) => format!("▸ {{{}}}", row.members),
                 };
                 spans.push(Span::styled(text, base.fg(FAINT)));
             } else {

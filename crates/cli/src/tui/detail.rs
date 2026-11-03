@@ -22,6 +22,10 @@ pub(super) struct DetailRow {
     pub(super) many: bool,
     /// An object or array whose children follow as deeper rows.
     pub(super) branch: bool,
+    /// A branch for an array; arrays start folded in the record view.
+    pub(super) array: bool,
+    /// Visible members of a branch: array items or object fields.
+    pub(super) members: usize,
 }
 
 
@@ -35,6 +39,8 @@ impl DetailRow {
             pointer: String::new(),
             filter_path: filter_path.into(),
             branch: false,
+            array: false,
+            members: 0,
             many: false,
         }
     }
@@ -198,11 +204,15 @@ fn walk(
         filter_path: place.filter.clone(),
         scalar,
         branch,
+        array: false,
+        members: 0,
         many: place.many,
     };
     match value {
         Value::Object(fields) => {
             rows.push(row(String::new(), false, None, true));
+            rows.last_mut().expect("pushed").members =
+                fields.values().filter(|value| visible(value)).count();
             for (name, value) in fields {
                 walk(name, value, depth + 1, &place.key(name), matched, rows);
             }
@@ -227,6 +237,9 @@ fn walk(
                 return;
             }
             rows.push(row(String::new(), false, None, true));
+            let branch = rows.last_mut().expect("pushed");
+            branch.array = true;
+            branch.members = items.iter().filter(|item| visible(item)).count();
             for (index, value) in items.iter().enumerate() {
                 if visible(value) {
                     array_item(index, value, depth + 1, place, matched, rows);
