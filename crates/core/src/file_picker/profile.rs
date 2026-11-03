@@ -133,3 +133,22 @@ pub struct IndexSizes {
     pub rendered_global_bytes: usize,
     pub fields: Vec<FieldIndexSize>,
 }
+
+
+/// Wall-clock stages of early snapshot restoration. Overlapping phases are not additive.
+#[derive(Clone, Copy, Default, Serialize)]
+pub struct RestoreTimings {
+    pub base_checksum_nanos: u64,
+    pub manifest_decode_nanos: u64,
+    pub base_filter_decode_nanos: u64,
+    pub manifest_validation_nanos: u64,
+    pub slot_restore_nanos: u64,
+    pub secondary_structure_decode_nanos: u64,
+    pub secondary_filter_decode_nanos: u64,
+    pub secondary_validation_nanos: u64,
+    pub secondary_checksum_nanos: u64,
+    pub restore_total_nanos: u64,
+    pub snapshot_bytes_read: u64,
+    pub restored_files: usize,
+    pub posting_columns: usize,
+}

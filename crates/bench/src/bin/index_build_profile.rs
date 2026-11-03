@@ -4,7 +4,71 @@ use objekte_core::{
     BigramEncoding, Field, Repository, TextFormat, ValueType, file_picker::FilePicker,
 };
 use serde_json::json;
-use std::{collections::BTreeMap, env, fs, io, path::PathBuf, time::Instant};
+use std::{
+    alloc::{GlobalAlloc, Layout, System},
+    collections::BTreeMap,
+    env, fs, io,
+    path::PathBuf,
+    sync::atomic::{AtomicIsize, AtomicUsize, Ordering},
+    time::Instant,
+};
+
+
+struct CountingAllocator;
+
+
+static ALLOCS: AtomicUsize = AtomicUsize::new(0);
+static BYTES: AtomicUsize = AtomicUsize::new(0);
+static LIVE: AtomicIsize = AtomicIsize::new(0);
+static PEAK: AtomicIsize = AtomicIsize::new(0);
+#[global_allocator]
+static ALLOCATOR: CountingAllocator = CountingAllocator;
+
+
+unsafe impl GlobalAlloc for CountingAllocator {
+    unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+        let ptr = unsafe { System.alloc(layout) };
+        if !ptr.is_null() {
+            ALLOCS.fetch_add(1, Ordering::Relaxed);
+            BYTES.fetch_add(layout.size(), Ordering::Relaxed);
+            let live =
+                LIVE.fetch_add(layout.size() as isize, Ordering::Relaxed) + layout.size() as isize;
+            PEAK.fetch_max(live, Ordering::Relaxed);
+        }
+        ptr
+    }
+
+    unsafe fn alloc_zeroed(&self, layout: Layout) -> *mut u8 {
+        let ptr = unsafe { System.alloc_zeroed(layout) };
+        if !ptr.is_null() {
+            ALLOCS.fetch_add(1, Ordering::Relaxed);
+            BYTES.fetch_add(layout.size(), Ordering::Relaxed);
+            let live =
+                LIVE.fetch_add(layout.size() as isize, Ordering::Relaxed) + layout.size() as isize;
+            PEAK.fetch_max(live, Ordering::Relaxed);
+        }
+        ptr
+    }
+
+    unsafe fn dealloc(&self, ptr: *mut u8, layout: Layout) {
+        LIVE.fetch_sub(layout.size() as isize, Ordering::Relaxed);
+        unsafe { System.dealloc(ptr, layout) };
+    }
+
+    unsafe fn realloc(&self, ptr: *mut u8, layout: Layout, size: usize) -> *mut u8 {
+        let moved = unsafe { System.realloc(ptr, layout, size) };
+        if !moved.is_null() {
+            ALLOCS.fetch_add(1, Ordering::Relaxed);
+            BYTES.fetch_add(size, Ordering::Relaxed);
+            let live = LIVE.fetch_add(size as isize - layout.size() as isize, Ordering::Relaxed)
+                + size as isize
+                - layout.size() as isize;
+            PEAK.fetch_max(live, Ordering::Relaxed);
+        }
+        moved
+    }
+}
+
 
 fn string_field() -> Field {
     Field {
@@ -72,6 +136,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut collection_name = None;
     let mut encoding = BigramEncoding::Ascii;
     let mut field_specs = Vec::new();
+    let mut snapshot_path = None;
+    let mut restore_only = false;
     let mut args = env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
@@ -85,6 +151,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 };
             }
             "--field" => field_specs.push(args.next().ok_or("--field needs PATH=FORMAT")?),
+            "--snapshot-path" => snapshot_path = args.next().map(PathBuf::from),
+            "--restore-only" => restore_only = true,
             _ => return Err(format!("unknown argument {arg:?}").into()),
         }
     }
@@ -109,6 +177,39 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         mark_text_field(&mut collection.fields, path, format)?;
     }
 
+    if restore_only {
+        let snapshot = snapshot_path.ok_or("--restore-only needs --snapshot-path")?;
+        let before_allocs = ALLOCS.load(Ordering::Relaxed);
+        let before_bytes = BYTES.load(Ordering::Relaxed);
+        let before_live = LIVE.load(Ordering::Relaxed);
+        PEAK.store(before_live, Ordering::Relaxed);
+        let started = Instant::now();
+        let picker = FilePicker::profile_restore_collection(&collection, encoding, &snapshot)?;
+        let wall_nanos = started.elapsed().as_nanos();
+        let timings = picker.restore_timings();
+        println!(
+            "{}",
+            json!({
+                "repo": root,
+                "collection": collection_name,
+                "documents": picker.len(),
+                "encoding": encoding,
+                "fields": field_specs,
+                "snapshot_restore_wall_nanos": wall_nanos,
+                "restore_stages": timings,
+                "restore_allocations": ALLOCS.load(Ordering::Relaxed) - before_allocs,
+                "restore_allocated_bytes": BYTES.load(Ordering::Relaxed) - before_bytes,
+                "restore_peak_live_delta_bytes": PEAK.load(Ordering::Relaxed) - before_live,
+                "restore_peak_rss_kib": rss_kib("VmHWM:"),
+                "snapshot_base_bytes": fs::metadata(&snapshot)?.len(),
+                "snapshot_secondary_bytes": fs::metadata(snapshot.with_extension("secondary"))?.len(),
+                "compressed_index_bytes": picker.index_bytes(),
+                "index_sizes": picker.profile_index_sizes(),
+            })
+        );
+        return Ok(());
+    }
+
     let started = Instant::now();
     let picker = FilePicker::profile_collection(&collection, encoding)?;
     let build_wall_nanos = started.elapsed().as_nanos();
@@ -118,7 +219,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let build_timings = picker.build_timings();
 
     let snapshot_dir = tempfile::tempdir_in("target")?;
-    let snapshot = snapshot_dir.path().join("index.bigram");
+    let snapshot = snapshot_path.unwrap_or_else(|| snapshot_dir.path().join("index.bigram"));
     let save_started = Instant::now();
     picker.save_bigram_snapshot(&snapshot)?;
     let snapshot_save_wall_nanos = save_started.elapsed().as_nanos();

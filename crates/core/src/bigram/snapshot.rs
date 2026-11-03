@@ -25,6 +25,18 @@ const HEADER_LEN: usize = 8 + 8 + 8 + 32;
 const MAX_SNAPSHOT_BYTES: u64 = 2 * 1024 * 1024 * 1024;
 
 
+#[cfg(feature = "index-timings")]
+#[derive(Default)]
+pub(crate) struct SnapshotLoadTimings {
+    pub base_checksum_nanos: u64,
+    pub manifest_decode_nanos: u64,
+    pub base_filter_decode_nanos: u64,
+    pub manifest_validation_nanos: u64,
+    pub bytes_read: u64,
+    pub posting_columns: usize,
+}
+
+
 /// Hash and cap the payload while it is written to a temporary file.
 struct DigestWriter<'a> {
     file: &'a mut fs::File,
@@ -592,6 +604,24 @@ impl BigramSnapshot {
 
     /// Read a snapshot for inspection. Use `load_checked` before querying files.
     pub fn load(path: &Path) -> Result<Self> {
+        Self::load_inner(
+            path,
+            #[cfg(feature = "index-timings")]
+            &mut SnapshotLoadTimings::default(),
+        )
+    }
+
+    #[cfg(feature = "index-timings")]
+    pub(crate) fn load_profiled(path: &Path) -> Result<(Self, SnapshotLoadTimings)> {
+        let mut timings = SnapshotLoadTimings::default();
+        let snapshot = Self::load_inner(path, &mut timings)?;
+        Ok((snapshot, timings))
+    }
+
+    fn load_inner(
+        path: &Path,
+        #[cfg(feature = "index-timings")] timings: &mut SnapshotLoadTimings,
+    ) -> Result<Self> {
         let size = fs::metadata(path).map_err(|error| io(path, error))?.len();
         if size > MAX_SNAPSHOT_BYTES {
             return Err(invalid("snapshot exceeds size limit"));
@@ -621,6 +651,8 @@ impl BigramSnapshot {
         }
         // Check the payload before deserializing untrusted lengths. Rehash the
         // decode pass below to catch replacement between these two passes.
+        #[cfg(feature = "index-timings")]
+        let checksum_started = std::time::Instant::now();
         let mut digest = Sha256::new();
         let mut remaining = payload_len;
         let mut block = [0_u8; 64 * 1024];
@@ -634,6 +666,12 @@ impl BigramSnapshot {
         if digest.finalize().as_slice() != &header[24..HEADER_LEN] {
             return Err(invalid("snapshot checksum differs"));
         }
+
+        #[cfg(feature = "index-timings")]
+        {
+            timings.base_checksum_nanos = checksum_started.elapsed().as_nanos() as u64;
+            timings.bytes_read = HEADER_LEN as u64 + payload_len * 2;
+        }
         file.seek(SeekFrom::Start(HEADER_LEN as u64))
             .map_err(|error| io(path, error))?;
         // Hash buffered file reads rather than every small bincode field read.
@@ -644,6 +682,8 @@ impl BigramSnapshot {
                 digest: Sha256::new(),
             },
         );
+        #[cfg(feature = "index-timings")]
+        let manifest_started = std::time::Instant::now();
         let manifest = {
             let mut section = (&mut reader).take(manifest_len);
             let manifest: Manifest = if &header[..8] == MAGIC_JSON {
@@ -667,10 +707,22 @@ impl BigramSnapshot {
             }
             manifest
         };
+        #[cfg(feature = "index-timings")]
+        {
+            timings.manifest_decode_nanos = manifest_started.elapsed().as_nanos() as u64;
+        }
+
+        #[cfg(feature = "index-timings")]
+        let filter_started = std::time::Instant::now();
         let mut filter = {
             let mut section = (&mut reader).take(filter_len);
             BigramFilter::read_from(&mut section, filter_len)?
         };
+        #[cfg(feature = "index-timings")]
+        {
+            timings.base_filter_decode_nanos = filter_started.elapsed().as_nanos() as u64;
+            timings.posting_columns = filter.columns_used();
+        }
         let mut trailing = [0_u8; 1];
         if reader
             .read(&mut trailing)
@@ -685,10 +737,17 @@ impl BigramSnapshot {
         if manifest.bigram_encoding != filter.encoding() {
             return Err(invalid("manifest encoding differs from filter"));
         }
+
+        #[cfg(feature = "index-timings")]
+        let validation_started = std::time::Instant::now();
         filter.scalar_postings = &header[..8] == MAGIC_SCALAR_POSTINGS;
         validate_files(&manifest.files, filter.file_count())?;
         validate_changes(&manifest.changed_slots, filter.file_count())?;
         validate_changed_bigrams(&manifest.changed_slots, &manifest.changed_bigrams)?;
+        #[cfg(feature = "index-timings")]
+        {
+            timings.manifest_validation_nanos = validation_started.elapsed().as_nanos() as u64;
+        }
         Ok(Self {
             source_root: manifest.source_root,
             recursive: manifest.recursive,

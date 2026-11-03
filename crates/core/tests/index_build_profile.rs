@@ -47,12 +47,14 @@ fn field_build_and_secondary_save_have_separate_measurements() {
     assert_eq!(sizes.fields[0].path, "body");
     assert!(sizes.fields[0].normal_bytes > 0);
     assert!(sizes.fields[0].rendered_bytes > 0);
-    assert_eq!(
-        picker.index_bytes(),
-        sizes.main_bytes
-            + sizes.rendered_global_bytes
-            + sizes.fields[0].normal_bytes
-            + sizes.fields[0].rendered_bytes
+    // The size profile reports compressed postings; index_bytes also counts
+    // per-partition observed-slot bitsets.
+    assert!(
+        picker.index_bytes()
+            >= sizes.main_bytes
+                + sizes.rendered_global_bytes
+                + sizes.fields[0].normal_bytes
+                + sizes.fields[0].rendered_bytes
     );
 
     let snapshot = root.path().join("profile.bigram");

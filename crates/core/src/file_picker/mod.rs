@@ -59,7 +59,7 @@ use modified_order::ModifiedOrder;
 use posting::{ChunkRows, PostingRows, merge_chunk};
 use presence::PresenceIndex;
 #[cfg(feature = "index-timings")]
-pub use profile::{BuildTimings, FieldIndexSize, IndexSizes, StageMeasurement};
+pub use profile::{BuildTimings, FieldIndexSize, IndexSizes, RestoreTimings, StageMeasurement};
 #[cfg(feature = "index-timings")]
 use profile::{StageTimer, WorkerStages};
 use projection::{
@@ -134,6 +134,8 @@ pub struct FilePicker {
     sort: SortIndex,
     #[cfg(feature = "index-timings")]
     build_timings: BuildTimings,
+    #[cfg(feature = "index-timings")]
+    restore_timings: RestoreTimings,
 }
 
 
@@ -205,8 +207,9 @@ impl FilePicker {
         encoding: BigramEncoding,
         snapshot_path: &Path,
     ) -> Result<Self> {
-        let snapshot = BigramSnapshot::load(snapshot_path)?;
-        Self::open_cached_unchecked(
+        let started = Instant::now();
+        let (snapshot, load) = BigramSnapshot::load_profiled(snapshot_path)?;
+        let mut picker = Self::open_cached_unchecked(
             &collection.path,
             collection.recursive,
             &collection.indexes,
@@ -221,7 +224,15 @@ impl FilePicker {
             snapshot_path,
             collection.bigram_encoding.unwrap_or(encoding),
         )?
-        .ok_or_else(|| Error::Cache("profile snapshot could not be restored".into()))
+        .ok_or_else(|| Error::Cache("profile snapshot could not be restored".into()))?;
+        picker.restore_timings.base_checksum_nanos = load.base_checksum_nanos;
+        picker.restore_timings.manifest_decode_nanos = load.manifest_decode_nanos;
+        picker.restore_timings.base_filter_decode_nanos = load.base_filter_decode_nanos;
+        picker.restore_timings.manifest_validation_nanos = load.manifest_validation_nanos;
+        picker.restore_timings.snapshot_bytes_read += load.bytes_read;
+        picker.restore_timings.posting_columns += load.posting_columns;
+        picker.restore_timings.restore_total_nanos = elapsed_nanos(started);
+        Ok(picker)
     }
 
     #[expect(
@@ -453,6 +464,8 @@ impl FilePicker {
                 inventory_nanos: if unchecked { 0 } else { inventory_nanos },
                 ..BuildTimings::default()
             },
+            #[cfg(feature = "index-timings")]
+            restore_timings: RestoreTimings::default(),
         };
         #[cfg(feature = "index-timings")]
         let slots_started = Instant::now();
@@ -466,6 +479,11 @@ impl FilePicker {
         #[cfg(feature = "index-timings")]
         {
             picker.build_timings.slots_nanos = elapsed_nanos(slots_started);
+            if unchecked {
+                picker.restore_timings.slot_restore_nanos =
+                    inventory_nanos.saturating_add(picker.build_timings.slots_nanos);
+                picker.restore_timings.restored_files = picker.files.len();
+            }
         }
         let loaded_secondary = restored.is_some()
             && (!unchecked || !definitions.is_empty())
@@ -704,6 +722,11 @@ impl FilePicker {
     #[cfg(feature = "index-timings")]
     pub fn build_timings(&self) -> BuildTimings {
         self.build_timings
+    }
+
+    #[cfg(feature = "index-timings")]
+    pub fn restore_timings(&self) -> RestoreTimings {
+        self.restore_timings
     }
 
     fn position(&self, id: &str) -> std::result::Result<usize, usize> {

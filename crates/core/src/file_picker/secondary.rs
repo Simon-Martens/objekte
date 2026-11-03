@@ -77,13 +77,21 @@ struct DigestReader<R> {
     inner: R,
     digest: Sha256,
     bytes: u64,
+    #[cfg(feature = "index-timings")]
+    hash_nanos: u64,
 }
 
 
 impl<R: Read> Read for DigestReader<R> {
     fn read(&mut self, buffer: &mut [u8]) -> std::io::Result<usize> {
         let read = self.inner.read(buffer)?;
+        #[cfg(feature = "index-timings")]
+        let hash_started = Instant::now();
         self.digest.update(&buffer[..read]);
+        #[cfg(feature = "index-timings")]
+        {
+            self.hash_nanos += elapsed_nanos(hash_started);
+        }
         self.bytes += read as u64;
         Ok(read)
     }
@@ -228,8 +236,12 @@ impl FilePicker {
                 inner: file.into_inner().take(length),
                 digest: Sha256::new(),
                 bytes: 0,
+                #[cfg(feature = "index-timings")]
+                hash_nanos: 0,
             },
         );
+        #[cfg(feature = "index-timings")]
+        let structure_started = Instant::now();
         let restored: Restored = match bincode::DefaultOptions::new()
             .with_limit(MAX_BYTES)
             .deserialize_from(&mut reader)
@@ -237,6 +249,14 @@ impl FilePicker {
             Ok(restored) => restored,
             Err(_) => return Ok(false),
         };
+        #[cfg(feature = "index-timings")]
+        {
+            self.restore_timings.secondary_structure_decode_nanos =
+                elapsed_nanos(structure_started);
+        }
+
+        #[cfg(feature = "index-timings")]
+        let filters_started = Instant::now();
         let text_index = if restored.text {
             if restored.text_paths
                 != self
@@ -254,6 +274,10 @@ impl FilePicker {
                 Ok(filter) => filter,
                 Err(_) => return Ok(false),
             };
+            #[cfg(feature = "index-timings")]
+            {
+                self.restore_timings.posting_columns += global_clean.columns_used();
+            }
             let mut fields = Vec::with_capacity(self.text_paths.len());
             for ((path, &(normal_present, clean_present)), (normal_observed, clean_observed)) in
                 self.text_paths.iter().zip(&restored.field_presence).zip(
@@ -271,6 +295,11 @@ impl FilePicker {
                     Ok(filter) => filter,
                     Err(_) => return Ok(false),
                 };
+                #[cfg(feature = "index-timings")]
+                {
+                    self.restore_timings.posting_columns +=
+                        normal.columns_used() + clean.columns_used();
+                }
                 fields.push(text::FieldTextIndex {
                     path: path.clone(),
                     normal,
@@ -313,11 +342,24 @@ impl FilePicker {
             }
             None
         };
+        #[cfg(feature = "index-timings")]
+        {
+            self.restore_timings.secondary_filter_decode_nanos = elapsed_nanos(filters_started);
+        }
         let decoded_bytes = consumed(&reader);
-        let digest = reader.into_inner().digest.finalize();
+        let digest_reader = reader.into_inner();
+        #[cfg(feature = "index-timings")]
+        {
+            self.restore_timings.secondary_checksum_nanos = digest_reader.hash_nanos;
+            self.restore_timings.snapshot_bytes_read += HEADER as u64 + 56 + digest_reader.bytes;
+        }
+        let digest = digest_reader.digest.finalize();
         if decoded_bytes != length || header[80..112] != digest.as_slice()[..] {
             return Ok(false);
         }
+
+        #[cfg(feature = "index-timings")]
+        let validation_started = Instant::now();
         if restored.slots != self.files.len()
             || restored.presence.fields() != self.presence.fields()
             || !restored.presence.valid_for_slots(self.files.len())
@@ -333,6 +375,11 @@ impl FilePicker {
             || self.eager_text_index && text_index.is_none()
         {
             return Ok(false);
+        }
+
+        #[cfg(feature = "index-timings")]
+        {
+            self.restore_timings.secondary_validation_nanos = elapsed_nanos(validation_started);
         }
         self.modified_order.apply_restored(restored.modified_order);
         self.view.apply_restored(restored.view);
