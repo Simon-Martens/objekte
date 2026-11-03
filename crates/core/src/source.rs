@@ -186,6 +186,26 @@ impl Source {
         Ok(files)
     }
 
+    /// Benchmark-only cold-build inventory. Scan workers obtain the stamps
+    /// from securely opened descriptors after these IDs have been sorted.
+    #[cfg(feature = "index-timings")]
+    pub fn inventory_ids(&self) -> Result<Vec<String>> {
+        let mut paths = Vec::new();
+        let mut directories = Vec::new();
+        self.walk(&self.path, &mut paths, &mut directories)?;
+        let mut ids = paths.into_iter().map(|(id, _)| id).collect::<Vec<_>>();
+        ids.sort_unstable();
+        if ids.windows(2).any(|pair| pair[0] == pair[1]) {
+            return Err(record(&self.path, "", "duplicate source ID"));
+        }
+        *self
+            .inventory_dirs
+            .lock()
+            .expect("inventory directory lock") = directories;
+        self.finish()?;
+        Ok(ids)
+    }
+
     fn walk(
         &self,
         root: &Path,

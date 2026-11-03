@@ -2,6 +2,7 @@
 
 use super::*;
 
+
 impl FilePicker {
     /// Rebuilds the immutable index after many edits. Source stamps are checked
     /// before and after every read so a racing edit cannot publish a bad index.
@@ -20,6 +21,15 @@ impl FilePicker {
         &mut self,
         source: &Source,
         restored: Option<RestoredBigram>,
+    ) -> Result<()> {
+        self.rebuild_index_from_source_mode(source, restored, false)
+    }
+
+    pub(super) fn rebuild_index_from_source_mode(
+        &mut self,
+        source: &Source,
+        restored: Option<RestoredBigram>,
+        combined_build: bool,
     ) -> Result<()> {
         // A fresh picker already has compact ID-ordered slots. Later edits can
         // append slots or leave holes, in which case rebuild must compact them.
@@ -139,6 +149,22 @@ impl FilePicker {
                 view_slices[chunk].push(slice);
             }
         }
+        let mut captured_stamps = combined_build.then(|| {
+            vec![
+                Stamp {
+                    size: 0,
+                    modified: String::new(),
+                    identity: String::new(),
+                };
+                files.len()
+            ]
+        });
+        let capture_slices: Vec<Option<&mut [Stamp]>> =
+            if let Some(stamps) = captured_stamps.as_mut() {
+                stamps.chunks_mut(64).map(Some).collect()
+            } else {
+                (0..chunk_count).map(|_| None).collect()
+            };
         let view = &self.view;
         let sort = &self.sort;
         #[cfg(feature = "index-timings")]
@@ -164,6 +190,7 @@ impl FilePicker {
                 .par_chunks(64)
                 .zip(sort_slices.into_par_iter())
                 .zip(view_slices.into_par_iter())
+                .zip(capture_slices.into_par_iter())
                 .enumerate()
                 .try_for_each_init(
                     || {
@@ -187,7 +214,10 @@ impl FilePicker {
                         )
                     },
                     |(accumulator, text_accumulator),
-                     (chunk_index, ((chunk, mut sort_chunk), mut view_chunk))|
+                     (
+                        chunk_index,
+                        (((chunk, mut sort_chunk), mut view_chunk), mut capture_chunk),
+                    )|
                      -> Result<()> {
                         let mut chunk_arrays = BTreeSet::new();
                         let mut chunk_keys = KeySummary::default();
@@ -244,6 +274,9 @@ impl FilePicker {
                                     chunk_postings.as_mut_slice(),
                                     chunk_index * 64 + within,
                                 )),
+                                capture_chunk
+                                    .as_deref_mut()
+                                    .map(|stamps| &mut stamps[within]),
                             )?;
                             #[cfg(feature = "index-timings")]
                             {
@@ -276,6 +309,7 @@ impl FilePicker {
                                             {
                                                 chunk_stages.rendered_insert += timer.stop();
                                             }
+
                                             #[cfg(feature = "index-timings")]
                                             let timer = StageTimer::start();
                                             accumulator.add_fields(builders, slot, &content);
@@ -291,6 +325,7 @@ impl FilePicker {
                                                 chunk_stages.rendered_insert += global;
                                                 chunk_stages.field_insert += fields;
                                             }
+
                                             #[cfg(not(feature = "index-timings"))]
                                             builders.add(slot, &content);
                                         }
@@ -317,6 +352,7 @@ impl FilePicker {
                                         } else {
                                             main.add_file_content(&skip, slot, text.as_bytes());
                                         }
+
                                         #[cfg(feature = "index-timings")]
                                         {
                                             chunk_stages.main_insert += main_timer.stop();
@@ -344,6 +380,7 @@ impl FilePicker {
                                         } else {
                                             main.add_file_content(&skip, slot, &projection.bytes);
                                         }
+
                                         #[cfg(feature = "index-timings")]
                                         {
                                             chunk_stages.main_insert += main_timer.stop();
@@ -372,6 +409,7 @@ impl FilePicker {
                                             {
                                                 chunk_stages.rendered_insert += timer.stop();
                                             }
+
                                             #[cfg(feature = "index-timings")]
                                             let timer = StageTimer::start();
                                             accumulator.add_fields(builders, slot, text);
@@ -387,6 +425,7 @@ impl FilePicker {
                                                 chunk_stages.rendered_insert += global;
                                                 chunk_stages.field_insert += fields;
                                             }
+
                                             #[cfg(not(feature = "index-timings"))]
                                             builders.add(slot, text);
                                         }
@@ -430,6 +469,7 @@ impl FilePicker {
                             {
                                 chunk_stages.rendered_insert += timer.stop();
                             }
+
                             #[cfg(feature = "index-timings")]
                             let timer = StageTimer::start();
                             accumulator.publish_fields(builders, chunk_index);
@@ -484,6 +524,14 @@ impl FilePicker {
             self.build_timings.add_worker_nanos = add_worker.load(Ordering::Relaxed);
             let stages = worker_stages.into_inner().expect("worker stage lock");
             self.build_timings.source_read = stages.projection.read;
+            self.build_timings.source_open = stages.projection.source_open;
+            self.build_timings.source_before_metadata = stages.projection.source_before_metadata;
+            self.build_timings.source_bytes_read = stages.projection.source_bytes_read;
+            self.build_timings.source_after_metadata = stages.projection.source_after_metadata;
+            self.build_timings.source_close = stages.projection.source_close;
+            self.build_timings.source_byte_count = stages.projection.source_byte_count;
+            self.build_timings.source_file_count = stages.projection.source_file_count;
+            self.build_timings.source_size_buckets = stages.projection.source_size_buckets;
             self.build_timings.json_parse = stages.projection.parse;
             self.build_timings.general_values = stages.projection.values;
             self.build_timings.field_text = stages.projection.field_text;
@@ -553,6 +601,11 @@ impl FilePicker {
             self.id_bytes = ids;
             self.files = files;
             self.sorted = (0..self.files.len()).collect();
+        }
+        if let Some(stamps) = captured_stamps {
+            for (entry, stamp) in self.files.iter_mut().zip(stamps) {
+                entry.as_mut().expect("fresh build slot").stamp = stamp;
+            }
         }
         self.index = index;
         self.indexed_len = self.files.len();

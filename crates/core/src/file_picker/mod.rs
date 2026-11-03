@@ -211,6 +211,31 @@ impl FilePicker {
         )
     }
 
+    /// Experimental fresh build that records each stamp during the scan.
+    #[cfg(feature = "index-timings")]
+    pub fn profile_collection_combined(
+        collection: &crate::Collection,
+        encoding: BigramEncoding,
+    ) -> Result<Self> {
+        Self::open_inner(
+            &collection.path,
+            collection.recursive,
+            &collection.indexes,
+            &collection.advanced_index_paths,
+            &collection.sort_indexes,
+            &collection.fields,
+            collection
+                .schema
+                .as_ref()
+                .and_then(|schema| schema.field.language.as_deref()),
+            (None, None),
+            false,
+            collection.bigram_encoding.unwrap_or(encoding),
+            true,
+        )?
+        .ok_or_else(|| Error::Cache("combined profile picker could not be opened".into()))
+    }
+
     /// Time complete early restoration of a profile's base and secondary snapshot.
     #[cfg(feature = "index-timings")]
     pub fn profile_restore_collection(
@@ -277,6 +302,7 @@ impl FilePicker {
             (snapshot.map(CacheSnapshot::Public), snapshot_path),
             false,
             encoding,
+            false,
         )?
         .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
     }
@@ -308,6 +334,7 @@ impl FilePicker {
             (Some(CacheSnapshot::Compact(snapshot)), Some(snapshot_path)),
             true,
             encoding,
+            false,
         )
     }
 
@@ -326,6 +353,7 @@ impl FilePicker {
         cached: (Option<CacheSnapshot>, Option<&Path>),
         unchecked: bool,
         encoding: BigramEncoding,
+        combined_build: bool,
     ) -> Result<Option<Self>> {
         let (mut snapshot, snapshot_path) = cached;
         let scalar_snapshot = snapshot.as_ref().is_some_and(|saved| match saved {
@@ -350,6 +378,27 @@ impl FilePicker {
         let inventory_started = Instant::now();
         let inventory: Vec<(String, Stamp)> = if unchecked {
             Vec::new()
+        } else if combined_build {
+            #[cfg(feature = "index-timings")]
+            {
+                source
+                    .inventory_ids()?
+                    .into_iter()
+                    .map(|id| {
+                        (
+                            id,
+                            Stamp {
+                                size: 0,
+                                modified: String::new(),
+                                identity: String::new(),
+                            },
+                        )
+                    })
+                    .collect()
+            }
+
+            #[cfg(not(feature = "index-timings"))]
+            unreachable!("combined builds are available only for profiling");
         } else {
             source.inventory()?.into_iter().collect()
         };
@@ -538,13 +587,14 @@ impl FilePicker {
             picker.changed_bigrams = restored.changed_bigrams;
             picker.key_summary.saturate();
         } else {
-            picker.rebuild_index_from_source(
+            picker.rebuild_index_from_source_mode(
                 &source,
                 if (scalar_snapshot || !picker.text_paths.is_empty()) && !loaded_secondary {
                     None
                 } else {
                     restored
                 },
+                combined_build,
             )?;
         }
         if !loaded_secondary {

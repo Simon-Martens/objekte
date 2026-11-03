@@ -62,6 +62,14 @@ fn thread_cpu_nanos() -> u64 {
 #[derive(Clone, Copy, Default)]
 pub(super) struct ProjectionStages {
     pub read: StageMeasurement,
+    pub source_open: StageMeasurement,
+    pub source_before_metadata: StageMeasurement,
+    pub source_bytes_read: StageMeasurement,
+    pub source_after_metadata: StageMeasurement,
+    pub source_close: StageMeasurement,
+    pub source_byte_count: u64,
+    pub source_file_count: u64,
+    pub source_size_buckets: [u64; 5],
     pub parse: StageMeasurement,
     pub values: StageMeasurement,
     pub field_text: StageMeasurement,
@@ -81,6 +89,21 @@ pub(super) struct WorkerStages {
 impl AddAssign for WorkerStages {
     fn add_assign(&mut self, other: Self) {
         self.projection.read += other.projection.read;
+        self.projection.source_open += other.projection.source_open;
+        self.projection.source_before_metadata += other.projection.source_before_metadata;
+        self.projection.source_bytes_read += other.projection.source_bytes_read;
+        self.projection.source_after_metadata += other.projection.source_after_metadata;
+        self.projection.source_close += other.projection.source_close;
+        self.projection.source_byte_count += other.projection.source_byte_count;
+        self.projection.source_file_count += other.projection.source_file_count;
+        for (all, chunk) in self
+            .projection
+            .source_size_buckets
+            .iter_mut()
+            .zip(other.projection.source_size_buckets)
+        {
+            *all += chunk;
+        }
         self.projection.parse += other.projection.parse;
         self.projection.values += other.projection.values;
         self.projection.field_text += other.projection.field_text;
@@ -101,6 +124,14 @@ pub struct BuildTimings {
     pub project_worker_nanos: u64,
     pub add_worker_nanos: u64,
     pub source_read: StageMeasurement,
+    pub source_open: StageMeasurement,
+    pub source_before_metadata: StageMeasurement,
+    pub source_bytes_read: StageMeasurement,
+    pub source_after_metadata: StageMeasurement,
+    pub source_close: StageMeasurement,
+    pub source_byte_count: u64,
+    pub source_file_count: u64,
+    pub source_size_buckets: [u64; 5],
     pub json_parse: StageMeasurement,
     pub general_values: StageMeasurement,
     pub field_text: StageMeasurement,

@@ -20,6 +20,7 @@ use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{collections::BTreeMap, io::Read};
 use unicode_casefold::UnicodeCaseFold;
 
+
 /// Decoded text and top-level keys extracted from one source document.
 pub(super) struct Projection {
     pub(super) bytes: Vec<u8>,
@@ -31,11 +32,13 @@ pub(super) struct Projection {
     pub(super) sort_keys: Vec<Vec<crate::sorting::SortValue>>,
 }
 
+
 /// Parsed projection or searchable fallback text for a malformed source file.
 pub(super) enum ProjectionOutcome {
     Valid(Projection),
     Malformed(String),
 }
+
 
 /// Optional projections produced during a source-file index scan.
 pub(super) struct ProjectionOptions<'a> {
@@ -48,6 +51,7 @@ pub(super) struct ProjectionOptions<'a> {
     #[cfg(feature = "index-timings")]
     pub(super) timings: Option<&'a mut ProjectionStages>,
 }
+
 
 #[expect(
     clippy::too_many_arguments,
@@ -148,6 +152,7 @@ pub(super) fn projected_values_with_text_buffer(
         None,
         None,
         None,
+        None,
     )
 }
 
@@ -169,20 +174,69 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     sort_output: Option<&mut [SortValue]>,
     view_output: Option<(&mut [&mut [Scalar]], usize)>,
     postings: Option<(&[crate::JsonPath], &mut [super::posting::ChunkRows], usize)>,
+    capture_stamp: Option<&mut Stamp>,
 ) -> Result<ProjectionOutcome> {
     #[cfg(feature = "index-timings")]
     let read_timer = StageTimer::start();
     let path = source.path.join(format!("{id}.json"));
+    #[cfg(feature = "index-timings")]
+    let stage_timer = StageTimer::start();
     let mut file = source.file(id)?;
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.source_open += stage_timer.stop();
+    }
+
+    #[cfg(feature = "index-timings")]
+    let stage_timer = StageTimer::start();
     let before = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
-    if &before != stamp {
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.source_before_metadata += stage_timer.stop();
+    }
+    if capture_stamp.is_none() && &before != stamp {
         return Err(Error::Unstable(path));
     }
     raw.clear();
+    #[cfg(feature = "index-timings")]
+    let stage_timer = StageTimer::start();
     file.read_to_end(raw).map_err(|e| io(&path, e))?;
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.source_bytes_read += stage_timer.stop();
+    }
+
+    #[cfg(feature = "index-timings")]
+    let stage_timer = StageTimer::start();
     let after = Stamp::from_metadata(&file.metadata().map_err(|e| io(&path, e))?, &path)?;
+    #[cfg(feature = "index-timings")]
+    if let Some(timings) = options.timings.as_mut() {
+        timings.source_after_metadata += stage_timer.stop();
+    }
     if after != before || raw.len() as u64 != after.size {
         return Err(Error::Unstable(path));
+    }
+    if let Some(output) = capture_stamp {
+        *output = before;
+    }
+
+    #[cfg(feature = "index-timings")]
+    {
+        let stage_timer = StageTimer::start();
+        drop(file);
+        if let Some(timings) = options.timings.as_mut() {
+            timings.source_close += stage_timer.stop();
+            timings.source_file_count += 1;
+            timings.source_byte_count += raw.len() as u64;
+            let bucket = match raw.len() {
+                0..=255 => 0,
+                256..=1023 => 1,
+                1024..=4095 => 2,
+                4096..=16383 => 3,
+                _ => 4,
+            };
+            timings.source_size_buckets[bucket] += 1;
+        }
     }
 
     #[cfg(feature = "index-timings")]

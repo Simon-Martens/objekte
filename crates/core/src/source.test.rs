@@ -138,3 +138,73 @@ fn nested_parent_symlinks_are_not_followed() {
     assert!(source.file("part/a").is_err());
     assert!(source.finish().is_err());
 }
+
+#[cfg(feature = "index-timings")]
+#[test]
+fn combined_inventory_detects_membership_changes_and_refuses_symlinks() {
+    for change in ["insert", "delete", "rename", "replace", "symlink"] {
+        let temp = tempfile::tempdir().unwrap();
+        let data = temp.path().join("data");
+        fs::create_dir(&data).unwrap();
+        fs::write(data.join("a.json"), "old").unwrap();
+        let source = Source::open(&data).unwrap();
+        assert_eq!(source.inventory_ids().unwrap(), ["a"]);
+        match change {
+            "insert" => fs::write(data.join("b.json"), "new").unwrap(),
+            "delete" => fs::remove_file(data.join("a.json")).unwrap(),
+            "rename" => fs::rename(data.join("a.json"), data.join("b.json")).unwrap(),
+            "replace" => {
+                fs::write(data.join("b.json"), "new").unwrap();
+                fs::rename(data.join("b.json"), data.join("a.json")).unwrap();
+            }
+            "symlink" => {
+                fs::remove_file(data.join("a.json")).unwrap();
+                fs::write(temp.path().join("outside.json"), "outside").unwrap();
+                symlink(temp.path().join("outside.json"), data.join("a.json")).unwrap();
+                assert!(source.file("a").is_err());
+            }
+            _ => unreachable!(),
+        }
+        // Make the directory stamp change explicit; filesystem timestamp
+        // granularity may coalesce a create/delete immediately after inventory.
+        File::open(&data)
+            .unwrap()
+            .set_times(
+                fs::FileTimes::new()
+                    .set_modified(std::time::SystemTime::now() + std::time::Duration::from_secs(2)),
+            )
+            .unwrap();
+        assert!(source.finish().is_err(), "{change}");
+    }
+}
+
+#[cfg(feature = "index-timings")]
+#[test]
+fn combined_inventory_has_no_prior_stamp_for_in_place_changes() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::write(temp.path().join("a.json"), "old").unwrap();
+    let source = Source::open(temp.path()).unwrap();
+    assert_eq!(source.inventory_ids().unwrap(), ["a"]);
+    let old =
+        Stamp::from_metadata(&source.file("a").unwrap().metadata().unwrap(), temp.path()).unwrap();
+    fs::write(temp.path().join("a.json"), "new and longer").unwrap();
+    let new =
+        Stamp::from_metadata(&source.file("a").unwrap().metadata().unwrap(), temp.path()).unwrap();
+    assert_ne!(old, new);
+    assert!(source.finish().is_ok());
+}
+
+#[cfg(feature = "index-timings")]
+#[test]
+fn combined_inventory_rejects_recursive_directory_replacement() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path().join("data");
+    fs::create_dir_all(root.join("part")).unwrap();
+    fs::write(root.join("part/a.json"), "old").unwrap();
+    let source = Source::open_scoped(&root, true).unwrap();
+    assert_eq!(source.inventory_ids().unwrap(), ["part/a"]);
+    fs::rename(root.join("part"), root.join("old-part")).unwrap();
+    fs::create_dir(root.join("part")).unwrap();
+    fs::write(root.join("part/a.json"), "new").unwrap();
+    assert!(source.finish().is_err());
+}
