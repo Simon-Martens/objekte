@@ -960,14 +960,20 @@ impl Repository {
                                 matched_document = Some(doc);
                             }
                         }
-                        let after = Stamp::from_metadata(
-                            &file.metadata().map_err(|e| io(&path, e))?,
-                            &path,
-                        )?;
-                        if before != after || bytes.len() as u64 != after.size {
+                        if bytes.len() as u64 != before.size {
                             return Err(Error::Unstable(path));
                         }
+                        // Uncaptured page records are read and checked again
+                        // before they are returned, so only a captured document
+                        // needs a second stat against an edit during this read.
                         if let Some(doc) = matched_document {
+                            let after = Stamp::from_metadata(
+                                &file.metadata().map_err(|e| io(&path, e))?,
+                                &path,
+                            )?;
+                            if before != after {
+                                return Err(Error::Unstable(path));
+                            }
                             let started = Instant::now();
                             let hash = digest(bytes);
                             outcome.hash_nanos = nanos(started);
