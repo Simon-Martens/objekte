@@ -1,6 +1,6 @@
-//! In-memory B-tree postings for explicitly indexed top-level scalar fields.
-//! Immutable postings cover the indexed snapshot; changed slots are included
-//! conservatively until the next rebuild and verified against source JSON.
+//! In-memory B-tree postings for explicitly indexed top-level scalar fields
+//! and runtime paths. Refreshed files are patched in place: each slot moves
+//! from its old keys to its new ones, as a database updates its indexes.
 use crate::json_filter::{IndexOp, JsonPath, JsonPathStep, TypedPlan, decimal_cmp};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
@@ -102,13 +102,125 @@ impl PartialEq for TypedKey {
 impl Eq for TypedKey {}
 
 
-/// Immutable typed postings for the indexed collection snapshot.
+/// Typed postings for the collection, kept current by patching.
 #[derive(Default, Serialize, Deserialize)]
 pub(super) struct TypedIndex {
     fields: Vec<String>,
     postings: Vec<BTreeMap<TypedKey, Vec<usize>>>,
     #[serde(with = "path_map")]
     dynamic: BTreeMap<JsonPath, DynamicPosting>,
+    /// Current keys of every slot per static field, built on the first patch.
+    #[serde(skip)]
+    slot_keys: Option<Vec<SlotKeys>>,
+}
+
+
+/// One document's values at a runtime posting path.
+pub(super) struct PathValues {
+    pub(super) keys: Vec<TypedKey>,
+    pub(super) present: bool,
+    pub(super) scalar_safe: bool,
+    pub(super) complete_values: bool,
+    pub(super) implicit_equivalent: bool,
+}
+
+
+const NO_KEY: u32 = u32::MAX;
+const MANY_KEYS: u32 = u32::MAX - 1;
+
+
+/// The keys each slot currently has in one posting map. Source files can
+/// change outside objekte, so the old value of an edited file must come from
+/// here: it is no longer on disk.
+#[derive(Default)]
+struct SlotKeys {
+    keys: Vec<TypedKey>,
+    /// A key ID per slot, `NO_KEY`, or `MANY_KEYS` for slots in `many`.
+    single: Vec<u32>,
+    many: HashMap<usize, Vec<u32>>,
+}
+
+
+impl SlotKeys {
+    /// Index the current postings. Parallel builds append slots in worker
+    /// order, so each list is sorted and deduplicated for binary search.
+    fn build(postings: &mut BTreeMap<TypedKey, Vec<usize>>, slots: usize) -> Self {
+        let mut index = Self {
+            single: vec![NO_KEY; slots],
+            ..Self::default()
+        };
+        for (key, list) in postings.iter_mut() {
+            list.sort_unstable();
+            list.dedup();
+            let id = index.intern(key.clone());
+            for &slot in list.iter() {
+                index.add(slot, id);
+            }
+        }
+        index
+    }
+
+    fn intern(&mut self, key: TypedKey) -> u32 {
+        self.keys.push(key);
+        u32::try_from(self.keys.len() - 1).expect("typed key IDs fit u32")
+    }
+
+    fn add(&mut self, slot: usize, id: u32) {
+        if slot >= self.single.len() {
+            self.single.resize(slot + 1, NO_KEY);
+        }
+        match self.single[slot] {
+            NO_KEY => self.single[slot] = id,
+            MANY_KEYS => self.many.get_mut(&slot).expect("listed slot").push(id),
+            first => {
+                self.many.insert(slot, vec![first, id]);
+                self.single[slot] = MANY_KEYS;
+            }
+        }
+    }
+
+    fn take(&mut self, slot: usize) -> Vec<u32> {
+        match self.single.get(slot).copied().unwrap_or(NO_KEY) {
+            NO_KEY => Vec::new(),
+            MANY_KEYS => {
+                self.single[slot] = NO_KEY;
+                self.many.remove(&slot).unwrap_or_default()
+            }
+            id => {
+                self.single[slot] = NO_KEY;
+                vec![id]
+            }
+        }
+    }
+
+    /// Move `slot` from its current keys to `keys` within `postings`.
+    fn patch(
+        &mut self,
+        postings: &mut BTreeMap<TypedKey, Vec<usize>>,
+        slot: usize,
+        keys: Vec<TypedKey>,
+    ) {
+        for id in self.take(slot) {
+            let key = &self.keys[id as usize];
+            if let Some(list) = postings.get_mut(key) {
+                if let Ok(at) = list.binary_search(&slot) {
+                    list.remove(at);
+                }
+                if list.is_empty() {
+                    postings.remove(key);
+                }
+            }
+        }
+        for key in keys {
+            let list = postings.entry(key.clone()).or_default();
+            // Repeated array values share one posting entry.
+            if let Err(at) = list.binary_search(&slot) {
+                list.insert(at, slot);
+                let id = self.intern(key);
+                self.add(slot, id);
+            }
+        }
+    }
 }
 
 
@@ -157,6 +269,11 @@ struct DynamicPosting {
     scalar_safe: bool,
     complete_values: bool,
     fresh: bool,
+    /// Every file reaches the same values through this path's implicit
+    /// spelling without `[*]`, so comparisons may use either spelling.
+    implicit_equivalent: bool,
+    #[serde(skip)]
+    slot_keys: Option<SlotKeys>,
 }
 
 
@@ -167,11 +284,63 @@ impl TypedIndex {
             fields,
             postings,
             dynamic: BTreeMap::new(),
+            slot_keys: None,
         }
     }
 
     pub(super) fn fields(&self) -> &[String] {
         &self.fields
+    }
+
+    /// Replace a slot's indexed values after its source file was read again.
+    /// `fields` holds static field keys and `paths` the runtime paths in
+    /// `dynamic_paths` order; empty inputs remove the slot, as for a deleted
+    /// or malformed file. Flags can only become more conservative.
+    pub(super) fn patch(
+        &mut self,
+        slot: usize,
+        slots: usize,
+        fields: &[(usize, TypedKey)],
+        paths: Vec<PathValues>,
+    ) {
+        let postings = &mut self.postings;
+        let slot_keys = self.slot_keys.get_or_insert_with(|| {
+            postings
+                .iter_mut()
+                .map(|posting| SlotKeys::build(posting, slots))
+                .collect()
+        });
+        for (field, (posting, keys)) in postings.iter_mut().zip(slot_keys).enumerate() {
+            let new = fields
+                .iter()
+                .filter(|(index, _)| *index == field)
+                .map(|(_, key)| key.clone())
+                .collect();
+            keys.patch(posting, slot, new);
+        }
+        let mut paths = paths.into_iter();
+        for posting in self.dynamic.values_mut() {
+            let values = paths.next().unwrap_or(PathValues {
+                keys: Vec::new(),
+                present: false,
+                scalar_safe: true,
+                complete_values: true,
+                implicit_equivalent: true,
+            });
+            let keys = posting
+                .slot_keys
+                .get_or_insert_with(|| SlotKeys::build(&mut posting.postings, slots));
+            keys.patch(&mut posting.postings, slot, values.keys);
+            posting.present.resize(slots.div_ceil(64), 0);
+            if values.present {
+                posting.present[slot / 64] |= 1 << (slot % 64);
+            } else {
+                posting.present[slot / 64] &= !(1 << (slot % 64));
+            }
+            posting.scalar_safe &= values.scalar_safe;
+            posting.complete_values &= values.complete_values;
+            posting.implicit_equivalent &= values.implicit_equivalent;
+        }
     }
 
     /// Match distinct scalar keys once, then expand their immutable postings.
@@ -235,6 +404,7 @@ impl TypedIndex {
 
     pub(super) fn replace_rows(&mut self, rows: Vec<Vec<(TypedKey, usize)>>) {
         self.postings = rows.into_iter().map(postings_for_rows).collect();
+        self.slot_keys = None;
     }
 
     pub(super) fn dynamic_paths(&self) -> Vec<JsonPath> {
@@ -249,16 +419,31 @@ impl TypedIndex {
         self.dynamic.remove(path);
     }
 
-    pub(super) fn invalidate_dynamic(&mut self) {
-        for field in self.dynamic.values_mut() {
-            field.fresh = false;
-        }
+    pub(super) fn scalar_safe(&self, path: &JsonPath) -> bool {
+        self.comparison_posting(path)
+            .is_some_and(|field| field.scalar_safe && field.fresh)
     }
 
-    pub(super) fn scalar_safe(&self, path: &JsonPath) -> bool {
-        self.dynamic
-            .get(path)
-            .is_some_and(|field| field.scalar_safe && field.fresh)
+    /// The runtime posting a comparison on `path` can use: one built for the
+    /// same spelling, or a `[*]` spelling whose values equal the implicit
+    /// traversal in every file. Presence tests use only the same spelling,
+    /// because `exists(tags)` holds for an empty array and `exists(tags[*])`
+    /// does not.
+    fn comparison_posting(&self, path: &JsonPath) -> Option<&DynamicPosting> {
+        self.dynamic.get(path).or_else(|| {
+            if self.static_index(path).is_some() {
+                return None;
+            }
+            self.dynamic.iter().find_map(|(built, posting)| {
+                (posting.implicit_equivalent
+                    && posting.fresh
+                    && built
+                        .iter()
+                        .filter(|step| !matches!(step, JsonPathStep::Each))
+                        .eq(path.iter()))
+                .then_some(posting)
+            })
+        })
     }
 
     pub(super) fn replace_path(
@@ -268,10 +453,12 @@ impl TypedIndex {
         present: Vec<u64>,
         scalar_safe: bool,
         complete_values: bool,
+        implicit_equivalent: bool,
     ) {
         let postings = postings_for_rows(rows);
         if let Some(index) = self.static_index(&path) {
             self.postings[index] = postings;
+            self.slot_keys = None;
         } else {
             self.dynamic.insert(
                 path,
@@ -281,6 +468,8 @@ impl TypedIndex {
                     scalar_safe,
                     complete_values,
                     fresh: true,
+                    implicit_equivalent,
+                    slot_keys: None,
                 },
             );
         }
@@ -294,7 +483,7 @@ impl TypedIndex {
     }
 
     fn posting_for(&self, path: &JsonPath) -> Option<&BTreeMap<TypedKey, Vec<usize>>> {
-        if let Some(field) = self.dynamic.get(path) {
+        if let Some(field) = self.comparison_posting(path) {
             return (field.complete_values && field.fresh).then_some(&field.postings);
         }
         self.static_index(path).map(|index| &self.postings[index])
@@ -307,13 +496,10 @@ impl TypedIndex {
         &self,
         plan: Option<&TypedPlan>,
         slot_count: usize,
-        changed: &BTreeSet<usize>,
     ) -> Option<Vec<u64>> {
-        let mut bits = self.plan_bits(plan?, slot_count)?;
-        for &slot in changed {
-            bits[slot / 64] |= 1 << (slot % 64);
-        }
-        Some(bits)
+        // Changed slots are patched into their current keys, so the postings
+        // are exact for them too.
+        self.plan_bits(plan?, slot_count)
     }
 
     fn plan_bits(&self, plan: &TypedPlan, slot_count: usize) -> Option<Vec<u64>> {
@@ -427,8 +613,7 @@ impl TypedIndex {
     ) -> Option<Vec<u64>> {
         // A schema scalar posting may omit invalid array values. Only a
         // complete runtime posting can decide an existential comparison.
-        self.dynamic
-            .get(path)
+        self.comparison_posting(path)
             .filter(|field| field.fresh && field.complete_values)?;
         self.term_bits(path, operator, value, slot_count)
     }

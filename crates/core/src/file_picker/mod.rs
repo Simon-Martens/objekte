@@ -64,7 +64,7 @@ pub use profile::{BuildTimings, FieldIndexSize, IndexSizes, RestoreTimings, Stag
 #[cfg(feature = "index-timings")]
 use profile::{StageTimer, WorkerStages};
 use projection::{
-    ProjectionOptions, ProjectionOutcome, projected_values, projected_values_with_text,
+    ProjectionOptions, ProjectionOutcome, projected_values_with_text,
     projected_values_with_text_buffer_and_sort,
 };
 use sort_index::SortIndex;

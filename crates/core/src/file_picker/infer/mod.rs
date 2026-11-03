@@ -118,6 +118,8 @@ impl FilePicker {
                     present,
                     !field.multiple_values,
                     true,
+                    // Inference does not compare spellings; a rebuild does.
+                    false,
                 );
                 self.inferred_paths.insert(field.path.clone());
             }

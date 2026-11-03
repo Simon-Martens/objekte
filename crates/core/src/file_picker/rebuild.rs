@@ -576,6 +576,7 @@ impl FilePicker {
                 builder.present,
                 builder.scalar_safe,
                 builder.complete_values,
+                builder.implicit_equivalent,
             );
         }
 

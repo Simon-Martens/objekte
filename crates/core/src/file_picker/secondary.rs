@@ -14,7 +14,9 @@ use view::{RestoredViewIndex, SavedViewIndex};
 // Flat sort-key storage changes the secondary payload. Older sidecars are
 // cache misses; their portable bigram snapshot remains reusable.
 // The global rendered filter now holds only text outside registered fields.
-const MAGIC: &[u8; 8] = b"OBJSEC06";
+// 07: typed postings are patched for changed files, so older companions
+// with unpatched overlays are cache misses.
+const MAGIC: &[u8; 8] = b"OBJSEC07";
 const HEADER: usize = 8 + 32 + 32 + 8 + 32;
 // A single declared sort order can exceed 1 GiB for multi-million-record collections.
 const MAX_BYTES: u64 = 8 * 1024 * 1024 * 1024;

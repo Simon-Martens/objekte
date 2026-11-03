@@ -147,9 +147,10 @@ fn runtime_string_posting_keeps_percent_literal_for_equality_and_indexes_prefixe
         record["title"] = json!("Zenith")
     });
     repository.refresh("books").unwrap();
-    let stale = repository.query_json(&query("title ~ 'A%'")).unwrap();
-    assert_eq!(stale.total, Some(2));
-    assert!(stale.metrics.grep_scans > 0);
+    // The refresh patches the runtime posting, so it stays exact.
+    let patched = repository.query_json(&query("title ~ 'A%'")).unwrap();
+    assert_eq!(patched.total, Some(2));
+    assert_eq!(patched.metrics.grep_scans, 0);
     repository.build_posting("books", "title").unwrap();
     assert_eq!(
         repository.query_json(&query("title ~ 'A%'")).unwrap().total,

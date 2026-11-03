@@ -1,7 +1,7 @@
 //! Caller-built ordered postings for one or several JSON paths.
 
 use super::*;
-use crate::{JsonPath, json_filter::sonic_values};
+use crate::{JsonPath, JsonPathStep, json_filter::sonic_values};
 use sonic_rs::Value as SonicValue;
 use std::{io::Read, sync::Mutex};
 
@@ -12,6 +12,7 @@ pub(super) struct PostingRows {
     pub(super) present: Vec<u64>,
     pub(super) scalar_safe: bool,
     pub(super) complete_values: bool,
+    pub(super) implicit_equivalent: bool,
 }
 
 
@@ -22,6 +23,7 @@ impl PostingRows {
             present: vec![0; slots.div_ceil(64)],
             scalar_safe: true,
             complete_values: true,
+            implicit_equivalent: true,
         }
     }
 }
@@ -33,16 +35,29 @@ pub(super) struct ChunkRows {
     present: Vec<usize>,
     scalar_safe: bool,
     complete_values: bool,
+    implicit_equivalent: bool,
 }
 
 
 impl ChunkRows {
+    /// Values of the single document this chunk projected.
+    pub(super) fn into_path_values(self) -> super::typed::PathValues {
+        super::typed::PathValues {
+            keys: self.rows.into_iter().map(|(key, _)| key).collect(),
+            present: !self.present.is_empty(),
+            scalar_safe: self.scalar_safe,
+            complete_values: self.complete_values,
+            implicit_equivalent: self.implicit_equivalent,
+        }
+    }
+
     pub(super) fn new() -> Self {
         Self {
             rows: Vec::new(),
             present: Vec::new(),
             scalar_safe: true,
             complete_values: true,
+            implicit_equivalent: true,
         }
     }
 }
@@ -61,6 +76,21 @@ pub(super) fn project_document(
         }
         let selected = sonic_values(document, path, true);
         posting.scalar_safe &= selected.len() <= 1;
+        // `tags[*]` and the implicit spelling `tags` reach the same values
+        // unless a non-array stands where `[*]` expects one.
+        if path.iter().any(|step| matches!(step, JsonPathStep::Each)) {
+            let implicit = path
+                .iter()
+                .filter(|step| !matches!(step, JsonPathStep::Each))
+                .cloned()
+                .collect::<Vec<_>>();
+            let natural = sonic_values(document, &implicit, true);
+            posting.implicit_equivalent &= natural.len() == selected.len()
+                && natural
+                    .iter()
+                    .zip(&selected)
+                    .all(|(a, b)| std::ptr::eq(*a, *b));
+        }
         if !present {
             posting.rows.push((TypedKey::Missing, slot));
         } else {
@@ -84,6 +114,7 @@ pub(super) fn merge_chunk(builders: &[Mutex<PostingRows>], chunks: Vec<ChunkRows
         }
         builder.scalar_safe &= chunk.scalar_safe;
         builder.complete_values &= chunk.complete_values;
+        builder.implicit_equivalent &= chunk.implicit_equivalent;
     }
 }
 
@@ -159,6 +190,7 @@ impl FilePicker {
                 builder.present,
                 builder.scalar_safe,
                 builder.complete_values,
+                builder.implicit_equivalent,
             );
             self.inferred_paths.remove(&path);
         }

@@ -53,6 +53,7 @@ pub(super) struct ProjectionOptions<'a> {
 }
 
 
+#[cfg(test)]
 #[expect(
     clippy::too_many_arguments,
     reason = "projection borrows each index independently"
@@ -91,6 +92,61 @@ pub(super) fn projected_values(
             ProjectionOutcome::Malformed(_) => None,
         },
     )
+}
+
+/// Project one refreshed file, including its values at runtime posting
+/// `paths`, from a single read and parse. A malformed file yields no values.
+#[expect(
+    clippy::too_many_arguments,
+    reason = "projection borrows each index independently"
+)]
+pub(super) fn refreshed_values(
+    source: &Source,
+    id: &str,
+    stamp: &Stamp,
+    indexed_fields: &[String],
+    presence_fields: &[String],
+    view: &ViewIndex,
+    sort: &SortIndex,
+    paths: &[crate::JsonPath],
+) -> Result<(Option<Projection>, Vec<super::typed::PathValues>)> {
+    let mut rows = paths
+        .iter()
+        .map(|_| super::posting::ChunkRows::new())
+        .collect::<Vec<_>>();
+    let outcome = projected_values_with_text_buffer_and_sort(
+        source,
+        id,
+        stamp,
+        indexed_fields,
+        presence_fields,
+        view,
+        sort,
+        ProjectionOptions {
+            folded_index: true,
+            text_rules: None,
+            text_paths: &[],
+            key_summary: None,
+            text_scratch: None,
+            values_scratch: None,
+            #[cfg(feature = "index-timings")]
+            timings: None,
+        },
+        &mut Vec::new(),
+        None,
+        None,
+        Some((paths, &mut rows, 0)),
+        None,
+    )?;
+    Ok(match outcome {
+        ProjectionOutcome::Valid(projection) => (
+            Some(projection),
+            rows.into_iter()
+                .map(super::posting::ChunkRows::into_path_values)
+                .collect(),
+        ),
+        ProjectionOutcome::Malformed(_) => (None, Vec::new()),
+    })
 }
 
 /// Reuse the same source read and Sonic tree when full-text postings are active.

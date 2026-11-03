@@ -312,9 +312,7 @@ impl FilePicker {
             )
         });
         let overlay = pattern.map(regex_plan::OverlayQuery::new);
-        let typed_bits = self
-            .typed
-            .candidate_bits(typed_plan, self.files.len(), &self.changed);
+        let typed_bits = self.typed.candidate_bits(typed_plan, self.files.len());
         let presence_bits = self.presence.candidates(required_fields);
         if bits.is_none() && typed_bits.is_none() && presence_bits.is_none() {
             return SlotSelection {
@@ -442,8 +440,7 @@ impl FilePicker {
                 })
                 .collect(),
         );
-        self.typed
-            .candidate_bits(Some(&plan), self.files.len(), &self.changed)
+        self.typed.candidate_bits(Some(&plan), self.files.len())
     }
 
     /// Conservative candidates containing any of `literals`, as a bitset.

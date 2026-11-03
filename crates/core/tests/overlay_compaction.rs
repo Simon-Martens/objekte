@@ -90,7 +90,7 @@ fn a_saved_cache_with_a_full_overlay_is_rebuilt_on_load() {
 }
 
 #[test]
-fn a_few_edits_stay_in_the_overlay() {
+fn a_few_edits_keep_indexed_lookups_exact() {
     let fixture = fixture();
     let root = fixture.path();
     let mut repository = repo(root);
@@ -103,7 +103,7 @@ fn a_few_edits_stay_in_the_overlay() {
         .unwrap();
     }
     repository.refresh("books").unwrap();
-    // The ten overlay slots stay conservative candidates; nothing else is read.
-    let reads = reads_for_one_match(&mut repository);
-    assert!((1..=11).contains(&reads), "{reads}");
+    // Edited files are patched into the typed postings, so they are not
+    // extra candidates: the exact count reads nothing beyond the result.
+    assert!(reads_for_one_match(&mut repository) <= 1);
 }

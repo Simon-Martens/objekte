@@ -208,7 +208,9 @@ fn presence_narrows_negation_and_refresh_updates_bits() {
             .collect::<Vec<_>>(),
         ["f", "a", "c"]
     );
-    assert_eq!(present.metrics.grep_scans, 3);
+    // Refreshed files are patched into presence and typed postings, so the
+    // exact count reads only returned records.
+    assert_eq!(present.metrics.grep_scans, 0);
 }
 
 #[test]

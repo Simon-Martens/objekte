@@ -12,26 +12,20 @@ pub(crate) struct ExactSelection<'a> {
 
 
 impl FilePicker {
-    /// Exact posting membership is usable with cached verification only when
-    /// no changed-file overlay can contain values absent from the postings.
+    /// Exact posting membership. Refreshes patch typed postings and presence
+    /// bits for changed, added, and deleted files, so they stay exact.
     pub(crate) fn exact_match_bits(&self, plan: &ExactPlan) -> Option<Vec<u64>> {
-        self.changed
-            .is_empty()
-            .then(|| self.exact_bits(plan))
-            .flatten()
+        self.exact_bits(plan)
     }
 
-    /// Count exact snapshot matches and select only the requested page in
-    /// modification-time order. Changed slots still require source verification.
+    /// Count exact matches and select only the requested page in
+    /// modification-time order; returned records are still read from source.
     pub(crate) fn exact_selection(
         &self,
         plan: &ExactPlan,
         offset: usize,
         limit: usize,
     ) -> Option<ExactSelection<'_>> {
-        if !self.changed.is_empty() {
-            return None;
-        }
         let bits = self.exact_bits(plan)?;
         let count: usize = bits.iter().map(|word| word.count_ones() as usize).sum();
         let mut page = Vec::with_capacity(limit.min(count.saturating_sub(offset)));

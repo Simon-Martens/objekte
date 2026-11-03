@@ -1,6 +1,7 @@
 //! Apply inventory changes and individual file edits to live indexes.
 
-use super::projection::Projection;
+use super::projection::{Projection, refreshed_values};
+use super::typed::{PathValues, TypedKey};
 use super::*;
 use crate::repository::SourceChanges;
 
@@ -12,12 +13,14 @@ struct StagedProjection {
     view_keys: Vec<crate::query::Scalar>,
     sort_keys: Vec<Vec<crate::sorting::SortValue>>,
     bigrams: Option<Vec<u16>>,
+    typed_values: Vec<(usize, TypedKey)>,
+    path_values: Vec<PathValues>,
 }
 
 
 impl StagedProjection {
     fn from_projection(
-        projection: Option<Projection>,
+        (projection, path_values): (Option<Projection>, Vec<PathValues>),
         view: &ViewIndex,
         sort: &SortIndex,
         encoding: BigramEncoding,
@@ -31,6 +34,8 @@ impl StagedProjection {
                 view_keys: projection.view_keys,
                 sort_keys: projection.sort_keys,
                 bigrams: overlay.then(|| sorted_bigrams(&projection.bytes, encoding)),
+                typed_values: projection.typed_values,
+                path_values,
             },
             None => Self {
                 malformed: true,
@@ -39,6 +44,8 @@ impl StagedProjection {
                 view_keys: view.missing_keys(),
                 sort_keys: sort.missing_keys(),
                 bigrams: None,
+                typed_values: Vec::new(),
+                path_values: Vec::new(),
             },
         }
     }
@@ -61,16 +68,7 @@ impl FilePicker {
         stamp: &Stamp,
         overlay: bool,
     ) -> Result<StagedProjection> {
-        let projection = projected_values(
-            source,
-            id,
-            stamp,
-            self.typed.fields(),
-            self.presence.fields(),
-            &self.view,
-            &self.sort,
-            true,
-        )?;
+        let projection = self.refreshed(source, id, stamp)?;
         Ok(StagedProjection::from_projection(
             projection,
             &self.view,
@@ -78,6 +76,25 @@ impl FilePicker {
             self.encoding,
             overlay,
         ))
+    }
+
+    /// Read one file again for every live index, including typed postings.
+    fn refreshed(
+        &self,
+        source: &Source,
+        id: &str,
+        stamp: &Stamp,
+    ) -> Result<(Option<Projection>, Vec<PathValues>)> {
+        refreshed_values(
+            source,
+            id,
+            stamp,
+            self.typed.fields(),
+            self.presence.fields(),
+            &self.view,
+            &self.sort,
+            &self.typed.dynamic_paths(),
+        )
     }
 
     fn apply_staged_projection(
@@ -96,6 +113,12 @@ impl FilePicker {
         }
         self.presence.update(slot, &staged.present_fields);
         self.array_fields.extend(staged.array_fields);
+        self.typed.patch(
+            slot,
+            self.files.len(),
+            &staged.typed_values,
+            staged.path_values,
+        );
         if overlay {
             if let Some(bigrams) = staged.bigrams {
                 self.changed_bigrams.insert(slot, bigrams);
@@ -112,7 +135,7 @@ impl FilePicker {
     fn apply_refresh_projection(
         &mut self,
         slot: usize,
-        projection: Option<Projection>,
+        projection: (Option<Projection>, Vec<PathValues>),
         overlay: bool,
     ) -> (
         Vec<crate::query::Scalar>,
@@ -135,16 +158,7 @@ impl FilePicker {
             .expect("restored file")
             .stamp
             .clone();
-        let projection = projected_values(
-            source,
-            &id,
-            &stamp,
-            self.typed.fields(),
-            self.presence.fields(),
-            &self.view,
-            &self.sort,
-            true,
-        )?;
+        let projection = self.refreshed(source, &id, &stamp)?;
         let (keys, sort_keys) = self.apply_refresh_projection(slot, projection, true);
         self.key_summary.saturate();
         let entry = self.files[slot].as_mut().expect("restored file");
@@ -310,6 +324,7 @@ impl FilePicker {
             self.changed_bigrams.remove(&slot);
             self.malformed.remove(&slot);
             self.presence.remove(slot);
+            self.typed.patch(slot, self.files.len(), &[], Vec::new());
             if batch {
                 affected[slot] = true;
             } else {
@@ -345,7 +360,6 @@ impl FilePicker {
         self.modified_order
             .maybe_compact(&self.files, &self.id_bytes);
         self.key_summary.saturate();
-        self.typed.invalidate_dynamic();
         changes.deleted.sort();
         Ok(changes)
     }
@@ -370,7 +384,6 @@ impl FilePicker {
         source.finish()?;
         if !changes.is_empty() {
             self.key_summary.saturate();
-            self.typed.invalidate_dynamic();
         }
         self.modified_order
             .maybe_compact(&self.files, &self.id_bytes);
@@ -398,16 +411,7 @@ impl FilePicker {
                     Ok(position) => {
                         let slot = self.sorted[position];
                         if self.files[slot].as_ref().expect("live sorted slot").stamp != stamp {
-                            let projection = projected_values(
-                                source,
-                                id,
-                                &stamp,
-                                &[],
-                                self.presence.fields(),
-                                &self.view,
-                                &self.sort,
-                                true,
-                            )?;
+                            let projection = self.refreshed(source, id, &stamp)?;
                             let entry = self.files[slot].as_mut().expect("live sorted slot");
                             entry.stamp = stamp;
                             entry.revision += 1;
@@ -423,16 +427,7 @@ impl FilePicker {
                         }
                     }
                     Err(_) => {
-                        let projection = projected_values(
-                            source,
-                            id,
-                            &stamp,
-                            &[],
-                            self.presence.fields(),
-                            &self.view,
-                            &self.sort,
-                            true,
-                        )?;
+                        let projection = self.refreshed(source, id, &stamp)?;
                         let slot = self.insert(id, stamp)?;
                         let (keys, sort_keys) =
                             self.apply_refresh_projection(slot, projection, false);
@@ -454,6 +449,7 @@ impl FilePicker {
                     self.changed_bigrams.remove(&slot);
                     self.malformed.remove(&slot);
                     self.presence.remove(slot);
+                    self.typed.patch(slot, self.files.len(), &[], Vec::new());
                     self.view.remove(slot);
                     self.sort.remove(slot);
                     self.modified_order.touch(slot, &self.files, &self.id_bytes);

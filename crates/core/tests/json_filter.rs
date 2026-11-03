@@ -702,7 +702,8 @@ fn numeric_or_unions_typed_candidates_without_losing_mixed_branches() {
             .collect::<Vec<_>>(),
         ["r050", "r002", "r003"]
     );
-    assert_eq!(result.metrics.grep_scans, 3);
+    // The edit was patched into the `x` postings, so the count stays exact.
+    assert_eq!(result.metrics.grep_scans, 0);
 }
 
 #[test]
