@@ -309,34 +309,36 @@ fn sparse_valid(data: &[u8], file_count: usize) -> bool {
     let mut at = 0;
     let mut previous = 0u64;
     let mut first = true;
+    let file_count = file_count as u64;
     while at < data.len() {
-        let mut gap = 0u64;
-        let mut shift = 0;
-        loop {
-            let Some(&byte) = data.get(at) else {
-                return false;
-            };
-            at += 1;
-            let part = u64::from(byte & 0x7f);
-            if shift >= 64 || part > (u64::MAX >> shift) {
-                return false;
+        let byte = data[at];
+        at += 1;
+        let mut gap = u64::from(byte & 0x7f);
+        if byte & 0x80 != 0 {
+            let mut shift = 7;
+            loop {
+                let Some(&byte) = data.get(at) else {
+                    return false;
+                };
+                at += 1;
+                let part = u64::from(byte & 0x7f);
+                if shift >= 64 || part > (u64::MAX >> shift) {
+                    return false;
+                }
+                gap |= part << shift;
+                if byte & 0x80 == 0 {
+                    break;
+                }
+                shift += 7;
             }
-            gap |= part << shift;
-            if byte & 0x80 == 0 {
-                break;
-            }
-            shift += 7;
         }
         if !first && gap == 0 {
             return false;
         }
-        let Some(position) = previous.checked_add(gap) else {
-            return false;
-        };
-        if position >= file_count as u64 {
+        if gap >= file_count.saturating_sub(previous) {
             return false;
         }
-        previous = position;
+        previous += gap;
         first = false;
     }
     true

@@ -49,3 +49,76 @@ fn streaming_bytes_match_in_memory_encoding_for_both_modes() {
         assert!(BigramFilter::from_bytes(&streamed).is_err());
     }
 }
+
+#[test]
+fn sparse_validation_fast_path_keeps_all_bounds_checks() {
+    assert!(sparse_valid(&[], 0));
+    assert!(sparse_valid(&[0, 1, 1], 4));
+    assert!(sparse_valid(&[0x82, 0x01], 131));
+    assert!(!sparse_valid(&[0, 0], 4));
+    assert!(!sparse_valid(&[4], 4));
+    assert!(!sparse_valid(&[0x80], 100));
+    assert!(!sparse_valid(
+        &[0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x02],
+        usize::MAX
+    ));
+}
+
+#[test]
+fn sparse_validation_matches_previous_decoder_on_malformed_sequences() {
+    fn reference(data: &[u8], file_count: usize) -> bool {
+        let mut at = 0;
+        let mut previous = 0u64;
+        let mut first = true;
+        while at < data.len() {
+            let mut gap = 0u64;
+            let mut shift = 0;
+            loop {
+                let Some(&byte) = data.get(at) else {
+                    return false;
+                };
+                at += 1;
+                let part = u64::from(byte & 0x7f);
+                if shift >= 64 || part > (u64::MAX >> shift) {
+                    return false;
+                }
+                gap |= part << shift;
+                if byte & 0x80 == 0 {
+                    break;
+                }
+                shift += 7;
+            }
+            if !first && gap == 0 {
+                return false;
+            }
+            let Some(position) = previous.checked_add(gap) else {
+                return false;
+            };
+            if position >= file_count as u64 {
+                return false;
+            }
+            previous = position;
+            first = false;
+        }
+        true
+    }
+
+    let mut state = 0x1234_5678_9abc_def0_u64;
+    for length in 0..128 {
+        for _ in 0..32 {
+            let bytes = (0..length)
+                .map(|_| {
+                    state ^= state << 13;
+                    state ^= state >> 7;
+                    state ^= state << 17;
+                    state as u8
+                })
+                .collect::<Vec<_>>();
+            let file_count = state as usize % 10_000;
+            assert_eq!(
+                sparse_valid(&bytes, file_count),
+                reference(&bytes, file_count)
+            );
+        }
+    }
+}
