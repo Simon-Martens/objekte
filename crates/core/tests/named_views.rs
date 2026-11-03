@@ -1,6 +1,11 @@
 use objekte_core::{Repository, ViewQueryResult, ViewType};
 use serde_json::{Value, json};
-use std::{collections::BTreeMap, fs, path::Path};
+use std::{
+    collections::BTreeMap,
+    fs::{self, File, FileTimes},
+    path::Path,
+    time::{Duration, UNIX_EPOCH},
+};
 
 fn write(root: &Path, path: &str, value: Value) {
     let file = root.join(path);
@@ -26,6 +31,16 @@ fn fixture() -> tempfile::TempDir {
         "data/records/c.json",
         json!({"title":"Gamma","score":3}),
     );
+    // Default order is newest first. Distinct times keep the expected page
+    // order c, b, a; files written together can share a timestamp.
+    for (seconds, id) in [(1000, "a"), (1001, "b"), (1002, "c")] {
+        File::options()
+            .write(true)
+            .open(root.join(format!("data/records/{id}.json")))
+            .unwrap()
+            .set_times(FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(seconds)))
+            .unwrap();
+    }
     write(
         root,
         ".objekte/collections/books.schema.json",
