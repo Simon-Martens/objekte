@@ -211,40 +211,6 @@ impl FilePicker {
         )
     }
 
-    /// Profile the production fresh-build path.
-    #[cfg(feature = "index-timings")]
-    pub fn profile_collection_combined(
-        collection: &crate::Collection,
-        encoding: BigramEncoding,
-    ) -> Result<Self> {
-        Self::profile_collection(collection, encoding)
-    }
-
-    /// Profile the previous separate inventory path as a benchmark reference.
-    #[cfg(feature = "index-timings")]
-    pub fn profile_collection_separate(
-        collection: &crate::Collection,
-        encoding: BigramEncoding,
-    ) -> Result<Self> {
-        Self::open_inner(
-            &collection.path,
-            collection.recursive,
-            &collection.indexes,
-            &collection.advanced_index_paths,
-            &collection.sort_indexes,
-            &collection.fields,
-            collection
-                .schema
-                .as_ref()
-                .and_then(|schema| schema.field.language.as_deref()),
-            (None, None),
-            false,
-            collection.bigram_encoding.unwrap_or(encoding),
-            false,
-        )?
-        .ok_or_else(|| Error::Cache("separate profile picker could not be opened".into()))
-    }
-
     /// Time complete early restoration of a profile's base and secondary snapshot.
     #[cfg(feature = "index-timings")]
     pub fn profile_restore_collection(
@@ -311,7 +277,6 @@ impl FilePicker {
             (snapshot.map(CacheSnapshot::Public), snapshot_path),
             false,
             encoding,
-            true,
         )?
         .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
     }
@@ -343,7 +308,6 @@ impl FilePicker {
             (Some(CacheSnapshot::Compact(snapshot)), Some(snapshot_path)),
             true,
             encoding,
-            false,
         )
     }
 
@@ -362,7 +326,6 @@ impl FilePicker {
         cached: (Option<CacheSnapshot>, Option<&Path>),
         unchecked: bool,
         encoding: BigramEncoding,
-        combined_build: bool,
     ) -> Result<Option<Self>> {
         let (mut snapshot, snapshot_path) = cached;
         let scalar_snapshot = snapshot.as_ref().is_some_and(|saved| match saved {
@@ -381,7 +344,7 @@ impl FilePicker {
             }
             snapshot = None;
         }
-        let combined_build = combined_build && !unchecked && snapshot.is_none();
+        let combined_build = !unchecked && snapshot.is_none();
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]

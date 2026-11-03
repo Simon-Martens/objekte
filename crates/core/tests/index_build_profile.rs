@@ -75,7 +75,7 @@ fn field_build_and_secondary_save_have_separate_measurements() {
 }
 
 #[test]
-fn combined_inventory_build_matches_regular_candidates_and_results() {
+fn fresh_build_restores_candidates_and_results() {
     let root = tempfile::tempdir().unwrap();
     let schema = root.path().join(".objekte/collections/docs.schema.json");
     fs::create_dir_all(schema.parent().unwrap()).unwrap();
@@ -93,29 +93,24 @@ fn combined_inventory_build_matches_regular_candidates_and_results() {
     let collection = repository.model().collections.get("docs").unwrap();
 
     for encoding in [BigramEncoding::Ascii, BigramEncoding::Utf8Bytes] {
-        let regular = FilePicker::profile_collection_separate(collection, encoding).unwrap();
-        let combined = FilePicker::profile_collection_combined(collection, encoding).unwrap();
-        assert_eq!(regular.len(), combined.len());
-        assert_eq!(regular.index_bytes(), combined.index_bytes());
+        let picker = FilePicker::profile_collection(collection, encoding).unwrap();
+        assert_eq!(picker.len(), 3);
         for query in ["Müller", "Straße", "apple", "Äpfel", "invalid", "absent"] {
-            let literal = Some(&[query.to_owned()][..]);
-            assert_eq!(
-                regular.candidate_ids(literal),
-                combined.candidate_ids(literal)
-            );
-            assert_eq!(
-                regular.search_values_regex(query).unwrap(),
-                combined.search_values_regex(query).unwrap()
-            );
+            let matched = picker.search_values_regex(query).unwrap();
+            assert_eq!(matched.is_empty(), query == "absent");
         }
         let snapshot = root.path().join(format!("{encoding:?}.bigram"));
-        combined.save_bigram_snapshot(&snapshot).unwrap();
-        combined.profile_secondary_snapshot(&snapshot).unwrap();
+        picker.save_bigram_snapshot(&snapshot).unwrap();
+        picker.profile_secondary_snapshot(&snapshot).unwrap();
         let restored =
             FilePicker::profile_restore_collection(collection, encoding, &snapshot).unwrap();
-        assert_eq!(
-            restored.candidate_ids(Some(&["Straße".into()])),
-            combined.candidate_ids(Some(&["Straße".into()]))
-        );
+        for query in ["Müller", "Straße", "apple", "Äpfel", "invalid", "absent"] {
+            let literal = Some(&[query.to_owned()][..]);
+            assert_eq!(restored.candidate_ids(literal), picker.candidate_ids(literal));
+            assert_eq!(
+                restored.search_values_regex(query).unwrap(),
+                picker.search_values_regex(query).unwrap()
+            );
+        }
     }
 }

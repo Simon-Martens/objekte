@@ -139,7 +139,6 @@ fn nested_parent_symlinks_are_not_followed() {
     assert!(source.finish().is_err());
 }
 
-#[cfg(feature = "index-timings")]
 #[test]
 fn combined_inventory_detects_membership_changes_and_refuses_symlinks() {
     for change in ["insert", "delete", "rename", "replace", "symlink"] {
@@ -178,7 +177,6 @@ fn combined_inventory_detects_membership_changes_and_refuses_symlinks() {
     }
 }
 
-#[cfg(feature = "index-timings")]
 #[test]
 fn combined_inventory_has_no_prior_stamp_for_in_place_changes() {
     let temp = tempfile::tempdir().unwrap();
@@ -194,7 +192,6 @@ fn combined_inventory_has_no_prior_stamp_for_in_place_changes() {
     assert!(source.finish().is_ok());
 }
 
-#[cfg(feature = "index-timings")]
 #[test]
 fn combined_inventory_rejects_recursive_directory_replacement() {
     let temp = tempfile::tempdir().unwrap();

@@ -524,14 +524,6 @@ impl FilePicker {
             self.build_timings.add_worker_nanos = add_worker.load(Ordering::Relaxed);
             let stages = worker_stages.into_inner().expect("worker stage lock");
             self.build_timings.source_read = stages.projection.read;
-            self.build_timings.source_open = stages.projection.source_open;
-            self.build_timings.source_before_metadata = stages.projection.source_before_metadata;
-            self.build_timings.source_bytes_read = stages.projection.source_bytes_read;
-            self.build_timings.source_after_metadata = stages.projection.source_after_metadata;
-            self.build_timings.source_close = stages.projection.source_close;
-            self.build_timings.source_byte_count = stages.projection.source_byte_count;
-            self.build_timings.source_file_count = stages.projection.source_file_count;
-            self.build_timings.source_size_buckets = stages.projection.source_size_buckets;
             self.build_timings.json_parse = stages.projection.parse;
             self.build_timings.general_values = stages.projection.values;
             self.build_timings.field_text = stages.projection.field_text;

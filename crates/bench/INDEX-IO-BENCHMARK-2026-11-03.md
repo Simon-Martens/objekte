@@ -4,7 +4,7 @@
 
 ## Adoption follow-up
 
-Fresh production builds now use combined ID enumeration and Rayon scanning. Checked snapshot reconciliation retains the separate inventory path; rebuilds with existing slots still compare against their stored expected stamps. The benchmark binary still offers `--separate-inventory` as a reference; its default profiles the production path. One fresh alternating pair after this switch produced these build times (ms):
+Fresh production builds now use combined ID enumeration and Rayon scanning. Checked snapshot reconciliation retains the separate inventory path; rebuilds with existing slots still compare against their stored expected stamps. The experimental comparison flags were removed after the Rayon decision. One fresh alternating pair after this switch produced these build times (ms):
 
 | Profile | Separate reference | Production combined | Index size equal |
 |---|---:|---:|---|
@@ -17,21 +17,15 @@ The earlier five-pair results below remain the stronger timing evidence; NYC was
 
 ## Original experimental decision
 
-**Keep the production synchronous Rayon path.** The benchmark-only combined inventory/scan path saved 9% on Amazon and 9% on Leipzig, but it removes the earlier per-file metadata observation used to detect an in-place edit between enumeration and opening. NYC did not improve reliably. Synchronous `statx` changed complete inventory time by under 1%; `io_uring` `STATX` and the bounded read-only ring were much slower. No experimental I/O backend was installed in normal repository opening, rebuilding, reconciliation, or query execution.
+**Keep synchronous Rayon.** The combined inventory/scan path saved 9% on Amazon and 9% on Leipzig, but it removes the earlier per-file metadata observation used to detect an in-place edit between enumeration and opening. It was initially rejected for production, then adopted in the follow-up above with that limitation documented. NYC did not improve reliably. Synchronous `statx` changed complete inventory time by under 1%; `io_uring` `STATX` and the bounded read-only ring were much slower. No experimental asynchronous I/O backend was installed in normal repository opening, rebuilding, reconciliation, or query execution.
 
-The experiment code and runner remain in `crates/bench/` and behind `index-timings` in the core. All 477 individual records, including setup and verification rows, are in [the raw measurements](results/index-io-benchmark-2026-11-03.ndjson).
+The experimental `io_uring` code, runner, and comparison-only core hooks were subsequently removed. All 477 individual records, including setup and verification rows, remain in [the raw measurements](results/index-io-benchmark-2026-11-03.ndjson).
 
 ## Method and environment
 
 Starting revision: `bac19727ca`. Release build, 32 Rayon workers for full builds, five isolated runs per configuration, alternating profile and backend order. No snapshot save or restore is included in the build timings (`--skip-snapshot`). The four existing FTS profiles and their field settings are exactly those in `run_index_build_profiles.py`. Linux 7.2.13, Rust 1.99.1, Intel Core i9-13900K, 32 logical CPUs, local Btrfs. Filesystem data was largely warm; caches were not evicted. Current full-build times were materially higher than the earlier second-stage report, so conclusions use same-session paired runs rather than historical absolute times.
 
-To repeat a phase:
-
-```sh
-python3 crates/bench/run_index_io_benchmarks.py --phase build --runs 5 --output target/io-build.ndjson
-python3 crates/bench/run_index_io_benchmarks.py --phase metadata --runs 5 --output target/io-metadata.ndjson
-python3 crates/bench/run_index_io_benchmarks.py --phase read --runs 5 --output target/io-read.ndjson
-```
+The original phase runner was removed after the decision. The retained `index-build-profile` benchmark still measures the current combined Rayon build path; the raw records preserve the experimental comparisons.
 
 The metadata and read-only benchmark uses the same sorted file IDs and pinned directory descriptors for relative `statx` and open requests. It is a benchmark clone, not a substitute for `Source::inventory()`: it constructs its own in-memory inventory, including a `BTreeMap`, so its absolute phase sum is not the production inventory duration. Comparisons *within* that benchmark use identical enumeration and stamp construction. File-operation counts below are logical operations; `read_to_end` can issue more than one kernel read per file. CPU figures are cumulative worker CPU time; they are not wall time.
 
