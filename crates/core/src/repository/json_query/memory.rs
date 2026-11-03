@@ -10,11 +10,57 @@ use crate::{
         predicate_cache::PredicateCacheKey,
     },
 };
-use grep_searcher::SearcherBuilder;
+use grep_searcher::{Searcher, SearcherBuilder};
 use regex::bytes::Regex;
 use std::sync::OnceLock;
 
 static ESCAPED_KEY: OnceLock<Regex> = OnceLock::new();
+
+thread_local! {
+    static SCAN_SCRATCH: std::cell::RefCell<Option<(Searcher, Vec<u8>)>> =
+        const { std::cell::RefCell::new(None) };
+}
+
+
+/// Per-thread searcher and read buffer. Rayon runs `map_init` for every split
+/// job, and building a `Searcher` zero-fills about 72 KiB of line buffers.
+struct ScanScratch(Option<(Searcher, Vec<u8>)>);
+
+
+impl ScanScratch {
+    fn take() -> Self {
+        Self(Some(
+            SCAN_SCRATCH
+                .with_borrow_mut(Option::take)
+                .unwrap_or_else(|| {
+                    (
+                        SearcherBuilder::new()
+                            .line_number(false)
+                            .bom_sniffing(false)
+                            .build(),
+                        Vec::with_capacity(4096),
+                    )
+                }),
+        ))
+    }
+
+    fn parts(&mut self) -> (&mut Searcher, &mut Vec<u8>) {
+        let (searcher, bytes) = self.0.as_mut().expect("scratch is returned only on drop");
+        (searcher, bytes)
+    }
+}
+
+
+impl Drop for ScanScratch {
+    fn drop(&mut self) {
+        let scratch = self.0.take();
+        let _ = SCAN_SCRATCH.try_with(|slot| {
+            if let Ok(mut slot) = slot.try_borrow_mut() {
+                *slot = scratch;
+            }
+        });
+    }
+}
 
 fn known_truth(
     entry: &crate::repository::predicate_cache::VerifiedPredicateEntry,
@@ -759,181 +805,176 @@ impl Repository {
                 }
                 let mut page_matches = Vec::new();
                 let capture_candidate = result.on_candidate.is_some();
+                // Captured documents and @status validation need every member.
+                let prune_keys = (!capture_candidate && !filter.uses_status())
+                    .then(|| filter.top_level_keys())
+                    .flatten();
                 let matched_before = matched;
                 let scan_started = Instant::now();
                 let outcomes = batch
                     .par_iter()
-                    .map_init(
-                        || {
-                            (
-                                SearcherBuilder::new()
-                                    .line_number(false)
-                                    .bom_sniffing(false)
-                                    .build(),
-                                Vec::with_capacity(4096),
-                            )
-                        },
-                        |(searcher, bytes), &slot| -> Result<ScanOutcome> {
-                            if let Some(matches) = full_snapshot
-                                .as_ref()
-                                .and_then(|entry| known_truth(entry, slot))
-                            {
-                                return Ok(ScanOutcome {
-                                    matches,
-                                    cache_skipped: true,
-                                    ..Default::default()
-                                });
+                    .map_init(ScanScratch::take, |scratch, &slot| -> Result<ScanOutcome> {
+                        let (searcher, bytes) = scratch.parts();
+                        if let Some(matches) = full_snapshot
+                            .as_ref()
+                            .and_then(|entry| known_truth(entry, slot))
+                        {
+                            return Ok(ScanOutcome {
+                                matches,
+                                cache_skipped: true,
+                                ..Default::default()
+                            });
+                        }
+                        let mut cached_terms = 0;
+                        let mut known_result = None;
+                        for (index, snapshot) in term_snapshots.iter().enumerate() {
+                            if omitted_terms[index] {
+                                continue;
                             }
-                            let mut cached_terms = 0;
-                            let mut known_result = None;
-                            for (index, snapshot) in term_snapshots.iter().enumerate() {
-                                if omitted_terms[index] {
-                                    continue;
+                            if let Some(matches) =
+                                snapshot.as_ref().and_then(|entry| known_truth(entry, slot))
+                            {
+                                cached_terms += 1;
+                                if matches == disjunction {
+                                    known_result = Some(matches);
+                                    break;
                                 }
-                                if let Some(matches) =
-                                    snapshot.as_ref().and_then(|entry| known_truth(entry, slot))
-                                {
-                                    cached_terms += 1;
+                            }
+                        }
+                        if let Some(matches) = known_result {
+                            return Ok(ScanOutcome {
+                                matches,
+                                cache_skipped: true,
+                                cached_terms,
+                                ..Default::default()
+                            });
+                        }
+                        let (id, stamp) = picker.view_record(slot);
+                        let open_started = Instant::now();
+                        let path = source.path.join(format!("{id}.json"));
+                        let mut file = match source.file(id) {
+                            Ok(file) => file,
+                            Err(Error::Io { source: error, .. })
+                                if optimistic && error.kind() == std::io::ErrorKind::NotFound =>
+                            {
+                                return Ok(ScanOutcome::default());
+                            }
+                            Err(error) => return Err(error),
+                        };
+                        let before_metadata = file.metadata().map_err(|e| io(&path, e))?;
+                        let before = Stamp::from_metadata(&before_metadata, &path)?;
+                        let created = crate::source::created_timestamp(&before_metadata);
+                        if !optimistic && &before != stamp {
+                            return Err(Error::Unstable(path));
+                        }
+                        let file_open_nanos = nanos(open_started);
+                        let read_started = Instant::now();
+                        bytes.clear();
+                        file.read_to_end(bytes).map_err(|e| io(&path, e))?;
+                        let read_nanos = nanos(read_started);
+                        let regex_started = Instant::now();
+                        let source_candidate = if let Some((matcher, _)) = prefilter {
+                            let mut sink = FirstMatch::default();
+                            searcher
+                                .search_slice(matcher, bytes, &mut sink)
+                                .map_err(|e| io(&path, e))?;
+                            sink.0
+                        } else {
+                            true
+                        };
+                        // A missing literal top-level key cannot match. Any
+                        // Unicode escape may encode a key, so keep those files.
+                        let candidate = source_candidate
+                            && (key_prefilters.is_empty()
+                                || escaped_key.is_match(bytes)
+                                || key_prefilters.iter().all(|regex| regex.is_match(bytes)));
+                        let regex_nanos = nanos(regex_started);
+                        let mut outcome = ScanOutcome {
+                            candidate,
+                            file_open_nanos,
+                            read_nanos,
+                            regex_nanos,
+                            cached_terms,
+                            ..Default::default()
+                        };
+                        let mut matched_document = None;
+                        if candidate {
+                            outcome.source_bytes = bytes.len() as u64;
+                            let t = Instant::now();
+                            let mut doc = match &prune_keys {
+                                Some(keys) => Document::parse_pruned(bytes, keys),
+                                None => Document::parse(bytes),
+                            };
+                            outcome.parse_nanos = nanos(t);
+                            if filter.uses_status()
+                                && doc.state.status != RecordStatus::IncorrectJson
+                            {
+                                let started = Instant::now();
+                                doc.validate(c);
+                                outcome.validation_nanos = nanos(started);
+                                outcome.validated = c.schema.is_some();
+                            }
+                            let t = Instant::now();
+                            let metadata_path = filter.uses_source_path().then(|| {
+                                relative_collection
+                                    .join(format!("{id}.json"))
+                                    .to_string_lossy()
+                                    .into_owned()
+                            });
+                            if conjuncts.is_empty() {
+                                outcome.matches = filter.matches_source(
+                                    &doc.data,
+                                    id,
+                                    metadata_path.as_deref().unwrap_or(""),
+                                    &before,
+                                    created,
+                                    doc.state.status,
+                                )?;
+                            } else if doc.state.status != RecordStatus::IncorrectJson {
+                                filter.check_cardinality(&doc.data)?;
+                                outcome.matches = !disjunction;
+                                outcome.term_results =
+                                    smallvec::SmallVec::from_elem(0_u8, conjuncts.len());
+                                for (index, term) in conjuncts.iter().enumerate() {
+                                    if omitted_terms[index] {
+                                        continue;
+                                    }
+                                    let matches = if let Some(known) = term_snapshots[index]
+                                        .as_ref()
+                                        .and_then(|entry| known_truth(entry, slot))
+                                    {
+                                        known
+                                    } else {
+                                        let matches = term.matches(&doc.data)?;
+                                        outcome.term_results[index] = if matches { 2 } else { 1 };
+                                        matches
+                                    };
                                     if matches == disjunction {
-                                        known_result = Some(matches);
+                                        outcome.matches = matches;
                                         break;
                                     }
                                 }
                             }
-                            if let Some(matches) = known_result {
-                                return Ok(ScanOutcome {
-                                    matches,
-                                    cache_skipped: true,
-                                    cached_terms,
-                                    ..Default::default()
-                                });
+                            outcome.query_nanos = nanos(t);
+                            if outcome.matches && capture_candidate {
+                                matched_document = Some(doc);
                             }
-                            let (id, stamp) = picker.view_record(slot);
-                            let open_started = Instant::now();
-                            let path = source.path.join(format!("{id}.json"));
-                            let mut file = match source.file(id) {
-                                Ok(file) => file,
-                                Err(Error::Io { source: error, .. })
-                                    if optimistic
-                                        && error.kind() == std::io::ErrorKind::NotFound =>
-                                {
-                                    return Ok(ScanOutcome::default());
-                                }
-                                Err(error) => return Err(error),
-                            };
-                            let before_metadata = file.metadata().map_err(|e| io(&path, e))?;
-                            let before = Stamp::from_metadata(&before_metadata, &path)?;
-                            let created = crate::source::created_timestamp(&before_metadata);
-                            if !optimistic && &before != stamp {
-                                return Err(Error::Unstable(path));
-                            }
-                            let file_open_nanos = nanos(open_started);
-                            let read_started = Instant::now();
-                            bytes.clear();
-                            file.read_to_end(bytes).map_err(|e| io(&path, e))?;
-                            let read_nanos = nanos(read_started);
-                            let regex_started = Instant::now();
-                            let source_candidate = if let Some((matcher, _)) = prefilter {
-                                let mut sink = FirstMatch::default();
-                                searcher
-                                    .search_slice(matcher, bytes, &mut sink)
-                                    .map_err(|e| io(&path, e))?;
-                                sink.0
-                            } else {
-                                true
-                            };
-                            // A missing literal top-level key cannot match. Any
-                            // Unicode escape may encode a key, so keep those files.
-                            let candidate = source_candidate
-                                && (key_prefilters.is_empty()
-                                    || escaped_key.is_match(bytes)
-                                    || key_prefilters.iter().all(|regex| regex.is_match(bytes)));
-                            let regex_nanos = nanos(regex_started);
-                            let mut outcome = ScanOutcome {
-                                candidate,
-                                file_open_nanos,
-                                read_nanos,
-                                regex_nanos,
-                                cached_terms,
-                                ..Default::default()
-                            };
-                            let mut matched_document = None;
-                            if candidate {
-                                outcome.source_bytes = bytes.len() as u64;
-                                let t = Instant::now();
-                                let mut doc = Document::parse(bytes);
-                                outcome.parse_nanos = nanos(t);
-                                if filter.uses_status()
-                                    && doc.state.status != RecordStatus::IncorrectJson
-                                {
-                                    let started = Instant::now();
-                                    doc.validate(c);
-                                    outcome.validation_nanos = nanos(started);
-                                    outcome.validated = c.schema.is_some();
-                                }
-                                let t = Instant::now();
-                                let metadata_path = filter.uses_source_path().then(|| {
-                                    relative_collection
-                                        .join(format!("{id}.json"))
-                                        .to_string_lossy()
-                                        .into_owned()
-                                });
-                                if conjuncts.is_empty() {
-                                    outcome.matches = filter.matches_source(
-                                        &doc.data,
-                                        id,
-                                        metadata_path.as_deref().unwrap_or(""),
-                                        &before,
-                                        created,
-                                        doc.state.status,
-                                    )?;
-                                } else if doc.state.status != RecordStatus::IncorrectJson {
-                                    filter.check_cardinality(&doc.data)?;
-                                    outcome.matches = !disjunction;
-                                    outcome.term_results =
-                                        smallvec::SmallVec::from_elem(0_u8, conjuncts.len());
-                                    for (index, term) in conjuncts.iter().enumerate() {
-                                        if omitted_terms[index] {
-                                            continue;
-                                        }
-                                        let matches = if let Some(known) = term_snapshots[index]
-                                            .as_ref()
-                                            .and_then(|entry| known_truth(entry, slot))
-                                        {
-                                            known
-                                        } else {
-                                            let matches = term.matches(&doc.data)?;
-                                            outcome.term_results[index] =
-                                                if matches { 2 } else { 1 };
-                                            matches
-                                        };
-                                        if matches == disjunction {
-                                            outcome.matches = matches;
-                                            break;
-                                        }
-                                    }
-                                }
-                                outcome.query_nanos = nanos(t);
-                                if outcome.matches && capture_candidate {
-                                    matched_document = Some(doc);
-                                }
-                            }
-                            let after = Stamp::from_metadata(
-                                &file.metadata().map_err(|e| io(&path, e))?,
-                                &path,
-                            )?;
-                            if before != after || bytes.len() as u64 != after.size {
-                                return Err(Error::Unstable(path));
-                            }
-                            if let Some(doc) = matched_document {
-                                let started = Instant::now();
-                                let hash = digest(bytes);
-                                outcome.hash_nanos = nanos(started);
-                                outcome.projected = Some((doc, hash, after));
-                            }
-                            Ok(outcome)
-                        },
-                    )
+                        }
+                        let after = Stamp::from_metadata(
+                            &file.metadata().map_err(|e| io(&path, e))?,
+                            &path,
+                        )?;
+                        if before != after || bytes.len() as u64 != after.size {
+                            return Err(Error::Unstable(path));
+                        }
+                        if let Some(doc) = matched_document {
+                            let started = Instant::now();
+                            let hash = digest(bytes);
+                            outcome.hash_nanos = nanos(started);
+                            outcome.projected = Some((doc, hash, after));
+                        }
+                        Ok(outcome)
+                    })
                     .collect::<Result<Vec<_>>>()?;
                 self.metrics.grep_scans += outcomes
                     .iter()

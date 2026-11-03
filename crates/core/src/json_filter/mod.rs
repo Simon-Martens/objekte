@@ -552,6 +552,21 @@ impl JsonFilter {
         &self.paths
     }
 
+    /// Top-level members that every JSON path starts from, or `None` when a
+    /// path begins at the root value itself.
+    pub(crate) fn top_level_keys(&self) -> Option<Vec<String>> {
+        let mut keys = Vec::new();
+        for path in &self.paths {
+            let Some(JsonPathStep::Key(key)) = path.first() else {
+                return None;
+            };
+            if !keys.contains(key) {
+                keys.push(key.clone());
+            }
+        }
+        Some(keys)
+    }
+
     pub fn metadata_fields(&self) -> &[String] {
         &self.metadata_fields
     }

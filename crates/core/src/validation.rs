@@ -1,6 +1,6 @@
 //! Parse and validate authoritative JSON source files on demand.
 use crate::Collection;
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Serialize, de::DeserializeSeed};
 use serde_json::Value;
 
 
@@ -82,6 +82,30 @@ impl Document {
         }
     }
 
+    /// Parse only the listed top-level members for predicate evaluation.
+    /// Other members are syntax-checked and skipped. Inputs where skipping
+    /// could accept what a full parse rejects use the full parse instead.
+    pub(crate) fn parse_pruned(bytes: &[u8], keys: &[String]) -> Self {
+        if std::str::from_utf8(bytes).is_err() || !prune_safe(bytes) {
+            return Self::parse(bytes);
+        }
+        let mut de = serde_json::Deserializer::from_slice(bytes);
+        match prune::Pruned(keys)
+            .deserialize(&mut de)
+            .and_then(|data| de.end().map(|()| data))
+        {
+            Ok(data) => Self {
+                data,
+                state: RecordState {
+                    status: RecordStatus::Pending,
+                    issues: Vec::new(),
+                },
+            },
+            // Reproduce the full parser's exact diagnostic.
+            Err(_) => Self::parse(bytes),
+        }
+    }
+
     pub fn validate(&mut self, c: &Collection) {
         if self.state.status == RecordStatus::IncorrectJson {
             return;
@@ -107,3 +131,92 @@ pub struct ValidationMetrics {
     pub applied: u64,
     pub validation_nanos: u64,
 }
+
+
+/// Skipped members bypass two full-parse checks: the nesting limit of 128
+/// and lone-surrogate escapes. Fewer than 128 brackets cannot reach the limit,
+/// and any surrogate escape falls back conservatively.
+fn prune_safe(bytes: &[u8]) -> bool {
+    // Non-object roots, including numbers, always use the full parse.
+    if bytes.iter().find(|byte| !byte.is_ascii_whitespace()) != Some(&b'{') {
+        return false;
+    }
+    // Two vectorizable passes; escapes are rare in UTF-8 source files.
+    let brackets: usize = bytes
+        .iter()
+        .map(|&byte| usize::from(byte == b'[' || byte == b'{'))
+        .sum();
+    if brackets >= 128 {
+        return false;
+    }
+    !bytes.contains(&b'\\')
+        || !bytes.windows(3).any(|window| {
+            window[0] == b'\\' && window[1] == b'u' && matches!(window[2], b'd' | b'D')
+        })
+}
+
+
+mod prune {
+    use serde::de::{DeserializeSeed, Deserializer, IgnoredAny, MapAccess, Visitor};
+    use serde_json::{Map, Value};
+    use std::fmt;
+
+    pub(super) struct Pruned<'k>(pub &'k [String]);
+
+    struct Key<'k>(&'k [String]);
+
+    impl<'de> DeserializeSeed<'de> for Key<'_> {
+        type Value = Option<String>;
+        fn deserialize<D: Deserializer<'de>>(self, d: D) -> Result<Self::Value, D::Error> {
+            d.deserialize_str(self)
+        }
+    }
+
+    impl<'de> Visitor<'de> for Key<'_> {
+        type Value = Option<String>;
+        fn expecting(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            f.write_str("an object key")
+        }
+        fn visit_str<E>(self, key: &str) -> Result<Self::Value, E> {
+            Ok(self
+                .0
+                .iter()
+                .any(|kept| kept == key)
+                .then(|| key.to_owned()))
+        }
+    }
+
+    impl<'de> DeserializeSeed<'de> for Pruned<'_> {
+        type Value = Value;
+        fn deserialize<D: Deserializer<'de>>(self, d: D) -> Result<Value, D::Error> {
+            d.deserialize_any(self)
+        }
+    }
+
+    impl<'de> Visitor<'de> for Pruned<'_> {
+        type Value = Value;
+        fn expecting(&self, f: &mut fmt::Formatter) -> fmt::Result {
+            f.write_str("a JSON value")
+        }
+        fn visit_map<M: MapAccess<'de>>(self, mut map: M) -> Result<Value, M::Error> {
+            let mut out = Map::new();
+            while let Some(key) = map.next_key_seed(Key(self.0))? {
+                match key {
+                    // Later duplicates replace earlier ones, as in a full parse.
+                    Some(key) => {
+                        out.insert(key, map.next_value()?);
+                    }
+                    None => {
+                        map.next_value::<IgnoredAny>()?;
+                    }
+                }
+            }
+            Ok(Value::Object(out))
+        }
+    }
+}
+
+
+#[cfg(test)]
+#[path = "validation.test.rs"]
+mod tests;
