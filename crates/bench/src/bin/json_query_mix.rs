@@ -185,7 +185,7 @@ mod tests {
         let extended: Vec<Case> =
             serde_json::from_str(include_str!("../../workloads/musenalm-mix-100.json")).unwrap();
         assert_eq!(original.len(), 50);
-        assert_eq!(extended.len(), 120);
+        assert_eq!(extended.len(), 152);
         for (index, (old, new)) in original.iter().zip(&extended).enumerate() {
             assert_eq!(old.id, index + 1);
             assert_eq!(
@@ -218,11 +218,26 @@ mod tests {
     }
 
     #[test]
+    fn relation_cases_compile_and_mix_relations_with_system_fields() {
+        let extended: Vec<Case> =
+            serde_json::from_str(include_str!("../../workloads/musenalm-mix-100.json")).unwrap();
+        let mut metadata = 0;
+        for (index, case) in extended[120..].iter().enumerate() {
+            assert_eq!(case.id, index + 121);
+            let (filter, _) = split_sort_clause(&case.filter).unwrap();
+            let filter = JsonFilter::compile(&filter, &BTreeMap::new()).unwrap();
+            metadata +=
+                usize::from(!filter.metadata_fields().is_empty() || case.filter.contains("@"));
+        }
+        assert!(metadata >= 8, "{metadata}");
+    }
+
+    #[test]
     fn sort_cases_cover_every_system_field_and_rendered_sorts() {
         let extended: Vec<Case> =
             serde_json::from_str(include_str!("../../workloads/musenalm-mix-100.json")).unwrap();
         let mut fields = BTreeSet::new();
-        for (index, case) in extended[100..].iter().enumerate() {
+        for (index, case) in extended[100..120].iter().enumerate() {
             assert_eq!(case.id, index + 101);
             let (filter, sort) = split_sort_clause(&case.filter).unwrap();
             assert!(!sort.is_empty(), "case {}", case.id);
