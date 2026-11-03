@@ -86,8 +86,10 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
     if app.completion.is_some() {
         match key.code {
             KeyCode::Up => {
-                app.completion_selected = app.completion_selected.saturating_sub(1);
-                app.completion_chosen = true;
+                if app.completion_active {
+                    app.completion_selected = app.completion_selected.saturating_sub(1);
+                }
+                app.completion_active = true;
                 return;
             }
             KeyCode::Down => {
@@ -95,17 +97,20 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
                     .completion
                     .as_ref()
                     .map_or(0, |found| found.items.len().saturating_sub(1));
-                app.completion_selected = (app.completion_selected + 1).min(last);
-                app.completion_chosen = true;
+                // The first Down highlights the top entry.
+                if app.completion_active {
+                    app.completion_selected = (app.completion_selected + 1).min(last);
+                }
+                app.completion_active = true;
                 return;
             }
             KeyCode::Tab => {
                 app.accept_completion();
                 return;
             }
-            // Suggestions appear by themselves, so Enter still searches
-            // unless one was picked with the arrow keys.
-            KeyCode::Enter if app.completion_chosen => {
+            // As in VS Code, Enter inserts the highlighted suggestion. With
+            // none highlighted, or when it is already typed, Enter searches.
+            KeyCode::Enter if app.completion_active && !app.completion_is_typed() => {
                 app.accept_completion();
                 return;
             }

@@ -208,7 +208,18 @@ fn query_line(frame: &mut Frame<'_>, app: &App<'_>, line: Line, area: Rect) {
                         .bg(MATCH),
                 )
             });
-        draw_styled_input(frame, input, text_area, active, &styles, mark);
+        let ghost = (line == Line::Filter && active)
+            .then(|| app.completion_ghost())
+            .flatten();
+        draw_styled_input(
+            frame,
+            input,
+            text_area,
+            active,
+            &styles,
+            mark,
+            ghost.as_deref(),
+        );
     }
     frame.render_widget(Paragraph::new(TextLine::from(chips)), chip_area);
 }
@@ -254,7 +265,7 @@ pub(super) fn draw_input(
     style: Style,
 ) {
     let styles = vec![style; input.len()];
-    draw_styled_input(frame, input, area, active, &styles, None);
+    draw_styled_input(frame, input, area, active, &styles, None, None);
 }
 
 /// Draw an input with one style per character, scrolled so the cursor
@@ -266,8 +277,10 @@ pub(super) fn draw_styled_input(
     active: bool,
     styles: &[Style],
     mark: Option<(usize, Style)>,
+    ghost: Option<&str>,
 ) {
     let width = area.width.max(1) as usize;
+    let ghost_span = || ghost.map(|text| Span::styled(text.to_owned(), Style::new().fg(FAINT)));
     let before = input.text.chars().take(input.cursor).collect::<String>();
     let cursor_column = before.width();
     let skip_columns = cursor_column.saturating_sub(width.saturating_sub(1));
@@ -281,6 +294,11 @@ pub(super) fn draw_styled_input(
             skipped += w;
             continue;
         }
+        if index == input.cursor
+            && let Some(span) = ghost_span()
+        {
+            spans.push(span);
+        }
         let mut style = styles.get(index).copied().unwrap_or_default();
         if let Some((at, marked)) = mark
             && at == index
@@ -291,6 +309,11 @@ pub(super) fn draw_styled_input(
             Some(last) if last.style == style => last.content.to_mut().push(ch),
             _ => spans.push(Span::styled(ch.to_string(), style)),
         }
+    }
+    if input.cursor >= count
+        && let Some(span) = ghost_span()
+    {
+        spans.push(span);
     }
     if let Some((at, marked)) = mark
         && at >= count
@@ -481,7 +504,7 @@ fn footer(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
 /// Key hints for the current state, most important first.
 fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
     if app.completion.is_some() {
-        let enter = if app.completion_chosen {
+        let enter = if app.completion_active && !app.completion_is_typed() {
             "insert"
         } else {
             "search"

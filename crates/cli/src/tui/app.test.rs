@@ -185,6 +185,12 @@ fn tab_completes_in_filter_and_shift_tab_returns_to_search() {
     type_text(&mut app, " ");
     let open = app.completion.as_ref().expect("operators without Tab");
     assert!(open.items.len() > 1);
+    assert!(
+        !app.completion_active,
+        "opened by a space: nothing highlighted"
+    );
+    // The first Down highlights the top entry, the second moves on.
+    press(&mut app, KeyCode::Down);
     press(&mut app, KeyCode::Down);
     press(&mut app, KeyCode::Enter);
     assert_eq!(app.filter.text, "title != ");
@@ -530,4 +536,74 @@ fn the_error_position_is_only_marked_after_enter() {
     press(&mut app, KeyCode::Enter);
     assert!(app.error_confirmed);
     assert!(marked(&app), "Enter marks the position");
+}
+
+#[test]
+fn enter_inserts_the_highlighted_suggestion_like_vs_code() {
+    let temp = tempfile::tempdir().unwrap();
+    let schema = temp.path().join(".objekte/collections/docs.schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(
+        schema,
+        r#"{"type":"object","properties":{"kind":{"type":"string","index":true},"n":{"type":"integer"},"title":{"type":"string"}},"x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    write_docs(temp.path(), 4);
+    let mut repo = Repository::open(temp.path()).unwrap();
+    repo.diff("docs").unwrap();
+    let mut app = App::new(&mut repo);
+    app.line = Line::Filter;
+    // Typing highlights the best match and shows the rest as a ghost.
+    type_text(&mut app, "ki");
+    assert!(app.completion_active);
+    assert_eq!(app.completion_ghost().as_deref(), Some("nd"));
+    // Typing on stays free: the ghost is not text.
+    type_text(&mut app, "n");
+    assert_eq!(app.filter.text, "kin");
+    assert_eq!(app.completion_ghost().as_deref(), Some("d"));
+    press(&mut app, KeyCode::Enter);
+    assert_eq!(app.filter.text, "kind");
+    assert!(app.completion.is_none(), "the list closes after a name");
+    // After a space nothing is highlighted, so Enter would search.
+    type_text(&mut app, " ");
+    assert!(app.completion.is_some());
+    assert!(!app.completion_active);
+    assert_eq!(app.completion_ghost(), None);
+    type_text(&mut app, "= ");
+    assert!(
+        !app.completion_active,
+        "values after an operator start plain"
+    );
+    type_text(&mut app, "'e");
+    assert_eq!(app.completion_ghost().as_deref(), Some("ven'"));
+    press(&mut app, KeyCode::Enter);
+    assert_eq!(app.filter.text, "kind = 'even'");
+    assert!(app.completion.is_none());
+    // Enter on a closed list searches.
+    press(&mut app, KeyCode::Enter);
+    assert_eq!(app.hits.len(), 2);
+}
+
+#[test]
+fn enter_searches_when_the_suggestion_is_already_typed() {
+    let temp = tempfile::tempdir().unwrap();
+    let schema = temp.path().join(".objekte/collections/docs.schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(
+        schema,
+        r#"{"type":"object","properties":{"n":{"type":"integer"},"name":{"type":"string"}},"x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    write_docs(temp.path(), 2);
+    let mut repo = Repository::open(temp.path()).unwrap();
+    let mut app = App::new(&mut repo);
+    app.line = Line::Filter;
+    type_text(&mut app, "n");
+    // `n` and `name` both match; the exact `n` is highlighted.
+    assert!(app.completion_active);
+    assert!(app.completion_is_typed());
+    press(&mut app, KeyCode::Enter);
+    assert_eq!(app.filter.text, "n");
+    assert!(app.completion.is_none());
+    assert!(app.error_confirmed, "Enter searched the unfinished filter");
 }

@@ -441,7 +441,7 @@ fn completion(frame: &mut Frame<'_>, app: &App<'_>, areas: &Areas) {
         .take(rows as usize)
         .enumerate()
     {
-        let chosen = index == selected;
+        let chosen = index == selected && app.completion_active;
         let base = if chosen {
             Style::new().bg(SELECTED)
         } else {
@@ -493,8 +493,9 @@ const HELP_LEFT: [Section; 3] = [
         "Search",
         &[
             ("type", "search as you type"),
-            ("Enter", "search now; then open the record"),
+            ("Enter", "search now, or open the record"),
             ("Tab", "to Filter; there, insert a suggestion"),
+            ("Enter", "insert the highlighted suggestion"),
             ("Shift+Tab", "switch Search and Filter"),
             ("↑↓  PgUp PgDn", "move; more rows load as you go"),
             ("Ctrl+U  Ctrl+D", "page up / down"),

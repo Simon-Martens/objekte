@@ -338,8 +338,10 @@ pub(super) struct App<'a> {
     pub(super) line: Line,
     pub(super) completion: Option<Completion>,
     pub(super) completion_selected: usize,
-    /// The user moved through the suggestions, so Enter takes one.
-    pub(super) completion_chosen: bool,
+    /// A suggestion is highlighted: Enter and Tab insert it, and its rest
+    /// shows as a ghost after the cursor. A list that opened after a space
+    /// or an operator starts without one, so Enter still searches.
+    pub(super) completion_active: bool,
     pub(super) view: View,
     pub(super) overlay: Option<Overlay>,
     pub(super) show_preview: bool,
@@ -444,7 +446,7 @@ impl<'a> App<'a> {
             line: Line::Search,
             completion: None,
             completion_selected: 0,
-            completion_chosen: false,
+            completion_active: false,
             view: View::Results,
             overlay: None,
             show_preview: true,
@@ -746,9 +748,56 @@ impl<'a> App<'a> {
             .is_none_or(|open| open.items != found.items)
         {
             self.completion_selected = 0;
-            self.completion_chosen = false;
+            // Typing narrows the list and highlights its top entry.
+            self.completion_active = found.start < self.filter.cursor;
         }
         self.completion = Some(found);
+    }
+
+    /// The text the highlighted suggestion would replace, and its insert.
+    fn completion_target(&self) -> Option<(String, &str)> {
+        let found = self.completion.as_ref()?;
+        let item = found.items.get(self.completion_selected)?;
+        let typed = self
+            .filter
+            .text
+            .chars()
+            .skip(found.start)
+            .take(found.end.saturating_sub(found.start))
+            .collect::<String>();
+        Some((typed, item.insert.as_str()))
+    }
+
+    /// Whether the highlighted suggestion is what is already typed.
+    pub(super) fn completion_is_typed(&self) -> bool {
+        self.completion_target()
+            .is_some_and(|(typed, insert)| typed == insert.trim_end())
+    }
+
+    /// The rest of the highlighted suggestion after the typed text, shown
+    /// faintly after the cursor. Only for suggestions that start with it.
+    pub(super) fn completion_ghost(&self) -> Option<String> {
+        if !self.completion_active {
+            return None;
+        }
+        let found = self.completion.as_ref()?;
+        // Only at the end of the word being completed.
+        if self.filter.cursor != found.end {
+            return None;
+        }
+        let (typed, insert) = self.completion_target()?;
+        let typed_len = typed.chars().count();
+        let head = insert.chars().take(typed_len).collect::<String>();
+        (head.to_lowercase() == typed.to_lowercase() && insert.chars().count() > typed_len)
+            .then(|| {
+                insert
+                    .chars()
+                    .skip(typed_len)
+                    .collect::<String>()
+                    .trim_end()
+                    .to_owned()
+            })
+            .filter(|ghost| !ghost.is_empty())
     }
 
     pub(super) fn accept_completion(&mut self) {
@@ -758,12 +807,13 @@ impl<'a> App<'a> {
         let Some(item) = found.items.get(self.completion_selected) else {
             return;
         };
-        self.filter
-            .replace(found.start, found.end, &item.insert.clone());
+        let insert = item.insert.clone();
+        self.filter.replace(found.start, found.end, &insert);
         self.edited();
-        // Continue into a nested field or a value without another keypress.
-        if item.insert.ends_with(['.', '(']) {
-            self.refresh_completion(false);
+        // As in VS Code, the list closes after a name or value; after an
+        // operator, a connective, `.`, or `(` the next list follows.
+        if !insert.ends_with(['.', '(', ' ']) {
+            self.completion = None;
         }
     }
 
