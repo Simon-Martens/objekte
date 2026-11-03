@@ -373,3 +373,37 @@ fn filename_uses_basename_for_nested_ids_and_status_handles_schema_free_files() 
         assert_eq!(found.records[0].state.status, RecordStatus::NoSchema);
     }
 }
+
+#[test]
+fn inventory_predicates_stay_exact_with_a_changed_file_overlay() {
+    let fixture = fixture();
+    let root = fixture.path();
+    let mut repo = repo(root, CacheMode::Memory);
+    repo.query_json(&query("@size > 0", JsonQueryBackend::Bigram))
+        .unwrap();
+    // An edit after the build enters the overlay instead of rebuilding postings.
+    fs::write(
+        root.join("data/books/june.json"),
+        json!({"x":2,"body":"x".repeat(3000)}).to_string(),
+    )
+    .unwrap();
+    repo.refresh("books").unwrap();
+    for (filter, total) in [
+        ("@size > 0", 3),
+        ("@size > 2KB", 2),
+        ("@modified >= 2026-06", 1),
+        ("@filename ~ '%e.json'", 1),
+    ] {
+        let mut request = query(filter, JsonQueryBackend::Bigram);
+        request.limit = 1;
+        let indexed = repo.query_json(&request).unwrap();
+        request.backend = JsonQueryBackend::Direct;
+        let direct = repo.query_json(&request).unwrap();
+        assert_eq!(indexed.total, Some(total), "{filter}");
+        assert_eq!(indexed.total, direct.total, "{filter}");
+        assert_eq!(indexed.records[0].id, direct.records[0].id, "{filter}");
+        // Only the returned record is read.
+        assert_eq!(indexed.metrics.source_reads, 1, "{filter}");
+        assert_eq!(indexed.metrics.grep_scans, 0, "{filter}");
+    }
+}

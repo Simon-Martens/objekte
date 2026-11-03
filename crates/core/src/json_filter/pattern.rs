@@ -1,7 +1,19 @@
 //! LIKE-style string patterns with optional Unicode case folding.
 // PocketBase parameter wrapping and LIKE-style matching.
 
+use std::{cell::RefCell, rc::Rc};
 use unicode_casefold::UnicodeCaseFold;
+
+
+/// Literal patterns compiled most recently on this thread. A filter compares
+/// the same few patterns against every candidate record.
+const CACHED_PATTERNS: usize = 8;
+
+
+thread_local! {
+    static COMPILED: RefCell<Vec<(String, bool, Rc<Like>)>> = const { RefCell::new(Vec::new()) };
+    static TEXT: RefCell<Vec<char>> = const { RefCell::new(Vec::new()) };
+}
 
 
 #[derive(Clone, Debug)]
@@ -93,16 +105,61 @@ impl Like {
         }
     }
 
+    /// Match a literal pattern operand, reusing its compiled form. Field
+    /// operands change per record and are compiled each time.
+    pub(crate) fn matches_operand(
+        pattern: &str,
+        field: bool,
+        ignore_case: bool,
+        text: &str,
+    ) -> bool {
+        if field {
+            return Self::new(pattern, true, ignore_case).matches(text);
+        }
+        let like = COMPILED.with_borrow_mut(|cache| {
+            if let Some((_, _, like)) = cache
+                .iter()
+                .find(|(cached, case, _)| cached == pattern && *case == ignore_case)
+            {
+                return Rc::clone(like);
+            }
+            let like = Rc::new(Self::new(pattern, false, ignore_case));
+            if cache.len() == CACHED_PATTERNS {
+                cache.remove(0);
+            }
+            cache.push((pattern.to_owned(), ignore_case, Rc::clone(&like)));
+            like
+        });
+        like.matches(text)
+    }
+
     pub fn matches(&self, text: &str) -> bool {
         if !self.valid {
             return false;
         }
+        TEXT.with_borrow_mut(|chars| {
+            chars.clear();
+            if !self.ignore_case {
+                chars.extend(text.chars());
+            } else if text.is_ascii() {
+                // Unicode case folding maps ASCII exactly to lowercase.
+                chars.extend(
+                    text.bytes()
+                        .map(|byte| char::from(byte.to_ascii_lowercase())),
+                );
+            } else {
+                chars.extend(text.case_fold());
+            }
+            let matched = self.matches_chars(chars);
+            if chars.capacity() > 1 << 16 {
+                *chars = Vec::new();
+            }
+            matched
+        })
+    }
+
+    fn matches_chars(&self, chars: &[char]) -> bool {
         // Iterative glob matching; bounded stack even for adversarial patterns.
-        let chars: Vec<_> = if self.ignore_case {
-            text.case_fold().collect()
-        } else {
-            text.chars().collect()
-        };
         let (mut i, mut p, mut star) = (0, 0, None);
         while i < chars.len() {
             match self.tokens.get(p) {

@@ -1209,7 +1209,7 @@ fn compare(left: &Value, op: Op, right: &Value, right_field: bool, ignore_case: 
     if matches!(op, Op::Contains | Op::NotContains) {
         return match (left.as_str(), right.as_str()) {
             (Some(a), Some(b)) => {
-                pattern::Like::new(b, right_field, ignore_case).matches(a)
+                pattern::Like::matches_operand(b, right_field, ignore_case, a)
                     == matches!(op, Op::Contains)
             }
             _ => false,

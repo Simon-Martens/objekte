@@ -225,8 +225,10 @@ impl SlotSelection {
 
 
 impl FilePicker {
+    /// Refreshes keep each live slot's ID and stamp current, including slots
+    /// in the changed-file overlay, so only an unverified inventory is unsafe.
     pub(crate) fn metadata_exact_ready(&self) -> bool {
-        self.verified() && self.changed.is_empty()
+        self.verified()
     }
 
     pub(crate) fn metadata_id_selection(&self, hint: &MetadataIdHint) -> Option<SlotSelection> {

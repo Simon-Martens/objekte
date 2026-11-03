@@ -595,18 +595,22 @@ impl Repository {
                 }
                 if selection.len() > 0 && !filter.metadata_path_covers_root(&root) {
                     let needs_path = filter.uses_source_path();
+                    // One buffer serves every slot's repository-relative path.
+                    let mut path = String::new();
                     selection.retain(picker, |slot| {
                         let (id, stamp) = picker.view_record(slot);
-                        let path = needs_path.then(|| {
-                            if relative.is_empty() {
-                                format!("{id}.json")
-                            } else {
-                                format!("{relative}/{id}.json")
+                        path.clear();
+                        if needs_path {
+                            if !relative.is_empty() {
+                                path.push_str(&relative);
+                                path.push('/');
                             }
-                        });
+                            path.push_str(id);
+                            path.push_str(".json");
+                        }
                         filter.metadata_decision(&FileMetadata {
                             id,
-                            path: path.as_deref().unwrap_or(""),
+                            path: &path,
                             size: stamp.size,
                             modified: stamp.modified.parse().expect("validated timestamp"),
                             created: None,
