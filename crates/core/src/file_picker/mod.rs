@@ -211,9 +211,18 @@ impl FilePicker {
         )
     }
 
-    /// Experimental fresh build that records each stamp during the scan.
+    /// Profile the production fresh-build path.
     #[cfg(feature = "index-timings")]
     pub fn profile_collection_combined(
+        collection: &crate::Collection,
+        encoding: BigramEncoding,
+    ) -> Result<Self> {
+        Self::profile_collection(collection, encoding)
+    }
+
+    /// Profile the previous separate inventory path as a benchmark reference.
+    #[cfg(feature = "index-timings")]
+    pub fn profile_collection_separate(
         collection: &crate::Collection,
         encoding: BigramEncoding,
     ) -> Result<Self> {
@@ -231,9 +240,9 @@ impl FilePicker {
             (None, None),
             false,
             collection.bigram_encoding.unwrap_or(encoding),
-            true,
+            false,
         )?
-        .ok_or_else(|| Error::Cache("combined profile picker could not be opened".into()))
+        .ok_or_else(|| Error::Cache("separate profile picker could not be opened".into()))
     }
 
     /// Time complete early restoration of a profile's base and secondary snapshot.
@@ -302,7 +311,7 @@ impl FilePicker {
             (snapshot.map(CacheSnapshot::Public), snapshot_path),
             false,
             encoding,
-            false,
+            true,
         )?
         .ok_or_else(|| Error::Cache("verified picker could not be opened".into()))
     }
@@ -372,6 +381,7 @@ impl FilePicker {
             }
             snapshot = None;
         }
+        let combined_build = combined_build && !unchecked && snapshot.is_none();
         let root = std::fs::canonicalize(root).map_err(|e| io(root, e))?;
         let source = Source::open_scoped(&root, recursive)?;
         #[cfg(feature = "index-timings")]
@@ -379,26 +389,20 @@ impl FilePicker {
         let inventory: Vec<(String, Stamp)> = if unchecked {
             Vec::new()
         } else if combined_build {
-            #[cfg(feature = "index-timings")]
-            {
-                source
-                    .inventory_ids()?
-                    .into_iter()
-                    .map(|id| {
-                        (
-                            id,
-                            Stamp {
-                                size: 0,
-                                modified: String::new(),
-                                identity: String::new(),
-                            },
-                        )
-                    })
-                    .collect()
-            }
-
-            #[cfg(not(feature = "index-timings"))]
-            unreachable!("combined builds are available only for profiling");
+            source
+                .inventory_ids()?
+                .into_iter()
+                .map(|id| {
+                    (
+                        id,
+                        Stamp {
+                            size: 0,
+                            modified: String::new(),
+                            identity: String::new(),
+                        },
+                    )
+                })
+                .collect()
         } else {
             source.inventory()?.into_iter().collect()
         };

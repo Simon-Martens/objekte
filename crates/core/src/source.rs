@@ -186,9 +186,8 @@ impl Source {
         Ok(files)
     }
 
-    /// Benchmark-only cold-build inventory. Scan workers obtain the stamps
-    /// from securely opened descriptors after these IDs have been sorted.
-    #[cfg(feature = "index-timings")]
+    /// Fresh-build inventory. Scan workers obtain stamps from securely opened
+    /// descriptors after these IDs have been sorted.
     pub fn inventory_ids(&self) -> Result<Vec<String>> {
         let mut paths = Vec::new();
         let mut directories = Vec::new();

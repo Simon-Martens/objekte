@@ -38,6 +38,8 @@ def build_command(profile, variant):
     ]
     if variant == "combined":
         command.append("--combined-inventory")
+    else:
+        command.append("--separate-inventory")
     for field in fields:
         command.extend(("--field", field))
     return command
@@ -117,6 +119,7 @@ def main():
                     record.update({
                         "phase": args.phase,
                         "profile": profile[0],
+                        "backend": backend,
                         "round": round_number,
                         "revision": revision,
                     })

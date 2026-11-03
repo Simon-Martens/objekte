@@ -1,6 +1,21 @@
 # Index construction filesystem I/O experiment — 3 November 2026
 
-## Decision
+**Follow-up:** The combined inventory/scan path was subsequently selected for fresh production builds. The decision below records the original experimental recommendation and its consistency concern; the production behavior is documented in [the implementation guide](../../docs/implementation.md).
+
+## Adoption follow-up
+
+Fresh production builds now use combined ID enumeration and Rayon scanning. Checked snapshot reconciliation retains the separate inventory path; rebuilds with existing slots still compare against their stored expected stamps. The benchmark binary still offers `--separate-inventory` as a reference; its default profiles the production path. One fresh alternating pair after this switch produced these build times (ms):
+
+| Profile | Separate reference | Production combined | Index size equal |
+|---|---:|---:|---|
+| Amazon | 8,504 | 7,335 | Yes |
+| NYC | 13,851 | 12,874 | Yes |
+| Leipzig | 2,306 | 1,995 | Yes |
+| Musenalm | 3,052 | 2,969 | Yes |
+
+The earlier five-pair results below remain the stronger timing evidence; NYC was variable across those pairs. The [adoption measurements](results/index-io-adoption-2026-11-03.ndjson) also include a fresh 100-case JSON and 30-case FTS run. All case result signatures match the prior run. Summed case medians were 4,281 → 4,364 ms for JSON (+1.9%) and 621 → 592 ms for FTS (−4.7%), within the observed run-to-run variation. The pre-open in-place-edit detection gap described below remains an accepted limitation of fresh builds.
+
+## Original experimental decision
 
 **Keep the production synchronous Rayon path.** The benchmark-only combined inventory/scan path saved 9% on Amazon and 9% on Leipzig, but it removes the earlier per-file metadata observation used to detect an in-place edit between enumeration and opening. NYC did not improve reliably. Synchronous `statx` changed complete inventory time by under 1%; `io_uring` `STATX` and the bounded read-only ring were much slower. No experimental I/O backend was installed in normal repository opening, rebuilding, reconciliation, or query execution.
 

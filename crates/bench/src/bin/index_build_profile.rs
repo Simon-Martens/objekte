@@ -140,6 +140,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut restore_only = false;
     let mut skip_snapshot = false;
     let mut combined_inventory = false;
+    let mut separate_inventory = false;
     let mut verify_combined = false;
     let mut args = env::args().skip(1);
     while let Some(arg) = args.next() {
@@ -158,6 +159,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "--restore-only" => restore_only = true,
             "--skip-snapshot" => skip_snapshot = true,
             "--combined-inventory" => combined_inventory = true,
+            "--separate-inventory" => separate_inventory = true,
             "--verify-combined" => verify_combined = true,
             _ => return Err(format!("unknown argument {arg:?}").into()),
         }
@@ -217,8 +219,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     let started = Instant::now();
-    let picker = if combined_inventory {
-        FilePicker::profile_collection_combined(&collection, encoding)?
+    if combined_inventory && separate_inventory {
+        return Err("choose one inventory mode".into());
+    }
+    let picker = if separate_inventory {
+        FilePicker::profile_collection_separate(&collection, encoding)?
     } else {
         FilePicker::profile_collection(&collection, encoding)?
     };
@@ -229,10 +234,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let build_timings = picker.build_timings();
 
     if verify_combined {
-        if !combined_inventory {
-            return Err("--verify-combined requires --combined-inventory".into());
+        if separate_inventory {
+            return Err("--verify-combined requires the combined inventory path".into());
         }
-        let reference = FilePicker::profile_collection(&collection, encoding)?;
+        let reference = FilePicker::profile_collection_separate(&collection, encoding)?;
         if picker.len() != reference.len() || picker.index_bytes() != reference.index_bytes() {
             return Err("combined index dimensions differ".into());
         }

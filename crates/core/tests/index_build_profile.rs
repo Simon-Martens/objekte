@@ -93,7 +93,7 @@ fn combined_inventory_build_matches_regular_candidates_and_results() {
     let collection = repository.model().collections.get("docs").unwrap();
 
     for encoding in [BigramEncoding::Ascii, BigramEncoding::Utf8Bytes] {
-        let regular = FilePicker::profile_collection(collection, encoding).unwrap();
+        let regular = FilePicker::profile_collection_separate(collection, encoding).unwrap();
         let combined = FilePicker::profile_collection_combined(collection, encoding).unwrap();
         assert_eq!(regular.len(), combined.len());
         assert_eq!(regular.index_bytes(), combined.index_bytes());
