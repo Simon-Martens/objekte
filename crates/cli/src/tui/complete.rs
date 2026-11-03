@@ -690,6 +690,13 @@ fn values(schema: &Schema<'_>, path: &str) -> Vec<Candidate> {
             }
         }
     }
+    if field.enum_values.is_none()
+        && let Some(suggested) = &field.suggested_values
+    {
+        for text in suggested {
+            out.push(value(quote(text), text, "seen"));
+        }
+    }
     if field.kind == ValueType::Boolean {
         out.push(value("true".into(), "true", "boolean"));
         out.push(value("false".into(), "false", "boolean"));

@@ -43,15 +43,11 @@ pub(super) fn extend_schema(
         .into_iter()
         .collect::<BTreeSet<_>>();
     if report.auto_index_requested {
+        // Posting rules are only ever added: a declared path stays even when
+        // this scan would not recommend it.
         let mut paths = existing_paths.clone();
         for field in &report.fields {
-            paths.remove(&field.path);
-            if !field.recommended_index {
-                continue;
-            }
-            if let [JsonPathStep::Key(name)] = field.path.as_slice()
-                && schema["properties"][name]["index"] == Value::Bool(true)
-            {
+            if !field.recommended_index || field.path.len() == 1 {
                 continue;
             }
             paths.insert(field.path.clone());
@@ -59,19 +55,15 @@ pub(super) fn extend_schema(
         if paths != existing_paths {
             changed = true;
             let root = schema.as_object_mut().expect("compiled schema root object");
-            if paths.is_empty() {
-                root.remove("x-index-paths");
-            } else {
-                root.insert(
-                    "x-index-paths".into(),
-                    Value::Array(
-                        paths
-                            .iter()
-                            .map(|path| Value::String(crate::json_filter::format_path(path)))
-                            .collect(),
-                    ),
-                );
-            }
+            root.insert(
+                "x-index-paths".into(),
+                Value::Array(
+                    paths
+                        .iter()
+                        .map(|path| Value::String(crate::json_filter::format_path(path)))
+                        .collect(),
+                ),
+            );
         }
     }
     if !changed {
@@ -189,102 +181,120 @@ fn schema_kind(value: &Value) -> Option<&str> {
     }
 }
 
+/// Reconcile a declared field with what the scan saw, only ever widening.
+/// The declared type gains `null` when nulls were seen, and `integer`
+/// becomes `number` when decimals were seen. Everything else the author
+/// wrote (enum, relation, text format, structure, index settings) stays.
 fn merge_field(
     existing: &mut Value,
     field: &FieldInference,
     fields: &BTreeMap<crate::JsonPath, &FieldInference>,
     update_indexes: bool,
 ) -> bool {
-    let Some(kind) = inferred_kind(field) else {
-        if update_indexes && field.path.len() == 1 && existing["index"] == Value::Bool(true) {
-            existing
-                .as_object_mut()
-                .expect("schema field object")
-                .insert("index".into(), Value::Bool(false));
-            return true;
-        }
+    let Some(object) = existing.as_object_mut() else {
         return false;
     };
-    let object = existing
-        .as_object_mut()
-        .expect("compiled schema field object");
     let mut changed = false;
-    let inferred_type = if field.null_values > 0 && kind != "null" {
-        json!([kind, "null"])
-    } else {
-        json!(kind)
-    };
-    if object.get("type") != Some(&inferred_type) {
-        object.insert("type".into(), inferred_type);
-        changed = true;
-    }
-    if kind != "object" {
-        for key in ["properties", "required", "additionalProperties"] {
-            changed |= object.remove(key).is_some();
+    let declared = declared_types(object);
+    if let Some((mut kind, mut nullable)) = declared.clone() {
+        let observed = inferred_kind(field);
+        if kind == "integer" && observed == Some("number") {
+            kind = "number".into();
+        }
+        if kind == "null"
+            && let Some(observed) = observed.filter(|kind| *kind != "null")
+        {
+            // A field declared as always null turned out to hold values.
+            kind = observed.into();
+            nullable = true;
+        }
+        if field.null_values > 0 && kind != "null" {
+            nullable = true;
+        }
+        let widened = if nullable && kind != "null" {
+            json!([kind, "null"])
+        } else {
+            json!(kind)
+        };
+        if object.get("type") != Some(&widened) {
+            object.insert("type".into(), widened);
+            changed = true;
+            // A declared enum must also admit null, or the widening is moot.
+            if nullable
+                && let Some(Value::Array(values)) = object.get_mut("enum")
+                && !values.contains(&Value::Null)
+            {
+                values.push(Value::Null);
+            }
         }
     }
-    if kind != "array" {
-        changed |= object.remove("items").is_some();
-    } else if !object.contains_key("items") {
-        let items = declaration(field, fields).expect("array declaration")["items"].clone();
+    if declared.as_ref().is_some_and(|(kind, _)| kind == "array")
+        && !object.contains_key("items")
+        && let Some(items) =
+            declaration(field, fields).and_then(|value| value.get("items").cloned())
+    {
         object.insert("items".into(), items);
         changed = true;
     }
-    if kind != "string" {
-        // These keywords require a string type in the schema parser.
-        changed |= object.remove("x-full-text").is_some();
-        changed |= object.remove("x-relation").is_some();
-    }
-    if field.kind == InferredKind::Enum {
-        let mut values = field
-            .enum_values
-            .as_ref()
-            .expect("enum values")
-            .iter()
-            .cloned()
-            .map(Value::String)
-            .collect::<Vec<_>>();
-        if field.null_values > 0 {
-            values.push(Value::Null);
-        }
-        let inferred_enum = Value::Array(values);
-        if object.get("enum") != Some(&inferred_enum) {
-            object.insert("enum".into(), inferred_enum);
-            changed = true;
-        }
-    } else {
-        changed |= object.remove("enum").is_some();
-    }
-    if field.path.len() == 1 && update_indexes {
-        if field.recommended_index {
-            if object.get("index") != Some(&Value::Bool(true)) {
-                object.insert("index".into(), Value::Bool(true));
-                changed = true;
-            }
-        } else if object.get("index") == Some(&Value::Bool(true))
-            && !field.link.as_ref().is_some_and(|link| {
-                link.kind == InferredLinkKind::RecordId && link.resolved_values == link.total_values
-            })
-        {
-            // Preserve a manually indexed reference when inference confirms it.
-            object.insert("index".into(), Value::Bool(false));
-            changed = true;
-        }
-    } else if !matches!(kind, "boolean" | "integer" | "number" | "string" | "null")
-        && object.get("index") == Some(&Value::Bool(true))
+    if field.kind == InferredKind::Enum
+        && declared.as_ref().is_some_and(|(kind, _)| kind == "string")
+        && !object.contains_key("enum")
     {
-        // A true scalar posting rule would make the new shape invalid.
-        object.remove("index");
+        let suggested = suggestions(field);
+        if object.get("x-enum-suggested") != Some(&suggested) {
+            object.insert("x-enum-suggested".into(), suggested);
+            changed = true;
+        }
+    }
+    // Rules are only added; an explicit `index: false` is the author's choice.
+    if update_indexes
+        && field.path.len() == 1
+        && field.recommended_index
+        && !object.contains_key("index")
+        && declared.as_ref().is_some_and(|(kind, _)| {
+            matches!(kind.as_str(), "boolean" | "integer" | "number" | "string")
+        })
+    {
+        object.insert("index".into(), Value::Bool(true));
         changed = true;
     }
     changed
 }
 
+/// Nonblank inferred enum values, offered as suggestions.
+fn suggestions(field: &FieldInference) -> Value {
+    Value::Array(
+        field
+            .enum_values
+            .iter()
+            .flatten()
+            .filter(|value| !value.trim().is_empty())
+            .cloned()
+            .map(Value::String)
+            .collect(),
+    )
+}
+
+/// The declared concrete type and whether it admits null.
+fn declared_types(object: &Map<String, Value>) -> Option<(String, bool)> {
+    match object.get("type")? {
+        Value::String(kind) => Some((kind.clone(), kind == "null")),
+        Value::Array(kinds) => {
+            let concrete = kinds
+                .iter()
+                .filter_map(Value::as_str)
+                .find(|kind| *kind != "null")?;
+            Some((concrete.to_owned(), kinds.contains(&json!("null"))))
+        }
+        _ => None,
+    }
+}
+
 fn inferred_kind(field: &FieldInference) -> Option<&'static str> {
     Some(match field.kind {
         InferredKind::Boolean => "boolean",
-        InferredKind::Integer => "integer",
-        InferredKind::Number => "number",
+        // Whole numbers in a sample do not prove decimals cannot occur.
+        InferredKind::Integer | InferredKind::Number => "number",
         InferredKind::Enum | InferredKind::String => "string",
         InferredKind::Array => "array",
         InferredKind::Object => "object",
@@ -298,6 +308,10 @@ fn declaration(
     fields: &BTreeMap<crate::JsonPath, &FieldInference>,
 ) -> Option<Value> {
     let kind = inferred_kind(field)?;
+    if kind == "null" {
+        // Nothing is known about a field that was always null.
+        return None;
+    }
     let mut object = Map::new();
     object.insert(
         "type".into(),
@@ -323,18 +337,8 @@ fn declaration(
         object.insert("index".into(), json!(true));
     }
     if field.kind == InferredKind::Enum {
-        let mut values = field
-            .enum_values
-            .as_ref()
-            .expect("enum values")
-            .iter()
-            .cloned()
-            .map(Value::String)
-            .collect::<Vec<_>>();
-        if field.null_values > 0 {
-            values.push(Value::Null);
-        }
-        object.insert("enum".into(), Value::Array(values));
+        // A sample cannot prove the set is closed: suggest, do not enforce.
+        object.insert("x-enum-suggested".into(), suggestions(field));
     }
     if let Some(format) = field.text_format {
         object.insert(

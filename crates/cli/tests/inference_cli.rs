@@ -84,20 +84,22 @@ fn inferschema_reports_existing_fields_without_writing() {
 }
 
 #[test]
-fn writeschema_updates_existing_declarations_and_preserves_other_fields() {
+fn writeschema_adds_new_fields_and_keeps_existing_declarations() {
     let temp = fixture();
     let report = output(temp.path(), &["writeschema", "--collection", "docs"]);
     assert_eq!(report["collections"][0]["schema_written"], true);
     let schema = read_schema(temp.path());
     let fields = &schema["properties"];
+    // Declarations are never rewritten, even when the data disagrees.
     assert_eq!(
         fields["active"],
         json!({
-            "type":"boolean", "index":true, "exclude_fts":true
+            "type":"string", "index":false, "exclude_fts":true
         })
     );
-    assert_eq!(fields["category"]["enum"], json!(["essay", "letter"]));
-    assert_eq!(fields["category"]["index"], true);
+    assert_eq!(fields["category"]["enum"], json!(["old"]));
+    assert_eq!(fields["category"]["index"], true, "rules are added");
+    assert_eq!(fields["detail"]["properties"]["rank"]["type"], "number");
     assert_eq!(fields["unused"], json!({"type":"integer", "index":true}));
     assert!(
         schema["x-index-paths"]
@@ -110,14 +112,18 @@ fn writeschema_updates_existing_declarations_and_preserves_other_fields() {
 }
 
 #[test]
-fn writeschema_can_update_types_without_changing_index_rules() {
+fn writeschema_can_add_types_without_changing_index_rules() {
     let temp = fixture();
     let report = output(temp.path(), &["writeschema", "docs", "--no-auto-index"]);
     assert_eq!(report["collections"][0]["auto_index_requested"], false);
     let schema = read_schema(temp.path());
-    assert_eq!(schema["properties"]["active"]["type"], "boolean");
+    assert_eq!(schema["properties"]["active"]["type"], "string");
     assert_eq!(schema["properties"]["active"]["index"], false);
     assert!(schema["properties"]["category"].get("index").is_none());
+    assert_eq!(
+        schema["properties"]["detail"]["properties"]["rank"]["type"],
+        "number"
+    );
     assert!(schema.get("x-index-paths").is_none());
 }
 

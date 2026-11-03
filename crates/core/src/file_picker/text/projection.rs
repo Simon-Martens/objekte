@@ -109,6 +109,7 @@ mod tests {
             text_format: format,
             exclude_fts: false,
             enum_values: None,
+            suggested_values: None,
             properties: BTreeMap::new(),
             items: None,
             relation: None,

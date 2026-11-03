@@ -33,6 +33,7 @@ fn repository() -> (tempfile::TempDir, Repository) {
             "title":{"type":"string"},
             "year":{"type":"integer"},
             "status":{"type":"string","enum":["draft","published","out of print"]},
+            "genre":{"type":"string","x-enum-suggested":["poem","prose"]},
             "author":{"type":"string","x-relation":{"collection":"people"}},
             "tags":{"type":"array","items":{"type":"string"}},
             "printed":{"type":"boolean"},
@@ -174,4 +175,11 @@ fn scope_limits_fields_to_one_collection() {
     let all = labels("", None);
     assert!(all.contains(&"born".to_string()));
     assert!(all.contains(&"year".to_string()));
+}
+
+#[test]
+fn suggested_values_from_inference_are_offered() {
+    let found = labels("genre = ", Some("books"));
+    assert!(found.contains(&"poem".to_string()), "{found:?}");
+    assert_eq!(accept("genre = pr", Some("books")), "genre = 'prose'");
 }

@@ -198,18 +198,23 @@ fn optional_schema_write_preserves_declared_fields_and_adds_nested_types() {
     assert_eq!(properties["name"], json!({"type":"string"}));
     assert_eq!(properties["category"]["type"], "string");
     assert_eq!(properties["category"]["index"], true);
+    assert_eq!(
+        properties["category"]["x-enum-suggested"],
+        json!(["essay", "letter"])
+    );
+    assert!(properties["category"].get("enum").is_none());
     assert_eq!(properties["active"]["type"], "boolean");
     assert_eq!(properties["active"]["index"], true);
     assert_eq!(
         properties["detail"]["properties"]["rank"]["type"],
-        json!(["integer", "null"])
+        json!(["number", "null"])
     );
     assert_eq!(properties["person"]["x-relation"]["collection"], "people");
     assert!(properties["external_pointer"].get("x-relation").is_none());
     assert_eq!(properties["html"]["x-full-text"], "html");
     assert_eq!(
         properties["items"]["items"]["properties"]["score"]["type"],
-        "integer"
+        "number"
     );
     let advanced = schema["x-index-paths"].as_array().unwrap();
     assert!(advanced.contains(&json!("detail.rank")));
@@ -289,7 +294,7 @@ fn completed_report_can_be_written_later_but_rejects_changed_source() {
 }
 
 #[test]
-fn report_only_schema_write_records_types_without_new_index_rules() {
+fn report_only_schema_write_adds_types_without_new_index_rules() {
     let temp = fixture(true);
     write(
         temp.path(),
@@ -315,14 +320,15 @@ fn report_only_schema_write_records_types_without_new_index_rules() {
     .unwrap();
     assert_eq!(
         schema["properties"]["detail"]["properties"]["rank"]["type"],
-        json!(["integer", "null"])
+        json!(["number", "null"])
     );
     assert!(schema.get("x-index-paths").is_none());
     assert!(schema["properties"]["category"].get("index").is_none());
+    // The declaration disagrees with the data, but it is the author's.
     assert_eq!(
         schema["properties"]["active"],
         json!({
-            "type":"boolean", "index":false, "exclude_fts":true
+            "type":"string", "index":false, "exclude_fts":true
         })
     );
 }
@@ -375,7 +381,7 @@ fn changed_schema_blocks_later_write() {
 }
 
 #[test]
-fn advanced_scan_replaces_existing_index_false() {
+fn advanced_scan_keeps_an_explicit_index_false() {
     let temp = fixture(true);
     write(
         temp.path(),
@@ -398,7 +404,7 @@ fn advanced_scan_replaces_existing_index_false() {
         &fs::read(temp.path().join(".editor/collections/docs/schema.json")).unwrap(),
     )
     .unwrap();
-    assert_eq!(schema["properties"]["active"]["index"], true);
+    assert_eq!(schema["properties"]["active"]["index"], false);
     assert!(
         !schema["x-index-paths"]
             .as_array()
@@ -408,7 +414,7 @@ fn advanced_scan_replaces_existing_index_false() {
 }
 
 #[test]
-fn mixed_field_clears_obsolete_index_without_replacing_its_schema_type() {
+fn mixed_field_keeps_its_declaration_and_index() {
     let temp = tempfile::tempdir().unwrap();
     write(temp.path(), "data/docs/a.json", json!({"value":true}));
     write(temp.path(), "data/docs/b.json", json!({"value":"text"}));
@@ -441,13 +447,14 @@ fn mixed_field_clears_obsolete_index_without_replacing_its_schema_type() {
     assert_eq!(
         schema["properties"]["value"],
         json!({
-            "type":"string", "index":false, "exclude_fts":true
+            "type":"string", "index":true, "exclude_fts":true
         })
     );
+    assert!(!report.collections[0].schema_written);
 }
 
 #[test]
-fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
+fn write_never_removes_or_narrows_declarations() {
     let temp = fixture(true);
     write(
         temp.path(),
@@ -479,20 +486,23 @@ fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
     )
     .unwrap();
     let fields = &schema["properties"];
-    assert_eq!(fields["active"]["type"], "boolean");
-    assert_eq!(fields["active"]["index"], true);
-    assert_eq!(fields["active"]["exclude_fts"], true);
-    assert!(fields["active"].get("x-full-text").is_none());
-    assert_eq!(fields["category"]["enum"], json!(["essay", "letter"]));
-    assert_eq!(fields["category"]["index"], true);
-    assert_eq!(fields["name"]["type"], "string");
-    assert_eq!(fields["name"]["index"], false);
+    assert_eq!(
+        fields["active"],
+        json!({"type":"string", "index":false, "exclude_fts":true, "x-full-text":"markdown"})
+    );
+    assert_eq!(
+        fields["category"],
+        json!({"type":"string", "index":false, "enum":["old"]})
+    );
+    assert_eq!(fields["name"], json!({"type":"string", "index":true}));
     assert_eq!(fields["person"]["index"], true);
     assert_eq!(fields["person"]["x-relation"]["collection"], "people");
+    // Observed nulls widen the declared type; the type itself stays.
     assert_eq!(
         fields["detail"]["properties"]["rank"]["type"],
-        json!(["integer", "null"])
+        json!(["string", "null"])
     );
+    assert_eq!(fields["html"]["type"], "string", "new fields are added");
     assert_eq!(
         fields["detail"]["properties"]["old"],
         json!({"type":"string", "exclude_fts":true})
@@ -505,7 +515,11 @@ fn write_updates_existing_inferred_fields_and_keeps_unobserved_declarations() {
     let paths = schema["x-index-paths"].as_array().unwrap();
     assert!(paths.contains(&json!("detail.rank")));
     assert!(paths.contains(&json!("ghost.path")));
-    assert!(!paths.contains(&json!("name")));
+    assert!(paths.contains(&json!("name")), "declared rules stay");
+    assert!(
+        paths.contains(&json!("items[*].score")),
+        "new rules are added"
+    );
 }
 
 #[test]
@@ -557,16 +571,17 @@ fn blank_strings_do_not_make_enums_but_remain_valid_in_real_enums() {
         &fs::read(temp.path().join(".editor/collections/docs/schema.json")).unwrap(),
     )
     .unwrap();
-    for path in ["blank", "whitespace", "rare"] {
-        assert_eq!(schema["properties"][path]["type"], "string", "{path}");
-        assert!(schema["properties"][path].get("enum").is_none(), "{path}");
-        assert_eq!(schema["properties"][path]["index"], false, "{path}");
-    }
+    // Declared enums and indexes stay as written.
     assert_eq!(
-        schema["properties"]["category"]["enum"],
-        json!(["", "essay", "letter"])
+        schema["properties"]["blank"],
+        json!({"type":"string", "enum":[""], "index":true})
     );
-    assert_eq!(schema["properties"]["category"]["index"], true);
+    assert_eq!(schema["properties"]["rare"]["enum"], json!(["", "once"]));
+    // A real enum is suggested without blanks, and never enforced.
+    assert_eq!(
+        schema["properties"]["category"],
+        json!({"type":"string", "index":false, "x-enum-suggested":["essay", "letter"]})
+    );
 }
 
 #[test]

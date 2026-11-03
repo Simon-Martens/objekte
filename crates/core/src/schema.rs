@@ -69,6 +69,9 @@ pub struct Field {
     pub exclude_fts: bool,
     /// Declared JSON Schema alternatives, when this scalar is an enum.
     pub enum_values: Option<Vec<Value>>,
+    /// Values seen by inference, offered as suggestions but not enforced.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub suggested_values: Option<Vec<String>>,
     pub properties: BTreeMap<String, Field>,
     pub items: Option<Box<Field>>,
     pub relation: Option<String>,
@@ -361,6 +364,7 @@ fn parse(
             "required",
             "additionalProperties",
             "enum",
+            "x-enum-suggested",
             "index",
             "x-language",
             "x-sort-index",
@@ -515,6 +519,23 @@ fn parse(
     if obj.contains_key("items") && kind != ValueType::Array {
         return Err(config(file, p, "items requires array type"));
     }
+    let suggested_values = match obj.get("x-enum-suggested") {
+        None => None,
+        Some(Value::Array(values)) if kind == ValueType::String => Some(
+            values
+                .iter()
+                .map(|value| value.as_str().map(str::to_owned))
+                .collect::<Option<Vec<_>>>()
+                .ok_or_else(|| config(file, p, "x-enum-suggested must list strings"))?,
+        ),
+        Some(_) => {
+            return Err(config(
+                file,
+                p,
+                "x-enum-suggested needs a string field and an array of strings",
+            ));
+        }
+    };
     let enum_values = if let Some(values) = obj.get("enum") {
         if !kind.scalar() || kind == ValueType::Any {
             return Err(config(file, p, "enum requires a scalar type"));
@@ -613,6 +634,7 @@ fn parse(
         text_format,
         exclude_fts,
         enum_values,
+        suggested_values,
         properties,
         items,
         relation,

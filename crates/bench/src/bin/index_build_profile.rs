@@ -81,6 +81,7 @@ fn string_field() -> Field {
         text_format: None,
         exclude_fts: false,
         enum_values: None,
+        suggested_values: None,
         properties: BTreeMap::new(),
         items: None,
         relation: None,
