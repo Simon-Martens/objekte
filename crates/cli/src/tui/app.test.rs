@@ -177,16 +177,21 @@ fn tab_completes_in_filter_and_shift_tab_returns_to_search() {
     press(&mut app, KeyCode::Tab);
     assert_eq!(app.line, Line::Filter);
     type_text(&mut app, "ti");
+    // Suggestions appear while typing; Tab takes the first.
+    assert_eq!(app.completion.as_ref().unwrap().items[0].label, "title");
     press(&mut app, KeyCode::Tab);
     assert_eq!(app.filter.text, "title");
     assert_eq!(app.line, Line::Filter);
     type_text(&mut app, " ");
-    press(&mut app, KeyCode::Tab);
-    let open = app.completion.as_ref().expect("operators");
+    let open = app.completion.as_ref().expect("operators without Tab");
     assert!(open.items.len() > 1);
     press(&mut app, KeyCode::Down);
     press(&mut app, KeyCode::Enter);
     assert_eq!(app.filter.text, "title != ");
+    // Values follow at once: here only date macros fit a text field.
+    let values = app.completion.as_ref().expect("values");
+    assert!(values.items.iter().any(|item| item.label == "@now"));
+    press(&mut app, KeyCode::Esc);
     assert!(app.completion.is_none());
     press(&mut app, KeyCode::BackTab);
     assert_eq!(app.line, Line::Search);
@@ -435,4 +440,45 @@ fn value_completion_reads_counts_from_the_index() {
         .map(|item| (item.label.as_str(), item.detail.as_str()))
         .collect::<Vec<_>>();
     assert_eq!(shown, [("even", "3 records"), ("odd", "2 records")]);
+}
+
+#[test]
+fn suggestions_appear_while_typing_and_enter_still_searches() {
+    let temp = tempfile::tempdir().unwrap();
+    let schema = temp.path().join(".objekte/collections/docs.schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(
+        schema,
+        r#"{"type":"object","properties":{"kind":{"type":"string","index":true},"n":{"type":"integer"}},"x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    write_docs(temp.path(), 4);
+    let mut repo = Repository::open(temp.path()).unwrap();
+    repo.diff("docs").unwrap();
+    let mut app = App::new(&mut repo);
+    app.line = Line::Filter;
+    assert!(app.completion.is_none(), "nothing on an empty line");
+    type_text(&mut app, "kind = ");
+    let values = app.completion.as_ref().expect("values while typing");
+    assert_eq!(values.items[0].label, "even");
+    type_text(&mut app, "'odd'");
+    // Enter searches; it does not take a suggestion nobody picked.
+    press(&mut app, KeyCode::Enter);
+    assert_eq!(app.filter.text, "kind = 'odd'");
+    assert!(app.completion.is_none());
+    assert_eq!(app.hits.len(), 2);
+    // After a value, the connectives are offered and narrow as you type.
+    type_text(&mut app, " ");
+    let next = app.completion.as_ref().expect("connectives");
+    assert_eq!(next.items.len(), 3);
+    type_text(&mut app, "S");
+    let narrowed = app.completion.as_ref().expect("narrowed");
+    assert_eq!(narrowed.items[0].label, "SORT BY");
+    press(&mut app, KeyCode::Tab);
+    assert_eq!(app.filter.text, "kind = 'odd' SORT BY ");
+    let fields = app.completion.as_ref().expect("sort fields");
+    assert!(fields.items.iter().any(|item| item.label == "kind"));
+    // Moving the cursor keeps the list current.
+    press(&mut app, KeyCode::Left);
+    press(&mut app, KeyCode::Right);
 }

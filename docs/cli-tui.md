@@ -58,7 +58,7 @@ Line editing supports Home/End, Ctrl+A/Ctrl+E, Ctrl+←/→ (move by word), and 
 
 ## Filter completion
 
-Tab in the Filter line completes from the collection schemas, scoped to the chosen collection. It offers:
+The Filter line completes from the collection schemas, scoped to the chosen collection. It offers:
 
 - **Fields:** with their types and collections. Nested object fields and array items are included. Relation fields continue into the linked collection's fields, matching implicit relation traversal. Keys that are not identifiers are inserted in bracket form, such as `["first edition"]`.
 - **System fields, functions and modifiers:** `@id`, `@modified` and the other system fields, `exists(…)` and `missing(…)`, and `:fts`, `:lower`, `:length` and `:each` after a colon.
@@ -66,7 +66,7 @@ Tab in the Filter line completes from the collection schemas, scoped to the chos
 - **Values:** for indexed fields, the values that occur, most common first with their record counts. Then enum members (also inside an opened quote), `true`, `false`, `null`, `@status` values, and `@now`-style date macros for date-like fields.
 - **Connectives:** `&&`, `||`, `SORT BY`, and then sort fields and `ASC`/`DESC`.
 
-Tab inserts the only candidate that starts with the typed text, or extends the text to the longest shared prefix. Otherwise it opens a list. ↑ and ↓ choose in the list, Tab or Enter inserts, and Esc closes it. Tab on a complete object or relation field name steps into its fields. Collections without a schema complete from the fields of the loaded results, marked `seen`. Fields also show an example value from the results, and names match fuzzily: `prtit` finds `preferred_title`.
+Suggestions appear as you type in the Filter line, without Tab: field names while you type a path, operators after a field, values after an operator. Every suggestion that fits is listed, and the list narrows with each key: names starting with the typed text first, then names containing it, then names with its letters in order. Tab inserts the highlighted suggestion; when no list is shown, Tab inserts the only candidate or extends the text to the longest shared prefix. ↑ and ↓ choose in the list, and Esc closes it. Enter still searches; it inserts a suggestion only after you chose one with ↑ or ↓. Tab on a complete object or relation field name steps into its fields. Collections without a schema complete from the fields of the loaded results, marked `seen`. Fields also show an example value from the results, and names match fuzzily: `prtit` finds `preferred_title`.
 
 ## Searching
 

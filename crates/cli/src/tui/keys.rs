@@ -82,6 +82,7 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
         match key.code {
             KeyCode::Up => {
                 app.completion_selected = app.completion_selected.saturating_sub(1);
+                app.completion_chosen = true;
                 return;
             }
             KeyCode::Down => {
@@ -90,12 +91,20 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
                     .as_ref()
                     .map_or(0, |found| found.items.len().saturating_sub(1));
                 app.completion_selected = (app.completion_selected + 1).min(last);
+                app.completion_chosen = true;
                 return;
             }
-            KeyCode::Tab | KeyCode::Enter => {
+            KeyCode::Tab => {
                 app.accept_completion();
                 return;
             }
+            // Suggestions appear by themselves, so Enter still searches
+            // unless one was picked with the arrow keys.
+            KeyCode::Enter if app.completion_chosen => {
+                app.accept_completion();
+                return;
+            }
+            KeyCode::Enter => app.completion = None,
             KeyCode::Esc => {
                 app.completion = None;
                 return;
@@ -167,7 +176,7 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
             let open = app.completion.is_some();
             match app.active_input().key(key) {
                 Some(true) => app.edited(),
-                Some(false) if open => app.refresh_completion(false),
+                Some(false) if open || app.line == Line::Filter => app.suggest(),
                 _ => {}
             }
         }

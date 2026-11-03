@@ -494,7 +494,7 @@ const HELP_LEFT: [Section; 3] = [
         &[
             ("type", "search as you type"),
             ("Enter", "search now; then open the record"),
-            ("Tab", "to Filter; there, complete fields"),
+            ("Tab", "to Filter; there, insert a suggestion"),
             ("Shift+Tab", "switch Search and Filter"),
             ("↑↓  PgUp PgDn", "move; more rows load as you go"),
             ("Ctrl+U  Ctrl+D", "page up / down"),

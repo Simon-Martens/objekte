@@ -142,7 +142,7 @@ fn query_line(frame: &mut Frame<'_>, app: &App<'_>, line: Line, area: Rect) {
         Line::Filter => (
             "Filter",
             &app.filter,
-            "fields, e.g.  year >= 1800 && entry.year < 1820   (Tab completes)",
+            "fields, e.g.  year >= 1800 && entry.year < 1820   (suggests as you type)",
         ),
     };
     let error = app.error_confirmed
@@ -485,7 +485,17 @@ fn footer(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
 /// Key hints for the current state, most important first.
 fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
     if app.completion.is_some() {
-        return vec![("↑↓", "choose"), ("Tab", "insert"), ("Esc", "close")];
+        let enter = if app.completion_chosen {
+            "insert"
+        } else {
+            "search"
+        };
+        return vec![
+            ("Tab", "insert"),
+            ("↑↓", "choose"),
+            ("Enter", enter),
+            ("Esc", "close"),
+        ];
     }
     match app.view {
         View::Detail => {

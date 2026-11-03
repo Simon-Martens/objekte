@@ -619,6 +619,13 @@ fn context(before: &str) -> Context {
 }
 
 
+/// Whether suggestions should appear without Tab while typing: always,
+/// except on an empty line. The list then narrows with every key.
+pub(super) fn worth_showing(text: &str) -> bool {
+    !text.trim().is_empty()
+}
+
+
 /// Completions for the filter line at `cursor` (a character index).
 pub(super) fn complete(text: &str, cursor: usize, schema: &Schema<'_>) -> Option<Completion> {
     let chars = text.chars().collect::<Vec<_>>();

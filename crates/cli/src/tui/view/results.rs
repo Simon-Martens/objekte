@@ -239,7 +239,7 @@ pub(in super::super) fn empty(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) 
             vec![
                 "Type in Search to find words in any field.",
                 "Use Filter for fields:   year >= 1800 && pseudonym = false",
-                "Press Tab in Filter to complete field names from the schema.",
+                "Filter suggests fields, operators, and values as you type.",
                 "",
                 "Ctrl+K opens all actions · F1 lists every key",
             ],

@@ -338,6 +338,8 @@ pub(super) struct App<'a> {
     pub(super) line: Line,
     pub(super) completion: Option<Completion>,
     pub(super) completion_selected: usize,
+    /// The user moved through the suggestions, so Enter takes one.
+    pub(super) completion_chosen: bool,
     pub(super) view: View,
     pub(super) overlay: Option<Overlay>,
     pub(super) show_preview: bool,
@@ -442,6 +444,7 @@ impl<'a> App<'a> {
             line: Line::Search,
             completion: None,
             completion_selected: 0,
+            completion_chosen: false,
             view: View::Results,
             overlay: None,
             show_preview: true,
@@ -647,8 +650,15 @@ impl<'a> App<'a> {
         self.dirty = Some(Instant::now());
         self.last_edit = Some(Instant::now());
         self.selection_moved = false;
-        if self.completion.is_some() {
+        self.suggest();
+    }
+
+    /// Show suggestions while typing in the filter line, without Tab.
+    pub(super) fn suggest(&mut self) {
+        if self.line == Line::Filter && complete::worth_showing(&self.filter.text) {
             self.refresh_completion(false);
+        } else {
+            self.completion = None;
         }
     }
 
@@ -733,6 +743,7 @@ impl<'a> App<'a> {
             .is_none_or(|open| open.items != found.items)
         {
             self.completion_selected = 0;
+            self.completion_chosen = false;
         }
         self.completion = Some(found);
     }
