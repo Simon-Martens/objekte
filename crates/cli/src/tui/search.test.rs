@@ -1,6 +1,6 @@
 use super::*;
 use crate::tui::{navigation::DetailSection, state::SearchKind};
-use objekte_core::{JsonQuery, Repository, TextQuery};
+use objekte_core::{JsonQuery, Options, Repository, TextQuery};
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
 use std::{
     fs::{self, File, FileTimes},
@@ -91,6 +91,73 @@ fn streamed_hits_reach_the_ui_before_the_final_count() {
     assert_eq!(app.total, Some(2));
     assert_eq!(app.search_elapsed_ms, Some(12.5));
     assert_eq!(app.hits[0].record().id, "a");
+}
+
+#[test]
+fn background_tui_searches_reuse_verified_text_and_filter_pages() {
+    let temp = tempfile::tempdir().unwrap();
+    let schema = temp.path().join(".objekte/collections/docs.schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(
+        schema,
+        r#"{"type":"object","properties":{"note":{"type":"string"}},"x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    let collection = temp.path().join("data/docs");
+    fs::create_dir_all(&collection).unwrap();
+    fs::write(collection.join("a.json"), r#"{"note":"Moon A"}"#).unwrap();
+    fs::write(collection.join("b.json"), r#"{"note":"Moon B"}"#).unwrap();
+
+    let mut options = Options::new();
+    options.stream_query_cache = true;
+    let mut repo = Repository::load_repository(temp.path(), options).unwrap();
+    let mut app = App::new(&mut repo);
+    app.async_search = true;
+    let mut worker = SearchWorker::default();
+    app.input.text = "Moon".into();
+    app.search();
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while app.searching && Instant::now() < deadline {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(!app.searching);
+    assert_eq!(app.total, Some(2));
+    assert!(app.repo.query_cache_bytes() > 0);
+
+    app.repo.reset_metrics();
+    app.search();
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while app.searching && Instant::now() < deadline {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(!app.searching);
+    assert_eq!(app.hits.len(), 2);
+    assert!(app.repo.metrics().ordered_result_hits > 0);
+
+    app.kind = SearchKind::FilterOn;
+    app.input.text.clear();
+    app.filter_input.text = "note ~ 'Moon'".into();
+    app.search();
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while app.searching && Instant::now() < deadline {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(!app.searching);
+    assert_eq!(app.total, Some(2));
+
+    app.repo.reset_metrics();
+    app.search();
+    let deadline = Instant::now() + Duration::from_secs(5);
+    while app.searching && Instant::now() < deadline {
+        worker.drive(&mut app);
+        thread::sleep(Duration::from_millis(1));
+    }
+    assert!(!app.searching);
+    assert_eq!(app.hits.len(), 2);
+    assert!(app.repo.metrics().ordered_result_hits > 0);
 }
 
 #[test]

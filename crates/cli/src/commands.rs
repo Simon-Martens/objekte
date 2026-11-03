@@ -201,6 +201,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         return Err("--total-limit must be positive".into());
     }
     if command == "tui" {
+        options.stream_query_cache = true;
         if options.cache != CacheMode::Memory {
             return Err("TUI requires --cache memory".into());
         }

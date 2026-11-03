@@ -301,7 +301,7 @@ impl Repository {
             let cache_key = (self.options.cache == CacheMode::Memory
                 && self.options.freshness != Freshness::HashOnRequest
                 && self.query_cache.enabled()
-                && !result.streaming
+                && (!result.streaming || self.options.stream_query_cache)
                 && picker.verified()
                 && picker.slot_count() <= u32::MAX as usize
                 && !risk

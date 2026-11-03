@@ -342,7 +342,7 @@ impl Repository {
             let cache_key = if self.options.cache == CacheMode::Memory
                 && self.options.freshness != Freshness::HashOnRequest
                 && self.query_cache.enabled()
-                && !streaming
+                && (!streaming || self.options.stream_query_cache)
             {
                 let picker = &self.file_pickers[&name];
                 let safe_filter = collection_filter.as_ref().is_none_or(|filter| {

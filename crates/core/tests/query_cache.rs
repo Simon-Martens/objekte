@@ -66,6 +66,115 @@ fn ids(result: &objekte_core::JsonQueryResult) -> Vec<&str> {
 }
 
 #[test]
+fn streaming_searches_populate_and_reuse_verified_results() {
+    let fixture = fixture();
+    let mut options = Options::new();
+    options.stream_query_cache = true;
+    let mut repository = Repository::load_repository(fixture.path(), options).unwrap();
+    let request = query("annotation:fts ~ 'Goethe'", 0, "");
+    let mut first = Vec::new();
+    let first_summary = repository
+        .query_json_stream(&request, |_, record| {
+            first.push(record.id.clone());
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(first_summary.total, Some(16));
+    assert!(repository.query_cache_bytes() > 0);
+    let mut repeated = Vec::new();
+    let repeat_summary = repository
+        .query_json_stream(&request, |_, record| {
+            repeated.push(record.id.clone());
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(repeated, first);
+    assert!(repeat_summary.metrics.ordered_result_hits > 0);
+    assert_eq!(repeat_summary.metrics.grep_scans, 0);
+
+    let sorted = query("annotation:fts ~ 'Goethe'", 0, " SORT BY title ASC");
+    let mut page = Vec::new();
+    let sorted_summary = repository
+        .query_json_stream_updates(&sorted, |records| {
+            page = records.iter().map(|record| record.id.clone()).collect();
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(sorted_summary.total, Some(16));
+    assert_eq!(page.len(), 3);
+    assert!(sorted_summary.metrics.predicate_cache_hits > 0);
+
+    let text = TextQuery {
+        pattern: "Goethe".into(),
+        count: true,
+        limit: 3,
+        collections: Some(vec!["books".into()]),
+        ..Default::default()
+    };
+    let mut text_first = Vec::new();
+    let text_summary = repository
+        .search_text_stream(&text, |_, hit| {
+            text_first.push(hit.record.id.clone());
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(text_summary.total, Some(16));
+    let mut text_repeated = Vec::new();
+    let repeat_summary = repository
+        .search_text_stream(&text, |_, hit| {
+            text_repeated.push(hit.record.id.clone());
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(text_repeated, text_first);
+    assert!(repeat_summary.metrics.ordered_result_hits > 0);
+    assert_eq!(repeat_summary.metrics.grep_scans, 0);
+
+    let sorted_text = TextQuery {
+        filter: Some("year = 1820 SORT BY title ASC".into()),
+        ..text
+    };
+    let mut sorted_page = Vec::new();
+    repository
+        .search_text_stream_updates(&sorted_text, |hits| {
+            sorted_page = hits.iter().map(|hit| hit.record.id.clone()).collect();
+            Ok(())
+        })
+        .unwrap();
+    let mut repeated_page = Vec::new();
+    let repeat_summary = repository
+        .search_text_stream_updates(&sorted_text, |hits| {
+            repeated_page = hits.iter().map(|hit| hit.record.id.clone()).collect();
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(repeated_page, sorted_page);
+    assert!(repeat_summary.metrics.ordered_result_hits > 0);
+}
+
+#[test]
+fn failed_streaming_callback_does_not_publish_results() {
+    let fixture = fixture();
+    let mut options = Options::new();
+    options.stream_query_cache = true;
+    let mut repository = Repository::load_repository(fixture.path(), options).unwrap();
+    repository.warm_text_index("books").unwrap();
+    let before = repository.query_cache_bytes();
+    let request = query("annotation:fts ~ 'Goethe'", 0, "");
+    assert!(
+        repository
+            .query_json_stream(&request, |_, _| {
+                Err(objekte_core::Error::Request("cancelled".into()))
+            })
+            .is_err()
+    );
+    assert_eq!(repository.query_cache_bytes(), before);
+    let result = repository.query_json(&request).unwrap();
+    assert_eq!(result.total, Some(16));
+    assert_eq!(result.metrics.ordered_result_hits, 0);
+}
+
+#[test]
 fn complete_membership_pagination_and_sort_reuse_match_direct_execution() {
     let fixture = fixture();
     let mut cached = repo(fixture.path(), CacheMode::Memory, 64 * 1024 * 1024);

@@ -62,6 +62,9 @@ pub struct Options {
     pub total_limit: usize,
     /// Process-local verified-query cache budget in bytes; zero disables it.
     pub query_cache_bytes: usize,
+    /// Allow streamed searches to reuse verified results without rechecking
+    /// non-page source files. Intended for interactive UIs with reconciliation.
+    pub stream_query_cache: bool,
 }
 
 
@@ -73,6 +76,7 @@ impl Options {
             bigram_encoding: BigramEncoding::Ascii,
             total_limit: 10_000,
             query_cache_bytes: 64 * 1024 * 1024,
+            stream_query_cache: false,
         }
     }
 }
