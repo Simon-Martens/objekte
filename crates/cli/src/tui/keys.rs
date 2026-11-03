@@ -54,15 +54,20 @@ pub(super) fn key(app: &mut App<'_>, key: KeyEvent) {
             app.show_preview = !app.show_preview;
             return;
         }
-        KeyCode::Char(ch) if alt && !control => {
+        // Only these letters are shortcuts. Other keys with Alt are text:
+        // some terminals and layouts send `@`, `[`, `|`, or `~` with Alt.
+        KeyCode::Char(ch)
+            if alt
+                && !control
+                && matches!(ch.to_ascii_lowercase(), 'r' | 'c' | 't' | 'e' | 's' | 'b') =>
+        {
             match ch.to_ascii_lowercase() {
                 'r' => app.toggle_regex(),
                 'c' => app.toggle_case(),
                 't' => app.toggle_representation(),
                 'e' => app.edit_record(),
                 's' => app.run_action(Action::SortBy),
-                'b' => app.run_action(Action::Breakdown),
-                _ => {}
+                _ => app.run_action(Action::Breakdown),
             }
             return;
         }
@@ -132,11 +137,12 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
             app.move_selection(-(rows as isize));
         }
         // Vim-style paging; these replace line editing's Ctrl+U here.
-        KeyCode::Char('u') if control => {
+        // Ctrl+Alt is AltGr, which types characters.
+        KeyCode::Char('u') if control && !alt => {
             let rows = app.visible_rows.get().max(2) - 1;
             app.move_selection(-(rows as isize));
         }
-        KeyCode::Char('d') if control => {
+        KeyCode::Char('d') if control && !alt => {
             let rows = app.visible_rows.get().max(2) - 1;
             app.move_selection(rows as isize);
         }
@@ -209,7 +215,7 @@ fn detail(app: &mut App<'_>, mut key: KeyEvent) {
     } else {
         app.visible_rows.get().max(2) as isize - 1
     };
-    if key.modifiers.contains(KeyModifiers::CONTROL) {
+    if key.modifiers.contains(KeyModifiers::CONTROL) && !key.modifiers.contains(KeyModifiers::ALT) {
         key.code = match key.code {
             KeyCode::Char('u') => KeyCode::PageUp,
             KeyCode::Char('d') => KeyCode::PageDown,

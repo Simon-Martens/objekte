@@ -105,6 +105,8 @@ impl App<'_> {
 
     /// Show the current versions of what is on screen, keeping the selection.
     fn reload_shown(&mut self) {
+        // Records changed, so their value counts may have too.
+        self.value_counts.borrow_mut().clear();
         if let Some(linked) = self
             .links
             .override_hit

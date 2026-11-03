@@ -63,6 +63,7 @@ fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
             });
         }
         warm::WarmUpdate::Ready(mut built, mode) => {
+            app.value_counts.borrow_mut().clear();
             let restored = built.metrics().secondary_snapshot_loads;
             let bigram_restored = built.metrics().bigram_snapshot_loads;
             std::mem::swap(app.repo, &mut *built);

@@ -482,3 +482,52 @@ fn suggestions_appear_while_typing_and_enter_still_searches() {
     press(&mut app, KeyCode::Left);
     press(&mut app, KeyCode::Right);
 }
+
+#[test]
+fn value_counts_survive_searches_and_misses_are_not_kept() {
+    let temp = tempfile::tempdir().unwrap();
+    let schema = temp.path().join(".objekte/collections/docs.schema.json");
+    fs::create_dir_all(schema.parent().unwrap()).unwrap();
+    fs::write(
+        schema,
+        r#"{"type":"object","properties":{"kind":{"type":"string","index":true},"n":{"type":"integer"}},"x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"json","id":"filename"}}"#,
+    )
+    .unwrap();
+    write_docs(temp.path(), 4);
+    let mut repo = Repository::open(temp.path()).unwrap();
+    repo.diff("docs").unwrap();
+    let mut app = App::new(&mut repo);
+    app.filter = Input::with_text("n = ");
+    app.line = Line::Filter;
+    app.refresh_completion(false);
+    assert!(
+        app.value_counts.borrow().is_empty(),
+        "n is not indexed: no entry"
+    );
+    app.filter = Input::with_text("kind = ");
+    app.refresh_completion(false);
+    assert_eq!(app.value_counts.borrow().len(), 1);
+    app.search();
+    assert_eq!(app.value_counts.borrow().len(), 1, "kept across searches");
+}
+
+#[test]
+fn the_error_position_is_only_marked_after_enter() {
+    use ratatui::style::Modifier;
+    let (_temp, mut repo) = repository(2);
+    let mut app = App::new(&mut repo);
+    app.line = Line::Filter;
+    type_text(&mut app, "n >");
+    settle(&mut app);
+    assert!(app.query_error.is_some());
+    let marked = |app: &App<'_>| {
+        let mut terminal = Terminal::new(TestBackend::new(80, 12)).unwrap();
+        terminal.draw(|frame| view::draw(frame, app)).unwrap();
+        let buffer = terminal.backend().buffer().clone();
+        (0..80).any(|x| buffer[(x, 3)].modifier.contains(Modifier::UNDERLINED))
+    };
+    assert!(!marked(&app), "no marker while typing");
+    press(&mut app, KeyCode::Enter);
+    assert!(app.error_confirmed);
+    assert!(marked(&app), "Enter marks the position");
+}

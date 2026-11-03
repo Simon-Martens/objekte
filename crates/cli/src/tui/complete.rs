@@ -715,7 +715,9 @@ pub(super) fn complete(text: &str, cursor: usize, schema: &Schema<'_>) -> Option
             // Real values from the index show whether the field holds dates.
             let counted = items
                 .iter()
-                .filter(|item| item.detail.ends_with(" records"))
+                .filter(|item| {
+                    item.detail.ends_with(" records") || item.detail.ends_with(" record")
+                })
                 .collect::<Vec<_>>();
             let dated = dated
                 && (counted.is_empty()
@@ -928,7 +930,8 @@ fn values(schema: &Schema<'_>, path: &str) -> Vec<Candidate> {
                 Value::String(text) => (quote(text), text.clone()),
                 other => (other.to_string(), other.to_string()),
             };
-            push(json, value(insert, &label, &format!("{records} records")));
+            let noun = if records == 1 { "record" } else { "records" };
+            push(json, value(insert, &label, &format!("{records} {noun}")));
         }
     }
     let field = split_path(path).and_then(|(mut segments, last)| {

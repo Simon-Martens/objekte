@@ -13,7 +13,7 @@ use super::input::Input;
 use ratatui::{
     Frame,
     layout::{Constraint, Layout, Position, Rect},
-    style::{Color, Modifier, Style},
+    style::{Modifier, Style},
     text::{Line as TextLine, Span},
     widgets::Paragraph,
 };
@@ -192,24 +192,20 @@ fn query_line(frame: &mut Frame<'_>, app: &App<'_>, line: Line, area: Rect) {
         } else {
             vec![Style::new().fg(TEXT); input.len()]
         };
-        // Point at the character a filter error names.
+        // Point at the character a filter error names, once Enter made it
+        // an error; while typing, the line is incomplete most of the time.
         let mark = app
             .query_error
             .as_ref()
-            .filter(|(failed, _)| *failed == line)
+            .filter(|(failed, _)| *failed == line && app.error_confirmed)
             .and_then(|(_, error)| syntax::error_position(&input.text, error))
             .map(|at| {
-                let color = if app.error_confirmed { RED } else { AMBER };
                 (
                     at,
                     Style::new()
                         .add_modifier(Modifier::UNDERLINED)
-                        .underline_color(color)
-                        .bg(if app.error_confirmed {
-                            MATCH
-                        } else {
-                            Color::Reset
-                        }),
+                        .underline_color(RED)
+                        .bg(MATCH),
                 )
             });
         draw_styled_input(frame, input, text_area, active, &styles, mark);

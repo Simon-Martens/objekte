@@ -689,9 +689,12 @@ impl<'a> App<'a> {
             if let Some(known) = cache.borrow().get(&key) {
                 return known.clone();
             }
-            // Read once per search; a large index is not re-read per key.
+            // Read once; a large index is not re-read per key. A miss is
+            // not kept: during a search this is the copy without indexes.
             let found = repo.value_counts(collection, path, 200).ok().flatten();
-            cache.borrow_mut().insert(key, found.clone());
+            if found.is_some() {
+                cache.borrow_mut().insert(key, found.clone());
+            }
             found
         };
         let schema = complete::Schema::new(&self.repo.model().collections, self.scope_name())
@@ -1035,7 +1038,6 @@ impl<'a> App<'a> {
                     // The search finished without any rows.
                     self.take_fresh();
                 }
-                self.value_counts.borrow_mut().clear();
                 self.seen = complete::Seen::from_records(
                     self.hits.iter().map(Hit::record),
                     &self.repo.model().collections,

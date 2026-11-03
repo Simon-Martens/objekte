@@ -61,3 +61,31 @@ fn help_opens_and_closes() {
     key(&mut app, KeyEvent::new(KeyCode::Esc, KeyModifiers::NONE));
     assert!(app.overlay.is_none());
 }
+
+#[test]
+fn symbols_sent_with_alt_or_altgr_are_typed_not_swallowed() {
+    let (_temp, mut repo) = app_repo();
+    let mut app = App::new(&mut repo);
+    app.line = Line::Filter;
+    for ch in ['@', '[', '|', '~', '{'] {
+        key(
+            &mut app,
+            KeyEvent::new(KeyCode::Char(ch), KeyModifiers::ALT),
+        );
+    }
+    // AltGr arrives as Ctrl+Alt, also for letters some layouts use.
+    for ch in ['u', 'd', '\\'] {
+        key(
+            &mut app,
+            KeyEvent::new(KeyCode::Char(ch), KeyModifiers::CONTROL | KeyModifiers::ALT),
+        );
+    }
+    assert_eq!(app.filter.text, "@[|~{ud\\\\".replace("\\\\", "\\"));
+    // The shortcut letters still toggle.
+    key(
+        &mut app,
+        KeyEvent::new(KeyCode::Char('r'), KeyModifiers::ALT),
+    );
+    assert!(app.regex);
+    assert_eq!(app.filter.text.chars().count(), 8);
+}
