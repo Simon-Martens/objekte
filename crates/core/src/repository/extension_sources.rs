@@ -2,7 +2,7 @@
 
 use super::*;
 use crate::extensions::{
-    FormatDecoder, JsonFormatDecoder, ScalarValue, SourceDescriptor, TypedValue,
+    DecodedRecord, FormatDecoder, JsonFormatDecoder, ScalarValue, SourceDescriptor, TypedValue,
 };
 
 const FILESYSTEM_PROVIDER: &str = "objekte:filesystem";
@@ -91,11 +91,7 @@ impl Repository {
         Ok(by_record.into_values().collect())
     }
 
-    /// Read and decode one previously enumerated source. The descriptor is
-    /// checked against current discovery before and after the provider read.
-    /// This is a public extension boundary; ordinary JSON queries keep their
-    /// existing fused native reader and projection.
-    pub fn read_source_leaves(&self, descriptor: &SourceDescriptor) -> Result<Vec<DecodedLeaf>> {
+    fn read_source_bytes(&self, descriptor: &SourceDescriptor) -> Result<Vec<u8>> {
         let collection = descriptor.collection.as_str();
         if !self.source_descriptors(collection)?.contains(descriptor) {
             return Err(Error::Request(
@@ -138,27 +134,56 @@ impl Repository {
         if !self.source_descriptors(collection)?.contains(descriptor) {
             return Err(Error::Unstable(descriptor.locator.clone()));
         }
-        let mut leaves = Vec::new();
-        let mut visit = |path: &str, scalar: ScalarValue<'_>| {
-            let value = match scalar {
-                ScalarValue::Null => TypedValue::Null,
-                ScalarValue::Bool(value) => TypedValue::Bool(value),
-                ScalarValue::Number(value) => TypedValue::Number(value.into()),
-                ScalarValue::Text(value) => TypedValue::Text(value.into()),
-            };
-            leaves.push(DecodedLeaf {
-                path: path.into(),
-                value,
-            });
+        Ok(bytes)
+    }
+
+    /// Read one source and lend its decoded record only during `visit`. The
+    /// descriptor is rechecked before and after the provider read. No owned
+    /// JSON tree or leaf list is required by this API.
+    pub fn with_source_record<T>(
+        &self,
+        descriptor: &SourceDescriptor,
+        visit: impl FnOnce(&dyn DecodedRecord) -> Result<T>,
+    ) -> Result<T> {
+        let bytes = self.read_source_bytes(descriptor)?;
+        let mut visit = Some(visit);
+        let mut result = None;
+        let mut callback = |record: &dyn DecodedRecord| {
+            let visit = visit
+                .take()
+                .ok_or_else(|| Error::Request("format decoder emitted multiple records".into()))?;
+            result = Some(visit(record)?);
             Ok(())
         };
         if let Some(registry) = &self.extensions {
             registry
                 .decoder(descriptor)?
-                .visit_leaves(&bytes, &mut visit)?;
+                .decode(&bytes, &mut callback)?;
         } else {
-            JsonFormatDecoder::default().visit_leaves(&bytes, &mut visit)?;
+            JsonFormatDecoder::default().decode(&bytes, &mut callback)?;
         }
-        Ok(leaves)
+        result.ok_or_else(|| Error::Request("format decoder emitted no record".into()))
+    }
+
+    /// Convenience inspection API. Output is published only after successful
+    /// complete decoding; callback failures cannot expose partial leaves.
+    pub fn read_source_leaves(&self, descriptor: &SourceDescriptor) -> Result<Vec<DecodedLeaf>> {
+        self.with_source_record(descriptor, |record| {
+            let mut leaves = Vec::new();
+            record.visit_leaves(&mut |path, scalar| {
+                let value = match scalar {
+                    ScalarValue::Null => TypedValue::Null,
+                    ScalarValue::Bool(value) => TypedValue::Bool(value),
+                    ScalarValue::Number(value) => TypedValue::Number(value.into()),
+                    ScalarValue::Text(value) => TypedValue::Text(value.into()),
+                };
+                leaves.push(DecodedLeaf {
+                    path: path.into(),
+                    value,
+                });
+                Ok(())
+            })?;
+            Ok(leaves)
+        })
     }
 }

@@ -524,6 +524,21 @@ mod tests {
                 value: TypedValue::Text("# Heading\nbody".into())
             }]
         );
+        let body_path = objekte_core::JsonFilter::parse_path("body").unwrap();
+        let body_length = repository
+            .with_source_record(&descriptors[0], |record| {
+                assert!(record.path_present(&body_path)?);
+                let mut length = 0;
+                record.visit_path(&body_path, &mut |value| {
+                    if let ScalarValue::Text(text) = value {
+                        length = text.len();
+                    }
+                    Ok(())
+                })?;
+                Ok(length)
+            })
+            .unwrap();
+        assert_eq!(body_length, "# Heading\nbody".len());
         assert_eq!(
             repository.read_source_leaves(&descriptors[1]).unwrap()[0].value,
             TypedValue::Text("json".into())
@@ -650,6 +665,67 @@ mod tests {
             .unwrap();
         assert!(
             matches!(repository.source_descriptors("docs"), Err(Error::Request(message)) if message.contains("ambiguous"))
+        );
+    }
+
+    #[test]
+    fn decoder_callback_failure_and_extra_record_never_publish_a_result() {
+        struct DoubleDecoder(Descriptor);
+
+
+        impl objekte_core::extensions::FormatDecoder for DoubleDecoder {
+            fn descriptor(&self) -> &Descriptor {
+                &self.0
+            }
+
+            fn accepts(&self, source: &objekte_core::extensions::SourceDescriptor) -> bool {
+                source.format == self.0.identity
+            }
+
+            fn decode(
+                &self,
+                bytes: &[u8],
+                visit: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
+            ) -> Result<()> {
+                let body = std::str::from_utf8(bytes).unwrap();
+                let record = MarkdownRecord { body };
+                visit(&record)?;
+                visit(&record)
+            }
+        }
+
+
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("seed.json"), "{}").unwrap();
+        fs::write(directory.join("item.md"), "# One").unwrap();
+        let repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory))
+            .unwrap()
+            .register_format(DoubleDecoder(Descriptor::new(
+                "example:markdown",
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
+                &(),
+                DataKind::Source,
+                DataKind::Record,
+                vec![Dependency::SourceBytes],
+            )))
+            .unwrap()
+            .open()
+            .unwrap();
+        let descriptor = repository.source_descriptors("docs").unwrap().remove(0);
+        let error = repository.with_source_record(&descriptor, |_| {
+            Err::<(), _>(Error::Request("cancelled".into()))
+        });
+        assert!(matches!(error, Err(Error::Request(message)) if message == "cancelled"));
+        let error = repository.read_source_leaves(&descriptor);
+        assert!(
+            matches!(error, Err(Error::Request(message)) if message.contains("multiple records"))
         );
     }
 
@@ -1221,6 +1297,8 @@ mod tests {
             repository
                 .search_text_with(&request, "example:trimmed", "example:prefix")
                 .unwrap()
+
+
                 .total,
             Some(0)
         );
