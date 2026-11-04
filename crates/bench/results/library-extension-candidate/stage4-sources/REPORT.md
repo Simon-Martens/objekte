@@ -1,0 +1,9 @@
+# Stage 4 source-boundary control
+
+Code revision: `29206cda28` (`Expose source descriptors and borrowed format records`). Reference: preserved stage 3 candidate executable from `69be4383e9`. The baseline corpus fingerprint is `crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/corpora.json`; the runner verified the current Musenalm source and metadata against it. Raw command lines, executable SHA-256 values, exit codes, stderr, 7-sample per-case rows, and paired summaries are under `json-50-final/`.
+
+The paired control used `crates/bench/workloads/musenalm-mix-50.json` (50 loaded cases), ASCII bigrams, cache budgets 0 and 64 MiB, seven measured rounds per process, three alternating reference/candidate pairs, `RAYON_NUM_THREADS=16`, and CPU affinity `0-15`. All 50 case count/first-ID signatures and source scan/read/parse counts matched at both budgets. With cache off, no case had a positive median paired delta greater than 0.005 ms; with cache on, the largest was case 11 at 0.274 ms, with a negative middle pair (-0.151 ms). There is no repeatable material regression in this control. This is a targeted stage check, not the required final full performance matrix or complete-result signature check.
+
+The earlier `json-50-paired/` run used a candidate built during the same source-boundary work, before the final decoder callback contract was committed. It is retained as diagnostic raw evidence, not the exact-revision control.
+
+Workspace tests and Clippy passed at this stage. The repository-wide spacing check still fails only on the four untouched files recorded in the stage 3 report. The custom provider/decoder path is currently an explicit inspection path; legacy queries and `FilePicker` still discover JSON only. Full phase 4 and final acceptance remain open.
