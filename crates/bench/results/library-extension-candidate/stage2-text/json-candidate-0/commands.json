@@ -1,0 +1,20 @@
+[
+  {
+    "name": "json-schema-ascii-cache0",
+    "command": [
+      "target/release/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "0"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793797030.0709636,
+    "ended_unix": 1793797125.6411877,
+    "expected_cases": 152
+  }
+]

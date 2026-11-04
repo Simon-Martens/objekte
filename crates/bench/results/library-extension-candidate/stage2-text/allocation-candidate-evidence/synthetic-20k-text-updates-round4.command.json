@@ -1,0 +1,10 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-candidate/stage2-text/candidate-bin/core-allocation",
+    "--case",
+    "text-updates",
+    "--repo",
+    "/tmp/objekte-alloc-fixture-library-baseline"
+  ],
+  "exit_status": 0
+}

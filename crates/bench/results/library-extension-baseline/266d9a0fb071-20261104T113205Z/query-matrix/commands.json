@@ -1,0 +1,163 @@
+[
+  {
+    "name": "json-schema-ascii-cache64",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "64"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792396.6920547,
+    "ended_unix": 1793792484.2943864,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-schema-ascii-cache0",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "0"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792484.2966156,
+    "ended_unix": 1793792575.6748495,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-schema-utf8_bytes-cache64",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "utf8_bytes",
+      "--query-cache-mib",
+      "64"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792575.676916,
+    "ended_unix": 1793792665.0409267,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-schema-utf8_bytes-cache0",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "utf8_bytes",
+      "--query-cache-mib",
+      "0"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792665.0431502,
+    "ended_unix": 1793792757.5290549,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-no-schema-ascii-cache64",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "64",
+      "--no-schema"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792757.5313241,
+    "ended_unix": 1793792847.0466542,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-no-schema-ascii-cache0",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "0",
+      "--no-schema"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792847.0493417,
+    "ended_unix": 1793792960.5894377,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-no-schema-utf8_bytes-cache64",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "utf8_bytes",
+      "--query-cache-mib",
+      "64",
+      "--no-schema"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793792960.5948462,
+    "ended_unix": 1793793052.5449357,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-no-schema-utf8_bytes-cache0",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "utf8_bytes",
+      "--query-cache-mib",
+      "0",
+      "--no-schema"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793793052.5473015,
+    "ended_unix": 1793793162.4084444,
+    "expected_cases": 152
+  },
+  {
+    "name": "fts-cache64",
+    "command": [
+      "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/fts-query-mix",
+      "examples/musenalm",
+      "7",
+      "64"
+    ],
+    "exit_status": 1,
+    "started_unix": 1793793162.412247,
+    "ended_unix": 1793793164.9683592,
+    "expected_cases": 30
+  }
+]

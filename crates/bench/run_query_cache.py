@@ -12,8 +12,14 @@ ROOT = Path(__file__).resolve().parents[2]
 BIN = ROOT / "target/release"
 
 
-def invoke(command):
-    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=True)
+def invoke(command, evidence_dir=None, label=None):
+    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
+    if evidence_dir is not None:
+        (evidence_dir / f"{label}.stderr.log").write_text(completed.stderr)
+        (evidence_dir / f"{label}.command.json").write_text(json.dumps({
+            "command": command, "exit_status": completed.returncode,
+        }, indent=2) + "\n")
+    completed.check_returncode()
     return [json.loads(line) for line in completed.stdout.splitlines() if line]
 
 
@@ -31,17 +37,17 @@ def signature(experiment, rows):
     return [(row["id"], row["matches"]) for row in rows if row["type"] == "case"]
 
 
-def run_pair(experiment, pair, budget, output):
+def run_pair(experiment, pair, budget, output, bin_dir, evidence_dir):
     results = {}
     for cache_mib in ([0, budget] if pair % 2 == 0 else [budget, 0]):
         if experiment in ("sequence", "allocation:sequence"):
-            command = [str(BIN / "query-cache"), "--repo", "examples/musenalm",
+            command = [str(bin_dir / "query-cache"), "--repo", "examples/musenalm",
                        "--cache-mib", str(cache_mib), "--run", str(pair)]
         elif experiment == "json100":
-            command = [str(BIN / "json-query-mix"), "--repo", "examples/musenalm",
+            command = [str(bin_dir / "json-query-mix"), "--repo", "examples/musenalm",
                        "--runs", "1", "--query-cache-mib", str(cache_mib)]
         elif experiment == "fts30":
-            command = [str(BIN / "fts-query-mix"), "examples/musenalm", "1", str(cache_mib)]
+            command = [str(bin_dir / "fts-query-mix"), "examples/musenalm", "1", str(cache_mib)]
         else:
             profile = experiment.split(":", 1)[1]
             repo, collection, pattern, encoding = {
@@ -49,10 +55,11 @@ def run_pair(experiment, pair, budget, output):
                 "amazon": ("amazon-reviews-2023", "reviews", "headphones", "ascii"),
                 "nyc": ("nyc311", "requests", "Park", "ascii"),
             }[profile]
-            command = [str(BIN / "query-cache"), "--repo", f"examples/{repo}",
+            command = [str(bin_dir / "query-cache"), "--repo", f"examples/{repo}",
                        "--collection", collection, "--text-pattern", pattern,
                        "--encoding", encoding, "--cache-mib", str(cache_mib), "--run", str(pair)]
-        rows = invoke(command)
+        label = f"{experiment.replace(':', '_')}-budget{budget}-pair{pair}-cache{cache_mib}"
+        rows = invoke(command, evidence_dir, label)
         results[cache_mib] = rows
         for row in rows:
             output.write(json.dumps({"experiment": experiment, "pair": pair,
@@ -72,24 +79,29 @@ def main():
     parser.add_argument("--skip-suites", action="store_true")
     parser.add_argument("--only-selective", action="store_true")
     parser.add_argument("--only-allocation", action="store_true")
+    parser.add_argument("--bin-dir", type=Path, default=BIN)
+    parser.add_argument("--evidence-dir", type=Path)
     args = parser.parse_args()
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    if args.evidence_dir is not None:
+        args.evidence_dir.mkdir(parents=True, exist_ok=True)
     with args.output.open("a" if args.only_selective or args.only_allocation else "w") as output:
         if args.only_allocation:
             for pair in range(args.pairs):
-                run_pair("allocation:sequence", pair, 64, output)
+                run_pair("allocation:sequence", pair, 64, output, args.bin_dir, args.evidence_dir)
         elif not args.only_selective:
             for budget in (16, 32, 64):
                 for pair in range(args.pairs):
-                    run_pair("sequence", pair, budget, output)
+                    run_pair("sequence", pair, budget, output, args.bin_dir, args.evidence_dir)
             if not args.skip_suites:
                 for experiment in ("json100", "fts30"):
                     for pair in range(args.pairs):
-                        run_pair(experiment, pair, 64, output)
+                        run_pair(experiment, pair, 64, output, args.bin_dir, args.evidence_dir)
         if args.only_selective or (not args.only_allocation and not args.skip_suites):
             for profile in ("leipzig", "amazon", "nyc"):
                 for pair in range(args.pairs):
-                    run_pair(f"selective:{profile}", pair, 64, output)
+                    run_pair(f"selective:{profile}", pair, 64, output, args.bin_dir,
+                             args.evidence_dir)
 
 
 if __name__ == "__main__":

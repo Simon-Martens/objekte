@@ -1,0 +1,18 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-candidate/stage2-text/candidate-bin/core-allocation",
+    "--case",
+    "text-sorted",
+    "--repo",
+    "examples/musenalm",
+    "--collection",
+    "contents",
+    "--filter",
+    "year >= 1700",
+    "--sort",
+    "annotation ASC",
+    "--pattern",
+    "und"
+  ],
+  "exit_status": 0
+}

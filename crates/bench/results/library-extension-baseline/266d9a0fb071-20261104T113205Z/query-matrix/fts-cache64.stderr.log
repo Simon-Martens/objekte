@@ -1,0 +1,2 @@
+initial index build 1865.4 ms; explicit FTS warm 0.1 ms; running 30 cases x 7
+Error: Request("filter at byte 36: :ignorecase does not apply to :fts; the full-text case option decides")

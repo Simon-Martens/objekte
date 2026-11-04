@@ -1,0 +1,15 @@
+validated json-schema-ascii-cache64: 152 cases
+validated json-schema-ascii-cache0: 152 cases
+validated json-schema-utf8_bytes-cache64: 152 cases
+validated json-schema-utf8_bytes-cache0: 152 cases
+validated json-no-schema-ascii-cache64: 152 cases
+validated json-no-schema-ascii-cache0: 152 cases
+validated json-no-schema-utf8_bytes-cache64: 152 cases
+validated json-no-schema-utf8_bytes-cache0: 152 cases
+Traceback (most recent call last):
+  File "/home/simon/source/objekte/crates/bench/run_library_query_matrix.py", line 95, in <module>
+    print(f"validated {name}: {expected} cases", flush=True)
+    ^^
+  File "/home/simon/source/objekte/crates/bench/run_library_query_matrix.py", line 88, in main
+    "expected_cases": expected}
+RuntimeError: fts-cache64 exited 1; see stderr log

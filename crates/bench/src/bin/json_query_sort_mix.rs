@@ -5,7 +5,6 @@ use serde::Deserialize;
 use serde_json::json;
 use std::{env, fs, path::PathBuf, time::Instant};
 
-
 #[derive(Deserialize)]
 struct Case {
     id: usize,
@@ -14,7 +13,6 @@ struct Case {
     collection: String,
     sort: String,
 }
-
 
 struct Sample {
     ms: f64,
@@ -25,7 +23,6 @@ struct Sample {
     parses: u64,
     indexed: bool,
 }
-
 
 fn arg(name: &str, default: &str) -> Result<String, Box<dyn std::error::Error>> {
     let mut args = env::args().skip(1);
@@ -164,13 +161,28 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         sorted.sort_by(|a, b| a.ms.total_cmp(&b.ms));
         let b = base[runs / 2];
         let s = sorted[runs / 2];
+        let raw_samples = case_samples
+            .iter()
+            .map(|(plain, ordered)| {
+                json!({
+                    "baseline_ms": plain.ms, "sorted_ms": ordered.ms,
+                    "baseline_ids": plain.ids, "sorted_ids": ordered.ids,
+                    "baseline_matches": plain.total, "sorted_matches": ordered.total,
+                    "baseline_truncated": plain.truncated, "sorted_truncated": ordered.truncated,
+                    "baseline_reads": plain.reads, "sorted_reads": ordered.reads,
+                    "baseline_parses": plain.parses, "sorted_parses": ordered.parses,
+                    "sort_index_used": ordered.indexed,
+                })
+            })
+            .collect::<Vec<_>>();
         println!(
             "{}",
             json!({"type":"case", "id":case.id, "kind":case.kind,
             "filter":case.filter, "collection":case.collection, "sort":case.sort,
             "matches":s.total, "truncated":s.truncated, "sort_index_used":s.indexed,
             "baseline_ms":b.ms, "sorted_ms":s.ms, "baseline_reads":b.reads,
-            "sorted_reads":s.reads, "baseline_parses":b.parses, "sorted_parses":s.parses})
+            "sorted_reads":s.reads, "baseline_parses":b.parses, "sorted_parses":s.parses,
+            "sorted_ids":s.ids, "samples":raw_samples})
         );
     }
     Ok(())

@@ -1,0 +1,930 @@
+diff --git a/crates/bench/run_core_allocation.py b/crates/bench/run_core_allocation.py
+index 969dd4f676..6275f24a8e 100644
+--- a/crates/bench/run_core_allocation.py
++++ b/crates/bench/run_core_allocation.py
+@@ -11,8 +11,12 @@ SYNTHETIC = (
+     "cold-build", "view-indexed", "view-fallback", "view-fallback-count",
+     "view-direct", "json-sorted", "text-sorted", "json-updates",
+     "text-updates", "rebuild", "snapshot-save", "snapshot-restore",
++    "json-stream-repeat-off", "json-stream-repeat-on",
++    "text-stream-repeat-off", "text-stream-repeat-on",
++    "source-lifecycle",
+ )
+ MUSENALM = ("json-sorted", "text-sorted", "rebuild", "snapshot-save", "snapshot-restore")
++STREAM = ("stream-cache-fixture-off", "stream-cache-fixture-on")
+ 
+ 
+ def clear_synthetic_cache(root: Path) -> None:
+@@ -32,14 +36,19 @@ def main() -> None:
+     parser.add_argument("--output", required=True, type=Path)
+     parser.add_argument("--fixture", type=Path, default=Path("/tmp/objekte-alloc-fixture-v2"))
+     parser.add_argument("--musenalm", type=Path, default=Path("examples/musenalm"))
++    parser.add_argument("--bin-dir", type=Path, default=Path("target/release"))
++    parser.add_argument("--evidence-dir", type=Path)
+     args = parser.parse_args()
+     if args.runs < 1:
+         parser.error("--runs must be positive")
+-    binary = Path("target/release/core-allocation")
++    binary = args.bin_dir / "core-allocation"
++    if args.evidence_dir is not None:
++        args.evidence_dir.mkdir(parents=True, exist_ok=True)
+     with args.output.open("w", encoding="utf-8") as output:
+         for corpus, cases, root in (
+             ("synthetic-20k", SYNTHETIC, args.fixture),
+             ("musenalm-contents", MUSENALM, args.musenalm),
++            ("stream-cache-fixture-2k", STREAM, args.fixture),
+         ):
+             for case in cases:
+                 for round_number in range(1, args.runs + 1):
+@@ -51,7 +60,14 @@ def main() -> None:
+                             "--collection", "contents", "--filter", "year >= 1700",
+                             "--sort", "annotation ASC", "--pattern", "und",
+                         ]
+-                    completed = subprocess.run(command, check=True, capture_output=True, text=True)
++                    completed = subprocess.run(command, capture_output=True, text=True)
++                    if args.evidence_dir is not None:
++                        label = f"{corpus}-{case}-round{round_number}"
++                        (args.evidence_dir / f"{label}.stderr.log").write_text(completed.stderr)
++                        (args.evidence_dir / f"{label}.command.json").write_text(json.dumps({
++                            "command": command, "exit_status": completed.returncode,
++                        }, indent=2) + "\n")
++                    completed.check_returncode()
+                     sample = json.loads(completed.stdout)
+                     sample.update({"phase": args.phase, "corpus": corpus, "round": round_number})
+                     output.write(json.dumps(sample, ensure_ascii=False) + "\n")
+diff --git a/crates/bench/run_index_build_profiles.py b/crates/bench/run_index_build_profiles.py
+index 5b162aa08e..2ebeed9c45 100644
+--- a/crates/bench/run_index_build_profiles.py
++++ b/crates/bench/run_index_build_profiles.py
+@@ -46,6 +46,8 @@ def main() -> None:
+     parser.add_argument("--only", help="comma-separated profile names")
+     parser.add_argument("--resume", action="store_true")
+     parser.add_argument("--no-build", action="store_true")
++    parser.add_argument("--bin-dir", type=Path, default=ROOT / "target/release")
++    parser.add_argument("--evidence-dir", type=Path)
+     args = parser.parse_args()
+     if args.runs < 1:
+         parser.error("--runs must be positive")
+@@ -62,6 +64,9 @@ def main() -> None:
+              "--bin", "index-build-profile"],
+             cwd=ROOT, check=True,
+         )
++    binary = args.bin_dir / "index-build-profile"
++    if args.evidence_dir is not None:
++        args.evidence_dir.mkdir(parents=True, exist_ok=True)
+     completed = set()
+     if args.resume and args.output.is_file():
+         for line in args.output.read_text().splitlines():
+@@ -78,12 +83,18 @@ def main() -> None:
+                 repo = ROOT / "examples" / repo_name
+                 if not repo.is_dir():
+                     raise FileNotFoundError(f"materialize {repo} before benchmarking")
+-                command = [str(BENCH), "--repo", str(repo), "--collection", collection,
++                command = [str(binary), "--repo", str(repo), "--collection", collection,
+                            "--encoding", encoding]
+                 for field in fields:
+                     command += ["--field", field]
+                 started = time.monotonic()
+                 result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
++                if args.evidence_dir is not None:
++                    label = f"{name}-round{round_number}"
++                    (args.evidence_dir / f"{label}.stderr.log").write_text(result.stderr)
++                    (args.evidence_dir / f"{label}.command.json").write_text(json.dumps({
++                        "command": command, "exit_status": result.returncode,
++                    }, indent=2) + "\n")
+                 if result.returncode:
+                     raise RuntimeError(f"{name} failed: {result.stderr}")
+                 record = json.loads(result.stdout)
+diff --git a/crates/bench/run_query_cache.py b/crates/bench/run_query_cache.py
+index 947ea94794..41b41e2686 100644
+--- a/crates/bench/run_query_cache.py
++++ b/crates/bench/run_query_cache.py
+@@ -12,8 +12,14 @@ ROOT = Path(__file__).resolve().parents[2]
+ BIN = ROOT / "target/release"
+ 
+ 
+-def invoke(command):
+-    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True, check=True)
++def invoke(command, evidence_dir=None, label=None):
++    completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
++    if evidence_dir is not None:
++        (evidence_dir / f"{label}.stderr.log").write_text(completed.stderr)
++        (evidence_dir / f"{label}.command.json").write_text(json.dumps({
++            "command": command, "exit_status": completed.returncode,
++        }, indent=2) + "\n")
++    completed.check_returncode()
+     return [json.loads(line) for line in completed.stdout.splitlines() if line]
+ 
+ 
+@@ -31,17 +37,17 @@ def signature(experiment, rows):
+     return [(row["id"], row["matches"]) for row in rows if row["type"] == "case"]
+ 
+ 
+-def run_pair(experiment, pair, budget, output):
++def run_pair(experiment, pair, budget, output, bin_dir, evidence_dir):
+     results = {}
+     for cache_mib in ([0, budget] if pair % 2 == 0 else [budget, 0]):
+         if experiment in ("sequence", "allocation:sequence"):
+-            command = [str(BIN / "query-cache"), "--repo", "examples/musenalm",
++            command = [str(bin_dir / "query-cache"), "--repo", "examples/musenalm",
+                        "--cache-mib", str(cache_mib), "--run", str(pair)]
+         elif experiment == "json100":
+-            command = [str(BIN / "json-query-mix"), "--repo", "examples/musenalm",
++            command = [str(bin_dir / "json-query-mix"), "--repo", "examples/musenalm",
+                        "--runs", "1", "--query-cache-mib", str(cache_mib)]
+         elif experiment == "fts30":
+-            command = [str(BIN / "fts-query-mix"), "examples/musenalm", "1", str(cache_mib)]
++            command = [str(bin_dir / "fts-query-mix"), "examples/musenalm", "1", str(cache_mib)]
+         else:
+             profile = experiment.split(":", 1)[1]
+             repo, collection, pattern, encoding = {
+@@ -49,10 +55,11 @@ def run_pair(experiment, pair, budget, output):
+                 "amazon": ("amazon-reviews-2023", "reviews", "headphones", "ascii"),
+                 "nyc": ("nyc311", "requests", "Park", "ascii"),
+             }[profile]
+-            command = [str(BIN / "query-cache"), "--repo", f"examples/{repo}",
++            command = [str(bin_dir / "query-cache"), "--repo", f"examples/{repo}",
+                        "--collection", collection, "--text-pattern", pattern,
+                        "--encoding", encoding, "--cache-mib", str(cache_mib), "--run", str(pair)]
+-        rows = invoke(command)
++        label = f"{experiment.replace(':', '_')}-budget{budget}-pair{pair}-cache{cache_mib}"
++        rows = invoke(command, evidence_dir, label)
+         results[cache_mib] = rows
+         for row in rows:
+             output.write(json.dumps({"experiment": experiment, "pair": pair,
+@@ -72,24 +79,29 @@ def main():
+     parser.add_argument("--skip-suites", action="store_true")
+     parser.add_argument("--only-selective", action="store_true")
+     parser.add_argument("--only-allocation", action="store_true")
++    parser.add_argument("--bin-dir", type=Path, default=BIN)
++    parser.add_argument("--evidence-dir", type=Path)
+     args = parser.parse_args()
+     args.output.parent.mkdir(parents=True, exist_ok=True)
++    if args.evidence_dir is not None:
++        args.evidence_dir.mkdir(parents=True, exist_ok=True)
+     with args.output.open("a" if args.only_selective or args.only_allocation else "w") as output:
+         if args.only_allocation:
+             for pair in range(args.pairs):
+-                run_pair("allocation:sequence", pair, 64, output)
++                run_pair("allocation:sequence", pair, 64, output, args.bin_dir, args.evidence_dir)
+         elif not args.only_selective:
+             for budget in (16, 32, 64):
+                 for pair in range(args.pairs):
+-                    run_pair("sequence", pair, budget, output)
++                    run_pair("sequence", pair, budget, output, args.bin_dir, args.evidence_dir)
+             if not args.skip_suites:
+                 for experiment in ("json100", "fts30"):
+                     for pair in range(args.pairs):
+-                        run_pair(experiment, pair, 64, output)
++                        run_pair(experiment, pair, 64, output, args.bin_dir, args.evidence_dir)
+         if args.only_selective or (not args.only_allocation and not args.skip_suites):
+             for profile in ("leipzig", "amazon", "nyc"):
+                 for pair in range(args.pairs):
+-                    run_pair(f"selective:{profile}", pair, 64, output)
++                    run_pair(f"selective:{profile}", pair, 64, output, args.bin_dir,
++                             args.evidence_dir)
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/crates/bench/run_snapshot_restore_profiles.py b/crates/bench/run_snapshot_restore_profiles.py
+index 6b34e66d85..28a114ce97 100644
+--- a/crates/bench/run_snapshot_restore_profiles.py
++++ b/crates/bench/run_snapshot_restore_profiles.py
+@@ -12,9 +12,9 @@ from run_index_build_profiles import PROFILES, ROOT
+ BENCH = ROOT / "target/release/index-build-profile"
+ 
+ 
+-def command(profile, snapshot):
++def command(profile, snapshot, binary):
+     _, repo_name, collection, encoding, fields = profile
+-    result = [str(BENCH), "--repo", str(ROOT / "examples" / repo_name),
++    result = [str(binary), "--repo", str(ROOT / "examples" / repo_name),
+               "--collection", collection, "--encoding", encoding,
+               "--snapshot-path", str(snapshot)]
+     for field in fields:
+@@ -22,8 +22,15 @@ def command(profile, snapshot):
+     return result
+ 
+ 
+-def run(args):
+-    result = subprocess.run(args, cwd=ROOT, capture_output=True, text=True, check=True)
++def run(args, evidence_dir=None, label=None):
++    result = subprocess.run(args, cwd=ROOT, capture_output=True, text=True)
++    if evidence_dir is not None:
++        (evidence_dir / f"{label}.stdout.json").write_text(result.stdout)
++        (evidence_dir / f"{label}.stderr.log").write_text(result.stderr)
++        (evidence_dir / f"{label}.command.json").write_text(json.dumps({
++            "command": args, "exit_status": result.returncode,
++        }, indent=2) + "\n")
++    result.check_returncode()
+     return json.loads(result.stdout)
+ 
+ 
+@@ -35,6 +42,8 @@ def main():
+     parser.add_argument("--snapshots", type=Path, default=ROOT / "target/snapshot-restore")
+     parser.add_argument("--no-build", action="store_true")
+     parser.add_argument("--reuse-snapshots", action="store_true")
++    parser.add_argument("--bin-dir", type=Path, default=ROOT / "target/release")
++    parser.add_argument("--evidence-dir", type=Path)
+     args = parser.parse_args()
+     if args.runs < 1:
+         parser.error("--runs must be positive")
+@@ -46,20 +55,24 @@ def main():
+         subprocess.run(["cargo", "build", "--release", "-p", "objekte-bench",
+                         "--features", "index-timings", "--bin", "index-build-profile"],
+                        cwd=ROOT, check=True)
++    binary = args.bin_dir / "index-build-profile"
++    if args.evidence_dir is not None:
++        args.evidence_dir.mkdir(parents=True, exist_ok=True)
+     args.snapshots.mkdir(parents=True, exist_ok=True)
+     for profile in profiles:
+         name = profile[0]
+         snapshot = args.snapshots / f"{name}.bigram"
+         if not args.reuse_snapshots or not snapshot.is_file():
+             print(f"preparing {name}", flush=True)
+-            run(command(profile, snapshot))
++            run(command(profile, snapshot, binary), args.evidence_dir, f"{name}-prepare")
+     args.output.parent.mkdir(parents=True, exist_ok=True)
+     with args.output.open("w", encoding="utf-8") as output:
+         for round_number in range(1, args.runs + 1):
+             for profile in (profiles if round_number % 2 else list(reversed(profiles))):
+                 name = profile[0]
+                 snapshot = args.snapshots / f"{name}.bigram"
+-                record = run(command(profile, snapshot) + ["--restore-only"])
++                record = run(command(profile, snapshot, binary) + ["--restore-only"],
++                             args.evidence_dir, f"{name}-round{round_number}")
+                 record.update({"profile": name, "round": round_number})
+                 output.write(json.dumps(record, sort_keys=True) + "\n")
+                 output.flush()
+diff --git a/crates/bench/src/bin/core_allocation.rs b/crates/bench/src/bin/core_allocation.rs
+index 4cd0e91702..658c56e270 100644
+--- a/crates/bench/src/bin/core_allocation.rs
++++ b/crates/bench/src/bin/core_allocation.rs
+@@ -1,16 +1,16 @@
+ //! Count process allocations around one core operation in a release build.
+ 
+ use objekte_core::{
+-    CacheMode, Filter, JsonQuery, JsonQueryBackend, Operator, Options, Repository, TextMode,
+-    TextQuery, ViewRequest, parse_sort_terms,
++    CacheMode, Filter, JsonQuery, JsonQueryBackend, Operator, Options, Repository, SourceChange,
++    TextMode, TextQuery, ViewRequest, parse_sort_terms,
+ };
+ use serde_json::{Value, json};
+ use std::{
+     alloc::{GlobalAlloc, Layout, System},
+     env, fs,
+-    path::PathBuf,
++    path::{Path, PathBuf},
+     sync::atomic::{AtomicIsize, AtomicUsize, Ordering},
+-    time::Instant,
++    time::{Duration, Instant, UNIX_EPOCH},
+ };
+ 
+ 
+@@ -150,8 +150,89 @@ fn print(case: &str, sample: Sample, signature: Value) {
+     );
+ }
+ 
++fn io_at<T>(path: &Path, result: std::io::Result<T>) -> objekte_core::Result<T> {
++    result.map_err(|source| objekte_core::Error::Io {
++        path: path.to_path_buf(),
++        source,
++    })
++}
++
++fn stream_cache_fixture(case: &str) -> Result<(), Box<dyn std::error::Error>> {
++    let fixture = tempfile::tempdir()?;
++    let schema = fixture
++        .path()
++        .join(".objekte/collections/books.schema.json");
++    fs::create_dir_all(schema.parent().unwrap())?;
++    fs::write(
++        &schema,
++        json!({
++            "type":"object",
++            "properties":{"annotation":{"type":"string","x-full-text":"plain"}},
++            "x-objekte":{"name":"books","path":"data/books","type":"data",
++                         "format":"json","id":"filename"}
++        })
++        .to_string(),
++    )?;
++    let data = fixture.path().join("data/books");
++    fs::create_dir_all(&data)?;
++    for index in 0..2_000 {
++        let annotation = if index % 3 == 0 {
++            "Goethe visited"
++        } else {
++            "Other author"
++        };
++        let path = data.join(format!("{index:04}.json"));
++        fs::write(&path, json!({"annotation":annotation}).to_string())?;
++        fs::File::options().write(true).open(&path)?.set_times(
++            fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(index as u64)),
++        )?;
++    }
++    let mut options = Options::new();
++    options.stream_query_cache = case.ends_with("-on");
++    let mut repo = Repository::load_repository(fixture.path(), options)?;
++    repo.warm_bigram_index("books")?;
++    repo.warm_text_index("books")?;
++    let request = JsonQuery {
++        filter: "annotation:fts ~ 'Goethe'".into(),
++        collections: Some(vec!["books".into()]),
++        count: true,
++        limit: 3,
++        ..Default::default()
++    };
++    let (repeats, sample) = measure(|| {
++        let mut repeats = Vec::new();
++        for _ in 0..3 {
++            let mut ids = Vec::new();
++            let summary = repo.query_json_stream(&request, |_, record| {
++                ids.push(record.id.clone());
++                Ok(())
++            })?;
++            repeats.push((
++                ids,
++                summary.total,
++                summary.truncated,
++                summary.metrics.source_reads,
++                summary.metrics.parses,
++                summary.metrics.predicate_cache_hits,
++                summary.metrics.ordered_result_hits,
++            ));
++        }
++        Ok(repeats)
++    })?;
++    print(
++        case,
++        sample,
++        json!({"repeats":repeats,
++        "query_cache_bytes":repo.query_cache_bytes()}),
++    );
++    Ok(())
++}
++
+ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     let case = arg("--case", "view-indexed");
++    if case.starts_with("stream-cache-fixture") {
++        return stream_cache_fixture(&case);
++    }
+     let root = PathBuf::from(arg("--repo", "/tmp/objekte-alloc-fixture-v2"));
+     let collection = arg("--collection", "items");
+     let filter = arg("--filter", "category = 'all'");
+@@ -159,6 +240,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     let sorts = parse_sort_terms(&arg("--sort", "title ASC && rank DESC"))?;
+     let mut options = Options::new();
+     options.total_limit = 100_000;
++    options.stream_query_cache = case.ends_with("stream-repeat-on");
+     if case == "view-direct" {
+         options.cache = CacheMode::Disabled;
+     }
+@@ -172,7 +254,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     }
+     if matches!(
+         case.as_str(),
+-        "text-sorted" | "text-updates" | "text-broad" | "text-selective" | "text-zero"
++        "text-sorted"
++            | "text-updates"
++            | "text-broad"
++            | "text-selective"
++            | "text-zero"
++            | "text-stream-repeat-off"
++            | "text-stream-repeat-on"
+     ) {
+         repo.warm_text_index(&collection)?;
+     }
+@@ -212,7 +300,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 }),
+             );
+         }
+-        "json-sorted" | "json-updates" => {
++        "json-sorted" | "json-updates" | "json-stream-repeat-off" | "json-stream-repeat-on" => {
+             let request = JsonQuery {
+                 filter,
+                 collections: Some(vec![collection.clone()]),
+@@ -222,7 +310,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 backend: JsonQueryBackend::Bigram,
+                 ..Default::default()
+             };
+-            if case == "json-updates" {
++            if case.starts_with("json-stream-repeat") {
++                let (result, sample) = measure(|| {
++                    let mut repeats = Vec::new();
++                    for _ in 0..3 {
++                        let mut ids = Vec::new();
++                        let summary = repo.query_json_stream(&request, |_, record| {
++                            ids.push(record.id.clone());
++                            Ok(())
++                        })?;
++                        repeats.push((
++                            ids,
++                            summary.total,
++                            summary.truncated,
++                            summary.metrics.source_reads,
++                            summary.metrics.parses,
++                            summary.metrics.predicate_cache_hits,
++                            summary.metrics.ordered_result_hits,
++                        ));
++                    }
++                    Ok(repeats)
++                })?;
++                print(&case, sample, json!({"repeats":result}));
++            } else if case == "json-updates" {
+                 let (result, sample) = measure(|| {
+                     let mut pages = 0;
+                     let summary = repo.query_json_stream_updates(&request, |_| {
+@@ -251,7 +361,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 );
+             }
+         }
+-        "text-sorted" | "text-updates" | "text-broad" | "text-selective" | "text-zero" => {
++        "text-sorted"
++        | "text-updates"
++        | "text-broad"
++        | "text-selective"
++        | "text-zero"
++        | "text-stream-repeat-off"
++        | "text-stream-repeat-on" => {
+             let pattern = match case.as_str() {
+                 "text-broad" => "e".to_owned(),
+                 "text-selective" => "Goethe".to_owned(),
+@@ -267,7 +383,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 count: true,
+                 ..Default::default()
+             };
+-            if case == "text-updates" {
++            if case.starts_with("text-stream-repeat") {
++                let (result, sample) = measure(|| {
++                    let mut repeats = Vec::new();
++                    for _ in 0..3 {
++                        let mut ids = Vec::new();
++                        let summary = repo.search_text_stream(&request, |_, hit| {
++                            ids.push(hit.record.id.clone());
++                            Ok(())
++                        })?;
++                        repeats.push((
++                            ids,
++                            summary.total,
++                            summary.truncated,
++                            summary.metrics.source_reads,
++                            summary.metrics.parses,
++                            summary.metrics.predicate_cache_hits,
++                            summary.metrics.ordered_result_hits,
++                        ));
++                    }
++                    Ok(repeats)
++                })?;
++                print(&case, sample, json!({"repeats":result}));
++            } else if case == "text-updates" {
+                 let (result, sample) = measure(|| {
+                     let mut pages = 0;
+                     let summary = repo.search_text_stream_updates(&request, |_| {
+@@ -336,6 +474,90 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 }),
+             );
+         }
++        "source-lifecycle" => {
++            let fixture = tempfile::tempdir()?;
++            let data = fixture.path().join("data/items");
++            fs::create_dir_all(&data)?;
++            fs::write(data.join("a.json"), br#"{"title":"Alpha","rank":1}"#)?;
++            fs::write(data.join("b.json"), br#"{"title":"Beta","rank":2}"#)?;
++            let mut edited = Repository::load_repository(fixture.path(), Options::new())?;
++            edited.warm_bigram_index("items")?;
++            let (report, sample) = measure(|| {
++                io_at(
++                    &data.join("a.json"),
++                    fs::write(
++                        data.join("a.json"),
++                        br#"{"title":"Alpha changed","rank":3}"#,
++                    ),
++                )?;
++                let changed = edited
++                    .apply_source_changes(&[SourceChange::Changed("data/items/a.json".into())])?;
++                io_at(
++                    &data.join("c.json"),
++                    fs::write(data.join("c.json"), br#"{"title":"Alpha new","rank":4}"#),
++                )?;
++                let created = edited
++                    .apply_source_changes(&[SourceChange::Created("data/items/c.json".into())])?;
++                io_at(&data.join("b.json"), fs::remove_file(data.join("b.json")))?;
++                let deleted = edited
++                    .apply_source_changes(&[SourceChange::Deleted("data/items/b.json".into())])?;
++                io_at(
++                    &data.join("c.json"),
++                    fs::rename(data.join("c.json"), data.join("d.json")),
++                )?;
++                let moved = edited.apply_source_changes(&[SourceChange::Moved {
++                    from: "data/items/c.json".into(),
++                    to: "data/items/d.json".into(),
++                }])?;
++                io_at(
++                    &data.join("d.json"),
++                    fs::write(
++                        data.join("d.json"),
++                        br#"{"title":"Alpha refreshed","rank":5}"#,
++                    ),
++                )?;
++                let refreshed = edited.refresh("items")?;
++                Ok((changed, created, deleted, moved, refreshed))
++            })?;
++            let query = JsonQuery {
++                filter: "title ~ 'Alpha'".into(),
++                collections: Some(vec!["items".into()]),
++                count: true,
++                limit: 100,
++                ..Default::default()
++            };
++            let indexed = edited.query_json(&query)?;
++            let mut direct_options = Options::new();
++            direct_options.cache = CacheMode::Disabled;
++            let mut direct = Repository::load_repository(fixture.path(), direct_options)?;
++            let expected = direct.query_json(&query)?;
++            let ids = indexed
++                .records
++                .iter()
++                .map(|record| &record.id)
++                .collect::<Vec<_>>();
++            let expected_ids = expected
++                .records
++                .iter()
++                .map(|record| &record.id)
++                .collect::<Vec<_>>();
++            if ids != expected_ids || indexed.total != expected.total {
++                return Err("source lifecycle disagrees with direct execution".into());
++            }
++            print(
++                &case,
++                sample,
++                json!({
++                    "ids": ids, "total": indexed.total,
++                    "changed":&report.0["items"].changes,
++                    "created":&report.1["items"].changes,
++                    "deleted":&report.2["items"].changes,
++                    "moved":&report.3["items"].changes,
++                    "refresh_reads":report.4.source_reads,
++                    "refresh_parses":report.4.parses,
++                }),
++            );
++        }
+         "snapshot-restore" => {
+             repo.warm_bigram_index(&collection)?;
+             repo.save_bigram_cache(&collection)?;
+diff --git a/crates/bench/src/bin/fts_query_mix.rs b/crates/bench/src/bin/fts_query_mix.rs
+index ffb793e94c..08a146b9c4 100644
+--- a/crates/bench/src/bin/fts_query_mix.rs
++++ b/crates/bench/src/bin/fts_query_mix.rs
+@@ -10,7 +10,6 @@ use std::{
+     time::{Duration, Instant},
+ };
+ 
+-
+ /// One filter or text-search request measured after both indexes are warm.
+ struct Case {
+     id: usize,
+@@ -20,11 +19,13 @@ struct Case {
+     mode: Option<TextMode>,
+ }
+ 
+-
+ /// Wall time, total matches, and source work for one request.
+ struct Sample {
+     ms: f64,
+     matches: usize,
++    first_id: Option<String>,
++    fields: Vec<String>,
++    matched_paths: Vec<String>,
+     candidates: u64,
+     scans: u64,
+     parses: u64,
+@@ -32,7 +33,6 @@ struct Sample {
+     ordered_hits: u64,
+ }
+ 
+-
+ fn mib(key: &str) -> f64 {
+     fs::read_to_string("/proc/self/status")
+         .ok()
+@@ -52,7 +52,7 @@ fn cases() -> Vec<Case> {
+         "annotation:fts ~ 'Goet'",
+         "annotation:fts ~ 'Schill'",
+         "annotation:fts ~ 'Mond'",
+-        "annotation:fts ~ :ignorecase('GOET')",
++        "annotation:fts ~ 'GOET'",
+         "annotation:fts ~ 'Liebe'",
+         "year = 1822 && annotation:fts ~ 'Goet'",
+         "year >= 1800 && annotation:fts ~ 'Wien'",
+@@ -61,11 +61,11 @@ fn cases() -> Vec<Case> {
+         "annotation:fts !~ 'Goet'",
+         "preferred_title:fts ~ 'Goethe'",
+         "preferred_title:fts ~ 'Schiller'",
+-        "preferred_title:fts ~ :ignorecase('goethe')",
++        "preferred_title:fts ~ 'goethe'",
+         "preferred_title:fts ~ 'Gedicht'",
+         "preferred_title:fts ~ 'A%buch'",
+         "title_statement:fts ~ 'Verlag'",
+-        "title_statement:fts ~ :ignorecase('berlin')",
++        "title_statement:fts ~ 'berlin'",
+         "contributors.annotation:fts ?~ 'Goet'",
+         "annotation:fts = 'Goethe'",
+         "annotation:fts ~ 'XYZunlikely'",
+@@ -114,7 +114,7 @@ fn cases() -> Vec<Case> {
+ 
+ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error::Error>> {
+     let started = Instant::now();
+-    let (matches, metrics) = if let Some(mode) = case.mode {
++    let (matches, metrics, first_id, fields, matched_paths) = if let Some(mode) = case.mode {
+         let result = repo.search_text(&TextQuery {
+             pattern: case.query.into(),
+             mode,
+@@ -124,7 +124,16 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
+             limit: 1,
+             ..Default::default()
+         })?;
+-        (result.total.unwrap_or(0), result.metrics)
++        let first = result.hits.first();
++        (
++            result.total.unwrap_or(0),
++            result.metrics,
++            first.map(|hit| hit.record.id.clone()),
++            first.map(|hit| hit.fields.clone()).unwrap_or_default(),
++            first
++                .map(|hit| hit.matched_paths.clone())
++                .unwrap_or_default(),
++        )
+     } else {
+         let result = repo.query_json(&JsonQuery {
+             filter: case.query.into(),
+@@ -134,11 +143,21 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
+             backend: JsonQueryBackend::Bigram,
+             ..Default::default()
+         })?;
+-        (result.total.unwrap_or(0), result.metrics)
++        let first_id = result.records.first().map(|record| record.id.clone());
++        (
++            result.total.unwrap_or(0),
++            result.metrics,
++            first_id,
++            Vec::new(),
++            Vec::new(),
++        )
+     };
+     Ok(Sample {
+         ms: started.elapsed().as_secs_f64() * 1000.0,
+         matches,
++        first_id,
++        fields,
++        matched_paths,
+         candidates: metrics.fts_candidates,
+         scans: metrics.grep_scans,
+         parses: metrics.parses,
+@@ -237,14 +256,30 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     for (case, mut runs) in cases.iter().zip(samples) {
+         runs.sort_by(|left, right| left.ms.total_cmp(&right.ms));
+         let median = &runs[runs.len() / 2];
++        let raw_samples = runs
++            .iter()
++            .map(|sample| {
++                json!({
++                    "ms": sample.ms, "matches": sample.matches,
++                    "first_id":sample.first_id, "fields":sample.fields,
++                    "matched_paths":sample.matched_paths,
++                    "fts_candidates": sample.candidates, "scans": sample.scans,
++                    "parses": sample.parses, "cache_hits": sample.cache_hits,
++                    "ordered_hits": sample.ordered_hits,
++                })
++            })
++            .collect::<Vec<_>>();
+         println!(
+             "{}",
+             json!({
+                 "type":"case", "id":case.id, "kind":case.kind, "query":case.query, "field":case.field,
+-                "matches":median.matches, "median_ms":median.ms, "min_ms":runs.first().unwrap().ms,
++                "matches":median.matches, "first_id":median.first_id,
++                "fields":median.fields, "matched_paths":median.matched_paths,
++                "median_ms":median.ms, "min_ms":runs.first().unwrap().ms,
+                 "max_ms":runs.last().unwrap().ms, "fts_candidates":median.candidates,
+                 "scans":median.scans, "parses":median.parses,
+-                "cache_hits":median.cache_hits, "ordered_hits":median.ordered_hits
++                "cache_hits":median.cache_hits, "ordered_hits":median.ordered_hits,
++                "samples":raw_samples
+             })
+         );
+     }
+diff --git a/crates/bench/src/bin/index_build_profile.rs b/crates/bench/src/bin/index_build_profile.rs
+index 5260c9fb2d..0e76c62bed 100644
+--- a/crates/bench/src/bin/index_build_profile.rs
++++ b/crates/bench/src/bin/index_build_profile.rs
+@@ -13,10 +13,8 @@ use std::{
+     time::Instant,
+ };
+ 
+-
+ struct CountingAllocator;
+ 
+-
+ static ALLOCS: AtomicUsize = AtomicUsize::new(0);
+ static BYTES: AtomicUsize = AtomicUsize::new(0);
+ static LIVE: AtomicIsize = AtomicIsize::new(0);
+@@ -24,7 +22,6 @@ static PEAK: AtomicIsize = AtomicIsize::new(0);
+ #[global_allocator]
+ static ALLOCATOR: CountingAllocator = CountingAllocator;
+ 
+-
+ unsafe impl GlobalAlloc for CountingAllocator {
+     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
+         let ptr = unsafe { System.alloc(layout) };
+@@ -69,7 +66,6 @@ unsafe impl GlobalAlloc for CountingAllocator {
+     }
+ }
+ 
+-
+ fn string_field() -> Field {
+     Field {
+         kind: ValueType::String,
+@@ -213,9 +209,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+         return Ok(());
+     }
+ 
++    let before_allocs = ALLOCS.load(Ordering::Relaxed);
++    let before_bytes = BYTES.load(Ordering::Relaxed);
++    let before_live = LIVE.load(Ordering::Relaxed);
++    PEAK.store(before_live, Ordering::Relaxed);
+     let started = Instant::now();
+     let picker = FilePicker::profile_collection(&collection, encoding)?;
+     let build_wall_nanos = started.elapsed().as_nanos();
++    let build_allocations = ALLOCS.load(Ordering::Relaxed) - before_allocs;
++    let build_allocated_bytes = BYTES.load(Ordering::Relaxed) - before_bytes;
++    let build_peak_live_delta_bytes = PEAK.load(Ordering::Relaxed) - before_live;
+     let build_peak_rss_kib = rss_kib("VmHWM:");
+     let build_ready_rss_kib = rss_kib("VmRSS:");
+     let index_sizes = picker.profile_index_sizes();
+@@ -231,6 +234,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 "encoding": encoding,
+                 "fields": field_specs,
+                 "build_wall_nanos": build_wall_nanos,
++                "build_allocations": build_allocations,
++                "build_allocated_bytes": build_allocated_bytes,
++                "build_peak_live_delta_bytes": build_peak_live_delta_bytes,
+                 "build_peak_rss_kib": build_peak_rss_kib,
+                 "build_ready_rss_kib": build_ready_rss_kib,
+                 "compressed_index_bytes": picker.index_bytes(),
+@@ -269,6 +275,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+             "fields": field_specs,
+             "thread_cpu_supported": cfg!(unix),
+             "build_wall_nanos": build_wall_nanos,
++            "build_allocations": build_allocations,
++            "build_allocated_bytes": build_allocated_bytes,
++            "build_peak_live_delta_bytes": build_peak_live_delta_bytes,
+             "build_peak_rss_kib": build_peak_rss_kib,
+             "build_ready_rss_kib": build_ready_rss_kib,
+             "compressed_index_bytes": picker.index_bytes(),
+diff --git a/crates/bench/src/bin/json_query_grep_compare.rs b/crates/bench/src/bin/json_query_grep_compare.rs
+index 406ed1a0fa..af4afcce0d 100644
+--- a/crates/bench/src/bin/json_query_grep_compare.rs
++++ b/crates/bench/src/bin/json_query_grep_compare.rs
+@@ -4,7 +4,6 @@ use serde::Deserialize;
+ use serde_json::json;
+ use std::{env, fs, path::PathBuf, time::Instant};
+ 
+-
+ /// One collection and filter from the benchmark workload.
+ #[derive(Deserialize)]
+ struct Case {
+@@ -12,7 +11,6 @@ struct Case {
+     filter: String,
+ }
+ 
+-
+ fn arg(name: &str, default: Option<&str>) -> Result<String, Box<dyn std::error::Error>> {
+     let mut args = env::args().skip(1);
+     while let Some(key) = args.next() {
+@@ -107,6 +105,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 "source_files": scans, "grep_candidates": candidates,
+                 "warm_bigram_median_ms": median(&mut bigram_ms),
+                 "grep_median_ms": median(&mut grep_ms),
++                "bigram_samples_ms": bigram_ms, "grep_samples_ms": grep_ms,
+                 "limit": limit,
+                 "runs": runs
+             })
+diff --git a/crates/bench/src/bin/json_query_mix.rs b/crates/bench/src/bin/json_query_mix.rs
+index c32bbbb2ee..6faa61b7d6 100644
+--- a/crates/bench/src/bin/json_query_mix.rs
++++ b/crates/bench/src/bin/json_query_mix.rs
+@@ -5,7 +5,6 @@ use serde::Deserialize;
+ use serde_json::json;
+ use std::{env, fs, path::PathBuf, time::Instant};
+ 
+-
+ /// One unscoped filter and its label in the benchmark workload.
+ #[derive(Deserialize)]
+ struct Case {
+@@ -14,7 +13,6 @@ struct Case {
+     filter: String,
+ }
+ 
+-
+ /// One query execution, including wall time and source work.
+ struct Sample {
+     ms: f64,
+@@ -28,7 +26,6 @@ struct Sample {
+     ordered_hits: u64,
+ }
+ 
+-
+ fn arg(name: &str, default: &str) -> Result<String, Box<dyn std::error::Error>> {
+     let mut args = env::args().skip(1);
+     while let Some(key) = args.next() {
+@@ -155,6 +152,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+     for (case, mut case_samples) in cases.iter().zip(samples) {
+         case_samples.sort_by(|a, b| a.ms.total_cmp(&b.ms));
+         let median = &case_samples[runs / 2];
++        let raw_samples = case_samples
++            .iter()
++            .map(|sample| {
++                json!({
++                    "ms": sample.ms, "matches": sample.total, "first_id": sample.first_id,
++                    "scans": sample.scans, "source_reads": sample.reads,
++                    "parses": sample.parses, "source_check_ms": sample.source_check_ms,
++                    "cache_hits": sample.cache_hits, "ordered_hits": sample.ordered_hits,
++                })
++            })
++            .collect::<Vec<_>>();
+         println!(
+             "{}",
+             json!({"type": "case", "id": case.id, "kind": case.kind,
+@@ -165,13 +173,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+                 "scans": median.scans, "source_reads": median.reads,
+                 "parses": median.parses,
+                 "cache_hits": median.cache_hits, "ordered_hits": median.ordered_hits,
+-                "source_check_ms": median.source_check_ms})
++                "source_check_ms": median.source_check_ms,
++                "samples": raw_samples})
+         );
+     }
+     Ok(())
+ }
+ 
+-
+ #[cfg(test)]
+ mod tests {
+     use super::Case;
+diff --git a/crates/bench/src/bin/json_query_sort_mix.rs b/crates/bench/src/bin/json_query_sort_mix.rs
+index b6f5793b6b..feef47317b 100644
+--- a/crates/bench/src/bin/json_query_sort_mix.rs
++++ b/crates/bench/src/bin/json_query_sort_mix.rs
+@@ -5,7 +5,6 @@ use serde::Deserialize;
+ use serde_json::json;
+ use std::{env, fs, path::PathBuf, time::Instant};
+ 
+-
+ #[derive(Deserialize)]
+ struct Case {
+     id: usize,
+@@ -15,7 +14,6 @@ struct Case {
+     sort: String,
+ }
+ 
+-
+ struct Sample {
+     ms: f64,
+     total: usize,
+@@ -26,7 +24,6 @@ struct Sample {
+     indexed: bool,
+ }
+ 
+-
+ fn arg(name: &str, default: &str) -> Result<String, Box<dyn std::error::Error>> {
+     let mut args = env::args().skip(1);
+     while let Some(key) = args.next() {
+@@ -164,13 +161,28 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
+         sorted.sort_by(|a, b| a.ms.total_cmp(&b.ms));
+         let b = base[runs / 2];
+         let s = sorted[runs / 2];
++        let raw_samples = case_samples
++            .iter()
++            .map(|(plain, ordered)| {
++                json!({
++                    "baseline_ms": plain.ms, "sorted_ms": ordered.ms,
++                    "baseline_ids": plain.ids, "sorted_ids": ordered.ids,
++                    "baseline_matches": plain.total, "sorted_matches": ordered.total,
++                    "baseline_truncated": plain.truncated, "sorted_truncated": ordered.truncated,
++                    "baseline_reads": plain.reads, "sorted_reads": ordered.reads,
++                    "baseline_parses": plain.parses, "sorted_parses": ordered.parses,
++                    "sort_index_used": ordered.indexed,
++                })
++            })
++            .collect::<Vec<_>>();
+         println!(
+             "{}",
+             json!({"type":"case", "id":case.id, "kind":case.kind,
+             "filter":case.filter, "collection":case.collection, "sort":case.sort,
+             "matches":s.total, "truncated":s.truncated, "sort_index_used":s.indexed,
+             "baseline_ms":b.ms, "sorted_ms":s.ms, "baseline_reads":b.reads,
+-            "sorted_reads":s.reads, "baseline_parses":b.parses, "sorted_parses":s.parses})
++            "sorted_reads":s.reads, "baseline_parses":b.parses, "sorted_parses":s.parses,
++            "sorted_ids":s.ids, "samples":raw_samples})
+         );
+     }
+     Ok(())

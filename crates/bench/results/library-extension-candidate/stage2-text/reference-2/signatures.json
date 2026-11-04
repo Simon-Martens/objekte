@@ -1,0 +1,252 @@
+{
+  "fts-cache64": [
+    {
+      "id": 1,
+      "matches": 293,
+      "first_id": "ztxv2siasomah5e",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 2,
+      "matches": 748,
+      "first_id": "zztbv1lytz9ejpv",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 3,
+      "matches": 51,
+      "first_id": "zy1zftkn2iumgpl",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 4,
+      "matches": 293,
+      "first_id": "ztxv2siasomah5e",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 5,
+      "matches": 1222,
+      "first_id": "zzq7w9rt02qreg7",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 6,
+      "matches": 8,
+      "first_id": "x2ey6rj035dhwai",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 7,
+      "matches": 170,
+      "first_id": "zqa20h0bab7g3x8",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 8,
+      "matches": 146,
+      "first_id": "zs2iozdqxe1rczi",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 9,
+      "matches": 2394,
+      "first_id": "zztbv1lytz9ejpv",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 10,
+      "matches": 10000,
+      "first_id": "zzzq7kn57uwsbq1",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 11,
+      "matches": 59,
+      "first_id": "z3bxpsgi2qpmnzr",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 12,
+      "matches": 307,
+      "first_id": "zzosohvkaqa2x50",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 13,
+      "matches": 59,
+      "first_id": "z3bxpsgi2qpmnzr",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 14,
+      "matches": 1977,
+      "first_id": "zzuv7qdkkkyk1i9",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 15,
+      "matches": 0,
+      "first_id": null,
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 16,
+      "matches": 643,
+      "first_id": "zzk95sg3vt4d42l",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 17,
+      "matches": 759,
+      "first_id": "zv0xeabznlpn4ya",
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 18,
+      "matches": 0,
+      "first_id": null,
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 19,
+      "matches": 0,
+      "first_id": null,
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 20,
+      "matches": 0,
+      "first_id": null,
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 21,
+      "matches": 284,
+      "first_id": "ztxv2siasomah5e",
+      "fields": [
+        "annotation"
+      ],
+      "matched_paths": [
+        "annotation"
+      ]
+    },
+    {
+      "id": 22,
+      "matches": 738,
+      "first_id": "zztbv1lytz9ejpv",
+      "fields": [
+        "annotation"
+      ],
+      "matched_paths": [
+        "annotation"
+      ]
+    },
+    {
+      "id": 23,
+      "matches": 59,
+      "first_id": "z3bxpsgi2qpmnzr",
+      "fields": [
+        "preferred_title"
+      ],
+      "matched_paths": [
+        "preferred_title"
+      ]
+    },
+    {
+      "id": 24,
+      "matches": 2718,
+      "first_id": "zzydvyb09zk6x2w",
+      "fields": [
+        "preferred_title"
+      ],
+      "matched_paths": [
+        "preferred_title"
+      ]
+    },
+    {
+      "id": 25,
+      "matches": 446,
+      "first_id": "zvyrwehwhm0vk7m",
+      "fields": [
+        "responsibility_statement"
+      ],
+      "matched_paths": [
+        "responsibility_statement"
+      ]
+    },
+    {
+      "id": 26,
+      "matches": 284,
+      "first_id": "ztxv2siasomah5e",
+      "fields": [
+        "annotation"
+      ],
+      "matched_paths": [
+        "annotation"
+      ]
+    },
+    {
+      "id": 27,
+      "matches": 310,
+      "first_id": "zzosohvkaqa2x50",
+      "fields": [
+        "preferred_title"
+      ],
+      "matched_paths": [
+        "preferred_title"
+      ]
+    },
+    {
+      "id": 28,
+      "matches": 3,
+      "first_id": "o9rtcaaux0rb8bl",
+      "fields": [
+        "annotation"
+      ],
+      "matched_paths": [
+        "annotation"
+      ]
+    },
+    {
+      "id": 29,
+      "matches": 0,
+      "first_id": null,
+      "fields": [],
+      "matched_paths": []
+    },
+    {
+      "id": 30,
+      "matches": 3118,
+      "first_id": "zzuv7qdkkkyk1i9",
+      "fields": [
+        "preferred_title",
+        "title_statement"
+      ],
+      "matched_paths": [
+        "preferred_title",
+        "title_statement"
+      ]
+    }
+  ]
+}

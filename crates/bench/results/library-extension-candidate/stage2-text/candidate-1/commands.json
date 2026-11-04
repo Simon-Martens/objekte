@@ -1,0 +1,15 @@
+[
+  {
+    "name": "fts-cache0",
+    "command": [
+      "target/release/fts-query-mix",
+      "examples/musenalm",
+      "7",
+      "0"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793796860.547911,
+    "ended_unix": 1793796866.551741,
+    "expected_cases": 30
+  }
+]

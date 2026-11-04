@@ -1,0 +1,9 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/bigram-encoding-compare",
+    "ascii",
+    "examples/musenalm/data/contents"
+  ],
+  "exit_status": 0,
+  "reconstructed_from_validated_runner_output": true
+}

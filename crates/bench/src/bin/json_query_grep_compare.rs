@@ -4,14 +4,12 @@ use serde::Deserialize;
 use serde_json::json;
 use std::{env, fs, path::PathBuf, time::Instant};
 
-
 /// One collection and filter from the benchmark workload.
 #[derive(Deserialize)]
 struct Case {
     collection: String,
     filter: String,
 }
-
 
 fn arg(name: &str, default: Option<&str>) -> Result<String, Box<dyn std::error::Error>> {
     let mut args = env::args().skip(1);
@@ -107,6 +105,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "source_files": scans, "grep_candidates": candidates,
                 "warm_bigram_median_ms": median(&mut bigram_ms),
                 "grep_median_ms": median(&mut grep_ms),
+                "bigram_samples_ms": bigram_ms, "grep_samples_ms": grep_ms,
                 "limit": limit,
                 "runs": runs
             })

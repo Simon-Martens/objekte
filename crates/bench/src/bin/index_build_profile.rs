@@ -13,9 +13,7 @@ use std::{
     time::Instant,
 };
 
-
 struct CountingAllocator;
-
 
 static ALLOCS: AtomicUsize = AtomicUsize::new(0);
 static BYTES: AtomicUsize = AtomicUsize::new(0);
@@ -23,7 +21,6 @@ static LIVE: AtomicIsize = AtomicIsize::new(0);
 static PEAK: AtomicIsize = AtomicIsize::new(0);
 #[global_allocator]
 static ALLOCATOR: CountingAllocator = CountingAllocator;
-
 
 unsafe impl GlobalAlloc for CountingAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
@@ -68,7 +65,6 @@ unsafe impl GlobalAlloc for CountingAllocator {
         moved
     }
 }
-
 
 fn string_field() -> Field {
     Field {
@@ -213,9 +209,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         return Ok(());
     }
 
+    let before_allocs = ALLOCS.load(Ordering::Relaxed);
+    let before_bytes = BYTES.load(Ordering::Relaxed);
+    let before_live = LIVE.load(Ordering::Relaxed);
+    PEAK.store(before_live, Ordering::Relaxed);
     let started = Instant::now();
     let picker = FilePicker::profile_collection(&collection, encoding)?;
     let build_wall_nanos = started.elapsed().as_nanos();
+    let build_allocations = ALLOCS.load(Ordering::Relaxed) - before_allocs;
+    let build_allocated_bytes = BYTES.load(Ordering::Relaxed) - before_bytes;
+    let build_peak_live_delta_bytes = PEAK.load(Ordering::Relaxed) - before_live;
     let build_peak_rss_kib = rss_kib("VmHWM:");
     let build_ready_rss_kib = rss_kib("VmRSS:");
     let index_sizes = picker.profile_index_sizes();
@@ -231,6 +234,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "encoding": encoding,
                 "fields": field_specs,
                 "build_wall_nanos": build_wall_nanos,
+                "build_allocations": build_allocations,
+                "build_allocated_bytes": build_allocated_bytes,
+                "build_peak_live_delta_bytes": build_peak_live_delta_bytes,
                 "build_peak_rss_kib": build_peak_rss_kib,
                 "build_ready_rss_kib": build_ready_rss_kib,
                 "compressed_index_bytes": picker.index_bytes(),
@@ -269,6 +275,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "fields": field_specs,
             "thread_cpu_supported": cfg!(unix),
             "build_wall_nanos": build_wall_nanos,
+            "build_allocations": build_allocations,
+            "build_allocated_bytes": build_allocated_bytes,
+            "build_peak_live_delta_bytes": build_peak_live_delta_bytes,
             "build_peak_rss_kib": build_peak_rss_kib,
             "build_ready_rss_kib": build_ready_rss_kib,
             "compressed_index_bytes": picker.index_bytes(),

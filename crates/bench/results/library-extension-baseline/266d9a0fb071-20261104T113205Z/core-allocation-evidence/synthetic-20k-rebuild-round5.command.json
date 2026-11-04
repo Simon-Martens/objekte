@@ -1,0 +1,10 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/core-allocation",
+    "--case",
+    "rebuild",
+    "--repo",
+    "/tmp/objekte-alloc-fixture-library-baseline"
+  ],
+  "exit_status": 0
+}

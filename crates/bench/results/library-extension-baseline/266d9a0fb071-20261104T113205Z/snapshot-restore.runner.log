@@ -1,0 +1,60 @@
+preparing lenz-base
+preparing lenz-fts2
+preparing musenalm-base
+preparing musenalm-fts4
+preparing leipzig-base
+preparing leipzig-fts1
+preparing amazon-base
+preparing amazon-fts2
+preparing nyc-base
+preparing nyc-fts3
+lenz-base 1/5: 2.2 ms
+lenz-fts2 1/5: 3.4 ms
+musenalm-base 1/5: 306.2 ms
+musenalm-fts4 1/5: 355.5 ms
+leipzig-base 1/5: 285.1 ms
+leipzig-fts1 1/5: 306.4 ms
+amazon-base 1/5: 778.1 ms
+amazon-fts2 1/5: 974.6 ms
+nyc-base 1/5: 664.7 ms
+nyc-fts3 1/5: 899.3 ms
+nyc-fts3 2/5: 901.0 ms
+nyc-base 2/5: 663.8 ms
+amazon-fts2 2/5: 993.9 ms
+amazon-base 2/5: 763.0 ms
+leipzig-fts1 2/5: 303.0 ms
+leipzig-base 2/5: 284.9 ms
+musenalm-fts4 2/5: 353.6 ms
+musenalm-base 2/5: 305.9 ms
+lenz-fts2 2/5: 3.2 ms
+lenz-base 2/5: 2.5 ms
+lenz-base 3/5: 4.5 ms
+lenz-fts2 3/5: 5.8 ms
+musenalm-base 3/5: 307.5 ms
+musenalm-fts4 3/5: 353.4 ms
+leipzig-base 3/5: 284.5 ms
+leipzig-fts1 3/5: 306.5 ms
+amazon-base 3/5: 777.5 ms
+amazon-fts2 3/5: 988.8 ms
+nyc-base 3/5: 676.6 ms
+nyc-fts3 3/5: 897.2 ms
+nyc-fts3 4/5: 895.8 ms
+nyc-base 4/5: 664.6 ms
+amazon-fts2 4/5: 1111.2 ms
+amazon-base 4/5: 763.1 ms
+leipzig-fts1 4/5: 306.4 ms
+leipzig-base 4/5: 277.8 ms
+musenalm-fts4 4/5: 354.3 ms
+musenalm-base 4/5: 307.1 ms
+lenz-fts2 4/5: 3.4 ms
+lenz-base 4/5: 3.0 ms
+lenz-base 5/5: 3.6 ms
+lenz-fts2 5/5: 3.6 ms
+musenalm-base 5/5: 309.4 ms
+musenalm-fts4 5/5: 353.7 ms
+leipzig-base 5/5: 285.0 ms
+leipzig-fts1 5/5: 302.8 ms
+amazon-base 5/5: 762.9 ms
+amazon-fts2 5/5: 971.3 ms
+nyc-base 5/5: 662.6 ms
+nyc-fts3 5/5: 897.7 ms

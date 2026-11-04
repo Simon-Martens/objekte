@@ -1,0 +1,14 @@
+
+ Performance counter stats for 'taskset -c 0-15 target/release/index-build-profile --repo examples/musenalm --collection contents --encoding ascii --skip-snapshot --field annotation=markdown --field preferred_title=plain --field title_statement=html --field contributors[].annotation=xml':
+
+          33387.74 msec task-clock:u                                                          
+      126680947172      cpu_core/cycles/u                                                       (100.00%)
+       76531510560      cpu_core/instructions/u                                                 (100.00%)
+          63684651      cpu_core/cache-misses/u                                                 (100.00%)
+
+       2.947470671 seconds time elapsed
+
+      31.930266000 seconds user
+       1.414359000 seconds sys
+
+

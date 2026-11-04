@@ -29,3 +29,11 @@ examples/en_wikidata_5M_entities/
 # Downloadable million-record benchmark examples.
 /examples/amazon-reviews-2023/
 /examples/nyc311/
+
+# Generated library-extension benchmark executables and index snapshots.
+# Keep their checksums, manifests, raw measurements, and reports in Git.
+/crates/bench/results/library-extension-baseline/*/reference-bin/
+/crates/bench/results/library-extension-baseline/*/reference-bin-allocation/
+/crates/bench/results/library-extension-baseline/*/reference-bin-index/
+/crates/bench/results/library-extension-baseline/*/snapshots/
+/crates/bench/results/library-extension-candidate/*/candidate-bin/

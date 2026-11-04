@@ -1,0 +1,7 @@
+    Checking icu_properties_data v2.4.0
+    Checking icu_properties v2.4.0
+    Checking icu_collator v2.4.0
+    Checking objekte-core v0.1.0 (/home/simon/source/objekte/crates/core)
+    Checking objekte-cli v0.1.0 (/home/simon/source/objekte/crates/cli)
+    Checking objekte-bench v0.1.0 (/home/simon/source/objekte/crates/bench)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.82s

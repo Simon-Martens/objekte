@@ -1,16 +1,16 @@
 //! Count process allocations around one core operation in a release build.
 
 use objekte_core::{
-    CacheMode, Filter, JsonQuery, JsonQueryBackend, Operator, Options, Repository, TextMode,
-    TextQuery, ViewRequest, parse_sort_terms,
+    CacheMode, Filter, JsonQuery, JsonQueryBackend, Operator, Options, Repository, SourceChange,
+    TextMode, TextQuery, ViewRequest, parse_sort_terms,
 };
 use serde_json::{Value, json};
 use std::{
     alloc::{GlobalAlloc, Layout, System},
     env, fs,
-    path::PathBuf,
+    path::{Path, PathBuf},
     sync::atomic::{AtomicIsize, AtomicUsize, Ordering},
-    time::Instant,
+    time::{Duration, Instant, UNIX_EPOCH},
 };
 
 
@@ -150,8 +150,89 @@ fn print(case: &str, sample: Sample, signature: Value) {
     );
 }
 
+fn io_at<T>(path: &Path, result: std::io::Result<T>) -> objekte_core::Result<T> {
+    result.map_err(|source| objekte_core::Error::Io {
+        path: path.to_path_buf(),
+        source,
+    })
+}
+
+fn stream_cache_fixture(case: &str) -> Result<(), Box<dyn std::error::Error>> {
+    let fixture = tempfile::tempdir()?;
+    let schema = fixture
+        .path()
+        .join(".objekte/collections/books.schema.json");
+    fs::create_dir_all(schema.parent().unwrap())?;
+    fs::write(
+        &schema,
+        json!({
+            "type":"object",
+            "properties":{"annotation":{"type":"string","x-full-text":"plain"}},
+            "x-objekte":{"name":"books","path":"data/books","type":"data",
+                         "format":"json","id":"filename"}
+        })
+        .to_string(),
+    )?;
+    let data = fixture.path().join("data/books");
+    fs::create_dir_all(&data)?;
+    for index in 0..2_000 {
+        let annotation = if index % 3 == 0 {
+            "Goethe visited"
+        } else {
+            "Other author"
+        };
+        let path = data.join(format!("{index:04}.json"));
+        fs::write(&path, json!({"annotation":annotation}).to_string())?;
+        fs::File::options().write(true).open(&path)?.set_times(
+            fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(index as u64)),
+        )?;
+    }
+    let mut options = Options::new();
+    options.stream_query_cache = case.ends_with("-on");
+    let mut repo = Repository::load_repository(fixture.path(), options)?;
+    repo.warm_bigram_index("books")?;
+    repo.warm_text_index("books")?;
+    let request = JsonQuery {
+        filter: "annotation:fts ~ 'Goethe'".into(),
+        collections: Some(vec!["books".into()]),
+        count: true,
+        limit: 3,
+        ..Default::default()
+    };
+    let (repeats, sample) = measure(|| {
+        let mut repeats = Vec::new();
+        for _ in 0..3 {
+            let mut ids = Vec::new();
+            let summary = repo.query_json_stream(&request, |_, record| {
+                ids.push(record.id.clone());
+                Ok(())
+            })?;
+            repeats.push((
+                ids,
+                summary.total,
+                summary.truncated,
+                summary.metrics.source_reads,
+                summary.metrics.parses,
+                summary.metrics.predicate_cache_hits,
+                summary.metrics.ordered_result_hits,
+            ));
+        }
+        Ok(repeats)
+    })?;
+    print(
+        case,
+        sample,
+        json!({"repeats":repeats,
+        "query_cache_bytes":repo.query_cache_bytes()}),
+    );
+    Ok(())
+}
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let case = arg("--case", "view-indexed");
+    if case.starts_with("stream-cache-fixture") {
+        return stream_cache_fixture(&case);
+    }
     let root = PathBuf::from(arg("--repo", "/tmp/objekte-alloc-fixture-v2"));
     let collection = arg("--collection", "items");
     let filter = arg("--filter", "category = 'all'");
@@ -159,6 +240,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let sorts = parse_sort_terms(&arg("--sort", "title ASC && rank DESC"))?;
     let mut options = Options::new();
     options.total_limit = 100_000;
+    options.stream_query_cache = case.ends_with("stream-repeat-on");
     if case == "view-direct" {
         options.cache = CacheMode::Disabled;
     }
@@ -172,7 +254,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     if matches!(
         case.as_str(),
-        "text-sorted" | "text-updates" | "text-broad" | "text-selective" | "text-zero"
+        "text-sorted"
+            | "text-updates"
+            | "text-broad"
+            | "text-selective"
+            | "text-zero"
+            | "text-stream-repeat-off"
+            | "text-stream-repeat-on"
     ) {
         repo.warm_text_index(&collection)?;
     }
@@ -212,7 +300,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }),
             );
         }
-        "json-sorted" | "json-updates" => {
+        "json-sorted" | "json-updates" | "json-stream-repeat-off" | "json-stream-repeat-on" => {
             let request = JsonQuery {
                 filter,
                 collections: Some(vec![collection.clone()]),
@@ -222,7 +310,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 backend: JsonQueryBackend::Bigram,
                 ..Default::default()
             };
-            if case == "json-updates" {
+            if case.starts_with("json-stream-repeat") {
+                let (result, sample) = measure(|| {
+                    let mut repeats = Vec::new();
+                    for _ in 0..3 {
+                        let mut ids = Vec::new();
+                        let summary = repo.query_json_stream(&request, |_, record| {
+                            ids.push(record.id.clone());
+                            Ok(())
+                        })?;
+                        repeats.push((
+                            ids,
+                            summary.total,
+                            summary.truncated,
+                            summary.metrics.source_reads,
+                            summary.metrics.parses,
+                            summary.metrics.predicate_cache_hits,
+                            summary.metrics.ordered_result_hits,
+                        ));
+                    }
+                    Ok(repeats)
+                })?;
+                print(&case, sample, json!({"repeats":result}));
+            } else if case == "json-updates" {
                 let (result, sample) = measure(|| {
                     let mut pages = 0;
                     let summary = repo.query_json_stream_updates(&request, |_| {
@@ -251,7 +361,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 );
             }
         }
-        "text-sorted" | "text-updates" | "text-broad" | "text-selective" | "text-zero" => {
+        "text-sorted"
+        | "text-updates"
+        | "text-broad"
+        | "text-selective"
+        | "text-zero"
+        | "text-stream-repeat-off"
+        | "text-stream-repeat-on" => {
             let pattern = match case.as_str() {
                 "text-broad" => "e".to_owned(),
                 "text-selective" => "Goethe".to_owned(),
@@ -267,7 +383,29 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 count: true,
                 ..Default::default()
             };
-            if case == "text-updates" {
+            if case.starts_with("text-stream-repeat") {
+                let (result, sample) = measure(|| {
+                    let mut repeats = Vec::new();
+                    for _ in 0..3 {
+                        let mut ids = Vec::new();
+                        let summary = repo.search_text_stream(&request, |_, hit| {
+                            ids.push(hit.record.id.clone());
+                            Ok(())
+                        })?;
+                        repeats.push((
+                            ids,
+                            summary.total,
+                            summary.truncated,
+                            summary.metrics.source_reads,
+                            summary.metrics.parses,
+                            summary.metrics.predicate_cache_hits,
+                            summary.metrics.ordered_result_hits,
+                        ));
+                    }
+                    Ok(repeats)
+                })?;
+                print(&case, sample, json!({"repeats":result}));
+            } else if case == "text-updates" {
                 let (result, sample) = measure(|| {
                     let mut pages = 0;
                     let summary = repo.search_text_stream_updates(&request, |_| {
@@ -333,6 +471,90 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 json!({
                     "base_bytes":fs::metadata(path)?.len(),
                     "secondary_bytes":fs::metadata(sidecar)?.len(),
+                }),
+            );
+        }
+        "source-lifecycle" => {
+            let fixture = tempfile::tempdir()?;
+            let data = fixture.path().join("data/items");
+            fs::create_dir_all(&data)?;
+            fs::write(data.join("a.json"), br#"{"title":"Alpha","rank":1}"#)?;
+            fs::write(data.join("b.json"), br#"{"title":"Beta","rank":2}"#)?;
+            let mut edited = Repository::load_repository(fixture.path(), Options::new())?;
+            edited.warm_bigram_index("items")?;
+            let (report, sample) = measure(|| {
+                io_at(
+                    &data.join("a.json"),
+                    fs::write(
+                        data.join("a.json"),
+                        br#"{"title":"Alpha changed","rank":3}"#,
+                    ),
+                )?;
+                let changed = edited
+                    .apply_source_changes(&[SourceChange::Changed("data/items/a.json".into())])?;
+                io_at(
+                    &data.join("c.json"),
+                    fs::write(data.join("c.json"), br#"{"title":"Alpha new","rank":4}"#),
+                )?;
+                let created = edited
+                    .apply_source_changes(&[SourceChange::Created("data/items/c.json".into())])?;
+                io_at(&data.join("b.json"), fs::remove_file(data.join("b.json")))?;
+                let deleted = edited
+                    .apply_source_changes(&[SourceChange::Deleted("data/items/b.json".into())])?;
+                io_at(
+                    &data.join("c.json"),
+                    fs::rename(data.join("c.json"), data.join("d.json")),
+                )?;
+                let moved = edited.apply_source_changes(&[SourceChange::Moved {
+                    from: "data/items/c.json".into(),
+                    to: "data/items/d.json".into(),
+                }])?;
+                io_at(
+                    &data.join("d.json"),
+                    fs::write(
+                        data.join("d.json"),
+                        br#"{"title":"Alpha refreshed","rank":5}"#,
+                    ),
+                )?;
+                let refreshed = edited.refresh("items")?;
+                Ok((changed, created, deleted, moved, refreshed))
+            })?;
+            let query = JsonQuery {
+                filter: "title ~ 'Alpha'".into(),
+                collections: Some(vec!["items".into()]),
+                count: true,
+                limit: 100,
+                ..Default::default()
+            };
+            let indexed = edited.query_json(&query)?;
+            let mut direct_options = Options::new();
+            direct_options.cache = CacheMode::Disabled;
+            let mut direct = Repository::load_repository(fixture.path(), direct_options)?;
+            let expected = direct.query_json(&query)?;
+            let ids = indexed
+                .records
+                .iter()
+                .map(|record| &record.id)
+                .collect::<Vec<_>>();
+            let expected_ids = expected
+                .records
+                .iter()
+                .map(|record| &record.id)
+                .collect::<Vec<_>>();
+            if ids != expected_ids || indexed.total != expected.total {
+                return Err("source lifecycle disagrees with direct execution".into());
+            }
+            print(
+                &case,
+                sample,
+                json!({
+                    "ids": ids, "total": indexed.total,
+                    "changed":&report.0["items"].changes,
+                    "created":&report.1["items"].changes,
+                    "deleted":&report.2["items"].changes,
+                    "moved":&report.3["items"].changes,
+                    "refresh_reads":report.4.source_reads,
+                    "refresh_parses":report.4.parses,
                 }),
             );
         }

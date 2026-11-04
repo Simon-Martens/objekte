@@ -5,7 +5,6 @@ use serde::Deserialize;
 use serde_json::json;
 use std::{env, fs, path::PathBuf, time::Instant};
 
-
 /// One unscoped filter and its label in the benchmark workload.
 #[derive(Deserialize)]
 struct Case {
@@ -13,7 +12,6 @@ struct Case {
     kind: String,
     filter: String,
 }
-
 
 /// One query execution, including wall time and source work.
 struct Sample {
@@ -27,7 +25,6 @@ struct Sample {
     cache_hits: u64,
     ordered_hits: u64,
 }
-
 
 fn arg(name: &str, default: &str) -> Result<String, Box<dyn std::error::Error>> {
     let mut args = env::args().skip(1);
@@ -155,6 +152,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     for (case, mut case_samples) in cases.iter().zip(samples) {
         case_samples.sort_by(|a, b| a.ms.total_cmp(&b.ms));
         let median = &case_samples[runs / 2];
+        let raw_samples = case_samples
+            .iter()
+            .map(|sample| {
+                json!({
+                    "ms": sample.ms, "matches": sample.total, "first_id": sample.first_id,
+                    "scans": sample.scans, "source_reads": sample.reads,
+                    "parses": sample.parses, "source_check_ms": sample.source_check_ms,
+                    "cache_hits": sample.cache_hits, "ordered_hits": sample.ordered_hits,
+                })
+            })
+            .collect::<Vec<_>>();
         println!(
             "{}",
             json!({"type": "case", "id": case.id, "kind": case.kind,
@@ -165,12 +173,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "scans": median.scans, "source_reads": median.reads,
                 "parses": median.parses,
                 "cache_hits": median.cache_hits, "ordered_hits": median.ordered_hits,
-                "source_check_ms": median.source_check_ms})
+                "source_check_ms": median.source_check_ms,
+                "samples": raw_samples})
         );
     }
     Ok(())
 }
-
 
 #[cfg(test)]
 mod tests {

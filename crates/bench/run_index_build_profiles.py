@@ -46,6 +46,8 @@ def main() -> None:
     parser.add_argument("--only", help="comma-separated profile names")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--no-build", action="store_true")
+    parser.add_argument("--bin-dir", type=Path, default=ROOT / "target/release")
+    parser.add_argument("--evidence-dir", type=Path)
     args = parser.parse_args()
     if args.runs < 1:
         parser.error("--runs must be positive")
@@ -62,6 +64,9 @@ def main() -> None:
              "--bin", "index-build-profile"],
             cwd=ROOT, check=True,
         )
+    binary = args.bin_dir / "index-build-profile"
+    if args.evidence_dir is not None:
+        args.evidence_dir.mkdir(parents=True, exist_ok=True)
     completed = set()
     if args.resume and args.output.is_file():
         for line in args.output.read_text().splitlines():
@@ -78,12 +83,18 @@ def main() -> None:
                 repo = ROOT / "examples" / repo_name
                 if not repo.is_dir():
                     raise FileNotFoundError(f"materialize {repo} before benchmarking")
-                command = [str(BENCH), "--repo", str(repo), "--collection", collection,
+                command = [str(binary), "--repo", str(repo), "--collection", collection,
                            "--encoding", encoding]
                 for field in fields:
                     command += ["--field", field]
                 started = time.monotonic()
                 result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+                if args.evidence_dir is not None:
+                    label = f"{name}-round{round_number}"
+                    (args.evidence_dir / f"{label}.stderr.log").write_text(result.stderr)
+                    (args.evidence_dir / f"{label}.command.json").write_text(json.dumps({
+                        "command": command, "exit_status": result.returncode,
+                    }, indent=2) + "\n")
                 if result.returncode:
                     raise RuntimeError(f"{name} failed: {result.stderr}")
                 record = json.loads(result.stdout)

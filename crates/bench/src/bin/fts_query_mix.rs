@@ -10,7 +10,6 @@ use std::{
     time::{Duration, Instant},
 };
 
-
 /// One filter or text-search request measured after both indexes are warm.
 struct Case {
     id: usize,
@@ -20,18 +19,19 @@ struct Case {
     mode: Option<TextMode>,
 }
 
-
 /// Wall time, total matches, and source work for one request.
 struct Sample {
     ms: f64,
     matches: usize,
+    first_id: Option<String>,
+    fields: Vec<String>,
+    matched_paths: Vec<String>,
     candidates: u64,
     scans: u64,
     parses: u64,
     cache_hits: u64,
     ordered_hits: u64,
 }
-
 
 fn mib(key: &str) -> f64 {
     fs::read_to_string("/proc/self/status")
@@ -52,7 +52,7 @@ fn cases() -> Vec<Case> {
         "annotation:fts ~ 'Goet'",
         "annotation:fts ~ 'Schill'",
         "annotation:fts ~ 'Mond'",
-        "annotation:fts ~ :ignorecase('GOET')",
+        "annotation:fts ~ 'GOET'",
         "annotation:fts ~ 'Liebe'",
         "year = 1822 && annotation:fts ~ 'Goet'",
         "year >= 1800 && annotation:fts ~ 'Wien'",
@@ -61,11 +61,11 @@ fn cases() -> Vec<Case> {
         "annotation:fts !~ 'Goet'",
         "preferred_title:fts ~ 'Goethe'",
         "preferred_title:fts ~ 'Schiller'",
-        "preferred_title:fts ~ :ignorecase('goethe')",
+        "preferred_title:fts ~ 'goethe'",
         "preferred_title:fts ~ 'Gedicht'",
         "preferred_title:fts ~ 'A%buch'",
         "title_statement:fts ~ 'Verlag'",
-        "title_statement:fts ~ :ignorecase('berlin')",
+        "title_statement:fts ~ 'berlin'",
         "contributors.annotation:fts ?~ 'Goet'",
         "annotation:fts = 'Goethe'",
         "annotation:fts ~ 'XYZunlikely'",
@@ -114,7 +114,7 @@ fn cases() -> Vec<Case> {
 
 fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error::Error>> {
     let started = Instant::now();
-    let (matches, metrics) = if let Some(mode) = case.mode {
+    let (matches, metrics, first_id, fields, matched_paths) = if let Some(mode) = case.mode {
         let result = repo.search_text(&TextQuery {
             pattern: case.query.into(),
             mode,
@@ -124,7 +124,16 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
             limit: 1,
             ..Default::default()
         })?;
-        (result.total.unwrap_or(0), result.metrics)
+        let first = result.hits.first();
+        (
+            result.total.unwrap_or(0),
+            result.metrics,
+            first.map(|hit| hit.record.id.clone()),
+            first.map(|hit| hit.fields.clone()).unwrap_or_default(),
+            first
+                .map(|hit| hit.matched_paths.clone())
+                .unwrap_or_default(),
+        )
     } else {
         let result = repo.query_json(&JsonQuery {
             filter: case.query.into(),
@@ -134,11 +143,21 @@ fn run(repo: &mut Repository, case: &Case) -> Result<Sample, Box<dyn std::error:
             backend: JsonQueryBackend::Bigram,
             ..Default::default()
         })?;
-        (result.total.unwrap_or(0), result.metrics)
+        let first_id = result.records.first().map(|record| record.id.clone());
+        (
+            result.total.unwrap_or(0),
+            result.metrics,
+            first_id,
+            Vec::new(),
+            Vec::new(),
+        )
     };
     Ok(Sample {
         ms: started.elapsed().as_secs_f64() * 1000.0,
         matches,
+        first_id,
+        fields,
+        matched_paths,
         candidates: metrics.fts_candidates,
         scans: metrics.grep_scans,
         parses: metrics.parses,
@@ -237,14 +256,30 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     for (case, mut runs) in cases.iter().zip(samples) {
         runs.sort_by(|left, right| left.ms.total_cmp(&right.ms));
         let median = &runs[runs.len() / 2];
+        let raw_samples = runs
+            .iter()
+            .map(|sample| {
+                json!({
+                    "ms": sample.ms, "matches": sample.matches,
+                    "first_id":sample.first_id, "fields":sample.fields,
+                    "matched_paths":sample.matched_paths,
+                    "fts_candidates": sample.candidates, "scans": sample.scans,
+                    "parses": sample.parses, "cache_hits": sample.cache_hits,
+                    "ordered_hits": sample.ordered_hits,
+                })
+            })
+            .collect::<Vec<_>>();
         println!(
             "{}",
             json!({
                 "type":"case", "id":case.id, "kind":case.kind, "query":case.query, "field":case.field,
-                "matches":median.matches, "median_ms":median.ms, "min_ms":runs.first().unwrap().ms,
+                "matches":median.matches, "first_id":median.first_id,
+                "fields":median.fields, "matched_paths":median.matched_paths,
+                "median_ms":median.ms, "min_ms":runs.first().unwrap().ms,
                 "max_ms":runs.last().unwrap().ms, "fts_candidates":median.candidates,
                 "scans":median.scans, "parses":median.parses,
-                "cache_hits":median.cache_hits, "ordered_hits":median.ordered_hits
+                "cache_hits":median.cache_hits, "ordered_hits":median.ordered_hits,
+                "samples":raw_samples
             })
         );
     }

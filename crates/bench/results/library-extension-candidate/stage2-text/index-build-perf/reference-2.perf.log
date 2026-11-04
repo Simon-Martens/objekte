@@ -1,0 +1,14 @@
+
+ Performance counter stats for 'taskset -c 0-15 crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin-index/index-build-profile --repo examples/musenalm --collection contents --encoding ascii --skip-snapshot --field annotation=markdown --field preferred_title=plain --field title_statement=html --field contributors[].annotation=xml':
+
+          32075.58 msec task-clock:u                                                          
+      121421751398      cpu_core/cycles/u                                                       (99.99%)
+       76606222645      cpu_core/instructions/u                                                 (99.99%)
+          60859857      cpu_core/cache-misses/u                                                 (99.99%)
+
+       2.891793635 seconds time elapsed
+
+      30.552549000 seconds user
+       1.483030000 seconds sys
+
+

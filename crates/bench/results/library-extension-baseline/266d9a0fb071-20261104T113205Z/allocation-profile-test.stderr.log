@@ -1,0 +1,13 @@
+   Compiling objekte-core v0.1.0 (/home/simon/source/objekte/crates/core)
+   Compiling objekte-bench v0.1.0 (/home/simon/source/objekte/crates/bench)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.28s
+     Running unittests src/bin/bigram_encoding_compare.rs (target/debug/deps/bigram_encoding_compare-af7b54cd7cb1d6d0)
+     Running unittests src/bin/core_allocation.rs (target/debug/deps/core_allocation-bcb2efa0e050bd33)
+     Running unittests src/bin/fts_query_mix.rs (target/debug/deps/fts_query_mix-871fd20ff2cabddb)
+     Running unittests src/bin/json_query_grep_compare.rs (target/debug/deps/json_query_grep_compare-0f169b739924e695)
+     Running unittests src/bin/json_query_mix.rs (target/debug/deps/json_query_mix-636d64e1e25ff3c2)
+     Running unittests src/bin/json_query_sort_mix.rs (target/debug/deps/json_query_sort_mix-9b4c3098ff779e07)
+     Running unittests src/bin/musenalm_rust_full.rs (target/debug/deps/musenalm_rust_full-2a2310b31f83138a)
+     Running unittests src/bin/musenalm_rust_projected.rs (target/debug/deps/musenalm_rust_projected-daf92d3aeebc1513)
+     Running unittests src/bin/query_cache.rs (target/debug/deps/query_cache-d0443415309a6ed2)
+     Running unittests src/bin/snapshot_restore.rs (target/debug/deps/snapshot_restore-809a16fe9b2f3670)
