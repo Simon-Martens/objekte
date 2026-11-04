@@ -544,6 +544,10 @@ impl Extensions {
         self.sources.values()
     }
 
+    pub(crate) fn format_identities(&self) -> impl Iterator<Item = &String> {
+        self.formats.keys()
+    }
+
     pub(crate) fn decoder(&self, source: &SourceDescriptor) -> Result<Arc<dyn FormatDecoder>> {
         let mut accepted = self
             .formats

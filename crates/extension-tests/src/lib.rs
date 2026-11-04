@@ -566,6 +566,120 @@ mod tests {
     }
 
     #[test]
+    fn selected_sources_discover_a_collection_without_json_files() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("only.md"), "# Only").unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let descriptors = repository.source_descriptors("docs").unwrap();
+        assert_eq!(descriptors.len(), 1);
+        assert_eq!(descriptors[0].record_id, "only");
+        assert_eq!(
+            repository.read_source_leaves(&descriptors[0]).unwrap()[0].value,
+            TypedValue::Text("# Only".into())
+        );
+        let query = TextQuery {
+            pattern: "Only".into(),
+            collections: Some(vec!["docs".into()]),
+            ..Default::default()
+        };
+        assert!(
+            matches!(repository.search_text(&query), Err(Error::Request(message)) if message.contains("not yet included"))
+        );
+    }
+
+    #[test]
+    fn configuration_reload_tracks_custom_only_collection_membership() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("only.md"), "# Only").unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(repository.model().collections.contains_key("docs"));
+        fs::remove_file(directory.join("only.md")).unwrap();
+        repository.reload().unwrap();
+        assert!(!repository.model().collections.contains_key("docs"));
+        fs::write(directory.join("new.md"), "new").unwrap();
+        repository.reload().unwrap();
+        assert_eq!(
+            repository.source_descriptors("docs").unwrap()[0].record_id,
+            "new"
+        );
+    }
+
+    #[test]
+    fn metadata_on_request_rejects_new_provider_sources_before_legacy_query() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("seed.json"), r#"{"body":"json"}"#).unwrap();
+        let options = Options {
+            freshness: Freshness::MetadataOnRequest,
+            ..Default::default()
+        };
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .options(options)
+            .open()
+            .unwrap();
+        let query = TextQuery {
+            pattern: "json".into(),
+            collections: Some(vec!["docs".into()]),
+            mode: TextMode::WordRaw,
+            ..Default::default()
+        };
+        assert_eq!(repository.search_text(&query).unwrap().hits.len(), 1);
+        fs::write(directory.join("item.md"), "# New").unwrap();
+        assert!(
+            matches!(repository.search_text(&query), Err(Error::Request(message)) if message.contains("not yet included"))
+        );
+        fs::remove_file(directory.join("item.md")).unwrap();
+        assert_eq!(repository.search_text(&query).unwrap().hits.len(), 1);
+    }
+
+    #[test]
+    fn custom_only_collection_can_bind_a_json_schema_to_logical_fields() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("only.md"), "# Only").unwrap();
+        let schema_dir = temp.path().join(".objekte/collections");
+        fs::create_dir_all(&schema_dir).unwrap();
+        fs::write(schema_dir.join("docs.schema.json"), r#"{
+          "type":"object",
+          "properties":{"body":{"type":"string","x-full-text":"markdown"}},
+          "x-objekte":{"name":"docs","path":"data/docs","type":"data","format":"example:markdown","id":"filename"}
+        }"#).unwrap();
+        let repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(repository.model().collections["docs"].schema_path.is_some());
+        let descriptors = repository.source_descriptors("docs").unwrap();
+        assert_eq!(descriptors.len(), 1);
+        assert_eq!(descriptors[0].format, "example:markdown");
+    }
+
+    #[test]
     fn registered_markdown_decoder_rejects_invalid_utf8_and_stale_revision() {
         let temp = tempfile::tempdir().unwrap();
         let directory = temp.path().join("data/docs");
@@ -643,7 +757,7 @@ mod tests {
         fs::create_dir_all(&directory).unwrap();
         fs::write(directory.join("seed.json"), "{}").unwrap();
         fs::write(directory.join("item.md"), "# One").unwrap();
-        let repository = Repository::builder(temp.path())
+        let result = Repository::builder(temp.path())
             .register_source(MarkdownProvider::new(directory))
             .unwrap()
             .register_format(MarkdownDecoder::default())
@@ -661,11 +775,8 @@ mod tests {
                 vec![Dependency::SourceBytes],
             )))
             .unwrap()
-            .open()
-            .unwrap();
-        assert!(
-            matches!(repository.source_descriptors("docs"), Err(Error::Request(message)) if message.contains("ambiguous"))
-        );
+            .open();
+        assert!(matches!(result, Err(Error::Request(message)) if message.contains("ambiguous")));
     }
 
     #[test]
@@ -1297,8 +1408,6 @@ mod tests {
             repository
                 .search_text_with(&request, "example:trimmed", "example:prefix")
                 .unwrap()
-
-
                 .total,
             Some(0)
         );

@@ -11,7 +11,29 @@ pub(super) struct VerifiedReadMetadata {
 
 impl Repository {
     pub(super) fn collection(&self, name: &str) -> Result<Collection> {
-        Ok(self.model.collection(name)?.clone())
+        let collection = self.model.collection(name)?.clone();
+        if self.extensions.is_none() {
+            return Ok(collection);
+        }
+        let custom = if self.options.freshness == Freshness::MetadataOnOpen {
+            self.custom_source_collections.contains(name)
+        } else if self
+            .extensions
+            .as_ref()
+            .is_some_and(|extensions| extensions.source_providers().next().is_some())
+        {
+            super::extension_sources::select_sources(&collection, name, self.extensions.as_deref())?
+                .iter()
+                .any(|source| source.provider != "objekte:filesystem")
+        } else {
+            false
+        };
+        if custom {
+            return Err(Error::Request(format!(
+                "collection {name} has registered sources that are not yet included in indexed queries"
+            )));
+        }
+        Ok(collection)
     }
 
     /// Absolute source directories, for sort projections of `@` fields.

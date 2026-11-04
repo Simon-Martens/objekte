@@ -352,6 +352,7 @@ pub struct Repository {
     configuration_changes: Option<ConfigurationChanges>,
     query_cache: predicate_cache::VerifiedPredicateCache,
     extensions: Option<std::sync::Arc<crate::extensions::Extensions>>,
+    custom_source_collections: BTreeSet<String>,
 }
 
 
@@ -456,18 +457,36 @@ impl RepositoryBuilder {
         self.discovery
             .extension_annotations
             .extend(self.extensions.schema_annotations());
+        self.discovery.source_providers = self.extensions.source_providers().cloned().collect();
+        self.discovery.source_formats = self.extensions.format_identities().cloned().collect();
         let model = RepositoryModel::discover(&self.root, &self.discovery)?;
         if !self.extensions.is_empty() {
             self.extensions.bind_schemas(&model)?;
         }
         let extensions =
             (!self.extensions.is_empty()).then(|| std::sync::Arc::new(self.extensions));
-        Ok(Repository::from_model_with_extensions(
+        let mut repository = Repository::from_model_with_extensions(
             model,
             self.options,
             Some(self.discovery),
             extensions,
-        ))
+        );
+        if repository
+            .extensions
+            .as_ref()
+            .is_some_and(|extensions| extensions.source_providers().next().is_some())
+        {
+            for name in repository.model.collections.keys() {
+                if repository
+                    .source_descriptors(name)?
+                    .iter()
+                    .any(|source| source.provider != "objekte:filesystem")
+                {
+                    repository.custom_source_collections.insert(name.clone());
+                }
+            }
+        }
+        Ok(repository)
     }
 }
 
@@ -551,6 +570,7 @@ impl Repository {
             auto_postings: BTreeMap::new(),
             query_cache,
             extensions,
+            custom_source_collections: BTreeSet::new(),
         }
     }
 
@@ -573,12 +593,14 @@ impl Repository {
     /// Copy parsed configuration into an independent handle with no indexes.
     /// A UI can warm this handle on another thread and adopt it when ready.
     pub fn fork_unindexed(&self) -> Self {
-        Self::from_model_with_extensions(
+        let mut fork = Self::from_model_with_extensions(
             self.model.clone(),
             self.options.clone(),
             self.discovery.clone(),
             self.extensions.clone(),
-        )
+        );
+        fork.custom_source_collections = self.custom_source_collections.clone();
+        fork
     }
 
     /// Immutable, registration-order-independent extension definitions.
@@ -608,12 +630,28 @@ impl Repository {
         } else {
             RepositoryModel::load(&self.model.root)?
         };
+        let mut custom_sources = BTreeSet::new();
+        if self
+            .extensions
+            .as_ref()
+            .is_some_and(|extensions| extensions.source_providers().next().is_some())
+        {
+            for (name, collection) in &model.collections {
+                if extension_sources::select_sources(collection, name, self.extensions.as_deref())?
+                    .iter()
+                    .any(|source| source.provider != "objekte:filesystem")
+                {
+                    custom_sources.insert(name.clone());
+                }
+            }
+        }
         if let Some(extensions) = &self.extensions {
             let mut next = (**extensions).clone();
             next.bind_schemas(&model)?;
             self.extensions = Some(std::sync::Arc::new(next));
         }
         self.replace_model(model);
+        self.custom_source_collections = custom_sources;
         self.metrics.reload_nanos += nanos(t);
         Ok(())
     }

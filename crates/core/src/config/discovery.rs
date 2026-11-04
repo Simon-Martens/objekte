@@ -1,4 +1,4 @@
-//! Discover collection ownership from JSON folders and optional schema bases.
+//! Discover collection ownership from source folders and optional schema bases.
 
 use super::*;
 
@@ -10,6 +10,8 @@ pub(crate) struct Discovery {
     pub schemas: Vec<(PathBuf, PathBuf)>,
     pub use_default_schemas: bool,
     pub extension_annotations: BTreeSet<String>,
+    pub source_providers: Vec<std::sync::Arc<dyn crate::extensions::SourceProvider>>,
+    pub source_formats: BTreeSet<String>,
 }
 
 
@@ -20,15 +22,17 @@ impl Default for Discovery {
             schemas: Vec::new(),
             use_default_schemas: true,
             extension_annotations: BTreeSet::new(),
+            source_providers: Vec::new(),
+            source_formats: BTreeSet::new(),
         }
     }
 }
 
 
-/// One real directory and whether it owns JSON files directly.
+/// One real directory and whether it owns selected sources directly.
 struct Directory {
     path: PathBuf,
-    direct_json: bool,
+    direct_source: bool,
 }
 
 
@@ -69,7 +73,7 @@ impl RepositoryModel {
             ));
         }
         let mut directories = Vec::new();
-        discover_directories(&data, &mut directories)?;
+        discover_directories(&data, settings, &mut directories)?;
 
         let mut schema_bases = BTreeMap::new();
         if settings.use_default_schemas {
@@ -154,7 +158,7 @@ impl RepositoryModel {
         for directory in &directories {
             let schema_base = schema_bases.contains_key(&directory.path);
             if !schema_base
-                && (!directory.direct_json
+                && (!directory.direct_source
                     || schema_bases
                         .keys()
                         .any(|base| directory.path.starts_with(base)))
@@ -164,12 +168,16 @@ impl RepositoryModel {
             if schema_base
                 && !directories
                     .iter()
-                    .any(|entry| entry.direct_json && entry.path.starts_with(&directory.path))
+                    .any(|entry| entry.direct_source && entry.path.starts_with(&directory.path))
             {
                 return Err(config(
                     &directory.path,
                     "",
-                    "collection must contain a JSON file",
+                    if settings.source_providers.is_empty() {
+                        "collection must contain a JSON file"
+                    } else {
+                        "collection must contain a selected source file"
+                    },
                 ));
             }
             let name = collection_name(&data, &directory.path)?;
@@ -338,7 +346,7 @@ impl RepositoryModel {
             return Err(config(&data, "", "data root must be inside repository"));
         }
         let mut directories = Vec::new();
-        discover_directories(&data, &mut directories)?;
+        discover_directories(&data, settings, &mut directories)?;
         let mut files = BTreeMap::new();
         let mut input_collections = BTreeMap::<PathBuf, BTreeSet<String>>::new();
         let mut collections = BTreeMap::new();
@@ -393,11 +401,21 @@ impl RepositoryModel {
                     "name must match the schema filename and cannot be @root",
                 ));
             }
-            if metadata.r#type != "data" || metadata.format != "json" || metadata.id != "filename" {
+            if metadata.r#type != "data"
+                || metadata.id != "filename"
+                || (metadata.format != "json"
+                    && (settings.source_providers.is_empty()
+                        || (metadata.format != "mixed"
+                            && !settings.source_formats.contains(&metadata.format))))
+            {
                 return Err(config(
                     &schema_path,
                     "/x-objekte",
-                    "only data/json/filename collections are supported",
+                    if settings.source_providers.is_empty() {
+                        "only data/json/filename collections are supported"
+                    } else {
+                        "unsupported data format or source identity"
+                    },
                 ));
             }
             let source = inside(root, &metadata.path)?;
@@ -408,11 +426,24 @@ impl RepositoryModel {
                     "invalid source directory",
                 ));
             }
-            if !has_json(&source, true)? {
+            let mut populated = has_json(&source, true)?;
+            if !populated {
+                for provider in &settings.source_providers {
+                    if !provider.enumerate(&metadata.name)?.is_empty() {
+                        populated = true;
+                        break;
+                    }
+                }
+            }
+            if !populated {
                 return Err(config(
                     &schema_path,
                     "/x-objekte/path",
-                    "collection must contain a JSON file",
+                    if settings.source_providers.is_empty() {
+                        "collection must contain a JSON file"
+                    } else {
+                        "collection must contain a selected source file"
+                    },
                 ));
             }
             if bases
@@ -482,7 +513,8 @@ impl RepositoryModel {
             );
         }
         for directory in &directories {
-            if !directory.direct_json || bases.keys().any(|base| directory.path.starts_with(base)) {
+            if !directory.direct_source || bases.keys().any(|base| directory.path.starts_with(base))
+            {
                 continue;
             }
             let name = collection_name(&data, &directory.path)?;
@@ -591,10 +623,14 @@ fn collection_name(data: &Path, directory: &Path) -> Result<String> {
         .ok_or_else(|| config(directory, "", "collection path must be UTF-8"))
 }
 
-fn discover_directories(data: &Path, output: &mut Vec<Directory>) -> Result<()> {
+fn discover_directories(
+    data: &Path,
+    settings: &Discovery,
+    output: &mut Vec<Directory>,
+) -> Result<()> {
     let mut pending = vec![data.to_owned()];
     while let Some(directory) = pending.pop() {
-        let mut direct_json = false;
+        let mut direct_source = false;
         for entry in fs::read_dir(&directory).map_err(|error| io(&directory, error))? {
             let entry = entry.map_err(|error| io(&directory, error))?;
             let path = entry.path();
@@ -608,12 +644,21 @@ fn discover_directories(data: &Path, output: &mut Vec<Directory>) -> Result<()> 
             } else if kind.is_file()
                 && path.extension().and_then(|ext| ext.to_str()) == Some("json")
             {
-                direct_json = true;
+                direct_source = true;
+            }
+        }
+        if !direct_source && !settings.source_providers.is_empty() {
+            let name = collection_name(data, &directory)?;
+            for provider in &settings.source_providers {
+                if !provider.enumerate(&name)?.is_empty() {
+                    direct_source = true;
+                    break;
+                }
             }
         }
         output.push(Directory {
             path: directory,
-            direct_json,
+            direct_source,
         });
     }
     output.sort_by(|left, right| left.path.cmp(&right.path));
