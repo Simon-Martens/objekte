@@ -1,6 +1,7 @@
 //! Regex-to-bigram candidate planning adapted from FFF at d1c7dd47 (MIT).
-//! See `../bigram/LICENSE`. FFF's private column evaluator is replaced with
-//! the local `BigramFilter::query` API; an unavailable posting means scan all.
+//! See `../bigram/LICENSE` and `../bigram/NOTICE.md`. FFF's private column
+//! evaluator is replaced with the local `BigramFilter::query` API; an
+//! unavailable posting means scan all.
 use crate::bigram::{BigramEncoding, BigramFilter};
 use regex_syntax::hir::{Class, Hir, HirKind};
 use smallvec::SmallVec;

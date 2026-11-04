@@ -1,14 +1,14 @@
-# FFF bigram code
+# FFF-derived code
 
-`filter.rs` and `column_slab.rs` are adapted from FFF's
-`crates/fff-core/src/index/bigram_filter.rs` and
-`crates/fff-core/src/index/column_slab.rs` at commit
-`d1c7dd47130ca670ab71e7466a1a3b4a57d5348d`.
+Two files are adapted from FFF at commit
+`d1c7dd47130ca670ab71e7466a1a3b4a57d5348d` and remain under the MIT license in
+[LICENSE](LICENSE):
 
-The builder, compressed filter, sparse encoding, normalization, changed-file
-overlay, memory slab, and their unit tests are retained. FFF's `FileItem` file
-walker, binary sniffing, and path-arena integration are replaced by
-`build_bigram_index_from_content`, which accepts content in caller-owned slot
-order. Objékte's file picker also feeds the builder directly.
+- [`column_slab.rs`](column_slab.rs), from FFF's
+  `crates/fff-core/src/index/column_slab.rs`.
+- [`../file_picker/regex_plan.rs`](../file_picker/regex_plan.rs), the
+  regex-to-bigram planner from FFF's `bigram_query.rs`. Its private column
+  lookup is replaced with the local `BigramFilter::query`.
 
-FFF is licensed under the MIT license in [LICENSE](LICENSE).
+The rest of the bigram module and the file picker are Objékte's own code,
+under the Unlicense.

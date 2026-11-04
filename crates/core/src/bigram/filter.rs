@@ -1,5 +1,4 @@
-//! FFF's content-fed bigram builder, compressed filter, and changed-file overlay.
-//! Adapted from commit d1c7dd47130ca670ab71e7466a1a3b4a57d5348d.
+//! Content-fed bigram builder, compressed filter, and changed-file overlay.
 
 use ahash::AHashMap;
 use rayon::iter::{IndexedParallelIterator, IntoParallelRefIterator, ParallelIterator};

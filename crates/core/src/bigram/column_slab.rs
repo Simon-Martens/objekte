@@ -1,3 +1,7 @@
+//! Memory slab for bigram posting columns, adapted from FFF's
+//! `crates/fff-core/src/index/column_slab.rs` at commit
+//! d1c7dd47130ca670ab71e7466a1a3b4a57d5348d (MIT). See `LICENSE`.
+
 use std::ops::Deref;
 use std::ptr::NonNull;
 

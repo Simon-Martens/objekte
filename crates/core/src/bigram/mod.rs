@@ -1,8 +1,8 @@
-//! Content-fed bigram indexing adapted from FFF (MIT license).
+//! Content-fed bigram indexing: builder, compressed filter, changed-file
+//! overlay, and snapshots.
 //!
-//! The builder, compressed filter, overlay, and original tests live in this
-//! module so Objékte does not depend on FFF's file walker or path storage.
-//! See `LICENSE` and `NOTICE.md` for provenance.
+//! `column_slab.rs` is adapted from FFF and remains under the MIT license;
+//! see `LICENSE` and `NOTICE.md`.
 
 mod codec;
 mod column_slab;
