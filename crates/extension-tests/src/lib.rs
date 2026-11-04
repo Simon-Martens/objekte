@@ -3,12 +3,303 @@
 use objekte_core::{
     Error, Result,
     extensions::{
-        BindingContext, CandidateConstraint, CompiledOperator, DataKind, Dependency, Descriptor,
-        Extraction, QueryOperator, RecordAccess, ScalarValue, SemanticVersion, TextRepresentation,
-        TypedValue, ValueExtractor,
+        BindingContext, CandidateConstraint, CompiledOperator, DataKind, DecodedRecord, Dependency,
+        Descriptor, Extraction, QueryOperator, RecordAccess, ScalarValue, SemanticVersion,
+        TextRepresentation, TypedValue, ValueExtractor,
     },
 };
 use serde_json::Value;
+use std::{collections::BTreeMap, fs, io::Read, path::PathBuf, time::UNIX_EPOCH};
+
+
+/// Select direct `.md` files; the source identity includes the real filename.
+pub struct MarkdownProvider {
+    descriptor: Descriptor,
+    root: PathBuf,
+    collection: String,
+}
+
+
+const MAX_MARKDOWN_SOURCE_BYTES: u64 = 64 * 1024 * 1024;
+
+
+impl MarkdownProvider {
+    pub fn new(root: PathBuf) -> Self {
+        let collection = root
+            .file_name()
+            .and_then(|name| name.to_str())
+            .expect("Markdown collection directory has a UTF-8 name")
+            .to_owned();
+        Self {
+            descriptor: Descriptor::new(
+                "example:markdown-files",
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
+                &root,
+                DataKind::Source,
+                DataKind::Source,
+                vec![Dependency::FileName, Dependency::SourceBytes],
+            ),
+            root,
+            collection,
+        }
+    }
+
+    fn revision_metadata(metadata: &fs::Metadata, path: &std::path::Path) -> Result<String> {
+        if !metadata.is_file() {
+            return Err(Error::Request(
+                "Markdown source must be a regular file".into(),
+            ));
+        }
+        let modified = metadata.modified().map_err(|source| Error::Io {
+            path: path.into(),
+            source,
+        })?;
+        let nanos = modified
+            .duration_since(UNIX_EPOCH)
+            .map(|duration| duration.as_nanos().to_string())
+            .unwrap_or_else(|error| format!("-{}", error.duration().as_nanos()));
+        #[cfg(unix)]
+        let identity = {
+            use std::os::unix::fs::MetadataExt;
+            format!(
+                "{}:{}:{}:{}",
+                metadata.dev(),
+                metadata.ino(),
+                metadata.ctime(),
+                metadata.ctime_nsec()
+            )
+        };
+        #[cfg(not(unix))]
+        let identity = String::new();
+        Ok(format!("{}:{nanos}:{identity}", metadata.len()))
+    }
+
+    fn revision(path: &std::path::Path) -> Result<String> {
+        let metadata = fs::symlink_metadata(path).map_err(|source| Error::Io {
+            path: path.into(),
+            source,
+        })?;
+        Self::revision_metadata(&metadata, path)
+    }
+}
+
+
+impl objekte_core::extensions::SourceProvider for MarkdownProvider {
+    fn descriptor(&self) -> &Descriptor {
+        &self.descriptor
+    }
+
+    fn enumerate(
+        &self,
+        collection: &str,
+    ) -> Result<Vec<objekte_core::extensions::SourceDescriptor>> {
+        if collection != self.collection {
+            return Ok(Vec::new());
+        }
+        let mut sources = Vec::new();
+        for entry in fs::read_dir(&self.root).map_err(|source| Error::Io {
+            path: self.root.clone(),
+            source,
+        })? {
+            let entry = entry.map_err(|source| Error::Io {
+                path: self.root.clone(),
+                source,
+            })?;
+            let path = entry.path();
+            if path.extension().and_then(|extension| extension.to_str()) != Some("md") {
+                continue;
+            }
+            let filename = entry
+                .file_name()
+                .into_string()
+                .map_err(|_| Error::Request("Markdown filename must be UTF-8".into()))?;
+            let id = path
+                .file_stem()
+                .and_then(|stem| stem.to_str())
+                .ok_or_else(|| Error::Request("Markdown record ID must be UTF-8".into()))?;
+            sources.push(objekte_core::extensions::SourceDescriptor {
+                collection: collection.into(),
+                provider: self.descriptor.identity.clone(),
+                source_id: filename.clone(),
+                record_id: id.into(),
+                locator: PathBuf::from(filename),
+                format: "example:markdown".into(),
+                revision: Self::revision(&path)?,
+                metadata: BTreeMap::new(),
+            });
+        }
+        Ok(sources)
+    }
+
+    fn read(
+        &self,
+        source: &objekte_core::extensions::SourceDescriptor,
+        output: &mut Vec<u8>,
+    ) -> Result<()> {
+        if source.provider != self.descriptor.identity
+            || source.locator.components().count() != 1
+            || source
+                .locator
+                .extension()
+                .and_then(|extension| extension.to_str())
+                != Some("md")
+        {
+            return Err(Error::Request("invalid Markdown source descriptor".into()));
+        }
+        let path = self.root.join(&source.locator);
+        #[cfg(unix)]
+        let mut file = {
+            use std::fs::File;
+            let directory = File::from(
+                rustix::fs::open(
+                    &self.root,
+                    rustix::fs::OFlags::RDONLY
+                        | rustix::fs::OFlags::DIRECTORY
+                        | rustix::fs::OFlags::NOFOLLOW
+                        | rustix::fs::OFlags::CLOEXEC,
+                    rustix::fs::Mode::empty(),
+                )
+                .map_err(|error| Error::Io {
+                    path: self.root.clone(),
+                    source: error.into(),
+                })?,
+            );
+            File::from(
+                rustix::fs::openat(
+                    &directory,
+                    &source.locator,
+                    rustix::fs::OFlags::RDONLY
+                        | rustix::fs::OFlags::NOFOLLOW
+                        | rustix::fs::OFlags::CLOEXEC
+                        | rustix::fs::OFlags::NONBLOCK,
+                    rustix::fs::Mode::empty(),
+                )
+                .map_err(|error| Error::Io {
+                    path: path.clone(),
+                    source: error.into(),
+                })?,
+            )
+        };
+        #[cfg(not(unix))]
+        let mut file = fs::File::open(&path).map_err(|source| Error::Io {
+            path: path.clone(),
+            source,
+        })?;
+        let before_metadata = file.metadata().map_err(|source| Error::Io {
+            path: path.clone(),
+            source,
+        })?;
+        let before = Self::revision_metadata(&before_metadata, &path)?;
+        if before != source.revision {
+            return Err(Error::Unstable(path));
+        }
+        if before_metadata.len() > MAX_MARKDOWN_SOURCE_BYTES {
+            return Err(Error::Request("Markdown source exceeds 64 MiB".into()));
+        }
+        output.clear();
+        (&mut file)
+            .take(MAX_MARKDOWN_SOURCE_BYTES + 1)
+            .read_to_end(output)
+            .map_err(|source| Error::Io {
+                path: path.clone(),
+                source,
+            })?;
+        let after_metadata = file.metadata().map_err(|source| Error::Io {
+            path: path.clone(),
+            source,
+        })?;
+        let after = Self::revision_metadata(&after_metadata, &path)?;
+        if after != source.revision
+            || output.len() as u64 != after_metadata.len()
+            || output.len() as u64 > MAX_MARKDOWN_SOURCE_BYTES
+        {
+            return Err(Error::Unstable(path));
+        }
+        Ok(())
+    }
+}
+
+
+/// One UTF-8 Markdown file becomes one logical record with a `body` leaf.
+pub struct MarkdownDecoder(Descriptor);
+
+
+struct MarkdownRecord<'a> {
+    body: &'a str,
+}
+
+
+impl RecordAccess for MarkdownRecord<'_> {
+    fn path_present(&self, path: &objekte_core::JsonPath) -> Result<bool> {
+        Ok(matches!(path.as_slice(), [objekte_core::JsonPathStep::Key(name)] if name == "body"))
+    }
+
+    fn visit_path(
+        &self,
+        path: &objekte_core::JsonPath,
+        visit: &mut dyn FnMut(ScalarValue<'_>) -> Result<()>,
+    ) -> Result<usize> {
+        if self.path_present(path)? {
+            visit(ScalarValue::Text(self.body))?;
+            Ok(1)
+        } else {
+            Ok(0)
+        }
+    }
+}
+
+
+impl DecodedRecord for MarkdownRecord<'_> {
+    fn visit_leaves(
+        &self,
+        visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
+    ) -> Result<()> {
+        visit("/body", ScalarValue::Text(self.body))
+    }
+}
+
+
+impl Default for MarkdownDecoder {
+    fn default() -> Self {
+        Self(Descriptor::new(
+            "example:markdown",
+            SemanticVersion {
+                major: 1,
+                minor: 0,
+                patch: 0,
+            },
+            &(),
+            DataKind::Source,
+            DataKind::Record,
+            vec![Dependency::SourceBytes],
+        ))
+    }
+}
+
+
+impl objekte_core::extensions::FormatDecoder for MarkdownDecoder {
+    fn descriptor(&self) -> &Descriptor {
+        &self.0
+    }
+
+    fn accepts(&self, source: &objekte_core::extensions::SourceDescriptor) -> bool {
+        source.format == self.0.identity
+    }
+
+    fn decode(
+        &self,
+        bytes: &[u8],
+        visit: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
+    ) -> Result<()> {
+        let text = std::str::from_utf8(bytes)
+            .map_err(|_| Error::Request("Markdown source must be UTF-8".into()))?;
+        visit(&MarkdownRecord { body: text })
+    }
+}
 
 
 /// Exact, case-sensitive prefix comparison compiled once per request.
@@ -202,6 +493,165 @@ mod tests {
         extensions::{NativeTextOperator, RenderedRepresentation, StoredRepresentation},
     };
     use std::fs;
+
+
+    #[test]
+    fn registered_markdown_provider_decoder_tracks_lifecycle_and_collisions() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("seed.json"), r#"{"body":"json"}"#).unwrap();
+        fs::write(directory.join("item.md"), "# Heading\nbody").unwrap();
+        let repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let descriptors = repository.source_descriptors("docs").unwrap();
+        assert_eq!(
+            descriptors
+                .iter()
+                .map(|source| source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["item", "seed"]
+        );
+        assert_eq!(
+            repository.read_source_leaves(&descriptors[0]).unwrap(),
+            vec![objekte_core::DecodedLeaf {
+                path: "/body".into(),
+                value: TypedValue::Text("# Heading\nbody".into())
+            }]
+        );
+        assert_eq!(
+            repository.read_source_leaves(&descriptors[1]).unwrap()[0].value,
+            TypedValue::Text("json".into())
+        );
+
+        fs::write(directory.join("new.md"), "new").unwrap();
+        assert_eq!(repository.source_descriptors("docs").unwrap().len(), 3);
+        fs::rename(directory.join("new.md"), directory.join("renamed.md")).unwrap();
+        fs::remove_file(directory.join("item.md")).unwrap();
+        assert_eq!(
+            repository
+                .source_descriptors("docs")
+                .unwrap()
+                .iter()
+                .map(|source| source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["renamed", "seed"]
+        );
+        assert!(repository.read_source_leaves(&descriptors[0]).is_err());
+
+        fs::write(directory.join("renamed.json"), "{}").unwrap();
+        assert!(
+            matches!(repository.source_descriptors("docs"), Err(Error::Request(message)) if message.contains("collision"))
+        );
+    }
+
+    #[test]
+    fn registered_markdown_decoder_rejects_invalid_utf8_and_stale_revision() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("seed.json"), "{}").unwrap();
+        fs::write(directory.join("item.md"), [0xff]).unwrap();
+        let repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let descriptor = repository.source_descriptors("docs").unwrap().remove(0);
+        assert!(
+            matches!(repository.read_source_leaves(&descriptor), Err(Error::Request(message)) if message.contains("UTF-8"))
+        );
+        fs::write(directory.join("item.md"), "a different size").unwrap();
+        assert!(repository.read_source_leaves(&descriptor).is_err());
+    }
+
+    #[test]
+    fn markdown_decoder_lends_structured_presence_without_a_json_tree() {
+        let body = objekte_core::JsonFilter::parse_path("body").unwrap();
+        let absent = objekte_core::JsonFilter::parse_path("missing").unwrap();
+        objekte_core::extensions::FormatDecoder::decode(
+            &MarkdownDecoder::default(),
+            b"",
+            &mut |record| {
+                assert!(record.path_present(&body)?);
+                assert!(!record.path_present(&absent)?);
+                let mut values = Vec::new();
+                assert_eq!(
+                    record.visit_path(&body, &mut |value| {
+                        if let ScalarValue::Text(text) = value {
+                            values.push(text.to_owned());
+                        }
+                        Ok(())
+                    })?,
+                    1
+                );
+                assert_eq!(values, [""]);
+                Ok(())
+            },
+        )
+        .unwrap();
+    }
+
+    #[test]
+    fn overlapping_format_acceptors_are_rejected() {
+        struct OverlappingDecoder(Descriptor);
+
+
+        impl objekte_core::extensions::FormatDecoder for OverlappingDecoder {
+            fn descriptor(&self) -> &Descriptor {
+                &self.0
+            }
+
+            fn accepts(&self, source: &objekte_core::extensions::SourceDescriptor) -> bool {
+                source.format == "example:markdown"
+            }
+
+            fn decode(
+                &self,
+                _: &[u8],
+                _: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
+            ) -> Result<()> {
+                Ok(())
+            }
+        }
+
+
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("seed.json"), "{}").unwrap();
+        fs::write(directory.join("item.md"), "# One").unwrap();
+        let repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_format(OverlappingDecoder(Descriptor::new(
+                "example:other-markdown",
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
+                &(),
+                DataKind::Source,
+                DataKind::Record,
+                vec![Dependency::SourceBytes],
+            )))
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(
+            matches!(repository.source_descriptors("docs"), Err(Error::Request(message)) if message.contains("ambiguous"))
+        );
+    }
 
 
     struct ExactNumberExtractor {

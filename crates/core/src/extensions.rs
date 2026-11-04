@@ -11,7 +11,9 @@ use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{collections::BTreeMap, fs, path::PathBuf, sync::Arc};
 
 mod builtins;
-pub use builtins::{NativeTextOperator, RenderedRepresentation, StoredRepresentation};
+pub use builtins::{
+    JsonFormatDecoder, NativeTextOperator, RenderedRepresentation, StoredRepresentation,
+};
 
 #[cfg(test)]
 #[path = "extensions.test.rs"]
@@ -155,6 +157,7 @@ impl Descriptor {
 /// A source's stable identity is distinct from its locator and record ID.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SourceDescriptor {
+    pub collection: String,
     pub provider: String,
     pub source_id: String,
     pub record_id: String,
@@ -184,16 +187,35 @@ pub enum ScalarValue<'a> {
 }
 
 
-/// Decode a source and visit logical leaves. A decoder can keep its native
-/// parser/tree and lend values only for the duration of the callback.
+/// A decoded record lends both path presence and logical leaves for one call.
+/// Implementations may borrow the source bytes or own a format-specific tree.
+pub trait DecodedRecord: RecordAccess {
+    /// Visit scalar leaves at JSON-pointer paths. Borrowed values may not be
+    /// retained after the callback returns.
+    fn visit_leaves(
+        &self,
+        visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
+    ) -> Result<()>;
+}
+
+
+/// Decode one source and lend its logical record only during the callback.
 pub trait FormatDecoder: Send + Sync {
     fn descriptor(&self) -> &Descriptor;
     fn accepts(&self, source: &SourceDescriptor) -> bool;
+    fn decode(
+        &self,
+        bytes: &[u8],
+        visit: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
+    ) -> Result<()>;
+
     fn visit_leaves(
         &self,
         bytes: &[u8],
         visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
-    ) -> Result<()>;
+    ) -> Result<()> {
+        self.decode(bytes, &mut |record| record.visit_leaves(visit))
+    }
 }
 
 
@@ -518,6 +540,32 @@ pub(crate) struct BoundValueExtractor {
 
 
 impl Extensions {
+    pub(crate) fn source_providers(&self) -> impl Iterator<Item = &Arc<dyn SourceProvider>> {
+        self.sources.values()
+    }
+
+    pub(crate) fn decoder(&self, source: &SourceDescriptor) -> Result<Arc<dyn FormatDecoder>> {
+        let mut accepted = self
+            .formats
+            .values()
+            .filter(|format| format.accepts(source));
+        let first = accepted.next();
+        if accepted.next().is_some() {
+            return Err(Error::Request(format!(
+                "ambiguous format selection for source {}",
+                source.source_id
+            )));
+        }
+        match first {
+            Some(format) if format.descriptor().identity == source.format => Ok(Arc::clone(format)),
+            None if source.format == "objekte:json" => Ok(Arc::new(JsonFormatDecoder::default())),
+            Some(_) | None => Err(Error::Request(format!(
+                "no registered decoder for source {} with format {}",
+                source.source_id, source.format
+            ))),
+        }
+    }
+
     pub(crate) fn bind_schemas(&mut self, model: &RepositoryModel) -> Result<()> {
         self.schemas.clear();
         for (name, collection) in &model.collections {

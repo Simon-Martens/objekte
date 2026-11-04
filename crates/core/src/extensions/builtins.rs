@@ -4,6 +4,168 @@ use super::*;
 use crate::TextFormat;
 
 
+/// The default JSON format exposed through the public decoder contract.
+/// Production JSON indexing continues to use its fused Sonic projection.
+pub struct JsonFormatDecoder(Descriptor);
+
+
+impl Default for JsonFormatDecoder {
+    fn default() -> Self {
+        Self(Descriptor::new(
+            "objekte:json",
+            SemanticVersion {
+                major: 1,
+                minor: 0,
+                patch: 0,
+            },
+            &(),
+            DataKind::Source,
+            DataKind::Record,
+            vec![Dependency::SourceBytes],
+        ))
+    }
+}
+
+
+impl FormatDecoder for JsonFormatDecoder {
+    fn descriptor(&self) -> &Descriptor {
+        &self.0
+    }
+
+    fn accepts(&self, source: &SourceDescriptor) -> bool {
+        source.format == self.0.identity
+    }
+
+    fn decode(
+        &self,
+        bytes: &[u8],
+        visit: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
+    ) -> Result<()> {
+        let value: SonicValue = sonic_rs::from_slice(bytes)
+            .map_err(|error| Error::Request(format!("invalid JSON source: {error}")))?;
+        visit(&value)
+    }
+}
+
+
+impl DecodedRecord for SonicValue {
+    fn visit_leaves(
+        &self,
+        visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
+    ) -> Result<()> {
+        fn walk(
+            value: &SonicValue,
+            path: &mut String,
+            depth: usize,
+            visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
+        ) -> Result<()> {
+            if depth > 127 {
+                return Err(Error::Request("JSON source exceeds nesting limit".into()));
+            }
+            if let Some(number) = value.as_raw_number() {
+                return visit(path, ScalarValue::Number(number.as_str()));
+            }
+            match value.as_ref() {
+                ValueRef::Null => visit(path, ScalarValue::Null),
+                ValueRef::Bool(value) => visit(path, ScalarValue::Bool(value)),
+                ValueRef::String(value) => visit(path, ScalarValue::Text(value)),
+                ValueRef::Number(_) => unreachable!("raw number handled first"),
+                ValueRef::Array(values) => {
+                    for (index, value) in values.iter().enumerate() {
+                        let prior = path.len();
+                        path.push('/');
+                        path.push_str(&index.to_string());
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+                ValueRef::Object(values) => {
+                    // Sonic retains duplicate members. A logical JSON record
+                    // uses the last occurrence, as the native verifier does.
+                    let mut members = Vec::new();
+                    let mut last = BTreeMap::new();
+                    for (key, value) in values {
+                        last.insert(key, members.len());
+                        members.push((key, value));
+                    }
+                    for (index, (key, value)) in members.into_iter().enumerate() {
+                        if last[key] != index {
+                            continue;
+                        }
+                        let prior = path.len();
+                        path.push('/');
+                        for character in key.chars() {
+                            match character {
+                                '~' => path.push_str("~0"),
+                                '/' => path.push_str("~1"),
+                                _ => path.push(character),
+                            }
+                        }
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+            }
+        }
+        walk(self, &mut String::new(), 0, visit)
+    }
+}
+
+
+impl DecodedRecord for Value {
+    fn visit_leaves(
+        &self,
+        visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
+    ) -> Result<()> {
+        fn walk(
+            value: &Value,
+            path: &mut String,
+            depth: usize,
+            visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
+        ) -> Result<()> {
+            if depth > 127 {
+                return Err(Error::Request("JSON source exceeds nesting limit".into()));
+            }
+            match value {
+                Value::Null => visit(path, ScalarValue::Null),
+                Value::Bool(value) => visit(path, ScalarValue::Bool(*value)),
+                Value::Number(value) => visit(path, ScalarValue::Number(value.as_str())),
+                Value::String(value) => visit(path, ScalarValue::Text(value)),
+                Value::Array(values) => {
+                    for (index, value) in values.iter().enumerate() {
+                        let prior = path.len();
+                        path.push('/');
+                        path.push_str(&index.to_string());
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+                Value::Object(values) => {
+                    for (key, value) in values {
+                        let prior = path.len();
+                        path.push('/');
+                        for character in key.chars() {
+                            match character {
+                                '~' => path.push_str("~0"),
+                                '/' => path.push_str("~1"),
+                                _ => path.push(character),
+                            }
+                        }
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+            }
+        }
+        walk(self, &mut String::new(), 0, visit)
+    }
+}
+
+
 /// Borrow the decoded string exactly as stored. This is the only public
 /// representation currently eligible for the shared raw bigram index.
 pub struct StoredRepresentation(Descriptor);

@@ -24,6 +24,7 @@ use std::{
 
 mod coverage;
 mod derived_query;
+mod extension_sources;
 mod inference;
 mod json_query;
 mod ordered_result_cache;
@@ -39,6 +40,7 @@ mod value_counts;
 pub use derived_query::{
     DerivedBackend, DerivedPredicate, DerivedQuery, DerivedQueryResult, DerivedSort,
 };
+pub use extension_sources::DecodedLeaf;
 pub use value_counts::ValueCount;
 mod views;
 

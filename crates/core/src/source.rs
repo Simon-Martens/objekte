@@ -274,13 +274,34 @@ impl Source {
             ));
         }
         let name = format!("{id}.json");
-        let path = self.path.join(&name);
+        self.open_relative_validated(&name)
+    }
+
+    /// Open an enumerated source by its actual relative locator. The default
+    /// JSON entry point above retains its direct path for callers with an ID.
+    pub(crate) fn file_relative(&self, relative: &Path) -> Result<File> {
+        let name = relative
+            .to_str()
+            .ok_or_else(|| record(relative, "", "source locator must be UTF-8"))?;
+        validate_id(name)?;
+        if !self.recursive && name.contains(std::path::MAIN_SEPARATOR) {
+            return Err(record(
+                &self.path,
+                name,
+                "source belongs to another collection",
+            ));
+        }
+        self.open_relative_validated(name)
+    }
+
+    fn open_relative_validated(&self, name: &str) -> Result<File> {
+        let path = self.path.join(name);
         #[cfg(unix)]
         {
             // Open every parent relative to the pinned base. O_NOFOLLOW on
             // the final file alone would still follow an intermediate link.
             let mut parent: Option<File> = None;
-            for component in id.split('/').take(id.split('/').count() - 1) {
+            for component in name.split('/').take(name.split('/').count() - 1) {
                 let base = parent.as_ref().unwrap_or(&self.directory);
                 parent = Some(File::from(
                     rustix::fs::openat(
@@ -297,7 +318,7 @@ impl Source {
             }
             rustix::fs::openat(
                 parent.as_ref().unwrap_or(&self.directory),
-                format!("{}.json", id.rsplit('/').next().unwrap()).as_str(),
+                name.rsplit('/').next().unwrap(),
                 rustix::fs::OFlags::RDONLY
                     | rustix::fs::OFlags::NOFOLLOW
                     | rustix::fs::OFlags::CLOEXEC
@@ -311,7 +332,7 @@ impl Source {
         #[cfg(not(unix))]
         {
             let mut current = self.path.clone();
-            for component in id.split('/').take(id.split('/').count() - 1) {
+            for component in name.split('/').take(name.split('/').count() - 1) {
                 current.push(component);
                 if !fs::symlink_metadata(&current)
                     .map_err(|error| io(&current, error))?

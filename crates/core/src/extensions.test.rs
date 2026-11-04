@@ -2,6 +2,59 @@ use super::*;
 use crate::JsonPathStep;
 
 #[test]
+fn native_json_decoder_visits_pointer_paths_and_propagates_callback_errors() {
+    let decoder = JsonFormatDecoder::default();
+    let empty = vec![JsonPathStep::Key("empty".into())];
+    decoder
+        .decode(br#"{"empty":[]}"#, &mut |record| {
+            assert!(record.path_present(&empty)?);
+            assert_eq!(record.visit_path(&empty, &mut |_| Ok(()))?, 0);
+            Ok(())
+        })
+        .unwrap();
+    let mut leaves = Vec::new();
+    decoder
+        .visit_leaves(br#"{"a/b":[1,null],"~":true}"#, &mut |path, value| {
+            leaves.push((
+                path.to_owned(),
+                match value {
+                    ScalarValue::Null => "null".into(),
+                    ScalarValue::Bool(value) => value.to_string(),
+                    ScalarValue::Number(value) | ScalarValue::Text(value) => value.into(),
+                },
+            ));
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(
+        leaves,
+        [
+            ("/a~1b/0".into(), "1".into()),
+            ("/a~1b/1".into(), "null".into()),
+            ("/~0".into(), "true".into())
+        ]
+    );
+    let mut called = 0;
+    let error = decoder.visit_leaves(br#"[1,2]"#, &mut |_, _| {
+        called += 1;
+        Err(Error::Request("stopped".into()))
+    });
+    assert_eq!(called, 1);
+    assert!(matches!(error, Err(Error::Request(message)) if message == "stopped"));
+    assert!(decoder.visit_leaves(b"{", &mut |_, _| Ok(())).is_err());
+    let mut duplicate = Vec::new();
+    decoder
+        .visit_leaves(br#"{"title":"old","title":"new"}"#, &mut |_, value| {
+            if let ScalarValue::Text(value) = value {
+                duplicate.push(value.to_owned());
+            }
+            Ok(())
+        })
+        .unwrap();
+    assert_eq!(duplicate, ["new"]);
+}
+
+#[test]
 fn borrowed_record_access_preserves_presence_order_and_number_spelling() {
     let source = r#"{"dates":["circa 1848",null,1.0,1e100],"empty":[]}"#;
     let json: Value = serde_json::from_str(source).unwrap();

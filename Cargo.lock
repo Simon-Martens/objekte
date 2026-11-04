@@ -1153,6 +1153,7 @@ name = "objekte-extension-tests"
 version = "0.1.0"
 dependencies = [
  "objekte-core",
+ "rustix",
  "serde_json",
  "tempfile",
 ]

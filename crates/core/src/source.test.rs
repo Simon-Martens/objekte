@@ -140,6 +140,32 @@ fn nested_parent_symlinks_are_not_followed() {
 }
 
 #[test]
+fn actual_locator_is_opened_securely_without_json_id_reconstruction() {
+    let temp = tempfile::tempdir().unwrap();
+    fs::create_dir(temp.path().join("part")).unwrap();
+    fs::write(temp.path().join("part/item.md"), "# title").unwrap();
+    let source = Source::open_scoped(temp.path(), true).unwrap();
+    let mut text = String::new();
+    source
+        .file_relative(Path::new("part/item.md"))
+        .unwrap()
+        .read_to_string(&mut text)
+        .unwrap();
+    assert_eq!(text, "# title");
+    for locator in ["../item.md", "/item.md", "part/../item.md", "part//item.md"] {
+        assert!(
+            source.file_relative(Path::new(locator)).is_err(),
+            "{locator}"
+        );
+    }
+    let outside = temp.path().join("outside.md");
+    fs::write(&outside, "outside").unwrap();
+    fs::remove_file(temp.path().join("part/item.md")).unwrap();
+    symlink(&outside, temp.path().join("part/item.md")).unwrap();
+    assert!(source.file_relative(Path::new("part/item.md")).is_err());
+}
+
+#[test]
 fn combined_inventory_detects_membership_changes_and_refuses_symlinks() {
     for change in ["insert", "delete", "rename", "replace", "symlink"] {
         let temp = tempfile::tempdir().unwrap();
