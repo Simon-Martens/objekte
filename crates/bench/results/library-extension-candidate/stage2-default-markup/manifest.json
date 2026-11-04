@@ -1,0 +1,39 @@
+{
+  "baseline_commit": "38c72e86bd37ef982b1503adce2d10d694950a92",
+  "baseline_outputs": {
+    "0": {
+      "cases": 30,
+      "command": "RAYON_NUM_THREADS=16 taskset -c 0-15 candidate-bin/reference/fts-query-mix examples/musenalm 7 0",
+      "exit_status": 0,
+      "file": "reference-cache0.ndjson",
+      "rows": 31,
+      "samples_per_case": 7,
+      "sha256": "0aa2214666edd3f551ca6c3ebfbc0e1fd417196f4ec0951b9bfb5ad450797806"
+    },
+    "64": {
+      "cases": 30,
+      "command": "RAYON_NUM_THREADS=16 taskset -c 0-15 candidate-bin/reference/fts-query-mix examples/musenalm 7 64",
+      "exit_status": 0,
+      "file": "reference-cache64.ndjson",
+      "rows": 31,
+      "samples_per_case": 7,
+      "sha256": "4dd86799600e9bf2a8b9377b308aa826589886669ecdbb58668c9b36aec23139"
+    }
+  },
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "cargo_lock_sha256": "2e219967e2327f963a8a7863bc649fdcccaf52b555de336604a810d72f003e52",
+  "cpu_affinity": "0-15",
+  "filesystem_cache": "warm; not evicted",
+  "musenalm_source_content_and_stat_sha256": "90e36ad63dcb6386e9521c583fdcd36451fd3d6182187dced542fb8292f730ce",
+  "production_source": "clean at baseline commit; unrelated dirty files preserved",
+  "rayon_threads": 16,
+  "reference_binary_sha256": "f4b4433e12941e04b2a4d7bf489607e4e375c0a37121839461d6ad10dad8b917",
+  "release_flags": "workspace release profile; cargo build --locked --release -p objekte-bench --bin fts-query-mix",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "signature_sha256": "e64709ba1d51ea159dccbe20811bdf546df7f787e7e4fc2bbb2df911a804c2cb",
+  "target": "x86_64-unknown-linux-gnu",
+  "unrelated_dirty_paths": [
+    "crates/bench/results/library-extension-candidate/paused-stage2/BLOCKER.md",
+    "docs/impl-plan.md"
+  ]
+}
