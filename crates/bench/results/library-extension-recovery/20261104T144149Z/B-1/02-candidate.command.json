@@ -1,0 +1,26 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "/home/simon/source/objekte/target/recovery/candidate-B/release/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--collection",
+    "contents",
+    "--encoding",
+    "ascii",
+    "--field",
+    "annotation=markdown",
+    "--field",
+    "preferred_title=plain",
+    "--field",
+    "title_statement=html",
+    "--field",
+    "contributors[].annotation=xml",
+    "--skip-snapshot"
+  ],
+  "rayon_num_threads": 1,
+  "exit_status": 0,
+  "elapsed_wall_seconds": 8.626384838004014
+}

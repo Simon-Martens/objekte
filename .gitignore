@@ -2,8 +2,8 @@
 /crates/bench/fff-compare/target/
 /.data/
 /import/
-/scripts/__pycache__/
-/crates/bench/__pycache__/
+__pycache__/
+*.pyc
 **/.objekte/.cache/
 
 # Generated files left by the active frontend checkout.

@@ -60,7 +60,7 @@ def main() -> None:
 
     if not args.no_build:
         subprocess.run(
-            ["cargo", "build", "--release", "-p", "objekte-bench", "--features", "index-timings",
+            ["cargo", "build", "--release", "-p", "objekte-bench", "--features", "index-timings,allocation-profile",
              "--bin", "index-build-profile"],
             cwd=ROOT, check=True,
         )

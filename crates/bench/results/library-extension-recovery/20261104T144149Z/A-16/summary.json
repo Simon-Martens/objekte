@@ -1,0 +1,44 @@
+{
+  "reference": {
+    "build_wall_ms": [
+      1551.118105,
+      1544.591917,
+      1558.588679,
+      1537.669801,
+      1550.992968
+    ],
+    "median_ms": 1550.992968,
+    "min_ms": 1537.669801,
+    "max_ms": 1558.588679,
+    "workers": null,
+    "configured_threads": 16,
+    "documents": [
+      133948
+    ],
+    "compressed_index_bytes": [
+      47456174
+    ]
+  },
+  "candidate": {
+    "build_wall_ms": [
+      1517.143104,
+      1540.925029,
+      1513.159954,
+      1509.47942,
+      1522.87465
+    ],
+    "median_ms": 1517.143104,
+    "min_ms": 1509.47942,
+    "max_ms": 1540.925029,
+    "workers": null,
+    "configured_threads": 16,
+    "documents": [
+      133948
+    ],
+    "compressed_index_bytes": [
+      47456174
+    ]
+  },
+  "candidate_minus_reference_ms": -33.849864000000025,
+  "candidate_minus_reference_percent": -2.182464053570099
+}

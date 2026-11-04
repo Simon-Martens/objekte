@@ -55,7 +55,15 @@ python3 crates/bench/prepare_nyc311.py
 python3 crates/bench/run_index_build_profiles.py --runs 3
 ```
 
-The profiler compiles with `index-timings`; normal builds omit the stage clocks.
+The runner builds the profiler with both `index-timings` and
+`allocation-profile` to retain the historical stage and allocation metrics.
+For latency controls, the profiler also builds with either feature alone or
+neither feature. Allocation counting is selected at compile time; without it,
+the production allocator is used and allocation metrics are `null`. Without
+`index-timings`, stage metrics are `null` and construction runs require
+`--skip-snapshot`. The
+[library-extension recovery comparison](results/library-extension-recovery/20261104T144149Z/REPORT.md)
+uses all four configurations against the same FTS4 build workload.
 Each profile starts a new process and ignores saved index caches. The generated
 Amazon and NYC source repositories stay under ignored `examples/` directories;
 only the reproducible benchmark code and results are committed.

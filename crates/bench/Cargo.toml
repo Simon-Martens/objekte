@@ -35,7 +35,6 @@ path = "src/bin/core_allocation.rs"
 [[bin]]
 name = "index-build-profile"
 path = "src/bin/index_build_profile.rs"
-required-features = ["index-timings"]
 
 [features]
 index-timings = ["objekte-core/index-timings"]

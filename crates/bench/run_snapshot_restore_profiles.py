@@ -53,7 +53,7 @@ def main():
         parser.error("unknown or empty profile selection")
     if not args.no_build:
         subprocess.run(["cargo", "build", "--release", "-p", "objekte-bench",
-                        "--features", "index-timings", "--bin", "index-build-profile"],
+                        "--features", "index-timings,allocation-profile", "--bin", "index-build-profile"],
                        cwd=ROOT, check=True)
     binary = args.bin_dir / "index-build-profile"
     if args.evidence_dir is not None:

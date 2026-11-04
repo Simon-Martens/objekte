@@ -35,9 +35,12 @@ def main() -> None:
     parser.add_argument("--runs", type=int, default=7)
     parser.add_argument("--cpus", default="0-15")
     parser.add_argument("--threads", type=int, default=16)
+    parser.add_argument("--skip-snapshot", action="store_true")
+    parser.add_argument("--warmups", type=int, default=0)
+    parser.add_argument("--mode", choices="ABCD")
     args = parser.parse_args()
-    if args.runs < 1 or args.threads < 1:
-        parser.error("runs and threads must be positive")
+    if args.runs < 1 or args.threads < 1 or args.warmups < 0:
+        parser.error("runs and threads must be positive; warmups must be nonnegative")
     root = Path(__file__).resolve().parents[2]
     repo = root / "examples/musenalm"
     if not (repo / "data/contents").is_dir():
@@ -60,6 +63,9 @@ def main() -> None:
         "cpus": args.cpus,
         "rayon_num_threads": args.threads,
         "runs_per_binary": args.runs,
+        "warmups_per_binary": args.warmups,
+        "skip_snapshot": args.skip_snapshot,
+        "mode": args.mode,
         "fields": list(FIELDS),
         "affinity_before_taskset": sorted(os.sched_getaffinity(0)),
         "started_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
@@ -68,7 +74,7 @@ def main() -> None:
     env = os.environ.copy()
     env["RAYON_NUM_THREADS"] = str(args.threads)
     results = {"reference": [], "candidate": []}
-    for round_number in range(1, args.runs + 1):
+    for round_number in range(1 - args.warmups, args.runs + 1):
         order = ("reference", "candidate") if round_number % 2 else (
             "candidate", "reference")
         for label in order:
@@ -79,9 +85,12 @@ def main() -> None:
             ]
             for field in FIELDS:
                 command.extend(("--field", field))
+            if args.skip_snapshot:
+                command.append("--skip-snapshot")
             started = time.monotonic()
             result = subprocess.run(command, cwd=root, env=env, capture_output=True, text=True)
-            name = f"{round_number:02d}-{label}"
+            name = (f"warmup-{round_number + args.warmups:02d}-{label}"
+                    if round_number < 1 else f"{round_number:02d}-{label}")
             (output_dir / f"{name}.stdout.json").write_text(result.stdout)
             (output_dir / f"{name}.stderr.log").write_text(result.stderr)
             (output_dir / f"{name}.command.json").write_text(json.dumps({
@@ -93,11 +102,20 @@ def main() -> None:
             if result.returncode:
                 raise RuntimeError(f"{name} failed: {result.stderr}")
             record = json.loads(result.stdout)
-            if record["stages"]["workers"] != args.threads:
+            if args.mode:
+                expected = {
+                    "A": (False, False), "B": (False, True),
+                    "C": (True, False), "D": (True, True),
+                }[args.mode]
+                actual = (record.get("allocation_counting"), record.get("stage_timers"))
+                if actual != expected:
+                    raise RuntimeError(f"{name} has mode {actual}, expected {expected}")
+            if record["stages"] is not None and record["stages"]["workers"] != args.threads:
                 raise RuntimeError(f"{name} used {record['stages']['workers']} workers")
             if record["documents"] != 133948 or record["fields"] != list(FIELDS):
                 raise RuntimeError(f"{name} has unexpected benchmark coverage")
-            results[label].append(record)
+            if round_number > 0:
+                results[label].append(record)
             print(f"{name}: {record['build_wall_nanos']/1e6:.1f} ms", flush=True)
     summary = {}
     for label, records in results.items():
@@ -107,7 +125,9 @@ def main() -> None:
             "median_ms": statistics.median(values),
             "min_ms": min(values),
             "max_ms": max(values),
-            "workers": sorted({record["stages"]["workers"] for record in records}),
+            "workers": (sorted({record["stages"]["workers"] for record in records})
+                        if records[0]["stages"] is not None else None),
+            "configured_threads": args.threads,
             "documents": sorted({record["documents"] for record in records}),
             "compressed_index_bytes": sorted({record["compressed_index_bytes"]
                                               for record in records}),

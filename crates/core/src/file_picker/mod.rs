@@ -189,7 +189,6 @@ impl FilePicker {
     }
 
     /// Profile a fresh collection build without consulting repository caches.
-    #[cfg(feature = "index-timings")]
     pub fn profile_collection(
         collection: &crate::Collection,
         encoding: BigramEncoding,

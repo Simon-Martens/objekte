@@ -4,24 +4,29 @@ use objekte_core::{
     BigramEncoding, Field, Repository, TextFormat, ValueType, file_picker::FilePicker,
 };
 use serde_json::json;
+#[cfg(feature = "allocation-profile")]
 use std::{
     alloc::{GlobalAlloc, Layout, System},
-    collections::BTreeMap,
-    env, fs, io,
-    path::PathBuf,
     sync::atomic::{AtomicIsize, AtomicUsize, Ordering},
-    time::Instant,
 };
+use std::{collections::BTreeMap, env, fs, io, path::PathBuf, time::Instant};
 
+#[cfg(feature = "allocation-profile")]
 struct CountingAllocator;
 
+#[cfg(feature = "allocation-profile")]
 static ALLOCS: AtomicUsize = AtomicUsize::new(0);
+#[cfg(feature = "allocation-profile")]
 static BYTES: AtomicUsize = AtomicUsize::new(0);
+#[cfg(feature = "allocation-profile")]
 static LIVE: AtomicIsize = AtomicIsize::new(0);
+#[cfg(feature = "allocation-profile")]
 static PEAK: AtomicIsize = AtomicIsize::new(0);
+#[cfg(feature = "allocation-profile")]
 #[global_allocator]
 static ALLOCATOR: CountingAllocator = CountingAllocator;
 
+#[cfg(feature = "allocation-profile")]
 unsafe impl GlobalAlloc for CountingAllocator {
     unsafe fn alloc(&self, layout: Layout) -> *mut u8 {
         let ptr = unsafe { System.alloc(layout) };
@@ -64,6 +69,56 @@ unsafe impl GlobalAlloc for CountingAllocator {
         }
         moved
     }
+}
+
+/// Allocation totals for one completed build or restore interval.
+#[derive(Default)]
+struct AllocationMetrics {
+    allocations: Option<usize>,
+    allocated_bytes: Option<usize>,
+    peak_live_delta_bytes: Option<isize>,
+}
+
+/// Counter values immediately before a measured operation.
+#[cfg(feature = "allocation-profile")]
+struct AllocationStart {
+    allocations: usize,
+    allocated_bytes: usize,
+    live_bytes: isize,
+}
+
+/// Compile-time token for the production allocator, with no counter state.
+#[cfg(not(feature = "allocation-profile"))]
+struct AllocationStart;
+
+#[cfg(feature = "allocation-profile")]
+fn start_allocations() -> AllocationStart {
+    let start = AllocationStart {
+        allocations: ALLOCS.load(Ordering::Relaxed),
+        allocated_bytes: BYTES.load(Ordering::Relaxed),
+        live_bytes: LIVE.load(Ordering::Relaxed),
+    };
+    PEAK.store(start.live_bytes, Ordering::Relaxed);
+    start
+}
+
+#[cfg(not(feature = "allocation-profile"))]
+fn start_allocations() -> AllocationStart {
+    AllocationStart
+}
+
+#[cfg(feature = "allocation-profile")]
+fn finish_allocations(start: AllocationStart) -> AllocationMetrics {
+    AllocationMetrics {
+        allocations: Some(ALLOCS.load(Ordering::Relaxed) - start.allocations),
+        allocated_bytes: Some(BYTES.load(Ordering::Relaxed) - start.allocated_bytes),
+        peak_live_delta_bytes: Some(PEAK.load(Ordering::Relaxed) - start.live_bytes),
+    }
+}
+
+#[cfg(not(feature = "allocation-profile"))]
+fn finish_allocations(_: AllocationStart) -> AllocationMetrics {
+    AllocationMetrics::default()
 }
 
 fn string_field() -> Field {
@@ -133,6 +188,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let mut collection_name = None;
     let mut encoding = BigramEncoding::Ascii;
     let mut field_specs = Vec::new();
+    #[cfg(feature = "index-timings")]
     let mut snapshot_path = None;
     let mut restore_only = false;
     let mut skip_snapshot = false;
@@ -149,7 +205,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 };
             }
             "--field" => field_specs.push(args.next().ok_or("--field needs PATH=FORMAT")?),
-            "--snapshot-path" => snapshot_path = args.next().map(PathBuf::from),
+            "--snapshot-path" => {
+                #[cfg(feature = "index-timings")]
+                {
+                    snapshot_path = args.next().map(PathBuf::from);
+                }
+                #[cfg(not(feature = "index-timings"))]
+                {
+                    let _ = args.next();
+                }
+            }
             "--restore-only" => restore_only = true,
             "--skip-snapshot" => skip_snapshot = true,
             _ => return Err(format!("unknown argument {arg:?}").into()),
@@ -177,52 +242,58 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     if restore_only {
-        let snapshot = snapshot_path.ok_or("--restore-only needs --snapshot-path")?;
-        let before_allocs = ALLOCS.load(Ordering::Relaxed);
-        let before_bytes = BYTES.load(Ordering::Relaxed);
-        let before_live = LIVE.load(Ordering::Relaxed);
-        PEAK.store(before_live, Ordering::Relaxed);
-        let started = Instant::now();
-        let picker = FilePicker::profile_restore_collection(&collection, encoding, &snapshot)?;
-        let wall_nanos = started.elapsed().as_nanos();
-        let timings = picker.restore_timings();
-        println!(
-            "{}",
-            json!({
-                "repo": root,
-                "collection": collection_name,
-                "documents": picker.len(),
-                "encoding": encoding,
-                "fields": field_specs,
-                "snapshot_restore_wall_nanos": wall_nanos,
-                "restore_stages": timings,
-                "restore_allocations": ALLOCS.load(Ordering::Relaxed) - before_allocs,
-                "restore_allocated_bytes": BYTES.load(Ordering::Relaxed) - before_bytes,
-                "restore_peak_live_delta_bytes": PEAK.load(Ordering::Relaxed) - before_live,
-                "restore_peak_rss_kib": rss_kib("VmHWM:"),
-                "snapshot_base_bytes": fs::metadata(&snapshot)?.len(),
-                "snapshot_secondary_bytes": fs::metadata(snapshot.with_extension("secondary"))?.len(),
-                "compressed_index_bytes": picker.index_bytes(),
-                "index_sizes": picker.profile_index_sizes(),
-            })
-        );
-        return Ok(());
+        #[cfg(not(feature = "index-timings"))]
+        return Err("--restore-only requires index-timings".into());
+        #[cfg(feature = "index-timings")]
+        {
+            let snapshot = snapshot_path.ok_or("--restore-only needs --snapshot-path")?;
+            let before = start_allocations();
+            let started = Instant::now();
+            let picker = FilePicker::profile_restore_collection(&collection, encoding, &snapshot)?;
+            let wall_nanos = started.elapsed().as_nanos();
+            let allocation = finish_allocations(before);
+            let timings = picker.restore_timings();
+            println!(
+                "{}",
+                json!({
+                    "repo": root,
+                    "collection": collection_name,
+                    "documents": picker.len(),
+                    "encoding": encoding,
+                    "fields": field_specs,
+                    "snapshot_restore_wall_nanos": wall_nanos,
+                    "restore_stages": timings,
+                    "restore_allocations": allocation.allocations,
+                    "restore_allocated_bytes": allocation.allocated_bytes,
+                    "restore_peak_live_delta_bytes": allocation.peak_live_delta_bytes,
+                    "restore_peak_rss_kib": rss_kib("VmHWM:"),
+                    "snapshot_base_bytes": fs::metadata(&snapshot)?.len(),
+                    "snapshot_secondary_bytes": fs::metadata(snapshot.with_extension("secondary"))?.len(),
+                    "compressed_index_bytes": picker.index_bytes(),
+                    "index_sizes": picker.profile_index_sizes(),
+                    "allocation_counting": cfg!(feature = "allocation-profile"),
+                    "stage_timers": true,
+                })
+            );
+            return Ok(());
+        }
     }
 
-    let before_allocs = ALLOCS.load(Ordering::Relaxed);
-    let before_bytes = BYTES.load(Ordering::Relaxed);
-    let before_live = LIVE.load(Ordering::Relaxed);
-    PEAK.store(before_live, Ordering::Relaxed);
+    let before = start_allocations();
     let started = Instant::now();
     let picker = FilePicker::profile_collection(&collection, encoding)?;
     let build_wall_nanos = started.elapsed().as_nanos();
-    let build_allocations = ALLOCS.load(Ordering::Relaxed) - before_allocs;
-    let build_allocated_bytes = BYTES.load(Ordering::Relaxed) - before_bytes;
-    let build_peak_live_delta_bytes = PEAK.load(Ordering::Relaxed) - before_live;
+    let allocation = finish_allocations(before);
     let build_peak_rss_kib = rss_kib("VmHWM:");
     let build_ready_rss_kib = rss_kib("VmRSS:");
-    let index_sizes = picker.profile_index_sizes();
-    let build_timings = picker.build_timings();
+    #[cfg(feature = "index-timings")]
+    let index_sizes = Some(picker.profile_index_sizes());
+    #[cfg(not(feature = "index-timings"))]
+    let index_sizes = Option::<serde_json::Value>::None;
+    #[cfg(feature = "index-timings")]
+    let build_timings = Some(picker.build_timings());
+    #[cfg(not(feature = "index-timings"))]
+    let build_timings = Option::<serde_json::Value>::None;
 
     if skip_snapshot {
         println!(
@@ -234,61 +305,72 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "encoding": encoding,
                 "fields": field_specs,
                 "build_wall_nanos": build_wall_nanos,
-                "build_allocations": build_allocations,
-                "build_allocated_bytes": build_allocated_bytes,
-                "build_peak_live_delta_bytes": build_peak_live_delta_bytes,
+                "build_allocations": allocation.allocations,
+                "build_allocated_bytes": allocation.allocated_bytes,
+                "build_peak_live_delta_bytes": allocation.peak_live_delta_bytes,
                 "build_peak_rss_kib": build_peak_rss_kib,
                 "build_ready_rss_kib": build_ready_rss_kib,
                 "compressed_index_bytes": picker.index_bytes(),
                 "index_sizes": index_sizes,
                 "stages": build_timings,
+                "allocation_counting": cfg!(feature = "allocation-profile"),
+                "stage_timers": cfg!(feature = "index-timings"),
+                "timed_operation": "FilePicker::profile_collection",
             })
         );
         return Ok(());
     }
 
-    let snapshot_dir = tempfile::tempdir_in("target")?;
-    let snapshot = snapshot_path.unwrap_or_else(|| snapshot_dir.path().join("index.bigram"));
-    let save_started = Instant::now();
-    picker.save_bigram_snapshot(&snapshot)?;
-    let snapshot_save_wall_nanos = save_started.elapsed().as_nanos();
-    let secondary_serialize = picker.profile_secondary_snapshot(&snapshot)?;
-    let snapshot_base_bytes = fs::metadata(&snapshot)?.len();
-    let snapshot_secondary_bytes = fs::metadata(snapshot.with_extension("secondary"))?.len();
-    let restore_started = Instant::now();
-    let restored = FilePicker::profile_restore_collection(&collection, encoding, &snapshot)?;
-    let snapshot_restore_wall_nanos = restore_started.elapsed().as_nanos();
-    if restored.len() != picker.len()
-        || serde_json::to_value(restored.profile_index_sizes())?
-            != serde_json::to_value(&index_sizes)?
+    #[cfg(not(feature = "index-timings"))]
+    return Err("--skip-snapshot is required without index-timings".into());
+    #[cfg(feature = "index-timings")]
     {
-        return Err("restored index differs from the built index".into());
-    }
+        let snapshot_dir = tempfile::tempdir_in("target")?;
+        let snapshot = snapshot_path.unwrap_or_else(|| snapshot_dir.path().join("index.bigram"));
+        let save_started = Instant::now();
+        picker.save_bigram_snapshot(&snapshot)?;
+        let snapshot_save_wall_nanos = save_started.elapsed().as_nanos();
+        let secondary_serialize = picker.profile_secondary_snapshot(&snapshot)?;
+        let snapshot_base_bytes = fs::metadata(&snapshot)?.len();
+        let snapshot_secondary_bytes = fs::metadata(snapshot.with_extension("secondary"))?.len();
+        let restore_started = Instant::now();
+        let restored = FilePicker::profile_restore_collection(&collection, encoding, &snapshot)?;
+        let snapshot_restore_wall_nanos = restore_started.elapsed().as_nanos();
+        if restored.len() != picker.len()
+            || serde_json::to_value(restored.profile_index_sizes())?
+                != serde_json::to_value(&index_sizes)?
+        {
+            return Err("restored index differs from the built index".into());
+        }
 
-    println!(
-        "{}",
-        json!({
-            "repo": root,
-            "collection": collection_name,
-            "documents": picker.len(),
-            "encoding": encoding,
-            "fields": field_specs,
-            "thread_cpu_supported": cfg!(unix),
-            "build_wall_nanos": build_wall_nanos,
-            "build_allocations": build_allocations,
-            "build_allocated_bytes": build_allocated_bytes,
-            "build_peak_live_delta_bytes": build_peak_live_delta_bytes,
-            "build_peak_rss_kib": build_peak_rss_kib,
-            "build_ready_rss_kib": build_ready_rss_kib,
-            "compressed_index_bytes": picker.index_bytes(),
-            "index_sizes": index_sizes,
-            "stages": build_timings,
-            "snapshot_save_wall_nanos": snapshot_save_wall_nanos,
-            "snapshot_restore_wall_nanos": snapshot_restore_wall_nanos,
-            "secondary_serialize": secondary_serialize,
-            "snapshot_base_bytes": snapshot_base_bytes,
-            "snapshot_secondary_bytes": snapshot_secondary_bytes,
-        })
-    );
-    Ok(())
+        println!(
+            "{}",
+            json!({
+                "repo": root,
+                "collection": collection_name,
+                "documents": picker.len(),
+                "encoding": encoding,
+                "fields": field_specs,
+                "thread_cpu_supported": cfg!(unix),
+                "build_wall_nanos": build_wall_nanos,
+                "build_allocations": allocation.allocations,
+                "build_allocated_bytes": allocation.allocated_bytes,
+                "build_peak_live_delta_bytes": allocation.peak_live_delta_bytes,
+                "build_peak_rss_kib": build_peak_rss_kib,
+                "build_ready_rss_kib": build_ready_rss_kib,
+                "compressed_index_bytes": picker.index_bytes(),
+                "index_sizes": index_sizes,
+                "stages": build_timings,
+                "snapshot_save_wall_nanos": snapshot_save_wall_nanos,
+                "snapshot_restore_wall_nanos": snapshot_restore_wall_nanos,
+                "secondary_serialize": secondary_serialize,
+                "snapshot_base_bytes": snapshot_base_bytes,
+                "snapshot_secondary_bytes": snapshot_secondary_bytes,
+                "allocation_counting": cfg!(feature = "allocation-profile"),
+                "stage_timers": true,
+                "timed_operation": "FilePicker::profile_collection",
+            })
+        );
+        Ok(())
+    }
 }
