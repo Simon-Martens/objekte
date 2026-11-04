@@ -1,0 +1,12 @@
+{
+  "exit_status": 1,
+  "diff_files": [
+    "/home/simon/source/objekte/crates/core/src/bigram/filter.rs",
+    "/home/simon/source/objekte/crates/core/src/config/discovery.rs",
+    "/home/simon/source/objekte/crates/core/src/config/discovery.rs",
+    "/home/simon/source/objekte/crates/core/src/extensions.test.rs",
+    "/home/simon/source/objekte/crates/core/src/extensions.test.rs",
+    "/home/simon/source/objekte/crates/core/src/repository/text_query/sorted.rs",
+    "/home/simon/source/objekte/crates/core/tests/index_build_profile.rs"
+  ]
+}

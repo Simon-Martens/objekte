@@ -1,0 +1,7 @@
+[
+  {
+    "id": 1,
+    "kind": "numeric range",
+    "filter": "year >= 1800 && year < 1805"
+  }
+]
