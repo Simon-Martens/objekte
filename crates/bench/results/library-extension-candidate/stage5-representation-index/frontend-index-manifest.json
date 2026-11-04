@@ -1,0 +1,12 @@
+{
+  "command": "RAYON_NUM_THREADS=16 taskset -c 0-15 target/release/examples/frontend_index_compare examples/musenalm 7",
+  "exit_status": 0,
+  "binary_sha256": "cd48d49daab2e63cce1d57da4064cbc5caf08945dc1833a8db837be10386610a",
+  "source_revision": "3620108df3a4329e5c30a338b7686e18d646fc69 plus the change committed as 6232900a01 (binary built before formatting-only edit)",
+  "corpus_fingerprint": "90e36ad63dcb6386e9521c583fdcd36451fd3d6182187dced542fb8292f730ce",
+  "corpus_record_count": 148486,
+  "query_cache_bytes": 0,
+  "encoding": "ascii",
+  "rounds": 7,
+  "notes": "One untimed warmup for each path; samples alternate scan/indexed order. A temporary schema binds contents.annotation to the existing Markdown renderer. Filesystem cache was not evicted."
+}
