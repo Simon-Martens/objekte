@@ -1272,6 +1272,11 @@ mod tests {
         assert_eq!(actual.total, expected.total);
         assert_eq!(actual.identity, expected.identity);
         assert_eq!(actual.rows[0].source.record_id, "a");
+        let cached = first
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(cached.query_plan, ["extension-ordered-cache"]);
+        assert_eq!(cached.metrics.enumerations, 0);
         fs::write(
             directory.join(".editor/schema.json"),
             r#"{"type":"object","properties":{"contents":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string"}}}}}}"#,

@@ -543,14 +543,18 @@ impl Repository {
         let mut selections = Vec::with_capacity(compiled.len());
         for (collection, _, _) in &compiled {
             let selected = if self.options.freshness == Freshness::MetadataOnOpen {
-                self.custom_source_snapshot
-                    .get(&collection.name)
-                    .map(|snapshot| (Arc::clone(&snapshot.sources), snapshot.fingerprint.clone()))
-            } else {
-                None
-            };
-            let selected = if let Some(selected) = selected {
-                selected
+                let snapshot =
+                    if let Some(snapshot) = self.custom_source_snapshot.get(&collection.name) {
+                        snapshot.clone()
+                    } else {
+                        let sources = self.source_descriptors(&collection.name)?;
+                        self.metrics.enumerations += 1;
+                        let snapshot = CustomSourceSnapshot::new(sources);
+                        self.custom_source_snapshot
+                            .insert(collection.name.clone(), snapshot.clone());
+                        snapshot
+                    };
+                (Arc::clone(&snapshot.sources), snapshot.fingerprint)
             } else {
                 let sources = self.source_descriptors(&collection.name)?;
                 self.metrics.enumerations += 1;
