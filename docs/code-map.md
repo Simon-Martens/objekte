@@ -30,6 +30,7 @@ The sorted query modules choose between two routes. A matching schema sort index
 | `file_picker/typed/derived.rs` | Bind named extractor values to the existing typed B-tree and patch retained slot keys |
 | `repository/derived_query.rs` | Direct and indexed derived-value queries, ordered pages and cache keys |
 | `repository/extension_sources.rs` | Merge default JSON and registered source descriptors, reject collisions, perform revision-checked borrowed decode |
+| `source/filesystem_json.rs` | Built-in `SourceProvider` adapter for JSON descriptors and secure reads used by registered frontends |
 | `repository/extension_query.rs` | Compile registered logical plans into exact calls, combine predicates, retain bounded sorted descriptors, and project returned pages |
 | `extensions.rs`, `extensions/builtins.rs` | Public descriptors, provider/decoder/record contracts, and native JSON/text adapters |
 | `file_picker/text.rs`, `text/projection.rs`, `text/query.rs` | Build combined and per-field postings, project source values, and choose text candidates |

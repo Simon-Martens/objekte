@@ -2,6 +2,37 @@ use super::*;
 use crate::JsonPathStep;
 
 #[test]
+fn built_in_source_and_format_identities_cannot_be_replaced() {
+    struct ReservedProvider(Descriptor);
+
+    impl SourceProvider for ReservedProvider {
+        fn descriptor(&self) -> &Descriptor {
+            &self.0
+        }
+
+        fn enumerate(&self, _: &str) -> Result<Vec<SourceDescriptor>> {
+            Ok(Vec::new())
+        }
+
+        fn read(&self, _: &SourceDescriptor, _: &mut Vec<u8>) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    let mut registry = Extensions::default();
+    let provider = ReservedProvider(Descriptor::new(
+        "objekte:filesystem",
+        SemanticVersion { major: 1, minor: 0, patch: 0 },
+        &(),
+        DataKind::Source,
+        DataKind::Source,
+        vec![],
+    ));
+    assert!(matches!(registry.register_source(provider), Err(Error::Request(message)) if message.contains("reserved")));
+    assert!(matches!(registry.register_format(JsonFormatDecoder::default()), Err(Error::Request(message)) if message.contains("reserved")));
+}
+
+#[test]
 fn native_json_decoder_visits_pointer_paths_and_propagates_callback_errors() {
     let decoder = JsonFormatDecoder::default();
     let empty = vec![JsonPathStep::Key("empty".into())];

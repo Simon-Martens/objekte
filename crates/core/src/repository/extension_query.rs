@@ -450,8 +450,8 @@ fn validate_logical_shape(plan: &LogicalPlan) -> Result<()> {
 impl Repository {
     /// Compile an application request through a registered frontend, then run
     /// its logical plan over engine-selected, revision-checked source records.
-    /// Custom-format plans currently use exact scan fallback; they do not
-    /// borrow the JSON-only picker or publish a reusable query-cache entry.
+    /// Custom-format plans use exact scan fallback. Complete ordered results
+    /// may be cached under their selected source revisions and bound semantics.
     pub fn query_frontend(
         &mut self,
         frontend: &str,

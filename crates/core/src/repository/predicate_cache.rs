@@ -3,6 +3,13 @@
 use super::ordered_result_cache::{OrderedCoverage, OrderedResultCache, OrderedResultKey};
 use std::collections::BTreeMap;
 
+pub(super) fn key_references_collection(scope: &str, collection: &str) -> bool {
+    scope == collection
+        || scope
+            .strip_prefix("@frontend:")
+            .is_some_and(|names| names.split('\0').any(|name| name == collection))
+}
+
 #[cfg(test)]
 #[path = "predicate_cache.test.rs"]
 mod tests;
@@ -76,7 +83,7 @@ impl VerifiedPredicateCache {
         }
         *self.generations.entry(collection.to_owned()).or_default() += 1;
         self.predicates
-            .retain(|key, _| key.collection != collection);
+            .retain(|key, _| !key_references_collection(&key.collection, collection));
         self.ordered.remove_collection(collection);
     }
 

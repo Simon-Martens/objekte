@@ -14,6 +14,10 @@ use std::{
     time::UNIX_EPOCH,
 };
 
+mod filesystem_json;
+pub(crate) use filesystem_json::FilesystemJsonProvider;
+pub(crate) use filesystem_json::IDENTITY as FILESYSTEM_JSON_IDENTITY;
+
 
 // INFO: Source file size, modification time, and identity for freshness checks.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]

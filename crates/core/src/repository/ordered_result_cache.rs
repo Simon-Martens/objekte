@@ -74,8 +74,12 @@ impl OrderedResultCache {
     }
 
     pub(super) fn remove_collection(&mut self, collection: &str) {
-        self.entries
-            .retain(|key, _| key.predicate.collection != collection);
+        self.entries.retain(|key, _| {
+            !super::predicate_cache::key_references_collection(
+                &key.predicate.collection,
+                collection,
+            )
+        });
     }
 
     pub(super) fn oldest(&self) -> Option<(OrderedResultKey, u64)> {

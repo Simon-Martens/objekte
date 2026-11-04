@@ -351,6 +351,32 @@ impl Repository {
 
     pub fn refresh(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
+        let provider_applies = self.extensions.as_ref().is_some_and(|extensions| {
+            extensions
+                .source_providers()
+                .any(|provider| provider.may_select(collection))
+        });
+        if provider_applies {
+            let selected = self.source_descriptors(collection)?;
+            self.metrics.enumerations += 1;
+            let changed = self
+                .custom_source_snapshot
+                .get(collection)
+                .is_none_or(|previous| previous.sources.as_ref() != &selected);
+            let has_custom = selected
+                .iter()
+                .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
+            if changed {
+                self.custom_source_snapshot
+                    .insert(collection.to_owned(), CustomSourceSnapshot::new(selected));
+                self.query_cache.invalidate(collection);
+            }
+            if has_custom {
+                self.custom_source_collections.insert(collection.to_owned());
+                return Ok(self.metrics.since(&before));
+            }
+            self.custom_source_collections.remove(collection);
+        }
         let c = self.collection(collection)?;
         match self.options.cache {
             CacheMode::Memory => {

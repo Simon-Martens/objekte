@@ -650,7 +650,6 @@ mod tests {
     };
     use std::fs;
 
-
     #[test]
     fn archive_frontend_composes_markup_year_boolean_sort_and_page() {
         let temp = tempfile::tempdir().unwrap();
@@ -756,7 +755,33 @@ mod tests {
             Vec::<TypedValue>::new()
         );
         fs::write(directory.join("n.md"), "# History of Markdown two").unwrap();
-        // MetadataOnOpen keeps the selected source snapshot until reload.
+        // MetadataOnOpen keeps the selected source snapshot until explicit refresh.
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &markup)
+                .unwrap()
+                .total,
+            Some(1)
+        );
+        repository.refresh("archive").unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &markup)
+                .unwrap()
+                .total,
+            Some(2)
+        );
+        fs::rename(directory.join("n.md"), directory.join("renamed.md")).unwrap();
+        repository.refresh("archive").unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &markup)
+                .unwrap()
+                .total,
+            Some(2)
+        );
+        fs::remove_file(directory.join("renamed.md")).unwrap();
+        repository.refresh("archive").unwrap();
         assert_eq!(
             repository
                 .query_frontend("example:archive-search", &markup)
@@ -770,7 +795,7 @@ mod tests {
                 .query_frontend("example:archive-search", &markup)
                 .unwrap()
                 .total,
-            Some(2)
+            Some(1)
         );
         fs::write(directory.join("m.md"), [0xff]).unwrap();
         assert!(
@@ -1911,6 +1936,8 @@ mod tests {
         .unwrap();
         repository.reload().unwrap();
         assert_eq!(
+
+
             repository
                 .search_text_with(&request, "example:trimmed", "example:prefix")
                 .unwrap()

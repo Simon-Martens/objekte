@@ -790,6 +790,11 @@ impl Extensions {
     }
 
     pub fn register_source(&mut self, item: impl SourceProvider + 'static) -> Result<()> {
+        if item.descriptor().identity == crate::source::FILESYSTEM_JSON_IDENTITY {
+            return Err(Error::Request(
+                "source provider identity objekte:filesystem is reserved for built-in JSON".into(),
+            ));
+        }
         self.check(item.descriptor(), DataKind::Source, DataKind::Source)?;
         self.sources
             .insert(item.descriptor().identity.clone(), Arc::new(item));
@@ -797,6 +802,11 @@ impl Extensions {
     }
 
     pub fn register_format(&mut self, item: impl FormatDecoder + 'static) -> Result<()> {
+        if item.descriptor().identity == "objekte:json" {
+            return Err(Error::Request(
+                "format identity objekte:json is reserved for the built-in JSON decoder".into(),
+            ));
+        }
         self.check(item.descriptor(), DataKind::Source, DataKind::Record)?;
         self.formats
             .insert(item.descriptor().identity.clone(), Arc::new(item));

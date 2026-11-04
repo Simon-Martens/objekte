@@ -1,5 +1,22 @@
 use super::*;
 
+#[test]
+fn frontend_scope_invalidation_matches_only_complete_collection_names() {
+    assert!(key_references_collection("books", "books"));
+    assert!(key_references_collection(
+        "@frontend:books\0archive",
+        "archive"
+    ));
+    assert!(!key_references_collection(
+        "@frontend:books\0archive",
+        "book"
+    ));
+    assert!(!key_references_collection(
+        "@frontend:books\0archive",
+        "other"
+    ));
+}
+
 fn key(expression: &[u8]) -> PredicateCacheKey {
     PredicateCacheKey {
         collection: "books".into(),
