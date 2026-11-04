@@ -98,6 +98,7 @@ impl Repository {
         let mut saved_cache = None;
         if !changes.is_empty() {
             self.query_cache.invalidate(collection);
+            self.invalidate_representation_indexes(collection);
             for id in changes.changed.iter().chain(&changes.deleted) {
                 self.memory_edges
                     .remove(&(collection.to_owned(), id.clone()));
@@ -114,6 +115,7 @@ impl Repository {
                 picker.save_bigram_snapshot(&path)?;
                 saved_cache = Some(path);
             }
+            self.reconcile_extension_selection(collection)?;
         }
         Ok(CollectionChanges {
             changes,

@@ -344,6 +344,10 @@ impl CompiledOperator for NativeCompiled {
             crate::TextMode::Regex => CandidateConstraint::Unsupported,
         }
     }
+
+    fn can_skip_non_candidates(&self) -> bool {
+        true
+    }
 }
 
 

@@ -1,6 +1,6 @@
 # Core and TUI code map
 
-This is a reading guide for the query and index code in `crates/core/src/`. Source files are authoritative. An index selects *candidates*; a query still checks source content before returning a record. The current indexed query path handles JSON sources; registered provider/decoder records can be queried through a separate exact-scan logical path while index integration is in progress.
+This is a reading guide for the query and index code in `crates/core/src/`. Source files are authoritative. An index selects *candidates*; a query still checks source content before returning a record. The current indexed query path handles JSON sources; registered provider/decoder records use a logical executor with exact scan fallback and optional engine-owned representation bigram postings.
 
 ## Start with a query
 
@@ -31,7 +31,8 @@ The sorted query modules choose between two routes. A matching schema sort index
 | `repository/derived_query.rs` | Direct and indexed derived-value queries, ordered pages and cache keys |
 | `repository/extension_sources.rs` | Merge default JSON and registered source descriptors, reject collisions, perform revision-checked borrowed decode |
 | `source/filesystem_json.rs` | Built-in `SourceProvider` adapter for JSON descriptors and secure reads used by registered frontends |
-| `repository/extension_query.rs` | Compile registered logical plans into exact calls, combine predicates, retain bounded sorted descriptors, and project returned pages |
+| `repository/extension_query.rs` | Compile registered logical plans, combine safe candidates and exact predicates, retain bounded sorted descriptors, and project returned pages |
+| `repository/extension_index.rs` | Explicit engine-owned bigram postings for one registered text representation and selected source set |
 | `extensions.rs`, `extensions/builtins.rs` | Public descriptors, provider/decoder/record contracts, and native JSON/text adapters |
 | `file_picker/text.rs`, `text/projection.rs`, `text/query.rs` | Build combined and per-field postings, project source values, and choose text candidates |
 

@@ -6,11 +6,12 @@ use super::*;
 use crate::{
     Direction, JsonFilter, JsonPathStep, Sort, TextFormat,
     extensions::{
-        BindingContext, BoundTextQuery, DecodedRecord, Extraction, LogicalPlan, LogicalPredicate,
-        ScalarValue, TextPreparation, TypedValue,
+        BindingContext, BoundTextQuery, CandidateConstraint, DecodedRecord, Extraction,
+        LogicalPlan, LogicalPredicate, ScalarValue, TextPreparation, TypedValue,
     },
     file_picker::TypedKey,
     repository::{
+        extension_index::RepresentationIndexKey,
         ordered_result_cache::{OrderedCoverage, OrderedResultKey},
         predicate_cache::PredicateCacheKey,
     },
@@ -84,6 +85,73 @@ impl CompiledPredicate {
         }
     }
 
+    /// A skipped source must be false without changing predicate error order.
+    /// Only the first AND child may narrow; OR needs every branch; NOT never
+    /// complements an approximate posting.
+    fn candidate_bits(
+        &self,
+        repository: &Repository,
+        collection: &Collection,
+        selection: &str,
+        extensions: &crate::extensions::Extensions,
+    ) -> Option<Vec<u64>> {
+        match self {
+            Self::Call {
+                path_name,
+                binding,
+                applicable: true,
+                ..
+            } if binding.operator.can_skip_non_candidates() => {
+                let CandidateConstraint::BigramLiteral {
+                    literal,
+                    representation,
+                } = &binding.candidate
+                else {
+                    return None;
+                };
+                let compatible = representation == &binding.representation.descriptor().identity
+                    || representation == "objekte:visible-normalized"
+                        && binding.preparation == TextPreparation::VisibleNormalized;
+                if !compatible {
+                    return None;
+                }
+                let encoding = collection
+                    .bigram_encoding
+                    .unwrap_or(repository.options.bigram_encoding);
+                let key = RepresentationIndexKey::new(
+                    collection,
+                    path_name,
+                    &binding.representation.descriptor().identity,
+                    selection,
+                    extensions,
+                    encoding,
+                );
+                repository.representation_index_candidates(&key, literal)
+            }
+            Self::And(parts) => parts
+                .first()?
+                .candidate_bits(repository, collection, selection, extensions),
+            Self::Or(parts) if !parts.is_empty() => {
+                let mut union = None::<Vec<u64>>;
+                for part in parts {
+                    let next =
+                        part.candidate_bits(repository, collection, selection, extensions)?;
+                    if let Some(bits) = &mut union {
+                        for (word, extra) in bits.iter_mut().zip(next) {
+                            *word |= extra;
+                        }
+                    } else {
+                        union = Some(next);
+                    }
+                }
+
+
+                union
+            }
+            Self::Derived { .. } | Self::Not(_) | Self::Call { .. } | Self::Or(_) => None,
+        }
+    }
+
     fn evaluate(&self, record: &dyn DecodedRecord, scratch: &mut EvalScratch) -> Result<bool> {
         match self {
             Self::Call {
@@ -95,6 +163,8 @@ impl CompiledPredicate {
                 if !applicable {
                     return Ok(false);
                 }
+
+
                 let mut matched = false;
                 record.visit_path(path, &mut |value| {
                     if matched {
@@ -148,6 +218,7 @@ impl CompiledPredicate {
                 }
                 Ok(false)
             }
+
             Self::Not(part) => Ok(!part.evaluate(record, scratch)?),
         }
     }
@@ -607,6 +678,18 @@ impl Repository {
             })
             .flatten();
         let cache_hit = cached.is_some();
+        let candidates = if cache_hit {
+            Vec::new()
+        } else {
+            compiled
+                .iter()
+                .zip(&selections)
+                .map(|((collection, predicate, _), (_, selection))| {
+                    predicate.candidate_bits(self, collection, selection, extensions)
+                })
+                .collect::<Vec<_>>()
+        };
+        let used_index = candidates.iter().any(Option::is_some);
         let mut best = BinaryHeap::new();
         let mut matches = 0usize;
         let cap = self.options.total_limit;
@@ -618,8 +701,19 @@ impl Repository {
             slots
         } else {
             let mut offset = 0usize;
-            for ((_, predicate, sorts), (selected, _)) in compiled.iter().zip(&selections) {
+            for (((_, predicate, sorts), (selected, _)), candidate) in
+                compiled.iter().zip(&selections).zip(&candidates)
+            {
                 for (index, source) in selected.iter().enumerate() {
+                    if candidate.as_ref().is_some_and(|bits| {
+                        bits.get(index / 64)
+                            .is_none_or(|word| word & (1 << (index % 64)) == 0)
+                    }) {
+                        continue;
+                    }
+                    if candidate.is_some() {
+                        self.metrics.fts_candidates += 1;
+                    }
                     let bytes = self.read_selected_source_bytes(source)?;
                     self.metrics.source_reads += 1;
                     self.metrics.source_bytes += bytes.len() as u64;
@@ -727,6 +821,8 @@ impl Repository {
             metrics: self.metrics.since(&metrics_before),
             query_plan: vec![if cache_hit {
                 "extension-ordered-cache".into()
+            } else if used_index {
+                "extension-index-candidates".into()
             } else {
                 "extension-exact-scan".into()
             }],

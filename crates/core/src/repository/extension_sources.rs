@@ -2,8 +2,7 @@
 
 use super::*;
 use crate::extensions::{
-    DecodedRecord, FormatDecoder, JsonFormatDecoder, ScalarValue, SourceDescriptor, SourceProvider,
-    TypedValue,
+    DecodedRecord, FormatDecoder, ScalarValue, SourceDescriptor, SourceProvider, TypedValue,
 };
 use crate::source::FilesystemJsonProvider;
 
@@ -79,6 +78,49 @@ pub(super) fn select_sources(
 
 
 impl Repository {
+    /// Refresh the descriptor table only when a provider, frontend selection,
+    /// or representation posting is active for this collection.
+    pub(super) fn reconcile_extension_selection(
+        &mut self,
+        collection: &str,
+    ) -> Result<Option<bool>> {
+        let provider_applies = self.extensions.as_ref().is_some_and(|extensions| {
+            extensions
+                .source_providers()
+                .any(|provider| provider.may_select(collection))
+        });
+        let tracks_selection = provider_applies
+            || self.custom_source_snapshot.contains_key(collection)
+            || self
+                .extension_text_indexes
+                .keys()
+                .any(|key| key.collection == collection);
+        if !tracks_selection {
+            return Ok(None);
+        }
+        let selected = self.source_descriptors(collection)?;
+        self.metrics.enumerations += 1;
+        let changed = self
+            .custom_source_snapshot
+            .get(collection)
+            .is_none_or(|previous| previous.sources.as_ref() != &selected);
+        let has_custom = selected
+            .iter()
+            .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
+        if changed {
+            self.custom_source_snapshot
+                .insert(collection.to_owned(), CustomSourceSnapshot::new(selected));
+            self.query_cache.invalidate(collection);
+            self.invalidate_representation_indexes(collection);
+        }
+        if has_custom {
+            self.custom_source_collections.insert(collection.to_owned());
+        } else {
+            self.custom_source_collections.remove(collection);
+        }
+        Ok(Some(has_custom))
+    }
+
     /// Enumerate the built-in JSON sources and registered provider sources in
     /// one collection. Duplicate record IDs fail before any result is exposed.
     pub fn source_descriptors(&self, collection: &str) -> Result<Vec<SourceDescriptor>> {
@@ -87,7 +129,9 @@ impl Repository {
     }
 
     fn read_source_bytes(&self, descriptor: &SourceDescriptor) -> Result<Vec<u8>> {
-        self.read_source_bytes_checked(descriptor, true)
+        let mut bytes = Vec::new();
+        self.read_source_bytes_checked_into(descriptor, true, &mut bytes)?;
+        Ok(bytes)
     }
 
     /// A query has already validated its collection inventory. Provider reads
@@ -97,25 +141,36 @@ impl Repository {
         &self,
         descriptor: &SourceDescriptor,
     ) -> Result<Vec<u8>> {
-        self.read_source_bytes_checked(descriptor, false)
+        let mut bytes = Vec::new();
+        self.read_selected_source_bytes_into(descriptor, &mut bytes)?;
+        Ok(bytes)
     }
 
-    fn read_source_bytes_checked(
+    pub(super) fn read_selected_source_bytes_into(
+        &self,
+        descriptor: &SourceDescriptor,
+        bytes: &mut Vec<u8>,
+    ) -> Result<()> {
+        self.read_source_bytes_checked_into(descriptor, false, bytes)
+    }
+
+    fn read_source_bytes_checked_into(
         &self,
         descriptor: &SourceDescriptor,
         check_inventory: bool,
-    ) -> Result<Vec<u8>> {
+        bytes: &mut Vec<u8>,
+    ) -> Result<()> {
         let collection = descriptor.collection.as_str();
         if check_inventory && !self.source_descriptors(collection)?.contains(descriptor) {
             return Err(Error::Request(
                 "source descriptor is stale or unknown".into(),
             ));
         }
-        let mut bytes = Vec::new();
+        bytes.clear();
         if descriptor.provider == crate::source::FILESYSTEM_JSON_IDENTITY {
             let c = self.model.collection(collection)?.clone();
             FilesystemJsonProvider::new(&c.path, c.recursive, collection)
-                .read(descriptor, &mut bytes)?;
+                .read(descriptor, bytes)?;
         } else {
             let extensions = self
                 .extensions
@@ -125,7 +180,7 @@ impl Repository {
                 .source_providers()
                 .find(|provider| provider.descriptor().identity == descriptor.provider)
                 .ok_or_else(|| Error::Request("source provider is no longer registered".into()))?;
-            provider.read(descriptor, &mut bytes)?;
+            provider.read(descriptor, bytes)?;
         }
         if bytes.len() > i64::MAX as usize {
             return Err(Error::Request("source exceeds supported size".into()));
@@ -133,7 +188,7 @@ impl Repository {
         if check_inventory && !self.source_descriptors(collection)?.contains(descriptor) {
             return Err(Error::Unstable(descriptor.locator.clone()));
         }
-        Ok(bytes)
+        Ok(())
     }
 
     /// Read one source and lend its decoded record only during `visit`. The
@@ -159,7 +214,7 @@ impl Repository {
                 .decoder(descriptor)?
                 .decode(&bytes, &mut callback)?;
         } else {
-            JsonFormatDecoder::default().decode(&bytes, &mut callback)?;
+            crate::extensions::json_decoder().decode(&bytes, &mut callback)?;
         }
         result.ok_or_else(|| Error::Request("format decoder emitted no record".into()))
     }

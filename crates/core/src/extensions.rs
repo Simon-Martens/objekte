@@ -8,12 +8,23 @@ use crate::{Error, JsonPath, JsonPathStep, RepositoryModel, Result};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
-use std::{collections::BTreeMap, fs, path::PathBuf, sync::Arc};
+use std::{
+    collections::BTreeMap,
+    fs,
+    path::PathBuf,
+    sync::{Arc, LazyLock},
+};
 
 mod builtins;
 pub use builtins::{
     JsonFormatDecoder, NativeTextOperator, RenderedRepresentation, StoredRepresentation,
 };
+
+static JSON_DECODER: LazyLock<JsonFormatDecoder> = LazyLock::new(JsonFormatDecoder::default);
+
+pub(crate) fn json_decoder() -> &'static JsonFormatDecoder {
+    &JSON_DECODER
+}
 
 #[cfg(test)]
 #[path = "extensions.test.rs"]
@@ -434,6 +445,13 @@ pub trait CompiledOperator: Send + Sync {
     fn candidate(&self) -> CandidateConstraint {
         CandidateConstraint::Unsupported
     }
+
+    /// Promise that evaluating a value excluded by `candidate` cannot fail.
+    /// Frontend planning requires this before skipping exact evaluation;
+    /// the default preserves error behavior by scanning all sources.
+    fn can_skip_non_candidates(&self) -> bool {
+        false
+    }
 }
 
 
@@ -601,7 +619,7 @@ impl Extensions {
         self.formats.keys()
     }
 
-    pub(crate) fn decoder(&self, source: &SourceDescriptor) -> Result<Arc<dyn FormatDecoder>> {
+    pub(crate) fn decoder(&self, source: &SourceDescriptor) -> Result<&dyn FormatDecoder> {
         let mut accepted = self
             .formats
             .values()
@@ -614,8 +632,8 @@ impl Extensions {
             )));
         }
         match first {
-            Some(format) if format.descriptor().identity == source.format => Ok(Arc::clone(format)),
-            None if source.format == "objekte:json" => Ok(Arc::new(JsonFormatDecoder::default())),
+            Some(format) if format.descriptor().identity == source.format => Ok(format.as_ref()),
+            None if source.format == "objekte:json" => Ok(json_decoder()),
             Some(_) | None => Err(Error::Request(format!(
                 "no registered decoder for source {} with format {}",
                 source.source_id, source.format
@@ -645,6 +663,16 @@ impl Extensions {
 
     pub(crate) fn schema(&self, collection: &str) -> Option<&Arc<Value>> {
         self.schemas.get(collection)
+    }
+
+    pub(crate) fn representation_definition(
+        &self,
+        identity: &str,
+    ) -> Result<Arc<dyn TextRepresentation>> {
+        self.representations
+            .get(identity)
+            .cloned()
+            .ok_or_else(|| Error::Request(format!("unknown text representation {identity}")))
     }
 
     pub(crate) fn schema_annotations(&self) -> Vec<String> {

@@ -24,6 +24,7 @@ use std::{
 
 mod coverage;
 mod derived_query;
+mod extension_index;
 mod extension_query;
 mod extension_sources;
 mod inference;
@@ -357,6 +358,8 @@ pub struct Repository {
     custom_source_collections: BTreeSet<String>,
     /// Frozen selected descriptors for custom collections under MetadataOnOpen.
     custom_source_snapshot: BTreeMap<String, CustomSourceSnapshot>,
+    extension_text_indexes:
+        BTreeMap<extension_index::RepresentationIndexKey, extension_index::RepresentationIndex>,
 }
 
 
@@ -604,6 +607,7 @@ impl Repository {
             extensions,
             custom_source_collections: BTreeSet::new(),
             custom_source_snapshot: BTreeMap::new(),
+            extension_text_indexes: BTreeMap::new(),
         }
     }
 
@@ -701,6 +705,11 @@ impl Repository {
         self.replace_model(model);
         self.custom_source_collections = custom_sources;
         self.custom_source_snapshot = custom_snapshot;
+        self.extension_text_indexes.retain(|key, _| {
+            self.custom_source_snapshot
+                .get(&key.collection)
+                .is_some_and(|snapshot| snapshot.fingerprint == key.selection)
+        });
         self.metrics.reload_nanos += nanos(t);
         Ok(())
     }
@@ -728,6 +737,8 @@ impl Repository {
         self.memory_coverage
             .retain(|name, _| unchanged.contains(name));
         self.file_pickers.retain(|name, _| unchanged.contains(name));
+        self.extension_text_indexes
+            .retain(|key, _| unchanged.contains(&key.collection));
         self.requested_postings
             .retain(|name, _| self.model.collections.contains_key(name));
         self.auto_postings

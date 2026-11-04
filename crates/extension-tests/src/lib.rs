@@ -349,6 +349,10 @@ impl CompiledOperator for Prefix {
             representation: "objekte:stored".into(),
         }
     }
+
+    fn can_skip_non_candidates(&self) -> bool {
+        true
+    }
 }
 
 
@@ -876,6 +880,402 @@ mod tests {
                     signature(&mut incremental, &request),
                     signature(&mut fresh, &request),
                     "step {mutation}, limit {limit}"
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn representation_postings_narrow_mixed_sources_without_changing_results() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"}}}"#,
+        )
+        .unwrap();
+        fs::write(directory.join("a.json"), r#"{"body":"rareterm Alpha"}"#).unwrap();
+        fs::write(directory.join("b.md"), "# common Beta").unwrap();
+        fs::write(directory.join("c.md"), "# different Gamma").unwrap();
+        fs::write(directory.join("d.json"), r#"{"body":"rareterm Delta"}"#).unwrap();
+        let open = |freshness: Freshness| {
+            Repository::builder(temp.path())
+                .options(Options {
+                    query_cache_bytes: 0,
+                    freshness,
+                    ..Default::default()
+                })
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
+                .register_representation(StoredRepresentation::default())
+                .unwrap()
+                .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+                .unwrap()
+                .register_operator(PrefixOperator::default())
+                .unwrap()
+                .register_operator(NativeTextOperator::new(TextMode::Word, false))
+                .unwrap()
+                .register_extractor(PublicationYearExtractor::default())
+                .unwrap()
+                .register_frontend(ArchiveFrontend::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let mut scan = open(Freshness::MetadataOnOpen);
+        let mut indexed = open(Freshness::MetadataOnOpen);
+        assert_eq!(
+            indexed
+                .build_representation_index("archive", "objekte:visible-markdown", "body")
+                .unwrap(),
+            4
+        );
+        indexed
+            .build_representation_index("archive", "objekte:stored", "body")
+            .unwrap();
+        for (request, uses_index) in [
+            (
+                serde_json::json!({"collection":"archive", "term":"rareterm", "offset":1, "limit":1, "count":true}),
+                true,
+            ),
+            (
+                serde_json::json!({"collection":"archive", "any_prefix":["rareterm", "# common"], "count":true}),
+                true,
+            ),
+            (
+                serde_json::json!({"collection":"archive", "exclude_prefix":"# common", "count":true}),
+                false,
+            ),
+            (
+                serde_json::json!({"collection":"archive", "term":"absent", "any_prefix":["# common"], "count":true}),
+                true,
+            ),
+        ] {
+            let expected = scan
+                .query_frontend("example:archive-search", &request)
+                .unwrap();
+            let actual = indexed
+                .query_frontend("example:archive-search", &request)
+                .unwrap();
+            assert_eq!(actual.identity, expected.identity);
+            assert_eq!(actual.total, expected.total);
+            assert_eq!(actual.truncated, expected.truncated);
+            assert_eq!(
+                actual
+                    .rows
+                    .iter()
+                    .map(|row| (&row.source.record_id, &row.values))
+                    .collect::<Vec<_>>(),
+                expected
+                    .rows
+                    .iter()
+                    .map(|row| (&row.source.record_id, &row.values))
+                    .collect::<Vec<_>>()
+            );
+            assert_eq!(
+                actual.query_plan,
+                [if uses_index {
+                    "extension-index-candidates"
+                } else {
+                    "extension-exact-scan"
+                }]
+            );
+            if uses_index {
+                assert!(actual.metrics.source_reads < expected.metrics.source_reads);
+            } else {
+                assert_eq!(actual.metrics.source_reads, expected.metrics.source_reads);
+            }
+        }
+        fs::write(directory.join("c.md"), "# rareterm Gamma").unwrap();
+        indexed.refresh("archive").unwrap();
+        let request = serde_json::json!({
+            "collection":"archive", "term":"rareterm", "count":true,
+        });
+        let mut fresh = open(Freshness::MetadataOnOpen);
+        let expected = fresh
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        let without_index = indexed
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(without_index.query_plan, ["extension-exact-scan"]);
+        assert_eq!(without_index.total, expected.total);
+        indexed
+            .build_representation_index("archive", "objekte:visible-markdown", "body")
+            .unwrap();
+        let rebuilt = indexed
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(rebuilt.query_plan, ["extension-index-candidates"]);
+        assert_eq!(rebuilt.total, expected.total);
+        assert_eq!(
+            rebuilt
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>()
+        );
+        let mut on_request = open(Freshness::MetadataOnRequest);
+        on_request
+            .build_representation_index("archive", "objekte:visible-markdown", "body")
+            .unwrap();
+        fs::write(directory.join("b.md"), "# rareterm Beta").unwrap();
+        let after_unannounced_edit = on_request
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(after_unannounced_edit.total, Some(4));
+        assert_eq!(after_unannounced_edit.query_plan, ["extension-exact-scan"]);
+        assert!(
+            open(Freshness::HashOnRequest)
+                .build_representation_index("archive", "objekte:visible-markdown", "body")
+                .is_err()
+        );
+        let mut disabled = Repository::builder(temp.path())
+            .options(Options {
+                cache: CacheMode::Disabled,
+                ..Default::default()
+            })
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(
+            disabled
+                .build_representation_index("archive", "objekte:stored", "body")
+                .is_err()
+        );
+        fs::write(directory.join("c.md"), [0xff]).unwrap();
+        indexed.refresh("archive").unwrap();
+        assert!(
+            indexed
+                .build_representation_index("archive", "objekte:visible-markdown", "body")
+                .is_err()
+        );
+        assert!(
+            indexed
+                .query_frontend("example:archive-search", &request)
+                .is_err()
+        );
+    }
+
+    #[test]
+    fn fallible_operator_hint_does_not_skip_an_erroring_record() {
+        struct FallibleOperator(Descriptor);
+
+
+        struct FallibleCompiled;
+
+
+        impl CompiledOperator for FallibleCompiled {
+            fn matches(&self, value: ScalarValue<'_>, _: &mut String) -> Result<bool> {
+                let ScalarValue::Text(text) = value else {
+                    return Ok(false);
+                };
+                if text == "danger" {
+                    return Err(Error::Request("operator failed on danger".into()));
+                }
+                Ok(text.starts_with("target"))
+            }
+
+            fn candidate(&self) -> CandidateConstraint {
+                CandidateConstraint::BigramLiteral {
+                    literal: "target".into(),
+                    representation: "objekte:stored".into(),
+                }
+            }
+        }
+
+
+        impl QueryOperator for FallibleOperator {
+            fn descriptor(&self) -> &Descriptor {
+                &self.0
+            }
+
+            fn compile(&self, _: &Value) -> Result<Box<dyn CompiledOperator>> {
+                Ok(Box::new(FallibleCompiled))
+            }
+        }
+
+
+        struct FallibleFrontend(Descriptor);
+
+
+        impl QueryFrontend for FallibleFrontend {
+            fn descriptor(&self) -> &Descriptor {
+                &self.0
+            }
+
+            fn compile(&self, _: &Value, bindings: &ExtensionBindings<'_>) -> Result<LogicalPlan> {
+                Ok(LogicalPlan {
+                    collections: vec!["docs".into()],
+                    predicate: LogicalPredicate::Call {
+                        operator: bindings.operator("example:fallible").unwrap(),
+                        representation: bindings.representation("objekte:stored").unwrap(),
+                        path: "body".into(),
+                        parameters: Value::Null,
+                    },
+                    sort: vec![],
+                    columns: vec!["body".into()],
+                    offset: 0,
+                    limit: 10,
+                    count: true,
+                })
+            }
+        }
+
+
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(directory.join("a.json"), r#"{"body":"danger"}"#).unwrap();
+        fs::write(directory.join("b.json"), r#"{"body":"target"}"#).unwrap();
+        let descriptor = |identity, input, output| {
+            Descriptor::new(
+                identity,
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
+                &(),
+                input,
+                output,
+                vec![Dependency::SourceBytes],
+            )
+        };
+        let mut repository = Repository::builder(temp.path())
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_operator(FallibleOperator(descriptor(
+                "example:fallible",
+                DataKind::Text,
+                DataKind::Predicate,
+            )))
+            .unwrap()
+            .register_frontend(FallibleFrontend(descriptor(
+                "example:fallible-frontend",
+                DataKind::Query,
+                DataKind::Query,
+            )))
+            .unwrap()
+            .open()
+            .unwrap();
+        repository
+            .build_representation_index("docs", "objekte:stored", "body")
+            .unwrap();
+        assert!(matches!(
+            repository.query_frontend("example:fallible-frontend", &Value::Null),
+            Err(Error::Request(message)) if message == "operator failed on danger"
+        ));
+    }
+
+    #[test]
+    fn representation_postings_preserve_unicode_and_array_value_boundaries() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"contents":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","x-full-text":"markdown"}}}}}}"#,
+        )
+        .unwrap();
+        for (id, values) in [
+            ("a", vec!["Straße", "other"]),
+            ("b", vec!["**Łódź**"]),
+            ("c", vec!["foo", "bar"]),
+        ] {
+            fs::write(
+                directory.join(format!("{id}.json")),
+                serde_json::to_vec(&serde_json::json!({
+                    "contents": values
+                        .into_iter()
+                        .map(|text| serde_json::json!({"text": text}))
+                        .collect::<Vec<_>>()
+                }))
+                .unwrap(),
+            )
+            .unwrap();
+        }
+        for encoding in [
+            objekte_core::BigramEncoding::Ascii,
+            objekte_core::BigramEncoding::Utf8Bytes,
+        ] {
+            let open = || {
+                Repository::builder(temp.path())
+                    .options(Options {
+                        bigram_encoding: encoding,
+                        query_cache_bytes: 0,
+                        ..Default::default()
+                    })
+                    .register_representation(StoredRepresentation::default())
+                    .unwrap()
+                    .register_representation(
+                        RenderedRepresentation::new(TextFormat::Markdown).unwrap(),
+                    )
+                    .unwrap()
+                    .register_operator(PrefixOperator::default())
+                    .unwrap()
+                    .register_operator(NativeTextOperator::new(TextMode::Word, false))
+                    .unwrap()
+                    .register_extractor(PublicationYearExtractor::default())
+                    .unwrap()
+                    .register_frontend(ArchiveFrontend::default())
+                    .unwrap()
+                    .open()
+                    .unwrap()
+            };
+            let mut scan = open();
+            let mut indexed = open();
+            indexed
+                .build_representation_index(
+                    "archive",
+                    "objekte:visible-markdown",
+                    "contents[*].text",
+                )
+                .unwrap();
+            for (term, expected_ids) in [
+                ("STRASSE", vec!["a"]),
+                ("łódź", vec!["b"]),
+                ("foobar", vec![]),
+            ] {
+                let request = serde_json::json!({
+                    "collection":"archive", "term_path":"contents[*].text",
+                    "term":term, "count":true,
+                });
+                let expected = scan
+                    .query_frontend("example:archive-search", &request)
+                    .unwrap();
+                let actual = indexed
+                    .query_frontend("example:archive-search", &request)
+                    .unwrap();
+                let ids = |result: &objekte_core::ExtensionQueryResult| {
+                    result
+                        .rows
+                        .iter()
+                        .map(|row| row.source.record_id.clone())
+                        .collect::<Vec<_>>()
+                };
+                assert_eq!(ids(&actual), expected_ids, "{encoding:?} {term}");
+                assert_eq!(ids(&actual), ids(&expected));
+                assert_eq!(actual.total, expected.total);
+                assert_eq!(
+                    actual.query_plan,
+                    [
+                        if term == "łódź" && encoding == objekte_core::BigramEncoding::Ascii {
+                            "extension-exact-scan"
+                        } else {
+                            "extension-index-candidates"
+                        }
+                    ],
+                    "{encoding:?} {term}"
                 );
             }
         }
@@ -2006,14 +2406,20 @@ mod tests {
             Some(3)
         );
         fs::write(
+
+
+
+
+
+
+
+
             books.join(".editor/schema.json"),
             r#"{"type":"object","properties":{"body":{"type":"string","x-trimmed":false},"html":{"type":"string","x-full-text":"html"},"md":{"type":"string","x-full-text":"markdown"},"xml":{"type":"string","x-full-text":"xml"}}}"#,
         )
         .unwrap();
         repository.reload().unwrap();
         assert_eq!(
-
-
             repository
                 .search_text_with(&request, "example:trimmed", "example:prefix")
                 .unwrap()

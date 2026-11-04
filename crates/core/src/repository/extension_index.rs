@@ -1,0 +1,272 @@
+//! Optional engine-owned postings for a bound representation on selected sources.
+//! The ordinary JSON picker remains the default concrete index path.
+
+use super::*;
+use crate::{
+    JsonFilter, JsonPathStep, TextFormat,
+    bigram::{BigramFilter, BigramIndexBuilder, SKIP_INDEX_MIN_DENSITY_PCT},
+    extensions::{BindingContext, ScalarValue, TextRepresentation},
+    text::TextRules,
+};
+use std::sync::Arc;
+use unicode_casefold::UnicodeCaseFold;
+
+
+#[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
+pub(super) struct RepresentationIndexKey {
+    pub collection: String,
+    pub path: String,
+    pub representation: String,
+    pub selection: String,
+    pub semantics: String,
+}
+
+
+impl RepresentationIndexKey {
+    pub(super) fn new(
+        collection: &Collection,
+        path: &str,
+        representation: &str,
+        selection: &str,
+        extensions: &crate::extensions::Extensions,
+        encoding: crate::BigramEncoding,
+    ) -> Self {
+        Self {
+            collection: collection.name.clone(),
+            path: path.into(),
+            representation: representation.into(),
+            selection: selection.into(),
+            semantics: crate::config::fingerprint(
+                "representation-index/v1",
+                &(
+                    collection.mapping_hash.as_str(),
+                    collection.schema_hash.as_deref(),
+                    extensions.fingerprint(),
+                    encoding,
+                ),
+            ),
+        }
+    }
+}
+
+
+pub(super) struct RepresentationIndex {
+    pub filter: BigramFilter,
+}
+
+
+fn binding_path(path: &[JsonPathStep]) -> String {
+    let mut result = String::new();
+    for step in path {
+        match step {
+            JsonPathStep::Key(key) => {
+                if !result.is_empty() {
+                    result.push('.');
+                }
+                result.push_str(key);
+            }
+            JsonPathStep::Index(_) | JsonPathStep::Each => result.push_str("[]"),
+        }
+    }
+    result
+}
+
+fn field_format(collection: &Collection, path: &[JsonPathStep]) -> &'static str {
+    let formats = TextRules::new(&collection.fields)
+        .declared_text_paths()
+        .into_iter()
+        .collect::<BTreeMap<_, _>>();
+    match formats
+        .get(&binding_path(path))
+        .copied()
+        .unwrap_or(TextFormat::Plain)
+    {
+        TextFormat::Plain => "plain",
+        TextFormat::Markdown => "markdown",
+        TextFormat::Html => "html",
+        TextFormat::Xml => "xml",
+    }
+}
+
+fn add_text(
+    record: &dyn crate::extensions::DecodedRecord,
+    path: &crate::JsonPath,
+    representation: &dyn TextRepresentation,
+    rendered: &mut String,
+    content: &mut String,
+) -> Result<()> {
+    record.visit_path(path, &mut |value| {
+        let ScalarValue::Text(source) = value else {
+            return Ok(());
+        };
+        rendered.clear();
+        let Some(prepared) = representation.render(source, rendered)? else {
+            return Ok(());
+        };
+        content.push_str(prepared);
+        content.push('\u{1f}');
+        if !prepared.is_ascii() {
+            content.extend(prepared.case_fold());
+            content.push('\u{1f}');
+        }
+        Ok(())
+    })?;
+    Ok(())
+}
+
+
+impl Repository {
+    /// Explicitly build a reusable bigram posting over one registered text
+    /// representation and logical path. Source bytes and rendered text are
+    /// discarded after each record; partial builds are never published.
+    pub fn build_representation_index(
+        &mut self,
+        collection: &str,
+        representation: &str,
+        path: &str,
+    ) -> Result<usize> {
+        if self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            return Err(Error::Request(
+                "representation indexes require memory cache and non-hash freshness".into(),
+            ));
+        }
+        let selected_collection = self.model.collection(collection)?.clone();
+        let extensions = self
+            .extensions
+            .as_ref()
+            .ok_or_else(|| Error::Request("no text representations are registered".into()))?;
+        let definition = extensions.representation_definition(representation)?;
+        if !definition.descriptor().cacheable() {
+            return Err(Error::Request(format!(
+                "volatile representation {representation} cannot be indexed"
+            )));
+        }
+        let parsed = JsonFilter::parse_path(path)?;
+        let canonical_path = binding_path(&parsed);
+        if !definition.binds(&BindingContext {
+            collection,
+            path: &canonical_path,
+            format: field_format(&selected_collection, &parsed),
+            schema: extensions.schema(collection).map(Arc::as_ref),
+        }) {
+            return Err(Error::Request(format!(
+                "representation {representation} does not bind to {collection}.{path}"
+            )));
+        }
+        let selected = if self.options.freshness == Freshness::MetadataOnOpen {
+            if let Some(snapshot) = self.custom_source_snapshot.get(collection) {
+                Arc::clone(&snapshot.sources)
+            } else {
+                self.metrics.enumerations += 1;
+                Arc::new(self.source_descriptors(collection)?)
+            }
+        } else {
+            self.metrics.enumerations += 1;
+            Arc::new(self.source_descriptors(collection)?)
+        };
+        if selected.len() > u32::MAX as usize {
+            return Err(Error::Request(
+                "representation index source table exceeds 2^32 slots".into(),
+            ));
+        }
+        let selection = crate::config::fingerprint("selected-sources/v1", selected.as_ref());
+        let encoding = selected_collection
+            .bigram_encoding
+            .unwrap_or(self.options.bigram_encoding);
+        let key = RepresentationIndexKey::new(
+            &selected_collection,
+            path,
+            representation,
+            &selection,
+            extensions,
+            encoding,
+        );
+        if self.extension_text_indexes.contains_key(&key) {
+            return Ok(selected.len());
+        }
+        let main = BigramIndexBuilder::new_with_encoding(selected.len(), encoding);
+        let skip = BigramIndexBuilder::new_with_encoding(selected.len(), encoding);
+        let mut bytes = Vec::new();
+        let mut rendered = String::new();
+        let mut content = String::new();
+        for (slot, source) in selected.iter().enumerate() {
+            let decoder = extensions.decoder(source)?;
+            if !decoder.descriptor().cacheable() {
+                return Err(Error::Request(format!(
+                    "volatile decoder {} cannot be indexed",
+                    decoder.descriptor().identity
+                )));
+            }
+            if let Some(provider) = extensions
+                .source_providers()
+                .find(|provider| provider.descriptor().identity == source.provider)
+                && !provider.descriptor().cacheable()
+            {
+                return Err(Error::Request(format!(
+                    "volatile source provider {} cannot be indexed",
+                    provider.descriptor().identity
+                )));
+            }
+            self.read_selected_source_bytes_into(source, &mut bytes)?;
+            self.metrics.source_reads += 1;
+            self.metrics.source_bytes += bytes.len() as u64;
+            content.clear();
+            let mut records = 0;
+            self.metrics.parses += 1;
+            decoder.decode(&bytes, &mut |record| {
+                records += 1;
+                if records > 1 {
+                    return Err(Error::Request(
+                        "format decoder emitted multiple records".into(),
+                    ));
+                }
+                add_text(
+                    record,
+                    &parsed,
+                    definition.as_ref(),
+                    &mut rendered,
+                    &mut content,
+                )
+            })?;
+            if records == 0 {
+                return Err(Error::Request("format decoder emitted no record".into()));
+            }
+            main.add_file_content(&skip, slot, content.as_bytes());
+        }
+        if self.options.freshness != Freshness::MetadataOnOpen {
+            let latest = self.source_descriptors(collection)?;
+            self.metrics.enumerations += 1;
+            if latest != *selected {
+                return Err(Error::Unstable(selected_collection.path));
+            }
+        }
+        let mut filter = main.compress(None);
+        filter.set_skip_index(skip.compress(Some(SKIP_INDEX_MIN_DENSITY_PCT)));
+        self.extension_text_indexes
+            .insert(key, RepresentationIndex { filter });
+        Ok(selected.len())
+    }
+
+    pub(super) fn representation_index_candidates(
+        &self,
+        key: &RepresentationIndexKey,
+        literal: &str,
+    ) -> Option<Vec<u64>> {
+        if self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            return None;
+        }
+        self.extension_text_indexes
+            .get(key)?
+            .filter
+            .query(literal.as_bytes())
+    }
+
+    pub(super) fn invalidate_representation_indexes(&mut self, collection: &str) {
+        self.extension_text_indexes
+            .retain(|key, _| key.collection != collection);
+    }
+}
