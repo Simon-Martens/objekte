@@ -30,10 +30,11 @@ fn open(root: &Path, directory: &Path) -> Result<Repository, Box<dyn std::error:
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = env::args().collect::<Vec<_>>();
-    if args.len() != 2 {
-        return Err("usage: frontend_derived_compare ROUNDS".into());
+    if !(args.len() == 2 || args.len() == 3 && args[2] == "sort") {
+        return Err("usage: frontend_derived_compare ROUNDS [sort]".into());
     }
     let rounds = args[1].parse::<usize>()?;
+    let sort_year = args.len() == 3;
     let temp = tempfile::tempdir()?;
     let directory = temp.path().join("data/archive");
     fs::create_dir_all(&directory)?;
@@ -67,9 +68,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let build_ms = started.elapsed().as_secs_f64() * 1000.0;
     let request = json!({
         "collection":"archive", "min_year":1850, "count":true, "limit":1,
+        "sort_year":sort_year,
     });
+    let started = Instant::now();
     scan.query_frontend("example:archive-search", &request)?;
+    let scan_warmup_ms = started.elapsed().as_secs_f64() * 1000.0;
+    let started = Instant::now();
     indexed.query_frontend("example:archive-search", &request)?;
+    let indexed_warmup_ms = started.elapsed().as_secs_f64() * 1000.0;
     let mut samples = Vec::new();
     for round in 0..rounds {
         let order = if round % 2 == 0 {
@@ -97,6 +103,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     let complete = json!({
         "collection":"archive", "min_year":1850, "count":true, "limit":1000,
+        "sort_year":sort_year,
     });
     let direct = scan.query_frontend("example:archive-search", &complete)?;
     let accelerated = indexed.query_frontend("example:archive-search", &complete)?;
@@ -142,8 +149,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         "{}",
         json!({
             "fixture_sha256":fixture_sha256,
+            "sort_year":sort_year,
             "indexed_sources":indexed_sources,
             "index_build_ms":build_ms,
+            "scan_warmup_ms":scan_warmup_ms,
+            "indexed_warmup_ms":indexed_warmup_ms,
             "fused_build_ms":fused_build_ms,
             "fused_build_reads":fused_build_reads,
             "fused_build_parses":fused_build_parses,

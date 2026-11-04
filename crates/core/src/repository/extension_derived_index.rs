@@ -3,11 +3,12 @@
 
 use super::*;
 use crate::{
-    JsonPath,
+    Direction, JsonPath,
     extensions::{Extraction, TypedValue},
     file_picker::{TypedIndex, TypedKey},
+    json_filter::decimal_cmp,
 };
-use std::sync::Arc;
+use std::{cmp::Ordering, sync::Arc};
 
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
@@ -45,6 +46,101 @@ impl SelectedDerivedKey {
 
 pub(super) struct SelectedDerivedPosting {
     pub index: TypedIndex,
+    slots: usize,
+    scalar_safe: bool,
+    order_asc: Option<Arc<Vec<u32>>>,
+    order_desc: Option<Arc<Vec<u32>>>,
+}
+
+
+fn sort_rank(key: Option<&TypedKey>) -> u8 {
+    match key {
+        Some(TypedKey::Bool(_)) => 0,
+        Some(TypedKey::Number(_)) => 1,
+        Some(TypedKey::String(_)) => 2,
+        Some(TypedKey::Null) => 3,
+        Some(TypedKey::Missing) | None => 4,
+    }
+}
+
+fn compare_sort_keys(
+    left: Option<&TypedKey>,
+    right: Option<&TypedKey>,
+    direction: Direction,
+) -> Ordering {
+    let left_rank = sort_rank(left);
+    let right_rank = sort_rank(right);
+    if left_rank != right_rank {
+        return left_rank.cmp(&right_rank);
+    }
+    let order = match (left, right) {
+        (Some(TypedKey::Bool(left)), Some(TypedKey::Bool(right))) => left.cmp(right),
+        (Some(TypedKey::Number(left)), Some(TypedKey::Number(right))) => decimal_cmp(left, right),
+        (Some(TypedKey::String(left)), Some(TypedKey::String(right))) => left.cmp(right),
+        _ => Ordering::Equal,
+    };
+    if direction == Direction::Desc && left_rank < 3 {
+        order.reverse()
+    } else {
+        order
+    }
+}
+
+
+impl SelectedDerivedPosting {
+    pub(super) fn from_rows(
+        path: JsonPath,
+        rows: Vec<(TypedKey, usize)>,
+        present: Vec<u64>,
+        scalar_safe: bool,
+        slots: usize,
+    ) -> Self {
+        let mut index = TypedIndex::new(Vec::new());
+        index.replace_path(path, rows, present, scalar_safe, true, true);
+        Self {
+            index,
+            slots,
+            scalar_safe,
+            order_asc: None,
+            order_desc: None,
+        }
+    }
+
+    pub(super) fn order(&mut self, path: &JsonPath, direction: Direction) -> Option<Arc<Vec<u32>>> {
+        if !self.scalar_safe {
+            return None;
+        }
+        let missing = match direction {
+            Direction::Asc => self.order_asc.is_none(),
+            Direction::Desc => self.order_desc.is_none(),
+        };
+        if missing {
+            let order = {
+                let mut slot_values = vec![None; self.slots];
+                self.index.visit_derived(path, |slot, value| {
+                    slot_values[slot] = Some(value);
+                })?;
+                let mut order = (0..self.slots as u32).collect::<Vec<_>>();
+                order.sort_by(|&left, &right| {
+                    compare_sort_keys(
+                        slot_values[left as usize],
+                        slot_values[right as usize],
+                        direction,
+                    )
+                    .then_with(|| left.cmp(&right))
+                });
+                Arc::new(order)
+            };
+            match direction {
+                Direction::Asc => self.order_asc = Some(order),
+                Direction::Desc => self.order_desc = Some(order),
+            }
+        }
+        match direction {
+            Direction::Asc => self.order_asc.as_ref().map(Arc::clone),
+            Direction::Desc => self.order_desc.as_ref().map(Arc::clone),
+        }
+    }
 }
 
 
@@ -167,10 +263,14 @@ impl Repository {
                 return Err(Error::Unstable(selected_collection.path));
             }
         }
-        let mut index = TypedIndex::new(Vec::new());
-        index.replace_path(binding.path, rows, present, scalar_safe, true, true);
-        self.selected_derived_indexes
-            .insert(key, SelectedDerivedPosting { index });
+        let posting = SelectedDerivedPosting::from_rows(
+            binding.path,
+            rows,
+            present,
+            scalar_safe,
+            selected.len(),
+        );
+        self.selected_derived_indexes.insert(key, posting);
         Ok(selected.len())
     }
 

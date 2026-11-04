@@ -33,7 +33,7 @@ The sorted query modules choose between two routes. A matching schema sort index
 | `source/filesystem_json.rs` | Built-in `SourceProvider` adapter for JSON descriptors and secure reads used by registered frontends |
 | `repository/extension_query.rs` | Compile registered logical plans, combine safe candidates and exact predicates, retain bounded sorted descriptors, and project returned pages |
 | `repository/extension_index.rs` | Explicit engine-owned bigram postings for one registered text representation and selected source set |
-| `repository/extension_derived_index.rs` | Explicit derived-value postings over the selected source set using the existing typed B-tree |
+| `repository/extension_derived_index.rs` | Explicit derived-value postings over the selected source set using the existing typed B-tree, plus lazy scalar-safe sort order |
 | `repository/extension_projection.rs` | Fused explicit build of several selected-source text and typed postings from one decode |
 | `extensions.rs`, `extensions/builtins.rs` | Public descriptors, provider/decoder/record contracts, and native JSON/text adapters |
 | `file_picker/text.rs`, `text/projection.rs`, `text/query.rs` | Build combined and per-field postings, project source values, and choose text candidates |

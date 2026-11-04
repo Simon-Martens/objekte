@@ -716,6 +716,26 @@ impl Repository {
             })
             .flatten();
         let cache_hit = cached.is_some();
+        let indexed_order = if cache_hit
+            || compiled.len() != 1
+            || plan.sort.len() != 1
+            || self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            None
+        } else if let CompiledSort::Derived { binding, .. } = &compiled[0].2[0] {
+            let key = SelectedDerivedKey::new(
+                &compiled[0].0,
+                &binding.path,
+                &selections[0].1,
+                extensions,
+            );
+            self.selected_derived_indexes
+                .get_mut(&key)
+                .and_then(|posting| posting.order(&key.path, plan.sort[0].direction))
+        } else {
+            None
+        };
         let candidates = if cache_hit {
             Vec::new()
         } else {
@@ -739,6 +759,9 @@ impl Repository {
         let cap = self.options.total_limit;
         let mut scratch = EvalScratch::default();
         let mut pending_insert = None;
+        let mut indexed_membership = indexed_order
+            .as_ref()
+            .map(|_| vec![0_u64; all_sources.len().div_ceil(64)]);
         let ordered_slots = if let Some(slots) = cached {
             self.metrics.ordered_result_hits += 1;
             matches = slots.len();
@@ -778,11 +801,15 @@ impl Repository {
                         scratch.derived.clear();
                         let matched = predicate.evaluate(record, &mut scratch)?;
                         let keys = if matched {
-                            let mut keys = Vec::new();
-                            for sort in sorts {
-                                keys.push(sort.value(source, record, &mut scratch)?);
+                            if indexed_order.is_some() {
+                                Some(Vec::new())
+                            } else {
+                                let mut keys = Vec::new();
+                                for sort in sorts {
+                                    keys.push(sort.value(source, record, &mut scratch)?);
+                                }
+                                Some(keys)
                             }
-                            Some(keys)
                         } else {
                             None
                         };
@@ -794,6 +821,11 @@ impl Repository {
                     };
                     let Some(keys) = matched else { continue };
                     matches += 1;
+                    if let Some(membership) = &mut indexed_membership {
+                        let slot = offset + index;
+                        membership[slot / 64] |= 1 << (slot % 64);
+                        continue;
+                    }
                     let row = Ranked {
                         slot: u32::try_from(offset + index).expect("checked source slot limit"),
                         source: source.clone(),
@@ -809,11 +841,24 @@ impl Repository {
                 }
                 offset += selected.len();
             }
-            let slots = best
-                .into_sorted_vec()
-                .into_iter()
-                .map(|row| row.slot)
-                .collect::<Vec<_>>();
+            let slots = if let (Some(order), Some(membership)) =
+                (indexed_order.as_ref(), indexed_membership.as_ref())
+            {
+                order
+                    .iter()
+                    .copied()
+                    .filter(|slot| {
+                        let slot = *slot as usize;
+                        membership[slot / 64] & (1 << (slot % 64)) != 0
+                    })
+                    .take(cap)
+                    .collect::<Vec<_>>()
+            } else {
+                best.into_sorted_vec()
+                    .into_iter()
+                    .map(|row| row.slot)
+                    .collect::<Vec<_>>()
+            };
             if can_cache && matches <= cap {
                 pending_insert = Some((ordered_key, slots.clone()));
             }
@@ -870,6 +915,8 @@ impl Repository {
             metrics: self.metrics.since(&metrics_before),
             query_plan: vec![if cache_hit {
                 "extension-ordered-cache".into()
+            } else if indexed_order.is_some() {
+                "extension-indexed-order".into()
             } else if used_index {
                 "extension-index-candidates".into()
             } else {

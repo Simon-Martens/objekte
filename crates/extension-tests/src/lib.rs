@@ -1472,6 +1472,249 @@ mod tests {
     }
 
     #[test]
+    fn selected_derived_order_matches_heap_across_types_ties_and_pages() {
+        struct SortFrontend(Descriptor);
+
+
+        impl Default for SortFrontend {
+            fn default() -> Self {
+                Self(Descriptor::new(
+                    "example:derived-sort",
+                    SemanticVersion {
+                        major: 1,
+                        minor: 0,
+                        patch: 0,
+                    },
+                    &(),
+                    DataKind::Query,
+                    DataKind::Query,
+                    vec![],
+                ))
+            }
+        }
+
+
+        impl QueryFrontend for SortFrontend {
+            fn descriptor(&self) -> &Descriptor {
+                &self.0
+            }
+
+            fn compile(&self, request: &Value, _: &ExtensionBindings<'_>) -> Result<LogicalPlan> {
+                let direction = if request.get("desc").and_then(Value::as_bool) == Some(true) {
+                    objekte_core::Direction::Desc
+                } else {
+                    objekte_core::Direction::Asc
+                };
+                Ok(LogicalPlan {
+                    collections: vec!["archive".into()],
+                    predicate: LogicalPredicate::And(Vec::new()),
+                    sort: vec![objekte_core::Sort {
+                        field: "@derived:example:publication_year".into(),
+                        direction,
+                    }],
+                    columns: vec!["publication_date".into()],
+                    offset: request.get("offset").and_then(Value::as_u64).unwrap_or(0) as usize,
+                    limit: request.get("limit").and_then(Value::as_u64).unwrap_or(10) as usize,
+                    count: true,
+                })
+            }
+        }
+
+
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(&directory).unwrap();
+        for (id, date) in [
+            ("a", Some(serde_json::json!("1860"))),
+            ("b", Some(serde_json::json!("1848"))),
+            ("c", Some(serde_json::Value::Null)),
+            ("d", None),
+            ("e", Some(serde_json::json!("circa 1848"))),
+            ("g", Some(serde_json::json!("1852"))),
+            ("h", Some(serde_json::json!([]))),
+        ] {
+            let mut value = serde_json::json!({"body":format!("Entry {id}")});
+            if let Some(date) = date {
+                value["publication_date"] = date;
+            }
+            fs::write(
+                directory.join(format!("{id}.json")),
+                serde_json::to_vec(&value).unwrap(),
+            )
+            .unwrap();
+        }
+        fs::write(directory.join("f.md"), "No date").unwrap();
+        let open = |cache: bool, total_limit: usize| {
+            Repository::builder(temp.path())
+                .options(Options {
+                    query_cache_bytes: if cache { 64 * 1024 * 1024 } else { 0 },
+                    total_limit,
+                    ..Default::default()
+                })
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
+                .register_extractor(PublicationYearExtractor::default())
+                .unwrap()
+                .register_frontend(SortFrontend::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let mut direct = open(false, 10_000);
+        let mut indexed = open(false, 10_000);
+        indexed
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        for (desc, expected_ids) in [
+            (false, vec!["b", "e", "g", "a", "c", "d", "f", "h"]),
+            (true, vec!["a", "g", "b", "e", "c", "d", "f", "h"]),
+        ] {
+            for (offset, limit) in [(0, 10), (2, 3), (6, 2)] {
+                let request = serde_json::json!({
+                    "desc":desc, "offset":offset, "limit":limit,
+                });
+                let scan = direct
+                    .query_frontend("example:derived-sort", &request)
+                    .unwrap();
+                let sorted = indexed
+                    .query_frontend("example:derived-sort", &request)
+                    .unwrap();
+                assert_eq!(scan.query_plan, ["extension-exact-scan"]);
+                assert_eq!(sorted.query_plan, ["extension-indexed-order"]);
+                assert_eq!(sorted.identity, scan.identity);
+                assert_eq!(sorted.total, scan.total);
+                assert_eq!(sorted.truncated, scan.truncated);
+                assert_eq!(
+                    sorted
+                        .rows
+                        .iter()
+                        .map(|row| row.source.record_id.as_str())
+                        .collect::<Vec<_>>(),
+                    expected_ids[offset..expected_ids.len().min(offset + limit)]
+                );
+                assert_eq!(
+                    sorted
+                        .rows
+                        .iter()
+                        .map(|row| (&row.source.record_id, &row.values))
+                        .collect::<Vec<_>>(),
+                    scan.rows
+                        .iter()
+                        .map(|row| (&row.source.record_id, &row.values))
+                        .collect::<Vec<_>>()
+                );
+            }
+        }
+        let mut cached = open(true, 10_000);
+        cached
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        let first = cached
+            .query_frontend("example:derived-sort", &serde_json::json!({"limit":1}))
+            .unwrap();
+        assert_eq!(first.query_plan, ["extension-indexed-order"]);
+        let page = cached
+            .query_frontend(
+                "example:derived-sort",
+                &serde_json::json!({"offset":2, "limit":2}),
+            )
+            .unwrap();
+        assert_eq!(page.query_plan, ["extension-ordered-cache"]);
+        assert_eq!(page.metrics.enumerations, 0);
+        assert_eq!(page.metrics.source_reads, 2);
+        assert_eq!(
+            page.rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["g", "a"]
+        );
+        let mut capped_scan = open(false, 3);
+        let mut capped_indexed = open(false, 3);
+        capped_indexed
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        let request = serde_json::json!({"limit":3});
+        let expected = capped_scan
+            .query_frontend("example:derived-sort", &request)
+            .unwrap();
+        let actual = capped_indexed
+            .query_frontend("example:derived-sort", &request)
+            .unwrap();
+        assert_eq!(actual.total, expected.total);
+        assert!(actual.truncated);
+        assert_eq!(actual.query_plan, ["extension-indexed-order"]);
+        assert_eq!(
+            actual
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["b", "e", "g"]
+        );
+        assert_eq!(
+            actual
+                .rows
+                .iter()
+                .map(|row| (&row.source.record_id, &row.values))
+                .collect::<Vec<_>>(),
+            expected
+                .rows
+                .iter()
+                .map(|row| (&row.source.record_id, &row.values))
+                .collect::<Vec<_>>()
+        );
+        fs::write(
+            directory.join("a.json"),
+            r#"{"body":"Entry a","publication_date":"1800"}"#,
+        )
+        .unwrap();
+        indexed.refresh("archive").unwrap();
+        let request = serde_json::json!({"limit":10});
+        let fallback = indexed
+            .query_frontend("example:derived-sort", &request)
+            .unwrap();
+        assert_eq!(fallback.query_plan, ["extension-exact-scan"]);
+        let mut fresh = open(false, 10_000);
+        let oracle = fresh
+            .query_frontend("example:derived-sort", &request)
+            .unwrap();
+        assert_eq!(
+            fallback
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            oracle
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>()
+        );
+        indexed
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        let rebuilt = indexed
+            .query_frontend("example:derived-sort", &request)
+            .unwrap();
+        assert_eq!(rebuilt.query_plan, ["extension-indexed-order"]);
+        assert_eq!(
+            rebuilt
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            oracle
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>()
+        );
+    }
+
+    #[test]
     fn fallible_operator_hint_does_not_skip_an_erroring_record() {
         struct FallibleOperator(Descriptor);
 

@@ -6,7 +6,7 @@ use crate::{
     JsonFilter,
     bigram::{BigramIndexBuilder, SKIP_INDEX_MIN_DENSITY_PCT},
     extensions::{BindingContext, BoundValueExtractor, Extraction, TextRepresentation, TypedValue},
-    file_picker::{TypedIndex, TypedKey},
+    file_picker::TypedKey,
     repository::{
         extension_derived_index::{SelectedDerivedKey, SelectedDerivedPosting},
         extension_index::{
@@ -274,17 +274,14 @@ impl Repository {
                 .insert(build.key, RepresentationIndex { filter });
         }
         for build in derived_builds {
-            let mut index = TypedIndex::new(Vec::new());
-            index.replace_path(
+            let posting = SelectedDerivedPosting::from_rows(
                 build.binding.path,
                 build.rows,
                 build.present,
                 build.scalar_safe,
-                true,
-                true,
+                selected.len(),
             );
-            self.selected_derived_indexes
-                .insert(build.key, SelectedDerivedPosting { index });
+            self.selected_derived_indexes.insert(build.key, posting);
         }
         Ok(selected.len())
     }
