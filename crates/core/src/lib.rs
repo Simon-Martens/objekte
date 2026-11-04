@@ -14,6 +14,7 @@ pub use bigram::BigramEncoding;
 mod config;
 mod config_snapshot;
 mod error;
+pub mod extensions;
 pub mod file_picker;
 mod graph;
 mod inference;

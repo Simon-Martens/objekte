@@ -345,6 +345,7 @@ pub struct Repository {
     observed_configuration: ConfigurationSnapshot,
     configuration_changes: Option<ConfigurationChanges>,
     query_cache: predicate_cache::VerifiedPredicateCache,
+    extensions: Option<std::sync::Arc<crate::extensions::Extensions>>,
 }
 
 
@@ -353,10 +354,65 @@ pub struct RepositoryBuilder {
     root: std::path::PathBuf,
     options: Options,
     discovery: Discovery,
+    extensions: crate::extensions::Extensions,
 }
 
 
 impl RepositoryBuilder {
+    /// Register a statically linked source provider before opening.
+    pub fn register_source(
+        mut self,
+        source: impl crate::extensions::SourceProvider + 'static,
+    ) -> Result<Self> {
+        self.extensions.register_source(source)?;
+        Ok(self)
+    }
+
+    /// Register a statically linked format decoder before opening.
+    pub fn register_format(
+        mut self,
+        format: impl crate::extensions::FormatDecoder + 'static,
+    ) -> Result<Self> {
+        self.extensions.register_format(format)?;
+        Ok(self)
+    }
+
+    /// Register a text representation before opening.
+    pub fn register_representation(
+        mut self,
+        representation: impl crate::extensions::TextRepresentation + 'static,
+    ) -> Result<Self> {
+        self.extensions.register_representation(representation)?;
+        Ok(self)
+    }
+
+    /// Register a derived typed-value extractor before opening.
+    pub fn register_extractor(
+        mut self,
+        extractor: impl crate::extensions::ValueExtractor + 'static,
+    ) -> Result<Self> {
+        self.extensions.register_extractor(extractor)?;
+        Ok(self)
+    }
+
+    /// Register an exact operator before opening.
+    pub fn register_operator(
+        mut self,
+        operator: impl crate::extensions::QueryOperator + 'static,
+    ) -> Result<Self> {
+        self.extensions.register_operator(operator)?;
+        Ok(self)
+    }
+
+    /// Register a query frontend before opening.
+    pub fn register_frontend(
+        mut self,
+        frontend: impl crate::extensions::QueryFrontend + 'static,
+    ) -> Result<Self> {
+        self.extensions.register_frontend(frontend)?;
+        Ok(self)
+    }
+
     /// Set cache and freshness policies before opening.
     pub fn options(mut self, options: Options) -> Self {
         self.options = options;
@@ -385,17 +441,26 @@ impl RepositoryBuilder {
     }
 
     /// Open the repository using discovered collection boundaries.
-    pub fn open(self) -> Result<Repository> {
+    pub fn open(mut self) -> Result<Repository> {
         if self.options.total_limit == 0 {
             return Err(Error::Request(
                 "repository total_limit must be positive".into(),
             ));
         }
+        self.discovery
+            .extension_annotations
+            .extend(self.extensions.schema_annotations());
         let model = RepositoryModel::discover(&self.root, &self.discovery)?;
-        Ok(Repository::from_model(
+        if !self.extensions.is_empty() {
+            self.extensions.bind_schemas(&model)?;
+        }
+        let extensions =
+            (!self.extensions.is_empty()).then(|| std::sync::Arc::new(self.extensions));
+        Ok(Repository::from_model_with_extensions(
             model,
             self.options,
             Some(self.discovery),
+            extensions,
         ))
     }
 }
@@ -422,6 +487,7 @@ impl Repository {
             root: root.as_ref().to_owned(),
             options: Options::new(),
             discovery: Discovery::default(),
+            extensions: crate::extensions::Extensions::default(),
         }
     }
 
@@ -449,6 +515,15 @@ impl Repository {
     }
 
     fn from_model(model: RepositoryModel, options: Options, discovery: Option<Discovery>) -> Self {
+        Self::from_model_with_extensions(model, options, discovery, None)
+    }
+
+    fn from_model_with_extensions(
+        model: RepositoryModel,
+        options: Options,
+        discovery: Option<Discovery>,
+        extensions: Option<std::sync::Arc<crate::extensions::Extensions>>,
+    ) -> Self {
         let query_cache = predicate_cache::VerifiedPredicateCache::new(
             if options.cache == CacheMode::Memory && options.freshness != Freshness::HashOnRequest {
                 options.query_cache_bytes
@@ -469,6 +544,7 @@ impl Repository {
             requested_postings: BTreeMap::new(),
             auto_postings: BTreeMap::new(),
             query_cache,
+            extensions,
         }
     }
 
@@ -491,11 +567,17 @@ impl Repository {
     /// Copy parsed configuration into an independent handle with no indexes.
     /// A UI can warm this handle on another thread and adopt it when ready.
     pub fn fork_unindexed(&self) -> Self {
-        Self::from_model(
+        Self::from_model_with_extensions(
             self.model.clone(),
             self.options.clone(),
             self.discovery.clone(),
+            self.extensions.clone(),
         )
+    }
+
+    /// Immutable, registration-order-independent extension definitions.
+    pub fn extensions(&self) -> Option<&crate::extensions::Extensions> {
+        self.extensions.as_deref()
     }
 
     pub fn metrics(&self) -> &Metrics {
@@ -520,6 +602,11 @@ impl Repository {
         } else {
             RepositoryModel::load(&self.model.root)?
         };
+        if let Some(extensions) = &self.extensions {
+            let mut next = (**extensions).clone();
+            next.bind_schemas(&model)?;
+            self.extensions = Some(std::sync::Arc::new(next));
+        }
         self.replace_model(model);
         self.metrics.reload_nanos += nanos(t);
         Ok(())

@@ -103,8 +103,16 @@ pub(crate) fn escape(s: &str) -> String {
 
 impl Schema {
     pub fn compile(value: &Value, path: &Path) -> Result<Self> {
+        Self::compile_with_annotations(value, path, &BTreeSet::new())
+    }
+
+    pub(crate) fn compile_with_annotations(
+        value: &Value,
+        path: &Path,
+        annotations: &BTreeSet<String>,
+    ) -> Result<Self> {
         index_paths(value, path)?;
-        let field = parse(value, path, "", 0, None)?;
+        let field = parse(value, path, "", 0, None, annotations)?;
         sort_indexes(value, &field, path)?;
         if field.kind != ValueType::Object || field.nullable {
             return Err(config(
@@ -348,6 +356,7 @@ fn parse(
     p: &str,
     depth: usize,
     inherited_language: Option<&str>,
+    annotations: &BTreeSet<String>,
 ) -> Result<Field> {
     if depth > 128 {
         return Err(config(file, p, "schema nesting exceeds 128"));
@@ -384,6 +393,7 @@ fn parse(
             "x-ownership",
         ]
         .contains(&k.as_str())
+            && !annotations.contains(k)
         {
             return Err(config(
                 file,
@@ -574,6 +584,7 @@ fn parse(
                     &format!("{p}/properties/{}", escape(name)),
                     depth + 1,
                     language.as_deref(),
+                    annotations,
                 )?,
             );
         }
@@ -600,6 +611,7 @@ fn parse(
             &format!("{p}/items"),
             depth + 1,
             language.as_deref(),
+            annotations,
         )?))
     } else {
         None

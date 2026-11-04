@@ -1,6 +1,7 @@
 //! Full-text search over all included JSON leaf values.
 
 use super::*;
+use crate::extensions::{BoundTextQuery, CandidateConstraint};
 use crate::file_picker::SlotSelection;
 use crate::repository::{
     ordered_result_cache::{OrderedCoverage, OrderedResultKey},
@@ -85,9 +86,35 @@ impl Repository {
     pub fn search_text(&mut self, request: &TextQuery) -> Result<TextQueryResult> {
         let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
-            return self.search_text_sorted(&request, None);
+            return self.search_text_sorted::<false>(&request, None, None);
         }
-        self.search_text_inner(&request, false, &mut |_, _| Ok(()), None)
+        self.search_text_inner::<false>(&request, false, &mut |_, _| Ok(()), None, None)
+            .map(|(result, _)| result)
+    }
+
+    /// Search the same engine-managed source, ordering, and cache path with a
+    /// registered representation and exact operator. The request's `pattern`
+    /// is passed to the operator as a JSON string at compile time.
+    pub fn search_text_with(
+        &mut self,
+        request: &TextQuery,
+        representation: &str,
+        operator: &str,
+    ) -> Result<TextQueryResult> {
+        let request = Self::normalized_filter_sort(request)?;
+        let extension = self
+            .extensions
+            .as_ref()
+            .ok_or_else(|| Error::Request("no text extensions are registered".into()))?
+            .bind_text(
+                representation,
+                operator,
+                &Value::String(request.pattern.clone()),
+            )?;
+        if !request.sort.is_empty() {
+            return self.search_text_sorted::<true>(&request, None, Some(&extension));
+        }
+        self.search_text_inner::<true>(&request, false, &mut |_, _| Ok(()), None, Some(&extension))
             .map(|(result, _)| result)
     }
 
@@ -100,7 +127,7 @@ impl Repository {
     ) -> Result<TextQueryStreamSummary> {
         let request = Self::normalized_filter_sort(request)?;
         if !request.sort.is_empty() {
-            let result = self.search_text_sorted(&request, None)?;
+            let result = self.search_text_sorted::<false>(&request, None, None)?;
             for (index, hit) in result.hits.iter().enumerate() {
                 on_hit(index + 1, hit)?;
             }
@@ -113,8 +140,63 @@ impl Repository {
                 query_plan: result.query_plan,
             });
         }
-        let (result, returned) =
-            self.search_text_inner(&request, true, &mut |index, hit| on_hit(index, &hit), None)?;
+        let (result, returned) = self.search_text_inner::<false>(
+            &request,
+            true,
+            &mut |index, hit| on_hit(index, &hit),
+            None,
+            None,
+        )?;
+        Ok(TextQueryStreamSummary {
+            returned,
+            total: result.total,
+            truncated: result.truncated,
+            elapsed_ms: result.elapsed_ms,
+            metrics: result.metrics,
+            query_plan: result.query_plan,
+        })
+    }
+
+    /// Stream registered text/operator matches using the ordinary provisional
+    /// hit and final-summary contract. Cache reuse follows `stream_query_cache`.
+    pub fn search_text_stream_with(
+        &mut self,
+        request: &TextQuery,
+        representation: &str,
+        operator: &str,
+        mut on_hit: impl FnMut(usize, &TextHit) -> Result<()>,
+    ) -> Result<TextQueryStreamSummary> {
+        let request = Self::normalized_filter_sort(request)?;
+        let extension = self
+            .extensions
+            .as_ref()
+            .ok_or_else(|| Error::Request("no text extensions are registered".into()))?
+            .bind_text(
+                representation,
+                operator,
+                &Value::String(request.pattern.clone()),
+            )?;
+        if !request.sort.is_empty() {
+            let result = self.search_text_sorted::<true>(&request, None, Some(&extension))?;
+            for (index, hit) in result.hits.iter().enumerate() {
+                on_hit(index + 1, hit)?;
+            }
+            return Ok(TextQueryStreamSummary {
+                returned: result.hits.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
+            });
+        }
+        let (result, returned) = self.search_text_inner::<true>(
+            &request,
+            true,
+            &mut |index, hit| on_hit(index, &hit),
+            None,
+            Some(&extension),
+        )?;
         Ok(TextQueryStreamSummary {
             returned,
             total: result.total,
@@ -134,13 +216,14 @@ impl Repository {
         let request = Self::normalized_filter_sort(request)?;
         if request.sort.is_empty() {
             let mut page = Vec::new();
-            let (result, returned) = self.search_text_inner(
+            let (result, returned) = self.search_text_inner::<false>(
                 &request,
                 true,
                 &mut |_, hit| {
                     page.push(hit);
                     on_page(&page)
                 },
+                None,
                 None,
             )?;
             return Ok(TextQueryStreamSummary {
@@ -152,7 +235,7 @@ impl Repository {
                 query_plan: result.query_plan,
             });
         }
-        let result = self.search_text_sorted(&request, Some(&mut on_page))?;
+        let result = self.search_text_sorted::<false>(&request, Some(&mut on_page), None)?;
         Ok(TextQueryStreamSummary {
             returned: result.hits.len(),
             total: result.total,
@@ -184,12 +267,13 @@ impl Repository {
         Ok(request)
     }
 
-    fn search_text_inner(
+    fn search_text_inner<const CUSTOM: bool>(
         &mut self,
         request: &TextQuery,
         streaming: bool,
         on_hit: &mut dyn FnMut(usize, TextHit) -> Result<()>,
         stop_after: Option<usize>,
+        extension: Option<&BoundTextQuery>,
     ) -> Result<(TextQueryResult, usize)> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -211,7 +295,11 @@ impl Repository {
                 .min(self.options.total_limit.saturating_sub(request.offset));
         }
         let request = &bounded;
-        let matcher = TextMatcher::compile(request)?;
+        let matcher = if CUSTOM {
+            TextMatcher::compile_extension()
+        } else {
+            TextMatcher::compile(request)?
+        };
         let filter = request
             .filter
             .as_ref()
@@ -260,6 +348,14 @@ impl Repository {
                 break;
             }
             let c = self.collection(&name)?;
+            let extension_schema = if CUSTOM {
+                self.extensions
+                    .as_ref()
+                    .and_then(|extensions| extensions.schema(&name))
+                    .cloned()
+            } else {
+                None
+            };
             let collection_filter = filter
                 .as_ref()
                 .map(|filter| self.bind_filter(filter, &c))
@@ -285,17 +381,40 @@ impl Repository {
                 let has_text_index = picker.text_index_bytes().is_some();
                 used_text_index |= has_text_index;
                 used_regular_index |= !has_text_index;
-                selection = Some(picker.text_candidate_selection(
-                    if has_text_index {
-                        matcher.candidate_pattern.as_deref()
-                    } else {
-                        matcher.regular_candidate_pattern()
-                    },
-                    matcher.raw,
-                    matcher.candidate_literal,
-                    requested_fields.as_ref(),
-                    |value, format| matcher.matches_value(value, format),
-                ));
+                selection = Some(if CUSTOM {
+                    let extension = extension.expect("custom text definition is bound");
+                    let raw_literal = match &extension.candidate {
+                        CandidateConstraint::BigramLiteral {
+                            literal,
+                            representation,
+                        } if representation == "objekte:stored"
+                            && extension.representation.descriptor().identity
+                                == *representation =>
+                        {
+                            Some(literal.as_str())
+                        }
+                        _ => None,
+                    };
+                    picker.text_candidate_selection(
+                        raw_literal,
+                        true,
+                        true,
+                        requested_fields.as_ref(),
+                        |_, _| true,
+                    )
+                } else {
+                    picker.text_candidate_selection(
+                        if has_text_index {
+                            matcher.candidate_pattern.as_deref()
+                        } else {
+                            matcher.regular_candidate_pattern()
+                        },
+                        matcher.raw,
+                        matcher.candidate_literal,
+                        requested_fields.as_ref(),
+                        |value, format| matcher.matches_value(value, format),
+                    )
+                });
             }
             if let Some(filter) = &collection_filter
                 && self.options.cache != CacheMode::Disabled
@@ -358,6 +477,7 @@ impl Repository {
                 && self.options.freshness != Freshness::HashOnRequest
                 && self.query_cache.enabled()
                 && (!streaming || self.options.stream_query_cache)
+                && (!CUSTOM || extension.expect("custom text definition is bound").cacheable)
             {
                 let picker = &self.file_pickers[&name];
                 // Linked records can change without this collection changing.
@@ -373,15 +493,26 @@ impl Repository {
                 (picker.verified() && picker.slot_count() <= u32::MAX as usize && safe_filter).then(
                     || PredicateCacheKey {
                         collection: name.clone(),
-                        expression: serde_json::to_vec(&(
-                            "text-query/v1",
-                            &request.pattern,
-                            request.mode,
-                            request.case_sensitive,
-                            &requested_fields,
-                            collection_filter.as_ref().map(JsonFilter::cache_expression),
-                        ))
-                        .expect("text query key serializes"),
+                        expression: if CUSTOM {
+                            let extension = extension.expect("custom text definition is bound");
+                            serde_json::to_vec(&(
+                                "text-extension-query/v1",
+                                &extension.identity,
+                                &requested_fields,
+                                collection_filter.as_ref().map(JsonFilter::cache_expression),
+                            ))
+                            .expect("extension text query key serializes")
+                        } else {
+                            serde_json::to_vec(&(
+                                "text-query/v1",
+                                &request.pattern,
+                                request.mode,
+                                request.case_sensitive,
+                                &requested_fields,
+                                collection_filter.as_ref().map(JsonFilter::cache_expression),
+                            ))
+                            .expect("text query key serializes")
+                        },
                     },
                 )
             } else {
@@ -460,7 +591,10 @@ impl Repository {
                         }
                         let malformed = document.state.status == RecordStatus::IncorrectJson;
                         let verified = if malformed {
-                            if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
+                            if !CUSTOM
+                                && requested_fields.is_none()
+                                && matcher.matches_malformed(&raw.json)
+                            {
                                 TextMatches {
                                     fields: vec!["$raw".into()],
                                     matched_paths: vec!["$raw".into()],
@@ -471,6 +605,15 @@ impl Repository {
                                     matched_paths: Vec::new(),
                                 }
                             }
+                        } else if CUSTOM {
+                            matcher.matching_fields_extension(
+                                &document.data,
+                                &rules,
+                                requested_fields.as_ref(),
+                                true,
+                                extension.expect("custom text definition is bound"),
+                                (&name, extension_schema.as_deref()),
+                            )?
                         } else {
                             matcher.matching_fields(
                                 &document.data,
@@ -644,11 +787,25 @@ impl Repository {
                             let fields = if !passes_filter {
                                 Vec::new()
                             } else if document.state.status == RecordStatus::IncorrectJson {
-                                if requested_fields.is_none() && matcher.matches_malformed(bytes) {
+                                if !CUSTOM
+                                    && requested_fields.is_none()
+                                    && matcher.matches_malformed(bytes)
+                                {
                                     vec!["$raw".into()]
                                 } else {
                                     Vec::new()
                                 }
+                            } else if CUSTOM {
+                                matcher
+                                    .matching_fields_extension(
+                                        &document.data,
+                                        &rules,
+                                        requested_fields.as_ref(),
+                                        false,
+                                        extension.expect("custom text definition is bound"),
+                                        (&name, extension_schema.as_deref()),
+                                    )?
+                                    .fields
                             } else {
                                 matcher
                                     .matching_fields(
@@ -800,7 +957,10 @@ impl Repository {
                         }
                     }
                     let verified = if malformed {
-                        if requested_fields.is_none() && matcher.matches_malformed(&raw.json) {
+                        if !CUSTOM
+                            && requested_fields.is_none()
+                            && matcher.matches_malformed(&raw.json)
+                        {
                             TextMatches {
                                 fields: vec!["$raw".into()],
                                 matched_paths: vec!["$raw".into()],
@@ -811,6 +971,15 @@ impl Repository {
                                 matched_paths: Vec::new(),
                             }
                         }
+                    } else if CUSTOM {
+                        matcher.matching_fields_extension(
+                            &document.data,
+                            &rules,
+                            requested_fields.as_ref(),
+                            true,
+                            extension.expect("custom text definition is bound"),
+                            (&name, extension_schema.as_deref()),
+                        )?
                     } else {
                         matcher.matching_fields(
                             &document.data,

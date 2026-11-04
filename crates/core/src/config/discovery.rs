@@ -9,6 +9,7 @@ pub(crate) struct Discovery {
     pub data_root: Option<PathBuf>,
     pub schemas: Vec<(PathBuf, PathBuf)>,
     pub use_default_schemas: bool,
+    pub extension_annotations: BTreeSet<String>,
 }
 
 
@@ -18,6 +19,7 @@ impl Default for Discovery {
             data_root: None,
             schemas: Vec::new(),
             use_default_schemas: true,
+            extension_annotations: BTreeSet::new(),
         }
     }
 }
@@ -176,7 +178,9 @@ impl RepositoryModel {
                 if let Some(path) = &schema_path {
                     let path = fs::canonicalize(path).map_err(|error| io(path, error))?;
                     let raw: serde_json::Value = read(&path, &mut files)?;
-                    let schema = Schema::compile(&raw, &path)?;
+                    let schema = Schema::compile_with_annotations(
+                        &raw, &path, &settings.extension_annotations,
+                    )?;
                     let advanced_index_paths = crate::schema::index_paths(&raw, &path)?;
                     let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &path)?;
                     let indexes = schema
@@ -421,7 +425,9 @@ impl RepositoryModel {
                     "schema base folders overlap",
                 ));
             }
-            let schema = Schema::compile(&raw, &schema_path)?;
+            let schema = Schema::compile_with_annotations(
+                &raw, &schema_path, &settings.extension_annotations,
+            )?;
             let advanced_index_paths = crate::schema::index_paths(&raw, &schema_path)?;
             let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &schema_path)?;
             let indexes = schema

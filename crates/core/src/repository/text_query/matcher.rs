@@ -3,8 +3,14 @@
 use super::*;
 use crate::{
     TextMode,
+    extensions::{BindingContext, BoundTextQuery, ScalarValue},
     text::{TextPattern, visit_json_text},
 };
+use std::cell::RefCell;
+
+thread_local! {
+    static EXTENSION_SCRATCH: RefCell<(String, String)> = const { RefCell::new((String::new(), String::new())) };
+}
 
 
 /// A request's compiled pattern and conservative bigram prefilter. Whether
@@ -48,6 +54,81 @@ fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
 
 
 impl TextMatcher {
+    pub(super) fn compile_extension() -> Self {
+        Self {
+            pattern: TextPattern::compile("x", TextMode::Word, false)
+                .expect("constant extension placeholder is valid"),
+            candidate_pattern: None,
+            candidate_literal: false,
+            raw: false,
+        }
+    }
+
+    pub(super) fn matching_fields_extension(
+        &self,
+        document: &Value,
+        rules: &TextRules,
+        selected: Option<&BTreeSet<&str>>,
+        include_indices: bool,
+        extension: &BoundTextQuery,
+        binding: (&str, Option<&Value>),
+    ) -> Result<TextMatches> {
+        let (collection, schema) = binding;
+        let mut fields = BTreeSet::new();
+        let mut matched_paths = Vec::new();
+        let mut failure = None;
+        visit_json_text(
+            document,
+            rules,
+            include_indices,
+            &mut |name, indices, value, format| {
+                if failure.is_some() || selected.is_some_and(|selected| !selected.contains(name)) {
+                    return;
+                }
+                let format = match format {
+                    crate::TextFormat::Plain => "plain",
+                    crate::TextFormat::Markdown => "markdown",
+                    crate::TextFormat::Html => "html",
+                    crate::TextFormat::Xml => "xml",
+                };
+                if !extension.representation.binds(&BindingContext {
+                    collection,
+                    path: name,
+                    format,
+                    schema,
+                }) {
+                    return;
+                }
+                let matched = EXTENSION_SCRATCH.with_borrow_mut(|scratch| {
+                    let (rendered, scanner) = &mut *scratch;
+                    rendered.clear();
+                    scanner.clear();
+                    match extension.representation.render(value, rendered)? {
+                        Some(text) => extension.operator.matches(ScalarValue::Text(text), scanner),
+                        None => Ok(false),
+                    }
+                });
+                match matched {
+                    Ok(true) => {
+                        fields.insert(name.to_owned());
+                        if include_indices {
+                            matched_paths.push(indexed_path(name, indices));
+                        }
+                    }
+                    Ok(false) => {}
+                    Err(error) => failure = Some(error),
+                }
+            },
+        );
+        if let Some(error) = failure {
+            return Err(error);
+        }
+        Ok(TextMatches {
+            fields: fields.into_iter().collect(),
+            matched_paths,
+        })
+    }
+
     pub(super) fn matches_value(&self, value: &str, format: crate::TextFormat) -> bool {
         self.pattern.matches(value, format)
     }

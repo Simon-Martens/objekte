@@ -7,10 +7,11 @@ type PageCallback<'a> = dyn FnMut(&[TextHit]) -> Result<()> + 'a;
 
 
 impl Repository {
-    pub(super) fn search_text_sorted(
+    pub(super) fn search_text_sorted<const CUSTOM: bool>(
         &mut self,
         request: &TextQuery,
         mut on_page: Option<&mut PageCallback<'_>>,
+        extension: Option<&BoundTextQuery>,
     ) -> Result<TextQueryResult> {
         let started = Instant::now();
         let before = self.metrics.clone();
@@ -38,7 +39,7 @@ impl Repository {
         // Only a verified picker may supply the final order directly. A
         // restored picker still being checked uses source-projected keys.
         if indexed_order && request.offset < self.options.total_limit && request.limit > 0 {
-            return self.search_text_indexed_order(request, on_page, started, &before);
+            return self.search_text_indexed_order::<CUSTOM>(request, on_page, started, &before, extension);
         }
         let mut buffer = SortBuffer::new(
             plans,
@@ -59,7 +60,7 @@ impl Repository {
         scan.count = !indexed_order;
         let root = self.model.root.clone();
         let collection_paths = self.collection_paths(&names);
-        let (mut result, _) = self.search_text_inner(
+        let (mut result, _) = self.search_text_inner::<CUSTOM>(
             &scan,
             true,
             &mut |_, hit| {
@@ -84,6 +85,7 @@ impl Repository {
                 Ok(())
             },
             None,
+            extension,
         )?;
         result.total = buffer.total(request.count);
         result.truncated = buffer.truncated();
@@ -100,12 +102,13 @@ impl Repository {
         Ok(result)
     }
 
-    fn search_text_indexed_order(
+    fn search_text_indexed_order<const CUSTOM: bool>(
         &mut self,
         request: &TextQuery,
         on_page: Option<&mut PageCallback<'_>>,
         started: Instant,
         before: &Metrics,
+        extension: Option<&BoundTextQuery>,
     ) -> Result<TextQueryResult> {
         let mut scan = request.clone();
         scan.count = true;
@@ -115,7 +118,7 @@ impl Repository {
         let stop_after = self.options.total_limit.saturating_add(1);
         let (mut result, _) = if let Some(on_page) = on_page {
             let mut page = Vec::new();
-            let (mut result, returned) = self.search_text_inner(
+            let (mut result, returned) = self.search_text_inner::<CUSTOM>(
                 &scan,
                 true,
                 &mut |_, hit| {
@@ -123,12 +126,19 @@ impl Repository {
                     on_page(&page)
                 },
                 Some(stop_after),
+                extension,
             )?;
             on_page(&page)?;
             result.hits = page;
             (result, returned)
         } else {
-            self.search_text_inner(&scan, false, &mut |_, _| Ok(()), Some(stop_after))?
+            self.search_text_inner::<CUSTOM>(
+                &scan,
+                false,
+                &mut |_, _| Ok(()),
+                Some(stop_after),
+                extension,
+            )?
         };
         if !request.count {
             result.total = None;
