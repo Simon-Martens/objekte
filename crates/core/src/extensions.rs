@@ -172,6 +172,12 @@ pub struct SourceDescriptor {
 /// Implementations own their secure-read policy; the engine owns inventories.
 pub trait SourceProvider: Send + Sync {
     fn descriptor(&self) -> &Descriptor;
+    /// Collection-level selector compiled from immutable configuration. A
+    /// false answer promises `enumerate` would return no sources there.
+    fn may_select(&self, _collection: &str) -> bool {
+        true
+    }
+
     fn enumerate(&self, collection: &str) -> Result<Vec<SourceDescriptor>>;
     fn read(&self, source: &SourceDescriptor, output: &mut Vec<u8>) -> Result<()>;
 }

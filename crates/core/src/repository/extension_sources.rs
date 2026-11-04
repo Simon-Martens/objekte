@@ -43,6 +43,9 @@ pub(super) fn select_sources(
     }
     if let Some(extensions) = extensions {
         for provider in extensions.source_providers() {
+            if !provider.may_select(collection) {
+                continue;
+            }
             for descriptor in provider.enumerate(collection)? {
                 if descriptor.collection != collection {
                     return Err(Error::Request(format!(

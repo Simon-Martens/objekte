@@ -93,6 +93,10 @@ impl objekte_core::extensions::SourceProvider for MarkdownProvider {
         &self.descriptor
     }
 
+    fn may_select(&self, collection: &str) -> bool {
+        collection == self.collection
+    }
+
     fn enumerate(
         &self,
         collection: &str,

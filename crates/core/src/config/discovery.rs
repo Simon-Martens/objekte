@@ -429,7 +429,9 @@ impl RepositoryModel {
             let mut populated = has_json(&source, true)?;
             if !populated {
                 for provider in &settings.source_providers {
-                    if !provider.enumerate(&metadata.name)?.is_empty() {
+                    if provider.may_select(&metadata.name)
+                        && !provider.enumerate(&metadata.name)?.is_empty()
+                    {
                         populated = true;
                         break;
                     }
@@ -650,7 +652,7 @@ fn discover_directories(
         if !direct_source && !settings.source_providers.is_empty() {
             let name = collection_name(data, &directory)?;
             for provider in &settings.source_providers {
-                if !provider.enumerate(&name)?.is_empty() {
+                if provider.may_select(&name) && !provider.enumerate(&name)?.is_empty() {
                     direct_source = true;
                     break;
                 }

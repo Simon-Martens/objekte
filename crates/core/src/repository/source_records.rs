@@ -17,14 +17,21 @@ impl Repository {
         }
         let custom = if self.options.freshness == Freshness::MetadataOnOpen {
             self.custom_source_collections.contains(name)
-        } else if self
-            .extensions
-            .as_ref()
-            .is_some_and(|extensions| extensions.source_providers().next().is_some())
-        {
-            super::extension_sources::select_sources(&collection, name, self.extensions.as_deref())?
-                .iter()
-                .any(|source| source.provider != "objekte:filesystem")
+        } else if let Some(extensions) = &self.extensions {
+            let mut selected = false;
+            for provider in extensions.source_providers() {
+                if provider.may_select(name) && !provider.enumerate(name)?.is_empty() {
+                    selected = true;
+                    break;
+                }
+            }
+            if selected {
+                super::extension_sources::select_sources(&collection, name, Some(extensions))?
+                    .iter()
+                    .any(|source| source.provider != "objekte:filesystem")
+            } else {
+                false
+            }
         } else {
             false
         };
