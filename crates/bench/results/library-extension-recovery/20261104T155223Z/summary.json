@@ -1,0 +1,1626 @@
+{
+  "cache0": [
+    {
+      "candidate_count_candidate": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "candidate_count_reference": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "candidate_median_ms": 1.812979,
+      "id": 1,
+      "paired_deltas_ms": [
+        0.024607000000000046,
+        -0.054497999999999935,
+        -0.004452999999999818,
+        0.0066909999999997805,
+        -0.0018860000000000543
+      ],
+      "query": "annotation:fts ~ 'Goet'",
+      "reference_median_ms": 1.8062880000000001
+    },
+    {
+      "candidate_count_candidate": [
+        3227,
+        3227,
+        3227,
+        3227,
+        3227
+      ],
+      "candidate_count_reference": [
+        3227,
+        3227,
+        3227,
+        3227,
+        3227
+      ],
+      "candidate_median_ms": 5.047928,
+      "id": 2,
+      "paired_deltas_ms": [
+        0.05360499999999924,
+        0.037384000000001194,
+        0.015266000000000446,
+        -0.03216199999999958,
+        0.011073000000000555
+      ],
+      "query": "annotation:fts ~ 'Schill'",
+      "reference_median_ms": 5.0397929999999995
+    },
+    {
+      "candidate_count_candidate": [
+        1087,
+        1087,
+        1087,
+        1087,
+        1087
+      ],
+      "candidate_count_reference": [
+        1087,
+        1087,
+        1087,
+        1087,
+        1087
+      ],
+      "candidate_median_ms": 2.562642,
+      "id": 3,
+      "paired_deltas_ms": [
+        0.018568999999999836,
+        -0.010489000000000193,
+        -0.09709199999999996,
+        0.0013570000000000526,
+        -0.0901679999999998
+      ],
+      "query": "annotation:fts ~ 'Mond'",
+      "reference_median_ms": 2.624926
+    },
+    {
+      "candidate_count_candidate": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "candidate_count_reference": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "candidate_median_ms": 1.72787,
+      "id": 4,
+      "paired_deltas_ms": [
+        -0.009515000000000162,
+        -0.035554000000000086,
+        -0.08358699999999986,
+        -0.11370900000000006,
+        -0.1257649999999999
+      ],
+      "query": "annotation:fts ~ 'GOET'",
+      "reference_median_ms": 1.794305
+    },
+    {
+      "candidate_count_candidate": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ],
+      "candidate_count_reference": [
+        1800,
+        1800,
+        1800,
+        1800,
+        1800
+      ],
+      "candidate_median_ms": 3.3404030000000002,
+      "id": 5,
+      "paired_deltas_ms": [
+        -0.08223599999999998,
+        -0.03399700000000028,
+        0.04922399999999971,
+        0.06106400000000001,
+        0.031102999999999437
+      ],
+      "query": "annotation:fts ~ 'Liebe'",
+      "reference_median_ms": 3.299566
+    },
+    {
+      "candidate_count_candidate": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "candidate_count_reference": [
+        425,
+        425,
+        425,
+        425,
+        425
+      ],
+      "candidate_median_ms": 0.9824919999999999,
+      "id": 6,
+      "paired_deltas_ms": [
+        -0.0015650000000000386,
+        0.18949399999999983,
+        -0.16473800000000005,
+        0.08723599999999998,
+        0.07122499999999987
+      ],
+      "query": "year = 1822 && annotation:fts ~ 'Goet'",
+      "reference_median_ms": 0.9341240000000001
+    },
+    {
+      "candidate_count_candidate": [
+        1064,
+        1064,
+        1064,
+        1064,
+        1064
+      ],
+      "candidate_count_reference": [
+        1064,
+        1064,
+        1064,
+        1064,
+        1064
+      ],
+      "candidate_median_ms": 3.226478,
+      "id": 7,
+      "paired_deltas_ms": [
+        -0.06362700000000032,
+        -0.1296219999999999,
+        -0.12048400000000026,
+        0.016127000000000002,
+        -0.11627300000000007
+      ],
+      "query": "year >= 1800 && annotation:fts ~ 'Wien'",
+      "reference_median_ms": 3.3064090000000004
+    },
+    {
+      "candidate_count_candidate": [
+        849,
+        849,
+        849,
+        849,
+        849
+      ],
+      "candidate_count_reference": [
+        849,
+        849,
+        849,
+        849,
+        849
+      ],
+      "candidate_median_ms": 2.6690020000000003,
+      "id": 8,
+      "paired_deltas_ms": [
+        0.04001299999999963,
+        -0.06993399999999994,
+        -0.21167399999999992,
+        -0.12722299999999986,
+        -0.03276599999999963
+      ],
+      "query": "year < 1800 && annotation:fts ~ 'Berlin'",
+      "reference_median_ms": 2.799938
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 112.633073,
+      "id": 9,
+      "paired_deltas_ms": [
+        2.4375809999999944,
+        3.513328999999999,
+        2.588910999999996,
+        3.3787710000000004,
+        2.283292000000003
+      ],
+      "query": "annotation:fts ~ 'Heinrich' || year = 1822",
+      "reference_median_ms": 110.090227
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 109.31158,
+      "id": 10,
+      "paired_deltas_ms": [
+        1.6531409999999909,
+        3.1278859999999895,
+        2.316927000000007,
+        2.437187999999992,
+        1.9409959999999984
+      ],
+      "query": "annotation:fts !~ 'Goet'",
+      "reference_median_ms": 107.288812
+    },
+    {
+      "candidate_count_candidate": [
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "candidate_count_reference": [
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "candidate_median_ms": 1.600803,
+      "id": 11,
+      "paired_deltas_ms": [
+        0.13113799999999998,
+        -0.11411299999999969,
+        -0.024248999999999965,
+        -0.0064469999999998695,
+        0.026878999999999653
+      ],
+      "query": "preferred_title:fts ~ 'Goethe'",
+      "reference_median_ms": 1.5956130000000002
+    },
+    {
+      "candidate_count_candidate": [
+        501,
+        501,
+        501,
+        501,
+        501
+      ],
+      "candidate_count_reference": [
+        501,
+        501,
+        501,
+        501,
+        501
+      ],
+      "candidate_median_ms": 2.011543,
+      "id": 12,
+      "paired_deltas_ms": [
+        -0.012553999999999732,
+        -0.07713400000000004,
+        -0.001650999999999847,
+        0.03462300000000029,
+        -0.030761999999999956
+      ],
+      "query": "preferred_title:fts ~ 'Schiller'",
+      "reference_median_ms": 2.009155
+    },
+    {
+      "candidate_count_candidate": [
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "candidate_count_reference": [
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "candidate_median_ms": 1.287428,
+      "id": 13,
+      "paired_deltas_ms": [
+        -0.034679000000000126,
+        -0.09257099999999974,
+        -0.05042000000000013,
+        -0.022231000000000112,
+        -0.042338999999999904
+      ],
+      "query": "preferred_title:fts ~ 'goethe'",
+      "reference_median_ms": 1.340551
+    },
+    {
+      "candidate_count_candidate": [
+        2144,
+        2144,
+        2144,
+        2144,
+        2144
+      ],
+      "candidate_count_reference": [
+        2144,
+        2144,
+        2144,
+        2144,
+        2144
+      ],
+      "candidate_median_ms": 3.004676,
+      "id": 14,
+      "paired_deltas_ms": [
+        -0.007136000000000031,
+        0.03618000000000032,
+        -0.06842999999999977,
+        0.006656000000000439,
+        -0.005472000000000143
+      ],
+      "query": "preferred_title:fts ~ 'Gedicht'",
+      "reference_median_ms": 3.011812
+    },
+    {
+      "candidate_count_candidate": [
+        3582,
+        3582,
+        3582,
+        3582,
+        3582
+      ],
+      "candidate_count_reference": [
+        3582,
+        3582,
+        3582,
+        3582,
+        3582
+      ],
+      "candidate_median_ms": 4.788657,
+      "id": 15,
+      "paired_deltas_ms": [
+        -0.019230000000000302,
+        -0.056091000000000335,
+        -0.1584089999999998,
+        0.012402999999999942,
+        -0.009704000000000157
+      ],
+      "query": "preferred_title:fts ~ 'A%buch'",
+      "reference_median_ms": 4.8406329999999995
+    },
+    {
+      "candidate_count_candidate": [
+        687,
+        687,
+        687,
+        687,
+        687
+      ],
+      "candidate_count_reference": [
+        687,
+        687,
+        687,
+        687,
+        687
+      ],
+      "candidate_median_ms": 2.23919,
+      "id": 16,
+      "paired_deltas_ms": [
+        0.018306000000000378,
+        -0.008126999999999995,
+        -0.04817700000000036,
+        0.06244200000000033,
+        0.027865999999999946
+      ],
+      "query": "title_statement:fts ~ 'Verlag'",
+      "reference_median_ms": 2.245516
+    },
+    {
+      "candidate_count_candidate": [
+        1368,
+        1368,
+        1368,
+        1368,
+        1368
+      ],
+      "candidate_count_reference": [
+        1368,
+        1368,
+        1368,
+        1368,
+        1368
+      ],
+      "candidate_median_ms": 2.9217969999999998,
+      "id": 17,
+      "paired_deltas_ms": [
+        0.05528999999999984,
+        0.023955999999999644,
+        0.06585900000000011,
+        0.07893600000000012,
+        0.03220899999999993
+      ],
+      "query": "title_statement:fts ~ 'berlin'",
+      "reference_median_ms": 2.8745149999999997
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.922114,
+      "id": 18,
+      "paired_deltas_ms": [
+        -0.020661999999999958,
+        -0.044987,
+        -0.03569100000000003,
+        -0.00741500000000006,
+        -0.012958999999999943
+      ],
+      "query": "contributors.annotation:fts ?~ 'Goet'",
+      "reference_median_ms": 0.952836
+    },
+    {
+      "candidate_count_candidate": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "candidate_count_reference": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "candidate_median_ms": 1.596711,
+      "id": 19,
+      "paired_deltas_ms": [
+        -0.009805000000000064,
+        -0.03390000000000004,
+        -0.027497000000000105,
+        -0.025494000000000128,
+        -0.0060749999999998305
+      ],
+      "query": "annotation:fts = 'Goethe'",
+      "reference_median_ms": 1.611936
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 1.01774,
+      "id": 20,
+      "paired_deltas_ms": [
+        0.05858899999999978,
+        -0.033552000000000026,
+        -0.01725399999999988,
+        0.1922790000000001,
+        -0.11898299999999995
+      ],
+      "query": "annotation:fts ~ 'XYZunlikely'",
+      "reference_median_ms": 1.034994
+    },
+    {
+      "candidate_count_candidate": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "candidate_count_reference": [
+        325,
+        325,
+        325,
+        325,
+        325
+      ],
+      "candidate_median_ms": 1.472945,
+      "id": 21,
+      "paired_deltas_ms": [
+        0.25803599999999993,
+        0.154574,
+        0.11259200000000003,
+        0.07580100000000001,
+        -0.08325099999999996
+      ],
+      "query": "Goethe",
+      "reference_median_ms": 1.360353
+    },
+    {
+      "candidate_count_candidate": [
+        1341,
+        1341,
+        1341,
+        1341,
+        1341
+      ],
+      "candidate_count_reference": [
+        1341,
+        1341,
+        1341,
+        1341,
+        1341
+      ],
+      "candidate_median_ms": 3.5674230000000002,
+      "id": 22,
+      "paired_deltas_ms": [
+        0.17766300000000035,
+        0.055692000000000075,
+        -0.17361099999999974,
+        0.05087000000000019,
+        -0.24387900000000062
+      ],
+      "query": "Schiller",
+      "reference_median_ms": 3.650001
+    },
+    {
+      "candidate_count_candidate": [
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "candidate_count_reference": [
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "candidate_median_ms": 0.532102,
+      "id": 23,
+      "paired_deltas_ms": [
+        -0.00770000000000004,
+        0.0033679999999999266,
+        -0.01046999999999998,
+        0.0005979999999999874,
+        -0.003845999999999905
+      ],
+      "query": "Goethe",
+      "reference_median_ms": 0.538211
+    },
+    {
+      "candidate_count_candidate": [
+        3651,
+        3651,
+        3651,
+        3651,
+        3651
+      ],
+      "candidate_count_reference": [
+        3651,
+        3651,
+        3651,
+        3651,
+        3651
+      ],
+      "candidate_median_ms": 6.900701000000001,
+      "id": 24,
+      "paired_deltas_ms": [
+        -0.013680000000000803,
+        0.014893000000000711,
+        0.0014370000000010208,
+        0.01501200000000047,
+        0.06777099999999958
+      ],
+      "query": "Liebe",
+      "reference_median_ms": 6.848479
+    },
+    {
+      "candidate_count_candidate": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "candidate_count_reference": [
+        500,
+        500,
+        500,
+        500,
+        500
+      ],
+      "candidate_median_ms": 5.246764,
+      "id": 25,
+      "paired_deltas_ms": [
+        -0.5380849999999997,
+        -0.48188099999999956,
+        -0.5728170000000006,
+        -0.5269020000000006,
+        -0.48097499999999993
+      ],
+      "query": "Goethe",
+      "reference_median_ms": 5.780615999999999
+    },
+    {
+      "candidate_count_candidate": [
+        341,
+        341,
+        341,
+        341,
+        341
+      ],
+      "candidate_count_reference": [
+        341,
+        341,
+        341,
+        341,
+        341
+      ],
+      "candidate_median_ms": 1.1561489999999999,
+      "id": 26,
+      "paired_deltas_ms": [
+        -0.013812999999999853,
+        0.02560999999999991,
+        -0.009722999999999704,
+        0.013014999999999777,
+        -0.0012709999999998
+      ],
+      "query": "Goet.*he",
+      "reference_median_ms": 1.155992
+    },
+    {
+      "candidate_count_candidate": [
+        662,
+        662,
+        662,
+        662,
+        662
+      ],
+      "candidate_count_reference": [
+        662,
+        662,
+        662,
+        662,
+        662
+      ],
+      "candidate_median_ms": 1.42595,
+      "id": 27,
+      "paired_deltas_ms": [
+        0.02056199999999997,
+        -0.022365999999999664,
+        0.011779000000000206,
+        -0.009073000000000109,
+        -0.03642699999999999
+      ],
+      "query": "Schill",
+      "reference_median_ms": 1.4388859999999999
+    },
+    {
+      "candidate_count_candidate": [
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "candidate_count_reference": [
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "candidate_median_ms": 0.393846,
+      "id": 28,
+      "paired_deltas_ms": [
+        0.0025720000000000187,
+        0.001778999999999975,
+        0.005282999999999927,
+        0.007756999999999958,
+        0.011670999999999987
+      ],
+      "query": "\\*\\*[^*]+\\*\\*",
+      "reference_median_ms": 0.384564
+    },
+    {
+      "candidate_count_candidate": [
+        133948,
+        133948,
+        133948,
+        133948,
+        133948
+      ],
+      "candidate_count_reference": [
+        133948,
+        133948,
+        133948,
+        133948,
+        133948
+      ],
+      "candidate_median_ms": 177.52216900000002,
+      "id": 29,
+      "paired_deltas_ms": [
+        2.0730560000000082,
+        1.6024639999999977,
+        0.06327899999999431,
+        1.3603230000000224,
+        2.041910999999999
+      ],
+      "query": "<[^>]+>",
+      "reference_median_ms": 176.098174
+    },
+    {
+      "candidate_count_candidate": [
+        13542,
+        13542,
+        13542,
+        13542,
+        13542
+      ],
+      "candidate_count_reference": [
+        13542,
+        13542,
+        13542,
+        13542,
+        13542
+      ],
+      "candidate_median_ms": 25.946294,
+      "id": 30,
+      "paired_deltas_ms": [
+        0.12757200000000424,
+        0.20779599999999832,
+        -0.2563020000000016,
+        0.2271859999999961,
+        0.27841899999999953
+      ],
+      "query": "Wien|Berlin",
+      "reference_median_ms": 25.818721999999998
+    }
+  ],
+  "cache64": [
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.058845,
+      "id": 1,
+      "paired_deltas_ms": [
+        -0.0004750000000000032,
+        -0.000892999999999998,
+        0.0006620000000000029,
+        -0.0017600000000000046,
+        -0.004404000000000012
+      ],
+      "query": "annotation:fts ~ 'Goet'",
+      "reference_median_ms": 0.059744000000000005
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.058402,
+      "id": 2,
+      "paired_deltas_ms": [
+        -0.001245000000000003,
+        -0.0007059999999999983,
+        0.0006589999999999999,
+        0.001358000000000005,
+        -0.0017119999999999982
+      ],
+      "query": "annotation:fts ~ 'Schill'",
+      "reference_median_ms": 0.059038
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.054272,
+      "id": 3,
+      "paired_deltas_ms": [
+        -0.0006040000000000004,
+        -0.0009390000000000023,
+        2.5999999999998247e-05,
+        0.0016609999999999958,
+        0.0004640000000000061
+      ],
+      "query": "annotation:fts ~ 'Mond'",
+      "reference_median_ms": 0.054744
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.06346199999999999,
+      "id": 4,
+      "paired_deltas_ms": [
+        -0.0028740000000000016,
+        -7.999999999999674e-05,
+        -0.0025149999999999964,
+        2.4999999999997247e-05,
+        -0.0010229999999999961
+      ],
+      "query": "annotation:fts ~ 'GOET'",
+      "reference_median_ms": 0.064862
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.055177,
+      "id": 5,
+      "paired_deltas_ms": [
+        -0.003159999999999996,
+        -0.0017160000000000022,
+        -0.000348000000000008,
+        -0.001017000000000004,
+        0.0001500000000000043
+      ],
+      "query": "annotation:fts ~ 'Liebe'",
+      "reference_median_ms": 0.056194
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.485337,
+      "id": 6,
+      "paired_deltas_ms": [
+        0.0027590000000000114,
+        0.003717999999999999,
+        0.0064690000000000025,
+        -0.0003709999999999547,
+        0.01631299999999991
+      ],
+      "query": "year = 1822 && annotation:fts ~ 'Goet'",
+      "reference_median_ms": 0.478938
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.478667,
+      "id": 7,
+      "paired_deltas_ms": [
+        0.0005660000000000109,
+        0.004714999999999969,
+        0.011843000000000048,
+        -0.0015319999999999778,
+        -0.0007389999999999897
+      ],
+      "query": "year >= 1800 && annotation:fts ~ 'Wien'",
+      "reference_median_ms": 0.472979
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.49014,
+      "id": 8,
+      "paired_deltas_ms": [
+        -0.009574999999999945,
+        -0.0009859999999999314,
+        -0.004471000000000003,
+        -0.011114999999999986,
+        0.04971700000000001
+      ],
+      "query": "year < 1800 && annotation:fts ~ 'Berlin'",
+      "reference_median_ms": 0.494305
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.075363,
+      "id": 9,
+      "paired_deltas_ms": [
+        -0.002142000000000019,
+        0.0029479999999999923,
+        0.0009279999999999983,
+        0.004216000000000011,
+        0.0005119999999999986
+      ],
+      "query": "annotation:fts ~ 'Heinrich' || year = 1822",
+      "reference_median_ms": 0.07422000000000001
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.064102,
+      "id": 10,
+      "paired_deltas_ms": [
+        -0.0024520000000000097,
+        0.00022200000000001385,
+        -0.00018999999999999573,
+        0.0018789999999999918,
+        0.0005780000000000091
+      ],
+      "query": "annotation:fts !~ 'Goet'",
+      "reference_median_ms": 0.064178
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.058956,
+      "id": 11,
+      "paired_deltas_ms": [
+        -0.0016320000000000015,
+        0.0012790000000000024,
+        0.001337999999999999,
+        0.002453999999999998,
+        -0.001346999999999994
+      ],
+      "query": "preferred_title:fts ~ 'Goethe'",
+      "reference_median_ms": 0.059391
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.059522,
+      "id": 12,
+      "paired_deltas_ms": [
+        -0.002575999999999995,
+        -1.0999999999997123e-05,
+        0.001455000000000005,
+        0.0019809999999999967,
+        0.000794000000000003
+      ],
+      "query": "preferred_title:fts ~ 'Schiller'",
+      "reference_median_ms": 0.058609
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.054532,
+      "id": 13,
+      "paired_deltas_ms": [
+        -0.0010420000000000013,
+        0.0017069999999999932,
+        0.0009230000000000002,
+        9.10000000000008e-05,
+        -0.001570999999999996
+      ],
+      "query": "preferred_title:fts ~ 'goethe'",
+      "reference_median_ms": 0.054355
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.057528,
+      "id": 14,
+      "paired_deltas_ms": [
+        0.0003070000000000017,
+        0.0010650000000000034,
+        0.0007239999999999955,
+        -0.00039200000000000346,
+        0.0023039999999999936
+      ],
+      "query": "preferred_title:fts ~ 'Gedicht'",
+      "reference_median_ms": 0.056292999999999996
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.025772999999999997,
+      "id": 15,
+      "paired_deltas_ms": [
+        0.00018600000000000214,
+        0.0012060000000000022,
+        0.0001810000000000006,
+        -0.0002020000000000008,
+        0.0005899999999999968
+      ],
+      "query": "preferred_title:fts ~ 'A%buch'",
+      "reference_median_ms": 0.025387
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.05731,
+      "id": 16,
+      "paired_deltas_ms": [
+        8.400000000000074e-05,
+        0.0011439999999999992,
+        0.0005240000000000036,
+        -0.0002610000000000043,
+        0.002704999999999999
+      ],
+      "query": "title_statement:fts ~ 'Verlag'",
+      "reference_median_ms": 0.057226
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.055172,
+      "id": 17,
+      "paired_deltas_ms": [
+        -0.009790000000000007,
+        0.0028750000000000026,
+        0.00018399999999999667,
+        -0.0023269999999999957,
+        0.0005389999999999978
+      ],
+      "query": "title_statement:fts ~ 'berlin'",
+      "reference_median_ms": 0.057769999999999995
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.027306,
+      "id": 18,
+      "paired_deltas_ms": [
+        -0.0006440000000000022,
+        0.0015960000000000002,
+        0.0005199999999999996,
+        0.0005810000000000017,
+        -0.00015400000000000136
+      ],
+      "query": "contributors.annotation:fts ?~ 'Goet'",
+      "reference_median_ms": 0.026876
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.025978,
+      "id": 19,
+      "paired_deltas_ms": [
+        -0.00021900000000000044,
+        0.0007310000000000025,
+        0.0003459999999999991,
+        0.0016719999999999999,
+        0.001337999999999999
+      ],
+      "query": "annotation:fts = 'Goethe'",
+      "reference_median_ms": 0.025231
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.026903,
+      "id": 20,
+      "paired_deltas_ms": [
+        -0.0021200000000000004,
+        0.0004279999999999978,
+        -0.000614,
+        0.0008389999999999995,
+        0.0029619999999999994
+      ],
+      "query": "annotation:fts ~ 'XYZunlikely'",
+      "reference_median_ms": 0.026335
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.218173,
+      "id": 21,
+      "paired_deltas_ms": [
+        0.004054000000000002,
+        -0.004846000000000017,
+        0.0045339999999999825,
+        -0.0030779999999999974,
+        0.004466999999999999
+      ],
+      "query": "Goethe",
+      "reference_median_ms": 0.21479
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.247642,
+      "id": 22,
+      "paired_deltas_ms": [
+        0.010497000000000006,
+        0.005710000000000021,
+        0.002581999999999973,
+        0.002587000000000006,
+        0.009224999999999983
+      ],
+      "query": "Schiller",
+      "reference_median_ms": 0.239799
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.19872299999999998,
+      "id": 23,
+      "paired_deltas_ms": [
+        0.004017999999999994,
+        0.0010749999999999926,
+        -0.00043499999999999095,
+        0.0038569999999999993,
+        0.0010909999999999809
+      ],
+      "query": "Goethe",
+      "reference_median_ms": 0.19650900000000002
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.529243,
+      "id": 24,
+      "paired_deltas_ms": [
+        0.025688999999999962,
+        0.008558000000000066,
+        0.0042999999999999705,
+        -1.399999999995849e-05,
+        0.008936999999999973
+      ],
+      "query": "Liebe",
+      "reference_median_ms": 0.520685
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 3.497923,
+      "id": 25,
+      "paired_deltas_ms": [
+        -0.5681030000000007,
+        -0.47012699999999974,
+        -0.5741040000000002,
+        -0.6194169999999999,
+        -0.5053459999999999
+      ],
+      "query": "Goethe",
+      "reference_median_ms": 4.061351
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.384546,
+      "id": 26,
+      "paired_deltas_ms": [
+        0.0029190000000000604,
+        0.002385000000000026,
+        0.0036249999999999893,
+        0.014629999999999976,
+        0.001917000000000002
+      ],
+      "query": "Goet.*he",
+      "reference_median_ms": 0.381664
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.28958100000000003,
+      "id": 27,
+      "paired_deltas_ms": [
+        0.008508000000000016,
+        -0.005077999999999971,
+        -0.0004310000000000147,
+        0.01152000000000003,
+        -0.004646999999999957
+      ],
+      "query": "Schill",
+      "reference_median_ms": 0.28833899999999996
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.191347,
+      "id": 28,
+      "paired_deltas_ms": [
+        -0.0034339999999999926,
+        0.003966999999999998,
+        0.004625999999999991,
+        -0.0005770000000000219,
+        -0.004836000000000007
+      ],
+      "query": "\\*\\*[^*]+\\*\\*",
+      "reference_median_ms": 0.191924
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 0.149525,
+      "id": 29,
+      "paired_deltas_ms": [
+        0.0010759999999999936,
+        0.005618000000000012,
+        -0.0006849999999999912,
+        -0.0024200000000000055,
+        0.003229999999999983
+      ],
+      "query": "<[^>]+>",
+      "reference_median_ms": 0.148525
+    },
+    {
+      "candidate_count_candidate": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_count_reference": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "candidate_median_ms": 4.383928,
+      "id": 30,
+      "paired_deltas_ms": [
+        0.18716899999999992,
+        0.0790999999999995,
+        -0.010243000000000002,
+        0.06595500000000065,
+        0.3629359999999995
+      ],
+      "query": "Wien|Berlin",
+      "reference_median_ms": 4.252894
+    }
+  ]
+}

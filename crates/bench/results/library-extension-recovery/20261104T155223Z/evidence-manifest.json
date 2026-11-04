@@ -1,0 +1,80 @@
+{
+  "build_environment": {
+    "RUSTFLAGS": null,
+    "allocator": "Rust system allocator; no counting wrapper",
+    "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+    "cpu_affinity": "0-15",
+    "os": "Linux-7.2.13-200.fc44.x86_64-x86_64-with-glibc2.43",
+    "profile": "Cargo release with .cargo/config.toml target-cpu=native",
+    "rayon_threads": 16,
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "target": "x86_64-unknown-linux-gnu"
+  },
+  "candidate": {
+    "path": "/home/simon/source/objekte/target/recovery/text-candidate/fts-query-mix",
+    "sha256": "f6b10760f5569a297b670dbbfa6be8b6df8401b5ddcaf3c0f117c9484aed07a8"
+  },
+  "candidate_source_commit": "8607244b412321251a797eee798756699bf18671",
+  "cpu_affinity": "0-15",
+  "input": {
+    "configuration_sha256": {
+      ".objekte/collections/agents.schema.json": "5594c790390ee33c2c598cf8d8f31eae2fa6e897bfee209090206633c775508d",
+      ".objekte/collections/contents.schema.json": "3e8c14e7c5003db770b823c8aa501070baeb1f0214503fd115fbeeb934ad6546",
+      ".objekte/collections/entries.schema.json": "2dc000f5b0be7e4a7ffc404cef824b6d26e239e7e85f687de56bf20ac297f661",
+      ".objekte/collections/items.schema.json": "192c34ded283bb5b3db8191d8f67006ceff0ff0c694ee8500c5e998a43eaff12",
+      ".objekte/collections/pages.schema.json": "020115642efb65c6240d6e774279a19e300ab999e783187e9bac3f670c9571c7",
+      ".objekte/collections/places.schema.json": "60dc2d936fba1802e26e34a43c0e7e1968b96313fd143f9c26a629a7a9c1d961",
+      ".objekte/collections/series.schema.json": "00e7cb3f0af9baa84848a054442e084fed6075cb48a2bfddb12d2788b161c35c",
+      ".objekte/views/contents_list.view.json": "a6f98f1bd5e6dc788d396f638f53001b5c92bb340f7abe3a976693c73664b769"
+    },
+    "record_bytes": 193297230,
+    "record_count": 148486,
+    "source_content_and_stat_sha256": "90e36ad63dcb6386e9521c583fdcd36451fd3d6182187dced542fb8292f730ce",
+    "source_manifest_sha256": null
+  },
+  "pairs": 5,
+  "production_baseline_commit": "266d9a0fb071838be8f757671599872a7036a054",
+  "raw_output_sha256": {
+    "registered-cache0.ndjson": "90271264161a440cca2f74ee0aa08822dd0ec4720464d3b7018da2135b99c7fe",
+    "registered-cache64.ndjson": "f5962f7609308b5230de870722b9930421a49dff52e19057e92e7020138e99aa",
+    "registered-overlay-cache0.ndjson": "0e053916719c18f42b8ef4809721e5f65c1cd6a4aacaaf01ec6e4c4e448fe174",
+    "registered-overlay-cache64.ndjson": "b0d9e9bdcdb7b5e36d4e3e5e8545b9ed0a7befb31f21c9556983e00fe72e2412"
+  },
+  "rayon_threads": 16,
+  "reference": {
+    "path": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/fts-query-mix",
+    "sha256": "efeb299343e1675e922d7290378960dc6b0955de7882cd868ba1c6f690e9c31e"
+  },
+  "registered_commands": [
+    "env RAYON_NUM_THREADS=16 taskset -c 0-15 target/release/examples/text_search_compare examples/musenalm 7 0",
+    "env RAYON_NUM_THREADS=16 taskset -c 0-15 target/release/examples/text_search_compare examples/musenalm 7 64"
+  ],
+  "registered_driver_sha256": "a65a80832a7d695dba40c9a727af12e77c773f856820e960149532872006479c",
+  "registered_executable_sha256": "88be0cff461f918b6dbcdd80ff1ae047fe96efe6eb73613ee76e2855c28d6634",
+  "registered_exit_statuses": {
+    "cache0": 0,
+    "cache64": 0
+  },
+  "repo": "/home/simon/source/objekte/examples/musenalm",
+  "rounds": 7,
+  "runner_sha256": "11b2720f5ab9533ea4dcd4d106fbc9ac4bad37148c72a906f8cd2fb7833a9c2f",
+  "schema_overlay": {
+    "artifact": "overlay-schema.json",
+    "canonical_json_sha256": "0400852d708bc01cc73cb53814939c696d39dbf95d6e7b757ef2eefb8cc363b4",
+    "changes": {
+      "annotation": "markdown",
+      "contributors[].annotation": "xml",
+      "preferred_title": "plain",
+      "title_statement": "html"
+    },
+    "fingerprint_method": "SHA-256 of sorted-key UTF-8 JSON with compact separators; semantically identical to the in-memory overlay used by both drivers"
+  },
+  "validation": {
+    "index_timings_allocation_bench_clippy": 0,
+    "index_timings_core_tests": 0,
+    "spacing_check": 1,
+    "workspace_clippy": 0,
+    "workspace_tests": 0
+  },
+  "warmup": "one full process per binary and cache budget"
+}

@@ -1,0 +1,70 @@
+{
+  "cache0": [
+    {
+      "field": "annotation",
+      "ordered_count": 284,
+      "ordered_sha256": "d1674dee1318e9a965e475a92ab316196d25a4f4b51eb43908aa43495c36df70",
+      "term": "Goethe",
+      "total": 284,
+      "truncated": false
+    },
+    {
+      "field": "preferred_title",
+      "ordered_count": 59,
+      "ordered_sha256": "2fc9ff8b58721a4a2e71bef6c1a03305fae64bbb9b62b1259544442806e4c54e",
+      "term": "Goethe",
+      "total": 59,
+      "truncated": false
+    },
+    {
+      "field": "title_statement",
+      "ordered_count": 643,
+      "ordered_sha256": "25e1bfbebb672fe478e9e5ca40883041c35c5876788b7afab2a3dedb146d9dc1",
+      "term": "Verlag",
+      "total": 643,
+      "truncated": false
+    },
+    {
+      "field": "contributors[].annotation",
+      "ordered_count": 0,
+      "ordered_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "term": "Goethe",
+      "total": 0,
+      "truncated": false
+    }
+  ],
+  "cache64": [
+    {
+      "field": "annotation",
+      "ordered_count": 284,
+      "ordered_sha256": "d1674dee1318e9a965e475a92ab316196d25a4f4b51eb43908aa43495c36df70",
+      "term": "Goethe",
+      "total": 284,
+      "truncated": false
+    },
+    {
+      "field": "preferred_title",
+      "ordered_count": 59,
+      "ordered_sha256": "2fc9ff8b58721a4a2e71bef6c1a03305fae64bbb9b62b1259544442806e4c54e",
+      "term": "Goethe",
+      "total": 59,
+      "truncated": false
+    },
+    {
+      "field": "title_statement",
+      "ordered_count": 643,
+      "ordered_sha256": "25e1bfbebb672fe478e9e5ca40883041c35c5876788b7afab2a3dedb146d9dc1",
+      "term": "Verlag",
+      "total": 643,
+      "truncated": false
+    },
+    {
+      "field": "contributors[].annotation",
+      "ordered_count": 0,
+      "ordered_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "term": "Goethe",
+      "total": 0,
+      "truncated": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/target/recovery/text-candidate/fts-query-mix",
+    "/home/simon/source/objekte/examples/musenalm",
+    "7",
+    "64"
+  ],
+  "exit_status": 0
+}
