@@ -1,6 +1,7 @@
 //! Full-text requests and traversal of every searchable JSON leaf value.
 
 mod malformed;
+mod matcher;
 mod render;
 mod values;
 
@@ -10,6 +11,7 @@ use serde_json::Value;
 use std::collections::BTreeMap;
 
 pub(crate) use malformed::malformed_search_text;
+pub(crate) use matcher::TextPattern;
 pub(crate) use render::{needs_normalizing, render_text, render_text_into};
 #[cfg(test)]
 pub(crate) use values::visit_sonic_text;

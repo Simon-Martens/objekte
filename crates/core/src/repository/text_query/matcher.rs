@@ -3,21 +3,17 @@
 use super::*;
 use crate::{
     TextMode,
-    text::{render_text, visit_json_text},
+    text::{TextPattern, visit_json_text},
 };
-use regex::Regex;
-use std::borrow::Cow;
-use unicode_casefold::UnicodeCaseFold;
 
 
-/// Compiled matcher and conservative bigram prefilter for one request.
+/// A request's compiled pattern and conservative bigram prefilter. Whether
+/// text matches is decided by the shared [`TextPattern`].
 pub(super) struct TextMatcher {
-    regex: Regex,
+    pattern: TextPattern,
     pub(super) candidate_pattern: Option<String>,
     pub(super) candidate_literal: bool,
     pub(super) raw: bool,
-    fold_word: bool,
-    ascii_word: Option<Vec<u8>>,
 }
 
 
@@ -52,97 +48,23 @@ fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
 
 
 impl TextMatcher {
-    fn ascii_contains(text: &[u8], word: &[u8]) -> bool {
-        text.windows(word.len())
-            .any(|part| part.eq_ignore_ascii_case(word))
-    }
-
     pub(super) fn matches_value(&self, value: &str, format: crate::TextFormat) -> bool {
-        let text = if self.raw
-            || (format == crate::TextFormat::Plain && !crate::text::needs_normalizing(value))
-        {
-            Some(Cow::Borrowed(value))
-        } else {
-            render_text(value, format).map(Cow::Owned)
-        };
-        text.is_some_and(|text| {
-            if let Some(word) = &self.ascii_word
-                && text.is_ascii()
-            {
-                return Self::ascii_contains(text.as_bytes(), word);
-            }
-            if self.fold_word {
-                self.regex.is_match(&text.case_fold().collect::<String>())
-            } else {
-                self.regex.is_match(&text)
-            }
-        })
+        self.pattern.matches(value, format)
     }
 
     pub(super) fn compile(request: &TextQuery) -> Result<Self> {
-        if request.pattern.len() > 16 * 1024 || request.pattern.is_empty() {
-            return Err(Error::Request(
-                "text pattern must contain 1–16384 bytes".into(),
-            ));
-        }
-        // Regex always reads the stored text, only JSON-unescaped: markup,
-        // punctuation, and whitespace are matched as they are. Only plain
-        // word search reads the normalized text.
-        let raw = matches!(request.mode, TextMode::WordRaw | TextMode::Regex);
-        // A regex sets its own case flags, such as `(?i)`.
-        let case_sensitive = request.case_sensitive || request.mode == TextMode::Regex;
-        let word_mode = matches!(request.mode, TextMode::Word | TextMode::WordRaw);
-        let fold_word = word_mode && !case_sensitive;
-        let mut candidate_base = None;
-        let pattern = if word_mode {
-            let word = if raw {
-                request.pattern.clone()
-            } else {
-                render_text(&request.pattern, crate::TextFormat::Plain)
-                    .expect("plain rendering always succeeds")
-            };
-            if word.trim().is_empty() {
-                return Err(Error::Request(
-                    "word search needs letters or digits; punctuation and whitespace are ignored"
-                        .into(),
-                ));
-            }
-            let word = if fold_word {
-                word.case_fold().collect::<String>()
-            } else {
-                word
-            };
-            let literal = regex::escape(&word);
-            candidate_base = Some(word);
-            literal
-        } else {
-            request.pattern.clone()
-        };
-        let regex = regex::RegexBuilder::new(&pattern)
-            .case_insensitive(!case_sensitive && !fold_word)
-            .build()
-            .map_err(|error| Error::Request(format!("invalid text regex: {error}")))?;
-        let candidate_base = candidate_base.as_deref().unwrap_or(&pattern);
-        let ascii_word = (word_mode && fold_word && candidate_base.is_ascii())
-            .then(|| candidate_base.as_bytes().to_vec());
-        let candidate_pattern = if word_mode {
-            Some(candidate_base.to_owned())
-        } else if !candidate_base.is_ascii() && !case_sensitive {
-            // Unicode regex folding may select byte sequences absent from a
-            // case-folded projection. Keep those searches conservative.
-            None
-        } else if !case_sensitive {
-            Some(format!("(?i:{candidate_base})"))
-        } else {
-            Some(candidate_base.to_owned())
-        };
+        let pattern = TextPattern::compile(&request.pattern, request.mode, request.case_sensitive)?;
+        let raw = pattern.mode() != TextMode::Word;
+        let word_mode = pattern.mode() != TextMode::Regex;
+        // Word modes narrow by the needle as the values are indexed; a regex
+        // is planned as given, with its own case flags.
+        let candidate_base = pattern.needle().unwrap_or(pattern.source());
+        let candidate_pattern = Some(candidate_base.to_owned());
         Ok(Self {
-            regex,
             candidate_pattern,
             candidate_literal: word_mode,
             raw,
-            fold_word,
-            ascii_word,
+            pattern,
         })
     }
 
@@ -179,16 +101,7 @@ impl TextMatcher {
 
     pub(super) fn matches_malformed(&self, bytes: &[u8]) -> bool {
         let text = crate::text::malformed_search_text(bytes);
-        let text = if self.raw {
-            text
-        } else {
-            render_text(&text, crate::TextFormat::Plain).expect("plain text renders")
-        };
-        if self.fold_word {
-            self.regex.is_match(&text.case_fold().collect::<String>())
-        } else {
-            self.regex.is_match(&text)
-        }
+        self.pattern.matches(&text, crate::TextFormat::Plain)
     }
 
     /// Normal postings retain scalar values but do not normalize whitespace.

@@ -562,7 +562,7 @@ fn fts_options_choose_normalized_stored_or_regex_matching() {
         invalid
             .unwrap_err()
             .to_string()
-            .contains("invalid :fts regex")
+            .contains(":fts invalid text regex")
     );
     let ignore_case = repo.query_json(&JsonQuery {
         filter: "annotation:fts ~ :ignorecase('x')".into(),

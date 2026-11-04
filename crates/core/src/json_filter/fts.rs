@@ -1,9 +1,8 @@
 //! Per-collection binding and safe candidates for rendered filter operands.
 
 use super::*;
-use crate::{Field, TextMode, ValueType};
+use crate::{Field, TextMode, ValueType, text::TextPattern};
 use std::sync::Arc;
-use unicode_casefold::UnicodeCaseFold;
 
 
 /// How `:fts` comparisons match: the same options as full-text search.
@@ -19,30 +18,16 @@ pub struct FtsOptions {
 }
 
 
-impl FtsOptions {
-    fn folds(self) -> bool {
-        !self.case_sensitive && self.mode != TextMode::Regex
-    }
-}
-
-
 /// The string a `:fts` field is compared with, and how it matches. The
 /// options are part of the serialized filter, so cached results are kept
-/// apart per option.
+/// apart per option. Matching itself is the shared [`TextPattern`], the
+/// same rule full-text search uses.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub(crate) struct FtsPattern {
     pattern: String,
     options: FtsOptions,
     #[serde(skip)]
-    compiled: Option<Arc<Compiled>>,
-}
-
-
-#[derive(Debug)]
-enum Compiled {
-    /// Normalized or stored text, case-folded unless case-sensitive.
-    Needle(String),
-    Regex(regex::Regex),
+    compiled: Option<Arc<TextPattern>>,
 }
 
 
@@ -64,28 +49,16 @@ impl FtsPattern {
         self.options
     }
 
-    fn compile(pattern: &str, options: FtsOptions, op: Op) -> Result<Compiled> {
-        if options.mode == TextMode::Regex && matches!(op, Op::Contains | Op::NotContains) {
-            return regex::Regex::new(pattern)
-                .map(Compiled::Regex)
-                .map_err(|error| Error::Request(format!("invalid :fts regex: {error}")));
-        }
-        let needle = if options.mode == TextMode::Word {
-            crate::text::render_text(pattern, TextFormat::Plain).unwrap_or_default()
-        } else {
-            pattern.to_owned()
+    fn compile(pattern: &str, options: FtsOptions, op: Op) -> Result<TextPattern> {
+        // `=` under regex compares the stored text exactly, not as a regex.
+        let (mode, case_sensitive) = match op {
+            Op::Eq | Op::Ne if options.mode == TextMode::Regex => (TextMode::WordRaw, true),
+            _ => (options.mode, options.case_sensitive),
         };
-        if needle.is_empty() && matches!(op, Op::Contains | Op::NotContains) {
-            return Err(Error::Request(
-                ":fts pattern needs letters or digits; punctuation and whitespace are ignored"
-                    .into(),
-            ));
-        }
-        Ok(Compiled::Needle(if options.folds() {
-            needle.case_fold().collect()
-        } else {
-            needle
-        }))
+        TextPattern::compile(pattern, mode, case_sensitive).map_err(|error| match error {
+            Error::Request(message) => Error::Request(format!(":fts {message}")),
+            other => other,
+        })
     }
 
     /// Whether `value`, read as the full-text version in `format`, matches.
@@ -97,56 +70,31 @@ impl FtsPattern {
                 Err(_) => return false,
             },
         };
-        let found = match &*compiled {
-            Compiled::Regex(regex) => regex.is_match(value),
-            Compiled::Needle(needle) => {
-                let text = if self.options.mode == TextMode::Word {
-                    match crate::text::render_text(value, format) {
-                        Some(text) => text,
-                        // Unparseable markup has no full-text version.
-                        None => return false,
-                    }
-                } else {
-                    value.to_owned()
-                };
-                let text = if self.options.folds() {
-                    text.case_fold().collect::<String>()
-                } else {
-                    text
-                };
-                match op {
-                    Op::Eq | Op::Ne => text == *needle,
-                    _ => text.contains(needle.as_str()),
-                }
-            }
-        };
         match op {
-            Op::Ne | Op::NotContains => !found,
-            _ => found,
+            Op::Eq => compiled.equals(value, format),
+            Op::Ne => !compiled.equals(value, format),
+            Op::NotContains => !compiled.matches(value, format),
+            _ => compiled.matches(value, format),
         }
     }
 
     /// A literal every candidate's indexed text must contain, and whether
     /// it is a regex, for narrowing by a declared field's postings.
     fn candidate(&self) -> Option<(String, bool)> {
-        match self.options.mode {
-            TextMode::Regex => Some((self.pattern.clone(), false)),
-            TextMode::Word => {
-                // Each word of the normalized needle appears in the indexed
-                // normalized text; the longest narrows best.
-                let Some(Compiled::Needle(needle)) = self.compiled.as_deref() else {
-                    return None;
-                };
-                needle
-                    .split(' ')
-                    .max_by_key(|word| word.len())
-                    .filter(|word| !word.is_empty())
-                    .map(|word| (word.to_owned(), true))
-            }
+        let compiled = self.compiled.as_deref()?;
+        match compiled.mode() {
+            TextMode::Regex => Some((compiled.source().to_owned(), false)),
+            // Each word of the normalized needle appears in the indexed
+            // normalized text; the longest narrows best.
+            TextMode::Word => compiled
+                .needle()?
+                .split(' ')
+                .max_by_key(|word| word.len())
+                .filter(|word| !word.is_empty())
+                .map(|word| (word.to_owned(), true)),
             // The raw postings fold ASCII case only.
-            TextMode::WordRaw => (self.options.case_sensitive || self.pattern.is_ascii())
-                .then(|| (self.pattern.to_ascii_lowercase(), true))
-                .filter(|(pattern, _)| !pattern.is_empty()),
+            TextMode::WordRaw => (!compiled.folds() || compiled.source().is_ascii())
+                .then(|| (compiled.source().to_ascii_lowercase(), true)),
         }
     }
 }

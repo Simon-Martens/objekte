@@ -395,7 +395,7 @@ fn regex_disables_case_and_markup_options_for_search_and_fts() {
             .as_ref()
             .unwrap()
             .1
-            .contains("invalid :fts regex")
+            .contains(":fts invalid text regex")
     );
 }
 
