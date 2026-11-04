@@ -69,7 +69,7 @@ use projection::{
 };
 use sort_index::SortIndex;
 use text::{TextIndex, TextIndexBuilders, project_malformed_text_into};
-use typed::TypedIndex;
+pub(crate) use typed::TypedIndex;
 pub(crate) use typed::TypedKey;
 use view::ViewIndex;
 

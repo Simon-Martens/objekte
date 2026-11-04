@@ -76,7 +76,7 @@ impl DerivedPredicate {
         values.iter().any(|value| self.matches_one(value, key))
     }
 
-    fn matches_one(&self, value: &TypedKey, key: Option<&TypedKey>) -> bool {
+    pub(crate) fn matches_one(&self, value: &TypedKey, key: Option<&TypedKey>) -> bool {
         if matches!(value, TypedKey::Missing) {
             return false;
         }

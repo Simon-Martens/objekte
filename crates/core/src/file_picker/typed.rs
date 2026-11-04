@@ -106,7 +106,7 @@ impl Eq for TypedKey {}
 
 /// Typed postings for the collection, kept current by patching.
 #[derive(Default, Serialize, Deserialize)]
-pub(super) struct TypedIndex {
+pub(crate) struct TypedIndex {
     fields: Vec<String>,
     postings: Vec<BTreeMap<TypedKey, Vec<usize>>>,
     #[serde(with = "path_map")]
@@ -118,7 +118,7 @@ pub(super) struct TypedIndex {
 
 
 /// One document's values at a runtime posting path.
-pub(super) struct PathValues {
+pub(crate) struct PathValues {
     pub(super) keys: Vec<TypedKey>,
     pub(super) present: bool,
     pub(super) scalar_safe: bool,
@@ -280,7 +280,7 @@ struct DynamicPosting {
 
 
 impl TypedIndex {
-    pub(super) fn new(fields: Vec<String>) -> Self {
+    pub(crate) fn new(fields: Vec<String>) -> Self {
         let postings = (0..fields.len()).map(|_| BTreeMap::new()).collect();
         Self {
             fields,
@@ -472,7 +472,7 @@ impl TypedIndex {
         })
     }
 
-    pub(super) fn replace_path(
+    pub(crate) fn replace_path(
         &mut self,
         path: JsonPath,
         rows: Vec<(TypedKey, usize)>,

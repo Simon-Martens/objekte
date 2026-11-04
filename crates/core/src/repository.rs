@@ -24,7 +24,9 @@ use std::{
 
 mod coverage;
 mod derived_query;
+mod extension_derived_index;
 mod extension_index;
+mod extension_projection;
 mod extension_query;
 mod extension_sources;
 mod inference;
@@ -42,6 +44,7 @@ mod value_counts;
 pub use derived_query::{
     DerivedBackend, DerivedPredicate, DerivedQuery, DerivedQueryResult, DerivedSort,
 };
+pub use extension_projection::SelectedIndexRequest;
 pub use extension_query::{ExtensionQueryResult, ExtensionQueryRow};
 pub use extension_sources::DecodedLeaf;
 pub use value_counts::ValueCount;
@@ -360,6 +363,10 @@ pub struct Repository {
     custom_source_snapshot: BTreeMap<String, CustomSourceSnapshot>,
     extension_text_indexes:
         BTreeMap<extension_index::RepresentationIndexKey, extension_index::RepresentationIndex>,
+    selected_derived_indexes: BTreeMap<
+        extension_derived_index::SelectedDerivedKey,
+        extension_derived_index::SelectedDerivedPosting,
+    >,
 }
 
 
@@ -608,6 +615,7 @@ impl Repository {
             custom_source_collections: BTreeSet::new(),
             custom_source_snapshot: BTreeMap::new(),
             extension_text_indexes: BTreeMap::new(),
+            selected_derived_indexes: BTreeMap::new(),
         }
     }
 
@@ -710,6 +718,11 @@ impl Repository {
                 .get(&key.collection)
                 .is_some_and(|snapshot| snapshot.fingerprint == key.selection)
         });
+        self.selected_derived_indexes.retain(|key, _| {
+            self.custom_source_snapshot
+                .get(&key.collection)
+                .is_some_and(|snapshot| snapshot.fingerprint == key.selection)
+        });
         self.metrics.reload_nanos += nanos(t);
         Ok(())
     }
@@ -738,6 +751,8 @@ impl Repository {
             .retain(|name, _| unchanged.contains(name));
         self.file_pickers.retain(|name, _| unchanged.contains(name));
         self.extension_text_indexes
+            .retain(|key, _| unchanged.contains(&key.collection));
+        self.selected_derived_indexes
             .retain(|key, _| unchanged.contains(&key.collection));
         self.requested_postings
             .retain(|name, _| self.model.collections.contains_key(name));

@@ -94,6 +94,10 @@ impl Repository {
             || self
                 .extension_text_indexes
                 .keys()
+                .any(|key| key.collection == collection)
+            || self
+                .selected_derived_indexes
+                .keys()
                 .any(|key| key.collection == collection);
         if !tracks_selection {
             return Ok(None);

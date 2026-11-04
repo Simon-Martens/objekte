@@ -24,6 +24,10 @@ The typed-extractor contract is consumed by `build_derived_posting`, `derived_va
 
 `Repository::build_representation_index(collection, representation, path)` explicitly builds a process-local posting for a bound logical text path using the existing concrete bigram builder. It reads and decodes each selected source once, reuses byte and renderer buffers, includes a separate Unicode-folded copy where needed, and publishes only after every read, decode, render and request-freshness check succeeds. The key contains the selected source revisions, schema/mapping semantics, registered descriptors, encoding, path and representation. Refresh, source-change publication and reload invalidate stale entries. Memory-cache mode and non-hash freshness are required. The index is not yet saved in snapshots. A compiled operator must opt into `can_skip_non_candidates` before a frontend uses its necessary condition; the default is false so an operator error on an excluded source is not suppressed. AND narrows only from its first child to preserve short-circuit error order, OR requires every branch to be covered, and NOT scans. The engine verifies every retained candidate and materializes returned pages through the provider.
 
+`Repository::build_selected_derived_posting(collection, extractor)` builds an optional process-local typed posting across the same selected provider table. It uses the picker's existing `TypedIndex` B-tree and reserved derived path; it does not introduce a second tree implementation. Missing, present with no value, null, multiple outputs and extraction errors retain their distinct rules. A derived predicate can use this posting as an exact necessary condition when it is the first AND term or every OR branch has coverage. Source reads and exact evaluation remain authoritative for candidates. The posting is keyed by bound extractor, schema and registration semantics plus source revisions, and refresh/reload invalidate it. Build failure publishes no partial posting. Indexed derived sorting is not yet connected to the frontend executor; it still uses the bounded heap.
+
+When several outputs are needed, `Repository::build_selected_indexes` takes up to eight `SelectedIndexRequest::Text` and `SelectedIndexRequest::Derived` requests and builds the missing postings in one selected-source pass. Each source is read and decoded once; text rendering and typed extraction share the borrowed record, and buffers are reused across sources. All newly requested postings publish together after complete extraction and the final freshness check. The individual build methods remain convenient when only one output is needed. This explicit build does not change the default JSON picker or automatically add work to unused extensions.
+
 ## Derived typed values
 
 A registered `ValueExtractor` receives borrowed `RecordAccess` and appends values to a worker-reused vector. `path_present` distinguishes a missing path from a present empty array; `visit_path` visits scalar leaves in source order and stops on callback errors. The native Sonic projection and direct JSON evaluation expose the same canonical number spellings. An extractor reports `Missing`, `Present` with zero or more values, explicit `Null`, or an error. Emitting values while reporting `Missing` is an error. Invalid decimal output is an error. An extractor with `Volatile` dependencies can be used by direct evaluation but cannot create a persistent posting.
@@ -111,7 +115,7 @@ let leaves = repo.read_source_leaves(&source)?;
 `ArchiveFrontend` in the consumer crate compiles a structured request into a Markdown-normalized text call, an optional `publication_year` range, optional prefix `OR` and `NOT`, and a year sort. The executor sorts a bounded prefix. An explicit representation index can narrow eligible text predicates; derived indexed sort and persistent provider index snapshots remain pending.
 
 ```rust,no_run
-use objekte_core::{Repository, TextFormat, TextMode, extensions::{NativeTextOperator, RenderedRepresentation, StoredRepresentation}};
+use objekte_core::{Repository, SelectedIndexRequest, TextFormat, TextMode, extensions::{NativeTextOperator, RenderedRepresentation, StoredRepresentation}};
 use objekte_extension_tests::{ArchiveFrontend, MarkdownDecoder, MarkdownProvider, PrefixOperator, PublicationYearExtractor};
 
 let root = std::path::Path::new("my-repository");
@@ -125,7 +129,14 @@ let mut repo = Repository::builder(root)
     .register_extractor(PublicationYearExtractor::default())?
     .register_frontend(ArchiveFrontend::default())?
     .open()?;
-repo.build_representation_index("archive", "objekte:visible-markdown", "body")?;
+repo.build_selected_indexes("archive", &[
+    SelectedIndexRequest::Text {
+        representation: "objekte:visible-markdown", path: "body",
+    },
+    SelectedIndexRequest::Derived {
+        extractor: "example:publication_year",
+    },
+])?;
 let page = repo.query_frontend("example:archive-search", &serde_json::json!({
     "collection": "archive", "term": "history", "min_year": 1848,
     "sort_year": true, "offset": 25, "limit": 25, "count": true

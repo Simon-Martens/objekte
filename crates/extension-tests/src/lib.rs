@@ -1067,6 +1067,411 @@ mod tests {
     }
 
     #[test]
+    fn selected_derived_posting_matches_mixed_source_scan_and_refresh() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(&directory).unwrap();
+        for (id, date) in [
+            ("a", serde_json::json!("1848")),
+            ("b", serde_json::json!("circa 1852")),
+            ("c", serde_json::Value::Null),
+            ("d", serde_json::json!(["1848", "1860"])),
+        ] {
+            fs::write(
+                directory.join(format!("{id}.json")),
+                serde_json::to_vec(&serde_json::json!({
+                    "body": format!("Entry {id}"), "publication_date": date,
+                }))
+                .unwrap(),
+            )
+            .unwrap();
+        }
+        fs::write(directory.join("e.md"), "# No date").unwrap();
+        let open = |freshness: Freshness| {
+            Repository::builder(temp.path())
+                .options(Options {
+                    query_cache_bytes: 0,
+                    freshness,
+                    ..Default::default()
+                })
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
+                .register_representation(StoredRepresentation::default())
+                .unwrap()
+                .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+                .unwrap()
+                .register_operator(PrefixOperator::default())
+                .unwrap()
+                .register_operator(NativeTextOperator::new(TextMode::Word, false))
+                .unwrap()
+                .register_extractor(PublicationYearExtractor::default())
+                .unwrap()
+                .register_frontend(ArchiveFrontend::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let mut direct = open(Freshness::MetadataOnOpen);
+        let mut indexed = open(Freshness::MetadataOnOpen);
+        assert_eq!(
+            indexed
+                .build_selected_derived_posting("archive", "example:publication_year")
+                .unwrap(),
+            5
+        );
+        for (minimum, expected_ids) in [(1850, vec!["b", "d"]), (1861, vec![])] {
+            let request = serde_json::json!({
+                "collection":"archive", "min_year":minimum, "count":true,
+            });
+            let scan = direct
+                .query_frontend("example:archive-search", &request)
+                .unwrap();
+            let result = indexed
+                .query_frontend("example:archive-search", &request)
+                .unwrap();
+            assert_eq!(result.query_plan, ["extension-index-candidates"]);
+            assert_eq!(result.identity, scan.identity);
+            assert_eq!(result.total, scan.total);
+            assert_eq!(result.truncated, scan.truncated);
+            assert_eq!(result.metrics.fts_candidates, 0);
+            assert_eq!(
+                result
+                    .rows
+                    .iter()
+                    .map(|row| row.source.record_id.as_str())
+                    .collect::<Vec<_>>(),
+                expected_ids
+            );
+            assert_eq!(
+                result
+                    .rows
+                    .iter()
+                    .map(|row| (&row.source.record_id, &row.values))
+                    .collect::<Vec<_>>(),
+                scan.rows
+                    .iter()
+                    .map(|row| (&row.source.record_id, &row.values))
+                    .collect::<Vec<_>>()
+            );
+            assert!(result.metrics.source_reads < scan.metrics.source_reads);
+        }
+        let request = serde_json::json!({
+            "collection":"archive", "min_year":1850, "sort_year":true,
+            "count":true,
+        });
+        assert!(
+            indexed
+                .query_frontend("example:archive-search", &request)
+                .is_err()
+        );
+        assert!(
+            direct
+                .query_frontend("example:archive-search", &request)
+                .is_err()
+        );
+        let mut cached = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        cached
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        cached
+            .query_frontend(
+                "example:archive-search",
+                &serde_json::json!({
+                    "collection":"archive", "min_year":1850,
+                    "limit":1, "count":true,
+                }),
+            )
+            .unwrap();
+        let cached_page = cached
+            .query_frontend(
+                "example:archive-search",
+                &serde_json::json!({
+                    "collection":"archive", "min_year":1850,
+                    "offset":1, "limit":1, "count":true,
+                }),
+            )
+            .unwrap();
+        assert_eq!(cached_page.query_plan, ["extension-ordered-cache"]);
+        assert_eq!(cached_page.rows[0].source.record_id, "d");
+        assert_eq!(cached_page.metrics.source_reads, 1);
+        assert_eq!(cached_page.metrics.enumerations, 0);
+        fs::write(
+            directory.join("b.json"),
+            r#"{"body":"Entry b","publication_date":"1840"}"#,
+        )
+        .unwrap();
+        indexed.refresh("archive").unwrap();
+        let request = serde_json::json!({
+            "collection":"archive", "min_year":1850, "count":true,
+        });
+        let after_refresh = indexed
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(after_refresh.query_plan, ["extension-exact-scan"]);
+        assert_eq!(after_refresh.total, Some(1));
+        indexed
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        let rebuilt = indexed
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(rebuilt.query_plan, ["extension-index-candidates"]);
+        assert_eq!(rebuilt.total, after_refresh.total);
+        let mut on_request = open(Freshness::MetadataOnRequest);
+        on_request
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        fs::write(
+            directory.join("a.json"),
+            r#"{"body":"Entry a","publication_date":"1863"}"#,
+        )
+        .unwrap();
+        let changed_without_refresh = on_request
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(changed_without_refresh.query_plan, ["extension-exact-scan"]);
+        assert_eq!(changed_without_refresh.total, Some(2));
+        fs::write(
+            directory.join("b.json"),
+            r#"{"body":"Entry b","publication_date":"1848–1850"}"#,
+        )
+        .unwrap();
+        indexed.refresh("archive").unwrap();
+        assert!(
+            indexed
+                .build_selected_derived_posting("archive", "example:publication_year")
+                .is_err()
+        );
+        assert!(
+            indexed
+                .query_frontend("example:archive-search", &request)
+                .is_err()
+        );
+    }
+
+    #[test]
+    fn mixed_text_and_derived_or_requires_both_postings() {
+        struct MixedOrFrontend(Descriptor);
+
+
+        impl Default for MixedOrFrontend {
+            fn default() -> Self {
+                Self(Descriptor::new(
+                    "example:mixed-or",
+                    SemanticVersion {
+                        major: 1,
+                        minor: 0,
+                        patch: 0,
+                    },
+                    &(),
+                    DataKind::Query,
+                    DataKind::Query,
+                    vec![],
+                ))
+            }
+        }
+
+
+        impl QueryFrontend for MixedOrFrontend {
+            fn descriptor(&self) -> &Descriptor {
+                &self.0
+            }
+
+            fn compile(&self, _: &Value, bindings: &ExtensionBindings<'_>) -> Result<LogicalPlan> {
+                Ok(LogicalPlan {
+                    collections: vec!["archive".into()],
+                    predicate: LogicalPredicate::Or(vec![
+                        LogicalPredicate::Call {
+                            operator: bindings.operator("example:prefix").unwrap(),
+                            representation: bindings.representation("objekte:stored").unwrap(),
+                            path: "body".into(),
+                            parameters: Value::String("target".into()),
+                        },
+                        LogicalPredicate::Derived {
+                            extractor: bindings.extractor("example:publication_year").unwrap(),
+                            predicate: objekte_core::DerivedPredicate::Ge(TypedValue::Number(
+                                "1850".into(),
+                            )),
+                        },
+                    ]),
+                    sort: vec![],
+                    columns: vec!["body".into()],
+                    offset: 0,
+                    limit: 10,
+                    count: true,
+                })
+            }
+        }
+
+
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(&directory).unwrap();
+        for (id, body, date) in [
+            ("a", "target A", "1800"),
+            ("b", "other B", "1852"),
+            ("c", "other C", "1800"),
+        ] {
+            fs::write(
+                directory.join(format!("{id}.json")),
+                serde_json::to_vec(&serde_json::json!({
+                    "body":body, "publication_date":date,
+                }))
+                .unwrap(),
+            )
+            .unwrap();
+        }
+        fs::write(directory.join("d.md"), "target D").unwrap();
+        let open = || {
+            Repository::builder(temp.path())
+                .options(Options {
+                    query_cache_bytes: 0,
+                    ..Default::default()
+                })
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
+                .register_representation(StoredRepresentation::default())
+                .unwrap()
+                .register_operator(PrefixOperator::default())
+                .unwrap()
+                .register_extractor(PublicationYearExtractor::default())
+                .unwrap()
+                .register_frontend(MixedOrFrontend::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let mut direct = open();
+        let mut indexed = open();
+        indexed
+            .build_representation_index("archive", "objekte:stored", "body")
+            .unwrap();
+        let request = Value::Null;
+        let without_year_posting = indexed
+            .query_frontend("example:mixed-or", &request)
+            .unwrap();
+        assert_eq!(without_year_posting.query_plan, ["extension-exact-scan"]);
+        indexed
+            .build_selected_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        let expected = direct.query_frontend("example:mixed-or", &request).unwrap();
+        let actual = indexed
+            .query_frontend("example:mixed-or", &request)
+            .unwrap();
+        assert_eq!(actual.query_plan, ["extension-index-candidates"]);
+        assert_eq!(actual.metrics.fts_candidates, 0);
+        assert_eq!(actual.identity, expected.identity);
+        assert_eq!(actual.total, expected.total);
+        assert_eq!(actual.truncated, expected.truncated);
+        assert_eq!(
+            actual
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "b", "d"]
+        );
+        assert_eq!(
+            actual
+                .rows
+                .iter()
+                .map(|row| (&row.source.record_id, &row.values))
+                .collect::<Vec<_>>(),
+            expected
+                .rows
+                .iter()
+                .map(|row| (&row.source.record_id, &row.values))
+                .collect::<Vec<_>>()
+        );
+        assert!(actual.metrics.source_reads < expected.metrics.source_reads);
+        let mut fused = open();
+        fused.reset_metrics();
+        assert_eq!(
+            fused
+                .build_selected_indexes(
+                    "archive",
+                    &[
+                        objekte_core::SelectedIndexRequest::Text {
+                            representation: "objekte:stored",
+                            path: "body",
+                        },
+                        objekte_core::SelectedIndexRequest::Derived {
+                            extractor: "example:publication_year",
+                        },
+                    ],
+                )
+                .unwrap(),
+            4
+        );
+        assert_eq!(fused.metrics().source_reads, 4);
+        assert_eq!(fused.metrics().parses, 4);
+        let fused_result = fused.query_frontend("example:mixed-or", &request).unwrap();
+        assert_eq!(fused_result.query_plan, actual.query_plan);
+        assert_eq!(fused_result.identity, actual.identity);
+        assert_eq!(
+            fused_result
+                .rows
+                .iter()
+                .map(|row| (&row.source.record_id, &row.values))
+                .collect::<Vec<_>>(),
+            actual
+                .rows
+                .iter()
+                .map(|row| (&row.source.record_id, &row.values))
+                .collect::<Vec<_>>()
+        );
+        fs::write(
+            directory.join("c.json"),
+            r#"{"body":"other C","publication_date":"1848–1850"}"#,
+        )
+        .unwrap();
+        let mut failed = open();
+        assert!(
+            failed
+                .build_selected_indexes(
+                    "archive",
+                    &[
+                        objekte_core::SelectedIndexRequest::Text {
+                            representation: "objekte:stored",
+                            path: "body",
+                        },
+                        objekte_core::SelectedIndexRequest::Derived {
+                            extractor: "example:publication_year",
+                        },
+                    ],
+                )
+                .is_err()
+        );
+        let previous_reads = failed.metrics().source_reads;
+        failed
+            .build_representation_index("archive", "objekte:stored", "body")
+            .unwrap();
+        assert_eq!(failed.metrics().source_reads - previous_reads, 4);
+    }
+
+    #[test]
     fn fallible_operator_hint_does_not_skip_an_erroring_record() {
         struct FallibleOperator(Descriptor);
 

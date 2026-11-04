@@ -55,7 +55,7 @@ pub(super) struct RepresentationIndex {
 }
 
 
-fn binding_path(path: &[JsonPathStep]) -> String {
+pub(super) fn binding_path(path: &[JsonPathStep]) -> String {
     let mut result = String::new();
     for step in path {
         match step {
@@ -71,7 +71,7 @@ fn binding_path(path: &[JsonPathStep]) -> String {
     result
 }
 
-fn field_format(collection: &Collection, path: &[JsonPathStep]) -> &'static str {
+pub(super) fn field_format(collection: &Collection, path: &[JsonPathStep]) -> &'static str {
     let formats = TextRules::new(&collection.fields)
         .declared_text_paths()
         .into_iter()
@@ -88,7 +88,7 @@ fn field_format(collection: &Collection, path: &[JsonPathStep]) -> &'static str 
     }
 }
 
-fn add_text(
+pub(super) fn add_text(
     record: &dyn crate::extensions::DecodedRecord,
     path: &crate::JsonPath,
     representation: &dyn TextRepresentation,
@@ -267,6 +267,8 @@ impl Repository {
 
     pub(super) fn invalidate_representation_indexes(&mut self, collection: &str) {
         self.extension_text_indexes
+            .retain(|key, _| key.collection != collection);
+        self.selected_derived_indexes
             .retain(|key, _| key.collection != collection);
     }
 }

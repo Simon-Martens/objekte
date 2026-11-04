@@ -11,6 +11,7 @@ use crate::{
     },
     file_picker::TypedKey,
     repository::{
+        extension_derived_index::SelectedDerivedKey,
         extension_index::RepresentationIndexKey,
         ordered_result_cache::{OrderedCoverage, OrderedResultKey},
         predicate_cache::PredicateCacheKey,
@@ -63,6 +64,12 @@ enum CompiledPredicate {
 }
 
 
+struct ExtensionCandidates {
+    bits: Vec<u64>,
+    text_only: bool,
+}
+
+
 impl CompiledPredicate {
     fn identity(&self) -> Value {
         match self {
@@ -93,8 +100,9 @@ impl CompiledPredicate {
         repository: &Repository,
         collection: &Collection,
         selection: &str,
+        source_count: usize,
         extensions: &crate::extensions::Extensions,
-    ) -> Option<Vec<u64>> {
+    ) -> Option<ExtensionCandidates> {
         match self {
             Self::Call {
                 path_name,
@@ -126,20 +134,35 @@ impl CompiledPredicate {
                     extensions,
                     encoding,
                 );
-                repository.representation_index_candidates(&key, literal)
+                repository
+                    .representation_index_candidates(&key, literal)
+                    .map(|bits| ExtensionCandidates {
+                        bits,
+                        text_only: true,
+                    })
             }
-            Self::And(parts) => parts
-                .first()?
-                .candidate_bits(repository, collection, selection, extensions),
+            Self::And(parts) => parts.first()?.candidate_bits(
+                repository,
+                collection,
+                selection,
+                source_count,
+                extensions,
+            ),
             Self::Or(parts) if !parts.is_empty() => {
-                let mut union = None::<Vec<u64>>;
+                let mut union = None::<ExtensionCandidates>;
                 for part in parts {
-                    let next =
-                        part.candidate_bits(repository, collection, selection, extensions)?;
-                    if let Some(bits) = &mut union {
-                        for (word, extra) in bits.iter_mut().zip(next) {
+                    let next = part.candidate_bits(
+                        repository,
+                        collection,
+                        selection,
+                        source_count,
+                        extensions,
+                    )?;
+                    if let Some(combined) = &mut union {
+                        for (word, extra) in combined.bits.iter_mut().zip(next.bits) {
                             *word |= extra;
                         }
+                        combined.text_only &= next.text_only;
                     } else {
                         union = Some(next);
                     }
@@ -148,7 +171,22 @@ impl CompiledPredicate {
 
                 union
             }
-            Self::Derived { .. } | Self::Not(_) | Self::Call { .. } | Self::Or(_) => None,
+            Self::Derived {
+                binding,
+                predicate,
+                key,
+                ..
+            } => {
+                let index_key =
+                    SelectedDerivedKey::new(collection, &binding.path, selection, extensions);
+                repository
+                    .selected_derived_candidates(&index_key, predicate, key.as_ref(), source_count)
+                    .map(|bits| ExtensionCandidates {
+                        bits,
+                        text_only: false,
+                    })
+            }
+            Self::Not(_) | Self::Call { .. } | Self::Or(_) => None,
         }
     }
 
@@ -684,8 +722,14 @@ impl Repository {
             compiled
                 .iter()
                 .zip(&selections)
-                .map(|((collection, predicate, _), (_, selection))| {
-                    predicate.candidate_bits(self, collection, selection, extensions)
+                .map(|((collection, predicate, _), (selected, selection))| {
+                    predicate.candidate_bits(
+                        self,
+                        collection,
+                        selection,
+                        selected.len(),
+                        extensions,
+                    )
                 })
                 .collect::<Vec<_>>()
         };
@@ -705,13 +749,18 @@ impl Repository {
                 compiled.iter().zip(&selections).zip(&candidates)
             {
                 for (index, source) in selected.iter().enumerate() {
-                    if candidate.as_ref().is_some_and(|bits| {
-                        bits.get(index / 64)
+                    if candidate.as_ref().is_some_and(|candidate| {
+                        candidate
+                            .bits
+                            .get(index / 64)
                             .is_none_or(|word| word & (1 << (index % 64)) == 0)
                     }) {
                         continue;
                     }
-                    if candidate.is_some() {
+                    if candidate
+                        .as_ref()
+                        .is_some_and(|candidate| candidate.text_only)
+                    {
                         self.metrics.fts_candidates += 1;
                     }
                     let bytes = self.read_selected_source_bytes(source)?;
