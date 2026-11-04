@@ -1,7 +1,9 @@
 //! Full-text search over all included JSON leaf values.
 
 use super::*;
-use crate::extensions::{BoundTextQuery, CandidateConstraint};
+use crate::extensions::{
+    BoundTextQuery, CandidateConstraint, NativeTextProjection, TextPreparation,
+};
 use crate::file_picker::SlotSelection;
 use crate::repository::{
     ordered_result_cache::{OrderedCoverage, OrderedResultKey},
@@ -296,9 +298,9 @@ impl Repository {
         }
         let request = &bounded;
         let matcher = if CUSTOM {
-            TextMatcher::compile_extension()
+            None
         } else {
-            TextMatcher::compile(request)?
+            Some(TextMatcher::compile(request)?)
         };
         let filter = request
             .filter
@@ -366,6 +368,16 @@ impl Repository {
                 .expect("scoped collection")
                 .to_path_buf();
             let rules = TextRules::new(&c.fields);
+            let extension_binding = if CUSTOM {
+                Some(matcher::TextBindingPlan::new(
+                    &name,
+                    extension_schema.as_deref(),
+                    &rules,
+                    extension.expect("custom text definition is bound"),
+                ))
+            } else {
+                None
+            };
             let source = Source::open_scoped(&c.path, c.recursive)?;
             let mut optimistic = false;
             // Postings only narrow the candidate list. The source check below
@@ -383,26 +395,60 @@ impl Repository {
                 used_regular_index |= !has_text_index;
                 selection = Some(if CUSTOM {
                     let extension = extension.expect("custom text definition is bound");
-                    let raw_literal = match &extension.candidate {
+                    let (candidate, raw) = match &extension.candidate {
                         CandidateConstraint::BigramLiteral {
                             literal,
                             representation,
                         } if representation == "objekte:stored"
-                            && extension.representation.descriptor().identity
-                                == *representation =>
+                            && extension.native_index_projection
+                                == Some(NativeTextProjection::Stored)
+                            && extension.preparation == TextPreparation::Stored =>
                         {
-                            Some(literal.as_str())
+                            (Some(literal.as_str()), true)
                         }
-                        _ => None,
+                        CandidateConstraint::BigramLiteral {
+                            literal,
+                            representation,
+                        } if representation == "objekte:visible-normalized"
+                            && extension.preparation == TextPreparation::VisibleNormalized
+                            && matches!(
+                                extension.native_index_projection,
+                                Some(NativeTextProjection::VisibleNormalized(_))
+                            )
+                            && has_text_index =>
+                        {
+                            (Some(literal.as_str()), false)
+                        }
+                        CandidateConstraint::BigramLiteral {
+                            literal,
+                            representation,
+                        } if representation == "objekte:visible-normalized"
+                            && extension.preparation == TextPreparation::VisibleNormalized
+                            && extension.native_index_projection
+                                == Some(NativeTextProjection::VisibleNormalized(
+                                    crate::TextFormat::Plain,
+                                ))
+                            && !has_text_index =>
+                        {
+                            // On schemaless plain text, each complete word
+                            // remains a necessary substring of stored bytes.
+                            let word = literal
+                                .split(' ')
+                                .max_by_key(|word| word.len())
+                                .filter(|word| !word.is_empty());
+                            (word, true)
+                        }
+                        _ => (None, true),
                     };
                     picker.text_candidate_selection(
-                        raw_literal,
-                        true,
+                        candidate,
+                        raw,
                         true,
                         requested_fields.as_ref(),
                         |_, _| true,
                     )
                 } else {
+                    let matcher = matcher.as_ref().expect("native text matcher exists");
                     picker.text_candidate_selection(
                         if has_text_index {
                             matcher.candidate_pattern.as_deref()
@@ -477,7 +523,10 @@ impl Repository {
                 && self.options.freshness != Freshness::HashOnRequest
                 && self.query_cache.enabled()
                 && (!streaming || self.options.stream_query_cache)
-                && (!CUSTOM || extension.expect("custom text definition is bound").cacheable)
+                && (!CUSTOM
+                    || extension
+                        .expect("custom text definition is bound")
+                        .cacheable)
             {
                 let picker = &self.file_pickers[&name];
                 // Linked records can change without this collection changing.
@@ -593,7 +642,10 @@ impl Repository {
                         let verified = if malformed {
                             if !CUSTOM
                                 && requested_fields.is_none()
-                                && matcher.matches_malformed(&raw.json)
+                                && matcher
+                                    .as_ref()
+                                    .expect("native text matcher exists")
+                                    .matches_malformed(&raw.json)
                             {
                                 TextMatches {
                                     fields: vec!["$raw".into()],
@@ -606,21 +658,26 @@ impl Repository {
                                 }
                             }
                         } else if CUSTOM {
-                            matcher.matching_fields_extension(
+                            TextMatcher::matching_fields_extension(
                                 &document.data,
                                 &rules,
                                 requested_fields.as_ref(),
                                 true,
                                 extension.expect("custom text definition is bound"),
-                                (&name, extension_schema.as_deref()),
+                                extension_binding
+                                    .as_ref()
+                                    .expect("custom text binding exists"),
                             )?
                         } else {
-                            matcher.matching_fields(
-                                &document.data,
-                                &rules,
-                                requested_fields.as_ref(),
-                                true,
-                            )
+                            matcher
+                                .as_ref()
+                                .expect("native text matcher exists")
+                                .matching_fields(
+                                    &document.data,
+                                    &rules,
+                                    requested_fields.as_ref(),
+                                    true,
+                                )
                         };
                         if verified.fields.is_empty() {
                             return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
@@ -789,25 +846,31 @@ impl Repository {
                             } else if document.state.status == RecordStatus::IncorrectJson {
                                 if !CUSTOM
                                     && requested_fields.is_none()
-                                    && matcher.matches_malformed(bytes)
+                                    && matcher
+                                        .as_ref()
+                                        .expect("native text matcher exists")
+                                        .matches_malformed(bytes)
                                 {
                                     vec!["$raw".into()]
                                 } else {
                                     Vec::new()
                                 }
                             } else if CUSTOM {
-                                matcher
-                                    .matching_fields_extension(
-                                        &document.data,
-                                        &rules,
-                                        requested_fields.as_ref(),
-                                        false,
-                                        extension.expect("custom text definition is bound"),
-                                        (&name, extension_schema.as_deref()),
-                                    )?
-                                    .fields
+                                TextMatcher::matching_fields_extension(
+                                    &document.data,
+                                    &rules,
+                                    requested_fields.as_ref(),
+                                    false,
+                                    extension.expect("custom text definition is bound"),
+                                    extension_binding
+                                        .as_ref()
+                                        .expect("custom text binding exists"),
+                                )?
+                                .fields
                             } else {
                                 matcher
+                                    .as_ref()
+                                    .expect("native text matcher exists")
                                     .matching_fields(
                                         &document.data,
                                         &rules,
@@ -959,7 +1022,10 @@ impl Repository {
                     let verified = if malformed {
                         if !CUSTOM
                             && requested_fields.is_none()
-                            && matcher.matches_malformed(&raw.json)
+                            && matcher
+                                .as_ref()
+                                .expect("native text matcher exists")
+                                .matches_malformed(&raw.json)
                         {
                             TextMatches {
                                 fields: vec!["$raw".into()],
@@ -972,21 +1038,26 @@ impl Repository {
                             }
                         }
                     } else if CUSTOM {
-                        matcher.matching_fields_extension(
+                        TextMatcher::matching_fields_extension(
                             &document.data,
                             &rules,
                             requested_fields.as_ref(),
                             true,
                             extension.expect("custom text definition is bound"),
-                            (&name, extension_schema.as_deref()),
+                            extension_binding
+                                .as_ref()
+                                .expect("custom text binding exists"),
                         )?
                     } else {
-                        matcher.matching_fields(
-                            &document.data,
-                            &rules,
-                            requested_fields.as_ref(),
-                            true,
-                        )
+                        matcher
+                            .as_ref()
+                            .expect("native text matcher exists")
+                            .matching_fields(
+                                &document.data,
+                                &rules,
+                                requested_fields.as_ref(),
+                                true,
+                            )
                     };
                     if (!from_cache && verified.fields != matched_fields)
                         || verified.fields.is_empty()
@@ -1073,7 +1144,7 @@ impl Repository {
             "normal and full-text bigram candidates; source verification".into()
         } else if used_regular_index {
             "normal bigram candidates; source text verification".into()
-        } else if matcher.raw {
+        } else if matcher.as_ref().is_some_and(|matcher| matcher.raw) {
             "raw markup full-text bigram candidates; source verification".into()
         } else {
             "rendered full-text bigram candidates; source verification".into()

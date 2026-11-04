@@ -90,7 +90,10 @@ impl Default for TrimmedRepresentation {
                 &(),
                 DataKind::Text,
                 DataKind::Text,
-                vec![Dependency::SourceBytes, Dependency::Schema("x-trimmed".into())],
+                vec![
+                    Dependency::SourceBytes,
+                    Dependency::Schema("x-trimmed".into()),
+                ],
             ),
         }
     }
@@ -194,18 +197,50 @@ mod tests {
         assert_eq!(rendered.hits[0].matched_paths, ["html"]);
 
         for (mode, pattern, representation, operator) in [
-            (TextMode::Word, "Hello", "objekte:visible-html", "objekte:word"),
-            (TextMode::WordRaw, "He<b>", "objekte:stored", "objekte:word-raw"),
-            (TextMode::Regex, "He<b>llo", "objekte:stored", "objekte:regex"),
+            (
+                TextMode::Word,
+                "Hello",
+                "objekte:visible-html",
+                "objekte:word",
+            ),
+            (
+                TextMode::WordRaw,
+                "He<b>",
+                "objekte:stored",
+                "objekte:word-raw",
+            ),
+            (
+                TextMode::Regex,
+                "He<b>llo",
+                "objekte:stored",
+                "objekte:regex",
+            ),
         ] {
             request.mode = mode;
             request.pattern = pattern.into();
             let legacy = repository.search_text(&request).unwrap();
-            let registered = repository.search_text_with(&request, representation, operator).unwrap();
+            let registered = repository
+                .search_text_with(&request, representation, operator)
+                .unwrap();
             assert_eq!(legacy.total, registered.total);
+            if mode == TextMode::Word {
+                assert_eq!(
+                    legacy.metrics.fts_candidates,
+                    registered.metrics.fts_candidates
+                );
+                assert!(registered.metrics.fts_candidates < 3);
+            }
             assert_eq!(
-                legacy.hits.iter().map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths)).collect::<Vec<_>>(),
-                registered.hits.iter().map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths)).collect::<Vec<_>>()
+                legacy
+                    .hits
+                    .iter()
+                    .map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths))
+                    .collect::<Vec<_>>(),
+                registered
+                    .hits
+                    .iter()
+                    .map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths))
+                    .collect::<Vec<_>>()
             );
         }
         for (field, pattern, representation) in [
@@ -218,11 +253,50 @@ mod tests {
             request.mode = TextMode::Word;
             request.pattern = pattern.into();
             let legacy = repository.search_text(&request).unwrap();
-            let registered = repository.search_text_with(&request, representation, "objekte:word").unwrap();
+            let registered = repository
+                .search_text_with(&request, representation, "objekte:word")
+                .unwrap();
             assert_eq!(legacy.total, registered.total);
-            assert_eq!(legacy.hits.iter().map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths)).collect::<Vec<_>>(),
-                       registered.hits.iter().map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths)).collect::<Vec<_>>());
+            assert_eq!(
+                legacy.metrics.fts_candidates,
+                registered.metrics.fts_candidates
+            );
+            assert_eq!(
+                legacy
+                    .hits
+                    .iter()
+                    .map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths))
+                    .collect::<Vec<_>>(),
+                registered
+                    .hits
+                    .iter()
+                    .map(|hit| (&hit.record.id, &hit.fields, &hit.matched_paths))
+                    .collect::<Vec<_>>()
+            );
         }
+
+        repository.save_bigram_cache("books").unwrap();
+        let mut restored = Repository::builder(root.path())
+            .register_representation(RenderedRepresentation::new(TextFormat::Html).unwrap())
+            .unwrap()
+            .register_representation(TrimmedRepresentation::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .open()
+            .unwrap();
+        request.fields = Some(vec!["html".into()]);
+        request.pattern = "Hello".into();
+        let from_snapshot = restored
+            .search_text_with(&request, "objekte:visible-html", "objekte:word")
+            .unwrap();
+        let native_snapshot = restored.search_text(&request).unwrap();
+        assert_eq!(from_snapshot.total, native_snapshot.total);
+        assert_eq!(
+            from_snapshot.metrics.fts_candidates,
+            native_snapshot.metrics.fts_candidates
+        );
+        assert_eq!(from_snapshot.hits[0].record.id, "a");
 
         request.pattern = "He".into();
         request.mode = TextMode::Word;
@@ -291,10 +365,27 @@ mod tests {
 
         fs::write(
             books.join("c.json"),
-            r#"{"body":"Hello C","html":"<i>Other</i>"}"#,
+            r#"{"body":"Hello C","html":"He<b>llo</b>"}"#,
         )
         .unwrap();
         repository.refresh("books").unwrap();
+        let markup = TextQuery {
+            pattern: "Hello".into(),
+            collections: Some(vec!["books".into()]),
+            fields: Some(vec!["html".into()]),
+            count: true,
+            ..Default::default()
+        };
+        let native_markup = repository.search_text(&markup).unwrap();
+        let registered_markup = repository
+            .search_text_with(&markup, "objekte:visible-html", "objekte:word")
+            .unwrap();
+        assert_eq!(native_markup.total, Some(2));
+        assert_eq!(registered_markup.total, native_markup.total);
+        assert_eq!(
+            registered_markup.metrics.fts_candidates,
+            native_markup.metrics.fts_candidates
+        );
         assert_eq!(
             repository
                 .search_text_with(&request, "example:trimmed", "example:prefix")

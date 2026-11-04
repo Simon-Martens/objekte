@@ -12,6 +12,8 @@ use std::collections::BTreeMap;
 
 pub(crate) use malformed::malformed_search_text;
 pub(crate) use matcher::TextPattern;
+#[cfg(test)]
+pub(crate) use render::take_normalization_calls;
 pub(crate) use render::{needs_normalizing, render_text, render_text_into};
 #[cfg(test)]
 pub(crate) use values::visit_sonic_text;

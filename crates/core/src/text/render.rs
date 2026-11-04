@@ -10,6 +10,16 @@ use html5gum::{Token, Tokenizer};
 use pulldown_cmark::{Event as MarkdownEvent, Parser as MarkdownParser, Tag, TagEnd};
 use quick_xml::{escape::unescape, events::Event as XmlEvent, reader::Reader};
 
+#[cfg(test)]
+thread_local! {
+    static NORMALIZATION_CALLS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn take_normalization_calls() -> usize {
+    NORMALIZATION_CALLS.with(|calls| calls.replace(0))
+}
+
 pub(crate) fn render_text(source: &str, format: TextFormat) -> Option<String> {
     let visible = match format {
         TextFormat::Plain => return Some(normalize_whitespace(source)),
@@ -87,6 +97,8 @@ pub(crate) fn needs_normalizing(text: &str) -> bool {
 }
 
 fn normalize_whitespace_into(source: &str, output: &mut String) {
+    #[cfg(test)]
+    NORMALIZATION_CALLS.with(|calls| calls.set(calls.get() + 1));
     let start = output.len();
     let mut pending_space = false;
     for ch in source.chars() {

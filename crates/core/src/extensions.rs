@@ -203,9 +203,39 @@ pub struct BindingContext<'a> {
 
 /// A text view of one logical source value. The returned slice is borrowed
 /// from `value` or reusable `output`; it cannot escape the current call.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TextPreparation {
+    /// The value remains source text; an operator may prepare it for its mode.
+    Stored,
+    /// Visible text has already had markup, punctuation and spacing prepared.
+    VisibleNormalized,
+}
+
+
+/// A promise that a representation is byte-for-byte equivalent to one of the
+/// engine's existing text projections for candidate filtering. An incorrect
+/// declaration can omit matches; implementations must verify the equivalence.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum NativeTextProjection {
+    Stored,
+    VisibleNormalized(crate::TextFormat),
+}
+
+
+/// Produce one logical text value, with its preparation contract stated once.
 pub trait TextRepresentation: Send + Sync {
     fn descriptor(&self) -> &Descriptor;
     fn binds(&self, context: &BindingContext<'_>) -> bool;
+    fn preparation(&self) -> TextPreparation {
+        TextPreparation::Stored
+    }
+
+    /// Declare compatibility with an existing engine-owned index projection.
+    /// The default keeps independent representations on exact scan fallback.
+    fn native_index_projection(&self) -> Option<NativeTextProjection> {
+        None
+    }
+
     fn render<'a>(&self, value: &'a str, output: &'a mut String) -> Result<Option<&'a str>>;
 }
 
@@ -273,6 +303,11 @@ pub enum CandidateConstraint {
 /// worker; implementations must not retain the borrowed value or scratch.
 pub trait CompiledOperator: Send + Sync {
     fn matches(&self, value: ScalarValue<'_>, scratch: &mut String) -> Result<bool>;
+    /// Consume a representation that has already prepared visible text.
+    fn matches_prepared(&self, value: ScalarValue<'_>, scratch: &mut String) -> Result<bool> {
+        self.matches(value, scratch)
+    }
+
     fn candidate(&self) -> CandidateConstraint {
         CandidateConstraint::Unsupported
     }
@@ -361,6 +396,8 @@ pub struct Extensions {
 
 pub(crate) struct BoundTextQuery {
     pub representation: Arc<dyn TextRepresentation>,
+    pub preparation: TextPreparation,
+    pub native_index_projection: Option<NativeTextProjection>,
     pub operator: Arc<dyn CompiledOperator>,
     pub identity: String,
     pub candidate: CandidateConstraint,
@@ -372,9 +409,10 @@ impl Extensions {
     pub(crate) fn bind_schemas(&mut self, model: &RepositoryModel) -> Result<()> {
         self.schemas.clear();
         for (name, collection) in &model.collections {
-            let (Some(path), Some(expected)) =
-                (collection.schema_path.as_ref(), collection.schema_hash.as_ref())
-            else {
+            let (Some(path), Some(expected)) = (
+                collection.schema_path.as_ref(),
+                collection.schema_hash.as_ref(),
+            ) else {
                 continue;
             };
             let bytes = fs::read(path).map_err(|source| crate::error::io(path, source))?;
@@ -462,6 +500,8 @@ impl Extensions {
             ),
         );
         Ok(BoundTextQuery {
+            preparation: representation.preparation(),
+            native_index_projection: representation.native_index_projection(),
             representation: Arc::clone(representation),
             operator: Arc::from(compiled),
             identity,

@@ -179,3 +179,23 @@ cargo run --release -p objekte-bench --bin fts-query-mix -- examples/musenalm 3
 The [historical query performance notes](QUERY-PERFORMANCE-HISTORY.md) collect
 older comparisons and build-stage measurements. Some commands there refer to
 removed binaries; use the current commands above for new measurements.
+
+## Library text extension recovery comparison
+
+`run_paired_fts_recovery.py` runs the existing 30-case FTS mix in alternating
+reference/candidate processes. It fingerprints Musenalm's content, source
+timestamps, and configuration before timing, validates 30 rows and all query
+rounds, and rejects changed match/first-hit signatures. Cache budgets of 0 and
+64 MiB are separate experiments. The runner records binary digests, exact
+commands, stderr, raw samples, per-case paired deltas, candidate counts, and
+the fixed 16-worker, CPU 0–15 configuration. The caller must build and preserve
+the two normal release executables separately; counting allocators and stage
+timers are not used for these latency runs.
+
+`crates/extension-tests/examples/text_search_compare.rs` compares native and
+explicitly registered plain/Markdown/HTML/XML search through public APIs. It
+uses the same temporary Musenalm schema overlay as `fts-query-mix`, warms both
+paths, alternates timed requests, and emits complete ordered IDs, fields, and
+concrete paths in an untimed pass. Cache-off execution measures exact scanning;
+cache-on execution measures verified-result reuse. The example is an additional
+comparison on the completed candidate, not a reference-revision benchmark.

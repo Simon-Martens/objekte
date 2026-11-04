@@ -36,6 +36,10 @@ impl TextRepresentation for StoredRepresentation {
         true
     }
 
+    fn native_index_projection(&self) -> Option<NativeTextProjection> {
+        Some(NativeTextProjection::Stored)
+    }
+
     fn render<'a>(&self, value: &'a str, _: &'a mut String) -> Result<Option<&'a str>> {
         Ok(Some(value))
     }
@@ -85,6 +89,14 @@ impl TextRepresentation for RenderedRepresentation {
         &self.descriptor
     }
 
+    fn preparation(&self) -> TextPreparation {
+        TextPreparation::VisibleNormalized
+    }
+
+    fn native_index_projection(&self) -> Option<NativeTextProjection> {
+        Some(NativeTextProjection::VisibleNormalized(self.format))
+    }
+
     fn binds(&self, context: &BindingContext<'_>) -> bool {
         let expected = match self.format {
             TextFormat::Plain => "plain",
@@ -104,6 +116,7 @@ impl TextRepresentation for RenderedRepresentation {
     }
 }
 
+
 /// The current word/raw/regex value scanner exposed through registration.
 /// Pair `Word` with a visible representation and raw modes with `stored`.
 pub struct NativeTextOperator {
@@ -111,6 +124,7 @@ pub struct NativeTextOperator {
     mode: crate::TextMode,
     case_sensitive: bool,
 }
+
 
 impl NativeTextOperator {
     pub fn new(mode: crate::TextMode, case_sensitive: bool) -> Self {
@@ -122,7 +136,11 @@ impl NativeTextOperator {
         Self {
             descriptor: Descriptor::new(
                 format!("objekte:{name}"),
-                SemanticVersion { major: 1, minor: 0, patch: 0 },
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
                 &(mode, case_sensitive),
                 DataKind::Text,
                 DataKind::Predicate,
@@ -134,26 +152,38 @@ impl NativeTextOperator {
     }
 }
 
+
 struct NativeCompiled {
     pattern: crate::text::TextPattern,
 }
 
+
 impl CompiledOperator for NativeCompiled {
     fn matches(&self, value: ScalarValue<'_>, _: &mut String) -> Result<bool> {
-        Ok(matches!(value, ScalarValue::Text(text) if self.pattern.matches(text, TextFormat::Plain)))
+        Ok(
+            matches!(value, ScalarValue::Text(text) if self.pattern.matches(text, TextFormat::Plain)),
+        )
+    }
+
+    fn matches_prepared(&self, value: ScalarValue<'_>, _: &mut String) -> Result<bool> {
+        Ok(matches!(value, ScalarValue::Text(text) if self.pattern.matches_prepared(text)))
     }
 
     fn candidate(&self) -> CandidateConstraint {
-        if self.pattern.mode() == crate::TextMode::WordRaw {
-            CandidateConstraint::BigramLiteral {
-                literal: self.pattern.source().into(),
+        match self.pattern.mode() {
+            crate::TextMode::WordRaw => CandidateConstraint::BigramLiteral {
+                literal: self.pattern.needle().expect("word mode has needle").into(),
                 representation: "objekte:stored".into(),
-            }
-        } else {
-            CandidateConstraint::Unsupported
+            },
+            crate::TextMode::Word => CandidateConstraint::BigramLiteral {
+                literal: self.pattern.needle().expect("word mode has needle").into(),
+                representation: "objekte:visible-normalized".into(),
+            },
+            crate::TextMode::Regex => CandidateConstraint::Unsupported,
         }
     }
 }
+
 
 impl QueryOperator for NativeTextOperator {
     fn descriptor(&self) -> &Descriptor {
@@ -161,9 +191,9 @@ impl QueryOperator for NativeTextOperator {
     }
 
     fn compile(&self, parameters: &Value) -> Result<Box<dyn CompiledOperator>> {
-        let pattern = parameters.as_str().ok_or_else(|| {
-            Error::Request("text operator pattern must be a string".into())
-        })?;
+        let pattern = parameters
+            .as_str()
+            .ok_or_else(|| Error::Request("text operator pattern must be a string".into()))?;
         Ok(Box::new(NativeCompiled {
             pattern: crate::text::TextPattern::compile(pattern, self.mode, self.case_sensitive)?,
         }))

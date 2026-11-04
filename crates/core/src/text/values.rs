@@ -105,6 +105,36 @@ impl TextRules {
         paths
     }
 
+    /// Schema paths that may be visited as scalar values. An object or array
+    /// rule can still receive a scalar in malformed or schemaless input, so
+    /// include every declared node rather than only configured FTS leaves.
+    pub(crate) fn declared_text_paths(&self) -> Vec<(String, TextFormat)> {
+        fn collect(rule: &TextRule, path: &mut String, out: &mut Vec<(String, TextFormat)>) {
+            if rule.excluded {
+                return;
+            }
+            out.push((path.clone(), rule.format.unwrap_or(TextFormat::Plain)));
+            for (name, child) in &rule.properties {
+                let length = path.len();
+                path.push('.');
+                path.push_str(name);
+                collect(child, path, out);
+                path.truncate(length);
+            }
+            if let Some(item) = &rule.items {
+                let length = path.len();
+                path.push_str("[]");
+                collect(item, path, out);
+                path.truncate(length);
+            }
+        }
+        let mut paths = Vec::new();
+        for (name, rule) in &self.fields {
+            collect(rule, &mut name.clone(), &mut paths);
+        }
+        paths
+    }
+
     /// Bind the sorted, stable field-index positions to schema traversal nodes.
     /// Query-time rules remain uncompiled and continue producing concrete paths.
     pub(crate) fn compile_index_fields(&mut self, paths: &[JsonPath]) {

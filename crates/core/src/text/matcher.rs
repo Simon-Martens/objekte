@@ -118,6 +118,11 @@ impl TextPattern {
         let Some(text) = self.read(value, format) else {
             return false;
         };
+        self.matches_prepared(&text)
+    }
+
+    /// Match text already prepared by a bound visible representation.
+    pub(crate) fn matches_prepared(&self, text: &str) -> bool {
         if let Some(needle) = &self.ascii_needle
             && text.is_ascii()
         {
@@ -129,7 +134,7 @@ impl TextPattern {
         if self.folds {
             self.regex.is_match(&text.case_fold().collect::<String>())
         } else {
-            self.regex.is_match(&text)
+            self.regex.is_match(text)
         }
     }
 

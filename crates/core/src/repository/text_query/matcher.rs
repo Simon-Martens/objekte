@@ -6,11 +6,126 @@ use crate::{
     extensions::{BindingContext, BoundTextQuery, ScalarValue},
     text::{TextPattern, visit_json_text},
 };
-use std::cell::RefCell;
+use std::{
+    cell::RefCell,
+    collections::HashMap,
+    sync::atomic::{AtomicU64, Ordering},
+};
+
+static NEXT_BINDING_ID: AtomicU64 = AtomicU64::new(1);
+
+type FormatBindings = [Option<bool>; 4];
+
+fn format_index(format: crate::TextFormat) -> usize {
+    match format {
+        crate::TextFormat::Plain => 0,
+        crate::TextFormat::Markdown => 1,
+        crate::TextFormat::Html => 2,
+        crate::TextFormat::Xml => 3,
+    }
+}
+
+fn format_name(format: crate::TextFormat) -> &'static str {
+    match format {
+        crate::TextFormat::Plain => "plain",
+        crate::TextFormat::Markdown => "markdown",
+        crate::TextFormat::Html => "html",
+        crate::TextFormat::Xml => "xml",
+    }
+}
+
+
+/// Immutable applicability compiled once for the collection and schema.
+pub(super) struct TextBindingPlan<'a> {
+    id: u64,
+    collection: &'a str,
+    schema: Option<&'a Value>,
+    known: HashMap<String, FormatBindings>,
+}
+
+
+impl<'a> TextBindingPlan<'a> {
+    pub(super) fn new(
+        collection: &'a str,
+        schema: Option<&'a Value>,
+        rules: &TextRules,
+        extension: &BoundTextQuery,
+    ) -> Self {
+        let mut known = HashMap::<String, FormatBindings>::new();
+        for (path, format) in rules.declared_text_paths() {
+            let allowed = extension.representation.binds(&BindingContext {
+                collection,
+                path: &path,
+                format: format_name(format),
+                schema,
+            });
+            known.entry(path).or_insert([None; 4])[format_index(format)] = Some(allowed);
+        }
+        Self {
+            id: NEXT_BINDING_ID.fetch_add(1, Ordering::Relaxed),
+            collection,
+            schema,
+            known,
+        }
+    }
+
+    fn allows(
+        &self,
+        path: &str,
+        format: crate::TextFormat,
+        extension: &BoundTextQuery,
+        scratch: &mut ExtensionScratch,
+    ) -> bool {
+        let index = format_index(format);
+        if let Some(allowed) = self.known.get(path).and_then(|values| values[index]) {
+            return allowed;
+        }
+        if scratch.binding_id != self.id {
+            scratch.binding_id = self.id;
+            scratch.unanticipated.clear();
+        }
+        if let Some(allowed) = scratch
+            .unanticipated
+            .get(path)
+            .and_then(|values| values[index])
+        {
+            return allowed;
+        }
+        let allowed = extension.representation.binds(&BindingContext {
+            collection: self.collection,
+            path,
+            format: format_name(format),
+            schema: self.schema,
+        });
+        // Arbitrary schemaless keys cannot retain unbounded worker memory.
+        if scratch.unanticipated.len() >= 4096 {
+            scratch.unanticipated.clear();
+        }
+        scratch
+            .unanticipated
+            .entry(path.to_owned())
+            .or_insert([None; 4])[index] = Some(allowed);
+        allowed
+    }
+}
+
+
+#[derive(Default)]
+struct ExtensionScratch {
+    rendered: String,
+    scanner: String,
+    binding_id: u64,
+    unanticipated: HashMap<String, FormatBindings>,
+}
+
 
 thread_local! {
-    static EXTENSION_SCRATCH: RefCell<(String, String)> = const { RefCell::new((String::new(), String::new())) };
+    static EXTENSION_SCRATCH: RefCell<ExtensionScratch> = RefCell::new(ExtensionScratch::default());
 }
+
+#[cfg(test)]
+#[path = "matcher.test.rs"]
+mod tests;
 
 
 /// A request's compiled pattern and conservative bigram prefilter. Whether
@@ -54,26 +169,45 @@ fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
 
 
 impl TextMatcher {
-    pub(super) fn compile_extension() -> Self {
-        Self {
-            pattern: TextPattern::compile("x", TextMode::Word, false)
-                .expect("constant extension placeholder is valid"),
-            candidate_pattern: None,
-            candidate_literal: false,
-            raw: false,
-        }
-    }
-
     pub(super) fn matching_fields_extension(
-        &self,
         document: &Value,
         rules: &TextRules,
         selected: Option<&BTreeSet<&str>>,
         include_indices: bool,
         extension: &BoundTextQuery,
-        binding: (&str, Option<&Value>),
+        binding: &TextBindingPlan<'_>,
     ) -> Result<TextMatches> {
-        let (collection, schema) = binding;
+        EXTENSION_SCRATCH.with(|cell| match cell.try_borrow_mut() {
+            Ok(mut scratch) => Self::matching_fields_extension_with_scratch(
+                document,
+                rules,
+                selected,
+                include_indices,
+                extension,
+                binding,
+                &mut scratch,
+            ),
+            Err(_) => Self::matching_fields_extension_with_scratch(
+                document,
+                rules,
+                selected,
+                include_indices,
+                extension,
+                binding,
+                &mut ExtensionScratch::default(),
+            ),
+        })
+    }
+
+    fn matching_fields_extension_with_scratch(
+        document: &Value,
+        rules: &TextRules,
+        selected: Option<&BTreeSet<&str>>,
+        include_indices: bool,
+        extension: &BoundTextQuery,
+        binding: &TextBindingPlan<'_>,
+        scratch: &mut ExtensionScratch,
+    ) -> Result<TextMatches> {
         let mut fields = BTreeSet::new();
         let mut matched_paths = Vec::new();
         let mut failure = None;
@@ -85,29 +219,27 @@ impl TextMatcher {
                 if failure.is_some() || selected.is_some_and(|selected| !selected.contains(name)) {
                     return;
                 }
-                let format = match format {
-                    crate::TextFormat::Plain => "plain",
-                    crate::TextFormat::Markdown => "markdown",
-                    crate::TextFormat::Html => "html",
-                    crate::TextFormat::Xml => "xml",
-                };
-                if !extension.representation.binds(&BindingContext {
-                    collection,
-                    path: name,
-                    format,
-                    schema,
-                }) {
+                if !binding.allows(name, format, extension, scratch) {
                     return;
                 }
-                let matched = EXTENSION_SCRATCH.with_borrow_mut(|scratch| {
-                    let (rendered, scanner) = &mut *scratch;
+                let matched = (|| {
+                    let rendered = &mut scratch.rendered;
+                    let scanner = &mut scratch.scanner;
                     rendered.clear();
                     scanner.clear();
                     match extension.representation.render(value, rendered)? {
+                        Some(text)
+                            if extension.preparation
+                                == crate::extensions::TextPreparation::VisibleNormalized =>
+                        {
+                            extension
+                                .operator
+                                .matches_prepared(ScalarValue::Text(text), scanner)
+                        }
                         Some(text) => extension.operator.matches(ScalarValue::Text(text), scanner),
                         None => Ok(false),
                     }
-                });
+                })();
                 match matched {
                     Ok(true) => {
                         fields.insert(name.to_owned());
