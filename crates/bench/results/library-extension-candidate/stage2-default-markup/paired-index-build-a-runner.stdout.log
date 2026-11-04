@@ -1,0 +1,13 @@
+warmup-01-candidate: 1511.8 ms
+warmup-01-reference: 1536.2 ms
+01-reference: 1556.9 ms
+01-candidate: 1504.2 ms
+02-candidate: 1547.0 ms
+02-reference: 1534.4 ms
+03-reference: 1564.5 ms
+03-candidate: 1512.7 ms
+04-candidate: 1497.1 ms
+04-reference: 1537.9 ms
+05-reference: 1561.4 ms
+05-candidate: 1506.4 ms
+median: reference 1556.9 ms, candidate 1506.4 ms (-3.2%)

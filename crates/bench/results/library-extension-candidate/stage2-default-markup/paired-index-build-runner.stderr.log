@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/simon/source/objekte/crates/bench/run_paired_index_build.py", line 148, in <module>
+    main()
+    ~~~~^^
+  File "/home/simon/source/objekte/crates/bench/run_paired_index_build.py", line 106, in main
+    raise RuntimeError(f"{name} failed: {result.stderr}")
+RuntimeError: warmup-01-candidate failed: Error: "--skip-snapshot is required without index-timings"

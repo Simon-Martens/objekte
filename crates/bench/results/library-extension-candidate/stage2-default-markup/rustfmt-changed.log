@@ -1,0 +1,36 @@
+Diff in /home/simon/source/objekte/crates/core/src/text/matcher.rs:32:
+     }
+ }
+
+-
+ /// A compiled full-text pattern.
+ ///
+ /// - `Word` reads the normalized text (rendered by format, punctuation as
+Diff in /home/simon/source/objekte/crates/core/src/text/matcher.rs:53:
+     regex: Regex,
+ }
+
+-
+ impl TextPattern {
+     pub(crate) fn compile(pattern: &str, mode: TextMode, case_sensitive: bool) -> Result<Self> {
+         if pattern.is_empty() || pattern.len() > MAX_PATTERN {
+Diff in /home/simon/source/objekte/crates/core/src/text/matcher.rs:183:
+         }
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "matcher.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/text/matcher.test.rs:1:
+ use super::*;
+
+-
+ fn pattern(text: &str, mode: TextMode, case_sensitive: bool) -> TextPattern {
+     TextPattern::compile(text, mode, case_sensitive).unwrap()
+ }
+Diff in /home/simon/source/objekte/crates/core/src/text/matcher.test.rs:7:
+-
+
+ #[test]
+ fn word_mode_reads_normalized_text_and_folds_case() {
