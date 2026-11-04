@@ -185,7 +185,7 @@ fn unicode_repository_matches_direct_scans_and_rebuilds_on_mode_change() {
         ("日本語", true, TextMode::Word),
         ("مرحبا", true, TextMode::Word),
         ("😀", true, TextMode::Word),
-        ("Müller|中文", true, TextMode::RegexClean),
+        ("Müller|中文", true, TextMode::Regex),
         ("line\u{1f}break", true, TextMode::Word),
     ] {
         let query = TextQuery {

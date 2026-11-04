@@ -596,6 +596,7 @@ fn simplify_or(children: Vec<BigramQuery>) -> BigramQuery {
     }
 }
 
+#[cfg(test)]
 pub(super) fn candidates(index: &BigramFilter, pattern: &str) -> Option<Vec<u64>> {
     candidates_with_observed(index, pattern, None)
 }

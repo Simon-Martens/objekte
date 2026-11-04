@@ -88,7 +88,8 @@ fn fts_composes_with_filters_and_keeps_backend_parity() {
         ("annotation:fts ~ 'Goethe'", &["a", "b", "c"]),
         ("annotation ~ 'Goethe'", &["b"]),
         ("annotation:fts = 'Goethe'", &["a", "b", "c"]),
-        ("annotation:fts ~ :ignorecase('GOETHE')", &["a", "b", "c"]),
+        // Case follows the full-text option, which ignores case by default.
+        ("annotation:fts ~ 'GOETHE'", &["a", "b", "c"]),
         ("annotation:fts !~ 'Goet'", &["d"]),
         (
             "annotation:fts ~ 'Goethe' || year = 1900",
@@ -121,7 +122,7 @@ fn fts_composes_with_filters_and_keeps_backend_parity() {
 }
 
 #[test]
-fn fts_is_an_ordinary_operand_without_schema() {
+fn fts_reads_normalized_plain_text_without_a_schema() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
     write(
@@ -287,7 +288,7 @@ fn declared_fields_have_independent_normal_and_rendered_postings() {
     let alternatives = repo
         .search_text(&TextQuery {
             pattern: "htmlneedle|titleonlyneedle".into(),
-            mode: TextMode::RegexClean,
+            mode: TextMode::Regex,
             collections: Some(vec!["books".into()]),
             count: true,
             ..Default::default()
@@ -308,7 +309,7 @@ fn declared_fields_have_independent_normal_and_rendered_postings() {
     );
     for (pattern, mode) in [
         ("renderedneedle", TextMode::Word),
-        (r"\*\*renderedneedle\*\*", TextMode::RegexRaw),
+        (r"\*\*renderedneedle\*\*", TextMode::Regex),
     ] {
         let selected = repo
             .search_text(&TextQuery {
@@ -435,4 +436,196 @@ fn invalid_container_in_declared_string_field_keeps_existential_matches() {
         assert_eq!(ids(&mut repo, filter, JsonQueryBackend::Bigram), ["a"]);
         assert_eq!(ids(&mut repo, filter, JsonQueryBackend::Direct), ["a"]);
     }
+}
+
+#[test]
+fn fts_options_choose_normalized_stored_or_regex_matching() {
+    use objekte_core::FtsOptions;
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(
+        root,
+        "data/books/.editor/schema.json",
+        &json!({"type":"object","properties":{
+            "annotation":{"type":"string","x-full-text":"markdown"},
+            "count":{"type":"number"}
+        }})
+        .to_string(),
+    );
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"annotation":"**Goethe**, Johann","count":3}"#,
+    );
+    write(
+        root,
+        "data/books/b.json",
+        r#"{"annotation":"goethe johann","count":4}"#,
+    );
+    order_by_id(root, &["a", "b"]);
+    let mut repo = Repository::open(root).unwrap();
+    let mut run = |filter: &str, mode: TextMode, case_sensitive: bool| {
+        let mut found = Vec::new();
+        for backend in [JsonQueryBackend::Bigram, JsonQueryBackend::Direct] {
+            let ids = repo
+                .query_json(&JsonQuery {
+                    filter: filter.into(),
+                    collections: Some(vec!["books".into()]),
+                    backend,
+                    count: true,
+                    limit: 10,
+                    fts: FtsOptions {
+                        mode,
+                        case_sensitive,
+                    },
+                    ..Default::default()
+                })
+                .unwrap()
+                .records
+                .into_iter()
+                .map(|record| record.id)
+                .collect::<Vec<_>>();
+            found.push(ids);
+        }
+        assert_eq!(found[0], found[1], "{filter} {mode:?}");
+        found.remove(0)
+    };
+    // Normalized: markup and punctuation ignored, case by option.
+    assert_eq!(
+        run("annotation:fts ~ 'Goethe Johann'", TextMode::Word, false),
+        ["a", "b"]
+    );
+    assert_eq!(
+        run("annotation:fts ~ 'Goethe Johann'", TextMode::Word, true),
+        ["a"]
+    );
+    assert_eq!(
+        run("annotation:fts = 'goethe, johann'", TextMode::Word, false),
+        ["a", "b"]
+    );
+    // Stored text: markup and punctuation are part of it.
+    assert_eq!(
+        run("annotation:fts ~ '**Goethe**,'", TextMode::WordRaw, false),
+        ["a"]
+    );
+    // `a` has markup and a comma in its stored text; `b` matches ignoring case.
+    assert_eq!(
+        run("annotation:fts ~ 'Goethe Johann'", TextMode::WordRaw, false),
+        ["b"]
+    );
+    assert_eq!(
+        run("annotation:fts ~ 'Goethe Johann'", TextMode::WordRaw, true),
+        Vec::<String>::new()
+    );
+    assert_eq!(
+        run("annotation:fts ~ 'GOETHE JOHANN'", TextMode::WordRaw, false),
+        ["b"]
+    );
+    // Regex over the stored text, with its own case flags.
+    assert_eq!(
+        run(r"annotation:fts ~ '^\\*\\*Goethe'", TextMode::Regex, false),
+        ["a"]
+    );
+    assert_eq!(
+        run("annotation:fts ~ '^goethe'", TextMode::Regex, false),
+        ["b"]
+    );
+    assert_eq!(
+        run("annotation:fts ~ '(?i)^goethe'", TextMode::Regex, true),
+        ["b"]
+    );
+    assert_eq!(
+        run("annotation:fts !~ 'Johann$'", TextMode::Regex, false),
+        ["b"]
+    );
+    // Numbers are not strings: they compare as without `:fts`.
+    assert_eq!(run("count:fts = 3", TextMode::Regex, false), ["a"]);
+    // Plain `~` stays an exact, case-sensitive substring match.
+    assert_eq!(
+        run("annotation ~ '**Goethe**'", TextMode::Word, false),
+        ["a"]
+    );
+    assert_eq!(
+        run("annotation ~ 'Goethe Johann'", TextMode::Word, false),
+        Vec::<String>::new()
+    );
+
+    let invalid = repo.query_json(&JsonQuery {
+        filter: "annotation:fts ~ '(unclosed'".into(),
+        fts: FtsOptions {
+            mode: TextMode::Regex,
+            case_sensitive: false,
+        },
+        ..Default::default()
+    });
+    assert!(
+        invalid
+            .unwrap_err()
+            .to_string()
+            .contains("invalid :fts regex")
+    );
+    let ignore_case = repo.query_json(&JsonQuery {
+        filter: "annotation:fts ~ :ignorecase('x')".into(),
+        ..Default::default()
+    });
+    assert!(
+        ignore_case
+            .unwrap_err()
+            .to_string()
+            .contains(":ignorecase does not apply")
+    );
+}
+
+#[test]
+fn text_search_passes_its_mode_and_case_to_fts_in_its_filter() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(
+        root,
+        "data/books/.editor/schema.json",
+        &json!({"type":"object","properties":{
+            "annotation":{"type":"string","x-full-text":"markdown"},
+            "title":{"type":"string"}
+        }})
+        .to_string(),
+    );
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"annotation":"**Goethe**","title":"Moon"}"#,
+    );
+    write(
+        root,
+        "data/books/b.json",
+        r#"{"annotation":"goethe","title":"Moon"}"#,
+    );
+    order_by_id(root, &["a", "b"]);
+    let mut repo = Repository::open(root).unwrap();
+    let mut search = |mode: TextMode, pattern: &str, filter: &str| {
+        repo.search_text(&TextQuery {
+            pattern: pattern.into(),
+            filter: Some(filter.into()),
+            mode,
+            collections: Some(vec!["books".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap()
+        .hits
+        .into_iter()
+        .map(|hit| hit.record.id)
+        .collect::<Vec<_>>()
+    };
+    assert_eq!(
+        search(TextMode::Word, "Moon", "annotation:fts ~ 'GOETHE'"),
+        ["a", "b"]
+    );
+    assert_eq!(
+        search(TextMode::Regex, "Moon", r"annotation:fts ~ '^\\*\\*'"),
+        ["a"]
+    );
+    assert_eq!(
+        search(TextMode::WordRaw, "Moon", "annotation:fts ~ '**'"),
+        ["a"]
+    );
 }

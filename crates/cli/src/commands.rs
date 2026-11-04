@@ -116,7 +116,9 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         }) || match command {
             "view" if legacy_view => ["--sort", "--direction", "--columns", "--limit", "--offset"]
                 .contains(&key.as_str()),
-            "query" => ["--collection", "--limit", "--offset", "--backend"].contains(&key.as_str()),
+            // `--mode` sets how `:fts` comparisons match.
+            "query" => ["--collection", "--limit", "--offset", "--backend", "--mode"]
+                .contains(&key.as_str()),
             "inferschema" | "writeschema" => key == "--collection",
             "search" => [
                 "--collection",
@@ -152,7 +154,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         let allowed = key == "--diagnostics"
             || match command {
                 "view" if legacy_view => key == "--count",
-                "query" => key == "--count",
+                "query" => ["--count", "--case-sensitive"].contains(&key.as_str()),
                 "search" => ["--count", "--case-sensitive"].contains(&key.as_str()),
                 "inferschema" | "writeschema" => key == "--no-auto-index",
                 "inspect" => ["--collections", "--indexes"].contains(&key.as_str()),
@@ -252,7 +254,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             } else {
                 (&a.pos[2], a.values.get("--collection"))
             };
-            let request = JsonQuery {
+            let mut request = JsonQuery {
                 filter: filter.clone(),
                 parameters: a.parameters.clone(),
                 collections: collection.map(|c| vec![c.clone()]),
@@ -269,6 +271,12 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                         return Err("query backend must be auto, direct, grep, or bigram".into());
                     }
                 },
+                ..JsonQuery::default()
+            };
+            // `:fts` comparisons match by the same options as text search.
+            request.fts = objekte_core::FtsOptions {
+                mode: text_mode(&get("--mode", "word"))?,
+                case_sensitive: a.flags.contains("--case-sensitive"),
             };
             if output == "events" {
                 let stdout = std::io::stdout();
@@ -334,13 +342,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             } else {
                 (&a.pos[2], a.values.get("--collection"))
             };
-            let mode = match get("--mode", "word").as_str() {
-                "word" => TextMode::Word,
-                "raw-word" => TextMode::WordRaw,
-                "regex" => TextMode::RegexClean,
-                "raw-regex" => TextMode::RegexRaw,
-                _ => return Err("search mode must be word, raw-word, regex, or raw-regex".into()),
-            };
+            let mode = text_mode(&get("--mode", "word"))?;
             let request = TextQuery {
                 pattern: pattern.clone(),
                 filter: a.filters.first().cloned(),
@@ -622,4 +624,15 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
         )?
     }
     Ok(())
+}
+
+
+/// A full-text mode from `--mode`.
+fn text_mode(name: &str) -> Result<TextMode, Box<dyn std::error::Error>> {
+    Ok(match name {
+        "word" => TextMode::Word,
+        "raw-word" => TextMode::WordRaw,
+        "regex" => TextMode::Regex,
+        _ => return Err("mode must be word, raw-word, or regex".into()),
+    })
 }

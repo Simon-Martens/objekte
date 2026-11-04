@@ -11,6 +11,7 @@ use crate::{
     Error, Metrics, Record, RecordStatus, Result, TextFormat, config::fingerprint, source::Stamp,
     text::render_text,
 };
+pub use fts::FtsOptions;
 pub(crate) use fts::{FtsPlan, declared_format};
 pub(crate) use metadata_plan::{MetadataDecision, MetadataIdHint, MetadataPathHint};
 pub(crate) use relation::RelationContext;
@@ -165,6 +166,8 @@ enum Operand {
     Literal(Value),
     SizeBytes(u64),
     Temporal(temporal::Period),
+    /// A string compared with a `:fts` field, matched by full-text options.
+    FullText(fts::FtsPattern),
 }
 
 
@@ -214,6 +217,9 @@ impl Operand {
                 SmallVec::from_buf([SelectedValue::Owned(Value::from(*bytes))])
             }
             Self::Temporal(period) => SmallVec::from_buf([SelectedValue::Period(*period)]),
+            Self::FullText(pattern) => SmallVec::from_buf([SelectedValue::Owned(Value::String(
+                pattern.pattern().to_owned(),
+            ))]),
             Self::Field(f) => f.select(doc, metadata, relations),
         }
     }
@@ -221,6 +227,32 @@ impl Operand {
 
 
 impl FieldOperand {
+    /// Whether this is a `:fts` field, bound or not.
+    fn full_text(&self) -> bool {
+        matches!(
+            self.modifier,
+            Some(Modifier::Fts | Modifier::Rendered(_) | Modifier::Normalized)
+        )
+    }
+
+    /// The format a `:fts` field's full-text version is read in.
+    fn text_format(&self) -> TextFormat {
+        match self.modifier {
+            Some(Modifier::Rendered(format)) => format,
+            _ => TextFormat::Plain,
+        }
+    }
+
+    /// The values at this path as stored, without a modifier.
+    fn select_stored<'a>(&self, doc: &'a Value, relations: Relations<'a>) -> SelectedValues<'a> {
+        let mut selected = SelectedValues::new();
+        self.visit(doc, relations, &mut |value| {
+            selected.push(SelectedValue::Borrowed(value));
+            true
+        });
+        selected
+    }
+
     fn select<'a>(
         &self,
         doc: &'a Value,
@@ -287,15 +319,19 @@ impl FieldOperand {
             Some(Modifier::Lower) => value
                 .as_str()
                 .map(|text| SelectedValue::Owned(Value::String(text.to_ascii_lowercase()))),
-            Some(Modifier::Rendered(format)) => value
-                .as_str()
-                .and_then(|text| render_text(text, format))
-                .map(|text| SelectedValue::Owned(Value::String(text))),
-            // An unbound `:fts` reads the normalized text too.
-            Some(Modifier::Normalized | Modifier::Fts) => value
-                .as_str()
-                .and_then(|text| render_text(text, TextFormat::Plain))
-                .map(|text| SelectedValue::Owned(Value::String(text))),
+            // `:fts` reads a string's full-text version; other values are
+            // used as stored. An unbound `:fts` reads normalized plain text.
+            Some(modifier @ (Modifier::Rendered(_) | Modifier::Normalized | Modifier::Fts)) => {
+                let format = match modifier {
+                    Modifier::Rendered(format) => format,
+                    _ => TextFormat::Plain,
+                };
+                match value.as_str() {
+                    Some(text) => render_text(text, format)
+                        .map(|text| SelectedValue::Owned(Value::String(text))),
+                    None => Some(SelectedValue::Borrowed(value)),
+                }
+            }
             _ => Some(SelectedValue::Borrowed(value)),
         }
     }
@@ -311,9 +347,7 @@ impl FieldOperand {
                 Some(Modifier::Lower) => value.is_string(),
                 Some(Modifier::Rendered(format)) => value
                     .as_str()
-                    .and_then(|text| render_text(text, format))
-                    .is_some(),
-                Some(Modifier::Normalized | Modifier::Fts) => value.is_string(),
+                    .is_none_or(|text| render_text(text, format).is_some()),
                 _ => true,
             };
             if eligible {
@@ -549,7 +583,19 @@ impl JsonFilter {
     }
 
     pub fn compile(text: &str, parameters: &BTreeMap<String, Value>) -> Result<Self> {
-        Self::compile_expr(parser::parse(text, parameters)?)
+        Self::compile_with_fts(text, parameters, FtsOptions::default())
+    }
+
+    /// Compile with the options `:fts` comparisons match by: the same as
+    /// a full-text search's mode and case.
+    pub fn compile_with_fts(
+        text: &str,
+        parameters: &BTreeMap<String, Value>,
+        fts: FtsOptions,
+    ) -> Result<Self> {
+        let mut expr = parser::parse(text, parameters)?;
+        fts::apply_options(&mut expr, fts)?;
+        Self::compile_expr(expr)
     }
 
     /// Compile with `@now` macros evaluated at `now` (Unix nanoseconds).
@@ -559,7 +605,9 @@ impl JsonFilter {
         parameters: &BTreeMap<String, Value>,
         now: i128,
     ) -> Result<Self> {
-        Self::compile_expr(parser::parse_at(text, parameters, now)?)
+        let mut expr = parser::parse_at(text, parameters, now)?;
+        fts::apply_options(&mut expr, FtsOptions::default())?;
+        Self::compile_expr(expr)
     }
 
     fn compile_expr(expr: Expr) -> Result<Self> {
@@ -958,6 +1006,8 @@ pub struct JsonQuery {
     pub sort: Vec<crate::Sort>,
     /// Select a query backend. `Auto` uses the in-memory bigram index.
     pub backend: JsonQueryBackend,
+    /// How `:fts` comparisons in the filter match.
+    pub fts: FtsOptions,
 }
 
 
@@ -983,6 +1033,7 @@ impl Default for JsonQuery {
             count: false,
             sort: Vec::new(),
             backend: JsonQueryBackend::Auto,
+            fts: FtsOptions::default(),
         }
     }
 }
@@ -1173,6 +1224,30 @@ fn evaluate<'a>(
         Expr::Relation(e) => evaluate(e, doc, metadata, relations),
         Expr::Exists(p) => !reached(doc, p, relations).is_empty(),
         Expr::Missing(p) => reached(doc, p, relations).is_empty(),
+        // `:fts` reads string values through the full-text options; other
+        // values compare as without `:fts`.
+        Expr::Compare {
+            left: Operand::Field(field),
+            op,
+            any,
+            right: Operand::FullText(pattern),
+            ..
+        } => {
+            let values = field.select_stored(doc, relations);
+            if values.is_empty() {
+                return false;
+            }
+            let format = field.text_format();
+            let literal = Value::String(pattern.pattern().to_owned());
+            let mut tests = values.iter().map(|value| match value.value() {
+                Some(Value::String(text)) => pattern.matches(text, format, *op),
+                Some(other) => compare(other, *op, &literal, false, false),
+                None => false,
+            });
+            // A `:fts` field is never `:each`; several values match like `?`.
+            let _ = any;
+            tests.any(|matched| matched)
+        }
         Expr::Compare {
             left,
             op,

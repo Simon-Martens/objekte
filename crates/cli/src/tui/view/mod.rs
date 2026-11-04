@@ -240,12 +240,26 @@ fn chips(app: &App<'_>) -> Vec<Span<'static>> {
             Span::styled(format!("{key} "), Style::new().fg(FAINT)),
         ]
     };
+    // With regex on, case and markup options do not apply: a regex reads
+    // the stored text and sets its own case. Their chips are greyed out.
+    let disabled = |text: &'static str, key: &'static str| {
+        [
+            Span::styled(format!(" {text} "), Style::new().fg(FAINT)),
+            Span::styled(format!("{key} "), Style::new().fg(FAINT)),
+        ]
+    };
     let mut spans = Vec::new();
-    spans.extend(chip("Aa", app.case_sensitive && !app.regex, "Alt+C"));
+    if app.regex {
+        spans.extend(disabled("Aa", "Alt+C"));
+    } else {
+        spans.extend(chip("Aa", app.case_sensitive, "Alt+C"));
+    }
     spans.extend(chip(".*", app.regex, "Alt+R"));
     // The text chip names the current mode, so it is always lit: bold for
-    // the default normalized text, highlighted for full text.
-    if app.representation == Representation::Full {
+    // the default normalized text, highlighted for the stored text.
+    if app.regex {
+        spans.extend(disabled("txt", "Alt+T"));
+    } else if app.representation == Representation::Full {
         spans.extend(chip("</>", true, "Alt+T"));
     } else {
         spans.extend([

@@ -122,7 +122,7 @@ fn btree_scalars_reach_text_and_filter_verification() {
             ("true", TextMode::Word, Some("flag")),
             ("ZXQmarker", TextMode::Word, None),
             ("Müller", TextMode::Word, Some("category")),
-            ("^ZXQ.*Müller$", TextMode::RegexClean, Some("category")),
+            ("^ZXQ.*Müller$", TextMode::Regex, Some("category")),
             ("visible", TextMode::Word, Some("markup")),
             ("Help", TextMode::Word, Some("category")),
             ("arrayneedle", TextMode::Word, None),

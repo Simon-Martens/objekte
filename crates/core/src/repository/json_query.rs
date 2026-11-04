@@ -270,7 +270,8 @@ impl Repository {
                 .min(self.options.total_limit.saturating_sub(request.offset));
         }
         let request = &bounded;
-        let filter = JsonFilter::compile(&request.filter, &request.parameters)?;
+        let filter =
+            JsonFilter::compile_with_fts(&request.filter, &request.parameters, request.fts)?;
         self.metrics.filter_compile_nanos += nanos(t);
         let names = request
             .collections

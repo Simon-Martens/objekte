@@ -87,11 +87,11 @@ fn cases() -> Vec<Case> {
         ("Goethe", Some("preferred_title"), TextMode::Word),
         ("Liebe", Some("preferred_title"), TextMode::Word),
         ("Goethe", None, TextMode::Word),
-        ("Goet.*he", Some("annotation"), TextMode::RegexClean),
-        ("Schill", Some("preferred_title"), TextMode::RegexClean),
-        (r"\*\*[^*]+\*\*", Some("annotation"), TextMode::RegexRaw),
-        (r"<[^>]+>", Some("title_statement"), TextMode::RegexRaw),
-        ("Wien|Berlin", None, TextMode::RegexClean),
+        ("Goet.*he", Some("annotation"), TextMode::Regex),
+        ("Schill", Some("preferred_title"), TextMode::Regex),
+        (r"\*\*[^*]+\*\*", Some("annotation"), TextMode::Regex),
+        (r"<[^>]+>", Some("title_statement"), TextMode::Regex),
+        ("Wien|Berlin", None, TextMode::Regex),
     ];
     cases.extend(
         searches
@@ -102,8 +102,7 @@ fn cases() -> Vec<Case> {
                 kind: match mode {
                     TextMode::Word => "word",
                     TextMode::WordRaw => "word_raw",
-                    TextMode::RegexClean => "regex_clean",
-                    TextMode::RegexRaw => "regex_raw",
+                    TextMode::Regex => "regex",
                 },
                 query,
                 field,

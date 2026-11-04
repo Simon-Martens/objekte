@@ -42,8 +42,8 @@ pub use inference::{
     InferredLinkKind,
 };
 pub use json_filter::{
-    JsonFilter, JsonPath, JsonPathStep, JsonQuery, JsonQueryBackend, JsonQueryDependencies,
-    JsonQueryResult, JsonQueryStreamSummary,
+    FtsOptions, JsonFilter, JsonPath, JsonPathStep, JsonQuery, JsonQueryBackend,
+    JsonQueryDependencies, JsonQueryResult, JsonQueryStreamSummary,
 };
 pub use query::{Filter, Operator, ViewRequest, ViewResult, ViewRow};
 pub use repository::{

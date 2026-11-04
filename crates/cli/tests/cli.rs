@@ -1211,7 +1211,7 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
             "books",
             r"\*\*He\*\*lp",
             "--mode",
-            "raw-regex",
+            "regex",
             "--count",
         ],
     ));
@@ -1231,19 +1231,25 @@ fn full_text_search_modes_and_manual_warm_are_available_in_cli() {
         ],
     ));
     assert_eq!(raw_word["total"], 1);
-    let clean = value(run(
+    // Regex is always case-sensitive unless the pattern says `(?i)`.
+    let case = value(run(
         &fixture,
         &[
             root,
             "search",
             "books",
-            r"\*\*He\*\*lp",
+            r"\*\*he\*\*",
             "--mode",
             "regex",
             "--count",
         ],
     ));
-    assert_eq!(clean["total"], 0);
+    assert_eq!(case["total"], 0);
+    let raw_old_name = run(
+        &fixture,
+        &[root, "search", "books", "x", "--mode", "raw-regex"],
+    );
+    assert!(!raw_old_name.status.success());
 
     let output = run(
         &fixture,
@@ -1399,4 +1405,45 @@ fn diagnostics_reports_bigram_query() {
         ],
     );
     assert!(direct.status.success());
+}
+
+#[test]
+fn query_mode_and_case_set_how_fts_comparisons_match() {
+    let temp = tempfile::tempdir().unwrap();
+    let docs = temp.path().join("data/books");
+    fs::create_dir_all(&docs).unwrap();
+    fs::write(docs.join("a.json"), r#"{"name":"Goethe, Johann"}"#).unwrap();
+    let root = temp.path().to_str().unwrap();
+    let total = |extra: &[&str], filter: &str| {
+        let mut args = vec![root, "query", "books", filter, "--count"];
+        args.extend_from_slice(extra);
+        let out = Command::new(env!("CARGO_BIN_EXE_objekte"))
+            .args(&args)
+            .output()
+            .unwrap();
+        assert!(
+            out.status.success(),
+            "{}",
+            String::from_utf8_lossy(&out.stderr)
+        );
+        serde_json::from_slice::<Value>(&out.stdout).unwrap()["total"].clone()
+    };
+    assert_eq!(total(&[], "name:fts ~ 'goethe johann'"), 1);
+    assert_eq!(
+        total(&["--mode", "raw-word"], "name:fts ~ 'goethe johann'"),
+        0
+    );
+    assert_eq!(
+        total(&["--mode", "raw-word"], "name:fts ~ 'goethe, johann'"),
+        1
+    );
+    assert_eq!(
+        total(
+            &["--mode", "raw-word", "--case-sensitive"],
+            "name:fts ~ 'goethe, johann'"
+        ),
+        0
+    );
+    assert_eq!(total(&["--mode", "regex"], "name:fts ~ '^Goethe, J'"), 1);
+    assert_eq!(total(&["--mode", "regex"], "name:fts ~ '^goethe'"), 0);
 }

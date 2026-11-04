@@ -219,7 +219,15 @@ impl Repository {
                 if source.trim().is_empty() {
                     return Err(Error::Request("text filter must not be empty".into()));
                 }
-                JsonFilter::compile(source, &request.parameters)
+                // `:fts` in the filter matches like the search itself.
+                JsonFilter::compile_with_fts(
+                    source,
+                    &request.parameters,
+                    crate::FtsOptions {
+                        mode: request.mode,
+                        case_sensitive: request.case_sensitive,
+                    },
+                )
             })
             .transpose()?;
         if filter.is_none() && !request.parameters.is_empty() {

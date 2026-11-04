@@ -1,12 +1,193 @@
 //! Per-collection binding and safe candidates for rendered filter operands.
 
 use super::*;
-use crate::{Field, ValueType};
+use crate::{Field, TextMode, ValueType};
+use std::sync::Arc;
+use unicode_casefold::UnicodeCaseFold;
+
+
+/// How `:fts` comparisons match: the same options as full-text search.
+/// `mode` picks normalized text (markup removed, punctuation ignored,
+/// whitespace collapsed), the stored text, or a regex over the stored text.
+/// `case_sensitive` applies to the two word modes; a regex sets its own
+/// case flags.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct FtsOptions {
+    pub mode: TextMode,
+    pub case_sensitive: bool,
+}
+
+
+impl FtsOptions {
+    fn folds(self) -> bool {
+        !self.case_sensitive && self.mode != TextMode::Regex
+    }
+}
+
+
+/// The string a `:fts` field is compared with, and how it matches. The
+/// options are part of the serialized filter, so cached results are kept
+/// apart per option.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub(crate) struct FtsPattern {
+    pattern: String,
+    options: FtsOptions,
+    #[serde(skip)]
+    compiled: Option<Arc<Compiled>>,
+}
+
+
+#[derive(Debug)]
+enum Compiled {
+    /// Normalized or stored text, case-folded unless case-sensitive.
+    Needle(String),
+    Regex(regex::Regex),
+}
+
+
+impl FtsPattern {
+    pub(crate) fn new(pattern: String, options: FtsOptions, op: Op) -> Result<Self> {
+        let compiled = Self::compile(&pattern, options, op)?;
+        Ok(Self {
+            pattern,
+            options,
+            compiled: Some(Arc::new(compiled)),
+        })
+    }
+
+    pub(crate) fn pattern(&self) -> &str {
+        &self.pattern
+    }
+
+    pub(crate) fn options(&self) -> FtsOptions {
+        self.options
+    }
+
+    fn compile(pattern: &str, options: FtsOptions, op: Op) -> Result<Compiled> {
+        if options.mode == TextMode::Regex && matches!(op, Op::Contains | Op::NotContains) {
+            return regex::Regex::new(pattern)
+                .map(Compiled::Regex)
+                .map_err(|error| Error::Request(format!("invalid :fts regex: {error}")));
+        }
+        let needle = if options.mode == TextMode::Word {
+            crate::text::render_text(pattern, TextFormat::Plain).unwrap_or_default()
+        } else {
+            pattern.to_owned()
+        };
+        if needle.is_empty() && matches!(op, Op::Contains | Op::NotContains) {
+            return Err(Error::Request(
+                ":fts pattern needs letters or digits; punctuation and whitespace are ignored"
+                    .into(),
+            ));
+        }
+        Ok(Compiled::Needle(if options.folds() {
+            needle.case_fold().collect()
+        } else {
+            needle
+        }))
+    }
+
+    /// Whether `value`, read as the full-text version in `format`, matches.
+    pub(crate) fn matches(&self, value: &str, format: TextFormat, op: Op) -> bool {
+        let compiled = match &self.compiled {
+            Some(compiled) => Arc::clone(compiled),
+            None => match Self::compile(&self.pattern, self.options, op) {
+                Ok(compiled) => Arc::new(compiled),
+                Err(_) => return false,
+            },
+        };
+        let found = match &*compiled {
+            Compiled::Regex(regex) => regex.is_match(value),
+            Compiled::Needle(needle) => {
+                let text = if self.options.mode == TextMode::Word {
+                    match crate::text::render_text(value, format) {
+                        Some(text) => text,
+                        // Unparseable markup has no full-text version.
+                        None => return false,
+                    }
+                } else {
+                    value.to_owned()
+                };
+                let text = if self.options.folds() {
+                    text.case_fold().collect::<String>()
+                } else {
+                    text
+                };
+                match op {
+                    Op::Eq | Op::Ne => text == *needle,
+                    _ => text.contains(needle.as_str()),
+                }
+            }
+        };
+        match op {
+            Op::Ne | Op::NotContains => !found,
+            _ => found,
+        }
+    }
+
+    /// A literal every candidate's indexed text must contain, and whether
+    /// it is a regex, for narrowing by a declared field's postings.
+    fn candidate(&self) -> Option<(String, bool)> {
+        match self.options.mode {
+            TextMode::Regex => Some((self.pattern.clone(), false)),
+            TextMode::Word => {
+                // Each word of the normalized needle appears in the indexed
+                // normalized text; the longest narrows best.
+                let Some(Compiled::Needle(needle)) = self.compiled.as_deref() else {
+                    return None;
+                };
+                needle
+                    .split(' ')
+                    .max_by_key(|word| word.len())
+                    .filter(|word| !word.is_empty())
+                    .map(|word| (word.to_owned(), true))
+            }
+            // The raw postings fold ASCII case only.
+            TextMode::WordRaw => (self.options.case_sensitive || self.pattern.is_ascii())
+                .then(|| (self.pattern.to_ascii_lowercase(), true))
+                .filter(|(pattern, _)| !pattern.is_empty()),
+        }
+    }
+}
+
+
+/// Turn every string compared with a `:fts` field by `~`, `!~`, `=`, or
+/// `!=` into a full-text pattern with `options`.
+pub(super) fn apply_options(expr: &mut Expr, options: FtsOptions) -> Result<()> {
+    match expr {
+        Expr::And(parts) | Expr::Or(parts) => {
+            for part in parts {
+                apply_options(part, options)?;
+            }
+        }
+        Expr::Relation(inner) => apply_options(inner, options)?,
+        Expr::Compare {
+            left: Operand::Field(field),
+            op,
+            right,
+            ..
+        } if field.full_text()
+            && matches!(op, Op::Eq | Op::Ne | Op::Contains | Op::NotContains) =>
+        {
+            let pattern = match right {
+                Operand::Literal(Value::String(text)) => text.clone(),
+                Operand::FullText(existing) => existing.pattern.clone(),
+                _ => return Ok(()),
+            };
+            *right = Operand::FullText(FtsPattern::new(pattern, options, *op)?);
+        }
+        _ => {}
+    }
+    Ok(())
+}
 
 
 /// Necessary full-text candidates for a Boolean filter subtree.
 pub(crate) enum FtsPlan {
-    Literal(String, JsonPath),
+    /// A literal or regex, the declared field path, whether it is a
+    /// literal, and whether it narrows the normalized (else the raw) postings.
+    Literal(String, JsonPath, bool, bool),
     And(Vec<Self>),
     Or(Vec<Self>),
 }
@@ -117,15 +298,13 @@ impl JsonFilter {
                             path,
                             ..
                         }),
-                    op: Op::Contains,
-                    right: Operand::Literal(Value::String(pattern)),
-                    ignore_case,
+                    op: Op::Contains | Op::Eq,
+                    right: Operand::FullText(pattern),
                     ..
-                } => pattern::Like::new(pattern, false, *ignore_case)
-                    .required_unicode_runs()
-                    .into_iter()
-                    .max_by_key(String::len)
-                    .map(|literal| FtsPlan::Literal(literal, path.clone())),
+                } => pattern.candidate().map(|(literal, is_literal)| {
+                    let clean = pattern.options().mode == TextMode::Word;
+                    FtsPlan::Literal(literal, path.clone(), is_literal, clean)
+                }),
                 _ => None,
             }
         }

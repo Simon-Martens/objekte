@@ -96,20 +96,28 @@ impl FilePicker {
         if !self.text_paths.is_empty() && self.text_index.is_none() {
             return None;
         }
-        let query = |filter: &BigramFilter| {
+        let query = |filter: &BigramFilter, observed: Option<&[u64]>| {
             if literal {
                 filter.query(pattern.as_bytes())
             } else {
-                regex_plan::candidates(filter, pattern)
+                regex_plan::candidates_with_observed(filter, pattern, observed)
             }
         };
-        let mut bits = query(&self.index)?;
+        let mut bits = query(&self.index, None)?;
         if let Some(text) = &self.text_index {
             for field in &text.fields {
                 if !field.normal_present {
                     continue;
                 }
-                let next = query(&field.normal)?;
+                if literal
+                    && field
+                        .normal
+                        .excludes_ascii_literal(pattern, &field.normal_observed)
+                {
+                    continue;
+                }
+                // Observed pairs tell an omitted column from an absent one.
+                let next = query(&field.normal, Some(&field.normal_observed))?;
                 for (word, extra) in bits.iter_mut().zip(next) {
                     *word |= extra;
                 }

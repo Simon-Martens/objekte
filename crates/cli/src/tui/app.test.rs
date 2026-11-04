@@ -347,6 +347,56 @@ fn option_chips_are_bold_exactly_when_active() {
     assert!(bold(&app, "</>"));
     app.toggle_regex();
     assert!(bold(&app, ".*"));
+    // With regex on, case and markup options do not apply: greyed out.
+    assert!(!bold(&app, "Aa"));
+    assert!(!bold(&app, "txt"), "the text chip shows a greyed `txt`");
+}
+
+#[test]
+fn regex_disables_case_and_markup_options_for_search_and_fts() {
+    use objekte_core::FtsOptions;
+    let (_temp, mut repo) = repository(2);
+    let mut app = App::new(&mut repo);
+    app.filter = Input::with_text("title:fts ~ 'moon'");
+    app.search();
+    let Some(Request::Filter(query)) = &app.last_request else {
+        panic!("a filter request");
+    };
+    assert_eq!(query.fts, FtsOptions::default());
+    app.toggle_case();
+    app.toggle_representation();
+    let Some(Request::Filter(query)) = &app.last_request else {
+        panic!("a filter request");
+    };
+    assert_eq!(
+        query.fts,
+        FtsOptions {
+            mode: TextMode::WordRaw,
+            case_sensitive: true,
+        }
+    );
+    app.toggle_regex();
+    let Some(Request::Filter(query)) = &app.last_request else {
+        panic!("a filter request");
+    };
+    assert_eq!(query.fts.mode, TextMode::Regex);
+    // The options cannot be changed while regex is on.
+    let representation = app.representation;
+    app.toggle_representation();
+    assert_eq!(app.representation, representation);
+    assert!(app.notice.as_ref().unwrap().text.contains("stored text"));
+    app.toggle_case();
+    assert!(app.case_sensitive, "unchanged");
+    // A broken `:fts` regex is reported on the filter line.
+    app.filter = Input::with_text("title:fts ~ '(unclosed'");
+    app.search();
+    assert!(
+        app.query_error
+            .as_ref()
+            .unwrap()
+            .1
+            .contains("invalid :fts regex")
+    );
 }
 
 #[test]

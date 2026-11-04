@@ -110,10 +110,13 @@ fn filter_runs_before_text_with_cache_and_direct_scan() {
                 .iter()
                 .any(|step| step.contains("JSON filter"))
         );
-        query.mode = TextMode::RegexClean;
+        query.mode = TextMode::Regex;
         query.pattern = "(?i)water.*".into();
         assert_eq!(ids(&mut repo, &query), ["a", "d"]);
+        // A regex sets its own case: without `(?i)` it is case-sensitive.
         query.pattern = "Water".into();
+        assert_eq!(ids(&mut repo, &query), ["a"]);
+        query.pattern = "(?i)Water".into();
         query.sort = vec![Sort {
             field: "title".into(),
             direction: Direction::Desc,

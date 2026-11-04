@@ -56,15 +56,3 @@ fn only_anchored_literal_prefixes_use_ordered_string_postings() {
         }
     }
 }
-
-#[test]
-fn rendered_patterns_drop_punctuation_but_keep_wildcards() {
-    assert_eq!(normalize_rendered_like("Goethe, Johann"), "Goethe Johann");
-    assert_eq!(normalize_rendered_like("„Faust“ – eine"), "Faust eine");
-    // Without `%` the pattern is literal: `_` is punctuation.
-    assert_eq!(normalize_rendered_like("first_name"), "first name");
-    // With `%`, `%` and `_` stay wildcards; escaped ones are text.
-    assert_eq!(normalize_rendered_like("Goethe,%_ohann"), "Goethe %_ohann");
-    assert_eq!(normalize_rendered_like("100\\% sure%"), "100 sure%");
-    assert_eq!(normalize_rendered_like("  a  -  b  "), "a b");
-}

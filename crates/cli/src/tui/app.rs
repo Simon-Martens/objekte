@@ -175,7 +175,7 @@ pub(super) enum View {
 
 
 /// Which full-text representation a query inspects.
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub(super) enum Representation {
     Normalized,
     Full,
@@ -836,7 +836,8 @@ impl<'a> App<'a> {
         let (filter, filter_sort) = objekte_core::split_sort_clause(&self.filter.text)
             .map_err(|error| (Line::Filter, error.to_string()))?;
         if !filter.trim().is_empty()
-            && let Err(error) = JsonFilter::compile(&filter, &Default::default())
+            && let Err(error) =
+                JsonFilter::compile_with_fts(&filter, &Default::default(), self.fts_options())
         {
             return Err((Line::Filter, error.to_string()));
         }
@@ -857,6 +858,7 @@ impl<'a> App<'a> {
                 limit: PAGE_SIZE,
                 count: true,
                 backend: JsonQueryBackend::Auto,
+                fts: self.fts_options(),
                 ..Default::default()
             })
         } else {
@@ -864,14 +866,8 @@ impl<'a> App<'a> {
                 pattern,
                 filter: (!filter.trim().is_empty()).then_some(filter),
                 sort,
-                mode: match (self.regex, self.representation) {
-                    (false, Representation::Normalized) => TextMode::Word,
-                    (false, Representation::Full) => TextMode::WordRaw,
-                    (true, Representation::Normalized) => TextMode::RegexClean,
-                    (true, Representation::Full) => TextMode::RegexRaw,
-                },
-                // Regex patterns carry their own (?i) flag.
-                case_sensitive: self.regex || self.case_sensitive,
+                mode: self.fts_options().mode,
+                case_sensitive: self.case_sensitive,
                 collections,
                 limit: PAGE_SIZE,
                 count: true,
@@ -1244,12 +1240,26 @@ impl<'a> App<'a> {
         self.options_changed(&text);
     }
 
+    /// The full-text options, for the search and for every `:fts` field:
+    /// regex on uses the stored text and its own case flags; otherwise the
+    /// case and markup options apply.
+    pub(super) fn fts_options(&self) -> objekte_core::FtsOptions {
+        objekte_core::FtsOptions {
+            mode: match (self.regex, self.representation) {
+                (true, _) => TextMode::Regex,
+                (false, Representation::Normalized) => TextMode::Word,
+                (false, Representation::Full) => TextMode::WordRaw,
+            },
+            case_sensitive: self.case_sensitive,
+        }
+    }
+
     pub(super) fn toggle_regex(&mut self) {
         self.regex = !self.regex;
         self.options_changed(if self.regex {
-            "Regex on · use (?i) for case-insensitive patterns"
+            "Regex on · stored text with markup and punctuation; (?i) ignores case"
         } else {
-            "Regex off · literal substring search"
+            "Regex off · case and markup options apply"
         });
     }
 
@@ -1267,13 +1277,17 @@ impl<'a> App<'a> {
     }
 
     pub(super) fn toggle_representation(&mut self) {
+        if self.regex {
+            self.notice("Regex always searches the stored text, markup included");
+            return;
+        }
         self.representation = match self.representation {
             Representation::Normalized => Representation::Full,
             Representation::Full => Representation::Normalized,
         };
         self.options_changed(match self.representation {
-            Representation::Normalized => "Normalized text · markup removed",
-            Representation::Full => "Full text · markup kept",
+            Representation::Normalized => "Normalized text · markup and punctuation ignored",
+            Representation::Full => "Stored text · markup and punctuation kept",
         });
     }
 
@@ -1459,7 +1473,7 @@ fn highlighter(request: &Request) -> Option<regex::Regex> {
         return None;
     }
     let source = match query.mode {
-        TextMode::RegexClean | TextMode::RegexRaw => pattern.to_owned(),
+        TextMode::Regex => pattern.to_owned(),
         // Normalized search ignores punctuation: between the words, any
         // run of whitespace or Unicode punctuation matches.
         TextMode::Word => {

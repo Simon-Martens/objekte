@@ -24,7 +24,8 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect::<Vec<_>>());
         let mut plans = BTreeMap::new();
-        let filter = JsonFilter::compile(&request.filter, &request.parameters)?;
+        let filter =
+            JsonFilter::compile_with_fts(&request.filter, &request.parameters, request.fts)?;
         let mut indexed_order = matches!(
             request.backend,
             JsonQueryBackend::Auto | JsonQueryBackend::Bigram

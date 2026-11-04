@@ -10,7 +10,7 @@ use serde_json::Value;
 use std::collections::BTreeMap;
 
 pub(crate) use malformed::malformed_search_text;
-pub(crate) use render::{is_punctuation, needs_normalizing, render_text, render_text_into};
+pub(crate) use render::{needs_normalizing, render_text, render_text_into};
 #[cfg(test)]
 pub(crate) use values::visit_sonic_text;
 pub(crate) use values::{TextRules, visit_json_text, visit_sonic_index_text};
@@ -21,14 +21,16 @@ pub(crate) use values::{TextRules, visit_json_text, visit_sonic_index_text};
 #[serde(rename_all = "snake_case")]
 pub enum TextMode {
     #[default]
-    /// Literal substring in rendered text, including partial words.
+    /// Literal substring in normalized text: markup removed, punctuation
+    /// ignored, whitespace collapsed. Case follows `case_sensitive`.
     Word,
-    /// Literal substring in decoded source values with markup intact.
+    /// Literal substring in decoded source values, exactly as stored.
     WordRaw,
-    /// Regex in rendered text.
-    RegexClean,
-    /// Regex in decoded source values with markup intact.
-    RegexRaw,
+    /// Regex over decoded source values exactly as stored, including markup,
+    /// punctuation, and whitespace. The pattern sets its own case flags,
+    /// such as `(?i)`; `case_sensitive` does not apply.
+    #[serde(alias = "regex_raw")]
+    Regex,
 }
 
 

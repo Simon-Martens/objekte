@@ -194,8 +194,8 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
         Some(0)
     );
     assert_eq!(
-        // Normalized text has no punctuation: `*world*` reads `world`.
-        repo.search_text(&query("Help +the +world$", TextMode::RegexClean))
+        // A regex reads the stored text: markup, escapes, and whitespace.
+        repo.search_text(&query(r"\*\*He\*\*lp\n  the \\\*world", TextMode::Regex))
             .unwrap()
             .hits
             .iter()
@@ -204,7 +204,7 @@ fn visible_words_and_regex_remove_markup_and_normalize_whitespace() {
         ["a"]
     );
     assert_eq!(
-        repo.search_text(&query("Help world", TextMode::RegexClean))
+        repo.search_text(&query("lp</b> &amp; world", TextMode::Regex))
             .unwrap()
             .hits[0]
             .record
@@ -285,7 +285,7 @@ fn literal_text_search_matches_prefix_infix_and_suffix_without_a_schema() {
         Some(3)
     );
     assert_eq!(
-        repo.search_text(&query(r"\bLichtenber\b", TextMode::RegexClean))
+        repo.search_text(&query(r"\bLichtenber\b", TextMode::Regex))
             .unwrap()
             .total,
         Some(0)
@@ -347,7 +347,7 @@ fn root_array_hits_use_the_detail_views_value_label() {
 }
 
 #[test]
-fn raw_regex_can_match_tags_while_clean_regex_cannot() {
+fn regex_reads_the_stored_text_with_markup_and_its_own_case() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
     schema(root);
@@ -359,26 +359,34 @@ fn raw_regex_can_match_tags_while_clean_regex_cannot() {
     write(root, "data/books/b.json", r#"{"md":"**He**lp"}"#);
     let mut repo = Repository::open(root).unwrap();
     assert_eq!(
-        repo.search_text(&query(r"<b>lp</b>", TextMode::RegexRaw))
+        repo.search_text(&query(r"<b>lp</b>", TextMode::Regex))
             .unwrap()
             .hits[0]
             .record
             .id,
         "a"
     );
+    // A regex is case-sensitive unless it says `(?i)`.
     assert_eq!(
-        repo.search_text(&query(r"<B>LP</B>", TextMode::RegexRaw))
-            .unwrap()
-            .total,
-        Some(1)
-    );
-    assert_eq!(
-        repo.search_text(&query(r"<b>lp</b>", TextMode::RegexClean))
+        repo.search_text(&query(r"<B>LP</B>", TextMode::Regex))
             .unwrap()
             .total,
         Some(0)
     );
-    let mut markdown = query(r"\*\*He\*\*lp", TextMode::RegexRaw);
+    assert_eq!(
+        repo.search_text(&query(r"(?i)<B>LP</B>", TextMode::Regex))
+            .unwrap()
+            .total,
+        Some(1)
+    );
+    // Markup splits the word in the stored text.
+    assert_eq!(
+        repo.search_text(&query(r"Help", TextMode::Regex))
+            .unwrap()
+            .total,
+        Some(0)
+    );
+    let mut markdown = query(r"\*\*He\*\*lp", TextMode::Regex);
     markdown.fields = Some(vec!["md".into()]);
     assert_eq!(repo.search_text(&markdown).unwrap().hits[0].record.id, "b");
     let mut wrong_field = query("Help", TextMode::Word);
@@ -704,7 +712,7 @@ fn every_leaf_is_searchable_unless_a_schema_field_excludes_it() {
             Some(0)
         );
         assert_eq!(
-            repo.search_text(&query(word, TextMode::RegexRaw))
+            repo.search_text(&query(word, TextMode::Regex))
                 .unwrap()
                 .total,
             Some(0)
@@ -807,7 +815,7 @@ fn numeric_index_text_matches_verified_number_spelling() {
     let pattern = regex::escape(&number.as_number().unwrap().to_string());
     let mut repo = Repository::open(root).unwrap();
     assert_eq!(
-        repo.search_text(&query(&pattern, TextMode::RegexClean))
+        repo.search_text(&query(&pattern, TextMode::Regex))
             .unwrap()
             .total,
         Some(1)
@@ -838,7 +846,7 @@ fn case_insensitive_regex_keeps_unicode_folding_candidates() {
             .map(|(id, _)| id)
             .collect::<Vec<_>>();
         let found = repo
-            .search_text(&query(pattern, TextMode::RegexClean))
+            .search_text(&query(&format!("(?i){pattern}"), TextMode::Regex))
             .unwrap()
             .hits
             .iter()
@@ -895,7 +903,9 @@ fn normalized_search_ignores_punctuation_and_raw_search_keeps_it() {
         ("Graphik-Verzeichnis", TextMode::Word, vec!["b"]),
         ("Faust eine", TextMode::Word, vec!["c"]),
         ("Faust – eine", TextMode::Word, vec!["c"]),
-        ("^Faust eine", TextMode::RegexClean, vec!["c"]),
+        // A regex sees the stored punctuation.
+        ("^„Faust“ – eine", TextMode::Regex, vec!["c"]),
+        ("^Faust eine", TextMode::Regex, vec![]),
         // Full text keeps the source characters.
         ("Goethe, Johann", TextMode::WordRaw, vec!["a"]),
         ("Goethe Johann", TextMode::WordRaw, vec![]),
@@ -932,7 +942,8 @@ fn rendered_filter_terms_compare_without_punctuation() {
     for (filter, expected) in [
         ("md:fts ~ 'Goethe, Johann'", vec!["a"]),
         ("md:fts ~ 'Johann — Faust'", vec!["a"]),
-        ("md:fts ~ 'Goethe%Faust'", vec!["a"]),
+        // `%` is not a wildcard for `:fts`: the needle is literal text.
+        ("md:fts ~ 'Goethe%Faust'", vec![]),
         ("md:fts = 'Goethe Johann Faust'", vec!["a"]),
         ("md:fts = '„Goethe“, Johann – Faust.'", vec!["a"]),
         (

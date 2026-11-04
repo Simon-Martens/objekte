@@ -193,7 +193,7 @@ fn eager_full_text_postings_and_streams_include_malformed_files_in_id_order() {
     assert_eq!(hits, [(1, "r001".into()), (2, "r064".into())]);
 
     let raw = repo
-        .search_text(&text_query(r"M\\u006fnd", TextMode::RegexRaw))
+        .search_text(&text_query(r"M\\u006fnd", TextMode::Regex))
         .unwrap();
     assert_eq!(raw.total, Some(1));
     assert_eq!(raw.hits[0].record.id, "r064");
@@ -223,14 +223,14 @@ fn full_text_fallback_matches_escaped_text_and_respects_field_scope() {
     assert!(result.hits[1].record.raw.is_some());
 
     let raw = repo
-        .search_text(&text_query(r"M\\u006fnd", TextMode::RegexRaw))
+        .search_text(&text_query(r"M\\u006fnd", TextMode::Regex))
         .unwrap();
     assert_eq!(raw.total, Some(1));
     assert_eq!(raw.hits[0].record.id, "b_broken");
     assert!(raw.query_plan[0].contains("normal bigram"));
 
     let rendered_regex = repo
-        .search_text(&text_query("Mond", TextMode::RegexClean))
+        .search_text(&text_query("Mond", TextMode::Regex))
         .unwrap();
     assert_eq!(rendered_regex.total, Some(2));
     assert_eq!(repo.text_index_bytes("docs").unwrap(), None);
@@ -252,8 +252,8 @@ fn full_text_fallback_matches_escaped_text_and_respects_field_scope() {
     let mut direct = Repository::builder(root).options(options).open().unwrap();
     for request in [
         text_query("Mond", TextMode::Word),
-        text_query("Mond", TextMode::RegexClean),
-        text_query(r"M\\u006fnd", TextMode::RegexRaw),
+        text_query("Mond", TextMode::Regex),
+        text_query(r"M\\u006fnd", TextMode::Regex),
     ] {
         let indexed = repo.search_text(&request).unwrap();
         let scanned = direct.search_text(&request).unwrap();
@@ -283,8 +283,8 @@ fn normal_index_does_not_drop_whitespace_sensitive_text_matches() {
 
     for request in [
         text_query("Moon light", TextMode::Word),
-        text_query(r"Moon\s+light", TextMode::RegexClean),
-        text_query(r"Moon\s+light", TextMode::RegexRaw),
+        text_query(r"Moon\s+light", TextMode::Regex),
+        text_query(r"Moon\s+light", TextMode::Regex),
     ] {
         let result = repo.search_text(&request).unwrap();
         assert_eq!(result.total, Some(2), "{}", request.pattern);

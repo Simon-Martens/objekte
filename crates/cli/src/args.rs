@@ -15,7 +15,7 @@ Usage:
   objekte REPOSITORY writeschema [COLLECTION] [--no-auto-index]
   objekte REPOSITORY query [COLLECTION] 'FILTER SORT BY FIELD [ASC|DESC] [&& FIELD ...]' [--param NAME=JSON]
       [--limit N] [--offset N] [--count] [--backend auto|direct|grep|bigram]
-  objekte REPOSITORY search [COLLECTION] 'PATTERN' [--mode word|raw-word|regex|raw-regex]
+  objekte REPOSITORY search [COLLECTION] 'PATTERN' [--mode word|raw-word|regex]
       [--filter 'JSON FILTER [SORT BY FIELD [ASC|DESC] [&& FIELD ...]]'] [--sort 'FIELD [ASC|DESC] [&& FIELD ...]']
       [--param NAME=JSON] [--field PATH] [--case-sensitive] [--limit N] [--offset N] [--count]
   objekte REPOSITORY inspect [--collections] [--indexes]
@@ -49,12 +49,13 @@ Options:
   --arg NAME=JSON                  Bind a declared view argument
   --query-arg QUERY.FIELD=JSON     Override a native query request field in a view
   --backend auto|direct|grep|bigram Query engine; auto uses the in-memory bigram index
-  --mode word|raw-word|regex|raw-regex
-                                  Literal substring or regex search; raw modes see markup
+  --mode word|raw-word|regex     Full-text matching for search and for :fts in filters:
+                                  word ignores markup and punctuation; raw-word and
+                                  regex see the stored text; a regex sets its own case
   --field PATH                    Limit full-text search to a JSON leaf path
   --filter EXPRESSION             Filter JSON records before full-text search
   --sort TERMS                    Sort full-text matches by one or more fields
-  --case-sensitive                Match case exactly in full-text search
+  --case-sensitive                Match case exactly in word modes (search and :fts)
                                   TUI: type to search; Tab moves to Filter and completes
                                   fields there; Ctrl+O collection; Ctrl+K actions; F1 keys
   --help, --version

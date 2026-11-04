@@ -85,9 +85,14 @@ impl TextMatcher {
                 "text pattern must contain 1–16384 bytes".into(),
             ));
         }
-        let raw = matches!(request.mode, TextMode::WordRaw | TextMode::RegexRaw);
+        // Regex always reads the stored text, only JSON-unescaped: markup,
+        // punctuation, and whitespace are matched as they are. Only plain
+        // word search reads the normalized text.
+        let raw = matches!(request.mode, TextMode::WordRaw | TextMode::Regex);
+        // A regex sets its own case flags, such as `(?i)`.
+        let case_sensitive = request.case_sensitive || request.mode == TextMode::Regex;
         let word_mode = matches!(request.mode, TextMode::Word | TextMode::WordRaw);
-        let fold_word = word_mode && !request.case_sensitive;
+        let fold_word = word_mode && !case_sensitive;
         let mut candidate_base = None;
         let pattern = if word_mode {
             let word = if raw {
@@ -114,7 +119,7 @@ impl TextMatcher {
             request.pattern.clone()
         };
         let regex = regex::RegexBuilder::new(&pattern)
-            .case_insensitive(!request.case_sensitive && !fold_word)
+            .case_insensitive(!case_sensitive && !fold_word)
             .build()
             .map_err(|error| Error::Request(format!("invalid text regex: {error}")))?;
         let candidate_base = candidate_base.as_deref().unwrap_or(&pattern);
@@ -122,11 +127,11 @@ impl TextMatcher {
             .then(|| candidate_base.as_bytes().to_vec());
         let candidate_pattern = if word_mode {
             Some(candidate_base.to_owned())
-        } else if !candidate_base.is_ascii() && !request.case_sensitive {
+        } else if !candidate_base.is_ascii() && !case_sensitive {
             // Unicode regex folding may select byte sequences absent from a
             // case-folded projection. Keep those searches conservative.
             None
-        } else if !request.case_sensitive {
+        } else if !case_sensitive {
             Some(format!("(?i:{candidate_base})"))
         } else {
             Some(candidate_base.to_owned())
