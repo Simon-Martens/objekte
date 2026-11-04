@@ -450,9 +450,8 @@ fn validate_logical_shape(plan: &LogicalPlan) -> Result<()> {
 impl Repository {
     /// Compile an application request through a registered frontend, then run
     /// its logical plan over engine-selected, revision-checked source records.
-    /// Custom-format plans currently use exact scan fallback. Complete ordered
-    /// results can reuse the query cache, but no custom source index is built.
-    #[cold]
+    /// Custom-format plans currently use exact scan fallback; they do not
+    /// borrow the JSON-only picker or publish a reusable query-cache entry.
     pub fn query_frontend(
         &mut self,
         frontend: &str,
@@ -468,7 +467,6 @@ impl Repository {
         self.query_logical_inner(&descriptor, request, &plan)
     }
 
-    #[cold]
     fn query_logical_inner(
         &mut self,
         frontend: &crate::extensions::Descriptor,
