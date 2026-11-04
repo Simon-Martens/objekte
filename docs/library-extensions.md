@@ -18,7 +18,9 @@ The public built-in adapters `StoredRepresentation`, `RenderedRepresentation`, a
 
 The working repository entry points are `search_text_with` and `search_text_stream_with`. They accept a normal `TextQuery` plus registered representation and operator identities. The query's `pattern` is passed as one JSON string to the operator's `compile` method. Matching retains leaf boundaries, canonical fields and concrete array paths. The engine retains the existing candidate, batch, cache, sorted page, result and provisional streaming paths. The registered path never changes `TextQuery`, `JsonQuery`, views or CLI behavior when unused. A compiled bound text identity contains both descriptors and the parameter value; scope, fields and the bound JSON filter also enter cache identity. A cache hit still reads and checks returned-page sources. Errors and callback cancellation do not publish a completed verified result. Built-in index reuse adds no index columns or snapshot payload. The existing secondary snapshot checks its schema/field configuration and encoding before reuse; changed slots remain in the overlay.
 
-The typed-extractor contract is consumed by `build_derived_posting`, `derived_value_counts`, and `query_derived`. Registered source providers and format decoders are consumed by `source_descriptors`, callback-scoped `with_source_record`, and `read_source_leaves`. Reads check descriptor currency before and after provider I/O; the convenience leaf list is exposed only on complete success. Default JSON descriptors use the existing secure, descriptor-relative filesystem reader; `JsonFormatDecoder` visits Sonic values. Provider selection can discover a collection containing only custom source files, with or without a JSON Schema describing its logical fields. `reload` updates collection membership after provider additions or removals. Builder opening and reload validate collisions and ambiguous decoder selection; a collision introduced later is reported on the next descriptor inventory. The indexed `Source`/`FilePicker` and legacy query paths still discover `.json` files only. A legacy query or `refresh` over a collection with selected provider records returns an explicit unsupported error rather than silently omitting them. Custom sources are not yet queryable or included in index snapshots. Query-frontend registrations are still type checked but are not yet executed.
+The typed-extractor contract is consumed by `build_derived_posting`, `derived_value_counts`, and `query_derived`. Registered source providers and format decoders are consumed by `source_descriptors`, callback-scoped `with_source_record`, and `read_source_leaves`. Reads check descriptor currency before and after provider I/O; the convenience leaf list is exposed only on complete success. Default JSON descriptors use the existing secure, descriptor-relative filesystem reader; `JsonFormatDecoder` visits Sonic values. Provider selection can discover a collection containing only custom source files, with or without a JSON Schema describing its logical fields. `reload` updates collection membership after provider additions or removals. Builder opening and reload validate collisions and ambiguous decoder selection; a collision introduced later is reported on the next descriptor inventory.
+
+`Repository::query_frontend` now executes `LogicalPlan` over mixed selected sources. Calls bind a registered representation and operator, or a derived extractor, once per collection. `And`, `Or`, and `Not` retain frontend order and short-circuit error behavior. The engine reads each selected source through its provider, decodes one borrowed record, evaluates exact predicates, retains at most `total_limit` ordered descriptors and sort keys, then rereads only the returned page for projection. A failed read, decode, extraction, or callback returns an error without publishing a partial result. `MetadataOnOpen` holds the custom selection made at open or reload; the two request freshness modes re-enumerate and compare the selected inventory during execution. The current logical executor supports ID and single-valued derived sorts with exact decimal comparison, count, truncation, pagination, and field projection. It reports `extension-exact-scan` and does not create index or query-cache entries yet. The `Source`/`FilePicker` and legacy query paths still discover `.json` files only; a legacy query or `refresh` over a collection with selected provider records returns an explicit unsupported error. Custom sources are queryable through registered frontends but are not yet included in index snapshots. Phase 4/5 gates remain open.
 
 ## Derived typed values
 
@@ -102,4 +104,28 @@ let leaves = repo.read_source_leaves(&source)?;
 # Ok::<(), objekte_core::Error>(())
 ```
 
-The source and format API currently supports inspection. Index and query integration, custom-only collection discovery, and frontend plan execution remain under implementation.
+## Copyable query frontend example
+
+`ArchiveFrontend` in the consumer crate compiles a structured request into a Markdown-normalized text call, an optional `publication_year` range, optional prefix `OR` and `NOT`, and a year sort. The current executor verifies every selected record and sorts a bounded prefix; indexed candidate and sort reuse is still pending.
+
+```rust,no_run
+use objekte_core::{Repository, TextFormat, TextMode, extensions::{NativeTextOperator, RenderedRepresentation, StoredRepresentation}};
+use objekte_extension_tests::{ArchiveFrontend, MarkdownDecoder, MarkdownProvider, PrefixOperator, PublicationYearExtractor};
+
+let root = std::path::Path::new("my-repository");
+let mut repo = Repository::builder(root)
+    .register_source(MarkdownProvider::new(root.join("data/archive")))?
+    .register_format(MarkdownDecoder::default())?
+    .register_representation(StoredRepresentation::default())?
+    .register_representation(RenderedRepresentation::new(TextFormat::Markdown)?)?
+    .register_operator(PrefixOperator::default())?
+    .register_operator(NativeTextOperator::new(TextMode::Word, false))?
+    .register_extractor(PublicationYearExtractor::default())?
+    .register_frontend(ArchiveFrontend::default())?
+    .open()?;
+let page = repo.query_frontend("example:archive-search", &serde_json::json!({
+    "collection": "archive", "term": "history", "min_year": 1848,
+    "sort_year": true, "offset": 25, "limit": 25, "count": true
+}))?;
+# Ok::<(), objekte_core::Error>(())
+```

@@ -1,6 +1,6 @@
 # Core and TUI code map
 
-This is a reading guide for the query and index code in `crates/core/src/`. Source files are authoritative. An index selects *candidates*; a query still checks source content before returning a record. The current indexed query path handles JSON sources; registered provider/decoder records have a separate inspection path while index integration is in progress.
+This is a reading guide for the query and index code in `crates/core/src/`. Source files are authoritative. An index selects *candidates*; a query still checks source content before returning a record. The current indexed query path handles JSON sources; registered provider/decoder records can be queried through a separate exact-scan logical path while index integration is in progress.
 
 ## Start with a query
 
@@ -11,6 +11,7 @@ This is a reading guide for the query and index code in `crates/core/src/`. Sour
 | Explicit sort | `json_query/sorted.rs` or `text_query/sorted.rs` | `sorting.rs` for collation keys, `sorting/buffer.rs` for the unindexed fallback |
 | Filter syntax | `json_filter/mod.rs` | `json_filter/parser.rs` and `json_filter/prefilter.rs` |
 | Named view | `view_definition.rs` | The same JSON or full-text query entry points |
+| Registered frontend | `repository/extension_query.rs` | `extensions.rs` for logical plans and bindings, `extension_sources.rs` for selected reads |
 
 The sorted query modules choose between two routes. A matching schema sort index on a **verified** picker supplies final candidate order directly. Otherwise, the bounded buffer projects current source values and retains the best prefix needed for the requested page. An indexed query stops after the batch that finds a match beyond `total_limit`; that extra match establishes whether the capped result is truncated. Candidate verification runs in parallel batches; callbacks publish rows in order after a batch finishes.
 
@@ -29,6 +30,7 @@ The sorted query modules choose between two routes. A matching schema sort index
 | `file_picker/typed/derived.rs` | Bind named extractor values to the existing typed B-tree and patch retained slot keys |
 | `repository/derived_query.rs` | Direct and indexed derived-value queries, ordered pages and cache keys |
 | `repository/extension_sources.rs` | Merge default JSON and registered source descriptors, reject collisions, perform revision-checked borrowed decode |
+| `repository/extension_query.rs` | Compile registered logical plans into exact calls, combine predicates, retain bounded sorted descriptors, and project returned pages |
 | `extensions.rs`, `extensions/builtins.rs` | Public descriptors, provider/decoder/record contracts, and native JSON/text adapters |
 | `file_picker/text.rs`, `text/projection.rs`, `text/query.rs` | Build combined and per-field postings, project source values, and choose text candidates |
 

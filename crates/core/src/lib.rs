@@ -49,9 +49,10 @@ pub use json_filter::{
 pub use query::{Filter, Operator, ViewRequest, ViewResult, ViewRow};
 pub use repository::{
     CacheMode, CacheStatus, CollectionChanges, CollectionInventory, Coverage, DecodedLeaf,
-    DerivedBackend, DerivedPredicate, DerivedQuery, DerivedQueryResult, DerivedSort, Freshness,
-    Metrics, Options, Record, RecordRelation, RecordRevision, References, Repository,
-    RepositoryBuilder, SourceChange, SourceChanges, TargetState, ValueCount,
+    DerivedBackend, DerivedPredicate, DerivedQuery, DerivedQueryResult, DerivedSort,
+    ExtensionQueryResult, ExtensionQueryRow, Freshness, Metrics, Options, Record, RecordRelation,
+    RecordRevision, References, Repository, RepositoryBuilder, SourceChange, SourceChanges,
+    TargetState, ValueCount,
 };
 pub use schema::{Field, PathStep, SortReduce, TextFormat, ValueType};
 pub use sorting::{parse_sort_terms, split_sort_clause};

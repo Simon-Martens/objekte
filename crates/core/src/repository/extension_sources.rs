@@ -102,8 +102,26 @@ impl Repository {
     }
 
     fn read_source_bytes(&self, descriptor: &SourceDescriptor) -> Result<Vec<u8>> {
+        self.read_source_bytes_checked(descriptor, true)
+    }
+
+    /// A query has already validated its collection inventory. Provider reads
+    /// still check the selected revision; avoid re-enumerating every source
+    /// before and after each record in a scan.
+    pub(super) fn read_selected_source_bytes(
+        &self,
+        descriptor: &SourceDescriptor,
+    ) -> Result<Vec<u8>> {
+        self.read_source_bytes_checked(descriptor, false)
+    }
+
+    fn read_source_bytes_checked(
+        &self,
+        descriptor: &SourceDescriptor,
+        check_inventory: bool,
+    ) -> Result<Vec<u8>> {
         let collection = descriptor.collection.as_str();
-        if !self.source_descriptors(collection)?.contains(descriptor) {
+        if check_inventory && !self.source_descriptors(collection)?.contains(descriptor) {
             return Err(Error::Request(
                 "source descriptor is stale or unknown".into(),
             ));
@@ -141,7 +159,7 @@ impl Repository {
         if bytes.len() > i64::MAX as usize {
             return Err(Error::Request("source exceeds supported size".into()));
         }
-        if !self.source_descriptors(collection)?.contains(descriptor) {
+        if check_inventory && !self.source_descriptors(collection)?.contains(descriptor) {
             return Err(Error::Unstable(descriptor.locator.clone()));
         }
         Ok(bytes)

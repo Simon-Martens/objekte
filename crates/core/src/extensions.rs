@@ -458,6 +458,14 @@ pub struct ExtensionBindings<'a> {
 
 
 impl ExtensionBindings<'_> {
+    pub fn extractor(&self, identity: &str) -> Option<u32> {
+        self.registry
+            .extractors
+            .keys()
+            .position(|name| name == identity)
+            .and_then(|position| u32::try_from(position).ok())
+    }
+
     pub fn operator(&self, identity: &str) -> Option<u32> {
         self.registry
             .operators
@@ -484,6 +492,12 @@ pub enum LogicalPredicate {
         representation: u32,
         path: String,
         parameters: Value,
+    },
+    /// Compare values emitted by a registered extractor. A missing field and
+    /// an extractor that emits no values do not satisfy a value predicate.
+    Derived {
+        extractor: u32,
+        predicate: crate::DerivedPredicate,
     },
     And(Vec<Self>),
     Or(Vec<Self>),
@@ -546,6 +560,39 @@ pub(crate) struct BoundValueExtractor {
 
 
 impl Extensions {
+    pub(crate) fn frontend(&self, identity: &str) -> Result<&dyn QueryFrontend> {
+        self.frontends
+            .get(identity)
+            .map(|frontend| frontend.as_ref())
+            .ok_or_else(|| Error::Request(format!("unknown query frontend {identity}")))
+    }
+
+    pub(crate) fn text_handle_identity(&self, handle: u32, operator: bool) -> Result<&str> {
+        let identity = if operator {
+            self.operators.keys().nth(handle as usize)
+        } else {
+            self.representations.keys().nth(handle as usize)
+        };
+        identity.map(String::as_str).ok_or_else(|| {
+            Error::Request(format!(
+                "invalid {} handle {handle}",
+                if operator {
+                    "operator"
+                } else {
+                    "representation"
+                }
+            ))
+        })
+    }
+
+    pub(crate) fn extractor_handle_identity(&self, handle: u32) -> Result<&str> {
+        self.extractors
+            .keys()
+            .nth(handle as usize)
+            .map(String::as_str)
+            .ok_or_else(|| Error::Request(format!("invalid extractor handle {handle}")))
+    }
+
     pub(crate) fn source_providers(&self) -> impl Iterator<Item = &Arc<dyn SourceProvider>> {
         self.sources.values()
     }

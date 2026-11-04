@@ -24,6 +24,7 @@ use std::{
 
 mod coverage;
 mod derived_query;
+mod extension_query;
 mod extension_sources;
 mod inference;
 mod json_query;
@@ -40,6 +41,7 @@ mod value_counts;
 pub use derived_query::{
     DerivedBackend, DerivedPredicate, DerivedQuery, DerivedQueryResult, DerivedSort,
 };
+pub use extension_query::{ExtensionQueryResult, ExtensionQueryRow};
 pub use extension_sources::DecodedLeaf;
 pub use value_counts::ValueCount;
 mod views;
@@ -353,6 +355,8 @@ pub struct Repository {
     query_cache: predicate_cache::VerifiedPredicateCache,
     extensions: Option<std::sync::Arc<crate::extensions::Extensions>>,
     custom_source_collections: BTreeSet<String>,
+    /// Frozen selected descriptors for custom collections under MetadataOnOpen.
+    custom_source_snapshot: BTreeMap<String, Vec<crate::extensions::SourceDescriptor>>,
 }
 
 
@@ -477,12 +481,15 @@ impl RepositoryBuilder {
             .is_some_and(|extensions| extensions.source_providers().next().is_some())
         {
             for name in repository.model.collections.keys() {
-                if repository
-                    .source_descriptors(name)?
+                let selected = repository.source_descriptors(name)?;
+                if selected
                     .iter()
                     .any(|source| source.provider != "objekte:filesystem")
                 {
                     repository.custom_source_collections.insert(name.clone());
+                    repository
+                        .custom_source_snapshot
+                        .insert(name.clone(), selected);
                 }
             }
         }
@@ -571,6 +578,7 @@ impl Repository {
             query_cache,
             extensions,
             custom_source_collections: BTreeSet::new(),
+            custom_source_snapshot: BTreeMap::new(),
         }
     }
 
@@ -600,6 +608,7 @@ impl Repository {
             self.extensions.clone(),
         );
         fork.custom_source_collections = self.custom_source_collections.clone();
+        fork.custom_source_snapshot = self.custom_source_snapshot.clone();
         fork
     }
 
@@ -631,17 +640,24 @@ impl Repository {
             RepositoryModel::load(&self.model.root)?
         };
         let mut custom_sources = BTreeSet::new();
+        let mut custom_snapshot = BTreeMap::new();
         if self
             .extensions
             .as_ref()
             .is_some_and(|extensions| extensions.source_providers().next().is_some())
         {
             for (name, collection) in &model.collections {
-                if extension_sources::select_sources(collection, name, self.extensions.as_deref())?
+                let selected = extension_sources::select_sources(
+                    collection,
+                    name,
+                    self.extensions.as_deref(),
+                )?;
+                if selected
                     .iter()
                     .any(|source| source.provider != "objekte:filesystem")
                 {
                     custom_sources.insert(name.clone());
+                    custom_snapshot.insert(name.clone(), selected);
                 }
             }
         }
@@ -652,6 +668,7 @@ impl Repository {
         }
         self.replace_model(model);
         self.custom_source_collections = custom_sources;
+        self.custom_source_snapshot = custom_snapshot;
         self.metrics.reload_nanos += nanos(t);
         Ok(())
     }

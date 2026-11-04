@@ -60,7 +60,7 @@ pub struct DerivedQueryResult {
 
 
 impl DerivedPredicate {
-    fn key(&self) -> Result<Option<TypedKey>> {
+    pub(crate) fn key(&self) -> Result<Option<TypedKey>> {
         match self {
             Self::AnyValue => Ok(None),
             Self::Eq(value)
@@ -72,7 +72,7 @@ impl DerivedPredicate {
         }
     }
 
-    fn matches(&self, values: &[TypedKey], key: Option<&TypedKey>) -> bool {
+    pub(crate) fn matches(&self, values: &[TypedKey], key: Option<&TypedKey>) -> bool {
         values.iter().any(|value| self.matches_one(value, key))
     }
 

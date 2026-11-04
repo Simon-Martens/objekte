@@ -4,8 +4,9 @@ use objekte_core::{
     Error, Result,
     extensions::{
         BindingContext, CandidateConstraint, CompiledOperator, DataKind, DecodedRecord, Dependency,
-        Descriptor, Extraction, QueryOperator, RecordAccess, ScalarValue, SemanticVersion,
-        TextRepresentation, TypedValue, ValueExtractor,
+        Descriptor, ExtensionBindings, Extraction, LogicalPlan, LogicalPredicate, QueryFrontend,
+        QueryOperator, RecordAccess, ScalarValue, SemanticVersion, TextRepresentation, TypedValue,
+        ValueExtractor,
     },
 };
 use serde_json::Value;
@@ -488,6 +489,148 @@ impl ValueExtractor for PublicationYearExtractor {
 }
 
 
+/// Small structured request compiled entirely through public handles. The
+/// engine owns the source scan, Boolean evaluation, sort and pagination.
+pub struct ArchiveFrontend(Descriptor);
+
+
+impl Default for ArchiveFrontend {
+    fn default() -> Self {
+        Self(Descriptor::new(
+            "example:archive-search",
+            SemanticVersion {
+                major: 1,
+                minor: 0,
+                patch: 0,
+            },
+            &("archive-search", 1),
+            DataKind::Query,
+            DataKind::Query,
+            vec![],
+        ))
+    }
+}
+
+
+impl QueryFrontend for ArchiveFrontend {
+    fn descriptor(&self) -> &Descriptor {
+        &self.0
+    }
+
+    fn compile(&self, request: &Value, bindings: &ExtensionBindings<'_>) -> Result<LogicalPlan> {
+        let collection = request
+            .get("collection")
+            .and_then(Value::as_str)
+            .ok_or_else(|| Error::Request("archive search requires collection".into()))?;
+        let text_operator = bindings
+            .operator("objekte:word")
+            .ok_or_else(|| Error::Request("word operator is not registered".into()))?;
+        let rendered = bindings
+            .representation("objekte:visible-markdown")
+            .ok_or_else(|| Error::Request("Markdown representation is not registered".into()))?;
+        let prefix_operator = bindings
+            .operator("example:prefix")
+            .ok_or_else(|| Error::Request("prefix operator is not registered".into()))?;
+        let stored = bindings
+            .representation("objekte:stored")
+            .ok_or_else(|| Error::Request("stored representation is not registered".into()))?;
+        let year = bindings
+            .extractor("example:publication_year")
+            .ok_or_else(|| Error::Request("publication year is not registered".into()))?;
+        let mut predicates = Vec::new();
+        if let Some(term) = request.get("term") {
+            let term = term
+                .as_str()
+                .ok_or_else(|| Error::Request("archive term must be text".into()))?;
+            predicates.push(LogicalPredicate::Call {
+                operator: text_operator,
+                representation: rendered,
+                path: "body".into(),
+                parameters: Value::String(term.into()),
+            });
+        }
+        for (name, predicate) in [
+            (
+                "min_year",
+                objekte_core::DerivedPredicate::Ge as fn(TypedValue) -> _,
+            ),
+            (
+                "max_year",
+                objekte_core::DerivedPredicate::Le as fn(TypedValue) -> _,
+            ),
+        ] {
+            if let Some(value) = request.get(name) {
+                let year_value = value
+                    .as_i64()
+                    .ok_or_else(|| Error::Request(format!("{name} must be an integer")))?;
+                predicates.push(LogicalPredicate::Derived {
+                    extractor: year,
+                    predicate: predicate(TypedValue::Number(year_value.to_string())),
+                });
+            }
+        }
+        if let Some(prefixes) = request.get("any_prefix") {
+            let prefixes = prefixes
+                .as_array()
+                .ok_or_else(|| Error::Request("any_prefix must be an array".into()))?;
+            predicates.push(LogicalPredicate::Or(
+                prefixes
+                    .iter()
+                    .map(|prefix| {
+                        let prefix = prefix.as_str().ok_or_else(|| {
+                            Error::Request("any_prefix values must be text".into())
+                        })?;
+                        Ok(LogicalPredicate::Call {
+                            operator: prefix_operator,
+                            representation: stored,
+                            path: "body".into(),
+                            parameters: Value::String(prefix.into()),
+                        })
+                    })
+                    .collect::<Result<Vec<_>>>()?,
+            ));
+        }
+        if let Some(prefix) = request.get("exclude_prefix") {
+            let prefix = prefix
+                .as_str()
+                .ok_or_else(|| Error::Request("exclude_prefix must be text".into()))?;
+            predicates.push(LogicalPredicate::Not(Box::new(LogicalPredicate::Call {
+                operator: prefix_operator,
+                representation: stored,
+                path: "body".into(),
+                parameters: Value::String(prefix.into()),
+            })));
+        }
+        let sort = request
+            .get("sort_year")
+            .and_then(Value::as_bool)
+            .unwrap_or(false)
+            .then(|| objekte_core::Sort {
+                field: "@derived:example:publication_year".into(),
+                direction: objekte_core::Direction::Asc,
+            })
+            .into_iter()
+            .collect();
+        let offset = usize::try_from(request.get("offset").and_then(Value::as_u64).unwrap_or(0))
+            .map_err(|_| Error::Request("offset exceeds platform size".into()))?;
+        let limit = usize::try_from(request.get("limit").and_then(Value::as_u64).unwrap_or(50))
+            .map_err(|_| Error::Request("limit exceeds platform size".into()))?;
+        Ok(LogicalPlan {
+            collections: vec![collection.into()],
+            predicate: LogicalPredicate::And(predicates),
+            sort,
+            columns: vec!["body".into(), "publication_date".into()],
+            offset,
+            limit,
+            count: request
+                .get("count")
+                .and_then(Value::as_bool)
+                .unwrap_or(false),
+        })
+    }
+}
+
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -498,6 +641,134 @@ mod tests {
     };
     use std::fs;
 
+
+    #[test]
+    fn archive_frontend_composes_markup_year_boolean_sort_and_page() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"},"publication_date":{"type":"string"}}}"#,
+        )
+        .unwrap();
+        for (id, body, date) in [
+            ("a", "History of A", "circa 1848"),
+            ("b", "HISTORY of B", "1850"),
+            ("c", "History of C", "1850"),
+            ("d", "History of D", "1852"),
+        ] {
+            fs::write(
+                directory.join(format!("{id}.json")),
+                serde_json::to_vec(&serde_json::json!({
+                    "body": body,
+                    "publication_date": date,
+                }))
+                .unwrap(),
+            )
+            .unwrap();
+        }
+        fs::write(directory.join("m.md"), "# History of Markdown").unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let request = serde_json::json!({
+            "collection":"archive", "term":"history", "min_year":1848,
+            "max_year":1850, "sort_year":true, "offset":1, "limit":2,
+            "count":true,
+        });
+        let page = repository
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(page.total, Some(3));
+        assert!(!page.truncated);
+        assert_eq!(
+            page.rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["b", "c"]
+        );
+        assert_eq!(
+            page.rows[0].values["publication_date"],
+            vec![TypedValue::Text("1850".into())]
+        );
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &request)
+                .unwrap()
+                .identity,
+            page.identity
+        );
+        let boolean = serde_json::json!({
+            "collection":"archive", "term":"history", "min_year":1848,
+            "max_year":1850, "any_prefix":["History","HISTORY"],
+            "exclude_prefix":"History of C", "count":true,
+        });
+        let result = repository
+            .query_frontend("example:archive-search", &boolean)
+            .unwrap();
+        assert_eq!(result.total, Some(2));
+        assert_eq!(
+            result
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "b"]
+        );
+        let markup = serde_json::json!({
+            "collection":"archive", "term":"History of Markdown", "count":true,
+        });
+        let result = repository
+            .query_frontend("example:archive-search", &markup)
+            .unwrap();
+        assert_eq!(result.total, Some(1));
+        assert_eq!(result.rows[0].source.locator, PathBuf::from("m.md"));
+        assert_eq!(
+            result.rows[0].values["publication_date"],
+            Vec::<TypedValue>::new()
+        );
+        fs::write(directory.join("n.md"), "# History of Markdown two").unwrap();
+        // MetadataOnOpen keeps the selected source snapshot until reload.
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &markup)
+                .unwrap()
+                .total,
+            Some(1)
+        );
+        repository.reload().unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &markup)
+                .unwrap()
+                .total,
+            Some(2)
+        );
+        fs::write(directory.join("m.md"), [0xff]).unwrap();
+        assert!(
+            repository
+                .query_frontend("example:archive-search", &markup)
+                .is_err()
+        );
+    }
 
     #[test]
     fn registered_markdown_provider_decoder_tracks_lifecycle_and_collisions() {
@@ -842,6 +1113,88 @@ mod tests {
         assert!(
             matches!(error, Err(Error::Request(message)) if message.contains("multiple records"))
         );
+    }
+
+    #[test]
+    fn frontend_request_freshness_tracks_mixed_source_edits_and_caps_pages() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"}}}"#,
+        )
+        .unwrap();
+        fs::write(directory.join("a.json"), r#"{"body":"History A"}"#).unwrap();
+        fs::write(directory.join("m.md"), "# History M").unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .options(Options {
+                freshness: Freshness::MetadataOnRequest,
+                total_limit: 1,
+                ..Default::default()
+            })
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let request = serde_json::json!({
+            "collection":"archive", "term":"history", "limit":1, "count":true,
+        });
+        let first = repository
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(first.total, Some(2));
+        assert!(first.truncated);
+        assert_eq!(first.rows[0].source.record_id, "a");
+        assert_eq!(first.metrics.source_reads, 3);
+        fs::write(directory.join("m.md"), "# Different M").unwrap();
+        let after_edit = repository
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(after_edit.total, Some(1));
+        assert!(!after_edit.truncated);
+        fs::rename(directory.join("m.md"), directory.join("renamed.md")).unwrap();
+        fs::write(directory.join("a.json"), r#"{"body":"Novel A"}"#).unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &request)
+                .unwrap()
+                .total,
+            Some(0)
+        );
+        fs::write(directory.join("new.md"), "# History N").unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &request)
+                .unwrap()
+                .rows[0]
+                .source
+                .record_id,
+            "new"
+        );
+        fs::write(
+            directory.join("new.json"),
+            r#"{"body":"History collision"}"#,
+        )
+        .unwrap();
+        assert!(matches!(
+            repository.query_frontend("example:archive-search", &request),
+            Err(Error::Request(message)) if message.contains("collision")
+        ));
     }
 
 
