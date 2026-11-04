@@ -1,0 +1,4506 @@
+{
+  "cache0": [
+    {
+      "candidate_median_ms": 10.953834,
+      "candidate_work": [
+        {
+          "parses": 1279,
+          "scans": 6946,
+          "source_reads": 1279
+        },
+        {
+          "parses": 1279,
+          "scans": 6946,
+          "source_reads": 1279
+        },
+        {
+          "parses": 1279,
+          "scans": 6946,
+          "source_reads": 1279
+        }
+      ],
+      "filter": "annotation ~ 'Mond'",
+      "id": 1,
+      "paired_deltas_ms": [
+        0.21908499999999798,
+        0.13189500000000187,
+        0.11160099999999851
+      ],
+      "reference_median_ms": 10.821938999999999,
+      "reference_work": [
+        {
+          "parses": 1279,
+          "scans": 6946,
+          "source_reads": 1279
+        },
+        {
+          "parses": 1279,
+          "scans": 6946,
+          "source_reads": 1279
+        },
+        {
+          "parses": 1279,
+          "scans": 6946,
+          "source_reads": 1279
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 118.14817599999999,
+      "candidate_work": [
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        }
+      ],
+      "filter": "annotation !~ 'Mond'",
+      "id": 2,
+      "paired_deltas_ms": [
+        0.203913,
+        -0.24996600000000058,
+        0.36194399999999405
+      ],
+      "reference_median_ms": 118.091742,
+      "reference_work": [
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 20.184638,
+      "candidate_work": [
+        {
+          "parses": 6947,
+          "scans": 6946,
+          "source_reads": 6947
+        },
+        {
+          "parses": 6947,
+          "scans": 6946,
+          "source_reads": 6947
+        },
+        {
+          "parses": 6947,
+          "scans": 6946,
+          "source_reads": 6947
+        }
+      ],
+      "filter": "annotation ~ :ignorecase('Mond')",
+      "id": 3,
+      "paired_deltas_ms": [
+        0.09794000000000125,
+        -0.40003600000000006,
+        -0.46336200000000005
+      ],
+      "reference_median_ms": 20.372391,
+      "reference_work": [
+        {
+          "parses": 6947,
+          "scans": 6946,
+          "source_reads": 6947
+        },
+        {
+          "parses": 6947,
+          "scans": 6946,
+          "source_reads": 6947
+        },
+        {
+          "parses": 6947,
+          "scans": 6946,
+          "source_reads": 6947
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 124.351371,
+      "candidate_work": [
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        }
+      ],
+      "filter": "annotation !~ :ignorecase('Mond')",
+      "id": 4,
+      "paired_deltas_ms": [
+        -0.35260900000000106,
+        -0.49180599999999686,
+        -0.2918340000000086
+      ],
+      "reference_median_ms": 124.843177,
+      "reference_work": [
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        },
+        {
+          "parses": 148479,
+          "scans": 148478,
+          "source_reads": 148479
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 7.159673,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "exists(annotation)",
+      "id": 5,
+      "paired_deltas_ms": [
+        -0.0989589999999998,
+        -0.10558400000000034,
+        0.01779499999999956
+      ],
+      "reference_median_ms": 7.206738,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.837006,
+      "candidate_work": [
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        }
+      ],
+      "filter": "year = null",
+      "id": 6,
+      "paired_deltas_ms": [
+        -0.04088700000000012,
+        -0.006467999999999918,
+        0.008801000000000059
+      ],
+      "reference_median_ms": 2.843474,
+      "reference_work": [
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.507521,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year = 1800",
+      "id": 7,
+      "paired_deltas_ms": [
+        -0.06568299999999994,
+        -0.003505999999999787,
+        -0.023553000000000157
+      ],
+      "reference_median_ms": 3.523528,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.038356,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year != 1800",
+      "id": 8,
+      "paired_deltas_ms": [
+        -0.05131799999999975,
+        -0.02939800000000048,
+        -0.03779500000000002
+      ],
+      "reference_median_ms": 3.075785,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.004441,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year >= 1800",
+      "id": 9,
+      "paired_deltas_ms": [
+        -0.01846199999999998,
+        -0.05032100000000028,
+        0.000188000000000077
+      ],
+      "reference_median_ms": 3.022903,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.928064,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year < 1800",
+      "id": 10,
+      "paired_deltas_ms": [
+        0.02439200000000019,
+        -0.014866000000000046,
+        0.015028000000000041
+      ],
+      "reference_median_ms": 2.915028,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.581426,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year >= 1800 && year < 1805",
+      "id": 11,
+      "paired_deltas_ms": [
+        -0.33724500000000024,
+        0.05865999999999971,
+        0.025154999999999816
+      ],
+      "reference_median_ms": 4.63119,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.922795,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year = 1800 || year = 1801",
+      "id": 12,
+      "paired_deltas_ms": [
+        -0.08712600000000004,
+        0.07832499999999998,
+        0.39502000000000015
+      ],
+      "reference_median_ms": 3.84447,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.304638000000001,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "pseudonym = true",
+      "id": 13,
+      "paired_deltas_ms": [
+        -0.26575799999999994,
+        -0.04284100000000013,
+        0.32864000000000093
+      ],
+      "reference_median_ms": 4.353681,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.544747,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "pseudonym = false",
+      "id": 14,
+      "paired_deltas_ms": [
+        -0.019568999999999726,
+        -0.03557900000000025,
+        0.07186500000000073
+      ],
+      "reference_median_ms": 4.549354,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 54.250992,
+      "candidate_work": [
+        {
+          "parses": 65997,
+          "scans": 66136,
+          "source_reads": 65997
+        },
+        {
+          "parses": 65997,
+          "scans": 66136,
+          "source_reads": 65997
+        },
+        {
+          "parses": 65997,
+          "scans": 66136,
+          "source_reads": 65997
+        }
+      ],
+      "filter": "musenalm_type ?~ 'Gedicht'",
+      "id": 15,
+      "paired_deltas_ms": [
+        -0.9930530000000033,
+        0.09292800000000057,
+        0.2682050000000018
+      ],
+      "reference_median_ms": 54.27167,
+      "reference_work": [
+        {
+          "parses": 65997,
+          "scans": 66136,
+          "source_reads": 65997
+        },
+        {
+          "parses": 65997,
+          "scans": 66136,
+          "source_reads": 65997
+        },
+        {
+          "parses": 65997,
+          "scans": 66136,
+          "source_reads": 65997
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.813904,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year = 1800 && pseudonym = true",
+      "id": 16,
+      "paired_deltas_ms": [
+        -0.04400100000000018,
+        -0.010107999999999784,
+        -0.010651000000000188
+      ],
+      "reference_median_ms": 2.8251370000000002,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.2729500000000002,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "(year = 1800 || year = 1801) && pseudonym = true",
+      "id": 17,
+      "paired_deltas_ms": [
+        -0.038805999999999674,
+        -0.08056999999999981,
+        -0.06389000000000022
+      ],
+      "reference_median_ms": 3.3319650000000003,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 7.14124,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "numbering = 0.1",
+      "id": 18,
+      "paired_deltas_ms": [
+        -0.01872199999999946,
+        -0.05188400000000026,
+        -0.033646999999999316
+      ],
+      "reference_median_ms": 7.190454,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 102.709752,
+      "candidate_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ],
+      "filter": "numbering < year",
+      "id": 19,
+      "paired_deltas_ms": [
+        -0.023447000000004437,
+        -0.05574300000000676,
+        0.22707100000000935
+      ],
+      "reference_median_ms": 102.765495,
+      "reference_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.684552,
+      "candidate_work": [
+        {
+          "parses": 3857,
+          "scans": 3856,
+          "source_reads": 3857
+        },
+        {
+          "parses": 3857,
+          "scans": 3856,
+          "source_reads": 3857
+        },
+        {
+          "parses": 3857,
+          "scans": 3856,
+          "source_reads": 3857
+        }
+      ],
+      "filter": "preferred_title ~ :ignorecase('almanach')",
+      "id": 20,
+      "paired_deltas_ms": [
+        -0.08842600000000189,
+        -0.013671000000000433,
+        0.07784700000000022
+      ],
+      "reference_median_ms": 9.698223,
+      "reference_work": [
+        {
+          "parses": 3857,
+          "scans": 3856,
+          "source_reads": 3857
+        },
+        {
+          "parses": 3857,
+          "scans": 3856,
+          "source_reads": 3857
+        },
+        {
+          "parses": 3857,
+          "scans": 3856,
+          "source_reads": 3857
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 8.522418,
+      "candidate_work": [
+        {
+          "parses": 1260,
+          "scans": 5556,
+          "source_reads": 1260
+        },
+        {
+          "parses": 1260,
+          "scans": 5556,
+          "source_reads": 1260
+        },
+        {
+          "parses": 1260,
+          "scans": 5556,
+          "source_reads": 1260
+        }
+      ],
+      "filter": "preferred_title ~ 'Mond'",
+      "id": 21,
+      "paired_deltas_ms": [
+        -0.13382499999999986,
+        -0.08502799999999944,
+        -0.0882670000000001
+      ],
+      "reference_median_ms": 8.607446,
+      "reference_work": [
+        {
+          "parses": 1260,
+          "scans": 5556,
+          "source_reads": 1260
+        },
+        {
+          "parses": 1260,
+          "scans": 5556,
+          "source_reads": 1260
+        },
+        {
+          "parses": 1260,
+          "scans": 5556,
+          "source_reads": 1260
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 104.397329,
+      "candidate_work": [
+        {
+          "parses": 138877,
+          "scans": 138876,
+          "source_reads": 138877
+        },
+        {
+          "parses": 138877,
+          "scans": 138876,
+          "source_reads": 138877
+        },
+        {
+          "parses": 138877,
+          "scans": 138876,
+          "source_reads": 138877
+        }
+      ],
+      "filter": "preferred_title !~ 'Mond'",
+      "id": 22,
+      "paired_deltas_ms": [
+        -0.4111079999999987,
+        -0.2560529999999943,
+        -0.22938000000000613
+      ],
+      "reference_median_ms": 104.808437,
+      "reference_work": [
+        {
+          "parses": 138877,
+          "scans": 138876,
+          "source_reads": 138877
+        },
+        {
+          "parses": 138877,
+          "scans": 138876,
+          "source_reads": 138877
+        },
+        {
+          "parses": 138877,
+          "scans": 138876,
+          "source_reads": 138877
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 14.372995,
+      "candidate_work": [
+        {
+          "parses": 8644,
+          "scans": 8643,
+          "source_reads": 8644
+        },
+        {
+          "parses": 8644,
+          "scans": 8643,
+          "source_reads": 8644
+        },
+        {
+          "parses": 8644,
+          "scans": 8643,
+          "source_reads": 8644
+        }
+      ],
+      "filter": "preferred_title ~ :ignorecase('Taschen%')",
+      "id": 23,
+      "paired_deltas_ms": [
+        -0.03115300000000154,
+        -0.026090999999999198,
+        -0.1317479999999982
+      ],
+      "reference_median_ms": 14.416136,
+      "reference_work": [
+        {
+          "parses": 8644,
+          "scans": 8643,
+          "source_reads": 8644
+        },
+        {
+          "parses": 8644,
+          "scans": 8643,
+          "source_reads": 8644
+        },
+        {
+          "parses": 8644,
+          "scans": 8643,
+          "source_reads": 8644
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 10.730666999999999,
+      "candidate_work": [
+        {
+          "parses": 3703,
+          "scans": 3856,
+          "source_reads": 3703
+        },
+        {
+          "parses": 3703,
+          "scans": 3856,
+          "source_reads": 3703
+        },
+        {
+          "parses": 3703,
+          "scans": 3856,
+          "source_reads": 3703
+        }
+      ],
+      "filter": "preferred_title:lower ~ 'almanach'",
+      "id": 24,
+      "paired_deltas_ms": [
+        -0.019413999999999376,
+        -0.039889000000002284,
+        -0.04769000000000112
+      ],
+      "reference_median_ms": 10.777899,
+      "reference_work": [
+        {
+          "parses": 3703,
+          "scans": 3856,
+          "source_reads": 3703
+        },
+        {
+          "parses": 3703,
+          "scans": 3856,
+          "source_reads": 3703
+        },
+        {
+          "parses": 3703,
+          "scans": 3856,
+          "source_reads": 3703
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 11.991689999999998,
+      "candidate_work": [
+        {
+          "parses": 346,
+          "scans": 1667,
+          "source_reads": 346
+        },
+        {
+          "parses": 346,
+          "scans": 1667,
+          "source_reads": 346
+        },
+        {
+          "parses": 346,
+          "scans": 1667,
+          "source_reads": 346
+        }
+      ],
+      "filter": "preferred_title = 'Der Mond'",
+      "id": 25,
+      "paired_deltas_ms": [
+        -0.13665899999999986,
+        -0.18339900000000142,
+        -0.23396800000000262
+      ],
+      "reference_median_ms": 12.206595,
+      "reference_work": [
+        {
+          "parses": 346,
+          "scans": 1667,
+          "source_reads": 346
+        },
+        {
+          "parses": 346,
+          "scans": 1667,
+          "source_reads": 346
+        },
+        {
+          "parses": 346,
+          "scans": 1667,
+          "source_reads": 346
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 101.187584,
+      "candidate_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ],
+      "filter": "musenalm_type ?!~ 'Gedicht'",
+      "id": 26,
+      "paired_deltas_ms": [
+        -0.24819699999999045,
+        0.10706600000000321,
+        0.4846289999999982
+      ],
+      "reference_median_ms": 101.080518,
+      "reference_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 7.649427,
+      "candidate_work": [
+        {
+          "parses": 758,
+          "scans": 757,
+          "source_reads": 758
+        },
+        {
+          "parses": 758,
+          "scans": 757,
+          "source_reads": 758
+        },
+        {
+          "parses": 758,
+          "scans": 757,
+          "source_reads": 758
+        }
+      ],
+      "filter": "name ~ :ignorecase('Goethe')",
+      "id": 27,
+      "paired_deltas_ms": [
+        -0.14373199999999997,
+        -0.051925000000000665,
+        0.0025610000000000355
+      ],
+      "reference_median_ms": 7.646866,
+      "reference_work": [
+        {
+          "parses": 758,
+          "scans": 757,
+          "source_reads": 758
+        },
+        {
+          "parses": 758,
+          "scans": 757,
+          "source_reads": 758
+        },
+        {
+          "parses": 758,
+          "scans": 757,
+          "source_reads": 758
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.704369,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "profession = 'Text'",
+      "id": 28,
+      "paired_deltas_ms": [
+        0.011533000000000015,
+        -0.05346499999999965,
+        -0.048961000000000254
+      ],
+      "reference_median_ms": 2.75333,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.55234,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "corporate_body = true",
+      "id": 29,
+      "paired_deltas_ms": [
+        -0.003233999999999959,
+        -0.05501499999999959,
+        -0.10210099999999978
+      ],
+      "reference_median_ms": 2.6412839999999997,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 115.713504,
+      "candidate_work": [
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        }
+      ],
+      "filter": "created < updated",
+      "id": 30,
+      "paired_deltas_ms": [
+        -0.10327599999999393,
+        -0.4057719999999989,
+        -0.35961400000000765
+      ],
+      "reference_median_ms": 116.101382,
+      "reference_work": [
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 20.606279,
+      "candidate_work": [
+        {
+          "parses": 15854,
+          "scans": 23453,
+          "source_reads": 15854
+        },
+        {
+          "parses": 15854,
+          "scans": 23453,
+          "source_reads": 15854
+        },
+        {
+          "parses": 15854,
+          "scans": 23453,
+          "source_reads": 15854
+        }
+      ],
+      "filter": "language ?= 'ger'",
+      "id": 31,
+      "paired_deltas_ms": [
+        -0.0006619999999983861,
+        0.07952800000000337,
+        0.1594500000000032
+      ],
+      "reference_median_ms": 20.606941,
+      "reference_work": [
+        {
+          "parses": 15854,
+          "scans": 23453,
+          "source_reads": 15854
+        },
+        {
+          "parses": 15854,
+          "scans": 23453,
+          "source_reads": 15854
+        },
+        {
+          "parses": 15854,
+          "scans": 23453,
+          "source_reads": 15854
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 98.381837,
+      "candidate_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ],
+      "filter": "language ?!= 'ger'",
+      "id": 32,
+      "paired_deltas_ms": [
+        -0.07548599999999794,
+        0.13109400000000448,
+        0.37744700000000364
+      ],
+      "reference_median_ms": 98.271136,
+      "reference_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 24.894861000000002,
+      "candidate_work": [
+        {
+          "parses": 20778,
+          "scans": 28381,
+          "source_reads": 20778
+        },
+        {
+          "parses": 20778,
+          "scans": 28381,
+          "source_reads": 20778
+        },
+        {
+          "parses": 20778,
+          "scans": 28381,
+          "source_reads": 20778
+        }
+      ],
+      "filter": "language:each = 'ger'",
+      "id": 33,
+      "paired_deltas_ms": [
+        -0.20605799999999874,
+        0.041239000000004467,
+        0.14526100000000142
+      ],
+      "reference_median_ms": 24.951687,
+      "reference_work": [
+        {
+          "parses": 20778,
+          "scans": 28381,
+          "source_reads": 20778
+        },
+        {
+          "parses": 20778,
+          "scans": 28381,
+          "source_reads": 20778
+        },
+        {
+          "parses": 20778,
+          "scans": 28381,
+          "source_reads": 20778
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.255487,
+      "candidate_work": [
+        {
+          "parses": 4929,
+          "scans": 4928,
+          "source_reads": 4929
+        },
+        {
+          "parses": 4929,
+          "scans": 4928,
+          "source_reads": 4929
+        },
+        {
+          "parses": 4929,
+          "scans": 4928,
+          "source_reads": 4929
+        }
+      ],
+      "filter": "items:length >= 1",
+      "id": 34,
+      "paired_deltas_ms": [
+        -0.14051599999999986,
+        0.037043999999999855,
+        -0.012271999999999395
+      ],
+      "reference_median_ms": 9.334816,
+      "reference_work": [
+        {
+          "parses": 4929,
+          "scans": 4928,
+          "source_reads": 4929
+        },
+        {
+          "parses": 4929,
+          "scans": 4928,
+          "source_reads": 4929
+        },
+        {
+          "parses": 4929,
+          "scans": 4928,
+          "source_reads": 4929
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 8.029173,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "entry = '00fx8ln651na0e3'",
+      "id": 35,
+      "paired_deltas_ms": [
+        -0.04860800000000154,
+        -0.08304599999999951,
+        0.005432000000001658
+      ],
+      "reference_median_ms": 8.095435,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.936888,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "exists(entry)",
+      "id": 36,
+      "paired_deltas_ms": [
+        -0.005777999999999395,
+        -0.003830000000000222,
+        -0.01972399999999963
+      ],
+      "reference_median_ms": 3.9512059999999996,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 12.051701,
+      "candidate_work": [
+        {
+          "parses": 889,
+          "scans": 888,
+          "source_reads": 889
+        },
+        {
+          "parses": 889,
+          "scans": 888,
+          "source_reads": 889
+        },
+        {
+          "parses": 889,
+          "scans": 888,
+          "source_reads": 889
+        }
+      ],
+      "filter": "places ?= 'd7kbujq7399g22j'",
+      "id": 37,
+      "paired_deltas_ms": [
+        -0.09859199999999824,
+        -0.1487259999999999,
+        -0.06289299999999898
+      ],
+      "reference_median_ms": 12.142678,
+      "reference_work": [
+        {
+          "parses": 889,
+          "scans": 888,
+          "source_reads": 889
+        },
+        {
+          "parses": 889,
+          "scans": 888,
+          "source_reads": 889
+        },
+        {
+          "parses": 889,
+          "scans": 888,
+          "source_reads": 889
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.278861,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "agents.type ?= 'Verlag'",
+      "id": 38,
+      "paired_deltas_ms": [
+        -0.02844399999999947,
+        -0.001792000000000904,
+        -0.05336499999999944
+      ],
+      "reference_median_ms": 4.289427,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.505751,
+      "candidate_work": [
+        {
+          "parses": 122,
+          "scans": 121,
+          "source_reads": 122
+        },
+        {
+          "parses": 122,
+          "scans": 121,
+          "source_reads": 122
+        },
+        {
+          "parses": 122,
+          "scans": 121,
+          "source_reads": 122
+        }
+      ],
+      "filter": "contributors.agents ?= '5e64t7ca8x2wyim'",
+      "id": 39,
+      "paired_deltas_ms": [
+        -0.03960000000000008,
+        -0.08910200000000046,
+        0.029928999999999206
+      ],
+      "reference_median_ms": 9.545951,
+      "reference_work": [
+        {
+          "parses": 122,
+          "scans": 121,
+          "source_reads": 122
+        },
+        {
+          "parses": 122,
+          "scans": 121,
+          "source_reads": 122
+        },
+        {
+          "parses": 122,
+          "scans": 121,
+          "source_reads": 122
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 15.06219,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "musenalm_type ?= 'Gedicht/Lied'",
+      "id": 40,
+      "paired_deltas_ms": [
+        -0.1890009999999993,
+        -0.20873500000000256,
+        -0.176971
+      ],
+      "reference_median_ms": 15.239161,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 11.4092,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "contributors.type ?= 'Autor:in'",
+      "id": 41,
+      "paired_deltas_ms": [
+        -0.24843800000000016,
+        -0.20208600000000132,
+        -0.3042439999999971
+      ],
+      "reference_median_ms": 11.657638,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 114.373914,
+      "candidate_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ],
+      "filter": "contributors:length > 0",
+      "id": 42,
+      "paired_deltas_ms": [
+        -0.08890199999999027,
+        -0.12110699999999497,
+        -0.22598899999999844
+      ],
+      "reference_median_ms": 114.46281599999999,
+      "reference_work": [
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        },
+        {
+          "parses": 133949,
+          "scans": 133948,
+          "source_reads": 133949
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.532601,
+      "candidate_work": [
+        {
+          "parses": 1203,
+          "scans": 1202,
+          "source_reads": 1203
+        },
+        {
+          "parses": 1203,
+          "scans": 1202,
+          "source_reads": 1203
+        },
+        {
+          "parses": 1203,
+          "scans": 1202,
+          "source_reads": 1203
+        }
+      ],
+      "filter": "entries:length >= 3",
+      "id": 43,
+      "paired_deltas_ms": [
+        -0.07762299999999911,
+        0.005980999999999348,
+        -0.016464000000000034
+      ],
+      "reference_median_ms": 6.558922,
+      "reference_work": [
+        {
+          "parses": 1203,
+          "scans": 1202,
+          "source_reads": 1203
+        },
+        {
+          "parses": 1203,
+          "scans": 1202,
+          "source_reads": 1203
+        },
+        {
+          "parses": 1203,
+          "scans": 1202,
+          "source_reads": 1203
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.509719,
+      "candidate_work": [
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        }
+      ],
+      "filter": "entries ?= '1o25nw5kc1t9ko4'",
+      "id": 44,
+      "paired_deltas_ms": [
+        -0.009647999999998547,
+        -0.041403999999999996,
+        -0.0011609999999997456
+      ],
+      "reference_median_ms": 9.51088,
+      "reference_work": [
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 32.398924,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "owner = 'Theodor Springmann Stiftung' && basis = true",
+      "id": 45,
+      "paired_deltas_ms": [
+        0.08479599999999721,
+        0.18210399999999538,
+        0.0478870000000029
+      ],
+      "reference_median_ms": 32.279993,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.236599,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "media ?= 'Reproduktion'",
+      "id": 46,
+      "paired_deltas_ms": [
+        -0.013023999999999702,
+        0.005391000000001256,
+        0.0034320000000001016
+      ],
+      "reference_median_ms": 9.23492,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.114212,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "basis = false",
+      "id": 47,
+      "paired_deltas_ms": [
+        -0.032236999999999405,
+        -0.022211999999999676,
+        -0.013091000000000186
+      ],
+      "reference_median_ms": 4.1458520000000005,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.559205,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "fictional = true",
+      "id": 48,
+      "paired_deltas_ms": [
+        -0.022393999999999803,
+        -0.011441000000000034,
+        -0.0393349999999999
+      ],
+      "reference_median_ms": 2.5793719999999998,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.041768,
+      "candidate_work": [
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        }
+      ],
+      "filter": "key = 'kontakt'",
+      "id": 49,
+      "paired_deltas_ms": [
+        -0.05124800000000018,
+        0.01701900000000034,
+        0.008144999999999847
+      ],
+      "reference_median_ms": 6.040714,
+      "reference_work": [
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        },
+        {
+          "parses": 2,
+          "scans": 1,
+          "source_reads": 2
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 116.048098,
+      "candidate_work": [
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        }
+      ],
+      "filter": "data.description ~ 'Musenalm'",
+      "id": 50,
+      "paired_deltas_ms": [
+        -0.6503289999999993,
+        -0.6953999999999922,
+        -0.16332299999999123
+      ],
+      "reference_median_ms": 116.698427,
+      "reference_work": [
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        }
+      ]
+    }
+  ],
+  "cache64": [
+    {
+      "candidate_median_ms": 3.034984,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "annotation ~ 'Mond'",
+      "id": 1,
+      "paired_deltas_ms": [
+        -0.032181000000000015,
+        -0.025976,
+        -0.03336499999999987
+      ],
+      "reference_median_ms": 3.068349,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.98698,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "annotation !~ 'Mond'",
+      "id": 2,
+      "paired_deltas_ms": [
+        -0.028577999999999548,
+        -0.07045500000000082,
+        -0.057443999999999384
+      ],
+      "reference_median_ms": 7.041253,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.932238,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "annotation ~ :ignorecase('Mond')",
+      "id": 3,
+      "paired_deltas_ms": [
+        -0.04032199999999975,
+        -0.06373799999999985,
+        -0.05437100000000061
+      ],
+      "reference_median_ms": 6.995976,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.979356,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "annotation !~ :ignorecase('Mond')",
+      "id": 4,
+      "paired_deltas_ms": [
+        -0.01994600000000002,
+        -0.06305400000000105,
+        -0.04484699999999986
+      ],
+      "reference_median_ms": 7.030073000000001,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.993917,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "exists(annotation)",
+      "id": 5,
+      "paired_deltas_ms": [
+        -0.007838000000000456,
+        -0.06124500000000044,
+        -0.0448069999999996
+      ],
+      "reference_median_ms": 7.038723999999999,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.799935,
+      "candidate_work": [
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        }
+      ],
+      "filter": "year = null",
+      "id": 6,
+      "paired_deltas_ms": [
+        -0.013414000000000037,
+        -0.030816999999999872,
+        -0.037673999999999985
+      ],
+      "reference_median_ms": 2.829545,
+      "reference_work": [
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        },
+        {
+          "parses": 0,
+          "scans": 0,
+          "source_reads": 0
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.1179430000000004,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year = 1800",
+      "id": 7,
+      "paired_deltas_ms": [
+        -0.033966999999999636,
+        0.006655000000000744,
+        0.03139700000000012
+      ],
+      "reference_median_ms": 3.108872,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.002068,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year != 1800",
+      "id": 8,
+      "paired_deltas_ms": [
+        0.010286999999999935,
+        0.001434999999999853,
+        -0.05609900000000012
+      ],
+      "reference_median_ms": 3.004175,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.95127,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year >= 1800",
+      "id": 9,
+      "paired_deltas_ms": [
+        -0.07934000000000019,
+        -0.008799000000000223,
+        -0.03607700000000014
+      ],
+      "reference_median_ms": 2.994126,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.885055,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year < 1800",
+      "id": 10,
+      "paired_deltas_ms": [
+        -0.020185999999999815,
+        0.007089000000000123,
+        -0.08243900000000037
+      ],
+      "reference_median_ms": 2.9052409999999997,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.453532,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year >= 1800 && year < 1805",
+      "id": 11,
+      "paired_deltas_ms": [
+        0.012241999999999642,
+        0.0732709999999992,
+        -0.02970000000000006
+      ],
+      "reference_median_ms": 4.440885000000001,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.820182,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year = 1800 || year = 1801",
+      "id": 12,
+      "paired_deltas_ms": [
+        -0.19687100000000024,
+        -0.0248879999999998,
+        -0.10887100000000016
+      ],
+      "reference_median_ms": 3.900059,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.162335,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "pseudonym = true",
+      "id": 13,
+      "paired_deltas_ms": [
+        0.012770999999999866,
+        -0.07994299999999921,
+        -0.03435700000000086
+      ],
+      "reference_median_ms": 4.208809,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.379583,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "pseudonym = false",
+      "id": 14,
+      "paired_deltas_ms": [
+        -0.03620099999999926,
+        -0.042020000000000834,
+        -0.09615599999999969
+      ],
+      "reference_median_ms": 4.4293830000000005,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.218526000000001,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "musenalm_type ?~ 'Gedicht'",
+      "id": 15,
+      "paired_deltas_ms": [
+        0.08025799999999972,
+        -0.04591199999999951,
+        -0.06079999999999952
+      ],
+      "reference_median_ms": 4.27311,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.625842,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "year = 1800 && pseudonym = true",
+      "id": 16,
+      "paired_deltas_ms": [
+        0.016373000000000193,
+        -0.01895099999999994,
+        -0.03978999999999999
+      ],
+      "reference_median_ms": 2.643189,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.228241,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "(year = 1800 || year = 1801) && pseudonym = true",
+      "id": 17,
+      "paired_deltas_ms": [
+        -0.01691499999999957,
+        -0.03117300000000034,
+        -0.010110999999999759
+      ],
+      "reference_median_ms": 3.2531830000000004,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.996211,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "numbering = 0.1",
+      "id": 18,
+      "paired_deltas_ms": [
+        -0.01296499999999945,
+        -0.07099800000000034,
+        -0.04762700000000031
+      ],
+      "reference_median_ms": 7.043838,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.980426,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "numbering < year",
+      "id": 19,
+      "paired_deltas_ms": [
+        -0.003560000000001118,
+        -0.056545999999999985,
+        -0.07106500000000082
+      ],
+      "reference_median_ms": 7.029151,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.8437,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "preferred_title ~ :ignorecase('almanach')",
+      "id": 20,
+      "paired_deltas_ms": [
+        0.009296000000000859,
+        -0.021082999999999963,
+        -0.03698400000000035
+      ],
+      "reference_median_ms": 4.8690549999999995,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.0384409999999997,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "preferred_title ~ 'Mond'",
+      "id": 21,
+      "paired_deltas_ms": [
+        -0.01377200000000034,
+        -0.035909999999999886,
+        -0.03204000000000029
+      ],
+      "reference_median_ms": 3.072733,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.81994,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "preferred_title !~ 'Mond'",
+      "id": 22,
+      "paired_deltas_ms": [
+        0.022547000000000317,
+        -0.03613199999999939,
+        -0.023253000000000412
+      ],
+      "reference_median_ms": 4.8341069999999995,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.847152,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "preferred_title ~ :ignorecase('Taschen%')",
+      "id": 23,
+      "paired_deltas_ms": [
+        0.02647300000000019,
+        0.003443000000000751,
+        -0.018819999999999837
+      ],
+      "reference_median_ms": 4.847766,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.197249,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "preferred_title:lower ~ 'almanach'",
+      "id": 24,
+      "paired_deltas_ms": [
+        -0.03619400000000006,
+        -0.05048700000000039,
+        -0.05770100000000067
+      ],
+      "reference_median_ms": 6.247736000000001,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.602905,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "preferred_title = 'Der Mond'",
+      "id": 25,
+      "paired_deltas_ms": [
+        -0.0733460000000008,
+        -0.1430720000000001,
+        -0.16099199999999847
+      ],
+      "reference_median_ms": 9.737309,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 6.390384,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "musenalm_type ?!~ 'Gedicht'",
+      "id": 26,
+      "paired_deltas_ms": [
+        -0.04584300000000052,
+        -0.06505500000000008,
+        -0.0603410000000002
+      ],
+      "reference_median_ms": 6.455439,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.313488,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "name ~ :ignorecase('Goethe')",
+      "id": 27,
+      "paired_deltas_ms": [
+        0.009126999999999885,
+        0.003601999999999883,
+        -0.01522800000000002
+      ],
+      "reference_median_ms": 3.312102,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.591373,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "profession = 'Text'",
+      "id": 28,
+      "paired_deltas_ms": [
+        -0.024535000000000196,
+        -0.019471000000000238,
+        -0.03881200000000007
+      ],
+      "reference_median_ms": 2.628666,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.528313,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "corporate_body = true",
+      "id": 29,
+      "paired_deltas_ms": [
+        -0.0047200000000002795,
+        -0.013603000000000254,
+        -0.03319099999999997
+      ],
+      "reference_median_ms": 2.549201,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.029567,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "created < updated",
+      "id": 30,
+      "paired_deltas_ms": [
+        -0.006127999999999467,
+        -0.012481000000000186,
+        -0.00975100000000051
+      ],
+      "reference_median_ms": 4.035695,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.365201,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "language ?= 'ger'",
+      "id": 31,
+      "paired_deltas_ms": [
+        -0.00371800000000011,
+        -0.011863999999999653,
+        -0.014644000000000101
+      ],
+      "reference_median_ms": 2.379845,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 5.795572,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "language ?!= 'ger'",
+      "id": 32,
+      "paired_deltas_ms": [
+        -0.01625800000000055,
+        -0.035013999999999434,
+        -0.0456960000000004
+      ],
+      "reference_median_ms": 5.81425,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.362599,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "language:each = 'ger'",
+      "id": 33,
+      "paired_deltas_ms": [
+        -0.0022620000000004303,
+        -4.900000000018778e-05,
+        -0.015176999999999552
+      ],
+      "reference_median_ms": 2.3678269999999997,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.749417,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "items:length >= 1",
+      "id": 34,
+      "paired_deltas_ms": [
+        -0.0017239999999998368,
+        -0.009541999999999717,
+        -0.015122999999999998
+      ],
+      "reference_median_ms": 3.758959,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 7.860338999999999,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "entry = '00fx8ln651na0e3'",
+      "id": 35,
+      "paired_deltas_ms": [
+        -0.029379000000001376,
+        -0.07087899999999969,
+        -0.068689
+      ],
+      "reference_median_ms": 7.907153999999999,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 3.8788329999999998,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "exists(entry)",
+      "id": 36,
+      "paired_deltas_ms": [
+        -0.031874999999999876,
+        -0.023293999999999926,
+        -0.026177000000000117
+      ],
+      "reference_median_ms": 3.90501,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 10.754256,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "places ?= 'd7kbujq7399g22j'",
+      "id": 37,
+      "paired_deltas_ms": [
+        -0.025472999999999857,
+        -0.13046899999999972,
+        -0.10452100000000009
+      ],
+      "reference_median_ms": 10.855655,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.231485,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "agents.type ?= 'Verlag'",
+      "id": 38,
+      "paired_deltas_ms": [
+        0.001445999999998726,
+        -0.014300000000000423,
+        -0.03383999999999965
+      ],
+      "reference_median_ms": 4.25303,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 8.572842000000001,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "contributors.agents ?= '5e64t7ca8x2wyim'",
+      "id": 39,
+      "paired_deltas_ms": [
+        0.04521200000000114,
+        -0.059780999999999196,
+        -0.07551800000000064
+      ],
+      "reference_median_ms": 8.632623,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 14.998162,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "musenalm_type ?= 'Gedicht/Lied'",
+      "id": 40,
+      "paired_deltas_ms": [
+        -0.1183569999999996,
+        -0.21196600000000032,
+        -0.20188699999999926
+      ],
+      "reference_median_ms": 15.200049,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 11.384049000000001,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "contributors.type ?= 'Autor:in'",
+      "id": 41,
+      "paired_deltas_ms": [
+        -0.11499600000000143,
+        -0.18953699999999962,
+        -0.22273799999999966
+      ],
+      "reference_median_ms": 11.556963999999999,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.422504,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "contributors:length > 0",
+      "id": 42,
+      "paired_deltas_ms": [
+        -0.023614999999999498,
+        -0.0868770000000012,
+        -0.07885499999999901
+      ],
+      "reference_median_ms": 9.499932000000001,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 5.300385,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "entries:length >= 3",
+      "id": 43,
+      "paired_deltas_ms": [
+        -0.004951999999999401,
+        -0.04397499999999965,
+        -0.03957099999999958
+      ],
+      "reference_median_ms": 5.339956,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.364421,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "entries ?= '1o25nw5kc1t9ko4'",
+      "id": 44,
+      "paired_deltas_ms": [
+        -0.01762100000000011,
+        -0.051294999999999646,
+        -0.025339000000000667
+      ],
+      "reference_median_ms": 9.400782,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 32.3561,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "owner = 'Theodor Springmann Stiftung' && basis = true",
+      "id": 45,
+      "paired_deltas_ms": [
+        0.22273500000000013,
+        0.06765400000000454,
+        0.12011100000000141
+      ],
+      "reference_median_ms": 32.235989,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 9.214046,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "media ?= 'Reproduktion'",
+      "id": 46,
+      "paired_deltas_ms": [
+        0.041515999999999664,
+        -0.0649999999999995,
+        -0.006645000000000678
+      ],
+      "reference_median_ms": 9.220691,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 4.102149,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "basis = false",
+      "id": 47,
+      "paired_deltas_ms": [
+        5.300000000119098e-05,
+        -0.03385299999999969,
+        -0.039862000000000286
+      ],
+      "reference_median_ms": 4.1360019999999995,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 2.559931,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "fictional = true",
+      "id": 48,
+      "paired_deltas_ms": [
+        -0.007503999999999511,
+        -0.04077499999999956,
+        -0.023259000000000363
+      ],
+      "reference_median_ms": 2.5674349999999997,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 5.989027,
+      "candidate_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ],
+      "filter": "key = 'kontakt'",
+      "id": 49,
+      "paired_deltas_ms": [
+        0.007837000000000316,
+        -0.06083000000000105,
+        -0.08798299999999948
+      ],
+      "reference_median_ms": 6.0148600000000005,
+      "reference_work": [
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        },
+        {
+          "parses": 1,
+          "scans": 0,
+          "source_reads": 1
+        }
+      ]
+    },
+    {
+      "candidate_median_ms": 117.369059,
+      "candidate_work": [
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        }
+      ],
+      "filter": "data.description ~ 'Musenalm'",
+      "id": 50,
+      "paired_deltas_ms": [
+        -1.3072310000000016,
+        -0.7490569999999934,
+        -0.2524360000000172
+      ],
+      "reference_median_ms": 118.122476,
+      "reference_work": [
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        },
+        {
+          "parses": 148487,
+          "scans": 148486,
+          "source_reads": 148487
+        }
+      ]
+    }
+  ]
+}
