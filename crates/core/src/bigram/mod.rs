@@ -1,8 +1,8 @@
 //! Content-fed bigram indexing: builder, compressed filter, changed-file
 //! overlay, and snapshots.
 //!
-//! `column_slab.rs` is adapted from FFF and remains under the MIT license;
-//! see `LICENSE` and `NOTICE.md`.
+//! `filter.rs` and `column_slab.rs` are adapted from FFF and remain under
+//! the MIT license; see `LICENSE` and `NOTICE.md`.
 
 mod codec;
 mod column_slab;

@@ -1,9 +1,14 @@
 # FFF-derived code
 
-Two files are adapted from FFF at commit
+Three files are adapted from FFF at commit
 `d1c7dd47130ca670ab71e7466a1a3b4a57d5348d` and remain under the MIT license in
 [LICENSE](LICENSE):
 
+- [`filter.rs`](filter.rs), from FFF's
+  `crates/fff-core/src/index/bigram_filter.rs`: the builder, compressed
+  filter, sparse encoding, byte normalization, changed-file overlay, and
+  their tests, extended here with UTF-8 byte encoding, per-field partitions,
+  observed byte pairs, and snapshots.
 - [`column_slab.rs`](column_slab.rs), from FFF's
   `crates/fff-core/src/index/column_slab.rs`.
 - [`../file_picker/regex_plan.rs`](../file_picker/regex_plan.rs), the

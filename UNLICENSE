@@ -23,7 +23,8 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org/>
 
-Exception: crates/core/src/bigram/column_slab.rs and
+Exception: crates/core/src/bigram/filter.rs,
+crates/core/src/bigram/column_slab.rs, and
 crates/core/src/file_picker/regex_plan.rs are adapted from FFF
 (Copyright (c) 2025 Dmitriy Kovalenko) and remain under the MIT license.
 See crates/core/src/bigram/LICENSE and crates/core/src/bigram/NOTICE.md.
