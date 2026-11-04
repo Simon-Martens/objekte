@@ -1,0 +1,62 @@
+{
+  "revision": "e2c6fa797b14d16fe0535726444c34dc40a9b6d0",
+  "reference_revision": "266d9a0fb071838be8f757671599872a7036a054",
+  "binaries": {
+    "reference": {
+      "path": "/home/simon/source/objekte/target/recovery/reference-A/release/index-build-profile",
+      "sha256": "67431c8226853c63477d42b75b16017624c4aae3450f49457fc813a91c0018cd"
+    },
+    "candidate": {
+      "path": "/home/simon/source/objekte/target/library-stage3/release/index-build-profile",
+      "sha256": "623a022def7b31c13e266e25f06113ab81c9f092bec4234746e590d5ef62b9e5"
+    }
+  },
+  "repo": "/home/simon/source/objekte/examples/musenalm",
+  "cpus": "0-15",
+  "rayon_num_threads": 16,
+  "runs_per_binary": 5,
+  "warmups_per_binary": 1,
+  "skip_snapshot": true,
+  "mode": "A",
+  "fields": [
+    "annotation=markdown",
+    "preferred_title=plain",
+    "title_statement=html",
+    "contributors[].annotation=xml"
+  ],
+  "affinity_before_taskset": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "started_utc": "2026-11-04T17:20:38Z"
+}

@@ -1,0 +1,62 @@
+{
+  "revision": "e2c6fa797b14d16fe0535726444c34dc40a9b6d0",
+  "reference_revision": "266d9a0fb071838be8f757671599872a7036a054",
+  "binaries": {
+    "reference": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin-index/index-build-profile",
+      "sha256": "99e7df67ae59cd739d5c599c173043ee6ef84f101623eb9c12ee76fed68c40e9"
+    },
+    "candidate": {
+      "path": "/home/simon/source/objekte/target/library-stage3-profile/release/index-build-profile",
+      "sha256": "fb5870b1c972b2f6514d7dc7fbb2e0a2ba64b62ef24d8d669d785d52d3bf32f8"
+    }
+  },
+  "repo": "/home/simon/source/objekte/examples/musenalm",
+  "cpus": "0-15",
+  "rayon_num_threads": 16,
+  "runs_per_binary": 5,
+  "warmups_per_binary": 1,
+  "skip_snapshot": true,
+  "mode": null,
+  "fields": [
+    "annotation=markdown",
+    "preferred_title=plain",
+    "title_statement=html",
+    "contributors[].annotation=xml"
+  ],
+  "affinity_before_taskset": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "started_utc": "2026-11-04T17:18:45Z"
+}
