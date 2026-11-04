@@ -1,0 +1,76 @@
+{
+  "affinity_before_taskset": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "binaries": {
+    "candidate": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/stage2-text/candidate-bin/index-build-profile",
+      "sha256": "cac73c4e6049f094289885116cfcaa940d2885da351ecb3ae16b3a8d69532310"
+    },
+    "reference": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin-index/index-build-profile",
+      "sha256": "99e7df67ae59cd739d5c599c173043ee6ef84f101623eb9c12ee76fed68c40e9"
+    }
+  },
+  "corpus_after_run": {
+    "configuration_sha256": {
+      ".objekte/collections/agents.schema.json": "5594c790390ee33c2c598cf8d8f31eae2fa6e897bfee209090206633c775508d",
+      ".objekte/collections/contents.schema.json": "3e8c14e7c5003db770b823c8aa501070baeb1f0214503fd115fbeeb934ad6546",
+      ".objekte/collections/entries.schema.json": "2dc000f5b0be7e4a7ffc404cef824b6d26e239e7e85f687de56bf20ac297f661",
+      ".objekte/collections/items.schema.json": "192c34ded283bb5b3db8191d8f67006ceff0ff0c694ee8500c5e998a43eaff12",
+      ".objekte/collections/pages.schema.json": "020115642efb65c6240d6e774279a19e300ab999e783187e9bac3f670c9571c7",
+      ".objekte/collections/places.schema.json": "60dc2d936fba1802e26e34a43c0e7e1968b96313fd143f9c26a629a7a9c1d961",
+      ".objekte/collections/series.schema.json": "00e7cb3f0af9baa84848a054442e084fed6075cb48a2bfddb12d2788b161c35c",
+      ".objekte/views/contents_list.view.json": "a6f98f1bd5e6dc788d396f638f53001b5c92bb340f7abe3a976693c73664b769"
+    },
+    "record_bytes": 193297230,
+    "record_count": 148486,
+    "source_content_and_stat_sha256": "90e36ad63dcb6386e9521c583fdcd36451fd3d6182187dced542fb8292f730ce",
+    "source_manifest_sha256": null
+  },
+  "corpus_matches_baseline": true,
+  "cpus": "0-15",
+  "fields": [
+    "annotation=markdown",
+    "preferred_title=plain",
+    "title_statement=html",
+    "contributors[].annotation=xml"
+  ],
+  "rayon_num_threads": 16,
+  "reference_revision": "266d9a0fb071838be8f757671599872a7036a054",
+  "repo": "/home/simon/source/objekte/examples/musenalm",
+  "revision": "468d97010e393dde130c0102f8f36e952fd2c9e6",
+  "runs_per_binary": 7,
+  "started_utc": "2026-11-04T14:34:18Z"
+}
