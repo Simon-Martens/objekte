@@ -70,7 +70,7 @@ Suggestions appear as you type in the Filter line, without Tab: field names whil
 
 ## Searching
 
-Either line may be empty. If both have content, the filter selects records first, and the full-text matcher then searches their included values. Normalized full text renders declared Markdown, HTML and XML, removes formatting and collapses whitespace. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex` and `raw-regex`.
+Either line may be empty. If both have content, the filter selects records first, and the full-text matcher then searches their included values. Normalized full text renders declared Markdown, HTML and XML, removes formatting, ignores punctuation (it becomes a space) and collapses whitespace, in the text and in what you type. Full text searches decoded source values with markup intact. Without regex, both match literal substrings, including partial words, with the case option. With regex, Rust regex syntax applies and the pattern controls its own case flags, such as `(?i)`. The corresponding one-shot modes are `word`, `raw-word`, `regex` and `raw-regex`.
 
 Append `SORT BY title ASC && year DESC` to either line to sort within each collection. System fields such as `@size`, and rendered `title:fts` terms, work as in [queries](queries.md). If both lines specify a sort, the Search line wins, even with no search term. To search for the literal phrase `SORT BY` while also appending a sort, quote the pattern.
 

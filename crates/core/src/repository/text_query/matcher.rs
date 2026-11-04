@@ -190,6 +190,16 @@ impl TextMatcher {
     /// Broad or whitespace-sensitive patterns therefore scan all file slots.
     pub(super) fn regular_candidate_pattern(&self) -> Option<&str> {
         let pattern = self.candidate_pattern.as_deref()?;
+        // A normalized word pattern has no punctuation and single spaces.
+        // Each of its words appears unchanged in the source text, so the
+        // raw index can narrow by the longest one; verification checks the
+        // whole phrase.
+        if self.candidate_literal && !self.raw {
+            return pattern
+                .split(' ')
+                .max_by_key(|word| word.len())
+                .filter(|word| !word.is_empty());
+        }
         if pattern.chars().any(char::is_whitespace)
             || [r"\s", r"\n", r"\r", r"\t", r"\x", r"\u"]
                 .iter()

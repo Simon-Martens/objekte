@@ -87,7 +87,13 @@ enum Modifier {
     Each,
     Lower,
     Fts,
+    /// `:fts` on a declared full-text field: its rendered, normalized text,
+    /// with candidates from the field's rendered postings.
     Rendered(TextFormat),
+    /// `:fts` elsewhere: the value as plain normalized text, verified per
+    /// record. No full-text postings cover it reliably (undeclared typed
+    /// fields and `exclude_fts` subtrees are not projected).
+    Normalized,
 }
 
 
@@ -285,6 +291,11 @@ impl FieldOperand {
                 .as_str()
                 .and_then(|text| render_text(text, format))
                 .map(|text| SelectedValue::Owned(Value::String(text))),
+            // An unbound `:fts` reads the normalized text too.
+            Some(Modifier::Normalized | Modifier::Fts) => value
+                .as_str()
+                .and_then(|text| render_text(text, TextFormat::Plain))
+                .map(|text| SelectedValue::Owned(Value::String(text))),
             _ => Some(SelectedValue::Borrowed(value)),
         }
     }
@@ -302,6 +313,7 @@ impl FieldOperand {
                     .as_str()
                     .and_then(|text| render_text(text, format))
                     .is_some(),
+                Some(Modifier::Normalized | Modifier::Fts) => value.is_string(),
                 _ => true,
             };
             if eligible {

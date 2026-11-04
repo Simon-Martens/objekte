@@ -53,8 +53,12 @@ pub(crate) fn declared_format(
 }
 
 fn bind_field(field: &mut FieldOperand, fields: &BTreeMap<String, Field>) {
+    // `:fts` always reads the full-text version of a field: rendered when
+    // a format is declared, otherwise normalized plain text.
     if field.modifier == Some(Modifier::Fts) {
-        field.modifier = declared_format(fields, &field.path).map(Modifier::Rendered);
+        field.modifier = Some(
+            declared_format(fields, &field.path).map_or(Modifier::Normalized, Modifier::Rendered),
+        );
     }
 }
 

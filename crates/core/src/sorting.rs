@@ -183,9 +183,9 @@ impl SortPlan {
                 None => (sort.field.as_str(), false),
             };
             let path = JsonFilter::parse_path(field)?;
-            // Like a `:fts` filter operand, an undeclared path sorts by its
-            // stored value.
-            let rendered = fts.then(|| declared_format(fields, &path)).flatten();
+            // Like a `:fts` filter operand, `:fts` sorts by the full-text
+            // version: rendered when declared, otherwise normalized plain text.
+            let rendered = fts.then(|| declared_format(fields, &path).unwrap_or(TextFormat::Plain));
             let mut current: Option<&crate::Field> = None;
             let mut at_root = true;
             let mut language = default_language.unwrap_or("en");
@@ -255,7 +255,7 @@ impl SortPlan {
             } = &mut term.key
                 && let Some(format) = context.rendered(collection, path)
             {
-                *rendered = format;
+                *rendered = Some(format.unwrap_or(TextFormat::Plain));
             }
         }
         self.relations = Some((collection.to_owned(), context));

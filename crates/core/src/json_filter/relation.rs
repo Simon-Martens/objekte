@@ -306,7 +306,11 @@ impl JsonFilter {
     pub(crate) fn bind_relations(&self, collection: &str, context: Arc<RelationContext>) -> Self {
         fn rendered(field: &mut FieldOperand, relation: &RelationPath) {
             if field.modifier == Some(Modifier::Fts) {
-                field.modifier = relation.rendered.map(Modifier::Rendered);
+                field.modifier = Some(
+                    relation
+                        .rendered
+                        .map_or(Modifier::Normalized, Modifier::Rendered),
+                );
             }
         }
         fn bind(expr: &mut Expr, collection: &str, context: &RelationContext) {

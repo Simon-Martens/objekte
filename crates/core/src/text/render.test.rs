@@ -88,7 +88,10 @@ fn unicode_punctuation_becomes_one_space_and_symbols_stay() {
         render_text("€ 5 + 3 = 8 © $ ~ |", TextFormat::Plain),
         Some("€ 5 + 3 = 8 © $ ~ |".into())
     );
-    assert_eq!(render_text("... !!", TextFormat::Plain), Some(String::new()));
+    assert_eq!(
+        render_text("... !!", TextFormat::Plain),
+        Some(String::new())
+    );
     assert!(!needs_normalizing("Goethe"));
     assert!(needs_normalizing("Goethe,"));
     assert!(needs_normalizing("a b"));

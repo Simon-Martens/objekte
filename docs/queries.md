@@ -172,7 +172,8 @@ it is ordered; the other system fields use stored file metadata, and
 `@created` reads it once per match. `SORT BY @modified DESC` alone is the
 default order and runs unsorted. Append `:fts` to a field with a declared
 `x-full-text` format to sort by its rendered text, so `**Zeta**` sorts as
-`Zeta`; on an undeclared field, `:fts` sorts by the stored value. System and
+`Zeta`; on an undeclared field, `:fts` sorts by its normalized plain text.
+Either way punctuation is ignored, so `„Zeta“` sorts as `Zeta`. System and
 `:fts` terms never use a schema sort index.
 
 ```sh

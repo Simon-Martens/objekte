@@ -613,7 +613,11 @@ fn highlights_ignore_punctuation_like_the_search() {
     let temp = tempfile::tempdir().unwrap();
     let collection = temp.path().join("data/docs");
     fs::create_dir_all(&collection).unwrap();
-    fs::write(collection.join("a.json"), r#"{"title":"„Goethe“, Johann – Faust"}"#).unwrap();
+    fs::write(
+        collection.join("a.json"),
+        r#"{"title":"„Goethe“, Johann – Faust"}"#,
+    )
+    .unwrap();
     let mut repo = Repository::open(temp.path()).unwrap();
     let mut app = App::new(&mut repo);
     app.search = Input::with_text("goethe johann faust");

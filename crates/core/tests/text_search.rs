@@ -868,9 +868,21 @@ fn disabled_cache_scans_marked_source_fields_directly() {
 fn normalized_search_ignores_punctuation_and_raw_search_keeps_it() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
-    write(root, "data/books/a.json", r#"{"title":"Goethe, Johann W."}"#);
-    write(root, "data/books/b.json", r#"{"title":"Graphik-Verzeichnis"}"#);
-    write(root, "data/books/c.json", r#"{"title":"„Faust“ – eine Tragödie"}"#);
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"title":"Goethe, Johann W."}"#,
+    );
+    write(
+        root,
+        "data/books/b.json",
+        r#"{"title":"Graphik-Verzeichnis"}"#,
+    );
+    write(
+        root,
+        "data/books/c.json",
+        r#"{"title":"„Faust“ – eine Tragödie"}"#,
+    );
     let mut repo = Repository::open(root).unwrap();
     let mut options = Options::new();
     options.cache = CacheMode::Disabled;
@@ -910,7 +922,11 @@ fn rendered_filter_terms_compare_without_punctuation() {
     let temp = tempfile::tempdir().unwrap();
     let root = temp.path();
     schema(root);
-    write(root, "data/books/a.json", r#"{"md":"**Goethe**, Johann — *Faust*!"}"#);
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"md":"**Goethe**, Johann — *Faust*!"}"#,
+    );
     write(root, "data/books/b.json", r#"{"md":"Schiller"}"#);
     let mut repo = Repository::open(root).unwrap();
     for (filter, expected) in [
@@ -919,7 +935,10 @@ fn rendered_filter_terms_compare_without_punctuation() {
         ("md:fts ~ 'Goethe%Faust'", vec!["a"]),
         ("md:fts = 'Goethe Johann Faust'", vec!["a"]),
         ("md:fts = '„Goethe“, Johann – Faust.'", vec!["a"]),
-        ("md:fts ~ 'Goethe,Johann' && md:fts !~ 'Schiller'", vec!["a"]),
+        (
+            "md:fts ~ 'Goethe,Johann' && md:fts !~ 'Schiller'",
+            vec!["a"],
+        ),
     ] {
         let result = repo
             .query_json(&JsonQuery {
@@ -936,4 +955,91 @@ fn rendered_filter_terms_compare_without_punctuation() {
             .collect::<Vec<_>>();
         assert_eq!(ids, expected, "{filter}");
     }
+}
+
+#[test]
+fn fts_reads_the_normalized_text_of_every_field() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    write(
+        root,
+        ".objekte/collections/books.schema.json",
+        &json!({
+            "type":"object",
+            "properties":{
+                "kind":{"type":"string","index":true},
+                "secret":{"type":"string","exclude_fts":true}
+            },
+            "x-objekte":{"name":"books","path":"data/books","type":"data","format":"json","id":"filename"}
+        })
+        .to_string(),
+    );
+    write(
+        root,
+        "data/books/a.json",
+        r#"{"title":"Goethe, Johann","kind":"poem/song","secret":"Faust-Plan"}"#,
+    );
+    write(
+        root,
+        "data/books/b.json",
+        r#"{"title":"Schiller","kind":"prose","secret":"none"}"#,
+    );
+    let mut repo = Repository::open(root).unwrap();
+    for (filter, expected) in [
+        // Undeclared, typed-indexed, and excluded fields all read their
+        // normalized text through `:fts`.
+        ("title:fts ~ 'Goethe Johann'", vec!["a"]),
+        ("kind:fts = 'poem song'", vec!["a"]),
+        ("secret:fts ~ 'Faust Plan'", vec!["a"]),
+        ("title:fts ~ 'Goethe, Johann'", vec!["a"]),
+        // Without `:fts` the stored value is compared.
+        ("title ~ 'Goethe Johann'", vec![]),
+        ("title ~ 'Goethe, Johann'", vec!["a"]),
+    ] {
+        let result = repo
+            .query_json(&JsonQuery {
+                filter: filter.into(),
+                count: true,
+                limit: 10,
+                ..Default::default()
+            })
+            .unwrap();
+        let ids = result
+            .records
+            .iter()
+            .map(|record| record.id.as_str())
+            .collect::<Vec<_>>();
+        assert_eq!(ids, expected, "{filter}");
+    }
+}
+
+#[test]
+fn multi_word_search_without_a_text_index_still_narrows_by_index() {
+    let temp = tempfile::tempdir().unwrap();
+    let root = temp.path();
+    for index in 0..40 {
+        write(
+            root,
+            &format!("data/books/{index:02}.json"),
+            &json!({"title": format!("Record {index}")}).to_string(),
+        );
+    }
+    write(
+        root,
+        "data/books/goethe.json",
+        r#"{"title":"Goethe, Johann Wolfgang"}"#,
+    );
+    let mut repo = Repository::open(root).unwrap();
+    repo.search_text(&query("Wolfgang", TextMode::Word))
+        .unwrap();
+    repo.reset_metrics();
+    let result = repo
+        .search_text(&query("goethe, johann", TextMode::Word))
+        .unwrap();
+    assert_eq!(result.total, Some(1));
+    assert!(
+        result.metrics.source_reads <= 2,
+        "narrowed by the longest word, not a scan: {}",
+        result.metrics.source_reads
+    );
 }
