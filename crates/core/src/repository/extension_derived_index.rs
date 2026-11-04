@@ -8,7 +8,58 @@ use crate::{
     file_picker::{TypedIndex, TypedKey},
     json_filter::decimal_cmp,
 };
-use std::{cmp::Ordering, sync::Arc};
+use bincode::Options as _;
+use serde::{Deserialize, Serialize};
+use sha2::{Digest as _, Sha256};
+use std::{
+    cmp::Ordering,
+    fs,
+    io::{Seek as _, SeekFrom, Write as _},
+    path::Path,
+    sync::Arc,
+};
+
+const SNAPSHOT_MAGIC: &[u8; 8] = b"OBJDRV01";
+const SNAPSHOT_HEADER: usize = 8 + 8 + 32;
+const MAX_SNAPSHOT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
+
+
+#[derive(Serialize)]
+struct SavedSelectedDerived<'a> {
+    collection: String,
+    path: String,
+    selection: String,
+    semantics: String,
+    slots: usize,
+    scalar_safe: bool,
+    index: &'a TypedIndex,
+}
+
+
+#[derive(Deserialize)]
+struct RestoredSelectedDerived {
+    collection: String,
+    path: String,
+    selection: String,
+    semantics: String,
+    slots: usize,
+    scalar_safe: bool,
+    index: TypedIndex,
+}
+
+
+fn snapshot_digest(mut reader: impl Read) -> std::io::Result<[u8; 32]> {
+    let mut digest = Sha256::new();
+    let mut buffer = [0_u8; 64 * 1024];
+    loop {
+        let read = reader.read(&mut buffer)?;
+        if read == 0 {
+            break;
+        }
+        digest.update(&buffer[..read]);
+    }
+    Ok(digest.finalize().into())
+}
 
 
 #[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
@@ -145,6 +196,201 @@ impl SelectedDerivedPosting {
 
 
 impl Repository {
+    fn selected_derived_snapshot_key(
+        &self,
+        collection: &str,
+        extractor: &str,
+    ) -> Result<(SelectedDerivedKey, usize)> {
+        if self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            return Err(Error::Request(
+                "selected derived snapshots require memory cache and non-hash freshness".into(),
+            ));
+        }
+        let selected_collection = self.model.collection(collection)?;
+        let extensions = self
+            .extensions
+            .as_ref()
+            .ok_or_else(|| Error::Request("no value extractors are registered".into()))?;
+        let binding = extensions.bind_value(
+            extractor,
+            collection,
+            extensions.schema(collection).map(Arc::as_ref),
+        )?;
+        if !binding.extractor.descriptor().cacheable() {
+            return Err(Error::Request(format!(
+                "volatile extractor {extractor} cannot be snapshotted"
+            )));
+        }
+        for provider in extensions.source_providers() {
+            if provider.may_select(collection) && !provider.descriptor().cacheable() {
+                return Err(Error::Request(format!(
+                    "volatile source provider {} cannot be snapshotted",
+                    provider.descriptor().identity
+                )));
+            }
+        }
+        let selected = self.source_descriptors(collection)?;
+        for source in &selected {
+            if !extensions.decoder(source)?.descriptor().cacheable() {
+                return Err(Error::Request(format!(
+                    "volatile decoder {} cannot be snapshotted",
+                    source.format
+                )));
+            }
+        }
+        let selection = crate::config::fingerprint("selected-sources/v1", &selected);
+        Ok((
+            SelectedDerivedKey::new(selected_collection, &binding.path, &selection, extensions),
+            selected.len(),
+        ))
+    }
+
+    /// Save a selected-provider typed posting with its semantic and source
+    /// revision identity. The file is atomically replaced after a full write.
+    pub fn save_selected_derived_snapshot(
+        &self,
+        collection: &str,
+        extractor: &str,
+        path: &Path,
+    ) -> Result<()> {
+        let (key, slots) = self.selected_derived_snapshot_key(collection, extractor)?;
+        let posting = self.selected_derived_indexes.get(&key).ok_or_else(|| {
+            Error::Cache("selected derived posting is unavailable or stale".into())
+        })?;
+        if posting.slots != slots {
+            return Err(Error::Cache("selected derived source count changed".into()));
+        }
+        let parent = path
+            .parent()
+            .ok_or_else(|| Error::Request("snapshot path has no parent".into()))?;
+        fs::create_dir_all(parent).map_err(|error| io(parent, error))?;
+        let mut temporary =
+            tempfile::NamedTempFile::new_in(parent).map_err(|error| io(parent, error))?;
+        temporary
+            .write_all(&[0; SNAPSHOT_HEADER])
+            .map_err(|error| io(path, error))?;
+        let saved = SavedSelectedDerived {
+            collection: key.collection,
+            path: serde_json::to_string(&key.path).expect("JSON path serializes"),
+            selection: key.selection,
+            semantics: key.semantics,
+            slots,
+            scalar_safe: posting.scalar_safe,
+            index: &posting.index,
+        };
+        bincode::DefaultOptions::new()
+            .serialize_into(temporary.as_file_mut(), &saved)
+            .map_err(|error| Error::Cache(format!("save selected derived snapshot: {error}")))?;
+        let size = temporary
+            .as_file()
+            .metadata()
+            .map_err(|error| io(path, error))?
+            .len();
+        let payload = size - SNAPSHOT_HEADER as u64;
+        if payload > MAX_SNAPSHOT_BYTES {
+            return Err(Error::Cache(
+                "selected derived snapshot exceeds size limit".into(),
+            ));
+        }
+        temporary
+            .as_file_mut()
+            .seek(SeekFrom::Start(SNAPSHOT_HEADER as u64))
+            .map_err(|error| io(path, error))?;
+        let digest = snapshot_digest(temporary.as_file_mut().take(payload))
+            .map_err(|error| io(path, error))?;
+        let mut header = [0_u8; SNAPSHOT_HEADER];
+        header[..8].copy_from_slice(SNAPSHOT_MAGIC);
+        header[8..16].copy_from_slice(&payload.to_le_bytes());
+        header[16..].copy_from_slice(&digest);
+        temporary
+            .as_file_mut()
+            .seek(SeekFrom::Start(0))
+            .map_err(|error| io(path, error))?;
+        temporary
+            .write_all(&header)
+            .map_err(|error| io(path, error))?;
+        temporary
+            .as_file()
+            .sync_all()
+            .map_err(|error| io(path, error))?;
+        temporary
+            .persist(path)
+            .map_err(|error| io(path, error.error))?;
+        Ok(())
+    }
+
+    /// Restore only if the current registration, schema, selected source
+    /// descriptors and revisions exactly match the saved posting.
+    pub fn restore_selected_derived_snapshot(
+        &mut self,
+        collection: &str,
+        extractor: &str,
+        path: &Path,
+    ) -> Result<bool> {
+        let (key, slots) = self.selected_derived_snapshot_key(collection, extractor)?;
+        let mut file = match fs::File::open(path) {
+            Ok(file) => file,
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
+            Err(error) => return Err(io(path, error)),
+        };
+        let size = file.metadata().map_err(|error| io(path, error))?.len();
+        if size < SNAPSHOT_HEADER as u64 || size > MAX_SNAPSHOT_BYTES + SNAPSHOT_HEADER as u64 {
+            return Ok(false);
+        }
+        let mut header = [0_u8; SNAPSHOT_HEADER];
+        if file.read_exact(&mut header).is_err() || &header[..8] != SNAPSHOT_MAGIC {
+            return Ok(false);
+        }
+        let payload = u64::from_le_bytes(header[8..16].try_into().unwrap());
+        if payload != size - SNAPSHOT_HEADER as u64 {
+            return Ok(false);
+        }
+        let Ok(digest) = snapshot_digest((&mut file).take(payload)) else {
+            return Ok(false);
+        };
+        if header[16..] != digest {
+            return Ok(false);
+        }
+        file.seek(SeekFrom::Start(SNAPSHOT_HEADER as u64))
+            .map_err(|error| io(path, error))?;
+        let restored: RestoredSelectedDerived = match bincode::DefaultOptions::new()
+            .with_limit(MAX_SNAPSHOT_BYTES)
+            .deserialize_from(&mut file)
+        {
+            Ok(saved) => saved,
+            Err(_) => return Ok(false),
+        };
+        if restored.collection != key.collection
+            || restored.path != serde_json::to_string(&key.path).expect("JSON path serializes")
+            || restored.selection != key.selection
+            || restored.semantics != key.semantics
+            || restored.slots != slots
+            || !restored.index.has_derived_posting(&key.path)
+        {
+            return Ok(false);
+        }
+        let mut valid_slots = true;
+        restored.index.visit_derived(&key.path, |slot, _| {
+            valid_slots &= slot < slots;
+        });
+        if !valid_slots {
+            return Ok(false);
+        }
+        self.selected_derived_indexes.insert(
+            key,
+            SelectedDerivedPosting {
+                index: restored.index,
+                slots,
+                scalar_safe: restored.scalar_safe,
+                order_asc: None,
+                order_desc: None,
+            },
+        );
+        Ok(true)
+    }
+
     /// Build a process-local typed posting for one extractor over the selected
     /// source table, including registered providers and format decoders. The
     /// existing B-tree implementation owns keys and slot lists. An error or a

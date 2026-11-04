@@ -145,6 +145,30 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     {
         return Err("fused-build derived results differ".into());
     }
+    let snapshot = temp.path().join("selected-derived.snapshot");
+    let started = Instant::now();
+    indexed.save_selected_derived_snapshot("archive", "example:publication_year", &snapshot)?;
+    let snapshot_save_ms = started.elapsed().as_secs_f64() * 1000.0;
+    let snapshot_bytes = fs::metadata(&snapshot)?.len();
+    let mut restored = open(temp.path(), &directory)?;
+    let started = Instant::now();
+    if !restored.restore_selected_derived_snapshot(
+        "archive",
+        "example:publication_year",
+        &snapshot,
+    )? {
+        return Err("selected derived snapshot did not restore".into());
+    }
+    let snapshot_restore_ms = started.elapsed().as_secs_f64() * 1000.0;
+    let snapshot_restore_reads = restored.metrics().source_reads;
+    let snapshot_restore_parses = restored.metrics().parses;
+    let restored_result = restored.query_frontend("example:archive-search", &complete)?;
+    if direct.total != restored_result.total
+        || direct.truncated != restored_result.truncated
+        || ids(&direct) != ids(&restored_result)
+    {
+        return Err("restored derived results differ".into());
+    }
     println!(
         "{}",
         json!({
@@ -157,6 +181,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "fused_build_ms":fused_build_ms,
             "fused_build_reads":fused_build_reads,
             "fused_build_parses":fused_build_parses,
+            "snapshot_save_ms":snapshot_save_ms,
+            "snapshot_bytes":snapshot_bytes,
+            "snapshot_restore_ms":snapshot_restore_ms,
+            "snapshot_restore_reads":snapshot_restore_reads,
+            "snapshot_restore_parses":snapshot_restore_parses,
             "samples":samples,
             "total":direct.total,
             "truncated":direct.truncated,

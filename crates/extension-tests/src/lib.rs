@@ -1666,11 +1666,80 @@ mod tests {
                 .map(|row| (&row.source.record_id, &row.values))
                 .collect::<Vec<_>>()
         );
+        let snapshot = temp.path().join("selected-derived.snapshot");
+        indexed
+            .save_selected_derived_snapshot("archive", "example:publication_year", &snapshot)
+            .unwrap();
+        let mut restored = open(false, 10_000);
+        assert!(restored
+            .restore_selected_derived_snapshot(
+                "archive",
+                "example:publication_year",
+                &snapshot,
+            )
+            .unwrap());
+        assert_eq!(restored.metrics().source_reads, 0);
+        assert_eq!(restored.metrics().parses, 0);
+        let result = restored
+            .query_frontend("example:derived-sort", &serde_json::json!({"limit":10}))
+            .unwrap();
+        assert_eq!(result.query_plan, ["extension-indexed-order"]);
+        assert_eq!(
+            result
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["b", "e", "g", "a", "c", "d", "f", "h"]
+        );
+        let corrupted = temp.path().join("selected-derived-corrupted.snapshot");
+        let mut bytes = fs::read(&snapshot).unwrap();
+        let last = bytes.len() - 1;
+        bytes[last] ^= 1;
+        fs::write(&corrupted, bytes).unwrap();
+        let mut rejected = open(false, 10_000);
+        assert!(
+            !rejected
+                .restore_selected_derived_snapshot(
+                    "archive",
+                    "example:publication_year",
+                    &corrupted,
+                )
+                .unwrap()
+        );
+        let mut changed_extractor = PublicationYearExtractor::default();
+        changed_extractor.descriptor.version.patch += 1;
+        let mut changed_semantics = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_extractor(changed_extractor)
+            .unwrap()
+            .register_frontend(SortFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(!changed_semantics
+            .restore_selected_derived_snapshot(
+                "archive",
+                "example:publication_year",
+                &snapshot,
+            )
+            .unwrap());
         fs::write(
             directory.join("a.json"),
             r#"{"body":"Entry a","publication_date":"1800"}"#,
         )
         .unwrap();
+        let mut stale = open(false, 10_000);
+        assert!(!stale
+            .restore_selected_derived_snapshot(
+                "archive",
+                "example:publication_year",
+                &snapshot,
+            )
+            .unwrap());
         indexed.refresh("archive").unwrap();
         let request = serde_json::json!({"limit":10});
         let fallback = indexed
