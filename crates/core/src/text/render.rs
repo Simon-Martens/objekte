@@ -21,13 +21,12 @@ pub(crate) fn take_normalization_calls() -> usize {
 }
 
 pub(crate) fn render_text(source: &str, format: TextFormat) -> Option<String> {
-    let visible = match format {
-        TextFormat::Plain => return Some(normalize_whitespace(source)),
-        TextFormat::Markdown => markdown_text(source)?,
-        TextFormat::Html => html_text(source)?,
-        TextFormat::Xml => xml_text(source)?,
+    let mut output = if format == TextFormat::Plain {
+        String::with_capacity(source.len())
+    } else {
+        String::new()
     };
-    Some(normalize_whitespace(&visible))
+    render_text_into(source, format, &mut output).then_some(output)
 }
 
 /// Append one independently normalized leaf, retaining the destination's capacity.
@@ -36,18 +35,16 @@ pub(crate) fn render_text_into(source: &str, format: TextFormat, output: &mut St
         normalize_whitespace_into(source, output);
         return true;
     }
-    if let Some(rendered) = render_text(source, format) {
-        output.push_str(&rendered);
-        true
-    } else {
-        false
-    }
-}
-
-fn normalize_whitespace(source: &str) -> String {
-    let mut output = String::with_capacity(source.len());
-    normalize_whitespace_into(source, &mut output);
-    output
+    let visible = match format {
+        TextFormat::Plain => unreachable!("plain handled above"),
+        TextFormat::Markdown => markdown_text(source),
+        TextFormat::Html => html_text(source),
+        TextFormat::Xml => xml_text(source),
+    };
+    let Some(visible) = visible else { return false };
+    output.reserve(visible.len());
+    normalize_whitespace_into(&visible, output);
+    true
 }
 
 /// Whether a character is Unicode punctuation (general category `P*`:

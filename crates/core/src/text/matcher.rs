@@ -2,13 +2,35 @@
 //! search and `:fts` filter comparisons both use it, so a mode means the
 //! same thing everywhere.
 
-use crate::{Error, Result, TextFormat, TextMode};
+use crate::{
+    Error, Result, TextFormat, TextMode,
+    extensions::{RenderedRepresentation, TextRepresentation},
+};
 use regex::Regex;
-use std::borrow::Cow;
+use std::{borrow::Cow, sync::LazyLock};
 use unicode_casefold::UnicodeCaseFold;
 
 /// Longest accepted pattern, in bytes.
 const MAX_PATTERN: usize = 16 * 1024;
+
+static VISIBLE_MARKDOWN: LazyLock<RenderedRepresentation> = LazyLock::new(|| {
+    RenderedRepresentation::new(TextFormat::Markdown).expect("built-in Markdown representation")
+});
+static VISIBLE_HTML: LazyLock<RenderedRepresentation> = LazyLock::new(|| {
+    RenderedRepresentation::new(TextFormat::Html).expect("built-in HTML representation")
+});
+static VISIBLE_XML: LazyLock<RenderedRepresentation> = LazyLock::new(|| {
+    RenderedRepresentation::new(TextFormat::Xml).expect("built-in XML representation")
+});
+
+fn visible_representation(format: TextFormat) -> &'static RenderedRepresentation {
+    match format {
+        TextFormat::Plain => unreachable!("plain text uses the native path"),
+        TextFormat::Markdown => &VISIBLE_MARKDOWN,
+        TextFormat::Html => &VISIBLE_HTML,
+        TextFormat::Xml => &VISIBLE_XML,
+    }
+}
 
 
 /// A compiled full-text pattern.
@@ -109,7 +131,14 @@ impl TextPattern {
         {
             return Some(Cow::Borrowed(value));
         }
-        crate::text::render_text(value, format).map(Cow::Owned)
+        if format == TextFormat::Plain {
+            return crate::text::render_text(value, format).map(Cow::Owned);
+        }
+        let mut output = String::new();
+        visible_representation(format)
+            .render(value, &mut output)
+            .ok()??;
+        Some(Cow::Owned(output))
     }
 
     /// Whether the pattern occurs in `value`: a substring in the word modes,
