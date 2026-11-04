@@ -30,6 +30,9 @@ def sha256(path: Path) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--reference", type=Path, required=True)
+    parser.add_argument(
+        "--reference-revision", default="266d9a0fb071838be8f757671599872a7036a054"
+    )
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--runs", type=int, default=7)
@@ -56,7 +59,7 @@ def main() -> None:
     ).strip()
     manifest = {
         "revision": revision,
-        "reference_revision": "266d9a0fb071838be8f757671599872a7036a054",
+        "reference_revision": args.reference_revision,
         "binaries": {label: {"path": str(path), "sha256": sha256(path)}
                      for label, path in binaries.items()},
         "repo": str(repo),

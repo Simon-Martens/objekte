@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "kind": "substring",
+    "filter": "annotation ~ 'Mond'"
+  },
+  {
+    "id": 2,
+    "kind": "negated substring",
+    "filter": "annotation !~ 'Mond'"
+  },
+  {
+    "id": 3,
+    "kind": "case folded substring",
+    "filter": "annotation ~ :ignorecase('Mond')"
+  },
+  {
+    "id": 4,
+    "kind": "negated case folded",
+    "filter": "annotation !~ :ignorecase('Mond')"
+  },
+  {
+    "id": 5,
+    "kind": "field comparison",
+    "filter": "numbering < year"
+  },
+  {
+    "id": 6,
+    "kind": "contributors length",
+    "filter": "contributors:length > 0"
+  },
+  {
+    "id": 7,
+    "kind": "series array length",
+    "filter": "entries:length >= 3"
+  },
+  {
+    "id": 8,
+    "kind": "series ID membership",
+    "filter": "entries ?= '1o25nw5kc1t9ko4'"
+  }
+]
