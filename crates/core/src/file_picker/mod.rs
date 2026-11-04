@@ -69,7 +69,8 @@ use projection::{
 };
 use sort_index::SortIndex;
 use text::{TextIndex, TextIndexBuilders, project_malformed_text_into};
-use typed::{TypedIndex, TypedKey};
+use typed::TypedIndex;
+pub(crate) use typed::TypedKey;
 use view::ViewIndex;
 
 fn sorted_bigrams(bytes: &[u8], encoding: BigramEncoding) -> Vec<u16> {
@@ -143,6 +144,7 @@ pub struct FilePicker {
     build_timings: BuildTimings,
     #[cfg(feature = "index-timings")]
     restore_timings: RestoreTimings,
+    active_derived: BTreeMap<crate::JsonPath, crate::extensions::BoundValueExtractor>,
 }
 
 
@@ -493,6 +495,7 @@ impl FilePicker {
             },
             #[cfg(feature = "index-timings")]
             restore_timings: RestoreTimings::default(),
+            active_derived: BTreeMap::new(),
         };
         #[cfg(feature = "index-timings")]
         let slots_started = Instant::now();
@@ -674,6 +677,38 @@ impl FilePicker {
                 })
                 .collect(),
         )
+    }
+
+    pub(crate) fn derived_value_counts(
+        &self,
+        path: &crate::JsonPath,
+    ) -> Option<Vec<(crate::extensions::TypedValue, usize)>> {
+        self.typed.derived_value_counts(path).map(|counts| {
+            counts
+                .into_iter()
+                .filter_map(|(key, count)| {
+                    let value = match key {
+                        TypedKey::Bool(value) => crate::extensions::TypedValue::Bool(value),
+                        TypedKey::String(value) => crate::extensions::TypedValue::Text(value),
+                        TypedKey::Number(value) => crate::extensions::TypedValue::Number(value),
+                        TypedKey::Null | TypedKey::Missing => return None,
+                    };
+                    Some((value, count))
+                })
+                .collect()
+        })
+    }
+
+    pub(crate) fn visit_derived<'a>(
+        &'a self,
+        path: &crate::JsonPath,
+        visit: impl FnMut(usize, &'a TypedKey),
+    ) -> Option<()> {
+        self.typed.visit_derived(path, visit)
+    }
+
+    pub(crate) fn has_active_derived(&self, path: &crate::JsonPath) -> bool {
+        self.active_derived.contains_key(path)
     }
 
     pub(crate) fn typed_scalar_safe(&self, path: &crate::JsonPath) -> bool {

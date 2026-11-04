@@ -145,6 +145,11 @@ impl FilePicker {
             .iter()
             .map(|_| std::sync::Mutex::new(PostingRows::new(files.len())))
             .collect::<Vec<_>>();
+        let derived_bindings = self.active_derived.values().collect::<Vec<_>>();
+        let derived_builders = derived_bindings
+            .iter()
+            .map(|_| std::sync::Mutex::new(PostingRows::new(files.len())))
+            .collect::<Vec<_>>();
         let presence_fields = self.presence.fields();
         let presence_words = self.presence.build_words(files.len());
         let view_width = self.view.field_count();
@@ -243,9 +248,14 @@ impl FilePicker {
                             .iter()
                             .map(|_| ChunkRows::new())
                             .collect::<Vec<_>>();
+                        let mut chunk_derived = derived_bindings
+                            .iter()
+                            .map(|_| ChunkRows::new())
+                            .collect::<Vec<_>>();
                         let mut read_buffer = Vec::new();
                         let mut text_scratch = None;
                         let mut values_scratch = None;
+                        let mut derived_scratch = Vec::new();
                         #[cfg(feature = "index-timings")]
                         let mut chunk_project_nanos = 0;
                         #[cfg(feature = "index-timings")]
@@ -279,6 +289,8 @@ impl FilePicker {
                                     key_summary: Some(&mut chunk_keys),
                                     text_scratch: Some(&mut text_scratch),
                                     values_scratch: Some(&mut values_scratch),
+                                    derived_scratch: (!derived_bindings.is_empty())
+                                        .then_some(&mut derived_scratch),
                                     #[cfg(feature = "index-timings")]
                                     timings: Some(&mut chunk_stages.projection),
                                 },
@@ -293,6 +305,7 @@ impl FilePicker {
                                 capture_chunk
                                     .as_deref_mut()
                                     .map(|stamps| &mut stamps[within]),
+                                (!self.active_derived.is_empty()).then_some(&self.active_derived),
                             )?;
                             #[cfg(feature = "index-timings")]
                             {
@@ -304,6 +317,12 @@ impl FilePicker {
                             match projection {
                                 ProjectionOutcome::Malformed(mut text) => {
                                     chunk_malformed.insert(slot);
+                                    for rows in &mut chunk_derived {
+                                        rows.append_path_values(
+                                            slot,
+                                            super::typed::PathValues::missing(),
+                                        );
+                                    }
                                     if let Some(builders) = &text_builders {
                                         #[cfg(feature = "index-timings")]
                                         let text_timer = StageTimer::start();
@@ -388,6 +407,12 @@ impl FilePicker {
                                     }
                                 }
                                 ProjectionOutcome::Valid(mut projection) => {
+                                    for (rows, (_, values)) in chunk_derived
+                                        .iter_mut()
+                                        .zip(std::mem::take(&mut projection.derived_values))
+                                    {
+                                        rows.append_path_values(slot, values);
+                                    }
                                     if restored.is_none() {
                                         #[cfg(feature = "index-timings")]
                                         let main_timer = StageTimer::start();
@@ -521,6 +546,7 @@ impl FilePicker {
                             all.extend(chunk);
                         }
                         merge_chunk(&posting_builders, chunk_postings);
+                        merge_chunk(&derived_builders, chunk_derived);
                         Ok(())
                     },
                 )
@@ -577,6 +603,17 @@ impl FilePicker {
                 builder.scalar_safe,
                 builder.complete_values,
                 builder.implicit_equivalent,
+            );
+        }
+        for (binding, builder) in derived_bindings.into_iter().zip(derived_builders) {
+            let builder = builder.into_inner().expect("derived posting row lock");
+            typed.replace_path(
+                binding.path.clone(),
+                builder.rows,
+                builder.present,
+                builder.scalar_safe,
+                builder.complete_values,
+                true,
             );
         }
 

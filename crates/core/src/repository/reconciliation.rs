@@ -5,6 +5,48 @@ use crate::JsonFilter;
 
 
 impl Repository {
+    /// Build an ordered posting for a registered derived field. The extractor
+    /// identity is namespaced and cannot collide with a stored JSON path.
+    pub fn build_derived_posting(&mut self, collection: &str, extractor: &str) -> Result<()> {
+        let c = self.collection(collection)?;
+        let extensions = self
+            .extensions
+            .as_ref()
+            .ok_or_else(|| Error::Request("no value extractors are registered".into()))?;
+        let binding = extensions.bind_value(
+            extractor,
+            collection,
+            extensions.schema(collection).map(|schema| schema.as_ref()),
+        )?;
+        self.ensure_picker(&c)?;
+        let picker = self
+            .file_pickers
+            .get_mut(collection)
+            .expect("picker exists");
+        if picker.refresh()? > 0 {
+            self.query_cache.invalidate(collection);
+        }
+        picker.build_derived_posting(binding)
+    }
+
+    /// Distinct record counts for a registered, non-null derived value.
+    pub fn derived_value_counts(
+        &mut self,
+        collection: &str,
+        extractor: &str,
+    ) -> Result<Vec<(crate::extensions::TypedValue, usize)>> {
+        self.build_derived_posting(collection, extractor)?;
+        let extensions = self.extensions.as_ref().expect("bound extensions");
+        let binding = extensions.bind_value(
+            extractor,
+            collection,
+            extensions.schema(collection).map(|schema| schema.as_ref()),
+        )?;
+        self.file_pickers[collection]
+            .derived_value_counts(&binding.path)
+            .ok_or_else(|| Error::Cache("derived posting is unavailable".into()))
+    }
+
     /// Restore a saved picker without waiting for source metadata checks.
     /// Until `apply_collection_inventory` runs, searches may use stale postings.
     pub fn restore_cached_index_unchecked(&mut self, collection: &str) -> Result<bool> {

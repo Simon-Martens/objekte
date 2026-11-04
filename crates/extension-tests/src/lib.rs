@@ -4,7 +4,8 @@ use objekte_core::{
     Error, Result,
     extensions::{
         BindingContext, CandidateConstraint, CompiledOperator, DataKind, Dependency, Descriptor,
-        QueryOperator, ScalarValue, SemanticVersion, TextRepresentation,
+        Extraction, QueryOperator, RecordAccess, ScalarValue, SemanticVersion, TextRepresentation,
+        TypedValue, ValueExtractor,
     },
 };
 use serde_json::Value;
@@ -120,14 +121,381 @@ impl TextRepresentation for TrimmedRepresentation {
 }
 
 
+/// Extract exactly `YYYY` or `circa YYYY` from `publication_date`.
+/// Ranges and other ambiguous spellings are errors, not partial matches.
+pub struct PublicationYearExtractor {
+    descriptor: Descriptor,
+    source_path: objekte_core::JsonPath,
+}
+
+
+impl Default for PublicationYearExtractor {
+    fn default() -> Self {
+        Self {
+            descriptor: Descriptor::new(
+                "example:publication_year",
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
+                &("publication_date", "YYYY | circa YYYY"),
+                DataKind::Record,
+                DataKind::TypedValues,
+                vec![Dependency::SourceBytes],
+            ),
+            source_path: objekte_core::JsonFilter::parse_path("publication_date")
+                .expect("constant source path is valid"),
+        }
+    }
+}
+
+
+impl ValueExtractor for PublicationYearExtractor {
+    fn descriptor(&self) -> &Descriptor {
+        &self.descriptor
+    }
+
+    fn binds(&self, context: &BindingContext<'_>) -> bool {
+        context.path == "@derived:example:publication_year" && context.format == "derived"
+    }
+
+    fn extract(
+        &self,
+        record: &dyn RecordAccess,
+        output: &mut Vec<TypedValue>,
+    ) -> Result<Extraction> {
+        if !record.path_present(&self.source_path)? {
+            return Ok(Extraction::Missing);
+        }
+        record.visit_path(&self.source_path, &mut |value| {
+            match value {
+                ScalarValue::Null => output.push(TypedValue::Null),
+                ScalarValue::Text(text) => {
+                    let year = text.strip_prefix("circa ").unwrap_or(text);
+                    if year.len() != 4 || !year.bytes().all(|byte| byte.is_ascii_digit()) {
+                        return Err(Error::Request(format!(
+                            "publication_date {text:?} is not YYYY or circa YYYY"
+                        )));
+                    }
+                    output.push(TypedValue::Number(year.into()));
+                }
+                _ => {
+                    return Err(Error::Request(
+                        "publication_date must be text or null".into(),
+                    ));
+                }
+            }
+            Ok(())
+        })?;
+        Ok(Extraction::Present)
+    }
+}
+
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use objekte_core::{
-        CacheMode, Options, Repository, TextFormat, TextMode, TextQuery,
+        CacheMode, DerivedBackend, DerivedPredicate, DerivedQuery, DerivedSort, Direction,
+        Freshness, Options, Repository, SortReduce, TextFormat, TextMode, TextQuery,
         extensions::{NativeTextOperator, RenderedRepresentation, StoredRepresentation},
     };
     use std::fs;
+
+
+    struct ExactNumberExtractor {
+        descriptor: Descriptor,
+        path: objekte_core::JsonPath,
+    }
+
+
+    impl Default for ExactNumberExtractor {
+        fn default() -> Self {
+            Self {
+                descriptor: Descriptor::new(
+                    "example:exact_number",
+                    SemanticVersion {
+                        major: 1,
+                        minor: 0,
+                        patch: 0,
+                    },
+                    &"number",
+                    DataKind::Record,
+                    DataKind::TypedValues,
+                    vec![Dependency::SourceBytes],
+                ),
+                path: objekte_core::JsonFilter::parse_path("number").unwrap(),
+            }
+        }
+    }
+
+
+    impl ValueExtractor for ExactNumberExtractor {
+        fn descriptor(&self) -> &Descriptor {
+            &self.descriptor
+        }
+
+        fn binds(&self, context: &BindingContext<'_>) -> bool {
+            context.path == "@derived:example:exact_number"
+        }
+
+        fn extract(
+            &self,
+            record: &dyn RecordAccess,
+            output: &mut Vec<TypedValue>,
+        ) -> Result<Extraction> {
+            if !record.path_present(&self.path)? {
+                return Ok(Extraction::Missing);
+            }
+            record.visit_path(&self.path, &mut |value| {
+                match value {
+                    ScalarValue::Number(value) => output.push(TypedValue::Number(value.into())),
+                    ScalarValue::Null => output.push(TypedValue::Null),
+                    _ => return Err(Error::Request("number must be numeric or null".into())),
+                }
+                Ok(())
+            })?;
+            Ok(Extraction::Present)
+        }
+    }
+
+
+    #[test]
+    fn publication_year_grammar_and_presence_are_distinct() {
+        let extractor = PublicationYearExtractor::default();
+        for (document, expected, values) in [
+            (serde_json::json!({}), Extraction::Missing, vec![]),
+            (
+                serde_json::json!({"publication_date": []}),
+                Extraction::Present,
+                vec![],
+            ),
+            (
+                serde_json::json!({"publication_date": null}),
+                Extraction::Present,
+                vec![TypedValue::Null],
+            ),
+            (
+                serde_json::json!({"publication_date": "circa 1848"}),
+                Extraction::Present,
+                vec![TypedValue::Number("1848".into())],
+            ),
+            (
+                serde_json::json!({"publication_date": ["1848", "circa 1851"]}),
+                Extraction::Present,
+                vec![
+                    TypedValue::Number("1848".into()),
+                    TypedValue::Number("1851".into()),
+                ],
+            ),
+        ] {
+            let mut extracted = Vec::new();
+            assert_eq!(
+                extractor.extract(&document, &mut extracted).unwrap(),
+                expected
+            );
+            assert_eq!(extracted, values);
+        }
+        for invalid in ["1848–1850", "1848-1850", "about 1848", "184", "18480"] {
+            let document = serde_json::json!({"publication_date": invalid});
+            assert!(matches!(
+                extractor.extract(&document, &mut Vec::new()),
+                Err(Error::Request(_))
+            ));
+        }
+    }
+
+    #[test]
+    fn publication_year_posting_patches_overwritten_and_deleted_sources() {
+        let root = tempfile::tempdir().unwrap();
+        let books = root.path().join("data/books");
+        fs::create_dir_all(&books).unwrap();
+        for (id, value) in [
+            ("a", r#"{"publication_date":"circa 1848"}"#),
+            ("b", r#"{"publication_date":["1848","1851"]}"#),
+            ("c", r#"{"publication_date":null}"#),
+            ("d", r#"{"publication_date":[]}"#),
+            ("e", r#"{}"#),
+        ] {
+            fs::write(books.join(format!("{id}.json")), value).unwrap();
+        }
+        let mut repository = Repository::builder(root.path())
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let counts = repository
+            .derived_value_counts("books", "example:publication_year")
+            .unwrap();
+        assert_eq!(
+            counts,
+            vec![
+                (TypedValue::Number("1848".into()), 2),
+                (TypedValue::Number("1851".into()), 1),
+            ]
+        );
+        repository.save_bigram_cache("books").unwrap();
+        let mut restored = Repository::builder(root.path())
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert_eq!(
+            restored
+                .derived_value_counts("books", "example:publication_year")
+                .unwrap(),
+            counts
+        );
+        fs::write(books.join("a.json"), r#"{"publication_date":"circa 1860"}"#).unwrap();
+        fs::remove_file(books.join("b.json")).unwrap();
+        let counts = repository
+            .derived_value_counts("books", "example:publication_year")
+            .unwrap();
+        assert_eq!(counts, vec![(TypedValue::Number("1860".into()), 1)]);
+        fs::write(books.join("a.json"), r#"{"publication_date":"1848–1850"}"#).unwrap();
+        assert!(matches!(
+            repository.derived_value_counts("books", "example:publication_year"),
+            Err(Error::Request(_))
+        ));
+    }
+
+    #[test]
+    fn publication_year_direct_indexed_and_cached_pages_agree() {
+        let root = tempfile::tempdir().unwrap();
+        let books = root.path().join("data/books");
+        fs::create_dir_all(&books).unwrap();
+        for (id, value) in [
+            ("a", r#"{"publication_date":"circa 1848"}"#),
+            ("b", r#"{"publication_date":["1848","1851"]}"#),
+            ("c", r#"{"publication_date":null}"#),
+            ("d", r#"{"publication_date":[]}"#),
+            ("e", r#"{}"#),
+        ] {
+            fs::write(books.join(format!("{id}.json")), value).unwrap();
+        }
+        let mut options = Options::new();
+        options.freshness = Freshness::MetadataOnOpen;
+        let mut repository = Repository::builder(root.path())
+            .options(options)
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let mut query = DerivedQuery {
+            collection: "books".into(),
+            extractor: "example:publication_year".into(),
+            predicate: DerivedPredicate::AnyValue,
+            sort: Some(DerivedSort {
+                direction: Direction::Desc,
+                reduce: SortReduce::Max,
+            }),
+            offset: 0,
+            limit: 2,
+            count: true,
+            backend: DerivedBackend::Direct,
+        };
+        let direct = repository.query_derived(&query).unwrap();
+        assert_eq!(direct.total, Some(3));
+        assert_eq!(
+            direct
+                .records
+                .iter()
+                .map(|record| record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["b", "a"]
+        );
+        query.backend = DerivedBackend::Indexed;
+        let indexed = repository.query_derived(&query).unwrap();
+        assert_eq!(indexed.total, direct.total);
+        assert_eq!(
+            indexed
+                .records
+                .iter()
+                .map(|record| record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["b", "a"]
+        );
+        query.offset = 2;
+        assert_eq!(repository.query_derived(&query).unwrap().records[0].id, "c");
+        repository.reset_metrics();
+        assert_eq!(repository.query_derived(&query).unwrap().records[0].id, "c");
+        assert_eq!(repository.metrics().enumerations, 0);
+        query.predicate = DerivedPredicate::Gt(TypedValue::Number("1848".into()));
+        query.offset = 0;
+        for backend in [DerivedBackend::Direct, DerivedBackend::Indexed] {
+            query.backend = backend;
+            let result = repository.query_derived(&query).unwrap();
+            assert_eq!(result.total, Some(1));
+            assert_eq!(result.records[0].id, "b");
+        }
+    }
+
+    #[test]
+    fn derived_numbers_keep_exact_large_and_equal_decimal_spellings() {
+        let root = tempfile::tempdir().unwrap();
+        let folder = root.path().join("data/numbers");
+        fs::create_dir_all(&folder).unwrap();
+        for (id, value) in [
+            ("a", r#"{"number":9007199254740992}"#),
+            ("b", r#"{"number":9007199254740993}"#),
+            ("c", r#"{"number":1e100}"#),
+            ("d", r#"{"number":1e+100}"#),
+            ("e", r#"{"number":null}"#),
+            ("f", r#"{}"#),
+        ] {
+            fs::write(folder.join(format!("{id}.json")), value).unwrap();
+        }
+        let mut repo = Repository::builder(root.path())
+            .register_extractor(ExactNumberExtractor::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let mut query = DerivedQuery {
+            collection: "numbers".into(),
+            extractor: "example:exact_number".into(),
+            predicate: DerivedPredicate::Eq(TypedValue::Number("1e100".into())),
+            sort: None,
+            offset: 0,
+            limit: 10,
+            count: true,
+            backend: DerivedBackend::Direct,
+        };
+        let direct = repo.query_derived(&query).unwrap();
+        assert_eq!(direct.total, Some(2));
+        assert_eq!(
+            direct
+                .records
+                .iter()
+                .map(|r| r.id.as_str())
+                .collect::<Vec<_>>(),
+            ["c", "d"]
+        );
+        query.backend = DerivedBackend::Indexed;
+        let indexed = repo.query_derived(&query).unwrap();
+        assert_eq!(indexed.total, direct.total);
+        assert_eq!(
+            indexed
+                .records
+                .iter()
+                .map(|r| r.id.as_str())
+                .collect::<Vec<_>>(),
+            ["c", "d"]
+        );
+        query.predicate = DerivedPredicate::Gt(TypedValue::Number("9007199254740992".into()));
+        for backend in [DerivedBackend::Direct, DerivedBackend::Indexed] {
+            query.backend = backend;
+            let result = repo.query_derived(&query).unwrap();
+            assert_eq!(
+                result
+                    .records
+                    .iter()
+                    .map(|r| r.id.as_str())
+                    .collect::<Vec<_>>(),
+                ["b", "c", "d"]
+            );
+        }
+    }
 
     #[test]
     fn prefix_uses_registered_representation_and_engine_results() {

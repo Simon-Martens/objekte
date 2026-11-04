@@ -575,6 +575,7 @@ impl FilePicker {
                         key_summary: None,
                         text_scratch: None,
                         values_scratch: None,
+                        derived_scratch: None,
                         #[cfg(feature = "index-timings")]
                         timings: None,
                     },

@@ -4,13 +4,18 @@
 //! executable semantics across process restarts; a pointer or registration
 //! position never does. The engine retains ownership of indexes and caches.
 
-use crate::{Error, JsonPath, RepositoryModel, Result};
+use crate::{Error, JsonPath, JsonPathStep, RepositoryModel, Result};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
 use std::{collections::BTreeMap, fs, path::PathBuf, sync::Arc};
 
 mod builtins;
 pub use builtins::{NativeTextOperator, RenderedRepresentation, StoredRepresentation};
+
+#[cfg(test)]
+#[path = "extensions.test.rs"]
+mod tests;
 
 
 /// The kind consumed or produced by an extension definition.
@@ -242,11 +247,101 @@ pub trait TextRepresentation: Send + Sync {
 
 /// Read-only access to logical leaves for a derived-value extractor.
 pub trait RecordAccess {
+    /// Whether the path reaches a value, including an empty array or object.
+    fn path_present(&self, path: &JsonPath) -> Result<bool>;
+
+    /// Visit scalar leaves in source order. A present empty container visits
+    /// zero leaves; distinguish that case with `path_present`.
     fn visit_path(
         &self,
         path: &JsonPath,
         visit: &mut dyn FnMut(ScalarValue<'_>) -> Result<()>,
     ) -> Result<usize>;
+}
+
+
+impl RecordAccess for Value {
+    fn path_present(&self, path: &JsonPath) -> Result<bool> {
+        Ok(!crate::json_filter::values(self, path, false).is_empty())
+    }
+
+    fn visit_path(
+        &self,
+        path: &JsonPath,
+        visit: &mut dyn FnMut(ScalarValue<'_>) -> Result<()>,
+    ) -> Result<usize> {
+        let mut count = 0;
+        let mut error = None;
+        crate::json_filter::visit_values(self, path, true, &mut |value| {
+            let result = match value {
+                Value::Null => visit(ScalarValue::Null),
+                Value::Bool(value) => visit(ScalarValue::Bool(*value)),
+                Value::Number(value) => {
+                    // Sonic canonicalizes number spellings during the native
+                    // projection. Use the same spelling for direct access.
+                    sonic_rs::from_str::<SonicValue>(value.as_str())
+                        .map_err(|_| Error::Request("invalid extracted JSON number".into()))
+                        .and_then(|canonical| {
+                            let number = canonical.as_raw_number().expect("parsed number");
+                            visit(ScalarValue::Number(number.as_str()))
+                        })
+                }
+                Value::String(value) => visit(ScalarValue::Text(value)),
+                Value::Array(_) | Value::Object(_) => return true,
+            };
+            count += 1;
+            if let Err(failure) = result {
+                error = Some(failure);
+                return false;
+            }
+            true
+        });
+        if let Some(error) = error {
+            Err(error)
+        } else {
+            Ok(count)
+        }
+    }
+}
+
+
+impl RecordAccess for SonicValue {
+    fn path_present(&self, path: &JsonPath) -> Result<bool> {
+        Ok(!crate::json_filter::sonic_values(self, path, false).is_empty())
+    }
+
+    fn visit_path(
+        &self,
+        path: &JsonPath,
+        visit: &mut dyn FnMut(ScalarValue<'_>) -> Result<()>,
+    ) -> Result<usize> {
+        let mut count = 0;
+        for value in crate::json_filter::sonic_values(self, path, true) {
+            if let Some(number) = value.as_raw_number() {
+                // Match serde_json's arbitrary-precision spelling used by
+                // direct verification before lending the temporary number.
+                let canonical: serde_json::Number = number
+                    .as_str()
+                    .parse()
+                    .map_err(|_| Error::Request("invalid extracted JSON number".into()))?;
+                visit(ScalarValue::Number(canonical.as_str()))?;
+                count += 1;
+                continue;
+            }
+            let scalar = match value.as_ref() {
+                ValueRef::Null => Some(ScalarValue::Null),
+                ValueRef::Bool(value) => Some(ScalarValue::Bool(value)),
+                ValueRef::String(value) => Some(ScalarValue::Text(value)),
+                ValueRef::Number(_) => unreachable!("raw numbers enabled"),
+                ValueRef::Array(_) | ValueRef::Object(_) => None,
+            };
+            if let Some(scalar) = scalar {
+                visit(scalar)?;
+                count += 1;
+            }
+        }
+        Ok(count)
+    }
 }
 
 
@@ -405,6 +500,23 @@ pub(crate) struct BoundTextQuery {
 }
 
 
+/// Internal posting paths cannot alias a stored JSON field in public queries.
+pub(crate) const DERIVED_PATH_PREFIX: &str = "\0objekte:derived";
+
+pub(crate) fn is_derived_path(path: &JsonPath) -> bool {
+    matches!(path.first(), Some(JsonPathStep::Key(name)) if name == DERIVED_PATH_PREFIX)
+}
+
+
+#[derive(Clone)]
+pub(crate) struct BoundValueExtractor {
+    pub extractor: Arc<dyn ValueExtractor>,
+    pub path: JsonPath,
+    pub identity: String,
+    pub cacheable: bool,
+}
+
+
 impl Extensions {
     pub(crate) fn bind_schemas(&mut self, model: &RepositoryModel) -> Result<()> {
         self.schemas.clear();
@@ -507,6 +619,47 @@ impl Extensions {
             identity,
             candidate,
             cacheable: representation.descriptor().cacheable() && operator.descriptor().cacheable(),
+        })
+    }
+
+    pub(crate) fn bind_value(
+        &self,
+        identity: &str,
+        collection: &str,
+        schema: Option<&Value>,
+    ) -> Result<BoundValueExtractor> {
+        let extractor = self
+            .extractors
+            .get(identity)
+            .ok_or_else(|| Error::Request(format!("unknown value extractor {identity}")))?;
+        let path = format!("@derived:{identity}");
+        if !extractor.binds(&BindingContext {
+            collection,
+            path: &path,
+            format: "derived",
+            schema,
+        }) {
+            return Err(Error::Request(format!(
+                "value extractor {identity} is not applicable to collection {collection}"
+            )));
+        }
+        let descriptor = extractor.descriptor();
+        let fingerprint = crate::config::fingerprint(
+            "bound-value-extractor/v1",
+            &(descriptor, collection, schema),
+        );
+        // The sidecar persists complete descriptor/configuration bytes in its
+        // path map. Registration order and process addresses never enter it.
+        let stored_identity = serde_json::to_string(&(descriptor, collection, &fingerprint))
+            .expect("descriptor identity serializes");
+        Ok(BoundValueExtractor {
+            extractor: Arc::clone(extractor),
+            path: vec![
+                JsonPathStep::Key(DERIVED_PATH_PREFIX.into()),
+                JsonPathStep::Key(stored_identity),
+            ],
+            identity: identity.into(),
+            cacheable: descriptor.cacheable(),
         })
     }
 

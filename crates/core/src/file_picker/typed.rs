@@ -11,9 +11,11 @@ use std::{
     ops::Bound::{Excluded, Included, Unbounded},
 };
 
+mod derived;
+
 
 #[derive(Clone, Debug, Serialize, Deserialize)]
-pub(super) enum TypedKey {
+pub(crate) enum TypedKey {
     Null,
     Missing,
     Bool(bool),
@@ -51,7 +53,7 @@ impl TypedKey {
         }
     }
 
-    fn same_kind(&self, other: &Self) -> bool {
+    pub(crate) fn same_kind(&self, other: &Self) -> bool {
         matches!(
             (self, other),
             (Self::Null, Self::Null)
@@ -319,14 +321,14 @@ impl TypedIndex {
             keys.patch(posting, slot, new);
         }
         let mut paths = paths.into_iter();
-        for posting in self.dynamic.values_mut() {
-            let values = paths.next().unwrap_or(PathValues {
-                keys: Vec::new(),
-                present: false,
-                scalar_safe: true,
-                complete_values: true,
-                implicit_equivalent: true,
-            });
+        for (path, posting) in &mut self.dynamic {
+            if crate::extensions::is_derived_path(path) {
+                // The refresh caller patches active definitions separately;
+                // inactive persisted definitions cannot keep old postings.
+                posting.fresh = false;
+                continue;
+            }
+            let values = paths.next().unwrap_or_else(PathValues::missing);
             let keys = posting
                 .slot_keys
                 .get_or_insert_with(|| SlotKeys::build(&mut posting.postings, slots));
@@ -408,10 +410,17 @@ impl TypedIndex {
     }
 
     pub(super) fn dynamic_paths(&self) -> Vec<JsonPath> {
-        self.dynamic.keys().cloned().collect()
+        self.dynamic
+            .keys()
+            .filter(|path| !crate::extensions::is_derived_path(path))
+            .cloned()
+            .collect()
     }
 
     pub(super) fn has_posting(&self, path: &JsonPath) -> bool {
+        if crate::extensions::is_derived_path(path) {
+            return false;
+        }
         self.static_index(path).is_some() || self.dynamic.get(path).is_some_and(|field| field.fresh)
     }
 
@@ -444,6 +453,9 @@ impl TypedIndex {
     /// because `exists(tags)` holds for an empty array and `exists(tags[*])`
     /// does not.
     fn comparison_posting(&self, path: &JsonPath) -> Option<&DynamicPosting> {
+        if crate::extensions::is_derived_path(path) {
+            return None;
+        }
         self.dynamic.get(path).or_else(|| {
             if self.static_index(path).is_some() {
                 return None;
@@ -497,6 +509,9 @@ impl TypedIndex {
     }
 
     fn posting_for(&self, path: &JsonPath) -> Option<&BTreeMap<TypedKey, Vec<usize>>> {
+        if crate::extensions::is_derived_path(path) {
+            return None;
+        }
         if let Some(field) = self.comparison_posting(path) {
             return (field.complete_values && field.fresh).then_some(&field.postings);
         }

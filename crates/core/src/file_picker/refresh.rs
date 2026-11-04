@@ -3,6 +3,7 @@
 use super::projection::{Projection, refreshed_values};
 use super::typed::{PathValues, TypedKey};
 use super::*;
+use crate::JsonPath;
 use crate::repository::SourceChanges;
 
 
@@ -15,6 +16,7 @@ struct StagedProjection {
     bigrams: Option<Vec<u16>>,
     typed_values: Vec<(usize, TypedKey)>,
     path_values: Vec<PathValues>,
+    derived_values: Vec<(JsonPath, PathValues)>,
 }
 
 
@@ -36,6 +38,7 @@ impl StagedProjection {
                 bigrams: overlay.then(|| sorted_bigrams(&projection.bytes, encoding)),
                 typed_values: projection.typed_values,
                 path_values,
+                derived_values: projection.derived_values,
             },
             None => Self {
                 malformed: true,
@@ -46,6 +49,7 @@ impl StagedProjection {
                 bigrams: None,
                 typed_values: Vec::new(),
                 path_values: Vec::new(),
+                derived_values: Vec::new(),
             },
         }
     }
@@ -94,6 +98,7 @@ impl FilePicker {
             &self.view,
             &self.sort,
             &self.typed.dynamic_paths(),
+            &self.active_derived,
         )
     }
 
@@ -119,6 +124,17 @@ impl FilePicker {
             &staged.typed_values,
             staged.path_values,
         );
+        if !self.active_derived.is_empty() {
+            let mut derived = staged
+                .derived_values
+                .into_iter()
+                .collect::<BTreeMap<_, _>>();
+            for path in self.active_derived.keys() {
+                let values = derived.remove(path).unwrap_or_else(PathValues::missing);
+                self.typed
+                    .patch_derived(path, slot, self.files.len(), values);
+            }
+        }
         if overlay {
             if let Some(bigrams) = staged.bigrams {
                 self.changed_bigrams.insert(slot, bigrams);

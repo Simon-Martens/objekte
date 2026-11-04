@@ -18,7 +18,15 @@ The public built-in adapters `StoredRepresentation`, `RenderedRepresentation`, a
 
 The working repository entry points are `search_text_with` and `search_text_stream_with`. They accept a normal `TextQuery` plus registered representation and operator identities. The query's `pattern` is passed as one JSON string to the operator's `compile` method. Matching retains leaf boundaries, canonical fields and concrete array paths. The engine retains the existing candidate, batch, cache, sorted page, result and provisional streaming paths. The registered path never changes `TextQuery`, `JsonQuery`, views or CLI behavior when unused. A compiled bound text identity contains both descriptors and the parameter value; scope, fields and the bound JSON filter also enter cache identity. A cache hit still reads and checks returned-page sources. Errors and callback cancellation do not publish a completed verified result. Built-in index reuse adds no index columns or snapshot payload. The existing secondary snapshot checks its schema/field configuration and encoding before reuse; changed slots remain in the overlay.
 
-The source-provider, format-decoder, typed-extractor and query-frontend contracts are registered and type checked, but the current repository execution path does not yet consume their registrations. They are included here to make the intended ownership and lifetime boundary reviewable; do not rely on those registrations to alter discovery, indexing or queries until their engine adapters are implemented. The current `Source` and `FilePicker` paths still discover `.json` files and reconstruct their locators from IDs.
+The typed-extractor contract is consumed by `build_derived_posting`, `derived_value_counts`, and `query_derived`. Source-provider, format-decoder and query-frontend registrations are still type checked but are not yet consumed by repository execution. The current `Source` and `FilePicker` paths still discover `.json` files and reconstruct their locators from IDs.
+
+## Derived typed values
+
+A registered `ValueExtractor` receives borrowed `RecordAccess` and appends values to a worker-reused vector. `path_present` distinguishes a missing path from a present empty array; `visit_path` visits scalar leaves in source order and stops on callback errors. The native Sonic projection and direct JSON evaluation expose the same canonical number spellings. An extractor reports `Missing`, `Present` with zero or more values, explicit `Null`, or an error. Emitting values while reporting `Missing` is an error. Invalid decimal output is an error. An extractor with `Volatile` dependencies can be used by direct evaluation but cannot create a persistent posting.
+
+`Repository::build_derived_posting` builds one named posting over the current collection using the existing B-tree and one source read/parse per record. It does not create a second index store. `Repository::derived_value_counts` counts distinct records per non-null value. `Repository::query_derived` supports direct and indexed execution, exact equality/inequality/ranges, existential matching over multiple outputs, min/max sort reduction, stable ID ties, count and paging. `AnyValue` matches a null output but not a missing path or a present path that emits no values. `First` and `Last` sort reductions are rejected for this indexed API until source-order information is retained in the posting. Direct and indexed modes return identical ordered IDs and errors in the external tests. The indexed path walks posting keys without per-record vectors; returned page records are read again and checked against their recorded size and modification stamp before return.
+
+The internal posting path begins with a reserved marker, so it cannot alias a stored JSON path. It contains the extractor descriptor, collection and schema binding fingerprint; these stable bytes enter the existing secondary snapshot. A changed descriptor or schema binds a different path and does not reuse the old posting. Refresh patches active derived postings from retained old keys before inserting new values; inactive saved definitions are marked stale. Cached complete ordered lists include the bound path, predicate and sort terms. `MetadataOnOpen`, `MetadataOnRequest`, `HashOnRequest` and the normal query-cache budget still govern reuse; cached pages read only the returned source records.
 
 ## Existing behavior that extensions must preserve
 
@@ -50,4 +58,28 @@ let result = repo.search_text_with(
 # Ok::<(), objekte_core::Error>(())
 ```
 
-The ordered value store, source-provider/decoder adapters, and frontend plan execution are still under implementation. Their examples will be added with their working engine paths.
+## Copyable typed extractor example
+
+`PublicationYearExtractor` in the separate `objekte-extension-tests` crate accepts exactly `YYYY` or `circa YYYY` from `publication_date`; ambiguous ranges such as `1848–1850` are errors. It uses only public core traits. A caller can register and query it as follows:
+
+```rust,no_run
+use objekte_core::{DerivedBackend, DerivedPredicate, DerivedQuery, Repository, extensions::TypedValue};
+use objekte_extension_tests::PublicationYearExtractor;
+
+let mut repo = Repository::builder("my-repository")
+    .register_extractor(PublicationYearExtractor::default())?
+    .open()?;
+let result = repo.query_derived(&DerivedQuery {
+    collection: "books".into(),
+    extractor: "example:publication_year".into(),
+    predicate: DerivedPredicate::Ge(TypedValue::Number("1848".into())),
+    sort: None,
+    offset: 0,
+    limit: 20,
+    count: true,
+    backend: DerivedBackend::Indexed,
+})?;
+# Ok::<(), objekte_core::Error>(())
+```
+
+Source-provider/decoder adapters and frontend plan execution remain under implementation. Their examples will be added with their working engine paths.

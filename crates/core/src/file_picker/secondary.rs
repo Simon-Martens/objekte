@@ -7,7 +7,7 @@ use sha2::{Digest, Sha256};
 use sort_index::{RestoredSortIndex, SavedSortIndex};
 use std::{
     fs,
-    io::{BufReader, Read, Seek, SeekFrom, Write},
+    io::{BufRead, BufReader, Read, Seek, SeekFrom, Write},
 };
 use view::{RestoredViewIndex, SavedViewIndex};
 
@@ -101,6 +101,37 @@ impl<R: Read> Read for DigestReader<R> {
     }
 }
 
+
+/// Keep the common buffered bincode read small regardless of whether LLVM
+/// chooses to inline `BufReader`'s slow `read_exact` fallback.
+struct ExactReader<'a, R: Read>(&'a mut BufReader<DigestReader<R>>);
+
+
+impl<R: Read> Read for ExactReader<'_, R> {
+    fn read(&mut self, output: &mut [u8]) -> std::io::Result<usize> {
+        self.0.read(output)
+    }
+
+    fn read_exact(&mut self, output: &mut [u8]) -> std::io::Result<()> {
+        if output.len() <= self.0.buffer().len() {
+            output.copy_from_slice(&self.0.buffer()[..output.len()]);
+            self.0.consume(output.len());
+            Ok(())
+        } else {
+            slow_read_exact(self.0, output)
+        }
+    }
+}
+
+
+#[cold]
+#[inline(never)]
+fn slow_read_exact<R: Read>(
+    reader: &mut BufReader<DigestReader<R>>,
+    output: &mut [u8],
+) -> std::io::Result<()> {
+    reader.read_exact(output)
+}
 
 fn consumed<R: Read>(reader: &BufReader<DigestReader<R>>) -> u64 {
     reader.get_ref().bytes - reader.buffer().len() as u64
@@ -249,7 +280,7 @@ impl FilePicker {
         let structure_started = Instant::now();
         let restored: Restored = match bincode::DefaultOptions::new()
             .with_limit(MAX_BYTES)
-            .deserialize_from(&mut reader)
+            .deserialize_from(ExactReader(&mut reader))
         {
             Ok(restored) => restored,
             Err(_) => return Ok(false),

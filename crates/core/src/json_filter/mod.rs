@@ -1153,7 +1153,7 @@ pub(crate) fn sonic_values<'a>(
 }
 
 /// Visit selected values in path order. Returning false stops traversal early.
-fn visit_values<'a>(
+pub(crate) fn visit_values<'a>(
     doc: &'a Value,
     path: &[JsonPathStep],
     flatten: bool,

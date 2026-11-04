@@ -301,6 +301,7 @@ fn regex_planner_and_full_values_search_match_a_brute_force_scan() {
                     key_summary: None,
                     text_scratch: None,
                     values_scratch: None,
+                    derived_scratch: None,
                     #[cfg(feature = "index-timings")]
                     timings: None,
                 },

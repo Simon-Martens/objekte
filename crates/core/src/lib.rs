@@ -48,8 +48,9 @@ pub use json_filter::{
 };
 pub use query::{Filter, Operator, ViewRequest, ViewResult, ViewRow};
 pub use repository::{
-    CacheMode, CacheStatus, CollectionChanges, CollectionInventory, Coverage, Freshness, Metrics,
-    Options, Record, RecordRelation, RecordRevision, References, Repository, RepositoryBuilder,
+    CacheMode, CacheStatus, CollectionChanges, CollectionInventory, Coverage, DerivedBackend,
+    DerivedPredicate, DerivedQuery, DerivedQueryResult, DerivedSort, Freshness, Metrics, Options,
+    Record, RecordRelation, RecordRevision, References, Repository, RepositoryBuilder,
     SourceChange, SourceChanges, TargetState, ValueCount,
 };
 pub use schema::{Field, PathStep, SortReduce, TextFormat, ValueType};

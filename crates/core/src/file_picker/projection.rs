@@ -10,6 +10,7 @@ use super::{StageTimer, profile::ProjectionStages};
 use crate::{
     Error, JsonPath, JsonPathStep, Result,
     error::io,
+    extensions::BoundValueExtractor,
     query::Scalar,
     sorting::SortValue,
     source::{Source, Stamp},
@@ -30,6 +31,7 @@ pub(super) struct Projection {
     pub(super) typed_values: Vec<(usize, TypedKey)>,
     pub(super) view_keys: Vec<Scalar>,
     pub(super) sort_keys: Vec<Vec<crate::sorting::SortValue>>,
+    pub(super) derived_values: Vec<(JsonPath, super::typed::PathValues)>,
 }
 
 
@@ -48,6 +50,7 @@ pub(super) struct ProjectionOptions<'a> {
     pub(super) key_summary: Option<&'a mut KeySummary>,
     pub(super) text_scratch: Option<&'a mut Option<TextContent>>,
     pub(super) values_scratch: Option<&'a mut Option<Vec<u8>>>,
+    pub(super) derived_scratch: Option<&'a mut Vec<Vec<crate::extensions::TypedValue>>>,
     #[cfg(feature = "index-timings")]
     pub(super) timings: Option<&'a mut ProjectionStages>,
 }
@@ -84,6 +87,7 @@ pub(super) fn projected_values(
                 key_summary: None,
                 text_scratch: None,
                 values_scratch: None,
+                derived_scratch: None,
                 #[cfg(feature = "index-timings")]
                 timings: None,
             },
@@ -109,6 +113,7 @@ pub(super) fn refreshed_values(
     view: &ViewIndex,
     sort: &SortIndex,
     paths: &[crate::JsonPath],
+    derived: &BTreeMap<JsonPath, BoundValueExtractor>,
 ) -> Result<(Option<Projection>, Vec<super::typed::PathValues>)> {
     let mut rows = paths
         .iter()
@@ -129,6 +134,7 @@ pub(super) fn refreshed_values(
             key_summary: None,
             text_scratch: None,
             values_scratch: None,
+            derived_scratch: None,
             #[cfg(feature = "index-timings")]
             timings: None,
         },
@@ -137,6 +143,7 @@ pub(super) fn refreshed_values(
         None,
         Some((paths, &mut rows, 0)),
         None,
+        Some(derived),
     )?;
     Ok(match outcome {
         ProjectionOutcome::Valid(projection) => (
@@ -209,6 +216,7 @@ pub(super) fn projected_values_with_text_buffer(
         None,
         None,
         None,
+        None,
     )
 }
 
@@ -231,6 +239,7 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     view_output: Option<(&mut [&mut [Scalar]], usize)>,
     postings: Option<(&[crate::JsonPath], &mut [super::posting::ChunkRows], usize)>,
     capture_stamp: Option<&mut Stamp>,
+    derived: Option<&BTreeMap<JsonPath, BoundValueExtractor>>,
 ) -> Result<ProjectionOutcome> {
     #[cfg(feature = "index-timings")]
     let read_timer = StageTimer::start();
@@ -290,6 +299,20 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
     }
     if let Some((paths, rows, slot)) = postings {
         super::posting::project_document(&parsed, slot, paths, rows);
+    }
+    let mut derived_values = Vec::new();
+    if let Some(derived) = derived {
+        let mut local_scratch = Vec::new();
+        let scratch = options
+            .derived_scratch
+            .as_deref_mut()
+            .unwrap_or(&mut local_scratch);
+        scratch.resize_with(derived.len(), Vec::new);
+        for ((path, binding), output) in derived.iter().zip(scratch.iter_mut()) {
+            let mut rows = super::posting::ChunkRows::new();
+            super::posting::project_derived_document(&parsed, 0, binding, &mut rows, output)?;
+            derived_values.push((path.clone(), rows.into_path_values()));
+        }
     }
     if options.folded_index && !values.is_ascii() {
         let folded = values.case_fold().collect::<String>();
@@ -385,6 +408,7 @@ pub(super) fn projected_values_with_text_buffer_and_sort(
         typed_values,
         view_keys,
         sort_keys,
+        derived_values,
     }))
 }
 
