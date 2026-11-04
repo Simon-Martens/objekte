@@ -12,7 +12,7 @@ use std::sync::Arc;
 use unicode_casefold::UnicodeCaseFold;
 
 
-#[derive(Clone, Eq, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Eq, Ord, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 pub(super) struct RepresentationIndexKey {
     pub collection: String,
     pub path: String,

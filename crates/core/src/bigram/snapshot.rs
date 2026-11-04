@@ -647,6 +647,33 @@ impl BigramSnapshot {
         )
     }
 
+    /// Save a representation filter whose slots are engine-selected records,
+    /// not files in the JSON source inventory. Its companion semantic manifest
+    /// must validate the selected descriptors before the filter is restored.
+    pub(crate) fn save_selected_filter(
+        path: &Path,
+        source_root: &Path,
+        recursive: bool,
+        files: &[BigramFile],
+        filter: &BigramFilter,
+    ) -> Result<()> {
+        let source_root = fs::canonicalize(source_root).map_err(|error| io(source_root, error))?;
+        Self::write_parts(
+            path,
+            compact::ManifestRef::new(
+                &source_root,
+                recursive,
+                &None,
+                files,
+                &[],
+                &BTreeMap::new(),
+                filter.encoding().as_str(),
+                false,
+            )?,
+            filter,
+        )
+    }
+
     #[expect(
         clippy::too_many_arguments,
         reason = "snapshot metadata and encoding are independent inputs"

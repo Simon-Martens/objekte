@@ -97,11 +97,47 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     {
         return Err("scan and indexed complete results differ".into());
     }
+    let snapshot_dir = tempfile::tempdir()?;
+    let snapshot = snapshot_dir.path().join("representation.snapshot");
+    let started = Instant::now();
+    indexed.save_selected_representation_snapshot(
+        "contents",
+        "objekte:visible-markdown",
+        "annotation",
+        &snapshot,
+    )?;
+    let snapshot_save_ms = started.elapsed().as_secs_f64() * 1000.0;
+    let snapshot_bytes = fs::metadata(&snapshot)?.len();
+    let mut restored = open(root, temporary_schema.path())?;
+    let started = Instant::now();
+    if !restored.restore_selected_representation_snapshot(
+        "contents",
+        "objekte:visible-markdown",
+        "annotation",
+        &snapshot,
+    )? {
+        return Err("selected representation snapshot did not restore".into());
+    }
+    let snapshot_restore_ms = started.elapsed().as_secs_f64() * 1000.0;
+    let snapshot_restore_reads = restored.metrics().source_reads;
+    let snapshot_restore_parses = restored.metrics().parses;
+    let restored_result = restored.query_frontend("example:archive-search", &complete)?;
+    if direct.total != restored_result.total
+        || direct.truncated != restored_result.truncated
+        || ordered(&direct) != ordered(&restored_result)
+    {
+        return Err("restored representation results differ".into());
+    }
     println!(
         "{}",
         json!({
             "indexed_sources": indexed_sources,
             "index_build_ms": build_ms,
+            "snapshot_save_ms": snapshot_save_ms,
+            "snapshot_bytes": snapshot_bytes,
+            "snapshot_restore_ms": snapshot_restore_ms,
+            "snapshot_restore_reads": snapshot_restore_reads,
+            "snapshot_restore_parses": snapshot_restore_parses,
             "samples": samples,
             "total": direct.total,
             "truncated": direct.truncated,

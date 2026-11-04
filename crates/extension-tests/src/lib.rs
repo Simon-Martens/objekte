@@ -936,6 +936,130 @@ mod tests {
         indexed
             .build_representation_index("archive", "objekte:stored", "body")
             .unwrap();
+        let snapshot = temp.path().join("selected-text.snapshot");
+        indexed
+            .save_selected_representation_snapshot(
+                "archive",
+                "objekte:visible-markdown",
+                "body",
+                &snapshot,
+            )
+            .unwrap();
+        let mut restored = open(Freshness::MetadataOnOpen);
+        assert!(
+            restored
+                .restore_selected_representation_snapshot(
+                    "archive",
+                    "objekte:visible-markdown",
+                    "body",
+                    &snapshot,
+                )
+                .unwrap()
+        );
+        assert_eq!(restored.metrics().source_reads, 0);
+        assert_eq!(restored.metrics().parses, 0);
+        let saved_request = serde_json::json!({
+            "collection":"archive", "term":"rareterm", "count":true,
+        });
+        let saved_scan = scan
+            .query_frontend("example:archive-search", &saved_request)
+            .unwrap();
+        let saved_result = restored
+            .query_frontend("example:archive-search", &saved_request)
+            .unwrap();
+        assert_eq!(saved_result.query_plan, ["extension-index-candidates"]);
+        assert_eq!(saved_result.total, saved_scan.total);
+        assert_eq!(
+            saved_result
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>(),
+            saved_scan
+                .rows
+                .iter()
+                .map(|row| row.source.record_id.as_str())
+                .collect::<Vec<_>>()
+        );
+        let mut corrupted_bytes = fs::read(&snapshot).unwrap();
+        let last = corrupted_bytes.len() - 1;
+        corrupted_bytes[last] ^= 1;
+        fs::write(&snapshot, corrupted_bytes).unwrap();
+        let mut corrupted = open(Freshness::MetadataOnOpen);
+        assert!(
+            !corrupted
+                .restore_selected_representation_snapshot(
+                    "archive",
+                    "objekte:visible-markdown",
+                    "body",
+                    &snapshot,
+                )
+                .unwrap()
+        );
+        indexed
+            .save_selected_representation_snapshot(
+                "archive",
+                "objekte:visible-markdown",
+                "body",
+                &snapshot,
+            )
+            .unwrap();
+        let mut changed_decoder = MarkdownDecoder::default();
+        changed_decoder.0.version.patch += 1;
+        let mut changed_semantics = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(changed_decoder)
+            .unwrap()
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(
+            !changed_semantics
+                .restore_selected_representation_snapshot(
+                    "archive",
+                    "objekte:visible-markdown",
+                    "body",
+                    &snapshot,
+                )
+                .unwrap()
+        );
+        let mut companion_name = snapshot.as_os_str().to_os_string();
+        companion_name.push(".selected-meta");
+        let companion = std::path::PathBuf::from(companion_name);
+        let mut metadata: Value = serde_json::from_slice(&fs::read(&companion).unwrap()).unwrap();
+        metadata["version"] = serde_json::json!(2);
+        fs::write(&companion, serde_json::to_vec(&metadata).unwrap()).unwrap();
+        let mut incompatible = open(Freshness::MetadataOnOpen);
+        assert!(
+            !incompatible
+                .restore_selected_representation_snapshot(
+                    "archive",
+                    "objekte:visible-markdown",
+                    "body",
+                    &snapshot,
+                )
+                .unwrap()
+        );
+        indexed
+            .save_selected_representation_snapshot(
+                "archive",
+                "objekte:visible-markdown",
+                "body",
+                &snapshot,
+            )
+            .unwrap();
         for (request, uses_index) in [
             (
                 serde_json::json!({"collection":"archive", "term":"rareterm", "offset":1, "limit":1, "count":true}),
@@ -990,6 +1114,17 @@ mod tests {
             }
         }
         fs::write(directory.join("c.md"), "# rareterm Gamma").unwrap();
+        let mut stale = open(Freshness::MetadataOnOpen);
+        assert!(
+            !stale
+                .restore_selected_representation_snapshot(
+                    "archive",
+                    "objekte:visible-markdown",
+                    "body",
+                    &snapshot,
+                )
+                .unwrap()
+        );
         indexed.refresh("archive").unwrap();
         let request = serde_json::json!({
             "collection":"archive", "term":"rareterm", "count":true,

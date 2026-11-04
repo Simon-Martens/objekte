@@ -26,6 +26,7 @@ mod coverage;
 mod derived_query;
 mod extension_derived_index;
 mod extension_index;
+mod extension_index_snapshot;
 mod extension_projection;
 mod extension_query;
 mod extension_sources;
