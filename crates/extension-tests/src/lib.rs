@@ -806,6 +806,82 @@ mod tests {
     }
 
     #[test]
+    fn provider_refresh_agrees_with_fresh_exact_repository_after_mutations() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"}}}"#,
+        )
+        .unwrap();
+        fs::write(directory.join("a.json"), r#"{"body":"History A"}"#).unwrap();
+        fs::write(directory.join("b.md"), "# History B").unwrap();
+        let open = || {
+            Repository::builder(temp.path())
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
+                .register_representation(StoredRepresentation::default())
+                .unwrap()
+                .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+                .unwrap()
+                .register_operator(PrefixOperator::default())
+                .unwrap()
+                .register_operator(NativeTextOperator::new(TextMode::Word, false))
+                .unwrap()
+                .register_extractor(PublicationYearExtractor::default())
+                .unwrap()
+                .register_frontend(ArchiveFrontend::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let signature = |repository: &mut Repository, request: &Value| {
+            repository
+                .query_frontend("example:archive-search", request)
+                .map(|result| {
+                    (
+                        result.total,
+                        result.truncated,
+                        result
+                            .rows
+                            .into_iter()
+                            .map(|row| (row.source.record_id, row.source.locator, row.values))
+                            .collect::<Vec<_>>(),
+                    )
+                })
+                .map_err(|error| error.to_string())
+        };
+        let mut incremental = open();
+        for mutation in 0..6 {
+            match mutation {
+                1 => fs::write(directory.join("a.json"), r#"{"body":"Other A"}"#).unwrap(),
+                2 => fs::write(directory.join("c.md"), "# History C").unwrap(),
+                3 => fs::rename(directory.join("b.md"), directory.join("d.md")).unwrap(),
+                4 => fs::remove_file(directory.join("c.md")).unwrap(),
+                5 => fs::write(directory.join("d.md"), [0xff]).unwrap(),
+                _ => {}
+            }
+            if mutation != 0 {
+                incremental.refresh("archive").unwrap();
+            }
+            let mut fresh = open();
+            for limit in [1, 10] {
+                let request = serde_json::json!({
+                    "collection":"archive", "term":"history", "limit":limit, "count":true,
+                });
+                assert_eq!(
+                    signature(&mut incremental, &request),
+                    signature(&mut fresh, &request),
+                    "step {mutation}, limit {limit}"
+                );
+            }
+        }
+    }
+
+    #[test]
     fn registered_markdown_provider_decoder_tracks_lifecycle_and_collisions() {
         let temp = tempfile::tempdir().unwrap();
         let directory = temp.path().join("data/docs");
