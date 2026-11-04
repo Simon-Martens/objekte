@@ -4,12 +4,16 @@
 
 use super::*;
 use crate::{
-    Direction, JsonFilter, Sort, TextFormat,
+    Direction, JsonFilter, JsonPathStep, Sort, TextFormat,
     extensions::{
         BindingContext, BoundTextQuery, DecodedRecord, Extraction, LogicalPlan, LogicalPredicate,
         ScalarValue, TextPreparation, TypedValue,
     },
     file_picker::TypedKey,
+    repository::{
+        ordered_result_cache::{OrderedCoverage, OrderedResultKey},
+        predicate_cache::PredicateCacheKey,
+    },
     sorting::SortValue,
     text::TextRules,
 };
@@ -226,6 +230,7 @@ impl CompiledSort {
 
 #[derive(Clone)]
 struct Ranked {
+    slot: u32,
     source: crate::extensions::SourceDescriptor,
     keys: Vec<SortValue>,
     directions: Arc<Vec<Direction>>,
@@ -288,7 +293,11 @@ fn compile_predicate(
             let representation = extensions.text_handle_identity(*representation, false)?;
             let binding = extensions.bind_text(representation, operator, parameters)?;
             let parsed = JsonFilter::parse_path(path)?;
-            let format = formats.get(path).copied().unwrap_or(TextFormat::Plain);
+            let binding_path = binding_path(&parsed);
+            let format = formats
+                .get(&binding_path)
+                .copied()
+                .unwrap_or(TextFormat::Plain);
             let format = match format {
                 TextFormat::Plain => "plain",
                 TextFormat::Markdown => "markdown",
@@ -297,7 +306,7 @@ fn compile_predicate(
             };
             let applicable = binding.representation.binds(&BindingContext {
                 collection: &collection.name,
-                path,
+                path: &binding_path,
                 format,
                 schema,
             });
@@ -336,6 +345,22 @@ fn compile_predicate(
             extensions, collection, schema, formats, part,
         )?)),
     })
+}
+
+fn binding_path(path: &JsonPath) -> String {
+    let mut result = String::new();
+    for step in path {
+        match step {
+            JsonPathStep::Key(key) => {
+                if !result.is_empty() {
+                    result.push('.');
+                }
+                result.push_str(key);
+            }
+            JsonPathStep::Index(_) | JsonPathStep::Each => result.push_str("[]"),
+        }
+    }
+    result
 }
 
 fn compile_sorts(
@@ -395,6 +420,32 @@ fn project_columns(
     Ok(projected)
 }
 
+fn validate_logical_shape(plan: &LogicalPlan) -> Result<()> {
+    if plan.collections.len() > 1024 || plan.sort.len() > 64 || plan.columns.len() > 1024 {
+        return Err(Error::Request(
+            "logical query exceeds scope or projection limit".into(),
+        ));
+    }
+    let mut nodes = 0;
+    let mut stack = vec![(&plan.predicate, 0usize)];
+    while let Some((predicate, depth)) = stack.pop() {
+        nodes += 1;
+        if nodes > 256 || depth > 32 {
+            return Err(Error::Request(
+                "logical query expression limit exceeded".into(),
+            ));
+        }
+        match predicate {
+            LogicalPredicate::And(parts) | LogicalPredicate::Or(parts) => {
+                stack.extend(parts.iter().map(|part| (part, depth + 1)));
+            }
+            LogicalPredicate::Not(part) => stack.push((part, depth + 1)),
+            LogicalPredicate::Call { .. } | LogicalPredicate::Derived { .. } => {}
+        }
+    }
+    Ok(())
+}
+
 
 impl Repository {
     /// Compile an application request through a registered frontend, then run
@@ -435,6 +486,7 @@ impl Repository {
                 "invalid logical query scope, columns or page".into(),
             ));
         }
+        validate_logical_shape(plan)?;
         let columns = plan
             .columns
             .iter()
@@ -474,7 +526,7 @@ impl Repository {
                 frontend,
                 extensions.fingerprint(),
                 request,
-                identities,
+                &identities,
                 &plan.sort,
                 &plan.columns,
                 plan.offset,
@@ -488,82 +540,147 @@ impl Repository {
                 .map(|sort| sort.direction)
                 .collect::<Vec<_>>(),
         );
+        let mut selections = Vec::with_capacity(compiled.len());
+        for (collection, _, _) in &compiled {
+            let selected = if self.options.freshness == Freshness::MetadataOnOpen {
+                self.custom_source_snapshot
+                    .get(&collection.name)
+                    .map(|snapshot| (Arc::clone(&snapshot.sources), snapshot.fingerprint.clone()))
+            } else {
+                None
+            };
+            let selected = if let Some(selected) = selected {
+                selected
+            } else {
+                let sources = self.source_descriptors(&collection.name)?;
+                self.metrics.enumerations += 1;
+                let fingerprint = crate::config::fingerprint("selected-sources/v1", &sources);
+                (Arc::new(sources), fingerprint)
+            };
+            selections.push(selected);
+        }
+        let all_sources = selections
+            .iter()
+            .flat_map(|(sources, _)| sources.iter())
+            .collect::<Vec<_>>();
+        if all_sources.len() > u32::MAX as usize {
+            return Err(Error::Request(
+                "logical query source table exceeds 2^32 slots".into(),
+            ));
+        }
+        let source_fingerprints = selections
+            .iter()
+            .map(|(_, fingerprint)| fingerprint)
+            .collect::<Vec<_>>();
+        let ordered_key = OrderedResultKey {
+            predicate: PredicateCacheKey {
+                collection: format!("@frontend:{}", plan.collections.join("\0")),
+                expression: serde_json::to_vec(&(
+                    frontend,
+                    extensions.fingerprint(),
+                    &identities,
+                    source_fingerprints,
+                ))
+                .expect("logical predicate identity serializes"),
+            },
+            sort: serde_json::to_vec(&plan.sort).expect("logical sort identity serializes"),
+        };
+        let can_cache = self.options.cache == CacheMode::Memory
+            && self.options.freshness != Freshness::HashOnRequest
+            && self.query_cache.enabled()
+            && frontend.cacheable()
+            && extensions
+                .descriptors()
+                .into_iter()
+                .all(|item| item.cacheable());
+        let cached = can_cache
+            .then(|| {
+                self.query_cache
+                    .ordered(&ordered_key)
+                    .and_then(|(slots, coverage)| {
+                        (coverage == OrderedCoverage::Complete).then(|| slots.to_vec())
+                    })
+            })
+            .flatten();
+        let cache_hit = cached.is_some();
         let mut best = BinaryHeap::new();
         let mut matches = 0usize;
         let cap = self.options.total_limit;
         let mut scratch = EvalScratch::default();
-        for (collection, predicate, sorts) in &compiled {
-            let selected = if self.options.freshness == Freshness::MetadataOnOpen {
-                if let Some(snapshot) = self.custom_source_snapshot.get(&collection.name) {
-                    snapshot.clone()
-                } else {
-                    let selected = self.source_descriptors(&collection.name)?;
-                    self.metrics.enumerations += 1;
-                    selected
-                }
-            } else {
-                let selected = self.source_descriptors(&collection.name)?;
-                self.metrics.enumerations += 1;
-                selected
-            };
-            for source in &selected {
-                let bytes = self.read_selected_source_bytes(source)?;
-                self.metrics.source_reads += 1;
-                self.metrics.source_bytes += bytes.len() as u64;
-                let decoder = extensions.decoder(source)?;
-                let mut outcome = None;
-                self.metrics.parses += 1;
-                decoder.decode(&bytes, &mut |record| {
-                    if outcome.is_some() {
-                        return Err(Error::Request(
-                            "format decoder emitted multiple records".into(),
-                        ));
-                    }
-                    scratch.derived.clear();
-                    let matched = predicate.evaluate(record, &mut scratch)?;
-                    let keys = if matched {
-                        let mut keys = Vec::new();
-                        for sort in sorts {
-                            keys.push(sort.value(source, record, &mut scratch)?);
+        let mut pending_insert = None;
+        let ordered_slots = if let Some(slots) = cached {
+            self.metrics.ordered_result_hits += 1;
+            matches = slots.len();
+            slots
+        } else {
+            let mut offset = 0usize;
+            for ((_, predicate, sorts), (selected, _)) in compiled.iter().zip(&selections) {
+                for (index, source) in selected.iter().enumerate() {
+                    let bytes = self.read_selected_source_bytes(source)?;
+                    self.metrics.source_reads += 1;
+                    self.metrics.source_bytes += bytes.len() as u64;
+                    let decoder = extensions.decoder(source)?;
+                    let mut outcome = None;
+                    self.metrics.parses += 1;
+                    decoder.decode(&bytes, &mut |record| {
+                        if outcome.is_some() {
+                            return Err(Error::Request(
+                                "format decoder emitted multiple records".into(),
+                            ));
                         }
-                        Some(keys)
-                    } else {
-                        None
+                        scratch.derived.clear();
+                        let matched = predicate.evaluate(record, &mut scratch)?;
+                        let keys = if matched {
+                            let mut keys = Vec::new();
+                            for sort in sorts {
+                                keys.push(sort.value(source, record, &mut scratch)?);
+                            }
+                            Some(keys)
+                        } else {
+                            None
+                        };
+                        outcome = Some(keys);
+                        Ok(())
+                    })?;
+                    let Some(matched) = outcome else {
+                        return Err(Error::Request("format decoder emitted no record".into()));
                     };
-                    outcome = Some(keys);
-                    Ok(())
-                })?;
-                let Some(matched) = outcome else {
-                    return Err(Error::Request("format decoder emitted no record".into()));
-                };
-                let Some(keys) = matched else { continue };
-                matches += 1;
-                let row = Ranked {
-                    source: source.clone(),
-                    keys,
-                    directions: Arc::clone(&directions),
-                };
-                if best.len() < cap {
-                    best.push(row);
-                } else if best.peek().is_some_and(|worst| row < *worst) {
-                    best.pop();
-                    best.push(row);
+                    let Some(keys) = matched else { continue };
+                    matches += 1;
+                    let row = Ranked {
+                        slot: u32::try_from(offset + index).expect("checked source slot limit"),
+                        source: source.clone(),
+                        keys,
+                        directions: Arc::clone(&directions),
+                    };
+                    if best.len() < cap {
+                        best.push(row);
+                    } else if best.peek().is_some_and(|worst| row < *worst) {
+                        best.pop();
+                        best.push(row);
+                    }
                 }
+                offset += selected.len();
             }
-            if self.options.freshness != Freshness::MetadataOnOpen {
-                let latest = self.source_descriptors(&collection.name)?;
-                self.metrics.enumerations += 1;
-                if latest != selected {
-                    return Err(Error::Unstable(collection.path.clone()));
-                }
+            let slots = best
+                .into_sorted_vec()
+                .into_iter()
+                .map(|row| row.slot)
+                .collect::<Vec<_>>();
+            if can_cache && matches <= cap {
+                pending_insert = Some((ordered_key, slots.clone()));
             }
-        }
-        let ordered = best.into_sorted_vec();
-        let end = ordered.len().min(plan.offset.saturating_add(plan.limit));
-        let page = ordered.get(plan.offset..end).unwrap_or(&[]);
+            slots
+        };
+        let end = ordered_slots
+            .len()
+            .min(plan.offset.saturating_add(plan.limit));
+        let page = ordered_slots.get(plan.offset..end).unwrap_or(&[]);
         let mut rows = Vec::with_capacity(page.len());
-        for ranked in page {
-            let source = &ranked.source;
+        for &slot in page {
+            let source = all_sources
+                .get(slot as usize)
+                .ok_or_else(|| Error::Cache("logical source slot is unavailable".into()))?;
             let bytes = self.read_selected_source_bytes(source)?;
             self.metrics.source_reads += 1;
             self.metrics.source_bytes += bytes.len() as u64;
@@ -580,10 +697,22 @@ impl Repository {
                 Ok(())
             })?;
             rows.push(ExtensionQueryRow {
-                source: source.clone(),
+                source: (*source).clone(),
                 values: projected
                     .ok_or_else(|| Error::Request("format decoder emitted no record".into()))?,
             });
+        }
+        if self.options.freshness != Freshness::MetadataOnOpen {
+            for ((collection, _, _), (selected, _)) in compiled.iter().zip(&selections) {
+                let latest = self.source_descriptors(&collection.name)?;
+                self.metrics.enumerations += 1;
+                if latest != **selected {
+                    return Err(Error::Unstable(collection.path.clone()));
+                }
+            }
+        }
+        if let Some((key, slots)) = pending_insert {
+            self.query_cache.insert_ordered(key, slots);
         }
         Ok(ExtensionQueryResult {
             rows,
@@ -592,7 +721,11 @@ impl Repository {
             identity,
             elapsed_ms: started.elapsed().as_secs_f64() * 1000.0,
             metrics: self.metrics.since(&metrics_before),
-            query_plan: vec!["extension-exact-scan".into()],
+            query_plan: vec![if cache_hit {
+                "extension-ordered-cache".into()
+            } else {
+                "extension-exact-scan".into()
+            }],
         })
     }
 }

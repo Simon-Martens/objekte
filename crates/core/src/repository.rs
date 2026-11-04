@@ -356,7 +356,25 @@ pub struct Repository {
     extensions: Option<std::sync::Arc<crate::extensions::Extensions>>,
     custom_source_collections: BTreeSet<String>,
     /// Frozen selected descriptors for custom collections under MetadataOnOpen.
-    custom_source_snapshot: BTreeMap<String, Vec<crate::extensions::SourceDescriptor>>,
+    custom_source_snapshot: BTreeMap<String, CustomSourceSnapshot>,
+}
+
+
+#[derive(Clone)]
+struct CustomSourceSnapshot {
+    sources: std::sync::Arc<Vec<crate::extensions::SourceDescriptor>>,
+    fingerprint: String,
+}
+
+
+impl CustomSourceSnapshot {
+    fn new(sources: Vec<crate::extensions::SourceDescriptor>) -> Self {
+        let fingerprint = crate::config::fingerprint("selected-sources/v1", &sources);
+        Self {
+            sources: std::sync::Arc::new(sources),
+            fingerprint,
+        }
+    }
 }
 
 
@@ -481,15 +499,22 @@ impl RepositoryBuilder {
             .is_some_and(|extensions| extensions.source_providers().next().is_some())
         {
             for name in repository.model.collections.keys() {
+                let applicable = repository.extensions.as_ref().is_some_and(|extensions| {
+                    extensions
+                        .source_providers()
+                        .any(|provider| provider.may_select(name))
+                });
                 let selected = repository.source_descriptors(name)?;
                 if selected
                     .iter()
                     .any(|source| source.provider != "objekte:filesystem")
                 {
                     repository.custom_source_collections.insert(name.clone());
+                }
+                if applicable {
                     repository
                         .custom_source_snapshot
-                        .insert(name.clone(), selected);
+                        .insert(name.clone(), CustomSourceSnapshot::new(selected));
                 }
             }
         }
@@ -647,6 +672,11 @@ impl Repository {
             .is_some_and(|extensions| extensions.source_providers().next().is_some())
         {
             for (name, collection) in &model.collections {
+                let applicable = self.extensions.as_ref().is_some_and(|extensions| {
+                    extensions
+                        .source_providers()
+                        .any(|provider| provider.may_select(name))
+                });
                 let selected = extension_sources::select_sources(
                     collection,
                     name,
@@ -657,7 +687,9 @@ impl Repository {
                     .any(|source| source.provider != "objekte:filesystem")
                 {
                     custom_sources.insert(name.clone());
-                    custom_snapshot.insert(name.clone(), selected);
+                }
+                if applicable {
+                    custom_snapshot.insert(name.clone(), CustomSourceSnapshot::new(selected));
                 }
             }
         }

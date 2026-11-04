@@ -537,6 +537,15 @@ impl QueryFrontend for ArchiveFrontend {
         let year = bindings
             .extractor("example:publication_year")
             .ok_or_else(|| Error::Request("publication year is not registered".into()))?;
+        let text_path = request
+            .get("term_path")
+            .map(|value| {
+                value
+                    .as_str()
+                    .ok_or_else(|| Error::Request("term_path must be text".into()))
+            })
+            .transpose()?
+            .unwrap_or("body");
         let mut predicates = Vec::new();
         if let Some(term) = request.get("term") {
             let term = term
@@ -545,7 +554,7 @@ impl QueryFrontend for ArchiveFrontend {
             predicates.push(LogicalPredicate::Call {
                 operator: text_operator,
                 representation: rendered,
-                path: "body".into(),
+                path: text_path.into(),
                 parameters: Value::String(term.into()),
             });
         }
@@ -709,13 +718,14 @@ mod tests {
             page.rows[0].values["publication_date"],
             vec![TypedValue::Text("1850".into())]
         );
-        assert_eq!(
-            repository
-                .query_frontend("example:archive-search", &request)
-                .unwrap()
-                .identity,
-            page.identity
-        );
+        let cached_page = repository
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(cached_page.identity, page.identity);
+        assert_eq!(cached_page.query_plan, ["extension-ordered-cache"]);
+        assert_eq!(cached_page.metrics.ordered_result_hits, 1);
+        assert_eq!(cached_page.metrics.enumerations, 0);
+        assert_eq!(cached_page.metrics.source_reads, 2);
         let boolean = serde_json::json!({
             "collection":"archive", "term":"history", "min_year":1848,
             "max_year":1850, "any_prefix":["History","HISTORY"],
@@ -1167,6 +1177,12 @@ mod tests {
             .unwrap();
         assert_eq!(after_edit.total, Some(1));
         assert!(!after_edit.truncated);
+        let reused = repository
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(reused.query_plan, ["extension-ordered-cache"]);
+        assert_eq!(reused.metrics.enumerations, 2);
+        assert_eq!(reused.metrics.source_reads, 1);
         fs::rename(directory.join("m.md"), directory.join("renamed.md")).unwrap();
         fs::write(directory.join("a.json"), r#"{"body":"Novel A"}"#).unwrap();
         assert_eq!(
@@ -1195,6 +1211,134 @@ mod tests {
             repository.query_frontend("example:archive-search", &request),
             Err(Error::Request(message)) if message.contains("collision")
         ));
+    }
+
+    #[test]
+    fn frontend_binds_array_markup_paths_and_stable_registration_identity() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"contents":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string","x-full-text":"markdown"}}}}}}"#,
+        )
+        .unwrap();
+        fs::write(
+            directory.join("a.json"),
+            r#"{"contents":[{"text":"first"},{"text":"**world** two"}]}"#,
+        )
+        .unwrap();
+        let mut first = Repository::builder(temp.path())
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let mut reordered = Repository::builder(temp.path())
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let request = serde_json::json!({
+            "collection":"archive", "term":"world two",
+            "term_path":"contents[*].text", "count":true,
+        });
+        let expected = first
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        let actual = reordered
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(expected.total, Some(1));
+        assert_eq!(actual.total, expected.total);
+        assert_eq!(actual.identity, expected.identity);
+        assert_eq!(actual.rows[0].source.record_id, "a");
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"contents":{"type":"array","items":{"type":"object","properties":{"text":{"type":"string"}}}}}}"#,
+        )
+        .unwrap();
+        first.reload().unwrap();
+        let changed = first
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(changed.total, Some(0));
+        assert_ne!(changed.identity, expected.identity);
+    }
+
+    #[test]
+    fn frontend_open_freshness_freezes_initially_empty_provider_selection() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"}}}"#,
+        )
+        .unwrap();
+        fs::write(directory.join("a.json"), r#"{"body":"History A"}"#).unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory.clone()))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_representation(StoredRepresentation::default())
+            .unwrap()
+            .register_representation(RenderedRepresentation::new(TextFormat::Markdown).unwrap())
+            .unwrap()
+            .register_operator(PrefixOperator::default())
+            .unwrap()
+            .register_operator(NativeTextOperator::new(TextMode::Word, false))
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .register_frontend(ArchiveFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let request = serde_json::json!({
+            "collection":"archive", "term":"History", "count":true,
+        });
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &request)
+                .unwrap()
+                .total,
+            Some(1)
+        );
+        fs::write(directory.join("new.md"), "# History new").unwrap();
+        let cached = repository
+            .query_frontend("example:archive-search", &request)
+            .unwrap();
+        assert_eq!(cached.total, Some(1));
+        assert_eq!(cached.metrics.enumerations, 0);
+        repository.reload().unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:archive-search", &request)
+                .unwrap()
+                .total,
+            Some(2)
+        );
     }
 
 

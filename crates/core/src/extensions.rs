@@ -155,7 +155,7 @@ impl Descriptor {
 
 
 /// A source's stable identity is distinct from its locator and record ID.
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq, Serialize)]
 pub struct SourceDescriptor {
     pub collection: String,
     pub provider: String,
