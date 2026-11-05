@@ -81,6 +81,46 @@ impl BigramIndex {
     /// `None` means no safe useful restriction; an empty bitmap is a proven
     /// absence of this necessary gram over complete index coverage.
     pub fn candidates(&self, literal: &str) -> Option<RoaringBitmap> {
+        let grams = self.query_grams(literal)?;
+        let mut columns = Vec::new();
+        for (skip, key) in grams {
+            let column = if skip {
+                self.skip.get(&key)
+            } else {
+                self.normal.get(&key)
+            };
+            let Some(column) = column else {
+                return Some(RoaringBitmap::new());
+            };
+            columns.push(column);
+        }
+        columns.sort_by_key(|column| column.len());
+        let mut result = (*columns.first()?).clone();
+        for column in columns.into_iter().skip(1) {
+            result &= column;
+            if result.is_empty() {
+                break;
+            }
+        }
+        Some(result)
+    }
+
+    pub fn estimate_min_cardinality(&self, literal: &str) -> Option<u64> {
+        self.query_grams(literal)?
+            .into_iter()
+            .map(|(skip, key)| {
+                if skip {
+                    self.skip.get(&key)
+                } else {
+                    self.normal.get(&key)
+                }
+                .map(RoaringBitmap::len)
+                .unwrap_or(0)
+            })
+            .min()
+    }
+
+    fn query_grams(&self, literal: &str) -> Option<HashSet<(bool, u64)>> {
         let mut grams = HashSet::new();
         match self.alphabet {
             BigramAlphabet::Ascii => {
@@ -108,27 +148,7 @@ impl BigramIndex {
                 }
             }
         }
-        let mut columns = Vec::new();
-        for (skip, key) in grams {
-            let column = if skip {
-                self.skip.get(&key)
-            } else {
-                self.normal.get(&key)
-            };
-            let Some(column) = column else {
-                return Some(RoaringBitmap::new());
-            };
-            columns.push(column);
-        }
-        columns.sort_by_key(|column| column.len());
-        let mut result = (*columns.first()?).clone();
-        for column in columns.into_iter().skip(1) {
-            result &= column;
-            if result.is_empty() {
-                break;
-            }
-        }
-        Some(result)
+        Some(grams)
     }
 
     pub fn validate(&self, record_count: usize) -> Result<(), String> {

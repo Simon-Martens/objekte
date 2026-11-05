@@ -31,6 +31,7 @@ query/build and restore revisions will establish their respective baselines.
 | C15 | complete | `cargo test --workspace --all-targets`; Q031 logical page | COUNT, bounded page winners, three payload modes, grouped range reads |
 | C16a | complete | release smoke, all 150 ASCII cases (1 repetition) | Persistent-process timing runner and report files |
 | C16b | complete | 900 raw samples, 0 failures | Baseline from `472c00d838` for 150 cases × ASCII/Unicode off × 3 repetitions |
+| C17 | complete | `cargo test --workspace --all-targets` | Maintained posting/source stats and per-term costed path enumeration |
 
 ## Decisions
 
@@ -76,6 +77,10 @@ query/build and restore revisions will establish their respective baselines.
   verification parse can be moved into a winning logical payload; index-only
   membership reads only requested page bodies. Candidate ranges are grouped
   by file and nearby windows share one source read.
+- Each term now enumerates compatible metadata, posting, typed sort-column,
+  dictionary, raw/custom bigram, and scanner paths. Costs use coverage,
+  cardinalities, source bytes and expected residual work; estimates affect
+  path choice only. C18 will push observed restrictions into later choices.
 
 ## Measurements
 

@@ -40,6 +40,30 @@ pub struct CollectionState {
     pub raw: BigramIndex,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub sorting: SortCollection,
+    pub id_lookup: HashMap<RecordId, RecordSlot>,
+    pub stats: CollectionStats,
+}
+#[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
+pub struct CollectionStats {
+    pub file_count: usize,
+    pub record_count: usize,
+    pub total_file_bytes: u64,
+}
+impl CollectionStats {
+    pub fn mean_record_bytes(self) -> f64 {
+        if self.record_count == 0 {
+            0.0
+        } else {
+            self.total_file_bytes as f64 / self.record_count as f64
+        }
+    }
+    pub fn mean_records_per_file(self) -> f64 {
+        if self.file_count == 0 {
+            0.0
+        } else {
+            self.record_count as f64 / self.file_count as f64
+        }
+    }
 }
 pub struct Repository {
     pub files: FileInventory,
@@ -228,12 +252,27 @@ impl Repository {
                 build_parses += stats.record_parses;
             }
             let generation = builder.finish(&files)?;
+            postings.finish_stats();
             postings.validate(generation.records.len())?;
             raw.validate(generation.records.len())?;
             for index in custom_text.values() {
                 index.validate(generation.records.len())?;
             }
             let sorting = sort_builder.finish(&generation)?;
+            let id_lookup = generation
+                .records
+                .iter()
+                .map(|r| (r.id.clone(), r.slot))
+                .collect();
+            let stats = CollectionStats {
+                file_count: generation.files.len(),
+                record_count: generation.records.len(),
+                total_file_bytes: generation
+                    .files
+                    .iter()
+                    .map(|file| files.files[file.0 as usize].revision.size)
+                    .sum(),
+            };
             collections.push(CollectionState {
                 definition,
                 generation,
@@ -241,6 +280,8 @@ impl Repository {
                 raw,
                 custom_text,
                 sorting,
+                id_lookup,
+                stats,
             });
         }
         Ok(Self {

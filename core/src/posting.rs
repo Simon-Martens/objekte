@@ -45,6 +45,16 @@ pub struct PostingIndex {
     pub values: BTreeMap<ScalarKey, RoaringBitmap>,
     pub lengths: BTreeMap<Number, RoaringBitmap>,
     pub covered_records: u32,
+    pub stats: PostingStats,
+}
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+pub struct PostingStats {
+    pub present_count: u64,
+    pub null_count: u64,
+    pub distinct_count: usize,
+    pub min_key: Option<ScalarKey>,
+    pub max_key: Option<ScalarKey>,
 }
 
 impl PostingIndex {
@@ -58,7 +68,17 @@ impl PostingIndex {
             values: BTreeMap::new(),
             lengths: BTreeMap::new(),
             covered_records: 0,
+            stats: PostingStats::default(),
         }
+    }
+    pub fn finish_stats(&mut self) {
+        self.stats = PostingStats {
+            present_count: self.presence.len(),
+            null_count: self.nulls.len(),
+            distinct_count: self.values.len(),
+            min_key: self.values.first_key_value().map(|(key, _)| key.clone()),
+            max_key: self.values.last_key_value().map(|(key, _)| key.clone()),
+        };
     }
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
         self.covered_records = self
@@ -109,10 +129,105 @@ impl PostingIndex {
         if !self.nulls.is_subset(&self.presence) {
             return Err("null posting is not present".into());
         }
+        if self.stats.present_count != self.presence.len()
+            || self.stats.null_count != self.nulls.len()
+            || self.stats.distinct_count != self.values.len()
+        {
+            return Err("posting statistics mismatch".into());
+        }
         Ok(())
     }
     pub fn distinct_values(&self) -> usize {
         self.values.len()
+    }
+    /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
+    pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
+        if self.covered_records as u64 != domain_len {
+            return None;
+        }
+        match term.derived {
+            Derived::Exists | Derived::Null => {
+                let Value::Bool(literal) = term.literal else {
+                    return None;
+                };
+                let yes = if term.derived == Derived::Exists {
+                    self.stats.present_count
+                } else {
+                    self.stats.null_count
+                };
+                let matches_true = match term.operator {
+                    Operator::Eq => literal,
+                    Operator::Ne => !literal,
+                    _ => return None,
+                };
+                return Some((1.0, if matches_true { yes } else { domain_len - yes }));
+            }
+            Derived::Length => {
+                let Value::Number(number) = term.literal else {
+                    return None;
+                };
+                let count = if term.operator == Operator::Eq {
+                    self.lengths
+                        .get(&number)
+                        .map(RoaringBitmap::len)
+                        .unwrap_or(0)
+                } else {
+                    domain_len / 4
+                };
+                return Some((
+                    1.0 + if term.operator == Operator::Eq {
+                        0.0
+                    } else {
+                        self.lengths.len() as f64
+                    },
+                    count,
+                ));
+            }
+            Derived::None => {}
+        }
+        if matches!(term.literal, Value::Null) {
+            if term.multi && term.quantifier == Quantifier::Any {
+                return None;
+            }
+            return match term.operator {
+                Operator::Eq => Some((1.0, self.stats.null_count)),
+                Operator::Ne => Some((2.0, self.stats.present_count - self.stats.null_count)),
+                _ => None,
+            };
+        }
+        if term.transform != Transform::Identity
+            || (term.multi && (term.quantifier != Quantifier::Any || term.operator != Operator::Eq))
+        {
+            return None;
+        }
+        let key = ScalarKey::from_value(&term.literal)?;
+        match term.operator {
+            Operator::Eq => Some((
+                1.0,
+                self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+            )),
+            Operator::Ne if !term.multi => Some((
+                2.0,
+                self.stats.present_count
+                    - self.stats.null_count
+                    - self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+            )),
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
+                let estimate = if self.stats.min_key.as_ref().is_some_and(|min| min > &key)
+                    && matches!(term.operator, Operator::Lt | Operator::Le)
+                {
+                    0
+                } else if self.stats.max_key.as_ref().is_some_and(|max| max < &key)
+                    && matches!(term.operator, Operator::Gt | Operator::Ge)
+                {
+                    0
+                } else {
+                    domain_len / 4
+                };
+                Some((1.0 + self.stats.distinct_count as f64 / 8.0, estimate))
+            }
+            _ => None,
+        }
     }
 
     /// An exact answer over this index's complete record domain, or `None`
@@ -228,6 +343,11 @@ impl PostingCollection {
         }
         Ok(())
     }
+    pub fn finish_stats(&mut self) {
+        for index in self.fields.values_mut() {
+            index.finish_stats();
+        }
+    }
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
         for index in self.fields.values() {
             index.validate(record_count)?;
@@ -264,6 +384,7 @@ mod tests {
                 .add(RecordSlot(slot as u32), &Value::from_json(json).unwrap())
                 .unwrap();
         }
+        index.finish_stats();
         index.validate(4).unwrap();
         assert_eq!(index.presence.iter().collect::<Vec<_>>(), [1, 2, 3]);
         assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [1]);

@@ -191,6 +191,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                 candidates: None,
                 exact: true,
                 proofs: Vec::new(),
+                choices: Vec::new(),
             });
         let mut candidates = plan.candidates.unwrap_or(domain);
         if let Some(fts) = &query.fts {
