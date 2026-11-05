@@ -575,6 +575,7 @@ mod tests {
                 ..RepositoryOptions::default()
             };
             let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+            assert_eq!(built.build_parses, 2);
             let path = root.join(format!("{alphabet:?}.snapshot"));
             built.save_snapshot(&path).unwrap();
             let restored =

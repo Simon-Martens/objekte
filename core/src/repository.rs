@@ -6,8 +6,10 @@ use std::sync::Mutex;
 use std::time::Instant;
 
 use crate::bigram::BigramIndex;
-use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision};
-use crate::model::{CollectionId, FieldPath, RecordId, RecordSlot};
+use crate::inventory::{
+    ByteRange, CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision,
+};
+use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot};
 use crate::posting::PostingCollection;
 use crate::query::Query;
 use crate::reference::{
@@ -15,7 +17,8 @@ use crate::reference::{
 };
 use crate::sorting::{SortBuilder, SortCollection};
 use crate::source::{
-    SourceFormat, TextSegment, extract_file, read_record_range, reader, text_segments,
+    ExtractedRecord, SourceFormat, TextSegment, extract_file, read_record_range, reader,
+    text_segments,
 };
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
@@ -271,6 +274,8 @@ impl Repository {
         }
         let mut collections = Vec::new();
         let mut build_parses = 0;
+        let mut shared_extractions: HashMap<FileId, Vec<(ByteRange, ExtractedRecord)>> =
+            HashMap::new();
         for (definition, id, member_files) in selected {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
@@ -291,69 +296,86 @@ impl Repository {
                 builder.include_file(file_id)?;
                 let file = &files.files[file_id.0 as usize];
                 let path = files.native_path(file_id).ok_or("missing file path")?;
-                let stats = extract_file(
-                    &path,
-                    definition.format,
-                    file.revision,
-                    |range, mut extracted| {
-                        definition.schema.coerce_record(&mut extracted.value)?;
-                        if definition.schema.has_temporal_fields() {
-                            extracted.text = text_segments(&extracted.value);
+                let mut consume = |range: ByteRange, mut extracted: ExtractedRecord| {
+                    definition.schema.coerce_record(&mut extracted.value)?;
+                    if definition.schema.has_temporal_fields() {
+                        extracted.text = text_segments(&extracted.value);
+                    }
+                    let record_id = match definition.identity {
+                        IdentityPolicy::Filename => {
+                            let stem = path
+                                .file_stem()
+                                .and_then(|s| s.to_str())
+                                .ok_or("non-UTF-8 filename identity")?;
+                            RecordId::intrinsic(stem)?
                         }
-                        let record_id = match definition.identity {
-                            IdentityPolicy::Filename => {
-                                let stem = path
-                                    .file_stem()
-                                    .and_then(|s| s.to_str())
-                                    .ok_or("non-UTF-8 filename identity")?;
-                                RecordId::intrinsic(stem)?
-                            }
-                            IdentityPolicy::Generated => {
-                                RecordId::generated(file_id, file.revision.modified_ns, range.start)
-                            }
-                        };
-                        let slot = builder.add_record(file, record_id, range.start, range.end)?;
-                        postings.add(slot, &extracted.value)?;
-                        raw.add_record(slot, &extracted.text)?;
-                        sort_builder.add(
-                            slot,
-                            &extracted.value,
-                            builder.record(slot).unwrap(),
-                            file,
-                            &root,
-                            &definition.name,
-                        )?;
-                        for (key, index) in &mut custom_text {
-                            let binding = &definition.schema.custom[key];
-                            let mut segments = Vec::new();
-                            if let Some(values) = data_values(&extracted.value, &key.0) {
+                        IdentityPolicy::Generated => {
+                            RecordId::generated(file_id, file.revision.modified_ns, range.start)
+                        }
+                    };
+                    let slot = builder.add_record(file, record_id, range.start, range.end)?;
+                    postings.add(slot, &extracted.value)?;
+                    raw.add_record(slot, &extracted.text)?;
+                    sort_builder.add(
+                        slot,
+                        &extracted.value,
+                        builder.record(slot).unwrap(),
+                        file,
+                        &root,
+                        &definition.name,
+                    )?;
+                    for (key, index) in &mut custom_text {
+                        let binding = &definition.schema.custom[key];
+                        let mut segments = Vec::new();
+                        if let Some(values) = data_values(&extracted.value, &key.0) {
+                            for value in values {
+                                let values: Vec<_> =
+                                    if let crate::model::Value::Array(array) = value {
+                                        array.values.iter().collect()
+                                    } else {
+                                        vec![value]
+                                    };
                                 for value in values {
-                                    let values: Vec<_> =
-                                        if let crate::model::Value::Array(array) = value {
-                                            array.values.iter().collect()
-                                        } else {
-                                            vec![value]
+                                    if let crate::model::Value::String(text) = value {
+                                        let text = match binding.transform {
+                                            Transform::Identity => text.clone(),
+                                            Transform::CaseFold => text.case_fold().collect(),
                                         };
-                                    for value in values {
-                                        if let crate::model::Value::String(text) = value {
-                                            let text = match binding.transform {
-                                                Transform::Identity => text.clone(),
-                                                Transform::CaseFold => text.case_fold().collect(),
-                                            };
-                                            segments.push(TextSegment {
-                                                path: key.0.clone(),
-                                                text,
-                                            });
-                                        }
+                                        segments.push(TextSegment {
+                                            path: key.0.clone(),
+                                            text,
+                                        });
                                     }
                                 }
                             }
-                            index.add_record(slot, &segments)?;
                         }
-                        Ok(())
-                    },
-                )?;
-                build_parses += stats.record_parses;
+                        index.add_record(slot, &segments)?;
+                    }
+                    Ok(())
+                };
+                if file.collections.len() > 1 {
+                    if !shared_extractions.contains_key(&file_id) {
+                        let mut extracted = Vec::new();
+                        let stats = extract_file(
+                            &path,
+                            definition.format,
+                            file.revision,
+                            |range, record| {
+                                extracted.push((range, record));
+                                Ok(())
+                            },
+                        )?;
+                        build_parses += stats.record_parses;
+                        shared_extractions.insert(file_id, extracted);
+                    }
+                    for (range, record) in &shared_extractions[&file_id] {
+                        consume(*range, record.clone())?;
+                    }
+                } else {
+                    let stats =
+                        extract_file(&path, definition.format, file.revision, &mut consume)?;
+                    build_parses += stats.record_parses;
+                }
             }
             let generation = builder.finish(&files)?;
             postings.finish_stats();
