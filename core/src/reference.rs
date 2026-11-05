@@ -316,7 +316,7 @@ pub(crate) fn metadata_value(
         MetadataField::RecordByteLength => number(ctx.record.range.len()),
         MetadataField::FileId => number(ctx.file.id.0 as u64),
         MetadataField::FilePath => {
-            Value::String(ctx.file.relative_path.to_string_lossy().replace('\\', "/"))
+            Value::String(crate::path_repr::query_path(&ctx.file.relative_path))
         }
         MetadataField::FileSize => number(ctx.file.revision.size),
         MetadataField::FileCreated => ctx
@@ -328,7 +328,7 @@ pub(crate) fn metadata_value(
         MetadataField::FileModified => timestamp_value(ctx.file.revision.modified_ns)?,
         MetadataField::CollectionName => Value::String(ctx.collection_name.into()),
         MetadataField::RepositoryRoot => {
-            Value::String(ctx.repository_root.to_string_lossy().into())
+            Value::String(crate::path_repr::query_path(ctx.repository_root))
         }
     })
 }

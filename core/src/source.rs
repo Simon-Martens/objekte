@@ -141,12 +141,20 @@ pub struct ExtractionCounters {
 pub fn extract_file<F>(
     path: &Path,
     format: SourceFormat,
+    expected: SourceRevision,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
     F: FnMut(ByteRange, ExtractedRecord) -> Result<(), String>,
 {
-    let bytes = std::fs::read(path).map_err(|e| format!("{}: {e}", path.display()))?;
+    let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+    check_revision(path, &file, expected)?;
+    let mut bytes = Vec::new();
+    file.read_to_end(&mut bytes).map_err(|e| e.to_string())?;
+    check_revision(path, &file, expected)?;
+    if bytes.len() as u64 != expected.size {
+        return Err("stale source revision during extraction".into());
+    }
     let source = reader(format);
     let ranges = source
         .frame(&bytes)
@@ -161,7 +169,23 @@ where
         counters.framed_records += 1;
         consume(range, record)?;
     }
+    check_revision(path, &file, expected)?;
     Ok(counters)
+}
+
+fn check_revision(
+    path: &Path,
+    file: &std::fs::File,
+    expected: SourceRevision,
+) -> Result<(), String> {
+    let opened = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
+    let named = SourceRevision::from_metadata(
+        &std::fs::metadata(path).map_err(|e| format!("stale source revision: {e}"))?,
+    )?;
+    if opened != expected || named != expected {
+        return Err("stale source revision".into());
+    }
+    Ok(())
 }
 
 /// Read only a stored range and reject changed source metadata both before
@@ -172,20 +196,14 @@ pub fn read_record_range(
     range: ByteRange,
 ) -> Result<Vec<u8>, String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-    let before = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
-    if before != revision {
-        return Err("stale source revision".into());
-    }
-    ByteRange::checked(range.start, range.end, before.size)?;
+    check_revision(path, &file, revision)?;
+    ByteRange::checked(range.start, range.end, revision.size)?;
     let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
     let mut bytes = vec![0; len];
     file.seek(SeekFrom::Start(range.start))
         .map_err(|e| e.to_string())?;
     file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
-    let after = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
-    if after != revision {
-        return Err("stale source revision during read".into());
-    }
+    check_revision(path, &file, revision)?;
     Ok(bytes)
 }
 
@@ -198,14 +216,11 @@ pub fn read_record_ranges(
     ranges: &[(u32, ByteRange)],
 ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-    let before = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
-    if before != revision {
-        return Err("stale source revision".into());
-    }
+    check_revision(path, &file, revision)?;
     let mut ordered = ranges.to_vec();
     ordered.sort_by_key(|(_, range)| range.start);
     for (_, range) in &ordered {
-        ByteRange::checked(range.start, range.end, before.size)?;
+        ByteRange::checked(range.start, range.end, revision.size)?;
     }
     let mut output = Vec::with_capacity(ordered.len());
     let mut bytes_read = 0u64;
@@ -237,10 +252,7 @@ pub fn read_record_ranges(
         }
         cursor = next;
     }
-    let after = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
-    if after != revision {
-        return Err("stale source revision during batch read".into());
-    }
+    check_revision(path, &file, revision)?;
     Ok((output, bytes_read))
 }
 
@@ -277,7 +289,8 @@ mod tests {
         ));
         std::fs::write(&path, b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n").unwrap();
         let mut seen = Vec::new();
-        let stats = extract_file(&path, SourceFormat::JsonLines, |range, record| {
+        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        let stats = extract_file(&path, SourceFormat::JsonLines, revision, |range, record| {
             seen.push((range, record.text[0].text.clone()));
             Ok(())
         })
@@ -286,9 +299,14 @@ mod tests {
         assert_eq!(seen.len(), 2);
         std::fs::write(&path, b"{\"name\":\"A\"}\n{oops}\n").unwrap();
         assert!(
-            extract_file(&path, SourceFormat::JsonLines, |_, _| Ok(()))
-                .unwrap_err()
-                .contains("..")
+            extract_file(
+                &path,
+                SourceFormat::JsonLines,
+                SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+                |_, _| Ok(())
+            )
+            .unwrap_err()
+            .contains("..")
         );
         std::fs::remove_file(path).unwrap();
     }
@@ -307,6 +325,43 @@ mod tests {
         assert_eq!(records[0].0, 0);
         assert_eq!(records[1].1, b"{\"x\":2}");
         assert_eq!(bytes_read, 15);
+        std::fs::remove_file(path).unwrap();
+    }
+
+    #[test]
+    fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
+        let path = std::env::temp_dir().join(format!("objekte-stale-{}.jsonl", std::process::id()));
+        std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
+        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        let ranges = JsonLinesReader
+            .frame(&std::fs::read(&path).unwrap())
+            .unwrap();
+        let changed = extract_file(&path, SourceFormat::JsonLines, revision, |_, _| {
+            std::fs::write(&path, b"{\"x\":1}\n{\"x\":22}\n").map_err(|e| e.to_string())?;
+            Ok(())
+        });
+        assert!(changed.unwrap_err().contains("stale source revision"));
+        assert!(
+            read_record_range(&path, revision, ranges[1])
+                .unwrap_err()
+                .contains("stale source revision")
+        );
+        let current = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        assert!(
+            read_record_ranges(
+                &path,
+                current,
+                &[(
+                    0,
+                    ByteRange {
+                        start: 0,
+                        end: current.size + 1
+                    }
+                )]
+            )
+            .unwrap_err()
+            .contains("invalid byte range")
+        );
         std::fs::remove_file(path).unwrap();
     }
 }

@@ -219,59 +219,64 @@ impl Repository {
                 builder.include_file(file_id)?;
                 let file = &files.files[file_id.0 as usize];
                 let path = files.native_path(file_id).ok_or("missing file path")?;
-                let stats = extract_file(&path, definition.format, |range, extracted| {
-                    let record_id = match definition.identity {
-                        IdentityPolicy::Filename => {
-                            let stem = path
-                                .file_stem()
-                                .and_then(|s| s.to_str())
-                                .ok_or("non-UTF-8 filename identity")?;
-                            RecordId::intrinsic(stem)?
-                        }
-                        IdentityPolicy::Generated => {
-                            RecordId::generated(file_id, file.revision.modified_ns, range.start)
-                        }
-                    };
-                    let slot = builder.add_record(file, record_id, range.start, range.end)?;
-                    postings.add(slot, &extracted.value)?;
-                    raw.add_record(slot, &extracted.text)?;
-                    sort_builder.add(
-                        slot,
-                        &extracted.value,
-                        builder.record(slot).unwrap(),
-                        file,
-                        &root,
-                        &definition.name,
-                    )?;
-                    for (key, index) in &mut custom_text {
-                        let binding = &definition.schema.custom[key];
-                        let mut segments = Vec::new();
-                        if let Some(values) = data_values(&extracted.value, &key.0) {
-                            for value in values {
-                                let values: Vec<_> =
-                                    if let crate::model::Value::Array(array) = value {
-                                        array.values.iter().collect()
-                                    } else {
-                                        vec![value]
-                                    };
+                let stats = extract_file(
+                    &path,
+                    definition.format,
+                    file.revision,
+                    |range, extracted| {
+                        let record_id = match definition.identity {
+                            IdentityPolicy::Filename => {
+                                let stem = path
+                                    .file_stem()
+                                    .and_then(|s| s.to_str())
+                                    .ok_or("non-UTF-8 filename identity")?;
+                                RecordId::intrinsic(stem)?
+                            }
+                            IdentityPolicy::Generated => {
+                                RecordId::generated(file_id, file.revision.modified_ns, range.start)
+                            }
+                        };
+                        let slot = builder.add_record(file, record_id, range.start, range.end)?;
+                        postings.add(slot, &extracted.value)?;
+                        raw.add_record(slot, &extracted.text)?;
+                        sort_builder.add(
+                            slot,
+                            &extracted.value,
+                            builder.record(slot).unwrap(),
+                            file,
+                            &root,
+                            &definition.name,
+                        )?;
+                        for (key, index) in &mut custom_text {
+                            let binding = &definition.schema.custom[key];
+                            let mut segments = Vec::new();
+                            if let Some(values) = data_values(&extracted.value, &key.0) {
                                 for value in values {
-                                    if let crate::model::Value::String(text) = value {
-                                        let text = match binding.transform {
-                                            Transform::Identity => text.clone(),
-                                            Transform::CaseFold => text.case_fold().collect(),
+                                    let values: Vec<_> =
+                                        if let crate::model::Value::Array(array) = value {
+                                            array.values.iter().collect()
+                                        } else {
+                                            vec![value]
                                         };
-                                        segments.push(TextSegment {
-                                            path: key.0.clone(),
-                                            text,
-                                        });
+                                    for value in values {
+                                        if let crate::model::Value::String(text) = value {
+                                            let text = match binding.transform {
+                                                Transform::Identity => text.clone(),
+                                                Transform::CaseFold => text.case_fold().collect(),
+                                            };
+                                            segments.push(TextSegment {
+                                                path: key.0.clone(),
+                                                text,
+                                            });
+                                        }
                                     }
                                 }
                             }
+                            index.add_record(slot, &segments)?;
                         }
-                        index.add_record(slot, &segments)?;
-                    }
-                    Ok(())
-                })?;
+                        Ok(())
+                    },
+                )?;
                 build_parses += stats.record_parses;
             }
             let generation = builder.finish(&files)?;

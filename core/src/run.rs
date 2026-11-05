@@ -764,6 +764,19 @@ mod tests {
         let empty = repo.search(&query).unwrap();
         assert!(empty.counters.verified_result_hit);
         assert_eq!(empty.count, 0);
+        query.filter = Some(parse_filter("kind = 'yes'").unwrap());
+        query.options.offset = 1;
+        query.options.return_mode = ReturnMode::Bytes;
+        std::fs::write(
+            root.join("data/b.json"),
+            b"{\"kind\":\"no\",\"id\":\"b\",\"extra\":true}",
+        )
+        .unwrap();
+        assert!(
+            repo.search(&query)
+                .unwrap_err()
+                .contains("stale source revision")
+        );
         std::fs::remove_dir_all(root).unwrap();
     }
 

@@ -60,11 +60,7 @@ impl FileInventory {
         created_ns: Option<i128>,
         collection: CollectionId,
     ) -> Result<FileId, String> {
-        if relative_path.is_absolute()
-            || relative_path
-                .components()
-                .any(|c| matches!(c, std::path::Component::ParentDir))
-        {
+        if !valid_relative_path(&relative_path) {
             return Err("file path must be repository-relative and contained".into());
         }
         if let Some(&id) = self.by_path.get(&relative_path) {
@@ -92,7 +88,8 @@ impl FileInventory {
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
         self.by_path.clear();
         for (slot, file) in self.files.iter().enumerate() {
-            if file.id.0 as usize != slot
+            if !valid_relative_path(&file.relative_path)
+                || file.id.0 as usize != slot
                 || self
                     .by_path
                     .insert(file.relative_path.clone(), file.id)
@@ -113,6 +110,14 @@ impl FileInventory {
     pub fn id_for(&self, path: &Path) -> Option<FileId> {
         self.by_path.get(path).copied()
     }
+}
+
+fn valid_relative_path(path: &Path) -> bool {
+    !path.as_os_str().is_empty()
+        && !path.is_absolute()
+        && path
+            .components()
+            .all(|component| matches!(component, std::path::Component::Normal(_)))
 }
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -195,6 +200,7 @@ impl CollectionGeneration {
                 let file = &inventory.files[file_idx];
                 if !file.collections.contains(&self.collection)
                     || entry.revision != file.revision
+                    || entry.range.start >= entry.range.end
                     || entry.range.end > file.revision.size
                 {
                     return Err("record range or revision mismatch".into());
@@ -254,6 +260,9 @@ impl CollectionBuilder {
             return Err("file is not in collection".into());
         }
         let range = ByteRange::checked(start, end, file.revision.size)?;
+        if range.start == range.end {
+            return Err("record range must be nonempty".into());
+        }
         self.ids.insert(id.clone())?;
         let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
         self.records.push(RecordEntry {

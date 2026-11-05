@@ -10,6 +10,7 @@ pub mod bigram;
 pub mod executor;
 pub mod inventory;
 pub mod model;
+pub mod path_repr;
 pub mod posting;
 mod prepared;
 pub mod query;
