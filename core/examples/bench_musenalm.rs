@@ -97,11 +97,6 @@ fn run() -> Result<(), String> {
             },
             _ => return Err(format!("unknown profile {name}")),
         };
-        if profile.warm {
-            return Err(
-                "verified-result caching is pending; select off profiles for this baseline".into(),
-            );
-        }
         profiles.push((name.clone(), profile));
     }
     let manifest_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
@@ -221,6 +216,7 @@ fn run() -> Result<(), String> {
             registrations = repo.collections.iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields.len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom.keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }
         for (profile_name, profile) in selected_profiles {
+            repo.configure_verified_cache(profile.verified_cache_bytes)?;
             for case in &cases {
                 let query = match Query::from_workload(case) {
                     Ok(q) => q,
@@ -253,6 +249,9 @@ fn run() -> Result<(), String> {
                 let mut times = Vec::new();
                 let mut last = None;
                 let mut error = None;
+                if profile.warm {
+                    repo.search(&query)?;
+                }
                 for repetition in 0..repetitions {
                     let start = Instant::now();
                     match repo.search(&query) {

@@ -35,6 +35,7 @@ query/build and restore revisions will establish their respective baselines.
 | C18 | complete | `cargo test --workspace --all-targets`; rare-text/permutation fixture | Flattened AND, costed AND/OR order, actual-cardinality adaptation |
 | C19 | complete | `cargo test --workspace --all-targets`; Q031/Q070/Q141 uncached subset | Borrowed restricted postings, EXPLAIN/ANALYZE, per-case trace output |
 | C20 | complete | `cargo test --workspace --all-targets` | 4 MiB bounded repository-local prepared bindings and separate hit counter |
+| C21 | complete | `cargo test --workspace --all-targets`; four-profile Q031/Q070/Q141 subset | Bounded complete ordered membership/evidence cache, page payload reads |
 
 ## Decisions
 
@@ -100,6 +101,12 @@ query/build and restore revisions will establish their respective baselines.
   repository generation; reopening creates a new cache. Pagination, return
   mode, and evidence can share a prepared binding. Hits are reported separately
   from verified-result reuse.
+- The verified cache retains complete ordered member lists and requested
+  evidence under an independent byte budget, including empty lists. It never
+  stores record bodies. Repeated pages and return modes share membership;
+  requested bytes/logical payloads still use revision-checked range reads.
+  The benchmark can switch between disabled and 64 MiB warm profiles on one
+  resident repository without rebuilding indexes.
 
 ## Measurements
 
@@ -120,6 +127,12 @@ Q031 (roughly 50 µs) and Q070 (roughly 0.8 ms) differed by tens of
 microseconds on this short sample, so they do not establish a speed trend.
 The check is under `/tmp/objekte-c19-check` and is distinct from the final
 four-profile run.
+
+The C21 three-case four-profile check produced 36 successful samples. Every
+warm sample reported a verified-result hit; no disabled sample did. ASCII
+medians for Q031/Q070/Q141 were 59.777 µs / 815.909 µs / 25.068 ms without
+the verified cache and 6.264 µs / 2.197 µs / 10.400 µs warm. This subset is
+saved at `/tmp/objekte-c21-check`; the full final workload remains required.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format

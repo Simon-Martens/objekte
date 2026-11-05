@@ -72,18 +72,21 @@ pub struct Repository {
     pub build_parses: u64,
     pub options: RepositoryOptions,
     pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
+    pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
 }
 
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
     pub prepared_cache_bytes: usize,
+    pub verified_cache_bytes: usize,
 }
 impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
             bigram_alphabet: BigramAlphabet::Ascii,
             prepared_cache_bytes: 4 * 1024 * 1024,
+            verified_cache_bytes: 0,
         }
     }
 }
@@ -123,6 +126,13 @@ impl Repository {
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
         crate::run::search_analyze(self, query)
+    }
+    pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
+        self.verified
+            .lock()
+            .map_err(|e| e.to_string())?
+            .set_budget(bytes);
+        Ok(())
     }
     pub fn open(
         root: impl Into<PathBuf>,
@@ -304,6 +314,9 @@ impl Repository {
             options,
             prepared: Mutex::new(crate::prepared::PreparedCache::new(
                 options.prepared_cache_bytes,
+            )),
+            verified: Mutex::new(crate::verified::VerifiedCache::new(
+                options.verified_cache_bytes,
             )),
         })
     }

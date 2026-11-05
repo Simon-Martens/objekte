@@ -18,6 +18,7 @@ pub mod repository;
 pub mod run;
 pub mod sorting;
 pub mod source;
+mod verified;
 pub mod workload;
 
 #[cfg(test)]

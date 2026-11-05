@@ -16,6 +16,7 @@ use crate::reference::{Derived, RecordContext, eval_filter, eval_fts_query};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
 use crate::source::{read_record_ranges, reader};
+use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
 #[derive(Clone)]
@@ -140,8 +141,22 @@ fn offer(
     winners: &mut BinaryHeap<Winner>,
     cap: usize,
     counters: &mut WorkCounters,
+    mut cache_members: Option<&mut Vec<CachedMember>>,
 ) {
     counters.total_matches += 1;
+    let mut matched_fields: Vec<_> = if query.options.evidence {
+        evidence.into_iter().collect()
+    } else {
+        Vec::new()
+    };
+    matched_fields.sort();
+    if let Some(members) = cache_members.as_deref_mut() {
+        members.push(CachedMember {
+            collection_index,
+            slot: record.slot.0,
+            matched_fields: matched_fields.clone(),
+        });
+    }
     if cap == 0 {
         return;
     }
@@ -153,12 +168,6 @@ fn offer(
         winners.pop();
     }
     let file = &repo.files.files[record.file.0 as usize];
-    let mut matched_fields: Vec<_> = if query.options.evidence {
-        evidence.into_iter().collect()
-    } else {
-        Vec::new()
-    };
-    matched_fields.sort();
     let hit = SearchHit {
         collection: repo.collections[collection_index].definition.name.clone(),
         record_id: record.id.0.clone(),
@@ -178,7 +187,134 @@ fn offer(
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
-    search_impl(repo, query, None)
+    let enabled = repo.verified.lock().map_err(|e| e.to_string())?.enabled();
+    if !enabled {
+        return search_impl(repo, query, None, None);
+    }
+    let key = crate::verified::key(query);
+    let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
+    if let Some(cached) = cached {
+        return materialize_cached(repo, query, &cached);
+    }
+    let mut members = Vec::new();
+    let result = search_impl(repo, query, None, Some(&mut members))?;
+    debug_assert_eq!(members.len(), result.count);
+    sort_cached_members(repo, query, &mut members);
+    repo.verified
+        .lock()
+        .map_err(|e| e.to_string())?
+        .insert(key, members);
+    Ok(result)
+}
+
+fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<CachedMember>) {
+    if query.options.sort.is_empty() {
+        members.sort_by(|a, b| {
+            let a_collection = &repo.collections[a.collection_index];
+            let b_collection = &repo.collections[b.collection_index];
+            (
+                &a_collection.definition.name,
+                &a_collection.generation.records[a.slot as usize].id.0,
+            )
+                .cmp(&(
+                    &b_collection.definition.name,
+                    &b_collection.generation.records[b.slot as usize].id.0,
+                ))
+        });
+    } else {
+        let mut keyed: Vec<_> = members
+            .drain(..)
+            .map(|member| {
+                let record = &repo.collections[member.collection_index].generation.records
+                    [member.slot as usize];
+                (
+                    rank_key(repo, query, member.collection_index, record),
+                    member,
+                )
+            })
+            .collect();
+        keyed.sort_by(|a, b| a.0.cmp(&b.0));
+        members.extend(keyed.into_iter().map(|(_, member)| member));
+    }
+}
+
+fn materialize_cached(
+    repo: &Repository,
+    query: &Query,
+    cached: &CachedResult,
+) -> Result<SearchResult, String> {
+    let preparation_start = Instant::now();
+    let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
+    let cap = query
+        .options
+        .limit
+        .checked_add(query.options.offset)
+        .ok_or("page size overflow")?;
+    let mut counters = WorkCounters {
+        total_matches: cached.members.len() as u64,
+        verified_result_hit: true,
+        prepared_plan_hit: plan_hit,
+        ..WorkCounters::default()
+    };
+    counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    let mut hits = Vec::new();
+    let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
+    for member in cached
+        .members
+        .iter()
+        .skip(query.options.offset)
+        .take(query.options.limit.min(cap))
+    {
+        let collection = &repo.collections[member.collection_index];
+        let record = &collection.generation.records[member.slot as usize];
+        let file = &repo.files.files[record.file.0 as usize];
+        let index = hits.len() as u32;
+        if query.options.return_mode != ReturnMode::Locator {
+            files
+                .entry((member.collection_index, record.file.0))
+                .or_default()
+                .push((index, record.range));
+        }
+        hits.push(SearchHit {
+            collection: collection.definition.name.clone(),
+            record_id: record.id.0.clone(),
+            file_path: file.relative_path.clone(),
+            byte_start: record.range.start,
+            byte_end: record.range.end,
+            modified_ns: record.revision.modified_ns,
+            matched_fields: member.matched_fields.clone(),
+            payload: None,
+        });
+    }
+    for ((collection_index, file_id), ranges) in files {
+        let collection = &repo.collections[collection_index];
+        let path = repo
+            .files
+            .native_path(crate::model::FileId(file_id))
+            .ok_or("missing source path")?;
+        let revision = repo.files.files[file_id as usize].revision;
+        for batch in ranges.chunks(128) {
+            let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
+            counters.files_opened += 1;
+            counters.bytes_read += bytes_read;
+            for (index, bytes) in records {
+                hits[index as usize].payload = Some(match query.options.return_mode {
+                    ReturnMode::Locator => unreachable!(),
+                    ReturnMode::Bytes => Payload::Bytes(bytes),
+                    ReturnMode::Logical => {
+                        counters.record_parses += 1;
+                        Payload::Logical(reader(collection.definition.format).parse(&bytes)?.value)
+                    }
+                });
+            }
+        }
+    }
+    counters.returned_records = hits.len() as u64;
+    Ok(SearchResult {
+        count: cached.members.len(),
+        hits,
+        counters,
+    })
 }
 
 pub fn search_analyze(
@@ -186,7 +322,7 @@ pub fn search_analyze(
     query: &Query,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
-    let result = search_impl(repo, query, Some(&mut traces))?;
+    let result = search_impl(repo, query, Some(&mut traces), None)?;
     Ok((result, traces))
 }
 
@@ -237,6 +373,7 @@ fn search_impl(
     repo: &Repository,
     query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
+    mut cache_members: Option<&mut Vec<CachedMember>>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
@@ -347,6 +484,7 @@ fn search_impl(
                     &mut winners,
                     cap,
                     &mut counters,
+                    cache_members.as_deref_mut(),
                 );
             }
             if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
@@ -422,6 +560,7 @@ fn search_impl(
                             &mut winners,
                             cap,
                             &mut counters,
+                            cache_members.as_deref_mut(),
                         );
                     }
                 }
@@ -592,6 +731,39 @@ mod tests {
                 }
             }
         }
+        repo.configure_verified_cache(1024 * 1024).unwrap();
+        let mut query = Query {
+            collections: vec![],
+            fts: None,
+            filter: Some(parse_filter("kind = 'yes'").unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 1,
+                offset: 1,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let miss = repo.search(&query).unwrap();
+        assert!(!miss.counters.verified_result_hit);
+        let hit = repo.search(&query).unwrap();
+        assert!(hit.counters.verified_result_hit);
+        assert_eq!(hit.count, 3);
+        assert_eq!(hit.hits[0].record_id, "b");
+        assert_eq!(hit.hits[0].matched_fields, ["kind"]);
+        assert_eq!(hit.counters.files_opened, 0);
+        query.options.offset = 2;
+        query.options.return_mode = ReturnMode::Logical;
+        let page = repo.search(&query).unwrap();
+        assert!(page.counters.verified_result_hit);
+        assert_eq!(page.hits[0].record_id, "c");
+        assert_eq!(page.counters.record_parses, 1);
+        query.filter = Some(parse_filter("kind = 'absent'").unwrap());
+        assert!(!repo.search(&query).unwrap().counters.verified_result_hit);
+        let empty = repo.search(&query).unwrap();
+        assert!(empty.counters.verified_result_hit);
+        assert_eq!(empty.count, 0);
         std::fs::remove_dir_all(root).unwrap();
     }
 
