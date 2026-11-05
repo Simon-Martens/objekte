@@ -30,6 +30,7 @@ query/build and restore revisions will establish their respective baselines.
 | C14 | complete | `cargo test --workspace --all-targets`; Q126/Q127 indexed/reference | ICU/typed sort columns, stable ties, multi-field order |
 | C15 | complete | `cargo test --workspace --all-targets`; Q031 logical page | COUNT, bounded page winners, three payload modes, grouped range reads |
 | C16a | complete | release smoke, all 150 ASCII cases (1 repetition) | Persistent-process timing runner and report files |
+| C16b | complete | 900 raw samples, 0 failures | Baseline from `472c00d838` for 150 cases × ASCII/Unicode off × 3 repetitions |
 
 ## Decisions
 
@@ -80,10 +81,12 @@ query/build and restore revisions will establish their respective baselines.
 
 The initial release smoke built 148,486 Musenalm records once in 13.8 s with
 ASCII bigrams, then executed all 150 queries with one measured repetition and
-zero failures. This was a code-development check; the saved baseline will be
-recorded after the runner commit so its code revision is unambiguous. Restore
-and verified-cache measurements remain pending. No timings are inferred from
-the archived program.
+zero failures. The saved baseline is
+[`bench/results/musenalm/baseline-472c00d838/REPORT.md`](../bench/results/musenalm/baseline-472c00d838/REPORT.md)
+with 900 raw samples, all 150 cases under both cache-disabled alphabets, and
+zero failures. On this revision the full ASCII build took 13.695 s and the
+Unicode build 15.039 s. Restore and verified-cache measurements remain
+pending. No timings are inferred from the archived program.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format
