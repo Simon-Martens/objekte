@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "-p",
+    "objekte-core",
+    "--release",
+    "--test",
+    "json_query_oracle",
+    "--",
+    "--ignored",
+    "--nocapture"
+  ],
+  "exit_status": 0
+}

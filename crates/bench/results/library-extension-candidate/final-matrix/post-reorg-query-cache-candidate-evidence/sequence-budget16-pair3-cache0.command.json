@@ -1,0 +1,12 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/post-reorg/query-cache",
+    "--repo",
+    "examples/musenalm",
+    "--cache-mib",
+    "0",
+    "--run",
+    "3"
+  ],
+  "exit_status": 0
+}

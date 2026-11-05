@@ -3,10 +3,14 @@
 use objekte_core::{
     Error, Result,
     extensions::{
-        BindingContext, CandidateConstraint, CompiledOperator, DataKind, DecodedRecord, Dependency,
-        Descriptor, ExtensionBindings, Extraction, LogicalPlan, LogicalPredicate, QueryFrontend,
-        QueryOperator, RecordAccess, ScalarValue, SemanticVersion, TextRepresentation, TypedValue,
-        ValueExtractor,
+        format::{DecodedRecord, ScalarValue},
+        identity::{DataKind, Dependency, Descriptor, SemanticVersion},
+        operator::{CandidateConstraint, CompiledOperator, QueryOperator},
+        projection::{
+            BindingContext, Extraction, RecordAccess, TextRepresentation, TypedValue,
+            ValueExtractor,
+        },
+        query::{ExtensionBindings, LogicalPlan, LogicalPredicate, QueryFrontend},
     },
 };
 use serde_json::Value;
@@ -89,7 +93,7 @@ impl MarkdownProvider {
 }
 
 
-impl objekte_core::extensions::SourceProvider for MarkdownProvider {
+impl objekte_core::extensions::source::SourceProvider for MarkdownProvider {
     fn descriptor(&self) -> &Descriptor {
         &self.descriptor
     }
@@ -286,7 +290,7 @@ impl Default for MarkdownDecoder {
 }
 
 
-impl objekte_core::extensions::FormatDecoder for MarkdownDecoder {
+impl objekte_core::extensions::format::FormatDecoder for MarkdownDecoder {
     fn descriptor(&self) -> &Descriptor {
         &self.0
     }
@@ -2343,7 +2347,7 @@ mod tests {
     fn markdown_decoder_lends_structured_presence_without_a_json_tree() {
         let body = objekte_core::JsonFilter::parse_path("body").unwrap();
         let absent = objekte_core::JsonFilter::parse_path("missing").unwrap();
-        objekte_core::extensions::FormatDecoder::decode(
+        objekte_core::extensions::format::FormatDecoder::decode(
             &MarkdownDecoder::default(),
             b"",
             &mut |record| {
@@ -2371,7 +2375,7 @@ mod tests {
         struct OverlappingDecoder(Descriptor);
 
 
-        impl objekte_core::extensions::FormatDecoder for OverlappingDecoder {
+        impl objekte_core::extensions::format::FormatDecoder for OverlappingDecoder {
             fn descriptor(&self) -> &Descriptor {
                 &self.0
             }
@@ -2422,7 +2426,7 @@ mod tests {
         struct DoubleDecoder(Descriptor);
 
 
-        impl objekte_core::extensions::FormatDecoder for DoubleDecoder {
+        impl objekte_core::extensions::format::FormatDecoder for DoubleDecoder {
             fn descriptor(&self) -> &Descriptor {
                 &self.0
             }
@@ -3258,10 +3262,6 @@ mod tests {
             Some(3)
         );
         fs::write(
-
-
-
-
 
 
 

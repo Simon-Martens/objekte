@@ -1,0 +1,13 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/reference-v2/core-allocation",
+    "--case",
+    "text-stream-repeat-off",
+    "--repo",
+    "/tmp/objekte-alloc-fixture-library-final-20261105"
+  ],
+  "exit_status": 0
+}

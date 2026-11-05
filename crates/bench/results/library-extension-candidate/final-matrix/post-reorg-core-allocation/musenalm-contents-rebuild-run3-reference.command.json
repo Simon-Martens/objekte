@@ -1,0 +1,21 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/reference-v2/core-allocation",
+    "--case",
+    "rebuild",
+    "--repo",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--collection",
+    "contents",
+    "--filter",
+    "year >= 1700",
+    "--sort",
+    "annotation ASC",
+    "--pattern",
+    "und"
+  ],
+  "exit_status": 0
+}

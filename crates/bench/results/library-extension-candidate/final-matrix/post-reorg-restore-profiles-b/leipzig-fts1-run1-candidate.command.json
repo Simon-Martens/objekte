@@ -1,0 +1,20 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/post-reorg-index/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/leipzig-multilingual",
+    "--collection",
+    "texts",
+    "--encoding",
+    "utf8_bytes",
+    "--snapshot-path",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/snapshots/leipzig-fts1.bigram",
+    "--restore-only",
+    "--field",
+    "text=plain"
+  ],
+  "exit_status": 0
+}

@@ -1,0 +1,10 @@
+
+running 1 test
+{"bigram_ms":988.8554889999999,"bigram_prefilter_used":true,"bigram_query_ms":0.0,"collection":null,"direct_ms":3020.586396,"filter":"year >= 1800 && year < 1805","matches":10000,"returned":10000,"source_reads":10000,"warm_bigram_ms":183.04082799999998}
+{"bigram_ms":84.826081,"bigram_prefilter_used":true,"bigram_query_ms":21.004446,"collection":null,"direct_ms":3138.262636,"filter":"preferred_title ~ :ignorecase('liebe')","matches":2797,"returned":2797,"source_reads":16126,"warm_bigram_ms":58.925071}
+{"bigram_ms":166.53002,"bigram_prefilter_used":true,"bigram_query_ms":0.320553,"collection":null,"direct_ms":3053.596983,"filter":"contributors.agents ?= '1500' || entry = '00fx8ln651na0e3'","matches":81,"returned":81,"source_reads":227,"warm_bigram_ms":14.550317999999999}
+{"bigram_ms":170.595526,"bigram_prefilter_used":true,"bigram_query_ms":0.0,"collection":"contents","direct_ms":2566.284928,"filter":"year >= 1800 && year < 1805","matches":10000,"returned":10000,"source_reads":10000,"warm_bigram_ms":168.812741}
+test global_filters_match_source_execution_on_musenalm ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.11s
+

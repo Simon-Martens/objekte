@@ -1,0 +1,54 @@
+{
+  "actual_input_sha256": "dc682a6e281208ee42027b257f7845e0bdbabdc23efc64398893c99b26686452",
+  "affinity": "0-15",
+  "candidate": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/post-reorg",
+  "candidate_binaries": {
+    "bigram-encoding-compare": "f5e6c7b2d2038af1f8d752cfc0eff09a9d6f94236f73629f5a0153d00c5e88d6",
+    "core-allocation": "b841f83bc5d604c4b5eed46ad6bb104625d65d78103b7c41681f4d89e524fc8c",
+    "fts-query-mix": "67373d02954631ee1330397825e0bf2dc05ffe01e4d460cfcd6f4f79dead0a4d",
+    "json-query-grep-compare": "9d7c9cad35d8a5d4decfda222253ea25cfb17e584a4c09140b3578e2c513d46c",
+    "json-query-mix": "08ccef3df6757f06b5b71518fe304495c959df6b3efe161d2fe393aa37bd7b17",
+    "json-query-sort-mix": "95db232295837c752ff826b5b4ad5539993db1fff7f6401db80a171a12df6be8",
+    "query-cache": "74ef32a14d8660000944a2f9da702c2a0bf15f74dfbd88ee6f5b4edc37fffb42"
+  },
+  "expected_input_sha256": "dc682a6e281208ee42027b257f7845e0bdbabdc23efc64398893c99b26686452",
+  "experiments": [
+    "json-schema-ascii-cache64",
+    "json-schema-ascii-cache0",
+    "json-schema-utf8_bytes-cache64",
+    "json-schema-utf8_bytes-cache0",
+    "json-no-schema-ascii-cache64",
+    "json-no-schema-ascii-cache0",
+    "json-no-schema-utf8_bytes-cache64",
+    "json-no-schema-utf8_bytes-cache0",
+    "fts-cache64",
+    "fts-cache0",
+    "sort-original",
+    "sort-relevant",
+    "json-grep"
+  ],
+  "pairs": 1,
+  "rayon_threads": 16,
+  "reference": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin",
+  "reference_binaries": {
+    "bigram-encoding-compare": "1ed8542b9f79a8c9a754f7f824152a001e3fa6b05e943aaf01653726525d0c05",
+    "core-allocation": "b4689b6d7252a9060f31d0f812cca6c866039d9761cb5ee0d92daecf5b521215",
+    "core-allocation-fixture-v2": "d940b277223d0235fea7f6f0d7299afd658af823a0a1db018eb6b32096a1ad5e",
+    "fts-query-mix": "efeb299343e1675e922d7290378960dc6b0955de7882cd868ba1c6f690e9c31e",
+    "fts-query-mix-original-failing": "30d678ba3bc1e07253082ebfcf1073d8a426154d62c4d61fc72600879200a2f0",
+    "json-query-grep-compare": "78875eefc84844a68a4f70b55bd00d51ae51389d547a7fa07af4b2110a244003",
+    "json-query-mix": "65e1343c079b7bcbc928121fc559c6745fef9f5dbdd993d61748e597343abaa9",
+    "json-query-sort-mix": "181328ba8b23390d312a4ac842b49cffdce576d6a8be33e3063cbca6c90909c1",
+    "objekte": "0ea789ff824888463119d9c7ccc5cfe90d84b8be2b9a5b8ec11cffc041d01831",
+    "query-cache": "0c3108ddb3093cad3cbee81937068130cdb2d57d6f6f76a0c0e1af01c3a21b2a"
+  },
+  "rounds": 7,
+  "workloads": {
+    "musenalm-bigram.json": "d6cd79dac3ea69cee436ee1ff692448d9ab0b9c18c6a20114c05b5ca205b2076",
+    "musenalm-fff.json": "f9a2d799c90ec6e7911cb2b04f16da6d7a589013be7f81cc8480d3ce0416eede",
+    "musenalm-grep.json": "da8658106e197345beae6707f6d13a39a4adcf549441ee8b76991ba32d657a0a",
+    "musenalm-mix-100.json": "5cfb37386221a6f2237bc1755e12c7a89f1e1f4fdeff4dd57f1b00370c4eb99e",
+    "musenalm-mix-50.json": "d7e6967dc1250cf28c054027c72fba8452f5ccd4e8fe3eea9653423fa135e7d7",
+    "musenalm-sort-mix-50.json": "cf122ef836f47668e4073b69a86fdbd8a7e7508be3bc67bbf5391d9eaf7f889d"
+  }
+}

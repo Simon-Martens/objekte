@@ -1,0 +1,50 @@
+
+running 1 test
+title_almanach: 909 exact matches
+title_liebe: 2718 exact matches
+title_goethe: 59 exact matches
+title_schiller: 307 exact matches
+title_gedicht: 1977 exact matches
+title_mond: 419 exact matches
+variant_liebe: 0 exact matches
+title_statement_mond: 398 exact matches
+incipit_liebe: 4733 exact matches
+responsibility_goethe: 121 exact matches
+annotation_goethe: 284 exact matches
+publication_leipzig: 0 exact matches
+type_gedicht_lied: 10000 exact matches
+type_text: 10000 exact matches
+title_eq_mond: 12 exact matches
+title_eq_issue: 4 exact matches
+title_prefix_lieb: 448 exact matches
+title_like_mond: 419 exact matches
+title_like_wildcard: 0 exact matches
+title_regex_or: 3128 exact matches
+year_eq_1800: 2908 exact matches
+year_lt_1800: 10000 exact matches
+test every_bigram_match_agrees_with_direct_source_evaluation has been running for over 60 seconds
+pseudonym_true: 10000 exact matches
+pseudonym_false: 10000 exact matches
+numbering_ge_10: 10000 exact matches
+musenalm_id_eq: 1 exact matches
+title_liebe_year: 57 exact matches
+title_almanach_year: 569 exact matches
+title_goethe_pseudonym: 3 exact matches
+title_gedicht_old: 291 exact matches
+type_gedicht_year: 10000 exact matches
+title_like_regex_prefix: 56 exact matches
+mond_numbering: 373 exact matches
+year_ne_1800: 10000 exact matches
+title_not_mond: 10000 exact matches
+exists_title: 10000 exact matches
+year_or: 2908 exact matches
+text_or_year: 3324 exact matches
+year_window: 10000 exact matches
+year_and_bool: 219 exact matches
+type_length: 3350 exact matches
+title_empty: 0 exact matches
+year_null: 0 exact matches
+test every_bigram_match_agrees_with_direct_source_evaluation ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 115.16s
+

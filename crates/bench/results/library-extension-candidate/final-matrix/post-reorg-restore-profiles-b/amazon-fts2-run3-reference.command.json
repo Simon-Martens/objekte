@@ -1,0 +1,22 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-b/reference/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/amazon-reviews-2023",
+    "--collection",
+    "reviews",
+    "--encoding",
+    "ascii",
+    "--snapshot-path",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/snapshots/amazon-fts2.bigram",
+    "--restore-only",
+    "--field",
+    "title=plain",
+    "--field",
+    "text=plain"
+  ],
+  "exit_status": 0
+}

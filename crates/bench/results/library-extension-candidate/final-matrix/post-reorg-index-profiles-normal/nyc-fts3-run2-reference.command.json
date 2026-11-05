@@ -1,0 +1,22 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/reference-mode-a/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/nyc311",
+    "--collection",
+    "requests",
+    "--encoding",
+    "ascii",
+    "--field",
+    "complaint_type=plain",
+    "--field",
+    "descriptor=plain",
+    "--field",
+    "resolution_description=plain",
+    "--skip-snapshot"
+  ],
+  "exit_status": 0
+}

@@ -1,0 +1,48 @@
+# Library extension implementation: final comparison
+
+## Revisions and method
+
+- Reference production source: `266d9a0fb071838be8f757671599872a7036a054`. Its [baseline manifest](../../library-extension-baseline/266d9a0fb071-20261104T113205Z/manifest.json) records the exact source, benchmark-only harness patch, flags, host, binaries and preexisting failures.
+- Measured final production source: `ba85a25bf7` on `library-extensions-stage2-wip`. The later downstream consumer import change only exercises the new public module paths; it does not alter production code.
+- Source and configuration fingerprint: `dc682a6e281208ee42027b257f7845e0bdbabdc23efc64398893c99b26686452` before and after the final runs. Musenalm, Lenz, Leipzig, Amazon and NYC source paths and metadata were unchanged. See [before](corpora-post-reorg.json) and [after](corpora-after-post-reorg.json) fingerprints.
+- Timed processes used `RAYON_NUM_THREADS=16` and CPU affinity `0-15`. Query cases have seven measured rounds; build, restore, encoding and allocation profiles have five paired processes unless noted. The [runner scripts](run_post_reorg_index_profiles_normal.py) and per-group manifests record commands, feature sets and executable SHA-256 digests. Executables and snapshots are excluded from Git. Filesystem page caches were warm; these are not cold physical-storage measurements.
+
+The final query matrix uses the original preserved reference executables and final normal-release candidate executables. The normal build/restore controls compare with reference executables rebuilt from unchanged reference production core using the same feature-separated benchmark harness. Counting-allocator timings are reported separately from production-allocator timings.
+
+## Correctness and work performed
+
+| Check | Result | Evidence |
+|---|---|---|
+| Complete query matrix | 8 JSON configurations × 152 cases, 2 FTS budgets × 30 cases, 2 sort scopes × 50 cases, and 16 source-grep cases: **1,392 case signatures match**. Ordered IDs, counts, truncation and recorded work match. | [Per-case deltas and signatures](post-reorg-query/summary.json), [raw results](post-reorg-query/) |
+| Full query-cache sequence | **3,416 rows per build and 472 seven-sample groups** match in IDs, counts, truncation, cache state, reads, parses and scans. Covers 16/32/64 MiB edit sequences, offsets, sort changes, FTS and Leipzig/Amazon/NYC selective repetitions. | [Cross-build summary](post-reorg-query-cache-cross-build-summary.json), [reference](post-reorg-query-cache-reference.ndjson), [candidate](post-reorg-query-cache-candidate.ndjson) |
+| Allocation-instrumented cache sequence | 238 aligned rows per build, including seven cache-on/off pairs; all semantic and work fields match. Cache-off step median allocations/bytes fell by about 134,624 / 1.23 MB; cache-on step medians fell by 50 / 1,125 bytes. | [Reference](post-reorg-cache-alloc-reference.ndjson), [candidate](post-reorg-cache-alloc-candidate.ndjson) |
+| Index construction | Ten base/FTS profiles × five pairs. Document counts, compressed bytes and index-size maps match for every pair. | [Normal-allocator summary](post-reorg-index-profiles-normal/summary.json) |
+| Snapshot restoration | Ten matching base-plus-secondary profiles × five pairs. Document counts, restored-file counts, compressed bytes, base/secondary snapshot bytes and index-size maps match. | [Timer-only restore summary](post-reorg-restore-profiles-b/summary.json) |
+| Bigram encoding | Musenalm real directory and deterministic 24,000-record synthetic input, ASCII and UTF-8 bytes, five fresh-process pairs each. Candidate sets, compressed bytes and saved snapshot bytes match. | [Encoding summary](post-reorg-bigram/summary.json) |
+| Core allocation and lifecycle | All 24 cases × five pairs have matching signatures, including deterministic source lifecycle and repeated streaming with cache opt-in off/on. | [Allocation summary](post-reorg-core-allocation/summary.json) |
+
+`cargo test --locked --workspace --all-targets -j 2`, `cargo clippy --locked --workspace --all-targets -j 2 -- -D warnings`, core `index-timings` tests, bench `allocation-profile` and combined-feature tests, and all 25 downstream extension tests passed. Three opt-in release corpus tests (`musenalm_json_filter`, `json_query_oracle`, `musenalm_bigram`) passed. The opt-in `musenalm` view test still fails with `Request("columns must be nonempty and unique")`, exactly as recorded before implementation; see [command and output](post-reorg-checks/). The spacing check still reports seven preexisting hunks in untouched files. The changed files were rustfmt- and spacing-formatted.
+
+## Timing findings
+
+All per-case deltas, reference medians and raw samples are in the linked summaries. These are the largest and most diagnostic observations:
+
+| Path | Reference median | Candidate minus reference | Interpretation |
+|---|---:|---:|---|
+| Final JSON matrix, schema-free `@size < 500B`, cache off, one full-matrix pair | 13.45 ms | +5.18 ms | [Five isolated pairs](post-reorg-targeted/summary.json) give a paired median **−0.57 ms**, with candidate faster in every pair. The full-matrix value did not reproduce. |
+| Final JSON matrix, `exists(annotation) SORT BY annotation DESC`, UTF-8, cache on, one full-matrix pair | 745.35 ms | +19.30 ms | Five isolated pairs give a paired median **−8.67 ms**. No consistent slowdown. |
+| Full cache runner, NYC uncached `Park` verification | 604.83 ms | +5.88 ms paired median | Seven process pairs in separate reference/candidate sessions; every result and work counter matches. An earlier alternating targeted run showed roughly +10–12 ms on a ~610 ms scan. This small offset remains unexplained at the instruction/cache level. Cached repeat latency did not show it. |
+| Normal production-allocator Musenalm FTS4 build | 1,484.6 ms | **−9.9 ms** paired median | Five pairs, equal document count and 47,456,174 compressed index bytes. |
+| Largest positive normal build median, Amazon FTS2 | 2,599.6 ms | +20.7 ms | Five pairs span −26.4 to +23.9 ms. Other large normal builds are equal or faster; no large stable build gap. |
+| Largest positive timer-only restoration median, Amazon FTS2 | 957.5 ms | +2.8 ms | Five pairs, equal restored state. First-round storage/cache outliers are retained in raw samples. |
+| Counting-allocator Musenalm rebuild, isolated seven pairs | 2,724.7 ms | +71.8 ms paired median; range −259.2 to +267.5 ms | [Reference-versus-reference](post-reorg-rebuild-reference-control/summary.json) with the **same binary** spans −255.2 to +194.2 ms. Candidate allocations are ~271,000 fewer; bytes and peak live memory have no systematic increase. This instrumented timing cannot establish a regression. |
+
+The original combined `index-timings` plus counting-allocator build profile showed apparent gaps of hundreds of milliseconds (for example Leipzig FTS1 and Amazon FTS2). This was investigated before the module move. Rebuilding **unchanged reference production core** with the feature-separated benchmark harness alone changed Leipzig FTS1 by about +234 ms in paired median. [Timer-only, counting-only and combined controls](leipzig-modes/) and [normal production-allocator profiles](post-reorg-index-profiles-normal/summary.json) do not reproduce a corresponding production slowdown. The exact compiler/code-generation mechanism within the two instrumented harness layouts is not isolated; the different benchmark harness is the demonstrated cause of the large cross-harness gap. The original raw instrumented data remain in [paired index profiles](paired-index-profiles/), not presented as production latency.
+
+The first allocation streaming comparison also mixed benchmark harness versions. The original reference executable used a 2,000-file fixture without fixed modification times, so its first page changed between fresh processes. The baseline's fixed-mtime source and the final candidate use the same fixture implementation. A reference executable rebuilt with that exact source and unchanged production core gives identical streamed IDs and cache behavior in [five paired fixed-fixture runs](paired-stream-fixture-v2/summary.json), and the [final all-case allocation run](post-reorg-core-allocation/summary.json) repeats that result. The mismatched old-harness raw output remains in [the interrupted comparison](paired-core-allocation/).
+
+## Implementation and limits
+
+Public contracts for source providers, format decoders, borrowed logical records, text representations, typed value extractors, compiled operators, safe candidate constraints and query frontends are implemented and exercised by `crates/extension-tests` without editing core enums. The built-in Markdown/HTML/XML representation path uses the same public contract. The final code move split `extensions` into public `identity`, `source`, `format`, `projection`, `operator` and `query` modules; existing `extensions::*` imports still work. The concrete `file_picker`, `bigram`, repository execution and cache modules retain their hot storage layout and algorithms. See [library contract](../../../../../docs/library-extensions.md) and [code map](../../../../../docs/code-map.md).
+
+The measurements establish parity and no **large reproducible** default-path regression in the recorded matrix, subject to the small NYC uncached timing offset above. They do not prove universal zero overhead. The opt-in view-test error and whole-workspace spacing differences predate this work. The normal-release restoration control remains the earlier Musenalm public-API control; the ten-profile final restoration matrix uses stage timers but no counting allocator. No cold physical-storage claim is made.

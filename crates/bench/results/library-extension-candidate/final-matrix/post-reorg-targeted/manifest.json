@@ -1,0 +1,22 @@
+{
+  "affinity": "0-15",
+  "binaries": {
+    "candidate": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/post-reorg/json-query-mix",
+      "sha256": "08ccef3df6757f06b5b71518fe304495c959df6b3efe161d2fe393aa37bd7b17"
+    },
+    "reference": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/json-query-mix",
+      "sha256": "65e1343c079b7bcbc928121fc559c6745fef9f5dbdd993d61748e597343abaa9"
+    }
+  },
+  "pairs": 5,
+  "rayon_threads": 16,
+  "rounds": 7,
+  "source_case_ids": [
+    61,
+    116
+  ],
+  "workload": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/post-reorg-targeted/workload.json",
+  "workload_sha256": "6eeacd7c2cb0be2db28fdf7e442da1ddad050a085917c5ef23a286447a17f357"
+}

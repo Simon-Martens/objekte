@@ -1,0 +1,16 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "-p",
+    "objekte-core",
+    "--release",
+    "--test",
+    "musenalm_json_filter",
+    "--",
+    "--ignored",
+    "--nocapture"
+  ],
+  "exit_status": 0
+}

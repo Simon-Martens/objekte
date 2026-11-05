@@ -1,4 +1,8 @@
-# Paired final-matrix controls before the module move
+# Paired library extension controls
+
+The completed comparison, including the post-move measurements, is in
+[FINAL-REPORT.md](FINAL-REPORT.md). The notes below describe the earlier
+controls kept for provenance.
 
 Reference production core: `266d9a0fb071838be8f757671599872a7036a054`.
 Candidate production core: `dd83a9a071` (before the contract-only module move).
