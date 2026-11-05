@@ -38,6 +38,13 @@ impl Number {
         if let Some(n) = value.as_u64() {
             return Ok(Self::Integer(n as i128));
         }
+        let text = value.to_string();
+        if !text.contains(['.', 'e', 'E']) {
+            return text
+                .parse::<i128>()
+                .map(Self::Integer)
+                .map_err(|_| "JSON integer is outside i128 range".into());
+        }
         value
             .as_f64()
             .ok_or_else(|| "unsupported JSON number".into())
@@ -452,6 +459,11 @@ mod tests {
         assert!(a > Number::float(9_007_199_254_740_992.0).unwrap());
         assert_eq!(Number::float(1.0).unwrap(), Number::integer(1));
         assert!(Number::float(f64::NAN).is_err());
+        let large: serde_json::Value = serde_json::from_str("1208925819614629174706177").unwrap();
+        assert_eq!(
+            Value::from_json(large).unwrap(),
+            Value::Number(Number::integer(1208925819614629174706177))
+        );
         assert!(matches!(
             Value::parse_typed_string("2026-01-01", &LogicalType::Date).unwrap(),
             Value::Date(_)
