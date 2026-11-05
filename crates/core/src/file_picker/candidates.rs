@@ -28,18 +28,21 @@ pub(crate) struct TranslationWork {
 
 
 impl SlotSelection {
-    /// Count the current native-order traversal before replacing it with
-    /// membership enumeration. This remains an internal diagnostic boundary.
+    /// Enumerate candidate membership without imposing native result order.
+    /// Selected execution applies its own generation-bound result ordering.
     pub(crate) fn visit_translation_members(
         &self,
         picker: &FilePicker,
         mut visit: impl FnMut(usize) -> bool,
     ) -> TranslationWork {
         let mut work = TranslationWork::default();
+        if self.count == 0 {
+            return work;
+        }
         match &self.membership {
             SlotMembership::Sparse(slots) => {
                 for &slot in slots {
-                    if !visit(slot) {
+                    if picker.files.get(slot).is_some_and(Option::is_some) && !visit(slot) {
                         break;
                     }
                 }
@@ -53,18 +56,15 @@ impl SlotSelection {
                 }
             }
             SlotMembership::Bits(bits) => {
-                for &slot in picker.sorted_slots() {
-                    work.order_entries += 1;
-                    if picker.files[slot].is_none() {
-                        continue;
-                    }
+                'words: for (word_index, &value) in bits.iter().enumerate() {
                     work.bitmap_words += 1;
-                    if bits
-                        .get(slot / 64)
-                        .is_some_and(|word| word & (1 << (slot % 64)) != 0)
-                        && !visit(slot)
-                    {
-                        break;
+                    let mut word = value;
+                    while word != 0 {
+                        let slot = word_index * 64 + word.trailing_zeros() as usize;
+                        word &= word - 1;
+                        if picker.files.get(slot).is_some_and(Option::is_some) && !visit(slot) {
+                            break 'words;
+                        }
                     }
                 }
             }

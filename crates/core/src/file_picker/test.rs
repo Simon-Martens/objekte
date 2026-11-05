@@ -157,6 +157,54 @@ fn slot_selection_keeps_live_matches_across_posting_word_boundaries() {
 }
 
 #[test]
+fn translation_membership_handles_sparse_dense_and_empty_without_order() {
+    let dir = tempfile::tempdir().unwrap();
+    for number in 0..128 {
+        put(
+            dir.path(),
+            &format!("d{number:03}"),
+            r#"{"title":"ordinary"}"#,
+        );
+    }
+    let picker = FilePicker::open(dir.path()).unwrap();
+    let wanted = [picker.sorted_slots()[0], picker.sorted_slots()[127]];
+    let mut rare = vec![0_u64; picker.slot_count().div_ceil(64)];
+    for &slot in &wanted {
+        rare[slot / 64] |= 1 << (slot % 64);
+    }
+    let sparse = SlotSelection::from_bits(&picker, Some(rare.clone()));
+    let mut visited = Vec::new();
+    let work = sparse.visit_translation_members(&picker, |slot| {
+        visited.push(slot);
+        true
+    });
+    assert_eq!(visited, wanted);
+    assert_eq!(work.order_entries, 0);
+    assert_eq!(work.bitmap_words, 0);
+
+    let mut dense = picker.candidate_slot_selection(None, None, &[]);
+    dense.intersect_bits(&picker, Some(rare));
+    visited.clear();
+    let work = dense.visit_translation_members(&picker, |slot| {
+        visited.push(slot);
+        true
+    });
+    assert_eq!(visited, wanted);
+    assert_eq!(work.order_entries, 0);
+    assert_eq!(work.bitmap_words, picker.slot_count().div_ceil(64) as u64);
+
+    dense.intersect_bits(&picker, Some(vec![0; picker.slot_count().div_ceil(64)]));
+    visited.clear();
+    let work = dense.visit_translation_members(&picker, |slot| {
+        visited.push(slot);
+        true
+    });
+    assert!(visited.is_empty());
+    assert_eq!(work.order_entries, 0);
+    assert_eq!(work.bitmap_words, 0);
+}
+
+#[test]
 fn failed_rebuild_keeps_the_previous_slot_table_and_filter() {
     let dir = tempfile::tempdir().unwrap();
     for number in 0..128 {
