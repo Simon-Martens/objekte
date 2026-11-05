@@ -15,6 +15,37 @@ fn ids(picker: &FilePicker, terms: Option<&[String]>) -> Vec<String> {
 }
 
 #[test]
+fn compacted_native_slots_change_layout_identity_and_record_positions() {
+    let dir = tempfile::tempdir().unwrap();
+    for index in 0..16 {
+        put(dir.path(), &format!("n{index:03}"), r#"{"year":1850}"#);
+    }
+    let mut picker = FilePicker::open(dir.path()).unwrap();
+    let first_layout = picker.native_slot_layout.clone();
+    let slot = |picker: &FilePicker, id: &str| picker.sorted[picker.position(id).unwrap()];
+    assert_eq!(slot(&picker, "n010"), 10);
+    put(dir.path(), "a", r#"{"year":1850}"#);
+    picker.refresh_id("a").unwrap();
+    assert_eq!(slot(&picker, "n010"), 10);
+    assert!(!Arc::ptr_eq(&first_layout, &picker.native_slot_layout));
+    let before_compaction = picker.native_slot_layout.clone();
+    picker.rebuild_index().unwrap();
+    assert_eq!(slot(&picker, "n010"), 11);
+    assert!(!Arc::ptr_eq(&before_compaction, &picker.native_slot_layout));
+
+    fs::remove_file(dir.path().join("n002.json")).unwrap();
+    picker.refresh_id("n002").unwrap();
+    assert_eq!(slot(&picker, "n010"), 11);
+    picker.rebuild_index().unwrap();
+    assert_eq!(slot(&picker, "n010"), 10);
+    let replacement = FilePicker::open(dir.path()).unwrap();
+    assert!(!Arc::ptr_eq(
+        &picker.native_slot_layout,
+        &replacement.native_slot_layout
+    ));
+}
+
+#[test]
 fn indexes_decoded_values_with_stable_slots_and_targeted_updates() {
     let dir = tempfile::tempdir().unwrap();
     put(dir.path(), "a", r#"{"needle":"absent","title":"Moon"}"#);

@@ -42,6 +42,7 @@ use std::{
     borrow::Cow,
     collections::{BTreeMap, BTreeSet},
     path::{Path, PathBuf},
+    sync::Arc,
 };
 #[cfg(feature = "index-timings")]
 use std::{
@@ -116,6 +117,9 @@ pub struct FilePicker {
     id_bytes: Vec<u8>,
     files: Vec<Option<FileEntry>>,
     sorted: Vec<usize>,
+    /// Process-local identity of the slot-to-record relationship. A new
+    /// picker always has a new identity, even for identical source revisions.
+    pub(crate) native_slot_layout: Arc<()>,
     modified_order: ModifiedOrder,
     tombstones: BTreeMap<String, (u64, u128)>,
     indexed_len: usize,
@@ -457,6 +461,7 @@ impl FilePicker {
                     .as_ref()
                     .map_or(inventory.len(), |(_, e)| e.len()),
             ),
+            native_slot_layout: Arc::new(()),
             modified_order: ModifiedOrder::default(),
             tombstones: BTreeMap::new(),
             indexed_len: 0,

@@ -2,7 +2,6 @@
 
 use super::*;
 
-
 /// Changed slots stay candidates for every typed and bigram lookup until a
 /// rebuild. Past this share of the collection, the index is rebuilt.
 const OVERLAY_SHARE: usize = 32;
@@ -647,6 +646,7 @@ impl FilePicker {
             self.id_bytes = ids;
             self.files = files;
             self.sorted = (0..self.files.len()).collect();
+            self.native_slot_layout = Arc::new(());
         }
         if let Some(stamps) = captured_stamps {
             for (entry, stamp) in self.files.iter_mut().zip(stamps) {

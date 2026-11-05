@@ -385,7 +385,7 @@ struct CustomSourceSnapshot {
     native_count: usize,
     custom_slots: std::sync::Arc<Vec<u32>>,
     /// Native picker slots are mapped once to this selected generation.
-    native_slot_map: std::sync::Arc<std::sync::OnceLock<Option<Vec<Option<u32>>>>>,
+    native_slot_map: std::sync::Arc<std::sync::Mutex<Option<NativeSlotMapCache>>>,
     /// Default source order and its inverse, built once for this generation.
     default_order: std::sync::Arc<Vec<u32>>,
     default_rank: std::sync::Arc<Vec<u32>>,
@@ -393,6 +393,12 @@ struct CustomSourceSnapshot {
     source_generation: String,
     cacheable: bool,
     definitions: Vec<crate::extensions::Descriptor>,
+}
+
+
+struct NativeSlotMapCache {
+    layout: std::sync::Arc<()>,
+    map: Option<std::sync::Arc<Vec<Option<u32>>>>,
 }
 
 
@@ -447,7 +453,7 @@ impl CustomSourceSnapshot {
             has_custom,
             native_count,
             custom_slots: std::sync::Arc::new(custom_slots),
-            native_slot_map: std::sync::Arc::new(std::sync::OnceLock::new()),
+            native_slot_map: std::sync::Arc::new(std::sync::Mutex::new(None)),
             default_order: std::sync::Arc::new(default_order),
             default_rank: std::sync::Arc::new(default_rank),
             fingerprint,
@@ -457,29 +463,42 @@ impl CustomSourceSnapshot {
         })
     }
 
-    fn native_slot_map(&self, picker: &crate::file_picker::FilePicker) -> Option<&[Option<u32>]> {
-        self.native_slot_map
-            .get_or_init(|| {
-                let mut map = vec![None; picker.slot_count()];
-                let mut found = 0;
-                for &slot in picker.sorted_slots() {
-                    let (id, stamp) = picker.view_record(slot);
-                    let index = self
-                        .sources
-                        .binary_search_by(|source| source.record_id.as_str().cmp(id))
-                        .ok()?;
-                    let source = &self.sources[index];
-                    if source.provider != crate::source::FILESYSTEM_JSON_IDENTITY
-                        || source.revision != crate::config::fingerprint("source-stamp/v1", stamp)
-                    {
-                        return None;
-                    }
-                    map[slot] = Some(index as u32);
-                    found += 1;
+    fn native_slot_map(
+        &self,
+        picker: &crate::file_picker::FilePicker,
+    ) -> Option<std::sync::Arc<Vec<Option<u32>>>> {
+        let mut cached = self.native_slot_map.lock().expect("native slot map lock");
+        if let Some(entry) = cached.as_ref()
+            && std::sync::Arc::ptr_eq(&entry.layout, &picker.native_slot_layout)
+        {
+            return entry.map.clone();
+        }
+        let map = (|| {
+            let mut map = vec![None; picker.slot_count()];
+            let mut found = 0;
+            for &slot in picker.sorted_slots() {
+                let (id, stamp) = picker.view_record(slot);
+                let index = self
+                    .sources
+                    .binary_search_by(|source| source.record_id.as_str().cmp(id))
+                    .ok()?;
+                let source = &self.sources[index];
+                if source.provider != crate::source::FILESYSTEM_JSON_IDENTITY
+                    || source.revision != crate::config::fingerprint("source-stamp/v1", stamp)
+                {
+                    return None;
                 }
-                (found == self.native_count).then_some(map)
-            })
-            .as_deref()
+                map[slot] = Some(index as u32);
+                found += 1;
+            }
+            (found == self.native_count).then_some(map)
+        })()
+        .map(std::sync::Arc::new);
+        *cached = Some(NativeSlotMapCache {
+            layout: picker.native_slot_layout.clone(),
+            map: map.clone(),
+        });
+        map
     }
 
     /// Enumerate only candidate slots where a posting is selective. The

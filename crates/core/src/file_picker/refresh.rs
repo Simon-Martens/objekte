@@ -269,6 +269,9 @@ impl FilePicker {
             .map_err(|_| Error::Cache("file picker ID arena exceeds 4 GiB".into()))?;
         source.finish()?;
         self.verified = false;
+        if !deleted.is_empty() || pending.iter().any(|entry| entry.slot.is_none()) {
+            self.native_slot_layout = Arc::new(());
+        }
 
         // A handful of edits are cheaper with the existing local insertion.
         // For a burst, shift each maintained order once, not once per file.
@@ -444,6 +447,7 @@ impl FilePicker {
                     }
                     Err(_) => {
                         let projection = self.refreshed(source, id, &stamp)?;
+                        self.native_slot_layout = Arc::new(());
                         let slot = self.insert(id, stamp)?;
                         let (keys, sort_keys) =
                             self.apply_refresh_projection(slot, projection, false);
@@ -456,6 +460,7 @@ impl FilePicker {
             }
             None => {
                 if let Ok(position) = self.position(id) {
+                    self.native_slot_layout = Arc::new(());
                     let slot = self.sorted.remove(position);
                     if let Some(entry) = self.files[slot].take() {
                         self.tombstones
