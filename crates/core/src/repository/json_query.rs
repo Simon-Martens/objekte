@@ -133,7 +133,7 @@ impl Repository {
             .collections
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
-        if let Some(selected) = self.selected_route(&names)? {
+        if let Some(selected) = self.selected_json_route(&request, &names)? {
             let (result, pending, _) = self.query_json_selected(&request, selected, true, None)?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
@@ -161,7 +161,7 @@ impl Repository {
             .collections
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
-        if let Some(selected) = self.selected_route(&names)? {
+        if let Some(selected) = self.selected_json_route(&request, &names)? {
             let (result, pending, returned) = self.query_json_selected(
                 &request,
                 selected,
@@ -223,7 +223,7 @@ impl Repository {
             .collections
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
-        if let Some(selected) = self.selected_route(&names)? {
+        if let Some(selected) = self.selected_json_route(&request, &names)? {
             let mut page = Vec::new();
             let (result, pending, returned) = self.query_json_selected(
                 &request,
@@ -283,6 +283,81 @@ impl Repository {
             metrics: result.metrics,
             query_plan: result.query_plan,
         })
+    }
+
+    fn selected_json_route(
+        &mut self,
+        request: &JsonQuery,
+        names: &[String],
+    ) -> Result<Option<Vec<(Collection, CustomSourceSnapshot)>>> {
+        if let Some(selected) = self.selected_route(names)? {
+            return Ok(Some(selected));
+        }
+        if !request.filter.contains(':') {
+            return Ok(None);
+        }
+        let configured = names
+            .iter()
+            .any(|name| self.text_definition_collections.contains(name));
+        if !self.has_explicit_text_selector(&request.filter)
+            && !(configured && request.filter.contains(":fts"))
+        {
+            return Ok(None);
+        }
+        let filter =
+            JsonFilter::compile_with_fts(&request.filter, &request.parameters, request.fts)?;
+        let selected = names.iter().any(|name| {
+            self.model
+                .collections
+                .get(name)
+                .is_some_and(|collection| filter.has_registered_text_terms(&collection.fields))
+        });
+        if selected {
+            Ok(Some(self.selected_text_definition_route(names)?))
+        } else {
+            Ok(None)
+        }
+    }
+
+    fn has_explicit_text_selector(&self, filter: &str) -> bool {
+        let mut quote = None;
+        let mut escaped = false;
+        let mut chars = filter.chars().peekable();
+        while let Some(ch) = chars.next() {
+            if let Some(open) = quote {
+                if escaped {
+                    escaped = false;
+                } else if ch == '\\' {
+                    escaped = true;
+                } else if ch == open {
+                    quote = None;
+                }
+                continue;
+            }
+            if matches!(ch, '\'' | '"') {
+                quote = Some(ch);
+                continue;
+            }
+            if ch != ':' {
+                continue;
+            }
+            let mut name = String::new();
+            while chars
+                .peek()
+                .is_some_and(|next| next.is_ascii_alphanumeric() || *next == '_')
+            {
+                name.push(chars.next().expect("peeked modifier"));
+            }
+            if !name.is_empty()
+                && !matches!(
+                    name.as_str(),
+                    "fts" | "length" | "each" | "lower" | "ignorecase"
+                )
+            {
+                return true;
+            }
+        }
+        false
     }
 
     fn normalized_json_sort(request: &JsonQuery) -> Result<JsonQuery> {

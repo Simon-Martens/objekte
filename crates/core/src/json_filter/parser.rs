@@ -411,15 +411,23 @@ impl Parser<'_> {
         {
             let path = self.path()?;
             let modifier = if self.take(":") {
-                Some(match self.ident()?.as_str() {
+                let name = self.ident()?;
+                Some(match name.as_str() {
                     "length" => Modifier::Length,
                     "each" => Modifier::Each,
                     "lower" => Modifier::Lower,
                     "fts" => Modifier::Fts,
-                    _ => {
-                        return self
-                            .error("unknown modifier; expected :length, :each, :lower, or :fts");
+                    "text" => {
+                        self.need("(")?;
+                        self.ws();
+                        if !matches!(self.peek(), Some('\'' | '"')) {
+                            return self.error(":text requires a quoted canonical identity");
+                        }
+                        let identity = self.string()?;
+                        self.need(")")?;
+                        Modifier::Text(identity)
                     }
+                    alias => Modifier::Text(alias.to_owned()),
                 })
             } else {
                 None

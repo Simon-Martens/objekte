@@ -350,7 +350,13 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 mode,
                 case_sensitive: a.flags.contains("--case-sensitive"),
                 collections: collection.map(|name| vec![name.clone()]),
-                fields: a.values.get("--field").map(|field| vec![field.clone()]),
+                fields: a
+                    .values
+                    .get("--field")
+                    .map(|field| {
+                        objekte_core::TextFieldSelector::parse(field).map(|field| vec![field])
+                    })
+                    .transpose()?,
                 limit: get("--limit", "50").parse()?,
                 offset: get("--offset", "0").parse()?,
                 count: a.flags.contains("--count"),
@@ -625,7 +631,6 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
     }
     Ok(())
 }
-
 
 /// A full-text mode from `--mode`.
 fn text_mode(name: &str) -> Result<TextMode, Box<dyn std::error::Error>> {

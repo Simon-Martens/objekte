@@ -240,8 +240,8 @@ impl Repository {
                             "volatile representation {representation} cannot be indexed"
                         )));
                     }
-                    let parsed = JsonFilter::parse_path(path)?;
-                    if !definition.binds(&BindingContext {
+                    let parsed = crate::text::parse_text_path(path)?;
+                    if !definition.binds_explicit(&BindingContext {
                         collection,
                         path: &binding_path(&parsed),
                         format: field_format(&selected_collection, &parsed),
@@ -383,16 +383,8 @@ impl Repository {
                 }
                 SelectedIndexRequest::Field { path } => {
                     let parsed = JsonFilter::parse_path(path)?;
-                    if !selected_collection
-                        .indexes
-                        .iter()
-                        .any(|index| parsed == vec![crate::JsonPathStep::Key(index.name.clone())])
-                        && !selected_collection.advanced_index_paths.contains(&parsed)
-                    {
-                        return Err(Error::Request(format!(
-                            "field {path} has no configured posting"
-                        )));
-                    }
+                    // This is an explicit build request. Automatic warmup
+                    // still submits only configured paths.
                     let key = SelectedDerivedKey::new(
                         &selected_collection,
                         &parsed,
@@ -641,6 +633,19 @@ impl Repository {
                 build.implicit_equivalent,
             );
             self.selected_derived_indexes.insert(build.key, posting);
+        }
+        if self.options.freshness == Freshness::MetadataOnOpen
+            && !self.custom_source_snapshot.contains_key(collection)
+        {
+            let snapshot = CustomSourceSnapshot::new(
+                &selected_collection,
+                selected.as_ref().clone(),
+                self.extensions
+                    .as_deref()
+                    .expect("registered selected outputs"),
+            )?;
+            self.custom_source_snapshot
+                .insert(collection.into(), snapshot);
         }
         Ok(selected.len())
     }

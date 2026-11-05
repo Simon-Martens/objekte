@@ -182,6 +182,18 @@ impl TextPattern {
             text == needle.as_str()
         }
     }
+
+    /// Equality over a value already rendered by its bound representation.
+    pub(crate) fn equals_prepared(&self, value: &str) -> bool {
+        let Some(needle) = &self.needle else {
+            return value == self.source;
+        };
+        if self.folds {
+            value.case_fold().eq(needle.chars())
+        } else {
+            value == needle
+        }
+    }
 }
 
 

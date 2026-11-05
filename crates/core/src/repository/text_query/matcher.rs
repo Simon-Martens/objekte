@@ -8,7 +8,7 @@ use crate::{
 };
 use std::{
     cell::RefCell,
-    collections::HashMap,
+    collections::{BTreeMap, HashMap},
     sync::atomic::{AtomicU64, Ordering},
 };
 
@@ -142,6 +142,7 @@ pub(super) struct TextMatcher {
 pub(super) struct TextMatches {
     pub(super) fields: Vec<String>,
     pub(super) matched_paths: Vec<String>,
+    pub(super) matched_definitions: Vec<crate::TextDefinitionMatch>,
 }
 
 
@@ -169,6 +170,73 @@ fn indexed_path(path: &str, indices: &[(usize, usize)]) -> String {
 
 
 impl TextMatcher {
+    /// Match registered definitions and ordinary fields in one leaf walk.
+    /// Dispatch occurs once per logical value, never inside a scanner loop.
+    pub(super) fn matching_fields_definitions(
+        &self,
+        document: &Value,
+        rules: &TextRules,
+        selected: Option<&BTreeSet<&str>>,
+        include_indices: bool,
+        definitions: &BTreeMap<String, Vec<BoundTextQuery>>,
+    ) -> Result<TextMatches> {
+        EXTENSION_SCRATCH.with(|cell| {
+            let mut local = ExtensionScratch::default();
+            let mut borrowed = cell.try_borrow_mut().ok();
+            let scratch = borrowed.as_deref_mut().unwrap_or(&mut local);
+            let mut fields = BTreeSet::new();
+            let mut matched_paths = Vec::new();
+            let mut matched_definitions = Vec::new();
+            let mut failure = None;
+            visit_json_text(document, rules, include_indices, &mut |name, indices, value, format| {
+                if failure.is_some() || selected.is_some_and(|selected| !selected.contains(name)) {
+                    return;
+                }
+                let matched = if let Some(bindings) = definitions.get(name) {
+                    let mut any = false;
+                    for bound in bindings {
+                        scratch.rendered.clear();
+                        scratch.scanner.clear();
+                        let result = match bound.representation.render(value, &mut scratch.rendered) {
+                            Ok(Some(text)) if bound.preparation == crate::extensions::TextPreparation::VisibleNormalized => {
+                                bound.operator.matches_prepared(ScalarValue::Text(text), &mut scratch.scanner)
+                            }
+                            Ok(Some(text)) => bound.operator.matches(ScalarValue::Text(text), &mut scratch.scanner),
+                            Ok(None) => Ok(false),
+                            Err(error) => Err(error),
+                        };
+                        match result {
+                            Ok(true) => {
+                                any = true;
+                                if let Some(definition) = &bound.definition_identity {
+                                    matched_definitions.push(crate::TextDefinitionMatch {
+                                        path: if include_indices { indexed_path(name, indices) } else { name.into() },
+                                        definition: definition.clone(),
+                                    });
+                                }
+                            }
+                            Ok(false) => {}
+                            Err(error) => { failure = Some(error); return; }
+                        }
+                    }
+                    Ok(any)
+                } else {
+                    Ok(self.matches_value(value, format))
+                };
+                match matched {
+                    Ok(true) => {
+                        fields.insert(name.to_owned());
+                        if include_indices { matched_paths.push(indexed_path(name, indices)); }
+                    }
+                    Ok(false) => {}
+                    Err(error) => failure = Some(error),
+                }
+            });
+            if let Some(error) = failure { return Err(error); }
+            Ok(TextMatches { fields: fields.into_iter().collect(), matched_paths, matched_definitions })
+        })
+    }
+
     pub(super) fn matching_fields_extension(
         document: &Value,
         rules: &TextRules,
@@ -258,6 +326,7 @@ impl TextMatcher {
         Ok(TextMatches {
             fields: fields.into_iter().collect(),
             matched_paths,
+            matched_definitions: Vec::new(),
         })
     }
 
@@ -309,6 +378,7 @@ impl TextMatcher {
         TextMatches {
             fields: fields.into_iter().collect(),
             matched_paths,
+            matched_definitions: Vec::new(),
         }
     }
 

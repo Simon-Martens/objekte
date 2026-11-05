@@ -9,7 +9,6 @@ use super::*;
 use crate::{Field, TextFormat};
 use std::{collections::HashMap, sync::Arc};
 
-
 /// Top-level members needed per linked collection; `None` keeps whole records.
 pub(crate) type LinkedKeys = BTreeMap<String, Option<BTreeSet<String>>>;
 
@@ -257,6 +256,7 @@ impl RelationContext {
                     // value in a linked record is still necessary.
                     modifier: field
                         .modifier
+                        .clone()
                         .filter(|modifier| *modifier != Modifier::Each),
                     metadata: None,
                 });
@@ -291,8 +291,12 @@ impl RelationContext {
             if scalar && reached.len() > 1 {
                 return None;
             }
-            if evaluate(&sub, record, None, Some((target, self))) {
-                ids.insert(id.clone());
+            match evaluate(&sub, record, None, Some((target, self))) {
+                Ok(true) => {
+                    ids.insert(id.clone());
+                }
+                Ok(false) => {}
+                Err(_) => return None,
             }
         }
         Some((relation.segments[0].clone(), ids))
@@ -313,6 +317,7 @@ impl JsonFilter {
                 );
             }
         }
+
         fn bind(expr: &mut Expr, collection: &str, context: &RelationContext) {
             let crosses = |path: &JsonPath| context.path(collection, path).is_some();
             match expr {

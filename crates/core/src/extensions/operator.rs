@@ -47,10 +47,27 @@ pub trait CompiledOperator: Send + Sync {
 pub trait QueryOperator: Send + Sync {
     fn descriptor(&self) -> &Descriptor;
     fn compile(&self, parameters: &Value) -> Result<Box<dyn CompiledOperator>>;
+
+    /// Typed text binding for composed definitions. Legacy operators retain
+    /// their original literal-contains contract until they opt into more.
+    fn compile_text(&self, request: &TextCompileRequest) -> Result<Box<dyn CompiledOperator>> {
+        if request.comparison != TextComparison::Contains
+            || request.syntax != TextSyntax::Literal
+            || request.case_sensitive.is_some()
+        {
+            return Err(Error::Request(format!(
+                "operator {} does not support these text options",
+                self.descriptor().identity
+            )));
+        }
+        self.compile(&Value::String(request.pattern.clone()))
+    }
 }
 
 
 pub(crate) struct BoundTextQuery {
+    pub definition_identity: Option<String>,
+    pub index_path: Option<String>,
     pub representation: Arc<dyn TextRepresentation>,
     pub preparation: TextPreparation,
     pub native_index_projection: Option<NativeTextProjection>,
@@ -58,6 +75,16 @@ pub(crate) struct BoundTextQuery {
     pub identity: String,
     pub candidate: CandidateConstraint,
     pub cacheable: bool,
+}
+
+
+impl std::fmt::Debug for BoundTextQuery {
+    fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        formatter
+            .debug_struct("BoundTextQuery")
+            .field("identity", &self.identity)
+            .finish()
+    }
 }
 
 

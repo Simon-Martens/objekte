@@ -19,7 +19,7 @@ mod profile;
 mod projection;
 mod rebuild;
 mod refresh;
-mod regex_plan;
+pub(crate) mod regex_plan;
 mod scan_pool;
 mod secondary;
 mod sort_index;

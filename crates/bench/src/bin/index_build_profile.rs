@@ -11,8 +11,10 @@ use std::{
 };
 use std::{collections::BTreeMap, env, fs, io, path::PathBuf, time::Instant};
 
+
 #[cfg(feature = "allocation-profile")]
 struct CountingAllocator;
+
 
 #[cfg(feature = "allocation-profile")]
 static ALLOCS: AtomicUsize = AtomicUsize::new(0);
@@ -25,6 +27,7 @@ static PEAK: AtomicIsize = AtomicIsize::new(0);
 #[cfg(feature = "allocation-profile")]
 #[global_allocator]
 static ALLOCATOR: CountingAllocator = CountingAllocator;
+
 
 #[cfg(feature = "allocation-profile")]
 unsafe impl GlobalAlloc for CountingAllocator {
@@ -71,6 +74,7 @@ unsafe impl GlobalAlloc for CountingAllocator {
     }
 }
 
+
 /// Allocation totals for one completed build or restore interval.
 #[derive(Default)]
 struct AllocationMetrics {
@@ -78,6 +82,7 @@ struct AllocationMetrics {
     allocated_bytes: Option<usize>,
     peak_live_delta_bytes: Option<isize>,
 }
+
 
 /// Counter values immediately before a measured operation.
 #[cfg(feature = "allocation-profile")]
@@ -87,9 +92,11 @@ struct AllocationStart {
     live_bytes: isize,
 }
 
+
 /// Compile-time token for the production allocator, with no counter state.
 #[cfg(not(feature = "allocation-profile"))]
 struct AllocationStart;
+
 
 #[cfg(feature = "allocation-profile")]
 fn start_allocations() -> AllocationStart {
@@ -130,6 +137,7 @@ fn string_field() -> Field {
         sort_index: false,
         sort_reduce: None,
         text_format: None,
+        text_search: None,
         exclude_fts: false,
         enum_values: None,
         suggested_values: None,
@@ -210,6 +218,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 {
                     snapshot_path = args.next().map(PathBuf::from);
                 }
+
                 #[cfg(not(feature = "index-timings"))]
                 {
                     let _ = args.next();

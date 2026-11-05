@@ -2,6 +2,18 @@
 use super::*;
 use crate::bigram::BigramIndexBuilder;
 
+#[test]
+fn bound_definition_regex_literal_is_only_a_necessary_ascii_fragment() {
+    assert_eq!(
+        mandatory_ascii_literal("^manuscript.*$"),
+        Some("manuscript".into())
+    );
+    assert_eq!(mandatory_ascii_literal("manuscript|archive"), None);
+    assert_eq!(mandatory_ascii_literal("(?i)manuscript"), None);
+    assert_eq!(mandatory_ascii_literal("[a-z]+"), None);
+    assert_eq!(mandatory_ascii_literal("école"), None);
+}
+
 /// Build a tiny index from the given file contents for testing.
 fn build_test_index(files: &[&[u8]]) -> BigramFilter {
     let n = files.len();

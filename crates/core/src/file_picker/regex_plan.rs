@@ -646,6 +646,20 @@ fn mandatory_literal(hir: &Hir) -> Option<Vec<u8>> {
     }
 }
 
+/// A cheap necessary ASCII fragment for a regex over one prepared text
+/// value. Inline flag groups are left to the full regex planner and scan
+/// fallback; they may change case semantics of an apparent literal.
+pub(crate) fn mandatory_ascii_literal(pattern: &str) -> Option<String> {
+    if pattern.contains("(?") {
+        return None;
+    }
+    let hir = regex_syntax::Parser::new().parse(pattern).ok()?;
+    let literal = mandatory_literal(&hir)?;
+    (literal.len() >= 2 && literal.iter().all(u8::is_ascii_graphic))
+        .then(|| String::from_utf8(literal).ok())
+        .flatten()
+}
+
 #[cfg(test)]
 #[path = "regex_plan.test.rs"]
 mod tests;

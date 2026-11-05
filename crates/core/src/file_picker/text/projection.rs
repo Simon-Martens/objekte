@@ -81,6 +81,7 @@ fn append_folded(text: &mut String) {
     }
 }
 
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -107,6 +108,7 @@ mod tests {
             sort_index: false,
             sort_reduce: None,
             text_format: format,
+            text_search: None,
             exclude_fts: false,
             enum_values: None,
             suggested_values: None,

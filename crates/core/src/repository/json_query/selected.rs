@@ -3,10 +3,11 @@
 
 use super::*;
 use crate::{
-    json_filter::TypedPlan,
+    extensions::CandidateConstraint,
+    json_filter::{RegisteredFtsPlan, TypedPlan},
     repository::{
-        extension_query::source_location, ordered_result_cache::OrderedResultKey,
-        predicate_cache::PredicateCacheKey,
+        extension_index::RepresentationIndexKey, extension_query::source_location,
+        ordered_result_cache::OrderedResultKey, predicate_cache::PredicateCacheKey,
     },
     sorting::{SortBuffer, SortRecord},
 };
@@ -15,6 +16,107 @@ type SelectedRecordCallback<'a> = dyn FnMut(usize, &Record) -> Result<()> + 'a;
 
 
 impl Repository {
+    pub(in crate::repository) fn selected_registered_text_candidates(
+        &self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        filter: &JsonFilter,
+    ) -> Option<Vec<u64>> {
+        if self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+            || filter.has_relations()
+            || !filter.registered_text_pruning_safe()
+        {
+            return None;
+        }
+        let plan = filter.registered_fts_plan()?;
+        let extensions = self.extensions.as_ref()?;
+        if filter.needs_selected_cardinality_check_in(|path| {
+            let key = crate::repository::extension_derived_index::SelectedDerivedKey::new(
+                collection,
+                path,
+                &snapshot.fingerprint,
+                extensions,
+            );
+            self.selected_derived_indexes
+                .get(&key)
+                .is_some_and(|posting| posting.index.scalar_safe(path))
+        }) {
+            return None;
+        }
+
+        fn bits(
+            repo: &Repository,
+            collection: &Collection,
+            snapshot: &CustomSourceSnapshot,
+            extensions: &crate::extensions::Extensions,
+            plan: &RegisteredFtsPlan<'_>,
+        ) -> Option<Vec<u64>> {
+            match plan {
+                RegisteredFtsPlan::And(parts) => {
+                    let mut combined: Option<Vec<u64>> = None;
+                    for part in parts {
+                        if let Some(next) = bits(repo, collection, snapshot, extensions, part) {
+                            combined = Some(match combined {
+                                Some(mut current) => {
+                                    for (left, right) in current.iter_mut().zip(next) {
+                                        *left &= right;
+                                    }
+                                    current
+                                }
+                                None => next,
+                            });
+                        }
+                    }
+                    combined
+                }
+                RegisteredFtsPlan::Or(parts) => {
+                    let mut combined = vec![0_u64; snapshot.sources.len().div_ceil(64)];
+                    for part in parts {
+                        let next = bits(repo, collection, snapshot, extensions, part)?;
+                        for (left, right) in combined.iter_mut().zip(next) {
+                            *left |= right;
+                        }
+                    }
+                    Some(combined)
+                }
+                RegisteredFtsPlan::Term(path, bound) => {
+                    if !bound.allows_candidate_pruning() {
+                        return None;
+                    }
+                    let CandidateConstraint::BigramLiteral {
+                        literal,
+                        representation,
+                    } = &bound.candidate
+                    else {
+                        return None;
+                    };
+                    let compatible = representation == &bound.representation.descriptor().identity
+                        || representation == "objekte:visible-normalized"
+                            && bound.preparation
+                                == crate::extensions::TextPreparation::VisibleNormalized
+                        || representation == "objekte:stored"
+                            && bound.preparation == crate::extensions::TextPreparation::Stored;
+                    if !compatible {
+                        return None;
+                    }
+                    let key = RepresentationIndexKey::new(
+                        collection,
+                        &crate::json_filter::format_path(path),
+                        &bound.representation.descriptor().identity,
+                        &snapshot.fingerprint,
+                        extensions,
+                        collection
+                            .bigram_encoding
+                            .unwrap_or(repo.options.bigram_encoding),
+                    );
+                    repo.representation_index_candidates(&key, literal)
+                }
+            }
+        }
+        bits(self, collection, snapshot, extensions, &plan)
+    }
+
     /// Estimate selected typed posting work without allocating candidate
     /// words. This lets a selective text posting avoid a redundant broad
     /// scalar probe.
@@ -25,6 +127,7 @@ impl Repository {
         filter: &JsonFilter,
     ) -> Option<usize> {
         if filter.has_relations()
+            || !filter.registered_text_pruning_safe()
             || self.options.cache != CacheMode::Memory
             || self.options.freshness == Freshness::HashOnRequest
         {
@@ -90,6 +193,7 @@ impl Repository {
         filter: &JsonFilter,
     ) -> Option<Vec<u64>> {
         if filter.has_relations()
+            || !filter.registered_text_pruning_safe()
             || self.options.cache != CacheMode::Memory
             || self.options.freshness == Freshness::HashOnRequest
         {
@@ -178,6 +282,7 @@ impl Repository {
         backend: JsonQueryBackend,
     ) -> Result<Option<(Vec<u64>, bool)>> {
         if filter.has_relations()
+            || !filter.registered_text_pruning_safe()
             || !matches!(backend, JsonQueryBackend::Auto | JsonQueryBackend::Bigram)
             || self.options.cache != CacheMode::Memory
             || self.options.freshness == Freshness::HashOnRequest
@@ -324,7 +429,10 @@ impl Repository {
                 collection: format!("@frontend:{}", names.join("\0")),
                 expression: serde_json::to_vec(&(
                     "ordinary-selected-json/v1",
-                    filter.cache_expression(),
+                    bound
+                        .iter()
+                        .map(JsonFilter::cache_expression)
+                        .collect::<Vec<_>>(),
                     selected
                         .iter()
                         .map(|(collection, snapshot)| {
@@ -346,6 +454,7 @@ impl Repository {
             && self.options.freshness != Freshness::HashOnRequest
             && self.query_cache.enabled()
             && !filter.has_relations()
+            && bound.iter().all(JsonFilter::registered_text_cacheable)
             && !plans.values().any(crate::sorting::SortPlan::has_relations)
             && selected.iter().all(|(_, snapshot)| snapshot.cacheable);
         let cached_page = can_cache
@@ -359,6 +468,7 @@ impl Repository {
         let mut ordered_slots = Vec::new();
         let mut used_native_candidates = false;
         let mut used_field_candidates = false;
+        let mut used_registered_candidates = false;
         let mut decisions = Vec::new();
         let mut returned = 0_usize;
         let stream_early = on_record.is_some() && request.sort.is_empty() && !cache_hit;
@@ -421,22 +531,38 @@ impl Repository {
                         &bound[collection_index],
                     );
                 }
-                used_native_candidates |= native.is_some();
-                used_field_candidates |= field_candidates.is_some();
-                decisions.push(format!(
-                    "{}:{}",
-                    collection.name,
-                    if native.as_ref().is_some_and(|(_, full_text)| *full_text) {
-                        "native-full-text+custom-fallback"
-                    } else if native.is_some() {
-                        "native-posting+custom-fallback"
-                    } else if field_candidates.is_some() {
-                        "selected-scalar-posting"
-                    } else {
-                        "scan"
-                    }
-                ));
-                let candidates = native.map(|(bits, _)| bits).or(field_candidates);
+                let registered = may_use_candidates
+                    .then(|| {
+                        self.selected_registered_text_candidates(
+                            collection,
+                            snapshot,
+                            &bound[collection_index],
+                        )
+                    })
+                    .flatten();
+                let native_kind = if native.as_ref().is_some_and(|(_, full_text)| *full_text) {
+                    "native-full-text+custom-fallback"
+                } else {
+                    "native-posting+custom-fallback"
+                };
+                let chosen = [
+                    native.map(|(bits, _)| (native_kind, bits)),
+                    field_candidates.map(|bits| ("selected-scalar-posting", bits)),
+                    registered.map(|bits| ("registered-text-posting", bits)),
+                ]
+                .into_iter()
+                .flatten()
+                .min_by_key(|(_, bits)| {
+                    bits.iter()
+                        .map(|word| word.count_ones() as usize)
+                        .sum::<usize>()
+                });
+                let (kind, candidates) =
+                    chosen.map_or(("scan", None), |(kind, bits)| (kind, Some(bits)));
+                used_native_candidates |= kind.starts_with("native-");
+                used_field_candidates |= kind == "selected-scalar-posting";
+                used_registered_candidates |= kind == "registered-text-posting";
+                decisions.push(format!("{}:{kind}", collection.name));
                 for index in snapshot.scan_slots(candidates.as_deref(), sort_buffer.is_none()) {
                     self.metrics.selected_candidate_visits += 1;
                     self.metrics.selected_descriptor_visits += 1;
@@ -594,6 +720,8 @@ impl Repository {
                     } else {
                         if used_field_candidates {
                             "selected-scalar-posting"
+                        } else if used_registered_candidates {
+                            "registered-text-posting"
                         } else if used_native_candidates {
                             "selected-native-posting+custom-fallback"
                         } else {

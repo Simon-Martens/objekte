@@ -418,6 +418,10 @@ impl TextRepresentation for RenderedRepresentation {
         context.format == expected
     }
 
+    fn binds_explicit(&self, _: &BindingContext<'_>) -> bool {
+        true
+    }
+
     fn render<'a>(&self, value: &'a str, output: &'a mut String) -> Result<Option<&'a str>> {
         if self.format == TextFormat::Plain && !crate::text::needs_normalizing(value) {
             return Ok(Some(value));
@@ -466,18 +470,27 @@ impl NativeTextOperator {
 
 struct NativeCompiled {
     pattern: crate::text::TextPattern,
+    comparison: TextComparison,
 }
 
 
 impl CompiledOperator for NativeCompiled {
     fn matches(&self, value: ScalarValue<'_>, _: &mut String) -> Result<bool> {
         Ok(
-            matches!(value, ScalarValue::Text(text) if self.pattern.matches(text, TextFormat::Plain)),
+            matches!(value, ScalarValue::Text(text) if match self.comparison {
+                TextComparison::Contains => self.pattern.matches(text, TextFormat::Plain),
+                TextComparison::Equal => self.pattern.equals(text, TextFormat::Plain),
+            }),
         )
     }
 
     fn matches_prepared(&self, value: ScalarValue<'_>, _: &mut String) -> Result<bool> {
-        Ok(matches!(value, ScalarValue::Text(text) if self.pattern.matches_prepared(text)))
+        Ok(
+            matches!(value, ScalarValue::Text(text) if match self.comparison {
+                TextComparison::Contains => self.pattern.matches_prepared(text),
+                TextComparison::Equal => self.pattern.equals_prepared(text),
+            }),
+        )
     }
 
     fn candidate(&self) -> CandidateConstraint {
@@ -511,6 +524,28 @@ impl QueryOperator for NativeTextOperator {
             .ok_or_else(|| Error::Request("text operator pattern must be a string".into()))?;
         Ok(Box::new(NativeCompiled {
             pattern: crate::text::TextPattern::compile(pattern, self.mode, self.case_sensitive)?,
+            comparison: TextComparison::Contains,
+        }))
+    }
+
+    fn compile_text(&self, request: &TextCompileRequest) -> Result<Box<dyn CompiledOperator>> {
+        if request.syntax == TextSyntax::Regex && request.case_sensitive.is_some() {
+            return Err(Error::Request(
+                "regex syntax uses pattern flags, not a case option".into(),
+            ));
+        }
+        let mode = if request.syntax == TextSyntax::Regex {
+            crate::TextMode::Regex
+        } else {
+            self.mode
+        };
+        Ok(Box::new(NativeCompiled {
+            pattern: crate::text::TextPattern::compile(
+                &request.pattern,
+                mode,
+                request.case_sensitive.unwrap_or(self.case_sensitive),
+            )?,
+            comparison: request.comparison,
         }))
     }
 }

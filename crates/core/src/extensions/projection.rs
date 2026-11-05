@@ -37,6 +37,13 @@ pub enum NativeTextProjection {
 pub trait TextRepresentation: Send + Sync {
     fn descriptor(&self) -> &Descriptor;
     fn binds(&self, context: &BindingContext<'_>) -> bool;
+    /// Query-facing definitions may opt into an interpretation of a logical
+    /// string beyond the field's legacy default format. Legacy low-level
+    /// bindings continue to use `binds`.
+    fn binds_explicit(&self, context: &BindingContext<'_>) -> bool {
+        self.binds(context)
+    }
+
     fn preparation(&self) -> TextPreparation {
         TextPreparation::Stored
     }

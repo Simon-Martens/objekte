@@ -4,7 +4,6 @@
 
 use super::*;
 use crate::{
-    JsonFilter,
     bigram::{BigramFile, BigramSnapshot},
     extensions::{BindingContext, Descriptor},
     repository::extension_index::{
@@ -87,8 +86,8 @@ impl Repository {
                 "volatile representation {representation} cannot be snapshotted"
             )));
         }
-        let parsed = JsonFilter::parse_path(path)?;
-        if !definition.binds(&BindingContext {
+        let parsed = crate::text::parse_text_path(path)?;
+        if !definition.binds_explicit(&BindingContext {
             collection,
             path: &binding_path(&parsed),
             format: field_format(selected_collection, &parsed),

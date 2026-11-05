@@ -282,16 +282,8 @@ impl Repository {
         }
         let selected_collection = self.model.collection(collection)?;
         let parsed = JsonFilter::parse_path(field)?;
-        if !selected_collection
-            .indexes
-            .iter()
-            .any(|index| parsed == vec![crate::JsonPathStep::Key(index.name.clone())])
-            && !selected_collection.advanced_index_paths.contains(&parsed)
-        {
-            return Err(Error::Request(format!(
-                "field {field} has no configured posting"
-            )));
-        }
+        // Explicitly requested field postings are also recorded in the
+        // selected manifest. The key and source fingerprint enforce safety.
         let extensions = self.extensions.as_ref().ok_or_else(|| {
             Error::Request("selected field snapshots require source extensions".into())
         })?;

@@ -2,6 +2,7 @@
 //! retain their existing format and concrete picker path.
 
 use super::*;
+use crate::JsonFilter;
 use crate::{repository::extension_projection::SelectedIndexRequest, text::TextRules};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest as _, Sha256};
@@ -33,7 +34,11 @@ struct SelectedManifest {
 
 
 impl Repository {
-    fn selected_cache_file(&self, collection: &str, spec: Option<&SelectedSpec>) -> PathBuf {
+    pub(super) fn selected_cache_file(
+        &self,
+        collection: &str,
+        spec: Option<&SelectedSpec>,
+    ) -> PathBuf {
         let digest = Sha256::digest(
             serde_json::to_vec(&(collection, spec)).expect("cache identity serializes"),
         );
@@ -50,7 +55,12 @@ impl Repository {
 
     fn selected_auto_text_specs(&self, collection: &Collection) -> Vec<SelectedSpec> {
         let mut specs = BTreeSet::new();
-        for (path, format) in TextRules::new(&collection.fields).declared_text_paths() {
+        let legacy_paths = if self.custom_source_collections.contains(&collection.name) {
+            TextRules::new(&collection.fields).declared_text_paths()
+        } else {
+            Vec::new()
+        };
+        for (path, format) in legacy_paths {
             let visible = match format {
                 crate::TextFormat::Plain => "objekte:visible-plain",
                 crate::TextFormat::Markdown => "objekte:visible-markdown",
@@ -66,11 +76,53 @@ impl Repository {
                 path,
             });
         }
+        if let Some(extensions) = self.extensions.as_ref() {
+            for path in crate::schema::text_search_paths(&collection.fields) {
+                let Ok(parsed) = JsonFilter::parse_path(&path) else {
+                    continue;
+                };
+                let Some(field) = crate::schema::field_at_path(&collection.fields, &parsed) else {
+                    continue;
+                };
+                let Some(config) = field.text_search.as_ref() else {
+                    continue;
+                };
+                for (identity, options) in &config.definitions {
+                    if options.index
+                        && let Ok(definition) =
+                            extensions.resolve_text_definition(Some(field), Some(identity))
+                    {
+                        specs.insert(SelectedSpec::Text {
+                            representation: definition.representation().into(),
+                            path: path.clone(),
+                        });
+                    }
+                }
+            }
+        }
         specs.into_iter().collect()
+    }
+
+    pub(super) fn has_declared_text_indexes(&self, collection: &Collection) -> bool {
+        crate::schema::text_search_paths(&collection.fields)
+            .iter()
+            .filter_map(|path| JsonFilter::parse_path(path).ok())
+            .filter_map(|path| crate::schema::field_at_path(&collection.fields, &path))
+            .filter_map(|field| field.text_search.as_ref())
+            .any(|config| config.definitions.values().any(|options| options.index))
     }
 
     fn selected_auto_field_specs(&self, collection: &Collection) -> Vec<SelectedSpec> {
         let mut specs = BTreeSet::new();
+        for path in crate::schema::text_search_paths(&collection.fields) {
+            if let Ok(parsed) = JsonFilter::parse_path(&path)
+                && crate::schema::field_at_path(&collection.fields, &parsed)
+                    .and_then(|field| field.text_search.as_ref())
+                    .is_some_and(|config| config.definitions.values().any(|options| options.index))
+            {
+                specs.insert(SelectedSpec::Field { path });
+            }
+        }
         for index in &collection.indexes {
             specs.insert(SelectedSpec::Field {
                 path: crate::json_filter::format_path(&vec![crate::JsonPathStep::Key(

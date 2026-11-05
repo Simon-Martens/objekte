@@ -322,6 +322,28 @@ impl Repository {
         Ok(has_custom.then_some(selected))
     }
 
+    /// A query with a bound text definition needs the selected source domain
+    /// even when every source is native JSON. Ordinary queries retain their
+    /// concrete picker route.
+    pub(super) fn selected_text_definition_route(
+        &mut self,
+        names: &[String],
+    ) -> Result<Vec<(Collection, CustomSourceSnapshot)>> {
+        if let Some(name) = names
+            .iter()
+            .find(|name| self.invalid_selected_collections.contains(*name))
+        {
+            return Err(Error::Unstable(self.model.collection(name)?.path.clone()));
+        }
+        let mut selected = Vec::with_capacity(names.len());
+        for name in names.iter().collect::<BTreeSet<_>>() {
+            let collection = self.model.collection(name)?.clone();
+            let snapshot = self.selected_snapshot_for_query(&collection)?;
+            selected.push((collection, snapshot));
+        }
+        Ok(selected)
+    }
+
     pub(super) fn selected_record(
         &mut self,
         collection: &Collection,

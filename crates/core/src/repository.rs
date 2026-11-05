@@ -368,6 +368,7 @@ pub struct Repository {
     query_cache: predicate_cache::VerifiedPredicateCache,
     extensions: Option<std::sync::Arc<crate::extensions::Extensions>>,
     custom_source_collections: BTreeSet<String>,
+    text_definition_collections: BTreeSet<String>,
     /// Frozen selected descriptors for custom collections under MetadataOnOpen.
     custom_source_snapshot: BTreeMap<String, CustomSourceSnapshot>,
     extension_text_indexes:
@@ -639,6 +640,16 @@ impl RepositoryBuilder {
         Ok(self)
     }
 
+    /// Register a query-facing text interpretation. Components may be
+    /// registered in any order; the complete graph is checked when opening.
+    pub fn register_text_definition(
+        mut self,
+        definition: crate::extensions::TextSearchDefinition,
+    ) -> Result<Self> {
+        self.extensions.register_text_definition(definition)?;
+        Ok(self)
+    }
+
     /// Register a query frontend before opening.
     pub fn register_frontend(
         mut self,
@@ -692,6 +703,9 @@ impl RepositoryBuilder {
         if !self.extensions.is_empty() {
             self.extensions.bind_schemas(&model)?;
         }
+        self.extensions.ensure_builtin_text_definitions()?;
+        self.extensions.validate_text_definitions()?;
+        self.extensions.validate_text_fields(&model)?;
         let extensions =
             (!self.extensions.is_empty()).then(|| std::sync::Arc::new(self.extensions));
         let mut repository = Repository::from_model_with_extensions(
@@ -801,6 +815,14 @@ impl Repository {
             },
         );
         Self {
+            text_definition_collections: model
+                .collections
+                .iter()
+                .filter(|(_, collection)| {
+                    !crate::schema::text_search_paths(&collection.fields).is_empty()
+                })
+                .map(|(name, _)| name.clone())
+                .collect(),
             observed_configuration: ConfigurationSnapshot::from_model(&model),
             configuration_changes: None,
             model,
@@ -971,6 +993,15 @@ impl Repository {
 
     fn replace_model(&mut self, model: RepositoryModel) {
         let previous = std::mem::replace(&mut self.model, model);
+        self.text_definition_collections = self
+            .model
+            .collections
+            .iter()
+            .filter(|(_, collection)| {
+                !crate::schema::text_search_paths(&collection.fields).is_empty()
+            })
+            .map(|(name, _)| name.clone())
+            .collect();
         let unchanged = previous
             .collections
             .iter()

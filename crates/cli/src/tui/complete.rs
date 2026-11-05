@@ -132,6 +132,7 @@ fn shape(value: &Value) -> Field {
         sort_index: false,
         sort_reduce: None,
         text_format: None,
+        text_search: None,
         exclude_fts: false,
         enum_values: None,
         suggested_values: None,
@@ -225,7 +226,6 @@ const MODIFIERS: [(&str, &str); 4] = [
     ("length", "array length"),
     ("each", "every array value"),
 ];
-
 
 /// Field schemas of the collections in scope, with access to every
 /// collection for following relations.
@@ -465,7 +465,6 @@ fn join_path(segments: &[String], name: &str) -> String {
     out
 }
 
-
 /// Rank by prefix, then substring, both case-insensitive.
 fn filter(items: Vec<Candidate>, typed: &str) -> Vec<Candidate> {
     let typed = typed.to_lowercase();
@@ -490,7 +489,6 @@ fn filter(items: Vec<Candidate>, typed: &str) -> Vec<Candidate> {
     ranked.into_iter().map(|(_, item)| item).take(60).collect()
 }
 
-
 /// Whether the characters of `typed` appear in `label` in order.
 fn subsequence(label: &str, typed: &str) -> bool {
     let mut label = label.chars();
@@ -514,11 +512,13 @@ enum Context {
     SortDirection,
 }
 
+
 /// Inside quotes, completion offers string values of the compared field.
 struct Quoted {
     start: usize,
     path: String,
 }
+
 
 fn quoted(chars: &[char], cursor: usize) -> Option<Quoted> {
     let mut quote: Option<(char, usize)> = None;
@@ -617,7 +617,6 @@ fn context(before: &str) -> Context {
     }
     Context::Connective
 }
-
 
 /// Completions for the filter line at `cursor` (a character index).
 pub(super) fn complete(text: &str, cursor: usize, schema: &Schema<'_>) -> Option<Completion> {
@@ -1006,12 +1005,10 @@ fn value_order(a: &Value, b: &Value, members: Option<&Vec<Value>>) -> std::cmp::
         })
 }
 
-
 /// A single-quoted filter string literal.
 fn quote(text: &str) -> String {
     format!("'{}'", text.replace('\\', "\\\\").replace('\'', "\\'"))
 }
-
 
 #[cfg(test)]
 #[path = "complete.test.rs"]

@@ -3,7 +3,7 @@
 
 use super::*;
 use crate::{
-    JsonFilter, JsonPathStep, TextFormat,
+    JsonPathStep, TextFormat,
     bigram::{BigramFilter, BigramIndexBuilder, SKIP_INDEX_MIN_DENSITY_PCT},
     extensions::{BindingContext, DecodeOutcome, ScalarValue, TextRepresentation},
     text::TextRules,
@@ -34,7 +34,9 @@ impl RepresentationIndexKey {
     ) -> Self {
         Self {
             collection: collection.name.clone(),
-            path: path.into(),
+            path: crate::text::parse_text_path(path)
+                .map(|path| crate::json_filter::format_path(&path))
+                .unwrap_or_else(|_| path.into()),
             representation: representation.into(),
             selection: selection.into(),
             semantics: crate::config::fingerprint(
@@ -153,6 +155,43 @@ pub(super) fn add_text(
 
 
 impl Repository {
+    /// Build one declared or explicitly selected text definition using the
+    /// existing selected representation posting and skip-one bigram builder.
+    pub fn build_text_search_index(
+        &mut self,
+        collection: &str,
+        definition: &str,
+        path: &str,
+    ) -> Result<usize> {
+        let selected = self.model.collection(collection)?;
+        let registry = self
+            .extensions
+            .as_ref()
+            .ok_or_else(|| Error::Request("no text definitions are registered".into()))?;
+        let parsed = crate::text::parse_text_path(path)?;
+        let field = crate::schema::field_at_path(&selected.fields, &parsed);
+        let definition = registry.resolve_text_definition(field, Some(definition))?;
+        if !definition.descriptor().cacheable() {
+            return Err(Error::Request(format!(
+                "volatile text definition {} cannot be indexed",
+                definition.descriptor().identity,
+            )));
+        }
+        let representation = definition.representation().to_owned();
+        // Even a one-off explicit field needs the scalar-cardinality summary.
+        // Without it, a text posting could hide an error on an array value.
+        self.build_selected_indexes(
+            collection,
+            &[
+                crate::repository::extension_projection::SelectedIndexRequest::Text {
+                    representation: &representation,
+                    path,
+                },
+                crate::repository::extension_projection::SelectedIndexRequest::Field { path },
+            ],
+        )
+    }
+
     /// Explicitly build a reusable bigram posting over one registered text
     /// representation and logical path. Source bytes and rendered text are
     /// discarded after each record; partial builds are never published.
@@ -180,9 +219,9 @@ impl Repository {
                 "volatile representation {representation} cannot be indexed"
             )));
         }
-        let parsed = JsonFilter::parse_path(path)?;
+        let parsed = crate::text::parse_text_path(path)?;
         let canonical_path = binding_path(&parsed);
-        if !definition.binds(&BindingContext {
+        if !definition.binds_explicit(&BindingContext {
             collection,
             path: &canonical_path,
             format: field_format(&selected_collection, &parsed),
@@ -293,6 +332,19 @@ impl Repository {
                 base_source_fingerprints: selected.iter().map(base_source_fingerprint).collect(),
             },
         );
+        if self.options.freshness == Freshness::MetadataOnOpen
+            && !self.custom_source_snapshot.contains_key(collection)
+        {
+            let snapshot = CustomSourceSnapshot::new(
+                &selected_collection,
+                selected.as_ref().clone(),
+                self.extensions
+                    .as_deref()
+                    .expect("registered representation"),
+            )?;
+            self.custom_source_snapshot
+                .insert(collection.into(), snapshot);
+        }
         Ok(selected.len())
     }
 

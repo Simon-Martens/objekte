@@ -31,11 +31,32 @@ struct TextScanOutcome {
 
 
 impl Repository {
+    fn text_definition_scope(&self, request: &TextQuery, names: &[String]) -> Result<bool> {
+        if request
+            .fields
+            .as_ref()
+            .is_some_and(|fields| fields.iter().any(|field| field.search().is_some()))
+        {
+            return Ok(true);
+        }
+        Ok(names
+            .iter()
+            .any(|name| self.text_definition_collections.contains(name)))
+    }
+
     /// Build a collection's separate full-text index if it is not warm yet.
     pub fn warm_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
-        if self.selected_route(&[collection.to_owned()])?.is_some() {
-            self.warm_selected_indexes(collection, true, false)?;
+        let selected = self.selected_route(&[collection.to_owned()])?;
+        let configured = self.has_declared_text_indexes(self.model.collection(collection)?);
+        let saved = self.selected_cache_file(collection, None).is_file();
+        let has_native = selected.as_ref().is_none_or(|selected| {
+            selected
+                .iter()
+                .any(|(_, snapshot)| snapshot.native_count > 0)
+        });
+        if (selected.is_some() || configured || saved) && !has_native {
+            self.warm_selected_indexes(collection, true, configured)?;
             return Ok(self.metrics.since(&before));
         }
         let c = self.collection(collection)?;
@@ -49,6 +70,9 @@ impl Repository {
         {
             self.query_cache.invalidate(collection);
             self.metrics.fts_open_nanos += nanos(started);
+        }
+        if selected.is_some() || configured || saved {
+            self.warm_selected_indexes(collection, true, configured)?;
         }
         Ok(self.metrics.since(&before))
     }
@@ -68,7 +92,14 @@ impl Repository {
         // Explicit rebuilding is also an explicit source refresh under
         // MetadataOnOpen. Selection and native slots must advance together.
         self.refresh(collection)?;
-        if self.selected_route(&[collection.to_owned()])?.is_some() {
+        let selected = self.selected_route(&[collection.to_owned()])?;
+        let configured = self.has_declared_text_indexes(self.model.collection(collection)?);
+        let has_native = selected.as_ref().is_none_or(|selected| {
+            selected
+                .iter()
+                .any(|(_, snapshot)| snapshot.native_count > 0)
+        });
+        if (selected.is_some() || configured) && !has_native {
             self.rebuild_selected_text_indexes(collection)?;
             self.query_cache.invalidate(collection);
             return Ok(self.metrics.since(&before));
@@ -84,6 +115,9 @@ impl Repository {
         self.query_cache.invalidate(collection);
         if picker.text_index_bytes().is_some() {
             self.metrics.fts_open_nanos += nanos(started);
+        }
+        if selected.is_some() || configured {
+            self.rebuild_selected_text_indexes(collection)?;
         }
         Ok(self.metrics.since(&before))
     }
@@ -104,7 +138,13 @@ impl Repository {
             .collections
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
-        if let Some(selected) = self.selected_route(&names)? {
+        let definitions = self.text_definition_scope(&request, &names)?;
+        let selected = if definitions {
+            Some(self.selected_text_definition_route(&names)?)
+        } else {
+            self.selected_route(&names)?
+        };
+        if let Some(selected) = selected {
             let (result, pending, _) =
                 self.search_text_selected(&request, selected, None, true, None)?;
             if let Some((key, slots)) = pending {
@@ -169,7 +209,13 @@ impl Repository {
             .collections
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
-        if let Some(selected) = self.selected_route(&names)? {
+        let definitions = self.text_definition_scope(&request, &names)?;
+        let selected = if definitions {
+            Some(self.selected_text_definition_route(&names)?)
+        } else {
+            self.selected_route(&names)?
+        };
+        if let Some(selected) = selected {
             let (result, pending, returned) = self.search_text_selected(
                 &request,
                 selected,
@@ -305,7 +351,13 @@ impl Repository {
             .collections
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
-        if let Some(selected) = self.selected_route(&names)? {
+        let definitions = self.text_definition_scope(&request, &names)?;
+        let selected = if definitions {
+            Some(self.selected_text_definition_route(&names)?)
+        } else {
+            self.selected_route(&names)?
+        };
+        if let Some(selected) = selected {
             let mut page = Vec::new();
             let (result, pending, returned) = self.search_text_selected(
                 &request,
@@ -442,10 +494,12 @@ impl Repository {
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect())
             .into_iter()
             .collect::<BTreeSet<_>>();
-        let requested_fields = request
-            .fields
-            .as_ref()
-            .map(|fields| fields.iter().map(String::as_str).collect::<BTreeSet<_>>());
+        let requested_fields = request.fields.as_ref().map(|fields| {
+            fields
+                .iter()
+                .map(|field| field.path())
+                .collect::<BTreeSet<_>>()
+        });
         if requested_fields.as_ref().is_some_and(BTreeSet::is_empty) {
             return Err(Error::Request("text field selection is empty".into()));
         }
@@ -766,11 +820,13 @@ impl Repository {
                                 TextMatches {
                                     fields: vec!["$raw".into()],
                                     matched_paths: vec!["$raw".into()],
+                                    matched_definitions: Vec::new(),
                                 }
                             } else {
                                 TextMatches {
                                     fields: Vec::new(),
                                     matched_paths: Vec::new(),
+                                    matched_definitions: Vec::new(),
                                 }
                             }
                         } else if CUSTOM {
@@ -812,6 +868,7 @@ impl Repository {
                             },
                             fields: verified.fields,
                             matched_paths: verified.matched_paths,
+                            matched_definitions: verified.matched_definitions,
                         };
                         if streaming {
                             on_hit(returned + 1, hit)?;
@@ -1144,11 +1201,13 @@ impl Repository {
                             TextMatches {
                                 fields: vec!["$raw".into()],
                                 matched_paths: vec!["$raw".into()],
+                                matched_definitions: Vec::new(),
                             }
                         } else {
                             TextMatches {
                                 fields: Vec::new(),
                                 matched_paths: Vec::new(),
+                                matched_definitions: Vec::new(),
                             }
                         }
                     } else if CUSTOM {
@@ -1199,6 +1258,7 @@ impl Repository {
                             matched_fields
                         },
                         matched_paths: verified.matched_paths,
+                        matched_definitions: verified.matched_definitions,
                     };
                     if streaming {
                         on_hit(returned + 1, hit)?;

@@ -12,7 +12,7 @@ use crate::{
     text::render_text,
 };
 pub use fts::FtsOptions;
-pub(crate) use fts::{FtsPlan, declared_format};
+pub(crate) use fts::{FtsPlan, RegisteredFtsPlan, declared_format};
 pub(crate) use metadata_plan::{MetadataDecision, MetadataIdHint, MetadataPathHint};
 pub(crate) use relation::RelationContext;
 pub(crate) fn like_pattern(pattern: &str, ignore_case: bool) -> pattern::Like {
@@ -82,12 +82,14 @@ enum Op {
 }
 
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
 enum Modifier {
     Length,
     Each,
     Lower,
     Fts,
+    /// Query-facing registered definition name, resolved per collection.
+    Text(String),
     /// `:fts` on a declared full-text field: its rendered, normalized text,
     /// with candidates from the field's rendered postings.
     Rendered(TextFormat),
@@ -231,14 +233,14 @@ impl FieldOperand {
     fn full_text(&self) -> bool {
         matches!(
             self.modifier,
-            Some(Modifier::Fts | Modifier::Rendered(_) | Modifier::Normalized)
+            Some(Modifier::Fts | Modifier::Text(_) | Modifier::Rendered(_) | Modifier::Normalized)
         )
     }
 
     /// The format a `:fts` field's full-text version is read in.
     fn text_format(&self) -> TextFormat {
-        match self.modifier {
-            Some(Modifier::Rendered(format)) => format,
+        match &self.modifier {
+            Some(Modifier::Rendered(format)) => *format,
             _ => TextFormat::Plain,
         }
     }
@@ -312,7 +314,7 @@ impl FieldOperand {
     }
 
     fn modified<'a>(&self, value: &'a Value) -> Option<SelectedValue<'a>> {
-        match self.modifier {
+        match &self.modifier {
             Some(Modifier::Length) => value
                 .as_array()
                 .map(|array| SelectedValue::Owned(Value::from(array.len()))),
@@ -323,7 +325,7 @@ impl FieldOperand {
             // used as stored. An unbound `:fts` reads normalized plain text.
             Some(modifier @ (Modifier::Rendered(_) | Modifier::Normalized | Modifier::Fts)) => {
                 let format = match modifier {
-                    Modifier::Rendered(format) => format,
+                    Modifier::Rendered(format) => *format,
                     _ => TextFormat::Plain,
                 };
                 match value.as_str() {
@@ -992,7 +994,7 @@ impl JsonFilter {
             .relations
             .as_ref()
             .map(|(collection, context)| (collection.as_str(), context.as_ref()));
-        Ok(evaluate(&self.expr, value, metadata, relations))
+        evaluate(&self.expr, value, metadata, relations)
     }
 
     pub(crate) fn check_cardinality(&self, value: &Value) -> Result<()> {
@@ -1231,13 +1233,27 @@ fn evaluate<'a>(
     doc: &'a Value,
     metadata: Option<&FileMetadata<'_>>,
     relations: Relations<'a>,
-) -> bool {
+) -> Result<bool> {
     match e {
-        Expr::And(es) => es.iter().all(|e| evaluate(e, doc, metadata, relations)),
-        Expr::Or(es) => es.iter().any(|e| evaluate(e, doc, metadata, relations)),
+        Expr::And(es) => {
+            for expr in es {
+                if !evaluate(expr, doc, metadata, relations)? {
+                    return Ok(false);
+                }
+            }
+            Ok(true)
+        }
+        Expr::Or(es) => {
+            for expr in es {
+                if evaluate(expr, doc, metadata, relations)? {
+                    return Ok(true);
+                }
+            }
+            Ok(false)
+        }
         Expr::Relation(e) => evaluate(e, doc, metadata, relations),
-        Expr::Exists(p) => !reached(doc, p, relations).is_empty(),
-        Expr::Missing(p) => reached(doc, p, relations).is_empty(),
+        Expr::Exists(p) => Ok(!reached(doc, p, relations).is_empty()),
+        Expr::Missing(p) => Ok(reached(doc, p, relations).is_empty()),
         // `:fts` reads string values through the full-text options; other
         // values compare as without `:fts`.
         Expr::Compare {
@@ -1249,18 +1265,23 @@ fn evaluate<'a>(
         } => {
             let values = field.select_stored(doc, relations);
             if values.is_empty() {
-                return false;
+                return Ok(false);
             }
             let format = field.text_format();
             let literal = Value::String(pattern.pattern().to_owned());
-            let mut tests = values.iter().map(|value| match value.value() {
-                Some(Value::String(text)) => pattern.matches(text, format, *op),
-                Some(other) => compare(other, *op, &literal, false, false),
-                None => false,
-            });
             // A `:fts` field is never `:each`; several values match like `?`.
             let _ = any;
-            tests.any(|matched| matched)
+            for value in &values {
+                let matched = match value.value() {
+                    Some(Value::String(text)) => pattern.matches(text, format, *op)?,
+                    Some(other) => compare(other, *op, &literal, false, false),
+                    None => false,
+                };
+                if matched {
+                    return Ok(true);
+                }
+            }
+            Ok(false)
         }
         Expr::Compare {
             left,
@@ -1272,17 +1293,17 @@ fn evaluate<'a>(
             let a = left.select(doc, metadata, relations);
             let b = right.select(doc, metadata, relations);
             if a.is_empty() || b.is_empty() {
-                return false;
+                return Ok(false);
             }
             let mut pairs = a.iter().flat_map(|a| b.iter().map(move |b| (a, b)));
             let test = |(a, b): (&SelectedValue<'_>, &SelectedValue<'_>)| {
                 compare_selected(a, *op, b, matches!(right, Operand::Field(_)), *ignore_case)
             };
-            if !any && (left.each() || right.each()) {
+            Ok(if !any && (left.each() || right.each()) {
                 pairs.all(test)
             } else {
                 pairs.any(test)
-            }
+            })
         }
     }
 }

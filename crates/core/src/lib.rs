@@ -58,7 +58,10 @@ pub use repository::{
 };
 pub use schema::{Field, PathStep, SortReduce, TextFormat, ValueType};
 pub use sorting::{parse_sort_terms, split_sort_clause};
-pub use text::{TextHit, TextMode, TextQuery, TextQueryResult, TextQueryStreamSummary};
+pub use text::{
+    TextDefinitionMatch, TextFieldSelector, TextHit, TextMode, TextQuery, TextQueryResult,
+    TextQueryStreamSummary,
+};
 pub use view_definition::{
     NamedViewResult, ViewArgument, ViewArgumentType, ViewDefinition, ViewQuery, ViewQueryResult,
     ViewType,

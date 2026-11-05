@@ -20,7 +20,15 @@ impl Repository {
             Some(context) => filter.bind_relations(&c.name, context),
             None => filter.clone(),
         };
-        Ok(bound.for_fields(&c.fields))
+        if bound.has_registered_text_terms(&c.fields) {
+            let registry = self
+                .extensions
+                .as_ref()
+                .ok_or_else(|| Error::Request("text definitions are unavailable".into()))?;
+            bound.for_fields_with_text(c, registry)
+        } else {
+            Ok(bound.for_fields(&c.fields))
+        }
     }
 
     /// Compile a collection's sort plan, reading terms that follow relations.

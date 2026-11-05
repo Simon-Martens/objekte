@@ -21,6 +21,7 @@ pub mod operator;
 pub mod projection;
 pub mod query;
 pub mod source;
+pub mod text_search;
 
 pub use format::{
     DecodeOutcome, DecodedRecord, FormatDecoder, FormatDiagnostic, LogicalNode, ScalarValue,
@@ -35,6 +36,7 @@ pub use projection::{
 pub(crate) use projection::{BoundValueExtractor, DERIVED_PATH_PREFIX, is_derived_path};
 pub use query::{ExtensionBindings, LogicalPlan, LogicalPredicate, QueryFrontend};
 pub use source::{SourceDescriptor, SourceProvider};
+pub use text_search::{TextComparison, TextCompileRequest, TextSearchDefinition, TextSyntax};
 
 mod builtins;
 pub use builtins::{
@@ -61,6 +63,8 @@ pub struct Extensions {
     representations: BTreeMap<String, Arc<dyn TextRepresentation>>,
     extractors: BTreeMap<String, Arc<dyn ValueExtractor>>,
     operators: BTreeMap<String, Arc<dyn QueryOperator>>,
+    text_definitions: BTreeMap<String, TextSearchDefinition>,
+    text_aliases: BTreeMap<String, String>,
     frontends: BTreeMap<String, Arc<dyn QueryFrontend>>,
     schemas: BTreeMap<String, Arc<Value>>,
 }
@@ -132,6 +136,75 @@ impl Extensions {
             {
                 self.register_representation(representation)?;
             }
+        }
+        Ok(())
+    }
+
+    /// Built-ins use the same registry and graph validation as application
+    /// definitions. They are installed after discovery so the default native
+    /// repository does not acquire a second schema load at open.
+    pub(crate) fn ensure_builtin_text_definitions(&mut self) -> Result<()> {
+        if !self.representations.contains_key("objekte:stored") {
+            self.register_representation(StoredRepresentation::default())?;
+        }
+        for format in [
+            crate::TextFormat::Plain,
+            crate::TextFormat::Markdown,
+            crate::TextFormat::Html,
+            crate::TextFormat::Xml,
+        ] {
+            let representation = RenderedRepresentation::new(format)?;
+            if !self
+                .representations
+                .contains_key(&representation.descriptor().identity)
+            {
+                self.register_representation(representation)?;
+            }
+        }
+        for mode in [
+            crate::TextMode::Word,
+            crate::TextMode::WordRaw,
+            crate::TextMode::Regex,
+        ] {
+            let operator = NativeTextOperator::new(mode, false);
+            if !self.operators.contains_key(&operator.descriptor().identity) {
+                self.register_operator(operator)?;
+            }
+        }
+        for (name, representation, operator) in [
+            ("plain", "objekte:visible-plain", "objekte:word"),
+            ("markdown", "objekte:visible-markdown", "objekte:word"),
+            ("html", "objekte:visible-html", "objekte:word"),
+            ("xml", "objekte:visible-xml", "objekte:word"),
+            ("raw-text", "objekte:stored", "objekte:word-raw"),
+        ] {
+            let identity = format!("objekte:{name}");
+            if self.text_definitions.contains_key(&identity) {
+                continue;
+            }
+            let definition = TextSearchDefinition::new(
+                Descriptor::new(
+                    &identity,
+                    SemanticVersion {
+                        major: 1,
+                        minor: 0,
+                        patch: 0,
+                    },
+                    &(representation, operator),
+                    DataKind::Text,
+                    DataKind::Predicate,
+                    vec![
+                        Dependency::SourceBytes,
+                        Dependency::Schema("x-text-search".into()),
+                    ],
+                ),
+                representation,
+            )
+            .alias(if name == "raw-text" { "raw" } else { name })
+            .operator(TextComparison::Contains, operator)
+            .operator(TextComparison::Equal, operator)
+            .regex_operator("objekte:regex");
+            self.register_text_definition_inner(definition, true)?;
         }
         Ok(())
     }
@@ -209,6 +282,7 @@ impl Extensions {
             && self.representations.is_empty()
             && self.extractors.is_empty()
             && self.operators.is_empty()
+            && self.text_definitions.is_empty()
             && self.frontends.is_empty()
     }
 
@@ -223,6 +297,11 @@ impl Extensions {
         values.extend(self.representations.values().map(|item| item.descriptor()));
         values.extend(self.extractors.values().map(|item| item.descriptor()));
         values.extend(self.operators.values().map(|item| item.descriptor()));
+        values.extend(
+            self.text_definitions
+                .values()
+                .map(TextSearchDefinition::descriptor),
+        );
         values.extend(self.frontends.values().map(|item| item.descriptor()));
         values.sort_by(|a, b| a.identity.cmp(&b.identity));
         values
@@ -321,6 +400,8 @@ impl Extensions {
             ),
         );
         Ok(BoundTextQuery {
+            definition_identity: None,
+            index_path: None,
             preparation: representation.preparation(),
             native_index_projection: representation.native_index_projection(),
             representation: Arc::clone(representation),
@@ -445,6 +526,279 @@ impl Extensions {
         self.check(item.descriptor(), input, DataKind::Predicate)?;
         self.operators
             .insert(item.descriptor().identity.clone(), Arc::new(item));
+        Ok(())
+    }
+
+    /// Register a composed text definition. Components may be registered in
+    /// any order; `validate_text_definitions` checks the graph before open.
+    pub fn register_text_definition(&mut self, definition: TextSearchDefinition) -> Result<()> {
+        self.register_text_definition_inner(definition, false)
+    }
+
+    fn register_text_definition_inner(
+        &mut self,
+        definition: TextSearchDefinition,
+        builtin: bool,
+    ) -> Result<()> {
+        if !builtin && definition.descriptor().identity.starts_with("objekte:") {
+            return Err(Error::Request(format!(
+                "text definition {} uses the reserved objekte namespace",
+                definition.descriptor().identity
+            )));
+        }
+        self.check(definition.descriptor(), DataKind::Text, DataKind::Predicate)?;
+        let mut aliases = std::collections::BTreeSet::new();
+        for alias in definition.aliases() {
+            let valid = alias.bytes().enumerate().all(|(index, byte)| {
+                byte.is_ascii_alphanumeric() && (index > 0 || byte.is_ascii_alphabetic())
+                    || index > 0 && byte == b'_'
+            });
+            if !valid
+                || alias.is_empty()
+                || matches!(alias.as_str(), "length" | "each" | "lower" | "fts" | "text")
+            {
+                return Err(Error::Request(format!(
+                    "invalid or reserved text alias {alias}"
+                )));
+            }
+            if !aliases.insert(alias)
+                || self.text_aliases.contains_key(alias)
+                || self.text_definitions.contains_key(alias)
+            {
+                return Err(Error::Request(format!("duplicate text alias {alias}")));
+            }
+        }
+        let identity = definition.descriptor().identity.clone();
+        for alias in definition.aliases() {
+            self.text_aliases.insert(alias.clone(), identity.clone());
+        }
+        self.text_definitions.insert(identity, definition);
+        Ok(())
+    }
+
+    pub(crate) fn text_definition(&self, name: &str) -> Result<&TextSearchDefinition> {
+        let identity = self.text_aliases.get(name).map_or(name, String::as_str);
+        self.text_definitions
+            .get(identity)
+            .ok_or_else(|| Error::Request(format!("unknown text definition {name}")))
+    }
+
+    /// Resolve an explicit query name or the field's configured default.
+    /// Index availability is deliberately absent from this semantic choice.
+    pub(crate) fn resolve_text_definition<'a>(
+        &'a self,
+        field: Option<&crate::Field>,
+        explicit: Option<&str>,
+    ) -> Result<&'a TextSearchDefinition> {
+        if let Some(field) = field
+            && field.kind != crate::ValueType::String
+            && !(field.kind == crate::ValueType::Array
+                && field
+                    .items
+                    .as_deref()
+                    .is_some_and(|item| item.kind == crate::ValueType::String))
+        {
+            return Err(Error::Request(
+                "text definition requires a string field".into(),
+            ));
+        }
+        if let Some(explicit) = explicit {
+            return self.text_definition(explicit);
+        }
+        let name = if let Some(config) = field.and_then(|field| field.text_search.as_ref()) {
+            if let Some(default) = config.default.as_deref() {
+                default
+            } else if config.definitions.len() == 1 {
+                config.definitions.keys().next().expect("one definition")
+            } else {
+                return Err(Error::Request(
+                    "text field has multiple definitions and no default".into(),
+                ));
+            }
+        } else {
+            match field.and_then(|field| field.text_format) {
+                Some(crate::TextFormat::Markdown) => "objekte:markdown",
+                Some(crate::TextFormat::Html) => "objekte:html",
+                Some(crate::TextFormat::Xml) => "objekte:xml",
+                _ => "objekte:plain",
+            }
+        };
+        self.text_definition(name)
+    }
+
+    /// Bind and compile one complete text interpretation for a field.
+    pub(crate) fn bind_text_definition(
+        &self,
+        collection: &crate::config::Collection,
+        path: &str,
+        explicit: Option<&str>,
+        request: &TextCompileRequest,
+    ) -> Result<BoundTextQuery> {
+        let parsed = crate::text::parse_text_path(path)?;
+        let field = crate::schema::field_at_path(&collection.fields, &parsed);
+        let definition = self.resolve_text_definition(field, explicit)?;
+        let representation = self.representation_definition(definition.representation())?;
+        let legacy_format = field
+            .and_then(|field| field.text_format)
+            .unwrap_or(crate::TextFormat::Plain);
+        let format = match legacy_format {
+            crate::TextFormat::Plain => "plain",
+            crate::TextFormat::Markdown => "markdown",
+            crate::TextFormat::Html => "html",
+            crate::TextFormat::Xml => "xml",
+        };
+        if !representation.binds_explicit(&BindingContext {
+            collection: &collection.name,
+            path,
+            format,
+            schema: self.schema(&collection.name).map(Arc::as_ref),
+        }) {
+            return Err(Error::Request(format!(
+                "text definition {} cannot bind to {}.{path}",
+                definition.descriptor().identity,
+                collection.name,
+            )));
+        }
+        let operator_name = definition.operator_for(request).ok_or_else(|| {
+            Error::Request(format!(
+                "text definition {} does not support this comparison/syntax",
+                definition.descriptor().identity,
+            ))
+        })?;
+        let operator = self
+            .operators
+            .get(operator_name)
+            .expect("validated definition graph");
+        let compiled = operator.compile_text(request)?;
+        let candidate = if request.syntax == TextSyntax::Regex
+            && operator.descriptor().identity == "objekte:regex"
+        {
+            crate::file_picker::regex_plan::mandatory_ascii_literal(&request.pattern).map_or(
+                CandidateConstraint::Unsupported,
+                |literal| CandidateConstraint::BigramLiteral {
+                    literal,
+                    representation: representation.descriptor().identity.clone(),
+                },
+            )
+        } else {
+            compiled.candidate()
+        };
+        let identity = crate::config::fingerprint(
+            "bound-text-definition/v1",
+            &(
+                definition.descriptor(),
+                representation.descriptor(),
+                operator.descriptor(),
+                path,
+                request,
+            ),
+        );
+        Ok(BoundTextQuery {
+            definition_identity: Some(definition.descriptor().identity.clone()),
+            index_path: Some(crate::json_filter::format_path(&parsed)),
+            preparation: representation.preparation(),
+            native_index_projection: representation.native_index_projection(),
+            representation,
+            operator: Arc::from(compiled),
+            identity,
+            candidate,
+            cacheable: definition.descriptor().cacheable()
+                && operator.descriptor().cacheable()
+                && self
+                    .representation_descriptor(definition.representation())
+                    .cacheable(),
+        })
+    }
+
+    pub(crate) fn validate_text_definitions(&self) -> Result<()> {
+        for definition in self.text_definitions.values() {
+            let representation = self.representation_definition(definition.representation())?;
+            if representation.descriptor().input != DataKind::Text
+                || representation.descriptor().output != DataKind::Text
+            {
+                return Err(Error::Request(format!(
+                    "text definition {} has an incompatible representation",
+                    definition.descriptor().identity
+                )));
+            }
+            if !definition.operators.contains_key(&TextComparison::Contains) {
+                return Err(Error::Request(format!(
+                    "text definition {} needs a contains operator",
+                    definition.descriptor().identity
+                )));
+            }
+            for operator in definition
+                .operators
+                .values()
+                .chain(definition.regex_operator.iter())
+            {
+                if self
+                    .operators
+                    .get(operator)
+                    .is_none_or(|item| item.descriptor().input != DataKind::Text)
+                {
+                    return Err(Error::Request(format!(
+                        "text definition {} needs registered text operator {operator}",
+                        definition.descriptor().identity
+                    )));
+                }
+            }
+        }
+        Ok(())
+    }
+
+    pub(crate) fn validate_text_fields(&self, model: &RepositoryModel) -> Result<()> {
+        for collection in model.collections.values() {
+            for path in crate::schema::text_search_paths(&collection.fields) {
+                let parsed = crate::JsonFilter::parse_path(&path)?;
+                let field = crate::schema::field_at_path(&collection.fields, &parsed)
+                    .expect("configured text path has a field");
+                let config = field.text_search.as_ref().expect("configured text field");
+                let mut resolved = std::collections::BTreeSet::new();
+                for (name, options) in &config.definitions {
+                    let definition = self.text_definition(name)?;
+                    if !resolved.insert(&definition.descriptor().identity) {
+                        return Err(Error::Request(format!(
+                            "duplicate text definition on {}.{path}: {name}",
+                            collection.name,
+                        )));
+                    }
+                    if options.index && !definition.descriptor().cacheable() {
+                        return Err(Error::Request(format!(
+                            "volatile text definition {name} cannot be indexed",
+                        )));
+                    }
+                    let representation =
+                        self.representation_definition(definition.representation())?;
+                    if options.index && !representation.descriptor().cacheable() {
+                        return Err(Error::Request(format!(
+                            "volatile text representation {} cannot be indexed",
+                            definition.representation(),
+                        )));
+                    }
+                    if !representation.binds_explicit(&BindingContext {
+                        collection: &collection.name,
+                        path: &path,
+                        format: "plain",
+                        schema: self.schema(&collection.name).map(Arc::as_ref),
+                    }) {
+                        return Err(Error::Request(format!(
+                            "text definition {name} cannot bind to {}.{path}",
+                            collection.name,
+                        )));
+                    }
+                }
+                if let Some(default) = &config.default {
+                    let default = self.text_definition(default)?;
+                    if !resolved.contains(&default.descriptor().identity) {
+                        return Err(Error::Request(format!(
+                            "text default on {}.{path} is not declared",
+                            collection.name,
+                        )));
+                    }
+                }
+            }
+        }
         Ok(())
     }
 

@@ -48,6 +48,10 @@ mod malformed_formats;
 #[path = "review_direct_translation.test.rs"]
 mod review_direct_translation;
 
+#[cfg(test)]
+#[path = "text_search_integration.test.rs"]
+mod text_search_integration;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {

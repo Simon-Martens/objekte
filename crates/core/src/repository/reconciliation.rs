@@ -326,7 +326,10 @@ impl Repository {
         let c = self.model.collection(collection)?.clone();
         let before = self.metrics.clone();
         self.warm_bigram_index_for(&c)?;
-        if self.custom_source_collections.contains(collection) {
+        if self.custom_source_collections.contains(collection)
+            || self.has_declared_text_indexes(&c)
+            || self.selected_cache_file(collection, None).is_file()
+        {
             self.warm_selected_indexes(collection, true, true)?;
         }
         Ok(self.metrics.since(&before))
@@ -358,7 +361,9 @@ impl Repository {
             self.query_cache.invalidate(collection);
         }
         picker.save_bigram_snapshot(&path)?;
-        if self.custom_source_collections.contains(collection) {
+        if self.custom_source_collections.contains(collection)
+            || self.custom_source_snapshot.contains_key(collection)
+        {
             self.save_selected_indexes(collection)?;
         }
         Ok(path)
@@ -390,7 +395,8 @@ impl Repository {
         self.query_cache.invalidate(collection);
         let path = self.bigram_cache_path(collection)?;
         self.file_pickers[collection].save_bigram_snapshot(&path)?;
-        if self.custom_source_collections.contains(collection) {
+        if self.custom_source_collections.contains(collection) || self.has_declared_text_indexes(&c)
+        {
             self.rebuild_selected_text_indexes(collection)?;
             self.save_selected_indexes(collection)?;
         }
@@ -424,7 +430,8 @@ impl Repository {
         self.refresh(collection)?;
         let c = self.model.collection(collection)?.clone();
         self.rebuild_bigram_index_for(&c)?;
-        if self.custom_source_collections.contains(collection) {
+        if self.custom_source_collections.contains(collection) || self.has_declared_text_indexes(&c)
+        {
             self.rebuild_selected_text_indexes(collection)?;
         }
         Ok(self.metrics.since(&before))

@@ -34,6 +34,71 @@ pub enum TextFormat {
 }
 
 
+/// Named text interpretations declared for one logical string field.
+#[derive(Debug, Clone, Serialize)]
+pub struct TextSearchField {
+    pub default: Option<String>,
+    pub definitions: BTreeMap<String, TextSearchFieldOptions>,
+}
+
+
+/// Whether a declared interpretation participates in ordinary text warmup.
+#[derive(Debug, Clone, Serialize)]
+pub struct TextSearchFieldOptions {
+    pub index: bool,
+}
+
+
+/// Follow a logical field path, including implicit array traversal.
+pub(crate) fn field_at_path<'a>(
+    fields: &'a BTreeMap<String, Field>,
+    path: &[crate::JsonPathStep],
+) -> Option<&'a Field> {
+    let (crate::JsonPathStep::Key(first), rest) = path.split_first()? else {
+        return None;
+    };
+    let mut field = fields.get(first)?;
+    for step in rest {
+        while field.kind == ValueType::Array && matches!(step, crate::JsonPathStep::Key(_)) {
+            field = field.items.as_deref()?;
+        }
+        field = match step {
+            crate::JsonPathStep::Key(key) => field.properties.get(key)?,
+            crate::JsonPathStep::Each | crate::JsonPathStep::Index(_) => field.items.as_deref()?,
+        };
+    }
+    Some(field)
+}
+
+/// Configured text fields in canonical traversal spelling, including `[*]`.
+pub(crate) fn text_search_paths(fields: &BTreeMap<String, Field>) -> Vec<String> {
+    fn visit(field: &Field, path: &mut crate::JsonPath, paths: &mut Vec<String>) {
+        if field.text_search.is_some() {
+            paths.push(crate::json_filter::format_path(path));
+        }
+        for (name, child) in &field.properties {
+            path.push(crate::JsonPathStep::Key(name.clone()));
+            visit(child, path, paths);
+            path.pop();
+        }
+        if let Some(item) = &field.items {
+            path.push(crate::JsonPathStep::Each);
+            visit(item, path, paths);
+            path.pop();
+        }
+    }
+    let mut paths = Vec::new();
+    for (name, field) in fields {
+        visit(
+            field,
+            &mut vec![crate::JsonPathStep::Key(name.clone())],
+            &mut paths,
+        );
+    }
+    paths
+}
+
+
 impl ValueType {
     pub fn scalar(self) -> bool {
         !matches!(self, Self::Object | Self::Array | Self::Any)
@@ -65,6 +130,9 @@ pub struct Field {
     /// Rendering format for this full-text field; plain text is the default.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub text_format: Option<TextFormat>,
+    /// Additional named definitions and the implicit field default.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub text_search: Option<TextSearchField>,
     /// Omit this field and all descendants from full-text search.
     pub exclude_fts: bool,
     /// Declared JSON Schema alternatives, when this scalar is an enum.
@@ -381,6 +449,7 @@ fn parse(
             "x-sort-reduce",
             "x-sort-indexes",
             "x-full-text",
+            "x-text-search",
             "exclude_fts",
             "x-relation",
             "x-index-paths",
@@ -516,6 +585,82 @@ fn parse(
             ));
         }
     };
+    let text_search = match obj.get("x-text-search") {
+        None => None,
+        Some(raw) if kind == ValueType::String => {
+            if text_format.is_some() {
+                return Err(config(file, p, "x-text-search conflicts with x-full-text"));
+            }
+            let text = raw
+                .as_object()
+                .ok_or_else(|| config(file, p, "x-text-search must be an object"))?;
+            if text
+                .keys()
+                .any(|key| key != "default" && key != "definitions")
+            {
+                return Err(config(
+                    file,
+                    p,
+                    "x-text-search accepts only default and definitions",
+                ));
+            }
+            let default = text
+                .get("default")
+                .map(|value| {
+                    value
+                        .as_str()
+                        .filter(|name| !name.is_empty())
+                        .map(str::to_owned)
+                        .ok_or_else(|| config(file, p, "x-text-search default must be a name"))
+                })
+                .transpose()?;
+            let definitions = text
+                .get("definitions")
+                .and_then(Value::as_object)
+                .ok_or_else(|| config(file, p, "x-text-search needs definitions"))?;
+            if definitions.is_empty() {
+                return Err(config(
+                    file,
+                    p,
+                    "x-text-search needs at least one definition",
+                ));
+            }
+            let mut parsed = BTreeMap::new();
+            for (name, options) in definitions {
+                let options = options
+                    .as_object()
+                    .ok_or_else(|| config(file, p, "text definition options must be an object"))?;
+                if options.keys().any(|key| key != "index") {
+                    return Err(config(
+                        file,
+                        p,
+                        "text definition options currently accept only index",
+                    ));
+                }
+                let index = match options.get("index") {
+                    None => false,
+                    Some(Value::Bool(index)) => *index,
+                    Some(_) => return Err(config(file, p, "text index must be a boolean")),
+                };
+                parsed.insert(name.clone(), TextSearchFieldOptions { index });
+            }
+            if default
+                .as_ref()
+                .is_some_and(|name| !parsed.contains_key(name))
+            {
+                return Err(config(
+                    file,
+                    p,
+                    "x-text-search default must appear in definitions",
+                ));
+            }
+            Some(TextSearchField {
+                default,
+                definitions: parsed,
+            })
+        }
+        Some(_) => return Err(config(file, p, "x-text-search requires a string field")),
+    };
     let exclude_fts = match obj.get("exclude_fts") {
         None | Some(Value::Bool(false)) => false,
         Some(Value::Bool(true)) if !p.is_empty() => true,
@@ -645,6 +790,7 @@ fn parse(
         sort_index,
         sort_reduce,
         text_format,
+        text_search,
         exclude_fts,
         enum_values,
         suggested_values,

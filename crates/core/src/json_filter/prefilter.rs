@@ -80,7 +80,9 @@ fn rendered(operand: &Operand) -> bool {
     matches!(
         operand,
         Operand::Field(FieldOperand {
-            modifier: Some(Modifier::Rendered(_) | Modifier::Normalized | Modifier::Fts),
+            modifier: Some(
+                Modifier::Text(_) | Modifier::Rendered(_) | Modifier::Normalized | Modifier::Fts
+            ),
             ..
         })
     )
