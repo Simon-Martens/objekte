@@ -5,6 +5,7 @@ use std::path::PathBuf;
 
 use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision};
 use crate::model::{CollectionId, RecordId};
+use crate::posting::PostingCollection;
 use crate::query::Query;
 use crate::reference::{RecordContext, Schema, bind_filter, eval_filter, eval_fts};
 use crate::source::{SourceFormat, extract_file, read_record_range, reader};
@@ -28,6 +29,7 @@ pub struct CollectionDefinition {
 pub struct CollectionState {
     pub definition: CollectionDefinition,
     pub generation: CollectionGeneration,
+    pub postings: PostingCollection,
 }
 pub struct Repository {
     pub files: FileInventory,
@@ -114,11 +116,12 @@ impl Repository {
         for (definition, id, member_files) in selected {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
+            let mut postings = PostingCollection::new(&definition.schema);
             for file_id in member_files {
                 builder.include_file(file_id)?;
                 let file = &files.files[file_id.0 as usize];
                 let path = files.native_path(file_id).ok_or("missing file path")?;
-                let stats = extract_file(&path, definition.format, |range, _extracted| {
+                let stats = extract_file(&path, definition.format, |range, extracted| {
                     let record_id = match definition.identity {
                         IdentityPolicy::Filename => {
                             let stem = path
@@ -131,14 +134,18 @@ impl Repository {
                             RecordId::generated(file_id, file.revision.modified_ns, range.start)
                         }
                     };
-                    builder.add_record(file, record_id, range.start, range.end)?;
+                    let slot = builder.add_record(file, record_id, range.start, range.end)?;
+                    postings.add(slot, &extracted.value)?;
                     Ok(())
                 })?;
                 build_parses += stats.record_parses;
             }
+            let generation = builder.finish(&files)?;
+            postings.validate(generation.records.len())?;
             collections.push(CollectionState {
                 definition,
-                generation: builder.finish(&files)?,
+                generation,
+                postings,
             });
         }
         Ok(Self {

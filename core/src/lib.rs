@@ -8,6 +8,7 @@ pub const MODEL_VERSION: u32 = 1;
 
 pub mod inventory;
 pub mod model;
+pub mod posting;
 pub mod query;
 pub mod reference;
 pub mod repository;

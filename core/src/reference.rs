@@ -357,6 +357,11 @@ fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut Vec<&'a Value>
     }
 }
 
+pub(crate) fn data_values<'a>(value: &'a Value, parts: &[String]) -> Option<Vec<&'a Value>> {
+    let mut selected = Vec::new();
+    walk_path(value, parts, &mut selected).then_some(selected)
+}
+
 fn select_values<'a>(
     term: &BoundTerm,
     ctx: &'a RecordContext<'a>,

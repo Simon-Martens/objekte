@@ -22,6 +22,7 @@ query/build and restore revisions will establish their respective baselines.
 | C06 | complete | `cargo fmt --all && cargo test --workspace` | Separate FTS input, FILTER parser, all fixed filters parse |
 | C07 | complete | `cargo fmt --all && cargo test --workspace` | Typed binding and independent scan evaluation |
 | C08 | complete | `cargo test --workspace --all-targets`; CLI Q031, Q070 | Fixture adapter, JSON/filename registration, reference CLI |
+| C09 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Fused typed B-tree postings, presence/null/array length, coverage |
 
 ## Decisions
 
@@ -43,6 +44,9 @@ query/build and restore revisions will establish their respective baselines.
 - The Musenalm adapter reads each checkout schema, all nested fields and
   `x-index-paths`, and the declared JSON/filename policy. A targeted fixture
   test preserves `contents.numbering = 32.01` as a number.
+- Lookup postings are built during the same extraction callback that creates
+  record mappings. Explicit schema `index` and `x-index-paths` determine the
+  posted fields; presence/null/cardinality are attached to those fields.
 
 ## Measurements
 
