@@ -187,10 +187,28 @@ impl Repository {
         }
         let typed = filter.typed_plan();
         let required = filter.required_top_level_fields();
-        if typed.is_none() && required.is_empty() {
+        let values_prefilter = filter.values_prefilter_with_path();
+        let fts_plan = filter.fts_plan();
+        if typed.is_none()
+            && required.is_empty()
+            && values_prefilter.is_none()
+            && fts_plan.is_none()
+        {
             return Ok(None);
         }
         self.ensure_picker(collection)?;
+        if fts_plan.is_some() {
+            let started = Instant::now();
+            if self
+                .file_pickers
+                .get_mut(&collection.name)
+                .expect("picker exists")
+                .ensure_text_index()?
+            {
+                self.query_cache.invalidate(&collection.name);
+                self.metrics.fts_open_nanos += nanos(started);
+            }
+        }
         let picker = &self.file_pickers[&collection.name];
         let scalar_fields = filter.top_level_scalar_fields();
         let risk = filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
@@ -200,24 +218,32 @@ impl Repository {
         if risk {
             return Ok(None);
         }
-        let Some(map) = snapshot.native_slot_map(picker) else {
-            return Ok(None);
-        };
-        let selection =
-            picker.candidate_slot_selection_for_path(None, None, typed.as_ref(), &required);
+        let values_prefilter = (!filter.references_indexed_field(picker.typed_fields())
+            || values_prefilter
+                .as_ref()
+                .and_then(|(_, _, path)| path.as_ref())
+                .is_some_and(|path| picker.has_text_field_path(path)))
+        .then_some(values_prefilter)
+        .flatten();
+        let mut selection = picker.candidate_slot_selection_for_path(
+            values_prefilter
+                .as_ref()
+                .map(|(_, pattern, _)| pattern.as_str()),
+            values_prefilter
+                .as_ref()
+                .and_then(|(_, _, path)| path.as_ref()),
+            typed.as_ref(),
+            &required,
+        );
+        if let Some(plan) = &fts_plan {
+            let bits = super::memory::fts_candidate_bits(picker, plan);
+            selection.intersect_bits(picker, bits);
+        }
         // A broad posting can cost more to enumerate and map than verification.
         if selection.is_all() || selection.len().saturating_mul(2) >= snapshot.native_count {
             return Ok(None);
         }
-        let mut bits = vec![0_u64; snapshot.sources.len().div_ceil(64)];
-        for &slot in snapshot.custom_slots.iter() {
-            bits[slot as usize / 64] |= 1 << (slot % 64);
-        }
-        for native in selection.ordered(picker, false, &[]) {
-            let selected = map[native].expect("mapped live native slot");
-            bits[selected as usize / 64] |= 1 << (selected % 64);
-        }
-        Ok(Some(bits))
+        Ok(snapshot.native_candidate_bits(picker, &selection))
     }
 
     pub(in crate::repository) fn selected_scalar_candidates(
@@ -328,6 +354,7 @@ impl Repository {
         let mut ordered_slots = Vec::new();
         let mut used_native_candidates = false;
         let mut used_field_candidates = false;
+        let mut decisions = Vec::new();
         let mut returned = 0_usize;
         let stream_early = on_record.is_some() && request.sort.is_empty() && !cache_hit;
         if let Some((total, _)) = &cached_page {
@@ -348,27 +375,58 @@ impl Repository {
                         &request.sort,
                         false,
                     );
-                let field_candidates = matches!(
-                    request.backend,
-                    JsonQueryBackend::Auto | JsonQueryBackend::Bigram
-                )
+                let prefer_native_text = bound[collection_index].fts_plan().is_some()
+                    && self
+                        .selected_field_candidate_estimate(
+                            collection,
+                            snapshot,
+                            &bound[collection_index],
+                        )
+                        .is_none_or(|estimate| {
+                            estimate.saturating_mul(16) > snapshot.sources.len()
+                        });
+                let mut field_candidates = (!prefer_native_text
+                    && matches!(
+                        request.backend,
+                        JsonQueryBackend::Auto | JsonQueryBackend::Bigram
+                    ))
                 .then(|| {
                     self.selected_field_candidates(collection, snapshot, &bound[collection_index])
                 })
                 .flatten();
-                used_field_candidates |= field_candidates.is_some();
-                let candidates = if field_candidates.is_some() {
-                    field_candidates
-                } else {
-                    let native = self.selected_native_candidates(
+                let native = if field_candidates.is_none() {
+                    self.selected_native_candidates(
                         collection,
                         snapshot,
                         &bound[collection_index],
                         request.backend,
-                    )?;
-                    used_native_candidates |= native.is_some();
-                    native
+                    )?
+                } else {
+                    None
                 };
+                if native.is_none() && prefer_native_text {
+                    field_candidates = self.selected_field_candidates(
+                        collection,
+                        snapshot,
+                        &bound[collection_index],
+                    );
+                }
+                used_native_candidates |= native.is_some();
+                used_field_candidates |= field_candidates.is_some();
+                decisions.push(format!(
+                    "{}:{}",
+                    collection.name,
+                    if native.is_some() && bound[collection_index].fts_plan().is_some() {
+                        "native-full-text+custom-fallback"
+                    } else if native.is_some() {
+                        "native-posting+custom-fallback"
+                    } else if field_candidates.is_some() {
+                        "selected-scalar-posting"
+                    } else {
+                        "scan"
+                    }
+                ));
+                let candidates = native.or(field_candidates);
                 for index in snapshot.scan_slots(candidates.as_deref(), sort_buffer.is_none()) {
                     self.metrics.selected_candidate_visits += 1;
                     self.metrics.selected_descriptor_visits += 1;
@@ -533,7 +591,10 @@ impl Repository {
                         }
                     }
                     .into(),
-                ],
+                ]
+                .into_iter()
+                .chain(decisions)
+                .collect(),
             },
             pending,
             returned,

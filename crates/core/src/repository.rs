@@ -501,6 +501,26 @@ impl CustomSourceSnapshot {
         map
     }
 
+    /// A native posting covers only filesystem JSON slots. Every custom slot
+    /// stays in the fallback domain until a compatible selected posting says
+    /// otherwise. A failed translation leaves the query unpruned.
+    fn native_candidate_bits(
+        &self,
+        picker: &crate::file_picker::FilePicker,
+        selection: &crate::file_picker::SlotSelection,
+    ) -> Option<Vec<u64>> {
+        let map = self.native_slot_map(picker)?;
+        let mut bits = vec![0_u64; self.sources.len().div_ceil(64)];
+        for &slot in self.custom_slots.iter() {
+            bits[slot as usize / 64] |= 1 << (slot % 64);
+        }
+        for native in selection.ordered(picker, false, &[]) {
+            let selected = map.get(native).copied().flatten()?;
+            bits[selected as usize / 64] |= 1 << (selected % 64);
+        }
+        Some(bits)
+    }
+
     /// Enumerate only candidate slots where a posting is selective. The
     /// default order is generation-bound, so a warm query never sorts the
     /// complete inventory again.

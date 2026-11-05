@@ -62,6 +62,7 @@ impl Drop for ScanScratch {
     }
 }
 
+
 fn known_truth(
     entry: &crate::repository::predicate_cache::VerifiedPredicateEntry,
     slot: usize,
@@ -132,7 +133,10 @@ fn required_key_prefilters(required: &[String], fields: &BTreeMap<String, Field>
         .collect()
 }
 
-fn fts_candidate_bits(picker: &crate::file_picker::FilePicker, plan: &FtsPlan) -> Option<Vec<u64>> {
+pub(super) fn fts_candidate_bits(
+    picker: &crate::file_picker::FilePicker,
+    plan: &FtsPlan,
+) -> Option<Vec<u64>> {
     match plan {
         FtsPlan::Literal(literal, path, is_literal, clean) => {
             picker.text_field_candidate_bits(literal, path, *clean, *is_literal)

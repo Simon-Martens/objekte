@@ -63,8 +63,10 @@ fn native_candidates_remap_after_compacting_live_slots() {
             .iter()
             .any(|step| step.contains("native-posting"))
     );
+    let mut before_ids = ids(&before);
+    before_ids.sort();
     assert_eq!(
-        ids(&before),
+        before_ids,
         vec![
             ("mixed".into(), "n010".into()),
             ("mixed".into(), "z".into())

@@ -61,6 +61,110 @@ fn selected_matches(
 
 
 impl Repository {
+    /// Reuse the concrete picker's text planner for its native partition.
+    /// Uncovered custom slots remain candidates for exact decoding.
+    fn selected_native_text_candidates(
+        &mut self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        matcher: Option<&TextMatcher>,
+        extension: Option<&BoundTextQuery>,
+        filter: Option<&JsonFilter>,
+        requested_fields: Option<&BTreeSet<&str>>,
+    ) -> Result<Option<Vec<u64>>> {
+        if self.options.cache != CacheMode::Memory || snapshot.native_count == 0 {
+            return Ok(None);
+        }
+        self.ensure_picker(collection)?;
+        let started = Instant::now();
+        if self
+            .file_pickers
+            .get_mut(&collection.name)
+            .expect("picker exists")
+            .ensure_text_index()?
+        {
+            self.query_cache.invalidate(&collection.name);
+            self.metrics.fts_open_nanos += nanos(started);
+        }
+        let picker = &self.file_pickers[&collection.name];
+        if filter.is_some_and(|filter| {
+            filter.has_relations()
+                || filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
+                || filter
+                    .top_level_scalar_fields()
+                    .iter()
+                    .any(|field| picker.has_array_value(field))
+        }) {
+            return Ok(None);
+        }
+        let has_text_index = picker.text_index_bytes().is_some();
+        let selection = if let Some(extension) = extension {
+            let (candidate, raw) = match &extension.candidate {
+                CandidateConstraint::BigramLiteral {
+                    literal,
+                    representation,
+                } if extension.allows_candidate_pruning()
+                    && representation == "objekte:stored"
+                    && extension.native_index_projection == Some(NativeTextProjection::Stored)
+                    && extension.preparation == TextPreparation::Stored =>
+                {
+                    (Some(literal.as_str()), true)
+                }
+                CandidateConstraint::BigramLiteral {
+                    literal,
+                    representation,
+                } if extension.allows_candidate_pruning()
+                    && representation == "objekte:visible-normalized"
+                    && extension.preparation == TextPreparation::VisibleNormalized
+                    && matches!(
+                        extension.native_index_projection,
+                        Some(NativeTextProjection::VisibleNormalized(_))
+                    )
+                    && has_text_index =>
+                {
+                    (Some(literal.as_str()), false)
+                }
+                CandidateConstraint::BigramLiteral {
+                    literal,
+                    representation,
+                } if extension.allows_candidate_pruning()
+                    && representation == "objekte:visible-normalized"
+                    && extension.preparation == TextPreparation::VisibleNormalized
+                    && extension.native_index_projection
+                        == Some(NativeTextProjection::VisibleNormalized(
+                            crate::TextFormat::Plain,
+                        ))
+                    && !has_text_index =>
+                {
+                    let word = literal
+                        .split(' ')
+                        .max_by_key(|word| word.len())
+                        .filter(|word| !word.is_empty());
+                    (word, true)
+                }
+                _ => (None, true),
+            };
+            picker.text_candidate_selection(candidate, raw, true, requested_fields, |_, _| true)
+        } else {
+            let matcher = matcher.expect("native text matcher exists");
+            picker.text_candidate_selection(
+                if has_text_index {
+                    matcher.candidate_pattern.as_deref()
+                } else {
+                    matcher.regular_candidate_pattern()
+                },
+                matcher.raw,
+                matcher.candidate_literal,
+                requested_fields,
+                |value, format| matcher.matches_value(value, format),
+            )
+        };
+        if selection.is_all() || selection.len().saturating_mul(2) >= snapshot.native_count {
+            return Ok(None);
+        }
+        Ok(snapshot.native_candidate_bits(picker, &selection))
+    }
+
     fn selected_text_candidates(
         &self,
         request: &TextQuery,
@@ -395,17 +499,50 @@ impl Repository {
                 // Exact text verification still runs on each surviving record.
                 let use_scalar_seed = scalar_count
                     .is_some_and(|count| count.saturating_mul(16) <= snapshot.sources.len());
+                let mut native_text_seed = false;
                 let mut candidates = if use_scalar_seed {
                     scalar.take()
                 } else {
-                    self.selected_text_candidates(
+                    let selected_text = self.selected_text_candidates(
                         request,
                         collection,
                         snapshot,
                         matcher.as_ref(),
                         extension,
                         bound_filters[collection_index].as_ref(),
-                    )
+                    );
+                    let selected_count = selected_text.as_ref().map(|bits| {
+                        bits.iter()
+                            .map(|word| word.count_ones() as usize)
+                            .sum::<usize>()
+                    });
+                    let native_text = if selected_count
+                        .is_none_or(|count| count.saturating_mul(8) > snapshot.sources.len())
+                    {
+                        self.selected_native_text_candidates(
+                            collection,
+                            snapshot,
+                            matcher.as_ref(),
+                            extension,
+                            bound_filters[collection_index].as_ref(),
+                            requested_fields.as_ref(),
+                        )?
+                    } else {
+                        None
+                    };
+                    let native_count = native_text.as_ref().map(|bits| {
+                        bits.iter()
+                            .map(|word| word.count_ones() as usize)
+                            .sum::<usize>()
+                    });
+                    native_text_seed = native_count.is_some_and(|native| {
+                        selected_count.is_none_or(|selected| native < selected)
+                    });
+                    if native_text_seed {
+                        native_text
+                    } else {
+                        selected_text
+                    }
                 };
                 if bound_filters[collection_index].is_some() {
                     let text_count = candidates.as_ref().map(|bits| {
@@ -444,8 +581,10 @@ impl Repository {
                     collection.name,
                     if use_scalar_seed {
                         "scalar-seed"
+                    } else if native_text_seed {
+                        "native-text-seed"
                     } else if candidates.is_some() {
-                        "text-seed"
+                        "selected-text-seed"
                     } else {
                         "scan"
                     },
