@@ -16,6 +16,7 @@ query/build and restore revisions will establish their respective baselines.
 |---|---|---|---|
 | C01 | complete | `cargo test --workspace` | New workspace; fixture path check |
 | C02 | complete | `cargo fmt --all && cargo test --workspace` | 150 fixed cases, four profile definitions, report envelopes |
+| C03 | complete | `cargo fmt --all && cargo test --workspace` | Typed values, precise numeric ordering, temporal types, paths, IDs |
 
 ## Decisions
 
@@ -23,6 +24,9 @@ query/build and restore revisions will establish their respective baselines.
 - Inspect archived implementations for algorithms; adapt only components that
   preserve the new record-level semantics. No archived crate joins this workspace.
 - Use the existing checkout's seven Musenalm schemas as fixture authority.
+- Normalize finite integral floats into exact integers when representable;
+  otherwise compare them against integers without rounding the integer to
+  float. A date, datetime, and Unix seconds remain distinct variants.
 
 ## Measurements
 

@@ -6,6 +6,7 @@
 /// Version of the in-memory search model and future snapshot envelope.
 pub const MODEL_VERSION: u32 = 1;
 
+pub mod model;
 pub mod workload;
 
 #[cfg(test)]
