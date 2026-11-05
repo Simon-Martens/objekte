@@ -69,6 +69,12 @@ fn collect_strings(value: &Value, path: &mut Vec<String>, output: &mut Vec<TextS
     }
 }
 
+pub fn text_segments(value: &Value) -> Vec<TextSegment> {
+    let mut output = Vec::new();
+    collect_strings(value, &mut Vec::new(), &mut output);
+    output
+}
+
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
         "json"

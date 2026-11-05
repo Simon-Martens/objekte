@@ -14,7 +14,9 @@ use crate::reference::{
     RecordContext, Schema, Transform, bind_filter, data_values, eval_filter, eval_fts_query,
 };
 use crate::sorting::{SortBuilder, SortCollection};
-use crate::source::{SourceFormat, TextSegment, extract_file, read_record_range, reader};
+use crate::source::{
+    SourceFormat, TextSegment, extract_file, read_record_range, reader, text_segments,
+};
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
 
@@ -293,7 +295,11 @@ impl Repository {
                     &path,
                     definition.format,
                     file.revision,
-                    |range, extracted| {
+                    |range, mut extracted| {
+                        definition.schema.coerce_record(&mut extracted.value)?;
+                        if definition.schema.has_temporal_fields() {
+                            extracted.text = text_segments(&extracted.value);
+                        }
                         let record_id = match definition.identity {
                             IdentityPolicy::Filename => {
                                 let stem = path
@@ -459,7 +465,14 @@ impl Repository {
                 counters.bytes_read += bytes.len() as u64;
                 counters.record_parses += 1;
                 counters.scanned_records += 1;
-                let extracted = reader(collection.definition.format).parse(&bytes)?;
+                let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+                collection
+                    .definition
+                    .schema
+                    .coerce_record(&mut extracted.value)?;
+                if collection.definition.schema.has_temporal_fields() {
+                    extracted.text = text_segments(&extracted.value);
+                }
                 let ctx = RecordContext {
                     value: &extracted.value,
                     record,

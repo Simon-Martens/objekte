@@ -16,7 +16,7 @@ use crate::query::{Operator, Query};
 use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
-use crate::source::{read_record_ranges, reader};
+use crate::source::{read_record_ranges, reader, text_segments};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -345,7 +345,12 @@ fn materialize_cached(
                     ReturnMode::Bytes => Payload::Bytes(bytes),
                     ReturnMode::Logical => {
                         counters.record_parses += 1;
-                        Payload::Logical(reader(collection.definition.format).parse(&bytes)?.value)
+                        let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+                        collection
+                            .definition
+                            .schema
+                            .coerce_record(&mut extracted.value)?;
+                        Payload::Logical(extracted.value)
                     }
                 });
             }
@@ -553,7 +558,14 @@ fn search_impl(
                 for (slot, bytes) in records {
                     let record = &collection.generation.records[slot as usize];
                     let file = &repo.files.files[file_id as usize];
-                    let extracted = reader(collection.definition.format).parse(&bytes)?;
+                    let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+                    collection
+                        .definition
+                        .schema
+                        .coerce_record(&mut extracted.value)?;
+                    if collection.definition.schema.has_temporal_fields() {
+                        extracted.text = text_segments(&extracted.value);
+                    }
                     counters.record_parses += 1;
                     counters.scanned_records += 1;
                     let ctx = RecordContext {
@@ -659,9 +671,13 @@ fn search_impl(
                         ReturnMode::Bytes => Payload::Bytes(bytes),
                         ReturnMode::Logical => {
                             counters.record_parses += 1;
-                            Payload::Logical(
-                                reader(collection.definition.format).parse(&bytes)?.value,
-                            )
+                            let mut extracted =
+                                reader(collection.definition.format).parse(&bytes)?;
+                            collection
+                                .definition
+                                .schema
+                                .coerce_record(&mut extracted.value)?;
+                            Payload::Logical(extracted.value)
                         }
                     };
                     page[index as usize].hit.payload = Some(payload);
@@ -943,6 +959,84 @@ mod tests {
         assert_eq!(
             optimized.hits[0].matched_fields,
             reference.hits[0].matched_fields
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
+        let root = std::env::temp_dir().join(format!("objekte-temporal-{}", std::process::id()));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/a.json"),
+            b"{\"day\":\"2026-01-01\",\"seconds\":1767225600}",
+        )
+        .unwrap();
+        std::fs::write(
+            root.join("data/b.json"),
+            b"{\"day\":\"2026-02-01\",\"seconds\":1769904000}",
+        )
+        .unwrap();
+        let mut schema = Schema::default();
+        for (name, kind) in [
+            ("day", LogicalType::Date),
+            ("seconds", LogicalType::Unixtime),
+        ] {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind,
+                    required: true,
+                    nullable: false,
+                    indexed: true,
+                    multi: false,
+                })
+                .unwrap();
+        }
+        let definitions = vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("day").unwrap()],
+            sort_locale: "de".into(),
+        }];
+        let query = Query {
+            collections: vec![],
+            fts: None,
+            filter: Some(parse_filter("day >= '2026-01-15' && seconds >= 1769904000").unwrap()),
+            options: QueryOptions {
+                sort: vec![crate::workload::SortField {
+                    field: "day".into(),
+                    descending: false,
+                }],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Logical,
+                evidence: true,
+            },
+        };
+        let repo = Repository::open(&root, definitions.clone()).unwrap();
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(optimized.count, 1);
+        assert_eq!(optimized.hits[0].record_id, "b");
+        assert_eq!(optimized.hits[0].payload, reference.hits[0].payload);
+        assert!(
+            matches!(&optimized.hits[0].payload,Some(Payload::Logical(crate::model::Value::Object(fields))) if matches!(fields["day"],crate::model::Value::Date(_)))
+        );
+        repo.configure_verified_cache(1024 * 1024).unwrap();
+        repo.search(&query).unwrap();
+        let cached = repo.search(&query).unwrap();
+        assert!(cached.counters.verified_result_hit);
+        assert_eq!(cached.hits[0].payload, optimized.hits[0].payload);
+        let restored = Repository::open(&root, definitions).unwrap();
+        assert!(restored.startup.restored);
+        assert_eq!(
+            restored.search(&query).unwrap().hits[0].payload,
+            optimized.hits[0].payload
         );
         std::fs::remove_dir_all(root).unwrap();
     }

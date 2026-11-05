@@ -38,10 +38,21 @@ pub struct CustomBinding {
 pub struct Schema {
     pub fields: HashMap<Vec<String>, FieldDefinition>,
     pub custom: HashMap<(Vec<String>, String), CustomBinding>,
+    temporal_fields: bool,
 }
 
 impl Schema {
+    pub fn coerce_record(&self, value: &mut Value) -> Result<(), String> {
+        if !self.temporal_fields {
+            return Ok(());
+        }
+        coerce_value(value, &mut Vec::new(), None, self)
+    }
+    pub fn has_temporal_fields(&self) -> bool {
+        self.temporal_fields
+    }
     pub fn register_field(&mut self, field: FieldDefinition) -> Result<(), String> {
+        self.temporal_fields |= temporal_kind(&field.kind);
         if self.fields.insert(field.path.clone(), field).is_some() {
             return Err("duplicate field registration".into());
         }
@@ -87,6 +98,80 @@ impl Schema {
             }),
         }
     }
+}
+
+fn temporal_kind(kind: &LogicalType) -> bool {
+    match kind {
+        LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime => true,
+        LogicalType::Array(inner) => temporal_kind(inner),
+        _ => false,
+    }
+}
+
+fn coerce_value(
+    value: &mut Value,
+    path: &mut Vec<String>,
+    hint: Option<&LogicalType>,
+    schema: &Schema,
+) -> Result<(), String> {
+    match value {
+        Value::Object(fields) => {
+            for (name, child) in fields {
+                path.push(name.clone());
+                let child_hint = schema.fields.get(path).map(|field| &field.kind);
+                coerce_value(child, path, child_hint, schema)?;
+                path.pop();
+            }
+        }
+        Value::Array(array) => {
+            let child_hint = if let Some(LogicalType::Array(inner)) = hint {
+                Some(inner.as_ref())
+            } else {
+                hint
+            };
+            for child in &mut array.values {
+                coerce_value(child, path, child_hint, schema)?;
+            }
+            let mut kind = None;
+            for child in &array.values {
+                if matches!(child, Value::Null) {
+                    continue;
+                }
+                let candidate = child.logical_type();
+                if kind.as_ref().is_some_and(|prior| prior != &candidate) {
+                    return Err(format!("mixed coerced array types at {}", path.join(".")));
+                }
+                kind = Some(candidate);
+            }
+            array.element_type = kind.or_else(|| child_hint.cloned());
+        }
+        Value::String(text) if matches!(hint, Some(LogicalType::Date | LogicalType::Datetime)) => {
+            *value = Value::parse_typed_string(text, hint.unwrap())
+                .map_err(|e| format!("{}: {e}", path.join(".")))?;
+        }
+        Value::Number(number) if matches!(hint, Some(LogicalType::Unixtime)) => {
+            let Number::Integer(seconds) = number else {
+                return Err(format!("{}: unixtime must be integral", path.join(".")));
+            };
+            *value = Value::Unixtime(
+                i64::try_from(*seconds)
+                    .map_err(|_| format!("{}: unixtime out of range", path.join(".")))?,
+            );
+        }
+        Value::Null => {}
+        _ if matches!(
+            hint,
+            Some(LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime)
+        ) =>
+        {
+            return Err(format!(
+                "{}: value does not match declared temporal type",
+                path.join(".")
+            ));
+        }
+        _ => {}
+    }
+    Ok(())
 }
 
 fn metadata_type(field: MetadataField) -> LogicalType {
@@ -771,6 +856,45 @@ mod tests {
             assert!(eval_filter(&bound, &ctx, &mut evidence).unwrap());
             assert_eq!(evidence, HashSet::from(["people.name".to_string()]));
         });
+    }
+
+    #[test]
+    fn explicit_temporal_hints_coerce_values_and_reject_bad_inputs() {
+        let mut schema = Schema::default();
+        for (name, kind) in [
+            ("day", LogicalType::Date),
+            ("time", LogicalType::Datetime),
+            ("seconds", LogicalType::Unixtime),
+            ("days", LogicalType::Array(Box::new(LogicalType::Date))),
+        ] {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind,
+                    required: true,
+                    nullable: false,
+                    indexed: true,
+                    multi: name == "days",
+                })
+                .unwrap();
+        }
+        let mut value = Value::from_json(serde_json::json!({
+            "day":"2026-01-02","time":"2026-01-02T03:04:05+02:00",
+            "seconds":1767319445,"days":["2026-01-01","2026-01-02"]
+        }))
+        .unwrap();
+        schema.coerce_record(&mut value).unwrap();
+        let Value::Object(fields) = value else {
+            panic!("object");
+        };
+        assert!(matches!(fields["day"], Value::Date(_)));
+        assert!(matches!(fields["time"], Value::Datetime(_)));
+        assert!(matches!(fields["seconds"], Value::Unixtime(_)));
+        assert!(
+            matches!(fields["days"],Value::Array(ref array) if array.element_type == Some(LogicalType::Date))
+        );
+        let mut invalid = Value::from_json(serde_json::json!({"day":"not a date"})).unwrap();
+        assert!(schema.coerce_record(&mut invalid).is_err());
     }
 
     #[test]
