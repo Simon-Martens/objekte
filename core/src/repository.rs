@@ -10,7 +10,7 @@ use crate::posting::PostingCollection;
 use crate::query::Query;
 use crate::reference::{RecordContext, Schema, bind_filter, eval_filter, eval_fts};
 use crate::source::{SourceFormat, extract_file, read_record_range, reader};
-use crate::workload::{ReturnMode, WorkCounters};
+use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
@@ -37,6 +37,19 @@ pub struct Repository {
     pub files: FileInventory,
     pub collections: Vec<CollectionState>,
     pub build_parses: u64,
+    pub options: RepositoryOptions,
+}
+
+#[derive(Clone, Copy, Debug)]
+pub struct RepositoryOptions {
+    pub bigram_alphabet: BigramAlphabet,
+}
+impl Default for RepositoryOptions {
+    fn default() -> Self {
+        Self {
+            bigram_alphabet: BigramAlphabet::Ascii,
+        }
+    }
 }
 
 #[derive(Clone, Debug)]
@@ -63,6 +76,13 @@ impl Repository {
     pub fn open(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
+    ) -> Result<Self, String> {
+        Self::open_with_options(root, definitions, RepositoryOptions::default())
+    }
+    pub fn open_with_options(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
     ) -> Result<Self, String> {
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
         let mut files = FileInventory::new(root.clone());
@@ -122,7 +142,7 @@ impl Repository {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
-            let mut raw = BigramIndex::new_ascii();
+            let mut raw = BigramIndex::new(options.bigram_alphabet);
             for file_id in member_files {
                 builder.include_file(file_id)?;
                 let file = &files.files[file_id.0 as usize];
@@ -161,6 +181,7 @@ impl Repository {
             files,
             collections,
             build_parses,
+            options,
         })
     }
 

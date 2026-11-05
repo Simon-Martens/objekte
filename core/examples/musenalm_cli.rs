@@ -4,8 +4,8 @@ mod musenalm;
 use std::path::PathBuf;
 
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::Repository;
-use objekte_search_core::workload::{ReturnMode, WorkloadCase, load_manifest};
+use objekte_search_core::repository::{Repository, RepositoryOptions};
+use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase, load_manifest};
 
 fn main() {
     if let Err(error) = run() {
@@ -22,6 +22,7 @@ fn run() -> Result<(), String> {
     let mut collection = "*".to_string();
     let mut explain = false;
     let mut reference = false;
+    let mut alphabet = BigramAlphabet::Ascii;
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
@@ -32,6 +33,17 @@ fn run() -> Result<(), String> {
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
             "--explain" | "--explain-analyze" => explain = true,
             "--reference" => reference = true,
+            "--alphabet" => {
+                alphabet = match args
+                    .next()
+                    .ok_or("--alphabet needs ascii or unicode")?
+                    .as_str()
+                {
+                    "ascii" => BigramAlphabet::Ascii,
+                    "unicode" => BigramAlphabet::Unicode,
+                    other => return Err(format!("unknown alphabet {other}")),
+                }
+            }
             _ => return Err(format!("unknown option {arg}")),
         }
     }
@@ -69,7 +81,13 @@ fn run() -> Result<(), String> {
     if selected.is_empty() {
         return Err(format!("unknown collection {}", case.collection));
     }
-    let repository = Repository::open(&root, selected)?;
+    let repository = Repository::open_with_options(
+        &root,
+        selected,
+        RepositoryOptions {
+            bigram_alphabet: alphabet,
+        },
+    )?;
     for state in &repository.collections {
         println!(
             "collection={} files={} records={} format={:?} fields={} indexed={} custom={}",
@@ -89,7 +107,7 @@ fn run() -> Result<(), String> {
         );
     }
     println!(
-        "build_parses={} root={}",
+        "build_parses={} root={} alphabet={alphabet:?}",
         repository.build_parses,
         repository.files.root.display()
     );

@@ -21,8 +21,12 @@ pub struct BigramIndex {
 
 impl BigramIndex {
     pub fn new_ascii() -> Self {
+        Self::new(BigramAlphabet::Ascii)
+    }
+
+    pub fn new(alphabet: BigramAlphabet) -> Self {
         Self {
-            alphabet: BigramAlphabet::Ascii,
+            alphabet,
             record_count: 0,
             normal: HashMap::new(),
             skip: HashMap::new(),
@@ -40,15 +44,28 @@ impl BigramIndex {
         let mut normal = HashSet::new();
         let mut skip = HashSet::new();
         for segment in segments {
-            let bytes = segment.text.as_bytes();
-            for pair in bytes.windows(2) {
-                if let Some(key) = ascii_pair(pair[0], pair[1]) {
-                    normal.insert(key);
+            match self.alphabet {
+                BigramAlphabet::Ascii => {
+                    let bytes = segment.text.as_bytes();
+                    for pair in bytes.windows(2) {
+                        if let Some(key) = ascii_pair(pair[0], pair[1]) {
+                            normal.insert(key);
+                        }
+                    }
+                    for triple in bytes.windows(3) {
+                        if let Some(key) = ascii_pair(triple[0], triple[2]) {
+                            skip.insert(key);
+                        }
+                    }
                 }
-            }
-            for triple in bytes.windows(3) {
-                if let Some(key) = ascii_pair(triple[0], triple[2]) {
-                    skip.insert(key);
+                BigramAlphabet::Unicode => {
+                    let chars: Vec<char> = segment.text.chars().collect();
+                    for pair in chars.windows(2) {
+                        normal.insert(unicode_pair(pair[0], pair[1]));
+                    }
+                    for triple in chars.windows(3) {
+                        skip.insert(unicode_pair(triple[0], triple[2]));
+                    }
                 }
             }
         }
@@ -64,19 +81,32 @@ impl BigramIndex {
     /// `None` means no safe useful restriction; an empty bitmap is a proven
     /// absence of this necessary gram over complete index coverage.
     pub fn candidates(&self, literal: &str) -> Option<RoaringBitmap> {
-        if self.alphabet != BigramAlphabet::Ascii {
-            return None;
-        }
-        let bytes = literal.as_bytes();
-        if bytes.len() < 2 || !bytes.iter().all(|b| (32..=126).contains(b)) {
-            return None;
-        }
         let mut grams = HashSet::new();
-        for pair in bytes.windows(2) {
-            grams.insert((false, ascii_pair(pair[0], pair[1]).unwrap()));
-        }
-        for triple in bytes.windows(3) {
-            grams.insert((true, ascii_pair(triple[0], triple[2]).unwrap()));
+        match self.alphabet {
+            BigramAlphabet::Ascii => {
+                let bytes = literal.as_bytes();
+                if bytes.len() < 2 || !bytes.iter().all(|b| (32..=126).contains(b)) {
+                    return None;
+                }
+                for pair in bytes.windows(2) {
+                    grams.insert((false, ascii_pair(pair[0], pair[1]).unwrap()));
+                }
+                for triple in bytes.windows(3) {
+                    grams.insert((true, ascii_pair(triple[0], triple[2]).unwrap()));
+                }
+            }
+            BigramAlphabet::Unicode => {
+                let chars: Vec<char> = literal.chars().collect();
+                if chars.len() < 2 {
+                    return None;
+                }
+                for pair in chars.windows(2) {
+                    grams.insert((false, unicode_pair(pair[0], pair[1])));
+                }
+                for triple in chars.windows(3) {
+                    grams.insert((true, unicode_pair(triple[0], triple[2])));
+                }
+            }
         }
         let mut columns = Vec::new();
         for (skip, key) in grams {
@@ -132,6 +162,10 @@ fn ascii_pair(a: u8, b: u8) -> Option<u64> {
     Some(((a.to_ascii_lowercase() as u64) << 8) | b.to_ascii_lowercase() as u64)
 }
 
+fn unicode_pair(a: char, b: char) -> u64 {
+    ((a as u64) << 21) | b as u64
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -165,5 +199,39 @@ mod tests {
         assert!(index.candidates("ü").is_none());
         assert!(index.candidates("a").is_none());
         assert!(index.candidates("unseen bigram").unwrap().is_empty());
+    }
+
+    #[test]
+    fn ascii_and_unicode_candidates_are_conservative() {
+        let segments = ["Müller", "Straße", "Leipzig"].map(|text| {
+            vec![TextSegment {
+                path: vec!["name".into()],
+                text: text.into(),
+            }]
+        });
+        let mut ascii = BigramIndex::new(BigramAlphabet::Ascii);
+        let mut unicode = BigramIndex::new(BigramAlphabet::Unicode);
+        for (slot, record) in segments.iter().enumerate() {
+            ascii.add_record(RecordSlot(slot as u32), record).unwrap();
+            unicode.add_record(RecordSlot(slot as u32), record).unwrap();
+        }
+        for literal in ["Müller", "Straße", "Leipzig", "ü", "not there"] {
+            for (slot, record) in segments.iter().enumerate() {
+                if record[0].text.contains(literal) {
+                    assert!(
+                        ascii
+                            .candidates(literal)
+                            .is_none_or(|set| set.contains(slot as u32))
+                    );
+                    assert!(
+                        unicode
+                            .candidates(literal)
+                            .is_none_or(|set| set.contains(slot as u32))
+                    );
+                }
+            }
+        }
+        assert_eq!(ascii.alphabet, BigramAlphabet::Ascii);
+        assert_eq!(unicode.alphabet, BigramAlphabet::Unicode);
     }
 }

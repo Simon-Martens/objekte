@@ -25,6 +25,7 @@ query/build and restore revisions will establish their respective baselines.
 | C09 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Fused typed B-tree postings, presence/null/array length, coverage |
 | C10 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Exact posting/metadata sets, restricted scan, zero-read exact matches |
 | C11 | complete | `cargo test --workspace --all-targets`; CLI places FTS Leipzig | ASCII normal/skip bigrams on record text segments |
+| C12 | complete | `cargo test --workspace --all-targets`; Q013 ASCII/Unicode | Repository alphabet setting, observed Unicode pairs, equal 57 matches |
 
 ## Decisions
 
@@ -56,6 +57,10 @@ query/build and restore revisions will establish their respective baselines.
 - The ASCII raw filter stores observed normal and skip pairs by record slot.
   It lowercases only pair keys for conservative filtering, then verifies the
   original case-sensitive text. Unsupported or short literals scan.
+- Unicode mode stores only observed character pairs and uses separate normal
+  and skip postings. Alphabet choice changes candidate reduction only. The
+  archived bigram implementation was inspected for semantics, but this new
+  record-slot implementation does not copy its storage code.
 
 ## Measurements
 
