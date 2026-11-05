@@ -28,6 +28,7 @@ query/build and restore revisions will establish their respective baselines.
 | C12 | complete | `cargo test --workspace --all-targets`; Q013 ASCII/Unicode | Repository alphabet setting, observed Unicode pairs, equal 57 matches |
 | C13 | complete | `cargo test --workspace --all-targets`; Q070 indexed/reference | Folded custom extraction, bigrams, scanner, selected FTS |
 | C14 | complete | `cargo test --workspace --all-targets`; Q126/Q127 indexed/reference | ICU/typed sort columns, stable ties, multi-field order |
+| C15 | complete | `cargo test --workspace --all-targets`; Q031 logical page | COUNT, bounded page winners, three payload modes, grouped range reads |
 
 ## Decisions
 
@@ -69,6 +70,10 @@ query/build and restore revisions will establish their respective baselines.
 - String sort keys use pinned ICU4X 2.4.0 compiled data with locale `de` and
   default options; numeric/temporal keys keep their logical types. Null and
   missing values remain last in both directions, followed by an identity tie.
+- The optimized executor keeps at most `offset + limit` page winners. A
+  verification parse can be moved into a winning logical payload; index-only
+  membership reads only requested page bodies. Candidate ranges are grouped
+  by file and nearby windows share one source read.
 
 ## Measurements
 

@@ -4,7 +4,7 @@ mod musenalm;
 use std::path::PathBuf;
 
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{Repository, RepositoryOptions};
+use objekte_search_core::repository::{Payload, Repository, RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase, load_manifest};
 
 fn main() {
@@ -23,6 +23,10 @@ fn run() -> Result<(), String> {
     let mut explain = false;
     let mut reference = false;
     let mut alphabet = BigramAlphabet::Ascii;
+    let mut mode_override = None;
+    let mut limit_override = None;
+    let mut offset_override = None;
+    let mut quiet_hits = false;
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
@@ -33,6 +37,31 @@ fn run() -> Result<(), String> {
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
             "--explain" | "--explain-analyze" => explain = true,
             "--reference" => reference = true,
+            "--quiet-hits" => quiet_hits = true,
+            "--return" => {
+                mode_override = Some(match args.next().ok_or("--return needs a mode")?.as_str() {
+                    "locator" => ReturnMode::Locator,
+                    "bytes" => ReturnMode::Bytes,
+                    "logical" => ReturnMode::Logical,
+                    other => return Err(format!("unknown return mode {other}")),
+                })
+            }
+            "--limit" => {
+                limit_override = Some(
+                    args.next()
+                        .ok_or("--limit needs a number")?
+                        .parse::<usize>()
+                        .map_err(|e| e.to_string())?,
+                )
+            }
+            "--offset" => {
+                offset_override = Some(
+                    args.next()
+                        .ok_or("--offset needs a number")?
+                        .parse::<usize>()
+                        .map_err(|e| e.to_string())?,
+                )
+            }
             "--alphabet" => {
                 alphabet = match args
                     .next()
@@ -48,7 +77,7 @@ fn run() -> Result<(), String> {
         }
     }
     let definitions = musenalm::load_definitions(&root)?;
-    let case = if let Some(id) = case_id {
+    let mut case = if let Some(id) = case_id {
         let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
         load_manifest(&path)?
             .into_iter()
@@ -69,6 +98,15 @@ fn run() -> Result<(), String> {
             evidence: true,
         }
     };
+    if let Some(mode) = mode_override {
+        case.return_mode = mode;
+    }
+    if let Some(limit) = limit_override {
+        case.limit = limit;
+    }
+    if let Some(offset) = offset_override {
+        case.offset = offset;
+    }
     let query = Query::from_workload(&case)?;
     let selected = if case.collection == "*" {
         definitions
@@ -128,7 +166,7 @@ fn run() -> Result<(), String> {
         result.counters.record_parses,
         result.counters.bytes_read
     );
-    for hit in &result.hits {
+    for hit in result.hits.iter().filter(|_| !quiet_hits) {
         println!(
             "{}:{} {} {}..{} {:?}",
             hit.collection,
@@ -138,6 +176,17 @@ fn run() -> Result<(), String> {
             hit.byte_end,
             hit.matched_fields
         );
+        match &hit.payload {
+            Some(Payload::Bytes(bytes)) => println!(
+                "  bytes_hex={}",
+                bytes.iter().map(|b| format!("{b:02x}")).collect::<String>()
+            ),
+            Some(Payload::Logical(value)) => println!(
+                "  logical={}",
+                serde_json::to_string(value).map_err(|e| e.to_string())?
+            ),
+            None => {}
+        }
     }
     Ok(())
 }

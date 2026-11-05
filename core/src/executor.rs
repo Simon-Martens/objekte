@@ -1,30 +1,23 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
-use std::collections::{BTreeMap, HashSet};
+use std::collections::BTreeMap;
 
 use roaring::RoaringBitmap;
 use unicode_casefold::UnicodeCaseFold;
 
 use crate::model::{PathRoot, Value};
-use crate::query::{FtsQuery, Operator, Query};
-use crate::reference::{
-    BoundExpr, BoundTerm, Derived, RecordContext, Transform, bind_filter, eval_filter,
-    eval_fts_query, eval_term,
-};
-use crate::repository::{
-    CollectionState, Repository, SearchHit, SearchResult, sort_rows, validate_sort,
-};
-use crate::source::{read_record_range, reader};
-use crate::workload::{ReturnMode, WorkCounters};
+use crate::query::{FtsQuery, Operator};
+use crate::reference::{BoundExpr, BoundTerm, Derived, RecordContext, Transform, eval_term};
+use crate::repository::{CollectionState, Repository};
 
-struct Proof {
-    term: BoundTerm,
-    matches: RoaringBitmap,
+pub(crate) struct Proof {
+    pub term: BoundTerm,
+    pub matches: RoaringBitmap,
 }
-struct Plan {
-    candidates: Option<RoaringBitmap>,
-    exact: bool,
-    proofs: Vec<Proof>,
+pub(crate) struct Plan {
+    pub candidates: Option<RoaringBitmap>,
+    pub exact: bool,
+    pub proofs: Vec<Proof>,
 }
 
 fn term_set(
@@ -58,7 +51,7 @@ fn term_set(
         .and_then(|index| index.exact_set(term, domain)))
 }
 
-fn plan_expr(
+pub(crate) fn plan_expr(
     repo: &Repository,
     collection: &CollectionState,
     expr: &BoundExpr,
@@ -180,7 +173,10 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
         .candidates(literal)
 }
 
-fn fts_candidates(collection: &CollectionState, fts: &FtsQuery) -> Option<RoaringBitmap> {
+pub(crate) fn fts_candidates(
+    collection: &CollectionState,
+    fts: &FtsQuery,
+) -> Option<RoaringBitmap> {
     if fts.fields.is_empty() {
         return collection.raw.candidates(&fts.literal);
     }
@@ -203,168 +199,15 @@ fn fts_candidates(collection: &CollectionState, fts: &FtsQuery) -> Option<Roarin
     Some(union)
 }
 
-pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
-    if query.options.return_mode != ReturnMode::Locator {
-        return Err("payload modes are not implemented yet".into());
-    }
-    // Bind every selected collection before any execution or source access.
-    let mut bound = Vec::new();
-    for collection in &repo.collections {
-        if !query.collections.is_empty() && !query.collections.contains(&collection.definition.name)
-        {
-            continue;
-        }
-        let filter = query
-            .filter
-            .as_ref()
-            .map(|f| bind_filter(f, &collection.definition.schema))
-            .transpose()?;
-        if let Some(fts) = &query.fts {
-            for field in &fts.fields {
-                collection.definition.schema.field(&field.path)?;
-                if let Some(name) = &field.binding {
-                    if !collection
-                        .definition
-                        .schema
-                        .custom
-                        .contains_key(&(field.path.segments.clone(), name.clone()))
-                    {
-                        return Err(format!("unknown FTS binding {name}"));
-                    }
-                }
-            }
-        }
-        bound.push((collection, filter));
-    }
-    if bound.is_empty() {
-        return Err("unknown or unloaded collection scope".into());
-    }
-    validate_sort(repo, query)?;
-    let mut hits = Vec::new();
-    let mut counters = WorkCounters::default();
-    for (collection, filter) in bound {
-        let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
-        let plan = filter
-            .as_ref()
-            .map(|f| plan_expr(repo, collection, f, &domain))
-            .transpose()?
-            .unwrap_or(Plan {
-                candidates: None,
-                exact: true,
-                proofs: Vec::new(),
-            });
-        let mut candidates = plan.candidates.unwrap_or(domain);
-        if let Some(fts) = &query.fts {
-            if let Some(text_candidates) = fts_candidates(collection, fts) {
-                candidates &= text_candidates;
-            }
-        }
-        counters.candidates += candidates.len();
-        let needs_scan = !plan.exact || query.fts.is_some();
-        for slot in candidates.iter() {
-            let record = &collection.generation.records[slot as usize];
-            let file = &repo.files.files[record.file.0 as usize];
-            let mut evidence = HashSet::new();
-            let is_match = if needs_scan {
-                let path = repo
-                    .files
-                    .native_path(record.file)
-                    .ok_or("missing source path")?;
-                let bytes = read_record_range(&path, record.revision, record.range)?;
-                counters.files_opened += 1;
-                counters.bytes_read += bytes.len() as u64;
-                counters.scanned_records += 1;
-                counters.record_parses += 1;
-                let extracted = reader(collection.definition.format).parse(&bytes)?;
-                let ctx = RecordContext {
-                    value: &extracted.value,
-                    record,
-                    file,
-                    collection_name: &collection.definition.name,
-                    repository_root: &repo.files.root,
-                };
-                let fts_match = query
-                    .fts
-                    .as_ref()
-                    .map(|fts| {
-                        eval_fts_query(
-                            fts,
-                            &collection.definition.schema,
-                            &extracted.text,
-                            &mut evidence,
-                        )
-                    })
-                    .transpose()?
-                    .unwrap_or(true);
-                let filter_match = filter
-                    .as_ref()
-                    .map(|f| eval_filter(f, &ctx, &mut evidence))
-                    .transpose()?
-                    .unwrap_or(true);
-                counters.residual_evaluations += u64::from(filter.is_some());
-                fts_match && filter_match
-            } else {
-                counters.exact_posting_matches += 1;
-                if query.options.evidence {
-                    for proof in &plan.proofs {
-                        if proof.matches.contains(slot)
-                            && proof.term.derived == Derived::None
-                            && !matches!(proof.term.operator, Operator::Ne | Operator::NotContains)
-                        {
-                            evidence.insert(proof.term.path.display());
-                        }
-                    }
-                }
-                true
-            };
-            if is_match {
-                let mut matched_fields: Vec<_> = if query.options.evidence {
-                    evidence.into_iter().collect()
-                } else {
-                    Vec::new()
-                };
-                matched_fields.sort();
-                hits.push((
-                    collection.generation.collection.0 as usize,
-                    record.slot.0,
-                    SearchHit {
-                        collection: collection.definition.name.clone(),
-                        record_id: record.id.0.clone(),
-                        file_path: file.relative_path.clone(),
-                        byte_start: record.range.start,
-                        byte_end: record.range.end,
-                        modified_ns: record.revision.modified_ns,
-                        matched_fields,
-                    },
-                ));
-            }
-        }
-    }
-    sort_rows(repo, query, &mut hits);
-    let count = hits.len();
-    counters.total_matches = count as u64;
-    let hits: Vec<_> = hits
-        .into_iter()
-        .skip(query.options.offset)
-        .take(query.options.limit)
-        .map(|(_, _, hit)| hit)
-        .collect();
-    counters.returned_records = hits.len() as u64;
-    Ok(SearchResult {
-        count,
-        hits,
-        counters,
-    })
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
     use crate::model::LogicalType;
-    use crate::query::{FtsField, FtsQuery, QueryOptions, parse_filter};
+    use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{CustomBinding, FieldDefinition, Transform};
     use crate::repository::{CollectionDefinition, IdentityPolicy};
     use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
 
     #[test]
     fn indexed_restriction_precedes_written_first_scan() {

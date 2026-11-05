@@ -69,6 +69,12 @@ pub struct SearchHit {
     pub byte_end: u64,
     pub modified_ns: i128,
     pub matched_fields: Vec<String>,
+    pub payload: Option<Payload>,
+}
+#[derive(Clone, Debug, PartialEq)]
+pub enum Payload {
+    Bytes(Vec<u8>),
+    Logical(crate::model::Value),
 }
 #[derive(Clone, Debug)]
 pub struct SearchResult {
@@ -79,7 +85,7 @@ pub struct SearchResult {
 
 impl Repository {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
-        crate::executor::search(self, query)
+        crate::run::search(self, query)
     }
     pub fn open(
         root: impl Into<PathBuf>,
@@ -246,9 +252,6 @@ impl Repository {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
-        if query.options.return_mode != ReturnMode::Locator {
-            return Err("payload modes are not implemented in the reference CLI stage".into());
-        }
         let mut bound = Vec::new();
         for collection in &self.collections {
             if !query.collections.is_empty()
@@ -343,6 +346,11 @@ impl Repository {
                         Vec::new()
                     };
                     matched_fields.sort();
+                    let payload = match query.options.return_mode {
+                        ReturnMode::Locator => None,
+                        ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
+                        ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
+                    };
                     hits.push((
                         collection.generation.collection.0 as usize,
                         record.slot.0,
@@ -354,6 +362,7 @@ impl Repository {
                             byte_end: record.range.end,
                             modified_ns: record.revision.modified_ns,
                             matched_fields,
+                            payload,
                         },
                     ));
                 }

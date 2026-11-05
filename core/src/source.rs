@@ -189,6 +189,61 @@ pub fn read_record_range(
     Ok(bytes)
 }
 
+/// Read a bounded batch from one file handle. Nearby ranges share a window;
+/// distant ranges remain sparse reads. The returned byte count is physical
+/// source bytes, including small gaps inside coalesced windows.
+pub fn read_record_ranges(
+    path: &Path,
+    revision: SourceRevision,
+    ranges: &[(u32, ByteRange)],
+) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
+    let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+    let before = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
+    if before != revision {
+        return Err("stale source revision".into());
+    }
+    let mut ordered = ranges.to_vec();
+    ordered.sort_by_key(|(_, range)| range.start);
+    for (_, range) in &ordered {
+        ByteRange::checked(range.start, range.end, before.size)?;
+    }
+    let mut output = Vec::with_capacity(ordered.len());
+    let mut bytes_read = 0u64;
+    let mut cursor = 0;
+    while cursor < ordered.len() {
+        let start = ordered[cursor].1.start;
+        let mut end = ordered[cursor].1.end;
+        let mut next = cursor + 1;
+        while next < ordered.len() {
+            let candidate = ordered[next].1;
+            if candidate.start > end.saturating_add(4096)
+                || candidate.end.saturating_sub(start) > 1024 * 1024
+            {
+                break;
+            }
+            end = end.max(candidate.end);
+            next += 1;
+        }
+        let len = usize::try_from(end - start).map_err(|_| "read window too large")?;
+        let mut buffer = vec![0; len];
+        file.seek(SeekFrom::Start(start))
+            .map_err(|e| e.to_string())?;
+        file.read_exact(&mut buffer).map_err(|e| e.to_string())?;
+        bytes_read += len as u64;
+        for (slot, range) in &ordered[cursor..next] {
+            let a = (range.start - start) as usize;
+            let b = (range.end - start) as usize;
+            output.push((*slot, buffer[a..b].to_vec()));
+        }
+        cursor = next;
+    }
+    let after = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
+    if after != revision {
+        return Err("stale source revision during batch read".into());
+    }
+    Ok((output, bytes_read))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -235,6 +290,23 @@ mod tests {
                 .unwrap_err()
                 .contains("..")
         );
+        std::fs::remove_file(path).unwrap();
+    }
+
+    #[test]
+    fn nearby_multi_record_ranges_share_one_read_window() {
+        let path = std::env::temp_dir().join(format!("objekte-batch-{}.jsonl", std::process::id()));
+        std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
+        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        let ranges = JsonLinesReader
+            .frame(&std::fs::read(&path).unwrap())
+            .unwrap();
+        let (records, bytes_read) =
+            read_record_ranges(&path, revision, &[(1, ranges[1]), (0, ranges[0])]).unwrap();
+        assert_eq!(records.len(), 2);
+        assert_eq!(records[0].0, 0);
+        assert_eq!(records[1].1, b"{\"x\":2}");
+        assert_eq!(bytes_read, 15);
         std::fs::remove_file(path).unwrap();
     }
 }
