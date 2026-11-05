@@ -125,14 +125,21 @@ impl BigramIndex {
         match self.alphabet {
             BigramAlphabet::Ascii => {
                 let bytes = literal.as_bytes();
-                if bytes.len() < 2 || !bytes.iter().all(|b| (32..=126).contains(b)) {
+                if bytes.len() < 2 {
                     return None;
                 }
                 for pair in bytes.windows(2) {
-                    grams.insert((false, ascii_pair(pair[0], pair[1]).unwrap()));
+                    if let Some(key) = ascii_pair(pair[0], pair[1]) {
+                        grams.insert((false, key));
+                    }
                 }
                 for triple in bytes.windows(3) {
-                    grams.insert((true, ascii_pair(triple[0], triple[2]).unwrap()));
+                    if let Some(key) = ascii_pair(triple[0], triple[2]) {
+                        grams.insert((true, key));
+                    }
+                }
+                if grams.is_empty() {
+                    return None;
                 }
             }
             BigramAlphabet::Unicode => {
@@ -253,5 +260,7 @@ mod tests {
         }
         assert_eq!(ascii.alphabet, BigramAlphabet::Ascii);
         assert_eq!(unicode.alphabet, BigramAlphabet::Unicode);
+        assert!(ascii.candidates("Müller").is_some());
+        assert!(ascii.candidates("ü").is_none());
     }
 }
