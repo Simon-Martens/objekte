@@ -26,6 +26,7 @@ query/build and restore revisions will establish their respective baselines.
 | C10 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Exact posting/metadata sets, restricted scan, zero-read exact matches |
 | C11 | complete | `cargo test --workspace --all-targets`; CLI places FTS Leipzig | ASCII normal/skip bigrams on record text segments |
 | C12 | complete | `cargo test --workspace --all-targets`; Q013 ASCII/Unicode | Repository alphabet setting, observed Unicode pairs, equal 57 matches |
+| C13 | complete | `cargo test --workspace --all-targets`; Q070 indexed/reference | Folded custom extraction, bigrams, scanner, selected FTS |
 
 ## Decisions
 
@@ -61,6 +62,9 @@ query/build and restore revisions will establish their respective baselines.
   and skip postings. Alphabet choice changes candidate reduction only. The
   archived bigram implementation was inspected for semantics, but this new
   record-slot implementation does not copy its storage code.
+- `agents.name:folded` has a separate versioned transform registration and
+  folded bigram path. Q070 matched one record in both optimized and reference
+  modes; indexed verification parsed one record versus 4,010 in the reference.
 
 ## Measurements
 

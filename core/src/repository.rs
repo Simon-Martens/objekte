@@ -1,6 +1,6 @@
 //! Resident repository ownership and the independent scan execution path.
 
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
 
 use crate::bigram::BigramIndex;
@@ -8,9 +8,12 @@ use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, S
 use crate::model::{CollectionId, RecordId};
 use crate::posting::PostingCollection;
 use crate::query::Query;
-use crate::reference::{RecordContext, Schema, bind_filter, eval_filter, eval_fts};
-use crate::source::{SourceFormat, extract_file, read_record_range, reader};
+use crate::reference::{
+    RecordContext, Schema, Transform, bind_filter, data_values, eval_filter, eval_fts_query,
+};
+use crate::source::{SourceFormat, TextSegment, extract_file, read_record_range, reader};
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
+use unicode_casefold::UnicodeCaseFold;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
@@ -32,6 +35,7 @@ pub struct CollectionState {
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
     pub raw: BigramIndex,
+    pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
 }
 pub struct Repository {
     pub files: FileInventory,
@@ -143,6 +147,12 @@ impl Repository {
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
             let mut raw = BigramIndex::new(options.bigram_alphabet);
+            let mut custom_text: HashMap<_, _> = definition
+                .schema
+                .custom
+                .keys()
+                .map(|key| (key.clone(), BigramIndex::new(options.bigram_alphabet)))
+                .collect();
             for file_id in member_files {
                 builder.include_file(file_id)?;
                 let file = &files.files[file_id.0 as usize];
@@ -163,6 +173,33 @@ impl Repository {
                     let slot = builder.add_record(file, record_id, range.start, range.end)?;
                     postings.add(slot, &extracted.value)?;
                     raw.add_record(slot, &extracted.text)?;
+                    for (key, index) in &mut custom_text {
+                        let binding = &definition.schema.custom[key];
+                        let mut segments = Vec::new();
+                        if let Some(values) = data_values(&extracted.value, &key.0) {
+                            for value in values {
+                                let values: Vec<_> =
+                                    if let crate::model::Value::Array(array) = value {
+                                        array.values.iter().collect()
+                                    } else {
+                                        vec![value]
+                                    };
+                                for value in values {
+                                    if let crate::model::Value::String(text) = value {
+                                        let text = match binding.transform {
+                                            Transform::Identity => text.clone(),
+                                            Transform::CaseFold => text.case_fold().collect(),
+                                        };
+                                        segments.push(TextSegment {
+                                            path: key.0.clone(),
+                                            text,
+                                        });
+                                    }
+                                }
+                            }
+                        }
+                        index.add_record(slot, &segments)?;
+                    }
                     Ok(())
                 })?;
                 build_parses += stats.record_parses;
@@ -170,11 +207,15 @@ impl Repository {
             let generation = builder.finish(&files)?;
             postings.validate(generation.records.len())?;
             raw.validate(generation.records.len())?;
+            for index in custom_text.values() {
+                index.validate(generation.records.len())?;
+            }
             collections.push(CollectionState {
                 definition,
                 generation,
                 postings,
                 raw,
+                custom_text,
             });
         }
         Ok(Self {
@@ -204,17 +245,22 @@ impl Repository {
                 .as_ref()
                 .map(|f| bind_filter(f, &collection.definition.schema))
                 .transpose()?;
-            let mut fields = Vec::new();
             if let Some(fts) = &query.fts {
                 for field in &fts.fields {
-                    if field.binding.is_some() {
-                        return Err("selected custom FTS binding is not implemented in the reference CLI stage".into());
-                    }
                     collection.definition.schema.field(&field.path)?;
-                    fields.push(field.path.clone());
+                    if let Some(name) = &field.binding {
+                        if !collection
+                            .definition
+                            .schema
+                            .custom
+                            .contains_key(&(field.path.segments.clone(), name.clone()))
+                        {
+                            return Err(format!("unknown FTS binding {name}"));
+                        }
+                    }
                 }
             }
-            bound.push((collection, filter, fields));
+            bound.push((collection, filter));
         }
         if bound.is_empty() {
             return Err("unknown or unloaded collection scope".into());
@@ -233,7 +279,7 @@ impl Repository {
             prepared_plan_hit: false,
             verified_result_hit: false,
         };
-        for (collection, filter, fields) in bound {
+        for (collection, filter) in bound {
             for record in &collection.generation.records {
                 let file = &self.files.files[record.file.0 as usize];
                 let path = self
@@ -254,9 +300,19 @@ impl Repository {
                     repository_root: &self.files.root,
                 };
                 let mut evidence = HashSet::new();
-                let fts_match = query.fts.as_ref().is_none_or(|fts| {
-                    eval_fts(&fts.literal, &fields, &extracted.text, &mut evidence)
-                });
+                let fts_match = query
+                    .fts
+                    .as_ref()
+                    .map(|fts| {
+                        eval_fts_query(
+                            fts,
+                            &collection.definition.schema,
+                            &extracted.text,
+                            &mut evidence,
+                        )
+                    })
+                    .transpose()?
+                    .unwrap_or(true);
                 let filter_match = filter
                     .as_ref()
                     .map(|f| eval_filter(f, &ctx, &mut evidence))

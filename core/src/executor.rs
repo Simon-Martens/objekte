@@ -3,11 +3,13 @@
 use std::collections::{BTreeMap, HashSet};
 
 use roaring::RoaringBitmap;
+use unicode_casefold::UnicodeCaseFold;
 
 use crate::model::{PathRoot, Value};
-use crate::query::{Operator, Query};
+use crate::query::{FtsQuery, Operator, Query};
 use crate::reference::{
-    BoundExpr, BoundTerm, Derived, RecordContext, bind_filter, eval_filter, eval_fts, eval_term,
+    BoundExpr, BoundTerm, Derived, RecordContext, Transform, bind_filter, eval_filter,
+    eval_fts_query, eval_term,
 };
 use crate::repository::{CollectionState, Repository, SearchHit, SearchResult};
 use crate::source::{read_record_range, reader};
@@ -62,9 +64,8 @@ fn plan_expr(
 ) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let candidates = term_set(repo, collection, term, domain)?;
-            let exact = candidates.is_some();
-            let proofs = candidates
+            let exact_candidates = term_set(repo, collection, term, domain)?;
+            let proofs = exact_candidates
                 .as_ref()
                 .map(|set| {
                     vec![Proof {
@@ -73,6 +74,12 @@ fn plan_expr(
                     }]
                 })
                 .unwrap_or_default();
+            let exact = exact_candidates.is_some();
+            let candidates = if exact {
+                exact_candidates
+            } else {
+                custom_candidates(collection, term)
+            };
             Plan {
                 candidates,
                 exact,
@@ -111,16 +118,17 @@ fn plan_expr(
                 .iter()
                 .map(|p| plan_expr(repo, collection, p, domain))
                 .collect::<Result<Vec<_>, _>>()?;
-            if children.iter().all(|p| p.exact) {
+            if children.iter().all(|p| p.candidates.is_some()) {
                 let mut candidates = RoaringBitmap::new();
                 let mut proofs = Vec::new();
+                let exact = children.iter().all(|p| p.exact);
                 for child in children {
                     candidates |= child.candidates.unwrap();
                     proofs.extend(child.proofs);
                 }
                 Plan {
                     candidates: Some(candidates),
-                    exact: true,
+                    exact,
                     proofs,
                 }
             } else {
@@ -150,6 +158,49 @@ fn plan_expr(
     })
 }
 
+fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
+    if term.derived != Derived::None || !matches!(term.operator, Operator::Contains | Operator::Eq)
+    {
+        return None;
+    }
+    if matches!(term.binding_name.as_str(), "default" | "lower") {
+        return None;
+    }
+    let Value::String(literal) = &term.literal else {
+        return None;
+    };
+    if literal.contains(['%', '\\']) {
+        return None;
+    }
+    collection
+        .custom_text
+        .get(&(term.path.segments.clone(), term.binding_name.clone()))?
+        .candidates(literal)
+}
+
+fn fts_candidates(collection: &CollectionState, fts: &FtsQuery) -> Option<RoaringBitmap> {
+    if fts.fields.is_empty() {
+        return collection.raw.candidates(&fts.literal);
+    }
+    let mut union = RoaringBitmap::new();
+    for field in &fts.fields {
+        let candidates = if let Some(name) = &field.binding {
+            let key = (field.path.segments.clone(), name.clone());
+            let binding = collection.definition.schema.custom.get(&key)?;
+            let literal = if binding.transform == Transform::CaseFold {
+                fts.literal.case_fold().collect::<String>()
+            } else {
+                fts.literal.clone()
+            };
+            collection.custom_text.get(&key)?.candidates(&literal)?
+        } else {
+            collection.raw.candidates(&fts.literal)?
+        };
+        union |= candidates;
+    }
+    Some(union)
+}
+
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
     if !query.options.sort.is_empty() {
         return Err("sorting is not implemented yet".into());
@@ -169,24 +220,29 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             .as_ref()
             .map(|f| bind_filter(f, &collection.definition.schema))
             .transpose()?;
-        let mut fields = Vec::new();
         if let Some(fts) = &query.fts {
             for field in &fts.fields {
-                if field.binding.is_some() {
-                    return Err("selected FTS binding is not implemented yet".into());
-                }
                 collection.definition.schema.field(&field.path)?;
-                fields.push(field.path.clone());
+                if let Some(name) = &field.binding {
+                    if !collection
+                        .definition
+                        .schema
+                        .custom
+                        .contains_key(&(field.path.segments.clone(), name.clone()))
+                    {
+                        return Err(format!("unknown FTS binding {name}"));
+                    }
+                }
             }
         }
-        bound.push((collection, filter, fields));
+        bound.push((collection, filter));
     }
     if bound.is_empty() {
         return Err("unknown or unloaded collection scope".into());
     }
     let mut hits = Vec::new();
     let mut counters = WorkCounters::default();
-    for (collection, filter, fields) in bound {
+    for (collection, filter) in bound {
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
         let plan = filter
             .as_ref()
@@ -199,8 +255,8 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             });
         let mut candidates = plan.candidates.unwrap_or(domain);
         if let Some(fts) = &query.fts {
-            if let Some(raw_candidates) = collection.raw.candidates(&fts.literal) {
-                candidates &= raw_candidates;
+            if let Some(text_candidates) = fts_candidates(collection, fts) {
+                candidates &= text_candidates;
             }
         }
         counters.candidates += candidates.len();
@@ -227,9 +283,19 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                     collection_name: &collection.definition.name,
                     repository_root: &repo.files.root,
                 };
-                let fts_match = query.fts.as_ref().is_none_or(|fts| {
-                    eval_fts(&fts.literal, &fields, &extracted.text, &mut evidence)
-                });
+                let fts_match = query
+                    .fts
+                    .as_ref()
+                    .map(|fts| {
+                        eval_fts_query(
+                            fts,
+                            &collection.definition.schema,
+                            &extracted.text,
+                            &mut evidence,
+                        )
+                    })
+                    .transpose()?
+                    .unwrap_or(true);
                 let filter_match = filter
                     .as_ref()
                     .map(|f| eval_filter(f, &ctx, &mut evidence))
@@ -290,8 +356,8 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
 mod tests {
     use super::*;
     use crate::model::LogicalType;
-    use crate::query::{QueryOptions, parse_filter};
-    use crate::reference::FieldDefinition;
+    use crate::query::{FtsField, FtsQuery, QueryOptions, parse_filter};
+    use crate::reference::{CustomBinding, FieldDefinition, Transform};
     use crate::repository::{CollectionDefinition, IdentityPolicy};
     use crate::source::SourceFormat;
 
@@ -324,6 +390,16 @@ mod tests {
                 })
                 .unwrap();
         }
+        schema
+            .register_custom(
+                vec!["text".into()],
+                CustomBinding {
+                    name: "folded".into(),
+                    version: 1,
+                    transform: Transform::CaseFold,
+                },
+            )
+            .unwrap();
         let repo = Repository::open(
             &root,
             vec![CollectionDefinition {
@@ -389,6 +465,25 @@ mod tests {
         assert_eq!(
             optimized.count,
             repo.search_reference(&disjunction).unwrap().count
+        );
+        let folded = Query {
+            collections: vec![],
+            fts: Some(FtsQuery {
+                literal: "NEEDLE".into(),
+                fields: vec![FtsField {
+                    path: crate::model::FieldPath::parse("text").unwrap(),
+                    binding: Some("folded".into()),
+                }],
+            }),
+            filter: None,
+            options: query.options.clone(),
+        };
+        let optimized = repo.search(&folded).unwrap();
+        assert_eq!(optimized.count, 2);
+        assert_eq!(optimized.counters.record_parses, 2);
+        assert_eq!(
+            optimized.count,
+            repo.search_reference(&folded).unwrap().count
         );
         std::fs::remove_dir_all(root).unwrap();
     }

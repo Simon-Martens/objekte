@@ -8,7 +8,7 @@ use unicode_casefold::UnicodeCaseFold;
 
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
-use crate::query::{FilterExpr, Literal, Modifier, Operator, Quantifier, Term};
+use crate::query::{FilterExpr, FtsQuery, Literal, Modifier, Operator, Quantifier, Term};
 use crate::source::TextSegment;
 
 #[derive(Clone, Debug)]
@@ -586,6 +586,50 @@ pub fn eval_fts(
         }
     }
     matched
+}
+
+pub fn eval_fts_query(
+    fts: &FtsQuery,
+    schema: &Schema,
+    segments: &[TextSegment],
+    evidence: &mut HashSet<String>,
+) -> Result<bool, String> {
+    if fts.fields.is_empty() {
+        return Ok(eval_fts(&fts.literal, &[], segments, evidence));
+    }
+    let mut matched = false;
+    for field in &fts.fields {
+        let definition = schema.field(&field.path)?;
+        if !matches!(definition.kind, LogicalType::String | LogicalType::Array(_)) {
+            return Err("FTS field requires string values".into());
+        }
+        let transform = if let Some(name) = &field.binding {
+            schema
+                .custom
+                .get(&(field.path.segments.clone(), name.clone()))
+                .ok_or_else(|| format!("unknown FTS binding {name}"))?
+                .transform
+        } else {
+            Transform::Identity
+        };
+        let needle = if transform == Transform::CaseFold {
+            fts.literal.case_fold().collect::<String>()
+        } else {
+            fts.literal.clone()
+        };
+        for segment in segments.iter().filter(|s| s.path == field.path.segments) {
+            let value = if transform == Transform::CaseFold {
+                segment.text.case_fold().collect::<String>()
+            } else {
+                segment.text.clone()
+            };
+            if value.contains(&needle) {
+                matched = true;
+                evidence.insert(field.path.display());
+            }
+        }
+    }
+    Ok(matched)
 }
 
 #[cfg(test)]
