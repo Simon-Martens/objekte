@@ -10,7 +10,11 @@ use objekte_core::{
 };
 use objekte_extension_tests::{MarkdownDecoder, MarkdownProvider};
 use serde_json::{Value, json};
-use std::{env, fs, path::Path, time::Instant};
+use std::{
+    env, fs,
+    path::Path,
+    time::{Duration, Instant, SystemTime},
+};
 
 
 struct Expanded(Descriptor);
@@ -99,6 +103,14 @@ fn open(root: &Path, budget_mib: usize, indexed: bool) -> Result<Repository> {
 }
 
 fn fixture(root: &Path) -> std::io::Result<()> {
+    fn write_source(path: &Path, bytes: &[u8]) -> std::io::Result<()> {
+        fs::write(path, bytes)?;
+        let fixed = SystemTime::UNIX_EPOCH + Duration::from_secs(1_600_000_000);
+        fs::File::options()
+            .write(true)
+            .open(path)?
+            .set_times(fs::FileTimes::new().set_modified(fixed))
+    }
     for name in ["docs", "native"] {
         fs::create_dir_all(root.join(format!("data/{name}")))?;
         fs::create_dir_all(root.join(".objekte/collections"))?;
@@ -125,13 +137,13 @@ fn fixture(root: &Path) -> std::io::Result<()> {
                 "ordinary catalog entry"
             };
             let record = json!({"body":body,"year":if index == 7 {1848} else {1850}});
-            fs::write(
-                root.join(format!("data/{name}/{index:04}.json")),
-                serde_json::to_vec(&record)?,
+            write_source(
+                &root.join(format!("data/{name}/{index:04}.json")),
+                &serde_json::to_vec(&record)?,
             )?;
         }
     }
-    fs::write(root.join("data/docs/extra.md"), "a rare MS witness")?;
+    write_source(&root.join("data/docs/extra.md"), b"a rare MS witness")?;
     Ok(())
 }
 
@@ -276,38 +288,70 @@ fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
             ),
         ),
     ];
-    for (_, request) in &text_cases {
-        let expected = direct.search_text(request)?;
-        let actual = indexed.search_text(request)?;
+    for (name, request) in &text_cases {
+        let complete = TextQuery {
+            limit: 2000,
+            ..request.clone()
+        };
+        let expected = direct.search_text(&complete)?;
+        let actual = indexed.search_text(&complete)?;
         assert_eq!(expected.total, actual.total);
         assert_eq!(
             expected
                 .hits
                 .iter()
-                .map(|hit| (&hit.record.collection, &hit.record.id))
+                .map(|hit| (
+                    &hit.record.collection,
+                    &hit.record.id,
+                    &hit.fields,
+                    &hit.matched_paths,
+                    &hit.matched_definitions
+                ))
                 .collect::<Vec<_>>(),
             actual
                 .hits
                 .iter()
-                .map(|hit| (&hit.record.collection, &hit.record.id))
+                .map(|hit| (
+                    &hit.record.collection,
+                    &hit.record.id,
+                    &hit.fields,
+                    &hit.matched_paths,
+                    &hit.matched_definitions
+                ))
                 .collect::<Vec<_>>()
         );
+        println!(
+            "{}",
+            json!({"case":"signature","query":name,"cache_mib":budget,
+            "total":actual.total,"ids":actual.hits.iter()
+                .map(|hit| (&hit.record.collection,&hit.record.id)).collect::<Vec<_>>()})
+        );
     }
-    for (_, request) in &json_cases {
-        let expected = direct.query_json(request)?;
-        let actual = indexed.query_json(request)?;
+    for (name, request) in &json_cases {
+        let complete = JsonQuery {
+            limit: 2000,
+            ..request.clone()
+        };
+        let expected = direct.query_json(&complete)?;
+        let actual = indexed.query_json(&complete)?;
         assert_eq!(expected.total, actual.total);
         assert_eq!(
             expected
                 .records
                 .iter()
-                .map(|record| (&record.collection, &record.id))
+                .map(|record| (&record.collection, &record.id, &record.data))
                 .collect::<Vec<_>>(),
             actual
                 .records
                 .iter()
-                .map(|record| (&record.collection, &record.id))
+                .map(|record| (&record.collection, &record.id, &record.data))
                 .collect::<Vec<_>>()
+        );
+        println!(
+            "{}",
+            json!({"case":"signature","query":name,"cache_mib":budget,
+            "total":actual.total,"ids":actual.records.iter()
+                .map(|record| (&record.collection,&record.id)).collect::<Vec<_>>()})
         );
     }
     for round in 0..rounds {
