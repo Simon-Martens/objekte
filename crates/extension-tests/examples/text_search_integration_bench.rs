@@ -147,6 +147,20 @@ fn fixture(root: &Path) -> std::io::Result<()> {
     Ok(())
 }
 
+fn directory_bytes(path: &Path) -> std::io::Result<u64> {
+    let mut bytes = 0_u64;
+    for entry in fs::read_dir(path)? {
+        let entry = entry?;
+        let metadata = entry.metadata()?;
+        bytes += if metadata.is_dir() {
+            directory_bytes(&entry.path())?
+        } else {
+            metadata.len()
+        };
+    }
+    Ok(bytes)
+}
+
 fn text(pattern: &str, search: &str, sorted: bool) -> TextQuery {
     TextQuery {
         pattern: pattern.into(),
@@ -212,6 +226,7 @@ fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     let build_ms = started.elapsed().as_secs_f64() * 1000.0;
     indexed.save_bigram_cache("docs")?;
     indexed.save_bigram_cache("native")?;
+    let snapshot_bytes = directory_bytes(&directory.path().join(".objekte/.cache"))?;
     drop(indexed);
     let started = Instant::now();
     let mut indexed = open(directory.path(), budget, true)?;
@@ -222,7 +237,7 @@ fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {
     println!(
         "{}",
         json!({"case":"setup","cache_mib":budget,"build_ms":build_ms,
-        "restore_ms":restore_ms,
+        "restore_ms":restore_ms,"snapshot_bytes":snapshot_bytes,
         "sources_per_collection":512,"custom_sources":1})
     );
     let text_cases = [
