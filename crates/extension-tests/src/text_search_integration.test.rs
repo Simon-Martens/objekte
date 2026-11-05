@@ -1,7 +1,7 @@
 use super::*;
 use objekte_core::{
     CacheMode, Direction, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
-    TextFieldSelector, TextQuery,
+    TextFieldSelector, TextQuery, TextSearchOptions,
     extensions::{TextComparison, TextPreparation, TextSearchDefinition},
 };
 use std::path::Path;
@@ -167,6 +167,39 @@ fn ordinary_text_query_uses_independent_representation_postings() {
         "{:?}",
         actual_regex.query_plan
     );
+    let case_request = TextQuery {
+        pattern: "MANUSCRIPT".into(),
+        fields: Some(vec![TextFieldSelector::with_search("body", "markdown")]),
+        search_options: TextSearchOptions {
+            case_sensitive: Some(true),
+            ..Default::default()
+        },
+        ..request.clone()
+    };
+    assert_eq!(indexed.search_text(&case_request).unwrap().total, Some(0));
+    let mut target_override = case_request.clone();
+    target_override.fields = Some(vec![
+        TextFieldSelector::with_search("body", "markdown").with_options(TextSearchOptions {
+            case_sensitive: Some(false),
+            ..Default::default()
+        }),
+    ]);
+    let encoded = serde_json::to_value(&target_override).unwrap();
+    assert_eq!(encoded["fields"][0]["case_sensitive"], false);
+    let target_override: TextQuery = serde_json::from_value(encoded).unwrap();
+    assert_eq!(
+        indexed.search_text(&target_override).unwrap().total,
+        Some(1)
+    );
+    let mut json_case = JsonQuery {
+        filter: "body:markdown ~ 'MANUSCRIPT'".into(),
+        count: true,
+        ..Default::default()
+    };
+    json_case.fts.case_sensitive = true;
+    assert_eq!(indexed.query_json(&json_case).unwrap().total, Some(0));
+    json_case.fts.search_options.case_sensitive = Some(false);
+    assert_eq!(indexed.query_json(&json_case).unwrap().total, Some(1));
     let ids = |result: &objekte_core::TextQueryResult| {
         result
             .hits
@@ -377,6 +410,31 @@ fn explicit_unconfigured_text_build_keeps_cardinality_safety_and_candidates() {
     };
     let mut direct = open(root.path(), CacheMode::Disabled);
     let expected = direct.query_json(&request).unwrap();
+    let plain = TextQuery {
+        pattern: "RARE".into(),
+        case_sensitive: true,
+        fields: Some(vec![TextFieldSelector::new("body")]),
+        count: true,
+        ..Default::default()
+    };
+    assert_eq!(direct.search_text(&plain).unwrap().total, Some(0));
+    let folded = TextQuery {
+        search_options: TextSearchOptions {
+            case_sensitive: Some(false),
+            ..Default::default()
+        },
+        ..plain.clone()
+    };
+    assert_eq!(direct.search_text(&folded).unwrap().total, Some(1));
+    let regex = TextQuery {
+        pattern: "rare.*witness".into(),
+        search_options: TextSearchOptions {
+            syntax: Some(objekte_core::extensions::TextSyntax::Regex),
+            ..Default::default()
+        },
+        ..plain
+    };
+    assert_eq!(direct.search_text(&regex).unwrap().total, Some(1));
     let mut indexed = open(root.path(), CacheMode::Memory);
     indexed
         .build_text_search_index("docs", "abbreviations", "body")

@@ -19,6 +19,10 @@ use std::sync::Arc;
 pub struct FtsOptions {
     pub mode: TextMode,
     pub case_sensitive: bool,
+    /// Explicit options for registered definitions. Legacy mode and case
+    /// remain the fallback when these are absent.
+    #[serde(skip_serializing_if = "crate::TextSearchOptions::is_default")]
+    pub search_options: crate::TextSearchOptions,
 }
 
 
@@ -290,11 +294,15 @@ fn bind_registered_expr(
                 ));
             };
             let options = pattern.options();
-            let syntax = if options.mode == TextMode::Regex {
-                TextSyntax::Regex
-            } else {
-                TextSyntax::Literal
-            };
+            let syntax =
+                options
+                    .search_options
+                    .syntax
+                    .unwrap_or(if options.mode == TextMode::Regex {
+                        TextSyntax::Regex
+                    } else {
+                        TextSyntax::Literal
+                    });
             if options.mode == TextMode::WordRaw {
                 return Err(Error::Request(
                     "raw-word mode conflicts with a selected text definition".into(),
@@ -304,8 +312,11 @@ fn bind_registered_expr(
                 pattern: pattern.pattern().into(),
                 comparison,
                 syntax,
-                case_sensitive: (*ignore_case || options.case_sensitive)
-                    .then_some(options.case_sensitive),
+                case_sensitive: options
+                    .search_options
+                    .case_sensitive
+                    .or_else(|| options.case_sensitive.then_some(true))
+                    .or_else(|| (*ignore_case).then_some(false)),
             };
             let path = crate::json_filter::format_path(&field.path);
             let binding = registry.bind_text_definition(collection, &path, explicit, &request)?;

@@ -39,6 +39,7 @@ pub use config_snapshot::{
     ConfigurationChangeKind, ConfigurationChanges, ConfigurationInputChange,
 };
 pub use error::{Error, Result};
+pub use extensions::TextSearchOptions;
 pub use graph::{CollectionGraph, CollectionRelation};
 pub use inference::{
     CollectionInference, FieldInference, InferOptions, InferenceReport, InferredKind, InferredLink,

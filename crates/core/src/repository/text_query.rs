@@ -2,7 +2,7 @@
 
 use super::*;
 use crate::extensions::{
-    BoundTextQuery, CandidateConstraint, NativeTextProjection, TextPreparation,
+    BoundTextQuery, CandidateConstraint, NativeTextProjection, TextPreparation, TextSyntax,
 };
 use crate::file_picker::SlotSelection;
 use crate::repository::{
@@ -32,11 +32,11 @@ struct TextScanOutcome {
 
 impl Repository {
     fn text_definition_scope(&self, request: &TextQuery, names: &[String]) -> Result<bool> {
-        if request
-            .fields
-            .as_ref()
-            .is_some_and(|fields| fields.iter().any(|field| field.search().is_some()))
-        {
+        if request.fields.as_ref().is_some_and(|fields| {
+            fields
+                .iter()
+                .any(|field| field.search().is_some() || !field.options().is_default())
+        }) {
             return Ok(true);
         }
         Ok(names
@@ -415,6 +415,21 @@ impl Repository {
 
     fn normalized_filter_sort(request: &TextQuery) -> Result<TextQuery> {
         let mut request = request.clone();
+        // Keep the concrete legacy matcher in sync with explicit request
+        // options when no registered definition is bound for a field. The
+        // options themselves remain available to per-field definition binding.
+        if let Some(syntax) = request.search_options.syntax {
+            request.mode = match syntax {
+                TextSyntax::Literal if request.mode == crate::TextMode::WordRaw => {
+                    crate::TextMode::WordRaw
+                }
+                TextSyntax::Literal => crate::TextMode::Word,
+                TextSyntax::Regex => crate::TextMode::Regex,
+            };
+        }
+        if let Some(case_sensitive) = request.search_options.case_sensitive {
+            request.case_sensitive = case_sensitive;
+        }
         if let Some(filter) = request.filter.as_ref() {
             let (predicate, inline) = split_sort_clause(filter)?;
             if !inline.is_empty() && !request.sort.is_empty() {
@@ -481,6 +496,7 @@ impl Repository {
                     crate::FtsOptions {
                         mode: request.mode,
                         case_sensitive: request.case_sensitive,
+                        search_options: request.search_options,
                     },
                 )
             })

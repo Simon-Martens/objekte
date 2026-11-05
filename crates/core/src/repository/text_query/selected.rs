@@ -13,6 +13,25 @@ use crate::{
 
 type SelectedHitCallback<'a> = dyn FnMut(usize, &TextHit) -> Result<()> + 'a;
 
+fn definition_request(request: &TextQuery, target: crate::TextSearchOptions) -> TextCompileRequest {
+    let syntax = target.syntax.or(request.search_options.syntax).unwrap_or(
+        if request.mode == crate::TextMode::Regex {
+            TextSyntax::Regex
+        } else {
+            TextSyntax::Literal
+        },
+    );
+    TextCompileRequest {
+        pattern: request.pattern.clone(),
+        comparison: TextComparison::Contains,
+        syntax,
+        case_sensitive: target
+            .case_sensitive
+            .or(request.search_options.case_sensitive)
+            .or_else(|| (syntax != TextSyntax::Regex && request.case_sensitive).then_some(true)),
+    }
+}
+
 
 /// Sources and field scope needed for one selected-record verification.
 struct SelectedMatchScope<'a, 'b> {
@@ -103,7 +122,7 @@ impl Repository {
                 let parsed = crate::text::parse_text_path(field.path())?;
                 let declared = crate::schema::field_at_path(&collection.fields, &parsed)
                     .is_some_and(|field| field.text_search.is_some());
-                if field.search().is_none() && !declared {
+                if field.search().is_none() && !declared && field.options().is_default() {
                     continue;
                 }
                 if request.mode == crate::TextMode::WordRaw {
@@ -112,21 +131,12 @@ impl Repository {
                     ));
                 }
                 let canonical = crate::repository::extension_index::binding_path(&parsed);
-                let request = TextCompileRequest {
-                    pattern: request.pattern.clone(),
-                    comparison: TextComparison::Contains,
-                    syntax: if request.mode == crate::TextMode::Regex {
-                        TextSyntax::Regex
-                    } else {
-                        TextSyntax::Literal
-                    },
-                    case_sensitive: request.case_sensitive.then_some(true),
-                };
+                let compiled = definition_request(request, field.options());
                 let bound = extensions.bind_text_definition(
                     collection,
                     field.path(),
                     field.search(),
-                    &request,
+                    &compiled,
                 )?;
                 let bindings: &mut Vec<BoundTextQuery> = selected.entry(canonical).or_default();
                 if !bindings
@@ -143,21 +153,12 @@ impl Repository {
                         "configured text definition conflicts with raw-word mode".into(),
                     ));
                 }
-                let request = TextCompileRequest {
-                    pattern: request.pattern.clone(),
-                    comparison: TextComparison::Contains,
-                    syntax: if request.mode == crate::TextMode::Regex {
-                        TextSyntax::Regex
-                    } else {
-                        TextSyntax::Literal
-                    },
-                    case_sensitive: request.case_sensitive.then_some(true),
-                };
+                let compiled = definition_request(request, crate::TextSearchOptions::default());
                 let parsed = JsonFilter::parse_path(&path)?;
                 let canonical = crate::repository::extension_index::binding_path(&parsed);
                 selected.insert(
                     canonical,
-                    vec![extensions.bind_text_definition(collection, &path, None, &request)?],
+                    vec![extensions.bind_text_definition(collection, &path, None, &compiled)?],
                 );
             }
         }
@@ -507,6 +508,7 @@ impl Repository {
                     crate::FtsOptions {
                         mode: request.mode,
                         case_sensitive: request.case_sensitive,
+                        search_options: request.search_options,
                     },
                 )
             })
@@ -1139,7 +1141,5 @@ impl Repository {
             pending,
             returned,
         ))
-
-
     }
 }

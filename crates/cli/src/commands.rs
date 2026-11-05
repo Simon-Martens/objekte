@@ -277,6 +277,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
             request.fts = objekte_core::FtsOptions {
                 mode: text_mode(&get("--mode", "word"))?,
                 case_sensitive: a.flags.contains("--case-sensitive"),
+                search_options: Default::default(),
             };
             if output == "events" {
                 let stdout = std::io::stdout();
@@ -349,6 +350,7 @@ pub(super) fn run() -> Result<(), Box<dyn std::error::Error>> {
                 parameters: a.parameters.clone(),
                 mode,
                 case_sensitive: a.flags.contains("--case-sensitive"),
+                search_options: Default::default(),
                 collections: collection.map(|name| vec![name.clone()]),
                 fields: a
                     .values

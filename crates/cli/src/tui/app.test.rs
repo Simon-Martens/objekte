@@ -67,7 +67,6 @@ fn screen(app: &App<'_>, width: u16, height: u16) -> Vec<String> {
         .collect()
 }
 
-
 #[test]
 fn typing_searches_after_a_pause_not_on_every_key() {
     let (_temp, mut repo) = repository(5);
@@ -383,6 +382,7 @@ fn regex_disables_case_and_markup_options_for_search_and_fts() {
         FtsOptions {
             mode: TextMode::WordRaw,
             case_sensitive: true,
+            search_options: Default::default(),
         }
     );
     app.toggle_regex();

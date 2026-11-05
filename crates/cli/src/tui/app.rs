@@ -1215,6 +1215,7 @@ impl<'a> App<'a> {
                 (false, Representation::Full) => TextMode::WordRaw,
             },
             case_sensitive: self.case_sensitive,
+            search_options: Default::default(),
         }
     }
 

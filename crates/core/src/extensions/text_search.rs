@@ -23,6 +23,25 @@ pub enum TextSyntax {
 }
 
 
+/// Explicit search settings. `None` preserves the next lower-precedence
+/// setting; `Some(false)` is an intentional override, not an omission.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct TextSearchOptions {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub syntax: Option<TextSyntax>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub case_sensitive: Option<bool>,
+}
+
+
+impl TextSearchOptions {
+    pub fn is_default(&self) -> bool {
+        self.syntax.is_none() && self.case_sensitive.is_none()
+    }
+}
+
+
 /// Parameters sent to a registered operator at binding, once per term.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct TextCompileRequest {

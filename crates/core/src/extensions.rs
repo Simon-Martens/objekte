@@ -36,7 +36,9 @@ pub use projection::{
 pub(crate) use projection::{BoundValueExtractor, DERIVED_PATH_PREFIX, is_derived_path};
 pub use query::{ExtensionBindings, LogicalPlan, LogicalPredicate, QueryFrontend};
 pub use source::{SourceDescriptor, SourceProvider};
-pub use text_search::{TextComparison, TextCompileRequest, TextSearchDefinition, TextSyntax};
+pub use text_search::{
+    TextComparison, TextCompileRequest, TextSearchDefinition, TextSearchOptions, TextSyntax,
+};
 
 mod builtins;
 pub use builtins::{

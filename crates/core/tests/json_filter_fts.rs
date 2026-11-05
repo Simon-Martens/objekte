@@ -477,6 +477,7 @@ fn fts_options_choose_normalized_stored_or_regex_matching() {
                     fts: FtsOptions {
                         mode,
                         case_sensitive,
+                        search_options: Default::default(),
                     },
                     ..Default::default()
                 })
@@ -555,6 +556,7 @@ fn fts_options_choose_normalized_stored_or_regex_matching() {
         fts: FtsOptions {
             mode: TextMode::Regex,
             case_sensitive: false,
+            search_options: Default::default(),
         },
         ..Default::default()
     });

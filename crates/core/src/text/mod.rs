@@ -77,6 +77,7 @@ pub enum TextMode {
 pub struct TextFieldSelector {
     path: String,
     search: Option<String>,
+    options: crate::TextSearchOptions,
 }
 
 
@@ -85,6 +86,7 @@ impl TextFieldSelector {
         Self {
             path: path.into(),
             search: None,
+            options: crate::TextSearchOptions::default(),
         }
     }
 
@@ -92,7 +94,17 @@ impl TextFieldSelector {
         Self {
             path: path.into(),
             search: Some(search.into()),
+            options: crate::TextSearchOptions::default(),
         }
+    }
+
+    pub fn with_options(mut self, options: crate::TextSearchOptions) -> Self {
+        self.options = options;
+        self
+    }
+
+    pub fn options(&self) -> crate::TextSearchOptions {
+        self.options
     }
 
     pub fn path(&self) -> &str {
@@ -153,6 +165,7 @@ impl TextFieldSelector {
         Ok(Self {
             path: path.into(),
             search,
+            options: crate::TextSearchOptions::default(),
         })
     }
 }
@@ -185,12 +198,24 @@ impl Serialize for TextFieldSelector {
         &self,
         serializer: S,
     ) -> std::result::Result<S::Ok, S::Error> {
-        match &self.search {
-            Some(search) => {
-                serde_json::json!({"path": self.path, "search": search}).serialize(serializer)
-            }
-            None => self.path.serialize(serializer),
+        if self.search.is_none() && self.options.is_default() {
+            return self.path.serialize(serializer);
         }
+        let mut value = serde_json::Map::new();
+        value.insert("path".into(), Value::String(self.path.clone()));
+        if let Some(search) = &self.search {
+            value.insert("search".into(), Value::String(search.clone()));
+        }
+        if let Some(syntax) = self.options.syntax {
+            value.insert(
+                "syntax".into(),
+                serde_json::to_value(syntax).expect("syntax serializes"),
+            );
+        }
+        if let Some(case) = self.options.case_sensitive {
+            value.insert("case_sensitive".into(), Value::Bool(case));
+        }
+        Value::Object(value).serialize(serializer)
     }
 }
 
@@ -203,13 +228,33 @@ impl<'de> Deserialize<'de> for TextFieldSelector {
         #[serde(untagged)]
         enum Form {
             Path(String),
-            Selected { path: String, search: String },
+            Selected {
+                path: String,
+                #[serde(default)]
+                search: Option<String>,
+                #[serde(default)]
+                syntax: Option<crate::extensions::TextSyntax>,
+                #[serde(default)]
+                case_sensitive: Option<bool>,
+            },
         }
 
 
         Ok(match Form::deserialize(deserializer)? {
             Form::Path(path) => Self::new(path),
-            Form::Selected { path, search } => Self::with_search(path, search),
+            Form::Selected {
+                path,
+                search,
+                syntax,
+                case_sensitive,
+            } => Self {
+                path,
+                search,
+                options: crate::TextSearchOptions {
+                    syntax,
+                    case_sensitive,
+                },
+            },
         })
     }
 }
@@ -227,6 +272,10 @@ pub struct TextQuery {
     pub parameters: BTreeMap<String, Value>,
     pub mode: TextMode,
     pub case_sensitive: bool,
+    /// Explicit request options override definition defaults. A target's
+    /// options override these; legacy mode/case fields remain adapters.
+    #[serde(skip_serializing_if = "crate::TextSearchOptions::is_default")]
+    pub search_options: crate::TextSearchOptions,
     pub collections: Option<Vec<String>>,
     /// Leaf paths such as `annotation` or `contributors[].note`.
     pub fields: Option<Vec<TextFieldSelector>>,
@@ -246,6 +295,7 @@ impl Default for TextQuery {
             parameters: BTreeMap::new(),
             mode: TextMode::Word,
             case_sensitive: false,
+            search_options: crate::TextSearchOptions::default(),
             collections: None,
             fields: None,
             limit: 50,
