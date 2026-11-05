@@ -1,0 +1,4936 @@
+{
+  "json-schema-ascii-cache0": {
+    "candidate_setup": {
+      "backend": "bigram",
+      "bigram_encoding": "ascii",
+      "cases": 152,
+      "collections": 7,
+      "count": true,
+      "index_warm_ms": 533.851045,
+      "page_limit": 1,
+      "query_cache_bytes": 0,
+      "runs": 7,
+      "schema_mode": "configured",
+      "secondary_loads": 7,
+      "snapshot_loads": 7,
+      "type": "setup"
+    },
+    "cases": [
+      {
+        "cache_hits_equal": true,
+        "id": 1,
+        "median_ms": {
+          "candidate_median": 10.73264,
+          "paired_deltas": [
+            -0.31318100000000015
+          ],
+          "reference_median": 11.045821
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 2,
+        "median_ms": {
+          "candidate_median": 115.965258,
+          "paired_deltas": [
+            -1.1198719999999867
+          ],
+          "reference_median": 117.08512999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation !~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 3,
+        "median_ms": {
+          "candidate_median": 20.157339999999998,
+          "paired_deltas": [
+            -0.3862280000000027
+          ],
+          "reference_median": 20.543568
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ :ignorecase('Mond')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 4,
+        "median_ms": {
+          "candidate_median": 123.79662900000001,
+          "paired_deltas": [
+            -0.7681109999999762
+          ],
+          "reference_median": 124.56473999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation !~ :ignorecase('Mond')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 5,
+        "median_ms": {
+          "candidate_median": 7.2519469999999995,
+          "paired_deltas": [
+            0.04001699999999975
+          ],
+          "reference_median": 7.21193
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(annotation)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 6,
+        "median_ms": {
+          "candidate_median": 2.861443,
+          "paired_deltas": [
+            0.008497000000000199
+          ],
+          "reference_median": 2.8529459999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = null",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 7,
+        "median_ms": {
+          "candidate_median": 3.511078,
+          "paired_deltas": [
+            -0.0012820000000002274
+          ],
+          "reference_median": 3.51236
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 8,
+        "median_ms": {
+          "candidate_median": 3.057412,
+          "paired_deltas": [
+            0.016719999999999846
+          ],
+          "reference_median": 3.040692
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year != 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 9,
+        "median_ms": {
+          "candidate_median": 2.994727,
+          "paired_deltas": [
+            -0.0020400000000000418
+          ],
+          "reference_median": 2.996767
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 10,
+        "median_ms": {
+          "candidate_median": 2.946361,
+          "paired_deltas": [
+            0.0016559999999996577
+          ],
+          "reference_median": 2.9447050000000004
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year < 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 11,
+        "median_ms": {
+          "candidate_median": 5.005281,
+          "paired_deltas": [
+            0.4254629999999997
+          ],
+          "reference_median": 4.579818
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 && year < 1805",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 12,
+        "median_ms": {
+          "candidate_median": 3.86554,
+          "paired_deltas": [
+            -0.15982299999999938
+          ],
+          "reference_median": 4.025363
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 || year = 1801",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 13,
+        "median_ms": {
+          "candidate_median": 4.557481,
+          "paired_deltas": [
+            0.2855509999999999
+          ],
+          "reference_median": 4.27193
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "pseudonym = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 14,
+        "median_ms": {
+          "candidate_median": 4.590358,
+          "paired_deltas": [
+            0.03661199999999987
+          ],
+          "reference_median": 4.553746
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "pseudonym = false",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 15,
+        "median_ms": {
+          "candidate_median": 53.459574,
+          "paired_deltas": [
+            -0.4470450000000028
+          ],
+          "reference_median": 53.906619000000006
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?~ 'Gedicht'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 16,
+        "median_ms": {
+          "candidate_median": 2.846104,
+          "paired_deltas": [
+            0.011133999999999755
+          ],
+          "reference_median": 2.83497
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 && pseudonym = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 17,
+        "median_ms": {
+          "candidate_median": 3.297132,
+          "paired_deltas": [
+            -0.008707000000000242
+          ],
+          "reference_median": 3.305839
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "(year = 1800 || year = 1801) && pseudonym = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 18,
+        "median_ms": {
+          "candidate_median": 7.123139,
+          "paired_deltas": [
+            -0.03383999999999965
+          ],
+          "reference_median": 7.156979
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "numbering = 0.1",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 19,
+        "median_ms": {
+          "candidate_median": 101.042533,
+          "paired_deltas": [
+            -1.1666330000000045
+          ],
+          "reference_median": 102.20916600000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "numbering < year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 20,
+        "median_ms": {
+          "candidate_median": 9.656173,
+          "paired_deltas": [
+            0.029334000000000415
+          ],
+          "reference_median": 9.626839
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ :ignorecase('almanach')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 21,
+        "median_ms": {
+          "candidate_median": 8.485204999999999,
+          "paired_deltas": [
+            -0.11443200000000076
+          ],
+          "reference_median": 8.599637
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 22,
+        "median_ms": {
+          "candidate_median": 102.122961,
+          "paired_deltas": [
+            -1.389247999999995
+          ],
+          "reference_median": 103.512209
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title !~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 23,
+        "median_ms": {
+          "candidate_median": 14.474844000000001,
+          "paired_deltas": [
+            0.1466700000000003
+          ],
+          "reference_median": 14.328174
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ :ignorecase('Taschen%')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 24,
+        "median_ms": {
+          "candidate_median": 10.731124,
+          "paired_deltas": [
+            -0.05280300000000082
+          ],
+          "reference_median": 10.783927
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title:lower ~ 'almanach'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 25,
+        "median_ms": {
+          "candidate_median": 12.234014,
+          "paired_deltas": [
+            0.21025200000000055
+          ],
+          "reference_median": 12.023762
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title = 'Der Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 26,
+        "median_ms": {
+          "candidate_median": 99.483718,
+          "paired_deltas": [
+            -0.6819250000000068
+          ],
+          "reference_median": 100.165643
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?!~ 'Gedicht'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 27,
+        "median_ms": {
+          "candidate_median": 7.598169,
+          "paired_deltas": [
+            -0.19908099999999962
+          ],
+          "reference_median": 7.79725
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "name ~ :ignorecase('Goethe')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 28,
+        "median_ms": {
+          "candidate_median": 2.724507,
+          "paired_deltas": [
+            -0.012350999999999779
+          ],
+          "reference_median": 2.736858
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "profession = 'Text'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 29,
+        "median_ms": {
+          "candidate_median": 2.708215,
+          "paired_deltas": [
+            0.14319799999999994
+          ],
+          "reference_median": 2.565017
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "corporate_body = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 30,
+        "median_ms": {
+          "candidate_median": 114.086996,
+          "paired_deltas": [
+            -1.0373850000000004
+          ],
+          "reference_median": 115.124381
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "created < updated",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 31,
+        "median_ms": {
+          "candidate_median": 20.23649,
+          "paired_deltas": [
+            -0.35190199999999905
+          ],
+          "reference_median": 20.588392
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "language ?= 'ger'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 32,
+        "median_ms": {
+          "candidate_median": 96.957003,
+          "paired_deltas": [
+            -0.623888000000008
+          ],
+          "reference_median": 97.58089100000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "language ?!= 'ger'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 33,
+        "median_ms": {
+          "candidate_median": 24.456866,
+          "paired_deltas": [
+            -0.3015549999999969
+          ],
+          "reference_median": 24.758421
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "language:each = 'ger'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 34,
+        "median_ms": {
+          "candidate_median": 9.396571,
+          "paired_deltas": [
+            0.05561099999999897
+          ],
+          "reference_median": 9.34096
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "items:length >= 1",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 35,
+        "median_ms": {
+          "candidate_median": 8.150718,
+          "paired_deltas": [
+            0.08757899999999985
+          ],
+          "reference_median": 8.063139
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry = '00fx8ln651na0e3'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 36,
+        "median_ms": {
+          "candidate_median": 3.944041,
+          "paired_deltas": [
+            0.024169000000000107
+          ],
+          "reference_median": 3.919872
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(entry)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 37,
+        "median_ms": {
+          "candidate_median": 12.180455,
+          "paired_deltas": [
+            0.14017199999999974
+          ],
+          "reference_median": 12.040283
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "places ?= 'd7kbujq7399g22j'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 38,
+        "median_ms": {
+          "candidate_median": 4.294855,
+          "paired_deltas": [
+            0.022397999999999918
+          ],
+          "reference_median": 4.272457
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "agents.type ?= 'Verlag'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 39,
+        "median_ms": {
+          "candidate_median": 9.558762,
+          "paired_deltas": [
+            0.07191299999999856
+          ],
+          "reference_median": 9.486849000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents ?= '5e64t7ca8x2wyim'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 40,
+        "median_ms": {
+          "candidate_median": 15.291391999999998,
+          "paired_deltas": [
+            0.25430199999999914
+          ],
+          "reference_median": 15.03709
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 41,
+        "median_ms": {
+          "candidate_median": 11.675428,
+          "paired_deltas": [
+            0.22292299999999976
+          ],
+          "reference_median": 11.452505
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.type ?= 'Autor:in'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 42,
+        "median_ms": {
+          "candidate_median": 112.848873,
+          "paired_deltas": [
+            -1.0301450000000045
+          ],
+          "reference_median": 113.879018
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors:length > 0",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 43,
+        "median_ms": {
+          "candidate_median": 6.471588000000001,
+          "paired_deltas": [
+            0.009635000000000282
+          ],
+          "reference_median": 6.461953
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries:length >= 3",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 44,
+        "median_ms": {
+          "candidate_median": 9.502320999999998,
+          "paired_deltas": [
+            0.013191999999998316
+          ],
+          "reference_median": 9.489129
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries ?= '1o25nw5kc1t9ko4'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 45,
+        "median_ms": {
+          "candidate_median": 32.378842999999996,
+          "paired_deltas": [
+            0.0029649999999961096
+          ],
+          "reference_median": 32.375878
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "owner = 'Theodor Springmann Stiftung' && basis = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 46,
+        "median_ms": {
+          "candidate_median": 9.197253,
+          "paired_deltas": [
+            -0.03943800000000053
+          ],
+          "reference_median": 9.236691
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "media ?= 'Reproduktion'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 47,
+        "median_ms": {
+          "candidate_median": 4.163534,
+          "paired_deltas": [
+            0.019163000000000707
+          ],
+          "reference_median": 4.144371
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "basis = false",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 48,
+        "median_ms": {
+          "candidate_median": 2.602222,
+          "paired_deltas": [
+            -0.02650599999999992
+          ],
+          "reference_median": 2.6287279999999997
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "fictional = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 49,
+        "median_ms": {
+          "candidate_median": 6.268369,
+          "paired_deltas": [
+            0.031352000000000046
+          ],
+          "reference_median": 6.237017
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "key = 'kontakt'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 50,
+        "median_ms": {
+          "candidate_median": 114.475644,
+          "paired_deltas": [
+            -1.2942059999999884
+          ],
+          "reference_median": 115.76984999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "data.description ~ 'Musenalm'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 51,
+        "median_ms": {
+          "candidate_median": 1.130458,
+          "paired_deltas": [
+            0.012882999999999978
+          ],
+          "reference_median": 1.117575
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@id ~ '0%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 52,
+        "median_ms": {
+          "candidate_median": 1.0560420000000001,
+          "paired_deltas": [
+            -0.0023439999999996797
+          ],
+          "reference_median": 1.0583859999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@id ~ 'z%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 53,
+        "median_ms": {
+          "candidate_median": 0.327468,
+          "paired_deltas": [
+            0.014455999999999969
+          ],
+          "reference_median": 0.313012
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@id = '00fx8ln651na0e3'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 54,
+        "median_ms": {
+          "candidate_median": 13.945835,
+          "paired_deltas": [
+            0.0415890000000001
+          ],
+          "reference_median": 13.904246
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename ~ '0%.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 55,
+        "median_ms": {
+          "candidate_median": 19.286002,
+          "paired_deltas": [
+            -0.38291200000000103
+          ],
+          "reference_median": 19.668914
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename ~ '%a.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 56,
+        "median_ms": {
+          "candidate_median": 2.484671,
+          "paired_deltas": [
+            -0.17718100000000003
+          ],
+          "reference_median": 2.661852
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename = '00fx8ln651na0e3.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 57,
+        "median_ms": {
+          "candidate_median": 0.27615700000000004,
+          "paired_deltas": [
+            0.0019280000000000408
+          ],
+          "reference_median": 0.274229
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/contents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 58,
+        "median_ms": {
+          "candidate_median": 0.328044,
+          "paired_deltas": [
+            0.0030870000000000064
+          ],
+          "reference_median": 0.324957
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/agents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 59,
+        "median_ms": {
+          "candidate_median": 0.258625,
+          "paired_deltas": [
+            0.003807999999999978
+          ],
+          "reference_median": 0.254817
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/pages/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 60,
+        "median_ms": {
+          "candidate_median": 21.752065,
+          "paired_deltas": [
+            -0.2698229999999988
+          ],
+          "reference_median": 22.021888
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ '%/00fx8ln651na0e3.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 61,
+        "median_ms": {
+          "candidate_median": 11.620280000000001,
+          "paired_deltas": [
+            -0.9903049999999993
+          ],
+          "reference_median": 12.610585
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size < 500B",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 62,
+        "median_ms": {
+          "candidate_median": 12.159603,
+          "paired_deltas": [
+            -0.9316129999999987
+          ],
+          "reference_median": 13.091216
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 63,
+        "median_ms": {
+          "candidate_median": 12.173181999999999,
+          "paired_deltas": [
+            -1.1940490000000015
+          ],
+          "reference_median": 13.367231
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 64,
+        "median_ms": {
+          "candidate_median": 11.733559,
+          "paired_deltas": [
+            -1.9850499999999993
+          ],
+          "reference_median": 13.718608999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size > 1.5KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 65,
+        "median_ms": {
+          "candidate_median": 11.973535,
+          "paired_deltas": [
+            -1.1168689999999994
+          ],
+          "reference_median": 13.090404
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size < 2KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 66,
+        "median_ms": {
+          "candidate_median": 12.625289,
+          "paired_deltas": [
+            -1.4279249999999983
+          ],
+          "reference_median": 14.053213999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1MB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 67,
+        "median_ms": {
+          "candidate_median": 18.458308,
+          "paired_deltas": [
+            -1.5680620000000012
+          ],
+          "reference_median": 20.02637
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1KB && @size < 2KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 68,
+        "median_ms": {
+          "candidate_median": 12.183553,
+          "paired_deltas": [
+            -1.5067850000000007
+          ],
+          "reference_median": 13.690338
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 4KiB && @size < 8KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 69,
+        "median_ms": {
+          "candidate_median": 11.661275999999999,
+          "paired_deltas": [
+            -1.3050330000000017
+          ],
+          "reference_median": 12.966309
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size = 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 70,
+        "median_ms": {
+          "candidate_median": 12.542069,
+          "paired_deltas": [
+            -0.7031730000000014
+          ],
+          "reference_median": 13.245242000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size != 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 71,
+        "median_ms": {
+          "candidate_median": 6.529209,
+          "paired_deltas": [
+            -0.6149720000000007
+          ],
+          "reference_median": 7.144181000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 72,
+        "median_ms": {
+          "candidate_median": 6.314262,
+          "paired_deltas": [
+            -0.6232870000000004
+          ],
+          "reference_median": 6.937549000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10-26",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 73,
+        "median_ms": {
+          "candidate_median": 6.399094,
+          "paired_deltas": [
+            -0.7741530000000001
+          ],
+          "reference_median": 7.173247
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 74,
+        "median_ms": {
+          "candidate_median": 6.2051229999999995,
+          "paired_deltas": [
+            -0.6155190000000008
+          ],
+          "reference_median": 6.820642
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified < 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 75,
+        "median_ms": {
+          "candidate_median": 6.317961,
+          "paired_deltas": [
+            -0.538494
+          ],
+          "reference_median": 6.856455
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified <= 2026-10-26",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 76,
+        "median_ms": {
+          "candidate_median": 6.378615,
+          "paired_deltas": [
+            -0.7156210000000005
+          ],
+          "reference_median": 7.094236
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified > 2026-10-26",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 77,
+        "median_ms": {
+          "candidate_median": 6.488975,
+          "paired_deltas": [
+            -0.5853520000000003
+          ],
+          "reference_median": 7.074327
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified >= 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 78,
+        "median_ms": {
+          "candidate_median": 6.256599,
+          "paired_deltas": [
+            -0.5779700000000005
+          ],
+          "reference_median": 6.834569
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified != 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 79,
+        "median_ms": {
+          "candidate_median": 6.582183000000001,
+          "paired_deltas": [
+            -0.06565200000000004
+          ],
+          "reference_median": 6.647835000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "2026-10-26 < @modified",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 80,
+        "median_ms": {
+          "candidate_median": 6.4911509999999994,
+          "paired_deltas": [
+            -0.43809500000000057
+          ],
+          "reference_median": 6.929246
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified >= 2026-10-26T14:50Z",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 81,
+        "median_ms": {
+          "candidate_median": 106.22387599999999,
+          "paired_deltas": [
+            -1.3504770000000121
+          ],
+          "reference_median": 107.574353
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created = null",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 82,
+        "median_ms": {
+          "candidate_median": 107.052447,
+          "paired_deltas": [
+            -0.552693000000005
+          ],
+          "reference_median": 107.60514
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created != null",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 83,
+        "median_ms": {
+          "candidate_median": 106.53972300000001,
+          "paired_deltas": [
+            -0.9851019999999977
+          ],
+          "reference_median": 107.524825
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created < 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 84,
+        "median_ms": {
+          "candidate_median": 106.74215099999999,
+          "paired_deltas": [
+            -1.0154500000000013
+          ],
+          "reference_median": 107.757601
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created >= 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 85,
+        "median_ms": {
+          "candidate_median": 106.29596500000001,
+          "paired_deltas": [
+            -1.2387229999999931
+          ],
+          "reference_median": 107.534688
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created < 9999-12",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 86,
+        "median_ms": {
+          "candidate_median": 106.137377,
+          "paired_deltas": [
+            -1.8322080000000085
+          ],
+          "reference_median": 107.96958500000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified < @created",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 87,
+        "median_ms": {
+          "candidate_median": 270.25674300000003,
+          "paired_deltas": [
+            -8.542367000000013
+          ],
+          "reference_median": 278.79911000000004
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'valid'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 88,
+        "median_ms": {
+          "candidate_median": 269.88117900000003,
+          "paired_deltas": [
+            -7.237556999999924
+          ],
+          "reference_median": 277.11873599999996
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'invalid'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 89,
+        "median_ms": {
+          "candidate_median": 270.33691500000003,
+          "paired_deltas": [
+            -7.806643999999949
+          ],
+          "reference_median": 278.143559
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'incorrect_json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 90,
+        "median_ms": {
+          "candidate_median": 271.853241,
+          "paired_deltas": [
+            -6.8509299999999484
+          ],
+          "reference_median": 278.704171
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'no_schema'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 91,
+        "median_ms": {
+          "candidate_median": 270.259472,
+          "paired_deltas": [
+            -9.415620999999987
+          ],
+          "reference_median": 279.675093
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status != 'invalid'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 92,
+        "median_ms": {
+          "candidate_median": 21.829365,
+          "paired_deltas": [
+            -0.7425730000000001
+          ],
+          "reference_median": 22.571938
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size > 1KB && @path ~ 'data/contents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 93,
+        "median_ms": {
+          "candidate_median": 1.266276,
+          "paired_deltas": [
+            0.00313399999999997
+          ],
+          "reference_median": 1.263142
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/agents/%' && @filename ~ '0%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 94,
+        "median_ms": {
+          "candidate_median": 1.2518500000000001,
+          "paired_deltas": [
+            0.10019600000000017
+          ],
+          "reference_median": 1.151654
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10-31 && @path ~ 'data/entries/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 95,
+        "median_ms": {
+          "candidate_median": 24.887464,
+          "paired_deltas": [
+            -1.7134779999999985
+          ],
+          "reference_median": 26.600942
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created != null && @size > 2KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 96,
+        "median_ms": {
+          "candidate_median": 0.626147,
+          "paired_deltas": [
+            0.04473300000000002
+          ],
+          "reference_median": 0.581414
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'valid' && @path ~ 'data/pages/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 97,
+        "median_ms": {
+          "candidate_median": 5.891309,
+          "paired_deltas": [
+            -0.003370000000000317
+          ],
+          "reference_median": 5.894679
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 && @size > 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 98,
+        "median_ms": {
+          "candidate_median": 8.928343,
+          "paired_deltas": [
+            -0.15377100000000077
+          ],
+          "reference_median": 9.082114
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond' && @path ~ 'data/contents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 99,
+        "median_ms": {
+          "candidate_median": 64.44362,
+          "paired_deltas": [
+            0.0892159999999933
+          ],
+          "reference_median": 64.354404
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied' && @modified >= 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 100,
+        "median_ms": {
+          "candidate_median": 284.293598,
+          "paired_deltas": [
+            -6.549946000000034
+          ],
+          "reference_median": 290.843544
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'invalid' || @size > 16KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 101,
+        "median_ms": {
+          "candidate_median": 15.414112000000001,
+          "paired_deltas": [
+            -0.3794209999999971
+          ],
+          "reference_median": 15.793532999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 SORT BY @size DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 102,
+        "median_ms": {
+          "candidate_median": 373.675064,
+          "paired_deltas": [
+            -5.78936299999998
+          ],
+          "reference_median": 379.464427
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 SORT BY @modified ASC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 103,
+        "median_ms": {
+          "candidate_median": 3.1127260000000003,
+          "paired_deltas": [
+            -0.00385399999999958
+          ],
+          "reference_median": 3.11658
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 SORT BY @modified DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 104,
+        "median_ms": {
+          "candidate_median": 13.047691,
+          "paired_deltas": [
+            -0.2162190000000006
+          ],
+          "reference_median": 13.263910000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond' SORT BY @filename",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 105,
+        "median_ms": {
+          "candidate_median": 13.172138,
+          "paired_deltas": [
+            -0.35822299999999885
+          ],
+          "reference_median": 13.530361
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond' SORT BY @path DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 106,
+        "median_ms": {
+          "candidate_median": 106.75306900000001,
+          "paired_deltas": [
+            0.45107300000000805
+          ],
+          "reference_median": 106.301996
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "pseudonym = true SORT BY @created DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 107,
+        "median_ms": {
+          "candidate_median": 32.223436,
+          "paired_deltas": [
+            0.6657060000000001
+          ],
+          "reference_median": 31.55773
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 SORT BY @status && @id DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 108,
+        "median_ms": {
+          "candidate_median": 556.951464,
+          "paired_deltas": [
+            -9.207308000000012
+          ],
+          "reference_median": 566.158772
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(annotation) SORT BY @size",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 109,
+        "median_ms": {
+          "candidate_median": 84.088437,
+          "paired_deltas": [
+            -1.3945460000000054
+          ],
+          "reference_median": 85.482983
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size > 2KB SORT BY @size DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 110,
+        "median_ms": {
+          "candidate_median": 551.987886,
+          "paired_deltas": [
+            -4.920659999999998
+          ],
+          "reference_median": 556.908546
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified >= 2026-10 SORT BY @modified ASC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 111,
+        "median_ms": {
+          "candidate_median": 32.545302,
+          "paired_deltas": [
+            -0.18803100000000228
+          ],
+          "reference_median": 32.733333
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ 'Liebe' SORT BY preferred_title:fts",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 112,
+        "median_ms": {
+          "candidate_median": 10.129809,
+          "paired_deltas": [
+            -0.10726499999999994
+          ],
+          "reference_median": 10.237074
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Goethe' SORT BY annotation:fts DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 113,
+        "median_ms": {
+          "candidate_median": 20.724967,
+          "paired_deltas": [
+            0.04131500000000088
+          ],
+          "reference_median": 20.683652
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 SORT BY preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 114,
+        "median_ms": {
+          "candidate_median": 481.169148,
+          "paired_deltas": [
+            4.921489000000008
+          ],
+          "reference_median": 476.247659
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 SORT BY year DESC && preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 115,
+        "median_ms": {
+          "candidate_median": 232.865174,
+          "paired_deltas": [
+            -0.9423479999999813
+          ],
+          "reference_median": 233.80752199999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied' SORT BY year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 116,
+        "median_ms": {
+          "candidate_median": 766.8170050000001,
+          "paired_deltas": [
+            5.297776000000113
+          ],
+          "reference_median": 761.519229
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(annotation) SORT BY annotation DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 117,
+        "median_ms": {
+          "candidate_median": 392.220574,
+          "paired_deltas": [
+            -5.434166000000005
+          ],
+          "reference_median": 397.65474
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors:length > 0 SORT BY numbering DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 118,
+        "median_ms": {
+          "candidate_median": 168.329144,
+          "paired_deltas": [
+            1.992794000000032
+          ],
+          "reference_median": 166.33634999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year < 1790 SORT BY @status DESC && year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 119,
+        "median_ms": {
+          "candidate_median": 16.259327,
+          "paired_deltas": [
+            -0.13290699999999944
+          ],
+          "reference_median": 16.392234
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "place_statement ~ 'Berlin' SORT BY @size DESC && preferred_title:fts",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 120,
+        "median_ms": {
+          "candidate_median": 568.972857,
+          "paired_deltas": [
+            14.948184999999967
+          ],
+          "reference_median": 554.024672
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "edit_state = 'Edited' SORT BY @modified ASC && @id DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 121,
+        "median_ms": {
+          "candidate_median": 34.101503,
+          "paired_deltas": [
+            0.09403999999999968
+          ],
+          "reference_median": 34.007463
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 122,
+        "median_ms": {
+          "candidate_median": 49.198983,
+          "paired_deltas": [
+            -0.5912679999999995
+          ],
+          "reference_median": 49.790251
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.preferred_title ~ '%Almanach%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 123,
+        "median_ms": {
+          "candidate_median": 29.583219,
+          "paired_deltas": [
+            -0.05611999999999995
+          ],
+          "reference_median": 29.639339
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.name ?~ '%Goethe%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 124,
+        "median_ms": {
+          "candidate_median": 74.07320200000001,
+          "paired_deltas": [
+            -0.8054129999999873
+          ],
+          "reference_median": 74.878615
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 SORT BY entry.preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 125,
+        "median_ms": {
+          "candidate_median": 128.312616,
+          "paired_deltas": [
+            -2.052320000000009
+          ],
+          "reference_median": 130.364936
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year != entry.year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 126,
+        "median_ms": {
+          "candidate_median": 19.589103,
+          "paired_deltas": [
+            0.4119540000000015
+          ],
+          "reference_median": 19.177149
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries.places.name ?= 'Leipzig'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 127,
+        "median_ms": {
+          "candidate_median": 47.059802,
+          "paired_deltas": [
+            -0.8720140000000072
+          ],
+          "reference_median": 47.931816000000005
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year >= 1800 && @size > 2KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 128,
+        "median_ms": {
+          "candidate_median": 65.62275,
+          "paired_deltas": [
+            -0.8466810000000038
+          ],
+          "reference_median": 66.469431
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.preferred_title ~ :ignorecase('%taschenbuch%')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 129,
+        "median_ms": {
+          "candidate_median": 111.114316,
+          "paired_deltas": [
+            -1.3136530000000022
+          ],
+          "reference_median": 112.427969
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(entry.places)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 130,
+        "median_ms": {
+          "candidate_median": 115.895868,
+          "paired_deltas": [
+            -1.7621390000000048
+          ],
+          "reference_median": 117.658007
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "missing(entry.year)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 131,
+        "median_ms": {
+          "candidate_median": 135.97503999999998,
+          "paired_deltas": [
+            -0.546636000000035
+          ],
+          "reference_median": 136.521676
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year != 1800 && @modified >= 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 132,
+        "median_ms": {
+          "candidate_median": 35.195063999999995,
+          "paired_deltas": [
+            -0.08511700000000388
+          ],
+          "reference_median": 35.280181
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.name ?~ :ignorecase('%schiller%')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 133,
+        "median_ms": {
+          "candidate_median": 52.797761,
+          "paired_deltas": [
+            1.1422349999999994
+          ],
+          "reference_median": 51.655526
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.agents.agent.name ?~ '%Cotta%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 134,
+        "median_ms": {
+          "candidate_median": 47.860818,
+          "paired_deltas": [
+            0.2837940000000003
+          ],
+          "reference_median": 47.577024
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.places.name ?= 'Leipzig'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 135,
+        "median_ms": {
+          "candidate_median": 128.61492099999998,
+          "paired_deltas": [
+            -1.608235000000036
+          ],
+          "reference_median": 130.22315600000002
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year > entry.year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 136,
+        "median_ms": {
+          "candidate_median": 59.973468000000004,
+          "paired_deltas": [
+            -0.6838119999999961
+          ],
+          "reference_median": 60.65728
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 SORT BY @size DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 137,
+        "median_ms": {
+          "candidate_median": 44.787496000000004,
+          "paired_deltas": [
+            -0.6362769999999927
+          ],
+          "reference_median": 45.423773
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename ~ 'a%' && entry.year < 1790",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 138,
+        "median_ms": {
+          "candidate_median": 74.98940599999999,
+          "paired_deltas": [
+            -0.047745000000006144
+          ],
+          "reference_median": 75.037151
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 SORT BY entry.preferred_title DESC && @id",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 139,
+        "median_ms": {
+          "candidate_median": 45.68864,
+          "paired_deltas": [
+            -0.059622999999994875
+          ],
+          "reference_median": 45.748262999999994
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied' && entry.year = 1810",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 140,
+        "median_ms": {
+          "candidate_median": 18.269711,
+          "paired_deltas": [
+            -0.17870699999999928
+          ],
+          "reference_median": 18.448418
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries.preferred_title ?~ '%Almanach%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 141,
+        "median_ms": {
+          "candidate_median": 15.947571,
+          "paired_deltas": [
+            0.06425399999999826
+          ],
+          "reference_median": 15.883317000000002
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "related_entries.entry.year ?= 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 142,
+        "median_ms": {
+          "candidate_median": 250.59564899999998,
+          "paired_deltas": [
+            -2.7267670000000237
+          ],
+          "reference_median": 253.322416
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year >= 1820 SORT BY @modified ASC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 143,
+        "median_ms": {
+          "candidate_median": 74.507474,
+          "paired_deltas": [
+            -0.7511070000000046
+          ],
+          "reference_median": 75.258581
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'valid' && entry.year = 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 144,
+        "median_ms": {
+          "candidate_median": 29.985446,
+          "paired_deltas": [
+            0.19231100000000012
+          ],
+          "reference_median": 29.793135
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.places.name:each = 'Berlin'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 145,
+        "median_ms": {
+          "candidate_median": 59.199789,
+          "paired_deltas": [
+            -0.119532999999997
+          ],
+          "reference_median": 59.319322
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.name ?~ '%Goethe%' && entry.year < 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 146,
+        "median_ms": {
+          "candidate_median": 133.54964999999999,
+          "paired_deltas": [
+            -0.2316200000000208
+          ],
+          "reference_median": 133.78127
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(contributors.agents.biographical_data)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 147,
+        "median_ms": {
+          "candidate_median": 129.886125,
+          "paired_deltas": [
+            -0.8926160000000039
+          ],
+          "reference_median": 130.778741
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.preferred_title != preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 148,
+        "median_ms": {
+          "candidate_median": 124.618389,
+          "paired_deltas": [
+            -1.335675000000009
+          ],
+          "reference_median": 125.954064
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.corporate_body ?= true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 149,
+        "median_ms": {
+          "candidate_median": 136.386293,
+          "paired_deltas": [
+            -1.4161720000000173
+          ],
+          "reference_median": 137.802465
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 || @size > 16KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 150,
+        "median_ms": {
+          "candidate_median": 72.471574,
+          "paired_deltas": [
+            -0.46884500000000173
+          ],
+          "reference_median": 72.940419
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1805 SORT BY entry.year DESC && preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 151,
+        "median_ms": {
+          "candidate_median": 5.534604,
+          "paired_deltas": [
+            0.1074919999999997
+          ],
+          "reference_median": 5.427112
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "places.name ?= 'Berlin'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 152,
+        "median_ms": {
+          "candidate_median": 83.75125799999999,
+          "paired_deltas": [
+            0.020906999999994014
+          ],
+          "reference_median": 83.730351
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.agents.agent.name ?~ '%Cotta%' SORT BY entry.preferred_title:fts && @id",
+        "scans_equal": true,
+        "source_reads_equal": true
+      }
+    ],
+    "expected_cases": 152,
+    "reference_setup": {
+      "backend": "bigram",
+      "bigram_encoding": "ascii",
+      "cases": 152,
+      "collections": 7,
+      "count": true,
+      "index_warm_ms": 526.185174,
+      "page_limit": 1,
+      "query_cache_bytes": 0,
+      "runs": 7,
+      "schema_mode": "configured",
+      "secondary_loads": 7,
+      "snapshot_loads": 7,
+      "type": "setup"
+    }
+  },
+  "json-schema-ascii-cache64": {
+    "candidate_setup": {
+      "backend": "bigram",
+      "bigram_encoding": "ascii",
+      "cases": 152,
+      "collections": 7,
+      "count": true,
+      "index_warm_ms": 529.8481390000001,
+      "page_limit": 1,
+      "query_cache_bytes": 6682311,
+      "runs": 7,
+      "schema_mode": "configured",
+      "secondary_loads": 7,
+      "snapshot_loads": 7,
+      "type": "setup"
+    },
+    "cases": [
+      {
+        "cache_hits_equal": true,
+        "id": 1,
+        "median_ms": {
+          "candidate_median": 3.070486,
+          "paired_deltas": [
+            0.016117999999999633
+          ],
+          "reference_median": 3.054368
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 2,
+        "median_ms": {
+          "candidate_median": 7.023768,
+          "paired_deltas": [
+            0.02071299999999976
+          ],
+          "reference_median": 7.003055
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation !~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 3,
+        "median_ms": {
+          "candidate_median": 6.944162,
+          "paired_deltas": [
+            -0.008852000000000082
+          ],
+          "reference_median": 6.9530140000000005
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ :ignorecase('Mond')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 4,
+        "median_ms": {
+          "candidate_median": 7.011322000000001,
+          "paired_deltas": [
+            0.017755000000001075
+          ],
+          "reference_median": 6.993567
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation !~ :ignorecase('Mond')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 5,
+        "median_ms": {
+          "candidate_median": 7.008152999999999,
+          "paired_deltas": [
+            0.011786999999999104
+          ],
+          "reference_median": 6.996366
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(annotation)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 6,
+        "median_ms": {
+          "candidate_median": 2.822868,
+          "paired_deltas": [
+            -0.010765999999999831
+          ],
+          "reference_median": 2.833634
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = null",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 7,
+        "median_ms": {
+          "candidate_median": 3.18562,
+          "paired_deltas": [
+            0.02620200000000006
+          ],
+          "reference_median": 3.159418
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 8,
+        "median_ms": {
+          "candidate_median": 3.012895,
+          "paired_deltas": [
+            0.014437999999999729
+          ],
+          "reference_median": 2.998457
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year != 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 9,
+        "median_ms": {
+          "candidate_median": 3.0037570000000002,
+          "paired_deltas": [
+            0.032096000000000124
+          ],
+          "reference_median": 2.971661
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 10,
+        "median_ms": {
+          "candidate_median": 2.947051,
+          "paired_deltas": [
+            0.08163699999999974
+          ],
+          "reference_median": 2.8654140000000003
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year < 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 11,
+        "median_ms": {
+          "candidate_median": 4.391088,
+          "paired_deltas": [
+            0.01750900000000044
+          ],
+          "reference_median": 4.373578999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 && year < 1805",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 12,
+        "median_ms": {
+          "candidate_median": 3.761585,
+          "paired_deltas": [
+            0.057090000000000085
+          ],
+          "reference_median": 3.704495
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 || year = 1801",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 13,
+        "median_ms": {
+          "candidate_median": 4.287433,
+          "paired_deltas": [
+            0.3756699999999995
+          ],
+          "reference_median": 3.9117630000000005
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "pseudonym = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 14,
+        "median_ms": {
+          "candidate_median": 4.472486,
+          "paired_deltas": [
+            0.028291000000000288
+          ],
+          "reference_median": 4.444195
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "pseudonym = false",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 15,
+        "median_ms": {
+          "candidate_median": 4.354109,
+          "paired_deltas": [
+            0.03423900000000035
+          ],
+          "reference_median": 4.31987
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?~ 'Gedicht'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 16,
+        "median_ms": {
+          "candidate_median": 2.646585,
+          "paired_deltas": [
+            0.0020240000000000258
+          ],
+          "reference_median": 2.644561
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 && pseudonym = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 17,
+        "median_ms": {
+          "candidate_median": 3.255598,
+          "paired_deltas": [
+            0.03225100000000003
+          ],
+          "reference_median": 3.223347
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "(year = 1800 || year = 1801) && pseudonym = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 18,
+        "median_ms": {
+          "candidate_median": 7.043951,
+          "paired_deltas": [
+            0.028444000000000358
+          ],
+          "reference_median": 7.0155069999999995
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "numbering = 0.1",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 19,
+        "median_ms": {
+          "candidate_median": 7.027087,
+          "paired_deltas": [
+            0.014142999999999795
+          ],
+          "reference_median": 7.012944
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "numbering < year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 20,
+        "median_ms": {
+          "candidate_median": 4.882728,
+          "paired_deltas": [
+            0.013035000000000352
+          ],
+          "reference_median": 4.869693
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ :ignorecase('almanach')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 21,
+        "median_ms": {
+          "candidate_median": 3.073251,
+          "paired_deltas": [
+            0.025155999999999956
+          ],
+          "reference_median": 3.048095
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 22,
+        "median_ms": {
+          "candidate_median": 4.842075,
+          "paired_deltas": [
+            0.028049000000000213
+          ],
+          "reference_median": 4.814026
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title !~ 'Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 23,
+        "median_ms": {
+          "candidate_median": 4.876252,
+          "paired_deltas": [
+            0.039397000000000126
+          ],
+          "reference_median": 4.836855
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ :ignorecase('Taschen%')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 24,
+        "median_ms": {
+          "candidate_median": 6.23741,
+          "paired_deltas": [
+            0.029866999999999422
+          ],
+          "reference_median": 6.207543
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title:lower ~ 'almanach'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 25,
+        "median_ms": {
+          "candidate_median": 9.763899,
+          "paired_deltas": [
+            0.17267200000000038
+          ],
+          "reference_median": 9.591227
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title = 'Der Mond'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 26,
+        "median_ms": {
+          "candidate_median": 6.42955,
+          "paired_deltas": [
+            0.029120999999999952
+          ],
+          "reference_median": 6.400429
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?!~ 'Gedicht'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 27,
+        "median_ms": {
+          "candidate_median": 3.316494,
+          "paired_deltas": [
+            0.015716000000000285
+          ],
+          "reference_median": 3.3007779999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "name ~ :ignorecase('Goethe')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 28,
+        "median_ms": {
+          "candidate_median": 2.625413,
+          "paired_deltas": [
+            0.0068429999999999325
+          ],
+          "reference_median": 2.61857
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "profession = 'Text'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 29,
+        "median_ms": {
+          "candidate_median": 2.543053,
+          "paired_deltas": [
+            0.012112000000000123
+          ],
+          "reference_median": 2.530941
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "corporate_body = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 30,
+        "median_ms": {
+          "candidate_median": 4.04374,
+          "paired_deltas": [
+            0.01237699999999986
+          ],
+          "reference_median": 4.031363
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "created < updated",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 31,
+        "median_ms": {
+          "candidate_median": 2.390356,
+          "paired_deltas": [
+            0.009740000000000304
+          ],
+          "reference_median": 2.380616
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "language ?= 'ger'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 32,
+        "median_ms": {
+          "candidate_median": 5.818031,
+          "paired_deltas": [
+            0.012198000000000597
+          ],
+          "reference_median": 5.805833
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "language ?!= 'ger'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 33,
+        "median_ms": {
+          "candidate_median": 2.380877,
+          "paired_deltas": [
+            0.01175499999999996
+          ],
+          "reference_median": 2.369122
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "language:each = 'ger'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 34,
+        "median_ms": {
+          "candidate_median": 3.7669349999999997,
+          "paired_deltas": [
+            0.014673999999999854
+          ],
+          "reference_median": 3.752261
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "items:length >= 1",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 35,
+        "median_ms": {
+          "candidate_median": 7.931786999999999,
+          "paired_deltas": [
+            0.053150999999999726
+          ],
+          "reference_median": 7.878635999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry = '00fx8ln651na0e3'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 36,
+        "median_ms": {
+          "candidate_median": 3.9100719999999995,
+          "paired_deltas": [
+            0.02065099999999953
+          ],
+          "reference_median": 3.889421
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(entry)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 37,
+        "median_ms": {
+          "candidate_median": 10.814689000000001,
+          "paired_deltas": [
+            -0.01900199999999863
+          ],
+          "reference_median": 10.833691
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "places ?= 'd7kbujq7399g22j'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 38,
+        "median_ms": {
+          "candidate_median": 4.261094,
+          "paired_deltas": [
+            0.026382999999999157
+          ],
+          "reference_median": 4.234711000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "agents.type ?= 'Verlag'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 39,
+        "median_ms": {
+          "candidate_median": 8.579577,
+          "paired_deltas": [
+            -0.03948600000000013
+          ],
+          "reference_median": 8.619063
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents ?= '5e64t7ca8x2wyim'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 40,
+        "median_ms": {
+          "candidate_median": 15.268153,
+          "paired_deltas": [
+            0.2698509999999992
+          ],
+          "reference_median": 14.998302
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 41,
+        "median_ms": {
+          "candidate_median": 11.602555,
+          "paired_deltas": [
+            0.22151400000000088
+          ],
+          "reference_median": 11.381041
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.type ?= 'Autor:in'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 42,
+        "median_ms": {
+          "candidate_median": 9.445310000000001,
+          "paired_deltas": [
+            -0.029263999999997736
+          ],
+          "reference_median": 9.474573999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors:length > 0",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 43,
+        "median_ms": {
+          "candidate_median": 5.350846000000001,
+          "paired_deltas": [
+            0.04948700000000006
+          ],
+          "reference_median": 5.301359000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries:length >= 3",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 44,
+        "median_ms": {
+          "candidate_median": 9.37612,
+          "paired_deltas": [
+            -0.0036559999999994375
+          ],
+          "reference_median": 9.379776
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries ?= '1o25nw5kc1t9ko4'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 45,
+        "median_ms": {
+          "candidate_median": 32.39359,
+          "paired_deltas": [
+            -0.023615999999996973
+          ],
+          "reference_median": 32.417206
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "owner = 'Theodor Springmann Stiftung' && basis = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 46,
+        "median_ms": {
+          "candidate_median": 9.241277,
+          "paired_deltas": [
+            0.02056900000000006
+          ],
+          "reference_median": 9.220708
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "media ?= 'Reproduktion'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 47,
+        "median_ms": {
+          "candidate_median": 4.149063,
+          "paired_deltas": [
+            0.03203600000000062
+          ],
+          "reference_median": 4.117026999999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "basis = false",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 48,
+        "median_ms": {
+          "candidate_median": 2.576465,
+          "paired_deltas": [
+            0.007038999999999795
+          ],
+          "reference_median": 2.569426
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "fictional = true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 49,
+        "median_ms": {
+          "candidate_median": 5.986261,
+          "paired_deltas": [
+            0.021096000000000004
+          ],
+          "reference_median": 5.965165
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "key = 'kontakt'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 50,
+        "median_ms": {
+          "candidate_median": 114.84231100000001,
+          "paired_deltas": [
+            -0.9731869999999958
+          ],
+          "reference_median": 115.815498
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "data.description ~ 'Musenalm'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 51,
+        "median_ms": {
+          "candidate_median": 1.116994,
+          "paired_deltas": [
+            0.0026649999999999174
+          ],
+          "reference_median": 1.1143290000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@id ~ '0%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 52,
+        "median_ms": {
+          "candidate_median": 1.069309,
+          "paired_deltas": [
+            0.012207000000000079
+          ],
+          "reference_median": 1.057102
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@id ~ 'z%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 53,
+        "median_ms": {
+          "candidate_median": 0.32415299999999997,
+          "paired_deltas": [
+            0.008982999999999963
+          ],
+          "reference_median": 0.31517
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@id = '00fx8ln651na0e3'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 54,
+        "median_ms": {
+          "candidate_median": 13.486434000000001,
+          "paired_deltas": [
+            -0.8164739999999995
+          ],
+          "reference_median": 14.302908
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename ~ '0%.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 55,
+        "median_ms": {
+          "candidate_median": 19.228345,
+          "paired_deltas": [
+            -0.3313019999999973
+          ],
+          "reference_median": 19.559647
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename ~ '%a.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 56,
+        "median_ms": {
+          "candidate_median": 2.495707,
+          "paired_deltas": [
+            -0.1659670000000002
+          ],
+          "reference_median": 2.661674
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename = '00fx8ln651na0e3.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 57,
+        "median_ms": {
+          "candidate_median": 0.282513,
+          "paired_deltas": [
+            0.005637000000000003
+          ],
+          "reference_median": 0.276876
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/contents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 58,
+        "median_ms": {
+          "candidate_median": 0.329221,
+          "paired_deltas": [
+            0.008452000000000015
+          ],
+          "reference_median": 0.32076899999999997
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/agents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 59,
+        "median_ms": {
+          "candidate_median": 0.261181,
+          "paired_deltas": [
+            0.0040959999999999885
+          ],
+          "reference_median": 0.257085
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/pages/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 60,
+        "median_ms": {
+          "candidate_median": 21.341999,
+          "paired_deltas": [
+            -0.8000269999999965
+          ],
+          "reference_median": 22.142025999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ '%/00fx8ln651na0e3.json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 61,
+        "median_ms": {
+          "candidate_median": 11.619845999999999,
+          "paired_deltas": [
+            -1.1223330000000011
+          ],
+          "reference_median": 12.742179
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size < 500B",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 62,
+        "median_ms": {
+          "candidate_median": 12.096442000000001,
+          "paired_deltas": [
+            -1.025669999999998
+          ],
+          "reference_median": 13.122112
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 63,
+        "median_ms": {
+          "candidate_median": 12.082721,
+          "paired_deltas": [
+            -1.0794500000000014
+          ],
+          "reference_median": 13.162171
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 64,
+        "median_ms": {
+          "candidate_median": 12.019122,
+          "paired_deltas": [
+            -0.9166740000000004
+          ],
+          "reference_median": 12.935796
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size > 1.5KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 65,
+        "median_ms": {
+          "candidate_median": 11.970170000000001,
+          "paired_deltas": [
+            -0.8876469999999994
+          ],
+          "reference_median": 12.857817
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size < 2KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 66,
+        "median_ms": {
+          "candidate_median": 12.586611,
+          "paired_deltas": [
+            -1.1078340000000004
+          ],
+          "reference_median": 13.694445
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1MB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 67,
+        "median_ms": {
+          "candidate_median": 18.290788999999997,
+          "paired_deltas": [
+            -1.803869000000006
+          ],
+          "reference_median": 20.094658000000003
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 1KB && @size < 2KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 68,
+        "median_ms": {
+          "candidate_median": 12.246126,
+          "paired_deltas": [
+            -1.1740119999999994
+          ],
+          "reference_median": 13.420138
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size >= 4KiB && @size < 8KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 69,
+        "median_ms": {
+          "candidate_median": 11.740886000000001,
+          "paired_deltas": [
+            -1.4966029999999986
+          ],
+          "reference_median": 13.237489
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size = 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 70,
+        "median_ms": {
+          "candidate_median": 12.224492,
+          "paired_deltas": [
+            -1.255153
+          ],
+          "reference_median": 13.479645
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size != 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 71,
+        "median_ms": {
+          "candidate_median": 6.491464,
+          "paired_deltas": [
+            -0.6133110000000004
+          ],
+          "reference_median": 7.104775
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 72,
+        "median_ms": {
+          "candidate_median": 6.349991,
+          "paired_deltas": [
+            -0.14916600000000013
+          ],
+          "reference_median": 6.499157
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10-26",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 73,
+        "median_ms": {
+          "candidate_median": 6.4369950000000005,
+          "paired_deltas": [
+            -0.3143269999999996
+          ],
+          "reference_median": 6.751322
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 74,
+        "median_ms": {
+          "candidate_median": 6.262828,
+          "paired_deltas": [
+            -0.2940290000000001
+          ],
+          "reference_median": 6.556857
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified < 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 75,
+        "median_ms": {
+          "candidate_median": 6.215206,
+          "paired_deltas": [
+            -0.38008799999999976
+          ],
+          "reference_median": 6.595294
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified <= 2026-10-26",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 76,
+        "median_ms": {
+          "candidate_median": 6.634369,
+          "paired_deltas": [
+            -0.17458099999999988
+          ],
+          "reference_median": 6.80895
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified > 2026-10-26",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 77,
+        "median_ms": {
+          "candidate_median": 6.50556,
+          "paired_deltas": [
+            -0.11372600000000066
+          ],
+          "reference_median": 6.619286000000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified >= 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 78,
+        "median_ms": {
+          "candidate_median": 6.355264999999999,
+          "paired_deltas": [
+            -0.24860100000000074
+          ],
+          "reference_median": 6.603866
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified != 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 79,
+        "median_ms": {
+          "candidate_median": 6.763383,
+          "paired_deltas": [
+            -0.3059219999999998
+          ],
+          "reference_median": 7.069305
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "2026-10-26 < @modified",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 80,
+        "median_ms": {
+          "candidate_median": 6.937653999999999,
+          "paired_deltas": [
+            -0.17231100000000055
+          ],
+          "reference_median": 7.109965
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified >= 2026-10-26T14:50Z",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 81,
+        "median_ms": {
+          "candidate_median": 106.91549,
+          "paired_deltas": [
+            -0.74713899999999
+          ],
+          "reference_median": 107.662629
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created = null",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 82,
+        "median_ms": {
+          "candidate_median": 106.97933900000001,
+          "paired_deltas": [
+            -0.4034939999999807
+          ],
+          "reference_median": 107.38283299999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created != null",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 83,
+        "median_ms": {
+          "candidate_median": 106.48543500000001,
+          "paired_deltas": [
+            -0.8676739999999938
+          ],
+          "reference_median": 107.353109
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created < 2026-10-31",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 84,
+        "median_ms": {
+          "candidate_median": 106.083122,
+          "paired_deltas": [
+            -1.3125
+          ],
+          "reference_median": 107.395622
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created >= 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 85,
+        "median_ms": {
+          "candidate_median": 106.662675,
+          "paired_deltas": [
+            -0.8882600000000025
+          ],
+          "reference_median": 107.550935
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created < 9999-12",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 86,
+        "median_ms": {
+          "candidate_median": 107.686359,
+          "paired_deltas": [
+            0.0789439999999928
+          ],
+          "reference_median": 107.607415
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified < @created",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 87,
+        "median_ms": {
+          "candidate_median": 272.598538,
+          "paired_deltas": [
+            -4.811710000000005
+          ],
+          "reference_median": 277.410248
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'valid'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 88,
+        "median_ms": {
+          "candidate_median": 275.457333,
+          "paired_deltas": [
+            -1.5504609999999843
+          ],
+          "reference_median": 277.007794
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'invalid'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 89,
+        "median_ms": {
+          "candidate_median": 274.184231,
+          "paired_deltas": [
+            -4.42011599999995
+          ],
+          "reference_median": 278.60434699999996
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'incorrect_json'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 90,
+        "median_ms": {
+          "candidate_median": 276.90213800000004,
+          "paired_deltas": [
+            -3.0264139999999884
+          ],
+          "reference_median": 279.928552
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'no_schema'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 91,
+        "median_ms": {
+          "candidate_median": 274.616943,
+          "paired_deltas": [
+            -6.702916000000016
+          ],
+          "reference_median": 281.319859
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status != 'invalid'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 92,
+        "median_ms": {
+          "candidate_median": 21.769736,
+          "paired_deltas": [
+            -0.8942589999999981
+          ],
+          "reference_median": 22.663995
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size > 1KB && @path ~ 'data/contents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 93,
+        "median_ms": {
+          "candidate_median": 1.2586060000000001,
+          "paired_deltas": [
+            -0.009412999999999894
+          ],
+          "reference_median": 1.268019
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@path ~ 'data/agents/%' && @filename ~ '0%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 94,
+        "median_ms": {
+          "candidate_median": 1.230267,
+          "paired_deltas": [
+            0.015303000000000067
+          ],
+          "reference_median": 1.214964
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified = 2026-10-31 && @path ~ 'data/entries/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 95,
+        "median_ms": {
+          "candidate_median": 25.149418,
+          "paired_deltas": [
+            -1.9144170000000003
+          ],
+          "reference_median": 27.063835
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@created != null && @size > 2KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 96,
+        "median_ms": {
+          "candidate_median": 0.6495770000000001,
+          "paired_deltas": [
+            0.11267100000000008
+          ],
+          "reference_median": 0.536906
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'valid' && @path ~ 'data/pages/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 97,
+        "median_ms": {
+          "candidate_median": 5.922116,
+          "paired_deltas": [
+            -0.060421999999999976
+          ],
+          "reference_median": 5.982538
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 && @size > 1KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 98,
+        "median_ms": {
+          "candidate_median": 9.023994,
+          "paired_deltas": [
+            -0.0675530000000002
+          ],
+          "reference_median": 9.091547
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond' && @path ~ 'data/contents/%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 99,
+        "median_ms": {
+          "candidate_median": 63.800602999999995,
+          "paired_deltas": [
+            -1.0674080000000146
+          ],
+          "reference_median": 64.86801100000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied' && @modified >= 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 100,
+        "median_ms": {
+          "candidate_median": 285.944288,
+          "paired_deltas": [
+            -7.4484820000000695
+          ],
+          "reference_median": 293.39277000000004
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'invalid' || @size > 16KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 101,
+        "median_ms": {
+          "candidate_median": 15.893094,
+          "paired_deltas": [
+            0.018468999999999625
+          ],
+          "reference_median": 15.874625
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 SORT BY @size DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 102,
+        "median_ms": {
+          "candidate_median": 376.003541,
+          "paired_deltas": [
+            -8.259304000000043
+          ],
+          "reference_median": 384.262845
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 SORT BY @modified ASC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 103,
+        "median_ms": {
+          "candidate_median": 3.1332750000000003,
+          "paired_deltas": [
+            0.02021700000000015
+          ],
+          "reference_median": 3.113058
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 SORT BY @modified DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 104,
+        "median_ms": {
+          "candidate_median": 13.138105000000001,
+          "paired_deltas": [
+            -0.26651199999999875
+          ],
+          "reference_median": 13.404617
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond' SORT BY @filename",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 105,
+        "median_ms": {
+          "candidate_median": 13.45386,
+          "paired_deltas": [
+            -0.056047999999998765
+          ],
+          "reference_median": 13.509908
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Mond' SORT BY @path DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 106,
+        "median_ms": {
+          "candidate_median": 108.376309,
+          "paired_deltas": [
+            1.164445999999998
+          ],
+          "reference_median": 107.21186300000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "pseudonym = true SORT BY @created DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 107,
+        "median_ms": {
+          "candidate_median": 32.014826000000006,
+          "paired_deltas": [
+            0.20552800000000815
+          ],
+          "reference_median": 31.809298
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 SORT BY @status && @id DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 108,
+        "median_ms": {
+          "candidate_median": 560.0296219999999,
+          "paired_deltas": [
+            -15.162463000000116
+          ],
+          "reference_median": 575.192085
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(annotation) SORT BY @size",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 109,
+        "median_ms": {
+          "candidate_median": 85.10848299999999,
+          "paired_deltas": [
+            -1.5719590000000068
+          ],
+          "reference_median": 86.680442
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@size > 2KB SORT BY @size DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 110,
+        "median_ms": {
+          "candidate_median": 556.322608,
+          "paired_deltas": [
+            -8.633415000000127
+          ],
+          "reference_median": 564.9560230000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@modified >= 2026-10 SORT BY @modified ASC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 111,
+        "median_ms": {
+          "candidate_median": 32.581975,
+          "paired_deltas": [
+            -0.4604810000000015
+          ],
+          "reference_median": 33.042456
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "preferred_title ~ 'Liebe' SORT BY preferred_title:fts",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 112,
+        "median_ms": {
+          "candidate_median": 10.205297,
+          "paired_deltas": [
+            0.005425999999999931
+          ],
+          "reference_median": 10.199871
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "annotation ~ 'Goethe' SORT BY annotation:fts DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 113,
+        "median_ms": {
+          "candidate_median": 20.935921,
+          "paired_deltas": [
+            0.05629000000000062
+          ],
+          "reference_median": 20.879631
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year = 1800 SORT BY preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 114,
+        "median_ms": {
+          "candidate_median": 479.92575,
+          "paired_deltas": [
+            -0.9191700000000083
+          ],
+          "reference_median": 480.84492
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year >= 1800 SORT BY year DESC && preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 115,
+        "median_ms": {
+          "candidate_median": 233.024598,
+          "paired_deltas": [
+            -3.875070000000022
+          ],
+          "reference_median": 236.89966800000002
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied' SORT BY year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 116,
+        "median_ms": {
+          "candidate_median": 769.137569,
+          "paired_deltas": [
+            -2.8512870000000703
+          ],
+          "reference_median": 771.988856
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(annotation) SORT BY annotation DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 117,
+        "median_ms": {
+          "candidate_median": 392.866883,
+          "paired_deltas": [
+            -7.80228900000003
+          ],
+          "reference_median": 400.669172
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors:length > 0 SORT BY numbering DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 118,
+        "median_ms": {
+          "candidate_median": 170.439449,
+          "paired_deltas": [
+            2.7275960000000055
+          ],
+          "reference_median": 167.711853
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year < 1790 SORT BY @status DESC && year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 119,
+        "median_ms": {
+          "candidate_median": 16.428242,
+          "paired_deltas": [
+            0.02845699999999951
+          ],
+          "reference_median": 16.399785
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "place_statement ~ 'Berlin' SORT BY @size DESC && preferred_title:fts",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 120,
+        "median_ms": {
+          "candidate_median": 545.242343,
+          "paired_deltas": [
+            -16.400802
+          ],
+          "reference_median": 561.643145
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "edit_state = 'Edited' SORT BY @modified ASC && @id DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 121,
+        "median_ms": {
+          "candidate_median": 33.628446,
+          "paired_deltas": [
+            -1.2586650000000006
+          ],
+          "reference_median": 34.887111
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 122,
+        "median_ms": {
+          "candidate_median": 48.64056,
+          "paired_deltas": [
+            -1.1244879999999995
+          ],
+          "reference_median": 49.765048
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.preferred_title ~ '%Almanach%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 123,
+        "median_ms": {
+          "candidate_median": 29.256790000000002,
+          "paired_deltas": [
+            -0.840798999999997
+          ],
+          "reference_median": 30.097589
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.name ?~ '%Goethe%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 124,
+        "median_ms": {
+          "candidate_median": 73.981228,
+          "paired_deltas": [
+            -1.4122940000000028
+          ],
+          "reference_median": 75.393522
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 SORT BY entry.preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 125,
+        "median_ms": {
+          "candidate_median": 128.473367,
+          "paired_deltas": [
+            -2.3224710000000073
+          ],
+          "reference_median": 130.795838
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year != entry.year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 126,
+        "median_ms": {
+          "candidate_median": 19.263334,
+          "paired_deltas": [
+            -0.19917699999999883
+          ],
+          "reference_median": 19.462511
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries.places.name ?= 'Leipzig'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 127,
+        "median_ms": {
+          "candidate_median": 46.590863000000006,
+          "paired_deltas": [
+            -0.7240059999999957
+          ],
+          "reference_median": 47.314869
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year >= 1800 && @size > 2KB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 128,
+        "median_ms": {
+          "candidate_median": 66.17658999999999,
+          "paired_deltas": [
+            -0.19944500000001142
+          ],
+          "reference_median": 66.376035
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.preferred_title ~ :ignorecase('%taschenbuch%')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 129,
+        "median_ms": {
+          "candidate_median": 111.11864100000001,
+          "paired_deltas": [
+            -1.0348499999999774
+          ],
+          "reference_median": 112.15349099999999
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(entry.places)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 130,
+        "median_ms": {
+          "candidate_median": 100.812526,
+          "paired_deltas": [
+            -0.36468999999999596
+          ],
+          "reference_median": 101.177216
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "missing(entry.year)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 131,
+        "median_ms": {
+          "candidate_median": 136.695439,
+          "paired_deltas": [
+            -0.1575339999999983
+          ],
+          "reference_median": 136.852973
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year != 1800 && @modified >= 2026-10",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 132,
+        "median_ms": {
+          "candidate_median": 35.926375,
+          "paired_deltas": [
+            0.6194629999999961
+          ],
+          "reference_median": 35.306912000000004
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.name ?~ :ignorecase('%schiller%')",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 133,
+        "median_ms": {
+          "candidate_median": 51.121491,
+          "paired_deltas": [
+            -0.8808829999999972
+          ],
+          "reference_median": 52.002373999999996
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.agents.agent.name ?~ '%Cotta%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 134,
+        "median_ms": {
+          "candidate_median": 47.555454,
+          "paired_deltas": [
+            -0.2651299999999992
+          ],
+          "reference_median": 47.820584
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.places.name ?= 'Leipzig'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 135,
+        "median_ms": {
+          "candidate_median": 129.13814000000002,
+          "paired_deltas": [
+            -0.7157499999999857
+          ],
+          "reference_median": 129.85389
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "year > entry.year",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 136,
+        "median_ms": {
+          "candidate_median": 59.977971999999994,
+          "paired_deltas": [
+            -1.0667900000000117
+          ],
+          "reference_median": 61.044762000000006
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 SORT BY @size DESC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 137,
+        "median_ms": {
+          "candidate_median": 44.831575,
+          "paired_deltas": [
+            -0.9932090000000002
+          ],
+          "reference_median": 45.824784
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@filename ~ 'a%' && entry.year < 1790",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 138,
+        "median_ms": {
+          "candidate_median": 74.472026,
+          "paired_deltas": [
+            -1.554729000000009
+          ],
+          "reference_median": 76.02675500000001
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 SORT BY entry.preferred_title DESC && @id",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 139,
+        "median_ms": {
+          "candidate_median": 45.703756999999996,
+          "paired_deltas": [
+            -0.29798600000000164
+          ],
+          "reference_median": 46.001743
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "musenalm_type ?= 'Gedicht/Lied' && entry.year = 1810",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 140,
+        "median_ms": {
+          "candidate_median": 18.50021,
+          "paired_deltas": [
+            0.010967000000000837
+          ],
+          "reference_median": 18.489243
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entries.preferred_title ?~ '%Almanach%'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 141,
+        "median_ms": {
+          "candidate_median": 16.034581,
+          "paired_deltas": [
+            0.08407399999999932
+          ],
+          "reference_median": 15.950507
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "related_entries.entry.year ?= 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 142,
+        "median_ms": {
+          "candidate_median": 249.76958,
+          "paired_deltas": [
+            -4.3412899999999865
+          ],
+          "reference_median": 254.11086999999998
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year >= 1820 SORT BY @modified ASC",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 143,
+        "median_ms": {
+          "candidate_median": 75.156222,
+          "paired_deltas": [
+            -0.27129499999999496
+          ],
+          "reference_median": 75.427517
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "@status = 'valid' && entry.year = 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 144,
+        "median_ms": {
+          "candidate_median": 29.968807,
+          "paired_deltas": [
+            0.07578100000000276
+          ],
+          "reference_median": 29.893026
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.places.name:each = 'Berlin'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 145,
+        "median_ms": {
+          "candidate_median": 59.018213,
+          "paired_deltas": [
+            -1.4498219999999975
+          ],
+          "reference_median": 60.468035
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.name ?~ '%Goethe%' && entry.year < 1800",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 146,
+        "median_ms": {
+          "candidate_median": 133.26033,
+          "paired_deltas": [
+            -0.6062309999999798
+          ],
+          "reference_median": 133.866561
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "exists(contributors.agents.biographical_data)",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 147,
+        "median_ms": {
+          "candidate_median": 129.97118999999998,
+          "paired_deltas": [
+            -0.5944540000000416
+          ],
+          "reference_median": 130.56564400000002
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.preferred_title != preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 148,
+        "median_ms": {
+          "candidate_median": 124.277945,
+          "paired_deltas": [
+            -1.883931000000004
+          ],
+          "reference_median": 126.161876
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "contributors.agents.corporate_body ?= true",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 149,
+        "median_ms": {
+          "candidate_median": 135.194175,
+          "paired_deltas": [
+            -1.9966829999999902
+          ],
+          "reference_median": 137.190858
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1800 || @size > 16KiB",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 150,
+        "median_ms": {
+          "candidate_median": 72.324478,
+          "paired_deltas": [
+            -1.3336649999999963
+          ],
+          "reference_median": 73.658143
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.year = 1805 SORT BY entry.year DESC && preferred_title",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 151,
+        "median_ms": {
+          "candidate_median": 5.455835,
+          "paired_deltas": [
+            0.06036300000000061
+          ],
+          "reference_median": 5.395472
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "places.name ?= 'Berlin'",
+        "scans_equal": true,
+        "source_reads_equal": true
+      },
+      {
+        "cache_hits_equal": true,
+        "id": 152,
+        "median_ms": {
+          "candidate_median": 83.72341399999999,
+          "paired_deltas": [
+            -1.2167160000000052
+          ],
+          "reference_median": 84.94013
+        },
+        "ordered_hits_equal": true,
+        "parses_equal": true,
+        "query": "entry.agents.agent.name ?~ '%Cotta%' SORT BY entry.preferred_title:fts && @id",
+        "scans_equal": true,
+        "source_reads_equal": true
+      }
+    ],
+    "expected_cases": 152,
+    "reference_setup": {
+      "backend": "bigram",
+      "bigram_encoding": "ascii",
+      "cases": 152,
+      "collections": 7,
+      "count": true,
+      "index_warm_ms": 529.538665,
+      "page_limit": 1,
+      "query_cache_bytes": 6682311,
+      "runs": 7,
+      "schema_mode": "configured",
+      "secondary_loads": 7,
+      "snapshot_loads": 7,
+      "type": "setup"
+    }
+  }
+}
