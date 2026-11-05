@@ -553,15 +553,23 @@ pub fn eval_filter(
         }
         BoundExpr::And(parts) => {
             let mut result = true;
+            let mut branch_evidence = HashSet::new();
             for p in parts {
-                result &= eval_filter(p, ctx, evidence)?;
+                result &= eval_filter(p, ctx, &mut branch_evidence)?;
+            }
+            if result {
+                evidence.extend(branch_evidence);
             }
             result
         }
         BoundExpr::Or(parts) => {
             let mut result = false;
             for p in parts {
-                result |= eval_filter(p, ctx, evidence)?;
+                let mut branch_evidence = HashSet::new();
+                if eval_filter(p, ctx, &mut branch_evidence)? {
+                    result = true;
+                    evidence.extend(branch_evidence);
+                }
             }
             result
         }
@@ -732,6 +740,24 @@ mod tests {
         assert!(bind_filter(&parse_filter("name = 'x' || absent = 1").unwrap(), &schema).is_err());
         assert!(bind_filter(&parse_filter("name:missing = 'x'").unwrap(), &schema).is_err());
         assert!(bind_filter(&parse_filter("name ?= 'x'").unwrap(), &schema).is_err());
+    }
+
+    #[test]
+    fn evidence_excludes_false_boolean_branches() {
+        let value = Value::from_json(
+            serde_json::json!({"name":"Ada","values":["yes"],"people":[{"name":"Bob"}]}),
+        )
+        .unwrap();
+        with_record(value, |ctx| {
+            let bound = bind_filter(
+                &parse_filter("(name = 'Ada' && values ?= 'no') || people.name ?= 'Bob'").unwrap(),
+                &schema(),
+            )
+            .unwrap();
+            let mut evidence = HashSet::new();
+            assert!(eval_filter(&bound, &ctx, &mut evidence).unwrap());
+            assert_eq!(evidence, HashSet::from(["people.name".to_string()]));
+        });
     }
 
     #[test]

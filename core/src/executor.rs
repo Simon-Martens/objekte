@@ -610,7 +610,7 @@ pub(crate) fn plan_expr_restricted(
                 Plan {
                     candidates: Some(input - &child.candidates.unwrap()),
                     exact: true,
-                    proofs: Vec::new(),
+                    proofs: child.proofs,
                     choices: child.choices,
                 }
             } else {

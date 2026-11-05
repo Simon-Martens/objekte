@@ -8,11 +8,12 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 
 use crate::executor::{
-    Plan, TermChoice, estimate_expr, estimate_fts_candidates, fts_candidates, plan_expr_restricted,
+    Plan, Proof, TermChoice, estimate_expr, estimate_fts_candidates, fts_candidates,
+    plan_expr_restricted,
 };
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::query::{Operator, Query};
-use crate::reference::{Derived, RecordContext, eval_filter, eval_fts_query};
+use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
 use crate::source::{read_record_ranges, reader};
@@ -85,6 +86,47 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
             residual_evaluations: after.residual_evaluations - before.residual_evaluations,
             index_proven_matches: after.exact_posting_matches - before.exact_posting_matches,
         });
+    }
+}
+
+fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashSet<String>> {
+    match expr {
+        BoundExpr::Term(term) => {
+            let proof = proofs
+                .iter()
+                .find(|proof| proof.term.span == term.span && proof.term.path == term.path)?;
+            if !proof.matches.contains(slot) {
+                return None;
+            }
+            let mut evidence = HashSet::new();
+            if term.derived == Derived::None
+                && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+            {
+                evidence.insert(term.path.display());
+            }
+            Some(evidence)
+        }
+        BoundExpr::And(parts) => {
+            let mut evidence = HashSet::new();
+            for part in parts {
+                evidence.extend(proof_evidence(part, slot, proofs)?);
+            }
+            Some(evidence)
+        }
+        BoundExpr::Or(parts) => {
+            let mut evidence = HashSet::new();
+            let mut matched = false;
+            for part in parts {
+                if let Some(branch) = proof_evidence(part, slot, proofs) {
+                    matched = true;
+                    evidence.extend(branch);
+                }
+            }
+            matched.then_some(evidence)
+        }
+        BoundExpr::Not(inner) => proof_evidence(inner, slot, proofs)
+            .is_none()
+            .then_some(HashSet::new()),
     }
 }
 impl PartialEq for Winner {
@@ -462,17 +504,14 @@ fn search_impl(
         if !needs_scan {
             for slot in candidates.iter() {
                 let record = &collection.generation.records[slot as usize];
-                let mut evidence = HashSet::new();
-                if query.options.evidence {
-                    for proof in &plan.proofs {
-                        if proof.matches.contains(slot)
-                            && proof.term.derived == Derived::None
-                            && !matches!(proof.term.operator, Operator::Ne | Operator::NotContains)
-                        {
-                            evidence.insert(proof.term.path.display());
-                        }
-                    }
-                }
+                let evidence = if query.options.evidence {
+                    filter
+                        .as_ref()
+                        .and_then(|expr| proof_evidence(expr, slot, &plan.proofs))
+                        .unwrap_or_default()
+                } else {
+                    HashSet::new()
+                };
                 counters.exact_posting_matches += 1;
                 offer(
                     repo,
@@ -844,6 +883,66 @@ mod tests {
                 .hits
                 .iter()
                 .all(|hit| matches!(hit.payload, Some(Payload::Logical(_))))
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn exact_boolean_evidence_tracks_only_true_branches() {
+        let root = std::env::temp_dir().join(format!("objekte-evidence-{}", std::process::id()));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(
+            root.join("data/x.json"),
+            b"{\"a\":\"yes\",\"b\":\"no\",\"c\":\"yes\"}",
+        )
+        .unwrap();
+        let mut schema = Schema::default();
+        for name in ["a", "b", "c"] {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind: LogicalType::String,
+                    required: true,
+                    nullable: false,
+                    indexed: true,
+                    multi: false,
+                })
+                .unwrap();
+        }
+        let repo = Repository::open(
+            &root,
+            vec![CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::Json,
+                identity: IdentityPolicy::Filename,
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+            }],
+        )
+        .unwrap();
+        let query = Query {
+            collections: vec![],
+            fts: None,
+            filter: Some(parse_filter("(a = 'yes' && b = 'absent') || c = 'yes'").unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(optimized.count, 1);
+        assert_eq!(optimized.counters.record_parses, 0);
+        assert_eq!(optimized.hits[0].matched_fields, ["c"]);
+        assert_eq!(
+            optimized.hits[0].matched_fields,
+            reference.hits[0].matched_fields
         );
         std::fs::remove_dir_all(root).unwrap();
     }
