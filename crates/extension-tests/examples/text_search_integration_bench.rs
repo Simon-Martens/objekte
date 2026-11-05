@@ -117,7 +117,7 @@ fn fixture(root: &Path) -> std::io::Result<()> {
         let search = if name == "docs" {
             r#", "x-text-search":{"default":"example:benchmark-expanded","definitions":{"example:benchmark-expanded":{"index":true},"objekte:markdown":{"index":true}}}"#
         } else {
-            ""
+            r#", "x-full-text":"plain""#
         };
         let schema = format!(
             r#"{{"type":"object","properties":{{"body":{{"type":"string"{search}}},"year":{{"type":"integer","index":true}}}},"x-objekte":{{"name":"{name}","path":"data/{name}","type":"data","format":"json","id":"filename"}}}}"#
