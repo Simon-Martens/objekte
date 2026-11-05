@@ -5,7 +5,7 @@ collections have named schemas under `.objekte/collections/`. Each schema's
 `x-objekte` object declares its name, source directory, data type, JSON format,
 and filename identity. A sample named view lives under `.objekte/views/`.
 The implementation contract is in
-[implementation.md](../../docs/implementation.md).
+[implementation.md](../../docs/development/implementation.md).
 
 | Collection | Records | Initial use |
 | --- | ---: | --- |

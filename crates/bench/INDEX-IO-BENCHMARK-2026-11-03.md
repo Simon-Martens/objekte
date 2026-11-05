@@ -1,6 +1,6 @@
 # Index construction filesystem I/O experiment — 3 November 2026
 
-**Follow-up:** The combined inventory/scan path was subsequently selected for fresh production builds. The decision below records the original experimental recommendation and its consistency concern; the production behavior is documented in [the implementation guide](../../docs/implementation.md).
+**Follow-up:** The combined inventory/scan path was subsequently selected for fresh production builds. The decision below records the original experimental recommendation and its consistency concern; the production behavior is documented in [the implementation guide](../../docs/development/implementation.md).
 
 ## Adoption follow-up
 

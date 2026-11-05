@@ -1,42 +1,298 @@
 # Objekte Rust library API and extension contracts
 
-This is the external consumer reference for `objekte-core` at repository revision `52f849d93b` (crate version `0.1.0`). It describes the public Rust surface that another statically linked crate can call or implement. Here **ABI** means the Rust library contract: types, methods, traits, ownership and semantic identities. Objekte does not expose a C ABI, a stable binary layout, a dynamic plugin loader, or a promise that a compiled extension can be loaded into a different executable. Recompile downstream crates with the compatible `objekte-core` version. The source of truth for exact compiler signatures is `crates/core/src/lib.rs` and its public `bigram`, `extensions`, and `file_picker` modules.
+This is the external consumer reference for the current `objekte-core` checkout (crate version `0.1.0`). It describes the public Rust surface that another statically linked crate can call or implement. Here **ABI** means the Rust library contract: types, methods, traits, ownership and semantic identities. Objekte does not expose a C ABI, a stable binary layout, a dynamic plugin loader, or a promise that a compiled extension can be loaded into a different executable. Recompile downstream crates with the compatible `objekte-core` version. The source of truth for exact compiler signatures is `crates/core/src/lib.rs` and its public `bigram`, `extensions`, and `file_picker` modules.
 
 All examples use `objekte_core` as the crate name. Unless shown otherwise, `Result<T>` means `std::result::Result<T, objekte_core::Error>`. `&str` inputs are borrowed for the call; `Path` inputs are filesystem paths; `serde_json::Value` is the JSON-compatible logical value type. Methods taking `&mut Repository` may warm indexes, reconcile sources, update metrics, or populate caches. They do not write source records. Methods returning `Option<T>` distinguish an absent/unavailable value from an error.
 
 ## Contents
 
-1. [How the engine fits together](#how-the-engine-fits-together)
-2. [Opening and registering](#opening-and-registering)
-3. [Ordinary queries and views](#ordinary-queries-and-views)
-4. [Indexes, snapshots, refresh and inspection](#indexes-snapshots-refresh-and-inspection)
-5. [Extension interfaces](#extension-interfaces)
-6. [Public helper types and methods](#public-helper-types-and-methods)
-7. [Low-level bigram and JSON picker APIs](#low-level-bigram-and-json-picker-apis)
-8. [Complete consumer workflows](#complete-consumer-workflows)
-9. [Errors, lifetime rules and compatibility](#errors-lifetime-rules-and-compatibility)
+1. [Vocabulary and scope](#vocabulary-and-scope)
+2. [Architecture and data structures](#architecture-and-data-structures)
+3. [How a search runs](#how-a-search-runs)
+4. [Extension surface and built-in behavior](#extension-surface-and-built-in-behavior)
+5. [Common repository workflows](#common-repository-workflows)
+6. [Opening and registering](#opening-and-registering)
+7. [Ordinary queries and views](#ordinary-queries-and-views)
+8. [Indexes, snapshots, refresh and inspection](#indexes-snapshots-refresh-and-inspection)
+9. [Extension interfaces](#extension-interfaces)
+10. [Public helper types and methods](#public-helper-types-and-methods)
+11. [Low-level bigram and JSON picker APIs](#low-level-bigram-and-json-picker-apis)
+12. [Complete consumer workflows](#complete-consumer-workflows)
+13. [Errors, lifetime rules and compatibility](#errors-lifetime-rules-and-compatibility)
 
-## How the engine fits together
+## Vocabulary and scope
 
-The repository owns collection configuration, the source inventory, index storage, query planning, execution, result caches, pagination and refresh. An extension supplies a named **definition** for one boundary: selecting sources, decoding one source into logical fields, rendering a text value, extracting typed values, matching a value, or translating an application request into a plan. Registration happens before `RepositoryBuilder::open`.
+Objekte is a source-backed search library. The source files or provider resources remain authoritative; indexes and cached results are derived and disposable. The following terms are used throughout this reference:
+
+| Term | Meaning |
+| --- | --- |
+| **Repository** | A live `Repository` handle over a root directory, resolved configuration, collections, registered definitions, indexes and process-local caches. It never edits source records through query APIs. |
+| **Collection** | A named search scope. Default discovery groups JSON files by folder, while an optional schema can make a folder and its descendants one collection. Registered providers can contribute records to the same scope. |
+| **Source** | The bytes selected and read by a `SourceProvider`: normally a `.json` file, but a registered provider can choose another file or resource. The current decoder contract produces one logical record per source. |
+| **Source descriptor** | A `SourceDescriptor` containing collection, provider identity, source identity, record ID, locator, format identity, revision and declared metadata. Its locator says *where to read*; its record ID says *how to identify the result*. Neither is inferred from the other for a custom source. |
+| **Logical record** | The object/array/scalar fields exposed by a `FormatDecoder`. A decoder may lend values from its input buffer; only result APIs that need an owned `Record` materialize a JSON-compatible tree. A JSON Schema, when present, describes these logical fields, not the source file's encoding. |
+| **Field path** | An address into a logical record, such as `title`, `authors[0].name` or `authors[*].name`. Extension decoders visit JSON-pointer paths such as `/authors/0/name`; query binding resolves the requested path. |
+| **Source format** | The identity used to choose a `FormatDecoder`, for example `objekte:json` or a registered Markdown-file decoder. This differs from a *field text format* such as `x-full-text: markdown`, which controls how one string is rendered for search. |
+| **Text representation** | One defined view of a logical string: stored decoded text or visible normalized text, for example. The representation used to build a text posting must agree with the one used for exact verification. |
+| **Typed value** | A null, Boolean, exact decimal number or string used for scalar filtering and ordering. A `ValueExtractor` can derive zero or more typed values from a record. Missing, explicit null and a present path yielding no values are different states. |
+| **Slot** | A compact integer position for one source or record within an index generation. Posting lists, bitsets and cached orderings contain slots, not source bytes. A slot has meaning only with its matching source table and generation. |
+| **Posting** | An index entry mapping a necessary text feature or a typed key to the slots that contain it. A posting reduces source reads; it is not automatically proof of an exact text match. |
+| **Candidate** | A source that an index has not ruled out. A conservative candidate set may include false positives. An *unsupported* constraint means scan or use another safe condition; an empty supported set means no candidates. |
+| **Exact verification** | Reading the source and evaluating the complete predicate under the bound field, text and error semantics. It is required for approximate text candidates and for any predicate the index cannot prove exactly. |
+| **Generation** | The maintained identity of a source inventory and bound semantics. Cached slots and selected postings must belong to the same generation. Refresh or relevant configuration changes invalidate incompatible state. |
+| **Snapshot** | A versioned on-disk copy of derived index state under `.objekte/.cache`, or at an explicit path. It is validated before restoration and is rebuilt on an incompatible cache miss. |
+| **Query cache** | A bounded, process-local cache of verified membership and/or ordered slot lists. It does not store document contents and is separate from index snapshots and the operating system's file cache. |
+
+The two **ordinary query families** are `JsonQuery` and `TextQuery`. `JsonQuery` evaluates a structured filter over logical fields, metadata and declared relations; it can include a field-level `:fts` comparison. `TextQuery` searches included scalar leaves for a text pattern and may add a structured filter. `query_derived` is a narrower typed-extractor API, and `query_frontend` runs an application-defined compiled plan. These use the same repository ownership of source selection, ordering, pagination and cache publication. They do not require four separate source stores.
+
+## Architecture and data structures
+
+The repository separates **discovery**, **projection**, **candidate selection**, **exact execution** and **result delivery**. Extensions can define inputs and semantics at those boundaries; the engine keeps the indexes, source generations, scheduling, caches and public result order.
 
 ```text
-builder registrations + repository configuration
-              ↓
-collection/source selection → SourceDescriptor inventory and generation
-              ↓
-provider read → format decoder → borrowed logical record
-              ↓
-bound text/typed projections → engine-owned bigram/B-tree postings
-              ↓
-ordinary query or compiled frontend → candidates → exact verification
-              ↓
-engine-owned order/count/page cache → returned record/page
+repository root + schemas + registrations
+        │
+        ├─ collection/source selection ──► source descriptors + generation
+        │                                   (provider, format, ID, locator, revision)
+        ├─ index build: read → decode/project → bigram and typed postings
+        │                                   + presence and sort structures
+        └─ query: compile/bind → safe candidates → exact verification
+                                          → count/order → requested page
+                                          → reread/materialize page records
 ```
 
-For a JSON-only collection, ordinary queries retain the concrete JSON picker, Sonic projection and native scanners. A custom-only or mixed collection uses the selected descriptor inventory; each record is read from its actual provider and decoded by its selected format. Registering a provider/format is sufficient for ordinary JSON/text queries, views, refresh and save/reopen to see its logical records. An application uses `query_frontend` only when it wants its **own request syntax or composition**, not merely because a source is Markdown or another format.
+There are two principal index families:
 
-The engine uses conservative index candidates: a candidate may still fail exact verification; a noncandidate may be skipped only when the operator explicitly promises that doing so cannot suppress an error. An unsupported constraint means scan. Query cache entries are keyed by used definitions and source generation. A completed ordered cache hit slices the requested page and reads only those returned records under `MetadataOnOpen`; request-time freshness policies also validate their inventory.
+1. A **bigram index** answers “which slots could contain this text?” It stores byte-pair features in compressed posting columns and is deliberately approximate. The native picker keeps a general stored-text filter and, when needed, separate normal/visible filters for declared full-text fields. Selected custom fields can use engine-owned representation postings with the same bigram builder.
+2. A **typed ordered index** answers safe scalar comparisons and ranges by typed key. Its existing B-tree-backed `TypedIndex` maps each key to source slots. Native schema fields, runtime JSON-path postings and registered derived values all use this implementation. Exact decimal comparison avoids converting numbers to floating point.
+
+Presence bits, sort keys and modification order are additional structures; they are not a third general text or value index. They answer “does this path exist?”, “what is this slot's sort key?” and “which live slot comes next by default?” respectively.
+
+| Internal structure | Contents and purpose | Lifetime or invariant |
+| --- | --- | --- |
+| `RepositoryModel` and `Collection` | Resolved root, collection boundaries, schema fields, views, mappings and relations. | Configuration is loaded at open/reload, not parsed for every character or source value. |
+| Native `FilePicker` | A byte arena of IDs, `Vec<Option<FileEntry>>` stable slots, a sorted live-ID view, stamps/revisions, tombstones, `ModifiedOrder` and index members. | The concrete path for JSON-only scopes. A deleted slot is not silently reassigned while old postings still refer to it. |
+| Selected `CustomSourceSnapshot` | Shared `Arc<Vec<SourceDescriptor>>`, selection fingerprint, source-generation fingerprint, cacheability and applicable definition descriptors. | Used when the scope contains custom records. A provider rule matters even if it currently returns no records. The source table and cached slots are pinned to one generation. |
+| `BigramFilter` and `TextIndex` | Compressed dense or sparse bitset columns for observed adjacent and skip-one byte pairs; optional per-field stored and visible text filters. | A bit says “possible match”, never “verified text match”. Encoding and representation are part of index identity. |
+| `BigramOverlay` and changed-slot state | New text features for edited/inserted native JSON slots plus deletion tombstones beside an immutable base filter. | Changed records remain visible before compaction/rebuild; stale base bits cannot make a deletion a result. |
+| `TypedIndex` and `PresenceIndex` | `BTreeMap<TypedKey, Vec<slot>>` posting maps for null, missing, Boolean, exact number and string keys, with path-presence and retained per-slot old keys. | Safe scalar predicates can be exact. Refresh removes old keys from retained state before inserting new keys, without rereading overwritten old source bytes. |
+| `SortIndex`, `ModifiedOrder`, `SortBuffer` | Slot-major collation/sort keys and precomputed orders for declared native indexes; newest-first default order; a bounded best-prefix buffer for unsupported sorts. | Stable collection and ID tie breaks remain part of result ordering. A fallback sort need not retain whole record contents. |
+| `VerifiedPredicateCache` | Generation map and `evaluated`/`matched` slot bitsets for reusable predicate work. | A known false is distinct from an unevaluated slot. Complete membership is published only after successful verification. |
+| `OrderedResultCache` | Ordered `Vec<u32>` slot lists with `Complete`, `Prefix` or `CappedPrefix` coverage, keyed by predicate and sort semantics. | A complete hit slices only the requested page; offset and limit do not create a different ordering. Records are reread for the returned page. |
+| Index snapshots | Native base bigram snapshot and secondary typed/presence/sort sidecar; versioned selected inventory and selected posting metadata. | A source, encoding, schema, format or extension-semantic mismatch is a cache miss or error, never permission to reuse incompatible slots. |
+
+The native index build reads each required JSON source once and uses its Sonic parse for fused text, presence, typed and sort projection. It does not allocate a canonical `serde_json::Value` tree merely to call extension traits. A selected build reads and decodes each source once per necessary pass and feeds the requested compatible representation and extractor outputs from that access. The engine allocates reusable scratch per worker and does not dispatch through a trait object for each byte or bigram of the native scanner.
+
+### What the bigram index proves
+
+For a logical string such as `archive`, adjacent byte pairs include `ar`, `rc` and `ch`; a skip-one pair links bytes with one byte between them. An index column is a bitset of slots containing a pair. Intersecting required columns can reject many sources quickly, but a source with the same pairs in another order is a false positive. Every retained text candidate is checked with the exact scanner. Features are generated within one logical value: unrelated fields or array members are not concatenated into an exact-match stream.
+
+`BigramEncoding::Ascii` uses printable ASCII pairs; `Utf8Bytes` uses UTF-8 **byte** pairs, not Unicode scalar pairs. ASCII case normalization and separate Unicode-folded projections support safe candidate planning for case-insensitive modes. A query must use the posting for its actual representation: raw stored bytes do not safely narrow a markup-aware visible-text match unless a specific compatibility proof permits it. Short patterns and broad regexes may have no safe pair and therefore scan. A compressed column's dense/sparse layout changes memory and speed, not match semantics.
+
+### What the typed index proves
+
+`TypedKey` separates null, missing, Booleans, exact decimal numbers and strings. A B-tree key range can supply exact membership when the bound comparison and path cardinality make that safe; otherwise it supplies a necessary condition or execution falls back to source evaluation. `exists(path)` includes explicit null and present empty containers; missing means the path is absent. Ordinary scalar comparisons can report an error when a path reaches multiple values, while existential `?` comparisons can accept any reached value. A flattened posting must not hide a cardinality error or assume two values came from the same array element. Registered extractors have the same distinction between `Missing`, `Present` with zero values, explicit `Null`, multiple values and `Err`.
+
+Sorting is related but separate. Declared native sort indexes retain ICU collation keys and ordered slots. A supported indexed order can be traversed directly. Other sort requests use bounded `SortBuffer` selection; sorted results still use the same stable tie rules. The default unsorted order is by collection, then descending source modification time with record ID breaking ties. Requested `offset` and `limit` select a page from that order. `Options.total_limit` caps the accessible match sequence and sets `truncated` when more matches are proven.
+
+## How a search runs
+
+The path below describes the ordinary APIs. A registered frontend supplies a `LogicalPlan` at step 1 and then hands execution back to the engine. A JSON-only scope keeps specialized native execution; a scope containing custom records uses the selected descriptor table and logical record access.
+
+| Stage | Structured `JsonQuery` | Full-text `TextQuery` | Shared rule |
+| --- | --- | --- | --- |
+| **1. Parse and bind** | Compile filter syntax, parameters, metadata/relations, `:fts` mode and optional sort. | Compile word/raw/regex pattern, optional field selection and optional JSON filter. | Validate scope and page bounds. Bind schema annotations and only the participating extension definitions once. |
+| **2. Pin sources and freshness** | Select requested collections and their current native picker or selected inventory. | The same source routing. | `MetadataOnOpen` uses maintained state until explicit refresh; request-time policies perform their required revision/content validation. Query execution must not mix source slots from generations. |
+| **3. Check reusable results** | Reuse a compatible verified predicate or completed ordered list when permitted. | Reuse a compatible text membership/order when permitted. | Keys include compiled terms, scope, bound semantics and source generation. A page change can reuse one complete order. This cache contains no source bytes. |
+| **4. Plan candidates** | Combine safe typed, presence, text and metadata conditions; some indexed predicates prove exact membership. | Use the posting for the chosen raw/visible representation and any compatible filter conditions. | Approximate candidates include changed/unindexed slots. An unsupported hint means scan. `AND` may use a necessary condition; `OR` needs coverage of every branch; `NOT` cannot complement an approximate set. |
+| **5. Verify and count** | Read candidates as needed, evaluate the full filter, preserve missing/null/cardinality and relation behavior. | Read candidates, traverse included scalar leaves, render each logical value and apply the exact matcher; collect matched field/path data. | Errors propagate. Native safe exact postings may count without reading every matching file; approximate candidates must be verified. |
+| **6. Order and select a page** | Use default modification order, a compatible native sort order or bounded fallback. | Apply the same ordering and requested sort terms to text hits. | Count and truncation are computed under `total_limit`. Offset/limit are checked and select only the requested range; stable ties remain stable. |
+| **7. Materialize and publish** | Return `Record` values with status, metadata and optional raw malformed-JSON bytes. | Return `TextHit` values containing records plus canonical fields and concrete matched paths. | Reread/check returned-page sources. Publish a complete cache entry only after successful evaluation; failures or cancellation cannot turn partial work into a complete result. |
+
+A `JsonQuery` is a field/metadata query, even if one field uses `:fts`. Its ordinary `~`/LIKE behavior is distinct from `:fts` text comparison. A `TextQuery` searches across included leaves by default: `Word` matches visible normalized text, `WordRaw` matches stored decoded text, and `Regex` runs a Rust regex on stored text with flags in the pattern. Markdown/HTML/XML rendering is chosen per declared field, not by treating an entire source file as markup. The optional `TextQuery.filter` narrows records before text matching. Results from both families can be sorted, counted, paged and streamed.
+
+A custom operator's candidate hint says only that excluded values cannot **match**. Evaluation of an excluded value may still fail, so `CompiledOperator::can_skip_non_candidates()` defaults to `false`. A custom operator must explicitly promise safe skipping before either registered text search or frontend execution prunes its evaluation. Boolean short-circuit order and errors remain observable; an error is not converted into an empty result. Native operators retain their concrete optimized path.
+
+### Three distinct caches and freshness policies
+
+1. **In-memory indexes** hold bigram, typed, presence and sort postings. They are built lazily or by explicit warm/rebuild calls and may have a changed-record overlay.
+2. **Disk snapshots** save compatible derived index state under `.objekte/.cache`. They speed later opening but are never authoritative. Native JSON snapshots retain their own format; selected postings carry versioned inventory and semantic metadata. `save_bigram_cache` saves the ordinary repository-managed cache, including active selected postings when present.
+3. **The query-result cache** retains process-local predicate bitsets and ordered slot sequences within `Options.query_cache_bytes`. A complete ordered hit does page-range work plus page materialization, not an inventory or full-match copy under `MetadataOnOpen`. A verified hit may still read returned records. Streaming does not reuse this cache unless `stream_query_cache` is enabled.
+
+The operating system's page cache is a fourth, external effect on timing; Objekte does not call a warm-index query a cold physical-storage read. The freshness setting determines when cached *source knowledge* is checked:
+
+| `Freshness` | Selection and query behavior | Application responsibility |
+| --- | --- | --- |
+| `MetadataOnOpen` (default) | Inventory/stamps are established at open or first index use. Later compatible query-cache hits do no new collection inventory solely for lookup; returned pages still receive the existing source checks. | Call `refresh(collection)` after source edits, additions, deletions or renames. Use `reload()` or `refresh_configuration()` after configuration/schema changes. |
+| `MetadataOnRequest` | Re-enumerates/reconciles required source metadata before requests and cache reuse. This can cost collection work even for a tiny cached page. | Keep provider revisions and metadata accurate. Explicit refresh remains available. |
+| `HashOnRequest` | Rechecks content on requests and bypasses verified-query-cache reuse; current index work may be repeated. | Choose this when request-time content checking is required, accepting its cost. |
+
+A default filesystem JSON read stays within its configured root, uses descriptor-relative secure opening/no-follow behavior and the documented before/after revision checks. A custom provider implements its own bounded read and consistency policy; the engine checks the selected descriptor and propagates an unstable read or decoder failure. The repository does not watch files or rewrite source records. Refresh and reload invalidate affected membership, ordered results and selected postings by maintained generations; they do not scan every document merely to construct a cache lookup key.
+
+## Extension surface and built-in behavior
+
+An extension is statically linked Rust code registered on `RepositoryBuilder` **before** opening. Repository files do not authorize execution of extension code. The application author provides semantics at one or more boundaries; the engine retains source inventory ownership, index storage, candidate combination, exact query scheduling, result ordering, pagination, cache budgets and publication.
+
+| Programmer-supplied contract | What the implementation decides | What the engine still does |
+| --- | --- | --- |
+| `SourceProvider` | Which sources belong to a collection, their stable identities, locator, format, revision and metadata; how to read a chosen descriptor. | Merge providers with built-in JSON discovery, reject collisions, retain an inventory/generation and select records for ordinary queries and refresh. |
+| `FormatDecoder` | Which source-format identity it accepts and how bytes expose one borrowed logical record with fields and path presence. | Validate format selection, call it during record access and materialize owned results only where required. |
+| `TextRepresentation` | Which bound field it applies to and how one logical string becomes stored or visible text, borrowing input or using reusable output. | Build compatible bigram postings, choose safe candidate constraints and perform exact field traversal. |
+| `ValueExtractor` | Which record/schema binding it applies to and which zero, one or many typed values it emits, with missing/null/error semantics. | Use the existing typed B-tree for optional derived postings, filter, count, sort, refresh and snapshot compatibility. |
+| `QueryOperator`/`CompiledOperator` | Validate parameters once; evaluate an exact predicate over a prepared value; optionally declare a safe necessary candidate and whether noncandidates may be skipped without losing errors. | Supply the index, check representation compatibility, combine candidates conservatively and propagate failures. |
+| `QueryFrontend` | Translate an application request into a `LogicalPlan` over registered handles, Boolean terms, scope, projection, sort and page. | Read/decode sources and execute the plan, including candidates, short-circuit behavior, ordering and caching. |
+
+Definitions have a namespaced identity, semantic version, canonical configuration fingerprint, input/output kinds and declared dependencies. Binding can inspect retained resolved JSON Schema annotations and resolves identity strings to handles once. Stable descriptors, parameters, applicable provider/decoder selection and source generation determine reuse; registration order and pointer values do not. An unrelated volatile operator or extractor does not disable another query's cache. A volatile definition actually used by a query, index or snapshot prevents the reuse its contract forbids. Borrowed decoder values, text output and worker scratch cannot escape their callback; compiled definitions are immutable and shareable.
+
+### What comes with Objekte
+
+| Built-in capability | Scope and behavior | Registration detail |
+| --- | --- | --- |
+| Filesystem JSON source provider (`objekte:filesystem`) | Discovers regular `.json` files under default collection boundaries, supplies IDs without the suffix and secure locator reads. | Used by ordinary repository opening; not replaced by registering another provider. |
+| JSON decoder (`objekte:json`) | Sonic-based logical JSON access. Native JSON indexing uses the fused one-read/one-parse projection instead of an owned generic tree. Malformed JSON has its specific metadata and standalone raw-text fallback. | Available as the built-in decoder/fallback for JSON descriptors. |
+| Stored text (`objekte:stored`) | The decoded string exactly as stored; raw word and regex modes see this text. | A public `StoredRepresentation` adapter is available and is registered automatically when source providers require representation binding. |
+| Visible plain/Markdown/HTML/XML (`objekte:visible-*`) | Per-field rendering for schema `x-full-text` declarations. Plain text normalizes spacing/punctuation; markup modes remove markup, decode entities and preserve inline joins/block boundaries. `exclude_fts` removes declared fields from standalone text search. | Public `RenderedRepresentation::new(TextFormat)` adapters are available; applicable source-provider openings install them. Ordinary native text search uses the same concrete rendering semantics without trait dispatch per character. |
+| Native text scanner | `Word` is a case-aware literal over visible normalized text; `WordRaw` is a literal over stored text; `Regex` is a Rust regex over stored text and owns its flags. | Ordinary `TextQuery` uses concrete scanners. `NativeTextOperator::new(mode, case_sensitive)` is an optional public adapter for registered operator calls, not an automatically registered custom frontend. |
+| Native JSON field and typed projection | JSON paths, metadata, relations, schema `index`/sort declarations and optional runtime JSON-path postings use existing exact evaluator and typed B-tree. | No `ValueExtractor` registration is required for stored JSON fields. A custom derived value does require its own extractor. |
+| Query entry points | `JsonQuery`, `TextQuery`, named views and their streaming forms. | Already available through `Repository`; no `QueryFrontend` registration is needed for ordinary queries. |
+
+**A Markdown, HTML or XML *field* renderer is not a Markdown, HTML or XML *file* decoder.** The built-in source file format is JSON. To index a `.md` file as a record, register a provider that selects it and a decoder that exposes its logical fields; `crates/extension-tests` contains the separate consumer example. There is no built-in YAML/TOML decoder, general archive reader, dynamic plugin loader or built-in application-specific query frontend. Registered extensions are trusted application code, not programs supplied by repository files.
+
+## Common repository workflows
+
+### Open a repository and choose options
+
+`Repository::open(root)` is the shortest default JSON path. Use the builder to configure options or register extensions. `Options::default()` chooses memory indexes, `MetadataOnOpen`, ASCII bigrams, a 10,000-match cap, a 64 MiB process-local query-cache budget and no streaming cache reuse. A schema can override the effective bigram encoding for its collection.
+
+```rust,no_run
+use objekte_core::{Freshness, Options, Repository};
+
+fn main() -> Result<(), objekte_core::Error> {
+    let mut options = Options::default();
+    options.freshness = Freshness::MetadataOnOpen;
+    options.query_cache_bytes = 64 * 1024 * 1024;
+    let mut repo = Repository::builder("my-repository")
+        .options(options)
+        .open()?;
+    repo.warm_bigram_index("books")?; // optional: otherwise build/restore on first use
+    Ok(())
+}
+```
+
+For another source format, chain `register_source`, `register_format` and any field-specific `register_representation`/`register_extractor` calls before `.open()`. A source-only registration is incomplete if its descriptors name a format with no matching decoder. A JSON Schema can describe the decoder's logical fields; `x-full-text` on a `body` field selects visible Markdown/HTML/XML semantics independently of the file extension. The [complete custom-format workflow](#ordinary-custom-format-repository) below uses the separate consumer crate.
+
+### Collect structured and text results
+
+Use `JsonQuery` for field, metadata or relation predicates. Use `TextQuery` for a pattern across included scalar leaves; `fields` narrows the searched logical fields. Both default to all collections, offset zero, a page of 50, no total count and no explicit sort. Set `count: true` when a total is needed. A matching index is an optimization: unsupported candidates still execute by exact scanning.
+
+```rust,no_run
+use objekte_core::{JsonQuery, Repository, TextMode, TextQuery};
+
+fn main() -> Result<(), objekte_core::Error> {
+    let mut repo = Repository::open("my-repository")?;
+    let books = vec!["books".to_owned()];
+    let field_page = repo.query_json(&JsonQuery {
+        filter: "year >= 1848 && exists(title)".into(),
+        collections: Some(books.clone()),
+        count: true,
+        limit: 20,
+        ..Default::default()
+    })?;
+    let text_page = repo.search_text(&TextQuery {
+        pattern: "Goethe".into(),
+        mode: TextMode::Word,
+        collections: Some(books),
+        fields: Some(vec!["annotation".into()]),
+        count: true,
+        limit: 20,
+        ..Default::default()
+    })?;
+    println!("fields: {:?}; text hits: {:?}", field_page.total, text_page.total);
+    Ok(())
+}
+```
+
+`JsonQuery.filter` can contain `:fts` for a field-specific text comparison, while `TextQuery.filter` adds a structured predicate before leaf search. `Sort { field, direction }` requests explicit ordering; `offset` and `limit` choose a page. The `Record` in either result owns the returned logical data. `TextHit` additionally reports canonical matched fields and concrete array paths. A custom `query_frontend` is needed only for an application-defined request shape, not for a registered file format.
+
+### Stream results and handle provisional output
+
+`query_json_stream` and `search_text_stream` invoke a callback for numbered page records or hits. Ordinals start at **one**; they are emitted positions, not stable record IDs. The callback borrows its value for that call. Some routes verify in parallel batches or materialize a sorted/selected page before callbacks, so streaming is an output contract rather than a promise of immediate first-byte delivery. The final summary is returned only on success. If a later read, decoder, scalar-cardinality check, operator or callback fails, treat earlier output as provisional; the engine does not publish a completed cache entry. The `*_stream_updates` variants deliver replaceable page slices for interactive displays; rows may move until completion.
+
+```rust,no_run
+use objekte_core::{JsonQuery, Repository, TextQuery};
+
+fn main() -> Result<(), objekte_core::Error> {
+    let mut repo = Repository::open("my-repository")?;
+    let request = JsonQuery {
+        filter: "year >= 1848".into(),
+        ..Default::default()
+    };
+    let summary = repo.query_json_stream(&request, |ordinal, record| {
+        println!("{ordinal}: {} / {}", record.collection, record.id);
+        Ok(())
+    })?;
+    println!("{} records returned", summary.returned);
+    let text = TextQuery { pattern: "archive".into(), ..Default::default() };
+    repo.search_text_stream(&text, |ordinal, hit| {
+        println!("{ordinal}: {}", hit.record.id);
+        Ok(())
+    })?;
+    Ok(())
+}
+```
+
+By default, streams verify candidates under the ordinary freshness rules without reusing the verified query cache. Set `Options.stream_query_cache = true` for an interactive application that deliberately accepts the same cache reuse and explicit reconciliation responsibility as collected queries. `search_text_stream_with` is the registered-operator streaming variant. `query_frontend` and `query_derived` currently return collected pages; they do not have separate streaming entry points.
+
+### Reconcile source changes and persist derived state
+
+The repository does not watch the filesystem. Perform the source write in the application, then report it before relying on an on-open index or cached result. These operations change derived state; they do **not** create, edit, delete or move source files themselves.
+
+| Situation | Call | Effect |
+| --- | --- | --- |
+| One known collection changed, including custom-provider files | `repo.refresh("books")?` | Re-enumerates/reconciles selected sources and native JSON files; invalidates affected query entries. Active custom selected postings currently rebuild as a collection. |
+| Known native `.json` create/edit/delete/move paths | `repo.apply_source_changes(&[SourceChange::...])?` | Applies targeted picker updates without a full directory inventory. This specialized API rejects selected custom-provider scopes. |
+| Need a native JSON change report | `repo.diff("books")?` or `diff_all()` | Compares native picker inventory and updates its state; moves appear as delete plus create. Use `refresh` for selected providers. |
+| Schema, collection rules or other loaded configuration changed | `repo.refresh_configuration()?` or `repo.reload()?` | Rebinds affected configuration and selection; a new or removed collection may require `reload`. |
+| Build indexes ahead of the first query | `warm_bigram_index`, `warm_text_index`, or their `*_all_*` forms | Restores compatible snapshots or builds missing native and selected outputs. |
+| Force an index rebuild | `rebuild_bigram_index`, `rebuild_text_index`, or `reindex_bigram_cache` | Reconstructs applicable derived postings; `reindex_bigram_cache` also saves repository-managed snapshots. |
+| Persist current derived indexes | `save_bigram_cache("books")?` or `save_all_bigram_caches()?` | Writes the native cache and active selected postings under `.objekte/.cache` for later compatible reopen. |
+
+```rust,no_run
+use objekte_core::Repository;
+
+fn main() -> Result<(), objekte_core::Error> {
+    let mut repo = Repository::open("my-repository")?;
+    // After the application has changed sources in this collection:
+    repo.refresh("books")?;
+    repo.save_bigram_cache("books")?;
+    Ok(())
+}
+```
+
+For a native JSON-only scope, `apply_source_changes` is an **alternative** to full refresh when the application knows the changed paths. Report only events that actually happened, after the filesystem operation:
+
+```rust,no_run
+use objekte_core::{Repository, SourceChange};
+use std::path::PathBuf;
+
+fn main() -> Result<(), objekte_core::Error> {
+    let mut repo = Repository::open("my-repository")?;
+    let changes = [
+        SourceChange::Created(PathBuf::from("data/books/new.json")),
+        SourceChange::Changed(PathBuf::from("data/books/edited.json")),
+        SourceChange::Deleted(PathBuf::from("data/books/removed.json")),
+        SourceChange::Moved {
+            from: PathBuf::from("data/books/old.json"),
+            to: PathBuf::from("data/books/renamed.json"),
+        },
+    ];
+    repo.apply_source_changes(&changes)?;
+    repo.save_bigram_cache("books")?;
+    Ok(())
+}
+```
+
+For a custom-bearing collection use `refresh` rather than `apply_source_changes`. When a move crosses collections, reconcile both affected collections; when a provider creates or removes an entire custom-only collection, `reload()` updates collection membership. On `MetadataOnRequest` the engine performs its promised request-time metadata validation; on `HashOnRequest` it performs the stronger request-time source work and bypasses verified result reuse. `MetadataOnOpen` needs explicit refresh for external changes. A failed selected build or refresh never publishes partially valid postings under a new generation; a failed collection may remain unavailable until a successful refresh/reload. Save after successful reconciliation if later processes should restore the new index state.
 
 ## Opening and registering
 
@@ -101,7 +357,7 @@ Streaming variants preserve query/error behavior and return `JsonQueryStreamSumm
 
 | Function | Callback argument meaning |
 | --- | --- |
-| `query_json_stream(request, on_record: impl FnMut(usize, &Record) -> Result<()>)` | `request` is a `JsonQuery`; `on_record` receives the zero-based emitted position and a borrowed record. Returning `Err` stops the stream. |
+| `query_json_stream(request, on_record: impl FnMut(usize, &Record) -> Result<()>)` | `request` is a `JsonQuery`; `on_record` receives the one-based emitted position and a borrowed record. Returning `Err` stops the stream. |
 | `query_json_stream_updates(request, on_page: impl FnMut(&[Record]) -> Result<()>)` | `on_page` receives a borrowed batch/page of records; returning `Err` stops it. |
 
 Streaming may have emitted earlier records when a later read, verification or callback fails. A failure does not publish a completed cache entry.
@@ -198,7 +454,7 @@ These are advanced controls. Ordinary warm/build/save/reopen now handles configu
 | `record_revision(collection, id) -> Result<Option<RecordRevision>>` | Native JSON picker revision, including tombstones; custom descriptors instead expose their revision string. |
 | `validate_collection(name) -> Result<ValidationMetrics>` / `validate_all()` | Validate logical records against their configured schema. |
 | `infer_and_auto_index(collection: Option<&str>, options: InferOptions) -> Result<InferenceReport>` | Scan one named collection or all (`None`), infer native JSON field shapes, optionally build indexes or write schema as directed by options. |
-| `write_inferred_schema(report: &mut InferenceReport) -> Result<usize>` | Write inferred schema files from a prior report; returns written count. Native picker operation. |
+| `write_inferred_schema(report: &mut InferenceReport) -> Result<usize>` | Write inferred schema files from a prior report; returns written count. Native picker operation. Reload the handle before using the new schema there. |
 | `build_posting(collection, path) -> Result<()>` / `build_posting_all(path)` | Prepare the native JSON scalar B-tree posting at filter-syntax `path`; it does not include custom provider records. |
 | `value_counts(collection, path, limit) -> Result<Option<Vec<ValueCount>>>` | Return at most `limit` most common non-null/nonmissing native indexed values, with distinct record counts; `None` means no current complete posting (including mixed custom collections). |
 | `index_bytes(collection) -> Result<Option<usize>>` / `text_index_bytes(collection)` | In-memory native index byte estimates when present. |
@@ -508,4 +764,4 @@ Borrowed `ScalarValue`, `DecodedRecord`, input bytes, renderer output, worker sc
 
 Source/provider/decoder identities, applicable selection precedence, schema mapping, representation/extractor/operator versions/configuration, compiled parameters and source generation determine cache/snapshot compatibility. Used volatile dependencies disable forbidden reuse. Native JSON snapshot bytes are unchanged; repository-selected manifest version 1, selected text companion manifest version 2, and selected derived magic `OBJDRV02` reject older/incompatible bytes as cache misses. Cache-on page changes reuse compatible ordered results without copying all slots; cache-off and `HashOnRequest` still perform exact work. For custom collections, active selected postings currently rebuild on refresh rather than patching individual slots. Native `build_posting`, `diff`, `apply_source_changes`, `record_revision`, picker `value_counts` and inference are JSON-picker-specific; use ordinary `refresh`, selected descriptors, and named derived APIs for custom sources.
 
-For behavior-level details and the current extension consumer examples, see [Library extensions](library-extensions.md), [Implementation](implementation.md), and `crates/extension-tests/src/lib.rs`. The reference above intentionally lists external calls and contracts; private `pub(crate)` functions, inaccessible items inside private modules, and CLI/benchmark-only entry points are not part of the downstream Rust API.
+This document is the architecture and external API reference. For copyable extension implementations and a compatibility checklist, see [Library extensions](library-extensions.md) and `crates/extension-tests/src/lib.rs`; for internal index and snapshot details, see [Implementation](development/implementation.md). Private `pub(crate)` functions, inaccessible items inside private modules, and CLI/benchmark-only entry points are not part of the downstream Rust API.

@@ -1,5 +1,7 @@
 # Library extensions
 
+This is the extension implementer's companion guide with concrete examples and compatibility rules. Start with the [library architecture and API reference](library-abi.md) for vocabulary, the search stages, engine data structures and the complete public method list.
+
 The public contracts are re-exported from `objekte_core::extensions`. Their source files are grouped by responsibility: `identity.rs` defines semantic descriptors, `source.rs` and `format.rs` define selected input and borrowed records, `projection.rs` defines text and typed values, `operator.rs` defines exact scanners and candidate promises, and `query.rs` defines frontend plans. `extensions.rs` retains the registry. The default JSON picker, B-tree postings, bigram filters, query execution and cache remain concrete engine code.
 
 Objekte extensions are statically linked Rust application code. A repository file never authorizes loading or executing an extension program. Register definitions on `Repository::builder` before `open`; the definitions are shared immutably by a repository handle and its unindexed forks.

@@ -10,7 +10,7 @@ obj is heavily SIMD-accelerated and requires AVX2/NEON instructions support by t
 - **cli/TUI:** used mainly for testing, allows quick queries against a data repository
 - **GUI:** unfinished
 
-## Some documentation 
+## For users
 
 - [Collections and schemas](collections.md): discovery, nested IDs, and index declarations.
 - [Query examples](queries.md): runnable Musenalm commands, sorting, and output.
@@ -20,14 +20,18 @@ obj is heavily SIMD-accelerated and requires AVX2/NEON instructions support by t
 - [Terminal UI](cli-tui.md): search controls, result navigation, and export.
 - [Validation](validation.md): JSON and schema status on source records.
 - [Field inference](inference.md): detected types, runtime postings, and schema updates.
+- [Rust library API](library-abi.md): public types, functions, arguments, and contracts.
+- [Library extensions](library-extensions.md): registration and custom implementations.
 
-## Understand and extend the implementation
+## For developers and agents
 
-- [Index and cache lifecycle](implementation.md): construction, snapshots, refresh, and source verification.
-- [Core and TUI code map](code-map.md): entry points and module responsibilities.
-- [Code guidelines](code-guidelines.md): layout, comments, tests, and diagnostics.
-- [Performance](Performance.md): current benchmark entry points and measurement limits.
-- [Current capabilities and roadmap](MVP.md), with a separate [desktop UI plan](UI.md).
+- [Index and cache lifecycle](development/implementation.md): construction, snapshots, refresh, and source verification.
+- [Core and TUI code map](development/code-map.md): entry points and module responsibilities.
+- [Code guidelines](development/code-guidelines.md): layout, comments, tests, and diagnostics.
+- [Performance](development/Performance.md): current benchmark entry points and measurement limits.
+- [Current capabilities and roadmap](development/MVP.md), with a separate [desktop UI plan](development/UI.md).
+- [Development ideas](development/ideas.md).
+- [Core test guide](../crates/core/tests/README.md) and [benchmark guide](../crates/bench/README.md).
 
 ```sh
 cargo test --workspace --all-targets

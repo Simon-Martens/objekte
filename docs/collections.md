@@ -1,6 +1,6 @@
 # Collections and optional schemas
 
-`Repository::open(root)` reads named schemas from `.objekte/collections/<name>.schema.json`. Each root schema has an `x-objekte` object declaring `name`, repository-relative `path`, `type: "data"`, `format: "json"`, and `id: "filename"`. The name must match its schema filename. The configured path owns all descendant JSON files. The source directory must contain at least one JSON file, and configured paths cannot overlap.
+For the default filesystem JSON provider, `Repository::open(root)` reads named schemas from `.objekte/collections/<name>.schema.json`. Each root schema has an `x-objekte` object declaring `name`, repository-relative `path`, `type: "data"`, `format: "json"`, and `id: "filename"`. The name must match its schema filename. The configured path owns all descendant JSON files. Under default JSON discovery, the source directory must contain at least one JSON file, and configured paths cannot overlap.
 
 Populated JSON folders without a named schema are still discovered under `root/data/` when that folder exists, or under `root/` otherwise. Each folder with a direct regular `*.json` file is one collection. Empty folders are not collections. Its name is its path relative to the data root, using `/` between components; JSON files directly in the data root use `@root`. `.objekte`, `.editor`, and `.git` folders are excluded from source discovery. Discovery lists directory entries but does not parse record JSON or build indexes.
 
@@ -21,7 +21,13 @@ For example, `.objekte/collections/books.schema.json` can declare:
 }
 ```
 
-A schema-backed collection may have JSON only in descendant folders, but it must have at least one JSON file somewhere in its subtree. Only schema-backed collections get automatic ordered postings from `"index": true`, validation, and declared reference extraction. The bigram picker and general JSON queries work for every collection. Callers may still build an ordered posting explicitly for a path without a schema. Views are defined separately under `.objekte/views/`; see [Independent views](views.md).
+A schema-backed collection using default JSON discovery may have JSON only in descendant folders, but it must have at least one JSON file somewhere in its subtree. Only schema-backed collections get automatic ordered postings from `"index": true`, validation, and declared reference extraction. The native bigram picker and general JSON queries work for every default JSON collection. Callers may still build an ordered posting explicitly for a path without a schema. Views are defined separately under `.objekte/views/`; see [Independent views](views.md).
+
+## Registered sources and formats
+
+A Rust application can use `Repository::builder(root)` to register a `SourceProvider` and `FormatDecoder`. The provider selects records and supplies stable IDs, locators and revisions; the decoder exposes their logical fields. A collection can contain only registered-format records or a mixture of those and native JSON files. A collection with a registered source can also bind a JSON Schema to its **logical record**; the schema does not require the source file itself to contain JSON. Source selection rejects colliding record IDs rather than silently choosing one file.
+
+Ordinary repository JSON and text queries, named views, warm/build/save/reopen and `refresh(collection)` use the selected records when custom sources contribute to the requested scope. A JSON-only scope keeps the native picker path. `MetadataOnOpen` needs explicit refresh or reload to observe later provider changes; request-time freshness policies validate revisions during queries. Native file change helpers, inference and runtime JSON-path postings remain native-picker operations. See [Library extensions](library-extensions.md) for registration, capabilities, snapshot compatibility and an external Markdown example. The default JSON provider retains its secure source-read rules.
 
 For alphabetical sorting, put `"x-language": "de"` at the schema root to
 apply German collation to string and string-enum fields. A field can override

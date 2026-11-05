@@ -2,10 +2,10 @@
 
 This is an archive of dated measurements and implementation notes. Some commands
 below refer to removed benchmark binaries or older cache behavior. Use the
-[current performance guide](../../docs/Performance.md) and [benchmark index](README.md)
+[current performance guide](../../docs/development/Performance.md) and [benchmark index](README.md)
 for runnable workloads and recent results.
 
-The default JSON filter backend builds an in-memory file picker on first use of a collection. It indexes decoded scalar values and distinct Unicode-folded projections with consecutive and skip-one bigrams, creates presence bits for declared top-level fields, and creates B-tree typed postings only for top-level scalar schema fields with `"index": true`, including strings. Covered scalar and presence queries count matches from the index and read only their returned page; other queries scan source candidates and verify them with Sonic. Views use ordered keys when their requested filter and sort can be indexed. The Musenalm example opts its numeric and boolean fields and the `contents.entry` reference into ordered indexes. See [implementation.md](../../docs/implementation.md) for details.
+The default JSON filter backend builds an in-memory file picker on first use of a collection. It indexes decoded scalar values and distinct Unicode-folded projections with consecutive and skip-one bigrams, creates presence bits for declared top-level fields, and creates B-tree typed postings only for top-level scalar schema fields with `"index": true`, including strings. Covered scalar and presence queries count matches from the index and read only their returned page; other queries scan source candidates and verify them with Sonic. Views use ordered keys when their requested filter and sort can be indexed. The Musenalm example opts its numeric and boolean fields and the `contents.entry` reference into ordered indexes. See [implementation.md](../../docs/development/implementation.md) for details.
 
 The measurements below predate the Musenalm migration that removed `entries.contents` and added indexed `contents.entry`. They describe the earlier fixture and are not timings for the checked-in data. The retained 50-case workload queries the new relation in cases 34–36.
 

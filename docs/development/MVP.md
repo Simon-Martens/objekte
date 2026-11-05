@@ -1,30 +1,31 @@
 # Objekte: implemented library and next product work
 
-Objekte reads collections of JSON files through a Rust library and CLI. Source records are authoritative and are not edited by the CLI. The CLI offers one-shot commands and an interactive TUI for searching, inspecting records, following declared links, and exporting results; cache and schema commands can write derived or configuration files. A desktop record editor and source-record write operations are future work. See [queries.md](queries.md) for runnable commands and [cli-tui.md](cli-tui.md) for the interactive controls.
+Objekte's CLI reads collections of JSON files; Rust applications can also register source providers and format decoders that expose logical records. Source records are authoritative and are not edited by the CLI. The CLI offers one-shot commands and an interactive TUI for searching, inspecting records, following declared links, and exporting results; cache and schema commands can write derived or configuration files. A desktop record editor and source-record write operations are future work. See [queries.md](../queries.md) for runnable commands, [cli-tui.md](../cli-tui.md) for the interactive controls, and [library-extensions.md](../library-extensions.md) for registered sources.
 
 ## Current capabilities
 
 - Populated JSON folders are discovered as collections without a manifest. Optional schema bases group nested folders; indexes are opened lazily.
 - `get`, independent named `view`, and general `query` over stored JSON fields. Named views have typed arguments, list or single presentation types, and one or more JSON or full-text queries. JSON queries support nested paths, arrays, parameters, Boolean expressions, and exact decimal comparisons. By default, they return records by collection, then modification time newest first, with ID breaking ties.
 - The default in-memory file picker builds consecutive and skip-one bigram postings over decoded values. A top-level scalar schema field with `"index": true` also gets ordered typed postings and view keys, including for strings. Covered scalar predicates can count exact indexed matches; returned page records are still read and validated against source JSON.
-- Every JSON leaf value is searchable by default. Each declared full-text field has separate normal and rendered bigram filters; a combined rendered filter supports unrestricted search. Other collections use the general normal bigram filter. Word, raw-word, and regex modes are available. See [full-text.md](full-text.md).
-- JSON queries offer explicit `direct` and raw-file `grep` backends. `--cache disabled` still selects direct scans for the older collection-view API. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
+- Registered providers and decoders can contribute custom-only or mixed-format collections through ordinary JSON/text queries, named views, refresh, and repository-managed index snapshots. Registered text representations, typed extractors, operators, and query frontends share the engine's candidate, ordering, pagination and cache lifecycle. The native JSON-only route remains concrete.
+- Every JSON leaf value is searchable by default. Each declared full-text field has separate normal and rendered bigram filters; a combined rendered filter supports unrestricted search. Other collections use the general normal bigram filter. Word, raw-word, and regex modes are available. See [full-text.md](../full-text.md).
+- Native JSON queries offer explicit `direct` and raw-file `grep` backends. Mixed custom scopes use logical-record execution. `--cache disabled` still selects direct scans for the older collection-view API. The in-memory picker can be warmed or rebuilt per collection or across all collections after UI startup.
 - Explicit collection/all-collection validation, JSON/schema status on returned pages where validation runs, source refresh, configuration-change reporting, cache status, and per-record revision lookup. Revisions last only for the repository handle. Validation status is not stored in the index.
 - Declared outgoing references are extracted on request. Incoming references can be discovered by scanning referring source collections. The CLI's `relations --to ... --complete` requests complete coverage; `--check-targets` checks current target files. There is no persistent edge table or automatic source rewrite on a move/delete.
 
-The schema's `index` opt-in is independent of view definitions. Named views use the regular query APIs and do not grant collection-level filter or sort permissions. Explicit query sorting uses case-insensitive, accent-sensitive collation, English by default or the schema's declared language. The cache is derived data and can be rebuilt from source. [implementation.md](implementation.md) describes its lifecycle.
+The schema's `index` opt-in is independent of view definitions. Named views use the regular query APIs and do not grant collection-level filter or sort permissions. Explicit query sorting uses case-insensitive, accent-sensitive collation, English by default or the schema's declared language. Index snapshots are derived data and can be rebuilt from source; a bounded process-local cache also reuses compatible verified query results and ordered pages. [implementation.md](implementation.md) describes their lifecycle.
 
 ## Product boundaries
 
 | Source | Responsibility now |
 | --- | --- |
-| Repository configuration | Named schemas, source identity, and declared relations |
-| JSON Schema | Stored types and on-demand validation rules |
+| Repository configuration and registered extensions | Named schemas, source selection, format/field semantics, stable identities, and declared relations |
+| JSON Schema | Logical field types and on-demand validation rules |
 | View definitions | Repository-level list and single views, typed arguments, and queries |
 | Library | Source reads, query compilation and execution, validation, reference lookup, freshness, and disposable indexes |
 | CLI | One-shot commands and a TUI that does not edit source records; no separate query or cache implementation |
 
-Paths through embedded arrays inspect values in the same source record. Paths past a schema-declared relation read the linked record; see [filters.md](filters.md#relations). JSON filters do not group records. Metadata operands can select source path, size, timestamps, and validation status; malformed JSON can match metadata predicates, but has no stored JSON paths. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](validation.md) for the precise validation behavior.
+Paths through embedded arrays inspect values in the same source record. Paths past a schema-declared relation read the linked record; see [filters.md](../filters.md#relations). JSON filters do not group records. Metadata operands can select source path, size, timestamps, and validation status; malformed JSON can match metadata predicates, but has no stored JSON paths. A parseable schema-invalid record can still match a stored field, whether declared or not. See [validation.md](../validation.md) for the precise validation behavior.
 
 ## Work still planned
 
