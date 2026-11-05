@@ -8,7 +8,7 @@ use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{Repository, RepositoryOptions};
+use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
 use objekte_search_core::workload::{
     BigramAlphabet, Profile, TimingSample, WorkCounters, load_manifest,
 };
@@ -23,6 +23,9 @@ fn main() {
 
 fn run() -> Result<(), String> {
     let arguments: Vec<String> = std::env::args().collect();
+    if arguments.get(1).is_some_and(|arg| arg == "--restore-child") {
+        return restore_child(&arguments);
+    }
     let mut args = arguments.iter().skip(1);
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../examples/musenalm");
     let mut result_dir = None;
@@ -165,10 +168,12 @@ fn run() -> Result<(), String> {
             definitions.clone(),
             RepositoryOptions {
                 bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::Rebuild,
                 ..RepositoryOptions::default()
             },
         )?;
-        let build_ns = build_start.elapsed().as_nanos() as u64;
+        let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
+        let build_ns = repo.startup.build_ns;
         if corpus_hash.is_empty() {
             corpus_hash = fingerprint_inventory(&repo);
         }
@@ -211,7 +216,8 @@ fn run() -> Result<(), String> {
                         .sum::<usize>()
             })
             .sum();
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"build_parses":repo.build_parses,"resident_bytes":memory_bytes,"estimated_index_bytes":estimated_index_bytes,"restore_status":"pending"}));
+        let restore_samples = measure_restore_children(&root, alphabet, 5)?;
+        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"snapshot_write_ns":repo.startup.snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses,"resident_bytes":memory_bytes,"estimated_index_bytes":estimated_index_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
         if registrations.is_empty() {
             registrations = repo.collections.iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields.len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom.keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }
@@ -393,16 +399,27 @@ fn run() -> Result<(), String> {
     csv.flush().map_err(|e| e.to_string())?;
     report.push_str("\n## Index construction\n\n");
     for result in &build_results {
+        let restore: Vec<u64> = result["restore_samples"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|s| s["wall_ns"].as_u64())
+            .collect();
+        let mut restore_sorted = restore.clone();
+        restore_sorted.sort_unstable();
         report.push_str(&format!(
-            "- {}: {:.3} s; parses {}; resident {} MiB; estimated index {} MiB. Restore pending.\n",
+            "- {}: build {:.3} s; snapshot write {:.3} s; parses {}; resident {} MiB; estimated index {} MiB; fresh-process restore median {:.3} s over {} runs.\n",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+            result["snapshot_write_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
-            result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024
+            result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            restore_sorted.get(restore_sorted.len()/2).copied().unwrap_or(0) as f64 / 1e9,
+            restore_sorted.len()
         ));
     }
-    report.push_str("\nTiming includes COUNT and requested page/payload. Query plans and restore measurements are pending.\n");
+    report.push_str("\nTiming includes COUNT and requested page/payload. Diagnostic plans are captured outside primary samples.\n");
     fs::write(result_dir.join("REPORT.md"), report).map_err(|e| e.to_string())?;
     for case in &cases {
         println!(
@@ -424,13 +441,23 @@ fn run() -> Result<(), String> {
         );
     }
     for result in &build_results {
+        let mut restore: Vec<u64> = result["restore_samples"]
+            .as_array()
+            .into_iter()
+            .flatten()
+            .filter_map(|s| s["wall_ns"].as_u64())
+            .collect();
+        restore.sort_unstable();
         println!(
-            "build {}: {:.3} s; parses={}; resident_bytes={}; estimated_index_bytes={}",
+            "build {}: {:.3} s; snapshot_write={:.3} s; parses={}; resident_bytes={}; estimated_index_bytes={}; restore_median={:.3} s ({} runs)",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
+            result["snapshot_write_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"],
-            result["estimated_index_bytes"]
+            result["estimated_index_bytes"],
+            restore.get(restore.len() / 2).copied().unwrap_or(0) as f64 / 1e9,
+            restore.len()
         );
     }
     println!("reports: {}", result_dir.display());
@@ -447,6 +474,74 @@ fn run() -> Result<(), String> {
         return Err(format!("{failures} benchmark case/profile failures"));
     }
     Ok(())
+}
+
+fn restore_child(args: &[String]) -> Result<(), String> {
+    let root = PathBuf::from(args.get(2).ok_or("restore child needs root")?);
+    let alphabet = match args.get(3).map(String::as_str) {
+        Some("ascii") => BigramAlphabet::Ascii,
+        Some("unicode") => BigramAlphabet::Unicode,
+        _ => return Err("restore child needs alphabet".into()),
+    };
+    let started = Instant::now();
+    let definitions = musenalm::load_definitions(&root)?;
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..RepositoryOptions::default()
+        },
+    )?;
+    if !repo.startup.restored {
+        return Err("snapshot was not restored in fresh process".into());
+    }
+    println!(
+        "{}",
+        serde_json::json!({
+            "startup_ns":started.elapsed().as_nanos() as u64,
+            "decode_ns":repo.startup.snapshot_decode_ns,
+            "reconciliation_ns":repo.startup.reconciliation_ns,
+            "resident_bytes":resident_bytes(),
+            "records":repo.collections.iter().map(|c|c.generation.records.len()).sum::<usize>(),
+            "build_parses":repo.build_parses,
+        })
+    );
+    Ok(())
+}
+
+fn measure_restore_children(
+    root: &Path,
+    alphabet: BigramAlphabet,
+    repetitions: usize,
+) -> Result<Vec<serde_json::Value>, String> {
+    let executable = std::env::current_exe().map_err(|e| e.to_string())?;
+    let mut samples = Vec::new();
+    for _ in 0..repetitions {
+        let started = Instant::now();
+        let output = std::process::Command::new(&executable)
+            .arg("--restore-child")
+            .arg(root)
+            .arg(match alphabet {
+                BigramAlphabet::Ascii => "ascii",
+                BigramAlphabet::Unicode => "unicode",
+            })
+            .output()
+            .map_err(|e| e.to_string())?;
+        let wall_ns = started.elapsed().as_nanos() as u64;
+        if !output.status.success() {
+            return Err(format!(
+                "restore child failed: {}",
+                String::from_utf8_lossy(&output.stderr)
+            ));
+        }
+        let mut sample: serde_json::Value =
+            serde_json::from_slice(&output.stdout).map_err(|e| e.to_string())?;
+        sample["wall_ns"] = serde_json::json!(wall_ns);
+        samples.push(sample);
+    }
+    Ok(samples)
 }
 
 fn write_sample(writer: &mut BufWriter<File>, sample: TimingSample) -> Result<(), String> {

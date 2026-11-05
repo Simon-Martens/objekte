@@ -5,6 +5,7 @@
 __pycache__/
 *.pyc
 **/.objekte/.cache/
+**/.objekte/search-core-*.snapshot
 
 # Generated files left by the active frontend checkout.
 /crates/server/assets/node_modules/

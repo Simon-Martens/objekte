@@ -3,6 +3,7 @@
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
 use std::sync::Mutex;
+use std::time::Instant;
 
 use crate::bigram::BigramIndex;
 use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision};
@@ -71,8 +72,25 @@ pub struct Repository {
     pub collections: Vec<CollectionState>,
     pub build_parses: u64,
     pub options: RepositoryOptions,
+    pub startup: StartupStats,
     pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
+}
+
+#[derive(Clone, Debug, Default)]
+pub struct StartupStats {
+    pub restored: bool,
+    pub snapshot_decode_ns: u64,
+    pub reconciliation_ns: u64,
+    pub build_ns: u64,
+    pub snapshot_write_ns: u64,
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum SnapshotMode {
+    Disabled,
+    ReadWrite,
+    Rebuild,
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -80,6 +98,7 @@ pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
     pub prepared_cache_bytes: usize,
     pub verified_cache_bytes: usize,
+    pub snapshot_mode: SnapshotMode,
 }
 impl Default for RepositoryOptions {
     fn default() -> Self {
@@ -87,6 +106,7 @@ impl Default for RepositoryOptions {
             bigram_alphabet: BigramAlphabet::Ascii,
             prepared_cache_bytes: 4 * 1024 * 1024,
             verified_cache_bytes: 0,
+            snapshot_mode: SnapshotMode::ReadWrite,
         }
     }
 }
@@ -145,7 +165,57 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
     ) -> Result<Self, String> {
+        let started = Instant::now();
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
+        let snapshot = crate::storage::snapshot_path(&root, options.bigram_alphabet);
+        let mut decode_ns = 0;
+        let mut reconciliation_ns = 0;
+        if options.snapshot_mode == SnapshotMode::ReadWrite && snapshot.is_file() {
+            let decode_started = Instant::now();
+            let loaded = crate::storage::load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &snapshot,
+            );
+            decode_ns = decode_started.elapsed().as_nanos() as u64;
+            if let Ok(mut repo) = loaded {
+                let reconciliation_started = Instant::now();
+                let current = crate::storage::sources_match(&repo)?;
+                reconciliation_ns = reconciliation_started.elapsed().as_nanos() as u64;
+                if current {
+                    repo.startup = StartupStats {
+                        restored: true,
+                        snapshot_decode_ns: decode_ns,
+                        reconciliation_ns,
+                        build_ns: 0,
+                        snapshot_write_ns: 0,
+                    };
+                    return Ok(repo);
+                }
+            }
+        }
+        let mut repo = Self::build_fresh(root, definitions, options)?;
+        repo.startup = StartupStats {
+            restored: false,
+            snapshot_decode_ns: decode_ns,
+            reconciliation_ns,
+            build_ns: started.elapsed().as_nanos() as u64,
+            snapshot_write_ns: 0,
+        };
+        if options.snapshot_mode != SnapshotMode::Disabled {
+            let write_started = Instant::now();
+            repo.save_snapshot(&snapshot)?;
+            repo.startup.snapshot_write_ns = write_started.elapsed().as_nanos() as u64;
+        }
+        Ok(repo)
+    }
+
+    fn build_fresh(
+        root: PathBuf,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+    ) -> Result<Self, String> {
         let mut files = FileInventory::new(root.clone());
         let mut selected = Vec::new();
         for (collection_index, definition) in definitions.into_iter().enumerate() {
@@ -317,6 +387,7 @@ impl Repository {
             collections,
             build_parses,
             options,
+            startup: StartupStats::default(),
             prepared: Mutex::new(crate::prepared::PreparedCache::new(
                 options.prepared_cache_bytes,
             )),

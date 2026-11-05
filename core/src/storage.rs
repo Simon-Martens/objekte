@@ -16,6 +16,7 @@ use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::PostingCollection;
 use crate::repository::{
     CollectionDefinition, CollectionState, CollectionStats, Repository, RepositoryOptions,
+    StartupStats,
 };
 use crate::sorting::{COLLATION_VERSION, SortCollection};
 use crate::workload::BigramAlphabet;
@@ -100,6 +101,54 @@ pub fn snapshot_path(root: &Path, alphabet: BigramAlphabet) -> PathBuf {
         BigramAlphabet::Ascii => "search-core-ascii.snapshot",
         BigramAlphabet::Unicode => "search-core-unicode.snapshot",
     })
+}
+
+/// Reconcile the complete selected file inventory, including additions and
+/// deletions. A mismatch requires a fresh private build before publication.
+pub fn sources_match(repo: &Repository) -> Result<bool, String> {
+    for state in &repo.collections {
+        let directory = repo.files.root.join(&state.definition.source_path);
+        let extension = match state.definition.format {
+            crate::source::SourceFormat::Json => "json",
+            crate::source::SourceFormat::JsonLines => "jsonl",
+        };
+        let mut observed = Vec::new();
+        for entry in
+            fs::read_dir(&directory).map_err(|e| format!("{}: {e}", directory.display()))?
+        {
+            let entry = entry.map_err(|e| e.to_string())?;
+            let kind = entry.file_type().map_err(|e| e.to_string())?;
+            if !kind.is_file() || kind.is_symlink() {
+                continue;
+            }
+            let path = entry.path();
+            if path.extension().is_none_or(|e| e != extension) {
+                continue;
+            }
+            let relative = path
+                .strip_prefix(&repo.files.root)
+                .map_err(|e| e.to_string())?
+                .to_owned();
+            let revision =
+                SourceRevision::from_metadata(&entry.metadata().map_err(|e| e.to_string())?)?;
+            observed.push((relative, revision));
+        }
+        observed.sort_by(|a, b| a.0.cmp(&b.0));
+        let mut recorded: Vec<_> = state
+            .generation
+            .files
+            .iter()
+            .map(|id| {
+                let file = &repo.files.files[id.0 as usize];
+                (file.relative_path.clone(), file.revision)
+            })
+            .collect();
+        recorded.sort_by(|a, b| a.0.cmp(&b.0));
+        if observed != recorded {
+            return Ok(false);
+        }
+    }
+    Ok(true)
 }
 
 fn feed(hash: &mut Sha256, bytes: &[u8]) {
@@ -454,6 +503,7 @@ pub fn load_snapshot(
         collections,
         build_parses: 0,
         options,
+        startup: StartupStats::default(),
         prepared: Mutex::new(crate::prepared::PreparedCache::new(
             options.prepared_cache_bytes,
         )),
@@ -569,6 +619,71 @@ mod tests {
             fs::write(&path, &bytes).unwrap();
             assert!(load_snapshot(root.clone(), definitions.clone(), options, &path).is_err());
         }
+        fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
+        let root = std::env::temp_dir().join(format!("objekte-reopen-{}", std::process::id()));
+        fs::create_dir_all(root.join("data")).unwrap();
+        let multi = root.join("data/multi.jsonl");
+        fs::write(&multi, b"{\"x\":\"a\"}\n{\"x\":\"b\"}\n").unwrap();
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["x".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+            })
+            .unwrap();
+        let definitions = vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            schema,
+            sort_fields: vec![FieldPath::parse("x").unwrap()],
+            sort_locale: "de".into(),
+        }];
+        let options = RepositoryOptions::default();
+        let fresh = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert!(!fresh.startup.restored);
+        assert_eq!(fresh.build_parses, 2);
+        let restored = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert!(restored.startup.restored);
+        assert_eq!(restored.build_parses, 0);
+        assert_eq!(restored.collections[0].generation.records.len(), 2);
+        fs::write(&multi, b"{\"x\":\"a\"}\n{\"x\":\"b\"}\n{\"x\":\"c\"}\n").unwrap();
+        let changed = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert!(!changed.startup.restored);
+        assert_eq!(changed.collections[0].generation.records.len(), 3);
+        assert_eq!(
+            changed.collections[0].generation.file_records.slots.len(),
+            3
+        );
+        assert!(
+            Repository::open_with_options(&root, definitions.clone(), options)
+                .unwrap()
+                .startup
+                .restored
+        );
+        fs::write(root.join("data/extra.jsonl"), b"{\"x\":\"d\"}\n").unwrap();
+        let added = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert_eq!(added.collections[0].generation.records.len(), 4);
+        fs::remove_file(multi).unwrap();
+        let deleted = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert_eq!(deleted.collections[0].generation.records.len(), 1);
+        assert_eq!(deleted.files.files.len(), 1);
+        let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);
+        let mut bytes = fs::read(&snapshot).unwrap();
+        bytes[0] ^= 1;
+        fs::write(&snapshot, bytes).unwrap();
+        let rebuilt = Repository::open_with_options(&root, definitions, options).unwrap();
+        assert!(!rebuilt.startup.restored);
+        assert_eq!(rebuilt.collections[0].generation.records.len(), 1);
         fs::remove_dir_all(root).unwrap();
     }
 }

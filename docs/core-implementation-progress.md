@@ -38,6 +38,7 @@ query/build and restore revisions will establish their respective baselines.
 | C21 | complete | `cargo test --workspace --all-targets`; four-profile Q031/Q070/Q141 subset | Bounded complete ordered membership/evidence cache, page payload reads |
 | C22 | complete | `cargo test --workspace --all-targets` | Revision-checked build/reads, range validation, native path query representation, future file design |
 | C23 | complete | `cargo test --workspace --all-targets` | Versioned checksummed sections, atomic save, full index/map validation |
+| C24a | complete | `cargo test --workspace --all-targets`; five fresh-process restores/alphabet | Startup restore/reconciliation, rebuild on changed inventory, restore runner |
 
 ## Decisions
 
@@ -119,7 +120,12 @@ query/build and restore revisions will establish their respective baselines.
   separately checksummed binary sections. A configuration hash pins model,
   alphabet, schemas, bindings, ICU version, and platform. Decode validates
   ownership, coverage, sort order, and section integrity before returning a
-  private repository; startup integration follows in C24.
+  private repository.
+- Startup tries a compatible snapshot, reconciles every collection's selected
+  files by path, modified time, and size, then publishes the restored state
+  only if unchanged. Any changed inventory triggers a fresh private full
+  repository build and atomic snapshot replacement. Reopen tests cover
+  replacement, addition, deletion, corruption, and changed record counts.
 
 ## Measurements
 
@@ -146,6 +152,12 @@ warm sample reported a verified-result hit; no disabled sample did. ASCII
 medians for Q031/Q070/Q141 were 59.777 µs / 815.909 µs / 25.068 ms without
 the verified cache and 6.264 µs / 2.197 µs / 10.400 µs warm. This subset is
 saved at `/tmp/objekte-c21-check`; the full final workload remains required.
+
+The pre-commit C24 check used the real fixture and five fresh child processes
+per alphabet. ASCII built in 14.203 s and restored in 0.540 s median; Unicode
+built in 15.250 s and restored in 0.545 s median. Each restored process
+reported zero source parses. The check is under `/tmp/objekte-c24-check`;
+the revision-tied baseline will be saved after the C24 code commit.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format
