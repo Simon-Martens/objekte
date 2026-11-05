@@ -19,6 +19,7 @@ query/build and restore revisions will establish their respective baselines.
 | C03 | complete | `cargo fmt --all && cargo test --workspace` | Typed values, precise numeric ordering, temporal types, paths, IDs |
 | C04 | complete | `cargo fmt --all && cargo test --workspace` | File inventory, checked ranges, both record mappings |
 | C05 | complete | `cargo fmt --all && cargo test --workspace` | JSON/JSONL framing, standalone range parsing, fused extraction callback |
+| C06 | complete | `cargo fmt --all && cargo test --workspace` | Separate FTS input, FILTER parser, all fixed filters parse |
 
 ## Decisions
 
