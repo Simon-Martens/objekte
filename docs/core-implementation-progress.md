@@ -37,6 +37,7 @@ query/build and restore revisions will establish their respective baselines.
 | C20 | complete | `cargo test --workspace --all-targets` | 4 MiB bounded repository-local prepared bindings and separate hit counter |
 | C21 | complete | `cargo test --workspace --all-targets`; four-profile Q031/Q070/Q141 subset | Bounded complete ordered membership/evidence cache, page payload reads |
 | C22 | complete | `cargo test --workspace --all-targets` | Revision-checked build/reads, range validation, native path query representation, future file design |
+| C23 | complete | `cargo test --workspace --all-targets` | Versioned checksummed sections, atomic save, full index/map validation |
 
 ## Decisions
 
@@ -113,6 +114,12 @@ query/build and restore revisions will establish their respective baselines.
   paths, empty record ranges, changed-source payloads, and incomplete builds
   fail explicitly. Native path metadata uses reversible percent escapes for
   non-UTF-8 bytes; future whole-file replacement is documented separately.
+- Snapshots now encode native path bytes, both inventory directions, typed
+  postings, raw/custom bigrams, sort columns, statistics, and generations in
+  separately checksummed binary sections. A configuration hash pins model,
+  alphabet, schemas, bindings, ICU version, and platform. Decode validates
+  ownership, coverage, sort order, and section integrity before returning a
+  private repository; startup integration follows in C24.
 
 ## Measurements
 

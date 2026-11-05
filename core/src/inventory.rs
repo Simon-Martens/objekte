@@ -175,6 +175,17 @@ pub struct CollectionGeneration {
 
 impl CollectionGeneration {
     pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
+        let mut included = std::collections::HashSet::new();
+        for file_id in &self.files {
+            if !included.insert(*file_id)
+                || inventory
+                    .files
+                    .get(file_id.0 as usize)
+                    .is_none_or(|file| !file.collections.contains(&self.collection))
+            {
+                return Err("invalid collection file membership".into());
+            }
+        }
         if self.file_records.offsets.len() != inventory.files.len() + 1
             || self.file_records.offsets.first() != Some(&0)
             || self.file_records.offsets.last().copied()
@@ -194,7 +205,11 @@ impl CollectionGeneration {
                     .records
                     .get(i)
                     .ok_or("file-record slot out of bounds")?;
-                if seen[i] || entry.slot != *slot || entry.file.0 as usize != file_idx {
+                if seen[i]
+                    || entry.slot != *slot
+                    || entry.file.0 as usize != file_idx
+                    || !included.contains(&entry.file)
+                {
                     return Err("file-record ownership mismatch".into());
                 }
                 let file = &inventory.files[file_idx];

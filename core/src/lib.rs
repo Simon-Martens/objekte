@@ -19,6 +19,7 @@ pub mod repository;
 pub mod run;
 pub mod sorting;
 pub mod source;
+pub mod storage;
 mod verified;
 pub mod workload;
 
