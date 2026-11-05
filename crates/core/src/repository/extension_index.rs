@@ -332,19 +332,6 @@ impl Repository {
                 base_source_fingerprints: selected.iter().map(base_source_fingerprint).collect(),
             },
         );
-        if self.options.freshness == Freshness::MetadataOnOpen
-            && !self.custom_source_snapshot.contains_key(collection)
-        {
-            let snapshot = CustomSourceSnapshot::new(
-                &selected_collection,
-                selected.as_ref().clone(),
-                self.extensions
-                    .as_deref()
-                    .expect("registered representation"),
-            )?;
-            self.custom_source_snapshot
-                .insert(collection.into(), snapshot);
-        }
         Ok(selected.len())
     }
 
