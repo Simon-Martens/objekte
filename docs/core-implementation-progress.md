@@ -20,6 +20,7 @@ query/build and restore revisions will establish their respective baselines.
 | C04 | complete | `cargo fmt --all && cargo test --workspace` | File inventory, checked ranges, both record mappings |
 | C05 | complete | `cargo fmt --all && cargo test --workspace` | JSON/JSONL framing, standalone range parsing, fused extraction callback |
 | C06 | complete | `cargo fmt --all && cargo test --workspace` | Separate FTS input, FILTER parser, all fixed filters parse |
+| C07 | complete | `cargo fmt --all && cargo test --workspace` | Typed binding and independent scan evaluation |
 
 ## Decisions
 
@@ -35,6 +36,9 @@ query/build and restore revisions will establish their respective baselines.
   repository-wide and a file can participate in multiple collections.
 - Source readers frame original byte ranges. The extraction callback receives
   one parsed logical record plus separate field text segments for every range.
+- The reference evaluator resolves all branches before execution and applies
+  Unicode case folding through `unicode-casefold` 0.2. It is kept independent
+  of optimized access paths for later comparisons.
 
 ## Measurements
 
