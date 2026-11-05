@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "kind": "original-87: status valid",
+    "filter": "@status = 'valid'"
+  },
+  {
+    "id": 2,
+    "kind": "original-88: status invalid",
+    "filter": "@status = 'invalid'"
+  },
+  {
+    "id": 3,
+    "kind": "original-89: status incorrect JSON",
+    "filter": "@status = 'incorrect_json'"
+  },
+  {
+    "id": 4,
+    "kind": "original-90: status no schema",
+    "filter": "@status = 'no_schema'"
+  },
+  {
+    "id": 5,
+    "kind": "original-91: status not invalid",
+    "filter": "@status != 'invalid'"
+  },
+  {
+    "id": 6,
+    "kind": "original-100: invalid or huge",
+    "filter": "@status = 'invalid' || @size > 16KiB"
+  },
+  {
+    "id": 7,
+    "kind": "original-108: broad size",
+    "filter": "exists(annotation) SORT BY @size"
+  },
+  {
+    "id": 8,
+    "kind": "original-110: modified filter and sort",
+    "filter": "@modified >= 2026-10 SORT BY @modified ASC"
+  },
+  {
+    "id": 9,
+    "kind": "original-114: year and title",
+    "filter": "year >= 1800 SORT BY year DESC && preferred_title"
+  },
+  {
+    "id": 10,
+    "kind": "original-116: broad annotation descending",
+    "filter": "exists(annotation) SORT BY annotation DESC"
+  },
+  {
+    "id": 11,
+    "kind": "original-117: contributors by numbering",
+    "filter": "contributors:length > 0 SORT BY numbering DESC"
+  },
+  {
+    "id": 12,
+    "kind": "original-120: modified and id descending",
+    "filter": "edit_state = 'Edited' SORT BY @modified ASC && @id DESC"
+  }
+]

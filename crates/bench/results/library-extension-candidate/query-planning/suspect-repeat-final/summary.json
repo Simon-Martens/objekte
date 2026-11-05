@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "kind": "original-87: status valid",
+    "reference_median_ms": 269.174734,
+    "paired_deltas_ms": [
+      4.824520000000007,
+      8.004520000000014,
+      0.6894070000000738
+    ],
+    "median_paired_delta_ms": 4.824520000000007,
+    "relative_percent": 1.7923376121920889
+  },
+  {
+    "id": 2,
+    "kind": "original-88: status invalid",
+    "reference_median_ms": 267.801421,
+    "paired_deltas_ms": [
+      5.18476000000004,
+      6.348861999999997,
+      5.010100999999963
+    ],
+    "median_paired_delta_ms": 5.18476000000004,
+    "relative_percent": 1.9360464857279602
+  },
+  {
+    "id": 3,
+    "kind": "original-89: status incorrect JSON",
+    "reference_median_ms": 268.00189600000004,
+    "paired_deltas_ms": [
+      6.33731199999994,
+      6.40879700000005,
+      2.1203899999999862
+    ],
+    "median_paired_delta_ms": 6.33731199999994,
+    "relative_percent": 2.3646519276863396
+  },
+  {
+    "id": 4,
+    "kind": "original-90: status no schema",
+    "reference_median_ms": 270.026259,
+    "paired_deltas_ms": [
+      4.716723999999999,
+      9.423915000000022,
+      2.8633120000000076
+    ],
+    "median_paired_delta_ms": 4.716723999999999,
+    "relative_percent": 1.7467649322209065
+  },
+  {
+    "id": 5,
+    "kind": "original-91: status not invalid",
+    "reference_median_ms": 269.999089,
+    "paired_deltas_ms": [
+      8.241077999999959,
+      9.292156000000034,
+      1.8303960000000075
+    ],
+    "median_paired_delta_ms": 8.241077999999959,
+    "relative_percent": 3.052261409667185
+  },
+  {
+    "id": 6,
+    "kind": "original-100: invalid or huge",
+    "reference_median_ms": 280.466681,
+    "paired_deltas_ms": [
+      8.250320999999985,
+      5.127723000000003,
+      2.405034999999998
+    ],
+    "median_paired_delta_ms": 5.127723000000003,
+    "relative_percent": 1.8282824119133079
+  },
+  {
+    "id": 7,
+    "kind": "original-108: broad size",
+    "reference_median_ms": 557.885772,
+    "paired_deltas_ms": [
+      9.635095999999976,
+      9.313766999999984,
+      2.467437000000018
+    ],
+    "median_paired_delta_ms": 9.313766999999984,
+    "relative_percent": 1.6694756287851673
+  },
+  {
+    "id": 8,
+    "kind": "original-110: modified filter and sort",
+    "reference_median_ms": 545.180338,
+    "paired_deltas_ms": [
+      7.958449999999971,
+      12.95140600000002,
+      8.49647200000004
+    ],
+    "median_paired_delta_ms": 8.49647200000004,
+    "relative_percent": 1.558469997500174
+  },
+  {
+    "id": 9,
+    "kind": "original-114: year and title",
+    "reference_median_ms": 471.17103399999996,
+    "paired_deltas_ms": [
+      3.4231150000000525,
+      3.3274319999999875,
+      4.087030000000027
+    ],
+    "median_paired_delta_ms": 3.4231150000000525,
+    "relative_percent": 0.7265121904756252
+  },
+  {
+    "id": 10,
+    "kind": "original-116: broad annotation descending",
+    "reference_median_ms": 753.3293709999999,
+    "paired_deltas_ms": [
+      5.011532000000102,
+      14.38433699999996,
+      9.973295999999891
+    ],
+    "median_paired_delta_ms": 9.973295999999891,
+    "relative_percent": 1.323895812898007
+  },
+  {
+    "id": 11,
+    "kind": "original-117: contributors by numbering",
+    "reference_median_ms": 387.806502,
+    "paired_deltas_ms": [
+      3.3040719999999624,
+      8.661517999999944,
+      3.8104960000000005
+    ],
+    "median_paired_delta_ms": 3.8104960000000005,
+    "relative_percent": 0.9825766149738253
+  },
+  {
+    "id": 12,
+    "kind": "original-120: modified and id descending",
+    "reference_median_ms": 538.5282540000001,
+    "paired_deltas_ms": [
+      2.93511999999987,
+      12.708217999999988,
+      10.42681600000003
+    ],
+    "median_paired_delta_ms": 10.42681600000003,
+    "relative_percent": 1.9361687938475425
+  }
+]
