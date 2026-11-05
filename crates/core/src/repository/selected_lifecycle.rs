@@ -203,7 +203,14 @@ impl Repository {
 
     pub(super) fn rebuild_selected_text_indexes(&mut self, collection: &str) -> Result<()> {
         let selected_collection = self.model.collection(collection)?.clone();
-        let specs = self.selected_auto_text_specs(&selected_collection);
+        let mut specs = self.selected_auto_text_specs(&selected_collection);
+        specs.extend(
+            self.active_selected_specs(collection)?
+                .into_iter()
+                .filter(|spec| matches!(spec, SelectedSpec::Text { .. })),
+        );
+        specs.sort();
+        specs.dedup();
         self.extension_text_indexes
             .retain(|key, _| key.collection != collection);
         self.build_selected_specs(collection, &specs)

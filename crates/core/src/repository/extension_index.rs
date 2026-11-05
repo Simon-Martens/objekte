@@ -217,7 +217,7 @@ impl Repository {
             content.clear();
             let mut records = 0;
             self.metrics.parses += 1;
-            decoder.decode(&bytes, &mut |record| {
+            let decoded = decoder.decode(&bytes, &mut |record| {
                 records += 1;
                 if records > 1 {
                     return Err(Error::Request(
@@ -231,7 +231,13 @@ impl Repository {
                     &mut rendered,
                     &mut content,
                 )
-            })?;
+            });
+            if let Err(error) = decoded {
+                if !super::extension_sources::native_malformed_json(source, &bytes) {
+                    return Err(error);
+                }
+                continue;
+            }
             if records == 0 {
                 return Err(Error::Request("format decoder emitted no record".into()));
             }

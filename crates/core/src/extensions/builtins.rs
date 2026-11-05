@@ -111,6 +111,74 @@ impl DecodedRecord for SonicValue {
         }
         walk(self, &mut String::new(), 0, visit)
     }
+
+    fn visit_nodes(
+        &self,
+        visit: &mut dyn FnMut(&str, LogicalNode<'_>) -> Result<()>,
+    ) -> Result<()> {
+        fn walk(
+            value: &SonicValue,
+            path: &mut String,
+            depth: usize,
+            visit: &mut dyn FnMut(&str, LogicalNode<'_>) -> Result<()>,
+        ) -> Result<()> {
+            if depth > 127 {
+                return Err(Error::Request("JSON source exceeds nesting limit".into()));
+            }
+            if let Some(number) = value.as_raw_number() {
+                return visit(
+                    path,
+                    LogicalNode::Scalar(ScalarValue::Number(number.as_str())),
+                );
+            }
+            match value.as_ref() {
+                ValueRef::Null => visit(path, LogicalNode::Scalar(ScalarValue::Null)),
+                ValueRef::Bool(value) => visit(path, LogicalNode::Scalar(ScalarValue::Bool(value))),
+                ValueRef::String(value) => {
+                    visit(path, LogicalNode::Scalar(ScalarValue::Text(value)))
+                }
+                ValueRef::Number(_) => unreachable!("raw number handled first"),
+                ValueRef::Array(values) => {
+                    visit(path, LogicalNode::Array)?;
+                    for (index, value) in values.iter().enumerate() {
+                        let prior = path.len();
+                        path.push('/');
+                        path.push_str(&index.to_string());
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+                ValueRef::Object(values) => {
+                    visit(path, LogicalNode::Object)?;
+                    let mut members = Vec::new();
+                    let mut last = BTreeMap::new();
+                    for (key, value) in values {
+                        last.insert(key, members.len());
+                        members.push((key, value));
+                    }
+                    for (index, (key, value)) in members.into_iter().enumerate() {
+                        if last[key] != index {
+                            continue;
+                        }
+                        let prior = path.len();
+                        path.push('/');
+                        for character in key.chars() {
+                            match character {
+                                '~' => path.push_str("~0"),
+                                '/' => path.push_str("~1"),
+                                _ => path.push(character),
+                            }
+                        }
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+            }
+        }
+        walk(self, &mut String::new(), 0, visit)
+    }
 }
 
 
@@ -144,6 +212,60 @@ impl DecodedRecord for Value {
                     Ok(())
                 }
                 Value::Object(values) => {
+                    for (key, value) in values {
+                        let prior = path.len();
+                        path.push('/');
+                        for character in key.chars() {
+                            match character {
+                                '~' => path.push_str("~0"),
+                                '/' => path.push_str("~1"),
+                                _ => path.push(character),
+                            }
+                        }
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+            }
+        }
+        walk(self, &mut String::new(), 0, visit)
+    }
+
+    fn visit_nodes(
+        &self,
+        visit: &mut dyn FnMut(&str, LogicalNode<'_>) -> Result<()>,
+    ) -> Result<()> {
+        fn walk(
+            value: &Value,
+            path: &mut String,
+            depth: usize,
+            visit: &mut dyn FnMut(&str, LogicalNode<'_>) -> Result<()>,
+        ) -> Result<()> {
+            if depth > 127 {
+                return Err(Error::Request("JSON source exceeds nesting limit".into()));
+            }
+            match value {
+                Value::Null => visit(path, LogicalNode::Scalar(ScalarValue::Null)),
+                Value::Bool(value) => visit(path, LogicalNode::Scalar(ScalarValue::Bool(*value))),
+                Value::Number(value) => visit(
+                    path,
+                    LogicalNode::Scalar(ScalarValue::Number(value.as_str())),
+                ),
+                Value::String(value) => visit(path, LogicalNode::Scalar(ScalarValue::Text(value))),
+                Value::Array(values) => {
+                    visit(path, LogicalNode::Array)?;
+                    for (index, value) in values.iter().enumerate() {
+                        let prior = path.len();
+                        path.push('/');
+                        path.push_str(&index.to_string());
+                        walk(value, path, depth + 1, visit)?;
+                        path.truncate(prior);
+                    }
+                    Ok(())
+                }
+                Value::Object(values) => {
+                    visit(path, LogicalNode::Object)?;
                     for (key, value) in values {
                         let prior = path.len();
                         path.push('/');

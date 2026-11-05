@@ -41,13 +41,61 @@ impl Repository {
     ) -> Result<Vec<(crate::extensions::TypedValue, usize)>> {
         if let Some(mut selected) = self.selected_route(&[collection.to_owned()])? {
             let (c, snapshot) = selected.pop().expect("selected collection exists");
-            self.warm_selected_derived(collection, extractor)?;
+            let direct_counts = self.options.cache != CacheMode::Memory
+                || self.options.freshness == Freshness::HashOnRequest;
+            if !direct_counts {
+                self.warm_selected_derived(collection, extractor)?;
+            }
             let extensions = self.extensions.as_ref().expect("selected extensions");
             let binding = extensions.bind_value(
                 extractor,
                 collection,
                 extensions.schema(collection).map(std::sync::Arc::as_ref),
             )?;
+            if direct_counts {
+                let mut counts = BTreeMap::<crate::file_picker::TypedKey, usize>::new();
+                let mut bytes = Vec::new();
+                let mut output = Vec::new();
+                for source in snapshot.sources.iter() {
+                    let record = self.selected_record(&c, source, &mut bytes, false)?;
+                    output.clear();
+                    let state = binding.extractor.extract(&record.data, &mut output)?;
+                    if state == crate::extensions::Extraction::Missing && !output.is_empty() {
+                        return Err(Error::Request(format!(
+                            "extractor {} emitted values for a missing field",
+                            binding.identity,
+                        )));
+                    }
+                    let unique = output
+                        .drain(..)
+                        .map(crate::file_picker::TypedKey::from_extracted)
+                        .collect::<Result<BTreeSet<_>>>()?;
+                    for key in unique {
+                        if !matches!(key, crate::file_picker::TypedKey::Null) {
+                            *counts.entry(key).or_default() += 1;
+                        }
+                    }
+                }
+                return Ok(counts
+                    .into_iter()
+                    .filter_map(|(key, count)| {
+                        let value = match key {
+                            crate::file_picker::TypedKey::Bool(value) => {
+                                crate::extensions::TypedValue::Bool(value)
+                            }
+                            crate::file_picker::TypedKey::String(value) => {
+                                crate::extensions::TypedValue::Text(value)
+                            }
+                            crate::file_picker::TypedKey::Number(value) => {
+                                crate::extensions::TypedValue::Number(value)
+                            }
+                            crate::file_picker::TypedKey::Null
+                            | crate::file_picker::TypedKey::Missing => return None,
+                        };
+                        Some((value, count))
+                    })
+                    .collect());
+            }
             let key = extension_derived_index::SelectedDerivedKey::new(
                 &c,
                 &binding.path,
@@ -169,11 +217,13 @@ impl Repository {
             .get_mut(&inventory.collection)
             .ok_or_else(|| Error::Cache("collection index is unavailable".into()))?;
         let changed = picker.reconcile_inventory(inventory.files)?;
-        let has_custom = self.reconcile_extension_selection(&inventory.collection)? == Some(true);
+        let selected_state = self.reconcile_extension_selection(&inventory.collection)?;
         if changed > 0 {
             self.query_cache.invalidate(&inventory.collection);
-            self.invalidate_representation_indexes(&inventory.collection);
-            if !has_custom {
+            if selected_state.is_none() {
+                self.invalidate_representation_indexes(&inventory.collection);
+            }
+            if selected_state != Some(true) {
                 self.autosave_loaded_bigram_cache(&inventory.collection)?;
             }
         }
@@ -432,26 +482,36 @@ impl Repository {
 
     pub fn refresh(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
-        let has_custom = self.reconcile_extension_selection(collection)? == Some(true);
         let c = self.model.collection(collection)?.clone();
         match self.options.cache {
             CacheMode::Memory => {
+                let mut native_changed = false;
                 if let Some(picker) = self.file_pickers.get_mut(collection) {
                     let changed = picker.refresh()?;
                     if changed > 0 {
+                        native_changed = true;
                         self.query_cache.invalidate(collection);
-                        self.invalidate_representation_indexes(collection);
                         self.autosave_loaded_bigram_cache(collection)?;
                     }
-                } else if !has_custom
-                    || self
-                        .custom_source_snapshot
-                        .get(collection)
-                        .is_some_and(|snapshot| {
-                            snapshot.sources.iter().any(|source| {
-                                source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
-                            })
-                        })
+                }
+                // Reconcile selected postings after the concrete picker has
+                // finished invalidating its own generation. The selected
+                // builder must see the same inventory that queries will pin.
+                let selected_state = self.reconcile_extension_selection(collection)?;
+                if native_changed && selected_state.is_none() {
+                    self.invalidate_representation_indexes(collection);
+                }
+                let has_custom = selected_state == Some(true);
+                if !self.file_pickers.contains_key(collection)
+                    && (!has_custom
+                        || self
+                            .custom_source_snapshot
+                            .get(collection)
+                            .is_some_and(|snapshot| {
+                                snapshot.sources.iter().any(|source| {
+                                    source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
+                                })
+                            }))
                 {
                     self.ensure_picker(&c)?;
                 }
@@ -459,6 +519,7 @@ impl Repository {
                     .insert(c.name.clone(), "current".into());
             }
             CacheMode::Disabled => {
+                self.reconcile_extension_selection(collection)?;
                 self.direct(&c, None, false)?;
             }
         }

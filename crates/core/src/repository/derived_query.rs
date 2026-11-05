@@ -1,10 +1,6 @@
 //! Queries over application supplied typed values and the existing B-tree postings.
 
-use super::{
-    ordered_result_cache::{OrderedCoverage, OrderedResultKey},
-    predicate_cache::PredicateCacheKey,
-    *,
-};
+use super::{ordered_result_cache::OrderedResultKey, predicate_cache::PredicateCacheKey, *};
 use crate::{
     Direction, SortReduce,
     extensions::{Extraction, TypedValue},
@@ -187,21 +183,15 @@ impl Repository {
             && self.options.cache == CacheMode::Memory
             && self.options.freshness != Freshness::HashOnRequest
             && self.file_pickers[&query.collection].verified();
-        let cached = if can_cache {
-            self.query_cache
-                .ordered(&ordered_key)
-                .and_then(|(slots, coverage)| {
-                    (coverage == OrderedCoverage::Complete).then(|| slots.to_vec())
-                })
-        } else {
-            None
-        };
+        let cached = can_cache
+            .then(|| {
+                self.query_cache
+                    .completed_ordered_page(&ordered_key, query.offset, query.limit)
+            })
+            .flatten();
         let cache_hit = cached.is_some();
-        let slots = if let Some(slots) = cached {
-            slots
-                .into_iter()
-                .map(|slot| slot as usize)
-                .collect::<Vec<_>>()
+        let slots = if cache_hit {
+            Vec::new()
         } else if query.backend == DerivedBackend::Indexed {
             let picker = &self.file_pickers[&query.collection];
             let mut membership = vec![false; picker.slot_count()];
@@ -283,18 +273,19 @@ impl Repository {
             }
             matched.into_iter().map(|(slot, _)| slot).collect()
         };
-        if can_cache && !cache_hit {
-            self.query_cache
-                .insert_ordered(ordered_key, slots.iter().map(|&slot| slot as u32).collect());
-        }
-        let total = query.count.then_some(slots.len());
-        let truncated = slots.len() > self.options.total_limit;
-        let end = slots.len().min(self.options.total_limit);
-        let page = if query.offset >= end {
-            &[][..]
-        } else {
-            &slots[query.offset..end.min(query.offset.saturating_add(query.limit))]
-        };
+        let match_count = cached.as_ref().map_or(slots.len(), |(total, _)| *total);
+        let total = query.count.then_some(match_count);
+        let truncated = match_count > self.options.total_limit;
+        let end = match_count.min(self.options.total_limit);
+        let page = cached.as_ref().map_or_else(
+            || {
+                slots
+                    .get(query.offset..end.min(query.offset.saturating_add(query.limit)))
+                    .unwrap_or(&[])
+                    .to_vec()
+            },
+            |(_, page)| page.iter().map(|&slot| slot as usize).collect(),
+        );
         let selected = {
             let picker = &self.file_pickers[&query.collection];
             page.iter()
@@ -329,6 +320,10 @@ impl Repository {
                 return Err(Error::Unstable(collection.path.join(format!("{id}.json"))));
             }
             records.push(record);
+        }
+        if can_cache && !cache_hit && match_count <= self.options.total_limit {
+            self.query_cache
+                .insert_ordered(ordered_key, slots.iter().map(|&slot| slot as u32).collect());
         }
         Ok(DerivedQueryResult {
             records,

@@ -27,7 +27,10 @@ impl Repository {
         )?;
         let comparison = query.predicate.key()?;
         reduced_key(&[], query.sort)?;
-        if query.backend == DerivedBackend::Indexed {
+        let use_posting = query.backend == DerivedBackend::Indexed
+            && self.options.cache == CacheMode::Memory
+            && self.options.freshness != Freshness::HashOnRequest;
+        if use_posting {
             self.warm_selected_derived(&query.collection, &query.extractor)?;
         }
         let key = SelectedDerivedKey::new(
@@ -50,7 +53,7 @@ impl Repository {
             },
             sort: serde_json::to_vec(&query.sort).expect("derived sort identity serializes"),
         };
-        let can_cache = query.backend == DerivedBackend::Indexed
+        let can_cache = use_posting
             && binding.cacheable
             && snapshot.cacheable
             && self.query_cache.enabled()
@@ -66,7 +69,7 @@ impl Repository {
         let total = if let Some((total, _)) = &cached {
             self.metrics.ordered_result_hits += 1;
             *total
-        } else if query.backend == DerivedBackend::Indexed {
+        } else if use_posting {
             let posting = self
                 .selected_derived_indexes
                 .get(&key)
@@ -189,7 +192,7 @@ impl Repository {
         }
         Ok(DerivedQueryResult {
             records,
-            total: query.count.then_some(end),
+            total: query.count.then_some(total),
             truncated: total > self.options.total_limit,
         })
     }

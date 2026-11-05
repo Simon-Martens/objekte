@@ -376,6 +376,8 @@ pub struct Repository {
 #[derive(Clone)]
 struct CustomSourceSnapshot {
     sources: std::sync::Arc<Vec<crate::extensions::SourceDescriptor>>,
+    /// Frozen routing fact for this exact inventory generation.
+    has_custom: bool,
     fingerprint: String,
     source_generation: String,
     cacheable: bool,
@@ -395,8 +397,12 @@ impl CustomSourceSnapshot {
         let (fingerprint, cacheable, definitions) =
             extensions.selection_dependencies(collection, &sources)?;
         let source_generation = crate::config::fingerprint("selected-sources/v1", &sources);
+        let has_custom = sources
+            .iter()
+            .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
         Ok(Self {
             sources: std::sync::Arc::new(sources),
+            has_custom,
             fingerprint,
             source_generation,
             cacheable,

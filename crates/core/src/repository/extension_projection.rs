@@ -216,7 +216,7 @@ impl Repository {
             }
             let mut records = 0;
             self.metrics.parses += 1;
-            decoder.decode(&bytes, &mut |record| {
+            let decoded = decoder.decode(&bytes, &mut |record| {
                 records += 1;
                 if records > 1 {
                     return Err(Error::Request(
@@ -252,7 +252,16 @@ impl Repository {
                     }
                 }
                 Ok(())
-            })?;
+            });
+            if let Err(error) = decoded {
+                if super::extension_sources::native_malformed_json(source, &bytes) {
+                    for build in &mut derived_builds {
+                        build.rows.push((TypedKey::Missing, slot));
+                    }
+                    continue;
+                }
+                return Err(error);
+            }
             if records == 0 {
                 return Err(Error::Request("format decoder emitted no record".into()));
             }

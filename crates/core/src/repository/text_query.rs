@@ -65,6 +65,9 @@ impl Repository {
     /// Refresh a collection and rebuild its separate full-text index if eligible.
     pub fn rebuild_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
+        // Explicit rebuilding is also an explicit source refresh under
+        // MetadataOnOpen. Selection and native slots must advance together.
+        self.refresh(collection)?;
         if self.selected_route(&[collection.to_owned()])?.is_some() {
             self.rebuild_selected_text_indexes(collection)?;
             self.query_cache.invalidate(collection);

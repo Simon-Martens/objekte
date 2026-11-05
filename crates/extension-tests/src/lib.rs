@@ -16,6 +16,10 @@ use objekte_core::{
 use serde_json::Value;
 use std::{collections::BTreeMap, fs, io::Read, path::PathBuf, time::UNIX_EPOCH};
 
+#[cfg(test)]
+#[path = "review_stage1.test.rs"]
+mod review_stage1;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {
@@ -4218,6 +4222,8 @@ mod tests {
         assert_eq!(registered_markup.total, native_markup.total);
         assert_eq!(
             registered_markup.metrics.fts_candidates,
+
+
             native_markup.metrics.fts_candidates
         );
         assert_eq!(

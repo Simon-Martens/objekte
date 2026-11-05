@@ -81,14 +81,14 @@ impl Repository {
         if let Some(mut selected) = self.selected_route(&[collection.to_owned()])? {
             validate_id(id)?;
             let (c, snapshot) = selected.pop().expect("one selected collection");
-            let Some(source) = snapshot
+            let Ok(index) = snapshot
                 .sources
-                .iter()
-                .find(|source| source.record_id == id)
+                .binary_search_by(|source| source.record_id.as_str().cmp(id))
             else {
                 self.memory_edges.remove(&(collection.into(), id.into()));
                 return Ok(None);
             };
+            let source = &snapshot.sources[index];
             let record = self.selected_record(&c, source, &mut Vec::new(), false)?;
             let edges = self.extract(&c, id, &record.data)?;
             self.memory_edges

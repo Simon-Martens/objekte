@@ -16,6 +16,14 @@ pub struct DecodedLeaf {
 }
 
 
+/// Only the built-in filesystem JSON route has the legacy malformed-document
+/// policy. A callback or a custom decoder failure must still propagate.
+pub(super) fn native_malformed_json(source: &SourceDescriptor, bytes: &[u8]) -> bool {
+    source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
+        && source.format == "objekte:json"
+        && sonic_rs::from_slice::<sonic_rs::Value>(bytes).is_err()
+}
+
 fn pointer_parts(path: &str) -> Result<Vec<String>> {
     if path.is_empty() {
         return Ok(Vec::new());
@@ -255,10 +263,7 @@ impl Repository {
         for name in names.iter().collect::<BTreeSet<_>>() {
             let collection = self.model.collection(name)?.clone();
             let snapshot = self.selected_snapshot_for_query(&collection)?;
-            has_custom |= snapshot
-                .sources
-                .iter()
-                .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
+            has_custom |= snapshot.has_custom;
             selected.push((collection, snapshot));
         }
         Ok(has_custom.then_some(selected))
@@ -382,9 +387,6 @@ impl Repository {
             .custom_source_snapshot
             .get(collection)
             .is_none_or(|previous| previous.sources.as_ref() != &selected);
-        let has_custom = selected
-            .iter()
-            .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
         if changed {
             let specs = self.active_selected_specs(collection)?;
             let next = CustomSourceSnapshot::new(
@@ -394,6 +396,7 @@ impl Repository {
                     .as_deref()
                     .expect("selected source extensions"),
             )?;
+            let has_custom = next.has_custom;
             let previous = self
                 .custom_source_snapshot
                 .insert(collection.to_owned(), next.clone());
@@ -413,14 +416,20 @@ impl Repository {
             self.selected_derived_indexes
                 .retain(|key, _| key.collection != collection || key.selection == next.fingerprint);
             self.query_cache.invalidate(collection);
+            if has_custom {
+                self.custom_source_collections.insert(collection.to_owned());
+            } else {
+                self.custom_source_collections.remove(collection);
+            }
+        } else if let Some(snapshot) = self.custom_source_snapshot.get(collection) {
+            if snapshot.has_custom {
+                self.custom_source_collections.insert(collection.to_owned());
+            } else {
+                self.custom_source_collections.remove(collection);
+            }
         }
         self.invalid_selected_collections.remove(collection);
-        if has_custom {
-            self.custom_source_collections.insert(collection.to_owned());
-        } else {
-            self.custom_source_collections.remove(collection);
-        }
-        Ok(Some(has_custom))
+        Ok(Some(self.custom_source_collections.contains(collection)))
     }
 
     /// Enumerate the built-in JSON sources and registered provider sources in
