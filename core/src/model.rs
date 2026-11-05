@@ -335,7 +335,29 @@ impl FieldPath {
     pub fn display(&self) -> String {
         match self.root {
             PathRoot::Metadata(field) => field.as_str().to_string(),
-            PathRoot::Data => self.segments.join("."),
+            PathRoot::Data => {
+                let mut output = String::new();
+                for (index, segment) in self.segments.iter().enumerate() {
+                    let quoted = segment.is_empty()
+                        || segment.starts_with('@')
+                        || segment
+                            .chars()
+                            .any(|ch| matches!(ch, '.' | '[' | ']' | '"' | '\'' | '\\'));
+                    if quoted {
+                        output.push('[');
+                        output.push_str(
+                            &serde_json::to_string(segment).expect("string serialization"),
+                        );
+                        output.push(']');
+                    } else {
+                        if index != 0 {
+                            output.push('.');
+                        }
+                        output.push_str(segment);
+                    }
+                }
+                output
+            }
         }
     }
     pub fn parse(input: &str) -> Result<Self, String> {
@@ -350,12 +372,46 @@ impl FieldPath {
         while !rest.is_empty() {
             if rest.starts_with("[\"") || rest.starts_with("['") {
                 let quote = rest.as_bytes()[1] as char;
-                let end = rest[2..].find(quote).ok_or("unterminated quoted path")? + 2;
-                let name = &rest[2..end];
+                let mut escaped = false;
+                let mut end = None;
+                for (offset, ch) in rest[2..].char_indices() {
+                    if escaped {
+                        escaped = false;
+                        continue;
+                    }
+                    if ch == '\\' {
+                        escaped = true;
+                        continue;
+                    }
+                    if ch == quote {
+                        end = Some(offset + 2);
+                        break;
+                    }
+                }
+                let end = end.ok_or("unterminated quoted path")?;
                 if rest.as_bytes().get(end + 1) != Some(&b']') {
                     return Err("missing closing bracket".into());
                 }
-                segments.push(name.to_owned());
+                let name = if quote == '"' {
+                    serde_json::from_str::<String>(&rest[1..=end])
+                        .map_err(|e| format!("invalid quoted path: {e}"))?
+                } else {
+                    let mut name = String::new();
+                    let mut chars = rest[2..end].chars();
+                    while let Some(ch) = chars.next() {
+                        if ch == '\\' {
+                            let next = chars.next().ok_or("trailing path escape")?;
+                            if next != '\\' && next != '\'' {
+                                return Err("invalid single-quoted path escape".into());
+                            }
+                            name.push(next);
+                        } else {
+                            name.push(ch);
+                        }
+                    }
+                    name
+                };
+                segments.push(name);
                 rest = &rest[end + 2..];
             } else {
                 let end = rest.find(['.', '[']).unwrap_or(rest.len());
@@ -434,6 +490,15 @@ mod tests {
             FieldPath::parse("[\"@file\"].size").unwrap().root,
             PathRoot::Data
         );
+        for path in [
+            "[\"@file\"].size",
+            "data.gnd[\"@context\"]",
+            "[\"a.b\"]",
+            "[\"q\\\"uote\"]",
+        ] {
+            let parsed = FieldPath::parse(path).unwrap();
+            assert_eq!(FieldPath::parse(&parsed.display()).unwrap(), parsed);
+        }
         assert_eq!(
             FieldPath::parse("@file.size").unwrap().root,
             PathRoot::Metadata(MetadataField::FileSize)
