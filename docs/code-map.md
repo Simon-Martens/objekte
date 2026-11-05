@@ -11,7 +11,7 @@ This is a reading guide for the query and index code in `crates/core/src/`. Sour
 | Explicit sort | `json_query/sorted.rs` or `text_query/sorted.rs` | `sorting.rs` for collation keys, `sorting/buffer.rs` for the unindexed fallback |
 | Filter syntax | `json_filter/mod.rs` | `json_filter/parser.rs` and `json_filter/prefilter.rs` |
 | Named view | `view_definition.rs` | The same JSON or full-text query entry points |
-| Registered frontend | `repository/extension_query.rs` | `extensions.rs` for logical plans and bindings, `extension_sources.rs` for selected reads |
+| Registered frontend | `repository/extension_query.rs` | `extensions/query.rs` for logical plans and bindings, `repository/extension_sources.rs` for selected reads |
 
 The sorted query modules choose between two routes. A matching schema sort index on a **verified** picker supplies final candidate order directly. Otherwise, the bounded buffer projects current source values and retains the best prefix needed for the requested page. An indexed query stops after the batch that finds a match beyond `total_limit`; that extra match establishes whether the capped result is truncated. Candidate verification runs in parallel batches; callbacks publish rows in order after a batch finishes.
 
@@ -36,10 +36,15 @@ The sorted query modules choose between two routes. A matching schema sort index
 | `repository/extension_index_snapshot.rs` | Explicit portable selected-representation filter snapshots with semantic companion metadata |
 | `repository/extension_derived_index.rs` | Explicit derived-value postings over the selected source set using the existing typed B-tree, lazy scalar-safe sort order, and versioned selected-posting snapshots |
 | `repository/extension_projection.rs` | Fused explicit build of several selected-source text and typed postings from one decode |
-| `extensions.rs`, `extensions/builtins.rs` | Public descriptors, provider/decoder/record contracts, and native JSON/text adapters |
+| `extensions.rs` | Registration, schema binding and stable definition lookup |
+| `extensions/identity.rs`, `source.rs`, `format.rs` | Stable descriptors, source providers and borrowed decoder contracts |
+| `extensions/projection.rs`, `operator.rs`, `query.rs` | Text and typed projections, exact operators, candidate constraints and logical frontend plans |
+| `extensions/builtins.rs` | Native JSON and text adapters using the public contracts |
 | `file_picker/text.rs`, `text/projection.rs`, `text/query.rs` | Build combined and per-field postings, project source values, and choose text candidates |
 
 The immutable bigram filter and changed-file overlay live in `bigram/`. A restored cache can be used before filesystem reconciliation finishes, so `FilePicker::verified()` gates the direct sorted path. Refresh patches changed files into the overlay; rebuild creates a new immutable index. Saved sort keys include the schema language in their configuration fingerprint.
+
+The extension contracts now have separate source, format, projection, operator and query modules. The public `extensions::*` re-exports retain existing import paths. Engine storage stays in `file_picker/` and `bigram/`; specialized execution and verified-result caches stay under `repository/`. Keeping those concrete hot paths in place avoids a module move with no behavior benefit.
 
 ## Tests and style
 
