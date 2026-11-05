@@ -44,6 +44,10 @@ mod review_mixed_indexes;
 #[path = "malformed_formats.test.rs"]
 mod malformed_formats;
 
+#[cfg(test)]
+#[path = "review_direct_translation.test.rs"]
+mod review_direct_translation;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {
