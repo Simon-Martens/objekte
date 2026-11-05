@@ -143,6 +143,9 @@ metrics!(
     selected_candidate_visits,
     selected_descriptor_visits,
     selected_candidate_bitsets,
+    native_translation_order_entries,
+    native_translation_bitmap_words,
+    native_translation_candidates,
     selected_projected_nodes,
     source_bytes,
     hashes,
@@ -508,17 +511,26 @@ impl CustomSourceSnapshot {
         &self,
         picker: &crate::file_picker::FilePicker,
         selection: &crate::file_picker::SlotSelection,
+        metrics: &mut Metrics,
     ) -> Option<Vec<u64>> {
         let map = self.native_slot_map(picker)?;
         let mut bits = vec![0_u64; self.sources.len().div_ceil(64)];
         for &slot in self.custom_slots.iter() {
             bits[slot as usize / 64] |= 1 << (slot % 64);
         }
-        for native in selection.ordered(picker, false, &[]) {
-            let selected = map.get(native).copied().flatten()?;
+        let mut valid = true;
+        let work = selection.visit_translation_members(picker, |native| {
+            let Some(selected) = map.get(native).copied().flatten() else {
+                valid = false;
+                return false;
+            };
+            metrics.native_translation_candidates += 1;
             bits[selected as usize / 64] |= 1 << (selected % 64);
-        }
-        Some(bits)
+            true
+        });
+        metrics.native_translation_order_entries += work.order_entries;
+        metrics.native_translation_bitmap_words += work.bitmap_words;
+        valid.then_some(bits)
     }
 
     /// Enumerate only candidate slots where a posting is selective. The

@@ -175,7 +175,7 @@ impl Repository {
         if selection.is_all() || selection.len().saturating_mul(2) >= snapshot.native_count {
             return Ok(None);
         }
-        Ok(snapshot.native_candidate_bits(picker, &selection))
+        Ok(snapshot.native_candidate_bits(picker, &selection, &mut self.metrics))
     }
 
     fn selected_text_candidates(

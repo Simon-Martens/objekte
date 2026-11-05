@@ -246,7 +246,7 @@ impl Repository {
             return Ok(None);
         }
         Ok(snapshot
-            .native_candidate_bits(picker, &selection)
+            .native_candidate_bits(picker, &selection, &mut self.metrics)
             .map(|bits| (bits, used_full_text)))
     }
 

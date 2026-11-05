@@ -20,7 +20,58 @@ pub(crate) struct SlotSelection {
 }
 
 
+#[derive(Default)]
+pub(crate) struct TranslationWork {
+    pub order_entries: u64,
+    pub bitmap_words: u64,
+}
+
+
 impl SlotSelection {
+    /// Count the current native-order traversal before replacing it with
+    /// membership enumeration. This remains an internal diagnostic boundary.
+    pub(crate) fn visit_translation_members(
+        &self,
+        picker: &FilePicker,
+        mut visit: impl FnMut(usize) -> bool,
+    ) -> TranslationWork {
+        let mut work = TranslationWork::default();
+        match &self.membership {
+            SlotMembership::Sparse(slots) => {
+                for &slot in slots {
+                    if !visit(slot) {
+                        break;
+                    }
+                }
+            }
+            SlotMembership::All => {
+                for &slot in picker.sorted_slots() {
+                    work.order_entries += 1;
+                    if picker.files[slot].is_some() && !visit(slot) {
+                        break;
+                    }
+                }
+            }
+            SlotMembership::Bits(bits) => {
+                for &slot in picker.sorted_slots() {
+                    work.order_entries += 1;
+                    if picker.files[slot].is_none() {
+                        continue;
+                    }
+                    work.bitmap_words += 1;
+                    if bits
+                        .get(slot / 64)
+                        .is_some_and(|word| word & (1 << (slot % 64)) != 0)
+                        && !visit(slot)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+        work
+    }
+
     pub(crate) fn clear(&mut self) {
         self.membership = SlotMembership::Sparse(Vec::new());
         self.count = 0;
