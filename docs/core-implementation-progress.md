@@ -41,6 +41,7 @@ query/build and restore revisions will establish their respective baselines.
 | C24a | complete | `cargo test --workspace --all-targets`; five fresh-process restores/alphabet | Startup restore/reconciliation, rebuild on changed inventory, restore runner |
 | C24b | complete | 10 fresh-process restores; 18 query samples; 0 failures | Revision-tied restore baseline at `64b5df7b68` |
 | C25 | complete | `cargo test --workspace --all-targets`; full 150-case scanner comparisons under both alphabets | Cross-component acceptance and focused regressions |
+| C26 | complete | `cargo fmt --all && cargo test --workspace --all-targets`; reference Q013/Q024; five-run before/after | Safe ASCII gram subsets of mixed Unicode literals, commit `012f6fd518` |
 
 ## Decisions
 
@@ -173,6 +174,13 @@ The saved [restore baseline](../bench/results/musenalm/restore-baseline-64b5df7b
 measures code revision `64b5df7b68`: ASCII build 14.175 s, Unicode build
 15.293 s, snapshot writes 0.273/0.287 s, and fresh-process restore medians
 0.535/0.553 s over five runs each. All 18 included query samples passed.
+
+The [C26 comparison](../bench/results/musenalm/ascii-mixed-comparison/REPORT.md)
+records the revised ASCII bigram filtering on the same corpus and five-run
+cache-disabled measurements. Q024 fell from a 1,943.550 ms median to 72.028 ms
+as candidate parses fell from 133,948 to 4,636; Q013 fell from 298.875 ms to
+244.523 ms with parses dropping from 4,010 to 2,143. Single-character controls
+continue to scan. The full final workload remains required.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format
