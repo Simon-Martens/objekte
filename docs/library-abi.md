@@ -374,7 +374,7 @@ Streaming may have emitted earlier records when a later read, verification or ca
 | `mode: TextMode` | `Word` searches normalized visible text; `WordRaw` searches stored decoded text; `Regex` runs a Rust regex on stored values. Regex flags belong in the pattern. |
 | `case_sensitive: bool` | Applies to the two word modes. Regex controls its own case behavior. |
 | `collections: Option<Vec<String>>` | Same scope convention as `JsonQuery`. |
-| `fields: Option<Vec<String>>` | Optional canonical leaf paths such as `body` or `contributors[].note`; empty selection is invalid. `None` searches included leaves. |
+| `fields: Option<Vec<TextFieldSelector>>` | Optional leaf paths such as `body` or `contributors[].note`. A bare selector uses the field default; `TextFieldSelector::with_search(path, definition)` selects an alias or canonical registered definition. Bare strings still deserialize and convert from Rust `&str`/`String`; an explicit selector serializes as `{"path":"body","search":"objekte:markdown"}`. Empty selection is invalid; `None` searches included leaves. |
 | `sort: Vec<Sort>` | Optional final ordering terms; empty uses the existing text-search order. |
 | `offset`, `limit`, `count` | Page start, positive page size, and optional total, with the repository's `total_limit` cap. |
 
@@ -431,6 +431,7 @@ These are advanced controls. Ordinary warm/build/save/reopen now handles configu
 | Function | Arguments and result |
 | --- | --- |
 | `build_representation_index(collection, representation, path) -> Result<usize>` | Build a bigram posting for registered `representation: &str` on logical text field `path: &str`. |
+| `build_text_search_index(collection, definition, path) -> Result<usize>` | Resolve query-facing `definition: &str` (canonical identity or alias) on logical string `path: &str`, then build its representation posting through the same engine-owned builder. |
 | `build_selected_derived_posting(collection, extractor) -> Result<usize>` | Build a selected-source B-tree typed posting for registered `extractor: &str`. |
 | `build_selected_indexes(collection, requests: &[SelectedIndexRequest]) -> Result<usize>` | Build several `Text { representation, path }` and/or `Derived { extractor }` requests in one selected read/decode pass. Empty lists, duplicates and more than 4096 outputs are rejected; already built keys are reused. |
 | `build_derived_posting(collection, extractor) -> Result<()>` | Ordinary named derived-posting preparation. |
@@ -517,10 +518,30 @@ The built-in filesystem JSON provider retains root containment, descriptor-relat
 | `descriptor(&self) -> &Descriptor` | Stable `Text → Text` semantic identity. |
 | `binds(&self, context: &BindingContext) -> bool` | Applicability to resolved `collection`, canonical `path`, format name and optional retained schema JSON (including custom annotations). Binding is compiled once where inputs are invariant. |
 | `preparation(&self) -> TextPreparation` | `Stored` (default) or `VisibleNormalized` to tell the operator what it receives. |
-| `native_index_projection(&self) -> Option<NativeTextProjection>` | Optional proof of byte-for-byte equivalence to engine-owned `Stored` or `VisibleNormalized(TextFormat)` projection. Default `None` means scan fallback. A false claim can omit matches. |
+| `native_index_projection(&self) -> Option<NativeTextProjection>` | Optional proof of byte-for-byte equivalence to an existing native `Stored` or `VisibleNormalized(TextFormat)` projection. Default `None` prevents reuse of that native projection; an independent representation posting may still be built and used. A false claim can omit matches. |
+| `binds_explicit(&self, context: &BindingContext) -> bool` | Applicability when a composed query-facing definition is explicitly selected. Default delegates to `binds`; built-in rendered adapters allow an explicit compatible string-field choice even if legacy `x-full-text` names a different renderer. |
 | `render<'a>(&self, value: &'a str, output: &'a mut String) -> Result<Option<&'a str>>` | Render one logical string. Return borrowed input or reusable output, or `None` if no text representation. Do not retain either borrow. Errors propagate. |
 
 `BindingContext` fields are `collection`, `path`, `format`, and `schema: Option<&Value>`. Here `format` is the **field's text rendering format** (`plain`, `markdown`, `html`, `xml`, or `derived` for a typed binding), not the source decoder's format identity. `schema` is the retained resolved JSON Schema tree, including declared `x-` annotations. `TextFormat` is `Plain`, `Markdown`, `Html` or `Xml`. Built-ins are `StoredRepresentation::default()` and `RenderedRepresentation::new(format) -> Result<Self>`; the latter selects a visible normalized renderer for the chosen format. `NativeTextProjection` is a candidate-index compatibility declaration, not merely a display label. Index construction and exact verification must use the same bound representation. Logical strings and array members remain separate matching streams.
+
+### Query-facing text definition: `TextSearchDefinition`
+
+`TextSearchDefinition` composes a registered `TextRepresentation` with exact `QueryOperator` mappings. Its descriptor has `Text → Predicate` kinds. `TextComparison::{Contains,Equal}` is the positive operation; the filter language applies `!~`/`!=` as negation of the exact result and never complements approximate bigram candidates. `TextSyntax::{Literal,Regex}` tells the operator how to compile the pattern. `TextCompileRequest { pattern, comparison, syntax, case_sensitive }` is passed once at binding. `case_sensitive: None` retains the operator's default; an explicit boolean is distinct from absence.
+
+| Public method | Arguments and effect |
+| --- | --- |
+| `TextSearchDefinition::new(descriptor, representation)` | `descriptor: Descriptor` supplies stable query semantics; `representation` is the registered representation identity, not a field path or a format decoder. |
+| `.alias(name)` | Add a short modifier name such as `abbreviations`. It must start with an ASCII letter and then use letters, digits or `_`; structural and built-in reserved names are rejected. |
+| `.operator(comparison, identity)` | Map `Contains` or `Equal` literal comparison to a registered operator identity. Missing mappings reject that query shape at binding. |
+| `.regex_operator(identity)` | Add a compiled regex `Contains` mapping. Regex source is passed unchanged; regex equality is unsupported. |
+| `descriptor()`, `representation()`, `aliases()` | Inspect the stable descriptor, component identity and aliases. |
+| `RepositoryBuilder::register_text_definition(definition)` | Register before `open`. Component registration may occur in any order, but the complete graph is validated at open. |
+
+`QueryOperator::compile_text(&self, request: &TextCompileRequest)` is the additive typed compilation hook. Its default adapts a legacy `compile(Value::String(pattern))` implementation for literal contains without an explicit case override. Override it to implement equality, regex or case overrides. `TextRepresentation::render` prepares document content; the operator prepares a literal pattern as text, never by parsing it as Markdown/HTML/XML. A visible representation is already normalized, so `matches_prepared` avoids a second normalization. A scanner's necessary `BigramLiteral` must identify the bound representation, and `can_skip_non_candidates()` must be true before that hint prunes exact invocation. A missing or incompatible posting causes a scan, not a semantic change.
+
+The schema `x-text-search` object maps canonical definition identities to `{ "index": true|false }` and may contain `"default": "identity"`. A lone definition is an implicit default; multiple definitions without one are ambiguous for `:fts` or a bare standalone field. The old `x-full-text` declaration maps to the corresponding built-in default. An explicit selector may bind a compatible string field without a declaration; it scans unless an explicit posting was built. `TextFieldSelector::new(path)` uses the configured default, `with_search(path, definition)` chooses one. `TextFieldSelector::parse("body:markdown")` is the CLI form; `body:text("example:expanded-abbreviations")` selects a canonical identity. `JsonQuery` parses the same modifiers in `body:markdown ~ "word"` and `body:text("example:expanded-abbreviations") ~ "word"`. Existing ordinary `~`/LIKE keeps separate semantics.
+
+The built-in composed identities are `objekte:plain`, `objekte:markdown`, `objekte:html`, `objekte:xml`, and `objekte:raw-text`; short aliases are `plain`, `markdown`, `html`, `xml`, and `raw`. These are distinct from low-level `objekte:visible-*` representation identities and `objekte:word`/`objekte:word-raw` operators. See the runnable [public-only example](../crates/extension-tests/examples/text_search_definition.rs) for registration, a field default plus a second definition, ordinary indexed FTS and JSON filters, save/reopen, and refresh.
 
 ### Typed extraction: `ValueExtractor`
 

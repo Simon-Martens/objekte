@@ -29,6 +29,8 @@ A Rust application can use `Repository::builder(root)` to register a `SourceProv
 
 Ordinary repository JSON and text queries, named views, warm/build/save/reopen and `refresh(collection)` use the selected records when custom sources contribute to the requested scope. A JSON-only scope keeps the native picker path. `MetadataOnOpen` needs explicit refresh or reload to observe later provider changes; request-time freshness policies validate revisions during queries. Native file change helpers, inference and runtime JSON-path postings remain native-picker operations. See [Library extensions](library-extensions.md) for registration, capabilities, snapshot compatibility and an external Markdown example. The default JSON provider retains its secure source-read rules.
 
+Text interpretation is independent of source format: a decoded logical `body` string may use built-in Markdown/HTML/XML rendering or a registered application definition. A string schema field can declare `"x-text-search": {"default":"example:name","definitions":{"example:name":{"index":true}}}`. Normal `warm_text_index`, `warm_bigram_index`, `save_bigram_cache`, reopen and refresh maintain that declared representation posting, including for native-only JSON collections. A custom definition can also be selected explicitly on a compatible unconfigured field and verified by a scan. See [text definitions](library-extensions.md#query-facing-text-definitions) for registration and a complete public example.
+
 For alphabetical sorting, put `"x-language": "de"` at the schema root to
 apply German collation to string and string-enum fields. A field can override
 that language with its own `x-language`; without either declaration, English

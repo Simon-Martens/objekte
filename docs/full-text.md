@@ -2,7 +2,7 @@
 
 For native JSON files, full-text search includes every leaf value by default, including undeclared fields and schema-free collections. A registered decoder exposes logical leaves from another format to ordinary text queries. Strings are searched as plain text unless a schema declares Markdown, HTML, or XML rendering for a logical field. Numbers, booleans, and null are searchable by their value text. Objects and arrays contribute their nested leaves. See [Library extensions](library-extensions.md) for registering a source, decoder or representation.
 
-Use `x-full-text` on a schema string field to select its rendering format. Use `exclude_fts: true` on any schema field to omit that field and its descendants from standalone full-text search and, when built, the separate full-text indexes. The default is `false`:
+Use `x-full-text` on a schema string field to select its legacy rendering format. The extensible `x-text-search` declaration can instead name one or several registered text definitions, choose the implicit default, and declare which postings to warm. `objekte:plain`, `objekte:markdown`, `objekte:html`, `objekte:xml`, and `objekte:raw-text` are built in; applications can register more. Do not put both declarations on one field. A definition composes a representation and an exact operator, so index extraction and exact verification resolve together. See [query-facing text definitions](library-extensions.md#query-facing-text-definitions) and the runnable [consumer example](../crates/extension-tests/examples/text_search_definition.rs). Use `exclude_fts: true` on any schema field to omit that field and its descendants from unscoped standalone full-text search and its indexes. The default is `false`:
 
 ```json
 {
@@ -41,6 +41,20 @@ Full-text patterns are passed unchanged to the selected word or regex matcher; c
 Add `--filter 'year >= 1800'` to `search` to run a JSON field predicate before the full-text matcher. `--param NAME=JSON` binds typed values in that predicate. For example, `search contents 'Wasser' --filter 'year >= $min SORT BY preferred_title' --param min=1800 --count` returns only records that satisfy both conditions and sorts those final matches. The API exposes the same combination through `TextQuery.filter` and `TextQuery.parameters`. A filter's `SORT BY` clause supplies the final result sort; it cannot be combined with a separate `TextQuery.sort` or CLI `--sort`. The filter runs before text matching, counts, paging, and sorting. When safe, its typed, presence, and bigram candidates narrow the full-text candidate set. A malformed JSON file has no JSON fields, but can satisfy a metadata predicate such as `@status = 'incorrect_json'`.
 
 The JSON filter language also accepts `:fts` on a field operand. It means: match this string field as full-text search does, with the same options. A full-text search passes its mode and case to `:fts` in its own filter; a filter query sets them in `JsonQuery.fts` (`FtsOptions { mode, case_sensitive }`), or with `--mode` and `--case-sensitive` on `query`. The default is word mode, ignoring case.
+
+For a field with `x-text-search`, `:fts` selects its configured default. An explicit modifier selects another registered definition: `body:markdown ~ "Goethe"`, `body:abbreviations ~ $term`, or `body:text("example:expanded-abbreviations") ~ "manuscript"`. These combine with ordinary Boolean, typed and metadata predicates. A `TextQuery` may select definitions per field:
+
+```json
+{
+  "pattern": "manuscript",
+  "fields": ["title", {"path":"body","search":"example:expanded-abbreviations"}],
+  "filter": "year >= 1800",
+  "count": true,
+  "limit": 25
+}
+```
+
+A string field uses its default. The object selects a definition explicitly; the corresponding Rust type is `TextFieldSelector`. `--field body:markdown` and `--field 'body:text("example:expanded-abbreviations")'` use the same selection. Repeating a path with two definitions searches both and returns one record hit with matching definition/path details. An explicit registered definition can scan a compatible string field without a schema declaration. An index is built only when declared or explicitly requested. A configured definition and legacy `--mode raw-word` conflict; select the built-in `raw` definition explicitly. Regex binds only to a definition that supports regex and keeps its pattern grammar unchanged; an explicitly selected visible definition runs regex over its prepared visible text. A safe mandatory ASCII fragment may use its compatible posting, while patterns without one scan. A custom operator must explicitly allow candidate skipping before its bigram hint can prune invocation and possible errors.
 
 | Operator with `:fts` | Word (default) | Raw word | Regex |
 | --- | --- | --- | --- |

@@ -15,6 +15,8 @@ schema `x-relation` reads the linked record, as if it were embedded there:
 `entry.preferred_title` in `contents` compares the title of the linked entry.
 See [filters.md](filters.md#relations) for the exact semantics.
 
+Registered text definitions can be selected in ordinary filters: `body:markdown ~ "Goethe"`, `body:abbreviations ~ $term`, or `body:text("example:expanded-abbreviations") ~ "manuscript"`. `body:fts` uses the schema's configured default. They compose with the Boolean and scalar terms below and use a compatible representation posting when available; a missing posting changes work, not the result. See [full-text search](full-text.md) and [registration](library-extensions.md#query-facing-text-definitions).
+
 `missing(path)` selects records without a value at that path; `null` is present,
 so `missing(year)` and `year = null` are different. A long-lived library caller
 can use `Repository::build_posting(collection, "path")` to add an ordered posting
