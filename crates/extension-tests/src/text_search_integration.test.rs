@@ -200,6 +200,10 @@ fn ordinary_text_query_uses_independent_representation_postings() {
     assert_eq!(indexed.query_json(&json_case).unwrap().total, Some(0));
     json_case.fts.search_options.case_sensitive = Some(false);
     assert_eq!(indexed.query_json(&json_case).unwrap().total, Some(1));
+    json_case.fts.mode = objekte_core::TextMode::Regex;
+    json_case.fts.search_options.syntax = Some(objekte_core::extensions::TextSyntax::Literal);
+    json_case.filter = "body:markdown ~ 'manuscript('".into();
+    assert_eq!(indexed.query_json(&json_case).unwrap().total, Some(1));
     let ids = |result: &objekte_core::TextQueryResult| {
         result
             .hits

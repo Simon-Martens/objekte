@@ -73,10 +73,21 @@ impl FtsPattern {
     }
 
     fn compile(pattern: &str, options: FtsOptions, op: Op) -> Result<TextPattern> {
+        let requested_mode = match options.search_options.syntax {
+            Some(TextSyntax::Literal) if options.mode != TextMode::WordRaw => TextMode::Word,
+            Some(TextSyntax::Regex) => TextMode::Regex,
+            _ => options.mode,
+        };
         // `=` under regex compares the stored text exactly, not as a regex.
         let (mode, case_sensitive) = match op {
-            Op::Eq | Op::Ne if options.mode == TextMode::Regex => (TextMode::WordRaw, true),
-            _ => (options.mode, options.case_sensitive),
+            Op::Eq | Op::Ne if requested_mode == TextMode::Regex => (TextMode::WordRaw, true),
+            _ => (
+                requested_mode,
+                options
+                    .search_options
+                    .case_sensitive
+                    .unwrap_or(options.case_sensitive),
+            ),
         };
         TextPattern::compile(pattern, mode, case_sensitive).map_err(|error| match error {
             Error::Request(message) => Error::Request(format!(":fts {message}")),
