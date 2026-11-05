@@ -19,6 +19,14 @@
     }
   },
   "host": "Linux-7.2.13-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "instrumentation_note": "Native translation algorithm unchanged; counters record native order entries, bitmap word lookups and surviving native slots. Normal-release baseline without these counters is saved separately.",
+  "instrumented_reference_binary_sha256": "39de5a040e8165c9bf341c70056cab7f4a2d323f47762682ab674113289e9ff7",
+  "instrumented_reference_commands": [
+    "cargo build --locked --release -p objekte-extension-tests --example mixed_candidate_paths -j 2",
+    "env RAYON_NUM_THREADS=4 taskset -c 0-3 reference-bin/mixed_candidate_paths_instrumented run <fixture>/small 9",
+    "env RAYON_NUM_THREADS=4 taskset -c 0-3 reference-bin/mixed_candidate_paths_instrumented run <fixture>/large 9"
+  ],
+  "instrumented_reference_revision": "3b503bd6348e1ba2eadfb21ec7ac3839f5ff3ec8",
   "previous_benchmark_applicability": "The current 152-case native JSON run contains no selected mixed-source Direct fallback or native-to-selected translation case; a focused baseline was required.",
   "production_revision": "3014c314c691c61d46a9604efee4212713ed97ed",
   "query_cache_bytes": 0,
