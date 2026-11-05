@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "kind": "negated substring",
+    "filter": "annotation !~ 'Mond'"
+  },
+  {
+    "id": 2,
+    "kind": "case folded substring",
+    "filter": "annotation ~ :ignorecase('Mond')"
+  },
+  {
+    "id": 3,
+    "kind": "title equality",
+    "filter": "preferred_title = 'Der Mond'"
+  },
+  {
+    "id": 4,
+    "kind": "relation ID in array",
+    "filter": "places ?= 'd7kbujq7399g22j'"
+  },
+  {
+    "id": 5,
+    "kind": "nested relation ID",
+    "filter": "contributors.agents ?= '5e64t7ca8x2wyim'"
+  },
+  {
+    "id": 6,
+    "kind": "enum array equality",
+    "filter": "musenalm_type ?= 'Gedicht/Lied'"
+  },
+  {
+    "id": 7,
+    "kind": "nested enum equality",
+    "filter": "contributors.type ?= 'Autor:in'"
+  },
+  {
+    "id": 8,
+    "kind": "contributors length",
+    "filter": "contributors:length > 0"
+  },
+  {
+    "id": 9,
+    "kind": "series ID membership",
+    "filter": "entries ?= '1o25nw5kc1t9ko4'"
+  },
+  {
+    "id": 10,
+    "kind": "item string AND boolean",
+    "filter": "owner = 'Theodor Springmann Stiftung' && basis = true"
+  },
+  {
+    "id": 11,
+    "kind": "item array equality",
+    "filter": "media ?= 'Reproduktion'"
+  }
+]

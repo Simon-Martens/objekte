@@ -1,0 +1,18 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/target/benchmarks/master-final-20261105/bin/master/json-query-mix",
+    "--repo",
+    "examples/musenalm",
+    "--runs",
+    "7",
+    "--bigram-encoding",
+    "ascii",
+    "--query-cache-mib",
+    "0"
+  ],
+  "rayon_threads": 16,
+  "exit_status": 0
+}
