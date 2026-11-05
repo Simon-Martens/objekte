@@ -364,22 +364,77 @@ fn order_matches(order: std::cmp::Ordering, op: Operator) -> bool {
     }
 }
 
+#[cfg(test)]
 pub(crate) fn plan_expr(
     repo: &Repository,
     collection: &CollectionState,
     expr: &BoundExpr,
     domain: &RoaringBitmap,
 ) -> Result<Plan, String> {
+    plan_expr_restricted(repo, collection, expr, domain, domain)
+}
+
+pub(crate) fn estimate_expr(
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    input_len: u64,
+) -> (f64, u64) {
+    match expr {
+        BoundExpr::Term(term) => enumerate_paths(collection, term, input_len)
+            .into_iter()
+            .min_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work))
+            .map(|p| (p.estimated_work, p.estimated_output))
+            .unwrap_or((input_len as f64, input_len)),
+        BoundExpr::And(parts) => parts
+            .iter()
+            .map(|p| estimate_expr(collection, p, input_len))
+            .min_by(|a, b| a.0.total_cmp(&b.0))
+            .unwrap_or((0.0, input_len)),
+        BoundExpr::Or(parts) => {
+            let estimates: Vec<_> = parts
+                .iter()
+                .map(|p| estimate_expr(collection, p, input_len))
+                .collect();
+            (
+                estimates.iter().map(|e| e.0).sum(),
+                estimates.iter().map(|e| e.1).sum::<u64>().min(input_len),
+            )
+        }
+        BoundExpr::Not(inner) => {
+            let (work, _) = estimate_expr(collection, inner, input_len);
+            (work, input_len / 2)
+        }
+    }
+}
+
+fn flatten_and<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundExpr>) {
+    if let BoundExpr::And(parts) = expr {
+        for part in parts {
+            flatten_and(part, output);
+        }
+    } else {
+        output.push(expr);
+    }
+}
+
+pub(crate) fn plan_expr_restricted(
+    repo: &Repository,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    input: &RoaringBitmap,
+) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let mut paths = enumerate_paths(collection, term, domain.len());
+            let mut paths = enumerate_paths(collection, term, input.len());
             paths.sort_by(|a, b| {
                 a.estimated_work
                     .total_cmp(&b.estimated_work)
                     .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
             });
             let selected = paths.remove(0);
-            let candidates = execute_path(repo, collection, term, domain, selected.kind)?;
+            let candidates = execute_path(repo, collection, term, domain, selected.kind)?
+                .map(|set| &set & input);
             let exact = selected.exact;
             let exact_candidates = if exact { candidates.as_ref() } else { None };
             let proofs = exact_candidates
@@ -406,39 +461,62 @@ pub(crate) fn plan_expr(
             }
         }
         BoundExpr::And(parts) => {
-            let mut children = parts
-                .iter()
-                .map(|p| plan_expr(repo, collection, p, domain))
-                .collect::<Result<Vec<_>, _>>()?;
-            let exact = children.iter().all(|p| p.exact);
-            children.sort_by_key(|p| p.candidates.as_ref().map(|s| s.len()).unwrap_or(u64::MAX));
-            let mut candidates = None;
+            let mut remaining = Vec::new();
+            for part in parts {
+                flatten_and(part, &mut remaining);
+            }
+            let mut current = input.clone();
+            let mut exact = true;
             let mut proofs = Vec::new();
             let mut choices = Vec::new();
-            for child in children {
+            while !remaining.is_empty() {
+                let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
+                let next = remaining
+                    .iter()
+                    .enumerate()
+                    .map(|(index, part)| {
+                        let (work, output) = estimate_expr(collection, part, current.len());
+                        let score = work + output as f64 * source_unit * 0.1;
+                        (index, score)
+                    })
+                    .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
+                    .unwrap()
+                    .0;
+                let child = plan_expr_restricted(
+                    repo,
+                    collection,
+                    remaining.remove(next),
+                    domain,
+                    &current,
+                )?;
                 if let Some(set) = child.candidates {
-                    candidates = Some(match candidates {
-                        None => set,
-                        Some(prior) => &prior & &set,
-                    });
+                    current &= set;
                 }
+                exact &= child.exact;
                 proofs.extend(child.proofs);
                 choices.extend(child.choices);
-                if candidates.as_ref().is_some_and(RoaringBitmap::is_empty) {
+                if current.is_empty() {
+                    exact = true;
                     break;
                 }
             }
             Plan {
-                candidates,
+                candidates: Some(current),
                 exact,
                 proofs,
                 choices,
             }
         }
         BoundExpr::Or(parts) => {
-            let children = parts
-                .iter()
-                .map(|p| plan_expr(repo, collection, p, domain))
+            let mut ordered: Vec<_> = parts.iter().collect();
+            ordered.sort_by(|a, b| {
+                estimate_expr(collection, a, input.len())
+                    .0
+                    .total_cmp(&estimate_expr(collection, b, input.len()).0)
+            });
+            let children = ordered
+                .into_iter()
+                .map(|p| plan_expr_restricted(repo, collection, p, domain, input))
                 .collect::<Result<Vec<_>, _>>()?;
             if children.iter().all(|p| p.candidates.is_some()) {
                 let mut candidates = RoaringBitmap::new();
@@ -469,10 +547,10 @@ pub(crate) fn plan_expr(
             }
         }
         BoundExpr::Not(inner) => {
-            let child = plan_expr(repo, collection, inner, domain)?;
+            let child = plan_expr_restricted(repo, collection, inner, domain, input)?;
             if child.exact {
                 Plan {
-                    candidates: Some(domain - &child.candidates.unwrap()),
+                    candidates: Some(input - &child.candidates.unwrap()),
                     exact: true,
                     proofs: Vec::new(),
                     choices: child.choices,
@@ -533,6 +611,41 @@ pub(crate) fn fts_candidates(
         union |= candidates;
     }
     Some(union)
+}
+
+pub(crate) fn estimate_fts_candidates(
+    collection: &CollectionState,
+    fts: &FtsQuery,
+) -> Option<(u64, f64)> {
+    if fts.fields.is_empty() {
+        return collection
+            .raw
+            .estimate_min_cardinality(&fts.literal)
+            .map(|count| (count, fts.literal.len() as f64));
+    }
+    let mut count = 0u64;
+    let mut work = 0.0;
+    for field in &fts.fields {
+        let estimate = if let Some(name) = &field.binding {
+            let key = (field.path.segments.clone(), name.clone());
+            let binding = collection.definition.schema.custom.get(&key)?;
+            let literal = if binding.transform == Transform::CaseFold {
+                fts.literal.case_fold().collect::<String>()
+            } else {
+                fts.literal.clone()
+            };
+            work += literal.len() as f64;
+            collection
+                .custom_text
+                .get(&key)?
+                .estimate_min_cardinality(&literal)?
+        } else {
+            work += fts.literal.len() as f64;
+            collection.raw.estimate_min_cardinality(&fts.literal)?
+        };
+        count = count.saturating_add(estimate);
+    }
+    Some((count.min(collection.stats.record_count as u64), work))
 }
 
 #[cfg(test)]
@@ -693,6 +806,102 @@ mod tests {
             optimized.count,
             repo.search_reference(&folded).unwrap().count
         );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn rare_text_restriction_can_precede_a_broad_posting() {
+        let root = std::env::temp_dir().join(format!("objekte-adapt-{}", std::process::id()));
+        let path = root.join("data");
+        std::fs::create_dir_all(&path).unwrap();
+        for i in 0..240 {
+            let text = if i == 173 {
+                "uniqueneedleword"
+            } else {
+                "ordinary text"
+            };
+            std::fs::write(
+                path.join(format!("{i:03}.json")),
+                serde_json::json!({"kind":"broad","text":text}).to_string(),
+            )
+            .unwrap();
+        }
+        let mut schema = crate::reference::Schema::default();
+        for (name, indexed) in [("kind", true), ("text", false)] {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind: LogicalType::String,
+                    required: true,
+                    nullable: false,
+                    indexed,
+                    multi: false,
+                })
+                .unwrap();
+        }
+        let repo = Repository::open(
+            &root,
+            vec![CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::Json,
+                identity: IdentityPolicy::Filename,
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+            }],
+        )
+        .unwrap();
+        let domain: RoaringBitmap = (0..240).collect();
+        let options = QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        };
+        for expression in [
+            "kind = 'broad' && text ~ 'uniqueneedleword'",
+            "text ~ 'uniqueneedleword' && kind = 'broad'",
+        ] {
+            let bound = crate::reference::bind_filter(
+                &parse_filter(expression).unwrap(),
+                &repo.collections[0].definition.schema,
+            )
+            .unwrap();
+            let plan = plan_expr(&repo, &repo.collections[0], &bound, &domain).unwrap();
+            assert_eq!(plan.choices[0].field, "text");
+            assert_eq!(plan.choices[0].selected.kind, AccessPathKind::RawBigram);
+            let query = Query {
+                collections: vec![],
+                fts: None,
+                filter: Some(parse_filter(expression).unwrap()),
+                options: options.clone(),
+            };
+            let optimized = repo.search(&query).unwrap();
+            let reference = repo.search_reference(&query).unwrap();
+            assert_eq!(optimized.count, 1);
+            assert_eq!(optimized.hits[0].record_id, "173");
+            assert_eq!(optimized.hits[0].record_id, reference.hits[0].record_id);
+            assert_eq!(optimized.counters.record_parses, 1);
+        }
+        for expression in [
+            "kind = 'absent' || text ~ 'uniqueneedleword'",
+            "text ~ 'uniqueneedleword' || kind = 'absent'",
+        ] {
+            let query = Query {
+                collections: vec![],
+                fts: None,
+                filter: Some(parse_filter(expression).unwrap()),
+                options: options.clone(),
+            };
+            let optimized = repo.search(&query).unwrap();
+            assert_eq!(
+                optimized.count,
+                repo.search_reference(&query).unwrap().count
+            );
+        }
         std::fs::remove_dir_all(root).unwrap();
     }
 }

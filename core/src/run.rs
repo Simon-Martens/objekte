@@ -5,7 +5,9 @@ use std::collections::{BTreeMap, BinaryHeap, HashSet};
 
 use roaring::RoaringBitmap;
 
-use crate::executor::{Plan, fts_candidates, plan_expr};
+use crate::executor::{
+    Plan, estimate_expr, estimate_fts_candidates, fts_candidates, plan_expr_restricted,
+};
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::query::{Operator, Query};
 use crate::reference::{Derived, RecordContext, bind_filter, eval_filter, eval_fts_query};
@@ -183,9 +185,33 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     for (collection_index, filter) in bound {
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
+        let mut input = domain.clone();
+        let text_estimate = query
+            .fts
+            .as_ref()
+            .and_then(|fts| estimate_fts_candidates(collection, fts));
+        let filter_estimate = filter
+            .as_ref()
+            .map(|f| estimate_expr(collection, f, domain.len()));
+        let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
+        let text_first = match (text_estimate, filter_estimate) {
+            (Some((text_count, text_lookup)), Some((filter_work, filter_count))) => {
+                text_lookup + text_count as f64 * source_unit * 0.1
+                    < filter_work + filter_count as f64 * source_unit * 0.1
+            }
+            (Some(_), None) => true,
+            _ => false,
+        };
+        if text_first {
+            if let Some(fts) = &query.fts {
+                if let Some(text) = fts_candidates(collection, fts) {
+                    input &= text;
+                }
+            }
+        }
         let plan = filter
             .as_ref()
-            .map(|f| plan_expr(repo, collection, f, &domain))
+            .map(|f| plan_expr_restricted(repo, collection, f, &domain, &input))
             .transpose()?
             .unwrap_or(Plan {
                 candidates: None,
@@ -193,10 +219,14 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                 proofs: Vec::new(),
                 choices: Vec::new(),
             });
-        let mut candidates = plan.candidates.unwrap_or(domain);
-        if let Some(fts) = &query.fts {
-            if let Some(text_candidates) = fts_candidates(collection, fts) {
-                candidates &= text_candidates;
+        let mut candidates = plan.candidates.unwrap_or(input);
+        if !text_first {
+            if let (Some(fts), Some((estimated, lookup))) = (&query.fts, text_estimate) {
+                if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
+                    if let Some(text_candidates) = fts_candidates(collection, fts) {
+                        candidates &= text_candidates;
+                    }
+                }
             }
         }
         counters.candidates += candidates.len();

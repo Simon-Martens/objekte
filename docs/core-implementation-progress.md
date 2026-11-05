@@ -32,6 +32,7 @@ query/build and restore revisions will establish their respective baselines.
 | C16a | complete | release smoke, all 150 ASCII cases (1 repetition) | Persistent-process timing runner and report files |
 | C16b | complete | 900 raw samples, 0 failures | Baseline from `472c00d838` for 150 cases × ASCII/Unicode off × 3 repetitions |
 | C17 | complete | `cargo test --workspace --all-targets` | Maintained posting/source stats and per-term costed path enumeration |
+| C18 | complete | `cargo test --workspace --all-targets`; rare-text/permutation fixture | Flattened AND, costed AND/OR order, actual-cardinality adaptation |
 
 ## Decisions
 
@@ -80,7 +81,12 @@ query/build and restore revisions will establish their respective baselines.
 - Each term now enumerates compatible metadata, posting, typed sort-column,
   dictionary, raw/custom bigram, and scanner paths. Costs use coverage,
   cardinalities, source bytes and expected residual work; estimates affect
-  path choice only. C18 will push observed restrictions into later choices.
+  path choice only.
+- Boolean planning now flattens associative AND groups and greedily chooses
+  each next operation against the actual surviving count. A selective text
+  bigram can run before a broad posting, and a strong FILTER restriction can
+  bypass global FTS filtering. OR branches are cost ordered but retain their
+  full eligible domains when another branch has no index.
 
 ## Measurements
 
