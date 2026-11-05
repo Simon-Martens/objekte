@@ -1,0 +1,20 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-a/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/amazon-reviews-2023",
+    "--collection",
+    "reviews",
+    "--encoding",
+    "ascii",
+    "--field",
+    "title=plain",
+    "--field",
+    "text=plain",
+    "--skip-snapshot"
+  ],
+  "exit_status": 0
+}

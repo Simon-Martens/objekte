@@ -1,0 +1,35 @@
+{
+  "affinity": "0-15",
+  "collection": "texts",
+  "encoding": "utf8_bytes",
+  "fields": [
+    "text=plain"
+  ],
+  "modes": {
+    "B": {
+      "candidate": {
+        "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-b/candidate/index-build-profile",
+        "sha256": "1460c84e68688b867473bcdb1043b06472fc8c619718efde89dedaf44462d285"
+      },
+      "reference": {
+        "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-b/reference/index-build-profile",
+        "sha256": "5489268bb61e555dbc25c356b1949162948389175a4bc5e4bd2eafa0cb298c2b"
+      }
+    },
+    "C": {
+      "candidate": {
+        "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-c/candidate/index-build-profile",
+        "sha256": "4f8ac38f6615c4ce5fdcc52f198b19717f4a6e954b4225e84ded5c2cec2778a5"
+      },
+      "reference": {
+        "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-c/reference/index-build-profile",
+        "sha256": "1fad5813921fbedfebc7e688378c8ae773a2ce7cb54c1ff2e7d26792cd216ce7"
+      }
+    }
+  },
+  "pairs": 5,
+  "profile": "leipzig-fts1",
+  "rayon_threads": 16,
+  "repo": "examples/leipzig-multilingual",
+  "warmups": 1
+}

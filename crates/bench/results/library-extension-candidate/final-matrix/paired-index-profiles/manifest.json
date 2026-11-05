@@ -1,0 +1,24 @@
+{
+  "affinity": "0-15",
+  "candidate_sha256": "65244a8577236c64730cee75b44056404ad0066b6d43dc562bcc23c388ce7255",
+  "corpora_sha256": "dc682a6e281208ee42027b257f7845e0bdbabdc23efc64398893c99b26686452",
+  "features": [
+    "index-timings",
+    "allocation-profile"
+  ],
+  "profiles": [
+    "lenz-base",
+    "lenz-fts2",
+    "musenalm-base",
+    "musenalm-fts4",
+    "leipzig-base",
+    "leipzig-fts1",
+    "amazon-base",
+    "amazon-fts2",
+    "nyc-base",
+    "nyc-fts3"
+  ],
+  "rayon_threads": 16,
+  "reference_sha256": "99e7df67ae59cd739d5c599c173043ee6ef84f101623eb9c12ee76fed68c40e9",
+  "runs": 5
+}

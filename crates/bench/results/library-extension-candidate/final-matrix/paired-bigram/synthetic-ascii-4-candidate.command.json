@@ -1,0 +1,11 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/normal/bigram-encoding-compare",
+    "ascii",
+    "synthetic:24000"
+  ],
+  "exit_status": 0
+}

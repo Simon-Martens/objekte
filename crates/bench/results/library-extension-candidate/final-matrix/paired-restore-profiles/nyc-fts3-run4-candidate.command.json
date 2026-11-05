@@ -1,0 +1,24 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-d/candidate/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/nyc311",
+    "--collection",
+    "requests",
+    "--encoding",
+    "ascii",
+    "--snapshot-path",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/snapshots/nyc-fts3.bigram",
+    "--restore-only",
+    "--field",
+    "complaint_type=plain",
+    "--field",
+    "descriptor=plain",
+    "--field",
+    "resolution_description=plain"
+  ],
+  "exit_status": 0
+}

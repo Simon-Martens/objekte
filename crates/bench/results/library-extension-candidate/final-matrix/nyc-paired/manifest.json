@@ -1,0 +1,24 @@
+{
+  "affinity": "0-15",
+  "budgets_mib": [
+    0,
+    64
+  ],
+  "candidate": {
+    "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/normal/query-cache",
+    "sha256": "1d5e6f563fd2c42ff9f7bc0133d6060e06a3111b210ea9e075aa16d668a67f31"
+  },
+  "corpus": {
+    "configuration_sha256": {},
+    "record_bytes": 1173545212,
+    "record_count": 1000000,
+    "source_content_and_stat_sha256": "a97dbc7b03a835f9a6317373e7005279d4d888a06bd781777c8741eeecad6875",
+    "source_manifest_sha256": "05b2e44c7c3d409adf6d5a68ebb2ceb59f5499e8eec2c5f28e99e4baa6d83626"
+  },
+  "pairs": 7,
+  "rayon_threads": 16,
+  "reference": {
+    "path": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/reference-bin/query-cache",
+    "sha256": "0c3108ddb3093cad3cbee81937068130cdb2d57d6f6f76a0c0e1af01c3a21b2a"
+  }
+}

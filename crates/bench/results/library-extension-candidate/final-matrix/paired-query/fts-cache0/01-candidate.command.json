@@ -1,0 +1,13 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/normal/fts-query-mix",
+    "examples/musenalm",
+    "7",
+    "0"
+  ],
+  "rayon_threads": 16,
+  "exit_status": 0
+}

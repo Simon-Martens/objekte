@@ -1,0 +1,18 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/normal/query-cache",
+    "--repo",
+    "examples/leipzig-multilingual",
+    "--collection",
+    "texts",
+    "--text-pattern",
+    "\u0631\u064a\u062a\u0634\u0627\u0631\u062f",
+    "--encoding",
+    "utf8_bytes",
+    "--cache-mib",
+    "0",
+    "--run",
+    "0"
+  ],
+  "exit_status": 0
+}

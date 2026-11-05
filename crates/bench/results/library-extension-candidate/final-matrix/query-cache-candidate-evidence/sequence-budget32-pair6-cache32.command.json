@@ -1,0 +1,12 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/normal/query-cache",
+    "--repo",
+    "examples/musenalm",
+    "--cache-mib",
+    "32",
+    "--run",
+    "6"
+  ],
+  "exit_status": 0
+}

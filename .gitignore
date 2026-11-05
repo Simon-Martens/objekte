@@ -37,3 +37,4 @@ examples/en_wikidata_5M_entities/
 /crates/bench/results/library-extension-baseline/*/reference-bin-index/
 /crates/bench/results/library-extension-baseline/*/snapshots/
 /crates/bench/results/library-extension-candidate/*/candidate-bin/
+/crates/bench/results/library-extension-candidate/*/snapshots/

@@ -1,0 +1,114 @@
+{
+  "leipzig-fts1": {
+    "compressed_index_bytes": 71599827,
+    "documents": 400000,
+    "restore_peak_rss_kib": {
+      "candidate": [
+        161792,
+        162076,
+        162564,
+        161808,
+        161812
+      ],
+      "candidate_median": 161812,
+      "paired_deltas": [
+        -916,
+        -484,
+        200,
+        -636,
+        -812
+      ],
+      "reference": [
+        162708,
+        162560,
+        162364,
+        162444,
+        162624
+      ],
+      "reference_median": 162560
+    },
+    "snapshot_base_bytes": 17574075,
+    "snapshot_restore_wall_nanos": {
+      "candidate": [
+        312792493,
+        295793505,
+        295203816,
+        295466879,
+        293970006
+      ],
+      "candidate_median": 295466879,
+      "paired_deltas": [
+        21498341,
+        2912124,
+        7044596,
+        3344586,
+        6180351
+      ],
+      "reference": [
+        291294152,
+        292881381,
+        288159220,
+        292122293,
+        287789655
+      ],
+      "reference_median": 291294152
+    },
+    "snapshot_secondary_bytes": 73232079
+  },
+  "musenalm-fts4": {
+    "compressed_index_bytes": 47456174,
+    "documents": 133948,
+    "restore_peak_rss_kib": {
+      "candidate": [
+        196460,
+        196168,
+        196068,
+        195952,
+        196216
+      ],
+      "candidate_median": 196168,
+      "paired_deltas": [
+        -152,
+        -92,
+        -408,
+        -324,
+        -212
+      ],
+      "reference": [
+        196612,
+        196260,
+        196476,
+        196276,
+        196428
+      ],
+      "reference_median": 196428
+    },
+    "snapshot_base_bytes": 19511794,
+    "snapshot_restore_wall_nanos": {
+      "candidate": [
+        335685261,
+        337757522,
+        338761584,
+        335838244,
+        333895318
+      ],
+      "candidate_median": 335838244,
+      "paired_deltas": [
+        -19629550,
+        5221984,
+        -65595170,
+        471580,
+        -3151438
+      ],
+      "reference": [
+        355314811,
+        332535538,
+        404356754,
+        335366664,
+        337046756
+      ],
+      "reference_median": 337046756
+    },
+    "snapshot_secondary_bytes": 66599600
+  }
+}

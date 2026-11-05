@@ -1,0 +1,34 @@
+{
+  "affinity": "0-15",
+  "baseline_manifest": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/manifest.json",
+  "binaries": {
+    "candidate": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-d/candidate/index-build-profile",
+      "sha256": "65244a8577236c64730cee75b44056404ad0066b6d43dc562bcc23c388ce7255"
+    },
+    "reference": {
+      "path": "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-d/reference/index-build-profile",
+      "sha256": "2191c524e993ff7446d359fdb211521b0c5bf7316a8d301fba818716507a1c3d"
+    }
+  },
+  "corpora_sha256": "dc682a6e281208ee42027b257f7845e0bdbabdc23efc64398893c99b26686452",
+  "features": [
+    "index-timings",
+    "allocation-profile"
+  ],
+  "profiles": [
+    "lenz-base",
+    "lenz-fts2",
+    "musenalm-base",
+    "musenalm-fts4",
+    "leipzig-base",
+    "leipzig-fts1",
+    "amazon-base",
+    "amazon-fts2",
+    "nyc-base",
+    "nyc-fts3"
+  ],
+  "rayon_threads": 16,
+  "runs": 5,
+  "snapshot_directory": "/home/simon/source/objekte/crates/bench/results/library-extension-baseline/266d9a0fb071-20261104T113205Z/snapshots"
+}

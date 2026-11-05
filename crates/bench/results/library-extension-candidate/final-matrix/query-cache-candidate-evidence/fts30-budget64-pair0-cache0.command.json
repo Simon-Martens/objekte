@@ -1,0 +1,9 @@
+{
+  "command": [
+    "crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/normal/fts-query-mix",
+    "examples/musenalm",
+    "1",
+    "0"
+  ],
+  "exit_status": 0
+}

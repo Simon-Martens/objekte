@@ -1,0 +1,1 @@
+{"allocated_bytes":224639404,"allocations":1338557,"case":"cold-build","live_before_bytes":599376,"peak_live_bytes":15334706,"peak_live_delta_bytes":14735330,"rss_after_kib":31344,"rss_before_kib":11532,"rss_high_water_kib":31440,"signature":{"parses":0,"reads":0},"wall_ms":159.784365}

@@ -1,0 +1,24 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0-15",
+    "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/candidate-bin/mode-a/index-build-profile",
+    "--repo",
+    "/home/simon/source/objekte/examples/musenalm",
+    "--collection",
+    "contents",
+    "--encoding",
+    "ascii",
+    "--field",
+    "annotation=markdown",
+    "--field",
+    "preferred_title=plain",
+    "--field",
+    "title_statement=html",
+    "--field",
+    "contributors[].annotation=xml",
+    "--skip-snapshot"
+  ],
+  "exit_status": 0
+}
