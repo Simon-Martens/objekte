@@ -1,0 +1,82 @@
+Diff in /home/simon/source/objekte/crates/core/src/bigram/filter.rs:1447:
+     #[cfg(feature = "index-timings")]
+     pub(crate) fn profile_total_columns(&self) -> usize {
+         self.columns_used()
+[31m-            + self.skip_index.as_ref().map_or(0, |skip| skip.profile_total_columns())
+(B[m[32m+            + self
+(B[m[32m+                .skip_index
+(B[m[32m+                .as_ref()
+(B[m[32m+                .map_or(0, |skip| skip.profile_total_columns())
+(B[m     }
+
+     /// Number of columns stored as varint gap lists.
+Diff in /home/simon/source/objekte/crates/core/src/config/discovery.rs:187:
+                     let path = fs::canonicalize(path).map_err(|error| io(path, error))?;
+                     let raw: serde_json::Value = read(&path, &mut files)?;
+                     let schema = Schema::compile_with_annotations(
+[31m-                        &raw, &path, &settings.extension_annotations,
+(B[m[32m+                        &raw,
+(B[m[32m+                        &path,
+(B[m[32m+                        &settings.extension_annotations,
+(B[m                     )?;
+                     let advanced_index_paths = crate::schema::index_paths(&raw, &path)?;
+                     let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &path)?;
+Diff in /home/simon/source/objekte/crates/core/src/config/discovery.rs:459:
+                 ));
+             }
+             let schema = Schema::compile_with_annotations(
+[31m-                &raw, &schema_path, &settings.extension_annotations,
+(B[m[32m+                &raw,
+(B[m[32m+                &schema_path,
+(B[m[32m+                &settings.extension_annotations,
+(B[m             )?;
+             let advanced_index_paths = crate::schema::index_paths(&raw, &schema_path)?;
+             let sort_indexes = crate::schema::sort_indexes(&raw, &schema.field, &schema_path)?;
+Diff in /home/simon/source/objekte/crates/core/src/extensions.test.rs:22:
+     let mut registry = Extensions::default();
+     let provider = ReservedProvider(Descriptor::new(
+         "objekte:filesystem",
+[31m-        SemanticVersion { major: 1, minor: 0, patch: 0 },
+(B[m[32m+        SemanticVersion {
+(B[m[32m+            major: 1,
+(B[m[32m+            minor: 0,
+(B[m[32m+            patch: 0,
+(B[m[32m+        },
+(B[m         &(),
+         DataKind::Source,
+         DataKind::Source,
+Diff in /home/simon/source/objekte/crates/core/src/extensions.test.rs:29:
+         vec![],
+     ));
+[31m-    assert!(matches!(registry.register_source(provider), Err(Error::Request(message)) if message.contains("reserved")));
+(B[m[31m-    assert!(matches!(registry.register_format(JsonFormatDecoder::default()), Err(Error::Request(message)) if message.contains("reserved")));
+(B[m[32m+    assert!(
+(B[m[32m+        matches!(registry.register_source(provider), Err(Error::Request(message)) if message.contains("reserved"))
+(B[m[32m+    );
+(B[m[32m+    assert!(
+(B[m[32m+        matches!(registry.register_format(JsonFormatDecoder::default()), Err(Error::Request(message)) if message.contains("reserved"))
+(B[m[32m+    );
+(B[m }
+
+ #[test]
+Diff in /home/simon/source/objekte/crates/core/tests/index_build_profile.rs:106:
+             FilePicker::profile_restore_collection(collection, encoding, &snapshot).unwrap();
+         for query in ["Müller", "Straße", "apple", "Äpfel", "invalid", "absent"] {
+             let literal = Some(&[query.to_owned()][..]);
+[31m-            assert_eq!(restored.candidate_ids(literal), picker.candidate_ids(literal));
+(B[m[32m+            assert_eq!(
+(B[m[32m+                restored.candidate_ids(literal),
+(B[m[32m+                picker.candidate_ids(literal)
+(B[m[32m+            );
+(B[m             assert_eq!(
+                 restored.search_values_regex(query).unwrap(),
+                 picker.search_values_regex(query).unwrap()
+Diff in /home/simon/source/objekte/crates/extension-tests/src/lib.rs:4259:
+         assert_eq!(registered_markup.total, native_markup.total);
+         assert_eq!(
+             registered_markup.metrics.fts_candidates,
+[31m-
+(B[m[31m-
+(B[m             native_markup.metrics.fts_candidates
+         );
+         assert_eq!(
