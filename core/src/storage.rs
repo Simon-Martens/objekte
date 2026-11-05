@@ -660,6 +660,7 @@ mod tests {
         fs::write(&multi, b"{\"x\":\"a\"}\n{\"x\":\"b\"}\n{\"x\":\"c\"}\n").unwrap();
         let changed = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
         assert!(!changed.startup.restored);
+        assert_eq!(changed.collections[0].generation.generation, 2);
         assert_eq!(changed.collections[0].generation.records.len(), 3);
         assert_eq!(
             changed.collections[0].generation.file_records.slots.len(),
@@ -673,9 +674,11 @@ mod tests {
         );
         fs::write(root.join("data/extra.jsonl"), b"{\"x\":\"d\"}\n").unwrap();
         let added = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert_eq!(added.collections[0].generation.generation, 3);
         assert_eq!(added.collections[0].generation.records.len(), 4);
         fs::remove_file(multi).unwrap();
         let deleted = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert_eq!(deleted.collections[0].generation.generation, 4);
         assert_eq!(deleted.collections[0].generation.records.len(), 1);
         assert_eq!(deleted.files.files.len(), 1);
         let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);

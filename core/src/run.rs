@@ -240,7 +240,11 @@ fn offer(
     let hit = SearchHit {
         collection: repo.collections[collection_index].definition.name.clone(),
         record_id: record.id.0.clone(),
+        generation: repo.collections[collection_index].generation.generation,
+        file_id: file.id.0,
         file_path: file.relative_path.clone(),
+        file_size: file.revision.size,
+        file_created_ns: file.created_ns,
         byte_start: record.range.start,
         byte_end: record.range.end,
         modified_ns: record.revision.modified_ns,
@@ -347,7 +351,11 @@ fn materialize_cached(
         hits.push(SearchHit {
             collection: collection.definition.name.clone(),
             record_id: record.id.0.clone(),
+            generation: collection.generation.generation,
+            file_id: file.id.0,
             file_path: file.relative_path.clone(),
+            file_size: file.revision.size,
+            file_created_ns: file.created_ns,
             byte_start: record.range.start,
             byte_end: record.range.end,
             modified_ns: record.revision.modified_ns,

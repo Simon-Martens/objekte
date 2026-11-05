@@ -120,7 +120,11 @@ impl Default for RepositoryOptions {
 pub struct SearchHit {
     pub collection: String,
     pub record_id: String,
+    pub generation: u64,
+    pub file_id: u32,
     pub file_path: PathBuf,
+    pub file_size: u64,
+    pub file_created_ns: Option<i128>,
     pub byte_start: u64,
     pub byte_end: u64,
     pub modified_ns: i128,
@@ -175,6 +179,7 @@ impl Repository {
         let snapshot = crate::storage::snapshot_path(&root, options.bigram_alphabet);
         let mut decode_ns = 0;
         let mut reconciliation_ns = 0;
+        let mut previous_generations = HashMap::new();
         if options.snapshot_mode == SnapshotMode::ReadWrite && snapshot.is_file() {
             let decode_started = Instant::now();
             let loaded = crate::storage::load_snapshot(
@@ -198,9 +203,19 @@ impl Repository {
                     };
                     return Ok(repo);
                 }
+                for collection in repo.collections {
+                    previous_generations
+                        .insert(collection.definition.name, collection.generation.generation);
+                }
             }
         }
         let mut repo = Self::build_fresh(root, definitions, options)?;
+        for collection in &mut repo.collections {
+            if let Some(previous) = previous_generations.get(&collection.definition.name) {
+                collection.generation.generation =
+                    previous.checked_add(1).ok_or("generation overflow")?;
+            }
+        }
         repo.startup = StartupStats {
             restored: false,
             snapshot_decode_ns: decode_ns,
@@ -542,7 +557,11 @@ impl Repository {
                         SearchHit {
                             collection: collection.definition.name.clone(),
                             record_id: record.id.0.clone(),
+                            generation: collection.generation.generation,
+                            file_id: file.id.0,
                             file_path: file.relative_path.clone(),
+                            file_size: file.revision.size,
+                            file_created_ns: file.created_ns,
                             byte_start: record.range.start,
                             byte_end: record.range.end,
                             modified_ns: record.revision.modified_ns,

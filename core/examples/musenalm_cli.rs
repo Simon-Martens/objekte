@@ -182,12 +182,17 @@ fn run() -> Result<(), String> {
     );
     for hit in result.hits.iter().filter(|_| !quiet_hits) {
         println!(
-            "{}:{} {} {}..{} {:?}",
+            "{}:{} generation={} file_id={} {} {}..{} size={} created_ns={:?} modified_ns={} {:?}",
             hit.collection,
             hit.record_id,
+            hit.generation,
+            hit.file_id,
             hit.file_path.display(),
             hit.byte_start,
             hit.byte_end,
+            hit.file_size,
+            hit.file_created_ns,
+            hit.modified_ns,
             hit.matched_fields
         );
         match &hit.payload {

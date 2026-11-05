@@ -78,7 +78,11 @@ fn run() -> Result<(), String> {
         for (a, b) in optimized.hits.iter().zip(&reference.hits) {
             if a.collection != b.collection
                 || a.record_id != b.record_id
+                || a.generation != b.generation
+                || a.file_id != b.file_id
                 || a.file_path != b.file_path
+                || a.file_size != b.file_size
+                || a.file_created_ns != b.file_created_ns
                 || a.byte_start != b.byte_start
                 || a.byte_end != b.byte_end
                 || a.modified_ns != b.modified_ns
