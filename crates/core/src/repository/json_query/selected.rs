@@ -176,7 +176,7 @@ impl Repository {
         snapshot: &CustomSourceSnapshot,
         filter: &JsonFilter,
         backend: JsonQueryBackend,
-    ) -> Result<Option<Vec<u64>>> {
+    ) -> Result<Option<(Vec<u64>, bool)>> {
         if filter.has_relations()
             || !matches!(backend, JsonQueryBackend::Auto | JsonQueryBackend::Bigram)
             || self.options.cache != CacheMode::Memory
@@ -235,15 +235,19 @@ impl Repository {
             typed.as_ref(),
             &required,
         );
+        let mut used_full_text = false;
         if let Some(plan) = &fts_plan {
             let bits = super::memory::fts_candidate_bits(picker, plan);
+            used_full_text = bits.is_some();
             selection.intersect_bits(picker, bits);
         }
         // A broad posting can cost more to enumerate and map than verification.
         if selection.is_all() || selection.len().saturating_mul(2) >= snapshot.native_count {
             return Ok(None);
         }
-        Ok(snapshot.native_candidate_bits(picker, &selection))
+        Ok(snapshot
+            .native_candidate_bits(picker, &selection)
+            .map(|bits| (bits, used_full_text)))
     }
 
     pub(in crate::repository) fn selected_scalar_candidates(
@@ -261,6 +265,7 @@ impl Repository {
                 filter,
                 crate::JsonQueryBackend::Bigram,
             )
+            .map(|candidate| candidate.map(|(bits, _)| bits))
         }
     }
 
@@ -416,7 +421,7 @@ impl Repository {
                 decisions.push(format!(
                     "{}:{}",
                     collection.name,
-                    if native.is_some() && bound[collection_index].fts_plan().is_some() {
+                    if native.as_ref().is_some_and(|(_, full_text)| *full_text) {
                         "native-full-text+custom-fallback"
                     } else if native.is_some() {
                         "native-posting+custom-fallback"
@@ -426,7 +431,7 @@ impl Repository {
                         "scan"
                     }
                 ));
-                let candidates = native.or(field_candidates);
+                let candidates = native.map(|(bits, _)| bits).or(field_candidates);
                 for index in snapshot.scan_slots(candidates.as_deref(), sort_buffer.is_none()) {
                     self.metrics.selected_candidate_visits += 1;
                     self.metrics.selected_descriptor_visits += 1;
