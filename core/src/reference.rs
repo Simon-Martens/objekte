@@ -509,10 +509,16 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
             Transform::Identity,
         ));
     }
-    if values.len() == 1 {
-        if let Value::Array(a) = values[0] {
-            values = a.values.iter().collect();
+    if term.multi {
+        let mut flattened = Vec::new();
+        for value in values {
+            if let Value::Array(array) = value {
+                flattened.extend(array.values.iter());
+            } else {
+                flattened.push(value);
+            }
         }
+        values = flattened;
     }
     if values.len() == 1 && matches!(values[0], Value::Null) && !matches!(term.literal, Value::Null)
     {
@@ -660,6 +666,11 @@ mod tests {
                 true,
             ),
             ("people.name", LogicalType::String, true),
+            (
+                "people.aliases",
+                LogicalType::Array(Box::new(LogicalType::String)),
+                true,
+            ),
         ] {
             schema
                 .register_field(FieldDefinition {
@@ -712,7 +723,7 @@ mod tests {
     }
     #[test]
     fn truth_table_arrays_null_and_case_folding() {
-        let value = Value::from_json(serde_json::json!({"name":"Straße", "values":["a","b"], "people":[{"name":"Ada"},{"name":"Bob"}]})).unwrap();
+        let value = Value::from_json(serde_json::json!({"name":"Straße", "values":["a","b"], "people":[{"name":"Ada","aliases":["A","Ada"]},{"name":"Bob","aliases":["B"]}]})).unwrap();
         with_record(value, |ctx| {
             for (input, expected) in [
                 ("values ?!= 'a'", true),
@@ -722,6 +733,8 @@ mod tests {
                 ("name:lower ~ 'STRASSE'", true),
                 ("name:folded ~ 'strasse'", true),
                 ("people.name ?= 'Ada'", true),
+                ("people.aliases ?= 'Ada'", true),
+                ("people.aliases ?= 'missing'", false),
                 ("name:null = false", true),
                 ("@file.created:null = true", true),
             ] {
