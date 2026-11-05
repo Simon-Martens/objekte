@@ -83,6 +83,14 @@ pub(super) fn key(app: &mut App<'_>, key: KeyEvent) {
 fn results(app: &mut App<'_>, key: KeyEvent) {
     let control = key.modifiers.contains(KeyModifiers::CONTROL);
     let alt = key.modifiers.contains(KeyModifiers::ALT);
+    if matches!(key.code, KeyCode::Tab | KeyCode::BackTab) {
+        app.line = match app.line {
+            Line::Search => Line::Filter,
+            Line::Filter => Line::Search,
+        };
+        app.suggest();
+        return;
+    }
     if app.completion.is_some() {
         match key.code {
             KeyCode::Up => {
@@ -104,10 +112,6 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
                 app.completion_active = true;
                 return;
             }
-            KeyCode::Tab => {
-                app.accept_completion();
-                return;
-            }
             // As in VS Code, Enter inserts the highlighted suggestion. With
             // none highlighted, or when it is already typed, Enter searches.
             KeyCode::Enter if app.completion_active && !app.completion_is_typed() => {
@@ -123,18 +127,6 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
         }
     }
     match key.code {
-        KeyCode::Tab => match app.line {
-            Line::Search => app.line = Line::Filter,
-            // Tab only ever completes here; Shift+Tab goes back to Search.
-            Line::Filter => app.refresh_completion(true),
-        },
-        KeyCode::BackTab => {
-            app.completion = None;
-            app.line = match app.line {
-                Line::Search => Line::Filter,
-                Line::Filter => Line::Search,
-            };
-        }
         KeyCode::Up => app.move_selection(-1),
         KeyCode::Down => app.move_selection(1),
         KeyCode::PageUp => {
@@ -176,6 +168,9 @@ fn results(app: &mut App<'_>, key: KeyEvent) {
             if !app.active_input().text.is_empty() {
                 app.active_input().clear();
                 app.edited();
+                // Clearing with Esc should leave the list closed, including
+                // when the now-empty Filter line has available fields.
+                app.completion = None;
             } else if !app.search.text.is_empty() || !app.filter.text.is_empty() {
                 app.search.clear();
                 app.filter.clear();

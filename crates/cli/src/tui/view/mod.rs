@@ -524,7 +524,7 @@ fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
             "search"
         };
         return vec![
-            ("Tab", "insert"),
+            ("Tab", "search"),
             ("↑↓", "choose"),
             ("Enter", enter),
             ("Esc", "close"),
@@ -568,7 +568,7 @@ fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
             }
             keys.push(match app.line {
                 Line::Search => ("Tab", "filter"),
-                Line::Filter => ("Tab", "complete"),
+                Line::Filter => ("Tab", "search"),
             });
             if app.line == Line::Filter {
                 keys.push(("⇧Tab", "search"));

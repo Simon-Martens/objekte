@@ -56,8 +56,8 @@ Options:
   --filter EXPRESSION             Filter JSON records before full-text search
   --sort TERMS                    Sort full-text matches by one or more fields
   --case-sensitive                Match case exactly in word modes (search and :fts)
-                                  TUI: type to search; Tab moves to Filter and completes
-                                  fields there; Ctrl+O collection; Ctrl+K actions; F1 keys
+                                  TUI: type to search; Tab switches Search and Filter;
+                                  Enter accepts suggestions; Ctrl+O collection; F1 keys
   --help, --version
 
 Examples:

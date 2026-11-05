@@ -162,7 +162,7 @@ fn selection_follows_the_record_and_keeps_its_screen_row_on_rerun() {
 }
 
 #[test]
-fn tab_completes_in_filter_and_shift_tab_returns_to_search() {
+fn tab_switches_lines_even_with_completion_open() {
     let temp = tempfile::tempdir().unwrap();
     let schema = temp.path().join(".objekte/collections/docs.schema.json");
     fs::create_dir_all(schema.parent().unwrap()).unwrap();
@@ -176,12 +176,19 @@ fn tab_completes_in_filter_and_shift_tab_returns_to_search() {
     let mut app = App::new(&mut repo);
     press(&mut app, KeyCode::Tab);
     assert_eq!(app.line, Line::Filter);
+    assert!(app.completion.is_some(), "fields appear on focus");
     type_text(&mut app, "ti");
-    // Suggestions appear while typing; Tab takes the first.
+    // Tab changes focus without accepting the highlighted suggestion.
     assert_eq!(app.completion.as_ref().unwrap().items[0].label, "title");
     press(&mut app, KeyCode::Tab);
-    assert_eq!(app.filter.text, "title");
+    assert_eq!(app.filter.text, "ti");
+    assert_eq!(app.line, Line::Search);
+    assert!(app.completion.is_none());
+    press(&mut app, KeyCode::Tab);
     assert_eq!(app.line, Line::Filter);
+    assert_eq!(app.completion.as_ref().unwrap().items[0].label, "title");
+    press(&mut app, KeyCode::Enter);
+    assert_eq!(app.filter.text, "title");
     type_text(&mut app, " ");
     let open = app.completion.as_ref().expect("operators without Tab");
     assert!(open.items.len() > 1);
@@ -199,8 +206,11 @@ fn tab_completes_in_filter_and_shift_tab_returns_to_search() {
     assert!(values.items.iter().any(|item| item.label == "@now"));
     press(&mut app, KeyCode::Esc);
     assert!(app.completion.is_none());
-    press(&mut app, KeyCode::BackTab);
+    press(&mut app, KeyCode::Tab);
     assert_eq!(app.line, Line::Search);
+    press(&mut app, KeyCode::BackTab);
+    assert_eq!(app.line, Line::Filter);
+    assert!(app.completion.is_some(), "suggestions reopen on focus");
 }
 
 #[test]
@@ -488,7 +498,7 @@ fn value_completion_reads_counts_from_the_index() {
     let mut app = App::new(&mut repo);
     app.filter = Input::with_text("kind = ");
     app.line = Line::Filter;
-    app.refresh_completion(false);
+    app.refresh_completion();
     let found = app.completion.as_ref().expect("values");
     let shown = found
         .items
@@ -512,8 +522,8 @@ fn suggestions_appear_while_typing_and_enter_still_searches() {
     let mut repo = Repository::open(temp.path()).unwrap();
     repo.diff("docs").unwrap();
     let mut app = App::new(&mut repo);
-    app.line = Line::Filter;
-    assert!(app.completion.is_none(), "nothing on an empty line");
+    press(&mut app, KeyCode::Tab);
+    assert!(app.completion.is_some(), "fields appear on the empty line");
     type_text(&mut app, "kind = ");
     let values = app.completion.as_ref().expect("values while typing");
     assert_eq!(values.items[0].label, "even");
@@ -530,7 +540,7 @@ fn suggestions_appear_while_typing_and_enter_still_searches() {
     type_text(&mut app, "S");
     let narrowed = app.completion.as_ref().expect("narrowed");
     assert_eq!(narrowed.items[0].label, "SORT BY");
-    press(&mut app, KeyCode::Tab);
+    press(&mut app, KeyCode::Enter);
     assert_eq!(app.filter.text, "kind = 'odd' SORT BY ");
     let fields = app.completion.as_ref().expect("sort fields");
     assert!(fields.items.iter().any(|item| item.label == "kind"));
@@ -555,13 +565,13 @@ fn value_counts_survive_searches_and_misses_are_not_kept() {
     let mut app = App::new(&mut repo);
     app.filter = Input::with_text("n = ");
     app.line = Line::Filter;
-    app.refresh_completion(false);
+    app.refresh_completion();
     assert!(
         app.value_counts.borrow().is_empty(),
         "n is not indexed: no entry"
     );
     app.filter = Input::with_text("kind = ");
-    app.refresh_completion(false);
+    app.refresh_completion();
     assert_eq!(app.value_counts.borrow().len(), 1);
     app.search();
     assert_eq!(app.value_counts.borrow().len(), 1, "kept across searches");

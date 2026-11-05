@@ -338,7 +338,7 @@ pub(super) struct App<'a> {
     pub(super) line: Line,
     pub(super) completion: Option<Completion>,
     pub(super) completion_selected: usize,
-    /// A suggestion is highlighted: Enter and Tab insert it, and its rest
+    /// A suggestion is highlighted: Enter inserts it, and its rest
     /// shows as a ghost after the cursor. A list that opened after a space
     /// or an operator starts without one, so Enter still searches.
     pub(super) completion_active: bool,
@@ -655,10 +655,10 @@ impl<'a> App<'a> {
         self.suggest();
     }
 
-    /// Show suggestions while typing in the filter line, without Tab.
+    /// Show available suggestions whenever the filter line has focus.
     pub(super) fn suggest(&mut self) {
-        if self.line == Line::Filter && complete::worth_showing(&self.filter.text) {
-            self.refresh_completion(false);
+        if self.line == Line::Filter {
+            self.refresh_completion();
         } else {
             self.completion = None;
         }
@@ -681,9 +681,8 @@ impl<'a> App<'a> {
         }
     }
 
-    /// Open or update completion for the filter line. With `insert`, a
-    /// single candidate or a shared prefix is inserted immediately.
-    pub(super) fn refresh_completion(&mut self, insert: bool) {
+    /// Open or update completion for the filter line.
+    pub(super) fn refresh_completion(&mut self) {
         let repo = &*self.repo;
         let cache = &self.value_counts;
         let counts = |collection: &str, path: &str| {
@@ -707,41 +706,6 @@ impl<'a> App<'a> {
             self.completion = None;
             return;
         };
-        if insert {
-            let typed = self
-                .filter
-                .text
-                .chars()
-                .skip(found.start)
-                .take(self.filter.cursor.saturating_sub(found.start))
-                .collect::<String>();
-            // Substring matches only show in the list; Tab inserts when the
-            // typed text leaves a single candidate that starts with it.
-            let leading = found
-                .items
-                .iter()
-                .filter(|item| starts_with_ignore_case(&item.insert, &typed))
-                .collect::<Vec<_>>();
-            if found.items.len() == 1 || (!typed.is_empty() && leading.len() == 1) {
-                let item = leading.first().copied().unwrap_or(&found.items[0]);
-                let insert = item.insert.clone();
-                self.filter.replace(found.start, found.end, &insert);
-                self.completion = None;
-                self.edited();
-                if insert.ends_with(['.', '(']) {
-                    self.refresh_completion(false);
-                }
-                return;
-            }
-            // Like a shell, extend to the longest shared prefix first.
-            let prefix = shared_prefix(leading.iter().map(|item| item.insert.as_str()));
-            if leading.len() > 1 && prefix.chars().count() > typed.chars().count() {
-                self.filter
-                    .replace(found.start, self.filter.cursor, &prefix);
-                self.dirty = Some(Instant::now());
-                return self.refresh_completion(false);
-            }
-        }
         if self
             .completion
             .as_ref()
@@ -1447,22 +1411,6 @@ fn column_width(key: &str, hits: &[Hit]) -> u16 {
     header.max(content).clamp(min, max) as u16
 }
 
-fn shared_prefix<'s>(mut items: impl Iterator<Item = &'s str>) -> String {
-    let Some(first) = items.next() else {
-        return String::new();
-    };
-    let mut prefix = first.to_string();
-    for item in items {
-        let common = prefix
-            .chars()
-            .zip(item.chars())
-            .take_while(|(a, b)| a == b)
-            .count();
-        prefix = prefix.chars().take(common).collect();
-    }
-    prefix
-}
-
 /// A regex for the text the search matched, if it searched text.
 fn highlighter(request: &Request) -> Option<regex::Regex> {
     let Request::Text(query) = request else {
@@ -1497,10 +1445,6 @@ fn highlighter(request: &Request) -> Option<regex::Regex> {
         _ => format!("(?i){}", regex::escape(pattern)),
     };
     regex::Regex::new(&source).ok()
-}
-
-fn starts_with_ignore_case(text: &str, prefix: &str) -> bool {
-    text.to_lowercase().starts_with(&prefix.to_lowercase())
 }
 
 pub(super) fn status_name(status: RecordStatus) -> &'static str {
