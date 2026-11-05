@@ -1169,4 +1169,169 @@ mod tests {
         }
         std::fs::remove_dir_all(root).unwrap();
     }
+
+    #[test]
+    fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
+        let root = std::env::temp_dir().join(format!("objekte-coverage-{}", std::process::id()));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        for (id, kind, text) in [
+            ("a", "yes", "xray"),
+            ("b", "no", "other"),
+            ("c", "no", "xenon"),
+        ] {
+            std::fs::write(
+                root.join("data").join(format!("{id}.json")),
+                serde_json::json!({"kind":kind,"text":text}).to_string(),
+            )
+            .unwrap();
+        }
+        let mut schema = Schema::default();
+        for (name, indexed) in [("kind", true), ("text", false)] {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![name.into()],
+                    kind: LogicalType::String,
+                    required: true,
+                    nullable: false,
+                    indexed,
+                    multi: false,
+                })
+                .unwrap();
+        }
+        let mut repo = Repository::open(
+            &root,
+            vec![CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::Json,
+                identity: IdentityPolicy::Filename,
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+            }],
+        )
+        .unwrap();
+        let options = QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        };
+        for (expression, expected) in [
+            ("kind = 'missing' && text ~ 'x'", 0),
+            ("kind = 'missing' || text ~ 'x'", 2),
+            ("!(text ~ 'x')", 1),
+        ] {
+            let query = Query {
+                collections: vec![],
+                fts: None,
+                filter: Some(parse_filter(expression).unwrap()),
+                options: options.clone(),
+            };
+            let optimized = repo.search(&query).unwrap();
+            let reference = repo.search_reference(&query).unwrap();
+            assert_eq!(optimized.count, expected);
+            assert_eq!(optimized.count, reference.count);
+            assert_eq!(
+                optimized
+                    .hits
+                    .iter()
+                    .map(|h| &h.record_id)
+                    .collect::<Vec<_>>(),
+                reference
+                    .hits
+                    .iter()
+                    .map(|h| &h.record_id)
+                    .collect::<Vec<_>>()
+            );
+            if expression.starts_with("kind = 'missing' &&") {
+                assert_eq!(optimized.counters.files_opened, 0);
+            }
+        }
+        repo.collections[0]
+            .postings
+            .fields
+            .get_mut(&vec!["kind".into()])
+            .unwrap()
+            .covered_records = 1;
+        let query = Query {
+            collections: vec![],
+            fts: None,
+            filter: Some(parse_filter("kind = 'yes'").unwrap()),
+            options,
+        };
+        let optimized = repo.search(&query).unwrap();
+        assert_eq!(
+            optimized.count,
+            repo.search_reference(&query).unwrap().count
+        );
+        assert!(optimized.counters.record_parses > 0);
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn quoted_data_name_does_not_shadow_metadata() {
+        let root =
+            std::env::temp_dir().join(format!("objekte-metadata-name-{}", std::process::id()));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(root.join("data/a.json"), b"{\"@file\":{\"size\":\"data\"}}").unwrap();
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["@file".into(), "size".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: true,
+                multi: false,
+            })
+            .unwrap();
+        let repo = Repository::open(
+            &root,
+            vec![CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::Json,
+                identity: IdentityPolicy::Filename,
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+            }],
+        )
+        .unwrap();
+        let query = Query {
+            collections: vec![],
+            fts: None,
+            filter: Some(parse_filter("[\"@file\"].size = 'data' && @file.size > 0").unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(optimized.count, 1);
+        assert_eq!(optimized.counters.record_parses, 0);
+        assert_eq!(
+            optimized.hits[0].matched_fields,
+            reference.hits[0].matched_fields
+        );
+        assert!(
+            optimized.hits[0]
+                .matched_fields
+                .contains(&"[\"@file\"].size".to_string())
+        );
+        assert!(
+            optimized.hits[0]
+                .matched_fields
+                .contains(&"@file.size".to_string())
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
 }

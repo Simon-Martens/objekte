@@ -40,6 +40,7 @@ query/build and restore revisions will establish their respective baselines.
 | C23 | complete | `cargo test --workspace --all-targets` | Versioned checksummed sections, atomic save, full index/map validation |
 | C24a | complete | `cargo test --workspace --all-targets`; five fresh-process restores/alphabet | Startup restore/reconciliation, rebuild on changed inventory, restore runner |
 | C24b | complete | 10 fresh-process restores; 18 query samples; 0 failures | Revision-tied restore baseline at `64b5df7b68` |
+| C25 | complete | `cargo test --workspace --all-targets`; full 150-case scanner comparisons under both alphabets | Cross-component acceptance and focused regressions |
 
 ## Decisions
 
@@ -127,6 +128,14 @@ query/build and restore revisions will establish their respective baselines.
   only if unchanged. Any changed inventory triggers a fresh private full
   repository build and atomic snapshot replacement. Reopen tests cover
   replacement, addition, deletion, corruption, and changed record counts.
+- Cross-component checks compare optimized COUNT, page order, returned
+  metadata, evidence, and payloads against the independent scanner for the
+  complete 150-case workload under both alphabets. Focused fixtures also cover
+  temporal hints through cache/restore, large integers, quoted metadata-name
+  collisions, selected metadata/lower FTS, partial posting coverage, negation,
+  unindexed OR, and shared multi-record source files. The acceptance command
+  is `cargo run --release --example accept_musenalm -- --alphabet ascii` (or
+  `unicode`).
 
 ## Measurements
 
