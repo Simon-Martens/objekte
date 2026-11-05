@@ -37,6 +37,7 @@ fn run() -> Result<(), String> {
         "unicode-warm".to_string(),
     ];
     let mut repetitions = 5usize;
+    let mut warm_cache_bytes = 64 * 1024 * 1024usize;
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
@@ -69,6 +70,13 @@ fn run() -> Result<(), String> {
                     .parse()
                     .map_err(|e| format!("invalid repetitions: {e}"))?
             }
+            "--verified-cache-bytes" => {
+                warm_cache_bytes = args
+                    .next()
+                    .ok_or("--verified-cache-bytes needs a number")?
+                    .parse()
+                    .map_err(|e| format!("invalid verified cache size: {e}"))?
+            }
             _ => return Err(format!("unknown argument {arg}")),
         }
     }
@@ -85,7 +93,7 @@ fn run() -> Result<(), String> {
             },
             "ascii-warm" => Profile {
                 alphabet: BigramAlphabet::Ascii,
-                verified_cache_bytes: 64 * 1024 * 1024,
+                verified_cache_bytes: warm_cache_bytes,
                 warm: true,
             },
             "unicode-off" => Profile {
@@ -95,7 +103,7 @@ fn run() -> Result<(), String> {
             },
             "unicode-warm" => Profile {
                 alphabet: BigramAlphabet::Unicode,
-                verified_cache_bytes: 64 * 1024 * 1024,
+                verified_cache_bytes: warm_cache_bytes,
                 warm: true,
             },
             _ => return Err(format!("unknown profile {name}")),
