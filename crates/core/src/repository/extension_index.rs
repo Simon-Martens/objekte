@@ -8,6 +8,7 @@ use crate::{
     extensions::{BindingContext, ScalarValue, TextRepresentation},
     text::TextRules,
 };
+use sha2::{Digest as _, Sha256};
 use std::sync::Arc;
 use unicode_casefold::UnicodeCaseFold;
 
@@ -55,8 +56,25 @@ pub(super) struct RepresentationIndex {
     /// Pairs seen before compression; distinguishes absent pairs from dense
     /// postings deliberately omitted by the concrete bigram builder.
     pub observed_bigrams: Vec<u64>,
+    /// Base immutable posting slots mapped into the current generation.
+    /// None is the identity map of a newly built posting.
+    pub base_to_current: Option<Vec<Option<u32>>>,
+    /// New or changed records are verified without consulting stale bits.
+    pub overlay_slots: Vec<u32>,
+    pub slots: usize,
+    pub base_source_fingerprints: Vec<[u8; 16]>,
 }
 
+
+pub(super) fn base_source_fingerprint(source: &crate::extensions::SourceDescriptor) -> [u8; 16] {
+    let mut digest = Sha256::new();
+    digest.update(b"selected-base-source/v1\0");
+    digest.update(serde_json::to_vec(source).expect("source descriptor serializes"));
+    let complete = digest.finalize();
+    let mut result = [0_u8; 16];
+    result.copy_from_slice(&complete[..16]);
+    result
+}
 
 pub(super) fn observe_bigrams(
     observed: &mut [u64],
@@ -276,6 +294,10 @@ impl Repository {
             RepresentationIndex {
                 filter,
                 observed_bigrams,
+                base_to_current: None,
+                overlay_slots: Vec::new(),
+                slots: selected.len(),
+                base_source_fingerprints: selected.iter().map(base_source_fingerprint).collect(),
             },
         );
         Ok(selected.len())
@@ -292,7 +314,7 @@ impl Repository {
             return None;
         }
         let posting = self.extension_text_indexes.get(key)?;
-        posting.filter.query(literal.as_bytes()).or_else(|| {
+        let base = posting.filter.query(literal.as_bytes()).or_else(|| {
             let encoding = posting.filter.encoding();
             let definitely_absent = literal.as_bytes().windows(2).any(|pair| {
                 if !encoding.usable(pair[0]) || !encoding.usable(pair[1]) {
@@ -303,7 +325,29 @@ impl Repository {
                 posting.observed_bigrams[key / 64] & (1 << (key % 64)) == 0
             });
             definitely_absent.then(|| vec![0; posting.filter.file_count().div_ceil(64)])
-        })
+        })?;
+        if posting.base_to_current.is_none() && posting.overlay_slots.is_empty() {
+            return Some(base);
+        }
+        let mut current = vec![0_u64; posting.slots.div_ceil(64)];
+        for (word_index, &value) in base.iter().enumerate() {
+            let mut word = value;
+            while word != 0 {
+                let base_slot = word_index * 64 + word.trailing_zeros() as usize;
+                let mapped = posting.base_to_current.as_ref().map_or_else(
+                    || u32::try_from(base_slot).ok(),
+                    |map| map.get(base_slot).copied().flatten(),
+                );
+                if let Some(slot) = mapped.filter(|slot| (*slot as usize) < posting.slots) {
+                    current[slot as usize / 64] |= 1 << (slot % 64);
+                }
+                word &= word - 1;
+            }
+        }
+        for &slot in &posting.overlay_slots {
+            current[slot as usize / 64] |= 1 << (slot % 64);
+        }
+        Some(current)
     }
 
     pub(super) fn invalidate_representation_indexes(&mut self, collection: &str) {

@@ -13,8 +13,8 @@ use crate::{
     repository::{
         extension_derived_index::{SelectedDerivedKey, SelectedDerivedPosting},
         extension_index::{
-            RepresentationIndex, RepresentationIndexKey, add_text, binding_path, field_format,
-            observe_bigrams,
+            RepresentationIndex, RepresentationIndexKey, add_text, base_source_fingerprint,
+            binding_path, field_format, observe_bigrams,
         },
     },
 };
@@ -69,6 +69,75 @@ struct FieldBuild {
     present: Vec<u64>,
     scalar_safe: bool,
     output: Vec<TypedKey>,
+    implicit_equivalent: bool,
+}
+
+
+struct ReuseMap {
+    old_to_new: Vec<Option<u32>>,
+    changed: Vec<bool>,
+}
+
+
+impl ReuseMap {
+    fn new(
+        old: &[crate::extensions::SourceDescriptor],
+        new: &[crate::extensions::SourceDescriptor],
+    ) -> Option<Self> {
+        let mut old_to_new = vec![None; old.len()];
+        let mut changed = vec![true; new.len()];
+        for (old_slot, source) in old.iter().enumerate() {
+            if let Ok(new_slot) = new.binary_search_by(|next| next.record_id.cmp(&source.record_id))
+                && new[new_slot] == *source
+            {
+                old_to_new[old_slot] = Some(new_slot as u32);
+                changed[new_slot] = false;
+            }
+        }
+        let delta = changed.iter().filter(|&&changed| changed).count()
+            + old_to_new.iter().filter(|slot| slot.is_none()).count();
+        (delta.saturating_mul(4) <= new.len().max(1)).then_some(Self {
+            old_to_new,
+            changed,
+        })
+    }
+
+    fn remap_rows(
+        &self,
+        rows: Vec<(TypedKey, usize)>,
+        old_present: &[u64],
+        slots: usize,
+    ) -> (Vec<(TypedKey, usize)>, Vec<u64>) {
+        let rows = rows
+            .into_iter()
+            .filter_map(|(key, old_slot)| {
+                self.old_to_new
+                    .get(old_slot)
+                    .copied()
+                    .flatten()
+                    .map(|slot| (key, slot as usize))
+            })
+            .collect();
+        let mut present = vec![0_u64; slots.div_ceil(64)];
+        for (old_slot, mapped) in self.old_to_new.iter().enumerate() {
+            if let Some(slot) = mapped
+                && old_present
+                    .get(old_slot / 64)
+                    .is_some_and(|word| word & (1 << (old_slot % 64)) != 0)
+            {
+                present[*slot as usize / 64] |= 1 << (*slot % 64);
+            }
+        }
+        (rows, present)
+    }
+}
+
+
+struct TextReuse {
+    old_key: RepresentationIndexKey,
+    new_key: RepresentationIndexKey,
+    base_to_current: Vec<Option<u32>>,
+    overlay_slots: Vec<u32>,
 }
 
 
@@ -93,6 +162,15 @@ impl Repository {
         &mut self,
         collection: &str,
         requests: &[SelectedIndexRequest<'_>],
+    ) -> Result<usize> {
+        self.build_selected_indexes_reusing(collection, requests, None)
+    }
+
+    pub(super) fn build_selected_indexes_reusing(
+        &mut self,
+        collection: &str,
+        requests: &[SelectedIndexRequest<'_>],
+        previous: Option<&CustomSourceSnapshot>,
     ) -> Result<usize> {
         if requests.is_empty() {
             return Err(Error::Request(
@@ -138,9 +216,12 @@ impl Repository {
         let encoding = selected_collection
             .bigram_encoding
             .unwrap_or(self.options.bigram_encoding);
+        let reuse = previous.and_then(|old| ReuseMap::new(&old.sources, &selected));
         let mut text_builds = Vec::new();
+        let mut text_reuses = Vec::new();
         let mut derived_builds = Vec::new();
         let mut field_builds = Vec::new();
+        let mut reuse_failed = false;
         let mut requested = BTreeSet::new();
         for request in requests {
             if !requested.insert(*request) {
@@ -179,6 +260,52 @@ impl Repository {
                     if self.extension_text_indexes.contains_key(&key) {
                         continue;
                     }
+                    if let (Some(old), Some(reuse)) = (previous, reuse.as_ref()) {
+                        let old_key = RepresentationIndexKey::new(
+                            &selected_collection,
+                            path,
+                            representation,
+                            &old.fingerprint,
+                            extensions,
+                            encoding,
+                        );
+                        if let Some(posting) = self.extension_text_indexes.get(&old_key)
+                            && old_key.semantics == key.semantics
+                        {
+                            let base_to_current = (0..posting.filter.file_count())
+                                .map(|base| {
+                                    let old_slot = posting
+                                        .base_to_current
+                                        .as_ref()
+                                        .map_or(Some(base as u32), |map| {
+                                            map.get(base).copied().flatten()
+                                        })?;
+                                    reuse.old_to_new.get(old_slot as usize).copied().flatten()
+                                })
+                                .collect::<Vec<_>>();
+                            let mut covered = vec![false; selected.len()];
+                            for &slot in base_to_current.iter().flatten() {
+                                covered[slot as usize] = true;
+                            }
+                            let overlay_slots = covered
+                                .iter()
+                                .enumerate()
+                                .filter(|(_, covered)| !**covered)
+                                .map(|(slot, _)| slot as u32)
+                                .collect::<Vec<_>>();
+                            if overlay_slots.len().saturating_mul(4) <= selected.len().max(1) {
+                                text_reuses.push(TextReuse {
+                                    old_key,
+                                    new_key: key,
+                                    base_to_current,
+                                    overlay_slots,
+                                });
+                                continue;
+                            }
+                        }
+                        reuse_failed = true;
+                        continue;
+                    }
                     text_builds.push(TextBuild {
                         key,
                         path: parsed,
@@ -210,12 +337,37 @@ impl Repository {
                     if self.selected_derived_indexes.contains_key(&key) {
                         continue;
                     }
+                    let mut rows = Vec::new();
+                    let mut present = vec![0; selected.len().div_ceil(64)];
+                    let mut scalar_safe = true;
+                    if let (Some(old), Some(reuse)) = (previous, reuse.as_ref()) {
+                        let old_key = SelectedDerivedKey::new(
+                            &selected_collection,
+                            &binding.path,
+                            &old.fingerprint,
+                            extensions,
+                        );
+                        if old_key.semantics == key.semantics
+                            && let Some(posting) = self.selected_derived_indexes.get(&old_key)
+                            && let Some(old_posting) = posting.index.export_dynamic(&binding.path)
+                        {
+                            (rows, present) = reuse.remap_rows(
+                                old_posting.rows,
+                                &old_posting.present,
+                                selected.len(),
+                            );
+                            scalar_safe = old_posting.scalar_safe;
+                        } else {
+                            reuse_failed = true;
+                            continue;
+                        }
+                    }
                     derived_builds.push(DerivedBuild {
                         key,
                         binding,
-                        rows: Vec::new(),
-                        present: vec![0; selected.len().div_ceil(64)],
-                        scalar_safe: true,
+                        rows,
+                        present,
+                        scalar_safe,
                         output: Vec::new(),
                     });
                 }
@@ -240,23 +392,64 @@ impl Repository {
                     if self.selected_derived_indexes.contains_key(&key) {
                         continue;
                     }
+                    let mut rows = Vec::new();
+                    let mut present = vec![0; selected.len().div_ceil(64)];
+                    let mut scalar_safe = true;
+                    let mut implicit_equivalent = simple_pointer(&parsed).is_some();
+                    if let (Some(old), Some(reuse)) = (previous, reuse.as_ref()) {
+                        let old_key = SelectedDerivedKey::new(
+                            &selected_collection,
+                            &parsed,
+                            &old.fingerprint,
+                            extensions,
+                        );
+                        if old_key.semantics == key.semantics
+                            && let Some(posting) = self.selected_derived_indexes.get(&old_key)
+                            && let Some(old_posting) = posting.index.export_dynamic(&parsed)
+                        {
+                            (rows, present) = reuse.remap_rows(
+                                old_posting.rows,
+                                &old_posting.present,
+                                selected.len(),
+                            );
+                            scalar_safe = old_posting.scalar_safe;
+                            implicit_equivalent &= old_posting.implicit_equivalent;
+                        } else {
+                            reuse_failed = true;
+                            continue;
+                        }
+                    }
                     field_builds.push(FieldBuild {
                         key,
                         pointer: simple_pointer(&parsed),
                         path: parsed,
-                        rows: Vec::new(),
-                        present: vec![0; selected.len().div_ceil(64)],
-                        scalar_safe: true,
+                        rows,
+                        present,
+                        scalar_safe,
                         output: Vec::new(),
+                        implicit_equivalent,
                     });
                 }
             }
         }
-        if text_builds.is_empty() && derived_builds.is_empty() && field_builds.is_empty() {
+        if reuse_failed {
+            return self.build_selected_indexes_reusing(collection, requests, None);
+        }
+        if text_builds.is_empty()
+            && text_reuses.is_empty()
+            && derived_builds.is_empty()
+            && field_builds.is_empty()
+        {
             return Ok(selected.len());
         }
         let mut bytes = Vec::new();
         for (slot, source) in selected.iter().enumerate() {
+            if text_builds.is_empty() && derived_builds.is_empty() && field_builds.is_empty() {
+                break;
+            }
+            if reuse.as_ref().is_some_and(|map| !map.changed[slot]) {
+                continue;
+            }
             let decoder = extensions.decoder(source)?;
             if !decoder.descriptor().cacheable() {
                 return Err(Error::Request(format!(
@@ -405,8 +598,25 @@ impl Repository {
                 RepresentationIndex {
                     filter,
                     observed_bigrams: build.observed_bigrams,
+                    base_to_current: None,
+                    overlay_slots: Vec::new(),
+                    slots: selected.len(),
+                    base_source_fingerprints: selected
+                        .iter()
+                        .map(base_source_fingerprint)
+                        .collect(),
                 },
             );
+        }
+        for update in text_reuses {
+            let mut posting = self
+                .extension_text_indexes
+                .remove(&update.old_key)
+                .expect("reusable text posting exists until publication");
+            posting.base_to_current = Some(update.base_to_current);
+            posting.overlay_slots = update.overlay_slots;
+            posting.slots = selected.len();
+            self.extension_text_indexes.insert(update.new_key, posting);
         }
         for build in derived_builds {
             let posting = SelectedDerivedPosting::from_rows(
@@ -425,7 +635,7 @@ impl Repository {
                 build.present,
                 build.scalar_safe,
                 selected.len(),
-                build.pointer.is_some(),
+                build.implicit_equivalent,
             );
             self.selected_derived_indexes.insert(build.key, posting);
         }

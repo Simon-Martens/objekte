@@ -24,6 +24,10 @@ mod review_stage1;
 #[path = "review_stage2.test.rs"]
 mod review_stage2;
 
+#[cfg(test)]
+#[path = "review_stage3.test.rs"]
+mod review_stage3;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {
@@ -1233,7 +1237,16 @@ mod tests {
             .unwrap();
         assert_eq!(result.total, Some(1));
         assert_eq!(result.hits[0].record.id, "target");
-        assert_eq!(result.query_plan, ["selected-text-index-candidates"]);
+        assert_eq!(
+            result.query_plan.first().map(String::as_str),
+            Some("selected-text-index-candidates")
+        );
+        assert!(
+            result
+                .query_plan
+                .iter()
+                .any(|step| step.contains("text-seed"))
+        );
         assert_eq!(result.metrics.source_reads, 2);
     }
 

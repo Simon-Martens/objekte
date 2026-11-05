@@ -134,7 +134,7 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) = self.query_json_selected(&request, selected, true)?;
+            let (result, pending, _) = self.query_json_selected(&request, selected, true, None)?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
@@ -162,16 +162,17 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) =
-                self.query_json_selected(&request, selected, self.options.stream_query_cache)?;
-            for (index, record) in result.records.iter().enumerate() {
-                on_record(index + 1, record)?;
-            }
+            let (result, pending, returned) = self.query_json_selected(
+                &request,
+                selected,
+                self.options.stream_query_cache,
+                Some(&mut on_record),
+            )?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
             return Ok(JsonQueryStreamSummary {
-                returned: result.records.len(),
+                returned,
                 total: result.total,
                 truncated: result.truncated,
                 elapsed_ms: result.elapsed_ms,
@@ -223,14 +224,21 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) =
-                self.query_json_selected(&request, selected, self.options.stream_query_cache)?;
-            on_page(&result.records)?;
+            let mut page = Vec::new();
+            let (result, pending, returned) = self.query_json_selected(
+                &request,
+                selected,
+                self.options.stream_query_cache,
+                Some(&mut |_, record| {
+                    page.push(record.clone());
+                    on_page(&page)
+                }),
+            )?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
             return Ok(JsonQueryStreamSummary {
-                returned: result.records.len(),
+                returned,
                 total: result.total,
                 truncated: result.truncated,
                 elapsed_ms: result.elapsed_ms,

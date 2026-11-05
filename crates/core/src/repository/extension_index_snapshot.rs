@@ -8,15 +8,16 @@ use crate::{
     bigram::{BigramFile, BigramSnapshot},
     extensions::{BindingContext, Descriptor},
     repository::extension_index::{
-        RepresentationIndex, RepresentationIndexKey, binding_path, field_format,
+        RepresentationIndex, RepresentationIndexKey, base_source_fingerprint, binding_path,
+        field_format,
     },
 };
 use serde::{Deserialize, Serialize};
 use sha2::{Digest as _, Sha256};
 use std::{io::Write as _, sync::Arc};
 
-const MANIFEST_VERSION: u32 = 3;
-const MAX_MANIFEST_BYTES: u64 = 4 * 1024 * 1024;
+const MANIFEST_VERSION: u32 = 5;
+const MAX_MANIFEST_BYTES: u64 = 64 * 1024 * 1024;
 
 
 #[derive(Serialize, Deserialize)]
@@ -27,6 +28,10 @@ struct SelectedFilterManifest {
     slots: usize,
     filter_sha256: String,
     observed_bigrams: Vec<u64>,
+    base_to_current: Option<Vec<Option<u32>>>,
+    overlay_slots: Vec<u32>,
+    base_slots: usize,
+    base_source_fingerprints: Vec<[u8; 16]>,
 }
 
 
@@ -147,14 +152,13 @@ impl Repository {
             Error::Cache("selected representation posting is unavailable or stale".into())
         })?;
         let collection = self.model.collection(collection)?;
-        let files = selected
-            .iter()
-            .map(|source| BigramFile {
-                id: source.record_id.clone(),
+        let files = (0..posting.filter.file_count())
+            .map(|slot| BigramFile {
+                id: slot.to_string(),
                 // The portable compact codec stores only slot IDs. The
                 // companion manifest holds the real descriptor/locator; no
                 // source read ever uses this synthetic codec filename.
-                filename: format!("{}.json", source.record_id),
+                filename: format!("{slot}.json"),
                 size_bytes: 0,
                 modified_unix_nanos: "0".into(),
                 identity: String::new(),
@@ -174,6 +178,10 @@ impl Repository {
             slots: selected.len(),
             filter_sha256: file_digest(path)?,
             observed_bigrams: posting.observed_bigrams.clone(),
+            base_to_current: posting.base_to_current.clone(),
+            overlay_slots: posting.overlay_slots.clone(),
+            base_slots: posting.filter.file_count(),
+            base_source_fingerprints: posting.base_source_fingerprints.clone(),
         };
         let encoded = serde_json::to_vec(&manifest)
             .map_err(|error| Error::Cache(format!("encode selected filter manifest: {error}")))?;
@@ -230,11 +238,60 @@ impl Repository {
             Ok(manifest) => manifest,
             Err(_) => return Ok(false),
         };
+        let mut covered = vec![false; selected.len()];
+        let mapped_sources_match = manifest.base_source_fingerprints.len() == manifest.base_slots
+            && (0..manifest.base_slots).all(|base_slot| {
+                let current = manifest
+                    .base_to_current
+                    .as_ref()
+                    .map_or(Some(base_slot as u32), |map| {
+                        map.get(base_slot).copied().flatten()
+                    });
+                current.is_none_or(|slot| {
+                    selected.get(slot as usize).is_some_and(|source| {
+                        manifest
+                            .base_source_fingerprints
+                            .get(base_slot)
+                            .is_some_and(|saved| *saved == base_source_fingerprint(source))
+                    })
+                })
+            });
+        if let Some(map) = &manifest.base_to_current {
+            for &slot in map.iter().flatten() {
+                if let Some(covered) = covered.get_mut(slot as usize) {
+                    *covered = true;
+                }
+            }
+        } else if manifest.base_slots == selected.len() {
+            covered.fill(true);
+        }
+        for &slot in &manifest.overlay_slots {
+            if let Some(covered) = covered.get_mut(slot as usize) {
+                *covered = true;
+            }
+        }
         if manifest.version != MANIFEST_VERSION
             || manifest.key != key
             || manifest.descriptors != descriptors
             || manifest.slots != selected.len()
             || manifest.observed_bigrams.len() != 1024
+            || manifest.base_source_fingerprints.len() != manifest.base_slots
+            || !mapped_sources_match
+            || manifest
+                .base_to_current
+                .as_ref()
+                .is_some_and(|map| map.len() != manifest.base_slots)
+            || manifest.base_to_current.is_none() && manifest.base_slots != selected.len()
+            || manifest.base_to_current.as_ref().is_some_and(|map| {
+                map.iter()
+                    .flatten()
+                    .any(|slot| *slot as usize >= selected.len())
+            })
+            || manifest
+                .overlay_slots
+                .iter()
+                .any(|slot| *slot as usize >= selected.len())
+            || covered.iter().any(|covered| !covered)
         {
             return Ok(false);
         }
@@ -257,12 +314,12 @@ impl Repository {
                 .bigram_encoding
                 .unwrap_or(self.options.bigram_encoding)
             || !snapshot.changed_slots.is_empty()
-            || snapshot.files.len() != selected.len()
+            || snapshot.files.len() != manifest.base_slots
             || snapshot
                 .files
                 .iter()
-                .zip(&selected)
-                .any(|(file, source)| file.id != source.record_id)
+                .enumerate()
+                .any(|(slot, file)| file.id != slot.to_string())
         {
             return Ok(false);
         }
@@ -271,6 +328,10 @@ impl Repository {
             RepresentationIndex {
                 filter: snapshot.filter,
                 observed_bigrams: manifest.observed_bigrams,
+                base_to_current: manifest.base_to_current,
+                overlay_slots: manifest.overlay_slots,
+                slots: selected.len(),
+                base_source_fingerprints: manifest.base_source_fingerprints,
             },
         );
         Ok(true)

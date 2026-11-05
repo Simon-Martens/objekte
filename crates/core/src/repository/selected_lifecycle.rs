@@ -162,6 +162,15 @@ impl Repository {
         collection: &str,
         specs: &[SelectedSpec],
     ) -> Result<()> {
+        self.build_selected_specs_reusing(collection, specs, None)
+    }
+
+    pub(super) fn build_selected_specs_reusing(
+        &mut self,
+        collection: &str,
+        specs: &[SelectedSpec],
+        previous: Option<&CustomSourceSnapshot>,
+    ) -> Result<()> {
         let requests = specs
             .iter()
             .map(|spec| match spec {
@@ -177,7 +186,7 @@ impl Repository {
             })
             .collect::<Vec<_>>();
         if !requests.is_empty() {
-            self.build_selected_indexes(collection, &requests)?;
+            self.build_selected_indexes_reusing(collection, &requests, previous)?;
         }
         Ok(())
     }

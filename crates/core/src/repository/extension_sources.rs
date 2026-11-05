@@ -276,11 +276,36 @@ impl Repository {
         bytes: &mut Vec<u8>,
         validate: bool,
     ) -> Result<Record> {
+        self.selected_record_inner(collection, source, bytes, validate, true)
+    }
+
+    pub(super) fn selected_record_for_evaluation(
+        &mut self,
+        collection: &Collection,
+        source: &SourceDescriptor,
+        bytes: &mut Vec<u8>,
+        validate: bool,
+    ) -> Result<Record> {
+        self.selected_record_inner(collection, source, bytes, validate, false)
+    }
+
+    fn selected_record_inner(
+        &mut self,
+        collection: &Collection,
+        source: &SourceDescriptor,
+        bytes: &mut Vec<u8>,
+        validate: bool,
+        compute_hash: bool,
+    ) -> Result<Record> {
         self.read_selected_source_bytes_into(source, bytes)?;
         self.metrics.source_reads += 1;
         self.metrics.source_bytes += bytes.len() as u64;
-        let hash = digest(bytes);
-        self.metrics.hashes += 1;
+        let hash = if compute_hash {
+            self.metrics.hashes += 1;
+            digest(bytes)
+        } else {
+            String::new()
+        };
         let mut document = if source.format == "objekte:json"
             && source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
         {
@@ -400,7 +425,9 @@ impl Repository {
             let previous = self
                 .custom_source_snapshot
                 .insert(collection.to_owned(), next.clone());
-            if let Err(error) = self.build_selected_specs(collection, &specs) {
+            if let Err(error) =
+                self.build_selected_specs_reusing(collection, &specs, previous.as_ref())
+            {
                 if let Some(previous) = previous {
                     self.custom_source_snapshot
                         .insert(collection.to_owned(), previous);

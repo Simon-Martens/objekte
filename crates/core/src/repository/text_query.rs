@@ -105,7 +105,8 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) = self.search_text_selected(&request, selected, None, true)?;
+            let (result, pending, _) =
+                self.search_text_selected(&request, selected, None, true, None)?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
@@ -142,8 +143,8 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) =
-                self.search_text_selected(&request, selected, Some(&extension), true)?;
+            let (result, pending, _) =
+                self.search_text_selected(&request, selected, Some(&extension), true, None)?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
@@ -169,20 +170,18 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) = self.search_text_selected(
+            let (result, pending, returned) = self.search_text_selected(
                 &request,
                 selected,
                 None,
                 self.options.stream_query_cache,
+                Some(&mut on_hit),
             )?;
-            for (index, hit) in result.hits.iter().enumerate() {
-                on_hit(index + 1, hit)?;
-            }
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
             return Ok(TextQueryStreamSummary {
-                returned: result.hits.len(),
+                returned,
                 total: result.total,
                 truncated: result.truncated,
                 elapsed_ms: result.elapsed_ms,
@@ -245,20 +244,18 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) = self.search_text_selected(
+            let (result, pending, returned) = self.search_text_selected(
                 &request,
                 selected,
                 Some(&extension),
                 self.options.stream_query_cache,
+                Some(&mut on_hit),
             )?;
-            for (index, hit) in result.hits.iter().enumerate() {
-                on_hit(index + 1, hit)?;
-            }
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
             return Ok(TextQueryStreamSummary {
-                returned: result.hits.len(),
+                returned,
                 total: result.total,
                 truncated: result.truncated,
                 elapsed_ms: result.elapsed_ms,
@@ -309,18 +306,22 @@ impl Repository {
             .clone()
             .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
         if let Some(selected) = self.selected_route(&names)? {
-            let (result, pending) = self.search_text_selected(
+            let mut page = Vec::new();
+            let (result, pending, returned) = self.search_text_selected(
                 &request,
                 selected,
                 None,
                 self.options.stream_query_cache,
+                Some(&mut |_, hit| {
+                    page.push(hit.clone());
+                    on_page(&page)
+                }),
             )?;
-            on_page(&result.hits)?;
             if let Some((key, slots)) = pending {
                 self.query_cache.insert_ordered(key, slots);
             }
             return Ok(TextQueryStreamSummary {
-                returned: result.hits.len(),
+                returned,
                 total: result.total,
                 truncated: result.truncated,
                 elapsed_ms: result.elapsed_ms,

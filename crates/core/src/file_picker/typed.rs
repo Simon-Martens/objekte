@@ -117,6 +117,14 @@ pub(crate) struct TypedIndex {
 }
 
 
+pub(crate) struct ExportedPosting {
+    pub rows: Vec<(TypedKey, usize)>,
+    pub present: Vec<u64>,
+    pub scalar_safe: bool,
+    pub implicit_equivalent: bool,
+}
+
+
 /// One document's values at a runtime posting path.
 pub(crate) struct PathValues {
     pub(super) keys: Vec<TypedKey>,
@@ -422,6 +430,23 @@ impl TypedIndex {
             return false;
         }
         self.static_index(path).is_some() || self.dynamic.get(path).is_some_and(|field| field.fresh)
+    }
+
+    /// Export a complete dynamic posting for remapping into a new selected
+    /// source generation. No old source content is reread.
+    pub(crate) fn export_dynamic(&self, path: &JsonPath) -> Option<ExportedPosting> {
+        let posting = self.dynamic.get(path).filter(|posting| posting.fresh)?;
+        let rows = posting
+            .postings
+            .iter()
+            .flat_map(|(key, slots)| slots.iter().map(move |&slot| (key.clone(), slot)))
+            .collect();
+        Some(ExportedPosting {
+            rows,
+            present: posting.present.clone(),
+            scalar_safe: posting.scalar_safe,
+            implicit_equivalent: posting.implicit_equivalent,
+        })
     }
 
     /// Every non-null value a usable posting holds for `path`, with the

@@ -8,6 +8,8 @@ use crate::{
     sorting::{SortBuffer, SortRecord},
 };
 
+type SelectedHitCallback<'a> = dyn FnMut(usize, &TextHit) -> Result<()> + 'a;
+
 fn selected_matches(
     record: &Record,
     matcher: Option<&TextMatcher>,
@@ -180,7 +182,8 @@ impl Repository {
         selected: Vec<(Collection, CustomSourceSnapshot)>,
         extension: Option<&BoundTextQuery>,
         cache_allowed: bool,
-    ) -> Result<(TextQueryResult, Option<PendingSelectedOrder>)> {
+        mut on_hit: Option<&mut SelectedHitCallback<'_>>,
+    ) -> Result<(TextQueryResult, Option<PendingSelectedOrder>, usize)> {
         let started = Instant::now();
         let before = self.metrics.clone();
         if request.limit == 0
@@ -236,10 +239,10 @@ impl Repository {
             );
             if !request.sort.is_empty() {
                 plans.insert(
-
-
                     collection.name.clone(),
                     self.sort_plan(collection, &request.sort)?,
+
+
                 );
             }
         }
@@ -336,6 +339,8 @@ impl Repository {
         let mut ordered_slots = Vec::new();
         let mut used_candidates = false;
         let mut decisions = Vec::new();
+        let mut returned = 0_usize;
+        let stream_early = on_hit.is_some() && request.sort.is_empty() && !cache_hit;
         if let Some((total, _)) = &cached_page {
             matches = *total;
             self.metrics.ordered_result_hits += 1;
@@ -435,8 +440,12 @@ impl Repository {
                     self.metrics.selected_candidate_visits += 1;
                     self.metrics.selected_descriptor_visits += 1;
                     let source = &snapshot.sources[index];
-                    let record =
-                        self.selected_record(collection, source, &mut bytes, needs_status)?;
+                    let record = self.selected_record_for_evaluation(
+                        collection,
+                        source,
+                        &mut bytes,
+                        needs_status,
+                    )?;
                     let stamp = Stamp {
                         size: record.size_bytes,
                         modified: record.modified_unix_nanos.clone(),
@@ -489,6 +498,51 @@ impl Repository {
                     } else if ordered_slots.len() < cap {
                         ordered_slots.push(slot);
                     }
+                    if stream_early
+                        && matches <= cap
+                        && matches > request.offset
+                        && matches - request.offset <= request.limit
+                    {
+                        let checked = self.selected_record(collection, source, &mut bytes, true)?;
+                        let checked_stamp = Stamp {
+                            size: checked.size_bytes,
+                            modified: checked.modified_unix_nanos.clone(),
+                            identity: source.revision.clone(),
+                        };
+                        if let Some(filter) = &bound_filters[collection_index]
+                            && !filter.matches_source(
+                                &checked.data,
+                                &checked.id,
+                                &checked.path,
+                                &checked_stamp,
+                                created,
+                                checked.state.status,
+                            )?
+                        {
+                            return Err(Error::Unstable(source.locator.clone()));
+                        }
+                        let fields = selected_matches(
+                            &checked,
+                            matcher.as_ref(),
+                            extension,
+                            binding.as_ref(),
+                            &rules,
+                            requested_fields.as_ref(),
+                            true,
+                        )?;
+                        if fields.fields.is_empty() {
+                            return Err(Error::Unstable(source.locator.clone()));
+                        }
+                        on_hit.as_mut().expect("stream callback")(
+                            returned + 1,
+                            &TextHit {
+                                record: checked,
+                                fields: fields.fields,
+                                matched_paths: fields.matched_paths,
+                            },
+                        )?;
+                        returned += 1;
+                    }
                 }
             }
             if let Some(buffer) = sorted {
@@ -504,7 +558,7 @@ impl Repository {
         );
         let mut hits = Vec::with_capacity(page.len());
         let mut bytes = Vec::new();
-        for &slot in page {
+        for &slot in if stream_early { &[][..] } else { page } {
             let (collection_index, local) = source_location(&offsets, slot)
                 .ok_or_else(|| Error::Cache("selected source slot is unavailable".into()))?;
             let (collection, snapshot) = &selected[collection_index];
@@ -558,11 +612,17 @@ impl Repository {
             if fields.fields.is_empty() {
                 return Err(Error::Unstable(source.locator.clone()));
             }
-            hits.push(TextHit {
+            let hit = TextHit {
                 record,
                 fields: fields.fields,
                 matched_paths: fields.matched_paths,
-            });
+            };
+            if let Some(callback) = on_hit.as_mut() {
+                callback(returned + 1, &hit)?;
+            } else {
+                hits.push(hit);
+            }
+            returned += 1;
         }
         if self.options.freshness != Freshness::MetadataOnOpen {
             for (collection, snapshot) in &selected {
@@ -594,13 +654,14 @@ impl Repository {
                     }
                     .into(),
                 ]
-
-
                 .into_iter()
                 .chain(decisions)
                 .collect(),
             },
+
+
             pending,
+            returned,
         ))
     }
 }

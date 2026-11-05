@@ -11,6 +11,8 @@ use crate::{
     sorting::{SortBuffer, SortRecord},
 };
 
+type SelectedRecordCallback<'a> = dyn FnMut(usize, &Record) -> Result<()> + 'a;
+
 
 impl Repository {
     /// Evaluate a bound necessary condition against configured logical-field
@@ -157,7 +159,8 @@ impl Repository {
         request: &JsonQuery,
         selected: Vec<(Collection, CustomSourceSnapshot)>,
         cache_allowed: bool,
-    ) -> Result<(JsonQueryResult, Option<PendingSelectedOrder>)> {
+        mut on_record: Option<&mut SelectedRecordCallback<'_>>,
+    ) -> Result<(JsonQueryResult, Option<PendingSelectedOrder>, usize)> {
         let started = Instant::now();
         let before = self.metrics.clone();
         if request.limit == 0
@@ -241,6 +244,8 @@ impl Repository {
         let mut ordered_slots = Vec::new();
         let mut used_native_candidates = false;
         let mut used_field_candidates = false;
+        let mut returned = 0_usize;
+        let stream_early = on_record.is_some() && request.sort.is_empty() && !cache_hit;
         if let Some((total, _)) = &cached_page {
             self.metrics.ordered_result_hits += 1;
             matches = *total;
@@ -277,8 +282,12 @@ impl Repository {
                     self.metrics.selected_candidate_visits += 1;
                     self.metrics.selected_descriptor_visits += 1;
                     let source = &snapshot.sources[index];
-                    let record =
-                        self.selected_record(collection, source, &mut bytes, needs_status)?;
+                    let record = self.selected_record_for_evaluation(
+                        collection,
+                        source,
+                        &mut bytes,
+                        needs_status,
+                    )?;
                     let stamp = Stamp {
                         size: record.size_bytes,
                         modified: record.modified_unix_nanos.clone(),
@@ -316,6 +325,30 @@ impl Repository {
                     } else if ordered_slots.len() < cap {
                         ordered_slots.push(u32::try_from(slot).expect("checked source slots"));
                     }
+                    if stream_early
+                        && matches <= cap
+                        && matches > request.offset
+                        && matches - request.offset <= request.limit
+                    {
+                        let checked = self.selected_record(collection, source, &mut bytes, true)?;
+                        let checked_stamp = Stamp {
+                            size: checked.size_bytes,
+                            modified: checked.modified_unix_nanos.clone(),
+                            identity: source.revision.clone(),
+                        };
+                        if !bound[collection_index].matches_source(
+                            &checked.data,
+                            &checked.id,
+                            &checked.path,
+                            &checked_stamp,
+                            created,
+                            checked.state.status,
+                        )? {
+                            return Err(Error::Unstable(source.locator.clone()));
+                        }
+                        on_record.as_mut().expect("stream callback")(returned + 1, &checked)?;
+                        returned += 1;
+                    }
                 }
             }
             if let Some(buffer) = sort_buffer {
@@ -335,7 +368,7 @@ impl Repository {
         );
         let mut records = Vec::with_capacity(page.len());
         let mut bytes = Vec::new();
-        for &slot in page {
+        for &slot in if stream_early { &[][..] } else { page } {
             let (collection_index, local) = source_location(&offsets, slot)
                 .ok_or_else(|| Error::Cache("selected source slot is unavailable".into()))?;
             let (collection, snapshot) = &selected[collection_index];
@@ -361,7 +394,13 @@ impl Repository {
             )? {
                 return Err(Error::Unstable(source.locator.clone()));
             }
-            records.push(record);
+            if let Some(callback) = on_record.as_mut() {
+                callback(returned + 1, &record)?;
+                returned += 1;
+            } else {
+                records.push(record);
+                returned += 1;
+            }
         }
         if self.options.freshness != Freshness::MetadataOnOpen {
             for (collection, snapshot) in &selected {
@@ -405,6 +444,7 @@ impl Repository {
                 ],
             },
             pending,
+            returned,
         ))
     }
 }
