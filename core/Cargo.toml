@@ -17,3 +17,4 @@ unicode-casefold = "0.2"
 roaring = { version = "0.11", features = ["serde"] }
 icu_collator = "=2.4.0"
 icu_locale_core = "=2.4.0"
+sha2 = "0.10"

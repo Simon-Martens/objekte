@@ -29,6 +29,7 @@ query/build and restore revisions will establish their respective baselines.
 | C13 | complete | `cargo test --workspace --all-targets`; Q070 indexed/reference | Folded custom extraction, bigrams, scanner, selected FTS |
 | C14 | complete | `cargo test --workspace --all-targets`; Q126/Q127 indexed/reference | ICU/typed sort columns, stable ties, multi-field order |
 | C15 | complete | `cargo test --workspace --all-targets`; Q031 logical page | COUNT, bounded page winners, three payload modes, grouped range reads |
+| C16a | complete | release smoke, all 150 ASCII cases (1 repetition) | Persistent-process timing runner and report files |
 
 ## Decisions
 
@@ -77,11 +78,15 @@ query/build and restore revisions will establish their respective baselines.
 
 ## Measurements
 
-Pending runnable query and restore implementations. No timings are inferred
-from the archived program.
+The initial release smoke built 148,486 Musenalm records once in 13.8 s with
+ASCII bigrams, then executed all 150 queries with one measured repetition and
+zero failures. This was a code-development check; the saved baseline will be
+recorded after the runner commit so its code revision is unambiguous. Restore
+and verified-cache measurements remain pending. No timings are inferred from
+the archived program.
 
-The manifest is a transcription of Section 21 of `implement.md`; fixture
-schema and query-semantic validation remain pending until registration and
-binding exist. The report format reserves separate status and optional timing
+The manifest is a transcription of Section 21 of `implement.md`; all 150
+queries parse, bind, and execute against the current fixture. The report format
+reserves separate status and optional timing
 fields so unsupported or failed cases cannot be recorded as successful zero
 duration samples.
