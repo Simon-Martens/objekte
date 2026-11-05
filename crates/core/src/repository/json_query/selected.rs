@@ -362,6 +362,10 @@ impl Repository {
         let mut decisions = Vec::new();
         let mut returned = 0_usize;
         let stream_early = on_record.is_some() && request.sort.is_empty() && !cache_hit;
+        let may_use_candidates = matches!(
+            request.backend,
+            JsonQueryBackend::Auto | JsonQueryBackend::Bigram
+        );
         if let Some((total, _)) = &cached_page {
             self.metrics.ordered_result_hits += 1;
             matches = *total;
@@ -380,7 +384,8 @@ impl Repository {
                         &request.sort,
                         false,
                     );
-                let prefer_native_text = bound[collection_index].fts_plan().is_some()
+                let prefer_native_text = may_use_candidates
+                    && bound[collection_index].fts_plan().is_some()
                     && self
                         .selected_field_candidate_estimate(
                             collection,
@@ -390,16 +395,16 @@ impl Repository {
                         .is_none_or(|estimate| {
                             estimate.saturating_mul(16) > snapshot.sources.len()
                         });
-                let mut field_candidates = (!prefer_native_text
-                    && matches!(
-                        request.backend,
-                        JsonQueryBackend::Auto | JsonQueryBackend::Bigram
-                    ))
-                .then(|| {
-                    self.selected_field_candidates(collection, snapshot, &bound[collection_index])
-                })
-                .flatten();
-                let native = if field_candidates.is_none() {
+                let mut field_candidates = (may_use_candidates && !prefer_native_text)
+                    .then(|| {
+                        self.selected_field_candidates(
+                            collection,
+                            snapshot,
+                            &bound[collection_index],
+                        )
+                    })
+                    .flatten();
+                let native = if may_use_candidates && field_candidates.is_none() {
                     self.selected_native_candidates(
                         collection,
                         snapshot,
@@ -409,7 +414,7 @@ impl Repository {
                 } else {
                     None
                 };
-                if native.is_none() && prefer_native_text {
+                if may_use_candidates && native.is_none() && prefer_native_text {
                     field_candidates = self.selected_field_candidates(
                         collection,
                         snapshot,

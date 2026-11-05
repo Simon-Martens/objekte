@@ -1,9 +1,7 @@
 //! Regressions for Direct backend eligibility and native candidate translation.
 
 use super::review_stage1::JsonAliasProvider;
-use objekte_core::{
-    CacheMode, Direction, JsonQuery, JsonQueryBackend, Options, Repository, Sort,
-};
+use objekte_core::{CacheMode, Direction, JsonQuery, JsonQueryBackend, Options, Repository, Sort};
 use std::{fs, path::Path};
 
 fn fixture(count: usize) -> (tempfile::TempDir, std::path::PathBuf) {
@@ -93,20 +91,24 @@ fn warmed_selected_scalar_fallback_does_not_prune_direct_fts_query() {
     assert_eq!(direct.metrics.selected_candidate_visits, 97);
     assert_eq!(direct.metrics.selected_candidate_bitsets, 0);
     assert_eq!(direct.metrics.native_translation_candidates, 0);
-    let accelerated = indexed
-        .query_json(&JsonQuery {
-            backend: JsonQueryBackend::Auto,
-            ..direct_request.clone()
-        })
-        .unwrap();
-    assert_eq!(accelerated.total, expected.total);
-    assert_eq!(accelerated.truncated, expected.truncated);
-    assert_eq!(ids(&accelerated), ids(&expected));
-    assert!(accelerated.metrics.selected_candidate_visits < 97);
-    assert!(accelerated
-        .query_plan
-        .iter()
-        .any(|step| step.contains("selected-scalar-posting")));
+    for backend in [JsonQueryBackend::Auto, JsonQueryBackend::Bigram] {
+        let accelerated = indexed
+            .query_json(&JsonQuery {
+                backend,
+                ..direct_request.clone()
+            })
+            .unwrap();
+        assert_eq!(accelerated.total, expected.total);
+        assert_eq!(accelerated.truncated, expected.truncated);
+        assert_eq!(ids(&accelerated), ids(&expected));
+        assert!(accelerated.metrics.selected_candidate_visits < 97);
+        assert!(
+            accelerated
+                .query_plan
+                .iter()
+                .any(|step| step.contains("selected-scalar-posting"))
+        );
+    }
 
     fs::write(
         mixed.join("n00002.json"),
@@ -114,6 +116,7 @@ fn warmed_selected_scalar_fallback_does_not_prune_direct_fts_query() {
     )
     .unwrap();
     indexed.refresh("mixed").unwrap();
+    oracle.refresh("mixed").unwrap();
     let invalid = indexed.query_json(&direct_request).unwrap_err().to_string();
     let expected_error = oracle.query_json(&direct_request).unwrap_err().to_string();
     assert_eq!(invalid, expected_error);
@@ -126,12 +129,7 @@ fn dense_fts_intersection_translates_members_without_native_order_walk() {
         let mut indexed = open(temp.path(), &mixed, CacheMode::Memory);
         indexed.warm_bigram_index("mixed").unwrap();
         let mut oracle = open(temp.path(), &mixed, CacheMode::Disabled);
-        let request = query(
-            "body:fts ~ 'raretokenXYZ'",
-            JsonQueryBackend::Auto,
-            0,
-            2,
-        );
+        let request = query("body:fts ~ 'raretokenXYZ'", JsonQueryBackend::Auto, 0, 2);
         // First query initializes the generation-bound native slot map.
         indexed.query_json(&request).unwrap();
         for offset in [0, 2, 4] {
@@ -155,12 +153,7 @@ fn dense_fts_intersection_translates_members_without_native_order_walk() {
             assert_eq!(result.metrics.selected_candidate_visits, 4);
         }
 
-        let empty = query(
-            "body:fts ~ 'nevertermABC'",
-            JsonQueryBackend::Auto,
-            0,
-            2,
-        );
+        let empty = query("body:fts ~ 'nevertermABC'", JsonQueryBackend::Auto, 0, 2);
         let result = indexed.query_json(&empty).unwrap();
         let exact = oracle
             .query_json(&JsonQuery {
