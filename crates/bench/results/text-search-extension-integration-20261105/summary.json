@@ -1,0 +1,681 @@
+{
+  "focused": {
+    "0": {
+      "cases": {
+        "custom_absent": {
+          "candidate_visits": [
+            382
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 2.6956350000000002,
+          "median_ms": 2.649781,
+          "min_ms": 2.626596,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            382
+          ],
+          "returned": 0,
+          "source_reads": [
+            382
+          ],
+          "total": 0
+        },
+        "custom_and": {
+          "candidate_visits": [
+            1
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.081844,
+          "median_ms": 0.074584,
+          "min_ms": 0.067134,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            2
+          ],
+          "returned": 1,
+          "source_reads": [
+            2
+          ],
+          "total": 1
+        },
+        "custom_broad": {
+          "candidate_visits": [
+            131
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 1.055242,
+          "median_ms": 1.038477,
+          "min_ms": 1.026156,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            141
+          ],
+          "returned": 10,
+          "source_reads": [
+            141
+          ],
+          "total": 131
+        },
+        "custom_direct": {
+          "candidate_visits": [
+            513
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 3.679542,
+          "median_ms": 3.6355530000000003,
+          "min_ms": 3.568383,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            516
+          ],
+          "returned": 3,
+          "source_reads": [
+            516
+          ],
+          "total": 3
+        },
+        "custom_native_direct": {
+          "candidate_visits": [
+            512
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 3.519707,
+          "median_ms": 3.515995,
+          "min_ms": 3.4814860000000003,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            514
+          ],
+          "returned": 2,
+          "source_reads": [
+            514
+          ],
+          "total": 2
+        },
+        "custom_native_index": {
+          "candidate_visits": [
+            2
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.086853,
+          "median_ms": 0.084044,
+          "min_ms": 0.082092,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            4
+          ],
+          "returned": 2,
+          "source_reads": [
+            4
+          ],
+          "total": 2
+        },
+        "custom_or": {
+          "candidate_visits": [
+            513
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 3.6553240000000002,
+          "median_ms": 3.625184,
+          "min_ms": 3.579976,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            514
+          ],
+          "returned": 1,
+          "source_reads": [
+            514
+          ],
+          "total": 1
+        },
+        "custom_selective": {
+          "candidate_visits": [
+            3
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.093736,
+          "median_ms": 0.07818399999999999,
+          "min_ms": 0.06341100000000001,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            6
+          ],
+          "returned": 3,
+          "source_reads": [
+            6
+          ],
+          "total": 3
+        },
+        "custom_sorted": {
+          "candidate_visits": [
+            131
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 1.164477,
+          "median_ms": 1.146741,
+          "min_ms": 1.124791,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            141
+          ],
+          "returned": 10,
+          "source_reads": [
+            141
+          ],
+          "total": 131
+        },
+        "custom_stream": {
+          "candidate_visits": [
+            3
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.09374400000000001,
+          "median_ms": 0.09160299999999999,
+          "min_ms": 0.090891,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            6
+          ],
+          "returned": 3,
+          "source_reads": [
+            6
+          ],
+          "total": 3
+        },
+        "native_fts": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            2
+          ],
+          "max_ms": 0.094115,
+          "median_ms": 0.080733,
+          "min_ms": 0.075604,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            4
+          ],
+          "returned": 2,
+          "source_reads": [
+            4
+          ],
+          "total": 2
+        },
+        "native_scalar": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.43448,
+          "median_ms": 0.427844,
+          "min_ms": 0.423334,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            1
+          ],
+          "returned": 1,
+          "source_reads": [
+            1
+          ],
+          "total": 1
+        },
+        "second_definition": {
+          "candidate_visits": [
+            1
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.052843,
+          "median_ms": 0.051382,
+          "min_ms": 0.050293000000000004,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            2
+          ],
+          "returned": 1,
+          "source_reads": [
+            2
+          ],
+          "total": 1
+        }
+      },
+      "setup": {
+        "build_ms": 73.98139400000001,
+        "cache_mib": 0,
+        "case": "setup",
+        "custom_sources": 1,
+        "restore_ms": 41.707482999999996,
+        "snapshot_bytes": 809195,
+        "sources_per_collection": 512
+      }
+    },
+    "64": {
+      "cases": {
+        "custom_absent": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.023322000000000002,
+          "median_ms": 0.014902,
+          "min_ms": 0.014493,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            0
+          ],
+          "returned": 0,
+          "source_reads": [
+            0
+          ],
+          "total": 0
+        },
+        "custom_and": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.048701,
+          "median_ms": 0.045597,
+          "min_ms": 0.040878,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            1
+          ],
+          "returned": 1,
+          "source_reads": [
+            1
+          ],
+          "total": 1
+        },
+        "custom_broad": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.160989,
+          "median_ms": 0.1038,
+          "min_ms": 0.099838,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            10
+          ],
+          "returned": 10,
+          "source_reads": [
+            10
+          ],
+          "total": 131
+        },
+        "custom_direct": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.056119,
+          "median_ms": 0.049018,
+          "min_ms": 0.044445,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            3
+          ],
+          "returned": 3,
+          "source_reads": [
+            3
+          ],
+          "total": 3
+        },
+        "custom_native_direct": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.046093,
+          "median_ms": 0.041607000000000005,
+          "min_ms": 0.040985999999999995,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            2
+          ],
+          "returned": 2,
+          "source_reads": [
+            2
+          ],
+          "total": 2
+        },
+        "custom_native_index": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.049706,
+          "median_ms": 0.044474,
+          "min_ms": 0.042183,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            2
+          ],
+          "returned": 2,
+          "source_reads": [
+            2
+          ],
+          "total": 2
+        },
+        "custom_or": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.041001,
+          "median_ms": 0.037783,
+          "min_ms": 0.034943,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            1
+          ],
+          "returned": 1,
+          "source_reads": [
+            1
+          ],
+          "total": 1
+        },
+        "custom_selective": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.17225000000000001,
+          "median_ms": 0.042972,
+          "min_ms": 0.040526,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            3
+          ],
+          "returned": 3,
+          "source_reads": [
+            3
+          ],
+          "total": 3
+        },
+        "custom_sorted": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.114079,
+          "median_ms": 0.104546,
+          "min_ms": 0.101005,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            10
+          ],
+          "returned": 10,
+          "source_reads": [
+            10
+          ],
+          "total": 131
+        },
+        "custom_stream": {
+          "candidate_visits": [
+            3
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.07792900000000001,
+          "median_ms": 0.071487,
+          "min_ms": 0.069122,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            6
+          ],
+          "returned": 3,
+          "source_reads": [
+            6
+          ],
+          "total": 3
+        },
+        "native_fts": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.039664,
+          "median_ms": 0.033263,
+          "min_ms": 0.031146000000000004,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            2
+          ],
+          "returned": 2,
+          "source_reads": [
+            2
+          ],
+          "total": 2
+        },
+        "native_scalar": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.458367,
+          "median_ms": 0.42037399999999997,
+          "min_ms": 0.41281500000000004,
+          "ordered_cache_hits": [
+            0
+          ],
+          "parses": [
+            1
+          ],
+          "returned": 1,
+          "source_reads": [
+            1
+          ],
+          "total": 1
+        },
+        "second_definition": {
+          "candidate_visits": [
+            0
+          ],
+          "fts_candidates": [
+            0
+          ],
+          "max_ms": 0.039835,
+          "median_ms": 0.029064000000000003,
+          "min_ms": 0.028079999999999997,
+          "ordered_cache_hits": [
+            1
+          ],
+          "parses": [
+            1
+          ],
+          "returned": 1,
+          "source_reads": [
+            1
+          ],
+          "total": 1
+        }
+      },
+      "setup": {
+        "build_ms": 58.197126000000004,
+        "cache_mib": 64,
+        "case": "setup",
+        "custom_sources": 1,
+        "restore_ms": 77.99302599999999,
+        "snapshot_bytes": 809339,
+        "sources_per_collection": 512
+      }
+    }
+  },
+  "focused_complete_signatures_equal": true,
+  "focused_signature_sha256": "714c5734f21a902e1f50504b73e7249aa0f556fca2b48c09b87dd2d840863f9e",
+  "frontend": {
+    "index_build_ms": {
+      "candidate": 3855.418398,
+      "delta": 32.14030899999989,
+      "reference": 3823.278089,
+      "relative_pct": 0.8406479531915645
+    },
+    "indexed": {
+      "candidate": {
+        "max_ms": 9.553621999999999,
+        "median_ms": 9.504788999999999,
+        "min_ms": 9.076219
+      },
+      "candidate_work": [
+        [
+          326,
+          326,
+          325
+        ]
+      ],
+      "delta_ms": 0.02411399999999908,
+      "reference": {
+        "max_ms": 9.587217,
+        "median_ms": 9.480675,
+        "min_ms": 9.032857
+      },
+      "reference_work": [
+        [
+          326,
+          326,
+          325
+        ]
+      ],
+      "relative_pct": 0.2543489783163988
+    },
+    "scan": {
+      "candidate": {
+        "max_ms": 3339.354303,
+        "median_ms": 3180.039368,
+        "min_ms": 3153.830438
+      },
+      "candidate_work": [
+        [
+          133949,
+          133949,
+          0
+        ]
+      ],
+      "delta_ms": 18.165816000000177,
+      "reference": {
+        "max_ms": 3188.5428110000003,
+        "median_ms": 3161.873552,
+        "min_ms": 3151.336639
+      },
+      "reference_work": [
+        [
+          133949,
+          133949,
+          0
+        ]
+      ],
+      "relative_pct": 0.574526960083821
+    },
+    "snapshot_bytes": {
+      "candidate": 6279015,
+      "delta": 0,
+      "reference": 6279015,
+      "relative_pct": 0.0
+    },
+    "snapshot_restore_ms": {
+      "candidate": 510.867933,
+      "delta": 2.3335859999999684,
+      "reference": 508.534347,
+      "relative_pct": 0.45888463852372663
+    }
+  },
+  "frontend_complete_results_equal": true
+}
