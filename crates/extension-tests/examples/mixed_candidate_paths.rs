@@ -11,10 +11,12 @@ use objekte_extension_tests::MarkdownProvider;
 use serde_json::json;
 use std::{env, fs, path::Path, time::Instant};
 
+
 struct JsonAliasProvider {
     inner: MarkdownProvider,
     descriptor: Descriptor,
 }
+
 
 impl JsonAliasProvider {
     fn new(root: &Path) -> Self {
@@ -35,6 +37,7 @@ impl JsonAliasProvider {
         }
     }
 }
+
 
 impl SourceProvider for JsonAliasProvider {
     fn descriptor(&self) -> &Descriptor {
@@ -61,6 +64,7 @@ impl SourceProvider for JsonAliasProvider {
         self.inner.read(&original, output)
     }
 }
+
 
 fn prepare(root: &Path, count: usize) -> std::result::Result<(), Box<dyn std::error::Error>> {
     if root.exists() {
@@ -108,10 +112,7 @@ fn request(scenario: &str) -> JsonQuery {
             "body:fts ~ 'common' && year = 1848",
             JsonQueryBackend::Direct,
         ),
-        "indexed-fallback" => (
-            "body:fts ~ 'common' && year = 1848",
-            JsonQueryBackend::Auto,
-        ),
+        "indexed-fallback" => ("body:fts ~ 'common' && year = 1848", JsonQueryBackend::Auto),
         "rare-fts" => ("body:fts ~ 'raretokenXYZ'", JsonQueryBackend::Auto),
         _ => unreachable!(),
     };
