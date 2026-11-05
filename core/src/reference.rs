@@ -304,7 +304,10 @@ pub struct RecordContext<'a> {
     pub repository_root: &'a Path,
 }
 
-fn metadata_value(field: MetadataField, ctx: &RecordContext<'_>) -> Result<Value, String> {
+pub(crate) fn metadata_value(
+    field: MetadataField,
+    ctx: &RecordContext<'_>,
+) -> Result<Value, String> {
     let number = |n: u64| Value::Number(Number::integer(n as i128));
     Ok(match field {
         MetadataField::RecordId => Value::String(ctx.record.id.0.clone()),

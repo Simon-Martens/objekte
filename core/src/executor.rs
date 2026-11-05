@@ -11,7 +11,9 @@ use crate::reference::{
     BoundExpr, BoundTerm, Derived, RecordContext, Transform, bind_filter, eval_filter,
     eval_fts_query, eval_term,
 };
-use crate::repository::{CollectionState, Repository, SearchHit, SearchResult};
+use crate::repository::{
+    CollectionState, Repository, SearchHit, SearchResult, sort_rows, validate_sort,
+};
 use crate::source::{read_record_range, reader};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -202,9 +204,6 @@ fn fts_candidates(collection: &CollectionState, fts: &FtsQuery) -> Option<Roarin
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
-    if !query.options.sort.is_empty() {
-        return Err("sorting is not implemented yet".into());
-    }
     if query.options.return_mode != ReturnMode::Locator {
         return Err("payload modes are not implemented yet".into());
     }
@@ -240,6 +239,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     if bound.is_empty() {
         return Err("unknown or unloaded collection scope".into());
     }
+    validate_sort(repo, query)?;
     let mut hits = Vec::new();
     let mut counters = WorkCounters::default();
     for (collection, filter) in bound {
@@ -324,25 +324,30 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                     Vec::new()
                 };
                 matched_fields.sort();
-                hits.push(SearchHit {
-                    collection: collection.definition.name.clone(),
-                    record_id: record.id.0.clone(),
-                    file_path: file.relative_path.clone(),
-                    byte_start: record.range.start,
-                    byte_end: record.range.end,
-                    modified_ns: record.revision.modified_ns,
-                    matched_fields,
-                });
+                hits.push((
+                    collection.generation.collection.0 as usize,
+                    record.slot.0,
+                    SearchHit {
+                        collection: collection.definition.name.clone(),
+                        record_id: record.id.0.clone(),
+                        file_path: file.relative_path.clone(),
+                        byte_start: record.range.start,
+                        byte_end: record.range.end,
+                        modified_ns: record.revision.modified_ns,
+                        matched_fields,
+                    },
+                ));
             }
         }
     }
-    hits.sort_by(|a, b| (&a.collection, &a.record_id).cmp(&(&b.collection, &b.record_id)));
+    sort_rows(repo, query, &mut hits);
     let count = hits.len();
     counters.total_matches = count as u64;
     let hits: Vec<_> = hits
         .into_iter()
         .skip(query.options.offset)
         .take(query.options.limit)
+        .map(|(_, _, hit)| hit)
         .collect();
     counters.returned_records = hits.len() as u64;
     Ok(SearchResult {
@@ -408,6 +413,8 @@ mod tests {
                 format: SourceFormat::Json,
                 identity: IdentityPolicy::Filename,
                 schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
             }],
         )
         .unwrap();

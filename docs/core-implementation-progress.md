@@ -27,6 +27,7 @@ query/build and restore revisions will establish their respective baselines.
 | C11 | complete | `cargo test --workspace --all-targets`; CLI places FTS Leipzig | ASCII normal/skip bigrams on record text segments |
 | C12 | complete | `cargo test --workspace --all-targets`; Q013 ASCII/Unicode | Repository alphabet setting, observed Unicode pairs, equal 57 matches |
 | C13 | complete | `cargo test --workspace --all-targets`; Q070 indexed/reference | Folded custom extraction, bigrams, scanner, selected FTS |
+| C14 | complete | `cargo test --workspace --all-targets`; Q126/Q127 indexed/reference | ICU/typed sort columns, stable ties, multi-field order |
 
 ## Decisions
 
@@ -65,6 +66,9 @@ query/build and restore revisions will establish their respective baselines.
 - `agents.name:folded` has a separate versioned transform registration and
   folded bigram path. Q070 matched one record in both optimized and reference
   modes; indexed verification parsed one record versus 4,010 in the reference.
+- String sort keys use pinned ICU4X 2.4.0 compiled data with locale `de` and
+  default options; numeric/temporal keys keep their logical types. Null and
+  missing values remain last in both directions, followed by an identity tie.
 
 ## Measurements
 

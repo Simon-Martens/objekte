@@ -60,12 +60,25 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
                 },
             )?;
         }
+        let sort_names: &[&str] = match name.as_str() {
+            "places" => &["name", "@file.size"],
+            "agents" => &["name"],
+            "entries" => &["year", "preferred_title"],
+            "contents" => &["numbering", "preferred_title"],
+            "series" => &["title"],
+            _ => &[],
+        };
         definitions.push(CollectionDefinition {
             name,
             source_path,
             format,
             identity,
             schema,
+            sort_fields: sort_names
+                .iter()
+                .map(|s| FieldPath::parse(s))
+                .collect::<Result<_, _>>()?,
+            sort_locale: "de".into(),
         });
     }
     Ok(definitions)

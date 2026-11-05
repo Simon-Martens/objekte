@@ -220,6 +220,9 @@ pub struct CollectionBuilder {
 }
 
 impl CollectionBuilder {
+    pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
+        self.records.get(slot.0 as usize)
+    }
     pub fn new(collection: CollectionId, name: String, generation: u64, file_count: usize) -> Self {
         Self {
             collection,

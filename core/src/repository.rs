@@ -5,12 +5,13 @@ use std::path::PathBuf;
 
 use crate::bigram::BigramIndex;
 use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision};
-use crate::model::{CollectionId, RecordId};
+use crate::model::{CollectionId, FieldPath, RecordId, RecordSlot};
 use crate::posting::PostingCollection;
 use crate::query::Query;
 use crate::reference::{
     RecordContext, Schema, Transform, bind_filter, data_values, eval_filter, eval_fts_query,
 };
+use crate::sorting::{SortBuilder, SortCollection};
 use crate::source::{SourceFormat, TextSegment, extract_file, read_record_range, reader};
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
@@ -28,6 +29,8 @@ pub struct CollectionDefinition {
     pub format: SourceFormat,
     pub identity: IdentityPolicy,
     pub schema: Schema,
+    pub sort_fields: Vec<FieldPath>,
+    pub sort_locale: String,
 }
 
 pub struct CollectionState {
@@ -36,6 +39,7 @@ pub struct CollectionState {
     pub postings: PostingCollection,
     pub raw: BigramIndex,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    pub sorting: SortCollection,
 }
 pub struct Repository {
     pub files: FileInventory,
@@ -147,6 +151,11 @@ impl Repository {
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
             let mut raw = BigramIndex::new(options.bigram_alphabet);
+            let mut sort_builder = SortBuilder::new(
+                &definition.sort_fields,
+                &definition.schema,
+                &definition.sort_locale,
+            )?;
             let mut custom_text: HashMap<_, _> = definition
                 .schema
                 .custom
@@ -173,6 +182,14 @@ impl Repository {
                     let slot = builder.add_record(file, record_id, range.start, range.end)?;
                     postings.add(slot, &extracted.value)?;
                     raw.add_record(slot, &extracted.text)?;
+                    sort_builder.add(
+                        slot,
+                        &extracted.value,
+                        builder.record(slot).unwrap(),
+                        file,
+                        &root,
+                        &definition.name,
+                    )?;
                     for (key, index) in &mut custom_text {
                         let binding = &definition.schema.custom[key];
                         let mut segments = Vec::new();
@@ -210,12 +227,14 @@ impl Repository {
             for index in custom_text.values() {
                 index.validate(generation.records.len())?;
             }
+            let sorting = sort_builder.finish(&generation)?;
             collections.push(CollectionState {
                 definition,
                 generation,
                 postings,
                 raw,
                 custom_text,
+                sorting,
             });
         }
         Ok(Self {
@@ -227,9 +246,6 @@ impl Repository {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
-        if !query.options.sort.is_empty() {
-            return Err("sorting is not implemented in the reference CLI stage".into());
-        }
         if query.options.return_mode != ReturnMode::Locator {
             return Err("payload modes are not implemented in the reference CLI stage".into());
         }
@@ -265,6 +281,7 @@ impl Repository {
         if bound.is_empty() {
             return Err("unknown or unloaded collection scope".into());
         }
+        validate_sort(self, query)?;
         let mut hits = Vec::new();
         let mut counters = WorkCounters {
             exact_posting_matches: 0,
@@ -326,25 +343,30 @@ impl Repository {
                         Vec::new()
                     };
                     matched_fields.sort();
-                    hits.push(SearchHit {
-                        collection: collection.definition.name.clone(),
-                        record_id: record.id.0.clone(),
-                        file_path: file.relative_path.clone(),
-                        byte_start: record.range.start,
-                        byte_end: record.range.end,
-                        modified_ns: record.revision.modified_ns,
-                        matched_fields,
-                    });
+                    hits.push((
+                        collection.generation.collection.0 as usize,
+                        record.slot.0,
+                        SearchHit {
+                            collection: collection.definition.name.clone(),
+                            record_id: record.id.0.clone(),
+                            file_path: file.relative_path.clone(),
+                            byte_start: record.range.start,
+                            byte_end: record.range.end,
+                            modified_ns: record.revision.modified_ns,
+                            matched_fields,
+                        },
+                    ));
                 }
             }
         }
-        hits.sort_by(|a, b| (&a.collection, &a.record_id).cmp(&(&b.collection, &b.record_id)));
+        sort_rows(self, query, &mut hits);
         let count = hits.len();
         counters.total_matches = count as u64;
         let hits: Vec<_> = hits
             .into_iter()
             .skip(query.options.offset)
             .take(query.options.limit)
+            .map(|(_, _, hit)| hit)
             .collect();
         counters.returned_records = hits.len() as u64;
         Ok(SearchResult {
@@ -353,4 +375,47 @@ impl Repository {
             counters,
         })
     }
+}
+
+pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
+    for field in &query.options.sort {
+        let mut expected = None;
+        for collection in &repo.collections {
+            if !query.collections.is_empty()
+                && !query.collections.contains(&collection.definition.name)
+            {
+                continue;
+            }
+            let column = collection.sorting.column(&field.field)?;
+            let definition = (&column.kind, &column.locale, &column.collation_version);
+            if expected.as_ref().is_some_and(|prior| *prior != definition) {
+                return Err(format!(
+                    "incompatible cross-collection sort: {}",
+                    field.field
+                ));
+            }
+            expected = Some(definition);
+        }
+    }
+    Ok(())
+}
+
+pub(crate) fn sort_rows(repo: &Repository, query: &Query, hits: &mut [(usize, u32, SearchHit)]) {
+    hits.sort_by(|(a_collection, a_slot, a), (b_collection, b_slot, b)| {
+        for field in &query.options.sort {
+            let a_key = repo.collections[*a_collection]
+                .sorting
+                .key(&field.field, RecordSlot(*a_slot))
+                .expect("sort validated");
+            let b_key = repo.collections[*b_collection]
+                .sorting
+                .key(&field.field, RecordSlot(*b_slot))
+                .expect("sort validated");
+            let order = a_key.compare(b_key, field.descending);
+            if !order.is_eq() {
+                return order;
+            }
+        }
+        (&a.collection, &a.record_id).cmp(&(&b.collection, &b.record_id))
+    });
 }
