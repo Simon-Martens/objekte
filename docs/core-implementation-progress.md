@@ -135,7 +135,8 @@ query/build and restore revisions will establish their respective baselines.
   collisions, selected metadata/lower FTS, partial posting coverage, negation,
   unindexed OR, and shared multi-record source files. The acceptance command
   is `cargo run --release --example accept_musenalm -- --alphabet ascii` (or
-  `unicode`).
+  `unicode`). The [saved acceptance logs](../bench/results/musenalm/acceptance-42c7314732/REPORT.md)
+  record 300/300 passing case/alphabet comparisons on revision `42c7314732`.
 
 ## Measurements
 
