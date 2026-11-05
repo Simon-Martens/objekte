@@ -1,0 +1,6 @@
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/bench_musenalm --cases Q031 --profiles unicode-off --repetitions 1 --result-dir bench/results/musenalm/final-6e6db5f62a/build-repeats/04-unicode`
+Q031 collection=places FTS=None FILTER=Some("fictional = false") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 136.928 / 136.928 / 136.928 µs (ok)
+build "unicode": 15.261 s; snapshot_write=0.296 s; parses=148486; resident_bytes=276934656; peak_resident_bytes=372441088; estimated_index_bytes=80763860; snapshot_bytes=117932485; restore_min/median/max=0.549/0.570/0.584 s (5 runs)
+reports: bench/results/musenalm/final-6e6db5f62a/build-repeats/04-unicode
+reproduce: cargo run --release --example bench_musenalm -- "--cases" "Q031" "--profiles" "unicode-off" "--repetitions" "1" "--result-dir" "bench/results/musenalm/final-6e6db5f62a/build-repeats/04-unicode"
