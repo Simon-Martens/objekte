@@ -21,6 +21,7 @@ query/build and restore revisions will establish their respective baselines.
 | C05 | complete | `cargo fmt --all && cargo test --workspace` | JSON/JSONL framing, standalone range parsing, fused extraction callback |
 | C06 | complete | `cargo fmt --all && cargo test --workspace` | Separate FTS input, FILTER parser, all fixed filters parse |
 | C07 | complete | `cargo fmt --all && cargo test --workspace` | Typed binding and independent scan evaluation |
+| C08 | complete | `cargo test --workspace --all-targets`; CLI Q031, Q070 | Fixture adapter, JSON/filename registration, reference CLI |
 
 ## Decisions
 
@@ -39,6 +40,9 @@ query/build and restore revisions will establish their respective baselines.
 - The reference evaluator resolves all branches before execution and applies
   Unicode case folding through `unicode-casefold` 0.2. It is kept independent
   of optimized access paths for later comparisons.
+- The Musenalm adapter reads each checkout schema, all nested fields and
+  `x-index-paths`, and the declared JSON/filename policy. A targeted fixture
+  test preserves `contents.numbering = 32.01` as a number.
 
 ## Measurements
 
