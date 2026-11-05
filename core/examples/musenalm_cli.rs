@@ -126,6 +126,7 @@ fn run() -> Result<(), String> {
         selected,
         RepositoryOptions {
             bigram_alphabet: alphabet,
+            ..RepositoryOptions::default()
         },
     )?;
     for state in &repository.collections {

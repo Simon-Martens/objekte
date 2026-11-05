@@ -2,6 +2,7 @@
 
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
+use std::sync::Mutex;
 
 use crate::bigram::BigramIndex;
 use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision};
@@ -70,16 +71,19 @@ pub struct Repository {
     pub collections: Vec<CollectionState>,
     pub build_parses: u64,
     pub options: RepositoryOptions,
+    pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
 }
 
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
+    pub prepared_cache_bytes: usize,
 }
 impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
             bigram_alphabet: BigramAlphabet::Ascii,
+            prepared_cache_bytes: 4 * 1024 * 1024,
         }
     }
 }
@@ -298,6 +302,9 @@ impl Repository {
             collections,
             build_parses,
             options,
+            prepared: Mutex::new(crate::prepared::PreparedCache::new(
+                options.prepared_cache_bytes,
+            )),
         })
     }
 

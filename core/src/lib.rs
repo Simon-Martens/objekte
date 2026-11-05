@@ -11,6 +11,7 @@ pub mod executor;
 pub mod inventory;
 pub mod model;
 pub mod posting;
+mod prepared;
 pub mod query;
 pub mod reference;
 pub mod repository;

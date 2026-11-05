@@ -170,6 +170,7 @@ fn run() -> Result<(), String> {
             definitions.clone(),
             RepositoryOptions {
                 bigram_alphabet: alphabet,
+                ..RepositoryOptions::default()
             },
         )?;
         let build_ns = build_start.elapsed().as_nanos() as u64;

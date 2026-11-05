@@ -12,8 +12,8 @@ use crate::executor::{
 };
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::query::{Operator, Query};
-use crate::reference::{Derived, RecordContext, bind_filter, eval_filter, eval_fts_query};
-use crate::repository::{Payload, Repository, SearchHit, SearchResult, validate_sort};
+use crate::reference::{Derived, RecordContext, eval_filter, eval_fts_query};
+use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
 use crate::source::{read_record_ranges, reader};
 use crate::workload::{ReturnMode, WorkCounters};
@@ -191,33 +191,10 @@ pub fn search_analyze(
 }
 
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
-    validate_sort(repo, query)?;
+    let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let mut traces = Vec::new();
-    for collection in &repo.collections {
-        if !query.collections.is_empty() && !query.collections.contains(&collection.definition.name)
-        {
-            continue;
-        }
-        let filter = query
-            .filter
-            .as_ref()
-            .map(|f| bind_filter(f, &collection.definition.schema))
-            .transpose()?;
-        if let Some(fts) = &query.fts {
-            for field in &fts.fields {
-                collection.definition.schema.field(&field.path)?;
-                if let Some(name) = &field.binding {
-                    if !collection
-                        .definition
-                        .schema
-                        .custom
-                        .contains_key(&(field.path.segments.clone(), name.clone()))
-                    {
-                        return Err(format!("unknown FTS binding {name}"));
-                    }
-                }
-            }
-        }
+    for (collection_index, filter) in prepared.collections {
+        let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
         let plan = filter
             .as_ref()
@@ -253,9 +230,6 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             actual: None,
         });
     }
-    if traces.is_empty() {
-        return Err("unknown or unloaded collection scope".into());
-    }
     Ok(traces)
 }
 
@@ -265,38 +239,7 @@ fn search_impl(
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
-    let mut bound = Vec::new();
-    for (collection_index, collection) in repo.collections.iter().enumerate() {
-        if !query.collections.is_empty() && !query.collections.contains(&collection.definition.name)
-        {
-            continue;
-        }
-        let filter = query
-            .filter
-            .as_ref()
-            .map(|f| bind_filter(f, &collection.definition.schema))
-            .transpose()?;
-        if let Some(fts) = &query.fts {
-            for field in &fts.fields {
-                collection.definition.schema.field(&field.path)?;
-                if let Some(name) = &field.binding {
-                    if !collection
-                        .definition
-                        .schema
-                        .custom
-                        .contains_key(&(field.path.segments.clone(), name.clone()))
-                    {
-                        return Err(format!("unknown FTS binding {name}"));
-                    }
-                }
-            }
-        }
-        bound.push((collection_index, filter));
-    }
-    if bound.is_empty() {
-        return Err("unknown or unloaded collection scope".into());
-    }
-    validate_sort(repo, query)?;
+    let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
     let cap = query
         .options
         .limit
@@ -305,7 +248,8 @@ fn search_impl(
     let mut winners = BinaryHeap::new();
     let mut counters = WorkCounters::default();
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
-    for (collection_index, filter) in bound {
+    counters.prepared_plan_hit = plan_hit;
+    for (collection_index, filter) in prepared.collections {
         let planning_start = Instant::now();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
@@ -618,6 +562,11 @@ mod tests {
                 },
             };
             let result = repo.search(&query).unwrap();
+            assert_eq!(
+                result.counters.prepared_plan_hit,
+                mode != ReturnMode::Locator
+            );
+            assert!(!result.counters.verified_result_hit);
             if mode == ReturnMode::Locator {
                 let plan = repo.explain(&query).unwrap();
                 assert!(plan[0].actual.is_none());

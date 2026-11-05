@@ -34,6 +34,7 @@ query/build and restore revisions will establish their respective baselines.
 | C17 | complete | `cargo test --workspace --all-targets` | Maintained posting/source stats and per-term costed path enumeration |
 | C18 | complete | `cargo test --workspace --all-targets`; rare-text/permutation fixture | Flattened AND, costed AND/OR order, actual-cardinality adaptation |
 | C19 | complete | `cargo test --workspace --all-targets`; Q031/Q070/Q141 uncached subset | Borrowed restricted postings, EXPLAIN/ANALYZE, per-case trace output |
+| C20 | complete | `cargo test --workspace --all-targets` | 4 MiB bounded repository-local prepared bindings and separate hit counter |
 
 ## Decisions
 
@@ -94,6 +95,11 @@ query/build and restore revisions will establish their respective baselines.
   resident indexes; EXPLAIN ANALYZE records term order, alternatives, estimates,
   source work, and proof counts. The benchmark saves traces separately from
   primary timing samples.
+- The prepared cache stores typed, validated collection-specific bindings under
+  a configurable 4 MiB default budget. Its lifetime is one immutable
+  repository generation; reopening creates a new cache. Pagination, return
+  mode, and evidence can share a prepared binding. Hits are reported separately
+  from verified-result reuse.
 
 ## Measurements
 
