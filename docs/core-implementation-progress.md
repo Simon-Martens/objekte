@@ -18,6 +18,7 @@ query/build and restore revisions will establish their respective baselines.
 | C02 | complete | `cargo fmt --all && cargo test --workspace` | 150 fixed cases, four profile definitions, report envelopes |
 | C03 | complete | `cargo fmt --all && cargo test --workspace` | Typed values, precise numeric ordering, temporal types, paths, IDs |
 | C04 | complete | `cargo fmt --all && cargo test --workspace` | File inventory, checked ranges, both record mappings |
+| C05 | complete | `cargo fmt --all && cargo test --workspace` | JSON/JSONL framing, standalone range parsing, fused extraction callback |
 
 ## Decisions
 
@@ -31,6 +32,8 @@ query/build and restore revisions will establish their respective baselines.
 - A collection generation owns compact record slots. Its file-to-record
   offset table and reverse records are validated together; file identity is
   repository-wide and a file can participate in multiple collections.
+- Source readers frame original byte ranges. The extraction callback receives
+  one parsed logical record plus separate field text segments for every range.
 
 ## Measurements
 
