@@ -108,6 +108,8 @@ impl Repository {
                     size: stamp.size,
                     modified: &stamp.modified,
                     status: document.state.status,
+                    locator: None,
+                    created: None,
                 };
                 let keys = buffer.project(&collection.name, &record, &document.data)?;
                 let changed = buffer.insert_keys(&collection.name, id, keys, || {
@@ -159,6 +161,8 @@ impl Repository {
                         size: record.size_bytes,
                         modified: &record.modified_unix_nanos,
                         status: record.state.status,
+                        locator: None,
+                        created: None,
                     };
                     let keys = buffer.project(&record.collection, &source, &record.data)?;
                     let changed = buffer

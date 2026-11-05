@@ -11,6 +11,12 @@ impl Repository {
     /// diffed against the source files; without one, the index is built and
     /// there is nothing to compare.
     pub fn diff(&mut self, collection: &str) -> Result<CollectionChanges> {
+        if self.selected_route(&[collection.to_owned()])?.is_some() {
+            return Err(Error::Request(
+                "diff handles native JSON picker changes only; use refresh for selected providers"
+                    .into(),
+            ));
+        }
         let c = self.collection(collection)?;
         if self.options.cache != CacheMode::Memory {
             return Ok(CollectionChanges::default());
@@ -66,6 +72,14 @@ impl Repository {
             for path in paths {
                 let (collection, id) = self.locate_source(path)?;
                 touched.entry(collection).or_default().insert(id);
+            }
+        }
+        for collection in touched.keys() {
+            if self
+                .selected_route(std::slice::from_ref(collection))?
+                .is_some()
+            {
+                return Err(Error::Request("apply_source_changes handles native JSON paths only; use refresh for selected providers".into()));
             }
         }
         let mut report = BTreeMap::new();

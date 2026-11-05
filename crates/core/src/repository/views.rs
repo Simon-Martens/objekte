@@ -14,6 +14,13 @@ enum RetainedView {
 impl Repository {
     pub fn open_view(&mut self, collection: &str, request: &ViewRequest) -> Result<ViewResult> {
         let before = self.metrics.clone();
+        if let Some(mut selected) = self.selected_route(&[collection.to_owned()])? {
+            let (c, snapshot) = selected.pop().expect("selected collection exists");
+            let plan = Plan::compile(&c, request)?;
+            let mut result = self.view_selected(&c, &snapshot, &plan)?;
+            result.metrics = self.metrics.since(&before);
+            return Ok(result);
+        }
         let c = self.collection(collection)?;
         let plan = Plan::compile(&c, request)?;
         let mut result = match self.options.cache {
@@ -22,6 +29,60 @@ impl Repository {
         };
         result.metrics = self.metrics.since(&before);
         Ok(result)
+    }
+
+    fn view_selected(
+        &mut self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        plan: &Plan,
+    ) -> Result<ViewResult> {
+        let mut selected = ViewSelection::new(plan);
+        let mut bytes = Vec::new();
+        for (slot, source) in snapshot.sources.iter().enumerate() {
+            let record = self.selected_record(collection, source, &mut bytes, false)?;
+            let document = Document {
+                data: record.data,
+                state: record.state,
+            };
+            if plan.matches(&record.id, &document) {
+                let keys = plan.keys(&record.id, &document);
+                selected.consider(keys, || slot);
+            }
+        }
+        let total = selected.total();
+        let page = selected.into_page();
+        let mut states = BTreeMap::new();
+        let mut rows = Vec::with_capacity(page.len());
+        for slot in page {
+            let source = &snapshot.sources[slot];
+            let record = self.selected_record(collection, source, &mut bytes, true)?;
+            let document = Document {
+                data: record.data,
+                state: record.state,
+            };
+            if !plan.matches(&record.id, &document) {
+                return Err(Error::Unstable(source.locator.clone()));
+            }
+            rows.push(plan.row(collection, &record.id, record.path, &document));
+            states.insert(record.id, document.state);
+        }
+        if self.options.freshness != Freshness::MetadataOnOpen {
+            let current = self.source_descriptors(&collection.name)?;
+            self.metrics.enumerations += 1;
+            if current != *snapshot.sources {
+                return Err(Error::Unstable(collection.path.clone()));
+            }
+        }
+        Ok(ViewResult {
+            columns: plan.columns.clone(),
+            rows,
+            states,
+            total,
+            metrics: Metrics::default(),
+            query_plan: vec!["selected source scan".into()],
+            view_hashes: plan.hashes.clone(),
+        })
     }
 
     fn view_memory(&mut self, c: &Collection, plan: &Plan) -> Result<ViewResult> {

@@ -66,9 +66,9 @@ impl Repository {
                 "selected index request list is empty".into(),
             ));
         }
-        if requests.len() > 8 {
+        if requests.len() > 4096 {
             return Err(Error::Request(
-                "selected index build accepts at most eight outputs".into(),
+                "selected index build exceeds 4096 outputs".into(),
             ));
         }
         if self.options.cache != CacheMode::Memory

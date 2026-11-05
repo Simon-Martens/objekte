@@ -11,6 +11,8 @@ use crate::{
     file_picker::TypedKey,
 };
 
+mod selected;
+
 
 #[derive(Clone, Debug, Serialize)]
 pub enum DerivedPredicate {
@@ -134,6 +136,10 @@ impl Repository {
     /// Query a registered derived field. The indexed route uses the engine's
     /// B-tree posting; the direct route invokes the same extractor on records.
     pub fn query_derived(&mut self, query: &DerivedQuery) -> Result<DerivedQueryResult> {
+        if let Some(mut selected) = self.selected_route(std::slice::from_ref(&query.collection))? {
+            let (collection, snapshot) = selected.pop().expect("selected collection exists");
+            return self.query_derived_selected(query, &collection, &snapshot);
+        }
         let collection = self.collection(&query.collection)?;
         let extensions = self
             .extensions

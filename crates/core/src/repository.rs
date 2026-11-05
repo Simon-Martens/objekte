@@ -36,6 +36,7 @@ mod ordered_result_cache;
 mod predicate_cache;
 mod reconciliation;
 mod relations;
+mod selected_lifecycle;
 mod source_changes;
 mod source_records;
 mod text_query;
@@ -368,6 +369,7 @@ pub struct Repository {
         extension_derived_index::SelectedDerivedKey,
         extension_derived_index::SelectedDerivedPosting,
     >,
+    invalid_selected_collections: BTreeSet<String>,
 }
 
 
@@ -379,6 +381,9 @@ struct CustomSourceSnapshot {
     cacheable: bool,
     definitions: Vec<crate::extensions::Descriptor>,
 }
+
+
+type PendingSelectedOrder = (ordered_result_cache::OrderedResultKey, Vec<u32>);
 
 
 impl CustomSourceSnapshot {
@@ -499,6 +504,7 @@ impl RepositoryBuilder {
                 "repository total_limit must be positive".into(),
             ));
         }
+        self.extensions.ensure_source_representations()?;
         self.discovery
             .extension_annotations
             .extend(self.extensions.schema_annotations());
@@ -634,6 +640,7 @@ impl Repository {
             custom_source_snapshot: BTreeMap::new(),
             extension_text_indexes: BTreeMap::new(),
             selected_derived_indexes: BTreeMap::new(),
+            invalid_selected_collections: BTreeSet::new(),
         }
     }
 
@@ -643,7 +650,7 @@ impl Repository {
 
     /// Repository-owned path for one collection's bigram snapshot.
     pub fn bigram_cache_path(&self, collection: &str) -> Result<PathBuf> {
-        self.collection(collection)?;
+        self.model.collection(collection)?;
         use sha2::{Digest, Sha256};
         let name = format!("{:x}", Sha256::digest(collection.as_bytes()));
         Ok(self
@@ -664,6 +671,7 @@ impl Repository {
         );
         fork.custom_source_collections = self.custom_source_collections.clone();
         fork.custom_source_snapshot = self.custom_source_snapshot.clone();
+        fork.invalid_selected_collections = self.invalid_selected_collections.clone();
         fork
     }
 
@@ -689,20 +697,39 @@ impl Repository {
     /// collections whose effective configuration has not changed.
     pub fn reload(&mut self) -> Result<()> {
         let t = Instant::now();
+        let previous_selected = self
+            .custom_source_snapshot
+            .iter()
+            .map(|(name, snapshot)| {
+                (
+                    name.clone(),
+                    (
+                        snapshot.source_generation.clone(),
+                        snapshot.fingerprint.clone(),
+                    ),
+                )
+            })
+            .collect::<BTreeMap<_, _>>();
         let model = if let Some(settings) = &self.discovery {
             RepositoryModel::discover(&self.model.root, settings)?
         } else {
             RepositoryModel::load(&self.model.root)?
         };
+        let next_extensions = if let Some(extensions) = &self.extensions {
+            let mut next = (**extensions).clone();
+            next.bind_schemas(&model)?;
+            Some(std::sync::Arc::new(next))
+        } else {
+            None
+        };
         let mut custom_sources = BTreeSet::new();
         let mut custom_snapshot = BTreeMap::new();
-        if self
-            .extensions
+        if next_extensions
             .as_ref()
             .is_some_and(|extensions| extensions.source_providers().next().is_some())
         {
             for (name, collection) in &model.collections {
-                let applicable = self.extensions.as_ref().is_some_and(|extensions| {
+                let applicable = next_extensions.as_ref().is_some_and(|extensions| {
                     extensions
                         .source_providers()
                         .any(|provider| provider.may_select(name))
@@ -710,7 +737,7 @@ impl Repository {
                 let selected = extension_sources::select_sources(
                     collection,
                     name,
-                    self.extensions.as_deref(),
+                    next_extensions.as_deref(),
                 )?;
                 if selected
                     .iter()
@@ -724,20 +751,32 @@ impl Repository {
                         CustomSourceSnapshot::new(
                             collection,
                             selected,
-                            self.extensions.as_deref().unwrap(),
+                            next_extensions.as_deref().unwrap(),
                         )?,
                     );
                 }
             }
         }
-        if let Some(extensions) = &self.extensions {
-            let mut next = (**extensions).clone();
-            next.bind_schemas(&model)?;
-            self.extensions = Some(std::sync::Arc::new(next));
-        }
+        self.extensions = next_extensions;
         self.replace_model(model);
         self.custom_source_collections = custom_sources;
         self.custom_source_snapshot = custom_snapshot;
+        self.invalid_selected_collections.clear();
+        for (name, snapshot) in &self.custom_source_snapshot {
+            if previous_selected.get(name)
+                != Some(&(
+                    snapshot.source_generation.clone(),
+                    snapshot.fingerprint.clone(),
+                ))
+            {
+                self.query_cache.invalidate(name);
+            }
+        }
+        for name in previous_selected.keys() {
+            if !self.custom_source_snapshot.contains_key(name) {
+                self.query_cache.invalidate(name);
+            }
+        }
         self.extension_text_indexes.retain(|key, _| {
             self.custom_source_snapshot
                 .get(&key.collection)

@@ -8,6 +8,10 @@ impl Repository {
     /// Build an ordered posting for a registered derived field. The extractor
     /// identity is namespaced and cannot collide with a stored JSON path.
     pub fn build_derived_posting(&mut self, collection: &str, extractor: &str) -> Result<()> {
+        if self.selected_route(&[collection.to_owned()])?.is_some() {
+            self.warm_selected_derived(collection, extractor)?;
+            return Ok(());
+        }
         let c = self.collection(collection)?;
         let extensions = self
             .extensions
@@ -35,6 +39,49 @@ impl Repository {
         collection: &str,
         extractor: &str,
     ) -> Result<Vec<(crate::extensions::TypedValue, usize)>> {
+        if let Some(mut selected) = self.selected_route(&[collection.to_owned()])? {
+            let (c, snapshot) = selected.pop().expect("selected collection exists");
+            self.warm_selected_derived(collection, extractor)?;
+            let extensions = self.extensions.as_ref().expect("selected extensions");
+            let binding = extensions.bind_value(
+                extractor,
+                collection,
+                extensions.schema(collection).map(std::sync::Arc::as_ref),
+            )?;
+            let key = extension_derived_index::SelectedDerivedKey::new(
+                &c,
+                &binding.path,
+                &snapshot.fingerprint,
+                extensions,
+            );
+            let posting = self
+                .selected_derived_indexes
+                .get(&key)
+                .ok_or_else(|| Error::Cache("selected derived posting is unavailable".into()))?;
+            let counts = posting
+                .index
+                .derived_value_counts(&binding.path)
+                .ok_or_else(|| Error::Cache("selected derived posting is stale".into()))?;
+            return Ok(counts
+                .into_iter()
+                .filter_map(|(key, count)| {
+                    let value = match key {
+                        crate::file_picker::TypedKey::Bool(value) => {
+                            crate::extensions::TypedValue::Bool(value)
+                        }
+                        crate::file_picker::TypedKey::String(value) => {
+                            crate::extensions::TypedValue::Text(value)
+                        }
+                        crate::file_picker::TypedKey::Number(value) => {
+                            crate::extensions::TypedValue::Number(value)
+                        }
+                        crate::file_picker::TypedKey::Null
+                        | crate::file_picker::TypedKey::Missing => return None,
+                    };
+                    Some((value, count))
+                })
+                .collect());
+        }
         self.build_derived_posting(collection, extractor)?;
         let extensions = self.extensions.as_ref().expect("bound extensions");
         let binding = extensions.bind_value(
@@ -157,6 +204,9 @@ impl Repository {
     /// The path uses filter syntax, such as `year` or `contributors[0].type`.
     pub fn build_posting(&mut self, collection: &str, path: &str) -> Result<()> {
         let path = JsonFilter::parse_path(path)?;
+        if self.selected_route(&[collection.to_owned()])?.is_some() {
+            return Err(Error::Request("build_posting is a native JSON picker helper; mixed-source JSON filters use exact evaluation".into()));
+        }
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let picker = self
@@ -195,6 +245,14 @@ impl Repository {
         collection: &str,
         id: &str,
     ) -> Result<Option<RecordRevision>> {
+        if let Some(mut selected) = self.selected_route(&[collection.to_owned()])?
+            && let Some((_, snapshot)) = selected.pop()
+            && snapshot.sources.iter().any(|source| {
+                source.record_id == id && source.provider != crate::source::FILESYSTEM_JSON_IDENTITY
+            })
+        {
+            return Err(Error::Request("record_revision tracks native JSON picker revisions; use source_descriptors for provider revisions".into()));
+        }
         let c = self.collection(collection)?;
         validate_id(id)?;
         if self.options.cache == CacheMode::Disabled {
@@ -215,14 +273,19 @@ impl Repository {
     /// Build the process-local bigram picker for one collection if needed.
     /// An existing picker follows the configured freshness policy.
     pub fn warm_bigram_index(&mut self, collection: &str) -> Result<Metrics> {
-        let c = self.collection(collection)?;
-        self.warm_bigram_index_for(&c)
+        let c = self.model.collection(collection)?.clone();
+        let before = self.metrics.clone();
+        self.warm_bigram_index_for(&c)?;
+        if self.custom_source_collections.contains(collection) {
+            self.warm_selected_indexes(collection, true, true)?;
+        }
+        Ok(self.metrics.since(&before))
     }
 
     /// Save one collection's compressed bigram index and file-slot metadata.
     /// Call `rebuild_bigram_index` first when an in-memory overlay is present.
     pub fn save_bigram_snapshot(&mut self, collection: &str, path: &Path) -> Result<()> {
-        let c = self.collection(collection)?;
+        let c = self.model.collection(collection)?.clone();
         self.ensure_picker(&c)?;
         self.file_pickers[collection].save_bigram_snapshot(path)
     }
@@ -230,7 +293,7 @@ impl Repository {
     /// Save a collection's current bigram index in `.objekte/.cache`.
     pub fn save_bigram_cache(&mut self, collection: &str) -> Result<std::path::PathBuf> {
         let path = self.bigram_cache_path(collection)?;
-        let c = self.collection(collection)?;
+        let c = self.model.collection(collection)?.clone();
         self.ensure_picker(&c)?;
         let picker = self
             .file_pickers
@@ -245,6 +308,9 @@ impl Repository {
             self.query_cache.invalidate(collection);
         }
         picker.save_bigram_snapshot(&path)?;
+        if self.custom_source_collections.contains(collection) {
+            self.save_selected_indexes(collection)?;
+        }
         Ok(path)
     }
 
@@ -259,7 +325,8 @@ impl Repository {
 
     /// Read every source record again, rebuild one index, and replace its cache.
     pub fn reindex_bigram_cache(&mut self, collection: &str) -> Result<std::path::PathBuf> {
-        let c = self.collection(collection)?;
+        self.refresh(collection)?;
+        let c = self.model.collection(collection)?.clone();
         self.ensure_picker(&c)?;
         let picker = self
             .file_pickers
@@ -273,6 +340,10 @@ impl Repository {
         self.query_cache.invalidate(collection);
         let path = self.bigram_cache_path(collection)?;
         self.file_pickers[collection].save_bigram_snapshot(&path)?;
+        if self.custom_source_collections.contains(collection) {
+            self.rebuild_selected_text_indexes(collection)?;
+            self.save_selected_indexes(collection)?;
+        }
         Ok(path)
     }
 
@@ -288,10 +359,10 @@ impl Repository {
     /// Warm every collection's process-local bigram picker, in name order.
     /// Call the single-collection method to report progress between collections.
     pub fn warm_all_bigram_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
-        let collections = self.model.collections.values().cloned().collect::<Vec<_>>();
-        collections
+        let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
+        names
             .iter()
-            .map(|c| Ok((c.name.clone(), self.warm_bigram_index_for(c)?)))
+            .map(|name| Ok((name.clone(), self.warm_bigram_index(name)?)))
             .collect()
     }
 
@@ -299,17 +370,23 @@ impl Repository {
     /// indexes. Rebuilding an existing picker retains its record revisions and
     /// deletion tombstones.
     pub fn rebuild_bigram_index(&mut self, collection: &str) -> Result<Metrics> {
-        let c = self.collection(collection)?;
-        self.rebuild_bigram_index_for(&c)
+        let before = self.metrics.clone();
+        self.refresh(collection)?;
+        let c = self.model.collection(collection)?.clone();
+        self.rebuild_bigram_index_for(&c)?;
+        if self.custom_source_collections.contains(collection) {
+            self.rebuild_selected_text_indexes(collection)?;
+        }
+        Ok(self.metrics.since(&before))
     }
 
     /// Rebuild every collection's process-local bigram and scalar indexes, in
     /// name order. Earlier collections remain rebuilt if a later one fails.
     pub fn rebuild_all_bigram_indexes(&mut self) -> Result<BTreeMap<String, Metrics>> {
-        let collections = self.model.collections.values().cloned().collect::<Vec<_>>();
-        collections
+        let names = self.model.collections.keys().cloned().collect::<Vec<_>>();
+        names
             .iter()
-            .map(|c| Ok((c.name.clone(), self.rebuild_bigram_index_for(c)?)))
+            .map(|name| Ok((name.clone(), self.rebuild_bigram_index(name)?)))
             .collect()
     }
 
@@ -355,10 +432,8 @@ impl Repository {
 
     pub fn refresh(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
-        if self.reconcile_extension_selection(collection)? == Some(true) {
-            return Ok(self.metrics.since(&before));
-        }
-        let c = self.collection(collection)?;
+        let has_custom = self.reconcile_extension_selection(collection)? == Some(true);
+        let c = self.model.collection(collection)?.clone();
         match self.options.cache {
             CacheMode::Memory => {
                 if let Some(picker) = self.file_pickers.get_mut(collection) {
@@ -368,7 +443,16 @@ impl Repository {
                         self.invalidate_representation_indexes(collection);
                         self.autosave_loaded_bigram_cache(collection)?;
                     }
-                } else {
+                } else if !has_custom
+                    || self
+                        .custom_source_snapshot
+                        .get(collection)
+                        .is_some_and(|snapshot| {
+                            snapshot.sources.iter().any(|source| {
+                                source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
+                            })
+                        })
+                {
                     self.ensure_picker(&c)?;
                 }
                 self.memory_coverage

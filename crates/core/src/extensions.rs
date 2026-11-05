@@ -22,7 +22,7 @@ pub mod projection;
 pub mod query;
 pub mod source;
 
-pub use format::{DecodedRecord, FormatDecoder, ScalarValue};
+pub use format::{DecodedRecord, FormatDecoder, LogicalNode, ScalarValue};
 pub use identity::{DataKind, Dependency, Descriptor, SemanticVersion};
 pub(crate) use operator::BoundTextQuery;
 pub use operator::{CandidateConstraint, CompiledOperator, QueryOperator};
@@ -104,6 +104,34 @@ impl Extensions {
 
     pub(crate) fn format_identities(&self) -> impl Iterator<Item = &String> {
         self.formats.keys()
+    }
+
+    pub(crate) fn extractor_identities(&self) -> impl Iterator<Item = &String> {
+        self.extractors.keys()
+    }
+
+    pub(crate) fn ensure_source_representations(&mut self) -> Result<()> {
+        if self.sources.is_empty() {
+            return Ok(());
+        }
+        if !self.representations.contains_key("objekte:stored") {
+            self.register_representation(StoredRepresentation::default())?;
+        }
+        for format in [
+            crate::TextFormat::Plain,
+            crate::TextFormat::Markdown,
+            crate::TextFormat::Html,
+            crate::TextFormat::Xml,
+        ] {
+            let representation = RenderedRepresentation::new(format)?;
+            if !self
+                .representations
+                .contains_key(&representation.descriptor().identity)
+            {
+                self.register_representation(representation)?;
+            }
+        }
+        Ok(())
     }
 
     pub(crate) fn decoder(&self, source: &SourceDescriptor) -> Result<&dyn FormatDecoder> {

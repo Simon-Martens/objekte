@@ -22,7 +22,11 @@ The working repository entry points are `search_text_with` and `search_text_stre
 
 The typed-extractor contract is consumed by `build_derived_posting`, `derived_value_counts`, and `query_derived`. Registered source providers and format decoders are consumed by `source_descriptors`, callback-scoped `with_source_record`, and `read_source_leaves`. Reads check descriptor currency before and after provider I/O; the convenience leaf list is exposed only on complete success. Default JSON descriptors use the existing secure, descriptor-relative filesystem reader; `JsonFormatDecoder` visits Sonic values. Provider selection can discover a collection containing only custom source files, with or without a JSON Schema describing its logical fields. `reload` updates collection membership after provider additions or removals. Builder opening and reload validate collisions and ambiguous decoder selection; a collision introduced later is reported on the next descriptor inventory.
 
-`Repository::query_frontend` now executes `LogicalPlan` over mixed selected sources. Calls bind a registered representation and operator, or a derived extractor, once per collection. `And`, `Or`, and `Not` retain frontend order and short-circuit error behavior. Without a compatible built index, the engine reads each selected source through its provider and decodes one borrowed record. With an explicitly built representation index, a safe necessary condition can narrow the source list before exact evaluation. Either route retains at most `total_limit` ordered descriptors and sort keys, then rereads only the returned page for projection. A failed read, decode, extraction, or callback returns an error without publishing a partial result. `MetadataOnOpen` holds an applicable provider selection made at open, explicit `refresh`, or reload and captures other collection selections on first use; the two request freshness modes re-enumerate and compare the selected inventory during execution. The logical executor supports ID and single-valued derived sorts with exact decimal comparison, count, truncation, pagination, and field projection. Complete ordered lists within the count cap use the existing query-cache budget and can serve another page after checking its returned sources. The ordered key includes bound frontend, predicate and sort definitions, applicable source and decoder rules, and a separate selected-source generation; offset, limit, count and projection do not split compatible order lists. An unused volatile operator or extractor does not disable the entry. A volatile dependency used by the bound operation, or `HashOnRequest`, disables reuse. Cache publication follows successful page materialization and the final request inventory check. A completed hit copies only the requested slot range and resolves those slots through per-collection source tables; it neither flattens the full inventory nor copies the full ordered result. The `Source`/`FilePicker` and legacy query paths still index `.json` files only; a legacy query over a collection with selected provider records returns an explicit unsupported error. `refresh` updates selected provider descriptors and invalidates frontend ordered results after additions, removals, edits, or renames; it does not add custom records to the JSON picker. Custom sources are queryable through registered frontends and can enter optional selected representation and derived postings. Those postings have explicit versioned snapshot APIs, but remain separate from the default JSON picker snapshot and startup path.
+`Repository::query_frontend` executes `LogicalPlan` over mixed selected sources. Calls bind a registered representation and operator, or a derived extractor, once per collection. `And`, `Or`, and `Not` retain frontend order and short-circuit error behavior. A compatible index may narrow the source list only when the operator permits skipping noncandidates. A failed read, decode, extraction, or callback returns an error without publishing a partial result. `MetadataOnOpen` holds the applicable provider selection made at open, refresh, or reload; request freshness modes re-enumerate and compare it during execution. Complete ordered lists within the count cap use the query-cache budget. Their keys contain only participating definitions and the selected source generation; offset and limit reuse one entry. A completed hit copies only the requested slot range, resolves it through shared source tables, and reads the returned records.
+
+Ordinary `query_json`, `search_text`, their streaming variants, `get_record`, `open_view`, validation, relation traversal, and `query_derived` use the selected record inventory when a collection contains a registered provider source. A JSON-only scope retains its concrete picker and fused native paths. Mixed scopes use exact logical-record evaluation and materialize through each descriptor's actual provider and decoder. The selected text route uses the same bound representation for posting construction and exact matching; a single requested field can use its compatible bigram posting. The selected derived route uses the existing typed B-tree posting for indexed predicates, sorts and value counts. Native JSON fields in mixed scopes are evaluated by the selected route too, so custom records are never silently omitted. Scalar field postings created by the native-only `build_posting` helper do not cover custom records; mixed ordinary JSON filters and sorts use exact scan fallback. Native picker `value_counts` returns `None` for a mixed collection. Low-level `diff`, `apply_source_changes`, `record_revision` and schema inference remain JSON-picker operations and report their specific limitation for selected sources; use ordinary `refresh` and `source_descriptors` for provider lifecycle and revisions. `open_view` scans selected records. These paths retain bounded sorted prefixes and complete ordered cache entries rather than introducing a second query language.
+
+`warm_bigram_index` and `warm_text_index` prepare declared text paths for custom-bearing collections; their requested representations are built together in one selected-source decode pass. `build_derived_posting` prepares a registered extractor over the same selected inventory. `save_bigram_cache` saves active selected postings next to the unchanged native JSON snapshot, with a versioned repository-owned selected manifest. Ordinary warm and first use restore compatible selected postings, or rebuild changed ones. `refresh` updates native JSON inventory and selected descriptors, rebuilds active selected postings before publishing the new generation, and invalidates affected ordered results. A failed selected rebuild marks the collection unavailable until a successful refresh or reload; it never publishes a partial posting under a new generation. Custom provider resources remain callback-scoped, and the decoder's borrowed values are materialized only for result APIs that require an owned record.
 
 `Repository::build_representation_index(collection, representation, path)` explicitly builds a process-local posting for a bound logical text path using the existing concrete bigram builder. It reads and decodes each selected source once, reuses byte and renderer buffers, includes a separate Unicode-folded copy where needed, and publishes only after every read, decode, render and request-freshness check succeeds. The key contains selected source revisions, schema/mapping semantics, the bound representation and applicable source/decoder definitions, encoding and path. Refresh, source-change publication and reload invalidate stale entries. Memory-cache mode and non-hash freshness are required. `save_selected_representation_snapshot` and `restore_selected_representation_snapshot` explicitly persist the concrete bigram filter with a versioned companion manifest. Manifest version 2 records the participating definitions, bound semantics, source revisions and payload hash; older manifests are cache misses. The selected derived snapshot magic is `OBJDRV02`, so older derived snapshots are also cache misses. The built-in JSON snapshot format and default startup path are unchanged. A compiled operator must opt into `can_skip_non_candidates` before either a frontend or registered text search uses its necessary condition; the default is false so an operator error on an excluded source is not suppressed. Representation and preparation compatibility are checked independently. AND narrows only from its first child to preserve short-circuit error order, OR requires every branch to be covered, and NOT scans. The engine verifies every retained candidate and materializes returned pages through the provider.
 
@@ -30,7 +34,7 @@ The typed-extractor contract is consumed by `build_derived_posting`, `derived_va
 
 `save_selected_derived_snapshot(collection, extractor, path)` and `restore_selected_derived_snapshot(collection, extractor, path)` explicitly persist and restore this selected typed posting. The versioned file carries a checksum, collection/path binding, schema and extension semantics, source-descriptor fingerprint and slot count. A missing, corrupt or incompatible file is a cache miss (`Ok(false)` on restore); a successful restore does no source reads or parses and constructs sort order only if requested. Source selection is re-enumerated at restore to compare current revisions. Volatile providers, decoders and extractors cannot use this snapshot. Refresh or changed source revisions invalidate the in-memory posting. The ordinary JSON picker snapshot format and default startup path are unchanged.
 
-When several outputs are needed, `Repository::build_selected_indexes` takes up to eight `SelectedIndexRequest::Text` and `SelectedIndexRequest::Derived` requests and builds the missing postings in one selected-source pass. Each source is read and decoded once; text rendering and typed extraction share the borrowed record, and buffers are reused across sources. All newly requested postings publish together after complete extraction and the final freshness check. The individual build methods remain convenient when only one output is needed. This explicit build does not change the default JSON picker or automatically add work to unused extensions.
+When several outputs are needed, `Repository::build_selected_indexes` takes `SelectedIndexRequest::Text` and `SelectedIndexRequest::Derived` requests and builds missing postings in one selected-source pass. Each source is read and decoded once; text rendering and typed extraction share the borrowed record, and buffers are reused across sources. All newly requested postings publish together after complete extraction and the final freshness check. Unused extractors add no work to ordinary queries or builds.
 
 ## Derived typed values
 
@@ -96,23 +100,40 @@ let result = repo.query_derived(&DerivedQuery {
 
 ## Copyable source and format example
 
-`MarkdownProvider` and `MarkdownDecoder` in `crates/extension-tests/src/lib.rs` select direct `.md` files and expose each as one `/body` leaf. The provider checks a stable revision before and after a bounded read and opens files without following final-component symlinks on Unix. The decoder rejects invalid UTF-8. A minimal call is:
+`MarkdownProvider` and `MarkdownDecoder` in `crates/extension-tests/src/lib.rs` select direct `.md` files and expose each as one `/body` leaf. The provider checks a stable revision before and after a bounded read and opens files without following final-component symlinks on Unix. The decoder rejects invalid UTF-8. The normal consumer sequence needs no custom frontend or explicit selected snapshot:
 
 ```rust,no_run
-use objekte_core::Repository;
-use objekte_extension_tests::{MarkdownDecoder, MarkdownProvider};
+use objekte_core::{Repository, TextQuery, DerivedQuery, DerivedPredicate, DerivedBackend, extensions::TypedValue};
+use objekte_extension_tests::{MarkdownDecoder, MarkdownProvider, PublicationYearExtractor};
 
 let root = std::path::Path::new("my-repository");
-let mut repo = Repository::builder(root)
+let open = || Repository::builder(root)
     .register_source(MarkdownProvider::new(root.join("data/books")))?
     .register_format(MarkdownDecoder::default())?
-    .open()?;
-let source = repo.source_descriptors("books")?.into_iter()
-    .find(|source| source.record_id == "book-1")
-    .expect("book-1.md is selected");
-let leaves = repo.read_source_leaves(&source)?;
+    .register_extractor(PublicationYearExtractor::default())?
+    .open();
+let mut repo = open()?;
+repo.warm_text_index("books")?;
+repo.build_derived_posting("books", "example:publication_year")?;
+let request = TextQuery {
+    pattern: "history".into(), collections: Some(vec!["books".into()]),
+    fields: Some(vec!["body".into()]), ..Default::default()
+};
+let page = repo.search_text(&request)?;
+let years = repo.query_derived(&DerivedQuery {
+    collection: "books".into(), extractor: "example:publication_year".into(),
+    predicate: DerivedPredicate::Ge(TypedValue::Number("1848".into())),
+    sort: None, offset: 0, limit: 20, count: true, backend: DerivedBackend::Indexed,
+})?;
+repo.save_bigram_cache("books")?;
+repo.refresh("books")?; // after source edits, insertions, deletions or renames
+drop(repo);
+let mut reopened = open()?;
+let restored_page = reopened.search_text(&request)?;
 # Ok::<(), objekte_core::Error>(())
 ```
+
+The selected manifest is version 1. Selected text postings keep companion manifest version 2 and derived postings keep magic `OBJDRV02`; incompatible or corrupt files are cache misses. The built-in JSON snapshot bytes are unchanged. A decoder that needs empty containers or numeric object keys in ordinary owned records should implement `DecodedRecord::visit_nodes`; the default visits scalar leaves. Providers should supply `size_bytes`, `modified_unix_nanos`, and, when available, `created_unix_nanos` metadata, plus a logical `path` for locators outside the collection directory. `HashOnRequest` does not reuse selected postings or query results. The current selected refresh rebuilds active custom postings for the changed collection, not an incremental patch of each custom posting.
 
 ## Copyable query frontend example
 

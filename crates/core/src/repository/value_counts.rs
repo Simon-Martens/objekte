@@ -33,6 +33,17 @@ impl Repository {
         limit: usize,
     ) -> Result<Option<Vec<ValueCount>>> {
         self.model.collection(collection)?;
+        let has_custom = if self.options.freshness == Freshness::MetadataOnOpen {
+            self.custom_source_collections.contains(collection)
+        } else {
+            self.source_descriptors(collection)?
+                .iter()
+                .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY)
+        };
+        if has_custom {
+            // The native scalar posting covers only JSON picker slots.
+            return Ok(None);
+        }
         let path = crate::JsonFilter::parse_path(path)?;
         let Some(picker) = self.file_pickers.get(collection) else {
             return Ok(None);

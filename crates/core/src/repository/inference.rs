@@ -26,6 +26,16 @@ impl Repository {
         } else {
             self.model.collections.values().cloned().collect()
         };
+        for selected in &collections {
+            if self
+                .selected_route(std::slice::from_ref(&selected.name))?
+                .is_some()
+            {
+                return Err(Error::Request(
+                    "schema inference currently reads native JSON picker fields only".into(),
+                ));
+            }
+        }
         let inventory = ReferenceInventory::build(&self.model)?;
         let mut reports = Vec::with_capacity(collections.len());
         for selected in collections {
@@ -76,6 +86,14 @@ impl Repository {
             ));
         }
         for scanned in &report.collections {
+            if self
+                .selected_route(std::slice::from_ref(&scanned.collection))?
+                .is_some()
+            {
+                return Err(Error::Request(
+                    "schema inference cannot write rules for selected provider records".into(),
+                ));
+            }
             let current = self.collection(&scanned.collection)?;
             if current.schema_hash != scanned.schema_snapshot {
                 return Err(Error::Request(format!(

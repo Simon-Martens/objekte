@@ -119,6 +119,7 @@ impl DerefMut for QueryOutput<'_> {
 mod exact;
 mod linked;
 mod memory;
+mod selected;
 mod sorted;
 mod source;
 
@@ -128,6 +129,17 @@ impl Repository {
     /// Results follow the requested sort, or modification time by default.
     pub fn query_json(&mut self, request: &JsonQuery) -> Result<JsonQueryResult> {
         let request = Self::normalized_json_sort(request)?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) = self.query_json_selected(&request, selected, true)?;
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(result);
+        }
         if !request.sort.is_empty() {
             return self.query_json_sorted(&request, None);
         }
@@ -145,6 +157,30 @@ impl Repository {
         mut on_record: impl FnMut(usize, &Record) -> Result<()>,
     ) -> Result<JsonQueryStreamSummary> {
         let request = Self::normalized_json_sort(request)?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) =
+                self.query_json_selected(&request, selected, self.options.stream_query_cache)?;
+            for (index, record) in result.records.iter().enumerate() {
+                on_record(index + 1, record)?;
+            }
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(JsonQueryStreamSummary {
+                returned: result.records.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                dependencies: result.dependencies,
+                filter_hash: result.filter_hash,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
+            });
+        }
         if !request.sort.is_empty() {
             let result = self.query_json_sorted(&request, None)?;
             for (index, record) in result.records.iter().enumerate() {
@@ -182,6 +218,28 @@ impl Repository {
         mut on_page: impl FnMut(&[Record]) -> Result<()>,
     ) -> Result<JsonQueryStreamSummary> {
         let request = Self::normalized_json_sort(request)?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) =
+                self.query_json_selected(&request, selected, self.options.stream_query_cache)?;
+            on_page(&result.records)?;
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(JsonQueryStreamSummary {
+                returned: result.records.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                dependencies: result.dependencies,
+                filter_hash: result.filter_hash,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
+            });
+        }
         if request.sort.is_empty() {
             let mut page = Vec::new();
             let (result, returned) = self.query_json_inner(

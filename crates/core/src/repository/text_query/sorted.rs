@@ -39,7 +39,9 @@ impl Repository {
         // Only a verified picker may supply the final order directly. A
         // restored picker still being checked uses source-projected keys.
         if indexed_order && request.offset < self.options.total_limit && request.limit > 0 {
-            return self.search_text_indexed_order::<CUSTOM>(request, on_page, started, &before, extension);
+            return self.search_text_indexed_order::<CUSTOM>(
+                request, on_page, started, &before, extension,
+            );
         }
         let mut buffer = SortBuffer::new(
             plans,
@@ -72,6 +74,8 @@ impl Repository {
                     size: hit.record.size_bytes,
                     modified: &hit.record.modified_unix_nanos,
                     status: hit.record.state.status,
+                    locator: None,
+                    created: None,
                 };
                 let keys = buffer.project(&hit.record.collection, &source, &hit.record.data)?;
                 let changed = buffer

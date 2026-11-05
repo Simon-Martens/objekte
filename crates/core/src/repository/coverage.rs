@@ -60,10 +60,19 @@ impl Repository {
             configuration_current: state == "current",
             expected_schema_hash: self.model.collection(name)?.schema_hash.clone(),
             state,
-            records: self.file_pickers.get(name).map_or_else(
-                || self.memory_edges.keys().filter(|(n, _)| n == name).count(),
-                crate::file_picker::FilePicker::len,
-            ),
+            records: self
+                .custom_source_snapshot
+                .get(name)
+                .filter(|_| self.custom_source_collections.contains(name))
+                .map_or_else(
+                    || {
+                        self.file_pickers.get(name).map_or_else(
+                            || self.memory_edges.keys().filter(|(n, _)| n == name).count(),
+                            crate::file_picker::FilePicker::len,
+                        )
+                    },
+                    |snapshot| snapshot.sources.len(),
+                ),
         })
     }
 }

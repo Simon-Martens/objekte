@@ -11,36 +11,7 @@ pub(super) struct VerifiedReadMetadata {
 
 impl Repository {
     pub(super) fn collection(&self, name: &str) -> Result<Collection> {
-        let collection = self.model.collection(name)?.clone();
-        if self.extensions.is_none() {
-            return Ok(collection);
-        }
-        let custom = if self.options.freshness == Freshness::MetadataOnOpen {
-            self.custom_source_collections.contains(name)
-        } else if let Some(extensions) = &self.extensions {
-            let mut selected = false;
-            for provider in extensions.source_providers() {
-                if provider.may_select(name) && !provider.enumerate(name)?.is_empty() {
-                    selected = true;
-                    break;
-                }
-            }
-            if selected {
-                super::extension_sources::select_sources(&collection, name, Some(extensions))?
-                    .iter()
-                    .any(|source| source.provider != "objekte:filesystem")
-            } else {
-                false
-            }
-        } else {
-            false
-        };
-        if custom {
-            return Err(Error::Request(format!(
-                "collection {name} has registered sources that are not yet included in indexed queries"
-            )));
-        }
-        Ok(collection)
+        Ok(self.model.collection(name)?.clone())
     }
 
     /// Absolute source directories, for sort projections of `@` fields.

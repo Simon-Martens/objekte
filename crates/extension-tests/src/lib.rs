@@ -130,6 +130,24 @@ impl objekte_core::extensions::source::SourceProvider for MarkdownProvider {
                 .file_stem()
                 .and_then(|stem| stem.to_str())
                 .ok_or_else(|| Error::Request("Markdown record ID must be UTF-8".into()))?;
+            let file_metadata = fs::symlink_metadata(&path).map_err(|source| Error::Io {
+                path: path.clone(),
+                source,
+            })?;
+            let mut metadata = BTreeMap::new();
+            metadata.insert("size_bytes".into(), file_metadata.len().to_string());
+            if let Ok(modified) = file_metadata.modified() {
+                let nanos = modified
+                    .duration_since(UNIX_EPOCH)
+                    .map(|duration| duration.as_nanos().to_string())
+                    .unwrap_or_else(|error| format!("-{}", error.duration().as_nanos()));
+                metadata.insert("modified_unix_nanos".into(), nanos);
+            }
+            if let Ok(created) = file_metadata.created()
+                && let Ok(duration) = created.duration_since(UNIX_EPOCH)
+            {
+                metadata.insert("created_unix_nanos".into(), duration.as_nanos().to_string());
+            }
             sources.push(objekte_core::extensions::SourceDescriptor {
                 collection: collection.into(),
                 provider: self.descriptor.identity.clone(),
@@ -138,7 +156,7 @@ impl objekte_core::extensions::source::SourceProvider for MarkdownProvider {
                 locator: PathBuf::from(filename),
                 format: "example:markdown".into(),
                 revision: Self::revision(&path)?,
-                metadata: BTreeMap::new(),
+                metadata,
             });
         }
         Ok(sources)
@@ -769,6 +787,494 @@ mod tests {
             .unwrap()
             .open()
             .unwrap()
+    }
+
+    #[test]
+    fn ordinary_json_query_and_get_record_include_mixed_sources() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(&directory).unwrap();
+        fs::write(
+            directory.join("a.json"),
+            r#"{"body":"Archive","kind":"native","year":1848,"note":null,"tags":["x","y"]}"#,
+        )
+        .unwrap();
+        fs::write(
+            directory.join("b.json"),
+            r#"{"body":"Other","kind":"native","year":1850}"#,
+        )
+        .unwrap();
+        fs::write(directory.join("c.md"), "# Archive").unwrap();
+        fs::write(directory.join("d.md"), "# Other").unwrap();
+        let other = temp.path().join("data/other");
+        fs::create_dir_all(&other).unwrap();
+        fs::write(other.join("a.json"), r#"{"body":"Other collection"}"#).unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let result = repository
+            .query_json(&objekte_core::JsonQuery {
+                filter: "exists(body)".into(),
+                collections: Some(vec!["archive".into()]),
+                sort: vec![objekte_core::Sort {
+                    field: "@id".into(),
+                    direction: Direction::Asc,
+                }],
+                limit: 10,
+                count: true,
+                ..Default::default()
+            })
+            .unwrap();
+        assert_eq!(result.total, Some(4));
+        assert_eq!(
+            result
+                .records
+                .iter()
+                .map(|record| record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "b", "c", "d"]
+        );
+        assert_eq!(result.records[2].data["body"], "# Archive");
+        assert!(result.records[2].path.ends_with("c.md"));
+        let across = repository
+            .query_json(&objekte_core::JsonQuery {
+                filter: "exists(body)".into(),
+                collections: Some(vec!["other".into(), "archive".into()]),
+                sort: vec![objekte_core::Sort {
+                    field: "@id".into(),
+                    direction: Direction::Asc,
+                }],
+                limit: 10,
+                count: true,
+                ..Default::default()
+            })
+            .unwrap();
+        assert_eq!(across.total, Some(5));
+        assert_eq!(
+            across
+                .records
+                .iter()
+                .map(|record| (record.collection.as_str(), record.id.as_str()))
+                .collect::<Vec<_>>(),
+            [
+                ("archive", "a"),
+                ("archive", "b"),
+                ("archive", "c"),
+                ("archive", "d"),
+                ("other", "a")
+            ]
+        );
+        assert_eq!(
+            repository.get_record("archive", "c").unwrap().unwrap().data["body"],
+            "# Archive"
+        );
+        for filter in ["note = null", "exists(note)", "tags[1] = 'y'"] {
+            let result = repository
+                .query_json(&objekte_core::JsonQuery {
+                    filter: filter.into(),
+                    collections: Some(vec!["archive".into()]),
+                    count: true,
+                    ..Default::default()
+                })
+                .unwrap();
+            assert_eq!(result.total, Some(1), "{filter}");
+            assert_eq!(result.records[0].id, "a", "{filter}");
+        }
+    }
+
+    #[test]
+    fn ordinary_mixed_queries_indexes_snapshots_and_refresh_share_one_inventory() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/archive");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"},"publication_date":{"type":"string"}}}"#).unwrap();
+        fs::write(
+            directory.join("a.json"),
+            r#"{"body":"Target <em>archive</em>","publication_date":"circa 1848"}"#,
+        )
+        .unwrap();
+        fs::write(
+            directory.join("b.json"),
+            r#"{"body":"Quiet","publication_date":"1850"}"#,
+        )
+        .unwrap();
+        fs::write(directory.join("c.md"), "# Target **archive**").unwrap();
+        let open = || {
+            Repository::builder(temp.path())
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
+                .register_extractor(PublicationYearExtractor::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let mut repository = open();
+        let json = objekte_core::JsonQuery {
+            filter: "exists(body)".into(),
+            collections: Some(vec!["archive".into()]),
+            sort: vec![objekte_core::Sort {
+                field: "@id".into(),
+                direction: Direction::Asc,
+            }],
+            limit: 1,
+            count: true,
+            ..Default::default()
+        };
+        let mut ids = Vec::new();
+        for offset in 0..3 {
+            let page = repository
+                .query_json(&objekte_core::JsonQuery {
+                    offset,
+                    ..json.clone()
+                })
+                .unwrap();
+            assert_eq!(page.total, Some(3));
+            if offset > 0 {
+                assert_eq!(page.query_plan, ["selected-ordered-cache"]);
+                assert_eq!(page.metrics.source_reads, 1);
+                assert_eq!(page.metrics.enumerations, 0);
+            }
+            ids.push(page.records[0].id.clone());
+        }
+        assert_eq!(ids, ["a", "b", "c"]);
+        assert_eq!(
+            repository
+                .query_json(&objekte_core::JsonQuery {
+                    filter: "publication_date = '1850'".into(),
+                    ..json.clone()
+                })
+                .unwrap()
+                .total,
+            Some(1)
+        );
+        assert_eq!(
+            repository
+                .query_json(&objekte_core::JsonQuery {
+                    filter: "body:fts ~ 'target archive'".into(),
+                    limit: 10,
+                    ..json.clone()
+                })
+                .unwrap()
+                .records
+                .iter()
+                .map(|record| record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "c"]
+        );
+        let text = TextQuery {
+            pattern: "target archive".into(),
+            collections: Some(vec!["archive".into()]),
+            fields: Some(vec!["body".into()]),
+            count: true,
+            sort: json.sort.clone(),
+            ..Default::default()
+        };
+        let hits = repository.search_text(&text).unwrap();
+        assert_eq!(hits.total, Some(2));
+        assert_eq!(
+            hits.hits
+                .iter()
+                .map(|hit| hit.record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "c"]
+        );
+        assert_eq!(hits.hits[1].fields, ["body"]);
+        let mut streamed_text = Vec::new();
+        let text_summary = repository
+            .search_text_stream(&text, |_, hit| {
+                streamed_text.push(hit.record.id.clone());
+                Ok(())
+            })
+            .unwrap();
+        assert_eq!(text_summary.returned, 2);
+        assert_eq!(streamed_text, ["a", "c"]);
+        let mut streamed_json = Vec::new();
+        let json_summary = repository
+            .query_json_stream(
+                &objekte_core::JsonQuery {
+                    limit: 10,
+                    ..json.clone()
+                },
+                |_, record| {
+                    streamed_json.push(record.id.clone());
+                    Ok(())
+                },
+            )
+            .unwrap();
+        assert_eq!(json_summary.returned, 3);
+        assert_eq!(streamed_json, ["a", "b", "c"]);
+        let raw = repository
+            .search_text(&TextQuery {
+                pattern: "**archive**".into(),
+                mode: TextMode::WordRaw,
+                ..text.clone()
+            })
+            .unwrap();
+        assert_eq!(
+            raw.hits
+                .iter()
+                .map(|hit| hit.record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["c"]
+        );
+        let view = repository
+            .open_view(
+                "archive",
+                &objekte_core::ViewRequest {
+                    sort: Some(objekte_core::Sort {
+                        field: "@id".into(),
+                        direction: Direction::Asc,
+                    }),
+                    columns: Some(vec!["body".into()]),
+                    count: true,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+        assert_eq!(view.total, Some(3));
+        assert_eq!(
+            view.rows
+                .iter()
+                .map(|row| row.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "b", "c"]
+        );
+        assert_eq!(view.rows[2].values["body"], "# Target **archive**");
+        assert_eq!(view.states["c"].status, objekte_core::RecordStatus::Valid);
+        let derived = objekte_core::DerivedQuery {
+            collection: "archive".into(),
+            extractor: "example:publication_year".into(),
+            predicate: objekte_core::DerivedPredicate::Ge(TypedValue::Number("1848".into())),
+            sort: Some(objekte_core::DerivedSort {
+                direction: Direction::Asc,
+                reduce: objekte_core::SortReduce::Min,
+            }),
+            offset: 0,
+            limit: 10,
+            count: true,
+            backend: objekte_core::DerivedBackend::Indexed,
+        };
+        repository.warm_bigram_index("archive").unwrap();
+        repository
+            .build_derived_posting("archive", "example:publication_year")
+            .unwrap();
+        assert_eq!(
+            repository
+                .derived_value_counts("archive", "example:publication_year")
+                .unwrap(),
+            [
+                (TypedValue::Number("1848".into()), 1),
+                (TypedValue::Number("1850".into()), 1)
+            ]
+        );
+        assert_eq!(
+            repository.validate_collection("archive").unwrap().validated,
+            3
+        );
+        assert_eq!(repository.query_derived(&derived).unwrap().total, Some(2));
+        repository.save_bigram_cache("archive").unwrap();
+        drop(repository);
+        let mut reopened = open();
+        let restored_warm = reopened.warm_text_index("archive").unwrap();
+        assert_eq!(restored_warm.source_reads, 0);
+        let restored = reopened.query_derived(&derived).unwrap();
+        assert_eq!(
+            restored
+                .records
+                .iter()
+                .map(|record| record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "b"]
+        );
+        assert_eq!(reopened.search_text(&text).unwrap().hits.len(), 2);
+        let manifest = fs::read_dir(temp.path().join(".objekte/.cache"))
+            .unwrap()
+            .map(|entry| entry.unwrap().path())
+            .find(|path| {
+                path.file_name()
+                    .unwrap()
+                    .to_string_lossy()
+                    .starts_with("selected-inventory-")
+            })
+            .expect("ordinary selected cache manifest exists");
+        let saved_manifest = fs::read(&manifest).unwrap();
+        let postings = fs::read_dir(temp.path().join(".objekte/.cache"))
+            .unwrap()
+            .map(|entry| entry.unwrap().path())
+            .filter(|path| {
+                path.file_name()
+                    .unwrap()
+                    .to_string_lossy()
+                    .starts_with("selected-posting-")
+                    && path.extension().is_some_and(|ext| ext == "bin")
+            })
+            .map(|path| {
+                let bytes = fs::read(&path).unwrap();
+                (path, bytes)
+            })
+            .collect::<Vec<_>>();
+        assert!(!postings.is_empty());
+        fs::write(&manifest, b"invalid selected manifest").unwrap();
+        for (path, _) in &postings {
+            fs::write(path, b"invalid selected posting").unwrap();
+        }
+        let mut invalid_snapshot = open();
+        assert!(
+            invalid_snapshot
+                .warm_text_index("archive")
+                .unwrap()
+                .source_reads
+                > 0
+        );
+        fs::write(&manifest, saved_manifest).unwrap();
+        for (path, bytes) in postings {
+            fs::write(path, bytes).unwrap();
+        }
+        let mut changed_provider = MarkdownProvider::new(directory.clone());
+        changed_provider.descriptor.version.patch += 1;
+        let mut changed = Repository::builder(temp.path())
+            .register_source(changed_provider)
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .register_extractor(PublicationYearExtractor::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        assert!(changed.warm_text_index("archive").unwrap().source_reads > 0);
+        fs::write(directory.join("c.md"), "# Quiet").unwrap();
+        fs::write(directory.join("d.md"), "# Target archive").unwrap();
+        fs::remove_file(directory.join("b.json")).unwrap();
+        reopened.refresh("archive").unwrap();
+        let refreshed = reopened.search_text(&text).unwrap();
+        assert_eq!(
+            refreshed
+                .hits
+                .iter()
+                .map(|hit| hit.record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "d"]
+        );
+        assert_eq!(reopened.query_derived(&derived).unwrap().records.len(), 1);
+        assert_eq!(
+            reopened
+                .query_json(&objekte_core::JsonQuery { limit: 10, ..json })
+                .unwrap()
+                .records
+                .iter()
+                .map(|record| record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "c", "d"]
+        );
+        fs::rename(directory.join("d.md"), directory.join("e.md")).unwrap();
+        reopened.refresh("archive").unwrap();
+        assert_eq!(
+            reopened
+                .search_text(&text)
+                .unwrap()
+                .hits
+                .iter()
+                .map(|hit| hit.record.id.as_str())
+                .collect::<Vec<_>>(),
+            ["a", "e"]
+        );
+    }
+
+    #[test]
+    fn ordinary_markdown_text_uses_selected_candidates_without_decoding_nonmatches() {
+        let temp = tempfile::tempdir().unwrap();
+        let directory = temp.path().join("data/docs");
+        fs::create_dir_all(directory.join(".editor")).unwrap();
+        fs::write(
+            directory.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"}}}"#,
+        )
+        .unwrap();
+        for index in 0..31 {
+            fs::write(
+                directory.join(format!("junk{index}.md")),
+                "# unrelated words",
+            )
+            .unwrap();
+        }
+        fs::write(directory.join("target.md"), "# Secret **needle**").unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(directory))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let built = repository.warm_text_index("docs").unwrap();
+        assert_eq!(built.parses, 32);
+        let result = repository
+            .search_text(&TextQuery {
+                pattern: "secret needle".into(),
+                collections: Some(vec!["docs".into()]),
+                fields: Some(vec!["body".into()]),
+                count: true,
+                ..Default::default()
+            })
+            .unwrap();
+        assert_eq!(result.total, Some(1));
+        assert_eq!(result.hits[0].record.id, "target");
+        assert_eq!(result.query_plan, ["selected-text-index-candidates"]);
+        assert_eq!(result.metrics.source_reads, 2);
+    }
+
+    #[test]
+    fn ordinary_relation_filter_reads_custom_target_records() {
+        let temp = tempfile::tempdir().unwrap();
+        let books = temp.path().join("data/books");
+        let people = temp.path().join("data/people");
+        fs::create_dir_all(books.join(".editor")).unwrap();
+        fs::create_dir_all(people.join(".editor")).unwrap();
+        fs::write(books.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"author":{"type":"string","x-relation":{"collection":"people"}}}}"#).unwrap();
+        fs::write(
+            people.join(".editor/schema.json"),
+            r#"{"type":"object","properties":{"body":{"type":"string","x-full-text":"markdown"}}}"#,
+        )
+        .unwrap();
+        fs::write(books.join("a.json"), r#"{"author":"ada"}"#).unwrap();
+        fs::write(books.join("b.json"), r#"{"author":"bob"}"#).unwrap();
+        fs::write(people.join("ada.md"), "# Ada").unwrap();
+        fs::write(people.join("bob.md"), "# Bob").unwrap();
+        let mut repository = Repository::builder(temp.path())
+            .register_source(MarkdownProvider::new(people))
+            .unwrap()
+            .register_format(MarkdownDecoder::default())
+            .unwrap()
+            .open()
+            .unwrap();
+        let result = repository
+            .query_json(&objekte_core::JsonQuery {
+                filter: "author.body:fts ~ 'ada'".into(),
+                collections: Some(vec!["books".into()]),
+                count: true,
+                ..Default::default()
+            })
+            .unwrap();
+        assert_eq!(result.total, Some(1));
+        assert_eq!(result.records[0].id, "a");
+        let backlinks = repository
+            .references_to("people", "ada", true, false)
+            .unwrap();
+        assert_eq!(
+            backlinks
+                .edges
+                .iter()
+                .map(|edge| edge.source_id.as_str())
+                .collect::<Vec<_>>(),
+            ["a"]
+        );
     }
 
     #[test]
@@ -1509,11 +2015,11 @@ mod tests {
         let expected = fresh
             .query_frontend("example:archive-search", &request)
             .unwrap();
-        let without_index = indexed
+        let refreshed_index = indexed
             .query_frontend("example:archive-search", &request)
             .unwrap();
-        assert_eq!(without_index.query_plan, ["extension-exact-scan"]);
-        assert_eq!(without_index.total, expected.total);
+        assert_eq!(refreshed_index.query_plan, ["extension-index-candidates"]);
+        assert_eq!(refreshed_index.total, expected.total);
         indexed
             .build_representation_index("archive", "objekte:visible-markdown", "body")
             .unwrap();
@@ -1564,17 +2070,14 @@ mod tests {
                 .is_err()
         );
         fs::write(directory.join("c.md"), [0xff]).unwrap();
-        indexed.refresh("archive").unwrap();
-        assert!(
-            indexed
-                .build_representation_index("archive", "objekte:visible-markdown", "body")
-                .is_err()
-        );
+        assert!(indexed.refresh("archive").is_err());
         assert!(
             indexed
                 .query_frontend("example:archive-search", &request)
                 .is_err()
         );
+        fs::write(directory.join("c.md"), "# rareterm Gamma").unwrap();
+        indexed.refresh("archive").unwrap();
     }
 
     #[test]
@@ -1738,7 +2241,7 @@ mod tests {
         let after_refresh = indexed
             .query_frontend("example:archive-search", &request)
             .unwrap();
-        assert_eq!(after_refresh.query_plan, ["extension-exact-scan"]);
+        assert_eq!(after_refresh.query_plan, ["extension-index-candidates"]);
         assert_eq!(after_refresh.total, Some(1));
         indexed
             .build_selected_derived_posting("archive", "example:publication_year")
@@ -1767,17 +2270,18 @@ mod tests {
             r#"{"body":"Entry b","publication_date":"1848–1850"}"#,
         )
         .unwrap();
-        indexed.refresh("archive").unwrap();
-        assert!(
-            indexed
-                .build_selected_derived_posting("archive", "example:publication_year")
-                .is_err()
-        );
+        assert!(indexed.refresh("archive").is_err());
         assert!(
             indexed
                 .query_frontend("example:archive-search", &request)
                 .is_err()
         );
+        fs::write(
+            directory.join("b.json"),
+            r#"{"body":"Entry b","publication_date":"1849"}"#,
+        )
+        .unwrap();
+        indexed.refresh("archive").unwrap();
     }
 
     #[test]
@@ -2256,7 +2760,7 @@ mod tests {
         let fallback = indexed
             .query_frontend("example:derived-sort", &request)
             .unwrap();
-        assert_eq!(fallback.query_plan, ["extension-exact-scan"]);
+        assert_eq!(fallback.query_plan, ["extension-indexed-order"]);
         let mut fresh = open(false, 10_000);
         let oracle = fresh
             .query_frontend("example:derived-sort", &request)
@@ -2384,7 +2888,7 @@ mod tests {
         let temp = tempfile::tempdir().unwrap();
         let directory = temp.path().join("data/docs");
         fs::create_dir_all(&directory).unwrap();
-        fs::write(directory.join("a.json"), r#"{"body":"danger"}"#).unwrap();
+        fs::write(directory.join("a.md"), "danger").unwrap();
         fs::write(directory.join("b.json"), r#"{"body":"target"}"#).unwrap();
         let descriptor = |identity, input, output| {
             Descriptor::new(
@@ -2407,6 +2911,10 @@ mod tests {
                     stream_query_cache: true,
                     ..Default::default()
                 })
+                .register_source(MarkdownProvider::new(directory.clone()))
+                .unwrap()
+                .register_format(MarkdownDecoder::default())
+                .unwrap()
                 .register_representation(StoredRepresentation::default())
                 .unwrap()
                 .register_operator(FallibleOperator(descriptor(
@@ -2674,9 +3182,20 @@ mod tests {
             collections: Some(vec!["docs".into()]),
             ..Default::default()
         };
-        assert!(
-            matches!(repository.search_text(&query), Err(Error::Request(message)) if message.contains("not yet included"))
-        );
+        let result = repository.search_text(&query).unwrap();
+        assert_eq!(result.hits.len(), 1);
+        assert_eq!(result.hits[0].record.id, "only");
+        assert_eq!(result.hits[0].record.data["body"], "# Only");
+        let json = repository
+            .query_json(&objekte_core::JsonQuery {
+                filter: "body = '# Only'".into(),
+                collections: Some(vec!["docs".into()]),
+                count: true,
+                ..Default::default()
+            })
+            .unwrap();
+        assert_eq!(json.total, Some(1));
+        assert_eq!(json.records[0].id, "only");
     }
 
     #[test]
@@ -2705,7 +3224,7 @@ mod tests {
     }
 
     #[test]
-    fn metadata_on_request_rejects_new_provider_sources_before_legacy_query() {
+    fn metadata_on_request_includes_new_provider_sources_in_ordinary_query() {
         let temp = tempfile::tempdir().unwrap();
         let directory = temp.path().join("data/docs");
         fs::create_dir_all(&directory).unwrap();
@@ -2730,8 +3249,13 @@ mod tests {
         };
         assert_eq!(repository.search_text(&query).unwrap().hits.len(), 1);
         fs::write(directory.join("item.md"), "# New").unwrap();
-        assert!(
-            matches!(repository.search_text(&query), Err(Error::Request(message)) if message.contains("not yet included"))
+        let expanded = TextQuery {
+            pattern: "New".into(),
+            ..query.clone()
+        };
+        assert_eq!(
+            repository.search_text(&expanded).unwrap().hits[0].record.id,
+            "item"
         );
         fs::remove_file(directory.join("item.md")).unwrap();
         assert_eq!(repository.search_text(&query).unwrap().hits.len(), 1);

@@ -16,6 +16,7 @@ use crate::{
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
 mod matcher;
+mod selected;
 mod sorted;
 
 use matcher::{TextMatcher, TextMatches};
@@ -33,6 +34,10 @@ impl Repository {
     /// Build a collection's separate full-text index if it is not warm yet.
     pub fn warm_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
+        if self.selected_route(&[collection.to_owned()])?.is_some() {
+            self.warm_selected_indexes(collection, true, false)?;
+            return Ok(self.metrics.since(&before));
+        }
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let started = Instant::now();
@@ -60,6 +65,11 @@ impl Repository {
     /// Refresh a collection and rebuild its separate full-text index if eligible.
     pub fn rebuild_text_index(&mut self, collection: &str) -> Result<Metrics> {
         let before = self.metrics.clone();
+        if self.selected_route(&[collection.to_owned()])?.is_some() {
+            self.rebuild_selected_text_indexes(collection)?;
+            self.query_cache.invalidate(collection);
+            return Ok(self.metrics.since(&before));
+        }
         let c = self.collection(collection)?;
         self.ensure_picker(&c)?;
         let started = Instant::now();
@@ -87,6 +97,17 @@ impl Repository {
     /// Search rendered words, rendered regex, or raw-markup regex newest first.
     pub fn search_text(&mut self, request: &TextQuery) -> Result<TextQueryResult> {
         let request = Self::normalized_filter_sort(request)?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) = self.search_text_selected(&request, selected, None, true)?;
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(result);
+        }
         if !request.sort.is_empty() {
             return self.search_text_sorted::<false>(&request, None, None);
         }
@@ -113,6 +134,18 @@ impl Repository {
                 operator,
                 &Value::String(request.pattern.clone()),
             )?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) =
+                self.search_text_selected(&request, selected, Some(&extension), true)?;
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(result);
+        }
         if !request.sort.is_empty() {
             return self.search_text_sorted::<true>(&request, None, Some(&extension));
         }
@@ -128,6 +161,32 @@ impl Repository {
         mut on_hit: impl FnMut(usize, &TextHit) -> Result<()>,
     ) -> Result<TextQueryStreamSummary> {
         let request = Self::normalized_filter_sort(request)?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) = self.search_text_selected(
+                &request,
+                selected,
+                None,
+                self.options.stream_query_cache,
+            )?;
+            for (index, hit) in result.hits.iter().enumerate() {
+                on_hit(index + 1, hit)?;
+            }
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(TextQueryStreamSummary {
+                returned: result.hits.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
+            });
+        }
         if !request.sort.is_empty() {
             let result = self.search_text_sorted::<false>(&request, None, None)?;
             for (index, hit) in result.hits.iter().enumerate() {
@@ -178,6 +237,32 @@ impl Repository {
                 operator,
                 &Value::String(request.pattern.clone()),
             )?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) = self.search_text_selected(
+                &request,
+                selected,
+                Some(&extension),
+                self.options.stream_query_cache,
+            )?;
+            for (index, hit) in result.hits.iter().enumerate() {
+                on_hit(index + 1, hit)?;
+            }
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(TextQueryStreamSummary {
+                returned: result.hits.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
+            });
+        }
         if !request.sort.is_empty() {
             let result = self.search_text_sorted::<true>(&request, None, Some(&extension))?;
             for (index, hit) in result.hits.iter().enumerate() {
@@ -216,6 +301,30 @@ impl Repository {
         mut on_page: impl FnMut(&[TextHit]) -> Result<()>,
     ) -> Result<TextQueryStreamSummary> {
         let request = Self::normalized_filter_sort(request)?;
+        let names = request
+            .collections
+            .clone()
+            .unwrap_or_else(|| self.model.collections.keys().cloned().collect());
+        if let Some(selected) = self.selected_route(&names)? {
+            let (result, pending) = self.search_text_selected(
+                &request,
+                selected,
+                None,
+                self.options.stream_query_cache,
+            )?;
+            on_page(&result.hits)?;
+            if let Some((key, slots)) = pending {
+                self.query_cache.insert_ordered(key, slots);
+            }
+            return Ok(TextQueryStreamSummary {
+                returned: result.hits.len(),
+                total: result.total,
+                truncated: result.truncated,
+                elapsed_ms: result.elapsed_ms,
+                metrics: result.metrics,
+                query_plan: result.query_plan,
+            });
+        }
         if request.sort.is_empty() {
             let mut page = Vec::new();
             let (result, returned) = self.search_text_inner::<false>(

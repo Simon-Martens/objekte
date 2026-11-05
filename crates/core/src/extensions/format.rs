@@ -13,6 +13,18 @@ pub enum ScalarValue<'a> {
 }
 
 
+/// A logical JSON-compatible node used only when an owning API needs a tree.
+/// Decoders with empty objects, arrays or numeric object keys should visit
+/// parent containers before children. Array members must arrive in index
+/// order without gaps. Ordinary leaf-only decoders can keep the default.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum LogicalNode<'a> {
+    Object,
+    Array,
+    Scalar(ScalarValue<'a>),
+}
+
+
 /// A decoded record lends both path presence and logical leaves for one call.
 /// Implementations may borrow the source bytes or own a format-specific tree.
 pub trait DecodedRecord: RecordAccess {
@@ -22,6 +34,13 @@ pub trait DecodedRecord: RecordAccess {
         &self,
         visit: &mut dyn FnMut(&str, ScalarValue<'_>) -> Result<()>,
     ) -> Result<()>;
+
+    fn visit_nodes(
+        &self,
+        visit: &mut dyn FnMut(&str, LogicalNode<'_>) -> Result<()>,
+    ) -> Result<()> {
+        self.visit_leaves(&mut |path, value| visit(path, LogicalNode::Scalar(value)))
+    }
 }
 
 

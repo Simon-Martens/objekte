@@ -100,22 +100,34 @@ pub(crate) struct SortRecord<'a> {
     /// Signed Unix nanoseconds as a decimal string.
     pub modified: &'a str,
     pub status: RecordStatus,
+    /// Actual provider locator for non-JSON records.
+    pub locator: Option<&'a Path>,
+    pub created: Option<i128>,
 }
 
 
 impl SortRecord<'_> {
     fn file(&self) -> std::path::PathBuf {
-        self.collection_path.join(format!("{}.json", self.id))
+        self.locator.map_or_else(
+            || self.collection_path.join(format!("{}.json", self.id)),
+            |locator| {
+                if locator.is_absolute() {
+                    locator.to_path_buf()
+                } else {
+                    self.collection_path.join(locator)
+                }
+            },
+        )
     }
 
     /// IDs, paths, and status names order bytewise, like the ID tie-break.
     fn value(&self, field: MetadataField) -> SortValue {
         match field {
             MetadataField::Id => SortValue::String(self.id.as_bytes().to_vec()),
-            MetadataField::Filename => {
-                let name = self.id.rsplit('/').next().unwrap_or(self.id);
-                SortValue::String(format!("{name}.json").into_bytes())
-            }
+            MetadataField::Filename => SortValue::String(self.file().file_name().map_or_else(
+                || format!("{}.json", self.id).into_bytes(),
+                |name| name.to_string_lossy().as_bytes().to_vec(),
+            )),
             MetadataField::Path => {
                 let file = self.file();
                 let relative = file.strip_prefix(self.root).unwrap_or(&file);
@@ -124,9 +136,18 @@ impl SortRecord<'_> {
             MetadataField::Size => SortValue::Number(self.size.to_string()),
             MetadataField::Modified => SortValue::Number(self.modified.to_owned()),
             // Creation time is not kept in the index; read it only for this sort.
-            MetadataField::Created => std::fs::metadata(self.file())
-                .ok()
-                .and_then(|metadata| crate::source::created_timestamp(&metadata))
+            MetadataField::Created => self
+                .created
+                .or_else(|| {
+                    self.locator
+                        .is_none()
+                        .then(|| {
+                            std::fs::metadata(self.file())
+                                .ok()
+                                .and_then(|metadata| crate::source::created_timestamp(&metadata))
+                        })
+                        .flatten()
+                })
                 .map_or(SortValue::Null, |nanos| {
                     SortValue::Number(nanos.to_string())
                 }),
@@ -243,6 +264,10 @@ impl SortPlan {
                 TermKey::System(_) => None,
             })
             .collect()
+    }
+
+    pub(crate) fn has_relations(&self) -> bool {
+        self.relations.is_some()
     }
 
     /// Read terms that follow relations from `collection` through `context`.
@@ -457,7 +482,6 @@ impl Term {
 fn unindexable() -> Error {
     Error::Request("system sort fields other than @id cannot be indexed".into())
 }
-
 
 fn collator(language: &str) -> Result<CollatorBorrowed<'static>> {
     let locale: Locale = language

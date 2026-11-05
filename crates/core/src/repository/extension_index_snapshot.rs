@@ -150,6 +150,9 @@ impl Repository {
             .iter()
             .map(|source| BigramFile {
                 id: source.record_id.clone(),
+                // The portable compact codec stores only slot IDs. The
+                // companion manifest holds the real descriptor/locator; no
+                // source read ever uses this synthetic codec filename.
                 filename: format!("{}.json", source.record_id),
                 size_bytes: 0,
                 modified_unix_nanos: "0".into(),

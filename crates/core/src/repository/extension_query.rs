@@ -68,7 +68,7 @@ struct ExtensionCandidates {
 }
 
 
-fn source_location(offsets: &[usize], slot: u32) -> Option<(usize, usize)> {
+pub(super) fn source_location(offsets: &[usize], slot: u32) -> Option<(usize, usize)> {
     let slot = slot as usize;
     if slot >= *offsets.last()? {
         return None;
@@ -606,6 +606,13 @@ impl Repository {
         let frontend = extensions.frontend(frontend)?;
         let plan = frontend.compile(request, &extensions.bindings())?;
         let descriptor = frontend.descriptor().clone();
+        for collection in &plan.collections {
+            if self.invalid_selected_collections.contains(collection) {
+                return Err(Error::Unstable(
+                    self.model.collection(collection)?.path.clone(),
+                ));
+            }
+        }
         self.query_logical_inner(&descriptor, request, &plan)
     }
 

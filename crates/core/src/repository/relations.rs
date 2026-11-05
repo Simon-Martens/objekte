@@ -78,6 +78,23 @@ impl Repository {
         collection: &str,
         id: &str,
     ) -> Result<Option<Record>> {
+        if let Some(mut selected) = self.selected_route(&[collection.to_owned()])? {
+            validate_id(id)?;
+            let (c, snapshot) = selected.pop().expect("one selected collection");
+            let Some(source) = snapshot
+                .sources
+                .iter()
+                .find(|source| source.record_id == id)
+            else {
+                self.memory_edges.remove(&(collection.into(), id.into()));
+                return Ok(None);
+            };
+            let record = self.selected_record(&c, source, &mut Vec::new(), false)?;
+            let edges = self.extract(&c, id, &record.data)?;
+            self.memory_edges
+                .insert((collection.into(), id.into()), edges);
+            return Ok(Some(record));
+        }
         let c = self.collection(collection)?;
         validate_id(id)?;
         self.memory_coverage
@@ -163,8 +180,32 @@ impl Repository {
         let mut coverage = Vec::new();
         if complete {
             for source in &sources {
-                let c = self.collection(source)?;
-                self.direct(&c, None, false)?;
+                if let Some(mut selected) = self.selected_route(std::slice::from_ref(source))? {
+                    let (c, snapshot) = selected.pop().expect("selected collection exists");
+                    let mut edges = BTreeMap::new();
+                    let mut bytes = Vec::new();
+                    for descriptor in snapshot.sources.iter() {
+                        let record = self.selected_record(&c, descriptor, &mut bytes, false)?;
+                        edges.insert(
+                            (c.name.clone(), record.id.clone()),
+                            self.extract(&c, &record.id, &record.data)?,
+                        );
+                    }
+                    if self.options.freshness != Freshness::MetadataOnOpen {
+                        let current = self.source_descriptors(source)?;
+                        self.metrics.enumerations += 1;
+                        if current != *snapshot.sources {
+                            return Err(Error::Unstable(c.path));
+                        }
+                    }
+                    self.memory_edges.retain(|(name, _), _| name != source);
+                    self.memory_edges.extend(edges);
+                    self.memory_coverage
+                        .insert(source.clone(), "current".into());
+                } else {
+                    let c = self.collection(source)?;
+                    self.direct(&c, None, false)?;
+                }
             }
         }
         for source in &sources {

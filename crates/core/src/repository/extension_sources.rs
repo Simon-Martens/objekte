@@ -2,7 +2,8 @@
 
 use super::*;
 use crate::extensions::{
-    DecodedRecord, FormatDecoder, ScalarValue, SourceDescriptor, SourceProvider, TypedValue,
+    DecodedRecord, FormatDecoder, LogicalNode, ScalarValue, SourceDescriptor, SourceProvider,
+    TypedValue,
 };
 use crate::source::FilesystemJsonProvider;
 
@@ -14,6 +15,129 @@ pub struct DecodedLeaf {
     pub value: TypedValue,
 }
 
+
+fn pointer_parts(path: &str) -> Result<Vec<String>> {
+    if path.is_empty() {
+        return Ok(Vec::new());
+    }
+    let Some(rest) = path.strip_prefix('/') else {
+        return Err(Error::Request(format!("invalid logical pointer {path:?}")));
+    };
+    rest.split('/')
+        .map(|part| {
+            let mut decoded = String::new();
+            let mut characters = part.chars();
+            while let Some(character) = characters.next() {
+                if character == '~' {
+                    decoded.push(match characters.next() {
+                        Some('0') => '~',
+                        Some('1') => '/',
+                        _ => {
+                            return Err(Error::Request(format!(
+                                "invalid logical pointer {path:?}"
+                            )));
+                        }
+                    });
+                } else {
+                    decoded.push(character);
+                }
+            }
+            Ok(decoded)
+        })
+        .collect()
+}
+
+fn insert_logical_node(root: &mut Value, parts: &[String], value: Value) -> Result<()> {
+    let Some((part, rest)) = parts.split_first() else {
+        *root = value;
+        return Ok(());
+    };
+    if root.is_null() {
+        *root = if part.parse::<usize>().is_ok() {
+            Value::Array(Vec::new())
+        } else {
+            Value::Object(serde_json::Map::new())
+        };
+    }
+    let next = match root {
+        Value::Object(fields) => fields.entry(part).or_insert(Value::Null),
+        Value::Array(items) => {
+            let index = part
+                .parse::<usize>()
+                .map_err(|_| Error::Request(format!("logical array index {part:?} is invalid")))?;
+            if index.to_string() != *part {
+                return Err(Error::Request(format!(
+                    "logical array index {part:?} is not canonical"
+                )));
+            }
+            if index > items.len() {
+                return Err(Error::Request(
+                    "logical decoder omitted an array member; emit container nodes".into(),
+                ));
+            }
+            if index == items.len() {
+                items.push(Value::Null);
+            }
+            &mut items[index]
+        }
+        _ => {
+            return Err(Error::Request(
+                "logical decoder placed a child below a scalar".into(),
+            ));
+        }
+    };
+    insert_logical_node(next, rest, value)
+}
+
+fn logical_record_value(record: &dyn DecodedRecord) -> Result<Value> {
+    let mut root = Value::Object(serde_json::Map::new());
+    let mut emitted = BTreeSet::new();
+    let mut scalar_paths = BTreeSet::new();
+    let mut parent_paths = BTreeSet::new();
+    record.visit_nodes(&mut |path, node| {
+        let parts = pointer_parts(path)?;
+        if !emitted.insert(path.to_owned()) {
+            return Err(Error::Request(format!(
+                "decoder emitted duplicate logical path {path:?}"
+            )));
+        }
+        if parent_paths.contains(path) {
+            return Err(Error::Request(format!(
+                "decoder emitted a parent after children at {path:?}"
+            )));
+        }
+        let mut parent = path;
+        while let Some(end) = parent.rfind('/') {
+            parent = &parent[..end];
+            if scalar_paths.contains(parent) {
+                return Err(Error::Request(format!(
+                    "decoder placed a child below a scalar at {parent:?}"
+                )));
+            }
+            parent_paths.insert(parent.to_owned());
+        }
+        if matches!(node, LogicalNode::Scalar(_)) {
+            scalar_paths.insert(path.to_owned());
+        }
+        let value = match node {
+            LogicalNode::Object => Value::Object(serde_json::Map::new()),
+            LogicalNode::Array => Value::Array(Vec::new()),
+            LogicalNode::Scalar(ScalarValue::Null) => Value::Null,
+            LogicalNode::Scalar(ScalarValue::Bool(value)) => Value::Bool(value),
+            LogicalNode::Scalar(ScalarValue::Text(value)) => Value::String(value.into()),
+            LogicalNode::Scalar(ScalarValue::Number(value)) => {
+                let parsed: Value = serde_json::from_str(value)
+                    .map_err(|_| Error::Request("decoder emitted an invalid number".into()))?;
+                if !parsed.is_number() {
+                    return Err(Error::Request("decoder emitted a nonnumeric number".into()));
+                }
+                parsed
+            }
+        };
+        insert_logical_node(&mut root, &parts, value)
+    })?;
+    Ok(root)
+}
 
 pub(super) fn select_sources(
     c: &Collection,
@@ -47,9 +171,12 @@ pub(super) fn select_sources(
                     )));
                 }
                 validate_id(&descriptor.record_id)?;
-                if descriptor.source_id.is_empty() || descriptor.revision.is_empty() {
+                if descriptor.source_id.is_empty()
+                    || descriptor.revision.is_empty()
+                    || descriptor.locator.as_os_str().is_empty()
+                {
                     return Err(Error::Request(format!(
-                        "source {} has no stable identity or revision",
+                        "source {} has no stable identity, locator or revision",
                         descriptor.record_id
                     )));
                 }
@@ -78,6 +205,153 @@ pub(super) fn select_sources(
 
 
 impl Repository {
+    pub(super) fn selected_snapshot_for_query(
+        &mut self,
+        collection: &Collection,
+    ) -> Result<CustomSourceSnapshot> {
+        if self.options.freshness == Freshness::MetadataOnOpen
+            && let Some(snapshot) = self.custom_source_snapshot.get(&collection.name)
+        {
+            return Ok(snapshot.clone());
+        }
+        let sources = self.source_descriptors(&collection.name)?;
+        self.metrics.enumerations += 1;
+        let extensions = self.extensions.as_deref().ok_or_else(|| {
+            Error::Request("selected sources require registered extensions".into())
+        })?;
+        let snapshot = CustomSourceSnapshot::new(collection, sources, extensions)?;
+        if self.options.freshness == Freshness::MetadataOnOpen {
+            self.custom_source_snapshot
+                .insert(collection.name.clone(), snapshot.clone());
+        }
+        Ok(snapshot)
+    }
+
+    /// Return a pinned selected inventory only if the requested scope contains
+    /// a custom record. JSON-only scopes keep their concrete picker path.
+    pub(super) fn selected_route(
+        &mut self,
+        names: &[String],
+    ) -> Result<Option<Vec<(Collection, CustomSourceSnapshot)>>> {
+        if let Some(name) = names
+            .iter()
+            .find(|name| self.invalid_selected_collections.contains(*name))
+        {
+            return Err(Error::Unstable(self.model.collection(name)?.path.clone()));
+        }
+        let Some(extensions) = self.extensions.as_ref() else {
+            return Ok(None);
+        };
+        if !names.iter().any(|name| {
+            self.custom_source_collections.contains(name)
+                || extensions
+                    .source_providers()
+                    .any(|provider| provider.may_select(name))
+        }) {
+            return Ok(None);
+        }
+        let mut selected = Vec::with_capacity(names.len());
+        let mut has_custom = false;
+        for name in names.iter().collect::<BTreeSet<_>>() {
+            let collection = self.model.collection(name)?.clone();
+            let snapshot = self.selected_snapshot_for_query(&collection)?;
+            has_custom |= snapshot
+                .sources
+                .iter()
+                .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
+            selected.push((collection, snapshot));
+        }
+        Ok(has_custom.then_some(selected))
+    }
+
+    pub(super) fn selected_record(
+        &mut self,
+        collection: &Collection,
+        source: &SourceDescriptor,
+        bytes: &mut Vec<u8>,
+        validate: bool,
+    ) -> Result<Record> {
+        self.read_selected_source_bytes_into(source, bytes)?;
+        self.metrics.source_reads += 1;
+        self.metrics.source_bytes += bytes.len() as u64;
+        let hash = digest(bytes);
+        self.metrics.hashes += 1;
+        let mut document = if source.format == "objekte:json"
+            && source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
+        {
+            Self::parse_value(
+                &mut self.metrics,
+                collection,
+                &source.record_id,
+                bytes,
+                false,
+            )
+        } else {
+            let decoder = self.extensions.as_ref().unwrap().decoder(source)?;
+            let mut data = None;
+            decoder.decode(bytes, &mut |record| {
+                if data.is_some() {
+                    return Err(Error::Request(
+                        "format decoder emitted multiple records".into(),
+                    ));
+                }
+                data = Some(logical_record_value(record)?);
+                Ok(())
+            })?;
+            self.metrics.parses += 1;
+            Document {
+                data: data
+                    .ok_or_else(|| Error::Request("format decoder emitted no record".into()))?,
+                state: RecordState {
+                    status: RecordStatus::Pending,
+                    issues: Vec::new(),
+                },
+            }
+        };
+        if document.state.status != RecordStatus::IncorrectJson {
+            if collection.schema.is_none() {
+                document.state.status = RecordStatus::NoSchema;
+            } else if validate {
+                document.validate(collection);
+                self.metrics.validations += 1;
+            }
+        }
+        let size = source
+            .metadata
+            .get("size_bytes")
+            .and_then(|value| value.parse::<u64>().ok())
+            .unwrap_or(bytes.len() as u64);
+        let modified = source
+            .metadata
+            .get("modified_unix_nanos")
+            .filter(|value| value.parse::<i128>().is_ok())
+            .cloned()
+            .unwrap_or_else(|| "0".into());
+        let path = source.metadata.get("path").cloned().unwrap_or_else(|| {
+            let locator = if source.locator.is_absolute() {
+                source.locator.clone()
+            } else {
+                collection.path.join(&source.locator)
+            };
+            locator
+                .strip_prefix(&self.model.root)
+                .unwrap_or(&locator)
+                .to_string_lossy()
+                .into_owned()
+        });
+        Ok(Record {
+            collection: collection.name.clone(),
+            id: source.record_id.clone(),
+            path,
+            size_bytes: size,
+            modified_unix_nanos: modified,
+            hash,
+            raw: (document.state.status == RecordStatus::IncorrectJson).then(|| bytes.clone()),
+            state: document.state,
+            data: document.data,
+        })
+    }
+
     /// Refresh the descriptor table only when a provider, frontend selection,
     /// or representation posting is active for this collection.
     pub(super) fn reconcile_extension_selection(
@@ -112,19 +386,35 @@ impl Repository {
             .iter()
             .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
         if changed {
-            self.custom_source_snapshot.insert(
-                collection.to_owned(),
-                CustomSourceSnapshot::new(
-                    self.model.collection(collection)?,
-                    selected,
-                    self.extensions
-                        .as_deref()
-                        .expect("selected source extensions"),
-                )?,
-            );
+            let specs = self.active_selected_specs(collection)?;
+            let next = CustomSourceSnapshot::new(
+                self.model.collection(collection)?,
+                selected,
+                self.extensions
+                    .as_deref()
+                    .expect("selected source extensions"),
+            )?;
+            let previous = self
+                .custom_source_snapshot
+                .insert(collection.to_owned(), next.clone());
+            if let Err(error) = self.build_selected_specs(collection, &specs) {
+                if let Some(previous) = previous {
+                    self.custom_source_snapshot
+                        .insert(collection.to_owned(), previous);
+                } else {
+                    self.custom_source_snapshot.remove(collection);
+                }
+                self.invalid_selected_collections.insert(collection.into());
+                self.query_cache.invalidate(collection);
+                return Err(error);
+            }
+            self.extension_text_indexes
+                .retain(|key, _| key.collection != collection || key.selection == next.fingerprint);
+            self.selected_derived_indexes
+                .retain(|key, _| key.collection != collection || key.selection == next.fingerprint);
             self.query_cache.invalidate(collection);
-            self.invalidate_representation_indexes(collection);
         }
+        self.invalid_selected_collections.remove(collection);
         if has_custom {
             self.custom_source_collections.insert(collection.to_owned());
         } else {

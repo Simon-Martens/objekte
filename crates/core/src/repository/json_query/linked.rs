@@ -4,7 +4,6 @@ use super::*;
 use crate::json_filter::RelationContext;
 use std::{collections::HashMap, io::Read, sync::Arc};
 
-
 /// Above this many linked IDs, an unindexed relation field is scanned
 /// instead of unioning one bigram candidate set per ID.
 const BIGRAM_SEMIJOIN_LIMIT: usize = 512;
@@ -56,11 +55,26 @@ impl Repository {
             return Ok(None);
         };
         for (target, keys) in keys {
-            let linked = self.collection(&target)?;
             let started = Instant::now();
-            let (records, reads) = read_linked(&linked, keys.as_ref())?;
-            self.metrics.source_reads += reads as u64;
-            self.metrics.parses += reads as u64;
+            let records =
+                if let Some(mut selected) = self.selected_route(std::slice::from_ref(&target))? {
+                    let (linked, snapshot) = selected.pop().expect("linked collection exists");
+                    let mut records = HashMap::new();
+                    let mut bytes = Vec::new();
+                    for source in snapshot.sources.iter() {
+                        let record = self.selected_record(&linked, source, &mut bytes, false)?;
+                        if record.state.status != RecordStatus::IncorrectJson {
+                            records.insert(record.id, record.data);
+                        }
+                    }
+                    records
+                } else {
+                    let linked = self.collection(&target)?;
+                    let (records, reads) = read_linked(&linked, keys.as_ref())?;
+                    self.metrics.source_reads += reads as u64;
+                    self.metrics.parses += reads as u64;
+                    records
+                };
             self.metrics.parse_nanos += nanos(started);
             context.insert_table(target, records);
         }
