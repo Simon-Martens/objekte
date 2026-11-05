@@ -28,7 +28,9 @@ mod source;
 mod text;
 mod validation;
 mod view_definition;
-pub use validation::{RecordState, RecordStatus, ValidationIssue, ValidationMetrics};
+pub use validation::{
+    RecordState, RecordStatus, SourceIssue, SourceSpan, ValidationIssue, ValidationMetrics,
+};
 
 pub use config::{
     Collection, Direction, IndexField, ListOptions, RepositoryModel, Sort, ViewHashes,

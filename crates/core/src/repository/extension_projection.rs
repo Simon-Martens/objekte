@@ -6,7 +6,7 @@ use crate::{
     JsonFilter,
     bigram::{BigramIndexBuilder, SKIP_INDEX_MIN_DENSITY_PCT},
     extensions::{
-        BindingContext, BoundValueExtractor, Extraction, LogicalNode, ScalarValue,
+        BindingContext, BoundValueExtractor, DecodeOutcome, Extraction, LogicalNode, ScalarValue,
         TextRepresentation, TypedValue,
     },
     file_picker::TypedKey,
@@ -47,6 +47,7 @@ struct TextBuild {
     rendered: String,
     content: String,
     observed_bigrams: Vec<u64>,
+    malformed_slots: Vec<u32>,
 }
 
 
@@ -138,6 +139,7 @@ struct TextReuse {
     new_key: RepresentationIndexKey,
     base_to_current: Vec<Option<u32>>,
     overlay_slots: Vec<u32>,
+    malformed_slots: Vec<u32>,
 }
 
 
@@ -299,6 +301,13 @@ impl Repository {
                                     new_key: key,
                                     base_to_current,
                                     overlay_slots,
+                                    malformed_slots: posting
+                                        .malformed_slots
+                                        .iter()
+                                        .filter_map(|slot| {
+                                            reuse.old_to_new.get(*slot as usize).copied().flatten()
+                                        })
+                                        .collect(),
                                 });
                                 continue;
                             }
@@ -315,6 +324,7 @@ impl Repository {
                         rendered: String::new(),
                         content: String::new(),
                         observed_bigrams: vec![0; 1024],
+                        malformed_slots: Vec::new(),
                     });
                 }
                 SelectedIndexRequest::Derived { extractor } => {
@@ -473,104 +483,95 @@ impl Repository {
             for build in &mut text_builds {
                 build.content.clear();
             }
-            let mut records = 0;
             self.metrics.parses += 1;
-            let decoded = decoder.decode(&bytes, &mut |record| {
-                records += 1;
-                if records > 1 {
-                    return Err(Error::Request(
-                        "format decoder emitted multiple records".into(),
-                    ));
-                }
-                for build in &mut text_builds {
-                    add_text(
-                        record,
-                        &build.path,
-                        build.definition.as_ref(),
-                        &mut build.rendered,
-                        &mut build.content,
-                    )?;
-                }
-                for build in &mut derived_builds {
-                    build.output.clear();
-                    let state = build.binding.extractor.extract(record, &mut build.output)?;
-                    if state == Extraction::Missing && !build.output.is_empty() {
-                        return Err(Error::Request(format!(
-                            "extractor {} emitted values for a missing field",
-                            build.binding.identity
-                        )));
+            let outcome =
+                crate::extensions::format::decode_checked(decoder, &bytes, &mut |record| {
+                    for build in &mut text_builds {
+                        add_text(
+                            record,
+                            &build.path,
+                            build.definition.as_ref(),
+                            &mut build.rendered,
+                            &mut build.content,
+                        )?;
                     }
-                    if state == Extraction::Present {
-                        build.present[slot / 64] |= 1 << (slot % 64);
-                    } else {
-                        build.rows.push((TypedKey::Missing, slot));
-                    }
-                    build.scalar_safe &= build.output.len() <= 1;
-                    for value in build.output.drain(..) {
-                        build.rows.push((TypedKey::from_extracted(value)?, slot));
-                    }
-                }
-                if !field_builds.is_empty() {
-                    let mut array_paths = Vec::new();
-                    record.visit_nodes(&mut |path, node| {
-                        if matches!(node, LogicalNode::Array) {
-                            array_paths.push(path.to_owned());
-                        }
-                        Ok(())
-                    })?;
-                    for build in &mut field_builds {
+                    for build in &mut derived_builds {
                         build.output.clear();
-                        let present = record.path_present(&build.path)?;
-                        let count = record.visit_path(&build.path, &mut |value| {
-                            let typed = match value {
-                                ScalarValue::Null => TypedValue::Null,
-                                ScalarValue::Bool(value) => TypedValue::Bool(value),
-                                ScalarValue::Number(value) => TypedValue::Number(value.into()),
-                                ScalarValue::Text(value) => TypedValue::Text(value.into()),
-                            };
-                            build.output.push(TypedKey::from_extracted(typed)?);
-                            Ok(())
-                        })?;
-                        if !present && count > 0 {
-                            return Err(Error::Request(
-                                "decoder emitted values for a missing field".into(),
-                            ));
+                        let state = build.binding.extractor.extract(record, &mut build.output)?;
+                        if state == Extraction::Missing && !build.output.is_empty() {
+                            return Err(Error::Request(format!(
+                                "extractor {} emitted values for a missing field",
+                                build.binding.identity
+                            )));
                         }
-                        if present {
+                        if state == Extraction::Present {
                             build.present[slot / 64] |= 1 << (slot % 64);
                         } else {
                             build.rows.push((TypedKey::Missing, slot));
                         }
-                        build.scalar_safe &= count <= 1
-                            && build.pointer.as_ref().is_some_and(|pointer| {
-                                !array_paths.iter().any(|array| {
-                                    pointer == array
-                                        || pointer
-                                            .strip_prefix(array)
-                                            .is_some_and(|rest| rest.starts_with('/'))
-                                })
-                            });
-                        for key in build.output.drain(..) {
-                            build.rows.push((key, slot));
+                        build.scalar_safe &= build.output.len() <= 1;
+                        for value in build.output.drain(..) {
+                            build.rows.push((TypedKey::from_extracted(value)?, slot));
                         }
                     }
-                }
-                Ok(())
-            });
-            if let Err(error) = decoded {
-                if super::extension_sources::native_malformed_json(source, &bytes) {
-                    for build in &mut derived_builds {
-                        build.rows.push((TypedKey::Missing, slot));
+                    if !field_builds.is_empty() {
+                        let mut array_paths = Vec::new();
+                        record.visit_nodes(&mut |path, node| {
+                            if matches!(node, LogicalNode::Array) {
+                                array_paths.push(path.to_owned());
+                            }
+                            Ok(())
+                        })?;
+                        for build in &mut field_builds {
+                            build.output.clear();
+                            let present = record.path_present(&build.path)?;
+                            let count = record.visit_path(&build.path, &mut |value| {
+                                let typed = match value {
+                                    ScalarValue::Null => TypedValue::Null,
+                                    ScalarValue::Bool(value) => TypedValue::Bool(value),
+                                    ScalarValue::Number(value) => TypedValue::Number(value.into()),
+                                    ScalarValue::Text(value) => TypedValue::Text(value.into()),
+                                };
+                                build.output.push(TypedKey::from_extracted(typed)?);
+                                Ok(())
+                            })?;
+                            if !present && count > 0 {
+                                return Err(Error::Request(
+                                    "decoder emitted values for a missing field".into(),
+                                ));
+                            }
+                            if present {
+                                build.present[slot / 64] |= 1 << (slot % 64);
+                            } else {
+                                build.rows.push((TypedKey::Missing, slot));
+                            }
+                            build.scalar_safe &= count <= 1
+                                && build.pointer.as_ref().is_some_and(|pointer| {
+                                    !array_paths.iter().any(|array| {
+                                        pointer == array
+                                            || pointer
+                                                .strip_prefix(array)
+                                                .is_some_and(|rest| rest.starts_with('/'))
+                                    })
+                                });
+                            for key in build.output.drain(..) {
+                                build.rows.push((key, slot));
+                            }
+                        }
                     }
-                    for build in &mut field_builds {
-                        build.rows.push((TypedKey::Missing, slot));
-                    }
-                    continue;
+                    Ok(())
+                })?;
+            if matches!(outcome, DecodeOutcome::Malformed(_)) {
+                for build in &mut text_builds {
+                    build.malformed_slots.push(slot as u32);
                 }
-                return Err(error);
-            }
-            if records == 0 {
-                return Err(Error::Request("format decoder emitted no record".into()));
+                for build in &mut derived_builds {
+                    build.rows.push((TypedKey::Missing, slot));
+                }
+                for build in &mut field_builds {
+                    build.rows.push((TypedKey::Missing, slot));
+                }
+                continue;
             }
             for build in &mut text_builds {
                 observe_bigrams(
@@ -600,6 +601,7 @@ impl Repository {
                     observed_bigrams: build.observed_bigrams,
                     base_to_current: None,
                     overlay_slots: Vec::new(),
+                    malformed_slots: build.malformed_slots,
                     slots: selected.len(),
                     base_source_fingerprints: selected
                         .iter()
@@ -615,6 +617,7 @@ impl Repository {
                 .expect("reusable text posting exists until publication");
             posting.base_to_current = Some(update.base_to_current);
             posting.overlay_slots = update.overlay_slots;
+            posting.malformed_slots = update.malformed_slots;
             posting.slots = selected.len();
             self.extension_text_indexes.insert(update.new_key, posting);
         }

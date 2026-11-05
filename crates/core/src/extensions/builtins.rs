@@ -41,9 +41,36 @@ impl FormatDecoder for JsonFormatDecoder {
         bytes: &[u8],
         visit: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
     ) -> Result<()> {
-        let value: SonicValue = sonic_rs::from_slice(bytes)
-            .map_err(|error| Error::Request(format!("invalid JSON source: {error}")))?;
-        visit(&value)
+        match self.decode_outcome(bytes, visit)? {
+            DecodeOutcome::Decoded => Ok(()),
+            DecodeOutcome::Malformed(diagnostics) => Err(Error::MalformedSource {
+                format: self.0.identity.clone(),
+                message: diagnostics[0].message.clone(),
+            }),
+        }
+    }
+
+    fn decode_outcome(
+        &self,
+        bytes: &[u8],
+        visit: &mut dyn FnMut(&dyn DecodedRecord) -> Result<()>,
+    ) -> Result<DecodeOutcome> {
+        match sonic_rs::from_slice::<SonicValue>(bytes) {
+            Ok(value) => {
+                visit(&value)?;
+                Ok(DecodeOutcome::Decoded)
+            }
+            Err(error) => Ok(DecodeOutcome::Malformed(vec![FormatDiagnostic::new(
+                "json_syntax",
+                error.to_string(),
+            )])),
+        }
+    }
+
+    fn malformed_text<'a>(&self, bytes: &'a [u8]) -> Result<Option<std::borrow::Cow<'a, str>>> {
+        Ok(Some(std::borrow::Cow::Owned(
+            crate::text::malformed_search_text(bytes),
+        )))
     }
 }
 

@@ -934,9 +934,7 @@ impl Repository {
                                 None => Document::parse(bytes),
                             };
                             outcome.parse_nanos = nanos(t);
-                            if filter.uses_status()
-                                && doc.state.status != RecordStatus::IncorrectJson
-                            {
+                            if filter.uses_status() && !doc.state.status.is_malformed() {
                                 let started = Instant::now();
                                 doc.validate(c);
                                 outcome.validation_nanos = nanos(started);
@@ -958,7 +956,7 @@ impl Repository {
                                     created,
                                     doc.state.status,
                                 )?;
-                            } else if doc.state.status != RecordStatus::IncorrectJson {
+                            } else if !doc.state.status.is_malformed() {
                                 filter.check_cardinality(&doc.data)?;
                                 outcome.matches = !disjunction;
                                 outcome.term_results =
@@ -1007,8 +1005,7 @@ impl Repository {
                             outcome.hash_nanos = nanos(started);
                             // Only metadata predicates can match malformed JSON;
                             // its record returns the source bytes.
-                            let raw = (doc.state.status == RecordStatus::IncorrectJson)
-                                .then(|| bytes.clone());
+                            let raw = (doc.state.status.is_malformed()).then(|| bytes.clone());
                             outcome.projected = Some((doc, hash, after, raw));
                         }
                         Ok(outcome)
@@ -1122,7 +1119,7 @@ impl Repository {
                         }
                         return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
                     }
-                    let malformed = doc.state.status == RecordStatus::IncorrectJson;
+                    let malformed = doc.state.status.is_malformed();
                     result.push(Record {
                         collection: c.name.clone(),
                         id: id.clone(),

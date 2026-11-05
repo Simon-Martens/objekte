@@ -4,7 +4,7 @@
 use super::*;
 use crate::{
     Direction, JsonFilter, JsonPath,
-    extensions::{Extraction, TypedValue},
+    extensions::{DecodeOutcome, Extraction, TypedValue},
     file_picker::{TypedIndex, TypedKey},
     json_filter::decimal_cmp,
 };
@@ -573,36 +573,30 @@ impl Repository {
             self.read_selected_source_bytes_into(source, &mut bytes)?;
             self.metrics.source_reads += 1;
             self.metrics.source_bytes += bytes.len() as u64;
-            let mut records = 0;
             self.metrics.parses += 1;
-            decoder.decode(&bytes, &mut |record| {
-                records += 1;
-                if records > 1 {
-                    return Err(Error::Request(
-                        "format decoder emitted multiple records".into(),
-                    ));
-                }
-                output.clear();
-                let state = binding.extractor.extract(record, &mut output)?;
-                if state == Extraction::Missing && !output.is_empty() {
-                    return Err(Error::Request(format!(
-                        "extractor {} emitted values for a missing field",
-                        binding.identity
-                    )));
-                }
-                if state == Extraction::Present {
-                    present[slot / 64] |= 1 << (slot % 64);
-                } else {
-                    rows.push((TypedKey::Missing, slot));
-                }
-                scalar_safe &= output.len() <= 1;
-                for value in output.drain(..) {
-                    rows.push((TypedKey::from_extracted(value)?, slot));
-                }
-                Ok(())
-            })?;
-            if records == 0 {
-                return Err(Error::Request("format decoder emitted no record".into()));
+            let outcome =
+                crate::extensions::format::decode_checked(decoder, &bytes, &mut |record| {
+                    output.clear();
+                    let state = binding.extractor.extract(record, &mut output)?;
+                    if state == Extraction::Missing && !output.is_empty() {
+                        return Err(Error::Request(format!(
+                            "extractor {} emitted values for a missing field",
+                            binding.identity
+                        )));
+                    }
+                    if state == Extraction::Present {
+                        present[slot / 64] |= 1 << (slot % 64);
+                    } else {
+                        rows.push((TypedKey::Missing, slot));
+                    }
+                    scalar_safe &= output.len() <= 1;
+                    for value in output.drain(..) {
+                        rows.push((TypedKey::from_extracted(value)?, slot));
+                    }
+                    Ok(())
+                })?;
+            if matches!(outcome, DecodeOutcome::Malformed(_)) {
+                rows.push((TypedKey::Missing, slot));
             }
         }
         if self.options.freshness != Freshness::MetadataOnOpen {

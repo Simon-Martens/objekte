@@ -10,30 +10,43 @@ use crate::{
 
 type SelectedHitCallback<'a> = dyn FnMut(usize, &TextHit) -> Result<()> + 'a;
 
+
+/// Sources and field scope needed for one selected-record verification.
+struct SelectedMatchScope<'a, 'b> {
+    source: &'a crate::extensions::SourceDescriptor,
+    extensions: &'a crate::extensions::Extensions,
+    fields: Option<&'a BTreeSet<&'b str>>,
+    indices: bool,
+}
+
+
 fn selected_matches(
     record: &Record,
+    scope: SelectedMatchScope<'_, '_>,
     matcher: Option<&TextMatcher>,
     extension: Option<&BoundTextQuery>,
     binding: Option<&matcher::TextBindingPlan<'_>>,
     rules: &TextRules,
-    fields: Option<&BTreeSet<&str>>,
-    indices: bool,
 ) -> Result<TextMatches> {
-    if record.state.status == RecordStatus::IncorrectJson {
-        let matches = matcher.is_some_and(|matcher| {
-            fields.is_none()
-                && record
-                    .raw
-                    .as_ref()
-                    .is_some_and(|raw| matcher.matches_malformed(raw))
-        });
+    if record.state.status.is_malformed() {
+        let matches = if let (Some(matcher), None, Some(raw)) =
+            (matcher, scope.fields, record.raw.as_ref())
+        {
+            scope
+                .extensions
+                .decoder(scope.source)?
+                .malformed_text(raw)?
+                .is_some_and(|text| matcher.matches_malformed_text(&text))
+        } else {
+            false
+        };
         return Ok(TextMatches {
             fields: if matches {
                 vec!["$raw".into()]
             } else {
                 Vec::new()
             },
-            matched_paths: if matches && indices {
+            matched_paths: if matches && scope.indices {
                 vec!["$raw".into()]
             } else {
                 Vec::new()
@@ -44,8 +57,8 @@ fn selected_matches(
         TextMatcher::matching_fields_extension(
             &record.data,
             rules,
-            fields,
-            indices,
+            scope.fields,
+            scope.indices,
             extension,
             binding.expect("extension binding exists"),
         )
@@ -53,8 +66,8 @@ fn selected_matches(
         Ok(matcher.expect("native matcher exists").matching_fields(
             &record.data,
             rules,
-            fields,
-            indices,
+            scope.fields,
+            scope.indices,
         ))
     }
 }
@@ -345,8 +358,6 @@ impl Repository {
                 plans.insert(
                     collection.name.clone(),
                     self.sort_plan(collection, &request.sort)?,
-
-
                 );
             }
         }
@@ -624,12 +635,19 @@ impl Repository {
                     }
                     let fields = selected_matches(
                         &record,
+                        SelectedMatchScope {
+                            source,
+                            extensions: self
+                                .extensions
+                                .as_deref()
+                                .expect("selected source registry"),
+                            fields: requested_fields.as_ref(),
+                            indices: false,
+                        },
                         matcher.as_ref(),
                         extension,
                         binding.as_ref(),
                         &rules,
-                        requested_fields.as_ref(),
-                        false,
                     )?;
                     if fields.fields.is_empty() {
                         continue;
@@ -678,12 +696,19 @@ impl Repository {
                         }
                         let fields = selected_matches(
                             &checked,
+                            SelectedMatchScope {
+                                source,
+                                extensions: self
+                                    .extensions
+                                    .as_deref()
+                                    .expect("selected source registry"),
+                                fields: requested_fields.as_ref(),
+                                indices: true,
+                            },
                             matcher.as_ref(),
                             extension,
                             binding.as_ref(),
                             &rules,
-                            requested_fields.as_ref(),
-                            true,
                         )?;
                         if fields.fields.is_empty() {
                             return Err(Error::Unstable(source.locator.clone()));
@@ -757,12 +782,19 @@ impl Repository {
             });
             let fields = selected_matches(
                 &record,
+                SelectedMatchScope {
+                    source,
+                    extensions: self
+                        .extensions
+                        .as_deref()
+                        .expect("selected source registry"),
+                    fields: requested_fields.as_ref(),
+                    indices: true,
+                },
                 matcher.as_ref(),
                 extension,
                 binding.as_ref(),
                 &rules,
-                requested_fields.as_ref(),
-                true,
             )?;
             if fields.fields.is_empty() {
                 return Err(Error::Unstable(source.locator.clone()));
@@ -813,8 +845,6 @@ impl Repository {
                 .chain(decisions)
                 .collect(),
             },
-
-
             pending,
             returned,
         ))

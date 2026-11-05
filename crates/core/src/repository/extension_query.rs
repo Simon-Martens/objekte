@@ -6,8 +6,8 @@ use super::*;
 use crate::{
     Direction, JsonFilter, JsonPathStep, Sort, TextFormat,
     extensions::{
-        BindingContext, BoundTextQuery, CandidateConstraint, DecodedRecord, Extraction,
-        LogicalPlan, LogicalPredicate, ScalarValue, TextPreparation, TypedValue,
+        BindingContext, BoundTextQuery, CandidateConstraint, DecodeOutcome, DecodedRecord,
+        Extraction, LogicalPlan, LogicalPredicate, ScalarValue, TextPreparation, TypedValue,
     },
     file_picker::TypedKey,
     repository::{
@@ -848,30 +848,39 @@ impl Repository {
                     let decoder = extensions.decoder(source)?;
                     let mut outcome = None;
                     self.metrics.parses += 1;
-                    decoder.decode(&bytes, &mut |record| {
-                        if outcome.is_some() {
-                            return Err(Error::Request(
-                                "format decoder emitted multiple records".into(),
-                            ));
-                        }
-                        scratch.derived.clear();
-                        let matched = predicate.evaluate(record, &mut scratch)?;
-                        let keys = if matched {
-                            if indexed_order.is_some() {
-                                Some(Vec::new())
-                            } else {
-                                let mut keys = Vec::new();
-                                for sort in sorts {
-                                    keys.push(sort.value(source, record, &mut scratch)?);
-                                }
-                                Some(keys)
+                    let decoded = crate::extensions::format::decode_checked(
+                        decoder,
+                        &bytes,
+                        &mut |record| {
+                            if outcome.is_some() {
+                                return Err(Error::Request(
+                                    "format decoder emitted multiple records".into(),
+                                ));
                             }
-                        } else {
-                            None
-                        };
-                        outcome = Some(keys);
-                        Ok(())
-                    })?;
+                            scratch.derived.clear();
+                            let matched = predicate.evaluate(record, &mut scratch)?;
+                            let keys = if matched {
+                                if indexed_order.is_some() {
+                                    Some(Vec::new())
+                                } else {
+                                    let mut keys = Vec::new();
+                                    for sort in sorts {
+                                        keys.push(sort.value(source, record, &mut scratch)?);
+                                    }
+                                    Some(keys)
+                                }
+                            } else {
+                                None
+                            };
+                            outcome = Some(keys);
+                            Ok(())
+                        },
+                    )?;
+                    if matches!(decoded, DecodeOutcome::Malformed(_)) {
+                        // A malformed source has no logical values to pass to
+                        // a registered frontend's field operators.
+                        continue;
+                    }
                     let Some(matched) = outcome else {
                         return Err(Error::Request("format decoder emitted no record".into()));
                     };
@@ -941,15 +950,19 @@ impl Repository {
             let decoder = extensions.decoder(source)?;
             let mut projected = None;
             self.metrics.parses += 1;
-            decoder.decode(&bytes, &mut |record| {
-                if projected.is_some() {
-                    return Err(Error::Request(
-                        "format decoder emitted multiple records".into(),
-                    ));
-                }
-                projected = Some(project_columns(record, source, &columns)?);
-                Ok(())
-            })?;
+            let decoded =
+                crate::extensions::format::decode_checked(decoder, &bytes, &mut |record| {
+                    if projected.is_some() {
+                        return Err(Error::Request(
+                            "format decoder emitted multiple records".into(),
+                        ));
+                    }
+                    projected = Some(project_columns(record, source, &columns)?);
+                    Ok(())
+                })?;
+            if matches!(decoded, DecodeOutcome::Malformed(_)) {
+                return Err(Error::Unstable(source.locator.clone()));
+            }
             rows.push(ExtensionQueryRow {
                 source: (*source).clone(),
                 values: projected

@@ -149,6 +149,7 @@ impl Schema {
                     schema_path: Some(e.schema_path().to_string()),
                     code: "schema".into(),
                     message: e.to_string(),
+                    source: None,
                 })
                 .collect::<Vec<_>>()
         };

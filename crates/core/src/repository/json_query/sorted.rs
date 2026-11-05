@@ -85,7 +85,7 @@ impl Repository {
                                     raw: Option<Vec<u8>>| {
                 let mut validate = |document: &mut Document| {
                     // Malformed JSON keeps its status and has no schema state.
-                    if document.state.status == RecordStatus::IncorrectJson {
+                    if document.state.status.is_malformed() {
                         return;
                     }
                     if collection.schema.is_none() {

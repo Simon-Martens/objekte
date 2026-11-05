@@ -217,6 +217,7 @@ fn status_value(status: RecordStatus) -> &'static str {
         RecordStatus::Valid => "valid",
         RecordStatus::Invalid => "invalid",
         RecordStatus::IncorrectJson => "incorrect_json",
+        RecordStatus::IncorrectFormat => "incorrect_format",
         RecordStatus::NoSchema => "no_schema",
         RecordStatus::Pending => "pending",
     }

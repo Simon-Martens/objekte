@@ -53,12 +53,11 @@ fn value_text(value: &Value) -> String {
 pub(in super::super) fn status_color(status: RecordStatus) -> ratatui::style::Color {
     match status {
         RecordStatus::Valid => GREEN,
-        RecordStatus::Invalid | RecordStatus::IncorrectJson => RED,
+        RecordStatus::Invalid | RecordStatus::IncorrectJson | RecordStatus::IncorrectFormat => RED,
         RecordStatus::Pending => AMBER,
         RecordStatus::NoSchema => FAINT,
     }
 }
-
 
 /// The columns that fit, starting with the fixed identity columns.
 fn visible_columns(app: &App<'_>, width: u16) -> Vec<(usize, u16)> {
@@ -85,7 +84,6 @@ fn visible_columns(app: &App<'_>, width: u16) -> Vec<(usize, u16)> {
     }
     out
 }
-
 
 pub(in super::super) fn table(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
     let rows = area.height.saturating_sub(1) as usize;
@@ -217,7 +215,6 @@ fn cell(
 fn pad(text: &str, width: usize) -> String {
     format!("{text}{}", " ".repeat(width.saturating_sub(text.width())))
 }
-
 
 /// The body before a search, while searching, or without matches.
 pub(in super::super) fn empty(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {

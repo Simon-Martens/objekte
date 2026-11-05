@@ -214,7 +214,7 @@ pub struct Record {
     pub hash: String,
     pub data: Value,
     pub state: RecordState,
-    /// Exact source bytes for the raw editor when JSON cannot be parsed.
+    /// Exact source bytes when the registered format cannot be decoded.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub raw: Option<Vec<u8>>,
 }

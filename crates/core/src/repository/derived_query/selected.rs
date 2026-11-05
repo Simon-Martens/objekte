@@ -119,6 +119,9 @@ impl Repository {
             let mut output = Vec::new();
             for (slot, source) in snapshot.sources.iter().enumerate() {
                 let record = self.selected_record(collection, source, &mut bytes, false)?;
+                if record.state.status.is_malformed() {
+                    continue;
+                }
                 output.clear();
                 let state = binding.extractor.extract(&record.data, &mut output)?;
                 if state == Extraction::Missing && !output.is_empty() {
@@ -164,6 +167,9 @@ impl Repository {
                 .get(slot as usize)
                 .ok_or_else(|| Error::Cache("selected derived slot is unavailable".into()))?;
             let record = self.selected_record(collection, source, &mut bytes, true)?;
+            if record.state.status.is_malformed() {
+                return Err(Error::Unstable(source.locator.clone()));
+            }
             let mut output = Vec::new();
             let state = binding.extractor.extract(&record.data, &mut output)?;
             if state == Extraction::Missing && !output.is_empty() {

@@ -1508,11 +1508,11 @@ pub(super) fn status_name(status: RecordStatus) -> &'static str {
         RecordStatus::Valid => "valid",
         RecordStatus::Invalid => "invalid",
         RecordStatus::IncorrectJson => "malformed JSON",
+        RecordStatus::IncorrectFormat => "malformed format",
         RecordStatus::NoSchema => "no schema",
         RecordStatus::Pending => "not validated",
     }
 }
-
 
 #[cfg(test)]
 #[path = "app.test.rs"]

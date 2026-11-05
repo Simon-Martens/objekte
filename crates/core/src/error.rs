@@ -24,6 +24,8 @@ pub enum Error {
     },
     #[error("invalid request: {0}")]
     Request(String),
+    #[error("malformed {format} source: {message}")]
+    MalformedSource { format: String, message: String },
     #[error("source changed during reconciliation: {0}")]
     Unstable(PathBuf),
     #[error("cache: {0}")]

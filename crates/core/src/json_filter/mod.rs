@@ -707,7 +707,7 @@ impl JsonFilter {
         status: RecordStatus,
     ) -> Result<bool> {
         if !self.has_metadata() {
-            return if status == RecordStatus::IncorrectJson {
+            return if status.is_malformed() {
                 Ok(false)
             } else {
                 self.matches(value)

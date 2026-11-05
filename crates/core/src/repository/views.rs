@@ -195,7 +195,7 @@ impl Repository {
                 let doc = self.parse(c, &id, &raw.json, false);
                 if plan.matches(&id, &doc.data) {
                     selected.consider(plan.keys(&id, &doc.data), || {
-                        if c.schema.is_some() && doc.state.status != RecordStatus::IncorrectJson {
+                        if c.schema.is_some() && !doc.state.status.is_malformed() {
                             RetainedView::Unvalidated(id, doc)
                         } else {
                             let row = plan.row(c, &id, self.path(c, &id), &doc.data);

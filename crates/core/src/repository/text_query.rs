@@ -754,7 +754,7 @@ impl Repository {
                         {
                             return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
                         }
-                        let malformed = document.state.status == RecordStatus::IncorrectJson;
+                        let malformed = document.state.status.is_malformed();
                         let verified = if malformed {
                             if !CUSTOM
                                 && requested_fields.is_none()
@@ -928,7 +928,7 @@ impl Repository {
                             if collection_filter
                                 .as_ref()
                                 .is_some_and(JsonFilter::uses_status)
-                                && document.state.status != RecordStatus::IncorrectJson
+                                && !document.state.status.is_malformed()
                             {
                                 let started = Instant::now();
                                 document.validate(&c);
@@ -959,7 +959,7 @@ impl Repository {
                             };
                             let fields = if !passes_filter {
                                 Vec::new()
-                            } else if document.state.status == RecordStatus::IncorrectJson {
+                            } else if document.state.status.is_malformed() {
                                 if !CUSTOM
                                     && requested_fields.is_none()
                                     && matcher
@@ -1102,9 +1102,7 @@ impl Repository {
                         && reusable.1 == raw.json
                     {
                         let (mut document, _) = *reusable;
-                        if c.schema.is_none()
-                            && document.state.status != RecordStatus::IncorrectJson
-                        {
+                        if c.schema.is_none() && !document.state.status.is_malformed() {
                             document.state.status = RecordStatus::NoSchema;
                         }
                         if c.schema.is_some() && document.state.status == RecordStatus::Pending {
@@ -1117,7 +1115,7 @@ impl Repository {
                     } else {
                         Self::parse_value(&mut self.metrics, &c, &id, &raw.json, true)
                     };
-                    let malformed = document.state.status == RecordStatus::IncorrectJson;
+                    let malformed = document.state.status.is_malformed();
                     if let Some(filter) = &collection_filter {
                         let path = filter.uses_source_path().then(|| self.path(&c, &id));
                         let passes = filter.matches_source(

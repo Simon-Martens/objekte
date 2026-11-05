@@ -122,7 +122,7 @@ impl Repository {
             size_bytes: raw.stamp.size,
             modified_unix_nanos: raw.stamp.modified.clone(),
             hash: raw.hash,
-            raw: (value.state.status == RecordStatus::IncorrectJson).then_some(raw.json),
+            raw: (value.state.status.is_malformed()).then_some(raw.json),
             state: value.state,
             data: value.data,
         }))

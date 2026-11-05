@@ -45,7 +45,7 @@ impl Repository {
             )? {
                 return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
             }
-            let malformed = doc.state.status == RecordStatus::IncorrectJson;
+            let malformed = doc.state.status.is_malformed();
             result.push(Record {
                 collection: query.collection.name.clone(),
                 id: id.to_owned(),
@@ -79,9 +79,7 @@ impl Repository {
             let started = Instant::now();
             let raw = Self::read_raw(metrics, &source, id, Some(stamp))?;
             let doc = Self::parse_value(metrics, query.collection, id, &raw.json, true);
-            if doc.state.status == RecordStatus::IncorrectJson
-                || !query.filter.matches(&doc.data)?
-            {
+            if doc.state.status.is_malformed() || !query.filter.matches(&doc.data)? {
                 return Err(Error::Unstable(source.path.join(format!("{id}.json"))));
             }
             result.push(Record {

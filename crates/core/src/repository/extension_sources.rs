@@ -3,7 +3,7 @@
 use super::*;
 use crate::JsonFilter;
 use crate::extensions::{
-    DecodedRecord, FormatDecoder, LogicalNode, ScalarValue, SourceDescriptor, SourceProvider,
+    DecodeOutcome, DecodedRecord, LogicalNode, ScalarValue, SourceDescriptor, SourceProvider,
     TypedValue,
 };
 use crate::source::FilesystemJsonProvider;
@@ -16,14 +16,6 @@ pub struct DecodedLeaf {
     pub value: TypedValue,
 }
 
-
-/// Only the built-in filesystem JSON route has the legacy malformed-document
-/// policy. A callback or a custom decoder failure must still propagate.
-pub(super) fn native_malformed_json(source: &SourceDescriptor, bytes: &[u8]) -> bool {
-    source.provider == crate::source::FILESYSTEM_JSON_IDENTITY
-        && source.format == "objekte:json"
-        && sonic_rs::from_slice::<sonic_rs::Value>(bytes).is_err()
-}
 
 fn pointer_parts(path: &str) -> Result<Vec<String>> {
     if path.is_empty() {
@@ -382,29 +374,35 @@ impl Repository {
         } else {
             let decoder = self.extensions.as_ref().unwrap().decoder(source)?;
             let mut data = None;
-            decoder.decode(bytes, &mut |record| {
-                if data.is_some() {
-                    return Err(Error::Request(
-                        "format decoder emitted multiple records".into(),
-                    ));
-                }
-                let selected_roots = (source.format == "objekte:json").then_some(roots).flatten();
-                let (value, nodes) = logical_record_value(record, selected_roots)?;
-                self.metrics.selected_projected_nodes += nodes as u64;
-                data = Some(value);
-                Ok(())
-            })?;
+            let outcome =
+                crate::extensions::format::decode_checked(decoder, bytes, &mut |record| {
+                    if data.is_some() {
+                        return Err(Error::Request(
+                            "format decoder emitted multiple records".into(),
+                        ));
+                    }
+                    let selected_roots =
+                        (source.format == "objekte:json").then_some(roots).flatten();
+                    let (value, nodes) = logical_record_value(record, selected_roots)?;
+                    self.metrics.selected_projected_nodes += nodes as u64;
+                    data = Some(value);
+                    Ok(())
+                })?;
             self.metrics.parses += 1;
-            Document {
-                data: data
-                    .ok_or_else(|| Error::Request("format decoder emitted no record".into()))?,
-                state: RecordState {
-                    status: RecordStatus::Pending,
-                    issues: Vec::new(),
+            match outcome {
+                DecodeOutcome::Decoded => Document {
+                    data: data.expect("checked decoder emitted one record"),
+                    state: RecordState {
+                        status: RecordStatus::Pending,
+                        issues: Vec::new(),
+                    },
                 },
+                DecodeOutcome::Malformed(diagnostics) => {
+                    Document::malformed(&source.format, diagnostics)
+                }
             }
         };
-        if document.state.status != RecordStatus::IncorrectJson {
+        if !document.state.status.is_malformed() {
             if collection.schema.is_none() {
                 document.state.status = RecordStatus::NoSchema;
             } else if validate {
@@ -442,7 +440,7 @@ impl Repository {
             size_bytes: size,
             modified_unix_nanos: modified,
             hash,
-            raw: (document.state.status == RecordStatus::IncorrectJson).then(|| bytes.clone()),
+            raw: document.state.status.is_malformed().then(|| bytes.clone()),
             state: document.state,
             data: document.data,
         })
@@ -614,11 +612,27 @@ impl Repository {
             Ok(())
         };
         if let Some(registry) = &self.extensions {
-            registry
-                .decoder(descriptor)?
-                .decode(&bytes, &mut callback)?;
+            let decoder = registry.decoder(descriptor)?;
+            let outcome =
+                crate::extensions::format::decode_checked(decoder, &bytes, &mut callback)?;
+            if let DecodeOutcome::Malformed(diagnostics) = outcome {
+                return Err(Error::MalformedSource {
+                    format: descriptor.format.clone(),
+                    message: diagnostics[0].message.clone(),
+                });
+            }
         } else {
-            crate::extensions::json_decoder().decode(&bytes, &mut callback)?;
+            let outcome = crate::extensions::format::decode_checked(
+                crate::extensions::json_decoder(),
+                &bytes,
+                &mut callback,
+            )?;
+            if let DecodeOutcome::Malformed(diagnostics) = outcome {
+                return Err(Error::MalformedSource {
+                    format: descriptor.format.clone(),
+                    message: diagnostics[0].message.clone(),
+                });
+            }
         }
         result.ok_or_else(|| Error::Request("format decoder emitted no record".into()))
     }

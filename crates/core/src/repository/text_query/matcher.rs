@@ -314,7 +314,11 @@ impl TextMatcher {
 
     pub(super) fn matches_malformed(&self, bytes: &[u8]) -> bool {
         let text = crate::text::malformed_search_text(bytes);
-        self.pattern.matches(&text, crate::TextFormat::Plain)
+        self.matches_malformed_text(&text)
+    }
+
+    pub(super) fn matches_malformed_text(&self, text: &str) -> bool {
+        self.pattern.matches(text, crate::TextFormat::Plain)
     }
 
     /// Normal postings retain scalar values but do not normalize whitespace.

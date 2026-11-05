@@ -149,10 +149,10 @@ impl Repository {
         metrics.parses += 1;
         let mut doc = Document::parse(json);
         metrics.json_decode_nanos += nanos(t);
-        if c.schema.is_none() && doc.state.status != RecordStatus::IncorrectJson {
+        if c.schema.is_none() && !doc.state.status.is_malformed() {
             doc.state.status = RecordStatus::NoSchema;
         }
-        if validate && c.schema.is_some() && doc.state.status != RecordStatus::IncorrectJson {
+        if validate && c.schema.is_some() && !doc.state.status.is_malformed() {
             let t = Instant::now();
             doc.validate(c);
             metrics.validations += 1;

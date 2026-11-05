@@ -22,7 +22,9 @@ pub mod projection;
 pub mod query;
 pub mod source;
 
-pub use format::{DecodedRecord, FormatDecoder, LogicalNode, ScalarValue};
+pub use format::{
+    DecodeOutcome, DecodedRecord, FormatDecoder, FormatDiagnostic, LogicalNode, ScalarValue,
+};
 pub use identity::{DataKind, Dependency, Descriptor, SemanticVersion};
 pub(crate) use operator::BoundTextQuery;
 pub use operator::{CandidateConstraint, CompiledOperator, QueryOperator};

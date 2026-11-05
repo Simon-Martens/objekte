@@ -40,6 +40,10 @@ mod review_cardinality;
 #[path = "review_mixed_indexes.test.rs"]
 mod review_mixed_indexes;
 
+#[cfg(test)]
+#[path = "malformed_formats.test.rs"]
+mod malformed_formats;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {

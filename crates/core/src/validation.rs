@@ -12,6 +12,7 @@ pub enum RecordStatus {
     Valid,
     Invalid,
     IncorrectJson,
+    IncorrectFormat,
 }
 
 
@@ -24,19 +25,45 @@ impl RecordStatus {
             Self::Valid => "valid",
             Self::Invalid => "invalid",
             Self::IncorrectJson => "incorrect_json",
+            Self::IncorrectFormat => "incorrect_format",
         }
     }
+
+    /// A source whose bytes could not produce a logical record.
+    pub fn is_malformed(self) -> bool {
+        matches!(self, Self::IncorrectJson | Self::IncorrectFormat)
+    }
+}
+
+
+/// Zero-based, half-open byte offsets in the original source buffer.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub struct SourceSpan {
+    pub start: usize,
+    pub end: usize,
+}
+
+
+/// Source syntax location; distinct from a logical JSON Pointer or schema path.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+pub struct SourceIssue {
+    pub format: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub span: Option<SourceSpan>,
 }
 
 
 // INFO: Diagnostic location, code, message, and optional schema path. Computed on demand.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ValidationIssue {
-    /// JSON Pointer into the original record. Its value remains available in Record.data.
+    /// JSON Pointer into a decoded logical record. Empty for source syntax
+    /// issues; `source`, when present, refers to original bytes instead.
     pub location: String,
     pub schema_path: Option<String>,
     pub code: String,
     pub message: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub source: Option<SourceIssue>,
 }
 
 
@@ -47,6 +74,7 @@ impl ValidationIssue {
             schema_path: None,
             code: code.into(),
             message: message.into(),
+            source: None,
         }
     }
 }
@@ -76,6 +104,37 @@ impl std::ops::Deref for Document {
 
 
 impl Document {
+    /// Retain a failed format parse without inventing a logical null value.
+    pub(crate) fn malformed(
+        format: &str,
+        diagnostics: Vec<crate::extensions::FormatDiagnostic>,
+    ) -> Self {
+        let status = if format == "objekte:json" {
+            RecordStatus::IncorrectJson
+        } else {
+            RecordStatus::IncorrectFormat
+        };
+        Self {
+            data: Value::Null,
+            state: RecordState {
+                status,
+                issues: diagnostics
+                    .into_iter()
+                    .map(|diagnostic| ValidationIssue {
+                        location: String::new(),
+                        schema_path: None,
+                        code: diagnostic.code,
+                        message: diagnostic.message,
+                        source: Some(SourceIssue {
+                            format: format.into(),
+                            span: diagnostic.span,
+                        }),
+                    })
+                    .collect(),
+            },
+        }
+    }
+
     pub fn parse(bytes: &[u8]) -> Self {
         let parsed = serde_json::from_slice(bytes).map_err(|e| e.to_string());
         match parsed {
@@ -121,7 +180,7 @@ impl Document {
     }
 
     pub fn validate(&mut self, c: &Collection) {
-        if self.state.status == RecordStatus::IncorrectJson {
+        if self.state.status.is_malformed() {
             return;
         }
         let Some(schema) = &c.schema else {

@@ -5,7 +5,7 @@ use super::*;
 use crate::{
     JsonFilter, JsonPathStep, TextFormat,
     bigram::{BigramFilter, BigramIndexBuilder, SKIP_INDEX_MIN_DENSITY_PCT},
-    extensions::{BindingContext, ScalarValue, TextRepresentation},
+    extensions::{BindingContext, DecodeOutcome, ScalarValue, TextRepresentation},
     text::TextRules,
 };
 use sha2::{Digest as _, Sha256};
@@ -61,6 +61,8 @@ pub(super) struct RepresentationIndex {
     pub base_to_current: Option<Vec<Option<u32>>>,
     /// New or changed records are verified without consulting stale bits.
     pub overlay_slots: Vec<u32>,
+    /// Sources with no logical record; unscoped raw fallback must verify them.
+    pub malformed_slots: Vec<u32>,
     pub slots: usize,
     pub base_source_fingerprints: Vec<[u8; 16]>,
 }
@@ -229,6 +231,7 @@ impl Repository {
         let mut rendered = String::new();
         let mut content = String::new();
         let mut observed_bigrams = vec![0_u64; 1024];
+        let mut malformed_slots = Vec::new();
         for (slot, source) in selected.iter().enumerate() {
             let decoder = extensions.decoder(source)?;
             if !decoder.descriptor().cacheable() {
@@ -251,31 +254,20 @@ impl Repository {
             self.metrics.source_reads += 1;
             self.metrics.source_bytes += bytes.len() as u64;
             content.clear();
-            let mut records = 0;
             self.metrics.parses += 1;
-            let decoded = decoder.decode(&bytes, &mut |record| {
-                records += 1;
-                if records > 1 {
-                    return Err(Error::Request(
-                        "format decoder emitted multiple records".into(),
-                    ));
-                }
-                add_text(
-                    record,
-                    &parsed,
-                    definition.as_ref(),
-                    &mut rendered,
-                    &mut content,
-                )
-            });
-            if let Err(error) = decoded {
-                if !super::extension_sources::native_malformed_json(source, &bytes) {
-                    return Err(error);
-                }
+            let outcome =
+                crate::extensions::format::decode_checked(decoder, &bytes, &mut |record| {
+                    add_text(
+                        record,
+                        &parsed,
+                        definition.as_ref(),
+                        &mut rendered,
+                        &mut content,
+                    )
+                })?;
+            if matches!(outcome, DecodeOutcome::Malformed(_)) {
+                malformed_slots.push(slot as u32);
                 continue;
-            }
-            if records == 0 {
-                return Err(Error::Request("format decoder emitted no record".into()));
             }
             observe_bigrams(&mut observed_bigrams, content.as_bytes(), encoding);
             main.add_file_content(&skip, slot, content.as_bytes());
@@ -296,6 +288,7 @@ impl Repository {
                 observed_bigrams,
                 base_to_current: None,
                 overlay_slots: Vec::new(),
+                malformed_slots,
                 slots: selected.len(),
                 base_source_fingerprints: selected.iter().map(base_source_fingerprint).collect(),
             },
@@ -327,6 +320,10 @@ impl Repository {
             definitely_absent.then(|| vec![0; posting.filter.file_count().div_ceil(64)])
         })?;
         if posting.base_to_current.is_none() && posting.overlay_slots.is_empty() {
+            let mut base = base;
+            for &slot in &posting.malformed_slots {
+                base[slot as usize / 64] |= 1 << (slot % 64);
+            }
             return Some(base);
         }
         let mut current = vec![0_u64; posting.slots.div_ceil(64)];
@@ -345,6 +342,9 @@ impl Repository {
             }
         }
         for &slot in &posting.overlay_slots {
+            current[slot as usize / 64] |= 1 << (slot % 64);
+        }
+        for &slot in &posting.malformed_slots {
             current[slot as usize / 64] |= 1 << (slot % 64);
         }
         Some(current)

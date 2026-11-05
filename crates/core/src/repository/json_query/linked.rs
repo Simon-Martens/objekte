@@ -63,7 +63,7 @@ impl Repository {
                     let mut bytes = Vec::new();
                     for source in snapshot.sources.iter() {
                         let record = self.selected_record(&linked, source, &mut bytes, false)?;
-                        if record.state.status != RecordStatus::IncorrectJson {
+                        if !record.state.status.is_malformed() {
                             records.insert(record.id, record.data);
                         }
                     }
@@ -109,8 +109,7 @@ fn read_linked(
                 Some(keys) => Document::parse_pruned(bytes, keys),
                 None => Document::parse(bytes),
             };
-            Ok((document.state.status != RecordStatus::IncorrectJson)
-                .then(|| (id.clone(), document.data)))
+            Ok((!document.state.status.is_malformed()).then(|| (id.clone(), document.data)))
         })
         .collect::<Result<Vec<_>>>()?;
     source.finish()?;

@@ -16,7 +16,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest as _, Sha256};
 use std::{io::Write as _, sync::Arc};
 
-const MANIFEST_VERSION: u32 = 5;
+const MANIFEST_VERSION: u32 = 6;
 const MAX_MANIFEST_BYTES: u64 = 64 * 1024 * 1024;
 
 
@@ -30,6 +30,7 @@ struct SelectedFilterManifest {
     observed_bigrams: Vec<u64>,
     base_to_current: Option<Vec<Option<u32>>>,
     overlay_slots: Vec<u32>,
+    malformed_slots: Vec<u32>,
     base_slots: usize,
     base_source_fingerprints: Vec<[u8; 16]>,
 }
@@ -180,6 +181,7 @@ impl Repository {
             observed_bigrams: posting.observed_bigrams.clone(),
             base_to_current: posting.base_to_current.clone(),
             overlay_slots: posting.overlay_slots.clone(),
+            malformed_slots: posting.malformed_slots.clone(),
             base_slots: posting.filter.file_count(),
             base_source_fingerprints: posting.base_source_fingerprints.clone(),
         };
@@ -291,6 +293,10 @@ impl Repository {
                 .overlay_slots
                 .iter()
                 .any(|slot| *slot as usize >= selected.len())
+            || manifest
+                .malformed_slots
+                .iter()
+                .any(|slot| *slot as usize >= selected.len())
             || covered.iter().any(|covered| !covered)
         {
             return Ok(false);
@@ -330,6 +336,7 @@ impl Repository {
                 observed_bigrams: manifest.observed_bigrams,
                 base_to_current: manifest.base_to_current,
                 overlay_slots: manifest.overlay_slots,
+                malformed_slots: manifest.malformed_slots,
                 slots: selected.len(),
                 base_source_fingerprints: manifest.base_source_fingerprints,
             },

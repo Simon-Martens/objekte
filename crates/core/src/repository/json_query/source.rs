@@ -37,7 +37,7 @@ impl Repository {
                     doc.state.status,
                 )? {
                     if matched >= request.offset && result.returned() < request.limit {
-                        let malformed = doc.state.status == RecordStatus::IncorrectJson;
+                        let malformed = doc.state.status.is_malformed();
                         result.push(Record {
                             collection: c.name.clone(),
                             id: id.clone(),
@@ -139,9 +139,7 @@ impl Repository {
                                 let t = Instant::now();
                                 let mut doc = Document::parse(&bytes);
                                 outcome.parse_nanos = nanos(t);
-                                if filter.uses_status()
-                                    && doc.state.status != RecordStatus::IncorrectJson
-                                {
+                                if filter.uses_status() && !doc.state.status.is_malformed() {
                                     let started = Instant::now();
                                     doc.validate(c);
                                     outcome.validation_nanos = nanos(started);
@@ -208,7 +206,7 @@ impl Repository {
                                     source.path.join(format!("{id}.json")),
                                 ));
                             }
-                            let malformed = doc.state.status == RecordStatus::IncorrectJson;
+                            let malformed = doc.state.status.is_malformed();
                             result.push(Record {
                                 collection: c.name.clone(),
                                 id: (*id).clone(),
