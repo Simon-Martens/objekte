@@ -1,0 +1,20 @@
+{
+  "bigram_encoding": "ascii",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "corpus_source_content_and_stat_sha256": "90e36ad63dcb6386e9521c583fdcd36451fd3d6182187dced542fb8292f730ce",
+  "host": "Linux-7.2.13-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "measured_rounds": 7,
+  "query_cache_mib": [
+    0,
+    64
+  ],
+  "rayon_threads": 16,
+  "reference_binary_sha256": "03f452d34ca483510c7e897656bef550a7f2004b829ec2a16626ff67cfdc81e3",
+  "reference_measurements": "../query-planning/candidate-delivered/",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "starting_head": "5867cce68c70f8bae3e5bdeec1024222a2c8a6f8",
+  "starting_production_revision": "a163b18ab5d58b13f3e2bfc65840d4b524000de9",
+  "timed_cpu_affinity": "0-15",
+  "workload_cases": 152,
+  "workload_sha256": "5cfb37386221a6f2237bc1755e12c7a89f1e1f4fdeff4dd57f1b00370c4eb99e"
+}
