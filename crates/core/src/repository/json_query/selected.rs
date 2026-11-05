@@ -40,7 +40,7 @@ impl Repository {
             );
             self.selected_derived_indexes.get(&key)
         };
-        if filter.needs_cardinality_check_in(|path| {
+        if filter.needs_selected_cardinality_check_in(|path| {
             posting(path).is_some_and(|index| index.index.scalar_safe(path))
         }) {
             return None;
@@ -105,7 +105,7 @@ impl Repository {
             );
             self.selected_derived_indexes.get(&key)
         };
-        if filter.needs_cardinality_check_in(|path| {
+        if filter.needs_selected_cardinality_check_in(|path| {
             posting(path).is_some_and(|index| index.index.scalar_safe(path))
         }) {
             return None;

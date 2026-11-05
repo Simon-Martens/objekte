@@ -786,6 +786,20 @@ impl JsonFilter {
         })
     }
 
+    /// Selected-source postings do not have the native picker's independent
+    /// top-level array summary. Every scalar path needs a safety proof before
+    /// a selected candidate set may exclude records that could raise an error.
+    pub(crate) fn needs_selected_cardinality_check_in(
+        &self,
+        indexed_safe: impl Fn(&JsonPath) -> bool,
+    ) -> bool {
+        self.scalar_paths.iter().any(|path| {
+            path.modifier != Some(Modifier::Length)
+                && !indexed_safe(&path.path)
+                && !self.is_relation_path(&path.path)
+        })
+    }
+
     pub(crate) fn top_level_scalar_fields(&self) -> Vec<String> {
         self.scalar_paths
             .iter()

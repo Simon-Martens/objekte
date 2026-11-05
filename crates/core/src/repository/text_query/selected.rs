@@ -82,7 +82,7 @@ impl Repository {
         // cannot be hidden by a text posting for a nonmatching record.
         if filter.is_some_and(|filter| {
             filter.has_relations()
-                || filter.needs_cardinality_check_in(|path| {
+                || filter.needs_selected_cardinality_check_in(|path| {
                     let key = crate::repository::extension_derived_index::SelectedDerivedKey::new(
                         collection,
                         path,

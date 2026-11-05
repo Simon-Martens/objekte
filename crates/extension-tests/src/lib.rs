@@ -32,6 +32,10 @@ mod review_stage3;
 #[path = "review_findings.test.rs"]
 mod review_findings;
 
+#[cfg(test)]
+#[path = "review_cardinality.test.rs"]
+mod review_cardinality;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {
