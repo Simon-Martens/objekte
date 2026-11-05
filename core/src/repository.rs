@@ -111,6 +111,15 @@ impl Repository {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         crate::run::search(self, query)
     }
+    pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        crate::run::explain(self, query)
+    }
+    pub fn explain_analyze(
+        &self,
+        query: &Query,
+    ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
+        crate::run::search_analyze(self, query)
+    }
     pub fn open(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
@@ -337,6 +346,8 @@ impl Repository {
             bytes_read: 0,
             record_parses: 0,
             residual_evaluations: 0,
+            preparation_ns: 0,
+            planning_ns: 0,
             prepared_plan_hit: false,
             verified_result_hit: false,
         };

@@ -83,6 +83,10 @@ pub struct WorkCounters {
     pub bytes_read: u64,
     pub record_parses: u64,
     pub residual_evaluations: u64,
+    #[serde(default)]
+    pub preparation_ns: u64,
+    #[serde(default)]
+    pub planning_ns: u64,
     pub prepared_plan_hit: bool,
     pub verified_result_hit: bool,
 }

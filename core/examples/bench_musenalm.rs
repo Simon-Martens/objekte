@@ -147,6 +147,9 @@ fn run() -> Result<(), String> {
             .open(result_dir.join("measurements.jsonl"))
             .map_err(|e| e.to_string())?,
     );
+    let mut plan_output = BufWriter::new(
+        File::create(result_dir.join("query-plans.jsonl")).map_err(|e| e.to_string())?,
+    );
     let mut rows = Vec::new();
     let mut build_results = Vec::new();
     let mut corpus_hash = String::new();
@@ -306,10 +309,17 @@ fn run() -> Result<(), String> {
                     failures += 1;
                 }
                 rows.push((case.id.clone(), profile_name.clone(), times, last, error));
+                let (_, plans) = repo.explain_analyze(&query)?;
+                serde_json::to_writer(&mut plan_output, &serde_json::json!({
+                    "case_id": case.id, "profile": profile_name, "diagnostic_timing": "outside_primary_samples",
+                    "plans": plans
+                })).map_err(|e| e.to_string())?;
+                plan_output.write_all(b"\n").map_err(|e| e.to_string())?;
             }
         }
     }
     samples.flush().map_err(|e| e.to_string())?;
+    plan_output.flush().map_err(|e| e.to_string())?;
     let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"schema_fingerprint":schema_hash,"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0});
     fs::write(
         result_dir.join("run-manifest.json"),
@@ -321,7 +331,6 @@ fn run() -> Result<(), String> {
         serde_json::to_vec_pretty(&build_results).map_err(|e| e.to_string())?,
     )
     .map_err(|e| e.to_string())?;
-    File::create(result_dir.join("query-plans.jsonl")).map_err(|e| e.to_string())?; // diagnostics arrive in C19
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|e| e.to_string())?,
     );

@@ -33,6 +33,7 @@ query/build and restore revisions will establish their respective baselines.
 | C16b | complete | 900 raw samples, 0 failures | Baseline from `472c00d838` for 150 cases × ASCII/Unicode off × 3 repetitions |
 | C17 | complete | `cargo test --workspace --all-targets` | Maintained posting/source stats and per-term costed path enumeration |
 | C18 | complete | `cargo test --workspace --all-targets`; rare-text/permutation fixture | Flattened AND, costed AND/OR order, actual-cardinality adaptation |
+| C19 | complete | `cargo test --workspace --all-targets`; Q031/Q070/Q141 uncached subset | Borrowed restricted postings, EXPLAIN/ANALYZE, per-case trace output |
 
 ## Decisions
 
@@ -87,6 +88,12 @@ query/build and restore revisions will establish their respective baselines.
   bigram can run before a broad posting, and a strong FILTER restriction can
   bypass global FTS filtering. OR branches are cost ordered but retain their
   full eligible domains when another branch has no index.
+- Roaring uses sorted array containers for sparse sets and bitmaps for dense
+  containers; direct restricted equality/presence lookups intersect borrowed
+  postings without cloning a broad source set. EXPLAIN is read-only over
+  resident indexes; EXPLAIN ANALYZE records term order, alternatives, estimates,
+  source work, and proof counts. The benchmark saves traces separately from
+  primary timing samples.
 
 ## Measurements
 
@@ -98,6 +105,15 @@ with 900 raw samples, all 150 cases under both cache-disabled alphabets, and
 zero failures. On this revision the full ASCII build took 13.695 s and the
 Unicode build 15.039 s. Restore and verified-cache measurements remain
 pending. No timings are inferred from the archived program.
+
+A three-case uncached check after C19 (three repetitions; ASCII and Unicode)
+matched the baseline results. For Q141 the ASCII median was 25.955 ms versus
+28.233 ms at the baseline, with 982 candidates in both runs; Unicode was
+22.575 ms versus 27.905 ms, with 842 baseline and 982 current candidates.
+Q031 (roughly 50 µs) and Q070 (roughly 0.8 ms) differed by tens of
+microseconds on this short sample, so they do not establish a speed trend.
+The check is under `/tmp/objekte-c19-check` and is distinct from the final
+four-profile run.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format

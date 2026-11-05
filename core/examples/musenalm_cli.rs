@@ -21,6 +21,7 @@ fn run() -> Result<(), String> {
     let mut filter = None;
     let mut collection = "*".to_string();
     let mut explain = false;
+    let mut analyze = false;
     let mut reference = false;
     let mut alphabet = BigramAlphabet::Ascii;
     let mut mode_override = None;
@@ -35,7 +36,8 @@ fn run() -> Result<(), String> {
             "--fts" => fts = Some(args.next().ok_or("--fts needs a literal")?),
             "--filter" => filter = Some(args.next().ok_or("--filter needs an expression")?),
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
-            "--explain" | "--explain-analyze" => explain = true,
+            "--explain" => explain = true,
+            "--explain-analyze" => analyze = true,
             "--reference" => reference = true,
             "--quiet-hits" => quiet_hits = true,
             "--return" => {
@@ -149,11 +151,22 @@ fn run() -> Result<(), String> {
         repository.build_parses,
         repository.files.root.display()
     );
-    if explain {
-        println!("reference scan: every eligible record; typed predicates bound before execution");
+    if explain && !reference {
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&repository.explain(&query)?).map_err(|e| e.to_string())?
+        );
+        return Ok(());
     }
     let result = if reference {
         repository.search_reference(&query)?
+    } else if analyze {
+        let (result, traces) = repository.explain_analyze(&query)?;
+        println!(
+            "{}",
+            serde_json::to_string_pretty(&traces).map_err(|e| e.to_string())?
+        );
+        result
     } else {
         repository.search(&query)?
     };

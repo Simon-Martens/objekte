@@ -2,11 +2,13 @@
 
 use std::cmp::Ordering;
 use std::collections::{BTreeMap, BinaryHeap, HashSet};
+use std::time::Instant;
 
 use roaring::RoaringBitmap;
+use serde::Serialize;
 
 use crate::executor::{
-    Plan, estimate_expr, estimate_fts_candidates, fts_candidates, plan_expr_restricted,
+    Plan, TermChoice, estimate_expr, estimate_fts_candidates, fts_candidates, plan_expr_restricted,
 };
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::query::{Operator, Query};
@@ -50,6 +52,39 @@ struct Winner {
     collection_index: usize,
     slot: u32,
     hit: SearchHit,
+}
+
+#[derive(Clone, Debug, Serialize)]
+pub struct QueryPlanTrace {
+    pub collection: String,
+    pub generation: u64,
+    pub input_records: u64,
+    pub fts_strategy: String,
+    pub filter_exact: bool,
+    pub terms: Vec<TermChoice>,
+    pub candidates: u64,
+    pub actual: Option<PlanActual>,
+}
+
+#[derive(Clone, Debug, Serialize)]
+pub struct PlanActual {
+    pub files_opened: u64,
+    pub bytes_read: u64,
+    pub record_parses: u64,
+    pub residual_evaluations: u64,
+    pub index_proven_matches: u64,
+}
+
+fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
+    if let Some(trace) = traces.last_mut() {
+        trace.actual = Some(PlanActual {
+            files_opened: after.files_opened - before.files_opened,
+            bytes_read: after.bytes_read - before.bytes_read,
+            record_parses: after.record_parses - before.record_parses,
+            residual_evaluations: after.residual_evaluations - before.residual_evaluations,
+            index_proven_matches: after.exact_posting_matches - before.exact_posting_matches,
+        });
+    }
 }
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
@@ -143,6 +178,93 @@ fn offer(
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
+    search_impl(repo, query, None)
+}
+
+pub fn search_analyze(
+    repo: &Repository,
+    query: &Query,
+) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
+    let mut traces = Vec::new();
+    let result = search_impl(repo, query, Some(&mut traces))?;
+    Ok((result, traces))
+}
+
+pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
+    validate_sort(repo, query)?;
+    let mut traces = Vec::new();
+    for collection in &repo.collections {
+        if !query.collections.is_empty() && !query.collections.contains(&collection.definition.name)
+        {
+            continue;
+        }
+        let filter = query
+            .filter
+            .as_ref()
+            .map(|f| bind_filter(f, &collection.definition.schema))
+            .transpose()?;
+        if let Some(fts) = &query.fts {
+            for field in &fts.fields {
+                collection.definition.schema.field(&field.path)?;
+                if let Some(name) = &field.binding {
+                    if !collection
+                        .definition
+                        .schema
+                        .custom
+                        .contains_key(&(field.path.segments.clone(), name.clone()))
+                    {
+                        return Err(format!("unknown FTS binding {name}"));
+                    }
+                }
+            }
+        }
+        let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
+        let plan = filter
+            .as_ref()
+            .map(|f| plan_expr_restricted(repo, collection, f, &domain, &domain))
+            .transpose()?
+            .unwrap_or(Plan {
+                candidates: None,
+                exact: true,
+                proofs: Vec::new(),
+                choices: Vec::new(),
+            });
+        traces.push(QueryPlanTrace {
+            collection: collection.definition.name.clone(),
+            generation: collection.generation.generation,
+            input_records: domain.len(),
+            fts_strategy: if let Some(fts) = &query.fts {
+                if estimate_fts_candidates(collection, fts).is_some() {
+                    "compatible bigram candidate or restricted scanner"
+                } else {
+                    "restricted scanner"
+                }
+            } else {
+                "absent"
+            }
+            .into(),
+            filter_exact: plan.exact,
+            terms: plan.choices,
+            candidates: plan
+                .candidates
+                .as_ref()
+                .map(RoaringBitmap::len)
+                .unwrap_or(domain.len()),
+            actual: None,
+        });
+    }
+    if traces.is_empty() {
+        return Err("unknown or unloaded collection scope".into());
+    }
+    Ok(traces)
+}
+
+fn search_impl(
+    repo: &Repository,
+    query: &Query,
+    mut traces: Option<&mut Vec<QueryPlanTrace>>,
+) -> Result<SearchResult, String> {
+    let preparation_start = Instant::now();
     let mut bound = Vec::new();
     for (collection_index, collection) in repo.collections.iter().enumerate() {
         if !query.collections.is_empty() && !query.collections.contains(&collection.definition.name)
@@ -182,7 +304,10 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         .ok_or("page size overflow")?;
     let mut winners = BinaryHeap::new();
     let mut counters = WorkCounters::default();
+    counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     for (collection_index, filter) in bound {
+        let planning_start = Instant::now();
+        let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
         let mut input = domain.clone();
@@ -229,8 +354,30 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                 }
             }
         }
+        counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
         counters.candidates += candidates.len();
         let needs_scan = !plan.exact || query.fts.is_some();
+        if let Some(traces) = traces.as_deref_mut() {
+            traces.push(QueryPlanTrace {
+                collection: collection.definition.name.clone(),
+                generation: collection.generation.generation,
+                input_records: domain.len(),
+                fts_strategy: if query.fts.is_none() {
+                    "absent"
+                } else if text_first {
+                    "bigram before filter"
+                } else if candidates.len() < domain.len() {
+                    "filter before text verification"
+                } else {
+                    "text verification scan"
+                }
+                .into(),
+                filter_exact: plan.exact,
+                terms: plan.choices.clone(),
+                candidates: candidates.len(),
+                actual: None,
+            });
+        }
         if !needs_scan {
             for slot in candidates.iter() {
                 let record = &collection.generation.records[slot as usize];
@@ -257,6 +404,9 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                     cap,
                     &mut counters,
                 );
+            }
+            if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
+                finish_trace(traces, before, &counters);
             }
             continue;
         }
@@ -333,6 +483,9 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                 }
             }
         }
+        if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
+            finish_trace(traces, before, &counters);
+        }
     }
     let count = counters.total_matches as usize;
     let ordered = winners.into_sorted_vec();
@@ -365,6 +518,19 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                 let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
                 counters.files_opened += 1;
                 counters.bytes_read += bytes_read;
+                if let Some(traces) = traces.as_deref_mut() {
+                    if let Some(actual) = traces
+                        .iter_mut()
+                        .find(|trace| trace.collection == collection.definition.name)
+                        .and_then(|trace| trace.actual.as_mut())
+                    {
+                        actual.files_opened += 1;
+                        actual.bytes_read += bytes_read;
+                        if query.options.return_mode == ReturnMode::Logical {
+                            actual.record_parses += records.len() as u64;
+                        }
+                    }
+                }
                 for (index, bytes) in records {
                     let payload = match query.options.return_mode {
                         ReturnMode::Locator => unreachable!(),
@@ -452,6 +618,15 @@ mod tests {
                 },
             };
             let result = repo.search(&query).unwrap();
+            if mode == ReturnMode::Locator {
+                let plan = repo.explain(&query).unwrap();
+                assert!(plan[0].actual.is_none());
+                assert_eq!(plan[0].terms[0].field, "kind");
+                let (analyzed, trace) = repo.explain_analyze(&query).unwrap();
+                assert_eq!(analyzed.count, result.count);
+                assert_eq!(trace[0].actual.as_ref().unwrap().files_opened, 0);
+                assert_eq!(trace[0].actual.as_ref().unwrap().index_proven_matches, 3);
+            }
             assert_eq!(result.count, 3);
             assert_eq!(result.hits.len(), 1);
             assert_eq!(result.hits[0].record_id, "b");

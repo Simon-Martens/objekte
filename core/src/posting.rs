@@ -58,6 +58,73 @@ pub struct PostingStats {
 }
 
 impl PostingIndex {
+    /// Intersect borrowed broad postings with a restricted domain before any copy.
+    pub fn exact_set_restricted(
+        &self,
+        term: &BoundTerm,
+        domain: &RoaringBitmap,
+        input: &RoaringBitmap,
+    ) -> Option<RoaringBitmap> {
+        if self.covered_records as u64 != domain.len() {
+            return None;
+        }
+        let borrowed = match term.derived {
+            Derived::Exists | Derived::Null => {
+                let Value::Bool(value) = term.literal else {
+                    return None;
+                };
+                let truth = match term.operator {
+                    Operator::Eq => value,
+                    Operator::Ne => !value,
+                    _ => return None,
+                };
+                let source = if term.derived == Derived::Exists {
+                    &self.presence
+                } else {
+                    &self.nulls
+                };
+                return Some(if truth {
+                    input & source
+                } else {
+                    input - source
+                });
+            }
+            Derived::Length if term.operator == Operator::Eq => {
+                let Value::Number(number) = term.literal else {
+                    return None;
+                };
+                return Some(
+                    self.lengths
+                        .get(&number)
+                        .map(|set| input & set)
+                        .unwrap_or_default(),
+                );
+            }
+            Derived::None if matches!(term.literal, Value::Null) => {
+                if term.multi && term.quantifier == Quantifier::Any {
+                    return None;
+                }
+                return match term.operator {
+                    Operator::Eq => Some(input & &self.nulls),
+                    Operator::Ne => Some(&(input & &self.presence) - &self.nulls),
+                    _ => None,
+                };
+            }
+            Derived::None
+                if term.transform == Transform::Identity
+                    && (!term.multi || term.quantifier == Quantifier::Any)
+                    && term.operator == Operator::Eq =>
+            {
+                let key = ScalarKey::from_value(&term.literal)?;
+                self.values.get(&key)
+            }
+            _ => None,
+        };
+        if let Some(set) = borrowed {
+            return Some(input & set);
+        }
+        self.exact_set(term, domain).map(|set| &set & input)
+    }
     pub fn new(field: &FieldDefinition) -> Self {
         Self {
             path: field.path.clone(),

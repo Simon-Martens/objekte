@@ -44,6 +44,40 @@ pub struct TermChoice {
     pub binding: String,
     pub selected: AccessPathEstimate,
     pub alternatives: Vec<AccessPathEstimate>,
+    pub actual_input: u64,
+    pub actual_output: Option<u64>,
+    pub reason: String,
+    pub residual_verification: bool,
+    pub executed: bool,
+}
+
+fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
+    match expr {
+        BoundExpr::Term(term) => {
+            let mut paths = enumerate_paths(collection, term, 0);
+            paths.sort_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work));
+            let selected = paths.remove(0);
+            output.push(TermChoice {
+                span: term.span,
+                field: term.path.display(),
+                logical_type: format!("{:?}", term.kind),
+                binding: format!("{}@{}", term.binding_name, term.binding_version),
+                selected,
+                alternatives: paths,
+                actual_input: 0,
+                actual_output: Some(0),
+                reason: "skipped after an exact empty conjunct".into(),
+                residual_verification: false,
+                executed: false,
+            });
+        }
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            for part in parts {
+                skipped_choices(collection, part, output);
+            }
+        }
+        BoundExpr::Not(inner) => skipped_choices(collection, inner, output),
+    }
 }
 
 pub(crate) struct Proof {
@@ -296,12 +330,18 @@ fn execute_path(
     collection: &CollectionState,
     term: &BoundTerm,
     domain: &RoaringBitmap,
+    input: &RoaringBitmap,
     kind: AccessPathKind,
 ) -> Result<Option<RoaringBitmap>, String> {
     Ok(match kind {
-        AccessPathKind::Metadata | AccessPathKind::Posting => {
-            term_set(repo, collection, term, domain)?
+        AccessPathKind::Metadata => {
+            term_set(repo, collection, term, domain)?.map(|set| &set & input)
         }
+        AccessPathKind::Posting => collection
+            .postings
+            .fields
+            .get(&term.path.segments)
+            .and_then(|index| index.exact_set_restricted(term, domain, input)),
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => match &term.literal {
             Value::String(s) => collection.raw.candidates(s),
@@ -433,8 +473,17 @@ pub(crate) fn plan_expr_restricted(
                     .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
             });
             let selected = paths.remove(0);
-            let candidates = execute_path(repo, collection, term, domain, selected.kind)?
-                .map(|set| &set & input);
+            let candidates = execute_path(repo, collection, term, domain, input, selected.kind)?
+                .map(|set| {
+                    if matches!(
+                        selected.kind,
+                        AccessPathKind::Metadata | AccessPathKind::Posting
+                    ) {
+                        set
+                    } else {
+                        &set & input
+                    }
+                });
             let exact = selected.exact;
             let exact_candidates = if exact { candidates.as_ref() } else { None };
             let proofs = exact_candidates
@@ -452,6 +501,12 @@ pub(crate) fn plan_expr_restricted(
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 selected,
                 alternatives: paths,
+                actual_input: input.len(),
+                actual_output: candidates.as_ref().map(RoaringBitmap::len),
+                reason: "lowest estimated lookup plus remaining source work for current input"
+                    .into(),
+                residual_verification: !exact,
+                executed: true,
             }];
             Plan {
                 candidates,
@@ -497,6 +552,9 @@ pub(crate) fn plan_expr_restricted(
                 choices.extend(child.choices);
                 if current.is_empty() {
                     exact = true;
+                    for part in remaining {
+                        skipped_choices(collection, part, &mut choices);
+                    }
                     break;
                 }
             }
