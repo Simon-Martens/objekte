@@ -15,6 +15,7 @@ query/build and restore revisions will establish their respective baselines.
 | Step | Status | Validation | Notes |
 |---|---|---|---|
 | C01 | complete | `cargo test --workspace` | New workspace; fixture path check |
+| C02 | complete | `cargo fmt --all && cargo test --workspace` | 150 fixed cases, four profile definitions, report envelopes |
 
 ## Decisions
 
@@ -27,3 +28,9 @@ query/build and restore revisions will establish their respective baselines.
 
 Pending runnable query and restore implementations. No timings are inferred
 from the archived program.
+
+The manifest is a transcription of Section 21 of `implement.md`; fixture
+schema and query-semantic validation remain pending until registration and
+binding exist. The report format reserves separate status and optional timing
+fields so unsupported or failed cases cannot be recorded as successful zero
+duration samples.

@@ -8,3 +8,7 @@ rust-version.workspace = true
 [lib]
 name = "objekte_search_core"
 path = "src/lib.rs"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
