@@ -1,0 +1,58 @@
+   Compiling objekte-core v0.1.0 (/home/simon/source/objekte/crates/core)
+   Compiling objekte-extension-tests v0.1.0 (/home/simon/source/objekte/crates/extension-tests)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.80s
+     Running unittests src/lib.rs (target/debug/deps/objekte_extension_tests-089ec4fac2356a8a)
+
+running 49 tests
+test tests::markdown_decoder_lends_structured_presence_without_a_json_tree ... ok
+test tests::decoder_callback_failure_and_extra_record_never_publish_a_result ... ok
+test tests::configuration_reload_tracks_custom_only_collection_membership ... ok
+test tests::metadata_on_request_includes_new_provider_sources_in_ordinary_query ... ok
+test tests::derived_numbers_keep_exact_large_and_equal_decimal_spellings ... ok
+test tests::mixed_text_and_derived_or_requires_both_postings ... ok
+test tests::overlapping_format_acceptors_are_rejected ... ok
+test tests::empty_applicable_provider_and_decoder_are_selection_dependencies ... ok
+test review_stage1::selected_derived_policy_and_count_cap_agree ... ok
+test review_stage1::builtin_json_nodes_preserve_custom_record_structure ... ok
+test tests::publication_year_grammar_and_presence_are_distinct ... ok
+test tests::frontend_cache_depends_only_on_bound_definitions ... ok
+test tests::registered_markdown_decoder_rejects_invalid_utf8_and_stale_revision ... ok
+test tests::registered_markdown_provider_decoder_tracks_lifecycle_and_collisions ... ok
+test tests::ordinary_json_query_and_get_record_include_mixed_sources ... ok
+test review_stage1::rebuild_observes_selected_changes_and_malformed_native_json ... ok
+test tests::publication_year_direct_indexed_and_cached_pages_agree ... ok
+test tests::fallible_operator_hint_does_not_skip_an_erroring_record ... ok
+test tests::selected_sources_discover_a_collection_without_json_files ... ok
+test tests::custom_only_collection_can_bind_a_json_schema_to_logical_fields ... ok
+test tests::completed_frontend_pages_use_only_requested_slots_and_current_inventory ... ok
+test tests::frontend_open_freshness_freezes_initially_empty_provider_selection ... ok
+test tests::frontend_binds_array_markup_paths_and_stable_registration_identity ... ok
+test tests::frontend_request_freshness_tracks_mixed_source_edits_and_caps_pages ... ok
+test review_stage3::custom_json_candidate_projects_only_referenced_subtrees ... ok
+test tests::ordinary_markdown_text_uses_selected_candidates_without_decoding_nonmatches ... ok
+test tests::publication_year_posting_patches_overwritten_and_deleted_sources ... ok
+test tests::selected_derived_posting_matches_mixed_source_scan_and_refresh ... ok
+test review_cardinality::custom_array_error_survives_indexed_scalar_and_text_pruning ... ok
+test tests::ordinary_relation_filter_reads_custom_target_records ... ok
+test tests::representation_postings_preserve_unicode_and_array_value_boundaries ... ok
+test tests::selected_derived_order_matches_heap_across_types_ties_and_pages ... ok
+test tests::provider_refresh_agrees_with_fresh_exact_repository_after_mutations ... ok
+test tests::archive_frontend_composes_markup_year_boolean_sort_and_page ... ok
+test review_stage3::selected_stream_callback_stops_reads_and_does_not_publish_order ... ok
+test review_mixed_indexes::markup_custom_fallback_does_not_use_json_raw_bigrams ... ok
+test tests::representation_postings_narrow_mixed_sources_without_changing_results ... ok
+test tests::prefix_uses_registered_representation_and_engine_results ... ok
+test review_findings::native_candidates_remap_after_compacting_live_slots ... ok
+test review_mixed_indexes::cached_sorted_page_crosses_native_custom_and_collection_boundaries ... ok
+test review_stage2::text_and_scalar_terms_choose_opposite_selective_domains ... ok
+test tests::ordinary_mixed_queries_indexes_snapshots_and_refresh_share_one_inventory ... ok
+test review_cardinality::residual_and_late_collection_arrays_are_checked_before_pruning ... ok
+test review_cardinality::scalar_to_array_refresh_and_restore_revoke_safety ... ok
+test review_mixed_indexes::native_json_full_text_remains_selective_in_mixed_scope ... ok
+test review_mixed_indexes::native_text_remains_selective_in_mixed_scope ... ok
+test review_mixed_indexes::mixed_text_and_json_indexes_survive_native_compaction_and_reopen ... ok
+test review_stage3::one_edit_reuses_text_and_typed_postings_without_full_decode ... ok
+test review_stage2::rare_native_posting_survives_one_custom_record_and_another_collection ... ok
+
+test result: ok. 49 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
