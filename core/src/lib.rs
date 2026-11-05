@@ -6,6 +6,7 @@
 /// Version of the in-memory search model and future snapshot envelope.
 pub const MODEL_VERSION: u32 = 1;
 
+pub mod bigram;
 pub mod executor;
 pub mod inventory;
 pub mod model;

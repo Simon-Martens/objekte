@@ -197,7 +197,12 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
                 exact: true,
                 proofs: Vec::new(),
             });
-        let candidates = plan.candidates.unwrap_or(domain);
+        let mut candidates = plan.candidates.unwrap_or(domain);
+        if let Some(fts) = &query.fts {
+            if let Some(raw_candidates) = collection.raw.candidates(&fts.literal) {
+                candidates &= raw_candidates;
+            }
+        }
         counters.candidates += candidates.len();
         let needs_scan = !plan.exact || query.fts.is_some();
         for slot in candidates.iter() {

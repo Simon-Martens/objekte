@@ -3,6 +3,7 @@
 use std::collections::HashSet;
 use std::path::PathBuf;
 
+use crate::bigram::BigramIndex;
 use crate::inventory::{CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision};
 use crate::model::{CollectionId, RecordId};
 use crate::posting::PostingCollection;
@@ -30,6 +31,7 @@ pub struct CollectionState {
     pub definition: CollectionDefinition,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
+    pub raw: BigramIndex,
 }
 pub struct Repository {
     pub files: FileInventory,
@@ -120,6 +122,7 @@ impl Repository {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
+            let mut raw = BigramIndex::new_ascii();
             for file_id in member_files {
                 builder.include_file(file_id)?;
                 let file = &files.files[file_id.0 as usize];
@@ -139,16 +142,19 @@ impl Repository {
                     };
                     let slot = builder.add_record(file, record_id, range.start, range.end)?;
                     postings.add(slot, &extracted.value)?;
+                    raw.add_record(slot, &extracted.text)?;
                     Ok(())
                 })?;
                 build_parses += stats.record_parses;
             }
             let generation = builder.finish(&files)?;
             postings.validate(generation.records.len())?;
+            raw.validate(generation.records.len())?;
             collections.push(CollectionState {
                 definition,
                 generation,
                 postings,
+                raw,
             });
         }
         Ok(Self {

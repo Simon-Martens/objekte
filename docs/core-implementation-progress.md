@@ -24,6 +24,7 @@ query/build and restore revisions will establish their respective baselines.
 | C08 | complete | `cargo test --workspace --all-targets`; CLI Q031, Q070 | Fixture adapter, JSON/filename registration, reference CLI |
 | C09 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Fused typed B-tree postings, presence/null/array length, coverage |
 | C10 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Exact posting/metadata sets, restricted scan, zero-read exact matches |
+| C11 | complete | `cargo test --workspace --all-targets`; CLI places FTS Leipzig | ASCII normal/skip bigrams on record text segments |
 
 ## Decisions
 
@@ -52,6 +53,9 @@ query/build and restore revisions will establish their respective baselines.
   cardinality, then scans only survivors for unresolved terms. Metadata
   predicates run from inventory without source reads. More detailed path
   costs and adaptive choices follow in C17–C19.
+- The ASCII raw filter stores observed normal and skip pairs by record slot.
+  It lowercases only pair keys for conservative filtering, then verifies the
+  original case-sensitive text. Unsupported or short literals scan.
 
 ## Measurements
 
