@@ -1,0 +1,38 @@
+[
+  {
+    "name": "json-schema-ascii-cache64",
+    "command": [
+      "crates/bench/results/library-extension-candidate/malformed-formats/candidate-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "64"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793885106.522335,
+    "ended_unix": 1793885187.345179,
+    "expected_cases": 152
+  },
+  {
+    "name": "json-schema-ascii-cache0",
+    "command": [
+      "crates/bench/results/library-extension-candidate/malformed-formats/candidate-bin/json-query-mix",
+      "--repo",
+      "examples/musenalm",
+      "--runs",
+      "7",
+      "--bigram-encoding",
+      "ascii",
+      "--query-cache-mib",
+      "0"
+    ],
+    "exit_status": 0,
+    "started_unix": 1793885187.3472917,
+    "ended_unix": 1793885274.9451005,
+    "expected_cases": 152
+  }
+]
