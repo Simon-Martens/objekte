@@ -3,7 +3,7 @@
 
 use super::*;
 use crate::{
-    Direction, JsonPath,
+    Direction, JsonFilter, JsonPath,
     extensions::{Extraction, TypedValue},
     file_picker::{TypedIndex, TypedKey},
     json_filter::decimal_cmp,
@@ -157,6 +157,25 @@ impl SelectedDerivedPosting {
         }
     }
 
+    pub(super) fn from_field_rows(
+        path: JsonPath,
+        rows: Vec<(TypedKey, usize)>,
+        present: Vec<u64>,
+        scalar_safe: bool,
+        slots: usize,
+        implicit_equivalent: bool,
+    ) -> Self {
+        let mut index = TypedIndex::new(Vec::new());
+        index.replace_path(path, rows, present, scalar_safe, true, implicit_equivalent);
+        Self {
+            index,
+            slots,
+            scalar_safe,
+            order_asc: None,
+            order_desc: None,
+        }
+    }
+
     pub(super) fn order(&mut self, path: &JsonPath, direction: Direction) -> Option<Arc<Vec<u32>>> {
         if !self.scalar_safe {
             return None;
@@ -249,6 +268,47 @@ impl Repository {
         ))
     }
 
+    fn selected_field_snapshot_key(
+        &self,
+        collection: &str,
+        field: &str,
+    ) -> Result<(SelectedDerivedKey, usize)> {
+        if self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            return Err(Error::Request(
+                "selected field snapshots require memory cache and non-hash freshness".into(),
+            ));
+        }
+        let selected_collection = self.model.collection(collection)?;
+        let parsed = JsonFilter::parse_path(field)?;
+        if !selected_collection
+            .indexes
+            .iter()
+            .any(|index| parsed == vec![crate::JsonPathStep::Key(index.name.clone())])
+            && !selected_collection.advanced_index_paths.contains(&parsed)
+        {
+            return Err(Error::Request(format!(
+                "field {field} has no configured posting"
+            )));
+        }
+        let extensions = self.extensions.as_ref().ok_or_else(|| {
+            Error::Request("selected field snapshots require source extensions".into())
+        })?;
+        let selected = self.source_descriptors(collection)?;
+        let (selection, cacheable, _) =
+            extensions.selection_dependencies(selected_collection, &selected)?;
+        if !cacheable {
+            return Err(Error::Request(
+                "volatile source selection cannot be snapshotted".into(),
+            ));
+        }
+        Ok((
+            SelectedDerivedKey::new(selected_collection, &parsed, &selection, extensions),
+            selected.len(),
+        ))
+    }
+
     /// Save a selected-provider typed posting with its semantic and source
     /// revision identity. The file is atomically replaced after a full write.
     pub fn save_selected_derived_snapshot(
@@ -258,6 +318,25 @@ impl Repository {
         path: &Path,
     ) -> Result<()> {
         let (key, slots) = self.selected_derived_snapshot_key(collection, extractor)?;
+        self.save_selected_typed_snapshot(key, slots, path)
+    }
+
+    pub(super) fn save_selected_field_snapshot(
+        &self,
+        collection: &str,
+        field: &str,
+        path: &Path,
+    ) -> Result<()> {
+        let (key, slots) = self.selected_field_snapshot_key(collection, field)?;
+        self.save_selected_typed_snapshot(key, slots, path)
+    }
+
+    fn save_selected_typed_snapshot(
+        &self,
+        key: SelectedDerivedKey,
+        slots: usize,
+        path: &Path,
+    ) -> Result<()> {
         let posting = self.selected_derived_indexes.get(&key).ok_or_else(|| {
             Error::Cache("selected derived posting is unavailable or stale".into())
         })?;
@@ -332,6 +411,25 @@ impl Repository {
         path: &Path,
     ) -> Result<bool> {
         let (key, slots) = self.selected_derived_snapshot_key(collection, extractor)?;
+        self.restore_selected_typed_snapshot(key, slots, path)
+    }
+
+    pub(super) fn restore_selected_field_snapshot(
+        &mut self,
+        collection: &str,
+        field: &str,
+        path: &Path,
+    ) -> Result<bool> {
+        let (key, slots) = self.selected_field_snapshot_key(collection, field)?;
+        self.restore_selected_typed_snapshot(key, slots, path)
+    }
+
+    fn restore_selected_typed_snapshot(
+        &mut self,
+        key: SelectedDerivedKey,
+        slots: usize,
+        path: &Path,
+    ) -> Result<bool> {
         let mut file = match fs::File::open(path) {
             Ok(file) => file,
             Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(false),
@@ -369,7 +467,8 @@ impl Repository {
             || restored.selection != key.selection
             || restored.semantics != key.semantics
             || restored.slots != slots
-            || !restored.index.has_derived_posting(&key.path)
+            || !(restored.index.has_derived_posting(&key.path)
+                || restored.index.has_posting(&key.path))
         {
             return Ok(false);
         }

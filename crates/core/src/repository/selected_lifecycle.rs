@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest as _, Sha256};
 use std::{fs, io::Write as _, path::PathBuf};
 
-const MANIFEST_VERSION: u32 = 1;
+const MANIFEST_VERSION: u32 = 2;
 
 
 #[derive(Clone, Debug, Eq, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
@@ -18,6 +18,9 @@ pub(super) enum SelectedSpec {
     },
     Derived {
         extractor: String,
+    },
+    Field {
+        path: String,
     },
 }
 
@@ -66,6 +69,23 @@ impl Repository {
         specs.into_iter().collect()
     }
 
+    fn selected_auto_field_specs(&self, collection: &Collection) -> Vec<SelectedSpec> {
+        let mut specs = BTreeSet::new();
+        for index in &collection.indexes {
+            specs.insert(SelectedSpec::Field {
+                path: crate::json_filter::format_path(&vec![crate::JsonPathStep::Key(
+                    index.name.clone(),
+                )]),
+            });
+        }
+        for path in &collection.advanced_index_paths {
+            specs.insert(SelectedSpec::Field {
+                path: crate::json_filter::format_path(path),
+            });
+        }
+        specs.into_iter().collect()
+    }
+
     pub(super) fn active_selected_specs(&self, collection: &str) -> Result<Vec<SelectedSpec>> {
         let Some(snapshot) = self.custom_source_snapshot.get(collection) else {
             return Ok(Vec::new());
@@ -80,6 +100,16 @@ impl Repository {
                 specs.insert(SelectedSpec::Text {
                     representation: key.representation.clone(),
                     path: key.path.clone(),
+                });
+            }
+        }
+        for key in self.selected_derived_indexes.keys() {
+            if key.collection == collection
+                && key.selection == selection
+                && !crate::extensions::is_derived_path(&key.path)
+            {
+                specs.insert(SelectedSpec::Field {
+                    path: crate::json_filter::format_path(&key.path),
                 });
             }
         }
@@ -121,6 +151,9 @@ impl Repository {
             SelectedSpec::Derived { extractor } => {
                 self.restore_selected_derived_snapshot(collection, extractor, &path)
             }
+            SelectedSpec::Field { path: field } => {
+                self.restore_selected_field_snapshot(collection, field, &path)
+            }
         }
     }
 
@@ -140,6 +173,7 @@ impl Repository {
                     path,
                 },
                 SelectedSpec::Derived { extractor } => SelectedIndexRequest::Derived { extractor },
+                SelectedSpec::Field { path } => SelectedIndexRequest::Field { path },
             })
             .collect::<Vec<_>>();
         if !requests.is_empty() {
@@ -186,6 +220,9 @@ impl Repository {
             Vec::new()
         };
         specs.extend(auto.iter().cloned());
+        if include_derived {
+            specs.extend(self.selected_auto_field_specs(&selected_collection));
+        }
         specs.sort();
         specs.dedup();
         let mut missing = Vec::new();
@@ -326,6 +363,9 @@ impl Repository {
                 )?,
                 SelectedSpec::Derived { extractor } => {
                     self.save_selected_derived_snapshot(collection, extractor, &target)?
+                }
+                SelectedSpec::Field { path } => {
+                    self.save_selected_field_snapshot(collection, path, &target)?
                 }
             }
         }

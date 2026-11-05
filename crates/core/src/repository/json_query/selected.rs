@@ -3,6 +3,7 @@
 
 use super::*;
 use crate::{
+    json_filter::TypedPlan,
     repository::{
         extension_query::source_location, ordered_result_cache::OrderedResultKey,
         predicate_cache::PredicateCacheKey,
@@ -12,6 +13,145 @@ use crate::{
 
 
 impl Repository {
+    /// Evaluate a bound necessary condition against configured logical-field
+    /// postings. Unknown AND children are residuals; OR requires coverage in
+    /// every branch. The underlying typed index retains exact key semantics.
+    pub(in crate::repository) fn selected_field_candidates(
+        &self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        filter: &JsonFilter,
+    ) -> Option<Vec<u64>> {
+        if filter.has_relations()
+            || self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            return None;
+        }
+        let extensions = self.extensions.as_ref()?;
+        let posting = |path: &crate::JsonPath| {
+            let key = crate::repository::extension_derived_index::SelectedDerivedKey::new(
+                collection,
+                path,
+                &snapshot.fingerprint,
+                extensions,
+            );
+            self.selected_derived_indexes.get(&key)
+        };
+        if filter.needs_cardinality_check_in(|path| {
+            posting(path).is_some_and(|index| index.index.scalar_safe(path))
+        }) {
+            return None;
+        }
+
+        fn evaluate<'a>(
+            plan: &TypedPlan,
+            slots: usize,
+            posting: &impl Fn(
+                &crate::JsonPath,
+            ) -> Option<
+                &'a crate::repository::extension_derived_index::SelectedDerivedPosting,
+            >,
+        ) -> Option<Vec<u64>> {
+            match plan {
+                TypedPlan::And(parts) => {
+                    let mut combined: Option<Vec<u64>> = None;
+                    for part in parts {
+                        if let Some(next) = evaluate(part, slots, posting) {
+                            combined = Some(match combined {
+                                Some(mut current) => {
+                                    for (left, right) in current.iter_mut().zip(next) {
+                                        *left &= right;
+                                    }
+                                    current
+                                }
+                                None => next,
+                            });
+                        }
+                    }
+                    combined
+                }
+                TypedPlan::Or(parts) => {
+                    let mut combined = vec![0_u64; slots.div_ceil(64)];
+                    for part in parts {
+                        let next = evaluate(part, slots, posting)?;
+                        for (left, right) in combined.iter_mut().zip(next) {
+                            *left |= right;
+                        }
+                    }
+                    Some(combined)
+                }
+                TypedPlan::Term(path, ..)
+                | TypedPlan::AnyTerm(path, ..)
+                | TypedPlan::Present(path)
+                | TypedPlan::Missing(path)
+                | TypedPlan::Prefix(path, ..)
+                | TypedPlan::Like(path, ..) => {
+                    posting(path)?.index.candidate_bits(Some(plan), slots)
+                }
+            }
+        }
+        let bits = evaluate(&filter.typed_plan()?, snapshot.sources.len(), &posting)?;
+        let count = bits
+            .iter()
+            .map(|word| word.count_ones() as usize)
+            .sum::<usize>();
+        (count.saturating_mul(4) < snapshot.sources.len().saturating_mul(3)).then_some(bits)
+    }
+
+    /// Native postings cover only filesystem JSON slots. The generation-bound
+    /// slot map translates those candidates; every custom slot remains in the
+    /// fallback domain until a compatible selected posting covers it.
+    pub(in crate::repository) fn selected_native_candidates(
+        &mut self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        filter: &JsonFilter,
+        backend: JsonQueryBackend,
+    ) -> Result<Option<Vec<u64>>> {
+        if filter.has_relations()
+            || !matches!(backend, JsonQueryBackend::Auto | JsonQueryBackend::Bigram)
+            || self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+            || snapshot.native_count == 0
+        {
+            return Ok(None);
+        }
+        let typed = filter.typed_plan();
+        let required = filter.required_top_level_fields();
+        if typed.is_none() && required.is_empty() {
+            return Ok(None);
+        }
+        self.ensure_picker(collection)?;
+        let picker = &self.file_pickers[&collection.name];
+        let scalar_fields = filter.top_level_scalar_fields();
+        let risk = filter.needs_cardinality_check_in(|path| picker.typed_scalar_safe(path))
+            || scalar_fields
+                .iter()
+                .any(|field| picker.has_array_value(field));
+        if risk {
+            return Ok(None);
+        }
+        let Some(map) = snapshot.native_slot_map(picker) else {
+            return Ok(None);
+        };
+        let selection =
+            picker.candidate_slot_selection_for_path(None, None, typed.as_ref(), &required);
+        // A broad posting can cost more to enumerate and map than verification.
+        if selection.is_all() || selection.len().saturating_mul(2) >= snapshot.native_count {
+            return Ok(None);
+        }
+        let mut bits = vec![0_u64; snapshot.sources.len().div_ceil(64)];
+        for &slot in snapshot.custom_slots.iter() {
+            bits[slot as usize / 64] |= 1 << (slot % 64);
+        }
+        for native in selection.ordered(picker, false, &[]) {
+            let selected = map[native].expect("mapped live native slot");
+            bits[selected as usize / 64] |= 1 << (selected % 64);
+        }
+        Ok(Some(bits))
+    }
+
     pub(super) fn query_json_selected(
         &mut self,
         request: &JsonQuery,
@@ -99,6 +239,8 @@ impl Repository {
         let cache_hit = cached_page.is_some();
         let mut matches = 0_usize;
         let mut ordered_slots = Vec::new();
+        let mut used_native_candidates = false;
+        let mut used_field_candidates = false;
         if let Some((total, _)) = &cached_page {
             self.metrics.ordered_result_hits += 1;
             matches = *total;
@@ -110,24 +252,30 @@ impl Repository {
                 filter.uses_status() || sort_buffer.as_ref().is_some_and(SortBuffer::uses_status);
             let mut bytes = Vec::new();
             for (collection_index, (collection, snapshot)) in selected.iter().enumerate() {
-                let mut positions = (0..snapshot.sources.len()).collect::<Vec<_>>();
-                if sort_buffer.is_none() {
-                    positions.sort_unstable_by(|&left, &right| {
-                        let a = &snapshot.sources[left];
-                        let b = &snapshot.sources[right];
-                        let modified = |source: &crate::extensions::SourceDescriptor| {
-                            source
-                                .metadata
-                                .get("modified_unix_nanos")
-                                .and_then(|value| value.parse::<i128>().ok())
-                                .unwrap_or(0)
-                        };
-                        modified(b)
-                            .cmp(&modified(a))
-                            .then_with(|| a.record_id.cmp(&b.record_id))
-                    });
-                }
-                for index in positions {
+                let field_candidates = matches!(
+                    request.backend,
+                    JsonQueryBackend::Auto | JsonQueryBackend::Bigram
+                )
+                .then(|| {
+                    self.selected_field_candidates(collection, snapshot, &bound[collection_index])
+                })
+                .flatten();
+                used_field_candidates |= field_candidates.is_some();
+                let candidates = if field_candidates.is_some() {
+                    field_candidates
+                } else {
+                    let native = self.selected_native_candidates(
+                        collection,
+                        snapshot,
+                        &bound[collection_index],
+                        request.backend,
+                    )?;
+                    used_native_candidates |= native.is_some();
+                    native
+                };
+                for index in snapshot.scan_slots(candidates.as_deref(), sort_buffer.is_none()) {
+                    self.metrics.selected_candidate_visits += 1;
+                    self.metrics.selected_descriptor_visits += 1;
                     let source = &snapshot.sources[index];
                     let record =
                         self.selected_record(collection, source, &mut bytes, needs_status)?;
@@ -191,6 +339,7 @@ impl Repository {
             let (collection_index, local) = source_location(&offsets, slot)
                 .ok_or_else(|| Error::Cache("selected source slot is unavailable".into()))?;
             let (collection, snapshot) = &selected[collection_index];
+            self.metrics.selected_descriptor_visits += 1;
             let source = &snapshot.sources[local];
             let record = self.selected_record(collection, source, &mut bytes, true)?;
             let stamp = Stamp {
@@ -244,7 +393,13 @@ impl Repository {
                     if cache_hit {
                         "selected-ordered-cache"
                     } else {
-                        "selected-exact-scan"
+                        if used_field_candidates {
+                            "selected-scalar-posting"
+                        } else if used_native_candidates {
+                            "selected-native-posting+custom-fallback"
+                        } else {
+                            "selected-exact-scan"
+                        }
                     }
                     .into(),
                 ],

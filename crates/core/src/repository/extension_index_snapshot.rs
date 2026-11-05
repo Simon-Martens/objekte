@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest as _, Sha256};
 use std::{io::Write as _, sync::Arc};
 
-const MANIFEST_VERSION: u32 = 2;
+const MANIFEST_VERSION: u32 = 3;
 const MAX_MANIFEST_BYTES: u64 = 4 * 1024 * 1024;
 
 
@@ -26,6 +26,7 @@ struct SelectedFilterManifest {
     descriptors: Vec<Descriptor>,
     slots: usize,
     filter_sha256: String,
+    observed_bigrams: Vec<u64>,
 }
 
 
@@ -172,6 +173,7 @@ impl Repository {
             descriptors,
             slots: selected.len(),
             filter_sha256: file_digest(path)?,
+            observed_bigrams: posting.observed_bigrams.clone(),
         };
         let encoded = serde_json::to_vec(&manifest)
             .map_err(|error| Error::Cache(format!("encode selected filter manifest: {error}")))?;
@@ -232,6 +234,7 @@ impl Repository {
             || manifest.key != key
             || manifest.descriptors != descriptors
             || manifest.slots != selected.len()
+            || manifest.observed_bigrams.len() != 1024
         {
             return Ok(false);
         }
@@ -267,6 +270,7 @@ impl Repository {
             key,
             RepresentationIndex {
                 filter: snapshot.filter,
+                observed_bigrams: manifest.observed_bigrams,
             },
         );
         Ok(true)

@@ -66,17 +66,35 @@ impl Repository {
         snapshot: &CustomSourceSnapshot,
         matcher: Option<&TextMatcher>,
         extension: Option<&BoundTextQuery>,
+        filter: Option<&JsonFilter>,
     ) -> Option<Vec<u64>> {
-        if request.filter.is_some() || self.options.cache != CacheMode::Memory {
+        if self.options.cache != CacheMode::Memory {
             return None;
         }
-        let field = request
+        let fields = request
             .fields
             .as_ref()
-            .filter(|fields| fields.len() == 1)?
-            .first()?;
+            .filter(|fields| !fields.is_empty())?;
         let extensions = self.extensions.as_ref()?;
-        let (representation, literal) = if let Some(extension) = extension {
+        // A filter is evaluated before text matching. Its potential errors
+        // cannot be hidden by a text posting for a nonmatching record.
+        if filter.is_some_and(|filter| {
+            filter.has_relations()
+                || filter.needs_cardinality_check_in(|path| {
+                    let key = crate::repository::extension_derived_index::SelectedDerivedKey::new(
+                        collection,
+                        path,
+                        &snapshot.fingerprint,
+                        extensions,
+                    );
+                    self.selected_derived_indexes
+                        .get(&key)
+                        .is_some_and(|posting| posting.index.scalar_safe(path))
+                })
+        }) {
+            return None;
+        }
+        let literal = if let Some(extension) = extension {
             if !extension.allows_candidate_pruning() {
                 return None;
             }
@@ -93,20 +111,22 @@ impl Repository {
             if !compatible {
                 return None;
             }
-            (
-                extension.representation.descriptor().identity.as_str(),
-                literal.as_str(),
-            )
+            literal.as_str()
         } else {
             let matcher = matcher?;
             if request.mode == crate::TextMode::Regex {
                 return None;
             }
-            let representation = if request.mode == crate::TextMode::Word {
-                match crate::repository::extension_index::field_format(
-                    collection,
-                    &JsonFilter::parse_path(field).ok()?,
-                ) {
+            matcher.candidate_pattern.as_deref()?
+        };
+        let mut union: Option<Vec<u64>> = None;
+        for field in fields {
+            let parsed = JsonFilter::parse_path(field).ok()?;
+            let format = crate::repository::extension_index::field_format(collection, &parsed);
+            let representation = if let Some(extension) = extension {
+                extension.representation.descriptor().identity.as_str()
+            } else if request.mode == crate::TextMode::Word {
+                match format {
                     "markdown" => "objekte:visible-markdown",
                     "html" => "objekte:visible-html",
                     "xml" => "objekte:visible-xml",
@@ -115,33 +135,43 @@ impl Repository {
             } else {
                 "objekte:stored"
             };
-            (representation, matcher.candidate_pattern.as_deref()?)
-        };
-        let definition = extensions.representation_definition(representation).ok()?;
-        if !definition.binds(&BindingContext {
-            collection: &collection.name,
-            path: field,
-            format: crate::repository::extension_index::field_format(
+            let definition = extensions.representation_definition(representation).ok()?;
+            if !definition.binds(&BindingContext {
+                collection: &collection.name,
+                path: field,
+                format,
+                schema: extensions
+                    .schema(&collection.name)
+                    .map(std::sync::Arc::as_ref),
+            }) {
+                return None;
+            }
+            let key = RepresentationIndexKey::new(
                 collection,
-                &JsonFilter::parse_path(field).ok()?,
-            ),
-            schema: extensions
-                .schema(&collection.name)
-                .map(std::sync::Arc::as_ref),
-        }) {
-            return None;
+                field,
+                representation,
+                &snapshot.fingerprint,
+                extensions,
+                collection
+                    .bigram_encoding
+                    .unwrap_or(self.options.bigram_encoding),
+            );
+            let bits = self.representation_index_candidates(&key, literal)?;
+
+
+            union = Some(match union {
+                Some(mut current) => {
+                    for (left, right) in current.iter_mut().zip(bits) {
+                        *left |= right;
+                    }
+                    current
+                }
+                None => bits,
+            });
         }
-        let key = RepresentationIndexKey::new(
-            collection,
-            field,
-            representation,
-            &snapshot.fingerprint,
-            extensions,
-            collection
-                .bigram_encoding
-                .unwrap_or(self.options.bigram_encoding),
-        );
-        self.representation_index_candidates(&key, literal)
+
+
+        union
     }
 
     pub(super) fn search_text_selected(
@@ -162,6 +192,8 @@ impl Repository {
                 "invalid text pagination or total_limit".into(),
             ));
         }
+
+
         let matcher = extension
             .is_none()
             .then(|| TextMatcher::compile(request))
@@ -204,6 +236,8 @@ impl Repository {
             );
             if !request.sort.is_empty() {
                 plans.insert(
+
+
                     collection.name.clone(),
                     self.sort_plan(collection, &request.sort)?,
                 );
@@ -301,6 +335,7 @@ impl Repository {
         let mut matches = 0_usize;
         let mut ordered_slots = Vec::new();
         let mut used_candidates = false;
+        let mut decisions = Vec::new();
         if let Some((total, _)) = &cached_page {
             matches = *total;
             self.metrics.ordered_result_hits += 1;
@@ -326,38 +361,79 @@ impl Repository {
                         extension,
                     )
                 });
-                let candidates = self.selected_text_candidates(
-                    request,
-                    collection,
-                    snapshot,
-                    matcher.as_ref(),
-                    extension,
-                );
-                used_candidates |= candidates.is_some();
-                let mut positions = (0..snapshot.sources.len()).collect::<Vec<_>>();
-                if sorted.is_none() {
-                    positions.sort_unstable_by(|&left, &right| {
-                        let a = &snapshot.sources[left];
-                        let b = &snapshot.sources[right];
-                        let modified = |source: &crate::extensions::SourceDescriptor| {
-                            source
-                                .metadata
-                                .get("modified_unix_nanos")
-                                .and_then(|value| value.parse::<i128>().ok())
-                                .unwrap_or(0)
-                        };
-                        modified(b)
-                            .cmp(&modified(a))
-                            .then_with(|| a.record_id.cmp(&b.record_id))
-                    });
-                }
-                for index in positions {
-                    if candidates.as_ref().is_some_and(|bits| {
-                        bits.get(index / 64)
-                            .is_some_and(|word| word & (1 << (index % 64)) == 0)
-                    }) {
-                        continue;
+                let mut scalar = if let Some(filter) = bound_filters[collection_index].as_ref() {
+                    if let Some(bits) = self.selected_field_candidates(collection, snapshot, filter)
+                    {
+                        Some(bits)
+                    } else {
+                        self.selected_native_candidates(
+                            collection,
+                            snapshot,
+                            filter,
+                            crate::JsonQueryBackend::Bigram,
+                        )?
                     }
+                } else {
+                    None
+                };
+                let scalar_count = scalar.as_ref().map(|bits| {
+                    bits.iter()
+                        .map(|word| word.count_ones() as usize)
+                        .sum::<usize>()
+                });
+                // A selective scalar posting is already an economical seed.
+                // Exact text verification still runs on each surviving record.
+                let use_scalar_seed = scalar_count
+                    .is_some_and(|count| count.saturating_mul(16) <= snapshot.sources.len());
+                let mut candidates = if use_scalar_seed {
+                    scalar.take()
+                } else {
+                    self.selected_text_candidates(
+                        request,
+                        collection,
+                        snapshot,
+                        matcher.as_ref(),
+                        extension,
+                        bound_filters[collection_index].as_ref(),
+                    )
+                };
+                if bound_filters[collection_index].is_some() {
+                    let text_count = candidates.as_ref().map(|bits| {
+                        bits.iter()
+                            .map(|word| word.count_ones() as usize)
+                            .sum::<usize>()
+                    });
+                    // A rare text posting needs no additional materialized
+                    // bitset; broad text may benefit from scalar intersection.
+                    if !use_scalar_seed
+                        && text_count
+                            .is_none_or(|count| count.saturating_mul(16) > snapshot.sources.len())
+                        && let Some(scalar) = scalar.take()
+                    {
+                        if let Some(bits) = &mut candidates {
+                            for (left, right) in bits.iter_mut().zip(scalar) {
+                                *left &= right;
+                            }
+                        } else {
+                            candidates = Some(scalar);
+                        }
+                    }
+                }
+                decisions.push(format!(
+                    "{}:{}",
+                    collection.name,
+                    if use_scalar_seed {
+                        "scalar-seed"
+                    } else if candidates.is_some() {
+                        "text-seed"
+                    } else {
+                        "scan"
+                    },
+                ));
+                used_candidates |= candidates.is_some();
+                for index in snapshot.scan_slots(candidates.as_deref(), sorted.is_none()) {
+                    self.metrics.selected_candidate_visits += 1;
+                    self.metrics.selected_descriptor_visits += 1;
                     let source = &snapshot.sources[index];
                     let record =
                         self.selected_record(collection, source, &mut bytes, needs_status)?;
@@ -432,6 +508,7 @@ impl Repository {
             let (collection_index, local) = source_location(&offsets, slot)
                 .ok_or_else(|| Error::Cache("selected source slot is unavailable".into()))?;
             let (collection, snapshot) = &selected[collection_index];
+            self.metrics.selected_descriptor_visits += 1;
             let source = &snapshot.sources[local];
             let record = self.selected_record(collection, source, &mut bytes, true)?;
             let stamp = Stamp {
@@ -516,7 +593,12 @@ impl Repository {
                         "selected-text-exact-scan"
                     }
                     .into(),
-                ],
+                ]
+
+
+                .into_iter()
+                .chain(decisions)
+                .collect(),
             },
             pending,
         ))

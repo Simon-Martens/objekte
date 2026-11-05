@@ -87,6 +87,10 @@ impl SlotSelection {
         self.count
     }
 
+    pub(crate) fn is_all(&self) -> bool {
+        matches!(self.membership, SlotMembership::All)
+    }
+
     fn contains(&self, slot: usize) -> bool {
         match &self.membership {
             SlotMembership::All => true,

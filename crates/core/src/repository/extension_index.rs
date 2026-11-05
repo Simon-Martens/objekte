@@ -52,8 +52,25 @@ impl RepresentationIndexKey {
 
 pub(super) struct RepresentationIndex {
     pub filter: BigramFilter,
+    /// Pairs seen before compression; distinguishes absent pairs from dense
+    /// postings deliberately omitted by the concrete bigram builder.
+    pub observed_bigrams: Vec<u64>,
 }
 
+
+pub(super) fn observe_bigrams(
+    observed: &mut [u64],
+    content: &[u8],
+    encoding: crate::BigramEncoding,
+) {
+    for pair in content.windows(2) {
+        if encoding.usable(pair[0]) && encoding.usable(pair[1]) {
+            let key = ((pair[0].to_ascii_lowercase() as usize) << 8)
+                | pair[1].to_ascii_lowercase() as usize;
+            observed[key / 64] |= 1 << (key % 64);
+        }
+    }
+}
 
 pub(super) fn binding_path(path: &[JsonPathStep]) -> String {
     let mut result = String::new();
@@ -193,6 +210,7 @@ impl Repository {
         let mut bytes = Vec::new();
         let mut rendered = String::new();
         let mut content = String::new();
+        let mut observed_bigrams = vec![0_u64; 1024];
         for (slot, source) in selected.iter().enumerate() {
             let decoder = extensions.decoder(source)?;
             if !decoder.descriptor().cacheable() {
@@ -241,6 +259,7 @@ impl Repository {
             if records == 0 {
                 return Err(Error::Request("format decoder emitted no record".into()));
             }
+            observe_bigrams(&mut observed_bigrams, content.as_bytes(), encoding);
             main.add_file_content(&skip, slot, content.as_bytes());
         }
         if self.options.freshness != Freshness::MetadataOnOpen {
@@ -252,8 +271,13 @@ impl Repository {
         }
         let mut filter = main.compress(None);
         filter.set_skip_index(skip.compress(Some(SKIP_INDEX_MIN_DENSITY_PCT)));
-        self.extension_text_indexes
-            .insert(key, RepresentationIndex { filter });
+        self.extension_text_indexes.insert(
+            key,
+            RepresentationIndex {
+                filter,
+                observed_bigrams,
+            },
+        );
         Ok(selected.len())
     }
 
@@ -267,10 +291,19 @@ impl Repository {
         {
             return None;
         }
-        self.extension_text_indexes
-            .get(key)?
-            .filter
-            .query(literal.as_bytes())
+        let posting = self.extension_text_indexes.get(key)?;
+        posting.filter.query(literal.as_bytes()).or_else(|| {
+            let encoding = posting.filter.encoding();
+            let definitely_absent = literal.as_bytes().windows(2).any(|pair| {
+                if !encoding.usable(pair[0]) || !encoding.usable(pair[1]) {
+                    return false;
+                }
+                let key = ((pair[0].to_ascii_lowercase() as usize) << 8)
+                    | pair[1].to_ascii_lowercase() as usize;
+                posting.observed_bigrams[key / 64] & (1 << (key % 64)) == 0
+            });
+            definitely_absent.then(|| vec![0; posting.filter.file_count().div_ceil(64)])
+        })
     }
 
     pub(super) fn invalidate_representation_indexes(&mut self, collection: &str) {

@@ -20,6 +20,10 @@ use std::{collections::BTreeMap, fs, io::Read, path::PathBuf, time::UNIX_EPOCH};
 #[path = "review_stage1.test.rs"]
 mod review_stage1;
 
+#[cfg(test)]
+#[path = "review_stage2.test.rs"]
+mod review_stage2;
+
 
 /// Select direct `.md` files; the source identity includes the real filename.
 pub struct MarkdownProvider {

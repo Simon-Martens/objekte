@@ -417,7 +417,7 @@ impl TypedIndex {
             .collect()
     }
 
-    pub(super) fn has_posting(&self, path: &JsonPath) -> bool {
+    pub(crate) fn has_posting(&self, path: &JsonPath) -> bool {
         if crate::extensions::is_derived_path(path) {
             return false;
         }
@@ -442,7 +442,7 @@ impl TypedIndex {
         self.dynamic.remove(path);
     }
 
-    pub(super) fn scalar_safe(&self, path: &JsonPath) -> bool {
+    pub(crate) fn scalar_safe(&self, path: &JsonPath) -> bool {
         self.comparison_posting(path)
             .is_some_and(|field| field.scalar_safe && field.fresh)
     }
@@ -521,7 +521,7 @@ impl TypedIndex {
     /// Evaluate necessary typed postings. Unknown AND children are skipped;
     /// any unknown OR child makes the union unbounded. Changed slots always
     /// bypass the immutable postings and are verified against source JSON.
-    pub(super) fn candidate_bits(
+    pub(crate) fn candidate_bits(
         &self,
         plan: Option<&TypedPlan>,
         slot_count: usize,

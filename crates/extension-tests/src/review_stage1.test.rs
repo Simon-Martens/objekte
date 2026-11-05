@@ -11,14 +11,14 @@ use std::{fs, path::PathBuf};
 
 /// Reuse the fixture's secure file reader while exposing JSON bytes through a
 /// registered provider rather than the concrete filesystem JSON picker.
-struct JsonAliasProvider {
+pub(super) struct JsonAliasProvider {
     inner: MarkdownProvider,
     descriptor: Descriptor,
 }
 
 
 impl JsonAliasProvider {
-    fn new(root: PathBuf) -> Self {
+    pub(super) fn new(root: PathBuf) -> Self {
         Self {
             inner: MarkdownProvider::new(root),
             descriptor: Descriptor::new(

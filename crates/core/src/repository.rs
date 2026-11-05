@@ -140,6 +140,8 @@ macro_rules! metrics {
 metrics!(
     enumerations,
     source_reads,
+    selected_candidate_visits,
+    selected_descriptor_visits,
     source_bytes,
     hashes,
     parses,
@@ -378,6 +380,13 @@ struct CustomSourceSnapshot {
     sources: std::sync::Arc<Vec<crate::extensions::SourceDescriptor>>,
     /// Frozen routing fact for this exact inventory generation.
     has_custom: bool,
+    native_count: usize,
+    custom_slots: std::sync::Arc<Vec<u32>>,
+    /// Native picker slots are mapped once to this selected generation.
+    native_slot_map: std::sync::Arc<std::sync::OnceLock<Option<Vec<Option<u32>>>>>,
+    /// Default source order and its inverse, built once for this generation.
+    default_order: std::sync::Arc<Vec<u32>>,
+    default_rank: std::sync::Arc<Vec<u32>>,
     fingerprint: String,
     source_generation: String,
     cacheable: bool,
@@ -394,20 +403,130 @@ impl CustomSourceSnapshot {
         sources: Vec<crate::extensions::SourceDescriptor>,
         extensions: &crate::extensions::Extensions,
     ) -> Result<Self> {
+        if sources.len() > u32::MAX as usize {
+            return Err(Error::Request(
+                "selected source table exceeds 2^32 slots".into(),
+            ));
+        }
         let (fingerprint, cacheable, definitions) =
             extensions.selection_dependencies(collection, &sources)?;
         let source_generation = crate::config::fingerprint("selected-sources/v1", &sources);
         let has_custom = sources
             .iter()
             .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
+        let custom_slots = sources
+            .iter()
+            .enumerate()
+            .filter(|(_, source)| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY)
+            .map(|(slot, _)| slot as u32)
+            .collect::<Vec<_>>();
+        let native_count = sources.len() - custom_slots.len();
+        let mut default_order = (0..sources.len() as u32).collect::<Vec<_>>();
+        default_order.sort_unstable_by(|&left, &right| {
+            let a = &sources[left as usize];
+            let b = &sources[right as usize];
+            let modified = |source: &crate::extensions::SourceDescriptor| {
+                source
+                    .metadata
+                    .get("modified_unix_nanos")
+                    .and_then(|value| value.parse::<i128>().ok())
+                    .unwrap_or(0)
+            };
+            modified(b)
+                .cmp(&modified(a))
+                .then_with(|| a.record_id.cmp(&b.record_id))
+        });
+        let mut default_rank = vec![0_u32; sources.len()];
+        for (rank, &slot) in default_order.iter().enumerate() {
+            default_rank[slot as usize] = rank as u32;
+        }
         Ok(Self {
             sources: std::sync::Arc::new(sources),
             has_custom,
+            native_count,
+            custom_slots: std::sync::Arc::new(custom_slots),
+            native_slot_map: std::sync::Arc::new(std::sync::OnceLock::new()),
+            default_order: std::sync::Arc::new(default_order),
+            default_rank: std::sync::Arc::new(default_rank),
             fingerprint,
             source_generation,
             cacheable,
             definitions,
         })
+    }
+
+    fn native_slot_map(&self, picker: &crate::file_picker::FilePicker) -> Option<&[Option<u32>]> {
+        self.native_slot_map
+            .get_or_init(|| {
+                let mut map = vec![None; picker.slot_count()];
+                let mut found = 0;
+                for &slot in picker.sorted_slots() {
+                    let (id, stamp) = picker.view_record(slot);
+                    let index = self
+                        .sources
+                        .binary_search_by(|source| source.record_id.as_str().cmp(id))
+                        .ok()?;
+                    let source = &self.sources[index];
+                    if source.provider != crate::source::FILESYSTEM_JSON_IDENTITY
+                        || source.revision != crate::config::fingerprint("source-stamp/v1", stamp)
+                    {
+                        return None;
+                    }
+                    map[slot] = Some(index as u32);
+                    found += 1;
+                }
+                (found == self.native_count).then_some(map)
+            })
+            .as_deref()
+    }
+
+    /// Enumerate only candidate slots where a posting is selective. The
+    /// default order is generation-bound, so a warm query never sorts the
+    /// complete inventory again.
+    fn scan_slots(&self, candidates: Option<&[u64]>, default_order: bool) -> SelectedScanSlots<'_> {
+        let Some(bits) = candidates else {
+            return if default_order {
+                SelectedScanSlots::Default(self.default_order.iter())
+            } else {
+                SelectedScanSlots::All(0..self.sources.len())
+            };
+        };
+        let mut slots = Vec::new();
+        for (word_index, &value) in bits.iter().enumerate() {
+            let mut word = value;
+            while word != 0 {
+                let bit = word.trailing_zeros() as usize;
+                let slot = word_index * 64 + bit;
+                if slot < self.sources.len() {
+                    slots.push(slot as u32);
+                }
+                word &= word - 1;
+            }
+        }
+        if default_order {
+            slots.sort_unstable_by_key(|&slot| self.default_rank[slot as usize]);
+        }
+        SelectedScanSlots::Candidates(slots.into_iter())
+    }
+}
+
+
+enum SelectedScanSlots<'a> {
+    Default(std::slice::Iter<'a, u32>),
+    All(std::ops::Range<usize>),
+    Candidates(std::vec::IntoIter<u32>),
+}
+
+
+impl Iterator for SelectedScanSlots<'_> {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        match self {
+            Self::Default(slots) => slots.next().map(|slot| *slot as usize),
+            Self::All(slots) => slots.next(),
+            Self::Candidates(slots) => slots.next().map(|slot| slot as usize),
+        }
     }
 }
 

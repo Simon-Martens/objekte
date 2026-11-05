@@ -5,12 +5,16 @@ use super::*;
 use crate::{
     JsonFilter,
     bigram::{BigramIndexBuilder, SKIP_INDEX_MIN_DENSITY_PCT},
-    extensions::{BindingContext, BoundValueExtractor, Extraction, TextRepresentation, TypedValue},
+    extensions::{
+        BindingContext, BoundValueExtractor, Extraction, LogicalNode, ScalarValue,
+        TextRepresentation, TypedValue,
+    },
     file_picker::TypedKey,
     repository::{
         extension_derived_index::{SelectedDerivedKey, SelectedDerivedPosting},
         extension_index::{
             RepresentationIndex, RepresentationIndexKey, add_text, binding_path, field_format,
+            observe_bigrams,
         },
     },
 };
@@ -28,6 +32,9 @@ pub enum SelectedIndexRequest<'a> {
     Derived {
         extractor: &'a str,
     },
+    Field {
+        path: &'a str,
+    },
 }
 
 
@@ -39,6 +46,7 @@ struct TextBuild {
     skip: BigramIndexBuilder,
     rendered: String,
     content: String,
+    observed_bigrams: Vec<u64>,
 }
 
 
@@ -49,6 +57,31 @@ struct DerivedBuild {
     present: Vec<u64>,
     scalar_safe: bool,
     output: Vec<TypedValue>,
+}
+
+
+/// One ordinary logical-field posting over the selected source generation.
+struct FieldBuild {
+    key: SelectedDerivedKey,
+    path: JsonPath,
+    pointer: Option<String>,
+    rows: Vec<(TypedKey, usize)>,
+    present: Vec<u64>,
+    scalar_safe: bool,
+    output: Vec<TypedKey>,
+}
+
+
+fn simple_pointer(path: &JsonPath) -> Option<String> {
+    let mut pointer = String::new();
+    for step in path {
+        let crate::JsonPathStep::Key(key) = step else {
+            return None;
+        };
+        pointer.push('/');
+        pointer.push_str(&key.replace('~', "~0").replace('/', "~1"));
+    }
+    Some(pointer)
 }
 
 
@@ -107,6 +140,7 @@ impl Repository {
             .unwrap_or(self.options.bigram_encoding);
         let mut text_builds = Vec::new();
         let mut derived_builds = Vec::new();
+        let mut field_builds = Vec::new();
         let mut requested = BTreeSet::new();
         for request in requests {
             if !requested.insert(*request) {
@@ -153,6 +187,7 @@ impl Repository {
                         skip: BigramIndexBuilder::new_with_encoding(selected.len(), encoding),
                         rendered: String::new(),
                         content: String::new(),
+                        observed_bigrams: vec![0; 1024],
                     });
                 }
                 SelectedIndexRequest::Derived { extractor } => {
@@ -184,9 +219,40 @@ impl Repository {
                         output: Vec::new(),
                     });
                 }
+                SelectedIndexRequest::Field { path } => {
+                    let parsed = JsonFilter::parse_path(path)?;
+                    if !selected_collection
+                        .indexes
+                        .iter()
+                        .any(|index| parsed == vec![crate::JsonPathStep::Key(index.name.clone())])
+                        && !selected_collection.advanced_index_paths.contains(&parsed)
+                    {
+                        return Err(Error::Request(format!(
+                            "field {path} has no configured posting"
+                        )));
+                    }
+                    let key = SelectedDerivedKey::new(
+                        &selected_collection,
+                        &parsed,
+                        &selection,
+                        extensions,
+                    );
+                    if self.selected_derived_indexes.contains_key(&key) {
+                        continue;
+                    }
+                    field_builds.push(FieldBuild {
+                        key,
+                        pointer: simple_pointer(&parsed),
+                        path: parsed,
+                        rows: Vec::new(),
+                        present: vec![0; selected.len().div_ceil(64)],
+                        scalar_safe: true,
+                        output: Vec::new(),
+                    });
+                }
             }
         }
-        if text_builds.is_empty() && derived_builds.is_empty() {
+        if text_builds.is_empty() && derived_builds.is_empty() && field_builds.is_empty() {
             return Ok(selected.len());
         }
         let mut bytes = Vec::new();
@@ -251,11 +317,59 @@ impl Repository {
                         build.rows.push((TypedKey::from_extracted(value)?, slot));
                     }
                 }
+                if !field_builds.is_empty() {
+                    let mut array_paths = Vec::new();
+                    record.visit_nodes(&mut |path, node| {
+                        if matches!(node, LogicalNode::Array) {
+                            array_paths.push(path.to_owned());
+                        }
+                        Ok(())
+                    })?;
+                    for build in &mut field_builds {
+                        build.output.clear();
+                        let present = record.path_present(&build.path)?;
+                        let count = record.visit_path(&build.path, &mut |value| {
+                            let typed = match value {
+                                ScalarValue::Null => TypedValue::Null,
+                                ScalarValue::Bool(value) => TypedValue::Bool(value),
+                                ScalarValue::Number(value) => TypedValue::Number(value.into()),
+                                ScalarValue::Text(value) => TypedValue::Text(value.into()),
+                            };
+                            build.output.push(TypedKey::from_extracted(typed)?);
+                            Ok(())
+                        })?;
+                        if !present && count > 0 {
+                            return Err(Error::Request(
+                                "decoder emitted values for a missing field".into(),
+                            ));
+                        }
+                        if present {
+                            build.present[slot / 64] |= 1 << (slot % 64);
+                        } else {
+                            build.rows.push((TypedKey::Missing, slot));
+                        }
+                        build.scalar_safe &= count <= 1
+                            && build.pointer.as_ref().is_some_and(|pointer| {
+                                !array_paths.iter().any(|array| {
+                                    pointer == array
+                                        || pointer
+                                            .strip_prefix(array)
+                                            .is_some_and(|rest| rest.starts_with('/'))
+                                })
+                            });
+                        for key in build.output.drain(..) {
+                            build.rows.push((key, slot));
+                        }
+                    }
+                }
                 Ok(())
             });
             if let Err(error) = decoded {
                 if super::extension_sources::native_malformed_json(source, &bytes) {
                     for build in &mut derived_builds {
+                        build.rows.push((TypedKey::Missing, slot));
+                    }
+                    for build in &mut field_builds {
                         build.rows.push((TypedKey::Missing, slot));
                     }
                     continue;
@@ -265,7 +379,12 @@ impl Repository {
             if records == 0 {
                 return Err(Error::Request("format decoder emitted no record".into()));
             }
-            for build in &text_builds {
+            for build in &mut text_builds {
+                observe_bigrams(
+                    &mut build.observed_bigrams,
+                    build.content.as_bytes(),
+                    encoding,
+                );
                 build
                     .main
                     .add_file_content(&build.skip, slot, build.content.as_bytes());
@@ -281,8 +400,13 @@ impl Repository {
         for build in text_builds {
             let mut filter = build.main.compress(None);
             filter.set_skip_index(build.skip.compress(Some(SKIP_INDEX_MIN_DENSITY_PCT)));
-            self.extension_text_indexes
-                .insert(build.key, RepresentationIndex { filter });
+            self.extension_text_indexes.insert(
+                build.key,
+                RepresentationIndex {
+                    filter,
+                    observed_bigrams: build.observed_bigrams,
+                },
+            );
         }
         for build in derived_builds {
             let posting = SelectedDerivedPosting::from_rows(
@@ -291,6 +415,17 @@ impl Repository {
                 build.present,
                 build.scalar_safe,
                 selected.len(),
+            );
+            self.selected_derived_indexes.insert(build.key, posting);
+        }
+        for build in field_builds {
+            let posting = SelectedDerivedPosting::from_field_rows(
+                build.path,
+                build.rows,
+                build.present,
+                build.scalar_safe,
+                selected.len(),
+                build.pointer.is_some(),
             );
             self.selected_derived_indexes.insert(build.key, posting);
         }
