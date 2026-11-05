@@ -19,7 +19,7 @@ use std::{
     sync::Arc,
 };
 
-const SNAPSHOT_MAGIC: &[u8; 8] = b"OBJDRV01";
+const SNAPSHOT_MAGIC: &[u8; 8] = b"OBJDRV02";
 const SNAPSHOT_HEADER: usize = 8 + 8 + 32;
 const MAX_SNAPSHOT_BYTES: u64 = 8 * 1024 * 1024 * 1024;
 
@@ -76,18 +76,18 @@ impl SelectedDerivedKey {
         collection: &Collection,
         path: &JsonPath,
         selection: &str,
-        extensions: &crate::extensions::Extensions,
+        _extensions: &crate::extensions::Extensions,
     ) -> Self {
         Self {
             collection: collection.name.clone(),
             path: path.clone(),
             selection: selection.into(),
             semantics: crate::config::fingerprint(
-                "selected-derived-posting/v1",
+                "selected-derived-posting/v2",
                 &(
                     collection.mapping_hash.as_str(),
                     collection.schema_hash.as_deref(),
-                    extensions.fingerprint(),
+                    &path,
                 ),
             ),
         }
@@ -240,7 +240,9 @@ impl Repository {
                 )));
             }
         }
-        let selection = crate::config::fingerprint("selected-sources/v1", &selected);
+        let selection = extensions
+            .selection_dependencies(selected_collection, &selected)?
+            .0;
         Ok((
             SelectedDerivedKey::new(selected_collection, &binding.path, &selection, extensions),
             selected.len(),
@@ -438,7 +440,9 @@ impl Repository {
                 "selected derived posting exceeds 2^32 source slots".into(),
             ));
         }
-        let selection = crate::config::fingerprint("selected-sources/v1", selected.as_ref());
+        let selection = extensions
+            .selection_dependencies(&selected_collection, selected.as_ref())?
+            .0;
         let key =
             SelectedDerivedKey::new(&selected_collection, &binding.path, &selection, extensions);
         if self.selected_derived_indexes.contains_key(&key) {

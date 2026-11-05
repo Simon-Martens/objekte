@@ -399,7 +399,8 @@ impl Repository {
                         CandidateConstraint::BigramLiteral {
                             literal,
                             representation,
-                        } if representation == "objekte:stored"
+                        } if extension.allows_candidate_pruning()
+                            && representation == "objekte:stored"
                             && extension.native_index_projection
                                 == Some(NativeTextProjection::Stored)
                             && extension.preparation == TextPreparation::Stored =>
@@ -409,7 +410,8 @@ impl Repository {
                         CandidateConstraint::BigramLiteral {
                             literal,
                             representation,
-                        } if representation == "objekte:visible-normalized"
+                        } if extension.allows_candidate_pruning()
+                            && representation == "objekte:visible-normalized"
                             && extension.preparation == TextPreparation::VisibleNormalized
                             && matches!(
                                 extension.native_index_projection,
@@ -422,7 +424,8 @@ impl Repository {
                         CandidateConstraint::BigramLiteral {
                             literal,
                             representation,
-                        } if representation == "objekte:visible-normalized"
+                        } if extension.allows_candidate_pruning()
+                            && representation == "objekte:visible-normalized"
                             && extension.preparation == TextPreparation::VisibleNormalized
                             && extension.native_index_projection
                                 == Some(NativeTextProjection::VisibleNormalized(

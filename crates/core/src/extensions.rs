@@ -202,6 +202,65 @@ impl Extensions {
         crate::config::fingerprint("library-extensions/v1", &self.descriptors())
     }
 
+    /// Source rules are dependencies even when an applicable provider currently
+    /// returns no records. Decoder definitions are retained only for formats
+    /// actually selected by this inventory.
+    pub(crate) fn selection_dependencies(
+        &self,
+        collection: &crate::config::Collection,
+        sources: &[SourceDescriptor],
+    ) -> Result<(String, bool, Vec<Descriptor>)> {
+        let filesystem = crate::source::FilesystemJsonProvider::new(
+            &collection.path,
+            collection.recursive,
+            &collection.name,
+        );
+        let mut definitions = BTreeMap::new();
+        definitions.insert(
+            filesystem.descriptor().identity.clone(),
+            filesystem.descriptor().clone(),
+        );
+        definitions.insert(
+            json_decoder().descriptor().identity.clone(),
+            json_decoder().descriptor().clone(),
+        );
+        let mut custom_selection = false;
+        for provider in self.source_providers() {
+            if provider.may_select(&collection.name) {
+                custom_selection = true;
+                definitions.insert(
+                    provider.descriptor().identity.clone(),
+                    provider.descriptor().clone(),
+                );
+            }
+        }
+        // A decoder may select by locator or metadata, and the format trait
+        // does not expose an invariant applicability predicate. When a custom
+        // provider can select this collection, retain decoder precedence even
+        // if that provider currently contributes no records.
+        if custom_selection {
+            for decoder in self.formats.values() {
+                definitions.insert(
+                    decoder.descriptor().identity.clone(),
+                    decoder.descriptor().clone(),
+                );
+            }
+        }
+        for source in sources {
+            let descriptor = self.decoder(source)?.descriptor();
+            definitions.insert(descriptor.identity.clone(), descriptor.clone());
+        }
+        let definitions = definitions.into_values().collect::<Vec<_>>();
+        let cacheable = definitions.iter().all(Descriptor::cacheable);
+        let fingerprint =
+            crate::config::fingerprint("selected-source-dependencies/v2", &(sources, &definitions));
+        Ok((fingerprint, cacheable, definitions))
+    }
+
+    pub(crate) fn representation_descriptor(&self, identity: &str) -> &Descriptor {
+        self.representations[identity].descriptor()
+    }
+
     pub(crate) fn bind_text(
         &self,
         representation: &str,

@@ -99,7 +99,9 @@ impl Repository {
                 "selected index source table exceeds 2^32 slots".into(),
             ));
         }
-        let selection = crate::config::fingerprint("selected-sources/v1", selected.as_ref());
+        let selection = extensions
+            .selection_dependencies(&selected_collection, selected.as_ref())?
+            .0;
         let encoding = selected_collection
             .bigram_encoding
             .unwrap_or(self.options.bigram_encoding);

@@ -37,11 +37,11 @@ impl RepresentationIndexKey {
             representation: representation.into(),
             selection: selection.into(),
             semantics: crate::config::fingerprint(
-                "representation-index/v1",
+                "representation-index/v2",
                 &(
                     collection.mapping_hash.as_str(),
                     collection.schema_hash.as_deref(),
-                    extensions.fingerprint(),
+                    extensions.representation_descriptor(representation),
                     encoding,
                 ),
             ),
@@ -171,7 +171,9 @@ impl Repository {
                 "representation index source table exceeds 2^32 slots".into(),
             ));
         }
-        let selection = crate::config::fingerprint("selected-sources/v1", selected.as_ref());
+        let selection = extensions
+            .selection_dependencies(&selected_collection, selected.as_ref())?
+            .0;
         let encoding = selected_collection
             .bigram_encoding
             .unwrap_or(self.options.bigram_encoding);

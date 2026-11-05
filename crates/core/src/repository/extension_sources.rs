@@ -112,8 +112,16 @@ impl Repository {
             .iter()
             .any(|source| source.provider != crate::source::FILESYSTEM_JSON_IDENTITY);
         if changed {
-            self.custom_source_snapshot
-                .insert(collection.to_owned(), CustomSourceSnapshot::new(selected));
+            self.custom_source_snapshot.insert(
+                collection.to_owned(),
+                CustomSourceSnapshot::new(
+                    self.model.collection(collection)?,
+                    selected,
+                    self.extensions
+                        .as_deref()
+                        .expect("selected source extensions"),
+                )?,
+            );
             self.query_cache.invalidate(collection);
             self.invalidate_representation_indexes(collection);
         }

@@ -59,3 +59,11 @@ pub(crate) struct BoundTextQuery {
     pub candidate: CandidateConstraint,
     pub cacheable: bool,
 }
+
+
+impl BoundTextQuery {
+    /// A necessary condition alone cannot suppress errors from exact evaluation.
+    pub(crate) fn allows_candidate_pruning(&self) -> bool {
+        self.operator.can_skip_non_candidates()
+    }
+}

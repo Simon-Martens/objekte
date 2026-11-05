@@ -156,6 +156,20 @@ impl VerifiedPredicateCache {
             .get(key, self.generation(&key.predicate.collection), self.tick)
     }
 
+    pub(super) fn completed_ordered_page(
+        &mut self,
+        key: &OrderedResultKey,
+        offset: usize,
+        limit: usize,
+    ) -> Option<(usize, Vec<u32>)> {
+        let (slots, coverage) = self.ordered(key)?;
+        if coverage != OrderedCoverage::Complete {
+            return None;
+        }
+        let end = slots.len().min(offset.saturating_add(limit));
+        Some((slots.len(), slots.get(offset..end).unwrap_or(&[]).to_vec()))
+    }
+
     pub(super) fn insert_ordered(&mut self, key: OrderedResultKey, slots: Vec<u32>) {
         self.insert_ordered_with_coverage(key, slots, OrderedCoverage::Complete);
     }

@@ -45,6 +45,28 @@ fn generation_invalidates_both_membership_and_order() {
 }
 
 #[test]
+fn completed_ordered_page_copies_only_the_requested_range() {
+    let mut cache = VerifiedPredicateCache::new(1024 * 1024);
+    let order = OrderedResultKey {
+        predicate: key(b"all"),
+        sort: b"id".to_vec(),
+    };
+    cache.insert_ordered(order.clone(), (0..100_000).collect());
+    assert_eq!(
+        cache.completed_ordered_page(&order, 99_999, 1),
+        Some((100_000, vec![99_999]))
+    );
+    assert_eq!(
+        cache.completed_ordered_page(&order, 100_000, 1),
+        Some((100_000, vec![]))
+    );
+    assert_eq!(
+        cache.completed_ordered_page(&order, usize::MAX, 1),
+        Some((100_000, vec![]))
+    );
+}
+
+#[test]
 fn budget_evicts_entries_and_matched_is_a_subset_of_evaluated() {
     let mut cache = VerifiedPredicateCache::new(400);
     cache.record_bits(key(b"first"), vec![0b101], vec![0b001], false);

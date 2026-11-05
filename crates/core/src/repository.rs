@@ -375,16 +375,28 @@ pub struct Repository {
 struct CustomSourceSnapshot {
     sources: std::sync::Arc<Vec<crate::extensions::SourceDescriptor>>,
     fingerprint: String,
+    source_generation: String,
+    cacheable: bool,
+    definitions: Vec<crate::extensions::Descriptor>,
 }
 
 
 impl CustomSourceSnapshot {
-    fn new(sources: Vec<crate::extensions::SourceDescriptor>) -> Self {
-        let fingerprint = crate::config::fingerprint("selected-sources/v1", &sources);
-        Self {
+    fn new(
+        collection: &Collection,
+        sources: Vec<crate::extensions::SourceDescriptor>,
+        extensions: &crate::extensions::Extensions,
+    ) -> Result<Self> {
+        let (fingerprint, cacheable, definitions) =
+            extensions.selection_dependencies(collection, &sources)?;
+        let source_generation = crate::config::fingerprint("selected-sources/v1", &sources);
+        Ok(Self {
             sources: std::sync::Arc::new(sources),
             fingerprint,
-        }
+            source_generation,
+            cacheable,
+            definitions,
+        })
     }
 }
 
@@ -523,9 +535,14 @@ impl RepositoryBuilder {
                     repository.custom_source_collections.insert(name.clone());
                 }
                 if applicable {
-                    repository
-                        .custom_source_snapshot
-                        .insert(name.clone(), CustomSourceSnapshot::new(selected));
+                    repository.custom_source_snapshot.insert(
+                        name.clone(),
+                        CustomSourceSnapshot::new(
+                            repository.model.collection(name)?,
+                            selected,
+                            repository.extensions.as_deref().unwrap(),
+                        )?,
+                    );
                 }
             }
         }
@@ -702,7 +719,14 @@ impl Repository {
                     custom_sources.insert(name.clone());
                 }
                 if applicable {
-                    custom_snapshot.insert(name.clone(), CustomSourceSnapshot::new(selected));
+                    custom_snapshot.insert(
+                        name.clone(),
+                        CustomSourceSnapshot::new(
+                            collection,
+                            selected,
+                            self.extensions.as_deref().unwrap(),
+                        )?,
+                    );
                 }
             }
         }

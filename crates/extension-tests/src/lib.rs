@@ -658,6 +658,378 @@ mod tests {
     };
     use std::fs;
 
+
+    struct PageFrontend(Descriptor);
+
+
+    impl Default for PageFrontend {
+        fn default() -> Self {
+            Self(Descriptor::new(
+                "example:pages",
+                SemanticVersion {
+                    major: 1,
+                    minor: 0,
+                    patch: 0,
+                },
+                &(),
+                DataKind::Query,
+                DataKind::Query,
+                vec![],
+            ))
+        }
+    }
+
+
+    impl QueryFrontend for PageFrontend {
+        fn descriptor(&self) -> &Descriptor {
+            &self.0
+        }
+
+        fn compile(
+            &self,
+            request: &Value,
+            bindings: &ExtensionBindings<'_>,
+        ) -> Result<LogicalPlan> {
+            let predicate = if request.get("prefix").is_some() {
+                LogicalPredicate::Call {
+                    operator: bindings.operator("example:prefix").unwrap(),
+                    representation: bindings.representation("objekte:stored").unwrap(),
+                    path: "body".into(),
+                    parameters: request["prefix"].clone(),
+                }
+            } else {
+                LogicalPredicate::And(Vec::new())
+            };
+            Ok(LogicalPlan {
+                collections: vec!["alpha".into(), "beta".into()],
+                predicate,
+                sort: vec![objekte_core::Sort {
+                    field: if request.get("year") == Some(&Value::Bool(true)) {
+                        "@derived:example:publication_year"
+                    } else {
+                        "@id"
+                    }
+                    .into(),
+                    direction: Direction::Asc,
+                }],
+                columns: vec!["body".into()],
+                offset: request.get("offset").and_then(Value::as_u64).unwrap_or(0) as usize,
+                limit: request.get("limit").and_then(Value::as_u64).unwrap_or(1) as usize,
+                count: true,
+            })
+        }
+    }
+
+
+    fn page_fixture() -> tempfile::TempDir {
+        let temp = tempfile::tempdir().unwrap();
+        for collection in ["alpha", "beta"] {
+            let directory = temp.path().join("data").join(collection);
+            fs::create_dir_all(&directory).unwrap();
+            for id in ["a", "b", "c"] {
+                fs::write(
+                    directory.join(format!("{id}.json")),
+                    format!(r#"{{"body":"target {collection} {id}","publication_date":"1848"}}"#),
+                )
+                .unwrap();
+            }
+        }
+        temp
+    }
+
+    fn page_repository(
+        root: &std::path::Path,
+        budget: usize,
+        operator: PrefixOperator,
+        extractor: PublicationYearExtractor,
+        reverse_registration: bool,
+    ) -> Repository {
+        let builder = Repository::builder(root)
+            .options(Options {
+                query_cache_bytes: budget,
+                ..Default::default()
+            })
+            .register_representation(StoredRepresentation::default())
+            .unwrap();
+        let builder = if reverse_registration {
+            builder
+                .register_extractor(extractor)
+                .unwrap()
+                .register_operator(operator)
+                .unwrap()
+        } else {
+            builder
+                .register_operator(operator)
+                .unwrap()
+                .register_extractor(extractor)
+                .unwrap()
+        };
+        builder
+            .register_frontend(PageFrontend::default())
+            .unwrap()
+            .open()
+            .unwrap()
+    }
+
+    #[test]
+    fn completed_frontend_pages_use_only_requested_slots_and_current_inventory() {
+        let temp = page_fixture();
+        let mut repository = page_repository(
+            temp.path(),
+            64 * 1024 * 1024,
+            PrefixOperator::default(),
+            PublicationYearExtractor::default(),
+            false,
+        );
+        let expected = [
+            "alpha/a", "beta/a", "alpha/b", "beta/b", "alpha/c", "beta/c",
+        ];
+        let request = serde_json::json!({"offset":0,"limit":1});
+        let first = repository
+            .query_frontend("example:pages", &request)
+            .unwrap();
+        assert_eq!(first.total, Some(expected.len()));
+        assert_eq!(first.query_plan, ["extension-exact-scan"]);
+        for (offset, limit) in [(0, 1), (2, 2), (5, 1), (6, 1), (i64::MAX as usize, 1)] {
+            let page = repository
+                .query_frontend(
+                    "example:pages",
+                    &serde_json::json!({"offset":offset,"limit":limit}),
+                )
+                .unwrap();
+            let ids = page
+                .rows
+                .iter()
+                .map(|row| format!("{}/{}", row.source.collection, row.source.record_id))
+                .collect::<Vec<_>>();
+            let end = expected.len().min(offset.saturating_add(limit));
+            assert_eq!(ids, expected.get(offset..end).unwrap_or(&[]));
+            assert_eq!(page.total, Some(expected.len()));
+            assert_eq!(page.query_plan, ["extension-ordered-cache"]);
+            assert_eq!(page.metrics.enumerations, 0);
+            assert_eq!(page.metrics.source_reads, page.rows.len() as u64);
+            assert_eq!(page.metrics.parses, page.rows.len() as u64);
+        }
+        let alpha = temp.path().join("data/alpha");
+        fs::write(
+            alpha.join("a.json"),
+            r#"{"body":"edited","publication_date":"1848"}"#,
+        )
+        .unwrap();
+        repository.refresh("alpha").unwrap();
+        let edited = repository
+            .query_frontend("example:pages", &request)
+            .unwrap();
+        assert_eq!(edited.query_plan, ["extension-exact-scan"]);
+        assert_eq!(
+            edited.rows[0].values["body"],
+            [TypedValue::Text("edited".into())]
+        );
+        fs::write(
+            temp.path().join("data/beta/d.json"),
+            r#"{"body":"inserted","publication_date":"1848"}"#,
+        )
+        .unwrap();
+        repository.refresh("beta").unwrap();
+        assert_eq!(
+            repository
+                .query_frontend("example:pages", &request)
+                .unwrap()
+                .total,
+            Some(7)
+        );
+        fs::remove_file(alpha.join("b.json")).unwrap();
+        repository.refresh("alpha").unwrap();
+        let deleted = repository
+            .query_frontend("example:pages", &request)
+            .unwrap();
+        assert_eq!(deleted.total, Some(6));
+        assert_eq!(deleted.query_plan, ["extension-exact-scan"]);
+        for budget in [0, 1] {
+            let mut uncached = page_repository(
+                temp.path(),
+                budget,
+                PrefixOperator::default(),
+                PublicationYearExtractor::default(),
+                false,
+            );
+            for _ in 0..2 {
+                assert_eq!(
+                    uncached
+                        .query_frontend("example:pages", &request)
+                        .unwrap()
+                        .query_plan,
+                    ["extension-exact-scan"]
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn frontend_cache_depends_only_on_bound_definitions() {
+        let temp = page_fixture();
+        let stable = serde_json::json!({"offset":0,"limit":1});
+        let mut reference = page_repository(
+            temp.path(),
+            64 * 1024 * 1024,
+            PrefixOperator::default(),
+            PublicationYearExtractor::default(),
+            false,
+        );
+        let first = reference.query_frontend("example:pages", &stable).unwrap();
+        let mut reordered = page_repository(
+            temp.path(),
+            64 * 1024 * 1024,
+            PrefixOperator::default(),
+            PublicationYearExtractor::default(),
+            true,
+        );
+        assert_eq!(
+            reordered
+                .query_frontend("example:pages", &stable)
+                .unwrap()
+                .identity,
+            first.identity
+        );
+        assert_eq!(
+            reference
+                .query_frontend("example:pages", &serde_json::json!({"offset":4,"limit":1}))
+                .unwrap()
+                .query_plan,
+            ["extension-ordered-cache"]
+        );
+        assert_eq!(
+            reference
+                .query_frontend(
+                    "example:pages",
+                    &serde_json::json!({"prefix":"target","limit":1})
+                )
+                .unwrap()
+                .query_plan,
+            ["extension-exact-scan"]
+        );
+        assert_eq!(
+            reference
+                .query_frontend("example:pages", &serde_json::json!({"year":true,"limit":1}))
+                .unwrap()
+                .query_plan,
+            ["extension-exact-scan"]
+        );
+
+        let mut unused_operator = PrefixOperator::default();
+        unused_operator.descriptor.version.patch += 1;
+        unused_operator
+            .descriptor
+            .dependencies
+            .push(Dependency::Volatile);
+        let mut unused_extractor = PublicationYearExtractor::default();
+        unused_extractor.descriptor.version.patch += 1;
+        unused_extractor
+            .descriptor
+            .dependencies
+            .push(Dependency::Volatile);
+        let mut volatile = page_repository(
+            temp.path(),
+            64 * 1024 * 1024,
+            unused_operator,
+            unused_extractor,
+            true,
+        );
+        let unchanged = volatile.query_frontend("example:pages", &stable).unwrap();
+        assert_eq!(unchanged.identity, first.identity);
+        assert_eq!(
+            volatile
+                .query_frontend("example:pages", &serde_json::json!({"offset":3,"limit":1}))
+                .unwrap()
+                .query_plan,
+            ["extension-ordered-cache"]
+        );
+        for request in [
+            serde_json::json!({"prefix":"target","limit":1}),
+            serde_json::json!({"year":true,"limit":1}),
+        ] {
+            let first_use = volatile.query_frontend("example:pages", &request).unwrap();
+            let second_use = volatile.query_frontend("example:pages", &request).unwrap();
+            assert_ne!(first_use.query_plan, ["extension-ordered-cache"]);
+            assert_ne!(second_use.query_plan, ["extension-ordered-cache"]);
+        }
+        let stable_used = reference
+            .query_frontend(
+                "example:pages",
+                &serde_json::json!({"prefix":"target","limit":1}),
+            )
+            .unwrap();
+        let changed_used = volatile
+            .query_frontend(
+                "example:pages",
+                &serde_json::json!({"prefix":"target","limit":1}),
+            )
+            .unwrap();
+        assert_ne!(stable_used.identity, changed_used.identity);
+        let stable_sort = reference
+            .query_frontend("example:pages", &serde_json::json!({"year":true,"limit":1}))
+            .unwrap();
+        let changed_sort = volatile
+            .query_frontend("example:pages", &serde_json::json!({"year":true,"limit":1}))
+            .unwrap();
+        assert_ne!(stable_sort.identity, changed_sort.identity);
+    }
+
+    #[test]
+    fn empty_applicable_provider_and_decoder_are_selection_dependencies() {
+        let temp = page_fixture();
+        let beta = temp.path().join("data/beta");
+        let request = serde_json::json!({"offset":0,"limit":1});
+        let mut plain = page_repository(
+            temp.path(),
+            64 * 1024 * 1024,
+            PrefixOperator::default(),
+            PublicationYearExtractor::default(),
+            false,
+        );
+        let plain_identity = plain
+            .query_frontend("example:pages", &request)
+            .unwrap()
+            .identity;
+        let open = |decoder_patch| {
+            let mut decoder = MarkdownDecoder::default();
+            decoder.0.version.patch = decoder_patch;
+            Repository::builder(temp.path())
+                .register_source(MarkdownProvider::new(beta.clone()))
+                .unwrap()
+                .register_format(decoder)
+                .unwrap()
+                .register_frontend(PageFrontend::default())
+                .unwrap()
+                .open()
+                .unwrap()
+        };
+        let mut selected = open(0);
+        let initial = selected.query_frontend("example:pages", &request).unwrap();
+        assert_ne!(initial.identity, plain_identity);
+        assert_eq!(initial.total, Some(6));
+        assert_eq!(
+            selected
+                .query_frontend("example:pages", &request)
+                .unwrap()
+                .query_plan,
+            ["extension-ordered-cache"]
+        );
+        let mut changed_decoder = open(1);
+        assert_ne!(
+            changed_decoder
+                .query_frontend("example:pages", &request)
+                .unwrap()
+                .identity,
+            initial.identity
+        );
+        fs::write(beta.join("d.md"), "Markdown body").unwrap();
+        selected.refresh("beta").unwrap();
+        let refreshed = selected.query_frontend("example:pages", &request).unwrap();
+        assert_eq!(refreshed.total, Some(7));
+        assert_eq!(refreshed.query_plan, ["extension-exact-scan"]);
+    }
+
     #[test]
     fn archive_frontend_composes_markup_year_boolean_sort_and_page() {
         let temp = tempfile::tempdir().unwrap();
@@ -1043,7 +1415,7 @@ mod tests {
         companion_name.push(".selected-meta");
         let companion = std::path::PathBuf::from(companion_name);
         let mut metadata: Value = serde_json::from_slice(&fs::read(&companion).unwrap()).unwrap();
-        metadata["version"] = serde_json::json!(2);
+        metadata["version"] = serde_json::json!(1);
         fs::write(&companion, serde_json::to_vec(&metadata).unwrap()).unwrap();
         let mut incompatible = open(Freshness::MetadataOnOpen);
         assert!(
@@ -1969,15 +2341,36 @@ mod tests {
                 &self.0
             }
 
-            fn compile(&self, _: &Value, bindings: &ExtensionBindings<'_>) -> Result<LogicalPlan> {
+            fn compile(
+                &self,
+                request: &Value,
+                bindings: &ExtensionBindings<'_>,
+            ) -> Result<LogicalPlan> {
+                let call = |operator: &str, parameters: Value| LogicalPredicate::Call {
+                    operator: bindings.operator(operator).unwrap(),
+                    representation: bindings.representation("objekte:stored").unwrap(),
+                    path: "body".into(),
+                    parameters,
+                };
+                let fallible = call("example:fallible", Value::Null);
+                let predicate = match request.as_str() {
+                    Some("and") => LogicalPredicate::And(vec![
+                        call("example:prefix", Value::String("target".into())),
+                        fallible,
+                    ]),
+                    Some("or") => LogicalPredicate::Or(vec![
+                        call("example:prefix", Value::String("danger".into())),
+                        fallible,
+                    ]),
+                    Some("or-error") => LogicalPredicate::Or(vec![
+                        call("example:prefix", Value::String("missing".into())),
+                        fallible,
+                    ]),
+                    _ => fallible,
+                };
                 Ok(LogicalPlan {
                     collections: vec!["docs".into()],
-                    predicate: LogicalPredicate::Call {
-                        operator: bindings.operator("example:fallible").unwrap(),
-                        representation: bindings.representation("objekte:stored").unwrap(),
-                        path: "body".into(),
-                        parameters: Value::Null,
-                    },
+                    predicate,
                     sort: vec![],
                     columns: vec!["body".into()],
                     offset: 0,
@@ -2007,30 +2400,79 @@ mod tests {
                 vec![Dependency::SourceBytes],
             )
         };
-        let mut repository = Repository::builder(temp.path())
-            .register_representation(StoredRepresentation::default())
-            .unwrap()
-            .register_operator(FallibleOperator(descriptor(
-                "example:fallible",
-                DataKind::Text,
-                DataKind::Predicate,
-            )))
-            .unwrap()
-            .register_frontend(FallibleFrontend(descriptor(
-                "example:fallible-frontend",
-                DataKind::Query,
-                DataKind::Query,
-            )))
-            .unwrap()
-            .open()
-            .unwrap();
-        repository
-            .build_representation_index("docs", "objekte:stored", "body")
-            .unwrap();
-        assert!(matches!(
-            repository.query_frontend("example:fallible-frontend", &Value::Null),
-            Err(Error::Request(message)) if message == "operator failed on danger"
-        ));
+        for budget in [0, 64 * 1024 * 1024] {
+            let mut repository = Repository::builder(temp.path())
+                .options(Options {
+                    query_cache_bytes: budget,
+                    stream_query_cache: true,
+                    ..Default::default()
+                })
+                .register_representation(StoredRepresentation::default())
+                .unwrap()
+                .register_operator(FallibleOperator(descriptor(
+                    "example:fallible",
+                    DataKind::Text,
+                    DataKind::Predicate,
+                )))
+                .unwrap()
+                .register_operator(PrefixOperator::default())
+                .unwrap()
+                .register_frontend(FallibleFrontend(descriptor(
+                    "example:fallible-frontend",
+                    DataKind::Query,
+                    DataKind::Query,
+                )))
+                .unwrap()
+                .open()
+                .unwrap();
+            if budget > 0 {
+                repository
+                    .build_representation_index("docs", "objekte:stored", "body")
+                    .unwrap();
+            }
+            let query = TextQuery {
+                pattern: "target".into(),
+                ..Default::default()
+            };
+            for _ in 0..2 {
+                assert!(matches!(
+                    repository.query_frontend("example:fallible-frontend", &Value::Null),
+                    Err(Error::Request(message)) if message == "operator failed on danger"
+                ));
+                assert!(matches!(
+                    repository.search_text_with(&query, "objekte:stored", "example:fallible"),
+                    Err(Error::Request(message)) if message == "operator failed on danger"
+                ));
+                assert!(matches!(
+                    repository.search_text_stream_with(
+                        &query,
+                        "objekte:stored",
+                        "example:fallible",
+                        |_, _| Ok(())
+                    ),
+                    Err(Error::Request(message)) if message == "operator failed on danger"
+                ));
+            }
+            let and_result = repository
+                .query_frontend("example:fallible-frontend", &Value::String("and".into()))
+                .unwrap();
+            assert_eq!(and_result.total, Some(1));
+            if budget > 0 {
+                assert_eq!(and_result.query_plan, ["extension-index-candidates"]);
+                assert_eq!(and_result.metrics.source_reads, 2);
+            }
+            assert_eq!(
+                repository
+                    .query_frontend("example:fallible-frontend", &Value::String("or".into()))
+                    .unwrap()
+                    .total,
+                Some(2)
+            );
+            assert!(matches!(
+                repository.query_frontend("example:fallible-frontend", &Value::String("or-error".into())),
+                Err(Error::Request(message)) if message == "operator failed on danger"
+            ));
+        }
     }
 
     #[test]
@@ -3262,10 +3704,6 @@ mod tests {
             Some(3)
         );
         fs::write(
-
-
-
-
             books.join(".editor/schema.json"),
             r#"{"type":"object","properties":{"body":{"type":"string","x-trimmed":false},"html":{"type":"string","x-full-text":"html"},"md":{"type":"string","x-full-text":"markdown"},"xml":{"type":"string","x-full-text":"xml"}}}"#,
         )

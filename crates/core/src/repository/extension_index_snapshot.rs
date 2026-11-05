@@ -15,7 +15,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest as _, Sha256};
 use std::{io::Write as _, sync::Arc};
 
-const MANIFEST_VERSION: u32 = 1;
+const MANIFEST_VERSION: u32 = 2;
 const MAX_MANIFEST_BYTES: u64 = 4 * 1024 * 1024;
 
 
@@ -113,7 +113,8 @@ impl Repository {
                 )));
             }
         }
-        let selection = crate::config::fingerprint("selected-sources/v1", &selected);
+        let (selection, _, mut descriptors) =
+            extensions.selection_dependencies(selected_collection, &selected)?;
         let encoding = selected_collection
             .bigram_encoding
             .unwrap_or(self.options.bigram_encoding);
@@ -125,7 +126,8 @@ impl Repository {
             extensions,
             encoding,
         );
-        let descriptors = extensions.descriptors().into_iter().cloned().collect();
+        descriptors.push(definition.descriptor().clone());
+        descriptors.sort_by(|a, b| a.identity.cmp(&b.identity));
         Ok((key, selected, descriptors))
     }
 

@@ -11,10 +11,8 @@ use crate::{
     },
     file_picker::TypedKey,
     repository::{
-        extension_derived_index::SelectedDerivedKey,
-        extension_index::RepresentationIndexKey,
-        ordered_result_cache::{OrderedCoverage, OrderedResultKey},
-        predicate_cache::PredicateCacheKey,
+        extension_derived_index::SelectedDerivedKey, extension_index::RepresentationIndexKey,
+        ordered_result_cache::OrderedResultKey, predicate_cache::PredicateCacheKey,
     },
     sorting::SortValue,
     text::TextRules,
@@ -70,7 +68,28 @@ struct ExtensionCandidates {
 }
 
 
+fn source_location(offsets: &[usize], slot: u32) -> Option<(usize, usize)> {
+    let slot = slot as usize;
+    if slot >= *offsets.last()? {
+        return None;
+    }
+    let collection = offsets
+        .partition_point(|&start| start <= slot)
+        .checked_sub(1)?;
+    Some((collection, slot - offsets[collection]))
+}
+
+
 impl CompiledPredicate {
+    fn cacheable(&self) -> bool {
+        match self {
+            Self::Call { binding, .. } => binding.cacheable,
+            Self::Derived { binding, .. } => binding.cacheable,
+            Self::And(parts) | Self::Or(parts) => parts.iter().all(Self::cacheable),
+            Self::Not(part) => part.cacheable(),
+        }
+    }
+
     fn identity(&self) -> Value {
         match self {
             Self::Call {
@@ -109,7 +128,7 @@ impl CompiledPredicate {
                 binding,
                 applicable: true,
                 ..
-            } if binding.operator.can_skip_non_candidates() => {
+            } if binding.allows_candidate_pruning() => {
                 let CandidateConstraint::BigramLiteral {
                     literal,
                     representation,
@@ -308,6 +327,20 @@ enum CompiledSort {
 
 
 impl CompiledSort {
+    fn cacheable(&self) -> bool {
+        match self {
+            Self::Id => true,
+            Self::Derived { binding, .. } => binding.cacheable,
+        }
+    }
+
+    fn identity(&self) -> Value {
+        match self {
+            Self::Id => serde_json::json!(["id"]),
+            Self::Derived { binding, .. } => serde_json::json!(["derived", binding.path]),
+        }
+    }
+
     fn value(
         &self,
         source: &crate::extensions::SourceDescriptor,
@@ -626,23 +659,10 @@ impl Repository {
                 collection.mapping_hash.clone(),
                 collection.schema_hash.clone(),
                 predicate.identity(),
+                sorts.iter().map(CompiledSort::identity).collect::<Vec<_>>(),
             ));
             compiled.push((collection, predicate, sorts));
         }
-        let identity = crate::config::fingerprint(
-            "logical-query/v1",
-            &(
-                frontend,
-                extensions.fingerprint(),
-                request,
-                &identities,
-                &plan.sort,
-                &plan.columns,
-                plan.offset,
-                plan.limit,
-                plan.count,
-            ),
-        );
         let directions = Arc::new(
             plan.sort
                 .iter()
@@ -650,6 +670,9 @@ impl Repository {
                 .collect::<Vec<_>>(),
         );
         let mut selections = Vec::with_capacity(compiled.len());
+        let mut selected_definitions = Vec::with_capacity(compiled.len());
+        let mut source_generations = Vec::with_capacity(compiled.len());
+        let mut selection_cacheable = true;
         for (collection, _, _) in &compiled {
             let selected = if self.options.freshness == Freshness::MetadataOnOpen {
                 let snapshot =
@@ -658,41 +681,70 @@ impl Repository {
                     } else {
                         let sources = self.source_descriptors(&collection.name)?;
                         self.metrics.enumerations += 1;
-                        let snapshot = CustomSourceSnapshot::new(sources);
+                        let snapshot = CustomSourceSnapshot::new(collection, sources, extensions)?;
                         self.custom_source_snapshot
                             .insert(collection.name.clone(), snapshot.clone());
                         snapshot
                     };
+                selection_cacheable &= snapshot.cacheable;
+                selected_definitions.push(snapshot.definitions.clone());
+                source_generations.push(snapshot.source_generation.clone());
                 (Arc::clone(&snapshot.sources), snapshot.fingerprint)
             } else {
                 let sources = self.source_descriptors(&collection.name)?;
                 self.metrics.enumerations += 1;
-                let fingerprint = crate::config::fingerprint("selected-sources/v1", &sources);
+                let (fingerprint, cacheable, definitions) =
+                    extensions.selection_dependencies(collection, &sources)?;
+                selection_cacheable &= cacheable;
+                selected_definitions.push(definitions);
+                source_generations
+                    .push(crate::config::fingerprint("selected-sources/v1", &sources));
                 (Arc::new(sources), fingerprint)
             };
             selections.push(selected);
         }
-        let all_sources = selections
-            .iter()
-            .flat_map(|(sources, _)| sources.iter())
-            .collect::<Vec<_>>();
-        if all_sources.len() > u32::MAX as usize {
-            return Err(Error::Request(
-                "logical query source table exceeds 2^32 slots".into(),
-            ));
+        let identity = crate::config::fingerprint(
+            "logical-query/v2",
+            &(
+                frontend,
+                request,
+                &identities,
+                &selected_definitions,
+                &plan.sort,
+                &plan.columns,
+                plan.offset,
+                plan.limit,
+                plan.count,
+            ),
+        );
+        // A global slot is resolved through collection offsets. In particular,
+        // a cached page must not rebuild a table with one entry per source.
+        let mut source_offsets = Vec::with_capacity(selections.len() + 1);
+        source_offsets.push(0_usize);
+        for (sources, _) in &selections {
+            let next = source_offsets
+                .last()
+                .unwrap()
+                .checked_add(sources.len())
+                .ok_or_else(|| {
+                    Error::Request("logical query source table exceeds 2^32 slots".into())
+                })?;
+            if next > u32::MAX as usize {
+                return Err(Error::Request(
+                    "logical query source table exceeds 2^32 slots".into(),
+                ));
+            }
+            source_offsets.push(next);
         }
-        let source_fingerprints = selections
-            .iter()
-            .map(|(_, fingerprint)| fingerprint)
-            .collect::<Vec<_>>();
+        let source_count = *source_offsets.last().unwrap();
         let ordered_key = OrderedResultKey {
             predicate: PredicateCacheKey {
                 collection: format!("@frontend:{}", plan.collections.join("\0")),
                 expression: serde_json::to_vec(&(
                     frontend,
-                    extensions.fingerprint(),
                     &identities,
-                    source_fingerprints,
+                    &selected_definitions,
+                    source_generations,
                 ))
                 .expect("logical predicate identity serializes"),
             },
@@ -702,20 +754,17 @@ impl Repository {
             && self.options.freshness != Freshness::HashOnRequest
             && self.query_cache.enabled()
             && frontend.cacheable()
-            && extensions
-                .descriptors()
-                .into_iter()
-                .all(|item| item.cacheable());
-        let cached = can_cache
+            && selection_cacheable
+            && compiled.iter().all(|(_, predicate, sorts)| {
+                predicate.cacheable() && sorts.iter().all(CompiledSort::cacheable)
+            });
+        let cached_page = can_cache
             .then(|| {
                 self.query_cache
-                    .ordered(&ordered_key)
-                    .and_then(|(slots, coverage)| {
-                        (coverage == OrderedCoverage::Complete).then(|| slots.to_vec())
-                    })
+                    .completed_ordered_page(&ordered_key, plan.offset, plan.limit)
             })
             .flatten();
-        let cache_hit = cached.is_some();
+        let cache_hit = cached_page.is_some();
         let indexed_order = if cache_hit
             || compiled.len() != 1
             || plan.sort.len() != 1
@@ -761,11 +810,11 @@ impl Repository {
         let mut pending_insert = None;
         let mut indexed_membership = indexed_order
             .as_ref()
-            .map(|_| vec![0_u64; all_sources.len().div_ceil(64)]);
-        let ordered_slots = if let Some(slots) = cached {
+            .map(|_| vec![0_u64; source_count.div_ceil(64)]);
+        let ordered_slots = if let Some((total, _)) = &cached_page {
             self.metrics.ordered_result_hits += 1;
-            matches = slots.len();
-            slots
+            matches = *total;
+            Vec::new()
         } else {
             let mut offset = 0usize;
             for (((_, predicate, sorts), (selected, _)), candidate) in
@@ -867,11 +916,17 @@ impl Repository {
         let end = ordered_slots
             .len()
             .min(plan.offset.saturating_add(plan.limit));
-        let page = ordered_slots.get(plan.offset..end).unwrap_or(&[]);
+        let page = cached_page.as_ref().map_or_else(
+            || ordered_slots.get(plan.offset..end).unwrap_or(&[]),
+            |(_, page)| page.as_slice(),
+        );
         let mut rows = Vec::with_capacity(page.len());
         for &slot in page {
-            let source = all_sources
-                .get(slot as usize)
+            let (collection_index, local_slot) = source_location(&source_offsets, slot)
+                .ok_or_else(|| Error::Cache("logical source slot is unavailable".into()))?;
+            let source = selections
+                .get(collection_index)
+                .and_then(|(sources, _)| sources.get(local_slot))
                 .ok_or_else(|| Error::Cache("logical source slot is unavailable".into()))?;
             let bytes = self.read_selected_source_bytes(source)?;
             self.metrics.source_reads += 1;
@@ -923,5 +978,20 @@ impl Repository {
                 "extension-exact-scan".into()
             }],
         })
+    }
+}
+
+
+#[cfg(test)]
+mod paging_tests {
+    use super::source_location;
+
+    #[test]
+    fn global_slots_resolve_through_collection_offsets() {
+        let offsets = [0, 0, 100_000, 100_000, 100_002];
+        assert_eq!(source_location(&offsets, 0), Some((1, 0)));
+        assert_eq!(source_location(&offsets, 99_999), Some((1, 99_999)));
+        assert_eq!(source_location(&offsets, 100_000), Some((3, 0)));
+        assert_eq!(source_location(&offsets, 100_002), None);
     }
 }
