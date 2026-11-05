@@ -116,7 +116,7 @@ impl Default for RepositoryOptions {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct SearchHit {
     pub collection: String,
     pub record_id: String,

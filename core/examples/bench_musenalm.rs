@@ -8,7 +8,7 @@ use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
+use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit, SnapshotMode};
 use objekte_search_core::workload::{
     BigramAlphabet, Profile, TimingSample, WorkCounters, load_manifest,
 };
@@ -152,7 +152,7 @@ fn run() -> Result<(), String> {
     let mut build_results = Vec::new();
     let mut corpus_hash = String::new();
     let mut registrations = Vec::new();
-    let mut expected: HashMap<String, (usize, Vec<String>)> = HashMap::new();
+    let mut expected: HashMap<String, (usize, Vec<SearchHit>)> = HashMap::new();
     let mut failures = 0usize;
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let selected_profiles: Vec<_> = profiles
@@ -178,6 +178,11 @@ fn run() -> Result<(), String> {
             corpus_hash = fingerprint_inventory(&repo);
         }
         let memory_bytes = resident_bytes();
+        let peak_resident_bytes = peak_resident_bytes();
+        let snapshot_bytes =
+            fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
+                .map_err(|e| e.to_string())?
+                .len();
         let estimated_index_bytes: usize = repo
             .collections
             .iter()
@@ -217,7 +222,7 @@ fn run() -> Result<(), String> {
             })
             .sum();
         let restore_samples = measure_restore_children(&root, alphabet, 5)?;
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"snapshot_write_ns":repo.startup.snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses,"resident_bytes":memory_bytes,"estimated_index_bytes":estimated_index_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"snapshot_write_ns":repo.startup.snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
         if registrations.is_empty() {
             registrations = repo.collections.iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields.len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom.keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }
@@ -246,14 +251,14 @@ fn run() -> Result<(), String> {
                             case.id.clone(),
                             profile_name.clone(),
                             Vec::<u64>::new(),
-                            None::<WorkCounters>,
+                            Vec::<WorkCounters>::new(),
                             Some(error),
                         ));
                         continue;
                     }
                 };
                 let mut times = Vec::new();
-                let mut last = None;
+                let mut counter_samples = Vec::new();
                 let mut error = None;
                 if profile.warm {
                     repo.search(&query)?;
@@ -263,14 +268,7 @@ fn run() -> Result<(), String> {
                     match repo.search(&query) {
                         Ok(result) => {
                             let ns = start.elapsed().as_nanos() as u64;
-                            let identity = (
-                                result.count,
-                                result
-                                    .hits
-                                    .iter()
-                                    .map(|h| format!("{}:{}", h.collection, h.record_id))
-                                    .collect::<Vec<_>>(),
-                            );
+                            let identity = (result.count, result.hits.clone());
                             if let Some(previous) = expected.get(&case.id) {
                                 if previous != &identity {
                                     error = Some("results differ across profiles".to_string());
@@ -292,7 +290,7 @@ fn run() -> Result<(), String> {
                                 },
                             )?;
                             times.push(ns);
-                            last = Some(counters);
+                            counter_samples.push(counters);
                         }
                         Err(message) => {
                             write_sample(
@@ -314,10 +312,19 @@ fn run() -> Result<(), String> {
                 if error.is_some() {
                     failures += 1;
                 }
-                rows.push((case.id.clone(), profile_name.clone(), times, last, error));
-                let (_, plans) = repo.explain_analyze(&query)?;
+                rows.push((
+                    case.id.clone(),
+                    profile_name.clone(),
+                    times,
+                    counter_samples,
+                    error,
+                ));
+                let diagnostic_start = Instant::now();
+                let (diagnostic_result, plans) = repo.explain_analyze(&query)?;
+                let diagnostic_ns = diagnostic_start.elapsed().as_nanos() as u64;
                 serde_json::to_writer(&mut plan_output, &serde_json::json!({
                     "case_id": case.id, "profile": profile_name, "diagnostic_timing": "outside_primary_samples",
+                    "diagnostic_ns": diagnostic_ns, "diagnostic_counters": diagnostic_result.counters,
                     "plans": plans
                 })).map_err(|e| e.to_string())?;
                 plan_output.write_all(b"\n").map_err(|e| e.to_string())?;
@@ -340,12 +347,12 @@ fn run() -> Result<(), String> {
     let mut csv = BufWriter::new(
         File::create(result_dir.join("query-results.csv")).map_err(|e| e.to_string())?,
     );
-    writeln!(csv,"case_id,profile,status,min_ns,median_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses").map_err(|e|e.to_string())?;
+    writeln!(csv,"case_id,profile,status,min_ns,median_ns,max_ns,samples,total_matches,returned_records,candidates,files_opened,bytes_read,record_parses,exact_posting_matches,scanned_records,residual_evaluations,prepared_plan_hits,verified_result_hits,preparation_median_ns,planning_median_ns").map_err(|e|e.to_string())?;
     let mut report = String::from("# Musenalm query checkpoint\n\n");
     report.push_str(&format!(
         "Code revision: `{rev}`. Repetitions: {repetitions}. Failures: {failures}.\n\n"
     ));
-    report.push_str("| Case | Profile | Min µs | Median µs | Max µs | Matches | Candidates | Parses | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---|\n");
+    report.push_str("| Case | Profile | Min µs | Median µs | Max µs | Matches | Candidates | Parses | Prepared hits | Verified hits | Status |\n|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---|\n");
     let mut by_case: BTreeMap<String, Vec<String>> = BTreeMap::new();
     for (id, profile, times, counters, error) in &rows {
         let mut sorted = times.clone();
@@ -364,29 +371,40 @@ fn run() -> Result<(), String> {
                 .unwrap_or_else(|| "failed".into())
         };
         let status = error.as_deref().unwrap_or("ok");
+        let prepared_hits = counters.iter().filter(|c| c.prepared_plan_hit).count();
+        let verified_hits = counters.iter().filter(|c| c.verified_result_hit).count();
         report.push_str(&format!(
-            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {status} |\n",
+            "| {id} | {profile} | {} | {} | {} | {} | {} | {} | {prepared_hits}/{} | {verified_hits}/{} | {status} |\n",
             value(min),
             value(med),
             value(max),
-            counters.as_ref().map(|c| c.total_matches).unwrap_or(0),
-            counters.as_ref().map(|c| c.candidates).unwrap_or(0),
-            counters.as_ref().map(|c| c.record_parses).unwrap_or(0)
+            median_counter(counters, |c| c.total_matches),
+            median_counter(counters, |c| c.candidates),
+            median_counter(counters, |c| c.record_parses),
+            counters.len(),
+            counters.len(),
         ));
         writeln!(
             csv,
-            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{}",
+            "{id},{profile},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}",
             if error.is_some() { "failed" } else { "ok" },
             min.map(|v| v.to_string()).unwrap_or_default(),
             med.map(|v| v.to_string()).unwrap_or_default(),
             max.map(|v| v.to_string()).unwrap_or_default(),
             times.len(),
-            counters.as_ref().map(|c| c.total_matches).unwrap_or(0),
-            counters.as_ref().map(|c| c.returned_records).unwrap_or(0),
-            counters.as_ref().map(|c| c.candidates).unwrap_or(0),
-            counters.as_ref().map(|c| c.files_opened).unwrap_or(0),
-            counters.as_ref().map(|c| c.bytes_read).unwrap_or(0),
-            counters.as_ref().map(|c| c.record_parses).unwrap_or(0)
+            median_counter(counters, |c| c.total_matches),
+            median_counter(counters, |c| c.returned_records),
+            median_counter(counters, |c| c.candidates),
+            median_counter(counters, |c| c.files_opened),
+            median_counter(counters, |c| c.bytes_read),
+            median_counter(counters, |c| c.record_parses),
+            median_counter(counters, |c| c.exact_posting_matches),
+            median_counter(counters, |c| c.scanned_records),
+            median_counter(counters, |c| c.residual_evaluations),
+            prepared_hits,
+            verified_hits,
+            median_counter(counters, |c| c.preparation_ns),
+            median_counter(counters, |c| c.planning_ns),
         )
         .map_err(|e| e.to_string())?;
         by_case.entry(id.clone()).or_default().push(format!(
@@ -408,14 +426,18 @@ fn run() -> Result<(), String> {
         let mut restore_sorted = restore.clone();
         restore_sorted.sort_unstable();
         report.push_str(&format!(
-            "- {}: build {:.3} s; snapshot write {:.3} s; parses {}; resident {} MiB; estimated index {} MiB; fresh-process restore median {:.3} s over {} runs.\n",
+            "- {}: build {:.3} s; snapshot write {:.3} s; parses {}; resident {} MiB; peak resident {} MiB; estimated index {} MiB; snapshot {} MiB; fresh-process restore min/median/max {:.3}/{:.3}/{:.3} s over {} runs.\n",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["snapshot_write_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            result["peak_resident_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
             result["estimated_index_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            result["snapshot_bytes"].as_u64().unwrap_or(0) / 1024 / 1024,
+            restore_sorted.first().copied().unwrap_or(0) as f64 / 1e9,
             restore_sorted.get(restore_sorted.len()/2).copied().unwrap_or(0) as f64 / 1e9,
+            restore_sorted.last().copied().unwrap_or(0) as f64 / 1e9,
             restore_sorted.len()
         ));
     }
@@ -449,14 +471,18 @@ fn run() -> Result<(), String> {
             .collect();
         restore.sort_unstable();
         println!(
-            "build {}: {:.3} s; snapshot_write={:.3} s; parses={}; resident_bytes={}; estimated_index_bytes={}; restore_median={:.3} s ({} runs)",
+            "build {}: {:.3} s; snapshot_write={:.3} s; parses={}; resident_bytes={}; peak_resident_bytes={}; estimated_index_bytes={}; snapshot_bytes={}; restore_min/median/max={:.3}/{:.3}/{:.3} s ({} runs)",
             result["alphabet"],
             result["build_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["snapshot_write_ns"].as_u64().unwrap_or(0) as f64 / 1e9,
             result["build_parses"],
             result["resident_bytes"],
+            result["peak_resident_bytes"],
             result["estimated_index_bytes"],
+            result["snapshot_bytes"],
+            restore.first().copied().unwrap_or(0) as f64 / 1e9,
             restore.get(restore.len() / 2).copied().unwrap_or(0) as f64 / 1e9,
+            restore.last().copied().unwrap_or(0) as f64 / 1e9,
             restore.len()
         );
     }
@@ -504,6 +530,7 @@ fn restore_child(args: &[String]) -> Result<(), String> {
             "decode_ns":repo.startup.snapshot_decode_ns,
             "reconciliation_ns":repo.startup.reconciliation_ns,
             "resident_bytes":resident_bytes(),
+            "peak_resident_bytes":peak_resident_bytes(),
             "records":repo.collections.iter().map(|c|c.generation.records.len()).sum::<usize>(),
             "build_parses":repo.build_parses,
         })
@@ -585,14 +612,26 @@ fn fingerprint_inventory(repo: &Repository) -> String {
     format!("{:x}", hash.finalize())
 }
 fn resident_bytes() -> u64 {
+    status_bytes("VmRSS:")
+}
+fn peak_resident_bytes() -> u64 {
+    status_bytes("VmHWM:")
+}
+fn status_bytes(field: &str) -> u64 {
     fs::read_to_string("/proc/self/status")
         .ok()
         .and_then(|text| {
             text.lines()
-                .find(|line| line.starts_with("VmRSS:"))
+                .find(|line| line.starts_with(field))
                 .and_then(|line| line.split_whitespace().nth(1))
                 .and_then(|number| number.parse::<u64>().ok())
         })
         .unwrap_or(0)
         * 1024
+}
+
+fn median_counter(counters: &[WorkCounters], field: impl Fn(&WorkCounters) -> u64) -> u64 {
+    let mut values = counters.iter().map(field).collect::<Vec<_>>();
+    values.sort_unstable();
+    values.get(values.len() / 2).copied().unwrap_or(0)
 }
