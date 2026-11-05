@@ -262,6 +262,11 @@ fn text_and_scalar_terms_choose_opposite_selective_domains() {
             .iter()
             .any(|step| step.contains("text-seed"))
     );
+    assert_eq!(rare_scalar.metrics.selected_candidate_bitsets, 1);
+    assert_eq!(
+        rare_text.metrics.selected_candidate_bitsets, 0,
+        "rare text should not materialize the broad scalar posting"
+    );
     let mut exact = Repository::builder(temp.path())
         .options(Options {
             cache: CacheMode::Disabled,

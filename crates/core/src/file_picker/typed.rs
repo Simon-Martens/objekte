@@ -556,6 +556,53 @@ impl TypedIndex {
         self.plan_bits(plan?, slot_count)
     }
 
+    /// Bound on candidate cardinality from posting metadata, without
+    /// materializing a bitset. Unknown AND terms cannot raise the minimum;
+    /// unknown OR terms make the whole estimate unavailable.
+    pub(crate) fn cheap_candidate_estimate(
+        &self,
+        plan: &TypedPlan,
+        slot_count: usize,
+    ) -> Option<usize> {
+        match plan {
+            TypedPlan::Term(path, IndexOp::Eq, value)
+            | TypedPlan::AnyTerm(path, IndexOp::Eq, value) => {
+                let posting = self.posting_for(path)?;
+                let key = TypedKey::from_value(value)?;
+                Some(posting.get(&key).map_or(0, Vec::len))
+            }
+            TypedPlan::Present(path) => {
+                self.dynamic
+                    .get(path)
+                    .filter(|posting| posting.fresh)
+                    .map(|posting| {
+                        posting
+                            .present
+                            .iter()
+                            .map(|word| word.count_ones() as usize)
+                            .sum()
+                    })
+            }
+            TypedPlan::Missing(path) => self
+                .dynamic
+                .get(path)
+                .filter(|posting| posting.fresh)
+                .map(|posting| posting.postings.get(&TypedKey::Missing).map_or(0, Vec::len)),
+            TypedPlan::And(parts) => parts
+                .iter()
+                .filter_map(|part| self.cheap_candidate_estimate(part, slot_count))
+                .min(),
+            TypedPlan::Or(parts) => {
+                let mut total = 0_usize;
+                for part in parts {
+                    total = total.saturating_add(self.cheap_candidate_estimate(part, slot_count)?);
+                }
+                Some(total.min(slot_count))
+            }
+            _ => None,
+        }
+    }
+
     fn plan_bits(&self, plan: &TypedPlan, slot_count: usize) -> Option<Vec<u64>> {
         match plan {
             TypedPlan::Term(path, operator, value) => {

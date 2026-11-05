@@ -366,18 +366,16 @@ impl Repository {
                         extension,
                     )
                 });
-                let mut scalar = if let Some(filter) = bound_filters[collection_index].as_ref() {
-                    if let Some(bits) = self.selected_field_candidates(collection, snapshot, filter)
-                    {
-                        Some(bits)
-                    } else {
-                        self.selected_native_candidates(
-                            collection,
-                            snapshot,
-                            filter,
-                            crate::JsonQueryBackend::Bigram,
-                        )?
-                    }
+                let defer_scalar = bound_filters[collection_index]
+                    .as_ref()
+                    .and_then(|filter| {
+                        self.selected_field_candidate_estimate(collection, snapshot, filter)
+                    })
+                    .is_some_and(|estimate| estimate.saturating_mul(16) > snapshot.sources.len());
+                let mut scalar = if defer_scalar {
+                    None
+                } else if let Some(filter) = bound_filters[collection_index].as_ref() {
+                    self.selected_scalar_candidates(collection, snapshot, filter)?
                 } else {
                     None
                 };
@@ -413,14 +411,24 @@ impl Repository {
                     if !use_scalar_seed
                         && text_count
                             .is_none_or(|count| count.saturating_mul(16) > snapshot.sources.len())
-                        && let Some(scalar) = scalar.take()
                     {
-                        if let Some(bits) = &mut candidates {
-                            for (left, right) in bits.iter_mut().zip(scalar) {
-                                *left &= right;
+                        if scalar.is_none() && defer_scalar {
+                            scalar = self.selected_scalar_candidates(
+                                collection,
+                                snapshot,
+                                bound_filters[collection_index]
+                                    .as_ref()
+                                    .expect("bound filter"),
+                            )?;
+                        }
+                        if let Some(scalar) = scalar.take() {
+                            if let Some(bits) = &mut candidates {
+                                for (left, right) in bits.iter_mut().zip(scalar) {
+                                    *left &= right;
+                                }
+                            } else {
+                                candidates = Some(scalar);
                             }
-                        } else {
-                            candidates = Some(scalar);
                         }
                     }
                 }

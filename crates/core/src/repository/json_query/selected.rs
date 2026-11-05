@@ -15,11 +15,76 @@ type SelectedRecordCallback<'a> = dyn FnMut(usize, &Record) -> Result<()> + 'a;
 
 
 impl Repository {
+    /// Estimate selected typed posting work without allocating candidate
+    /// words. This lets a selective text posting avoid a redundant broad
+    /// scalar probe.
+    pub(in crate::repository) fn selected_field_candidate_estimate(
+        &self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        filter: &JsonFilter,
+    ) -> Option<usize> {
+        if filter.has_relations()
+            || self.options.cache != CacheMode::Memory
+            || self.options.freshness == Freshness::HashOnRequest
+        {
+            return None;
+        }
+        let extensions = self.extensions.as_ref()?;
+        let posting = |path: &crate::JsonPath| {
+            let key = crate::repository::extension_derived_index::SelectedDerivedKey::new(
+                collection,
+                path,
+                &snapshot.fingerprint,
+                extensions,
+            );
+            self.selected_derived_indexes.get(&key)
+        };
+        if filter.needs_cardinality_check_in(|path| {
+            posting(path).is_some_and(|index| index.index.scalar_safe(path))
+        }) {
+            return None;
+        }
+
+        fn estimate<'a>(
+            plan: &TypedPlan,
+            slots: usize,
+            posting: &impl Fn(
+                &crate::JsonPath,
+            ) -> Option<
+                &'a crate::repository::extension_derived_index::SelectedDerivedPosting,
+            >,
+        ) -> Option<usize> {
+            match plan {
+                TypedPlan::And(parts) => parts
+                    .iter()
+                    .filter_map(|part| estimate(part, slots, posting))
+                    .min(),
+                TypedPlan::Or(parts) => {
+                    let mut total = 0_usize;
+                    for part in parts {
+                        total = total.saturating_add(estimate(part, slots, posting)?);
+                    }
+                    Some(total.min(slots))
+                }
+                TypedPlan::Term(path, ..)
+                | TypedPlan::AnyTerm(path, ..)
+                | TypedPlan::Present(path)
+                | TypedPlan::Missing(path)
+                | TypedPlan::Prefix(path, ..)
+                | TypedPlan::Like(path, ..) => {
+                    posting(path)?.index.cheap_candidate_estimate(plan, slots)
+                }
+            }
+        }
+        estimate(&filter.typed_plan()?, snapshot.sources.len(), &posting)
+    }
+
     /// Evaluate a bound necessary condition against configured logical-field
     /// postings. Unknown AND children are residuals; OR requires coverage in
     /// every branch. The underlying typed index retains exact key semantics.
     pub(in crate::repository) fn selected_field_candidates(
-        &self,
+        &mut self,
         collection: &Collection,
         snapshot: &CustomSourceSnapshot,
         filter: &JsonFilter,
@@ -94,6 +159,7 @@ impl Repository {
             }
         }
         let bits = evaluate(&filter.typed_plan()?, snapshot.sources.len(), &posting)?;
+        self.metrics.selected_candidate_bitsets += 1;
         let count = bits
             .iter()
             .map(|word| word.count_ones() as usize)
@@ -152,6 +218,24 @@ impl Repository {
             bits[selected as usize / 64] |= 1 << (selected % 64);
         }
         Ok(Some(bits))
+    }
+
+    pub(in crate::repository) fn selected_scalar_candidates(
+        &mut self,
+        collection: &Collection,
+        snapshot: &CustomSourceSnapshot,
+        filter: &JsonFilter,
+    ) -> Result<Option<Vec<u64>>> {
+        if let Some(bits) = self.selected_field_candidates(collection, snapshot, filter) {
+            Ok(Some(bits))
+        } else {
+            self.selected_native_candidates(
+                collection,
+                snapshot,
+                filter,
+                crate::JsonQueryBackend::Bigram,
+            )
+        }
     }
 
     pub(super) fn query_json_selected(

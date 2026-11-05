@@ -142,6 +142,7 @@ metrics!(
     source_reads,
     selected_candidate_visits,
     selected_descriptor_visits,
+    selected_candidate_bitsets,
     source_bytes,
     hashes,
     parses,
