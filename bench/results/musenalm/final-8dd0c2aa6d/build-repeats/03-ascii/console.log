@@ -1,0 +1,6 @@
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/bench_musenalm --cases Q031 --profiles ascii-off --verified-cache-bytes 67108864 --repetitions 1 --result-dir bench/results/musenalm/final-8dd0c2aa6d/build-repeats/03-ascii`
+Q031 collection=places FTS=None FILTER=Some("fictional = false") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 127.292 / 127.292 / 127.292 µs (ok)
+build "ascii": 14.122 s; snapshot_write=0.264 s; parses=148486; resident_bytes=252837888; peak_resident_bytes=339849216; estimated_index_bytes=68548708; snapshot_bytes=106726293; restore_min/median/max=0.529/0.530/0.545 s (5 runs)
+reports: bench/results/musenalm/final-8dd0c2aa6d/build-repeats/03-ascii
+reproduce: cargo run --release --example bench_musenalm -- "--cases" "Q031" "--profiles" "ascii-off" "--verified-cache-bytes" "67108864" "--repetitions" "1" "--result-dir" "bench/results/musenalm/final-8dd0c2aa6d/build-repeats/03-ascii"
