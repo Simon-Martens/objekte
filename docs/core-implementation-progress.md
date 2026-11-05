@@ -39,6 +39,7 @@ query/build and restore revisions will establish their respective baselines.
 | C22 | complete | `cargo test --workspace --all-targets` | Revision-checked build/reads, range validation, native path query representation, future file design |
 | C23 | complete | `cargo test --workspace --all-targets` | Versioned checksummed sections, atomic save, full index/map validation |
 | C24a | complete | `cargo test --workspace --all-targets`; five fresh-process restores/alphabet | Startup restore/reconciliation, rebuild on changed inventory, restore runner |
+| C24b | complete | 10 fresh-process restores; 18 query samples; 0 failures | Revision-tied restore baseline at `64b5df7b68` |
 
 ## Decisions
 
@@ -156,8 +157,12 @@ saved at `/tmp/objekte-c21-check`; the full final workload remains required.
 The pre-commit C24 check used the real fixture and five fresh child processes
 per alphabet. ASCII built in 14.203 s and restored in 0.540 s median; Unicode
 built in 15.250 s and restored in 0.545 s median. Each restored process
-reported zero source parses. The check is under `/tmp/objekte-c24-check`;
-the revision-tied baseline will be saved after the C24 code commit.
+reported zero source parses. The check is under `/tmp/objekte-c24-check`.
+
+The saved [restore baseline](../bench/results/musenalm/restore-baseline-64b5df7b68/REPORT.md)
+measures code revision `64b5df7b68`: ASCII build 14.175 s, Unicode build
+15.293 s, snapshot writes 0.273/0.287 s, and fresh-process restore medians
+0.535/0.553 s over five runs each. All 18 included query samples passed.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format
