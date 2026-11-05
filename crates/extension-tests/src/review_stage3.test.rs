@@ -271,3 +271,75 @@ fn selected_stream_callback_stops_reads_and_does_not_publish_order() {
             .any(|step| step.contains("ordered-cache"))
     );
 }
+
+#[test]
+fn custom_json_candidate_projects_only_referenced_subtrees() {
+    let temp = tempfile::tempdir().unwrap();
+    let directory = temp.path().join("data/archive");
+    fs::create_dir_all(&directory).unwrap();
+    for slot in 0..32 {
+        let mut value = serde_json::Map::new();
+        value.insert(
+            "year".into(),
+            serde_json::json!(if slot == 31 { 1848 } else { 1850 }),
+        );
+        value.insert(
+            "body".into(),
+            serde_json::json!(if slot == 31 { "target" } else { "ordinary" }),
+        );
+        for field in 0..40 {
+            value.insert(
+                format!("unreferenced_{field}"),
+                serde_json::json!("a larger value"),
+            );
+        }
+        fs::write(
+            directory.join(format!("n{slot:03}.md")),
+            serde_json::to_vec(&value).unwrap(),
+        )
+        .unwrap();
+    }
+    let mut repo = Repository::builder(temp.path())
+        .options(Options {
+            cache: CacheMode::Disabled,
+            query_cache_bytes: 0,
+            ..Default::default()
+        })
+        .register_source(JsonAliasProvider::new(directory))
+        .unwrap()
+        .open()
+        .unwrap();
+    let result = repo
+        .query_json(&JsonQuery {
+            filter: "year = 1848 && body = 'target'".into(),
+            collections: Some(vec!["archive".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(result.total, Some(1));
+    assert_eq!(
+        result.records[0].data.as_object().unwrap().len(),
+        42,
+        "returned records retain their complete logical data"
+    );
+    assert!(
+        result.metrics.selected_projected_nodes < 180,
+        "nonreturned candidates should not allocate unrelated logical values"
+    );
+    assert_eq!(result.metrics.hashes, 1);
+
+    let status = repo
+        .query_json(&JsonQuery {
+            filter: "@status = 'no_schema' && year = 1848".into(),
+            collections: Some(vec!["archive".into()]),
+            count: true,
+            ..Default::default()
+        })
+        .unwrap();
+    assert_eq!(status.total, Some(1));
+    assert!(
+        status.metrics.selected_projected_nodes >= 32 * 42,
+        "status evaluation keeps the complete document available"
+    );
+}

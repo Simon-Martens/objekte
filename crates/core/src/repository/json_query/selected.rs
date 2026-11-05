@@ -341,6 +341,13 @@ impl Repository {
                 filter.uses_status() || sort_buffer.as_ref().is_some_and(SortBuffer::uses_status);
             let mut bytes = Vec::new();
             for (collection_index, (collection, snapshot)) in selected.iter().enumerate() {
+                let projection_roots =
+                    crate::repository::extension_sources::selected_projection_roots(
+                        Some(&bound[collection_index]),
+                        None,
+                        &request.sort,
+                        false,
+                    );
                 let field_candidates = matches!(
                     request.backend,
                     JsonQueryBackend::Auto | JsonQueryBackend::Bigram
@@ -371,6 +378,7 @@ impl Repository {
                         source,
                         &mut bytes,
                         needs_status,
+                        projection_roots.as_ref(),
                     )?;
                     let stamp = Stamp {
                         size: record.size_bytes,

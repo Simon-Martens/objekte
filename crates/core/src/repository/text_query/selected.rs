@@ -352,6 +352,13 @@ impl Repository {
                 || sorted.as_ref().is_some_and(SortBuffer::uses_status);
             let mut bytes = Vec::new();
             for (collection_index, (collection, snapshot)) in selected.iter().enumerate() {
+                let projection_roots =
+                    crate::repository::extension_sources::selected_projection_roots(
+                        bound_filters[collection_index].as_ref(),
+                        request.fields.as_deref(),
+                        &request.sort,
+                        true,
+                    );
                 let rules = TextRules::new(&collection.fields);
                 let schema = self
                     .extensions
@@ -453,6 +460,7 @@ impl Repository {
                         source,
                         &mut bytes,
                         needs_status,
+                        projection_roots.as_ref(),
                     )?;
                     let stamp = Stamp {
                         size: record.size_bytes,

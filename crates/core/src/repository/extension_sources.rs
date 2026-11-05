@@ -1,6 +1,7 @@
 //! Descriptor discovery and logical decoding for registered source formats.
 
 use super::*;
+use crate::JsonFilter;
 use crate::extensions::{
     DecodedRecord, FormatDecoder, LogicalNode, ScalarValue, SourceDescriptor, SourceProvider,
     TypedValue,
@@ -97,13 +98,21 @@ fn insert_logical_node(root: &mut Value, parts: &[String], value: Value) -> Resu
     insert_logical_node(next, rest, value)
 }
 
-fn logical_record_value(record: &dyn DecodedRecord) -> Result<Value> {
+fn logical_record_value(
+    record: &dyn DecodedRecord,
+    roots: Option<&BTreeSet<String>>,
+) -> Result<(Value, usize)> {
     let mut root = Value::Object(serde_json::Map::new());
+    let mut projected_nodes = 0_usize;
+    let mut root_array = false;
     let mut emitted = BTreeSet::new();
     let mut scalar_paths = BTreeSet::new();
     let mut parent_paths = BTreeSet::new();
     record.visit_nodes(&mut |path, node| {
         let parts = pointer_parts(path)?;
+        if path.is_empty() && matches!(node, LogicalNode::Array) {
+            root_array = true;
+        }
         if !emitted.insert(path.to_owned()) {
             return Err(Error::Request(format!(
                 "decoder emitted duplicate logical path {path:?}"
@@ -127,6 +136,12 @@ fn logical_record_value(record: &dyn DecodedRecord) -> Result<Value> {
         if matches!(node, LogicalNode::Scalar(_)) {
             scalar_paths.insert(path.to_owned());
         }
+        if !root_array
+            && !path.is_empty()
+            && roots.is_some_and(|roots| parts.first().is_none_or(|part| !roots.contains(part)))
+        {
+            return Ok(());
+        }
         let value = match node {
             LogicalNode::Object => Value::Object(serde_json::Map::new()),
             LogicalNode::Array => Value::Array(Vec::new()),
@@ -142,9 +157,55 @@ fn logical_record_value(record: &dyn DecodedRecord) -> Result<Value> {
                 parsed
             }
         };
-        insert_logical_node(&mut root, &parts, value)
+        insert_logical_node(&mut root, &parts, value)?;
+        projected_nodes += 1;
+        Ok(())
     })?;
-    Ok(root)
+    Ok((root, projected_nodes))
+}
+
+/// An exact selected query may build only referenced top-level JSON subtrees.
+/// Complex root paths and relation traversal keep the complete document.
+pub(super) fn selected_projection_roots(
+    filter: Option<&JsonFilter>,
+    fields: Option<&[String]>,
+    sort: &[crate::Sort],
+    require_fields: bool,
+) -> Option<BTreeSet<String>> {
+    if (require_fields && fields.is_none())
+        || filter.is_some_and(|filter| filter.has_relations() || filter.uses_status())
+        || sort.iter().any(|sort| sort.field == "@status")
+    {
+        return None;
+    }
+    let mut roots = BTreeSet::new();
+    for path in filter.into_iter().flat_map(JsonFilter::paths) {
+        let Some(crate::JsonPathStep::Key(name)) = path.first() else {
+            return None;
+        };
+        roots.insert(name.clone());
+    }
+    for field in fields
+        .into_iter()
+        .flatten()
+        .chain(sort.iter().map(|sort| &sort.field))
+    {
+        if field.starts_with('@') {
+            if matches!(
+                field.as_str(),
+                "@id" | "@created" | "@modified" | "@size" | "@status" | "@filename" | "@path"
+            ) {
+                continue;
+            }
+            return None;
+        }
+        let path = JsonFilter::parse_path(field).ok()?;
+        let Some(crate::JsonPathStep::Key(name)) = path.first() else {
+            return None;
+        };
+        roots.insert(name.clone());
+    }
+    Some(roots)
 }
 
 pub(super) fn select_sources(
@@ -276,7 +337,7 @@ impl Repository {
         bytes: &mut Vec<u8>,
         validate: bool,
     ) -> Result<Record> {
-        self.selected_record_inner(collection, source, bytes, validate, true)
+        self.selected_record_inner(collection, source, bytes, validate, true, None)
     }
 
     pub(super) fn selected_record_for_evaluation(
@@ -285,8 +346,9 @@ impl Repository {
         source: &SourceDescriptor,
         bytes: &mut Vec<u8>,
         validate: bool,
+        roots: Option<&BTreeSet<String>>,
     ) -> Result<Record> {
-        self.selected_record_inner(collection, source, bytes, validate, false)
+        self.selected_record_inner(collection, source, bytes, validate, false, roots)
     }
 
     fn selected_record_inner(
@@ -296,6 +358,7 @@ impl Repository {
         bytes: &mut Vec<u8>,
         validate: bool,
         compute_hash: bool,
+        roots: Option<&BTreeSet<String>>,
     ) -> Result<Record> {
         self.read_selected_source_bytes_into(source, bytes)?;
         self.metrics.source_reads += 1;
@@ -325,7 +388,10 @@ impl Repository {
                         "format decoder emitted multiple records".into(),
                     ));
                 }
-                data = Some(logical_record_value(record)?);
+                let selected_roots = (source.format == "objekte:json").then_some(roots).flatten();
+                let (value, nodes) = logical_record_value(record, selected_roots)?;
+                self.metrics.selected_projected_nodes += nodes as u64;
+                data = Some(value);
                 Ok(())
             })?;
             self.metrics.parses += 1;

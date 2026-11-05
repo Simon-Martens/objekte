@@ -143,6 +143,7 @@ metrics!(
     selected_candidate_visits,
     selected_descriptor_visits,
     selected_candidate_bitsets,
+    selected_projected_nodes,
     source_bytes,
     hashes,
     parses,
