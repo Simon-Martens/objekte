@@ -298,6 +298,21 @@ pub enum MetadataField {
 }
 
 impl MetadataField {
+    pub fn as_str(self) -> &'static str {
+        match self {
+            Self::RecordId => "@record.id",
+            Self::RecordByteStart => "@record.byte_start",
+            Self::RecordByteEnd => "@record.byte_end",
+            Self::RecordByteLength => "@record.byte_length",
+            Self::FileId => "@file.id",
+            Self::FilePath => "@file.path",
+            Self::FileSize => "@file.size",
+            Self::FileCreated => "@file.created",
+            Self::FileModified => "@file.modified",
+            Self::CollectionName => "@collection.name",
+            Self::RepositoryRoot => "@repository.root",
+        }
+    }
     pub fn parse(name: &str) -> Result<Self, String> {
         match name {
             "@record.id" => Ok(Self::RecordId),
@@ -317,6 +332,12 @@ impl MetadataField {
 }
 
 impl FieldPath {
+    pub fn display(&self) -> String {
+        match self.root {
+            PathRoot::Metadata(field) => field.as_str().to_string(),
+            PathRoot::Data => self.segments.join("."),
+        }
+    }
     pub fn parse(input: &str) -> Result<Self, String> {
         if input.starts_with('@') {
             return Ok(Self {

@@ -23,6 +23,7 @@ query/build and restore revisions will establish their respective baselines.
 | C07 | complete | `cargo fmt --all && cargo test --workspace` | Typed binding and independent scan evaluation |
 | C08 | complete | `cargo test --workspace --all-targets`; CLI Q031, Q070 | Fixture adapter, JSON/filename registration, reference CLI |
 | C09 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Fused typed B-tree postings, presence/null/array length, coverage |
+| C10 | complete | `cargo test --workspace --all-targets`; CLI Q031 | Exact posting/metadata sets, restricted scan, zero-read exact matches |
 
 ## Decisions
 
@@ -47,6 +48,10 @@ query/build and restore revisions will establish their respective baselines.
 - Lookup postings are built during the same extraction callback that creates
   record mappings. Explicit schema `index` and `x-index-paths` determine the
   posted fields; presence/null/cardinality are attached to those fields.
+- The initial executor intersects available exact terms by resulting
+  cardinality, then scans only survivors for unresolved terms. Metadata
+  predicates run from inventory without source reads. More detailed path
+  costs and adaptive choices follow in C17–C19.
 
 ## Measurements
 

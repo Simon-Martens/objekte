@@ -544,7 +544,7 @@ pub fn eval_filter(
                 && term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                evidence.insert(term.path.segments.join("."));
+                evidence.insert(term.path.display());
             }
             match_
         }

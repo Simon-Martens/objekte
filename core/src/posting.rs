@@ -7,6 +7,8 @@ use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::query::{Operator, Quantifier};
+use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values};
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -111,6 +113,98 @@ impl PostingIndex {
     }
     pub fn distinct_values(&self) -> usize {
         self.values.len()
+    }
+
+    /// An exact answer over this index's complete record domain, or `None`
+    /// when quantification/transformation needs independent verification.
+    pub fn exact_set(&self, term: &BoundTerm, domain: &RoaringBitmap) -> Option<RoaringBitmap> {
+        if self.covered_records as u64 != domain.len() {
+            return None;
+        }
+        match term.derived {
+            Derived::Exists | Derived::Null => {
+                let yes = if term.derived == Derived::Exists {
+                    &self.presence
+                } else {
+                    &self.nulls
+                };
+                let Value::Bool(literal) = term.literal else {
+                    return None;
+                };
+                let matches_true = match term.operator {
+                    Operator::Eq => literal,
+                    Operator::Ne => !literal,
+                    _ => return None,
+                };
+                return Some(if matches_true {
+                    yes.clone()
+                } else {
+                    domain - yes
+                });
+            }
+            Derived::Length => {
+                let Value::Number(number) = term.literal else {
+                    return None;
+                };
+                let mut out = RoaringBitmap::new();
+                for (key, posting) in &self.lengths {
+                    if ordered_match(key.cmp(&number), term.operator) {
+                        out |= posting;
+                    }
+                }
+                return Some(out);
+            }
+            Derived::None => {}
+        }
+        if matches!(term.literal, Value::Null) {
+            if term.multi && term.quantifier == Quantifier::Any {
+                return None;
+            }
+            return Some(match term.operator {
+                Operator::Eq => self.nulls.clone(),
+                Operator::Ne => &self.presence - &self.nulls,
+                _ => return None,
+            });
+        }
+        if term.transform != Transform::Identity {
+            return None;
+        }
+        let key = ScalarKey::from_value(&term.literal)?;
+        if term.multi && term.quantifier != Quantifier::Any {
+            return None;
+        }
+        if term.multi && term.operator != Operator::Eq {
+            return None;
+        }
+        let equal = self.values.get(&key).cloned().unwrap_or_default();
+        match term.operator {
+            Operator::Eq => Some(equal),
+            Operator::Ne if !term.multi => Some(&(&self.presence - &self.nulls) - &equal),
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
+                let mut out = RoaringBitmap::new();
+                for (candidate, posting) in &self.values {
+                    if std::mem::discriminant(candidate) == std::mem::discriminant(&key)
+                        && ordered_match(candidate.cmp(&key), term.operator)
+                    {
+                        out |= posting;
+                    }
+                }
+                Some(out)
+            }
+            _ => None,
+        }
+    }
+}
+
+fn ordered_match(order: std::cmp::Ordering, op: Operator) -> bool {
+    match op {
+        Operator::Eq => order.is_eq(),
+        Operator::Ne => !order.is_eq(),
+        Operator::Gt => order.is_gt(),
+        Operator::Ge => order.is_ge(),
+        Operator::Lt => order.is_lt(),
+        Operator::Le => order.is_le(),
+        _ => false,
     }
 }
 

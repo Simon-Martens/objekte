@@ -72,7 +72,7 @@ pub const PROFILES: [Profile; 4] = [
     },
 ];
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct WorkCounters {
     pub exact_posting_matches: u64,
     pub candidates: u64,

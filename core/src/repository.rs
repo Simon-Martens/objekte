@@ -55,6 +55,9 @@ pub struct SearchResult {
 }
 
 impl Repository {
+    pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
+        crate::executor::search(self, query)
+    }
     pub fn open(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,

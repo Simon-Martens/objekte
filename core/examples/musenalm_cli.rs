@@ -21,6 +21,7 @@ fn run() -> Result<(), String> {
     let mut filter = None;
     let mut collection = "*".to_string();
     let mut explain = false;
+    let mut reference = false;
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
@@ -30,6 +31,7 @@ fn run() -> Result<(), String> {
             "--filter" => filter = Some(args.next().ok_or("--filter needs an expression")?),
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
             "--explain" | "--explain-analyze" => explain = true,
+            "--reference" => reference = true,
             _ => return Err(format!("unknown option {arg}")),
         }
     }
@@ -94,7 +96,11 @@ fn run() -> Result<(), String> {
     if explain {
         println!("reference scan: every eligible record; typed predicates bound before execution");
     }
-    let result = repository.search_reference(&query)?;
+    let result = if reference {
+        repository.search_reference(&query)?
+    } else {
+        repository.search(&query)?
+    };
     println!(
         "case={} count={} returned={} scanned={} parsed={} bytes_read={}",
         case.id,
