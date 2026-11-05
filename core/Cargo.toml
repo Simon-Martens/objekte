@@ -1,0 +1,10 @@
+[package]
+name = "objekte-search-core"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[lib]
+name = "objekte_search_core"
+path = "src/lib.rs"
