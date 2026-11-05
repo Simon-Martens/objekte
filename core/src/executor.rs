@@ -654,6 +654,9 @@ pub(crate) fn fts_candidates(
     }
     let mut union = RoaringBitmap::new();
     for field in &fts.fields {
+        if field.path.root != PathRoot::Data || field.binding.as_deref() == Some("lower") {
+            return None;
+        }
         let candidates = if let Some(name) = &field.binding {
             let key = (field.path.segments.clone(), name.clone());
             let binding = collection.definition.schema.custom.get(&key)?;
@@ -684,6 +687,9 @@ pub(crate) fn estimate_fts_candidates(
     let mut count = 0u64;
     let mut work = 0.0;
     for field in &fts.fields {
+        if field.path.root != PathRoot::Data || field.binding.as_deref() == Some("lower") {
+            return None;
+        }
         let estimate = if let Some(name) = &field.binding {
             let key = (field.path.segments.clone(), name.clone());
             let binding = collection.definition.schema.custom.get(&key)?;

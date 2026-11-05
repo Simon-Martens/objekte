@@ -694,6 +694,7 @@ pub fn eval_fts_query(
     fts: &FtsQuery,
     schema: &Schema,
     segments: &[TextSegment],
+    ctx: &RecordContext<'_>,
     evidence: &mut HashSet<String>,
 ) -> Result<bool, String> {
     if fts.fields.is_empty() {
@@ -702,15 +703,21 @@ pub fn eval_fts_query(
     let mut matched = false;
     for field in &fts.fields {
         let definition = schema.field(&field.path)?;
-        if !matches!(definition.kind, LogicalType::String | LogicalType::Array(_)) {
+        if !matches!(definition.kind, LogicalType::String)
+            && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
+        {
             return Err("FTS field requires string values".into());
         }
         let transform = if let Some(name) = &field.binding {
-            schema
-                .custom
-                .get(&(field.path.segments.clone(), name.clone()))
-                .ok_or_else(|| format!("unknown FTS binding {name}"))?
-                .transform
+            if name == "lower" {
+                Transform::CaseFold
+            } else {
+                schema
+                    .custom
+                    .get(&(field.path.segments.clone(), name.clone()))
+                    .ok_or_else(|| format!("unknown FTS binding {name}"))?
+                    .transform
+            }
         } else {
             Transform::Identity
         };
@@ -719,6 +726,21 @@ pub fn eval_fts_query(
         } else {
             fts.literal.clone()
         };
+        if let PathRoot::Metadata(metadata) = field.path.root {
+            let value = metadata_value(metadata, ctx)?;
+            if let Value::String(text) = value {
+                let haystack = if transform == Transform::CaseFold {
+                    text.case_fold().collect::<String>()
+                } else {
+                    text
+                };
+                if haystack.contains(&needle) {
+                    matched = true;
+                    evidence.insert(field.path.display());
+                }
+            }
+            continue;
+        }
         for segment in segments.iter().filter(|s| s.path == field.path.segments) {
             let value = if transform == Transform::CaseFold {
                 segment.text.case_fold().collect::<String>()

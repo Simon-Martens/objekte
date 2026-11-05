@@ -1,7 +1,7 @@
 //! Bounded result retention, grouped source access, and payload materialization.
 
 use std::cmp::Ordering;
-use std::collections::{BTreeMap, BinaryHeap, HashSet};
+use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
 use std::time::Instant;
 
 use roaring::RoaringBitmap;
@@ -12,6 +12,7 @@ use crate::executor::{
     plan_expr_restricted,
 };
 use crate::inventory::{ByteRange, RecordEntry};
+use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
 use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
@@ -128,6 +129,32 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
             .is_none()
             .then_some(HashSet::new()),
     }
+}
+
+fn inventory_fts_evidence(
+    repo: &Repository,
+    collection: &crate::repository::CollectionState,
+    fts: &crate::query::FtsQuery,
+    input: &RoaringBitmap,
+) -> Result<HashMap<u32, HashSet<String>>, String> {
+    let empty = Value::Object(Default::default());
+    let mut matches = HashMap::new();
+    for slot in input.iter() {
+        let record = &collection.generation.records[slot as usize];
+        let file = &repo.files.files[record.file.0 as usize];
+        let ctx = RecordContext {
+            value: &empty,
+            record,
+            file,
+            collection_name: &collection.definition.name,
+            repository_root: &repo.files.root,
+        };
+        let mut evidence = HashSet::new();
+        if eval_fts_query(fts, &collection.definition.schema, &[], &ctx, &mut evidence)? {
+            matches.insert(slot, evidence);
+        }
+    }
+    Ok(matches)
 }
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
@@ -394,7 +421,14 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             generation: collection.generation.generation,
             input_records: domain.len(),
             fts_strategy: if let Some(fts) = &query.fts {
-                if estimate_fts_candidates(collection, fts).is_some() {
+                if !fts.fields.is_empty()
+                    && fts
+                        .fields
+                        .iter()
+                        .all(|field| matches!(field.path.root, PathRoot::Metadata(_)))
+                {
+                    "metadata inventory"
+                } else if estimate_fts_candidates(collection, fts).is_some() {
                     "compatible bigram candidate or restricted scanner"
                 } else {
                     "restricted scanner"
@@ -482,9 +516,24 @@ fn search_impl(
                 }
             }
         }
+        let metadata_only_fts = query.fts.as_ref().is_some_and(|fts| {
+            !fts.fields.is_empty()
+                && fts
+                    .fields
+                    .iter()
+                    .all(|field| matches!(field.path.root, PathRoot::Metadata(_)))
+        });
+        let inventory_evidence = if metadata_only_fts {
+            let matches =
+                inventory_fts_evidence(repo, collection, query.fts.as_ref().unwrap(), &candidates)?;
+            candidates = matches.keys().copied().collect();
+            Some(matches)
+        } else {
+            None
+        };
         counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
         counters.candidates += candidates.len();
-        let needs_scan = !plan.exact || query.fts.is_some();
+        let needs_scan = !plan.exact || (query.fts.is_some() && !metadata_only_fts);
         if let Some(traces) = traces.as_deref_mut() {
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
@@ -492,6 +541,8 @@ fn search_impl(
                 input_records: domain.len(),
                 fts_strategy: if query.fts.is_none() {
                     "absent"
+                } else if metadata_only_fts {
+                    "metadata inventory"
                 } else if text_first {
                     "bigram before filter"
                 } else if candidates.len() < domain.len() {
@@ -509,7 +560,7 @@ fn search_impl(
         if !needs_scan {
             for slot in candidates.iter() {
                 let record = &collection.generation.records[slot as usize];
-                let evidence = if query.options.evidence {
+                let mut evidence = if query.options.evidence {
                     filter
                         .as_ref()
                         .and_then(|expr| proof_evidence(expr, slot, &plan.proofs))
@@ -517,6 +568,13 @@ fn search_impl(
                 } else {
                     HashSet::new()
                 };
+                if query.options.evidence {
+                    if let Some(fts_evidence) =
+                        inventory_evidence.as_ref().and_then(|map| map.get(&slot))
+                    {
+                        evidence.extend(fts_evidence.iter().cloned());
+                    }
+                }
                 counters.exact_posting_matches += 1;
                 offer(
                     repo,
@@ -584,6 +642,7 @@ fn search_impl(
                                 fts,
                                 &collection.definition.schema,
                                 &extracted.text,
+                                &ctx,
                                 &mut evidence,
                             )
                         })
@@ -1038,6 +1097,76 @@ mod tests {
             restored.search(&query).unwrap().hits[0].payload,
             optimized.hits[0].payload
         );
+        std::fs::remove_dir_all(root).unwrap();
+    }
+
+    #[test]
+    fn selected_folded_and_metadata_fts_match_reference() {
+        let root =
+            std::env::temp_dir().join(format!("objekte-selected-fts-{}", std::process::id()));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        std::fs::write(root.join("data/a.json"), b"{\"text\":\"Stra\\u00dfe\"}").unwrap();
+        std::fs::write(root.join("data/b.json"), b"{\"text\":\"Other\"}").unwrap();
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["text".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+            })
+            .unwrap();
+        let repo = Repository::open(
+            &root,
+            vec![CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::Json,
+                identity: IdentityPolicy::Filename,
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+            }],
+        )
+        .unwrap();
+        let options = QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        };
+        for (literal, field) in [("STRASSE", "text:lower"), ("a.json", "@file.path")] {
+            let (path, binding) = field
+                .rsplit_once(':')
+                .map_or((field, None), |(a, b)| (a, Some(b.to_owned())));
+            let query = Query {
+                collections: vec![],
+                filter: None,
+                fts: Some(crate::query::FtsQuery {
+                    literal: literal.into(),
+                    fields: vec![crate::query::FtsField {
+                        path: crate::model::FieldPath::parse(path).unwrap(),
+                        binding,
+                    }],
+                }),
+                options: options.clone(),
+            };
+            let optimized = repo.search(&query).unwrap();
+            let reference = repo.search_reference(&query).unwrap();
+            assert_eq!(optimized.count, 1);
+            assert_eq!(optimized.hits[0].record_id, "a");
+            if field == "@file.path" {
+                assert_eq!(optimized.counters.record_parses, 0);
+            }
+            assert_eq!(
+                optimized.hits[0].matched_fields,
+                reference.hits[0].matched_fields
+            );
+        }
         std::fs::remove_dir_all(root).unwrap();
     }
 }

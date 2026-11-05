@@ -420,11 +420,12 @@ impl Repository {
                 for field in &fts.fields {
                     collection.definition.schema.field(&field.path)?;
                     if let Some(name) = &field.binding {
-                        if !collection
-                            .definition
-                            .schema
-                            .custom
-                            .contains_key(&(field.path.segments.clone(), name.clone()))
+                        if name != "lower"
+                            && !collection
+                                .definition
+                                .schema
+                                .custom
+                                .contains_key(&(field.path.segments.clone(), name.clone()))
                         {
                             return Err(format!("unknown FTS binding {name}"));
                         }
@@ -489,6 +490,7 @@ impl Repository {
                             fts,
                             &collection.definition.schema,
                             &extracted.text,
+                            &ctx,
                             &mut evidence,
                         )
                     })
