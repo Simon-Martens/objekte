@@ -1,0 +1,57 @@
+{
+  "amazon-reviews-2023": {
+    "configuration_sha256": {},
+    "record_bytes": 513229384,
+    "record_count": 1000000,
+    "source_content_and_stat_sha256": "efd84a01b8678551b4cb24484b60d736b1cd612bee21be6d85f1967b19b982e3",
+    "source_manifest_sha256": "1c215c5b42d0a1d1539d70d4ba0787141acf67397d9fb2602d1c7f0b38a95949"
+  },
+  "leipzig-multilingual": {
+    "configuration_sha256": {},
+    "record_bytes": 63339566,
+    "record_count": 400000,
+    "source_content_and_stat_sha256": "ab784d5e9398ab7f46eb9b34d8503b0c834966651d9623b818dafccf0929d30d",
+    "source_manifest_sha256": null
+  },
+  "lenz-archiv": {
+    "configuration_sha256": {
+      ".objekte/collections/handschriften.schema.json": "630932e7212f2fd6e52c1fb54cfec9f599f97d2538dc967854afc2436e2a28a6",
+      ".objekte/collections/orte.schema.json": "50209891131395160184471b3c2a1693fc2b8eff9e48721104d2c681f47c92eb",
+      ".objekte/collections/pages.schema.json": "048c64ec34bb19350e77c33a317ec443cc3b87171ea3767fe622f62323c675e8",
+      ".objekte/collections/posthume_ausgaben.schema.json": "5b93eae114b94fa0bc7eee6ab97fb0aaf8c5d52018772c122534b3199890104e",
+      ".objekte/collections/sammlungen.schema.json": "e82a0bc89746116a87d9f2181bd1ae337d9316b22f443c13d76ceff022202abf",
+      ".objekte/collections/sekundaerliteratur.schema.json": "5eb71c111fbe34918503079663ff1f2e557a924a8c6a484d1237cc3dd5ad38bd",
+      ".objekte/collections/selbststaendige_drucke.schema.json": "937236f608d2cc297e38b30acf7381fb89a55baa94b6ce0a8eb6d8f8d0beb2a5",
+      ".objekte/collections/theaterauffuehrungen.schema.json": "d05799438175da2281eb8a8a7241174a10e83b209e89862bccab4022fe6fa199",
+      ".objekte/collections/uebersetzungen.schema.json": "680f3f56a141ead19360cd6031717d2e5f0bdbd8dd936ae4aac51970c5dd7691",
+      ".objekte/collections/unselbstaendige_drucke.schema.json": "039ee6af450f5c23f59c3af46a3ab3b53837cf82d88c686bea175659e4fe47e6"
+    },
+    "record_bytes": 1414780,
+    "record_count": 3263,
+    "source_content_and_stat_sha256": "fa54d8f72467c107dfeccd890d31f9c83b0302193b581e76571b01b8a99b76d7",
+    "source_manifest_sha256": null
+  },
+  "musenalm": {
+    "configuration_sha256": {
+      ".objekte/collections/agents.schema.json": "5594c790390ee33c2c598cf8d8f31eae2fa6e897bfee209090206633c775508d",
+      ".objekte/collections/contents.schema.json": "3e8c14e7c5003db770b823c8aa501070baeb1f0214503fd115fbeeb934ad6546",
+      ".objekte/collections/entries.schema.json": "2dc000f5b0be7e4a7ffc404cef824b6d26e239e7e85f687de56bf20ac297f661",
+      ".objekte/collections/items.schema.json": "192c34ded283bb5b3db8191d8f67006ceff0ff0c694ee8500c5e998a43eaff12",
+      ".objekte/collections/pages.schema.json": "020115642efb65c6240d6e774279a19e300ab999e783187e9bac3f670c9571c7",
+      ".objekte/collections/places.schema.json": "60dc2d936fba1802e26e34a43c0e7e1968b96313fd143f9c26a629a7a9c1d961",
+      ".objekte/collections/series.schema.json": "00e7cb3f0af9baa84848a054442e084fed6075cb48a2bfddb12d2788b161c35c",
+      ".objekte/views/contents_list.view.json": "a6f98f1bd5e6dc788d396f638f53001b5c92bb340f7abe3a976693c73664b769"
+    },
+    "record_bytes": 193297230,
+    "record_count": 148486,
+    "source_content_and_stat_sha256": "90e36ad63dcb6386e9521c583fdcd36451fd3d6182187dced542fb8292f730ce",
+    "source_manifest_sha256": null
+  },
+  "nyc311": {
+    "configuration_sha256": {},
+    "record_bytes": 1173545212,
+    "record_count": 1000000,
+    "source_content_and_stat_sha256": "a97dbc7b03a835f9a6317373e7005279d4d888a06bd781777c8741eeecad6875",
+    "source_manifest_sha256": "05b2e44c7c3d409adf6d5a68ebb2ceb59f5499e8eec2c5f28e99e4baa6d83626"
+  }
+}
