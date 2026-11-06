@@ -533,10 +533,17 @@ fn scan_file(
                 .source
                 .reader()
                 .parse_for_query(&bytes, record_projection)?;
-            collection.definition.schema.coerce_projected_record(
-                &mut extracted.value,
-                record_projection.top_level.as_ref(),
-            )?;
+            if query.options.return_mode == ReturnMode::Logical && may_reach_page {
+                collection.definition.schema.coerce_projected_record(
+                    &mut extracted.value,
+                    record_projection.top_level.as_ref(),
+                )?;
+            } else {
+                collection.definition.schema.coerce_query_record(
+                    &mut extracted.value,
+                    record_projection.top_level.as_ref(),
+                )?;
+            }
             if projection.collect_text && collection.definition.schema.has_temporal_fields() {
                 extracted.text = text_segments(&extracted.value);
             }
@@ -1697,7 +1704,13 @@ fn search_impl(
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
-        for chunk in files.chunks(repo.options.query_workers.min(64).max(1)) {
+        let chunk_size =
+            if query.options.return_mode == ReturnMode::Locator || query.options.limit == 0 {
+                256
+            } else {
+                repo.options.query_workers.min(64).max(1)
+            };
+        for chunk in files.chunks(chunk_size) {
             let payload_cutoff = if query.options.return_mode != ReturnMode::Locator
                 && query.options.limit > 0
                 && winners.len() == cap

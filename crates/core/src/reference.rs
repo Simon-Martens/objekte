@@ -105,6 +105,7 @@ pub struct Schema {
     pub(crate) raw: Option<RegisteredBinding>,
     temporal_fields: bool,
     validation: ValidationNode,
+    temporal_validation: ValidationNode,
 }
 
 
@@ -132,6 +133,24 @@ impl Schema {
         validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
     }
 
+    /// Query records already passed the declared-type contract during build.
+    /// Only temporal values need conversion again after a source read.
+    pub(crate) fn coerce_query_record(
+        &self,
+        value: &mut Value,
+        selected_top_level: Option<&HashSet<String>>,
+    ) -> Result<(), String> {
+        if !self.temporal_fields {
+            return Ok(());
+        }
+        validate_children(
+            value,
+            &self.temporal_validation,
+            &mut Vec::new(),
+            selected_top_level,
+        )
+    }
+
     pub fn has_temporal_fields(&self) -> bool {
         self.temporal_fields
     }
@@ -149,6 +168,13 @@ impl Schema {
             node = node.children.entry(part.clone()).or_default();
         }
         node.field = Some(field.clone());
+        if temporal_kind(&field.kind) {
+            let mut temporal = &mut self.temporal_validation;
+            for part in &field.path {
+                temporal = temporal.children.entry(part.clone()).or_default();
+            }
+            temporal.field = Some(field.clone());
+        }
         self.fields.insert(field.path.clone(), field);
         Ok(())
     }

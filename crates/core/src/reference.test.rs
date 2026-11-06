@@ -332,6 +332,19 @@ fn declared_types_required_fields_and_array_nullability_are_enforced() {
         .coerce_projected_record(&mut projected, Some(&HashSet::from(["count".into()])))
         .unwrap();
     assert!(schema.coerce_record(&mut projected).is_err());
+    let mut query_record = Value::from_json(serde_json::json!({
+        "days": ["2026-01-01", null], "tags": ["a"]
+    }))
+    .unwrap();
+    schema
+        .coerce_query_record(&mut query_record, Some(&HashSet::from(["days".into()])))
+        .unwrap();
+    let Value::Object(query_fields) = query_record else {
+        panic!("object");
+    };
+    assert!(
+        matches!(query_fields["days"], Value::Array(ref array) if matches!(array.values[0], Value::Date(_)))
+    );
 }
 
 #[test]
