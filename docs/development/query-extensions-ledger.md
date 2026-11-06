@@ -31,9 +31,9 @@
 | TASK-02 typed operands, paths, inline sort | integrated | merge `1b71b2cba9`, reviewed code `a770ed9140` | query worker |
 | TASK-04 regex FTS | integrated | merge `264fc22f20`, reviewed code `d4445fa545` | full-text worker |
 | TASK-05 ID and relation indexes | integrated | merge `7f6791750c`, reviewed code `a42840c07a` | relation-index worker |
-| TASK-03 temporal/size | ready | G2 checkpoint `533f9ad95d` | later worker |
-| TASK-06 relation traversal | ready | G2 checkpoint `533f9ad95d` | later worker |
-| TASK-08 relation inspection | ready | G2 checkpoint `533f9ad95d` | later worker |
+| TASK-03 temporal/size | in progress | `feature/temporal-query-operands`, G2 branch base `6e9b1b83d2` | temporal worker |
+| TASK-06 relation traversal | in progress | `feature/relation-traversal`, G2 branch base `6e9b1b83d2` | relation-query worker |
+| TASK-08 relation inspection | in progress | `feature/relation-inspection`, G2 branch base `6e9b1b83d2` | inspection worker |
 | TASK-07 semijoin planner | blocked by TASK-06 integration | — | later worker |
 | TASK-09 cross-feature verification | blocked by integration | — | coordinator |
 | TASK-10 final measurements | blocked by TASK-09 | — | coordinator |
