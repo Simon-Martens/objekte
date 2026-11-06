@@ -1,8 +1,10 @@
 //! Source framing is format-specific; indexing consumes one extracted record at a time.
 
+use std::collections::HashSet;
 use std::io::{Read, Seek, SeekFrom};
 use std::path::Path;
 
+use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, Visitor};
 use serde::{Deserialize, Serialize};
 
 use crate::inventory::{ByteRange, SourceRevision};
@@ -27,24 +29,101 @@ pub struct ExtractedRecord {
     pub text: Vec<TextSegment>,
 }
 
+/// Fields required to verify a query against one source record. `None` keeps
+/// the complete record; otherwise unrelated top-level members are skipped by
+/// the source reader while JSON syntax is still checked.
+#[derive(Clone, Debug)]
+pub struct ScanProjection {
+    pub top_level: Option<HashSet<String>>,
+    pub collect_text: bool,
+}
+
+impl ScanProjection {
+    pub fn full(collect_text: bool) -> Self {
+        Self {
+            top_level: None,
+            collect_text,
+        }
+    }
+}
+
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
+    fn parse_for_query(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        let _ = projection;
+        self.parse(bytes)
+    }
 }
 
 pub struct JsonReader;
 pub struct JsonLinesReader;
 
-fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
-    let json: serde_json::Value = serde_json::from_slice(bytes).map_err(|e| e.to_string())?;
+struct SelectedObject<'a>(&'a HashSet<String>);
+
+impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
+    type Value = serde_json::Map<String, serde_json::Value>;
+
+    fn deserialize<D: serde::Deserializer<'de>>(
+        self,
+        deserializer: D,
+    ) -> Result<Self::Value, D::Error> {
+        struct SelectedVisitor<'a>(&'a HashSet<String>);
+        impl<'de> Visitor<'de> for SelectedVisitor<'_> {
+            type Value = serde_json::Map<String, serde_json::Value>;
+
+            fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+                formatter.write_str("a JSON object")
+            }
+
+            fn visit_map<M: MapAccess<'de>>(self, mut map: M) -> Result<Self::Value, M::Error> {
+                let mut selected = serde_json::Map::new();
+                while let Some(key) = map.next_key::<String>()? {
+                    if self.0.contains(&key) {
+                        selected.insert(key, map.next_value()?);
+                    } else {
+                        map.next_value::<IgnoredAny>()?;
+                    }
+                }
+                Ok(selected)
+            }
+        }
+        deserializer.deserialize_map(SelectedVisitor(self.0))
+    }
+}
+
+fn parse_json_for_query(
+    bytes: &[u8],
+    projection: &ScanProjection,
+) -> Result<ExtractedRecord, String> {
+    let json = if let Some(fields) = &projection.top_level {
+        let mut deserializer = serde_json::Deserializer::from_slice(bytes);
+        let selected = SelectedObject(fields)
+            .deserialize(&mut deserializer)
+            .map_err(|e| e.to_string())?;
+        deserializer.end().map_err(|e| e.to_string())?;
+        serde_json::Value::Object(selected)
+    } else {
+        serde_json::from_slice(bytes).map_err(|e| e.to_string())?
+    };
     let value = Value::from_json(json)?;
     if !matches!(value, Value::Object(_)) {
         return Err("record root must be an object".into());
     }
     let mut text = Vec::new();
-    collect_strings(&value, &mut Vec::new(), &mut text);
+    if projection.collect_text {
+        collect_strings(&value, &mut Vec::new(), &mut text);
+    }
     Ok(ExtractedRecord { value, text })
+}
+
+fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
+    parse_json_for_query(bytes, &ScanProjection::full(true))
 }
 
 fn collect_strings(value: &Value, path: &mut Vec<String>, output: &mut Vec<TextSegment>) {
@@ -92,6 +171,13 @@ impl SourceReader for JsonReader {
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
         parse_json(bytes)
     }
+    fn parse_for_query(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        parse_json_for_query(bytes, projection)
+    }
 }
 
 impl SourceReader for JsonLinesReader {
@@ -124,6 +210,13 @@ impl SourceReader for JsonLinesReader {
     }
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
         parse_json(bytes)
+    }
+    fn parse_for_query(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        parse_json_for_query(bytes, projection)
     }
 }
 
@@ -194,22 +287,28 @@ fn check_revision(
     Ok(())
 }
 
-/// Read only a stored range and reject changed source metadata both before
-/// and after access, so old ranges never silently describe new bytes.
+fn check_opened_revision(file: &std::fs::File, expected: SourceRevision) -> Result<(), String> {
+    let opened = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
+    if opened != expected {
+        return Err("stale source revision".into());
+    }
+    Ok(())
+}
+
+/// Read only a stored range after checking the recorded source revision.
 pub fn read_record_range(
     path: &Path,
     revision: SourceRevision,
     range: ByteRange,
 ) -> Result<Vec<u8>, String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-    check_revision(path, &file, revision)?;
+    check_opened_revision(&file, revision)?;
     ByteRange::checked(range.start, range.end, revision.size)?;
     let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
     let mut bytes = vec![0; len];
     file.seek(SeekFrom::Start(range.start))
         .map_err(|e| e.to_string())?;
     file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
-    check_revision(path, &file, revision)?;
     Ok(bytes)
 }
 
@@ -222,7 +321,18 @@ pub fn read_record_ranges(
     ranges: &[(u32, ByteRange)],
 ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-    check_revision(path, &file, revision)?;
+    check_opened_revision(&file, revision)?;
+    if let [(slot, range)] = ranges {
+        ByteRange::checked(range.start, range.end, revision.size)?;
+        let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
+        let mut bytes = vec![0; len];
+        if range.start != 0 {
+            file.seek(SeekFrom::Start(range.start))
+                .map_err(|e| e.to_string())?;
+        }
+        file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
+        return Ok((vec![(*slot, bytes)], len as u64));
+    }
     let mut ordered = ranges.to_vec();
     ordered.sort_by_key(|(_, range)| range.start);
     for (_, range) in &ordered {
@@ -258,13 +368,41 @@ pub fn read_record_ranges(
         }
         cursor = next;
     }
-    check_revision(path, &file, revision)?;
     Ok((output, bytes_read))
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
+        let bytes = br#"{"ignored":{"deep":[41,42]},"needed":{"name":"found"},"other":"hidden"}"#;
+        let projection = ScanProjection {
+            top_level: Some(HashSet::from(["needed".to_owned()])),
+            collect_text: true,
+        };
+        for format in [SourceFormat::Json, SourceFormat::JsonLines] {
+            let selected = reader(format).parse_for_query(bytes, &projection).unwrap();
+            assert_eq!(
+                selected.value,
+                Value::from_json(serde_json::json!({"needed":{"name":"found"}})).unwrap()
+            );
+            assert_eq!(selected.text.len(), 1);
+            assert_eq!(selected.text[0].path, ["needed", "name"]);
+            assert_eq!(selected.text[0].text, "found");
+            let full = reader(format)
+                .parse_for_query(bytes, &ScanProjection::full(false))
+                .unwrap();
+            assert!(matches!(full.value, Value::Object(ref fields) if fields.len() == 3));
+            assert!(full.text.is_empty());
+            assert!(
+                reader(format)
+                    .parse_for_query(br#"{"needed":"ok","ignored":[1,]}"#, &projection)
+                    .is_err()
+            );
+        }
+    }
 
     #[test]
     fn standalone_jsonl_ranges_preserve_bytes_and_boundaries() {
@@ -331,6 +469,10 @@ mod tests {
         assert_eq!(records[0].0, 0);
         assert_eq!(records[1].1, b"{\"x\":2}");
         assert_eq!(bytes_read, 15);
+        let (single, single_bytes) =
+            read_record_ranges(&path, revision, &[(1, ranges[1])]).unwrap();
+        assert_eq!(single, vec![(1, b"{\"x\":2}".to_vec())]);
+        assert_eq!(single_bytes, 7);
         std::fs::remove_file(path).unwrap();
     }
 

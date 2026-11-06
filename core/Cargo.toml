@@ -16,6 +16,7 @@ time = { version = "0.3", features = ["serde", "parsing", "formatting"] }
 unicode-casefold = "0.2"
 roaring = { version = "0.11", features = ["serde"] }
 rayon = "1.11"
+smallvec = "1.15"
 icu_collator = "=2.4.0"
 icu_locale_core = "=2.4.0"
 sha2 = "0.10"

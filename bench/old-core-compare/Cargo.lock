@@ -916,6 +916,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sha2",
+ "smallvec",
  "time",
  "unicode-casefold",
 ]

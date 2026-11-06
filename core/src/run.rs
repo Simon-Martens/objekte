@@ -7,6 +7,7 @@ use std::time::Instant;
 use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::Serialize;
+use smallvec::SmallVec;
 
 use crate::executor::{
     Plan, Proof, TermChoice, estimate_expr, estimate_fts_candidates, fts_candidates,
@@ -15,10 +16,10 @@ use crate::executor::{
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
-use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query};
+use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query, eval_term};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
-use crate::source::{read_record_ranges, reader, text_segments};
+use crate::source::{ScanProjection, read_record_ranges, reader, text_segments};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -71,7 +72,69 @@ struct ScannedFile {
     record_parses: u64,
     scanned_records: u64,
     residual_evaluations: u64,
-    matches: Vec<ScannedMatch>,
+    matches: SmallVec<[ScannedMatch; 1]>,
+}
+
+fn scan_projection(query: &Query, filter: Option<&BoundExpr>) -> ScanProjection {
+    let collect_text = query.fts.is_some();
+    if query.fts.as_ref().is_some_and(|fts| fts.fields.is_empty()) {
+        return ScanProjection::full(true);
+    }
+    fn add_filter_fields(expr: &BoundExpr, fields: &mut HashSet<String>) {
+        match expr {
+            BoundExpr::Term(term) => {
+                if term.path.root == PathRoot::Data {
+                    if let Some(first) = term.path.segments.first() {
+                        fields.insert(first.clone());
+                    }
+                }
+            }
+            BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+                for part in parts {
+                    add_filter_fields(part, fields);
+                }
+            }
+            BoundExpr::Not(inner) => add_filter_fields(inner, fields),
+        }
+    }
+    let mut fields = HashSet::new();
+    if let Some(filter) = filter {
+        add_filter_fields(filter, &mut fields);
+    }
+    if let Some(fts) = &query.fts {
+        for field in &fts.fields {
+            if field.path.root == PathRoot::Data {
+                if let Some(first) = field.path.segments.first() {
+                    fields.insert(first.clone());
+                }
+            }
+        }
+    }
+    ScanProjection {
+        top_level: Some(fields),
+        collect_text,
+    }
+}
+
+fn eval_filter_without_evidence(expr: &BoundExpr, ctx: &RecordContext<'_>) -> Result<bool, String> {
+    Ok(match expr {
+        BoundExpr::Term(term) => eval_term(term, ctx)?,
+        BoundExpr::And(parts) => {
+            let mut result = true;
+            for part in parts {
+                result &= eval_filter_without_evidence(part, ctx)?;
+            }
+            result
+        }
+        BoundExpr::Or(parts) => {
+            let mut result = false;
+            for part in parts {
+                result |= eval_filter_without_evidence(part, ctx)?;
+            }
+            result
+        }
+        BoundExpr::Not(inner) => !eval_filter_without_evidence(inner, ctx)?,
+    })
 }
 
 fn scan_file(
@@ -79,6 +142,8 @@ fn scan_file(
     query: &Query,
     collection_index: usize,
     filter: Option<&BoundExpr>,
+    projection: &ScanProjection,
+    retain_all_evidence: bool,
     payload_cutoff: Option<&RankKey>,
     file_id: u32,
     ranges: &[(u32, ByteRange)],
@@ -90,6 +155,7 @@ fn scan_file(
         .ok_or("missing source path")?;
     let revision = repo.files.files[file_id as usize].revision;
     let mut outcome = ScannedFile::default();
+    let full_projection = ScanProjection::full(projection.collect_text);
     for batch in ranges.chunks(128) {
         let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
         outcome.files_opened += 1;
@@ -97,12 +163,27 @@ fn scan_file(
         for (slot, bytes) in records {
             let record = &collection.generation.records[slot as usize];
             let file = &repo.files.files[file_id as usize];
-            let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+            let may_reach_page = query.options.limit > 0
+                && payload_cutoff.is_none_or(|worst| {
+                    if query.options.sort.is_empty() {
+                        (&collection.definition.name, &record.id.0) < (&worst.collection, &worst.id)
+                    } else {
+                        rank_key(repo, query, collection_index, record) < *worst
+                    }
+                });
+            let record_projection =
+                if query.options.return_mode == ReturnMode::Logical && may_reach_page {
+                    &full_projection
+                } else {
+                    projection
+                };
+            let mut extracted =
+                reader(collection.definition.format).parse_for_query(&bytes, record_projection)?;
             collection
                 .definition
                 .schema
                 .coerce_record(&mut extracted.value)?;
-            if collection.definition.schema.has_temporal_fields() {
+            if projection.collect_text && collection.definition.schema.has_temporal_fields() {
                 extracted.text = text_segments(&extracted.value);
             }
             outcome.record_parses += 1;
@@ -130,21 +211,17 @@ fn scan_file(
                 .transpose()?
                 .unwrap_or(true);
             let filter_match = filter
-                .map(|f| eval_filter(f, &ctx, &mut evidence))
+                .map(|f| {
+                    if query.options.evidence && (retain_all_evidence || may_reach_page) {
+                        eval_filter(f, &ctx, &mut evidence)
+                    } else {
+                        eval_filter_without_evidence(f, &ctx)
+                    }
+                })
                 .transpose()?
                 .unwrap_or(true);
             outcome.residual_evaluations += u64::from(filter.is_some());
             if fts_match && filter_match {
-                let may_reach_page = query.options.return_mode != ReturnMode::Locator
-                    && query.options.limit > 0
-                    && payload_cutoff.is_none_or(|worst| {
-                        if query.options.sort.is_empty() {
-                            (&collection.definition.name, &record.id.0)
-                                < (&worst.collection, &worst.id)
-                        } else {
-                            rank_key(repo, query, collection_index, record) < *worst
-                        }
-                    });
                 let payload = match (&query.options.return_mode, may_reach_page) {
                     (_, false) | (ReturnMode::Locator, _) => None,
                     (ReturnMode::Bytes, true) => Some(Payload::Bytes(bytes)),
@@ -716,6 +793,8 @@ fn search_impl(
                 .push((slot, record.range));
         }
         let files: Vec<_> = files.into_iter().collect();
+        let projection = scan_projection(query, filter.as_ref());
+        let retain_all_evidence = cache_members.is_some();
         let parallel = repo.options.query_workers > 1 && files.len() >= 128;
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
@@ -738,6 +817,8 @@ fn search_impl(
                                 query,
                                 collection_index,
                                 filter.as_ref(),
+                                &projection,
+                                retain_all_evidence,
                                 payload_cutoff.as_ref(),
                                 *file_id,
                                 ranges,
@@ -754,6 +835,8 @@ fn search_impl(
                             query,
                             collection_index,
                             filter.as_ref(),
+                            &projection,
+                            retain_all_evidence,
                             payload_cutoff.as_ref(),
                             *file_id,
                             ranges,
@@ -875,12 +958,13 @@ mod tests {
         let root =
             std::env::temp_dir().join(format!("objekte-parallel-scan-{}", std::process::id()));
         std::fs::create_dir_all(root.join("data")).unwrap();
-        for index in 0..256 {
+        for index in 0..512 {
             std::fs::write(
                 root.join("data").join(format!("{index:04}.json")),
                 format!(
-                    "{{\"kind\":\"{}\",\"sequence\":{index}}}",
-                    if index % 2 == 0 { "yes" } else { "no" }
+                    "{{\"kind\":\"{}\",\"sequence\":{},\"decoration\":\"complete\"}}",
+                    if index % 2 == 0 { "yes" } else { "no" },
+                    index % 300
                 ),
             )
             .unwrap();
@@ -918,7 +1002,9 @@ mod tests {
         let query = Query {
             collections: vec!["data".into()],
             fts: None,
-            filter: Some(parse_filter("kind != 'missing'").unwrap()),
+            filter: Some(
+                parse_filter("(kind = 'yes' || kind = 'no') && !(kind = 'missing')").unwrap(),
+            ),
             options: QueryOptions {
                 sort: vec![],
                 limit: 50,
@@ -949,13 +1035,42 @@ mod tests {
         for query in [&query, &sorted] {
             let single = run(1, query);
             let parallel = run(8, query);
-            assert_eq!(single.count, 256);
+            let mut without_evidence = query.clone();
+            without_evidence.options.evidence = false;
+            let plain = run(8, &without_evidence);
+            assert_eq!(single.count, 512);
             assert_eq!(single.hits, parallel.hits);
+            assert_eq!(single.count, plain.count);
+            assert_eq!(
+                single
+                    .hits
+                    .iter()
+                    .map(|hit| &hit.record_id)
+                    .collect::<Vec<_>>(),
+                plain
+                    .hits
+                    .iter()
+                    .map(|hit| &hit.record_id)
+                    .collect::<Vec<_>>()
+            );
+            assert!(plain.hits.iter().all(|hit| hit.matched_fields.is_empty()));
+            assert!(single.hits.iter().all(|hit| matches!(
+                &hit.payload,
+                Some(Payload::Logical(Value::Object(fields))) if fields.iter().any(|(name, _)| name == "decoration")
+            )));
+            if !query.options.sort.is_empty() {
+                assert!(
+                    single
+                        .hits
+                        .iter()
+                        .any(|hit| hit.record_id.as_str() >= "0256")
+                );
+            }
             for result in [&single, &parallel] {
-                assert_eq!(result.counters.files_opened, 256);
-                assert_eq!(result.counters.record_parses, 256);
-                assert_eq!(result.counters.scanned_records, 256);
-                assert_eq!(result.counters.total_matches, 256);
+                assert_eq!(result.counters.files_opened, 512);
+                assert_eq!(result.counters.record_parses, 512);
+                assert_eq!(result.counters.scanned_records, 512);
+                assert_eq!(result.counters.total_matches, 512);
             }
         }
         std::fs::remove_dir_all(root).unwrap();
