@@ -793,6 +793,7 @@ impl CollectionAdmission<'_> {
         let base = self.builder.next_slot()?.0;
         let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
+        let mut records = batch.records.into_iter();
         for batch_file in batch.files {
             let file_id = batch_file.entry.id;
             let path = self.inventory.root.join(&batch_file.entry.relative_path);
@@ -816,13 +817,17 @@ impl CollectionAdmission<'_> {
             file.omitted_diagnostics = file
                 .omitted_diagnostics
                 .saturating_add(batch_file.entry.omitted_diagnostics);
-            for local in &batch.records[batch_file.records] {
+            for expected_slot in batch_file.records {
+                let local = records.next().ok_or("batch record range out of bounds")?;
+                if local.slot.0 as usize != expected_slot {
+                    return Err("batch record order mismatch".into());
+                }
                 if local.file != file_id {
                     return Err("batch record file ownership mismatch".into());
                 }
                 let actual = if local.class == RecordClass::Logical {
                     self.builder
-                        .add_record(file, local.id.clone(), local.range.start, local.range.end)
+                        .add_record(file, local.id, local.range.start, local.range.end)
                         .map_err(|error| {
                             format!(
                                 "{}:{}..{}: {error}",
@@ -839,12 +844,15 @@ impl CollectionAdmission<'_> {
                         None => DiagnosticRef(u32::MAX),
                     };
                     self.builder
-                        .add_raw_fallback(file, local.id.clone(), local.range, reference)?
+                        .add_raw_fallback(file, local.id, local.range, reference)?
                 };
                 if actual.0 != base + local.slot.0 {
                     return Err("batch record slot mapping mismatch".into());
                 }
             }
+        }
+        if records.next().is_some() {
+            return Err("unadmitted batch records".into());
         }
         if self.builder.next_slot()?.0 != base + count {
             return Err("incomplete batch record admission".into());
