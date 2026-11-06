@@ -1,5 +1,42 @@
 use super::*;
 
+#[test]
+fn base_zero_merge_moves_grams_and_later_batches_shift_slots() {
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut first = BigramIndex::new(alphabet);
+        first
+            .add_record(
+                RecordSlot(0),
+                &[TextSegment {
+                    path: vec![],
+                    text: "Straße".into(),
+                }],
+            )
+            .unwrap();
+        for slot in 1..65 {
+            first.add_empty(RecordSlot(slot)).unwrap();
+        }
+        let key = *first.normal.keys().next().unwrap();
+        let original = first.normal.get(&key).unwrap() as *const RoaringBitmap;
+        let mut merged = BigramIndex::new(alphabet);
+        merged.merge_shifted(first, 0).unwrap();
+        assert_eq!(merged.normal.get(&key).unwrap() as *const _, original);
+        let mut later = BigramIndex::new(alphabet);
+        later
+            .add_record(
+                RecordSlot(0),
+                &[TextSegment {
+                    path: vec![],
+                    text: "Müller".into(),
+                }],
+            )
+            .unwrap();
+        merged.merge_shifted(later, 65).unwrap();
+        assert!(merged.candidates("Müller").unwrap().contains(65));
+        assert_eq!(merged.record_count, 66);
+    }
+}
+
 fn independent_index(records: &[Vec<String>], alphabet: BigramAlphabet, base: u32) -> BigramIndex {
     let mut index = BigramIndex::new(alphabet);
     index.record_count = base + records.len() as u32;

@@ -1,6 +1,57 @@
 use super::*;
 
 #[test]
+fn base_zero_merge_moves_postings_and_later_unique_keys_shift() {
+    let field = FieldDefinition {
+        path: vec!["tags".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::String)),
+        required: false,
+        nullable: true,
+        indexed: true,
+        multi: true,
+        element_nullable: vec![],
+    };
+    let mut first = PostingIndex::new(&field);
+    first
+        .add(
+            RecordSlot(0),
+            &Value::from_json(serde_json::json!({"tags":["a","a"]})).unwrap(),
+        )
+        .unwrap();
+    let key = ScalarKey::String("a".into());
+    let original = first.values.get(&key).unwrap() as *const RoaringBitmap;
+    let mut merged = PostingIndex::new(&field);
+    merged.merge_shifted(first, 0).unwrap();
+    assert_eq!(merged.values.get(&key).unwrap() as *const _, original);
+    assert_eq!(
+        merged.lengths[&Number::integer(2)]
+            .iter()
+            .collect::<Vec<_>>(),
+        [0]
+    );
+    let mut later = PostingIndex::new(&field);
+    later
+        .add(
+            RecordSlot(0),
+            &Value::from_json(serde_json::json!({"tags":["b"]})).unwrap(),
+        )
+        .unwrap();
+    merged.merge_shifted(later, 65).unwrap();
+    assert_eq!(
+        merged.values[&ScalarKey::String("b".into())]
+            .iter()
+            .collect::<Vec<_>>(),
+        [65]
+    );
+    assert_eq!(
+        merged.lengths[&Number::integer(1)]
+            .iter()
+            .collect::<Vec<_>>(),
+        [65]
+    );
+}
+
+#[test]
 fn presence_null_array_dedup_and_cardinality() {
     let field = FieldDefinition {
         path: vec!["values".into()],

@@ -155,7 +155,11 @@ impl SortBuilder {
             if column.keys.len() != base as usize || values.len() != batch_count as usize {
                 return Err("sort batch key coverage mismatch".into());
             }
-            column.keys.append(&mut values);
+            if base == 0 && column.keys.is_empty() {
+                column.keys = values;
+            } else {
+                column.keys.append(&mut values);
+            }
         }
         Ok(())
     }

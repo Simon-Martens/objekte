@@ -1,6 +1,46 @@
 use super::*;
 
 #[test]
+fn first_sort_batch_adopts_key_vector_then_appends() {
+    use crate::reference::{FieldDefinition, Schema};
+
+    let path = FieldPath::parse("title").unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let mut builder = SortBuilder::new(
+        &[path.clone()],
+        &schema,
+        "de",
+        Default::default(),
+        &HashMap::new(),
+    )
+    .unwrap();
+    let first = vec![SortKey::Missing];
+    let original = first.as_ptr();
+    builder
+        .append_keys(HashMap::from([(path.clone(), first)]), 0, 1)
+        .unwrap();
+    assert_eq!(builder.columns[&path].keys.as_ptr(), original);
+    builder
+        .append_keys(HashMap::from([(path.clone(), vec![SortKey::Null])]), 1, 1)
+        .unwrap();
+    assert_eq!(
+        builder.columns[&path].keys,
+        [SortKey::Missing, SortKey::Null]
+    );
+}
+
+#[test]
 fn stable_icu_keys_and_fixed_null_placement() {
     let locale: Locale = "de".parse().unwrap();
     let collator = CollatorBorrowed::try_new(locale.into(), CollatorOptions::default()).unwrap();
