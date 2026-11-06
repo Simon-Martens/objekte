@@ -273,6 +273,178 @@ fn unicode_pair(a: char, b: char) -> u64 {
     ((a as u64) << 21) | b as u64
 }
 
+/// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
+/// domain; Unicode keeps only keys touched by the current chunk.
+enum GramWords {
+    Ascii { words: Vec<u64>, touched: Vec<usize> },
+    Unicode(HashMap<u64, u64>),
+}
+
+impl GramWords {
+    fn new(alphabet: BigramAlphabet) -> Self {
+        match alphabet {
+            BigramAlphabet::Ascii => Self::Ascii {
+                words: Vec::new(),
+                touched: Vec::new(),
+            },
+            BigramAlphabet::Unicode => Self::Unicode(HashMap::new()),
+        }
+    }
+
+    fn set(&mut self, key: u64, bit: u64) {
+        match self {
+            Self::Ascii { words, touched } => {
+                if words.is_empty() {
+                    words.resize(95 * 95, 0);
+                }
+                let left = ((key >> 8) as u8 - 32) as usize;
+                let right = (key as u8 - 32) as usize;
+                let index = left * 95 + right;
+                if words[index] == 0 {
+                    touched.push(index);
+                }
+                words[index] |= bit;
+            }
+            Self::Unicode(words) => {
+                *words.entry(key).or_default() |= bit;
+            }
+        }
+    }
+
+    fn drain(&mut self, mut emit: impl FnMut(u64, u64)) {
+        match self {
+            Self::Ascii { words, touched } => {
+                for index in touched.drain(..) {
+                    let left = (index / 95 + 32) as u64;
+                    let right = (index % 95 + 32) as u64;
+                    emit((left << 8) | right, std::mem::take(&mut words[index]));
+                }
+            }
+            Self::Unicode(words) => {
+                for (key, word) in words.drain() {
+                    emit(key, word);
+                }
+                // Exceptional long/random text must not pin a large worker
+                // scratch table for the rest of the repository build.
+                if words.capacity() > 16_384 {
+                    words.shrink_to(4_096);
+                }
+            }
+        }
+    }
+}
+
+/// Construction-only state; completed indexes retain the existing format.
+/// The builder can start at any final slot and publishes each touched gram
+/// once per chunk, with record bits mapped to final slots at publication.
+pub(crate) struct BigramBuilder {
+    index: BigramIndex,
+    normal: GramWords,
+    skip: GramWords,
+    chunk_start: u32,
+    chunk_len: u32,
+}
+
+impl BigramBuilder {
+    pub fn new(alphabet: BigramAlphabet) -> Self {
+        Self::new_at(alphabet, 0)
+    }
+
+    pub fn new_at(alphabet: BigramAlphabet, first_slot: u32) -> Self {
+        let mut index = BigramIndex::new(alphabet);
+        index.record_count = first_slot;
+        Self {
+            index,
+            normal: GramWords::new(alphabet),
+            skip: GramWords::new(alphabet),
+            chunk_start: 0,
+            chunk_len: 0,
+        }
+    }
+
+    fn begin_slot(&mut self, slot: RecordSlot) -> Result<u64, String> {
+        if slot.0 != self.index.record_count {
+            return Err("bigram slots must be added in record order".into());
+        }
+        let next = self.index.record_count.checked_add(1).ok_or("bigram record overflow")?;
+        if self.chunk_len == 0 {
+            self.chunk_start = slot.0;
+        }
+        let bit = 1u64 << self.chunk_len;
+        self.chunk_len += 1;
+        self.index.record_count = next;
+        Ok(bit)
+    }
+
+    pub fn add_record<I, S>(&mut self, slot: RecordSlot, segments: I) -> Result<(), String>
+    where
+        I: IntoIterator<Item = S>,
+        S: AsRef<str>,
+    {
+        let bit = self.begin_slot(slot)?;
+        let alphabet = self.index.alphabet;
+        let (normal, skip) = (&mut self.normal, &mut self.skip);
+        for segment in segments {
+            for_each_gram(folded_chars(segment.as_ref()), alphabet, |is_skip, key| {
+                if is_skip {
+                    skip.set(key, bit);
+                } else {
+                    normal.set(key, bit);
+                }
+            });
+        }
+        if self.chunk_len == 64 {
+            self.flush()?;
+        }
+        Ok(())
+    }
+
+    pub fn add_empty(&mut self, slot: RecordSlot) -> Result<(), String> {
+        self.begin_slot(slot)?;
+        if self.chunk_len == 64 {
+            self.flush()?;
+        }
+        Ok(())
+    }
+
+    fn flush(&mut self) -> Result<(), String> {
+        let start = self.chunk_start;
+        let append = |columns: &mut HashMap<u64, RoaringBitmap>, key, mut word: u64| {
+            let posting = columns.entry(key).or_default();
+            while word != 0 {
+                let offset = word.trailing_zeros();
+                let slot = start.checked_add(offset).ok_or("bigram slot overflow")?;
+                posting.insert(slot);
+                word &= word - 1;
+            }
+            Ok::<(), String>(())
+        };
+        let mut error = None;
+        self.normal.drain(|key, word| {
+            if error.is_none() {
+                error = append(&mut self.index.normal, key, word).err();
+            }
+        });
+        self.skip.drain(|key, word| {
+            if error.is_none() {
+                error = append(&mut self.index.skip, key, word).err();
+            }
+        });
+        if let Some(error) = error {
+            return Err(error);
+        }
+        self.chunk_len = 0;
+        Ok(())
+    }
+
+    pub fn finish(mut self) -> Result<BigramIndex, String> {
+        if self.chunk_len != 0 {
+            self.flush()?;
+        }
+        Ok(self.index)
+    }
+}
+
 #[cfg(test)]
 #[path = "bigram.test.rs"]
 mod tests;

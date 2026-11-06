@@ -7,7 +7,7 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
-use crate::bigram::BigramIndex;
+use crate::bigram::{BigramBuilder, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inventory::{
     ByteRange, CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus,
@@ -24,7 +24,7 @@ use crate::reference::{
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
     DiagnosticCategory, PreparedSource, ReaderDiagnostic, ScanProjection, SourceFormat,
-    SourceOutcome, SourceRegistry, TextSegment, extract_file_outcomes, read_record_range,
+    SourceOutcome, SourceRegistry, extract_file_outcomes, read_record_range,
 };
 use crate::workload::{BigramAlphabet, WorkCounters};
 
@@ -55,6 +55,26 @@ fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<
         ));
     }
     operation.map_value(value)
+}
+
+fn string_values(value: &Value) -> impl Iterator<Item = &str> {
+    let single = match value {
+        Value::String(text) => Some(text.as_str()),
+        _ => None,
+    };
+    let array = match value {
+        Value::Array(array) => Some(array),
+        _ => None,
+    };
+    single.into_iter().chain(
+        array
+            .into_iter()
+            .flat_map(|array| array.values.iter())
+            .filter_map(|value| match value {
+                Value::String(text) => Some(text.as_str()),
+                _ => None,
+            }),
+    )
 }
 
 
@@ -165,9 +185,9 @@ fn publish_fallback(
     file_id: FileId,
     files: &mut FileInventory,
     builder: &mut CollectionBuilder,
-    raw: &mut BigramIndex,
-    fallback_text: &mut BigramIndex,
-    custom_text: &mut HashMap<(Vec<String>, String), BigramIndex>,
+    raw: &mut BigramBuilder,
+    fallback_text: &mut BigramBuilder,
+    custom_text: &mut HashMap<(Vec<String>, String), BigramBuilder>,
     sort_builder: &mut SortBuilder,
     range: ByteRange,
     bytes: &[u8],
@@ -204,13 +224,7 @@ fn publish_fallback(
     // logical values or count as covered logical records in postings.
     raw.add_empty(slot)?;
     let text = String::from_utf8_lossy(bytes);
-    fallback_text.add_record(
-        slot,
-        &[TextSegment {
-            path: vec!["@record".into(), "raw_text".into()],
-            text: text.into_owned(),
-        }],
-    )?;
+    fallback_text.add_record(slot, std::iter::once(text.as_ref()))?;
     for index in custom_text.values_mut() {
         index.add_empty(slot)?;
     }
@@ -570,8 +584,8 @@ impl Repository {
                     )
                 })
                 .collect();
-            let mut raw = BigramIndex::new(options.bigram_alphabet);
-            let mut fallback_text = BigramIndex::new(options.bigram_alphabet);
+            let mut raw = BigramBuilder::new(options.bigram_alphabet);
+            let mut fallback_text = BigramBuilder::new(options.bigram_alphabet);
             let mut logical_records = RoaringBitmap::new();
             let mut sort_builder = SortBuilder::new(
                 &definition.sort_fields,
@@ -597,7 +611,7 @@ impl Repository {
                 .map(|key| {
                     (
                         canonical_custom_text_key(&definition.schema, &key.0, &key.1),
-                        BigramIndex::new(options.bigram_alphabet),
+                        BigramBuilder::new(options.bigram_alphabet),
                     )
                 })
                 .collect();
@@ -732,21 +746,17 @@ impl Repository {
                             .map(|values| values.iter().collect::<Vec<_>>());
                         custom.index.add_values(slot, refs.as_deref())?;
                     }
-                    let raw_text;
-                    let indexed_text = if let Some(binding) = &definition.schema.raw {
-                        raw_text = extracted
-                            .text
-                            .iter()
-                            .map(|segment| TextSegment {
-                                path: segment.path.clone(),
-                                text: binding.operation.map_text(&segment.text),
-                            })
-                            .collect::<Vec<_>>();
-                        &raw_text
+                    if let Some(binding) = &definition.schema.raw {
+                        raw.add_record(
+                            slot,
+                            extracted
+                                .text
+                                .iter()
+                                .map(|segment| binding.operation.map_text(&segment.text)),
+                        )?;
                     } else {
-                        &extracted.text
-                    };
-                    raw.add_record(slot, indexed_text)?;
+                        raw.add_record(slot, extracted.text.iter().map(|segment| segment.text.as_str()))?;
+                    }
                     fallback_text.add_empty(slot)?;
                     logical_records.insert(slot.0);
                     sort_builder.add(
@@ -758,33 +768,18 @@ impl Repository {
                         &definition.name,
                     )?;
                     for (key, index) in &mut custom_text {
-                        let mut segments = Vec::new();
-                        if let Some(values) = data_values(&extracted.value, &key.0) {
-                            for value in values {
-                                let values: Vec<_> =
-                                    if let crate::model::Value::Array(array) = value {
-                                        array.values.iter().collect()
-                                    } else {
-                                        vec![value]
-                                    };
-                                for value in values {
-                                    if let crate::model::Value::String(text) = value {
-                                        let text = if let Some(binding) =
-                                            definition.schema.operations.get(key)
-                                        {
-                                            binding.operation.map_text(text)
-                                        } else {
-                                            text.clone()
-                                        };
-                                        segments.push(TextSegment {
-                                            path: key.0.clone(),
-                                            text,
-                                        });
-                                    }
-                                }
-                            }
+                        let values = data_values(&extracted.value, &key.0).unwrap_or_default();
+                        if let Some(binding) = definition.schema.operations.get(key) {
+                            index.add_record(
+                                slot,
+                                values
+                                    .into_iter()
+                                    .flat_map(string_values)
+                                    .map(|text| binding.operation.map_text(text)),
+                            )?;
+                        } else {
+                            index.add_record(slot, values.into_iter().flat_map(string_values))?;
                         }
-                        index.add_record(slot, &segments)?;
                     }
                     Ok(())
                 };
@@ -794,6 +789,12 @@ impl Repository {
             }
             extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
             let finalization_started = Instant::now();
+            let raw = raw.finish()?;
+            let fallback_text = fallback_text.finish()?;
+            let custom_text = custom_text
+                .into_iter()
+                .map(|(key, builder)| builder.finish().map(|index| (key, index)))
+                .collect::<Result<HashMap<_, _>, _>>()?;
             let generation = builder.finish(&files)?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
