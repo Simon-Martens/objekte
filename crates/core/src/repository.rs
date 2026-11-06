@@ -948,8 +948,10 @@ impl Repository {
                     if let Some(fts) = &fts {
                         if fts.fields.is_empty() {
                             counters.raw_text_verifications += 1;
-                            let matched =
-                                String::from_utf8_lossy(&bytes).contains(&fts.source_literal);
+                            let matched = crate::reference::raw_fallback_contains(
+                                fts,
+                                &String::from_utf8_lossy(&bytes),
+                            );
                             if matched {
                                 evidence.insert("@record.raw_text".into());
                             }

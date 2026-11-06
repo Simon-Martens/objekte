@@ -9,7 +9,9 @@ use unicode_casefold::UnicodeCaseFold;
 
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
-use crate::query::{FilterExpr, FtsQuery, Literal, Modifier, Operator, Quantifier, Term};
+use crate::query::{
+    CaseSensitivity, FilterExpr, FtsQuery, Literal, Modifier, Operator, Quantifier, Term,
+};
 use crate::source::TextSegment;
 
 
@@ -563,12 +565,20 @@ impl PreparedFilterMatcher for MappedFilterMatcher {
 struct MappedTextMatcher {
     operation: Arc<dyn BindingOperation>,
     literal: String,
+    case_sensitivity: CaseSensitivity,
 }
 
 
 impl PreparedTextMatcher for MappedTextMatcher {
     fn matches(&self, text: &str) -> Result<bool, String> {
-        Ok(self.operation.map_text(text).contains(&self.literal))
+        let mapped = self.operation.map_text(text);
+        Ok(match self.case_sensitivity {
+            CaseSensitivity::Sensitive => mapped.contains(&self.literal),
+            CaseSensitivity::Insensitive => mapped
+                .case_fold()
+                .collect::<String>()
+                .contains(&self.literal),
+        })
     }
 
     fn bigram_compatible(&self) -> bool {
@@ -1232,6 +1242,7 @@ pub struct BoundFtsField {
     pub path: FieldPath,
     pub binding_name: String,
     pub literal: String,
+    pub folded_literal: String,
     pub transform: Transform,
     pub operation: Option<Arc<dyn BindingOperation>>,
     pub matcher: Option<Arc<dyn PreparedTextMatcher>>,
@@ -1241,8 +1252,11 @@ pub struct BoundFtsField {
 /// Collection-specific FTS bindings, including the configured raw target.
 #[derive(Clone, Debug)]
 pub struct BoundFts {
+    pub case_sensitivity: CaseSensitivity,
     pub literal: String,
     pub source_literal: String,
+    pub folded_literal: String,
+    pub folded_source_literal: String,
     pub raw_operation: Option<Arc<dyn BindingOperation>>,
     pub raw_matcher: Option<Arc<dyn PreparedTextMatcher>>,
     pub fields: Vec<BoundFtsField>,
@@ -1269,13 +1283,21 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     let raw_matcher = raw_operation
         .as_ref()
         .map(|op| {
-            op.prepare_text_matcher(&literal).map(|prepared| {
-                prepared.unwrap_or_else(|| {
+            op.prepare_text_matcher(&literal).and_then(|prepared| {
+                if fts.case_sensitivity == CaseSensitivity::Insensitive && prepared.is_some() {
+                    return Err("custom raw FTS matcher does not support insensitive mode".into());
+                }
+                Ok(prepared.unwrap_or_else(|| {
                     Arc::new(MappedTextMatcher {
                         operation: op.clone(),
-                        literal: literal.clone(),
+                        literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
+                            literal.case_fold().collect()
+                        } else {
+                            literal.clone()
+                        },
+                        case_sensitivity: fts.case_sensitivity,
                     })
-                })
+                }))
             })
         })
         .transpose()?;
@@ -1322,19 +1344,30 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         let matcher = operation
             .as_ref()
             .map(|op| {
-                op.prepare_text_matcher(&needle).map(|prepared| {
-                    prepared.unwrap_or_else(|| {
+                op.prepare_text_matcher(&needle).and_then(|prepared| {
+                    if fts.case_sensitivity == CaseSensitivity::Insensitive && prepared.is_some() {
+                        return Err(format!(
+                            "custom FTS matcher for {name} does not support insensitive mode"
+                        ));
+                    }
+                    Ok(prepared.unwrap_or_else(|| {
                         Arc::new(MappedTextMatcher {
                             operation: op.clone(),
-                            literal: needle.clone(),
+                            literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
+                                needle.case_fold().collect()
+                            } else {
+                                needle.clone()
+                            },
+                            case_sensitivity: fts.case_sensitivity,
                         })
-                    })
+                    }))
                 })
             })
             .transpose()?;
         fields.push(BoundFtsField {
             path: selected.path.clone(),
             binding_name: name,
+            folded_literal: needle.case_fold().collect(),
             literal: needle,
             transform,
             operation,
@@ -1342,6 +1375,9 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         });
     }
     Ok(BoundFts {
+        case_sensitivity: fts.case_sensitivity,
+        folded_literal: literal.case_fold().collect(),
+        folded_source_literal: fts.literal.case_fold().collect(),
         literal,
         source_literal: fts.literal.clone(),
         raw_operation,
@@ -1353,15 +1389,32 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
 fn text_contains(
     text: &str,
     needle: &str,
+    folded_needle: &str,
     transform: Transform,
     matcher: Option<&Arc<dyn PreparedTextMatcher>>,
+    case_sensitivity: CaseSensitivity,
 ) -> Result<bool, String> {
     if let Some(matcher) = matcher {
         matcher.matches(text)
-    } else if transform == Transform::CaseFold {
+    } else if transform == Transform::CaseFold || case_sensitivity == CaseSensitivity::Insensitive {
+        let needle = if case_sensitivity == CaseSensitivity::Insensitive {
+            folded_needle
+        } else {
+            needle
+        };
         Ok(text.case_fold().collect::<String>().contains(needle))
     } else {
         Ok(text.contains(needle))
+    }
+}
+
+pub fn raw_fallback_contains(fts: &BoundFts, text: &str) -> bool {
+    match fts.case_sensitivity {
+        CaseSensitivity::Sensitive => text.contains(&fts.source_literal),
+        CaseSensitivity::Insensitive => text
+            .case_fold()
+            .collect::<String>()
+            .contains(&fts.folded_source_literal),
     }
 }
 
@@ -1377,8 +1430,10 @@ pub fn eval_bound_fts(
             if text_contains(
                 &segment.text,
                 &fts.literal,
+                &fts.folded_literal,
                 Transform::Identity,
                 fts.raw_matcher.as_ref(),
+                fts.case_sensitivity,
             )? {
                 matched = true;
                 evidence.insert(segment.path.join("."));
@@ -1392,8 +1447,10 @@ pub fn eval_bound_fts(
                 if text_contains(
                     &text,
                     &field.literal,
+                    &field.folded_literal,
                     field.transform,
                     field.matcher.as_ref(),
+                    fts.case_sensitivity,
                 )? {
                     matched = true;
                     evidence.insert(field.path.display());
@@ -1407,8 +1464,10 @@ pub fn eval_bound_fts(
                 if text_contains(
                     &segment.text,
                     &field.literal,
+                    &field.folded_literal,
                     field.transform,
                     field.matcher.as_ref(),
+                    fts.case_sensitivity,
                 )? {
                     matched = true;
                     evidence.insert(field.path.display());

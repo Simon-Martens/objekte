@@ -404,6 +404,7 @@ impl App {
                 vec![self.scope_label().to_owned()]
             },
             fts: (!search.is_empty()).then(|| FtsQuery {
+                case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
                 literal: search.to_owned(),
                 fields: Vec::new(),
             }),

@@ -87,6 +87,7 @@ fn run() -> Result<(), String> {
             .ok_or_else(|| format!("unknown case {id}"))?
     } else {
         WorkloadCase {
+            fts_case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
             id: "adhoc".into(),
             collection,
             fts,

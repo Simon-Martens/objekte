@@ -4,6 +4,23 @@ use crate::model::{FieldPath, Number};
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
 
 
+/// Exact case behavior for a full-text request. The index alphabet is separate.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
+#[serde(rename_all = "lowercase")]
+pub enum CaseSensitivity {
+    #[default]
+    Sensitive,
+    Insensitive,
+}
+
+
+impl CaseSensitivity {
+    pub fn is_sensitive(&self) -> bool {
+        *self == Self::Sensitive
+    }
+}
+
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum Literal {
     String(String),
@@ -76,6 +93,7 @@ pub struct FtsField {
 /// Full-text literal with its selected fields.
 #[derive(Clone, Debug)]
 pub struct FtsQuery {
+    pub case_sensitivity: CaseSensitivity,
     pub literal: String,
     pub fields: Vec<FtsField>,
 }
@@ -123,6 +141,7 @@ impl Query {
                     })
                     .collect::<Result<Vec<_>, String>>()?;
                 Ok::<_, String>(FtsQuery {
+                    case_sensitivity: case.fts_case_sensitivity,
                     literal: literal.clone(),
                     fields,
                 })

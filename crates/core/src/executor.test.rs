@@ -434,6 +434,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         collections: vec!["data".into()],
         filter: None,
         fts: Some(FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "alp".into(),
             fields: vec![FtsField {
                 path: crate::model::FieldPath::parse("title").unwrap(),
@@ -696,6 +697,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
                     collections: vec!["data".into()],
                     filter: filter.map(|s| parse_filter(s).unwrap()),
                     fts: filter.is_none().then(|| FtsQuery {
+                        case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                         literal: "hello world".into(),
                         fields: vec![FtsField {
                             path: crate::model::FieldPath::parse("title").unwrap(),
@@ -797,6 +799,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                 collections: vec!["data".into()],
                 filter: None,
                 fts: Some(FtsQuery {
+                    case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                     literal: literal.into(),
                     fields: vec![],
                 }),
@@ -959,6 +962,7 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
     let make_query = |filter: Option<&str>, fts: Option<(&str, Option<&str>)>| Query {
         collections: vec![],
         fts: fts.map(|(literal, selected)| FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: literal.into(),
             fields: selected
                 .map(|name| {
@@ -1349,6 +1353,7 @@ fn indexed_restriction_precedes_written_first_scan() {
     let folded = Query {
         collections: vec![],
         fts: Some(FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "NEEDLE".into(),
             fields: vec![FtsField {
                 path: crate::model::FieldPath::parse("text").unwrap(),

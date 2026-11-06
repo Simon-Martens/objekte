@@ -106,6 +106,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
         collections: vec!["data".into()],
         filter: None,
         fts: Some(FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: text.into(),
             fields: field
                 .map(|name| {
@@ -426,6 +427,7 @@ fn registered_recoverable_error_survives_repository_query_and_restore() {
         collections: vec!["data".into()],
         filter: None,
         fts: Some(FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "bad".into(),
             fields: vec![],
         }),
@@ -614,6 +616,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
             (
                 None,
                 Some(FtsQuery {
+                    case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                     literal: "hello world".into(),
                     fields: vec![FtsField {
                         path: crate::model::FieldPath::parse("title").unwrap(),
@@ -707,6 +710,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     let query = Query {
         collections: vec![],
         fts: Some(FtsQuery {
+            case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "needle".into(),
             fields: vec![],
         }),

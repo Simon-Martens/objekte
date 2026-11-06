@@ -10,6 +10,7 @@ fn precedence_quantifiers_and_separate_fts() {
     assert!(parse_filter("a =< 1").is_err());
     assert!(parse_filter("a ?=! 1").is_err());
     let case = WorkloadCase {
+        fts_case_sensitivity: crate::query::CaseSensitivity::Sensitive,
         id: "Q000".into(),
         collection: "*".into(),
         fts: Some("a && b".into()),
@@ -24,6 +25,22 @@ fn precedence_quantifiers_and_separate_fts() {
     };
     let query = Query::from_workload(&case).unwrap();
     assert_eq!(query.fts.unwrap().literal, "a && b");
+    assert!(
+        serde_json::to_value(&case)
+            .unwrap()
+            .get("fts_case_sensitivity")
+            .is_none()
+    );
+    let mut insensitive = case.clone();
+    insensitive.fts_case_sensitivity = CaseSensitivity::Insensitive;
+    assert_eq!(
+        Query::from_workload(&insensitive)
+            .unwrap()
+            .fts
+            .unwrap()
+            .case_sensitivity,
+        CaseSensitivity::Insensitive
+    );
 }
 
 #[test]

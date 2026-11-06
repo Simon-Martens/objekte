@@ -979,6 +979,9 @@ pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
+    if fts.case_sensitivity == crate::query::CaseSensitivity::Insensitive {
+        return None;
+    }
     if fts.fields.is_empty() {
         let has_fallback =
             collection.logical_records.len() != collection.generation.records.len() as u64;
@@ -1039,6 +1042,9 @@ pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
+    if fts.case_sensitivity == crate::query::CaseSensitivity::Insensitive {
+        return None;
+    }
     if fts.fields.is_empty() {
         if fts
             .raw_matcher

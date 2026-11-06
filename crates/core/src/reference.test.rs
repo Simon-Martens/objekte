@@ -45,6 +45,57 @@ fn schema() -> Schema {
 }
 
 #[test]
+fn fts_exact_modes_preserve_original_and_folded_literals() {
+    let schema = schema();
+    for (text, literal, sensitive, insensitive) in [
+        ("Der", "der", false, true),
+        ("Straße", "STRASSE", false, true),
+        ("Σ", "ς", false, true),
+        ("İ", "i", false, true),
+        ("İ", "i\u{307}", false, true),
+        ("ı", "I", false, false),
+        ("e\u{301}", "é", false, false),
+    ] {
+        for selected in [false, true] {
+            for (case_sensitivity, expected) in [
+                (CaseSensitivity::Sensitive, sensitive),
+                (CaseSensitivity::Insensitive, insensitive),
+            ] {
+                let fts = FtsQuery {
+                    case_sensitivity,
+                    literal: literal.into(),
+                    fields: selected
+                        .then(|| crate::query::FtsField {
+                            path: FieldPath::parse("name").unwrap(),
+                            binding: None,
+                        })
+                        .into_iter()
+                        .collect(),
+                };
+                let bound = bind_fts(&fts, &schema).unwrap();
+                let segments = vec![TextSegment {
+                    path: vec!["name".into()],
+                    text: text.into(),
+                }];
+                with_record(
+                    Value::from_json(serde_json::json!({"name": text})).unwrap(),
+                    |ctx| {
+                        assert_eq!(
+                            eval_bound_fts(&bound, &segments, &ctx, &mut HashSet::new()).unwrap(),
+                            expected,
+                            "{text:?} {literal:?} {case_sensitivity:?} selected={selected}"
+                        );
+                    },
+                );
+                if !selected {
+                    assert_eq!(raw_fallback_contains(&bound, text), expected);
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conversion() {
     let mut schema = Schema::default();
     schema
@@ -652,6 +703,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         let query = Query {
             collections: vec![],
             fts: Some(FtsQuery {
+                case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "hello".into(),
                 fields: vec![FtsField {
                     path: FieldPath::parse("title").unwrap(),
