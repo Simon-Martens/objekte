@@ -1,5 +1,6 @@
 //! Separate literal FTS and structured FILTER parsing.
 
+use crate::byte_size_literal::parse_size_literal;
 use crate::clock_context::ClockContext;
 use crate::model::{FieldPath, Number, Value};
 use crate::query_path::QueryPath;
@@ -651,6 +652,10 @@ impl Parser {
                         name: name.to_owned(),
                         span: (value.start, value.end),
                     }
+                } else if let Some(bytes) = parse_size_literal(&s)
+                    .map_err(|error| format!("{error} at byte {}", value.start))?
+                {
+                    Operand::Literal(Literal::Number(Number::integer(bytes)))
                 } else if let Ok(n) = s.parse::<i128>() {
                     Operand::Literal(Literal::Number(Number::integer(n)))
                 } else if let Ok(n) = s.parse::<f64>() {

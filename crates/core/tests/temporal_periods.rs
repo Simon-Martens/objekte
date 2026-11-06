@@ -39,15 +39,15 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
     for (name, body) in [
         (
             "A",
-            r#"{"id":"A","issued":"2024-02-29","created":"2026-11-06T13:30:59Z","epoch":-1,"dates":["2024-03-01","2024-01-01"]}"#,
+            r#"{"id":"A","issued":"2024-02-29","created":"2026-11-06T13:30:59Z","epoch":-1,"dates":["2024-03-01","2024-01-01"],"declared_size":1024}"#,
         ),
         (
             "B",
-            r#"{"id":"B","issued":"2024-03-01","created":"2026-11-06T13:31:00Z","epoch":0,"dates":["2024-02-29","2024-03-01"]}"#,
+            r#"{"id":"B","issued":"2024-03-01","created":"2026-11-06T13:31:00Z","epoch":0,"dates":["2024-02-29","2024-03-01"],"declared_size":1536}"#,
         ),
         (
             "C",
-            r#"{"id":"C","issued":"2024-02-01","created":"2026-11-06T13:30:00Z","epoch":1,"dates":[]}"#,
+            r#"{"id":"C","issued":"2024-02-01","created":"2026-11-06T13:30:00Z","epoch":1,"dates":[],"declared_size":2500}"#,
         ),
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), body).unwrap();
@@ -58,6 +58,7 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
         ("issued", LogicalType::Date, false),
         ("created", LogicalType::Datetime, false),
         ("epoch", LogicalType::Unixtime, false),
+        ("declared_size", LogicalType::Number, false),
         (
             "dates",
             LogicalType::Array(Box::new(LogicalType::Date)),
@@ -135,6 +136,49 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
         parse_filter("issued = 2024").unwrap(),
         objekte_search_core::query::FilterExpr::Term(_)
     ));
+    for (filter, expected) in [
+        ("declared_size = 1KiB", vec!["A"]),
+        ("declared_size = 1536B", vec!["B"]),
+        ("declared_size = 1.5KiB", vec!["B"]),
+        ("declared_size = 2.5KB", vec!["C"]),
+        (
+            "declared_size >= 1KiB && declared_size < 2.5KB",
+            vec!["A", "B"],
+        ),
+        ("declared_size > 1MiB", vec![]),
+        ("@file.size < 1KiB", vec!["A", "B", "C"]),
+        ("@record.byte_length < 2.5KB", vec!["A", "B", "C"]),
+    ] {
+        let request = query(filter);
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(actual.count, reference.count, "{filter}");
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+    }
+    for invalid in [
+        "0.1B",
+        "-1MiB",
+        "1mib",
+        "1PB",
+        "170141183460469231731687303715884105728B",
+    ] {
+        assert!(
+            parse_filter(&format!("declared_size = {invalid}")).is_err(),
+            "{invalid}"
+        );
+    }
+    let equivalent_size = repo.search(&query("declared_size = 1.500KiB")).unwrap();
+    assert!(equivalent_size.counters.verified_result_hit);
+    assert_eq!(equivalent_size.hits[0].record_id, "B");
     let today = query("issued = @today");
     let february = time::OffsetDateTime::parse(
         "2024-02-29T23:59:59Z",

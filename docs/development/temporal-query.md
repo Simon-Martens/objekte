@@ -20,3 +20,9 @@ Clock macros use one frozen UTC instant per search invocation. `Query::with_cloc
 Metadata fields such as `@file.modified` remain field paths. Unknown zero-argument macros fail before source records are read. Named local time zones and daylight-saving calendar macros are outside this version.
 
 Instant macros compared with Date fields use each Date's UTC midnight as its exact instant. Their bounds are rounded upward to the next eligible midnight; a time-bearing literal still fails on a Date field. This makes `issued <= @todayEnd` include today while `issued = @todayEnd` matches no Date value.
+
+## Byte sizes
+
+Unquoted numeric operands may use case-sensitive decimal units `B`, `KB`, `MB`, `GB`, `TB` (powers of 1,000) or binary units `KiB`, `MiB`, `GiB`, `TiB` (powers of 1,024). For example, `@file.size >= 1MiB`, `@record.byte_length < 2.5KB` and `declared_size = 1536B` compare integer byte counts. A size literal has no special meaning for a numeric field beyond its byte value, and it does not convert a temporal field.
+
+The coefficient is nonnegative decimal notation. Multiplication is exact; a fraction is accepted only when it denotes whole bytes, as `1.5KiB` does. The accepted range is `0..=i128::MAX` bytes, matching the query engine's integer number type. Unknown units, lowercase spellings, fractional bytes and overflow are errors. Equivalent spellings such as `1536B` and `1.5KiB` lower to the same integer value and share verified-result cache identity.
