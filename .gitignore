@@ -1,5 +1,5 @@
 /target/
-/bench/old-core-compare/target/
+/bench/deprecated-core-compare/target/
 /bench/results/musenalm/jq-oracle-*/*.json.gz
 /crates/bench/fff-compare/target/
 /.data/
@@ -44,15 +44,15 @@ examples/en_wikidata_5M_entities/
 /crates/bench/results/library-extension-candidate/*/snapshots/
 
 # Generated output retained with the archived implementation.
-/old/target/
-/old/.data/
-/old/crates/server/assets/node_modules/
-/old/crates/server/assets/dist/
-/old/crates/server/assets/src/generated/
-/old/crates/bench/results/library-extension-baseline/*/reference-bin/
-/old/crates/bench/results/library-extension-baseline/*/reference-bin-allocation/
-/old/crates/bench/results/library-extension-baseline/*/reference-bin-index/
-/old/crates/bench/results/library-extension-baseline/*/snapshots/
-/old/crates/bench/results/library-extension-candidate/*/candidate-bin/
-/old/crates/bench/results/library-extension-candidate/*/reference-bin/
-/old/crates/bench/results/library-extension-candidate/*/snapshots/
+/deprecated/target/
+/deprecated/.data/
+/deprecated/crates/server/assets/node_modules/
+/deprecated/crates/server/assets/dist/
+/deprecated/crates/server/assets/src/generated/
+/deprecated/crates/bench/results/library-extension-baseline/*/reference-bin/
+/deprecated/crates/bench/results/library-extension-baseline/*/reference-bin-allocation/
+/deprecated/crates/bench/results/library-extension-baseline/*/reference-bin-index/
+/deprecated/crates/bench/results/library-extension-baseline/*/snapshots/
+/deprecated/crates/bench/results/library-extension-candidate/*/candidate-bin/
+/deprecated/crates/bench/results/library-extension-candidate/*/reference-bin/
+/deprecated/crates/bench/results/library-extension-candidate/*/snapshots/

@@ -1,0 +1,14 @@
+/home/simon/source/objekte/bench/old-core-compare/target/release/deps/thiserror-0857001bb13f7722.d: /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs /home/simon/source/objekte/bench/old-core-compare/target/release/build/thiserror-83da8d31bb70811b/out/private.rs
+
+/home/simon/source/objekte/bench/old-core-compare/target/release/deps/libthiserror-0857001bb13f7722.rlib: /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs /home/simon/source/objekte/bench/old-core-compare/target/release/build/thiserror-83da8d31bb70811b/out/private.rs
+
+/home/simon/source/objekte/bench/old-core-compare/target/release/deps/libthiserror-0857001bb13f7722.rmeta: /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs /home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs /home/simon/source/objekte/bench/old-core-compare/target/release/build/thiserror-83da8d31bb70811b/out/private.rs
+
+/home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/lib.rs:
+/home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/aserror.rs:
+/home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/display.rs:
+/home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/var.rs:
+/home/simon/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.21/src/private.rs:
+/home/simon/source/objekte/bench/old-core-compare/target/release/build/thiserror-83da8d31bb70811b/out/private.rs:
+
+# env-dep:OUT_DIR=/home/simon/source/objekte/bench/old-core-compare/target/release/build/thiserror-83da8d31bb70811b/out
