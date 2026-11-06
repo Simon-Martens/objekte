@@ -9,8 +9,9 @@ Starting HEAD: `e7de81d092e8a063adf9751479f64a9f32271062`. The current core and 
 | Reference | d15b689d1a | — | 1689.657 | — | — | 1250.276 | 119.429 | 303.016 | 52140243 | recorded median |
 | 1. Flat file-record mapping | 12e2573 | d15b689d1a | 1655.289 | -34.369 | -2.0% | 1210.853 | 113.099 | 285.367 | 52140243 | retain provisionally |
 | 2. Scalar temporary allocations | 21322c1 | 12e2573 | 1612.440 | -42.849 | -2.6% | 1165.276 | 114.425 | 287.484 | 52140243 | retain provisionally |
+| 3. Borrowed logical text | 6b8d101 | 21322c1 | 1553.532 | -58.908 | -3.7% | 1110.439 | 119.898 | 283.539 | 52140243 | retain provisionally |
 
-Cumulative difference from the reference after experiment 2: -77.217 ms (-4.6%).
+Cumulative difference from the reference after experiment 3: -136.125 ms (-8.1%).
 
 ## Experiment 1
 
@@ -19,3 +20,7 @@ The builder no longer keeps a vector per file. It counts records, calculates off
 ## Experiment 2
 
 Build-time scalar selection uses inline storage for one value, single scalar postings bypass the deduplication set, and validation paths borrow field names until an error needs text. Existing coverage and a focused selection test passed (110 unit tests passed before the focused test was added; the focused test also passed). The build was 42.849 ms faster than experiment 1, while peak RSS rose 2.117 MiB. The timing is a single observation; the memory change argues against claiming an allocation reduction from RSS alone. Schema, canonical registrations, counts, workers and semantic signature matched experiment 1 and the reference.
+
+## Experiment 3
+
+Built-in JSON readers omit owned text segments for build parsing. After schema conversion, the raw bigram builder visits logical strings by borrow, resetting gram history for each string. Reader-supplied segments remain in use for `ReaderSegments` readers. Full core tests and a focused temporal/nested-string gram parity test passed. The build was 58.908 ms faster than experiment 2, with peak RSS 3.945 MiB lower. This is a single timing observation, not a causal allocation measurement. Schema, canonical registrations, counts, workers and semantic signature matched all previous samples.
