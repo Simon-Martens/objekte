@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import statistics
 import subprocess
 import sys
@@ -13,7 +14,6 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-BASELINE = ROOT / "bench/baselines/musenalm-build.json"
 
 
 def fixture_fingerprints() -> dict[str, str]:
@@ -34,12 +34,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--result-dir", type=Path)
-    parser.add_argument("--baseline", type=Path, default=BASELINE)
+    parser.add_argument("--baseline", type=Path, required=True, help="explicit gate.json or build baseline JSON")
+    parser.add_argument("--comparison", choices=("repair", "historical"), required=True)
     parser.add_argument("--establish-baseline", action="store_true")
     args = parser.parse_args()
     if args.repetitions < 3:
         parser.error("at least three fresh-process repetitions are required")
-    revision = subprocess.check_output(["git", "rev-parse", "--short=10", "HEAD"], cwd=ROOT, text=True).strip()
+    revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     fingerprints = fixture_fingerprints()
     jq_fixture = json.loads((ROOT / "bench/baselines/musenalm-jq-counts.json").read_text())
     if fingerprints["source_metadata"] != jq_fixture["fixture_metadata_fingerprint"]:
@@ -63,7 +64,7 @@ def main() -> int:
                     raise RuntimeError(f"{command}: {completed.stderr}")
                 sample = json.loads(completed.stdout)
                 sample["repetition"] = repetition
-                if sample["records"] != 148486 or sample["build_parses"] != 148486:
+                if sample["records"] != 148486 or sample["build_parses"] != 148486 or sample.get("failed_parses", 0):
                     raise ValueError(f"incomplete build: {sample}")
                 key = f"{alphabet}-{snapshot}"
                 samples[key].append(sample)
@@ -77,6 +78,12 @@ def main() -> int:
             "median_build_ns": int(statistics.median(sample["build_ns"] for sample in group)),
             "median_snapshot_write_ns": int(statistics.median(sample["snapshot_write_ns"] for sample in group)),
             "median_peak_resident_bytes": int(statistics.median(sample["peak_resident_bytes"] for sample in group)),
+            "median_resident_bytes": int(statistics.median(sample["resident_bytes"] for sample in group)),
+            "median_discovery_ns": int(statistics.median(sample.get("discovery_ns", 0) for sample in group)),
+            "median_extraction_index_ns": int(statistics.median(sample.get("extraction_index_ns", 0) for sample in group)),
+            "median_finalization_ns": int(statistics.median(sample.get("finalization_ns", 0) for sample in group)),
+            "median_inventory_heap_bytes": int(statistics.median(sample.get("inventory_heap_bytes", 0) for sample in group)),
+            "median_diagnostic_heap_bytes": int(statistics.median(sample.get("diagnostic_heap_bytes", 0) for sample in group)),
             "snapshot_bytes": group[0]["snapshot_bytes"],
             "samples": len(group),
         }
@@ -84,6 +91,10 @@ def main() -> int:
         "cpu_model": next((line.split(":", 1)[1].strip() for line in Path("/proc/cpuinfo").read_text().splitlines() if line.startswith("model name")), "unknown"),
         "rustc": subprocess.check_output(["rustc", "--version"], text=True).strip(),
         "revision": revision,
+        "build_flags": {key: value for key, value in os.environ.items()
+                        if key in ("RUSTFLAGS", "CARGO_ENCODED_RUSTFLAGS", "CARGO_BUILD_TARGET")
+                        or key.startswith("CARGO_PROFILE_RELEASE_")},
+        "affinity": sorted(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None,
     }
     failures = []
     baseline_path = args.baseline.resolve()
@@ -93,9 +104,18 @@ def main() -> int:
             raise FileExistsError(f"baseline exists: {baseline_path}")
         baseline_path.write_text(json.dumps({"environment": environment, "fingerprints": fingerprints, "summary": summary}, indent=2) + "\n")
     else:
-        baseline = json.loads(baseline_path.read_text())
+        baseline = json.loads((baseline_path / "gate.json" if baseline_path.is_dir() else baseline_path).read_text())
+        expected_revision = "92cdb92b19" if args.comparison == "repair" else "401b16eea8"
+        if not baseline["environment"]["revision"].startswith(expected_revision):
+            failures.append(f"{args.comparison} comparison uses wrong baseline revision")
         if baseline["fingerprints"] != fingerprints:
             failures.append("source or schema fingerprint differs from build baseline")
+        if baseline["environment"]["rustc"] != environment["rustc"]:
+            failures.append("compiler differs from build baseline")
+        if environment["build_flags"]:
+            failures.append("nondefault build flags are not recorded in the baseline")
+        if baseline["environment"]["cpu_model"] != environment["cpu_model"]:
+            failures.append("CPU model differs from build baseline")
         if baseline["environment"]["cpu_model"] == environment["cpu_model"]:
             for name, current in summary.items():
                 previous = baseline["summary"][name]
@@ -105,22 +125,26 @@ def main() -> int:
                     failures.append(f"{name}: peak RSS exceeds baseline")
                 if current["snapshot_bytes"] and current["snapshot_bytes"] > previous["snapshot_bytes"] * 1.1:
                     failures.append(f"{name}: snapshot size exceeds baseline")
-    report = {"environment": environment, "fingerprints": fingerprints, "summary": summary, "baseline": str(baseline_path), "failures": failures}
+    report = {"comparison": args.comparison, "environment": environment, "fingerprints": fingerprints, "summary": summary,
+              "baseline": str(baseline_path), "baseline_code_revision": None if args.establish_baseline else baseline["environment"]["revision"],
+              "failures": failures}
     (result_dir / "gate.json").write_text(json.dumps(report, indent=2) + "\n")
     lines = [
         "# Musenalm fresh index builds", "",
         f"Code revision: `{revision}`. Each configuration ran in {args.repetitions} separate processes.",
         "Both alphabets were measured with snapshots disabled and with snapshot rebuilding enabled.",
         "All builds parsed exactly 148,486 source records; medians include discovery, build and optional snapshot write.",
-        "", "| Configuration | Wall s | Build s | Snapshot write s | Peak RSS MiB | Snapshot MiB |",
-        "|---|---:|---:|---:|---:|---:|",
+        "", "| Configuration | Wall s | Discovery s | Extraction/index s | Finalization s | Snapshot write s | Resident MiB | Peak RSS MiB | Inventory MiB | Diagnostics KiB | Snapshot MiB |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for name, row in summary.items():
         snapshot_mib = "—" if row["snapshot_bytes"] is None else f"{row['snapshot_bytes'] / 1048576:.1f}"
         lines.append(
-            f"| {name} | {row['median_wall_ns'] / 1e9:.3f} | {row['median_build_ns'] / 1e9:.3f} | "
-            f"{row['median_snapshot_write_ns'] / 1e9:.3f} | "
-            f"{row['median_peak_resident_bytes'] / 1048576:.1f} | {snapshot_mib} |"
+            f"| {name} | {row['median_wall_ns'] / 1e9:.3f} | {row['median_discovery_ns'] / 1e9:.3f} | "
+            f"{row['median_extraction_index_ns'] / 1e9:.3f} | {row['median_finalization_ns'] / 1e9:.3f} | "
+            f"{row['median_snapshot_write_ns'] / 1e9:.3f} | {row['median_resident_bytes'] / 1048576:.1f} | "
+            f"{row['median_peak_resident_bytes'] / 1048576:.1f} | {row['median_inventory_heap_bytes'] / 1048576:.1f} | "
+            f"{row['median_diagnostic_heap_bytes'] / 1024:.1f} | {snapshot_mib} |"
         )
     lines += ["", f"Baseline: `{baseline_path}`. Failures: {len(failures)}.", "", *[f"- {failure}" for failure in failures]]
     (result_dir / "REPORT.md").write_text("\n".join(lines).rstrip() + "\n")
