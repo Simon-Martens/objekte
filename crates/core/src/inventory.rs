@@ -573,6 +573,7 @@ pub struct CollectionBuilder {
     name: String,
     generation: u64,
     files: Vec<FileId>,
+    included_files: Vec<bool>,
     records: Vec<RecordEntry>,
     by_file: Vec<Vec<RecordSlot>>,
     ids: IdentitySet,
@@ -594,6 +595,7 @@ impl CollectionBuilder {
             name,
             generation,
             files: Vec::new(),
+            included_files: vec![false; file_count],
             records: Vec::new(),
             by_file: vec![Vec::new(); file_count],
             ids: IdentitySet::default(),
@@ -601,10 +603,12 @@ impl CollectionBuilder {
     }
 
     pub fn include_file(&mut self, file: FileId) -> Result<(), String> {
-        if self.by_file.get(file.0 as usize).is_none() {
-            return Err("file ID out of bounds".into());
-        }
-        if !self.files.contains(&file) {
+        let included = self
+            .included_files
+            .get_mut(file.0 as usize)
+            .ok_or("file ID out of bounds")?;
+        if !*included {
+            *included = true;
             self.files.push(file);
         }
         Ok(())
@@ -617,7 +621,7 @@ impl CollectionBuilder {
         start: u64,
         end: u64,
     ) -> Result<RecordSlot, String> {
-        if !self.files.contains(&file.id) {
+        if self.included_files.get(file.id.0 as usize) != Some(&true) {
             return Err("file is not in collection".into());
         }
         let range = ByteRange::checked(start, end, file.revision.size)?;
@@ -646,7 +650,9 @@ impl CollectionBuilder {
         range: ByteRange,
         diagnostic_ref: DiagnosticRef,
     ) -> Result<RecordSlot, String> {
-        if !self.files.contains(&file.id) || diagnostic_ref == DiagnosticRef(0) {
+        if self.included_files.get(file.id.0 as usize) != Some(&true)
+            || diagnostic_ref == DiagnosticRef(0)
+        {
             return Err("fallback file or diagnostic missing".into());
         }
         if range.end > file.revision.size

@@ -55,6 +55,85 @@ fn file_record_mapping_in_both_directions() {
 }
 
 #[test]
+fn construction_membership_preserves_order_empty_files_and_record_ownership() {
+    let mut inventory = FileInventory::new(PathBuf::from("/tmp/repo"));
+    let revision = SourceRevision {
+        modified_ns: 7,
+        size: 10,
+    };
+    let empty = inventory
+        .add("empty.json".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let valid = inventory
+        .add("valid.json".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let broken = inventory
+        .add("broken.json".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let omitted = inventory
+        .add("omitted.json".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let mut builder = CollectionBuilder::new(CollectionId(0), "data".into(), 1, 4);
+    assert!(builder.include_file(FileId(4)).is_err());
+    assert!(builder
+        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
+        .is_err());
+    assert!(builder
+        .add_raw_fallback(
+            &inventory.files[broken.0 as usize],
+            RecordId::fallback(CollectionId(0), "json", 1, Path::new("broken.json"), broken, 7, 0, 10),
+            ByteRange { start: 0, end: 10 },
+            DiagnosticRef(1),
+        )
+        .is_err());
+    for file in [empty, valid, broken, empty, valid] {
+        builder.include_file(file).unwrap();
+    }
+    let valid_slot = builder
+        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
+        .unwrap();
+    assert!(builder
+        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
+        .is_err());
+    assert!(builder
+        .add_record(&inventory.files[omitted.0 as usize], RecordId::intrinsic("other").unwrap(), 0, 10)
+        .is_err());
+    let diagnostic = SourceDiagnostic {
+        file: broken,
+        collection: CollectionId(0),
+        source_id: "json".into(),
+        source_version: 1,
+        record: None,
+        range: Some(ByteRange { start: 0, end: 10 }),
+        category: DiagnosticCategory::Syntax,
+        code: "json.parse".into(),
+        field_path: None,
+        byte_offset: Some(1),
+        line: Some(1),
+        column: Some(2),
+        message: "invalid JSON".into(),
+    };
+    let reference = inventory.record_diagnostic(broken, diagnostic).unwrap();
+    let fallback_slot = builder
+        .add_raw_fallback(
+            &inventory.files[broken.0 as usize],
+            RecordId::fallback(CollectionId(0), "json", 1, Path::new("broken.json"), broken, 7, 0, 10),
+            ByteRange { start: 0, end: 10 },
+            reference,
+        )
+        .unwrap();
+    inventory.files[broken.0 as usize].diagnostics[0].record = Some(fallback_slot);
+    let generation = builder.finish(&inventory).unwrap();
+    assert_eq!(generation.files, [empty, valid, broken]);
+    assert_eq!(generation.file_records.records_for(empty), Some([].as_slice()));
+    assert_eq!(generation.file_records.records_for(valid), Some([valid_slot].as_slice()));
+    assert_eq!(generation.file_records.records_for(broken), Some([fallback_slot].as_slice()));
+    assert_eq!(generation.file_records.records_for(omitted), Some([].as_slice()));
+    assert_eq!(generation.records[0].class, RecordClass::Logical);
+    assert_eq!(generation.records[1].class, RecordClass::RawFallback);
+}
+
+#[test]
 fn status_codes_and_diagnostic_bounds_are_stable() {
     for (status, code) in [
         (FileStatus::Valid, 0),
