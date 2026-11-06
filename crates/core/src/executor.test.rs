@@ -921,6 +921,15 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
             },
         )
         .unwrap();
+        if posting && complete {
+            let mut request = crate::posting_values::PostingValuesRequest::new("data", "title", 10);
+            request.prefix = Some("alp".into());
+            assert!(
+                repo.posting_values(&request)
+                    .unwrap_err()
+                    .contains("does not preserve prefix")
+            );
+        }
         for (case_index, (query, expected, evidence)) in cases.iter().enumerate() {
             let result = repo.search(query).unwrap();
             let reference = repo.search_reference(query).unwrap();

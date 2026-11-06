@@ -108,6 +108,12 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
         Ok(self.map_text(text))
     }
 
+    /// Return a prepared prefix only when mapping a source prefix preserves
+    /// prefix matching in this operation's indexed string representation.
+    fn prepare_posting_prefix(&self, _prefix: &str) -> Result<Option<String>, String> {
+        Ok(None)
+    }
+
     /// `None` selects the prepared mapped-value adapter. An override may
     /// inspect borrowed values or original record bytes and return errors.
     fn prepare_filter_matcher(

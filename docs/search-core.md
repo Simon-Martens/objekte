@@ -270,8 +270,15 @@ eligible and unavailable record totals, and separate field-presence and
 explicit-null totals. A named default binding returns its mapped posting keys;
 incomplete custom coverage is an error. Pages use posting-key order, which is
 separate from ICU record sorting. The in-process exclusive continuation is
-bound to the repository instance, collection generation, field and binding.
-Enumeration reads no source files.
+bound to the repository instance, collection generation, field, binding,
+direction, typed bounds, prefix and exact selection. An empty limit returns an
+empty page with no continuation. Prefixes apply to the stored string key and
+require a binding that declares prefix-safe preparation; other bindings reject
+them. `Repository::select_exact` obtains complete verified membership through
+the regular executor, independent of the query page and COUNT setting. Scoped
+value counts use bitmap intersection cardinality; unavailable fallback records
+are reported separately and never counted as missing or null. Posting-value
+pages perform no source reads, and expose how many dictionary keys were visited.
 
 ## Persistence and freshness
 

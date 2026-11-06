@@ -1042,6 +1042,33 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     Ok(result)
 }
 
+pub(crate) fn exact_members(
+    repo: &Repository,
+    query: &Query,
+    collection_index: usize,
+) -> Result<RoaringBitmap, String> {
+    let mut scoped = query.clone();
+    scoped.collections = vec![repo.collections[collection_index].definition.name.clone()];
+    scoped.options.count = true;
+    scoped.options.limit = 0;
+    scoped.options.offset = 0;
+    scoped.options.sort.clear();
+    scoped.options.return_mode = ReturnMode::Locator;
+    scoped.options.evidence = false;
+    let mut members = Vec::new();
+    let budget = CacheBudget::new(usize::MAX);
+    let result = search_impl(repo, &scoped, None, Some(&mut members), Some(&budget))?;
+    if !budget.complete()
+        || result.count != Some(members.len())
+        || members
+            .iter()
+            .any(|member| member.collection_index != collection_index)
+    {
+        return Err("exact selection is incomplete".into());
+    }
+    Ok(members.into_iter().map(|member| member.slot).collect())
+}
+
 fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<CachedMember>) {
     let sort = ResolvedSort::new(repo, query);
     if query.options.sort.is_empty() {
