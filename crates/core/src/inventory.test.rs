@@ -56,28 +56,65 @@ fn file_record_mapping_in_both_directions() {
 
 #[test]
 fn status_codes_and_diagnostic_bounds_are_stable() {
-    for (status, code) in [(FileStatus::Valid, 0), (FileStatus::Broken, 1), (FileStatus::Unreadable, 2)] {
+    for (status, code) in [
+        (FileStatus::Valid, 0),
+        (FileStatus::Broken, 1),
+        (FileStatus::Unreadable, 2),
+    ] {
         assert_eq!(status.code(), code);
         assert_eq!(serde_json::to_string(&status).unwrap(), code.to_string());
-        assert_eq!(serde_json::from_str::<FileStatus>(&code.to_string()).unwrap(), status);
+        assert_eq!(
+            serde_json::from_str::<FileStatus>(&code.to_string()).unwrap(),
+            status
+        );
     }
     assert!(serde_json::from_str::<FileStatus>("3").is_err());
     assert!(serde_json::from_str::<RecordClass>("2").is_err());
-    assert_eq!(serde_json::to_string(&RecordClass::RawFallback).unwrap(), "1");
+    assert_eq!(
+        serde_json::to_string(&RecordClass::RawFallback).unwrap(),
+        "1"
+    );
 
     let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
-    let file = files.add("broken.jsonl".into(), SourceRevision { modified_ns: 5, size: 50 }, None, CollectionId(0)).unwrap();
+    let file = files
+        .add(
+            "broken.jsonl".into(),
+            SourceRevision {
+                modified_ns: 5,
+                size: 50,
+            },
+            None,
+            CollectionId(0),
+        )
+        .unwrap();
     let make = |category| SourceDiagnostic {
-        file, collection: CollectionId(0), source_id: "jsonl".into(), source_version: 1,
-        record: None, range: Some(ByteRange { start: 0, end: 3 }), category,
-        code: "json.parse".into(), field_path: None, byte_offset: Some(2),
-        line: Some(1), column: Some(3), message: "é".repeat(200),
+        file,
+        collection: CollectionId(0),
+        source_id: "jsonl".into(),
+        source_version: 1,
+        record: None,
+        range: Some(ByteRange { start: 0, end: 3 }),
+        category,
+        code: "json.parse".into(),
+        field_path: None,
+        byte_offset: Some(2),
+        line: Some(1),
+        column: Some(3),
+        message: "é".repeat(200),
     };
-    let first = files.record_diagnostic(file, make(DiagnosticCategory::Syntax)).unwrap();
+    let first = files
+        .record_diagnostic(file, make(DiagnosticCategory::Syntax))
+        .unwrap();
     assert_eq!(files.files[0].status, FileStatus::Broken);
     assert!(files.diagnostic(file, first).unwrap().message.len() <= MAX_DIAGNOSTIC_MESSAGE_BYTES);
-    for _ in 1..MAX_DIAGNOSTICS_PER_FILE { files.record_diagnostic(file, make(DiagnosticCategory::Syntax)).unwrap(); }
-    let omitted = files.record_diagnostic(file, make(DiagnosticCategory::Io)).unwrap();
+    for _ in 1..MAX_DIAGNOSTICS_PER_FILE {
+        files
+            .record_diagnostic(file, make(DiagnosticCategory::Syntax))
+            .unwrap();
+    }
+    let omitted = files
+        .record_diagnostic(file, make(DiagnosticCategory::Io))
+        .unwrap();
     assert!(omitted.omitted());
     assert_eq!(files.files[0].status, FileStatus::Unreadable);
     assert_eq!(files.files[0].omitted_diagnostics, 1);

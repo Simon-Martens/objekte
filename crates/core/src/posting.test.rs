@@ -194,14 +194,22 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
 #[test]
 fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
     use crate::query::{Query, QueryOptions, parse_filter};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
     use crate::source::SourceFormat;
     use crate::workload::ReturnMode;
     let root = std::env::temp_dir().join(format!("objekte-nested-length-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for (id, json) in [
-        ("mixed", r#"{"groups":[{"tags":["a"]},{"tags":["a","b","c"]}]}"#),
-        ("reversed", r#"{"groups":[{"tags":["a","b","c"]},{"tags":["a"]}]}"#),
+        (
+            "mixed",
+            r#"{"groups":[{"tags":["a"]},{"tags":["a","b","c"]}]}"#,
+        ),
+        (
+            "reversed",
+            r#"{"groups":[{"tags":["a","b","c"]},{"tags":["a"]}]}"#,
+        ),
         ("triple", r#"{"groups":[{"tags":["a","b","c"]}]}"#),
         ("empty", r#"{"groups":[]}"#),
         ("empty_tags", r#"{"groups":[{"tags":[]}]}"#),
@@ -212,53 +220,125 @@ fn nested_array_lengths_follow_quantifiers_with_and_without_postings() {
     }
     for indexed in [false, true] {
         let mut schema = crate::reference::Schema::default();
-        schema.register_field(FieldDefinition {
-            path: vec!["groups".into(), "tags".into()],
-            kind: LogicalType::Array(Box::new(LogicalType::String)),
-            required: false, nullable: true, indexed, multi: true, element_nullable: vec![],
-        }).unwrap();
-        let repo = Repository::open_with_options(&root, vec![CollectionDefinition {
-            name: "data".into(), source_path: "data".into(), format: SourceFormat::Json,
-            identity: IdentityPolicy::Filename, discovery: Default::default(), schema,
-            sort_fields: vec![], sort_locale: "de".into(), sort_options: Default::default(),
-            sort_overrides: Default::default(),
-        }], RepositoryOptions { snapshot_mode: SnapshotMode::Disabled, ..Default::default() }).unwrap();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["groups".into(), "tags".into()],
+                kind: LogicalType::Array(Box::new(LogicalType::String)),
+                required: false,
+                nullable: true,
+                indexed,
+                multi: true,
+                element_nullable: vec![],
+            })
+            .unwrap();
+        let repo = Repository::open_with_options(
+            &root,
+            vec![CollectionDefinition {
+                name: "data".into(),
+                source_path: "data".into(),
+                format: SourceFormat::Json,
+                identity: IdentityPolicy::Filename,
+                discovery: Default::default(),
+                schema,
+                sort_fields: vec![],
+                sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
+            }],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap();
         if indexed {
             use crate::reference::{BoundExpr, bind_filter};
             let collection = &repo.collections()[0];
             let posting = &collection.postings.fields[&vec!["groups".into(), "tags".into()]];
             let domain = RoaringBitmap::from_iter(0..collection.generation.records.len() as u32);
             let BoundExpr::Term(universal) = bind_filter(
-                &parse_filter("groups.tags:length = 3").unwrap(), &collection.definition.schema
-            ).unwrap() else { panic!("term") };
+                &parse_filter("groups.tags:length = 3").unwrap(),
+                &collection.definition.schema,
+            )
+            .unwrap() else {
+                panic!("term")
+            };
             assert!(posting.estimate_exact(&universal, domain.len()).is_none());
             assert!(posting.exact_set(&universal, &domain).is_none());
-            assert!(posting.exact_set_restricted(&universal, &domain, &domain).is_none());
+            assert!(
+                posting
+                    .exact_set_restricted(&universal, &domain, &domain)
+                    .is_none()
+            );
             let BoundExpr::Term(existential) = bind_filter(
-                &parse_filter("groups.tags:length ?= 3").unwrap(), &collection.definition.schema
-            ).unwrap() else { panic!("term") };
+                &parse_filter("groups.tags:length ?= 3").unwrap(),
+                &collection.definition.schema,
+            )
+            .unwrap() else {
+                panic!("term")
+            };
             assert_eq!(posting.exact_set(&existential, &domain).unwrap().len(), 3);
-            assert_eq!(posting.exact_set_restricted(&existential, &domain, &domain).unwrap().len(), 3);
+            assert_eq!(
+                posting
+                    .exact_set_restricted(&existential, &domain, &domain)
+                    .unwrap()
+                    .len(),
+                3
+            );
         }
         for (filter, expected) in [
             ("groups.tags:length = 3", vec!["empty", "triple"]),
-            ("groups.tags:length ?= 3", vec!["mixed", "reversed", "triple"]),
+            (
+                "groups.tags:length ?= 3",
+                vec!["mixed", "reversed", "triple"],
+            ),
             ("groups.tags:length != 3", vec!["empty", "empty_tags"]),
-            ("groups.tags:length ?!= 3", vec!["empty_tags", "mixed", "reversed"]),
+            (
+                "groups.tags:length ?!= 3",
+                vec!["empty_tags", "mixed", "reversed"],
+            ),
             ("groups.tags:length >= 3", vec!["empty", "triple"]),
-            ("groups.tags:length ?>= 3", vec!["mixed", "reversed", "triple"]),
+            (
+                "groups.tags:length ?>= 3",
+                vec!["mixed", "reversed", "triple"],
+            ),
             ("groups.tags:length < 3", vec!["empty", "empty_tags"]),
-            ("groups.tags:length ?< 3", vec!["empty_tags", "mixed", "reversed"]),
-            ("!(groups.tags:length ?= 3)", vec!["empty", "empty_tags", "missing", "null_tags"]),
-            ("groups.tags:length ?= 3 && groups.tags:length ?!= 3", vec!["mixed", "reversed"]),
-            ("groups.tags:length = 3 || groups.tags:length ?!= 3", vec!["empty", "empty_tags", "mixed", "reversed", "triple"]),
+            (
+                "groups.tags:length ?< 3",
+                vec!["empty_tags", "mixed", "reversed"],
+            ),
+            (
+                "!(groups.tags:length ?= 3)",
+                vec!["empty", "empty_tags", "missing", "null_tags"],
+            ),
+            (
+                "groups.tags:length ?= 3 && groups.tags:length ?!= 3",
+                vec!["mixed", "reversed"],
+            ),
+            (
+                "groups.tags:length = 3 || groups.tags:length ?!= 3",
+                vec!["empty", "empty_tags", "mixed", "reversed", "triple"],
+            ),
         ] {
-            let query = Query { collections: vec!["data".into()], fts: None,
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: None,
                 filter: Some(parse_filter(filter).unwrap()),
-                options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
-                    return_mode: ReturnMode::Locator, evidence: true } };
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
             let result = repo.search(&query).unwrap();
-            let actual = result.hits.iter().map(|hit| hit.record_id.as_str()).collect::<Vec<_>>();
+            let actual = result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>();
             assert_eq!(actual, expected, "{indexed} {filter}");
             assert_eq!(result.count, Some(expected.len()));
         }
