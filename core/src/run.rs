@@ -79,6 +79,7 @@ fn scan_file(
     query: &Query,
     collection_index: usize,
     filter: Option<&BoundExpr>,
+    payload_cutoff: Option<&RankKey>,
     file_id: u32,
     ranges: &[(u32, ByteRange)],
 ) -> Result<ScannedFile, String> {
@@ -134,10 +135,20 @@ fn scan_file(
                 .unwrap_or(true);
             outcome.residual_evaluations += u64::from(filter.is_some());
             if fts_match && filter_match {
-                let payload = match query.options.return_mode {
-                    ReturnMode::Locator => None,
-                    ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
-                    ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
+                let may_reach_page = query.options.return_mode != ReturnMode::Locator
+                    && query.options.limit > 0
+                    && payload_cutoff.is_none_or(|worst| {
+                        if query.options.sort.is_empty() {
+                            (&collection.definition.name, &record.id.0)
+                                < (&worst.collection, &worst.id)
+                        } else {
+                            rank_key(repo, query, collection_index, record) < *worst
+                        }
+                    });
+                let payload = match (&query.options.return_mode, may_reach_page) {
+                    (_, false) | (ReturnMode::Locator, _) => None,
+                    (ReturnMode::Bytes, true) => Some(Payload::Bytes(bytes)),
+                    (ReturnMode::Logical, true) => Some(Payload::Logical(extracted.value)),
                 };
                 outcome.matches.push(ScannedMatch {
                     slot,
@@ -709,6 +720,14 @@ fn search_impl(
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
         for chunk in files.chunks(256) {
+            let payload_cutoff = if query.options.return_mode != ReturnMode::Locator
+                && query.options.limit > 0
+                && winners.len() == cap
+            {
+                winners.peek().map(|winner: &Winner| winner.key.clone())
+            } else {
+                None
+            };
             let scanned: Vec<_> = if parallel {
                 repo.workers.install(|| {
                     chunk
@@ -719,6 +738,7 @@ fn search_impl(
                                 query,
                                 collection_index,
                                 filter.as_ref(),
+                                payload_cutoff.as_ref(),
                                 *file_id,
                                 ranges,
                             )
@@ -734,6 +754,7 @@ fn search_impl(
                             query,
                             collection_index,
                             filter.as_ref(),
+                            payload_cutoff.as_ref(),
                             *file_id,
                             ranges,
                         )
@@ -875,19 +896,29 @@ mod tests {
                 multi: false,
             })
             .unwrap();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["sequence".into()],
+                kind: LogicalType::Number,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+            })
+            .unwrap();
         let definition = CollectionDefinition {
             name: "data".into(),
             source_path: "data".into(),
             format: SourceFormat::Json,
             identity: IdentityPolicy::Filename,
             schema,
-            sort_fields: vec![],
+            sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
             sort_locale: "de".into(),
         };
         let query = Query {
             collections: vec!["data".into()],
             fts: None,
-            filter: Some(parse_filter("kind = 'yes'").unwrap()),
+            filter: Some(parse_filter("kind != 'missing'").unwrap()),
             options: QueryOptions {
                 sort: vec![],
                 limit: 50,
@@ -897,7 +928,7 @@ mod tests {
                 evidence: true,
             },
         };
-        let run = |workers| {
+        let run = |workers, query: &Query| {
             let repo = Repository::open_with_options(
                 &root,
                 vec![definition.clone()],
@@ -908,17 +939,24 @@ mod tests {
                 },
             )
             .unwrap();
-            repo.search(&query).unwrap()
+            repo.search(query).unwrap()
         };
-        let single = run(1);
-        let parallel = run(8);
-        assert_eq!(single.count, 128);
-        assert_eq!(single.hits, parallel.hits);
-        for result in [&single, &parallel] {
-            assert_eq!(result.counters.files_opened, 128);
-            assert_eq!(result.counters.record_parses, 128);
-            assert_eq!(result.counters.scanned_records, 128);
-            assert_eq!(result.counters.total_matches, 128);
+        let mut sorted = query.clone();
+        sorted.options.sort = vec![crate::workload::SortField {
+            field: "sequence".into(),
+            descending: true,
+        }];
+        for query in [&query, &sorted] {
+            let single = run(1, query);
+            let parallel = run(8, query);
+            assert_eq!(single.count, 256);
+            assert_eq!(single.hits, parallel.hits);
+            for result in [&single, &parallel] {
+                assert_eq!(result.counters.files_opened, 256);
+                assert_eq!(result.counters.record_parses, 256);
+                assert_eq!(result.counters.scanned_records, 256);
+                assert_eq!(result.counters.total_matches, 256);
+            }
         }
         std::fs::remove_dir_all(root).unwrap();
     }
