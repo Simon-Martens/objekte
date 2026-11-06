@@ -28,7 +28,7 @@
 | --- | --- | --- | --- |
 | TASK-00 contracts and foundation verification | complete | this ledger and pinned base checks | coordinator |
 | TASK-01 logical/fallback planner partition | complete in base | `dbf4777adf`, `run.test.rs` mixed-domain fixture | coordinator |
-| TASK-02 typed operands, paths, inline sort | ready | first-wave gate | query worker |
+| TASK-02 typed operands, paths, inline sort | complete on feature branch, pending integration review | `25b103f92e`–`c504fdb493` | query worker |
 | TASK-04 regex FTS | ready | first-wave gate | full-text worker |
 | TASK-05 ID and relation indexes | ready | first-wave gate | relation-index worker |
 | TASK-03 temporal/size | blocked by TASK-02 integration | — | later worker |
@@ -39,3 +39,20 @@
 | TASK-10 final measurements | blocked by TASK-09 | — | coordinator |
 
 Every worker handoff must include the fields in Section 12.7 of the specification, exact test output, cache/snapshot effects and any shared-file edits. This ledger is updated at review checkpoints.
+
+## TASK-02 handoff
+
+- **Task identifier:** TASK-02, milestones 3, S1, 4, 5 and 6.
+- **Owning branch and worktree:** `feature/typed-query-operands`, `/home/simon/source/objekte-typed-query-operands`.
+- **Pinned base commit:** `258575ff5efac601df7ee9ac648a90531f8650bd`.
+- **Ordered implementation commits:** `25b103f92e` typed operand AST; `fc3a68e64b` inline sorting; `fb5312bded` typed parameters; `2be7f8d06e` explicit array paths; `c504fdb493` correlated field comparisons. Each was pushed separately.
+- **Changed implementation and test paths:** `crates/core/examples/musenalm_cli.rs`; core `src/{executor,lib,parameters,prepared,query,query_path,reference,repository,run,verified}.rs` and corresponding test files; `crates/core/tests/{array_positions,inline_sort,parameters}.rs`.
+- **Implemented behavior:** Typed right operands with source spans; top-level and sort-only `SORT BY` normalized into registered sort options; checked typed parameter bindings without text interpolation; positional array selection; scalar and same-occurrence field comparisons with scalar broadcast; metadata-only comparison without source reads. Field comparisons retain residual verification, union projection, both-field evidence and unavailable fallback truth.
+- **Deliberately excluded behavior:** Dynamic `:exists`/`:null` field comparisons are rejected because per-occurrence derived scope is not prepared. Independent multivalued branches are rejected. Custom operations must explicitly opt in to dynamic comparison. ID parameter transport and contextual ID literal binding await TASK-05 integration; regex pattern parameters await cross-feature integration.
+- **Public API, cache and snapshot changes:** `Query::with_parameters` and repository search/reference/explain parameter wrappers; CLI `--param NAME=JSON`; structural serialized prepared and verified cache keys include bound typed values. `QueryPath` preserves array steps. No snapshot format change.
+- **Test commands and observed results:** At `c504fdb493`, `cargo test --workspace` passed (core 123 passed, 1 ignored; array positions 2, inline sort 1, parameters 2, TUI 25, CLI 1, doctest 1). `cargo clippy --workspace --all-targets` exited 0 with advisory warnings. `cargo fmt --all`, the repository spacing script on touched files, and `git diff --check` completed; unrelated baseline formatting drift was restored.
+- **Independent oracle / optimized-versus-scan evidence:** The deterministic field fixture asserts independently expected IDs for scalar, positional, paired array, broadcast, wildcard and metadata comparisons, then compares optimized and reference counts, hits and evidence. Malformed JSONL tests check null and unavailable truth. Parameter tests alternate values in a warm verified cache. No new jq oracle was added for these new semantics.
+- **Measured performance, memory and resource counters:** No timing or memory run was made for this milestone. The metadata-only field comparison test asserts zero source file opens with locator return mode.
+- **Known failures, warnings and open risks:** Workspace tests have no failures. Clippy reports advisory warnings, including existing general warnings. Dynamic derived `:exists`/`:null` remains a stated unsupported combination. The ID and FTS mode branches require the integration bridges above.
+- **Shared-file edits requiring integration:** `query.rs` adds serialization derives to FTS structs but no FTS mode; its `FtsQuery` shape must be reconciled with TASK-04. `musenalm_cli.rs` adds inline-sort/parameter handling and overlaps regex flags. `reference.rs` adds bound dynamic operands and a custom-operation capability method; `run.rs` changes projection/evidence/fallback, `executor.rs` changes residual and metadata comparison paths, and `repository.rs` adds request wrappers. TASK-05 changes to `Value::Id` need contextual binding and tagged JSON transport.
+- **Prerequisites for the next task:** Review and integrate TASK-02, then add the TASK-05 ID bridge before temporal or relation query work relies on the unified binder.
