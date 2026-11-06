@@ -10,8 +10,22 @@ Starting HEAD: `e7de81d092e8a063adf9751479f64a9f32271062`. The current core and 
 | 1. Flat file-record mapping | 12e2573 | d15b689d1a | 1655.289 | -34.369 | -2.0% | 1210.853 | 113.099 | 285.367 | 52140243 | retain provisionally |
 | 2. Scalar temporary allocations | 21322c1 | 12e2573 | 1612.440 | -42.849 | -2.6% | 1165.276 | 114.425 | 287.484 | 52140243 | retain provisionally |
 | 3. Borrowed logical text | 6b8d101 | 21322c1 | 1553.532 | -58.908 | -3.7% | 1110.439 | 119.898 | 283.539 | 52140243 | retain provisionally |
+| 4. Reusable source buffer | d7eda17 | 6b8d101 | 1582.672 | +29.140 | +1.9% | 1139.756 | 113.019 | 288.688 | 52140243 | retain provisionally |
 
-Cumulative difference from the reference after experiment 3: -136.125 ms (-8.1%).
+| Retained state | Cumulative wall delta from reference |
+| --- | ---: |
+| After experiment 1 | -34.369 ms (-2.0%) |
+| After experiment 2 | -77.217 ms (-4.6%) |
+| After experiment 3 | -136.125 ms (-8.1%) |
+| After experiment 4 | -106.985 ms (-6.3%) |
+
+| Experiment | Build ms | Discovery ms | Resident MiB | Workers | Records | Parses | Failed parses |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Reference | 1689.572 | 306.620 | 292.566 | 32 | 148486 | 148486 | 0 |
+| 1 | 1655.274 | 314.490 | 276.008 | 32 | 148486 | 148486 | 0 |
+| 2 | 1612.416 | 317.284 | 277.043 | 32 | 148486 | 148486 | 0 |
+| 3 | 1553.506 | 308.812 | 273.047 | 32 | 148486 | 148486 | 0 |
+| 4 | 1582.657 | 313.681 | 278.859 | 32 | 148486 | 148486 | 0 |
 
 ## Experiment 1
 
@@ -24,3 +38,9 @@ Build-time scalar selection uses inline storage for one value, single scalar pos
 ## Experiment 3
 
 Built-in JSON readers omit owned text segments for build parsing. After schema conversion, the raw bigram builder visits logical strings by borrow, resetting gram history for each string. Reader-supplied segments remain in use for `ReaderSegments` readers. Full core tests and a focused temporal/nested-string gram parity test passed. The build was 58.908 ms faster than experiment 2, with peak RSS 3.945 MiB lower. This is a single timing observation, not a causal allocation measurement. Schema, canonical registrations, counts, workers and semantic signature matched all previous samples.
+
+## Experiment 4
+
+An ordinary file batch now reuses one read buffer, with an 8 MiB capacity retention ceiling. The oversized framed-file path is unchanged. Tests covered increasing and decreasing file sizes, empty files, malformed and healthy siblings, a missing file, a framing failure that takes ownership of bytes, and oversized capacity release. Full core tests passed: 113 unit tests passed, one ignored, plus one integration test. The build was 29.140 ms slower than experiment 3 and peak RSS rose 5.148 MiB. This single observation is within the 78.368 ms spread of the reference's three runs and cannot establish a regression or an allocation cause. The change remains provisional because it removes repeated buffer creation with limited production code. Schema, canonical registrations, counts, workers and semantic signature still matched.
+
+No query, restore or profiling benchmark was run. The four post-change builds are the complete measurement budget for this experiment series.
