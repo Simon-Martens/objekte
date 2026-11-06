@@ -516,3 +516,108 @@ fn custom_regex_binding_requires_explicit_representation_contract() {
         }
     }
 }
+
+#[test]
+fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
+    let root = std::env::temp_dir().join(format!("objekte-regex-raw-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/records.jsonl"),
+        [
+            serde_json::json!({"title": "foo-bar"}).to_string(),
+            serde_json::json!({"title": "fooXbar"}).to_string(),
+            "{\"title\":\"foobar".into(),
+        ]
+        .join("\n"),
+    )
+    .unwrap();
+    let mut schema = Schema::default();
+    schema
+        .set_raw_binding(RegisteredBinding {
+            name: "dashless".into(),
+            version: 1,
+            operation: Arc::new(RegexMapping { compatible: true }),
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: Vec::new(),
+        sort_locale: "en".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let query = |pattern: &str| Query {
+        collections: vec!["data".into()],
+        fts: Some(FtsQuery {
+            case_sensitivity: CaseSensitivity::Sensitive,
+            mode: FtsMode::Regex(RegexOptions::default()),
+            literal: pattern.into(),
+            fields: Vec::new(),
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: Vec::new(),
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            verified_cache_bytes: 1024 * 1024,
+            ..Default::default()
+        };
+        let built =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        assert!(!built.startup().restored);
+        assert_eq!(built.build_failed_parses(), 1);
+        let built_query = query("foobar");
+        assert_eq!(built.search(&built_query).unwrap().count, Some(2));
+        assert_eq!(
+            built.search(&built_query).unwrap().hits,
+            built.search_reference(&built_query).unwrap().hits
+        );
+        drop(built);
+        let restored =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        assert!(restored.startup().restored);
+        let collection = &restored.collections()[0];
+        let fallback_slot = collection
+            .generation
+            .records
+            .iter()
+            .find(|record| record.class == crate::inventory::RecordClass::RawFallback)
+            .unwrap()
+            .slot
+            .0;
+        for (pattern, expected) in [("^foobar$", 1), ("foobar", 2), ("foo-bar", 0)] {
+            let request = query(pattern);
+            let bound = bind_fts(request.fts.as_ref().unwrap(), &definition.schema).unwrap();
+            let candidates = fts_candidates(collection, &bound).unwrap();
+            if pattern == "foobar" {
+                assert_eq!(candidates.len(), 2, "{alphabet:?}");
+                assert!(candidates.contains(fallback_slot));
+            }
+            let optimized = restored.search(&request).unwrap();
+            let reference = restored.search_reference(&request).unwrap();
+            assert_eq!(optimized.count, Some(expected), "{alphabet:?} {pattern}");
+            assert_eq!(optimized.hits, reference.hits, "{alphabet:?} {pattern}");
+            if pattern == "foobar" {
+                assert!(optimized.hits.iter().any(|hit| {
+                    hit.record_class == crate::inventory::RecordClass::RawFallback
+                        && hit.matched_fields == ["@record.raw_text"]
+                }));
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
