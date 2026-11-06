@@ -8,8 +8,9 @@ Starting HEAD: `07e7c66b6d837a9701cd6c97fea7897ca9a4dc9a`. The compatible refere
 | 1. Worker-aware allowance | 59a669a | 8387d1b | 1405.910 | -168.285 | -10.7% | 843.648 | 126.261 | 32 | 63 | 458.266 | 52140243 | retain provisionally |
 | 2. Replenish between admissions | a8759e3 | 59a669a | 1485.860 | +79.950 | +5.7% | 893.628 | 137.241 | 32 | 61 | 485.922 | 52140243 | revert |
 | 3. Remove build revision checks | 4c22416 | 59a669a | 1379.170 | -26.740 | -1.9% | 808.209 | 129.815 | 32 | 63 | 483.969 | 52140243 | retain provisionally |
+| 5. Retain bigram blocks | d42db18 | 4c22416 | 1104.859 | -274.311 | -19.9% | 407.251 | 255.906 | 32 | 63 | 497.789 | 52140243 | retain provisionally |
 
-Cumulative change from reference after experiment 3: -195.025 ms (-12.4%). Experiment 2 was reverted in `2c9e8c40ad` after its findings were saved; experiment 3 compares with the retained experiment 1 state.
+Cumulative change from reference after experiment 5: -469.337 ms (-29.8%). Experiment 2 was reverted in `2c9e8c40ad` after its findings were saved; experiment 3 compares with the retained experiment 1 state.
 
 ## Experiment 1
 
@@ -26,3 +27,13 @@ The coordinator replenished after each admitted batch and limited speculative di
 Construction reads now assume stable input after discovery. The ordinary build call passes `for_build=true`, which skips the three explicit `check_revision` calls around open/read/parse; each such check previously requested opened-file and pathname metadata. Framed construction no longer checks metadata before/after reading or after range processing. Logical-validation fallback uses a build-only range reader without a metadata probe. This is a code-path audit, not an externally measured syscall count. Query-time range checks and snapshot restoration were unchanged.
 
 Full core tests passed, including JSON/JSONL, malformed and empty sources, invalid ranges, logical fallback and oversized framed coverage. A focused test confirmed that the build reader uses actual buffer length even when the supplied revision differs. The build took 26.740 ms less than retained experiment 1; peak RSS rose 25.703 MiB, so timing and memory changes remain single-run observations. Discovery was 327.089 ms, extraction/index/admission 907.953 ms and finalization 129.815 ms. Active jobs and ready backlog remained 32 and 63; admission/merge was 808.209 ms, receive time 96.776 ms, and summed job execution 6165.163 ms. Estimated peak admission weight stayed 499.406 MiB under the 512 MiB limit. Counts, schema, canonical registrations and semantic signature matched.
+
+## Experiment 5
+
+Worker chunks now retain gram words, and ordered admission translates block starts without expanding every membership. Finalization converts owned normal and skip columns to the existing Roaring format on the build pool. The published index and snapshot layout are unchanged. Focused fixtures compared complete normal/skip postings and candidates with the former incremental merge across both alphabets, record counts 63/64/65 and 511/512/513, nonaligned batch bases and the 65,536 bitmap boundary. Full core tests, including snapshot round trips, passed.
+
+The build took 274.311 ms less than experiment 3. Admission/merge fell 400.958 ms to 407.251 ms, while finalization rose 126.091 ms to 255.906 ms because conversion now occurs there. **Total repository-opening time**, not the moved phase cost, is the comparison. Peak RSS rose 13.820 MiB to 497.789 MiB. Discovery was 321.511 ms and extraction/index/admission 513.349 ms; summed job execution was 5392.460 ms and receive time 102.929 ms. Peak active jobs (32), completed-but-unadmitted batches (63), and estimated admission weight (499.406 MiB under a 512 MiB limit) were unchanged. Counts, schema, canonical registrations and semantic signature matched.
+
+## Recommendation
+
+Retain experiments 1, 3 and 5 provisionally and leave experiment 2 reverted. The final single build was 469.337 ms faster than the starting reference, with peak RSS 209.023 MiB higher. The worker-aware allowance accounts for most of that memory increase; the block representation adds another 13.820 MiB relative to experiment 3. These samples do not establish repeatability or isolate allocations, but the block result is large enough to justify keeping its reversible commit for now. No query, restore, profiling, worker-count sweep or additional final build was run.
