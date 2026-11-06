@@ -144,6 +144,7 @@ impl PendingCollection {
         &mut self,
         inventory: &mut FileInventory,
         batch: crate::build::BatchContribution,
+        pool: &rayon::ThreadPool,
     ) -> Result<(), String> {
         crate::build::CollectionAdmission {
             inventory,
@@ -156,7 +157,7 @@ impl PendingCollection {
             logical_records: &mut self.logical_records,
             sorting: &mut self.sort_builder,
         }
-        .admit(batch)
+        .admit(batch, pool)
     }
 }
 
@@ -650,7 +651,7 @@ impl Repository {
         let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
             build_parses += batch.record_parses;
             build_failed_parses += batch.failed_parses;
-            pending[collection_index].admit(&mut files, batch)
+            pending[collection_index].admit(&mut files, batch, &build_pool)
         };
         for job in scheduled {
             match job {

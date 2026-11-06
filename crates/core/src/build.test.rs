@@ -1010,3 +1010,329 @@ fn duplicate_intrinsic_ids_across_batches_fail_before_publication() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+struct MergeTestState {
+    inventory: FileInventory,
+    builder: CollectionBuilder,
+    postings: PostingCollection,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    raw: BigramIndex,
+    fallback_text: BigramIndex,
+    custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    logical_records: RoaringBitmap,
+    sorting: SortBuilder,
+}
+
+impl MergeTestState {
+    fn new(schema: &Schema, alphabet: BigramAlphabet) -> Self {
+        let binding = (vec!["left".into()], "custom".into());
+        let custom_field = schema.fields.get(&binding.0).unwrap();
+        let sort_path = FieldPath::parse("left").unwrap();
+        Self {
+            inventory: FileInventory::new(PathBuf::new()),
+            builder: CollectionBuilder::new(CollectionId(0), "test".into(), 1, 0),
+            postings: PostingCollection::new(schema),
+            custom_postings: HashMap::from([(
+                binding.clone(),
+                CustomPostingIndex {
+                    index: PostingIndex::new(custom_field),
+                    complete: true,
+                },
+            )]),
+            raw: BigramIndex::new(alphabet),
+            fallback_text: BigramIndex::new(alphabet),
+            custom_text: HashMap::from([(binding, BigramIndex::new(alphabet))]),
+            logical_records: RoaringBitmap::new(),
+            sorting: SortBuilder::new(
+                &[sort_path],
+                schema,
+                "de",
+                Default::default(),
+                &HashMap::new(),
+            )
+            .unwrap(),
+        }
+    }
+
+    fn admission(&mut self) -> CollectionAdmission<'_> {
+        CollectionAdmission {
+            inventory: &mut self.inventory,
+            builder: &mut self.builder,
+            postings: &mut self.postings,
+            custom_postings: &mut self.custom_postings,
+            raw: &mut self.raw,
+            fallback_text: &mut self.fallback_text,
+            custom_text: &mut self.custom_text,
+            logical_records: &mut self.logical_records,
+            sorting: &mut self.sorting,
+        }
+    }
+}
+
+fn merge_test_schema() -> Schema {
+    let mut schema = Schema::default();
+    for name in ["left", "right"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::String,
+                required: false,
+                nullable: true,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    schema
+}
+
+fn merge_test_batch(
+    schema: &Schema,
+    alphabet: BigramAlphabet,
+    count: u32,
+    left: &str,
+    right: &str,
+    complete: bool,
+) -> IndexBatch {
+    let value = Value::from_json(serde_json::json!({"left":left,"right":right})).unwrap();
+    let mut postings = PostingCollection::new(schema);
+    postings.add(RecordSlot(0), &value).unwrap();
+    let binding = (vec!["left".into()], "custom".into());
+    let mut custom = PostingIndex::new(schema.fields.get(&binding.0).unwrap());
+    custom.add(RecordSlot(0), &value).unwrap();
+    let mut raw = BigramIndex::new(alphabet);
+    raw.add_record(
+        RecordSlot(0),
+        &[TextSegment {
+            path: vec!["left".into()],
+            text: left.into(),
+        }],
+    )
+    .unwrap();
+    raw.record_count = count;
+    let mut fallback_text = BigramIndex::new(alphabet);
+    fallback_text.add_empty(RecordSlot(0)).unwrap();
+    fallback_text
+        .add_record(
+            RecordSlot(1),
+            &[TextSegment {
+                path: vec![],
+                text: "broken".into(),
+            }],
+        )
+        .unwrap();
+    fallback_text.record_count = count;
+    let mut keys = vec![SortKey::Missing; count as usize];
+    keys[0] = SortKey::String(left.as_bytes().to_vec());
+    IndexBatch {
+        count,
+        postings,
+        custom_postings: HashMap::from([(
+            binding.clone(),
+            CustomPostingIndex {
+                index: custom,
+                complete,
+            },
+        )]),
+        raw: raw.clone(),
+        fallback_text,
+        custom_text: HashMap::from([(binding, raw)]),
+        logical_records: RoaringBitmap::from_iter([0]),
+        sort_keys: HashMap::from([(FieldPath::parse("left").unwrap(), keys)]),
+    }
+}
+
+#[test]
+fn parallel_merge_overlaps_fields_and_matches_serial_at_slot_boundaries() {
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+    use std::time::{Duration, Instant};
+
+    let schema = merge_test_schema();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(2)
+        .build()
+        .unwrap();
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        for first_count in [65, 65_536] {
+            let mut serial = MergeTestState::new(&schema, alphabet);
+            let mut parallel = MergeTestState::new(&schema, alphabet);
+            let active = AtomicUsize::new(0);
+            let peak = AtomicUsize::new(0);
+            let same_field_overlap = AtomicBool::new(false);
+            let field_active = [AtomicBool::new(false), AtomicBool::new(false)];
+            let hook = |_: u32, family: u8, path: &[String], _: &str, starting: bool| {
+                if family != 0 {
+                    return;
+                }
+                let field = usize::from(path[0] == "right");
+                if starting {
+                    if field_active[field].swap(true, Ordering::SeqCst) {
+                        same_field_overlap.store(true, Ordering::SeqCst);
+                    }
+                    let now = active.fetch_add(1, Ordering::SeqCst) + 1;
+                    peak.fetch_max(now, Ordering::SeqCst);
+                    let deadline = Instant::now() + Duration::from_secs(2);
+                    while active.load(Ordering::SeqCst) < 2 && Instant::now() < deadline {
+                        std::thread::yield_now();
+                    }
+                } else {
+                    active.fetch_sub(1, Ordering::SeqCst);
+                    field_active[field].store(false, Ordering::SeqCst);
+                }
+            };
+            for (base, left, right, complete) in [
+                (0, "Straße", "first", true),
+                (first_count, "Müller", "second", false),
+            ] {
+                let batch = merge_test_batch(&schema, alphabet, 65, left, right, complete);
+                let batch = if base == 0 {
+                    merge_test_batch(&schema, alphabet, first_count, left, right, complete)
+                } else {
+                    batch
+                };
+                serial
+                    .admission()
+                    .merge_indexes_serial(batch.clone(), base)
+                    .unwrap();
+                parallel
+                    .admission()
+                    .merge_indexes_with_hook(batch, base, &pool, &hook)
+                    .unwrap();
+                assert_eq!(active.load(Ordering::SeqCst), 0);
+                assert!(!same_field_overlap.load(Ordering::SeqCst));
+            }
+            assert!(
+                peak.load(Ordering::SeqCst) >= 2,
+                "merge jobs did not overlap"
+            );
+            assert_eq!(serial.logical_records, parallel.logical_records);
+            assert_eq!(
+                serial.logical_records.iter().collect::<Vec<_>>(),
+                [0, first_count]
+            );
+            assert_eq!(serial.raw.normal, parallel.raw.normal);
+            assert_eq!(serial.raw.skip, parallel.raw.skip);
+            assert!(
+                parallel
+                    .raw
+                    .candidates("Müller")
+                    .unwrap()
+                    .contains(first_count)
+            );
+            assert_eq!(serial.fallback_text.normal, parallel.fallback_text.normal);
+            assert_eq!(serial.fallback_text.skip, parallel.fallback_text.skip);
+            assert!(
+                parallel
+                    .fallback_text
+                    .candidates("broken")
+                    .unwrap()
+                    .contains(1)
+            );
+            assert!(
+                parallel
+                    .fallback_text
+                    .candidates("broken")
+                    .unwrap()
+                    .contains(first_count + 1)
+            );
+            assert_eq!(
+                serial.custom_text.keys().collect::<Vec<_>>(),
+                parallel.custom_text.keys().collect::<Vec<_>>()
+            );
+            for key in serial.custom_text.keys() {
+                assert_eq!(
+                    serial.custom_text[key].normal,
+                    parallel.custom_text[key].normal
+                );
+                assert_eq!(serial.custom_text[key].skip, parallel.custom_text[key].skip);
+            }
+            let same_posting = |left: &PostingIndex, right: &PostingIndex| {
+                assert_eq!(left.path, right.path);
+                assert_eq!(left.kind, right.kind);
+                assert_eq!(left.multi, right.multi);
+                assert_eq!(left.presence, right.presence);
+                assert_eq!(left.nulls, right.nulls);
+                assert_eq!(left.values, right.values);
+                assert_eq!(left.lengths, right.lengths);
+                assert_eq!(left.covered_records, right.covered_records);
+            };
+            for (key, left) in &serial.postings.fields {
+                same_posting(left, &parallel.postings.fields[key]);
+            }
+            assert_eq!(
+                parallel.postings.fields[&vec!["left".into()]].values
+                    [&crate::posting::ScalarKey::String("Müller".into())]
+                    .iter()
+                    .collect::<Vec<_>>(),
+                [first_count]
+            );
+            for (key, left) in &serial.custom_postings {
+                let right = &parallel.custom_postings[key];
+                same_posting(&left.index, &right.index);
+                assert_eq!(left.complete, right.complete);
+            }
+            assert!(!parallel.custom_postings.values().next().unwrap().complete);
+            let serial_keys = serial.sorting.into_keys();
+            let parallel_keys = parallel.sorting.into_keys();
+            assert_eq!(serial_keys, parallel_keys);
+            assert_eq!(
+                parallel_keys[&FieldPath::parse("left").unwrap()][first_count as usize],
+                SortKey::String("Müller".as_bytes().to_vec())
+            );
+        }
+    }
+}
+
+#[test]
+fn parallel_merge_rejects_structural_errors_before_any_job_starts() {
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    let schema = merge_test_schema();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(2)
+        .build()
+        .unwrap();
+    let starts = AtomicUsize::new(0);
+    let hook = |_: u32, _: u8, _: &[String], _: &str, starting: bool| {
+        if starting {
+            starts.fetch_add(1, Ordering::SeqCst);
+        }
+    };
+    for error_case in 0..4 {
+        let mut state = MergeTestState::new(&schema, BigramAlphabet::Ascii);
+        let mut batch =
+            merge_test_batch(&schema, BigramAlphabet::Ascii, 65, "Straße", "first", true);
+        let base = match error_case {
+            0 => {
+                batch.custom_text.clear();
+                0
+            }
+            1 => {
+                batch.raw.alphabet = BigramAlphabet::Unicode;
+                0
+            }
+            2 => {
+                batch.postings.fields.remove(&vec!["left".into()]);
+                0
+            }
+            _ => u32::MAX,
+        };
+        let error = state
+            .admission()
+            .merge_indexes_with_hook(batch, base, &pool, &hook)
+            .unwrap_err();
+        assert!(
+            error.contains(if error_case == 2 {
+                "posting batch field"
+            } else if error_case == 3 {
+                "record slot overflow"
+            } else {
+                "bigram batch coverage"
+            }),
+            "{error}"
+        );
+        assert_eq!(state.raw.record_count, 0);
+    }
+    assert_eq!(starts.load(Ordering::SeqCst), 0);
+}
