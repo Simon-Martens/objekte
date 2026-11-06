@@ -112,7 +112,14 @@ fn definitions() -> Vec<CollectionDefinition> {
             identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
             discovery: Default::default(),
             schema,
-            sort_fields: vec![FieldPath::parse("title").unwrap()],
+            sort_fields: if name == "entries" {
+                vec![
+                    FieldPath::parse("title").unwrap(),
+                    FieldPath::parse("issued").unwrap(),
+                ]
+            } else {
+                vec![FieldPath::parse("title").unwrap()]
+            },
             sort_locale: "de".into(),
             sort_options: Default::default(),
             sort_overrides: Default::default(),
@@ -282,6 +289,34 @@ fn cases() -> Vec<FeatureCase> {
         2,
     );
     add(
+        "sort-parameter",
+        "mentions",
+        Some("entry = $target SORT BY title DESC"),
+        None,
+        false,
+        &[],
+        id("A"),
+        &["m1", "m5"],
+        2,
+        true,
+        0,
+        20,
+    );
+    add(
+        "sort-multi-key",
+        "entries",
+        Some("SORT BY issued ASC, title DESC"),
+        None,
+        false,
+        &[],
+        HashMap::new(),
+        &["C", "A", "B"],
+        3,
+        true,
+        0,
+        20,
+    );
+    add(
         "temporal",
         "entries",
         Some("issued = 2024-02"),
@@ -292,6 +327,20 @@ fn cases() -> Vec<FeatureCase> {
         &["A", "C"],
         2,
         false,
+        0,
+        20,
+    );
+    add(
+        "temporal-sort",
+        "entries",
+        Some("issued = 2024-02 SORT BY title ASC"),
+        None,
+        false,
+        &[],
+        HashMap::new(),
+        &["C", "A"],
+        2,
+        true,
         0,
         20,
     );
@@ -437,6 +486,22 @@ fn cases() -> Vec<FeatureCase> {
         0,
         20,
     );
+    let mut sorted_mixed = id("A");
+    sorted_mixed.insert("pattern".into(), Value::String("^Hy.*n$".into()));
+    add(
+        "regex-parameter-relation-sort",
+        "mentions",
+        Some("entry = $target SORT BY title DESC"),
+        Some("$pattern"),
+        true,
+        &["entry.title"],
+        sorted_mixed,
+        &["m1", "m5"],
+        2,
+        true,
+        0,
+        20,
+    );
     cases
 }
 
@@ -546,7 +611,11 @@ fn main() -> Result<(), String> {
             continue;
         }
         let plan = repo.explain_with_parameters(&query, &case.parameters)?;
-        println!("{}", json!({"kind":"plan","case_id":case.id,"plan":plan}));
+        println!("{}", json!({"kind":"plan","case_id":case.id,
+            "filter":case.filter,"fts":case.fts,"regex":case.regex,
+            "fts_fields":case.fts_fields,"parameters":case.parameters,
+            "offset":case.offset,"limit":case.limit,"expected_page":expected,
+            "expected_count":case.expected_count,"plan":plan}));
         for repetition in 0..repetitions {
             let started = Instant::now();
             let result = repo.search_with_parameters(&query, &case.parameters)?;
