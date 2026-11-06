@@ -1,0 +1,14 @@
+# Musenalm fresh index builds
+
+Code revision: `d15b689d1ac21709195b79fc382c045d8dec9867`. Each configuration ran in 3 separate processes.
+Both alphabets were measured with snapshot modes: disabled, rebuild.
+All builds parsed exactly 148,486 source records; medians include discovery, build and optional snapshot write.
+
+| Configuration | Workers | Wall s | Range s | CPU s | Busy CPUs | Discovery s | Extraction/index s | Finalization s | Snapshot write s | Resident MiB | Peak RSS MiB | Peak admitted MiB | Snapshot MiB |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| ascii-disabled | 1 | 5.945 | 5.931–5.954 | 7.105 | 1.19 | 0.312 | 5.497 | 0.119 | 0.000 | 264.3 | 276.0 | 16.4 | — |
+| ascii-rebuild | 1 | 6.280 | 6.230–6.304 | 7.566 | 1.21 | 0.312 | 5.505 | 0.122 | 0.330 | 273.1 | 361.4 | 16.4 | 106.1 |
+| unicode-disabled | 1 | 6.776 | 6.744–6.780 | 7.986 | 1.18 | 0.309 | 6.337 | 0.115 | 0.000 | 269.8 | 281.3 | 16.4 | — |
+| unicode-rebuild | 1 | 7.084 | 7.061–7.107 | 8.405 | 1.19 | 0.311 | 6.318 | 0.111 | 0.333 | 279.1 | 369.0 | 16.4 | 108.5 |
+
+Baseline: `/home/simon/source/objekte/bench/results/musenalm/parallel-bigram-4f2cb8e85b`. Failures: 0.
