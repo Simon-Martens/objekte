@@ -1,0 +1,7 @@
+
+running 1 test
+test bigram::tests::profile_single_worker_constructors ... mode=convenience alphabet=Ascii elapsed_ns=369461521 keys=66 heap_bytes=433760
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 99 filtered out; finished in 0.46s
+

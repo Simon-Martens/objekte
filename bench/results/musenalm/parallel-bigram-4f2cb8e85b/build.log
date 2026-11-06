@@ -1,0 +1,11 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte/crates/core)
+warning: function `load_definitions` is never used
+   --> crates/core/examples/support/musenalm.rs:115:8
+    |
+115 | pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String> {
+    |        ^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `objekte-search-core` (example "bench_build_musenalm") generated 1 warning
+    Finished `release` profile [optimized] target(s) in 3.42s

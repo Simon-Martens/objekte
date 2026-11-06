@@ -1,0 +1,71 @@
+{
+  "before_revision": "bf8790634e",
+  "after_revision": "4f2cb8e85b",
+  "comparison": [
+    {
+      "alphabet": "ascii",
+      "before_revision": "bf8790634e",
+      "after_revision": "4f2cb8e85b",
+      "before_median_ms": 8241.963,
+      "after_median_ms": 5455.706,
+      "difference_ms": -2786.257,
+      "before_range_ms": "8201.124\u20138248.131",
+      "after_range_ms": "5413.208\u20135480.294",
+      "before_extraction_ms": 7866.212,
+      "after_extraction_ms": 5075.332,
+      "before_peak_rss_mib": 237.7,
+      "after_peak_rss_mib": 237.7,
+      "records": 148486,
+      "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+    },
+    {
+      "alphabet": "unicode",
+      "before_revision": "bf8790634e",
+      "after_revision": "4f2cb8e85b",
+      "before_median_ms": 8312.993,
+      "after_median_ms": 6208.42,
+      "difference_ms": -2104.573,
+      "before_range_ms": "8305.793\u20138333.457",
+      "after_range_ms": "6193.517\u20136298.016",
+      "before_extraction_ms": 7922.896,
+      "after_extraction_ms": 5827.198,
+      "before_peak_rss_mib": 243.7,
+      "after_peak_rss_mib": 243.1,
+      "records": 148486,
+      "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+    }
+  ],
+  "allocation_diagnostic": [
+    {
+      "alphabet": "ascii",
+      "mode": "convenience",
+      "allocations": 135458,
+      "allocated_bytes": 11019193,
+      "median_uninstrumented_ms": 15.749
+    },
+    {
+      "alphabet": "ascii",
+      "mode": "bulk",
+      "allocations": 71470,
+      "allocated_bytes": 3373570,
+      "median_uninstrumented_ms": 8.778
+    },
+    {
+      "alphabet": "unicode",
+      "mode": "convenience",
+      "allocations": 143724,
+      "allocated_bytes": 13263563,
+      "median_uninstrumented_ms": 23.833
+    },
+    {
+      "alphabet": "unicode",
+      "mode": "bulk",
+      "allocations": 71734,
+      "allocated_bytes": 3619932,
+      "median_uninstrumented_ms": 13.126
+    }
+  ],
+  "order": "old-new pairs, ASCII then Unicode, repeated three times",
+  "snapshot_mode": "disabled",
+  "schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9"
+}

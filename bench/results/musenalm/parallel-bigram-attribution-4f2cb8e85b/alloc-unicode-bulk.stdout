@@ -1,0 +1,7 @@
+
+running 1 test
+test bigram::tests::profile_single_worker_constructors ... mode=bulk alphabet=Unicode elapsed_ns=206289642 keys=88 heap_bytes=611360
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 99 filtered out; finished in 0.30s
+
