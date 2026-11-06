@@ -88,7 +88,7 @@ def main() -> int:
                             "new_median_ns": new_ns, "old_over_new": old_ns / new_ns,
                             "old_samples_ns": timing[case]["old"], "new_samples_ns": timing[case]["new"]})
     with (result_dir / "timings.csv").open("w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=("case", "matches", "old_median_ns", "new_median_ns", "old_over_new"))
+        writer = csv.DictWriter(file, fieldnames=("case", "matches", "old_median_ns", "new_median_ns", "old_over_new"), lineterminator="\n")
         writer.writeheader()
         writer.writerows({key: row[key] for key in writer.fieldnames} for row in output_rows)
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()

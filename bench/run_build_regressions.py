@@ -123,7 +123,7 @@ def main() -> int:
             f"{row['median_peak_resident_bytes'] / 1048576:.1f} | {snapshot_mib} |"
         )
     lines += ["", f"Baseline: `{baseline_path}`. Failures: {len(failures)}.", "", *[f"- {failure}" for failure in failures]]
-    (result_dir / "REPORT.md").write_text("\n".join(lines) + "\n")
+    (result_dir / "REPORT.md").write_text("\n".join(lines).rstrip() + "\n")
     for failure in failures:
         print(failure, file=sys.stderr)
     return int(bool(failures))
