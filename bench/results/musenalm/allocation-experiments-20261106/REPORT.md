@@ -19,7 +19,7 @@ Starting HEAD: `e7de81d092e8a063adf9751479f64a9f32271062`. The current core and 
 | After experiment 3 | -136.125 ms (-8.1%) |
 | After experiment 4, before revert | -106.985 ms (-6.3%) |
 
-Experiment 4 was reverted in `c5db04767c2ebe6b32f7aa9bf3222abdd62de991` at the user's request. The retained code is experiment 3, whose recorded build was 1553.532 ms, 136.125 ms below the reference median. No new build was run for the revert.
+Experiment 4 was reverted in `c5db04767c2ebe6b32f7aa9bf3222abdd62de991` at the user's request. The retained code is experiment 3, whose recorded build was 1553.532 ms, 136.125 ms below the reference median. A later user-requested fresh build of the reverted code took 1574.195 ms; see `revert-confirmation/REPORT.md` for its separate raw result and comparison.
 
 | Experiment | Build ms | Discovery ms | Resident MiB | Workers | Records | Parses | Failed parses |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -45,4 +45,4 @@ Built-in JSON readers omit owned text segments for build parsing. After schema c
 
 An ordinary file batch reused one read buffer, with an 8 MiB capacity retention ceiling. The oversized framed-file path was unchanged. Tests covered increasing and decreasing file sizes, empty files, malformed and healthy siblings, a missing file, a framing failure that takes ownership of bytes, and oversized capacity release. Full core tests passed: 113 unit tests passed, one ignored, plus one integration test. The build was 29.140 ms slower than experiment 3 and peak RSS rose 5.148 MiB. This single observation is within the 78.368 ms spread of the reference's three runs and cannot establish a regression or an allocation cause. The implementation was subsequently reverted; its measurement and test evidence remain here. Schema, canonical registrations, counts, workers and semantic signature matched.
 
-No query, restore or profiling benchmark was run. The four post-change builds are the complete measurement budget for this experiment series.
+No query, restore or profiling benchmark was run. The four post-change builds were the original experiment budget; the revert confirmation was requested separately afterward.
