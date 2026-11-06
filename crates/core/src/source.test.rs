@@ -1290,3 +1290,41 @@ fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
     );
     std::fs::remove_file(path).unwrap();
 }
+
+#[test]
+fn build_reads_use_actual_bytes_without_revision_probes() {
+    let root = std::env::temp_dir().join(format!("objekte-build-stable-input-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("records.jsonl");
+    std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
+    let wrong_revision = SourceRevision { modified_ns: 0, size: 1 };
+    let mut ranges = Vec::new();
+    let counters = extract_file_build_outcomes(&path, &JsonLinesReader, wrong_revision, |outcome| {
+        let SourceOutcome::Logical { range, .. } = outcome else { panic!("expected logical record") };
+        ranges.push(range);
+        Ok(())
+    }).unwrap();
+    assert_eq!(counters.record_parses, 2);
+    assert_eq!(ranges, [ByteRange { start: 0, end: 7 }, ByteRange { start: 8, end: 15 }]);
+    assert!(extract_file_outcomes(&path, &JsonLinesReader, wrong_revision, |_| Ok(())).is_err());
+    let framed = frame_file_for_build(&path, &JsonLinesReader).unwrap().unwrap();
+    assert_eq!(framed.0.len(), 16);
+    assert_eq!(framed.1, ranges);
+
+    let malformed = root.join("malformed.jsonl");
+    std::fs::write(&malformed, b"{\n").unwrap();
+    extract_file_build_outcomes(&malformed, &JsonLinesReader, wrong_revision, |outcome| {
+        assert!(matches!(outcome, SourceOutcome::Malformed { .. }));
+        Ok(())
+    }).unwrap();
+    let empty = root.join("empty.jsonl");
+    std::fs::write(&empty, b"").unwrap();
+    assert_eq!(extract_file_build_outcomes(&empty, &JsonLinesReader, wrong_revision,
+        |_| panic!("empty file must not emit a record")).unwrap().framed_records, 0);
+    let missing = root.join("missing.jsonl");
+    extract_file_build_outcomes(&missing, &JsonLinesReader, wrong_revision, |outcome| {
+        assert!(matches!(outcome, SourceOutcome::Unreadable { .. }));
+        Ok(())
+    }).unwrap();
+    std::fs::remove_dir_all(root).unwrap();
+}

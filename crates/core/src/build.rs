@@ -30,7 +30,7 @@ use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceOutcome,
     TextDerivation, extract_file_build_outcomes, extract_framed_build_outcomes,
-    frame_file_for_build, read_record_range, visit_logical_strings,
+    frame_file_for_build, read_record_range_for_build, visit_logical_strings,
 };
 use crate::workload::BigramAlphabet;
 
@@ -299,7 +299,7 @@ impl<'a> BatchBuilder<'a> {
             return if let Some(bytes) = source_bytes {
                 self.fallback(file, range, bytes, issue)
             } else {
-                let bytes = read_record_range(path, revision, range)?;
+                let bytes = read_record_range_for_build(path, range)?;
                 self.fallback(file, range, &bytes, issue)
             };
         }
@@ -561,7 +561,7 @@ pub(crate) fn process_framed_file(
     let mut stats = BuildScheduleStats { weight_limit_bytes: MAX_ADMITTED_BYTES, ..Default::default() };
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
-    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader(), input.revision)?
+    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader())?
     else {
         let batch = process_batch(
             &root,
@@ -674,12 +674,6 @@ pub(crate) fn process_framed_file(
     }
     if let Some(error) = failure {
         return Err(error);
-    }
-    if SourceRevision::from_metadata(
-        &std::fs::metadata(&path).map_err(|error| format!("{}: {error}", path.display()))?,
-    )? != input.revision
-    {
-        return Err("stale source revision after framed extraction".into());
     }
     stats.peak_weight_bytes = source_bytes.saturating_add(peak_bytes);
     counters.add_to(&mut stats);

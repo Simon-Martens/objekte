@@ -667,20 +667,14 @@ fn validate_reader_ranges(ranges: &[ByteRange], file_size: usize) -> Result<(), 
 pub(crate) fn frame_file_for_build(
     path: &Path,
     source: &dyn SourceReader,
-    expected: SourceRevision,
 ) -> Result<Option<(Arc<Vec<u8>>, Vec<ByteRange>)>, String> {
     let mut file = match std::fs::File::open(path) {
         Ok(file) => file,
         Err(_) => return Ok(None),
     };
-    check_revision(path, &file, expected)?;
     let mut bytes = Vec::new();
     if file.read_to_end(&mut bytes).is_err() {
         return Ok(None);
-    }
-    check_revision(path, &file, expected)?;
-    if bytes.len() as u64 != expected.size {
-        return Err("stale source revision during extraction".into());
     }
     let ranges = match source.frame_outcome(&bytes) {
         Ok(ranges) => ranges,
@@ -812,7 +806,9 @@ where
             return Ok(ExtractionCounters::default());
         }
     };
-    check_revision(path, &file, expected)?;
+    if !for_build {
+        check_revision(path, &file, expected)?;
+    }
     let mut bytes = Vec::new();
     if let Err(error) = file.read_to_end(&mut bytes) {
         consume(SourceOutcome::Unreadable {
@@ -824,9 +820,11 @@ where
         })?;
         return Ok(ExtractionCounters::default());
     }
-    check_revision(path, &file, expected)?;
-    if bytes.len() as u64 != expected.size {
-        return Err("stale source revision during extraction".into());
+    if !for_build {
+        check_revision(path, &file, expected)?;
+        if bytes.len() as u64 != expected.size {
+            return Err("stale source revision during extraction".into());
+        }
     }
     let ranges = match source.frame_outcome(&bytes) {
         Ok(ranges) => ranges,
@@ -839,7 +837,9 @@ where
                 diagnostic,
                 bytes,
             })?;
-            check_revision(path, &file, expected)?;
+            if !for_build {
+                check_revision(path, &file, expected)?;
+            }
             return Ok(ExtractionCounters {
                 framed_records: 1,
                 record_parses: 0,
@@ -852,7 +852,9 @@ where
     };
     validate_reader_ranges(&ranges, bytes.len())?;
     let counters = extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
-    check_revision(path, &file, expected)?;
+    if !for_build {
+        check_revision(path, &file, expected)?;
+    }
     Ok(counters)
 }
 
@@ -888,6 +890,18 @@ pub fn read_record_range(
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
     check_opened_revision(&file, revision)?;
     ByteRange::checked(range.start, range.end, revision.size)?;
+    read_record_range_from_opened(&mut file, range)
+}
+
+/// Build-only fallback read: discovery supplied the source revision, while
+/// construction assumes the source remains stable and performs no new probe.
+pub(crate) fn read_record_range_for_build(path: &Path, range: ByteRange) -> Result<Vec<u8>, String> {
+    let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+    ByteRange::checked(range.start, range.end, u64::MAX)?;
+    read_record_range_from_opened(&mut file, range)
+}
+
+fn read_record_range_from_opened(file: &mut std::fs::File, range: ByteRange) -> Result<Vec<u8>, String> {
     let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
     let mut bytes = vec![0; len];
     file.seek(SeekFrom::Start(range.start))
