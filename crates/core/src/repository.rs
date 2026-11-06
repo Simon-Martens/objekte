@@ -9,11 +9,12 @@ use crate::bigram::BigramIndex;
 use crate::inventory::{
     ByteRange, CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision,
 };
-use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot};
-use crate::posting::PostingCollection;
+use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
+use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::reference::{
-    RecordContext, Schema, Transform, bind_filter, data_values, eval_filter, eval_fts_query,
+    BindingOperation, RecordContext, Schema, Transform, bind_filter, bind_fts, data_values,
+    eval_bound_fts, eval_filter,
 };
 use crate::sorting::{SortBuilder, SortCollection};
 use crate::source::{
@@ -28,6 +29,21 @@ use unicode_casefold::UnicodeCaseFold;
 pub enum IdentityPolicy {
     Filename,
     Generated,
+}
+
+
+fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
+    if let Value::Array(array) = value {
+        let values = array
+            .values
+            .iter()
+            .map(|item| map_binding_value(operation, item))
+            .collect::<Option<Vec<_>>>()?;
+        return Some(Value::Array(
+            ArrayValue::new(values, None, array.nullable_elements).ok()?,
+        ));
+    }
+    operation.map_value(value)
 }
 
 
@@ -50,6 +66,7 @@ pub struct CollectionState {
     pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
+    pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: BigramIndex,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub sorting: SortCollection,
@@ -396,6 +413,21 @@ impl Repository {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
+            let mut custom_postings: HashMap<_, _> = definition
+                .schema
+                .operations
+                .iter()
+                .filter(|(_, binding)| binding.operation.posting())
+                .map(|(key, binding)| {
+                    (
+                        key.clone(),
+                        CustomPostingIndex {
+                            index: PostingIndex::new(&definition.schema.fields[&key.0]),
+                            complete: binding.operation.complete_coverage(),
+                        },
+                    )
+                })
+                .collect();
             let mut raw = BigramIndex::new(options.bigram_alphabet);
             let mut sort_builder = SortBuilder::new(
                 &definition.sort_fields,
@@ -406,6 +438,16 @@ impl Repository {
                 .schema
                 .custom
                 .keys()
+                .chain(
+                    definition
+                        .schema
+                        .operations
+                        .iter()
+                        .filter(|(_, binding)| {
+                            binding.operation.bigram() && binding.operation.complete_coverage()
+                        })
+                        .map(|(key, _)| key),
+                )
                 .map(|key| (key.clone(), BigramIndex::new(options.bigram_alphabet)))
                 .collect();
             for file_id in member_files {
@@ -431,7 +473,43 @@ impl Repository {
                     };
                     let slot = builder.add_record(file, record_id, range.start, range.end)?;
                     postings.add(slot, &extracted.value)?;
-                    raw.add_record(slot, &extracted.text)?;
+                    for (key, custom) in &mut custom_postings {
+                        let binding = &definition.schema.operations[key];
+                        let selected = data_values(&extracted.value, &key.0);
+                        let mapped = selected.as_ref().map(|values| {
+                            values
+                                .iter()
+                                .map(|value| map_binding_value(binding.operation.as_ref(), value))
+                                .collect::<Option<Vec<_>>>()
+                        });
+                        let mapped = match mapped {
+                            Some(Some(values)) => Some(values),
+                            Some(None) => {
+                                custom.complete = false;
+                                None
+                            }
+                            None => None,
+                        };
+                        let refs = mapped
+                            .as_ref()
+                            .map(|values| values.iter().collect::<Vec<_>>());
+                        custom.index.add_values(slot, refs.as_deref())?;
+                    }
+                    let raw_text;
+                    let indexed_text = if let Some(binding) = &definition.schema.raw {
+                        raw_text = extracted
+                            .text
+                            .iter()
+                            .map(|segment| TextSegment {
+                                path: segment.path.clone(),
+                                text: binding.operation.map_text(&segment.text),
+                            })
+                            .collect::<Vec<_>>();
+                        &raw_text
+                    } else {
+                        &extracted.text
+                    };
+                    raw.add_record(slot, indexed_text)?;
                     sort_builder.add(
                         slot,
                         &extracted.value,
@@ -441,7 +519,6 @@ impl Repository {
                         &definition.name,
                     )?;
                     for (key, index) in &mut custom_text {
-                        let binding = &definition.schema.custom[key];
                         let mut segments = Vec::new();
                         if let Some(values) = data_values(&extracted.value, &key.0) {
                             for value in values {
@@ -453,9 +530,15 @@ impl Repository {
                                     };
                                 for value in values {
                                     if let crate::model::Value::String(text) = value {
-                                        let text = match binding.transform {
-                                            Transform::Identity => text.clone(),
-                                            Transform::CaseFold => text.case_fold().collect(),
+                                        let text = if let Some(binding) =
+                                            definition.schema.operations.get(key)
+                                        {
+                                            binding.operation.map_text(text)
+                                        } else {
+                                            match definition.schema.custom[key].transform {
+                                                Transform::Identity => text.clone(),
+                                                Transform::CaseFold => text.case_fold().collect(),
+                                            }
                                         };
                                         segments.push(TextSegment {
                                             path: key.0.clone(),
@@ -501,6 +584,10 @@ impl Repository {
             let generation = builder.finish(&files)?;
             postings.finish_stats();
             postings.validate(generation.records.len())?;
+            for custom in custom_postings.values_mut() {
+                custom.index.finish_stats();
+                custom.index.validate(generation.records.len())?;
+            }
             raw.validate(generation.records.len())?;
             for index in custom_text.values() {
                 index.validate(generation.records.len())?;
@@ -525,6 +612,7 @@ impl Repository {
                 source,
                 generation,
                 postings,
+                custom_postings,
                 raw,
                 custom_text,
                 sorting,
@@ -562,23 +650,12 @@ impl Repository {
                 .as_ref()
                 .map(|f| bind_filter(f, &collection.definition.schema))
                 .transpose()?;
-            if let Some(fts) = &query.fts {
-                for field in &fts.fields {
-                    collection.definition.schema.field(&field.path)?;
-                    if let Some(name) = &field.binding {
-                        if name != "lower"
-                            && !collection
-                                .definition
-                                .schema
-                                .custom
-                                .contains_key(&(field.path.segments.clone(), name.clone()))
-                        {
-                            return Err(format!("unknown FTS binding {name}"));
-                        }
-                    }
-                }
-            }
-            bound.push((collection, filter));
+            let fts = query
+                .fts
+                .as_ref()
+                .map(|fts| bind_fts(fts, &collection.definition.schema))
+                .transpose()?;
+            bound.push((collection, filter, fts));
         }
         if bound.is_empty() {
             return Err("unknown or unloaded collection scope".into());
@@ -600,7 +677,7 @@ impl Repository {
             prepared_plan_hit: false,
             verified_result_hit: false,
         };
-        for (collection, filter) in bound {
+        for (collection, filter, fts) in bound {
             for record in &collection.generation.records {
                 let file = &self.files.files[record.file.0 as usize];
                 let path = self
@@ -628,18 +705,9 @@ impl Repository {
                     repository_root: &self.files.root,
                 };
                 let mut evidence = HashSet::new();
-                let fts_match = query
-                    .fts
+                let fts_match = fts
                     .as_ref()
-                    .map(|fts| {
-                        eval_fts_query(
-                            fts,
-                            &collection.definition.schema,
-                            &extracted.text,
-                            &ctx,
-                            &mut evidence,
-                        )
-                    })
+                    .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
                     .transpose()?
                     .unwrap_or(true);
                 let filter_match = filter

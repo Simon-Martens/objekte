@@ -93,6 +93,16 @@ the scanner verifies them. The generic core has no Musenalm names or
 `x-objekte` vocabulary. Only JSON is required by this fixture; the core also
 has a JSON Lines reader.
 
+Internal named field operations can be registered through `Schema` with a
+stable name and version. They define accepted logical types and operators,
+FILTER and FTS literal preparation, record-value and text mapping, and whether
+posting or bigram indexes cover their values. An unmodified field may select a
+configured default operation. Unscoped FTS may select a configured raw-text
+operation; each extracted text segment remains separate. A missing or partial
+index falls back to scanner evaluation. The binding version and default/raw
+selection participate in snapshot compatibility; prepared and verified caches
+belong to the opened repository generation.
+
 Discovery reads the declared source directory directly, selecting regular
 files with the exact `.json` or `.jsonl` extension. It is nonrecursive and
 skips symbolic-link entries. An empty JSON file contributes zero records;

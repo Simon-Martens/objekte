@@ -13,7 +13,7 @@ use sha2::{Digest, Sha256};
 use crate::bigram::{BIGRAM_VERSION, BigramIndex};
 use crate::inventory::{CollectionGeneration, FileInventory, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
-use crate::posting::PostingCollection;
+use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::repository::{
     CollectionDefinition, CollectionState, CollectionStats, Repository, RepositoryOptions,
     StartupStats,
@@ -23,7 +23,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 1;
+pub const SNAPSHOT_VERSION: u32 = 2;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -43,6 +43,7 @@ struct EncodedFile {
 struct EncodedCollection {
     generation: CollectionGeneration,
     postings: PostingCollection,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramIndex,
     custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     sorting: SortCollection,
@@ -55,6 +56,7 @@ struct EncodedCollection {
 struct EncodedCollectionRef<'a> {
     generation: &'a CollectionGeneration,
     postings: &'a PostingCollection,
+    custom_postings: &'a HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: &'a BigramIndex,
     custom_text: &'a HashMap<(Vec<String>, String), BigramIndex>,
     sorting: &'a SortCollection,
@@ -222,6 +224,39 @@ pub fn configuration_hash(
                 .as_bytes(),
             );
         }
+        let mut operations: Vec<_> = definition.schema.operations.iter().collect();
+        operations.sort_by(|a, b| a.0.cmp(b.0));
+        for ((path, name), binding) in operations {
+            feed(
+                &mut hash,
+                format!(
+                    "{:?}|{name}|{}|{}|{}|{}",
+                    path,
+                    binding.version,
+                    binding.operation.posting(),
+                    binding.operation.bigram(),
+                    binding.operation.complete_coverage()
+                )
+                .as_bytes(),
+            );
+        }
+        let mut defaults: Vec<_> = definition.schema.defaults.iter().collect();
+        defaults.sort_by(|a, b| a.0.cmp(b.0));
+        for (path, name) in defaults {
+            feed(&mut hash, format!("{:?}|{name}", path).as_bytes());
+        }
+        if let Some(raw) = &definition.schema.raw {
+            feed(
+                &mut hash,
+                format!(
+                    "raw|{}|{}|{}",
+                    raw.name,
+                    raw.version,
+                    raw.operation.bigram()
+                )
+                .as_bytes(),
+            );
+        }
     }
     Ok(hash.finalize().into())
 }
@@ -325,6 +360,7 @@ impl Repository {
                 let encoded = EncodedCollectionRef {
                     generation: &state.generation,
                     postings: &state.postings,
+                    custom_postings: &state.custom_postings,
                     raw: &state.raw,
                     custom_text: &state.custom_text,
                     sorting: &state.sorting,
@@ -402,6 +438,37 @@ pub fn load_snapshot(
         }
         generation.validate(&files)?;
         encoded.postings.validate(generation.records.len())?;
+        let expected_custom: HashSet<_> = definition
+            .schema
+            .operations
+            .iter()
+            .filter(|(_, binding)| binding.operation.posting())
+            .map(|(key, _)| key.clone())
+            .collect();
+        if encoded
+            .custom_postings
+            .keys()
+            .cloned()
+            .collect::<HashSet<_>>()
+            != expected_custom
+        {
+            return Err("snapshot custom posting coverage mismatch".into());
+        }
+        for (key, custom) in &encoded.custom_postings {
+            custom.index.validate(generation.records.len())?;
+            if custom.index.kind != definition.schema.fields[&key.0].kind
+                || custom.index.path != key.0
+            {
+                return Err("snapshot custom posting binding mismatch".into());
+            }
+            if custom.complete
+                && !definition.schema.operations[key]
+                    .operation
+                    .complete_coverage()
+            {
+                return Err("snapshot custom posting coverage mismatch".into());
+            }
+        }
         let expected_postings: HashSet<_> = definition
             .schema
             .fields
@@ -429,9 +496,22 @@ pub fn load_snapshot(
         if encoded.raw.alphabet != options.bigram_alphabet {
             return Err("snapshot alphabet mismatch".into());
         }
-        if encoded.custom_text.keys().collect::<HashSet<_>>()
-            != definition.schema.custom.keys().collect::<HashSet<_>>()
-        {
+        let expected_text: HashSet<_> = definition
+            .schema
+            .custom
+            .keys()
+            .chain(
+                definition
+                    .schema
+                    .operations
+                    .iter()
+                    .filter(|(_, binding)| {
+                        binding.operation.bigram() && binding.operation.complete_coverage()
+                    })
+                    .map(|(key, _)| key),
+            )
+            .collect();
+        if encoded.custom_text.keys().collect::<HashSet<_>>() != expected_text {
             return Err("snapshot custom binding mismatch".into());
         }
         for index in encoded.custom_text.values() {
@@ -505,6 +585,7 @@ pub fn load_snapshot(
             source,
             generation,
             postings: encoded.postings,
+            custom_postings: encoded.custom_postings,
             raw: encoded.raw,
             custom_text: encoded.custom_text,
             sorting: encoded.sorting,

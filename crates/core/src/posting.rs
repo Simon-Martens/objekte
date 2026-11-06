@@ -53,6 +53,14 @@ pub struct PostingIndex {
 }
 
 
+/// Optional named-binding posting and its exact coverage guarantee.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CustomPostingIndex {
+    pub index: PostingIndex,
+    pub complete: bool,
+}
+
+
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct PostingStats {
@@ -160,11 +168,20 @@ impl PostingIndex {
     }
 
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
+        let selected = data_values(record, &self.path);
+        self.add_values(slot, selected.as_deref())
+    }
+
+    pub fn add_values(
+        &mut self,
+        slot: RecordSlot,
+        selected: Option<&[&Value]>,
+    ) -> Result<(), String> {
         self.covered_records = self
             .covered_records
             .checked_add(1)
             .ok_or("posting coverage overflow")?;
-        let Some(selected) = data_values(record, &self.path) else {
+        let Some(selected) = selected else {
             return Ok(());
         };
         self.presence.insert(slot.0);

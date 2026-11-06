@@ -3,14 +3,14 @@
 use std::collections::{HashMap, VecDeque};
 
 use crate::query::Query;
-use crate::reference::{BoundExpr, bind_filter};
+use crate::reference::{BoundExpr, BoundFts, bind_filter, bind_fts};
 use crate::repository::{Repository, validate_sort};
 
 
 /// Bound query terms for the selected collection generations.
 #[derive(Clone)]
 pub(crate) struct PreparedQuery {
-    pub collections: Vec<(usize, Option<BoundExpr>)>,
+    pub collections: Vec<(usize, Option<BoundExpr>, Option<BoundFts>)>,
 }
 
 
@@ -98,23 +98,12 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
             .as_ref()
             .map(|f| bind_filter(f, &collection.definition.schema))
             .transpose()?;
-        if let Some(fts) = &query.fts {
-            for field in &fts.fields {
-                collection.definition.schema.field(&field.path)?;
-                if let Some(name) = &field.binding {
-                    if name != "lower"
-                        && !collection
-                            .definition
-                            .schema
-                            .custom
-                            .contains_key(&(field.path.segments.clone(), name.clone()))
-                    {
-                        return Err(format!("unknown FTS binding {name}"));
-                    }
-                }
-            }
-        }
-        collections.push((index, filter));
+        let fts = query
+            .fts
+            .as_ref()
+            .map(|fts| bind_fts(fts, &collection.definition.schema))
+            .transpose()?;
+        collections.push((index, filter, fts));
     }
     if collections.is_empty() {
         return Err("unknown or unloaded collection scope".into());

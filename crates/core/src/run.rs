@@ -16,7 +16,9 @@ use crate::executor::{
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
-use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query, eval_term};
+use crate::reference::{
+    BoundExpr, BoundFts, Derived, RecordContext, eval_bound_fts, eval_filter, eval_term,
+};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
 use crate::source::{ScanProjection, read_record_ranges, text_segments};
@@ -160,6 +162,7 @@ fn scan_file(
     query: &Query,
     collection_index: usize,
     filter: Option<&BoundExpr>,
+    fts: Option<&BoundFts>,
     projection: &ScanProjection,
     retain_all_evidence: bool,
     payload_cutoff: Option<&RankKey>,
@@ -216,18 +219,8 @@ fn scan_file(
                 repository_root: &repo.files.root,
             };
             let mut evidence = HashSet::new();
-            let fts_match = query
-                .fts
-                .as_ref()
-                .map(|fts| {
-                    eval_fts_query(
-                        fts,
-                        &collection.definition.schema,
-                        &extracted.text,
-                        &ctx,
-                        &mut evidence,
-                    )
-                })
+            let fts_match = fts
+                .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
                 .transpose()?
                 .unwrap_or(true);
             let filter_match = filter
@@ -340,7 +333,7 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
 fn inventory_fts_evidence(
     repo: &Repository,
     collection: &crate::repository::CollectionState,
-    fts: &crate::query::FtsQuery,
+    fts: &BoundFts,
     input: &RoaringBitmap,
 ) -> Result<HashMap<u32, HashSet<String>>, String> {
     let empty = Value::Object(Default::default());
@@ -356,7 +349,7 @@ fn inventory_fts_evidence(
             repository_root: &repo.files.root,
         };
         let mut evidence = HashSet::new();
-        if eval_fts_query(fts, &collection.definition.schema, &[], &ctx, &mut evidence)? {
+        if eval_bound_fts(fts, &[], &ctx, &mut evidence)? {
             matches.insert(slot, evidence);
         }
     }
@@ -626,7 +619,7 @@ pub fn search_analyze(
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let mut traces = Vec::new();
-    for (collection_index, filter) in prepared.collections {
+    for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
         let plan = filter
@@ -643,7 +636,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             collection: collection.definition.name.clone(),
             generation: collection.generation.generation,
             input_records: domain.len(),
-            fts_strategy: if let Some(fts) = &query.fts {
+            fts_strategy: if let Some(fts) = &fts {
                 if !fts.fields.is_empty()
                     && fts
                         .fields
@@ -690,14 +683,13 @@ fn search_impl(
     let mut counters = WorkCounters::default();
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     counters.prepared_plan_hit = plan_hit;
-    for (collection_index, filter) in prepared.collections {
+    for (collection_index, filter, fts) in prepared.collections {
         let planning_start = Instant::now();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
         let mut input = domain.clone();
-        let text_estimate = query
-            .fts
+        let text_estimate = fts
             .as_ref()
             .and_then(|fts| estimate_fts_candidates(collection, fts));
         let filter_estimate = filter
@@ -713,7 +705,7 @@ fn search_impl(
             _ => false,
         };
         if text_first {
-            if let Some(fts) = &query.fts {
+            if let Some(fts) = &fts {
                 if let Some(text) = fts_candidates(collection, fts) {
                     input &= text;
                 }
@@ -731,7 +723,7 @@ fn search_impl(
             });
         let mut candidates = plan.candidates.unwrap_or(input);
         if !text_first {
-            if let (Some(fts), Some((estimated, lookup))) = (&query.fts, text_estimate) {
+            if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
                 if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
                     if let Some(text_candidates) = fts_candidates(collection, fts) {
                         candidates &= text_candidates;
@@ -739,7 +731,7 @@ fn search_impl(
                 }
             }
         }
-        let metadata_only_fts = query.fts.as_ref().is_some_and(|fts| {
+        let metadata_only_fts = fts.as_ref().is_some_and(|fts| {
             !fts.fields.is_empty()
                 && fts
                     .fields
@@ -748,7 +740,7 @@ fn search_impl(
         });
         let inventory_evidence = if metadata_only_fts {
             let matches =
-                inventory_fts_evidence(repo, collection, query.fts.as_ref().unwrap(), &candidates)?;
+                inventory_fts_evidence(repo, collection, fts.as_ref().unwrap(), &candidates)?;
             candidates = matches.keys().copied().collect();
             Some(matches)
         } else {
@@ -756,13 +748,13 @@ fn search_impl(
         };
         counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
         counters.candidates += candidates.len();
-        let needs_scan = !plan.exact || (query.fts.is_some() && !metadata_only_fts);
+        let needs_scan = !plan.exact || (fts.is_some() && !metadata_only_fts);
         if let Some(traces) = traces.as_deref_mut() {
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
                 input_records: domain.len(),
-                fts_strategy: if query.fts.is_none() {
+                fts_strategy: if fts.is_none() {
                     "absent"
                 } else if metadata_only_fts {
                     "metadata inventory"
@@ -851,6 +843,7 @@ fn search_impl(
                                 query,
                                 collection_index,
                                 filter.as_ref(),
+                                fts.as_ref(),
                                 &projection,
                                 retain_all_evidence,
                                 payload_cutoff.as_ref(),
@@ -869,6 +862,7 @@ fn search_impl(
                             query,
                             collection_index,
                             filter.as_ref(),
+                            fts.as_ref(),
                             &projection,
                             retain_all_evidence,
                             payload_cutoff.as_ref(),

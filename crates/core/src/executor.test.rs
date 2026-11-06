@@ -5,6 +5,302 @@ use crate::reference::{CustomBinding, FieldDefinition, Transform};
 use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
+use std::sync::Arc;
+
+
+#[derive(Debug)]
+struct KeyedOperation {
+    posting: bool,
+    bigram: bool,
+    complete: bool,
+}
+
+
+impl crate::reference::BindingOperation for KeyedOperation {
+    fn accepts(&self, kind: &LogicalType, operator: Operator, _multi: bool) -> bool {
+        *kind == LogicalType::String
+            && matches!(operator, Operator::Eq | Operator::Ne | Operator::Contains)
+    }
+
+    fn prepare_literal(
+        &self,
+        literal: &crate::query::Literal,
+        _kind: &LogicalType,
+    ) -> Result<Value, String> {
+        match literal {
+            crate::query::Literal::Null => Ok(Value::Null),
+            crate::query::Literal::String(text) => text
+                .strip_prefix("key:")
+                .map(|body| Value::String(body.trim().to_lowercase()))
+                .ok_or("keyed literal needs key: prefix".into()),
+            _ => Err("keyed literal requires text".into()),
+        }
+    }
+
+    fn map_value(&self, value: &Value) -> Option<Value> {
+        match value {
+            Value::String(text) => Some(Value::String(self.map_text(text))),
+            Value::Null => Some(Value::Null),
+            _ => None,
+        }
+    }
+
+    fn map_text(&self, text: &str) -> String {
+        text.trim().to_lowercase()
+    }
+
+    fn posting(&self) -> bool {
+        self.posting
+    }
+
+    fn bigram(&self) -> bool {
+        self.bigram
+    }
+
+    fn complete_coverage(&self) -> bool {
+        self.complete
+    }
+}
+
+
+#[test]
+fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
+    use crate::query::{FtsField, Literal};
+    use crate::reference::RegisteredBinding;
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+
+    let root = std::env::temp_dir().join(format!("objekte-keyed-binding-{}", std::process::id()));
+    let path = root.join("data");
+    std::fs::create_dir_all(&path).unwrap();
+    for (id, json) in [
+        ("a", r#"{"title":"  ALPHA  ","text":"NEEDLE Place"}"#),
+        ("b", r#"{"title":"alpha","text":"other"}"#),
+        ("c", r#"{"title":"beta","text":"needle!"}"#),
+        ("d", r#"{"text":"other"}"#),
+        ("e", r#"{"title":"","text":"other"}"#),
+    ] {
+        std::fs::write(path.join(format!("{id}.json")), json).unwrap();
+    }
+    let definition = |posting, bigram, complete, version| {
+        let mut schema = crate::reference::Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["title".into()],
+                kind: LogicalType::String,
+                required: false,
+                nullable: true,
+                indexed: false,
+                multi: false,
+            })
+            .unwrap();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["text".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+            })
+            .unwrap();
+        let binding = RegisteredBinding {
+            name: "keyed".into(),
+            version,
+            operation: Arc::new(KeyedOperation {
+                posting,
+                bigram,
+                complete,
+            }),
+        };
+        schema
+            .register_operation(vec!["title".into()], binding.clone())
+            .unwrap();
+        schema
+            .set_default_binding(vec!["title".into()], "keyed")
+            .unwrap();
+        schema.set_raw_binding(binding).unwrap();
+        CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+        }
+    };
+    let make_query = |filter: Option<&str>, fts: Option<(&str, Option<&str>)>| Query {
+        collections: vec![],
+        fts: fts.map(|(literal, selected)| FtsQuery {
+            literal: literal.into(),
+            fields: selected
+                .map(|name| {
+                    vec![FtsField {
+                        path: crate::model::FieldPath::parse("title").unwrap(),
+                        binding: Some(name.into()),
+                    }]
+                })
+                .unwrap_or_default(),
+        }),
+        filter: filter.map(|text| parse_filter(text).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 20,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let mut default_fts = make_query(None, Some(("alp", Some("keyed"))));
+    default_fts.fts.as_mut().unwrap().fields[0].binding = None;
+    let cases = [
+        (
+            make_query(Some("title:keyed = 'key:ALPHA'"), None),
+            vec!["a", "b"],
+            vec!["title"],
+        ),
+        (
+            make_query(Some("title = 'key:ALPHA'"), None),
+            vec!["a", "b"],
+            vec!["title"],
+        ),
+        (
+            make_query(Some("title:keyed != 'key:ALPHA'"), None),
+            vec!["c", "e"],
+            vec![],
+        ),
+        (
+            make_query(Some("title:keyed ~ 'key:alp'"), None),
+            vec!["a", "b"],
+            vec!["title"],
+        ),
+        (
+            make_query(Some("title:keyed ~ 'key:al'"), None),
+            vec!["a", "b"],
+            vec!["title"],
+        ),
+        (
+            make_query(Some("title:keyed ~ 'key:'"), None),
+            vec!["a", "b", "c", "e"],
+            vec!["title"],
+        ),
+        (
+            make_query(None, Some(("alp", Some("keyed")))),
+            vec!["a", "b"],
+            vec!["title"],
+        ),
+        (default_fts, vec!["a", "b"], vec!["title"]),
+        (
+            make_query(None, Some(("", Some("keyed")))),
+            vec!["a", "b", "c", "e"],
+            vec!["title"],
+        ),
+        (
+            make_query(None, Some(("needle", None))),
+            vec!["a", "c"],
+            vec!["text"],
+        ),
+    ];
+    for (posting, bigram, complete) in [
+        (true, true, true),
+        (false, true, true),
+        (false, false, true),
+        (true, true, false),
+    ] {
+        let repo = Repository::open_with_options(
+            &root,
+            vec![definition(posting, bigram, complete, 1)],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        for (case_index, (query, expected, evidence)) in cases.iter().enumerate() {
+            let result = repo.search(query).unwrap();
+            let reference = repo.search_reference(query).unwrap();
+            let mut ids = result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>();
+            ids.sort_unstable();
+            assert_eq!(
+                &ids, expected,
+                "posting={posting}, bigram={bigram}, complete={complete}"
+            );
+            assert_eq!(result.count, reference.count);
+            assert_eq!(result.hits, reference.hits);
+            assert!(
+                result
+                    .hits
+                    .iter()
+                    .all(|hit| hit.matched_fields == *evidence)
+            );
+            if case_index == 0 && posting && complete {
+                assert_eq!(result.counters.files_opened, 0);
+            }
+            if case_index == 6 && bigram && complete {
+                assert!(result.counters.candidates < 5);
+            }
+        }
+        let invalid = make_query(Some("title:keyed > 'key:alpha'"), None);
+        assert!(
+            repo.search(&invalid)
+                .unwrap_err()
+                .contains("unsupported operation")
+        );
+        let invalid = make_query(Some("title:keyed = 'alpha'"), None);
+        assert!(repo.search(&invalid).unwrap_err().contains("key: prefix"));
+        let invalid = make_query(Some("title:unknown = 'key:alpha'"), None);
+        assert!(
+            repo.search(&invalid)
+                .unwrap_err()
+                .contains("unknown binding")
+        );
+        let invalid = make_query(None, Some(("alpha", Some("unknown"))));
+        assert!(
+            repo.search(&invalid)
+                .unwrap_err()
+                .contains("unknown FTS binding")
+        );
+        let _ = Literal::Null;
+    }
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::ReadWrite,
+        ..Default::default()
+    };
+    let built =
+        Repository::open_with_options(&root, vec![definition(true, true, true, 1)], options)
+            .unwrap();
+    assert!(!built.startup().restored);
+    drop(built);
+    let restored =
+        Repository::open_with_options(&root, vec![definition(true, true, true, 1)], options)
+            .unwrap();
+    assert!(restored.startup().restored);
+    for (query, expected, _) in &cases {
+        let mut ids = restored
+            .search(query)
+            .unwrap()
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>();
+        ids.sort_unstable();
+        assert_eq!(
+            ids.iter().map(String::as_str).collect::<Vec<_>>(),
+            *expected
+        );
+    }
+    drop(restored);
+    let changed =
+        Repository::open_with_options(&root, vec![definition(true, true, true, 2)], options)
+            .unwrap();
+    assert!(!changed.startup().restored);
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 fn plan_expr(
     repo: &Repository,

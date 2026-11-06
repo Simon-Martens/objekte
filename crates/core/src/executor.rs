@@ -3,12 +3,13 @@
 use std::collections::BTreeMap;
 
 use roaring::RoaringBitmap;
-use unicode_casefold::UnicodeCaseFold;
 
 use crate::model::{LogicalType, MetadataField, PathRoot, Value};
 use crate::posting::ScalarKey;
-use crate::query::{FtsQuery, Operator, Quantifier};
-use crate::reference::{BoundExpr, BoundTerm, Derived, RecordContext, Transform, eval_term};
+use crate::query::{Operator, Quantifier};
+use crate::reference::{
+    BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
+};
 use crate::repository::{CollectionState, Repository};
 use crate::sorting::SortKey;
 use serde::Serialize;
@@ -192,11 +193,19 @@ fn term_set(
         }
         return Ok(Some(result));
     }
-    Ok(collection
-        .postings
-        .fields
-        .get(&term.path.segments)
-        .and_then(|index| index.exact_set(term, domain)))
+    Ok(if term.operation.is_some() {
+        collection
+            .custom_postings
+            .get(&(term.path.segments.clone(), term.binding_name.clone()))
+            .filter(|posting| posting.complete)
+            .and_then(|posting| posting.index.exact_set(term, domain))
+    } else {
+        collection
+            .postings
+            .fields
+            .get(&term.path.segments)
+            .and_then(|index| index.exact_set(term, domain))
+    })
 }
 
 fn enumerate_paths(
@@ -250,12 +259,22 @@ fn enumerate_paths(
         let output = if direct_id_lookup { 1 } else { input_len / 2 };
         add(AccessPathKind::Metadata, true, work, output);
     } else {
-        if let Some(index) = collection.postings.fields.get(&term.path.segments) {
+        let index = if term.operation.is_some() {
+            collection
+                .custom_postings
+                .get(&(term.path.segments.clone(), term.binding_name.clone()))
+                .filter(|posting| posting.complete)
+                .map(|posting| &posting.index)
+        } else {
+            collection.postings.fields.get(&term.path.segments)
+        };
+        if let Some(index) = index {
             if let Some((lookup, output)) = index.estimate_exact(term, stats.record_count as u64) {
                 add(AccessPathKind::Posting, true, lookup, output);
             }
             if term.kind == LogicalType::String
                 && term.transform == Transform::Identity
+                && term.operation.is_none()
                 && term.derived == Derived::None
                 && term.operator == Operator::Contains
                 && (!term.multi || term.quantifier == Quantifier::Any)
@@ -272,6 +291,7 @@ fn enumerate_paths(
         if term.derived == Derived::None
             && !term.multi
             && term.transform == Transform::Identity
+            && term.operation.is_none()
             && matches!(
                 term.kind,
                 LogicalType::Number
@@ -307,6 +327,7 @@ fn enumerate_paths(
                 if !literal.contains(['%', '\\']) {
                     if matches!(term.binding_name.as_str(), "default")
                         && term.transform == Transform::Identity
+                        && term.operation.is_none()
                     {
                         if let Some(output) = collection.raw.estimate_min_cardinality(literal) {
                             add(
@@ -351,11 +372,21 @@ fn execute_path(
         AccessPathKind::Metadata => {
             term_set(repo, collection, term, domain)?.map(|set| &set & input)
         }
-        AccessPathKind::Posting => collection
-            .postings
-            .fields
-            .get(&term.path.segments)
-            .and_then(|index| index.exact_set_restricted(term, domain, input)),
+        AccessPathKind::Posting => {
+            if term.operation.is_some() {
+                collection
+                    .custom_postings
+                    .get(&(term.path.segments.clone(), term.binding_name.clone()))
+                    .filter(|posting| posting.complete)
+                    .and_then(|posting| posting.index.exact_set_restricted(term, domain, input))
+            } else {
+                collection
+                    .postings
+                    .fields
+                    .get(&term.path.segments)
+                    .and_then(|index| index.exact_set_restricted(term, domain, input))
+            }
+        }
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => match &term.literal {
             Value::String(s) => collection.raw.candidates(s),
@@ -652,27 +683,33 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
 
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
-    fts: &FtsQuery,
+    fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
     if fts.fields.is_empty() {
+        if collection
+            .definition
+            .schema
+            .raw
+            .as_ref()
+            .is_some_and(|binding| !binding.operation.complete_coverage())
+        {
+            return None;
+        }
         return collection.raw.candidates(&fts.literal);
     }
     let mut union = RoaringBitmap::new();
     for field in &fts.fields {
-        if field.path.root != PathRoot::Data || field.binding.as_deref() == Some("lower") {
+        if field.path.root != PathRoot::Data || field.binding_name == "lower" {
             return None;
         }
-        let candidates = if let Some(name) = &field.binding {
-            let key = (field.path.segments.clone(), name.clone());
-            let binding = collection.definition.schema.custom.get(&key)?;
-            let literal = if binding.transform == Transform::CaseFold {
-                fts.literal.case_fold().collect::<String>()
-            } else {
-                fts.literal.clone()
-            };
-            collection.custom_text.get(&key)?.candidates(&literal)?
+        let candidates = if field.binding_name != "default" {
+            let key = (field.path.segments.clone(), field.binding_name.clone());
+            collection
+                .custom_text
+                .get(&key)?
+                .candidates(&field.literal)?
         } else {
-            collection.raw.candidates(&fts.literal)?
+            collection.raw.candidates(&field.literal)?
         };
 
 
@@ -683,9 +720,18 @@ pub(crate) fn fts_candidates(
 
 pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
-    fts: &FtsQuery,
+    fts: &BoundFts,
 ) -> Option<(u64, f64)> {
     if fts.fields.is_empty() {
+        if collection
+            .definition
+            .schema
+            .raw
+            .as_ref()
+            .is_some_and(|binding| !binding.operation.complete_coverage())
+        {
+            return None;
+        }
         return collection
             .raw
             .estimate_min_cardinality(&fts.literal)
@@ -694,25 +740,19 @@ pub(crate) fn estimate_fts_candidates(
     let mut count = 0u64;
     let mut work = 0.0;
     for field in &fts.fields {
-        if field.path.root != PathRoot::Data || field.binding.as_deref() == Some("lower") {
+        if field.path.root != PathRoot::Data || field.binding_name == "lower" {
             return None;
         }
-        let estimate = if let Some(name) = &field.binding {
-            let key = (field.path.segments.clone(), name.clone());
-            let binding = collection.definition.schema.custom.get(&key)?;
-            let literal = if binding.transform == Transform::CaseFold {
-                fts.literal.case_fold().collect::<String>()
-            } else {
-                fts.literal.clone()
-            };
-            work += literal.len() as f64;
+        let estimate = if field.binding_name != "default" {
+            let key = (field.path.segments.clone(), field.binding_name.clone());
+            work += field.literal.len() as f64;
             collection
                 .custom_text
                 .get(&key)?
-                .estimate_min_cardinality(&literal)?
+                .estimate_min_cardinality(&field.literal)?
         } else {
-            work += fts.literal.len() as f64;
-            collection.raw.estimate_min_cardinality(&fts.literal)?
+            work += field.literal.len() as f64;
+            collection.raw.estimate_min_cardinality(&field.literal)?
         };
         count = count.saturating_add(estimate);
     }

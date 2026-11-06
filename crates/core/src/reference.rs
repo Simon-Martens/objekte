@@ -3,6 +3,7 @@
 use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
+use std::sync::Arc;
 
 use unicode_casefold::UnicodeCaseFold;
 
@@ -40,11 +41,48 @@ pub struct CustomBinding {
 }
 
 
+/// One prepared named operation shared by FILTER, FTS, indexes, and scanners.
+/// Implementations work at value or record boundaries, never per character.
+pub trait BindingOperation: Send + Sync + std::fmt::Debug {
+    fn accepts(&self, kind: &LogicalType, operator: Operator, multi: bool) -> bool;
+    fn prepare_literal(&self, literal: &Literal, kind: &LogicalType) -> Result<Value, String>;
+    fn map_value(&self, value: &Value) -> Option<Value>;
+    fn map_text(&self, text: &str) -> String;
+    fn prepare_fts_literal(&self, text: &str) -> Result<String, String> {
+        Ok(self.map_text(text))
+    }
+
+    fn posting(&self) -> bool {
+        false
+    }
+
+    fn bigram(&self) -> bool {
+        false
+    }
+
+    fn complete_coverage(&self) -> bool {
+        true
+    }
+}
+
+
+/// Stable named binding and semantic/configuration version.
+#[derive(Clone, Debug)]
+pub struct RegisteredBinding {
+    pub name: String,
+    pub version: u32,
+    pub operation: Arc<dyn BindingOperation>,
+}
+
+
 /// In-memory field definitions and custom query bindings.
 #[derive(Clone, Debug, Default)]
 pub struct Schema {
     pub fields: HashMap<Vec<String>, FieldDefinition>,
     pub custom: HashMap<(Vec<String>, String), CustomBinding>,
+    pub operations: HashMap<(Vec<String>, String), RegisteredBinding>,
+    pub defaults: HashMap<Vec<String>, String>,
+    pub raw: Option<RegisteredBinding>,
     temporal_fields: bool,
 }
 
@@ -84,12 +122,70 @@ impl Schema {
             return Err("custom binding field is unknown".into());
         }
         if self
-            .custom
-            .insert((path, binding.name.clone()), binding)
-            .is_some()
+            .operations
+            .contains_key(&(path.clone(), binding.name.clone()))
         {
             return Err("duplicate custom binding".into());
         }
+        if self
+            .custom
+            .contains_key(&(path.clone(), binding.name.clone()))
+        {
+            return Err("duplicate custom binding".into());
+        }
+        self.custom.insert((path, binding.name.clone()), binding);
+        Ok(())
+    }
+
+    pub fn register_operation(
+        &mut self,
+        path: Vec<String>,
+        binding: RegisteredBinding,
+    ) -> Result<(), String> {
+        if !self.fields.contains_key(&path) {
+            return Err("binding field is unknown".into());
+        }
+        if binding.name.is_empty()
+            || binding.version == 0
+            || matches!(
+                binding.name.as_str(),
+                "default" | "lower" | "length" | "each" | "null" | "exists"
+            )
+        {
+            return Err("invalid binding registration".into());
+        }
+        let key = (path, binding.name.clone());
+        if self.custom.contains_key(&key) || self.operations.contains_key(&key) {
+            return Err("duplicate binding registration".into());
+        }
+        self.operations.insert(key, binding);
+        Ok(())
+    }
+
+    pub fn set_default_binding(&mut self, path: Vec<String>, name: &str) -> Result<(), String> {
+        if !self.fields.contains_key(&path)
+            || (name != "lower"
+                && !self
+                    .operations
+                    .contains_key(&(path.clone(), name.to_owned()))
+                && !self.custom.contains_key(&(path.clone(), name.to_owned())))
+        {
+            return Err(format!("unknown binding {name}"));
+        }
+        self.defaults.insert(path, name.to_owned());
+        Ok(())
+    }
+
+    pub fn set_raw_binding(&mut self, binding: RegisteredBinding) -> Result<(), String> {
+        if binding.name.is_empty()
+            || binding.version == 0
+            || !binding
+                .operation
+                .accepts(&LogicalType::String, Operator::Contains, false)
+        {
+            return Err("invalid raw binding".into());
+        }
+        self.raw = Some(binding);
         Ok(())
     }
 
@@ -223,6 +319,7 @@ pub struct BoundTerm {
     pub literal: Value,
     pub derived: Derived,
     pub transform: Transform,
+    pub operation: Option<Arc<dyn BindingOperation>>,
     pub binding_name: String,
     pub binding_version: u32,
     pub indexed: bool,
@@ -264,6 +361,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
     let source_kind = field.kind.clone();
     let mut derived = Derived::None;
     let mut transform = Transform::Identity;
+    let mut operation = None;
     let mut binding_name = "default".to_string();
     let mut binding_version = 1;
     let mut each = false;
@@ -296,18 +394,42 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
                 if binding_name != "default" {
                     return Err("multiple string bindings".into());
                 }
-                let binding = schema
-                    .custom
-                    .get(&(term.path.segments.clone(), name.clone()))
-                    .ok_or_else(|| format!("unknown binding {name}"))?;
-                transform = binding.transform;
+                let key = (term.path.segments.clone(), name.clone());
+                if let Some(binding) = schema.operations.get(&key) {
+                    operation = Some(binding.operation.clone());
+                    binding_version = binding.version;
+                } else {
+                    let binding = schema
+                        .custom
+                        .get(&key)
+                        .ok_or_else(|| format!("unknown binding {name}"))?;
+                    transform = binding.transform;
+                    binding_version = binding.version;
+                }
                 binding_name = name.clone();
-                binding_version = binding.version;
             }
         }
     }
+    if binding_name == "default" && derived == Derived::None {
+        if let Some(name) = schema.defaults.get(&term.path.segments) {
+            let key = (term.path.segments.clone(), name.clone());
+            if name == "lower" {
+                transform = Transform::CaseFold;
+            } else if let Some(binding) = schema.operations.get(&key) {
+                operation = Some(binding.operation.clone());
+                binding_version = binding.version;
+            } else if let Some(binding) = schema.custom.get(&key) {
+                transform = binding.transform;
+                binding_version = binding.version;
+            }
+            binding_name = name.clone();
+        }
+    }
     if derived != Derived::None
-        && (transform != Transform::Identity || each || term.quantifier == Quantifier::Any)
+        && (transform != Transform::Identity
+            || operation.is_some()
+            || each
+            || term.quantifier == Quantifier::Any)
     {
         return Err("derived modifier cannot be combined with quantifier or text binding".into());
     }
@@ -337,6 +459,11 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
     if transform != Transform::Identity && kind != LogicalType::String {
         return Err("text binding requires string values".into());
     }
+    if let Some(op) = &operation {
+        if !op.accepts(&kind, term.operator, multi) {
+            return Err(format!("unsupported operation for binding {binding_name}"));
+        }
+    }
     if matches!(term.operator, Operator::Contains | Operator::NotContains)
         && kind != LogicalType::String
     {
@@ -349,7 +476,11 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
     {
         return Err("ordered comparison requires scalar values".into());
     }
-    let literal = prepare_literal(&term.literal, &kind, transform)?;
+    let literal = if let Some(op) = &operation {
+        op.prepare_literal(&term.literal, &kind)?
+    } else {
+        prepare_literal(&term.literal, &kind, transform)?
+    };
     if matches!(literal, Value::Null) && !matches!(term.operator, Operator::Eq | Operator::Ne) {
         return Err("null permits only equality operators".into());
     }
@@ -365,6 +496,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         literal,
         derived,
         transform,
+        operation,
         binding_name,
         binding_version,
         indexed: field.indexed,
@@ -545,6 +677,15 @@ fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) 
     }
 }
 
+fn compare_bound(lhs: &Value, term: &BoundTerm) -> bool {
+    if let Some(operation) = &term.operation {
+        return operation.map_value(lhs).as_ref().is_some_and(|value| {
+            compare_scalar(value, &term.literal, term.operator, Transform::Identity)
+        });
+    }
+    compare_scalar(lhs, &term.literal, term.operator, term.transform)
+}
+
 /// `%` spans any sequence; `\%` means a literal percent. No other wildcard.
 fn contains_pattern(text: &str, pattern: &str) -> bool {
     let mut pieces = Vec::new();
@@ -632,18 +773,12 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     }
     if term.multi {
         if term.quantifier == Quantifier::Any {
-            Ok(values
-                .into_iter()
-                .any(|v| compare_scalar(v, &term.literal, term.operator, term.transform)))
+            Ok(values.into_iter().any(|v| compare_bound(v, term)))
         } else {
-            Ok(values
-                .into_iter()
-                .all(|v| compare_scalar(v, &term.literal, term.operator, term.transform)))
+            Ok(values.into_iter().all(|v| compare_bound(v, term)))
         }
     } else {
-        Ok(values
-            .first()
-            .is_some_and(|v| compare_scalar(v, &term.literal, term.operator, term.transform)))
+        Ok(values.first().is_some_and(|v| compare_bound(v, term)))
     }
 }
 
@@ -711,6 +846,162 @@ pub fn eval_fts(
     matched
 }
 
+
+/// One selected FTS target with its literal prepared for the bound operation.
+#[derive(Clone, Debug)]
+pub struct BoundFtsField {
+    pub path: FieldPath,
+    pub binding_name: String,
+    pub literal: String,
+    pub transform: Transform,
+    pub operation: Option<Arc<dyn BindingOperation>>,
+}
+
+
+/// Collection-specific FTS bindings, including the configured raw target.
+#[derive(Clone, Debug)]
+pub struct BoundFts {
+    pub literal: String,
+    pub raw_operation: Option<Arc<dyn BindingOperation>>,
+    pub fields: Vec<BoundFtsField>,
+}
+
+
+pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
+    let raw_operation = schema.raw.as_ref().map(|binding| binding.operation.clone());
+    if let Some(op) = &raw_operation {
+        if !op.accepts(&LogicalType::String, Operator::Contains, false) {
+            return Err("raw FTS binding does not support substring matching".into());
+        }
+    }
+    let literal = raw_operation
+        .as_ref()
+        .map_or(Ok(fts.literal.clone()), |op| {
+            op.prepare_fts_literal(&fts.literal)
+        })?;
+    let mut fields = Vec::new();
+    for selected in &fts.fields {
+        let definition = schema.field(&selected.path)?;
+        if !matches!(definition.kind, LogicalType::String)
+            && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
+        {
+            return Err("FTS field requires string values".into());
+        }
+        let name = selected
+            .binding
+            .clone()
+            .or_else(|| schema.defaults.get(&selected.path.segments).cloned())
+            .unwrap_or_else(|| "default".into());
+        let key = (selected.path.segments.clone(), name.clone());
+        let (transform, operation) = if name == "default" {
+            (Transform::Identity, None)
+        } else if name == "lower" {
+            (Transform::CaseFold, None)
+        } else if let Some(binding) = schema.operations.get(&key) {
+            if !binding.operation.accepts(
+                &LogicalType::String,
+                Operator::Contains,
+                definition.multi || matches!(definition.kind, LogicalType::Array(_)),
+            ) {
+                return Err(format!("unsupported FTS operation for binding {name}"));
+            }
+            (Transform::Identity, Some(binding.operation.clone()))
+        } else if let Some(binding) = schema.custom.get(&key) {
+            (binding.transform, None)
+        } else {
+            return Err(format!("unknown FTS binding {name}"));
+        };
+        let needle = if let Some(op) = &operation {
+            op.prepare_fts_literal(&fts.literal)?
+        } else if transform == Transform::CaseFold {
+            fts.literal.case_fold().collect()
+        } else {
+            fts.literal.clone()
+        };
+        fields.push(BoundFtsField {
+            path: selected.path.clone(),
+            binding_name: name,
+            literal: needle,
+            transform,
+            operation,
+        });
+    }
+    Ok(BoundFts {
+        literal,
+        raw_operation,
+        fields,
+    })
+}
+
+fn text_contains(
+    text: &str,
+    needle: &str,
+    transform: Transform,
+    operation: Option<&Arc<dyn BindingOperation>>,
+) -> bool {
+    if let Some(op) = operation {
+        op.map_text(text).contains(needle)
+    } else if transform == Transform::CaseFold {
+        text.case_fold().collect::<String>().contains(needle)
+    } else {
+        text.contains(needle)
+    }
+}
+
+pub fn eval_bound_fts(
+    fts: &BoundFts,
+    segments: &[TextSegment],
+    ctx: &RecordContext<'_>,
+    evidence: &mut HashSet<String>,
+) -> Result<bool, String> {
+    let mut matched = false;
+    if fts.fields.is_empty() {
+        for segment in segments {
+            if text_contains(
+                &segment.text,
+                &fts.literal,
+                Transform::Identity,
+                fts.raw_operation.as_ref(),
+            ) {
+                matched = true;
+                evidence.insert(segment.path.join("."));
+            }
+        }
+        return Ok(matched);
+    }
+    for field in &fts.fields {
+        if let PathRoot::Metadata(metadata) = field.path.root {
+            if let Value::String(text) = metadata_value(metadata, ctx)? {
+                if text_contains(
+                    &text,
+                    &field.literal,
+                    field.transform,
+                    field.operation.as_ref(),
+                ) {
+                    matched = true;
+                    evidence.insert(field.path.display());
+                }
+            }
+        } else {
+            for segment in segments
+                .iter()
+                .filter(|segment| segment.path == field.path.segments)
+            {
+                if text_contains(
+                    &segment.text,
+                    &field.literal,
+                    field.transform,
+                    field.operation.as_ref(),
+                ) {
+                    matched = true;
+                    evidence.insert(field.path.display());
+                }
+            }
+        }
+    }
+    Ok(matched)
+}
+
 pub fn eval_fts_query(
     fts: &FtsQuery,
     schema: &Schema,
@@ -718,63 +1009,8 @@ pub fn eval_fts_query(
     ctx: &RecordContext<'_>,
     evidence: &mut HashSet<String>,
 ) -> Result<bool, String> {
-    if fts.fields.is_empty() {
-        return Ok(eval_fts(&fts.literal, &[], segments, evidence));
-    }
-    let mut matched = false;
-    for field in &fts.fields {
-        let definition = schema.field(&field.path)?;
-        if !matches!(definition.kind, LogicalType::String)
-            && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
-        {
-            return Err("FTS field requires string values".into());
-        }
-        let transform = if let Some(name) = &field.binding {
-            if name == "lower" {
-                Transform::CaseFold
-            } else {
-                schema
-                    .custom
-                    .get(&(field.path.segments.clone(), name.clone()))
-                    .ok_or_else(|| format!("unknown FTS binding {name}"))?
-                    .transform
-            }
-        } else {
-            Transform::Identity
-        };
-        let needle = if transform == Transform::CaseFold {
-            fts.literal.case_fold().collect::<String>()
-        } else {
-            fts.literal.clone()
-        };
-        if let PathRoot::Metadata(metadata) = field.path.root {
-            let value = metadata_value(metadata, ctx)?;
-            if let Value::String(text) = value {
-                let haystack = if transform == Transform::CaseFold {
-                    text.case_fold().collect::<String>()
-                } else {
-                    text
-                };
-                if haystack.contains(&needle) {
-                    matched = true;
-                    evidence.insert(field.path.display());
-                }
-            }
-            continue;
-        }
-        for segment in segments.iter().filter(|s| s.path == field.path.segments) {
-            let value = if transform == Transform::CaseFold {
-                segment.text.case_fold().collect::<String>()
-            } else {
-                segment.text.clone()
-            };
-            if value.contains(&needle) {
-                matched = true;
-                evidence.insert(field.path.display());
-            }
-        }
-    }
-    Ok(matched)
+    let bound = bind_fts(fts, schema)?;
+    eval_bound_fts(&bound, segments, ctx, evidence)
 }
 
 #[cfg(test)]
