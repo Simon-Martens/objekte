@@ -253,6 +253,27 @@ impl Schema {
             }),
         }
     }
+
+    pub fn field_or_dynamic(&self, path: &FieldPath) -> Result<FieldDefinition, String> {
+        match path.root {
+            PathRoot::Data => {
+                Ok(self
+                    .fields
+                    .get(&path.segments)
+                    .cloned()
+                    .unwrap_or_else(|| FieldDefinition {
+                        path: path.segments.clone(),
+                        kind: LogicalType::Unknown,
+                        required: false,
+                        nullable: true,
+                        indexed: false,
+                        multi: true,
+                        element_nullable: Vec::new(),
+                    }))
+            }
+            PathRoot::Metadata(_) => self.field(path),
+        }
+    }
 }
 
 
@@ -430,7 +451,7 @@ pub fn bind_filter(expr: &FilterExpr, schema: &Schema) -> Result<BoundExpr, Stri
 }
 
 fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
-    let field = schema.field(&term.path)?;
+    let field = schema.field_or_dynamic(&term.path)?;
     let source_kind = field.kind.clone();
     let mut derived = Derived::None;
     let mut transform = Transform::Identity;
@@ -518,7 +539,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
     }
     let kind = match derived {
         Derived::Length => {
-            if !matches!(source_kind, LogicalType::Array(_)) {
+            if !matches!(source_kind, LogicalType::Array(_) | LogicalType::Unknown) {
                 return Err("length requires an array field".into());
             }
             LogicalType::Number
@@ -529,8 +550,15 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
             other => other.clone(),
         },
     };
-    if transform != Transform::Identity && kind != LogicalType::String {
+    if transform != Transform::Identity
+        && !matches!(kind, LogicalType::String | LogicalType::Unknown)
+    {
         return Err("text binding requires string values".into());
+    }
+    if transform != Transform::Identity
+        && !matches!(term.literal, Literal::String(_) | Literal::Null)
+    {
+        return Err("text binding requires a string literal".into());
     }
     if let Some(op) = &operation {
         if !op.accepts(&kind, term.operator, multi) {
@@ -538,9 +566,14 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         }
     }
     if matches!(term.operator, Operator::Contains | Operator::NotContains)
-        && kind != LogicalType::String
+        && !matches!(kind, LogicalType::String | LogicalType::Unknown)
     {
         return Err("contains requires string values".into());
+    }
+    if matches!(term.operator, Operator::Contains | Operator::NotContains)
+        && !matches!(term.literal, Literal::String(_))
+    {
+        return Err("contains requires a string literal".into());
     }
     if matches!(
         term.operator,
@@ -594,6 +627,9 @@ fn prepare_literal(
             Value::Unixtime(i64::try_from(*n).map_err(|_| "unixtime out of range")?)
         }
         (Literal::Bool(b), LogicalType::Bool) => Value::Bool(*b),
+        (Literal::String(s), LogicalType::Unknown) => Value::String(s.clone()),
+        (Literal::Number(n), LogicalType::Unknown) => Value::Number(*n),
+        (Literal::Bool(b), LogicalType::Unknown) => Value::Bool(*b),
         _ => return Err(format!("literal is incompatible with {kind:?}")),
     };
     Ok(match value {
@@ -954,9 +990,10 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         })?;
     let mut fields = Vec::new();
     for selected in &fts.fields {
-        let definition = schema.field(&selected.path)?;
+        let definition = schema.field_or_dynamic(&selected.path)?;
         if !matches!(definition.kind, LogicalType::String)
             && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
+            && definition.kind != LogicalType::Unknown
         {
             return Err("FTS field requires string values".into());
         }

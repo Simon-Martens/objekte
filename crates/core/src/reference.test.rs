@@ -101,7 +101,13 @@ fn truth_table_arrays_null_and_case_folding() {
 #[test]
 fn invalid_branches_rejected_before_evaluation() {
     let schema = schema();
-    assert!(bind_filter(&parse_filter("name = 'x' || absent = 1").unwrap(), &schema).is_err());
+    assert!(
+        bind_filter(
+            &parse_filter("name = 'x' || absent:missing = 1").unwrap(),
+            &schema
+        )
+        .is_err()
+    );
     assert!(bind_filter(&parse_filter("name:missing = 'x'").unwrap(), &schema).is_err());
     assert!(bind_filter(&parse_filter("name ?= 'x'").unwrap(), &schema).is_err());
 }
@@ -422,5 +428,181 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     let restored = Repository::open_with_options(&root, vec![definition(true)], persisted).unwrap();
     assert!(restored.startup().restored);
     assert_eq!(restored.search(&query).unwrap().hits[0].record_id, "eight");
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
+    use crate::query::{FtsField, FtsQuery, Query, QueryOptions};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::source::SourceFormat;
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-dynamic-fields-{}", std::process::id()));
+    for (collection, id, json) in [
+        (
+            "alpha",
+            "one",
+            r#"{"count":7,"title":"Hello","when":"2026-01-01","tags":[1,2]}"#,
+        ),
+        ("alpha", "two", r#"{"count":8,"title":"Other","tags":[]}"#),
+        (
+            "beta",
+            "three",
+            r#"{"count":7,"title":"HELLO","when":"2026-01-01","tags":[1,2]}"#,
+        ),
+        ("beta", "four", r#"{"count":"7","title":"Else","tags":[]}"#),
+    ] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+        std::fs::write(root.join(collection).join(format!("{id}.json")), json).unwrap();
+    }
+    let mut declared = Schema::default();
+    declared
+        .register_field(FieldDefinition {
+            path: vec!["count".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definitions = vec![
+        CollectionDefinition {
+            name: "alpha".into(),
+            source_path: "alpha".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            schema: declared,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+        },
+        CollectionDefinition {
+            name: "beta".into(),
+            source_path: "beta".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            schema: Schema::default(),
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+        },
+    ];
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::ReadWrite,
+        ..Default::default()
+    };
+    let check = |repo: &Repository| {
+        for (filter, expected) in [
+            ("count = 7", vec![("alpha", "one"), ("beta", "three")]),
+            (
+                "title:lower ~ 'hello'",
+                vec![("alpha", "one"), ("beta", "three")],
+            ),
+            ("tags ?= 2", vec![("alpha", "one"), ("beta", "three")]),
+            ("tags:length = 0", vec![("alpha", "two"), ("beta", "four")]),
+            (
+                "when = '2026-01-01'",
+                vec![("alpha", "one"), ("beta", "three")],
+            ),
+            (
+                "missing:exists = false",
+                vec![
+                    ("alpha", "one"),
+                    ("alpha", "two"),
+                    ("beta", "four"),
+                    ("beta", "three"),
+                ],
+            ),
+            ("missing = 'x'", vec![]),
+        ] {
+            let query = Query {
+                collections: vec![],
+                fts: None,
+                filter: Some(parse_filter(filter).unwrap()),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 20,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            let result = repo.search(&query).unwrap();
+            let reference = repo.search_reference(&query).unwrap();
+            let actual = result
+                .hits
+                .iter()
+                .map(|hit| (hit.collection.as_str(), hit.record_id.as_str()))
+                .collect::<Vec<_>>();
+            assert_eq!(actual, expected, "{filter}");
+            assert_eq!(result.count, reference.count);
+            assert_eq!(result.hits, reference.hits);
+        }
+        let query = Query {
+            collections: vec![],
+            fts: Some(FtsQuery {
+                literal: "hello".into(),
+                fields: vec![FtsField {
+                    path: FieldPath::parse("title").unwrap(),
+                    binding: Some("lower".into()),
+                }],
+            }),
+            filter: None,
+            options: QueryOptions {
+                sort: vec![],
+                limit: 20,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let result = repo.search(&query).unwrap();
+        assert_eq!(result.count, 2);
+        assert_eq!(result.hits, repo.search_reference(&query).unwrap().hits);
+        let mut selected = query.clone();
+        selected.fts.as_mut().unwrap().literal = "ell".into();
+        selected.fts.as_mut().unwrap().fields[0].binding = None;
+        let plain = repo.search(&selected).unwrap();
+        assert_eq!(plain.count, 1);
+        assert_eq!(plain.hits[0].record_id, "one");
+        assert_eq!(plain.hits, repo.search_reference(&selected).unwrap().hits);
+        let mut invalid = query.clone();
+        invalid.fts.as_mut().unwrap().fields[0].binding = Some("unknown".into());
+        assert!(
+            repo.search(&invalid)
+                .unwrap_err()
+                .contains("unknown FTS binding")
+        );
+        let invalid = Query {
+            collections: vec!["alpha".into()],
+            fts: None,
+            filter: Some(parse_filter("count = '7'").unwrap()),
+            options: query.options.clone(),
+        };
+        assert!(repo.search(&invalid).unwrap_err().contains("incompatible"));
+        let invalid = Query {
+            collections: vec!["beta".into()],
+            fts: None,
+            filter: Some(parse_filter("title:unknown = 'x'").unwrap()),
+            options: query.options.clone(),
+        };
+        assert!(
+            repo.search(&invalid)
+                .unwrap_err()
+                .contains("unknown binding")
+        );
+    };
+    let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    assert!(!built.startup().restored);
+    check(&built);
+    drop(built);
+    let restored = Repository::open_with_options(&root, definitions, options).unwrap();
+    assert!(restored.startup().restored);
+    check(&restored);
     std::fs::remove_dir_all(root).unwrap();
 }

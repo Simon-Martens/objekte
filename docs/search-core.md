@@ -136,6 +136,11 @@ receives a record. Invalid selected sources fail construction with file,
 byte-range, and field diagnostics. Query projections validate only decoded
 fields. Unhinted arrays infer a common non-null element type; empty arrays
 retain an unresolved element type until a declaration supplies one.
+Well-formed unhinted data paths use a dynamically typed scanner, including
+schema-free collections. They retain each record's actual scalar type, do not
+infer dates from strings, and use the existing missing and array quantifier
+semantics. Declared fields still validate literals strictly; unknown named
+modifiers remain errors.
 
 Values include strings, booleans, objects, typed arrays, null, exact `i128`
 integers, finite fractional numbers, dates, datetimes, and Unix-second values.

@@ -32,6 +32,7 @@ substitute for the four-profile workload.
 | 4 / A: source registrations | complete | Test-only non-JSON reader builds, verifies, returns logical/byte payload, restores, rejects unknown IDs, and rebuilds on registration-version change |
 | 5 / A: field bindings | complete | Test operation with custom literal preparation and text normalization agrees with independent expected answers and scanner across posting, bigram, scanner-only, partial-coverage, default binding, selected/unscoped FTS, and restore modes |
 | 6 / C: declared types | complete | Required/null/type and temporal-array matrix; unhinted empty/nested arrays; indexed and unindexed numeric-string construction rejection; projected validation and Musenalm collection opens |
+| 7 / G: unhinted fields | complete | Schema-free and mixed hinted/unhinted collections; actual numeric/string and array types; selected FTS, dynamic FILTER, missing paths, strict named-modifier and declared-field errors; fresh and restored parity |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier
