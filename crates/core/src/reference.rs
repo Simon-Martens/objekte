@@ -2273,6 +2273,7 @@ fn bind_regex_fts(
         if !matches!(definition.kind, LogicalType::String)
             && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
             && definition.kind != LogicalType::Unknown
+            && selected.path.root != PathRoot::Metadata(MetadataField::RecordId)
         {
             return Err("FTS field requires string values".into());
         }
