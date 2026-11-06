@@ -3,7 +3,11 @@
 use std::cmp::Ordering;
 use std::collections::HashMap;
 
-use icu_collator::{CollatorBorrowed, options::CollatorOptions};
+use icu_collator::{
+    CollatorBorrowed, CollatorPreferences,
+    options::{CollatorOptions, Strength},
+    preferences::CollationNumericOrdering,
+};
 use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
@@ -13,7 +17,44 @@ use crate::model::{FieldPath, LogicalType, Number, PathRoot, RecordSlot, Value};
 use crate::reference::{RecordContext, Schema, data_values, metadata_value};
 use crate::workload::SortField;
 
-pub const COLLATION_VERSION: &str = "icu_collator-2.4.0/compiled-data";
+pub const COLLATION_VERSION: &str =
+    "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";
+
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub enum CollationStrength {
+    #[default]
+    LocaleDefault,
+    Primary,
+    Secondary,
+    Tertiary,
+    Quaternary,
+    Identical,
+}
+
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub enum Placement {
+    First,
+    #[default]
+    Last,
+}
+
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub struct SortOptions {
+    pub strength: CollationStrength,
+    pub numeric: bool,
+    pub nulls: Placement,
+    pub missing: Placement,
+}
+
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SortConfig {
+    pub locale: String,
+    pub options: SortOptions,
+}
 
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
@@ -30,16 +71,22 @@ pub enum SortKey {
 
 
 impl SortKey {
-    fn rank(&self) -> u8 {
+    fn rank(&self, options: SortOptions) -> i8 {
         match self {
+            Self::Missing if options.missing == Placement::First => -1,
             Self::Missing => 2,
+            Self::Null if options.nulls == Placement::First => -2,
             Self::Null => 1,
             _ => 0,
         }
     }
 
     pub fn compare(&self, other: &Self, descending: bool) -> Ordering {
-        let rank = self.rank().cmp(&other.rank());
+        self.compare_with(other, descending, SortOptions::default())
+    }
+
+    pub fn compare_with(&self, other: &Self, descending: bool, options: SortOptions) -> Ordering {
+        let rank = self.rank(options).cmp(&other.rank(options));
         if !rank.is_eq() {
             return rank;
         }
@@ -52,7 +99,7 @@ impl SortKey {
             (Self::Unixtime(a), Self::Unixtime(b)) => a.cmp(b),
             _ => Ordering::Equal,
         };
-        if descending && self.rank() == 0 {
+        if descending && self.rank(options) == 0 {
             order.reverse()
         } else {
             order
@@ -69,6 +116,7 @@ pub struct SortColumn {
     pub keys: Vec<SortKey>,
     pub ascending: Vec<RecordSlot>,
     pub locale: String,
+    pub options: SortOptions,
     pub collation_version: String,
 }
 
@@ -83,19 +131,49 @@ pub struct SortCollection {
 /// Mutable keys accumulated during index construction.
 pub struct SortBuilder {
     columns: HashMap<FieldPath, SortColumn>,
-    collator: CollatorBorrowed<'static>,
+    collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
 }
 
 
 impl SortBuilder {
-    pub fn new(paths: &[FieldPath], schema: &Schema, locale: &str) -> Result<Self, String> {
-        let parsed: Locale = locale
-            .parse()
-            .map_err(|e| format!("invalid sort locale: {e}"))?;
-        let collator = CollatorBorrowed::try_new(parsed.into(), CollatorOptions::default())
-            .map_err(|e| e.to_string())?;
+    pub fn new(
+        paths: &[FieldPath],
+        schema: &Schema,
+        locale: &str,
+        defaults: SortOptions,
+        overrides: &HashMap<FieldPath, SortConfig>,
+    ) -> Result<Self, String> {
         let mut columns = HashMap::new();
+        let mut collators = HashMap::new();
+        if overrides.keys().any(|path| !paths.contains(path)) {
+            return Err("sort override is not a configured sort field".into());
+        }
         for path in paths {
+            let config = overrides.get(path).cloned().unwrap_or_else(|| SortConfig {
+                locale: locale.into(),
+                options: defaults,
+            });
+            let parsed: Locale = config
+                .locale
+                .parse()
+                .map_err(|e| format!("invalid sort locale: {e}"))?;
+            let mut prefs: CollatorPreferences = parsed.into();
+            prefs.numeric_ordering = Some(if config.options.numeric {
+                CollationNumericOrdering::True
+            } else {
+                CollationNumericOrdering::False
+            });
+            let mut options = CollatorOptions::default();
+            options.strength = match config.options.strength {
+                CollationStrength::LocaleDefault => None,
+                CollationStrength::Primary => Some(Strength::Primary),
+                CollationStrength::Secondary => Some(Strength::Secondary),
+                CollationStrength::Tertiary => Some(Strength::Tertiary),
+                CollationStrength::Quaternary => Some(Strength::Quaternary),
+                CollationStrength::Identical => Some(Strength::Identical),
+            };
+            let collator = CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())?;
+            collators.insert(path.clone(), collator);
             let field = schema.field(path)?;
             if field.multi || matches!(field.kind, LogicalType::Object | LogicalType::Array(_)) {
                 return Err(format!(
@@ -111,7 +189,8 @@ impl SortBuilder {
                         kind: field.kind,
                         keys: Vec::new(),
                         ascending: Vec::new(),
-                        locale: locale.into(),
+                        locale: config.locale,
+                        options: config.options,
                         collation_version: COLLATION_VERSION.into(),
                     },
                 )
@@ -120,7 +199,7 @@ impl SortBuilder {
                 return Err("duplicate sort field".into());
             }
         }
-        Ok(Self { columns, collator })
+        Ok(Self { columns, collators })
     }
 
     pub fn add(
@@ -164,7 +243,7 @@ impl SortBuilder {
                     Value::Null => SortKey::Null,
                     Value::String(text) => {
                         let mut key = Vec::new();
-                        self.collator
+                        self.collators[&column.path]
                             .write_sort_key_to(text, &mut key)
                             .map_err(|e| e.to_string())?;
                         SortKey::String(key)
@@ -190,7 +269,7 @@ impl SortBuilder {
             column.ascending = generation.records.iter().map(|r| r.slot).collect();
             column.ascending.sort_by(|a, b| {
                 column.keys[a.0 as usize]
-                    .compare(&column.keys[b.0 as usize], false)
+                    .compare_with(&column.keys[b.0 as usize], false, column.options)
                     .then_with(|| {
                         generation.records[a.0 as usize]
                             .id

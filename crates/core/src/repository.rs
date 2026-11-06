@@ -17,7 +17,7 @@ use crate::reference::{
     BindingOperation, RecordContext, Schema, Transform, bind_filter, bind_fts, data_values,
     eval_bound_fts, eval_filter,
 };
-use crate::sorting::{SortBuilder, SortCollection};
+use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
     ExtractedRecord, PreparedSource, SourceFormat, SourceRegistry, TextSegment,
     extract_file_with_reader, read_record_range, text_segments,
@@ -60,6 +60,8 @@ pub struct CollectionDefinition {
     pub schema: Schema,
     pub sort_fields: Vec<FieldPath>,
     pub sort_locale: String,
+    pub sort_options: SortOptions,
+    pub sort_overrides: HashMap<FieldPath, SortConfig>,
 }
 
 
@@ -425,6 +427,8 @@ impl Repository {
                 &definition.sort_fields,
                 &definition.schema,
                 &definition.sort_locale,
+                definition.sort_options,
+                &definition.sort_overrides,
             )?;
             let mut custom_text: HashMap<_, _> = definition
                 .schema
@@ -795,7 +799,12 @@ pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), Stri
                 continue;
             }
             let column = collection.sorting.column(&field.field)?;
-            let definition = (&column.kind, &column.locale, &column.collation_version);
+            let definition = (
+                &column.kind,
+                &column.locale,
+                &column.options,
+                &column.collation_version,
+            );
             if expected.as_ref().is_some_and(|prior| *prior != definition) {
                 return Err(format!(
                     "incompatible cross-collection sort: {}",
@@ -819,7 +828,12 @@ pub(crate) fn sort_rows(repo: &Repository, query: &Query, hits: &mut [(usize, u3
                 .sorting
                 .key(&field.field, RecordSlot(*b_slot))
                 .expect("sort validated");
-            let order = a_key.compare(b_key, field.descending);
+            let options = repo.collections[*a_collection]
+                .sorting
+                .column(&field.field)
+                .expect("sort validated")
+                .options;
+            let order = a_key.compare_with(b_key, field.descending, options);
             if !order.is_eq() {
                 return order;
             }

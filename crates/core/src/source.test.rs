@@ -87,6 +87,8 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         schema,
         sort_fields: vec![],
         sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     };
     let parses = Arc::new(AtomicUsize::new(0));
     let registrations = |version| {
@@ -227,6 +229,8 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         schema: Default::default(),
         sort_fields: vec![],
         sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     };
     let built = Repository::open_with_sources(
         &root,
@@ -359,6 +363,8 @@ fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
         schema: Default::default(),
         sort_fields: vec![],
         sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     };
     for (body, expected) in [
         (b"{}\n".as_slice(), "missing intrinsic record ID"),

@@ -105,6 +105,8 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
                 schema,
                 sort_fields: vec![],
                 sort_locale: "de".into(),
+                sort_options: Default::default(),
+                sort_overrides: Default::default(),
             }],
             RepositoryOptions {
                 snapshot_mode: SnapshotMode::Disabled,

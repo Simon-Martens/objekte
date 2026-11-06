@@ -34,6 +34,7 @@ substitute for the four-profile workload.
 | 6 / C: declared types | complete | Required/null/type and temporal-array matrix; unhinted empty/nested arrays; indexed and unindexed numeric-string construction rejection; projected validation and Musenalm collection opens |
 | 7 / G: unhinted fields | complete | Schema-free and mixed hinted/unhinted collections; actual numeric/string and array types; selected FTS, dynamic FILTER, missing paths, strict named-modifier and declared-field errors; fresh and restored parity |
 | 8 / G: discovery and identity | complete | Shared build/reconciliation discovery; recursive globs, hidden and symlink rules; intrinsic IDs, duplicate and generated-namespace rejection; multi-record mappings survive restore |
+| 9 / G: ICU collation | complete | Per-collection defaults and field overrides for locale, strength, numeric strings and null/missing placement; sort pages, ties, descending, restore invalidation, and cross-collection rejection |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier

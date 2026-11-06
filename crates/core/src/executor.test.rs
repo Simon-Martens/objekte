@@ -130,6 +130,8 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }
     };
     let make_query = |filter: Option<&str>, fts: Option<(&str, Option<&str>)>| Query {
@@ -333,6 +335,8 @@ fn record_id_lookup_respects_case_fold_binding() {
             schema: Default::default(),
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
         crate::repository::RepositoryOptions {
             snapshot_mode: crate::repository::SnapshotMode::Disabled,
@@ -425,6 +429,8 @@ fn indexed_restriction_precedes_written_first_scan() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();
@@ -569,6 +575,8 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();

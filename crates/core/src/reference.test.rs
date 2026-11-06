@@ -372,6 +372,8 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }
     };
     let options = RepositoryOptions {
@@ -481,6 +483,8 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
             schema: declared,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         },
         CollectionDefinition {
             name: "beta".into(),
@@ -491,6 +495,8 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
             schema: Schema::default(),
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         },
     ];
     let options = RepositoryOptions {

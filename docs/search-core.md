@@ -103,10 +103,16 @@ index falls back to scanner evaluation. The binding version and default/raw
 selection participate in snapshot compatibility; prepared and verified caches
 belong to the opened repository generation.
 
-Discovery reads the declared source directory directly, selecting regular
-files with the exact `.json` or `.jsonl` extension. It is nonrecursive and
-skips symbolic-link entries. An empty JSON file contributes zero records;
-other invalid selected records fail construction with their path/range.
+Collection discovery has explicit recursion, include/exclude globs, hidden-file,
+and symlink settings. Its defaults select regular files directly in the
+declared directory with the registered reader's extension. Following links is
+confined to the collection root, with cycles and duplicate physical files
+skipped. Fresh construction and startup reconciliation use the same discovery
+rules. Identity can come from the filename, a configured intrinsic field
+extracted by the reader, or a revision-bound generated ID. Duplicate IDs and
+explicit IDs in the generated namespace fail construction. An empty JSON file
+contributes zero records; other invalid selected records fail construction
+with their path/range.
 
 ## Query and result semantics
 
@@ -159,9 +165,12 @@ explicitly typed fields and quoted typed literals; Unix-second fields take
 integer literals.
 
 COUNT is the complete number of matching records even when the returned page
-is small. Sorting uses ICU4X 2.4.0 with locale `de` and default collation
-options for strings, typed order for other values, null/missing last in either
-direction, and collection/record identity as a stable tie-breaker. The
+is small. Sorting uses ICU4X 2.4.0. Each collection specifies a default locale
+and collation options; configured sort fields can override locale, strength,
+numeric ordering, and null/missing placement. The Musenalm adapter uses `de`
+with the previous defaults. Other scalar values use typed order, and
+collection/record identity breaks ties consistently. Incompatible sort
+definitions across selected collections are rejected. The
 executor retains at most `offset + limit` page winners while counting. A hit
 always includes its collection, record ID, generation, file ID/path, size,
 created/modified times, byte range, and requested matched-field evidence.

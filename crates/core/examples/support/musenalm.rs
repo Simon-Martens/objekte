@@ -80,6 +80,8 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
                 .map(|s| FieldPath::parse(s))
                 .collect::<Result<_, _>>()?,
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         });
     }
     Ok(definitions)

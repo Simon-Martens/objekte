@@ -52,6 +52,8 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
         schema,
         sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
         sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     };
     let query = Query {
         collections: vec!["data".into()],
@@ -162,6 +164,8 @@ fn exact_membership_materializes_only_page_payload() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();
@@ -297,6 +301,8 @@ fn multi_record_scan_opens_file_once_and_parses_each_range_once() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();
@@ -369,6 +375,8 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();
@@ -437,6 +445,8 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
         schema,
         sort_fields: vec![crate::model::FieldPath::parse("day").unwrap()],
         sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     }];
     let query = Query {
         collections: vec![],
@@ -506,6 +516,8 @@ fn selected_folded_and_metadata_fts_match_reference() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();
@@ -588,6 +600,8 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();
@@ -679,6 +693,8 @@ fn quoted_data_name_does_not_shadow_metadata() {
             schema,
             sort_fields: vec![],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         }],
     )
     .unwrap();

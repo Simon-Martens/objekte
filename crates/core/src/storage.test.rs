@@ -39,6 +39,8 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
             schema: schema.clone(),
             sort_fields: vec![FieldPath::parse("x").unwrap()],
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         })
         .collect();
     let query = Query {
@@ -162,6 +164,8 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
         schema,
         sort_fields: vec![FieldPath::parse("x").unwrap()],
         sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     }];
     let options = RepositoryOptions::default();
     let fresh = Repository::open_with_options(&root, definitions.clone(), options).unwrap();

@@ -20,7 +20,7 @@ use crate::reference::{
     BoundExpr, BoundFts, Derived, RecordContext, eval_bound_fts, eval_filter, eval_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
-use crate::sorting::SortKey;
+use crate::sorting::{SortKey, SortOptions};
 use crate::source::{ScanProjection, read_record_ranges, text_segments};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
@@ -29,7 +29,7 @@ use crate::workload::{ReturnMode, WorkCounters};
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
-    parts: Vec<(SortKey, bool)>,
+    parts: Vec<(SortKey, bool, SortOptions)>,
     collection: String,
     id: String,
 }
@@ -54,8 +54,8 @@ impl PartialOrd for RankKey {
 
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
-        for ((a, descending), (b, _)) in self.parts.iter().zip(&other.parts) {
-            let order = a.compare(b, *descending);
+        for ((a, descending, options), (b, _, _)) in self.parts.iter().zip(&other.parts) {
+            let order = a.compare_with(b, *descending, *options);
             if !order.is_eq() {
                 return order;
             }
@@ -393,12 +393,16 @@ fn rank_key(
         .sort
         .iter()
         .map(|field| {
+            let column = collection
+                .sorting
+                .column(&field.field)
+                .expect("sort validated");
             let key = collection
                 .sorting
                 .key(&field.field, record.slot)
                 .expect("sort validated")
                 .clone();
-            (key, field.descending)
+            (key, field.descending, column.options)
         })
         .collect();
     RankKey {

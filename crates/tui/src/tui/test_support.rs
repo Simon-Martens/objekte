@@ -85,5 +85,7 @@ fn definition(name: &str) -> CollectionDefinition {
         schema,
         sort_fields: vec![FieldPath::parse("number").unwrap()],
         sort_locale: "en".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
     }
 }

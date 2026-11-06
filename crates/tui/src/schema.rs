@@ -74,6 +74,8 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
             schema,
             sort_fields,
             sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
         });
     }
     Ok(definitions)

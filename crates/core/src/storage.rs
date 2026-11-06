@@ -185,6 +185,17 @@ pub fn configuration_hash(
             format!("{:?}/{:?}", definition.format, definition.identity).as_bytes(),
         );
         feed(&mut hash, definition.sort_locale.as_bytes());
+        feed(
+            &mut hash,
+            format!("{:?}", definition.sort_options).as_bytes(),
+        );
+        let mut overrides: Vec<_> = definition.sort_overrides.iter().collect();
+        overrides.sort_by(|a, b| a.0.display().cmp(&b.0.display()));
+        for (path, config) in overrides {
+            feed(&mut hash, path.display().as_bytes());
+            feed(&mut hash, config.locale.as_bytes());
+            feed(&mut hash, format!("{:?}", config.options).as_bytes());
+        }
         for field in &definition.sort_fields {
             feed(&mut hash, field.display().as_bytes());
         }
@@ -525,7 +536,18 @@ pub fn load_snapshot(
                 .ok_or("snapshot sort path missing")?;
             if column.path != *path
                 || column.kind != definition.schema.field(path)?.kind
-                || column.locale != definition.sort_locale
+                || column.locale
+                    != definition
+                        .sort_overrides
+                        .get(path)
+                        .map_or(definition.sort_locale.as_str(), |config| {
+                            config.locale.as_str()
+                        })
+                || column.options
+                    != definition
+                        .sort_overrides
+                        .get(path)
+                        .map_or(definition.sort_options, |config| config.options)
                 || column.collation_version != COLLATION_VERSION
                 || column.keys.len() != generation.records.len()
                 || column.ascending.len() != generation.records.len()
@@ -544,7 +566,7 @@ pub fn load_snapshot(
                 let a = pair[0].0 as usize;
                 let b = pair[1].0 as usize;
                 column.keys[a]
-                    .compare(&column.keys[b], false)
+                    .compare_with(&column.keys[b], false, column.options)
                     .then_with(|| generation.records[a].id.cmp(&generation.records[b].id))
                     .is_gt()
             }) {
