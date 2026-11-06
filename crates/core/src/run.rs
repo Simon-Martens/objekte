@@ -156,6 +156,7 @@ struct ScannedFile {
     files_opened: u64,
     bytes_read: u64,
     record_parses: u64,
+    raw_text_verifications: u64,
     scanned_records: u64,
     residual_evaluations: u64,
     match_count: u64,
@@ -648,6 +649,7 @@ fn scan_file(
             let fts_match = if record.class == RecordClass::RawFallback {
                 if let Some(fts) = fts {
                     if fts.fields.is_empty() {
+                        outcome.raw_text_verifications += 1;
                         let matched = String::from_utf8_lossy(&bytes).contains(&fts.source_literal);
                         if matched {
                             evidence.insert("@record.raw_text".into());
@@ -773,6 +775,7 @@ pub struct PlanActual {
     pub files_opened: u64,
     pub bytes_read: u64,
     pub record_parses: u64,
+    pub raw_text_verifications: u64,
     pub residual_evaluations: u64,
     pub index_proven_matches: u64,
 }
@@ -784,6 +787,7 @@ impl Default for PlanActual {
             files_opened: 0,
             bytes_read: 0,
             record_parses: 0,
+            raw_text_verifications: 0,
             residual_evaluations: 0,
             index_proven_matches: 0,
         }
@@ -797,6 +801,7 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
             files_opened: after.files_opened - before.files_opened,
             bytes_read: after.bytes_read - before.bytes_read,
             record_parses: after.record_parses - before.record_parses,
+            raw_text_verifications: after.raw_text_verifications - before.raw_text_verifications,
             residual_evaluations: after.residual_evaluations - before.residual_evaluations,
             index_proven_matches: after.exact_posting_matches - before.exact_posting_matches,
         });
@@ -1444,11 +1449,13 @@ fn try_stored_order_page(
                     counters.files_opened += scanned.files_opened;
                     counters.bytes_read += scanned.bytes_read;
                     counters.record_parses += scanned.record_parses;
+                    counters.raw_text_verifications += scanned.raw_text_verifications;
                     counters.scanned_records += scanned.scanned_records;
                     counters.residual_evaluations += scanned.residual_evaluations;
                     actual.files_opened += scanned.files_opened;
                     actual.bytes_read += scanned.bytes_read;
                     actual.record_parses += scanned.record_parses;
+                    actual.raw_text_verifications += scanned.raw_text_verifications;
                     actual.residual_evaluations += scanned.residual_evaluations;
                     if let Some(found) = scanned.matches.into_iter().next() {
                         matched = true;
@@ -1969,6 +1976,7 @@ fn search_impl(
                 counters.files_opened += outcome.files_opened;
                 counters.bytes_read += outcome.bytes_read;
                 counters.record_parses += outcome.record_parses;
+                counters.raw_text_verifications += outcome.raw_text_verifications;
                 counters.scanned_records += outcome.scanned_records;
                 counters.residual_evaluations += outcome.residual_evaluations;
                 counters.total_matches += outcome.match_count - outcome.matches.len() as u64;

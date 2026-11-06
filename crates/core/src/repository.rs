@@ -875,6 +875,7 @@ impl Repository {
             bytes_read: 0,
             peak_retained_payload_bytes: 0,
             record_parses: 0,
+            raw_text_verifications: 0,
             residual_evaluations: 0,
             preparation_ns: 0,
             planning_ns: 0,
@@ -921,6 +922,7 @@ impl Repository {
                 let fts_match = if record.class == RecordClass::RawFallback {
                     if let Some(fts) = &fts {
                         if fts.fields.is_empty() {
+                            counters.raw_text_verifications += 1;
                             let matched =
                                 String::from_utf8_lossy(&bytes).contains(&fts.source_literal);
                             if matched {

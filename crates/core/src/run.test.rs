@@ -132,6 +132,8 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         );
         let raw_result = built.search(&raw_fts).unwrap();
         assert_eq!(raw_result.count, Some(1));
+        assert_eq!(raw_result.counters.raw_text_verifications, 1);
+        assert_eq!(raw_result.counters.record_parses, 0);
         assert_eq!(raw_result.hits[0].record_class, RecordClass::RawFallback);
         assert_eq!(raw_result.hits[0].matched_fields, ["@record.raw_text"]);
         let selected = query(

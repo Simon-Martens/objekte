@@ -102,6 +102,9 @@ pub struct WorkCounters {
     #[serde(default)]
     pub peak_retained_payload_bytes: u64,
     pub record_parses: u64,
+    /// Raw fallback records checked against the original-text literal.
+    #[serde(default)]
+    pub raw_text_verifications: u64,
     /// Filter terms actually evaluated against a decoded record (proof hits excluded).
     pub residual_evaluations: u64,
     #[serde(default)]
