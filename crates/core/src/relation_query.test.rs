@@ -378,8 +378,8 @@ fn unavailable_targets_survive_negation_and_source_records_are_counted_once() {
             .matched_fields
             .contains(&"contributors.title".into())
     );
-    assert!(found.counters.relation_edge_visits >= 1);
-    assert!(found.counters.relation_target_reads >= 1);
+    assert!(found.counters.relation_reverse_postings_visited >= 1);
+    assert!(found.counters.relation_target_candidates >= 1);
     assert_eq!(found.counters.relation_source_reads, 0);
     let reference = repo.search_reference(&selected).unwrap();
     assert!(reference.counters.relation_source_reads > 0);

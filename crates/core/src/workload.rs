@@ -121,9 +121,24 @@ pub struct WorkCounters {
     /// Target records opened for exact relation predicate or FTS evaluation.
     #[serde(default)]
     pub relation_target_reads: u64,
+    /// Physical target-source handles opened for relation verification.
+    #[serde(default)]
+    pub relation_target_file_opens: u64,
     /// Relation occurrences visited after positional selection.
     #[serde(default)]
     pub relation_edge_visits: u64,
+    /// Distinct terminal candidates inspected by relation semijoins.
+    #[serde(default)]
+    pub relation_target_candidates: u64,
+    /// Terminal records confirmed true before reverse mapping.
+    #[serde(default)]
+    pub relation_target_matches: u64,
+    /// Typed reverse posting lists visited during relation semijoins.
+    #[serde(default)]
+    pub relation_reverse_postings_visited: u64,
+    /// Confirmed targets reused by reverse mapping without another decode.
+    #[serde(default)]
+    pub relation_verified_targets_reused: u64,
     #[serde(default)]
     pub preparation_ns: u64,
     #[serde(default)]

@@ -25,6 +25,8 @@ pub enum AccessPathKind {
     Dictionary,
     CustomBigram,
     RawBigram,
+    RelationTargetFirst,
+    RelationSourceRestricted,
     Scanner,
 }
 
@@ -262,6 +264,7 @@ pub(crate) struct Plan {
     pub proven_hits: RoaringBitmap,
     pub proofs: Vec<Proof>,
     pub choices: Vec<TermChoice>,
+    pub semijoin_work: crate::relation_semijoin::SemijoinWork,
 }
 
 
@@ -709,6 +712,9 @@ fn execute_path(
             }
             Some(result)
         }
+        AccessPathKind::RelationTargetFirst | AccessPathKind::RelationSourceRestricted => {
+            return Err("relation strategy is selected after local planning".into());
+        }
         AccessPathKind::Scanner => None,
     })
 }
@@ -793,10 +799,15 @@ pub(crate) fn plan_expr_restricted(
             proven_hits: RoaringBitmap::new(),
             proofs: Vec::new(),
             choices: Vec::new(),
+            semijoin_work: Default::default(),
         });
     }
     if collection.logical_records.len() == collection.generation.records.len() as u64 {
-        return plan_logical_expr(repo, collection, expr, domain, input, evidence);
+        let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence)?;
+        if !collection.relations.is_empty() {
+            crate::relation_semijoin::restrict(repo, expr, input, &mut plan)?;
+        }
+        return Ok(plan);
     }
     let logical_input = input & &collection.logical_records;
     let fallback_input = input - &collection.logical_records;
@@ -807,6 +818,7 @@ pub(crate) fn plan_expr_restricted(
             proven_hits: RoaringBitmap::new(),
             proofs: Vec::new(),
             choices: Vec::new(),
+            semijoin_work: Default::default(),
         }
     } else {
         plan_logical_expr(
@@ -827,6 +839,9 @@ pub(crate) fn plan_expr_restricted(
         logical.choices.extend(fallback.choices);
     }
     logical.candidates = Some(candidates);
+    if !collection.relations.is_empty() {
+        crate::relation_semijoin::restrict(repo, expr, input, &mut logical)?;
+    }
     Ok(logical)
 }
 
@@ -908,6 +923,7 @@ fn plan_logical_expr(
                 exact,
                 proofs,
                 choices,
+                semijoin_work: Default::default(),
             }
         }
         BoundExpr::And(parts) => {
@@ -964,6 +980,7 @@ fn plan_logical_expr(
                 exact,
                 proofs,
                 choices,
+                semijoin_work: Default::default(),
             }
         }
         BoundExpr::Or(parts) => {
@@ -1016,6 +1033,7 @@ fn plan_logical_expr(
                 proven_hits,
                 proofs,
                 choices,
+                semijoin_work: Default::default(),
             }
         }
         BoundExpr::Not(inner) => {
@@ -1028,6 +1046,7 @@ fn plan_logical_expr(
                     proven_hits: matches,
                     proofs: child.proofs,
                     choices: child.choices,
+                    semijoin_work: Default::default(),
                 }
             } else {
                 Plan {
@@ -1036,6 +1055,7 @@ fn plan_logical_expr(
                     proven_hits: RoaringBitmap::new(),
                     proofs: Vec::new(),
                     choices: child.choices,
+                    semijoin_work: Default::default(),
                 }
             }
         }
