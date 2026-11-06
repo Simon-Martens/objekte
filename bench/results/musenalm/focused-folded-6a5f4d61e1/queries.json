@@ -1,0 +1,80 @@
+[
+  {
+    "id": "Q001",
+    "collection": "*",
+    "fts": "Almanach",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q070",
+    "collection": "agents",
+    "fts": null,
+    "filter": "name:folded ~ \"GOETHE\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q099",
+    "collection": "contents",
+    "fts": null,
+    "filter": "musenalm_type ?~ \"Lied\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q100",
+    "collection": "contents",
+    "fts": null,
+    "filter": "language ?= \"ger\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q114",
+    "collection": "entries",
+    "fts": null,
+    "filter": "places:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q115",
+    "collection": "entries",
+    "fts": null,
+    "filter": "items:length >= 2",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

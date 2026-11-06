@@ -1,0 +1,8 @@
+Q001 collection=* FTS=Some("Almanach") FILTER=None sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 16471.390 / 19072.978 / 24788.746 µs (ok) | unicode-off: 8124.044 / 10395.089 / 14137.614 µs (ok)
+Q100 collection=contents FTS=None FILTER=Some("language ?= \"ger\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 18047.275 / 20180.088 / 23640.268 µs (ok) | unicode-off: 15097.484 / 17983.672 / 22114.277 µs (ok)
+Q114 collection=entries FTS=None FILTER=Some("places:length > 0") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 3859.960 / 4559.561 / 5172.477 µs (ok) | unicode-off: 4250.994 / 5347.699 / 6720.633 µs (ok)
+Q115 collection=entries FTS=None FILTER=Some("items:length >= 2") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 4232.871 / 4561.286 / 5758.874 µs (ok) | unicode-off: 4337.068 / 4758.401 / 5269.760 µs (ok)
+build "ascii": 17.082 s; snapshot_write=0.314 s; parses=148486; resident_bytes=263983104; peak_resident_bytes=357273600; estimated_index_bytes=68548708; snapshot_bytes=111176829; restore_min/median/max=0.822/0.835/0.863 s (5 runs)
+build "unicode": 19.454 s; snapshot_write=0.421 s; parses=148486; resident_bytes=348254208; peak_resident_bytes=424456192; estimated_index_bytes=80763860; snapshot_bytes=122383021; restore_min/median/max=0.932/0.941/0.952 s (5 runs)
+reports: bench/results/musenalm/focused-foundation-a097a76867
+reproduce: cargo run --release --example bench_musenalm -- "--cases" "Q001,Q100,Q114,Q115" "--profiles" "ascii-off,unicode-off" "--repetitions" "11" "--result-dir" "bench/results/musenalm/focused-foundation-a097a76867"

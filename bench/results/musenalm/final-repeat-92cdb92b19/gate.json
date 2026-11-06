@@ -1,0 +1,180 @@
+{
+  "mode": "full",
+  "expected_samples": 3000,
+  "jq_count_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-jq-counts.json",
+  "machine_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-query-environment.json",
+  "actual_samples": 3000,
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/full-128a7601c2",
+  "result_dir": "/home/simon/source/objekte/bench/results/musenalm/final-repeat-92cdb92b19",
+  "same_machine": true,
+  "aggregate_latency_ratio": 0.7316433762650246,
+  "thresholds": {
+    "per_case_relative": 1.5,
+    "per_case_absolute_ns": 2000000,
+    "aggregate_relative": 1.25
+  },
+  "confirmations": [],
+  "worst_slowdowns": [
+    {
+      "ratio": 9.293007382643822,
+      "case": "Q062",
+      "profile": "ascii-off",
+      "baseline_ns": 28716,
+      "actual_ns": 266858
+    },
+    {
+      "ratio": 7.689974429062693,
+      "case": "Q031",
+      "profile": "unicode-warm",
+      "baseline_ns": 11341,
+      "actual_ns": 87212
+    },
+    {
+      "ratio": 6.237473347547974,
+      "case": "Q035",
+      "profile": "unicode-warm",
+      "baseline_ns": 7504,
+      "actual_ns": 46806
+    },
+    {
+      "ratio": 6.091737724198765,
+      "case": "Q028",
+      "profile": "unicode-warm",
+      "baseline_ns": 6802,
+      "actual_ns": 41436
+    },
+    {
+      "ratio": 5.70928528321407,
+      "case": "Q033",
+      "profile": "unicode-warm",
+      "baseline_ns": 11599,
+      "actual_ns": 66222
+    },
+    {
+      "ratio": 5.332800426325607,
+      "case": "Q030",
+      "profile": "unicode-warm",
+      "baseline_ns": 11259,
+      "actual_ns": 60042
+    },
+    {
+      "ratio": 5.320576756287944,
+      "case": "Q001",
+      "profile": "unicode-warm",
+      "baseline_ns": 9224,
+      "actual_ns": 49077
+    },
+    {
+      "ratio": 5.236925830184927,
+      "case": "Q018",
+      "profile": "ascii-warm",
+      "baseline_ns": 10058,
+      "actual_ns": 52673
+    },
+    {
+      "ratio": 5.11522462562396,
+      "case": "Q036",
+      "profile": "unicode-warm",
+      "baseline_ns": 7212,
+      "actual_ns": 36891
+    },
+    {
+      "ratio": 4.395711060948082,
+      "case": "Q024",
+      "profile": "unicode-warm",
+      "baseline_ns": 8860,
+      "actual_ns": 38946
+    },
+    {
+      "ratio": 4.1992651561543175,
+      "case": "Q022",
+      "profile": "unicode-warm",
+      "baseline_ns": 8165,
+      "actual_ns": 34287
+    },
+    {
+      "ratio": 4.0542760052860105,
+      "case": "Q013",
+      "profile": "unicode-warm",
+      "baseline_ns": 10594,
+      "actual_ns": 42951
+    },
+    {
+      "ratio": 3.975524981897176,
+      "case": "Q037",
+      "profile": "unicode-warm",
+      "baseline_ns": 6905,
+      "actual_ns": 27451
+    },
+    {
+      "ratio": 3.8941786471835966,
+      "case": "Q023",
+      "profile": "unicode-warm",
+      "baseline_ns": 8486,
+      "actual_ns": 33046
+    },
+    {
+      "ratio": 3.831813987820631,
+      "case": "Q065",
+      "profile": "ascii-off",
+      "baseline_ns": 270950,
+      "actual_ns": 1038230
+    },
+    {
+      "ratio": 3.730630500649257,
+      "case": "Q038",
+      "profile": "unicode-warm",
+      "baseline_ns": 6931,
+      "actual_ns": 25857
+    },
+    {
+      "ratio": 3.726040896772604,
+      "case": "Q057",
+      "profile": "unicode-warm",
+      "baseline_ns": 8118,
+      "actual_ns": 30248
+    },
+    {
+      "ratio": 3.666619034009717,
+      "case": "Q040",
+      "profile": "unicode-warm",
+      "baseline_ns": 6998,
+      "actual_ns": 25659
+    },
+    {
+      "ratio": 3.546451082488353,
+      "case": "Q025",
+      "profile": "unicode-warm",
+      "baseline_ns": 7298,
+      "actual_ns": 25882
+    },
+    {
+      "ratio": 3.458786805028263,
+      "case": "Q020",
+      "profile": "ascii-warm",
+      "baseline_ns": 11853,
+      "actual_ns": 40997
+    }
+  ],
+  "failures": [
+    "schema_fingerprint differs from baseline",
+    "workload_fingerprint differs from baseline",
+    "('Q099', 'ascii-off'): 18.502 ms exceeds 8.141 ms baseline",
+    "('Q141', 'ascii-off'): 5.670 ms exceeds 3.404 ms baseline",
+    "('Q148', 'ascii-off'): 9.083 ms exceeds 5.395 ms baseline"
+  ],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off,ascii-warm,unicode-off,unicode-warm",
+    "--repetitions",
+    "5",
+    "--result-dir",
+    "/home/simon/source/objekte/bench/results/musenalm/final-repeat-92cdb92b19"
+  ]
+}
