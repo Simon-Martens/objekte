@@ -345,6 +345,13 @@ impl RecordId {
 }
 
 
+impl std::borrow::Borrow<str> for RecordId {
+    fn borrow(&self) -> &str {
+        &self.0
+    }
+}
+
+
 /// Duplicate-detecting set of logical record IDs.
 #[derive(Default)]
 pub struct IdentitySet(HashSet<RecordId>);

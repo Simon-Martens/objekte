@@ -2,7 +2,7 @@
 
 use smallvec::SmallVec;
 use std::cmp::Ordering;
-use std::collections::{HashMap, HashSet};
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
@@ -13,6 +13,7 @@ use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Valu
 use crate::query::{
     CaseSensitivity, FilterExpr, FtsQuery, Literal, Modifier, Operator, Quantifier, Term,
 };
+use crate::relation::RelationDefinition;
 use crate::source::TextSegment;
 
 
@@ -171,6 +172,7 @@ pub struct Schema {
     pub(crate) operations: HashMap<(Vec<String>, String), RegisteredBinding>,
     pub(crate) defaults: HashMap<Vec<String>, String>,
     pub(crate) raw: Option<RegisteredBinding>,
+    pub(crate) relations: BTreeMap<Vec<String>, RelationDefinition>,
     converted_fields: bool,
     validation: ValidationNode,
     conversion_validation: ValidationNode,
