@@ -1,4 +1,183 @@
 use super::*;
+use std::sync::atomic::{AtomicUsize, Ordering};
+
+
+struct TinyReader(Arc<AtomicUsize>);
+
+
+impl SourceReader for TinyReader {
+    fn name(&self) -> &'static str {
+        "tiny"
+    }
+
+    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+        let mut ranges = Vec::new();
+        let mut start = 0;
+        for end in 0..=file.len() {
+            if end == file.len() || file[end] == b'\n' {
+                if end > start {
+                    ranges.push(ByteRange::checked(
+                        start as u64,
+                        end as u64,
+                        file.len() as u64,
+                    )?);
+                }
+                start = end + 1;
+            }
+        }
+        Ok(ranges)
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        self.0.fetch_add(1, Ordering::Relaxed);
+        let line = std::str::from_utf8(bytes).map_err(|e| e.to_string())?;
+        let (title, body) = line.split_once('|').ok_or("missing tiny separator")?;
+        let value = Value::Object(std::collections::BTreeMap::from([
+            ("title".into(), Value::String(title.into())),
+            ("body".into(), Value::String(body.into())),
+        ]));
+        Ok(ExtractedRecord {
+            value,
+            text: vec![TextSegment {
+                path: vec!["body".into()],
+                text: body.into(),
+            }],
+        })
+    }
+}
+
+
+#[test]
+fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
+    use crate::model::LogicalType;
+    use crate::query::{FtsQuery, Query, QueryOptions};
+    use crate::reference::{FieldDefinition, Schema};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions,
+    };
+    use crate::workload::ReturnMode;
+
+    let root = std::env::temp_dir().join(format!("objekte-tiny-source-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("tiny")).unwrap();
+    std::fs::write(
+        root.join("tiny/records.tiny"),
+        b"first|ordinary\nsecond|needle text\n",
+    )
+    .unwrap();
+    let mut schema = Schema::default();
+    for name in ["title", "body"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: name == "title",
+                multi: false,
+            })
+            .unwrap();
+    }
+    let definition = CollectionDefinition {
+        name: "tiny".into(),
+        source_path: "tiny".into(),
+        format: SourceFormat::registered("tiny"),
+        identity: IdentityPolicy::Generated,
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+    };
+    let parses = Arc::new(AtomicUsize::new(0));
+    let registrations = |version| {
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register(
+                "tiny",
+                version,
+                "tiny",
+                Arc::new(TinyReader(parses.clone())),
+            )
+            .unwrap();
+        sources
+    };
+    let query = Query {
+        collections: vec![],
+        fts: Some(FtsQuery {
+            literal: "needle".into(),
+            fields: vec![],
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    let repo = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        registrations(1),
+    )
+    .unwrap();
+    assert!(!repo.startup().restored);
+    assert_eq!(repo.build_parses(), 2);
+    assert_eq!(parses.load(Ordering::Relaxed), 2);
+    let found = repo.search(&query).unwrap();
+    assert_eq!(found.count, 1);
+    assert_eq!(found.counters.record_parses, 1);
+    assert!(
+        matches!(&found.hits[0].payload, Some(Payload::Logical(Value::Object(fields))) if fields.get("body") == Some(&Value::String("needle text".into())))
+    );
+    assert_eq!(found.hits[0].matched_fields, ["body"]);
+    assert_eq!(found.hits, repo.search_reference(&query).unwrap().hits);
+    let mut bytes_query = query.clone();
+    bytes_query.options.return_mode = ReturnMode::Bytes;
+    let bytes = repo.search(&bytes_query).unwrap();
+    assert!(
+        matches!(&bytes.hits[0].payload, Some(Payload::Bytes(raw)) if raw == b"second|needle text")
+    );
+    let after_query = parses.load(Ordering::Relaxed);
+    drop(repo);
+
+    let restored = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        registrations(1),
+    )
+    .unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(restored.build_parses(), 0);
+    assert_eq!(parses.load(Ordering::Relaxed), after_query);
+    assert_eq!(restored.search(&query).unwrap().hits, found.hits);
+    drop(restored);
+
+    let rebuilt = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        registrations(2),
+    )
+    .unwrap();
+    assert!(!rebuilt.startup().restored);
+    assert_eq!(rebuilt.build_parses(), 2);
+    drop(rebuilt);
+    assert!(
+        Repository::open_with_sources(
+            &root,
+            vec![definition],
+            RepositoryOptions::default(),
+            SourceRegistry::builtin()
+        )
+        .err()
+        .unwrap()
+        .contains("unknown source registration")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
@@ -8,7 +187,8 @@ fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
         collect_text: true,
     };
     for format in [SourceFormat::Json, SourceFormat::JsonLines] {
-        let selected = reader(format).parse_for_query(bytes, &projection).unwrap();
+        let source = SourceRegistry::builtin().resolve(&format).unwrap();
+        let selected = source.reader().parse_for_query(bytes, &projection).unwrap();
         assert_eq!(
             selected.value,
             Value::from_json(serde_json::json!({"needed":{"name":"found"}})).unwrap()
@@ -16,13 +196,15 @@ fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
         assert_eq!(selected.text.len(), 1);
         assert_eq!(selected.text[0].path, ["needed", "name"]);
         assert_eq!(selected.text[0].text, "found");
-        let full = reader(format)
+        let full = source
+            .reader()
             .parse_for_query(bytes, &ScanProjection::full(false))
             .unwrap();
         assert!(matches!(full.value, Value::Object(ref fields) if fields.len() == 3));
         assert!(full.text.is_empty());
         assert!(
-            reader(format)
+            source
+                .reader()
                 .parse_for_query(br#"{"needed":"ok","ignored":[1,]}"#, &projection)
                 .is_err()
         );

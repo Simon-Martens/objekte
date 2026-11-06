@@ -1,8 +1,9 @@
 //! Source framing is format-specific; indexing consumes one extracted record at a time.
 
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 use std::io::{Read, Seek, SeekFrom};
 use std::path::Path;
+use std::sync::Arc;
 
 use serde::de::{DeserializeSeed, IgnoredAny, MapAccess, Visitor};
 use serde::{Deserialize, Serialize};
@@ -11,11 +12,27 @@ use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::Value;
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum SourceFormat {
     Json,
     JsonLines,
+    Registered(String),
+}
+
+
+impl SourceFormat {
+    pub fn registered(id: impl Into<String>) -> Self {
+        Self::Registered(id.into())
+    }
+
+    pub fn id(&self) -> &str {
+        match self {
+            Self::Json => "json",
+            Self::JsonLines => "jsonl",
+            Self::Registered(id) => id,
+        }
+    }
 }
 
 
@@ -70,6 +87,97 @@ pub trait SourceReader: Send + Sync {
 }
 
 
+/// Stable source identity, discovery suffix, and reader implementation.
+#[derive(Clone)]
+pub struct SourceRegistration {
+    pub id: String,
+    pub version: u32,
+    pub extension: String,
+    pub reader: Arc<dyn SourceReader>,
+}
+
+
+/// Prepared source handle resolved once per collection.
+#[derive(Clone)]
+pub struct PreparedSource(Arc<SourceRegistration>);
+
+
+impl PreparedSource {
+    pub fn id(&self) -> &str {
+        &self.0.id
+    }
+
+    pub fn version(&self) -> u32 {
+        self.0.version
+    }
+
+    pub fn extension(&self) -> &str {
+        &self.0.extension
+    }
+
+    pub fn reader(&self) -> &dyn SourceReader {
+        self.0.reader.as_ref()
+    }
+}
+
+
+/// Repository-local source registrations. The built-ins use this same table.
+#[derive(Clone, Default)]
+pub struct SourceRegistry {
+    entries: HashMap<String, Arc<SourceRegistration>>,
+}
+
+
+impl SourceRegistry {
+    pub fn builtin() -> Self {
+        let mut sources = Self::default();
+        sources
+            .register("json", 1, "json", Arc::new(JsonReader))
+            .expect("valid JSON source registration");
+        sources
+            .register("jsonl", 1, "jsonl", Arc::new(JsonLinesReader))
+            .expect("valid JSON Lines source registration");
+        sources
+    }
+
+    pub fn register(
+        &mut self,
+        id: impl Into<String>,
+        version: u32,
+        extension: impl Into<String>,
+        reader: Arc<dyn SourceReader>,
+    ) -> Result<(), String> {
+        let id = id.into();
+        let extension = extension.into();
+        if id.is_empty() || version == 0 || extension.is_empty() || extension.contains(['/', '\\'])
+        {
+            return Err("invalid source registration".into());
+        }
+        if self.entries.contains_key(&id) {
+            return Err(format!("duplicate source registration: {id}"));
+        }
+        self.entries.insert(
+            id.clone(),
+            Arc::new(SourceRegistration {
+                id,
+                version,
+                extension,
+                reader,
+            }),
+        );
+        Ok(())
+    }
+
+    pub fn resolve(&self, format: &SourceFormat) -> Result<PreparedSource, String> {
+        self.entries
+            .get(format.id())
+            .cloned()
+            .map(PreparedSource)
+            .ok_or_else(|| format!("unknown source registration: {}", format.id()))
+    }
+}
+
+
 /// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
 
@@ -82,6 +190,31 @@ pub struct JsonLinesReader;
 struct SelectedObject<'a>(&'a HashSet<String>);
 
 
+/// Map visitor that skips JSON members outside a query projection.
+struct SelectedVisitor<'a>(&'a HashSet<String>);
+
+
+impl<'de> Visitor<'de> for SelectedVisitor<'_> {
+    type Value = serde_json::Map<String, serde_json::Value>;
+
+    fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+        formatter.write_str("a JSON object")
+    }
+
+    fn visit_map<M: MapAccess<'de>>(self, mut map: M) -> Result<Self::Value, M::Error> {
+        let mut selected = serde_json::Map::new();
+        while let Some(key) = map.next_key::<String>()? {
+            if self.0.contains(&key) {
+                selected.insert(key, map.next_value()?);
+            } else {
+                map.next_value::<IgnoredAny>()?;
+            }
+        }
+        Ok(selected)
+    }
+}
+
+
 impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
 
@@ -89,31 +222,6 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
         self,
         deserializer: D,
     ) -> Result<Self::Value, D::Error> {
-        /// Map visitor that skips JSON members outside a query projection.
-        struct SelectedVisitor<'a>(&'a HashSet<String>);
-
-
-        impl<'de> Visitor<'de> for SelectedVisitor<'_> {
-            type Value = serde_json::Map<String, serde_json::Value>;
-
-            fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
-                formatter.write_str("a JSON object")
-            }
-
-            fn visit_map<M: MapAccess<'de>>(self, mut map: M) -> Result<Self::Value, M::Error> {
-                let mut selected = serde_json::Map::new();
-                while let Some(key) = map.next_key::<String>()? {
-                    if self.0.contains(&key) {
-                        selected.insert(key, map.next_value()?);
-                    } else {
-                        map.next_value::<IgnoredAny>()?;
-                    }
-                }
-                Ok(selected)
-            }
-        }
-
-
         deserializer.deserialize_map(SelectedVisitor(self.0))
     }
 }
@@ -251,16 +359,6 @@ impl SourceReader for JsonLinesReader {
 }
 
 
-pub fn reader(format: SourceFormat) -> &'static dyn SourceReader {
-    static JSON: JsonReader = JsonReader;
-    static JSON_LINES: JsonLinesReader = JsonLinesReader;
-    match format {
-        SourceFormat::Json => &JSON,
-        SourceFormat::JsonLines => &JSON_LINES,
-    }
-}
-
-
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
 pub struct ExtractionCounters {
@@ -275,6 +373,19 @@ pub fn extract_file<F>(
     path: &Path,
     format: SourceFormat,
     expected: SourceRevision,
+    consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(ByteRange, ExtractedRecord) -> Result<(), String>,
+{
+    let source = SourceRegistry::builtin().resolve(&format)?;
+    extract_file_with_reader(path, source.reader(), expected, consume)
+}
+
+pub fn extract_file_with_reader<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
@@ -288,7 +399,6 @@ where
     if bytes.len() as u64 != expected.size {
         return Err("stale source revision during extraction".into());
     }
-    let source = reader(format);
     let ranges = source
         .frame(&bytes)
         .map_err(|e| format!("{}: {e}", path.display()))?;

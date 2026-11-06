@@ -60,6 +60,11 @@ standalone object per file; a JSON Lines reader frames independently parseable
 object lines. Source extraction parses each framed record once and feeds the
 postings, text filters, sorting columns, and inventory from that value. A
 shared file is parsed once across its participating collections during build.
+Built-in and caller-supplied readers are resolved through `SourceRegistry`
+when a collection opens. A registration has a stable ID, semantic version, file
+extension, and reader. The prepared reader handles framing, query verification,
+and payload decoding. Snapshot configuration includes the resolved registration
+identity and version, so a changed registration rebuilds its state.
 
 `Repository` publishes its inventory, collection generations, definitions, and
 indexes through shared-reference inspection methods. Callers cannot replace or

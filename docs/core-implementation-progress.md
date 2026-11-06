@@ -25,6 +25,7 @@ substitute for the four-profile workload.
 | 1 / B: record ID lookup | complete | Reproduced folded ID miss; raw, case-folded, distinct-case, and Unicode IDs now match the independent scanner |
 | 2 / B: null arrays | complete | Reproduced indexed universal-null miss; ten query forms across seven record states match hard-coded answers and the independent scanner with and without postings |
 | 3 / G: immutable state | complete | External consumers compile through read-only repository inspection; compile-fail privacy check and effective cache-budget test |
+| 4 / A: source registrations | complete | Test-only non-JSON reader builds, verifies, returns logical/byte payload, restores, rejects unknown IDs, and rebuilds on registration-version change |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier

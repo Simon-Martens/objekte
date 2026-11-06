@@ -2,7 +2,7 @@ use super::*;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query::Query;
 use objekte_search_core::reference::bind_filter;
-use objekte_search_core::source::{SourceFormat, reader};
+use objekte_search_core::source::{SourceFormat, SourceRegistry};
 use objekte_search_core::workload::load_manifest;
 
 #[test]
@@ -36,7 +36,10 @@ fn fixture_schemas_bind_every_fixed_request() {
 fn fractional_numbering_remains_numeric() {
     let path = Path::new(env!("CARGO_MANIFEST_DIR"))
         .join("../../examples/musenalm/data/contents/00mc7w4nobyg3xt.json");
-    let extracted = reader(SourceFormat::Json)
+    let extracted = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap()
+        .reader()
         .parse(&std::fs::read(path).unwrap())
         .unwrap();
     let Value::Object(fields) = extracted.value else {

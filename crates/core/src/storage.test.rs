@@ -61,7 +61,14 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
         assert_eq!(built.build_parses, 2);
         let path = root.join(format!("{alphabet:?}.snapshot"));
         built.save_snapshot(&path).unwrap();
-        let restored = load_snapshot(root.clone(), definitions.clone(), options, &path).unwrap();
+        let restored = load_snapshot(
+            root.clone(),
+            definitions.clone(),
+            options,
+            &crate::source::SourceRegistry::builtin(),
+            &path,
+        )
+        .unwrap();
         assert_eq!(restored.files.files.len(), 2);
         assert_eq!(restored.files.files[0].collections.len(), 2);
         assert_eq!(restored.collections[0].generation.records.len(), 2);
@@ -82,10 +89,16 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
             ..options
         };
         assert!(
-            load_snapshot(root.clone(), definitions.clone(), other, &path)
-                .err()
-                .unwrap()
-                .contains("incompatible snapshot configuration")
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                other,
+                &crate::source::SourceRegistry::builtin(),
+                &path
+            )
+            .err()
+            .unwrap()
+            .contains("incompatible snapshot configuration")
         );
         let mut bytes = fs::read(&path).unwrap();
         let mut corrupted = bytes.clone();
@@ -93,14 +106,29 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
         corrupted[tail] ^= 0x01;
         fs::write(&path, &corrupted).unwrap();
         assert!(
-            load_snapshot(root.clone(), definitions.clone(), options, &path)
-                .err()
-                .unwrap()
-                .contains("snapshot checksum mismatch")
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &path
+            )
+            .err()
+            .unwrap()
+            .contains("snapshot checksum mismatch")
         );
         bytes.truncate(bytes.len() / 2);
         fs::write(&path, &bytes).unwrap();
-        assert!(load_snapshot(root.clone(), definitions.clone(), options, &path).is_err());
+        assert!(
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &path
+            )
+            .is_err()
+        );
     }
     fs::remove_dir_all(root).unwrap();
 }

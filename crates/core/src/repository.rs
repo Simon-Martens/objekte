@@ -17,8 +17,8 @@ use crate::reference::{
 };
 use crate::sorting::{SortBuilder, SortCollection};
 use crate::source::{
-    ExtractedRecord, SourceFormat, TextSegment, extract_file, read_record_range, reader,
-    text_segments,
+    ExtractedRecord, PreparedSource, SourceFormat, SourceRegistry, TextSegment,
+    extract_file_with_reader, read_record_range, text_segments,
 };
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
@@ -47,6 +47,7 @@ pub struct CollectionDefinition {
 /// Published generation and indexes for one collection.
 pub struct CollectionState {
     pub definition: CollectionDefinition,
+    pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
     pub raw: BigramIndex,
@@ -100,6 +101,7 @@ impl CollectionStats {
 pub struct Repository {
     pub(crate) files: FileInventory,
     pub(crate) collections: Vec<CollectionState>,
+    pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
@@ -260,6 +262,15 @@ impl Repository {
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
     ) -> Result<Self, String> {
+        Self::open_with_sources(root, definitions, options, SourceRegistry::builtin())
+    }
+
+    pub fn open_with_sources(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        sources: SourceRegistry,
+    ) -> Result<Self, String> {
         let started = Instant::now();
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
         let snapshot = crate::storage::snapshot_path(&root, options.bigram_alphabet);
@@ -272,6 +283,7 @@ impl Repository {
                 root.clone(),
                 definitions.clone(),
                 options,
+                &sources,
                 &snapshot,
             );
             decode_ns = decode_started.elapsed().as_nanos() as u64;
@@ -295,7 +307,7 @@ impl Repository {
                 }
             }
         }
-        let mut repo = Self::build_fresh(root, definitions, options)?;
+        let mut repo = Self::build_fresh(root, definitions, options, &sources)?;
         for collection in &mut repo.collections {
             if let Some(previous) = previous_generations.get(&collection.definition.name) {
                 collection.generation.generation =
@@ -321,16 +333,21 @@ impl Repository {
         root: PathBuf,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
+        sources: &SourceRegistry,
     ) -> Result<Self, String> {
         let mut files = FileInventory::new(root.clone());
         let mut selected = Vec::new();
         for (collection_index, definition) in definitions.into_iter().enumerate() {
+            let source = sources.resolve(&definition.format)?;
             let id =
                 CollectionId(u32::try_from(collection_index).map_err(|_| "too many collections")?);
             if selected.iter().any(
-                |(previous, _, _): &(CollectionDefinition, CollectionId, Vec<_>)| {
-                    previous.name == definition.name
-                },
+                |(previous, _, _, _): &(
+                    CollectionDefinition,
+                    CollectionId,
+                    PreparedSource,
+                    Vec<_>,
+                )| { previous.name == definition.name },
             ) {
                 return Err(format!("duplicate collection: {}", definition.name));
             }
@@ -345,11 +362,7 @@ impl Repository {
                     continue;
                 }
                 let path = entry.path();
-                let extension = match definition.format {
-                    SourceFormat::Json => "json",
-                    SourceFormat::JsonLines => "jsonl",
-                };
-                if path.extension().is_none_or(|e| e != extension) {
+                if path.extension().is_none_or(|e| e != source.extension()) {
                     continue;
                 }
                 paths.push(path);
@@ -371,13 +384,15 @@ impl Repository {
                 let file = files.add(relative, revision, created_ns, id)?;
                 member_files.push(file);
             }
-            selected.push((definition, id, member_files));
+            selected.push((definition, id, source, member_files));
         }
         let mut collections = Vec::new();
         let mut build_parses = 0;
-        let mut shared_extractions: HashMap<FileId, Vec<(ByteRange, ExtractedRecord)>> =
-            HashMap::new();
-        for (definition, id, member_files) in selected {
+        let mut shared_extractions: HashMap<
+            (FileId, String, u32),
+            Vec<(ByteRange, ExtractedRecord)>,
+        > = HashMap::new();
+        for (definition, id, source, member_files) in selected {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
@@ -455,11 +470,12 @@ impl Repository {
                     Ok(())
                 };
                 if file.collections.len() > 1 {
-                    if !shared_extractions.contains_key(&file_id) {
+                    let shared_key = (file_id, source.id().to_owned(), source.version());
+                    if !shared_extractions.contains_key(&shared_key) {
                         let mut extracted = Vec::new();
-                        let stats = extract_file(
+                        let stats = extract_file_with_reader(
                             &path,
-                            definition.format,
+                            source.reader(),
                             file.revision,
                             |range, record| {
                                 extracted.push((range, record));
@@ -467,14 +483,18 @@ impl Repository {
                             },
                         )?;
                         build_parses += stats.record_parses;
-                        shared_extractions.insert(file_id, extracted);
+                        shared_extractions.insert(shared_key.clone(), extracted);
                     }
-                    for (range, record) in &shared_extractions[&file_id] {
+                    for (range, record) in &shared_extractions[&shared_key] {
                         consume(*range, record.clone())?;
                     }
                 } else {
-                    let stats =
-                        extract_file(&path, definition.format, file.revision, &mut consume)?;
+                    let stats = extract_file_with_reader(
+                        &path,
+                        source.reader(),
+                        file.revision,
+                        &mut consume,
+                    )?;
                     build_parses += stats.record_parses;
                 }
             }
@@ -502,6 +522,7 @@ impl Repository {
             };
             collections.push(CollectionState {
                 definition,
+                source,
                 generation,
                 postings,
                 raw,
@@ -514,6 +535,7 @@ impl Repository {
         Ok(Self {
             files,
             collections,
+            sources: sources.clone(),
             build_parses,
             options,
             startup: StartupStats::default(),
@@ -590,7 +612,7 @@ impl Repository {
                 counters.bytes_read += bytes.len() as u64;
                 counters.record_parses += 1;
                 counters.scanned_records += 1;
-                let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+                let mut extracted = collection.source.reader().parse(&bytes)?;
                 collection
                     .definition
                     .schema

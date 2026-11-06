@@ -19,7 +19,7 @@ use crate::query::{Operator, Query};
 use crate::reference::{BoundExpr, Derived, RecordContext, eval_filter, eval_fts_query, eval_term};
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::SortKey;
-use crate::source::{ScanProjection, read_record_ranges, reader, text_segments};
+use crate::source::{ScanProjection, read_record_ranges, text_segments};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -195,8 +195,10 @@ fn scan_file(
                 } else {
                     projection
                 };
-            let mut extracted =
-                reader(collection.definition.format).parse_for_query(&bytes, record_projection)?;
+            let mut extracted = collection
+                .source
+                .reader()
+                .parse_for_query(&bytes, record_projection)?;
             collection
                 .definition
                 .schema
@@ -593,7 +595,7 @@ fn materialize_cached(
                     ReturnMode::Bytes => Payload::Bytes(bytes),
                     ReturnMode::Logical => {
                         counters.record_parses += 1;
-                        let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+                        let mut extracted = collection.source.reader().parse(&bytes)?;
                         collection
                             .definition
                             .schema
@@ -954,8 +956,7 @@ fn search_impl(
                         ReturnMode::Bytes => Payload::Bytes(bytes),
                         ReturnMode::Logical => {
                             counters.record_parses += 1;
-                            let mut extracted =
-                                reader(collection.definition.format).parse(&bytes)?;
+                            let mut extracted = collection.source.reader().parse(&bytes)?;
                             collection
                                 .definition
                                 .schema

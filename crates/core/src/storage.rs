@@ -19,6 +19,7 @@ use crate::repository::{
     StartupStats,
 };
 use crate::sorting::{COLLATION_VERSION, SortCollection};
+use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
@@ -117,10 +118,7 @@ pub fn snapshot_path(root: &Path, alphabet: BigramAlphabet) -> PathBuf {
 pub fn sources_match(repo: &Repository) -> Result<bool, String> {
     for state in &repo.collections {
         let directory = repo.files.root.join(&state.definition.source_path);
-        let extension = match state.definition.format {
-            crate::source::SourceFormat::Json => "json",
-            crate::source::SourceFormat::JsonLines => "jsonl",
-        };
+        let extension = state.source.extension();
         let mut observed = Vec::new();
         for entry in
             fs::read_dir(&directory).map_err(|e| format!("{}: {e}", directory.display()))?
@@ -168,7 +166,8 @@ fn feed(hash: &mut Sha256, bytes: &[u8]) {
 pub fn configuration_hash(
     definitions: &[CollectionDefinition],
     options: RepositoryOptions,
-) -> [u8; 32] {
+    sources: &SourceRegistry,
+) -> Result<[u8; 32], String> {
     let mut hash = Sha256::new();
     hash.update(crate::MODEL_VERSION.to_le_bytes());
     hash.update(SNAPSHOT_VERSION.to_le_bytes());
@@ -180,8 +179,12 @@ pub fn configuration_hash(
         BigramAlphabet::Unicode => 1,
     }]);
     for definition in definitions {
+        let source = sources.resolve(&definition.format)?;
         feed(&mut hash, definition.name.as_bytes());
         feed(&mut hash, &path_bytes(&definition.source_path));
+        feed(&mut hash, source.id().as_bytes());
+        hash.update(source.version().to_le_bytes());
+        feed(&mut hash, source.extension().as_bytes());
         feed(
             &mut hash,
             format!("{:?}/{:?}", definition.format, definition.identity).as_bytes(),
@@ -220,7 +223,7 @@ pub fn configuration_hash(
             );
         }
     }
-    hash.finalize().into()
+    Ok(hash.finalize().into())
 }
 
 fn write_section(file: &mut File, id: u32, value: &impl Serialize) -> Result<(), String> {
@@ -300,7 +303,8 @@ impl Repository {
                     .map(|c| c.definition.clone())
                     .collect::<Vec<_>>(),
                 self.options,
-            ))
+                &self.sources,
+            )?)
             .map_err(|e| e.to_string())?;
             file.write_all(&(self.collections.len() as u32).to_le_bytes())
                 .map_err(|e| e.to_string())?;
@@ -344,6 +348,7 @@ pub fn load_snapshot(
     root: PathBuf,
     definitions: Vec<CollectionDefinition>,
     options: RepositoryOptions,
+    sources: &SourceRegistry,
     path: &Path,
 ) -> Result<Repository, String> {
     let mut file = File::open(path).map_err(|e| e.to_string())?;
@@ -363,7 +368,7 @@ pub fn load_snapshot(
     {
         return Err("incompatible snapshot version".into());
     }
-    if hash != configuration_hash(&definitions, options) {
+    if hash != configuration_hash(&definitions, options, sources)? {
         return Err("incompatible snapshot configuration".into());
     }
     if u32::from_le_bytes(count) as usize != definitions.len() {
@@ -389,6 +394,7 @@ pub fn load_snapshot(
     files.rebuild_lookup()?;
     let mut collections = Vec::new();
     for (index, definition) in definitions.into_iter().enumerate() {
+        let source = sources.resolve(&definition.format)?;
         let encoded: EncodedCollection = read_section(&mut file, index as u32 + 1)?;
         let generation = encoded.generation;
         if generation.collection.0 as usize != index || generation.name != definition.name {
@@ -496,6 +502,7 @@ pub fn load_snapshot(
         }
         collections.push(CollectionState {
             definition,
+            source,
             generation,
             postings: encoded.postings,
             raw: encoded.raw,
@@ -512,6 +519,7 @@ pub fn load_snapshot(
     Ok(Repository {
         files,
         collections,
+        sources: sources.clone(),
         build_parses: 0,
         options,
         startup: StartupStats::default(),
