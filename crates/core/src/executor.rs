@@ -88,36 +88,143 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
     }
 }
 
-fn fallback_choices(expr: &BoundExpr, input: u64, output: &mut Vec<TermChoice>) {
-    match expr {
-        BoundExpr::Term(term) => output.push(TermChoice {
-            span: term.span,
-            field: term.path.display(),
-            logical_type: format!("{:?}", term.kind),
-            binding: format!("{}@{}", term.binding_name, term.binding_version),
-            selected: AccessPathEstimate {
-                kind: AccessPathKind::Scanner,
-                exact: false,
-                coverage: input as u32,
-                estimated_output: input,
-                estimated_work: input as f64,
-                estimated_files: 0.0,
-                estimated_bytes: 0.0,
-            },
-            alternatives: Vec::new(),
-            actual_input: input,
-            actual_output: Some(input),
-            reason: "fallback records require three-valued residual verification".into(),
-            residual_verification: true,
-            executed: true,
-        }),
-        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
-            for part in parts {
-                fallback_choices(part, input, output);
+
+/// Known true and false fallback slots; all other slots are unavailable.
+struct FallbackTruth {
+    yes: RoaringBitmap,
+    no: RoaringBitmap,
+    proofs: Vec<Proof>,
+    choices: Vec<TermChoice>,
+}
+
+
+fn fallback_truth(
+    repo: &Repository,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    input: &RoaringBitmap,
+) -> Result<FallbackTruth, String> {
+    Ok(match expr {
+        BoundExpr::Term(term) => {
+            let metadata = term.path.root != PathRoot::Data;
+            let mut yes = RoaringBitmap::new();
+            if metadata {
+                let empty = Value::Object(BTreeMap::new());
+                for slot in input.iter() {
+                    let record = &collection.generation.records[slot as usize];
+                    let file = &repo.files.files[record.file.0 as usize];
+                    let ctx = RecordContext {
+                        value: &empty,
+                        source_bytes: None,
+                        record,
+                        file,
+                        collection_name: &collection.definition.name,
+                        repository_root: &repo.files.root,
+                    };
+                    if eval_term(term, &ctx)? {
+                        yes.insert(slot);
+                    }
+                }
+            }
+            let no = if metadata {
+                input - &yes
+            } else {
+                RoaringBitmap::new()
+            };
+            let proofs = if metadata {
+                vec![Proof {
+                    term: term.clone(),
+                    input: input.clone(),
+                    matches: yes.clone(),
+                }]
+            } else {
+                Vec::new()
+            };
+            let choices = vec![TermChoice {
+                span: term.span,
+                field: term.path.display(),
+                logical_type: format!("{:?}", term.kind),
+                binding: format!("{}@{}", term.binding_name, term.binding_version),
+                selected: AccessPathEstimate {
+                    kind: if metadata {
+                        AccessPathKind::Metadata
+                    } else {
+                        AccessPathKind::Scanner
+                    },
+                    exact: metadata,
+                    coverage: input.len() as u32,
+                    estimated_output: yes.len(),
+                    estimated_work: if metadata { input.len() as f64 } else { 0.0 },
+                    estimated_files: 0.0,
+                    estimated_bytes: 0.0,
+                },
+                alternatives: Vec::new(),
+                actual_input: input.len(),
+                actual_output: Some(yes.len()),
+                reason: if metadata {
+                    "fallback metadata evaluated from inventory"
+                } else {
+                    "logical value unavailable on raw fallback"
+                }
+                .into(),
+                residual_verification: false,
+                executed: metadata,
+            }];
+            FallbackTruth {
+                yes,
+                no,
+                proofs,
+                choices,
             }
         }
-        BoundExpr::Not(inner) => fallback_choices(inner, input, output),
-    }
+        BoundExpr::And(parts) => {
+            let mut yes = input.clone();
+            let mut no = RoaringBitmap::new();
+            let mut proofs = Vec::new();
+            let mut choices = Vec::new();
+            for part in parts {
+                let child = fallback_truth(repo, collection, part, input)?;
+                yes &= child.yes;
+                no |= child.no;
+                proofs.extend(child.proofs);
+                choices.extend(child.choices);
+            }
+            FallbackTruth {
+                yes,
+                no,
+                proofs,
+                choices,
+            }
+        }
+        BoundExpr::Or(parts) => {
+            let mut yes = RoaringBitmap::new();
+            let mut no = input.clone();
+            let mut proofs = Vec::new();
+            let mut choices = Vec::new();
+            for part in parts {
+                let child = fallback_truth(repo, collection, part, input)?;
+                yes |= child.yes;
+                no &= child.no;
+                proofs.extend(child.proofs);
+                choices.extend(child.choices);
+            }
+            FallbackTruth {
+                yes,
+                no,
+                proofs,
+                choices,
+            }
+        }
+        BoundExpr::Not(inner) => {
+            let child = fallback_truth(repo, collection, inner, input)?;
+            FallbackTruth {
+                yes: child.no,
+                no: child.yes,
+                proofs: child.proofs,
+                choices: child.choices,
+            }
+        }
+    })
 }
 
 
@@ -300,7 +407,18 @@ fn enumerate_paths(
         paths.push(AccessPathEstimate {
             kind,
             exact,
-            coverage: stats.record_count as u32,
+            coverage: if matches!(
+                kind,
+                AccessPathKind::Posting
+                    | AccessPathKind::Dictionary
+                    | AccessPathKind::SortColumn
+                    | AccessPathKind::RawBigram
+                    | AccessPathKind::CustomBigram
+            ) {
+                collection.logical_records.len() as u32
+            } else {
+                stats.record_count as u32
+            },
             estimated_output: output,
             estimated_work: lookup
                 + if exact {
@@ -346,7 +464,9 @@ fn enumerate_paths(
             collection.postings.fields.get(&term.path.segments)
         };
         if let Some(index) = index {
-            if let Some((lookup, output)) = index.estimate_exact(term, stats.record_count as u64) {
+            if let Some((lookup, output)) =
+                index.estimate_exact(term, collection.logical_records.len())
+            {
                 add(AccessPathKind::Posting, true, lookup, output);
             }
             if term.kind == LogicalType::String
@@ -354,6 +474,7 @@ fn enumerate_paths(
                 && term.operation.is_none()
                 && term.derived == Derived::None
                 && term.operator == Operator::Contains
+                && index.covered_records as u64 == collection.logical_records.len()
                 && (!term.multi || term.quantifier == Quantifier::Any)
                 && matches!(&term.literal,Value::String(s) if !s.contains(['%','\\']))
             {
@@ -579,17 +700,58 @@ pub(crate) fn plan_expr_restricted(
     input: &RoaringBitmap,
     evidence: bool,
 ) -> Result<Plan, String> {
-    if collection.logical_records.len() != collection.generation.records.len() as u64 {
-        let mut choices = Vec::new();
-        fallback_choices(expr, input.len(), &mut choices);
+    if input.is_empty() {
         return Ok(Plan {
-            candidates: Some(input.clone()),
-            exact: false,
+            candidates: Some(RoaringBitmap::new()),
+            exact: true,
             proven_hits: RoaringBitmap::new(),
             proofs: Vec::new(),
-            choices,
+            choices: Vec::new(),
         });
     }
+    if collection.logical_records.len() == collection.generation.records.len() as u64 {
+        return plan_logical_expr(repo, collection, expr, domain, input, evidence);
+    }
+    let logical_input = input & &collection.logical_records;
+    let fallback_input = input - &collection.logical_records;
+    let mut logical = if logical_input.is_empty() {
+        Plan {
+            candidates: Some(RoaringBitmap::new()),
+            exact: true,
+            proven_hits: RoaringBitmap::new(),
+            proofs: Vec::new(),
+            choices: Vec::new(),
+        }
+    } else {
+        plan_logical_expr(
+            repo,
+            collection,
+            expr,
+            &collection.logical_records,
+            &logical_input,
+            evidence,
+        )?
+    };
+    let mut candidates = logical.candidates.take().unwrap_or(logical_input);
+    if !fallback_input.is_empty() {
+        let fallback = fallback_truth(repo, collection, expr, &fallback_input)?;
+        candidates |= &fallback.yes;
+        logical.proven_hits |= &fallback.yes;
+        logical.proofs.extend(fallback.proofs);
+        logical.choices.extend(fallback.choices);
+    }
+    logical.candidates = Some(candidates);
+    Ok(logical)
+}
+
+fn plan_logical_expr(
+    repo: &Repository,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    input: &RoaringBitmap,
+    evidence: bool,
+) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
             let mut paths = enumerate_paths(collection, term, input.len());
@@ -683,7 +845,7 @@ pub(crate) fn plan_expr_restricted(
                     .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
                     .unwrap()
                     .0;
-                let child = plan_expr_restricted(
+                let child = plan_logical_expr(
                     repo,
                     collection,
                     remaining.remove(next),
@@ -742,7 +904,7 @@ pub(crate) fn plan_expr_restricted(
                     break;
                 }
                 let child =
-                    plan_expr_restricted(repo, collection, part, domain, &remaining, evidence)?;
+                    plan_logical_expr(repo, collection, part, domain, &remaining, evidence)?;
                 all_exact &= child.exact;
                 proven_hits |= &child.proven_hits;
                 candidates = match (candidates, child.candidates) {
@@ -770,7 +932,7 @@ pub(crate) fn plan_expr_restricted(
             }
         }
         BoundExpr::Not(inner) => {
-            let child = plan_expr_restricted(repo, collection, inner, domain, input, evidence)?;
+            let child = plan_logical_expr(repo, collection, inner, domain, input, evidence)?;
             if child.exact {
                 let matches = input - &child.candidates.unwrap();
                 Plan {

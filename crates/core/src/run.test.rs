@@ -303,6 +303,16 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         assert_eq!(raw_result.counters.record_parses, 0);
         assert_eq!(raw_result.hits[0].record_class, RecordClass::RawFallback);
         assert_eq!(raw_result.hits[0].matched_fields, ["@record.raw_text"]);
+        let mut raw_filtered = raw_fts.clone();
+        raw_filtered.filter = Some(parse_filter("@record.class = 1").unwrap());
+        let filtered = built.search(&raw_filtered).unwrap();
+        assert_eq!(filtered.count, Some(1));
+        assert_eq!(
+            filtered.hits[0].matched_fields,
+            ["@record.class", "@record.raw_text"]
+        );
+        assert_eq!(filtered.counters.record_parses, 0);
+        assert_eq!(filtered.counters.raw_text_verifications, 1);
         let selected = query(
             None,
             Some(FtsQuery {
@@ -333,6 +343,134 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         assert!(restored.startup().restored);
         assert_eq!(restored.search(&all).unwrap().hits, result.hits);
         assert_eq!(restored.search(&raw_fts).unwrap().hits, raw_result.hits);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn one_fallback_does_not_disable_selective_logical_postings() {
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    let root = std::env::temp_dir().join(format!("objekte-mixed-posting-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source = String::new();
+    for index in 0..1000 {
+        if index == 0 {
+            source.push_str("{\"title\":\"other\",\"note\":\"other\",\"distractor\":\"needle\"}\n");
+        } else {
+            source.push_str("{\"title\":\"other\",\"note\":\"other\"}\n");
+        }
+    }
+    source.push_str("{\"title\":\"needle\",\"note\":\"needle\"}\n{\"title\":needle\n");
+    std::fs::write(root.join("data/records.jsonl"), source).unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["note".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let definitions = vec![CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    }];
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..RepositoryOptions::default()
+        };
+        let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        let restored = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        assert!(restored.startup().restored);
+        for repo in [&built, &restored] {
+            for (filter, expected, fallback_hit) in [
+                ("title = 'needle'", 1, false),
+                ("!(title = 'needle')", 1000, false),
+                ("@record.class = 1 || title = 'needle'", 2, true),
+                ("@file.status = 1 && title = 'needle'", 1, false),
+                ("!(@file.status = 0 && title = 'needle')", 1002, true),
+                ("title:exists = false", 0, false),
+                ("title:null = true", 0, false),
+            ] {
+                let query = Query {
+                    collections: vec!["data".into()],
+                    fts: None,
+                    filter: Some(parse_filter(filter).unwrap()),
+                    options: QueryOptions {
+                        sort: vec![],
+                        limit: 3,
+                        offset: 0,
+                        count: true,
+                        return_mode: ReturnMode::Locator,
+                        evidence: true,
+                    },
+                };
+                let optimized = repo.search(&query).unwrap();
+                let reference = repo.search_reference(&query).unwrap();
+                assert_eq!(optimized.count, Some(expected), "{filter}");
+                assert_eq!(optimized.hits, reference.hits, "{filter}");
+                assert_eq!(optimized.counters.files_opened, 0, "{filter}");
+                assert_eq!(optimized.counters.record_parses, 0, "{filter}");
+                assert_eq!(
+                    optimized
+                        .hits
+                        .iter()
+                        .any(|hit| hit.record_class == crate::inventory::RecordClass::RawFallback),
+                    fallback_hit,
+                    "{filter}"
+                );
+                if filter == "title = 'needle'" {
+                    assert_eq!(optimized.counters.candidates, 1);
+                    assert_eq!(optimized.counters.exact_posting_matches, 1);
+                }
+            }
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: Some(parse_filter("note ~ 'needle' || @record.class = 1").unwrap()),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 2,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            let result = repo.search(&query).unwrap();
+            assert_eq!(result.count, Some(2));
+            assert_eq!(result.hits, repo.search_reference(&query).unwrap().hits);
+            assert_eq!(result.counters.record_parses, 2);
+            assert_eq!(result.counters.files_opened, 1);
+            assert_eq!(result.counters.exact_posting_matches, 1);
+        }
     }
     std::fs::remove_dir_all(root).unwrap();
 }

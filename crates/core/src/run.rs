@@ -811,9 +811,11 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
 fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashSet<String>> {
     match expr {
         BoundExpr::Term(term) => {
-            let proof = proofs
-                .iter()
-                .find(|proof| proof.term.span == term.span && proof.term.path == term.path)?;
+            let proof = proofs.iter().find(|proof| {
+                proof.term.span == term.span
+                    && proof.term.path == term.path
+                    && proof.input.contains(slot)
+            })?;
             if !proof.matches.contains(slot) {
                 return None;
             }
@@ -1874,6 +1876,37 @@ fn search_impl(
                 finish_trace(traces, before, &counters);
             }
             continue;
+        }
+        if fts.is_none()
+            && query.options.evidence
+            && collection.logical_records.len() != collection.generation.records.len() as u64
+        {
+            // Fallback truth established from inventory metadata needs no
+            // source verification, even when logical candidates still do.
+            let fallback_proven = &(&candidates & &plan.proven_hits) - &collection.logical_records;
+            for slot in fallback_proven.iter() {
+                let record = &collection.generation.records[slot as usize];
+                let evidence = filter
+                    .as_ref()
+                    .and_then(|expr| proof_evidence(expr, slot, &plan.proofs))
+                    .unwrap_or_default();
+                counters.exact_posting_matches += 1;
+                offer(
+                    repo,
+                    query,
+                    &sort,
+                    collection_index,
+                    record,
+                    evidence,
+                    None,
+                    &mut winners,
+                    cap,
+                    &mut counters,
+                    cache_members.as_deref_mut(),
+                    cache_budget,
+                );
+            }
+            candidates -= &fallback_proven;
         }
         if fts.is_none() && !query.options.evidence {
             let proven = &candidates & &plan.proven_hits;

@@ -311,8 +311,8 @@ impl Repository {
             return Err("posting value page limit exceeds maximum".into());
         }
         let (index, binding, binding_version) = resolve(collection, request, &path)?;
-        if index.covered_records as usize != collection.generation.records.len() {
-            return Err("incomplete posting slot coverage".into());
+        if index.covered_records as u64 != collection.logical_records.len() {
+            return Err("incomplete posting logical coverage".into());
         }
         let selection = request.selection.as_ref().map(|handle| &handle.0);
         if selection.is_some_and(|selection| {

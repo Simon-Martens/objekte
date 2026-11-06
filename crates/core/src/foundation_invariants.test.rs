@@ -80,6 +80,8 @@ fn assert_ids(repo: &Repository, filter: &str, expected: &[&str]) {
     );
     assert_eq!(optimized.count, Some(expected.len()), "filter={filter}");
     assert_eq!(optimized.hits, reference.hits, "filter={filter}");
+    assert_eq!(optimized.counters.files_opened, 0, "filter={filter}");
+    assert_eq!(optimized.counters.record_parses, 0, "filter={filter}");
 }
 
 #[test]

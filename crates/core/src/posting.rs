@@ -265,10 +265,19 @@ impl PostingIndex {
     }
 
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
-        if self.covered_records as usize != record_count {
+        self.validate_eligible(record_count, record_count)
+    }
+
+    /// Check complete logical coverage while retaining the full slot bound.
+    pub fn validate_eligible(
+        &self,
+        slot_count: usize,
+        eligible_count: usize,
+    ) -> Result<(), String> {
+        if self.covered_records as usize != eligible_count {
             return Err("incomplete posting coverage".into());
         }
-        let valid = |set: &RoaringBitmap| set.max().is_none_or(|s| (s as usize) < record_count);
+        let valid = |set: &RoaringBitmap| set.max().is_none_or(|s| (s as usize) < slot_count);
         if !valid(&self.presence)
             || !valid(&self.nulls)
             || !self.values.values().all(valid)
@@ -684,8 +693,16 @@ impl PostingCollection {
     }
 
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
+        self.validate_eligible(record_count, record_count)
+    }
+
+    pub fn validate_eligible(
+        &self,
+        slot_count: usize,
+        eligible_count: usize,
+    ) -> Result<(), String> {
         for index in self.fields.values() {
-            index.validate(record_count)?;
+            index.validate_eligible(slot_count, eligible_count)?;
         }
         Ok(())
     }

@@ -372,6 +372,21 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
     }
     let original = fs::read(&snapshot).unwrap();
     let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
+    let mut previous_version = original.clone();
+    previous_version[MAGIC.len()..MAGIC.len() + 4].copy_from_slice(&5u32.to_le_bytes());
+    fs::write(&snapshot, previous_version).unwrap();
+    assert!(
+        load_snapshot(
+            root.clone(),
+            definitions.clone(),
+            options,
+            &crate::source::SourceRegistry::builtin(),
+            &snapshot,
+        )
+        .err()
+        .unwrap()
+        .contains("incompatible snapshot version")
+    );
     for case in [
         "eligibility_missing",
         "eligibility_wrong",

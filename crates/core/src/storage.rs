@@ -26,7 +26,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 5;
+pub const SNAPSHOT_VERSION: u32 = 6;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -541,7 +541,9 @@ pub fn load_snapshot(
                 .collect();
             encoded.fallback_text.validate_domain(&fallback_slots)?;
         }
-        encoded.postings.validate(generation.records.len())?;
+        encoded
+            .postings
+            .validate_eligible(generation.records.len(), logical_count)?;
         let expected_custom: HashSet<_> = definition
             .schema
             .operations
@@ -559,7 +561,9 @@ pub fn load_snapshot(
             return Err("snapshot custom posting coverage mismatch".into());
         }
         for (key, custom) in &encoded.custom_postings {
-            custom.index.validate(generation.records.len())?;
+            custom
+                .index
+                .validate_eligible(generation.records.len(), logical_count)?;
             if custom.index.kind != definition.schema.fields[&key.0].kind
                 || custom.index.path != key.0
             {

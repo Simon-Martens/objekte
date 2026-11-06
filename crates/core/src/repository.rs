@@ -128,8 +128,6 @@ fn publish_fallback(
     file_id: FileId,
     files: &mut FileInventory,
     builder: &mut CollectionBuilder,
-    postings: &mut PostingCollection,
-    custom_postings: &mut HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: &mut BigramIndex,
     fallback_text: &mut BigramIndex,
     custom_text: &mut HashMap<(Vec<String>, String), BigramIndex>,
@@ -165,10 +163,8 @@ fn publish_fallback(
     }
     let file = &files.files[file_id.0 as usize];
     let empty = Value::Object(Default::default());
-    postings.add(slot, &empty)?;
-    for index in custom_postings.values_mut() {
-        index.index.add_values(slot, None)?;
-    }
+    // Fallback slots retain their inventory identity but cannot contribute
+    // logical values or count as covered logical records in postings.
     raw.add_empty(slot)?;
     let text = String::from_utf8_lossy(bytes);
     fallback_text.add_record(
@@ -582,8 +578,6 @@ impl Repository {
                                 file_id,
                                 &mut files,
                                 &mut builder,
-                                &mut postings,
-                                &mut custom_postings,
                                 &mut raw,
                                 &mut fallback_text,
                                 &mut custom_text,
@@ -626,8 +620,6 @@ impl Repository {
                             file_id,
                             &mut files,
                             &mut builder,
-                            &mut postings,
-                            &mut custom_postings,
                             &mut raw,
                             &mut fallback_text,
                             &mut custom_text,
@@ -766,13 +758,15 @@ impl Repository {
             let generation = builder.finish(&files)?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
-            postings.validate(generation.records.len())?;
+            postings.validate_eligible(generation.records.len(), logical_records.len() as usize)?;
             if !all_logical {
                 postings.validate_domain(&logical_records)?;
             }
             for custom in custom_postings.values_mut() {
                 custom.index.finish_stats();
-                custom.index.validate(generation.records.len())?;
+                custom
+                    .index
+                    .validate_eligible(generation.records.len(), logical_records.len() as usize)?;
                 if !all_logical {
                     custom.index.validate_domain(&logical_records)?;
                 }
