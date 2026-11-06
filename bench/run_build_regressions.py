@@ -84,6 +84,23 @@ def main() -> int:
                     failures.append(f"{name}: snapshot size exceeds baseline")
     report = {"environment": environment, "summary": summary, "baseline": str(baseline_path), "failures": failures}
     (result_dir / "gate.json").write_text(json.dumps(report, indent=2) + "\n")
+    lines = [
+        "# Musenalm fresh index builds", "",
+        f"Code revision: `{revision}`. Each configuration ran in {args.repetitions} separate processes.",
+        "Both alphabets were measured with snapshots disabled and with snapshot rebuilding enabled.",
+        "All builds parsed exactly 148,486 source records; medians include discovery, build and optional snapshot write.",
+        "", "| Configuration | Wall s | Build s | Snapshot write s | Peak RSS MiB | Snapshot MiB |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for name, row in summary.items():
+        snapshot_mib = "—" if row["snapshot_bytes"] is None else f"{row['snapshot_bytes'] / 1048576:.1f}"
+        lines.append(
+            f"| {name} | {row['median_wall_ns'] / 1e9:.3f} | {row['median_build_ns'] / 1e9:.3f} | "
+            f"{row['median_snapshot_write_ns'] / 1e9:.3f} | "
+            f"{row['median_peak_resident_bytes'] / 1048576:.1f} | {snapshot_mib} |"
+        )
+    lines += ["", f"Baseline: `{baseline_path}`. Failures: {len(failures)}.", "", *[f"- {failure}" for failure in failures]]
+    (result_dir / "REPORT.md").write_text("\n".join(lines) + "\n")
     for failure in failures:
         print(failure, file=sys.stderr)
     return int(bool(failures))
