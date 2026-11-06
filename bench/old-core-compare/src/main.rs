@@ -1,6 +1,7 @@
 #[path = "../../../core/examples/support/musenalm.rs"]
 mod musenalm;
 
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 use std::time::Instant;
 
@@ -81,6 +82,28 @@ fn run() -> Result<(), String> {
         .values()
         .map(|collection| collection.indexes.len() + collection.advanced_index_paths.len())
         .sum();
+    let old_paths: BTreeMap<_, BTreeSet<_>> = old
+        .model()
+        .collections
+        .values()
+        .map(|collection| {
+            let paths = collection
+                .indexes
+                .iter()
+                .map(|index| index.name.clone())
+                .chain(collection.advanced_index_paths.iter().map(|path| {
+                    path.iter()
+                        .filter_map(|step| match step {
+                            objekte_core::JsonPathStep::Key(key) => Some(key.as_str()),
+                            _ => None,
+                        })
+                        .collect::<Vec<_>>()
+                        .join(".")
+                }))
+                .collect();
+            (collection.name.clone(), paths)
+        })
+        .collect();
     old.warm_all_bigram_indexes()
         .map_err(|error| error.to_string())?;
     let old_setup_ns = old_started.elapsed().as_nanos();
@@ -105,6 +128,26 @@ fn run() -> Result<(), String> {
         .iter()
         .map(|collection| collection.postings.fields.len())
         .sum();
+    let new_paths: BTreeMap<_, BTreeSet<_>> = new
+        .collections
+        .iter()
+        .map(|collection| {
+            (
+                collection.definition.name.clone(),
+                collection
+                    .postings
+                    .fields
+                    .keys()
+                    .map(|path| path.join("."))
+                    .collect(),
+            )
+        })
+        .collect();
+    if old_paths != new_paths {
+        return Err(format!(
+            "configured indexed path sets differ: old={old_paths:?}, new={new_paths:?}"
+        ));
+    }
     let new_setup_ns = new_started.elapsed().as_nanos();
     println!(
         "{}",
@@ -113,6 +156,7 @@ fn run() -> Result<(), String> {
             "old_schema_mode":"configured", "new_schema_mode":"configured",
             "old_collections":old_collection_count, "new_collections":new_collection_count,
         "old_schemas":old_schema_count,"old_index_paths":old_index_paths,"new_index_paths":new_index_paths,
+        "indexed_path_sets_equal":true,
             "old_query_cache_bytes":0, "new_verified_cache_bytes":0,
             "old_cache_mode":"memory", "new_return_mode":"logical", "page_limit":50,
             "new_query_workers":new.options.query_workers,

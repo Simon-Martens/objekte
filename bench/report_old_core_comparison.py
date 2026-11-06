@@ -35,6 +35,8 @@ def main() -> int:
     setup = entries[0]
     if setup["old_schema_mode"] != "configured" or setup["new_schema_mode"] != "configured":
         raise ValueError("schema enabled setup required for both cores")
+    if setup.get("indexed_path_sets_equal") is not True:
+        raise ValueError("the old and new indexed path sets must match exactly")
     cases = [entry for entry in entries if entry["type"] == "case"]
     skipped = [entry for entry in entries if entry["type"] == "skip"]
     if not cases:
@@ -68,7 +70,7 @@ def main() -> int:
         "The old core loads its configured schemas and warms every bigram index before timing.",
         "The new core loads its schema definitions and restores or builds its index before timing.",
         f"Loaded collections: {setup['old_collections']} old, {setup['new_collections']} new; old schema files: {setup['old_schemas']}.",
-        f"Index declarations: {setup['old_index_paths']} old typed/advanced paths; {setup['new_index_paths']} new posting paths.",
+        f"The configured indexed path sets match exactly: {setup['old_index_paths']} paths in each core.",
         "Both have verified query caches disabled, return an exact count and the first 50 full logical records,",
         "and use record ID ascending order. Cases enter timing only after exact count and ordered page IDs match.",
         "One process runs both cores, alternating their order across five repetitions per case.",
