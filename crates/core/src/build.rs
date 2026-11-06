@@ -687,29 +687,72 @@ pub(crate) fn resolve_build_workers(
 /// Ordered admission keeps the established slot and diagnostic order even if
 /// later file batches finish first. The window includes completed batches
 /// awaiting admission, so an early slow job cannot queue the whole corpus.
-pub(crate) fn process_file_batches(
+pub(crate) struct RepositoryFileJob {
+    pub collection_index: usize,
+    pub collection: CollectionId,
+    pub definition: Arc<CollectionDefinition>,
+    pub source: PreparedSource,
+    pub files: Vec<FileId>,
+}
+
+pub(crate) fn process_repository_file_batches(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
-    definition: Arc<CollectionDefinition>,
-    collection: CollectionId,
-    source: PreparedSource,
-    jobs: &[&[FileId]],
+    jobs: &[RepositoryFileJob],
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
-    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+    mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<u64, String> {
-    const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
+    const MAX_ADMITTED_BYTES: u64 = 52 * 1024 * 1024;
     const MIN_FILE_BYTES: u64 = 16 * 1024;
     let weights = jobs
         .iter()
-        .map(|batch| {
-            batch.iter().fold(0u64, |total, id| {
+        .map(|job| {
+            job.files.iter().fold(0u64, |total, id| {
                 let file = &source_files[id.0 as usize];
                 total.saturating_add(file.revision.size.max(MIN_FILE_BYTES))
             })
         })
         .collect::<Vec<_>>();
     let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    let mut future_first_jobs = jobs
+        .iter()
+        .enumerate()
+        .filter(|(index, job)| {
+            *index > 0 && jobs[*index - 1].collection_index != job.collection_index
+        })
+        .map(|(index, _)| index)
+        .collect::<Vec<_>>();
+    future_first_jobs.sort_by_key(|index| (weights[*index], *index));
+    let mut order = (0..jobs.len()).collect::<Vec<_>>();
+    // Precompute a couple of small collections, leaving most of the byte
+    // window for the first collection's ordered work. The next required job
+    // is always scheduled inside the initial window to avoid head-of-line
+    // deadlock on small pools.
+    let mut prefetched = Vec::new();
+    let mut prefetch_bytes = 0u64;
+    for index in future_first_jobs {
+        if pool.current_num_threads() == 1
+            || prefetched.len() == 2
+            || prefetched.len() + 2 > max_jobs
+        {
+            break;
+        }
+        let weight = weights[index];
+        if prefetch_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES / 4
+            || prefetch_bytes.saturating_add(weight).saturating_add(weights[0])
+                > MAX_ADMITTED_BYTES
+        {
+            continue;
+        }
+        prefetch_bytes += weight;
+        prefetched.push(index);
+    }
+    if !prefetched.is_empty() {
+        order.clear();
+        order.extend(prefetched.iter().copied());
+        order.extend((0..jobs.len()).filter(|index| !prefetched.contains(index)));
+    }
     let (sender, receiver) = mpsc::channel();
     let mut ready = BTreeMap::new();
     let mut dispatched = 0;
@@ -720,19 +763,20 @@ pub(crate) fn process_file_batches(
     let mut failure = None;
     while next < jobs.len() && failure.is_none() {
         while dispatched < jobs.len() && dispatched - next < max_jobs {
-            let weight = weights[dispatched];
+            let index = order[dispatched];
+            let weight = weights[index];
             if admitted_bytes > 0
                 && (weight > MAX_ADMITTED_BYTES
                     || admitted_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES)
             {
                 break;
             }
-            let index = dispatched;
-            let file_ids = jobs[index].to_vec();
+            let file_ids = jobs[index].files.clone();
             let sender = sender.clone();
             let root = Arc::clone(&root);
-            let definition = Arc::clone(&definition);
-            let source = source.clone();
+            let definition = Arc::clone(&jobs[index].definition);
+            let source = jobs[index].source.clone();
+            let collection = jobs[index].collection;
             let source_files = Arc::clone(&source_files);
             pool.spawn(move || {
                 let result = process_batch(
@@ -755,7 +799,7 @@ pub(crate) fn process_file_batches(
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
             admitted_bytes -= weights[next];
-            match result.and_then(&mut admit) {
+            match result.and_then(|batch| admit(jobs[next].collection_index, batch)) {
                 Ok(()) => next += 1,
                 Err(error) => {
                     failure = Some(error);
@@ -774,6 +818,33 @@ pub(crate) fn process_file_batches(
         return Err(error);
     }
     Ok(peak_bytes)
+}
+
+#[cfg(test)]
+pub(crate) fn process_file_batches(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    jobs: &[&[FileId]],
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<u64, String> {
+    let jobs = jobs
+        .iter()
+        .map(|files| RepositoryFileJob {
+            collection_index: 0,
+            collection,
+            definition: Arc::clone(&definition),
+            source: source.clone(),
+            files: files.to_vec(),
+        })
+        .collect::<Vec<_>>();
+    process_repository_file_batches(pool, root, &jobs, source_files, alphabet, |_, batch| {
+        admit(batch)
+    })
 }
 
 pub(crate) struct CollectionAdmission<'a> {

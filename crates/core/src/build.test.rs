@@ -202,6 +202,114 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
 }
 
 #[test]
+fn repository_pool_runs_file_batches_from_distinct_collections_together() {
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+
+    use crate::source::{SourceReader, SourceRegistry};
+
+    if std::thread::available_parallelism().map_or(1, NonZeroUsize::get) < 2 {
+        return;
+    }
+
+    struct CrossReader {
+        active: AtomicUsize,
+        peak: AtomicUsize,
+        second_started: AtomicBool,
+    }
+
+    impl SourceReader for CrossReader {
+        fn name(&self) -> &'static str {
+            "cross_collection"
+        }
+
+        fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+            Ok(vec![ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            let active = self.active.fetch_add(1, Ordering::SeqCst) + 1;
+            self.peak.fetch_max(active, Ordering::SeqCst);
+            let started = std::time::Instant::now();
+            if bytes == b"first" {
+                while !self.second_started.load(Ordering::SeqCst) {
+                    if started.elapsed().as_secs() > 5 {
+                        return Err("second collection did not start".into());
+                    }
+                    std::thread::yield_now();
+                }
+            } else {
+                self.second_started.store(true, Ordering::SeqCst);
+                while self.peak.load(Ordering::SeqCst) < 2 {
+                    if started.elapsed().as_secs() > 5 {
+                        return Err("first collection did not overlap".into());
+                    }
+                    std::thread::yield_now();
+                }
+            }
+            self.active.fetch_sub(1, Ordering::SeqCst);
+            Ok(ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            })
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-build-cross-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    for name in ["a", "b"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    std::fs::write(root.join("a/0.cross"), b"first").unwrap();
+    std::fs::write(root.join("b/0.cross"), b"second").unwrap();
+    let reader = std::sync::Arc::new(CrossReader {
+        active: AtomicUsize::new(0),
+        peak: AtomicUsize::new(0),
+        second_started: AtomicBool::new(false),
+    });
+    let mut sources = SourceRegistry::builtin();
+    sources.register("cross", 1, "cross", reader.clone()).unwrap();
+    let definitions = ["a", "b"]
+        .into_iter()
+        .map(|name| CollectionDefinition {
+            name: name.into(),
+            source_path: name.into(),
+            format: SourceFormat::registered("cross"),
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema: Default::default(),
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        })
+        .collect();
+    let repo = Repository::open_with_sources(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            build_workers: Some(NonZeroUsize::new(2).unwrap()),
+            ..Default::default()
+        },
+        sources,
+    )
+    .unwrap();
+    assert_eq!(reader.peak.load(Ordering::SeqCst), 2);
+    assert_eq!(reader.active.load(Ordering::SeqCst), 0);
+    assert_eq!(repo.collections()[0].generation.records.len(), 1);
+    assert_eq!(repo.collections()[1].generation.records.len(), 1);
+    assert_eq!(repo.collections()[0].generation.files, [FileId(0)]);
+    assert_eq!(repo.collections()[1].generation.files, [FileId(1)]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
     use std::collections::BTreeMap;
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};

@@ -110,6 +110,56 @@ pub struct CollectionState {
     pub stats: CollectionStats,
 }
 
+/// Coordinator-owned mutable output for one collection. Construction jobs
+/// only receive immutable definitions and discovered source metadata.
+struct PendingCollection {
+    definition: CollectionDefinition,
+    definition_shared: Arc<CollectionDefinition>,
+    source: PreparedSource,
+    id: CollectionId,
+    member_files: Vec<crate::model::FileId>,
+    builder: CollectionBuilder,
+    postings: PostingCollection,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    raw: BigramIndex,
+    fallback_text: BigramIndex,
+    logical_records: RoaringBitmap,
+    sort_builder: SortBuilder,
+    custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+}
+
+enum ScheduledBuildJob {
+    Files(crate::build::RepositoryFileJob),
+    Large {
+        collection_index: usize,
+        collection: CollectionId,
+        definition: Arc<CollectionDefinition>,
+        source: PreparedSource,
+        file: crate::model::FileId,
+    },
+}
+
+impl PendingCollection {
+    fn admit(
+        &mut self,
+        inventory: &mut FileInventory,
+        batch: crate::build::BatchContribution,
+    ) -> Result<(), String> {
+        crate::build::CollectionAdmission {
+            inventory,
+            builder: &mut self.builder,
+            postings: &mut self.postings,
+            custom_postings: &mut self.custom_postings,
+            raw: &mut self.raw,
+            fallback_text: &mut self.fallback_text,
+            custom_text: &mut self.custom_text,
+            logical_records: &mut self.logical_records,
+            sorting: &mut self.sort_builder,
+        }
+        .admit(batch)
+    }
+}
+
 
 /// Built-in identity and case-fold registrations for the same logical field
 /// have identical candidate grams after mandatory index folding.
@@ -499,18 +549,18 @@ impl Repository {
                 .collect(),
         );
         let root_shared = Arc::new(root.clone());
-        let mut collections = Vec::new();
+        let mut pending = Vec::new();
+        let extraction_started = Instant::now();
         let mut build_parses = 0;
         let mut build_failed_parses = 0;
         let mut extraction_index_ns = 0u64;
         let mut finalization_ns = 0u64;
         let mut peak_build_admitted_bytes = 0u64;
         for (definition, id, source, member_files) in selected {
-            let extraction_started = Instant::now();
-            let mut builder =
+            let builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
-            let mut postings = PostingCollection::new(&definition.schema);
-            let mut custom_postings: HashMap<_, _> = definition
+            let postings = PostingCollection::new(&definition.schema);
+            let custom_postings: HashMap<_, _> = definition
                 .schema
                 .operations
                 .iter()
@@ -525,17 +575,17 @@ impl Repository {
                     )
                 })
                 .collect();
-            let mut raw = BigramIndex::new(options.bigram_alphabet);
-            let mut fallback_text = BigramIndex::new(options.bigram_alphabet);
-            let mut logical_records = RoaringBitmap::new();
-            let mut sort_builder = SortBuilder::new(
+            let raw = BigramIndex::new(options.bigram_alphabet);
+            let fallback_text = BigramIndex::new(options.bigram_alphabet);
+            let logical_records = RoaringBitmap::new();
+            let sort_builder = SortBuilder::new(
                 &definition.sort_fields,
                 &definition.schema,
                 &definition.sort_locale,
                 definition.sort_options,
                 &definition.sort_overrides,
             )?;
-            let mut custom_text: HashMap<_, _> = definition
+            let custom_text: HashMap<_, _> = definition
                 .schema
                 .custom
                 .keys()
@@ -556,69 +606,119 @@ impl Repository {
                     )
                 })
                 .collect();
-            let jobs = crate::build::file_batches(&member_files, &files);
-            let oversized = jobs
-                .iter()
-                .map(|batch| {
-                    batch.len() == 1
-                        && files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
-                })
-                .collect::<Vec<_>>();
-            let definition_shared = Arc::new(definition.clone());
-            let mut admit = |batch: crate::build::BatchContribution| {
-                    build_parses += batch.record_parses;
-                    build_failed_parses += batch.failed_parses;
-                    crate::build::CollectionAdmission {
-                        inventory: &mut files,
-                        builder: &mut builder,
-                        postings: &mut postings,
-                        custom_postings: &mut custom_postings,
-                        raw: &mut raw,
-                        fallback_text: &mut fallback_text,
-                        custom_text: &mut custom_text,
-                        logical_records: &mut logical_records,
-                        sorting: &mut sort_builder,
+            pending.push(PendingCollection {
+                definition_shared: Arc::new(definition.clone()),
+                definition,
+                source,
+                id,
+                member_files,
+                builder,
+                postings,
+                custom_postings,
+                raw,
+                fallback_text,
+                logical_records,
+                sort_builder,
+                custom_text,
+            });
+        }
+        let mut scheduled = Vec::new();
+        for (collection_index, state) in pending.iter().enumerate() {
+            for batch in crate::build::file_batches(&state.member_files, &files) {
+                if batch.len() == 1
+                    && files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                {
+                    scheduled.push(ScheduledBuildJob::Large {
+                        collection_index,
+                        collection: state.id,
+                        definition: Arc::clone(&state.definition_shared),
+                        source: state.source.clone(),
+                        file: batch[0],
+                    });
+                } else {
+                    scheduled.push(ScheduledBuildJob::Files(crate::build::RepositoryFileJob {
+                        collection_index,
+                        collection: state.id,
+                        definition: Arc::clone(&state.definition_shared),
+                        source: state.source.clone(),
+                        files: batch.to_vec(),
+                    }));
+                }
+            }
+        }
+        let mut normal = Vec::new();
+        let mut admit = |collection_index: usize, batch: crate::build::BatchContribution| {
+            build_parses += batch.record_parses;
+            build_failed_parses += batch.failed_parses;
+            pending[collection_index].admit(&mut files, batch)
+        };
+        for job in scheduled {
+            match job {
+                ScheduledBuildJob::Files(job) => normal.push(job),
+                ScheduledBuildJob::Large {
+                    collection_index,
+                    collection,
+                    definition,
+                    source,
+                    file,
+                } => {
+                    if !normal.is_empty() {
+                        let bytes = crate::build::process_repository_file_batches(
+                            &build_pool,
+                            Arc::clone(&root_shared),
+                            &normal,
+                            Arc::clone(&source_files),
+                            options.bigram_alphabet,
+                            &mut admit,
+                        )?;
+                        peak_build_admitted_bytes = peak_build_admitted_bytes.max(bytes);
+                        normal.clear();
                     }
-                    .admit(batch)
-                };
-            let mut job = 0;
-            while job < jobs.len() {
-                let admitted_bytes = if oversized[job] {
                     let bytes = crate::build::process_framed_file(
                         &build_pool,
                         Arc::clone(&root_shared),
-                        Arc::clone(&definition_shared),
-                        id,
-                        source.clone(),
-                        jobs[job][0],
+                        definition,
+                        collection,
+                        source,
+                        file,
                         Arc::clone(&source_files),
                         options.bigram_alphabet,
-                        &mut admit,
+                        |batch| admit(collection_index, batch),
                     )?;
-                    job += 1;
-                    bytes
-                } else {
-                    let end = oversized[job..]
-                        .iter()
-                        .position(|large| *large)
-                        .map_or(jobs.len(), |offset| job + offset);
-                    let bytes = crate::build::process_file_batches(
-                        &build_pool,
-                        Arc::clone(&root_shared),
-                        Arc::clone(&definition_shared),
-                        id,
-                        source.clone(),
-                        &jobs[job..end],
-                        Arc::clone(&source_files),
-                        options.bigram_alphabet,
-                        &mut admit,
-                    )?;
-                    job = end;
-                    bytes
-                };
-                peak_build_admitted_bytes = peak_build_admitted_bytes.max(admitted_bytes);
+                    peak_build_admitted_bytes = peak_build_admitted_bytes.max(bytes);
+                }
             }
-            extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
+        }
+        if !normal.is_empty() {
+            let bytes = crate::build::process_repository_file_batches(
+                &build_pool,
+                Arc::clone(&root_shared),
+                &normal,
+                Arc::clone(&source_files),
+                options.bigram_alphabet,
+                &mut admit,
+            )?;
+            peak_build_admitted_bytes = peak_build_admitted_bytes.max(bytes);
+        }
+        drop(admit);
+        extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
+        let mut collections = Vec::new();
+        for state in pending {
+            let PendingCollection {
+                definition,
+                definition_shared: _,
+                source,
+                id: _,
+                member_files: _,
+                builder,
+                mut postings,
+                mut custom_postings,
+                raw,
+                fallback_text,
+                logical_records,
+                sort_builder,
+                custom_text,
+            } = state;
             let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
