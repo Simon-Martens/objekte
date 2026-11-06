@@ -190,7 +190,7 @@ fn run() -> Result<(), String> {
             },
         )?;
         let total_build_and_snapshot_ns = build_start.elapsed().as_nanos() as u64;
-        let build_ns = repo.startup.build_ns;
+        let build_ns = repo.startup().build_ns;
         if corpus_hash.is_empty() {
             corpus_hash = fingerprint_inventory(&repo);
         }
@@ -201,7 +201,7 @@ fn run() -> Result<(), String> {
                 .map_err(|e| e.to_string())?
                 .len();
         let estimated_index_bytes: usize = repo
-            .collections
+            .collections()
             .iter()
             .map(|c| {
                 c.raw.estimated_heap_bytes()
@@ -239,9 +239,9 @@ fn run() -> Result<(), String> {
             })
             .sum();
         let restore_samples = measure_restore_children(&root, alphabet, 5)?;
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"snapshot_write_ns":repo.startup.snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"snapshot_write_ns":repo.startup().snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
         if registrations.is_empty() {
-            registrations = repo.collections.iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields.len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom.keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
+            registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields.len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom.keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }
         for (profile_name, profile) in selected_profiles {
             repo.configure_verified_cache(profile.verified_cache_bytes)?;
@@ -537,19 +537,19 @@ fn restore_child(args: &[String]) -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    if !repo.startup.restored {
+    if !repo.startup().restored {
         return Err("snapshot was not restored in fresh process".into());
     }
     println!(
         "{}",
         serde_json::json!({
             "startup_ns":started.elapsed().as_nanos() as u64,
-            "decode_ns":repo.startup.snapshot_decode_ns,
-            "reconciliation_ns":repo.startup.reconciliation_ns,
+            "decode_ns":repo.startup().snapshot_decode_ns,
+            "reconciliation_ns":repo.startup().reconciliation_ns,
             "resident_bytes":resident_bytes(),
             "peak_resident_bytes":peak_resident_bytes(),
-            "records":repo.collections.iter().map(|c|c.generation.records.len()).sum::<usize>(),
-            "build_parses":repo.build_parses,
+            "records":repo.collections().iter().map(|c|c.generation.records.len()).sum::<usize>(),
+            "build_parses":repo.build_parses(),
         })
     );
     Ok(())
@@ -625,7 +625,7 @@ fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
 
 fn fingerprint_inventory(repo: &Repository) -> String {
     let mut hash = Sha256::new();
-    for file in &repo.files.files {
+    for file in &repo.files().files {
         hash.update(file.relative_path.to_string_lossy().as_bytes());
         hash.update(file.revision.modified_ns.to_le_bytes());
         hash.update(file.revision.size.to_le_bytes());

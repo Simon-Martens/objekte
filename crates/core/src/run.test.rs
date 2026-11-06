@@ -209,7 +209,9 @@ fn exact_membership_materializes_only_page_payload() {
             }
         }
     }
+    assert_eq!(repo.verified_cache_budget().unwrap(), 0);
     repo.configure_verified_cache(1024 * 1024).unwrap();
+    assert_eq!(repo.verified_cache_budget().unwrap(), 1024 * 1024);
     let mut query = Query {
         collections: vec![],
         fts: None,

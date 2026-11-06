@@ -86,12 +86,23 @@ impl CollectionStats {
 
 
 /// Resident owner of file inventory, collections, workers, and caches.
+///
+/// Published structural state is only available through shared references.
+/// A future whole-file replacement must build new generations and publish them
+/// together with its file-to-record mapping; it cannot edit a published view.
+///
+/// ```compile_fail
+/// use objekte_search_core::repository::Repository;
+/// fn mutate_published(repo: &mut Repository) {
+///     repo.collections.clear();
+/// }
+/// ```
 pub struct Repository {
-    pub files: FileInventory,
-    pub collections: Vec<CollectionState>,
-    pub build_parses: u64,
-    pub options: RepositoryOptions,
-    pub startup: StartupStats,
+    pub(crate) files: FileInventory,
+    pub(crate) collections: Vec<CollectionState>,
+    pub(crate) build_parses: u64,
+    pub(crate) options: RepositoryOptions,
+    pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
     pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
@@ -177,6 +188,32 @@ pub struct SearchResult {
 
 
 impl Repository {
+    pub fn files(&self) -> &FileInventory {
+        &self.files
+    }
+
+    pub fn collections(&self) -> &[CollectionState] {
+        &self.collections
+    }
+
+    pub fn build_parses(&self) -> u64 {
+        self.build_parses
+    }
+
+    /// Opening configuration. The verified cache budget may subsequently be
+    /// changed through `configure_verified_cache`.
+    pub fn options(&self) -> RepositoryOptions {
+        self.options
+    }
+
+    pub fn verified_cache_budget(&self) -> Result<usize, String> {
+        Ok(self.verified.lock().map_err(|e| e.to_string())?.budget())
+    }
+
+    pub fn startup(&self) -> &StartupStats {
+        &self.startup
+    }
+
     pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {
         if count == 0 || count > 256 {
             return Err("query_workers must be between 1 and 256".into());

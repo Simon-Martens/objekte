@@ -105,7 +105,7 @@ fn run() -> Result<(), String> {
     }
     println!(
         "accepted {checked} cases; alphabet={alphabet:?}; snapshot_restored={}",
-        repo.startup.restored
+        repo.startup().restored
     );
     Ok(())
 }

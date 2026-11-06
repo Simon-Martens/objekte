@@ -113,19 +113,19 @@ fn run() -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    let new_collection_count = new.collections.len();
+    let new_collection_count = new.collections().len();
     if new_collection_count != 7 {
         return Err(format!(
             "new core found {new_collection_count} collections, expected 7"
         ));
     }
     let new_index_paths: usize = new
-        .collections
+        .collections()
         .iter()
         .map(|collection| collection.postings.fields.len())
         .sum();
     let new_paths: BTreeMap<_, BTreeSet<_>> = new
-        .collections
+        .collections()
         .iter()
         .map(|collection| {
             (
@@ -155,7 +155,7 @@ fn run() -> Result<(), String> {
         "indexed_path_sets_equal":true,
             "old_query_cache_bytes":0, "new_verified_cache_bytes":0,
             "old_cache_mode":"memory", "new_return_mode":"logical", "page_limit":50,
-            "new_query_workers":new.options.query_workers,
+            "new_query_workers":new.options().query_workers,
             "sort":"record ID ascending", "repetitions":repetitions,
         })
     );

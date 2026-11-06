@@ -107,7 +107,7 @@ fn selected_and_complete_exports_write_json_without_overwriting() {
     let mut fixture = fixture(130);
     let app = &mut fixture.app;
     settled(app);
-    let path = app.repo.files.root.join("all.json");
+    let path = app.repo.files().root.join("all.json");
     app.export_input = Input::with_text(path.to_str().unwrap());
     app.finish_export(true);
     let exported: serde_json::Value =
@@ -116,7 +116,7 @@ fn selected_and_complete_exports_write_json_without_overwriting() {
     assert_eq!(exported["hits"].as_array().unwrap().len(), 131);
     app.finish_export(true);
     assert!(app.status.as_deref().unwrap().contains("Export failed"));
-    let one = app.repo.files.root.join("one.json");
+    let one = app.repo.files().root.join("one.json");
     app.export_input = Input::with_text(one.to_str().unwrap());
     app.finish_export(false);
     let exported: serde_json::Value = serde_json::from_slice(&std::fs::read(one).unwrap()).unwrap();

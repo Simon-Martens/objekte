@@ -61,6 +61,15 @@ object lines. Source extraction parses each framed record once and feeds the
 postings, text filters, sorting columns, and inventory from that value. A
 shared file is parsed once across its participating collections during build.
 
+`Repository` publishes its inventory, collection generations, definitions, and
+indexes through shared-reference inspection methods. Callers cannot replace or
+mutate those structures after opening. The repository owns prepared and
+verified caches for that immutable set of generations. The verified cache
+budget is the only runtime cache control; `verified_cache_budget()` reports
+its effective value, while `options()` reports the opening configuration.
+Future complete-file replacement must construct a new generation with both
+file-to-record and record-to-file mappings before publishing it.
+
 The Musenalm adapter reads the actual seven `.objekte/collections/` schemas.
 Each declares its collection path, JSON format, and filename identity. It
 traverses nested fields and arrays, translates `x-index-paths` selectors,

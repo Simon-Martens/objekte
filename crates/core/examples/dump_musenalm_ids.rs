@@ -53,7 +53,7 @@ fn run() -> Result<(), String> {
         },
     )?;
     let maximum = repo
-        .collections
+        .collections()
         .iter()
         .map(|collection| collection.generation.records.len())
         .sum();

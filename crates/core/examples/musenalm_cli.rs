@@ -129,7 +129,7 @@ fn run() -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    for state in &repository.collections {
+    for state in repository.collections() {
         println!(
             "collection={} files={} records={} format={:?} fields={} indexed={} custom={}",
             state.definition.name,
@@ -149,8 +149,8 @@ fn run() -> Result<(), String> {
     }
     println!(
         "build_parses={} root={} alphabet={alphabet:?}",
-        repository.build_parses,
-        repository.files.root.display()
+        repository.build_parses(),
+        repository.files().root.display()
     );
     if explain && !reference {
         println!(

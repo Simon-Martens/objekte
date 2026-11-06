@@ -93,7 +93,7 @@ pub(super) struct App {
 impl App {
     pub(super) fn new(repository: Repository) -> Self {
         let (sender, receiver) = mpsc::channel();
-        let settings_path = Settings::path(&repository.files.root);
+        let settings_path = Settings::path(&repository.files().root);
         let (settings, status) = match Settings::load(&settings_path) {
             Ok(settings) => (settings, None),
             Err(error) => (Settings::default(), Some(format!("Settings: {error}"))),
@@ -140,7 +140,7 @@ impl App {
 
     pub(super) fn collection_names(&self) -> impl Iterator<Item = &str> {
         self.repo
-            .collections
+            .collections()
             .iter()
             .map(|c| c.definition.name.as_str())
     }
@@ -149,7 +149,7 @@ impl App {
         if self.scope == 0 {
             "All collections"
         } else {
-            &self.repo.collections[self.scope - 1].definition.name
+            &self.repo.collections()[self.scope - 1].definition.name
         }
     }
 
@@ -190,7 +190,7 @@ impl App {
             .as_deref()
             .and_then(|name| {
                 self.repo
-                    .collections
+                    .collections()
                     .iter()
                     .position(|collection| collection.definition.name == name)
             })
@@ -232,7 +232,7 @@ impl App {
         if self.scope == 0 {
             return choices;
         }
-        let collection = &self.repo.collections[self.scope - 1];
+        let collection = &self.repo.collections()[self.scope - 1];
         for path in &collection.definition.sort_fields {
             let field = if path.segments.is_empty() {
                 match path.root {
@@ -260,7 +260,7 @@ impl App {
 
     pub(super) fn column_keys(&self) -> Vec<String> {
         let mut keys = BTreeSet::new();
-        for collection in &self.repo.collections {
+        for collection in self.repo.collections() {
             if self.scope == 0 || collection.definition.name == self.scope_label() {
                 for path in collection.definition.schema.fields.keys() {
                     if path.len() == 1 {
@@ -420,7 +420,7 @@ impl App {
     }
 
     pub(super) fn choose_scope(&mut self) {
-        self.scope = self.picker.min(self.repo.collections.len());
+        self.scope = self.picker.min(self.repo.collections().len());
         self.sort = None;
         self.overlay = None;
         self.request_search();

@@ -32,11 +32,11 @@ fn run() -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    if repo.collections.len() != 7 {
+    if repo.collections().len() != 7 {
         return Err("new core did not load seven configured schemas".into());
     }
     let paths: BTreeMap<_, BTreeSet<_>> = repo
-        .collections
+        .collections()
         .iter()
         .map(|collection| {
             (
@@ -52,7 +52,7 @@ fn run() -> Result<(), String> {
         .collect();
     println!(
         "{}",
-        serde_json::json!({"type":"setup","core":"new","schemas":7,"indexed_paths":paths,"verified_cache_bytes":0,"alphabet":"ascii","return_mode":"logical","page_limit":50,"sort":"record ID ascending","query_workers":repo.options.query_workers})
+        serde_json::json!({"type":"setup","core":"new","schemas":7,"indexed_paths":paths,"verified_cache_bytes":0,"alphabet":"ascii","return_mode":"logical","page_limit":50,"sort":"record ID ascending","query_workers":repo.options().query_workers})
     );
     for case in manifest
         .into_iter()
