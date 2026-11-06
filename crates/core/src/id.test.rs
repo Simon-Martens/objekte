@@ -15,6 +15,7 @@ fn definition() -> CollectionDefinition {
         ("id", LogicalType::Id, false),
         ("entry", LogicalType::Id, false),
         ("refs", LogicalType::Array(Box::new(LogicalType::Id)), true),
+        ("name", LogicalType::String, false),
     ] {
         schema
             .register_field(FieldDefinition {
@@ -65,15 +66,16 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
     for (name, json) in [
         (
             "a",
-            r#"{"id":"A","entry":"TargetA","refs":["TargetA","TargetA"]}"#,
+            r#"{"id":"A","entry":"TargetA","refs":["TargetA","TargetA"],"name":"a"}"#,
         ),
-        ("b", r#"{"id":"a","entry":"targeta","refs":[]}"#),
-        ("c", r#"{"id":"C","entry":"Missing"}"#),
+        ("b", r#"{"id":"a","entry":"targeta","refs":[],"name":"A"}"#),
+        ("c", r#"{"id":"C","entry":"Missing","name":"x"}"#),
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
     let options = RepositoryOptions {
         snapshot_mode: SnapshotMode::ReadWrite,
+        verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
@@ -88,6 +90,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
             ("refs ?= 'TargetA'", vec!["A"]),
             ("@record.id = 'A'", vec!["A"]),
             ("@record.id:lower = 'a'", vec!["A", "a"]),
+            ("@record.id:lower = name:lower", vec!["A", "a"]),
         ] {
             let mut actual = repo
                 .search(&query(filter))
@@ -113,6 +116,58 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
             repo.search(&query("entry ~ 'Target'"))
                 .unwrap_err()
                 .contains("ID permits only equality")
+        );
+        for (filter, value, expected) in [
+            ("entry = $id", Value::String("TargetA".into()), vec!["A"]),
+            ("entry = $id", Value::Id("TargetA".into()), vec!["A"]),
+            ("entry = $id", Value::Id("targeta".into()), vec!["a"]),
+            ("@record.id = $id", Value::Id("A".into()), vec!["A"]),
+            ("@record.id = $id", Value::Id("a".into()), vec!["a"]),
+        ] {
+            let params = std::collections::HashMap::from([("id".to_owned(), value)]);
+            let request = query(filter);
+            let actual = repo.search_with_parameters(&request, &params).unwrap();
+            let reference = repo
+                .search_reference_with_parameters(&request, &params)
+                .unwrap();
+            assert_eq!(actual.hits, reference.hits, "{filter}");
+            assert_eq!(actual.count, reference.count, "{filter}");
+            assert_eq!(
+                actual
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>(),
+                expected,
+                "{filter}"
+            );
+        }
+        let by_id = query("@record.id = $id");
+        for (iteration, (value, expected)) in
+            [("A", "A"), ("a", "a"), ("A", "A")].into_iter().enumerate()
+        {
+            let params =
+                std::collections::HashMap::from([("id".to_owned(), Value::Id(value.into()))]);
+            let result = repo.search_with_parameters(&by_id, &params).unwrap();
+            assert_eq!(result.hits[0].record_id, expected);
+            if iteration == 2 {
+                assert!(result.counters.verified_result_hit);
+                assert_eq!(result.count, Some(1));
+            }
+        }
+        let tagged =
+            crate::parameters::parse_parameter_json(r#"{"type":"id","value":"TargetA"}"#).unwrap();
+        assert_eq!(tagged, Value::Id("TargetA".into()));
+        let incompatible = std::collections::HashMap::from([("value".into(), tagged)]);
+        assert!(
+            repo.search_with_parameters(&query("name = $value"), &incompatible)
+                .unwrap_err()
+                .contains("incompatible")
+        );
+        assert!(
+            repo.search_with_parameters(&query("entry = $value && name = $value"), &incompatible)
+                .unwrap_err()
+                .contains("incompatible")
         );
 
         let page = repo

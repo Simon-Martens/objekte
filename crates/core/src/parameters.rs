@@ -2,7 +2,7 @@
 
 use crate::model::{LogicalType, Number, Value};
 
-/// Decode one parameter value. A tagged object disambiguates temporal types;
+/// Decode one parameter value. A tagged object disambiguates IDs and temporal types;
 /// ordinary JSON scalars keep their JSON logical type.
 pub fn parse_parameter_json(input: &str) -> Result<Value, String> {
     let json: serde_json::Value = serde_json::from_str(input).map_err(|error| error.to_string())?;
@@ -18,6 +18,13 @@ pub fn parse_parameter_json(input: &str) -> Result<Value, String> {
     let kind = kind.as_str().ok_or("parameter type must be a string")?;
     Ok(match kind {
         "string" => Value::String(value.as_str().ok_or("string parameter needs text")?.into()),
+        "id" => {
+            let text = value.as_str().ok_or("id parameter needs text")?;
+            if text.is_empty() {
+                return Err("id parameter cannot be empty".into());
+            }
+            Value::Id(text.into())
+        }
         "number" => {
             let number = value
                 .as_number()

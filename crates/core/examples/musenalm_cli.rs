@@ -43,7 +43,7 @@ fn run() -> Result<(), String> {
                     "FILTER accepts a final SORT BY field [ASC|DESC], ... clause or SORT BY alone. Sort fields must have registered scalar sort columns in every selected collection."
                 );
                 println!(
-                    "Parameters are typed JSON values. Use a type/value object for date, datetime or unixtime; shell-quote JSON strings."
+                    "Parameters are typed JSON values. Use a type/value object for id, date, datetime or unixtime; shell-quote JSON strings."
                 );
                 return Ok(());
             }

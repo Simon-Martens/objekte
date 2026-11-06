@@ -26,6 +26,11 @@ fn typed_json_transport_keeps_scalar_types_distinct() {
     );
     assert!(parse_parameter_json(r#"{"type":"unixtime","value":18446744073709551615}"#).is_err());
     assert!(parse_parameter_json(r#"{"type":"date","value":"2026-02-30"}"#).is_err());
-    assert!(parse_parameter_json(r#"{"type":"id","value":"x"}"#).is_err());
+    assert_eq!(
+        parse_parameter_json(r#"{"type":"id","value":"x"}"#).unwrap(),
+        Value::Id("x".into())
+    );
+    assert!(parse_parameter_json(r#"{"type":"id","value":""}"#).is_err());
+    assert!(parse_parameter_json(r#"{"type":"id","value":1}"#).is_err());
     assert!(parse_parameter_json(r#"{"type":"date","value":"2026-11-06","extra":1}"#).is_err());
 }

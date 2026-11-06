@@ -1421,6 +1421,7 @@ fn walk_scoped<'a>(
 fn scoped_values<'a>(
     path: &FieldPath,
     query_path: &QueryPath,
+    transform: Transform,
     derived: Derived,
     multi: bool,
     ctx: &'a RecordContext<'a>,
@@ -1429,7 +1430,12 @@ fn scoped_values<'a>(
     let found = match path.root {
         PathRoot::Data => walk_scoped(ctx.value, &query_path.steps, &mut Vec::new(), &mut values),
         PathRoot::Metadata(field) => {
-            values.push((Vec::new(), Some(Cow::Owned(metadata_value(field, ctx)?))));
+            let value = if field == MetadataField::RecordId && transform == Transform::CaseFold {
+                Value::String(ctx.record.id.0.clone())
+            } else {
+                metadata_value(field, ctx)?
+            };
+            values.push((Vec::new(), Some(Cow::Owned(value))));
             true
         }
     };
@@ -1512,6 +1518,7 @@ fn eval_field_term(
     let Some(left) = scoped_values(
         &term.path,
         &term.query_path,
+        term.transform,
         term.derived,
         term.multi && !paired,
         ctx,
@@ -1522,6 +1529,7 @@ fn eval_field_term(
     let Some(right) = scoped_values(
         &rhs.path,
         &rhs.query_path,
+        rhs.transform,
         rhs.derived,
         rhs.multi && !paired,
         ctx,
