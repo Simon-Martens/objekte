@@ -2,8 +2,8 @@
 
 use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
-use std::path::PathBuf;
 use std::num::NonZeroUsize;
+use std::path::PathBuf;
 use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -12,19 +12,21 @@ use std::time::Instant;
 use crate::bigram::{BigramContribution, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inventory::{
-    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus,
-    RecordClass, SourceRevision,
+    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
+    SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
-    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts,
+    BindingOperation, RecordContext, Schema, bind_filter_with_parameters, bind_fts, eval_bound_fts,
     eval_filter, eval_unavailable_filter,
 };
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
-use crate::source::{PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range};
+use crate::source::{
+    PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range,
+};
 use crate::workload::{BigramAlphabet, WorkCounters};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
@@ -110,6 +112,7 @@ pub struct CollectionState {
     pub stats: CollectionStats,
 }
 
+
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
 struct PendingCollection {
@@ -128,6 +131,7 @@ struct PendingCollection {
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
 }
 
+
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
     Large {
@@ -138,6 +142,7 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
+
 
 impl PendingCollection {
     fn admit(
@@ -396,8 +401,26 @@ impl Repository {
         crate::run::search(self, query)
     }
 
+    /// Execute a parsed query with immutable, typed parameter values.
+    pub fn search_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        self.search(&query.with_parameters(parameters)?)
+    }
+
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
         crate::run::explain(self, query)
+    }
+
+    /// Explain one execution-bound parameter choice.
+    pub fn explain_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        self.explain(&query.with_parameters(parameters)?)
     }
 
     pub fn explain_analyze(
@@ -549,7 +572,8 @@ impl Repository {
             .build()
             .map_err(|error| error.to_string())?;
         let source_files = Arc::new(
-            files.files
+            files
+                .files
                 .iter()
                 .map(crate::build::SourceFileInput::from_entry)
                 .collect(),
@@ -563,8 +587,7 @@ impl Repository {
         let mut finalization_ns = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
         for (definition, id, source, member_files) in selected {
-            let builder =
-                CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
+            let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let postings = PostingCollection::new(&definition.schema);
             let custom_postings: HashMap<_, _> = definition
                 .schema
@@ -729,8 +752,13 @@ impl Repository {
             let generation = builder.finish(&files)?;
             let raw = raw.into_index_in_pool(&build_pool)?;
             let fallback_text = fallback_text.into_index_in_pool(&build_pool)?;
-            let custom_text = custom_text.into_iter()
-                .map(|(key, index)| index.into_index_in_pool(&build_pool).map(|index| (key, index)))
+            let custom_text = custom_text
+                .into_iter()
+                .map(|(key, index)| {
+                    index
+                        .into_index_in_pool(&build_pool)
+                        .map(|index| (key, index))
+                })
                 .collect::<Result<HashMap<_, _>, _>>()?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
@@ -850,6 +878,7 @@ impl Repository {
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
         let mut bound = Vec::new();
+        let mut parameter_types = HashMap::new();
         for collection in &self.collections {
             if !query.collections.is_empty()
                 && !query.collections.contains(&collection.definition.name)
@@ -859,7 +888,13 @@ impl Repository {
             let filter = query
                 .filter
                 .as_ref()
-                .map(|f| bind_filter(f, &collection.definition.schema))
+                .map(|f| {
+                    bind_filter_with_parameters(
+                        f,
+                        &collection.definition.schema,
+                        &mut parameter_types,
+                    )
+                })
                 .transpose()?;
             let fts = query
                 .fts
@@ -1026,6 +1061,16 @@ impl Repository {
             hits,
             counters,
         })
+    }
+
+    /// Evaluate a parameter choice through the independent reference route.
+    pub fn search_reference_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        let bound = query.with_parameters(parameters)?;
+        self.search_reference(&bound)
     }
 }
 

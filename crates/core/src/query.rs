@@ -1,8 +1,8 @@
 //! Separate literal FTS and structured FILTER parsing.
 
-use crate::model::{FieldPath, Number};
+use crate::model::{FieldPath, Number, Value};
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
 
 /// Exact case behavior for a full-text request. The index alphabet is separate.
@@ -22,17 +22,18 @@ impl CaseSensitivity {
 }
 
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Literal {
     String(String),
     Number(Number),
     Bool(bool),
     Null,
+    Typed(Value),
 }
 
 
 /// Field used as a comparison operand, with its original source span.
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct FieldExpression {
     pub path: FieldPath,
     pub modifiers: Vec<Modifier>,
@@ -41,15 +42,15 @@ pub struct FieldExpression {
 
 
 /// Parsed right-hand operand before type checking and execution binding.
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Operand {
     Literal(Literal),
     Field(FieldExpression),
-    Parameter(String),
+    Parameter { name: String, bound: Option<Value> },
 }
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Operator {
     Eq,
     Ne,
@@ -62,14 +63,14 @@ pub enum Operator {
 }
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Quantifier {
     Default,
     Any,
 }
 
 
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Modifier {
     Lower,
     Length,
@@ -93,7 +94,7 @@ fn parse_modifier(name: String) -> Modifier {
 
 
 /// Parsed field predicate before schema binding.
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct Term {
     pub path: FieldPath,
     pub modifiers: Vec<Modifier>,
@@ -104,7 +105,7 @@ pub struct Term {
 }
 
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum FilterExpr {
     Term(Term),
     And(Vec<FilterExpr>),
@@ -114,7 +115,7 @@ pub enum FilterExpr {
 
 
 /// One selected full-text field and optional binding.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, serde::Serialize)]
 pub struct FtsField {
     pub path: FieldPath,
     pub binding: Option<String>,
@@ -122,7 +123,7 @@ pub struct FtsField {
 
 
 /// Full-text literal with its selected fields.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, serde::Serialize)]
 pub struct FtsQuery {
     pub case_sensitivity: CaseSensitivity,
     pub literal: String,
@@ -204,6 +205,38 @@ impl Query {
                 evidence: case.evidence,
             },
         })
+    }
+
+    /// Bind data values into a parsed template without reparsing query text.
+    /// Unused supplied values are intentionally ignored.
+    pub fn with_parameters(&self, values: &HashMap<String, Value>) -> Result<Self, String> {
+        fn bind(expr: &mut FilterExpr, values: &HashMap<String, Value>) -> Result<(), String> {
+            match expr {
+                FilterExpr::Term(term) => {
+                    if let Operand::Parameter { name, bound } = &mut term.operand {
+                        *bound = Some(
+                            values
+                                .get(name)
+                                .cloned()
+                                .ok_or_else(|| format!("missing parameter ${name}"))?,
+                        );
+                    }
+                }
+                FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                    for part in parts {
+                        bind(part, values)?;
+                    }
+                }
+                FilterExpr::Not(inner) => bind(inner, values)?,
+            }
+            Ok(())
+        }
+
+        let mut query = self.clone();
+        if let Some(filter) = &mut query.filter {
+            bind(filter, values)?;
+        }
+        Ok(query)
     }
 }
 
@@ -468,6 +501,12 @@ impl Parser {
             TokenKind::Word(s) => s,
             _ => return Err(format!("expected field path at byte {}", path_token.start)),
         };
+        if path_name.starts_with('$') {
+            return Err(format!(
+                "parameter cannot select a field at byte {}",
+                path_token.start
+            ));
+        }
         let path = FieldPath::parse(path_name)?;
         let mut modifiers = Vec::new();
         while matches!(self.peek(), TokenKind::Colon) {
@@ -477,6 +516,12 @@ impl Parser {
                 TokenKind::Word(s) => s,
                 _ => return Err(format!("expected modifier at byte {}", token.start)),
             };
+            if name.starts_with('$') {
+                return Err(format!(
+                    "parameter cannot select a modifier at byte {}",
+                    token.start
+                ));
+            }
             modifiers.push(parse_modifier(name));
         }
         let op = self.take();
@@ -502,7 +547,10 @@ impl Parser {
                 {
                     return Err(format!("invalid parameter name at byte {}", value.start));
                 }
-                Operand::Parameter(name.to_owned())
+                Operand::Parameter {
+                    name: name.to_owned(),
+                    bound: None,
+                }
             }
             TokenKind::Word(s) => {
                 if let Ok(n) = s.parse::<i128>() {

@@ -1093,7 +1093,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     if budget == 0 {
         return search_impl(repo, query, None, None, None);
     }
-    let key = crate::verified::key(query);
+    let key = crate::verified::key(query)?;
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
         return materialize_cached(repo, query, &cached);

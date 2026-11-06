@@ -596,25 +596,43 @@ pub enum BoundExpr {
 
 
 pub fn bind_filter(expr: &FilterExpr, schema: &Schema) -> Result<BoundExpr, String> {
+    bind_filter_with_parameters(expr, schema, &mut HashMap::new())
+}
+
+/// Bind one FILTER while sharing parameter type constraints across collections.
+pub(crate) fn bind_filter_with_parameters(
+    expr: &FilterExpr,
+    schema: &Schema,
+    parameter_types: &mut HashMap<String, LogicalType>,
+) -> Result<BoundExpr, String> {
     Ok(match expr {
-        FilterExpr::Term(term) => BoundExpr::Term(bind_term(term, schema)?),
+        FilterExpr::Term(term) => BoundExpr::Term(bind_term(term, schema, parameter_types)?),
         FilterExpr::And(parts) => BoundExpr::And(
             parts
                 .iter()
-                .map(|p| bind_filter(p, schema))
+                .map(|p| bind_filter_with_parameters(p, schema, parameter_types))
                 .collect::<Result<_, _>>()?,
         ),
         FilterExpr::Or(parts) => BoundExpr::Or(
             parts
                 .iter()
-                .map(|p| bind_filter(p, schema))
+                .map(|p| bind_filter_with_parameters(p, schema, parameter_types))
                 .collect::<Result<_, _>>()?,
         ),
-        FilterExpr::Not(inner) => BoundExpr::Not(Box::new(bind_filter(inner, schema)?)),
+        FilterExpr::Not(inner) => BoundExpr::Not(Box::new(bind_filter_with_parameters(
+            inner,
+            schema,
+            parameter_types,
+        )?)),
     })
 }
 
-fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
+fn bind_term(
+    term: &Term,
+    schema: &Schema,
+    parameter_types: &mut HashMap<String, LogicalType>,
+) -> Result<BoundTerm, String> {
+    let parameter_literal;
     let parsed_literal = match &term.operand {
         Operand::Literal(literal) => literal,
         Operand::Field(field) => {
@@ -623,9 +641,24 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
                 field.span.0
             ));
         }
-        Operand::Parameter(name) => {
-            return Err(format!("parameter ${name} requires execution bindings"));
+        Operand::Parameter { name, bound } => {
+            let value = bound
+                .as_ref()
+                .ok_or_else(|| format!("parameter ${name} requires execution bindings"))?;
+            parameter_literal = match value {
+                Value::Null => Literal::Null,
+                Value::String(text) => Literal::String(text.clone()),
+                Value::Number(number) => Literal::Number(*number),
+                Value::Bool(value) => Literal::Bool(*value),
+                other => Literal::Typed(other.clone()),
+            };
+            &parameter_literal
         }
+    };
+    let parameter_name = if let Operand::Parameter { name, .. } = &term.operand {
+        Some(name.as_str())
+    } else {
+        None
     };
     let field = schema.field_or_dynamic(&term.path)?;
     let source_kind = field.kind.clone();
@@ -725,6 +758,32 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
             other => other.clone(),
         },
     };
+    if let Some(name) = parameter_name {
+        let required = if kind == LogicalType::Unknown {
+            match parsed_literal {
+                Literal::Null => LogicalType::Unknown,
+                Literal::String(_) => LogicalType::String,
+                Literal::Number(_) => LogicalType::Number,
+                Literal::Bool(_) => LogicalType::Bool,
+                Literal::Typed(value) => value.logical_type(),
+            }
+        } else {
+            kind.clone()
+        };
+        if let Some(previous) = parameter_types.get(name) {
+            if *previous != LogicalType::Unknown
+                && required != LogicalType::Unknown
+                && *previous != required
+            {
+                return Err(format!(
+                    "parameter ${name} has incompatible uses: {previous:?} and {required:?}"
+                ));
+            }
+        }
+        if required != LogicalType::Unknown {
+            parameter_types.insert(name.to_owned(), required);
+        }
+    }
     if transform != Transform::Identity
         && !matches!(kind, LogicalType::String | LogicalType::Unknown)
     {
@@ -832,6 +891,17 @@ fn prepare_literal(
         (Literal::String(s), LogicalType::Unknown) => Value::String(s.clone()),
         (Literal::Number(n), LogicalType::Unknown) => Value::Number(*n),
         (Literal::Bool(b), LogicalType::Unknown) => Value::Bool(*b),
+        (Literal::Typed(value), LogicalType::Unknown)
+            if !matches!(value, Value::Object(_) | Value::Array(_)) =>
+        {
+            value.clone()
+        }
+        (Literal::Typed(value), expected)
+            if !matches!(value, Value::Null | Value::Object(_) | Value::Array(_))
+                && value.logical_type() == *expected =>
+        {
+            value.clone()
+        }
         _ => return Err(format!("literal is incompatible with {kind:?}")),
     };
     Ok(match value {

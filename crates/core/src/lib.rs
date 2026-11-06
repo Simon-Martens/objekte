@@ -12,6 +12,7 @@ pub mod discovery;
 pub mod executor;
 pub mod inventory;
 pub mod model;
+pub mod parameters;
 pub mod path_repr;
 pub mod posting;
 pub mod posting_values;

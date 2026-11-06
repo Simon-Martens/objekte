@@ -92,7 +92,9 @@ fn typed_operand_shapes_preserve_source_spans() {
     let FilterExpr::Term(term) = parse_filter("year >= $minimum_year").unwrap() else {
         panic!("expected term");
     };
-    assert!(matches!(term.operand, Operand::Parameter(name) if name == "minimum_year"));
+    assert!(
+        matches!(term.operand, Operand::Parameter { name, bound: None } if name == "minimum_year")
+    );
     assert_eq!(term.span, (0, 21));
     assert!(parse_filter("year >= $").is_err());
     assert!(parse_filter("year >= $2x").is_err());
@@ -124,7 +126,12 @@ fn inline_sort_uses_only_top_level_keywords() {
             },
         ])
     );
-    assert!(parse_structured_filter("sort = 1").unwrap().filter.is_some());
+    assert!(
+        parse_structured_filter("sort = 1")
+            .unwrap()
+            .filter
+            .is_some()
+    );
     assert!(parse_structured_filter("sort = 1").unwrap().sort.is_none());
     assert_eq!(
         parse_structured_filter("SORT BY year DESC").unwrap().filter,

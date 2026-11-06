@@ -32,8 +32,8 @@ struct Entry {
 pub(crate) struct VerifiedCache {
     budget: usize,
     bytes: usize,
-    entries: HashMap<String, Entry>,
-    order: VecDeque<String>,
+    entries: HashMap<Vec<u8>, Entry>,
+    order: VecDeque<Vec<u8>>,
 }
 
 
@@ -62,16 +62,16 @@ impl VerifiedCache {
         self.order.clear();
     }
 
-    pub fn get(&mut self, key: &str) -> Option<Arc<CachedResult>> {
+    pub fn get(&mut self, key: &[u8]) -> Option<Arc<CachedResult>> {
         let result = Arc::clone(&self.entries.get(key)?.result);
         if let Some(index) = self.order.iter().position(|old| old == key) {
             self.order.remove(index);
         }
-        self.order.push_back(key.into());
+        self.order.push_back(key.to_vec());
         Some(result)
     }
 
-    pub fn insert(&mut self, key: String, members: Vec<CachedMember>) {
+    pub fn insert(&mut self, key: Vec<u8>, members: Vec<CachedMember>) {
         let bytes = key.len()
             + 128
             + members
@@ -121,13 +121,17 @@ impl VerifiedCache {
 }
 
 
-pub(crate) fn key(query: &Query) -> String {
+pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
     // Repository ownership supplies the generation, alphabet, schema and
     // binding-version scope; options below determine membership/order/evidence.
-    format!(
-        "{:?}|{:?}|{:?}|{:?}|{}",
-        query.collections, query.filter, query.fts, query.options.sort, query.options.evidence
-    )
+    bincode::serialize(&(
+        &query.collections,
+        &query.filter,
+        &query.fts,
+        &query.options.sort,
+        query.options.evidence,
+    ))
+    .map_err(|error| format!("verified query key: {error}"))
 }
 
 #[cfg(test)]
