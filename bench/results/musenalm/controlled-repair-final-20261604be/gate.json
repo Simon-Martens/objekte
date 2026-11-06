@@ -1,0 +1,267 @@
+{
+  "mode": "full",
+  "expected_samples": 3000,
+  "jq_count_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-jq-counts.json",
+  "comparison": "repair",
+  "baseline_code_revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "actual_code_revision": "20261604bebf949131441c8262f1f442bce4207c",
+  "build_flags": {},
+  "baseline_environment": {
+    "governor": "performance",
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "build_flags": {},
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K"
+  },
+  "governor": "performance",
+  "path_sensitive_fingerprint_difference": {
+    "schema": true,
+    "workload": true
+  },
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "actual_samples": 3000,
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/controlled-foundation-performance-92cdb92b19",
+  "result_dir": "/home/simon/source/objekte/bench/results/musenalm/controlled-repair-final-20261604be",
+  "same_machine": true,
+  "aggregate_latency_ratio": 0.9943573886780108,
+  "thresholds": {
+    "per_case_relative": 1.5,
+    "per_case_absolute_ns": 2000000,
+    "aggregate_relative": 1.25
+  },
+  "confirmations": [],
+  "worst_slowdowns": [
+    {
+      "ratio": 5.471880597014925,
+      "case": "Q146",
+      "profile": "unicode-warm",
+      "baseline_ns": 16750,
+      "actual_ns": 91654
+    },
+    {
+      "ratio": 3.453091501586485,
+      "case": "Q019",
+      "profile": "ascii-warm",
+      "baseline_ns": 23322,
+      "actual_ns": 80533
+    },
+    {
+      "ratio": 3.3808856231267526,
+      "case": "Q150",
+      "profile": "unicode-warm",
+      "baseline_ns": 20686,
+      "actual_ns": 69937
+    },
+    {
+      "ratio": 2.8934787648473335,
+      "case": "Q099",
+      "profile": "unicode-off",
+      "baseline_ns": 2199890,
+      "actual_ns": 6365335
+    },
+    {
+      "ratio": 2.8614752414218203,
+      "case": "Q030",
+      "profile": "unicode-warm",
+      "baseline_ns": 24335,
+      "actual_ns": 69634
+    },
+    {
+      "ratio": 2.73689157435381,
+      "case": "Q147",
+      "profile": "unicode-warm",
+      "baseline_ns": 14895,
+      "actual_ns": 40766
+    },
+    {
+      "ratio": 2.6723010215330345,
+      "case": "Q057",
+      "profile": "ascii-warm",
+      "baseline_ns": 13607,
+      "actual_ns": 36362
+    },
+    {
+      "ratio": 2.6390810960420703,
+      "case": "Q146",
+      "profile": "ascii-warm",
+      "baseline_ns": 7226,
+      "actual_ns": 19070
+    },
+    {
+      "ratio": 2.553327396200912,
+      "case": "Q052",
+      "profile": "ascii-off",
+      "baseline_ns": 5220253,
+      "actual_ns": 13329015
+    },
+    {
+      "ratio": 2.504172661870504,
+      "case": "Q059",
+      "profile": "ascii-warm",
+      "baseline_ns": 17375,
+      "actual_ns": 43510
+    },
+    {
+      "ratio": 2.426522654954511,
+      "case": "Q027",
+      "profile": "unicode-warm",
+      "baseline_ns": 22313,
+      "actual_ns": 54143
+    },
+    {
+      "ratio": 2.414672091910005,
+      "case": "Q057",
+      "profile": "unicode-warm",
+      "baseline_ns": 16712,
+      "actual_ns": 40354
+    },
+    {
+      "ratio": 2.360336817653891,
+      "case": "Q028",
+      "profile": "ascii-warm",
+      "baseline_ns": 6888,
+      "actual_ns": 16258
+    },
+    {
+      "ratio": 2.3389229150365596,
+      "case": "Q126",
+      "profile": "ascii-off",
+      "baseline_ns": 74126,
+      "actual_ns": 173375
+    },
+    {
+      "ratio": 2.3087713343895007,
+      "case": "Q096",
+      "profile": "unicode-off",
+      "baseline_ns": 4231021,
+      "actual_ns": 9768460
+    },
+    {
+      "ratio": 2.2795994502258,
+      "case": "Q125",
+      "profile": "ascii-off",
+      "baseline_ns": 5093,
+      "actual_ns": 11610
+    },
+    {
+      "ratio": 2.2711306256860593,
+      "case": "Q010",
+      "profile": "ascii-warm",
+      "baseline_ns": 911,
+      "actual_ns": 2069
+    },
+    {
+      "ratio": 2.2444337811900192,
+      "case": "Q003",
+      "profile": "unicode-warm",
+      "baseline_ns": 20840,
+      "actual_ns": 46774
+    },
+    {
+      "ratio": 2.1881472957422323,
+      "case": "Q125",
+      "profile": "unicode-warm",
+      "baseline_ns": 1738,
+      "actual_ns": 3803
+    },
+    {
+      "ratio": 2.1699507389162562,
+      "case": "Q098",
+      "profile": "ascii-warm",
+      "baseline_ns": 1218,
+      "actual_ns": 2643
+    }
+  ],
+  "failures": [
+    "('Q022', 'ascii-off'): 8.355 ms exceeds 5.479 ms baseline",
+    "('Q052', 'ascii-off'): 13.329 ms exceeds 5.220 ms baseline",
+    "('Q068', 'ascii-off'): 6.078 ms exceeds 3.364 ms baseline",
+    "('Q069', 'ascii-off'): 9.260 ms exceeds 5.907 ms baseline",
+    "('Q069', 'unicode-off'): 12.088 ms exceeds 6.981 ms baseline",
+    "('Q096', 'unicode-off'): 9.768 ms exceeds 4.231 ms baseline",
+    "('Q099', 'unicode-off'): 6.365 ms exceeds 2.200 ms baseline",
+    "('Q100', 'ascii-off'): 26.654 ms exceeds 16.704 ms baseline",
+    "('Q114', 'ascii-off'): 5.672 ms exceeds 3.560 ms baseline"
+  ],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off,ascii-warm,unicode-off,unicode-warm",
+    "--repetitions",
+    "5",
+    "--result-dir",
+    "/home/simon/source/objekte/bench/results/musenalm/controlled-repair-final-20261604be"
+  ]
+}

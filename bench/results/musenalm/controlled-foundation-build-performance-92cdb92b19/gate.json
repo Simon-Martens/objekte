@@ -1,0 +1,83 @@
+{
+  "environment": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+    "build_flags": {},
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "governor": "performance"
+  },
+  "fingerprints": {
+    "schema": "041a1bb268a932de61e3b3ff26407ac8e02edc25eaf8e7533fd239f8d59efbdf",
+    "source_metadata": "eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6"
+  },
+  "summary": {
+    "ascii-disabled": {
+      "median_wall_ns": 11142215440,
+      "median_build_ns": 11142164123,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 247619584,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "ascii-rebuild": {
+      "median_wall_ns": 11358982951,
+      "median_build_ns": 11081206926,
+      "median_snapshot_write_ns": 277722330,
+      "median_peak_resident_bytes": 355790848,
+      "snapshot_bytes": 111176829,
+      "samples": 3
+    },
+    "unicode-disabled": {
+      "median_wall_ns": 12185400221,
+      "median_build_ns": 12185344158,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 270180352,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "unicode-rebuild": {
+      "median_wall_ns": 12482302913,
+      "median_build_ns": 12179588773,
+      "median_snapshot_write_ns": 314684368,
+      "median_peak_resident_bytes": 388272128,
+      "snapshot_bytes": 122383021,
+      "samples": 3
+    }
+  },
+  "command": "/tmp/objekte_controlled_build_baseline.py",
+  "failures": []
+}

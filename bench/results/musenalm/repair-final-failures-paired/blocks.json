@@ -1,0 +1,766 @@
+{
+  "order": [
+    "before",
+    "after",
+    "after",
+    "before"
+  ],
+  "cases": [
+    "Q006",
+    "Q025",
+    "Q028",
+    "Q052",
+    "Q055",
+    "Q069",
+    "Q071",
+    "Q099",
+    "Q113",
+    "Q114",
+    "Q148"
+  ],
+  "profiles": [
+    "ascii-off",
+    "unicode-off"
+  ],
+  "repetitions": 11,
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "blocks": [
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q006",
+      "profile": "ascii-off",
+      "median_ns": 229341713,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q025",
+      "profile": "ascii-off",
+      "median_ns": 92028022,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q028",
+      "profile": "ascii-off",
+      "median_ns": 6197208,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q052",
+      "profile": "ascii-off",
+      "median_ns": 5613073,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q055",
+      "profile": "ascii-off",
+      "median_ns": 4108460,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q069",
+      "profile": "ascii-off",
+      "median_ns": 5902109,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q071",
+      "profile": "ascii-off",
+      "median_ns": 1749429,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q099",
+      "profile": "ascii-off",
+      "median_ns": 3793709,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q113",
+      "profile": "ascii-off",
+      "median_ns": 5180198,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q114",
+      "profile": "ascii-off",
+      "median_ns": 3571727,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q148",
+      "profile": "ascii-off",
+      "median_ns": 4668034,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q006",
+      "profile": "unicode-off",
+      "median_ns": 239560466,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q025",
+      "profile": "unicode-off",
+      "median_ns": 94567842,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q028",
+      "profile": "unicode-off",
+      "median_ns": 4874493,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q052",
+      "profile": "unicode-off",
+      "median_ns": 5706597,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q055",
+      "profile": "unicode-off",
+      "median_ns": 10654046,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q069",
+      "profile": "unicode-off",
+      "median_ns": 4887485,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q071",
+      "profile": "unicode-off",
+      "median_ns": 1948762,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q099",
+      "profile": "unicode-off",
+      "median_ns": 3304577,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q113",
+      "profile": "unicode-off",
+      "median_ns": 3517850,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q114",
+      "profile": "unicode-off",
+      "median_ns": 4273363,
+      "samples": 11
+    },
+    {
+      "block": 1,
+      "side": "before",
+      "case": "Q148",
+      "profile": "unicode-off",
+      "median_ns": 5759253,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q006",
+      "profile": "ascii-off",
+      "median_ns": 229618732,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q025",
+      "profile": "ascii-off",
+      "median_ns": 94758912,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q028",
+      "profile": "ascii-off",
+      "median_ns": 6080385,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q052",
+      "profile": "ascii-off",
+      "median_ns": 6565408,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q055",
+      "profile": "ascii-off",
+      "median_ns": 11431462,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q069",
+      "profile": "ascii-off",
+      "median_ns": 5582299,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q071",
+      "profile": "ascii-off",
+      "median_ns": 1611485,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q099",
+      "profile": "ascii-off",
+      "median_ns": 9546325,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q113",
+      "profile": "ascii-off",
+      "median_ns": 3238575,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q114",
+      "profile": "ascii-off",
+      "median_ns": 4264260,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q148",
+      "profile": "ascii-off",
+      "median_ns": 6965793,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q006",
+      "profile": "unicode-off",
+      "median_ns": 239806131,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q025",
+      "profile": "unicode-off",
+      "median_ns": 90022175,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q028",
+      "profile": "unicode-off",
+      "median_ns": 4413399,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q052",
+      "profile": "unicode-off",
+      "median_ns": 4154421,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q055",
+      "profile": "unicode-off",
+      "median_ns": 9344794,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q069",
+      "profile": "unicode-off",
+      "median_ns": 5168100,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q071",
+      "profile": "unicode-off",
+      "median_ns": 1423213,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q099",
+      "profile": "unicode-off",
+      "median_ns": 9925852,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q113",
+      "profile": "unicode-off",
+      "median_ns": 3432675,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q114",
+      "profile": "unicode-off",
+      "median_ns": 4996245,
+      "samples": 11
+    },
+    {
+      "block": 2,
+      "side": "after",
+      "case": "Q148",
+      "profile": "unicode-off",
+      "median_ns": 7989620,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q006",
+      "profile": "ascii-off",
+      "median_ns": 228074068,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q025",
+      "profile": "ascii-off",
+      "median_ns": 94608730,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q028",
+      "profile": "ascii-off",
+      "median_ns": 5444372,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q052",
+      "profile": "ascii-off",
+      "median_ns": 6080815,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q055",
+      "profile": "ascii-off",
+      "median_ns": 4422009,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q069",
+      "profile": "ascii-off",
+      "median_ns": 6918816,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q071",
+      "profile": "ascii-off",
+      "median_ns": 1757389,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q099",
+      "profile": "ascii-off",
+      "median_ns": 2305868,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q113",
+      "profile": "ascii-off",
+      "median_ns": 5231096,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q114",
+      "profile": "ascii-off",
+      "median_ns": 4607335,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q148",
+      "profile": "ascii-off",
+      "median_ns": 4717645,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q006",
+      "profile": "unicode-off",
+      "median_ns": 246907249,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q025",
+      "profile": "unicode-off",
+      "median_ns": 93669283,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q028",
+      "profile": "unicode-off",
+      "median_ns": 4385673,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q052",
+      "profile": "unicode-off",
+      "median_ns": 4423068,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q055",
+      "profile": "unicode-off",
+      "median_ns": 9046388,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q069",
+      "profile": "unicode-off",
+      "median_ns": 6040559,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q071",
+      "profile": "unicode-off",
+      "median_ns": 2141266,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q099",
+      "profile": "unicode-off",
+      "median_ns": 6490205,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q113",
+      "profile": "unicode-off",
+      "median_ns": 3750416,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q114",
+      "profile": "unicode-off",
+      "median_ns": 6244541,
+      "samples": 11
+    },
+    {
+      "block": 3,
+      "side": "after",
+      "case": "Q148",
+      "profile": "unicode-off",
+      "median_ns": 8829867,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q006",
+      "profile": "ascii-off",
+      "median_ns": 230096132,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q025",
+      "profile": "ascii-off",
+      "median_ns": 95812169,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q028",
+      "profile": "ascii-off",
+      "median_ns": 6411882,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q052",
+      "profile": "ascii-off",
+      "median_ns": 5595550,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q055",
+      "profile": "ascii-off",
+      "median_ns": 4056447,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q069",
+      "profile": "ascii-off",
+      "median_ns": 6293839,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q071",
+      "profile": "ascii-off",
+      "median_ns": 1619350,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q099",
+      "profile": "ascii-off",
+      "median_ns": 4016415,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q113",
+      "profile": "ascii-off",
+      "median_ns": 6901865,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q114",
+      "profile": "ascii-off",
+      "median_ns": 3227486,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q148",
+      "profile": "ascii-off",
+      "median_ns": 5827883,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q006",
+      "profile": "unicode-off",
+      "median_ns": 241423144,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q025",
+      "profile": "unicode-off",
+      "median_ns": 94766474,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q028",
+      "profile": "unicode-off",
+      "median_ns": 4402664,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q052",
+      "profile": "unicode-off",
+      "median_ns": 4227152,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q055",
+      "profile": "unicode-off",
+      "median_ns": 8764087,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q069",
+      "profile": "unicode-off",
+      "median_ns": 5835504,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q071",
+      "profile": "unicode-off",
+      "median_ns": 1496835,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q099",
+      "profile": "unicode-off",
+      "median_ns": 10470092,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q113",
+      "profile": "unicode-off",
+      "median_ns": 3380034,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q114",
+      "profile": "unicode-off",
+      "median_ns": 3800837,
+      "samples": 11
+    },
+    {
+      "block": 4,
+      "side": "before",
+      "case": "Q148",
+      "profile": "unicode-off",
+      "median_ns": 7712125,
+      "samples": 11
+    }
+  ]
+}
