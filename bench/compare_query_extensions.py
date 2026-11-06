@@ -4,6 +4,7 @@
 import argparse
 import csv
 import json
+import subprocess
 from collections import defaultdict
 from pathlib import Path
 
@@ -22,12 +23,23 @@ def load_run(directory: Path):
 def require_compatible(before, after, before_queries, after_queries):
     if before_queries != after_queries:
         raise ValueError("resolved workload queries differ")
+    if before.get("workload_fingerprint") != after.get("workload_fingerprint"):
+        # The example hashes the absolute manifest path together with its bytes.
+        # Worktrees change that path even when the tracked manifest is identical.
+        path = "crates/core/benches/musenalm_queries.json"
+        blobs = [
+            subprocess.check_output(
+                ["git", "rev-parse", f"{run['code_revision']}:{path}"], text=True
+            ).strip()
+            for run in (before, after)
+        ]
+        if blobs[0] != blobs[1]:
+            raise ValueError("tracked workload manifest changed")
     for key in (
         "compiler",
         "corpus_fingerprint",
         "schema_fingerprint",
         "schema_manifest_digest",
-        "workload_fingerprint",
         "query_workers",
         "source_cache_bytes",
         "decoded_cache_bytes",
@@ -36,6 +48,17 @@ def require_compatible(before, after, before_queries, after_queries):
     ):
         if before.get(key) != after.get(key):
             raise ValueError(f"incompatible {key}: {before.get(key)!r} vs {after.get(key)!r}")
+    def registrations(run):
+        normalized = []
+        for item in run["registrations"]:
+            item = dict(item)
+            for key in ("indexed_paths", "custom_bindings"):
+                item[key] = sorted(item[key])
+            normalized.append(item)
+        return sorted(normalized, key=lambda item: item["name"])
+
+    if registrations(before) != registrations(after):
+        raise ValueError("semantic registrations differ")
 
 
 def compare(before_rows, after_rows, queries):
@@ -79,7 +102,7 @@ def compare(before_rows, after_rows, queries):
 def write_results(output_dir: Path, rows, before, after):
     output_dir.mkdir(parents=True, exist_ok=True)
     with (output_dir / "comparison.csv").open("w", newline="") as destination:
-        writer = csv.DictWriter(destination, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(destination, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     profiles = defaultdict(list)
@@ -90,6 +113,7 @@ def write_results(output_dir: Path, rows, before, after):
         "",
         f"Before code: `{before['code_revision']}`. After code: `{after['code_revision']}`.",
         "All resolved queries, corpus/schema fingerprints, compiler, worker and cache settings, profiles, repetitions, counts and page sizes match.",
+        "The raw workload fingerprints differ because they hash the absolute checkout path; the tracked manifest Git blob is identical at both measured revisions.",
         "Delta is after minus before. Each time is the median of the timed samples in milliseconds.",
         "Warm-cache percentage changes at microsecond scale are descriptive; the table separately counts changes of at least 1 ms.",
         "",
@@ -124,7 +148,7 @@ def write_results(output_dir: Path, rows, before, after):
             f"{row['before_scanned_records']}/{row['after_scanned_records']} | {row['total_matches']} | {row['returned_records']} |"
         )
     (output_dir / "COMPARISON.md").write_text("\n".join(lines) + "\n")
-    print("\n".join(lines[:len(profiles) + 10]))
+    print("\n".join(lines))
     print(f"Saved {len(rows)} complete comparison rows in {output_dir}")
 
 

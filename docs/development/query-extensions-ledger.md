@@ -34,9 +34,9 @@
 | TASK-03 temporal/size | integrated | merge `6f5557dec1`, branch `af9d1ca797` | temporal worker |
 | TASK-06 relation traversal | integrated | merge `5ab1b61977`, branch `eb45b420da` | relation-query worker |
 | TASK-08 relation inspection | integrated | merge `3f71daeb68`, code `fa3d54a450` | inspection worker |
-| TASK-07 semijoin planner | integrated | branch `f524e1b3a7`, code `cbc4c8b3f4` | relation-planner worker |
-| TASK-09 cross-feature verification | in progress | independent oracle and interaction tests on integration | coordinator |
-| TASK-10 final measurements | blocked by TASK-09 | — | coordinator |
+| TASK-07 semijoin planner | integrated | merge `0005f7e959`, branch `f524e1b3a7`, code `cbc4c8b3f4` | relation-planner worker |
+| TASK-09 cross-feature verification | complete | positional FTS `96b582db59`; independent jq, relation oracle, non-JSON and workspace checks | coordinator |
+| TASK-10 final measurements | complete | measured code `6b49eb26b0`, final report and 600-row comparison | coordinator |
 
 Every worker handoff must include the fields in Section 12.7 of the specification, exact test output, cache/snapshot effects and any shared-file edits. This ledger is updated at review checkpoints.
 
@@ -185,3 +185,9 @@ The installed compiler was `rustc 1.99.1`, the governor `performance`, and affin
 - **Known failures, warnings, and open risks:** No failing test remains. The workspace has pre-existing advisory Clippy warnings and format drift. Target deduplication is per semijoin term or FTS field; separate predicates on the same target can still decode it separately. Source-dependent relation comparisons remain scanner residuals and may reread targets per source. Existing `FtsField.path` cannot express positions. Full cross-feature and benchmark runs remain coordinator work.
 - **Shared-file edits requiring integration:** `executor.rs` adds relation paths and proof work; `run.rs` adds witness execution, evidence, trace/counters and selected relation FTS; `reference.rs` adds typed proof identity; `repository.rs` and `workload.rs` expose counters. Integration commits after the pinned base added JSON relation oracle, non-JSON reader and regex parameter tests; merge these shared-file edits without dropping either side.
 - **Prerequisites for the next task:** Review and merge this branch into the integration branch, rerun the combined suite and independent oracle, then complete TASK-09 cross-feature verification. This branch does not merge into development or master.
+
+## G4 integration and final evidence
+
+The TASK-07 branch merged at `0005f7e959`. Coordinator commit `96b582db59` then preserved selected FTS array positions through local and relation binding for the declared logical-string reader contract; its tests cover literal/regex matching on relation-hop and terminal array positions, both alphabets, caches, restore and explicit rejection for readers that supply opaque text segments. The later `117e1b7037` and `6b49eb26b0` commits extend and format only the compact feature benchmark.
+
+Final `cargo test --workspace --all-targets` and `cargo clippy --workspace --all-targets` passed after the final feature-workload code change; the next commit only formatted its output. The independent jq oracle passed 300/300 complete sets and optimized/reference acceptance passed 150/150 in each alphabet at the same production core. The final four-profile, five-repetition Musenalm run has 3,000 successful timed samples, 600 matched before/after rows and no count, page, candidate, source-open or scanned-record differences. The complete evidence and explicit timing/memory limitations are in `bench/results/musenalm/query-extensions-final-6b49eb26b0/FINAL_REPORT.md`; oracle and acceptance evidence is in the sibling `query-extensions-final-96b582db59/` directory. New feature measurements have 21 cases in four profiles and 420 samples. The dedicated integration branch is pushed; development and master remain untouched.

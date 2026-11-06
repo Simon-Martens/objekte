@@ -1,0 +1,112 @@
+{
+  "code_revision": "6b49eb26b03117930b8c47b7885b126988dda21e",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "machine": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "governor": "performance",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "fixture": "/home/simon/source/objekte-typed-query-integration/bench/results/musenalm/query-extensions-final-6b49eb26b0/feature-fixture",
+  "profiles": [
+    {
+      "output": "feature-ascii-off.jsonl",
+      "command": [
+        "./target/release/examples/bench_query_features",
+        "--root",
+        "/home/simon/source/objekte-typed-query-integration/bench/results/musenalm/query-extensions-final-6b49eb26b0/feature-fixture",
+        "--alphabet",
+        "ascii",
+        "--cache",
+        "off",
+        "--repetitions",
+        "5",
+        "--revision",
+        "6b49eb26b03117930b8c47b7885b126988dda21e"
+      ]
+    },
+    {
+      "output": "feature-ascii-warm.jsonl",
+      "command": [
+        "./target/release/examples/bench_query_features",
+        "--root",
+        "/home/simon/source/objekte-typed-query-integration/bench/results/musenalm/query-extensions-final-6b49eb26b0/feature-fixture",
+        "--alphabet",
+        "ascii",
+        "--cache",
+        "warm",
+        "--repetitions",
+        "5",
+        "--revision",
+        "6b49eb26b03117930b8c47b7885b126988dda21e"
+      ]
+    },
+    {
+      "output": "feature-unicode-off.jsonl",
+      "command": [
+        "./target/release/examples/bench_query_features",
+        "--root",
+        "/home/simon/source/objekte-typed-query-integration/bench/results/musenalm/query-extensions-final-6b49eb26b0/feature-fixture",
+        "--alphabet",
+        "unicode",
+        "--cache",
+        "off",
+        "--repetitions",
+        "5",
+        "--revision",
+        "6b49eb26b03117930b8c47b7885b126988dda21e"
+      ]
+    },
+    {
+      "output": "feature-unicode-warm.jsonl",
+      "command": [
+        "./target/release/examples/bench_query_features",
+        "--root",
+        "/home/simon/source/objekte-typed-query-integration/bench/results/musenalm/query-extensions-final-6b49eb26b0/feature-fixture",
+        "--alphabet",
+        "unicode",
+        "--cache",
+        "warm",
+        "--repetitions",
+        "5",
+        "--revision",
+        "6b49eb26b03117930b8c47b7885b126988dda21e"
+      ]
+    }
+  ],
+  "cases_per_profile": 21,
+  "repetitions": 5,
+  "total_samples": 420,
+  "reference_and_expected_answers_checked_before_timing": true,
+  "timing_boundary": "search_with_parameters only; fixture creation, index build, reference checks and EXPLAIN excluded"
+}
