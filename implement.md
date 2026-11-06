@@ -761,6 +761,8 @@ The final benchmark is mandatory: execute all 150 specified Musenalm cases, plus
 
 Implement on a separate branch, for example `development/local-file-search-core`. Preserve unrelated work. Every coherent stage must pass its relevant checks, be committed separately, and be pushed separately to the configured remote. Keep a short progress/measurement record. Do not merge automatically.
 
+The numbered list below summarizes the required capabilities. Use the detailed phases and commit plan in Section 22 at the bottom of this file as the authoritative execution order and commit schedule.
+
 1. **New workspace and fixture integration:** Inspect any useful previous implementation under `old/`, especially `old/crates/core/`. Establish the new workspace with `core/`, preserve root-level `examples/`, read the existing Musenalm schemas, add the test CLI registration layer, and commit the explicit Q001–Q150 workload manifest. Choose and document reuse freely within the new specification.
 2. **Logical model and ownership:** Repository/query space, collection definitions, separate file/record inventories, the required file-to-record index and reverse source mapping, prefixed metadata, temporal types, identity and standalone ranges, reference readers/evaluator.
 3. **Languages and bindings:** Separate FTS/FILTER inputs, PocketBase-style operators and quantification, typed literal parsing, defaults, internal custom registrations, return-mode contracts.
@@ -1074,3 +1076,296 @@ These are component and syntax references, not claims that this engine inherits 
 - [RoaringBitmap](https://docs.rs/roaring/latest/roaring/bitmap/struct.RoaringBitmap.html), [memchr](https://docs.rs/memchr/latest/memchr/), and [Rayon](https://docs.rs/rayon/latest/rayon/) — record sets, substring matching, and parallel execution.
 - [ignore](https://docs.rs/ignore/latest/ignore/) and [notify](https://docs.rs/notify/latest/notify/) — file discovery and change hints.
 - [arc-swap](https://docs.rs/arc-swap/latest/arc_swap/), [postcard](https://docs.rs/postcard/latest/postcard/), and [proptest](https://docs.rs/proptest/latest/proptest/) — publication, serialization, and generated tests.
+
+## 22. Implementation phases and commit plan
+
+This is the execution schedule for the implementing agent. Section 19 summarizes the capabilities; this section defines their implementation order, commit boundaries, and acceptance checks. Complete the phases in order. Where existing code already satisfies a step, integrate and validate it rather than rewriting it merely to create a commit.
+
+### Working and commit procedure
+
+1. Inspect repository instructions, the current branch/worktree, the configured remote, existing benchmark recordings, and the actual fixture schemas. The previous project is under `old/`, its core is `old/crates/core/`, the new core belongs in `core/`, and `examples/` remains unchanged at the root. The user performs the move into `old/`.
+2. Create a separate branch such as `development/local-file-search-core` before implementation. Preserve unrelated changes and the archived project. Do not merge, force-push, or rewrite already pushed commits as part of this assignment.
+3. Treat each numbered commit below as one reviewable implementation unit. Include its relevant tests and documentation in that same commit. Every committed state must build; do not leave intentionally failing tests or disconnected implementation fragments for a later phase.
+4. Run formatting, the affected new-core tests, and the relevant CLI/integration checks before each commit. Run the broader new-workspace checks at phase boundaries. Avoid repeatedly rebuilding or testing all of `old/` unless a reused component actually requires it.
+5. Inspect the diff, stage only the intended paths, commit with a precise message, then push that commit to the configured remote before beginning the next unit. Set the upstream on the first push. Preserve separate commits; do not combine an entire phase into one final submission.
+6. If a step is too large to remain reviewable, split it into additional coherent commits and record the split. Do not create empty commits for already satisfied or inapplicable steps. If a push fails, record and report the failure accurately; do not claim it succeeded or rewrite history to conceal it.
+7. Maintain a concise progress record, for example `docs/core-implementation-progress.md`, containing completed step IDs, validation commands/results, measured code revisions, benchmark report locations, reuse decisions, and remaining limitations. Reference completed commit hashes in subsequent progress/report commits; do not amend repeatedly just to make a document contain its own commit hash.
+8. Development checks use small fixtures and selected workload cases. The final acceptance run executes all 150 cases in all four profiles. Reuse applicable current-state baselines; collect a new baseline only when none applies. Never report a disabled, unsupported, or unmeasured feature as a successful zero-time result.
+
+The commit messages below are suggested subjects. Adapt their wording to the final changes while preserving their scope. No phase implements runtime file updates, update ingestion, watchers, or compaction. Future whole-file replacement is addressed through the required inventory and a design note.
+
+### Phase 1 — Establish the new workspace and measurement contract
+
+**Outcome:** A buildable new workspace, fixed workload inputs, and a reproducible record of implementation progress.
+
+#### C01 — New workspace and core crate
+
+Commit message: `build(core): establish the new search workspace`
+
+Create the new Cargo workspace and `core/` crate, establish normal test/example targets, and preserve `old/` and `examples/`. Review any useful existing code freely and document the initial reuse decisions. Keep archived workspace members out of the default new-workspace build unless deliberately integrated.
+
+**Before committing:** Build and test the minimal new workspace; verify fixture paths resolve from the repository root and no archived or fixture files were unintentionally changed.
+
+#### C02 — Fixed workload and benchmark report definitions
+
+Commit message: `test(bench): define the Musenalm workload and measurement records`
+
+Commit the exact Q001–Q150 machine-readable manifest and definitions for timings, work counters, profile settings, run identity, and report files. Establish the progress record and identify any applicable saved baselines. Implement manifest loading and report serialization independently of executing queries.
+
+**Before committing:** Validate all 150 unique IDs, inputs/options, the four profile definitions, and report round trips. Schema/semantic checks that require later query components remain explicit pending checks; do not emit invented measurements.
+
+### Phase 2 — Logical records, source ownership, and extraction
+
+**Outcome:** Source files can produce independently addressable logical records with complete ownership mappings.
+
+#### C03 — Logical values, identity, and metadata
+
+Commit message: `feat(core): implement logical values and record identity`
+
+Implement strings, precise numbers, booleans, distinct date/datetime/unixtime types, nullability, homogeneous arrays, and nested objects. Define collection/file/record identities, typed field paths, and the reserved `@` metadata namespace.
+
+**Before committing:** Test numeric precision, temporal distinctions, nullable/empty arrays, duplicate IDs, nested paths, and quoted names that collide with metadata names.
+
+#### C04 — Repository inventories and file-to-record index
+
+Commit message: `feat(core): add repository inventories and file record mappings`
+
+Implement repository/collection ownership, generation-scoped record slots, source revisions, checked byte ranges, the explicit file-to-record index, and reverse record-to-file/range lookup. Start with small controlled inventory fixtures; no runtime updater is introduced.
+
+**Before committing:** Verify both mapping directions, zero/one/multiple records per file, a file included in multiple collections, range/slot bounds, and per-file enumeration without a full record-inventory scan.
+
+#### C05 — Source readers and fused extraction interface
+
+Commit message: `feat(core): add source framing and extraction interfaces`
+
+Define internal reader/scanner/value/text registrations and the build-time extraction interface. Implement the needed JSON support in the integration layer and small multi-record reference readers. Source framing must produce standalone ranges; extracted values and text segments must retain record/field boundaries.
+
+**Before committing:** Parse each stored range independently, including non-ASCII prefixes and framing separators. Instrument one construction parse per record and verify malformed-source diagnostics and empty-file handling.
+
+### Phase 3 — Query semantics and a runnable reference path
+
+**Outcome:** Queries have a precise meaning and can execute correctly without index acceleration.
+
+#### C06 — Separate FTS and FILTER parsers
+
+Commit message: `feat(query): parse FTS and structured filter requests`
+
+Implement literal substring FTS inputs and the FILTER grammar, including Boolean precedence, parentheses, negation, PocketBase comparison operators, quantifiers, modifiers, and metadata selectors. Represent sorting, COUNT, pagination, return mode, and evidence as query options.
+
+**Before committing:** Test precedence, escapes, invalid syntax, standard comparison spellings, existential negation, and separate FTS/FILTER composition. Do not introduce word-tokenized FTS semantics.
+
+#### C07 — Typed binding and independent reference evaluation
+
+Commit message: `feat(query): bind typed predicates and add reference evaluation`
+
+Resolve types, bindings, literal preparation, custom operation semantics, and defined modifier combinations. Implement an independent scan/reference evaluator for predicate membership and evidence, with no dependency on optimized index plans.
+
+**Before committing:** Verify missing/null/empty distinctions, universal versus existential arrays, nested-element semantics, custom parsing/folding, and deterministic query errors. Test that query literals and selectors are prepared once rather than per record.
+
+#### C08 — Musenalm schema registration and CLI execution
+
+Commit message: `feat(cli): register the Musenalm repository and execute queries`
+
+Read the fixture's actual schemas and register its collections, identity policies, types, source readers, and requested indexes/sort definitions. Connect the new core to the test CLI for individual requests and selected manifest cases. Preserve schema-declared strings and fractional numbers.
+
+**Before committing:** Open the unchanged fixture, report actual file/record counts and registrations, and execute representative supported queries through the reference path. Unsupported later-stage options must produce explicit diagnostics.
+
+### Phase 4 — Fused index construction and exact posting execution
+
+**Outcome:** Typed lookups reduce or eliminate source verification, with measurable construction and execution work.
+
+#### C09 — Fused builders and typed B-tree postings
+
+Commit message: `feat(index): build typed postings in one extraction pass`
+
+Construct B-tree value postings, presence/null entries, configured derived values, coverage, and compact statistics through one shared extraction pass. Reuse extracted values instead of reparsing a source separately for each index family.
+
+**Before committing:** Compare equality/range/presence/null/cardinality results with the reference evaluator. Verify array deduplication preserves original length, incomplete coverage stays explicit, and construction parse counts remain one per record.
+
+#### C10 — Exact access paths and restricted residual execution
+
+Commit message: `feat(query): execute exact lookups before residual verification`
+
+Add identity/metadata evaluation, typed posting lookup/ranges, exact-result tracking, candidate restrictions, and fallback scanning. Introduce basic cardinality-aware ordering immediately: a selective exact predicate must restrict a later scan regardless of written order.
+
+**Before committing:** Verify zero verification reads for fully index-proven locator results, no source access for a fully covered empty conjunction, and correct uncovered-record/OR fallback. Compare results with the independent evaluator.
+
+### Phase 5 — Bigram filtering and custom search paths
+
+**Outcome:** Both repository alphabets and custom bindings provide conservative candidates with equivalent exact answers.
+
+#### C11 — ASCII bigrams and default record text
+
+Commit message: `feat(index): integrate ASCII record bigram filtering`
+
+Integrate or adapt the existing ASCII bigram implementation, including supported normal/skip behavior. Build the collection's `raw` filter from extracted record text, preserve segment boundaries, and connect candidates to the prepared scanner.
+
+**Before committing:** Verify substring matches, punctuation/whitespace, short strings, record boundaries, unsupported-character fallback, and absence of false negatives. Account for bigram construction in the shared parse budget.
+
+#### C12 — Unicode bigrams and repository alphabet selection
+
+Commit message: `feat(index): add Unicode bigrams and alphabet configuration`
+
+Integrate the Unicode variant and repository-level `ascii|unicode` selection with consistent inheritance across default/custom filters. Record variant/configuration identity for later persistence and cache keys.
+
+**Before committing:** Compare exact answers across alphabets, including non-ASCII queries, short queries, and mixed text. Confirm that normally only the selected variant is built and its memory cost is reported.
+
+#### C13 — Custom bindings and combined text/filter execution
+
+Commit message: `feat(query): connect custom text bindings to indexes and scanners`
+
+Connect custom literal parsing, extraction/transformation, posting/bigram selection, and exact verification as one bound operation. Add the declared `agents.name:folded` CLI binding and combine FTS/FILTER restrictions in the shared executor.
+
+**Before committing:** Exercise indexed and scanner-only variants of the same custom binding, selected FTS fields, coverage gaps, and the Q070 registration. Confirm that an equality posting cannot incorrectly become the complete answer to substring FTS.
+
+### Phase 6 — Ordering, output, and the first complete baseline
+
+**Outcome:** The complete workload's semantics are executable, including ICU sorting, COUNT, pagination, and all payload modes.
+
+#### C14 — ICU keys and typed sorting lists
+
+Commit message: `feat(index): add ICU and typed sorting lists`
+
+Build configured ICU string keys/lists and typed numeric/temporal ordering, recording locale/options/version. Implement deterministic ties, descending order, and multiple sort fields.
+
+**Before committing:** Compare ordering with a straightforward reference sort using the same collation contract. Test numeric precision, temporal ordering, equal collation keys, and stable pagination without source parsing solely for indexed sort keys.
+
+#### C15 — Record results and grouped source access
+
+Commit message: `feat(query): complete record results and grouped source reads`
+
+Complete record COUNT before pagination, bytes/logical/locator outputs, file metadata, and requested matched-field evidence. Group source access by file, coalesce useful ranges, and reuse one decoded record for all residual predicates and logical output.
+
+**Before committing:** Check all output modes and multi-record files, including sparse/dense candidates, exact membership versus payload loading, and at most one candidate parse per query. Verify that COUNT is never a file count or page length.
+
+#### C16 — Runnable workload reports and baseline checkpoint
+
+Commit message: `test(bench): establish the first complete query and build checkpoint`
+
+Connect real execution to the measurement/report definitions and validate all manifest requests against the actual registrations. Reuse an applicable baseline; if none exists, record the first correct query/index-build baseline for supported profiles, normally the two alphabets with verified-result caching disabled at this stage.
+
+**Before committing:** Save actual timings, raw samples, work counters, build measurements, corpus/configuration identity, and the measured code revision. Record unsupported cache/restore capabilities as pending, not simulated. Preserve this runnable revision for later comparisons. The baseline is not final acceptance.
+
+### Phase 7 — Cost-based planning and execution refinement
+
+**Outcome:** The engine chooses and reorders access paths by total work, with evidence that source scanning is reduced.
+
+#### C17 — Access-path costs and maintained statistics
+
+Commit message: `feat(query): select access paths using cost and selectivity`
+
+Implement bound predicates, compatible access-path enumeration, inexpensive index statistics, cost/cardinality estimates, and collection-specific plan selection. Compare exact postings, bigrams, existing value/sort structures, dictionary evaluation, and restricted scanning without changing logical types.
+
+**Before committing:** Use controlled fixtures to verify selective versus broad choices, precision-preserving typed operations, partial coverage, and custom-binding compatibility. Confirm planning does not scan source files or traverse whole dictionaries merely to estimate costs.
+
+#### C18 — Boolean reordering and bounded adaptation
+
+Commit message: `perf(query): reorder predicates and adapt to candidate counts`
+
+Optimize AND/OR order, push candidate restrictions into remaining work, short-circuit exact decisions, and adjust remaining choices at plan/batch boundaries using observed cardinalities. Preserve negation, array witnesses, and evidence semantics.
+
+**Before committing:** Run permutation/reference tests and deterministic work-count checks. Demonstrate that a cheap selective lookup precedes an expensive written-first term, a rare bigram can precede a broad posting, and an unindexed OR branch remains searchable.
+
+#### C19 — Efficient set operations and plan diagnostics
+
+Commit message: `perf(query): reduce intermediate work and expose execution plans`
+
+Use appropriate sparse/dense representations, borrowed posting sets, reusable scratch buffers, and economical residual ordering. Complete EXPLAIN/EXPLAIN ANALYZE with chosen/rejected paths, execution order, estimates, actual work, and adaptive changes.
+
+**Before committing:** Measure planning overhead and selected uncached queries against the retained checkpoint. Verify avoided allocations/source access where claimed, unchanged answers, and complete diagnostic serialization outside primary latency samples. This phase must finish before result caching is used to demonstrate query speed.
+
+### Phase 8 — Repeated-query reuse and source consistency
+
+**Outcome:** Repeated work is reused with correct generation boundaries; future mutation remains design-only.
+
+#### C20 — Prepared-query reuse
+
+Commit message: `perf(query): cache prepared predicates and plans`
+
+Add bounded reuse of parsed/bound/prepared operations with semantic, binding, configuration, and generation compatibility. Avoid repeating literal preparation, registry resolution, and scanner initialization for identical requests.
+
+**Before committing:** Verify prepared-plan hits, invalidation/rejection on incompatible state, memory accounting, and that plan-cache status is separate from verified-result-cache status. Include preparation in total query timing.
+
+#### C21 — Verified membership and ordered-result caches
+
+Commit message: `perf(query): cache verified matches and ordered results`
+
+Add bounded verified membership/evidence and complete ordered-result reuse, independent of source-content caching. Support disabled and 64 MiB configurations, cached empty results, admission/eviction, and pagination across reused sequences.
+
+**Before committing:** Verify no per-hit collection-wide stat/read pass, no approximate or partial result stored as complete, valid COUNT/pagination, and honest hit/miss reporting. Exercise both cache configurations with source/decoded caches disabled; record the first valid warm-cache measurements if no compatible recording exists.
+
+#### C22 — Stale-source safeguards and future whole-file design
+
+Commit message: `fix(core): enforce source revisions and document file replacement boundaries`
+
+Complete source-access revision checks, explicit stale/incomplete outcomes, generation/cache isolation, and bounds validation. Document how future complete-file replacement will use the existing file-to-record index to identify and replace all old records.
+
+**Before committing:** Test source changes during reads, invalid old offsets, incomplete-result cache rejection, and mapping consistency. Confirm that no runtime update ingestion, watcher, refresh service, or compaction mechanism was added.
+
+### Phase 9 — Persistence and restoration
+
+**Outcome:** A compatible saved snapshot restores the complete searchable state, including both inventory mappings.
+
+#### C23 — Complete versioned snapshot encoding
+
+Commit message: `feat(storage): persist inventories and all search indexes`
+
+Serialize the logical/configuration envelope, file-to-record and record-to-file mappings, revisions, typed postings and special entries, selected bigram variant, ICU sorting state, coverage, and planner statistics. Implement atomic writes and complete decode/validation.
+
+**Before committing:** Round-trip both alphabet variants and multi-record inventories; reject truncated/corrupt/incompatible sections, mismatched alphabets, invalid ranges, and inconsistent ownership. Do not serialize transient addresses or process-specific state.
+
+#### C24 — Startup restoration and restore baseline
+
+Commit message: `feat(storage): restore validated snapshots at repository startup`
+
+Wire snapshot loading into repository open, reconcile current file metadata, and rebuild stale affected collections before publication. Unchanged compatible snapshots must reuse stored indexes. This startup behavior does not introduce live updating.
+
+**Before committing:** Compare fresh-build and restored answers, ordering, COUNT, and mappings. Test reopening after file additions/replacements/deletions and missing/corrupt snapshots. If no applicable restore baseline exists, record the first correct fresh-process restore baseline, including full startup-to-query-ready time and memory for both alphabets.
+
+### Phase 10 — Acceptance, measured improvements, and delivery
+
+**Outcome:** A reviewable, pushed implementation with complete correctness evidence and reproducible final timings.
+
+#### C25 — Cross-component acceptance validation
+
+Commit message: `test(core): verify end-to-end search and restoration contracts`
+
+Close uncovered integration cases across parsing, bindings, index coverage, optimization, payloads, caches, persistence, metadata, and multi-record source access. Keep the reference evaluator independent. Confirm all 150 requests are executable with their exact defined options.
+
+**Before committing:** Run the complete relevant new-workspace correctness checks and CLI smoke tests. Include fixes with their regression evidence in separate focused commits when needed; do not hide unrelated changes inside a large test commit.
+
+#### C26 — Evidence-driven performance corrections, only if needed
+
+Suggested commit message: `perf(core): reduce <specific measured source of cost>`
+
+Use existing profiles/plans and the applicable baselines to identify remaining allocation, copying, planning, parsing, index-build, or restore costs. Make one separately validated and pushed commit per justified correction. Replace the placeholder with the actual operation improved.
+
+**Before committing:** Preserve correctness and compare the affected measurements using equivalent conditions, reporting absolute time and variability. Recheck build/restore/memory when those paths are affected. If no justified correction exists, record that this step was unnecessary and proceed without an empty commit. Do not implement deferred features to fill this step.
+
+#### C27 — Final benchmark artifacts
+
+Commit message: `test(bench): record final query build and restore measurements`
+
+On the final validated code revision, execute all 150 fixed queries under ASCII/cache-disabled, ASCII/64 MiB-warm, Unicode/cache-disabled, and Unicode/64 MiB-warm profiles. Use the specified repetitions, include COUNT/page/payload completion, and measure construction and fresh-process restoration for both alphabets.
+
+**Before committing:** Save all required manifests, raw samples, query tables, representative plans, memory/build/restore results, failures, and reproduction commands. Print all 150 timing summaries for every profile and the build/restore summaries. Compare with applicable baselines; lead with absolute timings. Each report must name the actual code revision measured. Keep large generated indexes and source copies out of the report commit.
+
+Do not rebaseline simply because results are unfavorable. If a code fix is needed after this run, commit/push the fix separately and regenerate the affected final reports; keep the final measurement set consistent with the delivered code. Report-only commits do not require rerunning unchanged executable code.
+
+#### C28 — Completion documentation and handoff
+
+Commit message: `docs(core): document the completed search implementation`
+
+Document build/run commands, actual architecture and reuse, grammar/types, registrations, optimizer behavior, inventory/snapshot formats, cache controls, freshness limitations, and the deferred whole-file update design. Complete the progress ledger with commit references and links to the saved measurements.
+
+**Before committing:** Check that documented commands and paths match the delivered workspace, every required step is complete or accurately explained, all required commits are pushed, and the final report is tied to the tested code. Report remaining limitations plainly. Do not merge automatically.
+
+### Final delivery checks
+
+- The implementation runs from the new workspace and `core/`; `old/crates/core/` was available without artificial access restrictions, and root-level `examples/` is unchanged.
+- File-to-record and record-to-file/range mappings are present, consistent, persisted, and validated. Runtime update handling remains unimplemented.
+- Typed postings, ICU sorting, ASCII/Unicode bigrams, custom bindings, both query inputs, output modes, COUNT, and pagination work together.
+- The planner selects compatible access paths and reorders work by cost/selectivity, demonstrated with uncached execution counters and saved plans.
+- The final four-profile 150-query report, raw samples, build/restore measurements, and before/after evidence are saved and the full summaries have been printed.
+- The branch contains separate validated commits with recorded push status. The user receives the branch, final commit, report locations, reproducible commands, and any outstanding limitations.
+
