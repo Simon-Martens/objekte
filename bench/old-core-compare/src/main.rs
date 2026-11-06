@@ -64,6 +64,23 @@ fn run() -> Result<(), String> {
             "old core found {old_collection_count} collections, expected 7"
         ));
     }
+    let old_schema_count = old
+        .model()
+        .collections
+        .values()
+        .filter(|collection| collection.schema_path.is_some())
+        .count();
+    if old_schema_count != 7 {
+        return Err(format!(
+            "old core loaded {old_schema_count} schemas, expected 7"
+        ));
+    }
+    let old_index_paths: usize = old
+        .model()
+        .collections
+        .values()
+        .map(|collection| collection.indexes.len() + collection.advanced_index_paths.len())
+        .sum();
     old.warm_all_bigram_indexes()
         .map_err(|error| error.to_string())?;
     let old_setup_ns = old_started.elapsed().as_nanos();
@@ -83,6 +100,11 @@ fn run() -> Result<(), String> {
             "new core found {new_collection_count} collections, expected 7"
         ));
     }
+    let new_index_paths: usize = new
+        .collections
+        .iter()
+        .map(|collection| collection.postings.fields.len())
+        .sum();
     let new_setup_ns = new_started.elapsed().as_nanos();
     println!(
         "{}",
@@ -90,6 +112,7 @@ fn run() -> Result<(), String> {
             "type":"setup", "old_setup_ns":old_setup_ns, "new_setup_ns":new_setup_ns,
             "old_schema_mode":"configured", "new_schema_mode":"configured",
             "old_collections":old_collection_count, "new_collections":new_collection_count,
+        "old_schemas":old_schema_count,"old_index_paths":old_index_paths,"new_index_paths":new_index_paths,
             "old_query_cache_bytes":0, "new_verified_cache_bytes":0,
             "old_cache_mode":"memory", "new_return_mode":"logical", "page_limit":50,
             "new_query_workers":new.options.query_workers,

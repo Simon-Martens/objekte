@@ -911,6 +911,7 @@ dependencies = [
  "bincode",
  "icu_collator",
  "icu_locale_core",
+ "rayon",
  "roaring",
  "serde",
  "serde_json",

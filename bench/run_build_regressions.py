@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import statistics
 import subprocess
@@ -13,6 +14,22 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 BASELINE = ROOT / "bench/baselines/musenalm-build.json"
+
+
+def fixture_fingerprints() -> dict[str, str]:
+    fixture = ROOT / "examples/musenalm"
+    schema_hash = hashlib.sha256()
+    source_hash = hashlib.sha256()
+    for schema in sorted((fixture / ".objekte/collections").glob("*.schema.json")):
+        schema_hash.update(str(schema.relative_to(fixture)).encode())
+        schema_hash.update(schema.read_bytes())
+        declaration = json.loads(schema.read_text())["x-objekte"]
+        for path in sorted((fixture / declaration["path"]).glob("*.json")):
+            info = path.stat()
+            source_hash.update(str(path.relative_to(fixture)).encode())
+            source_hash.update(info.st_size.to_bytes(8, "little"))
+            source_hash.update(info.st_mtime_ns.to_bytes(16, "little", signed=True))
+    return {"schema": schema_hash.hexdigest(), "source_metadata": source_hash.hexdigest()}
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repetitions", type=int, default=3)
@@ -23,6 +40,10 @@ def main() -> int:
     if args.repetitions < 3:
         parser.error("at least three fresh-process repetitions are required")
     revision = subprocess.check_output(["git", "rev-parse", "--short=10", "HEAD"], cwd=ROOT, text=True).strip()
+    fingerprints = fixture_fingerprints()
+    jq_fixture = json.loads((ROOT / "bench/baselines/musenalm-jq-counts.json").read_text())
+    if fingerprints["source_metadata"] != jq_fixture["fixture_metadata_fingerprint"]:
+        raise ValueError("Musenalm source metadata differs from the independent jq fixture")
     result_dir = (args.result_dir or ROOT / "bench/results/musenalm" / f"build-{revision}").resolve()
     result_dir.mkdir(parents=True, exist_ok=True)
     binary = ROOT / "target/release/examples/bench_build_musenalm"
@@ -70,9 +91,11 @@ def main() -> int:
         baseline_path.parent.mkdir(parents=True, exist_ok=True)
         if baseline_path.exists():
             raise FileExistsError(f"baseline exists: {baseline_path}")
-        baseline_path.write_text(json.dumps({"environment": environment, "summary": summary}, indent=2) + "\n")
+        baseline_path.write_text(json.dumps({"environment": environment, "fingerprints": fingerprints, "summary": summary}, indent=2) + "\n")
     else:
         baseline = json.loads(baseline_path.read_text())
+        if baseline["fingerprints"] != fingerprints:
+            failures.append("source or schema fingerprint differs from build baseline")
         if baseline["environment"]["cpu_model"] == environment["cpu_model"]:
             for name, current in summary.items():
                 previous = baseline["summary"][name]
@@ -82,7 +105,7 @@ def main() -> int:
                     failures.append(f"{name}: peak RSS exceeds baseline")
                 if current["snapshot_bytes"] and current["snapshot_bytes"] > previous["snapshot_bytes"] * 1.1:
                     failures.append(f"{name}: snapshot size exceeds baseline")
-    report = {"environment": environment, "summary": summary, "baseline": str(baseline_path), "failures": failures}
+    report = {"environment": environment, "fingerprints": fingerprints, "summary": summary, "baseline": str(baseline_path), "failures": failures}
     (result_dir / "gate.json").write_text(json.dumps(report, indent=2) + "\n")
     lines = [
         "# Musenalm fresh index builds", "",
