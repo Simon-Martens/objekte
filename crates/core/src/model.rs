@@ -371,6 +371,7 @@ impl IdentitySet {
 pub enum PathRoot {
     Data,
     Metadata(MetadataField),
+    Backlinks,
 }
 
 
@@ -444,6 +445,14 @@ impl FieldPath {
     pub fn display(&self) -> String {
         match self.root {
             PathRoot::Metadata(field) => field.as_str().to_string(),
+            PathRoot::Backlinks => format!(
+                "@backlinks.{}",
+                Self {
+                    root: PathRoot::Data,
+                    segments: self.segments.clone(),
+                }
+                .display()
+            ),
             PathRoot::Data => {
                 let mut output = String::new();
                 for (index, segment) in self.segments.iter().enumerate() {
@@ -471,6 +480,14 @@ impl FieldPath {
     }
 
     pub fn parse(input: &str) -> Result<Self, String> {
+        if let Some(rest) = input.strip_prefix("@backlinks.") {
+            let mut path = Self::parse(rest)?;
+            if path.segments.is_empty() || path.root != PathRoot::Data {
+                return Err("backlink path requires an alias".into());
+            }
+            path.root = PathRoot::Backlinks;
+            return Ok(path);
+        }
         if input.starts_with('@') {
             return Ok(Self {
                 root: PathRoot::Metadata(MetadataField::parse(input)?),

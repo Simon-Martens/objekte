@@ -379,6 +379,7 @@ impl Schema {
                 multi: false,
                 element_nullable: Vec::new(),
             }),
+            PathRoot::Backlinks => Err("backlink path requires relation binding".into()),
         }
     }
 
@@ -400,6 +401,7 @@ impl Schema {
                     }))
             }
             PathRoot::Metadata(_) => self.field(path),
+            PathRoot::Backlinks => Err("backlink path requires relation binding".into()),
         }
     }
 }
@@ -548,6 +550,7 @@ pub struct BoundTerm {
     pub path: FieldPath,
     pub query_path: QueryPath,
     pub rhs: Option<Box<BoundFieldOperand>>,
+    pub related: Option<Box<crate::relation_query::BoundRelationPath>>,
     pub kind: LogicalType,
     pub source_kind: LogicalType,
     pub operator: Operator,
@@ -1040,6 +1043,7 @@ fn bind_literal_term(
             path: term.path.field.clone(),
             query_path: term.path.clone(),
             rhs: None,
+            related: None,
             kind,
             source_kind,
             operator: term.operator,
@@ -1119,6 +1123,7 @@ fn bind_literal_term(
         path: term.path.field.clone(),
         query_path: term.path.clone(),
         rhs: None,
+        related: None,
         kind,
         source_kind,
         operator: term.operator,
@@ -1137,6 +1142,14 @@ fn bind_literal_term(
         implicit_array,
         span: term.span,
     })
+}
+
+pub(crate) fn bind_field_probe(
+    term: &Term,
+    schema: &Schema,
+    parameter_types: &mut HashMap<String, LogicalType>,
+) -> Result<BoundTerm, String> {
+    bind_literal_term(term, schema, parameter_types, true)
 }
 
 fn prepare_literal(
@@ -1323,10 +1336,11 @@ fn select_values<'a>(
             let _ = field;
             Ok(Some(Vec::new()))
         }
+        PathRoot::Backlinks => Err("backlink path requires relation binding".into()),
     }
 }
 
-fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) -> bool {
+pub(crate) fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) -> bool {
     if matches!(rhs, Value::Null) {
         return match op {
             Operator::Eq => matches!(lhs, Value::Null),
@@ -1466,6 +1480,7 @@ fn scoped_values<'a>(
             values.push((Vec::new(), Some(Cow::Owned(value))));
             true
         }
+        PathRoot::Backlinks => return Err("backlink path requires relation binding".into()),
     };
     if matches!(derived, Derived::Exists | Derived::Null) {
         let result = match derived {
@@ -1634,6 +1649,79 @@ fn eval_field_term(
         results.into_iter().any(|result| result)
     } else {
         results.into_iter().all(|result| result)
+    })
+}
+
+/// Compare a source field with a field on one explicitly reached target.
+/// The caller retains source context for each occurrence and quantifies over
+/// relation edges after this local comparison.
+pub(crate) fn eval_cross_record_field_term(
+    target: &BoundTerm,
+    source: &BoundTerm,
+    target_ctx: &RecordContext<'_>,
+    source_ctx: &RecordContext<'_>,
+    target_is_lhs: bool,
+) -> Result<bool, String> {
+    let Some(target_values) = scoped_values(
+        &target.path,
+        &target.query_path,
+        target.transform,
+        target.derived,
+        target.multi,
+        target_ctx,
+    )?
+    else {
+        return Ok(false);
+    };
+    let Some(source_values) = scoped_values(
+        &source.path,
+        &source.query_path,
+        source.transform,
+        source.derived,
+        false,
+        source_ctx,
+    )?
+    else {
+        return Ok(false);
+    };
+    if source.multi || source_values.len() != 1 {
+        return Err("source-dependent comparison requires one source value".into());
+    }
+    let Some(source_value) = source_values[0].1.as_deref() else {
+        return Ok(false);
+    };
+    let Some(source_value) =
+        mapped_field_value(source_value, source.transform, source.operation.as_ref())
+    else {
+        return Ok(false);
+    };
+    let mut answers = Vec::with_capacity(target_values.len());
+    for (_, value) in target_values {
+        let Some(value) = value.as_deref() else {
+            answers.push(false);
+            continue;
+        };
+        let Some(value) = mapped_field_value(value, target.transform, target.operation.as_ref())
+        else {
+            answers.push(false);
+            continue;
+        };
+        let (lhs, rhs) = if target_is_lhs {
+            (value.as_ref(), source_value.as_ref())
+        } else {
+            (source_value.as_ref(), value.as_ref())
+        };
+        answers.push(compare_scalar(
+            lhs,
+            rhs,
+            target.operator,
+            Transform::Identity,
+        ));
+    }
+    Ok(if target.quantifier == Quantifier::Any {
+        answers.into_iter().any(|answer| answer)
+    } else {
+        answers.into_iter().all(|answer| answer)
     })
 }
 
@@ -1821,7 +1909,9 @@ pub fn eval_unavailable_filter(
 ) -> Result<Option<bool>, String> {
     match expr {
         BoundExpr::Term(term) => {
-            if term.path.root == PathRoot::Data
+            if term.related.is_some()
+                || term.path.root == PathRoot::Data
+                || term.path.root == PathRoot::Backlinks
                 || term
                     .rhs
                     .as_ref()
@@ -1913,6 +2003,8 @@ pub fn eval_fts(
 #[derive(Clone, Debug)]
 pub struct BoundFtsField {
     pub path: FieldPath,
+    pub(crate) related: Option<Vec<crate::relation_query::BoundRelationHop>>,
+    pub(crate) evidence_path: String,
     pub binding_name: String,
     pub literal: String,
     pub folded_literal: String,
@@ -2051,6 +2143,8 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
             .transpose()?;
         fields.push(BoundFtsField {
             path: selected.path.clone(),
+            related: None,
+            evidence_path: selected.path.display(),
             binding_name: name,
             gram_request: BigramRequest::from_folded(&folded_needle),
             folded_literal: folded_needle,
@@ -2132,6 +2226,8 @@ fn bind_regex_fts(
         };
         fields.push(BoundFtsField {
             path: selected.path.clone(),
+            related: None,
+            evidence_path: selected.path.display(),
             binding_name: name,
             literal: fts.literal.clone(),
             folded_literal: String::new(),

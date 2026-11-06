@@ -3,7 +3,7 @@
 use std::collections::{HashMap, VecDeque};
 
 use crate::query::Query;
-use crate::reference::{BoundExpr, BoundFts, bind_filter_with_parameters, bind_fts};
+use crate::reference::{BoundExpr, BoundFts};
 use crate::repository::{Repository, validate_sort};
 
 
@@ -84,9 +84,11 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
     let key = bincode::serialize(&(&query.collections, &query.filter, &query.fts))
         .map_err(|error| format!("prepared query key: {error}"))?;
     if let Some(found) = repo.prepared.lock().map_err(|e| e.to_string())?.get(&key) {
+        crate::relation_query::reject_related_sort(repo, query)?;
         validate_sort(repo, query)?;
         return Ok((found, true));
     }
+    crate::relation_query::reject_related_sort(repo, query)?;
     validate_sort(repo, query)?;
     let mut collections = Vec::new();
     let mut parameter_types = HashMap::new();
@@ -99,13 +101,18 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
             .filter
             .as_ref()
             .map(|f| {
-                bind_filter_with_parameters(f, &collection.definition.schema, &mut parameter_types)
+                crate::relation_query::bind_filter_with_relations(
+                    repo,
+                    index,
+                    f,
+                    &mut parameter_types,
+                )
             })
             .transpose()?;
         let fts = query
             .fts
             .as_ref()
-            .map(|fts| bind_fts(fts, &collection.definition.schema))
+            .map(|fts| crate::relation_query::bind_fts_with_relations(repo, index, fts))
             .transpose()?;
         collections.push((index, filter, fts));
     }

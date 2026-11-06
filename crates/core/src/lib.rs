@@ -26,6 +26,7 @@ pub mod reference;
 mod regex_query;
 pub mod relation;
 pub mod relation_inspection;
+mod relation_query;
 pub mod repository;
 pub mod run;
 pub mod sorting;

@@ -247,12 +247,16 @@ impl App {
         }
         let collection = &self.repo.collections()[self.scope - 1];
         for path in &collection.definition.sort_fields {
+            if path.root == objekte_search_core::model::PathRoot::Backlinks {
+                continue;
+            }
             let field = if path.segments.is_empty() {
                 match path.root {
                     objekte_search_core::model::PathRoot::Metadata(metadata) => {
                         metadata.as_str().to_owned()
                     }
                     objekte_search_core::model::PathRoot::Data => continue,
+                    objekte_search_core::model::PathRoot::Backlinks => continue,
                 }
             } else {
                 path.segments.join(".")

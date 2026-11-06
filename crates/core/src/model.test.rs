@@ -65,6 +65,13 @@ fn arrays_paths_and_id_namespace() {
         PathRoot::Metadata(MetadataField::FileSize)
     );
     assert!(FieldPath::parse("@file.unknown").is_err());
+    let backlink = FieldPath::parse("@backlinks.mentions.title").unwrap();
+    assert_eq!(backlink.root, PathRoot::Backlinks);
+    assert_eq!(backlink.display(), "@backlinks.mentions.title");
+    assert_eq!(
+        FieldPath::parse("['@backlinks'].mentions").unwrap().root,
+        PathRoot::Data
+    );
     let mut ids = IdentitySet::default();
     ids.insert(RecordId::intrinsic("a").unwrap()).unwrap();
     assert!(RecordId::intrinsic("~fallback:forged").is_err());

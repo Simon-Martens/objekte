@@ -160,6 +160,7 @@ struct ScannedFile {
     raw_text_verifications: u64,
     scanned_records: u64,
     residual_evaluations: u64,
+    relation_work: crate::relation_query::RelationWork,
     match_count: u64,
     peak_payload_bytes: u64,
     matches: SmallVec<[ScannedMatch; 1]>,
@@ -272,6 +273,13 @@ fn scan_projection(
                         fields.insert(first.clone());
                     }
                 }
+                if let Some(related) = &term.related
+                    && let Some(source) = &related.source_operand
+                    && source.path.root == PathRoot::Data
+                    && let Some(first) = source.path.segments.first()
+                {
+                    fields.insert(first.clone());
+                }
                 if !fully_proven
                     && let Some(rhs) = &term.rhs
                     && rhs.path.root == PathRoot::Data
@@ -370,7 +378,9 @@ impl Residual<'_> {
     ) -> Result<Option<bool>, String> {
         match self {
             Self::Term(term, _) => {
-                if term.path.root == PathRoot::Data
+                if term.related.is_some()
+                    || term.path.root == PathRoot::Data
+                    || term.path.root == PathRoot::Backlinks
                     || term
                         .rhs
                         .as_ref()
@@ -452,91 +462,149 @@ impl Residual<'_> {
 
     fn membership(
         &self,
+        repo: &Repository,
         slot: u32,
         ctx: &RecordContext<'_>,
         evaluations: &mut u64,
-    ) -> Result<bool, String> {
+        relation_work: &mut crate::relation_query::RelationWork,
+    ) -> Result<Option<bool>, String> {
         Ok(match self {
             Self::Term(term, proof) => match Self::proven(*proof, slot) {
-                Some(result) => result,
+                Some(result) => Some(result),
                 None => {
                     *evaluations += 1;
-                    eval_term(term, ctx)?
+                    if term.related.is_some() {
+                        crate::relation_query::eval_related_term(repo, term, ctx, relation_work)?
+                    } else {
+                        Some(eval_term(term, ctx)?)
+                    }
                 }
             },
             Self::And(parts) => {
-                let mut matched = true;
+                let mut unknown = false;
                 for part in parts {
-                    if !part.membership(slot, ctx, evaluations)? {
-                        matched = false;
-                        break;
+                    match part.membership(repo, slot, ctx, evaluations, relation_work)? {
+                        Some(false) => return Ok(Some(false)),
+                        None => unknown = true,
+                        Some(true) => {}
                     }
                 }
-                matched
+                if unknown { None } else { Some(true) }
             }
             Self::Or(parts) => {
-                let mut matched = false;
+                let mut unknown = false;
                 for part in parts {
-                    if part.membership(slot, ctx, evaluations)? {
-                        matched = true;
-                        break;
+                    match part.membership(repo, slot, ctx, evaluations, relation_work)? {
+                        Some(true) => return Ok(Some(true)),
+                        None => unknown = true,
+                        Some(false) => {}
                     }
                 }
-                matched
+                if unknown { None } else { Some(false) }
             }
-            Self::Not(inner) => !inner.membership(slot, ctx, evaluations)?,
+            Self::Not(inner) => inner
+                .membership(repo, slot, ctx, evaluations, relation_work)?
+                .map(|value| !value),
         })
     }
 
     fn with_evidence(
         &self,
+        repo: &Repository,
         slot: u32,
         ctx: &RecordContext<'_>,
         evidence: &mut HashSet<String>,
         evaluations: &mut u64,
-    ) -> Result<bool, String> {
+        relation_work: &mut crate::relation_query::RelationWork,
+    ) -> Result<Option<bool>, String> {
         Ok(match self {
             Self::Term(term, proof) => {
                 let matched = match Self::proven(*proof, slot) {
-                    Some(result) => result,
+                    Some(result) => Some(result),
                     None => {
                         *evaluations += 1;
-                        eval_term(term, ctx)?
+                        if term.related.is_some() {
+                            crate::relation_query::eval_related_term(
+                                repo,
+                                term,
+                                ctx,
+                                relation_work,
+                            )?
+                        } else {
+                            Some(eval_term(term, ctx)?)
+                        }
                     }
                 };
-                if matched && self.can_emit_evidence() {
+                if matched == Some(true) && self.can_emit_evidence() {
                     evidence.insert(term.query_path.display.clone());
                     if let Some(rhs) = &term.rhs {
                         evidence.insert(rhs.query_path.display.clone());
+                    }
+                    if let Some(related) = &term.related {
+                        evidence.insert(related.evidence_path.clone());
                     }
                 }
                 matched
             }
             Self::And(parts) => {
                 let mut branch = HashSet::new();
+                let mut unknown = false;
                 for part in parts {
-                    if !part.with_evidence(slot, ctx, &mut branch, evaluations)? {
-                        return Ok(false);
+                    match part.with_evidence(
+                        repo,
+                        slot,
+                        ctx,
+                        &mut branch,
+                        evaluations,
+                        relation_work,
+                    )? {
+                        Some(false) => return Ok(Some(false)),
+                        None => unknown = true,
+                        Some(true) => {}
                     }
                 }
-                evidence.extend(branch);
-                true
+                if unknown {
+                    None
+                } else {
+                    evidence.extend(branch);
+                    Some(true)
+                }
             }
             Self::Or(parts) => {
                 let mut matched = false;
+                let mut unknown = false;
                 for part in parts {
                     if matched && !part.can_emit_evidence() {
                         continue;
                     }
                     let mut branch = HashSet::new();
-                    if part.with_evidence(slot, ctx, &mut branch, evaluations)? {
-                        matched = true;
-                        evidence.extend(branch);
+                    match part.with_evidence(
+                        repo,
+                        slot,
+                        ctx,
+                        &mut branch,
+                        evaluations,
+                        relation_work,
+                    )? {
+                        Some(true) => {
+                            matched = true;
+                            evidence.extend(branch);
+                        }
+                        None => unknown = true,
+                        Some(false) => {}
                     }
                 }
-                matched
+                if matched {
+                    Some(true)
+                } else if unknown {
+                    None
+                } else {
+                    Some(false)
+                }
             }
-            Self::Not(inner) => !inner.membership(slot, ctx, evaluations)?,
+            Self::Not(inner) => inner
+                .membership(repo, slot, ctx, evaluations, relation_work)?
+                .map(|value| !value),
         })
     }
 }
@@ -678,15 +746,33 @@ fn scan_file(
                         }
                         matched
                     } else {
-                        eval_bound_fts(fts, &[], &ctx, &mut evidence)?
+                        crate::relation_query::eval_fts_with_relations(
+                            repo,
+                            fts,
+                            &[],
+                            &ctx,
+                            &mut evidence,
+                            crate::relation_query::EvaluationMode::Indexed,
+                            &mut outcome.relation_work,
+                        )?
                     }
                 } else {
                     true
                 }
             } else {
-                fts.map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
-                    .transpose()?
-                    .unwrap_or(true)
+                fts.map(|fts| {
+                    crate::relation_query::eval_fts_with_relations(
+                        repo,
+                        fts,
+                        &extracted.text,
+                        &ctx,
+                        &mut evidence,
+                        crate::relation_query::EvaluationMode::Indexed,
+                        &mut outcome.relation_work,
+                    )
+                })
+                .transpose()?
+                .unwrap_or(true)
             };
             let filter_match = if fts_match && record.class == RecordClass::RawFallback {
                 residual
@@ -704,17 +790,26 @@ fn scan_file(
                                 || may_reach_page)
                         {
                             f.with_evidence(
+                                repo,
                                 slot,
                                 &ctx,
                                 &mut evidence,
                                 &mut outcome.residual_evaluations,
+                                &mut outcome.relation_work,
                             )
                         } else {
-                            f.membership(slot, &ctx, &mut outcome.residual_evaluations)
+                            f.membership(
+                                repo,
+                                slot,
+                                &ctx,
+                                &mut outcome.residual_evaluations,
+                                &mut outcome.relation_work,
+                            )
                         }
                     })
                     .transpose()?
-                    .unwrap_or(true)
+                    .unwrap_or(Some(true))
+                    == Some(true)
             } else {
                 false
             };
@@ -1586,11 +1681,24 @@ fn try_stored_order_page(
                     counters.raw_text_verifications += scanned.raw_text_verifications;
                     counters.scanned_records += scanned.scanned_records;
                     counters.residual_evaluations += scanned.residual_evaluations;
+                    counters.relation_source_reads += scanned.relation_work.source_reads;
+                    counters.relation_target_reads += scanned.relation_work.target_reads;
+                    counters.relation_edge_visits += scanned.relation_work.edge_visits;
+                    counters.files_opened +=
+                        scanned.relation_work.source_reads + scanned.relation_work.target_reads;
+                    counters.bytes_read += scanned.relation_work.bytes_read;
+                    counters.record_parses +=
+                        scanned.relation_work.source_reads + scanned.relation_work.target_reads;
                     actual.files_opened += scanned.files_opened;
                     actual.bytes_read += scanned.bytes_read;
                     actual.record_parses += scanned.record_parses;
                     actual.raw_text_verifications += scanned.raw_text_verifications;
                     actual.residual_evaluations += scanned.residual_evaluations;
+                    actual.files_opened +=
+                        scanned.relation_work.source_reads + scanned.relation_work.target_reads;
+                    actual.bytes_read += scanned.relation_work.bytes_read;
+                    actual.record_parses +=
+                        scanned.relation_work.source_reads + scanned.relation_work.target_reads;
                     if let Some(found) = scanned.matches.into_iter().next() {
                         matched = true;
                         evidence = found.evidence;
@@ -2208,6 +2316,14 @@ fn search_impl(
                 counters.raw_text_verifications += outcome.raw_text_verifications;
                 counters.scanned_records += outcome.scanned_records;
                 counters.residual_evaluations += outcome.residual_evaluations;
+                counters.relation_source_reads += outcome.relation_work.source_reads;
+                counters.relation_target_reads += outcome.relation_work.target_reads;
+                counters.relation_edge_visits += outcome.relation_work.edge_visits;
+                counters.files_opened +=
+                    outcome.relation_work.source_reads + outcome.relation_work.target_reads;
+                counters.bytes_read += outcome.relation_work.bytes_read;
+                counters.record_parses +=
+                    outcome.relation_work.source_reads + outcome.relation_work.target_reads;
                 counters.total_matches += outcome.match_count - outcome.matches.len() as u64;
                 if let Some(members) = cache_members.as_deref_mut() {
                     members.extend(outcome.cache_members);
