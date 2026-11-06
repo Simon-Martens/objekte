@@ -1,0 +1,17 @@
+{
+  "before_sha": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "after_worktree": "fix/core-foundation-performance",
+  "order": "A-B-B-A",
+  "alphabets": [
+    "ascii",
+    "unicode"
+  ],
+  "repetitions_per_block": 5,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "snapshot_sha256": {
+    "ascii": "fc9cb29f8812a81215caa928404a8212785907f24cbb6c4c554b281e734e1f98",
+    "unicode": "40806f11ae1e96391de92e0eee21a7c69f6231f5c7a95941337d9238df74e8f8"
+  },
+  "affinity": "0-31",
+  "governor": "powersave"
+}

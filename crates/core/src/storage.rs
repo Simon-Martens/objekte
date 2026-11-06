@@ -455,7 +455,6 @@ pub fn load_snapshot(
         restored.omitted_diagnostics = entry.omitted_diagnostics;
     }
     files.rebuild_lookup()?;
-    files.validate_diagnostics()?;
     let mut collections = Vec::new();
     for (index, definition) in definitions.into_iter().enumerate() {
         let source = sources.resolve(&definition.format)?;
@@ -491,26 +490,57 @@ pub fn load_snapshot(
             }
         }
         encoded.fallback_text.validate(generation.records.len())?;
-        let actual_logical: RoaringBitmap = generation
+        let logical_count = generation
             .records
             .iter()
             .filter(|record| record.class == crate::inventory::RecordClass::Logical)
-            .map(|record| record.slot.0)
-            .collect();
-        if encoded.logical_records != actual_logical {
-            return Err("snapshot logical eligibility mismatch".into());
+            .count();
+        let all_logical = logical_count == generation.records.len();
+        if all_logical {
+            // A cardinality equal to the validated slot capacity, with no
+            // out-of-bound maximum, is exactly the full dense slot domain.
+            if encoded.logical_records.len() != logical_count as u64
+                || encoded
+                    .logical_records
+                    .max()
+                    .is_some_and(|slot| slot as usize >= logical_count)
+            {
+                return Err("snapshot logical eligibility mismatch".into());
+            }
+        } else {
+            let actual_logical: RoaringBitmap = generation
+                .records
+                .iter()
+                .filter(|record| record.class == crate::inventory::RecordClass::Logical)
+                .map(|record| record.slot.0)
+                .collect();
+            if encoded.logical_records != actual_logical {
+                return Err("snapshot logical eligibility mismatch".into());
+            }
         }
-        let all_slots: RoaringBitmap = (0..generation.records.len() as u32).collect();
-        let fallback_slots = &all_slots - &actual_logical;
-        encoded.postings.validate_domain(&actual_logical)?;
-        for posting in encoded.custom_postings.values() {
-            posting.index.validate_domain(&actual_logical)?;
+        if !all_logical {
+            encoded.postings.validate_domain(&encoded.logical_records)?;
+            for posting in encoded.custom_postings.values() {
+                posting.index.validate_domain(&encoded.logical_records)?;
+            }
+            encoded.raw.validate_domain(&encoded.logical_records)?;
+            for index in encoded.custom_text.values() {
+                index.validate_domain(&encoded.logical_records)?;
+            }
         }
-        encoded.raw.validate_domain(&actual_logical)?;
-        for index in encoded.custom_text.values() {
-            index.validate_domain(&actual_logical)?;
+        if all_logical {
+            encoded
+                .fallback_text
+                .validate_domain(&RoaringBitmap::new())?;
+        } else if logical_count != 0 {
+            let fallback_slots: RoaringBitmap = generation
+                .records
+                .iter()
+                .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
+                .map(|record| record.slot.0)
+                .collect();
+            encoded.fallback_text.validate_domain(&fallback_slots)?;
         }
-        encoded.fallback_text.validate_domain(&fallback_slots)?;
         encoded.postings.validate(generation.records.len())?;
         let expected_custom: HashSet<_> = definition
             .schema

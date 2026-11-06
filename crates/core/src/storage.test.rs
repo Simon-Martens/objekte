@@ -1,7 +1,7 @@
 use super::*;
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
-use crate::reference::{FieldDefinition, Schema};
+use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use crate::repository::IdentityPolicy;
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
@@ -273,6 +273,188 @@ fn checksummed_snapshot_with_invalid_diagnostic_reference_is_rejected() {
         error.contains("record range or revision mismatch"),
         "{error}"
     );
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
+    use std::io::Cursor;
+    let root = std::env::temp_dir().join(format!("objekte-domains-{}", std::process::id()));
+    fs::create_dir_all(root.join("data")).unwrap();
+    let source = root.join("data/records.jsonl");
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["x".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_custom(
+            vec!["x".into()],
+            CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: Transform::CaseFold,
+            },
+        )
+        .unwrap();
+    let definitions = vec![CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    }];
+    let options = RepositoryOptions {
+        snapshot_mode: crate::repository::SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let snapshot = root.join("snapshot.bin");
+    for (name, content, logical, fallback) in [
+        ("empty", b"".as_slice(), 0, 0),
+        (
+            "healthy",
+            b"{\"x\":\"one\"}\n{\"x\":\"two\"}\n".as_slice(),
+            2,
+            0,
+        ),
+        ("fallback", b"{\"x\":\n".as_slice(), 0, 1),
+        (
+            "mixed",
+            b"{\"x\":\"one\"}\n{\"x\":\n{\"x\":\"two\"}\n".as_slice(),
+            2,
+            1,
+        ),
+    ] {
+        fs::write(&source, content).unwrap();
+        let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        let (inventory_bytes, diagnostic_bytes) = built.files.estimated_heap_bytes();
+        assert!(inventory_bytes > 0, "{name}");
+        assert_eq!(diagnostic_bytes > 0, fallback > 0, "{name}");
+        assert_eq!(
+            built.collections[0].logical_records.len(),
+            logical,
+            "{name}"
+        );
+        assert_eq!(
+            built.collections[0].generation.records.len() as u64,
+            logical + fallback,
+            "{name}"
+        );
+        built.save_snapshot(&snapshot).unwrap();
+        let restored = load_snapshot(
+            root.clone(),
+            definitions.clone(),
+            options,
+            &crate::source::SourceRegistry::builtin(),
+            &snapshot,
+        )
+        .unwrap();
+        assert_eq!(
+            restored.collections[0].logical_records,
+            built.collections[0].logical_records
+        );
+        assert_eq!(
+            restored.collections[0].generation.records.len() as u64,
+            logical + fallback
+        );
+    }
+    let original = fs::read(&snapshot).unwrap();
+    let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
+    for case in [
+        "eligibility_missing",
+        "eligibility_wrong",
+        "posting_fallback",
+        "posting_out_of_bounds",
+        "raw_fallback",
+        "fallback_logical",
+        "custom_text_fallback",
+        "posting_statistics",
+        "posting_coverage",
+        "diagnostic_owner",
+    ] {
+        let mut reader = Cursor::new(&original);
+        reader.set_position(header_size as u64);
+        let mut files: Vec<EncodedFile> = read_section(&mut reader, 0).unwrap();
+        let mut collection: EncodedCollection = read_section(&mut reader, 1).unwrap();
+        let posting = collection
+            .postings
+            .fields
+            .get_mut(&vec!["x".into()])
+            .unwrap();
+        match case {
+            "eligibility_missing" => {
+                collection.logical_records.remove(2);
+            }
+            "eligibility_wrong" => {
+                collection.logical_records.insert(1);
+            }
+            "posting_fallback" => {
+                posting.presence.insert(1);
+            }
+            "posting_out_of_bounds" => {
+                posting.presence.insert(99);
+            }
+            "raw_fallback" => {
+                collection.raw.normal.entry(1).or_default().insert(1);
+            }
+            "fallback_logical" => {
+                collection
+                    .fallback_text
+                    .normal
+                    .entry(1)
+                    .or_default()
+                    .insert(0);
+            }
+            "custom_text_fallback" => {
+                collection
+                    .custom_text
+                    .values_mut()
+                    .next()
+                    .unwrap()
+                    .normal
+                    .entry(1)
+                    .or_default()
+                    .insert(1);
+            }
+            "posting_statistics" => {
+                posting.stats.present_count += 1;
+            }
+            "posting_coverage" => {
+                posting.covered_records -= 1;
+            }
+            "diagnostic_owner" => {
+                files[0].diagnostics[0].file = FileId(99);
+            }
+            _ => unreachable!(),
+        }
+        let mut rewritten = original[..header_size].to_vec();
+        write_section(&mut rewritten, 0, &files).unwrap();
+        write_section(&mut rewritten, 1, &collection).unwrap();
+        fs::write(&snapshot, rewritten).unwrap();
+        assert!(
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &snapshot,
+            )
+            .is_err(),
+            "checksummed corruption accepted: {case}"
+        );
+    }
     fs::remove_dir_all(root).unwrap();
 }
 

@@ -79,6 +79,7 @@ fn run() -> Result<(), String> {
     } else {
         None
     };
+    let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
     println!(
         "{}",
         serde_json::json!({
@@ -86,8 +87,14 @@ fn run() -> Result<(), String> {
             "snapshot_mode": if snapshot_mode == SnapshotMode::Rebuild { "rebuild" } else { "disabled" },
             "wall_ns": wall_ns,
             "build_ns": repo.startup().build_ns,
+            "discovery_ns": repo.startup().build_discovery_ns,
+            "extraction_index_ns": repo.startup().build_extraction_index_ns,
+            "finalization_ns": repo.startup().build_finalization_ns,
             "snapshot_write_ns": repo.startup().snapshot_write_ns,
             "build_parses": repo.build_parses(),
+            "failed_parses": repo.build_failed_parses(),
+            "inventory_heap_bytes": inventory_heap_bytes,
+            "diagnostic_heap_bytes": diagnostic_heap_bytes,
             "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
             "resident_bytes": memory_bytes("VmRSS:"),
             "peak_resident_bytes": memory_bytes("VmHWM:"),

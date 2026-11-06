@@ -245,6 +245,9 @@ pub struct StartupStats {
     pub snapshot_decode_ns: u64,
     pub reconciliation_ns: u64,
     pub build_ns: u64,
+    pub build_discovery_ns: u64,
+    pub build_extraction_index_ns: u64,
+    pub build_finalization_ns: u64,
     pub snapshot_write_ns: u64,
 }
 
@@ -433,6 +436,7 @@ impl Repository {
                         reconciliation_ns,
                         build_ns: 0,
                         snapshot_write_ns: 0,
+                        ..StartupStats::default()
                     };
                     return Ok(repo);
                 }
@@ -449,13 +453,9 @@ impl Repository {
                     previous.checked_add(1).ok_or("generation overflow")?;
             }
         }
-        repo.startup = StartupStats {
-            restored: false,
-            snapshot_decode_ns: decode_ns,
-            reconciliation_ns,
-            build_ns: started.elapsed().as_nanos() as u64,
-            snapshot_write_ns: 0,
-        };
+        repo.startup.snapshot_decode_ns = decode_ns;
+        repo.startup.reconciliation_ns = reconciliation_ns;
+        repo.startup.build_ns = started.elapsed().as_nanos() as u64;
         if options.snapshot_mode != SnapshotMode::Disabled {
             let write_started = Instant::now();
             repo.save_snapshot(&snapshot)?;
@@ -470,6 +470,7 @@ impl Repository {
         options: RepositoryOptions,
         sources: &SourceRegistry,
     ) -> Result<Self, String> {
+        let discovery_started = Instant::now();
         let mut files = FileInventory::new(root.clone());
         let mut selected = Vec::new();
         for (collection_index, definition) in definitions.into_iter().enumerate() {
@@ -510,10 +511,14 @@ impl Repository {
             }
             selected.push((definition, id, source, member_files));
         }
+        let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
         let mut collections = Vec::new();
         let mut build_parses = 0;
         let mut build_failed_parses = 0;
+        let mut extraction_index_ns = 0u64;
+        let mut finalization_ns = 0u64;
         for (definition, id, source, member_files) in selected {
+            let extraction_started = Instant::now();
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let mut postings = PostingCollection::new(&definition.schema);
@@ -756,23 +761,43 @@ impl Repository {
                 build_parses += stats.record_parses;
                 build_failed_parses += stats.failed_parses;
             }
+            extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
+            let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;
+            let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
             postings.validate(generation.records.len())?;
-            postings.validate_domain(&logical_records)?;
+            if !all_logical {
+                postings.validate_domain(&logical_records)?;
+            }
             for custom in custom_postings.values_mut() {
                 custom.index.finish_stats();
                 custom.index.validate(generation.records.len())?;
-                custom.index.validate_domain(&logical_records)?;
+                if !all_logical {
+                    custom.index.validate_domain(&logical_records)?;
+                }
             }
             raw.validate(generation.records.len())?;
-            raw.validate_domain(&logical_records)?;
+            if !all_logical {
+                raw.validate_domain(&logical_records)?;
+            }
             fallback_text.validate(generation.records.len())?;
-            let all_slots: RoaringBitmap = (0..generation.records.len() as u32).collect();
-            fallback_text.validate_domain(&(&all_slots - &logical_records))?;
+            if all_logical {
+                fallback_text.validate_domain(&RoaringBitmap::new())?;
+            } else if !logical_records.is_empty() {
+                let fallback_slots: RoaringBitmap = generation
+                    .records
+                    .iter()
+                    .filter(|record| record.class == RecordClass::RawFallback)
+                    .map(|record| record.slot.0)
+                    .collect();
+                fallback_text.validate_domain(&fallback_slots)?;
+            }
             for index in custom_text.values() {
                 index.validate(generation.records.len())?;
-                index.validate_domain(&logical_records)?;
+                if !all_logical {
+                    index.validate_domain(&logical_records)?;
+                }
             }
             let sorting = sort_builder.finish(&generation)?;
             let id_lookup = generation
@@ -814,6 +839,7 @@ impl Repository {
                 identity_order,
                 stats,
             });
+            finalization_ns += finalization_started.elapsed().as_nanos() as u64;
         }
         for state in &mut collections {
             state.sorting.refresh_file_status(&state.generation, &files);
@@ -827,7 +853,12 @@ impl Repository {
             build_failed_parses,
             instance_id: next_repository_instance(),
             options,
-            startup: StartupStats::default(),
+            startup: StartupStats {
+                build_discovery_ns: discovery_ns,
+                build_extraction_index_ns: extraction_index_ns,
+                build_finalization_ns: finalization_ns,
+                ..StartupStats::default()
+            },
             workers: Self::create_workers(options.query_workers)?,
             prepared: Mutex::new(crate::prepared::PreparedCache::new(
                 options.prepared_cache_bytes,

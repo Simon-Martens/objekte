@@ -224,6 +224,31 @@ pub struct FileInventory {
 
 
 impl FileInventory {
+    /// Approximate heap used by inventory and retained diagnostics, separately.
+    /// Hash-table control bytes and allocator overhead are not included.
+    pub fn estimated_heap_bytes(&self) -> (usize, usize) {
+        let mut inventory = self.root.capacity()
+            + self.files.capacity() * std::mem::size_of::<FileEntry>()
+            + self.by_path.capacity() * std::mem::size_of::<(PathBuf, FileId)>();
+        let mut diagnostics = 0;
+        for file in &self.files {
+            inventory += file.relative_path.capacity()
+                + file.collections.capacity() * std::mem::size_of::<CollectionId>();
+            diagnostics += file.diagnostics.capacity() * std::mem::size_of::<SourceDiagnostic>();
+            for diagnostic in &file.diagnostics {
+                diagnostics += diagnostic.source_id.capacity()
+                    + diagnostic.code.capacity()
+                    + diagnostic.message.capacity();
+                if let Some(path) = &diagnostic.field_path {
+                    diagnostics += path.capacity() * std::mem::size_of::<String>();
+                    diagnostics += path.iter().map(String::capacity).sum::<usize>();
+                }
+            }
+        }
+        inventory += self.by_path.keys().map(PathBuf::capacity).sum::<usize>();
+        (inventory, diagnostics)
+    }
+
     pub fn new(root: PathBuf) -> Self {
         Self {
             root,
