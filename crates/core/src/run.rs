@@ -19,12 +19,12 @@ use crate::inventory::{ByteRange, RecordEntry};
 use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
 use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, eval_bound_fts, eval_term,
+    BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{
-    RecordRangeReader, ScanProjection, read_record_range, read_record_ranges, text_segments,
+    ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range, read_record_ranges, text_segments,
 };
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
@@ -259,7 +259,8 @@ fn scan_projection(
         match expr {
             Residual::Term(term, proof) => {
                 let fully_proven = proof.is_some_and(|proof| candidates.is_subset(&proof.input));
-                if !fully_proven && term.path.root == PathRoot::Data {
+                if !fully_proven && term.path.root == PathRoot::Data
+                    && !term.matcher.as_ref().is_some_and(|matcher| matcher.input() == ExactInput::OriginalRecordBytes) {
                     if let Some(first) = term.path.segments.first() {
                         fields.insert(first.clone());
                     }
@@ -529,28 +530,32 @@ fn scan_file(
                 } else {
                     projection
                 };
-            let mut extracted = collection
-                .source
-                .reader()
-                .parse_for_query(&bytes, record_projection)?;
-            if query.options.return_mode == ReturnMode::Logical && may_reach_page {
-                collection.definition.schema.coerce_projected_record(
-                    &mut extracted.value,
-                    record_projection.top_level.as_ref(),
-                )?;
+            let decode = (query.options.return_mode == ReturnMode::Logical && may_reach_page)
+                || record_projection.collect_text
+                || record_projection.top_level.as_ref().is_none_or(|fields| !fields.is_empty());
+            let extracted = if decode {
+                let mut extracted = collection.source.reader().parse_for_query(&bytes, record_projection)?;
+                if query.options.return_mode == ReturnMode::Logical && may_reach_page {
+                    collection.definition.schema.coerce_projected_record(
+                        &mut extracted.value, record_projection.top_level.as_ref(),
+                    )?;
+                } else {
+                    collection.definition.schema.coerce_query_record(
+                        &mut extracted.value, record_projection.top_level.as_ref(),
+                    )?;
+                }
+                if projection.collect_text && collection.definition.schema.has_temporal_fields() {
+                    extracted.text = text_segments(&extracted.value);
+                }
+                outcome.record_parses += 1;
+                extracted
             } else {
-                collection.definition.schema.coerce_query_record(
-                    &mut extracted.value,
-                    record_projection.top_level.as_ref(),
-                )?;
-            }
-            if projection.collect_text && collection.definition.schema.has_temporal_fields() {
-                extracted.text = text_segments(&extracted.value);
-            }
-            outcome.record_parses += 1;
+                ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() }
+            };
             outcome.scanned_records += 1;
             let ctx = RecordContext {
                 value: &extracted.value,
+                source_bytes: Some(&bytes),
                 record,
                 file,
                 collection_name: &collection.definition.name,
@@ -743,6 +748,7 @@ fn inventory_fts_evidence(
         let file = &repo.files.files[record.file.0 as usize];
         let ctx = RecordContext {
             value: &empty,
+            source_bytes: None,
             record,
             file,
             collection_name: &collection.definition.name,

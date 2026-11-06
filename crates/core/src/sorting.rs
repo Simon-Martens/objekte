@@ -222,6 +222,7 @@ impl SortBuilder {
                 PathRoot::Metadata(field) => {
                     let ctx = RecordContext {
                         value: record,
+                        source_bytes: None,
                         record: entry,
                         file,
                         collection_name,

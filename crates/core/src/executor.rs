@@ -169,6 +169,7 @@ fn term_set(
                 let file = &repo.files.files[file_id.0 as usize];
                 let ctx = RecordContext {
                     value: &empty,
+                    source_bytes: None,
                     record,
                     file,
                     collection_name: &collection.definition.name,
@@ -188,6 +189,7 @@ fn term_set(
                 let file = &repo.files.files[record.file.0 as usize];
                 let ctx = RecordContext {
                     value: &empty,
+                    source_bytes: None,
                     record,
                     file,
                     collection_name: &collection.definition.name,
@@ -203,6 +205,7 @@ fn term_set(
             let file = &repo.files.files[record.file.0 as usize];
             let ctx = RecordContext {
                 value: &empty,
+                source_bytes: None,
                 record,
                 file,
                 collection_name: &collection.definition.name,
@@ -359,7 +362,8 @@ fn enumerate_paths(
                                 output,
                             );
                         }
-                    } else if !matches!(term.binding_name.as_str(), "lower") {
+                    } else if !matches!(term.binding_name.as_str(), "lower")
+                        && term.matcher.as_ref().is_some_and(|matcher| matcher.bigram_compatible()) {
                         if let Some(index) = collection
                             .custom_text
                             .get(&(term.path.segments.clone(), term.binding_name.clone()))
@@ -733,6 +737,9 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
     if matches!(term.binding_name.as_str(), "default" | "lower") {
         return None;
     }
+    if !term.matcher.as_ref().is_some_and(|matcher| matcher.bigram_compatible()) {
+        return None;
+    }
     let Value::String(literal) = &term.literal else {
         return None;
     };
@@ -750,6 +757,9 @@ pub(crate) fn fts_candidates(
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
     if fts.fields.is_empty() {
+        if fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+            return None;
+        }
         if collection
             .definition
             .schema
@@ -767,6 +777,10 @@ pub(crate) fn fts_candidates(
             return None;
         }
         let candidates = if field.binding_name != "default" {
+            if collection.source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields
+                || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+                return None;
+            }
             let key = (field.path.segments.clone(), field.binding_name.clone());
             collection
                 .custom_text
@@ -787,6 +801,9 @@ pub(crate) fn estimate_fts_candidates(
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
     if fts.fields.is_empty() {
+        if fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+            return None;
+        }
         if collection
             .definition
             .schema
@@ -808,6 +825,10 @@ pub(crate) fn estimate_fts_candidates(
             return None;
         }
         let estimate = if field.binding_name != "default" {
+            if collection.source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields
+                || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+                return None;
+            }
             let key = (field.path.segments.clone(), field.binding_name.clone());
             work += field.literal.len() as f64;
             collection

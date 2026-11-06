@@ -81,6 +81,9 @@ impl PostingIndex {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
+        if term.matcher.as_ref().is_some_and(|matcher| !matcher.posting_compatible()) {
+            return None;
+        }
         if self.covered_records as u64 != domain.len() {
             return None;
         }
@@ -270,6 +273,9 @@ impl PostingIndex {
 
     /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
     pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
+        if term.matcher.as_ref().is_some_and(|matcher| !matcher.posting_compatible()) {
+            return None;
+        }
         if self.covered_records as u64 != domain_len {
             return None;
         }
@@ -376,6 +382,9 @@ impl PostingIndex {
     /// An exact answer over this index's complete record domain, or `None`
     /// when quantification/transformation needs independent verification.
     pub fn exact_set(&self, term: &BoundTerm, domain: &RoaringBitmap) -> Option<RoaringBitmap> {
+        if term.matcher.as_ref().is_some_and(|matcher| !matcher.posting_compatible()) {
+            return None;
+        }
         if self.covered_records as u64 != domain.len() {
             return None;
         }

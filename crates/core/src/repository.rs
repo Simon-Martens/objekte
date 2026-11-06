@@ -734,6 +734,7 @@ impl Repository {
                 }
                 let ctx = RecordContext {
                     value: &extracted.value,
+                    source_bytes: Some(&bytes),
                     record,
                     file,
                     collection_name: &collection.definition.name,

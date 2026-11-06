@@ -101,6 +101,7 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
     };
     f(RecordContext {
         value: &value,
+        source_bytes: None,
         record: &record,
         file: &file,
         collection_name: "test",

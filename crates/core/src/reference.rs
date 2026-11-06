@@ -61,6 +61,32 @@ pub struct CustomBinding {
 }
 
 
+/// Input required by one prepared exact field predicate.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ExactInput {
+    SelectedValue,
+    OriginalRecordBytes,
+}
+
+
+/// Query-scoped exact evaluator prepared by a registered binding. A byte
+/// evaluator owns missing-field and array semantics for its whole record;
+/// value evaluators receive the ordinary field selection and quantifier rules.
+pub trait PreparedFilterMatcher: Send + Sync + std::fmt::Debug {
+    fn input(&self) -> ExactInput { ExactInput::SelectedValue }
+    fn matches(&self, value: Option<&Value>, bytes: Option<&[u8]>) -> Result<bool, String>;
+    fn posting_compatible(&self) -> bool { false }
+    fn bigram_compatible(&self) -> bool { false }
+}
+
+
+/// Query-scoped literal substring evaluator over one reader-owned segment.
+pub trait PreparedTextMatcher: Send + Sync + std::fmt::Debug {
+    fn matches(&self, text: &str) -> Result<bool, String>;
+    fn bigram_compatible(&self) -> bool { false }
+}
+
+
 /// One prepared named operation shared by FILTER, FTS, indexes, and scanners.
 /// Implementations work at value or record boundaries, never per character.
 pub trait BindingOperation: Send + Sync + std::fmt::Debug {
@@ -71,6 +97,20 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
     fn prepare_fts_literal(&self, text: &str) -> Result<String, String> {
         Ok(self.map_text(text))
     }
+
+    /// `None` selects the prepared mapped-value adapter. An override may
+    /// inspect borrowed values or original record bytes and return errors.
+    fn prepare_filter_matcher(
+        &self, _literal: &Value, _operator: Operator,
+    ) -> Result<Option<Arc<dyn PreparedFilterMatcher>>, String> { Ok(None) }
+
+    /// `None` selects the prepared mapped-text substring adapter.
+    fn prepare_text_matcher(
+        &self, _literal: &str,
+    ) -> Result<Option<Arc<dyn PreparedTextMatcher>>, String> { Ok(None) }
+
+    /// `map_value` and `map_text` use identical string representations.
+    fn value_text_equivalent(&self) -> bool { false }
 
     fn posting(&self) -> bool {
         false
@@ -450,11 +490,48 @@ pub struct BoundTerm {
     pub derived: Derived,
     pub transform: Transform,
     pub operation: Option<Arc<dyn BindingOperation>>,
+    pub matcher: Option<Arc<dyn PreparedFilterMatcher>>,
     pub binding_name: String,
     pub binding_version: u32,
     pub indexed: bool,
     pub multi: bool,
     pub span: (usize, usize),
+}
+
+
+#[derive(Debug)]
+struct MappedFilterMatcher {
+    operation: Arc<dyn BindingOperation>,
+    literal: Value,
+    operator: Operator,
+    text_equivalent: bool,
+}
+
+
+impl PreparedFilterMatcher for MappedFilterMatcher {
+    fn matches(&self, value: Option<&Value>, _: Option<&[u8]>) -> Result<bool, String> {
+        Ok(value.and_then(|value| self.operation.map_value(value)).as_ref()
+            .is_some_and(|mapped| compare_scalar(mapped, &self.literal, self.operator, Transform::Identity)))
+    }
+
+    fn posting_compatible(&self) -> bool { true }
+    fn bigram_compatible(&self) -> bool { self.text_equivalent }
+}
+
+
+#[derive(Debug)]
+struct MappedTextMatcher {
+    operation: Arc<dyn BindingOperation>,
+    literal: String,
+}
+
+
+impl PreparedTextMatcher for MappedTextMatcher {
+    fn matches(&self, text: &str) -> Result<bool, String> {
+        Ok(self.operation.map_text(text).contains(&self.literal))
+    }
+
+    fn bigram_compatible(&self) -> bool { true }
 }
 
 
@@ -628,6 +705,14 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
     if derived != Derived::None && !matches!(literal, Value::Number(_) | Value::Bool(_)) {
         return Err("invalid derived literal".into());
     }
+    let matcher = operation.as_ref().map(|op| {
+        op.prepare_filter_matcher(&literal, term.operator).map(|prepared| {
+            prepared.unwrap_or_else(|| Arc::new(MappedFilterMatcher {
+                operation: op.clone(), literal: literal.clone(), operator: term.operator,
+                text_equivalent: op.value_text_equivalent(),
+            }))
+        })
+    }).transpose()?;
     Ok(BoundTerm {
         path: term.path.clone(),
         kind,
@@ -638,6 +723,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         derived,
         transform,
         operation,
+        matcher,
         binding_name,
         binding_version,
         indexed: field.indexed,
@@ -679,6 +765,7 @@ fn prepare_literal(
 /// Record data and inventory metadata available during evaluation.
 pub struct RecordContext<'a> {
     pub value: &'a Value,
+    pub source_bytes: Option<&'a [u8]>,
     pub record: &'a RecordEntry,
     pub file: &'a FileEntry,
     pub collection_name: &'a str,
@@ -821,13 +908,11 @@ fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) 
     }
 }
 
-fn compare_bound(lhs: &Value, term: &BoundTerm) -> bool {
-    if let Some(operation) = &term.operation {
-        return operation.map_value(lhs).as_ref().is_some_and(|value| {
-            compare_scalar(value, &term.literal, term.operator, Transform::Identity)
-        });
+fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
+    if let Some(matcher) = &term.matcher {
+        return matcher.matches(Some(lhs), None);
     }
-    compare_scalar(lhs, &term.literal, term.operator, term.transform)
+    Ok(compare_scalar(lhs, &term.literal, term.operator, term.transform))
 }
 
 /// `%` spans any sequence; `\%` means a literal percent. No other wildcard.
@@ -864,6 +949,11 @@ fn contains_pattern(text: &str, pattern: &str) -> bool {
 }
 
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
+    if let Some(matcher) = &term.matcher {
+        if matcher.input() == ExactInput::OriginalRecordBytes {
+            return matcher.matches(None, ctx.source_bytes);
+        }
+    }
     let owned;
     let mut selected = if let PathRoot::Metadata(field) = term.path.root {
         owned = metadata_value(field, ctx)?;
@@ -928,12 +1018,18 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     }
     if term.multi {
         if term.quantifier == Quantifier::Any {
-            Ok(values.into_iter().any(|v| compare_bound(v, term)))
+            for value in values {
+                if compare_bound(value, term)? { return Ok(true); }
+            }
+            Ok(false)
         } else {
-            Ok(values.into_iter().all(|v| compare_bound(v, term)))
+            for value in values {
+                if !compare_bound(value, term)? { return Ok(false); }
+            }
+            Ok(true)
         }
     } else {
-        Ok(values.first().is_some_and(|v| compare_bound(v, term)))
+        values.first().map_or(Ok(false), |value| compare_bound(value, term))
     }
 }
 
@@ -1010,6 +1106,7 @@ pub struct BoundFtsField {
     pub literal: String,
     pub transform: Transform,
     pub operation: Option<Arc<dyn BindingOperation>>,
+    pub matcher: Option<Arc<dyn PreparedTextMatcher>>,
 }
 
 
@@ -1018,12 +1115,14 @@ pub struct BoundFtsField {
 pub struct BoundFts {
     pub literal: String,
     pub raw_operation: Option<Arc<dyn BindingOperation>>,
+    pub raw_matcher: Option<Arc<dyn PreparedTextMatcher>>,
     pub fields: Vec<BoundFtsField>,
 }
 
 
 pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
-    let raw_operation = schema.raw.as_ref().map(|binding| binding.operation.clone());
+    let raw_operation = fts.fields.is_empty().then(|| schema.raw.as_ref())
+        .flatten().map(|binding| binding.operation.clone());
     if let Some(op) = &raw_operation {
         if !op.accepts(&LogicalType::String, Operator::Contains, false) {
             return Err("raw FTS binding does not support substring matching".into());
@@ -1034,6 +1133,13 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         .map_or(Ok(fts.literal.clone()), |op| {
             op.prepare_fts_literal(&fts.literal)
         })?;
+    let raw_matcher = raw_operation.as_ref().map(|op| {
+        op.prepare_text_matcher(&literal).map(|prepared| {
+            prepared.unwrap_or_else(|| Arc::new(MappedTextMatcher {
+                operation: op.clone(), literal: literal.clone(),
+            }))
+        })
+    }).transpose()?;
     let mut fields = Vec::new();
     for selected in &fts.fields {
         let definition = schema.field_or_dynamic(&selected.path)?;
@@ -1074,17 +1180,26 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         } else {
             fts.literal.clone()
         };
+        let matcher = operation.as_ref().map(|op| {
+            op.prepare_text_matcher(&needle).map(|prepared| {
+                prepared.unwrap_or_else(|| Arc::new(MappedTextMatcher {
+                    operation: op.clone(), literal: needle.clone(),
+                }))
+            })
+        }).transpose()?;
         fields.push(BoundFtsField {
             path: selected.path.clone(),
             binding_name: name,
             literal: needle,
             transform,
             operation,
+            matcher,
         });
     }
     Ok(BoundFts {
         literal,
         raw_operation,
+        raw_matcher,
         fields,
     })
 }
@@ -1093,14 +1208,14 @@ fn text_contains(
     text: &str,
     needle: &str,
     transform: Transform,
-    operation: Option<&Arc<dyn BindingOperation>>,
-) -> bool {
-    if let Some(op) = operation {
-        op.map_text(text).contains(needle)
+    matcher: Option<&Arc<dyn PreparedTextMatcher>>,
+) -> Result<bool, String> {
+    if let Some(matcher) = matcher {
+        matcher.matches(text)
     } else if transform == Transform::CaseFold {
-        text.case_fold().collect::<String>().contains(needle)
+        Ok(text.case_fold().collect::<String>().contains(needle))
     } else {
-        text.contains(needle)
+        Ok(text.contains(needle))
     }
 }
 
@@ -1117,8 +1232,8 @@ pub fn eval_bound_fts(
                 &segment.text,
                 &fts.literal,
                 Transform::Identity,
-                fts.raw_operation.as_ref(),
-            ) {
+                fts.raw_matcher.as_ref(),
+            )? {
                 matched = true;
                 evidence.insert(segment.path.join("."));
             }
@@ -1132,8 +1247,8 @@ pub fn eval_bound_fts(
                     &text,
                     &field.literal,
                     field.transform,
-                    field.operation.as_ref(),
-                ) {
+                    field.matcher.as_ref(),
+                )? {
                     matched = true;
                     evidence.insert(field.path.display());
                 }
@@ -1147,8 +1262,8 @@ pub fn eval_bound_fts(
                     &segment.text,
                     &field.literal,
                     field.transform,
-                    field.operation.as_ref(),
-                ) {
+                    field.matcher.as_ref(),
+                )? {
                     matched = true;
                     evidence.insert(field.path.display());
                 }
