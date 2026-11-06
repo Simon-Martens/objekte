@@ -560,7 +560,7 @@ impl Repository {
                 .collect();
             for file_id in member_files {
                 builder.include_file(file_id)?;
-                let file = files.files[file_id.0 as usize].clone();
+                let revision = files.files[file_id.0 as usize].revision;
                 let path = files.native_path(file_id).ok_or("missing file path")?;
                 let mut consume = |outcome: SourceOutcome| {
                     let (range, mut extracted) = match outcome {
@@ -613,7 +613,7 @@ impl Repository {
                     if let Err(error) =
                         finish_build_record(&source, &definition.schema, &mut extracted)
                     {
-                        let bytes = read_record_range(&path, file.revision, range)?;
+                        let bytes = read_record_range(&path, revision, range)?;
                         return publish_fallback(
                             &root,
                             &definition,
@@ -647,7 +647,7 @@ impl Repository {
                             }
                             IdentityPolicy::Generated => Ok(RecordId::generated(
                                 file_id,
-                                file.revision.modified_ns,
+                                revision.modified_ns,
                                 range.start,
                             )),
                             IdentityPolicy::Intrinsic(path) => {
@@ -664,8 +664,9 @@ impl Repository {
                     .map_err(|error| {
                         format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
                     })?;
+                    let file = &files.files[file_id.0 as usize];
                     let slot = builder
-                        .add_record(&file, record_id, range.start, range.end)
+                        .add_record(file, record_id, range.start, range.end)
                         .map_err(|error| {
                             format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
                         })?;
@@ -713,7 +714,7 @@ impl Repository {
                         slot,
                         &extracted.value,
                         builder.record(slot).unwrap(),
-                        &file,
+                        file,
                         &root,
                         &definition.name,
                     )?;
@@ -751,8 +752,7 @@ impl Repository {
                     }
                     Ok(())
                 };
-                let stats =
-                    extract_file_outcomes(&path, source.reader(), file.revision, &mut consume)?;
+                let stats = extract_file_outcomes(&path, source.reader(), revision, &mut consume)?;
                 build_parses += stats.record_parses;
                 build_failed_parses += stats.failed_parses;
             }

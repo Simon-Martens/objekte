@@ -1,0 +1,11 @@
+{
+  "before_sha": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "after_worktree": "fix/core-foundation-performance",
+  "order": "A-B-B-A-A-B",
+  "alphabet": "ascii",
+  "snapshot_mode": "disabled",
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "rustc": "1.99.1",
+  "affinity": "0-31",
+  "governor": "powersave"
+}

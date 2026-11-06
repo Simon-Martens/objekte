@@ -136,6 +136,8 @@ fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() 
         })
         .collect();
     let repo = Repository::open(&root, definitions).unwrap();
+    assert_eq!(repo.files.files.len(), 1);
+    assert!(repo.files.files[0].diagnostics.is_empty());
     let mut query = Query {
         collections: vec![],
         fts: None,
