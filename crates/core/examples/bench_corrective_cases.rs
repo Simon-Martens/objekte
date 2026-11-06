@@ -259,6 +259,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
         }
         let mut raw = base;
         raw.fts = Some(FtsQuery {
+            mode: objekte_search_core::query::FtsMode::Literal,
             case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
             literal: "hello world".into(),
             fields: vec![],
@@ -325,6 +326,7 @@ fn custom_and_malformed_cases(root: &std::path::Path) -> Result<(), String> {
                 collections: vec!["data".into()],
                 filter: None,
                 fts: Some(FtsQuery {
+                    mode: objekte_search_core::query::FtsMode::Literal,
                     case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
                     literal: "recovery-token".into(),
                     fields: vec![],
@@ -586,6 +588,7 @@ fn run() -> Result<(), String> {
     let mut scan = Query {
         collections: vec!["left".into(), "right".into()],
         fts: Some(FtsQuery {
+            mode: objekte_search_core::query::FtsMode::Literal,
             case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
             literal: "needle".into(),
             fields: vec![],

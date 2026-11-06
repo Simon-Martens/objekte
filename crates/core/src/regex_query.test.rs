@@ -1,0 +1,330 @@
+use super::*;
+use crate::model::{FieldPath, LogicalType};
+use crate::query::{FtsField, FtsMode, FtsQuery, Query, QueryOptions};
+use crate::reference::{
+    BindingOperation, CustomBinding, FieldDefinition, RegisteredBinding, Schema, Transform,
+    bind_fts,
+};
+use crate::repository::{
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+};
+use crate::source::SourceFormat;
+use crate::workload::{BigramAlphabet, ReturnMode};
+
+#[test]
+fn compilation_limits_and_flags() {
+    let plain = CompiledRegex::compile(
+        "^foo.bar$",
+        RegexOptions::default(),
+        CaseSensitivity::Sensitive,
+    )
+    .unwrap();
+    assert!(plain.is_match("foo-bar"));
+    assert!(!plain.is_match("foo\nbar"));
+    assert!(!plain.is_match("FOO-BAR"));
+
+    let insensitive = CompiledRegex::compile(
+        "^foo.bar$",
+        RegexOptions {
+            multi_line: true,
+            dot_matches_new_line: true,
+        },
+        CaseSensitivity::Insensitive,
+    )
+    .unwrap();
+    assert!(insensitive.is_match("FOO\nBAR"));
+    assert!(insensitive.is_match("prefix\nFOO-BAR\nsuffix"));
+
+    assert!(
+        CompiledRegex::compile("(", RegexOptions::default(), CaseSensitivity::Sensitive)
+            .unwrap_err()
+            .contains("invalid regex")
+    );
+    assert!(
+        CompiledRegex::compile("a\\1", RegexOptions::default(), CaseSensitivity::Sensitive)
+            .unwrap_err()
+            .contains("invalid regex")
+    );
+    assert!(
+        CompiledRegex::compile(
+            &"a".repeat(MAX_PATTERN_BYTES + 1),
+            RegexOptions::default(),
+            CaseSensitivity::Sensitive
+        )
+        .unwrap_err()
+        .contains("byte limit")
+    );
+}
+
+#[test]
+fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
+    let root = std::env::temp_dir().join(format!("objekte-regex-fts-{}", std::process::id()));
+    let data = root.join("data");
+    std::fs::create_dir_all(&data).unwrap();
+    let lines = [
+        serde_json::json!({"title":"foo", "body":"bar"}).to_string(),
+        serde_json::json!({"title":"foo-bar", "body":"x"}).to_string(),
+        serde_json::json!({"title":"FOO\nBAR", "body":"x"}).to_string(),
+        serde_json::json!({"title":"Straße", "body":"x"}).to_string(),
+        "{\"title\":needle".into(),
+    ];
+    std::fs::write(data.join("records.jsonl"), lines.join("\n")).unwrap();
+    let mut schema = Schema::default();
+    for name in ["title", "body"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    schema
+        .register_custom(
+            vec!["title".into()],
+            CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: Transform::CaseFold,
+            },
+        )
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: Vec::new(),
+        sort_locale: "en".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let repo = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::ReadWrite,
+                verified_cache_bytes: 1024 * 1024,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let query = |pattern: &str, selected: Option<&str>, case_sensitivity, options| Query {
+            collections: vec!["data".into()],
+            fts: Some(FtsQuery {
+                case_sensitivity,
+                mode: FtsMode::Regex(options),
+                literal: pattern.into(),
+                fields: selected
+                    .into_iter()
+                    .map(|name| FtsField {
+                        path: FieldPath::parse(name).unwrap(),
+                        binding: None,
+                    })
+                    .collect(),
+            }),
+            filter: None,
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 20,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Logical,
+                evidence: true,
+            },
+        };
+        for (request, expected) in [
+            (
+                query(
+                    "^foo.bar$",
+                    Some("title"),
+                    CaseSensitivity::Sensitive,
+                    RegexOptions::default(),
+                ),
+                1,
+            ),
+            (
+                query(
+                    "^foo.bar$",
+                    Some("title"),
+                    CaseSensitivity::Insensitive,
+                    RegexOptions {
+                        multi_line: true,
+                        dot_matches_new_line: true,
+                    },
+                ),
+                2,
+            ),
+            (
+                query(
+                    "foo.*bar",
+                    None,
+                    CaseSensitivity::Sensitive,
+                    RegexOptions::default(),
+                ),
+                1,
+            ),
+            (
+                query(
+                    "^bar$",
+                    Some("body"),
+                    CaseSensitivity::Sensitive,
+                    RegexOptions::default(),
+                ),
+                1,
+            ),
+            (
+                query(
+                    "\\{\\\"title\\\":needle",
+                    None,
+                    CaseSensitivity::Sensitive,
+                    RegexOptions::default(),
+                ),
+                1,
+            ),
+        ] {
+            let optimized = repo.search(&request).unwrap();
+            let reference = repo.search_reference(&request).unwrap();
+            assert_eq!(optimized.count, Some(expected), "{alphabet:?} {request:?}");
+            assert_eq!(optimized.hits, reference.hits, "{alphabet:?} {request:?}");
+            assert_eq!(repo.search(&request).unwrap().hits, optimized.hits);
+        }
+        let sensitive = query(
+            "^foo",
+            Some("title"),
+            CaseSensitivity::Sensitive,
+            RegexOptions::default(),
+        );
+        let insensitive = query(
+            "^foo",
+            Some("title"),
+            CaseSensitivity::Insensitive,
+            RegexOptions::default(),
+        );
+        assert_eq!(repo.search(&sensitive).unwrap().count, Some(2));
+        let mut folded = query(
+            "^strasse$",
+            Some("title"),
+            CaseSensitivity::Sensitive,
+            RegexOptions::default(),
+        );
+        folded.fts.as_mut().unwrap().fields[0].binding = Some("folded".into());
+        assert_eq!(repo.search(&folded).unwrap().count, Some(1));
+        assert_eq!(
+            repo.search(&folded).unwrap().hits,
+            repo.search_reference(&folded).unwrap().hits
+        );
+        assert_eq!(repo.search(&insensitive).unwrap().count, Some(3));
+        assert_eq!(repo.search(&sensitive).unwrap().count, Some(2));
+        let invalid = query(
+            "(",
+            None,
+            CaseSensitivity::Sensitive,
+            RegexOptions::default(),
+        );
+        assert!(repo.search(&invalid).unwrap_err().contains("invalid regex"));
+        drop(repo);
+        let restored = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::ReadWrite,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        assert!(restored.startup().restored);
+        let request = query(
+            "^foo.bar$",
+            Some("title"),
+            CaseSensitivity::Sensitive,
+            RegexOptions::default(),
+        );
+        assert_eq!(restored.search(&request).unwrap().count, Some(1));
+        assert_eq!(
+            restored.search(&request).unwrap().hits,
+            restored.search_reference(&request).unwrap().hits
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+
+#[derive(Debug)]
+struct RegexMapping {
+    compatible: bool,
+}
+
+
+impl BindingOperation for RegexMapping {
+    fn accepts(
+        &self,
+        _kind: &LogicalType,
+        _operator: crate::query::Operator,
+        _multi: bool,
+    ) -> bool {
+        true
+    }
+
+    fn prepare_literal(
+        &self,
+        _literal: &crate::query::Literal,
+        _kind: &LogicalType,
+    ) -> Result<crate::model::Value, String> {
+        Err("not used by regex".into())
+    }
+
+    fn map_value(&self, _value: &crate::model::Value) -> Option<crate::model::Value> {
+        None
+    }
+
+    fn map_text(&self, text: &str) -> String {
+        text.replace('-', "")
+    }
+
+    fn regex_text_compatible(&self) -> bool {
+        self.compatible
+    }
+}
+
+
+#[test]
+fn custom_regex_binding_requires_explicit_representation_contract() {
+    let fts = FtsQuery {
+        case_sensitivity: CaseSensitivity::Sensitive,
+        mode: FtsMode::Regex(RegexOptions::default()),
+        literal: "foobar".into(),
+        fields: Vec::new(),
+    };
+    for compatible in [false, true] {
+        let mut schema = Schema::default();
+        schema
+            .set_raw_binding(RegisteredBinding {
+                name: "dashless".into(),
+                version: 1,
+                operation: Arc::new(RegexMapping { compatible }),
+            })
+            .unwrap();
+        if compatible {
+            let bound = bind_fts(&fts, &schema).unwrap();
+            assert!(bound.raw_matcher.unwrap().matches("foo-bar").unwrap());
+            assert!(bound.fallback_regex.as_ref().unwrap().is_match("foobar"));
+            assert!(!bound.fallback_regex.as_ref().unwrap().is_match("foo-bar"));
+        } else {
+            assert!(
+                bind_fts(&fts, &schema)
+                    .unwrap_err()
+                    .contains("does not support regex mode")
+            );
+        }
+    }
+}

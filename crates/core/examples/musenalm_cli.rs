@@ -3,7 +3,7 @@ mod musenalm;
 
 use std::path::PathBuf;
 
-use objekte_search_core::query::Query;
+use objekte_search_core::query::{FtsMode, Query, RegexOptions};
 use objekte_search_core::repository::{Payload, Repository, RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, WorkloadCase, load_manifest};
 
@@ -18,6 +18,8 @@ fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut case_id = None;
     let mut fts = None;
+    let mut fts_mode = FtsMode::Literal;
+    let mut fts_case_sensitivity = objekte_search_core::query::CaseSensitivity::Sensitive;
     let mut filter = None;
     let mut collection = "*".to_string();
     let mut explain = false;
@@ -33,7 +35,34 @@ fn run() -> Result<(), String> {
         match arg.as_str() {
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--case" => case_id = Some(args.next().ok_or("--case needs an ID")?),
-            "--fts" => fts = Some(args.next().ok_or("--fts needs a literal")?),
+            "--fts" => {
+                if fts.is_some() {
+                    return Err("--fts and --regex are mutually exclusive".into());
+                }
+                fts = Some(args.next().ok_or("--fts needs a literal")?);
+            }
+            "--regex" => {
+                if fts.is_some() {
+                    return Err("--fts and --regex are mutually exclusive".into());
+                }
+                fts = Some(args.next().ok_or("--regex needs a pattern")?);
+                fts_mode = FtsMode::Regex(RegexOptions::default());
+            }
+            "--regex-multiline" => {
+                let FtsMode::Regex(ref mut options) = fts_mode else {
+                    return Err("--regex-multiline requires --regex first".into());
+                };
+                options.multi_line = true;
+            }
+            "--regex-dotall" => {
+                let FtsMode::Regex(ref mut options) = fts_mode else {
+                    return Err("--regex-dotall requires --regex first".into());
+                };
+                options.dot_matches_new_line = true;
+            }
+            "--fts-insensitive" => {
+                fts_case_sensitivity = objekte_search_core::query::CaseSensitivity::Insensitive;
+            }
             "--filter" => filter = Some(args.next().ok_or("--filter needs an expression")?),
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
             "--explain" => explain = true,
@@ -78,6 +107,9 @@ fn run() -> Result<(), String> {
             _ => return Err(format!("unknown option {arg}")),
         }
     }
+    if case_id.is_some() && (fts.is_some() || fts_mode != FtsMode::Literal) {
+        return Err("--case cannot be combined with --fts or --regex".into());
+    }
     let definitions = musenalm::load_definitions(&root)?;
     let mut case = if let Some(id) = case_id {
         let path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
@@ -87,7 +119,8 @@ fn run() -> Result<(), String> {
             .ok_or_else(|| format!("unknown case {id}"))?
     } else {
         WorkloadCase {
-            fts_case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
+            fts_case_sensitivity,
+            fts_mode,
             id: "adhoc".into(),
             collection,
             fts,

@@ -19,6 +19,7 @@ mod prepared;
 pub mod query;
 mod record_preparation;
 pub mod reference;
+mod regex_query;
 pub mod repository;
 pub mod run;
 pub mod sorting;

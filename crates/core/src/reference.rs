@@ -1,18 +1,20 @@
 //! Typed query binding and independent, index-free reference evaluation.
 
+use smallvec::SmallVec;
+use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
-use smallvec::SmallVec;
 
 use crate::bigram::BigramRequest;
 use crate::bigram::fold;
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{
-    CaseSensitivity, FilterExpr, FtsQuery, Literal, Modifier, Operator, Quantifier, Term,
+    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Literal, Modifier, Operator, Quantifier, Term,
 };
+use crate::regex_query::CompiledRegex;
 use crate::source::TextSegment;
 
 
@@ -109,6 +111,12 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
     fn map_text(&self, text: &str) -> String;
     fn prepare_fts_literal(&self, text: &str) -> Result<String, String> {
         Ok(self.map_text(text))
+    }
+
+    /// Opt in only when `map_text` is the complete text representation on
+    /// which a prepared regex may run without transforming regex syntax.
+    fn regex_text_compatible(&self) -> bool {
+        false
     }
 
     /// Return a prepared prefix only when mapping a source prefix preserves
@@ -582,6 +590,29 @@ impl PreparedTextMatcher for MappedTextMatcher {
 
     fn bigram_compatible(&self) -> bool {
         true
+    }
+}
+
+
+/// Regex over a selected registered text representation, one segment at a time.
+#[derive(Debug)]
+struct RegexTextMatcher {
+    regex: CompiledRegex,
+    transform: Transform,
+    operation: Option<Arc<dyn BindingOperation>>,
+}
+
+
+impl PreparedTextMatcher for RegexTextMatcher {
+    fn matches(&self, text: &str) -> Result<bool, String> {
+        let haystack = if let Some(operation) = &self.operation {
+            Cow::Owned(operation.map_text(text))
+        } else if self.transform == Transform::CaseFold {
+            Cow::Owned(fold(text))
+        } else {
+            Cow::Borrowed(text)
+        };
+        Ok(self.regex.is_match(&haystack))
     }
 }
 
@@ -1268,6 +1299,7 @@ pub struct BoundFtsField {
 #[derive(Clone, Debug)]
 pub struct BoundFts {
     pub case_sensitivity: CaseSensitivity,
+    pub mode: FtsMode,
     pub literal: String,
     pub source_literal: String,
     pub folded_literal: String,
@@ -1276,11 +1308,15 @@ pub struct BoundFts {
     pub(crate) fallback_gram_request: BigramRequest,
     pub raw_operation: Option<Arc<dyn BindingOperation>>,
     pub raw_matcher: Option<Arc<dyn PreparedTextMatcher>>,
+    pub(crate) fallback_regex: Option<CompiledRegex>,
     pub fields: Vec<BoundFtsField>,
 }
 
 
 pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
+    if let FtsMode::Regex(options) = fts.mode {
+        return bind_regex_fts(fts, schema, options);
+    }
     let raw_operation = fts
         .fields
         .is_empty()
@@ -1397,6 +1433,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     }
     Ok(BoundFts {
         case_sensitivity: fts.case_sensitivity,
+        mode: FtsMode::Literal,
         gram_request: BigramRequest::from_folded(&folded_literal),
         fallback_gram_request: BigramRequest::from_folded(&folded_source_literal),
         folded_literal,
@@ -1405,6 +1442,92 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         source_literal: fts.literal.clone(),
         raw_operation,
         raw_matcher,
+        fallback_regex: None,
+        fields,
+    })
+}
+
+fn bind_regex_fts(
+    fts: &FtsQuery,
+    schema: &Schema,
+    options: crate::query::RegexOptions,
+) -> Result<BoundFts, String> {
+    let compiled = CompiledRegex::compile(&fts.literal, options, fts.case_sensitivity)?;
+    let raw_operation = fts
+        .fields
+        .is_empty()
+        .then(|| schema.raw.as_ref())
+        .flatten()
+        .map(|binding| binding.operation.clone());
+    if raw_operation
+        .as_ref()
+        .is_some_and(|operation| !operation.regex_text_compatible())
+    {
+        return Err("raw FTS binding does not support regex mode".into());
+    }
+    let raw_matcher = fts.fields.is_empty().then(|| {
+        Arc::new(RegexTextMatcher {
+            regex: compiled.clone(),
+            transform: Transform::Identity,
+            operation: raw_operation.clone(),
+        }) as Arc<dyn PreparedTextMatcher>
+    });
+    let mut fields = Vec::with_capacity(fts.fields.len());
+    for selected in &fts.fields {
+        let definition = schema.field_or_dynamic(&selected.path)?;
+        if !matches!(definition.kind, LogicalType::String)
+            && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
+            && definition.kind != LogicalType::Unknown
+        {
+            return Err("FTS field requires string values".into());
+        }
+        let name = selected
+            .binding
+            .clone()
+            .or_else(|| schema.defaults.get(&selected.path.segments).cloned())
+            .unwrap_or_else(|| "default".into());
+        let key = (selected.path.segments.clone(), name.clone());
+        let (transform, operation) = if name == "default" {
+            (Transform::Identity, None)
+        } else if name == "lower" {
+            (Transform::CaseFold, None)
+        } else if let Some(binding) = schema.operations.get(&key) {
+            if !binding.operation.regex_text_compatible() {
+                return Err(format!("FTS binding {name} does not support regex mode"));
+            }
+            (Transform::Identity, Some(binding.operation.clone()))
+        } else if let Some(binding) = schema.custom.get(&key) {
+            (binding.transform, None)
+        } else {
+            return Err(format!("unknown FTS binding {name}"));
+        };
+        fields.push(BoundFtsField {
+            path: selected.path.clone(),
+            binding_name: name,
+            literal: fts.literal.clone(),
+            folded_literal: String::new(),
+            gram_request: BigramRequest::new(""),
+            transform,
+            operation: operation.clone(),
+            matcher: Some(Arc::new(RegexTextMatcher {
+                regex: compiled.clone(),
+                transform,
+                operation,
+            })),
+        });
+    }
+    Ok(BoundFts {
+        case_sensitivity: fts.case_sensitivity,
+        mode: fts.mode,
+        literal: fts.literal.clone(),
+        source_literal: fts.literal.clone(),
+        folded_literal: String::new(),
+        folded_source_literal: String::new(),
+        gram_request: BigramRequest::new(""),
+        fallback_gram_request: BigramRequest::new(""),
+        raw_operation,
+        raw_matcher,
+        fallback_regex: Some(compiled),
         fields,
     })
 }
@@ -1432,6 +1555,9 @@ fn text_contains(
 }
 
 pub fn raw_fallback_contains(fts: &BoundFts, text: &str) -> bool {
+    if let Some(regex) = &fts.fallback_regex {
+        return regex.is_match(text);
+    }
     match fts.case_sensitivity {
         CaseSensitivity::Sensitive => text.contains(&fts.source_literal),
         CaseSensitivity::Insensitive => fold(text).contains(&fts.folded_source_literal),
