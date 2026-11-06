@@ -45,7 +45,11 @@ fn run() -> Result<(), String> {
                 }
             }
             "--snapshot-mode" => {
-                snapshot_mode = match arguments.next().ok_or("--snapshot-mode needs a value")?.as_str() {
+                snapshot_mode = match arguments
+                    .next()
+                    .ok_or("--snapshot-mode needs a value")?
+                    .as_str()
+                {
                     "rebuild" => SnapshotMode::Rebuild,
                     "disabled" => SnapshotMode::Disabled,
                     other => return Err(format!("unknown snapshot mode {other}")),
@@ -59,26 +63,36 @@ fn run() -> Result<(), String> {
     let repo = Repository::open_with_options(
         &root,
         definitions,
-        RepositoryOptions { bigram_alphabet: alphabet, snapshot_mode, ..RepositoryOptions::default() },
+        RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode,
+            ..RepositoryOptions::default()
+        },
     )?;
     let wall_ns = started.elapsed().as_nanos();
     let snapshot_bytes = if snapshot_mode == SnapshotMode::Rebuild {
-        Some(std::fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
-            .map_err(|error| error.to_string())?.len())
+        Some(
+            std::fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
+                .map_err(|error| error.to_string())?
+                .len(),
+        )
     } else {
         None
     };
-    println!("{}", serde_json::json!({
-        "alphabet": alphabet,
-        "snapshot_mode": if snapshot_mode == SnapshotMode::Rebuild { "rebuild" } else { "disabled" },
-        "wall_ns": wall_ns,
-        "build_ns": repo.startup.build_ns,
-        "snapshot_write_ns": repo.startup.snapshot_write_ns,
-        "build_parses": repo.build_parses,
-        "records": repo.collections.iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
-        "resident_bytes": memory_bytes("VmRSS:"),
-        "peak_resident_bytes": memory_bytes("VmHWM:"),
-        "snapshot_bytes": snapshot_bytes,
-    }));
+    println!(
+        "{}",
+        serde_json::json!({
+            "alphabet": alphabet,
+            "snapshot_mode": if snapshot_mode == SnapshotMode::Rebuild { "rebuild" } else { "disabled" },
+            "wall_ns": wall_ns,
+            "build_ns": repo.startup.build_ns,
+            "snapshot_write_ns": repo.startup.snapshot_write_ns,
+            "build_parses": repo.build_parses,
+            "records": repo.collections.iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
+            "resident_bytes": memory_bytes("VmRSS:"),
+            "peak_resident_bytes": memory_bytes("VmHWM:"),
+            "snapshot_bytes": snapshot_bytes,
+        })
+    );
     Ok(())
 }

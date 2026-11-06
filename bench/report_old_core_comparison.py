@@ -44,11 +44,11 @@ def main() -> int:
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     with (result_dir / "timings.csv").open("w", newline="") as file:
         output = csv.writer(file)
-        output.writerow(("case", "collection", "matches", "old_median_ms", "new_median_ms", "old_over_new"))
+        output.writerow(("case", "collection", "matches", "old_median_ms", "new_median_ms", "old_over_new", "old_source_reads", "new_files_opened", "old_parses", "new_parses"))
         for entry in cases:
             old = entry["old_median_ns"]
             new = entry["new_median_ns"]
-            output.writerow((entry["case"], entry["collection"], entry["matches"], old / 1e6, new / 1e6, old / new))
+            output.writerow((entry["case"], entry["collection"], entry["matches"], old / 1e6, new / 1e6, old / new, entry.get("old_source_reads"), entry.get("new_files_opened"), entry.get("old_parses"), entry.get("new_parses")))
     ratios = [entry["old_median_ns"] / entry["new_median_ns"] for entry in cases]
     result = {
         "revision": revision, "setup": setup, "compared": len(cases), "skipped": len(skipped),
@@ -68,14 +68,14 @@ def main() -> int:
         "Both have verified query caches disabled, return an exact count and the first 50 full logical records,",
         "and use record ID ascending order. Cases enter timing only after exact count and ordered page IDs match.",
         "One process runs both cores, alternating their order across five repetitions per case.",
-        "Old source cache mode is memory, which it requires for indexed queries; the new core has no source cache.",
+        "The archived core uses its Memory repository mode for indexed queries; the new core has no source-content cache.",
         "Per-core parsing and materialization costs remain implementation-specific.",
-        "", "| Case | Matches | Old ms | New ms | Old / new |", "|---|---:|---:|---:|---:|",
+        "", "| Case | Matches | Old ms | New ms | Old / new | Old reads | New opens |", "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for entry in cases:
         old = entry["old_median_ns"] / 1e6
         new = entry["new_median_ns"] / 1e6
-        lines.append(f"| {entry['case']} | {entry['matches']} | {old:.3f} | {new:.3f} | {old / new:.2f}× |")
+        lines.append(f"| {entry['case']} | {entry['matches']} | {old:.3f} | {new:.3f} | {old / new:.2f}× | {entry.get('old_source_reads', '?')} | {entry.get('new_files_opened', '?')} |")
     if skipped:
         lines += ["", "## Excluded before timing", ""]
         for entry in skipped:

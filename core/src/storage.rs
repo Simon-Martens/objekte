@@ -504,6 +504,7 @@ pub fn load_snapshot(
         build_parses: 0,
         options,
         startup: StartupStats::default(),
+        workers: Repository::create_workers(options.query_workers)?,
         prepared: Mutex::new(crate::prepared::PreparedCache::new(
             options.prepared_cache_bytes,
         )),

@@ -78,6 +78,7 @@ pub struct Repository {
     pub build_parses: u64,
     pub options: RepositoryOptions,
     pub startup: StartupStats,
+    pub(crate) workers: rayon::ThreadPool,
     pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
 }
@@ -104,6 +105,7 @@ pub struct RepositoryOptions {
     pub prepared_cache_bytes: usize,
     pub verified_cache_bytes: usize,
     pub snapshot_mode: SnapshotMode,
+    pub query_workers: usize,
 }
 impl Default for RepositoryOptions {
     fn default() -> Self {
@@ -112,6 +114,8 @@ impl Default for RepositoryOptions {
             prepared_cache_bytes: 4 * 1024 * 1024,
             verified_cache_bytes: 0,
             snapshot_mode: SnapshotMode::ReadWrite,
+            query_workers: std::thread::available_parallelism()
+                .map_or(1, |workers| workers.get().min(32)),
         }
     }
 }
@@ -144,6 +148,16 @@ pub struct SearchResult {
 }
 
 impl Repository {
+    pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {
+        if count == 0 || count > 256 {
+            return Err("query_workers must be between 1 and 256".into());
+        }
+        rayon::ThreadPoolBuilder::new()
+            .num_threads(count)
+            .thread_name(|index| format!("objekte-query-{index}"))
+            .build()
+            .map_err(|error| error.to_string())
+    }
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         crate::run::search(self, query)
     }
@@ -431,6 +445,7 @@ impl Repository {
             build_parses,
             options,
             startup: StartupStats::default(),
+            workers: Self::create_workers(options.query_workers)?,
             prepared: Mutex::new(crate::prepared::PreparedCache::new(
                 options.prepared_cache_bytes,
             )),

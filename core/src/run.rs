@@ -4,6 +4,7 @@ use std::cmp::Ordering;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
 use std::time::Instant;
 
+use rayon::prelude::*;
 use roaring::RoaringBitmap;
 use serde::Serialize;
 
@@ -55,6 +56,98 @@ struct Winner {
     collection_index: usize,
     slot: u32,
     hit: SearchHit,
+}
+
+struct ScannedMatch {
+    slot: u32,
+    evidence: HashSet<String>,
+    payload: Option<Payload>,
+}
+
+#[derive(Default)]
+struct ScannedFile {
+    files_opened: u64,
+    bytes_read: u64,
+    record_parses: u64,
+    scanned_records: u64,
+    residual_evaluations: u64,
+    matches: Vec<ScannedMatch>,
+}
+
+fn scan_file(
+    repo: &Repository,
+    query: &Query,
+    collection_index: usize,
+    filter: Option<&BoundExpr>,
+    file_id: u32,
+    ranges: &[(u32, ByteRange)],
+) -> Result<ScannedFile, String> {
+    let collection = &repo.collections[collection_index];
+    let path = repo
+        .files
+        .native_path(crate::model::FileId(file_id))
+        .ok_or("missing source path")?;
+    let revision = repo.files.files[file_id as usize].revision;
+    let mut outcome = ScannedFile::default();
+    for batch in ranges.chunks(128) {
+        let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
+        outcome.files_opened += 1;
+        outcome.bytes_read += bytes_read;
+        for (slot, bytes) in records {
+            let record = &collection.generation.records[slot as usize];
+            let file = &repo.files.files[file_id as usize];
+            let mut extracted = reader(collection.definition.format).parse(&bytes)?;
+            collection
+                .definition
+                .schema
+                .coerce_record(&mut extracted.value)?;
+            if collection.definition.schema.has_temporal_fields() {
+                extracted.text = text_segments(&extracted.value);
+            }
+            outcome.record_parses += 1;
+            outcome.scanned_records += 1;
+            let ctx = RecordContext {
+                value: &extracted.value,
+                record,
+                file,
+                collection_name: &collection.definition.name,
+                repository_root: &repo.files.root,
+            };
+            let mut evidence = HashSet::new();
+            let fts_match = query
+                .fts
+                .as_ref()
+                .map(|fts| {
+                    eval_fts_query(
+                        fts,
+                        &collection.definition.schema,
+                        &extracted.text,
+                        &ctx,
+                        &mut evidence,
+                    )
+                })
+                .transpose()?
+                .unwrap_or(true);
+            let filter_match = filter
+                .map(|f| eval_filter(f, &ctx, &mut evidence))
+                .transpose()?
+                .unwrap_or(true);
+            outcome.residual_evaluations += u64::from(filter.is_some());
+            if fts_match && filter_match {
+                let payload = match query.options.return_mode {
+                    ReturnMode::Locator => None,
+                    ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
+                    ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
+                };
+                outcome.matches.push(ScannedMatch {
+                    slot,
+                    evidence,
+                    payload,
+                });
+            }
+        }
+    }
+    Ok(outcome)
 }
 
 #[derive(Clone, Debug, Serialize)]
@@ -611,76 +704,63 @@ fn search_impl(
                 .or_default()
                 .push((slot, record.range));
         }
-        for (file_id, ranges) in files {
-            let path = repo
-                .files
-                .native_path(crate::model::FileId(file_id))
-                .ok_or("missing source path")?;
-            let revision = repo.files.files[file_id as usize].revision;
-            for batch in ranges.chunks(128) {
-                let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
-                counters.files_opened += 1;
-                counters.bytes_read += bytes_read;
-                for (slot, bytes) in records {
-                    let record = &collection.generation.records[slot as usize];
-                    let file = &repo.files.files[file_id as usize];
-                    let mut extracted = reader(collection.definition.format).parse(&bytes)?;
-                    collection
-                        .definition
-                        .schema
-                        .coerce_record(&mut extracted.value)?;
-                    if collection.definition.schema.has_temporal_fields() {
-                        extracted.text = text_segments(&extracted.value);
-                    }
-                    counters.record_parses += 1;
-                    counters.scanned_records += 1;
-                    let ctx = RecordContext {
-                        value: &extracted.value,
-                        record,
-                        file,
-                        collection_name: &collection.definition.name,
-                        repository_root: &repo.files.root,
-                    };
-                    let mut evidence = HashSet::new();
-                    let fts_match = query
-                        .fts
-                        .as_ref()
-                        .map(|fts| {
-                            eval_fts_query(
-                                fts,
-                                &collection.definition.schema,
-                                &extracted.text,
-                                &ctx,
-                                &mut evidence,
+        let files: Vec<_> = files.into_iter().collect();
+        let parallel = repo.options.query_workers > 1 && files.len() >= 128;
+        // Bound in-flight parsed records while workers scan independent files.
+        // Applying offers in file order preserves deterministic tie handling.
+        for chunk in files.chunks(256) {
+            let scanned: Vec<_> = if parallel {
+                repo.workers.install(|| {
+                    chunk
+                        .par_iter()
+                        .map(|(file_id, ranges)| {
+                            scan_file(
+                                repo,
+                                query,
+                                collection_index,
+                                filter.as_ref(),
+                                *file_id,
+                                ranges,
                             )
                         })
-                        .transpose()?
-                        .unwrap_or(true);
-                    let filter_match = filter
-                        .as_ref()
-                        .map(|f| eval_filter(f, &ctx, &mut evidence))
-                        .transpose()?
-                        .unwrap_or(true);
-                    counters.residual_evaluations += u64::from(filter.is_some());
-                    if fts_match && filter_match {
-                        let payload = match query.options.return_mode {
-                            ReturnMode::Locator => None,
-                            ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
-                            ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
-                        };
-                        offer(
+                        .collect()
+                })
+            } else {
+                chunk
+                    .iter()
+                    .map(|(file_id, ranges)| {
+                        scan_file(
                             repo,
                             query,
                             collection_index,
-                            record,
-                            evidence,
-                            payload,
-                            &mut winners,
-                            cap,
-                            &mut counters,
-                            cache_members.as_deref_mut(),
-                        );
-                    }
+                            filter.as_ref(),
+                            *file_id,
+                            ranges,
+                        )
+                    })
+                    .collect()
+            };
+            for outcome in scanned {
+                let outcome = outcome?;
+                counters.files_opened += outcome.files_opened;
+                counters.bytes_read += outcome.bytes_read;
+                counters.record_parses += outcome.record_parses;
+                counters.scanned_records += outcome.scanned_records;
+                counters.residual_evaluations += outcome.residual_evaluations;
+                for matched in outcome.matches {
+                    let record = &collection.generation.records[matched.slot as usize];
+                    offer(
+                        repo,
+                        query,
+                        collection_index,
+                        record,
+                        matched.evidence,
+                        matched.payload,
+                        &mut winners,
+                        cap,
+                        &mut counters,
+                        cache_members.as_deref_mut(),
+                    );
                 }
             }
         }
@@ -768,6 +848,80 @@ mod tests {
     use crate::reference::{FieldDefinition, Schema};
     use crate::repository::{CollectionDefinition, IdentityPolicy};
     use crate::source::SourceFormat;
+
+    #[test]
+    fn parallel_file_scan_matches_single_worker_page_and_work() {
+        let root =
+            std::env::temp_dir().join(format!("objekte-parallel-scan-{}", std::process::id()));
+        std::fs::create_dir_all(root.join("data")).unwrap();
+        for index in 0..256 {
+            std::fs::write(
+                root.join("data").join(format!("{index:04}.json")),
+                format!(
+                    "{{\"kind\":\"{}\",\"sequence\":{index}}}",
+                    if index % 2 == 0 { "yes" } else { "no" }
+                ),
+            )
+            .unwrap();
+        }
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["kind".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+            })
+            .unwrap();
+        let definition = CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+        };
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter("kind = 'yes'").unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 50,
+                offset: 25,
+                count: true,
+                return_mode: ReturnMode::Logical,
+                evidence: true,
+            },
+        };
+        let run = |workers| {
+            let repo = Repository::open_with_options(
+                &root,
+                vec![definition.clone()],
+                crate::repository::RepositoryOptions {
+                    query_workers: workers,
+                    snapshot_mode: crate::repository::SnapshotMode::Disabled,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            repo.search(&query).unwrap()
+        };
+        let single = run(1);
+        let parallel = run(8);
+        assert_eq!(single.count, 128);
+        assert_eq!(single.hits, parallel.hits);
+        for result in [&single, &parallel] {
+            assert_eq!(result.counters.files_opened, 128);
+            assert_eq!(result.counters.record_parses, 128);
+            assert_eq!(result.counters.scanned_records, 128);
+            assert_eq!(result.counters.total_matches, 128);
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
 
     #[test]
     fn exact_membership_materializes_only_page_payload() {

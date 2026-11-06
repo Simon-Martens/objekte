@@ -15,6 +15,7 @@ serde_json = { version = "1.0", features = ["arbitrary_precision"] }
 time = { version = "0.3", features = ["serde", "parsing", "formatting"] }
 unicode-casefold = "0.2"
 roaring = { version = "0.11", features = ["serde"] }
+rayon = "1.11"
 icu_collator = "=2.4.0"
 icu_locale_core = "=2.4.0"
 sha2 = "0.10"
