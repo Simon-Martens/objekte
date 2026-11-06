@@ -10,14 +10,16 @@ Starting HEAD: `e7de81d092e8a063adf9751479f64a9f32271062`. The current core and 
 | 1. Flat file-record mapping | 12e2573 | d15b689d1a | 1655.289 | -34.369 | -2.0% | 1210.853 | 113.099 | 285.367 | 52140243 | retain provisionally |
 | 2. Scalar temporary allocations | 21322c1 | 12e2573 | 1612.440 | -42.849 | -2.6% | 1165.276 | 114.425 | 287.484 | 52140243 | retain provisionally |
 | 3. Borrowed logical text | 6b8d101 | 21322c1 | 1553.532 | -58.908 | -3.7% | 1110.439 | 119.898 | 283.539 | 52140243 | retain provisionally |
-| 4. Reusable source buffer | d7eda17 | 6b8d101 | 1582.672 | +29.140 | +1.9% | 1139.756 | 113.019 | 288.688 | 52140243 | retain provisionally |
+| 4. Reusable source buffer | d7eda17 | 6b8d101 | 1582.672 | +29.140 | +1.9% | 1139.756 | 113.019 | 288.688 | 52140243 | reverted |
 
 | Retained state | Cumulative wall delta from reference |
 | --- | ---: |
 | After experiment 1 | -34.369 ms (-2.0%) |
 | After experiment 2 | -77.217 ms (-4.6%) |
 | After experiment 3 | -136.125 ms (-8.1%) |
-| After experiment 4 | -106.985 ms (-6.3%) |
+| After experiment 4, before revert | -106.985 ms (-6.3%) |
+
+Experiment 4 was reverted in `c5db04767c2ebe6b32f7aa9bf3222abdd62de991` at the user's request. The retained code is experiment 3, whose recorded build was 1553.532 ms, 136.125 ms below the reference median. No new build was run for the revert.
 
 | Experiment | Build ms | Discovery ms | Resident MiB | Workers | Records | Parses | Failed parses |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -41,6 +43,6 @@ Built-in JSON readers omit owned text segments for build parsing. After schema c
 
 ## Experiment 4
 
-An ordinary file batch now reuses one read buffer, with an 8 MiB capacity retention ceiling. The oversized framed-file path is unchanged. Tests covered increasing and decreasing file sizes, empty files, malformed and healthy siblings, a missing file, a framing failure that takes ownership of bytes, and oversized capacity release. Full core tests passed: 113 unit tests passed, one ignored, plus one integration test. The build was 29.140 ms slower than experiment 3 and peak RSS rose 5.148 MiB. This single observation is within the 78.368 ms spread of the reference's three runs and cannot establish a regression or an allocation cause. The change remains provisional because it removes repeated buffer creation with limited production code. Schema, canonical registrations, counts, workers and semantic signature still matched.
+An ordinary file batch reused one read buffer, with an 8 MiB capacity retention ceiling. The oversized framed-file path was unchanged. Tests covered increasing and decreasing file sizes, empty files, malformed and healthy siblings, a missing file, a framing failure that takes ownership of bytes, and oversized capacity release. Full core tests passed: 113 unit tests passed, one ignored, plus one integration test. The build was 29.140 ms slower than experiment 3 and peak RSS rose 5.148 MiB. This single observation is within the 78.368 ms spread of the reference's three runs and cannot establish a regression or an allocation cause. The implementation was subsequently reverted; its measurement and test evidence remain here. Schema, canonical registrations, counts, workers and semantic signature matched.
 
 No query, restore or profiling benchmark was run. The four post-change builds are the complete measurement budget for this experiment series.
