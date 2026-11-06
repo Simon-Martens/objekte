@@ -101,11 +101,68 @@ def main() -> int:
     relative = 1.5 if args.mode == "full" else 1.8
     absolute_ns = 2_000_000 if args.mode == "full" else 5_000_000
     slowdowns = []
+    latency_failures = []
     for key in sorted(expected_keys & set(new_rows)):
         old_ns = int(old_rows[key]["median_ns"])
         new_ns = int(new_rows[key]["median_ns"])
         slowdowns.append((new_ns / max(old_ns, 1), key, old_ns, new_ns))
         if same_machine and new_ns > max(old_ns * relative, old_ns + absolute_ns):
+            latency_failures.append((key, old_ns, new_ns))
+    confirmations = []
+    if args.mode == "quick" and latency_failures:
+        confirmation_dir = result_dir / "confirmation"
+        confirmation_csv = confirmation_dir / "query-results.csv"
+        confirmation_command = [
+            "cargo", "run", "--release", "--example", "bench_musenalm", "--",
+            "--cases", ",".join(key[0] for key, _, _ in latency_failures),
+            "--profiles", "ascii-off", "--repetitions", "3",
+            "--result-dir", str(confirmation_dir),
+        ]
+        if not confirmation_csv.is_file():
+            confirmation_dir.mkdir(parents=True, exist_ok=True)
+            with (confirmation_dir / "console.log").open("w") as console:
+                completed = subprocess.run(confirmation_command, cwd=ROOT, stdout=console, stderr=subprocess.STDOUT)
+            if completed.returncode:
+                failures.append(f"confirmation benchmark failed: {confirmation_dir / 'console.log'}")
+        if confirmation_csv.is_file():
+            confirmed_rows = rows(confirmation_csv)
+            confirmation_manifest = json.loads((confirmation_dir / "run-manifest.json").read_text())
+            confirmation_samples = [
+                json.loads(line) for line in (confirmation_dir / "measurements.jsonl").read_text().splitlines()
+            ]
+            expected_confirmation_keys = {key for key, _, _ in latency_failures}
+            if set(confirmed_rows) != expected_confirmation_keys:
+                failures.append("confirmation case set differs from flagged cases")
+            if len(confirmation_samples) != 3 * len(latency_failures):
+                failures.append("confirmation sample count invalid")
+            confirmation_groups: dict[tuple[str, str], int] = defaultdict(int)
+            if confirmation_manifest["repetitions"] != 3 or confirmation_manifest["failures"] != 0:
+                failures.append("confirmation repetition or failure count invalid")
+            for field in ("corpus_fingerprint", "schema_fingerprint", "workload_fingerprint", "code_revision", "compiler"):
+                if confirmation_manifest[field] != new_manifest[field]:
+                    failures.append(f"confirmation {field} differs from main run")
+            for sample in confirmation_samples:
+                sample_profile = sample["profile"]["alphabet"] + ("-warm" if sample["profile"]["warm"] else "-off")
+                confirmation_groups[(sample["case_id"], sample_profile)] += 1
+                if (sample["case_id"], sample_profile) not in expected_confirmation_keys or sample["status"] != "ok":
+                    failures.append(f"unexpected or failed confirmation sample: {sample['case_id']} {sample_profile}")
+            if any(confirmation_groups[key] != 3 for key in expected_confirmation_keys):
+                failures.append("confirmation samples per case invalid")
+            for key, old_ns, first_ns in latency_failures:
+                confirmed = confirmed_rows.get(key)
+                if confirmed is None:
+                    failures.append(f"{key}: confirmation result missing")
+                    continue
+                median_ns = int(confirmed["median_ns"])
+                threshold_ns = max(old_ns * relative, old_ns + absolute_ns)
+                passed = confirmed["status"] == "ok" and int(confirmed["total_matches"]) == jq_counts[key[0]] and median_ns <= threshold_ns
+                confirmations.append({"case": key[0], "profile": key[1], "first_ns": first_ns,
+                                      "confirmed_median_ns": median_ns, "threshold_ns": threshold_ns,
+                                      "passed": passed})
+                if not passed:
+                    failures.append(f"{key}: confirmed {median_ns / 1e6:.3f} ms exceeds {old_ns / 1e6:.3f} ms baseline")
+    else:
+        for key, old_ns, new_ns in latency_failures:
             failures.append(f"{key}: {new_ns / 1e6:.3f} ms exceeds {old_ns / 1e6:.3f} ms baseline")
     old_total = sum(int(old_rows[key]["median_ns"]) for key in expected_keys)
     new_total = sum(int(new_rows[key]["median_ns"]) for key in expected_keys & set(new_rows))
@@ -120,6 +177,7 @@ def main() -> int:
         "result_dir": str(result_dir), "same_machine": same_machine,
         "aggregate_latency_ratio": new_total / old_total,
         "thresholds": {"per_case_relative": relative, "per_case_absolute_ns": absolute_ns, "aggregate_relative": aggregate_limit},
+        "confirmations": confirmations,
         "worst_slowdowns": [
             {"ratio": ratio, "case": key[0], "profile": key[1], "baseline_ns": old_ns, "actual_ns": new_ns}
             for ratio, key, old_ns, new_ns in sorted(slowdowns, reverse=True)[:20]

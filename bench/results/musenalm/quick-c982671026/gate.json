@@ -1,0 +1,183 @@
+{
+  "mode": "quick",
+  "expected_samples": 150,
+  "jq_count_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-jq-counts.json",
+  "machine_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-query-environment.json",
+  "actual_samples": 150,
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/full-128a7601c2",
+  "result_dir": "/home/simon/source/objekte/bench/results/musenalm/quick-c982671026",
+  "same_machine": true,
+  "aggregate_latency_ratio": 1.0151429298578956,
+  "thresholds": {
+    "per_case_relative": 1.8,
+    "per_case_absolute_ns": 5000000,
+    "aggregate_relative": 1.35
+  },
+  "confirmations": [
+    {
+      "case": "Q071",
+      "profile": "ascii-off",
+      "first_ns": 13219380,
+      "confirmed_median_ns": 4170031,
+      "threshold_ns": 9659585,
+      "passed": true
+    }
+  ],
+  "worst_slowdowns": [
+    {
+      "ratio": 3.022223312401884,
+      "case": "Q080",
+      "profile": "ascii-off",
+      "baseline_ns": 61152,
+      "actual_ns": 184815
+    },
+    {
+      "ratio": 3.0211562260592846,
+      "case": "Q061",
+      "profile": "ascii-off",
+      "baseline_ns": 16969,
+      "actual_ns": 51266
+    },
+    {
+      "ratio": 2.8370294779470706,
+      "case": "Q071",
+      "profile": "ascii-off",
+      "baseline_ns": 4659585,
+      "actual_ns": 13219380
+    },
+    {
+      "ratio": 2.3759247117958804,
+      "case": "Q063",
+      "profile": "ascii-off",
+      "baseline_ns": 366060,
+      "actual_ns": 869731
+    },
+    {
+      "ratio": 2.2607881479517435,
+      "case": "Q035",
+      "profile": "ascii-off",
+      "baseline_ns": 60344,
+      "actual_ns": 136425
+    },
+    {
+      "ratio": 2.1928794992175273,
+      "case": "Q009",
+      "profile": "ascii-off",
+      "baseline_ns": 15336,
+      "actual_ns": 33630
+    },
+    {
+      "ratio": 2.1846245767775345,
+      "case": "Q036",
+      "profile": "ascii-off",
+      "baseline_ns": 40168,
+      "actual_ns": 87752
+    },
+    {
+      "ratio": 2.1099095556429415,
+      "case": "Q125",
+      "profile": "ascii-off",
+      "baseline_ns": 5086,
+      "actual_ns": 10731
+    },
+    {
+      "ratio": 2.095604993083942,
+      "case": "Q123",
+      "profile": "ascii-off",
+      "baseline_ns": 354971,
+      "actual_ns": 743879
+    },
+    {
+      "ratio": 2.065542406311637,
+      "case": "Q101",
+      "profile": "ascii-off",
+      "baseline_ns": 50700,
+      "actual_ns": 104723
+    },
+    {
+      "ratio": 1.977670572019297,
+      "case": "Q034",
+      "profile": "ascii-off",
+      "baseline_ns": 7255,
+      "actual_ns": 14348
+    },
+    {
+      "ratio": 1.9336474226202631,
+      "case": "Q031",
+      "profile": "ascii-off",
+      "baseline_ns": 68558,
+      "actual_ns": 132567
+    },
+    {
+      "ratio": 1.9233723833301326,
+      "case": "Q032",
+      "profile": "ascii-off",
+      "baseline_ns": 10414,
+      "actual_ns": 20030
+    },
+    {
+      "ratio": 1.6985597413837972,
+      "case": "Q074",
+      "profile": "ascii-off",
+      "baseline_ns": 10375220,
+      "actual_ns": 17622931
+    },
+    {
+      "ratio": 1.6787774677887601,
+      "case": "Q103",
+      "profile": "ascii-off",
+      "baseline_ns": 565253,
+      "actual_ns": 948934
+    },
+    {
+      "ratio": 1.6474476926802453,
+      "case": "Q038",
+      "profile": "ascii-off",
+      "baseline_ns": 565743,
+      "actual_ns": 932032
+    },
+    {
+      "ratio": 1.6300128259844187,
+      "case": "Q076",
+      "profile": "ascii-off",
+      "baseline_ns": 17821634,
+      "actual_ns": 29049492
+    },
+    {
+      "ratio": 1.6292544872272288,
+      "case": "Q010",
+      "profile": "ascii-off",
+      "baseline_ns": 13427,
+      "actual_ns": 21876
+    },
+    {
+      "ratio": 1.6209976408289346,
+      "case": "Q140",
+      "profile": "ascii-off",
+      "baseline_ns": 1472975,
+      "actual_ns": 2387689
+    },
+    {
+      "ratio": 1.572890240782505,
+      "case": "Q106",
+      "profile": "ascii-off",
+      "baseline_ns": 19430523,
+      "actual_ns": 30562080
+    }
+  ],
+  "failures": [],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "/home/simon/source/objekte/bench/results/musenalm/quick-c982671026"
+  ]
+}
