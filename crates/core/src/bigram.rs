@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::model::RecordSlot;
+use crate::inventory::append_shifted_bitmap;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;
 
@@ -180,6 +181,21 @@ impl BigramIndex {
             .record_count
             .checked_add(1)
             .ok_or("bigram record overflow")?;
+        Ok(())
+    }
+
+    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+        if self.alphabet != batch.alphabet || self.record_count != base {
+            return Err("bigram batch coverage or alphabet mismatch".into());
+        }
+        let count = base.checked_add(batch.record_count).ok_or("bigram record overflow")?;
+        for (key, posting) in batch.normal {
+            append_shifted_bitmap(self.normal.entry(key).or_default(), &posting, base)?;
+        }
+        for (key, posting) in batch.skip {
+            append_shifted_bitmap(self.skip.entry(key).or_default(), &posting, base)?;
+        }
+        self.record_count = count;
         Ok(())
     }
 

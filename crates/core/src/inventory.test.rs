@@ -1,6 +1,17 @@
 use super::*;
 
 #[test]
+fn shifted_batch_bitmaps_cross_container_boundaries_and_reject_overlap() {
+    let mut destination: RoaringBitmap = [0, 1, 65_534].into_iter().collect();
+    let source: RoaringBitmap = [0, 1, 63, 64, 65].into_iter().collect();
+    append_shifted_bitmap(&mut destination, &source, 65_535).unwrap();
+    assert_eq!(destination.iter().collect::<Vec<_>>(),
+        [0, 1, 65_534, 65_535, 65_536, 65_598, 65_599, 65_600]);
+    assert!(append_shifted_bitmap(&mut destination, &source, 65_535).is_err());
+    assert!(append_shifted_bitmap(&mut destination, &source, u32::MAX).is_err());
+}
+
+#[test]
 fn file_record_mapping_in_both_directions() {
     let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
     let revision = SourceRevision {

@@ -7,6 +7,7 @@
 pub const MODEL_VERSION: u32 = 5;
 
 pub mod bigram;
+mod build;
 pub mod discovery;
 pub mod executor;
 pub mod inventory;

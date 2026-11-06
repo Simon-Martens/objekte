@@ -137,6 +137,29 @@ pub struct SortBuilder {
 
 
 impl SortBuilder {
+    pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
+        self.columns.into_iter().map(|(path, column)| (path, column.keys)).collect()
+    }
+
+    pub(crate) fn append_keys(
+        &mut self,
+        keys: HashMap<FieldPath, Vec<SortKey>>,
+        base: u32,
+        batch_count: u32,
+    ) -> Result<(), String> {
+        if self.columns.len() != keys.len() {
+            return Err("sort batch column coverage mismatch".into());
+        }
+        for (path, mut values) in keys {
+            let column = self.columns.get_mut(&path).ok_or("sort batch column missing")?;
+            if column.keys.len() != base as usize || values.len() != batch_count as usize {
+                return Err("sort batch key coverage mismatch".into());
+            }
+            column.keys.append(&mut values);
+        }
+        Ok(())
+    }
+
     pub fn new(
         paths: &[FieldPath],
         schema: &Schema,

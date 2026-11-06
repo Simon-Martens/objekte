@@ -8,6 +8,7 @@ use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
 use crate::model::{LogicalType, Number, RecordSlot, Value};
+use crate::inventory::append_shifted_bitmap;
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values};
@@ -74,6 +75,24 @@ pub struct PostingStats {
 
 
 impl PostingIndex {
+    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+        if self.path != batch.path || self.kind != batch.kind || self.multi != batch.multi {
+            return Err("posting batch representation mismatch".into());
+        }
+        let covered = self.covered_records.checked_add(batch.covered_records)
+            .ok_or("posting coverage overflow")?;
+        append_shifted_bitmap(&mut self.presence, &batch.presence, base)?;
+        append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
+        for (key, posting) in batch.values {
+            append_shifted_bitmap(self.values.entry(key).or_default(), &posting, base)?;
+        }
+        for (key, posting) in batch.lengths {
+            append_shifted_bitmap(self.lengths.entry(key).or_default(), &posting, base)?;
+        }
+        self.covered_records = covered;
+        Ok(())
+    }
+
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         if !self.presence.is_subset(allowed)
             || !self.nulls.is_subset(allowed)
@@ -662,6 +681,17 @@ pub struct PostingCollection {
 
 
 impl PostingCollection {
+    pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+        if self.fields.len() != batch.fields.len() {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        for (path, index) in batch.fields {
+            self.fields.get_mut(&path).ok_or("posting batch field missing")?
+                .merge_shifted(index, base)?;
+        }
+        Ok(())
+    }
+
     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
         for index in self.fields.values() {
             index.validate_domain(allowed)?;

@@ -5,9 +5,26 @@ use std::path::{Path, PathBuf};
 use std::time::SystemTime;
 
 use serde::{Deserialize, Serialize};
+use roaring::RoaringBitmap;
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
 use crate::source::{DiagnosticCategory, ReaderDiagnostic};
+
+/// Append a batch-local bitmap after its final slot base is known. Batch
+/// admission is ordered, so each translated set must follow existing slots.
+pub(crate) fn append_shifted_bitmap(
+    destination: &mut RoaringBitmap,
+    source: &RoaringBitmap,
+    base: u32,
+) -> Result<(), String> {
+    if let Some(max) = source.max() {
+        base.checked_add(max).ok_or("record slot overflow")?;
+    }
+    destination
+        .append(source.iter().map(|slot| base + slot))
+        .map_err(|_| "batch bitmap slots overlap or are out of order")?;
+    Ok(())
+}
 
 pub const MAX_DIAGNOSTICS_PER_FILE: usize = 64;
 pub const MAX_DIAGNOSTIC_MESSAGE_BYTES: usize = 256;
@@ -212,6 +229,41 @@ pub struct FileEntry {
     pub omitted_diagnostics: u32,
 }
 
+impl FileEntry {
+    pub(crate) fn record_diagnostic(
+        &mut self,
+        mut diagnostic: SourceDiagnostic,
+    ) -> Result<DiagnosticRef, String> {
+        if diagnostic.code.is_empty()
+            || diagnostic.code.len() > MAX_DIAGNOSTIC_CODE_BYTES
+            || diagnostic.field_path.as_ref().is_some_and(|path| {
+                path.len() > MAX_DIAGNOSTIC_PATH_SEGMENTS
+                    || path
+                        .iter()
+                        .any(|part| part.len() > MAX_DIAGNOSTIC_SEGMENT_BYTES)
+            })
+        {
+            return Err("reader diagnostic contract exceeds bounded metadata".into());
+        }
+        if diagnostic.file != self.id || !self.collections.contains(&diagnostic.collection) {
+            return Err("diagnostic ownership mismatch".into());
+        }
+        self.status = self.status.max(match diagnostic.category {
+            DiagnosticCategory::Io => FileStatus::Unreadable,
+            _ => FileStatus::Broken,
+        });
+        if self.diagnostics.len() == MAX_DIAGNOSTICS_PER_FILE {
+            self.omitted_diagnostics = self.omitted_diagnostics.saturating_add(1);
+            return Ok(DiagnosticRef(u32::MAX));
+        }
+        diagnostic.message = truncate_message(&diagnostic.message);
+        let index =
+            u32::try_from(self.diagnostics.len() + 1).map_err(|_| "diagnostic index overflow")?;
+        self.diagnostics.push(diagnostic);
+        Ok(DiagnosticRef(index))
+    }
+}
+
 
 /// Authoritative source-file table shared by collections.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -295,39 +347,13 @@ impl FileInventory {
     pub fn record_diagnostic(
         &mut self,
         file: FileId,
-        mut diagnostic: SourceDiagnostic,
+        diagnostic: SourceDiagnostic,
     ) -> Result<DiagnosticRef, String> {
-        if diagnostic.code.is_empty()
-            || diagnostic.code.len() > MAX_DIAGNOSTIC_CODE_BYTES
-            || diagnostic.field_path.as_ref().is_some_and(|path| {
-                path.len() > MAX_DIAGNOSTIC_PATH_SEGMENTS
-                    || path
-                        .iter()
-                        .any(|part| part.len() > MAX_DIAGNOSTIC_SEGMENT_BYTES)
-            })
-        {
-            return Err("reader diagnostic contract exceeds bounded metadata".into());
-        }
         let entry = self
             .files
             .get_mut(file.0 as usize)
             .ok_or("diagnostic file out of bounds")?;
-        if diagnostic.file != file || !entry.collections.contains(&diagnostic.collection) {
-            return Err("diagnostic ownership mismatch".into());
-        }
-        entry.status = entry.status.max(match diagnostic.category {
-            DiagnosticCategory::Io => FileStatus::Unreadable,
-            _ => FileStatus::Broken,
-        });
-        if entry.diagnostics.len() == MAX_DIAGNOSTICS_PER_FILE {
-            entry.omitted_diagnostics = entry.omitted_diagnostics.saturating_add(1);
-            return Ok(DiagnosticRef(u32::MAX));
-        }
-        diagnostic.message = truncate_message(&diagnostic.message);
-        let index =
-            u32::try_from(entry.diagnostics.len() + 1).map_err(|_| "diagnostic index overflow")?;
-        entry.diagnostics.push(diagnostic);
-        Ok(DiagnosticRef(index))
+        entry.record_diagnostic(diagnostic)
     }
 
     pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<&SourceDiagnostic> {
@@ -581,6 +607,10 @@ pub struct CollectionBuilder {
 
 
 impl CollectionBuilder {
+    pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
+        Ok(RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?))
+    }
+
     pub fn collection_id(&self) -> CollectionId {
         self.collection
     }
