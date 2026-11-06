@@ -1,3 +1,4 @@
+mod cases;
 #[path = "../../../core/examples/support/musenalm.rs"]
 mod musenalm;
 
@@ -5,6 +6,7 @@ use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 use std::time::Instant;
 
+use cases::CASES;
 use objekte_core::{
     BigramEncoding, CacheMode, Direction, JsonQuery, JsonQueryBackend, Options,
     Repository as OldRepository, Sort,
@@ -12,12 +14,6 @@ use objekte_core::{
 use objekte_search_core::query::Query;
 use objekte_search_core::repository::{Repository as NewRepository, RepositoryOptions};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode, load_manifest};
-
-const CASES: &[&str] = &[
-    "Q031", "Q032", "Q037", "Q038", "Q042", "Q043", "Q044", "Q045", "Q046", "Q049", "Q050", "Q052",
-    "Q053", "Q055", "Q057", "Q058", "Q059", "Q060", "Q061", "Q062", "Q065", "Q071", "Q074", "Q081",
-    "Q084", "Q088", "Q093", "Q096", "Q101", "Q103", "Q113", "Q117", "Q120", "Q121",
-];
 
 fn main() {
     if let Err(error) = run() {
