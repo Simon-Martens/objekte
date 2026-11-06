@@ -553,7 +553,8 @@ pub(crate) fn process_framed_file(
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
-    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader(), input.revision)? else {
+    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader(), input.revision)?
+    else {
         let batch = process_batch(
             &root,
             &definition,

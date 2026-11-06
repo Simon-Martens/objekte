@@ -1,8 +1,8 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
-use std::path::PathBuf;
 use std::num::NonZeroUsize;
+use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
@@ -42,7 +42,9 @@ fn run() -> Result<(), String> {
             "--root" => root = PathBuf::from(arguments.next().ok_or("--root needs a path")?),
             "--schema-manifest-path" => {
                 schema_manifest_path = Some(PathBuf::from(
-                    arguments.next().ok_or("--schema-manifest-path needs a path")?,
+                    arguments
+                        .next()
+                        .ok_or("--schema-manifest-path needs a path")?,
                 ));
             }
             "--alphabet" => {
@@ -68,8 +70,12 @@ fn run() -> Result<(), String> {
                 build_workers = if value == "auto" {
                     None
                 } else {
-                    Some(NonZeroUsize::new(value.parse::<usize>().map_err(|error| error.to_string())?)
-                        .ok_or("build-workers must be positive")?)
+                    Some(
+                        NonZeroUsize::new(
+                            value.parse::<usize>().map_err(|error| error.to_string())?,
+                        )
+                        .ok_or("build-workers must be positive")?,
+                    )
                 };
             }
             other => return Err(format!("unknown argument {other}")),

@@ -29,6 +29,9 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         active: AtomicUsize,
         peak: AtomicUsize,
         second_done: AtomicBool,
+        fail_first: bool,
+        first_failed: AtomicBool,
+        parsed: AtomicUsize,
     }
 
     impl SourceReader for DelayedReader {
@@ -37,10 +40,15 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         }
 
         fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
-            Ok(vec![ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+            Ok(vec![ByteRange::checked(
+                0,
+                file.len() as u64,
+                file.len() as u64,
+            )?])
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            self.parsed.fetch_add(1, Ordering::SeqCst);
             let active = self.active.fetch_add(1, Ordering::SeqCst) + 1;
             self.peak.fetch_max(active, Ordering::SeqCst);
             if bytes == b"first" {
@@ -51,8 +59,22 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
                     }
                     std::thread::yield_now();
                 }
+                if self.fail_first {
+                    self.first_failed.store(true, Ordering::SeqCst);
+                    self.active.fetch_sub(1, Ordering::SeqCst);
+                    return Err("intentional parser failure".into());
+                }
             } else {
                 self.second_done.store(true, Ordering::SeqCst);
+                if self.fail_first {
+                    let started = std::time::Instant::now();
+                    while !self.first_failed.load(Ordering::SeqCst) {
+                        if started.elapsed().as_secs() > 5 {
+                            return Err("first batch did not report failure".into());
+                        }
+                        std::thread::yield_now();
+                    }
+                }
             }
             self.active.fetch_sub(1, Ordering::SeqCst);
             Ok(ExtractedRecord {
@@ -89,9 +111,14 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         active: AtomicUsize::new(0),
         peak: AtomicUsize::new(0),
         second_done: AtomicBool::new(false),
+        fail_first: false,
+        first_failed: AtomicBool::new(false),
+        parsed: AtomicUsize::new(0),
     });
     let mut sources = SourceRegistry::builtin();
-    sources.register("delayed", 1, "delayed", reader.clone()).unwrap();
+    sources
+        .register("delayed", 1, "delayed", reader.clone())
+        .unwrap();
     let definition = CollectionDefinition {
         name: "delayed".into(),
         source_path: ".".into(),
@@ -104,18 +131,27 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         sort_options: Default::default(),
         sort_overrides: Default::default(),
     };
-    let pool = rayon::ThreadPoolBuilder::new().num_threads(2).build().unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(2)
+        .build()
+        .unwrap();
     let jobs = [&ids[..1], &ids[1..]];
     let mut admitted = Vec::new();
     process_file_batches(
         &pool,
         std::sync::Arc::new(root.clone()),
-        std::sync::Arc::new(definition),
+        std::sync::Arc::new(definition.clone()),
         CollectionId(0),
-        sources.resolve(&SourceFormat::registered("delayed")).unwrap(),
+        sources
+            .resolve(&SourceFormat::registered("delayed"))
+            .unwrap(),
         &jobs,
         std::sync::Arc::new(
-            inventory.files.iter().map(SourceFileInput::from_entry).collect(),
+            inventory
+                .files
+                .iter()
+                .map(SourceFileInput::from_entry)
+                .collect(),
         ),
         BigramAlphabet::Ascii,
         |batch| {
@@ -127,6 +163,41 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
     assert_eq!(admitted, ids);
     assert_eq!(reader.peak.load(Ordering::SeqCst), 2);
     assert_eq!(reader.active.load(Ordering::SeqCst), 0);
+    let failing = std::sync::Arc::new(DelayedReader {
+        active: AtomicUsize::new(0),
+        peak: AtomicUsize::new(0),
+        second_done: AtomicBool::new(false),
+        fail_first: true,
+        first_failed: AtomicBool::new(false),
+        parsed: AtomicUsize::new(0),
+    });
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register("delayed", 1, "delayed", failing.clone())
+        .unwrap();
+    let error = process_file_batches(
+        &pool,
+        std::sync::Arc::new(root.clone()),
+        std::sync::Arc::new(definition),
+        CollectionId(0),
+        sources
+            .resolve(&SourceFormat::registered("delayed"))
+            .unwrap(),
+        &jobs,
+        std::sync::Arc::new(
+            inventory
+                .files
+                .iter()
+                .map(SourceFileInput::from_entry)
+                .collect(),
+        ),
+        BigramAlphabet::Ascii,
+        |_| panic!("fatal batch must not be admitted"),
+    )
+    .unwrap_err();
+    assert!(error.contains("intentional parser failure"), "{error}");
+    assert_eq!(failing.parsed.load(Ordering::SeqCst), 2);
+    assert_eq!(failing.active.load(Ordering::SeqCst), 0);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -278,8 +349,14 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
         serde_json::to_value(&one.collections()[0].generation).unwrap(),
         serde_json::to_value(&parallel.collections()[0].generation).unwrap()
     );
-    assert_eq!(one.collections()[0].raw.normal, parallel.collections()[0].raw.normal);
-    assert_eq!(one.collections()[0].raw.skip, parallel.collections()[0].raw.skip);
+    assert_eq!(
+        one.collections()[0].raw.normal,
+        parallel.collections()[0].raw.normal
+    );
+    assert_eq!(
+        one.collections()[0].raw.skip,
+        parallel.collections()[0].raw.skip
+    );
     let path = &vec!["title".to_owned()];
     let one_posting = &one.collections()[0].postings.fields[path];
     let parallel_posting = &parallel.collections()[0].postings.fields[path];
@@ -398,8 +475,14 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         serde_json::to_value(&one.files().files[0].diagnostics).unwrap(),
         serde_json::to_value(&parallel.files().files[0].diagnostics).unwrap()
     );
-    assert_eq!(one.collections()[0].raw.normal, parallel.collections()[0].raw.normal);
-    assert_eq!(one.collections()[0].raw.skip, parallel.collections()[0].raw.skip);
+    assert_eq!(
+        one.collections()[0].raw.normal,
+        parallel.collections()[0].raw.normal
+    );
+    assert_eq!(
+        one.collections()[0].raw.skip,
+        parallel.collections()[0].raw.skip
+    );
     assert_eq!(
         one.collections()[0].fallback_text.normal,
         parallel.collections()[0].fallback_text.normal
@@ -544,7 +627,22 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert!(restored.startup().restored);
-        for repo in [&built, &restored] {
+        let parallel = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Rebuild,
+                build_workers: NonZeroUsize::new(
+                    std::thread::available_parallelism()
+                        .map_or(1, NonZeroUsize::get)
+                        .min(4),
+                ),
+                ..options
+            },
+        )
+        .unwrap();
+        assert!(!parallel.startup().restored);
+        for repo in [&built, &restored, &parallel] {
             let collection = &repo.collections()[0];
             assert_eq!(collection.generation.files.len(), 515);
             assert_eq!(collection.generation.records.len(), 514);
@@ -617,6 +715,35 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             let custom = collection.custom_text.values().next().unwrap();
             assert_eq!(custom.normal, direct.normal);
             assert_eq!(custom.skip, direct.skip);
+        }
+        let a = &built.collections()[0];
+        let b = &parallel.collections()[0];
+        assert_eq!(
+            serde_json::to_value(&a.generation).unwrap(),
+            serde_json::to_value(&b.generation).unwrap()
+        );
+        assert_eq!(
+            serde_json::to_value(&built.files().files).unwrap(),
+            serde_json::to_value(&parallel.files().files).unwrap()
+        );
+        assert_eq!(a.logical_records, b.logical_records);
+        assert_eq!(a.raw.normal, b.raw.normal);
+        assert_eq!(a.raw.skip, b.raw.skip);
+        assert_eq!(a.fallback_text.normal, b.fallback_text.normal);
+        assert_eq!(a.fallback_text.skip, b.fallback_text.skip);
+        for (path, posting) in &a.postings.fields {
+            let other = &b.postings.fields[path];
+            assert_eq!(posting.covered_records, other.covered_records);
+            assert_eq!(posting.presence, other.presence);
+            assert_eq!(posting.nulls, other.nulls);
+            assert_eq!(posting.values, other.values);
+            assert_eq!(posting.lengths, other.lengths);
+        }
+        for (path, column) in &a.sorting.columns {
+            let other = &b.sorting.columns[path];
+            assert_eq!(column.keys, other.keys);
+            assert_eq!(column.ascending, other.ascending);
+            assert_eq!(column.descending, other.descending);
         }
     }
     std::fs::remove_dir_all(root).unwrap();

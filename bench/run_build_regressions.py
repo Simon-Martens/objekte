@@ -4,9 +4,11 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 import os
+import resource
 import statistics
 import subprocess
 import sys
@@ -45,12 +47,18 @@ def main() -> int:
     parser.add_argument("--baseline", type=Path, required=True, help="explicit gate.json or build baseline JSON")
     parser.add_argument("--comparison", choices=("repair", "historical", "casefold", "parallel"), required=True)
     parser.add_argument("--build-workers", default="auto", help="auto or a positive count within available CPUs")
+    parser.add_argument("--snapshot-modes", default="disabled,rebuild", help="comma-separated disabled,rebuild subset")
     parser.add_argument("--establish-baseline", action="store_true")
     args = parser.parse_args()
     if args.repetitions < 3:
         parser.error("at least three fresh-process repetitions are required")
     if args.build_workers != "auto" and (not args.build_workers.isdecimal() or int(args.build_workers) < 1):
         parser.error("build workers must be auto or a positive integer")
+    snapshot_modes = tuple(args.snapshot_modes.split(","))
+    if not snapshot_modes or len(set(snapshot_modes)) != len(snapshot_modes) or any(
+        mode not in ("disabled", "rebuild") for mode in snapshot_modes
+    ):
+        parser.error("snapshot modes must be a unique comma-separated disabled,rebuild subset")
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     fingerprints = fixture_fingerprints()
     jq_fixture = json.loads((ROOT / "bench/baselines/musenalm-jq-counts.json").read_text())
@@ -64,7 +72,7 @@ def main() -> int:
     if completed.returncode:
         print(f"build benchmark compilation failed: {result_dir / 'build.log'}", file=sys.stderr)
         return completed.returncode
-    configurations = tuple((alphabet, snapshot) for alphabet in ("ascii", "unicode") for snapshot in ("disabled", "rebuild"))
+    configurations = tuple((alphabet, snapshot) for alphabet in ("ascii", "unicode") for snapshot in snapshot_modes)
     samples: dict[str, list[dict]] = {f"{alphabet}-{snapshot}": [] for alphabet, snapshot in configurations}
     with (result_dir / "measurements.jsonl").open("w") as output:
         for repetition in range(args.repetitions):
@@ -72,7 +80,9 @@ def main() -> int:
                 command = [str(binary), "--alphabet", alphabet, "--snapshot-mode", snapshot,
                            "--build-workers", args.build_workers,
                            "--schema-manifest-path", str(result_dir / "schema-manifest.json")]
+                before_usage = resource.getrusage(resource.RUSAGE_CHILDREN)
                 completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
+                after_usage = resource.getrusage(resource.RUSAGE_CHILDREN)
                 if completed.returncode:
                     raise RuntimeError(f"{command}: {completed.stderr}")
                 sample = json.loads(completed.stdout)
@@ -90,6 +100,12 @@ def main() -> int:
                     raise ValueError("registrations changed between build samples")
                 sample["repetition"] = repetition
                 sample["command"] = command
+                sample["process_user_seconds"] = after_usage.ru_utime - before_usage.ru_utime
+                sample["process_system_seconds"] = after_usage.ru_stime - before_usage.ru_stime
+                sample["average_busy_cpus"] = (
+                    (sample["process_user_seconds"] + sample["process_system_seconds"])
+                    / (sample["wall_ns"] / 1e9)
+                )
                 if sample["records"] != 148486 or sample["build_parses"] != 148486 or sample.get("failed_parses", 0):
                     raise ValueError(f"incomplete build: {sample}")
                 key = f"{alphabet}-{snapshot}"
@@ -108,6 +124,13 @@ def main() -> int:
             "median_discovery_ns": int(statistics.median(sample.get("discovery_ns", 0) for sample in group)),
             "median_extraction_index_ns": int(statistics.median(sample.get("extraction_index_ns", 0) for sample in group)),
             "median_finalization_ns": int(statistics.median(sample.get("finalization_ns", 0) for sample in group)),
+            "median_process_user_seconds": statistics.median(sample["process_user_seconds"] for sample in group),
+            "median_process_system_seconds": statistics.median(sample["process_system_seconds"] for sample in group),
+            "median_average_busy_cpus": statistics.median(sample["average_busy_cpus"] for sample in group),
+            "min_wall_ns": min(sample["wall_ns"] for sample in group),
+            "max_wall_ns": max(sample["wall_ns"] for sample in group),
+            "resolved_build_workers": group[0]["resolved_build_workers"],
+            "median_peak_build_admitted_bytes": int(statistics.median(sample["peak_build_admitted_bytes"] for sample in group)),
             "median_inventory_heap_bytes": int(statistics.median(sample.get("inventory_heap_bytes", 0) for sample in group)),
             "median_diagnostic_heap_bytes": int(statistics.median(sample.get("diagnostic_heap_bytes", 0) for sample in group)),
             "index_stores": group[0].get("index_stores"),
@@ -122,6 +145,7 @@ def main() -> int:
         "revision": revision,
         "requested_build_workers": args.build_workers,
         "resolved_build_workers": sorted({sample["resolved_build_workers"] for group in samples.values() for sample in group}),
+        "snapshot_modes": snapshot_modes,
         "build_flags": {key: value for key, value in os.environ.items()
                         if key in ("RUSTFLAGS", "CARGO_ENCODED_RUSTFLAGS", "CARGO_BUILD_TARGET")
                         or key.startswith("CARGO_PROFILE_RELEASE_")},
@@ -208,22 +232,38 @@ def main() -> int:
     lines = [
         "# Musenalm fresh index builds", "",
         f"Code revision: `{revision}`. Each configuration ran in {args.repetitions} separate processes.",
-        "Both alphabets were measured with snapshots disabled and with snapshot rebuilding enabled.",
+        f"Both alphabets were measured with snapshot modes: {', '.join(snapshot_modes)}.",
         "All builds parsed exactly 148,486 source records; medians include discovery, build and optional snapshot write.",
-        "", "| Configuration | Wall s | Discovery s | Extraction/index s | Finalization s | Snapshot write s | Resident MiB | Peak RSS MiB | Inventory MiB | Diagnostics KiB | Snapshot MiB |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        "", "| Configuration | Workers | Wall s | Range s | CPU s | Busy CPUs | Discovery s | Extraction/index s | Finalization s | Snapshot write s | Resident MiB | Peak RSS MiB | Peak admitted MiB | Snapshot MiB |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for name, row in summary.items():
         snapshot_mib = "—" if row["snapshot_bytes"] is None else f"{row['snapshot_bytes'] / 1048576:.1f}"
         lines.append(
-            f"| {name} | {row['median_wall_ns'] / 1e9:.3f} | {row['median_discovery_ns'] / 1e9:.3f} | "
+            f"| {name} | {row['resolved_build_workers']} | {row['median_wall_ns'] / 1e9:.3f} | "
+            f"{row['min_wall_ns'] / 1e9:.3f}–{row['max_wall_ns'] / 1e9:.3f} | "
+            f"{row['median_process_user_seconds'] + row['median_process_system_seconds']:.3f} | "
+            f"{row['median_average_busy_cpus']:.2f} | {row['median_discovery_ns'] / 1e9:.3f} | "
             f"{row['median_extraction_index_ns'] / 1e9:.3f} | {row['median_finalization_ns'] / 1e9:.3f} | "
             f"{row['median_snapshot_write_ns'] / 1e9:.3f} | {row['median_resident_bytes'] / 1048576:.1f} | "
-            f"{row['median_peak_resident_bytes'] / 1048576:.1f} | {row['median_inventory_heap_bytes'] / 1048576:.1f} | "
-            f"{row['median_diagnostic_heap_bytes'] / 1024:.1f} | {snapshot_mib} |"
+            f"{row['median_peak_resident_bytes'] / 1048576:.1f} | "
+            f"{row['median_peak_build_admitted_bytes'] / 1048576:.1f} | {snapshot_mib} |"
         )
+    with (result_dir / "build-results.csv").open("w", newline="") as output:
+        writer = csv.writer(output)
+        writer.writerow(("configuration", "workers", "median_wall_ms", "min_wall_ms", "max_wall_ms",
+                         "median_cpu_seconds", "median_busy_cpus", "median_peak_rss_bytes",
+                         "median_peak_admitted_bytes", "snapshot_bytes"))
+        for name, row in summary.items():
+            writer.writerow((name, row["resolved_build_workers"], row["median_wall_ns"] / 1e6,
+                             row["min_wall_ns"] / 1e6, row["max_wall_ns"] / 1e6,
+                             row["median_process_user_seconds"] + row["median_process_system_seconds"],
+                             row["median_average_busy_cpus"], row["median_peak_resident_bytes"],
+                             row["median_peak_build_admitted_bytes"], row["snapshot_bytes"]))
     lines += ["", f"Baseline: `{baseline_path}`. Failures: {len(failures)}.", "", *[f"- {failure}" for failure in failures]]
-    (result_dir / "REPORT.md").write_text("\n".join(lines).rstrip() + "\n")
+    report_text = "\n".join(lines).rstrip() + "\n"
+    (result_dir / "REPORT.md").write_text(report_text)
+    print(report_text)
     for failure in failures:
         print(failure, file=sys.stderr)
     return int(bool(failures))
