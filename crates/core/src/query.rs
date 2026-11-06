@@ -2,6 +2,7 @@
 
 use crate::model::{FieldPath, Number};
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
+use std::collections::HashSet;
 
 
 /// Exact case behavior for a full-text request. The index alphabet is separate.
@@ -153,6 +154,15 @@ pub struct Query {
 
 impl Query {
     pub fn from_workload(case: &WorkloadCase) -> Result<Self, String> {
+        let structured = case
+            .filter
+            .as_deref()
+            .map(parse_structured_filter)
+            .transpose()?;
+        let inline_sort = structured.as_ref().and_then(|parsed| parsed.sort.as_ref());
+        if inline_sort.is_some() && !case.sort.is_empty() {
+            return Err("inline SORT BY conflicts with independent sort options".into());
+        }
         let fts = case
             .fts
             .as_ref()
@@ -184,9 +194,9 @@ impl Query {
                 vec![case.collection.clone()]
             },
             fts,
-            filter: case.filter.as_ref().map(|s| parse_filter(s)).transpose()?,
+            filter: structured.as_ref().and_then(|parsed| parsed.filter.clone()),
             options: QueryOptions {
-                sort: case.sort.clone(),
+                sort: inline_sort.cloned().unwrap_or_else(|| case.sort.clone()),
                 limit: case.limit,
                 offset: case.offset,
                 count: case.count,
@@ -203,6 +213,7 @@ enum TokenKind {
     Word(String),
     String(String),
     Colon,
+    Comma,
     LParen,
     RParen,
     And,
@@ -266,6 +277,7 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                 '(' => (TokenKind::LParen, 1),
                 ')' => (TokenKind::RParen, 1),
                 ':' => (TokenKind::Colon, 1),
+                ',' => (TokenKind::Comma, 1),
                 '!' => (TokenKind::Not, 1),
                 '\'' | '"' => {
                     let quote = ch;
@@ -344,7 +356,7 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                                 return Err(format!("unclosed path bracket at byte {open}"));
                             }
                             pos += 1;
-                        } else if c.is_whitespace() || ":()!<>=~?&|".contains(c) {
+                        } else if c.is_whitespace() || ":(),!<>=~?&|".contains(c) {
                             break;
                         } else {
                             pos += c.len_utf8();
@@ -530,8 +542,107 @@ impl Parser {
             span: (path_token.start, end),
         })
     }
+
+    fn keyword(&self, word: &str) -> bool {
+        matches!(self.peek(), TokenKind::Word(value) if value.eq_ignore_ascii_case(word))
+    }
+
+    fn sort_clause_start(&self) -> bool {
+        self.keyword("SORT")
+            && !matches!(
+                self.tokens.get(self.pos + 1).map(|token| &token.kind),
+                Some(TokenKind::Op(_, _) | TokenKind::Colon)
+            )
+    }
+
+    fn sort_clause(&mut self) -> Result<Vec<SortField>, String> {
+        let sort = self.take();
+        debug_assert!(matches!(sort.kind, TokenKind::Word(_)));
+        if !self.keyword("BY") {
+            return Err(format!(
+                "expected BY after SORT at byte {}",
+                self.tokens[self.pos].start
+            ));
+        }
+        self.take();
+        let mut fields = Vec::new();
+        let mut seen = HashSet::new();
+        loop {
+            let token = self.take();
+            let name = match token.kind {
+                TokenKind::Word(name) => name,
+                _ => return Err(format!("expected sort field at byte {}", token.start)),
+            };
+            if name.contains("[*]") || name.bytes().any(|byte| byte == b'$') {
+                return Err(format!("unsupported sort field at byte {}", token.start));
+            }
+            let field = FieldPath::parse(&name)
+                .map_err(|error| format!("invalid sort field at byte {}: {error}", token.start))?
+                .display();
+            if !seen.insert(field.clone()) {
+                return Err(format!(
+                    "duplicate sort field at byte {}: {field}",
+                    token.start
+                ));
+            }
+            let descending = if self.keyword("ASC") {
+                self.take();
+                false
+            } else if self.keyword("DESC") {
+                self.take();
+                true
+            } else {
+                false
+            };
+            fields.push(SortField { field, descending });
+            match self.peek() {
+                TokenKind::Comma => {
+                    self.take();
+                }
+                TokenKind::End => return Ok(fields),
+                _ => {
+                    return Err(format!(
+                        "unknown sort direction or trailing token at byte {}",
+                        self.tokens[self.pos].start
+                    ));
+                }
+            }
+        }
+    }
 }
 
+
+/// Top-level structured request split into membership and registered ordering.
+#[derive(Clone, Debug, PartialEq)]
+pub struct StructuredFilter {
+    pub filter: Option<FilterExpr>,
+    pub sort: Option<Vec<SortField>>,
+}
+
+
+pub fn parse_structured_filter(input: &str) -> Result<StructuredFilter, String> {
+    let mut parser = Parser {
+        tokens: lex(input)?,
+        pos: 0,
+    };
+    let filter = if parser.sort_clause_start() {
+        None
+    } else {
+        Some(parser.or()?)
+    };
+    let sort = if parser.sort_clause_start() {
+        Some(parser.sort_clause()?)
+    } else {
+        None
+    };
+    if !matches!(parser.peek(), TokenKind::End) {
+        return Err(format!(
+            "unexpected token at byte {}",
+            parser.tokens[parser.pos].start
+        ));
+    }
+    Ok(StructuredFilter { filter, sort })
+}
 
 pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
     let mut parser = Parser {

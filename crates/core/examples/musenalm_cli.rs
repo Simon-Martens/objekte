@@ -31,6 +31,15 @@ fn run() -> Result<(), String> {
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
+            "--help" | "-h" => {
+                println!(
+                    "Usage: musenalm_cli [--root PATH] [--collection NAME] [--fts TEXT] [--filter FILTER] [--limit N] [--offset N] [--return locator|bytes|logical] [--explain] [--explain-analyze]"
+                );
+                println!(
+                    "FILTER accepts a final SORT BY field [ASC|DESC], ... clause or SORT BY alone. Sort fields must have registered scalar sort columns in every selected collection."
+                );
+                return Ok(());
+            }
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--case" => case_id = Some(args.next().ok_or("--case needs an ID")?),
             "--fts" => fts = Some(args.next().ok_or("--fts needs a literal")?),
