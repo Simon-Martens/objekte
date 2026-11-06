@@ -1305,7 +1305,9 @@ fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
     ))
 }
 
-type ScopedValues<'a> = Vec<(Vec<usize>, Cow<'a, Value>)>;
+// None denotes a selected value that cannot satisfy a derived length
+// comparison. It is distinct from a selected, explicit Value::Null.
+type ScopedValues<'a> = Vec<(Vec<usize>, Option<Cow<'a, Value>>)>;
 
 fn walk_scoped<'a>(
     value: &'a Value,
@@ -1314,7 +1316,7 @@ fn walk_scoped<'a>(
     output: &mut ScopedValues<'a>,
 ) -> bool {
     let Some(step) = steps.first() else {
-        output.push((positions.clone(), Cow::Borrowed(value)));
+        output.push((positions.clone(), Some(Cow::Borrowed(value))));
         return true;
     };
     match step {
@@ -1366,17 +1368,22 @@ fn scoped_values<'a>(
     let found = match path.root {
         PathRoot::Data => walk_scoped(ctx.value, &query_path.steps, &mut Vec::new(), &mut values),
         PathRoot::Metadata(field) => {
-            values.push((Vec::new(), Cow::Owned(metadata_value(field, ctx)?)));
+            values.push((Vec::new(), Some(Cow::Owned(metadata_value(field, ctx)?))));
             true
         }
     };
     if matches!(derived, Derived::Exists | Derived::Null) {
         let result = match derived {
             Derived::Exists => found,
-            Derived::Null => values.len() == 1 && matches!(values[0].1.as_ref(), Value::Null),
+            Derived::Null => {
+                values.len() == 1 && matches!(values[0].1.as_deref(), Some(Value::Null))
+            }
             _ => unreachable!(),
         };
-        return Ok(Some(vec![(Vec::new(), Cow::Owned(Value::Bool(result)))]));
+        return Ok(Some(vec![(
+            Vec::new(),
+            Some(Cow::Owned(Value::Bool(result))),
+        )]));
     }
     if !found {
         return Ok(None);
@@ -1386,15 +1393,15 @@ fn scoped_values<'a>(
             values
                 .into_iter()
                 .map(|(scope, value)| {
-                    let length = match value.as_ref() {
-                        Value::Array(array) => Some(array.values.len()),
+                    let length = match value.as_deref() {
+                        Some(Value::Array(array)) => Some(array.values.len()),
                         _ => None,
                     };
                     (
                         scope,
-                        Cow::Owned(length.map_or(Value::Null, |length| {
-                            Value::Number(Number::integer(length as i128))
-                        })),
+                        length.map(|length| {
+                            Cow::Owned(Value::Number(Number::integer(length as i128)))
+                        }),
                     )
                 })
                 .collect(),
@@ -1404,11 +1411,11 @@ fn scoped_values<'a>(
         let mut flat = Vec::new();
         for (scope, value) in values {
             match value {
-                Cow::Borrowed(Value::Array(array)) => {
+                Some(Cow::Borrowed(Value::Array(array))) => {
                     for (index, item) in array.values.iter().enumerate() {
                         let mut scope = scope.clone();
                         scope.push(index);
-                        flat.push((scope, Cow::Borrowed(item)));
+                        flat.push((scope, Some(Cow::Borrowed(item))));
                     }
                 }
                 other => flat.push((scope, other)),
@@ -1439,29 +1446,59 @@ fn eval_field_term(
     rhs: &BoundFieldOperand,
     ctx: &RecordContext<'_>,
 ) -> Result<bool, String> {
-    let Some(left) = scoped_values(&term.path, &term.query_path, term.derived, term.multi, ctx)?
+    let paired = term.multi && rhs.multi;
+    let Some(left) = scoped_values(
+        &term.path,
+        &term.query_path,
+        term.derived,
+        term.multi && !paired,
+        ctx,
+    )?
     else {
         return Ok(false);
     };
-    let Some(right) = scoped_values(&rhs.path, &rhs.query_path, rhs.derived, rhs.multi, ctx)?
+    let Some(right) = scoped_values(
+        &rhs.path,
+        &rhs.query_path,
+        rhs.derived,
+        rhs.multi && !paired,
+        ctx,
+    )?
     else {
         return Ok(false);
     };
-    let compare = |a: &Value, b: &Value| {
+    let compare = |a: Option<&Value>, b: Option<&Value>| {
+        let (Some(a), Some(b)) = (a, b) else {
+            return false;
+        };
         let Some(a) = mapped_field_value(a, term.transform, term.operation.as_ref()) else {
             return false;
         };
         let Some(b) = mapped_field_value(b, rhs.transform, rhs.operation.as_ref()) else {
             return false;
         };
+        if term.operator == Operator::Ne
+            && (matches!(a.as_ref(), Value::Null) || matches!(b.as_ref(), Value::Null))
+        {
+            return matches!(a.as_ref(), Value::Null) != matches!(b.as_ref(), Value::Null);
+        }
         compare_scalar(a.as_ref(), b.as_ref(), term.operator, Transform::Identity)
     };
     let mut results = Vec::new();
-    if term.multi && rhs.multi {
+    if paired {
+        let expected_scope_depth = explicit_scope(&term.query_path).len();
+        if left.iter().chain(&right).any(|(scope, value)| {
+            scope.len() != expected_scope_depth || matches!(value.as_deref(), Some(Value::Array(_)))
+        }) {
+            return Err(
+                "ambiguous nested multivalued field comparison; use explicit array selectors"
+                    .into(),
+            );
+        }
         let mut right_by_scope = HashMap::with_capacity(right.len());
         for (scope, value) in &right {
             if right_by_scope
-                .insert(scope.as_slice(), value.as_ref())
+                .insert(scope.as_slice(), value.as_deref())
                 .is_some()
             {
                 return Err("ambiguous right-hand field occurrence".into());
@@ -1469,24 +1506,31 @@ fn eval_field_term(
         }
         for (scope, value) in &left {
             let matching = right_by_scope.remove(scope.as_slice());
-            results.push(matching.is_some_and(|other| compare(value, other)));
+            results.push(matching.is_some_and(|other| compare(value.as_deref(), other)));
         }
         results.extend(std::iter::repeat_n(false, right_by_scope.len()));
     } else if term.multi {
         let Some((_, scalar)) = right.first() else {
             return Ok(false);
         };
-        results.extend(left.iter().map(|(_, value)| compare(value, scalar)));
+        results.extend(
+            left.iter()
+                .map(|(_, value)| compare(value.as_deref(), scalar.as_deref())),
+        );
     } else if rhs.multi {
         let Some((_, scalar)) = left.first() else {
             return Ok(false);
         };
-        results.extend(right.iter().map(|(_, value)| compare(scalar, value)));
+        results.extend(
+            right
+                .iter()
+                .map(|(_, value)| compare(scalar.as_deref(), value.as_deref())),
+        );
     } else {
         let (Some((_, a)), Some((_, b))) = (left.first(), right.first()) else {
             return Ok(false);
         };
-        results.push(compare(a, b));
+        results.push(compare(a.as_deref(), b.as_deref()));
     }
     Ok(if term.quantifier == Quantifier::Any {
         results.into_iter().any(|result| result)

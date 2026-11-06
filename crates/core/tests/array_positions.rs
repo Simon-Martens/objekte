@@ -8,7 +8,7 @@ use objekte_search_core::reference::{
     BindingOperation, FieldDefinition, RegisteredBinding, Schema,
 };
 use objekte_search_core::repository::{
-    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions, SnapshotMode,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
@@ -79,6 +79,12 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         ),
     ] {
         let mut record: serde_json::Value = serde_json::from_str(body).unwrap();
+        if let Some(items) = record["items"].as_array_mut() {
+            for item in items {
+                item["tags"] = serde_json::json!([1, 2]);
+                item["other_tags"] = serde_json::json!([1, 2]);
+            }
+        }
         record["id"] = id.into();
         std::fs::write(root.join(format!("data/{id}.json")), record.to_string()).unwrap();
     }
@@ -157,6 +163,10 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         ("items[0].price > items[0].maximum_price", vec!["a"]),
         ("items[*].price <= items[*].maximum_price", vec!["b", "c"]),
         ("items[*].price ?<= items[*].maximum_price", vec!["a", "b"]),
+        (
+            "items[*].tags[0] = items[*].other_tags[0]",
+            vec!["a", "b", "c"],
+        ),
         ("items[*].price <= limit", vec!["b", "c"]),
         ("limit >= items[*].price", vec!["b", "c"]),
         ("limit > minimum_price", vec!["a"]),
@@ -196,6 +206,11 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         repo.search(&query("items[*].price <= matrix[*][0]"))
             .unwrap_err()
             .contains("independent multivalued")
+    );
+    assert!(
+        repo.search(&query("items[*].tags = items[*].other_tags"))
+            .unwrap_err()
+            .contains("ambiguous nested multivalued")
     );
     assert!(
         repo.search(&query("id > limit"))
@@ -242,11 +257,11 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
         root.join("data/mixed.jsonl"),
-        b"{\"left\":null,\"right\":null}\n{\"left\":1,\"right\":null}\n{\"left\":\n",
+        b"{\"left\":null,\"right\":null,\"shape\":1,\"other\":null}\n{\"left\":1,\"right\":null,\"shape\":[1,2],\"other\":2}\n{\"left\":null,\"right\":1,\"shape\":\"bad\",\"other\":null}\n{\"left\":\n",
     )
     .unwrap();
     let mut schema = Schema::default();
-    for name in ["left", "right"] {
+    for name in ["left", "right", "other"] {
         schema
             .register_field(FieldDefinition {
                 path: vec![name.into()],
@@ -291,10 +306,16 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
     .unwrap();
     for (filter, count) in [
         ("left = right", 1),
-        ("left != right", 1),
-        ("!(left = right)", 1),
+        ("left != right", 2),
+        ("right != left", 2),
+        ("left != null", 1),
+        ("right != null", 1),
+        ("shape:length = other", 1),
+        ("shape:length != other", 0),
+        ("shape:length = 0", 0),
+        ("!(left = right)", 2),
         ("@record.class = 1 && !(left = right)", 0),
-        ("@file.size >= @record.byte_length", 3),
+        ("@file.size >= @record.byte_length", 4),
     ] {
         let request = query(filter);
         let actual = repo.search(&request).unwrap();
@@ -302,6 +323,19 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
         assert_eq!(actual.count, Some(count), "{filter}");
         assert_eq!(actual.hits, reference.hits, "{filter}");
     }
+    let length_match = repo.search(&query("shape:length = other")).unwrap();
+    assert!(matches!(
+        length_match.hits[0].payload,
+        Some(Payload::Logical(Value::Object(ref fields)))
+            if matches!(fields.get("shape"), Some(Value::Array(_)))
+    ));
+    let unequal = repo.search(&query("left != right")).unwrap();
+    assert!(unequal.hits.iter().any(|hit| matches!(
+        hit.payload,
+        Some(Payload::Logical(Value::Object(ref fields)))
+            if matches!((fields.get("left"), fields.get("right")),
+                (Some(Value::Null), Some(Value::Number(_))))
+    )));
     assert!(
         repo.search(&query("left:literal_only = right"))
             .unwrap_err()
