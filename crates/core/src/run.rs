@@ -21,6 +21,7 @@ use crate::query::{CaseSensitivity, Operator, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
+    eval_unavailable_filter,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
@@ -876,6 +877,36 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
     }
 }
 
+/// Fallback proofs establish truth from inventory metadata. Reconstruct their
+/// evidence with the same three-valued evaluator as reference execution: an
+/// unavailable logical predicate stays unavailable even under negation.
+fn proven_evidence(
+    repo: &Repository,
+    collection: &crate::repository::CollectionState,
+    record: &RecordEntry,
+    expr: &BoundExpr,
+    proofs: &[Proof],
+) -> Result<HashSet<String>, String> {
+    if record.class != RecordClass::RawFallback {
+        return Ok(proof_evidence(expr, record.slot.0, proofs).unwrap_or_default());
+    }
+    let empty = Value::Object(Default::default());
+    let file = &repo.files.files[record.file.0 as usize];
+    let ctx = RecordContext {
+        value: &empty,
+        source_bytes: None,
+        record,
+        file,
+        collection_name: &collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    let mut evidence = HashSet::new();
+    if eval_unavailable_filter(expr, &ctx, &mut evidence)? != Some(true) {
+        return Err("index-proven fallback has non-true filter truth".into());
+    }
+    Ok(evidence)
+}
+
 fn inventory_fts_evidence(
     repo: &Repository,
     collection: &crate::repository::CollectionState,
@@ -1453,7 +1484,16 @@ fn try_stored_order_page(
                     if query.options.evidence {
                         evidence = entry
                             .filter
-                            .and_then(|expr| proof_evidence(expr, slot, &entry.plan.proofs))
+                            .map(|expr| {
+                                proven_evidence(
+                                    repo,
+                                    &repo.collections[entry.collection_index],
+                                    cursor.record,
+                                    expr,
+                                    &entry.plan.proofs,
+                                )
+                            })
+                            .transpose()?
                             .unwrap_or_default();
                     }
                     if counters.total_matches as usize >= query.options.offset {
@@ -1891,7 +1931,8 @@ fn search_impl(
                 let mut evidence = if needs_evidence {
                     filter
                         .as_ref()
-                        .and_then(|expr| proof_evidence(expr, slot, &plan.proofs))
+                        .map(|expr| proven_evidence(repo, collection, record, expr, &plan.proofs))
+                        .transpose()?
                         .unwrap_or_default()
                 } else {
                     HashSet::new()
@@ -1935,7 +1976,8 @@ fn search_impl(
                 let record = &collection.generation.records[slot as usize];
                 let evidence = filter
                     .as_ref()
-                    .and_then(|expr| proof_evidence(expr, slot, &plan.proofs))
+                    .map(|expr| proven_evidence(repo, collection, record, expr, &plan.proofs))
+                    .transpose()?
                     .unwrap_or_default();
                 counters.exact_posting_matches += 1;
                 offer(

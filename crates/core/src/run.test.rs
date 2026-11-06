@@ -371,6 +371,145 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
 }
 
 #[test]
+fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
+    use crate::inventory::RecordClass;
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    let root = std::env::temp_dir().join(format!(
+        "objekte-fallback-negation-evidence-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/mixed.jsonl"),
+        b"{\"title\":\"x\"}\n{\"title\":\n{\"title\":\"other\"}\n{}\n{\"title\":null}\n",
+    )
+    .unwrap();
+    std::fs::write(root.join("data/valid.jsonl"), b"{}\n").unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: true,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![crate::model::FieldPath::parse("@file.status").unwrap()],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let critical = "(@file.status = 1 && !(title = 'x')) || @record.class = 1";
+    let cases = [
+        (critical, true, &["@record.class"][..]),
+        (
+            "@record.class = 1 || (@file.status = 1 && !(title = 'x'))",
+            true,
+            &["@record.class"],
+        ),
+        (
+            "(@file.status = 0 && !(title = 'x')) || @record.class = 1",
+            true,
+            &["@record.class"],
+        ),
+        (
+            "@record.class = 1 && !(@file.status = 0 && title = 'x')",
+            true,
+            &["@record.class"],
+        ),
+        ("@record.class = 1 && !(!(title = 'x'))", false, &[]),
+        ("!(!(@record.class = 1))", true, &[]),
+    ];
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..Default::default()
+        };
+        let built =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        let restored =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        assert!(restored.startup().restored);
+        for repo in [&built, &restored] {
+            for cache_bytes in [0, 1 << 20] {
+                repo.configure_verified_cache(cache_bytes).unwrap();
+                for sorted in [false, true] {
+                    for evidence in [false, true] {
+                        for (filter, fallback_expected, fallback_fields) in cases {
+                            let query = Query {
+                                collections: vec!["data".into()],
+                                filter: Some(parse_filter(filter).unwrap()),
+                                fts: None,
+                                options: QueryOptions {
+                                    sort: if sorted {
+                                        vec![crate::workload::SortField {
+                                            field: "@file.status".into(),
+                                            descending: false,
+                                        }]
+                                    } else {
+                                        vec![]
+                                    },
+                                    limit: 10,
+                                    offset: 0,
+                                    count: true,
+                                    return_mode: ReturnMode::Locator,
+                                    evidence,
+                                },
+                            };
+                            let result = repo.search(&query).unwrap();
+                            assert_eq!(
+                                result.hits,
+                                repo.search_reference(&query).unwrap().hits,
+                                "{filter}"
+                            );
+                            if filter == critical {
+                                assert_eq!(result.count, Some(4));
+                            }
+                            let fallback = result
+                                .hits
+                                .iter()
+                                .find(|hit| hit.record_class == RecordClass::RawFallback);
+                            assert_eq!(fallback.is_some(), fallback_expected, "{filter}");
+                            if let Some(fallback) = fallback {
+                                assert_eq!(
+                                    fallback.matched_fields,
+                                    if evidence { fallback_fields } else { &[] },
+                                    "{filter}"
+                                );
+                            }
+                            if filter == "@record.class = 1 && !(@file.status = 0 && title = 'x')" {
+                                assert_eq!(result.counters.files_opened, 0);
+                                assert_eq!(result.counters.record_parses, 0);
+                            }
+                            if cache_bytes != 0 {
+                                let cached = repo.search(&query).unwrap();
+                                assert!(cached.counters.verified_result_hit);
+                                assert_eq!(cached.hits, result.hits);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn one_fallback_does_not_disable_selective_logical_postings() {
     use crate::repository::{RepositoryOptions, SnapshotMode};
     let root = std::env::temp_dir().join(format!("objekte-mixed-posting-{}", std::process::id()));
