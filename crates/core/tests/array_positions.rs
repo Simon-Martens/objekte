@@ -1,13 +1,41 @@
 use std::collections::HashMap;
 
 use objekte_search_core::model::{LogicalType, Value};
-use objekte_search_core::query::{Query, QueryOptions, parse_filter, parse_structured_filter};
-use objekte_search_core::reference::{FieldDefinition, Schema};
+use objekte_search_core::query::{
+    Literal, Operator, Query, QueryOptions, parse_filter, parse_structured_filter,
+};
+use objekte_search_core::reference::{
+    BindingOperation, FieldDefinition, RegisteredBinding, Schema,
+};
 use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::workload::ReturnMode;
+
+
+#[derive(Debug)]
+struct LiteralOnlyOperation;
+
+
+impl BindingOperation for LiteralOnlyOperation {
+    fn accepts(&self, _: &LogicalType, _: Operator, _: bool) -> bool {
+        true
+    }
+
+    fn prepare_literal(&self, _: &Literal, _: &LogicalType) -> Result<Value, String> {
+        Ok(Value::Null)
+    }
+
+    fn map_value(&self, value: &Value) -> Option<Value> {
+        Some(value.clone())
+    }
+
+    fn map_text(&self, text: &str) -> String {
+        text.into()
+    }
+}
+
 
 fn query(filter: &str) -> Query {
     Query {
@@ -39,15 +67,15 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
     for (id, body) in [
         (
             "a",
-            r#"{"items":[{"price":5,"maximum_price":3},{"price":1,"maximum_price":10}],"matrix":[[1,2],[3,4]],"literal.key":["value","other"],"0":"digit-key","scalar":"x"}"#,
+            r#"{"items":[{"price":5,"maximum_price":3},{"price":1,"maximum_price":10}],"matrix":[[1,2],[3,4]],"literal.key":["value","other"],"0":"digit-key","scalar":"x","limit":3,"minimum_price":2,"declared_size":0,"title":"Goethe","alternate_title":"goethe","pattern":"%ethe"}"#,
         ),
         (
             "b",
-            r#"{"items":[{"price":2,"maximum_price":3}],"matrix":[[5,6]],"literal.key":["other"],"scalar":"x"}"#,
+            r#"{"items":[{"price":2,"maximum_price":3}],"matrix":[[5,6]],"literal.key":["other"],"scalar":"x","limit":3,"minimum_price":4,"declared_size":0,"title":"Müller","alternate_title":"MÜLLER","pattern":"Mül%"}"#,
         ),
         (
             "c",
-            r#"{"items":[],"matrix":[],"literal.key":[],"scalar":"x"}"#,
+            r#"{"items":[],"matrix":[],"literal.key":[],"scalar":"x","limit":3,"minimum_price":3,"declared_size":0,"title":"X","alternate_title":"Y","pattern":"Y"}"#,
         ),
     ] {
         let mut record: serde_json::Value = serde_json::from_str(body).unwrap();
@@ -58,6 +86,12 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
     for (path, kind, multi) in [
         (vec!["id"], LogicalType::String, false),
         (vec!["scalar"], LogicalType::String, false),
+        (vec!["limit"], LogicalType::Number, false),
+        (vec!["minimum_price"], LogicalType::Number, false),
+        (vec!["declared_size"], LogicalType::Number, false),
+        (vec!["title"], LogicalType::String, false),
+        (vec!["alternate_title"], LogicalType::String, false),
+        (vec!["pattern"], LogicalType::String, false),
         (
             vec!["items"],
             LogicalType::Array(Box::new(LogicalType::Object)),
@@ -120,6 +154,18 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         ("['0'] = 'digit-key'", vec!["a"]),
         ("items[*].price ?= 1", vec!["a"]),
         ("items[*].price = 1", vec!["c"]),
+        ("items[0].price > items[0].maximum_price", vec!["a"]),
+        ("items[*].price <= items[*].maximum_price", vec!["b", "c"]),
+        ("items[*].price ?<= items[*].maximum_price", vec!["a", "b"]),
+        ("items[*].price <= limit", vec!["b", "c"]),
+        ("limit >= items[*].price", vec!["b", "c"]),
+        ("limit > minimum_price", vec!["a"]),
+        ("matrix[0]:length <= limit", vec!["a", "b"]),
+        ("title:lower = alternate_title:lower", vec!["a", "b"]),
+        ("title = alternate_title", vec![]),
+        ("title ~ pattern", vec!["a", "b"]),
+        ("@file.size > declared_size", vec!["a", "b", "c"]),
+        ("@file.size >= @record.byte_length", vec!["a", "b", "c"]),
     ] {
         let query = query(filter);
         let result = repo.search(&query).unwrap();
@@ -146,7 +192,121 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
             .contains("array selector on scalar")
     );
     assert!(parse_structured_filter("SORT BY items[0].price").is_err());
+    assert!(
+        repo.search(&query("items[*].price <= matrix[*][0]"))
+            .unwrap_err()
+            .contains("independent multivalued")
+    );
+    assert!(
+        repo.search(&query("id > limit"))
+            .unwrap_err()
+            .contains("incompatible field operand types")
+    );
+    assert!(
+        repo.search(&query("items[*].price:null = items[*].maximum_price:null"))
+            .unwrap_err()
+            .contains("exists/null modifiers cannot compare")
+    );
+    let field_query = query("items[*].price ?<= items[*].maximum_price");
+    assert_eq!(
+        repo.explain(&field_query).unwrap()[0].terms[0]
+            .selected
+            .kind,
+        objekte_search_core::executor::AccessPathKind::Scanner
+    );
+    assert_eq!(
+        repo.search(&field_query).unwrap().hits[0].matched_fields,
+        ["items[*].maximum_price", "items[*].price"]
+    );
+    let mut metadata_query = query("@file.size >= @record.byte_length");
+    metadata_query.options.return_mode = ReturnMode::Locator;
+    assert_eq!(
+        repo.search(&metadata_query).unwrap().counters.files_opened,
+        0
+    );
     let _ = Value::Null;
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-field-comparison-fallback-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/mixed.jsonl"),
+        b"{\"left\":null,\"right\":null}\n{\"left\":1,\"right\":null}\n{\"left\":\n",
+    )
+    .unwrap();
+    let mut schema = Schema::default();
+    for name in ["left", "right"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::Number,
+                required: false,
+                nullable: true,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    schema
+        .register_operation(
+            vec!["left".into()],
+            RegisteredBinding {
+                name: "literal_only".into(),
+                version: 1,
+                operation: std::sync::Arc::new(LiteralOnlyOperation),
+            },
+        )
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: HashMap::new(),
+        }],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (filter, count) in [
+        ("left = right", 1),
+        ("left != right", 1),
+        ("!(left = right)", 1),
+        ("@record.class = 1 && !(left = right)", 0),
+        ("@file.size >= @record.byte_length", 3),
+    ] {
+        let request = query(filter);
+        let actual = repo.search(&request).unwrap();
+        let reference = repo.search_reference(&request).unwrap();
+        assert_eq!(actual.count, Some(count), "{filter}");
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+    }
+    assert!(
+        repo.search(&query("left:literal_only = right"))
+            .unwrap_err()
+            .contains("does not support dynamic field comparison")
+    );
     drop(repo);
     std::fs::remove_dir_all(root).unwrap();
 }

@@ -1,6 +1,7 @@
 //! Typed query binding and independent, index-free reference evaluation.
 
 use smallvec::SmallVec;
+use std::borrow::Cow;
 use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
@@ -108,6 +109,12 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
     fn prepare_literal(&self, literal: &Literal, kind: &LogicalType) -> Result<Value, String>;
     fn map_value(&self, value: &Value) -> Option<Value>;
     fn map_text(&self, text: &str) -> String;
+
+    /// A dynamic field operand may be compared after both values are mapped.
+    fn supports_dynamic_comparison(&self) -> bool {
+        false
+    }
+
     fn prepare_fts_literal(&self, text: &str) -> Result<String, String> {
         Ok(self.map_text(text))
     }
@@ -518,6 +525,7 @@ pub enum Derived {
 pub struct BoundTerm {
     pub path: FieldPath,
     pub query_path: QueryPath,
+    pub rhs: Option<Box<BoundFieldOperand>>,
     pub kind: LogicalType,
     pub source_kind: LogicalType,
     pub operator: Operator,
@@ -532,7 +540,21 @@ pub struct BoundTerm {
     pub binding_version: u32,
     pub indexed: bool,
     pub multi: bool,
+    pub implicit_array: bool,
     pub span: (usize, usize),
+}
+
+
+/// Prepared right-hand field for one dynamic scalar comparison.
+#[derive(Clone, Debug)]
+pub struct BoundFieldOperand {
+    pub path: FieldPath,
+    pub query_path: QueryPath,
+    pub kind: LogicalType,
+    pub derived: Derived,
+    pub transform: Transform,
+    pub operation: Option<Arc<dyn BindingOperation>>,
+    pub multi: bool,
 }
 
 
@@ -633,9 +655,9 @@ fn query_path_type(
     schema: &Schema,
     path: &QueryPath,
     field: &FieldDefinition,
-) -> Result<(LogicalType, bool), String> {
+) -> Result<(LogicalType, bool, bool), String> {
     if path.field.root != PathRoot::Data {
-        return Ok((field.kind.clone(), field.multi));
+        return Ok((field.kind.clone(), field.multi, false));
     }
     let mut prefix = Vec::new();
     let mut current = LogicalType::Unknown;
@@ -671,13 +693,101 @@ fn query_path_type(
     } else {
         field.multi || matches!(current, LogicalType::Array(_))
     };
-    Ok((current, multi))
+    Ok((current, multi, implicit_array))
 }
 
 fn bind_term(
     term: &Term,
     schema: &Schema,
     parameter_types: &mut HashMap<String, LogicalType>,
+) -> Result<BoundTerm, String> {
+    if let Operand::Field(field) = &term.operand {
+        let mut left = term.clone();
+        left.operand = Operand::Literal(Literal::Null);
+        left.quantifier = Quantifier::Default;
+        let mut lhs = bind_literal_term(&left, schema, parameter_types, true)?;
+        let rhs_term = Term {
+            path: field.path.clone(),
+            modifiers: field.modifiers.clone(),
+            quantifier: Quantifier::Default,
+            operator: term.operator,
+            operand: Operand::Literal(Literal::Null),
+            span: field.span,
+        };
+        let rhs = bind_literal_term(&rhs_term, schema, parameter_types, true)?;
+        if matches!(lhs.derived, Derived::Exists | Derived::Null)
+            || matches!(rhs.derived, Derived::Exists | Derived::Null)
+        {
+            return Err("exists/null modifiers cannot compare to another field".into());
+        }
+        if lhs.kind != LogicalType::Unknown
+            && rhs.kind != LogicalType::Unknown
+            && lhs.kind != rhs.kind
+        {
+            return Err(format!(
+                "incompatible field operand types: {:?} and {:?}",
+                lhs.kind, rhs.kind
+            ));
+        }
+        for operation in [lhs.operation.as_ref(), rhs.operation.as_ref()]
+            .into_iter()
+            .flatten()
+        {
+            if !operation.supports_dynamic_comparison() {
+                return Err("custom binding does not support dynamic field comparison".into());
+            }
+        }
+        let left_scope = explicit_scope(&lhs.query_path);
+        let right_scope = explicit_scope(&rhs.query_path);
+        if lhs.multi
+            && rhs.multi
+            && (left_scope.is_empty()
+                || left_scope != right_scope
+                || lhs.implicit_array
+                || rhs.implicit_array
+                || matches!(lhs.source_kind, LogicalType::Array(_))
+                || matches!(rhs.source_kind, LogicalType::Array(_)))
+        {
+            return Err("independent multivalued field operands need a shared [*] scope or explicit indexes".into());
+        }
+        if term.quantifier == Quantifier::Any && term.modifiers.contains(&Modifier::Each) {
+            return Err("each and existential operator conflict".into());
+        }
+        if term.quantifier == Quantifier::Any && !lhs.multi && !rhs.multi {
+            return Err("existential comparison requires a multi-valued field".into());
+        }
+        lhs.quantifier = term.quantifier;
+        lhs.rhs = Some(Box::new(BoundFieldOperand {
+            path: rhs.path,
+            query_path: rhs.query_path,
+            kind: rhs.kind,
+            derived: rhs.derived,
+            transform: rhs.transform,
+            operation: rhs.operation,
+            multi: rhs.multi,
+        }));
+        return Ok(lhs);
+    }
+    bind_literal_term(term, schema, parameter_types, false)
+}
+
+fn explicit_scope(path: &QueryPath) -> Vec<Vec<PathStep>> {
+    let mut prefix = Vec::new();
+    let mut scopes = Vec::new();
+    for step in &path.steps {
+        prefix.push(step.clone());
+        if matches!(step, PathStep::EachElement) {
+            scopes.push(prefix.clone());
+        }
+    }
+    scopes
+}
+
+fn bind_literal_term(
+    term: &Term,
+    schema: &Schema,
+    parameter_types: &mut HashMap<String, LogicalType>,
+    field_probe: bool,
 ) -> Result<BoundTerm, String> {
     let parameter_literal;
     let parsed_literal = match &term.operand {
@@ -708,7 +818,7 @@ fn bind_term(
         None
     };
     let field = schema.field_or_dynamic(&term.path.field)?;
-    let (source_kind, path_multi) = query_path_type(schema, &term.path, &field)?;
+    let (source_kind, path_multi, implicit_array) = query_path_type(schema, &term.path, &field)?;
     let mut derived = Derived::None;
     let mut transform = Transform::Identity;
     let mut operation = None;
@@ -836,11 +946,6 @@ fn bind_term(
     {
         return Err("text binding requires string values".into());
     }
-    if transform != Transform::Identity
-        && !matches!(parsed_literal, Literal::String(_) | Literal::Null)
-    {
-        return Err("text binding requires a string literal".into());
-    }
     if let Some(op) = &operation {
         if !op.accepts(&kind, term.operator, multi) {
             return Err(format!("unsupported operation for binding {binding_name}"));
@@ -851,17 +956,45 @@ fn bind_term(
     {
         return Err("contains requires string values".into());
     }
-    if matches!(term.operator, Operator::Contains | Operator::NotContains)
-        && !matches!(parsed_literal, Literal::String(_))
-    {
-        return Err("contains requires a string literal".into());
-    }
     if matches!(
         term.operator,
         Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
     ) && matches!(kind, LogicalType::Object | LogicalType::Array(_))
     {
         return Err("ordered comparison requires scalar values".into());
+    }
+    if field_probe {
+        return Ok(BoundTerm {
+            path: term.path.field.clone(),
+            query_path: term.path.clone(),
+            rhs: None,
+            kind,
+            source_kind,
+            operator: term.operator,
+            quantifier: term.quantifier,
+            literal: Value::Null,
+            gram_request: None,
+            derived,
+            transform,
+            operation,
+            matcher: None,
+            binding_name,
+            binding_version,
+            indexed: field.indexed,
+            multi,
+            implicit_array,
+            span: term.span,
+        });
+    }
+    if transform != Transform::Identity
+        && !matches!(parsed_literal, Literal::String(_) | Literal::Null)
+    {
+        return Err("text binding requires a string literal".into());
+    }
+    if matches!(term.operator, Operator::Contains | Operator::NotContains)
+        && !matches!(parsed_literal, Literal::String(_))
+    {
+        return Err("contains requires a string literal".into());
     }
     let literal = if let Some(op) = &operation {
         op.prepare_literal(parsed_literal, &kind)?
@@ -902,6 +1035,7 @@ fn bind_term(
     Ok(BoundTerm {
         path: term.path.field.clone(),
         query_path: term.path.clone(),
+        rhs: None,
         kind,
         source_kind,
         operator: term.operator,
@@ -916,6 +1050,7 @@ fn bind_term(
         binding_version,
         indexed: field.indexed,
         multi,
+        implicit_array,
         span: term.span,
     })
 }
@@ -1170,6 +1305,196 @@ fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
     ))
 }
 
+type ScopedValues<'a> = Vec<(Vec<usize>, Cow<'a, Value>)>;
+
+fn walk_scoped<'a>(
+    value: &'a Value,
+    steps: &[PathStep],
+    positions: &mut Vec<usize>,
+    output: &mut ScopedValues<'a>,
+) -> bool {
+    let Some(step) = steps.first() else {
+        output.push((positions.clone(), Cow::Borrowed(value)));
+        return true;
+    };
+    match step {
+        PathStep::Field(name) => match value {
+            Value::Object(map) => map
+                .get(name)
+                .is_some_and(|value| walk_scoped(value, &steps[1..], positions, output)),
+            Value::Array(array) => {
+                let mut found = array.values.is_empty();
+                for (index, item) in array.values.iter().enumerate() {
+                    positions.push(index);
+                    found |= walk_scoped(item, steps, positions, output);
+                    positions.pop();
+                }
+                found
+            }
+            _ => false,
+        },
+        PathStep::ArrayIndex(index) => match value {
+            Value::Array(array) => array
+                .values
+                .get(*index as usize)
+                .is_some_and(|value| walk_scoped(value, &steps[1..], positions, output)),
+            _ => false,
+        },
+        PathStep::EachElement => match value {
+            Value::Array(array) => {
+                let mut found = array.values.is_empty();
+                for (index, item) in array.values.iter().enumerate() {
+                    positions.push(index);
+                    found |= walk_scoped(item, &steps[1..], positions, output);
+                    positions.pop();
+                }
+                found
+            }
+            _ => false,
+        },
+    }
+}
+
+fn scoped_values<'a>(
+    path: &FieldPath,
+    query_path: &QueryPath,
+    derived: Derived,
+    multi: bool,
+    ctx: &'a RecordContext<'a>,
+) -> Result<Option<ScopedValues<'a>>, String> {
+    let mut values = Vec::new();
+    let found = match path.root {
+        PathRoot::Data => walk_scoped(ctx.value, &query_path.steps, &mut Vec::new(), &mut values),
+        PathRoot::Metadata(field) => {
+            values.push((Vec::new(), Cow::Owned(metadata_value(field, ctx)?)));
+            true
+        }
+    };
+    if matches!(derived, Derived::Exists | Derived::Null) {
+        let result = match derived {
+            Derived::Exists => found,
+            Derived::Null => values.len() == 1 && matches!(values[0].1.as_ref(), Value::Null),
+            _ => unreachable!(),
+        };
+        return Ok(Some(vec![(Vec::new(), Cow::Owned(Value::Bool(result)))]));
+    }
+    if !found {
+        return Ok(None);
+    }
+    if derived == Derived::Length {
+        return Ok(Some(
+            values
+                .into_iter()
+                .map(|(scope, value)| {
+                    let length = match value.as_ref() {
+                        Value::Array(array) => Some(array.values.len()),
+                        _ => None,
+                    };
+                    (
+                        scope,
+                        Cow::Owned(length.map_or(Value::Null, |length| {
+                            Value::Number(Number::integer(length as i128))
+                        })),
+                    )
+                })
+                .collect(),
+        ));
+    }
+    if multi {
+        let mut flat = Vec::new();
+        for (scope, value) in values {
+            match value {
+                Cow::Borrowed(Value::Array(array)) => {
+                    for (index, item) in array.values.iter().enumerate() {
+                        let mut scope = scope.clone();
+                        scope.push(index);
+                        flat.push((scope, Cow::Borrowed(item)));
+                    }
+                }
+                other => flat.push((scope, other)),
+            }
+        }
+        return Ok(Some(flat));
+    }
+    Ok(Some(values))
+}
+
+fn mapped_field_value<'a>(
+    value: &'a Value,
+    transform: Transform,
+    operation: Option<&Arc<dyn BindingOperation>>,
+) -> Option<Cow<'a, Value>> {
+    if let Some(operation) = operation {
+        return operation.map_value(value).map(Cow::Owned);
+    }
+    match (value, transform) {
+        (Value::String(text), Transform::CaseFold) => Some(Cow::Owned(Value::String(fold(text)))),
+        (_, Transform::CaseFold) => None,
+        _ => Some(Cow::Borrowed(value)),
+    }
+}
+
+fn eval_field_term(
+    term: &BoundTerm,
+    rhs: &BoundFieldOperand,
+    ctx: &RecordContext<'_>,
+) -> Result<bool, String> {
+    let Some(left) = scoped_values(&term.path, &term.query_path, term.derived, term.multi, ctx)?
+    else {
+        return Ok(false);
+    };
+    let Some(right) = scoped_values(&rhs.path, &rhs.query_path, rhs.derived, rhs.multi, ctx)?
+    else {
+        return Ok(false);
+    };
+    let compare = |a: &Value, b: &Value| {
+        let Some(a) = mapped_field_value(a, term.transform, term.operation.as_ref()) else {
+            return false;
+        };
+        let Some(b) = mapped_field_value(b, rhs.transform, rhs.operation.as_ref()) else {
+            return false;
+        };
+        compare_scalar(a.as_ref(), b.as_ref(), term.operator, Transform::Identity)
+    };
+    let mut results = Vec::new();
+    if term.multi && rhs.multi {
+        let mut right_by_scope = HashMap::with_capacity(right.len());
+        for (scope, value) in &right {
+            if right_by_scope
+                .insert(scope.as_slice(), value.as_ref())
+                .is_some()
+            {
+                return Err("ambiguous right-hand field occurrence".into());
+            }
+        }
+        for (scope, value) in &left {
+            let matching = right_by_scope.remove(scope.as_slice());
+            results.push(matching.is_some_and(|other| compare(value, other)));
+        }
+        results.extend(std::iter::repeat_n(false, right_by_scope.len()));
+    } else if term.multi {
+        let Some((_, scalar)) = right.first() else {
+            return Ok(false);
+        };
+        results.extend(left.iter().map(|(_, value)| compare(value, scalar)));
+    } else if rhs.multi {
+        let Some((_, scalar)) = left.first() else {
+            return Ok(false);
+        };
+        results.extend(right.iter().map(|(_, value)| compare(scalar, value)));
+    } else {
+        let (Some((_, a)), Some((_, b))) = (left.first(), right.first()) else {
+            return Ok(false);
+        };
+        results.push(compare(a, b));
+    }
+    Ok(if term.quantifier == Quantifier::Any {
+        results.into_iter().any(|result| result)
+    } else {
+        results.into_iter().all(|result| result)
+    })
+}
+
 /// `%` spans any sequence; `\%` means a literal percent. No other wildcard.
 fn contains_pattern(text: &str, pattern: &str) -> bool {
     let mut pieces = Vec::new();
@@ -1204,6 +1529,9 @@ fn contains_pattern(text: &str, pattern: &str) -> bool {
 }
 
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
+    if let Some(rhs) = &term.rhs {
+        return eval_field_term(term, rhs, ctx);
+    }
     if let Some(matcher) = &term.matcher {
         if matcher.input() == ExactInput::OriginalRecordBytes {
             return matcher.matches(None, ctx.source_bytes);
@@ -1307,6 +1635,9 @@ pub fn eval_filter(
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
                 evidence.insert(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs {
+                    evidence.insert(rhs.query_path.display.clone());
+                }
             }
             match_
         }
@@ -1344,7 +1675,12 @@ pub fn eval_unavailable_filter(
 ) -> Result<Option<bool>, String> {
     match expr {
         BoundExpr::Term(term) => {
-            if term.path.root == PathRoot::Data {
+            if term.path.root == PathRoot::Data
+                || term
+                    .rhs
+                    .as_ref()
+                    .is_some_and(|rhs| rhs.path.root == PathRoot::Data)
+            {
                 return Ok(None);
             }
             let matched = eval_term(term, ctx)?;
@@ -1353,6 +1689,9 @@ pub fn eval_unavailable_filter(
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
                 evidence.insert(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs {
+                    evidence.insert(rhs.query_path.display.clone());
+                }
             }
             Ok(Some(matched))
         }

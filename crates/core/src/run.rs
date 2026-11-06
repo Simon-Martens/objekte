@@ -272,6 +272,13 @@ fn scan_projection(
                         fields.insert(first.clone());
                     }
                 }
+                if !fully_proven
+                    && let Some(rhs) = &term.rhs
+                    && rhs.path.root == PathRoot::Data
+                    && let Some(first) = rhs.path.segments.first()
+                {
+                    fields.insert(first.clone());
+                }
             }
             Residual::And(parts) | Residual::Or(parts) => {
                 for part in parts {
@@ -363,13 +370,21 @@ impl Residual<'_> {
     ) -> Result<Option<bool>, String> {
         match self {
             Self::Term(term, _) => {
-                if term.path.root == PathRoot::Data {
+                if term.path.root == PathRoot::Data
+                    || term
+                        .rhs
+                        .as_ref()
+                        .is_some_and(|rhs| rhs.path.root == PathRoot::Data)
+                {
                     return Ok(None);
                 }
                 *evaluations += 1;
                 let matched = eval_term(term, ctx)?;
                 if matched && self.can_emit_evidence() {
                     evidence.insert(term.query_path.display.clone());
+                    if let Some(rhs) = &term.rhs {
+                        evidence.insert(rhs.query_path.display.clone());
+                    }
                 }
                 Ok(Some(matched))
             }
@@ -491,6 +506,9 @@ impl Residual<'_> {
                 };
                 if matched && self.can_emit_evidence() {
                     evidence.insert(term.query_path.display.clone());
+                    if let Some(rhs) = &term.rhs {
+                        evidence.insert(rhs.query_path.display.clone());
+                    }
                 }
                 matched
             }
@@ -852,6 +870,9 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
                 evidence.insert(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs {
+                    evidence.insert(rhs.query_path.display.clone());
+                }
             }
             Some(evidence)
         }
