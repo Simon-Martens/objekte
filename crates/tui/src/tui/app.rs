@@ -157,6 +157,16 @@ impl App {
         self.hits.get(self.selected)
     }
 
+    pub(super) fn diagnostic(
+        &self,
+        hit: &SearchHit,
+    ) -> Option<&objekte_search_core::inventory::SourceDiagnostic> {
+        self.repo.files().diagnostic(
+            objekte_search_core::model::FileId(hit.file_id),
+            hit.diagnostic_ref,
+        )
+    }
+
     pub(super) fn busy(&self) -> bool {
         self.searching || self.pending.is_some()
     }

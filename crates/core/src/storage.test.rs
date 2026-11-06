@@ -62,7 +62,7 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
             ..RepositoryOptions::default()
         };
         let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
-        assert_eq!(built.build_parses, 2);
+        assert_eq!(built.build_parses, 4);
         let path = root.join(format!("{alphabet:?}.snapshot"));
         built.save_snapshot(&path).unwrap();
         let restored = load_snapshot(
@@ -75,9 +75,25 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
         .unwrap();
         assert_eq!(restored.files.files.len(), 2);
         assert_eq!(restored.files.files[0].collections.len(), 2);
-        assert!(restored.files.files.iter().all(|file| file.status == crate::inventory::FileStatus::Valid && file.diagnostics.is_empty()));
+        assert!(
+            restored
+                .files
+                .files
+                .iter()
+                .all(|file| file.status == crate::inventory::FileStatus::Valid
+                    && file.diagnostics.is_empty())
+        );
         assert_eq!(restored.collections[0].generation.records.len(), 2);
-        assert!(restored.collections[0].generation.records.iter().all(|record| record.class == crate::inventory::RecordClass::Logical && record.diagnostic_ref == crate::inventory::DiagnosticRef(0)));
+        assert!(
+            restored.collections[0]
+                .generation
+                .records
+                .iter()
+                .all(
+                    |record| record.class == crate::inventory::RecordClass::Logical
+                        && record.diagnostic_ref == crate::inventory::DiagnosticRef(0)
+                )
+        );
         assert_eq!(
             restored.collections[0].generation.file_records.slots.len(),
             2

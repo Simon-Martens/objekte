@@ -74,6 +74,20 @@ pub struct PostingStats {
 
 
 impl PostingIndex {
+    pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
+        if !self.presence.is_subset(allowed)
+            || !self.nulls.is_subset(allowed)
+            || self
+                .values
+                .values()
+                .chain(self.lengths.values())
+                .any(|slots| !slots.is_subset(allowed))
+        {
+            return Err("posting outside logical eligible domain".into());
+        }
+        Ok(())
+    }
+
     /// Intersect borrowed broad postings with a restricted domain before any copy.
     pub fn exact_set_restricted(
         &self,
@@ -81,7 +95,11 @@ impl PostingIndex {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
     ) -> Option<RoaringBitmap> {
-        if term.matcher.as_ref().is_some_and(|matcher| !matcher.posting_compatible()) {
+        if term
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.posting_compatible())
+        {
             return None;
         }
         if self.covered_records as u64 != domain.len() {
@@ -131,10 +149,13 @@ impl PostingIndex {
                 let Value::Number(number) = term.literal else {
                     return None;
                 };
-                return Some(union_postings(
-                    self.lengths.iter().filter(|(key, _)| *key != &number),
-                    Some(input),
-                ).0);
+                return Some(
+                    union_postings(
+                        self.lengths.iter().filter(|(key, _)| *key != &number),
+                        Some(input),
+                    )
+                    .0,
+                );
             }
             Derived::None if matches!(term.literal, Value::Null) => {
                 // The null posting tracks only an explicit null field. It cannot
@@ -273,7 +294,11 @@ impl PostingIndex {
 
     /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
     pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
-        if term.matcher.as_ref().is_some_and(|matcher| !matcher.posting_compatible()) {
+        if term
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.posting_compatible())
+        {
             return None;
         }
         if self.covered_records as u64 != domain_len {
@@ -382,7 +407,11 @@ impl PostingIndex {
     /// An exact answer over this index's complete record domain, or `None`
     /// when quantification/transformation needs independent verification.
     pub fn exact_set(&self, term: &BoundTerm, domain: &RoaringBitmap) -> Option<RoaringBitmap> {
-        if term.matcher.as_ref().is_some_and(|matcher| !matcher.posting_compatible()) {
+        if term
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.posting_compatible())
+        {
             return None;
         }
         if self.covered_records as u64 != domain.len() {
@@ -465,6 +494,7 @@ impl PostingIndex {
     }
 }
 
+
 /// A length posting is a union of records containing at least one reached
 /// array of that length. It proves existential comparisons. A one-segment
 /// field path selects at most one array from a record root, so its default
@@ -473,7 +503,6 @@ impl PostingIndex {
 fn length_posting_is_exact(term: &BoundTerm) -> bool {
     term.quantifier == Quantifier::Any || term.path.segments.len() == 1
 }
-
 
 fn is_range(operator: Operator) -> bool {
     matches!(
@@ -624,6 +653,13 @@ pub struct PostingCollection {
 
 
 impl PostingCollection {
+    pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
+        for index in self.fields.values() {
+            index.validate_domain(allowed)?;
+        }
+        Ok(())
+    }
+
     pub fn new(schema: &Schema) -> Self {
         let fields = schema
             .fields

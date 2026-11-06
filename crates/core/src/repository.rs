@@ -1,5 +1,6 @@
 //! Resident repository ownership and the independent scan execution path.
 
+use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
 use std::sync::Mutex;
@@ -8,7 +9,8 @@ use std::time::Instant;
 use crate::bigram::BigramIndex;
 use crate::discovery::{Discovery, discover};
 use crate::inventory::{
-    ByteRange, CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision,
+    ByteRange, CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus,
+    RecordClass, SourceDiagnostic, SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
@@ -16,12 +18,12 @@ use crate::query::Query;
 use crate::record_preparation::{finish_build_record, materialize, prepare_query_record};
 use crate::reference::{
     BindingOperation, RecordContext, Schema, Transform, bind_filter, bind_fts, data_values,
-    eval_bound_fts, eval_filter,
+    eval_bound_fts, eval_filter, eval_unavailable_filter,
 };
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
-    ExtractedRecord, PreparedSource, SourceFormat, SourceRegistry, TextSegment,
-    extract_file_with_reader, read_record_range, ScanProjection,
+    DiagnosticCategory, PreparedSource, ReaderDiagnostic, ScanProjection, SourceFormat,
+    SourceOutcome, SourceRegistry, TextSegment, extract_file_outcomes, read_record_range,
 };
 use crate::workload::{BigramAlphabet, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
@@ -74,6 +76,8 @@ pub struct CollectionState {
     pub postings: PostingCollection,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: BigramIndex,
+    pub fallback_text: BigramIndex,
+    pub logical_records: RoaringBitmap,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub sorting: SortCollection,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
@@ -110,6 +114,96 @@ impl CollectionStats {
 }
 
 
+fn publish_fallback(
+    root: &std::path::Path,
+    definition: &CollectionDefinition,
+    source: &PreparedSource,
+    file_id: FileId,
+    files: &mut FileInventory,
+    builder: &mut CollectionBuilder,
+    postings: &mut PostingCollection,
+    custom_postings: &mut HashMap<(Vec<String>, String), CustomPostingIndex>,
+    raw: &mut BigramIndex,
+    fallback_text: &mut BigramIndex,
+    custom_text: &mut HashMap<(Vec<String>, String), BigramIndex>,
+    sort_builder: &mut SortBuilder,
+    range: ByteRange,
+    bytes: &[u8],
+    issue: ReaderDiagnostic,
+) -> Result<(), String> {
+    let diagnostic = SourceDiagnostic::from_reader(
+        file_id,
+        builder.collection_id(),
+        source.id(),
+        source.version(),
+        range,
+        None,
+        issue,
+    );
+    let reference = files.record_diagnostic(file_id, diagnostic)?;
+    let file = &files.files[file_id.0 as usize];
+    let id = RecordId::fallback(
+        builder.collection_id(),
+        source.id(),
+        source.version(),
+        &file.relative_path,
+        file_id,
+        file.revision.modified_ns,
+        range.start,
+        range.end,
+    );
+    let slot = builder.add_raw_fallback(file, id, range, reference)?;
+    if let Some(index) = reference.stored_index() {
+        files.files[file_id.0 as usize].diagnostics[index].record = Some(slot);
+    }
+    let file = &files.files[file_id.0 as usize];
+    let empty = Value::Object(Default::default());
+    postings.add(slot, &empty)?;
+    for index in custom_postings.values_mut() {
+        index.index.add_values(slot, None)?;
+    }
+    raw.add_empty(slot)?;
+    let text = String::from_utf8_lossy(bytes);
+    fallback_text.add_record(
+        slot,
+        &[TextSegment {
+            path: vec!["@record".into(), "raw_text".into()],
+            text: text.into_owned(),
+        }],
+    )?;
+    for index in custom_text.values_mut() {
+        index.add_empty(slot)?;
+    }
+    sort_builder.add(
+        slot,
+        &empty,
+        builder.record(slot).unwrap(),
+        file,
+        root,
+        &definition.name,
+    )?;
+    if std::str::from_utf8(bytes).is_err() {
+        files.record_diagnostic(
+            file_id,
+            SourceDiagnostic::from_reader(
+                file_id,
+                builder.collection_id(),
+                source.id(),
+                source.version(),
+                range,
+                Some(slot),
+                ReaderDiagnostic::new(
+                    DiagnosticCategory::Encoding,
+                    "source.utf8_lossy",
+                    "invalid UTF-8 replaced in raw search text",
+                ),
+            ),
+        )?;
+    }
+    Ok(())
+}
+
+
 /// Resident owner of file inventory, collections, workers, and caches.
 ///
 /// Published structural state is only available through shared references.
@@ -127,6 +221,7 @@ pub struct Repository {
     pub(crate) collections: Vec<CollectionState>,
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
+    pub(crate) build_failed_parses: u64,
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
@@ -193,6 +288,9 @@ pub struct SearchHit {
     pub byte_end: u64,
     pub modified_ns: i128,
     pub matched_fields: Vec<String>,
+    pub file_status: FileStatus,
+    pub record_class: RecordClass,
+    pub diagnostic_ref: DiagnosticRef,
     pub payload: Option<Payload>,
 }
 
@@ -201,6 +299,7 @@ pub struct SearchHit {
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
+    LogicalUnavailable { diagnostic_ref: DiagnosticRef },
 }
 
 
@@ -224,6 +323,10 @@ impl Repository {
 
     pub fn build_parses(&self) -> u64 {
         self.build_parses
+    }
+
+    pub fn build_failed_parses(&self) -> u64 {
+        self.build_failed_parses
     }
 
     /// Opening configuration. The verified cache budget may subsequently be
@@ -401,10 +504,7 @@ impl Repository {
         }
         let mut collections = Vec::new();
         let mut build_parses = 0;
-        let mut shared_extractions: HashMap<
-            (FileId, String, u32),
-            Vec<(ByteRange, ExtractedRecord)>,
-        > = HashMap::new();
+        let mut build_failed_parses = 0;
         for (definition, id, source, member_files) in selected {
             let mut builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
@@ -425,6 +525,8 @@ impl Repository {
                 })
                 .collect();
             let mut raw = BigramIndex::new(options.bigram_alphabet);
+            let mut fallback_text = BigramIndex::new(options.bigram_alphabet);
+            let mut logical_records = RoaringBitmap::new();
             let mut sort_builder = SortBuilder::new(
                 &definition.sort_fields,
                 &definition.schema,
@@ -450,13 +552,82 @@ impl Repository {
                 .collect();
             for file_id in member_files {
                 builder.include_file(file_id)?;
-                let file = &files.files[file_id.0 as usize];
+                let file = files.files[file_id.0 as usize].clone();
                 let path = files.native_path(file_id).ok_or("missing file path")?;
-                let mut consume = |range: ByteRange, mut extracted: ExtractedRecord| {
-                    finish_build_record(&source, &definition.schema, &mut extracted)
-                        .map_err(|error| {
-                            format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
-                        })?;
+                let mut consume = |outcome: SourceOutcome| {
+                    let (range, mut extracted) = match outcome {
+                        SourceOutcome::Logical { range, record } => (range, record),
+                        SourceOutcome::Malformed {
+                            range,
+                            diagnostic,
+                            bytes,
+                        } => {
+                            return publish_fallback(
+                                &root,
+                                &definition,
+                                &source,
+                                file_id,
+                                &mut files,
+                                &mut builder,
+                                &mut postings,
+                                &mut custom_postings,
+                                &mut raw,
+                                &mut fallback_text,
+                                &mut custom_text,
+                                &mut sort_builder,
+                                range,
+                                &bytes,
+                                diagnostic,
+                            );
+                        }
+                        SourceOutcome::Unreadable { diagnostic } => {
+                            files.record_diagnostic(
+                                file_id,
+                                SourceDiagnostic {
+                                    file: file_id,
+                                    collection: id,
+                                    source_id: source.id().into(),
+                                    source_version: source.version(),
+                                    record: None,
+                                    range: None,
+                                    category: diagnostic.category,
+                                    code: diagnostic.code,
+                                    field_path: diagnostic.field_path,
+                                    byte_offset: None,
+                                    line: diagnostic.line,
+                                    column: diagnostic.column,
+                                    message: diagnostic.message,
+                                },
+                            )?;
+                            return Ok(());
+                        }
+                    };
+                    if let Err(error) =
+                        finish_build_record(&source, &definition.schema, &mut extracted)
+                    {
+                        let bytes = read_record_range(&path, file.revision, range)?;
+                        return publish_fallback(
+                            &root,
+                            &definition,
+                            &source,
+                            file_id,
+                            &mut files,
+                            &mut builder,
+                            &mut postings,
+                            &mut custom_postings,
+                            &mut raw,
+                            &mut fallback_text,
+                            &mut custom_text,
+                            &mut sort_builder,
+                            range,
+                            &bytes,
+                            ReaderDiagnostic::new(
+                                DiagnosticCategory::LogicalValidation,
+                                "logical.validation",
+                                error,
+                            ),
+                        );
+                    }
                     let record_id = (|| -> Result<RecordId, String> {
                         match &definition.identity {
                             IdentityPolicy::Filename => {
@@ -486,7 +657,7 @@ impl Repository {
                         format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
                     })?;
                     let slot = builder
-                        .add_record(file, record_id, range.start, range.end)
+                        .add_record(&file, record_id, range.start, range.end)
                         .map_err(|error| {
                             format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
                         })?;
@@ -528,11 +699,13 @@ impl Repository {
                         &extracted.text
                     };
                     raw.add_record(slot, indexed_text)?;
+                    fallback_text.add_empty(slot)?;
+                    logical_records.insert(slot.0);
                     sort_builder.add(
                         slot,
                         &extracted.value,
                         builder.record(slot).unwrap(),
-                        file,
+                        &file,
                         &root,
                         &definition.name,
                     )?;
@@ -570,34 +743,10 @@ impl Repository {
                     }
                     Ok(())
                 };
-                if file.collections.len() > 1 {
-                    let shared_key = (file_id, source.id().to_owned(), source.version());
-                    if !shared_extractions.contains_key(&shared_key) {
-                        let mut extracted = Vec::new();
-                        let stats = extract_file_with_reader(
-                            &path,
-                            source.reader(),
-                            file.revision,
-                            |range, record| {
-                                extracted.push((range, record));
-                                Ok(())
-                            },
-                        )?;
-                        build_parses += stats.record_parses;
-                        shared_extractions.insert(shared_key.clone(), extracted);
-                    }
-                    for (range, record) in &shared_extractions[&shared_key] {
-                        consume(*range, record.clone())?;
-                    }
-                } else {
-                    let stats = extract_file_with_reader(
-                        &path,
-                        source.reader(),
-                        file.revision,
-                        &mut consume,
-                    )?;
-                    build_parses += stats.record_parses;
-                }
+                let stats =
+                    extract_file_outcomes(&path, source.reader(), file.revision, &mut consume)?;
+                build_parses += stats.record_parses;
+                build_failed_parses += stats.failed_parses;
             }
             let generation = builder.finish(&files)?;
             postings.finish_stats();
@@ -607,6 +756,7 @@ impl Repository {
                 custom.index.validate(generation.records.len())?;
             }
             raw.validate(generation.records.len())?;
+            fallback_text.validate(generation.records.len())?;
             for index in custom_text.values() {
                 index.validate(generation.records.len())?;
             }
@@ -642,6 +792,8 @@ impl Repository {
                 postings,
                 custom_postings,
                 raw,
+                fallback_text,
+                logical_records,
                 custom_text,
                 sorting,
                 id_lookup,
@@ -649,11 +801,16 @@ impl Repository {
                 stats,
             });
         }
+        for state in &mut collections {
+            state.sorting.refresh_file_status(&state.generation, &files);
+        }
+        files.validate_diagnostics()?;
         Ok(Self {
             files,
             collections,
             sources: sources.clone(),
             build_parses,
+            build_failed_parses,
             options,
             startup: StartupStats::default(),
             workers: Self::create_workers(options.query_workers)?,
@@ -721,10 +878,22 @@ impl Repository {
                 let bytes = read_record_range(&path, record.revision, record.range)?;
                 counters.files_opened += 1;
                 counters.bytes_read += bytes.len() as u64;
-                counters.record_parses += 1;
+                counters.record_parses += u64::from(record.class == RecordClass::Logical);
                 counters.scanned_records += 1;
-                let extracted = prepare_query_record(&collection.source,
-                    &collection.definition.schema, &bytes, &ScanProjection::full(true), true)?;
+                let extracted = if record.class == RecordClass::Logical {
+                    prepare_query_record(
+                        &collection.source,
+                        &collection.definition.schema,
+                        &bytes,
+                        &ScanProjection::full(true),
+                        true,
+                    )?
+                } else {
+                    crate::source::ExtractedRecord {
+                        value: Value::Object(Default::default()),
+                        text: Vec::new(),
+                    }
+                };
                 let ctx = RecordContext {
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
@@ -734,16 +903,42 @@ impl Repository {
                     repository_root: &self.files.root,
                 };
                 let mut evidence = HashSet::new();
-                let fts_match = fts
-                    .as_ref()
-                    .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
-                    .transpose()?
-                    .unwrap_or(true);
-                let filter_match = filter
-                    .as_ref()
-                    .map(|f| eval_filter(f, &ctx, &mut evidence))
-                    .transpose()?
-                    .unwrap_or(true);
+                let fts_match = if record.class == RecordClass::RawFallback {
+                    if let Some(fts) = &fts {
+                        if fts.fields.is_empty() {
+                            let matched =
+                                String::from_utf8_lossy(&bytes).contains(&fts.source_literal);
+                            if matched {
+                                evidence.insert("@record.raw_text".into());
+                            }
+                            matched
+                        } else {
+                            eval_bound_fts(fts, &[], &ctx, &mut evidence)?
+                        }
+                    } else {
+                        true
+                    }
+                } else {
+                    fts.as_ref()
+                        .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
+                        .transpose()?
+                        .unwrap_or(true)
+                };
+                let filter_match = if record.class == RecordClass::RawFallback {
+                    filter
+                        .as_ref()
+                        .map(|f| eval_unavailable_filter(f, &ctx, &mut evidence))
+                        .transpose()?
+                        .flatten()
+                        == Some(true)
+                        || filter.is_none()
+                } else {
+                    filter
+                        .as_ref()
+                        .map(|f| eval_filter(f, &ctx, &mut evidence))
+                        .transpose()?
+                        .unwrap_or(true)
+                };
                 counters.residual_evaluations += u64::from(filter.is_some());
                 if fts_match && filter_match {
                     let mut matched_fields: Vec<_> = if query.options.evidence {
@@ -752,7 +947,15 @@ impl Repository {
                         Vec::new()
                     };
                     matched_fields.sort();
-                    let payload = materialize(&query.options.return_mode, bytes, Some(extracted))?;
+                    let payload = if record.class == RecordClass::RawFallback
+                        && query.options.return_mode == crate::workload::ReturnMode::Logical
+                    {
+                        Some(Payload::LogicalUnavailable {
+                            diagnostic_ref: record.diagnostic_ref,
+                        })
+                    } else {
+                        materialize(&query.options.return_mode, bytes, Some(extracted))?
+                    };
                     hits.push((
                         collection.generation.collection.0 as usize,
                         record.slot.0,
@@ -768,6 +971,9 @@ impl Repository {
                             byte_end: record.range.end,
                             modified_ns: record.revision.modified_ns,
                             matched_fields,
+                            file_status: file.status,
+                            record_class: record.class,
+                            diagnostic_ref: record.diagnostic_ref,
                             payload,
                         },
                     ));

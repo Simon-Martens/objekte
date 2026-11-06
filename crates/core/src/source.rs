@@ -11,6 +11,7 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::Value;
 
+
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum SourceFormat {
@@ -18,6 +19,7 @@ pub enum SourceFormat {
     JsonLines,
     Registered(String),
 }
+
 
 impl SourceFormat {
     pub fn registered(id: impl Into<String>) -> Self {
@@ -33,6 +35,7 @@ impl SourceFormat {
     }
 }
 
+
 /// Extracted searchable string with its logical field path.
 #[derive(Clone, Debug)]
 pub struct TextSegment {
@@ -40,12 +43,14 @@ pub struct TextSegment {
     pub text: String,
 }
 
+
 /// Logical value and text produced by a source reader.
 #[derive(Clone, Debug)]
 pub struct ExtractedRecord {
     pub value: Value,
     pub text: Vec<TextSegment>,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -56,6 +61,7 @@ pub enum DiagnosticCategory {
     LogicalValidation,
     Io,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ReaderDiagnostic {
@@ -68,12 +74,25 @@ pub struct ReaderDiagnostic {
     pub field_path: Option<Vec<String>>,
 }
 
+
 impl ReaderDiagnostic {
-    pub fn new(category: DiagnosticCategory, code: impl Into<String>, message: impl Into<String>) -> Self {
-        Self { category, code: code.into(), message: message.into(), relative_byte: None,
-            line: None, column: None, field_path: None }
+    pub fn new(
+        category: DiagnosticCategory,
+        code: impl Into<String>,
+        message: impl Into<String>,
+    ) -> Self {
+        Self {
+            category,
+            code: code.into(),
+            message: message.into(),
+            relative_byte: None,
+            line: None,
+            column: None,
+            field_path: None,
+        }
     }
 }
+
 
 #[derive(Clone, Debug)]
 pub enum ReaderFailure {
@@ -81,10 +100,23 @@ pub enum ReaderFailure {
     Fatal(String),
 }
 
+
+#[derive(Clone)]
 pub enum SourceOutcome {
-    Logical { range: ByteRange, record: ExtractedRecord },
-    Malformed { range: ByteRange, diagnostic: ReaderDiagnostic },
+    Logical {
+        range: ByteRange,
+        record: ExtractedRecord,
+    },
+    Malformed {
+        range: ByteRange,
+        diagnostic: ReaderDiagnostic,
+        bytes: Vec<u8>,
+    },
+    Unreadable {
+        diagnostic: ReaderDiagnostic,
+    },
 }
+
 
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
@@ -95,6 +127,7 @@ pub struct ScanProjection {
     pub collect_text: bool,
 }
 
+
 /// Whether each logical string field appears as an intact, unchanged text
 /// segment. A custom reader must opt in explicitly; its default segments are
 /// reader-owned and may omit or split fields present in the logical record.
@@ -104,6 +137,7 @@ pub enum LogicalTextCoverage {
     ReaderSelected,
 }
 
+
 /// Owner of searchable segments after logical type conversion.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TextDerivation {
@@ -111,16 +145,19 @@ pub enum TextDerivation {
     LogicalStringsAfterConversion,
 }
 
+
 pub fn finalize_extracted_text(
     reader: &dyn SourceReader,
     record: &mut ExtractedRecord,
     converted_temporal_fields: bool,
 ) {
     if converted_temporal_fields
-        && reader.text_derivation() == TextDerivation::LogicalStringsAfterConversion {
+        && reader.text_derivation() == TextDerivation::LogicalStringsAfterConversion
+    {
         record.text = text_segments(&record.value);
     }
 }
+
 
 impl ScanProjection {
     pub fn full(collect_text: bool) -> Self {
@@ -131,20 +168,27 @@ impl ScanProjection {
     }
 }
 
+
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
-    fn text_derivation(&self) -> TextDerivation { TextDerivation::ReaderSegments }
+    fn text_derivation(&self) -> TextDerivation {
+        TextDerivation::ReaderSegments
+    }
+
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
         LogicalTextCoverage::ReaderSelected
     }
+
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
     fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
         self.frame(file).map_err(ReaderFailure::Fatal)
     }
+
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         self.parse(bytes).map_err(ReaderFailure::Fatal)
     }
+
     fn intrinsic_id(
         &self,
         record: &ExtractedRecord,
@@ -180,6 +224,7 @@ pub trait SourceReader: Send + Sync {
     }
 }
 
+
 /// Stable source identity, discovery suffix, and reader implementation.
 #[derive(Clone)]
 pub struct SourceRegistration {
@@ -189,9 +234,11 @@ pub struct SourceRegistration {
     pub reader: Arc<dyn SourceReader>,
 }
 
+
 /// Prepared source handle resolved once per collection.
 #[derive(Clone)]
 pub struct PreparedSource(Arc<SourceRegistration>);
+
 
 impl PreparedSource {
     pub fn id(&self) -> &str {
@@ -211,11 +258,13 @@ impl PreparedSource {
     }
 }
 
+
 /// Repository-local source registrations. The built-ins use this same table.
 #[derive(Clone, Default)]
 pub struct SourceRegistry {
     entries: HashMap<String, Arc<SourceRegistration>>,
 }
+
 
 impl SourceRegistry {
     pub fn builtin() -> Self {
@@ -266,17 +315,22 @@ impl SourceRegistry {
     }
 }
 
+
 /// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
+
 
 /// Reader for independently parseable JSON Lines records.
 pub struct JsonLinesReader;
 
+
 /// Deserializer seed that retains selected top-level JSON members.
 struct SelectedObject<'a>(&'a HashSet<String>);
 
+
 /// Map visitor that skips JSON members outside a query projection.
 struct SelectedVisitor<'a>(&'a HashSet<String>);
+
 
 impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
@@ -298,6 +352,7 @@ impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     }
 }
 
+
 impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
 
@@ -309,10 +364,14 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     }
 }
 
+
 fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
     let invalid_utf8 = std::str::from_utf8(bytes).err();
-    let category = if invalid_utf8.is_some() { DiagnosticCategory::Encoding }
-        else { DiagnosticCategory::Syntax };
+    let category = if invalid_utf8.is_some() {
+        DiagnosticCategory::Encoding
+    } else {
+        DiagnosticCategory::Syntax
+    };
     let mut issue = ReaderDiagnostic::new(category, "json.parse", error.to_string());
     issue.line = (error.line() > 0).then_some(error.line() as u64);
     issue.column = (error.column() > 0).then_some(error.column() as u64);
@@ -326,8 +385,11 @@ fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
             };
             start += next + 1;
         }
-        issue.relative_byte = Some((start as u64).saturating_add(column.saturating_sub(1))
-            .min(bytes.len() as u64));
+        issue.relative_byte = Some(
+            (start as u64)
+                .saturating_add(column.saturating_sub(1))
+                .min(bytes.len() as u64),
+        );
     }
     issue
 }
@@ -346,11 +408,15 @@ fn parse_json_for_query_diagnosed(
     } else {
         serde_json::from_slice(bytes).map_err(|e| json_issue(bytes, e))?
     };
-    let value = Value::from_json(json).map_err(|error| ReaderDiagnostic::new(
-        DiagnosticCategory::LogicalValidation, "json.value", error))?;
+    let value = Value::from_json(json).map_err(|error| {
+        ReaderDiagnostic::new(DiagnosticCategory::LogicalValidation, "json.value", error)
+    })?;
     if !matches!(value, Value::Object(_)) {
-        return Err(ReaderDiagnostic::new(DiagnosticCategory::LogicalValidation,
-            "json.root", "record root must be an object"));
+        return Err(ReaderDiagnostic::new(
+            DiagnosticCategory::LogicalValidation,
+            "json.root",
+            "record root must be an object",
+        ));
     }
     let mut text = Vec::new();
     if projection.collect_text {
@@ -359,7 +425,10 @@ fn parse_json_for_query_diagnosed(
     Ok(ExtractedRecord { value, text })
 }
 
-fn parse_json_for_query(bytes: &[u8], projection: &ScanProjection) -> Result<ExtractedRecord, String> {
+fn parse_json_for_query(
+    bytes: &[u8],
+    projection: &ScanProjection,
+) -> Result<ExtractedRecord, String> {
     parse_json_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
 }
 
@@ -395,6 +464,7 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
     output
 }
 
+
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
         "json"
@@ -404,12 +474,11 @@ impl SourceReader for JsonReader {
         LogicalTextCoverage::AllStringFields
     }
 
-    fn text_derivation(&self) -> TextDerivation { TextDerivation::LogicalStringsAfterConversion }
+    fn text_derivation(&self) -> TextDerivation {
+        TextDerivation::LogicalStringsAfterConversion
+    }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
-        if file.iter().all(u8::is_ascii_whitespace) {
-            return Ok(Vec::new());
-        }
         Ok(vec![ByteRange::checked(
             0,
             file.len() as u64,
@@ -435,6 +504,7 @@ impl SourceReader for JsonReader {
     }
 }
 
+
 impl SourceReader for JsonLinesReader {
     fn name(&self) -> &'static str {
         "jsonl"
@@ -444,7 +514,9 @@ impl SourceReader for JsonLinesReader {
         LogicalTextCoverage::AllStringFields
     }
 
-    fn text_derivation(&self) -> TextDerivation { TextDerivation::LogicalStringsAfterConversion }
+    fn text_derivation(&self) -> TextDerivation {
+        TextDerivation::LogicalStringsAfterConversion
+    }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
         let mut result = Vec::new();
@@ -489,6 +561,7 @@ impl SourceReader for JsonLinesReader {
     }
 }
 
+
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
 pub struct ExtractionCounters {
@@ -496,6 +569,7 @@ pub struct ExtractionCounters {
     pub record_parses: u64,
     pub failed_parses: u64,
 }
+
 
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
@@ -523,9 +597,18 @@ where
 {
     extract_file_outcomes(path, source, expected, |outcome| match outcome {
         SourceOutcome::Logical { range, record } => consume(range, record),
-        SourceOutcome::Malformed { range, diagnostic } => Err(format!(
-            "{}:{}..{}: {}", path.display(), range.start, range.end, diagnostic.message
+        SourceOutcome::Malformed {
+            range, diagnostic, ..
+        } => Err(format!(
+            "{}:{}..{}: {}",
+            path.display(),
+            range.start,
+            range.end,
+            diagnostic.message
         )),
+        SourceOutcome::Unreadable { diagnostic } => {
+            Err(format!("{}: {}", path.display(), diagnostic.message))
+        }
     })
 }
 
@@ -545,6 +628,23 @@ fn validate_reader_ranges(ranges: &[ByteRange], file_size: usize) -> Result<(), 
     Ok(())
 }
 
+fn file_coordinates(file: &[u8], range: ByteRange, diagnostic: &mut ReaderDiagnostic) {
+    let prefix = &file[..range.start as usize];
+    let earlier_lines = prefix.iter().filter(|byte| **byte == b'\n').count() as u64;
+    if let Some(line) = diagnostic.line {
+        diagnostic.line = line.checked_add(earlier_lines);
+        if line == 1 {
+            let line_start = prefix
+                .iter()
+                .rposition(|byte| *byte == b'\n')
+                .map_or(0, |index| index + 1);
+            diagnostic.column = diagnostic
+                .column
+                .and_then(|column| column.checked_add((prefix.len() - line_start) as u64));
+        }
+    }
+}
+
 pub fn extract_file_outcomes<F>(
     path: &Path,
     source: &dyn SourceReader,
@@ -554,24 +654,56 @@ pub fn extract_file_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+    let mut file = match std::fs::File::open(path) {
+        Ok(file) => file,
+        Err(error) => {
+            consume(SourceOutcome::Unreadable {
+                diagnostic: ReaderDiagnostic::new(
+                    DiagnosticCategory::Io,
+                    "source.open",
+                    error.to_string(),
+                ),
+            })?;
+            return Ok(ExtractionCounters::default());
+        }
+    };
     check_revision(path, &file, expected)?;
     let mut bytes = Vec::new();
-    file.read_to_end(&mut bytes).map_err(|e| e.to_string())?;
+    if let Err(error) = file.read_to_end(&mut bytes) {
+        consume(SourceOutcome::Unreadable {
+            diagnostic: ReaderDiagnostic::new(
+                DiagnosticCategory::Io,
+                "source.read",
+                error.to_string(),
+            ),
+        })?;
+        return Ok(ExtractionCounters::default());
+    }
     check_revision(path, &file, expected)?;
     if bytes.len() as u64 != expected.size {
         return Err("stale source revision during extraction".into());
     }
     let ranges = match source.frame_outcome(&bytes) {
         Ok(ranges) => ranges,
-        Err(ReaderFailure::Malformed(diagnostic)) => {
+        Err(ReaderFailure::Malformed(mut diagnostic)) => {
             let size = u64::try_from(bytes.len()).map_err(|_| "source size overflow")?;
             let range = ByteRange::checked(0, size, size)?;
-            consume(SourceOutcome::Malformed { range, diagnostic })?;
+            file_coordinates(&bytes, range, &mut diagnostic);
+            consume(SourceOutcome::Malformed {
+                range,
+                diagnostic,
+                bytes,
+            })?;
             check_revision(path, &file, expected)?;
-            return Ok(ExtractionCounters { framed_records: 1, record_parses: 0, failed_parses: 0 });
+            return Ok(ExtractionCounters {
+                framed_records: 1,
+                record_parses: 0,
+                failed_parses: 0,
+            });
         }
-        Err(ReaderFailure::Fatal(error)) => return Err(format!("{}: reader fatal: {error}", path.display())),
+        Err(ReaderFailure::Fatal(error)) => {
+            return Err(format!("{}: reader fatal: {error}", path.display()));
+        }
     };
     validate_reader_ranges(&ranges, bytes.len())?;
     let mut counters = ExtractionCounters::default();
@@ -583,13 +715,22 @@ where
                 counters.record_parses += 1;
                 consume(SourceOutcome::Logical { range, record })?;
             }
-            Err(ReaderFailure::Malformed(diagnostic)) => {
+            Err(ReaderFailure::Malformed(mut diagnostic)) => {
                 counters.failed_parses += 1;
-                consume(SourceOutcome::Malformed { range, diagnostic })?;
+                file_coordinates(&bytes, range, &mut diagnostic);
+                consume(SourceOutcome::Malformed {
+                    range,
+                    diagnostic,
+                    bytes: part.to_vec(),
+                })?;
             }
             Err(ReaderFailure::Fatal(error)) => {
-                return Err(format!("{}:{}..{}: reader fatal: {error}",
-                    path.display(), range.start, range.end));
+                return Err(format!(
+                    "{}:{}..{}: reader fatal: {error}",
+                    path.display(),
+                    range.start,
+                    range.end
+                ));
             }
         }
     }
@@ -648,12 +789,14 @@ pub fn read_record_ranges(
     RecordRangeReader::open(path, revision)?.read(ranges)
 }
 
+
 /// One opened source handle for a bounded sequence of range batches.
 pub struct RecordRangeReader {
     file: std::fs::File,
     revision: SourceRevision,
     first_read: bool,
 }
+
 
 impl RecordRangeReader {
     pub fn open(path: &Path, revision: SourceRevision) -> Result<Self, String> {
@@ -724,6 +867,7 @@ impl RecordRangeReader {
         Ok((output, bytes_read))
     }
 }
+
 
 #[cfg(test)]
 #[path = "source.test.rs"]

@@ -15,6 +15,7 @@ use crate::sorting::SortKey;
 use crate::source::LogicalTextCoverage;
 use serde::Serialize;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum AccessPathKind {
@@ -27,6 +28,7 @@ pub enum AccessPathKind {
     Scanner,
 }
 
+
 /// Estimated cost and coverage of one physical query path.
 #[derive(Clone, Debug, Serialize)]
 pub struct AccessPathEstimate {
@@ -38,6 +40,7 @@ pub struct AccessPathEstimate {
     pub estimated_files: f64,
     pub estimated_bytes: f64,
 }
+
 
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
@@ -54,6 +57,7 @@ pub struct TermChoice {
     pub residual_verification: bool,
     pub executed: bool,
 }
+
 
 fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
     match expr {
@@ -84,12 +88,46 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
     }
 }
 
+fn fallback_choices(expr: &BoundExpr, input: u64, output: &mut Vec<TermChoice>) {
+    match expr {
+        BoundExpr::Term(term) => output.push(TermChoice {
+            span: term.span,
+            field: term.path.display(),
+            logical_type: format!("{:?}", term.kind),
+            binding: format!("{}@{}", term.binding_name, term.binding_version),
+            selected: AccessPathEstimate {
+                kind: AccessPathKind::Scanner,
+                exact: false,
+                coverage: input as u32,
+                estimated_output: input,
+                estimated_work: input as f64,
+                estimated_files: 0.0,
+                estimated_bytes: 0.0,
+            },
+            alternatives: Vec::new(),
+            actual_input: input,
+            actual_output: Some(input),
+            reason: "fallback records require three-valued residual verification".into(),
+            residual_verification: true,
+            executed: true,
+        }),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            for part in parts {
+                fallback_choices(part, input, output);
+            }
+        }
+        BoundExpr::Not(inner) => fallback_choices(inner, input, output),
+    }
+}
+
+
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
     pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
+
 
 /// Candidate set, exactness, and diagnostics for a planned expression.
 pub(crate) struct Plan {
@@ -99,6 +137,7 @@ pub(crate) struct Plan {
     pub proofs: Vec<Proof>,
     pub choices: Vec<TermChoice>,
 }
+
 
 /// A whole-record raw index is a field superset only when its source reader
 /// supplies every logical string and the indexed representation is identity.
@@ -363,7 +402,11 @@ fn enumerate_paths(
                             );
                         }
                     } else if !matches!(term.binding_name.as_str(), "lower")
-                        && term.matcher.as_ref().is_some_and(|matcher| matcher.bigram_compatible()) {
+                        && term
+                            .matcher
+                            .as_ref()
+                            .is_some_and(|matcher| matcher.bigram_compatible())
+                    {
                         if let Some(index) = collection
                             .custom_text
                             .get(&(term.path.segments.clone(), term.binding_name.clone()))
@@ -527,6 +570,17 @@ pub(crate) fn plan_expr_restricted(
     input: &RoaringBitmap,
     evidence: bool,
 ) -> Result<Plan, String> {
+    if collection.logical_records.len() != collection.generation.records.len() as u64 {
+        let mut choices = Vec::new();
+        fallback_choices(expr, input.len(), &mut choices);
+        return Ok(Plan {
+            candidates: Some(input.clone()),
+            exact: false,
+            proven_hits: RoaringBitmap::new(),
+            proofs: Vec::new(),
+            choices,
+        });
+    }
     Ok(match expr {
         BoundExpr::Term(term) => {
             let mut paths = enumerate_paths(collection, term, input.len());
@@ -686,6 +740,7 @@ pub(crate) fn plan_expr_restricted(
                     (Some(mut union), Some(set)) => {
                         union |= set;
 
+
                         Some(union)
                     }
                     _ => None,
@@ -737,7 +792,11 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
     if matches!(term.binding_name.as_str(), "default" | "lower") {
         return None;
     }
-    if !term.matcher.as_ref().is_some_and(|matcher| matcher.bigram_compatible()) {
+    if !term
+        .matcher
+        .as_ref()
+        .is_some_and(|matcher| matcher.bigram_compatible())
+    {
         return None;
     }
     let Value::String(literal) = &term.literal else {
@@ -757,7 +816,13 @@ pub(crate) fn fts_candidates(
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
     if fts.fields.is_empty() {
-        if fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+        let has_fallback =
+            collection.logical_records.len() != collection.generation.records.len() as u64;
+        if fts
+            .raw_matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.bigram_compatible())
+        {
             return None;
         }
         if collection
@@ -769,7 +834,11 @@ pub(crate) fn fts_candidates(
         {
             return None;
         }
-        return collection.raw.candidates(&fts.literal);
+        let mut valid = collection.raw.candidates(&fts.literal)?;
+        if has_fallback {
+            valid |= collection.fallback_text.candidates(&fts.source_literal)?;
+        }
+        return Some(valid);
     }
     let mut union = RoaringBitmap::new();
     for field in &fts.fields {
@@ -777,8 +846,13 @@ pub(crate) fn fts_candidates(
             return None;
         }
         let candidates = if field.binding_name != "default" {
-            if collection.source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields
-                || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+            if collection.source.reader().logical_text_coverage()
+                != LogicalTextCoverage::AllStringFields
+                || field
+                    .matcher
+                    .as_ref()
+                    .is_some_and(|matcher| !matcher.bigram_compatible())
+            {
                 return None;
             }
             let key = (field.path.segments.clone(), field.binding_name.clone());
@@ -791,6 +865,7 @@ pub(crate) fn fts_candidates(
             collection.raw.candidates(&field.literal)?
         };
 
+
         union |= candidates;
     }
     Some(union)
@@ -801,7 +876,11 @@ pub(crate) fn estimate_fts_candidates(
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
     if fts.fields.is_empty() {
-        if fts.raw_matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+        if fts
+            .raw_matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.bigram_compatible())
+        {
             return None;
         }
         if collection
@@ -825,8 +904,13 @@ pub(crate) fn estimate_fts_candidates(
             return None;
         }
         let estimate = if field.binding_name != "default" {
-            if collection.source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields
-                || field.matcher.as_ref().is_some_and(|matcher| !matcher.bigram_compatible()) {
+            if collection.source.reader().logical_text_coverage()
+                != LogicalTextCoverage::AllStringFields
+                || field
+                    .matcher
+                    .as_ref()
+                    .is_some_and(|matcher| !matcher.bigram_compatible())
+            {
                 return None;
             }
             let key = (field.path.segments.clone(), field.binding_name.clone());

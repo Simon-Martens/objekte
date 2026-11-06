@@ -13,11 +13,16 @@ use super::settings;
 fn record(hit: &SearchHit) -> Result<Value, String> {
     match &hit.payload {
         Some(Payload::Bytes(bytes)) => {
-            serde_json::from_slice(bytes).map_err(|error| error.to_string())
+            if hit.record_class == objekte_search_core::inventory::RecordClass::RawFallback {
+                Ok(Value::String(String::from_utf8_lossy(bytes).into_owned()))
+            } else {
+                serde_json::from_slice(bytes).map_err(|error| error.to_string())
+            }
         }
         Some(Payload::Logical(value)) => {
             serde_json::to_value(value).map_err(|error| error.to_string())
         }
+        Some(Payload::LogicalUnavailable { .. }) => Ok(Value::Null),
         None => Err("query did not return record data".into()),
     }
 }
@@ -30,6 +35,11 @@ fn hit_value(hit: &SearchHit) -> Result<Value, String> {
         "byte_start": hit.byte_start,
         "byte_end": hit.byte_end,
         "matched_fields": hit.matched_fields,
+        "file_status": hit.file_status.code(),
+        "file_status_label": hit.file_status.label(),
+        "record_class": hit.record_class.code(),
+        "diagnostic_ref": hit.diagnostic_ref.0,
+        "logical_unavailable": matches!(hit.payload, Some(Payload::LogicalUnavailable { .. })),
         "record": record(hit)?,
     }))
 }

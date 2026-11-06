@@ -47,28 +47,55 @@ fn schema() -> Schema {
 #[test]
 fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conversion() {
     let mut schema = Schema::default();
-    schema.register_field(FieldDefinition {
-        path: vec!["details".into()], kind: LogicalType::Object,
-        required: false, nullable: true, indexed: false, multi: false,
-        element_nullable: vec![],
-    }).unwrap();
-    schema.register_field(FieldDefinition {
-        path: vec!["details".into(), "published".into()], kind: LogicalType::Date,
-        required: true, nullable: false, indexed: true, multi: false,
-        element_nullable: vec![],
-    }).unwrap();
-    schema.register_field(FieldDefinition {
-        path: vec!["details".into(), "history".into(), "at".into()],
-        kind: LogicalType::Datetime, required: true, nullable: false,
-        indexed: false, multi: true, element_nullable: vec![],
-    }).unwrap();
-    schema.register_field(FieldDefinition {
-        path: vec!["details".into(), "history".into()],
-        kind: LogicalType::Array(Box::new(LogicalType::Object)), required: false,
-        nullable: false, indexed: false, multi: true, element_nullable: vec![false],
-    }).unwrap();
-    for json in [serde_json::json!({}), serde_json::json!({"details":null}),
-        serde_json::json!({"details":{"published":"2026-01-02", "history":[{"at":"2026-01-02T03:04:05Z"}]}})] {
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["details".into()],
+            kind: LogicalType::Object,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["details".into(), "published".into()],
+            kind: LogicalType::Date,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["details".into(), "history".into(), "at".into()],
+            kind: LogicalType::Datetime,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["details".into(), "history".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::Object)),
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![false],
+        })
+        .unwrap();
+    for json in [
+        serde_json::json!({}),
+        serde_json::json!({"details":null}),
+        serde_json::json!({"details":{"published":"2026-01-02", "history":[{"at":"2026-01-02T03:04:05Z"}]}}),
+    ] {
         let mut built = Value::from_json(json.clone()).unwrap();
         schema.coerce_record(&mut built).unwrap();
         let mut scanned = Value::from_json(json).unwrap();
@@ -76,9 +103,16 @@ fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conv
         assert_eq!(scanned, built);
     }
     let mut projected = Value::from_json(serde_json::json!({"note":"keep"})).unwrap();
-    schema.coerce_query_record(&mut projected, Some(&HashSet::from(["note".into()]))).unwrap();
+    schema
+        .coerce_query_record(&mut projected, Some(&HashSet::from(["note".into()])))
+        .unwrap();
     let mut invalid = Value::from_json(serde_json::json!({"details":{}})).unwrap();
-    assert!(schema.coerce_record(&mut invalid).unwrap_err().contains("details.published"));
+    assert!(
+        schema
+            .coerce_record(&mut invalid)
+            .unwrap_err()
+            .contains("details.published")
+    );
 }
 
 fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
@@ -438,12 +472,20 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
     };
     std::fs::write(root.join("data/bad.json"), r#"{"count":"7","other":"ok"}"#).unwrap();
     for indexed in [false, true] {
-        let error = Repository::open_with_options(&root, vec![definition(indexed)], options)
-            .err()
-            .unwrap();
+        let repo =
+            Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
+        assert_eq!(
+            repo.files.files[0].status,
+            crate::inventory::FileStatus::Broken
+        );
+        assert_eq!(
+            repo.collections[0].generation.records[0].class,
+            crate::inventory::RecordClass::RawFallback
+        );
         assert!(
-            error.contains("bad.json:0..") && error.contains("count: expected Number"),
-            "{error}"
+            repo.files.files[0].diagnostics[0]
+                .message
+                .contains("count: expected Number")
         );
     }
     std::fs::remove_file(root.join("data/bad.json")).unwrap();

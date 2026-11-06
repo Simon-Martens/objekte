@@ -12,8 +12,8 @@ use icu_locale_core::Locale;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::inventory::{CollectionGeneration, FileEntry, RecordEntry};
-use crate::model::{FieldPath, LogicalType, Number, PathRoot, RecordSlot, Value};
+use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
+use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
 use crate::reference::{RecordContext, Schema, data_values, metadata_value};
 use crate::workload::SortField;
 
@@ -325,6 +325,34 @@ fn descending_order(
 
 
 impl SortCollection {
+    pub fn refresh_file_status(
+        &mut self,
+        generation: &CollectionGeneration,
+        inventory: &FileInventory,
+    ) {
+        for column in self.columns.values_mut() {
+            if column.path.root != PathRoot::Metadata(MetadataField::FileStatus) {
+                continue;
+            }
+            for record in &generation.records {
+                let status = inventory.files[record.file.0 as usize].status.code();
+                column.keys[record.slot.0 as usize] =
+                    SortKey::Number(Number::integer(status as i128));
+            }
+            column.ascending = generation.records.iter().map(|r| r.slot).collect();
+            column.ascending.sort_by(|a, b| {
+                column.keys[a.0 as usize]
+                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+                    .then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+            });
+            column.descending = descending_order(&column.ascending, &column.keys, column.options);
+        }
+    }
+
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
         let path = FieldPath::parse(field)?;
         self.columns

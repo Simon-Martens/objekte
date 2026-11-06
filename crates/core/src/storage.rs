@@ -1,5 +1,6 @@
 //! Versioned, checksummed sections for complete immutable search generations.
 
+use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
 use std::fs::{self, File, OpenOptions};
 use std::io::{Read, Write};
@@ -11,7 +12,9 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::bigram::{BIGRAM_VERSION, BigramIndex};
-use crate::inventory::{CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision};
+use crate::inventory::{
+    CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision,
+};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::repository::{
@@ -23,7 +26,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 4;
+pub const SNAPSHOT_VERSION: u32 = 5;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -49,6 +52,8 @@ struct EncodedCollection {
     postings: PostingCollection,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramIndex,
+    fallback_text: BigramIndex,
+    logical_records: RoaringBitmap,
     custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     sorting: SortCollection,
     stats: CollectionStats,
@@ -63,6 +68,8 @@ struct EncodedCollectionRef<'a> {
     postings: &'a PostingCollection,
     custom_postings: &'a HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: &'a BigramIndex,
+    fallback_text: &'a BigramIndex,
+    logical_records: &'a RoaringBitmap,
     custom_text: &'a HashMap<(Vec<String>, String), BigramIndex>,
     sorting: &'a SortCollection,
     stats: CollectionStats,
@@ -376,6 +383,8 @@ impl Repository {
                     postings: &state.postings,
                     custom_postings: &state.custom_postings,
                     raw: &state.raw,
+                    fallback_text: &state.fallback_text,
+                    logical_records: &state.logical_records,
                     custom_text: &state.custom_text,
                     sorting: &state.sorting,
                     stats: state.stats,
@@ -456,6 +465,52 @@ pub fn load_snapshot(
             return Err("snapshot collection identity mismatch".into());
         }
         generation.validate(&files)?;
+        for record in &generation.records {
+            if record.class == crate::inventory::RecordClass::RawFallback {
+                let file_entry = &files.files[record.file.0 as usize];
+                let expected_id = RecordId::fallback(
+                    generation.collection,
+                    source.id(),
+                    source.version(),
+                    &file_entry.relative_path,
+                    record.file,
+                    record.revision.modified_ns,
+                    record.range.start,
+                    record.range.end,
+                );
+                if record.id != expected_id {
+                    return Err("snapshot fallback identity mismatch".into());
+                }
+                if let Some(diagnostic) = files.diagnostic(record.file, record.diagnostic_ref) {
+                    if diagnostic.source_id != source.id()
+                        || diagnostic.source_version != source.version()
+                    {
+                        return Err("snapshot fallback diagnostic registration mismatch".into());
+                    }
+                }
+            }
+        }
+        encoded.fallback_text.validate(generation.records.len())?;
+        let actual_logical: RoaringBitmap = generation
+            .records
+            .iter()
+            .filter(|record| record.class == crate::inventory::RecordClass::Logical)
+            .map(|record| record.slot.0)
+            .collect();
+        if encoded.logical_records != actual_logical {
+            return Err("snapshot logical eligibility mismatch".into());
+        }
+        let all_slots: RoaringBitmap = (0..generation.records.len() as u32).collect();
+        let fallback_slots = &all_slots - &actual_logical;
+        encoded.postings.validate_domain(&actual_logical)?;
+        for posting in encoded.custom_postings.values() {
+            posting.index.validate_domain(&actual_logical)?;
+        }
+        encoded.raw.validate_domain(&actual_logical)?;
+        for index in encoded.custom_text.values() {
+            index.validate_domain(&actual_logical)?;
+        }
+        encoded.fallback_text.validate_domain(&fallback_slots)?;
         encoded.postings.validate(generation.records.len())?;
         let expected_custom: HashSet<_> = definition
             .schema
@@ -636,12 +691,29 @@ pub fn load_snapshot(
             postings: encoded.postings,
             custom_postings: encoded.custom_postings,
             raw: encoded.raw,
+            fallback_text: encoded.fallback_text,
+            logical_records: encoded.logical_records,
             custom_text: encoded.custom_text,
             sorting: encoded.sorting,
             id_lookup,
             identity_order: encoded.identity_order,
             stats,
         });
+    }
+    for file in &files.files {
+        for diagnostic in &file.diagnostics {
+            if let Some(slot) = diagnostic.record {
+                let record = collections
+                    .get(diagnostic.collection.0 as usize)
+                    .and_then(|collection| collection.generation.records.get(slot.0 as usize))
+                    .ok_or("snapshot diagnostic record out of bounds")?;
+                if record.file != file.id
+                    || record.class != crate::inventory::RecordClass::RawFallback
+                {
+                    return Err("snapshot diagnostic record ownership mismatch".into());
+                }
+            }
+        }
     }
     let mut trailing = [0; 1];
     if file.read(&mut trailing).map_err(|e| e.to_string())? != 0 {
@@ -652,6 +724,7 @@ pub fn load_snapshot(
         collections,
         sources: sources.clone(),
         build_parses: 0,
+        build_failed_parses: 0,
         options,
         startup: StartupStats::default(),
         workers: Repository::create_workers(options.query_workers)?,

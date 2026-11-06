@@ -295,20 +295,36 @@ fn detail(frame: &mut Frame<'_>, app: &App, area: Rect) {
     let Some(hit) = app.selected_hit() else {
         return;
     };
-    let title = format!(" {} / {} ", hit.collection, hit.record_id);
+    let title = format!(
+        " {} / {} [{}] ",
+        hit.collection,
+        hit.record_id,
+        hit.file_status.label()
+    );
     let body = match &hit.payload {
         Some(Payload::Bytes(bytes)) => serde_json::from_slice::<serde_json::Value>(bytes)
             .ok()
             .and_then(|value| serde_json::to_string_pretty(&value).ok())
             .unwrap_or_else(|| String::from_utf8_lossy(bytes).into_owned()),
         Some(Payload::Logical(value)) => format!("{value:?}"),
+        Some(Payload::LogicalUnavailable { .. }) => {
+            "Logical record unavailable; request bytes to inspect the source.".into()
+        }
         None => String::new(),
     };
+    let diagnostic = app
+        .diagnostic(hit)
+        .map(|issue| format!("{}: {}", issue.code, issue.message))
+        .unwrap_or_default();
     let body = format!(
-        "File: {}\nBytes: {}..{}\nMatched fields: {}\n\n{}",
+        "File: {}\nBytes: {}..{}\nStatus: {} ({})\nRecord class: {}\nDiagnostic: {}\nMatched fields: {}\n\n{}",
         hit.file_path.display(),
         hit.byte_start,
         hit.byte_end,
+        hit.file_status.label(),
+        hit.file_status.code(),
+        hit.record_class.code(),
+        diagnostic,
         hit.matched_fields.join(", "),
         body,
     );

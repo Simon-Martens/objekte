@@ -23,6 +23,18 @@ pub struct BigramIndex {
 
 
 impl BigramIndex {
+    pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
+        if self
+            .normal
+            .values()
+            .chain(self.skip.values())
+            .any(|slots| !slots.is_subset(allowed))
+        {
+            return Err("bigram posting outside eligible domain".into());
+        }
+        Ok(())
+    }
+
     pub fn new_ascii() -> Self {
         Self::new(BigramAlphabet::Ascii)
     }
@@ -37,6 +49,9 @@ impl BigramIndex {
     }
 
     pub fn add_record(&mut self, slot: RecordSlot, segments: &[TextSegment]) -> Result<(), String> {
+        if segments.is_empty() {
+            return self.add_empty(slot);
+        }
         if slot.0 != self.record_count {
             return Err("bigram slots must be added in record order".into());
         }
@@ -78,6 +93,17 @@ impl BigramIndex {
         for gram in skip {
             self.skip.entry(gram).or_default().insert(slot.0);
         }
+        Ok(())
+    }
+
+    pub fn add_empty(&mut self, slot: RecordSlot) -> Result<(), String> {
+        if slot.0 != self.record_count {
+            return Err("bigram slots must be added in record order".into());
+        }
+        self.record_count = self
+            .record_count
+            .checked_add(1)
+            .ok_or("bigram record overflow")?;
         Ok(())
     }
 

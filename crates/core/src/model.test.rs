@@ -67,6 +67,7 @@ fn arrays_paths_and_id_namespace() {
     assert!(FieldPath::parse("@file.unknown").is_err());
     let mut ids = IdentitySet::default();
     ids.insert(RecordId::intrinsic("a").unwrap()).unwrap();
+    assert!(RecordId::intrinsic("~fallback:forged").is_err());
     assert!(ids.insert(RecordId::intrinsic("a").unwrap()).is_err());
     assert_ne!(
         RecordId::generated(FileId(1), 2, 3),

@@ -6,6 +6,267 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
+    use crate::inventory::{FileStatus, RecordClass};
+    use crate::query::FtsQuery;
+    use crate::repository::{Payload, RepositoryOptions, SnapshotMode};
+    let root = std::env::temp_dir().join(format!("objekte-malformed-jsonl-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/mixed.jsonl"),
+        b"{\"title\":\"alpha\"}\n{\"title\":\n{\"title\":\"omega\"}\n",
+    )
+    .unwrap();
+    std::fs::write(root.join("data/valid.jsonl"), b"{\"title\":\"beta\"}\n").unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![crate::model::FieldPath::parse("@file.status").unwrap()],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let query = |filter: Option<&str>, fts: Option<FtsQuery>, mode| Query {
+        collections: vec!["data".into()],
+        filter: filter.map(|filter| parse_filter(filter).unwrap()),
+        fts,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: mode,
+            evidence: true,
+        },
+    };
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            verified_cache_bytes: 1024 * 1024,
+            ..Default::default()
+        };
+        let built =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        assert_eq!(built.build_failed_parses(), 1);
+        assert_eq!(built.files.files[0].status, FileStatus::Broken);
+        assert_eq!(built.files.files[0].diagnostics.len(), 1);
+        assert_eq!(built.files.files[0].diagnostics[0].line, Some(2));
+        assert!(built.files.files[0].diagnostics[0].byte_offset.unwrap() >= 18);
+        assert_eq!(built.collections[0].generation.records.len(), 4);
+        assert_eq!(built.collections[0].logical_records.len(), 3);
+        let all = query(None, None, ReturnMode::Logical);
+        let result = built.search(&all).unwrap();
+        assert_eq!(result.count, Some(4));
+        let bad = result
+            .hits
+            .iter()
+            .find(|hit| hit.record_class == RecordClass::RawFallback)
+            .unwrap();
+        assert_eq!(bad.file_status, FileStatus::Broken);
+        assert!(matches!(
+            bad.payload,
+            Some(Payload::LogicalUnavailable { .. })
+        ));
+        assert!(
+            built
+                .files
+                .diagnostic(crate::model::FileId(bad.file_id), bad.diagnostic_ref)
+                .is_some()
+        );
+        assert_eq!(built.search_reference(&all).unwrap().hits, result.hits);
+        let cached = built.search(&all).unwrap();
+        assert!(cached.counters.verified_result_hit);
+        assert_eq!(cached.hits, result.hits);
+        let bytes = built
+            .search(&query(Some("@record.class = 1"), None, ReturnMode::Bytes))
+            .unwrap();
+        assert_eq!(bytes.count, Some(1));
+        assert!(
+            matches!(&bytes.hits[0].payload, Some(Payload::Bytes(value)) if value == b"{\"title\":")
+        );
+        for (filter, expected) in [
+            ("title = 'alpha'", 1),
+            ("!(title = 'alpha')", 2),
+            ("@file.status = 1", 3),
+            ("@file.status = 1 || title = 'x'", 3),
+            ("@file.status = 0 || title = 'x'", 1),
+            ("@record.class = 1 && title = 'x'", 0),
+            ("@record.class = 1 && !(title = 'x')", 0),
+        ] {
+            let q = query(Some(filter), None, ReturnMode::Locator);
+            let actual = built.search(&q).unwrap();
+            assert_eq!(actual.count, Some(expected), "{filter}");
+            assert_eq!(
+                actual.hits,
+                built.search_reference(&q).unwrap().hits,
+                "{filter}"
+            );
+        }
+        let raw_fts = query(
+            None,
+            Some(FtsQuery {
+                literal: "title".into(),
+                fields: vec![],
+            }),
+            ReturnMode::Locator,
+        );
+        let raw_result = built.search(&raw_fts).unwrap();
+        assert_eq!(raw_result.count, Some(1));
+        assert_eq!(raw_result.hits[0].record_class, RecordClass::RawFallback);
+        assert_eq!(raw_result.hits[0].matched_fields, ["@record.raw_text"]);
+        let selected = query(
+            None,
+            Some(FtsQuery {
+                literal: "title".into(),
+                fields: vec![crate::query::FtsField {
+                    path: crate::model::FieldPath::parse("title").unwrap(),
+                    binding: None,
+                }],
+            }),
+            ReturnMode::Locator,
+        );
+        assert_eq!(built.search(&selected).unwrap().count, Some(0));
+        let mut sorted = all.clone();
+        sorted.options.sort = vec![crate::workload::SortField {
+            field: "@file.status".into(),
+            descending: false,
+        }];
+        let ordered = built.search(&sorted).unwrap();
+        assert_eq!(ordered.hits[0].file_status, FileStatus::Valid);
+        assert!(
+            ordered.hits[1..]
+                .iter()
+                .all(|hit| hit.file_status == FileStatus::Broken)
+        );
+        assert_eq!(ordered.hits, built.search_reference(&sorted).unwrap().hits);
+        let restored =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        assert!(restored.startup().restored);
+        assert_eq!(restored.search(&all).unwrap().hits, result.hits);
+        assert_eq!(restored.search(&raw_fts).unwrap().hits, raw_result.hits);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
+    use crate::repository::{Payload, RepositoryOptions, SnapshotMode};
+    let root = std::env::temp_dir().join(format!("objekte-malformed-json-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/empty.json"), b"").unwrap();
+    std::fs::write(root.join("data/encoding.json"), b"{\"title\":\"\xff\"}").unwrap();
+    std::fs::write(root.join("data/valid.json"), b"{\"title\":\"okay\"}").unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema: Schema::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = |filter: &str, mode| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: mode,
+            evidence: false,
+        },
+    };
+    let empty = repo
+        .search(&query("@record.byte_length = 0", ReturnMode::Bytes))
+        .unwrap();
+    assert_eq!(empty.count, Some(1));
+    assert!(matches!(&empty.hits[0].payload, Some(Payload::Bytes(bytes)) if bytes.is_empty()));
+    assert_eq!(
+        empty.hits[0].record_class,
+        crate::inventory::RecordClass::RawFallback
+    );
+    let encoding = repo
+        .search(&query("@file.path ~ 'encoding'", ReturnMode::Bytes))
+        .unwrap();
+    assert_eq!(encoding.count, Some(1));
+    assert!(
+        matches!(&encoding.hits[0].payload, Some(Payload::Bytes(bytes)) if bytes == b"{\"title\":\"\xff\"}")
+    );
+    assert!(
+        repo.files
+            .files
+            .iter()
+            .find(|file| file.relative_path.ends_with("encoding.json"))
+            .unwrap()
+            .diagnostics
+            .iter()
+            .any(|issue| issue.category == crate::source::DiagnosticCategory::Encoding)
+    );
+    let fts = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(crate::query::FtsQuery {
+            literal: "�".into(),
+            fields: vec![],
+        }),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    let found = repo.search(&fts).unwrap();
+    assert_eq!(found.count, Some(1));
+    assert_eq!(
+        found.hits[0].record_class,
+        crate::inventory::RecordClass::RawFallback
+    );
+    assert!(matches!(
+        found.hits[0].payload,
+        Some(Payload::LogicalUnavailable { .. })
+    ));
+    assert_eq!(found.hits, repo.search_reference(&fts).unwrap().hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
     let root = std::env::temp_dir().join(format!("objekte-residual-proofs-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
@@ -377,7 +638,9 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
     let mut starts = Vec::new();
     for n in 0..6000 {
         starts.push(data.len() as u64);
-        data.extend_from_slice(format!(r#"{{"sequence":{n},"kind":"yes","body":"needle"}}"#).as_bytes());
+        data.extend_from_slice(
+            format!(r#"{{"sequence":{n},"kind":"yes","body":"needle"}}"#).as_bytes(),
+        );
         data.push(b'\n');
     }
     std::fs::write(root.join("data/all.jsonl"), data).unwrap();
@@ -387,34 +650,82 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
         ("kind", LogicalType::String, true),
         ("body", LogicalType::String, false),
     ] {
-        schema.register_field(FieldDefinition { path: vec![name.into()], kind,
-            required: true, nullable: false, indexed, multi: false,
-            element_nullable: vec![] }).unwrap();
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
     }
-    let repo = Repository::open_with_options(&root, vec![CollectionDefinition {
-        name: "data".into(), source_path: "data".into(), format: SourceFormat::JsonLines,
-        identity: IdentityPolicy::Generated, discovery: Default::default(), schema,
-        sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
-        sort_locale: "de".into(), sort_options: Default::default(), sort_overrides: Default::default(),
-    }], crate::repository::RepositoryOptions {
-        snapshot_mode: crate::repository::SnapshotMode::Disabled, ..Default::default()
-    }).unwrap();
-    let query = |filter: &str, mode, count| Query { collections: vec!["data".into()],
-        fts: None, filter: Some(parse_filter(filter).unwrap()),
-        options: QueryOptions { sort: vec![SortField { field: "sequence".into(), descending: false }],
-            limit: 5, offset: 1000, count, return_mode: mode, evidence: false } };
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = |filter: &str, mode, count| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField {
+                field: "sequence".into(),
+                descending: false,
+            }],
+            limit: 5,
+            offset: 1000,
+            count,
+            return_mode: mode,
+            evidence: false,
+        },
+    };
     let residual = query("body ~ 'needle'", ReturnMode::Locator, false);
     let (result, traces) = repo.explain_analyze(&residual).unwrap();
     assert_eq!(result.count, None);
-    assert_eq!(result.hits.iter().map(|hit| hit.byte_start).collect::<Vec<_>>(), starts[1000..1005]);
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.byte_start)
+            .collect::<Vec<_>>(),
+        starts[1000..1005]
+    );
     assert_eq!(result.counters.scanned_records, 1005);
     assert_eq!(result.counters.residual_evaluations, 1005);
     assert_eq!(result.counters.record_parses, 1005);
     assert_eq!(result.counters.files_opened, 1);
     assert_eq!(result.counters.distinct_files, 1);
     assert_eq!(traces[0].fts_strategy, "stored order page traversal");
-    let exact = repo.search(&query("kind = 'yes'", ReturnMode::Logical, false)).unwrap();
-    assert_eq!(exact.hits.iter().map(|hit| hit.byte_start).collect::<Vec<_>>(), starts[1000..1005]);
+    let exact = repo
+        .search(&query("kind = 'yes'", ReturnMode::Logical, false))
+        .unwrap();
+    assert_eq!(
+        exact
+            .hits
+            .iter()
+            .map(|hit| hit.byte_start)
+            .collect::<Vec<_>>(),
+        starts[1000..1005]
+    );
     assert_eq!(exact.counters.files_opened, 1);
     assert_eq!(exact.counters.distinct_files, 1);
     assert_eq!(exact.counters.record_parses, 5);
@@ -434,43 +745,98 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
 #[test]
 fn interleaved_stored_order_records_keep_bounded_file_handles() {
     use crate::workload::SortField;
-    let root = std::env::temp_dir().join(format!("objekte-interleaved-jsonl-{}", std::process::id()));
+    let root =
+        std::env::temp_dir().join(format!("objekte-interleaved-jsonl-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     for file in 0..3 {
         let mut data = String::new();
         for row in 0..30 {
-            data.push_str(&format!("{{\"sequence\":{},\"body\":\"needle\"}}\n", row * 3 + file));
+            data.push_str(&format!(
+                "{{\"sequence\":{},\"body\":\"needle\"}}\n",
+                row * 3 + file
+            ));
         }
         std::fs::write(root.join(format!("data/{file}.jsonl")), data).unwrap();
     }
     let mut schema = Schema::default();
-    schema.register_field(FieldDefinition { path: vec!["body".into()], kind: LogicalType::String,
-        required: true, nullable: false, indexed: false, multi: false, element_nullable: vec![] }).unwrap();
-    schema.register_field(FieldDefinition { path: vec!["sequence".into()], kind: LogicalType::Number,
-        required: true, nullable: false, indexed: false, multi: false, element_nullable: vec![] }).unwrap();
-    let repo = Repository::open_with_options(&root, vec![CollectionDefinition {
-        name: "data".into(), source_path: "data".into(), format: SourceFormat::JsonLines,
-        identity: IdentityPolicy::Generated, discovery: Default::default(), schema,
-        sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
-        sort_locale: "de".into(), sort_options: Default::default(), sort_overrides: Default::default(),
-    }], crate::repository::RepositoryOptions {
-        snapshot_mode: crate::repository::SnapshotMode::Disabled, ..Default::default()
-    }).unwrap();
-    let query = Query { collections: vec!["data".into()], fts: None,
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["body".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["sequence".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
         filter: Some(parse_filter("body ~ 'needle'").unwrap()),
-        options: QueryOptions { sort: vec![SortField { field: "sequence".into(), descending: false }],
-            limit: 5, offset: 7, count: false, return_mode: ReturnMode::Logical, evidence: false } };
+        options: QueryOptions {
+            sort: vec![SortField {
+                field: "sequence".into(),
+                descending: false,
+            }],
+            limit: 5,
+            offset: 7,
+            count: false,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
     let result = repo.search(&query).unwrap();
     assert_eq!(result.count, None);
     assert_eq!(result.counters.scanned_records, 12);
     assert_eq!(result.counters.files_opened, 3);
     assert_eq!(result.counters.distinct_files, 3);
     assert_eq!(result.counters.record_parses, 12);
-    assert_eq!(result.hits.iter().map(|hit| match &hit.payload {
-        Some(Payload::Logical(Value::Object(fields))) => match &fields["sequence"] {
-            Value::Number(crate::model::Number::Integer(n)) => *n, _ => panic!("number") },
-        _ => panic!("logical payload"),
-    }).collect::<Vec<_>>(), vec![7, 8, 9, 10, 11]);
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| match &hit.payload {
+                Some(Payload::Logical(Value::Object(fields))) => match &fields["sequence"] {
+                    Value::Number(crate::model::Number::Integer(n)) => *n,
+                    _ => panic!("number"),
+                },
+                _ => panic!("logical payload"),
+            })
+            .collect::<Vec<_>>(),
+        vec![7, 8, 9, 10, 11]
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -1099,31 +1465,71 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
     for (id, json) in [
         ("absent", r#"{"note":"keep"}"#),
         ("null", r#"{"note":"keep","details":null}"#),
-        ("present", r#"{"note":"keep","details":{"published":"2026-01-02"}}"#),
+        (
+            "present",
+            r#"{"note":"keep","details":{"published":"2026-01-02"}}"#,
+        ),
     ] {
         std::fs::write(root.join(format!("data/{id}.json")), json).unwrap();
     }
     let definition = |indexed| {
         let mut schema = Schema::default();
         for (path, kind, required, nullable, index) in [
-            (vec!["note".into()], LogicalType::String, true, false, indexed),
-            (vec!["details".into()], LogicalType::Object, false, true, false),
-            (vec!["details".into(), "published".into()], LogicalType::Date, true, false, true),
+            (
+                vec!["note".into()],
+                LogicalType::String,
+                true,
+                false,
+                indexed,
+            ),
+            (
+                vec!["details".into()],
+                LogicalType::Object,
+                false,
+                true,
+                false,
+            ),
+            (
+                vec!["details".into(), "published".into()],
+                LogicalType::Date,
+                true,
+                false,
+                true,
+            ),
         ] {
-            schema.register_field(FieldDefinition { path, kind, required, nullable,
-                indexed: index, multi: false, element_nullable: vec![] }).unwrap();
+            schema
+                .register_field(FieldDefinition {
+                    path,
+                    kind,
+                    required,
+                    nullable,
+                    indexed: index,
+                    multi: false,
+                    element_nullable: vec![],
+                })
+                .unwrap();
         }
-        CollectionDefinition { name: "data".into(), source_path: "data".into(), format: SourceFormat::Json,
-            identity: IdentityPolicy::Filename, discovery: Default::default(), schema,
-            sort_fields: vec![], sort_locale: "de".into(), sort_options: Default::default(),
-            sort_overrides: Default::default() }
+        CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }
     };
     for indexed in [false, true] {
         let options = crate::repository::RepositoryOptions {
-            snapshot_mode: crate::repository::SnapshotMode::ReadWrite, ..Default::default()
+            snapshot_mode: crate::repository::SnapshotMode::ReadWrite,
+            ..Default::default()
         };
         for open in 0..2 {
-            let repo = Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
+            let repo =
+                Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
             assert_eq!(repo.startup().restored, open == 1);
             for (filter, expected) in [
                 ("note ~ 'keep'", vec!["absent", "null", "present"]),
@@ -1131,24 +1537,51 @@ fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
                 ("details.published = '2026-01-02'", vec!["present"]),
             ] {
                 for mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
-                    let query = Query { collections: vec!["data".into()], fts: None,
+                    let query = Query {
+                        collections: vec!["data".into()],
+                        fts: None,
                         filter: Some(parse_filter(filter).unwrap()),
-                        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
-                            return_mode: mode.clone(), evidence: true } };
+                        options: QueryOptions {
+                            sort: vec![],
+                            limit: 10,
+                            offset: 0,
+                            count: true,
+                            return_mode: mode.clone(),
+                            evidence: true,
+                        },
+                    };
                     let result = repo.search(&query).unwrap();
-                    let ids = result.hits.iter().map(|h| h.record_id.as_str()).collect::<Vec<_>>();
+                    let ids = result
+                        .hits
+                        .iter()
+                        .map(|h| h.record_id.as_str())
+                        .collect::<Vec<_>>();
                     assert_eq!(ids, expected, "{indexed} {open} {filter} {mode:?}");
                     assert_eq!(result.count, Some(expected.len()));
                     if mode == ReturnMode::Logical && filter == "note = 'keep'" {
-                        assert!(matches!(&result.hits[2].payload, Some(Payload::Logical(Value::Object(fields)))
-                            if matches!(&fields["details"], Value::Object(details) if matches!(details["published"], Value::Date(_)))));
+                        assert!(
+                            matches!(&result.hits[2].payload, Some(Payload::Logical(Value::Object(fields)))
+                            if matches!(&fields["details"], Value::Object(details) if matches!(details["published"], Value::Date(_))))
+                        );
                     }
                 }
-                let count_only = Query { collections: vec!["data".into()], fts: None,
-                    filter: Some(parse_filter(filter).unwrap()), options: QueryOptions {
-                        sort: vec![], limit: 0, offset: 0, count: true,
-                        return_mode: ReturnMode::Locator, evidence: false } };
-                assert_eq!(repo.search(&count_only).unwrap().count, Some(expected.len()));
+                let count_only = Query {
+                    collections: vec!["data".into()],
+                    fts: None,
+                    filter: Some(parse_filter(filter).unwrap()),
+                    options: QueryOptions {
+                        sort: vec![],
+                        limit: 0,
+                        offset: 0,
+                        count: true,
+                        return_mode: ReturnMode::Locator,
+                        evidence: false,
+                    },
+                };
+                assert_eq!(
+                    repo.search(&count_only).unwrap().count,
+                    Some(expected.len())
+                );
             }
         }
     }

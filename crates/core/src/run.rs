@@ -15,7 +15,7 @@ use crate::executor::{
     Plan, Proof, TermChoice, estimate_expr, estimate_fts_candidates, fts_candidates,
     plan_expr_restricted,
 };
-use crate::inventory::{ByteRange, RecordEntry};
+use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
@@ -24,10 +24,8 @@ use crate::reference::{
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
+use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
-use crate::source::{
-    ExtractedRecord, RecordRangeReader, ScanProjection,
-};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -261,8 +259,13 @@ fn scan_projection(
         match expr {
             Residual::Term(term, proof) => {
                 let fully_proven = proof.is_some_and(|proof| candidates.is_subset(&proof.input));
-                if !fully_proven && term.path.root == PathRoot::Data
-                    && !term.matcher.as_ref().is_some_and(|matcher| matcher.input() == ExactInput::OriginalRecordBytes) {
+                if !fully_proven
+                    && term.path.root == PathRoot::Data
+                    && !term
+                        .matcher
+                        .as_ref()
+                        .is_some_and(|matcher| matcher.input() == ExactInput::OriginalRecordBytes)
+                {
                     if let Some(first) = term.path.segments.first() {
                         fields.insert(first.clone());
                     }
@@ -350,6 +353,69 @@ fn prepare_residual<'a>(
 
 
 impl Residual<'_> {
+    fn unavailable(
+        &self,
+        ctx: &RecordContext<'_>,
+        evidence: &mut HashSet<String>,
+        evaluations: &mut u64,
+    ) -> Result<Option<bool>, String> {
+        match self {
+            Self::Term(term, _) => {
+                if term.path.root == PathRoot::Data {
+                    return Ok(None);
+                }
+                *evaluations += 1;
+                let matched = eval_term(term, ctx)?;
+                if matched && self.can_emit_evidence() {
+                    evidence.insert(term.path.display());
+                }
+                Ok(Some(matched))
+            }
+            Self::Not(inner) => Ok(inner
+                .unavailable(ctx, &mut HashSet::new(), evaluations)?
+                .map(|v| !v)),
+            Self::And(parts) => {
+                let mut unknown = false;
+                let mut branch = HashSet::new();
+                for part in parts {
+                    match part.unavailable(ctx, &mut branch, evaluations)? {
+                        Some(false) => return Ok(Some(false)),
+                        None => unknown = true,
+                        Some(true) => {}
+                    }
+                }
+                if unknown {
+                    Ok(None)
+                } else {
+                    evidence.extend(branch);
+                    Ok(Some(true))
+                }
+            }
+            Self::Or(parts) => {
+                let mut unknown = false;
+                let mut matched = false;
+                for part in parts {
+                    let mut branch = HashSet::new();
+                    match part.unavailable(ctx, &mut branch, evaluations)? {
+                        Some(true) => {
+                            matched = true;
+                            evidence.extend(branch);
+                        }
+                        None => unknown = true,
+                        Some(false) => {}
+                    }
+                }
+                if matched {
+                    Ok(Some(true))
+                } else if unknown {
+                    Ok(None)
+                } else {
+                    Ok(Some(false))
+                }
+            }
+        }
+    }
+
     fn proven(proof: Option<&Proof>, slot: u32) -> Option<bool> {
         proof
             .filter(|proof| proof.input.contains(slot))
@@ -486,7 +552,9 @@ fn scan_file(
     let keep_cap = if query.options.limit == 0 { 0 } else { cap };
     let mut winners = BinaryHeap::<FileWinner>::new();
     let mut retained_bytes = 0u64;
-    let mut reader = if source_access.is_some() { None } else {
+    let mut reader = if source_access.is_some() {
+        None
+    } else {
         Some(RecordRangeReader::open(&path, revision)?)
     };
     outcome.files_opened = u64::from(reader.is_some());
@@ -509,7 +577,10 @@ fn scan_file(
             outcome.files_opened += read.opened;
             (read.records, read.bytes_read)
         } else {
-            reader.as_mut().ok_or("missing source reader")?.read(batch)?
+            reader
+                .as_mut()
+                .ok_or("missing source reader")?
+                .read(batch)?
         };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
@@ -541,17 +612,28 @@ fn scan_file(
                 } else {
                     projection
                 };
-            let decode = (query.options.return_mode == ReturnMode::Logical && may_reach_page)
-                || record_projection.collect_text
-                || record_projection.top_level.as_ref().is_none_or(|fields| !fields.is_empty());
+            let decode = record.class == RecordClass::Logical
+                && ((query.options.return_mode == ReturnMode::Logical && may_reach_page)
+                    || record_projection.collect_text
+                    || record_projection
+                        .top_level
+                        .as_ref()
+                        .is_none_or(|fields| !fields.is_empty()));
             let extracted = if decode {
-                let extracted = prepare_query_record(&collection.source,
-                    &collection.definition.schema, &bytes, record_projection,
-                    query.options.return_mode == ReturnMode::Logical && may_reach_page)?;
+                let extracted = prepare_query_record(
+                    &collection.source,
+                    &collection.definition.schema,
+                    &bytes,
+                    record_projection,
+                    query.options.return_mode == ReturnMode::Logical && may_reach_page,
+                )?;
                 outcome.record_parses += 1;
                 extracted
             } else {
-                ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() }
+                ExtractedRecord {
+                    value: Value::Object(Default::default()),
+                    text: Vec::new(),
+                }
             };
             outcome.scanned_records += 1;
             let ctx = RecordContext {
@@ -563,11 +645,33 @@ fn scan_file(
                 repository_root: &repo.files.root,
             };
             let mut evidence = HashSet::new();
-            let fts_match = fts
-                .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
-                .transpose()?
-                .unwrap_or(true);
-            let filter_match = if fts_match {
+            let fts_match = if record.class == RecordClass::RawFallback {
+                if let Some(fts) = fts {
+                    if fts.fields.is_empty() {
+                        let matched = String::from_utf8_lossy(&bytes).contains(&fts.source_literal);
+                        if matched {
+                            evidence.insert("@record.raw_text".into());
+                        }
+                        matched
+                    } else {
+                        eval_bound_fts(fts, &[], &ctx, &mut evidence)?
+                    }
+                } else {
+                    true
+                }
+            } else {
+                fts.map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
+                    .transpose()?
+                    .unwrap_or(true)
+            };
+            let filter_match = if fts_match && record.class == RecordClass::RawFallback {
+                residual
+                    .map(|f| f.unavailable(&ctx, &mut evidence, &mut outcome.residual_evaluations))
+                    .transpose()?
+                    .flatten()
+                    == Some(true)
+                    || residual.is_none()
+            } else if fts_match {
                 residual
                     .map(|f| {
                         if query.options.evidence
@@ -613,7 +717,15 @@ fn scan_file(
                     } else {
                         bytes.len() as u64
                     };
-                    let payload = materialize(&query.options.return_mode, bytes, Some(extracted))?;
+                    let payload = if record.class == RecordClass::RawFallback
+                        && query.options.return_mode == ReturnMode::Logical
+                    {
+                        Some(Payload::LogicalUnavailable {
+                            diagnostic_ref: record.diagnostic_ref,
+                        })
+                    } else {
+                        materialize(&query.options.return_mode, bytes, Some(extracted))?
+                    };
                     if winners.len() == keep_cap {
                         retained_bytes -= winners.pop().unwrap().matched.retained_bytes;
                     }
@@ -828,6 +940,9 @@ fn make_hit(
         byte_end: record.range.end,
         modified_ns: record.revision.modified_ns,
         matched_fields,
+        file_status: file.status,
+        record_class: record.class,
+        diagnostic_ref: record.diagnostic_ref,
         payload,
     }
 }
@@ -1061,6 +1176,12 @@ fn direct_payload(
     if query.options.return_mode == ReturnMode::Locator {
         return Ok(None);
     }
+    if query.options.return_mode == ReturnMode::Logical && record.class == RecordClass::RawFallback
+    {
+        return Ok(Some(Payload::LogicalUnavailable {
+            diagnostic_ref: record.diagnostic_ref,
+        }));
+    }
     let collection = &repo.collections[collection_index];
     let mut read = source_access.read(record.file, &[(0, record.range)])?;
     let bytes = read.records.pop().ok_or("source record missing")?.1;
@@ -1071,9 +1192,16 @@ fn direct_payload(
     let logical = if query.options.return_mode == ReturnMode::Logical {
         counters.record_parses += 1;
         actual.record_parses += 1;
-        Some(prepare_query_record(&collection.source, &collection.definition.schema,
-            &bytes, &ScanProjection::full(false), true)?)
-    } else { None };
+        Some(prepare_query_record(
+            &collection.source,
+            &collection.definition.schema,
+            &bytes,
+            &ScanProjection::full(false),
+            true,
+        )?)
+    } else {
+        None
+    };
     materialize(&query.options.return_mode, bytes, logical)
 }
 
@@ -1163,7 +1291,15 @@ fn try_stored_order_page(
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
                 input_records: collection.generation.records.len() as u64,
-                fts_strategy: "stored order page traversal".into(),
+                fts_strategy: if collection.logical_records.len()
+                    != collection.generation.records.len() as u64
+                    && entry.fts.is_some_and(|fts| fts.fields.is_empty())
+                {
+                    "stored order: logical text plus fallback source text"
+                } else {
+                    "stored order page traversal"
+                }
+                .into(),
                 filter_exact: entry.plan.exact,
                 terms: entry.plan.choices.clone(),
                 candidates: entry.candidates.len(),
@@ -1220,110 +1356,112 @@ fn try_stored_order_page(
     let mut locator_query = query.clone();
     locator_query.options.return_mode = ReturnMode::Locator;
     let mut source_access = SourceAccessSession::new(&repo.files);
-    while cap > 0 {
-        let Some(Reverse(cursor)) = heap.pop() else {
-            break;
-        };
-        let entry = &plans[cursor.plan_index];
-        let actual = &mut actuals[cursor.plan_index];
-        let slot = cursor.record.slot.0;
-        if entry.candidates.contains(slot) {
-            let direct = (entry.plan.exact && entry.fts.is_none())
-                || (!query.options.evidence
-                    && entry.fts.is_none()
-                    && entry.plan.proven_hits.contains(slot));
-            let mut matched = false;
-            let mut evidence = HashSet::new();
-            let mut payload = None;
-            if direct {
-                matched = true;
-                counters.exact_posting_matches += 1;
-                actual.index_proven_matches += 1;
-                if query.options.evidence {
-                    evidence = entry
-                        .filter
-                        .and_then(|expr| proof_evidence(expr, slot, &entry.plan.proofs))
-                        .unwrap_or_default();
-                }
-                if counters.total_matches as usize >= query.options.offset {
-                    payload = direct_payload(
-                        repo,
-                        query,
-                        entry.collection_index,
-                        cursor.record,
-                        &mut counters,
-                        actual,
-                        &mut source_access,
-                    )?;
-                }
-            } else {
-                let scan_query = if counters.total_matches as usize >= query.options.offset {
-                    query
-                } else {
-                    &locator_query
-                };
-                let scanned = scan_file(
-                    repo,
-                    scan_query,
-                    sort,
-                    entry.collection_index,
-                    residuals[cursor.plan_index].as_ref(),
-                    entry.fts,
-                    &projections[cursor.plan_index],
-                    false,
-                    None,
-                    None,
-                    cursor.record.file.0,
-                    &[(slot, cursor.record.range)],
-                    Some(&mut source_access),
-                )?;
-                counters.files_opened += scanned.files_opened;
-                counters.bytes_read += scanned.bytes_read;
-                counters.record_parses += scanned.record_parses;
-                counters.scanned_records += scanned.scanned_records;
-                counters.residual_evaluations += scanned.residual_evaluations;
-                actual.files_opened += scanned.files_opened;
-                actual.bytes_read += scanned.bytes_read;
-                actual.record_parses += scanned.record_parses;
-                actual.residual_evaluations += scanned.residual_evaluations;
-                if let Some(found) = scanned.matches.into_iter().next() {
+    if cap > 0 {
+        loop {
+            let Some(Reverse(cursor)) = heap.pop() else {
+                break;
+            };
+            let entry = &plans[cursor.plan_index];
+            let actual = &mut actuals[cursor.plan_index];
+            let slot = cursor.record.slot.0;
+            if entry.candidates.contains(slot) {
+                let direct = (entry.plan.exact && entry.fts.is_none())
+                    || (!query.options.evidence
+                        && entry.fts.is_none()
+                        && entry.plan.proven_hits.contains(slot));
+                let mut matched = false;
+                let mut evidence = HashSet::new();
+                let mut payload = None;
+                if direct {
                     matched = true;
-                    evidence = found.evidence;
-                    payload = found.payload;
-                }
-            }
-            if matched {
-                if counters.total_matches as usize >= query.options.offset {
-                    let matched_fields = if query.options.evidence {
-                        evidence.into_iter().collect()
+                    counters.exact_posting_matches += 1;
+                    actual.index_proven_matches += 1;
+                    if query.options.evidence {
+                        evidence = entry
+                            .filter
+                            .and_then(|expr| proof_evidence(expr, slot, &entry.plan.proofs))
+                            .unwrap_or_default();
+                    }
+                    if counters.total_matches as usize >= query.options.offset {
+                        payload = direct_payload(
+                            repo,
+                            query,
+                            entry.collection_index,
+                            cursor.record,
+                            &mut counters,
+                            actual,
+                            &mut source_access,
+                        )?;
+                    }
+                } else {
+                    let scan_query = if counters.total_matches as usize >= query.options.offset {
+                        query
                     } else {
-                        Vec::new()
+                        &locator_query
                     };
-                    page.push(make_hit(
+                    let scanned = scan_file(
                         repo,
+                        scan_query,
+                        sort,
                         entry.collection_index,
-                        cursor.record,
-                        matched_fields,
-                        payload,
-                    ));
+                        residuals[cursor.plan_index].as_ref(),
+                        entry.fts,
+                        &projections[cursor.plan_index],
+                        false,
+                        None,
+                        None,
+                        cursor.record.file.0,
+                        &[(slot, cursor.record.range)],
+                        Some(&mut source_access),
+                    )?;
+                    counters.files_opened += scanned.files_opened;
+                    counters.bytes_read += scanned.bytes_read;
+                    counters.record_parses += scanned.record_parses;
+                    counters.scanned_records += scanned.scanned_records;
+                    counters.residual_evaluations += scanned.residual_evaluations;
+                    actual.files_opened += scanned.files_opened;
+                    actual.bytes_read += scanned.bytes_read;
+                    actual.record_parses += scanned.record_parses;
+                    actual.residual_evaluations += scanned.residual_evaluations;
+                    if let Some(found) = scanned.matches.into_iter().next() {
+                        matched = true;
+                        evidence = found.evidence;
+                        payload = found.payload;
+                    }
                 }
-                counters.total_matches += 1;
-                if counters.total_matches as usize >= cap {
-                    stopped_early = true;
-                    break;
+                if matched {
+                    if counters.total_matches as usize >= query.options.offset {
+                        let matched_fields = if query.options.evidence {
+                            evidence.into_iter().collect()
+                        } else {
+                            Vec::new()
+                        };
+                        page.push(make_hit(
+                            repo,
+                            entry.collection_index,
+                            cursor.record,
+                            matched_fields,
+                            payload,
+                        ));
+                    }
+                    counters.total_matches += 1;
+                    if counters.total_matches as usize >= cap {
+                        stopped_early = true;
+                        break;
+                    }
                 }
             }
-        }
-        if let Some(next) = stored_cursor(
-            repo,
-            cursor.column,
-            cursor.order,
-            cursor.collection_index,
-            cursor.plan_index,
-            cursor.position + 1,
-            cursor.descending,
-        ) {
-            heap.push(Reverse(next));
+            if let Some(next) = stored_cursor(
+                repo,
+                cursor.column,
+                cursor.order,
+                cursor.collection_index,
+                cursor.plan_index,
+                cursor.position + 1,
+                cursor.descending,
+            ) {
+                heap.push(Reverse(next));
+            }
         }
     }
     counters.returned_records = page.len() as u64;
@@ -1373,6 +1511,20 @@ fn materialize_cached(
         let record = &collection.generation.records[member.slot as usize];
         let file = &repo.files.files[record.file.0 as usize];
         let index = hits.len() as u32;
+        if query.options.return_mode == ReturnMode::Logical
+            && record.class == RecordClass::RawFallback
+        {
+            hits.push(make_hit(
+                repo,
+                member.collection_index,
+                record,
+                member.matched_fields.clone(),
+                Some(Payload::LogicalUnavailable {
+                    diagnostic_ref: record.diagnostic_ref,
+                }),
+            ));
+            continue;
+        }
         if query.options.return_mode != ReturnMode::Locator {
             files
                 .entry((member.collection_index, record.file.0))
@@ -1391,6 +1543,9 @@ fn materialize_cached(
             byte_end: record.range.end,
             modified_ns: record.revision.modified_ns,
             matched_fields: member.matched_fields.clone(),
+            file_status: file.status,
+            record_class: record.class,
+            diagnostic_ref: record.diagnostic_ref,
             payload: None,
         });
     }
@@ -1404,10 +1559,18 @@ fn materialize_cached(
             for (index, bytes) in read.records {
                 let logical = if query.options.return_mode == ReturnMode::Logical {
                     counters.record_parses += 1;
-                    Some(prepare_query_record(&collection.source, &collection.definition.schema,
-                        &bytes, &ScanProjection::full(false), true)?)
-                } else { None };
-                hits[index as usize].payload = materialize(&query.options.return_mode, bytes, logical)?;
+                    Some(prepare_query_record(
+                        &collection.source,
+                        &collection.definition.schema,
+                        &bytes,
+                        &ScanProjection::full(false),
+                        true,
+                    )?)
+                } else {
+                    None
+                };
+                hits[index as usize].payload =
+                    materialize(&query.options.return_mode, bytes, logical)?;
             }
         }
     }
@@ -1459,7 +1622,11 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             collection: collection.definition.name.clone(),
             generation: collection.generation.generation,
             input_records: domain.len(),
-            fts_strategy: if let Some(fts) = &fts {
+            fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
+                && collection.logical_records.len() != collection.generation.records.len() as u64
+            {
+                "logical text plus fallback source text"
+            } else if let Some(fts) = &fts {
                 if !fts.fields.is_empty()
                     && fts
                         .fields
@@ -1596,7 +1763,12 @@ fn search_impl(
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
                 input_records: domain.len(),
-                fts_strategy: if fts.is_none() {
+                fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
+                    && collection.logical_records.len()
+                        != collection.generation.records.len() as u64
+                {
+                    "logical text plus fallback source text"
+                } else if fts.is_none() {
                     "absent"
                 } else if metadata_only_fts {
                     "metadata inventory"
@@ -1810,10 +1982,18 @@ fn search_impl(
     // Exact index membership may need a page payload. Read only those ranges.
     if query.options.return_mode != ReturnMode::Locator {
         let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
-        for (index, winner) in page.iter().enumerate() {
+        for (index, winner) in page.iter_mut().enumerate() {
             if winner.hit.payload.is_none() {
                 let record = &repo.collections[winner.collection_index].generation.records
                     [winner.slot as usize];
+                if query.options.return_mode == ReturnMode::Logical
+                    && record.class == RecordClass::RawFallback
+                {
+                    winner.hit.payload = Some(Payload::LogicalUnavailable {
+                        diagnostic_ref: record.diagnostic_ref,
+                    });
+                    continue;
+                }
                 files
                     .entry((winner.collection_index, record.file.0))
                     .or_default()
@@ -1844,10 +2024,18 @@ fn search_impl(
                 for (index, bytes) in read.records {
                     let logical = if query.options.return_mode == ReturnMode::Logical {
                         counters.record_parses += 1;
-                        Some(prepare_query_record(&collection.source, &collection.definition.schema,
-                            &bytes, &ScanProjection::full(false), true)?)
-                    } else { None };
-                    page[index as usize].hit.payload = materialize(&query.options.return_mode, bytes, logical)?;
+                        Some(prepare_query_record(
+                            &collection.source,
+                            &collection.definition.schema,
+                            &bytes,
+                            &ScanProjection::full(false),
+                            true,
+                        )?)
+                    } else {
+                        None
+                    };
+                    page[index as usize].hit.payload =
+                        materialize(&query.options.return_mode, bytes, logical)?;
                 }
             }
         }

@@ -306,7 +306,7 @@ pub struct RecordIdentity {
 impl RecordId {
     pub fn intrinsic(text: impl Into<String>) -> Result<Self, String> {
         let text = text.into();
-        if text.is_empty() || text.starts_with("~generated:") {
+        if text.is_empty() || text.starts_with("~generated:") || text.starts_with("~fallback:") {
             return Err("invalid intrinsic record ID".into());
         }
         Ok(Self(text))
@@ -314,6 +314,29 @@ impl RecordId {
 
     pub fn generated(file: FileId, modified_ns: i128, start: u64) -> Self {
         Self(format!("~generated:{}:{modified_ns}:{start}", file.0))
+    }
+
+    pub fn fallback(
+        collection: CollectionId,
+        source: &str,
+        source_version: u32,
+        relative_path: &std::path::Path,
+        file: FileId,
+        modified_ns: i128,
+        start: u64,
+        end: u64,
+    ) -> Self {
+        let path = crate::path_repr::query_path(relative_path);
+        Self(format!(
+            "~fallback:{}:{}:{}:{}:{}:{}:{}:{modified_ns}:{start}:{end}",
+            collection.0,
+            file.0,
+            source_version,
+            source.len(),
+            source,
+            path.len(),
+            path
+        ))
     }
 }
 
@@ -359,6 +382,8 @@ pub enum MetadataField {
     FileSize,
     FileCreated,
     FileModified,
+    FileStatus,
+    RecordClass,
     CollectionName,
     RepositoryRoot,
 }
@@ -376,6 +401,8 @@ impl MetadataField {
             Self::FileSize => "@file.size",
             Self::FileCreated => "@file.created",
             Self::FileModified => "@file.modified",
+            Self::FileStatus => "@file.status",
+            Self::RecordClass => "@record.class",
             Self::CollectionName => "@collection.name",
             Self::RepositoryRoot => "@repository.root",
         }
@@ -392,6 +419,8 @@ impl MetadataField {
             "@file.size" => Ok(Self::FileSize),
             "@file.created" => Ok(Self::FileCreated),
             "@file.modified" => Ok(Self::FileModified),
+            "@file.status" => Ok(Self::FileStatus),
+            "@record.class" => Ok(Self::RecordClass),
             "@collection.name" => Ok(Self::CollectionName),
             "@repository.root" => Ok(Self::RepositoryRoot),
             _ => Err(format!("unknown metadata field: {name}")),

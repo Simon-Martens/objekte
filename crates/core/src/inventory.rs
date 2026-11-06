@@ -7,21 +7,40 @@ use std::time::SystemTime;
 use serde::{Deserialize, Serialize};
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
-use crate::source::DiagnosticCategory;
+use crate::source::{DiagnosticCategory, ReaderDiagnostic};
 
 pub const MAX_DIAGNOSTICS_PER_FILE: usize = 64;
 pub const MAX_DIAGNOSTIC_MESSAGE_BYTES: usize = 256;
+pub const MAX_DIAGNOSTIC_CODE_BYTES: usize = 128;
+pub const MAX_DIAGNOSTIC_PATH_SEGMENTS: usize = 32;
+pub const MAX_DIAGNOSTIC_SEGMENT_BYTES: usize = 128;
+
 
 /// Stable physical-file state codes in snapshots and public results.
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
-pub enum FileStatus { #[default] Valid = 0, Broken = 1, Unreadable = 2 }
+pub enum FileStatus {
+    #[default]
+    Valid = 0,
+    Broken = 1,
+    Unreadable = 2,
+}
+
 
 impl FileStatus {
-    pub fn code(self) -> u8 { self as u8 }
-    pub fn label(self) -> &'static str { match self {
-        Self::Valid => "Valid", Self::Broken => "Broken", Self::Unreadable => "Unreadable" } }
+    pub fn code(self) -> u8 {
+        self as u8
+    }
+
+    pub fn label(self) -> &'static str {
+        match self {
+            Self::Valid => "Valid",
+            Self::Broken => "Broken",
+            Self::Unreadable => "Unreadable",
+        }
+    }
 }
+
 
 impl Serialize for FileStatus {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -29,20 +48,36 @@ impl Serialize for FileStatus {
     }
 }
 
+
 impl<'de> Deserialize<'de> for FileStatus {
     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
         match u8::deserialize(deserializer)? {
-            0 => Ok(Self::Valid), 1 => Ok(Self::Broken), 2 => Ok(Self::Unreadable),
-            code => Err(serde::de::Error::custom(format!("unsupported file status code {code}"))),
+            0 => Ok(Self::Valid),
+            1 => Ok(Self::Broken),
+            2 => Ok(Self::Unreadable),
+            code => Err(serde::de::Error::custom(format!(
+                "unsupported file status code {code}"
+            ))),
         }
     }
 }
 
+
 #[repr(u8)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub enum RecordClass { #[default] Logical = 0, RawFallback = 1 }
+pub enum RecordClass {
+    #[default]
+    Logical = 0,
+    RawFallback = 1,
+}
 
-impl RecordClass { pub fn code(self) -> u8 { self as u8 } }
+
+impl RecordClass {
+    pub fn code(self) -> u8 {
+        self as u8
+    }
+}
+
 
 impl Serialize for RecordClass {
     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
@@ -50,26 +85,36 @@ impl Serialize for RecordClass {
     }
 }
 
+
 impl<'de> Deserialize<'de> for RecordClass {
     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
         match u8::deserialize(deserializer)? {
-            0 => Ok(Self::Logical), 1 => Ok(Self::RawFallback),
-            code => Err(serde::de::Error::custom(format!("unsupported record class code {code}"))),
+            0 => Ok(Self::Logical),
+            1 => Ok(Self::RawFallback),
+            code => Err(serde::de::Error::custom(format!(
+                "unsupported record class code {code}"
+            ))),
         }
     }
 }
+
 
 /// Zero means no diagnostic, `u32::MAX` means omitted by the per-file cap,
 /// and other values are one-based indexes into the file diagnostic table.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct DiagnosticRef(pub u32);
 
+
 impl DiagnosticRef {
     pub fn stored_index(self) -> Option<usize> {
         (self.0 != 0 && self.0 != u32::MAX).then_some(self.0.saturating_sub(1) as usize)
     }
-    pub fn omitted(self) -> bool { self.0 == u32::MAX }
+
+    pub fn omitted(self) -> bool {
+        self.0 == u32::MAX
+    }
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SourceDiagnostic {
@@ -88,10 +133,46 @@ pub struct SourceDiagnostic {
     pub message: String,
 }
 
+
+impl SourceDiagnostic {
+    pub fn from_reader(
+        file: FileId,
+        collection: CollectionId,
+        source_id: &str,
+        source_version: u32,
+        range: ByteRange,
+        record: Option<RecordSlot>,
+        issue: ReaderDiagnostic,
+    ) -> Self {
+        Self {
+            file,
+            collection,
+            source_id: source_id.into(),
+            source_version,
+            record,
+            range: Some(range),
+            category: issue.category,
+            code: issue.code,
+            field_path: issue.field_path,
+            byte_offset: issue
+                .relative_byte
+                .and_then(|offset| range.start.checked_add(offset)),
+            line: issue.line,
+            column: issue.column,
+            message: issue.message,
+        }
+    }
+}
+
+
 fn truncate_message(message: &str) -> String {
-    if message.len() <= MAX_DIAGNOSTIC_MESSAGE_BYTES { return message.into(); }
+    if message.len() <= MAX_DIAGNOSTIC_MESSAGE_BYTES {
+        return message.into();
+    }
     let mut end = MAX_DIAGNOSTIC_MESSAGE_BYTES;
-    while !message.is_char_boundary(end) { end -= 1; }
+    while !message.is_char_boundary(end) {
+        end -= 1;
+    }
     message[..end].into()
 }
 
@@ -186,8 +267,26 @@ impl FileInventory {
         Ok(id)
     }
 
-    pub fn record_diagnostic(&mut self, file: FileId, mut diagnostic: SourceDiagnostic) -> Result<DiagnosticRef, String> {
-        let entry = self.files.get_mut(file.0 as usize).ok_or("diagnostic file out of bounds")?;
+    pub fn record_diagnostic(
+        &mut self,
+        file: FileId,
+        mut diagnostic: SourceDiagnostic,
+    ) -> Result<DiagnosticRef, String> {
+        if diagnostic.code.is_empty()
+            || diagnostic.code.len() > MAX_DIAGNOSTIC_CODE_BYTES
+            || diagnostic.field_path.as_ref().is_some_and(|path| {
+                path.len() > MAX_DIAGNOSTIC_PATH_SEGMENTS
+                    || path
+                        .iter()
+                        .any(|part| part.len() > MAX_DIAGNOSTIC_SEGMENT_BYTES)
+            })
+        {
+            return Err("reader diagnostic contract exceeds bounded metadata".into());
+        }
+        let entry = self
+            .files
+            .get_mut(file.0 as usize)
+            .ok_or("diagnostic file out of bounds")?;
         if diagnostic.file != file || !entry.collections.contains(&diagnostic.collection) {
             return Err("diagnostic ownership mismatch".into());
         }
@@ -200,13 +299,17 @@ impl FileInventory {
             return Ok(DiagnosticRef(u32::MAX));
         }
         diagnostic.message = truncate_message(&diagnostic.message);
-        let index = u32::try_from(entry.diagnostics.len() + 1).map_err(|_| "diagnostic index overflow")?;
+        let index =
+            u32::try_from(entry.diagnostics.len() + 1).map_err(|_| "diagnostic index overflow")?;
         entry.diagnostics.push(diagnostic);
         Ok(DiagnosticRef(index))
     }
 
     pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<&SourceDiagnostic> {
-        self.files.get(file.0 as usize)?.diagnostics.get(reference.stored_index()?)
+        self.files
+            .get(file.0 as usize)?
+            .diagnostics
+            .get(reference.stored_index()?)
     }
 
     pub fn validate_diagnostics(&self) -> Result<(), String> {
@@ -214,15 +317,20 @@ impl FileInventory {
             if file.id.0 as usize != index || file.diagnostics.len() > MAX_DIAGNOSTICS_PER_FILE {
                 return Err("invalid file diagnostic table".into());
             }
-            let derived = file.diagnostics.iter().fold(FileStatus::Valid, |status, diagnostic| {
-                status.max(match diagnostic.category {
-                    DiagnosticCategory::Io => FileStatus::Unreadable,
-                    _ => FileStatus::Broken,
-                })
-            });
+            let derived = file
+                .diagnostics
+                .iter()
+                .fold(FileStatus::Valid, |status, diagnostic| {
+                    status.max(match diagnostic.category {
+                        DiagnosticCategory::Io => FileStatus::Unreadable,
+                        _ => FileStatus::Broken,
+                    })
+                });
             if (file.omitted_diagnostics == 0 && file.status != derived)
                 || (file.omitted_diagnostics != 0
-                    && (file.status == FileStatus::Valid || derived == FileStatus::Valid || file.status < derived))
+                    && (file.status == FileStatus::Valid
+                        || derived == FileStatus::Valid
+                        || file.status < derived))
             {
                 return Err("file status and diagnostics disagree".into());
             }
@@ -232,9 +340,20 @@ impl FileInventory {
                     || diagnostic.source_id.is_empty()
                     || diagnostic.source_version == 0
                     || diagnostic.code.is_empty()
+                    || diagnostic.code.len() > MAX_DIAGNOSTIC_CODE_BYTES
+                    || diagnostic.field_path.as_ref().is_some_and(|path| {
+                        path.len() > MAX_DIAGNOSTIC_PATH_SEGMENTS
+                            || path
+                                .iter()
+                                .any(|part| part.len() > MAX_DIAGNOSTIC_SEGMENT_BYTES)
+                    })
                     || diagnostic.message.len() > MAX_DIAGNOSTIC_MESSAGE_BYTES
-                    || diagnostic.range.is_some_and(|range| range.start > range.end || range.end > file.revision.size)
-                    || diagnostic.byte_offset.is_some_and(|offset| offset > file.revision.size)
+                    || diagnostic.range.is_some_and(|range| {
+                        range.start > range.end || range.end > file.revision.size
+                    })
+                    || diagnostic
+                        .byte_offset
+                        .is_some_and(|offset| offset > file.revision.size)
                 {
                     return Err("invalid source diagnostic".into());
                 }
@@ -390,10 +509,25 @@ impl CollectionGeneration {
                 let file = &inventory.files[file_idx];
                 if !file.collections.contains(&self.collection)
                     || entry.revision != file.revision
-                    || entry.range.start >= entry.range.end
+                    || (entry.range.start >= entry.range.end
+                        && !(entry.class == RecordClass::RawFallback
+                            && entry.range.start == 0
+                            && file.revision.size == 0
+                            && entry.range.end == 0))
                     || entry.range.end > file.revision.size
-                    || entry.class != RecordClass::Logical
-                    || entry.diagnostic_ref != DiagnosticRef(0)
+                    || (entry.class == RecordClass::Logical
+                        && entry.diagnostic_ref != DiagnosticRef(0))
+                    || (entry.class == RecordClass::Logical && entry.id.0.starts_with("~fallback:"))
+                    || (entry.class == RecordClass::RawFallback
+                        && (file.status == FileStatus::Valid
+                            || !entry.id.0.starts_with("~fallback:")
+                            || entry.diagnostic_ref == DiagnosticRef(0)
+                            || entry.diagnostic_ref.stored_index().is_some_and(|i| {
+                                file.diagnostics.get(i).is_none_or(|d| {
+                                    d.collection != self.collection || d.record != Some(*slot)
+                                })
+                            })
+                            || (entry.diagnostic_ref.omitted() && file.omitted_diagnostics == 0)))
                 {
                     return Err("record range or revision mismatch".into());
                 }
@@ -421,6 +555,10 @@ pub struct CollectionBuilder {
 
 
 impl CollectionBuilder {
+    pub fn collection_id(&self) -> CollectionId {
+        self.collection
+    }
+
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
         self.records.get(slot.0 as usize)
     }
@@ -471,6 +609,37 @@ impl CollectionBuilder {
             revision: file.revision,
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
+        });
+        self.by_file[file.id.0 as usize].push(slot);
+        Ok(slot)
+    }
+
+    pub fn add_raw_fallback(
+        &mut self,
+        file: &FileEntry,
+        id: RecordId,
+        range: ByteRange,
+        diagnostic_ref: DiagnosticRef,
+    ) -> Result<RecordSlot, String> {
+        if !self.files.contains(&file.id) || diagnostic_ref == DiagnosticRef(0) {
+            return Err("fallback file or diagnostic missing".into());
+        }
+        if range.end > file.revision.size
+            || range.start > range.end
+            || (range.start == range.end && !(range.start == 0 && file.revision.size == 0))
+        {
+            return Err("invalid fallback range".into());
+        }
+        self.ids.insert(id.clone())?;
+        let slot = RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?);
+        self.records.push(RecordEntry {
+            slot,
+            id,
+            file: file.id,
+            range,
+            revision: file.revision,
+            class: RecordClass::RawFallback,
+            diagnostic_ref,
         });
         self.by_file[file.id.0 as usize].push(slot);
         Ok(slot)

@@ -1,15 +1,24 @@
 use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
+
 struct TinyReader(Arc<AtomicUsize>);
+
 
 struct TemporalSegmentsReader;
 
+
 impl SourceReader for TemporalSegmentsReader {
-    fn name(&self) -> &'static str { "temporal_segments" }
+    fn name(&self) -> &'static str {
+        "temporal_segments"
+    }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
-        Ok(vec![ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+        Ok(vec![ByteRange::checked(
+            0,
+            file.len() as u64,
+            file.len() as u64,
+        )?])
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
@@ -26,53 +35,111 @@ impl SourceReader for TemporalSegmentsReader {
                 ("date".into(), Value::String(date.into())),
             ])),
             text: vec![
-                TextSegment { path: vec!["body".into()], text: first.into() },
-                TextSegment { path: vec!["body".into()], text: second.into() },
+                TextSegment {
+                    path: vec!["body".into()],
+                    text: first.into(),
+                },
+                TextSegment {
+                    path: vec!["body".into()],
+                    text: second.into(),
+                },
             ],
         })
     }
 }
+
 
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
     use crate::model::LogicalType;
     use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
     use crate::reference::{FieldDefinition, Schema};
-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
     use crate::workload::{BigramAlphabet, ReturnMode};
 
-    let root = std::env::temp_dir().join(format!("objekte-temporal-segments-{}", std::process::id()));
+    let root =
+        std::env::temp_dir().join(format!("objekte-temporal-segments-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    std::fs::write(root.join("data/a.seg"), b"secret title|needle^here|2026-01-02").unwrap();
+    std::fs::write(
+        root.join("data/a.seg"),
+        b"secret title|needle^here|2026-01-02",
+    )
+    .unwrap();
     let definition = |temporal| {
         let mut schema = Schema::default();
         if temporal {
-            schema.register_field(FieldDefinition { path: vec!["date".into()],
-                kind: LogicalType::Date, required: true, nullable: false,
-                indexed: true, multi: false, element_nullable: vec![] }).unwrap();
+            schema
+                .register_field(FieldDefinition {
+                    path: vec!["date".into()],
+                    kind: LogicalType::Date,
+                    required: true,
+                    nullable: false,
+                    indexed: true,
+                    multi: false,
+                    element_nullable: vec![],
+                })
+                .unwrap();
         }
-        CollectionDefinition { name: "data".into(), source_path: "data".into(),
-            format: SourceFormat::registered("seg"), identity: IdentityPolicy::Filename,
-            discovery: Default::default(), schema, sort_fields: vec![], sort_locale: "de".into(),
-            sort_options: Default::default(), sort_overrides: Default::default() }
+        CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::registered("seg"),
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }
     };
     let sources = || {
         let mut sources = SourceRegistry::builtin();
-        sources.register("seg", 1, "seg", Arc::new(TemporalSegmentsReader)).unwrap();
+        sources
+            .register("seg", 1, "seg", Arc::new(TemporalSegmentsReader))
+            .unwrap();
         sources
     };
-    let fts = |text: &str, field: Option<&str>| Query { collections: vec!["data".into()],
-        filter: None, fts: Some(FtsQuery { literal: text.into(), fields: field.map(|name| vec![
-            FtsField { path: crate::model::FieldPath::parse(name).unwrap(), binding: None }
-        ]).unwrap_or_default() }),
-        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
-            return_mode: ReturnMode::Locator, evidence: true } };
+    let fts = |text: &str, field: Option<&str>| Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(FtsQuery {
+            literal: text.into(),
+            fields: field
+                .map(|name| {
+                    vec![FtsField {
+                        path: crate::model::FieldPath::parse(name).unwrap(),
+                        binding: None,
+                    }]
+                })
+                .unwrap_or_default(),
+        }),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         for temporal in [false, true] {
-            let options = RepositoryOptions { bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::ReadWrite, ..Default::default() };
+            let options = RepositoryOptions {
+                bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::ReadWrite,
+                ..Default::default()
+            };
             for open in 0..2 {
-                let repo = Repository::open_with_sources(&root, vec![definition(temporal)], options, sources()).unwrap();
+                let repo = Repository::open_with_sources(
+                    &root,
+                    vec![definition(temporal)],
+                    options,
+                    sources(),
+                )
+                .unwrap();
                 assert_eq!(repo.startup().restored, open == 1);
                 for (text, field, count, evidence) in [
                     ("needle", None, 1, vec!["body"]),
@@ -82,14 +149,29 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
                     ("secret", Some("title"), 0, vec![]),
                 ] {
                     let found = repo.search(&fts(text, field)).unwrap();
-                    assert_eq!(found.count, Some(count), "{alphabet:?} {temporal} {text} {field:?}");
-                    if count == 1 { assert_eq!(found.hits[0].matched_fields, evidence); }
+                    assert_eq!(
+                        found.count,
+                        Some(count),
+                        "{alphabet:?} {temporal} {text} {field:?}"
+                    );
+                    if count == 1 {
+                        assert_eq!(found.hits[0].matched_fields, evidence);
+                    }
                 }
                 if temporal {
-                    let query = Query { collections: vec!["data".into()], fts: None,
+                    let query = Query {
+                        collections: vec!["data".into()],
+                        fts: None,
                         filter: Some(parse_filter("date = '2026-01-02'").unwrap()),
-                        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
-                            return_mode: ReturnMode::Logical, evidence: true } };
+                        options: QueryOptions {
+                            sort: vec![],
+                            limit: 10,
+                            offset: 0,
+                            count: true,
+                            return_mode: ReturnMode::Logical,
+                            evidence: true,
+                        },
+                    };
                     let result = repo.search(&query).unwrap();
                     assert_eq!(result.count, Some(1));
                     assert!(matches!(&result.hits[0].payload,
@@ -102,34 +184,57 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 struct OutcomeReader {
     ranges: Vec<ByteRange>,
     parses: Arc<AtomicUsize>,
     fail_framing: bool,
 }
 
+
 impl SourceReader for OutcomeReader {
-    fn name(&self) -> &'static str { "outcome" }
-    fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> { Ok(self.ranges.clone()) }
+    fn name(&self) -> &'static str {
+        "outcome"
+    }
+
+    fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> {
+        Ok(self.ranges.clone())
+    }
+
     fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
         if self.fail_framing {
             Err(ReaderFailure::Malformed(ReaderDiagnostic::new(
-                DiagnosticCategory::Framing, "outcome.frame", "recoverable framing error")))
-        } else { self.frame(file).map_err(ReaderFailure::Fatal) }
+                DiagnosticCategory::Framing,
+                "outcome.frame",
+                "recoverable framing error",
+            )))
+        } else {
+            self.frame(file).map_err(ReaderFailure::Fatal)
+        }
     }
-    fn parse(&self, _: &[u8]) -> Result<ExtractedRecord, String> {
-        Err("use typed outcome".into())
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        self.parse_outcome(bytes)
+            .map_err(|failure| format!("{failure:?}"))
     }
+
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         self.parses.fetch_add(1, Ordering::Relaxed);
         if bytes == b"bad" {
             Err(ReaderFailure::Malformed(ReaderDiagnostic::new(
-                DiagnosticCategory::Syntax, "outcome.syntax", "recoverable record error")))
+                DiagnosticCategory::Syntax,
+                "outcome.syntax",
+                "recoverable record error",
+            )))
         } else {
-            Ok(ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() })
+            Ok(ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            })
         }
     }
 }
+
 
 #[test]
 fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
@@ -142,59 +247,210 @@ fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
     for ranges in [
         vec![ByteRange { start: 5, end: 2 }],
         vec![ByteRange { start: 0, end: 7 }],
-        vec![ByteRange { start: 0, end: 3 }, ByteRange { start: 2, end: 6 }],
-        vec![ByteRange { start: 4, end: 6 }, ByteRange { start: 0, end: 2 }],
+        vec![
+            ByteRange { start: 0, end: 3 },
+            ByteRange { start: 2, end: 6 },
+        ],
+        vec![
+            ByteRange { start: 4, end: 6 },
+            ByteRange { start: 0, end: 2 },
+        ],
     ] {
-        let reader = OutcomeReader { ranges, parses: parses.clone(), fail_framing: false };
+        let reader = OutcomeReader {
+            ranges,
+            parses: parses.clone(),
+            fail_framing: false,
+        };
         let error = extract_file_outcomes(&path, &reader, revision, |_| Ok(())).unwrap_err();
         assert!(error.contains("reader contract"), "{error}");
         assert_eq!(parses.load(Ordering::Relaxed), 0);
     }
-    let reader = OutcomeReader { ranges: vec![ByteRange { start: 0, end: 2 },
-        ByteRange { start: 3, end: 6 }], parses: parses.clone(), fail_framing: false };
+    let reader = OutcomeReader {
+        ranges: vec![
+            ByteRange { start: 0, end: 2 },
+            ByteRange { start: 3, end: 6 },
+        ],
+        parses: parses.clone(),
+        fail_framing: false,
+    };
     let mut kinds = Vec::new();
     let counters = extract_file_outcomes(&path, &reader, revision, |outcome| {
         kinds.push(match outcome {
             SourceOutcome::Logical { range, .. } => (range, "logical"),
-            SourceOutcome::Malformed { range, diagnostic } => {
+            SourceOutcome::Malformed {
+                range, diagnostic, ..
+            } => {
                 assert_eq!(diagnostic.code, "outcome.syntax");
                 (range, "malformed")
             }
+            SourceOutcome::Unreadable { .. } => panic!("unexpected unreadable source"),
         });
         Ok(())
-    }).unwrap();
-    assert_eq!(kinds, [(ByteRange { start: 0, end: 2 }, "logical"),
-        (ByteRange { start: 3, end: 6 }, "malformed")]);
+    })
+    .unwrap();
+    assert_eq!(
+        kinds,
+        [
+            (ByteRange { start: 0, end: 2 }, "logical"),
+            (ByteRange { start: 3, end: 6 }, "malformed")
+        ]
+    );
     assert_eq!(counters.framed_records, 2);
     assert_eq!(counters.record_parses, 1);
     assert_eq!(counters.failed_parses, 1);
-    let framing = OutcomeReader { ranges: Vec::new(), parses: parses.clone(), fail_framing: true };
+    let framing = OutcomeReader {
+        ranges: Vec::new(),
+        parses: parses.clone(),
+        fail_framing: true,
+    };
     let mut fallback = None;
     extract_file_outcomes(&path, &framing, revision, |outcome| {
-        if let SourceOutcome::Malformed { range, diagnostic } = outcome {
+        if let SourceOutcome::Malformed {
+            range, diagnostic, ..
+        } = outcome
+        {
             fallback = Some((range, diagnostic.category));
         }
         Ok(())
-    }).unwrap();
-    assert_eq!(fallback, Some((ByteRange { start: 0, end: 6 }, DiagnosticCategory::Framing)));
+    })
+    .unwrap();
+    assert_eq!(
+        fallback,
+        Some((ByteRange { start: 0, end: 6 }, DiagnosticCategory::Framing))
+    );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn registered_recoverable_error_survives_repository_query_and_restore() {
+    use crate::query::{FtsQuery, Query, QueryOptions};
+    use crate::reference::Schema;
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Payload, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::workload::ReturnMode;
+    let root = std::env::temp_dir().join(format!(
+        "objekte-registered-fallback-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/source.outcome"), b"ok\nbad").unwrap();
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "outcome",
+            1,
+            "outcome",
+            Arc::new(OutcomeReader {
+                ranges: vec![
+                    ByteRange { start: 0, end: 2 },
+                    ByteRange { start: 3, end: 6 },
+                ],
+                parses: Arc::new(AtomicUsize::new(0)),
+                fail_framing: false,
+            }),
+        )
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::registered("outcome"),
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema: Schema::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::ReadWrite,
+        ..Default::default()
+    };
+    let built =
+        Repository::open_with_sources(&root, vec![definition.clone()], options, sources.clone())
+            .unwrap();
+    assert_eq!(built.collections()[0].generation.records.len(), 2);
+    assert_eq!(built.files().files[0].diagnostics[0].code, "outcome.syntax");
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(FtsQuery {
+            literal: "bad".into(),
+            fields: vec![],
+        }),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    let result = built.search(&query).unwrap();
+    assert_eq!(result.count, Some(1));
+    assert!(matches!(
+        result.hits[0].payload,
+        Some(Payload::LogicalUnavailable { .. })
+    ));
+    assert_eq!(result.hits[0].matched_fields, ["@record.raw_text"]);
+    let restored =
+        Repository::open_with_sources(&root, vec![definition], options, sources).unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(restored.search(&query).unwrap().hits, result.hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn unavailable_source_read_is_classified_without_fabricating_records() {
+    let missing = std::env::temp_dir().join(format!(
+        "objekte-missing-source-{}.json",
+        std::process::id()
+    ));
+    let mut issues = Vec::new();
+    let counts = extract_file_outcomes(
+        &missing,
+        &JsonReader,
+        SourceRevision {
+            modified_ns: 0,
+            size: 0,
+        },
+        |outcome| {
+            match outcome {
+                SourceOutcome::Unreadable { diagnostic } => issues.push(diagnostic),
+                _ => panic!("unreadable source produced a record"),
+            }
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(counts.framed_records, 0);
+    assert_eq!(issues.len(), 1);
+    assert_eq!(issues[0].category, DiagnosticCategory::Io);
+    assert_eq!(issues[0].code, "source.open");
 }
 
 #[test]
 fn json_reader_reports_syntax_and_encoding_positions() {
     let reader = JsonReader;
     let syntax = reader.parse_outcome(b"{\n\"title\":,}").unwrap_err();
-    let ReaderFailure::Malformed(syntax) = syntax else { panic!("malformed syntax") };
+    let ReaderFailure::Malformed(syntax) = syntax else {
+        panic!("malformed syntax")
+    };
     assert_eq!(syntax.category, DiagnosticCategory::Syntax);
     assert_eq!(syntax.code, "json.parse");
     assert_eq!(syntax.line, Some(2));
     assert!(syntax.column.is_some());
     assert!(syntax.relative_byte.is_some_and(|offset| offset < 13));
     let encoding = reader.parse_outcome(b"{\"title\":\"\xff\"}").unwrap_err();
-    let ReaderFailure::Malformed(encoding) = encoding else { panic!("malformed encoding") };
+    let ReaderFailure::Malformed(encoding) = encoding else {
+        panic!("malformed encoding")
+    };
     assert_eq!(encoding.category, DiagnosticCategory::Encoding);
     assert_eq!(encoding.relative_byte, Some(10));
 }
+
 
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
@@ -236,6 +492,7 @@ impl SourceReader for TinyReader {
         })
     }
 }
+
 
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {

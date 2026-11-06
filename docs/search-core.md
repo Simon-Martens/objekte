@@ -146,9 +146,10 @@ element under the same quantifier, rather than negating the entire record
 predicate.
 
 Declared field types, required status, field nullability, and per-array-level
-element nullability are checked during the extraction pass before any index
-receives a record. Invalid selected sources fail construction with file,
-byte-range, and field diagnostics. Query projections validate only decoded
+element nullability are checked during extraction before typed indexes receive
+a record. Readable malformed or invalid records become diagnosed raw fallback
+records; valid JSONL siblings remain logical records. Reader contract violations
+and duplicate explicit identities still fail construction. Query projections validate only decoded
 fields. Unhinted arrays infer a common non-null element type; empty arrays
 retain an unresolved element type until a declaration supplies one.
 Well-formed unhinted data paths use a dynamically typed scanner, including
@@ -167,7 +168,8 @@ elements are evaluated within their parent record.
 
 Reserved metadata paths are `@record.id`, `@record.byte_start`,
 `@record.byte_end`, `@record.byte_length`, `@file.id`, `@file.path`,
-`@file.size`, `@file.created`, `@file.modified`, `@collection.name`, and
+`@file.size`, `@file.created`, `@file.modified`, `@file.status`,
+`@record.class`, `@collection.name`, and
 `@repository.root`. File paths use a reversible percent-escaped query
 representation for native non-UTF-8 names. Dates and datetimes require
 explicitly typed fields and quoted typed literals; Unix-second fields take
@@ -190,8 +192,16 @@ rejected. The
 executor retains at most `offset + limit` page winners while counting. A hit
 always includes its collection, record ID, generation, file ID/path, size,
 created/modified times, byte range, and requested matched-field evidence.
+It also carries file status (`0` valid, `1` broken, `2` unreadable), record
+class (`0` logical, `1` raw fallback), and a file-local diagnostic reference.
+`Repository::files().diagnostic(file_id, diagnostic_ref)` retrieves a retained
+diagnostic. Each file retains at most 64 diagnostics with 256-byte messages and
+counts omitted entries. An unreadable file remains in inventory without a
+searchable record.
 The three return modes add either no body (`locator`), the original record
-bytes (`bytes`), or parsed logical data (`logical`). Payload ranges are read
+bytes (`bytes`), or parsed logical data (`logical`). A fallback returns
+`LogicalUnavailable` with its diagnostic reference in logical mode; bytes mode
+returns its exact failed range. Payload ranges are read
 only for the page and are checked against the recorded source revision.
 During multi-record verification, each source uses one handle for byte-bounded
 range batches. Each worker retains at most `offset + limit` candidate payloads;
@@ -216,6 +226,18 @@ including gram subsets inside mixed Unicode literals; Unicode mode indexes
 observed character pairs. A candidate filter is never treated as proof of a
 literal match: the scanner verifies it. Short or unsupported literals fall
 back to scanning.
+
+Raw fallback text has a separate bigram index over the original range decoded
+with UTF-8 replacement. An unscoped FTS literal searches that source text with
+case-sensitive substring semantics, even when a custom raw binding transforms
+valid logical text. Its evidence is `@record.raw_text`. Selected logical-field
+FTS does not infer fields from failed source text. A logical predicate on a
+fallback is indeterminate: negation remains indeterminate, false AND
+indeterminate is false, and true OR indeterminate is true. Only true matches.
+Metadata remains evaluable. Sorting a fallback by a logical field places it at
+the configured missing-value position. A collection with fallback records
+conservatively scans its filter domain; healthy-only collections retain exact
+posting plans.
 
 The optimizer enumerates metadata, exact posting, sort-column, dictionary,
 raw/custom bigram, and scanner paths where compatible. It estimates selectivity

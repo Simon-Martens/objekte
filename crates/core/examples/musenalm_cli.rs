@@ -148,8 +148,9 @@ fn run() -> Result<(), String> {
         );
     }
     println!(
-        "build_parses={} root={} alphabet={alphabet:?}",
+        "build_parses={} build_failed_parses={} root={} alphabet={alphabet:?}",
         repository.build_parses(),
+        repository.build_failed_parses(),
         repository.files().root.display()
     );
     if explain && !reference {
@@ -182,7 +183,7 @@ fn run() -> Result<(), String> {
     );
     for hit in result.hits.iter().filter(|_| !quiet_hits) {
         println!(
-            "{}:{} generation={} file_id={} {} {}..{} size={} created_ns={:?} modified_ns={} {:?}",
+            "{}:{} generation={} file_id={} {} {}..{} size={} created_ns={:?} modified_ns={} status={}({}) class={} diagnostic_ref={} {:?}",
             hit.collection,
             hit.record_id,
             hit.generation,
@@ -193,8 +194,21 @@ fn run() -> Result<(), String> {
             hit.file_size,
             hit.file_created_ns,
             hit.modified_ns,
+            hit.file_status.label(),
+            hit.file_status.code(),
+            hit.record_class.code(),
+            hit.diagnostic_ref.0,
             hit.matched_fields
         );
+        if let Some(issue) = repository.files().diagnostic(
+            objekte_search_core::model::FileId(hit.file_id),
+            hit.diagnostic_ref,
+        ) {
+            println!(
+                "  diagnostic={} {:?}: {}",
+                issue.code, issue.category, issue.message
+            );
+        }
         match &hit.payload {
             Some(Payload::Bytes(bytes)) => println!(
                 "  bytes_hex={}",
@@ -204,6 +218,7 @@ fn run() -> Result<(), String> {
                 "  logical={}",
                 serde_json::to_string(value).map_err(|e| e.to_string())?
             ),
+            Some(Payload::LogicalUnavailable { .. }) => println!("  logical=unavailable"),
             None => {}
         }
     }

@@ -8,6 +8,7 @@ use crate::workload::ReturnMode;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
+
 #[derive(Debug)]
 struct SeparatorOperation {
     preparations: Arc<AtomicUsize>,
@@ -18,20 +19,32 @@ struct SeparatorOperation {
     complete: bool,
 }
 
+
 fn normalized_equal(input: &[u8], needle: &[u8]) -> bool {
-    let mut mapped = input.iter().copied().filter(|byte| !matches!(byte, b' ' | b'-' | b'_'))
+    let mut mapped = input
+        .iter()
+        .copied()
+        .filter(|byte| !matches!(byte, b' ' | b'-' | b'_'))
         .map(|byte| byte.to_ascii_lowercase());
-    needle.iter().all(|expected| mapped.next() == Some(*expected)) && mapped.next().is_none()
+    needle
+        .iter()
+        .all(|expected| mapped.next() == Some(*expected))
+        && mapped.next().is_none()
 }
 
 fn normalized_contains(input: &[u8], needle: &[u8]) -> bool {
     (0..=input.len()).any(|start| {
-        let mut mapped = input[start..].iter().copied()
+        let mut mapped = input[start..]
+            .iter()
+            .copied()
             .filter(|byte| !matches!(byte, b' ' | b'-' | b'_'))
             .map(|byte| byte.to_ascii_lowercase());
-        needle.iter().all(|expected| mapped.next() == Some(*expected))
+        needle
+            .iter()
+            .all(|expected| mapped.next() == Some(*expected))
     })
 }
+
 
 #[derive(Debug)]
 struct SeparatorFilter {
@@ -40,6 +53,7 @@ struct SeparatorFilter {
     callbacks: Arc<AtomicUsize>,
 }
 
+
 impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
     fn input(&self) -> crate::reference::ExactInput {
         crate::reference::ExactInput::OriginalRecordBytes
@@ -47,9 +61,14 @@ impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
 
     fn matches(&self, _: Option<&Value>, bytes: Option<&[u8]>) -> Result<bool, String> {
         self.callbacks.fetch_add(1, AtomicOrdering::Relaxed);
-        if self.needle == b"fail" { return Err("prepared separator matcher failure".into()); }
+        if self.needle == b"fail" {
+            return Err("prepared separator matcher failure".into());
+        }
         let bytes = bytes.ok_or("separator matcher requires original bytes")?;
-        let title = bytes.split(|byte| *byte == b'|').next().ok_or("missing title")?;
+        let title = bytes
+            .split(|byte| *byte == b'|')
+            .next()
+            .ok_or("missing title")?;
         Ok(match self.operator {
             Operator::Eq => normalized_equal(title, &self.needle),
             Operator::Contains => normalized_contains(title, &self.needle),
@@ -57,9 +76,15 @@ impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
         })
     }
 
-    fn posting_compatible(&self) -> bool { true }
-    fn bigram_compatible(&self) -> bool { true }
+    fn posting_compatible(&self) -> bool {
+        true
+    }
+
+    fn bigram_compatible(&self) -> bool {
+        true
+    }
 }
+
 
 #[derive(Debug)]
 struct SeparatorText {
@@ -67,24 +92,36 @@ struct SeparatorText {
     callbacks: Arc<AtomicUsize>,
 }
 
+
 impl crate::reference::PreparedTextMatcher for SeparatorText {
     fn matches(&self, text: &str) -> Result<bool, String> {
         self.callbacks.fetch_add(1, AtomicOrdering::Relaxed);
         Ok(normalized_contains(text.as_bytes(), &self.needle))
     }
 
-    fn bigram_compatible(&self) -> bool { true }
+    fn bigram_compatible(&self) -> bool {
+        true
+    }
 }
+
 
 impl crate::reference::BindingOperation for SeparatorOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _: bool) -> bool {
         *kind == LogicalType::String && matches!(operator, Operator::Eq | Operator::Contains)
     }
 
-    fn prepare_literal(&self, literal: &crate::query::Literal, _: &LogicalType) -> Result<Value, String> {
+    fn prepare_literal(
+        &self,
+        literal: &crate::query::Literal,
+        _: &LogicalType,
+    ) -> Result<Value, String> {
         self.preparations.fetch_add(1, AtomicOrdering::Relaxed);
-        let crate::query::Literal::String(text) = literal else { return Err("expected separator text".into()) };
-        let value = text.strip_prefix("sep:").ok_or("separator literal needs sep: prefix")?;
+        let crate::query::Literal::String(text) = literal else {
+            return Err("expected separator text".into());
+        };
+        let value = text
+            .strip_prefix("sep:")
+            .ok_or("separator literal needs sep: prefix")?;
         Ok(Value::String(self.map_text(value)))
     }
 
@@ -93,49 +130,82 @@ impl crate::reference::BindingOperation for SeparatorOperation {
         Ok(self.map_text(text))
     }
 
-    fn prepare_filter_matcher(&self, literal: &Value, operator: Operator)
-        -> Result<Option<Arc<dyn crate::reference::PreparedFilterMatcher>>, String> {
+    fn prepare_filter_matcher(
+        &self,
+        literal: &Value,
+        operator: Operator,
+    ) -> Result<Option<Arc<dyn crate::reference::PreparedFilterMatcher>>, String> {
         self.preparations.fetch_add(1, AtomicOrdering::Relaxed);
-        let Value::String(text) = literal else { return Err("expected prepared separator text".into()) };
+        let Value::String(text) = literal else {
+            return Err("expected prepared separator text".into());
+        };
         Ok(Some(Arc::new(SeparatorFilter {
-            needle: text.as_bytes().to_vec(), operator, callbacks: self.callbacks.clone(),
+            needle: text.as_bytes().to_vec(),
+            operator,
+            callbacks: self.callbacks.clone(),
         })))
     }
 
-    fn prepare_text_matcher(&self, literal: &str)
-        -> Result<Option<Arc<dyn crate::reference::PreparedTextMatcher>>, String> {
+    fn prepare_text_matcher(
+        &self,
+        literal: &str,
+    ) -> Result<Option<Arc<dyn crate::reference::PreparedTextMatcher>>, String> {
         self.preparations.fetch_add(1, AtomicOrdering::Relaxed);
         Ok(Some(Arc::new(SeparatorText {
-            needle: literal.as_bytes().to_vec(), callbacks: self.callbacks.clone(),
+            needle: literal.as_bytes().to_vec(),
+            callbacks: self.callbacks.clone(),
         })))
     }
 
     fn map_value(&self, value: &Value) -> Option<Value> {
-        let Value::String(text) = value else { return None };
+        let Value::String(text) = value else {
+            return None;
+        };
         Some(Value::String(self.map_text(text)))
     }
 
     fn map_text(&self, text: &str) -> String {
         self.mappings.fetch_add(1, AtomicOrdering::Relaxed);
-        text.bytes().filter(|byte| !matches!(byte, b' ' | b'-' | b'_'))
-            .map(|byte| byte.to_ascii_lowercase() as char).collect()
+        text.bytes()
+            .filter(|byte| !matches!(byte, b' ' | b'-' | b'_'))
+            .map(|byte| byte.to_ascii_lowercase() as char)
+            .collect()
     }
 
-    fn posting(&self) -> bool { self.posting }
-    fn bigram(&self) -> bool { self.bigram }
-    fn complete_coverage(&self) -> bool { self.complete }
+    fn posting(&self) -> bool {
+        self.posting
+    }
+
+    fn bigram(&self) -> bool {
+        self.bigram
+    }
+
+    fn complete_coverage(&self) -> bool {
+        self.complete
+    }
 }
+
 
 struct SeparatorReader(Arc<AtomicUsize>);
 
+
 impl crate::source::SourceReader for SeparatorReader {
-    fn name(&self) -> &'static str { "separator" }
+    fn name(&self) -> &'static str {
+        "separator"
+    }
+
     fn logical_text_coverage(&self) -> crate::source::LogicalTextCoverage {
         crate::source::LogicalTextCoverage::AllStringFields
     }
+
     fn frame(&self, file: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
-        Ok(vec![crate::inventory::ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+        Ok(vec![crate::inventory::ByteRange::checked(
+            0,
+            file.len() as u64,
+            file.len() as u64,
+        )?])
     }
+
     fn parse(&self, bytes: &[u8]) -> Result<crate::source::ExtractedRecord, String> {
         self.0.fetch_add(1, AtomicOrdering::Relaxed);
         let text = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
@@ -146,12 +216,19 @@ impl crate::source::SourceReader for SeparatorReader {
                 ("body".into(), Value::String(body.into())),
             ])),
             text: vec![
-                crate::source::TextSegment { path: vec!["title".into()], text: title.into() },
-                crate::source::TextSegment { path: vec!["body".into()], text: body.into() },
+                crate::source::TextSegment {
+                    path: vec!["title".into()],
+                    text: title.into(),
+                },
+                crate::source::TextSegment {
+                    path: vec!["body".into()],
+                    text: body.into(),
+                },
             ],
         })
     }
 }
+
 
 #[test]
 fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
@@ -160,12 +237,17 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     use crate::repository::{RepositoryOptions, SnapshotMode};
     use crate::source::{SourceFormat, SourceRegistry};
 
-    let root = std::env::temp_dir().join(format!("objekte-separator-matcher-{}", std::process::id()));
+    let root =
+        std::env::temp_dir().join(format!("objekte-separator-matcher-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.sep"), b"A-l_pha|body").unwrap();
     std::fs::write(root.join("data/b.sep"), b"beta|body").unwrap();
     for n in 0..30 {
-        std::fs::write(root.join(format!("data/z{n:02}.sep")), format!("other{n:02}|body")).unwrap();
+        std::fs::write(
+            root.join(format!("data/z{n:02}.sep")),
+            format!("other{n:02}|body"),
+        )
+        .unwrap();
     }
     let preparations = Arc::new(AtomicUsize::new(0));
     let callbacks = Arc::new(AtomicUsize::new(0));
@@ -173,53 +255,125 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     let parses = Arc::new(AtomicUsize::new(0));
     let definition = |posting, bigram, complete| {
         let mut schema = Schema::default();
-        schema.register_field(FieldDefinition {
-            path: vec!["title".into()], kind: LogicalType::String, required: true,
-            nullable: false, indexed: false, multi: false, element_nullable: vec![],
-        }).unwrap();
-        let binding = RegisteredBinding { name: "sep".into(), version: 1,
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["title".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+        let binding = RegisteredBinding {
+            name: "sep".into(),
+            version: 1,
             operation: Arc::new(SeparatorOperation {
-                preparations: preparations.clone(), callbacks: callbacks.clone(),
-                mappings: mappings.clone(), posting, bigram, complete,
-            }) };
-        schema.register_operation(vec!["title".into()], binding).unwrap();
-        schema.set_default_binding(vec!["title".into()], "sep").unwrap();
-        CollectionDefinition { name: "data".into(), source_path: "data".into(),
-            format: SourceFormat::registered("sep"), identity: IdentityPolicy::Filename,
-            discovery: Default::default(), schema, sort_fields: vec![], sort_locale: "de".into(),
-            sort_options: Default::default(), sort_overrides: Default::default() }
+                preparations: preparations.clone(),
+                callbacks: callbacks.clone(),
+                mappings: mappings.clone(),
+                posting,
+                bigram,
+                complete,
+            }),
+        };
+        schema
+            .register_operation(vec!["title".into()], binding)
+            .unwrap();
+        schema
+            .set_default_binding(vec!["title".into()], "sep")
+            .unwrap();
+        CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::registered("sep"),
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }
     };
     let sources = || {
         let mut registry = SourceRegistry::builtin();
-        registry.register("sep", 1, "sep", Arc::new(SeparatorReader(parses.clone()))).unwrap();
+        registry
+            .register("sep", 1, "sep", Arc::new(SeparatorReader(parses.clone())))
+            .unwrap();
         registry
     };
-    let filter_query = |filter: &str| Query { collections: vec!["data".into()],
-        fts: None, filter: Some(parse_filter(filter).unwrap()),
-        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
-            return_mode: ReturnMode::Locator, evidence: true } };
-    let fts_query = |named: bool| Query { collections: vec!["data".into()], filter: None,
-        fts: Some(FtsQuery { literal: "alp".into(), fields: vec![FtsField {
-            path: crate::model::FieldPath::parse("title").unwrap(),
-            binding: named.then(|| "sep".into()),
-        }] }),
-        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
-            return_mode: ReturnMode::Locator, evidence: true } };
-    for alphabet in [crate::workload::BigramAlphabet::Ascii, crate::workload::BigramAlphabet::Unicode] {
-        for (posting, bigram, complete) in [(true, true, true), (false, true, true),
-            (false, false, true), (true, true, false)] {
-            let repo = Repository::open_with_sources(&root, vec![definition(posting, bigram, complete)],
-                RepositoryOptions { bigram_alphabet: alphabet, snapshot_mode: SnapshotMode::Disabled,
-                    ..Default::default() }, sources()).unwrap();
-            for filter in ["title = 'sep:alpha'", "title:sep = 'sep:alpha'",
-                "title:sep ~ 'sep:alp'", "title:sep ~ 'sep:al'"] {
+    let filter_query = |filter: &str| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let fts_query = |named: bool| Query {
+        collections: vec!["data".into()],
+        filter: None,
+        fts: Some(FtsQuery {
+            literal: "alp".into(),
+            fields: vec![FtsField {
+                path: crate::model::FieldPath::parse("title").unwrap(),
+                binding: named.then(|| "sep".into()),
+            }],
+        }),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        for (posting, bigram, complete) in [
+            (true, true, true),
+            (false, true, true),
+            (false, false, true),
+            (true, true, false),
+        ] {
+            let repo = Repository::open_with_sources(
+                &root,
+                vec![definition(posting, bigram, complete)],
+                RepositoryOptions {
+                    bigram_alphabet: alphabet,
+                    snapshot_mode: SnapshotMode::Disabled,
+                    ..Default::default()
+                },
+                sources(),
+            )
+            .unwrap();
+            for filter in [
+                "title = 'sep:alpha'",
+                "title:sep = 'sep:alpha'",
+                "title:sep ~ 'sep:alp'",
+                "title:sep ~ 'sep:al'",
+            ] {
                 let query = filter_query(filter);
                 let before_preparations = preparations.load(AtomicOrdering::Relaxed);
                 let before_callbacks = callbacks.load(AtomicOrdering::Relaxed);
                 let before_parses = parses.load(AtomicOrdering::Relaxed);
                 let before_mappings = mappings.load(AtomicOrdering::Relaxed);
                 let result = repo.search(&query).unwrap();
-                assert_eq!(result.count, Some(1), "{alphabet:?} {posting} {bigram} {complete} {filter}");
+                assert_eq!(
+                    result.count,
+                    Some(1),
+                    "{alphabet:?} {posting} {bigram} {complete} {filter}"
+                );
                 assert_eq!(result.hits[0].record_id, "a");
                 assert_eq!(result.hits[0].matched_fields, ["title"]);
                 let selected = repo.explain(&query).unwrap()[0].terms[0].selected.kind;
@@ -230,7 +384,10 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 } else if !bigram || !complete {
                     assert_eq!(selected, AccessPathKind::Scanner);
                 }
-                assert_eq!(preparations.load(AtomicOrdering::Relaxed) - before_preparations, 2);
+                assert_eq!(
+                    preparations.load(AtomicOrdering::Relaxed) - before_preparations,
+                    2
+                );
                 assert_eq!(mappings.load(AtomicOrdering::Relaxed) - before_mappings, 1);
                 if result.counters.record_parses == 0 {
                     assert_eq!(parses.load(AtomicOrdering::Relaxed), before_parses);
@@ -238,14 +395,20 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 let callback_delta = callbacks.load(AtomicOrdering::Relaxed) - before_callbacks;
                 if filter.contains("~") || !posting || !complete {
                     assert!(callback_delta > 0, "prepared callback unused: {filter}");
-                    assert_eq!(result.counters.record_parses, 0, "borrowed byte scan decoded: {filter}");
+                    assert_eq!(
+                        result.counters.record_parses, 0,
+                        "borrowed byte scan decoded: {filter}"
+                    );
                 } else {
                     assert_eq!(callback_delta, 0, "exact posting still scanned: {filter}");
                     assert_eq!(result.counters.files_opened, 0);
                 }
                 let second = repo.search(&query).unwrap();
                 assert_eq!(second.hits, result.hits);
-                assert_eq!(preparations.load(AtomicOrdering::Relaxed) - before_preparations, 2);
+                assert_eq!(
+                    preparations.load(AtomicOrdering::Relaxed) - before_preparations,
+                    2
+                );
             }
             for named in [false, true] {
                 let before_callbacks = callbacks.load(AtomicOrdering::Relaxed);
@@ -255,8 +418,13 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 assert!(callbacks.load(AtomicOrdering::Relaxed) > before_callbacks);
             }
             if !bigram && !posting {
-                let error = repo.search(&filter_query("title:sep ~ 'sep:fail'")).unwrap_err();
-                assert!(error.contains("prepared separator matcher failure"), "{error}");
+                let error = repo
+                    .search(&filter_query("title:sep ~ 'sep:fail'"))
+                    .unwrap_err();
+                assert!(
+                    error.contains("prepared separator matcher failure"),
+                    "{error}"
+                );
             }
             if bigram && complete {
                 let mut logical = filter_query("title:sep ~ 'sep:alp'");
@@ -269,18 +437,42 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
             }
         }
     }
-    let options = RepositoryOptions { snapshot_mode: SnapshotMode::ReadWrite, ..Default::default() };
-    let built = Repository::open_with_sources(&root, vec![definition(true, true, true)], options, sources()).unwrap();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::ReadWrite,
+        ..Default::default()
+    };
+    let built = Repository::open_with_sources(
+        &root,
+        vec![definition(true, true, true)],
+        options,
+        sources(),
+    )
+    .unwrap();
     assert!(!built.startup().restored);
     drop(built);
-    let restored = Repository::open_with_sources(&root, vec![definition(true, true, true)], options, sources()).unwrap();
+    let restored = Repository::open_with_sources(
+        &root,
+        vec![definition(true, true, true)],
+        options,
+        sources(),
+    )
+    .unwrap();
     assert!(restored.startup().restored);
-    assert_eq!(restored.search(&filter_query("title:sep ~ 'sep:alp'")).unwrap().hits[0].record_id, "a");
+    assert_eq!(
+        restored
+            .search(&filter_query("title:sep ~ 'sep:alp'"))
+            .unwrap()
+            .hits[0]
+            .record_id,
+        "a"
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct RemoveSpaces;
+
 
 impl crate::reference::BindingOperation for RemoveSpaces {
     fn accepts(&self, kind: &LogicalType, op: Operator, _: bool) -> bool {
@@ -313,8 +505,11 @@ impl crate::reference::BindingOperation for RemoveSpaces {
         true
     }
 
-    fn value_text_equivalent(&self) -> bool { true }
+    fn value_text_equivalent(&self) -> bool {
+        true
+    }
 }
+
 
 #[test]
 fn transformed_raw_index_cannot_prune_identity_field_predicates() {
@@ -407,12 +602,114 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct KeyedOperation {
     posting: bool,
     bigram: bool,
     complete: bool,
 }
+
+
+#[test]
+fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
+    use crate::query::FtsQuery;
+    use crate::reference::RegisteredBinding;
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    let root = std::env::temp_dir().join(format!(
+        "objekte-fallback-raw-binding-{}",
+        std::process::id()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), br#"{"title":"HELLO"}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), br#"{"title":"HELLO""#).unwrap();
+    let mut schema = crate::reference::Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .set_raw_binding(RegisteredBinding {
+            name: "keyed".into(),
+            version: 1,
+            operation: Arc::new(KeyedOperation {
+                posting: false,
+                bigram: true,
+                complete: true,
+            }),
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..Default::default()
+        };
+        let built =
+            Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+        for (literal, expected) in [("HELLO", 2), ("hello", 1), ("ell", 1)] {
+            let query = Query {
+                collections: vec!["data".into()],
+                filter: None,
+                fts: Some(FtsQuery {
+                    literal: literal.into(),
+                    fields: vec![],
+                }),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: true,
+                },
+            };
+            let actual = built.search(&query).unwrap();
+            assert_eq!(actual.count, Some(expected), "{literal}");
+            assert_eq!(
+                actual.hits,
+                built.search_reference(&query).unwrap().hits,
+                "{literal}"
+            );
+            if literal == "HELLO" {
+                assert!(
+                    actual
+                        .hits
+                        .iter()
+                        .any(|hit| hit.matched_fields == ["@record.raw_text"])
+                );
+            }
+            let restored =
+                Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+            assert!(restored.startup().restored);
+            assert_eq!(restored.search(&query).unwrap().hits, actual.hits);
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 
 impl crate::reference::BindingOperation for KeyedOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _multi: bool) -> bool {
@@ -447,7 +744,9 @@ impl crate::reference::BindingOperation for KeyedOperation {
         text.trim().to_lowercase()
     }
 
-    fn value_text_equivalent(&self) -> bool { true }
+    fn value_text_equivalent(&self) -> bool {
+        true
+    }
 
     fn posting(&self) -> bool {
         self.posting
@@ -461,6 +760,7 @@ impl crate::reference::BindingOperation for KeyedOperation {
         self.complete
     }
 }
+
 
 #[test]
 fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
