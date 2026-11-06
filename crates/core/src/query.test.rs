@@ -75,3 +75,32 @@ fn seeded_bounded_filter_inputs_never_panic() {
         );
     }
 }
+
+#[test]
+fn typed_operand_shapes_preserve_source_spans() {
+    let FilterExpr::Term(term) = parse_filter("title:lower = alternate_title:lower").unwrap()
+    else {
+        panic!("expected term");
+    };
+    assert_eq!(term.span, (0, 35));
+    assert!(matches!(term.operand, Operand::Field(FieldExpression {
+        path: FieldPath { root: crate::model::PathRoot::Data, segments },
+        modifiers,
+        span: (14, 35),
+    }) if segments == ["alternate_title"] && modifiers == [Modifier::Lower]));
+
+    let FilterExpr::Term(term) = parse_filter("year >= $minimum_year").unwrap() else {
+        panic!("expected term");
+    };
+    assert!(matches!(term.operand, Operand::Parameter(name) if name == "minimum_year"));
+    assert_eq!(term.span, (0, 21));
+    assert!(parse_filter("year >= $").is_err());
+    assert!(parse_filter("year >= $2x").is_err());
+
+    let FilterExpr::Term(term) = parse_filter("title = 'alternate_title'").unwrap() else {
+        panic!("expected term");
+    };
+    assert!(
+        matches!(term.operand, Operand::Literal(Literal::String(value)) if value == "alternate_title")
+    );
+}

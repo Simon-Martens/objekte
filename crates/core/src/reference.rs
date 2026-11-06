@@ -1,17 +1,17 @@
 //! Typed query binding and independent, index-free reference evaluation.
 
+use smallvec::SmallVec;
 use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
-use smallvec::SmallVec;
 
 use crate::bigram::BigramRequest;
 use crate::bigram::fold;
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{
-    CaseSensitivity, FilterExpr, FtsQuery, Literal, Modifier, Operator, Quantifier, Term,
+    CaseSensitivity, FilterExpr, FtsQuery, Literal, Modifier, Operand, Operator, Quantifier, Term,
 };
 use crate::source::TextSegment;
 
@@ -615,6 +615,18 @@ pub fn bind_filter(expr: &FilterExpr, schema: &Schema) -> Result<BoundExpr, Stri
 }
 
 fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
+    let parsed_literal = match &term.operand {
+        Operand::Literal(literal) => literal,
+        Operand::Field(field) => {
+            return Err(format!(
+                "field operand at byte {} is not yet supported by the binder",
+                field.span.0
+            ));
+        }
+        Operand::Parameter(name) => {
+            return Err(format!("parameter ${name} requires execution bindings"));
+        }
+    };
     let field = schema.field_or_dynamic(&term.path)?;
     let source_kind = field.kind.clone();
     let mut derived = Derived::None;
@@ -719,7 +731,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         return Err("text binding requires string values".into());
     }
     if transform != Transform::Identity
-        && !matches!(term.literal, Literal::String(_) | Literal::Null)
+        && !matches!(parsed_literal, Literal::String(_) | Literal::Null)
     {
         return Err("text binding requires a string literal".into());
     }
@@ -734,7 +746,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         return Err("contains requires string values".into());
     }
     if matches!(term.operator, Operator::Contains | Operator::NotContains)
-        && !matches!(term.literal, Literal::String(_))
+        && !matches!(parsed_literal, Literal::String(_))
     {
         return Err("contains requires a string literal".into());
     }
@@ -746,9 +758,9 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         return Err("ordered comparison requires scalar values".into());
     }
     let literal = if let Some(op) = &operation {
-        op.prepare_literal(&term.literal, &kind)?
+        op.prepare_literal(parsed_literal, &kind)?
     } else {
-        prepare_literal(&term.literal, &kind, transform)?
+        prepare_literal(parsed_literal, &kind, transform)?
     };
     if matches!(literal, Value::Null) && !matches!(term.operator, Operator::Eq | Operator::Ne) {
         return Err("null permits only equality operators".into());

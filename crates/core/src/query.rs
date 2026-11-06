@@ -30,6 +30,24 @@ pub enum Literal {
 }
 
 
+/// Field used as a comparison operand, with its original source span.
+#[derive(Clone, Debug, PartialEq)]
+pub struct FieldExpression {
+    pub path: FieldPath,
+    pub modifiers: Vec<Modifier>,
+    pub span: (usize, usize),
+}
+
+
+/// Parsed right-hand operand before type checking and execution binding.
+#[derive(Clone, Debug, PartialEq)]
+pub enum Operand {
+    Literal(Literal),
+    Field(FieldExpression),
+    Parameter(String),
+}
+
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Operator {
     Eq,
@@ -61,6 +79,18 @@ pub enum Modifier {
 }
 
 
+fn parse_modifier(name: String) -> Modifier {
+    match name.as_str() {
+        "lower" => Modifier::Lower,
+        "length" => Modifier::Length,
+        "each" => Modifier::Each,
+        "null" => Modifier::Null,
+        "exists" => Modifier::Exists,
+        _ => Modifier::Custom(name),
+    }
+}
+
+
 /// Parsed field predicate before schema binding.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Term {
@@ -68,7 +98,7 @@ pub struct Term {
     pub modifiers: Vec<Modifier>,
     pub quantifier: Quantifier,
     pub operator: Operator,
-    pub literal: Literal,
+    pub operand: Operand,
     pub span: (usize, usize),
 }
 
@@ -435,14 +465,7 @@ impl Parser {
                 TokenKind::Word(s) => s,
                 _ => return Err(format!("expected modifier at byte {}", token.start)),
             };
-            modifiers.push(match name.as_str() {
-                "lower" => Modifier::Lower,
-                "length" => Modifier::Length,
-                "each" => Modifier::Each,
-                "null" => Modifier::Null,
-                "exists" => Modifier::Exists,
-                _ => Modifier::Custom(name),
-            });
+            modifiers.push(parse_modifier(name));
         }
         let op = self.take();
         let (operator, quantifier) = match op.kind {
@@ -450,31 +473,61 @@ impl Parser {
             _ => return Err(format!("expected comparison operator at byte {}", op.start)),
         };
         let value = self.take();
-        let literal = match value.kind {
-            TokenKind::String(s) => Literal::String(s),
-            TokenKind::Word(s) if s == "true" => Literal::Bool(true),
-            TokenKind::Word(s) if s == "false" => Literal::Bool(false),
-            TokenKind::Word(s) if s == "null" => Literal::Null,
-            TokenKind::Word(s) => {
-                let number =
-                    if let Ok(n) = s.parse::<i128>() {
-                        Number::integer(n)
-                    } else {
-                        Number::float(s.parse::<f64>().map_err(|_| {
-                            format!("invalid literal {s:?} at byte {}", value.start)
-                        })?)?
-                    };
-                Literal::Number(number)
+        let mut end = value.end;
+        let operand = match value.kind {
+            TokenKind::String(s) => Operand::Literal(Literal::String(s)),
+            TokenKind::Word(s) if s == "true" => Operand::Literal(Literal::Bool(true)),
+            TokenKind::Word(s) if s == "false" => Operand::Literal(Literal::Bool(false)),
+            TokenKind::Word(s) if s == "null" => Operand::Literal(Literal::Null),
+            TokenKind::Word(s) if s.starts_with('$') => {
+                let name = &s[1..];
+                if name.is_empty()
+                    || !name
+                        .chars()
+                        .next()
+                        .is_some_and(|ch| ch == '_' || ch.is_alphabetic())
+                    || !name.chars().all(|ch| ch == '_' || ch.is_alphanumeric())
+                {
+                    return Err(format!("invalid parameter name at byte {}", value.start));
+                }
+                Operand::Parameter(name.to_owned())
             }
-            _ => return Err(format!("expected literal at byte {}", value.start)),
+            TokenKind::Word(s) => {
+                if let Ok(n) = s.parse::<i128>() {
+                    Operand::Literal(Literal::Number(Number::integer(n)))
+                } else if let Ok(n) = s.parse::<f64>() {
+                    Operand::Literal(Literal::Number(Number::float(n)?))
+                } else {
+                    let path = FieldPath::parse(&s).map_err(|error| {
+                        format!("invalid field operand at byte {}: {error}", value.start)
+                    })?;
+                    let mut modifiers = Vec::new();
+                    while matches!(self.peek(), TokenKind::Colon) {
+                        self.take();
+                        let token = self.take();
+                        let name = match token.kind {
+                            TokenKind::Word(name) => name,
+                            _ => return Err(format!("expected modifier at byte {}", token.start)),
+                        };
+                        end = token.end;
+                        modifiers.push(parse_modifier(name));
+                    }
+                    Operand::Field(FieldExpression {
+                        path,
+                        modifiers,
+                        span: (value.start, end),
+                    })
+                }
+            }
+            _ => return Err(format!("expected operand at byte {}", value.start)),
         };
         Ok(Term {
             path,
             modifiers,
             quantifier,
             operator,
-            literal,
-            span: (path_token.start, value.end),
+            operand,
+            span: (path_token.start, end),
         })
     }
 }
