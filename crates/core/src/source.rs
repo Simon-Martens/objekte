@@ -489,56 +489,90 @@ pub fn read_record_ranges(
     revision: SourceRevision,
     ranges: &[(u32, ByteRange)],
 ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
-    let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-    check_opened_revision(&file, revision)?;
-    if let [(slot, range)] = ranges {
-        ByteRange::checked(range.start, range.end, revision.size)?;
-        let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
-        let mut bytes = vec![0; len];
-        if range.start != 0 {
-            file.seek(SeekFrom::Start(range.start))
-                .map_err(|e| e.to_string())?;
-        }
-        file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
-        return Ok((vec![(*slot, bytes)], len as u64));
-    }
-    let mut ordered = ranges.to_vec();
-    ordered.sort_by_key(|(_, range)| range.start);
-    for (_, range) in &ordered {
-        ByteRange::checked(range.start, range.end, revision.size)?;
-    }
-    let mut output = Vec::with_capacity(ordered.len());
-    let mut bytes_read = 0u64;
-    let mut cursor = 0;
-    while cursor < ordered.len() {
-        let start = ordered[cursor].1.start;
-        let mut end = ordered[cursor].1.end;
-        let mut next = cursor + 1;
-        while next < ordered.len() {
-            let candidate = ordered[next].1;
-            if candidate.start > end.saturating_add(4096)
-                || candidate.end.saturating_sub(start) > 1024 * 1024
-            {
-                break;
-            }
-            end = end.max(candidate.end);
-            next += 1;
-        }
-        let len = usize::try_from(end - start).map_err(|_| "read window too large")?;
-        let mut buffer = vec![0; len];
-        file.seek(SeekFrom::Start(start))
-            .map_err(|e| e.to_string())?;
-        file.read_exact(&mut buffer).map_err(|e| e.to_string())?;
-        bytes_read += len as u64;
-        for (slot, range) in &ordered[cursor..next] {
-            let a = (range.start - start) as usize;
-            let b = (range.end - start) as usize;
-            output.push((*slot, buffer[a..b].to_vec()));
-        }
-        cursor = next;
-    }
-    Ok((output, bytes_read))
+    RecordRangeReader::open(path, revision)?.read(ranges)
 }
+
+
+/// One opened source handle for a bounded sequence of range batches.
+pub struct RecordRangeReader {
+    file: std::fs::File,
+    revision: SourceRevision,
+    first_read: bool,
+}
+
+
+impl RecordRangeReader {
+    pub fn open(path: &Path, revision: SourceRevision) -> Result<Self, String> {
+        let file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+        check_opened_revision(&file, revision)?;
+        Ok(Self {
+            file,
+            revision,
+            first_read: true,
+        })
+    }
+
+    pub fn read(
+        &mut self,
+        ranges: &[(u32, ByteRange)],
+    ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
+        let file = &mut self.file;
+        let revision = self.revision;
+        if self.first_read {
+            self.first_read = false;
+        } else {
+            check_opened_revision(file, revision)?;
+        }
+        if let [(slot, range)] = ranges {
+            ByteRange::checked(range.start, range.end, revision.size)?;
+            let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
+            let mut bytes = vec![0; len];
+            if range.start != 0 {
+                file.seek(SeekFrom::Start(range.start))
+                    .map_err(|e| e.to_string())?;
+            }
+            file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
+            return Ok((vec![(*slot, bytes)], len as u64));
+        }
+        let mut ordered = ranges.to_vec();
+        ordered.sort_by_key(|(_, range)| range.start);
+        for (_, range) in &ordered {
+            ByteRange::checked(range.start, range.end, revision.size)?;
+        }
+        let mut output = Vec::with_capacity(ordered.len());
+        let mut bytes_read = 0u64;
+        let mut cursor = 0;
+        while cursor < ordered.len() {
+            let start = ordered[cursor].1.start;
+            let mut end = ordered[cursor].1.end;
+            let mut next = cursor + 1;
+            while next < ordered.len() {
+                let candidate = ordered[next].1;
+                if candidate.start > end.saturating_add(4096)
+                    || candidate.end.saturating_sub(start) > 1024 * 1024
+                {
+                    break;
+                }
+                end = end.max(candidate.end);
+                next += 1;
+            }
+            let len = usize::try_from(end - start).map_err(|_| "read window too large")?;
+            let mut buffer = vec![0; len];
+            file.seek(SeekFrom::Start(start))
+                .map_err(|e| e.to_string())?;
+            file.read_exact(&mut buffer).map_err(|e| e.to_string())?;
+            bytes_read += len as u64;
+            for (slot, range) in &ordered[cursor..next] {
+                let a = (range.start - start) as usize;
+                let b = (range.end - start) as usize;
+                output.push((*slot, buffer[a..b].to_vec()));
+            }
+            cursor = next;
+        }
+        Ok((output, bytes_read))
+    }
+}
+
 
 #[cfg(test)]
 #[path = "source.test.rs"]

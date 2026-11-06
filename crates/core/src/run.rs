@@ -3,6 +3,7 @@
 use std::cmp::Ordering;
 use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
+use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering as AtomicOrdering};
 use std::time::Instant;
 
 use rayon::prelude::*;
@@ -22,7 +23,9 @@ use crate::reference::{
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
-use crate::source::{ScanProjection, read_record_range, read_record_ranges, text_segments};
+use crate::source::{
+    RecordRangeReader, ScanProjection, read_record_range, read_record_ranges, text_segments,
+};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -134,6 +137,7 @@ struct Winner {
     collection_index: usize,
     slot: u32,
     hit: SearchHit,
+    retained_bytes: u64,
 }
 
 
@@ -142,6 +146,7 @@ struct ScannedMatch {
     slot: u32,
     evidence: HashSet<String>,
     payload: Option<Payload>,
+    retained_bytes: u64,
 }
 
 
@@ -153,7 +158,86 @@ struct ScannedFile {
     record_parses: u64,
     scanned_records: u64,
     residual_evaluations: u64,
+    match_count: u64,
+    peak_payload_bytes: u64,
     matches: SmallVec<[ScannedMatch; 1]>,
+    cache_members: Vec<CachedMember>,
+}
+
+
+struct FileWinner {
+    key: RankKey,
+    matched: ScannedMatch,
+}
+
+
+impl PartialEq for FileWinner {
+    fn eq(&self, other: &Self) -> bool {
+        self.key == other.key
+    }
+}
+
+
+impl Eq for FileWinner {}
+
+
+impl PartialOrd for FileWinner {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+
+impl Ord for FileWinner {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.key.cmp(&other.key)
+    }
+}
+
+
+/// Compact cache membership is budgeted independently of page payloads.
+struct CacheBudget {
+    remaining: AtomicUsize,
+    complete: AtomicBool,
+}
+
+
+impl CacheBudget {
+    fn new(bytes: usize) -> Self {
+        Self {
+            remaining: AtomicUsize::new(bytes),
+            complete: AtomicBool::new(true),
+        }
+    }
+
+    fn complete(&self) -> bool {
+        self.complete.load(AtomicOrdering::Relaxed)
+    }
+
+    fn reserve(&self, fields: &[String]) -> bool {
+        if !self.complete() {
+            return false;
+        }
+        let bytes = std::mem::size_of::<CachedMember>()
+            + fields
+                .iter()
+                .map(|field| field.len() + std::mem::size_of::<String>())
+                .sum::<usize>();
+        if self
+            .remaining
+            .try_update(
+                AtomicOrdering::Relaxed,
+                AtomicOrdering::Relaxed,
+                |remaining| remaining.checked_sub(bytes),
+            )
+            .is_ok()
+        {
+            true
+        } else {
+            self.complete.store(false, AtomicOrdering::Relaxed);
+            false
+        }
+    }
 }
 
 
@@ -378,6 +462,7 @@ fn scan_file(
     fts: Option<&BoundFts>,
     projection: &ScanProjection,
     retain_all_evidence: bool,
+    cache_budget: Option<&CacheBudget>,
     payload_cutoff: Option<&RankKey>,
     file_id: u32,
     ranges: &[(u32, ByteRange)],
@@ -389,15 +474,46 @@ fn scan_file(
         .ok_or("missing source path")?;
     let revision = repo.files.files[file_id as usize].revision;
     let mut outcome = ScannedFile::default();
+    let cap = query
+        .options
+        .limit
+        .checked_add(query.options.offset)
+        .ok_or("page size overflow")?;
+    let keep_cap = if query.options.limit == 0 { 0 } else { cap };
+    let mut winners = BinaryHeap::<FileWinner>::new();
+    let mut retained_bytes = 0u64;
+    let mut reader = RecordRangeReader::open(&path, revision)?;
+    outcome.files_opened = 1;
     let full_projection = ScanProjection::full(projection.collect_text);
-    for batch in ranges.chunks(128) {
-        let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
-        outcome.files_opened += 1;
+    let mut cursor = 0;
+    while cursor < ranges.len() {
+        let mut end = cursor + 1;
+        let mut batch_bytes = ranges[cursor].1.len();
+        while end < ranges.len()
+            && end - cursor < 128
+            && batch_bytes.saturating_add(ranges[end].1.len()) <= 1024 * 1024
+        {
+            batch_bytes += ranges[end].1.len();
+            end += 1;
+        }
+        let batch = &ranges[cursor..end];
+        cursor = end;
+        let (records, bytes_read) = reader.read(batch)?;
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
             let record = &collection.generation.records[slot as usize];
             let file = &repo.files.files[file_id as usize];
-            let may_reach_page = query.options.limit > 0
+            let may_reach_page = keep_cap > 0
+                && (winners.len() < keep_cap
+                    || winners.peek().is_some_and(|worst| {
+                        sort.compare_to_rank(
+                            collection_index,
+                            record,
+                            &collection.definition.name,
+                            &worst.key,
+                        )
+                        .is_lt()
+                    }))
                 && payload_cutoff.is_none_or(|worst| {
                     sort.compare_to_rank(
                         collection_index,
@@ -441,7 +557,11 @@ fn scan_file(
             let filter_match = if fts_match {
                 residual
                     .map(|f| {
-                        if query.options.evidence && (retain_all_evidence || may_reach_page) {
+                        if query.options.evidence
+                            && ((retain_all_evidence
+                                && cache_budget.is_some_and(CacheBudget::complete))
+                                || may_reach_page)
+                        {
                             f.with_evidence(
                                 slot,
                                 &ctx,
@@ -458,19 +578,56 @@ fn scan_file(
                 false
             };
             if fts_match && filter_match {
-                let payload = match (&query.options.return_mode, may_reach_page) {
-                    (_, false) | (ReturnMode::Locator, _) => None,
-                    (ReturnMode::Bytes, true) => Some(Payload::Bytes(bytes)),
-                    (ReturnMode::Logical, true) => Some(Payload::Logical(extracted.value)),
-                };
-                outcome.matches.push(ScannedMatch {
-                    slot,
-                    evidence,
-                    payload,
-                });
+                outcome.match_count += 1;
+                if let Some(budget) = cache_budget {
+                    let mut matched_fields = if query.options.evidence {
+                        evidence.iter().cloned().collect::<Vec<_>>()
+                    } else {
+                        Vec::new()
+                    };
+                    matched_fields.sort();
+                    if budget.reserve(&matched_fields) {
+                        outcome.cache_members.push(CachedMember {
+                            collection_index,
+                            slot,
+                            matched_fields,
+                        });
+                    }
+                }
+                if may_reach_page {
+                    let retained = if query.options.return_mode == ReturnMode::Locator {
+                        0
+                    } else {
+                        bytes.len() as u64
+                    };
+                    let payload = match query.options.return_mode {
+                        ReturnMode::Locator => None,
+                        ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
+                        ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
+                    };
+                    if winners.len() == keep_cap {
+                        retained_bytes -= winners.pop().unwrap().matched.retained_bytes;
+                    }
+                    retained_bytes += retained;
+                    outcome.peak_payload_bytes = outcome.peak_payload_bytes.max(retained_bytes);
+                    winners.push(FileWinner {
+                        key: rank_key(sort, repo, collection_index, record),
+                        matched: ScannedMatch {
+                            slot,
+                            evidence,
+                            payload,
+                            retained_bytes: retained,
+                        },
+                    });
+                }
             }
         }
     }
+    outcome.matches = winners
+        .into_sorted_vec()
+        .into_iter()
+        .map(|winner| winner.matched)
+        .collect();
     Ok(outcome)
 }
 
@@ -677,6 +834,7 @@ fn offer(
     cap: usize,
     counters: &mut WorkCounters,
     mut cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
 ) {
     counters.total_matches += 1;
     let mut matched_fields: Vec<_> = if query.options.evidence {
@@ -685,12 +843,14 @@ fn offer(
         Vec::new()
     };
     matched_fields.sort();
-    if let Some(members) = cache_members.as_deref_mut() {
-        members.push(CachedMember {
-            collection_index,
-            slot: record.slot.0,
-            matched_fields: matched_fields.clone(),
-        });
+    if let (Some(members), Some(budget)) = (cache_members.as_deref_mut(), cache_budget) {
+        if budget.reserve(&matched_fields) {
+            members.push(CachedMember {
+                collection_index,
+                slot: record.slot.0,
+                matched_fields: matched_fields.clone(),
+            });
+        }
     }
     if cap == 0 {
         return;
@@ -713,19 +873,28 @@ fn offer(
     if winners.len() == cap {
         winners.pop();
     }
+    let retained_bytes = if payload.is_some() {
+        record.range.len()
+    } else {
+        0
+    };
     let hit = make_hit(repo, collection_index, record, matched_fields, payload);
     winners.push(Winner {
         key,
         collection_index,
         slot: record.slot.0,
         hit,
+        retained_bytes,
     });
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
-    let enabled = repo.verified.lock().map_err(|e| e.to_string())?.enabled();
-    if !enabled {
-        return search_impl(repo, query, None, None);
+    let budget = {
+        let cache = repo.verified.lock().map_err(|e| e.to_string())?;
+        if cache.enabled() { cache.budget() } else { 0 }
+    };
+    if budget == 0 {
+        return search_impl(repo, query, None, None, None);
     }
     let key = crate::verified::key(query);
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
@@ -733,16 +902,18 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         return materialize_cached(repo, query, &cached);
     }
     if !query.options.count {
-        return search_impl(repo, query, None, None);
+        return search_impl(repo, query, None, None, None);
     }
     let mut members = Vec::new();
-    let result = search_impl(repo, query, None, Some(&mut members))?;
-    debug_assert_eq!(Some(members.len()), result.count);
-    sort_cached_members(repo, query, &mut members);
-    repo.verified
-        .lock()
-        .map_err(|e| e.to_string())?
-        .insert(key, members);
+    let tracker = CacheBudget::new(budget.saturating_sub(key.len() + 128));
+    let result = search_impl(repo, query, None, Some(&mut members), Some(&tracker))?;
+    if tracker.complete() && Some(members.len()) == result.count {
+        sort_cached_members(repo, query, &mut members);
+        repo.verified
+            .lock()
+            .map_err(|e| e.to_string())?
+            .insert(key, members);
+    }
     Ok(result)
 }
 
@@ -1098,6 +1269,7 @@ fn try_stored_order_page(
                     &projections[cursor.plan_index],
                     false,
                     None,
+                    None,
                     cursor.record.file.0,
                     &[(slot, cursor.record.range)],
                 )?;
@@ -1258,7 +1430,7 @@ pub fn search_analyze(
     query: &Query,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
-    let result = search_impl(repo, query, Some(&mut traces), None)?;
+    let result = search_impl(repo, query, Some(&mut traces), None, None)?;
     Ok((result, traces))
 }
 
@@ -1327,6 +1499,7 @@ fn search_impl(
     query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
@@ -1476,6 +1649,7 @@ fn search_impl(
                     cap,
                     &mut counters,
                     cache_members.as_deref_mut(),
+                    cache_budget,
                 );
             }
             if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
@@ -1500,6 +1674,7 @@ fn search_impl(
                     cap,
                     &mut counters,
                     cache_members.as_deref_mut(),
+                    cache_budget,
                 );
             }
             candidates -= &proven;
@@ -1518,11 +1693,11 @@ fn search_impl(
         }
         let files: Vec<_> = files.into_iter().collect();
         let projection = scan_projection(query, residual.as_ref(), &candidates);
-        let retain_all_evidence = cache_members.is_some();
-        let parallel = repo.options.query_workers > 1 && files.len() >= 128;
+        let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
+        let parallel = repo.options.query_workers > 1 && files.len() > 1;
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
-        for chunk in files.chunks(256) {
+        for chunk in files.chunks(repo.options.query_workers.min(64).max(1)) {
             let payload_cutoff = if query.options.return_mode != ReturnMode::Locator
                 && query.options.limit > 0
                 && winners.len() == cap
@@ -1545,6 +1720,7 @@ fn search_impl(
                                 fts.as_ref(),
                                 &projection,
                                 retain_all_evidence,
+                                cache_budget,
                                 payload_cutoff.as_ref(),
                                 *file_id,
                                 ranges,
@@ -1565,6 +1741,7 @@ fn search_impl(
                             fts.as_ref(),
                             &projection,
                             retain_all_evidence,
+                            cache_budget,
                             payload_cutoff.as_ref(),
                             *file_id,
                             ranges,
@@ -1572,6 +1749,17 @@ fn search_impl(
                     })
                     .collect()
             };
+            let payload_upper = scanned
+                .iter()
+                .filter_map(|result| result.as_ref().ok())
+                .map(|outcome| outcome.peak_payload_bytes)
+                .sum::<u64>()
+                + winners
+                    .iter()
+                    .map(|winner: &Winner| winner.retained_bytes)
+                    .sum::<u64>();
+            counters.peak_retained_payload_bytes =
+                counters.peak_retained_payload_bytes.max(payload_upper);
             for outcome in scanned {
                 let outcome = outcome?;
                 counters.files_opened += outcome.files_opened;
@@ -1579,6 +1767,10 @@ fn search_impl(
                 counters.record_parses += outcome.record_parses;
                 counters.scanned_records += outcome.scanned_records;
                 counters.residual_evaluations += outcome.residual_evaluations;
+                counters.total_matches += outcome.match_count - outcome.matches.len() as u64;
+                if let Some(members) = cache_members.as_deref_mut() {
+                    members.extend(outcome.cache_members);
+                }
                 for matched in outcome.matches {
                     let record = &collection.generation.records[matched.slot as usize];
                     offer(
@@ -1592,7 +1784,8 @@ fn search_impl(
                         &mut winners,
                         cap,
                         &mut counters,
-                        cache_members.as_deref_mut(),
+                        None,
+                        None,
                     );
                 }
             }

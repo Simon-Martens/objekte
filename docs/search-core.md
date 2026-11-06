@@ -184,6 +184,11 @@ created/modified times, byte range, and requested matched-field evidence.
 The three return modes add either no body (`locator`), the original record
 bytes (`bytes`), or parsed logical data (`logical`). Payload ranges are read
 only for the page and are checked against the recorded source revision.
+During multi-record verification, each source uses one handle for byte-bounded
+range batches. Each worker retains at most `offset + limit` candidate payloads;
+the worker queue is bounded by the configured worker count. Count-only and
+locator requests retain no payload. Verified-cache membership is compact and
+budgeted separately, and an entry is discarded if it cannot be complete.
 
 ## Indexes, planning, and reuse
 

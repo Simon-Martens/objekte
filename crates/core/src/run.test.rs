@@ -369,6 +369,142 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
 }
 
 #[test]
+fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
+    use crate::query::FtsQuery;
+
+    let root = std::env::temp_dir().join(format!("objekte-large-jsonl-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let padding = "x".repeat(64);
+    for file in ["left", "right"] {
+        let mut body = String::new();
+        for n in 0..2000 {
+            let rare = if n % 500 == 0 { " rare-token" } else { "" };
+            body.push_str(&format!(
+                r#"{{"kind":"yes","body":"needle{rare}","padding":"{padding}"}}"#
+            ));
+            body.push('\n');
+        }
+        std::fs::write(root.join(format!("data/{file}.jsonl")), body).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::JsonLines,
+            identity: IdentityPolicy::Generated,
+            discovery: Default::default(),
+            schema: Default::default(),
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::RepositoryOptions {
+            query_workers: 4,
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut query = Query {
+        collections: vec![],
+        fts: Some(FtsQuery {
+            literal: "needle".into(),
+            fields: vec![],
+        }),
+        filter: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 5,
+            offset: 7,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: true,
+        },
+    };
+    let dense = repo.search(&query).unwrap();
+    assert_eq!(dense.count, Some(4000));
+    assert_eq!(dense.hits.len(), 5);
+    assert_eq!(dense.counters.files_opened, 2);
+    assert_eq!(dense.counters.record_parses, 4000);
+    assert_eq!(dense.counters.scanned_records, 4000);
+    assert!(
+        dense
+            .hits
+            .iter()
+            .all(|hit| matches!(hit.payload, Some(Payload::Logical(_))))
+    );
+    let max_record_len = 128u64;
+    assert!(
+        dense.counters.peak_retained_payload_bytes <= 3 * 12 * max_record_len,
+        "retained {} bytes",
+        dense.counters.peak_retained_payload_bytes
+    );
+    let reference = repo.search_reference(&query).unwrap();
+    assert_eq!(dense.hits, reference.hits);
+
+    query.options.return_mode = ReturnMode::Bytes;
+    let bytes = repo.search(&query).unwrap();
+    assert_eq!(bytes.count, Some(4000));
+    assert_eq!(bytes.counters.files_opened, 2);
+    assert_eq!(bytes.counters.record_parses, 4000);
+    assert!(
+        bytes
+            .hits
+            .iter()
+            .all(|hit| matches!(hit.payload, Some(Payload::Bytes(_))))
+    );
+    assert_eq!(bytes.hits, repo.search_reference(&query).unwrap().hits);
+
+    query.options.return_mode = ReturnMode::Locator;
+    let locator = repo.search(&query).unwrap();
+    assert_eq!(locator.count, Some(4000));
+    assert_eq!(locator.counters.peak_retained_payload_bytes, 0);
+    assert!(locator.hits.iter().all(|hit| hit.payload.is_none()));
+    query.options.return_mode = ReturnMode::Logical;
+    query.options.limit = 0;
+    query.options.offset = 0;
+    let count_only = repo.search(&query).unwrap();
+    assert_eq!(count_only.count, Some(4000));
+    assert!(count_only.hits.is_empty());
+    assert_eq!(count_only.counters.files_opened, 2);
+    assert_eq!(count_only.counters.record_parses, 4000);
+    assert_eq!(count_only.counters.peak_retained_payload_bytes, 0);
+
+    query.options.limit = 5;
+    query.options.offset = 1000;
+    let deep = repo.search(&query).unwrap();
+    assert_eq!(deep.count, Some(4000));
+    assert_eq!(deep.hits, repo.search_reference(&query).unwrap().hits);
+    assert!(deep.counters.peak_retained_payload_bytes > dense.counters.peak_retained_payload_bytes);
+    assert!(deep.counters.peak_retained_payload_bytes <= 3 * 1005 * max_record_len);
+
+    query.options.offset = 0;
+    query.fts.as_mut().unwrap().literal = "rare-token".into();
+    let sparse = repo.search(&query).unwrap();
+    assert_eq!(sparse.count, Some(8));
+    assert_eq!(sparse.counters.files_opened, 2);
+    assert_eq!(sparse.counters.record_parses, 8);
+    assert_eq!(sparse.hits, repo.search_reference(&query).unwrap().hits);
+    assert!(sparse.counters.bytes_read < repo.collections()[0].stats.total_file_bytes / 10);
+
+    query.fts.as_mut().unwrap().literal = "needle".into();
+    repo.configure_verified_cache(1024).unwrap();
+    let first = repo.search(&query).unwrap();
+    let second = repo.search(&query).unwrap();
+    assert!(!first.counters.verified_result_hit && !second.counters.verified_result_hit);
+    assert_eq!(first.count, Some(4000));
+    repo.configure_verified_cache(4 << 20).unwrap();
+    let complete = repo.search(&query).unwrap();
+    let cached = repo.search(&query).unwrap();
+    assert!(!complete.counters.verified_result_hit);
+    assert!(cached.counters.verified_result_hit);
+    assert_eq!(complete.hits, cached.hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn parallel_file_scan_matches_single_worker_page_and_work() {
     let root = std::env::temp_dir().join(format!("objekte-parallel-scan-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

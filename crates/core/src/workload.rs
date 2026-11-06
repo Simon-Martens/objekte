@@ -95,6 +95,9 @@ pub struct WorkCounters {
     pub returned_records: u64,
     pub files_opened: u64,
     pub bytes_read: u64,
+    /// Peak retained page payload bytes, estimated from source record lengths.
+    #[serde(default)]
+    pub peak_retained_payload_bytes: u64,
     pub record_parses: u64,
     /// Filter terms actually evaluated against a decoded record (proof hits excluded).
     pub residual_evaluations: u64,

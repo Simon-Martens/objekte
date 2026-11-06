@@ -704,6 +704,7 @@ impl Repository {
             returned_records: 0,
             files_opened: 0,
             bytes_read: 0,
+            peak_retained_payload_bytes: 0,
             record_parses: 0,
             residual_evaluations: 0,
             preparation_ns: 0,

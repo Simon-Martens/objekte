@@ -38,6 +38,7 @@ substitute for the four-profile workload.
 | 10 / D: ordered posting ranges | complete | Exact and restricted scalar/array-length bounds; typed boundary and null/missing cases; a 10,000-key fixture visits only 9 keys for a narrow upper range and estimates that work |
 | 11 / D: residual proofs | complete | Exact term proofs skip decoded-record predicates; costed residual order and Boolean short-circuiting; OR removes proven hits from membership-only work; focused posting/bigram/unindexed/NOT/evidence parity and actual term-evaluation counters |
 | 12 / D: stored order and optional count | complete | Single-field ascending/descending and identity lists drive broad page-only queries across collections; 12 proven matches processed for a 5-hit page at offset 7 versus 200 for COUNT; narrow/multi-field top-k fallback, payload parity, cache completeness, and optional count tests |
+| 13 / E: multi-record scan memory | complete | Two 2,000-record JSONL files in parallel; one handle per file, one candidate parse, dense/sparse/count-only/locator/bytes/logical/deep-offset parity; retained payload upper bound follows page capacity rather than file match count; incomplete cache entries are discarded |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier
