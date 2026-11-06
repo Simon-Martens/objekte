@@ -1,0 +1,47 @@
+{
+  "environment": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "revision": "084623a19b"
+  },
+  "fingerprints": {
+    "schema": "041a1bb268a932de61e3b3ff26407ac8e02edc25eaf8e7533fd239f8d59efbdf",
+    "source_metadata": "eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6"
+  },
+  "summary": {
+    "ascii-disabled": {
+      "median_wall_ns": 14548832445,
+      "median_build_ns": 14548762877,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 240369664,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "ascii-rebuild": {
+      "median_wall_ns": 14847769060,
+      "median_build_ns": 14531077084,
+      "median_snapshot_write_ns": 298977880,
+      "median_peak_resident_bytes": 343732224,
+      "snapshot_bytes": 108454349,
+      "samples": 3
+    },
+    "unicode-disabled": {
+      "median_wall_ns": 15741482696,
+      "median_build_ns": 15741421733,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 262737920,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "unicode-rebuild": {
+      "median_wall_ns": 16139420807,
+      "median_build_ns": 15815927377,
+      "median_snapshot_write_ns": 323450560,
+      "median_peak_resident_bytes": 376279040,
+      "snapshot_bytes": 119660541,
+      "samples": 3
+    }
+  },
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/build-5887c7be02/gate.json",
+  "failures": []
+}

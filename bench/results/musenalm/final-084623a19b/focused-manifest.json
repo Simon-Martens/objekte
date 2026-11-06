@@ -1,0 +1,14 @@
+{
+  "code_revision": "084623a19bf26fc56b470b6548c38382dff4d880",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "command": "target/release/examples/bench_corrective_cases",
+  "fixture": "Generated temporary JSONL: one 10,000-record numeric range collection and two 2,000-record scan collections; source in crates/core/examples/bench_corrective_cases.rs",
+  "query_workers": 4,
+  "source_cache_bytes": 0,
+  "decoded_cache_bytes": 0,
+  "verified_cache_bytes": 0,
+  "snapshot_mode": "disabled",
+  "timing_boundary": "repository search only after construction; reference evaluation and output excluded",
+  "samples": "31 repetitions for range and page/count; 11 for JSONL scans"
+}
