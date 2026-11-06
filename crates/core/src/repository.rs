@@ -3,6 +3,8 @@
 use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
+use std::num::NonZeroUsize;
+use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
@@ -213,6 +215,8 @@ pub struct StartupStats {
     pub build_extraction_index_ns: u64,
     pub build_finalization_ns: u64,
     pub snapshot_write_ns: u64,
+    pub build_workers: usize,
+    pub peak_build_admitted_bytes: u64,
 }
 
 
@@ -232,6 +236,8 @@ pub struct RepositoryOptions {
     pub verified_cache_bytes: usize,
     pub snapshot_mode: SnapshotMode,
     pub query_workers: usize,
+    /// `None` uses the parallelism available to this process at build time.
+    pub build_workers: Option<NonZeroUsize>,
 }
 
 
@@ -244,6 +250,7 @@ impl Default for RepositoryOptions {
             snapshot_mode: SnapshotMode::ReadWrite,
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
+            build_workers: None,
         }
     }
 }
@@ -476,11 +483,23 @@ impl Repository {
             selected.push((definition, id, source, member_files));
         }
         let discovery_ns = discovery_started.elapsed().as_nanos() as u64;
+        let build_workers = crate::build::resolve_build_workers(
+            options.build_workers,
+            std::thread::available_parallelism().ok(),
+        )?;
+        let build_pool = rayon::ThreadPoolBuilder::new()
+            .num_threads(build_workers)
+            .thread_name(|index| format!("objekte-build-{index}"))
+            .build()
+            .map_err(|error| error.to_string())?;
+        let source_files = Arc::new(files.files.clone());
+        let root_shared = Arc::new(root.clone());
         let mut collections = Vec::new();
         let mut build_parses = 0;
         let mut build_failed_parses = 0;
         let mut extraction_index_ns = 0u64;
         let mut finalization_ns = 0u64;
+        let mut peak_build_admitted_bytes = 0u64;
         for (definition, id, source, member_files) in selected {
             let extraction_started = Instant::now();
             let mut builder =
@@ -532,25 +551,34 @@ impl Repository {
                     )
                 })
                 .collect();
-            for file_ids in crate::build::file_batches(&member_files, &files) {
-                let batch = crate::build::process_batch(
-                    &root, &definition, id, &source, file_ids, &files,
-                    options.bigram_alphabet,
-                )?;
-                build_parses += batch.record_parses;
-                build_failed_parses += batch.failed_parses;
-                crate::build::CollectionAdmission {
-                    inventory: &mut files,
-                    builder: &mut builder,
-                    postings: &mut postings,
-                    custom_postings: &mut custom_postings,
-                    raw: &mut raw,
-                    fallback_text: &mut fallback_text,
-                    custom_text: &mut custom_text,
-                    logical_records: &mut logical_records,
-                    sorting: &mut sort_builder,
-                }.admit(batch)?;
-            }
+            let jobs = crate::build::file_batches(&member_files, &files);
+            let admitted_bytes = crate::build::process_file_batches(
+                &build_pool,
+                Arc::clone(&root_shared),
+                Arc::new(definition.clone()),
+                id,
+                source.clone(),
+                &jobs,
+                Arc::clone(&source_files),
+                options.bigram_alphabet,
+                |batch| {
+                    build_parses += batch.record_parses;
+                    build_failed_parses += batch.failed_parses;
+                    crate::build::CollectionAdmission {
+                        inventory: &mut files,
+                        builder: &mut builder,
+                        postings: &mut postings,
+                        custom_postings: &mut custom_postings,
+                        raw: &mut raw,
+                        fallback_text: &mut fallback_text,
+                        custom_text: &mut custom_text,
+                        logical_records: &mut logical_records,
+                        sorting: &mut sort_builder,
+                    }
+                    .admit(batch)
+                },
+            )?;
+            peak_build_admitted_bytes = peak_build_admitted_bytes.max(admitted_bytes);
             extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
             let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;
@@ -637,6 +665,7 @@ impl Repository {
             state.sorting.refresh_file_status(&state.generation, &files);
         }
         files.validate_diagnostics()?;
+        drop(build_pool);
         Ok(Self {
             files,
             collections,
@@ -649,6 +678,8 @@ impl Repository {
                 build_discovery_ns: discovery_ns,
                 build_extraction_index_ns: extraction_index_ns,
                 build_finalization_ns: finalization_ns,
+                build_workers,
+                peak_build_admitted_bytes,
                 ..StartupStats::default()
             },
             workers: Self::create_workers(options.query_workers)?,

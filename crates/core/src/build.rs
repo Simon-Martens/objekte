@@ -1,9 +1,14 @@
 //! Bounded file-batch contributions and deterministic index admission.
 
-use std::collections::HashMap;
+use std::collections::{BTreeMap, HashMap};
+use std::num::NonZeroUsize;
 use std::ops::Range;
 use std::path::Path;
+use std::path::PathBuf;
+use std::sync::Arc;
+use std::sync::mpsc;
 
+use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramBuilder, BigramIndex};
@@ -404,15 +409,15 @@ pub(crate) fn process_batch(
     collection: CollectionId,
     source: &PreparedSource,
     file_ids: &[FileId],
-    inventory: &FileInventory,
+    source_files: &[FileEntry],
     alphabet: BigramAlphabet,
 ) -> Result<BatchContribution, String> {
     let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
     for &file_id in file_ids {
-        let original = &inventory.files[file_id.0 as usize];
-        let path = inventory.native_path(file_id).ok_or("missing file path")?;
+        let original = &source_files[file_id.0 as usize];
+        let path = root.join(&original.relative_path);
         let mut file = original.clone();
         file.status = FileStatus::Valid;
         file.diagnostics.clear();
@@ -446,6 +451,118 @@ pub(crate) fn process_batch(
         record_parses,
         failed_parses,
     })
+}
+
+/// Resolve a fresh build's worker policy independently of query workers.
+/// Injecting detection makes the quota/failure cases deterministic in tests.
+pub(crate) fn resolve_build_workers(
+    requested: Option<NonZeroUsize>,
+    detected: Option<NonZeroUsize>,
+) -> Result<usize, String> {
+    let available = detected.map_or(1, NonZeroUsize::get);
+    if let Some(requested) = requested {
+        if requested.get() > available {
+            return Err(format!(
+                "build_workers={} exceeds available_parallelism={available}",
+                requested.get()
+            ));
+        }
+        Ok(requested.get())
+    } else {
+        Ok(available)
+    }
+}
+
+/// Ordered admission keeps the established slot and diagnostic order even if
+/// later file batches finish first. The window includes completed batches
+/// awaiting admission, so an early slow job cannot queue the whole corpus.
+pub(crate) fn process_file_batches(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    jobs: &[&[FileId]],
+    source_files: Arc<Vec<FileEntry>>,
+    alphabet: BigramAlphabet,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<u64, String> {
+    const MAX_ADMITTED_BYTES: u64 = 128 * 1024 * 1024;
+    const MIN_FILE_BYTES: u64 = 16 * 1024;
+    let weights = jobs
+        .iter()
+        .map(|batch| {
+            batch.iter().fold(0u64, |total, id| {
+                let file = &source_files[id.0 as usize];
+                total.saturating_add(file.revision.size.max(MIN_FILE_BYTES))
+            })
+        })
+        .collect::<Vec<_>>();
+    let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    let (sender, receiver) = mpsc::channel();
+    let mut ready = BTreeMap::new();
+    let mut dispatched = 0;
+    let mut completed = 0;
+    let mut next = 0;
+    let mut admitted_bytes = 0u64;
+    let mut peak_bytes = 0u64;
+    let mut failure = None;
+    while next < jobs.len() && failure.is_none() {
+        while dispatched < jobs.len() && dispatched - next < max_jobs {
+            let weight = weights[dispatched];
+            if admitted_bytes > 0
+                && (weight > MAX_ADMITTED_BYTES
+                    || admitted_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES)
+            {
+                break;
+            }
+            let index = dispatched;
+            let file_ids = jobs[index].to_vec();
+            let sender = sender.clone();
+            let root = Arc::clone(&root);
+            let definition = Arc::clone(&definition);
+            let source = source.clone();
+            let source_files = Arc::clone(&source_files);
+            pool.spawn(move || {
+                let result = process_batch(
+                    &root,
+                    &definition,
+                    collection,
+                    &source,
+                    &file_ids,
+                    &source_files,
+                    alphabet,
+                );
+                let _ = sender.send((index, result));
+            });
+            admitted_bytes = admitted_bytes.saturating_add(weight);
+            peak_bytes = peak_bytes.max(admitted_bytes);
+            dispatched += 1;
+        }
+        let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
+        completed += 1;
+        ready.insert(index, result);
+        while let Some(result) = ready.remove(&next) {
+            admitted_bytes -= weights[next];
+            match result.and_then(&mut admit) {
+                Ok(()) => next += 1,
+                Err(error) => {
+                    failure = Some(error);
+                    break;
+                }
+            }
+        }
+    }
+    // Rayon jobs own only immutable inputs. Drain them before the pool is
+    // dropped, even on an admission or parser error.
+    while completed < dispatched {
+        let _ = receiver.recv().map_err(|error| error.to_string())?;
+        completed += 1;
+    }
+    if let Some(error) = failure {
+        return Err(error);
+    }
+    Ok(peak_bytes)
 }
 
 pub(crate) struct CollectionAdmission<'a> {

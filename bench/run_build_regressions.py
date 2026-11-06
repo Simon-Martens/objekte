@@ -44,10 +44,13 @@ def main() -> int:
     parser.add_argument("--result-dir", type=Path)
     parser.add_argument("--baseline", type=Path, required=True, help="explicit gate.json or build baseline JSON")
     parser.add_argument("--comparison", choices=("repair", "historical", "casefold", "parallel"), required=True)
+    parser.add_argument("--build-workers", default="auto", help="auto or a positive count within available CPUs")
     parser.add_argument("--establish-baseline", action="store_true")
     args = parser.parse_args()
     if args.repetitions < 3:
         parser.error("at least three fresh-process repetitions are required")
+    if args.build_workers != "auto" and (not args.build_workers.isdecimal() or int(args.build_workers) < 1):
+        parser.error("build workers must be auto or a positive integer")
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     fingerprints = fixture_fingerprints()
     jq_fixture = json.loads((ROOT / "bench/baselines/musenalm-jq-counts.json").read_text())
@@ -67,6 +70,7 @@ def main() -> int:
         for repetition in range(args.repetitions):
             for alphabet, snapshot in configurations:
                 command = [str(binary), "--alphabet", alphabet, "--snapshot-mode", snapshot,
+                           "--build-workers", args.build_workers,
                            "--schema-manifest-path", str(result_dir / "schema-manifest.json")]
                 completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
                 if completed.returncode:
@@ -85,6 +89,7 @@ def main() -> int:
                        for group in samples.values() for previous in group):
                     raise ValueError("registrations changed between build samples")
                 sample["repetition"] = repetition
+                sample["command"] = command
                 if sample["records"] != 148486 or sample["build_parses"] != 148486 or sample.get("failed_parses", 0):
                     raise ValueError(f"incomplete build: {sample}")
                 key = f"{alphabet}-{snapshot}"
@@ -115,6 +120,8 @@ def main() -> int:
         "cpu_model": next((line.split(":", 1)[1].strip() for line in Path("/proc/cpuinfo").read_text().splitlines() if line.startswith("model name")), "unknown"),
         "rustc": subprocess.check_output(["rustc", "--version"], text=True).strip(),
         "revision": revision,
+        "requested_build_workers": args.build_workers,
+        "resolved_build_workers": sorted({sample["resolved_build_workers"] for group in samples.values() for sample in group}),
         "build_flags": {key: value for key, value in os.environ.items()
                         if key in ("RUSTFLAGS", "CARGO_ENCODED_RUSTFLAGS", "CARGO_BUILD_TARGET")
                         or key.startswith("CARGO_PROFILE_RELEASE_")},

@@ -2,6 +2,7 @@
 mod musenalm;
 
 use std::path::PathBuf;
+use std::num::NonZeroUsize;
 use std::time::Instant;
 
 use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
@@ -33,6 +34,7 @@ fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut alphabet = BigramAlphabet::Ascii;
     let mut snapshot_mode = SnapshotMode::Rebuild;
+    let mut build_workers = None;
     let mut schema_manifest_path = None;
     let mut arguments = std::env::args().skip(1);
     while let Some(argument) = arguments.next() {
@@ -61,6 +63,15 @@ fn run() -> Result<(), String> {
                     other => return Err(format!("unknown snapshot mode {other}")),
                 }
             }
+            "--build-workers" => {
+                let value = arguments.next().ok_or("--build-workers needs a value")?;
+                build_workers = if value == "auto" {
+                    None
+                } else {
+                    Some(NonZeroUsize::new(value.parse::<usize>().map_err(|error| error.to_string())?)
+                        .ok_or("build-workers must be positive")?)
+                };
+            }
             other => return Err(format!("unknown argument {other}")),
         }
     }
@@ -73,6 +84,7 @@ fn run() -> Result<(), String> {
         )
         .map_err(|error| error.to_string())?;
     }
+    let query_workers = RepositoryOptions::default().query_workers;
     let started = Instant::now();
     let repo = Repository::open_with_options(
         &root,
@@ -80,6 +92,7 @@ fn run() -> Result<(), String> {
         RepositoryOptions {
             bigram_alphabet: alphabet,
             snapshot_mode,
+            build_workers,
             ..RepositoryOptions::default()
         },
     )?;
@@ -115,6 +128,11 @@ fn run() -> Result<(), String> {
         serde_json::json!({
             "alphabet": alphabet,
             "snapshot_mode": if snapshot_mode == SnapshotMode::Rebuild { "rebuild" } else { "disabled" },
+            "requested_build_workers": build_workers.map(NonZeroUsize::get),
+            "resolved_build_workers": repo.startup().build_workers,
+            "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
+            "query_workers": query_workers,
+            "peak_build_admitted_bytes": repo.startup().peak_build_admitted_bytes,
             "wall_ns": wall_ns,
             "build_ns": repo.startup().build_ns,
             "discovery_ns": repo.startup().build_discovery_ns,

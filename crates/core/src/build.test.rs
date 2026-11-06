@@ -7,6 +7,128 @@ use crate::source::{SourceFormat, TextSegment};
 use crate::workload::ReturnMode;
 
 #[test]
+fn build_worker_policy_uses_detected_capacity_and_rejects_oversubscription() {
+    let nz = |value| NonZeroUsize::new(value).unwrap();
+    assert_eq!(resolve_build_workers(None, Some(nz(1))), Ok(1));
+    assert_eq!(resolve_build_workers(None, Some(nz(8))), Ok(8));
+    assert_eq!(resolve_build_workers(None, None), Ok(1));
+    assert_eq!(resolve_build_workers(Some(nz(1)), None), Ok(1));
+    assert_eq!(resolve_build_workers(Some(nz(2)), Some(nz(8))), Ok(2));
+    assert!(resolve_build_workers(Some(nz(9)), Some(nz(8))).is_err());
+    assert!(resolve_build_workers(Some(nz(2)), None).is_err());
+    assert!(NonZeroUsize::new(0).is_none());
+}
+
+#[test]
+fn file_workers_overlap_while_admission_keeps_file_order() {
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+
+    use crate::source::{SourceReader, SourceRegistry};
+
+    struct DelayedReader {
+        active: AtomicUsize,
+        peak: AtomicUsize,
+        second_done: AtomicBool,
+    }
+
+    impl SourceReader for DelayedReader {
+        fn name(&self) -> &'static str {
+            "delayed"
+        }
+
+        fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+            Ok(vec![ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            let active = self.active.fetch_add(1, Ordering::SeqCst) + 1;
+            self.peak.fetch_max(active, Ordering::SeqCst);
+            if bytes == b"first" {
+                let started = std::time::Instant::now();
+                while !self.second_done.load(Ordering::SeqCst) {
+                    if started.elapsed().as_secs() > 5 {
+                        return Err("second batch did not overlap first".into());
+                    }
+                    std::thread::yield_now();
+                }
+            } else {
+                self.second_done.store(true, Ordering::SeqCst);
+            }
+            self.active.fetch_sub(1, Ordering::SeqCst);
+            Ok(ExtractedRecord {
+                value: Value::Object(Default::default()),
+                text: Vec::new(),
+            })
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-build-overlap-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    std::fs::write(root.join("0.delayed"), b"first").unwrap();
+    std::fs::write(root.join("1.delayed"), b"second").unwrap();
+    let mut inventory = FileInventory::new(root.clone());
+    let ids = ["0.delayed", "1.delayed"].map(|name| {
+        let metadata = std::fs::metadata(root.join(name)).unwrap();
+        inventory
+            .add(
+                name.into(),
+                SourceRevision::from_metadata(&metadata).unwrap(),
+                None,
+                CollectionId(0),
+            )
+            .unwrap()
+    });
+    let reader = std::sync::Arc::new(DelayedReader {
+        active: AtomicUsize::new(0),
+        peak: AtomicUsize::new(0),
+        second_done: AtomicBool::new(false),
+    });
+    let mut sources = SourceRegistry::builtin();
+    sources.register("delayed", 1, "delayed", reader.clone()).unwrap();
+    let definition = CollectionDefinition {
+        name: "delayed".into(),
+        source_path: ".".into(),
+        format: SourceFormat::registered("delayed"),
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema: Default::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let pool = rayon::ThreadPoolBuilder::new().num_threads(2).build().unwrap();
+    let jobs = [&ids[..1], &ids[1..]];
+    let mut admitted = Vec::new();
+    process_file_batches(
+        &pool,
+        std::sync::Arc::new(root.clone()),
+        std::sync::Arc::new(definition),
+        CollectionId(0),
+        sources.resolve(&SourceFormat::registered("delayed")).unwrap(),
+        &jobs,
+        std::sync::Arc::new(inventory.files.clone()),
+        BigramAlphabet::Ascii,
+        |batch| {
+            admitted.push(batch.records[0].file);
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(admitted, ids);
+    assert_eq!(reader.peak.load(Ordering::SeqCst), 2);
+    assert_eq!(reader.active.load(Ordering::SeqCst), 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
     let mut inventory = FileInventory::new("/synthetic".into());
     let mut ids = Vec::new();
@@ -113,6 +235,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
             snapshot_mode: SnapshotMode::ReadWrite,
+            build_workers: Some(NonZeroUsize::new(1).unwrap()),
             ..Default::default()
         };
         let built =
