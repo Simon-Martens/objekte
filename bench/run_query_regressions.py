@@ -75,7 +75,7 @@ def main() -> int:
     parser.add_argument("mode", choices=("quick", "full"))
     parser.add_argument("--result-dir", type=Path)
     parser.add_argument("--baseline", type=Path, required=True, help="explicit completed baseline run directory")
-    parser.add_argument("--comparison", choices=("repair", "historical"), required=True)
+    parser.add_argument("--comparison", choices=("repair", "historical", "casefold"), required=True)
     parser.add_argument("--verify-only", action="store_true", help="check an existing completed run")
     args = parser.parse_args()
     revision = subprocess.check_output(["git", "rev-parse", "--short=10", "HEAD"], cwd=ROOT, text=True).strip()
@@ -113,6 +113,8 @@ def main() -> int:
         failures.append("repair comparison must use the immediate foundation baseline revision")
     if args.comparison == "historical" and old_manifest["code_revision"] != "128a7601c2defec3fd9f5dbb851fb2a4303f7f9a":
         failures.append("historical comparison must use the named historical baseline revision")
+    if args.comparison == "casefold" and old_manifest["code_revision"] != "20261604bebf949131441c8262f1f442bce4207c":
+        failures.append("casefold comparison must use the current foundation-repair baseline revision")
     build_flags = {key: value for key, value in os.environ.items()
                    if key in ("RUSTFLAGS", "CARGO_ENCODED_RUSTFLAGS", "CARGO_BUILD_TARGET")
                    or key.startswith("CARGO_PROFILE_RELEASE_")}

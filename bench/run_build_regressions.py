@@ -35,7 +35,7 @@ def main() -> int:
     parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--result-dir", type=Path)
     parser.add_argument("--baseline", type=Path, required=True, help="explicit gate.json or build baseline JSON")
-    parser.add_argument("--comparison", choices=("repair", "historical"), required=True)
+    parser.add_argument("--comparison", choices=("repair", "historical", "casefold"), required=True)
     parser.add_argument("--establish-baseline", action="store_true")
     args = parser.parse_args()
     if args.repetitions < 3:
@@ -107,7 +107,7 @@ def main() -> int:
         baseline_path.write_text(json.dumps({"environment": environment, "fingerprints": fingerprints, "summary": summary}, indent=2) + "\n")
     else:
         baseline = json.loads((baseline_path / "gate.json" if baseline_path.is_dir() else baseline_path).read_text())
-        expected_revision = "92cdb92b19" if args.comparison == "repair" else "401b16eea8"
+        expected_revision = {"repair": "92cdb92b19", "historical": "401b16eea8", "casefold": "20261604be"}[args.comparison]
         if not baseline["environment"]["revision"].startswith(expected_revision):
             failures.append(f"{args.comparison} comparison uses wrong baseline revision")
         if baseline["fingerprints"] != fingerprints:
