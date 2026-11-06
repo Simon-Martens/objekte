@@ -1,4 +1,4 @@
-use crate::model::{FieldPath, LogicalType, Value};
+use crate::model::{FieldPath, LogicalType, RecordId, Value};
 use crate::posting::ScalarKey;
 use crate::posting_values::PostingValuesRequest;
 use crate::query::{CaseSensitivity, FtsField, FtsQuery, Query, QueryOptions, parse_filter};
@@ -206,16 +206,23 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
 }
 
 #[test]
-fn id_conversion_rejects_invalid_source_identifiers_but_metadata_can_find_generated_ids() {
+fn id_conversion_rejects_empty_values_and_keeps_generated_record_identity_separate() {
     let schema = definition().schema;
-    for text in ["", "~generated:1:2:3", "~fallback:0"] {
+    let mut empty = Value::from_json(serde_json::json!({"id":"A","entry":""})).unwrap();
+    assert!(
+        schema
+            .coerce_record(&mut empty)
+            .unwrap_err()
+            .contains("ID is empty")
+    );
+    for text in ["~generated:1:2:3", "~fallback:0"] {
         let mut value = Value::from_json(serde_json::json!({"id":"A","entry":text})).unwrap();
-        assert!(
-            schema
-                .coerce_record(&mut value)
-                .unwrap_err()
-                .contains("invalid intrinsic record ID")
-        );
+        schema.coerce_record(&mut value).unwrap();
+        let Value::Object(fields) = value else {
+            panic!("expected object")
+        };
+        assert_eq!(fields["entry"], Value::Id(text.into()));
+        assert!(RecordId::intrinsic(text).is_err());
     }
     let root = std::env::temp_dir().join(format!("objekte-generated-id-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

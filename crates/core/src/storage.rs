@@ -27,7 +27,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 8;
+pub const SNAPSHOT_VERSION: u32 = 9;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 

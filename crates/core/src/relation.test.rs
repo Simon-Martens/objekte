@@ -517,3 +517,59 @@ fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
     assert!(relation.edges(fallback).unwrap().is_empty());
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn reference_to_fallback_target_resolves_but_target_value_is_unavailable() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-relation-fallback-target-{}",
+        std::process::id()
+    ));
+    for collection in ["entries", "people", "mentions"] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+    }
+    std::fs::write(root.join("entries/broken.json"), "{broken").unwrap();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let initial = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
+    let target_id = initial.collections()[0].generation.records[0].id.0.clone();
+    assert!(target_id.starts_with("~fallback:"));
+    std::fs::write(
+        root.join("mentions/link.json"),
+        serde_json::json!({"id":"link","entry":target_id}).to_string(),
+    )
+    .unwrap();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::ReadWrite,
+        ..Default::default()
+    };
+    for restored in [false, true] {
+        let repo = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
+        assert_eq!(repo.startup().restored, restored);
+        let source = &repo.collections()[2];
+        let target = &repo.collections()[0];
+        let relation = repo.relation_index("mentions", &["entry".into()]).unwrap();
+        let source_slot = source.id_lookup["link"];
+        let target_slot = target.id_lookup[target_id.as_str()];
+        assert_eq!(
+            relation.edges(source_slot).unwrap()[0].target,
+            RelationTarget::Resolved(target_slot)
+        );
+        assert_eq!(
+            target.generation.records[target_slot.0 as usize].class,
+            RecordClass::RawFallback
+        );
+        assert!(!target.logical_records.contains(target_slot.0));
+        assert_eq!(relation.unresolved_count(), 0);
+        assert!(relation.unresolved_references().next().is_none());
+        assert_eq!(
+            repo.relation_reverse_sources(relation, &target_id)
+                .unwrap()
+                .iter()
+                .collect::<Vec<_>>(),
+            [source_slot.0]
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}

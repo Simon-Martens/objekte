@@ -458,9 +458,10 @@ fn validate_declared(
     if *kind == LogicalType::Id {
         match value {
             Value::String(text) | Value::Id(text) => {
-                let id = crate::model::RecordId::intrinsic(text.clone())
-                    .map_err(|e| format!("{}: {e}", path.join(".")))?;
-                *value = Value::Id(id.0);
+                if text.is_empty() {
+                    return Err(format!("{}: ID is empty", path.join(".")));
+                }
+                *value = Value::Id(text.clone());
             }
             _ => {}
         }
