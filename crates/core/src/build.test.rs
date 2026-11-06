@@ -20,6 +20,20 @@ fn build_worker_policy_uses_detected_capacity_and_rejects_oversubscription() {
 }
 
 #[test]
+fn worker_allowance_is_bounded_and_keeps_one_oversized_job_live() {
+    const MIB: u64 = 1024 * 1024;
+    assert_eq!(normal_batch_allowance(1), 52 * MIB);
+    assert_eq!(normal_batch_allowance(2), 52 * MIB);
+    assert_eq!(normal_batch_allowance(4), 64 * MIB);
+    assert_eq!(normal_batch_allowance(32), 512 * MIB);
+    assert_eq!(normal_batch_allowance(usize::MAX), 512 * MIB);
+    assert!(fits_allowance(0, 600 * MIB, 52 * MIB));
+    assert!(!fits_allowance(8 * MIB, 600 * MIB, 52 * MIB));
+    assert!(fits_allowance(44 * MIB, 8 * MIB, 52 * MIB));
+    assert!(!fits_allowance(45 * MIB, 8 * MIB, 52 * MIB));
+}
+
+#[test]
 fn file_workers_overlap_while_admission_keeps_file_order() {
     use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
 
@@ -137,7 +151,7 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         .unwrap();
     let jobs = [&ids[..1], &ids[1..]];
     let mut admitted = Vec::new();
-    process_file_batches(
+    let stats = process_file_batches(
         &pool,
         std::sync::Arc::new(root.clone()),
         std::sync::Arc::new(definition.clone()),
@@ -161,6 +175,10 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
     )
     .unwrap();
     assert_eq!(admitted, ids);
+    assert_eq!(stats.weight_limit_bytes, 52 * 1024 * 1024);
+    assert_eq!(stats.peak_active_jobs, 2);
+    assert!(stats.peak_ready_batches >= 1);
+    assert!(stats.job_execution_ns > 0);
     assert_eq!(reader.peak.load(Ordering::SeqCst), 2);
     assert_eq!(reader.active.load(Ordering::SeqCst), 0);
     let failing = std::sync::Arc::new(DelayedReader {

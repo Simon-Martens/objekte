@@ -267,6 +267,12 @@ pub struct StartupStats {
     pub snapshot_write_ns: u64,
     pub build_workers: usize,
     pub peak_build_admitted_bytes: u64,
+    pub build_weight_limit_bytes: u64,
+    pub build_peak_active_jobs: usize,
+    pub build_peak_ready_batches: usize,
+    pub build_job_execution_ns: u64,
+    pub build_receive_wait_ns: u64,
+    pub build_admission_ns: u64,
 }
 
 
@@ -555,7 +561,7 @@ impl Repository {
         let mut build_failed_parses = 0;
         let mut extraction_index_ns = 0u64;
         let mut finalization_ns = 0u64;
-        let mut peak_build_admitted_bytes = 0u64;
+        let mut schedule_stats = crate::build::BuildScheduleStats::default();
         for (definition, id, source, member_files) in selected {
             let builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
@@ -663,7 +669,7 @@ impl Repository {
                     file,
                 } => {
                     if !normal.is_empty() {
-                        let bytes = crate::build::process_repository_file_batches(
+                        let stats = crate::build::process_repository_file_batches(
                             &build_pool,
                             Arc::clone(&root_shared),
                             &normal,
@@ -671,10 +677,10 @@ impl Repository {
                             options.bigram_alphabet,
                             &mut admit,
                         )?;
-                        peak_build_admitted_bytes = peak_build_admitted_bytes.max(bytes);
+                        schedule_stats.absorb(stats);
                         normal.clear();
                     }
-                    let bytes = crate::build::process_framed_file(
+                    let stats = crate::build::process_framed_file(
                         &build_pool,
                         Arc::clone(&root_shared),
                         definition,
@@ -685,12 +691,12 @@ impl Repository {
                         options.bigram_alphabet,
                         |batch| admit(collection_index, batch),
                     )?;
-                    peak_build_admitted_bytes = peak_build_admitted_bytes.max(bytes);
+                    schedule_stats.absorb(stats);
                 }
             }
         }
         if !normal.is_empty() {
-            let bytes = crate::build::process_repository_file_batches(
+            let stats = crate::build::process_repository_file_batches(
                 &build_pool,
                 Arc::clone(&root_shared),
                 &normal,
@@ -698,7 +704,7 @@ impl Repository {
                 options.bigram_alphabet,
                 &mut admit,
             )?;
-            peak_build_admitted_bytes = peak_build_admitted_bytes.max(bytes);
+            schedule_stats.absorb(stats);
         }
         drop(admit);
         extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
@@ -818,7 +824,13 @@ impl Repository {
                 build_extraction_index_ns: extraction_index_ns,
                 build_finalization_ns: finalization_ns,
                 build_workers,
-                peak_build_admitted_bytes,
+                peak_build_admitted_bytes: schedule_stats.peak_weight_bytes,
+                build_weight_limit_bytes: schedule_stats.weight_limit_bytes,
+                build_peak_active_jobs: schedule_stats.peak_active_jobs,
+                build_peak_ready_batches: schedule_stats.peak_ready_batches,
+                build_job_execution_ns: schedule_stats.job_execution_ns,
+                build_receive_wait_ns: schedule_stats.receive_wait_ns,
+                build_admission_ns: schedule_stats.admission_ns,
                 ..StartupStats::default()
             },
             workers: Self::create_workers(options.query_workers)?,

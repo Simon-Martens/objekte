@@ -6,7 +6,9 @@ use std::ops::Range;
 use std::path::Path;
 use std::path::PathBuf;
 use std::sync::Arc;
+use std::sync::atomic::{AtomicU64, AtomicUsize, Ordering};
 use std::sync::mpsc;
+use std::time::Instant;
 
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
@@ -552,10 +554,11 @@ pub(crate) fn process_framed_file(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
-) -> Result<u64, String> {
+) -> Result<BuildScheduleStats, String> {
     const MAX_RANGE_BYTES: u64 = 1024 * 1024;
     const MAX_RANGES: usize = 256;
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
+    let mut stats = BuildScheduleStats { weight_limit_bytes: MAX_ADMITTED_BYTES, ..Default::default() };
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
     let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader(), input.revision)?
@@ -569,8 +572,12 @@ pub(crate) fn process_framed_file(
             &source_files,
             alphabet,
         )?;
-        admit(batch)?;
-        return Ok(input.revision.size);
+        let admission_started = Instant::now();
+        let outcome = admit(batch);
+        stats.admission_ns = admission_started.elapsed().as_nanos() as u64;
+        outcome?;
+        stats.peak_weight_bytes = input.revision.size;
+        return Ok(stats);
     };
     let source_bytes = bytes.len() as u64;
     let mut chunks = Vec::new();
@@ -602,13 +609,11 @@ pub(crate) fn process_framed_file(
     let mut peak_bytes = 0u64;
     let mut failure = None;
     let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    let counters = Arc::new(JobCounters::default());
     while next < chunks.len() && failure.is_none() {
         while dispatched < chunks.len() && dispatched - next < max_jobs {
             let weight = chunks[dispatched].1;
-            if admitted_bytes > 0
-                && (weight > MAX_ADMITTED_BYTES
-                    || admitted_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES)
-            {
+            if !fits_allowance(admitted_bytes, weight, MAX_ADMITTED_BYTES) {
                 break;
             }
             let index = dispatched;
@@ -620,8 +625,9 @@ pub(crate) fn process_framed_file(
             let source_files = Arc::clone(&source_files);
             let bytes = Arc::clone(&bytes);
             let ranges = Arc::clone(&ranges);
+            let counters = Arc::clone(&counters);
             pool.spawn(move || {
-                let result = process_framed_batch(
+                let result = counters.run(|| process_framed_batch(
                     &root,
                     &definition,
                     collection,
@@ -632,20 +638,29 @@ pub(crate) fn process_framed_file(
                     &ranges[chunk],
                     index == 0,
                     alphabet,
-                );
+                ));
                 let _ = sender.send((index, result));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
         }
-        let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
+        let wait_started = Instant::now();
+        let received = receiver.recv();
+        stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(wait_started.elapsed().as_nanos() as u64);
+        let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
             admitted_bytes -= chunks[next].1;
-            match result.and_then(&mut admit) {
-                Ok(()) => next += 1,
+            let admission_started = Instant::now();
+            let outcome = result.and_then(&mut admit);
+            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
+            match outcome {
+                Ok(()) => {
+                    counters.admitted.fetch_add(1, Ordering::Relaxed);
+                    next += 1;
+                }
                 Err(error) => {
                     failure = Some(error);
                     break;
@@ -666,7 +681,9 @@ pub(crate) fn process_framed_file(
     {
         return Err("stale source revision after framed extraction".into());
     }
-    Ok(source_bytes.saturating_add(peak_bytes))
+    stats.peak_weight_bytes = source_bytes.saturating_add(peak_bytes);
+    counters.add_to(&mut stats);
+    Ok(stats)
 }
 
 /// Resolve a fresh build's worker policy independently of query workers.
@@ -689,6 +706,72 @@ pub(crate) fn resolve_build_workers(
     }
 }
 
+pub(crate) fn normal_batch_allowance(workers: usize) -> u64 {
+    u64::try_from(workers).unwrap_or(u64::MAX)
+        .saturating_mul(16 * 1024 * 1024)
+        .clamp(52 * 1024 * 1024, 512 * 1024 * 1024)
+}
+
+fn fits_allowance(current: u64, weight: u64, limit: u64) -> bool {
+    current == 0 || (weight <= limit && current.saturating_add(weight) <= limit)
+}
+
+#[derive(Clone, Copy, Debug, Default)]
+pub(crate) struct BuildScheduleStats {
+    pub weight_limit_bytes: u64,
+    pub peak_weight_bytes: u64,
+    pub peak_active_jobs: usize,
+    pub peak_ready_batches: usize,
+    pub job_execution_ns: u64,
+    pub receive_wait_ns: u64,
+    pub admission_ns: u64,
+}
+
+impl BuildScheduleStats {
+    pub fn absorb(&mut self, other: Self) {
+        self.weight_limit_bytes = self.weight_limit_bytes.max(other.weight_limit_bytes);
+        self.peak_weight_bytes = self.peak_weight_bytes.max(other.peak_weight_bytes);
+        self.peak_active_jobs = self.peak_active_jobs.max(other.peak_active_jobs);
+        self.peak_ready_batches = self.peak_ready_batches.max(other.peak_ready_batches);
+        self.job_execution_ns = self.job_execution_ns.saturating_add(other.job_execution_ns);
+        self.receive_wait_ns = self.receive_wait_ns.saturating_add(other.receive_wait_ns);
+        self.admission_ns = self.admission_ns.saturating_add(other.admission_ns);
+    }
+}
+
+#[derive(Default)]
+struct JobCounters {
+    active: AtomicUsize,
+    peak_active: AtomicUsize,
+    completed: AtomicUsize,
+    admitted: AtomicUsize,
+    peak_ready: AtomicUsize,
+    execution_ns: AtomicU64,
+}
+
+impl JobCounters {
+    fn run<T>(&self, job: impl FnOnce() -> T) -> T {
+        let active = self.active.fetch_add(1, Ordering::Relaxed) + 1;
+        self.peak_active.fetch_max(active, Ordering::Relaxed);
+        let started = Instant::now();
+        let result = job();
+        self.execution_ns.fetch_add(started.elapsed().as_nanos() as u64, Ordering::Relaxed);
+        self.active.fetch_sub(1, Ordering::Relaxed);
+        let completed = self.completed.fetch_add(1, Ordering::Relaxed) + 1;
+        self.peak_ready.fetch_max(
+            completed.saturating_sub(self.admitted.load(Ordering::Relaxed)),
+            Ordering::Relaxed,
+        );
+        result
+    }
+
+    fn add_to(&self, stats: &mut BuildScheduleStats) {
+        stats.peak_active_jobs = self.peak_active.load(Ordering::Relaxed);
+        stats.peak_ready_batches = self.peak_ready.load(Ordering::Relaxed);
+        stats.job_execution_ns = self.execution_ns.load(Ordering::Relaxed);
+    }
+}
+
 /// Ordered admission keeps the established slot and diagnostic order even if
 /// later file batches finish first. The window includes completed batches
 /// awaiting admission, so an early slow job cannot queue the whole corpus.
@@ -707,9 +790,9 @@ pub(crate) fn process_repository_file_batches(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
-) -> Result<u64, String> {
-    const MAX_ADMITTED_BYTES: u64 = 52 * 1024 * 1024;
+) -> Result<BuildScheduleStats, String> {
     const MIN_FILE_BYTES: u64 = 16 * 1024;
+    let allowance = normal_batch_allowance(pool.current_num_threads());
     let weights = jobs
         .iter()
         .map(|job| {
@@ -744,11 +827,11 @@ pub(crate) fn process_repository_file_batches(
             break;
         }
         let weight = weights[index];
-        if prefetch_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES / 4
+        if prefetch_bytes.saturating_add(weight) > allowance / 4
             || prefetch_bytes
                 .saturating_add(weight)
                 .saturating_add(weights[0])
-                > MAX_ADMITTED_BYTES
+                > allowance
         {
             continue;
         }
@@ -768,14 +851,13 @@ pub(crate) fn process_repository_file_batches(
     let mut admitted_bytes = 0u64;
     let mut peak_bytes = 0u64;
     let mut failure = None;
+    let counters = Arc::new(JobCounters::default());
+    let mut stats = BuildScheduleStats { weight_limit_bytes: allowance, ..Default::default() };
     while next < jobs.len() && failure.is_none() {
         while dispatched < jobs.len() && dispatched - next < max_jobs {
             let index = order[dispatched];
             let weight = weights[index];
-            if admitted_bytes > 0
-                && (weight > MAX_ADMITTED_BYTES
-                    || admitted_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES)
-            {
+            if !fits_allowance(admitted_bytes, weight, allowance) {
                 break;
             }
             let file_ids = jobs[index].files.clone();
@@ -785,8 +867,9 @@ pub(crate) fn process_repository_file_batches(
             let source = jobs[index].source.clone();
             let collection = jobs[index].collection;
             let source_files = Arc::clone(&source_files);
+            let counters = Arc::clone(&counters);
             pool.spawn(move || {
-                let result = process_batch(
+                let result = counters.run(|| process_batch(
                     &root,
                     &definition,
                     collection,
@@ -794,20 +877,29 @@ pub(crate) fn process_repository_file_batches(
                     &file_ids,
                     &source_files,
                     alphabet,
-                );
+                ));
                 let _ = sender.send((index, result));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
         }
-        let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
+        let wait_started = Instant::now();
+        let received = receiver.recv();
+        stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(wait_started.elapsed().as_nanos() as u64);
+        let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
         ready.insert(index, result);
         while let Some(result) = ready.remove(&next) {
             admitted_bytes -= weights[next];
-            match result.and_then(|batch| admit(jobs[next].collection_index, batch)) {
-                Ok(()) => next += 1,
+            let admission_started = Instant::now();
+            let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));
+            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
+            match outcome {
+                Ok(()) => {
+                    counters.admitted.fetch_add(1, Ordering::Relaxed);
+                    next += 1;
+                }
                 Err(error) => {
                     failure = Some(error);
                     break;
@@ -824,7 +916,9 @@ pub(crate) fn process_repository_file_batches(
     if let Some(error) = failure {
         return Err(error);
     }
-    Ok(peak_bytes)
+    stats.peak_weight_bytes = peak_bytes;
+    counters.add_to(&mut stats);
+    Ok(stats)
 }
 
 #[cfg(test)]
@@ -838,7 +932,7 @@ pub(crate) fn process_file_batches(
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
-) -> Result<u64, String> {
+) -> Result<BuildScheduleStats, String> {
     let jobs = jobs
         .iter()
         .map(|files| RepositoryFileJob {
