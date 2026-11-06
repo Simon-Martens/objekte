@@ -24,7 +24,7 @@ def main() -> int:
     result_dir.mkdir(parents=True, exist_ok=True)
     input_path = args.input or result_dir / "raw.jsonl"
     if args.input is None:
-        command = ["cargo", "run", "--release", "--manifest-path", "bench/old-core-compare/Cargo.toml", "--", "--repetitions", "5"]
+        command = ["cargo", "run", "--release", "--manifest-path", "crates/old-core-compare/Cargo.toml", "--", "--repetitions", "5"]
         with input_path.open("w") as output, (result_dir / "console.log").open("w") as log:
             completed = subprocess.run(command, cwd=ROOT, stdout=output, stderr=log)
         if completed.returncode:

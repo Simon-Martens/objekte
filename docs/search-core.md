@@ -1,9 +1,9 @@
 # Local record search core
 
-This workspace builds the new `core/` crate. The archived project remains in
-`old/`, and the source fixture remains in `examples/musenalm/`. The new crate
+This workspace builds the new `crates/core/` crate. The archived project remains in
+`deprecated/`, and the source fixture remains in `examples/musenalm/`. The new crate
 implements record-oriented search over local byte ranges; the Musenalm schema
-adapter and workload tools live under `core/examples/`.
+adapter and workload tools live under `crates/core/examples/`.
 
 ## Build and run
 
@@ -25,7 +25,7 @@ runs the independent scanner. `--alphabet` chooses `ascii` or `unicode`;
 `--return` chooses `locator`, `bytes`, or `logical`; `--limit` and `--offset`
 override the page. `--quiet-hits` prints counts and work without every locator.
 The fixed cases and their options are in
-[`musenalm_queries.json`](../core/benches/musenalm_queries.json).
+[`musenalm_queries.json`](../crates/core/benches/musenalm_queries.json).
 
 The benchmark tool provides `--cases`, `--profiles`, `--repetitions`,
 `--result-dir`, `--root`, and `--verified-cache-bytes`. Its four standard
@@ -189,7 +189,7 @@ overlay, or partial rebuild is implemented. The
 describes how the file-to-record map would locate all old records, rebuild
 affected generations, and publish them atomically after successful extraction.
 
-The archived implementation under `old/crates/core/` was inspected for query,
+The archived implementation under `deprecated/crates/core/` was inspected for query,
 bigram, and ICU behavior. The new record-slot storage, source ownership, and
 index implementations were written for this workspace; no archived crate is
 linked into the build.

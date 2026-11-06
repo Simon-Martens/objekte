@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-PACKAGE = ROOT / "bench/old-core-compare"
+PACKAGE = ROOT / "crates/old-core-compare"
 
 
 def read_run(path: Path) -> tuple[dict, dict[str, dict]]:

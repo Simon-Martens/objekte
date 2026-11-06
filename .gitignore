@@ -1,4 +1,5 @@
 /target/
+/crates/old-core-compare/target/
 /bench/deprecated-core-compare/target/
 /bench/results/musenalm/jq-oracle-*/*.json.gz
 /crates/bench/fff-compare/target/

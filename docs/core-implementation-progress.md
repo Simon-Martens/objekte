@@ -1,7 +1,7 @@
 # Search core progress
 
-The `development/local-file-search-core` branch builds only `core/`. The
-archived `old/` implementation and root `examples/` are preserved. The earlier
+The `development/local-file-search-core` branch builds `crates/core/`. The
+archived `deprecated/` implementation and root `examples/` are preserved. The earlier
 code was inspected for algorithms and behavior checks, especially its bigram
 storage, typed filtering, and ICU sorting. The new crate uses record slots
 and file-to-record ownership; the archived index's file slots were not reused.
