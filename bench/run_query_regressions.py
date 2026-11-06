@@ -41,10 +41,18 @@ def canonical_registrations(manifest: dict) -> list[dict]:
 
 def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict) -> list[str]:
     failures = []
-    for key in ("corpus_fingerprint", "schema_fingerprint", "workload_fingerprint", "compiler",
+    for key in ("corpus_fingerprint", "compiler",
                 "source_cache_bytes", "decoded_cache_bytes", "query_workers"):
         if old[key] != new[key]:
             failures.append(f"{key} differs from baseline")
+    # The old path hash includes the checkout directory. Compare parsed schema
+    # content if those hashes differ across worktrees.
+    if old["schema_fingerprint"] != new["schema_fingerprint"]:
+        def schemas(manifest: dict) -> dict[str, dict]:
+            directory = Path(manifest["root"]) / ".objekte/collections"
+            return {path.name: json.loads(path.read_text()) for path in directory.glob("*.schema.json")}
+        if schemas(old) != schemas(new):
+            failures.append("semantic schema differs from baseline")
     old_profiles = dict(old["profiles"])
     if any(old_profiles.get(name) != profile for name, profile in new["profiles"]):
         failures.append("selected cache/alphabet profiles differ from baseline")
@@ -55,6 +63,11 @@ def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict) 
     if old["code_revision"] == new["code_revision"]:
         failures.append("baseline and current code revisions are identical")
     return failures
+
+
+def governor() -> str | None:
+    path = Path("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor")
+    return path.read_text().strip() if path.exists() else None
 
 
 def main() -> int:
@@ -105,6 +118,15 @@ def main() -> int:
                    or key.startswith("CARGO_PROFILE_RELEASE_")}
     if build_flags:
         failures.append(f"nondefault build flags are not recorded in the pre-repair baseline: {sorted(build_flags)}")
+    baseline_environment_path = baseline / "environment.json"
+    baseline_environment = json.loads(baseline_environment_path.read_text()) if baseline_environment_path.exists() else {
+        "governor": "powersave", "affinity": list(range(32)), "build_flags": {},
+    }
+    affinity = sorted(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None
+    if baseline_environment["governor"] != governor():
+        failures.append("CPU governor differs from declared baseline environment")
+    if baseline_environment["affinity"] != affinity:
+        failures.append("CPU affinity differs from declared baseline environment")
     samples = [json.loads(line) for line in (result_dir / "measurements.jsonl").read_text().splitlines()]
     if len(samples) != 150 * len(profiles) * repetitions:
         failures.append(f"sample count {len(samples)} differs from {150 * len(profiles) * repetitions}")
@@ -211,9 +233,15 @@ def main() -> int:
         "baseline_code_revision": old_manifest["code_revision"],
         "actual_code_revision": new_manifest["code_revision"],
         "build_flags": build_flags,
+        "baseline_environment": baseline_environment,
+        "governor": governor(),
+        "path_sensitive_fingerprint_difference": {
+            "schema": old_manifest["schema_fingerprint"] != new_manifest["schema_fingerprint"],
+            "workload": old_manifest["workload_fingerprint"] != new_manifest["workload_fingerprint"],
+        },
         "cpu_model": cpu_model,
         "architecture": platform.machine(),
-        "affinity": sorted(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None,
+        "affinity": affinity,
         "actual_samples": len(samples), "baseline": str(baseline),
         "result_dir": str(result_dir), "same_machine": same_machine,
         "aggregate_latency_ratio": new_total / old_total,

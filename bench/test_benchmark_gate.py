@@ -46,6 +46,22 @@ class CompatibilityTests(unittest.TestCase):
             (new_dir / "queries.json").write_text(json.dumps(queries))
             self.assertIn("resolved query workload differs from baseline",
                           compatibility_failures(old_dir, new_dir, baseline, current))
+            for root, value in ((old_dir, "string"), (new_dir, "number")):
+                schema_dir = root / ".objekte/collections"
+                schema_dir.mkdir(parents=True)
+                (schema_dir / "data.schema.json").write_text(json.dumps({"type": value}))
+            old = copy.deepcopy(baseline)
+            new = copy.deepcopy(baseline)
+            old["root"] = str(old_dir)
+            new["root"] = str(new_dir)
+            new["code_revision"] = "after"
+            new["schema_fingerprint"] = "different-path-hash"
+            (new_dir / "queries.json").write_text((old_dir / "queries.json").read_text())
+            self.assertIn("semantic schema differs from baseline",
+                          compatibility_failures(old_dir, new_dir, old, new))
+            (new_dir / ".objekte/collections/data.schema.json").write_text(
+                (old_dir / ".objekte/collections/data.schema.json").read_text())
+            self.assertEqual(compatibility_failures(old_dir, new_dir, old, new), [])
 
 
 if __name__ == "__main__":

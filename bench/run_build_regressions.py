@@ -95,6 +95,8 @@ def main() -> int:
                         if key in ("RUSTFLAGS", "CARGO_ENCODED_RUSTFLAGS", "CARGO_BUILD_TARGET")
                         or key.startswith("CARGO_PROFILE_RELEASE_")},
         "affinity": sorted(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None,
+        "governor": Path("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").read_text().strip()
+        if Path("/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor").exists() else None,
     }
     failures = []
     baseline_path = args.baseline.resolve()
@@ -112,6 +114,10 @@ def main() -> int:
             failures.append("source or schema fingerprint differs from build baseline")
         if baseline["environment"]["rustc"] != environment["rustc"]:
             failures.append("compiler differs from build baseline")
+        if baseline["environment"].get("governor", "powersave") != environment["governor"]:
+            failures.append("CPU governor differs from declared build baseline")
+        if baseline["environment"].get("affinity", list(range(32))) != environment["affinity"]:
+            failures.append("CPU affinity differs from declared build baseline")
         if environment["build_flags"]:
             failures.append("nondefault build flags are not recorded in the baseline")
         if baseline["environment"]["cpu_model"] != environment["cpu_model"]:
