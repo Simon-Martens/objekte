@@ -271,6 +271,20 @@ fn term_set(
     })
 }
 
+fn custom_bigram_compatible(term: &BoundTerm) -> bool {
+    if matches!(term.binding_name.as_str(), "default" | "lower") {
+        return false;
+    }
+    if term.operation.is_none() {
+        // Registered built-in transforms map indexed text and scanned values
+        // with the same Transform; they do not install an exact matcher.
+        return true;
+    }
+    term.matcher
+        .as_ref()
+        .is_some_and(|matcher| matcher.bigram_compatible())
+}
+
 fn enumerate_paths(
     collection: &CollectionState,
     term: &BoundTerm,
@@ -401,12 +415,7 @@ fn enumerate_paths(
                                 output,
                             );
                         }
-                    } else if !matches!(term.binding_name.as_str(), "lower")
-                        && term
-                            .matcher
-                            .as_ref()
-                            .is_some_and(|matcher| matcher.bigram_compatible())
-                    {
+                    } else if custom_bigram_compatible(term) {
                         if let Some(index) = collection
                             .custom_text
                             .get(&(term.path.segments.clone(), term.binding_name.clone()))
@@ -789,14 +798,7 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
     {
         return None;
     }
-    if matches!(term.binding_name.as_str(), "default" | "lower") {
-        return None;
-    }
-    if !term
-        .matcher
-        .as_ref()
-        .is_some_and(|matcher| matcher.bigram_compatible())
-    {
+    if !custom_bigram_compatible(term) {
         return None;
     }
     let Value::String(literal) = &term.literal else {

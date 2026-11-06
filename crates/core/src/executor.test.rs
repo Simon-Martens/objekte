@@ -8,6 +8,102 @@ use crate::workload::ReturnMode;
 use std::sync::Arc;
 use std::sync::atomic::{AtomicUsize, Ordering as AtomicOrdering};
 
+#[test]
+fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
+    let root = std::env::temp_dir().join(format!("objekte-folded-index-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, title) in [
+        ("a", "Straße Almanach"),
+        ("b", "STRASSE ALMANACH"),
+        ("c", "unrelated text"),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            serde_json::json!({"title":title}).to_string(),
+        )
+        .unwrap();
+    }
+    let mut schema = crate::reference::Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    schema
+        .register_custom(
+            vec!["title".into()],
+            CustomBinding {
+                name: "folded".into(),
+                version: 1,
+                transform: Transform::CaseFold,
+            },
+        )
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let query = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("title:folded ~ 'STRASSE'").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        let options = crate::repository::RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: crate::repository::SnapshotMode::ReadWrite,
+            ..Default::default()
+        };
+        for opening in 0..2 {
+            let repo =
+                Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+            assert_eq!(repo.startup().restored, opening == 1);
+            let result = repo.search(&query).unwrap();
+            assert_eq!(result.count, Some(2));
+            assert_eq!(
+                result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>(),
+                ["a", "b"]
+            );
+            assert_eq!(result.hits, repo.search_reference(&query).unwrap().hits);
+            assert_eq!(result.counters.candidates, 2);
+            assert_eq!(
+                repo.explain(&query).unwrap()[0].terms[0].selected.kind,
+                AccessPathKind::CustomBigram
+            );
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 
 #[derive(Debug)]
 struct SeparatorOperation {
