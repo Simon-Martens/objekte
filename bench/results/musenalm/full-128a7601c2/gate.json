@@ -13,6 +13,7 @@
     "per_case_absolute_ns": 2000000,
     "aggregate_relative": 1.25
   },
+  "confirmations": [],
   "worst_slowdowns": [
     {
       "ratio": 1.0,
