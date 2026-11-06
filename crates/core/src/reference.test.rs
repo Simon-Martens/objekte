@@ -1,4 +1,22 @@
 use super::*;
+
+#[test]
+fn small_selection_preserves_scalar_and_array_path_states() {
+    let value = Value::from_json(serde_json::json!({
+        "name": "Ada", "empty": [], "null": null,
+        "people": [{"name": "A"}, {"name": "B"}]
+    })).unwrap();
+    let path = |parts: &[&str]| parts.iter().map(|part| (*part).to_string()).collect::<Vec<_>>();
+    let scalar = data_values_small(&value, &path(&["name"])).unwrap();
+    assert!(!scalar.spilled());
+    assert!(matches!(scalar.as_slice(), [Value::String(name)] if name == "Ada"));
+    assert!(data_values_small(&value, &path(&["absent"])).is_none());
+    assert!(matches!(data_values_small(&value, &path(&["null"])).unwrap().as_slice(), [Value::Null]));
+    assert_eq!(data_values_small(&value, &path(&["empty", "name"])).unwrap().len(), 0);
+    let many = data_values_small(&value, &path(&["people", "name"])).unwrap();
+    assert_eq!(many.len(), 2);
+    assert_eq!(many.as_slice(), data_values(&value, &path(&["people", "name"])).unwrap());
+}
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::{FileId, RecordId, RecordSlot};
 use crate::query::parse_filter;

@@ -14,7 +14,7 @@ use time::{Date, OffsetDateTime};
 
 use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
-use crate::reference::{RecordContext, Schema, data_values, metadata_value};
+use crate::reference::{RecordContext, Schema, data_values_small, metadata_value};
 use crate::workload::SortField;
 
 pub const COLLATION_VERSION: &str =
@@ -252,9 +252,9 @@ impl SortBuilder {
                         repository_root: root,
                     };
                     owned = metadata_value(field, &ctx)?;
-                    Some(vec![&owned])
+                    Some(smallvec::smallvec![&owned])
                 }
-                PathRoot::Data => data_values(record, &column.path.segments),
+                PathRoot::Data => data_values_small(record, &column.path.segments),
             };
             let key = match selected {
                 None => SortKey::Missing,

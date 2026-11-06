@@ -11,7 +11,7 @@ use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::inventory::append_shifted_bitmap;
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
-use crate::reference::{FieldDefinition, Schema, data_values};
+use crate::reference::{FieldDefinition, Schema, data_values_small};
 
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -240,7 +240,7 @@ impl PostingIndex {
     }
 
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
-        let selected = data_values(record, &self.path);
+        let selected = data_values_small(record, &self.path);
         self.add_values(slot, selected.as_deref())
     }
 
@@ -260,6 +260,14 @@ impl PostingIndex {
         if selected.len() == 1 && matches!(selected[0], Value::Null) {
             self.nulls.insert(slot.0);
             return Ok(());
+        }
+        if let [value] = selected {
+            if !matches!(value, Value::Array(_)) {
+                if let Some(key) = ScalarKey::from_value(value) {
+                    self.values.entry(key).or_default().insert(slot.0);
+                }
+                return Ok(());
+            }
         }
         let mut unique = HashSet::new();
         for value in selected {

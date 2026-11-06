@@ -4,6 +4,7 @@ use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
+use smallvec::SmallVec;
 
 use crate::bigram::BigramRequest;
 use crate::bigram::fold;
@@ -392,10 +393,10 @@ fn temporal_kind(kind: &LogicalType) -> bool {
     }
 }
 
-fn validate_children(
+fn validate_children<'a>(
     value: &mut Value,
-    node: &ValidationNode,
-    path: &mut Vec<String>,
+    node: &'a ValidationNode,
+    path: &mut Vec<&'a str>,
     selected: Option<&HashSet<String>>,
 ) -> Result<(), String> {
     match value {
@@ -404,7 +405,7 @@ fn validate_children(
                 if selected.is_some_and(|selection| !selection.contains(name)) {
                     continue;
                 }
-                path.push(name.clone());
+                path.push(name);
                 if let Some(value) = fields.get_mut(name) {
                     if let Some(field) = &child.field {
                         validate_declared(
@@ -443,7 +444,7 @@ fn validate_declared(
     nullable: bool,
     elements: &[bool],
     depth: usize,
-    path: &[String],
+    path: &[&str],
 ) -> Result<(), String> {
     if matches!(value, Value::Null) {
         return if nullable {
@@ -876,9 +877,9 @@ fn timestamp_value(ns: i128) -> Result<Value, String> {
         .map_err(|e| e.to_string())
 }
 
-fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut Vec<&'a Value>) -> bool {
+fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut impl Extend<&'a Value>) -> bool {
     if parts.is_empty() {
-        output.push(value);
+        output.extend([value]);
         return true;
     }
     match value {
@@ -898,7 +899,14 @@ fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut Vec<&'a Value>
 }
 
 pub(crate) fn data_values<'a>(value: &'a Value, parts: &[String]) -> Option<Vec<&'a Value>> {
-    let mut selected = Vec::new();
+    data_values_small(value, parts).map(SmallVec::into_vec)
+}
+
+pub(crate) fn data_values_small<'a>(
+    value: &'a Value,
+    parts: &[String],
+) -> Option<SmallVec<[&'a Value; 1]>> {
+    let mut selected = SmallVec::new();
     walk_path(value, parts, &mut selected).then_some(selected)
 }
 
