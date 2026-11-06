@@ -44,6 +44,43 @@ fn schema() -> Schema {
     schema
 }
 
+#[test]
+fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conversion() {
+    let mut schema = Schema::default();
+    schema.register_field(FieldDefinition {
+        path: vec!["details".into()], kind: LogicalType::Object,
+        required: false, nullable: true, indexed: false, multi: false,
+        element_nullable: vec![],
+    }).unwrap();
+    schema.register_field(FieldDefinition {
+        path: vec!["details".into(), "published".into()], kind: LogicalType::Date,
+        required: true, nullable: false, indexed: true, multi: false,
+        element_nullable: vec![],
+    }).unwrap();
+    schema.register_field(FieldDefinition {
+        path: vec!["details".into(), "history".into(), "at".into()],
+        kind: LogicalType::Datetime, required: true, nullable: false,
+        indexed: false, multi: true, element_nullable: vec![],
+    }).unwrap();
+    schema.register_field(FieldDefinition {
+        path: vec!["details".into(), "history".into()],
+        kind: LogicalType::Array(Box::new(LogicalType::Object)), required: false,
+        nullable: false, indexed: false, multi: true, element_nullable: vec![false],
+    }).unwrap();
+    for json in [serde_json::json!({}), serde_json::json!({"details":null}),
+        serde_json::json!({"details":{"published":"2026-01-02", "history":[{"at":"2026-01-02T03:04:05Z"}]}})] {
+        let mut built = Value::from_json(json.clone()).unwrap();
+        schema.coerce_record(&mut built).unwrap();
+        let mut scanned = Value::from_json(json).unwrap();
+        schema.coerce_query_record(&mut scanned, None).unwrap();
+        assert_eq!(scanned, built);
+    }
+    let mut projected = Value::from_json(serde_json::json!({"note":"keep"})).unwrap();
+    schema.coerce_query_record(&mut projected, Some(&HashSet::from(["note".into()]))).unwrap();
+    let mut invalid = Value::from_json(serde_json::json!({"details":{}})).unwrap();
+    assert!(schema.coerce_record(&mut invalid).unwrap_err().contains("details.published"));
+}
+
 fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
     let record = RecordEntry {
         slot: RecordSlot(0),

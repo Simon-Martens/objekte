@@ -168,15 +168,25 @@ impl Schema {
             node = node.children.entry(part.clone()).or_default();
         }
         node.field = Some(field.clone());
-        if temporal_kind(&field.kind) {
-            let mut temporal = &mut self.temporal_validation;
-            for part in &field.path {
-                temporal = temporal.children.entry(part.clone()).or_default();
-            }
-            temporal.field = Some(field.clone());
-        }
         self.fields.insert(field.path.clone(), field);
+        if self.temporal_fields {
+            self.rebuild_temporal_validation();
+        }
         Ok(())
+    }
+
+    fn rebuild_temporal_validation(&mut self) {
+        let mut root = ValidationNode::default();
+        for field in self.fields.values().filter(|field| temporal_kind(&field.kind)) {
+            let mut node = &mut root;
+            for depth in 0..field.path.len() {
+                node = node.children.entry(field.path[depth].clone()).or_default();
+                if let Some(ancestor) = self.fields.get(&field.path[..=depth]) {
+                    node.field = Some(ancestor.clone());
+                }
+            }
+        }
+        self.temporal_validation = root;
     }
 
     pub fn register_custom(

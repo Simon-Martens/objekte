@@ -987,6 +987,69 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
 }
 
 #[test]
+fn optional_temporal_parent_queries_keep_absent_null_and_present_records() {
+    let root = std::env::temp_dir().join(format!("objekte-optional-date-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, json) in [
+        ("absent", r#"{"note":"keep"}"#),
+        ("null", r#"{"note":"keep","details":null}"#),
+        ("present", r#"{"note":"keep","details":{"published":"2026-01-02"}}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{id}.json")), json).unwrap();
+    }
+    let definition = |indexed| {
+        let mut schema = Schema::default();
+        for (path, kind, required, nullable, index) in [
+            (vec!["note".into()], LogicalType::String, true, false, indexed),
+            (vec!["details".into()], LogicalType::Object, false, true, false),
+            (vec!["details".into(), "published".into()], LogicalType::Date, true, false, true),
+        ] {
+            schema.register_field(FieldDefinition { path, kind, required, nullable,
+                indexed: index, multi: false, element_nullable: vec![] }).unwrap();
+        }
+        CollectionDefinition { name: "data".into(), source_path: "data".into(), format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename, discovery: Default::default(), schema,
+            sort_fields: vec![], sort_locale: "de".into(), sort_options: Default::default(),
+            sort_overrides: Default::default() }
+    };
+    for indexed in [false, true] {
+        let options = crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::ReadWrite, ..Default::default()
+        };
+        for open in 0..2 {
+            let repo = Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
+            assert_eq!(repo.startup().restored, open == 1);
+            for (filter, expected) in [
+                ("note ~ 'keep'", vec!["absent", "null", "present"]),
+                ("note = 'keep'", vec!["absent", "null", "present"]),
+                ("details.published = '2026-01-02'", vec!["present"]),
+            ] {
+                for mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
+                    let query = Query { collections: vec!["data".into()], fts: None,
+                        filter: Some(parse_filter(filter).unwrap()),
+                        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
+                            return_mode: mode.clone(), evidence: true } };
+                    let result = repo.search(&query).unwrap();
+                    let ids = result.hits.iter().map(|h| h.record_id.as_str()).collect::<Vec<_>>();
+                    assert_eq!(ids, expected, "{indexed} {open} {filter} {mode:?}");
+                    assert_eq!(result.count, Some(expected.len()));
+                    if mode == ReturnMode::Logical && filter == "note = 'keep'" {
+                        assert!(matches!(&result.hits[2].payload, Some(Payload::Logical(Value::Object(fields)))
+                            if matches!(&fields["details"], Value::Object(details) if matches!(details["published"], Value::Date(_)))));
+                    }
+                }
+                let count_only = Query { collections: vec!["data".into()], fts: None,
+                    filter: Some(parse_filter(filter).unwrap()), options: QueryOptions {
+                        sort: vec![], limit: 0, offset: 0, count: true,
+                        return_mode: ReturnMode::Locator, evidence: false } };
+                assert_eq!(repo.search(&count_only).unwrap().count, Some(expected.len()));
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn selected_folded_and_metadata_fts_match_reference() {
     let root = std::env::temp_dir().join(format!("objekte-selected-fts-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
