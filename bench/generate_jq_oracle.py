@@ -241,7 +241,8 @@ def fold($value): $value | gsub("Ü"; "ü") | ascii_downcase;
 def str_lower_has($value; $needle): ($value | type) == "string" and (fold($value) | contains(fold($needle)));
 def text_has($texts; $needle): any($texts[]; contains($needle));
 def vals($value; $parts):
-  if ($parts | length) == 0 then $value
+  if ($parts | length) == 0 then
+    if ($value | type) == "array" then $value[] | vals(.; []) else $value end
   elif ($value | type) == "array" then $value[] | vals(.; $parts)
   elif ($value | type) == "object" and ($value | has($parts[0])) then $value[$parts[0]] | vals(.; $parts[1:])
   else empty end;
