@@ -1727,7 +1727,13 @@ fn search_impl(
         .ok_or("page size overflow")?;
     let mut winners = BinaryHeap::new();
     let mut counters = WorkCounters::default();
-    let mut files_read = HashSet::new();
+    // One collection with locator output scans each grouped physical file at
+    // most once. Other routes may revisit files for page payloads or share a
+    // physical file across collections, so they need a compact union.
+    let mut files_read = (prepared.collections.len() > 1
+        || query.options.return_mode != ReturnMode::Locator)
+        .then(RoaringBitmap::new);
+    let mut distinct_files = 0u64;
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     counters.prepared_plan_hit = plan_hit;
     for (collection_index, filter, fts) in prepared.collections {
@@ -1904,7 +1910,6 @@ fn search_impl(
                 .push((slot, record.range));
         }
         let files: Vec<_> = files.into_iter().collect();
-        files_read.extend(files.iter().map(|(file_id, _)| *file_id));
         let projection = scan_projection(query, residual.as_ref(), &candidates);
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
@@ -1981,8 +1986,15 @@ fn search_impl(
                     .sum::<u64>();
             counters.peak_retained_payload_bytes =
                 counters.peak_retained_payload_bytes.max(payload_upper);
-            for outcome in scanned {
+            for ((file_id, _), outcome) in chunk.iter().zip(scanned) {
                 let outcome = outcome?;
+                if outcome.files_opened > 0 || outcome.bytes_read > 0 {
+                    if let Some(seen) = files_read.as_mut() {
+                        seen.insert(*file_id);
+                    } else {
+                        distinct_files += 1;
+                    }
+                }
                 counters.files_opened += outcome.files_opened;
                 counters.bytes_read += outcome.bytes_read;
                 counters.record_parses += outcome.record_parses;
@@ -2047,7 +2059,6 @@ fn search_impl(
         }
         let mut source_access = SourceAccessSession::new(&repo.files);
         for ((collection_index, file_id), ranges) in files {
-            files_read.insert(file_id);
             let collection = &repo.collections[collection_index];
             for batch in ranges.chunks(128) {
                 let read = source_access.read(crate::model::FileId(file_id), batch)?;
@@ -2084,9 +2095,12 @@ fn search_impl(
                 }
             }
         }
+        *files_read
+            .as_mut()
+            .expect("payload access needs file union") |= source_access.accessed_files();
     }
     counters.returned_records = page.len() as u64;
-    counters.distinct_files = files_read.len() as u64;
+    counters.distinct_files = files_read.map_or(distinct_files, |seen| seen.len());
     Ok(SearchResult {
         count: query.options.count.then_some(count),
         hits: page.into_iter().map(|winner| winner.hit).collect(),

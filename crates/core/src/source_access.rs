@@ -1,6 +1,6 @@
 //! Query-scoped, bounded source handles and range windows.
 
-use std::collections::HashSet;
+use roaring::RoaringBitmap;
 
 use crate::inventory::{ByteRange, FileInventory, SourceRevision};
 use crate::model::FileId;
@@ -23,7 +23,7 @@ struct OpenSource {
 pub(crate) struct SourceAccessSession<'a> {
     files: &'a FileInventory,
     open: Vec<OpenSource>,
-    distinct: HashSet<FileId>,
+    distinct: RoaringBitmap,
     clock: u64,
 }
 
@@ -40,13 +40,17 @@ impl<'a> SourceAccessSession<'a> {
         Self {
             files,
             open: Vec::new(),
-            distinct: HashSet::new(),
+            distinct: RoaringBitmap::new(),
             clock: 0,
         }
     }
 
     pub fn distinct_files(&self) -> u64 {
-        self.distinct.len() as u64
+        self.distinct.len()
+    }
+
+    pub fn accessed_files(&self) -> &RoaringBitmap {
+        &self.distinct
     }
 
     fn handle(&mut self, file_id: FileId) -> Result<(usize, u64), String> {
@@ -65,7 +69,7 @@ impl<'a> SourceAccessSession<'a> {
             .native_path(file_id)
             .ok_or("missing source path")?;
         let reader = RecordRangeReader::open(&path, file.revision)?;
-        self.distinct.insert(file_id);
+        self.distinct.insert(file_id.0);
         if self.open.len() == MAX_OPEN_HANDLES {
             let oldest = self
                 .open

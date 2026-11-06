@@ -67,6 +67,7 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
         let result = repo.search(&query).unwrap();
         assert_eq!(result.count, Some(100));
         assert_eq!(result.counters.record_parses, 0);
+        assert_eq!(result.counters.distinct_files, 0);
         assert_eq!(
             result
                 .hits
@@ -80,9 +81,92 @@ fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache
         if budget != 0 {
             let cached = repo.search(&query).unwrap();
             assert!(cached.counters.verified_result_hit);
+            assert_eq!(cached.counters.distinct_files, 0);
             assert_eq!(cached.hits, result.hits);
         }
     }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn physical_file_accounting_deduplicates_shared_collections_and_payload_reads() {
+    let root = std::env::temp_dir().join(format!("objekte-shared-files-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/one.json"),
+        br#"{"body":"needle","memo":"needle"}"#,
+    )
+    .unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["body".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["memo".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let definitions = ["a", "b"]
+        .into_iter()
+        .map(|name| CollectionDefinition {
+            name: name.into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema: schema.clone(),
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        })
+        .collect();
+    let repo = Repository::open(&root, definitions).unwrap();
+    let mut query = Query {
+        collections: vec![],
+        fts: None,
+        filter: Some(parse_filter("memo ~ 'needle'").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 2,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let scanned = repo.search(&query).unwrap();
+    assert_eq!(scanned.count, Some(2));
+    assert_eq!(scanned.counters.files_opened, 2);
+    assert_eq!(scanned.counters.distinct_files, 1);
+    query.filter = Some(parse_filter("body = 'needle'").unwrap());
+    let exact = repo.search(&query).unwrap();
+    assert_eq!(exact.counters.files_opened, 0);
+    assert_eq!(exact.counters.distinct_files, 0);
+    query.options.return_mode = ReturnMode::Bytes;
+    let payload = repo.search(&query).unwrap();
+    assert_eq!(payload.count, Some(2));
+    assert_eq!(payload.counters.files_opened, 1);
+    assert_eq!(payload.counters.distinct_files, 1);
+    assert_eq!(payload.hits[0].file_id, payload.hits[1].file_id);
+    assert!(payload.hits.iter().all(|hit| matches!(
+        &hit.payload,
+        Some(Payload::Bytes(bytes)) if bytes == br#"{"body":"needle","memo":"needle"}"#
+    )));
     std::fs::remove_dir_all(root).unwrap();
 }
 
