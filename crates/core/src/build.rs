@@ -13,7 +13,7 @@ use std::time::Instant;
 use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 
-use crate::bigram::{BigramBuilder, BigramIndex};
+use crate::bigram::{BigramBuilder, BigramContribution};
 use crate::inventory::{
     ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
     RecordEntry, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
@@ -111,9 +111,9 @@ pub(crate) struct BatchContribution {
     records: Vec<RecordEntry>,
     postings: PostingCollection,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    raw: BigramIndex,
-    fallback_text: BigramIndex,
-    custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    raw: BigramContribution,
+    fallback_text: BigramContribution,
+    custom_text: HashMap<(Vec<String>, String), BigramContribution>,
     logical_records: RoaringBitmap,
     sort_keys: HashMap<FieldPath, Vec<SortKey>>,
     pub record_parses: u64,
@@ -454,15 +454,15 @@ impl<'a> BatchBuilder<'a> {
         let custom_text = self
             .custom_text
             .into_iter()
-            .map(|(key, index)| index.finish().map(|index| (key, index)))
+            .map(|(key, index)| index.finish_blocks().map(|index| (key, index)))
             .collect::<Result<HashMap<_, _>, _>>()?;
         Ok(BatchContribution {
             files,
             records: self.records,
             postings: self.postings,
             custom_postings: self.custom_postings,
-            raw: self.raw.finish()?,
-            fallback_text: self.fallback_text.finish()?,
+            raw: self.raw.finish_blocks()?,
+            fallback_text: self.fallback_text.finish_blocks()?,
             custom_text,
             logical_records: self.logical_records,
             sort_keys: self.sorting.into_keys(),
@@ -947,9 +947,9 @@ pub(crate) struct CollectionAdmission<'a> {
     pub builder: &'a mut CollectionBuilder,
     pub postings: &'a mut PostingCollection,
     pub custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndex>,
-    pub raw: &'a mut BigramIndex,
-    pub fallback_text: &'a mut BigramIndex,
-    pub custom_text: &'a mut HashMap<(Vec<String>, String), BigramIndex>,
+    pub raw: &'a mut BigramContribution,
+    pub fallback_text: &'a mut BigramContribution,
+    pub custom_text: &'a mut HashMap<(Vec<String>, String), BigramContribution>,
     pub logical_records: &'a mut RoaringBitmap,
     pub sorting: &'a mut SortBuilder,
 }

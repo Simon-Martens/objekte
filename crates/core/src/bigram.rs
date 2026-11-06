@@ -3,10 +3,12 @@
 use std::collections::{HashMap, HashSet};
 
 use roaring::RoaringBitmap;
+use rayon::ThreadPool;
 use serde::{Deserialize, Serialize};
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::model::RecordSlot;
+#[cfg(test)]
 use crate::inventory::append_shifted_bitmap;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;
@@ -184,6 +186,7 @@ impl BigramIndex {
         Ok(())
     }
 
+    #[cfg(test)]
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.alphabet != batch.alphabet || self.record_count != base {
             return Err("bigram batch coverage or alphabet mismatch".into());
@@ -289,6 +292,108 @@ fn unicode_pair(a: char, b: char) -> u64 {
     ((a as u64) << 21) | b as u64
 }
 
+#[derive(Clone, Copy, Debug)]
+struct GramBlock {
+    first_slot: u32,
+    bits: u64,
+}
+
+/// Construction-only grams. Worker chunks and ordered batch admission move
+/// complete words; the final Roaring dictionaries are built once afterward.
+pub(crate) struct BigramContribution {
+    alphabet: BigramAlphabet,
+    record_count: u32,
+    normal: HashMap<u64, Vec<GramBlock>>,
+    skip: HashMap<u64, Vec<GramBlock>>,
+}
+
+impl BigramContribution {
+    pub fn new(alphabet: BigramAlphabet) -> Self {
+        Self { alphabet, record_count: 0, normal: HashMap::new(), skip: HashMap::new() }
+    }
+
+    pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+        if self.alphabet != batch.alphabet || self.record_count != base {
+            return Err("bigram batch coverage or alphabet mismatch".into());
+        }
+        let count = base.checked_add(batch.record_count).ok_or("bigram record overflow")?;
+        validate_blocks(&batch.normal, batch.record_count)?;
+        validate_blocks(&batch.skip, batch.record_count)?;
+        for (key, mut blocks) in batch.normal {
+            for block in &mut blocks {
+                block.first_slot = base.checked_add(block.first_slot).ok_or("bigram slot overflow")?;
+            }
+            self.normal.entry(key).or_default().append(&mut blocks);
+        }
+        for (key, mut blocks) in batch.skip {
+            for block in &mut blocks {
+                block.first_slot = base.checked_add(block.first_slot).ok_or("bigram slot overflow")?;
+            }
+            self.skip.entry(key).or_default().append(&mut blocks);
+        }
+        self.record_count = count;
+        Ok(())
+    }
+
+    pub fn into_index_in_pool(self, pool: &ThreadPool) -> Result<BigramIndex, String> {
+        let Self { alphabet, record_count, normal, skip } = self;
+        let (normal, skip) = pool.join(
+            move || convert_blocks(normal, record_count),
+            move || convert_blocks(skip, record_count),
+        );
+        Ok(BigramIndex { alphabet, record_count, normal: normal?, skip: skip? })
+    }
+
+    #[cfg(test)]
+    fn into_index(self) -> Result<BigramIndex, String> {
+        let Self { alphabet, record_count, normal, skip } = self;
+        Ok(BigramIndex {
+            alphabet, record_count,
+            normal: convert_blocks(normal, record_count)?,
+            skip: convert_blocks(skip, record_count)?,
+        })
+    }
+}
+
+fn validate_blocks(columns: &HashMap<u64, Vec<GramBlock>>, record_count: u32) -> Result<(), String> {
+    for blocks in columns.values() {
+        let mut previous_end = None;
+        for block in blocks {
+            if block.bits == 0 {
+                return Err("empty bigram block".into());
+            }
+            let end = block.first_slot.checked_add(63 - block.bits.leading_zeros())
+                .ok_or("bigram slot overflow")?;
+            if end >= record_count || previous_end.is_some_and(|previous| block.first_slot <= previous) {
+                return Err("bigram block coverage or order mismatch".into());
+            }
+            previous_end = Some(end);
+        }
+    }
+    Ok(())
+}
+
+fn convert_blocks(
+    columns: HashMap<u64, Vec<GramBlock>>,
+    record_count: u32,
+) -> Result<HashMap<u64, RoaringBitmap>, String> {
+    validate_blocks(&columns, record_count)?;
+    columns.into_iter().map(|(key, blocks)| {
+        let slots = blocks.into_iter().flat_map(|block| {
+            let mut bits = block.bits;
+            std::iter::from_fn(move || {
+                if bits == 0 { return None; }
+                let offset = bits.trailing_zeros();
+                bits &= bits - 1;
+                Some(block.first_slot + offset)
+            })
+        });
+        let mut posting = RoaringBitmap::new();
+        posting.append(slots).map_err(|_| "bigram blocks are not ordered")?;
+        Ok((key, posting))
+    }).collect()
+}
+
 /// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
 /// domain; Unicode keeps only keys touched by the current chunk.
 enum GramWords {
@@ -354,7 +459,7 @@ impl GramWords {
 /// The builder can start at any final slot and publishes each touched gram
 /// once per chunk, with record bits mapped to final slots at publication.
 pub(crate) struct BigramBuilder {
-    index: BigramIndex,
+    contribution: BigramContribution,
     normal: GramWords,
     skip: GramWords,
     chunk_start: u32,
@@ -367,10 +472,10 @@ impl BigramBuilder {
     }
 
     pub fn new_at(alphabet: BigramAlphabet, first_slot: u32) -> Self {
-        let mut index = BigramIndex::new(alphabet);
-        index.record_count = first_slot;
+        let mut contribution = BigramContribution::new(alphabet);
+        contribution.record_count = first_slot;
         Self {
-            index,
+            contribution,
             normal: GramWords::new(alphabet),
             skip: GramWords::new(alphabet),
             chunk_start: 0,
@@ -379,16 +484,16 @@ impl BigramBuilder {
     }
 
     fn begin_slot(&mut self, slot: RecordSlot) -> Result<u64, String> {
-        if slot.0 != self.index.record_count {
+        if slot.0 != self.contribution.record_count {
             return Err("bigram slots must be added in record order".into());
         }
-        let next = self.index.record_count.checked_add(1).ok_or("bigram record overflow")?;
+        let next = self.contribution.record_count.checked_add(1).ok_or("bigram record overflow")?;
         if self.chunk_len == 0 {
             self.chunk_start = slot.0;
         }
         let bit = 1u64 << self.chunk_len;
         self.chunk_len += 1;
-        self.index.record_count = next;
+        self.contribution.record_count = next;
         Ok(bit)
     }
 
@@ -423,7 +528,7 @@ impl BigramBuilder {
     }
 
     fn add_segment(&mut self, bit: u64, segment: &str) {
-        let alphabet = self.index.alphabet;
+        let alphabet = self.contribution.alphabet;
         let (normal, skip) = (&mut self.normal, &mut self.skip);
         for_each_gram(folded_chars(segment), alphabet, |is_skip, key| {
             if is_skip {
@@ -444,39 +549,26 @@ impl BigramBuilder {
 
     fn flush(&mut self) -> Result<(), String> {
         let start = self.chunk_start;
-        let append = |columns: &mut HashMap<u64, RoaringBitmap>, key, mut word: u64| {
-            let posting = columns.entry(key).or_default();
-            while word != 0 {
-                let offset = word.trailing_zeros();
-                let slot = start.checked_add(offset).ok_or("bigram slot overflow")?;
-                posting.insert(slot);
-                word &= word - 1;
-            }
-            Ok::<(), String>(())
-        };
-        let mut error = None;
         self.normal.drain(|key, word| {
-            if error.is_none() {
-                error = append(&mut self.index.normal, key, word).err();
-            }
+            self.contribution.normal.entry(key).or_default().push(GramBlock { first_slot: start, bits: word });
         });
         self.skip.drain(|key, word| {
-            if error.is_none() {
-                error = append(&mut self.index.skip, key, word).err();
-            }
+            self.contribution.skip.entry(key).or_default().push(GramBlock { first_slot: start, bits: word });
         });
-        if let Some(error) = error {
-            return Err(error);
-        }
         self.chunk_len = 0;
         Ok(())
     }
 
-    pub fn finish(mut self) -> Result<BigramIndex, String> {
+    pub fn finish_blocks(mut self) -> Result<BigramContribution, String> {
         if self.chunk_len != 0 {
             self.flush()?;
         }
-        Ok(self.index)
+        Ok(self.contribution)
+    }
+
+    #[cfg(test)]
+    pub fn finish(self) -> Result<BigramIndex, String> {
+        self.finish_blocks()?.into_index()
     }
 }
 

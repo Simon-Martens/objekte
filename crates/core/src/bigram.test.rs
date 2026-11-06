@@ -111,6 +111,60 @@ fn chunked_builder_checks_slot_arithmetic_before_publication() {
 }
 
 #[test]
+fn shifted_blocks_match_incremental_bitmaps_at_chunk_and_container_boundaries() {
+    let pool = rayon::ThreadPoolBuilder::new().num_threads(2).build().unwrap();
+    let patterns: &[&[&str]] = &[&["ab", "cd"], &["aßb"], &["Straße", "Müller"], &[""], &[]];
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        for base in [0u32, 3, 65_535] {
+            for length in [0usize, 63, 64, 65, 511, 512, 513] {
+                let mut blocks = BigramContribution::new(alphabet);
+                blocks.record_count = base;
+                let mut old = BigramIndex::new(alphabet);
+                old.record_count = base;
+                let mut offset = 0;
+                while offset < length {
+                    let end = (offset + 57).min(length);
+                    let mut local = BigramBuilder::new(alphabet);
+                    let mut reference = BigramBuilder::new(alphabet);
+                    for slot in offset..end {
+                        let segments = patterns[slot % patterns.len()];
+                        local.add_record(RecordSlot((slot - offset) as u32), segments.iter().copied()).unwrap();
+                        reference.add_record(RecordSlot((slot - offset) as u32), segments.iter().copied()).unwrap();
+                    }
+                    let at = base + offset as u32;
+                    blocks.merge_shifted(local.finish_blocks().unwrap(), at).unwrap();
+                    old.merge_shifted(reference.finish().unwrap(), at).unwrap();
+                    offset = end;
+                }
+                let built = blocks.into_index_in_pool(&pool).unwrap();
+                assert_eq!(built.record_count, old.record_count);
+                assert_eq!(built.normal, old.normal, "normal {alphabet:?} base={base} len={length}");
+                assert_eq!(built.skip, old.skip, "skip {alphabet:?} base={base} len={length}");
+                for literal in ["ab", "bc", "aßb", "STRASSE", "MÜLLER", "missing"] {
+                    assert_eq!(built.candidates(literal), old.candidates(literal));
+                }
+            }
+        }
+    }
+}
+
+#[test]
+fn block_admission_rejects_coverage_alphabet_and_slot_overflow() {
+    let mut global = BigramContribution::new(BigramAlphabet::Ascii);
+    let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
+    local.add_record(RecordSlot(0), ["ab"]).unwrap();
+    assert!(global.merge_shifted(local.finish_blocks().unwrap(), 1).is_err());
+    let mut unicode = BigramBuilder::new(BigramAlphabet::Unicode);
+    unicode.add_record(RecordSlot(0), ["ab"]).unwrap();
+    assert!(global.merge_shifted(unicode.finish_blocks().unwrap(), 0).is_err());
+    global.record_count = u32::MAX - 1;
+    let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
+    local.add_record(RecordSlot(0), ["ab"]).unwrap();
+    local.add_record(RecordSlot(1), ["cd"]).unwrap();
+    assert!(global.merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1).is_err());
+}
+
+#[test]
 fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
     use crate::model::LogicalType;
     use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};

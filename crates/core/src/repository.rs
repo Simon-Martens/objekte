@@ -9,7 +9,7 @@ use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
-use crate::bigram::BigramIndex;
+use crate::bigram::{BigramContribution, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inventory::{
     CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus,
@@ -121,11 +121,11 @@ struct PendingCollection {
     builder: CollectionBuilder,
     postings: PostingCollection,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
-    raw: BigramIndex,
-    fallback_text: BigramIndex,
+    raw: BigramContribution,
+    fallback_text: BigramContribution,
     logical_records: RoaringBitmap,
     sort_builder: SortBuilder,
-    custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    custom_text: HashMap<(Vec<String>, String), BigramContribution>,
 }
 
 enum ScheduledBuildJob {
@@ -581,8 +581,8 @@ impl Repository {
                     )
                 })
                 .collect();
-            let raw = BigramIndex::new(options.bigram_alphabet);
-            let fallback_text = BigramIndex::new(options.bigram_alphabet);
+            let raw = BigramContribution::new(options.bigram_alphabet);
+            let fallback_text = BigramContribution::new(options.bigram_alphabet);
             let logical_records = RoaringBitmap::new();
             let sort_builder = SortBuilder::new(
                 &definition.sort_fields,
@@ -608,7 +608,7 @@ impl Repository {
                 .map(|key| {
                     (
                         canonical_custom_text_key(&definition.schema, &key.0, &key.1),
-                        BigramIndex::new(options.bigram_alphabet),
+                        BigramContribution::new(options.bigram_alphabet),
                     )
                 })
                 .collect();
@@ -727,6 +727,11 @@ impl Repository {
             } = state;
             let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;
+            let raw = raw.into_index_in_pool(&build_pool)?;
+            let fallback_text = fallback_text.into_index_in_pool(&build_pool)?;
+            let custom_text = custom_text.into_iter()
+                .map(|(key, index)| index.into_index_in_pool(&build_pool).map(|index| (key, index)))
+                .collect::<Result<HashMap<_, _>, _>>()?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
             postings.validate_eligible(generation.records.len(), logical_records.len() as usize)?;

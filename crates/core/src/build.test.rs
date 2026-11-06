@@ -1,4 +1,5 @@
 use super::*;
+use crate::bigram::BigramIndex;
 use crate::model::{FieldPath, LogicalType};
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
