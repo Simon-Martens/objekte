@@ -4,6 +4,7 @@ use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
 use std::sync::Mutex;
+use std::sync::atomic::{AtomicU64, Ordering};
 use std::time::Instant;
 
 use crate::bigram::BigramIndex;
@@ -27,6 +28,12 @@ use crate::source::{
 };
 use crate::workload::{BigramAlphabet, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
+
+static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
+
+pub(crate) fn next_repository_instance() -> u64 {
+    NEXT_REPOSITORY_INSTANCE.fetch_add(1, Ordering::Relaxed)
+}
 
 
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -222,6 +229,7 @@ pub struct Repository {
     pub(crate) sources: SourceRegistry,
     pub(crate) build_parses: u64,
     pub(crate) build_failed_parses: u64,
+    pub(crate) instance_id: u64,
     pub(crate) options: RepositoryOptions,
     pub(crate) startup: StartupStats,
     pub(crate) workers: rayon::ThreadPool,
@@ -751,14 +759,20 @@ impl Repository {
             let generation = builder.finish(&files)?;
             postings.finish_stats();
             postings.validate(generation.records.len())?;
+            postings.validate_domain(&logical_records)?;
             for custom in custom_postings.values_mut() {
                 custom.index.finish_stats();
                 custom.index.validate(generation.records.len())?;
+                custom.index.validate_domain(&logical_records)?;
             }
             raw.validate(generation.records.len())?;
+            raw.validate_domain(&logical_records)?;
             fallback_text.validate(generation.records.len())?;
+            let all_slots: RoaringBitmap = (0..generation.records.len() as u32).collect();
+            fallback_text.validate_domain(&(&all_slots - &logical_records))?;
             for index in custom_text.values() {
                 index.validate(generation.records.len())?;
+                index.validate_domain(&logical_records)?;
             }
             let sorting = sort_builder.finish(&generation)?;
             let id_lookup = generation
@@ -811,6 +825,7 @@ impl Repository {
             sources: sources.clone(),
             build_parses,
             build_failed_parses,
+            instance_id: next_repository_instance(),
             options,
             startup: StartupStats::default(),
             workers: Self::create_workers(options.query_workers)?,

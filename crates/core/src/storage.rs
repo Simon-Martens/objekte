@@ -725,6 +725,7 @@ pub fn load_snapshot(
         sources: sources.clone(),
         build_parses: 0,
         build_failed_parses: 0,
+        instance_id: crate::repository::next_repository_instance(),
         options,
         startup: StartupStats::default(),
         workers: Repository::create_workers(options.query_workers)?,

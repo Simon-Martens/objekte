@@ -13,6 +13,7 @@ pub mod inventory;
 pub mod model;
 pub mod path_repr;
 pub mod posting;
+pub mod posting_values;
 mod prepared;
 pub mod query;
 mod record_preparation;

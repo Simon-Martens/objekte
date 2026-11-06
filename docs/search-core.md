@@ -262,6 +262,17 @@ bodies. Requested page bytes/logical values still pass through revision-checked
 reads. The standard benchmark disables source-byte and decoded-record caches;
 its raw samples report prepared-plan and verified-result hits independently.
 
+## Posting values
+
+`Repository::posting_values` reads a registered field's typed B-tree posting
+dictionary. It returns the stored keys, distinct record counts, structured
+eligible and unavailable record totals, and separate field-presence and
+explicit-null totals. A named default binding returns its mapped posting keys;
+incomplete custom coverage is an error. Pages use posting-key order, which is
+separate from ICU record sorting. The in-process exclusive continuation is
+bound to the repository instance, collection generation, field and binding.
+Enumeration reads no source files.
+
 ## Persistence and freshness
 
 The ASCII and Unicode snapshot files are under the fixture's `.objekte/`
