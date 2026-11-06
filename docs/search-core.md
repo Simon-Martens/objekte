@@ -103,6 +103,15 @@ index falls back to scanner evaluation. The binding version and default/raw
 selection participate in snapshot compatibility; prepared and verified caches
 belong to the opened repository generation.
 
+Custom source readers own their extracted text segments, including omissions
+and segment boundaries. A temporal schema declaration does not replace those
+segments with strings gathered from the logical value. The built-in JSON and
+JSONL readers explicitly derive logical string segments after temporal
+conversion, so a coerced date is not indexed as ordinary text. Whole-record
+raw bigrams can restrict an ordinary field predicate only when the reader
+declares intact coverage of every logical string and the indexed representation
+matches the predicate.
+
 Collection discovery has explicit recursion, include/exclude globs, hidden-file,
 and symlink settings. Its defaults select regular files directly in the
 declared directory with the registered reader's extension. Following links is

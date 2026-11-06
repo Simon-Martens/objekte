@@ -20,7 +20,7 @@ use crate::reference::{
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
     ExtractedRecord, PreparedSource, SourceFormat, SourceRegistry, TextSegment,
-    extract_file_with_reader, read_record_range, text_segments,
+    extract_file_with_reader, finalize_extracted_text, read_record_range,
 };
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
@@ -458,9 +458,7 @@ impl Repository {
                         .map_err(|error| {
                             format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
                         })?;
-                    if definition.schema.has_temporal_fields() {
-                        extracted.text = text_segments(&extracted.value);
-                    }
+                    finalize_extracted_text(source.reader(), &mut extracted, definition.schema.has_temporal_fields());
                     let record_id = (|| -> Result<RecordId, String> {
                         match &definition.identity {
                             IdentityPolicy::Filename => {
@@ -729,9 +727,8 @@ impl Repository {
                     .definition
                     .schema
                     .coerce_record(&mut extracted.value)?;
-                if collection.definition.schema.has_temporal_fields() {
-                    extracted.text = text_segments(&extracted.value);
-                }
+                finalize_extracted_text(collection.source.reader(), &mut extracted,
+                    collection.definition.schema.has_temporal_fields());
                 let ctx = RecordContext {
                     value: &extracted.value,
                     source_bytes: Some(&bytes),

@@ -24,7 +24,8 @@ use crate::reference::{
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{
-    ExtractedRecord, RecordRangeReader, ScanProjection, read_record_range, read_record_ranges, text_segments,
+    ExtractedRecord, RecordRangeReader, ScanProjection, finalize_extracted_text,
+    read_record_range, read_record_ranges,
 };
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
@@ -544,8 +545,9 @@ fn scan_file(
                         &mut extracted.value, record_projection.top_level.as_ref(),
                     )?;
                 }
-                if projection.collect_text && collection.definition.schema.has_temporal_fields() {
-                    extracted.text = text_segments(&extracted.value);
+                if projection.collect_text {
+                    finalize_extracted_text(collection.source.reader(), &mut extracted,
+                        collection.definition.schema.has_temporal_fields());
                 }
                 outcome.record_parses += 1;
                 extracted

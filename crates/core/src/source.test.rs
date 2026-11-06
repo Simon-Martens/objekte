@@ -3,6 +3,105 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 struct TinyReader(Arc<AtomicUsize>);
 
+struct TemporalSegmentsReader;
+
+impl SourceReader for TemporalSegmentsReader {
+    fn name(&self) -> &'static str { "temporal_segments" }
+
+    fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
+        Ok(vec![ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        let text = std::str::from_utf8(bytes).map_err(|error| error.to_string())?;
+        let mut parts = text.split('|');
+        let title = parts.next().ok_or("missing title")?;
+        let body = parts.next().ok_or("missing body")?;
+        let date = parts.next().ok_or("missing date")?;
+        let (first, second) = body.split_once('^').ok_or("missing body boundary")?;
+        Ok(ExtractedRecord {
+            value: Value::Object(std::collections::BTreeMap::from([
+                ("title".into(), Value::String(title.into())),
+                ("body".into(), Value::String(body.into())),
+                ("date".into(), Value::String(date.into())),
+            ])),
+            text: vec![
+                TextSegment { path: vec!["body".into()], text: first.into() },
+                TextSegment { path: vec!["body".into()], text: second.into() },
+            ],
+        })
+    }
+}
+
+#[test]
+fn temporal_registration_does_not_replace_reader_owned_text() {
+    use crate::model::LogicalType;
+    use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
+    use crate::reference::{FieldDefinition, Schema};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
+    use crate::workload::{BigramAlphabet, ReturnMode};
+
+    let root = std::env::temp_dir().join(format!("objekte-temporal-segments-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.seg"), b"secret title|needle^here|2026-01-02").unwrap();
+    let definition = |temporal| {
+        let mut schema = Schema::default();
+        if temporal {
+            schema.register_field(FieldDefinition { path: vec!["date".into()],
+                kind: LogicalType::Date, required: true, nullable: false,
+                indexed: true, multi: false, element_nullable: vec![] }).unwrap();
+        }
+        CollectionDefinition { name: "data".into(), source_path: "data".into(),
+            format: SourceFormat::registered("seg"), identity: IdentityPolicy::Filename,
+            discovery: Default::default(), schema, sort_fields: vec![], sort_locale: "de".into(),
+            sort_options: Default::default(), sort_overrides: Default::default() }
+    };
+    let sources = || {
+        let mut sources = SourceRegistry::builtin();
+        sources.register("seg", 1, "seg", Arc::new(TemporalSegmentsReader)).unwrap();
+        sources
+    };
+    let fts = |text: &str, field: Option<&str>| Query { collections: vec!["data".into()],
+        filter: None, fts: Some(FtsQuery { literal: text.into(), fields: field.map(|name| vec![
+            FtsField { path: crate::model::FieldPath::parse(name).unwrap(), binding: None }
+        ]).unwrap_or_default() }),
+        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
+            return_mode: ReturnMode::Locator, evidence: true } };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        for temporal in [false, true] {
+            let options = RepositoryOptions { bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::ReadWrite, ..Default::default() };
+            for open in 0..2 {
+                let repo = Repository::open_with_sources(&root, vec![definition(temporal)], options, sources()).unwrap();
+                assert_eq!(repo.startup().restored, open == 1);
+                for (text, field, count, evidence) in [
+                    ("needle", None, 1, vec!["body"]),
+                    ("here", Some("body"), 1, vec!["body"]),
+                    ("needle^here", None, 0, vec![]),
+                    ("secret", None, 0, vec![]),
+                    ("secret", Some("title"), 0, vec![]),
+                ] {
+                    let found = repo.search(&fts(text, field)).unwrap();
+                    assert_eq!(found.count, Some(count), "{alphabet:?} {temporal} {text} {field:?}");
+                    if count == 1 { assert_eq!(found.hits[0].matched_fields, evidence); }
+                }
+                if temporal {
+                    let query = Query { collections: vec!["data".into()], fts: None,
+                        filter: Some(parse_filter("date = '2026-01-02'").unwrap()),
+                        options: QueryOptions { sort: vec![], limit: 10, offset: 0, count: true,
+                            return_mode: ReturnMode::Logical, evidence: true } };
+                    let result = repo.search(&query).unwrap();
+                    assert_eq!(result.count, Some(1));
+                    assert!(matches!(&result.hits[0].payload,
+                        Some(crate::repository::Payload::Logical(Value::Object(fields)))
+                        if matches!(fields["date"], Value::Date(_))));
+                }
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"

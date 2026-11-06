@@ -56,13 +56,31 @@ pub struct ScanProjection {
     pub collect_text: bool,
 }
 
-/// Whether extracted segments contain every logical string field. A custom
-/// reader must opt in explicitly; its default segments are reader-owned and
-/// may deliberately omit fields present in the logical record.
+/// Whether each logical string field appears as an intact, unchanged text
+/// segment. A custom reader must opt in explicitly; its default segments are
+/// reader-owned and may omit or split fields present in the logical record.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum LogicalTextCoverage {
     AllStringFields,
     ReaderSelected,
+}
+
+/// Owner of searchable segments after logical type conversion.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum TextDerivation {
+    ReaderSegments,
+    LogicalStringsAfterConversion,
+}
+
+pub fn finalize_extracted_text(
+    reader: &dyn SourceReader,
+    record: &mut ExtractedRecord,
+    converted_temporal_fields: bool,
+) {
+    if converted_temporal_fields
+        && reader.text_derivation() == TextDerivation::LogicalStringsAfterConversion {
+        record.text = text_segments(&record.value);
+    }
 }
 
 impl ScanProjection {
@@ -76,6 +94,7 @@ impl ScanProjection {
 
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
+    fn text_derivation(&self) -> TextDerivation { TextDerivation::ReaderSegments }
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
         LogicalTextCoverage::ReaderSelected
     }
@@ -311,6 +330,8 @@ impl SourceReader for JsonReader {
         LogicalTextCoverage::AllStringFields
     }
 
+    fn text_derivation(&self) -> TextDerivation { TextDerivation::LogicalStringsAfterConversion }
+
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
         if file.iter().all(u8::is_ascii_whitespace) {
             return Ok(Vec::new());
@@ -343,6 +364,8 @@ impl SourceReader for JsonLinesReader {
     fn logical_text_coverage(&self) -> LogicalTextCoverage {
         LogicalTextCoverage::AllStringFields
     }
+
+    fn text_derivation(&self) -> TextDerivation { TextDerivation::LogicalStringsAfterConversion }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
         let mut result = Vec::new();
