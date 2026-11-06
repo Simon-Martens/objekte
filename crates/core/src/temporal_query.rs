@@ -27,6 +27,7 @@ pub struct PeriodLiteral {
     pub date_start: Date,
     pub date_end: Option<Date>,
     pub has_time: bool,
+    pub macro_instant: bool,
 }
 
 
@@ -67,8 +68,47 @@ fn utc_nanos(date: Date) -> i128 {
     date.midnight().assume_utc().unix_timestamp_nanos()
 }
 
+fn ceil_utc_date(nanos: i128) -> Result<Date, String> {
+    let instant = OffsetDateTime::from_unix_timestamp_nanos(nanos)
+        .map_err(|_| "macro instant out of Date range")?;
+    let date = instant.date();
+    if nanos == utc_nanos(date) {
+        Ok(date)
+    } else {
+        date.next_day()
+            .ok_or("macro instant exceeds Date range".into())
+    }
+}
+
 
 impl PeriodLiteral {
+    pub fn calendar(start: Date, end: Date) -> Self {
+        Self {
+            start_ns: utc_nanos(start),
+            end_ns: utc_nanos(end),
+            date_start: start,
+            date_end: Some(end),
+            has_time: false,
+            macro_instant: false,
+        }
+    }
+
+    pub fn instant(start_ns: i128) -> Result<Self, String> {
+        let end_ns = start_ns.checked_add(1).ok_or("instant macro overflow")?;
+        let instant = OffsetDateTime::from_unix_timestamp_nanos(start_ns)
+            .map_err(|_| "instant macro out of range")?;
+        OffsetDateTime::from_unix_timestamp_nanos(end_ns)
+            .map_err(|_| "instant macro end out of range")?;
+        Ok(Self {
+            start_ns,
+            end_ns,
+            date_start: instant.date(),
+            date_end: None,
+            has_time: true,
+            macro_instant: true,
+        })
+    }
+
     pub fn parse(text: &str) -> Result<Self, String> {
         if text.len() == 7 {
             if text.as_bytes().get(4) != Some(&b'-') {
@@ -100,6 +140,7 @@ impl PeriodLiteral {
                 date_start: start,
                 date_end: Some(end),
                 has_time: false,
+                macro_instant: false,
             });
         }
         if text.len() == 10 {
@@ -111,6 +152,7 @@ impl PeriodLiteral {
                 date_start: start,
                 date_end: Some(end),
                 has_time: false,
+                macro_instant: false,
             });
         }
         let (clock, offset) = if let Some(clock) = text.strip_suffix('Z') {
@@ -142,7 +184,7 @@ impl PeriodLiteral {
         {
             return Err("invalid temporal timestamp".into());
         }
-        let calendar = date(&clock[..10])?;
+        let calendar = date(clock.get(..10).ok_or("invalid temporal date boundary")?)?;
         let hour = u8::try_from(digits(clock, 11, 13)?).map_err(|_| "invalid hour")?;
         let minute = u8::try_from(digits(clock, 14, 16)?).map_err(|_| "invalid minute")?;
         let mut second = 0;
@@ -189,6 +231,7 @@ impl PeriodLiteral {
             date_start: calendar,
             date_end: None,
             has_time: true,
+            macro_instant: false,
         })
     }
 
@@ -197,6 +240,10 @@ impl PeriodLiteral {
             LogicalType::Date if !self.has_time => (
                 Value::Date(self.date_start),
                 Value::Date(self.date_end.ok_or("missing calendar period end")?),
+            ),
+            LogicalType::Date if self.macro_instant => (
+                Value::Date(ceil_utc_date(self.start_ns)?),
+                Value::Date(ceil_utc_date(self.end_ns)?),
             ),
             LogicalType::Date => return Err("time-of-day period cannot compare with Date".into()),
             LogicalType::Datetime => (

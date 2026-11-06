@@ -92,6 +92,7 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
         }],
         RepositoryOptions {
             snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         },
     )
@@ -134,6 +135,124 @@ fn typed_periods_preserve_half_open_scalar_and_array_answers() {
         parse_filter("issued = 2024").unwrap(),
         objekte_search_core::query::FilterExpr::Term(_)
     ));
+    let today = query("issued = @today");
+    let february = time::OffsetDateTime::parse(
+        "2024-02-29T23:59:59Z",
+        &time::format_description::well_known::Rfc3339,
+    )
+    .unwrap();
+    let march = time::OffsetDateTime::parse(
+        "2024-03-01T00:00:00Z",
+        &time::format_description::well_known::Rfc3339,
+    )
+    .unwrap();
+    let before = today.with_clock(february).unwrap();
+    let after = today.with_clock(march).unwrap();
+    for (request, expected) in [
+        (&before, vec!["A"]),
+        (&after, vec!["B"]),
+        (&before, vec!["A"]),
+    ] {
+        let actual = repo.search(request).unwrap();
+        let reference = repo.search_reference(request).unwrap();
+        assert_eq!(actual.hits, reference.hits);
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected
+        );
+    }
+    assert!(repo.search(&before).unwrap().counters.verified_result_hit);
+    let month_query = query("issued = @thisMonth").with_clock(february).unwrap();
+    assert_eq!(
+        repo.search(&month_query)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "C"]
+    );
+    let mut next_page = month_query.clone();
+    next_page.options.limit = 1;
+    next_page.options.offset = 1;
+    assert_eq!(repo.search(&next_page).unwrap().hits[0].record_id, "C");
+    let date_end = query("issued <= @todayEnd").with_clock(february).unwrap();
+    assert_eq!(
+        repo.search(&date_end)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A", "C"]
+    );
+    assert!(
+        repo.search(&query("issued = @todayEnd").with_clock(february).unwrap())
+            .unwrap()
+            .hits
+            .is_empty()
+    );
+    let instant = time::OffsetDateTime::parse(
+        "2026-11-06T13:30:59Z",
+        &time::format_description::well_known::Rfc3339,
+    )
+    .unwrap();
+    let now_query = query("created = @now").with_clock(instant).unwrap();
+    let now_matches = repo.search(&now_query).unwrap();
+    assert_eq!(
+        now_matches
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A"]
+    );
+    assert_eq!(
+        now_matches.hits,
+        repo.search_reference(&now_query).unwrap().hits
+    );
+    let half_second = time::OffsetDateTime::parse(
+        "1969-12-31T23:59:59.5Z",
+        &time::format_description::well_known::Rfc3339,
+    )
+    .unwrap();
+    let unix_query = query("epoch >= @now").with_clock(half_second).unwrap();
+    let unix_matches = repo.search(&unix_query).unwrap();
+    assert_eq!(
+        unix_matches
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["B", "C"]
+    );
+    assert_eq!(
+        unix_matches.hits,
+        repo.search_reference(&unix_query).unwrap().hits
+    );
+    let last_ns = query("epoch <= @todayEnd").with_clock(half_second).unwrap();
+    let before_midnight = repo.search(&last_ns).unwrap();
+    assert_eq!(
+        before_midnight
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["A"]
+    );
+    assert_eq!(
+        before_midnight.hits,
+        repo.search_reference(&last_ns).unwrap().hits
+    );
+    assert!(
+        repo.search(&query("issued = @unknown"))
+            .unwrap_err()
+            .contains("unknown time macro")
+    );
     drop(repo);
     std::fs::remove_dir_all(root).unwrap();
 }

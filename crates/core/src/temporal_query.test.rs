@@ -49,6 +49,7 @@ fn invalid_calendar_and_timestamp_forms_fail() {
         "2026-11-06T14:30:60Z",
         "2026-11-06T14:30:15.1234567890Z",
         "2026-11-06T14:30+24:00",
+        "2026-11-0éT14:30Z",
     ] {
         assert!(PeriodLiteral::parse(text).is_err(), "{text}");
     }

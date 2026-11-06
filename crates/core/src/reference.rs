@@ -850,6 +850,9 @@ fn bind_literal_term(
             parameter_literal = Literal::Null;
             &parameter_literal
         }
+        Operand::Macro { name, .. } => {
+            return Err(format!("unresolved time macro @{name}"));
+        }
         Operand::Field(field) => {
             return Err(format!(
                 "field operand at byte {} is not yet supported by the binder",
