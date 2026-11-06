@@ -102,6 +102,100 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+struct OutcomeReader {
+    ranges: Vec<ByteRange>,
+    parses: Arc<AtomicUsize>,
+    fail_framing: bool,
+}
+
+impl SourceReader for OutcomeReader {
+    fn name(&self) -> &'static str { "outcome" }
+    fn frame(&self, _: &[u8]) -> Result<Vec<ByteRange>, String> { Ok(self.ranges.clone()) }
+    fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
+        if self.fail_framing {
+            Err(ReaderFailure::Malformed(ReaderDiagnostic::new(
+                DiagnosticCategory::Framing, "outcome.frame", "recoverable framing error")))
+        } else { self.frame(file).map_err(ReaderFailure::Fatal) }
+    }
+    fn parse(&self, _: &[u8]) -> Result<ExtractedRecord, String> {
+        Err("use typed outcome".into())
+    }
+    fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        self.parses.fetch_add(1, Ordering::Relaxed);
+        if bytes == b"bad" {
+            Err(ReaderFailure::Malformed(ReaderDiagnostic::new(
+                DiagnosticCategory::Syntax, "outcome.syntax", "recoverable record error")))
+        } else {
+            Ok(ExtractedRecord { value: Value::Object(Default::default()), text: Vec::new() })
+        }
+    }
+}
+
+#[test]
+fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
+    let root = std::env::temp_dir().join(format!("objekte-reader-ranges-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.outcome");
+    std::fs::write(&path, b"ok\nbad").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let parses = Arc::new(AtomicUsize::new(0));
+    for ranges in [
+        vec![ByteRange { start: 5, end: 2 }],
+        vec![ByteRange { start: 0, end: 7 }],
+        vec![ByteRange { start: 0, end: 3 }, ByteRange { start: 2, end: 6 }],
+        vec![ByteRange { start: 4, end: 6 }, ByteRange { start: 0, end: 2 }],
+    ] {
+        let reader = OutcomeReader { ranges, parses: parses.clone(), fail_framing: false };
+        let error = extract_file_outcomes(&path, &reader, revision, |_| Ok(())).unwrap_err();
+        assert!(error.contains("reader contract"), "{error}");
+        assert_eq!(parses.load(Ordering::Relaxed), 0);
+    }
+    let reader = OutcomeReader { ranges: vec![ByteRange { start: 0, end: 2 },
+        ByteRange { start: 3, end: 6 }], parses: parses.clone(), fail_framing: false };
+    let mut kinds = Vec::new();
+    let counters = extract_file_outcomes(&path, &reader, revision, |outcome| {
+        kinds.push(match outcome {
+            SourceOutcome::Logical { range, .. } => (range, "logical"),
+            SourceOutcome::Malformed { range, diagnostic } => {
+                assert_eq!(diagnostic.code, "outcome.syntax");
+                (range, "malformed")
+            }
+        });
+        Ok(())
+    }).unwrap();
+    assert_eq!(kinds, [(ByteRange { start: 0, end: 2 }, "logical"),
+        (ByteRange { start: 3, end: 6 }, "malformed")]);
+    assert_eq!(counters.framed_records, 2);
+    assert_eq!(counters.record_parses, 1);
+    assert_eq!(counters.failed_parses, 1);
+    let framing = OutcomeReader { ranges: Vec::new(), parses: parses.clone(), fail_framing: true };
+    let mut fallback = None;
+    extract_file_outcomes(&path, &framing, revision, |outcome| {
+        if let SourceOutcome::Malformed { range, diagnostic } = outcome {
+            fallback = Some((range, diagnostic.category));
+        }
+        Ok(())
+    }).unwrap();
+    assert_eq!(fallback, Some((ByteRange { start: 0, end: 6 }, DiagnosticCategory::Framing)));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn json_reader_reports_syntax_and_encoding_positions() {
+    let reader = JsonReader;
+    let syntax = reader.parse_outcome(b"{\n\"title\":,}").unwrap_err();
+    let ReaderFailure::Malformed(syntax) = syntax else { panic!("malformed syntax") };
+    assert_eq!(syntax.category, DiagnosticCategory::Syntax);
+    assert_eq!(syntax.code, "json.parse");
+    assert_eq!(syntax.line, Some(2));
+    assert!(syntax.column.is_some());
+    assert!(syntax.relative_byte.is_some_and(|offset| offset < 13));
+    let encoding = reader.parse_outcome(b"{\"title\":\"\xff\"}").unwrap_err();
+    let ReaderFailure::Malformed(encoding) = encoding else { panic!("malformed encoding") };
+    assert_eq!(encoding.category, DiagnosticCategory::Encoding);
+    assert_eq!(encoding.relative_byte, Some(10));
+}
+
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"

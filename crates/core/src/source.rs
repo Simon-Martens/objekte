@@ -47,6 +47,45 @@ pub struct ExtractedRecord {
     pub text: Vec<TextSegment>,
 }
 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum DiagnosticCategory {
+    Framing,
+    Encoding,
+    Syntax,
+    LogicalValidation,
+    Io,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct ReaderDiagnostic {
+    pub category: DiagnosticCategory,
+    pub code: String,
+    pub message: String,
+    pub relative_byte: Option<u64>,
+    pub line: Option<u64>,
+    pub column: Option<u64>,
+    pub field_path: Option<Vec<String>>,
+}
+
+impl ReaderDiagnostic {
+    pub fn new(category: DiagnosticCategory, code: impl Into<String>, message: impl Into<String>) -> Self {
+        Self { category, code: code.into(), message: message.into(), relative_byte: None,
+            line: None, column: None, field_path: None }
+    }
+}
+
+#[derive(Clone, Debug)]
+pub enum ReaderFailure {
+    Malformed(ReaderDiagnostic),
+    Fatal(String),
+}
+
+pub enum SourceOutcome {
+    Logical { range: ByteRange, record: ExtractedRecord },
+    Malformed { range: ByteRange, diagnostic: ReaderDiagnostic },
+}
+
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
 /// the source reader while JSON syntax is still checked.
@@ -100,6 +139,12 @@ pub trait SourceReader: Send + Sync {
     }
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
+    fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
+        self.frame(file).map_err(ReaderFailure::Fatal)
+    }
+    fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        self.parse(bytes).map_err(ReaderFailure::Fatal)
+    }
     fn intrinsic_id(
         &self,
         record: &ExtractedRecord,
@@ -264,29 +309,58 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     }
 }
 
-fn parse_json_for_query(
+fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
+    let invalid_utf8 = std::str::from_utf8(bytes).err();
+    let category = if invalid_utf8.is_some() { DiagnosticCategory::Encoding }
+        else { DiagnosticCategory::Syntax };
+    let mut issue = ReaderDiagnostic::new(category, "json.parse", error.to_string());
+    issue.line = (error.line() > 0).then_some(error.line() as u64);
+    issue.column = (error.column() > 0).then_some(error.column() as u64);
+    if let Some(invalid) = invalid_utf8 {
+        issue.relative_byte = Some(invalid.valid_up_to() as u64);
+    } else if let (Some(line), Some(column)) = (issue.line, issue.column) {
+        let mut start = 0usize;
+        for _ in 1..line {
+            let Some(next) = bytes[start..].iter().position(|byte| *byte == b'\n') else {
+                return issue;
+            };
+            start += next + 1;
+        }
+        issue.relative_byte = Some((start as u64).saturating_add(column.saturating_sub(1))
+            .min(bytes.len() as u64));
+    }
+    issue
+}
+
+fn parse_json_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
-) -> Result<ExtractedRecord, String> {
+) -> Result<ExtractedRecord, ReaderDiagnostic> {
     let json = if let Some(fields) = &projection.top_level {
         let mut deserializer = serde_json::Deserializer::from_slice(bytes);
         let selected = SelectedObject(fields)
             .deserialize(&mut deserializer)
-            .map_err(|e| e.to_string())?;
-        deserializer.end().map_err(|e| e.to_string())?;
+            .map_err(|e| json_issue(bytes, e))?;
+        deserializer.end().map_err(|e| json_issue(bytes, e))?;
         serde_json::Value::Object(selected)
     } else {
-        serde_json::from_slice(bytes).map_err(|e| e.to_string())?
+        serde_json::from_slice(bytes).map_err(|e| json_issue(bytes, e))?
     };
-    let value = Value::from_json(json)?;
+    let value = Value::from_json(json).map_err(|error| ReaderDiagnostic::new(
+        DiagnosticCategory::LogicalValidation, "json.value", error))?;
     if !matches!(value, Value::Object(_)) {
-        return Err("record root must be an object".into());
+        return Err(ReaderDiagnostic::new(DiagnosticCategory::LogicalValidation,
+            "json.root", "record root must be an object"));
     }
     let mut text = Vec::new();
     if projection.collect_text {
         collect_strings(&value, &mut Vec::new(), &mut text);
     }
     Ok(ExtractedRecord { value, text })
+}
+
+fn parse_json_for_query(bytes: &[u8], projection: &ScanProjection) -> Result<ExtractedRecord, String> {
+    parse_json_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
 }
 
 fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
@@ -347,6 +421,11 @@ impl SourceReader for JsonReader {
         parse_json(bytes)
     }
 
+    fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        parse_json_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(ReaderFailure::Malformed)
+    }
+
     fn parse_for_query(
         &self,
         bytes: &[u8],
@@ -396,6 +475,11 @@ impl SourceReader for JsonLinesReader {
         parse_json(bytes)
     }
 
+    fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        parse_json_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(ReaderFailure::Malformed)
+    }
+
     fn parse_for_query(
         &self,
         bytes: &[u8],
@@ -410,6 +494,7 @@ impl SourceReader for JsonLinesReader {
 pub struct ExtractionCounters {
     pub framed_records: u64,
     pub record_parses: u64,
+    pub failed_parses: u64,
 }
 
 /// Call `consume` once for every independently parseable record. No index
@@ -436,6 +521,39 @@ pub fn extract_file_with_reader<F>(
 where
     F: FnMut(ByteRange, ExtractedRecord) -> Result<(), String>,
 {
+    extract_file_outcomes(path, source, expected, |outcome| match outcome {
+        SourceOutcome::Logical { range, record } => consume(range, record),
+        SourceOutcome::Malformed { range, diagnostic } => Err(format!(
+            "{}:{}..{}: {}", path.display(), range.start, range.end, diagnostic.message
+        )),
+    })
+}
+
+fn validate_reader_ranges(ranges: &[ByteRange], file_size: usize) -> Result<(), String> {
+    let size = u64::try_from(file_size).map_err(|_| "source size overflow")?;
+    let mut previous_end = 0u64;
+    for range in ranges {
+        ByteRange::checked(range.start, range.end, size)
+            .map_err(|error| format!("reader contract: {error}"))?;
+        usize::try_from(range.start).map_err(|_| "reader contract: range start overflow")?;
+        usize::try_from(range.end).map_err(|_| "reader contract: range end overflow")?;
+        if range.start < previous_end {
+            return Err("reader contract: record ranges overlap or are out of order".into());
+        }
+        previous_end = range.end;
+    }
+    Ok(())
+}
+
+pub fn extract_file_outcomes<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
+    mut consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
     check_revision(path, &file, expected)?;
     let mut bytes = Vec::new();
@@ -444,18 +562,36 @@ where
     if bytes.len() as u64 != expected.size {
         return Err("stale source revision during extraction".into());
     }
-    let ranges = source
-        .frame(&bytes)
-        .map_err(|e| format!("{}: {e}", path.display()))?;
+    let ranges = match source.frame_outcome(&bytes) {
+        Ok(ranges) => ranges,
+        Err(ReaderFailure::Malformed(diagnostic)) => {
+            let size = u64::try_from(bytes.len()).map_err(|_| "source size overflow")?;
+            let range = ByteRange::checked(0, size, size)?;
+            consume(SourceOutcome::Malformed { range, diagnostic })?;
+            check_revision(path, &file, expected)?;
+            return Ok(ExtractionCounters { framed_records: 1, record_parses: 0, failed_parses: 0 });
+        }
+        Err(ReaderFailure::Fatal(error)) => return Err(format!("{}: reader fatal: {error}", path.display())),
+    };
+    validate_reader_ranges(&ranges, bytes.len())?;
     let mut counters = ExtractionCounters::default();
     for range in ranges {
         let part = &bytes[range.start as usize..range.end as usize];
-        let record = source
-            .parse(part)
-            .map_err(|e| format!("{}:{}..{}: {e}", path.display(), range.start, range.end))?;
-        counters.record_parses += 1;
         counters.framed_records += 1;
-        consume(range, record)?;
+        match source.parse_outcome(part) {
+            Ok(record) => {
+                counters.record_parses += 1;
+                consume(SourceOutcome::Logical { range, record })?;
+            }
+            Err(ReaderFailure::Malformed(diagnostic)) => {
+                counters.failed_parses += 1;
+                consume(SourceOutcome::Malformed { range, diagnostic })?;
+            }
+            Err(ReaderFailure::Fatal(error)) => {
+                return Err(format!("{}:{}..{}: reader fatal: {error}",
+                    path.display(), range.start, range.end));
+            }
+        }
     }
     check_revision(path, &file, expected)?;
     Ok(counters)
