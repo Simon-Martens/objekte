@@ -4,12 +4,58 @@ use std::collections::{HashMap, HashSet};
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
+use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
 use crate::model::RecordSlot;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;
 
-pub const BIGRAM_VERSION: u32 = 1;
+pub const BIGRAM_VERSION: u32 = 2;
+pub const FOLDED_REPRESENTATION: &str = "unicode-casefold-0.2.0/unicode-9.0.0/full/non-turkic";
+
+pub(crate) fn fold(text: &str) -> String {
+    folded_chars(text).collect()
+}
+
+fn folded_chars(text: &str) -> impl Iterator<Item = char> + '_ {
+    text.case_fold_with(Variant::Full, Locale::NonTurkic)
+}
+
+/// Emit windows over the folded stream without losing unsupported ASCII byte
+/// positions or joining independent reader-owned segments.
+fn for_each_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool, u64)) {
+    match alphabet {
+        BigramAlphabet::Ascii => {
+            let (mut previous, mut before_previous) = (None, None);
+            for scalar in folded_chars(text) {
+                let mut buffer = [0u8; 4];
+                for &byte in scalar.encode_utf8(&mut buffer).as_bytes() {
+                    if let Some(left) = previous.and_then(|left| ascii_pair(left, byte)) {
+                        emit(false, left);
+                    }
+                    if let Some(left) = before_previous.and_then(|left| ascii_pair(left, byte)) {
+                        emit(true, left);
+                    }
+                    before_previous = previous;
+                    previous = Some(byte);
+                }
+            }
+        }
+        BigramAlphabet::Unicode => {
+            let (mut previous, mut before_previous) = (None, None);
+            for scalar in folded_chars(text) {
+                if let Some(left) = previous {
+                    emit(false, unicode_pair(left, scalar));
+                }
+                if let Some(left) = before_previous {
+                    emit(true, unicode_pair(left, scalar));
+                }
+                before_previous = previous;
+                previous = Some(scalar);
+            }
+        }
+    }
+}
 
 
 /// Record-level bigram postings for one text binding.
@@ -62,30 +108,13 @@ impl BigramIndex {
         let mut normal = HashSet::new();
         let mut skip = HashSet::new();
         for segment in segments {
-            match self.alphabet {
-                BigramAlphabet::Ascii => {
-                    let bytes = segment.text.as_bytes();
-                    for pair in bytes.windows(2) {
-                        if let Some(key) = ascii_pair(pair[0], pair[1]) {
-                            normal.insert(key);
-                        }
-                    }
-                    for triple in bytes.windows(3) {
-                        if let Some(key) = ascii_pair(triple[0], triple[2]) {
-                            skip.insert(key);
-                        }
-                    }
+            for_each_gram(&segment.text, self.alphabet, |is_skip, key| {
+                if is_skip {
+                    skip.insert(key);
+                } else {
+                    normal.insert(key);
                 }
-                BigramAlphabet::Unicode => {
-                    let chars: Vec<char> = segment.text.chars().collect();
-                    for pair in chars.windows(2) {
-                        normal.insert(unicode_pair(pair[0], pair[1]));
-                    }
-                    for triple in chars.windows(3) {
-                        skip.insert(unicode_pair(triple[0], triple[2]));
-                    }
-                }
-            }
+            });
         }
         for gram in normal {
             self.normal.entry(gram).or_default().insert(slot.0);
@@ -151,40 +180,10 @@ impl BigramIndex {
 
     fn query_grams(&self, literal: &str) -> Option<HashSet<(bool, u64)>> {
         let mut grams = HashSet::new();
-        match self.alphabet {
-            BigramAlphabet::Ascii => {
-                let bytes = literal.as_bytes();
-                if bytes.len() < 2 {
-                    return None;
-                }
-                for pair in bytes.windows(2) {
-                    if let Some(key) = ascii_pair(pair[0], pair[1]) {
-                        grams.insert((false, key));
-                    }
-                }
-                for triple in bytes.windows(3) {
-                    if let Some(key) = ascii_pair(triple[0], triple[2]) {
-                        grams.insert((true, key));
-                    }
-                }
-                if grams.is_empty() {
-                    return None;
-                }
-            }
-            BigramAlphabet::Unicode => {
-                let chars: Vec<char> = literal.chars().collect();
-                if chars.len() < 2 {
-                    return None;
-                }
-                for pair in chars.windows(2) {
-                    grams.insert((false, unicode_pair(pair[0], pair[1])));
-                }
-                for triple in chars.windows(3) {
-                    grams.insert((true, unicode_pair(triple[0], triple[2])));
-                }
-            }
-        }
-        Some(grams)
+        for_each_gram(literal, self.alphabet, |is_skip, key| {
+            grams.insert((is_skip, key));
+        });
+        (!grams.is_empty()).then_some(grams)
     }
 
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
@@ -216,7 +215,7 @@ fn ascii_pair(a: u8, b: u8) -> Option<u64> {
     if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
         return None;
     }
-    Some(((a.to_ascii_lowercase() as u64) << 8) | b.to_ascii_lowercase() as u64)
+    Some(((a as u64) << 8) | b as u64)
 }
 
 fn unicode_pair(a: char, b: char) -> u64 {

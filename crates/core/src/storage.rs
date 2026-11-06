@@ -11,7 +11,7 @@ use bincode::Options;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
-use crate::bigram::{BIGRAM_VERSION, BigramIndex};
+use crate::bigram::{BIGRAM_VERSION, BigramIndex, FOLDED_REPRESENTATION};
 use crate::inventory::{
     CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision,
 };
@@ -178,6 +178,7 @@ pub fn configuration_hash(
     hash.update(crate::MODEL_VERSION.to_le_bytes());
     hash.update(SNAPSHOT_VERSION.to_le_bytes());
     hash.update(BIGRAM_VERSION.to_le_bytes());
+    feed(&mut hash, FOLDED_REPRESENTATION.as_bytes());
     feed(&mut hash, std::env::consts::OS.as_bytes());
     feed(&mut hash, COLLATION_VERSION.as_bytes());
     hash.update([match options.bigram_alphabet {

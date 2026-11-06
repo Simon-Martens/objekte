@@ -1,6 +1,64 @@
 use super::*;
 
 #[test]
+fn full_non_turkic_fold_precedes_all_gram_windows() {
+    assert_eq!(fold("Straße Σ ς İ I ı"), "strasse σ σ i\u{307} i ı");
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut index = BigramIndex::new(alphabet);
+        let segments = vec![TextSegment {
+            path: vec!["name".into()],
+            text: "aßb".into(),
+        }];
+        index.add_record(RecordSlot(0), &segments).unwrap();
+        for literal in ["aßb", "assb", "SS", "ß", "sB"] {
+            assert!(
+                index
+                    .candidates(literal)
+                    .is_some_and(|slots| slots.contains(0)),
+                "{alphabet:?} {literal:?}"
+            );
+        }
+        assert!(index.normal.contains_key(&match alphabet {
+            BigramAlphabet::Ascii => ascii_pair(b's', b's').unwrap(),
+            BigramAlphabet::Unicode => unicode_pair('s', 's'),
+        }));
+        assert!(index.skip.contains_key(&match alphabet {
+            BigramAlphabet::Ascii => ascii_pair(b'a', b's').unwrap(),
+            BigramAlphabet::Unicode => unicode_pair('a', 's'),
+        }));
+    }
+}
+
+#[test]
+fn unsupported_ascii_bytes_keep_their_window_positions() {
+    let mut ascii = BigramIndex::new_ascii();
+    ascii
+        .add_record(
+            RecordSlot(0),
+            &[TextSegment {
+                path: vec![],
+                text: "aüb".into(),
+            }],
+        )
+        .unwrap();
+    assert!(ascii.candidates("aüb").is_none());
+    assert!(!ascii.normal.contains_key(&ascii_pair(b'a', b'b').unwrap()));
+    assert!(!ascii.skip.contains_key(&ascii_pair(b'a', b'b').unwrap()));
+    let mut unicode = BigramIndex::new(BigramAlphabet::Unicode);
+    unicode
+        .add_record(
+            RecordSlot(0),
+            &[TextSegment {
+                path: vec![],
+                text: "aüb".into(),
+            }],
+        )
+        .unwrap();
+    assert!(unicode.candidates("AÜB").unwrap().contains(0));
+    assert!(unicode.candidates("ü").is_none());
+}
+
+#[test]
 fn conservative_ascii_candidates_keep_segments_and_records_separate() {
     let mut index = BigramIndex::new_ascii();
     for (slot, parts) in [

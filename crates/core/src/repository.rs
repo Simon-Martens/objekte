@@ -27,7 +27,6 @@ use crate::source::{
     SourceOutcome, SourceRegistry, TextSegment, extract_file_outcomes, read_record_range,
 };
 use crate::workload::{BigramAlphabet, WorkCounters};
-use unicode_casefold::UnicodeCaseFold;
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
 
@@ -734,7 +733,7 @@ impl Repository {
                                         } else {
                                             match definition.schema.custom[key].transform {
                                                 Transform::Identity => text.clone(),
-                                                Transform::CaseFold => text.case_fold().collect(),
+                                                Transform::CaseFold => crate::bigram::fold(text),
                                             }
                                         };
                                         segments.push(TextSegment {

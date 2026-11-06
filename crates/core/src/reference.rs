@@ -5,8 +5,7 @@ use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
-use unicode_casefold::UnicodeCaseFold;
-
+use crate::bigram::fold;
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
 use crate::query::{
@@ -574,10 +573,7 @@ impl PreparedTextMatcher for MappedTextMatcher {
         let mapped = self.operation.map_text(text);
         Ok(match self.case_sensitivity {
             CaseSensitivity::Sensitive => mapped.contains(&self.literal),
-            CaseSensitivity::Insensitive => mapped
-                .case_fold()
-                .collect::<String>()
-                .contains(&self.literal),
+            CaseSensitivity::Insensitive => fold(&mapped).contains(&self.literal),
         })
     }
 
@@ -814,9 +810,7 @@ fn prepare_literal(
         _ => return Err(format!("literal is incompatible with {kind:?}")),
     };
     Ok(match value {
-        Value::String(s) if transform == Transform::CaseFold => {
-            Value::String(s.case_fold().collect())
-        }
+        Value::String(s) if transform == Transform::CaseFold => Value::String(fold(&s)),
         other => other,
     })
 }
@@ -932,7 +926,7 @@ fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) 
     let transformed;
     let lhs = if transform == Transform::CaseFold {
         if let Value::String(s) = lhs {
-            transformed = Value::String(s.case_fold().collect());
+            transformed = Value::String(fold(s));
             &transformed
         } else {
             return false;
@@ -1291,7 +1285,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
                     Arc::new(MappedTextMatcher {
                         operation: op.clone(),
                         literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
-                            literal.case_fold().collect()
+                            fold(&literal)
                         } else {
                             literal.clone()
                         },
@@ -1337,7 +1331,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         let needle = if let Some(op) = &operation {
             op.prepare_fts_literal(&fts.literal)?
         } else if transform == Transform::CaseFold {
-            fts.literal.case_fold().collect()
+            fold(&fts.literal)
         } else {
             fts.literal.clone()
         };
@@ -1354,7 +1348,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
                         Arc::new(MappedTextMatcher {
                             operation: op.clone(),
                             literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
-                                needle.case_fold().collect()
+                                fold(&needle)
                             } else {
                                 needle.clone()
                             },
@@ -1367,7 +1361,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         fields.push(BoundFtsField {
             path: selected.path.clone(),
             binding_name: name,
-            folded_literal: needle.case_fold().collect(),
+            folded_literal: fold(&needle),
             literal: needle,
             transform,
             operation,
@@ -1376,8 +1370,8 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     }
     Ok(BoundFts {
         case_sensitivity: fts.case_sensitivity,
-        folded_literal: literal.case_fold().collect(),
-        folded_source_literal: fts.literal.case_fold().collect(),
+        folded_literal: fold(&literal),
+        folded_source_literal: fold(&fts.literal),
         literal,
         source_literal: fts.literal.clone(),
         raw_operation,
@@ -1402,7 +1396,7 @@ fn text_contains(
         } else {
             needle
         };
-        Ok(text.case_fold().collect::<String>().contains(needle))
+        Ok(fold(text).contains(needle))
     } else {
         Ok(text.contains(needle))
     }
@@ -1411,10 +1405,7 @@ fn text_contains(
 pub fn raw_fallback_contains(fts: &BoundFts, text: &str) -> bool {
     match fts.case_sensitivity {
         CaseSensitivity::Sensitive => text.contains(&fts.source_literal),
-        CaseSensitivity::Insensitive => text
-            .case_fold()
-            .collect::<String>()
-            .contains(&fts.folded_source_literal),
+        CaseSensitivity::Insensitive => fold(text).contains(&fts.folded_source_literal),
     }
 }
 
