@@ -75,7 +75,9 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
         .unwrap();
         assert_eq!(restored.files.files.len(), 2);
         assert_eq!(restored.files.files[0].collections.len(), 2);
+        assert!(restored.files.files.iter().all(|file| file.status == crate::inventory::FileStatus::Valid && file.diagnostics.is_empty()));
         assert_eq!(restored.collections[0].generation.records.len(), 2);
+        assert!(restored.collections[0].generation.records.iter().all(|record| record.class == crate::inventory::RecordClass::Logical && record.diagnostic_ref == crate::inventory::DiagnosticRef(0)));
         assert_eq!(
             restored.collections[0].generation.file_records.slots.len(),
             2

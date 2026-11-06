@@ -7,6 +7,93 @@ use std::time::SystemTime;
 use serde::{Deserialize, Serialize};
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
+use crate::source::DiagnosticCategory;
+
+pub const MAX_DIAGNOSTICS_PER_FILE: usize = 64;
+pub const MAX_DIAGNOSTIC_MESSAGE_BYTES: usize = 256;
+
+/// Stable physical-file state codes in snapshots and public results.
+#[repr(u8)]
+#[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
+pub enum FileStatus { #[default] Valid = 0, Broken = 1, Unreadable = 2 }
+
+impl FileStatus {
+    pub fn code(self) -> u8 { self as u8 }
+    pub fn label(self) -> &'static str { match self {
+        Self::Valid => "Valid", Self::Broken => "Broken", Self::Unreadable => "Unreadable" } }
+}
+
+impl Serialize for FileStatus {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        serializer.serialize_u8(self.code())
+    }
+}
+
+impl<'de> Deserialize<'de> for FileStatus {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        match u8::deserialize(deserializer)? {
+            0 => Ok(Self::Valid), 1 => Ok(Self::Broken), 2 => Ok(Self::Unreadable),
+            code => Err(serde::de::Error::custom(format!("unsupported file status code {code}"))),
+        }
+    }
+}
+
+#[repr(u8)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum RecordClass { #[default] Logical = 0, RawFallback = 1 }
+
+impl RecordClass { pub fn code(self) -> u8 { self as u8 } }
+
+impl Serialize for RecordClass {
+    fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+        serializer.serialize_u8(self.code())
+    }
+}
+
+impl<'de> Deserialize<'de> for RecordClass {
+    fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+        match u8::deserialize(deserializer)? {
+            0 => Ok(Self::Logical), 1 => Ok(Self::RawFallback),
+            code => Err(serde::de::Error::custom(format!("unsupported record class code {code}"))),
+        }
+    }
+}
+
+/// Zero means no diagnostic, `u32::MAX` means omitted by the per-file cap,
+/// and other values are one-based indexes into the file diagnostic table.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub struct DiagnosticRef(pub u32);
+
+impl DiagnosticRef {
+    pub fn stored_index(self) -> Option<usize> {
+        (self.0 != 0 && self.0 != u32::MAX).then_some(self.0.saturating_sub(1) as usize)
+    }
+    pub fn omitted(self) -> bool { self.0 == u32::MAX }
+}
+
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct SourceDiagnostic {
+    pub file: FileId,
+    pub collection: CollectionId,
+    pub source_id: String,
+    pub source_version: u32,
+    pub record: Option<RecordSlot>,
+    pub range: Option<ByteRange>,
+    pub category: DiagnosticCategory,
+    pub code: String,
+    pub field_path: Option<Vec<String>>,
+    pub byte_offset: Option<u64>,
+    pub line: Option<u64>,
+    pub column: Option<u64>,
+    pub message: String,
+}
+
+fn truncate_message(message: &str) -> String {
+    if message.len() <= MAX_DIAGNOSTIC_MESSAGE_BYTES { return message.into(); }
+    let mut end = MAX_DIAGNOSTIC_MESSAGE_BYTES;
+    while !message.is_char_boundary(end) { end -= 1; }
+    message[..end].into()
+}
 
 
 /// Size and modification time recorded for a source file.
@@ -39,6 +126,9 @@ pub struct FileEntry {
     pub revision: SourceRevision,
     pub created_ns: Option<i128>,
     pub collections: Vec<CollectionId>,
+    pub status: FileStatus,
+    pub diagnostics: Vec<SourceDiagnostic>,
+    pub omitted_diagnostics: u32,
 }
 
 
@@ -89,8 +179,68 @@ impl FileInventory {
             revision,
             created_ns,
             collections: vec![collection],
+            status: FileStatus::Valid,
+            diagnostics: Vec::new(),
+            omitted_diagnostics: 0,
         });
         Ok(id)
+    }
+
+    pub fn record_diagnostic(&mut self, file: FileId, mut diagnostic: SourceDiagnostic) -> Result<DiagnosticRef, String> {
+        let entry = self.files.get_mut(file.0 as usize).ok_or("diagnostic file out of bounds")?;
+        if diagnostic.file != file || !entry.collections.contains(&diagnostic.collection) {
+            return Err("diagnostic ownership mismatch".into());
+        }
+        entry.status = entry.status.max(match diagnostic.category {
+            DiagnosticCategory::Io => FileStatus::Unreadable,
+            _ => FileStatus::Broken,
+        });
+        if entry.diagnostics.len() == MAX_DIAGNOSTICS_PER_FILE {
+            entry.omitted_diagnostics = entry.omitted_diagnostics.saturating_add(1);
+            return Ok(DiagnosticRef(u32::MAX));
+        }
+        diagnostic.message = truncate_message(&diagnostic.message);
+        let index = u32::try_from(entry.diagnostics.len() + 1).map_err(|_| "diagnostic index overflow")?;
+        entry.diagnostics.push(diagnostic);
+        Ok(DiagnosticRef(index))
+    }
+
+    pub fn diagnostic(&self, file: FileId, reference: DiagnosticRef) -> Option<&SourceDiagnostic> {
+        self.files.get(file.0 as usize)?.diagnostics.get(reference.stored_index()?)
+    }
+
+    pub fn validate_diagnostics(&self) -> Result<(), String> {
+        for (index, file) in self.files.iter().enumerate() {
+            if file.id.0 as usize != index || file.diagnostics.len() > MAX_DIAGNOSTICS_PER_FILE {
+                return Err("invalid file diagnostic table".into());
+            }
+            let derived = file.diagnostics.iter().fold(FileStatus::Valid, |status, diagnostic| {
+                status.max(match diagnostic.category {
+                    DiagnosticCategory::Io => FileStatus::Unreadable,
+                    _ => FileStatus::Broken,
+                })
+            });
+            if (file.omitted_diagnostics == 0 && file.status != derived)
+                || (file.omitted_diagnostics != 0
+                    && (file.status == FileStatus::Valid || derived == FileStatus::Valid || file.status < derived))
+            {
+                return Err("file status and diagnostics disagree".into());
+            }
+            for diagnostic in &file.diagnostics {
+                if diagnostic.file != file.id
+                    || !file.collections.contains(&diagnostic.collection)
+                    || diagnostic.source_id.is_empty()
+                    || diagnostic.source_version == 0
+                    || diagnostic.code.is_empty()
+                    || diagnostic.message.len() > MAX_DIAGNOSTIC_MESSAGE_BYTES
+                    || diagnostic.range.is_some_and(|range| range.start > range.end || range.end > file.revision.size)
+                    || diagnostic.byte_offset.is_some_and(|offset| offset > file.revision.size)
+                {
+                    return Err("invalid source diagnostic".into());
+                }
+            }
+        }
+        Ok(())
     }
 
     pub fn rebuild_lookup(&mut self) -> Result<(), String> {
@@ -106,6 +256,7 @@ impl FileInventory {
                 return Err("invalid restored file inventory".into());
             }
         }
+        self.validate_diagnostics()?;
         Ok(())
     }
 
@@ -162,6 +313,8 @@ pub struct RecordEntry {
     pub file: FileId,
     pub range: ByteRange,
     pub revision: SourceRevision,
+    pub class: RecordClass,
+    pub diagnostic_ref: DiagnosticRef,
 }
 
 
@@ -239,6 +392,8 @@ impl CollectionGeneration {
                     || entry.revision != file.revision
                     || entry.range.start >= entry.range.end
                     || entry.range.end > file.revision.size
+                    || entry.class != RecordClass::Logical
+                    || entry.diagnostic_ref != DiagnosticRef(0)
                 {
                     return Err("record range or revision mismatch".into());
                 }
@@ -314,6 +469,8 @@ impl CollectionBuilder {
             file: file.id,
             range,
             revision: file.revision,
+            class: RecordClass::Logical,
+            diagnostic_ref: DiagnosticRef(0),
         });
         self.by_file[file.id.0 as usize].push(slot);
         Ok(slot)

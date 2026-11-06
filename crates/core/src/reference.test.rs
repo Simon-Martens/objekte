@@ -91,6 +91,8 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
             modified_ns: 0,
             size: 4,
         },
+        class: crate::inventory::RecordClass::Logical,
+        diagnostic_ref: crate::inventory::DiagnosticRef(0),
     };
     let file = FileEntry {
         id: FileId(0),
@@ -98,6 +100,9 @@ fn with_record<F: FnOnce(RecordContext<'_>)>(value: Value, f: F) {
         revision: record.revision,
         created_ns: None,
         collections: vec![],
+        status: crate::inventory::FileStatus::Valid,
+        diagnostics: vec![],
+        omitted_diagnostics: 0,
     };
     f(RecordContext {
         value: &value,

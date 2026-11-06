@@ -4,7 +4,7 @@
 //! workload execution live in the CLI integration layer.
 
 /// Version of the in-memory search model and future snapshot envelope.
-pub const MODEL_VERSION: u32 = 3;
+pub const MODEL_VERSION: u32 = 4;
 
 pub mod bigram;
 pub mod discovery;

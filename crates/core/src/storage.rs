@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::bigram::{BIGRAM_VERSION, BigramIndex};
-use crate::inventory::{CollectionGeneration, FileInventory, SourceRevision};
+use crate::inventory::{CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision};
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
 use crate::repository::{
@@ -23,7 +23,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 3;
+pub const SNAPSHOT_VERSION: u32 = 4;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -35,6 +35,9 @@ struct EncodedFile {
     revision: SourceRevision,
     created_ns: Option<i128>,
     collections: Vec<CollectionId>,
+    status: FileStatus,
+    diagnostics: Vec<SourceDiagnostic>,
+    omitted_diagnostics: u32,
 }
 
 
@@ -360,6 +363,9 @@ impl Repository {
                     revision: entry.revision,
                     created_ns: entry.created_ns,
                     collections: entry.collections.clone(),
+                    status: entry.status,
+                    diagnostics: entry.diagnostics.clone(),
+                    omitted_diagnostics: entry.omitted_diagnostics,
                 })
                 .collect();
             write_section(&mut file, 0, &files)?;
@@ -425,17 +431,22 @@ pub fn load_snapshot(
             return Err("invalid snapshot file identity".into());
         }
         let path = path_from_bytes(entry.relative_path)?;
-        for collection in entry.collections {
+        for collection in &entry.collections {
             if collection.0 as usize >= definitions.len() {
                 return Err("snapshot file collection out of bounds".into());
             }
-            let id = files.add(path.clone(), entry.revision, entry.created_ns, collection)?;
+            let id = files.add(path.clone(), entry.revision, entry.created_ns, *collection)?;
             if id != entry.id {
                 return Err("snapshot file ID mismatch".into());
             }
         }
+        let restored = &mut files.files[entry.id.0 as usize];
+        restored.status = entry.status;
+        restored.diagnostics = entry.diagnostics;
+        restored.omitted_diagnostics = entry.omitted_diagnostics;
     }
     files.rebuild_lookup()?;
+    files.validate_diagnostics()?;
     let mut collections = Vec::new();
     for (index, definition) in definitions.into_iter().enumerate() {
         let source = sources.resolve(&definition.format)?;
