@@ -1,14 +1,14 @@
 # Search core progress
 
-The new workspace builds only `core/`. The archived `old/` implementation and
-root `examples/` are preserved. The earlier code is available for algorithms
-and behavior checks, especially its bigram storage, typed filtering, and ICU
-sorting. The new crate will use record slots and file-to-record ownership;
-the archived index's file slots cannot be reused directly.
+The `development/local-file-search-core` branch builds only `core/`. The
+archived `old/` implementation and root `examples/` are preserved. The earlier
+code was inspected for algorithms and behavior checks, especially its bigram
+storage, typed filtering, and ICU sorting. The new crate uses record slots
+and file-to-record ownership; the archived index's file slots were not reused.
 
-No applicable new-core baseline exists. The archived benchmark data uses a
-different implementation and query contract. The first correct new-core
-query/build and restore revisions will establish their respective baselines.
+The archived benchmark data uses a different implementation and query
+contract. The first correct new-core query/build and restore revisions
+established the baseline artifacts linked below.
 
 ## Steps
 
@@ -42,6 +42,27 @@ query/build and restore revisions will establish their respective baselines.
 | C24b | complete | 10 fresh-process restores; 18 query samples; 0 failures | Revision-tied restore baseline at `64b5df7b68` |
 | C25 | complete | `cargo test --workspace --all-targets`; full 150-case scanner comparisons under both alphabets | Cross-component acceptance and focused regressions |
 | C26 | complete | `cargo fmt --all && cargo test --workspace --all-targets`; reference Q013/Q024; five-run before/after | Safe ASCII gram subsets of mixed Unicode literals, commit `012f6fd518` |
+| C27 | complete | 150 cases × four profiles × five repetitions; five builds and 25 fresh-process restores per alphabet; zero failures | [Final report](../bench/results/musenalm/final-8dd0c2aa6d/REPORT.md), measured code `8dd0c2aa6d`, artifact commit `30c9c00baa` |
+| C28 | complete | `cargo fmt --all --check`, workspace tests, CLI smoke, artifact and local-link checks | [Implementation guide](search-core.md), this documentation commit |
+
+## Pushed commit map
+
+- C01–C08: `7c53d836f4`, `87937b872f`, `80bfa9ce83`, `cf492152bf`,
+  `8059a16e64`, `3fcd2b634d`, `db1993f0a1`, `8a41fd9d97`.
+- C09–C15: `fb5a1ec424`, `bde1cb95ac`, `28de9a5154`, `73f781237b`,
+  `416b4f3e0b`, `0877260b22`, `b3264cd909`.
+- C16a/C16b–C21: `472c00d838`, `147374eeb3`, `6b7d97799a`,
+  `65d6bcb091`, `3214c9e4ca`, `287d85c1ec`, `534c471e2f`.
+- C22–C25: `45cfe538af`, `f4b41e98eb`, `64b5df7b68`, `e78ee5e248`
+  (C24 restore baseline), `42c7314732`. Focused correctness and performance
+  commits between C24 and C26: `9ac24f6af8`, `2e3e6e3225`, `cef9917b69`,
+  `24ff83d641`, `0dabd09a67`, `771783bb87`, `449ffddc07`,
+  `88878a9fc6`, `efb0c73860`.
+- C26: `012f6fd518` for the measured index change and `0aa3d39c20` for its
+  before/after artifacts. C27 reporting and controls: `6e6db5f62a`,
+  `090f0df34c` (earlier complete report), and `8dd0c2aa6d` (configurable
+  verified cache budget). The final code-revision report is `30c9c00baa`.
+  This C28 guide and ledger are in the next documentation commit.
 
 ## Decisions
 
@@ -147,8 +168,8 @@ zero failures. The saved baseline is
 [`bench/results/musenalm/baseline-472c00d838/REPORT.md`](../bench/results/musenalm/baseline-472c00d838/REPORT.md)
 with 900 raw samples, all 150 cases under both cache-disabled alphabets, and
 zero failures. On this revision the full ASCII build took 13.695 s and the
-Unicode build 15.039 s. Restore and verified-cache measurements remain
-pending. No timings are inferred from the archived program.
+Unicode build 15.039 s. That revision had no restore or verified-cache
+measurement. No timings are inferred from the archived program.
 
 A three-case uncached check after C19 (three repetitions; ASCII and Unicode)
 matched the baseline results. For Q141 the ASCII median was 25.955 ms versus
@@ -180,7 +201,16 @@ records the revised ASCII bigram filtering on the same corpus and five-run
 cache-disabled measurements. Q024 fell from a 1,943.550 ms median to 72.028 ms
 as candidate parses fell from 133,948 to 4,636; Q013 fell from 298.875 ms to
 244.523 ms with parses dropping from 4,010 to 2,143. Single-character controls
-continue to scan. The full final workload remains required.
+continue to scan. The complete final workload is recorded below.
+
+The final [revision-tied report](../bench/results/musenalm/final-8dd0c2aa6d/REPORT.md)
+contains all 3,000 fixed query samples and 600 plans, five independent builds
+and 25 fresh-process restores per alphabet, with absolute times and ranges.
+The final code also passed all 150 cases against the independent scanner under
+each alphabet; [full logs](../bench/results/musenalm/acceptance-final-8dd0c2aa6d/REPORT.md)
+retain every outcome. The final report records actual cache hits, optimizer
+candidate/source-work reductions, slower cases, memory costs, and the exact
+reproduction command.
 
 The manifest is a transcription of Section 21 of `implement.md`; all 150
 queries parse, bind, and execute against the current fixture. The report format
