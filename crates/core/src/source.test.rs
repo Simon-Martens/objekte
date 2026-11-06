@@ -36,6 +36,101 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     }
 }
 
+#[test]
+fn reusable_build_buffer_clears_bytes_and_keeps_outcome_ownership() {
+    let root = std::env::temp_dir().join(format!("objekte-reusable-buffer-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let mut buffer = Vec::new();
+    let mut outcomes = Vec::new();
+    for (name, contents) in [
+        ("short.json", &b"{\"x\":\"a\"}"[..]),
+        ("long.json", &b"{\"x\":\"a much longer value\"}"[..]),
+        ("broken.json", &b"{"[..]),
+        ("again.json", &b"{\"x\":\"b\"}"[..]),
+    ] {
+        let path = root.join(name);
+        std::fs::write(&path, contents).unwrap();
+        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+        extract_file_build_outcomes_reusing(&path, &JsonReader, revision, &mut buffer, |outcome| {
+            match outcome {
+                SourceOutcome::Logical { record, .. } => {
+                    let Value::Object(fields) = &record.value else { panic!("expected object") };
+                    let Value::String(text) = &fields["x"] else { panic!("expected string") };
+                    outcomes.push(format!("logical:{text}"));
+                    assert!(record.text.is_empty());
+                }
+                SourceOutcome::Malformed { bytes, .. } => {
+                    outcomes.push(format!("malformed:{}", String::from_utf8(bytes).unwrap()));
+                }
+                SourceOutcome::Unreadable { .. } => outcomes.push("unreadable".into()),
+            }
+            Ok(())
+        }).unwrap();
+        assert_eq!(buffer.as_slice(), contents);
+    }
+    let missing = root.join("absent.json");
+    extract_file_build_outcomes_reusing(&missing, &JsonReader,
+        SourceRevision { modified_ns: 0, size: 0 }, &mut buffer,
+        |outcome| {
+            assert!(matches!(outcome, SourceOutcome::Unreadable { .. }));
+            Ok(())
+        }).unwrap();
+    assert!(buffer.is_empty());
+    assert_eq!(outcomes, ["logical:a", "logical:a much longer value", "malformed:{", "logical:b"]);
+
+    let empty = root.join("empty.jsonl");
+    std::fs::write(&empty, b"").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&empty).unwrap()).unwrap();
+    extract_file_build_outcomes_reusing(&empty, &JsonLinesReader, revision, &mut buffer,
+        |_| panic!("empty file must have no records")).unwrap();
+    assert!(buffer.is_empty());
+
+    let framing = root.join("framing.outcome");
+    std::fs::write(&framing, b"owned bytes").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&framing).unwrap()).unwrap();
+    let reader = OutcomeReader { ranges: vec![], parses: Arc::new(AtomicUsize::new(0)), fail_framing: true };
+    extract_file_build_outcomes_reusing(&framing, &reader, revision, &mut buffer, |outcome| {
+        assert!(matches!(outcome, SourceOutcome::Malformed { bytes, .. } if bytes == b"owned bytes"));
+        Ok(())
+    }).unwrap();
+    assert!(buffer.is_empty());
+    let again = root.join("again.json");
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&again).unwrap()).unwrap();
+    extract_file_build_outcomes_reusing(&again, &JsonReader, revision, &mut buffer, |outcome| {
+        assert!(matches!(outcome, SourceOutcome::Logical { .. }));
+        Ok(())
+    }).unwrap();
+    assert_eq!(buffer, b"{\"x\":\"b\"}");
+
+    let path = root.join("siblings.jsonl");
+    std::fs::write(&path, b"{\"x\":\"one\"}\n{\n{\"x\":\"two\"}\n").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut states = Vec::new();
+    extract_file_build_outcomes_reusing(&path, &JsonLinesReader, revision, &mut buffer, |outcome| {
+        states.push(match outcome {
+            SourceOutcome::Logical { .. } => "logical",
+            SourceOutcome::Malformed { bytes, .. } if bytes == b"{" => "malformed",
+            _ => "unexpected",
+        });
+        Ok(())
+    }).unwrap();
+    assert_eq!(states, ["logical", "malformed", "logical"]);
+    let oversized = root.join("oversized.json");
+    std::fs::write(&oversized, format!("{{\"x\":\"{}\"}}", "x".repeat(MAX_RETAINED_SOURCE_BYTES))).unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&oversized).unwrap()).unwrap();
+    let stats = extract_file_build_outcomes_reusing(&oversized, &JsonReader, revision, &mut buffer,
+        |outcome| {
+            assert!(matches!(outcome, SourceOutcome::Logical { .. }));
+            Ok(())
+        }).unwrap();
+    assert_eq!(stats.record_parses, 1);
+    assert_eq!(buffer.capacity(), 0);
+    let mut large = vec![0; MAX_RETAINED_SOURCE_BYTES + 1];
+    release_large_source_buffer(&mut large);
+    assert_eq!(large.capacity(), 0);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 
 struct TinyReader(Arc<AtomicUsize>);
 

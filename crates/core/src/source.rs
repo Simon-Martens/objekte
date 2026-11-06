@@ -774,31 +774,36 @@ pub fn extract_file_outcomes<F>(
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, false, consume)
+    extract_file_outcomes_impl(path, source, expected, false, &mut Vec::new(), consume)
 }
 
-pub(crate) fn extract_file_build_outcomes<F>(
+pub(crate) fn extract_file_build_outcomes_reusing<F>(
     path: &Path,
     source: &dyn SourceReader,
     expected: SourceRevision,
+    bytes: &mut Vec<u8>,
     consume: F,
 ) -> Result<ExtractionCounters, String>
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
-    extract_file_outcomes_impl(path, source, expected, true, consume)
+    extract_file_outcomes_impl(path, source, expected, true, bytes, consume)
 }
+
+const MAX_RETAINED_SOURCE_BYTES: usize = 8 * 1024 * 1024;
 
 fn extract_file_outcomes_impl<F>(
     path: &Path,
     source: &dyn SourceReader,
     expected: SourceRevision,
     for_build: bool,
+    bytes: &mut Vec<u8>,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
+    bytes.clear();
     let mut file = match std::fs::File::open(path) {
         Ok(file) => file,
         Err(error) => {
@@ -813,8 +818,13 @@ where
         }
     };
     check_revision(path, &file, expected)?;
-    let mut bytes = Vec::new();
-    if let Err(error) = file.read_to_end(&mut bytes) {
+    if let Ok(size) = usize::try_from(expected.size) {
+        if size <= MAX_RETAINED_SOURCE_BYTES && size > bytes.capacity() {
+            bytes.reserve(size);
+        }
+    }
+    if let Err(error) = file.read_to_end(bytes) {
+        release_large_source_buffer(bytes);
         consume(SourceOutcome::Unreadable {
             diagnostic: ReaderDiagnostic::new(
                 DiagnosticCategory::Io,
@@ -828,16 +838,16 @@ where
     if bytes.len() as u64 != expected.size {
         return Err("stale source revision during extraction".into());
     }
-    let ranges = match source.frame_outcome(&bytes) {
+    let ranges = match source.frame_outcome(bytes) {
         Ok(ranges) => ranges,
         Err(ReaderFailure::Malformed(mut diagnostic)) => {
             let size = u64::try_from(bytes.len()).map_err(|_| "source size overflow")?;
             let range = ByteRange::checked(0, size, size)?;
-            file_coordinates(&bytes, range, &mut diagnostic);
+            file_coordinates(bytes, range, &mut diagnostic);
             consume(SourceOutcome::Malformed {
                 range,
                 diagnostic,
-                bytes,
+                bytes: std::mem::take(bytes),
             })?;
             check_revision(path, &file, expected)?;
             return Ok(ExtractionCounters {
@@ -851,9 +861,16 @@ where
         }
     };
     validate_reader_ranges(&ranges, bytes.len())?;
-    let counters = extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
+    let counters = extract_framed_outcomes_impl(path, source, bytes, &ranges, for_build, &mut consume)?;
     check_revision(path, &file, expected)?;
+    release_large_source_buffer(bytes);
     Ok(counters)
+}
+
+fn release_large_source_buffer(bytes: &mut Vec<u8>) {
+    if bytes.capacity() > MAX_RETAINED_SOURCE_BYTES {
+        *bytes = Vec::new();
+    }
 }
 
 fn check_revision(

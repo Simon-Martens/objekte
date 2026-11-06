@@ -27,7 +27,7 @@ use crate::repository::{
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceOutcome,
-    TextDerivation, extract_file_build_outcomes, extract_framed_build_outcomes,
+    TextDerivation, extract_file_build_outcomes_reusing, extract_framed_build_outcomes,
     frame_file_for_build, read_record_range, visit_logical_strings,
 };
 use crate::workload::BigramAlphabet;
@@ -482,12 +482,13 @@ pub(crate) fn process_batch(
     let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
+    let mut read_buffer = Vec::new();
     for &file_id in file_ids {
         let original = &source_files[file_id.0 as usize];
         let path = root.join(&original.relative_path);
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
-        let stats = extract_file_build_outcomes(&path, source.reader(), file.revision, |outcome| {
+        let stats = extract_file_build_outcomes_reusing(&path, source.reader(), file.revision, &mut read_buffer, |outcome| {
             builder.outcome(&mut file, &path, outcome, None)
         })?;
         record_parses += stats.record_parses;
