@@ -1,5 +1,29 @@
 # Search core progress
 
+## Corrective pass (2026-11-06)
+
+Working branch: `fix/local-file-search-core-compliance`. Starting revision:
+`8e2e95b746` (the later TUI commit is retained). The uncommitted documentation
+move and `docs/development/fix.md` are unrelated working-tree inputs and are
+left intact. Findings checklist: A source/binding registration; B exact ID and
+null access; C type enforcement; D ranges, residuals, order/count; E bounded
+multi-record payloads; G discovery, optional schema, collation, immutable state.
+Finding F is excluded by the corrective specification.
+
+The current-state recording at `bench/results/musenalm/full-5887c7be02/`
+measured the scanner-change revision with four profiles, 32 workers, disabled
+decoded cache, and 5 repetitions. The build recording at `build-5887c7be02/`
+has three processes per alphabet/configuration. Later core changes through the
+starting revision were code layout only; the subsequent TUI crate does not
+affect core execution. These are candidate baselines, subject to final
+corpus/schema fingerprint and environment verification. The isolated old-core
+comparison is a separate 34-case ASCII logical-output measurement, not a
+substitute for the four-profile workload.
+
+| Corrective step | Status | Focused evidence |
+|---|---|---|
+| 1 / B: record ID lookup | complete | Reproduced folded ID miss; raw, case-folded, distinct-case, and Unicode IDs now match the independent scanner |
+
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier
 code was inspected for algorithms and behavior checks, especially its bigram

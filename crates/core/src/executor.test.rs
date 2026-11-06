@@ -16,6 +16,65 @@ fn plan_expr(
 }
 
 #[test]
+fn record_id_lookup_respects_case_fold_binding() {
+    let root = std::env::temp_dir().join(format!("objekte-id-fold-{}", std::process::id()));
+    let path = root.join("data");
+    std::fs::create_dir_all(&path).unwrap();
+    for id in ["ABC", "abc", "Straße", "STRASSE"] {
+        std::fs::write(path.join(format!("{id}.json")), "{}").unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            schema: Default::default(),
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+        }],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (filter, expected) in [
+        ("@record.id = 'abc'", vec!["abc"]),
+        ("@record.id = 'ABC'", vec!["ABC"]),
+        ("@record.id:lower = 'abc'", vec!["ABC", "abc"]),
+        ("@record.id:lower = 'STRASSE'", vec!["STRASSE", "Straße"]),
+    ] {
+        let query = Query {
+            collections: vec![],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 20,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        let mut actual = optimized
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>();
+        actual.sort_unstable();
+        assert_eq!(actual, expected, "{filter}");
+        assert_eq!(optimized.count, reference.count, "{filter}");
+        assert_eq!(optimized.hits, reference.hits, "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn indexed_restriction_precedes_written_first_scan() {
     let root = std::env::temp_dir().join(format!("objekte-executor-{}", std::process::id()));
     let path = root.join("data");

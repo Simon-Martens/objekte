@@ -110,7 +110,10 @@ fn term_set(
     domain: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
     if let PathRoot::Metadata(field) = term.path.root {
-        if field == MetadataField::RecordId && term.operator == Operator::Eq {
+        if field == MetadataField::RecordId
+            && term.operator == Operator::Eq
+            && term.transform == Transform::Identity
+        {
             if let Value::String(id) = &term.literal {
                 let mut result = RoaringBitmap::new();
                 if let Some(slot) = collection
@@ -224,7 +227,10 @@ fn enumerate_paths(
         });
     };
     if let PathRoot::Metadata(field) = term.path.root {
-        let work = if field == MetadataField::RecordId && term.operator == Operator::Eq {
+        let direct_id_lookup = field == MetadataField::RecordId
+            && term.operator == Operator::Eq
+            && term.transform == Transform::Identity;
+        let work = if direct_id_lookup {
             1.0
         } else if matches!(
             field,
@@ -241,11 +247,7 @@ fn enumerate_paths(
         } else {
             stats.file_count as f64
         };
-        let output = if field == MetadataField::RecordId && term.operator == Operator::Eq {
-            1
-        } else {
-            input_len / 2
-        };
+        let output = if direct_id_lookup { 1 } else { input_len / 2 };
         add(AccessPathKind::Metadata, true, work, output);
     } else {
         if let Some(index) = collection.postings.fields.get(&term.path.segments) {
