@@ -584,6 +584,67 @@ pub struct BoundFieldOperand {
 }
 
 
+/// Compare the exact semantics of two predicates within one collection plan.
+/// Source spans and gram requests locate/accelerate a predicate; neither is
+/// its identity. The enclosing plan supplies the collection-generation scope.
+pub(crate) fn same_bound_term(a: &BoundTerm, b: &BoundTerm) -> bool {
+    fn same_arc<T: ?Sized>(a: &Option<Arc<T>>, b: &Option<Arc<T>>) -> bool {
+        match (a, b) {
+            (None, None) => true,
+            (Some(a), Some(b)) => Arc::ptr_eq(a, b),
+            _ => false,
+        }
+    }
+    let same_rhs = match (&a.rhs, &b.rhs) {
+        (None, None) => true,
+        (Some(a), Some(b)) => {
+            a.path == b.path
+                && a.query_path == b.query_path
+                && a.kind == b.kind
+                && a.derived == b.derived
+                && a.transform == b.transform
+                && a.multi == b.multi
+                && same_arc(&a.operation, &b.operation)
+        }
+        _ => false,
+    };
+    let same_related = match (&a.related, &b.related) {
+        (None, None) => true,
+        (Some(a), Some(b)) => {
+            a.hops == b.hops
+                && a.target_is_lhs == b.target_is_lhs
+                && a.evidence_path == b.evidence_path
+                && same_bound_term(&a.terminal, &b.terminal)
+                && match (&a.source_operand, &b.source_operand) {
+                    (None, None) => true,
+                    (Some(a), Some(b)) => same_bound_term(a, b),
+                    _ => false,
+                }
+        }
+        _ => false,
+    };
+    a.path == b.path
+        && a.query_path == b.query_path
+        && a.kind == b.kind
+        && a.source_kind == b.source_kind
+        && a.operator == b.operator
+        && a.quantifier == b.quantifier
+        && a.literal == b.literal
+        && a.period.as_ref().map(|period| (&period.start, &period.end))
+            == b.period.as_ref().map(|period| (&period.start, &period.end))
+        && a.derived == b.derived
+        && a.transform == b.transform
+        && a.binding_name == b.binding_name
+        && a.binding_version == b.binding_version
+        && a.multi == b.multi
+        && a.implicit_array == b.implicit_array
+        && same_arc(&a.operation, &b.operation)
+        && same_arc(&a.matcher, &b.matcher)
+        && same_rhs
+        && same_related
+}
+
+
 #[derive(Debug)]
 struct MappedFilterMatcher {
     operation: Arc<dyn BindingOperation>,

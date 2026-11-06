@@ -21,7 +21,7 @@ use crate::query::{CaseSensitivity, FtsMode, Operator, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
-    eval_unavailable_filter,
+    eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
@@ -248,9 +248,10 @@ fn scan_projection(
     query: &Query,
     residual: Option<&Residual<'_>>,
     candidates: &RoaringBitmap,
+    fts_proven: bool,
 ) -> ScanProjection {
-    let collect_text = query.fts.is_some();
-    if query.fts.as_ref().is_some_and(|fts| fts.fields.is_empty()) {
+    let collect_text = query.fts.is_some() && !fts_proven;
+    if !fts_proven && query.fts.as_ref().is_some_and(|fts| fts.fields.is_empty()) {
         return ScanProjection::full(true);
     }
 
@@ -300,7 +301,9 @@ fn scan_projection(
     if let Some(residual) = residual {
         add_filter_fields(residual, candidates, &mut fields);
     }
-    if let Some(fts) = &query.fts {
+    if let Some(fts) = &query.fts
+        && !fts_proven
+    {
         for field in &fts.fields {
             if field.path.root == PathRoot::Data {
                 if let Some(first) = field.path.segments.first() {
@@ -335,7 +338,7 @@ fn prepare_residual<'a>(
             term,
             proofs
                 .iter()
-                .find(|proof| proof.term.span == term.span && proof.term.path == term.path),
+                .find(|proof| same_bound_term(&proof.term, term)),
         ),
         BoundExpr::And(parts) | BoundExpr::Or(parts) => {
             let is_and = matches!(expr, BoundExpr::And(_));
@@ -617,6 +620,7 @@ fn scan_file(
     collection_index: usize,
     residual: Option<&Residual<'_>>,
     fts: Option<&BoundFts>,
+    fts_proof: Option<&HashMap<u32, HashSet<String>>>,
     projection: &ScanProjection,
     retain_all_evidence: bool,
     cache_budget: Option<&CacheBudget>,
@@ -733,7 +737,14 @@ fn scan_file(
                 repository_root: &repo.files.root,
             };
             let mut evidence = HashSet::new();
-            let fts_match = if record.class == RecordClass::RawFallback {
+            let fts_match = if let Some(proof) = fts_proof {
+                if let Some(fields) = proof.get(&slot) {
+                    evidence.extend(fields.iter().cloned());
+                    true
+                } else {
+                    false
+                }
+            } else if record.class == RecordClass::RawFallback {
                 if let Some(fts) = fts {
                     if fts.fields.is_empty() {
                         outcome.raw_text_verifications += 1;
@@ -944,6 +955,13 @@ pub struct PlanActual {
     pub raw_text_verifications: u64,
     pub residual_evaluations: u64,
     pub index_proven_matches: u64,
+    pub relation_target_candidates: u64,
+    pub relation_target_matches: u64,
+    pub relation_target_reads: u64,
+    pub relation_target_file_opens: u64,
+    pub relation_edge_visits: u64,
+    pub relation_reverse_postings_visited: u64,
+    pub relation_verified_targets_reused: u64,
 }
 
 
@@ -956,6 +974,13 @@ impl Default for PlanActual {
             raw_text_verifications: 0,
             residual_evaluations: 0,
             index_proven_matches: 0,
+            relation_target_candidates: 0,
+            relation_target_matches: 0,
+            relation_target_reads: 0,
+            relation_target_file_opens: 0,
+            relation_edge_visits: 0,
+            relation_reverse_postings_visited: 0,
+            relation_verified_targets_reused: 0,
         }
     }
 }
@@ -970,18 +995,40 @@ fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &Wo
             raw_text_verifications: after.raw_text_verifications - before.raw_text_verifications,
             residual_evaluations: after.residual_evaluations - before.residual_evaluations,
             index_proven_matches: after.exact_posting_matches - before.exact_posting_matches,
+            relation_target_candidates: after.relation_target_candidates
+                - before.relation_target_candidates,
+            relation_target_matches: after.relation_target_matches - before.relation_target_matches,
+            relation_target_reads: after.relation_target_reads - before.relation_target_reads,
+            relation_target_file_opens: after.relation_target_file_opens
+                - before.relation_target_file_opens,
+            relation_edge_visits: after.relation_edge_visits - before.relation_edge_visits,
+            relation_reverse_postings_visited: after.relation_reverse_postings_visited
+                - before.relation_reverse_postings_visited,
+            relation_verified_targets_reused: after.relation_verified_targets_reused
+                - before.relation_verified_targets_reused,
         });
     }
+}
+
+fn record_semijoin_work(work: crate::relation_semijoin::SemijoinWork, counters: &mut WorkCounters) {
+    counters.relation_target_candidates += work.target_candidates;
+    counters.relation_target_matches += work.target_matches;
+    counters.relation_target_reads += work.target_reads;
+    counters.relation_target_file_opens += work.target_file_opens;
+    counters.relation_edge_visits += work.edge_visits;
+    counters.relation_reverse_postings_visited += work.reverse_postings_visited;
+    counters.relation_verified_targets_reused += work.verified_targets_reused;
+    counters.files_opened += work.target_file_opens;
+    counters.bytes_read += work.target_bytes_read;
+    counters.record_parses += work.target_reads;
 }
 
 fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashSet<String>> {
     match expr {
         BoundExpr::Term(term) => {
-            let proof = proofs.iter().find(|proof| {
-                proof.term.span == term.span
-                    && proof.term.path == term.path
-                    && proof.input.contains(slot)
-            })?;
+            let proof = proofs
+                .iter()
+                .find(|proof| same_bound_term(&proof.term, term) && proof.input.contains(slot))?;
             if !proof.matches.contains(slot) {
                 return None;
             }
@@ -992,6 +1039,9 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
                 evidence.insert(term.query_path.display.clone());
                 if let Some(rhs) = &term.rhs {
                     evidence.insert(rhs.query_path.display.clone());
+                }
+                if let Some(related) = &term.related {
+                    evidence.insert(related.evidence_path.clone());
                 }
             }
             Some(evidence)
@@ -1457,6 +1507,12 @@ fn try_stored_order_page(
     if query.options.count || query.options.sort.len() > 1 {
         return Ok(None);
     }
+    if prepared.collections.iter().any(|(_, _, fts)| {
+        fts.as_ref()
+            .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+    }) {
+        return Ok(None);
+    }
     let cap = query
         .options
         .limit
@@ -1487,6 +1543,7 @@ fn try_stored_order_page(
                 proven_hits: RoaringBitmap::new(),
                 proofs: Vec::new(),
                 choices: Vec::new(),
+                semijoin_work: Default::default(),
             });
         let mut candidates = plan.candidates.take().unwrap_or(domain);
         if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
@@ -1522,7 +1579,9 @@ fn try_stored_order_page(
     let projections = plans
         .iter()
         .zip(&residuals)
-        .map(|(entry, residual)| scan_projection(query, residual.as_ref(), &entry.candidates))
+        .map(|(entry, residual)| {
+            scan_projection(query, residual.as_ref(), &entry.candidates, false)
+        })
         .collect::<Vec<_>>();
     if let Some(traces) = traces.as_deref_mut() {
         for entry in &plans {
@@ -1569,6 +1628,20 @@ fn try_stored_order_page(
     let mut actuals = (0..plans.len())
         .map(|_| PlanActual::default())
         .collect::<Vec<_>>();
+    for (entry, actual) in plans.iter().zip(&mut actuals) {
+        let work = entry.plan.semijoin_work;
+        record_semijoin_work(work, &mut counters);
+        actual.files_opened += work.target_file_opens;
+        actual.bytes_read += work.target_bytes_read;
+        actual.record_parses += work.target_reads;
+        actual.relation_target_candidates += work.target_candidates;
+        actual.relation_target_matches += work.target_matches;
+        actual.relation_target_reads += work.target_reads;
+        actual.relation_target_file_opens += work.target_file_opens;
+        actual.relation_edge_visits += work.edge_visits;
+        actual.relation_reverse_postings_visited += work.reverse_postings_visited;
+        actual.relation_verified_targets_reused += work.verified_targets_reused;
+    }
     let mut heap = BinaryHeap::new();
     for (plan_index, entry) in plans.iter().enumerate() {
         let (column, order, descending) = if let Some(field) = query.options.sort.first() {
@@ -1667,6 +1740,7 @@ fn try_stored_order_page(
                         entry.collection_index,
                         residuals[cursor.plan_index].as_ref(),
                         entry.fts,
+                        None,
                         &projections[cursor.plan_index],
                         false,
                         None,
@@ -1683,6 +1757,7 @@ fn try_stored_order_page(
                     counters.residual_evaluations += scanned.residual_evaluations;
                     counters.relation_source_reads += scanned.relation_work.source_reads;
                     counters.relation_target_reads += scanned.relation_work.target_reads;
+                    counters.relation_target_file_opens += scanned.relation_work.target_reads;
                     counters.relation_edge_visits += scanned.relation_work.edge_visits;
                     counters.files_opened +=
                         scanned.relation_work.source_reads + scanned.relation_work.target_reads;
@@ -1699,6 +1774,9 @@ fn try_stored_order_page(
                     actual.bytes_read += scanned.relation_work.bytes_read;
                     actual.record_parses +=
                         scanned.relation_work.source_reads + scanned.relation_work.target_reads;
+                    actual.relation_target_reads += scanned.relation_work.target_reads;
+                    actual.relation_target_file_opens += scanned.relation_work.target_reads;
+                    actual.relation_edge_visits += scanned.relation_work.edge_visits;
                     if let Some(found) = scanned.matches.into_iter().next() {
                         matched = true;
                         evidence = found.evidence;
@@ -1894,11 +1972,20 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 proven_hits: RoaringBitmap::new(),
                 proofs: Vec::new(),
                 choices: Vec::new(),
+                semijoin_work: Default::default(),
             });
         let mut ordered_candidates = plan.candidates.clone().unwrap_or_else(|| domain.clone());
         if let Some(text_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts))
         {
             ordered_candidates &= text_candidates;
+        }
+        let relation_fts = fts
+            .as_ref()
+            .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &ordered_candidates))
+            .transpose()?
+            .flatten();
+        if let Some(proof) = &relation_fts {
+            ordered_candidates = proof.evidence.keys().copied().collect();
         }
         ordered_candidate_total += ordered_candidates.len();
         traces.push(QueryPlanTrace {
@@ -1913,12 +2000,26 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             fts_estimated_candidates: fts.as_ref().and_then(|fts| {
                 estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
             }),
-            remaining_verification: fts.is_some() || !plan.exact,
+            remaining_verification: (fts.is_some() && relation_fts.is_none()) || !plan.exact,
             input_records: domain.len(),
             fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
                 && collection.logical_records.len() != collection.generation.records.len() as u64
             {
                 "logical text plus fallback source text"
+            } else if let Some(proof) = &relation_fts {
+                if proof
+                    .strategies
+                    .iter()
+                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
+                {
+                    "relation target-first semijoin"
+                } else if proof.strategies.iter().all(|strategy| {
+                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
+                }) {
+                    "relation source-restricted semijoin"
+                } else {
+                    "relation mixed semijoin"
+                }
             } else if let Some(fts) = &fts {
                 if !fts.fields.is_empty()
                     && fts
@@ -1940,11 +2041,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             sort_strategy: String::new(),
             filter_exact: plan.exact,
             terms: plan.choices,
-            candidates: plan
-                .candidates
-                .as_ref()
-                .map(RoaringBitmap::len)
-                .unwrap_or(domain.len()),
+            candidates: ordered_candidates.len(),
             actual: None,
         });
     }
@@ -1955,6 +2052,9 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
         .ok_or("page size overflow")?;
     let stored_order = !query.options.count
         && query.options.sort.len() <= 1
+        && !traces
+            .iter()
+            .any(|trace| trace.fts_strategy.starts_with("relation "))
         && !(cap > 0
             && ordered_candidate_total > 0
             && ordered_candidate_total < (cap as u64).saturating_mul(4));
@@ -2048,7 +2148,9 @@ fn search_impl(
                 proven_hits: RoaringBitmap::new(),
                 proofs: Vec::new(),
                 choices: Vec::new(),
+                semijoin_work: Default::default(),
             });
+        record_semijoin_work(plan.semijoin_work, &mut counters);
         let mut candidates = plan.candidates.unwrap_or(input);
         if !text_first {
             if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
@@ -2066,7 +2168,32 @@ fn search_impl(
                     .iter()
                     .all(|field| matches!(field.path.root, PathRoot::Metadata(_)))
         });
-        let inventory_evidence = if metadata_only_fts {
+        let relation_fts = fts
+            .as_ref()
+            .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &candidates))
+            .transpose()?
+            .flatten();
+        let relation_fts_strategy =
+            relation_fts.as_ref().map(|proof| {
+                if proof
+                    .strategies
+                    .iter()
+                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
+                {
+                    "relation target-first semijoin"
+                } else if proof.strategies.iter().all(|strategy| {
+                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
+                }) {
+                    "relation source-restricted semijoin"
+                } else {
+                    "relation mixed semijoin"
+                }
+            });
+        let preverified_evidence = if let Some(proof) = relation_fts {
+            record_semijoin_work(proof.work, &mut counters);
+            candidates = proof.evidence.keys().copied().collect();
+            Some(proof.evidence)
+        } else if metadata_only_fts {
             let matches =
                 inventory_fts_evidence(repo, collection, fts.as_ref().unwrap(), &candidates)?;
             candidates = matches.keys().copied().collect();
@@ -2076,7 +2203,7 @@ fn search_impl(
         };
         counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
         counters.candidates += candidates.len();
-        let needs_scan = !plan.exact || (fts.is_some() && !metadata_only_fts);
+        let needs_scan = !plan.exact || (fts.is_some() && preverified_evidence.is_none());
         if let Some(traces) = traces.as_deref_mut() {
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
@@ -2099,6 +2226,8 @@ fn search_impl(
                     "absent"
                 } else if metadata_only_fts {
                     "metadata inventory"
+                } else if let Some(strategy) = relation_fts_strategy {
+                    strategy
                 } else if text_first {
                     "bigram before filter"
                 } else if candidates.len() < domain.len() {
@@ -2132,7 +2261,7 @@ fn search_impl(
                 };
                 if needs_evidence {
                     if let Some(fts_evidence) =
-                        inventory_evidence.as_ref().and_then(|map| map.get(&slot))
+                        preverified_evidence.as_ref().and_then(|map| map.get(&slot))
                     {
                         evidence.extend(fts_evidence.iter().cloned());
                     }
@@ -2225,7 +2354,12 @@ fn search_impl(
                 .push((slot, record.range));
         }
         let files: Vec<_> = files.into_iter().collect();
-        let projection = scan_projection(query, residual.as_ref(), &candidates);
+        let projection = scan_projection(
+            query,
+            residual.as_ref(),
+            &candidates,
+            preverified_evidence.is_some(),
+        );
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
         // Bound in-flight parsed records while workers scan independent files.
@@ -2256,7 +2390,12 @@ fn search_impl(
                                 &sort,
                                 collection_index,
                                 residual.as_ref(),
-                                fts.as_ref(),
+                                if preverified_evidence.is_some() {
+                                    None
+                                } else {
+                                    fts.as_ref()
+                                },
+                                preverified_evidence.as_ref(),
                                 &projection,
                                 retain_all_evidence,
                                 cache_budget,
@@ -2278,7 +2417,12 @@ fn search_impl(
                             &sort,
                             collection_index,
                             residual.as_ref(),
-                            fts.as_ref(),
+                            if preverified_evidence.is_some() {
+                                None
+                            } else {
+                                fts.as_ref()
+                            },
+                            preverified_evidence.as_ref(),
                             &projection,
                             retain_all_evidence,
                             cache_budget,
@@ -2318,6 +2462,7 @@ fn search_impl(
                 counters.residual_evaluations += outcome.residual_evaluations;
                 counters.relation_source_reads += outcome.relation_work.source_reads;
                 counters.relation_target_reads += outcome.relation_work.target_reads;
+                counters.relation_target_file_opens += outcome.relation_work.target_reads;
                 counters.relation_edge_visits += outcome.relation_work.edge_visits;
                 counters.files_opened +=
                     outcome.relation_work.source_reads + outcome.relation_work.target_reads;

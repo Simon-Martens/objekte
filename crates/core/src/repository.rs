@@ -1022,7 +1022,12 @@ impl Repository {
             residual_evaluations: 0,
             relation_source_reads: 0,
             relation_target_reads: 0,
+            relation_target_file_opens: 0,
             relation_edge_visits: 0,
+            relation_target_candidates: 0,
+            relation_target_matches: 0,
+            relation_reverse_postings_visited: 0,
+            relation_verified_targets_reused: 0,
             preparation_ns: 0,
             planning_ns: 0,
             prepared_plan_hit: false,
@@ -1136,6 +1141,7 @@ impl Repository {
                 counters.residual_evaluations += u64::from(filter.is_some());
                 counters.relation_source_reads += relation_work.source_reads;
                 counters.relation_target_reads += relation_work.target_reads;
+                counters.relation_target_file_opens += relation_work.target_reads;
                 counters.relation_edge_visits += relation_work.edge_visits;
                 counters.files_opened += relation_work.source_reads + relation_work.target_reads;
                 counters.bytes_read += relation_work.bytes_read;
