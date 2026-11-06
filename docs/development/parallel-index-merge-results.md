@@ -1,5 +1,7 @@
 # Parallel index merge follow-up
 
+**Status: reverted.** The merge attempt was rolled back by `6d450a94d7`, `2141cacc70`, and `c2c02b1e01` after [Musenalm fresh-build measurements](../../bench/results/musenalm/parallel-merge-build-dcba315849/REPORT.md) found 12–17% slower automatic index construction. The current `crates/core` tree exactly matches the previously measured `d15b689d1a` revision; the earlier parallel file/range construction remains. [`cargo test --workspace --quiet`](parallel-index-merge-verification/revert-workspace-tests.log) passed after the reverts (109 core tests, 25 TUI tests and two additional tests; one core test ignored). No new build timing was needed to establish the code-tree identity. The sections below describe the reverted experiment and its original verification.
+
 Branch: `fix/parallel-index-construction`. This continuation began at `ebff8c306f823ed6534bdd41cda0f59fde531d5c` and kept the existing working tree and history. The implementation is committed and pushed in three independently reviewable steps:
 
 | Commit | Change |
