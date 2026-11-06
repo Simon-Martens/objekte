@@ -22,3 +22,11 @@ separate literal substring input and does not parse this grammar.
 
 Binding validates field types, modifiers, and literals for every branch before
 execution. The parser does not infer dates from string shapes.
+
+For `:length`, a path may reach several arrays through an outer array. The
+default comparison (and `:each`) requires every reached array length to satisfy
+the operator; `?` operators require at least one. An empty present outer array
+therefore satisfies a universal comparison and no existential comparison.
+Missing paths satisfy neither. `?!=` means some reached length differs; it is
+not the complement of `?=`. A single array is compared by its own length,
+including zero.

@@ -558,8 +558,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
     if derived != Derived::None
         && (transform != Transform::Identity
             || operation.is_some()
-            || each
-            || term.quantifier == Quantifier::Any)
+            || (derived != Derived::Length && (each || term.quantifier == Quantifier::Any)))
     {
         return Err("derived modifier cannot be combined with quantifier or text binding".into());
     }
@@ -891,15 +890,26 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
         return Ok(false);
     };
     if term.derived == Derived::Length {
-        let Some(Value::Array(a)) = values.first().copied() else {
-            return Ok(false);
+        let compare_length = |value: &&Value| {
+            let Value::Array(array) = value else {
+                return false;
+            };
+            compare_scalar(
+                &Value::Number(Number::integer(array.values.len() as i128)),
+                &term.literal,
+                term.operator,
+                Transform::Identity,
+            )
         };
-        return Ok(compare_scalar(
-            &Value::Number(Number::integer(a.values.len() as i128)),
-            &term.literal,
-            term.operator,
-            Transform::Identity,
-        ));
+        return Ok(if term.multi {
+            if term.quantifier == Quantifier::Any {
+                values.iter().any(compare_length)
+            } else {
+                values.iter().all(compare_length)
+            }
+        } else {
+            values.first().is_some_and(|value| compare_length(value))
+        });
     }
     if term.multi {
         let mut flattened = Vec::new();

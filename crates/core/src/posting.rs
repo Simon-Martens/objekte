@@ -105,6 +105,7 @@ impl PostingIndex {
                     input - source
                 });
             }
+            Derived::Length if !length_posting_is_exact(term) => return None,
             Derived::Length if term.operator == Operator::Eq => {
                 let Value::Number(number) = term.literal else {
                     return None;
@@ -122,6 +123,15 @@ impl PostingIndex {
                 };
                 let restriction = (input.len() < domain.len()).then_some(input);
                 return Some(range_postings(&self.lengths, &number, term.operator, restriction).0);
+            }
+            Derived::Length if term.operator == Operator::Ne => {
+                let Value::Number(number) = term.literal else {
+                    return None;
+                };
+                return Some(union_postings(
+                    self.lengths.iter().filter(|(key, _)| *key != &number),
+                    Some(input),
+                ).0);
             }
             Derived::None if matches!(term.literal, Value::Null) => {
                 // The null posting tracks only an explicit null field. It cannot
@@ -281,6 +291,9 @@ impl PostingIndex {
                 return Some((1.0, if matches_true { yes } else { domain_len - yes }));
             }
             Derived::Length => {
+                if !length_posting_is_exact(term) {
+                    return None;
+                }
                 let Value::Number(number) = term.literal else {
                     return None;
                 };
@@ -388,6 +401,9 @@ impl PostingIndex {
                 });
             }
             Derived::Length => {
+                if !length_posting_is_exact(term) {
+                    return None;
+                }
                 let Value::Number(number) = term.literal else {
                     return None;
                 };
@@ -438,6 +454,15 @@ impl PostingIndex {
             _ => None,
         }
     }
+}
+
+/// A length posting is a union of records containing at least one reached
+/// array of that length. It proves existential comparisons. A one-segment
+/// field path selects at most one array from a record root, so its default
+/// universal comparison is also exact. Nested universal comparisons require
+/// a scanner because the posting does not retain every reached length.
+fn length_posting_is_exact(term: &BoundTerm) -> bool {
+    term.quantifier == Quantifier::Any || term.path.segments.len() == 1
 }
 
 
