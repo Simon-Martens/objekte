@@ -76,3 +76,14 @@ fn frozen_clock_resolves_utc_components_and_periods() {
             .contains("unknown time macro")
     );
 }
+
+#[test]
+fn unrelated_calendar_overflow_does_not_reject_instant_or_components() {
+    let clock = ClockContext::new(Date::MAX.midnight().assume_utc());
+    assert!(clock.resolve("now").is_ok());
+    assert!(clock.resolve("second").is_ok());
+    assert!(clock.resolve("todayStart").is_ok());
+    assert!(clock.resolve("monthStart").is_ok());
+    assert!(clock.resolve("yearStart").is_ok());
+    assert!(clock.resolve("todayEnd").is_err());
+}
