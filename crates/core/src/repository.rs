@@ -455,7 +455,12 @@ impl Repository {
                 let file = &files.files[file_id.0 as usize];
                 let path = files.native_path(file_id).ok_or("missing file path")?;
                 let mut consume = |range: ByteRange, mut extracted: ExtractedRecord| {
-                    definition.schema.coerce_record(&mut extracted.value)?;
+                    definition
+                        .schema
+                        .coerce_record(&mut extracted.value)
+                        .map_err(|error| {
+                            format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
+                        })?;
                     if definition.schema.has_temporal_fields() {
                         extracted.text = text_segments(&extracted.value);
                     }

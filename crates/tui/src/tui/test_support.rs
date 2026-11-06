@@ -62,6 +62,7 @@ fn definition(name: &str) -> CollectionDefinition {
             nullable: false,
             indexed: true,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     schema
@@ -72,6 +73,7 @@ fn definition(name: &str) -> CollectionDefinition {
             nullable: false,
             indexed: true,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     CollectionDefinition {

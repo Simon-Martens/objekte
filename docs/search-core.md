@@ -130,6 +130,13 @@ neither. `:exists` tests path presence, `:null` tests an explicit null, and
 element under the same quantifier, rather than negating the entire record
 predicate.
 
+Declared field types, required status, field nullability, and per-array-level
+element nullability are checked during the extraction pass before any index
+receives a record. Invalid selected sources fail construction with file,
+byte-range, and field diagnostics. Query projections validate only decoded
+fields. Unhinted arrays infer a common non-null element type; empty arrays
+retain an unresolved element type until a declaration supplies one.
+
 Values include strings, booleans, objects, typed arrays, null, exact `i128`
 integers, finite fractional numbers, dates, datetimes, and Unix-second values.
 Declared temporal fields are coerced explicitly; timestamp-looking strings

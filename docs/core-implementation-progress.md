@@ -15,8 +15,12 @@ measured the scanner-change revision with four profiles, 32 workers, disabled
 decoded cache, and 5 repetitions. The build recording at `build-5887c7be02/`
 has three processes per alphabet/configuration. Later core changes through the
 starting revision were code layout only; the subsequent TUI crate does not
-affect core execution. These are candidate baselines, subject to final
-corpus/schema fingerprint and environment verification. The isolated old-core
+affect core execution. The schema, workload, and corpus hashes exactly match
+the recording when the pre-move `core/../examples/` and `core/benches/` path
+strings are used (`90cfac7d`, `1e548698`, `9f93a4ba` respectively). Rustc
+1.99.1, the i9-13900K host, 32 workers, zero source/decoded cache, output
+modes, five repetitions, and measurement boundaries match. These recordings
+are applicable baselines for the starting state. The isolated old-core
 comparison is a separate 34-case ASCII logical-output measurement, not a
 substitute for the four-profile workload.
 
@@ -27,6 +31,7 @@ substitute for the four-profile workload.
 | 3 / G: immutable state | complete | External consumers compile through read-only repository inspection; compile-fail privacy check and effective cache-budget test |
 | 4 / A: source registrations | complete | Test-only non-JSON reader builds, verifies, returns logical/byte payload, restores, rejects unknown IDs, and rebuilds on registration-version change |
 | 5 / A: field bindings | complete | Test operation with custom literal preparation and text normalization agrees with independent expected answers and scanner across posting, bigram, scanner-only, partial-coverage, default binding, selected/unscoped FTS, and restore modes |
+| 6 / C: declared types | complete | Required/null/type and temporal-array matrix; unhinted empty/nested arrays; indexed and unindexed numeric-string construction rejection; projected validation and Musenalm collection opens |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier

@@ -73,3 +73,27 @@ fn arrays_paths_and_id_namespace() {
         RecordId::intrinsic("a").unwrap()
     );
 }
+
+#[test]
+fn unhinted_arrays_keep_actual_or_unresolved_element_types() {
+    let array = Value::from_json(serde_json::json!([null, 1, 2])).unwrap();
+    assert_eq!(
+        array.logical_type(),
+        LogicalType::Array(Box::new(LogicalType::Number))
+    );
+    let empty = Value::from_json(serde_json::json!([])).unwrap();
+    assert_eq!(
+        empty.logical_type(),
+        LogicalType::Array(Box::new(LogicalType::Unknown))
+    );
+    let nested = Value::from_json(serde_json::json!([[], [1, 2]])).unwrap();
+    assert_eq!(
+        nested.logical_type(),
+        LogicalType::Array(Box::new(LogicalType::Array(Box::new(LogicalType::Number))))
+    );
+    let objects = Value::from_json(serde_json::json!([{"a": 1}, {"b": "x"}])).unwrap();
+    assert_eq!(
+        objects.logical_type(),
+        LogicalType::Array(Box::new(LogicalType::Object))
+    );
+}

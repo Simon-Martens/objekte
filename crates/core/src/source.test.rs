@@ -74,6 +74,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
                 nullable: false,
                 indexed: name == "title",
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
     }

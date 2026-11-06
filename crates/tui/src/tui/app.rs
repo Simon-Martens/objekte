@@ -262,7 +262,7 @@ impl App {
         let mut keys = BTreeSet::new();
         for collection in self.repo.collections() {
             if self.scope == 0 || collection.definition.name == self.scope_label() {
-                for path in collection.definition.schema.fields.keys() {
+                for path in collection.definition.schema.fields().keys() {
                     if path.len() == 1 {
                         keys.insert(path[0].clone());
                     }

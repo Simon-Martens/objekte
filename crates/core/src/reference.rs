@@ -22,6 +22,26 @@ pub struct FieldDefinition {
     pub nullable: bool,
     pub indexed: bool,
     pub multi: bool,
+    /// Nullability at each array level, from outermost to innermost.
+    /// An empty list retains permissive legacy behavior for in-memory hints.
+    pub element_nullable: Vec<bool>,
+}
+
+
+#[derive(Clone, Debug, Default)]
+struct ValidationNode {
+    field: Option<FieldDefinition>,
+    children: HashMap<String, ValidationNode>,
+}
+
+
+impl ValidationNode {
+    fn requires_presence(&self) -> bool {
+        self.field.as_ref().map_or_else(
+            || self.children.values().any(Self::requires_presence),
+            |field| field.required,
+        )
+    }
 }
 
 
@@ -78,21 +98,38 @@ pub struct RegisteredBinding {
 /// In-memory field definitions and custom query bindings.
 #[derive(Clone, Debug, Default)]
 pub struct Schema {
-    pub fields: HashMap<Vec<String>, FieldDefinition>,
-    pub custom: HashMap<(Vec<String>, String), CustomBinding>,
-    pub operations: HashMap<(Vec<String>, String), RegisteredBinding>,
-    pub defaults: HashMap<Vec<String>, String>,
-    pub raw: Option<RegisteredBinding>,
+    pub(crate) fields: HashMap<Vec<String>, FieldDefinition>,
+    pub(crate) custom: HashMap<(Vec<String>, String), CustomBinding>,
+    pub(crate) operations: HashMap<(Vec<String>, String), RegisteredBinding>,
+    pub(crate) defaults: HashMap<Vec<String>, String>,
+    pub(crate) raw: Option<RegisteredBinding>,
     temporal_fields: bool,
+    validation: ValidationNode,
 }
 
 
 impl Schema {
+    pub fn fields(&self) -> &HashMap<Vec<String>, FieldDefinition> {
+        &self.fields
+    }
+
+    pub fn custom_bindings(&self) -> &HashMap<(Vec<String>, String), CustomBinding> {
+        &self.custom
+    }
+
     pub fn coerce_record(&self, value: &mut Value) -> Result<(), String> {
-        if !self.temporal_fields {
-            return Ok(());
-        }
-        coerce_value(value, &mut Vec::new(), None, self)
+        self.coerce_projected_record(value, None)
+    }
+
+    pub fn coerce_projected_record(
+        &self,
+        value: &mut Value,
+        selected_top_level: Option<&HashSet<String>>,
+    ) -> Result<(), String> {
+        let Value::Object(_) = value else {
+            return Err("record root must be an object".into());
+        };
+        validate_children(value, &self.validation, &mut Vec::new(), selected_top_level)
     }
 
     pub fn has_temporal_fields(&self) -> bool {
@@ -100,10 +137,19 @@ impl Schema {
     }
 
     pub fn register_field(&mut self, field: FieldDefinition) -> Result<(), String> {
-        self.temporal_fields |= temporal_kind(&field.kind);
-        if self.fields.insert(field.path.clone(), field).is_some() {
+        if field.path.is_empty() {
+            return Err("field path is empty".into());
+        }
+        if self.fields.contains_key(&field.path) {
             return Err("duplicate field registration".into());
         }
+        self.temporal_fields |= temporal_kind(&field.kind);
+        let mut node = &mut self.validation;
+        for part in &field.path {
+            node = node.children.entry(part.clone()).or_default();
+        }
+        node.field = Some(field.clone());
+        self.fields.insert(field.path.clone(), field);
         Ok(())
     }
 
@@ -203,6 +249,7 @@ impl Schema {
                 nullable: field == MetadataField::FileCreated,
                 indexed: true,
                 multi: false,
+                element_nullable: Vec::new(),
             }),
         }
     }
@@ -217,68 +264,94 @@ fn temporal_kind(kind: &LogicalType) -> bool {
     }
 }
 
-fn coerce_value(
+fn validate_children(
     value: &mut Value,
+    node: &ValidationNode,
     path: &mut Vec<String>,
-    hint: Option<&LogicalType>,
-    schema: &Schema,
+    selected: Option<&HashSet<String>>,
 ) -> Result<(), String> {
     match value {
         Value::Object(fields) => {
-            for (name, child) in fields {
+            for (name, child) in &node.children {
+                if selected.is_some_and(|selection| !selection.contains(name)) {
+                    continue;
+                }
                 path.push(name.clone());
-                let child_hint = schema.fields.get(path).map(|field| &field.kind);
-                coerce_value(child, path, child_hint, schema)?;
+                if let Some(value) = fields.get_mut(name) {
+                    if let Some(field) = &child.field {
+                        validate_declared(
+                            value,
+                            &field.kind,
+                            field.nullable,
+                            &field.element_nullable,
+                            0,
+                            path,
+                        )?;
+                    }
+                    if !matches!(value, Value::Null) {
+                        validate_children(value, child, path, None)?;
+                    }
+                } else if child.requires_presence() {
+                    return Err(format!("{}: required field is missing", path.join(".")));
+                }
                 path.pop();
             }
         }
         Value::Array(array) => {
-            let child_hint = if let Some(LogicalType::Array(inner)) = hint {
-                Some(inner.as_ref())
-            } else {
-                hint
-            };
-            for child in &mut array.values {
-                coerce_value(child, path, child_hint, schema)?;
-            }
-            let mut kind = None;
-            for child in &array.values {
-                if matches!(child, Value::Null) {
-                    continue;
+            for value in &mut array.values {
+                if !matches!(value, Value::Null) {
+                    validate_children(value, node, path, None)?;
                 }
-                let candidate = child.logical_type();
-                if kind.as_ref().is_some_and(|prior| prior != &candidate) {
-                    return Err(format!("mixed coerced array types at {}", path.join(".")));
-                }
-                kind = Some(candidate);
             }
-            array.element_type = kind.or_else(|| child_hint.cloned());
         }
-        Value::String(text) if matches!(hint, Some(LogicalType::Date | LogicalType::Datetime)) => {
-            *value = Value::parse_typed_string(text, hint.unwrap())
+        _ => {}
+    }
+    Ok(())
+}
+
+fn validate_declared(
+    value: &mut Value,
+    kind: &LogicalType,
+    nullable: bool,
+    elements: &[bool],
+    depth: usize,
+    path: &[String],
+) -> Result<(), String> {
+    if matches!(value, Value::Null) {
+        return if nullable {
+            Ok(())
+        } else {
+            Err(format!("{}: null is not allowed", path.join(".")))
+        };
+    }
+    if matches!(kind, LogicalType::Date | LogicalType::Datetime) {
+        if let Value::String(text) = value {
+            *value = Value::parse_typed_string(text, kind)
                 .map_err(|e| format!("{}: {e}", path.join(".")))?;
         }
-        Value::Number(number) if matches!(hint, Some(LogicalType::Unixtime)) => {
-            let Number::Integer(seconds) = number else {
-                return Err(format!("{}: unixtime must be integral", path.join(".")));
-            };
+    } else if *kind == LogicalType::Unixtime {
+        if let Value::Number(Number::Integer(seconds)) = value {
             *value = Value::Unixtime(
                 i64::try_from(*seconds)
                     .map_err(|_| format!("{}: unixtime out of range", path.join(".")))?,
             );
         }
-        Value::Null => {}
-        _ if matches!(
-            hint,
-            Some(LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime)
-        ) =>
-        {
-            return Err(format!(
-                "{}: value does not match declared temporal type",
-                path.join(".")
-            ));
+    }
+    if let (Value::Array(array), LogicalType::Array(inner)) = (&mut *value, kind) {
+        let item_nullable = elements.get(depth).copied().unwrap_or(true);
+        for item in &mut array.values {
+            validate_declared(item, inner, item_nullable, elements, depth + 1, path)?;
         }
-        _ => {}
+        array.element_type = Some((**inner).clone());
+        array.nullable_elements = item_nullable;
+        return Ok(());
+    }
+    let actual = value.logical_type();
+    if &actual != kind && *kind != LogicalType::Unknown {
+        return Err(format!(
+            "{}: expected {kind:?}, found {actual:?}",
+            path.join(".")
+        ));
     }
     Ok(())
 }

@@ -201,13 +201,14 @@ pub fn configuration_hash(
             feed(
                 &mut hash,
                 format!(
-                    "{:?}|{:?}|{}|{}|{}|{}",
+                    "{:?}|{:?}|{}|{}|{}|{}|{:?}",
                     field.path,
                     field.kind,
                     field.required,
                     field.nullable,
                     field.indexed,
-                    field.multi
+                    field.multi,
+                    field.element_nullable
                 )
                 .as_bytes(),
             );

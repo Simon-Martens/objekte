@@ -124,6 +124,7 @@ fn register_properties(
             nullable,
             indexed,
             multi: multi || matches!(kind, LogicalType::Array(_)),
+            element_nullable: array_element_nullability(child),
         })?;
         match kind {
             LogicalType::Object => register_properties(child, &path, multi, indexed_paths, schema)?,
@@ -158,6 +159,28 @@ fn logical_type(node: &serde_json::Value) -> Result<LogicalType, String> {
         )?)),
         other => return Err(format!("unsupported schema type {other}")),
     })
+}
+
+fn array_element_nullability(node: &serde_json::Value) -> Vec<bool> {
+    let mut result = Vec::new();
+    let mut current = node;
+    while current.get("type").is_some_and(|kind| {
+        kind == "array"
+            || kind
+                .as_array()
+                .is_some_and(|types| types.iter().any(|item| item == "array"))
+    }) {
+        let Some(items) = current.get("items") else {
+            break;
+        };
+        let nullable = items
+            .get("type")
+            .and_then(|kind| kind.as_array())
+            .is_some_and(|types| types.iter().any(|item| item == "null"));
+        result.push(nullable);
+        current = items;
+    }
+    result
 }
 
 #[cfg(test)]

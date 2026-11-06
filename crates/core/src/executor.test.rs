@@ -91,6 +91,7 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
                 nullable: true,
                 indexed: false,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
         schema
@@ -101,6 +102,7 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
                 nullable: false,
                 indexed: false,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
         let binding = RegisteredBinding {
@@ -396,6 +398,7 @@ fn indexed_restriction_precedes_written_first_scan() {
                 nullable: false,
                 indexed,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
     }
@@ -548,6 +551,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
                 nullable: false,
                 indexed,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
     }

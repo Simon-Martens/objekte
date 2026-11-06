@@ -29,6 +29,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
             nullable: false,
             indexed: false,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     schema
@@ -39,6 +40,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
             nullable: false,
             indexed: false,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let definition = CollectionDefinition {
@@ -145,6 +147,7 @@ fn exact_membership_materializes_only_page_payload() {
             nullable: false,
             indexed: true,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let repo = Repository::open(
@@ -278,6 +281,7 @@ fn multi_record_scan_opens_file_once_and_parses_each_range_once() {
             nullable: false,
             indexed: false,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let repo = Repository::open(
@@ -347,6 +351,7 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
                 nullable: false,
                 indexed: true,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
     }
@@ -415,6 +420,7 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
                 nullable: false,
                 indexed: true,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
     }
@@ -481,6 +487,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
             nullable: false,
             indexed: false,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let repo = Repository::open(
@@ -560,6 +567,7 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
                 nullable: false,
                 indexed,
                 multi: false,
+                element_nullable: Vec::new(),
             })
             .unwrap();
     }
@@ -650,6 +658,7 @@ fn quoted_data_name_does_not_shadow_metadata() {
             nullable: false,
             indexed: true,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let repo = Repository::open(

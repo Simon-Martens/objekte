@@ -136,15 +136,15 @@ fn run() -> Result<(), String> {
             state.generation.files.len(),
             state.generation.records.len(),
             state.definition.format,
-            state.definition.schema.fields.len(),
+            state.definition.schema.fields().len(),
             state
                 .definition
                 .schema
-                .fields
+                .fields()
                 .values()
                 .filter(|f| f.indexed)
                 .count(),
-            state.definition.schema.custom.len()
+            state.definition.schema.custom_bindings().len()
         );
     }
     println!(

@@ -25,6 +25,7 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
             nullable: false,
             indexed: true,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let definitions: Vec<_> = ["a", "b"]
@@ -148,6 +149,7 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
             nullable: false,
             indexed: true,
             multi: false,
+            element_nullable: Vec::new(),
         })
         .unwrap();
     let definitions = vec![CollectionDefinition {

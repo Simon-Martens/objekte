@@ -9,6 +9,7 @@ fn presence_null_array_dedup_and_cardinality() {
         nullable: true,
         indexed: true,
         multi: true,
+        element_nullable: Vec::new(),
     };
     let mut index = PostingIndex::new(&field);
     for (slot, json) in [
@@ -90,6 +91,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
                 nullable: true,
                 indexed,
                 multi: true,
+                element_nullable: Vec::new(),
             })
             .unwrap();
         let repo = Repository::open_with_options(

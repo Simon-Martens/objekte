@@ -20,7 +20,7 @@ fn schema_files_remain_an_addon_to_in_memory_definitions() {
     .unwrap();
     let definitions = load_definitions(temp.path()).unwrap();
     assert_eq!(definitions.len(), 1);
-    assert!(definitions[0].schema.fields[&vec!["year".into()]].indexed);
+    assert!(definitions[0].schema.fields()[&vec!["year".into()]].indexed);
     assert_eq!(definitions[0].sort_fields.len(), 1);
     let repository = Repository::open_with_options(
         temp.path(),

@@ -202,10 +202,10 @@ fn scan_file(
                 .source
                 .reader()
                 .parse_for_query(&bytes, record_projection)?;
-            collection
-                .definition
-                .schema
-                .coerce_record(&mut extracted.value)?;
+            collection.definition.schema.coerce_projected_record(
+                &mut extracted.value,
+                record_projection.top_level.as_ref(),
+            )?;
             if projection.collect_text && collection.definition.schema.has_temporal_fields() {
                 extracted.text = text_segments(&extracted.value);
             }

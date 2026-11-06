@@ -137,6 +137,7 @@ fn compare_int_float(i: i128, f: f64) -> Ordering {
 
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum LogicalType {
+    Unknown,
     String,
     Number,
     Bool,
@@ -173,9 +174,10 @@ impl ArrayValue {
             }
             let kind = value.logical_type();
             if let Some(expected) = &element_type {
-                if expected != &kind {
-                    return Err(format!("mixed array types: {expected:?} and {kind:?}"));
-                }
+                element_type = Some(
+                    merge_array_element_types(expected, &kind)
+                        .ok_or_else(|| format!("mixed array types: {expected:?} and {kind:?}"))?,
+                );
             } else {
                 element_type = Some(kind);
             }
@@ -185,6 +187,18 @@ impl ArrayValue {
             nullable_elements,
             values,
         })
+    }
+}
+
+
+fn merge_array_element_types(left: &LogicalType, right: &LogicalType) -> Option<LogicalType> {
+    match (left, right) {
+        (LogicalType::Unknown, kind) | (kind, LogicalType::Unknown) => Some(kind.clone()),
+        (LogicalType::Array(a), LogicalType::Array(b)) => Some(LogicalType::Array(Box::new(
+            merge_array_element_types(a, b)?,
+        ))),
+        _ if left == right => Some(left.clone()),
+        _ => None,
     }
 }
 
@@ -215,7 +229,7 @@ impl Value {
             Self::Unixtime(_) => LogicalType::Unixtime,
             Self::Object(_) => LogicalType::Object,
             Self::Array(a) => LogicalType::Array(Box::new(
-                a.element_type.clone().unwrap_or(LogicalType::Object),
+                a.element_type.clone().unwrap_or(LogicalType::Unknown),
             )),
         }
     }
@@ -235,7 +249,10 @@ impl Value {
             )?),
             serde_json::Value::Object(o) => Self::Object(
                 o.into_iter()
-                    .map(|(k, v)| Ok((k, Self::from_json(v)?)))
+                    .map(|(k, v)| {
+                        let value = Self::from_json(v).map_err(|error| format!("{k}: {error}"))?;
+                        Ok((k, value))
+                    })
                     .collect::<Result<_, String>>()?,
             ),
         })

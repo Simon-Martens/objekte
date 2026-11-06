@@ -50,3 +50,12 @@ fn fractional_numbering_remains_numeric() {
         Some(&Value::Number(Number::float(32.01).unwrap()))
     );
 }
+
+#[test]
+fn schema_adapter_carries_nested_item_nullability() {
+    let schema = serde_json::json!({
+        "type": "array",
+        "items": {"type": ["null", "array"], "items": {"type": "number"}}
+    });
+    assert_eq!(array_element_nullability(&schema), [true, false]);
+}
