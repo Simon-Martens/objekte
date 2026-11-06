@@ -4,26 +4,28 @@
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import json
 import subprocess
 import sys
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 
 
-CASES = (
-    "Q001", "Q008", "Q013", "Q024", "Q031", "Q034", "Q045", "Q050",
-    "Q054", "Q061", "Q062", "Q065", "Q074", "Q081", "Q082", "Q083",
-    "Q084", "Q085", "Q088", "Q093", "Q099", "Q106", "Q107", "Q113",
-    "Q114", "Q115", "Q117", "Q120", "Q125", "Q141", "Q145", "Q150",
-)
+CASES = tuple(f"Q{number:03}" for number in range(1, 151))
 ROOT = Path(__file__).resolve().parent.parent
 PROGRAM = ROOT / "bench/oracle_musenalm.jq"
 
 
 def command(*args: str, cwd: Path = ROOT) -> subprocess.CompletedProcess[str]:
     return subprocess.run(args, cwd=cwd, text=True, capture_output=True, check=True)
+
+
+def save_membership(path: Path, value: dict[str, list[list[str]]]) -> None:
+    encoded = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    path.write_bytes(gzip.compress(encoded, compresslevel=9, mtime=0))
 
 
 def definitions(fixture: Path) -> list[tuple[str, Path]]:
@@ -38,32 +40,56 @@ def definitions(fixture: Path) -> list[tuple[str, Path]]:
     return found
 
 
+def birth_times(paths: list[Path]) -> dict[str, int | None]:
+    values = command("stat", "-c", "%W", *(str(path) for path in paths)).stdout.splitlines()
+    if len(values) != len(paths):
+        raise ValueError("stat did not report every source birth time")
+    return {
+        str(path): (int(value) if int(value) > 0 else None)
+        for path, value in zip(paths, values)
+    }
+
+
 def raw_oracle(fixture: Path) -> tuple[dict[str, list[list[str]]], int, str]:
     matches: dict[str, set[tuple[str, str]]] = defaultdict(set)
     fingerprint = hashlib.sha256()
     files_seen = 0
-    for collection, directory in definitions(fixture):
-        paths = sorted(directory.glob("*.json"))
-        print(f"jq scanning {collection}: {len(paths)} source files", file=sys.stderr, flush=True)
-        for path in paths:
-            info = path.stat()
-            fingerprint.update(str(path.relative_to(fixture)).encode())
-            fingerprint.update(info.st_size.to_bytes(8, "little"))
-            fingerprint.update(info.st_mtime_ns.to_bytes(16, "little", signed=True))
-        for start in range(0, len(paths), 1024):
-            batch = paths[start : start + 1024]
-            output = command(
-                "jq", "-cn", "--arg", "collection", collection,
-                "-f", str(PROGRAM), *(str(path) for path in batch)
-            ).stdout
-            for line in output.splitlines():
-                value = json.loads(line)
-                key = (value["collection"], value["id"])
-                case = value["case"]
-                if case not in CASES or key in matches[case]:
-                    raise ValueError(f"duplicate or unknown oracle match: {value}")
-                matches[case].add(key)
-        files_seen += len(paths)
+    with tempfile.TemporaryDirectory(prefix="objekte-jq-") as scratch:
+        metadata_file = Path(scratch) / "metadata.json"
+        for collection, directory in definitions(fixture):
+            paths = sorted(directory.glob("*.json"))
+            print(f"jq scanning {collection}: {len(paths)} source files", file=sys.stderr, flush=True)
+            for path in paths:
+                info = path.stat()
+                fingerprint.update(str(path.relative_to(fixture)).encode())
+                fingerprint.update(info.st_size.to_bytes(8, "little"))
+                fingerprint.update(info.st_mtime_ns.to_bytes(16, "little", signed=True))
+            for start in range(0, len(paths), 1024):
+                batch = paths[start : start + 1024]
+                births = birth_times(batch) if collection == "items" else {}
+                metadata = {}
+                for path in batch:
+                    info = path.stat()
+                    metadata[str(path)] = {
+                        "size": info.st_size,
+                        "modified_seconds": info.st_mtime_ns // 1_000_000_000,
+                        "birth_seconds": births.get(str(path)),
+                        "relative_path": str(path.relative_to(fixture)),
+                    }
+                metadata_file.write_text(json.dumps(metadata, separators=(",", ":")))
+                output = command(
+                    "jq", "-cn", "--arg", "collection", collection,
+                    "--slurpfile", "metadata", str(metadata_file),
+                    "-f", str(PROGRAM), *(str(path) for path in batch)
+                ).stdout
+                for line in output.splitlines():
+                    value = json.loads(line)
+                    key = (value["collection"], value["id"])
+                    case = value["case"]
+                    if case not in CASES or key in matches[case]:
+                        raise ValueError(f"duplicate or unknown oracle match: {value}")
+                    matches[case].add(key)
+            files_seen += len(paths)
     return (
         {case: [list(pair) for pair in sorted(matches[case])] for case in CASES},
         files_seen,
@@ -98,16 +124,12 @@ def main() -> int:
     result_dir = args.result_dir.resolve()
     result_dir.mkdir(parents=True, exist_ok=True)
     expected, files_seen, fingerprint = raw_oracle(fixture)
-    (result_dir / "jq-expected.json").write_text(
-        json.dumps(expected, ensure_ascii=False, indent=2) + "\n"
-    )
+    save_membership(result_dir / "jq-expected.json.gz", expected)
     failures = []
     for alphabet in ("ascii", "unicode"):
         print(f"new core full membership: {alphabet}", file=sys.stderr, flush=True)
         actual = core_ids(fixture, alphabet)
-        (result_dir / f"new-{alphabet}.json").write_text(
-            json.dumps(actual, ensure_ascii=False, indent=2) + "\n"
-        )
+        save_membership(result_dir / f"new-{alphabet}.json.gz", actual)
         for case in CASES:
             if actual[case] != expected[case]:
                 missing = sorted(set(map(tuple, expected[case])) - set(map(tuple, actual[case])))
@@ -145,7 +167,8 @@ def main() -> int:
         "jq evaluated handwritten predicates directly over each original JSON file.",
         "The new core separately returned complete membership sets under ASCII and Unicode.",
         "This oracle does not use the new core's parser, binder, scanner, index, or cache.",
-        "The stored JSON files contain every expected and actual `(collection, record ID)` pair.",
+        "The gzip-compressed JSON files contain every expected and actual `(collection, record ID)` pair.",
+        "Expected: [jq-expected.json.gz](jq-expected.json.gz); actual: [ASCII](new-ascii.json.gz), [Unicode](new-unicode.json.gz).",
         "",
         "| Case | jq matches | ASCII | Unicode |", "|---|---:|---|---|",
     ]
@@ -168,4 +191,6 @@ if __name__ == "__main__":
         sys.exit(main())
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
         print(f"oracle failed: {error}", file=sys.stderr)
+        if isinstance(error, subprocess.CalledProcessError):
+            print(error.stderr, file=sys.stderr)
         sys.exit(2)
