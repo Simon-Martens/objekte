@@ -28,19 +28,19 @@
 | --- | --- | --- | --- |
 | TASK-00 contracts and foundation verification | complete | this ledger and pinned base checks | coordinator |
 | TASK-01 logical/fallback planner partition | complete in base | `dbf4777adf`, `run.test.rs` mixed-domain fixture | coordinator |
-| TASK-02 typed operands, paths, inline sort | reviewed feature branch; pending approved integration | code `a770ed9140`, handoff `b96e8e3cb7` | query worker |
-| TASK-04 regex FTS | reviewed feature branch; pending approved integration | code `d4445fa545`, handoff `3115e188a4` | full-text worker |
-| TASK-05 ID and relation indexes | reviewed feature branch; pending approved integration | code `a42840c07a`, handoff `47118d2c49` | relation-index worker |
-| TASK-03 temporal/size | blocked by TASK-02 integration | — | later worker |
-| TASK-06 relation traversal | blocked by TASK-02 and TASK-05 integration | — | later worker |
-| TASK-08 relation inspection | blocked by TASK-05 integration | — | later worker |
+| TASK-02 typed operands, paths, inline sort | integrated | merge `1b71b2cba9`, reviewed code `a770ed9140` | query worker |
+| TASK-04 regex FTS | integrated | merge `264fc22f20`, reviewed code `d4445fa545` | full-text worker |
+| TASK-05 ID and relation indexes | integrated | merge `7f6791750c`, reviewed code `a42840c07a` | relation-index worker |
+| TASK-03 temporal/size | ready | G2 checkpoint `533f9ad95d` | later worker |
+| TASK-06 relation traversal | ready | G2 checkpoint `533f9ad95d` | later worker |
+| TASK-08 relation inspection | ready | G2 checkpoint `533f9ad95d` | later worker |
 | TASK-07 semijoin planner | blocked by TASK-06 integration | — | later worker |
 | TASK-09 cross-feature verification | blocked by integration | — | coordinator |
 | TASK-10 final measurements | blocked by TASK-09 | — | coordinator |
 
 Every worker handoff must include the fields in Section 12.7 of the specification, exact test output, cache/snapshot effects and any shared-file edits. This ledger is updated at review checkpoints.
 
-## G2 integration proposal (pending approval)
+## G2 integration proposal (approved and executed)
 
 All three feature branches descend from gate `258575ff5e` and have been pushed. The proposed integration order is:
 
@@ -48,11 +48,17 @@ All three feature branches descend from gate `258575ff5e` and have been pushed. 
 2. Merge `feature/typed-query-operands` through handoff `b96e8e3cb7` (reviewed implementation `a770ed9140`), preserving both the relation branch's ID model and the query branch's typed operand and cache identities. Add the narrow contextual ID/parameter bridge here.
 3. Merge `feature/full-text-regular-expressions` through handoff `3115e188a4` (implementation `d4445fa545`), reconciling FTS mode with typed parameters and both branches' exact evaluation and CLI hooks.
 
-This order follows the dependency on the ID type before contextual query binding. A read-only `git merge-tree` inspection at the first-wave gate found textual conflicts between relation storage and typed operands in `reference.rs` and `repository.rs`, and between relation storage and regex in `lib.rs` and `reference.rs`. Both combinations also edit `executor.rs`; all three change public request and execution surfaces. These are expected integration work, not permission to discard either side. No merge has been performed.
+This order follows the dependency on the ID type before contextual query binding. A read-only `git merge-tree` inspection at the first-wave gate found textual conflicts between relation storage and typed operands in `reference.rs` and `repository.rs`, and between relation storage and regex in `lib.rs` and `reference.rs`. Both combinations also edit `executor.rs`; all three change public request and execution surfaces. The later merge resolution retained both sides.
 
 Branch-local checks: the relation branch passed `cargo test --workspace --all-targets`, Clippy, formatting, and its focused build/restore fixtures; the regex branch passed the same commands plus conservative candidate fixtures. Read-only review found three typed field-comparison issues (ambiguous nested arrays, null inequality direction, and non-array derived length). Commit `4eda0b6782` corrected them with independent expected-answer and optimized/reference tests. Commit `a770ed9140` additionally preserved null through dynamic case folding. Post-fix `cargo test --workspace --all-targets` passed independently at that exact code in `/tmp/objekte-typed-final-a770-all-targets.log`, and the worker's Clippy and formatting checks passed. Each branch's Section 12.7 handoff is in its named documentation commit. New feature timing and cross-branch correctness have not been measured. The current development checkout is unchanged.
 
 The specification's Section 12.6 requires explicit user approval before any branch merge into this integration worktree and separate approval before any merge into development or master. After authorization, the coordinator resolves conflicts, runs cross-feature checks, and starts the dependent tasks from accepted integration commits.
+
+## G2 accepted checkpoint
+
+The user approved merging the reviewed feature branches into the dedicated integration branch. They were merged in the proposed order at `7f6791750c`, `1b71b2cba9`, and `264fc22f20`. Integration preserved both sides of the shared `reference.rs`/`query.rs`/`repository.rs` changes. Focused bridge commit `533f9ad95d` adds tagged ID parameter transport and explicit textual `@record.id:lower` field comparison, with build/restore and alternating warm-cache tests. It does not change the persisted relation or bigram formats.
+
+At the bridge code commit, `cargo test --workspace --all-targets` passed (136 core tests, one ignored; 25 TUI tests; all other target suites passed). `cargo clippy --workspace --all-targets` exited zero with advisory warnings. `git diff --check` passed. A full workspace rustfmt check reports pre-existing drift across many files, including build and source tests; touched bridge code was formatted without applying unrelated changes. Logs: `/tmp/objekte-g2-id-bridge-all-targets.log` and `/tmp/objekte-g2-id-bridge-clippy.log`. This checkpoint is the source for TASK-03, TASK-06, and TASK-08. Integration into development/master remains separately gated.
 ## TASK-05 handoff: typed IDs and relation indexes
 
 - **Task identifier:** TASK-05, milestones 12 and 13, plus two focused review corrections.
