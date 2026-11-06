@@ -31,11 +31,11 @@
 | TASK-02 typed operands, paths, inline sort | integrated | merge `1b71b2cba9`, reviewed code `a770ed9140` | query worker |
 | TASK-04 regex FTS | integrated | merge `264fc22f20`, reviewed code `d4445fa545` | full-text worker |
 | TASK-05 ID and relation indexes | integrated | merge `7f6791750c`, reviewed code `a42840c07a` | relation-index worker |
-| TASK-03 temporal/size | integrated | `feature/temporal-query-operands` at `af9d1ca797`, G2 base `6e9b1b83d2` | temporal worker |
-| TASK-06 relation traversal | integrated | `feature/relation-traversal` at `eb45b420da`, G2 base `6e9b1b83d2` | relation-query worker |
+| TASK-03 temporal/size | integrated | merge `6f5557dec1`, branch `af9d1ca797` | temporal worker |
+| TASK-06 relation traversal | integrated | merge `5ab1b61977`, branch `eb45b420da` | relation-query worker |
 | TASK-08 relation inspection | integrated | merge `3f71daeb68`, code `fa3d54a450` | inspection worker |
-| TASK-07 semijoin planner | blocked by TASK-06 integration | — | later worker |
-| TASK-09 cross-feature verification | blocked by integration | — | coordinator |
+| TASK-07 semijoin planner | in progress | `performance/relation-semijoins`, G3 base `5ab1b61977` | relation-planner worker |
+| TASK-09 cross-feature verification | in progress | independent oracle and interaction tests on integration | coordinator |
 | TASK-10 final measurements | blocked by TASK-09 | — | coordinator |
 
 Every worker handoff must include the fields in Section 12.7 of the specification, exact test output, cache/snapshot effects and any shared-file edits. This ledger is updated at review checkpoints.
@@ -59,6 +59,12 @@ The specification's Section 12.6 requires explicit user approval before any bran
 The user approved merging the reviewed feature branches into the dedicated integration branch. They were merged in the proposed order at `7f6791750c`, `1b71b2cba9`, and `264fc22f20`. Integration preserved both sides of the shared `reference.rs`/`query.rs`/`repository.rs` changes. Focused bridge commit `533f9ad95d` adds tagged ID parameter transport and explicit textual `@record.id:lower` field comparison, with build/restore and alternating warm-cache tests. It does not change the persisted relation or bigram formats.
 
 At the bridge code commit, `cargo test --workspace --all-targets` passed (136 core tests, one ignored; 25 TUI tests; all other target suites passed). `cargo clippy --workspace --all-targets` exited zero with advisory warnings. `git diff --check` passed. A full workspace rustfmt check reports pre-existing drift across many files, including build and source tests; touched bridge code was formatted without applying unrelated changes. Logs: `/tmp/objekte-g2-id-bridge-all-targets.log` and `/tmp/objekte-g2-id-bridge-clippy.log`. This checkpoint is the source for TASK-03, TASK-06, and TASK-08. Integration into development/master remains separately gated.
+
+## G3 accepted relational-semantics checkpoint
+
+The user authorized integration in this worktree. Temporal milestone commits through `af9d1ca797` were merged at `6f5557dec1`; relation traversal through `eb45b420da` was merged at `5ab1b61977`. Both merges retained the resident inspection module, regex mode, typed operands, temporal periods and the relation evaluator. `cargo test --workspace --all-targets` and `cargo clippy --workspace --all-targets` exited zero after each merge, with existing advisory Clippy warnings. The relation merge logs are `/tmp/objekte-g3-relation-merge-tests.log` and `/tmp/objekte-g3-relation-merge-clippy.log`. The exact TASK-07 worktree base is `5ab1b61977`.
+
+Coordinator interaction tests followed on the integration branch: `428d8261bb` compares relation predicates with an independent evaluator over fixture JSON in both alphabets and fresh/restored repositories; `ceed7b3e9a` verifies a registered non-JSON reader with typed relation, temporal and regex requests; `7114279df2` binds complete regex pattern parameters with alternating warm-cache checks; `e564ce97b9` adds a fixed 16-case feature workload, verified in correctness-only mode for ASCII and Unicode. These commits have been pushed. The feature workload has not yet been timed. The semijoin worker remains the sole writer in its separate worktree; development/master remain untouched.
 
 ## TASK-10 baseline decision and recorded before state
 
