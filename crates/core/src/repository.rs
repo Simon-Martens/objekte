@@ -2,8 +2,8 @@
 
 use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
-use std::path::PathBuf;
 use std::num::NonZeroUsize;
+use std::path::PathBuf;
 use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -12,19 +12,21 @@ use std::time::Instant;
 use crate::bigram::{BigramContribution, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inventory::{
-    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus,
-    RecordClass, SourceRevision,
+    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
+    SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
-    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts,
-    eval_filter, eval_unavailable_filter,
+    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts, eval_filter,
+    eval_unavailable_filter,
 };
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
-use crate::source::{PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range};
+use crate::source::{
+    PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range,
+};
 use crate::workload::{BigramAlphabet, WorkCounters};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
@@ -58,7 +60,7 @@ pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value)
 
 pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
     let single = match value {
-        Value::String(text) => Some(text.as_str()),
+        Value::String(text) | Value::Id(text) => Some(text.as_str()),
         _ => None,
     };
     let array = match value {
@@ -70,7 +72,7 @@ pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
             .into_iter()
             .flat_map(|array| array.values.iter())
             .filter_map(|value| match value {
-                Value::String(text) => Some(text.as_str()),
+                Value::String(text) | Value::Id(text) => Some(text.as_str()),
                 _ => None,
             }),
     )
@@ -110,6 +112,7 @@ pub struct CollectionState {
     pub stats: CollectionStats,
 }
 
+
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
 struct PendingCollection {
@@ -128,6 +131,7 @@ struct PendingCollection {
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
 }
 
+
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
     Large {
@@ -138,6 +142,7 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
+
 
 impl PendingCollection {
     fn admit(
@@ -549,7 +554,8 @@ impl Repository {
             .build()
             .map_err(|error| error.to_string())?;
         let source_files = Arc::new(
-            files.files
+            files
+                .files
                 .iter()
                 .map(crate::build::SourceFileInput::from_entry)
                 .collect(),
@@ -563,8 +569,7 @@ impl Repository {
         let mut finalization_ns = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
         for (definition, id, source, member_files) in selected {
-            let builder =
-                CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
+            let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let postings = PostingCollection::new(&definition.schema);
             let custom_postings: HashMap<_, _> = definition
                 .schema
@@ -729,8 +734,13 @@ impl Repository {
             let generation = builder.finish(&files)?;
             let raw = raw.into_index_in_pool(&build_pool)?;
             let fallback_text = fallback_text.into_index_in_pool(&build_pool)?;
-            let custom_text = custom_text.into_iter()
-                .map(|(key, index)| index.into_index_in_pool(&build_pool).map(|index| (key, index)))
+            let custom_text = custom_text
+                .into_iter()
+                .map(|(key, index)| {
+                    index
+                        .into_index_in_pool(&build_pool)
+                        .map(|index| (key, index))
+                })
                 .collect::<Result<HashMap<_, _>, _>>()?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();

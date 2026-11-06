@@ -139,6 +139,7 @@ fn compare_int_float(i: i128, f: f64) -> Ordering {
 pub enum LogicalType {
     Unknown,
     String,
+    Id,
     Number,
     Bool,
     Date,
@@ -207,6 +208,7 @@ fn merge_array_element_types(left: &LogicalType, right: &LogicalType) -> Option<
 pub enum Value {
     Null,
     String(String),
+    Id(String),
     Number(Number),
     Bool(bool),
     Date(Date),
@@ -222,6 +224,7 @@ impl Value {
         match self {
             Self::Null => panic!("null has no non-null logical type"),
             Self::String(_) => LogicalType::String,
+            Self::Id(_) => LogicalType::Id,
             Self::Number(_) => LogicalType::Number,
             Self::Bool(_) => LogicalType::Bool,
             Self::Date(_) => LogicalType::Date,
@@ -261,6 +264,7 @@ impl Value {
     pub fn parse_typed_string(text: &str, kind: &LogicalType) -> Result<Self, String> {
         match kind {
             LogicalType::String => Ok(Self::String(text.into())),
+            LogicalType::Id => Ok(Self::Id(text.into())),
             LogicalType::Date => {
                 Date::parse(text, &time::format_description::well_known::Iso8601::DATE)
                     .map(Self::Date)

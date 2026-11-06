@@ -4,7 +4,7 @@
 //! workload execution live in the CLI integration layer.
 
 /// Version of the in-memory search model and future snapshot envelope.
-pub const MODEL_VERSION: u32 = 5;
+pub const MODEL_VERSION: u32 = 6;
 
 pub mod bigram;
 mod build;
@@ -35,3 +35,7 @@ mod tests;
 #[cfg(test)]
 #[path = "foundation_invariants.test.rs"]
 mod foundation_invariants;
+
+#[cfg(test)]
+#[path = "id.test.rs"]
+mod id_tests;

@@ -30,7 +30,7 @@ pub(crate) fn prepare_query_record(
         schema.coerce_query_record(&mut record.value, projection.top_level.as_ref())?;
     }
     if projection.collect_text {
-        finalize_extracted_text(source.reader(), &mut record, schema.has_temporal_fields());
+        finalize_extracted_text(source.reader(), &mut record, schema.has_converted_fields());
     }
     Ok(record)
 }

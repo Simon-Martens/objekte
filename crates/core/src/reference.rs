@@ -1,10 +1,10 @@
 //! Typed query binding and independent, index-free reference evaluation.
 
+use smallvec::SmallVec;
 use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
-use smallvec::SmallVec;
 
 use crate::bigram::BigramRequest;
 use crate::bigram::fold;
@@ -171,9 +171,9 @@ pub struct Schema {
     pub(crate) operations: HashMap<(Vec<String>, String), RegisteredBinding>,
     pub(crate) defaults: HashMap<Vec<String>, String>,
     pub(crate) raw: Option<RegisteredBinding>,
-    temporal_fields: bool,
+    converted_fields: bool,
     validation: ValidationNode,
-    temporal_validation: ValidationNode,
+    conversion_validation: ValidationNode,
 }
 
 
@@ -208,19 +208,19 @@ impl Schema {
         value: &mut Value,
         selected_top_level: Option<&HashSet<String>>,
     ) -> Result<(), String> {
-        if !self.temporal_fields {
+        if !self.converted_fields {
             return Ok(());
         }
         validate_children(
             value,
-            &self.temporal_validation,
+            &self.conversion_validation,
             &mut Vec::new(),
             selected_top_level,
         )
     }
 
-    pub fn has_temporal_fields(&self) -> bool {
-        self.temporal_fields
+    pub fn has_converted_fields(&self) -> bool {
+        self.converted_fields
     }
 
     pub fn register_field(&mut self, field: FieldDefinition) -> Result<(), String> {
@@ -230,25 +230,25 @@ impl Schema {
         if self.fields.contains_key(&field.path) {
             return Err("duplicate field registration".into());
         }
-        self.temporal_fields |= temporal_kind(&field.kind);
+        self.converted_fields |= converted_kind(&field.kind);
         let mut node = &mut self.validation;
         for part in &field.path {
             node = node.children.entry(part.clone()).or_default();
         }
         node.field = Some(field.clone());
         self.fields.insert(field.path.clone(), field);
-        if self.temporal_fields {
-            self.rebuild_temporal_validation();
+        if self.converted_fields {
+            self.rebuild_conversion_validation();
         }
         Ok(())
     }
 
-    fn rebuild_temporal_validation(&mut self) {
+    fn rebuild_conversion_validation(&mut self) {
         let mut root = ValidationNode::default();
         for field in self
             .fields
             .values()
-            .filter(|field| temporal_kind(&field.kind))
+            .filter(|field| converted_kind(&field.kind))
         {
             let mut node = &mut root;
             for depth in 0..field.path.len() {
@@ -258,7 +258,7 @@ impl Schema {
                 }
             }
         }
-        self.temporal_validation = root;
+        self.conversion_validation = root;
     }
 
     pub fn register_custom(
@@ -385,10 +385,10 @@ impl Schema {
 }
 
 
-fn temporal_kind(kind: &LogicalType) -> bool {
+fn converted_kind(kind: &LogicalType) -> bool {
     match kind {
-        LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime => true,
-        LogicalType::Array(inner) => temporal_kind(inner),
+        LogicalType::Id | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime => true,
+        LogicalType::Array(inner) => converted_kind(inner),
         _ => false,
     }
 }
@@ -453,7 +453,16 @@ fn validate_declared(
             Err(format!("{}: null is not allowed", path.join(".")))
         };
     }
-    if matches!(kind, LogicalType::Date | LogicalType::Datetime) {
+    if *kind == LogicalType::Id {
+        match value {
+            Value::String(text) | Value::Id(text) => {
+                let id = crate::model::RecordId::intrinsic(text.clone())
+                    .map_err(|e| format!("{}: {e}", path.join(".")))?;
+                *value = Value::Id(id.0);
+            }
+            _ => {}
+        }
+    } else if matches!(kind, LogicalType::Date | LogicalType::Datetime) {
         if let Value::String(text) = value {
             *value = Value::parse_typed_string(text, kind)
                 .map_err(|e| format!("{}: {e}", path.join(".")))?;
@@ -487,10 +496,10 @@ fn validate_declared(
 
 fn metadata_type(field: MetadataField) -> LogicalType {
     match field {
-        MetadataField::RecordId
-        | MetadataField::FilePath
-        | MetadataField::CollectionName
-        | MetadataField::RepositoryRoot => LogicalType::String,
+        MetadataField::FilePath | MetadataField::CollectionName | MetadataField::RepositoryRoot => {
+            LogicalType::String
+        }
+        MetadataField::RecordId => LogicalType::Id,
         MetadataField::RecordByteStart
         | MetadataField::RecordByteEnd
         | MetadataField::RecordByteLength
@@ -713,6 +722,14 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
             other => other.clone(),
         },
     };
+    let kind = if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
+        && transform == Transform::CaseFold
+        && derived == Derived::None
+    {
+        LogicalType::String
+    } else {
+        kind
+    };
     if transform != Transform::Identity
         && !matches!(kind, LogicalType::String | LogicalType::Unknown)
     {
@@ -727,6 +744,9 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         if !op.accepts(&kind, term.operator, multi) {
             return Err(format!("unsupported operation for binding {binding_name}"));
         }
+    }
+    if kind == LogicalType::Id && !matches!(term.operator, Operator::Eq | Operator::Ne) {
+        return Err("ID permits only equality operators".into());
     }
     if matches!(term.operator, Operator::Contains | Operator::NotContains)
         && !matches!(kind, LogicalType::String | LogicalType::Unknown)
@@ -809,6 +829,7 @@ fn prepare_literal(
     let value = match (literal, kind) {
         (Literal::Null, _) => Value::Null,
         (Literal::String(s), LogicalType::String) => Value::String(s.clone()),
+        (Literal::String(s), LogicalType::Id) => Value::parse_typed_string(s, kind)?,
         (Literal::String(s), LogicalType::Date | LogicalType::Datetime) => {
             Value::parse_typed_string(s, kind)?
         }
@@ -846,7 +867,7 @@ pub(crate) fn metadata_value(
 ) -> Result<Value, String> {
     let number = |n: u64| Value::Number(Number::integer(n as i128));
     Ok(match field {
-        MetadataField::RecordId => Value::String(ctx.record.id.0.clone()),
+        MetadataField::RecordId => Value::Id(ctx.record.id.0.clone()),
         MetadataField::RecordByteStart => number(ctx.record.range.start),
         MetadataField::RecordByteEnd => number(ctx.record.range.end),
         MetadataField::RecordByteLength => number(ctx.record.range.len()),
@@ -956,6 +977,7 @@ fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) 
     };
     let order = match (lhs, rhs) {
         (Value::String(a), Value::String(b)) => Some(a.cmp(b)),
+        (Value::Id(a), Value::Id(b)) => Some(a.cmp(b)),
         (Value::Number(a), Value::Number(b)) => Some(a.cmp(b)),
         (Value::Bool(a), Value::Bool(b)) => Some(a.cmp(b)),
         (Value::Date(a), Value::Date(b)) => Some(a.cmp(b)),
@@ -1037,7 +1059,11 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     }
     let owned;
     let mut selected = if let PathRoot::Metadata(field) = term.path.root {
-        owned = metadata_value(field, ctx)?;
+        owned = if field == MetadataField::RecordId && term.transform == Transform::CaseFold {
+            Value::String(ctx.record.id.0.clone())
+        } else {
+            metadata_value(field, ctx)?
+        };
         Some(vec![&owned])
     } else {
         select_values(term, ctx)?
@@ -1326,6 +1352,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         if !matches!(definition.kind, LogicalType::String)
             && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
             && definition.kind != LogicalType::Unknown
+            && selected.path.root != PathRoot::Metadata(MetadataField::RecordId)
         {
             return Err("FTS field requires string values".into());
         }
@@ -1463,7 +1490,7 @@ pub fn eval_bound_fts(
     }
     for field in &fts.fields {
         if let PathRoot::Metadata(metadata) = field.path.root {
-            if let Value::String(text) = metadata_value(metadata, ctx)? {
+            if let Value::String(text) | Value::Id(text) = metadata_value(metadata, ctx)? {
                 if text_contains(
                     &text,
                     &field.literal,

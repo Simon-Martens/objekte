@@ -149,10 +149,9 @@ pub enum TextDerivation {
 pub fn finalize_extracted_text(
     reader: &dyn SourceReader,
     record: &mut ExtractedRecord,
-    converted_temporal_fields: bool,
+    converted_fields: bool,
 ) {
-    if converted_temporal_fields
-        && reader.text_derivation() == TextDerivation::LogicalStringsAfterConversion
+    if converted_fields && reader.text_derivation() == TextDerivation::LogicalStringsAfterConversion
     {
         record.text = text_segments(&record.value);
     }
@@ -189,7 +188,6 @@ pub trait SourceReader: Send + Sync {
         self.parse(bytes).map_err(ReaderFailure::Fatal)
     }
 
-
     /// Build-only parsing may omit owned text segments when the declared text
     /// representation is the logical strings after schema conversion.
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
@@ -212,7 +210,7 @@ pub trait SourceReader: Send + Sync {
             value = next;
         }
         match value {
-            Value::String(id) => Ok(Some(id.clone())),
+            Value::String(id) | Value::Id(id) => Ok(Some(id.clone())),
             Value::Null => Ok(None),
             _ => Err(format!(
                 "intrinsic record ID at {} must be a string",
@@ -445,7 +443,7 @@ fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
 
 fn collect_strings(value: &Value, path: &mut Vec<String>, output: &mut Vec<TextSegment>) {
     match value {
-        Value::String(s) => output.push(TextSegment {
+        Value::String(s) | Value::Id(s) => output.push(TextSegment {
             path: path.clone(),
             text: s.clone(),
         }),
@@ -473,7 +471,7 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
 
 pub(crate) fn visit_logical_strings(value: &Value, emit: &mut dyn FnMut(&str)) {
     match value {
-        Value::String(text) => emit(text),
+        Value::String(text) | Value::Id(text) => emit(text),
         Value::Object(fields) => {
             for value in fields.values() {
                 visit_logical_strings(value, emit);
@@ -715,7 +713,11 @@ where
     for &range in ranges {
         let part = &bytes[range.start as usize..range.end as usize];
         counters.framed_records += 1;
-        match if for_build { source.parse_for_build_outcome(part) } else { source.parse_outcome(part) } {
+        match if for_build {
+            source.parse_for_build_outcome(part)
+        } else {
+            source.parse_outcome(part)
+        } {
             Ok(record) => {
                 counters.record_parses += 1;
                 consume(SourceOutcome::Logical { range, record })?;
@@ -851,7 +853,8 @@ where
         }
     };
     validate_reader_ranges(&ranges, bytes.len())?;
-    let counters = extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
+    let counters =
+        extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
     if !for_build {
         check_revision(path, &file, expected)?;
     }
@@ -895,13 +898,19 @@ pub fn read_record_range(
 
 /// Build-only fallback read: discovery supplied the source revision, while
 /// construction assumes the source remains stable and performs no new probe.
-pub(crate) fn read_record_range_for_build(path: &Path, range: ByteRange) -> Result<Vec<u8>, String> {
+pub(crate) fn read_record_range_for_build(
+    path: &Path,
+    range: ByteRange,
+) -> Result<Vec<u8>, String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
     ByteRange::checked(range.start, range.end, u64::MAX)?;
     read_record_range_from_opened(&mut file, range)
 }
 
-fn read_record_range_from_opened(file: &mut std::fs::File, range: ByteRange) -> Result<Vec<u8>, String> {
+fn read_record_range_from_opened(
+    file: &mut std::fs::File,
+    range: ByteRange,
+) -> Result<Vec<u8>, String> {
     let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
     let mut bytes = vec![0; len];
     file.seek(SeekFrom::Start(range.start))
