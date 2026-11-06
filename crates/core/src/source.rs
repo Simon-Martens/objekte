@@ -11,7 +11,6 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::Value;
 
-
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum SourceFormat {
@@ -19,7 +18,6 @@ pub enum SourceFormat {
     JsonLines,
     Registered(String),
 }
-
 
 impl SourceFormat {
     pub fn registered(id: impl Into<String>) -> Self {
@@ -35,7 +33,6 @@ impl SourceFormat {
     }
 }
 
-
 /// Extracted searchable string with its logical field path.
 #[derive(Clone, Debug)]
 pub struct TextSegment {
@@ -43,14 +40,12 @@ pub struct TextSegment {
     pub text: String,
 }
 
-
 /// Logical value and text produced by a source reader.
 #[derive(Clone, Debug)]
 pub struct ExtractedRecord {
     pub value: Value,
     pub text: Vec<TextSegment>,
 }
-
 
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
@@ -61,6 +56,14 @@ pub struct ScanProjection {
     pub collect_text: bool,
 }
 
+/// Whether extracted segments contain every logical string field. A custom
+/// reader must opt in explicitly; its default segments are reader-owned and
+/// may deliberately omit fields present in the logical record.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum LogicalTextCoverage {
+    AllStringFields,
+    ReaderSelected,
+}
 
 impl ScanProjection {
     pub fn full(collect_text: bool) -> Self {
@@ -71,9 +74,11 @@ impl ScanProjection {
     }
 }
 
-
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
+    fn logical_text_coverage(&self) -> LogicalTextCoverage {
+        LogicalTextCoverage::ReaderSelected
+    }
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
     fn intrinsic_id(
@@ -111,7 +116,6 @@ pub trait SourceReader: Send + Sync {
     }
 }
 
-
 /// Stable source identity, discovery suffix, and reader implementation.
 #[derive(Clone)]
 pub struct SourceRegistration {
@@ -121,11 +125,9 @@ pub struct SourceRegistration {
     pub reader: Arc<dyn SourceReader>,
 }
 
-
 /// Prepared source handle resolved once per collection.
 #[derive(Clone)]
 pub struct PreparedSource(Arc<SourceRegistration>);
-
 
 impl PreparedSource {
     pub fn id(&self) -> &str {
@@ -145,13 +147,11 @@ impl PreparedSource {
     }
 }
 
-
 /// Repository-local source registrations. The built-ins use this same table.
 #[derive(Clone, Default)]
 pub struct SourceRegistry {
     entries: HashMap<String, Arc<SourceRegistration>>,
 }
-
 
 impl SourceRegistry {
     pub fn builtin() -> Self {
@@ -202,22 +202,17 @@ impl SourceRegistry {
     }
 }
 
-
 /// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
-
 
 /// Reader for independently parseable JSON Lines records.
 pub struct JsonLinesReader;
 
-
 /// Deserializer seed that retains selected top-level JSON members.
 struct SelectedObject<'a>(&'a HashSet<String>);
 
-
 /// Map visitor that skips JSON members outside a query projection.
 struct SelectedVisitor<'a>(&'a HashSet<String>);
-
 
 impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
@@ -239,7 +234,6 @@ impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     }
 }
 
-
 impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
 
@@ -250,7 +244,6 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
         deserializer.deserialize_map(SelectedVisitor(self.0))
     }
 }
-
 
 fn parse_json_for_query(
     bytes: &[u8],
@@ -309,10 +302,13 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
     output
 }
 
-
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
         "json"
+    }
+
+    fn logical_text_coverage(&self) -> LogicalTextCoverage {
+        LogicalTextCoverage::AllStringFields
     }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
@@ -339,10 +335,13 @@ impl SourceReader for JsonReader {
     }
 }
 
-
 impl SourceReader for JsonLinesReader {
     fn name(&self) -> &'static str {
         "jsonl"
+    }
+
+    fn logical_text_coverage(&self) -> LogicalTextCoverage {
+        LogicalTextCoverage::AllStringFields
     }
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
@@ -383,14 +382,12 @@ impl SourceReader for JsonLinesReader {
     }
 }
 
-
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
 pub struct ExtractionCounters {
     pub framed_records: u64,
     pub record_parses: u64,
 }
-
 
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
@@ -492,14 +489,12 @@ pub fn read_record_ranges(
     RecordRangeReader::open(path, revision)?.read(ranges)
 }
 
-
 /// One opened source handle for a bounded sequence of range batches.
 pub struct RecordRangeReader {
     file: std::fs::File,
     revision: SourceRevision,
     first_read: bool,
 }
-
 
 impl RecordRangeReader {
     pub fn open(path: &Path, revision: SourceRevision) -> Result<Self, String> {
@@ -572,7 +567,6 @@ impl RecordRangeReader {
         Ok((output, bytes_read))
     }
 }
-
 
 #[cfg(test)]
 #[path = "source.test.rs"]

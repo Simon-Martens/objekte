@@ -1,9 +1,7 @@
 use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
-
 struct TinyReader(Arc<AtomicUsize>);
-
 
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
@@ -46,6 +44,109 @@ impl SourceReader for TinyReader {
     }
 }
 
+#[test]
+fn body_only_reader_does_not_prune_unindexed_title() {
+    use crate::model::LogicalType;
+    use crate::query::{FtsField, FtsQuery, Query, QueryOptions, parse_filter};
+    use crate::reference::{FieldDefinition, Schema};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::workload::{BigramAlphabet, ReturnMode};
+
+    let root = std::env::temp_dir().join(format!("objekte-body-only-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/items.tiny"),
+        b"hello world|ordinary\nother|ordinary\n",
+    )
+    .unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::registered("tiny"),
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let sources = || {
+        let mut sources = SourceRegistry::builtin();
+        sources
+            .register(
+                "tiny",
+                1,
+                "tiny",
+                Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+            )
+            .unwrap();
+        sources
+    };
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let repo = Repository::open_with_sources(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                bigram_alphabet: alphabet,
+                snapshot_mode: SnapshotMode::Disabled,
+                ..Default::default()
+            },
+            sources(),
+        )
+        .unwrap();
+        for (filter, fts, expected) in [
+            (Some("title ~ 'hello world'"), None, 1),
+            (
+                None,
+                Some(FtsQuery {
+                    literal: "hello world".into(),
+                    fields: vec![FtsField {
+                        path: crate::model::FieldPath::parse("title").unwrap(),
+                        binding: None,
+                    }],
+                }),
+                0,
+            ),
+        ] {
+            let query = Query {
+                collections: vec!["data".into()],
+                filter: filter.map(|s| parse_filter(s).unwrap()),
+                fts,
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 10,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Bytes,
+                    evidence: true,
+                },
+            };
+            let found = repo.search(&query).unwrap();
+            assert_eq!(found.count, Some(expected), "{alphabet:?} {filter:?}");
+            if expected == 1 {
+                assert!(
+                    matches!(&found.hits[0].payload, Some(crate::repository::Payload::Bytes(raw)) if raw == b"hello world|ordinary")
+                );
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn registered_non_json_reader_reaches_build_query_payload_and_restore() {

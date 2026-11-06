@@ -12,8 +12,8 @@ use crate::reference::{
 };
 use crate::repository::{CollectionState, Repository};
 use crate::sorting::SortKey;
+use crate::source::LogicalTextCoverage;
 use serde::Serialize;
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "snake_case")]
@@ -27,7 +27,6 @@ pub enum AccessPathKind {
     Scanner,
 }
 
-
 /// Estimated cost and coverage of one physical query path.
 #[derive(Clone, Debug, Serialize)]
 pub struct AccessPathEstimate {
@@ -39,7 +38,6 @@ pub struct AccessPathEstimate {
     pub estimated_files: f64,
     pub estimated_bytes: f64,
 }
-
 
 /// Planner decision and alternatives for one bound term.
 #[derive(Clone, Debug, Serialize)]
@@ -56,7 +54,6 @@ pub struct TermChoice {
     pub residual_verification: bool,
     pub executed: bool,
 }
-
 
 fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
     match expr {
@@ -87,14 +84,12 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
     }
 }
 
-
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
     pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
-
 
 /// Candidate set, exactness, and diagnostics for a planned expression.
 pub(crate) struct Plan {
@@ -105,6 +100,30 @@ pub(crate) struct Plan {
     pub choices: Vec<TermChoice>,
 }
 
+/// A whole-record raw index is a field superset only when its source reader
+/// supplies every logical string and the indexed representation is identity.
+/// Resolve this at planning time, before any record is visited. The source
+/// registration and raw binding versions are fixed by the collection's
+/// immutable generation and snapshot configuration.
+fn raw_covers_identity_field(collection: &CollectionState) -> Result<(), String> {
+    if collection.source.reader().logical_text_coverage() != LogicalTextCoverage::AllStringFields {
+        return Err(format!(
+            "source {}@{} does not cover every logical string field",
+            collection.source.id(),
+            collection.source.version()
+        ));
+    }
+    if let Some(binding) = &collection.definition.schema.raw {
+        return Err(format!(
+            "raw representation {}@{} differs from identity field text",
+            binding.name, binding.version
+        ));
+    }
+    if collection.raw.record_count as usize != collection.generation.records.len() {
+        return Err("raw index has incomplete record coverage".into());
+    }
+    Ok(())
+}
 
 fn term_set(
     repo: &Repository,
@@ -330,6 +349,7 @@ fn enumerate_paths(
                     if matches!(term.binding_name.as_str(), "default")
                         && term.transform == Transform::Identity
                         && term.operation.is_none()
+                        && raw_covers_identity_field(collection).is_ok()
                     {
                         if let Some(output) = collection.raw.estimate_min_cardinality(literal) {
                             add(
@@ -537,6 +557,22 @@ pub(crate) fn plan_expr_restricted(
                     }]
                 })
                 .unwrap_or_default();
+            let reason = if selected.kind == AccessPathKind::Scanner
+                && term.path.root == PathRoot::Data
+                && term.kind == LogicalType::String
+                && term.binding_name == "default"
+                && matches!(term.operator, Operator::Contains | Operator::Eq)
+            {
+                raw_covers_identity_field(collection)
+                    .err()
+                    .map(|reason| format!("raw bigram rejected: {reason}; scanner selected"))
+                    .unwrap_or_else(|| {
+                        "lowest estimated lookup plus remaining source work for current input"
+                            .into()
+                    })
+            } else {
+                "lowest estimated lookup plus remaining source work for current input".into()
+            };
             let choices = vec![TermChoice {
                 span: term.span,
                 field: term.path.display(),
@@ -546,8 +582,7 @@ pub(crate) fn plan_expr_restricted(
                 alternatives: paths,
                 actual_input: input.len(),
                 actual_output: candidates.as_ref().map(RoaringBitmap::len),
-                reason: "lowest estimated lookup plus remaining source work for current input"
-                    .into(),
+                reason,
                 residual_verification: !exact,
                 executed: true,
             }];
@@ -647,7 +682,6 @@ pub(crate) fn plan_expr_restricted(
                     (Some(mut union), Some(set)) => {
                         union |= set;
 
-
                         Some(union)
                     }
                     _ => None,
@@ -739,9 +773,9 @@ pub(crate) fn fts_candidates(
                 .get(&key)?
                 .candidates(&field.literal)?
         } else {
+            raw_covers_identity_field(collection).ok()?;
             collection.raw.candidates(&field.literal)?
         };
-
 
         union |= candidates;
     }
@@ -781,6 +815,7 @@ pub(crate) fn estimate_fts_candidates(
                 .get(&key)?
                 .estimate_min_cardinality(&field.literal)?
         } else {
+            raw_covers_identity_field(collection).ok()?;
             work += field.literal.len() as f64;
             collection.raw.estimate_min_cardinality(&field.literal)?
         };

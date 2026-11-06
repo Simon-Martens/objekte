@@ -7,6 +7,131 @@ use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 use std::sync::Arc;
 
+#[derive(Debug)]
+struct RemoveSpaces;
+
+impl crate::reference::BindingOperation for RemoveSpaces {
+    fn accepts(&self, kind: &LogicalType, op: Operator, _: bool) -> bool {
+        *kind == LogicalType::String && matches!(op, Operator::Contains | Operator::Eq)
+    }
+
+    fn prepare_literal(
+        &self,
+        literal: &crate::query::Literal,
+        _: &LogicalType,
+    ) -> Result<Value, String> {
+        match literal {
+            crate::query::Literal::String(text) => Ok(Value::String(self.map_text(text))),
+            _ => Err("expected text".into()),
+        }
+    }
+
+    fn map_value(&self, value: &Value) -> Option<Value> {
+        match value {
+            Value::String(text) => Some(Value::String(self.map_text(text))),
+            _ => None,
+        }
+    }
+
+    fn map_text(&self, text: &str) -> String {
+        text.chars().filter(|ch| *ch != ' ').collect()
+    }
+
+    fn bigram(&self) -> bool {
+        true
+    }
+}
+
+#[test]
+fn transformed_raw_index_cannot_prune_identity_field_predicates() {
+    use crate::reference::{RegisteredBinding, Schema};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    let root = std::env::temp_dir().join(format!("objekte-raw-compat-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), r#"{"title":"hello world"}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), r#"{"title":"other"}"#).unwrap();
+    let definition = || {
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["title".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+        schema
+            .set_raw_binding(RegisteredBinding {
+                name: "nospace".into(),
+                version: 1,
+                operation: Arc::new(RemoveSpaces),
+            })
+            .unwrap();
+        CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }
+    };
+    for alphabet in [
+        crate::workload::BigramAlphabet::Ascii,
+        crate::workload::BigramAlphabet::Unicode,
+    ] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..Default::default()
+        };
+        for open in 0..2 {
+            let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
+            assert_eq!(repo.startup().restored, open == 1);
+            for filter in [
+                Some("title ~ 'hello world'"),
+                Some("title = 'hello world'"),
+                None,
+            ] {
+                let query = Query {
+                    collections: vec!["data".into()],
+                    filter: filter.map(|s| parse_filter(s).unwrap()),
+                    fts: filter.is_none().then(|| FtsQuery {
+                        literal: "hello world".into(),
+                        fields: vec![FtsField {
+                            path: crate::model::FieldPath::parse("title").unwrap(),
+                            binding: None,
+                        }],
+                    }),
+                    options: QueryOptions {
+                        sort: vec![],
+                        limit: 10,
+                        offset: 0,
+                        count: true,
+                        return_mode: ReturnMode::Locator,
+                        evidence: true,
+                    },
+                };
+                let result = repo.search(&query).unwrap();
+                assert_eq!(result.count, Some(1), "{alphabet:?} {filter:?}");
+                assert_eq!(result.hits[0].record_id, "a");
+                if filter == Some("title ~ 'hello world'") {
+                    let plan = repo.explain(&query).unwrap();
+                    assert_ne!(plan[0].terms[0].selected.kind, AccessPathKind::RawBigram);
+                    assert!(plan[0].terms[0].reason.contains("raw bigram rejected"));
+                }
+            }
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[derive(Debug)]
 struct KeyedOperation {
@@ -14,7 +139,6 @@ struct KeyedOperation {
     bigram: bool,
     complete: bool,
 }
-
 
 impl crate::reference::BindingOperation for KeyedOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _multi: bool) -> bool {
@@ -61,7 +185,6 @@ impl crate::reference::BindingOperation for KeyedOperation {
         self.complete
     }
 }
-
 
 #[test]
 fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
