@@ -28,6 +28,13 @@ def save_membership(path: Path, value: dict[str, list[list[str]]]) -> None:
     path.write_bytes(gzip.compress(encoded, compresslevel=9, mtime=0))
 
 
+def membership_digests(value: dict[str, list[list[str]]]) -> dict[str, str]:
+    return {
+        case: hashlib.sha256(json.dumps(ids, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
+        for case, ids in value.items()
+    }
+
+
 def definitions(fixture: Path) -> list[tuple[str, Path]]:
     found = []
     for schema in sorted((fixture / ".objekte/collections").glob("*.schema.json")):
@@ -119,17 +126,22 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT / "examples/musenalm")
     parser.add_argument("--result-dir", type=Path, required=True)
+    parser.add_argument("--save-membership", action="store_true", help="also save all complete ID sets as gzip JSON")
     args = parser.parse_args()
     fixture = args.root.resolve()
     result_dir = args.result_dir.resolve()
     result_dir.mkdir(parents=True, exist_ok=True)
     expected, files_seen, fingerprint = raw_oracle(fixture)
-    save_membership(result_dir / "jq-expected.json.gz", expected)
+    if args.save_membership:
+        save_membership(result_dir / "jq-expected.json.gz", expected)
+    digests = {"jq": membership_digests(expected)}
     failures = []
     for alphabet in ("ascii", "unicode"):
         print(f"new core full membership: {alphabet}", file=sys.stderr, flush=True)
         actual = core_ids(fixture, alphabet)
-        save_membership(result_dir / f"new-{alphabet}.json.gz", actual)
+        if args.save_membership:
+            save_membership(result_dir / f"new-{alphabet}.json.gz", actual)
+        digests[alphabet] = membership_digests(actual)
         for case in CASES:
             if actual[case] != expected[case]:
                 missing = sorted(set(map(tuple, expected[case])) - set(map(tuple, actual[case])))
@@ -154,6 +166,7 @@ def main() -> int:
         "source_files": files_seen,
         "cases": list(CASES),
         "comparisons": len(CASES) * 2,
+        "membership_sha256": digests,
         "failures": failures,
         "command": sys.argv,
     }
@@ -167,8 +180,8 @@ def main() -> int:
         "jq evaluated handwritten predicates directly over each original JSON file.",
         "The new core separately returned complete membership sets under ASCII and Unicode.",
         "This oracle does not use the new core's parser, binder, scanner, index, or cache.",
-        "The gzip-compressed JSON files contain every expected and actual `(collection, record ID)` pair.",
-        "Expected: [jq-expected.json.gz](jq-expected.json.gz); actual: [ASCII](new-ascii.json.gz), [Unicode](new-unicode.json.gz).",
+        "The manifest contains SHA-256 digests of every complete per-case membership set.",
+        "Pass `--save-membership` to retain the full expected and actual ID sets as gzip JSON.",
         "",
         "| Case | jq matches | ASCII | Unicode |", "|---|---:|---|---|",
     ]

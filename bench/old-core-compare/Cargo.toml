@@ -1,0 +1,11 @@
+[package]
+name = "objekte-old-core-compare"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+
+[dependencies]
+objekte-core = { path = "../../old/crates/core" }
+objekte-search-core = { path = "../../core" }
+serde_json = "1"
