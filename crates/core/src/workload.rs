@@ -101,7 +101,8 @@ pub struct WorkCounters {
     pub match_count_complete: bool,
     pub returned_records: u64,
     pub files_opened: u64,
-    /// Physical files opened at least once; reopen calls remain in `files_opened`.
+    /// Physical primary-source files opened at least once. Relation target
+    /// opens are counted in `files_opened` and `relation_target_reads`.
     #[serde(default)]
     pub distinct_files: u64,
     pub bytes_read: u64,
@@ -114,6 +115,15 @@ pub struct WorkCounters {
     pub raw_text_verifications: u64,
     /// Filter terms actually evaluated against a decoded record (proof hits excluded).
     pub residual_evaluations: u64,
+    /// Additional logical source records opened by independent relation scans.
+    #[serde(default)]
+    pub relation_source_reads: u64,
+    /// Target records opened for exact relation predicate or FTS evaluation.
+    #[serde(default)]
+    pub relation_target_reads: u64,
+    /// Relation occurrences visited after positional selection.
+    #[serde(default)]
+    pub relation_edge_visits: u64,
     #[serde(default)]
     pub preparation_ns: u64,
     #[serde(default)]

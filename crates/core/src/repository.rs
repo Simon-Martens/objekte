@@ -19,10 +19,7 @@ use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Va
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
-use crate::reference::{
-    BindingOperation, RecordContext, Schema, bind_filter_with_parameters, bind_fts, eval_bound_fts,
-    eval_filter, eval_unavailable_filter,
-};
+use crate::reference::{BindingOperation, RecordContext, Schema, eval_unavailable_filter};
 use crate::relation::{RelationContribution, RelationIndex};
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
@@ -977,9 +974,10 @@ impl Repository {
                 .filter
                 .as_ref()
                 .map(|f| {
-                    bind_filter_with_parameters(
+                    crate::relation_query::bind_filter_with_relations(
+                        self,
+                        collection.generation.collection.0 as usize,
                         f,
-                        &collection.definition.schema,
                         &mut parameter_types,
                     )
                 })
@@ -987,13 +985,20 @@ impl Repository {
             let fts = query
                 .fts
                 .as_ref()
-                .map(|fts| bind_fts(fts, &collection.definition.schema))
+                .map(|fts| {
+                    crate::relation_query::bind_fts_with_relations(
+                        self,
+                        collection.generation.collection.0 as usize,
+                        fts,
+                    )
+                })
                 .transpose()?;
             bound.push((collection, filter, fts));
         }
         if bound.is_empty() {
             return Err("unknown or unloaded collection scope".into());
         }
+        crate::relation_query::reject_related_sort(self, query)?;
         validate_sort(self, query)?;
         let mut hits = Vec::new();
         let mut counters = WorkCounters {
@@ -1010,6 +1015,9 @@ impl Repository {
             record_parses: 0,
             raw_text_verifications: 0,
             residual_evaluations: 0,
+            relation_source_reads: 0,
+            relation_target_reads: 0,
+            relation_edge_visits: 0,
             preparation_ns: 0,
             planning_ns: 0,
             prepared_plan_hit: false,
@@ -1052,6 +1060,7 @@ impl Repository {
                     repository_root: &self.files.root,
                 };
                 let mut evidence = HashSet::new();
+                let mut relation_work = crate::relation_query::RelationWork::default();
                 let fts_match = if record.class == RecordClass::RawFallback {
                     if let Some(fts) = &fts {
                         if fts.fields.is_empty() {
@@ -1065,14 +1074,32 @@ impl Repository {
                             }
                             matched
                         } else {
-                            eval_bound_fts(fts, &[], &ctx, &mut evidence)?
+                            crate::relation_query::eval_fts_with_relations(
+                                self,
+                                fts,
+                                &[],
+                                &ctx,
+                                &mut evidence,
+                                crate::relation_query::EvaluationMode::Reference,
+                                &mut relation_work,
+                            )?
                         }
                     } else {
                         true
                     }
                 } else {
                     fts.as_ref()
-                        .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
+                        .map(|fts| {
+                            crate::relation_query::eval_fts_with_relations(
+                                self,
+                                fts,
+                                &extracted.text,
+                                &ctx,
+                                &mut evidence,
+                                crate::relation_query::EvaluationMode::Reference,
+                                &mut relation_work,
+                            )
+                        })
                         .transpose()?
                         .unwrap_or(true)
                 };
@@ -1087,11 +1114,27 @@ impl Repository {
                 } else {
                     filter
                         .as_ref()
-                        .map(|f| eval_filter(f, &ctx, &mut evidence))
+                        .map(|f| {
+                            crate::relation_query::eval_filter_truth(
+                                self,
+                                f,
+                                &ctx,
+                                &mut evidence,
+                                crate::relation_query::EvaluationMode::Reference,
+                                &mut relation_work,
+                            )
+                            .map(|answer| answer == Some(true))
+                        })
                         .transpose()?
                         .unwrap_or(true)
                 };
                 counters.residual_evaluations += u64::from(filter.is_some());
+                counters.relation_source_reads += relation_work.source_reads;
+                counters.relation_target_reads += relation_work.target_reads;
+                counters.relation_edge_visits += relation_work.edge_visits;
+                counters.files_opened += relation_work.source_reads + relation_work.target_reads;
+                counters.bytes_read += relation_work.bytes_read;
+                counters.record_parses += relation_work.source_reads + relation_work.target_reads;
                 if fts_match && filter_match {
                     let mut matched_fields: Vec<_> = if query.options.evidence {
                         evidence.into_iter().collect()

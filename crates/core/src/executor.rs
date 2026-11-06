@@ -118,7 +118,9 @@ fn fallback_truth(
 ) -> Result<FallbackTruth, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let metadata = term.path.root != PathRoot::Data
+            let metadata = term.related.is_none()
+                && term.path.root != PathRoot::Data
+                && term.path.root != PathRoot::Backlinks
                 && term
                     .rhs
                     .as_ref()
@@ -294,6 +296,9 @@ fn term_set(
     term: &BoundTerm,
     domain: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
+    if term.related.is_some() {
+        return Ok(None);
+    }
     if let PathRoot::Metadata(field) = term.path.root {
         if term.rhs.is_some() {
             let empty = Value::Object(BTreeMap::new());
@@ -477,6 +482,12 @@ fn enumerate_paths(
             estimated_bytes: output as f64 * stats.mean_record_bytes(),
         });
     };
+    if term.related.is_some() {
+        // Relation terms retain a three-valued residual until the dedicated
+        // semijoin planner can prove target and source memberships together.
+        add(AccessPathKind::Scanner, false, 0.0, input_len);
+        return paths;
+    }
     if term
         .rhs
         .as_ref()
@@ -1052,6 +1063,9 @@ pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
+    if fts.fields.iter().any(|field| field.related.is_some()) {
+        return None;
+    }
     if matches!(fts.mode, FtsMode::Regex(_)) {
         return regex_fts_candidates(collection, fts);
     }
@@ -1093,6 +1107,9 @@ pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
+    if fts.fields.iter().any(|field| field.related.is_some()) {
+        return None;
+    }
     if matches!(fts.mode, FtsMode::Regex(_)) {
         return estimate_regex_fts_candidates(collection, fts);
     }
