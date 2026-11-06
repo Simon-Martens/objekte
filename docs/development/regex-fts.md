@@ -29,3 +29,14 @@ Compilation is bounded to 4 KiB of pattern text, 128 parser nesting levels,
 is a preparation error. Regexes are compiled once per bound collection request
 and shared across selected fields and fallback verification. The matching
 route reuses grouped source access and ordinary evidence/payload handling.
+
+The optional prefilter walks the parsed regex HIR. Literal conditions use the
+existing full-folded bigram representation. Concatenation intersects necessary
+conditions, alternation unions them, and a zero-minimum repetition contributes
+no requirement. A bounded class expansion may supply alternatives. Empty
+matches, short literals, unsupported gram windows, excessive extraction work,
+and incompatible coverage weaken to a scanner. A gram hit is only a candidate;
+the compiled regex still verifies each selected segment. EXPLAIN reports the
+mode and why a regex prefilter is useful or unavailable. The extraction budget
+is 64 HIR nodes, 16 alternatives per class, and 256 bytes per literal; reaching
+a limit never changes the regex answer.

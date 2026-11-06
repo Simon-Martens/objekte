@@ -614,6 +614,10 @@ impl PreparedTextMatcher for RegexTextMatcher {
         };
         Ok(self.regex.is_match(&haystack))
     }
+
+    fn bigram_compatible(&self) -> bool {
+        true
+    }
 }
 
 

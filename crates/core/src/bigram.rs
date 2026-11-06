@@ -101,6 +101,10 @@ impl BigramRequest {
             BigramAlphabet::Unicode => &self.unicode,
         }
     }
+
+    pub(crate) fn gram_count(&self, alphabet: BigramAlphabet) -> usize {
+        self.grams(alphabet).len()
+    }
 }
 
 

@@ -6,7 +6,7 @@ use roaring::RoaringBitmap;
 
 use crate::model::{LogicalType, MetadataField, PathRoot, Value};
 use crate::posting::ScalarKey;
-use crate::query::{Operator, Quantifier};
+use crate::query::{FtsMode, Operator, Quantifier};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, Transform, eval_term,
 };
@@ -1009,6 +1009,9 @@ pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
+    if matches!(fts.mode, FtsMode::Regex(_)) {
+        return regex_fts_candidates(collection, fts);
+    }
     if fts.fields.is_empty() {
         let has_fallback =
             collection.logical_records.len() != collection.generation.records.len() as u64;
@@ -1047,6 +1050,9 @@ pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
+    if matches!(fts.mode, FtsMode::Regex(_)) {
+        return estimate_regex_fts_candidates(collection, fts);
+    }
     if fts.fields.is_empty() {
         if fts
             .raw_matcher
@@ -1084,6 +1090,64 @@ pub(crate) fn estimate_fts_candidates(
             fts_field_index(collection, field)?.estimate_prepared(&field.gram_request)?;
         work += field.literal.len() as f64;
         count = count.saturating_add(estimate);
+    }
+    Some((count.min(collection.stats.record_count as u64), work))
+}
+
+fn regex_fts_candidates(collection: &CollectionState, fts: &BoundFts) -> Option<RoaringBitmap> {
+    let condition = fts.fallback_regex.as_ref()?.condition()?;
+    if fts.fields.is_empty() {
+        if collection
+            .definition
+            .schema
+            .raw
+            .as_ref()
+            .is_some_and(|binding| !binding.operation.complete_coverage())
+        {
+            return None;
+        }
+        let mut valid = condition.candidates(&collection.raw)?;
+        if collection.logical_records.len() != collection.generation.records.len() as u64 {
+            valid |= condition.candidates(&collection.fallback_text)?;
+        }
+        return Some(valid);
+    }
+    let mut union = RoaringBitmap::new();
+    for field in &fts.fields {
+        union |= condition.candidates(fts_field_index(collection, field)?)?;
+    }
+    Some(union)
+}
+
+fn estimate_regex_fts_candidates(
+    collection: &CollectionState,
+    fts: &BoundFts,
+) -> Option<(u64, f64)> {
+    let condition = fts.fallback_regex.as_ref()?.condition()?;
+    if fts.fields.is_empty() {
+        if collection
+            .definition
+            .schema
+            .raw
+            .as_ref()
+            .is_some_and(|binding| !binding.operation.complete_coverage())
+        {
+            return None;
+        }
+        let (mut count, mut work) = condition.estimate(&collection.raw)?;
+        if collection.logical_records.len() != collection.generation.records.len() as u64 {
+            let (fallback_count, fallback_work) = condition.estimate(&collection.fallback_text)?;
+            count = count.saturating_add(fallback_count);
+            work += fallback_work;
+        }
+        return Some((count.min(collection.stats.record_count as u64), work));
+    }
+    let mut count = 0u64;
+    let mut work = 0.0;
+    for field in &fts.fields {
+        let (field_count, field_work) = condition.estimate(fts_field_index(collection, field)?)?;
+        count = count.saturating_add(field_count);
+        work += field_work;
     }
     Some((count.min(collection.stats.record_count as u64), work))
 }
