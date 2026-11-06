@@ -223,7 +223,11 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
         }
 
         fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
-            Ok(vec![ByteRange::checked(0, file.len() as u64, file.len() as u64)?])
+            Ok(vec![ByteRange::checked(
+                0,
+                file.len() as u64,
+                file.len() as u64,
+            )?])
         }
 
         fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
@@ -273,7 +277,9 @@ fn repository_pool_runs_file_batches_from_distinct_collections_together() {
         second_started: AtomicBool::new(false),
     });
     let mut sources = SourceRegistry::builtin();
-    sources.register("cross", 1, "cross", reader.clone()).unwrap();
+    sources
+        .register("cross", 1, "cross", reader.clone())
+        .unwrap();
     let definitions = ["a", "b"]
         .into_iter()
         .map(|name| CollectionDefinition {

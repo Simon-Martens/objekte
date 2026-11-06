@@ -740,7 +740,9 @@ pub(crate) fn process_repository_file_batches(
         }
         let weight = weights[index];
         if prefetch_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES / 4
-            || prefetch_bytes.saturating_add(weight).saturating_add(weights[0])
+            || prefetch_bytes
+                .saturating_add(weight)
+                .saturating_add(weights[0])
                 > MAX_ADMITTED_BYTES
         {
             continue;
