@@ -1,3 +1,4 @@
 experiment,code_sha,comparison_sha,wall_ms,delta_ms,delta_percent,extraction_index_ms,finalization_ms,peak_rss_mib,signature,decision
 reference,d15b689d1a,,1689.657,,,1250.276,119.429,303.016,521402437efd766e5e964cfe5f70443de57d6ad8b5e6e1e61425b9b6dfaa0688,recorded median
 1,12e2573,d15b689d1a,1655.289,-34.369,-2.0,1210.853,113.099,285.367,521402437efd766e5e964cfe5f70443de57d6ad8b5e6e1e61425b9b6dfaa0688,retain provisionally
+2,21322c1,12e2573,1612.440,-42.849,-2.6,1165.276,114.425,287.484,521402437efd766e5e964cfe5f70443de57d6ad8b5e6e1e61425b9b6dfaa0688,retain provisionally
