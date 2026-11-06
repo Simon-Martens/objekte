@@ -1,6 +1,7 @@
 //! Separate literal FTS and structured FILTER parsing.
 
 use crate::model::{FieldPath, Number, Value};
+use crate::query_path::QueryPath;
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
 use std::collections::{HashMap, HashSet};
 
@@ -35,7 +36,7 @@ pub enum Literal {
 /// Field used as a comparison operand, with its original source span.
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct FieldExpression {
-    pub path: FieldPath,
+    pub path: QueryPath,
     pub modifiers: Vec<Modifier>,
     pub span: (usize, usize),
 }
@@ -96,7 +97,7 @@ fn parse_modifier(name: String) -> Modifier {
 /// Parsed field predicate before schema binding.
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct Term {
-    pub path: FieldPath,
+    pub path: QueryPath,
     pub modifiers: Vec<Modifier>,
     pub quantifier: Quantifier,
     pub operator: Operator,
@@ -382,8 +383,10 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                                         pos += input[pos..].chars().next().unwrap().len_utf8();
                                     }
                                 }
-                            } else if input[pos..].starts_with('*') {
-                                pos += 1;
+                            } else {
+                                while pos < input.len() && !input[pos..].starts_with(']') {
+                                    pos += input[pos..].chars().next().unwrap().len_utf8();
+                                }
                             }
                             if !input[pos..].starts_with(']') {
                                 return Err(format!("unclosed path bracket at byte {open}"));
@@ -507,7 +510,7 @@ impl Parser {
                 path_token.start
             ));
         }
-        let path = FieldPath::parse(path_name)?;
+        let path = QueryPath::parse(path_name)?;
         let mut modifiers = Vec::new();
         while matches!(self.peek(), TokenKind::Colon) {
             self.take();
@@ -558,7 +561,7 @@ impl Parser {
                 } else if let Ok(n) = s.parse::<f64>() {
                     Operand::Literal(Literal::Number(Number::float(n)?))
                 } else {
-                    let path = FieldPath::parse(&s).map_err(|error| {
+                    let path = QueryPath::parse(&s).map_err(|error| {
                         format!("invalid field operand at byte {}: {error}", value.start)
                     })?;
                     let mut modifiers = Vec::new();
@@ -621,12 +624,18 @@ impl Parser {
                 TokenKind::Word(name) => name,
                 _ => return Err(format!("expected sort field at byte {}", token.start)),
             };
-            if name.contains("[*]") || name.bytes().any(|byte| byte == b'$') {
+            if name.bytes().any(|byte| byte == b'$') {
                 return Err(format!("unsupported sort field at byte {}", token.start));
             }
-            let field = FieldPath::parse(&name)
-                .map_err(|error| format!("invalid sort field at byte {}: {error}", token.start))?
-                .display();
+            let parsed = QueryPath::parse(&name)
+                .map_err(|error| format!("invalid sort field at byte {}: {error}", token.start))?;
+            if parsed.has_explicit_array_step {
+                return Err(format!(
+                    "array selectors cannot be sort fields at byte {}",
+                    token.start
+                ));
+            }
+            let field = parsed.field.display();
             if !seen.insert(field.clone()) {
                 return Err(format!(
                     "duplicate sort field at byte {}: {field}",

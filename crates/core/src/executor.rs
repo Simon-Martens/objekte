@@ -78,7 +78,7 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
             let selected = paths.remove(0);
             output.push(TermChoice {
                 span: term.span,
-                field: term.path.display(),
+                field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 exact_case_sensitivity: term_case_sensitivity(term),
@@ -154,7 +154,7 @@ fn fallback_truth(
             };
             let choices = vec![TermChoice {
                 span: term.span,
-                field: term.path.display(),
+                field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 exact_case_sensitivity: term_case_sensitivity(term),
@@ -453,6 +453,12 @@ fn enumerate_paths(
             estimated_bytes: output as f64 * stats.mean_record_bytes(),
         });
     };
+    if term.query_path.has_position {
+        // Ordinary postings have record membership, not array occurrence
+        // positions. A positional predicate always keeps a residual scan.
+        add(AccessPathKind::Scanner, false, 0.0, input_len);
+        return paths;
+    }
     if let PathRoot::Metadata(field) = term.path.root {
         let direct_id_lookup = field == MetadataField::RecordId
             && term.operator == Operator::Eq
@@ -835,7 +841,7 @@ fn plan_logical_expr(
             };
             let choices = vec![TermChoice {
                 span: term.span,
-                field: term.path.display(),
+                field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 exact_case_sensitivity: term_case_sensitivity(term),

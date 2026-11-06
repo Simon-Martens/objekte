@@ -18,6 +18,7 @@ pub mod posting;
 pub mod posting_values;
 mod prepared;
 pub mod query;
+pub mod query_path;
 mod record_preparation;
 pub mod reference;
 pub mod repository;

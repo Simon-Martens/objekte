@@ -369,7 +369,7 @@ impl Residual<'_> {
                 *evaluations += 1;
                 let matched = eval_term(term, ctx)?;
                 if matched && self.can_emit_evidence() {
-                    evidence.insert(term.path.display());
+                    evidence.insert(term.query_path.display.clone());
                 }
                 Ok(Some(matched))
             }
@@ -490,7 +490,7 @@ impl Residual<'_> {
                     }
                 };
                 if matched && self.can_emit_evidence() {
-                    evidence.insert(term.path.display());
+                    evidence.insert(term.query_path.display.clone());
                 }
                 matched
             }
@@ -851,7 +851,7 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
             if term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                evidence.insert(term.path.display());
+                evidence.insert(term.query_path.display.clone());
             }
             Some(evidence)
         }

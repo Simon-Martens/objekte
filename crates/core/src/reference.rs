@@ -13,6 +13,7 @@ use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Valu
 use crate::query::{
     CaseSensitivity, FilterExpr, FtsQuery, Literal, Modifier, Operand, Operator, Quantifier, Term,
 };
+use crate::query_path::{PathStep, QueryPath};
 use crate::source::TextSegment;
 
 
@@ -516,6 +517,7 @@ pub enum Derived {
 #[derive(Clone, Debug)]
 pub struct BoundTerm {
     pub path: FieldPath,
+    pub query_path: QueryPath,
     pub kind: LogicalType,
     pub source_kind: LogicalType,
     pub operator: Operator,
@@ -627,6 +629,51 @@ pub(crate) fn bind_filter_with_parameters(
     })
 }
 
+fn query_path_type(
+    schema: &Schema,
+    path: &QueryPath,
+    field: &FieldDefinition,
+) -> Result<(LogicalType, bool), String> {
+    if path.field.root != PathRoot::Data {
+        return Ok((field.kind.clone(), field.multi));
+    }
+    let mut prefix = Vec::new();
+    let mut current = LogicalType::Unknown;
+    let mut implicit_array = false;
+    let mut each = false;
+    for step in &path.steps {
+        match step {
+            PathStep::Field(name) => {
+                if matches!(current, LogicalType::Array(_)) {
+                    implicit_array = true;
+                }
+                prefix.push(name.clone());
+                current = schema
+                    .fields
+                    .get(&prefix)
+                    .map_or(LogicalType::Unknown, |definition| definition.kind.clone());
+            }
+            PathStep::ArrayIndex(_) | PathStep::EachElement => {
+                current = match current {
+                    LogicalType::Array(inner) => *inner,
+                    LogicalType::Unknown => LogicalType::Unknown,
+                    _ => return Err(format!("array selector on scalar field: {}", path.display)),
+                };
+                each |= matches!(step, PathStep::EachElement);
+            }
+        }
+    }
+    if current == LogicalType::Unknown {
+        current = field.kind.clone();
+    }
+    let multi = if path.has_explicit_array_step {
+        each || implicit_array || matches!(current, LogicalType::Array(_))
+    } else {
+        field.multi || matches!(current, LogicalType::Array(_))
+    };
+    Ok((current, multi))
+}
+
 fn bind_term(
     term: &Term,
     schema: &Schema,
@@ -660,8 +707,8 @@ fn bind_term(
     } else {
         None
     };
-    let field = schema.field_or_dynamic(&term.path)?;
-    let source_kind = field.kind.clone();
+    let field = schema.field_or_dynamic(&term.path.field)?;
+    let (source_kind, path_multi) = query_path_type(schema, &term.path, &field)?;
     let mut derived = Derived::None;
     let mut transform = Transform::Identity;
     let mut operation = None;
@@ -697,7 +744,7 @@ fn bind_term(
                 if binding_name != "default" {
                     return Err("multiple string bindings".into());
                 }
-                let key = (term.path.segments.clone(), name.clone());
+                let key = (term.path.field.segments.clone(), name.clone());
                 if let Some(binding) = schema.operations.get(&key) {
                     operation = Some(binding.operation.clone());
                     binding_version = binding.version;
@@ -714,8 +761,8 @@ fn bind_term(
         }
     }
     if binding_name == "default" && derived == Derived::None {
-        if let Some(name) = schema.defaults.get(&term.path.segments) {
-            let key = (term.path.segments.clone(), name.clone());
+        if let Some(name) = schema.defaults.get(&term.path.field.segments) {
+            let key = (term.path.field.segments.clone(), name.clone());
             if name == "lower" {
                 transform = Transform::CaseFold;
             } else if let Some(binding) = schema.operations.get(&key) {
@@ -738,7 +785,7 @@ fn bind_term(
     if each && term.quantifier == Quantifier::Any {
         return Err("each and existential operator conflict".into());
     }
-    let multi = field.multi || matches!(source_kind, LogicalType::Array(_));
+    let multi = path_multi;
     if each && !multi {
         return Err("each requires a multi-valued field".into());
     }
@@ -853,7 +900,8 @@ fn bind_term(
         None
     };
     Ok(BoundTerm {
-        path: term.path.clone(),
+        path: term.path.field.clone(),
+        query_path: term.path.clone(),
         kind,
         source_kind,
         operator: term.operator,
@@ -980,6 +1028,49 @@ fn walk_path<'a>(value: &'a Value, parts: &[String], output: &mut impl Extend<&'
     }
 }
 
+fn walk_query_steps<'a>(
+    value: &'a Value,
+    steps: &[PathStep],
+    output: &mut impl Extend<&'a Value>,
+) -> bool {
+    let Some(step) = steps.first() else {
+        output.extend([value]);
+        return true;
+    };
+    match step {
+        PathStep::Field(name) => match value {
+            Value::Object(map) => map
+                .get(name)
+                .is_some_and(|value| walk_query_steps(value, &steps[1..], output)),
+            Value::Array(array) => {
+                let mut found = array.values.is_empty();
+                for item in &array.values {
+                    found |= walk_query_steps(item, steps, output);
+                }
+                found
+            }
+            _ => false,
+        },
+        PathStep::ArrayIndex(index) => match value {
+            Value::Array(array) => array
+                .values
+                .get(*index as usize)
+                .is_some_and(|value| walk_query_steps(value, &steps[1..], output)),
+            _ => false,
+        },
+        PathStep::EachElement => match value {
+            Value::Array(array) => {
+                let mut found = array.values.is_empty();
+                for item in &array.values {
+                    found |= walk_query_steps(item, &steps[1..], output);
+                }
+                found
+            }
+            _ => false,
+        },
+    }
+}
+
 pub(crate) fn data_values<'a>(value: &'a Value, parts: &[String]) -> Option<Vec<&'a Value>> {
     data_values_small(value, parts).map(SmallVec::into_vec)
 }
@@ -999,11 +1090,12 @@ fn select_values<'a>(
     match term.path.root {
         PathRoot::Data => {
             let mut selected = Vec::new();
-            if walk_path(ctx.value, &term.path.segments, &mut selected) {
-                Ok(Some(selected))
+            let found = if term.query_path.has_explicit_array_step {
+                walk_query_steps(ctx.value, &term.query_path.steps, &mut selected)
             } else {
-                Ok(None)
-            }
+                walk_path(ctx.value, &term.path.segments, &mut selected)
+            };
+            if found { Ok(Some(selected)) } else { Ok(None) }
         }
         PathRoot::Metadata(field) => {
             // Metadata is evaluated from inventory without source parsing.
@@ -1214,7 +1306,7 @@ pub fn eval_filter(
                 && term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                evidence.insert(term.path.display());
+                evidence.insert(term.query_path.display.clone());
             }
             match_
         }
@@ -1260,7 +1352,7 @@ pub fn eval_unavailable_filter(
                 && term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                evidence.insert(term.path.display());
+                evidence.insert(term.query_path.display.clone());
             }
             Ok(Some(matched))
         }

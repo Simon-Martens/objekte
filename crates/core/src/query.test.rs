@@ -83,11 +83,12 @@ fn typed_operand_shapes_preserve_source_spans() {
         panic!("expected term");
     };
     assert_eq!(term.span, (0, 35));
-    assert!(matches!(term.operand, Operand::Field(FieldExpression {
-        path: FieldPath { root: crate::model::PathRoot::Data, segments },
-        modifiers,
-        span: (14, 35),
-    }) if segments == ["alternate_title"] && modifiers == [Modifier::Lower]));
+    let Operand::Field(field) = term.operand else {
+        panic!("expected field operand")
+    };
+    assert_eq!(field.path.field.segments, ["alternate_title"]);
+    assert_eq!(field.modifiers, [Modifier::Lower]);
+    assert_eq!(field.span, (14, 35));
 
     let FilterExpr::Term(term) = parse_filter("year >= $minimum_year").unwrap() else {
         panic!("expected term");
@@ -154,6 +155,8 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
         "year >= 1 SORT BY year, year",
         "SORT BY $parameter",
         "SORT BY items[*].price",
+        "SORT BY items[0].price",
+        "SORT BY matrix[1][2]",
     ] {
         assert!(parse_structured_filter(input).is_err(), "{input}");
     }
