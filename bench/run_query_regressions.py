@@ -14,8 +14,9 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-BASELINE = ROOT / "bench/results/musenalm/final-8dd0c2aa6d"
+BASELINE = ROOT / "bench/results/musenalm/full-128a7601c2"
 JQ_COUNTS = ROOT / "bench/baselines/musenalm-jq-counts.json"
+MACHINE = ROOT / "bench/baselines/musenalm-query-environment.json"
 PROFILES = ("ascii-off", "ascii-warm", "unicode-off", "unicode-warm")
 
 
@@ -54,6 +55,7 @@ def main() -> int:
     baseline = args.baseline.resolve()
     old_manifest = json.loads((baseline / "run-manifest.json").read_text())
     new_manifest = json.loads((result_dir / "run-manifest.json").read_text())
+    machine = json.loads(MACHINE.read_text())
     old_rows = rows(baseline / "query-results.csv")
     new_rows = rows(result_dir / "query-results.csv")
     jq_counts = json.loads(JQ_COUNTS.read_text())["counts"]
@@ -68,6 +70,8 @@ def main() -> int:
     for key in ("corpus_fingerprint", "schema_fingerprint", "workload_fingerprint"):
         if old_manifest[key] != new_manifest[key]:
             failures.append(f"{key} differs from baseline")
+    if old_manifest["code_revision"] != machine["baseline_revision"] or old_manifest["compiler"] != machine["compiler"]:
+        failures.append("query latency baseline revision/compiler differs from pinned environment")
     samples = [json.loads(line) for line in (result_dir / "measurements.jsonl").read_text().splitlines()]
     if len(samples) != 150 * len(profiles) * repetitions:
         failures.append(f"sample count {len(samples)} differs from {150 * len(profiles) * repetitions}")
@@ -93,7 +97,7 @@ def main() -> int:
         (line.split(":", 1)[1].strip() for line in Path("/proc/cpuinfo").read_text().splitlines() if line.startswith("model name")),
         "unknown",
     )
-    same_machine = old_manifest["environment"]["cpu_model"] == cpu_model and platform.machine() == old_manifest["environment"]["architecture"]
+    same_machine = machine["cpu_model"] == cpu_model and platform.machine() == machine["architecture"]
     relative = 1.5 if args.mode == "full" else 1.8
     absolute_ns = 2_000_000 if args.mode == "full" else 5_000_000
     slowdowns = []
@@ -111,6 +115,7 @@ def main() -> int:
     result = {
         "mode": args.mode, "expected_samples": 150 * len(profiles) * repetitions,
         "jq_count_baseline": str(JQ_COUNTS),
+        "machine_baseline": str(MACHINE),
         "actual_samples": len(samples), "baseline": str(baseline),
         "result_dir": str(result_dir), "same_machine": same_machine,
         "aggregate_latency_ratio": new_total / old_total,

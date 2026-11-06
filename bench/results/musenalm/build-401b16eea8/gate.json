@@ -1,0 +1,47 @@
+{
+  "environment": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "revision": "401b16eea8"
+  },
+  "summary": {
+    "ascii-disabled": {
+      "median_wall_ns": 14961558541,
+      "median_build_ns": 14961505477,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 237850624,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "ascii-rebuild": {
+      "median_wall_ns": 14687233669,
+      "median_build_ns": 14426618402,
+      "median_snapshot_write_ns": 276970908,
+      "median_peak_resident_bytes": 339550208,
+      "snapshot_bytes": 106726293,
+      "samples": 3
+    },
+    "unicode-disabled": {
+      "median_wall_ns": 15652562476,
+      "median_build_ns": 15652499872,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 260481024,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "unicode-rebuild": {
+      "median_wall_ns": 15856454458,
+      "median_build_ns": 15480591171,
+      "median_snapshot_write_ns": 325559497,
+      "median_peak_resident_bytes": 371855360,
+      "snapshot_bytes": 117932485,
+      "samples": 3
+    }
+  },
+  "baseline": "/home/simon/source/objekte/bench/baselines/musenalm-build.json",
+  "failures": [],
+  "fingerprints": {
+    "schema": "041a1bb268a932de61e3b3ff26407ac8e02edc25eaf8e7533fd239f8d59efbdf",
+    "source_metadata": "eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6"
+  }
+}

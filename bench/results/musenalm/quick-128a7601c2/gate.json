@@ -1,0 +1,173 @@
+{
+  "mode": "quick",
+  "expected_samples": 150,
+  "jq_count_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-jq-counts.json",
+  "machine_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-query-environment.json",
+  "actual_samples": 150,
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/full-128a7601c2",
+  "result_dir": "/home/simon/source/objekte/bench/results/musenalm/quick-128a7601c2",
+  "same_machine": true,
+  "aggregate_latency_ratio": 1.006895808678894,
+  "thresholds": {
+    "per_case_relative": 1.8,
+    "per_case_absolute_ns": 5000000,
+    "aggregate_relative": 1.35
+  },
+  "worst_slowdowns": [
+    {
+      "ratio": 3.091343037303318,
+      "case": "Q061",
+      "profile": "ascii-off",
+      "baseline_ns": 16969,
+      "actual_ns": 52457
+    },
+    {
+      "ratio": 2.713527329925285,
+      "case": "Q125",
+      "profile": "ascii-off",
+      "baseline_ns": 5086,
+      "actual_ns": 13801
+    },
+    {
+      "ratio": 2.4469266503460845,
+      "case": "Q123",
+      "profile": "ascii-off",
+      "baseline_ns": 354971,
+      "actual_ns": 868588
+    },
+    {
+      "ratio": 2.151577909270217,
+      "case": "Q101",
+      "profile": "ascii-off",
+      "baseline_ns": 50700,
+      "actual_ns": 109085
+    },
+    {
+      "ratio": 1.9623030079350434,
+      "case": "Q065",
+      "profile": "ascii-off",
+      "baseline_ns": 270950,
+      "actual_ns": 531686
+    },
+    {
+      "ratio": 1.7866548253613868,
+      "case": "Q103",
+      "profile": "ascii-off",
+      "baseline_ns": 565253,
+      "actual_ns": 1009912
+    },
+    {
+      "ratio": 1.7755607720396454,
+      "case": "Q009",
+      "profile": "ascii-off",
+      "baseline_ns": 15336,
+      "actual_ns": 27230
+    },
+    {
+      "ratio": 1.6447850079221986,
+      "case": "Q063",
+      "profile": "ascii-off",
+      "baseline_ns": 366060,
+      "actual_ns": 602090
+    },
+    {
+      "ratio": 1.610830495648884,
+      "case": "Q126",
+      "profile": "ascii-off",
+      "baseline_ns": 105720,
+      "actual_ns": 170297
+    },
+    {
+      "ratio": 1.5858189429618001,
+      "case": "Q080",
+      "profile": "ascii-off",
+      "baseline_ns": 61152,
+      "actual_ns": 96976
+    },
+    {
+      "ratio": 1.5721644970213344,
+      "case": "Q140",
+      "profile": "ascii-off",
+      "baseline_ns": 1472975,
+      "actual_ns": 2315759
+    },
+    {
+      "ratio": 1.568213503286198,
+      "case": "Q036",
+      "profile": "ascii-off",
+      "baseline_ns": 40168,
+      "actual_ns": 62992
+    },
+    {
+      "ratio": 1.555444700325743,
+      "case": "Q128",
+      "profile": "ascii-off",
+      "baseline_ns": 972239,
+      "actual_ns": 1512264
+    },
+    {
+      "ratio": 1.4927804787656838,
+      "case": "Q060",
+      "profile": "ascii-off",
+      "baseline_ns": 205069,
+      "actual_ns": 306123
+    },
+    {
+      "ratio": 1.4548165790493648,
+      "case": "Q106",
+      "profile": "ascii-off",
+      "baseline_ns": 19430523,
+      "actual_ns": 28267847
+    },
+    {
+      "ratio": 1.4526977841673174,
+      "case": "Q057",
+      "profile": "ascii-off",
+      "baseline_ns": 603069,
+      "actual_ns": 876077
+    },
+    {
+      "ratio": 1.4475534114403859,
+      "case": "Q034",
+      "profile": "ascii-off",
+      "baseline_ns": 7255,
+      "actual_ns": 10502
+    },
+    {
+      "ratio": 1.4431799961180451,
+      "case": "Q064",
+      "profile": "ascii-off",
+      "baseline_ns": 236994,
+      "actual_ns": 342025
+    },
+    {
+      "ratio": 1.4251892250865736,
+      "case": "Q145",
+      "profile": "ascii-off",
+      "baseline_ns": 87640203,
+      "actual_ns": 124903873
+    },
+    {
+      "ratio": 1.4180608509517572,
+      "case": "Q038",
+      "profile": "ascii-off",
+      "baseline_ns": 565743,
+      "actual_ns": 802258
+    }
+  ],
+  "failures": [],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off",
+    "--repetitions",
+    "1",
+    "--result-dir",
+    "/home/simon/source/objekte/bench/results/musenalm/quick-128a7601c2"
+  ]
+}
