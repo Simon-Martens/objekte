@@ -448,6 +448,117 @@ fn relation_configuration_rejects_wrong_types_targets_and_alias_collisions() {
 }
 
 #[test]
+fn relation_paths_reject_scalar_ancestors_and_embedded_descendants() {
+    let mut scalar_ancestor = Schema::default();
+    field(
+        &mut scalar_ancestor,
+        &["entry"],
+        LogicalType::Id,
+        false,
+        false,
+    );
+    field(
+        &mut scalar_ancestor,
+        &["entry", "child"],
+        LogicalType::Id,
+        false,
+        false,
+    );
+    assert!(
+        scalar_ancestor
+            .register_relation(relation(
+                &["entry", "child"],
+                "entries",
+                RelationCardinality::One,
+                "children"
+            ))
+            .unwrap_err()
+            .contains("non-object field")
+    );
+    assert!(
+        scalar_ancestor
+            .register_relation(relation(
+                &["entry"],
+                "entries",
+                RelationCardinality::One,
+                "entries"
+            ))
+            .unwrap_err()
+            .contains("embedded object")
+    );
+
+    let mut late_ancestor = Schema::default();
+    field(
+        &mut late_ancestor,
+        &["entry", "child"],
+        LogicalType::Id,
+        false,
+        false,
+    );
+    late_ancestor
+        .register_relation(relation(
+            &["entry", "child"],
+            "entries",
+            RelationCardinality::One,
+            "children",
+        ))
+        .unwrap();
+    let scalar = FieldDefinition {
+        path: vec!["entry".into()],
+        kind: LogicalType::Id,
+        required: false,
+        nullable: false,
+        indexed: false,
+        multi: false,
+        element_nullable: vec![],
+    };
+    assert!(
+        late_ancestor
+            .register_field(scalar)
+            .unwrap_err()
+            .contains("non-object field")
+    );
+
+    let mut object_ancestor = Schema::default();
+    field(
+        &mut object_ancestor,
+        &["items"],
+        LogicalType::Array(Box::new(LogicalType::Object)),
+        true,
+        false,
+    );
+    field(
+        &mut object_ancestor,
+        &["items", "entry"],
+        LogicalType::Id,
+        true,
+        false,
+    );
+    object_ancestor
+        .register_relation(relation(
+            &["items", "entry"],
+            "entries",
+            RelationCardinality::Many,
+            "item_mentions",
+        ))
+        .unwrap();
+    assert!(
+        object_ancestor
+            .register_field(FieldDefinition {
+                path: vec!["items".into(), "entry".into(), "child".into()],
+                kind: LogicalType::String,
+                required: false,
+                nullable: false,
+                indexed: false,
+                multi: true,
+                element_nullable: vec![],
+            })
+            .unwrap_err()
+            .contains("embedded object")
+    );
+}
+
+#[test]
 fn jsonl_siblings_and_shared_target_file_keep_relation_ownership() {
     let root = std::env::temp_dir().join(format!("objekte-relation-jsonl-{}", std::process::id()));
     for collection in ["entries", "people", "mentions"] {

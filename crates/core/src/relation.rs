@@ -8,7 +8,7 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{RecordClass, append_shifted_bitmap};
 use crate::model::{CollectionId, LogicalType, RecordSlot, Value};
 use crate::posting::ScalarKey;
-use crate::reference::Schema;
+use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, CollectionState};
 
 
@@ -477,6 +477,23 @@ impl Schema {
         {
             return Err("invalid relation reverse alias".into());
         }
+        for depth in 1..declaration.path.len() {
+            if let Some(ancestor) = self.fields.get(&declaration.path[..depth])
+                && !traversable_kind(&ancestor.kind)
+            {
+                return Err(format!(
+                    "relation path crosses non-object field: {}",
+                    ancestor.path.join(".")
+                ));
+            }
+        }
+        if self
+            .fields
+            .keys()
+            .any(|path| path.len() > declaration.path.len() && path.starts_with(&declaration.path))
+        {
+            return Err("relation field is also registered as an embedded object".into());
+        }
         let field = self
             .fields
             .get_mut(&declaration.path)
@@ -500,6 +517,32 @@ impl Schema {
     }
 }
 
+
+pub(crate) fn validate_field_against_relations(
+    field: &FieldDefinition,
+    relations: &BTreeMap<Vec<String>, RelationDefinition>,
+) -> Result<(), String> {
+    for relation in relations.values() {
+        if relation.path.len() > field.path.len()
+            && relation.path.starts_with(&field.path)
+            && !traversable_kind(&field.kind)
+        {
+            return Err("relation path crosses non-object field".into());
+        }
+        if field.path.len() > relation.path.len() && field.path.starts_with(&relation.path) {
+            return Err("relation field is also registered as an embedded object".into());
+        }
+    }
+    Ok(())
+}
+
+fn traversable_kind(kind: &LogicalType) -> bool {
+    match kind {
+        LogicalType::Object => true,
+        LogicalType::Array(inner) => traversable_kind(inner),
+        _ => false,
+    }
+}
 
 fn valid_alias(alias: &str) -> bool {
     let mut bytes = alias.bytes();

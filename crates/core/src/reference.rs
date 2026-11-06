@@ -232,6 +232,7 @@ impl Schema {
         if self.fields.contains_key(&field.path) {
             return Err("duplicate field registration".into());
         }
+        crate::relation::validate_field_against_relations(&field, &self.relations)?;
         self.converted_fields |= converted_kind(&field.kind);
         let mut node = &mut self.validation;
         for part in &field.path {
