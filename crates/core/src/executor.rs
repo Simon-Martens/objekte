@@ -553,6 +553,7 @@ fn enumerate_paths(
             }
         }
         if term.derived == Derived::None
+            && term.period.is_none()
             && !term.multi
             && term.transform == Transform::Identity
             && term.operation.is_none()

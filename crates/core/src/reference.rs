@@ -19,6 +19,7 @@ use crate::query_path::{PathStep, QueryPath};
 use crate::regex_query::CompiledRegex;
 use crate::relation::RelationDefinition;
 use crate::source::TextSegment;
+use crate::temporal_query::TemporalBounds;
 
 
 /// Logical type, presence rules, and index policy for one field.
@@ -552,6 +553,7 @@ pub struct BoundTerm {
     pub operator: Operator,
     pub quantifier: Quantifier,
     pub literal: Value,
+    pub period: Option<TemporalBounds>,
     pub(crate) gram_request: Option<BigramRequest>,
     pub derived: Derived,
     pub transform: Transform,
@@ -838,8 +840,16 @@ fn bind_literal_term(
     field_probe: bool,
 ) -> Result<BoundTerm, String> {
     let parameter_literal;
+    let period_operand = match &term.operand {
+        Operand::Period(period) => Some(period),
+        _ => None,
+    };
     let parsed_literal = match &term.operand {
         Operand::Literal(literal) => literal,
+        Operand::Period(_) => {
+            parameter_literal = Literal::Null;
+            &parameter_literal
+        }
         Operand::Field(field) => {
             return Err(format!(
                 "field operand at byte {} is not yet supported by the binder",
@@ -1032,6 +1042,7 @@ fn bind_literal_term(
             operator: term.operator,
             quantifier: term.quantifier,
             literal: Value::Null,
+            period: None,
             gram_request: None,
             derived,
             transform,
@@ -1055,7 +1066,17 @@ fn bind_literal_term(
     {
         return Err("contains requires a string literal".into());
     }
-    let literal = if let Some(op) = &operation {
+    let period = if let Some(source) = period_operand {
+        if derived != Derived::None || transform != Transform::Identity || operation.is_some() {
+            return Err("temporal period cannot use derived or text bindings".into());
+        }
+        Some(source.for_type(&kind)?)
+    } else {
+        None
+    };
+    let literal = if let Some(bounds) = &period {
+        bounds.start.clone()
+    } else if let Some(op) = &operation {
         op.prepare_literal(parsed_literal, &kind)?
     } else {
         prepare_literal(parsed_literal, &kind, transform)?
@@ -1100,6 +1121,7 @@ fn bind_literal_term(
         operator: term.operator,
         quantifier: term.quantifier,
         literal,
+        period,
         gram_request,
         derived,
         transform,
@@ -1355,6 +1377,9 @@ fn compare_scalar(lhs: &Value, rhs: &Value, op: Operator, transform: Transform) 
 }
 
 fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
+    if let Some(period) = &term.period {
+        return Ok(period.matches(lhs, term.operator));
+    }
     if let Some(matcher) = &term.matcher {
         return matcher.matches(Some(lhs), None);
     }

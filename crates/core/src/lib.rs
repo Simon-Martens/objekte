@@ -21,14 +21,15 @@ pub mod query;
 pub mod query_path;
 mod record_preparation;
 pub mod reference;
-pub mod relation;
 mod regex_query;
+pub mod relation;
 pub mod repository;
 pub mod run;
 pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod storage;
+pub mod temporal_query;
 mod verified;
 pub mod workload;
 

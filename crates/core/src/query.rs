@@ -2,6 +2,7 @@
 
 use crate::model::{FieldPath, Number, Value};
 use crate::query_path::QueryPath;
+use crate::temporal_query::{PeriodLiteral, looks_like_temporal};
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
 use std::collections::{HashMap, HashSet};
 
@@ -72,6 +73,7 @@ pub struct FieldExpression {
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Operand {
     Literal(Literal),
+    Period(PeriodLiteral),
     Field(FieldExpression),
     Parameter { name: String, bound: Option<Value> },
 }
@@ -420,7 +422,14 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                                 return Err(format!("unclosed path bracket at byte {open}"));
                             }
                             pos += 1;
-                        } else if c.is_whitespace() || ":(),!<>=~?&|".contains(c) {
+                        } else if c.is_whitespace()
+                            || (if looks_like_temporal(&input[start..]) {
+                                "(),!<>=~?&|"
+                            } else {
+                                ":(),!<>=~?&|"
+                            })
+                            .contains(c)
+                        {
                             break;
                         } else {
                             pos += c.len_utf8();
@@ -584,7 +593,12 @@ impl Parser {
                 }
             }
             TokenKind::Word(s) => {
-                if let Ok(n) = s.parse::<i128>() {
+                if looks_like_temporal(&s) {
+                    Operand::Period(
+                        PeriodLiteral::parse(&s)
+                            .map_err(|error| format!("{error} at byte {}", value.start))?,
+                    )
+                } else if let Ok(n) = s.parse::<i128>() {
                     Operand::Literal(Literal::Number(Number::integer(n)))
                 } else if let Ok(n) = s.parse::<f64>() {
                     Operand::Literal(Literal::Number(Number::float(n)?))
