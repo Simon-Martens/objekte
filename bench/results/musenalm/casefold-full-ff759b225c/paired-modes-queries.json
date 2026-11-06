@@ -1,0 +1,514 @@
+[
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Der",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Der",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Liebe",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Liebe",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Goethe",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Goethe",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Müller",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Müller",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Frühling",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "Frühling",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "ß",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "ß",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "ss",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "raw_fts",
+    "collection": "*",
+    "fts": "ss",
+    "fts_field": null,
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "selected_name",
+    "collection": "agents",
+    "fts": "Goethe",
+    "fts_field": "name",
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "selected_name",
+    "collection": "agents",
+    "fts": "Goethe",
+    "fts_field": "name",
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "selected_folded",
+    "collection": "agents",
+    "fts": "GOETHE",
+    "fts_field": "name:folded",
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "selected_folded",
+    "collection": "agents",
+    "fts": "GOETHE",
+    "fts_field": "name:folded",
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "selected_title",
+    "collection": "entries",
+    "fts": "FRÜHLING",
+    "fts_field": "preferred_title:lower",
+    "filter": null,
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "selected_title",
+    "collection": "entries",
+    "fts": "FRÜHLING",
+    "fts_field": "preferred_title:lower",
+    "filter": null,
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_name",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name ~ 'Goethe'",
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_name",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name ~ 'Goethe'",
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_lower",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name:lower ~ 'goethe'",
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_lower",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name:lower ~ 'goethe'",
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_folded",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name:folded ~ 'GOETHE'",
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_folded",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name:folded ~ 'GOETHE'",
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_title_lower",
+    "collection": "entries",
+    "fts": null,
+    "fts_field": null,
+    "filter": "preferred_title:lower ~ 'FRÜHLING'",
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "filter_title_lower",
+    "collection": "entries",
+    "fts": null,
+    "fts_field": null,
+    "filter": "preferred_title:lower ~ 'FRÜHLING'",
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "combined",
+    "collection": "agents",
+    "fts": "Goethe",
+    "fts_field": null,
+    "filter": "name:lower ~ 'goethe'",
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "combined",
+    "collection": "agents",
+    "fts": "Goethe",
+    "fts_field": null,
+    "filter": "name:lower ~ 'goethe'",
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "exact_posting_control",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name = 'Johann Wolfgang Goethe'",
+    "fts_case_sensitivity": "sensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  },
+  {
+    "label": "exact_posting_control",
+    "collection": "agents",
+    "fts": null,
+    "fts_field": null,
+    "filter": "name = 'Johann Wolfgang Goethe'",
+    "fts_case_sensitivity": "insensitive",
+    "options": {
+      "sort": [],
+      "limit": 10,
+      "offset": 0,
+      "count": true,
+      "return_mode": "locator",
+      "evidence": true
+    }
+  }
+]

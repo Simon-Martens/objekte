@@ -1,0 +1,72 @@
+[
+  {
+    "alphabet": "unicode",
+    "build_ns": 11990435817,
+    "build_parses": 148486,
+    "diagnostic_heap_bytes": 0,
+    "discovery_ns": 259797288,
+    "estimated_index_bytes": 80763860,
+    "extraction_index_ns": 11604766645,
+    "failed_parses": 0,
+    "finalization_ns": 124229541,
+    "inventory_heap_bytes": 59917436,
+    "peak_resident_bytes": 389365760,
+    "resident_bytes": 288116736,
+    "restore_samples": [
+      {
+        "build_parses": 0,
+        "decode_ns": 295402679,
+        "peak_resident_bytes": 266272768,
+        "reconciliation_ns": 201679503,
+        "records": 148486,
+        "resident_bytes": 252141568,
+        "startup_ns": 498978349,
+        "wall_ns": 539536645
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 267989046,
+        "peak_resident_bytes": 266031104,
+        "reconciliation_ns": 202353493,
+        "records": 148486,
+        "resident_bytes": 252080128,
+        "startup_ns": 471654208,
+        "wall_ns": 509908296
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 266051063,
+        "peak_resident_bytes": 265809920,
+        "reconciliation_ns": 202432222,
+        "records": 148486,
+        "resident_bytes": 252076032,
+        "startup_ns": 469386238,
+        "wall_ns": 510077739
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 270339131,
+        "peak_resident_bytes": 266067968,
+        "reconciliation_ns": 203738093,
+        "records": 148486,
+        "resident_bytes": 251932672,
+        "startup_ns": 475337421,
+        "wall_ns": 511668684
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 262622422,
+        "peak_resident_bytes": 266059776,
+        "reconciliation_ns": 201065317,
+        "records": 148486,
+        "resident_bytes": 252039168,
+        "startup_ns": 464583453,
+        "wall_ns": 501606866
+      }
+    ],
+    "restore_status": "ok",
+    "snapshot_bytes": 122383021,
+    "snapshot_write_ns": 303322676,
+    "total_build_and_snapshot_ns": 12293922325
+  }
+]

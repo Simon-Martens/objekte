@@ -1,0 +1,270 @@
+{
+  "mode": "full",
+  "expected_samples": 3000,
+  "jq_count_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-jq-counts.json",
+  "comparison": "casefold",
+  "baseline_code_revision": "20261604bebf949131441c8262f1f442bce4207c",
+  "actual_code_revision": "ff759b225c6bc4bfdd614c542fe38fe017a900b6",
+  "build_flags": {},
+  "baseline_environment": {
+    "governor": "performance",
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "build_flags": {}
+  },
+  "governor": "performance",
+  "path_sensitive_fingerprint_difference": {
+    "schema": false,
+    "workload": false
+  },
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "actual_samples": 3000,
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/controlled-repair-final-20261604be",
+  "result_dir": "/home/simon/source/objekte/bench/results/musenalm/casefold-full-ff759b225c",
+  "same_machine": true,
+  "aggregate_latency_ratio": 1.0171848989668444,
+  "thresholds": {
+    "per_case_relative": 1.5,
+    "per_case_absolute_ns": 2000000,
+    "aggregate_relative": 1.25
+  },
+  "confirmations": [],
+  "worst_slowdowns": [
+    {
+      "ratio": 4.268641755304338,
+      "case": "Q020",
+      "profile": "unicode-warm",
+      "baseline_ns": 17957,
+      "actual_ns": 76652
+    },
+    {
+      "ratio": 4.075395074096862,
+      "case": "Q056",
+      "profile": "unicode-off",
+      "baseline_ns": 931281,
+      "actual_ns": 3795338
+    },
+    {
+      "ratio": 3.8731718575294733,
+      "case": "Q078",
+      "profile": "unicode-off",
+      "baseline_ns": 18826350,
+      "actual_ns": 72917689
+    },
+    {
+      "ratio": 3.863989928319818,
+      "case": "Q045",
+      "profile": "ascii-off",
+      "baseline_ns": 235909,
+      "actual_ns": 911550
+    },
+    {
+      "ratio": 3.7609903265970694,
+      "case": "Q005",
+      "profile": "unicode-warm",
+      "baseline_ns": 20882,
+      "actual_ns": 78537
+    },
+    {
+      "ratio": 3.6318769322456887,
+      "case": "Q025",
+      "profile": "unicode-warm",
+      "baseline_ns": 26847,
+      "actual_ns": 97505
+    },
+    {
+      "ratio": 3.6305326331582894,
+      "case": "Q018",
+      "profile": "unicode-warm",
+      "baseline_ns": 18662,
+      "actual_ns": 67753
+    },
+    {
+      "ratio": 3.558516435679322,
+      "case": "Q040",
+      "profile": "unicode-off",
+      "baseline_ns": 155059,
+      "actual_ns": 551780
+    },
+    {
+      "ratio": 3.218455151591395,
+      "case": "Q017",
+      "profile": "unicode-warm",
+      "baseline_ns": 15898,
+      "actual_ns": 51167
+    },
+    {
+      "ratio": 3.130169907845095,
+      "case": "Q142",
+      "profile": "ascii-off",
+      "baseline_ns": 226358,
+      "actual_ns": 708539
+    },
+    {
+      "ratio": 3.1117856034215157,
+      "case": "Q015",
+      "profile": "ascii-warm",
+      "baseline_ns": 28993,
+      "actual_ns": 90220
+    },
+    {
+      "ratio": 3.0482107960900655,
+      "case": "Q026",
+      "profile": "unicode-off",
+      "baseline_ns": 43201029,
+      "actual_ns": 131685843
+    },
+    {
+      "ratio": 2.7530208351036305,
+      "case": "Q114",
+      "profile": "unicode-off",
+      "baseline_ns": 3412798,
+      "actual_ns": 9395504
+    },
+    {
+      "ratio": 2.5148936170212766,
+      "case": "Q080",
+      "profile": "unicode-warm",
+      "baseline_ns": 1880,
+      "actual_ns": 4728
+    },
+    {
+      "ratio": 2.4462169553327255,
+      "case": "Q021",
+      "profile": "unicode-warm",
+      "baseline_ns": 15358,
+      "actual_ns": 37569
+    },
+    {
+      "ratio": 2.3450479233226837,
+      "case": "Q102",
+      "profile": "unicode-warm",
+      "baseline_ns": 1252,
+      "actual_ns": 2936
+    },
+    {
+      "ratio": 2.3236062982552133,
+      "case": "Q016",
+      "profile": "unicode-warm",
+      "baseline_ns": 16449,
+      "actual_ns": 38221
+    },
+    {
+      "ratio": 2.288879121103782,
+      "case": "Q073",
+      "profile": "unicode-off",
+      "baseline_ns": 391309,
+      "actual_ns": 895659
+    },
+    {
+      "ratio": 2.2458770614692654,
+      "case": "Q045",
+      "profile": "unicode-warm",
+      "baseline_ns": 6003,
+      "actual_ns": 13482
+    },
+    {
+      "ratio": 2.2001746632439727,
+      "case": "Q062",
+      "profile": "ascii-off",
+      "baseline_ns": 75574,
+      "actual_ns": 166276
+    }
+  ],
+  "failures": [
+    "('Q001', 'unicode-off'): 11.679 ms exceeds 6.968 ms baseline",
+    "('Q014', 'unicode-off'): 22.808 ms exceeds 10.973 ms baseline",
+    "('Q026', 'unicode-off'): 131.686 ms exceeds 43.201 ms baseline",
+    "('Q056', 'unicode-off'): 3.795 ms exceeds 0.931 ms baseline",
+    "('Q078', 'unicode-off'): 72.918 ms exceeds 18.826 ms baseline",
+    "('Q085', 'unicode-off'): 8.375 ms exceeds 5.568 ms baseline",
+    "('Q099', 'ascii-off'): 5.387 ms exceeds 2.967 ms baseline",
+    "('Q100', 'unicode-off'): 25.786 ms exceeds 12.720 ms baseline",
+    "('Q107', 'unicode-off'): 18.212 ms exceeds 11.439 ms baseline",
+    "('Q112', 'ascii-off'): 5.635 ms exceeds 3.573 ms baseline",
+    "('Q113', 'ascii-off'): 7.207 ms exceeds 4.384 ms baseline",
+    "('Q113', 'unicode-off'): 5.436 ms exceeds 3.310 ms baseline",
+    "('Q114', 'unicode-off'): 9.396 ms exceeds 3.413 ms baseline"
+  ],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off,ascii-warm,unicode-off,unicode-warm",
+    "--repetitions",
+    "5",
+    "--result-dir",
+    "/home/simon/source/objekte/bench/results/musenalm/casefold-full-ff759b225c"
+  ]
+}

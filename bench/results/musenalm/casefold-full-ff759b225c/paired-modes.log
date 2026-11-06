@@ -1,0 +1,3 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte/crates/core)
+    Finished `release` profile [optimized] target(s) in 3.45s
+     Running `target/release/examples/bench_case_modes --repetitions 5`

@@ -1,0 +1,16 @@
+{
+  "order": [
+    "before",
+    "after",
+    "after",
+    "before"
+  ],
+  "cases": [
+    "Q113",
+    "Q114"
+  ],
+  "profiles": [
+    "unicode-off"
+  ],
+  "repetitions": 31
+}

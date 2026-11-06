@@ -1,0 +1,20 @@
+{
+  "order": [
+    "before",
+    "after",
+    "after",
+    "before"
+  ],
+  "cases": [
+    "Q056",
+    "Q085",
+    "Q099",
+    "Q107",
+    "Q112"
+  ],
+  "profiles": [
+    "ascii-off",
+    "unicode-off"
+  ],
+  "repetitions": 31
+}

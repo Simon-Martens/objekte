@@ -1,0 +1,146 @@
+[
+  {
+    "alphabet": "ascii",
+    "bigram_store_count": 15,
+    "build_ns": 11885055378,
+    "build_parses": 148486,
+    "diagnostic_heap_bytes": 0,
+    "discovery_ns": 276121225,
+    "distinct_gram_keys": 25477,
+    "estimated_index_bytes": 68585976,
+    "extraction_index_ns": 11483808209,
+    "failed_parses": 0,
+    "finalization_ns": 123333700,
+    "inventory_heap_bytes": 59917436,
+    "peak_resident_bytes": 356986880,
+    "resident_bytes": 264085504,
+    "restore_samples": [
+      {
+        "build_parses": 0,
+        "decode_ns": 302086028,
+        "peak_resident_bytes": 244264960,
+        "reconciliation_ns": 204554920,
+        "records": 148486,
+        "resident_bytes": 237051904,
+        "startup_ns": 507593098,
+        "wall_ns": 544051502
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 252794998,
+        "peak_resident_bytes": 245080064,
+        "reconciliation_ns": 199663860,
+        "records": 148486,
+        "resident_bytes": 237142016,
+        "startup_ns": 453746014,
+        "wall_ns": 487361731
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 259222266,
+        "peak_resident_bytes": 244338688,
+        "reconciliation_ns": 209240644,
+        "records": 148486,
+        "resident_bytes": 237195264,
+        "startup_ns": 469450863,
+        "wall_ns": 508261662
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 250716686,
+        "peak_resident_bytes": 244576256,
+        "reconciliation_ns": 200010925,
+        "records": 148486,
+        "resident_bytes": 237101056,
+        "startup_ns": 452355921,
+        "wall_ns": 489344024
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 246815297,
+        "peak_resident_bytes": 244879360,
+        "reconciliation_ns": 199089448,
+        "records": 148486,
+        "resident_bytes": 237056000,
+        "startup_ns": 447222291,
+        "wall_ns": 482438220
+      }
+    ],
+    "restore_status": "ok",
+    "snapshot_bytes": 111214033,
+    "snapshot_write_ns": 262025151,
+    "total_build_and_snapshot_ns": 12147421891
+  },
+  {
+    "alphabet": "unicode",
+    "bigram_store_count": 15,
+    "build_ns": 12071920552,
+    "build_parses": 148486,
+    "diagnostic_heap_bytes": 0,
+    "discovery_ns": 260845852,
+    "distinct_gram_keys": 37909,
+    "estimated_index_bytes": 71494376,
+    "extraction_index_ns": 11684750957,
+    "failed_parses": 0,
+    "finalization_ns": 124349695,
+    "inventory_heap_bytes": 59917436,
+    "peak_resident_bytes": 409837568,
+    "resident_bytes": 340480000,
+    "restore_samples": [
+      {
+        "build_parses": 0,
+        "decode_ns": 302401888,
+        "peak_resident_bytes": 249266176,
+        "reconciliation_ns": 198343772,
+        "records": 148486,
+        "resident_bytes": 240672768,
+        "startup_ns": 501709537,
+        "wall_ns": 543535617
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 263788842,
+        "peak_resident_bytes": 250122240,
+        "reconciliation_ns": 199893231,
+        "records": 148486,
+        "resident_bytes": 240730112,
+        "startup_ns": 464964119,
+        "wall_ns": 501277397
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 267226336,
+        "peak_resident_bytes": 249872384,
+        "reconciliation_ns": 204785630,
+        "records": 148486,
+        "resident_bytes": 240836608,
+        "startup_ns": 473306443,
+        "wall_ns": 514455314
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 254524999,
+        "peak_resident_bytes": 250015744,
+        "reconciliation_ns": 199474981,
+        "records": 148486,
+        "resident_bytes": 240762880,
+        "startup_ns": 455293108,
+        "wall_ns": 493255672
+      },
+      {
+        "build_parses": 0,
+        "decode_ns": 253855743,
+        "peak_resident_bytes": 249835520,
+        "reconciliation_ns": 199873336,
+        "records": 148486,
+        "resident_bytes": 240742400,
+        "startup_ns": 454992492,
+        "wall_ns": 490072785
+      }
+    ],
+    "restore_status": "ok",
+    "snapshot_bytes": 113724609,
+    "snapshot_write_ns": 273209875,
+    "total_build_and_snapshot_ns": 12345831372
+  }
+]

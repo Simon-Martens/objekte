@@ -1,0 +1,5 @@
+Q113 collection=entries FTS=None FILTER=Some("places:length = 0") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 2694.632 / 2979.424 / 4224.891 µs (ok)
+Q114 collection=entries FTS=None FILTER=Some("places:length > 0") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | unicode-off: 2949.543 / 4437.924 / 10904.318 µs (ok)
+build "unicode": 12.038 s; snapshot_write=0.268 s; parses=148486; resident_bytes=270172160; peak_resident_bytes=364642304; estimated_index_bytes=71494376; snapshot_bytes=113724609; restore_min/median/max=0.486/0.493/0.536 s (5 runs)
+reports: /home/simon/source/objekte/bench/results/musenalm/casefold-unchanged-work-paired-ff759b225c/3-after
+reproduce: cargo run --release --example bench_musenalm -- "--root" "/home/simon/source/objekte/examples/musenalm" "--profiles" "unicode-off" "--repetitions" "31" "--cases" "Q113,Q114" "--result-dir" "/home/simon/source/objekte/bench/results/musenalm/casefold-unchanged-work-paired-ff759b225c/3-after"
