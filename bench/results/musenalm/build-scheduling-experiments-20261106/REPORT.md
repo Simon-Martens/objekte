@@ -7,8 +7,9 @@ Starting HEAD: `07e7c66b6d837a9701cd6c97fea7897ca9a4dc9a`. The compatible refere
 | Reference | 8387d1b | — | 1574.195 | — | — | unavailable | 120.062 | unavailable | unavailable | 288.766 | 52140243 | recorded |
 | 1. Worker-aware allowance | 59a669a | 8387d1b | 1405.910 | -168.285 | -10.7% | 843.648 | 126.261 | 32 | 63 | 458.266 | 52140243 | retain provisionally |
 | 2. Replenish between admissions | a8759e3 | 59a669a | 1485.860 | +79.950 | +5.7% | 893.628 | 137.241 | 32 | 61 | 485.922 | 52140243 | revert |
+| 3. Remove build revision checks | 4c22416 | 59a669a | 1379.170 | -26.740 | -1.9% | 808.209 | 129.815 | 32 | 63 | 483.969 | 52140243 | retain provisionally |
 
-Cumulative change from reference after experiment 2, before reverting it: -88.335 ms (-5.6%). The retained experiment 1 state remains -168.285 ms (-10.7%) versus the reference.
+Cumulative change from reference after experiment 3: -195.025 ms (-12.4%). Experiment 2 was reverted in `2c9e8c40ad` after its findings were saved; experiment 3 compares with the retained experiment 1 state.
 
 ## Experiment 1
 
@@ -19,3 +20,9 @@ The build was 168.285 ms faster than the reference sample, but the large memory 
 ## Experiment 2
 
 The coordinator replenished after each admitted batch and limited speculative dispatch to one batch of the immediately following collection. Framed batches used the same admission loop. A gate-based test confirmed replacement work was dispatched before the next ready result was admitted; all focused build tests passed. The build took 79.950 ms longer than experiment 1 and peak RSS rose 27.656 MiB. Peak active jobs stayed at 32, ready backlog changed from 63 to 61, and estimated admission weight rose from 499.406 to 512.000 MiB. Coordinator admission/merge was 893.628 ms and receive time 129.028 ms; summed job execution was 5655.444 ms. Discovery was 307.359 ms, extraction/index/admission 1025.946 ms and finalization 137.241 ms. The single sample cannot prove a regression, but it shows no concurrency gain while adding scheduling complexity and memory. Revert the implementation and keep its evidence. Counts, schema, canonical registrations and semantic signature matched the reference.
+
+## Experiment 3
+
+Construction reads now assume stable input after discovery. The ordinary build call passes `for_build=true`, which skips the three explicit `check_revision` calls around open/read/parse; each such check previously requested opened-file and pathname metadata. Framed construction no longer checks metadata before/after reading or after range processing. Logical-validation fallback uses a build-only range reader without a metadata probe. This is a code-path audit, not an externally measured syscall count. Query-time range checks and snapshot restoration were unchanged.
+
+Full core tests passed, including JSON/JSONL, malformed and empty sources, invalid ranges, logical fallback and oversized framed coverage. A focused test confirmed that the build reader uses actual buffer length even when the supplied revision differs. The build took 26.740 ms less than retained experiment 1; peak RSS rose 25.703 MiB, so timing and memory changes remain single-run observations. Discovery was 327.089 ms, extraction/index/admission 907.953 ms and finalization 129.815 ms. Active jobs and ready backlog remained 32 and 63; admission/merge was 808.209 ms, receive time 96.776 ms, and summed job execution 6165.163 ms. Estimated peak admission weight stayed 499.406 MiB under the 512 MiB limit. Counts, schema, canonical registrations and semantic signature matched.
