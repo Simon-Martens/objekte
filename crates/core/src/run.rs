@@ -18,13 +18,14 @@ use crate::executor::{
 use crate::inventory::{ByteRange, RecordEntry};
 use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
+use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{
-    ExtractedRecord, RecordRangeReader, ScanProjection, finalize_extracted_text,
+    ExtractedRecord, RecordRangeReader, ScanProjection,
     read_record_range, read_record_ranges,
 };
 use crate::verified::{CachedMember, CachedResult};
@@ -535,20 +536,9 @@ fn scan_file(
                 || record_projection.collect_text
                 || record_projection.top_level.as_ref().is_none_or(|fields| !fields.is_empty());
             let extracted = if decode {
-                let mut extracted = collection.source.reader().parse_for_query(&bytes, record_projection)?;
-                if query.options.return_mode == ReturnMode::Logical && may_reach_page {
-                    collection.definition.schema.coerce_projected_record(
-                        &mut extracted.value, record_projection.top_level.as_ref(),
-                    )?;
-                } else {
-                    collection.definition.schema.coerce_query_record(
-                        &mut extracted.value, record_projection.top_level.as_ref(),
-                    )?;
-                }
-                if projection.collect_text {
-                    finalize_extracted_text(collection.source.reader(), &mut extracted,
-                        collection.definition.schema.has_temporal_fields());
-                }
+                let extracted = prepare_query_record(&collection.source,
+                    &collection.definition.schema, &bytes, record_projection,
+                    query.options.return_mode == ReturnMode::Logical && may_reach_page)?;
                 outcome.record_parses += 1;
                 extracted
             } else {
@@ -614,11 +604,7 @@ fn scan_file(
                     } else {
                         bytes.len() as u64
                     };
-                    let payload = match query.options.return_mode {
-                        ReturnMode::Locator => None,
-                        ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
-                        ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
-                    };
+                    let payload = materialize(&query.options.return_mode, bytes, Some(extracted))?;
                     if winners.len() == keep_cap {
                         retained_bytes -= winners.pop().unwrap().matched.retained_bytes;
                     }
@@ -1075,20 +1061,13 @@ fn direct_payload(
     counters.bytes_read += bytes.len() as u64;
     actual.files_opened += 1;
     actual.bytes_read += bytes.len() as u64;
-    Ok(Some(match query.options.return_mode {
-        ReturnMode::Locator => unreachable!(),
-        ReturnMode::Bytes => Payload::Bytes(bytes),
-        ReturnMode::Logical => {
-            counters.record_parses += 1;
-            actual.record_parses += 1;
-            let mut extracted = collection.source.reader().parse(&bytes)?;
-            collection
-                .definition
-                .schema
-                .coerce_record(&mut extracted.value)?;
-            Payload::Logical(extracted.value)
-        }
-    }))
+    let logical = if query.options.return_mode == ReturnMode::Logical {
+        counters.record_parses += 1;
+        actual.record_parses += 1;
+        Some(prepare_query_record(&collection.source, &collection.definition.schema,
+            &bytes, &ScanProjection::full(false), true)?)
+    } else { None };
+    materialize(&query.options.return_mode, bytes, logical)
 }
 
 fn try_stored_order_page(

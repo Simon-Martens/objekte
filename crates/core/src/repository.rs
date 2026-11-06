@@ -13,6 +13,7 @@ use crate::inventory::{
 use crate::model::{ArrayValue, CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
+use crate::record_preparation::{finish_build_record, materialize, prepare_query_record};
 use crate::reference::{
     BindingOperation, RecordContext, Schema, Transform, bind_filter, bind_fts, data_values,
     eval_bound_fts, eval_filter,
@@ -20,9 +21,9 @@ use crate::reference::{
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
     ExtractedRecord, PreparedSource, SourceFormat, SourceRegistry, TextSegment,
-    extract_file_with_reader, finalize_extracted_text, read_record_range,
+    extract_file_with_reader, read_record_range, ScanProjection,
 };
-use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
+use crate::workload::{BigramAlphabet, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
 
 
@@ -452,13 +453,10 @@ impl Repository {
                 let file = &files.files[file_id.0 as usize];
                 let path = files.native_path(file_id).ok_or("missing file path")?;
                 let mut consume = |range: ByteRange, mut extracted: ExtractedRecord| {
-                    definition
-                        .schema
-                        .coerce_record(&mut extracted.value)
+                    finish_build_record(&source, &definition.schema, &mut extracted)
                         .map_err(|error| {
                             format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
                         })?;
-                    finalize_extracted_text(source.reader(), &mut extracted, definition.schema.has_temporal_fields());
                     let record_id = (|| -> Result<RecordId, String> {
                         match &definition.identity {
                             IdentityPolicy::Filename => {
@@ -722,13 +720,8 @@ impl Repository {
                 counters.bytes_read += bytes.len() as u64;
                 counters.record_parses += 1;
                 counters.scanned_records += 1;
-                let mut extracted = collection.source.reader().parse(&bytes)?;
-                collection
-                    .definition
-                    .schema
-                    .coerce_record(&mut extracted.value)?;
-                finalize_extracted_text(collection.source.reader(), &mut extracted,
-                    collection.definition.schema.has_temporal_fields());
+                let extracted = prepare_query_record(&collection.source,
+                    &collection.definition.schema, &bytes, &ScanProjection::full(true), true)?;
                 let ctx = RecordContext {
                     value: &extracted.value,
                     source_bytes: Some(&bytes),
@@ -756,11 +749,7 @@ impl Repository {
                         Vec::new()
                     };
                     matched_fields.sort();
-                    let payload = match query.options.return_mode {
-                        ReturnMode::Locator => None,
-                        ReturnMode::Bytes => Some(Payload::Bytes(bytes)),
-                        ReturnMode::Logical => Some(Payload::Logical(extracted.value)),
-                    };
+                    let payload = materialize(&query.options.return_mode, bytes, Some(extracted))?;
                     hits.push((
                         collection.generation.collection.0 as usize,
                         record.slot.0,
