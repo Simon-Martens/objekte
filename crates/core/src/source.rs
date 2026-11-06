@@ -628,6 +628,78 @@ fn validate_reader_ranges(ranges: &[ByteRange], file_size: usize) -> Result<(), 
     Ok(())
 }
 
+/// Frame a source once for independent construction jobs. Errors that the
+/// ordinary extraction path records as file outcomes use that path unchanged.
+pub(crate) fn frame_file_for_build(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
+) -> Result<Option<(Arc<Vec<u8>>, Vec<ByteRange>)>, String> {
+    let mut file = match std::fs::File::open(path) {
+        Ok(file) => file,
+        Err(_) => return Ok(None),
+    };
+    check_revision(path, &file, expected)?;
+    let mut bytes = Vec::new();
+    if file.read_to_end(&mut bytes).is_err() {
+        return Ok(None);
+    }
+    check_revision(path, &file, expected)?;
+    if bytes.len() as u64 != expected.size {
+        return Err("stale source revision during extraction".into());
+    }
+    let ranges = match source.frame_outcome(&bytes) {
+        Ok(ranges) => ranges,
+        Err(ReaderFailure::Malformed(_)) => return Ok(None),
+        Err(ReaderFailure::Fatal(error)) => {
+            return Err(format!("{}: reader fatal: {error}", path.display()));
+        }
+    };
+    validate_reader_ranges(&ranges, bytes.len())?;
+    Ok(Some((Arc::new(bytes), ranges)))
+}
+
+pub(crate) fn extract_framed_outcomes<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    bytes: &[u8],
+    ranges: &[ByteRange],
+    mut consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
+    let mut counters = ExtractionCounters::default();
+    for &range in ranges {
+        let part = &bytes[range.start as usize..range.end as usize];
+        counters.framed_records += 1;
+        match source.parse_outcome(part) {
+            Ok(record) => {
+                counters.record_parses += 1;
+                consume(SourceOutcome::Logical { range, record })?;
+            }
+            Err(ReaderFailure::Malformed(mut diagnostic)) => {
+                counters.failed_parses += 1;
+                file_coordinates(bytes, range, &mut diagnostic);
+                consume(SourceOutcome::Malformed {
+                    range,
+                    diagnostic,
+                    bytes: part.to_vec(),
+                })?;
+            }
+            Err(ReaderFailure::Fatal(error)) => {
+                return Err(format!(
+                    "{}:{}..{}: reader fatal: {error}",
+                    path.display(),
+                    range.start,
+                    range.end
+                ));
+            }
+        }
+    }
+    Ok(counters)
+}
+
 fn file_coordinates(file: &[u8], range: ByteRange, diagnostic: &mut ReaderDiagnostic) {
     let prefix = &file[..range.start as usize];
     let earlier_lines = prefix.iter().filter(|byte| **byte == b'\n').count() as u64;
@@ -706,34 +778,7 @@ where
         }
     };
     validate_reader_ranges(&ranges, bytes.len())?;
-    let mut counters = ExtractionCounters::default();
-    for range in ranges {
-        let part = &bytes[range.start as usize..range.end as usize];
-        counters.framed_records += 1;
-        match source.parse_outcome(part) {
-            Ok(record) => {
-                counters.record_parses += 1;
-                consume(SourceOutcome::Logical { range, record })?;
-            }
-            Err(ReaderFailure::Malformed(mut diagnostic)) => {
-                counters.failed_parses += 1;
-                file_coordinates(&bytes, range, &mut diagnostic);
-                consume(SourceOutcome::Malformed {
-                    range,
-                    diagnostic,
-                    bytes: part.to_vec(),
-                })?;
-            }
-            Err(ReaderFailure::Fatal(error)) => {
-                return Err(format!(
-                    "{}:{}..{}: reader fatal: {error}",
-                    path.display(),
-                    range.start,
-                    range.end
-                ));
-            }
-        }
-    }
+    let counters = extract_framed_outcomes(path, source, &bytes, &ranges, &mut consume)?;
     check_revision(path, &file, expected)?;
     Ok(counters)
 }

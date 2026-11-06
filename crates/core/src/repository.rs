@@ -557,16 +557,15 @@ impl Repository {
                 })
                 .collect();
             let jobs = crate::build::file_batches(&member_files, &files);
-            let admitted_bytes = crate::build::process_file_batches(
-                &build_pool,
-                Arc::clone(&root_shared),
-                Arc::new(definition.clone()),
-                id,
-                source.clone(),
-                &jobs,
-                Arc::clone(&source_files),
-                options.bigram_alphabet,
-                |batch| {
+            let oversized = jobs
+                .iter()
+                .map(|batch| {
+                    batch.len() == 1
+                        && files.files[batch[0].0 as usize].revision.size > 8 * 1024 * 1024
+                })
+                .collect::<Vec<_>>();
+            let definition_shared = Arc::new(definition.clone());
+            let mut admit = |batch: crate::build::BatchContribution| {
                     build_parses += batch.record_parses;
                     build_failed_parses += batch.failed_parses;
                     crate::build::CollectionAdmission {
@@ -581,9 +580,44 @@ impl Repository {
                         sorting: &mut sort_builder,
                     }
                     .admit(batch)
-                },
-            )?;
-            peak_build_admitted_bytes = peak_build_admitted_bytes.max(admitted_bytes);
+                };
+            let mut job = 0;
+            while job < jobs.len() {
+                let admitted_bytes = if oversized[job] {
+                    let bytes = crate::build::process_framed_file(
+                        &build_pool,
+                        Arc::clone(&root_shared),
+                        Arc::clone(&definition_shared),
+                        id,
+                        source.clone(),
+                        jobs[job][0],
+                        Arc::clone(&source_files),
+                        options.bigram_alphabet,
+                        &mut admit,
+                    )?;
+                    job += 1;
+                    bytes
+                } else {
+                    let end = oversized[job..]
+                        .iter()
+                        .position(|large| *large)
+                        .map_or(jobs.len(), |offset| job + offset);
+                    let bytes = crate::build::process_file_batches(
+                        &build_pool,
+                        Arc::clone(&root_shared),
+                        Arc::clone(&definition_shared),
+                        id,
+                        source.clone(),
+                        &jobs[job..end],
+                        Arc::clone(&source_files),
+                        options.bigram_alphabet,
+                        &mut admit,
+                    )?;
+                    job = end;
+                    bytes
+                };
+                peak_build_admitted_bytes = peak_build_admitted_bytes.max(admitted_bytes);
+            }
             extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
             let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;

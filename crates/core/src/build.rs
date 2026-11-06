@@ -27,13 +27,14 @@ use crate::repository::{
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceOutcome,
-    extract_file_outcomes, read_record_range,
+    extract_file_outcomes, extract_framed_outcomes, frame_file_for_build, read_record_range,
 };
 use crate::workload::BigramAlphabet;
 
 struct BatchFile {
     entry: FileEntry,
     records: Range<usize>,
+    first_range: bool,
 }
 
 /// Immutable discovery metadata shared by all construction workers. Mutable
@@ -282,21 +283,22 @@ impl<'a> BatchBuilder<'a> {
         revision: SourceRevision,
         range: ByteRange,
         mut extracted: ExtractedRecord,
+        source_bytes: Option<&[u8]>,
     ) -> Result<(), String> {
         if let Err(error) =
             finish_build_record(self.source, &self.definition.schema, &mut extracted)
         {
-            let bytes = read_record_range(path, revision, range)?;
-            return self.fallback(
-                file,
-                range,
-                &bytes,
-                ReaderDiagnostic::new(
-                    DiagnosticCategory::LogicalValidation,
-                    "logical.validation",
-                    error,
-                ),
+            let issue = ReaderDiagnostic::new(
+                DiagnosticCategory::LogicalValidation,
+                "logical.validation",
+                error,
             );
+            return if let Some(bytes) = source_bytes {
+                self.fallback(file, range, bytes, issue)
+            } else {
+                let bytes = read_record_range(path, revision, range)?;
+                self.fallback(file, range, &bytes, issue)
+            };
         }
         let id = (|| -> Result<RecordId, String> {
             match &self.definition.identity {
@@ -404,10 +406,11 @@ impl<'a> BatchBuilder<'a> {
         file: &mut FileEntry,
         path: &Path,
         outcome: SourceOutcome,
+        source_bytes: Option<&[u8]>,
     ) -> Result<(), String> {
         match outcome {
             SourceOutcome::Logical { range, record } => {
-                self.logical(file, path, file.revision, range, record)
+                self.logical(file, path, file.revision, range, record, source_bytes)
             }
             SourceOutcome::Malformed {
                 range,
@@ -434,6 +437,32 @@ impl<'a> BatchBuilder<'a> {
             }
         }
     }
+
+    fn finish(
+        self,
+        files: Vec<BatchFile>,
+        record_parses: u64,
+        failed_parses: u64,
+    ) -> Result<BatchContribution, String> {
+        let custom_text = self
+            .custom_text
+            .into_iter()
+            .map(|(key, index)| index.finish().map(|index| (key, index)))
+            .collect::<Result<HashMap<_, _>, _>>()?;
+        Ok(BatchContribution {
+            files,
+            records: self.records,
+            postings: self.postings,
+            custom_postings: self.custom_postings,
+            raw: self.raw.finish()?,
+            fallback_text: self.fallback_text.finish()?,
+            custom_text,
+            logical_records: self.logical_records,
+            sort_keys: self.sorting.into_keys(),
+            record_parses,
+            failed_parses,
+        })
+    }
 }
 
 pub(crate) fn process_batch(
@@ -454,33 +483,184 @@ pub(crate) fn process_batch(
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
         let stats = extract_file_outcomes(&path, source.reader(), file.revision, |outcome| {
-            builder.outcome(&mut file, &path, outcome)
+            builder.outcome(&mut file, &path, outcome, None)
         })?;
         record_parses += stats.record_parses;
         failed_parses += stats.failed_parses;
         files.push(BatchFile {
             entry: file,
             records: start..builder.records.len(),
+            first_range: true,
         });
     }
-    let custom_text = builder
-        .custom_text
-        .into_iter()
-        .map(|(key, index)| index.finish().map(|index| (key, index)))
-        .collect::<Result<HashMap<_, _>, _>>()?;
-    Ok(BatchContribution {
-        files,
-        records: builder.records,
-        postings: builder.postings,
-        custom_postings: builder.custom_postings,
-        raw: builder.raw.finish()?,
-        fallback_text: builder.fallback_text.finish()?,
-        custom_text,
-        logical_records: builder.logical_records,
-        sort_keys: builder.sorting.into_keys(),
-        record_parses,
-        failed_parses,
-    })
+    builder.finish(files, record_parses, failed_parses)
+}
+
+fn process_framed_batch(
+    root: &Path,
+    definition: &CollectionDefinition,
+    collection: CollectionId,
+    source: &PreparedSource,
+    file_id: FileId,
+    source_files: &[SourceFileInput],
+    bytes: &[u8],
+    ranges: &[ByteRange],
+    first_range: bool,
+    alphabet: BigramAlphabet,
+) -> Result<BatchContribution, String> {
+    let original = &source_files[file_id.0 as usize];
+    let path = root.join(&original.relative_path);
+    let mut file = original.for_collection(collection);
+    let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
+    let stats = extract_framed_outcomes(&path, source.reader(), bytes, ranges, |outcome| {
+        let source_part = match &outcome {
+            SourceOutcome::Logical { range, .. } => {
+                Some(&bytes[range.start as usize..range.end as usize])
+            }
+            _ => None,
+        };
+        builder.outcome(&mut file, &path, outcome, source_part)
+    })?;
+    let count = builder.records.len();
+    builder.finish(
+        vec![BatchFile {
+            entry: file,
+            records: 0..count,
+            first_range,
+        }],
+        stats.record_parses,
+        stats.failed_parses,
+    )
+}
+
+/// One oversized source buffer is shared by disjoint range jobs. Caller
+/// schedules oversized files one at a time; no worker copies or reopens the
+/// complete source. A framing failure follows the ordinary source outcome
+/// path so unreadable/malformed file semantics stay unchanged.
+pub(crate) fn process_framed_file(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<u64, String> {
+    const MAX_RANGE_BYTES: u64 = 1024 * 1024;
+    const MAX_RANGES: usize = 256;
+    const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
+    let input = &source_files[file_id.0 as usize];
+    let path = root.join(&input.relative_path);
+    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader(), input.revision)? else {
+        let batch = process_batch(
+            &root,
+            &definition,
+            collection,
+            &source,
+            &[file_id],
+            &source_files,
+            alphabet,
+        )?;
+        admit(batch)?;
+        return Ok(input.revision.size);
+    };
+    let source_bytes = bytes.len() as u64;
+    let mut chunks = Vec::new();
+    let mut start = 0;
+    while start < ranges.len() {
+        let mut end = start;
+        let mut weight = 0u64;
+        while end < ranges.len() && end - start < MAX_RANGES {
+            let size = ranges[end].end - ranges[end].start;
+            if end > start && weight.saturating_add(size) > MAX_RANGE_BYTES {
+                break;
+            }
+            weight = weight.saturating_add(size);
+            end += 1;
+        }
+        chunks.push((start..end, weight.max(64 * 1024)));
+        start = end;
+    }
+    if chunks.is_empty() {
+        chunks.push((0..0, 64 * 1024));
+    }
+    let ranges = Arc::new(ranges);
+    let (sender, receiver) = mpsc::channel();
+    let mut ready = BTreeMap::new();
+    let mut dispatched = 0;
+    let mut completed = 0;
+    let mut next = 0;
+    let mut admitted_bytes = 0u64;
+    let mut peak_bytes = 0u64;
+    let mut failure = None;
+    let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    while next < chunks.len() && failure.is_none() {
+        while dispatched < chunks.len() && dispatched - next < max_jobs {
+            let weight = chunks[dispatched].1;
+            if admitted_bytes > 0
+                && (weight > MAX_ADMITTED_BYTES
+                    || admitted_bytes.saturating_add(weight) > MAX_ADMITTED_BYTES)
+            {
+                break;
+            }
+            let index = dispatched;
+            let chunk = chunks[index].0.clone();
+            let sender = sender.clone();
+            let root = Arc::clone(&root);
+            let definition = Arc::clone(&definition);
+            let source = source.clone();
+            let source_files = Arc::clone(&source_files);
+            let bytes = Arc::clone(&bytes);
+            let ranges = Arc::clone(&ranges);
+            pool.spawn(move || {
+                let result = process_framed_batch(
+                    &root,
+                    &definition,
+                    collection,
+                    &source,
+                    file_id,
+                    &source_files,
+                    &bytes,
+                    &ranges[chunk],
+                    index == 0,
+                    alphabet,
+                );
+                let _ = sender.send((index, result));
+            });
+            admitted_bytes = admitted_bytes.saturating_add(weight);
+            peak_bytes = peak_bytes.max(admitted_bytes);
+            dispatched += 1;
+        }
+        let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
+        completed += 1;
+        ready.insert(index, result);
+        while let Some(result) = ready.remove(&next) {
+            admitted_bytes -= chunks[next].1;
+            match result.and_then(&mut admit) {
+                Ok(()) => next += 1,
+                Err(error) => {
+                    failure = Some(error);
+                    break;
+                }
+            }
+        }
+    }
+    while completed < dispatched {
+        let _ = receiver.recv().map_err(|error| error.to_string())?;
+        completed += 1;
+    }
+    if let Some(error) = failure {
+        return Err(error);
+    }
+    if SourceRevision::from_metadata(
+        &std::fs::metadata(&path).map_err(|error| format!("{}: {error}", path.display()))?,
+    )? != input.revision
+    {
+        return Err("stale source revision after framed extraction".into());
+    }
+    Ok(source_bytes.saturating_add(peak_bytes))
 }
 
 /// Resolve a fresh build's worker policy independently of query workers.
@@ -615,7 +795,11 @@ impl CollectionAdmission<'_> {
         for batch_file in batch.files {
             let file_id = batch_file.entry.id;
             let path = self.inventory.root.join(&batch_file.entry.relative_path);
-            self.builder.include_file(file_id)?;
+            if batch_file.first_range {
+                self.builder.include_file(file_id)?;
+            } else if !self.builder.contains_file(file_id) {
+                return Err("later record range precedes first file range".into());
+            }
             let mut diagnostic_refs = Vec::with_capacity(batch_file.entry.diagnostics.len());
             for mut diagnostic in batch_file.entry.diagnostics {
                 if let Some(local_slot) = diagnostic.record {

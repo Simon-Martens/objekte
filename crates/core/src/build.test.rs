@@ -131,6 +131,305 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
 }
 
 #[test]
+fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
+    use std::collections::BTreeMap;
+    use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering};
+
+    use crate::source::{SourceReader, SourceRegistry};
+
+    struct TwoRanges {
+        wait: bool,
+        active: AtomicUsize,
+        peak: AtomicUsize,
+        second_started: AtomicBool,
+    }
+
+    impl SourceReader for TwoRanges {
+        fn name(&self) -> &'static str {
+            "two_ranges"
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            let split = bytes.iter().position(|byte| *byte == b'\n').unwrap();
+            let size = bytes.len() as u64;
+            Ok(vec![
+                ByteRange::checked(0, split as u64, size)?,
+                ByteRange::checked(split as u64 + 1, size, size)?,
+            ])
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            let active = self.active.fetch_add(1, Ordering::SeqCst) + 1;
+            self.peak.fetch_max(active, Ordering::SeqCst);
+            let title = match bytes[0] {
+                b'A' => {
+                    if self.wait {
+                        let started = std::time::Instant::now();
+                        while !self.second_started.load(Ordering::SeqCst) {
+                            if started.elapsed().as_secs() > 5 {
+                                return Err("second range was not scheduled".into());
+                            }
+                            std::thread::yield_now();
+                        }
+                    }
+                    "Alpha"
+                }
+                b'B' => {
+                    self.second_started.store(true, Ordering::SeqCst);
+                    if self.wait {
+                        let started = std::time::Instant::now();
+                        while self.peak.load(Ordering::SeqCst) < 2 {
+                            if started.elapsed().as_secs() > 5 {
+                                return Err("first range was not scheduled".into());
+                            }
+                            std::thread::yield_now();
+                        }
+                    }
+                    "Beta"
+                }
+                _ => return Err("unexpected record".into()),
+            };
+            self.active.fetch_sub(1, Ordering::SeqCst);
+            Ok(ExtractedRecord {
+                value: Value::Object(BTreeMap::from([(
+                    "title".into(),
+                    Value::String(title.into()),
+                )])),
+                text: vec![TextSegment {
+                    path: vec!["title".into()],
+                    text: title.into(),
+                }],
+            })
+        }
+    }
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-build-framed-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut source_bytes = vec![b'a'; 4 * 1024 * 1024 + 1];
+    source_bytes[0] = b'A';
+    source_bytes.push(b'\n');
+    source_bytes.extend(std::iter::repeat_n(b'b', 4 * 1024 * 1024 + 1));
+    source_bytes[4 * 1024 * 1024 + 2] = b'B';
+    std::fs::write(root.join("data/large.two"), &source_bytes).unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::registered("two"),
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![FieldPath::parse("title").unwrap()],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let parallelism = std::thread::available_parallelism().map_or(1, NonZeroUsize::get);
+    let build = |workers, wait| {
+        let reader = std::sync::Arc::new(TwoRanges {
+            wait,
+            active: AtomicUsize::new(0),
+            peak: AtomicUsize::new(0),
+            second_started: AtomicBool::new(false),
+        });
+        let mut sources = SourceRegistry::builtin();
+        sources.register("two", 1, "two", reader.clone()).unwrap();
+        let repo = Repository::open_with_sources(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                build_workers: Some(NonZeroUsize::new(workers).unwrap()),
+                ..Default::default()
+            },
+            sources,
+        )
+        .unwrap();
+        (repo, reader)
+    };
+    let (one, serial_reader) = build(1, false);
+    let (parallel, parallel_reader) = build(parallelism.min(2), parallelism >= 2);
+    assert_eq!(one.collections()[0].generation.records.len(), 2);
+    assert_eq!(one.build_parses(), 2);
+    assert_eq!(parallel.build_parses(), 2);
+    assert_eq!(serial_reader.peak.load(Ordering::SeqCst), 1);
+    if parallelism >= 2 {
+        assert_eq!(parallel_reader.peak.load(Ordering::SeqCst), 2);
+    }
+    assert_eq!(
+        serde_json::to_value(&one.collections()[0].generation).unwrap(),
+        serde_json::to_value(&parallel.collections()[0].generation).unwrap()
+    );
+    assert_eq!(one.collections()[0].raw.normal, parallel.collections()[0].raw.normal);
+    assert_eq!(one.collections()[0].raw.skip, parallel.collections()[0].raw.skip);
+    let path = &vec!["title".to_owned()];
+    let one_posting = &one.collections()[0].postings.fields[path];
+    let parallel_posting = &parallel.collections()[0].postings.fields[path];
+    assert_eq!(one_posting.values, parallel_posting.values);
+    assert_eq!(one_posting.presence, parallel_posting.presence);
+    let sort_path = FieldPath::parse("title").unwrap();
+    let one_sort = &one.collections()[0].sorting.columns[&sort_path];
+    let parallel_sort = &parallel.collections()[0].sorting.columns[&sort_path];
+    assert_eq!(one_sort.keys, parallel_sort.keys);
+    assert_eq!(one_sort.ascending, parallel_sort.ascending);
+    assert_eq!(one_sort.descending, parallel_sort.descending);
+    assert_eq!(one.collections()[0].generation.files.len(), 1);
+    assert_eq!(
+        one.collections()[0]
+            .generation
+            .file_records
+            .records_for(FileId(0))
+            .unwrap()
+            .len(),
+        2
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-build-oversized-jsonl-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut bytes = b"{\"title\":\"".to_vec();
+    bytes.extend(std::iter::repeat_n(b'a', 8 * 1024 * 1024));
+    bytes.extend_from_slice(b"\"}\n{\"title\":\"healthy\"}\n{\"title\":\n{\"title\":\"");
+    bytes.push(0xff);
+    bytes.extend_from_slice(b"\"}\n");
+    std::fs::write(root.join("data/large.jsonl"), bytes).unwrap();
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["title".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema,
+        sort_fields: vec![
+            FieldPath::parse("title").unwrap(),
+            FieldPath::parse("@file.status").unwrap(),
+        ],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let available = std::thread::available_parallelism().map_or(1, NonZeroUsize::get);
+    let build = |workers| {
+        Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                build_workers: Some(NonZeroUsize::new(workers).unwrap()),
+                ..Default::default()
+            },
+        )
+        .unwrap()
+    };
+    let one = build(1);
+    let parallel = build(available.min(2));
+    assert_eq!(one.build_parses(), 2);
+    assert_eq!(one.build_failed_parses(), 2);
+    for repo in [&one, &parallel] {
+        assert_eq!(repo.collections()[0].generation.records.len(), 4);
+        assert_eq!(repo.files().files[0].status, FileStatus::Broken);
+        assert_eq!(repo.files().files[0].diagnostics.len(), 3);
+        assert_eq!(
+            repo.collections()[0]
+                .generation
+                .file_records
+                .records_for(FileId(0))
+                .unwrap()
+                .len(),
+            4
+        );
+        assert_eq!(repo.collections()[0].logical_records.len(), 2);
+        for record in repo.collections()[0].generation.records.iter().skip(2) {
+            assert_eq!(record.class, RecordClass::RawFallback);
+            assert_eq!(
+                repo.files()
+                    .diagnostic(record.file, record.diagnostic_ref)
+                    .unwrap()
+                    .record,
+                Some(record.slot)
+            );
+        }
+    }
+    assert_eq!(
+        serde_json::to_value(&one.collections()[0].generation).unwrap(),
+        serde_json::to_value(&parallel.collections()[0].generation).unwrap()
+    );
+    assert_eq!(
+        serde_json::to_value(&one.files().files[0].diagnostics).unwrap(),
+        serde_json::to_value(&parallel.files().files[0].diagnostics).unwrap()
+    );
+    assert_eq!(one.collections()[0].raw.normal, parallel.collections()[0].raw.normal);
+    assert_eq!(one.collections()[0].raw.skip, parallel.collections()[0].raw.skip);
+    assert_eq!(
+        one.collections()[0].fallback_text.normal,
+        parallel.collections()[0].fallback_text.normal
+    );
+    assert_eq!(
+        one.collections()[0].fallback_text.skip,
+        parallel.collections()[0].fallback_text.skip
+    );
+    for filter in ["title = 'healthy'", "@record.class = 1"] {
+        let query = Query {
+            collections: vec!["data".into()],
+            filter: Some(parse_filter(filter).unwrap()),
+            fts: None,
+            options: QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: true,
+            },
+        };
+        let a = one.search(&query).unwrap();
+        let b = parallel.search(&query).unwrap();
+        assert_eq!((a.count, a.hits), (b.count, b.hits), "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn file_batches_bound_count_and_source_bytes_without_losing_empty_files() {
     let mut inventory = FileInventory::new("/synthetic".into());
     let mut ids = Vec::new();

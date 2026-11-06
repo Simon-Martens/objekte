@@ -644,6 +644,10 @@ impl CollectionBuilder {
         Ok(())
     }
 
+    pub(crate) fn contains_file(&self, file: FileId) -> bool {
+        self.included_files.get(file.0 as usize) == Some(&true)
+    }
+
     pub fn add_record(
         &mut self,
         file: &FileEntry,
