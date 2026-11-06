@@ -94,6 +94,9 @@ pub struct WorkCounters {
     pub match_count_complete: bool,
     pub returned_records: u64,
     pub files_opened: u64,
+    /// Physical files opened at least once; reopen calls remain in `files_opened`.
+    #[serde(default)]
+    pub distinct_files: u64,
     pub bytes_read: u64,
     /// Peak retained page payload bytes, estimated from source record lengths.
     #[serde(default)]

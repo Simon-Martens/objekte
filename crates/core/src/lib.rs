@@ -15,6 +15,7 @@ pub mod path_repr;
 pub mod posting;
 mod prepared;
 mod record_preparation;
+mod source_access;
 pub mod query;
 pub mod reference;
 pub mod repository;

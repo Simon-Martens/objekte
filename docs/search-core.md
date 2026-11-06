@@ -198,6 +198,10 @@ range batches. Each worker retains at most `offset + limit` candidate payloads;
 the worker queue is bounded by the configured worker count. Count-only and
 locator requests retain no payload. Verified-cache membership is compact and
 budgeted separately, and an entry is discarded if it cannot be complete.
+Stored-order pages and page materialization use a query-scoped source session
+with at most eight open handles and 64 KiB range windows. Interleaved files may
+be reopened after eviction. The work counters distinguish open calls from
+distinct files; `bytes_read` includes bytes fetched into range windows.
 
 ## Indexes, planning, and reuse
 

@@ -369,6 +369,112 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
 }
 
 #[test]
+fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
+    use crate::workload::SortField;
+    let root = std::env::temp_dir().join(format!("objekte-ordered-jsonl-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut data = Vec::new();
+    let mut starts = Vec::new();
+    for n in 0..6000 {
+        starts.push(data.len() as u64);
+        data.extend_from_slice(format!(r#"{{"sequence":{n},"kind":"yes","body":"needle"}}"#).as_bytes());
+        data.push(b'\n');
+    }
+    std::fs::write(root.join("data/all.jsonl"), data).unwrap();
+    let mut schema = Schema::default();
+    for (name, kind, indexed) in [
+        ("sequence", LogicalType::Number, false),
+        ("kind", LogicalType::String, true),
+        ("body", LogicalType::String, false),
+    ] {
+        schema.register_field(FieldDefinition { path: vec![name.into()], kind,
+            required: true, nullable: false, indexed, multi: false,
+            element_nullable: vec![] }).unwrap();
+    }
+    let repo = Repository::open_with_options(&root, vec![CollectionDefinition {
+        name: "data".into(), source_path: "data".into(), format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated, discovery: Default::default(), schema,
+        sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
+        sort_locale: "de".into(), sort_options: Default::default(), sort_overrides: Default::default(),
+    }], crate::repository::RepositoryOptions {
+        snapshot_mode: crate::repository::SnapshotMode::Disabled, ..Default::default()
+    }).unwrap();
+    let query = |filter: &str, mode, count| Query { collections: vec!["data".into()],
+        fts: None, filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions { sort: vec![SortField { field: "sequence".into(), descending: false }],
+            limit: 5, offset: 1000, count, return_mode: mode, evidence: false } };
+    let residual = query("body ~ 'needle'", ReturnMode::Locator, false);
+    let (result, traces) = repo.explain_analyze(&residual).unwrap();
+    assert_eq!(result.count, None);
+    assert_eq!(result.hits.iter().map(|hit| hit.byte_start).collect::<Vec<_>>(), starts[1000..1005]);
+    assert_eq!(result.counters.scanned_records, 1005);
+    assert_eq!(result.counters.residual_evaluations, 1005);
+    assert_eq!(result.counters.record_parses, 1005);
+    assert_eq!(result.counters.files_opened, 1);
+    assert_eq!(result.counters.distinct_files, 1);
+    assert_eq!(traces[0].fts_strategy, "stored order page traversal");
+    let exact = repo.search(&query("kind = 'yes'", ReturnMode::Logical, false)).unwrap();
+    assert_eq!(exact.hits.iter().map(|hit| hit.byte_start).collect::<Vec<_>>(), starts[1000..1005]);
+    assert_eq!(exact.counters.files_opened, 1);
+    assert_eq!(exact.counters.distinct_files, 1);
+    assert_eq!(exact.counters.record_parses, 5);
+    repo.configure_verified_cache(4 << 20).unwrap();
+    let counted = query("kind = 'yes'", ReturnMode::Logical, true);
+    let first = repo.search(&counted).unwrap();
+    let cached = repo.search(&counted).unwrap();
+    assert_eq!(first.count, Some(6000));
+    assert!(cached.counters.verified_result_hit);
+    assert_eq!(cached.counters.files_opened, 1);
+    assert_eq!(cached.counters.distinct_files, 1);
+    assert_eq!(cached.counters.record_parses, 5);
+    assert_eq!(cached.hits, first.hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn interleaved_stored_order_records_keep_bounded_file_handles() {
+    use crate::workload::SortField;
+    let root = std::env::temp_dir().join(format!("objekte-interleaved-jsonl-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for file in 0..3 {
+        let mut data = String::new();
+        for row in 0..30 {
+            data.push_str(&format!("{{\"sequence\":{},\"body\":\"needle\"}}\n", row * 3 + file));
+        }
+        std::fs::write(root.join(format!("data/{file}.jsonl")), data).unwrap();
+    }
+    let mut schema = Schema::default();
+    schema.register_field(FieldDefinition { path: vec!["body".into()], kind: LogicalType::String,
+        required: true, nullable: false, indexed: false, multi: false, element_nullable: vec![] }).unwrap();
+    schema.register_field(FieldDefinition { path: vec!["sequence".into()], kind: LogicalType::Number,
+        required: true, nullable: false, indexed: false, multi: false, element_nullable: vec![] }).unwrap();
+    let repo = Repository::open_with_options(&root, vec![CollectionDefinition {
+        name: "data".into(), source_path: "data".into(), format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated, discovery: Default::default(), schema,
+        sort_fields: vec![crate::model::FieldPath::parse("sequence").unwrap()],
+        sort_locale: "de".into(), sort_options: Default::default(), sort_overrides: Default::default(),
+    }], crate::repository::RepositoryOptions {
+        snapshot_mode: crate::repository::SnapshotMode::Disabled, ..Default::default()
+    }).unwrap();
+    let query = Query { collections: vec!["data".into()], fts: None,
+        filter: Some(parse_filter("body ~ 'needle'").unwrap()),
+        options: QueryOptions { sort: vec![SortField { field: "sequence".into(), descending: false }],
+            limit: 5, offset: 7, count: false, return_mode: ReturnMode::Logical, evidence: false } };
+    let result = repo.search(&query).unwrap();
+    assert_eq!(result.count, None);
+    assert_eq!(result.counters.scanned_records, 12);
+    assert_eq!(result.counters.files_opened, 3);
+    assert_eq!(result.counters.distinct_files, 3);
+    assert_eq!(result.counters.record_parses, 12);
+    assert_eq!(result.hits.iter().map(|hit| match &hit.payload {
+        Some(Payload::Logical(Value::Object(fields))) => match &fields["sequence"] {
+            Value::Number(crate::model::Number::Integer(n)) => *n, _ => panic!("number") },
+        _ => panic!("logical payload"),
+    }).collect::<Vec<_>>(), vec![7, 8, 9, 10, 11]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
     use crate::query::FtsQuery;
 

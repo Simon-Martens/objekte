@@ -545,10 +545,8 @@ impl RecordRangeReader {
             ByteRange::checked(range.start, range.end, revision.size)?;
             let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
             let mut bytes = vec![0; len];
-            if range.start != 0 {
-                file.seek(SeekFrom::Start(range.start))
-                    .map_err(|e| e.to_string())?;
-            }
+            file.seek(SeekFrom::Start(range.start))
+                .map_err(|e| e.to_string())?;
             file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
             return Ok((vec![(*slot, bytes)], len as u64));
         }

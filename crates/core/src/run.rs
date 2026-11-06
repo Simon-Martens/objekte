@@ -24,9 +24,9 @@ use crate::reference::{
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
+use crate::source_access::SourceAccessSession;
 use crate::source::{
     ExtractedRecord, RecordRangeReader, ScanProjection,
-    read_record_range, read_record_ranges,
 };
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
@@ -469,6 +469,7 @@ fn scan_file(
     payload_cutoff: Option<&RankKey>,
     file_id: u32,
     ranges: &[(u32, ByteRange)],
+    mut source_access: Option<&mut SourceAccessSession<'_>>,
 ) -> Result<ScannedFile, String> {
     let collection = &repo.collections[collection_index];
     let path = repo
@@ -485,8 +486,10 @@ fn scan_file(
     let keep_cap = if query.options.limit == 0 { 0 } else { cap };
     let mut winners = BinaryHeap::<FileWinner>::new();
     let mut retained_bytes = 0u64;
-    let mut reader = RecordRangeReader::open(&path, revision)?;
-    outcome.files_opened = 1;
+    let mut reader = if source_access.is_some() { None } else {
+        Some(RecordRangeReader::open(&path, revision)?)
+    };
+    outcome.files_opened = u64::from(reader.is_some());
     let full_projection = ScanProjection::full(projection.collect_text);
     let mut cursor = 0;
     while cursor < ranges.len() {
@@ -501,7 +504,13 @@ fn scan_file(
         }
         let batch = &ranges[cursor..end];
         cursor = end;
-        let (records, bytes_read) = reader.read(batch)?;
+        let (records, bytes_read) = if let Some(session) = source_access.as_deref_mut() {
+            let read = session.read(crate::model::FileId(file_id), batch)?;
+            outcome.files_opened += read.opened;
+            (read.records, read.bytes_read)
+        } else {
+            reader.as_mut().ok_or("missing source reader")?.read(batch)?
+        };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
             let record = &collection.generation.records[slot as usize];
@@ -1047,20 +1056,18 @@ fn direct_payload(
     record: &RecordEntry,
     counters: &mut WorkCounters,
     actual: &mut PlanActual,
+    source_access: &mut SourceAccessSession<'_>,
 ) -> Result<Option<Payload>, String> {
     if query.options.return_mode == ReturnMode::Locator {
         return Ok(None);
     }
     let collection = &repo.collections[collection_index];
-    let path = repo
-        .files
-        .native_path(record.file)
-        .ok_or("missing source path")?;
-    let bytes = read_record_range(&path, record.revision, record.range)?;
-    counters.files_opened += 1;
-    counters.bytes_read += bytes.len() as u64;
-    actual.files_opened += 1;
-    actual.bytes_read += bytes.len() as u64;
+    let mut read = source_access.read(record.file, &[(0, record.range)])?;
+    let bytes = read.records.pop().ok_or("source record missing")?.1;
+    counters.files_opened += read.opened;
+    counters.bytes_read += read.bytes_read;
+    actual.files_opened += read.opened;
+    actual.bytes_read += read.bytes_read;
     let logical = if query.options.return_mode == ReturnMode::Logical {
         counters.record_parses += 1;
         actual.record_parses += 1;
@@ -1212,6 +1219,7 @@ fn try_stored_order_page(
     let mut stopped_early = false;
     let mut locator_query = query.clone();
     locator_query.options.return_mode = ReturnMode::Locator;
+    let mut source_access = SourceAccessSession::new(&repo.files);
     while cap > 0 {
         let Some(Reverse(cursor)) = heap.pop() else {
             break;
@@ -1245,6 +1253,7 @@ fn try_stored_order_page(
                         cursor.record,
                         &mut counters,
                         actual,
+                        &mut source_access,
                     )?;
                 }
             } else {
@@ -1266,6 +1275,7 @@ fn try_stored_order_page(
                     None,
                     cursor.record.file.0,
                     &[(slot, cursor.record.range)],
+                    Some(&mut source_access),
                 )?;
                 counters.files_opened += scanned.files_opened;
                 counters.bytes_read += scanned.bytes_read;
@@ -1317,6 +1327,7 @@ fn try_stored_order_page(
         }
     }
     counters.returned_records = page.len() as u64;
+    counters.distinct_files = source_access.distinct_files();
     counters.match_count_complete = !stopped_early && cap > 0;
     if let Some(traces) = traces.as_deref_mut() {
         for (trace, actual) in traces.iter_mut().zip(actuals) {
@@ -1383,34 +1394,24 @@ fn materialize_cached(
             payload: None,
         });
     }
+    let mut source_access = SourceAccessSession::new(&repo.files);
     for ((collection_index, file_id), ranges) in files {
         let collection = &repo.collections[collection_index];
-        let path = repo
-            .files
-            .native_path(crate::model::FileId(file_id))
-            .ok_or("missing source path")?;
-        let revision = repo.files.files[file_id as usize].revision;
         for batch in ranges.chunks(128) {
-            let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
-            counters.files_opened += 1;
-            counters.bytes_read += bytes_read;
-            for (index, bytes) in records {
-                hits[index as usize].payload = Some(match query.options.return_mode {
-                    ReturnMode::Locator => unreachable!(),
-                    ReturnMode::Bytes => Payload::Bytes(bytes),
-                    ReturnMode::Logical => {
-                        counters.record_parses += 1;
-                        let mut extracted = collection.source.reader().parse(&bytes)?;
-                        collection
-                            .definition
-                            .schema
-                            .coerce_record(&mut extracted.value)?;
-                        Payload::Logical(extracted.value)
-                    }
-                });
+            let read = source_access.read(crate::model::FileId(file_id), batch)?;
+            counters.files_opened += read.opened;
+            counters.bytes_read += read.bytes_read;
+            for (index, bytes) in read.records {
+                let logical = if query.options.return_mode == ReturnMode::Logical {
+                    counters.record_parses += 1;
+                    Some(prepare_query_record(&collection.source, &collection.definition.schema,
+                        &bytes, &ScanProjection::full(false), true)?)
+                } else { None };
+                hits[index as usize].payload = materialize(&query.options.return_mode, bytes, logical)?;
             }
         }
     }
+    counters.distinct_files = source_access.distinct_files();
     counters.returned_records = hits.len() as u64;
     Ok(SearchResult {
         count: query.options.count.then_some(cached.members.len()),
@@ -1518,6 +1519,7 @@ fn search_impl(
         .ok_or("page size overflow")?;
     let mut winners = BinaryHeap::new();
     let mut counters = WorkCounters::default();
+    let mut files_read = HashSet::new();
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     counters.prepared_plan_hit = plan_hit;
     for (collection_index, filter, fts) in prepared.collections {
@@ -1686,6 +1688,7 @@ fn search_impl(
                 .push((slot, record.range));
         }
         let files: Vec<_> = files.into_iter().collect();
+        files_read.extend(files.iter().map(|(file_id, _)| *file_id));
         let projection = scan_projection(query, residual.as_ref(), &candidates);
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
@@ -1724,6 +1727,7 @@ fn search_impl(
                                 payload_cutoff.as_ref(),
                                 *file_id,
                                 ranges,
+                                None,
                             )
                         })
                         .collect()
@@ -1745,6 +1749,7 @@ fn search_impl(
                             payload_cutoff.as_ref(),
                             *file_id,
                             ranges,
+                            None,
                         )
                     })
                     .collect()
@@ -1815,50 +1820,40 @@ fn search_impl(
                     .push((index as u32, record.range));
             }
         }
+        let mut source_access = SourceAccessSession::new(&repo.files);
         for ((collection_index, file_id), ranges) in files {
+            files_read.insert(file_id);
             let collection = &repo.collections[collection_index];
-            let path = repo
-                .files
-                .native_path(crate::model::FileId(file_id))
-                .ok_or("missing source path")?;
-            let revision = repo.files.files[file_id as usize].revision;
             for batch in ranges.chunks(128) {
-                let (records, bytes_read) = read_record_ranges(&path, revision, batch)?;
-                counters.files_opened += 1;
-                counters.bytes_read += bytes_read;
+                let read = source_access.read(crate::model::FileId(file_id), batch)?;
+                counters.files_opened += read.opened;
+                counters.bytes_read += read.bytes_read;
                 if let Some(traces) = traces.as_deref_mut() {
                     if let Some(actual) = traces
                         .iter_mut()
                         .find(|trace| trace.collection == collection.definition.name)
                         .and_then(|trace| trace.actual.as_mut())
                     {
-                        actual.files_opened += 1;
-                        actual.bytes_read += bytes_read;
+                        actual.files_opened += read.opened;
+                        actual.bytes_read += read.bytes_read;
                         if query.options.return_mode == ReturnMode::Logical {
-                            actual.record_parses += records.len() as u64;
+                            actual.record_parses += read.records.len() as u64;
                         }
                     }
                 }
-                for (index, bytes) in records {
-                    let payload = match query.options.return_mode {
-                        ReturnMode::Locator => unreachable!(),
-                        ReturnMode::Bytes => Payload::Bytes(bytes),
-                        ReturnMode::Logical => {
-                            counters.record_parses += 1;
-                            let mut extracted = collection.source.reader().parse(&bytes)?;
-                            collection
-                                .definition
-                                .schema
-                                .coerce_record(&mut extracted.value)?;
-                            Payload::Logical(extracted.value)
-                        }
-                    };
-                    page[index as usize].hit.payload = Some(payload);
+                for (index, bytes) in read.records {
+                    let logical = if query.options.return_mode == ReturnMode::Logical {
+                        counters.record_parses += 1;
+                        Some(prepare_query_record(&collection.source, &collection.definition.schema,
+                            &bytes, &ScanProjection::full(false), true)?)
+                    } else { None };
+                    page[index as usize].hit.payload = materialize(&query.options.return_mode, bytes, logical)?;
                 }
             }
         }
     }
     counters.returned_records = page.len() as u64;
+    counters.distinct_files = files_read.len() as u64;
     Ok(SearchResult {
         count: query.options.count.then_some(count),
         hits: page.into_iter().map(|winner| winner.hit).collect(),

@@ -699,6 +699,7 @@ impl Repository {
             match_count_complete: false,
             returned_records: 0,
             files_opened: 0,
+            distinct_files: 0,
             bytes_read: 0,
             peak_retained_payload_bytes: 0,
             record_parses: 0,
@@ -708,8 +709,10 @@ impl Repository {
             prepared_plan_hit: false,
             verified_result_hit: false,
         };
+        let mut files_read = HashSet::new();
         for (collection, filter, fts) in bound {
             for record in &collection.generation.records {
+                files_read.insert(record.file.0);
                 let file = &self.files.files[record.file.0 as usize];
                 let path = self
                     .files
@@ -771,6 +774,7 @@ impl Repository {
                 }
             }
         }
+        counters.distinct_files = files_read.len() as u64;
         sort_rows(self, query, &mut hits);
         let count = hits.len();
         counters.total_matches = count as u64;
