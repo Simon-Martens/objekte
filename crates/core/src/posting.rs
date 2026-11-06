@@ -108,7 +108,9 @@ impl PostingIndex {
                 );
             }
             Derived::None if matches!(term.literal, Value::Null) => {
-                if term.multi && term.quantifier == Quantifier::Any {
+                // The null posting tracks only an explicit null field. It cannot
+                // prove any/all predicates over an array's elements.
+                if term.multi {
                     return None;
                 }
                 return match term.operator {
@@ -266,7 +268,7 @@ impl PostingIndex {
             Derived::None => {}
         }
         if matches!(term.literal, Value::Null) {
-            if term.multi && term.quantifier == Quantifier::Any {
+            if term.multi {
                 return None;
             }
             return match term.operator {
@@ -352,7 +354,7 @@ impl PostingIndex {
             Derived::None => {}
         }
         if matches!(term.literal, Value::Null) {
-            if term.multi && term.quantifier == Quantifier::Any {
+            if term.multi {
                 return None;
             }
             return Some(match term.operator {

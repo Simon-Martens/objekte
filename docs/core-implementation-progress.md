@@ -23,6 +23,7 @@ substitute for the four-profile workload.
 | Corrective step | Status | Focused evidence |
 |---|---|---|
 | 1 / B: record ID lookup | complete | Reproduced folded ID miss; raw, case-folded, distinct-case, and Unicode IDs now match the independent scanner |
+| 2 / B: null arrays | complete | Reproduced indexed universal-null miss; ten query forms across seven record states match hard-coded answers and the independent scanner with and without postings |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier
