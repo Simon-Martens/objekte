@@ -9,20 +9,61 @@ mod test_support;
 mod view;
 
 use std::error::Error;
+use std::path::PathBuf;
+use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{App, Focus, Overlay, View};
-use objekte_search_core::repository::Repository;
+use objekte_search_core::repository::{CollectionDefinition, Repository};
 use ratatui::crossterm::{
     event::{self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, MouseEventKind},
     execute,
 };
 
-pub(super) fn run(repository: Repository) -> Result<(), Box<dyn Error>> {
+pub(super) fn run(
+    root: PathBuf,
+    definitions: Vec<CollectionDefinition>,
+) -> Result<(), Box<dyn Error>> {
     let mut terminal = ratatui::try_init()?;
     execute!(std::io::stdout(), event::EnableMouseCapture)?;
     let result = (|| -> Result<(), Box<dyn Error>> {
+        let started = Instant::now();
+        let (sender, receiver) = mpsc::channel();
+        terminal.draw(|frame| view::draw_loading(frame, started.elapsed()))?;
+        std::thread::spawn(move || {
+            let result = Repository::open(root, definitions);
+            let _ = sender.send(result);
+        });
+        let repository = loop {
+            match receiver.try_recv() {
+                Ok(Ok(repository)) => break repository,
+                Ok(Err(error)) => return Err(std::io::Error::other(error).into()),
+                Err(mpsc::TryRecvError::Disconnected) => {
+                    return Err(std::io::Error::other("repository loader stopped").into());
+                }
+                Err(mpsc::TryRecvError::Empty) => {}
+            }
+            terminal.draw(|frame| view::draw_loading(frame, started.elapsed()))?;
+            if event::poll(Duration::from_millis(100))? {
+                match event::read()? {
+                    Event::Key(pressed)
+                        if pressed.kind != KeyEventKind::Release
+                            && (pressed.code == KeyCode::Esc
+                                || (pressed.code == KeyCode::Char('q')
+                                    && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
+                    {
+                        return Ok(());
+                    }
+                    _ => {}
+                }
+            }
+        };
         let mut app = App::new(repository);
+        let ready = format!("Index ready in {}", view::elapsed_label(started.elapsed()));
+        app.status = Some(match app.status.take() {
+            Some(status) => format!("{status}  ·  {ready}"),
+            None => ready,
+        });
         let light = match app.settings.theme.as_deref() {
             Some("light") => Some(true),
             Some("dark") => Some(false),

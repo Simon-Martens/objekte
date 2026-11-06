@@ -49,6 +49,7 @@ pub(super) enum Overlay {
 struct Update {
     generation: u64,
     offset: usize,
+    elapsed: Duration,
     result: Result<SearchResult, String>,
 }
 
@@ -81,6 +82,7 @@ pub(super) struct App {
     pub(super) status: Option<String>,
     pub(super) error: Option<String>,
     pub(super) searching: bool,
+    pub(super) last_search_duration: Option<Duration>,
     pub(super) done: bool,
     generation: u64,
     pending: Option<Instant>,
@@ -125,6 +127,7 @@ impl App {
             status,
             error: None,
             searching: false,
+            last_search_duration: None,
             done: false,
             generation: 0,
             pending: None,
@@ -304,6 +307,7 @@ impl App {
         self.searching = true;
         self.error = None;
         self.status = None;
+        self.last_search_duration = None;
     }
 
     pub(super) fn request_search(&mut self) {
@@ -316,6 +320,7 @@ impl App {
         self.selected = 0;
         self.scroll = 0;
         self.requested_offset = None;
+        self.last_search_duration = None;
         self.launch(0);
     }
 
@@ -326,6 +331,7 @@ impl App {
             }
             self.searching = false;
             self.requested_offset = None;
+            self.last_search_duration = Some(update.elapsed);
             match update.result {
                 Ok(result) => {
                     let Some(total) = result.count else {
@@ -377,10 +383,12 @@ impl App {
         self.searching = true;
         self.requested_offset = Some(offset);
         std::thread::spawn(move || {
+            let started = Instant::now();
             let result = repository.search(&query);
             let _ = sender.send(Update {
                 generation,
                 offset,
+                elapsed: started.elapsed(),
                 result,
             });
         });

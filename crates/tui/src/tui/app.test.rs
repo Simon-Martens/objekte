@@ -17,10 +17,13 @@ fn full_text_filter_and_collection_scope_use_new_core() {
     let mut fixture = fixture(3);
     settled(&mut fixture.app);
     assert_eq!(fixture.app.total, 4);
+    assert!(fixture.app.last_search_duration.is_some());
     fixture.app.search = Input::with_text("needle");
     fixture.app.request_search();
+    assert!(fixture.app.last_search_duration.is_none());
     settled(&mut fixture.app);
     assert_eq!(fixture.app.total, 2);
+    assert!(fixture.app.last_search_duration.is_some());
     fixture.app.filter = Input::with_text("number >= 1");
     fixture.app.request_search();
     settled(&mut fixture.app);
@@ -51,6 +54,7 @@ fn invalid_filter_reports_error_and_stale_result_is_ignored() {
     fixture.app.filter = Input::with_text("year >");
     fixture.app.request_search();
     assert!(fixture.app.error.is_some());
+    assert!(fixture.app.last_search_duration.is_none());
     fixture.app.filter = Input::with_text("number >= 2");
     fixture.app.request_search();
     settled(&mut fixture.app);

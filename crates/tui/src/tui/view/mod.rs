@@ -13,8 +13,48 @@ use ratatui::{
     text::{Line, Span},
     widgets::{Block, Borders, Clear, Paragraph, Wrap},
 };
+use std::time::Duration;
 use theme::*;
 use unicode_width::UnicodeWidthStr;
+
+pub(super) fn elapsed_label(elapsed: Duration) -> String {
+    if elapsed.as_secs() > 0 {
+        format!("{:.1} s", elapsed.as_secs_f64())
+    } else {
+        format!("{:.3} ms", elapsed.as_secs_f64() * 1_000.0)
+    }
+}
+
+pub(super) fn draw_loading(frame: &mut Frame<'_>, elapsed: Duration) {
+    let [header, _gap, status, body, footer] = Layout::vertical([
+        Constraint::Length(1),
+        Constraint::Length(1),
+        Constraint::Length(1),
+        Constraint::Fill(1),
+        Constraint::Length(1),
+    ])
+    .areas(frame.area());
+    frame.render_widget(
+        Paragraph::new(" ◆ objekte").style(Style::new().fg(ACCENT).add_modifier(Modifier::BOLD)),
+        header,
+    );
+    frame.render_widget(
+        Paragraph::new(format!(
+            " Building search index… {}",
+            elapsed_label(elapsed)
+        ))
+        .style(Style::new().fg(DIM)),
+        status,
+    );
+    frame.render_widget(
+        Paragraph::new("Preparing repository; the first run may take longer."),
+        body,
+    );
+    frame.render_widget(
+        Paragraph::new(" Esc or Ctrl+Q quit").style(Style::new().fg(DIM)),
+        footer,
+    );
+}
 
 pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
     let [header, _gap, search, filter, summary, body, footer] = Layout::vertical([
@@ -63,7 +103,12 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             let status = if app.searching {
                 "Searching…".to_owned()
             } else if let Some(error) = &app.error {
-                format!("Error: {error}")
+                let timing = app
+                    .last_search_duration
+                    .map_or_else(String::new, |elapsed| {
+                        format!("  ·  search {}", elapsed_label(elapsed))
+                    });
+                format!("Error: {error}{timing}")
             } else {
                 let sort = app.sort.as_ref().map_or_else(String::new, |sort| {
                     format!(
@@ -72,7 +117,16 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                         if sort.descending { "↓" } else { "↑" }
                     )
                 });
-                format!("{} matches  ·  {} loaded{sort}", app.total, app.hits.len())
+                let timing = app
+                    .last_search_duration
+                    .map_or_else(String::new, |elapsed| {
+                        format!("  ·  search {}", elapsed_label(elapsed))
+                    });
+                format!(
+                    "{} matches  ·  {} loaded{sort}{timing}",
+                    app.total,
+                    app.hits.len()
+                )
             };
             frame.render_widget(
                 Paragraph::new(format!(" {status}"))

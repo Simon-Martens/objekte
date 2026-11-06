@@ -6,8 +6,6 @@ mod tui;
 use std::path::PathBuf;
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
-use objekte_search_core::repository::Repository;
-
 fn main() {
     let started = Instant::now();
     let diagnostic = std::env::args().any(|arg| arg == "--diagnostic" || arg == "--diagnostics");
@@ -63,6 +61,5 @@ fn run() -> Result<(), String> {
     if definitions.is_empty() {
         return Err(format!("no collection schemas found in {}", root.display()));
     }
-    let repository = Repository::open(&root, definitions)?;
-    tui::run(repository).map_err(|error| error.to_string())
+    tui::run(root, definitions).map_err(|error| error.to_string())
 }
