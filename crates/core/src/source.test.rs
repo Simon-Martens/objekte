@@ -1127,6 +1127,95 @@ fn nearby_multi_record_ranges_share_one_read_window() {
 }
 
 #[test]
+fn positioned_reader_seeks_only_when_the_next_range_is_not_adjacent() {
+    let root =
+        std::env::temp_dir().join(format!("objekte-positioned-reader-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.txt");
+    std::fs::write(&path, b"0123456789abcdef").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut reader = RecordRangeReader::open(&path, revision).unwrap();
+    let read = |reader: &mut RecordRangeReader, start, end| {
+        reader
+            .read(&[(0, ByteRange { start, end })])
+            .unwrap()
+            .0
+            .remove(0)
+            .1
+    };
+    assert_eq!(read(&mut reader, 0, 2), b"01");
+    assert_eq!(reader.seeks, 0);
+    assert_eq!(read(&mut reader, 2, 4), b"23");
+    assert_eq!(reader.seeks, 0);
+    assert_eq!(read(&mut reader, 0, 2), b"01");
+    assert_eq!(reader.seeks, 1);
+    assert_eq!(read(&mut reader, 8, 10), b"89");
+    assert_eq!(reader.seeks, 2);
+    assert_eq!(read(&mut reader, 10, 10), b"");
+    assert_eq!(reader.seeks, 2);
+    assert!(reader.read(&[]).unwrap().0.is_empty());
+    assert_eq!(reader.seeks, 2);
+    assert_eq!(
+        reader.read(&[(0, ByteRange { start: 17, end: 18 })]),
+        Err("invalid byte range 17..18 for file size 16".into())
+    );
+    assert_eq!(reader.seeks, 2);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn positioned_reader_tracks_coalesced_windows_and_failed_reads() {
+    let root =
+        std::env::temp_dir().join(format!("objekte-positioned-window-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.txt");
+    std::fs::write(&path, b"0123456789abcdef").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut reader = RecordRangeReader::open(&path, revision).unwrap();
+    let (values, bytes_read) = reader
+        .read(&[
+            (2, ByteRange { start: 4, end: 6 }),
+            (1, ByteRange { start: 0, end: 2 }),
+        ])
+        .unwrap();
+    assert_eq!(values, vec![(1, b"01".to_vec()), (2, b"45".to_vec())]);
+    assert_eq!(bytes_read, 6);
+    assert_eq!(reader.seeks, 0);
+    assert_eq!(reader.position, Some(6));
+    assert_eq!(
+        reader
+            .read(&[(3, ByteRange { start: 6, end: 8 })])
+            .unwrap()
+            .0,
+        vec![(3, b"67".to_vec())]
+    );
+    assert_eq!(reader.seeks, 0);
+    assert_eq!(
+        reader
+            .read(&[(4, ByteRange { start: 1, end: 2 })])
+            .unwrap()
+            .0,
+        vec![(4, b"1".to_vec())]
+    );
+    assert_eq!(reader.seeks, 1);
+    let mut sparse = RecordRangeReader::open(&path, revision).unwrap();
+    let (values, bytes_read) = sparse
+        .read(&[
+            (0, ByteRange { start: 0, end: 1 }),
+            (1, ByteRange { start: 10, end: 11 }),
+        ])
+        .unwrap();
+    assert_eq!(values, vec![(0, b"0".to_vec()), (1, b"a".to_vec())]);
+    assert_eq!(bytes_read, 11);
+    assert_eq!(sparse.seeks, 0);
+    let mut failed = RecordRangeReader::open(&path, revision).unwrap();
+    std::fs::write(&path, b"01").unwrap();
+    assert!(failed.read(&[(0, ByteRange { start: 0, end: 4 })]).is_err());
+    assert_eq!(failed.position, None);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
     let path = std::env::temp_dir().join(format!("objekte-stale-{}.jsonl", std::process::id()));
     std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();

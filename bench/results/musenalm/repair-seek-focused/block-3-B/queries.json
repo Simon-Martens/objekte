@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Q006",
+    "collection": "*",
+    "fts": "ü",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q025",
+    "collection": "contents",
+    "fts": "Lied",
+    "filter": null,
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q099",
+    "collection": "contents",
+    "fts": null,
+    "filter": "musenalm_type ?~ \"Lied\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q116",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

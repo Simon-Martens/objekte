@@ -59,3 +59,42 @@ fn range_windows_are_bounded_and_handles_evict_at_budget() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn window_hits_and_misses_keep_the_reader_at_the_actual_read_end() {
+    let root = std::env::temp_dir().join(format!("objekte-source-window-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.txt");
+    let bytes: Vec<u8> = (0..150_000).map(|n| (n % 251) as u8).collect();
+    std::fs::write(&path, &bytes).unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut files = FileInventory::new(root.clone());
+    files
+        .add("source.txt".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let mut session = SourceAccessSession::new(&files);
+    for (start, expected_read, expected_seeks) in [
+        (0, WINDOW_BYTES, 0),
+        (17, 0, 0),
+        (65_536, WINDOW_BYTES, 0),
+        (17, WINDOW_BYTES, 1),
+        (149_999, 1, 2),
+    ] {
+        let read = session
+            .read(
+                FileId(0),
+                &[(
+                    0,
+                    ByteRange {
+                        start,
+                        end: start + 1,
+                    },
+                )],
+            )
+            .unwrap();
+        assert_eq!(read.records[0].1, bytes[start as usize..start as usize + 1]);
+        assert_eq!(read.bytes_read, expected_read);
+        assert_eq!(session.open[0].reader.seeks, expected_seeks);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}

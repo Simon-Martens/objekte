@@ -795,6 +795,9 @@ pub struct RecordRangeReader {
     file: std::fs::File,
     revision: SourceRevision,
     first_read: bool,
+    position: Option<u64>,
+    #[cfg(test)]
+    pub(crate) seeks: u64,
 }
 
 
@@ -806,33 +809,53 @@ impl RecordRangeReader {
             file,
             revision,
             first_read: true,
+            position: Some(0),
+            #[cfg(test)]
+            seeks: 0,
         })
+    }
+
+    fn read_at(&mut self, start: u64, bytes: &mut [u8]) -> Result<(), String> {
+        if self.position != Some(start) {
+            // A failed seek or a partial read can leave a reused handle anywhere.
+            self.position = None;
+            #[cfg(test)]
+            {
+                self.seeks += 1;
+            }
+            self.file
+                .seek(SeekFrom::Start(start))
+                .map_err(|e| e.to_string())?;
+            self.position = Some(start);
+        }
+        if let Err(error) = self.file.read_exact(bytes) {
+            self.position = None;
+            return Err(error.to_string());
+        }
+        self.position = Some(start + bytes.len() as u64);
+        Ok(())
     }
 
     pub fn read(
         &mut self,
         ranges: &[(u32, ByteRange)],
     ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
-        let file = &mut self.file;
-        let revision = self.revision;
         if self.first_read {
             self.first_read = false;
         } else {
-            check_opened_revision(file, revision)?;
+            check_opened_revision(&self.file, self.revision)?;
         }
         if let [(slot, range)] = ranges {
-            ByteRange::checked(range.start, range.end, revision.size)?;
+            ByteRange::checked(range.start, range.end, self.revision.size)?;
             let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
             let mut bytes = vec![0; len];
-            file.seek(SeekFrom::Start(range.start))
-                .map_err(|e| e.to_string())?;
-            file.read_exact(&mut bytes).map_err(|e| e.to_string())?;
+            self.read_at(range.start, &mut bytes)?;
             return Ok((vec![(*slot, bytes)], len as u64));
         }
         let mut ordered = ranges.to_vec();
         ordered.sort_by_key(|(_, range)| range.start);
         for (_, range) in &ordered {
-            ByteRange::checked(range.start, range.end, revision.size)?;
+            ByteRange::checked(range.start, range.end, self.revision.size)?;
         }
         let mut output = Vec::with_capacity(ordered.len());
         let mut bytes_read = 0u64;
@@ -853,9 +876,7 @@ impl RecordRangeReader {
             }
             let len = usize::try_from(end - start).map_err(|_| "read window too large")?;
             let mut buffer = vec![0; len];
-            file.seek(SeekFrom::Start(start))
-                .map_err(|e| e.to_string())?;
-            file.read_exact(&mut buffer).map_err(|e| e.to_string())?;
+            self.read_at(start, &mut buffer)?;
             bytes_read += len as u64;
             for (slot, range) in &ordered[cursor..next] {
                 let a = (range.start - start) as usize;
