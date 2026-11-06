@@ -6,12 +6,10 @@ use crate::source::{ExtractedRecord, PreparedSource, ScanProjection, finalize_ex
 use crate::workload::ReturnMode;
 
 pub(crate) fn finish_build_record(
-    source: &PreparedSource,
     schema: &Schema,
     record: &mut ExtractedRecord,
 ) -> Result<(), String> {
     schema.coerce_record(&mut record.value)?;
-    finalize_extracted_text(source.reader(), record, schema.has_temporal_fields());
     Ok(())
 }
 

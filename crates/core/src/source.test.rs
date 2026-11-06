@@ -1,6 +1,41 @@
 use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
+#[test]
+fn build_json_borrows_logical_strings_after_temporal_conversion() {
+    use crate::bigram::BigramBuilder;
+    use crate::model::LogicalType;
+    use crate::record_preparation::finish_build_record;
+    use crate::reference::{FieldDefinition, Schema};
+    use crate::workload::BigramAlphabet;
+
+    let source = SourceRegistry::builtin().resolve(&SourceFormat::Json).unwrap();
+    let bytes = r#"{"date":"2026-01-02","title":"aßb","nested":{"names":["ab","cd",""]}}"#.as_bytes();
+    let mut record = source.reader().parse_for_build_outcome(bytes).unwrap();
+    assert!(record.text.is_empty());
+    let mut schema = Schema::default();
+    schema.register_field(FieldDefinition {
+        path: vec!["date".into()], kind: LogicalType::Date, required: true,
+        nullable: false, indexed: true, multi: false, element_nullable: vec![],
+    }).unwrap();
+    finish_build_record(&schema, &mut record).unwrap();
+    let mut strings = Vec::new();
+    visit_logical_strings(&record.value, &mut |text| strings.push(text.to_owned()));
+    assert_eq!(strings, ["ab", "cd", "", "aßb"]);
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut borrowed = BigramBuilder::new(alphabet);
+        borrowed.add_record_with(crate::model::RecordSlot(0), |emit| {
+            visit_logical_strings(&record.value, emit);
+        }).unwrap();
+        let borrowed = borrowed.finish().unwrap();
+        let mut owned = BigramBuilder::new(alphabet);
+        owned.add_record(crate::model::RecordSlot(0), strings.iter()).unwrap();
+        let owned = owned.finish().unwrap();
+        assert_eq!(borrowed.normal, owned.normal);
+        assert_eq!(borrowed.skip, owned.skip);
+    }
+}
+
 
 struct TinyReader(Arc<AtomicUsize>);
 

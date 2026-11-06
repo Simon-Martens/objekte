@@ -27,7 +27,8 @@ use crate::repository::{
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceOutcome,
-    extract_file_outcomes, extract_framed_outcomes, frame_file_for_build, read_record_range,
+    TextDerivation, extract_file_build_outcomes, extract_framed_build_outcomes,
+    frame_file_for_build, read_record_range, visit_logical_strings,
 };
 use crate::workload::BigramAlphabet;
 
@@ -286,7 +287,7 @@ impl<'a> BatchBuilder<'a> {
         source_bytes: Option<&[u8]>,
     ) -> Result<(), String> {
         if let Err(error) =
-            finish_build_record(self.source, &self.definition.schema, &mut extracted)
+            finish_build_record(&self.definition.schema, &mut extracted)
         {
             let issue = ReaderDiagnostic::new(
                 DiagnosticCategory::LogicalValidation,
@@ -360,19 +361,23 @@ impl<'a> BatchBuilder<'a> {
                 .map(|values| values.iter().collect::<Vec<_>>());
             custom.index.add_values(slot, refs.as_deref())?;
         }
-        if let Some(binding) = &self.definition.schema.raw {
+        if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
+            if let Some(binding) = &self.definition.schema.raw {
+                self.raw.add_record_with(slot, |emit| {
+                    visit_logical_strings(&extracted.value, &mut |text| {
+                        emit(&binding.operation.map_text(text));
+                    });
+                })?;
+            } else {
+                self.raw.add_record_with(slot, |emit| visit_logical_strings(&extracted.value, emit))?;
+            }
+        } else if let Some(binding) = &self.definition.schema.raw {
             self.raw.add_record(
                 slot,
-                extracted
-                    .text
-                    .iter()
-                    .map(|segment| binding.operation.map_text(&segment.text)),
+                extracted.text.iter().map(|segment| binding.operation.map_text(&segment.text)),
             )?;
         } else {
-            self.raw.add_record(
-                slot,
-                extracted.text.iter().map(|segment| segment.text.as_str()),
-            )?;
+            self.raw.add_record(slot, extracted.text.iter().map(|segment| segment.text.as_str()))?;
         }
         self.fallback_text.add_empty(slot)?;
         self.logical_records.insert(slot.0);
@@ -482,7 +487,7 @@ pub(crate) fn process_batch(
         let path = root.join(&original.relative_path);
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
-        let stats = extract_file_outcomes(&path, source.reader(), file.revision, |outcome| {
+        let stats = extract_file_build_outcomes(&path, source.reader(), file.revision, |outcome| {
             builder.outcome(&mut file, &path, outcome, None)
         })?;
         record_parses += stats.record_parses;
@@ -512,7 +517,7 @@ fn process_framed_batch(
     let path = root.join(&original.relative_path);
     let mut file = original.for_collection(collection);
     let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
-    let stats = extract_framed_outcomes(&path, source.reader(), bytes, ranges, |outcome| {
+    let stats = extract_framed_build_outcomes(&path, source.reader(), bytes, ranges, |outcome| {
         let source_part = match &outcome {
             SourceOutcome::Logical { range, .. } => {
                 Some(&bytes[range.start as usize..range.end as usize])

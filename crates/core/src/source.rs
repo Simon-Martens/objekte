@@ -189,6 +189,13 @@ pub trait SourceReader: Send + Sync {
         self.parse(bytes).map_err(ReaderFailure::Fatal)
     }
 
+
+    /// Build-only parsing may omit owned text segments when the declared text
+    /// representation is the logical strings after schema conversion.
+    fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        self.parse_outcome(bytes)
+    }
+
     fn intrinsic_id(
         &self,
         record: &ExtractedRecord,
@@ -464,6 +471,23 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
     output
 }
 
+pub(crate) fn visit_logical_strings(value: &Value, emit: &mut dyn FnMut(&str)) {
+    match value {
+        Value::String(text) => emit(text),
+        Value::Object(fields) => {
+            for value in fields.values() {
+                visit_logical_strings(value, emit);
+            }
+        }
+        Value::Array(array) => {
+            for value in &array.values {
+                visit_logical_strings(value, emit);
+            }
+        }
+        _ => {}
+    }
+}
+
 
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
@@ -492,6 +516,11 @@ impl SourceReader for JsonReader {
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         parse_json_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(ReaderFailure::Malformed)
+    }
+
+    fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false))
             .map_err(ReaderFailure::Malformed)
     }
 
@@ -549,6 +578,11 @@ impl SourceReader for JsonLinesReader {
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
         parse_json_for_query_diagnosed(bytes, &ScanProjection::full(true))
+            .map_err(ReaderFailure::Malformed)
+    }
+
+    fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        parse_json_for_query_diagnosed(bytes, &ScanProjection::full(false))
             .map_err(ReaderFailure::Malformed)
     }
 
@@ -659,11 +693,25 @@ pub(crate) fn frame_file_for_build(
     Ok(Some((Arc::new(bytes), ranges)))
 }
 
-pub(crate) fn extract_framed_outcomes<F>(
+pub(crate) fn extract_framed_build_outcomes<F>(
     path: &Path,
     source: &dyn SourceReader,
     bytes: &[u8],
     ranges: &[ByteRange],
+    consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
+    extract_framed_outcomes_impl(path, source, bytes, ranges, true, consume)
+}
+
+fn extract_framed_outcomes_impl<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    bytes: &[u8],
+    ranges: &[ByteRange],
+    for_build: bool,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
@@ -673,7 +721,7 @@ where
     for &range in ranges {
         let part = &bytes[range.start as usize..range.end as usize];
         counters.framed_records += 1;
-        match source.parse_outcome(part) {
+        match if for_build { source.parse_for_build_outcome(part) } else { source.parse_outcome(part) } {
             Ok(record) => {
                 counters.record_parses += 1;
                 consume(SourceOutcome::Logical { range, record })?;
@@ -721,6 +769,31 @@ pub fn extract_file_outcomes<F>(
     path: &Path,
     source: &dyn SourceReader,
     expected: SourceRevision,
+    consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
+    extract_file_outcomes_impl(path, source, expected, false, consume)
+}
+
+pub(crate) fn extract_file_build_outcomes<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
+    consume: F,
+) -> Result<ExtractionCounters, String>
+where
+    F: FnMut(SourceOutcome) -> Result<(), String>,
+{
+    extract_file_outcomes_impl(path, source, expected, true, consume)
+}
+
+fn extract_file_outcomes_impl<F>(
+    path: &Path,
+    source: &dyn SourceReader,
+    expected: SourceRevision,
+    for_build: bool,
     mut consume: F,
 ) -> Result<ExtractionCounters, String>
 where
@@ -778,7 +851,7 @@ where
         }
     };
     validate_reader_ranges(&ranges, bytes.len())?;
-    let counters = extract_framed_outcomes(path, source, &bytes, &ranges, &mut consume)?;
+    let counters = extract_framed_outcomes_impl(path, source, &bytes, &ranges, for_build, &mut consume)?;
     check_revision(path, &file, expected)?;
     Ok(counters)
 }

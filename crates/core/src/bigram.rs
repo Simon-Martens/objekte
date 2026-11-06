@@ -398,21 +398,40 @@ impl BigramBuilder {
         S: AsRef<str>,
     {
         let bit = self.begin_slot(slot)?;
-        let alphabet = self.index.alphabet;
-        let (normal, skip) = (&mut self.normal, &mut self.skip);
         for segment in segments {
-            for_each_gram(folded_chars(segment.as_ref()), alphabet, |is_skip, key| {
-                if is_skip {
-                    skip.set(key, bit);
-                } else {
-                    normal.set(key, bit);
-                }
-            });
+            self.add_segment(bit, segment.as_ref());
         }
         if self.chunk_len == 64 {
             self.flush()?;
         }
         Ok(())
+    }
+
+    /// Visit borrowed text while the source record is still alive. The
+    /// visitor is called once per segment, so gram history resets at each one.
+    pub fn add_record_with(
+        &mut self,
+        slot: RecordSlot,
+        visit: impl FnOnce(&mut dyn FnMut(&str)),
+    ) -> Result<(), String> {
+        let bit = self.begin_slot(slot)?;
+        visit(&mut |segment| self.add_segment(bit, segment));
+        if self.chunk_len == 64 {
+            self.flush()?;
+        }
+        Ok(())
+    }
+
+    fn add_segment(&mut self, bit: u64, segment: &str) {
+        let alphabet = self.index.alphabet;
+        let (normal, skip) = (&mut self.normal, &mut self.skip);
+        for_each_gram(folded_chars(segment), alphabet, |is_skip, key| {
+            if is_skip {
+                skip.set(key, bit);
+            } else {
+                normal.set(key, bit);
+            }
+        });
     }
 
     pub fn add_empty(&mut self, slot: RecordSlot) -> Result<(), String> {
