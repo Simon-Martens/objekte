@@ -1,6 +1,7 @@
 //! Typed B-tree dictionaries with record-slot postings and special states.
 
 use std::collections::{BTreeMap, HashMap, HashSet};
+use std::ops::Bound::{Excluded, Included, Unbounded};
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -115,6 +116,13 @@ impl PostingIndex {
                         .unwrap_or_default(),
                 );
             }
+            Derived::Length if is_range(term.operator) => {
+                let Value::Number(number) = term.literal else {
+                    return None;
+                };
+                let restriction = (input.len() < domain.len()).then_some(input);
+                return Some(range_postings(&self.lengths, &number, term.operator, restriction).0);
+            }
             Derived::None if matches!(term.literal, Value::Null) => {
                 // The null posting tracks only an explicit null field. It cannot
                 // prove any/all predicates over an array's elements.
@@ -134,6 +142,17 @@ impl PostingIndex {
             {
                 let key = ScalarKey::from_value(&term.literal)?;
                 self.values.get(&key)
+            }
+            Derived::None
+                if term.transform == Transform::Identity
+                    && !term.multi
+                    && is_range(term.operator) =>
+            {
+                let key = ScalarKey::from_value(&term.literal)?;
+                let restriction = (input.len() < domain.len()).then_some(input);
+                return Some(
+                    scalar_range_postings(&self.values, &key, term.operator, restriction).0,
+                );
             }
             _ => None,
         };
@@ -265,22 +284,34 @@ impl PostingIndex {
                 let Value::Number(number) = term.literal else {
                     return None;
                 };
+                let range_keys = is_range(term.operator)
+                    .then(|| range_key_probe(&self.lengths, &number, term.operator, 33));
                 let count = if term.operator == Operator::Eq {
                     self.lengths
                         .get(&number)
                         .map(RoaringBitmap::len)
                         .unwrap_or(0)
+                } else if let Some(keys) = range_keys {
+                    if keys <= 32 {
+                        keys as u64 * domain_len / self.lengths.len().max(1) as u64
+                    } else {
+                        domain_len / 4
+                    }
                 } else {
                     domain_len / 4
                 };
-                return Some((
-                    1.0 + if term.operator == Operator::Eq {
-                        0.0
+                let work = if let Some(keys) = range_keys {
+                    if keys <= 32 {
+                        keys as f64
                     } else {
                         self.lengths.len() as f64
-                    },
-                    count,
-                ));
+                    }
+                } else if term.operator == Operator::Eq {
+                    0.0
+                } else {
+                    self.lengths.len() as f64
+                };
+                return Some((1.0 + work, count));
             }
             Derived::None => {}
         }
@@ -312,18 +343,18 @@ impl PostingIndex {
                     - self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
             )),
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
-                let estimate = if self.stats.min_key.as_ref().is_some_and(|min| min > &key)
-                    && matches!(term.operator, Operator::Lt | Operator::Le)
-                {
-                    0
-                } else if self.stats.max_key.as_ref().is_some_and(|max| max < &key)
-                    && matches!(term.operator, Operator::Gt | Operator::Ge)
-                {
-                    0
+                let keys = scalar_range_key_probe(&self.values, &key, term.operator, 33);
+                let estimate = if keys <= 32 {
+                    keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
                 } else {
                     domain_len / 4
                 };
-                Some((1.0 + self.stats.distinct_count as f64 / 8.0, estimate))
+                let work = if keys <= 32 {
+                    keys as f64
+                } else {
+                    self.stats.distinct_count as f64 / 8.0
+                };
+                Some((1.0 + work, estimate))
             }
             _ => None,
         }
@@ -360,13 +391,18 @@ impl PostingIndex {
                 let Value::Number(number) = term.literal else {
                     return None;
                 };
-                let mut out = RoaringBitmap::new();
-                for (key, posting) in &self.lengths {
-                    if ordered_match(key.cmp(&number), term.operator) {
-                        out |= posting;
-                    }
-                }
-                return Some(out);
+                return match term.operator {
+                    Operator::Eq => Some(self.lengths.get(&number).cloned().unwrap_or_default()),
+                    Operator::Ne => Some(
+                        union_postings(
+                            self.lengths.iter().filter(|(key, _)| *key != &number),
+                            None,
+                        )
+                        .0,
+                    ),
+                    op if is_range(op) => Some(range_postings(&self.lengths, &number, op, None).0),
+                    _ => None,
+                };
             }
             Derived::None => {}
         }
@@ -390,20 +426,14 @@ impl PostingIndex {
         if term.multi && term.operator != Operator::Eq {
             return None;
         }
-        let equal = self.values.get(&key).cloned().unwrap_or_default();
         match term.operator {
-            Operator::Eq => Some(equal),
-            Operator::Ne if !term.multi => Some(&(&self.presence - &self.nulls) - &equal),
+            Operator::Eq => Some(self.values.get(&key).cloned().unwrap_or_default()),
+            Operator::Ne if !term.multi => Some(
+                &(&self.presence - &self.nulls)
+                    - &self.values.get(&key).cloned().unwrap_or_default(),
+            ),
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
-                let mut out = RoaringBitmap::new();
-                for (candidate, posting) in &self.values {
-                    if std::mem::discriminant(candidate) == std::mem::discriminant(&key)
-                        && ordered_match(candidate.cmp(&key), term.operator)
-                    {
-                        out |= posting;
-                    }
-                }
-                Some(out)
+                Some(scalar_range_postings(&self.values, &key, term.operator, None).0)
             }
             _ => None,
         }
@@ -411,15 +441,143 @@ impl PostingIndex {
 }
 
 
-fn ordered_match(order: std::cmp::Ordering, op: Operator) -> bool {
-    match op {
-        Operator::Eq => order.is_eq(),
-        Operator::Ne => !order.is_eq(),
-        Operator::Gt => order.is_gt(),
-        Operator::Ge => order.is_ge(),
-        Operator::Lt => order.is_lt(),
-        Operator::Le => order.is_le(),
-        _ => false,
+fn is_range(operator: Operator) -> bool {
+    matches!(
+        operator,
+        Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+    )
+}
+
+fn union_postings<'a, K: 'a>(
+    entries: impl Iterator<Item = (&'a K, &'a RoaringBitmap)>,
+    restriction: Option<&RoaringBitmap>,
+) -> (RoaringBitmap, usize) {
+    let mut result = RoaringBitmap::new();
+    let mut visited = 0;
+    for (_, posting) in entries {
+        visited += 1;
+        if let Some(input) = restriction {
+            result |= input & posting;
+        } else {
+            result |= posting;
+        }
+    }
+    (result, visited)
+}
+
+fn range_postings<K: Ord>(
+    entries: &BTreeMap<K, RoaringBitmap>,
+    key: &K,
+    operator: Operator,
+    restriction: Option<&RoaringBitmap>,
+) -> (RoaringBitmap, usize) {
+    match operator {
+        Operator::Gt => union_postings(entries.range((Excluded(key), Unbounded)), restriction),
+        Operator::Ge => union_postings(entries.range((Included(key), Unbounded)), restriction),
+        Operator::Lt => union_postings(entries.range((Unbounded, Excluded(key))), restriction),
+        Operator::Le => union_postings(entries.range((Unbounded, Included(key))), restriction),
+        _ => (RoaringBitmap::new(), 0),
+    }
+}
+
+fn range_key_probe<K: Ord>(
+    entries: &BTreeMap<K, RoaringBitmap>,
+    key: &K,
+    operator: Operator,
+    limit: usize,
+) -> usize {
+    match operator {
+        Operator::Gt => entries
+            .range((Excluded(key), Unbounded))
+            .take(limit)
+            .count(),
+        Operator::Ge => entries
+            .range((Included(key), Unbounded))
+            .take(limit)
+            .count(),
+        Operator::Lt => entries
+            .range((Unbounded, Excluded(key)))
+            .take(limit)
+            .count(),
+        Operator::Le => entries
+            .range((Unbounded, Included(key)))
+            .take(limit)
+            .count(),
+        _ => 0,
+    }
+}
+
+fn scalar_range_key_probe(
+    entries: &BTreeMap<ScalarKey, RoaringBitmap>,
+    key: &ScalarKey,
+    operator: Operator,
+    limit: usize,
+) -> usize {
+    let same_type =
+        |candidate: &ScalarKey| std::mem::discriminant(candidate) == std::mem::discriminant(key);
+    match operator {
+        Operator::Gt => entries
+            .range((Excluded(key), Unbounded))
+            .take_while(|(candidate, _)| same_type(candidate))
+            .take(limit)
+            .count(),
+        Operator::Ge => entries
+            .range((Included(key), Unbounded))
+            .take_while(|(candidate, _)| same_type(candidate))
+            .take(limit)
+            .count(),
+        Operator::Lt => entries
+            .range((Unbounded, Excluded(key)))
+            .rev()
+            .take_while(|(candidate, _)| same_type(candidate))
+            .take(limit)
+            .count(),
+        Operator::Le => entries
+            .range((Unbounded, Included(key)))
+            .rev()
+            .take_while(|(candidate, _)| same_type(candidate))
+            .take(limit)
+            .count(),
+        _ => 0,
+    }
+}
+
+fn scalar_range_postings(
+    entries: &BTreeMap<ScalarKey, RoaringBitmap>,
+    key: &ScalarKey,
+    operator: Operator,
+    restriction: Option<&RoaringBitmap>,
+) -> (RoaringBitmap, usize) {
+    let same_type =
+        |candidate: &ScalarKey| std::mem::discriminant(candidate) == std::mem::discriminant(key);
+    match operator {
+        Operator::Gt => union_postings(
+            entries
+                .range((Excluded(key), Unbounded))
+                .take_while(|(candidate, _)| same_type(candidate)),
+            restriction,
+        ),
+        Operator::Ge => union_postings(
+            entries
+                .range((Included(key), Unbounded))
+                .take_while(|(candidate, _)| same_type(candidate)),
+            restriction,
+        ),
+        Operator::Lt => union_postings(
+            entries
+                .range((Unbounded, Excluded(key)))
+                .rev()
+                .take_while(|(candidate, _)| same_type(candidate)),
+            restriction,
+        ),
+        Operator::Le => union_postings(
+            entries
+                .range((Unbounded, Included(key)))
+                .rev()
+                .take_while(|(candidate, _)| same_type(candidate)),
+            restriction,
+        ),
+        _ => (RoaringBitmap::new(), 0),
     }
 }
 

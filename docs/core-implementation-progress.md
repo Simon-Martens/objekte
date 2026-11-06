@@ -35,6 +35,7 @@ substitute for the four-profile workload.
 | 7 / G: unhinted fields | complete | Schema-free and mixed hinted/unhinted collections; actual numeric/string and array types; selected FTS, dynamic FILTER, missing paths, strict named-modifier and declared-field errors; fresh and restored parity |
 | 8 / G: discovery and identity | complete | Shared build/reconciliation discovery; recursive globs, hidden and symlink rules; intrinsic IDs, duplicate and generated-namespace rejection; multi-record mappings survive restore |
 | 9 / G: ICU collation | complete | Per-collection defaults and field overrides for locale, strength, numeric strings and null/missing placement; sort pages, ties, descending, restore invalidation, and cross-collection rejection |
+| 10 / D: ordered posting ranges | complete | Exact and restricted scalar/array-length bounds; typed boundary and null/missing cases; a 10,000-key fixture visits only 9 keys for a narrow upper range and estimates that work |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier
