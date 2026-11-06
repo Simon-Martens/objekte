@@ -323,6 +323,19 @@ impl crate::source::SourceReader for SeparatorReader {
             ],
         })
     }
+
+    fn parse_outcome(
+        &self,
+        bytes: &[u8],
+    ) -> Result<crate::source::ExtractedRecord, crate::source::ReaderFailure> {
+        self.parse(bytes).map_err(|message| {
+            crate::source::ReaderFailure::Malformed(crate::source::ReaderDiagnostic::new(
+                crate::source::DiagnosticCategory::Syntax,
+                "separator.parse",
+                message,
+            ))
+        })
+    }
 }
 
 
@@ -338,6 +351,10 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(root.join("data/a.sep"), b"A-l_pha|body").unwrap();
     std::fs::write(root.join("data/b.sep"), b"beta|body").unwrap();
+    // The raw bytes look like a matching custom literal, but this record has
+    // no logical title. Partial custom coverage must scan eligible records
+    // without treating the fallback slot as an exact or complementary hit.
+    std::fs::write(root.join("data/broken.sep"), b"sep:alpha").unwrap();
     for n in 0..30 {
         std::fs::write(
             root.join(format!("data/z{n:02}.sep")),
@@ -453,6 +470,16 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
                 sources(),
             )
             .unwrap();
+            assert_eq!(repo.build_failed_parses(), 1);
+            assert_eq!(
+                repo.collections()[0]
+                    .generation
+                    .records
+                    .iter()
+                    .filter(|record| record.class == crate::inventory::RecordClass::RawFallback)
+                    .count(),
+                1
+            );
             for filter in [
                 "title = 'sep:alpha'",
                 "title:sep = 'sep:alpha'",

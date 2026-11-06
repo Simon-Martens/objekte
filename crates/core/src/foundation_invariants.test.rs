@@ -9,6 +9,7 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
+use crate::source::DiagnosticCategory;
 use crate::source::SourceFormat;
 use crate::workload::{BigramAlphabet, ReturnMode, SortField};
 
@@ -113,6 +114,7 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
         ("tags:exists = false", &["missing"]),
     ];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut built_diagnostic = None;
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
             snapshot_mode: SnapshotMode::ReadWrite,
@@ -193,11 +195,22 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
                 .iter()
                 .find(|record| record.class == RecordClass::RawFallback)
                 .unwrap();
-            assert!(
-                repo.files()
-                    .diagnostic(bad.file, bad.diagnostic_ref)
-                    .is_some()
-            );
+            let issue = repo
+                .files()
+                .diagnostic(bad.file, bad.diagnostic_ref)
+                .expect("fallback record must resolve its own diagnostic");
+            assert_eq!(issue.category, DiagnosticCategory::Syntax);
+            assert_eq!(issue.code, "json.parse");
+            assert_eq!(issue.record, Some(bad.slot));
+            assert_eq!(issue.source_id, "json");
+            if let Some(expected) = &built_diagnostic {
+                assert_eq!(
+                    issue, expected,
+                    "restore changed diagnostic identity or contents"
+                );
+            } else {
+                built_diagnostic = Some(issue.clone());
+            }
         }
     }
     std::fs::remove_dir_all(root).unwrap();

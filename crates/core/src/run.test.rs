@@ -254,12 +254,18 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
             bad.payload,
             Some(Payload::LogicalUnavailable { .. })
         ));
-        assert!(
-            built
-                .files
-                .diagnostic(crate::model::FileId(bad.file_id), bad.diagnostic_ref)
-                .is_some()
+        let issue = built
+            .files
+            .diagnostic(crate::model::FileId(bad.file_id), bad.diagnostic_ref)
+            .expect("fallback hit must identify its diagnostic");
+        assert_eq!(issue.category, crate::source::DiagnosticCategory::Syntax);
+        assert_eq!(issue.code, "json.parse");
+        assert_eq!(issue.line, Some(2));
+        assert_eq!(
+            issue.range,
+            Some(crate::inventory::ByteRange { start: 18, end: 27 })
         );
+        let built_issue = issue.clone();
         assert_eq!(built.search_reference(&all).unwrap().hits, result.hits);
         let cached = built.search(&all).unwrap();
         assert!(cached.counters.verified_result_hit);
@@ -343,6 +349,21 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         assert!(restored.startup().restored);
         assert_eq!(restored.search(&all).unwrap().hits, result.hits);
         assert_eq!(restored.search(&raw_fts).unwrap().hits, raw_result.hits);
+        let restored_bad = restored
+            .search(&all)
+            .unwrap()
+            .hits
+            .into_iter()
+            .find(|hit| hit.record_class == RecordClass::RawFallback)
+            .unwrap();
+        assert_eq!(restored_bad.diagnostic_ref, bad.diagnostic_ref);
+        assert_eq!(
+            restored.files.diagnostic(
+                crate::model::FileId(restored_bad.file_id),
+                restored_bad.diagnostic_ref
+            ),
+            Some(&built_issue)
+        );
     }
     std::fs::remove_dir_all(root).unwrap();
 }

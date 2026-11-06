@@ -4,7 +4,7 @@ mod musenalm;
 use std::path::PathBuf;
 
 use objekte_search_core::query::Query;
-use objekte_search_core::repository::{Repository, RepositoryOptions};
+use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
 use objekte_search_core::workload::{BigramAlphabet, load_manifest};
 
 fn main() {
@@ -12,6 +12,37 @@ fn main() {
         eprintln!("acceptance error: {error}");
         std::process::exit(1);
     }
+}
+
+fn hit_difference(actual: &SearchHit, expected: &SearchHit) -> Option<String> {
+    macro_rules! field {
+        ($name:ident) => {
+            if actual.$name != expected.$name {
+                return Some(format!(
+                    "{}: optimized {:?}, reference {:?}",
+                    stringify!($name),
+                    actual.$name,
+                    expected.$name
+                ));
+            }
+        };
+    }
+    field!(collection);
+    field!(record_id);
+    field!(generation);
+    field!(file_id);
+    field!(file_path);
+    field!(file_size);
+    field!(file_created_ns);
+    field!(byte_start);
+    field!(byte_end);
+    field!(modified_ns);
+    field!(matched_fields);
+    field!(file_status);
+    field!(record_class);
+    field!(diagnostic_ref);
+    field!(payload);
+    None
 }
 
 fn run() -> Result<(), String> {
@@ -75,23 +106,18 @@ fn run() -> Result<(), String> {
                 reference.hits.len()
             ));
         }
-        for (a, b) in optimized.hits.iter().zip(&reference.hits) {
-            if a.collection != b.collection
-                || a.record_id != b.record_id
-                || a.generation != b.generation
-                || a.file_id != b.file_id
-                || a.file_path != b.file_path
-                || a.file_size != b.file_size
-                || a.file_created_ns != b.file_created_ns
-                || a.byte_start != b.byte_start
-                || a.byte_end != b.byte_end
-                || a.modified_ns != b.modified_ns
-                || a.matched_fields != b.matched_fields
-                || a.payload != b.payload
-            {
+        for (index, (a, b)) in optimized.hits.iter().zip(&reference.hits).enumerate() {
+            // Full equality catches future SearchHit fields even before this
+            // field-level explanation is extended for them.
+            if a != b {
                 return Err(format!(
-                    "{} hit mismatch at {}:{}; optimized evidence {:?}, reference {:?}",
-                    case.id, a.collection, a.record_id, a.matched_fields, b.matched_fields
+                    "{} hit {index} mismatch at {}:{}: {}",
+                    case.id,
+                    a.collection,
+                    a.record_id,
+                    hit_difference(a, b).unwrap_or_else(|| format!(
+                        "new field differs: optimized {a:?}, reference {b:?}"
+                    ))
                 ));
             }
         }
