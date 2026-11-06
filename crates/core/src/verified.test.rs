@@ -54,6 +54,7 @@ fn structural_key_distinguishes_bound_values_sort_and_fts_mode() {
     assert_ne!(key(&string).unwrap(), key(&sorted).unwrap());
     let mut fts = string.clone();
     fts.fts = Some(FtsQuery {
+        pattern_parameter: None,
         case_sensitivity: CaseSensitivity::Sensitive,
         mode: crate::query::FtsMode::Literal,
         literal: "Der".into(),

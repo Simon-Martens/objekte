@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use objekte_search_core::model::LogicalType;
+use objekte_search_core::model::{LogicalType, Value};
 use objekte_search_core::parameters::parse_parameter_json;
 use objekte_search_core::query::{CaseSensitivity, FtsMode, Query, RegexOptions};
 use objekte_search_core::reference::{FieldDefinition, Schema};
@@ -298,7 +298,8 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             }
             let mut selected = query("mentions", "entry = $target", ReturnMode::Locator);
             selected.fts = Some(objekte_search_core::query::FtsQuery {
-                literal: "^Hy.*n$".into(),
+                pattern_parameter: Some("pattern".into()),
+                literal: String::new(),
                 fields: vec![objekte_search_core::query::FtsField {
                     path: objekte_search_core::model::FieldPath::parse("entry.title").unwrap(),
                     binding: None,
@@ -306,10 +307,26 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                 case_sensitivity: CaseSensitivity::Sensitive,
                 mode: FtsMode::Regex(RegexOptions::default()),
             });
-            let params = HashMap::from([(
-                "target".into(),
-                parse_parameter_json(r#"{"type":"id","value":"A"}"#).unwrap(),
-            )]);
+            let params = HashMap::from([
+                (
+                    "target".into(),
+                    parse_parameter_json(r#"{"type":"id","value":"A"}"#).unwrap(),
+                ),
+                ("pattern".into(), Value::String("^Hy.*n$".into())),
+            ]);
+            assert!(repository.search(&selected).is_err());
+            assert!(
+                repository
+                    .search_with_parameters(&selected, &HashMap::new())
+                    .is_err()
+            );
+            let mut wrong_type = params.clone();
+            wrong_type.insert("pattern".into(), Value::Bool(true));
+            assert!(
+                repository
+                    .search_with_parameters(&selected, &wrong_type)
+                    .is_err()
+            );
             let actual = repository
                 .search_with_parameters(&selected, &params)
                 .unwrap();
@@ -319,6 +336,15 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             assert_eq!(sorted_ids(&actual), ["m1"]);
             assert_eq!(actual.hits, reference.hits);
             assert_eq!(actual.count, Some(1));
+            let mut alternate = params.clone();
+            alternate.insert("pattern".into(), Value::String("^Fest.*$".into()));
+            assert_eq!(
+                repository
+                    .search_with_parameters(&selected, &alternate)
+                    .unwrap()
+                    .count,
+                Some(0)
+            );
             assert!(
                 repository
                     .search_with_parameters(&selected, &params)

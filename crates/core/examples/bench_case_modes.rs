@@ -131,6 +131,7 @@ fn query(case: Case) -> Result<Query, String> {
             vec![case.collection.into()]
         },
         fts: case.literal.map(|literal| FtsQuery {
+            pattern_parameter: None,
             mode: objekte_search_core::query::FtsMode::Literal,
             case_sensitivity: case.mode,
             literal: literal.into(),

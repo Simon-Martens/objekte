@@ -122,6 +122,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
         let query = |pattern: &str, selected: Option<&str>, case_sensitivity, options| Query {
             collections: vec!["data".into()],
             fts: Some(FtsQuery {
+                pattern_parameter: None,
                 case_sensitivity,
                 mode: FtsMode::Regex(options),
                 literal: pattern.into(),
@@ -488,6 +489,7 @@ impl BindingOperation for RegexMapping {
 #[test]
 fn custom_regex_binding_requires_explicit_representation_contract() {
     let fts = FtsQuery {
+        pattern_parameter: None,
         case_sensitivity: CaseSensitivity::Sensitive,
         mode: FtsMode::Regex(RegexOptions::default()),
         literal: "foobar".into(),
@@ -554,6 +556,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     let query = |pattern: &str| Query {
         collections: vec!["data".into()],
         fts: Some(FtsQuery {
+            pattern_parameter: None,
             case_sensitivity: CaseSensitivity::Sensitive,
             mode: FtsMode::Regex(RegexOptions::default()),
             literal: pattern.into(),

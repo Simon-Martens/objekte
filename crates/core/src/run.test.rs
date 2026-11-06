@@ -298,6 +298,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         let raw_fts = query(
             None,
             Some(FtsQuery {
+                pattern_parameter: None,
                 mode: crate::query::FtsMode::Literal,
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "title".into(),
@@ -324,6 +325,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         let selected = query(
             None,
             Some(FtsQuery {
+                pattern_parameter: None,
                 mode: crate::query::FtsMode::Literal,
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "title".into(),
@@ -711,6 +713,7 @@ fn empty_and_invalid_utf8_json_have_exact_raw_ranges() {
         collections: vec!["data".into()],
         filter: None,
         fts: Some(crate::query::FtsQuery {
+            pattern_parameter: None,
             mode: crate::query::FtsMode::Literal,
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "�".into(),
@@ -1355,6 +1358,7 @@ fn large_multi_record_scans_bound_payloads_and_reuse_file_handles() {
     let mut query = Query {
         collections: vec![],
         fts: Some(FtsQuery {
+            pattern_parameter: None,
             mode: crate::query::FtsMode::Literal,
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "needle".into(),
@@ -2113,6 +2117,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
             collections: vec![],
             filter: None,
             fts: Some(crate::query::FtsQuery {
+                pattern_parameter: None,
                 mode: crate::query::FtsMode::Literal,
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: literal.into(),

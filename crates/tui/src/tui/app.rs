@@ -408,6 +408,7 @@ impl App {
                 vec![self.scope_label().to_owned()]
             },
             fts: (!search.is_empty()).then(|| FtsQuery {
+                pattern_parameter: None,
                 mode: objekte_search_core::query::FtsMode::Literal,
                 case_sensitivity: objekte_search_core::query::CaseSensitivity::Sensitive,
                 literal: search.to_owned(),

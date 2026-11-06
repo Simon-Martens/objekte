@@ -14,6 +14,15 @@ The Musenalm CLI accepts `--regex PATTERN` in place of `--fts LITERAL`, with
 Programmatic callers set the typed mode. The fixed 150-query workload omits
 `fts_mode` and continues to run literal searches.
 
+A complete regex pattern may be bound as a string parameter. In a workload or
+the CLI, use `--regex '$pattern' --param 'pattern="^Hy.*n$"'`; the whole
+`$pattern` token is recognized only in regex mode. Programmatic requests may
+set `FtsQuery.pattern_parameter` directly. Binding replaces the complete
+pattern value before compilation and clears the parameter marker, so a bound
+pattern beginning with `$` is still treated as pattern text. Missing or
+non-string values fail before source access. Pattern fragments are never
+interpolated, and literal FTS keeps `$pattern` as ordinary text.
+
 Matching is Boolean within each reader-owned text segment. Anchors do not
 cross separate fields or array elements. Selected FTS uses the registered
 field representation; unscoped FTS uses the registered raw representation.

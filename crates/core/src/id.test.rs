@@ -219,6 +219,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
             collections: vec!["data".into()],
             filter: None,
             fts: Some(FtsQuery {
+                pattern_parameter: None,
                 case_sensitivity: CaseSensitivity::Sensitive,
                 mode: crate::query::FtsMode::Literal,
                 literal: "TargetA".into(),

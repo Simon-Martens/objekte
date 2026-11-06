@@ -141,6 +141,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                     let request = Query {
                         collections: vec!["data".into()],
                         fts: Some(FtsQuery {
+                            pattern_parameter: None,
                             mode: crate::query::FtsMode::Literal,
                             case_sensitivity,
                             literal: "STRASSE".into(),
@@ -172,6 +173,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                 let mut request = query.clone();
                 request.filter = None;
                 request.fts = Some(FtsQuery {
+                    pattern_parameter: None,
                     mode: crate::query::FtsMode::Literal,
                     case_sensitivity,
                     literal: literal.into(),
@@ -195,6 +197,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
             }
             let mut combined = query.clone();
             combined.fts = Some(FtsQuery {
+                pattern_parameter: None,
                 mode: crate::query::FtsMode::Literal,
                 case_sensitivity: crate::query::CaseSensitivity::Insensitive,
                 literal: "strasse".into(),
@@ -538,6 +541,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         collections: vec!["data".into()],
         filter: None,
         fts: Some(FtsQuery {
+            pattern_parameter: None,
             mode: crate::query::FtsMode::Literal,
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "alp".into(),
@@ -810,6 +814,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
                     collections: vec!["data".into()],
                     filter: filter.map(|s| parse_filter(s).unwrap()),
                     fts: filter.is_none().then(|| FtsQuery {
+                        pattern_parameter: None,
                         mode: crate::query::FtsMode::Literal,
                         case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                         literal: "hello world".into(),
@@ -919,6 +924,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                 collections: vec!["data".into()],
                 filter: None,
                 fts: Some(FtsQuery {
+                    pattern_parameter: None,
                     mode: crate::query::FtsMode::Literal,
                     case_sensitivity,
                     literal: literal.into(),
@@ -1083,6 +1089,7 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
     let make_query = |filter: Option<&str>, fts: Option<(&str, Option<&str>)>| Query {
         collections: vec![],
         fts: fts.map(|(literal, selected)| FtsQuery {
+            pattern_parameter: None,
             mode: crate::query::FtsMode::Literal,
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: literal.into(),
@@ -1475,6 +1482,7 @@ fn indexed_restriction_precedes_written_first_scan() {
     let folded = Query {
         collections: vec![],
         fts: Some(FtsQuery {
+            pattern_parameter: None,
             mode: crate::query::FtsMode::Literal,
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "NEEDLE".into(),

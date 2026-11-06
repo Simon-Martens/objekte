@@ -37,13 +37,16 @@ fn run() -> Result<(), String> {
         match arg.as_str() {
             "--help" | "-h" => {
                 println!(
-                    "Usage: musenalm_cli [--root PATH] [--collection NAME] [--fts TEXT] [--filter FILTER] [--param NAME=JSON] [--limit N] [--offset N] [--return locator|bytes|logical] [--explain] [--explain-analyze]"
+                    "Usage: musenalm_cli [--root PATH] [--collection NAME] [--fts TEXT | --regex PATTERN] [--filter FILTER] [--param NAME=JSON] [--limit N] [--offset N] [--return locator|bytes|logical] [--explain] [--explain-analyze]"
                 );
                 println!(
                     "FILTER accepts a final SORT BY field [ASC|DESC], ... clause or SORT BY alone. Sort fields must have registered scalar sort columns in every selected collection."
                 );
                 println!(
                     "Parameters are typed JSON values. Use a type/value object for id, date, datetime or unixtime; shell-quote JSON strings."
+                );
+                println!(
+                    "For a complete regex pattern parameter, use --regex '$pattern' --param 'pattern=\"^Hy.*n$\"'."
                 );
                 return Ok(());
             }

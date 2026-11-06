@@ -156,12 +156,15 @@ pub struct FtsField {
 }
 
 
-/// Full-text literal with its selected fields.
+/// Full-text literal or regex pattern with its selected fields. A complete
+/// regex pattern may instead come from one execution parameter.
 #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 pub struct FtsQuery {
     pub case_sensitivity: CaseSensitivity,
     pub mode: FtsMode,
     pub literal: String,
+    #[serde(default)]
+    pub pattern_parameter: Option<String>,
     pub fields: Vec<FtsField>,
 }
 
@@ -264,6 +267,11 @@ impl Query {
                     case_sensitivity: case.fts_case_sensitivity,
                     mode: case.fts_mode,
                     literal: literal.clone(),
+                    pattern_parameter: if matches!(case.fts_mode, FtsMode::Regex(_)) {
+                        regex_pattern_parameter(literal).map(str::to_owned)
+                    } else {
+                        None
+                    },
                     fields,
                 })
             })
@@ -316,8 +324,36 @@ impl Query {
         if let Some(filter) = &mut query.filter {
             bind(filter, values)?;
         }
+        if let Some(fts) = &mut query.fts
+            && let Some(name) = fts.pattern_parameter.take()
+        {
+            if !matches!(fts.mode, FtsMode::Regex(_)) {
+                return Err("pattern parameter requires regex FTS mode".into());
+            }
+            let value = values
+                .get(&name)
+                .ok_or_else(|| format!("missing parameter ${name}"))?;
+            let Value::String(pattern) = value else {
+                return Err(format!("regex pattern parameter ${name} requires a string"));
+            };
+            fts.literal = pattern.clone();
+        }
         Ok(query)
     }
+}
+
+fn regex_pattern_parameter(literal: &str) -> Option<&str> {
+    let name = literal.strip_prefix('$')?;
+    if name.is_empty()
+        || !name
+            .chars()
+            .next()
+            .is_some_and(|ch| ch == '_' || ch.is_alphabetic())
+        || !name.chars().all(|ch| ch == '_' || ch.is_alphanumeric())
+    {
+        return None;
+    }
+    Some(name)
 }
 
 

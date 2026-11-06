@@ -2034,6 +2034,9 @@ pub struct BoundFts {
 
 
 pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
+    if let Some(name) = &fts.pattern_parameter {
+        return Err(format!("regex pattern parameter ${name} requires execution bindings"));
+    }
     if let FtsMode::Regex(options) = fts.mode {
         return bind_regex_fts(fts, schema, options);
     }

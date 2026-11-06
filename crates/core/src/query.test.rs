@@ -213,3 +213,59 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
             .contains("conflicts")
     );
 }
+
+#[test]
+fn complete_regex_pattern_parameter_binds_once_without_interpolation() {
+    let mut case = WorkloadCase {
+        id: "regex-pattern-parameter".into(),
+        collection: "data".into(),
+        fts: Some("$pattern".into()),
+        fts_case_sensitivity: CaseSensitivity::Sensitive,
+        fts_mode: FtsMode::Regex(RegexOptions::default()),
+        filter: None,
+        fts_fields: vec![],
+        sort: vec![],
+        limit: 10,
+        offset: 0,
+        count: true,
+        return_mode: ReturnMode::Locator,
+        evidence: false,
+    };
+    let template = Query::from_workload(&case).unwrap();
+    assert_eq!(
+        template.fts.as_ref().unwrap().pattern_parameter.as_deref(),
+        Some("pattern")
+    );
+    assert!(
+        template
+            .with_parameters(&std::collections::HashMap::new())
+            .is_err()
+    );
+    let bound = template
+        .with_parameters(&std::collections::HashMap::from([(
+            "pattern".into(),
+            Value::String("$other|^Hymn$".into()),
+        )]))
+        .unwrap();
+    assert_eq!(bound.fts.as_ref().unwrap().literal, "$other|^Hymn$");
+    assert!(bound.fts.as_ref().unwrap().pattern_parameter.is_none());
+    case.fts_mode = FtsMode::Literal;
+    assert!(
+        Query::from_workload(&case)
+            .unwrap()
+            .fts
+            .unwrap()
+            .pattern_parameter
+            .is_none()
+    );
+    case.fts_mode = FtsMode::Regex(RegexOptions::default());
+    case.fts = Some("prefix$pattern".into());
+    assert!(
+        Query::from_workload(&case)
+            .unwrap()
+            .fts
+            .unwrap()
+            .pattern_parameter
+            .is_none()
+    );
+}
