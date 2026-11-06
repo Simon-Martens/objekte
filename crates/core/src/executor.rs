@@ -91,6 +91,7 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
 /// Exact membership evidence produced by an index path.
 pub(crate) struct Proof {
     pub term: BoundTerm,
+    pub input: RoaringBitmap,
     pub matches: RoaringBitmap,
 }
 
@@ -99,6 +100,7 @@ pub(crate) struct Proof {
 pub(crate) struct Plan {
     pub candidates: Option<RoaringBitmap>,
     pub exact: bool,
+    pub proven_hits: RoaringBitmap,
     pub proofs: Vec<Proof>,
     pub choices: Vec<TermChoice>,
 }
@@ -499,6 +501,7 @@ pub(crate) fn plan_expr_restricted(
     expr: &BoundExpr,
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
+    evidence: bool,
 ) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
@@ -520,12 +523,16 @@ pub(crate) fn plan_expr_restricted(
                         &set & input
                     }
                 });
+            if selected.exact && candidates.is_none() {
+                return Err("selected exact access path did not return a proof".into());
+            }
             let exact = selected.exact;
             let exact_candidates = if exact { candidates.as_ref() } else { None };
             let proofs = exact_candidates
                 .map(|set| {
                     vec![Proof {
                         term: term.clone(),
+                        input: input.clone(),
                         matches: set.clone(),
                     }]
                 })
@@ -545,6 +552,7 @@ pub(crate) fn plan_expr_restricted(
                 executed: true,
             }];
             Plan {
+                proven_hits: exact_candidates.cloned().unwrap_or_default(),
                 candidates,
                 exact,
                 proofs,
@@ -579,6 +587,7 @@ pub(crate) fn plan_expr_restricted(
                     remaining.remove(next),
                     domain,
                     &current,
+                    evidence,
                 )?;
                 if let Some(set) = child.candidates {
                     current &= set;
@@ -595,6 +604,11 @@ pub(crate) fn plan_expr_restricted(
                 }
             }
             Plan {
+                proven_hits: if exact {
+                    current.clone()
+                } else {
+                    RoaringBitmap::new()
+                },
                 candidates: Some(current),
                 exact,
                 proofs,
@@ -608,44 +622,59 @@ pub(crate) fn plan_expr_restricted(
                     .0
                     .total_cmp(&estimate_expr(collection, b, input.len()).0)
             });
-            let children = ordered
-                .into_iter()
-                .map(|p| plan_expr_restricted(repo, collection, p, domain, input))
-                .collect::<Result<Vec<_>, _>>()?;
-            if children.iter().all(|p| p.candidates.is_some()) {
-                let mut candidates = RoaringBitmap::new();
-                let mut proofs = Vec::new();
-                let mut choices = Vec::new();
-                let exact = children.iter().all(|p| p.exact);
-                for child in children {
-                    candidates |= child.candidates.unwrap();
-                    proofs.extend(child.proofs);
-                    choices.extend(child.choices);
+            let mut candidates = Some(RoaringBitmap::new());
+            let mut proven_hits = RoaringBitmap::new();
+            let mut proofs = Vec::new();
+            let mut choices = Vec::new();
+            let mut all_exact = true;
+            for (position, part) in ordered.iter().enumerate() {
+                let remaining = if evidence {
+                    input.clone()
+                } else {
+                    input - &proven_hits
+                };
+                if remaining.is_empty() {
+                    for skipped in &ordered[position..] {
+                        skipped_choices(collection, skipped, &mut choices);
+                    }
+                    break;
                 }
-                Plan {
-                    candidates: Some(candidates),
-                    exact,
-                    proofs,
-                    choices,
-                }
-            } else {
-                Plan {
-                    candidates: None,
-                    exact: false,
-                    proofs: Vec::new(),
-                    choices: children
-                        .into_iter()
-                        .flat_map(|child| child.choices)
-                        .collect(),
-                }
+                let child =
+                    plan_expr_restricted(repo, collection, part, domain, &remaining, evidence)?;
+                all_exact &= child.exact;
+                proven_hits |= &child.proven_hits;
+                candidates = match (candidates, child.candidates) {
+                    (Some(mut union), Some(set)) => {
+                        union |= set;
+
+
+                        Some(union)
+                    }
+                    _ => None,
+                };
+                proofs.extend(child.proofs);
+                choices.extend(child.choices);
+            }
+            let exact = all_exact || (!evidence && proven_hits.len() == input.len());
+            if !evidence && proven_hits.len() == input.len() {
+                candidates = Some(proven_hits.clone());
+            }
+            Plan {
+                candidates,
+                exact,
+                proven_hits,
+                proofs,
+                choices,
             }
         }
         BoundExpr::Not(inner) => {
-            let child = plan_expr_restricted(repo, collection, inner, domain, input)?;
+            let child = plan_expr_restricted(repo, collection, inner, domain, input, evidence)?;
             if child.exact {
+                let matches = input - &child.candidates.unwrap();
                 Plan {
-                    candidates: Some(input - &child.candidates.unwrap()),
+                    candidates: Some(matches.clone()),
                     exact: true,
+                    proven_hits: matches,
                     proofs: child.proofs,
                     choices: child.choices,
                 }
@@ -653,6 +682,7 @@ pub(crate) fn plan_expr_restricted(
                 Plan {
                     candidates: None,
                     exact: false,
+                    proven_hits: RoaringBitmap::new(),
                     proofs: Vec::new(),
                     choices: child.choices,
                 }

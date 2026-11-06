@@ -93,6 +93,7 @@ pub struct WorkCounters {
     pub files_opened: u64,
     pub bytes_read: u64,
     pub record_parses: u64,
+    /// Filter terms actually evaluated against a decoded record (proof hits excluded).
     pub residual_evaluations: u64,
     #[serde(default)]
     pub preparation_ns: u64,

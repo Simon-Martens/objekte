@@ -6,6 +6,152 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
+    let root = std::env::temp_dir().join(format!("objekte-residual-proofs-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (id, kind, body, other) in [
+        ("a", "yes", "needle", "ok"),
+        ("b", "yes", "ordinary", "ok"),
+        ("c", "no", "needle", "ok"),
+        ("d", "no", "ordinary", "ok"),
+        ("e", "no", "needle", "blocked"),
+    ] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            format!(r#"{{"kind":"{kind}","body":"{body}","other":"{other}"}}"#),
+        )
+        .unwrap();
+    }
+    for n in 0..80 {
+        std::fs::write(
+            root.join(format!("data/z{n:03}.json")),
+            r#"{"kind":"no","body":"ordinary","other":"ok"}"#,
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    for (path, indexed) in [("kind", true), ("body", false), ("other", false)] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let make = |filter: &str, evidence| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter(filter).unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 10,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence,
+        },
+    };
+    for (filter, evidence, expected) in [
+        ("kind = 'yes' && body ~ 'needle'", false, vec!["a"]),
+        (
+            "kind = 'yes' || body ~ 'needle'",
+            false,
+            vec!["a", "b", "c", "e"],
+        ),
+        (
+            "kind = 'yes' || body ~ 'needle'",
+            true,
+            vec!["a", "b", "c", "e"],
+        ),
+        ("kind = 'yes' || other != 'ok'", false, vec!["a", "b", "e"]),
+        ("kind = 'yes' || other != 'ok'", true, vec!["a", "b", "e"]),
+        (
+            "(kind = 'yes' || body ~ 'needle') && !(other = 'blocked')",
+            false,
+            vec!["a", "b", "c"],
+        ),
+        (
+            "(kind = 'yes' || body ~ 'needle') && !(other = 'blocked')",
+            true,
+            vec!["a", "b", "c"],
+        ),
+    ] {
+        let query = make(filter, evidence);
+        let (actual, trace) = repo.explain_analyze(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        assert_eq!(actual.count, expected.len(), "{filter}");
+        assert_eq!(
+            actual
+                .hits
+                .iter()
+                .map(|h| h.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(actual.hits, reference.hits, "{filter}");
+        assert_eq!(
+            trace[0].actual.as_ref().unwrap().residual_evaluations,
+            actual.counters.residual_evaluations
+        );
+        if filter == "kind = 'yes' && body ~ 'needle'" {
+            assert_eq!(actual.counters.residual_evaluations, 2);
+            assert_eq!(actual.counters.scanned_records, 2);
+        }
+        if filter == "kind = 'yes' || body ~ 'needle'" && !evidence {
+            assert_eq!(actual.counters.exact_posting_matches, 2);
+            assert_eq!(actual.counters.scanned_records, 2);
+            assert_eq!(actual.counters.residual_evaluations, 2);
+            assert!(trace[0].terms.iter().any(|term| term.field == "body"
+                && term.selected.kind == crate::executor::AccessPathKind::RawBigram));
+        }
+        if filter == "kind = 'yes' || body ~ 'needle'" && evidence {
+            assert_eq!(actual.hits[0].matched_fields, ["body", "kind"]);
+            assert_eq!(actual.hits[1].matched_fields, ["kind"]);
+        }
+        if filter == "kind = 'yes' || other != 'ok'" && !evidence {
+            assert_eq!(actual.counters.exact_posting_matches, 2);
+            assert_eq!(actual.counters.scanned_records, 83);
+            assert_eq!(actual.counters.residual_evaluations, 83);
+        }
+        if filter == "kind = 'yes' || other != 'ok'" && evidence {
+            assert_eq!(actual.counters.scanned_records, 85);
+            assert_eq!(actual.counters.residual_evaluations, 83);
+        }
+    }
+    assert!(
+        repo.search(&make("kind = 'yes' || kind:unknown = 'x'", false))
+            .is_err()
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn parallel_file_scan_matches_single_worker_page_and_work() {
     let root = std::env::temp_dir().join(format!("objekte-parallel-scan-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();

@@ -36,6 +36,7 @@ substitute for the four-profile workload.
 | 8 / G: discovery and identity | complete | Shared build/reconciliation discovery; recursive globs, hidden and symlink rules; intrinsic IDs, duplicate and generated-namespace rejection; multi-record mappings survive restore |
 | 9 / G: ICU collation | complete | Per-collection defaults and field overrides for locale, strength, numeric strings and null/missing placement; sort pages, ties, descending, restore invalidation, and cross-collection rejection |
 | 10 / D: ordered posting ranges | complete | Exact and restricted scalar/array-length bounds; typed boundary and null/missing cases; a 10,000-key fixture visits only 9 keys for a narrow upper range and estimates that work |
+| 11 / D: residual proofs | complete | Exact term proofs skip decoded-record predicates; costed residual order and Boolean short-circuiting; OR removes proven hits from membership-only work; focused posting/bigram/unindexed/NOT/evidence parity and actual term-evaluation counters |
 
 The `development/local-file-search-core` branch builds `crates/core/`. The
 archived `deprecated/` implementation and root `examples/` are preserved. The earlier

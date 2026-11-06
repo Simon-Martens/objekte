@@ -17,7 +17,7 @@ use crate::inventory::{ByteRange, RecordEntry};
 use crate::model::{PathRoot, Value};
 use crate::query::{Operator, Query};
 use crate::reference::{
-    BoundExpr, BoundFts, Derived, RecordContext, eval_bound_fts, eval_filter, eval_term,
+    BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, eval_bound_fts, eval_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sorting::{SortKey, SortOptions};
@@ -94,32 +94,41 @@ struct ScannedFile {
 }
 
 
-fn scan_projection(query: &Query, filter: Option<&BoundExpr>) -> ScanProjection {
+fn scan_projection(
+    query: &Query,
+    residual: Option<&Residual<'_>>,
+    candidates: &RoaringBitmap,
+) -> ScanProjection {
     let collect_text = query.fts.is_some();
     if query.fts.as_ref().is_some_and(|fts| fts.fields.is_empty()) {
         return ScanProjection::full(true);
     }
 
-    fn add_filter_fields(expr: &BoundExpr, fields: &mut HashSet<String>) {
+    fn add_filter_fields(
+        expr: &Residual<'_>,
+        candidates: &RoaringBitmap,
+        fields: &mut HashSet<String>,
+    ) {
         match expr {
-            BoundExpr::Term(term) => {
-                if term.path.root == PathRoot::Data {
+            Residual::Term(term, proof) => {
+                let fully_proven = proof.is_some_and(|proof| candidates.is_subset(&proof.input));
+                if !fully_proven && term.path.root == PathRoot::Data {
                     if let Some(first) = term.path.segments.first() {
                         fields.insert(first.clone());
                     }
                 }
             }
-            BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            Residual::And(parts) | Residual::Or(parts) => {
                 for part in parts {
-                    add_filter_fields(part, fields);
+                    add_filter_fields(part, candidates, fields);
                 }
             }
-            BoundExpr::Not(inner) => add_filter_fields(inner, fields),
+            Residual::Not(inner) => add_filter_fields(inner, candidates, fields),
         }
     }
     let mut fields = HashSet::new();
-    if let Some(filter) = filter {
-        add_filter_fields(filter, &mut fields);
+    if let Some(residual) = residual {
+        add_filter_fields(residual, candidates, &mut fields);
     }
     if let Some(fts) = &query.fts {
         for field in &fts.fields {
@@ -136,32 +145,172 @@ fn scan_projection(query: &Query, filter: Option<&BoundExpr>) -> ScanProjection 
     }
 }
 
-fn eval_filter_without_evidence(expr: &BoundExpr, ctx: &RecordContext<'_>) -> Result<bool, String> {
-    Ok(match expr {
-        BoundExpr::Term(term) => eval_term(term, ctx)?,
-        BoundExpr::And(parts) => {
-            let mut result = true;
-            for part in parts {
-                result &= eval_filter_without_evidence(part, ctx)?;
-            }
-            result
-        }
-        BoundExpr::Or(parts) => {
-            let mut result = false;
-            for part in parts {
-                result |= eval_filter_without_evidence(part, ctx)?;
-            }
-            result
-        }
-        BoundExpr::Not(inner) => !eval_filter_without_evidence(inner, ctx)?,
-    })
+
+enum Residual<'a> {
+    Term(&'a BoundTerm, Option<&'a Proof>),
+    And(Vec<Residual<'a>>),
+    Or(Vec<Residual<'a>>),
+    Not(Box<Residual<'a>>),
 }
+
+
+fn prepare_residual<'a>(
+    expr: &'a BoundExpr,
+    proofs: &'a [Proof],
+    collection: &crate::repository::CollectionState,
+    input_len: u64,
+) -> Residual<'a> {
+    match expr {
+        BoundExpr::Term(term) => Residual::Term(
+            term,
+            proofs
+                .iter()
+                .find(|proof| proof.term.span == term.span && proof.term.path == term.path),
+        ),
+        BoundExpr::And(parts) | BoundExpr::Or(parts) => {
+            let is_and = matches!(expr, BoundExpr::And(_));
+            let mut ordered = parts
+                .iter()
+                .enumerate()
+                .map(|(index, part)| {
+                    let (cost, output) = estimate_expr(collection, part, input_len);
+                    let fraction = output as f64 / input_len.max(1) as f64;
+                    let probability = if is_and { 1.0 - fraction } else { fraction };
+                    let score = cost / probability.max(0.05);
+                    (
+                        score,
+                        index,
+                        prepare_residual(part, proofs, collection, input_len),
+                    )
+                })
+                .collect::<Vec<_>>();
+            ordered.sort_by(|a, b| a.0.total_cmp(&b.0).then_with(|| a.1.cmp(&b.1)));
+            let children = ordered.into_iter().map(|(_, _, child)| child).collect();
+            if is_and {
+                Residual::And(children)
+            } else {
+                Residual::Or(children)
+            }
+        }
+        BoundExpr::Not(inner) => Residual::Not(Box::new(prepare_residual(
+            inner, proofs, collection, input_len,
+        ))),
+    }
+}
+
+
+impl Residual<'_> {
+    fn proven(proof: Option<&Proof>, slot: u32) -> Option<bool> {
+        proof
+            .filter(|proof| proof.input.contains(slot))
+            .map(|proof| proof.matches.contains(slot))
+    }
+
+    fn can_emit_evidence(&self) -> bool {
+        match self {
+            Self::Term(term, _) => {
+                term.derived == Derived::None
+                    && !matches!(term.operator, Operator::Ne | Operator::NotContains)
+            }
+            Self::And(parts) | Self::Or(parts) => parts.iter().any(Self::can_emit_evidence),
+            Self::Not(_) => false,
+        }
+    }
+
+    fn membership(
+        &self,
+        slot: u32,
+        ctx: &RecordContext<'_>,
+        evaluations: &mut u64,
+    ) -> Result<bool, String> {
+        Ok(match self {
+            Self::Term(term, proof) => match Self::proven(*proof, slot) {
+                Some(result) => result,
+                None => {
+                    *evaluations += 1;
+                    eval_term(term, ctx)?
+                }
+            },
+            Self::And(parts) => {
+                let mut matched = true;
+                for part in parts {
+                    if !part.membership(slot, ctx, evaluations)? {
+                        matched = false;
+                        break;
+                    }
+                }
+                matched
+            }
+            Self::Or(parts) => {
+                let mut matched = false;
+                for part in parts {
+                    if part.membership(slot, ctx, evaluations)? {
+                        matched = true;
+                        break;
+                    }
+                }
+                matched
+            }
+            Self::Not(inner) => !inner.membership(slot, ctx, evaluations)?,
+        })
+    }
+
+    fn with_evidence(
+        &self,
+        slot: u32,
+        ctx: &RecordContext<'_>,
+        evidence: &mut HashSet<String>,
+        evaluations: &mut u64,
+    ) -> Result<bool, String> {
+        Ok(match self {
+            Self::Term(term, proof) => {
+                let matched = match Self::proven(*proof, slot) {
+                    Some(result) => result,
+                    None => {
+                        *evaluations += 1;
+                        eval_term(term, ctx)?
+                    }
+                };
+                if matched && self.can_emit_evidence() {
+                    evidence.insert(term.path.display());
+                }
+                matched
+            }
+            Self::And(parts) => {
+                let mut branch = HashSet::new();
+                for part in parts {
+                    if !part.with_evidence(slot, ctx, &mut branch, evaluations)? {
+                        return Ok(false);
+                    }
+                }
+                evidence.extend(branch);
+                true
+            }
+            Self::Or(parts) => {
+                let mut matched = false;
+                for part in parts {
+                    if matched && !part.can_emit_evidence() {
+                        continue;
+                    }
+                    let mut branch = HashSet::new();
+                    if part.with_evidence(slot, ctx, &mut branch, evaluations)? {
+                        matched = true;
+                        evidence.extend(branch);
+                    }
+                }
+                matched
+            }
+            Self::Not(inner) => !inner.membership(slot, ctx, evaluations)?,
+        })
+    }
+}
+
 
 fn scan_file(
     repo: &Repository,
     query: &Query,
     collection_index: usize,
-    filter: Option<&BoundExpr>,
+    residual: Option<&Residual<'_>>,
     fts: Option<&BoundFts>,
     projection: &ScanProjection,
     retain_all_evidence: bool,
@@ -223,17 +372,25 @@ fn scan_file(
                 .map(|fts| eval_bound_fts(fts, &extracted.text, &ctx, &mut evidence))
                 .transpose()?
                 .unwrap_or(true);
-            let filter_match = filter
-                .map(|f| {
-                    if query.options.evidence && (retain_all_evidence || may_reach_page) {
-                        eval_filter(f, &ctx, &mut evidence)
-                    } else {
-                        eval_filter_without_evidence(f, &ctx)
-                    }
-                })
-                .transpose()?
-                .unwrap_or(true);
-            outcome.residual_evaluations += u64::from(filter.is_some());
+            let filter_match = if fts_match {
+                residual
+                    .map(|f| {
+                        if query.options.evidence && (retain_all_evidence || may_reach_page) {
+                            f.with_evidence(
+                                slot,
+                                &ctx,
+                                &mut evidence,
+                                &mut outcome.residual_evaluations,
+                            )
+                        } else {
+                            f.membership(slot, &ctx, &mut outcome.residual_evaluations)
+                        }
+                    })
+                    .transpose()?
+                    .unwrap_or(true)
+            } else {
+                false
+            };
             if fts_match && filter_match {
                 let payload = match (&query.options.return_mode, may_reach_page) {
                     (_, false) | (ReturnMode::Locator, _) => None,
@@ -628,11 +785,21 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
         let plan = filter
             .as_ref()
-            .map(|f| plan_expr_restricted(repo, collection, f, &domain, &domain))
+            .map(|f| {
+                plan_expr_restricted(
+                    repo,
+                    collection,
+                    f,
+                    &domain,
+                    &domain,
+                    query.options.evidence,
+                )
+            })
             .transpose()?
             .unwrap_or(Plan {
                 candidates: None,
                 exact: true,
+                proven_hits: RoaringBitmap::new(),
                 proofs: Vec::new(),
                 choices: Vec::new(),
             });
@@ -717,11 +884,14 @@ fn search_impl(
         }
         let plan = filter
             .as_ref()
-            .map(|f| plan_expr_restricted(repo, collection, f, &domain, &input))
+            .map(|f| {
+                plan_expr_restricted(repo, collection, f, &domain, &input, query.options.evidence)
+            })
             .transpose()?
             .unwrap_or(Plan {
                 candidates: None,
                 exact: true,
+                proven_hits: RoaringBitmap::new(),
                 proofs: Vec::new(),
                 choices: Vec::new(),
             });
@@ -813,6 +983,29 @@ fn search_impl(
             }
             continue;
         }
+        if fts.is_none() && !query.options.evidence {
+            let proven = &candidates & &plan.proven_hits;
+            for slot in proven.iter() {
+                let record = &collection.generation.records[slot as usize];
+                counters.exact_posting_matches += 1;
+                offer(
+                    repo,
+                    query,
+                    collection_index,
+                    record,
+                    HashSet::new(),
+                    None,
+                    &mut winners,
+                    cap,
+                    &mut counters,
+                    cache_members.as_deref_mut(),
+                );
+            }
+            candidates -= &proven;
+        }
+        let residual = filter
+            .as_ref()
+            .map(|expr| prepare_residual(expr, &plan.proofs, collection, candidates.len()));
         // Record slots are grouped by source file before opening any source.
         let mut files: BTreeMap<u32, Vec<(u32, ByteRange)>> = BTreeMap::new();
         for slot in candidates.iter() {
@@ -823,7 +1016,7 @@ fn search_impl(
                 .push((slot, record.range));
         }
         let files: Vec<_> = files.into_iter().collect();
-        let projection = scan_projection(query, filter.as_ref());
+        let projection = scan_projection(query, residual.as_ref(), &candidates);
         let retain_all_evidence = cache_members.is_some();
         let parallel = repo.options.query_workers > 1 && files.len() >= 128;
         // Bound in-flight parsed records while workers scan independent files.
@@ -846,7 +1039,7 @@ fn search_impl(
                                 repo,
                                 query,
                                 collection_index,
-                                filter.as_ref(),
+                                residual.as_ref(),
                                 fts.as_ref(),
                                 &projection,
                                 retain_all_evidence,
@@ -865,7 +1058,7 @@ fn search_impl(
                             repo,
                             query,
                             collection_index,
-                            filter.as_ref(),
+                            residual.as_ref(),
                             fts.as_ref(),
                             &projection,
                             retain_all_evidence,

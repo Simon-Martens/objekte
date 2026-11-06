@@ -196,8 +196,11 @@ The optimizer enumerates metadata, exact posting, sort-column, dictionary,
 raw/custom bigram, and scanner paths where compatible. It estimates selectivity
 and work from posting cardinality, coverage, file/record counts, and source
 bytes. AND work is reordered using actual surviving cardinality; OR branches
-retain their eligible domains; incomplete or inexact paths receive residual
-verification. Index-proven matches can avoid source reads entirely. `EXPLAIN`
+drop exact proven hits from later membership-only work. Remaining predicates
+are prepared in cost order and short-circuit where evidence permits. Exact
+term proofs skip record-level evaluation; approximate candidates still require
+verification. The residual counter records terms actually evaluated against
+decoded records. Index-proven matches can avoid source reads entirely. `EXPLAIN`
 and `EXPLAIN ANALYZE` expose selected/alternative paths, typed bindings,
 estimates, actual input/output, adaptive decisions, candidates, reads, bytes,
 parses, and proof counts. The saved final benchmark plans are from separate
