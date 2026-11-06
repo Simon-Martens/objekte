@@ -17,10 +17,7 @@ use crate::inventory::{
     RecordEntry, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
 };
 use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value};
-use crate::posting::{
-    CustomPostingIndex, CustomPostingIndexBuilder, PostingCollection, PostingCollectionBuilder,
-    PostingIndex,
-};
+use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::record_preparation::finish_build_record;
 use crate::reference::data_values;
 use crate::repository::{
@@ -855,8 +852,8 @@ pub(crate) fn process_file_batches(
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
-    pub postings: &'a mut PostingCollectionBuilder,
-    pub custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndexBuilder>,
+    pub postings: &'a mut PostingCollection,
+    pub custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: &'a mut BigramIndex,
     pub fallback_text: &'a mut BigramIndex,
     pub custom_text: &'a mut HashMap<(Vec<String>, String), BigramIndex>,
@@ -942,7 +939,8 @@ impl CollectionAdmission<'_> {
                 .custom_postings
                 .get_mut(&key)
                 .ok_or("custom posting batch missing")?;
-            global.merge_shifted(local, base)?;
+            global.index.merge_shifted(local.index, base)?;
+            global.complete &= local.complete;
         }
         self.raw.merge_shifted(batch.raw, base)?;
         self.fallback_text

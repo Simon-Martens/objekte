@@ -16,9 +16,7 @@ use crate::inventory::{
     RecordClass, SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
-use crate::posting::{
-    CustomPostingIndex, CustomPostingIndexBuilder, PostingCollection, PostingCollectionBuilder,
-};
+use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
@@ -121,8 +119,8 @@ struct PendingCollection {
     id: CollectionId,
     member_files: Vec<crate::model::FileId>,
     builder: CollectionBuilder,
-    postings: PostingCollectionBuilder,
-    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndexBuilder>,
+    postings: PostingCollection,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramIndex,
     fallback_text: BigramIndex,
     logical_records: RoaringBitmap,
@@ -561,7 +559,7 @@ impl Repository {
         for (definition, id, source, member_files) in selected {
             let builder =
                 CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
-            let postings = PostingCollectionBuilder::new(&definition.schema);
+            let postings = PostingCollection::new(&definition.schema);
             let custom_postings: HashMap<_, _> = definition
                 .schema
                 .operations
@@ -570,10 +568,10 @@ impl Repository {
                 .map(|(key, binding)| {
                     (
                         key.clone(),
-                        CustomPostingIndexBuilder::new(
-                            &definition.schema.fields[&key.0],
-                            binding.operation.complete_coverage(),
-                        ),
+                        CustomPostingIndex {
+                            index: PostingIndex::new(&definition.schema.fields[&key.0]),
+                            complete: binding.operation.complete_coverage(),
+                        },
                     )
                 })
                 .collect();
@@ -713,8 +711,8 @@ impl Repository {
                 id: _,
                 member_files: _,
                 builder,
-                postings,
-                custom_postings,
+                mut postings,
+                mut custom_postings,
                 raw,
                 fallback_text,
                 logical_records,
@@ -724,11 +722,6 @@ impl Repository {
             let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
-            let mut postings = postings.finish();
-            let mut custom_postings: HashMap<_, _> = custom_postings
-                .into_iter()
-                .map(|(key, builder)| (key, builder.finish()))
-                .collect();
             postings.finish_stats();
             postings.validate_eligible(generation.records.len(), logical_records.len() as usize)?;
             if !all_logical {
