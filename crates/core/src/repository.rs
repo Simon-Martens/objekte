@@ -492,7 +492,12 @@ impl Repository {
             .thread_name(|index| format!("objekte-build-{index}"))
             .build()
             .map_err(|error| error.to_string())?;
-        let source_files = Arc::new(files.files.clone());
+        let source_files = Arc::new(
+            files.files
+                .iter()
+                .map(crate::build::SourceFileInput::from_entry)
+                .collect(),
+        );
         let root_shared = Arc::new(root.clone());
         let mut collections = Vec::new();
         let mut build_parses = 0;

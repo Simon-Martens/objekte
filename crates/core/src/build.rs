@@ -36,6 +36,39 @@ struct BatchFile {
     records: Range<usize>,
 }
 
+/// Immutable discovery metadata shared by all construction workers. Mutable
+/// statuses and diagnostics stay in the coordinator-owned inventory.
+pub(crate) struct SourceFileInput {
+    id: FileId,
+    relative_path: PathBuf,
+    revision: SourceRevision,
+    created_ns: Option<i128>,
+}
+
+impl SourceFileInput {
+    pub(crate) fn from_entry(entry: &FileEntry) -> Self {
+        Self {
+            id: entry.id,
+            relative_path: entry.relative_path.clone(),
+            revision: entry.revision,
+            created_ns: entry.created_ns,
+        }
+    }
+
+    fn for_collection(&self, collection: CollectionId) -> FileEntry {
+        FileEntry {
+            id: self.id,
+            relative_path: self.relative_path.clone(),
+            revision: self.revision,
+            created_ns: self.created_ns,
+            collections: vec![collection],
+            status: FileStatus::Valid,
+            diagnostics: Vec::new(),
+            omitted_diagnostics: 0,
+        }
+    }
+}
+
 /// Bound each job by both file count and discovered source bytes. A single
 /// oversized source is admitted alone; its framing contract may need that
 /// entire file in memory.
@@ -409,7 +442,7 @@ pub(crate) fn process_batch(
     collection: CollectionId,
     source: &PreparedSource,
     file_ids: &[FileId],
-    source_files: &[FileEntry],
+    source_files: &[SourceFileInput],
     alphabet: BigramAlphabet,
 ) -> Result<BatchContribution, String> {
     let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
@@ -418,10 +451,7 @@ pub(crate) fn process_batch(
     for &file_id in file_ids {
         let original = &source_files[file_id.0 as usize];
         let path = root.join(&original.relative_path);
-        let mut file = original.clone();
-        file.status = FileStatus::Valid;
-        file.diagnostics.clear();
-        file.omitted_diagnostics = 0;
+        let mut file = original.for_collection(collection);
         let start = builder.records.len();
         let stats = extract_file_outcomes(&path, source.reader(), file.revision, |outcome| {
             builder.outcome(&mut file, &path, outcome)
@@ -483,11 +513,11 @@ pub(crate) fn process_file_batches(
     collection: CollectionId,
     source: PreparedSource,
     jobs: &[&[FileId]],
-    source_files: Arc<Vec<FileEntry>>,
+    source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<u64, String> {
-    const MAX_ADMITTED_BYTES: u64 = 128 * 1024 * 1024;
+    const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
     const MIN_FILE_BYTES: u64 = 16 * 1024;
     let weights = jobs
         .iter()

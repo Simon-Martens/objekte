@@ -114,7 +114,9 @@ fn file_workers_overlap_while_admission_keeps_file_order() {
         CollectionId(0),
         sources.resolve(&SourceFormat::registered("delayed")).unwrap(),
         &jobs,
-        std::sync::Arc::new(inventory.files.clone()),
+        std::sync::Arc::new(
+            inventory.files.iter().map(SourceFileInput::from_entry).collect(),
+        ),
         BigramAlphabet::Ascii,
         |batch| {
             admitted.push(batch.records[0].file);
