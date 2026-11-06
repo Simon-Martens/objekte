@@ -75,3 +75,124 @@ fn seeded_bounded_filter_inputs_never_panic() {
         );
     }
 }
+
+#[test]
+fn typed_operand_shapes_preserve_source_spans() {
+    let FilterExpr::Term(term) = parse_filter("title:lower = alternate_title:lower").unwrap()
+    else {
+        panic!("expected term");
+    };
+    assert_eq!(term.span, (0, 35));
+    let Operand::Field(field) = term.operand else {
+        panic!("expected field operand")
+    };
+    assert_eq!(field.path.field.segments, ["alternate_title"]);
+    assert_eq!(field.modifiers, [Modifier::Lower]);
+    assert_eq!(field.span, (14, 35));
+
+    let FilterExpr::Term(term) = parse_filter("year >= $minimum_year").unwrap() else {
+        panic!("expected term");
+    };
+    assert!(
+        matches!(term.operand, Operand::Parameter { name, bound: None } if name == "minimum_year")
+    );
+    assert_eq!(term.span, (0, 21));
+    assert!(parse_filter("year >= $").is_err());
+    assert!(parse_filter("year >= $2x").is_err());
+
+    let FilterExpr::Term(term) = parse_filter("title = 'alternate_title'").unwrap() else {
+        panic!("expected term");
+    };
+    assert!(
+        matches!(term.operand, Operand::Literal(Literal::String(value)) if value == "alternate_title")
+    );
+}
+
+#[test]
+fn inline_sort_uses_only_top_level_keywords() {
+    let parsed =
+        parse_structured_filter("['sort'].value = 'SORT BY' SORT by preferred_title desc, year")
+            .unwrap();
+    assert!(parsed.filter.is_some());
+    assert_eq!(
+        parsed.sort,
+        Some(vec![
+            SortField {
+                field: "preferred_title".into(),
+                descending: true
+            },
+            SortField {
+                field: "year".into(),
+                descending: false
+            },
+        ])
+    );
+    assert!(
+        parse_structured_filter("sort = 1")
+            .unwrap()
+            .filter
+            .is_some()
+    );
+    assert!(parse_structured_filter("sort = 1").unwrap().sort.is_none());
+    assert_eq!(
+        parse_structured_filter("SORT BY year DESC").unwrap().filter,
+        None
+    );
+    assert!(parse_filter("title = 'SORT BY'").is_ok());
+    assert!(parse_filter("year >= 1 SORT BY year").is_err());
+    assert!(parse_structured_filter("(year >= 1 SORT BY year)").is_err());
+}
+
+#[test]
+fn inline_sort_rejects_bad_or_conflicting_clauses() {
+    for input in [
+        "SORT BY",
+        "SORT BY year,",
+        "SORT BY year UP",
+        "SORT BY year DESC trailing",
+        "SORT BY year, year DESC",
+        "SORT BY year SORT BY title",
+        "year >= 1 SORT BY year, year",
+        "SORT BY $parameter",
+        "SORT BY items[*].price",
+        "SORT BY items[0].price",
+        "SORT BY matrix[1][2]",
+    ] {
+        assert!(parse_structured_filter(input).is_err(), "{input}");
+    }
+    let mut case = WorkloadCase {
+        fts_case_sensitivity: CaseSensitivity::Sensitive,
+        id: "inline-sort".into(),
+        collection: "*".into(),
+        fts: Some("Hymn".into()),
+        filter: Some("SORT BY year DESC".into()),
+        fts_fields: vec![],
+        sort: vec![],
+        limit: 3,
+        offset: 2,
+        count: true,
+        return_mode: ReturnMode::Logical,
+        evidence: true,
+    };
+    let query = Query::from_workload(&case).unwrap();
+    assert!(query.filter.is_none());
+    assert!(query.fts.is_some());
+    assert_eq!(
+        query.options.sort,
+        vec![SortField {
+            field: "year".into(),
+            descending: true
+        }]
+    );
+    assert_eq!(query.options.limit, 3);
+    assert_eq!(query.options.offset, 2);
+    case.sort.push(SortField {
+        field: "year".into(),
+        descending: true,
+    });
+    assert!(
+        Query::from_workload(&case)
+            .unwrap_err()
+            .contains("conflicts")
+    );
+}

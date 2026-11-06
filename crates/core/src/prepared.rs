@@ -3,7 +3,7 @@
 use std::collections::{HashMap, VecDeque};
 
 use crate::query::Query;
-use crate::reference::{BoundExpr, BoundFts, bind_filter, bind_fts};
+use crate::reference::{BoundExpr, BoundFts, bind_filter_with_parameters, bind_fts};
 use crate::repository::{Repository, validate_sort};
 
 
@@ -25,8 +25,8 @@ struct Entry {
 pub(crate) struct PreparedCache {
     budget: usize,
     bytes: usize,
-    entries: HashMap<String, Entry>,
-    order: VecDeque<String>,
+    entries: HashMap<Vec<u8>, Entry>,
+    order: VecDeque<Vec<u8>>,
 }
 
 
@@ -40,16 +40,16 @@ impl PreparedCache {
         }
     }
 
-    fn get(&mut self, key: &str) -> Option<PreparedQuery> {
+    fn get(&mut self, key: &[u8]) -> Option<PreparedQuery> {
         let query = self.entries.get(key)?.query.clone();
         if let Some(index) = self.order.iter().position(|old| old == key) {
             self.order.remove(index);
         }
-        self.order.push_back(key.to_owned());
+        self.order.push_back(key.to_vec());
         Some(query)
     }
 
-    fn insert(&mut self, key: String, query: PreparedQuery) {
+    fn insert(&mut self, key: Vec<u8>, query: PreparedQuery) {
         // Debug formatting is an upper-bound-oriented charge for the small
         // bound tree; the cache never stores source records or bitmap sets.
         let bytes = key.len() + format!("{:?}", query.collections).len() * 2 + 128;
@@ -81,13 +81,15 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
     // The cache is owned by one immutable published repository generation.
     // Thus its key is scoped to exactly its collection generations, alphabet,
     // schema and binding versions. Return mode/page/sort do not alter binding.
-    let key = format!("{:?}|{:?}|{:?}", query.collections, query.filter, query.fts);
+    let key = bincode::serialize(&(&query.collections, &query.filter, &query.fts))
+        .map_err(|error| format!("prepared query key: {error}"))?;
     if let Some(found) = repo.prepared.lock().map_err(|e| e.to_string())?.get(&key) {
         validate_sort(repo, query)?;
         return Ok((found, true));
     }
     validate_sort(repo, query)?;
     let mut collections = Vec::new();
+    let mut parameter_types = HashMap::new();
     for (index, collection) in repo.collections.iter().enumerate() {
         if !query.collections.is_empty() && !query.collections.contains(&collection.definition.name)
         {
@@ -96,7 +98,9 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
         let filter = query
             .filter
             .as_ref()
-            .map(|f| bind_filter(f, &collection.definition.schema))
+            .map(|f| {
+                bind_filter_with_parameters(f, &collection.definition.schema, &mut parameter_types)
+            })
             .transpose()?;
         let fts = query
             .fts

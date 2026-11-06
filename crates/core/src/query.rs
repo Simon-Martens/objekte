@@ -1,7 +1,9 @@
 //! Separate literal FTS and structured FILTER parsing.
 
-use crate::model::{FieldPath, Number};
+use crate::model::{FieldPath, Number, Value};
+use crate::query_path::QueryPath;
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
+use std::collections::{HashMap, HashSet};
 
 
 /// Exact case behavior for a full-text request. The index alphabet is separate.
@@ -21,16 +23,35 @@ impl CaseSensitivity {
 }
 
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Literal {
     String(String),
     Number(Number),
     Bool(bool),
     Null,
+    Typed(Value),
 }
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+/// Field used as a comparison operand, with its original source span.
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
+pub struct FieldExpression {
+    pub path: QueryPath,
+    pub modifiers: Vec<Modifier>,
+    pub span: (usize, usize),
+}
+
+
+/// Parsed right-hand operand before type checking and execution binding.
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
+pub enum Operand {
+    Literal(Literal),
+    Field(FieldExpression),
+    Parameter { name: String, bound: Option<Value> },
+}
+
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Operator {
     Eq,
     Ne,
@@ -43,14 +64,14 @@ pub enum Operator {
 }
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Quantifier {
     Default,
     Any,
 }
 
 
-#[derive(Clone, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq, serde::Serialize)]
 pub enum Modifier {
     Lower,
     Length,
@@ -61,19 +82,31 @@ pub enum Modifier {
 }
 
 
+fn parse_modifier(name: String) -> Modifier {
+    match name.as_str() {
+        "lower" => Modifier::Lower,
+        "length" => Modifier::Length,
+        "each" => Modifier::Each,
+        "null" => Modifier::Null,
+        "exists" => Modifier::Exists,
+        _ => Modifier::Custom(name),
+    }
+}
+
+
 /// Parsed field predicate before schema binding.
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub struct Term {
-    pub path: FieldPath,
+    pub path: QueryPath,
     pub modifiers: Vec<Modifier>,
     pub quantifier: Quantifier,
     pub operator: Operator,
-    pub literal: Literal,
+    pub operand: Operand,
     pub span: (usize, usize),
 }
 
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum FilterExpr {
     Term(Term),
     And(Vec<FilterExpr>),
@@ -83,7 +116,7 @@ pub enum FilterExpr {
 
 
 /// One selected full-text field and optional binding.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, serde::Serialize)]
 pub struct FtsField {
     pub path: FieldPath,
     pub binding: Option<String>,
@@ -91,7 +124,7 @@ pub struct FtsField {
 
 
 /// Full-text literal with its selected fields.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, serde::Serialize)]
 pub struct FtsQuery {
     pub case_sensitivity: CaseSensitivity,
     pub literal: String,
@@ -123,6 +156,15 @@ pub struct Query {
 
 impl Query {
     pub fn from_workload(case: &WorkloadCase) -> Result<Self, String> {
+        let structured = case
+            .filter
+            .as_deref()
+            .map(parse_structured_filter)
+            .transpose()?;
+        let inline_sort = structured.as_ref().and_then(|parsed| parsed.sort.as_ref());
+        if inline_sort.is_some() && !case.sort.is_empty() {
+            return Err("inline SORT BY conflicts with independent sort options".into());
+        }
         let fts = case
             .fts
             .as_ref()
@@ -154,9 +196,9 @@ impl Query {
                 vec![case.collection.clone()]
             },
             fts,
-            filter: case.filter.as_ref().map(|s| parse_filter(s)).transpose()?,
+            filter: structured.as_ref().and_then(|parsed| parsed.filter.clone()),
             options: QueryOptions {
-                sort: case.sort.clone(),
+                sort: inline_sort.cloned().unwrap_or_else(|| case.sort.clone()),
                 limit: case.limit,
                 offset: case.offset,
                 count: case.count,
@@ -164,6 +206,38 @@ impl Query {
                 evidence: case.evidence,
             },
         })
+    }
+
+    /// Bind data values into a parsed template without reparsing query text.
+    /// Unused supplied values are intentionally ignored.
+    pub fn with_parameters(&self, values: &HashMap<String, Value>) -> Result<Self, String> {
+        fn bind(expr: &mut FilterExpr, values: &HashMap<String, Value>) -> Result<(), String> {
+            match expr {
+                FilterExpr::Term(term) => {
+                    if let Operand::Parameter { name, bound } = &mut term.operand {
+                        *bound = Some(
+                            values
+                                .get(name)
+                                .cloned()
+                                .ok_or_else(|| format!("missing parameter ${name}"))?,
+                        );
+                    }
+                }
+                FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                    for part in parts {
+                        bind(part, values)?;
+                    }
+                }
+                FilterExpr::Not(inner) => bind(inner, values)?,
+            }
+            Ok(())
+        }
+
+        let mut query = self.clone();
+        if let Some(filter) = &mut query.filter {
+            bind(filter, values)?;
+        }
+        Ok(query)
     }
 }
 
@@ -173,6 +247,7 @@ enum TokenKind {
     Word(String),
     String(String),
     Colon,
+    Comma,
     LParen,
     RParen,
     And,
@@ -236,6 +311,7 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                 '(' => (TokenKind::LParen, 1),
                 ')' => (TokenKind::RParen, 1),
                 ':' => (TokenKind::Colon, 1),
+                ',' => (TokenKind::Comma, 1),
                 '!' => (TokenKind::Not, 1),
                 '\'' | '"' => {
                     let quote = ch;
@@ -307,14 +383,16 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                                         pos += input[pos..].chars().next().unwrap().len_utf8();
                                     }
                                 }
-                            } else if input[pos..].starts_with('*') {
-                                pos += 1;
+                            } else {
+                                while pos < input.len() && !input[pos..].starts_with(']') {
+                                    pos += input[pos..].chars().next().unwrap().len_utf8();
+                                }
                             }
                             if !input[pos..].starts_with(']') {
                                 return Err(format!("unclosed path bracket at byte {open}"));
                             }
                             pos += 1;
-                        } else if c.is_whitespace() || ":()!<>=~?&|".contains(c) {
+                        } else if c.is_whitespace() || ":(),!<>=~?&|".contains(c) {
                             break;
                         } else {
                             pos += c.len_utf8();
@@ -426,7 +504,13 @@ impl Parser {
             TokenKind::Word(s) => s,
             _ => return Err(format!("expected field path at byte {}", path_token.start)),
         };
-        let path = FieldPath::parse(path_name)?;
+        if path_name.starts_with('$') {
+            return Err(format!(
+                "parameter cannot select a field at byte {}",
+                path_token.start
+            ));
+        }
+        let path = QueryPath::parse(path_name)?;
         let mut modifiers = Vec::new();
         while matches!(self.peek(), TokenKind::Colon) {
             self.take();
@@ -435,14 +519,13 @@ impl Parser {
                 TokenKind::Word(s) => s,
                 _ => return Err(format!("expected modifier at byte {}", token.start)),
             };
-            modifiers.push(match name.as_str() {
-                "lower" => Modifier::Lower,
-                "length" => Modifier::Length,
-                "each" => Modifier::Each,
-                "null" => Modifier::Null,
-                "exists" => Modifier::Exists,
-                _ => Modifier::Custom(name),
-            });
+            if name.starts_with('$') {
+                return Err(format!(
+                    "parameter cannot select a modifier at byte {}",
+                    token.start
+                ));
+            }
+            modifiers.push(parse_modifier(name));
         }
         let op = self.take();
         let (operator, quantifier) = match op.kind {
@@ -450,35 +533,173 @@ impl Parser {
             _ => return Err(format!("expected comparison operator at byte {}", op.start)),
         };
         let value = self.take();
-        let literal = match value.kind {
-            TokenKind::String(s) => Literal::String(s),
-            TokenKind::Word(s) if s == "true" => Literal::Bool(true),
-            TokenKind::Word(s) if s == "false" => Literal::Bool(false),
-            TokenKind::Word(s) if s == "null" => Literal::Null,
-            TokenKind::Word(s) => {
-                let number =
-                    if let Ok(n) = s.parse::<i128>() {
-                        Number::integer(n)
-                    } else {
-                        Number::float(s.parse::<f64>().map_err(|_| {
-                            format!("invalid literal {s:?} at byte {}", value.start)
-                        })?)?
-                    };
-                Literal::Number(number)
+        let mut end = value.end;
+        let operand = match value.kind {
+            TokenKind::String(s) => Operand::Literal(Literal::String(s)),
+            TokenKind::Word(s) if s == "true" => Operand::Literal(Literal::Bool(true)),
+            TokenKind::Word(s) if s == "false" => Operand::Literal(Literal::Bool(false)),
+            TokenKind::Word(s) if s == "null" => Operand::Literal(Literal::Null),
+            TokenKind::Word(s) if s.starts_with('$') => {
+                let name = &s[1..];
+                if name.is_empty()
+                    || !name
+                        .chars()
+                        .next()
+                        .is_some_and(|ch| ch == '_' || ch.is_alphabetic())
+                    || !name.chars().all(|ch| ch == '_' || ch.is_alphanumeric())
+                {
+                    return Err(format!("invalid parameter name at byte {}", value.start));
+                }
+                Operand::Parameter {
+                    name: name.to_owned(),
+                    bound: None,
+                }
             }
-            _ => return Err(format!("expected literal at byte {}", value.start)),
+            TokenKind::Word(s) => {
+                if let Ok(n) = s.parse::<i128>() {
+                    Operand::Literal(Literal::Number(Number::integer(n)))
+                } else if let Ok(n) = s.parse::<f64>() {
+                    Operand::Literal(Literal::Number(Number::float(n)?))
+                } else {
+                    let path = QueryPath::parse(&s).map_err(|error| {
+                        format!("invalid field operand at byte {}: {error}", value.start)
+                    })?;
+                    let mut modifiers = Vec::new();
+                    while matches!(self.peek(), TokenKind::Colon) {
+                        self.take();
+                        let token = self.take();
+                        let name = match token.kind {
+                            TokenKind::Word(name) => name,
+                            _ => return Err(format!("expected modifier at byte {}", token.start)),
+                        };
+                        end = token.end;
+                        modifiers.push(parse_modifier(name));
+                    }
+                    Operand::Field(FieldExpression {
+                        path,
+                        modifiers,
+                        span: (value.start, end),
+                    })
+                }
+            }
+            _ => return Err(format!("expected operand at byte {}", value.start)),
         };
         Ok(Term {
             path,
             modifiers,
             quantifier,
             operator,
-            literal,
-            span: (path_token.start, value.end),
+            operand,
+            span: (path_token.start, end),
         })
+    }
+
+    fn keyword(&self, word: &str) -> bool {
+        matches!(self.peek(), TokenKind::Word(value) if value.eq_ignore_ascii_case(word))
+    }
+
+    fn sort_clause_start(&self) -> bool {
+        self.keyword("SORT")
+            && !matches!(
+                self.tokens.get(self.pos + 1).map(|token| &token.kind),
+                Some(TokenKind::Op(_, _) | TokenKind::Colon)
+            )
+    }
+
+    fn sort_clause(&mut self) -> Result<Vec<SortField>, String> {
+        let sort = self.take();
+        debug_assert!(matches!(sort.kind, TokenKind::Word(_)));
+        if !self.keyword("BY") {
+            return Err(format!(
+                "expected BY after SORT at byte {}",
+                self.tokens[self.pos].start
+            ));
+        }
+        self.take();
+        let mut fields = Vec::new();
+        let mut seen = HashSet::new();
+        loop {
+            let token = self.take();
+            let name = match token.kind {
+                TokenKind::Word(name) => name,
+                _ => return Err(format!("expected sort field at byte {}", token.start)),
+            };
+            if name.bytes().any(|byte| byte == b'$') {
+                return Err(format!("unsupported sort field at byte {}", token.start));
+            }
+            let parsed = QueryPath::parse(&name)
+                .map_err(|error| format!("invalid sort field at byte {}: {error}", token.start))?;
+            if parsed.has_explicit_array_step {
+                return Err(format!(
+                    "array selectors cannot be sort fields at byte {}",
+                    token.start
+                ));
+            }
+            let field = parsed.field.display();
+            if !seen.insert(field.clone()) {
+                return Err(format!(
+                    "duplicate sort field at byte {}: {field}",
+                    token.start
+                ));
+            }
+            let descending = if self.keyword("ASC") {
+                self.take();
+                false
+            } else if self.keyword("DESC") {
+                self.take();
+                true
+            } else {
+                false
+            };
+            fields.push(SortField { field, descending });
+            match self.peek() {
+                TokenKind::Comma => {
+                    self.take();
+                }
+                TokenKind::End => return Ok(fields),
+                _ => {
+                    return Err(format!(
+                        "unknown sort direction or trailing token at byte {}",
+                        self.tokens[self.pos].start
+                    ));
+                }
+            }
+        }
     }
 }
 
+
+/// Top-level structured request split into membership and registered ordering.
+#[derive(Clone, Debug, PartialEq)]
+pub struct StructuredFilter {
+    pub filter: Option<FilterExpr>,
+    pub sort: Option<Vec<SortField>>,
+}
+
+
+pub fn parse_structured_filter(input: &str) -> Result<StructuredFilter, String> {
+    let mut parser = Parser {
+        tokens: lex(input)?,
+        pos: 0,
+    };
+    let filter = if parser.sort_clause_start() {
+        None
+    } else {
+        Some(parser.or()?)
+    };
+    let sort = if parser.sort_clause_start() {
+        Some(parser.sort_clause()?)
+    } else {
+        None
+    };
+    if !matches!(parser.peek(), TokenKind::End) {
+        return Err(format!(
+            "unexpected token at byte {}",
+            parser.tokens[parser.pos].start
+        ));
+    }
+    Ok(StructuredFilter { filter, sort })
+}
 
 pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
     let mut parser = Parser {

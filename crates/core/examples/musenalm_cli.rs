@@ -1,6 +1,7 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
+use std::collections::HashMap;
 use std::path::PathBuf;
 
 use objekte_search_core::query::Query;
@@ -28,13 +29,39 @@ fn run() -> Result<(), String> {
     let mut limit_override = None;
     let mut offset_override = None;
     let mut quiet_hits = false;
+    let mut parameters = HashMap::new();
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
+            "--help" | "-h" => {
+                println!(
+                    "Usage: musenalm_cli [--root PATH] [--collection NAME] [--fts TEXT] [--filter FILTER] [--param NAME=JSON] [--limit N] [--offset N] [--return locator|bytes|logical] [--explain] [--explain-analyze]"
+                );
+                println!(
+                    "FILTER accepts a final SORT BY field [ASC|DESC], ... clause or SORT BY alone. Sort fields must have registered scalar sort columns in every selected collection."
+                );
+                println!(
+                    "Parameters are typed JSON values. Use a type/value object for date, datetime or unixtime; shell-quote JSON strings."
+                );
+                return Ok(());
+            }
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--case" => case_id = Some(args.next().ok_or("--case needs an ID")?),
             "--fts" => fts = Some(args.next().ok_or("--fts needs a literal")?),
             "--filter" => filter = Some(args.next().ok_or("--filter needs an expression")?),
+            "--param" => {
+                let assignment = args.next().ok_or("--param needs NAME=JSON")?;
+                let (name, json) = assignment
+                    .split_once('=')
+                    .ok_or("--param needs NAME=JSON")?;
+                if name.is_empty() || parameters.contains_key(name) {
+                    return Err(format!("empty or duplicate parameter name: {name}"));
+                }
+                parameters.insert(
+                    name.to_owned(),
+                    objekte_search_core::parameters::parse_parameter_json(json)?,
+                );
+            }
             "--collection" => collection = args.next().ok_or("--collection needs a name")?,
             "--explain" => explain = true,
             "--explain-analyze" => analyze = true,
@@ -110,7 +137,7 @@ fn run() -> Result<(), String> {
     if let Some(offset) = offset_override {
         case.offset = offset;
     }
-    let query = Query::from_workload(&case)?;
+    let query = Query::from_workload(&case)?.with_parameters(&parameters)?;
     let selected = if case.collection == "*" {
         definitions
     } else {

@@ -78,7 +78,7 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
             let selected = paths.remove(0);
             output.push(TermChoice {
                 span: term.span,
-                field: term.path.display(),
+                field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 exact_case_sensitivity: term_case_sensitivity(term),
@@ -118,7 +118,11 @@ fn fallback_truth(
 ) -> Result<FallbackTruth, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let metadata = term.path.root != PathRoot::Data;
+            let metadata = term.path.root != PathRoot::Data
+                && term
+                    .rhs
+                    .as_ref()
+                    .is_none_or(|rhs| rhs.path.root != PathRoot::Data);
             let mut yes = RoaringBitmap::new();
             if metadata {
                 let empty = Value::Object(BTreeMap::new());
@@ -154,7 +158,7 @@ fn fallback_truth(
             };
             let choices = vec![TermChoice {
                 span: term.span,
-                field: term.path.display(),
+                field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 exact_case_sensitivity: term_case_sensitivity(term),
@@ -291,6 +295,26 @@ fn term_set(
     domain: &RoaringBitmap,
 ) -> Result<Option<RoaringBitmap>, String> {
     if let PathRoot::Metadata(field) = term.path.root {
+        if term.rhs.is_some() {
+            let empty = Value::Object(BTreeMap::new());
+            let mut result = RoaringBitmap::new();
+            for slot in domain.iter() {
+                let record = &collection.generation.records[slot as usize];
+                let file = &repo.files.files[record.file.0 as usize];
+                let ctx = RecordContext {
+                    value: &empty,
+                    source_bytes: None,
+                    record,
+                    file,
+                    collection_name: &collection.definition.name,
+                    repository_root: &repo.files.root,
+                };
+                if eval_term(term, &ctx)? {
+                    result.insert(slot);
+                }
+            }
+            return Ok(Some(result));
+        }
         if field == MetadataField::RecordId
             && term.operator == Operator::Eq
             && term.transform == Transform::Identity
@@ -453,6 +477,25 @@ fn enumerate_paths(
             estimated_bytes: output as f64 * stats.mean_record_bytes(),
         });
     };
+    if term
+        .rhs
+        .as_ref()
+        .is_some_and(|rhs| term.path.root != PathRoot::Data && rhs.path.root != PathRoot::Data)
+    {
+        add(
+            AccessPathKind::Metadata,
+            true,
+            stats.record_count as f64,
+            input_len / 2,
+        );
+        return paths;
+    }
+    if term.query_path.has_position || term.rhs.is_some() {
+        // Ordinary postings have record membership, not array occurrence
+        // positions. A positional predicate always keeps a residual scan.
+        add(AccessPathKind::Scanner, false, 0.0, input_len);
+        return paths;
+    }
     if let PathRoot::Metadata(field) = term.path.root {
         let direct_id_lookup = field == MetadataField::RecordId
             && term.operator == Operator::Eq
@@ -835,7 +878,7 @@ fn plan_logical_expr(
             };
             let choices = vec![TermChoice {
                 span: term.span,
-                field: term.path.display(),
+                field: term.query_path.display.clone(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
                 exact_case_sensitivity: term_case_sensitivity(term),

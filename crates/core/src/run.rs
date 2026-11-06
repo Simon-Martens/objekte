@@ -28,7 +28,7 @@ use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
 use crate::verified::{CachedMember, CachedResult};
-use crate::workload::{ReturnMode, WorkCounters};
+use crate::workload::{ReturnMode, SortField, WorkCounters};
 
 
 /// Comparable sort key with collection and ID tie breakers.
@@ -272,6 +272,13 @@ fn scan_projection(
                         fields.insert(first.clone());
                     }
                 }
+                if !fully_proven
+                    && let Some(rhs) = &term.rhs
+                    && rhs.path.root == PathRoot::Data
+                    && let Some(first) = rhs.path.segments.first()
+                {
+                    fields.insert(first.clone());
+                }
             }
             Residual::And(parts) | Residual::Or(parts) => {
                 for part in parts {
@@ -363,13 +370,21 @@ impl Residual<'_> {
     ) -> Result<Option<bool>, String> {
         match self {
             Self::Term(term, _) => {
-                if term.path.root == PathRoot::Data {
+                if term.path.root == PathRoot::Data
+                    || term
+                        .rhs
+                        .as_ref()
+                        .is_some_and(|rhs| rhs.path.root == PathRoot::Data)
+                {
                     return Ok(None);
                 }
                 *evaluations += 1;
                 let matched = eval_term(term, ctx)?;
                 if matched && self.can_emit_evidence() {
-                    evidence.insert(term.path.display());
+                    evidence.insert(term.query_path.display.clone());
+                    if let Some(rhs) = &term.rhs {
+                        evidence.insert(rhs.query_path.display.clone());
+                    }
                 }
                 Ok(Some(matched))
             }
@@ -490,7 +505,10 @@ impl Residual<'_> {
                     }
                 };
                 if matched && self.can_emit_evidence() {
-                    evidence.insert(term.path.display());
+                    evidence.insert(term.query_path.display.clone());
+                    if let Some(rhs) = &term.rhs {
+                        evidence.insert(rhs.query_path.display.clone());
+                    }
                 }
                 matched
             }
@@ -772,6 +790,8 @@ pub struct QueryPlanTrace {
     pub remaining_verification: bool,
     pub input_records: u64,
     pub fts_strategy: String,
+    pub normalized_sort: Vec<SortField>,
+    pub sort_strategy: String,
     pub filter_exact: bool,
     pub terms: Vec<TermChoice>,
     pub candidates: u64,
@@ -849,7 +869,10 @@ fn proof_evidence(expr: &BoundExpr, slot: u32, proofs: &[Proof]) -> Option<HashS
             if term.derived == Derived::None
                 && !matches!(term.operator, Operator::Ne | Operator::NotContains)
             {
-                evidence.insert(term.path.display());
+                evidence.insert(term.query_path.display.clone());
+                if let Some(rhs) = &term.rhs {
+                    evidence.insert(rhs.query_path.display.clone());
+                }
             }
             Some(evidence)
         }
@@ -1091,7 +1114,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     if budget == 0 {
         return search_impl(repo, query, None, None, None);
     }
-    let key = crate::verified::key(query);
+    let key = crate::verified::key(query)?;
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
         return materialize_cached(repo, query, &cached);
@@ -1405,6 +1428,8 @@ fn try_stored_order_page(
                     "stored order page traversal"
                 }
                 .into(),
+                normalized_sort: query.options.sort.clone(),
+                sort_strategy: "stored_order_page".into(),
                 filter_exact: entry.plan.exact,
                 terms: entry.plan.choices.clone(),
                 candidates: entry.candidates.len(),
@@ -1711,6 +1736,7 @@ pub fn search_analyze(
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let mut traces = Vec::new();
+    let mut ordered_candidate_total = 0u64;
     for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
@@ -1734,6 +1760,12 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 proofs: Vec::new(),
                 choices: Vec::new(),
             });
+        let mut ordered_candidates = plan.candidates.clone().unwrap_or_else(|| domain.clone());
+        if let Some(text_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts))
+        {
+            ordered_candidates &= text_candidates;
+        }
+        ordered_candidate_total += ordered_candidates.len();
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
             generation: collection.generation.generation,
@@ -1767,6 +1799,8 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 "absent"
             }
             .into(),
+            normalized_sort: query.options.sort.clone(),
+            sort_strategy: String::new(),
             filter_exact: plan.exact,
             terms: plan.choices,
             candidates: plan
@@ -1776,6 +1810,24 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 .unwrap_or(domain.len()),
             actual: None,
         });
+    }
+    let cap = query
+        .options
+        .limit
+        .checked_add(query.options.offset)
+        .ok_or("page size overflow")?;
+    let stored_order = !query.options.count
+        && query.options.sort.len() <= 1
+        && !(cap > 0
+            && ordered_candidate_total > 0
+            && ordered_candidate_total < (cap as u64).saturating_mul(4));
+    for trace in &mut traces {
+        trace.sort_strategy = if stored_order {
+            "stored_order_page"
+        } else {
+            "bounded_top_k"
+        }
+        .into();
     }
     Ok(traces)
 }
@@ -1916,6 +1968,8 @@ fn search_impl(
                     "text verification scan"
                 }
                 .into(),
+                normalized_sort: query.options.sort.clone(),
+                sort_strategy: "bounded_top_k".into(),
                 filter_exact: plan.exact,
                 terms: plan.choices.clone(),
                 candidates: candidates.len(),

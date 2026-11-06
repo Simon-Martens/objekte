@@ -7,12 +7,12 @@ fn bounded_lru_evicts_without_exceeding_budget() {
         collections: Vec::new(),
     };
     cache.insert("a".into(), query.clone());
-    assert!(cache.get("a").is_some());
+    assert!(cache.get(b"a").is_some());
     cache.insert("b".into(), query.clone());
     assert!(cache.used_bytes() <= 280);
-    assert!(cache.get("a").is_some());
+    assert!(cache.get(b"a").is_some());
     cache.insert("c".into(), query);
-    assert!(cache.get("b").is_none());
-    assert!(cache.get("a").is_some());
-    assert!(cache.get("c").is_some());
+    assert!(cache.get(b"b").is_none());
+    assert!(cache.get(b"a").is_some());
+    assert!(cache.get(b"c").is_some());
 }

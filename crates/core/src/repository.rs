@@ -20,8 +20,8 @@ use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
-    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts, eval_filter,
-    eval_unavailable_filter,
+    BindingOperation, RecordContext, Schema, bind_filter_with_parameters, bind_fts, eval_bound_fts,
+    eval_filter, eval_unavailable_filter,
 };
 use crate::relation::{RelationContribution, RelationIndex};
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
@@ -462,8 +462,26 @@ impl Repository {
         crate::run::search(self, query)
     }
 
+    /// Execute a parsed query with immutable, typed parameter values.
+    pub fn search_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        self.search(&query.with_parameters(parameters)?)
+    }
+
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
         crate::run::explain(self, query)
+    }
+
+    /// Explain one execution-bound parameter choice.
+    pub fn explain_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
+        self.explain(&query.with_parameters(parameters)?)
     }
 
     pub fn explain_analyze(
@@ -948,6 +966,7 @@ impl Repository {
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
         let mut bound = Vec::new();
+        let mut parameter_types = HashMap::new();
         for collection in &self.collections {
             if !query.collections.is_empty()
                 && !query.collections.contains(&collection.definition.name)
@@ -957,7 +976,13 @@ impl Repository {
             let filter = query
                 .filter
                 .as_ref()
-                .map(|f| bind_filter(f, &collection.definition.schema))
+                .map(|f| {
+                    bind_filter_with_parameters(
+                        f,
+                        &collection.definition.schema,
+                        &mut parameter_types,
+                    )
+                })
                 .transpose()?;
             let fts = query
                 .fts
@@ -1124,6 +1149,16 @@ impl Repository {
             hits,
             counters,
         })
+    }
+
+    /// Evaluate a parameter choice through the independent reference route.
+    pub fn search_reference_with_parameters(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+    ) -> Result<SearchResult, String> {
+        let bound = query.with_parameters(parameters)?;
+        self.search_reference(&bound)
     }
 }
 
