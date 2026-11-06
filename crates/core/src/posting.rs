@@ -62,6 +62,152 @@ pub struct CustomPostingIndex {
     pub complete: bool,
 }
 
+/// Construction-only dictionary. Batch keys are combined before the final
+/// ordered trees are built; published and persisted indexes remain unchanged.
+pub(crate) struct PostingIndexBuilder {
+    path: Vec<String>,
+    kind: LogicalType,
+    multi: bool,
+    presence: RoaringBitmap,
+    nulls: RoaringBitmap,
+    values: HashMap<ScalarKey, RoaringBitmap>,
+    lengths: HashMap<Number, RoaringBitmap>,
+    covered_records: u32,
+}
+
+impl PostingIndexBuilder {
+    pub(crate) fn new(field: &FieldDefinition) -> Self {
+        Self {
+            path: field.path.clone(),
+            kind: field.kind.clone(),
+            multi: field.multi,
+            presence: RoaringBitmap::new(),
+            nulls: RoaringBitmap::new(),
+            values: HashMap::new(),
+            lengths: HashMap::new(),
+            covered_records: 0,
+        }
+    }
+
+    pub(crate) fn merge_shifted(&mut self, batch: PostingIndex, base: u32) -> Result<(), String> {
+        if self.path != batch.path || self.kind != batch.kind || self.multi != batch.multi {
+            return Err("posting batch representation mismatch".into());
+        }
+        let covered = self
+            .covered_records
+            .checked_add(batch.covered_records)
+            .ok_or("posting coverage overflow")?;
+        append_shifted_bitmap(&mut self.presence, &batch.presence, base)?;
+        append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
+        for (key, posting) in batch.values {
+            match self.values.entry(key) {
+                std::collections::hash_map::Entry::Vacant(entry) if base == 0 => {
+                    entry.insert(posting);
+                }
+                entry => append_shifted_bitmap(entry.or_default(), &posting, base)?,
+            }
+        }
+        for (key, posting) in batch.lengths {
+            match self.lengths.entry(key) {
+                std::collections::hash_map::Entry::Vacant(entry) if base == 0 => {
+                    entry.insert(posting);
+                }
+                entry => append_shifted_bitmap(entry.or_default(), &posting, base)?,
+            }
+        }
+        self.covered_records = covered;
+        Ok(())
+    }
+
+    pub(crate) fn finish(self) -> PostingIndex {
+        PostingIndex {
+            path: self.path,
+            kind: self.kind,
+            multi: self.multi,
+            presence: self.presence,
+            nulls: self.nulls,
+            values: self.values.into_iter().collect::<BTreeMap<_, _>>(),
+            lengths: self.lengths.into_iter().collect::<BTreeMap<_, _>>(),
+            covered_records: self.covered_records,
+            stats: PostingStats::default(),
+        }
+    }
+}
+
+pub(crate) struct CustomPostingIndexBuilder {
+    pub(crate) index: PostingIndexBuilder,
+    complete: bool,
+}
+
+impl CustomPostingIndexBuilder {
+    pub(crate) fn new(field: &FieldDefinition, complete: bool) -> Self {
+        Self {
+            index: PostingIndexBuilder::new(field),
+            complete,
+        }
+    }
+
+    pub(crate) fn merge_shifted(
+        &mut self,
+        batch: CustomPostingIndex,
+        base: u32,
+    ) -> Result<(), String> {
+        self.index.merge_shifted(batch.index, base)?;
+        self.complete &= batch.complete;
+        Ok(())
+    }
+
+    pub(crate) fn finish(self) -> CustomPostingIndex {
+        CustomPostingIndex {
+            index: self.index.finish(),
+            complete: self.complete,
+        }
+    }
+}
+
+pub(crate) struct PostingCollectionBuilder {
+    fields: HashMap<Vec<String>, PostingIndexBuilder>,
+}
+
+impl PostingCollectionBuilder {
+    pub(crate) fn new(schema: &Schema) -> Self {
+        Self {
+            fields: schema
+                .fields
+                .values()
+                .filter(|field| field.indexed)
+                .map(|field| (field.path.clone(), PostingIndexBuilder::new(field)))
+                .collect(),
+        }
+    }
+
+    pub(crate) fn merge_shifted(
+        &mut self,
+        batch: PostingCollection,
+        base: u32,
+    ) -> Result<(), String> {
+        if self.fields.len() != batch.fields.len() {
+            return Err("posting batch field coverage mismatch".into());
+        }
+        for (path, index) in batch.fields {
+            self.fields
+                .get_mut(&path)
+                .ok_or("posting batch field missing")?
+                .merge_shifted(index, base)?;
+        }
+        Ok(())
+    }
+
+    pub(crate) fn finish(self) -> PostingCollection {
+        PostingCollection {
+            fields: self
+                .fields
+                .into_iter()
+                .map(|(path, index)| (path, index.finish()))
+                .collect(),
+        }
+    }
+}
 
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -75,6 +221,7 @@ pub struct PostingStats {
 
 
 impl PostingIndex {
+    #[cfg(test)]
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.path != batch.path || self.kind != batch.kind || self.multi != batch.multi {
             return Err("posting batch representation mismatch".into());
@@ -681,6 +828,7 @@ pub struct PostingCollection {
 
 
 impl PostingCollection {
+    #[cfg(test)]
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
         if self.fields.len() != batch.fields.len() {
             return Err("posting batch field coverage mismatch".into());

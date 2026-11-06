@@ -1,6 +1,171 @@
 use super::*;
 
 #[test]
+fn bulk_final_trees_match_incremental_merge_across_sparse_batches() {
+    use crate::reference::Schema;
+    use std::hash::{DefaultHasher, Hash, Hasher};
+
+    let mut integer_hash = DefaultHasher::new();
+    Number::Integer(2).hash(&mut integer_hash);
+    let mut float_hash = DefaultHasher::new();
+    Number::Float(2.0).hash(&mut float_hash);
+    assert_eq!(Number::Integer(2), Number::Float(2.0));
+    assert_eq!(integer_hash.finish(), float_hash.finish());
+
+    let mut schema = Schema::default();
+    for (name, kind, multi) in [
+        (
+            "numbers",
+            LogicalType::Array(Box::new(LogicalType::Number)),
+            true,
+        ),
+        ("label", LogicalType::String, false),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: false,
+                nullable: true,
+                indexed: true,
+                multi,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    let mut first = PostingCollection::new(&schema);
+    for (slot, record) in [
+        serde_json::json!({"numbers":[2,2,3],"label":"repeat"}),
+        serde_json::json!({"numbers":null,"label":null}),
+        serde_json::json!({}),
+    ]
+    .into_iter()
+    .enumerate()
+    {
+        first
+            .add(RecordSlot(slot as u32), &Value::from_json(record).unwrap())
+            .unwrap();
+    }
+    let mut second = PostingCollection::new(&schema);
+    second
+        .add(
+            RecordSlot(0),
+            &Value::from_json(serde_json::json!({"numbers":[2,4],"label":"repeat"})).unwrap(),
+        )
+        .unwrap();
+    let numeric = second.fields.get_mut(&vec!["numbers".into()]).unwrap();
+    let duplicate = numeric
+        .values
+        .remove(&ScalarKey::Number(Number::Integer(2)))
+        .unwrap();
+    numeric
+        .values
+        .insert(ScalarKey::Number(Number::Float(2.0)), duplicate);
+    let length = numeric.lengths.remove(&Number::Integer(2)).unwrap();
+    numeric.lengths.insert(Number::Float(2.0), length);
+    let mut third = PostingCollection::new(&schema);
+    third
+        .add(
+            RecordSlot(0),
+            &Value::from_json(serde_json::json!({"numbers":[5],"label":"unique"})).unwrap(),
+        )
+        .unwrap();
+
+    let mut incremental = PostingCollection::new(&schema);
+    let mut bulk = PostingCollectionBuilder::new(&schema);
+    let mut custom =
+        CustomPostingIndexBuilder::new(schema.fields.get(&vec!["numbers".into()]).unwrap(), true);
+    for (base, batch, complete) in [
+        (0, first, true),
+        (3, PostingCollection::new(&schema), true), // empty physical batch
+        (4, PostingCollection::new(&schema), true), // fallback-only batch
+        (65_536, second, false),
+        (65_537, third, true),
+    ] {
+        let custom_index = batch.fields[&vec!["numbers".into()]].clone();
+        custom
+            .merge_shifted(
+                CustomPostingIndex {
+                    index: custom_index,
+                    complete,
+                },
+                base,
+            )
+            .unwrap();
+        incremental.merge_shifted(batch.clone(), base).unwrap();
+        bulk.merge_shifted(batch, base).unwrap();
+    }
+    let mut final_bulk = bulk.finish();
+    let final_custom = custom.finish();
+    incremental.finish_stats();
+    final_bulk.finish_stats();
+    let allowed = RoaringBitmap::from_iter([0, 1, 2, 65_536, 65_537]);
+    for collection in [&incremental, &final_bulk] {
+        collection.validate_eligible(65_538, 5).unwrap();
+        collection.validate_domain(&allowed).unwrap();
+    }
+    for (path, old) in &incremental.fields {
+        let new = &final_bulk.fields[path];
+        assert_eq!(old.path, new.path);
+        assert_eq!(old.kind, new.kind);
+        assert_eq!(old.multi, new.multi);
+        assert_eq!(old.presence, new.presence);
+        assert_eq!(old.nulls, new.nulls);
+        assert_eq!(old.values, new.values);
+        assert_eq!(old.lengths, new.lengths);
+        assert_eq!(old.covered_records, new.covered_records);
+        assert_eq!(old.stats.present_count, new.stats.present_count);
+        assert_eq!(old.stats.null_count, new.stats.null_count);
+        assert_eq!(old.stats.distinct_count, new.stats.distinct_count);
+        assert_eq!(old.stats.min_key, new.stats.min_key);
+        assert_eq!(old.stats.max_key, new.stats.max_key);
+    }
+    let numbers = &final_bulk.fields[&vec!["numbers".into()]];
+    assert_eq!(numbers.values.len(), 4);
+    assert_eq!(
+        numbers.values[&ScalarKey::Number(Number::Integer(2))]
+            .iter()
+            .collect::<Vec<_>>(),
+        [0, 65_536]
+    );
+    assert_eq!(
+        numbers.lengths[&Number::Integer(2)]
+            .iter()
+            .collect::<Vec<_>>(),
+        [65_536]
+    );
+    assert_eq!(numbers.nulls.iter().collect::<Vec<_>>(), [1]);
+    assert!(!numbers.presence.contains(2));
+    assert_eq!(final_custom.index.values, numbers.values);
+    assert!(!final_custom.complete);
+    let ordered = numbers.values.keys().cloned().collect::<Vec<_>>();
+    assert_eq!(
+        ordered,
+        vec![
+            ScalarKey::Number(Number::Integer(2)),
+            ScalarKey::Number(Number::Integer(3)),
+            ScalarKey::Number(Number::Integer(4)),
+            ScalarKey::Number(Number::Integer(5)),
+        ]
+    );
+    let old_numbers = &incremental.fields[&vec!["numbers".into()]];
+    let key = ScalarKey::Number(Number::Integer(3));
+    let (old_range, _) = range_postings(&old_numbers.values, &key, Operator::Gt, None);
+    let (new_range, _) = range_postings(&numbers.values, &key, Operator::Gt, None);
+    assert_eq!(old_range, new_range);
+    assert_eq!(new_range.iter().collect::<Vec<_>>(), [65_536, 65_537]);
+    let ordered_facets = |index: &PostingIndex| {
+        index
+            .values
+            .iter()
+            .map(|(value, slots)| (value.clone(), slots.len()))
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(ordered_facets(old_numbers), ordered_facets(numbers));
+    assert_eq!(ordered_facets(numbers)[0].1, 2);
+}
+
+#[test]
 fn presence_null_array_dedup_and_cardinality() {
     let field = FieldDefinition {
         path: vec!["values".into()],
@@ -94,20 +259,21 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
                 element_nullable: Vec::new(),
             })
             .unwrap();
+        let definition = CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        };
         let repo = Repository::open_with_options(
             &root,
-            vec![CollectionDefinition {
-                name: "data".into(),
-                source_path: "data".into(),
-                format: SourceFormat::Json,
-                identity: IdentityPolicy::Filename,
-                discovery: Default::default(),
-                schema,
-                sort_fields: vec![],
-                sort_locale: "de".into(),
-                sort_options: Default::default(),
-                sort_overrides: Default::default(),
-            }],
+            vec![definition.clone()],
             RepositoryOptions {
                 snapshot_mode: SnapshotMode::Disabled,
                 ..Default::default()
@@ -185,6 +351,40 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             assert_eq!(
                 optimized.hits, reference.hits,
                 "indexed={indexed}, {filter}"
+            );
+        }
+        if indexed {
+            let options = RepositoryOptions {
+                snapshot_mode: SnapshotMode::ReadWrite,
+                ..Default::default()
+            };
+            let built =
+                Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+            let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
+            assert!(restored.startup().restored);
+            let path = vec!["tags".into()];
+            let fresh = &built.collections()[0].postings.fields[&path];
+            let loaded = &restored.collections()[0].postings.fields[&path];
+            assert_eq!(fresh.values, loaded.values);
+            assert_eq!(fresh.lengths, loaded.lengths);
+            assert_eq!(fresh.presence, loaded.presence);
+            assert_eq!(fresh.nulls, loaded.nulls);
+            let query = Query {
+                collections: vec!["data".into()],
+                fts: None,
+                filter: Some(parse_filter("tags ?= 'a'").unwrap()),
+                options: QueryOptions {
+                    sort: vec![],
+                    limit: 20,
+                    offset: 0,
+                    count: true,
+                    return_mode: ReturnMode::Locator,
+                    evidence: false,
+                },
+            };
+            assert_eq!(
+                built.search(&query).unwrap().hits,
+                restored.search(&query).unwrap().hits
             );
         }
     }
