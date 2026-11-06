@@ -189,10 +189,6 @@ impl BigramIndex {
             return Err("bigram batch coverage or alphabet mismatch".into());
         }
         let count = base.checked_add(batch.record_count).ok_or("bigram record overflow")?;
-        if base == 0 && self.normal.is_empty() && self.skip.is_empty() {
-            *self = batch;
-            return Ok(());
-        }
         for (key, posting) in batch.normal {
             append_shifted_bitmap(self.normal.entry(key).or_default(), &posting, base)?;
         }

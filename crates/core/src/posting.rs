@@ -81,33 +81,13 @@ impl PostingIndex {
         }
         let covered = self.covered_records.checked_add(batch.covered_records)
             .ok_or("posting coverage overflow")?;
-        if base == 0
-            && self.covered_records == 0
-            && self.presence.is_empty()
-            && self.nulls.is_empty()
-            && self.values.is_empty()
-            && self.lengths.is_empty()
-        {
-            *self = batch;
-            return Ok(());
-        }
         append_shifted_bitmap(&mut self.presence, &batch.presence, base)?;
         append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
         for (key, posting) in batch.values {
-            match self.values.entry(key) {
-                std::collections::btree_map::Entry::Vacant(entry) if base == 0 => {
-                    entry.insert(posting);
-                }
-                entry => append_shifted_bitmap(entry.or_default(), &posting, base)?,
-            }
+            append_shifted_bitmap(self.values.entry(key).or_default(), &posting, base)?;
         }
         for (key, posting) in batch.lengths {
-            match self.lengths.entry(key) {
-                std::collections::btree_map::Entry::Vacant(entry) if base == 0 => {
-                    entry.insert(posting);
-                }
-                entry => append_shifted_bitmap(entry.or_default(), &posting, base)?,
-            }
+            append_shifted_bitmap(self.lengths.entry(key).or_default(), &posting, base)?;
         }
         self.covered_records = covered;
         Ok(())
