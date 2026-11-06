@@ -10,6 +10,7 @@ fn precedence_quantifiers_and_separate_fts() {
     assert!(parse_filter("a =< 1").is_err());
     assert!(parse_filter("a ?=! 1").is_err());
     let case = WorkloadCase {
+        fts_mode: FtsMode::Literal,
         fts_case_sensitivity: crate::query::CaseSensitivity::Sensitive,
         id: "Q000".into(),
         collection: "*".into(),
@@ -25,6 +26,21 @@ fn precedence_quantifiers_and_separate_fts() {
     };
     let query = Query::from_workload(&case).unwrap();
     assert_eq!(query.fts.unwrap().literal, "a && b");
+    assert!(
+        serde_json::to_value(&case)
+            .unwrap()
+            .get("fts_mode")
+            .is_none()
+    );
+    let mut regex_case = case.clone();
+    regex_case.fts_mode = FtsMode::Regex(RegexOptions {
+        multi_line: true,
+        dot_matches_new_line: false,
+    });
+    assert_eq!(
+        Query::from_workload(&regex_case).unwrap().fts.unwrap().mode,
+        regex_case.fts_mode
+    );
     assert!(
         serde_json::to_value(&case)
             .unwrap()
@@ -162,6 +178,7 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
     }
     let mut case = WorkloadCase {
         fts_case_sensitivity: CaseSensitivity::Sensitive,
+        fts_mode: FtsMode::Literal,
         id: "inline-sort".into(),
         collection: "*".into(),
         fts: Some("Hymn".into()),

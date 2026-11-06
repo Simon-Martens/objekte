@@ -17,7 +17,7 @@ use crate::executor::{
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{PathRoot, Value};
-use crate::query::{CaseSensitivity, Operator, Query};
+use crate::query::{CaseSensitivity, FtsMode, Operator, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
@@ -785,6 +785,8 @@ pub struct QueryPlanTrace {
     pub bigram_alphabet: crate::workload::BigramAlphabet,
     pub folded_representation: &'static str,
     pub fts_case_sensitivity: Option<CaseSensitivity>,
+    pub fts_mode: Option<FtsMode>,
+    pub fts_prefilter_reason: Option<String>,
     pub fts_covered_target: String,
     pub fts_estimated_candidates: Option<u64>,
     pub remaining_verification: bool,
@@ -811,6 +813,29 @@ fn fts_covered_target(fts: Option<&BoundFts>) -> String {
             .map(|field| field.path.display())
             .collect::<Vec<_>>()
             .join(", "),
+    }
+}
+
+fn regex_prefilter_reason(
+    collection: &crate::repository::CollectionState,
+    fts: Option<&BoundFts>,
+) -> Option<String> {
+    let fts = fts?;
+    if !matches!(fts.mode, FtsMode::Regex(_)) {
+        return None;
+    }
+    if fts
+        .fallback_regex
+        .as_ref()
+        .and_then(|regex| regex.condition())
+        .is_none()
+    {
+        return Some("regex has no bounded necessary literal; scanner fallback".into());
+    }
+    if estimate_fts_candidates(collection, fts).is_none() {
+        Some("regex has no usable grams or compatible index coverage; scanner fallback".into())
+    } else {
+        Some("regex uses necessary folded grams; exact verification remains".into())
     }
 }
 
@@ -1413,6 +1438,8 @@ fn try_stored_order_page(
                 bigram_alphabet: collection.raw.alphabet,
                 folded_representation: crate::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
+                fts_mode: entry.fts.map(|fts| fts.mode),
+                fts_prefilter_reason: regex_prefilter_reason(collection, entry.fts),
                 fts_covered_target: fts_covered_target(entry.fts),
                 fts_estimated_candidates: entry.fts.and_then(|fts| {
                     estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
@@ -1772,6 +1799,8 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             bigram_alphabet: collection.raw.alphabet,
             folded_representation: crate::bigram::FOLDED_REPRESENTATION,
             fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
+            fts_mode: fts.as_ref().map(|fts| fts.mode),
+            fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
             fts_covered_target: fts_covered_target(fts.as_ref()),
             fts_estimated_candidates: fts.as_ref().and_then(|fts| {
                 estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
@@ -1947,6 +1976,8 @@ fn search_impl(
                 bigram_alphabet: collection.raw.alphabet,
                 folded_representation: crate::bigram::FOLDED_REPRESENTATION,
                 fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
+                fts_mode: fts.as_ref().map(|fts| fts.mode),
+                fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
                 fts_covered_target: fts_covered_target(fts.as_ref()),
                 fts_estimated_candidates: text_estimate.map(|estimate| estimate.0),
                 remaining_verification: needs_scan,

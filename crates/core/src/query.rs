@@ -23,6 +23,32 @@ impl CaseSensitivity {
 }
 
 
+/// Explicit FTS interpretation; literal search remains the default.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum FtsMode {
+    #[default]
+    Literal,
+    Regex(RegexOptions),
+}
+
+
+impl FtsMode {
+    pub fn is_literal(&self) -> bool {
+        *self == Self::Literal
+    }
+}
+
+
+/// Regex flags supported independently of FTS case sensitivity.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
+#[serde(default)]
+pub struct RegexOptions {
+    pub multi_line: bool,
+    pub dot_matches_new_line: bool,
+}
+
+
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Literal {
     String(String),
@@ -116,7 +142,7 @@ pub enum FilterExpr {
 
 
 /// One selected full-text field and optional binding.
-#[derive(Clone, Debug, serde::Serialize)]
+#[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 pub struct FtsField {
     pub path: FieldPath,
     pub binding: Option<String>,
@@ -124,9 +150,10 @@ pub struct FtsField {
 
 
 /// Full-text literal with its selected fields.
-#[derive(Clone, Debug, serde::Serialize)]
+#[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 pub struct FtsQuery {
     pub case_sensitivity: CaseSensitivity,
+    pub mode: FtsMode,
     pub literal: String,
     pub fields: Vec<FtsField>,
 }
@@ -184,6 +211,7 @@ impl Query {
                     .collect::<Result<Vec<_>, String>>()?;
                 Ok::<_, String>(FtsQuery {
                     case_sensitivity: case.fts_case_sensitivity,
+                    mode: case.fts_mode,
                     literal: literal.clone(),
                     fields,
                 })

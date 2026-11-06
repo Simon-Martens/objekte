@@ -33,6 +33,8 @@ pub struct WorkloadCase {
         skip_serializing_if = "crate::query::CaseSensitivity::is_sensitive"
     )]
     pub fts_case_sensitivity: crate::query::CaseSensitivity,
+    #[serde(default, skip_serializing_if = "crate::query::FtsMode::is_literal")]
+    pub fts_mode: crate::query::FtsMode,
     pub filter: Option<String>,
     #[serde(default)]
     pub fts_fields: Vec<String>,

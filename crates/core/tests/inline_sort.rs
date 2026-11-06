@@ -83,6 +83,7 @@ fn case(filter: Option<&str>, sort: Vec<SortField>) -> WorkloadCase {
         collection: "data".into(),
         fts: None,
         fts_case_sensitivity: Default::default(),
+        fts_mode: Default::default(),
         filter: filter.map(str::to_owned),
         fts_fields: vec![],
         sort,

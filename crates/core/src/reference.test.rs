@@ -80,6 +80,7 @@ fn fts_exact_modes_preserve_original_and_folded_literals() {
                 (CaseSensitivity::Insensitive, insensitive),
             ] {
                 let fts = FtsQuery {
+                    mode: crate::query::FtsMode::Literal,
                     case_sensitivity,
                     literal: literal.into(),
                     fields: selected
@@ -721,6 +722,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
         let query = Query {
             collections: vec![],
             fts: Some(FtsQuery {
+                mode: crate::query::FtsMode::Literal,
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "hello".into(),
                 fields: vec![FtsField {

@@ -55,6 +55,7 @@ fn structural_key_distinguishes_bound_values_sort_and_fts_mode() {
     let mut fts = string.clone();
     fts.fts = Some(FtsQuery {
         case_sensitivity: CaseSensitivity::Sensitive,
+        mode: crate::query::FtsMode::Literal,
         literal: "Der".into(),
         fields: vec![],
     });

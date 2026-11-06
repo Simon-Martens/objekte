@@ -165,6 +165,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
             filter: None,
             fts: Some(FtsQuery {
                 case_sensitivity: CaseSensitivity::Sensitive,
+                mode: crate::query::FtsMode::Literal,
                 literal: "TargetA".into(),
                 fields: vec![],
             }),

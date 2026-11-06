@@ -111,6 +111,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
         let text_query = crate::query::Query {
             filter: None,
             fts: Some(crate::query::FtsQuery {
+                mode: crate::query::FtsMode::Literal,
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "a".into(),
                 fields: vec![],
