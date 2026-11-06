@@ -601,7 +601,7 @@ pub(crate) fn process_framed_file(
     }
     let ranges = Arc::new(ranges);
     let (sender, receiver) = mpsc::channel();
-    let mut ready = BTreeMap::new();
+    let mut ready: BTreeMap<usize, Result<BatchContribution, String>> = BTreeMap::new();
     let mut dispatched = 0;
     let mut completed = 0;
     let mut next = 0;
@@ -610,40 +610,48 @@ pub(crate) fn process_framed_file(
     let mut failure = None;
     let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
     let counters = Arc::new(JobCounters::default());
+    let dispatch = |index: usize| {
+        let chunk = chunks[index].0.clone();
+        let sender = sender.clone();
+        let root = Arc::clone(&root);
+        let definition = Arc::clone(&definition);
+        let source = source.clone();
+        let source_files = Arc::clone(&source_files);
+        let bytes = Arc::clone(&bytes);
+        let ranges = Arc::clone(&ranges);
+        let counters = Arc::clone(&counters);
+        pool.spawn(move || {
+            let result = counters.run(|| process_framed_batch(
+                &root, &definition, collection, &source, file_id, &source_files,
+                &bytes, &ranges[chunk], index == 0, alphabet,
+            ));
+            let _ = sender.send((index, result));
+        });
+    };
     while next < chunks.len() && failure.is_none() {
         while dispatched < chunks.len() && dispatched - next < max_jobs {
             let weight = chunks[dispatched].1;
             if !fits_allowance(admitted_bytes, weight, MAX_ADMITTED_BYTES) {
                 break;
             }
-            let index = dispatched;
-            let chunk = chunks[index].0.clone();
-            let sender = sender.clone();
-            let root = Arc::clone(&root);
-            let definition = Arc::clone(&definition);
-            let source = source.clone();
-            let source_files = Arc::clone(&source_files);
-            let bytes = Arc::clone(&bytes);
-            let ranges = Arc::clone(&ranges);
-            let counters = Arc::clone(&counters);
-            pool.spawn(move || {
-                let result = counters.run(|| process_framed_batch(
-                    &root,
-                    &definition,
-                    collection,
-                    &source,
-                    file_id,
-                    &source_files,
-                    &bytes,
-                    &ranges[chunk],
-                    index == 0,
-                    alphabet,
-                ));
-                let _ = sender.send((index, result));
-            });
+            dispatch(dispatched);
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
+        }
+        if let Some(result) = ready.remove(&next) {
+            let admission_started = Instant::now();
+            let outcome = result.and_then(&mut admit);
+            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
+            admitted_bytes -= chunks[next].1;
+            match outcome {
+                Ok(()) => {
+                    counters.admitted.fetch_add(1, Ordering::Relaxed);
+                    next += 1;
+                }
+                Err(error) => failure = Some(error),
+            }
+            continue;
         }
         let wait_started = Instant::now();
         let received = receiver.recv();
@@ -651,22 +659,6 @@ pub(crate) fn process_framed_file(
         let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
         ready.insert(index, result);
-        while let Some(result) = ready.remove(&next) {
-            admitted_bytes -= chunks[next].1;
-            let admission_started = Instant::now();
-            let outcome = result.and_then(&mut admit);
-            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
-            match outcome {
-                Ok(()) => {
-                    counters.admitted.fetch_add(1, Ordering::Relaxed);
-                    next += 1;
-                }
-                Err(error) => {
-                    failure = Some(error);
-                    break;
-                }
-            }
-        }
     }
     while completed < dispatched {
         let _ = receiver.recv().map_err(|error| error.to_string())?;
@@ -803,48 +795,8 @@ pub(crate) fn process_repository_file_batches(
         })
         .collect::<Vec<_>>();
     let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
-    let mut future_first_jobs = jobs
-        .iter()
-        .enumerate()
-        .filter(|(index, job)| {
-            *index > 0 && jobs[*index - 1].collection_index != job.collection_index
-        })
-        .map(|(index, _)| index)
-        .collect::<Vec<_>>();
-    future_first_jobs.sort_by_key(|index| (weights[*index], *index));
-    let mut order = (0..jobs.len()).collect::<Vec<_>>();
-    // Precompute a couple of small collections, leaving most of the byte
-    // window for the first collection's ordered work. The next required job
-    // is always scheduled inside the initial window to avoid head-of-line
-    // deadlock on small pools.
-    let mut prefetched = Vec::new();
-    let mut prefetch_bytes = 0u64;
-    for index in future_first_jobs {
-        if pool.current_num_threads() == 1
-            || prefetched.len() == 2
-            || prefetched.len() + 2 > max_jobs
-        {
-            break;
-        }
-        let weight = weights[index];
-        if prefetch_bytes.saturating_add(weight) > allowance / 4
-            || prefetch_bytes
-                .saturating_add(weight)
-                .saturating_add(weights[0])
-                > allowance
-        {
-            continue;
-        }
-        prefetch_bytes += weight;
-        prefetched.push(index);
-    }
-    if !prefetched.is_empty() {
-        order.clear();
-        order.extend(prefetched.iter().copied());
-        order.extend((0..jobs.len()).filter(|index| !prefetched.contains(index)));
-    }
     let (sender, receiver) = mpsc::channel();
-    let mut ready = BTreeMap::new();
+    let mut ready: BTreeMap<usize, Result<BatchContribution, String>> = BTreeMap::new();
     let mut dispatched = 0;
     let mut completed = 0;
     let mut next = 0;
@@ -853,36 +805,55 @@ pub(crate) fn process_repository_file_batches(
     let mut failure = None;
     let counters = Arc::new(JobCounters::default());
     let mut stats = BuildScheduleStats { weight_limit_bytes: allowance, ..Default::default() };
+    let dispatch = |index: usize| {
+        let file_ids = jobs[index].files.clone();
+        let sender = sender.clone();
+        let root = Arc::clone(&root);
+        let definition = Arc::clone(&jobs[index].definition);
+        let source = jobs[index].source.clone();
+        let collection = jobs[index].collection;
+        let source_files = Arc::clone(&source_files);
+        let counters = Arc::clone(&counters);
+        pool.spawn(move || {
+            let result = counters.run(|| process_batch(
+                &root, &definition, collection, &source, &file_ids, &source_files, alphabet,
+            ));
+            let _ = sender.send((index, result));
+        });
+    };
     while next < jobs.len() && failure.is_none() {
         while dispatched < jobs.len() && dispatched - next < max_jobs {
-            let index = order[dispatched];
-            let weight = weights[index];
+            let current_collection = jobs[next].collection_index;
+            let upcoming_collection = jobs[dispatched].collection_index;
+            if upcoming_collection != current_collection
+                && (upcoming_collection != current_collection.saturating_add(1)
+                    || (dispatched > 0
+                        && jobs[dispatched - 1].collection_index == upcoming_collection))
+            {
+                break;
+            }
+            let weight = weights[dispatched];
             if !fits_allowance(admitted_bytes, weight, allowance) {
                 break;
             }
-            let file_ids = jobs[index].files.clone();
-            let sender = sender.clone();
-            let root = Arc::clone(&root);
-            let definition = Arc::clone(&jobs[index].definition);
-            let source = jobs[index].source.clone();
-            let collection = jobs[index].collection;
-            let source_files = Arc::clone(&source_files);
-            let counters = Arc::clone(&counters);
-            pool.spawn(move || {
-                let result = counters.run(|| process_batch(
-                    &root,
-                    &definition,
-                    collection,
-                    &source,
-                    &file_ids,
-                    &source_files,
-                    alphabet,
-                ));
-                let _ = sender.send((index, result));
-            });
+            dispatch(dispatched);
             admitted_bytes = admitted_bytes.saturating_add(weight);
             peak_bytes = peak_bytes.max(admitted_bytes);
             dispatched += 1;
+        }
+        if let Some(result) = ready.remove(&next) {
+            let admission_started = Instant::now();
+            let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));
+            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
+            admitted_bytes -= weights[next];
+            match outcome {
+                Ok(()) => {
+                    counters.admitted.fetch_add(1, Ordering::Relaxed);
+                    next += 1;
+                }
+                Err(error) => failure = Some(error),
+            }
+            continue;
         }
         let wait_started = Instant::now();
         let received = receiver.recv();
@@ -890,22 +861,6 @@ pub(crate) fn process_repository_file_batches(
         let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
         ready.insert(index, result);
-        while let Some(result) = ready.remove(&next) {
-            admitted_bytes -= weights[next];
-            let admission_started = Instant::now();
-            let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));
-            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
-            match outcome {
-                Ok(()) => {
-                    counters.admitted.fetch_add(1, Ordering::Relaxed);
-                    next += 1;
-                }
-                Err(error) => {
-                    failure = Some(error);
-                    break;
-                }
-            }
-        }
     }
     // Rayon jobs own only immutable inputs. Drain them before the pool is
     // dropped, even on an admission or parser error.
