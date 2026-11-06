@@ -148,6 +148,7 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
             fields: field
                 .map(|name| {
                     vec![FtsField {
+                        query_path: None,
                         path: crate::model::FieldPath::parse(name).unwrap(),
                         binding: None,
                     }]
@@ -660,6 +661,7 @@ fn body_only_reader_does_not_prune_unindexed_title() {
                     case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                     literal: "hello world".into(),
                     fields: vec![FtsField {
+                        query_path: None,
                         path: crate::model::FieldPath::parse("title").unwrap(),
                         binding: None,
                     }],

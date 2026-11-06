@@ -86,6 +86,7 @@ fn fts_exact_modes_preserve_original_and_folded_literals() {
                     literal: literal.into(),
                     fields: selected
                         .then(|| crate::query::FtsField {
+                            query_path: None,
                             path: FieldPath::parse("name").unwrap(),
                             binding: None,
                         })
@@ -728,6 +729,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "hello".into(),
                 fields: vec![FtsField {
+                    query_path: None,
                     path: FieldPath::parse("title").unwrap(),
                     binding: Some("lower".into()),
                 }],

@@ -147,6 +147,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                             literal: "STRASSE".into(),
                             fields: selected
                                 .then(|| FtsField {
+                                    query_path: None,
                                     path: crate::model::FieldPath::parse("title").unwrap(),
                                     binding: None,
                                 })
@@ -546,6 +547,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "alp".into(),
             fields: vec![FtsField {
+                query_path: None,
                 path: crate::model::FieldPath::parse("title").unwrap(),
                 binding: named.then(|| "sep".into()),
             }],
@@ -819,6 +821,7 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
                         case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                         literal: "hello world".into(),
                         fields: vec![FtsField {
+                            query_path: None,
                             path: crate::model::FieldPath::parse("title").unwrap(),
                             binding: None,
                         }],
@@ -1096,6 +1099,7 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
             fields: selected
                 .map(|name| {
                     vec![FtsField {
+                        query_path: None,
                         path: crate::model::FieldPath::parse("title").unwrap(),
                         binding: Some(name.into()),
                     }]
@@ -1487,6 +1491,7 @@ fn indexed_restriction_precedes_written_first_scan() {
             case_sensitivity: crate::query::CaseSensitivity::Sensitive,
             literal: "NEEDLE".into(),
             fields: vec![FtsField {
+                query_path: None,
                 path: crate::model::FieldPath::parse("text").unwrap(),
                 binding: Some("folded".into()),
             }],

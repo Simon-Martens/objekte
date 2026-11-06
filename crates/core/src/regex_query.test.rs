@@ -129,6 +129,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
                 fields: selected
                     .into_iter()
                     .map(|name| FtsField {
+                        query_path: None,
                         path: FieldPath::parse(name).unwrap(),
                         binding: None,
                     })

@@ -12,7 +12,7 @@ use crate::reference::{
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::repository::Repository;
-use crate::source::{ScanProjection, TextSegment, read_record_range};
+use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range};
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;
@@ -152,14 +152,23 @@ pub(crate) fn bind_fts_with_relations(
     local.fields.clear();
     let mut related = Vec::new();
     let mut related_base = None;
+    let mut local_positions = Vec::new();
     for selected in &request.fields {
-        let path = QueryPath::parse(&selected.path.display())?;
+        let syntax = selected.query_path.clone().unwrap_or_else(|| selected.path.display());
+        let path = QueryPath::parse(&syntax)?;
         if let Some((hops, terminal)) = resolve_path(repo, collection_index, &path)? {
             let target = hops.last().ok_or("relation FTS has no hop")?.to.0 as usize;
+            if terminal.has_explicit_array_step
+                && repo.collections[target].source.reader().text_derivation()
+                    != TextDerivation::LogicalStringsAfterConversion
+            {
+                return Err("selected FTS array positions require logical-string text derivation".into());
+            }
             let target_request = FtsQuery {
                 fields: vec![FtsField {
-                    path: terminal.field,
+                    path: terminal.field.clone(),
                     binding: selected.binding.clone(),
+                    query_path: None,
                 }],
                 ..request.clone()
             };
@@ -171,11 +180,24 @@ pub(crate) fn bind_fts_with_relations(
             if related_base.is_none() {
                 related_base = Some(bound);
             }
+            if terminal.has_explicit_array_step {
+                field.query_path = Some(terminal);
+            }
             field.related = Some(hops);
-            field.evidence_path = selected.path.display();
+            field.evidence_path = syntax;
             related.push(field);
         } else {
-            local.fields.push(selected.clone());
+            let mut direct = selected.clone();
+            direct.query_path = None;
+            local.fields.push(direct);
+            if path.has_explicit_array_step {
+                if repo.collections[collection_index].source.reader().text_derivation()
+                    != TextDerivation::LogicalStringsAfterConversion
+                {
+                    return Err("selected FTS array positions require logical-string text derivation".into());
+                }
+                local_positions.push((local.fields.len() - 1, path, syntax));
+            }
         }
     }
     if local.fields.is_empty() && !related.is_empty() {
@@ -187,6 +209,11 @@ pub(crate) fn bind_fts_with_relations(
         &local,
         &repo.collections[collection_index].definition.schema,
     )?;
+    for (index, path, syntax) in local_positions {
+        let field = bound.fields.get_mut(index).ok_or("selected FTS field is missing")?;
+        field.query_path = Some(path);
+        field.evidence_path = syntax;
+    }
     if !related.is_empty() {
         if local.fields.is_empty() {
             bound.fields.clear();

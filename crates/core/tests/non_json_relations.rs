@@ -177,6 +177,15 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
                     .counters
                     .verified_result_hit
             );
+            let mut positioned = query.clone();
+            positioned.fts.as_mut().unwrap().fields[0].query_path =
+                Some("entry.title[0]".into());
+            assert!(
+                repository
+                    .search(&positioned)
+                    .unwrap_err()
+                    .contains("logical-string text derivation")
+            );
         }
     }
     std::fs::remove_dir_all(root).unwrap();

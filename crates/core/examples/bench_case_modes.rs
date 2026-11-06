@@ -119,7 +119,8 @@ fn query(case: Case) -> Result<Query, String> {
                 .map_or((name, None), |(path, binding)| {
                     (path, Some(binding.to_owned()))
                 });
-            FieldPath::parse(path).map(|path| FtsField { path, binding })
+            FieldPath::parse(path).map(|path| FtsField {
+                query_path: None, path, binding })
         })
         .transpose()?
         .into_iter()

@@ -46,6 +46,12 @@ fn definitions() -> Vec<CollectionDefinition> {
     add_field(&mut entries, "id", LogicalType::Id, false);
     add_field(&mut entries, "title", LogicalType::String, false);
     add_field(&mut entries, "issued", LogicalType::Date, false);
+    add_field(
+        &mut entries,
+        "aliases",
+        LogicalType::Array(Box::new(LogicalType::String)),
+        true,
+    );
     let mut mentions = Schema::default();
     add_field(&mut mentions, "id", LogicalType::Id, false);
     add_field(&mut mentions, "title", LogicalType::String, false);
@@ -91,9 +97,9 @@ fn fixture() -> (
     std::fs::create_dir_all(root.join("entries")).unwrap();
     std::fs::create_dir_all(root.join("mentions")).unwrap();
     let entries = [
-        r#"{"id":"A","title":"Hymn","issued":"2024-02-29"}"#,
-        r#"{"id":"B","title":"Festival","issued":"2024-03-01"}"#,
-        r#"{"id":"C","title":"Hymn","issued":"2024-02-01"}"#,
+        r#"{"id":"A","title":"Hymn","issued":"2024-02-29","aliases":["Hymn","Other"]}"#,
+        r#"{"id":"B","title":"Festival","issued":"2024-03-01","aliases":["Festival"]}"#,
+        r#"{"id":"C","title":"Hymn","issued":"2024-02-01","aliases":["Other","Hymn"]}"#,
     ];
     let mentions = [
         r#"{"id":"m1","entry":"A","contributors":["A","B"],"title":"Festival"}"#,
@@ -296,11 +302,66 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
                     assert_eq!(actual.count, reference.count, "{filter}");
                 }
             }
+            for (collection, path, expected) in [
+                ("mentions", "contributors[0].title", vec!["m1", "m6"]),
+                ("mentions", "contributors[1].title", vec!["m6"]),
+                ("entries", "aliases[0]", vec!["A"]),
+                ("entries", "aliases[1]", vec!["C"]),
+                ("mentions", "entry.aliases[0]", vec!["m1"]),
+                ("mentions", "entry.aliases[1]", vec!["m6"]),
+            ] {
+                for (literal, mode) in [
+                    ("Hymn", FtsMode::Literal),
+                    ("^Hy.*n$", FtsMode::Regex(RegexOptions::default())),
+                ] {
+                    let selected = Query::from_workload(&WorkloadCase {
+                        id: "selected-position".into(),
+                        collection: collection.into(),
+                        fts: Some(literal.into()),
+                        fts_case_sensitivity: CaseSensitivity::Sensitive,
+                        fts_mode: mode,
+                        filter: None,
+                        fts_fields: vec![path.into()],
+                        sort: vec![],
+                        limit: 100,
+                        offset: 0,
+                        count: true,
+                        return_mode: ReturnMode::Locator,
+                        evidence: true,
+                    })
+                    .unwrap();
+                    assert_eq!(
+                        selected.fts.as_ref().unwrap().fields[0]
+                            .query_path
+                            .as_deref(),
+                        Some(path)
+                    );
+                    let actual = repository.search(&selected).unwrap();
+                    let reference = repository.search_reference(&selected).unwrap();
+                    assert_eq!(sorted_ids(&actual), expected);
+                    assert_eq!(actual.hits, reference.hits);
+                    assert_eq!(actual.count, Some(expected.len()));
+                    assert!(
+                        actual
+                            .hits
+                            .iter()
+                            .all(|hit| hit.matched_fields.contains(&path.to_owned()))
+                    );
+                    assert!(
+                        repository
+                            .search(&selected)
+                            .unwrap()
+                            .counters
+                            .verified_result_hit
+                    );
+                }
+            }
             let mut selected = query("mentions", "entry = $target", ReturnMode::Locator);
             selected.fts = Some(objekte_search_core::query::FtsQuery {
                 pattern_parameter: Some("pattern".into()),
                 literal: String::new(),
                 fields: vec![objekte_search_core::query::FtsField {
+                    query_path: None,
                     path: objekte_search_core::model::FieldPath::parse("entry.title").unwrap(),
                     binding: None,
                 }],

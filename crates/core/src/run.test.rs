@@ -330,6 +330,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: "title".into(),
                 fields: vec![crate::query::FtsField {
+                    query_path: None,
                     path: crate::model::FieldPath::parse("title").unwrap(),
                     binding: None,
                 }],
@@ -2122,6 +2123,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
                 case_sensitivity: crate::query::CaseSensitivity::Sensitive,
                 literal: literal.into(),
                 fields: vec![crate::query::FtsField {
+                    query_path: None,
                     path: crate::model::FieldPath::parse(path).unwrap(),
                     binding,
                 }],

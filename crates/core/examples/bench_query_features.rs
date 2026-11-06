@@ -380,6 +380,20 @@ fn cases() -> Vec<FeatureCase> {
         20,
     );
     add(
+        "selected-fts-position",
+        "mentions",
+        None,
+        Some("Hymn"),
+        false,
+        &["contributors[0].title"],
+        HashMap::new(),
+        &["m1", "m4"],
+        2,
+        false,
+        0,
+        20,
+    );
+    add(
         "relation-dangling-not",
         "mentions",
         Some("!(entry.title = 'Hymn')"),

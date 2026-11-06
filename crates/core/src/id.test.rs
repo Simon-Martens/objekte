@@ -245,6 +245,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         );
         let mut selected_id = fts.clone();
         selected_id.fts.as_mut().unwrap().fields = vec![FtsField {
+            query_path: None,
             path: FieldPath::parse("@record.id").unwrap(),
             binding: None,
         }];

@@ -153,6 +153,9 @@ pub enum FilterExpr {
 pub struct FtsField {
     pub path: FieldPath,
     pub binding: Option<String>,
+    /// Original selected path when it contains an explicit array step.
+    #[serde(default)]
+    pub query_path: Option<String>,
 }
 
 
@@ -257,9 +260,11 @@ impl Query {
                         let (path, binding) = name
                             .rsplit_once(':')
                             .map_or((name.as_str(), None), |(a, b)| (a, Some(b.to_owned())));
+                        let parsed = QueryPath::parse(path)?;
                         Ok(FtsField {
-                            path: FieldPath::parse(path)?,
+                            path: parsed.field,
                             binding,
+                            query_path: parsed.has_explicit_array_step.then(|| path.to_owned()),
                         })
                     })
                     .collect::<Result<Vec<_>, String>>()?;

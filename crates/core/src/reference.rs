@@ -2064,6 +2064,7 @@ pub fn eval_fts(
 #[derive(Clone, Debug)]
 pub struct BoundFtsField {
     pub path: FieldPath,
+    pub(crate) query_path: Option<QueryPath>,
     pub(crate) related: Option<Vec<crate::relation_query::BoundRelationHop>>,
     pub(crate) evidence_path: String,
     pub binding_name: String,
@@ -2142,6 +2143,9 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         .transpose()?;
     let mut fields = Vec::new();
     for selected in &fts.fields {
+        if selected.query_path.is_some() {
+            return Err("selected FTS array selectors require a declared relation hop".into());
+        }
         let definition = schema.field_or_dynamic(&selected.path)?;
         if !matches!(definition.kind, LogicalType::String)
             && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
@@ -2207,6 +2211,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
             .transpose()?;
         fields.push(BoundFtsField {
             path: selected.path.clone(),
+            query_path: None,
             related: None,
             evidence_path: selected.path.display(),
             binding_name: name,
@@ -2261,6 +2266,9 @@ fn bind_regex_fts(
     });
     let mut fields = Vec::with_capacity(fts.fields.len());
     for selected in &fts.fields {
+        if selected.query_path.is_some() {
+            return Err("selected FTS array selectors require a declared relation hop".into());
+        }
         let definition = schema.field_or_dynamic(&selected.path)?;
         if !matches!(definition.kind, LogicalType::String)
             && !matches!(definition.kind, LogicalType::Array(ref inner) if **inner == LogicalType::String)
@@ -2290,6 +2298,7 @@ fn bind_regex_fts(
         };
         fields.push(BoundFtsField {
             path: selected.path.clone(),
+            query_path: None,
             related: None,
             evidence_path: selected.path.display(),
             binding_name: name,
@@ -2388,7 +2397,25 @@ pub fn eval_bound_fts(
                     fts.case_sensitivity,
                 )? {
                     matched = true;
-                    evidence.insert(field.path.display());
+                    evidence.insert(field.evidence_path.clone());
+                }
+            }
+        } else if let Some(path) = &field.query_path {
+            let mut selected = Vec::new();
+            walk_query_steps(ctx.value, &path.steps, &mut selected);
+            for value in selected {
+                if let Value::String(text) = value
+                    && text_contains(
+                        text,
+                        &field.literal,
+                        &field.folded_literal,
+                        field.transform,
+                        field.matcher.as_ref(),
+                        fts.case_sensitivity,
+                    )?
+                {
+                    matched = true;
+                    evidence.insert(field.evidence_path.clone());
                 }
             }
         } else {
@@ -2405,7 +2432,7 @@ pub fn eval_bound_fts(
                     fts.case_sensitivity,
                 )? {
                     matched = true;
-                    evidence.insert(field.path.display());
+                    evidence.insert(field.evidence_path.clone());
                 }
             }
         }
