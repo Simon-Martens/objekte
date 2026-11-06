@@ -39,6 +39,8 @@ def main() -> int:
     skipped = [entry for entry in entries if entry["type"] == "skip"]
     if not cases:
         raise ValueError("no result-equivalent cases")
+    if len(cases) + len(skipped) != 34:
+        raise ValueError(f"expected 34 shared cases, found {len(cases) + len(skipped)}")
     if input_path.resolve() != (result_dir / "raw.jsonl").resolve():
         (result_dir / "raw.jsonl").write_text(input_path.read_text())
     revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
@@ -84,7 +86,7 @@ def main() -> int:
     (result_dir / "REPORT.md").write_text("\n".join(lines))
     print(f"{len(cases)} matched cases, {len(skipped)} excluded; median old/new {statistics.median(ratios):.2f}×")
     print(result_dir)
-    return 0
+    return int(bool(skipped))
 
 
 if __name__ == "__main__":

@@ -163,11 +163,29 @@ fn run() -> Result<(), String> {
                 if result.total != old_first.total {
                     return Err(format!("{} old count changed", case.id));
                 }
+                if result
+                    .records
+                    .iter()
+                    .map(|record| record.id.as_str())
+                    .collect::<Vec<_>>()
+                    != old_ids
+                {
+                    return Err(format!("{} old page changed", case.id));
+                }
                 let started = Instant::now();
                 let result = new.search(&new_query)?;
                 new_ns.push(started.elapsed().as_nanos() as u64);
                 if result.count != new_first.count {
                     return Err(format!("{} new count changed", case.id));
+                }
+                if result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>()
+                    != new_ids
+                {
+                    return Err(format!("{} new page changed", case.id));
                 }
             } else {
                 let started = Instant::now();
@@ -176,6 +194,15 @@ fn run() -> Result<(), String> {
                 if result.count != new_first.count {
                     return Err(format!("{} new count changed", case.id));
                 }
+                if result
+                    .hits
+                    .iter()
+                    .map(|hit| hit.record_id.as_str())
+                    .collect::<Vec<_>>()
+                    != new_ids
+                {
+                    return Err(format!("{} new page changed", case.id));
+                }
                 let started = Instant::now();
                 let result = old
                     .query_json(&old_query)
@@ -183,6 +210,15 @@ fn run() -> Result<(), String> {
                 old_ns.push(started.elapsed().as_nanos() as u64);
                 if result.total != old_first.total {
                     return Err(format!("{} old count changed", case.id));
+                }
+                if result
+                    .records
+                    .iter()
+                    .map(|record| record.id.as_str())
+                    .collect::<Vec<_>>()
+                    != old_ids
+                {
+                    return Err(format!("{} old page changed", case.id));
                 }
             }
         }
