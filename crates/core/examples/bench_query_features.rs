@@ -611,11 +611,14 @@ fn main() -> Result<(), String> {
             continue;
         }
         let plan = repo.explain_with_parameters(&query, &case.parameters)?;
-        println!("{}", json!({"kind":"plan","case_id":case.id,
-            "filter":case.filter,"fts":case.fts,"regex":case.regex,
-            "fts_fields":case.fts_fields,"parameters":case.parameters,
-            "offset":case.offset,"limit":case.limit,"expected_page":expected,
-            "expected_count":case.expected_count,"plan":plan}));
+        println!(
+            "{}",
+            json!({"kind":"plan","case_id":case.id,
+                "filter":case.filter,"fts":case.fts,"regex":case.regex,
+                "fts_fields":case.fts_fields,"parameters":case.parameters,
+                "offset":case.offset,"limit":case.limit,"expected_page":expected,
+                "expected_count":case.expected_count,"plan":plan})
+        );
         for repetition in 0..repetitions {
             let started = Instant::now();
             let result = repo.search_with_parameters(&query, &case.parameters)?;
