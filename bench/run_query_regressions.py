@@ -64,7 +64,7 @@ def main() -> int:
     parser.add_argument("mode", choices=("quick", "full"))
     parser.add_argument("--result-dir", type=Path)
     parser.add_argument("--baseline", type=Path, required=True, help="explicit completed baseline run directory")
-    parser.add_argument("--comparison", choices=("repair", "historical", "casefold"), required=True)
+    parser.add_argument("--comparison", choices=("repair", "historical", "casefold", "parallel"), required=True)
     parser.add_argument("--verify-only", action="store_true", help="check an existing completed run")
     args = parser.parse_args()
     revision = subprocess.check_output(["git", "rev-parse", "--short=10", "HEAD"], cwd=ROOT, text=True).strip()
@@ -104,6 +104,8 @@ def main() -> int:
         failures.append("historical comparison must use the named historical baseline revision")
     if args.comparison == "casefold" and old_manifest["code_revision"] != "20261604bebf949131441c8262f1f442bce4207c":
         failures.append("casefold comparison must use the current foundation-repair baseline revision")
+    if args.comparison == "parallel" and old_manifest["code_revision"] != "ff759b225c6bc4bfdd614c542fe38fe017a900b6":
+        failures.append("parallel comparison must use the case-folded query baseline revision")
     build_flags = {key: value for key, value in os.environ.items()
                    if key in ("RUSTFLAGS", "CARGO_ENCODED_RUSTFLAGS", "CARGO_BUILD_TARGET")
                    or key.startswith("CARGO_PROFILE_RELEASE_")}
@@ -111,7 +113,7 @@ def main() -> int:
         failures.append(f"nondefault build flags are not recorded in the pre-repair baseline: {sorted(build_flags)}")
     baseline_environment_path = baseline / "environment.json"
     baseline_environment = json.loads(baseline_environment_path.read_text()) if baseline_environment_path.exists() else {
-        "governor": "performance" if args.comparison == "casefold" else "powersave",
+        "governor": "performance" if args.comparison in ("casefold", "parallel") else "powersave",
         "affinity": list(range(32)), "build_flags": {},
     }
     affinity = sorted(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None
