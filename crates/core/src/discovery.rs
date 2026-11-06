@@ -82,14 +82,13 @@ pub fn discover(
     let includes = compile(&rules.include)?;
     let excludes = compile(&rules.exclude)?;
     let mut pending = vec![(source_directory.clone(), vec![physical_root.clone()])];
-    let mut files = BTreeMap::<PathBuf, PathBuf>::new();
+    let mut direct_files = Vec::new();
+    let mut aliases = BTreeMap::<PathBuf, PathBuf>::new();
     while let Some((directory, ancestors)) = pending.pop() {
-        let mut entries = std::fs::read_dir(&directory)
-            .map_err(|e| format!("{}: {e}", directory.display()))?
-            .collect::<Result<Vec<_>, _>>()
-            .map_err(|e| e.to_string())?;
-        entries.sort_by_key(|entry| entry.path());
+        let entries =
+            std::fs::read_dir(&directory).map_err(|e| format!("{}: {e}", directory.display()))?;
         for entry in entries {
+            let entry = entry.map_err(|e| e.to_string())?;
             let path = entry.path();
             let selected_path = path
                 .strip_prefix(&source_directory)
@@ -98,15 +97,23 @@ pub fn discover(
                 continue;
             }
             let kind = entry.file_type().map_err(|e| e.to_string())?;
-            if kind.is_symlink() && rules.symlinks == SymlinkPolicy::Skip {
+            if rules.symlinks == SymlinkPolicy::Skip {
+                if kind.is_dir() && rules.recursive {
+                    pending.push((path, ancestors.clone()));
+                } else if kind.is_file()
+                    && path
+                        .extension()
+                        .is_some_and(|ext| ext == source.extension())
+                    && (rules.include.is_empty() || includes.is_match(selected_path))
+                    && !excludes.is_match(selected_path)
+                {
+                    direct_files.push(path);
+                }
                 continue;
             }
-            let physical = if rules.symlinks == SymlinkPolicy::Skip {
-                physical_root.join(selected_path)
-            } else {
-                path.canonicalize()
-                    .map_err(|e| format!("{}: {e}", path.display()))?
-            };
+            let physical = path
+                .canonicalize()
+                .map_err(|e| format!("{}: {e}", path.display()))?;
             if !physical.starts_with(&physical_root) {
                 continue;
             }
@@ -123,7 +130,7 @@ pub fn discover(
                 && (rules.include.is_empty() || includes.is_match(selected_path))
                 && !excludes.is_match(selected_path)
             {
-                files
+                aliases
                     .entry(physical)
                     .and_modify(|existing| {
                         if path < *existing {
@@ -134,7 +141,11 @@ pub fn discover(
             }
         }
     }
-    let mut paths = files.into_values().collect::<Vec<_>>();
+    let mut paths = if rules.symlinks == SymlinkPolicy::Skip {
+        direct_files
+    } else {
+        aliases.into_values().collect()
+    };
     paths.sort();
     Ok(paths)
 }
