@@ -34,3 +34,27 @@ fn every_fixed_filter_parses() {
         Query::from_workload(&case).unwrap_or_else(|e| panic!("{}: {e}", case.id));
     }
 }
+
+#[test]
+fn seeded_bounded_filter_inputs_never_panic() {
+    const SEED: u64 = 0xF11E_2026_1106;
+    let mut state = SEED;
+    let alphabet = [
+        'a', '0', ' ', '(', ')', '[', ']', '\'', '"', ':', '?', '=', '!', '&', '|', '~', '.', '\\',
+        'é',
+    ];
+    for case in 0..512 {
+        let len = (state as usize % 48) + 1;
+        let mut input = String::new();
+        for _ in 0..len {
+            state ^= state << 13;
+            state ^= state >> 7;
+            state ^= state << 17;
+            input.push(alphabet[state as usize % alphabet.len()]);
+        }
+        assert!(
+            std::panic::catch_unwind(|| parse_filter(&input)).is_ok(),
+            "seed={SEED:#x} case={case} input={input:?}"
+        );
+    }
+}

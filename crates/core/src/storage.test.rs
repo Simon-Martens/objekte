@@ -156,6 +156,127 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
 }
 
 #[test]
+fn seeded_snapshot_mutations_and_truncations_are_rejected_without_panics() {
+    const SEED: u64 = 0x5A9A_2026_1106;
+    let root = std::env::temp_dir().join(format!("objekte-snapshot-fuzz-{}", std::process::id()));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/one.json"), br#"{"x":"one"}"#).unwrap();
+    let definitions = vec![CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema: Schema::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    }];
+    let options = RepositoryOptions {
+        snapshot_mode: crate::repository::SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let snapshot = root.join("snapshot.bin");
+    built.save_snapshot(&snapshot).unwrap();
+    let original = fs::read(&snapshot).unwrap();
+    let mut state = SEED;
+    for case in 0..64 {
+        state ^= state << 13;
+        state ^= state >> 7;
+        state ^= state << 17;
+        let index = state as usize % original.len();
+        let mut bytes = original.clone();
+        bytes[index] ^= 1 << (case % 8);
+        fs::write(&snapshot, bytes).unwrap();
+        let loaded = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &snapshot,
+            )
+        }));
+        assert!(
+            loaded.is_ok() && loaded.unwrap().is_err(),
+            "seed={SEED:#x} case={case} index={index}"
+        );
+    }
+    for size in [0, 1, 8, 16, original.len() / 2, original.len() - 1] {
+        fs::write(&snapshot, &original[..size]).unwrap();
+        let loaded = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            load_snapshot(
+                root.clone(),
+                definitions.clone(),
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &snapshot,
+            )
+        }));
+        assert!(
+            loaded.is_ok() && loaded.unwrap().is_err(),
+            "seed={SEED:#x} truncated_size={size}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn checksummed_snapshot_with_invalid_diagnostic_reference_is_rejected() {
+    use std::io::Cursor;
+    let root = std::env::temp_dir().join(format!("objekte-snapshot-ref-{}", std::process::id()));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/bad.json"), br#"{"title":"bad""#).unwrap();
+    let definitions = vec![CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema: Schema::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    }];
+    let options = RepositoryOptions {
+        snapshot_mode: crate::repository::SnapshotMode::Disabled,
+        ..Default::default()
+    };
+    let built = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    let snapshot = root.join("snapshot.bin");
+    built.save_snapshot(&snapshot).unwrap();
+    let bytes = fs::read(&snapshot).unwrap();
+    let header_size = MAGIC.len() + 4 + 4 + 32 + 4;
+    let mut reader = Cursor::new(&bytes);
+    reader.set_position(header_size as u64);
+    let files: Vec<EncodedFile> = read_section(&mut reader, 0).unwrap();
+    let mut collection: EncodedCollection = read_section(&mut reader, 1).unwrap();
+    assert_eq!(collection.generation.records.len(), 1);
+    collection.generation.records[0].diagnostic_ref = crate::inventory::DiagnosticRef(42);
+    let mut rewritten = bytes[..header_size].to_vec();
+    write_section(&mut rewritten, 0, &files).unwrap();
+    write_section(&mut rewritten, 1, &collection).unwrap();
+    fs::write(&snapshot, rewritten).unwrap();
+    let error = load_snapshot(
+        root.clone(),
+        definitions,
+        options,
+        &crate::source::SourceRegistry::builtin(),
+        &snapshot,
+    )
+    .err()
+    .unwrap();
+    assert!(
+        error.contains("record range or revision mismatch"),
+        "{error}"
+    );
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
     let root = std::env::temp_dir().join(format!("objekte-reopen-{}", std::process::id()));
     fs::create_dir_all(root.join("data")).unwrap();

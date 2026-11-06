@@ -406,26 +406,23 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
         schema
             .set_default_binding(vec!["title".into()], "fold")
             .unwrap();
-        let repo = Repository::open_with_options(
-            &root,
-            vec![CollectionDefinition {
-                name: "data".into(),
-                source_path: "data".into(),
-                format: SourceFormat::Json,
-                identity: IdentityPolicy::Filename,
-                discovery: Default::default(),
-                schema,
-                sort_fields: vec![],
-                sort_locale: "de".into(),
-                sort_options: Default::default(),
-                sort_overrides: Default::default(),
-            }],
-            RepositoryOptions {
-                snapshot_mode: SnapshotMode::Disabled,
-                ..Default::default()
-            },
-        )
-        .unwrap();
+        let definition = CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        };
+        let options = RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        };
+        let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         let request = PostingValuesRequest::new("data", "title", 10);
         if complete {
             assert_eq!(
@@ -457,6 +454,26 @@ fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
             changed_binding.binding = Some("default".into());
             assert!(
                 repo.posting_values(&changed_binding)
+                    .unwrap_err()
+                    .contains("continuation scope")
+            );
+            let snapshot = root.join("fold.snapshot");
+            repo.save_snapshot(&snapshot).unwrap();
+            let restored = crate::storage::load_snapshot(
+                root.clone(),
+                vec![definition.clone()],
+                options,
+                &crate::source::SourceRegistry::builtin(),
+                &snapshot,
+            )
+            .unwrap();
+            assert_eq!(
+                restored.posting_values(&request).unwrap().values,
+                repo.posting_values(&request).unwrap().values
+            );
+            assert!(
+                restored
+                    .posting_values(&paged)
                     .unwrap_err()
                     .contains("continuation scope")
             );

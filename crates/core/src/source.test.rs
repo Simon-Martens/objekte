@@ -322,6 +322,56 @@ fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
 }
 
 #[test]
+fn seeded_reader_ranges_obey_checked_nonoverlap_contract() {
+    const SEED: u64 = 0xA11C_2026_1106;
+    let root = std::env::temp_dir().join(format!("objekte-range-property-{}", std::process::id()));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.outcome");
+    std::fs::write(&path, b"ok\nbad").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut state = SEED;
+    for case in 0..256 {
+        let mut ranges = Vec::new();
+        for _ in 0..1 + (case % 4) {
+            state ^= state << 13;
+            state ^= state >> 7;
+            state ^= state << 17;
+            let start = state % 9;
+            state ^= state << 13;
+            state ^= state >> 7;
+            state ^= state << 17;
+            let end = state % 9;
+            ranges.push(ByteRange { start, end });
+        }
+        let mut previous_end = 0;
+        let valid = ranges.iter().all(|range| {
+            let valid = range.start <= range.end && range.end <= 6 && range.start >= previous_end;
+            previous_end = range.end;
+            valid
+        });
+        let reader = OutcomeReader {
+            ranges: ranges.clone(),
+            parses: Arc::new(AtomicUsize::new(0)),
+            fail_framing: false,
+        };
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            extract_file_outcomes(&path, &reader, revision, |_| Ok(()))
+        }));
+        assert!(
+            result.is_ok(),
+            "seed={SEED:#x} case={case} ranges={ranges:?}"
+        );
+        let outcome = result.unwrap();
+        assert_eq!(
+            outcome.is_ok(),
+            valid,
+            "seed={SEED:#x} case={case} ranges={ranges:?} outcome={outcome:?}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn registered_recoverable_error_survives_repository_query_and_restore() {
     use crate::query::{FtsQuery, Query, QueryOptions};
     use crate::reference::Schema;

@@ -278,7 +278,7 @@ pub fn configuration_hash(
     Ok(hash.finalize().into())
 }
 
-fn write_section(file: &mut File, id: u32, value: &impl Serialize) -> Result<(), String> {
+fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Result<(), String> {
     let bytes = codec().serialize(value).map_err(|e| e.to_string())?;
     if bytes.len() as u64 > MAX_SECTION_BYTES {
         return Err("snapshot section too large".into());
@@ -293,7 +293,7 @@ fn write_section(file: &mut File, id: u32, value: &impl Serialize) -> Result<(),
 }
 
 fn read_section<T: for<'de> Deserialize<'de>>(
-    file: &mut File,
+    file: &mut impl Read,
     expected_id: u32,
 ) -> Result<T, String> {
     let mut id = [0; 4];

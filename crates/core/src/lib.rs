@@ -30,3 +30,7 @@ pub mod workload;
 #[cfg(test)]
 #[path = "lib.test.rs"]
 mod tests;
+
+#[cfg(test)]
+#[path = "foundation_invariants.test.rs"]
+mod foundation_invariants;

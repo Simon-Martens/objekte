@@ -126,3 +126,7 @@ pub(super) fn all(
     }
     outcome
 }
+
+#[cfg(test)]
+#[path = "export.test.rs"]
+mod tests;
