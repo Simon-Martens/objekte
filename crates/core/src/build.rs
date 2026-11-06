@@ -9,7 +9,6 @@ use std::sync::Arc;
 use std::sync::mpsc;
 
 use rayon::ThreadPool;
-use rayon::prelude::*;
 use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramBuilder, BigramIndex};
@@ -120,7 +119,6 @@ pub(crate) struct BatchContribution {
 
 /// Owned index contributions waiting for the batch's final record-slot base.
 /// Record identities and diagnostics are admitted before this bundle is merged.
-#[cfg_attr(test, derive(Clone))]
 struct IndexBatch {
     count: u32,
     postings: PostingCollection,
@@ -130,75 +128,6 @@ struct IndexBatch {
     custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     logical_records: RoaringBitmap,
     sort_keys: HashMap<FieldPath, Vec<SortKey>>,
-}
-
-impl IndexBatch {
-    fn substantive_destinations(&self) -> usize {
-        self.postings
-            .fields
-            .values()
-            .filter(|index| posting_has_work(index))
-            .count()
-            + self
-                .custom_postings
-                .values()
-                .filter(|custom| posting_has_work(&custom.index))
-                .count()
-            + usize::from(!self.raw.normal.is_empty() || !self.raw.skip.is_empty())
-            + usize::from(
-                !self.fallback_text.normal.is_empty() || !self.fallback_text.skip.is_empty(),
-            )
-            + self
-                .custom_text
-                .values()
-                .filter(|index| !index.normal.is_empty() || !index.skip.is_empty())
-                .count()
-    }
-}
-
-fn posting_has_work(index: &PostingIndex) -> bool {
-    !index.presence.is_empty()
-        || !index.nulls.is_empty()
-        || !index.values.is_empty()
-        || !index.lengths.is_empty()
-}
-
-enum MergeTarget<'a> {
-    Posting(&'a mut PostingIndex, PostingIndex),
-    CustomPosting(&'a mut CustomPostingIndex, CustomPostingIndex),
-    Bigram(&'a mut BigramIndex, BigramIndex),
-}
-
-/// One exclusive final destination and one owned batch contribution.
-struct MergeJob<'a> {
-    family: u8,
-    path: &'a [String],
-    binding: &'a str,
-    target: MergeTarget<'a>,
-}
-
-impl MergeJob<'_> {
-    fn substantive(&self) -> bool {
-        match &self.target {
-            MergeTarget::Posting(_, index)
-            | MergeTarget::CustomPosting(_, CustomPostingIndex { index, .. }) => {
-                posting_has_work(index)
-            }
-            MergeTarget::Bigram(_, index) => !index.normal.is_empty() || !index.skip.is_empty(),
-        }
-    }
-
-    fn run(self, base: u32) -> Result<(), String> {
-        match self.target {
-            MergeTarget::Posting(destination, batch) => destination.merge_shifted(batch, base),
-            MergeTarget::CustomPosting(destination, batch) => {
-                destination.index.merge_shifted(batch.index, base)?;
-                destination.complete &= batch.complete;
-                Ok(())
-            }
-            MergeTarget::Bigram(destination, batch) => destination.merge_shifted(batch, base),
-        }
-    }
 }
 
 struct BatchBuilder<'a> {
@@ -946,13 +875,9 @@ pub(crate) struct CollectionAdmission<'a> {
 }
 
 impl CollectionAdmission<'_> {
-    pub fn admit(&mut self, batch: BatchContribution, pool: &ThreadPool) -> Result<(), String> {
+    pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
         let (base, indexes) = self.admit_records(batch)?;
-        if pool.current_num_threads() == 1 || indexes.substantive_destinations() < 2 {
-            self.merge_indexes_serial(indexes, base)
-        } else {
-            self.merge_indexes_parallel(indexes, base, pool)
-        }
+        self.merge_indexes_serial(indexes, base)
     }
 
     fn admit_records(&mut self, batch: BatchContribution) -> Result<(u32, IndexBatch), String> {
@@ -1078,192 +1003,6 @@ impl CollectionAdmission<'_> {
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
         self.sorting
             .append_keys(batch.sort_keys, base, batch.count)?;
-        Ok(())
-    }
-
-    fn validate_index_batch(&self, batch: &IndexBatch, base: u32) -> Result<(), String> {
-        base.checked_add(batch.count)
-            .ok_or("record slot overflow")?;
-        if batch
-            .logical_records
-            .max()
-            .is_some_and(|slot| slot >= batch.count)
-        {
-            return Err("logical batch record slot out of bounds".into());
-        }
-        if self.postings.fields.len() != batch.postings.fields.len()
-            || self.postings.fields.iter().any(|(key, destination)| {
-                batch.postings.fields.get(key).is_none_or(|source| {
-                    destination.path != source.path
-                        || destination.kind != source.kind
-                        || destination.multi != source.multi
-                        || source.covered_records > batch.count
-                        || destination
-                            .covered_records
-                            .checked_add(source.covered_records)
-                            .is_none()
-                })
-            })
-        {
-            return Err("posting batch field or representation mismatch".into());
-        }
-        if self.custom_postings.len() != batch.custom_postings.len()
-            || self.custom_postings.iter().any(|(key, destination)| {
-                batch.custom_postings.get(key).is_none_or(|source| {
-                    destination.index.path != source.index.path
-                        || destination.index.kind != source.index.kind
-                        || destination.index.multi != source.index.multi
-                        || source.index.covered_records > batch.count
-                        || destination
-                            .index
-                            .covered_records
-                            .checked_add(source.index.covered_records)
-                            .is_none()
-                })
-            })
-        {
-            return Err("custom posting batch field or representation mismatch".into());
-        }
-        let bigram_compatible = |destination: &BigramIndex, source: &BigramIndex| {
-            destination.alphabet == source.alphabet
-                && destination.record_count == base
-                && source.record_count == batch.count
-        };
-        if !bigram_compatible(self.raw, &batch.raw)
-            || !bigram_compatible(self.fallback_text, &batch.fallback_text)
-            || self.custom_text.len() != batch.custom_text.len()
-            || self.custom_text.iter().any(|(key, destination)| {
-                batch
-                    .custom_text
-                    .get(key)
-                    .is_none_or(|source| !bigram_compatible(destination, source))
-            })
-        {
-            return Err("bigram batch coverage or representation mismatch".into());
-        }
-        Ok(())
-    }
-
-    fn merge_indexes_parallel(
-        &mut self,
-        batch: IndexBatch,
-        base: u32,
-        pool: &ThreadPool,
-    ) -> Result<(), String> {
-        self.merge_indexes_with_hook(batch, base, pool, &|_, _, _, _, _| {})
-    }
-
-    fn run_merge_job<F>(job: MergeJob<'_>, base: u32, hook: &F) -> Result<(), String>
-    where
-        F: Fn(u32, u8, &[String], &str, bool) + Sync,
-    {
-        let (family, path, binding) = (job.family, job.path, job.binding);
-        hook(base, family, path, binding, true);
-        let result = job.run(base);
-        hook(base, family, path, binding, false);
-        result
-    }
-
-    fn merge_indexes_with_hook<F>(
-        &mut self,
-        batch: IndexBatch,
-        base: u32,
-        pool: &ThreadPool,
-        hook: &F,
-    ) -> Result<(), String>
-    where
-        F: Fn(u32, u8, &[String], &str, bool) + Sync,
-    {
-        self.validate_index_batch(&batch, base)?;
-        let IndexBatch {
-            count,
-            mut postings,
-            mut custom_postings,
-            raw,
-            fallback_text,
-            mut custom_text,
-            logical_records,
-            sort_keys,
-        } = batch;
-        // These single destinations stay ordered on the coordinator. Validate
-        // their coverage before starting any scoped index job.
-        append_shifted_bitmap(self.logical_records, &logical_records, base)?;
-        self.sorting.append_keys(sort_keys, base, count)?;
-        let mut jobs = Vec::with_capacity(
-            self.postings.fields.len() + self.custom_postings.len() + self.custom_text.len() + 2,
-        );
-        for (path, destination) in &mut self.postings.fields {
-            let source = postings
-                .fields
-                .remove(path)
-                .ok_or("posting batch field missing")?;
-            jobs.push(MergeJob {
-                family: 0,
-                path,
-                binding: "",
-                target: MergeTarget::Posting(destination, source),
-            });
-        }
-        for (key, destination) in &mut *self.custom_postings {
-            let source = custom_postings
-                .remove(key)
-                .ok_or("custom posting batch missing")?;
-            jobs.push(MergeJob {
-                family: 1,
-                path: &key.0,
-                binding: &key.1,
-                target: MergeTarget::CustomPosting(destination, source),
-            });
-        }
-        jobs.push(MergeJob {
-            family: 2,
-            path: &[],
-            binding: "",
-            target: MergeTarget::Bigram(self.raw, raw),
-        });
-        jobs.push(MergeJob {
-            family: 3,
-            path: &[],
-            binding: "",
-            target: MergeTarget::Bigram(self.fallback_text, fallback_text),
-        });
-        for (key, destination) in &mut *self.custom_text {
-            let source = custom_text
-                .remove(key)
-                .ok_or("custom bigram batch missing")?;
-            jobs.push(MergeJob {
-                family: 4,
-                path: &key.0,
-                binding: &key.1,
-                target: MergeTarget::Bigram(destination, source),
-            });
-        }
-        jobs.sort_by(|a, b| (a.family, a.path, a.binding).cmp(&(b.family, b.path, b.binding)));
-        let mut substantive = Vec::new();
-        for job in jobs {
-            if job.substantive() {
-                substantive.push(job);
-            } else {
-                Self::run_merge_job(job, base, hook)?;
-            }
-        }
-        if substantive.len() < 2 {
-            for job in substantive {
-                Self::run_merge_job(job, base, hook)?;
-            }
-        } else {
-            // `collect` retains job order. Every scoped job has joined before
-            // selecting the first error or admitting the next batch.
-            let results = pool.install(|| {
-                substantive
-                    .into_par_iter()
-                    .map(|job| Self::run_merge_job(job, base, hook))
-                    .collect::<Vec<_>>()
-            });
-            for result in results {
-                result?;
-            }
-        }
         Ok(())
     }
 }
