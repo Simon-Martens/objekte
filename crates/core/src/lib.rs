@@ -8,6 +8,8 @@ pub const MODEL_VERSION: u32 = 8;
 
 pub mod bigram;
 mod build;
+mod byte_size_literal;
+pub mod clock_context;
 pub mod discovery;
 pub mod executor;
 pub mod inventory;
@@ -30,6 +32,7 @@ pub mod sorting;
 pub mod source;
 mod source_access;
 pub mod storage;
+pub mod temporal_query;
 mod verified;
 pub mod workload;
 

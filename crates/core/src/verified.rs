@@ -3,7 +3,7 @@
 use std::collections::{HashMap, VecDeque};
 use std::sync::Arc;
 
-use crate::query::Query;
+use crate::query::{FilterExpr, Operand, Query};
 
 
 /// Verified record slot and evidence retained for reuse.
@@ -124,9 +124,33 @@ impl VerifiedCache {
 pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
     // Repository ownership supplies the generation, alphabet, schema and
     // binding-version scope; options below determine membership/order/evidence.
+    // Source byte spans only locate diagnostics. Equivalent numeric operands,
+    // including differently spelled byte sizes, must share result identity.
+    fn erase_spans(expr: &mut FilterExpr) {
+        match expr {
+            FilterExpr::Term(term) => {
+                term.span = (0, 0);
+                match &mut term.operand {
+                    Operand::Field(field) => field.span = (0, 0),
+                    Operand::Macro { span, .. } => *span = (0, 0),
+                    _ => {}
+                }
+            }
+            FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                for part in parts {
+                    erase_spans(part);
+                }
+            }
+            FilterExpr::Not(inner) => erase_spans(inner),
+        }
+    }
+    let mut filter = query.filter.clone();
+    if let Some(filter) = &mut filter {
+        erase_spans(filter);
+    }
     bincode::serialize(&(
         &query.collections,
-        &query.filter,
+        &filter,
         &query.fts,
         &query.options.sort,
         query.options.evidence,

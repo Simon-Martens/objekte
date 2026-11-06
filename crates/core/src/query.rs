@@ -1,9 +1,14 @@
 //! Separate literal FTS and structured FILTER parsing.
 
+use crate::byte_size_literal::parse_size_literal;
+use crate::clock_context::ClockContext;
 use crate::model::{FieldPath, Number, Value};
 use crate::query_path::QueryPath;
+use crate::temporal_query::{PeriodLiteral, looks_like_temporal};
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
+use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
+use time::OffsetDateTime;
 
 
 /// Exact case behavior for a full-text request. The index alphabet is separate.
@@ -72,6 +77,8 @@ pub struct FieldExpression {
 #[derive(Clone, Debug, PartialEq, serde::Serialize)]
 pub enum Operand {
     Literal(Literal),
+    Period(PeriodLiteral),
+    Macro { name: String, span: (usize, usize) },
     Field(FieldExpression),
     Parameter { name: String, bound: Option<Value> },
 }
@@ -182,6 +189,50 @@ pub struct Query {
 
 
 impl Query {
+    /// Freeze all clock macros at one caller-supplied instant. Reuse the
+    /// returned query for stable pagination across a UTC boundary.
+    pub fn with_clock(&self, now: OffsetDateTime) -> Result<Self, String> {
+        fn resolve(expr: &mut FilterExpr, clock: &ClockContext) -> Result<(), String> {
+            match expr {
+                FilterExpr::Term(term) => {
+                    if let Operand::Macro { name, span } = &term.operand {
+                        term.operand = clock
+                            .resolve(name)
+                            .map_err(|error| format!("{error} at byte {}", span.0))?;
+                    }
+                }
+                FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+                    for part in parts {
+                        resolve(part, clock)?;
+                    }
+                }
+                FilterExpr::Not(inner) => resolve(inner, clock)?,
+            }
+            Ok(())
+        }
+
+        let mut query = self.clone();
+        if let Some(filter) = &mut query.filter {
+            resolve(filter, &ClockContext::new(now))?;
+        }
+        Ok(query)
+    }
+
+    pub(crate) fn resolve_current_clock(&self) -> Result<Cow<'_, Self>, String> {
+        fn has_macro(expr: &FilterExpr) -> bool {
+            match expr {
+                FilterExpr::Term(term) => matches!(term.operand, Operand::Macro { .. }),
+                FilterExpr::And(parts) | FilterExpr::Or(parts) => parts.iter().any(has_macro),
+                FilterExpr::Not(inner) => has_macro(inner),
+            }
+        }
+        if self.filter.as_ref().is_some_and(has_macro) {
+            Ok(Cow::Owned(self.with_clock(OffsetDateTime::now_utc())?))
+        } else {
+            Ok(Cow::Borrowed(self))
+        }
+    }
+
     pub fn from_workload(case: &WorkloadCase) -> Result<Self, String> {
         let structured = case
             .filter
@@ -420,7 +471,14 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
                                 return Err(format!("unclosed path bracket at byte {open}"));
                             }
                             pos += 1;
-                        } else if c.is_whitespace() || ":(),!<>=~?&|".contains(c) {
+                        } else if c.is_whitespace()
+                            || (if looks_like_temporal(&input[start..]) {
+                                "(),!<>=~?&|"
+                            } else {
+                                ":(),!<>=~?&|"
+                            })
+                            .contains(c)
+                        {
                             break;
                         } else {
                             pos += c.len_utf8();
@@ -584,7 +642,21 @@ impl Parser {
                 }
             }
             TokenKind::Word(s) => {
-                if let Ok(n) = s.parse::<i128>() {
+                if looks_like_temporal(&s) {
+                    Operand::Period(
+                        PeriodLiteral::parse(&s)
+                            .map_err(|error| format!("{error} at byte {}", value.start))?,
+                    )
+                } else if let Some(name) = s.strip_prefix('@').filter(|_| !s.contains('.')) {
+                    Operand::Macro {
+                        name: name.to_owned(),
+                        span: (value.start, value.end),
+                    }
+                } else if let Some(bytes) = parse_size_literal(&s)
+                    .map_err(|error| format!("{error} at byte {}", value.start))?
+                {
+                    Operand::Literal(Literal::Number(Number::integer(bytes)))
+                } else if let Ok(n) = s.parse::<i128>() {
                     Operand::Literal(Literal::Number(Number::integer(n)))
                 } else if let Ok(n) = s.parse::<f64>() {
                     Operand::Literal(Literal::Number(Number::float(n)?))

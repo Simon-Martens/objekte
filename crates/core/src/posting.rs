@@ -12,6 +12,7 @@ use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
+use crate::temporal_query::matches_ordering;
 
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
@@ -127,6 +128,9 @@ impl PostingIndex {
         }
         if self.covered_records as u64 != domain.len() {
             return None;
+        }
+        if term.period.is_some() {
+            return self.temporal_postings(term, Some(input));
         }
         let borrowed = match term.derived {
             Derived::Exists | Derived::Null => {
@@ -344,6 +348,13 @@ impl PostingIndex {
         if self.covered_records as u64 != domain_len {
             return None;
         }
+        if term.period.is_some() {
+            if term.multi || term.transform != Transform::Identity {
+                return None;
+            }
+            let count = self.temporal_postings(term, None)?.len();
+            return Some((self.values.len() as f64 + 1.0, count));
+        }
         match term.derived {
             Derived::Exists | Derived::Null => {
                 let Value::Bool(literal) = term.literal else {
@@ -457,6 +468,9 @@ impl PostingIndex {
         if self.covered_records as u64 != domain.len() {
             return None;
         }
+        if term.period.is_some() {
+            return self.temporal_postings(term, None);
+        }
         match term.derived {
             Derived::Exists | Derived::Null => {
                 let yes = if term.derived == Derived::Exists {
@@ -531,6 +545,33 @@ impl PostingIndex {
             }
             _ => None,
         }
+    }
+
+    fn temporal_postings(
+        &self,
+        term: &BoundTerm,
+        input: Option<&RoaringBitmap>,
+    ) -> Option<RoaringBitmap> {
+        if term.multi || term.transform != Transform::Identity || term.derived != Derived::None {
+            return None;
+        }
+        let period = term.period.as_ref()?;
+        let start = ScalarKey::from_value(&period.start)?;
+        let end = ScalarKey::from_value(&period.end)?;
+        let type_tag = std::mem::discriminant(&start);
+        let mut result = RoaringBitmap::new();
+        for (key, slots) in &self.values {
+            if std::mem::discriminant(key) == type_tag
+                && matches_ordering(key.cmp(&start), key.cmp(&end), term.operator)
+            {
+                if let Some(input) = input {
+                    result |= slots & input;
+                } else {
+                    result |= slots;
+                }
+            }
+        }
+        Some(result)
     }
 }
 

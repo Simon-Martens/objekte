@@ -459,7 +459,8 @@ impl Repository {
     }
 
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
-        crate::run::search(self, query)
+        let resolved = query.resolve_current_clock()?;
+        crate::run::search(self, resolved.as_ref())
     }
 
     /// Execute a parsed query with immutable, typed parameter values.
@@ -472,7 +473,8 @@ impl Repository {
     }
 
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
-        crate::run::explain(self, query)
+        let resolved = query.resolve_current_clock()?;
+        crate::run::explain(self, resolved.as_ref())
     }
 
     /// Explain one execution-bound parameter choice.
@@ -488,7 +490,8 @@ impl Repository {
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
-        crate::run::search_analyze(self, query)
+        let resolved = query.resolve_current_clock()?;
+        crate::run::search_analyze(self, resolved.as_ref())
     }
 
     pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
@@ -965,6 +968,8 @@ impl Repository {
     }
 
     pub fn search_reference(&self, query: &Query) -> Result<SearchResult, String> {
+        let resolved = query.resolve_current_clock()?;
+        let query = resolved.as_ref();
         let mut bound = Vec::new();
         let mut parameter_types = HashMap::new();
         for collection in &self.collections {
