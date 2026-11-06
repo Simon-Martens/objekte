@@ -7,8 +7,8 @@ use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::inventory::append_shifted_bitmap;
+use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
@@ -17,6 +17,7 @@ use crate::reference::{FieldDefinition, Schema, data_values_small};
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
     String(String),
+    Id(String),
     Number(Number),
     Bool(bool),
     Date(Date),
@@ -29,6 +30,7 @@ impl ScalarKey {
     pub fn from_value(value: &Value) -> Option<Self> {
         Some(match value {
             Value::String(s) => Self::String(s.clone()),
+            Value::Id(s) => Self::Id(s.clone()),
             Value::Number(n) => Self::Number(*n),
             Value::Bool(b) => Self::Bool(*b),
             Value::Date(d) => Self::Date(*d),
@@ -79,7 +81,9 @@ impl PostingIndex {
         if self.path != batch.path || self.kind != batch.kind || self.multi != batch.multi {
             return Err("posting batch representation mismatch".into());
         }
-        let covered = self.covered_records.checked_add(batch.covered_records)
+        let covered = self
+            .covered_records
+            .checked_add(batch.covered_records)
             .ok_or("posting coverage overflow")?;
         append_shifted_bitmap(&mut self.presence, &batch.presence, base)?;
         append_shifted_bitmap(&mut self.nulls, &batch.nulls, base)?;
@@ -694,7 +698,9 @@ impl PostingCollection {
             return Err("posting batch field coverage mismatch".into());
         }
         for (path, index) in batch.fields {
-            self.fields.get_mut(&path).ok_or("posting batch field missing")?
+            self.fields
+                .get_mut(&path)
+                .ok_or("posting batch field missing")?
                 .merge_shifted(index, base)?;
         }
         Ok(())

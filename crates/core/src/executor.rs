@@ -295,7 +295,7 @@ fn term_set(
             && term.operator == Operator::Eq
             && term.transform == Transform::Identity
         {
-            if let Value::String(id) = &term.literal {
+            if let Value::Id(id) = &term.literal {
                 let mut result = RoaringBitmap::new();
                 if let Some(slot) = collection
                     .id_lookup

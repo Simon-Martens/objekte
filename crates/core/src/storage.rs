@@ -17,6 +17,7 @@ use crate::inventory::{
 };
 use crate::model::{CollectionId, FileId, RecordId, RecordSlot};
 use crate::posting::{CustomPostingIndex, PostingCollection};
+use crate::relation::RelationIndex;
 use crate::repository::{
     CollectionDefinition, CollectionState, CollectionStats, Repository, RepositoryOptions,
     StartupStats,
@@ -26,7 +27,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 6;
+pub const SNAPSHOT_VERSION: u32 = 9;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -57,6 +58,7 @@ struct EncodedCollection {
     custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     sorting: SortCollection,
     stats: CollectionStats,
+    relations: Vec<RelationIndex>,
 }
 
 
@@ -73,6 +75,7 @@ struct EncodedCollectionRef<'a> {
     custom_text: &'a HashMap<(Vec<String>, String), BigramIndex>,
     sorting: &'a SortCollection,
     stats: CollectionStats,
+    relations: &'a Vec<RelationIndex>,
 }
 
 
@@ -229,6 +232,9 @@ pub fn configuration_hash(
                 )
                 .as_bytes(),
             );
+        }
+        for relation in definition.schema.relations().values() {
+            feed(&mut hash, format!("{:?}", relation).as_bytes());
         }
         let mut custom: Vec<_> = definition.schema.custom.iter().collect();
         custom.sort_by(|a, b| a.0.cmp(b.0));
@@ -389,6 +395,7 @@ impl Repository {
                     custom_text: &state.custom_text,
                     sorting: &state.sorting,
                     stats: state.stats,
+                    relations: &state.relations,
                 };
                 write_section(&mut file, index as u32 + 1, &encoded)?;
             }
@@ -411,6 +418,7 @@ pub fn load_snapshot(
     sources: &SourceRegistry,
     path: &Path,
 ) -> Result<Repository, String> {
+    crate::relation::validate_definitions(&definitions)?;
     let mut file = File::open(path).map_err(|e| e.to_string())?;
     let mut magic = [0; 8];
     let mut version = [0; 4];
@@ -736,8 +744,10 @@ pub fn load_snapshot(
             id_lookup,
             identity_order: encoded.identity_order,
             stats,
+            relations: encoded.relations,
         });
     }
+    crate::relation::validate_indexes(&collections)?;
     for file in &files.files {
         for diagnostic in &file.diagnostics {
             if let Some(slot) = diagnostic.record {

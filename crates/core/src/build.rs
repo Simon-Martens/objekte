@@ -22,6 +22,7 @@ use crate::model::{CollectionId, FieldPath, FileId, RecordId, RecordSlot, Value}
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::record_preparation::finish_build_record;
 use crate::reference::data_values;
+use crate::relation::RelationContribution;
 use crate::repository::{
     CollectionDefinition, IdentityPolicy, canonical_custom_text_key, map_binding_value,
     string_values,
@@ -116,6 +117,7 @@ pub(crate) struct BatchContribution {
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
     logical_records: RoaringBitmap,
     sort_keys: HashMap<FieldPath, Vec<SortKey>>,
+    relations: Vec<RelationContribution>,
     pub record_parses: u64,
     pub failed_parses: u64,
 }
@@ -133,6 +135,7 @@ struct BatchBuilder<'a> {
     custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
     logical_records: RoaringBitmap,
     sorting: SortBuilder,
+    relations: Vec<RelationContribution>,
 }
 
 impl<'a> BatchBuilder<'a> {
@@ -196,6 +199,7 @@ impl<'a> BatchBuilder<'a> {
                 definition.sort_options,
                 &definition.sort_overrides,
             )?,
+            relations: RelationContribution::for_schema(schema),
         })
     }
 
@@ -246,6 +250,9 @@ impl<'a> BatchBuilder<'a> {
             file.diagnostics[index].record = Some(slot);
         }
         self.raw.add_empty(slot)?;
+        for relation in &mut self.relations {
+            relation.add_unavailable(slot)?;
+        }
         let text = String::from_utf8_lossy(bytes);
         self.fallback_text
             .add_record(slot, std::iter::once(text.as_ref()))?;
@@ -341,6 +348,9 @@ impl<'a> BatchBuilder<'a> {
             diagnostic_ref: DiagnosticRef(0),
         });
         self.postings.add(slot, &extracted.value)?;
+        for relation in &mut self.relations {
+            relation.add_logical(slot, &extracted.value)?;
+        }
         for (key, custom) in &mut self.custom_postings {
             let binding = &self.definition.schema.operations[key];
             let selected = data_values(&extracted.value, &key.0);
@@ -466,6 +476,7 @@ impl<'a> BatchBuilder<'a> {
             custom_text,
             logical_records: self.logical_records,
             sort_keys: self.sorting.into_keys(),
+            relations: self.relations,
             record_parses,
             failed_parses,
         })
@@ -952,6 +963,7 @@ pub(crate) struct CollectionAdmission<'a> {
     pub custom_text: &'a mut HashMap<(Vec<String>, String), BigramContribution>,
     pub logical_records: &'a mut RoaringBitmap,
     pub sorting: &'a mut SortBuilder,
+    pub relations: &'a mut Vec<RelationContribution>,
 }
 
 impl CollectionAdmission<'_> {
@@ -1024,6 +1036,12 @@ impl CollectionAdmission<'_> {
             return Err("incomplete batch record admission".into());
         }
         self.postings.merge_shifted(batch.postings, base)?;
+        if self.relations.len() != batch.relations.len() {
+            return Err("relation batch coverage mismatch".into());
+        }
+        for (global, local) in self.relations.iter_mut().zip(batch.relations) {
+            global.merge_shifted(local, base, count)?;
+        }
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting batch coverage mismatch".into());
         }

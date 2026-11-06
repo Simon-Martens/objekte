@@ -2,8 +2,8 @@
 
 use roaring::RoaringBitmap;
 use std::collections::{HashMap, HashSet};
-use std::path::PathBuf;
 use std::num::NonZeroUsize;
+use std::path::PathBuf;
 use std::sync::Arc;
 use std::sync::Mutex;
 use std::sync::atomic::{AtomicU64, Ordering};
@@ -12,19 +12,22 @@ use std::time::Instant;
 use crate::bigram::{BigramContribution, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inventory::{
-    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus,
-    RecordClass, SourceRevision,
+    CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
+    SourceRevision,
 };
 use crate::model::{ArrayValue, CollectionId, FieldPath, RecordId, RecordSlot, Value};
 use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
-    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts,
-    eval_filter, eval_unavailable_filter,
+    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, eval_bound_fts, eval_filter,
+    eval_unavailable_filter,
 };
+use crate::relation::{RelationContribution, RelationIndex};
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
-use crate::source::{PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range};
+use crate::source::{
+    PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range,
+};
 use crate::workload::{BigramAlphabet, WorkCounters};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
@@ -58,7 +61,7 @@ pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value)
 
 pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
     let single = match value {
-        Value::String(text) => Some(text.as_str()),
+        Value::String(text) | Value::Id(text) => Some(text.as_str()),
         _ => None,
     };
     let array = match value {
@@ -70,7 +73,7 @@ pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
             .into_iter()
             .flat_map(|array| array.values.iter())
             .filter_map(|value| match value {
-                Value::String(text) => Some(text.as_str()),
+                Value::String(text) | Value::Id(text) => Some(text.as_str()),
                 _ => None,
             }),
     )
@@ -108,7 +111,9 @@ pub struct CollectionState {
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
+    pub relations: Vec<RelationIndex>,
 }
+
 
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
@@ -126,7 +131,9 @@ struct PendingCollection {
     logical_records: RoaringBitmap,
     sort_builder: SortBuilder,
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
+    relations: Vec<RelationContribution>,
 }
+
 
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
@@ -138,6 +145,7 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
+
 
 impl PendingCollection {
     fn admit(
@@ -155,6 +163,7 @@ impl PendingCollection {
             custom_text: &mut self.custom_text,
             logical_records: &mut self.logical_records,
             sorting: &mut self.sort_builder,
+            relations: &mut self.relations,
         }
         .admit(batch)
     }
@@ -359,6 +368,63 @@ impl Repository {
         &self.collections
     }
 
+    /// Read one declared source relation without decoding source records.
+    pub fn relation_index(
+        &self,
+        source_collection: &str,
+        path: &[String],
+    ) -> Option<&RelationIndex> {
+        let collection = self
+            .collections
+            .iter()
+            .find(|item| item.definition.name == source_collection)?;
+        collection
+            .relations
+            .iter()
+            .find(|relation| relation.declaration.path == path)
+    }
+
+    /// Resolve a reverse alias in its target collection's namespace.
+    pub fn backlink_relation(
+        &self,
+        target_collection: &str,
+        alias: &str,
+    ) -> Option<&RelationIndex> {
+        let target = self
+            .collections
+            .iter()
+            .find(|item| item.definition.name == target_collection)?;
+        self.collections
+            .iter()
+            .flat_map(|source| &source.relations)
+            .find(|relation| {
+                relation.target_collection == target.generation.collection
+                    && relation.declaration.reverse_alias.as_deref() == Some(alias)
+            })
+    }
+
+    /// Borrow the existing typed posting for sources referencing this ID.
+    pub fn relation_reverse_sources(
+        &self,
+        relation: &RelationIndex,
+        target_id: &str,
+    ) -> Option<&RoaringBitmap> {
+        let source = self.collections.get(relation.id.source.0 as usize)?;
+        if !source
+            .relations
+            .iter()
+            .any(|registered| std::ptr::eq(registered, relation))
+        {
+            return None;
+        }
+        source
+            .postings
+            .fields
+            .get(&relation.declaration.path)?
+            .values
+            .get(&crate::posting::ScalarKey::Id(target_id.to_owned()))
+    }
+
     pub fn build_parses(&self) -> u64 {
         self.build_parses
     }
@@ -436,6 +502,7 @@ impl Repository {
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, String> {
+        crate::relation::validate_definitions(&definitions)?;
         let started = Instant::now();
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
         let snapshot = crate::storage::snapshot_path(&root, options.bigram_alphabet);
@@ -549,7 +616,8 @@ impl Repository {
             .build()
             .map_err(|error| error.to_string())?;
         let source_files = Arc::new(
-            files.files
+            files
+                .files
                 .iter()
                 .map(crate::build::SourceFileInput::from_entry)
                 .collect(),
@@ -563,8 +631,7 @@ impl Repository {
         let mut finalization_ns = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
         for (definition, id, source, member_files) in selected {
-            let builder =
-                CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
+            let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let postings = PostingCollection::new(&definition.schema);
             let custom_postings: HashMap<_, _> = definition
                 .schema
@@ -612,6 +679,7 @@ impl Repository {
                     )
                 })
                 .collect();
+            let relations = RelationContribution::for_schema(&definition.schema);
             pending.push(PendingCollection {
                 definition_shared: Arc::new(definition.clone()),
                 definition,
@@ -626,6 +694,7 @@ impl Repository {
                 logical_records,
                 sort_builder,
                 custom_text,
+                relations,
             });
         }
         let mut scheduled = Vec::new();
@@ -709,6 +778,7 @@ impl Repository {
         drop(admit);
         extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
         let mut collections = Vec::new();
+        let mut pending_relations = Vec::new();
         for state in pending {
             let PendingCollection {
                 definition,
@@ -724,13 +794,19 @@ impl Repository {
                 logical_records,
                 sort_builder,
                 custom_text,
+                relations,
             } = state;
             let finalization_started = Instant::now();
             let generation = builder.finish(&files)?;
             let raw = raw.into_index_in_pool(&build_pool)?;
             let fallback_text = fallback_text.into_index_in_pool(&build_pool)?;
-            let custom_text = custom_text.into_iter()
-                .map(|(key, index)| index.into_index_in_pool(&build_pool).map(|index| (key, index)))
+            let custom_text = custom_text
+                .into_iter()
+                .map(|(key, index)| {
+                    index
+                        .into_index_in_pool(&build_pool)
+                        .map(|index| (key, index))
+                })
                 .collect::<Result<HashMap<_, _>, _>>()?;
             let all_logical = logical_records.len() == generation.records.len() as u64;
             postings.finish_stats();
@@ -808,9 +884,31 @@ impl Repository {
                 id_lookup,
                 identity_order,
                 stats,
+                relations: Vec::new(),
             });
+            pending_relations.push(relations);
             finalization_ns += finalization_started.elapsed().as_nanos() as u64;
         }
+        let mut resolved_relations = Vec::with_capacity(collections.len());
+        for (source_index, contributions) in pending_relations.into_iter().enumerate() {
+            let source_id = collections[source_index].generation.collection;
+            let indexes = contributions
+                .into_iter()
+                .enumerate()
+                .map(|(ordinal, contribution)| {
+                    contribution.resolve(
+                        source_id,
+                        u32::try_from(ordinal).map_err(|_| "too many relations")?,
+                        &collections,
+                    )
+                })
+                .collect::<Result<Vec<_>, String>>()?;
+            resolved_relations.push(indexes);
+        }
+        for (collection, indexes) in collections.iter_mut().zip(resolved_relations) {
+            collection.relations = indexes;
+        }
+        crate::relation::validate_indexes(&collections)?;
         for state in &mut collections {
             state.sorting.refresh_file_status(&state.generation, &files);
         }

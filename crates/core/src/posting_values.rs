@@ -195,6 +195,7 @@ fn compatible(kind: &LogicalType, key: &ScalarKey) -> bool {
     matches!(
         (key_kind(kind), key),
         (LogicalType::String, ScalarKey::String(_))
+            | (LogicalType::Id, ScalarKey::Id(_))
             | (LogicalType::Number, ScalarKey::Number(_))
             | (LogicalType::Bool, ScalarKey::Bool(_))
             | (LogicalType::Date, ScalarKey::Date(_))

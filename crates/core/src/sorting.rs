@@ -62,6 +62,7 @@ pub enum SortKey {
     Missing,
     Null,
     String(Vec<u8>),
+    Id(String),
     Number(Number),
     Bool(bool),
     Date(Date),
@@ -92,6 +93,7 @@ impl SortKey {
         }
         let order = match (self, other) {
             (Self::String(a), Self::String(b)) => a.cmp(b),
+            (Self::Id(a), Self::Id(b)) => a.cmp(b),
             (Self::Number(a), Self::Number(b)) => a.cmp(b),
             (Self::Bool(a), Self::Bool(b)) => a.cmp(b),
             (Self::Date(a), Self::Date(b)) => a.cmp(b),
@@ -138,7 +140,10 @@ pub struct SortBuilder {
 
 impl SortBuilder {
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
-        self.columns.into_iter().map(|(path, column)| (path, column.keys)).collect()
+        self.columns
+            .into_iter()
+            .map(|(path, column)| (path, column.keys))
+            .collect()
     }
 
     pub(crate) fn append_keys(
@@ -151,7 +156,10 @@ impl SortBuilder {
             return Err("sort batch column coverage mismatch".into());
         }
         for (path, mut values) in keys {
-            let column = self.columns.get_mut(&path).ok_or("sort batch column missing")?;
+            let column = self
+                .columns
+                .get_mut(&path)
+                .ok_or("sort batch column missing")?;
             if column.keys.len() != base as usize || values.len() != batch_count as usize {
                 return Err("sort batch key coverage mismatch".into());
             }
@@ -274,6 +282,7 @@ impl SortBuilder {
                             .map_err(|e| e.to_string())?;
                         SortKey::String(key)
                     }
+                    Value::Id(id) => SortKey::Id(id.clone()),
                     Value::Number(n) => SortKey::Number(*n),
                     Value::Bool(b) => SortKey::Bool(*b),
                     Value::Date(d) => SortKey::Date(*d),
