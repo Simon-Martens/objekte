@@ -25,6 +25,15 @@ pub struct QueryPath {
 
 impl QueryPath {
     pub fn parse(input: &str) -> Result<Self, String> {
+        if let Some(rest) = input.strip_prefix("@backlinks.") {
+            let mut path = Self::parse(rest)?;
+            if path.field.root != PathRoot::Data {
+                return Err("backlink path requires an alias".into());
+            }
+            path.field.root = PathRoot::Backlinks;
+            path.display = input.into();
+            return Ok(path);
+        }
         if input.starts_with('@') {
             let field = FieldPath::parse(input)?;
             return Ok(Self {

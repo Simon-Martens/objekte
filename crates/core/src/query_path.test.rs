@@ -56,3 +56,18 @@ fn malformed_or_overflowing_selectors_fail_cleanly() {
         assert!(QueryPath::parse(path).is_err(), "{path}");
     }
 }
+
+#[test]
+fn backlink_root_is_reserved_and_keeps_explicit_positions() {
+    let path = QueryPath::parse("@backlinks.mentions[0].title").unwrap();
+    assert_eq!(path.field.root, PathRoot::Backlinks);
+    assert_eq!(path.field.segments, ["mentions", "title"]);
+    assert_eq!(path.steps[0], PathStep::Field("mentions".into()));
+    assert_eq!(path.steps[1], PathStep::ArrayIndex(0));
+    assert!(path.has_position);
+    assert_eq!(path.display, "@backlinks.mentions[0].title");
+    let quoted = QueryPath::parse("['@backlinks'].mentions.title").unwrap();
+    assert_eq!(quoted.field.root, PathRoot::Data);
+    assert!(QueryPath::parse("@backlinks").is_err());
+    assert!(QueryPath::parse("@backlinks.").is_err());
+}

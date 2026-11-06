@@ -263,6 +263,7 @@ impl SortBuilder {
                     Some(smallvec::smallvec![&owned])
                 }
                 PathRoot::Data => data_values_small(record, &column.path.segments),
+                PathRoot::Backlinks => return Err("related sort field is not registered".into()),
             };
             let key = match selected {
                 None => SortKey::Missing,

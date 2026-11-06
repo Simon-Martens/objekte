@@ -378,6 +378,7 @@ impl Schema {
                 multi: false,
                 element_nullable: Vec::new(),
             }),
+            PathRoot::Backlinks => Err("backlink path requires relation binding".into()),
         }
     }
 
@@ -399,6 +400,7 @@ impl Schema {
                     }))
             }
             PathRoot::Metadata(_) => self.field(path),
+            PathRoot::Backlinks => Err("backlink path requires relation binding".into()),
         }
     }
 }
@@ -1298,6 +1300,7 @@ fn select_values<'a>(
             let _ = field;
             Ok(Some(Vec::new()))
         }
+        PathRoot::Backlinks => Err("backlink path requires relation binding".into()),
     }
 }
 
@@ -1438,6 +1441,7 @@ fn scoped_values<'a>(
             values.push((Vec::new(), Some(Cow::Owned(value))));
             true
         }
+        PathRoot::Backlinks => return Err("backlink path requires relation binding".into()),
     };
     if matches!(derived, Derived::Exists | Derived::Null) {
         let result = match derived {
