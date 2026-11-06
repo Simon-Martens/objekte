@@ -43,7 +43,7 @@ established the baseline artifacts linked below.
 | C25 | complete | `cargo test --workspace --all-targets`; full 150-case scanner comparisons under both alphabets | Cross-component acceptance and focused regressions |
 | C26 | complete | `cargo fmt --all && cargo test --workspace --all-targets`; reference Q013/Q024; five-run before/after | Safe ASCII gram subsets of mixed Unicode literals, commit `012f6fd518` |
 | C27 | complete | 150 cases × four profiles × five repetitions; five builds and 25 fresh-process restores per alphabet; zero failures | [Final report](../bench/results/musenalm/final-8dd0c2aa6d/REPORT.md), measured code `8dd0c2aa6d`, artifact commit `30c9c00baa` |
-| C28 | complete | `cargo fmt --all --check`, workspace tests, CLI smoke, artifact and local-link checks | [Implementation guide](search-core.md), this documentation commit |
+| C28 | complete | `cargo fmt --all --check`, workspace tests, CLI smoke, artifact and local-link checks | [Implementation guide](search-core.md), documentation commit `8e7c588b43` |
 
 ## Pushed commit map
 
@@ -62,7 +62,7 @@ established the baseline artifacts linked below.
   before/after artifacts. C27 reporting and controls: `6e6db5f62a`,
   `090f0df34c` (earlier complete report), and `8dd0c2aa6d` (configurable
   verified cache budget). The final code-revision report is `30c9c00baa`.
-  This C28 guide and ledger are in the next documentation commit.
+  The C28 guide and ledger are in `8e7c588b43`.
 
 ## Decisions
 
