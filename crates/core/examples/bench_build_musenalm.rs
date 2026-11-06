@@ -7,6 +7,68 @@ use std::time::Instant;
 
 use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
 use objekte_search_core::workload::BigramAlphabet;
+use serde::Serialize;
+use sha2::{Digest, Sha256};
+
+fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> {
+    let bytes = bincode::serialize(value).map_err(|error| error.to_string())?;
+    hash.update((bytes.len() as u64).to_le_bytes());
+    hash.update(bytes);
+    Ok(())
+}
+
+fn index_signature(repo: &Repository) -> Result<String, String> {
+    let mut hash = Sha256::new();
+    hash_value(&mut hash, &repo.files().files)?;
+    for collection in repo.collections() {
+        hash_value(&mut hash, &collection.definition.name)?;
+        hash_value(&mut hash, &collection.generation)?;
+        hash_value(&mut hash, &collection.logical_records)?;
+        let mut posting_paths = collection.postings.fields.keys().collect::<Vec<_>>();
+        posting_paths.sort();
+        for path in posting_paths {
+            hash_value(&mut hash, path)?;
+            hash_value(&mut hash, &collection.postings.fields[path])?;
+        }
+        let mut custom_posting_keys = collection.custom_postings.keys().collect::<Vec<_>>();
+        custom_posting_keys.sort();
+        for key in custom_posting_keys {
+            hash_value(&mut hash, key)?;
+            hash_value(&mut hash, &collection.custom_postings[key])?;
+        }
+        let mut bigrams = vec![
+            ("raw", &collection.raw),
+            ("fallback", &collection.fallback_text),
+        ];
+        let mut custom_keys = collection.custom_text.keys().collect::<Vec<_>>();
+        custom_keys.sort();
+        for key in custom_keys {
+            hash_value(&mut hash, key)?;
+            bigrams.push(("custom", &collection.custom_text[key]));
+        }
+        for (label, index) in bigrams {
+            hash_value(&mut hash, &label)?;
+            hash_value(&mut hash, &index.alphabet)?;
+            hash_value(&mut hash, &index.record_count)?;
+            for (kind, column) in [("normal", &index.normal), ("skip", &index.skip)] {
+                hash_value(&mut hash, &kind)?;
+                let mut keys = column.keys().collect::<Vec<_>>();
+                keys.sort();
+                for key in keys {
+                    hash_value(&mut hash, key)?;
+                    hash_value(&mut hash, &column[key])?;
+                }
+            }
+        }
+        let mut sort_paths = collection.sorting.columns.keys().collect::<Vec<_>>();
+        sort_paths.sort_by_key(|path| path.display());
+        for path in sort_paths {
+            hash_value(&mut hash, &path.display())?;
+            hash_value(&mut hash, &collection.sorting.columns[path])?;
+        }
+    }
+    Ok(format!("{:x}", hash.finalize()))
+}
 
 fn memory_bytes(name: &str) -> Option<u64> {
     std::fs::read_to_string("/proc/self/status")
@@ -129,6 +191,9 @@ fn run() -> Result<(), String> {
                         )
                     })
             });
+    let resident_bytes = memory_bytes("VmRSS:");
+    let peak_resident_bytes = memory_bytes("VmHWM:");
+    let index_signature_sha256 = index_signature(&repo)?;
     println!(
         "{}",
         serde_json::json!({
@@ -153,8 +218,9 @@ fn run() -> Result<(), String> {
             "distinct_gram_keys": distinct_gram_keys,
             "bigram_heap_bytes": bigram_heap_bytes,
             "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
-            "resident_bytes": memory_bytes("VmRSS:"),
-            "peak_resident_bytes": memory_bytes("VmHWM:"),
+            "resident_bytes": resident_bytes,
+            "peak_resident_bytes": peak_resident_bytes,
+            "index_signature_sha256": index_signature_sha256,
             "snapshot_bytes": snapshot_bytes,
             "schema_manifest_digest": schema_manifest["sha256"],
             "schema_collections": loaded_schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),

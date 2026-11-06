@@ -98,6 +98,10 @@ def main() -> int:
                 if any(canonical_registrations(previous) != canonical_registrations(sample)
                        for group in samples.values() for previous in group):
                     raise ValueError("registrations changed between build samples")
+                key = f"{alphabet}-{snapshot}"
+                if any(previous.get("index_signature_sha256") != sample.get("index_signature_sha256")
+                       for previous in samples[key]):
+                    raise ValueError(f"semantic index signature changed between {key} samples")
                 sample["repetition"] = repetition
                 sample["command"] = command
                 sample["process_user_seconds"] = after_usage.ru_utime - before_usage.ru_utime
@@ -108,7 +112,6 @@ def main() -> int:
                 )
                 if sample["records"] != 148486 or sample["build_parses"] != 148486 or sample.get("failed_parses", 0):
                     raise ValueError(f"incomplete build: {sample}")
-                key = f"{alphabet}-{snapshot}"
                 samples[key].append(sample)
                 output.write(json.dumps(sample) + "\n")
                 output.flush()
@@ -137,8 +140,13 @@ def main() -> int:
             "distinct_gram_keys": group[0].get("distinct_gram_keys"),
             "bigram_heap_bytes": group[0].get("bigram_heap_bytes"),
             "snapshot_bytes": group[0]["snapshot_bytes"],
+            "index_signature_sha256": group[0].get("index_signature_sha256"),
             "samples": len(group),
         }
+    for alphabet in ("ascii", "unicode"):
+        signatures = {row["index_signature_sha256"] for name, row in summary.items() if name.startswith(alphabet)}
+        if len(signatures) > 1:
+            raise ValueError(f"semantic index signature differs by snapshot mode: {alphabet}")
     environment = {
         "cpu_model": next((line.split(":", 1)[1].strip() for line in Path("/proc/cpuinfo").read_text().splitlines() if line.startswith("model name")), "unknown"),
         "rustc": subprocess.check_output(["rustc", "--version"], text=True).strip(),
