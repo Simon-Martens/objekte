@@ -13,6 +13,8 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from schema_evidence import canonical_registrations, compare_schema_identity, schema_identity
+
 
 ROOT = Path(__file__).resolve().parent.parent
 JQ_COUNTS = ROOT / "bench/baselines/musenalm-jq-counts.json"
@@ -28,31 +30,18 @@ def rows(path: Path) -> dict[tuple[str, str], dict[str, str]]:
     return result
 
 
-def canonical_registrations(manifest: dict) -> list[dict]:
-    """Registration order and index map iteration order are not semantic."""
-    result = []
-    for registration in manifest["registrations"]:
-        entry = dict(registration)
-        for key in ("indexed_paths", "custom_bindings"):
-            entry[key] = sorted(entry[key])
-        result.append(entry)
-    return sorted(result, key=lambda entry: entry["name"])
-
-
 def compatibility_failures(baseline: Path, current: Path, old: dict, new: dict) -> list[str]:
     failures = []
     for key in ("corpus_fingerprint", "compiler",
                 "source_cache_bytes", "decoded_cache_bytes", "query_workers"):
         if old[key] != new[key]:
             failures.append(f"{key} differs from baseline")
-    # The old path hash includes the checkout directory. Compare parsed schema
-    # content if those hashes differ across worktrees.
-    if old["schema_fingerprint"] != new["schema_fingerprint"]:
-        def schemas(manifest: dict) -> dict[str, dict]:
-            directory = Path(manifest["root"]) / ".objekte/collections"
-            return {path.name: json.loads(path.read_text()) for path in directory.glob("*.schema.json")}
-        if schemas(old) != schemas(new):
-            failures.append("semantic schema differs from baseline")
+    failures.extend(compare_schema_identity(
+        baseline, current,
+        {registration["name"] for registration in old["registrations"]},
+        {registration["name"] for registration in new["registrations"]},
+        old.get("schema_manifest_digest"), new.get("schema_manifest_digest"),
+    ))
     old_profiles = dict(old["profiles"])
     if any(old_profiles.get(name) != profile for name, profile in new["profiles"]):
         failures.append("selected cache/alphabet profiles differ from baseline")
@@ -187,6 +176,13 @@ def main() -> int:
         if confirmation_csv.is_file():
             confirmed_rows = rows(confirmation_csv)
             confirmation_manifest = json.loads((confirmation_dir / "run-manifest.json").read_text())
+            _, confirmation_schema_error = schema_identity(
+                confirmation_dir,
+                {registration["name"] for registration in confirmation_manifest["registrations"]},
+                confirmation_manifest.get("schema_manifest_digest"),
+            )
+            if confirmation_schema_error:
+                failures.append(f"confirmation {confirmation_schema_error}")
             confirmation_samples = [
                 json.loads(line) for line in (confirmation_dir / "measurements.jsonl").read_text().splitlines()
             ]

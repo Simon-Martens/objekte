@@ -7,8 +7,21 @@ use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::reference::{CustomBinding, FieldDefinition, Schema, Transform};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy};
 use objekte_search_core::source::SourceFormat;
+use serde::Serialize;
+use sha2::{Digest, Sha256};
 
-pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String> {
+#[derive(Serialize)]
+pub struct LoadedSchema {
+    pub collection: String,
+    pub path: String,
+    pub schema: serde_json::Value,
+}
+
+/// The documents returned here are the exact parsed documents used to create
+/// the benchmark's in-memory definitions, independent of later checkout edits.
+pub fn load_definitions_with_schemas(
+    root: &Path,
+) -> Result<(Vec<CollectionDefinition>, Vec<LoadedSchema>), String> {
     let directory = root.join(".objekte/collections");
     let mut paths = std::fs::read_dir(&directory)
         .map_err(|e| e.to_string())?
@@ -17,6 +30,7 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
     paths.retain(|p| p.extension().is_some_and(|e| e == "json"));
     paths.sort();
     let mut definitions = Vec::new();
+    let mut loaded_schemas = Vec::new();
     for path in paths {
         let schema_json: serde_json::Value =
             serde_json::from_slice(&std::fs::read(&path).map_err(|e| e.to_string())?)
@@ -28,6 +42,16 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
                 .ok_or_else(|| format!("{}: missing x-objekte.{name}", path.display()))
         };
         let name = string("name")?.to_owned();
+        let relative = path
+            .strip_prefix(root)
+            .map_err(|error| error.to_string())?
+            .to_string_lossy()
+            .replace(std::path::MAIN_SEPARATOR, "/");
+        loaded_schemas.push(LoadedSchema {
+            collection: name.clone(),
+            path: relative,
+            schema: schema_json.clone(),
+        });
         let source_path = string("path")?.into();
         let format = match string("format")? {
             "json" => SourceFormat::Json,
@@ -84,7 +108,23 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
             sort_overrides: Default::default(),
         });
     }
-    Ok(definitions)
+    loaded_schemas.sort_by(|a, b| (&a.collection, &a.path).cmp(&(&b.collection, &b.path)));
+    Ok((definitions, loaded_schemas))
+}
+
+pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String> {
+    load_definitions_with_schemas(root).map(|(definitions, _)| definitions)
+}
+
+pub fn schema_manifest(schemas: &[LoadedSchema]) -> Result<serde_json::Value, String> {
+    let canonical_json = serde_json::to_string(schemas).map_err(|error| error.to_string())?;
+    let digest = Sha256::digest(canonical_json.as_bytes());
+    Ok(serde_json::json!({
+        "version": 1,
+        "schemas": schemas,
+        "canonical_json": canonical_json,
+        "sha256": format!("{digest:x}"),
+    }))
 }
 
 fn register_properties(

@@ -10,7 +10,10 @@ import os
 import statistics
 import subprocess
 import sys
+from decimal import Decimal
 from pathlib import Path
+
+from schema_evidence import canonical_registrations, compare_schema_identity, schema_identity, validate_schema_artifact
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -20,7 +23,10 @@ def fixture_fingerprints() -> dict[str, str]:
     fixture = ROOT / "examples/musenalm"
     schema_hash = hashlib.sha256()
     source_hash = hashlib.sha256()
-    for schema in sorted((fixture / ".objekte/collections").glob("*.schema.json")):
+    schema_paths = sorted((fixture / ".objekte/collections").glob("*.schema.json"))
+    if not schema_paths:
+        raise ValueError("Musenalm schema inventory is missing")
+    for schema in schema_paths:
         schema_hash.update(str(schema.relative_to(fixture)).encode())
         schema_hash.update(schema.read_bytes())
         declaration = json.loads(schema.read_text())["x-objekte"]
@@ -30,12 +36,14 @@ def fixture_fingerprints() -> dict[str, str]:
             source_hash.update(info.st_size.to_bytes(8, "little"))
             source_hash.update(info.st_mtime_ns.to_bytes(16, "little", signed=True))
     return {"schema": schema_hash.hexdigest(), "source_metadata": source_hash.hexdigest()}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repetitions", type=int, default=3)
     parser.add_argument("--result-dir", type=Path)
     parser.add_argument("--baseline", type=Path, required=True, help="explicit gate.json or build baseline JSON")
-    parser.add_argument("--comparison", choices=("repair", "historical", "casefold"), required=True)
+    parser.add_argument("--comparison", choices=("repair", "historical", "casefold", "parallel"), required=True)
     parser.add_argument("--establish-baseline", action="store_true")
     args = parser.parse_args()
     if args.repetitions < 3:
@@ -58,11 +66,24 @@ def main() -> int:
     with (result_dir / "measurements.jsonl").open("w") as output:
         for repetition in range(args.repetitions):
             for alphabet, snapshot in configurations:
-                command = [str(binary), "--alphabet", alphabet, "--snapshot-mode", snapshot]
+                command = [str(binary), "--alphabet", alphabet, "--snapshot-mode", snapshot,
+                           "--schema-manifest-path", str(result_dir / "schema-manifest.json")]
                 completed = subprocess.run(command, cwd=ROOT, text=True, capture_output=True)
                 if completed.returncode:
                     raise RuntimeError(f"{command}: {completed.stderr}")
                 sample = json.loads(completed.stdout)
+                names = set(sample["schema_collections"])
+                if sample["schema_collections"] != sorted(names):
+                    raise ValueError("build sample has duplicate or unsorted schema collections")
+                digest, schema_error = schema_identity(result_dir, names, sample["schema_manifest_digest"])
+                if schema_error:
+                    raise ValueError(schema_error)
+                if any(previous["schema_manifest_digest"] != digest
+                       for group in samples.values() for previous in group):
+                    raise ValueError("schema set changed between build samples")
+                if any(canonical_registrations(previous) != canonical_registrations(sample)
+                       for group in samples.values() for previous in group):
+                    raise ValueError("registrations changed between build samples")
                 sample["repetition"] = repetition
                 if sample["records"] != 148486 or sample["build_parses"] != 148486 or sample.get("failed_parses", 0):
                     raise ValueError(f"incomplete build: {sample}")
@@ -107,14 +128,51 @@ def main() -> int:
         baseline_path.parent.mkdir(parents=True, exist_ok=True)
         if baseline_path.exists():
             raise FileExistsError(f"baseline exists: {baseline_path}")
-        baseline_path.write_text(json.dumps({"environment": environment, "fingerprints": fingerprints, "summary": summary}, indent=2) + "\n")
+        baseline_path.write_text(json.dumps({"environment": environment, "fingerprints": fingerprints,
+                                             "schema_manifest_json": (result_dir / "schema-manifest.json").read_text(),
+                                             "schema_collections": sorted(names),
+                                             "registrations": sample["registrations"], "summary": summary}, indent=2) + "\n")
     else:
         baseline = json.loads((baseline_path / "gate.json" if baseline_path.is_dir() else baseline_path).read_text())
-        expected_revision = {"repair": "92cdb92b19", "historical": "401b16eea8", "casefold": "20261604be"}[args.comparison]
-        if not baseline["environment"]["revision"].startswith(expected_revision):
+        if baseline_path.is_dir():
+            failures.extend(compare_schema_identity(
+                baseline_path, result_dir,
+                set(baseline["schema_collections"]) if "schema_collections" in baseline else None, names,
+                baseline.get("schema_manifest_digest"), digest,
+            ))
+        else:
+            old_artifact_json = baseline.get("schema_manifest_json")
+            if old_artifact_json is None:
+                failures.append("baseline unverifiable schema baseline: missing schema manifest")
+            else:
+                try:
+                    old_artifact = json.loads(old_artifact_json, parse_float=Decimal)
+                except (TypeError, json.JSONDecodeError):
+                    old_artifact = None
+                _, old_error = validate_schema_artifact(old_artifact, set(baseline.get("schema_collections", [])))
+                if old_error:
+                    failures.append(f"baseline {old_error}")
+                elif old_artifact["sha256"] != digest:
+                    failures.append("semantic schema differs from baseline")
+        old_registrations = baseline.get("registrations")
+        if old_registrations is None and baseline_path.is_dir():
+            registration_path = baseline_path / "registration-manifest.json"
+            if registration_path.is_file():
+                try:
+                    old_registrations = json.loads(registration_path.read_text())["registrations"]
+                except (OSError, json.JSONDecodeError, KeyError):
+                    failures.append("unverifiable registration baseline")
+        if old_registrations is None:
+            failures.append("unverifiable registration baseline")
+        elif canonical_registrations({"registrations": old_registrations}) != canonical_registrations(sample):
+            failures.append("semantic registrations differ from build baseline")
+        expected_revision = {"repair": "92cdb92b19", "historical": "401b16eea8", "casefold": "20261604be"}.get(args.comparison)
+        if expected_revision and not baseline["environment"]["revision"].startswith(expected_revision):
             failures.append(f"{args.comparison} comparison uses wrong baseline revision")
-        if baseline["fingerprints"] != fingerprints:
-            failures.append("source or schema fingerprint differs from build baseline")
+        if baseline["environment"]["revision"] == revision:
+            failures.append("baseline and current code revisions are identical")
+        if baseline["fingerprints"]["source_metadata"] != fingerprints["source_metadata"]:
+            failures.append("source metadata fingerprint differs from build baseline")
         if baseline["environment"]["rustc"] != environment["rustc"]:
             failures.append("compiler differs from build baseline")
         if baseline["environment"].get("governor", "powersave") != environment["governor"]:
@@ -134,7 +192,9 @@ def main() -> int:
                     failures.append(f"{name}: peak RSS exceeds baseline")
                 if current["snapshot_bytes"] and current["snapshot_bytes"] > previous["snapshot_bytes"] * 1.1:
                     failures.append(f"{name}: snapshot size exceeds baseline")
-    report = {"comparison": args.comparison, "environment": environment, "fingerprints": fingerprints, "summary": summary,
+    report = {"comparison": args.comparison, "environment": environment, "fingerprints": fingerprints,
+              "schema_manifest_digest": digest, "schema_collections": sorted(names),
+              "registrations": sample["registrations"], "summary": summary,
               "baseline": str(baseline_path), "baseline_code_revision": None if args.establish_baseline else baseline["environment"]["revision"],
               "failures": failures}
     (result_dir / "gate.json").write_text(json.dumps(report, indent=2) + "\n")

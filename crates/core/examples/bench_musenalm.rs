@@ -133,7 +133,7 @@ fn run() -> Result<(), String> {
     } else {
         all_cases
     };
-    let definitions = musenalm::load_definitions(&root)?;
+    let (definitions, loaded_schemas) = musenalm::load_definitions_with_schemas(&root)?;
     let rev = command_output("git", &["rev-parse", "HEAD"])?;
     let compiler = command_output("rustc", &["--version"])?;
     let run_id = format!(
@@ -147,6 +147,12 @@ fn run() -> Result<(), String> {
     let result_dir =
         result_dir.unwrap_or_else(|| PathBuf::from("bench/results/musenalm").join(&run_id));
     fs::create_dir_all(&result_dir).map_err(|e| e.to_string())?;
+    let schema_manifest = musenalm::schema_manifest(&loaded_schemas)?;
+    fs::write(
+        result_dir.join("schema-manifest.json"),
+        serde_json::to_vec_pretty(&schema_manifest).map_err(|e| e.to_string())?,
+    )
+    .map_err(|e| e.to_string())?;
     fs::write(
         result_dir.join("queries.json"),
         serde_json::to_vec_pretty(&cases).map_err(|e| e.to_string())?,
@@ -365,7 +371,7 @@ fn run() -> Result<(), String> {
     }
     samples.flush().map_err(|e| e.to_string())?;
     plan_output.flush().map_err(|e| e.to_string())?;
-    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"schema_fingerprint":schema_hash,"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"query_workers":query_workers});
+    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"query_workers":query_workers});
     fs::write(
         result_dir.join("run-manifest.json"),
         serde_json::to_vec_pretty(&run_manifest).map_err(|e| e.to_string())?,
