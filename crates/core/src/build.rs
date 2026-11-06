@@ -117,6 +117,19 @@ pub(crate) struct BatchContribution {
     pub failed_parses: u64,
 }
 
+/// Owned index contributions waiting for the batch's final record-slot base.
+/// Record identities and diagnostics are admitted before this bundle is merged.
+struct IndexBatch {
+    count: u32,
+    postings: PostingCollection,
+    custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
+    raw: BigramIndex,
+    fallback_text: BigramIndex,
+    custom_text: HashMap<(Vec<String>, String), BigramIndex>,
+    logical_records: RoaringBitmap,
+    sort_keys: HashMap<FieldPath, Vec<SortKey>>,
+}
+
 struct BatchBuilder<'a> {
     root: &'a Path,
     definition: &'a CollectionDefinition,
@@ -863,11 +876,28 @@ pub(crate) struct CollectionAdmission<'a> {
 
 impl CollectionAdmission<'_> {
     pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
+        let (base, indexes) = self.admit_records(batch)?;
+        self.merge_indexes_serial(indexes, base)
+    }
+
+    fn admit_records(&mut self, batch: BatchContribution) -> Result<(u32, IndexBatch), String> {
+        let BatchContribution {
+            files,
+            records,
+            postings,
+            custom_postings,
+            raw,
+            fallback_text,
+            custom_text,
+            logical_records,
+            sort_keys,
+            ..
+        } = batch;
         let base = self.builder.next_slot()?.0;
-        let count = u32::try_from(batch.records.len()).map_err(|_| "too many batch records")?;
+        let count = u32::try_from(records.len()).map_err(|_| "too many batch records")?;
         base.checked_add(count).ok_or("record slot overflow")?;
-        let mut records = batch.records.into_iter();
-        for batch_file in batch.files {
+        let mut records = records.into_iter();
+        for batch_file in files {
             let file_id = batch_file.entry.id;
             let path = self.inventory.root.join(&batch_file.entry.relative_path);
             if batch_file.first_range {
@@ -930,6 +960,22 @@ impl CollectionAdmission<'_> {
         if self.builder.next_slot()?.0 != base + count {
             return Err("incomplete batch record admission".into());
         }
+        Ok((
+            base,
+            IndexBatch {
+                count,
+                postings,
+                custom_postings,
+                raw,
+                fallback_text,
+                custom_text,
+                logical_records,
+                sort_keys,
+            },
+        ))
+    }
+
+    fn merge_indexes_serial(&mut self, batch: IndexBatch, base: u32) -> Result<(), String> {
         self.postings.merge_shifted(batch.postings, base)?;
         if self.custom_postings.len() != batch.custom_postings.len() {
             return Err("custom posting batch coverage mismatch".into());
@@ -955,7 +1001,8 @@ impl CollectionAdmission<'_> {
                 .merge_shifted(index, base)?;
         }
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
-        self.sorting.append_keys(batch.sort_keys, base, count)?;
+        self.sorting
+            .append_keys(batch.sort_keys, base, batch.count)?;
         Ok(())
     }
 }
