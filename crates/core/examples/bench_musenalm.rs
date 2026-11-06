@@ -238,9 +238,20 @@ fn run() -> Result<(), String> {
                         .sum::<usize>()
             })
             .sum();
+        let (bigram_store_count, distinct_gram_keys) =
+            repo.collections()
+                .iter()
+                .fold((0usize, 0usize), |total, collection| {
+                    std::iter::once(&collection.raw)
+                        .chain(std::iter::once(&collection.fallback_text))
+                        .chain(collection.custom_text.values())
+                        .fold(total, |(stores, keys), index| {
+                            (stores + 1, keys + index.normal.len() + index.skip.len())
+                        })
+                });
         let restore_samples = measure_restore_children(&root, alphabet, 5)?;
         let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":repo.startup().snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":repo.startup().snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
         if registrations.is_empty() {
             registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }

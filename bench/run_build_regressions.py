@@ -84,6 +84,9 @@ def main() -> int:
             "median_finalization_ns": int(statistics.median(sample.get("finalization_ns", 0) for sample in group)),
             "median_inventory_heap_bytes": int(statistics.median(sample.get("inventory_heap_bytes", 0) for sample in group)),
             "median_diagnostic_heap_bytes": int(statistics.median(sample.get("diagnostic_heap_bytes", 0) for sample in group)),
+            "index_stores": group[0].get("index_stores"),
+            "distinct_gram_keys": group[0].get("distinct_gram_keys"),
+            "bigram_heap_bytes": group[0].get("bigram_heap_bytes"),
             "snapshot_bytes": group[0]["snapshot_bytes"],
             "samples": len(group),
         }

@@ -122,7 +122,8 @@ def main() -> int:
         failures.append(f"nondefault build flags are not recorded in the pre-repair baseline: {sorted(build_flags)}")
     baseline_environment_path = baseline / "environment.json"
     baseline_environment = json.loads(baseline_environment_path.read_text()) if baseline_environment_path.exists() else {
-        "governor": "powersave", "affinity": list(range(32)), "build_flags": {},
+        "governor": "performance" if args.comparison == "casefold" else "powersave",
+        "affinity": list(range(32)), "build_flags": {},
     }
     affinity = sorted(os.sched_getaffinity(0)) if hasattr(os, "sched_getaffinity") else None
     if baseline_environment["governor"] != governor():
@@ -257,6 +258,7 @@ def main() -> int:
         "command": command,
     }
     (result_dir / "gate.json").write_text(json.dumps(result, indent=2) + "\n")
+    queries = {case["id"]: case for case in json.loads((result_dir / "queries.json").read_text())}
     comparison_rows = []
     for case, profile in sorted(expected_keys & set(new_rows)):
         previous = old_rows[(case, profile)]
@@ -265,6 +267,7 @@ def main() -> int:
         new_ns = int(current["median_ns"])
         comparison_rows.append({
             "case_id": case, "profile": profile, "baseline_median_ms": old_ns / 1e6,
+            "query": json.dumps(queries[case], ensure_ascii=False, separators=(",", ":")),
             "current_min_ms": int(current["min_ns"]) / 1e6,
             "current_median_ms": new_ns / 1e6,
             "current_max_ms": int(current["max_ns"]) / 1e6,
@@ -272,6 +275,9 @@ def main() -> int:
             "difference_percent": (new_ns / max(old_ns, 1) - 1) * 100,
             "samples": current["samples"], "matches": current["total_matches"],
             "page": current["returned_records"], "status": current["status"],
+            "baseline_candidates": previous["candidates"], "candidates": current["candidates"],
+            "baseline_files_opened": previous["files_opened"], "files_opened": current["files_opened"],
+            "scanned_records": current["scanned_records"], "record_parses": current["record_parses"],
         })
     with (result_dir / "comparison.csv").open("w", newline="") as output:
         writer = csv.DictWriter(output, fieldnames=list(comparison_rows[0]))
@@ -281,15 +287,16 @@ def main() -> int:
         f"# {args.comparison} query timing comparison", "",
         f"Baseline: `{old_manifest['code_revision']}` at `{baseline}`. Current: `{new_manifest['code_revision']}`.",
         f"Profiles: {', '.join(profiles)}. Repetitions per case/profile: {repetitions}.", "",
-        "| Case | Profile | Before ms | Min ms | Median ms | Max ms | Δ ms | Δ % | Samples | Matches | Page | Status |",
-        "|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+        "| Case | Profile | Query and options | Before ms | Min ms | Median ms | Max ms | Δ ms | Δ % | Candidates before→after | Files opened before→after | Scanned | Parses | Matches | Page | Status |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
     ]
     for row in comparison_rows:
         table.append(
-            f"| {row['case_id']} | {row['profile']} | {row['baseline_median_ms']:.3f} | "
+            f"| {row['case_id']} | {row['profile']} | `{row['query'].replace('|', '&#124;')}` | {row['baseline_median_ms']:.3f} | "
             f"{row['current_min_ms']:.3f} | {row['current_median_ms']:.3f} | "
             f"{row['current_max_ms']:.3f} | {row['difference_ms']:+.3f} | "
-            f"{row['difference_percent']:+.1f} | {row['samples']} | {row['matches']} | "
+            f"{row['difference_percent']:+.1f} | {row['baseline_candidates']}→{row['candidates']} | "
+            f"{row['baseline_files_opened']}→{row['files_opened']} | {row['scanned_records']} | {row['record_parses']} | {row['matches']} | "
             f"{row['page']} | {row['status']} |"
         )
     table_text = "\n".join(table) + "\n"

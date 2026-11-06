@@ -80,6 +80,21 @@ fn run() -> Result<(), String> {
         None
     };
     let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
+    let (index_stores, distinct_gram_keys, bigram_heap_bytes) =
+        repo.collections()
+            .iter()
+            .fold((0usize, 0usize, 0usize), |total, collection| {
+                std::iter::once(&collection.raw)
+                    .chain(std::iter::once(&collection.fallback_text))
+                    .chain(collection.custom_text.values())
+                    .fold(total, |(stores, keys, bytes), index| {
+                        (
+                            stores + 1,
+                            keys + index.normal.len() + index.skip.len(),
+                            bytes + index.estimated_heap_bytes(),
+                        )
+                    })
+            });
     println!(
         "{}",
         serde_json::json!({
@@ -95,6 +110,9 @@ fn run() -> Result<(), String> {
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,
             "diagnostic_heap_bytes": diagnostic_heap_bytes,
+            "index_stores": index_stores,
+            "distinct_gram_keys": distinct_gram_keys,
+            "bigram_heap_bytes": bigram_heap_bytes,
             "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
             "resident_bytes": memory_bytes("VmRSS:"),
             "peak_resident_bytes": memory_bytes("VmHWM:"),
