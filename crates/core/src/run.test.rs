@@ -6,6 +6,87 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache() {
+    let root = std::env::temp_dir().join(format!("objekte-proof-page-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for number in 0..100 {
+        std::fs::write(
+            root.join(format!("data/{number:03}.json")),
+            r#"{"kind":"x"}"#,
+        )
+        .unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition {
+            name: "data".into(),
+            source_path: "data".into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Filename,
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        }],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["data".into()],
+        filter: Some(parse_filter("kind = 'x'").unwrap()),
+        fts: None,
+        options: QueryOptions {
+            sort: vec![],
+            limit: 5,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    for budget in [0, 1 << 20] {
+        repo.configure_verified_cache(budget).unwrap();
+        let result = repo.search(&query).unwrap();
+        assert_eq!(result.count, Some(100));
+        assert_eq!(result.counters.record_parses, 0);
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            ["000", "001", "002", "003", "004"]
+        );
+        assert!(result.hits.iter().all(|hit| hit.matched_fields == ["kind"]));
+        assert_eq!(result.hits, repo.search_reference(&query).unwrap().hits);
+        if budget != 0 {
+            let cached = repo.search(&query).unwrap();
+            assert!(cached.counters.verified_result_hit);
+            assert_eq!(cached.hits, result.hits);
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
     use crate::inventory::{FileStatus, RecordClass};
     use crate::query::FtsQuery;

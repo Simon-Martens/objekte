@@ -982,21 +982,7 @@ fn offer(
             });
         }
     }
-    if cap == 0 {
-        return;
-    }
-    if winners.len() == cap
-        && winners.peek().is_some_and(|worst| {
-            !sort
-                .compare_to_rank(
-                    collection_index,
-                    record,
-                    &repo.collections[collection_index].definition.name,
-                    &worst.key,
-                )
-                .is_lt()
-        })
-    {
+    if !would_enter_page(repo, sort, collection_index, record, winners, cap) {
         return;
     }
     let key = rank_key(sort, repo, collection_index, record);
@@ -1016,6 +1002,27 @@ fn offer(
         hit,
         retained_bytes,
     });
+}
+
+fn would_enter_page(
+    repo: &Repository,
+    sort: &ResolvedSort<'_>,
+    collection_index: usize,
+    record: &RecordEntry,
+    winners: &BinaryHeap<Winner>,
+    cap: usize,
+) -> bool {
+    cap > 0
+        && (winners.len() < cap
+            || winners.peek().is_some_and(|worst| {
+                sort.compare_to_rank(
+                    collection_index,
+                    record,
+                    &repo.collections[collection_index].definition.name,
+                    &worst.key,
+                )
+                .is_lt()
+            }))
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
@@ -1823,7 +1830,10 @@ fn search_impl(
         if !needs_scan {
             for slot in candidates.iter() {
                 let record = &collection.generation.records[slot as usize];
-                let mut evidence = if query.options.evidence {
+                let needs_evidence = query.options.evidence
+                    && (cache_members.is_some()
+                        || would_enter_page(repo, &sort, collection_index, record, &winners, cap));
+                let mut evidence = if needs_evidence {
                     filter
                         .as_ref()
                         .and_then(|expr| proof_evidence(expr, slot, &plan.proofs))
@@ -1831,7 +1841,7 @@ fn search_impl(
                 } else {
                     HashSet::new()
                 };
-                if query.options.evidence {
+                if needs_evidence {
                     if let Some(fts_evidence) =
                         inventory_evidence.as_ref().and_then(|map| map.get(&slot))
                     {
