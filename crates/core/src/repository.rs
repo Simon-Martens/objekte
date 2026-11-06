@@ -18,8 +18,8 @@ use crate::posting::{CustomPostingIndex, PostingCollection, PostingIndex};
 use crate::query::Query;
 use crate::record_preparation::{finish_build_record, materialize, prepare_query_record};
 use crate::reference::{
-    BindingOperation, RecordContext, Schema, Transform, bind_filter, bind_fts, data_values,
-    eval_bound_fts, eval_filter, eval_unavailable_filter,
+    BindingOperation, RecordContext, Schema, bind_filter, bind_fts, data_values, eval_bound_fts,
+    eval_filter, eval_unavailable_filter,
 };
 use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
@@ -89,6 +89,44 @@ pub struct CollectionState {
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
+}
+
+
+/// Built-in identity and case-fold registrations for the same logical field
+/// have identical candidate grams after mandatory index folding.
+pub(crate) fn canonical_custom_text_key(
+    schema: &Schema,
+    path: &[String],
+    name: &str,
+) -> (Vec<String>, String) {
+    let canonical = if schema
+        .custom
+        .contains_key(&(path.to_vec(), name.to_owned()))
+    {
+        schema
+            .custom
+            .keys()
+            .filter(|(candidate_path, _)| candidate_path == path)
+            .map(|(_, candidate_name)| candidate_name.as_str())
+            .min()
+            .unwrap_or(name)
+    } else {
+        name
+    };
+    (path.to_vec(), canonical.to_owned())
+}
+
+pub(crate) fn built_in_field_text_key(
+    schema: &Schema,
+    path: &[String],
+) -> Option<(Vec<String>, String)> {
+    let name = schema
+        .custom
+        .keys()
+        .filter(|(candidate_path, _)| candidate_path == path)
+        .map(|(_, name)| name.as_str())
+        .min()?;
+    Some((path.to_vec(), name.to_owned()))
 }
 
 
@@ -556,7 +594,12 @@ impl Repository {
                         })
                         .map(|(key, _)| key),
                 )
-                .map(|key| (key.clone(), BigramIndex::new(options.bigram_alphabet)))
+                .map(|key| {
+                    (
+                        canonical_custom_text_key(&definition.schema, &key.0, &key.1),
+                        BigramIndex::new(options.bigram_alphabet),
+                    )
+                })
                 .collect();
             for file_id in member_files {
                 builder.include_file(file_id)?;
@@ -731,10 +774,7 @@ impl Repository {
                                         {
                                             binding.operation.map_text(text)
                                         } else {
-                                            match definition.schema.custom[key].transform {
-                                                Transform::Identity => text.clone(),
-                                                Transform::CaseFold => crate::bigram::fold(text),
-                                            }
+                                            text.clone()
                                         };
                                         segments.push(TextSegment {
                                             path: key.0.clone(),

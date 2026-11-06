@@ -45,6 +45,16 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
             },
         )
         .unwrap();
+    schema
+        .register_custom(
+            vec!["title".into()],
+            CustomBinding {
+                name: "plain".into(),
+                version: 1,
+                transform: Transform::Identity,
+            },
+        )
+        .unwrap();
     let definition = CollectionDefinition {
         name: "data".into(),
         source_path: "data".into(),
@@ -83,6 +93,7 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
             let repo =
                 Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
             assert_eq!(repo.startup().restored, opening == 1);
+            assert_eq!(repo.collections[0].custom_text.len(), 1);
             let result = repo.search(&query).unwrap();
             assert_eq!(result.count, Some(2));
             assert_eq!(
@@ -99,6 +110,57 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                 repo.explain(&query).unwrap()[0].terms[0].selected.kind,
                 AccessPathKind::CustomBigram
             );
+            for (filter, expected) in [
+                ("title:lower ~ 'STRASSE'", 2),
+                ("title:plain ~ 'STRASSE'", 1),
+                ("title ~ 'STRASSE'", 1),
+            ] {
+                let mut request = query.clone();
+                request.filter = Some(parse_filter(filter).unwrap());
+                assert_eq!(repo.search(&request).unwrap().count, Some(expected));
+                assert_eq!(
+                    repo.search(&request).unwrap().hits,
+                    repo.search_reference(&request).unwrap().hits
+                );
+                let plan = &repo.explain(&request).unwrap()[0].terms[0];
+                assert!(
+                    std::iter::once(&plan.selected)
+                        .chain(plan.alternatives.iter())
+                        .any(|path| matches!(
+                            path.kind,
+                            AccessPathKind::RawBigram | AccessPathKind::CustomBigram
+                        )),
+                    "{filter}"
+                );
+            }
+            for selected in [false, true] {
+                for (case_sensitivity, expected) in [
+                    (crate::query::CaseSensitivity::Sensitive, 1),
+                    (crate::query::CaseSensitivity::Insensitive, 2),
+                ] {
+                    let request = Query {
+                        collections: vec!["data".into()],
+                        fts: Some(FtsQuery {
+                            case_sensitivity,
+                            literal: "STRASSE".into(),
+                            fields: selected
+                                .then(|| FtsField {
+                                    path: crate::model::FieldPath::parse("title").unwrap(),
+                                    binding: None,
+                                })
+                                .into_iter()
+                                .collect(),
+                        }),
+                        filter: None,
+                        options: query.options.clone(),
+                    };
+                    let result = repo.search(&request).unwrap();
+                    assert_eq!(result.count, Some(expected));
+                    assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
+                    assert_eq!(result.counters.candidates, 2);
+                }
+            }
+            assert_eq!(repo.collections[0].custom_text.len(), 1);
         }
     }
     std::fs::remove_dir_all(root).unwrap();

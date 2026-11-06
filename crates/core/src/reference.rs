@@ -5,6 +5,7 @@ use std::collections::{HashMap, HashSet};
 use std::path::Path;
 use std::sync::Arc;
 
+use crate::bigram::BigramRequest;
 use crate::bigram::fold;
 use crate::inventory::{FileEntry, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, Value};
@@ -519,6 +520,7 @@ pub struct BoundTerm {
     pub operator: Operator,
     pub quantifier: Quantifier,
     pub literal: Value,
+    pub(crate) gram_request: Option<BigramRequest>,
     pub derived: Derived,
     pub transform: Transform,
     pub operation: Option<Arc<dyn BindingOperation>>,
@@ -769,6 +771,15 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
                 })
         })
         .transpose()?;
+    let gram_request = if derived == Derived::None
+        && matches!(term.operator, Operator::Eq | Operator::Contains)
+        && let Value::String(text) = &literal
+        && !text.contains(['%', '\\'])
+    {
+        Some(BigramRequest::new(text))
+    } else {
+        None
+    };
     Ok(BoundTerm {
         path: term.path.clone(),
         kind,
@@ -776,6 +787,7 @@ fn bind_term(term: &Term, schema: &Schema) -> Result<BoundTerm, String> {
         operator: term.operator,
         quantifier: term.quantifier,
         literal,
+        gram_request,
         derived,
         transform,
         operation,
@@ -1237,6 +1249,7 @@ pub struct BoundFtsField {
     pub binding_name: String,
     pub literal: String,
     pub folded_literal: String,
+    pub(crate) gram_request: BigramRequest,
     pub transform: Transform,
     pub operation: Option<Arc<dyn BindingOperation>>,
     pub matcher: Option<Arc<dyn PreparedTextMatcher>>,
@@ -1251,6 +1264,8 @@ pub struct BoundFts {
     pub source_literal: String,
     pub folded_literal: String,
     pub folded_source_literal: String,
+    pub(crate) gram_request: BigramRequest,
+    pub(crate) fallback_gram_request: BigramRequest,
     pub raw_operation: Option<Arc<dyn BindingOperation>>,
     pub raw_matcher: Option<Arc<dyn PreparedTextMatcher>>,
     pub fields: Vec<BoundFtsField>,
@@ -1274,6 +1289,8 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         .map_or(Ok(fts.literal.clone()), |op| {
             op.prepare_fts_literal(&fts.literal)
         })?;
+    let folded_literal = fold(&literal);
+    let folded_source_literal = fold(&fts.literal);
     let raw_matcher = raw_operation
         .as_ref()
         .map(|op| {
@@ -1285,7 +1302,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
                     Arc::new(MappedTextMatcher {
                         operation: op.clone(),
                         literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
-                            fold(&literal)
+                            folded_literal.clone()
                         } else {
                             literal.clone()
                         },
@@ -1335,6 +1352,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         } else {
             fts.literal.clone()
         };
+        let folded_needle = fold(&needle);
         let matcher = operation
             .as_ref()
             .map(|op| {
@@ -1348,7 +1366,7 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
                         Arc::new(MappedTextMatcher {
                             operation: op.clone(),
                             literal: if fts.case_sensitivity == CaseSensitivity::Insensitive {
-                                fold(&needle)
+                                folded_needle.clone()
                             } else {
                                 needle.clone()
                             },
@@ -1361,7 +1379,8 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
         fields.push(BoundFtsField {
             path: selected.path.clone(),
             binding_name: name,
-            folded_literal: fold(&needle),
+            gram_request: BigramRequest::from_folded(&folded_needle),
+            folded_literal: folded_needle,
             literal: needle,
             transform,
             operation,
@@ -1370,8 +1389,10 @@ pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     }
     Ok(BoundFts {
         case_sensitivity: fts.case_sensitivity,
-        folded_literal: fold(&literal),
-        folded_source_literal: fold(&fts.literal),
+        gram_request: BigramRequest::from_folded(&folded_literal),
+        fallback_gram_request: BigramRequest::from_folded(&folded_source_literal),
+        folded_literal,
+        folded_source_literal,
         literal,
         source_literal: fts.literal.clone(),
         raw_operation,

@@ -619,8 +619,11 @@ pub fn load_snapshot(
                     })
                     .map(|(key, _)| key),
             )
+            .map(|key| {
+                crate::repository::canonical_custom_text_key(&definition.schema, &key.0, &key.1)
+            })
             .collect();
-        if encoded.custom_text.keys().collect::<HashSet<_>>() != expected_text {
+        if encoded.custom_text.keys().cloned().collect::<HashSet<_>>() != expected_text {
             return Err("snapshot custom binding mismatch".into());
         }
         for index in encoded.custom_text.values() {

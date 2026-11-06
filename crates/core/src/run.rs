@@ -17,7 +17,7 @@ use crate::executor::{
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{PathRoot, Value};
-use crate::query::{Operator, Query};
+use crate::query::{CaseSensitivity, Operator, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
@@ -763,12 +763,34 @@ fn scan_file(
 pub struct QueryPlanTrace {
     pub collection: String,
     pub generation: u64,
+    pub bigram_alphabet: crate::workload::BigramAlphabet,
+    pub folded_representation: &'static str,
+    pub fts_case_sensitivity: Option<CaseSensitivity>,
+    pub fts_covered_target: String,
+    pub fts_estimated_candidates: Option<u64>,
+    pub remaining_verification: bool,
     pub input_records: u64,
     pub fts_strategy: String,
     pub filter_exact: bool,
     pub terms: Vec<TermChoice>,
     pub candidates: u64,
     pub actual: Option<PlanActual>,
+}
+
+
+fn fts_covered_target(fts: Option<&BoundFts>) -> String {
+    match fts {
+        None => "none".into(),
+        Some(fts) if fts.fields.is_empty() => {
+            "raw collection text and malformed fallback text".into()
+        }
+        Some(fts) => fts
+            .fields
+            .iter()
+            .map(|field| field.path.display())
+            .collect::<Vec<_>>()
+            .join(", "),
+    }
 }
 
 
@@ -1334,6 +1356,14 @@ fn try_stored_order_page(
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
+                bigram_alphabet: collection.raw.alphabet,
+                folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+                fts_case_sensitivity: entry.fts.map(|fts| fts.case_sensitivity),
+                fts_covered_target: fts_covered_target(entry.fts),
+                fts_estimated_candidates: entry.fts.and_then(|fts| {
+                    estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
+                }),
+                remaining_verification: entry.fts.is_some() || !entry.plan.exact,
                 input_records: collection.generation.records.len() as u64,
                 fts_strategy: if collection.logical_records.len()
                     != collection.generation.records.len() as u64
@@ -1667,6 +1697,14 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
             generation: collection.generation.generation,
+            bigram_alphabet: collection.raw.alphabet,
+            folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+            fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
+            fts_covered_target: fts_covered_target(fts.as_ref()),
+            fts_estimated_candidates: fts.as_ref().and_then(|fts| {
+                estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
+            }),
+            remaining_verification: fts.is_some() || !plan.exact,
             input_records: domain.len(),
             fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
                 && collection.logical_records.len() != collection.generation.records.len() as u64
@@ -1814,6 +1852,12 @@ fn search_impl(
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
                 generation: collection.generation.generation,
+                bigram_alphabet: collection.raw.alphabet,
+                folded_representation: crate::bigram::FOLDED_REPRESENTATION,
+                fts_case_sensitivity: fts.as_ref().map(|fts| fts.case_sensitivity),
+                fts_covered_target: fts_covered_target(fts.as_ref()),
+                fts_estimated_candidates: text_estimate.map(|estimate| estimate.0),
+                remaining_verification: needs_scan,
                 input_records: domain.len(),
                 fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
                     && collection.logical_records.len()

@@ -10,7 +10,7 @@ use crate::model::RecordSlot;
 use crate::source::TextSegment;
 use crate::workload::BigramAlphabet;
 
-pub const BIGRAM_VERSION: u32 = 2;
+pub const BIGRAM_VERSION: u32 = 3;
 pub const FOLDED_REPRESENTATION: &str = "unicode-casefold-0.2.0/unicode-9.0.0/full/non-turkic";
 
 pub(crate) fn fold(text: &str) -> String {
@@ -23,11 +23,15 @@ fn folded_chars(text: &str) -> impl Iterator<Item = char> + '_ {
 
 /// Emit windows over the folded stream without losing unsupported ASCII byte
 /// positions or joining independent reader-owned segments.
-fn for_each_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool, u64)) {
+fn for_each_gram(
+    chars: impl Iterator<Item = char>,
+    alphabet: BigramAlphabet,
+    mut emit: impl FnMut(bool, u64),
+) {
     match alphabet {
         BigramAlphabet::Ascii => {
             let (mut previous, mut before_previous) = (None, None);
-            for scalar in folded_chars(text) {
+            for scalar in chars {
                 let mut buffer = [0u8; 4];
                 for &byte in scalar.encode_utf8(&mut buffer).as_bytes() {
                     if let Some(left) = previous.and_then(|left| ascii_pair(left, byte)) {
@@ -43,7 +47,7 @@ fn for_each_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool
         }
         BigramAlphabet::Unicode => {
             let (mut previous, mut before_previous) = (None, None);
-            for scalar in folded_chars(text) {
+            for scalar in chars {
                 if let Some(left) = previous {
                     emit(false, unicode_pair(left, scalar));
                 }
@@ -53,6 +57,45 @@ fn for_each_gram(text: &str, alphabet: BigramAlphabet, mut emit: impl FnMut(bool
                 before_previous = previous;
                 previous = Some(scalar);
             }
+        }
+    }
+}
+
+
+/// Both alphabets' necessary grams for one already prepared representation.
+/// Exact matching never reads these keys as a literal.
+#[derive(Clone, Debug)]
+pub(crate) struct BigramRequest {
+    ascii: Vec<(bool, u64)>,
+    unicode: Vec<(bool, u64)>,
+}
+
+
+impl BigramRequest {
+    pub fn from_folded(folded: &str) -> Self {
+        let collect = |alphabet| {
+            let mut grams = Vec::new();
+            for_each_gram(folded.chars(), alphabet, |skip, key| {
+                grams.push((skip, key))
+            });
+            grams.sort_unstable();
+            grams.dedup();
+            grams
+        };
+        Self {
+            ascii: collect(BigramAlphabet::Ascii),
+            unicode: collect(BigramAlphabet::Unicode),
+        }
+    }
+
+    pub fn new(literal: &str) -> Self {
+        Self::from_folded(&fold(literal))
+    }
+
+    fn grams(&self, alphabet: BigramAlphabet) -> &[(bool, u64)] {
+        match alphabet {
+            BigramAlphabet::Ascii => &self.ascii,
+            BigramAlphabet::Unicode => &self.unicode,
         }
     }
 }
@@ -108,13 +151,17 @@ impl BigramIndex {
         let mut normal = HashSet::new();
         let mut skip = HashSet::new();
         for segment in segments {
-            for_each_gram(&segment.text, self.alphabet, |is_skip, key| {
-                if is_skip {
-                    skip.insert(key);
-                } else {
-                    normal.insert(key);
-                }
-            });
+            for_each_gram(
+                folded_chars(&segment.text),
+                self.alphabet,
+                |is_skip, key| {
+                    if is_skip {
+                        skip.insert(key);
+                    } else {
+                        normal.insert(key);
+                    }
+                },
+            );
         }
         for gram in normal {
             self.normal.entry(gram).or_default().insert(slot.0);
@@ -139,9 +186,16 @@ impl BigramIndex {
     /// `None` means no safe useful restriction; an empty bitmap is a proven
     /// absence of this necessary gram over complete index coverage.
     pub fn candidates(&self, literal: &str) -> Option<RoaringBitmap> {
-        let grams = self.query_grams(literal)?;
+        self.candidates_prepared(&BigramRequest::new(literal))
+    }
+
+    pub(crate) fn candidates_prepared(&self, request: &BigramRequest) -> Option<RoaringBitmap> {
+        let grams = request.grams(self.alphabet);
+        if grams.is_empty() {
+            return None;
+        }
         let mut columns = Vec::new();
-        for (skip, key) in grams {
+        for &(skip, key) in grams {
             let column = if skip {
                 self.skip.get(&key)
             } else {
@@ -164,9 +218,14 @@ impl BigramIndex {
     }
 
     pub fn estimate_min_cardinality(&self, literal: &str) -> Option<u64> {
-        self.query_grams(literal)?
-            .into_iter()
-            .map(|(skip, key)| {
+        self.estimate_prepared(&BigramRequest::new(literal))
+    }
+
+    pub(crate) fn estimate_prepared(&self, request: &BigramRequest) -> Option<u64> {
+        request
+            .grams(self.alphabet)
+            .iter()
+            .map(|&(skip, key)| {
                 if skip {
                     self.skip.get(&key)
                 } else {
@@ -176,14 +235,6 @@ impl BigramIndex {
                 .unwrap_or(0)
             })
             .min()
-    }
-
-    fn query_grams(&self, literal: &str) -> Option<HashSet<(bool, u64)>> {
-        let mut grams = HashSet::new();
-        for_each_gram(literal, self.alphabet, |is_skip, key| {
-            grams.insert((is_skip, key));
-        });
-        (!grams.is_empty()).then_some(grams)
     }
 
     pub fn validate(&self, record_count: usize) -> Result<(), String> {

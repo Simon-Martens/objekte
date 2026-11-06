@@ -49,6 +49,7 @@ pub struct TermChoice {
     pub field: String,
     pub logical_type: String,
     pub binding: String,
+    pub exact_case_sensitivity: Option<crate::query::CaseSensitivity>,
     pub selected: AccessPathEstimate,
     pub alternatives: Vec<AccessPathEstimate>,
     pub actual_input: u64,
@@ -58,6 +59,16 @@ pub struct TermChoice {
     pub executed: bool,
 }
 
+
+fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivity> {
+    (term.kind == LogicalType::String && term.operation.is_none()).then_some(
+        if term.transform == Transform::CaseFold {
+            crate::query::CaseSensitivity::Insensitive
+        } else {
+            crate::query::CaseSensitivity::Sensitive
+        },
+    )
+}
 
 fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
     match expr {
@@ -70,6 +81,7 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
                 field: term.path.display(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
+                exact_case_sensitivity: term_case_sensitivity(term),
                 selected,
                 alternatives: paths,
                 actual_input: 0,
@@ -145,6 +157,7 @@ fn fallback_truth(
                 field: term.path.display(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
+                exact_case_sensitivity: term_case_sensitivity(term),
                 selected: AccessPathEstimate {
                     kind: if metadata {
                         AccessPathKind::Metadata
@@ -379,9 +392,6 @@ fn term_set(
 }
 
 fn custom_bigram_compatible(term: &BoundTerm) -> bool {
-    if matches!(term.binding_name.as_str(), "default" | "lower") {
-        return false;
-    }
     if term.operation.is_none() {
         // Registered built-in transforms map indexed text and scanned values
         // with the same Transform; they do not install an exact matcher.
@@ -390,6 +400,19 @@ fn custom_bigram_compatible(term: &BoundTerm) -> bool {
     term.matcher
         .as_ref()
         .is_some_and(|matcher| matcher.bigram_compatible())
+}
+
+fn custom_text_index<'a>(
+    collection: &'a CollectionState,
+    path: &[String],
+    name: &str,
+) -> Option<&'a crate::bigram::BigramIndex> {
+    let key = if matches!(name, "default" | "lower") {
+        crate::repository::built_in_field_text_key(&collection.definition.schema, path)?
+    } else {
+        crate::repository::canonical_custom_text_key(&collection.definition.schema, path, name)
+    };
+    collection.custom_text.get(&key)
 }
 
 fn enumerate_paths(
@@ -523,12 +546,16 @@ fn enumerate_paths(
         {
             if let Value::String(literal) = &term.literal {
                 if !literal.contains(['%', '\\']) {
-                    if matches!(term.binding_name.as_str(), "default")
-                        && term.transform == Transform::Identity
+                    if matches!(term.binding_name.as_str(), "default" | "lower")
+                        && matches!(term.transform, Transform::Identity | Transform::CaseFold)
                         && term.operation.is_none()
                         && raw_covers_identity_field(collection).is_ok()
                     {
-                        if let Some(output) = collection.raw.estimate_min_cardinality(literal) {
+                        if let Some(output) = term
+                            .gram_request
+                            .as_ref()
+                            .and_then(|request| collection.raw.estimate_prepared(request))
+                        {
                             add(
                                 AccessPathKind::RawBigram,
                                 false,
@@ -536,12 +563,16 @@ fn enumerate_paths(
                                 output,
                             );
                         }
-                    } else if custom_bigram_compatible(term) {
-                        if let Some(index) = collection
-                            .custom_text
-                            .get(&(term.path.segments.clone(), term.binding_name.clone()))
+                    }
+                    if custom_bigram_compatible(term) {
+                        if let Some(index) =
+                            custom_text_index(collection, &term.path.segments, &term.binding_name)
                         {
-                            if let Some(output) = index.estimate_min_cardinality(literal) {
+                            if let Some(output) = term
+                                .gram_request
+                                .as_ref()
+                                .and_then(|request| index.estimate_prepared(request))
+                            {
                                 add(
                                     AccessPathKind::CustomBigram,
                                     false,
@@ -587,10 +618,10 @@ fn execute_path(
             }
         }
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
-        AccessPathKind::RawBigram => match &term.literal {
-            Value::String(s) => collection.raw.candidates(s),
-            _ => None,
-        },
+        AccessPathKind::RawBigram => term
+            .gram_request
+            .as_ref()
+            .and_then(|request| collection.raw.candidates_prepared(request)),
         AccessPathKind::Dictionary => {
             let index = collection
                 .postings
@@ -807,6 +838,7 @@ fn plan_logical_expr(
                 field: term.path.display(),
                 logical_type: format!("{:?}", term.kind),
                 binding: format!("{}@{}", term.binding_name, term.binding_version),
+                exact_case_sensitivity: term_case_sensitivity(term),
                 selected,
                 alternatives: paths,
                 actual_input: input.len(),
@@ -969,19 +1001,14 @@ fn custom_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<R
     if literal.contains(['%', '\\']) {
         return None;
     }
-    collection
-        .custom_text
-        .get(&(term.path.segments.clone(), term.binding_name.clone()))?
-        .candidates(literal)
+    custom_text_index(collection, &term.path.segments, &term.binding_name)?
+        .candidates_prepared(term.gram_request.as_ref()?)
 }
 
 pub(crate) fn fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<RoaringBitmap> {
-    if fts.case_sensitivity == crate::query::CaseSensitivity::Insensitive {
-        return None;
-    }
     if fts.fields.is_empty() {
         let has_fallback =
             collection.logical_records.len() != collection.generation.records.len() as u64;
@@ -1001,39 +1028,17 @@ pub(crate) fn fts_candidates(
         {
             return None;
         }
-        let mut valid = collection.raw.candidates(&fts.literal)?;
+        let mut valid = collection.raw.candidates_prepared(&fts.gram_request)?;
         if has_fallback {
-            valid |= collection.fallback_text.candidates(&fts.source_literal)?;
+            valid |= collection
+                .fallback_text
+                .candidates_prepared(&fts.fallback_gram_request)?;
         }
         return Some(valid);
     }
     let mut union = RoaringBitmap::new();
     for field in &fts.fields {
-        if field.path.root != PathRoot::Data || field.binding_name == "lower" {
-            return None;
-        }
-        let candidates = if field.binding_name != "default" {
-            if collection.source.reader().logical_text_coverage()
-                != LogicalTextCoverage::AllStringFields
-                || field
-                    .matcher
-                    .as_ref()
-                    .is_some_and(|matcher| !matcher.bigram_compatible())
-            {
-                return None;
-            }
-            let key = (field.path.segments.clone(), field.binding_name.clone());
-            collection
-                .custom_text
-                .get(&key)?
-                .candidates(&field.literal)?
-        } else {
-            raw_covers_identity_field(collection).ok()?;
-            collection.raw.candidates(&field.literal)?
-        };
-
-
-        union |= candidates;
+        union |= fts_field_index(collection, field)?.candidates_prepared(&field.gram_request)?;
     }
     Some(union)
 }
@@ -1042,9 +1047,6 @@ pub(crate) fn estimate_fts_candidates(
     collection: &CollectionState,
     fts: &BoundFts,
 ) -> Option<(u64, f64)> {
-    if fts.case_sensitivity == crate::query::CaseSensitivity::Insensitive {
-        return None;
-    }
     if fts.fields.is_empty() {
         if fts
             .raw_matcher
@@ -1062,41 +1064,56 @@ pub(crate) fn estimate_fts_candidates(
         {
             return None;
         }
-        return collection
-            .raw
-            .estimate_min_cardinality(&fts.literal)
-            .map(|count| (count, fts.literal.len() as f64));
+        let mut count = collection.raw.estimate_prepared(&fts.gram_request)?;
+        if collection.logical_records.len() != collection.generation.records.len() as u64 {
+            count = count.saturating_add(
+                collection
+                    .fallback_text
+                    .estimate_prepared(&fts.fallback_gram_request)?,
+            );
+        }
+        return Some((
+            count.min(collection.stats.record_count as u64),
+            fts.literal.len() as f64,
+        ));
     }
     let mut count = 0u64;
     let mut work = 0.0;
     for field in &fts.fields {
-        if field.path.root != PathRoot::Data || field.binding_name == "lower" {
-            return None;
-        }
-        let estimate = if field.binding_name != "default" {
-            if collection.source.reader().logical_text_coverage()
-                != LogicalTextCoverage::AllStringFields
-                || field
-                    .matcher
-                    .as_ref()
-                    .is_some_and(|matcher| !matcher.bigram_compatible())
-            {
-                return None;
-            }
-            let key = (field.path.segments.clone(), field.binding_name.clone());
-            work += field.literal.len() as f64;
-            collection
-                .custom_text
-                .get(&key)?
-                .estimate_min_cardinality(&field.literal)?
-        } else {
-            raw_covers_identity_field(collection).ok()?;
-            work += field.literal.len() as f64;
-            collection.raw.estimate_min_cardinality(&field.literal)?
-        };
+        let estimate =
+            fts_field_index(collection, field)?.estimate_prepared(&field.gram_request)?;
+        work += field.literal.len() as f64;
         count = count.saturating_add(estimate);
     }
     Some((count.min(collection.stats.record_count as u64), work))
+}
+
+fn fts_field_index<'a>(
+    collection: &'a CollectionState,
+    field: &crate::reference::BoundFtsField,
+) -> Option<&'a crate::bigram::BigramIndex> {
+    if field.path.root != PathRoot::Data
+        || field
+            .matcher
+            .as_ref()
+            .is_some_and(|matcher| !matcher.bigram_compatible())
+    {
+        return None;
+    }
+    if collection.source.reader().logical_text_coverage() == LogicalTextCoverage::AllStringFields {
+        if let Some(index) =
+            custom_text_index(collection, &field.path.segments, &field.binding_name)
+        {
+            return Some(index);
+        }
+    }
+    if matches!(field.binding_name.as_str(), "default" | "lower")
+        && field.operation.is_none()
+        && raw_covers_identity_field(collection).is_ok()
+    {
+        return Some(&collection.raw);
+    }
+    None
 }
 
 #[cfg(test)]
