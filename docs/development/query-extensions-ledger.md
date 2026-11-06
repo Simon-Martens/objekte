@@ -28,7 +28,7 @@
 | --- | --- | --- | --- |
 | TASK-00 contracts and foundation verification | complete | this ledger and pinned base checks | coordinator |
 | TASK-01 logical/fallback planner partition | complete in base | `dbf4777adf`, `run.test.rs` mixed-domain fixture | coordinator |
-| TASK-02 typed operands, paths, inline sort | complete on feature branch, pending integration review | `25b103f92e`–`c504fdb493` | query worker |
+| TASK-02 typed operands, paths, inline sort | complete on feature branch, pending integration review | `25b103f92e`–`c504fdb493`, repair `4eda0b6782` | query worker |
 | TASK-04 regex FTS | ready | first-wave gate | full-text worker |
 | TASK-05 ID and relation indexes | ready | first-wave gate | relation-index worker |
 | TASK-03 temporal/size | blocked by TASK-02 integration | — | later worker |
@@ -56,3 +56,7 @@ Every worker handoff must include the fields in Section 12.7 of the specificatio
 - **Known failures, warnings and open risks:** Workspace tests have no failures. Clippy reports advisory warnings, including existing general warnings. Dynamic derived `:exists`/`:null` remains a stated unsupported combination. The ID and FTS mode branches require the integration bridges above.
 - **Shared-file edits requiring integration:** `query.rs` adds serialization derives to FTS structs but no FTS mode; its `FtsQuery` shape must be reconciled with TASK-04. `musenalm_cli.rs` adds inline-sort/parameter handling and overlaps regex flags. `reference.rs` adds bound dynamic operands and a custom-operation capability method; `run.rs` changes projection/evidence/fallback, `executor.rs` changes residual and metadata comparison paths, and `repository.rs` adds request wrappers. TASK-05 changes to `Value::Id` need contextual binding and tagged JSON transport.
 - **Prerequisites for the next task:** Review and integrate TASK-02, then add the TASK-05 ID bridge before temporal or relation query work relies on the unified binder.
+
+### Independent review repair
+
+`4eda0b6782` rejects ambiguous nested arrays in unknown-typed paired paths at runtime, while explicit selected elements such as `items[*].tags[0]` remain comparable. Field-to-field `!=` treats one null and one non-null value symmetrically; literal null comparison behavior is unchanged. Invalid dynamic `:length` values now remain noncomparable instead of becoming null. The focused fixture checks these cases against independent expected records and optimized/reference parity. After the repair, `cargo test --workspace` passed (core 123 passed, 1 ignored; array positions 2, inline sort 1, parameters 2, TUI 25, CLI 1, doctest 1). `cargo clippy --workspace --all-targets` exited 0 with advisory warnings; formatting and `git diff --check` passed for the changed files. No new performance measurement was made. Only `reference.rs` and `tests/array_positions.rs` changed in the repair.
