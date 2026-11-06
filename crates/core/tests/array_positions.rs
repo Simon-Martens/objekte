@@ -257,7 +257,7 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
     std::fs::create_dir_all(root.join("data")).unwrap();
     std::fs::write(
         root.join("data/mixed.jsonl"),
-        b"{\"left\":null,\"right\":null,\"shape\":1,\"other\":null}\n{\"left\":1,\"right\":null,\"shape\":[1,2],\"other\":2}\n{\"left\":null,\"right\":1,\"shape\":\"bad\",\"other\":null}\n{\"left\":\n",
+        b"{\"left\":null,\"right\":null,\"name\":null,\"alias\":null,\"shape\":1,\"other\":null}\n{\"left\":1,\"right\":null,\"name\":\"X\",\"alias\":null,\"shape\":[1,2],\"other\":2}\n{\"left\":null,\"right\":1,\"name\":null,\"alias\":\"X\",\"shape\":\"bad\",\"other\":null}\n{\"left\":\n",
     )
     .unwrap();
     let mut schema = Schema::default();
@@ -266,6 +266,19 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
             .register_field(FieldDefinition {
                 path: vec![name.into()],
                 kind: LogicalType::Number,
+                required: false,
+                nullable: true,
+                indexed: true,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    for name in ["name", "alias"] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind: LogicalType::String,
                 required: false,
                 nullable: true,
                 indexed: true,
@@ -310,6 +323,9 @@ fn field_comparisons_preserve_null_and_unavailable_fallback_truth() {
         ("right != left", 2),
         ("left != null", 1),
         ("right != null", 1),
+        ("name:lower = alias:lower", 1),
+        ("name:lower != alias:lower", 2),
+        ("name:lower = null", 2),
         ("shape:length = other", 1),
         ("shape:length != other", 0),
         ("shape:length = 0", 0),

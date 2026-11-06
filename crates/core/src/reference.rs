@@ -1436,6 +1436,7 @@ fn mapped_field_value<'a>(
     }
     match (value, transform) {
         (Value::String(text), Transform::CaseFold) => Some(Cow::Owned(Value::String(fold(text)))),
+        (Value::Null, Transform::CaseFold) => Some(Cow::Borrowed(value)),
         (_, Transform::CaseFold) => None,
         _ => Some(Cow::Borrowed(value)),
     }
