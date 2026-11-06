@@ -83,6 +83,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         source_path: "tiny".into(),
         format: SourceFormat::registered("tiny"),
         identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
         schema,
         sort_fields: vec![],
         sort_locale: "de".into(),
@@ -178,6 +179,241 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
         .contains("unknown source registration")
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn discovery_and_intrinsic_ids_share_build_restore_rules() {
+    use crate::discovery::{Discovery, SymlinkPolicy};
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-discovery-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    for dir in ["tiny/nested", "tiny/skip", "tiny/.hidden"] {
+        std::fs::create_dir_all(root.join(dir)).unwrap();
+    }
+    std::fs::write(root.join("tiny/main.tiny"), b"first|one\nsecond|two\n").unwrap();
+    std::fs::write(root.join("tiny/nested/third.tiny"), b"third|three\n").unwrap();
+    std::fs::write(root.join("tiny/skip/ignored.tiny"), b"ignored|four\n").unwrap();
+    std::fs::write(root.join("tiny/.hidden/hidden.tiny"), b"hidden|five\n").unwrap();
+    std::fs::write(root.join("tiny/other.json"), b"{}").unwrap();
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "tiny",
+            1,
+            "tiny",
+            Arc::new(TinyReader(Arc::new(AtomicUsize::new(0)))),
+        )
+        .unwrap();
+    let rules = Discovery {
+        recursive: true,
+        include: vec!["**/*.tiny".into(), "*.tiny".into()],
+        exclude: vec!["skip/**".into()],
+        hidden: false,
+        symlinks: SymlinkPolicy::Skip,
+    };
+    let definition = CollectionDefinition {
+        name: "tiny".into(),
+        source_path: "tiny".into(),
+        format: SourceFormat::registered("tiny"),
+        identity: IdentityPolicy::Intrinsic(vec!["title".into()]),
+        discovery: rules.clone(),
+        schema: Default::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+    };
+    let built = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        sources.clone(),
+    )
+    .unwrap();
+    assert_eq!(built.files().files.len(), 2);
+    let generation = &built.collections()[0].generation;
+    assert_eq!(
+        generation
+            .records
+            .iter()
+            .map(|r| r.id.0.as_str())
+            .collect::<Vec<_>>(),
+        ["first", "second", "third"]
+    );
+    let main_id = built
+        .files()
+        .files
+        .iter()
+        .find(|f| f.relative_path.ends_with("main.tiny"))
+        .unwrap()
+        .id;
+    assert_eq!(
+        generation.file_records.records_for(main_id).unwrap().len(),
+        2
+    );
+    drop(built);
+    let restored = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        sources.clone(),
+    )
+    .unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(
+        restored.collections()[0]
+            .generation
+            .file_records
+            .records_for(main_id)
+            .unwrap()
+            .len(),
+        2
+    );
+    drop(restored);
+
+    std::fs::write(root.join("tiny/nested/fourth.tiny"), b"fourth|four\n").unwrap();
+    let rebuilt = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions::default(),
+        sources.clone(),
+    )
+    .unwrap();
+    assert!(!rebuilt.startup().restored);
+    assert_eq!(rebuilt.collections()[0].generation.records.len(), 4);
+    drop(rebuilt);
+
+    let mut shallow = definition.clone();
+    shallow.discovery.recursive = false;
+    let shallow = Repository::open_with_sources(
+        &root,
+        vec![shallow],
+        RepositoryOptions::default(),
+        sources.clone(),
+    )
+    .unwrap();
+    assert_eq!(shallow.collections()[0].generation.records.len(), 2);
+    drop(shallow);
+
+    let mut with_hidden = definition.clone();
+    with_hidden.discovery.hidden = true;
+    let with_hidden = Repository::open_with_sources(
+        &root,
+        vec![with_hidden],
+        RepositoryOptions::default(),
+        sources.clone(),
+    )
+    .unwrap();
+    assert_eq!(with_hidden.collections()[0].generation.records.len(), 5);
+    drop(with_hidden);
+
+    assert!(
+        Repository::open_with_sources(
+            &root,
+            vec![CollectionDefinition {
+                source_path: "../tiny".into(),
+                ..definition.clone()
+            }],
+            RepositoryOptions::default(),
+            sources.clone()
+        )
+        .is_err()
+    );
+    std::fs::write(
+        root.join("tiny/nested/duplicate.tiny"),
+        b"first|duplicate\n",
+    )
+    .unwrap();
+    let error = Repository::open_with_sources(
+        &root,
+        vec![definition],
+        RepositoryOptions::default(),
+        sources,
+    )
+    .err()
+    .unwrap();
+    assert!(
+        error.contains("duplicate record ID") && error.contains("duplicate.tiny"),
+        "{error}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn intrinsic_id_rejects_missing_invalid_and_generated_namespace() {
+    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions};
+
+    let root = std::env::temp_dir().join(format!("objekte-intrinsic-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
+        discovery: Default::default(),
+        schema: Default::default(),
+        sort_fields: vec![],
+        sort_locale: "de".into(),
+    };
+    for (body, expected) in [
+        (b"{}\n".as_slice(), "missing intrinsic record ID"),
+        (b"{\"id\":42}\n".as_slice(), "must be a string"),
+        (b"{\"id\":\"\"}\n".as_slice(), "invalid intrinsic record ID"),
+        (
+            b"{\"id\":\"~generated:1\"}\n".as_slice(),
+            "invalid intrinsic record ID",
+        ),
+    ] {
+        std::fs::write(root.join("data/one.jsonl"), body).unwrap();
+        let error = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions::default(),
+        )
+        .err()
+        .unwrap();
+        assert!(
+            error.contains(expected) && error.contains("one.jsonl"),
+            "{error}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[cfg(unix)]
+#[test]
+fn discovery_symlink_policy_confines_sources_and_avoids_cycles() {
+    use crate::discovery::{Discovery, SymlinkPolicy, discover};
+    use std::os::unix::fs::symlink;
+
+    let root = std::env::temp_dir().join(format!("objekte-symlinks-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("data/nested")).unwrap();
+    std::fs::write(root.join("data/nested/real.json"), b"{}").unwrap();
+    let outside = std::env::temp_dir().join(format!("objekte-outside-{}.json", std::process::id()));
+    std::fs::write(&outside, b"{}").unwrap();
+    symlink(root.join("data/nested"), root.join("data/alias")).unwrap();
+    symlink(root.join("data"), root.join("data/nested/cycle")).unwrap();
+    symlink(&outside, root.join("data/outside.json")).unwrap();
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::Json)
+        .unwrap();
+    let mut rules = Discovery {
+        recursive: true,
+        ..Discovery::default()
+    };
+    let skipped = discover(&root, Path::new("data"), &rules, &source).unwrap();
+    assert_eq!(skipped, [root.join("data/nested/real.json")]);
+    rules.symlinks = SymlinkPolicy::FollowWithinRoot;
+    let followed = discover(&root, Path::new("data"), &rules, &source).unwrap();
+    assert_eq!(followed.len(), 1);
+    assert!(followed[0].starts_with(root.join("data")));
+    std::fs::remove_dir_all(root).unwrap();
+    std::fs::remove_file(outside).unwrap();
 }
 
 #[test]

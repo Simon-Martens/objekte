@@ -6,6 +6,7 @@ use std::sync::Mutex;
 use std::time::Instant;
 
 use crate::bigram::BigramIndex;
+use crate::discovery::{Discovery, discover};
 use crate::inventory::{
     ByteRange, CollectionBuilder, CollectionGeneration, FileInventory, SourceRevision,
 };
@@ -25,10 +26,11 @@ use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
 
 
-#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
     Generated,
+    Intrinsic(Vec<String>),
 }
 
 
@@ -54,6 +56,7 @@ pub struct CollectionDefinition {
     pub source_path: PathBuf,
     pub format: SourceFormat,
     pub identity: IdentityPolicy,
+    pub discovery: Discovery,
     pub schema: Schema,
     pub sort_fields: Vec<FieldPath>,
     pub sort_locale: String,
@@ -368,23 +371,12 @@ impl Repository {
             ) {
                 return Err(format!("duplicate collection: {}", definition.name));
             }
-            let directory = root.join(&definition.source_path);
-            let mut paths = Vec::new();
-            for entry in std::fs::read_dir(&directory)
-                .map_err(|e| format!("{}: {e}", directory.display()))?
-            {
-                let entry = entry.map_err(|e| e.to_string())?;
-                let kind = entry.file_type().map_err(|e| e.to_string())?;
-                if !kind.is_file() || kind.is_symlink() {
-                    continue;
-                }
-                let path = entry.path();
-                if path.extension().is_none_or(|e| e != source.extension()) {
-                    continue;
-                }
-                paths.push(path);
-            }
-            paths.sort();
+            let paths = discover(
+                &root,
+                &definition.source_path,
+                &definition.discovery,
+                &source,
+            )?;
             let mut member_files = Vec::new();
             for path in paths {
                 let relative = path
@@ -464,19 +456,39 @@ impl Repository {
                     if definition.schema.has_temporal_fields() {
                         extracted.text = text_segments(&extracted.value);
                     }
-                    let record_id = match definition.identity {
-                        IdentityPolicy::Filename => {
-                            let stem = path
-                                .file_stem()
-                                .and_then(|s| s.to_str())
-                                .ok_or("non-UTF-8 filename identity")?;
-                            RecordId::intrinsic(stem)?
+                    let record_id = (|| -> Result<RecordId, String> {
+                        match &definition.identity {
+                            IdentityPolicy::Filename => {
+                                let stem = path
+                                    .file_stem()
+                                    .and_then(|s| s.to_str())
+                                    .ok_or("non-UTF-8 filename identity")?;
+                                RecordId::intrinsic(stem)
+                            }
+                            IdentityPolicy::Generated => Ok(RecordId::generated(
+                                file_id,
+                                file.revision.modified_ns,
+                                range.start,
+                            )),
+                            IdentityPolicy::Intrinsic(path) => {
+                                let value = source
+                                    .reader()
+                                    .intrinsic_id(&extracted, path)?
+                                    .ok_or_else(|| {
+                                        format!("missing intrinsic record ID at {}", path.join("."))
+                                    })?;
+                                RecordId::intrinsic(value)
+                            }
                         }
-                        IdentityPolicy::Generated => {
-                            RecordId::generated(file_id, file.revision.modified_ns, range.start)
-                        }
-                    };
-                    let slot = builder.add_record(file, record_id, range.start, range.end)?;
+                    })()
+                    .map_err(|error| {
+                        format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
+                    })?;
+                    let slot = builder
+                        .add_record(file, record_id, range.start, range.end)
+                        .map_err(|error| {
+                            format!("{}:{}..{}: {error}", path.display(), range.start, range.end)
+                        })?;
                     postings.add(slot, &extracted.value)?;
                     for (key, custom) in &mut custom_postings {
                         let binding = &definition.schema.operations[key];

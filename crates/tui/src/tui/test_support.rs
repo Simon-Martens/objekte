@@ -81,6 +81,7 @@ fn definition(name: &str) -> CollectionDefinition {
         source_path: name.into(),
         format: SourceFormat::Json,
         identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
         schema,
         sort_fields: vec![FieldPath::parse("number").unwrap()],
         sort_locale: "en".into(),

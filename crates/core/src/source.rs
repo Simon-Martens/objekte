@@ -76,6 +76,31 @@ pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
+    fn intrinsic_id(
+        &self,
+        record: &ExtractedRecord,
+        path: &[String],
+    ) -> Result<Option<String>, String> {
+        let mut value = &record.value;
+        for segment in path {
+            let Value::Object(fields) = value else {
+                return Ok(None);
+            };
+            let Some(next) = fields.get(segment) else {
+                return Ok(None);
+            };
+            value = next;
+        }
+        match value {
+            Value::String(id) => Ok(Some(id.clone())),
+            Value::Null => Ok(None),
+            _ => Err(format!(
+                "intrinsic record ID at {} must be a string",
+                path.join(".")
+            )),
+        }
+    }
+
     fn parse_for_query(
         &self,
         bytes: &[u8],

@@ -101,6 +101,7 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
                 source_path: "data".into(),
                 format: SourceFormat::Json,
                 identity: IdentityPolicy::Filename,
+                discovery: Default::default(),
                 schema,
                 sort_fields: vec![],
                 sort_locale: "de".into(),

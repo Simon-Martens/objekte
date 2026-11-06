@@ -119,27 +119,19 @@ pub fn snapshot_path(root: &Path, alphabet: BigramAlphabet) -> PathBuf {
 /// deletions. A mismatch requires a fresh private build before publication.
 pub fn sources_match(repo: &Repository) -> Result<bool, String> {
     for state in &repo.collections {
-        let directory = repo.files.root.join(&state.definition.source_path);
-        let extension = state.source.extension();
         let mut observed = Vec::new();
-        for entry in
-            fs::read_dir(&directory).map_err(|e| format!("{}: {e}", directory.display()))?
-        {
-            let entry = entry.map_err(|e| e.to_string())?;
-            let kind = entry.file_type().map_err(|e| e.to_string())?;
-            if !kind.is_file() || kind.is_symlink() {
-                continue;
-            }
-            let path = entry.path();
-            if path.extension().is_none_or(|e| e != extension) {
-                continue;
-            }
+        for path in crate::discovery::discover(
+            &repo.files.root,
+            &state.definition.source_path,
+            &state.definition.discovery,
+            &state.source,
+        )? {
             let relative = path
                 .strip_prefix(&repo.files.root)
                 .map_err(|e| e.to_string())?
                 .to_owned();
             let revision =
-                SourceRevision::from_metadata(&entry.metadata().map_err(|e| e.to_string())?)?;
+                SourceRevision::from_metadata(&fs::metadata(&path).map_err(|e| e.to_string())?)?;
             observed.push((relative, revision));
         }
         observed.sort_by(|a, b| a.0.cmp(&b.0));
@@ -184,6 +176,7 @@ pub fn configuration_hash(
         let source = sources.resolve(&definition.format)?;
         feed(&mut hash, definition.name.as_bytes());
         feed(&mut hash, &path_bytes(&definition.source_path));
+        feed(&mut hash, format!("{:?}", definition.discovery).as_bytes());
         feed(&mut hash, source.id().as_bytes());
         hash.update(source.version().to_le_bytes());
         feed(&mut hash, source.extension().as_bytes());

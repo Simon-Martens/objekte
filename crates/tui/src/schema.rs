@@ -70,6 +70,7 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
             source_path,
             format,
             identity,
+            discovery: Default::default(),
             schema,
             sort_fields,
             sort_locale: "de".into(),
