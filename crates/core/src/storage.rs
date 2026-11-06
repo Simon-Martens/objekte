@@ -23,7 +23,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 2;
+pub const SNAPSHOT_VERSION: u32 = 3;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -42,6 +42,7 @@ struct EncodedFile {
 #[derive(Serialize, Deserialize)]
 struct EncodedCollection {
     generation: CollectionGeneration,
+    identity_order: Vec<RecordSlot>,
     postings: PostingCollection,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramIndex,
@@ -55,6 +56,7 @@ struct EncodedCollection {
 #[derive(Serialize)]
 struct EncodedCollectionRef<'a> {
     generation: &'a CollectionGeneration,
+    identity_order: &'a Vec<RecordSlot>,
     postings: &'a PostingCollection,
     custom_postings: &'a HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: &'a BigramIndex,
@@ -364,6 +366,7 @@ impl Repository {
             for (index, state) in self.collections.iter().enumerate() {
                 let encoded = EncodedCollectionRef {
                     generation: &state.generation,
+                    identity_order: &state.identity_order,
                     postings: &state.postings,
                     custom_postings: &state.custom_postings,
                     raw: &state.raw,
@@ -551,26 +554,29 @@ pub fn load_snapshot(
                 || column.collation_version != COLLATION_VERSION
                 || column.keys.len() != generation.records.len()
                 || column.ascending.len() != generation.records.len()
+                || column.descending.len() != generation.records.len()
             {
                 return Err("snapshot sort binding mismatch".into());
             }
-            let mut seen = vec![false; generation.records.len()];
-            for slot in &column.ascending {
-                let i = slot.0 as usize;
-                if i >= seen.len() || seen[i] {
-                    return Err("snapshot sort permutation mismatch".into());
+            for (ordered, descending) in [(&column.ascending, false), (&column.descending, true)] {
+                let mut seen = vec![false; generation.records.len()];
+                for slot in ordered {
+                    let i = slot.0 as usize;
+                    if i >= seen.len() || seen[i] {
+                        return Err("snapshot sort permutation mismatch".into());
+                    }
+                    seen[i] = true;
                 }
-                seen[i] = true;
-            }
-            if column.ascending.windows(2).any(|pair| {
-                let a = pair[0].0 as usize;
-                let b = pair[1].0 as usize;
-                column.keys[a]
-                    .compare_with(&column.keys[b], false, column.options)
-                    .then_with(|| generation.records[a].id.cmp(&generation.records[b].id))
-                    .is_gt()
-            }) {
-                return Err("snapshot sort order mismatch".into());
+                if ordered.windows(2).any(|pair| {
+                    let a = pair[0].0 as usize;
+                    let b = pair[1].0 as usize;
+                    column.keys[a]
+                        .compare_with(&column.keys[b], descending, column.options)
+                        .then_with(|| generation.records[a].id.cmp(&generation.records[b].id))
+                        .is_gt()
+                }) {
+                    return Err("snapshot sort order mismatch".into());
+                }
             }
         }
         let id_lookup: HashMap<RecordId, RecordSlot> = generation
@@ -580,6 +586,22 @@ pub fn load_snapshot(
             .collect();
         if id_lookup.len() != generation.records.len() {
             return Err("snapshot duplicate record ID".into());
+        }
+        if encoded.identity_order.len() != generation.records.len() {
+            return Err("snapshot identity order coverage mismatch".into());
+        }
+        let mut seen_identity = vec![false; generation.records.len()];
+        for slot in &encoded.identity_order {
+            let i = slot.0 as usize;
+            if i >= seen_identity.len() || seen_identity[i] {
+                return Err("snapshot identity order permutation mismatch".into());
+            }
+            seen_identity[i] = true;
+        }
+        if encoded.identity_order.windows(2).any(|pair| {
+            generation.records[pair[0].0 as usize].id > generation.records[pair[1].0 as usize].id
+        }) {
+            return Err("snapshot identity order mismatch".into());
         }
         let stats = CollectionStats {
             file_count: generation.files.len(),
@@ -606,6 +628,7 @@ pub fn load_snapshot(
             custom_text: encoded.custom_text,
             sorting: encoded.sorting,
             id_lookup,
+            identity_order: encoded.identity_order,
             stats,
         });
     }

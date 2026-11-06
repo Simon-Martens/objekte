@@ -130,7 +130,7 @@ fn registered_non_json_reader_reaches_build_query_payload_and_restore() {
     assert_eq!(repo.build_parses(), 2);
     assert_eq!(parses.load(Ordering::Relaxed), 2);
     let found = repo.search(&query).unwrap();
-    assert_eq!(found.count, 1);
+    assert_eq!(found.count.unwrap(), 1);
     assert_eq!(found.counters.record_parses, 1);
     assert!(
         matches!(&found.hits[0].payload, Some(Payload::Logical(Value::Object(fields))) if fields.get("body") == Some(&Value::String("needle text".into())))

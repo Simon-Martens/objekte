@@ -46,7 +46,7 @@ fn schema_files_remain_an_addon_to_in_memory_definitions() {
             },
         })
         .unwrap();
-    assert_eq!(result.count, 1);
+    assert_eq!(result.count.unwrap(), 1);
     assert_eq!(result.hits[0].record_id, "one");
 }
 

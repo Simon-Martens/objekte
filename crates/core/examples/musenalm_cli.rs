@@ -174,7 +174,7 @@ fn run() -> Result<(), String> {
     println!(
         "case={} count={} returned={} scanned={} parsed={} bytes_read={}",
         case.id,
-        result.count,
+        result.count.ok_or("CLI request requires COUNT")?,
         result.hits.len(),
         result.counters.scanned_records,
         result.counters.record_parses,

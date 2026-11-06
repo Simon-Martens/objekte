@@ -164,13 +164,20 @@ representation for native non-UTF-8 names. Dates and datetimes require
 explicitly typed fields and quoted typed literals; Unix-second fields take
 integer literals.
 
-COUNT is the complete number of matching records even when the returned page
-is small. Sorting uses ICU4X 2.4.0. Each collection specifies a default locale
+When COUNT is requested, `SearchResult.count` contains the exact total even
+for a small page. Otherwise it is `None`, and a broad single-field or identity
+order can stop as soon as the globally correct page is established. The
+counter marks whether its observed match total covers the whole query. Partial
+pages are never inserted into the complete verified-result cache. Sorting uses
+ICU4X 2.4.0. Each collection specifies a default locale
 and collation options; configured sort fields can override locale, strength,
 numeric ordering, and null/missing placement. The Musenalm adapter uses `de`
 with the previous defaults. Other scalar values use typed order, and
-collection/record identity breaks ties consistently. Incompatible sort
-definitions across selected collections are rejected. The
+collection/record identity breaks ties consistently. Both directions retain
+precomputed single-field order, and broad page-only queries merge those lists
+across collections. Selective and multi-field requests use stored-key top-k
+selection. Incompatible sort definitions across selected collections are
+rejected. The
 executor retains at most `offset + limit` page winners while counting. A hit
 always includes its collection, record ID, generation, file ID/path, size,
 created/modified times, byte range, and requested matched-field evidence.

@@ -318,7 +318,11 @@ impl App {
             self.requested_offset = None;
             match update.result {
                 Ok(result) => {
-                    self.total = result.count;
+                    let Some(total) = result.count else {
+                        self.error = Some("search omitted the requested count".into());
+                        continue;
+                    };
+                    self.total = total;
                     if update.offset == 0 {
                         self.hits = result.hits;
                     } else if update.offset == self.hits.len() {

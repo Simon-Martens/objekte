@@ -89,6 +89,9 @@ pub struct WorkCounters {
     pub candidates: u64,
     pub scanned_records: u64,
     pub total_matches: u64,
+    /// Whether `total_matches` covers the entire selected query domain.
+    #[serde(default)]
+    pub match_count_complete: bool,
     pub returned_records: u64,
     pub files_opened: u64,
     pub bytes_read: u64,

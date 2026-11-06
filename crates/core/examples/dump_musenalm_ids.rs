@@ -67,17 +67,18 @@ fn run() -> Result<(), String> {
         query.options.return_mode = ReturnMode::Locator;
         query.options.evidence = false;
         let result = repo.search(&query)?;
+        let total = result.count.ok_or("ID dump requires COUNT")?;
         let ids = result
             .hits
             .into_iter()
             .map(|hit| (hit.collection, hit.record_id))
             .collect::<BTreeSet<_>>();
-        if ids.len() != result.count {
+        if ids.len() != total {
             return Err(format!("{} has duplicate or missing IDs", case.id));
         }
         println!(
             "{}",
-            serde_json::json!({"id":case.id,"count":result.count,"ids":ids})
+            serde_json::json!({"id":case.id,"count":total,"ids":ids})
         );
     }
     Ok(())

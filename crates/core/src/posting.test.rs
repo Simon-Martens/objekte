@@ -178,7 +178,8 @@ fn nullable_arrays_keep_quantifiers_when_postings_are_available() {
             actual.sort_unstable();
             assert_eq!(actual, expected, "indexed={indexed}, {filter}");
             assert_eq!(
-                optimized.count, reference.count,
+                optimized.count.unwrap(),
+                reference.count.unwrap(),
                 "indexed={indexed}, {filter}"
             );
             assert_eq!(

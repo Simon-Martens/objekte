@@ -84,11 +84,12 @@ pub(super) fn all(
         loop {
             query.options.offset = offset;
             let page = repo.search(&query)?;
-            if expected.is_some_and(|count| count != page.count) {
+            let total = page.count.ok_or("export requires an exact count")?;
+            if expected.is_some_and(|count| count != total) {
                 return Err("result count changed during export".into());
             }
-            expected = Some(page.count);
-            if page.hits.is_empty() && offset < page.count {
+            expected = Some(total);
+            if page.hits.is_empty() && offset < total {
                 return Err("query returned an incomplete export page".into());
             }
             for hit in &page.hits {
@@ -101,7 +102,7 @@ pub(super) fn all(
                     .map_err(|error| error.to_string())?;
                 offset += 1;
             }
-            if offset >= page.count {
+            if offset >= total {
                 break;
             }
         }

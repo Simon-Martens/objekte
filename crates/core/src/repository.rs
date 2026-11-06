@@ -76,6 +76,7 @@ pub struct CollectionState {
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub sorting: SortCollection,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
+    pub identity_order: Vec<RecordSlot>,
     pub stats: CollectionStats,
 }
 
@@ -202,10 +203,10 @@ pub enum Payload {
 }
 
 
-/// Exact match count, returned page, and measured work.
+/// Requested exact match count, returned page, and measured work.
 #[derive(Clone, Debug)]
 pub struct SearchResult {
-    pub count: usize,
+    pub count: Option<usize>,
     pub hits: Vec<SearchHit>,
     pub counters: WorkCounters,
 }
@@ -619,6 +620,16 @@ impl Repository {
                 .iter()
                 .map(|r| (r.id.clone(), r.slot))
                 .collect();
+            let mut identity_order = generation
+                .records
+                .iter()
+                .map(|r| r.slot)
+                .collect::<Vec<_>>();
+            identity_order.sort_by(|a, b| {
+                generation.records[a.0 as usize]
+                    .id
+                    .cmp(&generation.records[b.0 as usize].id)
+            });
             let stats = CollectionStats {
                 file_count: generation.files.len(),
                 record_count: generation.records.len(),
@@ -638,6 +649,7 @@ impl Repository {
                 custom_text,
                 sorting,
                 id_lookup,
+                identity_order,
                 stats,
             });
         }
@@ -688,6 +700,7 @@ impl Repository {
             candidates: 0,
             scanned_records: 0,
             total_matches: 0,
+            match_count_complete: false,
             returned_records: 0,
             files_opened: 0,
             bytes_read: 0,
@@ -773,6 +786,7 @@ impl Repository {
         sort_rows(self, query, &mut hits);
         let count = hits.len();
         counters.total_matches = count as u64;
+        counters.match_count_complete = true;
         let hits: Vec<_> = hits
             .into_iter()
             .skip(query.options.offset)
@@ -781,7 +795,7 @@ impl Repository {
             .collect();
         counters.returned_records = hits.len() as u64;
         Ok(SearchResult {
-            count,
+            count: query.options.count.then_some(count),
             hits,
             counters,
         })

@@ -166,6 +166,21 @@ fn configured_collation_changes_order_and_restore_compatibility() {
         .unwrap()
         .slot;
     assert_eq!(column.keys[g.0 as usize], column.keys[h.0 as usize]);
+    query.options.count = false;
+    query.options.limit = 2;
+    let (first_page, first_trace) = rebuilt.explain_analyze(&query).unwrap();
+    assert_eq!(first_page.count, None);
+    assert_eq!(
+        first_page
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["e", "f"]
+    );
+    assert_eq!(first_trace[0].fts_strategy, "stored order page traversal");
+    query.options.count = true;
+    query.options.limit = 8;
     query.options.sort[0].descending = true;
     let full_descending = ids(&rebuilt, &query);
     assert!(
@@ -256,6 +271,6 @@ fn cross_collection_sort_rejects_different_collation() {
     );
     let mut scoped = query;
     scoped.collections = vec!["a".into()];
-    assert_eq!(repo.search(&scoped).unwrap().count, 1);
+    assert_eq!(repo.search(&scoped).unwrap().count.unwrap(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }

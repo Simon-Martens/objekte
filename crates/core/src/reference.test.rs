@@ -411,7 +411,7 @@ fn numeric_string_is_rejected_before_indexed_or_scanned_inequality() {
             Repository::open_with_options(&root, vec![definition(indexed)], options).unwrap();
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        assert_eq!(optimized.count, 1);
+        assert_eq!(optimized.count.unwrap(), 1);
         assert_eq!(optimized.hits[0].record_id, "eight");
         assert_eq!(optimized.hits, reference.hits);
         let mut logical_query = query.clone();
@@ -548,7 +548,7 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
                 .map(|hit| (hit.collection.as_str(), hit.record_id.as_str()))
                 .collect::<Vec<_>>();
             assert_eq!(actual, expected, "{filter}");
-            assert_eq!(result.count, reference.count);
+            assert_eq!(result.count.unwrap(), reference.count.unwrap());
             assert_eq!(result.hits, reference.hits);
         }
         let query = Query {
@@ -571,13 +571,13 @@ fn unhinted_paths_use_actual_types_and_collection_specific_bindings() {
             },
         };
         let result = repo.search(&query).unwrap();
-        assert_eq!(result.count, 2);
+        assert_eq!(result.count.unwrap(), 2);
         assert_eq!(result.hits, repo.search_reference(&query).unwrap().hits);
         let mut selected = query.clone();
         selected.fts.as_mut().unwrap().literal = "ell".into();
         selected.fts.as_mut().unwrap().fields[0].binding = None;
         let plain = repo.search(&selected).unwrap();
-        assert_eq!(plain.count, 1);
+        assert_eq!(plain.count.unwrap(), 1);
         assert_eq!(plain.hits[0].record_id, "one");
         assert_eq!(plain.hits, repo.search_reference(&selected).unwrap().hits);
         let mut invalid = query.clone();

@@ -81,8 +81,8 @@ fn round_trip_shared_multi_record_files_and_reject_corruption() {
             2
         );
         assert_eq!(
-            built.search(&query).unwrap().count,
-            restored.search(&query).unwrap().count
+            built.search(&query).unwrap().count.unwrap(),
+            restored.search(&query).unwrap().count.unwrap()
         );
         let other = RepositoryOptions {
             bigram_alphabet: if alphabet == BigramAlphabet::Ascii {

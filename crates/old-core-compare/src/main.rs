@@ -203,7 +203,7 @@ fn run() -> Result<(), String> {
             .iter()
             .map(|hit| hit.record_id.as_str())
             .collect();
-        if old_first.total != Some(new_first.count) || old_ids != new_ids {
+        if old_first.total != new_first.count || old_ids != new_ids {
             println!(
                 "{}",
                 serde_json::json!({

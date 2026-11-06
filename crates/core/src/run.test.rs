@@ -104,7 +104,7 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
         let query = make(filter, evidence);
         let (actual, trace) = repo.explain_analyze(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        assert_eq!(actual.count, expected.len(), "{filter}");
+        assert_eq!(actual.count.unwrap(), expected.len(), "{filter}");
         assert_eq!(
             actual
                 .hits
@@ -148,6 +148,223 @@ fn residual_proofs_skip_indexed_terms_and_preserve_or_evidence() {
         repo.search(&make("kind = 'yes' || kind:unknown = 'x'", false))
             .is_err()
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn stored_order_pages_stop_globally_and_count_remains_optional() {
+    use crate::workload::SortField;
+
+    let root = std::env::temp_dir().join(format!("objekte-page-only-{}", std::process::id()));
+    for collection in ["a", "b"] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+        for n in 0..100 {
+            std::fs::write(
+                root.join(format!("{collection}/{collection}{n:03}.json")),
+                format!(r#"{{"sequence":{n},"kind":"yes","body":"needle {n}"}}"#),
+            )
+            .unwrap();
+        }
+    }
+    let mut schema = Schema::default();
+    for (path, kind, indexed) in [
+        ("sequence", LogicalType::Number, false),
+        ("kind", LogicalType::String, true),
+        ("body", LogicalType::String, false),
+    ] {
+        schema
+            .register_field(FieldDefinition {
+                path: vec![path.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+    }
+    let definitions = ["a", "b"].map(|name| CollectionDefinition {
+        name: name.into(),
+        source_path: name.into(),
+        format: SourceFormat::Json,
+        identity: IdentityPolicy::Filename,
+        discovery: Default::default(),
+        schema: schema.clone(),
+        sort_fields: vec![
+            crate::model::FieldPath::parse("sequence").unwrap(),
+            crate::model::FieldPath::parse("body").unwrap(),
+        ],
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    });
+    let repo = Repository::open_with_options(
+        &root,
+        definitions.to_vec(),
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut query = Query {
+        collections: vec![],
+        fts: None,
+        filter: Some(parse_filter("kind = 'yes'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField {
+                field: "sequence".into(),
+                descending: false,
+            }],
+            limit: 5,
+            offset: 7,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: true,
+        },
+    };
+    let (page, trace) = repo.explain_analyze(&query).unwrap();
+    assert_eq!(page.count, None);
+    assert_eq!(
+        page.hits
+            .iter()
+            .map(|h| h.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["b003", "a004", "b004", "a005", "b005"]
+    );
+    assert_eq!(page.counters.exact_posting_matches, 12);
+    assert_eq!(page.counters.scanned_records, 0);
+    assert!(!page.counters.match_count_complete);
+    assert!(
+        trace
+            .iter()
+            .all(|part| part.fts_strategy == "stored order page traversal")
+    );
+    query.options.count = true;
+    let counted = repo.search(&query).unwrap();
+    assert_eq!(counted.count, Some(200));
+    assert!(counted.counters.match_count_complete);
+    assert_eq!(page.hits, counted.hits);
+    assert_eq!(counted.counters.exact_posting_matches, 200);
+
+    query.options.count = false;
+    for mode in [ReturnMode::Bytes, ReturnMode::Logical] {
+        query.options.return_mode = mode.clone();
+        let partial = repo.search(&query).unwrap();
+        assert_eq!(partial.count, None);
+        assert_eq!(partial.counters.files_opened, 5);
+        assert_eq!(
+            partial.counters.record_parses,
+            if mode == ReturnMode::Logical { 5 } else { 0 }
+        );
+        query.options.count = true;
+        let complete = repo.search(&query).unwrap();
+        assert_eq!(partial.hits, complete.hits);
+        query.options.count = false;
+    }
+
+    query.options.return_mode = ReturnMode::Locator;
+    query.filter = Some(parse_filter("kind = 'yes' && body ~ 'needle'").unwrap());
+    let inexact = repo.search(&query).unwrap();
+    assert_eq!(inexact.count, None);
+    assert_eq!(inexact.counters.scanned_records, 12);
+    query.options.count = true;
+    let full = repo.search(&query).unwrap();
+    assert_eq!(inexact.hits, full.hits);
+    assert_eq!(full.count, Some(200));
+    assert!(full.counters.scanned_records >= 200);
+
+    query.options.count = false;
+    query.filter = Some(parse_filter("kind = 'no'").unwrap());
+    let none = repo.search(&query).unwrap();
+    assert_eq!(none.count, None);
+    assert!(none.hits.is_empty());
+    assert_eq!(none.counters.scanned_records, 0);
+
+    query.filter = Some(parse_filter("kind = 'yes'").unwrap());
+    query.options.sort[0].descending = true;
+    let (descending, descending_trace) = repo.explain_analyze(&query).unwrap();
+    assert!(
+        descending_trace
+            .iter()
+            .all(|part| part.fts_strategy == "stored order page traversal")
+    );
+    assert_eq!(descending.counters.exact_posting_matches, 12);
+    query.options.count = true;
+    assert_eq!(descending.hits, repo.search(&query).unwrap().hits);
+    query.options.count = false;
+    query.options.sort[0].descending = false;
+    query.options.sort.clear();
+    let unsorted = repo.search(&query).unwrap();
+    assert_eq!(unsorted.count, None);
+    assert_eq!(
+        unsorted
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["a007", "a008", "a009", "a010", "a011"]
+    );
+    assert_eq!(unsorted.counters.exact_posting_matches, 12);
+    query.options.count = true;
+    assert_eq!(unsorted.hits, repo.search(&query).unwrap().hits);
+    query.options.count = false;
+    query.options.sort = vec![SortField {
+        field: "sequence".into(),
+        descending: false,
+    }];
+    query.options.offset = 198;
+    let deep = repo.search(&query).unwrap();
+    assert_eq!(deep.count, None);
+    assert_eq!(deep.hits.len(), 2);
+    query.options.count = true;
+    assert_eq!(deep.hits, repo.search(&query).unwrap().hits);
+
+    query.options.count = false;
+    query.options.offset = 7;
+    query.options.sort.push(SortField {
+        field: "body".into(),
+        descending: false,
+    });
+    let multiple_fields = repo.search(&query).unwrap();
+    assert_eq!(multiple_fields.count, None);
+    assert!(multiple_fields.counters.match_count_complete);
+    query.options.count = true;
+    assert_eq!(multiple_fields.hits, repo.search(&query).unwrap().hits);
+    query.options.sort.pop();
+
+    query.options.count = false;
+    query.options.limit = 0;
+    let empty_page = repo.search(&query).unwrap();
+    assert_eq!(empty_page.count, None);
+    assert!(empty_page.hits.is_empty());
+    assert_eq!(empty_page.counters.scanned_records, 0);
+
+    let cached_repo = Repository::open_with_options(
+        &root,
+        definitions.to_vec(),
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            verified_cache_bytes: 1 << 20,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    query.options.count = false;
+    query.options.offset = 7;
+    query.options.limit = 5;
+    let first_page = cached_repo.search(&query).unwrap();
+    assert!(!first_page.counters.verified_result_hit);
+    query.options.count = true;
+    let complete = cached_repo.search(&query).unwrap();
+    assert!(!complete.counters.verified_result_hit);
+    assert_eq!(complete.count, Some(200));
+    query.options.count = false;
+    let cached_page = cached_repo.search(&query).unwrap();
+    assert!(cached_page.counters.verified_result_hit);
+    assert_eq!(cached_page.count, None);
+    assert_eq!(cached_page.hits, first_page.hits);
     std::fs::remove_dir_all(root).unwrap();
 }
 
@@ -238,9 +455,9 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
         let mut without_evidence = query.clone();
         without_evidence.options.evidence = false;
         let plain = run(8, &without_evidence);
-        assert_eq!(single.count, 512);
+        assert_eq!(single.count.unwrap(), 512);
         assert_eq!(single.hits, parallel.hits);
-        assert_eq!(single.count, plain.count);
+        assert_eq!(single.count.unwrap(), plain.count.unwrap());
         assert_eq!(
             single
                 .hits
@@ -344,11 +561,11 @@ fn exact_membership_materializes_only_page_payload() {
             assert!(plan[0].actual.is_none());
             assert_eq!(plan[0].terms[0].field, "kind");
             let (analyzed, trace) = repo.explain_analyze(&query).unwrap();
-            assert_eq!(analyzed.count, result.count);
+            assert_eq!(analyzed.count.unwrap(), result.count.unwrap());
             assert_eq!(trace[0].actual.as_ref().unwrap().files_opened, 0);
             assert_eq!(trace[0].actual.as_ref().unwrap().index_proven_matches, 3);
         }
-        assert_eq!(result.count, 3);
+        assert_eq!(result.count.unwrap(), 3);
         assert_eq!(result.hits.len(), 1);
         assert_eq!(result.hits[0].record_id, "b");
         assert_eq!(result.counters.record_parses, parses);
@@ -384,7 +601,7 @@ fn exact_membership_materializes_only_page_payload() {
     assert!(!miss.counters.verified_result_hit);
     let hit = repo.search(&query).unwrap();
     assert!(hit.counters.verified_result_hit);
-    assert_eq!(hit.count, 3);
+    assert_eq!(hit.count.unwrap(), 3);
     assert_eq!(hit.hits[0].record_id, "b");
     assert_eq!(hit.hits[0].matched_fields, ["kind"]);
     assert_eq!(hit.counters.files_opened, 0);
@@ -398,7 +615,7 @@ fn exact_membership_materializes_only_page_payload() {
     assert!(!repo.search(&query).unwrap().counters.verified_result_hit);
     let empty = repo.search(&query).unwrap();
     assert!(empty.counters.verified_result_hit);
-    assert_eq!(empty.count, 0);
+    assert_eq!(empty.count.unwrap(), 0);
     query.filter = Some(parse_filter("kind = 'yes'").unwrap());
     query.options.offset = 1;
     query.options.return_mode = ReturnMode::Bytes;
@@ -475,7 +692,7 @@ fn multi_record_scan_opens_file_once_and_parses_each_range_once() {
         },
     };
     let result = repo.search(&query).unwrap();
-    assert_eq!(result.count, 2);
+    assert_eq!(result.count.unwrap(), 2);
     assert_eq!(result.counters.files_opened, 1);
     assert_eq!(result.counters.record_parses, 2);
     assert!(
@@ -541,7 +758,7 @@ fn exact_boolean_evidence_tracks_only_true_branches() {
     };
     let optimized = repo.search(&query).unwrap();
     let reference = repo.search_reference(&query).unwrap();
-    assert_eq!(optimized.count, 1);
+    assert_eq!(optimized.count.unwrap(), 1);
     assert_eq!(optimized.counters.record_parses, 0);
     assert_eq!(optimized.hits[0].matched_fields, ["c"]);
     assert_eq!(
@@ -613,7 +830,7 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
     let repo = Repository::open(&root, definitions.clone()).unwrap();
     let optimized = repo.search(&query).unwrap();
     let reference = repo.search_reference(&query).unwrap();
-    assert_eq!(optimized.count, 1);
+    assert_eq!(optimized.count.unwrap(), 1);
     assert_eq!(optimized.hits[0].record_id, "b");
     assert_eq!(optimized.hits[0].payload, reference.hits[0].payload);
     assert!(
@@ -693,7 +910,7 @@ fn selected_folded_and_metadata_fts_match_reference() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        assert_eq!(optimized.count, 1);
+        assert_eq!(optimized.count.unwrap(), 1);
         assert_eq!(optimized.hits[0].record_id, "a");
         if field == "@file.path" {
             assert_eq!(optimized.counters.record_parses, 0);
@@ -772,8 +989,8 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        assert_eq!(optimized.count, expected);
-        assert_eq!(optimized.count, reference.count);
+        assert_eq!(optimized.count.unwrap(), expected);
+        assert_eq!(optimized.count.unwrap(), reference.count.unwrap());
         assert_eq!(
             optimized
                 .hits
@@ -804,8 +1021,8 @@ fn uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact() {
     };
     let optimized = repo.search(&query).unwrap();
     assert_eq!(
-        optimized.count,
-        repo.search_reference(&query).unwrap().count
+        optimized.count.unwrap(),
+        repo.search_reference(&query).unwrap().count.unwrap()
     );
     assert!(optimized.counters.record_parses > 0);
     std::fs::remove_dir_all(root).unwrap();
@@ -859,7 +1076,7 @@ fn quoted_data_name_does_not_shadow_metadata() {
     };
     let optimized = repo.search(&query).unwrap();
     let reference = repo.search_reference(&query).unwrap();
-    assert_eq!(optimized.count, 1);
+    assert_eq!(optimized.count.unwrap(), 1);
     assert_eq!(optimized.counters.record_parses, 0);
     assert_eq!(
         optimized.hits[0].matched_fields,

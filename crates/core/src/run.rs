@@ -1,6 +1,7 @@
 //! Bounded result retention, grouped source access, and payload materialization.
 
 use std::cmp::Ordering;
+use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
 use std::time::Instant;
 
@@ -20,8 +21,8 @@ use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, RecordContext, eval_bound_fts, eval_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
-use crate::sorting::{SortKey, SortOptions};
-use crate::source::{ScanProjection, read_record_ranges, text_segments};
+use crate::sorting::{SortColumn, SortKey, SortOptions};
+use crate::source::{ScanProjection, read_record_range, read_record_ranges, text_segments};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, WorkCounters};
 
@@ -32,6 +33,68 @@ struct RankKey {
     parts: Vec<(SortKey, bool, SortOptions)>,
     collection: String,
     id: String,
+}
+
+
+/// Sort paths are parsed and columns resolved once per query.
+struct ResolvedSort<'a> {
+    columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
+}
+
+
+impl<'a> ResolvedSort<'a> {
+    fn new(repo: &'a Repository, query: &Query) -> Self {
+        let columns = repo
+            .collections
+            .iter()
+            .map(|collection| {
+                if !query.collections.is_empty()
+                    && !query.collections.contains(&collection.definition.name)
+                {
+                    return None;
+                }
+                Some(
+                    query
+                        .options
+                        .sort
+                        .iter()
+                        .map(|field| {
+                            (
+                                collection
+                                    .sorting
+                                    .column(&field.field)
+                                    .expect("sort validated"),
+                                field.descending,
+                            )
+                        })
+                        .collect(),
+                )
+            })
+            .collect();
+        Self { columns }
+    }
+
+    fn compare_to_rank(
+        &self,
+        collection_index: usize,
+        record: &RecordEntry,
+        collection_name: &str,
+        worst: &RankKey,
+    ) -> Ordering {
+        for ((column, descending), (other, _, _)) in self.columns[collection_index]
+            .as_ref()
+            .expect("selected collection")
+            .iter()
+            .zip(&worst.parts)
+        {
+            let key = &column.keys[record.slot.0 as usize];
+            let order = key.compare_with(other, *descending, column.options);
+            if !order.is_eq() {
+                return order;
+            }
+        }
+        (collection_name, record.id.0.as_str()).cmp(&(worst.collection.as_str(), worst.id.as_str()))
+    }
 }
 
 
@@ -309,6 +372,7 @@ impl Residual<'_> {
 fn scan_file(
     repo: &Repository,
     query: &Query,
+    sort: &ResolvedSort<'_>,
     collection_index: usize,
     residual: Option<&Residual<'_>>,
     fts: Option<&BoundFts>,
@@ -335,11 +399,13 @@ fn scan_file(
             let file = &repo.files.files[file_id as usize];
             let may_reach_page = query.options.limit > 0
                 && payload_cutoff.is_none_or(|worst| {
-                    if query.options.sort.is_empty() {
-                        (&collection.definition.name, &record.id.0) < (&worst.collection, &worst.id)
-                    } else {
-                        rank_key(repo, query, collection_index, record) < *worst
-                    }
+                    sort.compare_to_rank(
+                        collection_index,
+                        record,
+                        &collection.definition.name,
+                        worst,
+                    )
+                    .is_lt()
                 });
             let record_projection =
                 if query.options.return_mode == ReturnMode::Logical && may_reach_page {
@@ -431,6 +497,19 @@ pub struct PlanActual {
     pub record_parses: u64,
     pub residual_evaluations: u64,
     pub index_proven_matches: u64,
+}
+
+
+impl Default for PlanActual {
+    fn default() -> Self {
+        Self {
+            files_opened: 0,
+            bytes_read: 0,
+            record_parses: 0,
+            residual_evaluations: 0,
+            index_proven_matches: 0,
+        }
+    }
 }
 
 
@@ -539,27 +618,19 @@ impl Ord for Winner {
 
 
 fn rank_key(
+    sort: &ResolvedSort<'_>,
     repo: &Repository,
-    query: &Query,
     collection_index: usize,
     record: &RecordEntry,
 ) -> RankKey {
     let collection = &repo.collections[collection_index];
-    let parts = query
-        .options
-        .sort
+    let parts = sort.columns[collection_index]
+        .as_ref()
+        .expect("selected collection")
         .iter()
-        .map(|field| {
-            let column = collection
-                .sorting
-                .column(&field.field)
-                .expect("sort validated");
-            let key = collection
-                .sorting
-                .key(&field.field, record.slot)
-                .expect("sort validated")
-                .clone();
-            (key, field.descending, column.options)
+        .map(|(column, descending)| {
+            let key = column.keys[record.slot.0 as usize].clone();
+            (key, *descending, column.options)
         })
         .collect();
     RankKey {
@@ -569,9 +640,35 @@ fn rank_key(
     }
 }
 
+fn make_hit(
+    repo: &Repository,
+    collection_index: usize,
+    record: &RecordEntry,
+    mut matched_fields: Vec<String>,
+    payload: Option<Payload>,
+) -> SearchHit {
+    matched_fields.sort();
+    let file = &repo.files.files[record.file.0 as usize];
+    SearchHit {
+        collection: repo.collections[collection_index].definition.name.clone(),
+        record_id: record.id.0.clone(),
+        generation: repo.collections[collection_index].generation.generation,
+        file_id: file.id.0,
+        file_path: file.relative_path.clone(),
+        file_size: file.revision.size,
+        file_created_ns: file.created_ns,
+        byte_start: record.range.start,
+        byte_end: record.range.end,
+        modified_ns: record.revision.modified_ns,
+        matched_fields,
+        payload,
+    }
+}
+
 fn offer(
     repo: &Repository,
     query: &Query,
+    sort: &ResolvedSort<'_>,
     collection_index: usize,
     record: &RecordEntry,
     evidence: HashSet<String>,
@@ -598,28 +695,25 @@ fn offer(
     if cap == 0 {
         return;
     }
-    let key = rank_key(repo, query, collection_index, record);
-    if winners.len() == cap && winners.peek().is_some_and(|worst| worst.key <= key) {
+    if winners.len() == cap
+        && winners.peek().is_some_and(|worst| {
+            !sort
+                .compare_to_rank(
+                    collection_index,
+                    record,
+                    &repo.collections[collection_index].definition.name,
+                    &worst.key,
+                )
+                .is_lt()
+        })
+    {
         return;
     }
+    let key = rank_key(sort, repo, collection_index, record);
     if winners.len() == cap {
         winners.pop();
     }
-    let file = &repo.files.files[record.file.0 as usize];
-    let hit = SearchHit {
-        collection: repo.collections[collection_index].definition.name.clone(),
-        record_id: record.id.0.clone(),
-        generation: repo.collections[collection_index].generation.generation,
-        file_id: file.id.0,
-        file_path: file.relative_path.clone(),
-        file_size: file.revision.size,
-        file_created_ns: file.created_ns,
-        byte_start: record.range.start,
-        byte_end: record.range.end,
-        modified_ns: record.revision.modified_ns,
-        matched_fields,
-        payload,
-    };
+    let hit = make_hit(repo, collection_index, record, matched_fields, payload);
     winners.push(Winner {
         key,
         collection_index,
@@ -638,9 +732,12 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     if let Some(cached) = cached {
         return materialize_cached(repo, query, &cached);
     }
+    if !query.options.count {
+        return search_impl(repo, query, None, None);
+    }
     let mut members = Vec::new();
     let result = search_impl(repo, query, None, Some(&mut members))?;
-    debug_assert_eq!(members.len(), result.count);
+    debug_assert_eq!(Some(members.len()), result.count);
     sort_cached_members(repo, query, &mut members);
     repo.verified
         .lock()
@@ -650,6 +747,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
 }
 
 fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<CachedMember>) {
+    let sort = ResolvedSort::new(repo, query);
     if query.options.sort.is_empty() {
         members.sort_by(|a, b| {
             let a_collection = &repo.collections[a.collection_index];
@@ -664,20 +762,406 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
                 ))
         });
     } else {
-        let mut keyed: Vec<_> = members
-            .drain(..)
-            .map(|member| {
-                let record = &repo.collections[member.collection_index].generation.records
-                    [member.slot as usize];
-                (
-                    rank_key(repo, query, member.collection_index, record),
-                    member,
+        members.sort_by(|a, b| {
+            let a_collection = &repo.collections[a.collection_index];
+            let b_collection = &repo.collections[b.collection_index];
+            let a_record = &a_collection.generation.records[a.slot as usize];
+            let b_record = &b_collection.generation.records[b.slot as usize];
+            for ((a_column, descending), (b_column, _)) in sort.columns[a.collection_index]
+                .as_ref()
+                .unwrap()
+                .iter()
+                .zip(sort.columns[b.collection_index].as_ref().unwrap())
+            {
+                let order = a_column.keys[a.slot as usize].compare_with(
+                    &b_column.keys[b.slot as usize],
+                    *descending,
+                    a_column.options,
+                );
+                if !order.is_eq() {
+                    return order;
+                }
+            }
+            (&a_collection.definition.name, &a_record.id)
+                .cmp(&(&b_collection.definition.name, &b_record.id))
+        });
+    }
+}
+
+
+struct StoredCursor<'a> {
+    column: Option<&'a SortColumn>,
+    order: &'a [crate::model::RecordSlot],
+    record: &'a RecordEntry,
+    collection_name: &'a str,
+    collection_index: usize,
+    plan_index: usize,
+    position: usize,
+    descending: bool,
+}
+
+
+impl PartialEq for StoredCursor<'_> {
+    fn eq(&self, other: &Self) -> bool {
+        self.cmp(other).is_eq()
+    }
+}
+
+
+impl Eq for StoredCursor<'_> {}
+
+
+impl PartialOrd for StoredCursor<'_> {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+
+impl Ord for StoredCursor<'_> {
+    fn cmp(&self, other: &Self) -> Ordering {
+        let keys = match (self.column, other.column) {
+            (Some(a), Some(b)) => a.keys[self.record.slot.0 as usize].compare_with(
+                &b.keys[other.record.slot.0 as usize],
+                self.descending,
+                a.options,
+            ),
+            _ => Ordering::Equal,
+        };
+        keys.then_with(|| {
+            (self.collection_name, &self.record.id).cmp(&(other.collection_name, &other.record.id))
+        })
+    }
+}
+
+
+fn stored_cursor<'a>(
+    repo: &'a Repository,
+    column: Option<&'a SortColumn>,
+    order: &'a [crate::model::RecordSlot],
+    collection_index: usize,
+    plan_index: usize,
+    position: usize,
+    descending: bool,
+) -> Option<StoredCursor<'a>> {
+    let slot = order.get(position)?;
+    let collection = &repo.collections[collection_index];
+    Some(StoredCursor {
+        column,
+        order,
+        record: &collection.generation.records[slot.0 as usize],
+        collection_name: &collection.definition.name,
+        collection_index,
+        plan_index,
+        position,
+        descending,
+    })
+}
+
+
+struct OrderedPlan<'a> {
+    collection_index: usize,
+    filter: Option<&'a BoundExpr>,
+    fts: Option<&'a BoundFts>,
+    plan: Plan,
+    candidates: RoaringBitmap,
+}
+
+
+fn direct_payload(
+    repo: &Repository,
+    query: &Query,
+    collection_index: usize,
+    record: &RecordEntry,
+    counters: &mut WorkCounters,
+    actual: &mut PlanActual,
+) -> Result<Option<Payload>, String> {
+    if query.options.return_mode == ReturnMode::Locator {
+        return Ok(None);
+    }
+    let collection = &repo.collections[collection_index];
+    let path = repo
+        .files
+        .native_path(record.file)
+        .ok_or("missing source path")?;
+    let bytes = read_record_range(&path, record.revision, record.range)?;
+    counters.files_opened += 1;
+    counters.bytes_read += bytes.len() as u64;
+    actual.files_opened += 1;
+    actual.bytes_read += bytes.len() as u64;
+    Ok(Some(match query.options.return_mode {
+        ReturnMode::Locator => unreachable!(),
+        ReturnMode::Bytes => Payload::Bytes(bytes),
+        ReturnMode::Logical => {
+            counters.record_parses += 1;
+            actual.record_parses += 1;
+            let mut extracted = collection.source.reader().parse(&bytes)?;
+            collection
+                .definition
+                .schema
+                .coerce_record(&mut extracted.value)?;
+            Payload::Logical(extracted.value)
+        }
+    }))
+}
+
+fn try_stored_order_page(
+    repo: &Repository,
+    query: &Query,
+    prepared: &crate::prepared::PreparedQuery,
+    sort: &ResolvedSort<'_>,
+    prepared_plan_hit: bool,
+    preparation_ns: u64,
+    mut traces: Option<&mut Vec<QueryPlanTrace>>,
+) -> Result<Option<SearchResult>, String> {
+    if query.options.count || query.options.sort.len() > 1 {
+        return Ok(None);
+    }
+    let cap = query
+        .options
+        .limit
+        .checked_add(query.options.offset)
+        .ok_or("page size overflow")?;
+    let planning_started = Instant::now();
+    let mut plans = Vec::new();
+    let mut candidate_total = 0u64;
+    for (collection_index, filter, fts) in &prepared.collections {
+        let collection = &repo.collections[*collection_index];
+        let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
+        let mut plan = filter
+            .as_ref()
+            .map(|expr| {
+                plan_expr_restricted(
+                    repo,
+                    collection,
+                    expr,
+                    &domain,
+                    &domain,
+                    query.options.evidence,
                 )
             })
-            .collect();
-        keyed.sort_by(|a, b| a.0.cmp(&b.0));
-        members.extend(keyed.into_iter().map(|(_, member)| member));
+            .transpose()?
+            .unwrap_or(Plan {
+                candidates: None,
+                exact: true,
+                proven_hits: RoaringBitmap::new(),
+                proofs: Vec::new(),
+                choices: Vec::new(),
+            });
+        let mut candidates = plan.candidates.take().unwrap_or(domain);
+        if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
+            candidates &= fts_candidates;
+        }
+        candidate_total += candidates.len();
+        plans.push(OrderedPlan {
+            collection_index: *collection_index,
+            filter: filter.as_ref(),
+            fts: fts.as_ref(),
+            plan,
+            candidates,
+        });
     }
+    // For a selective membership set, ranking the matches is cheaper than
+    // traversing the full stored list. Zero matches need no traversal.
+    if cap > 0 && candidate_total > 0 && candidate_total < (cap as u64).saturating_mul(4) {
+        return Ok(None);
+    }
+    let residuals = plans
+        .iter()
+        .map(|entry| {
+            entry.filter.map(|expr| {
+                prepare_residual(
+                    expr,
+                    &entry.plan.proofs,
+                    &repo.collections[entry.collection_index],
+                    entry.candidates.len(),
+                )
+            })
+        })
+        .collect::<Vec<_>>();
+    let projections = plans
+        .iter()
+        .zip(&residuals)
+        .map(|(entry, residual)| scan_projection(query, residual.as_ref(), &entry.candidates))
+        .collect::<Vec<_>>();
+    if let Some(traces) = traces.as_deref_mut() {
+        for entry in &plans {
+            let collection = &repo.collections[entry.collection_index];
+            traces.push(QueryPlanTrace {
+                collection: collection.definition.name.clone(),
+                generation: collection.generation.generation,
+                input_records: collection.generation.records.len() as u64,
+                fts_strategy: "stored order page traversal".into(),
+                filter_exact: entry.plan.exact,
+                terms: entry.plan.choices.clone(),
+                candidates: entry.candidates.len(),
+                actual: None,
+            });
+        }
+    }
+    let mut counters = WorkCounters {
+        candidates: candidate_total,
+        preparation_ns,
+        planning_ns: planning_started.elapsed().as_nanos() as u64,
+        prepared_plan_hit,
+        ..WorkCounters::default()
+    };
+    let mut actuals = (0..plans.len())
+        .map(|_| PlanActual::default())
+        .collect::<Vec<_>>();
+    let mut heap = BinaryHeap::new();
+    for (plan_index, entry) in plans.iter().enumerate() {
+        let (column, order, descending) = if let Some(field) = query.options.sort.first() {
+            let column = sort.columns[entry.collection_index]
+                .as_ref()
+                .expect("selected collection")[0]
+                .0;
+            let order = if field.descending {
+                &column.descending
+            } else {
+                &column.ascending
+            };
+            (Some(column), order.as_slice(), field.descending)
+        } else {
+            (
+                None,
+                repo.collections[entry.collection_index]
+                    .identity_order
+                    .as_slice(),
+                false,
+            )
+        };
+        if let Some(cursor) = stored_cursor(
+            repo,
+            column,
+            order,
+            entry.collection_index,
+            plan_index,
+            0,
+            descending,
+        ) {
+            heap.push(Reverse(cursor));
+        }
+    }
+    let mut page = Vec::new();
+    let mut stopped_early = false;
+    let mut locator_query = query.clone();
+    locator_query.options.return_mode = ReturnMode::Locator;
+    while cap > 0 {
+        let Some(Reverse(cursor)) = heap.pop() else {
+            break;
+        };
+        let entry = &plans[cursor.plan_index];
+        let actual = &mut actuals[cursor.plan_index];
+        let slot = cursor.record.slot.0;
+        if entry.candidates.contains(slot) {
+            let direct = (entry.plan.exact && entry.fts.is_none())
+                || (!query.options.evidence
+                    && entry.fts.is_none()
+                    && entry.plan.proven_hits.contains(slot));
+            let mut matched = false;
+            let mut evidence = HashSet::new();
+            let mut payload = None;
+            if direct {
+                matched = true;
+                counters.exact_posting_matches += 1;
+                actual.index_proven_matches += 1;
+                if query.options.evidence {
+                    evidence = entry
+                        .filter
+                        .and_then(|expr| proof_evidence(expr, slot, &entry.plan.proofs))
+                        .unwrap_or_default();
+                }
+                if counters.total_matches as usize >= query.options.offset {
+                    payload = direct_payload(
+                        repo,
+                        query,
+                        entry.collection_index,
+                        cursor.record,
+                        &mut counters,
+                        actual,
+                    )?;
+                }
+            } else {
+                let scan_query = if counters.total_matches as usize >= query.options.offset {
+                    query
+                } else {
+                    &locator_query
+                };
+                let scanned = scan_file(
+                    repo,
+                    scan_query,
+                    sort,
+                    entry.collection_index,
+                    residuals[cursor.plan_index].as_ref(),
+                    entry.fts,
+                    &projections[cursor.plan_index],
+                    false,
+                    None,
+                    cursor.record.file.0,
+                    &[(slot, cursor.record.range)],
+                )?;
+                counters.files_opened += scanned.files_opened;
+                counters.bytes_read += scanned.bytes_read;
+                counters.record_parses += scanned.record_parses;
+                counters.scanned_records += scanned.scanned_records;
+                counters.residual_evaluations += scanned.residual_evaluations;
+                actual.files_opened += scanned.files_opened;
+                actual.bytes_read += scanned.bytes_read;
+                actual.record_parses += scanned.record_parses;
+                actual.residual_evaluations += scanned.residual_evaluations;
+                if let Some(found) = scanned.matches.into_iter().next() {
+                    matched = true;
+                    evidence = found.evidence;
+                    payload = found.payload;
+                }
+            }
+            if matched {
+                if counters.total_matches as usize >= query.options.offset {
+                    let matched_fields = if query.options.evidence {
+                        evidence.into_iter().collect()
+                    } else {
+                        Vec::new()
+                    };
+                    page.push(make_hit(
+                        repo,
+                        entry.collection_index,
+                        cursor.record,
+                        matched_fields,
+                        payload,
+                    ));
+                }
+                counters.total_matches += 1;
+                if counters.total_matches as usize >= cap {
+                    stopped_early = true;
+                    break;
+                }
+            }
+        }
+        if let Some(next) = stored_cursor(
+            repo,
+            cursor.column,
+            cursor.order,
+            cursor.collection_index,
+            cursor.plan_index,
+            cursor.position + 1,
+            cursor.descending,
+        ) {
+            heap.push(Reverse(next));
+        }
+    }
+    counters.returned_records = page.len() as u64;
+    counters.match_count_complete = !stopped_early && cap > 0;
+    if let Some(traces) = traces.as_deref_mut() {
+        for (trace, actual) in traces.iter_mut().zip(actuals) {
+            trace.actual = Some(actual);
+        }
+    }
+    Ok(Some(SearchResult {
+        count: None,
+        hits: page,
+        counters,
+    }))
 }
 
 fn materialize_cached(
@@ -694,6 +1178,7 @@ fn materialize_cached(
         .ok_or("page size overflow")?;
     let mut counters = WorkCounters {
         total_matches: cached.members.len() as u64,
+        match_count_complete: true,
         verified_result_hit: true,
         prepared_plan_hit: plan_hit,
         ..WorkCounters::default()
@@ -762,7 +1247,7 @@ fn materialize_cached(
     }
     counters.returned_records = hits.len() as u64;
     Ok(SearchResult {
-        count: cached.members.len(),
+        count: query.options.count.then_some(cached.members.len()),
         hits,
         counters,
     })
@@ -845,6 +1330,20 @@ fn search_impl(
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
+    let sort = ResolvedSort::new(repo, query);
+    if cache_members.is_none() {
+        if let Some(result) = try_stored_order_page(
+            repo,
+            query,
+            &prepared,
+            &sort,
+            plan_hit,
+            preparation_start.elapsed().as_nanos() as u64,
+            traces.as_deref_mut(),
+        )? {
+            return Ok(result);
+        }
+    }
     let cap = query
         .options
         .limit
@@ -968,6 +1467,7 @@ fn search_impl(
                 offer(
                     repo,
                     query,
+                    &sort,
                     collection_index,
                     record,
                     evidence,
@@ -991,6 +1491,7 @@ fn search_impl(
                 offer(
                     repo,
                     query,
+                    &sort,
                     collection_index,
                     record,
                     HashSet::new(),
@@ -1038,6 +1539,7 @@ fn search_impl(
                             scan_file(
                                 repo,
                                 query,
+                                &sort,
                                 collection_index,
                                 residual.as_ref(),
                                 fts.as_ref(),
@@ -1057,6 +1559,7 @@ fn search_impl(
                         scan_file(
                             repo,
                             query,
+                            &sort,
                             collection_index,
                             residual.as_ref(),
                             fts.as_ref(),
@@ -1081,6 +1584,7 @@ fn search_impl(
                     offer(
                         repo,
                         query,
+                        &sort,
                         collection_index,
                         record,
                         matched.evidence,
@@ -1098,6 +1602,7 @@ fn search_impl(
         }
     }
     let count = counters.total_matches as usize;
+    counters.match_count_complete = true;
     let ordered = winners.into_sorted_vec();
     let mut page: Vec<_> = ordered
         .into_iter()
@@ -1162,7 +1667,7 @@ fn search_impl(
     }
     counters.returned_records = page.len() as u64;
     Ok(SearchResult {
-        count,
+        count: query.options.count.then_some(count),
         hits: page.into_iter().map(|winner| winner.hit).collect(),
         counters,
     })

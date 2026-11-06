@@ -69,9 +69,9 @@ fn run() -> Result<(), String> {
             return Err(format!(
                 "{} count/page mismatch: optimized {}/{}, reference {}/{}",
                 case.id,
-                optimized.count,
+                optimized.count.ok_or("acceptance requires COUNT")?,
                 optimized.hits.len(),
-                reference.count,
+                reference.count.ok_or("acceptance requires COUNT")?,
                 reference.hits.len()
             ));
         }
@@ -99,7 +99,7 @@ fn run() -> Result<(), String> {
         println!(
             "{} ok count={} page={}",
             case.id,
-            optimized.count,
+            optimized.count.ok_or("acceptance requires COUNT")?,
             optimized.hits.len()
         );
     }

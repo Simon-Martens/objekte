@@ -285,7 +285,10 @@ fn run() -> Result<(), String> {
                     match repo.search(&query) {
                         Ok(result) => {
                             let ns = start.elapsed().as_nanos() as u64;
-                            let identity = (result.count, result.hits.clone());
+                            let identity = (
+                                result.count.ok_or("benchmark requires COUNT")?,
+                                result.hits.clone(),
+                            );
                             if let Some(previous) = expected.get(&case.id) {
                                 if previous != &identity {
                                     error = Some("results differ across profiles".to_string());

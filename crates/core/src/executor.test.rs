@@ -235,7 +235,7 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
                 &ids, expected,
                 "posting={posting}, bigram={bigram}, complete={complete}"
             );
-            assert_eq!(result.count, reference.count);
+            assert_eq!(result.count.unwrap(), reference.count.unwrap());
             assert_eq!(result.hits, reference.hits);
             assert!(
                 result
@@ -372,7 +372,11 @@ fn record_id_lookup_respects_case_fold_binding() {
             .collect::<Vec<_>>();
         actual.sort_unstable();
         assert_eq!(actual, expected, "{filter}");
-        assert_eq!(optimized.count, reference.count, "{filter}");
+        assert_eq!(
+            optimized.count.unwrap(),
+            reference.count.unwrap(),
+            "{filter}"
+        );
         assert_eq!(optimized.hits, reference.hits, "{filter}");
     }
     std::fs::remove_dir_all(root).unwrap();
@@ -476,7 +480,7 @@ fn indexed_restriction_precedes_written_first_scan() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        assert_eq!(optimized.count, reference.count);
+        assert_eq!(optimized.count.unwrap(), reference.count.unwrap());
         assert_eq!(optimized.hits[0].record_id, "a");
         assert_eq!(optimized.counters.record_parses, 1);
     }
@@ -487,7 +491,7 @@ fn indexed_restriction_precedes_written_first_scan() {
         options,
     };
     let optimized = repo.search(&query).unwrap();
-    assert_eq!(optimized.count, 0);
+    assert_eq!(optimized.count.unwrap(), 0);
     assert_eq!(optimized.counters.files_opened, 0);
     let identity = Query {
         collections: vec![],
@@ -496,7 +500,7 @@ fn indexed_restriction_precedes_written_first_scan() {
         options: query.options.clone(),
     };
     let optimized = repo.search(&identity).unwrap();
-    assert_eq!(optimized.count, 1);
+    assert_eq!(optimized.count.unwrap(), 1);
     assert_eq!(optimized.hits[0].record_id, "b");
     assert_eq!(optimized.counters.files_opened, 0);
     let disjunction = Query {
@@ -506,10 +510,10 @@ fn indexed_restriction_precedes_written_first_scan() {
         options: query.options.clone(),
     };
     let optimized = repo.search(&disjunction).unwrap();
-    assert_eq!(optimized.count, 2);
+    assert_eq!(optimized.count.unwrap(), 2);
     assert_eq!(
-        optimized.count,
-        repo.search_reference(&disjunction).unwrap().count
+        optimized.count.unwrap(),
+        repo.search_reference(&disjunction).unwrap().count.unwrap()
     );
     let folded = Query {
         collections: vec![],
@@ -524,11 +528,11 @@ fn indexed_restriction_precedes_written_first_scan() {
         options: query.options.clone(),
     };
     let optimized = repo.search(&folded).unwrap();
-    assert_eq!(optimized.count, 2);
+    assert_eq!(optimized.count.unwrap(), 2);
     assert_eq!(optimized.counters.record_parses, 2);
     assert_eq!(
-        optimized.count,
-        repo.search_reference(&folded).unwrap().count
+        optimized.count.unwrap(),
+        repo.search_reference(&folded).unwrap().count.unwrap()
     );
     std::fs::remove_dir_all(root).unwrap();
 }
@@ -609,7 +613,7 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
         };
         let optimized = repo.search(&query).unwrap();
         let reference = repo.search_reference(&query).unwrap();
-        assert_eq!(optimized.count, 1);
+        assert_eq!(optimized.count.unwrap(), 1);
         assert_eq!(optimized.hits[0].record_id, "173");
         assert_eq!(optimized.hits[0].record_id, reference.hits[0].record_id);
         assert_eq!(optimized.counters.record_parses, 1);
@@ -626,8 +630,8 @@ fn rare_text_restriction_can_precede_a_broad_posting() {
         };
         let optimized = repo.search(&query).unwrap();
         assert_eq!(
-            optimized.count,
-            repo.search_reference(&query).unwrap().count
+            optimized.count.unwrap(),
+            repo.search_reference(&query).unwrap().count.unwrap()
         );
     }
     std::fs::remove_dir_all(root).unwrap();

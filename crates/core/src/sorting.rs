@@ -115,6 +115,7 @@ pub struct SortColumn {
     pub kind: LogicalType,
     pub keys: Vec<SortKey>,
     pub ascending: Vec<RecordSlot>,
+    pub descending: Vec<RecordSlot>,
     pub locale: String,
     pub options: SortOptions,
     pub collation_version: String,
@@ -189,6 +190,7 @@ impl SortBuilder {
                         kind: field.kind,
                         keys: Vec::new(),
                         ascending: Vec::new(),
+                        descending: Vec::new(),
                         locale: config.locale,
                         options: config.options,
                         collation_version: COLLATION_VERSION.into(),
@@ -276,11 +278,48 @@ impl SortBuilder {
                             .cmp(&generation.records[b.0 as usize].id)
                     })
             });
+            column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
         Ok(SortCollection {
             columns: self.columns,
         })
     }
+}
+
+
+fn descending_order(
+    ascending: &[RecordSlot],
+    keys: &[SortKey],
+    options: SortOptions,
+) -> Vec<RecordSlot> {
+    let mut result = Vec::with_capacity(ascending.len());
+    let mut start = 0;
+    while start < ascending.len() {
+        let rank = keys[ascending[start].0 as usize].rank(options);
+        let mut end = start + 1;
+        while end < ascending.len() && keys[ascending[end].0 as usize].rank(options) == rank {
+            end += 1;
+        }
+        if rank == 0 {
+            let mut group_end = end;
+            while group_end > start {
+                let mut group_start = group_end - 1;
+                while group_start > start
+                    && keys[ascending[group_start - 1].0 as usize]
+                        .compare_with(&keys[ascending[group_end - 1].0 as usize], false, options)
+                        .is_eq()
+                {
+                    group_start -= 1;
+                }
+                result.extend_from_slice(&ascending[group_start..group_end]);
+                group_end = group_start;
+            }
+        } else {
+            result.extend_from_slice(&ascending[start..end]);
+        }
+        start = end;
+    }
+    result
 }
 
 
