@@ -145,6 +145,43 @@ fn construction_membership_preserves_order_empty_files_and_record_ownership() {
 }
 
 #[test]
+fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
+    let mut inventory = FileInventory::new(PathBuf::from("/tmp/repo"));
+    let revision = SourceRevision { modified_ns: 9, size: 20 };
+    let files: Vec<_> = (0..4)
+        .map(|i| inventory.add(format!("{i}.jsonl").into(), revision, None, CollectionId(0)).unwrap())
+        .collect();
+    let empty = CollectionBuilder::new(CollectionId(0), "empty".into(), 1, files.len())
+        .finish(&inventory)
+        .unwrap();
+    assert_eq!(empty.file_records.offsets, [0, 0, 0, 0, 0]);
+    assert!(empty.file_records.slots.is_empty());
+
+    let mut builder = CollectionBuilder::new(CollectionId(0), "data".into(), 1, files.len());
+    for &file in &files {
+        builder.include_file(file).unwrap();
+    }
+    for (n, &file) in [files[2], files[0], files[2], files[1], files[0]].iter().enumerate() {
+        builder.add_record(&inventory.files[file.0 as usize], RecordId::intrinsic(&format!("r{n}")).unwrap(), 0, 10).unwrap();
+    }
+    let generation = builder.finish(&inventory).unwrap();
+    let mut grouped = vec![Vec::new(); files.len()];
+    for record in &generation.records {
+        grouped[record.file.0 as usize].push(record.slot);
+    }
+    let mut expected_offsets = vec![0];
+    let mut expected_slots = Vec::new();
+    for group in grouped {
+        expected_slots.extend(group);
+        expected_offsets.push(expected_slots.len() as u32);
+    }
+    assert_eq!(generation.file_records.offsets, expected_offsets);
+    assert_eq!(generation.file_records.slots, expected_slots);
+    assert_eq!(generation.file_records.offsets, [0, 2, 3, 5, 5]);
+    assert_eq!(generation.file_records.slots, [RecordSlot(1), RecordSlot(4), RecordSlot(3), RecordSlot(0), RecordSlot(2)]);
+}
+
+#[test]
 fn status_codes_and_diagnostic_bounds_are_stable() {
     for (status, code) in [
         (FileStatus::Valid, 0),

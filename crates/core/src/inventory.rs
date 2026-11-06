@@ -601,7 +601,6 @@ pub struct CollectionBuilder {
     files: Vec<FileId>,
     included_files: Vec<bool>,
     records: Vec<RecordEntry>,
-    by_file: Vec<Vec<RecordSlot>>,
     ids: IdentitySet,
 }
 
@@ -627,7 +626,6 @@ impl CollectionBuilder {
             files: Vec::new(),
             included_files: vec![false; file_count],
             records: Vec::new(),
-            by_file: vec![Vec::new(); file_count],
             ids: IdentitySet::default(),
         }
     }
@@ -673,7 +671,6 @@ impl CollectionBuilder {
             class: RecordClass::Logical,
             diagnostic_ref: DiagnosticRef(0),
         });
-        self.by_file[file.id.0 as usize].push(slot);
         Ok(slot)
     }
 
@@ -706,17 +703,30 @@ impl CollectionBuilder {
             class: RecordClass::RawFallback,
             diagnostic_ref,
         });
-        self.by_file[file.id.0 as usize].push(slot);
         Ok(slot)
     }
 
     pub fn finish(self, inventory: &FileInventory) -> Result<CollectionGeneration, String> {
-        let mut offsets = Vec::with_capacity(self.by_file.len() + 1);
-        let mut slots = Vec::with_capacity(self.records.len());
-        offsets.push(0);
-        for group in self.by_file {
-            slots.extend(group);
-            offsets.push(u32::try_from(slots.len()).map_err(|_| "too many records")?);
+        let mut cursors = vec![0u32; self.included_files.len()];
+        for entry in &self.records {
+            let count = cursors
+                .get_mut(entry.file.0 as usize)
+                .ok_or("file ID out of bounds")?;
+            *count = count.checked_add(1).ok_or("too many records")?;
+        }
+        let mut offsets = Vec::with_capacity(cursors.len() + 1);
+        offsets.push(0u32);
+        for count in &cursors {
+            offsets.push((*offsets.last().unwrap()).checked_add(*count).ok_or("too many records")?);
+        }
+        let mut slots = vec![RecordSlot(0); self.records.len()];
+        for (file, cursor) in cursors.iter_mut().enumerate() {
+            *cursor = offsets[file];
+        }
+        for entry in &self.records {
+            let cursor = &mut cursors[entry.file.0 as usize];
+            slots[*cursor as usize] = entry.slot;
+            *cursor += 1;
         }
         let result = CollectionGeneration {
             collection: self.collection,
