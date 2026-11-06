@@ -160,6 +160,45 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
                     assert_eq!(result.counters.candidates, 2);
                 }
             }
+            repo.configure_verified_cache(1 << 20).unwrap();
+            for (literal, case_sensitivity, expected) in [
+                ("STRASSE", crate::query::CaseSensitivity::Sensitive, 1),
+                ("strasse", crate::query::CaseSensitivity::Insensitive, 2),
+                ("Straße", crate::query::CaseSensitivity::Sensitive, 1),
+                ("strasse", crate::query::CaseSensitivity::Sensitive, 0),
+                ("STRASSE", crate::query::CaseSensitivity::Insensitive, 2),
+            ] {
+                let mut request = query.clone();
+                request.filter = None;
+                request.fts = Some(FtsQuery {
+                    case_sensitivity,
+                    literal: literal.into(),
+                    fields: vec![],
+                });
+                request.options.limit = 1;
+                request.options.offset = usize::from(expected == 2);
+                request.options.return_mode = ReturnMode::Bytes;
+                let first = repo.search(&request).unwrap();
+                let warm = repo.search(&request).unwrap();
+                let reference = repo.search_reference(&request).unwrap();
+                assert_eq!(first.count, Some(expected));
+                assert_eq!(first.hits, reference.hits);
+                assert_eq!(warm.hits, reference.hits);
+                assert!(warm.counters.verified_result_hit);
+                request.options.return_mode = ReturnMode::Logical;
+                assert_eq!(
+                    repo.search(&request).unwrap().hits,
+                    repo.search_reference(&request).unwrap().hits
+                );
+            }
+            let mut combined = query.clone();
+            combined.fts = Some(FtsQuery {
+                case_sensitivity: crate::query::CaseSensitivity::Insensitive,
+                literal: "strasse".into(),
+                fields: vec![],
+            });
+            combined.filter = Some(parse_filter("title = 'Straße Almanach'").unwrap());
+            assert_eq!(repo.search(&combined).unwrap().count, Some(1));
             assert_eq!(repo.collections[0].custom_text.len(), 1);
         }
     }
@@ -534,6 +573,14 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
             )
             .unwrap();
             assert_eq!(repo.build_failed_parses(), 1);
+            let mut unsupported = fts_query(true);
+            unsupported.fts.as_mut().unwrap().case_sensitivity =
+                crate::query::CaseSensitivity::Insensitive;
+            assert!(
+                repo.search(&unsupported)
+                    .unwrap_err()
+                    .contains("does not support insensitive mode")
+            );
             assert_eq!(
                 repo.collections()[0]
                     .generation
@@ -856,12 +903,18 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
         };
         let built =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
-        for (literal, expected) in [("HELLO", 2), ("hello", 1), ("ell", 1)] {
+        for (literal, case_sensitivity, expected) in [
+            ("HELLO", crate::query::CaseSensitivity::Sensitive, 2),
+            ("hello", crate::query::CaseSensitivity::Sensitive, 1),
+            ("ell", crate::query::CaseSensitivity::Sensitive, 1),
+            ("hello", crate::query::CaseSensitivity::Insensitive, 2),
+            ("ell", crate::query::CaseSensitivity::Insensitive, 2),
+        ] {
             let query = Query {
                 collections: vec!["data".into()],
                 filter: None,
                 fts: Some(FtsQuery {
-                    case_sensitivity: crate::query::CaseSensitivity::Sensitive,
+                    case_sensitivity,
                     literal: literal.into(),
                     fields: vec![],
                 }),

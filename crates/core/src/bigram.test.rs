@@ -59,6 +59,72 @@ fn unsupported_ascii_bytes_keep_their_window_positions() {
 }
 
 #[test]
+fn explicit_reference_fold_matches_stay_inside_candidate_supersets() {
+    fn reference_fold(text: &str) -> String {
+        let mut result = String::new();
+        for ch in text.chars() {
+            match ch {
+                'ß' => result.push_str("ss"),
+                'Σ' | 'ς' => result.push('σ'),
+                'İ' => result.push_str("i\u{307}"),
+                'I' => result.push('i'),
+                'ı' => result.push('ı'),
+                _ if ch.is_ascii_uppercase() => result.push(ch.to_ascii_lowercase()),
+                _ => result.push(ch),
+            }
+        }
+        result
+    }
+    let texts = [
+        "Der",
+        "der",
+        "Straße",
+        "STRASSE",
+        "aßb",
+        "aüb",
+        "Σσς",
+        "Iİı",
+        "e\u{301}",
+        "é",
+        "🙂a🙂b",
+        "中文",
+        "ab",
+        "cd",
+    ];
+    let literals = [
+        "Der", "der", "DER", "ß", "ss", "assb", "AßB", "aüb", "ab", "b", "Σ", "σ", "ς", "I", "i",
+        "İ", "ı", "i\u{307}", "é", "e\u{301}", "🙂", "中文", "bc", "",
+    ];
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let mut index = BigramIndex::new(alphabet);
+        for (slot, text) in texts.iter().enumerate() {
+            index
+                .add_record(
+                    RecordSlot(slot as u32),
+                    &[TextSegment {
+                        path: vec![],
+                        text: (*text).into(),
+                    }],
+                )
+                .unwrap();
+        }
+        for (slot, text) in texts.iter().enumerate() {
+            for literal in literals {
+                if text.contains(literal) || reference_fold(text).contains(&reference_fold(literal))
+                {
+                    assert!(
+                        index
+                            .candidates(literal)
+                            .is_none_or(|set| set.contains(slot as u32)),
+                        "{alphabet:?} text={text:?} literal={literal:?}"
+                    );
+                }
+            }
+        }
+    }
+}
+
+#[test]
 fn conservative_ascii_candidates_keep_segments_and_records_separate() {
     let mut index = BigramIndex::new_ascii();
     for (slot, parts) in [

@@ -537,6 +537,14 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
     assert_eq!(deleted.files.files.len(), 1);
     let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);
     let mut bytes = fs::read(&snapshot).unwrap();
+    // A previous bigram representation has a different configuration hash.
+    bytes[16] ^= 1;
+    fs::write(&snapshot, &bytes).unwrap();
+    let old_representation =
+        Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+    assert!(!old_representation.startup.restored);
+    assert_eq!(old_representation.build_parses, 1);
+    let mut bytes = fs::read(&snapshot).unwrap();
     bytes[0] ^= 1;
     fs::write(&snapshot, bytes).unwrap();
     let rebuilt = Repository::open_with_options(&root, definitions, options).unwrap();
