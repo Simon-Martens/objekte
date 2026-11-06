@@ -3,6 +3,7 @@
 use crate::model::{FieldPath, Number};
 use crate::workload::{ReturnMode, SortField, WorkloadCase};
 
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum Literal {
     String(String),
@@ -10,6 +11,7 @@ pub enum Literal {
     Bool(bool),
     Null,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Operator {
@@ -23,11 +25,13 @@ pub enum Operator {
     NotContains,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Quantifier {
     Default,
     Any,
 }
+
 
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum Modifier {
@@ -39,6 +43,8 @@ pub enum Modifier {
     Custom(String),
 }
 
+
+/// Parsed field predicate before schema binding.
 #[derive(Clone, Debug, PartialEq)]
 pub struct Term {
     pub path: FieldPath,
@@ -49,6 +55,7 @@ pub struct Term {
     pub span: (usize, usize),
 }
 
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum FilterExpr {
     Term(Term),
@@ -57,16 +64,24 @@ pub enum FilterExpr {
     Not(Box<FilterExpr>),
 }
 
+
+/// One selected full-text field and optional binding.
 #[derive(Clone, Debug)]
 pub struct FtsField {
     pub path: FieldPath,
     pub binding: Option<String>,
 }
+
+
+/// Full-text literal with its selected fields.
 #[derive(Clone, Debug)]
 pub struct FtsQuery {
     pub literal: String,
     pub fields: Vec<FtsField>,
 }
+
+
+/// Count, sort, page, return, and evidence choices for a search.
 #[derive(Clone, Debug)]
 pub struct QueryOptions {
     pub sort: Vec<SortField>,
@@ -76,6 +91,9 @@ pub struct QueryOptions {
     pub return_mode: ReturnMode,
     pub evidence: bool,
 }
+
+
+/// Parsed search request across selected collections.
 #[derive(Clone, Debug)]
 pub struct Query {
     pub collections: Vec<String>,
@@ -83,6 +101,7 @@ pub struct Query {
     pub filter: Option<FilterExpr>,
     pub options: QueryOptions,
 }
+
 
 impl Query {
     pub fn from_workload(case: &WorkloadCase) -> Result<Self, String> {
@@ -129,6 +148,7 @@ impl Query {
     }
 }
 
+
 #[derive(Clone, Debug, PartialEq)]
 enum TokenKind {
     Word(String),
@@ -142,12 +162,16 @@ enum TokenKind {
     Op(Operator, Quantifier),
     End,
 }
+
+
+/// Filter token and its source span.
 #[derive(Clone, Debug)]
 struct Token {
     kind: TokenKind,
     start: usize,
     end: usize,
 }
+
 
 fn lex(input: &str) -> Result<Vec<Token>, String> {
     let mut out = Vec::new();
@@ -304,19 +328,25 @@ fn lex(input: &str) -> Result<Vec<Token>, String> {
     Ok(out)
 }
 
+
+/// Cursor and token stream for the filter grammar.
 struct Parser {
     tokens: Vec<Token>,
     pos: usize,
 }
+
+
 impl Parser {
     fn peek(&self) -> &TokenKind {
         &self.tokens[self.pos].kind
     }
+
     fn take(&mut self) -> Token {
         let token = self.tokens[self.pos].clone();
         self.pos += 1;
         token
     }
+
     fn expect(&mut self, expected: TokenKind) -> Result<Token, String> {
         if *self.peek() == expected {
             Ok(self.take())
@@ -327,6 +357,7 @@ impl Parser {
             ))
         }
     }
+
     fn or(&mut self) -> Result<FilterExpr, String> {
         let mut parts = vec![self.and()?];
         while matches!(self.peek(), TokenKind::Or) {
@@ -339,6 +370,7 @@ impl Parser {
             FilterExpr::Or(parts)
         })
     }
+
     fn and(&mut self) -> Result<FilterExpr, String> {
         let mut parts = vec![self.unary()?];
         while matches!(self.peek(), TokenKind::And) {
@@ -351,6 +383,7 @@ impl Parser {
             FilterExpr::And(parts)
         })
     }
+
     fn unary(&mut self) -> Result<FilterExpr, String> {
         if matches!(self.peek(), TokenKind::Not) {
             self.take();
@@ -367,6 +400,7 @@ impl Parser {
             self.term().map(FilterExpr::Term)
         }
     }
+
     fn term(&mut self) -> Result<Term, String> {
         let path_token = self.take();
         let path_name = match &path_token.kind {
@@ -426,6 +460,7 @@ impl Parser {
     }
 }
 
+
 pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
     let mut parser = Parser {
         tokens: lex(input)?,
@@ -442,41 +477,5 @@ pub fn parse_filter(input: &str) -> Result<FilterExpr, String> {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn precedence_quantifiers_and_separate_fts() {
-        let ast = parse_filter("a = 1 || b = 2 && !(c ?!= 'x')").unwrap();
-        assert!(matches!(ast, FilterExpr::Or(parts) if parts.len() == 2));
-        let ast = parse_filter("data.gnd[\"@context\"] ?= 'x' && @file.size >= 1").unwrap();
-        assert!(matches!(ast, FilterExpr::And(parts) if parts.len() == 2));
-        assert!(parse_filter("a => 1").is_err());
-        assert!(parse_filter("a =< 1").is_err());
-        assert!(parse_filter("a ?=! 1").is_err());
-        let case = WorkloadCase {
-            id: "Q000".into(),
-            collection: "*".into(),
-            fts: Some("a && b".into()),
-            filter: Some("a = 1".into()),
-            fts_fields: vec![],
-            sort: vec![],
-            limit: 50,
-            offset: 0,
-            count: true,
-            return_mode: ReturnMode::Locator,
-            evidence: false,
-        };
-        let query = Query::from_workload(&case).unwrap();
-        assert_eq!(query.fts.unwrap().literal, "a && b");
-    }
-
-    #[test]
-    fn every_fixed_filter_parses() {
-        let path =
-            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-        for case in crate::workload::load_manifest(&path).unwrap() {
-            Query::from_workload(&case).unwrap_or_else(|e| panic!("{}: {e}", case.id));
-        }
-    }
-}
+#[path = "query.test.rs"]
+mod tests;

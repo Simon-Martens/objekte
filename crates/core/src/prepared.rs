@@ -6,22 +6,29 @@ use crate::query::Query;
 use crate::reference::{BoundExpr, bind_filter};
 use crate::repository::{Repository, validate_sort};
 
+
+/// Bound query terms for the selected collection generations.
 #[derive(Clone)]
 pub(crate) struct PreparedQuery {
     pub collections: Vec<(usize, Option<BoundExpr>)>,
 }
 
+
+/// One prepared-query cache value and its memory cost.
 struct Entry {
     query: PreparedQuery,
     bytes: usize,
 }
 
+
+/// Bounded cache of resolved query preparations.
 pub(crate) struct PreparedCache {
     budget: usize,
     bytes: usize,
     entries: HashMap<String, Entry>,
     order: VecDeque<String>,
 }
+
 
 impl PreparedCache {
     pub fn new(budget: usize) -> Self {
@@ -32,6 +39,7 @@ impl PreparedCache {
             order: VecDeque::new(),
         }
     }
+
     fn get(&mut self, key: &str) -> Option<PreparedQuery> {
         let query = self.entries.get(key)?.query.clone();
         if let Some(index) = self.order.iter().position(|old| old == key) {
@@ -40,6 +48,7 @@ impl PreparedCache {
         self.order.push_back(key.to_owned());
         Some(query)
     }
+
     fn insert(&mut self, key: String, query: PreparedQuery) {
         // Debug formatting is an upper-bound-oriented charge for the small
         // bound tree; the cache never stores source records or bitmap sets.
@@ -60,11 +69,13 @@ impl PreparedCache {
         self.order.push_back(key.clone());
         self.entries.insert(key, Entry { query, bytes });
     }
+
     #[cfg(test)]
     pub fn used_bytes(&self) -> usize {
         self.bytes
     }
 }
+
 
 pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery, bool), String> {
     // The cache is owned by one immutable published repository generation.
@@ -117,23 +128,5 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn bounded_lru_evicts_without_exceeding_budget() {
-        let mut cache = PreparedCache::new(280);
-        let query = PreparedQuery {
-            collections: Vec::new(),
-        };
-        cache.insert("a".into(), query.clone());
-        assert!(cache.get("a").is_some());
-        cache.insert("b".into(), query.clone());
-        assert!(cache.used_bytes() <= 280);
-        assert!(cache.get("a").is_some());
-        cache.insert("c".into(), query);
-        assert!(cache.get("b").is_none());
-        assert!(cache.get("a").is_some());
-        assert!(cache.get("c").is_some());
-    }
-}
+#[path = "prepared.test.rs"]
+mod tests;

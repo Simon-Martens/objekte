@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashSet;
 use std::path::Path;
 
+
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum ReturnMode {
@@ -12,12 +13,16 @@ pub enum ReturnMode {
     Logical,
 }
 
+
+/// Field and direction requested by a workload case.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SortField {
     pub field: String,
     pub descending: bool,
 }
 
+
+/// Fixed benchmark query and expected execution options.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct WorkloadCase {
     pub id: String,
@@ -35,6 +40,7 @@ pub struct WorkloadCase {
     pub evidence: bool,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum BigramAlphabet {
@@ -42,12 +48,15 @@ pub enum BigramAlphabet {
     Unicode,
 }
 
+
+/// Alphabet and cache settings for one benchmark profile.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct Profile {
     pub alphabet: BigramAlphabet,
     pub verified_cache_bytes: usize,
     pub warm: bool,
 }
+
 
 pub const PROFILES: [Profile; 4] = [
     Profile {
@@ -72,6 +81,8 @@ pub const PROFILES: [Profile; 4] = [
     },
 ];
 
+
+/// Observed candidate, source, cache, and result work.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct WorkCounters {
     pub exact_posting_matches: u64,
@@ -91,6 +102,8 @@ pub struct WorkCounters {
     pub verified_result_hit: bool,
 }
 
+
+/// One measured query execution and its counters.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct TimingSample {
     pub case_id: String,
@@ -102,6 +115,8 @@ pub struct TimingSample {
     pub counters: Option<WorkCounters>,
 }
 
+
+/// Build and fixture fingerprints for a benchmark run.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct RunIdentity {
     pub run_id: String,
@@ -114,6 +129,7 @@ pub struct RunIdentity {
     pub repetitions: usize,
     pub profiles: Vec<Profile>,
 }
+
 
 pub const REPORT_FILES: [&str; 7] = [
     "run-manifest.json",
@@ -153,37 +169,5 @@ pub fn validate_manifest(cases: &[WorkloadCase]) -> Result<(), String> {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn fixed_manifest_and_report_round_trip() {
-        let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-        let cases = load_manifest(&path).unwrap();
-        assert_eq!(cases[0].fts.as_deref(), Some("Almanach"));
-        assert_eq!(
-            cases[69].filter.as_deref(),
-            Some("name:folded ~ \"GOETHE\"")
-        );
-        assert_eq!(cases[149].sort[0].field, "preferred_title");
-        assert_eq!(
-            cases,
-            serde_json::from_slice::<Vec<WorkloadCase>>(&serde_json::to_vec(&cases).unwrap())
-                .unwrap()
-        );
-        let sample = TimingSample {
-            case_id: "Q001".into(),
-            profile: PROFILES[0],
-            repetition: 0,
-            status: "pending".into(),
-            error: None,
-            total_ns: None,
-            counters: None,
-        };
-        let serialized = serde_json::to_vec(&sample).unwrap();
-        let decoded: TimingSample = serde_json::from_slice(&serialized).unwrap();
-        assert_eq!(decoded.case_id, sample.case_id);
-        assert_eq!(decoded.total_ns, None);
-        assert_eq!(PROFILES.iter().filter(|p| p.warm).count(), 2);
-    }
-}
+#[path = "workload.test.rs"]
+mod tests;

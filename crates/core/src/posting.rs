@@ -11,6 +11,7 @@ use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values};
 
+
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
     String(String),
@@ -20,6 +21,7 @@ pub enum ScalarKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
+
 
 impl ScalarKey {
     pub fn from_value(value: &Value) -> Option<Self> {
@@ -35,6 +37,8 @@ impl ScalarKey {
     }
 }
 
+
+/// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingIndex {
     pub path: Vec<String>,
@@ -48,6 +52,8 @@ pub struct PostingIndex {
     pub stats: PostingStats,
 }
 
+
+/// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
 pub struct PostingStats {
     pub present_count: u64,
@@ -56,6 +62,7 @@ pub struct PostingStats {
     pub min_key: Option<ScalarKey>,
     pub max_key: Option<ScalarKey>,
 }
+
 
 impl PostingIndex {
     /// Intersect borrowed broad postings with a restricted domain before any copy.
@@ -125,6 +132,7 @@ impl PostingIndex {
         }
         self.exact_set(term, domain).map(|set| &set & input)
     }
+
     pub fn new(field: &FieldDefinition) -> Self {
         Self {
             path: field.path.clone(),
@@ -138,6 +146,7 @@ impl PostingIndex {
             stats: PostingStats::default(),
         }
     }
+
     pub fn finish_stats(&mut self) {
         self.stats = PostingStats {
             present_count: self.presence.len(),
@@ -147,6 +156,7 @@ impl PostingIndex {
             max_key: self.values.last_key_value().map(|(key, _)| key.clone()),
         };
     }
+
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
         self.covered_records = self
             .covered_records
@@ -181,6 +191,7 @@ impl PostingIndex {
         }
         Ok(())
     }
+
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
         if self.covered_records as usize != record_count {
             return Err("incomplete posting coverage".into());
@@ -204,9 +215,11 @@ impl PostingIndex {
         }
         Ok(())
     }
+
     pub fn distinct_values(&self) -> usize {
         self.values.len()
     }
+
     /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
     pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
         if self.covered_records as u64 != domain_len {
@@ -378,6 +391,7 @@ impl PostingIndex {
     }
 }
 
+
 fn ordered_match(order: std::cmp::Ordering, op: Operator) -> bool {
     match op {
         Operator::Eq => order.is_eq(),
@@ -390,10 +404,14 @@ fn ordered_match(order: std::cmp::Ordering, op: Operator) -> bool {
     }
 }
 
+
+/// Posting indexes registered for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
+
+
 impl PostingCollection {
     pub fn new(schema: &Schema) -> Self {
         let fields = schema
@@ -404,17 +422,20 @@ impl PostingCollection {
             .collect();
         Self { fields }
     }
+
     pub fn add(&mut self, slot: RecordSlot, record: &Value) -> Result<(), String> {
         for index in self.fields.values_mut() {
             index.add(slot, record)?;
         }
         Ok(())
     }
+
     pub fn finish_stats(&mut self) {
         for index in self.fields.values_mut() {
             index.finish_stats();
         }
     }
+
     pub fn validate(&self, record_count: usize) -> Result<(), String> {
         for index in self.fields.values() {
             index.validate(record_count)?;
@@ -423,64 +444,7 @@ impl PostingCollection {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn presence_null_array_dedup_and_cardinality() {
-        let field = FieldDefinition {
-            path: vec!["values".into()],
-            kind: LogicalType::Array(Box::new(LogicalType::String)),
-            required: false,
-            nullable: true,
-            indexed: true,
-            multi: true,
-        };
-        let mut index = PostingIndex::new(&field);
-        for (slot, json) in [
-            serde_json::json!({}),
-            serde_json::json!({"values":null}),
-            serde_json::json!({"values":[]}),
-            serde_json::json!({"values":["a","a","b"]}),
-        ]
-        .into_iter()
-        .enumerate()
-        {
-            index
-                .add(RecordSlot(slot as u32), &Value::from_json(json).unwrap())
-                .unwrap();
-        }
-        index.finish_stats();
-        index.validate(4).unwrap();
-        assert_eq!(index.presence.iter().collect::<Vec<_>>(), [1, 2, 3]);
-        assert_eq!(index.nulls.iter().collect::<Vec<_>>(), [1]);
-        assert_eq!(
-            index
-                .lengths
-                .get(&Number::integer(0))
-                .unwrap()
-                .iter()
-                .collect::<Vec<_>>(),
-            [2]
-        );
-        assert_eq!(
-            index
-                .lengths
-                .get(&Number::integer(3))
-                .unwrap()
-                .iter()
-                .collect::<Vec<_>>(),
-            [3]
-        );
-        assert_eq!(
-            index
-                .values
-                .get(&ScalarKey::String("a".into()))
-                .unwrap()
-                .iter()
-                .collect::<Vec<_>>(),
-            [3]
-        );
-    }
-}
+#[cfg(test)]
+#[path = "posting.test.rs"]
+mod tests;

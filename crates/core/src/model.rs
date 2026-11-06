@@ -7,11 +7,13 @@ use std::hash::{Hash, Hasher};
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
+
 #[derive(Clone, Copy, Debug, Serialize, Deserialize)]
 pub enum Number {
     Integer(i128),
     Float(f64),
 }
+
 
 impl Number {
     pub fn integer(value: i128) -> Self {
@@ -52,17 +54,24 @@ impl Number {
     }
 }
 
+
 impl PartialEq for Number {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other) == Ordering::Equal
     }
 }
+
+
 impl Eq for Number {}
+
+
 impl PartialOrd for Number {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
+
 impl Ord for Number {
     fn cmp(&self, other: &Self) -> Ordering {
         match (*self, *other) {
@@ -73,6 +82,8 @@ impl Ord for Number {
         }
     }
 }
+
+
 impl Hash for Number {
     fn hash<H: Hasher>(&self, state: &mut H) {
         match self {
@@ -99,6 +110,7 @@ impl Hash for Number {
     }
 }
 
+
 fn compare_int_float(i: i128, f: f64) -> Ordering {
     // Outside the integer domain, floating-point values have a known order.
     if f >= 2f64.powi(127) {
@@ -122,6 +134,7 @@ fn compare_int_float(i: i128, f: f64) -> Ordering {
     }
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum LogicalType {
     String,
@@ -134,12 +147,15 @@ pub enum LogicalType {
     Array(Box<LogicalType>),
 }
 
+
+/// Homogeneous logical array with its resolved element type.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ArrayValue {
     pub element_type: Option<LogicalType>,
     pub nullable_elements: bool,
     pub values: Vec<Value>,
 }
+
 
 impl ArrayValue {
     pub fn new(
@@ -172,6 +188,7 @@ impl ArrayValue {
     }
 }
 
+
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum Value {
     Null,
@@ -184,6 +201,7 @@ pub enum Value {
     Object(BTreeMap<String, Value>),
     Array(ArrayValue),
 }
+
 
 impl Value {
     pub fn logical_type(&self) -> LogicalType {
@@ -239,19 +257,34 @@ impl Value {
     }
 }
 
+
+/// Compact repository-local collection identifier.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct CollectionId(pub u32);
+
+
+/// Compact repository-local source-file identifier.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct FileId(pub u32);
+
+
+/// Dense record position within one collection generation.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct RecordSlot(pub u32);
+
+
+/// Stable logical identifier within a collection.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct RecordId(pub String);
+
+
+/// Collection-scoped identity used outside slot storage.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
 pub struct RecordIdentity {
     pub collection: CollectionId,
     pub record: RecordId,
 }
+
 
 impl RecordId {
     pub fn intrinsic(text: impl Into<String>) -> Result<Self, String> {
@@ -261,13 +294,18 @@ impl RecordId {
         }
         Ok(Self(text))
     }
+
     pub fn generated(file: FileId, modified_ns: i128, start: u64) -> Self {
         Self(format!("~generated:{}:{modified_ns}:{start}", file.0))
     }
 }
 
+
+/// Duplicate-detecting set of logical record IDs.
 #[derive(Default)]
 pub struct IdentitySet(HashSet<RecordId>);
+
+
 impl IdentitySet {
     pub fn insert(&mut self, id: RecordId) -> Result<(), String> {
         if !self.0.insert(id.clone()) {
@@ -277,17 +315,21 @@ impl IdentitySet {
     }
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum PathRoot {
     Data,
     Metadata(MetadataField),
 }
 
+
+/// Resolved path into record data or reserved metadata.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct FieldPath {
     pub root: PathRoot,
     pub segments: Vec<String>,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub enum MetadataField {
@@ -303,6 +345,7 @@ pub enum MetadataField {
     CollectionName,
     RepositoryRoot,
 }
+
 
 impl MetadataField {
     pub fn as_str(self) -> &'static str {
@@ -320,6 +363,7 @@ impl MetadataField {
             Self::RepositoryRoot => "@repository.root",
         }
     }
+
     pub fn parse(name: &str) -> Result<Self, String> {
         match name {
             "@record.id" => Ok(Self::RecordId),
@@ -337,6 +381,7 @@ impl MetadataField {
         }
     }
 }
+
 
 impl FieldPath {
     pub fn display(&self) -> String {
@@ -367,6 +412,7 @@ impl FieldPath {
             }
         }
     }
+
     pub fn parse(input: &str) -> Result<Self, String> {
         if input.starts_with('@') {
             return Ok(Self {
@@ -447,81 +493,7 @@ impl FieldPath {
     }
 }
 
+
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn precise_numbers_and_temporal_distinctions() {
-        let a = Number::integer(9_007_199_254_740_993);
-        let b = Number::integer(9_007_199_254_740_992);
-        assert!(a > b);
-        assert!(a > Number::float(9_007_199_254_740_992.0).unwrap());
-        assert_eq!(Number::float(1.0).unwrap(), Number::integer(1));
-        assert!(Number::float(f64::NAN).is_err());
-        let large: serde_json::Value = serde_json::from_str("1208925819614629174706177").unwrap();
-        assert_eq!(
-            Value::from_json(large).unwrap(),
-            Value::Number(Number::integer(1208925819614629174706177))
-        );
-        assert!(matches!(
-            Value::parse_typed_string("2026-01-01", &LogicalType::Date).unwrap(),
-            Value::Date(_)
-        ));
-        assert!(matches!(
-            Value::parse_typed_string("2026-01-01T00:00:00Z", &LogicalType::Datetime).unwrap(),
-            Value::Datetime(_)
-        ));
-        assert!(Value::parse_typed_string("2026-01-01T00:00:00", &LogicalType::Datetime).is_err());
-        assert_ne!(
-            Value::Unixtime(0).logical_type(),
-            Value::Number(Number::integer(0)).logical_type()
-        );
-    }
-
-    #[test]
-    fn arrays_paths_and_id_namespace() {
-        assert!(
-            ArrayValue::new(
-                vec![Value::String("x".into()), Value::Bool(true)],
-                None,
-                false
-            )
-            .is_err()
-        );
-        assert!(ArrayValue::new(vec![Value::Null], Some(LogicalType::String), false).is_err());
-        assert_eq!(
-            ArrayValue::new(vec![], None, false).unwrap().element_type,
-            None
-        );
-        assert_eq!(
-            FieldPath::parse("data.gnd[\"@context\"]").unwrap().segments,
-            ["data", "gnd", "@context"]
-        );
-        assert_eq!(
-            FieldPath::parse("[\"@file\"].size").unwrap().root,
-            PathRoot::Data
-        );
-        for path in [
-            "[\"@file\"].size",
-            "data.gnd[\"@context\"]",
-            "[\"a.b\"]",
-            "[\"q\\\"uote\"]",
-        ] {
-            let parsed = FieldPath::parse(path).unwrap();
-            assert_eq!(FieldPath::parse(&parsed.display()).unwrap(), parsed);
-        }
-        assert_eq!(
-            FieldPath::parse("@file.size").unwrap().root,
-            PathRoot::Metadata(MetadataField::FileSize)
-        );
-        assert!(FieldPath::parse("@file.unknown").is_err());
-        let mut ids = IdentitySet::default();
-        ids.insert(RecordId::intrinsic("a").unwrap()).unwrap();
-        assert!(ids.insert(RecordId::intrinsic("a").unwrap()).is_err());
-        assert_ne!(
-            RecordId::generated(FileId(1), 2, 3),
-            RecordId::intrinsic("a").unwrap()
-        );
-    }
-}
+#[path = "model.test.rs"]
+mod tests;

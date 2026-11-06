@@ -23,12 +23,15 @@ use crate::source::{
 use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 use unicode_casefold::UnicodeCaseFold;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
     Generated,
 }
 
+
+/// Caller-supplied source, schema, identity, and sort configuration.
 #[derive(Clone, Debug)]
 pub struct CollectionDefinition {
     pub name: String,
@@ -40,6 +43,8 @@ pub struct CollectionDefinition {
     pub sort_locale: String,
 }
 
+
+/// Published generation and indexes for one collection.
 pub struct CollectionState {
     pub definition: CollectionDefinition,
     pub generation: CollectionGeneration,
@@ -50,12 +55,17 @@ pub struct CollectionState {
     pub id_lookup: HashMap<RecordId, RecordSlot>,
     pub stats: CollectionStats,
 }
+
+
+/// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct CollectionStats {
     pub file_count: usize,
     pub record_count: usize,
     pub total_file_bytes: u64,
 }
+
+
 impl CollectionStats {
     pub fn mean_record_bytes(self) -> f64 {
         if self.record_count == 0 {
@@ -64,6 +74,7 @@ impl CollectionStats {
             self.total_file_bytes as f64 / self.record_count as f64
         }
     }
+
     pub fn mean_records_per_file(self) -> f64 {
         if self.file_count == 0 {
             0.0
@@ -72,6 +83,9 @@ impl CollectionStats {
         }
     }
 }
+
+
+/// Resident owner of file inventory, collections, workers, and caches.
 pub struct Repository {
     pub files: FileInventory,
     pub collections: Vec<CollectionState>,
@@ -83,6 +97,8 @@ pub struct Repository {
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
 }
 
+
+/// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
     pub restored: bool,
@@ -92,6 +108,7 @@ pub struct StartupStats {
     pub snapshot_write_ns: u64,
 }
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SnapshotMode {
     Disabled,
@@ -99,6 +116,8 @@ pub enum SnapshotMode {
     Rebuild,
 }
 
+
+/// Index alphabet, snapshot, cache, and worker settings.
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
@@ -107,6 +126,8 @@ pub struct RepositoryOptions {
     pub snapshot_mode: SnapshotMode,
     pub query_workers: usize,
 }
+
+
 impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
@@ -120,6 +141,8 @@ impl Default for RepositoryOptions {
     }
 }
 
+
+/// One page result with locator, evidence, and optional payload.
 #[derive(Clone, Debug, PartialEq)]
 pub struct SearchHit {
     pub collection: String,
@@ -135,17 +158,23 @@ pub struct SearchHit {
     pub matched_fields: Vec<String>,
     pub payload: Option<Payload>,
 }
+
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
 }
+
+
+/// Exact match count, returned page, and measured work.
 #[derive(Clone, Debug)]
 pub struct SearchResult {
     pub count: usize,
     pub hits: Vec<SearchHit>,
     pub counters: WorkCounters,
 }
+
 
 impl Repository {
     pub(crate) fn create_workers(count: usize) -> Result<rayon::ThreadPool, String> {
@@ -158,18 +187,22 @@ impl Repository {
             .build()
             .map_err(|error| error.to_string())
     }
+
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         crate::run::search(self, query)
     }
+
     pub fn explain(&self, query: &Query) -> Result<Vec<crate::run::QueryPlanTrace>, String> {
         crate::run::explain(self, query)
     }
+
     pub fn explain_analyze(
         &self,
         query: &Query,
     ) -> Result<(SearchResult, Vec<crate::run::QueryPlanTrace>), String> {
         crate::run::search_analyze(self, query)
     }
+
     pub fn configure_verified_cache(&self, bytes: usize) -> Result<(), String> {
         self.verified
             .lock()
@@ -177,12 +210,14 @@ impl Repository {
             .set_budget(bytes);
         Ok(())
     }
+
     pub fn open(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
     ) -> Result<Self, String> {
         Self::open_with_options(root, definitions, RepositoryOptions::default())
     }
+
     pub fn open_with_options(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
@@ -604,6 +639,7 @@ impl Repository {
         })
     }
 }
+
 
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
     for field in &query.options.sort {

@@ -8,11 +8,14 @@ use serde::{Deserialize, Serialize};
 
 use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
 
+
+/// Size and modification time recorded for a source file.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SourceRevision {
     pub modified_ns: i128,
     pub size: u64,
 }
+
 
 impl SourceRevision {
     pub fn from_metadata(metadata: &std::fs::Metadata) -> Result<Self, String> {
@@ -27,6 +30,8 @@ impl SourceRevision {
     }
 }
 
+
+/// Repository-wide identity and metadata for one source file.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileEntry {
     pub id: FileId,
@@ -36,6 +41,8 @@ pub struct FileEntry {
     pub collections: Vec<CollectionId>,
 }
 
+
+/// Authoritative source-file table shared by collections.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct FileInventory {
     pub root: PathBuf,
@@ -43,6 +50,7 @@ pub struct FileInventory {
     #[serde(skip)]
     by_path: HashMap<PathBuf, FileId>,
 }
+
 
 impl FileInventory {
     pub fn new(root: PathBuf) -> Self {
@@ -112,6 +120,7 @@ impl FileInventory {
     }
 }
 
+
 fn valid_relative_path(path: &Path) -> bool {
     !path.as_os_str().is_empty()
         && !path.is_absolute()
@@ -120,11 +129,15 @@ fn valid_relative_path(path: &Path) -> bool {
             .all(|component| matches!(component, std::path::Component::Normal(_)))
 }
 
+
+/// Standalone byte span of one logical record.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ByteRange {
     pub start: u64,
     pub end: u64,
 }
+
+
 impl ByteRange {
     pub fn checked(start: u64, end: u64, file_size: u64) -> Result<Self, String> {
         if start > end || end > file_size {
@@ -134,11 +147,14 @@ impl ByteRange {
         }
         Ok(Self { start, end })
     }
+
     pub fn len(self) -> u64 {
         self.end - self.start
     }
 }
 
+
+/// Collection record identity, slot, file, and source span.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct RecordEntry {
     pub slot: RecordSlot,
@@ -148,6 +164,7 @@ pub struct RecordEntry {
     pub revision: SourceRevision,
 }
 
+
 /// Compact per-file offset table. `slots[offsets[f]..offsets[f+1]]` belongs
 /// exactly to file `f`; empty files have equal consecutive offsets.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -155,6 +172,8 @@ pub struct FileRecordIndex {
     pub offsets: Vec<u32>,
     pub slots: Vec<RecordSlot>,
 }
+
+
 impl FileRecordIndex {
     pub fn records_for(&self, file: FileId) -> Option<&[RecordSlot]> {
         let a = *self.offsets.get(file.0 as usize)? as usize;
@@ -163,6 +182,8 @@ impl FileRecordIndex {
     }
 }
 
+
+/// Immutable record inventory for one published collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CollectionGeneration {
     pub collection: CollectionId,
@@ -172,6 +193,7 @@ pub struct CollectionGeneration {
     pub records: Vec<RecordEntry>,
     pub file_records: FileRecordIndex,
 }
+
 
 impl CollectionGeneration {
     pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
@@ -230,6 +252,8 @@ impl CollectionGeneration {
     }
 }
 
+
+/// Mutable accumulator used to construct a collection generation.
 pub struct CollectionBuilder {
     collection: CollectionId,
     name: String,
@@ -240,10 +264,12 @@ pub struct CollectionBuilder {
     ids: IdentitySet,
 }
 
+
 impl CollectionBuilder {
     pub fn record(&self, slot: RecordSlot) -> Option<&RecordEntry> {
         self.records.get(slot.0 as usize)
     }
+
     pub fn new(collection: CollectionId, name: String, generation: u64, file_count: usize) -> Self {
         Self {
             collection,
@@ -255,6 +281,7 @@ impl CollectionBuilder {
             ids: IdentitySet::default(),
         }
     }
+
     pub fn include_file(&mut self, file: FileId) -> Result<(), String> {
         if self.by_file.get(file.0 as usize).is_none() {
             return Err("file ID out of bounds".into());
@@ -264,6 +291,7 @@ impl CollectionBuilder {
         }
         Ok(())
     }
+
     pub fn add_record(
         &mut self,
         file: &FileEntry,
@@ -290,6 +318,7 @@ impl CollectionBuilder {
         self.by_file[file.id.0 as usize].push(slot);
         Ok(slot)
     }
+
     pub fn finish(self, inventory: &FileInventory) -> Result<CollectionGeneration, String> {
         let mut offsets = Vec::with_capacity(self.by_file.len() + 1);
         let mut slots = Vec::with_capacity(self.records.len());
@@ -311,61 +340,7 @@ impl CollectionBuilder {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn file_record_mapping_in_both_directions() {
-        let mut files = FileInventory::new(PathBuf::from("/tmp/repo"));
-        let revision = SourceRevision {
-            modified_ns: 5,
-            size: 10,
-        };
-        let f0 = files
-            .add("empty.json".into(), revision, None, CollectionId(0))
-            .unwrap();
-        let f1 = files
-            .add("multi.jsonl".into(), revision, None, CollectionId(0))
-            .unwrap();
-        assert_eq!(
-            files
-                .add("multi.jsonl".into(), revision, None, CollectionId(1))
-                .unwrap(),
-            f1
-        );
-        let mut a = CollectionBuilder::new(CollectionId(0), "a".into(), 1, files.files.len());
-        a.include_file(f0).unwrap();
-        a.include_file(f1).unwrap();
-        a.add_record(&files.files[1], RecordId::intrinsic("one").unwrap(), 0, 3)
-            .unwrap();
-        a.add_record(&files.files[1], RecordId::intrinsic("two").unwrap(), 4, 10)
-            .unwrap();
-        let generation = a.finish(&files).unwrap();
-        assert_eq!(generation.file_records.records_for(f0).unwrap().len(), 0);
-        assert_eq!(
-            generation.file_records.records_for(f1).unwrap(),
-            &[RecordSlot(0), RecordSlot(1)]
-        );
-        assert_eq!(generation.records[1].range, ByteRange { start: 4, end: 10 });
-        let mut b = CollectionBuilder::new(CollectionId(1), "b".into(), 1, files.files.len());
-        b.include_file(f1).unwrap();
-        b.add_record(
-            &files.files[1],
-            RecordId::intrinsic("other").unwrap(),
-            0,
-            10,
-        )
-        .unwrap();
-        assert_eq!(
-            b.finish(&files)
-                .unwrap()
-                .file_records
-                .records_for(f1)
-                .unwrap(),
-            &[RecordSlot(0)]
-        );
-        assert!(ByteRange::checked(9, 11, 10).is_err());
-        assert!(ByteRange::checked(5, 4, 10).is_err());
-    }
-}
+#[cfg(test)]
+#[path = "inventory.test.rs"]
+mod tests;

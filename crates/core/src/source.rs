@@ -10,6 +10,7 @@ use serde::{Deserialize, Serialize};
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::Value;
 
+
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum SourceFormat {
@@ -17,17 +18,22 @@ pub enum SourceFormat {
     JsonLines,
 }
 
+
+/// Extracted searchable string with its logical field path.
 #[derive(Clone, Debug)]
 pub struct TextSegment {
     pub path: Vec<String>,
     pub text: String,
 }
 
+
+/// Logical value and text produced by a source reader.
 #[derive(Clone, Debug)]
 pub struct ExtractedRecord {
     pub value: Value,
     pub text: Vec<TextSegment>,
 }
+
 
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
@@ -38,6 +44,7 @@ pub struct ScanProjection {
     pub collect_text: bool,
 }
 
+
 impl ScanProjection {
     pub fn full(collect_text: bool) -> Self {
         Self {
@@ -46,6 +53,7 @@ impl ScanProjection {
         }
     }
 }
+
 
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
@@ -61,10 +69,18 @@ pub trait SourceReader: Send + Sync {
     }
 }
 
+
+/// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
+
+
+/// Reader for independently parseable JSON Lines records.
 pub struct JsonLinesReader;
 
+
+/// Deserializer seed that retains selected top-level JSON members.
 struct SelectedObject<'a>(&'a HashSet<String>);
+
 
 impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
@@ -73,7 +89,10 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
         self,
         deserializer: D,
     ) -> Result<Self::Value, D::Error> {
+        /// Map visitor that skips JSON members outside a query projection.
         struct SelectedVisitor<'a>(&'a HashSet<String>);
+
+
         impl<'de> Visitor<'de> for SelectedVisitor<'_> {
             type Value = serde_json::Map<String, serde_json::Value>;
 
@@ -93,9 +112,12 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
                 Ok(selected)
             }
         }
+
+
         deserializer.deserialize_map(SelectedVisitor(self.0))
     }
 }
+
 
 fn parse_json_for_query(
     bytes: &[u8],
@@ -154,10 +176,12 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
     output
 }
 
+
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
         "json"
     }
+
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
         if file.iter().all(u8::is_ascii_whitespace) {
             return Ok(Vec::new());
@@ -168,9 +192,11 @@ impl SourceReader for JsonReader {
             file.len() as u64,
         )?])
     }
+
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
         parse_json(bytes)
     }
+
     fn parse_for_query(
         &self,
         bytes: &[u8],
@@ -180,10 +206,12 @@ impl SourceReader for JsonReader {
     }
 }
 
+
 impl SourceReader for JsonLinesReader {
     fn name(&self) -> &'static str {
         "jsonl"
     }
+
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
         let mut result = Vec::new();
         let mut start = 0usize;
@@ -208,9 +236,11 @@ impl SourceReader for JsonLinesReader {
         }
         Ok(result)
     }
+
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
         parse_json(bytes)
     }
+
     fn parse_for_query(
         &self,
         bytes: &[u8],
@@ -219,6 +249,7 @@ impl SourceReader for JsonLinesReader {
         parse_json_for_query(bytes, projection)
     }
 }
+
 
 pub fn reader(format: SourceFormat) -> &'static dyn SourceReader {
     static JSON: JsonReader = JsonReader;
@@ -229,11 +260,14 @@ pub fn reader(format: SourceFormat) -> &'static dyn SourceReader {
     }
 }
 
+
+/// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
 pub struct ExtractionCounters {
     pub framed_records: u64,
     pub record_parses: u64,
 }
+
 
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
@@ -372,144 +406,5 @@ pub fn read_record_ranges(
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn query_projection_skips_unneeded_fields_and_preserves_selected_values() {
-        let bytes = br#"{"ignored":{"deep":[41,42]},"needed":{"name":"found"},"other":"hidden"}"#;
-        let projection = ScanProjection {
-            top_level: Some(HashSet::from(["needed".to_owned()])),
-            collect_text: true,
-        };
-        for format in [SourceFormat::Json, SourceFormat::JsonLines] {
-            let selected = reader(format).parse_for_query(bytes, &projection).unwrap();
-            assert_eq!(
-                selected.value,
-                Value::from_json(serde_json::json!({"needed":{"name":"found"}})).unwrap()
-            );
-            assert_eq!(selected.text.len(), 1);
-            assert_eq!(selected.text[0].path, ["needed", "name"]);
-            assert_eq!(selected.text[0].text, "found");
-            let full = reader(format)
-                .parse_for_query(bytes, &ScanProjection::full(false))
-                .unwrap();
-            assert!(matches!(full.value, Value::Object(ref fields) if fields.len() == 3));
-            assert!(full.text.is_empty());
-            assert!(
-                reader(format)
-                    .parse_for_query(br#"{"needed":"ok","ignored":[1,]}"#, &projection)
-                    .is_err()
-            );
-        }
-    }
-
-    #[test]
-    fn standalone_jsonl_ranges_preserve_bytes_and_boundaries() {
-        let bytes = "ü\n{\"x\":\"ä\"}\n\n{\"x\":\"b\"}\n".as_bytes();
-        // A non-ASCII prefix is deliberately outside the valid records.
-        let start = "ü\n".len();
-        let valid = &bytes[start..];
-        let ranges = JsonLinesReader.frame(valid).unwrap();
-        assert_eq!(ranges.len(), 2);
-        assert_eq!(
-            &valid[ranges[0].start as usize..ranges[0].end as usize],
-            "{\"x\":\"ä\"}".as_bytes()
-        );
-        for range in ranges {
-            JsonLinesReader
-                .parse(&valid[range.start as usize..range.end as usize])
-                .unwrap();
-        }
-        assert!(JsonLinesReader.frame(b"").unwrap().is_empty());
-    }
-
-    #[test]
-    fn fused_extraction_parses_once_and_reports_bad_record() {
-        let path = std::env::temp_dir().join(format!(
-            "objekte-source-{}-{}.jsonl",
-            std::process::id(),
-            42
-        ));
-        std::fs::write(&path, b"{\"name\":\"A\"}\n{\"name\":\"B\"}\n").unwrap();
-        let mut seen = Vec::new();
-        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-        let stats = extract_file(&path, SourceFormat::JsonLines, revision, |range, record| {
-            seen.push((range, record.text[0].text.clone()));
-            Ok(())
-        })
-        .unwrap();
-        assert_eq!(stats.record_parses, 2);
-        assert_eq!(seen.len(), 2);
-        std::fs::write(&path, b"{\"name\":\"A\"}\n{oops}\n").unwrap();
-        assert!(
-            extract_file(
-                &path,
-                SourceFormat::JsonLines,
-                SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
-                |_, _| Ok(())
-            )
-            .unwrap_err()
-            .contains("..")
-        );
-        std::fs::remove_file(path).unwrap();
-    }
-
-    #[test]
-    fn nearby_multi_record_ranges_share_one_read_window() {
-        let path = std::env::temp_dir().join(format!("objekte-batch-{}.jsonl", std::process::id()));
-        std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
-        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-        let ranges = JsonLinesReader
-            .frame(&std::fs::read(&path).unwrap())
-            .unwrap();
-        let (records, bytes_read) =
-            read_record_ranges(&path, revision, &[(1, ranges[1]), (0, ranges[0])]).unwrap();
-        assert_eq!(records.len(), 2);
-        assert_eq!(records[0].0, 0);
-        assert_eq!(records[1].1, b"{\"x\":2}");
-        assert_eq!(bytes_read, 15);
-        let (single, single_bytes) =
-            read_record_ranges(&path, revision, &[(1, ranges[1])]).unwrap();
-        assert_eq!(single, vec![(1, b"{\"x\":2}".to_vec())]);
-        assert_eq!(single_bytes, 7);
-        std::fs::remove_file(path).unwrap();
-    }
-
-    #[test]
-    fn changed_source_rejects_old_ranges_and_incomplete_extraction() {
-        let path = std::env::temp_dir().join(format!("objekte-stale-{}.jsonl", std::process::id()));
-        std::fs::write(&path, b"{\"x\":1}\n{\"x\":2}\n").unwrap();
-        let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-        let ranges = JsonLinesReader
-            .frame(&std::fs::read(&path).unwrap())
-            .unwrap();
-        let changed = extract_file(&path, SourceFormat::JsonLines, revision, |_, _| {
-            std::fs::write(&path, b"{\"x\":1}\n{\"x\":22}\n").map_err(|e| e.to_string())?;
-            Ok(())
-        });
-        assert!(changed.unwrap_err().contains("stale source revision"));
-        assert!(
-            read_record_range(&path, revision, ranges[1])
-                .unwrap_err()
-                .contains("stale source revision")
-        );
-        let current = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
-        assert!(
-            read_record_ranges(
-                &path,
-                current,
-                &[(
-                    0,
-                    ByteRange {
-                        start: 0,
-                        end: current.size + 1
-                    }
-                )]
-            )
-            .unwrap_err()
-            .contains("invalid byte range")
-        );
-        std::fs::remove_file(path).unwrap();
-    }
-}
+#[path = "source.test.rs"]
+mod tests;

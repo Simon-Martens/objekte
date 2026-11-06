@@ -15,6 +15,7 @@ use crate::workload::SortField;
 
 pub const COLLATION_VERSION: &str = "icu_collator-2.4.0/compiled-data";
 
+
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum SortKey {
     Missing,
@@ -27,6 +28,7 @@ pub enum SortKey {
     Unixtime(i64),
 }
 
+
 impl SortKey {
     fn rank(&self) -> u8 {
         match self {
@@ -35,6 +37,7 @@ impl SortKey {
             _ => 0,
         }
     }
+
     pub fn compare(&self, other: &Self, descending: bool) -> Ordering {
         let rank = self.rank().cmp(&other.rank());
         if !rank.is_eq() {
@@ -57,6 +60,8 @@ impl SortKey {
     }
 }
 
+
+/// Precomputed sort keys for one configured field.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortColumn {
     pub path: FieldPath,
@@ -67,15 +72,20 @@ pub struct SortColumn {
     pub collation_version: String,
 }
 
+
+/// All sort columns available for a collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
 }
 
+
+/// Mutable keys accumulated during index construction.
 pub struct SortBuilder {
     columns: HashMap<FieldPath, SortColumn>,
     collator: CollatorBorrowed<'static>,
 }
+
 
 impl SortBuilder {
     pub fn new(paths: &[FieldPath], schema: &Schema, locale: &str) -> Result<Self, String> {
@@ -112,6 +122,7 @@ impl SortBuilder {
         }
         Ok(Self { columns, collator })
     }
+
     pub fn add(
         &mut self,
         slot: RecordSlot,
@@ -170,6 +181,7 @@ impl SortBuilder {
         }
         Ok(())
     }
+
     pub fn finish(mut self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
         for column in self.columns.values_mut() {
             if column.keys.len() != generation.records.len() {
@@ -192,6 +204,7 @@ impl SortBuilder {
     }
 }
 
+
 impl SortCollection {
     pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
         let path = FieldPath::parse(field)?;
@@ -199,12 +212,14 @@ impl SortCollection {
             .get(&path)
             .ok_or_else(|| format!("sort field is not registered: {field}"))
     }
+
     pub fn key(&self, field: &str, slot: RecordSlot) -> Result<&SortKey, String> {
         self.column(field)?
             .keys
             .get(slot.0 as usize)
             .ok_or("sort slot out of bounds".into())
     }
+
     pub fn validate_request(&self, fields: &[SortField]) -> Result<(), String> {
         for field in fields {
             self.key(&field.field, RecordSlot(0)).or_else(|e| {
@@ -220,31 +235,7 @@ impl SortCollection {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
 
-    #[test]
-    fn stable_icu_keys_and_fixed_null_placement() {
-        let locale: Locale = "de".parse().unwrap();
-        let collator =
-            CollatorBorrowed::try_new(locale.into(), CollatorOptions::default()).unwrap();
-        let key = |s: &str| {
-            let mut out = Vec::new();
-            collator.write_sort_key_to(s, &mut out).unwrap();
-            SortKey::String(out)
-        };
-        assert!(key("Ähre").compare(&key("Zug"), false).is_lt());
-        assert!(key("Ähre").compare(&key("Zug"), true).is_gt());
-        assert!(SortKey::Null.compare(&key("Zug"), true).is_gt());
-        assert!(SortKey::Missing.compare(&SortKey::Null, true).is_gt());
-        assert!(
-            SortKey::Number(Number::integer(9_007_199_254_740_993))
-                .compare(
-                    &SortKey::Number(Number::integer(9_007_199_254_740_992)),
-                    false
-                )
-                .is_gt()
-        );
-    }
-}
+#[cfg(test)]
+#[path = "sorting.test.rs"]
+mod tests;

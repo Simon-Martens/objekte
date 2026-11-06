@@ -593,6 +593,7 @@ fn write_sample(writer: &mut BufWriter<File>, sample: TimingSample) -> Result<()
     writer.write_all(b"\n").map_err(|e| e.to_string())?;
     writer.flush().map_err(|e| e.to_string())
 }
+
 fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
     let output = std::process::Command::new(command)
         .args(args)
@@ -603,6 +604,7 @@ fn command_output(command: &str, args: &[&str]) -> Result<String, String> {
     }
     Ok(String::from_utf8_lossy(&output.stdout).trim().into())
 }
+
 fn schema_paths(root: &Path) -> Result<Vec<PathBuf>, String> {
     let mut paths = fs::read_dir(root.join(".objekte/collections"))
         .map_err(|e| e.to_string())?
@@ -611,6 +613,7 @@ fn schema_paths(root: &Path) -> Result<Vec<PathBuf>, String> {
     paths.sort();
     Ok(paths)
 }
+
 fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
     let mut hash = Sha256::new();
     for path in paths {
@@ -619,6 +622,7 @@ fn hash_paths(paths: &[PathBuf]) -> Result<String, String> {
     }
     Ok(format!("{:x}", hash.finalize()))
 }
+
 fn fingerprint_inventory(repo: &Repository) -> String {
     let mut hash = Sha256::new();
     for file in &repo.files.files {
@@ -628,12 +632,15 @@ fn fingerprint_inventory(repo: &Repository) -> String {
     }
     format!("{:x}", hash.finalize())
 }
+
 fn resident_bytes() -> u64 {
     status_bytes("VmRSS:")
 }
+
 fn peak_resident_bytes() -> u64 {
     status_bytes("VmHWM:")
 }
+
 fn status_bytes(field: &str) -> u64 {
     fs::read_to_string("/proc/self/status")
         .ok()

@@ -5,6 +5,8 @@ use std::sync::Arc;
 
 use crate::query::Query;
 
+
+/// Verified record slot and evidence retained for reuse.
 #[derive(Clone, Debug)]
 pub(crate) struct CachedMember {
     pub collection_index: usize,
@@ -12,21 +14,28 @@ pub(crate) struct CachedMember {
     pub matched_fields: Vec<String>,
 }
 
+
+/// Complete membership set held in the result cache.
 pub(crate) struct CachedResult {
     pub members: Vec<CachedMember>,
 }
 
+
+/// Result cache value together with its byte cost.
 struct Entry {
     result: Arc<CachedResult>,
     bytes: usize,
 }
 
+
+/// Memory-bounded cache of complete verified results.
 pub(crate) struct VerifiedCache {
     budget: usize,
     bytes: usize,
     entries: HashMap<String, Entry>,
     order: VecDeque<String>,
 }
+
 
 impl VerifiedCache {
     pub fn new(budget: usize) -> Self {
@@ -37,15 +46,18 @@ impl VerifiedCache {
             order: VecDeque::new(),
         }
     }
+
     pub fn enabled(&self) -> bool {
         self.budget != 0
     }
+
     pub fn set_budget(&mut self, budget: usize) {
         self.budget = budget;
         self.bytes = 0;
         self.entries.clear();
         self.order.clear();
     }
+
     pub fn get(&mut self, key: &str) -> Option<Arc<CachedResult>> {
         let result = Arc::clone(&self.entries.get(key)?.result);
         if let Some(index) = self.order.iter().position(|old| old == key) {
@@ -54,6 +66,7 @@ impl VerifiedCache {
         self.order.push_back(key.into());
         Some(result)
     }
+
     pub fn insert(&mut self, key: String, members: Vec<CachedMember>) {
         let bytes = key.len()
             + 128
@@ -96,11 +109,13 @@ impl VerifiedCache {
             },
         );
     }
+
     #[cfg(test)]
     pub fn used_bytes(&self) -> usize {
         self.bytes
     }
 }
+
 
 pub(crate) fn key(query: &Query) -> String {
     // Repository ownership supplies the generation, alphabet, schema and
@@ -112,19 +127,5 @@ pub(crate) fn key(query: &Query) -> String {
 }
 
 #[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn bounded_entries_include_complete_empty_results() {
-        let mut cache = VerifiedCache::new(300);
-        cache.insert("empty".into(), Vec::new());
-        assert_eq!(cache.get("empty").unwrap().members.len(), 0);
-        cache.insert("other".into(), Vec::new());
-        cache.insert("third".into(), Vec::new());
-        assert!(cache.used_bytes() <= 300);
-        assert!(cache.get("empty").is_none());
-        cache.set_budget(0);
-        assert!(!cache.enabled());
-        assert!(cache.get("other").is_none());
-    }
-}
+#[path = "verified.test.rs"]
+mod tests;
