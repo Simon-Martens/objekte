@@ -5,6 +5,7 @@ use std::path::Path;
 
 use objekte_search_core::model::{FieldPath, LogicalType};
 use objekte_search_core::reference::{FieldDefinition, Schema};
+use objekte_search_core::relation::{RelationCardinality, RelationDefinition};
 use objekte_search_core::repository::{CollectionDefinition, IdentityPolicy};
 use objekte_search_core::source::SourceFormat;
 
@@ -49,7 +50,7 @@ pub fn load_definitions(root: &Path) -> Result<Vec<CollectionDefinition>, String
                 FieldPath::parse(v.as_str().ok_or("non-string x-index-path")?).map(|p| p.segments)
             })
             .collect::<Result<_, _>>()?;
-        register_properties(&schema_json, &[], false, &indexed_paths, &mut schema)?;
+        register_properties(&schema_json, &[], false, &name, &indexed_paths, &mut schema)?;
         let mut sort_fields = Vec::new();
         for field in schema_json
             .get("x-sort-indexes")
@@ -85,6 +86,7 @@ fn register_properties(
     node: &serde_json::Value,
     parent: &[String],
     multi: bool,
+    collection_name: &str,
     indexed_paths: &HashSet<Vec<String>>,
     schema: &mut Schema,
 ) -> Result<(), String> {
@@ -123,11 +125,44 @@ fn register_properties(
             multi: multi || matches!(kind, LogicalType::Array(_)),
             element_nullable: array_element_nullability(child),
         })?;
+        let annotation = match relation_annotation(child)? {
+            Some(annotation) => Some(annotation),
+            None => child
+                .get("items")
+                .map(relation_annotation)
+                .transpose()?
+                .flatten(),
+        };
+        if let Some((target_collection, explicit_alias)) = annotation {
+            // The schema names the target but Musenalm omits reverse aliases.
+            // Register a stable path-based alias so incoming rows can be shown.
+            let reverse_alias =
+                explicit_alias.unwrap_or_else(|| format!("{collection_name}__{}", path.join("__")));
+            schema.register_relation(RelationDefinition {
+                path: path.clone(),
+                target_collection,
+                cardinality: if multi || matches!(kind, LogicalType::Array(_)) {
+                    RelationCardinality::Many
+                } else {
+                    RelationCardinality::One
+                },
+                reverse_alias: Some(reverse_alias),
+            })?;
+        }
         match kind {
-            LogicalType::Object => register_properties(child, &path, multi, indexed_paths, schema)?,
+            LogicalType::Object => {
+                register_properties(child, &path, multi, collection_name, indexed_paths, schema)?
+            }
             LogicalType::Array(_) => {
                 if let Some(items) = child.get("items") {
-                    register_properties(items, &path, true, indexed_paths, schema)?;
+                    register_properties(
+                        items,
+                        &path,
+                        true,
+                        collection_name,
+                        indexed_paths,
+                        schema,
+                    )?;
                 }
             }
             _ => {}
@@ -147,15 +182,65 @@ fn logical_type(node: &serde_json::Value) -> Result<LogicalType, String> {
             .ok_or("schema field has no non-null type")?
     };
     Ok(match name {
-        "string" => LogicalType::String,
+        "string" => {
+            if relation_annotation(node)?.is_some() {
+                LogicalType::Id
+            } else {
+                LogicalType::String
+            }
+        }
         "integer" | "number" => LogicalType::Number,
         "boolean" => LogicalType::Bool,
         "object" => LogicalType::Object,
-        "array" => LogicalType::Array(Box::new(logical_type(
-            node.get("items").ok_or("array without items")?,
-        )?)),
+        "array" => {
+            let items = node.get("items").ok_or("array without items")?;
+            let item_kind = logical_type(items)?;
+            if relation_annotation(node)?.is_some() {
+                if relation_annotation(items)?.is_some() {
+                    return Err("relation is annotated on both array and its items".into());
+                }
+                if item_kind != LogicalType::String {
+                    return Err("relation array requires string items".into());
+                }
+                LogicalType::Array(Box::new(LogicalType::Id))
+            } else {
+                LogicalType::Array(Box::new(item_kind))
+            }
+        }
         other => return Err(format!("unsupported schema type {other}")),
     })
+}
+
+fn relation_annotation(
+    node: &serde_json::Value,
+) -> Result<Option<(String, Option<String>)>, String> {
+    let Some(annotation) = node.get("x-relation") else {
+        return Ok(None);
+    };
+    let fields = annotation
+        .as_object()
+        .ok_or("x-relation must be an object")?;
+    if fields
+        .keys()
+        .any(|name| name != "collection" && name != "reverse_alias")
+    {
+        return Err("x-relation contains an unsupported property".into());
+    }
+    let collection = fields
+        .get("collection")
+        .and_then(|value| value.as_str())
+        .filter(|value| !value.is_empty())
+        .ok_or("x-relation.collection must be a nonempty string")?;
+    let reverse_alias = fields
+        .get("reverse_alias")
+        .map(|value| {
+            value
+                .as_str()
+                .map(str::to_owned)
+                .ok_or("x-relation.reverse_alias must be a string".to_owned())
+        })
+        .transpose()?;
+    Ok(Some((collection.to_owned(), reverse_alias)))
 }
 
 fn array_element_nullability(node: &serde_json::Value) -> Vec<bool> {
