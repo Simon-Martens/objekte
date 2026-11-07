@@ -7,7 +7,6 @@ use globset::{Glob, GlobSet, GlobSetBuilder};
 
 use crate::source::PreparedSource;
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SymlinkPolicy {
     #[default]
@@ -15,16 +14,16 @@ pub enum SymlinkPolicy {
     FollowWithinRoot,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Discovery {
     pub recursive: bool,
     pub include: Vec<String>,
     pub exclude: Vec<String>,
+    /// Exact directories relative to the collection source root to prune before traversal.
+    pub exclude_directories: Vec<PathBuf>,
     pub hidden: bool,
     pub symlinks: SymlinkPolicy,
 }
-
 
 impl Default for Discovery {
     fn default() -> Self {
@@ -32,12 +31,12 @@ impl Default for Discovery {
             recursive: false,
             include: Vec::new(),
             exclude: Vec::new(),
+            exclude_directories: Vec::new(),
             hidden: false,
             symlinks: SymlinkPolicy::Skip,
         }
     }
 }
-
 
 fn compile(patterns: &[String]) -> Result<GlobSet, String> {
     let mut builder = GlobSetBuilder::new();
@@ -97,9 +96,15 @@ pub fn discover(
                 continue;
             }
             let kind = entry.file_type().map_err(|e| e.to_string())?;
+            let directory_excluded = rules
+                .exclude_directories
+                .iter()
+                .any(|excluded| selected_path == excluded);
             if rules.symlinks == SymlinkPolicy::Skip {
                 if kind.is_dir() && rules.recursive {
-                    pending.push((path, ancestors.clone()));
+                    if !directory_excluded && !excludes.is_match(selected_path) {
+                        pending.push((path, ancestors.clone()));
+                    }
                 } else if kind.is_file()
                     && path
                         .extension()
@@ -118,7 +123,11 @@ pub fn discover(
                 continue;
             }
             if physical.is_dir() {
-                if rules.recursive && !ancestors.contains(&physical) {
+                if rules.recursive
+                    && !directory_excluded
+                    && !excludes.is_match(selected_path)
+                    && !ancestors.contains(&physical)
+                {
                     let mut child_ancestors = ancestors.clone();
                     child_ancestors.push(physical);
                     pending.push((path, child_ancestors));
