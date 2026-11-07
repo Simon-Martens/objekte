@@ -38,6 +38,8 @@ struct FieldState {
     values: Option<BTreeMap<ScalarKey, RoaringBitmap>>,
     lengths: Option<BTreeMap<Number, RoaringBitmap>>,
     dropped: bool,
+    #[cfg(test)]
+    key_builds: usize,
 }
 
 
@@ -65,6 +67,8 @@ impl FieldState {
             values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             lengths: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             dropped: false,
+            #[cfg(test)]
+            key_builds: 0,
         }
     }
 
@@ -121,21 +125,41 @@ impl FieldState {
                 }
             }
         }
-        if let (Some(values), Some(key)) = (&mut self.values, ScalarKey::from_value(value)) {
-            if values.len() >= policy.max_distinct_values_per_path && !values.contains_key(&key)
-                || matches!(&key, ScalarKey::String(text) if text.len() > policy.max_string_bytes)
-            {
+        // A dropped provisional dictionary must not keep cloning later values.
+        // Check the string bound on the borrowed value before making an owned key.
+        if self.values.is_none() {
+            return retained;
+        }
+        match value {
+            Value::String(text) if text.len() > policy.max_string_bytes => {
                 self.drop_values();
-            } else {
-                if !values.contains_key(&key) {
-                    retained += 128
-                        + match &key {
-                            ScalarKey::String(text) => text.len(),
-                            _ => 0,
-                        };
-                }
-                values.entry(key).or_default().insert(slot.0);
+                return retained;
             }
+            Value::Bool(_) | Value::Number(_) | Value::String(_) => {}
+            // These kinds cannot be admitted as inferred typed postings.
+            _ => return retained,
+        }
+
+        #[cfg(test)]
+        {
+            self.key_builds += 1;
+        }
+        let key = ScalarKey::from_value(value).expect("eligible inferred scalar");
+        let values = self
+            .values
+            .as_mut()
+            .expect("checked provisional dictionary");
+        if values.len() >= policy.max_distinct_values_per_path && !values.contains_key(&key) {
+            self.drop_values();
+        } else {
+            if !values.contains_key(&key) {
+                retained += 128
+                    + match &key {
+                        ScalarKey::String(text) => text.len(),
+                        _ => 0,
+                    };
+            }
+            values.entry(key).or_default().insert(slot.0);
         }
         retained
     }
@@ -706,5 +730,43 @@ impl InferenceBuilder {
             indexes,
             empty_selections,
         })
+    }
+}
+
+
+#[cfg(test)]
+mod allocation_tests {
+    use super::*;
+
+    #[test]
+    fn long_and_already_dropped_values_never_build_owned_keys() {
+        let policy = InferencePolicy::default();
+        let mut field = FieldState::new(vec!["name".into()], InferenceMode::AutoIndex);
+        let long = Value::String("x".repeat(1024 * 1024));
+        field.add_scalar(RecordSlot(0), &long, policy);
+        assert!(field.dropped);
+        assert!(field.values.is_none());
+        assert_eq!(field.key_builds, 0);
+
+        field.add_scalar(RecordSlot(1), &Value::String("short".into()), policy);
+        assert_eq!(field.key_builds, 0);
+        assert_eq!(field.value_occurrences, 2);
+
+        let mut blank = FieldState::new(vec!["blank".into()], InferenceMode::AutoIndex);
+        blank.add_scalar(
+            RecordSlot(0),
+            &Value::String(" ".repeat(policy.max_string_bytes + 1)),
+            policy,
+        );
+        assert!(blank.dropped);
+        assert_eq!(blank.key_builds, 0);
+
+        let mut report = FieldState::new(vec!["report".into()], InferenceMode::ReportOnly);
+        report.add_scalar(RecordSlot(0), &Value::String("value".into()), policy);
+        assert_eq!(report.key_builds, 0);
+
+        let mut indexed = FieldState::new(vec!["indexed".into()], InferenceMode::AutoIndex);
+        indexed.add_scalar(RecordSlot(0), &Value::String("value".into()), policy);
+        assert_eq!(indexed.key_builds, 1);
     }
 }
