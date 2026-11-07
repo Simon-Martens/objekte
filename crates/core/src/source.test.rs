@@ -400,12 +400,9 @@ fn build_json_borrows_logical_strings_after_temporal_conversion() {
     }
 }
 
-
 struct TinyReader(Arc<AtomicUsize>);
 
-
 struct TemporalSegmentsReader;
-
 
 impl SourceReader for TemporalSegmentsReader {
     fn name(&self) -> &'static str {
@@ -446,7 +443,6 @@ impl SourceReader for TemporalSegmentsReader {
         })
     }
 }
-
 
 #[test]
 fn temporal_registration_does_not_replace_reader_owned_text() {
@@ -587,13 +583,11 @@ fn temporal_registration_does_not_replace_reader_owned_text() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 struct OutcomeReader {
     ranges: Vec<ByteRange>,
     parses: Arc<AtomicUsize>,
     fail_framing: bool,
 }
-
 
 impl SourceReader for OutcomeReader {
     fn name(&self) -> &'static str {
@@ -637,7 +631,6 @@ impl SourceReader for OutcomeReader {
         }
     }
 }
-
 
 #[test]
 fn registered_ranges_are_validated_before_slicing_and_outcomes_are_typed() {
@@ -907,7 +900,6 @@ fn json_reader_reports_syntax_and_encoding_positions() {
     assert_eq!(encoding.relative_byte, Some(10));
 }
 
-
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"
@@ -948,7 +940,6 @@ impl SourceReader for TinyReader {
         })
     }
 }
-
 
 #[test]
 fn body_only_reader_does_not_prune_unindexed_title() {
@@ -1231,6 +1222,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         recursive: true,
         include: vec!["**/*.tiny".into(), "*.tiny".into()],
         exclude: vec!["skip/**".into()],
+        exclude_files: vec![],
         exclude_directories: vec![],
         hidden: false,
         symlinks: SymlinkPolicy::Skip,

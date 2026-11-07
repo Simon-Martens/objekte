@@ -72,6 +72,132 @@ fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
 }
 
 #[test]
+fn explicit_schema_and_auto_index_have_independent_cli_modes() {
+    let root = tempfile::tempdir().unwrap();
+    let schema = serde_json::json!({
+        "type":"object",
+        "properties":{
+            "code":{"type":"string","index":true},
+            "year":{"type":"integer"},
+            "body":{"type":"string","index":false}
+        }
+    });
+    std::fs::write(root.path().join("schema.json"), schema.to_string()).unwrap();
+    std::fs::write(
+        root.path().join("one.json"),
+        serde_json::json!({"code":"A","year":1800,"body":"text"}).to_string(),
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("two.json"),
+        serde_json::json!({"code":"L".repeat(65),"year":1900,"body":"text"}).to_string(),
+    )
+    .unwrap();
+    for flags in [
+        vec![],
+        vec!["--schema", "schema.json"],
+        vec!["--auto-index"],
+        vec!["--schema", "schema.json", "--auto-index"],
+    ] {
+        let mut args = flags.clone();
+        args.push("code = \"A\"");
+        let (status, events) = invoke(root.path(), &args);
+        assert!(
+            status.status.success(),
+            "{flags:?}: {}",
+            String::from_utf8_lossy(&status.stderr)
+        );
+        assert_eq!(hits(&events).len(), 1, "{flags:?}");
+        assert_eq!(hits(&events)[0]["file"]["record_id"], "path:one.json");
+        assert_eq!(
+            events.last().unwrap()["files"],
+            if flags.contains(&"--schema") { 2 } else { 3 }
+        );
+        assert_eq!(
+            events[0]["schema_fields"],
+            if flags.contains(&"--schema") { 3 } else { 0 }
+        );
+        assert_eq!(
+            events[0]["inference"],
+            if flags.contains(&"--auto-index") {
+                "auto_index"
+            } else {
+                "disabled"
+            }
+        );
+    }
+    let long_query = format!("code = {}", serde_json::to_string(&"L".repeat(65)).unwrap());
+    let (status, events) = invoke(root.path(), &["--schema", "schema.json", &long_query]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(hits(&events).len(), 1);
+    let conflict = serde_json::json!({"type":"object","properties":{"code":{"type":"string","index":false}},"x-index-paths":["code"]});
+    std::fs::write(root.path().join("conflict.json"), conflict.to_string()).unwrap();
+    let (status, _) = invoke(root.path(), &["--schema", "conflict.json", "code = \"A\""]);
+    assert_eq!(status.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&status.stderr).contains("conflicts"));
+}
+
+#[test]
+fn schema_bytes_and_inference_mode_own_snapshot_compatibility() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("data.json"), br#"{"code":"A"}"#).unwrap();
+    let schema_path = root.path().join("schema.json");
+    let base = serde_json::json!({"type":"object","properties":{"code":{"type":"string"}}});
+    std::fs::write(&schema_path, base.to_string()).unwrap();
+    let (written, events) = invoke(
+        root.path(),
+        &["--schema", "schema.json", "--auto-index", "--write-index"],
+    );
+    assert!(
+        written.status.success(),
+        "{}",
+        String::from_utf8_lossy(&written.stderr)
+    );
+    assert_eq!(
+        events.last().unwrap()["snapshot_action"],
+        "built_and_written"
+    );
+    let (loaded, events) = invoke(
+        root.path(),
+        &[
+            "--schema",
+            "schema.json",
+            "--auto-index",
+            "--load-index",
+            "code = \"A\"",
+        ],
+    );
+    assert!(
+        loaded.status.success(),
+        "{}",
+        String::from_utf8_lossy(&loaded.stderr)
+    );
+    assert_eq!(events.last().unwrap()["snapshot_action"], "restored");
+    assert_eq!(events.last().unwrap()["build_parses"], 0);
+    let (mismatch, _) = invoke(
+        root.path(),
+        &["--schema", "schema.json", "--load-index", "code = \"A\""],
+    );
+    assert_eq!(mismatch.status.code(), Some(2));
+    std::fs::write(&schema_path, format!("{}\n", base)).unwrap();
+    let (changed, _) = invoke(
+        root.path(),
+        &[
+            "--schema",
+            "schema.json",
+            "--auto-index",
+            "--load-index",
+            "code = \"A\"",
+        ],
+    );
+    assert_eq!(changed.status.code(), Some(2));
+}
+
+#[test]
 fn default_folder_admits_root_shapes_and_hidden_json() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("object.json"), br#"{"title":"needle"}"#).unwrap();

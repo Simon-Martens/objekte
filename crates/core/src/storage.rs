@@ -31,14 +31,12 @@ const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 14;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
-
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
 pub(crate) enum SnapshotLoadError {
     Access(String),
     Invalid(String),
 }
-
 
 impl std::fmt::Display for SnapshotLoadError {
     fn fmt(&self, formatter: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
@@ -48,20 +46,17 @@ impl std::fmt::Display for SnapshotLoadError {
     }
 }
 
-
 impl From<String> for SnapshotLoadError {
     fn from(message: String) -> Self {
         Self::Invalid(message)
     }
 }
 
-
 impl From<&str> for SnapshotLoadError {
     fn from(message: &str) -> Self {
         Self::Invalid(message.into())
     }
 }
-
 
 fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadError {
     if error.kind() == std::io::ErrorKind::UnexpectedEof {
@@ -70,7 +65,6 @@ fn snapshot_read_error(context: &str, error: std::io::Error) -> SnapshotLoadErro
         SnapshotLoadError::Access(format!("snapshot access while reading {context}: {error}"))
     }
 }
-
 
 /// Snapshot representation of one source-file revision.
 #[derive(Serialize, Deserialize)]
@@ -84,7 +78,6 @@ struct EncodedFile {
     diagnostics: Vec<SourceDiagnostic>,
     omitted_diagnostics: u32,
 }
-
 
 /// Owned snapshot representation of a collection generation.
 #[derive(Serialize, Deserialize)]
@@ -104,7 +97,6 @@ struct EncodedCollection {
     relations: Vec<RelationIndex>,
 }
 
-
 /// Borrowed collection state prepared for snapshot encoding.
 #[derive(Serialize)]
 struct EncodedCollectionRef<'a> {
@@ -122,7 +114,6 @@ struct EncodedCollectionRef<'a> {
     stats: CollectionStats,
     relations: &'a Vec<RelationIndex>,
 }
-
 
 fn codec() -> impl Options {
     bincode::DefaultOptions::new()
@@ -287,10 +278,16 @@ pub fn configuration_hash(
                 .as_bytes(),
             );
         }
+        if let Some(fingerprint) = definition.schema.source_fingerprint {
+            hash.update(fingerprint);
+        }
         let mut excluded: Vec<_> = definition.schema.auto_index_excluded.iter().collect();
         excluded.sort();
         for path in excluded {
-            feed(&mut hash, format!("auto-index-excluded:{path:?}").as_bytes());
+            feed(
+                &mut hash,
+                format!("auto-index-excluded:{path:?}").as_bytes(),
+            );
         }
         for relation in definition.schema.relations().values() {
             feed(&mut hash, format!("{:?}", relation).as_bytes());
@@ -390,7 +387,6 @@ fn read_section<T: for<'de> Deserialize<'de>>(
         .map_err(|e| SnapshotLoadError::Invalid(format!("invalid snapshot section: {e}")))
 }
 
-
 impl Repository {
     pub fn save_snapshot(&self, path: &Path) -> Result<(), String> {
         let parent = path.parent().ok_or("snapshot needs a parent directory")?;
@@ -470,7 +466,6 @@ impl Repository {
         outcome
     }
 }
-
 
 pub fn load_snapshot(
     root: PathBuf,

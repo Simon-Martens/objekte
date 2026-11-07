@@ -32,6 +32,10 @@ pub struct Arguments {
     #[arg(long)]
     pub auto_index: bool,
 
+    /// Apply one explicitly selected JSON Schema to the files collection.
+    #[arg(long, value_name = "FILE")]
+    pub schema: Option<PathBuf>,
+
     /// Search a literal string without JSON quoting.
     #[arg(long, group = "input", value_name = "TEXT")]
     pub fts: Option<String>,
@@ -74,6 +78,7 @@ pub struct Arguments {
 pub struct ResolvedPaths {
     pub root: PathBuf,
     pub index_directory: Option<PathBuf>,
+    pub schema_file: Option<PathBuf>,
 }
 
 impl Arguments {
@@ -112,9 +117,28 @@ impl Arguments {
         {
             return Err("--load-index and --write-index must name the same directory".into());
         }
+        let schema_file = self
+            .schema
+            .as_ref()
+            .map(|path| {
+                let path = if path.is_absolute() {
+                    path.clone()
+                } else {
+                    cwd.join(path)
+                };
+                let path = path
+                    .canonicalize()
+                    .map_err(|error| format!("{}: {error}", path.display()))?;
+                if !path.is_file() {
+                    return Err(format!("{} is not a file", path.display()));
+                }
+                Ok(path)
+            })
+            .transpose()?;
         Ok(ResolvedPaths {
             root,
             index_directory: write.or(read),
+            schema_file,
         })
     }
 }

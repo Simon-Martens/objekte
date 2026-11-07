@@ -33,6 +33,7 @@ mod relation_query;
 mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
+pub mod schema_adapter;
 pub mod run;
 mod sort_binding;
 pub mod sorting;

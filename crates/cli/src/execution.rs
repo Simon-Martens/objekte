@@ -12,6 +12,7 @@ use objekte_search_core::repository::{
     CollectionDefinition, Repository, RepositoryOptions, SnapshotAction, SnapshotMode,
     SnapshotOpenPolicy,
 };
+use objekte_search_core::schema_adapter::compile_schema;
 use objekte_search_core::source::SourceFormat;
 use objekte_search_core::streaming::{
     CancellationToken, ResultScope, StreamControl, StreamEvent, StreamMode, StreamOptions,
@@ -57,6 +58,37 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
+    let schema_configuration = match paths.schema_file.as_deref() {
+        Some(path) => {
+            let result = (|| {
+                let bytes = std::fs::read(path).map_err(|error| error.to_string())?;
+                let document: serde_json::Value =
+                    serde_json::from_slice(&bytes).map_err(|error| error.to_string())?;
+                let mut compiled = compile_schema(&document, "files")?;
+                for relation in compiled.schema.relations().values() {
+                    if relation.target_collection != "files" {
+                        return Err(format!(
+                            "relation target {} is unavailable in the single-collection CLI",
+                            relation.target_collection
+                        ));
+                    }
+                }
+                compiled.schema.set_source_fingerprint(&bytes);
+                Ok::<_, String>((compiled, document.get("x-objekte").is_some()))
+            })();
+            match result {
+                Ok(compiled) => Some(compiled),
+                Err(error) => {
+                    eprintln!("obj: {}: {error}", path.display());
+                    return Exit::Arguments;
+                }
+            }
+        }
+        None => None,
+    };
+    let schema_fields = schema_configuration
+        .as_ref()
+        .map_or(0, |(compiled, _)| compiled.schema.fields().len());
     let input_mode = if args.query_file.is_some() {
         "query_file"
     } else if args.fts.is_some() {
@@ -84,7 +116,9 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "extension": ".json",
         "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
         "text_policy": "decoded_scalar_values",
-        "schema_fields": 0,
+        "schema_fields": schema_fields,
+        "schema_file": paths.schema_file.as_deref().map(path_repr::query_path),
+        "schema_repository_metadata_ignored": schema_configuration.as_ref().is_some_and(|(_, ignored)| *ignored),
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
         "index_operation": index_operation(args),
@@ -94,11 +128,20 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     }
     let mut definition =
         CollectionDefinition::folder("files", PathBuf::new(), SourceFormat::JsonDecodedScalars);
+    if let Some((compiled, _)) = schema_configuration {
+        definition.schema = compiled.schema;
+        definition.sort_fields = compiled.sort_fields;
+    }
     definition.discovery.recursive = !args.no_recurse;
     definition.discovery.hidden = true;
     definition.discovery.symlinks = SymlinkPolicy::Skip;
     definition.discovery.exclude = vec![".git".into(), "**/.git".into()];
     definition.discovery.exclude_directories = vec![PathBuf::from(".objekte")];
+    if let Some(schema_file) = paths.schema_file.as_deref()
+        && let Ok(relative) = schema_file.strip_prefix(&paths.root)
+    {
+        definition.discovery.exclude_files.push(relative.to_owned());
+    }
     if let Some(directory) = paths.index_directory.as_deref()
         && let Ok(relative) = directory.strip_prefix(&paths.root)
         && !relative.as_os_str().is_empty()
