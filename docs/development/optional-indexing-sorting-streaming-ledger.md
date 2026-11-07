@@ -35,9 +35,9 @@ Default source records remain object-valued under current reader validation. Arr
 | TASK-02 | Dynamic FILTER worker | accepted | Pushed clean head `0fbf439aa9` on `feature/dynamic-filter-bigrams`; structural bitmap, sound gram restriction and focused evidence reviewed. Merge awaits TASK-08 gate. |
 | TASK-03/04 | Inference worker | accepted | Clean pushed head `a34154091a`; four review findings corrected, focused/core/workspace checks passed, and final read-only recheck found no blocker. Merge awaits TASK-08 gate. |
 | TASK-05/06 | Sorting worker | accepted | Clean pushed head `4e3a6f4325`; three review gaps corrected, workspace tests/Clippy passed, final read-only review found no blocker. Merge awaits TASK-08 gate. |
-| TASK-07 | Streaming worker | correction in progress | `48adf895ed` passed tests/Clippy and NDJSON smoke; independent review found three sequence/resource gaps below. |
-| TASK-08 | Supervisor | in progress | Dynamic, inference and sorting accepted; streaming requires focused corrections and recheck before merge. |
-| TASK-09 | Supervisor | not started | Four-way integration and cross-feature validation. |
+| TASK-07 | Streaming worker | accepted | Clean pushed head `4cb58e0d73`; three review gaps corrected, workspace tests/Clippy passed, final read-only review found no blocker. |
+| TASK-08 | Supervisor | complete | All four exact worker heads accepted and frozen for integration. |
+| TASK-09 | Supervisor | in progress | Four-way integration and cross-feature validation. |
 | TASK-10 | Supervisor | not started | Final measurements. |
 | TASK-11 | Supervisor | not started | Development promotion. |
 
@@ -72,7 +72,9 @@ The correction `4e3a6f4325` precharges cached membership and a flat grouped-read
 
 ## TASK-07 independent review
 
-The pushed streaming head `48adf895ed` provides a synchronous sink/cancellation API, ordered rows, replacement pages, warm cached membership streaming and versioned Musenalm NDJSON. Workspace tests and Clippy passed; the CLI smoke produced parseable `ordered_rows` then `complete` records with diagnostics on stderr. A read-only reviewer found three gaps: `final_sequence` can point to a progress event rather than the last page; target-prefetch limit failures can be misclassified as execution errors; and coalesced source reads can allocate a larger window than a small stream byte budget. The owning branch is correcting these. Computed-sort and computed warm-cache delivery remain mandatory integration work.
+The pushed streaming head `48adf895ed` provides a synchronous sink/cancellation API, ordered rows, replacement pages, warm cached membership streaming and versioned Musenalm NDJSON. Workspace tests and Clippy passed; the CLI smoke produced parseable `ordered_rows` then `complete` records with diagnostics on stderr. A read-only reviewer found three gaps: `final_sequence` can point to a progress event rather than the last page; target-prefetch limit failures can be misclassified as execution errors; and coalesced source reads can allocate a larger window than a small stream byte budget. Computed-sort and computed warm-cache delivery remain mandatory integration work.
+
+The correction `4cb58e0d73` tracks the last successful page sequence, classifies prefetch limits as resource failures, and reads streaming source ranges directly under a checked byte total without retained lookahead/coalesced gap windows. It charges target-slot bookkeeping and checks remaining allowance before later prefetch batches. Full workspace tests and Clippy passed. Final independent read-only review accepted this head and found no new concrete blocker. The byte accounting is an estimate of known buffers, not a hard process RSS ceiling; computed-sort delivery remains an integration gate.
 
 ## TASK-09 merge map
 
