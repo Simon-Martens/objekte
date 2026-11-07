@@ -336,7 +336,8 @@ pub(crate) fn eval_fts_with_relations(
                 ctx.record.slot,
                 &mut truth,
                 work,
-                &mut |target, target_segments| {
+                &[],
+                &mut |target, target_segments, _| {
                     eval_bound_fts(&one, target_segments, target, &mut Default::default())
                 },
             )?;
@@ -442,10 +443,31 @@ fn bind_related_term(
             ));
         }
         if source.multi {
-            return Err(
-                "source-dependent comparison requires a scalar source field or explicit position"
-                    .into(),
+            let source_scopes = explicit_scopes(&source.query_path);
+            let first_hop = hops.first().ok_or("relation path has no hop")?;
+            if first_hop.direction != HopDirection::Forward {
+                return Err("source-dependent multivalued field needs a forward shared [*] occurrence scope".into());
+            }
+            let relation =
+                &repo.collections[collection_index].relations[first_hop.relation.ordinal as usize];
+            let relation_scopes = relation_source_scopes(
+                if target_is_lhs {
+                    &term.path
+                } else {
+                    &field.path
+                },
+                &relation.declaration.path,
             );
+            if source_scopes.is_empty()
+                || !relation_scopes.starts_with(&source_scopes)
+                || source.implicit_array
+                || matches!(source.source_kind, LogicalType::Array(_))
+            {
+                return Err(
+                    "source-dependent multivalued field needs a shared [*] relation occurrence scope or explicit indexes"
+                        .into(),
+                );
+            }
         }
         for operation in [target.operation.as_ref(), source.operation.as_ref()]
             .into_iter()
@@ -497,6 +519,39 @@ fn bind_related_term(
         },
     }));
     Ok(Some(outer))
+}
+
+fn explicit_scopes(path: &QueryPath) -> Vec<Vec<PathStep>> {
+    let mut prefix = Vec::new();
+    let mut scopes = Vec::new();
+    for step in &path.steps {
+        prefix.push(step.clone());
+        if matches!(step, PathStep::EachElement) {
+            scopes.push(prefix.clone());
+        }
+    }
+    scopes
+}
+
+// Only source-side array scopes before the first relation field can pair with
+// source values. Later selectors belong to target traversal, not source data.
+fn relation_source_scopes(path: &QueryPath, relation_fields: &[String]) -> Vec<Vec<PathStep>> {
+    let mut prefix = Vec::new();
+    let mut scopes = Vec::new();
+    let mut field_count = 0;
+    for step in &path.steps {
+        prefix.push(step.clone());
+        if matches!(step, PathStep::EachElement) {
+            scopes.push(prefix.clone());
+        }
+        if matches!(step, PathStep::Field(_)) {
+            field_count += 1;
+            if field_count == relation_fields.len() {
+                break;
+            }
+        }
+    }
+    scopes
 }
 
 /// Resolve the first explicit relation at each collection boundary.
@@ -682,7 +737,8 @@ fn eval_related_term_mode(
         source.record.slot,
         &mut truth,
         work,
-        &mut |target, _| {
+        &[],
+        &mut |target, _, source_positions| {
             if let Some(source_operand) = &related.source_operand {
                 eval_cross_record_field_term(
                     &related.terminal,
@@ -690,6 +746,8 @@ fn eval_related_term_mode(
                     target,
                     source,
                     related.target_is_lhs,
+                    source_positions,
+                    &related.hops[0].selectors,
                 )
             } else {
                 eval_term(&related.terminal, target)
@@ -726,7 +784,8 @@ fn visit_hop(
     source_slot: RecordSlot,
     truth: &mut Option<bool>,
     work: &mut RelationWork,
-    terminal: &mut impl FnMut(&RecordContext<'_>, &[TextSegment]) -> Result<bool, String>,
+    source_positions: &[u32],
+    terminal: &mut impl FnMut(&RecordContext<'_>, &[TextSegment], &[u32]) -> Result<bool, String>,
 ) -> Result<(), String> {
     let TraverseConfig {
         repo,
@@ -768,7 +827,11 @@ fn visit_hop(
             collection_name: &collection.definition.name,
             repository_root: &repo.files.root,
         };
-        merge_truth(truth, Some(terminal(&ctx, &extracted.text)?), quantifier);
+        merge_truth(
+            truth,
+            Some(terminal(&ctx, &extracted.text, source_positions)?),
+            quantifier,
+        );
         return Ok(());
     }
     let hop = &hops[depth];
@@ -807,6 +870,11 @@ fn visit_hop(
                             target.slot,
                             truth,
                             work,
+                            if depth == 0 {
+                                &positions
+                            } else {
+                                source_positions
+                            },
                             terminal,
                         )?;
                     } else {
@@ -850,6 +918,7 @@ fn visit_hop(
                             *candidate,
                             truth,
                             work,
+                            source_positions,
                             terminal,
                         )?;
                     }
@@ -889,6 +958,11 @@ fn visit_hop(
                         target,
                         truth,
                         work,
+                        if depth == 0 {
+                            &edge.positions
+                        } else {
+                            source_positions
+                        },
                         terminal,
                     )?,
                     RelationTarget::Unresolved(_) => merge_truth(truth, None, quantifier),
@@ -930,6 +1004,7 @@ fn visit_hop(
                             *source,
                             truth,
                             work,
+                            source_positions,
                             terminal,
                         )?;
                     }
