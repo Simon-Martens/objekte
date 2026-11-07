@@ -1,7 +1,6 @@
 //! Terminal entry point for a repository described by optional schema files.
 
 mod schema;
-mod tui;
 
 use std::path::PathBuf;
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
@@ -61,5 +60,9 @@ fn run() -> Result<(), String> {
     if definitions.is_empty() {
         return Err(format!("no collection schemas found in {}", root.display()));
     }
-    tui::run(root, definitions).map_err(|error| error.to_string())
+    objekte_tui::run_with_loader(
+        move || objekte_search_core::repository::Repository::open(root, definitions),
+        objekte_tui::TuiOptions::default(),
+    )
+    .map_err(|error| error.to_string())
 }

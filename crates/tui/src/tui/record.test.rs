@@ -74,3 +74,27 @@ fn logical_payload_is_structured_and_non_json_bytes_have_raw_view() {
     );
     assert_eq!(raw_text(&hit), "pipe|record|without|json");
 }
+
+#[test]
+fn cli_projection_uses_decoded_paths_and_verified_text() {
+    let mut hit = sample();
+    hit.payload = Some(Payload::Bytes(r#"{"title":"Stra\u00dfe","a.b":"literal dot","items":[{"name":"Müller"},null],"empty":[],"nil":null,"escape":"\u001b[31m"}"#.as_bytes().to_vec()));
+    hit.matched_fields = vec!["title".into()];
+    let columns = vec![
+        "title".into(),
+        "[\"a.b\"]".into(),
+        "items[*].name".into(),
+        "empty".into(),
+        "nil".into(),
+        "missing".into(),
+    ];
+    let row = display_row(&hit, &columns, "STRASSE", false, false);
+    assert_eq!(
+        row.fields,
+        ["Straße", "literal dot", "Müller", "[]", "null", "∅"]
+    );
+    assert!(row.matched.contains("Straße"));
+    hit.matched_fields.clear();
+    assert!(display_row(&hit, &[], "", true, false).matched.is_empty());
+    assert!(!raw_text(&hit).contains('\u{1b}'));
+}

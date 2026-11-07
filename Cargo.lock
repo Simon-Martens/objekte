@@ -854,6 +854,7 @@ dependencies = [
  "ctrlc",
  "libc",
  "objekte-search-core",
+ "objekte-tui",
  "serde",
  "serde_json",
  "tempfile",
@@ -885,6 +886,7 @@ version = "0.1.0"
 dependencies = [
  "objekte-search-core",
  "ratatui",
+ "regex",
  "serde",
  "serde_json",
  "tempfile",

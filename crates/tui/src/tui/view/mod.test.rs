@@ -2,6 +2,67 @@ use super::*;
 use crate::tui::test_support::{fixture, relation_fixture};
 
 #[test]
+fn cli_result_table_has_only_fixed_columns_until_query_adds_fields() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.single_collection = true;
+    app.scope = 1;
+    app.request_search();
+    for _ in 0..1000 {
+        app.tick(std::time::Instant::now());
+        if !app.searching {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+    for width in [60, 120] {
+        let backend = ratatui::backend::TestBackend::new(width, 20);
+        let mut terminal = ratatui::Terminal::new(backend).unwrap();
+        terminal.draw(|frame| draw(frame, app)).unwrap();
+        let buffer = terminal.backend().buffer();
+        let mut header = String::new();
+        for x in 0..app.results_area.width {
+            header.push_str(buffer[(x, app.results_area.y)].symbol());
+        }
+        assert!(header.contains("id"));
+        assert!(header.contains("match"));
+        assert!(!header.contains("collection"));
+        assert!(!header.contains("title"));
+        app.open_detail();
+        terminal.draw(|frame| draw(frame, app)).unwrap();
+        let detail = format!("{:?}", terminal.backend().buffer());
+        assert!(!detail.contains("Backlinks"));
+        assert!(!detail.contains("2 Links"));
+        app.back_detail();
+    }
+    app.filter = Input::with_text("number >= 0 SORT BY title");
+    app.request_search();
+    for _ in 0..1000 {
+        app.tick(std::time::Instant::now());
+        if !app.searching {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+    let backend = ratatui::backend::TestBackend::new(120, 20);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("number"));
+    assert!(screen.contains("title"));
+
+    record::take_decode_count();
+    for _ in 0..5 {
+        terminal.draw(|frame| draw(frame, app)).unwrap();
+    }
+    assert_eq!(
+        record::take_decode_count(),
+        0,
+        "redraw decoded result bytes"
+    );
+}
+
+#[test]
 fn loading_screen_shows_index_progress_before_repository_is_ready() {
     let backend = ratatui::backend::TestBackend::new(80, 12);
     let mut terminal = ratatui::Terminal::new(backend).unwrap();

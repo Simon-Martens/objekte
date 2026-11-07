@@ -13,6 +13,44 @@ fn settled(app: &mut App) {
 }
 
 #[test]
+fn cli_columns_follow_filter_and_sort_without_schema_defaults() {
+    let mut fixture = fixture(3);
+    let app = &mut fixture.app;
+    app.single_collection = true;
+    app.scope = 1;
+    app.request_search();
+    settled(app);
+    assert_eq!(app.total, 3);
+    assert!(app.column_keys().is_empty());
+    assert_eq!(app.display_rows.len(), 3);
+    assert!(app.display_rows.iter().all(|row| row.matched.is_empty()));
+
+    app.filter = Input::with_text("number >= 1 SORT BY title");
+    app.request_search();
+    settled(app);
+    assert_eq!(app.total, 2);
+    assert_eq!(app.column_keys(), ["number", "title"]);
+    assert_eq!(app.display_rows[0].fields.len(), 2);
+
+    app.filter = Input::with_text("number >= 1 SORT BY number DESC");
+    app.request_search();
+    settled(app);
+    assert_eq!(app.column_keys(), ["number"]);
+    app.filter = Input::with_text("number >");
+    app.request_search();
+    assert!(app.column_keys().is_empty());
+    assert!(app.hits.is_empty());
+}
+
+#[test]
+fn cli_field_labels_include_source_id_and_both_comparison_operands() {
+    let filter = parse_filter("id = 'A' || (number = title && @record.id = 'x')").unwrap();
+    let mut fields = Vec::new();
+    collect_filter_fields(&filter, &mut fields);
+    assert_eq!(fields, ["@root.id", "number", "title"]);
+}
+
+#[test]
 fn full_text_filter_and_collection_scope_use_new_core() {
     let mut fixture = fixture(3);
     settled(&mut fixture.app);
