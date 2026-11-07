@@ -138,6 +138,7 @@ pub struct CollectionState {
     pub raw: BigramIndex,
     pub fallback_text: BigramIndex,
     pub logical_records: RoaringBitmap,
+    pub empty_array_records: RoaringBitmap,
     pub custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     pub sorting: SortCollection,
     pub id_lookup: HashMap<RecordId, RecordSlot>,
@@ -161,6 +162,7 @@ struct PendingCollection {
     raw: BigramContribution,
     fallback_text: BigramContribution,
     logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
     sort_builder: SortBuilder,
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
     relations: Vec<RelationContribution>,
@@ -194,6 +196,7 @@ impl PendingCollection {
             fallback_text: &mut self.fallback_text,
             custom_text: &mut self.custom_text,
             logical_records: &mut self.logical_records,
+            empty_array_records: &mut self.empty_array_records,
             sorting: &mut self.sort_builder,
             relations: &mut self.relations,
         }
@@ -704,6 +707,7 @@ impl Repository {
             let raw = BigramContribution::new(options.bigram_alphabet);
             let fallback_text = BigramContribution::new(options.bigram_alphabet);
             let logical_records = RoaringBitmap::new();
+            let empty_array_records = RoaringBitmap::new();
             let sort_builder = SortBuilder::new(
                 &definition.sort_fields,
                 &definition.schema,
@@ -745,6 +749,7 @@ impl Repository {
                 raw,
                 fallback_text,
                 logical_records,
+                empty_array_records,
                 sort_builder,
                 custom_text,
                 relations,
@@ -845,6 +850,7 @@ impl Repository {
                 raw,
                 fallback_text,
                 logical_records,
+                empty_array_records,
                 sort_builder,
                 custom_text,
                 relations,
@@ -866,6 +872,9 @@ impl Repository {
             postings.validate_eligible(generation.records.len(), logical_records.len() as usize)?;
             if !all_logical {
                 postings.validate_domain(&logical_records)?;
+            }
+            if !(&empty_array_records - &logical_records).is_empty() {
+                return Err("empty-array structural bitmap exceeds logical records".into());
             }
             for custom in custom_postings.values_mut() {
                 custom.index.finish_stats();
@@ -932,6 +941,7 @@ impl Repository {
                 raw,
                 fallback_text,
                 logical_records,
+                empty_array_records,
                 custom_text,
                 sorting,
                 id_lookup,

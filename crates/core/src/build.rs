@@ -31,7 +31,7 @@ use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
     DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceOutcome,
     TextDerivation, extract_file_build_outcomes, extract_framed_build_outcomes,
-    frame_file_for_build, read_record_range_for_build, visit_logical_strings,
+    frame_file_for_build, read_record_range_for_build, visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
 
@@ -116,6 +116,7 @@ pub(crate) struct BatchContribution {
     fallback_text: BigramContribution,
     custom_text: HashMap<(Vec<String>, String), BigramContribution>,
     logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
     sort_keys: HashMap<FieldPath, Vec<SortKey>>,
     relations: Vec<RelationContribution>,
     pub record_parses: u64,
@@ -134,6 +135,7 @@ struct BatchBuilder<'a> {
     fallback_text: BigramBuilder,
     custom_text: HashMap<(Vec<String>, String), BigramBuilder>,
     logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
     sorting: SortBuilder,
     relations: Vec<RelationContribution>,
 }
@@ -192,6 +194,7 @@ impl<'a> BatchBuilder<'a> {
             fallback_text: BigramBuilder::new(alphabet),
             custom_text,
             logical_records: RoaringBitmap::new(),
+            empty_array_records: RoaringBitmap::new(),
             sorting: SortBuilder::new(
                 &definition.sort_fields,
                 schema,
@@ -385,26 +388,46 @@ impl<'a> BatchBuilder<'a> {
                 .map(|values| values.iter().collect::<Vec<_>>());
             custom.index.add_values(slot, refs.as_deref())?;
         }
+        let has_empty_array;
         if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
+                let mut observed_empty = false;
                 self.raw.add_record_with(slot, |emit| {
-                    visit_logical_strings(&extracted.value, &mut |text| {
-                        emit(&binding.operation.map_text(text));
-                    });
+                    observed_empty =
+                        visit_logical_strings_and_empty(&extracted.value, &mut |text| {
+                            emit(&binding.operation.map_text(text));
+                        });
                 })?;
+                has_empty_array = observed_empty;
             } else {
-                self.raw.add_record_with(slot, |emit| visit_logical_strings(&extracted.value, emit))?;
+                let mut observed_empty = false;
+                self.raw.add_record_with(slot, |emit| {
+                    observed_empty = visit_logical_strings_and_empty(&extracted.value, emit);
+                })?;
+                has_empty_array = observed_empty;
             }
-        } else if let Some(binding) = &self.definition.schema.raw {
-            self.raw.add_record(
-                slot,
-                extracted.text.iter().map(|segment| binding.operation.map_text(&segment.text)),
-            )?;
         } else {
-            self.raw.add_record(slot, extracted.text.iter().map(|segment| segment.text.as_str()))?;
+            has_empty_array = crate::structural::contains_empty_array(&extracted.value);
+            if let Some(binding) = &self.definition.schema.raw {
+                self.raw.add_record(
+                    slot,
+                    extracted
+                        .text
+                        .iter()
+                        .map(|segment| binding.operation.map_text(&segment.text)),
+                )?;
+            } else {
+                self.raw.add_record(
+                    slot,
+                    extracted.text.iter().map(|segment| segment.text.as_str()),
+                )?;
+            }
         }
         self.fallback_text.add_empty(slot)?;
         self.logical_records.insert(slot.0);
+        if has_empty_array {
+            self.empty_array_records.insert(slot.0);
+        }
         self.sorting.add(
             slot,
             &extracted.value,
@@ -487,6 +510,7 @@ impl<'a> BatchBuilder<'a> {
             fallback_text: self.fallback_text.finish_blocks()?,
             custom_text,
             logical_records: self.logical_records,
+            empty_array_records: self.empty_array_records,
             sort_keys: self.sorting.into_keys(),
             relations: self.relations,
             record_parses,
@@ -974,6 +998,7 @@ pub(crate) struct CollectionAdmission<'a> {
     pub fallback_text: &'a mut BigramContribution,
     pub custom_text: &'a mut HashMap<(Vec<String>, String), BigramContribution>,
     pub logical_records: &'a mut RoaringBitmap,
+    pub empty_array_records: &'a mut RoaringBitmap,
     pub sorting: &'a mut SortBuilder,
     pub relations: &'a mut Vec<RelationContribution>,
 }
@@ -1078,6 +1103,7 @@ impl CollectionAdmission<'_> {
                 .merge_shifted(index, base)?;
         }
         append_shifted_bitmap(self.logical_records, &batch.logical_records, base)?;
+        append_shifted_bitmap(self.empty_array_records, &batch.empty_array_records, base)?;
         self.sorting.append_keys(batch.sort_keys, base, count)?;
         Ok(())
     }

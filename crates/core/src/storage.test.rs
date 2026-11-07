@@ -366,6 +366,10 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
             built.collections[0].logical_records
         );
         assert_eq!(
+            restored.collections[0].empty_array_records,
+            built.collections[0].empty_array_records
+        );
+        assert_eq!(
             restored.collections[0].generation.records.len() as u64,
             logical + fallback
         );
@@ -398,6 +402,8 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
         "posting_statistics",
         "posting_coverage",
         "diagnostic_owner",
+        "structural_fallback",
+        "structural_out_of_bounds",
     ] {
         let mut reader = Cursor::new(&original);
         reader.set_position(header_size as u64);
@@ -451,6 +457,12 @@ fn eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains() {
             }
             "diagnostic_owner" => {
                 files[0].diagnostics[0].file = FileId(99);
+            }
+            "structural_fallback" => {
+                collection.empty_array_records.insert(1);
+            }
+            "structural_out_of_bounds" => {
+                collection.empty_array_records.insert(99);
             }
             _ => unreachable!(),
         }

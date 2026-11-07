@@ -34,6 +34,7 @@ pub mod run;
 pub mod sorting;
 pub mod source;
 mod source_access;
+mod structural;
 pub mod storage;
 pub mod temporal_query;
 mod verified;
