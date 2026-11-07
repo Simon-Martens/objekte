@@ -52,7 +52,7 @@ pub fn compile_schema(document: &Value, collection: &str) -> Result<CompiledSche
             consumed.insert(Vec::new());
         }
     }
-    register_properties(
+    register_nested_properties(
         document,
         &root,
         &[],
@@ -311,10 +311,20 @@ fn register_properties(
         if annotation == Some(false) {
             schema.prohibit_auto_index(path.clone())?;
         }
+        let item = if matches!(kind, LogicalType::Array(_)) {
+            Some(resolve(
+                root,
+                child.get("items").ok_or("array without items")?,
+                &mut HashSet::new(),
+                0,
+            )?)
+        } else {
+            None
+        };
         let relation = match relation_annotation(&child)? {
             Some(relation) => Some(relation),
-            None => child
-                .get("items")
+            None => item
+                .as_ref()
                 .map(relation_annotation)
                 .transpose()?
                 .flatten(),
@@ -346,15 +356,9 @@ fn register_properties(
                 depth + 1,
             )?,
             LogicalType::Array(_) => {
-                let item = resolve(
+                register_nested_properties(
                     root,
-                    child.get("items").ok_or("array without items")?,
-                    &mut HashSet::new(),
-                    0,
-                )?;
-                register_properties(
-                    root,
-                    &item,
+                    item.as_ref().ok_or("array without items")?,
                     &path,
                     true,
                     collection,
@@ -368,6 +372,53 @@ fn register_properties(
         }
     }
     Ok(())
+}
+
+fn register_nested_properties(
+    root: &Value,
+    node: &Value,
+    parent: &[String],
+    multi: bool,
+    collection: &str,
+    indexed_paths: &HashSet<Vec<String>>,
+    consumed: &mut HashSet<Vec<String>>,
+    schema: &mut Schema,
+    depth: usize,
+) -> Result<(), String> {
+    if depth >= 32 {
+        return Err("schema property nesting exceeds 32 levels".into());
+    }
+    if matches!(logical_type(root, node)?, LogicalType::Array(_)) {
+        let item = resolve(
+            root,
+            node.get("items").ok_or("array without items")?,
+            &mut HashSet::new(),
+            0,
+        )?;
+        register_nested_properties(
+            root,
+            &item,
+            parent,
+            true,
+            collection,
+            indexed_paths,
+            consumed,
+            schema,
+            depth + 1,
+        )
+    } else {
+        register_properties(
+            root,
+            node,
+            parent,
+            multi,
+            collection,
+            indexed_paths,
+            consumed,
+            schema,
+            depth,
+        )
+    }
 }
 
 fn array_element_nullability(root: &Value, node: &Value) -> Result<Vec<bool>, String> {

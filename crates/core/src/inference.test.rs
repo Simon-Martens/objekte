@@ -220,6 +220,116 @@ fn selective_short_string_queries_keep_long_and_mixed_remainders() {
 }
 
 #[test]
+fn mixed_short_strings_match_reference_after_snapshot_restore() {
+    use crate::repository::{SnapshotAction, SnapshotOpenPolicy};
+    static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-matrix-{}-{}",
+        std::process::id(),
+        NEXT.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let long_between = format!("A{}", "\0".repeat(64));
+    let inputs = [
+        serde_json::json!({"code":"A"}),
+        serde_json::json!({"code":"B"}),
+        serde_json::json!({"code":"Z".repeat(65)}),
+        serde_json::json!({"code":["A", "Z".repeat(65)]}),
+        serde_json::json!({"code":["A", "A"]}),
+        serde_json::json!({"code":[]}),
+        serde_json::json!({"code":null}),
+        serde_json::json!({"other":"A"}),
+        serde_json::json!({"code":7}),
+        serde_json::json!({"code":long_between}),
+        serde_json::json!({"code":"ü".repeat(32)}),
+        serde_json::json!({"code":"ü".repeat(33)}),
+        serde_json::json!({"code":"urn:uuid:550e8400-e29b-41d4-a716-446655440000"}),
+    ];
+    for (slot, value) in inputs.iter().enumerate() {
+        std::fs::write(root.join(format!("data/{slot:02}.json")), value.to_string()).unwrap();
+    }
+    std::fs::write(root.join("data/bad.json"), "{").unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let filters = [
+        "code ?= 'A'",
+        "code = 'A'",
+        "code != 'A'",
+        "code ?!= 'A'",
+        "code > 'A'",
+        "code >= 'A'",
+        "code < 'B'",
+        "code <= 'B'",
+        "code:null = true",
+        "code:exists = false",
+        "!(code ?= 'A')",
+        "code ?= 'A' || code:exists = false",
+        "code ?= 'A' && code > 'A'",
+        "@record.id = 'path:00.json'",
+    ];
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        };
+        let snapshot = root.join(format!("cache-{alphabet:?}"));
+        let open = |mode| {
+            Repository::open_with_snapshot_policy(
+                &root,
+                vec![definition.clone()],
+                options.clone(),
+                SnapshotOpenPolicy::new(mode, Some(snapshot.clone())),
+            )
+        };
+        let built = open(SnapshotMode::Rebuild).unwrap();
+        assert_eq!(built.build_parses(), 13);
+        let restored = open(SnapshotMode::ReadOnly).unwrap();
+        assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
+        assert_eq!(restored.build_parses(), 0);
+        for filter in filters {
+            let mut request = query(filter);
+            request.options.return_mode = ReturnMode::Locator;
+            let expected = built.search_reference(&request);
+            let fresh = built.search(&request);
+            let loaded = restored.search(&request);
+            match (expected, fresh, loaded) {
+                (Ok(expected), Ok(fresh), Ok(loaded)) => {
+                    assert_eq!(fresh.hits, expected.hits, "fresh {filter}");
+                    assert_eq!(loaded.hits, expected.hits, "restored {filter}");
+                    assert_eq!(fresh.count, expected.count, "count {filter}");
+                }
+                (Err(_), Err(_), Err(_)) => {}
+                (reference, fresh, loaded) => {
+                    panic!("route disagreement for {filter}: {reference:?}, {fresh:?}, {loaded:?}")
+                }
+            }
+        }
+        let ids = |filter: &str| {
+            built
+                .search(&query(filter))
+                .unwrap()
+                .hits
+                .into_iter()
+                .map(|hit| hit.record_id)
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(
+            ids("code ?= 'A'"),
+            ["path:00.json", "path:03.json", "path:04.json"]
+        );
+        assert!(
+            ids("code > 'A'").contains(&"path:09.json".to_owned()),
+            "long value must survive the residual"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn empty_ancestor_reconciles_late_descendant_and_null_statistics() {
     assert_ne!(ObservedStep::Field("0".into()), ObservedStep::ArrayIndex(0));
     let config = InferenceConfig {

@@ -71,3 +71,23 @@ fn composite_sort_is_not_flattened_into_an_unrelated_order() {
     assert!(compiled.schema.composite_sorts[0][0].descending);
     assert!(!compiled.schema.composite_sorts[0][1].descending);
 }
+
+#[test]
+fn root_and_nested_arrays_register_item_properties() {
+    let document = serde_json::json!({
+        "type":"array",
+        "items":{"type":"array","items":{"type":"object","properties":{
+            "code":{"type":"string","index":true},
+            "count":{"type":"integer"}
+        }}},
+        "x-index-paths":["count"]
+    });
+    let compiled = compile_schema(&document, "files").unwrap();
+    assert!(compiled.schema.fields()[&vec!["code".into()]].indexed);
+    assert!(compiled.schema.fields()[&vec!["count".into()]].indexed);
+    assert!(compiled.schema.fields()[&vec!["code".into()]].multi);
+    let mut valid = LogicalValue::from_json(serde_json::json!([[{"code":"A","count":1}]])).unwrap();
+    compiled.schema.coerce_record(&mut valid).unwrap();
+    let mut invalid = LogicalValue::from_json(serde_json::json!([[{"code":7,"count":1}]])).unwrap();
+    assert!(compiled.schema.coerce_record(&mut invalid).is_err());
+}
