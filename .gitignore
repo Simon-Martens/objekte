@@ -5,6 +5,7 @@
 /crates/bench/fff-compare/target/
 /.data/
 /import/
+/docs/ai/memory/
 __pycache__/
 *.pyc
 **/.objekte/.cache/
