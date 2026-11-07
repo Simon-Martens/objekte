@@ -1878,7 +1878,7 @@ pub(crate) fn eval_cross_record_field_term(
 }
 
 /// `%` spans any sequence; `\%` means a literal percent. No other wildcard.
-fn contains_pattern(text: &str, pattern: &str) -> bool {
+pub(crate) fn contains_pattern(text: &str, pattern: &str) -> bool {
     let mut pieces = Vec::new();
     let mut current = String::new();
     let mut chars = pattern.chars().peekable();

@@ -91,6 +91,14 @@ impl PostingIndex {
                     .map(|slots| input & slots)
                     .unwrap_or_default(),
             ),
+            Operator::Ne => {
+                let mut result = input & &self.presence;
+                result -= &self.nulls;
+                if let Some(equal) = self.values.get(key) {
+                    result -= equal;
+                }
+                Some(result)
+            }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
                 Some(scalar_range_postings(&self.values, key, operator, Some(input)).0)
             }

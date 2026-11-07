@@ -239,6 +239,59 @@ impl InferenceState {
         if index.covered_records as u64 != domain.len() {
             return None;
         }
+        if structural {
+            return index
+                .exact_set_restricted(term, domain, input)
+                .map(|set| (set, true));
+        }
+        let complete_scalar = !index.multi
+            && !term.query_path.has_explicit_array_step
+            && self
+                .empty_selections
+                .get(&term.path.segments)
+                .is_some_and(RoaringBitmap::is_empty)
+            && self
+                .short_string_coverage
+                .get(&term.path.segments)
+                .is_none_or(|covered| (&index.presence - &index.nulls).is_subset(covered));
+        let compatible_literal = matches!(
+            (&index.kind, &term.literal),
+            (LogicalType::Number, Value::Number(_))
+                | (LogicalType::Bool, Value::Bool(_))
+                | (LogicalType::String, Value::String(_))
+        );
+        if complete_scalar && term.derived == Derived::None && compatible_literal {
+            match term.operator {
+                Operator::Eq
+                | Operator::Ne
+                | Operator::Gt
+                | Operator::Ge
+                | Operator::Lt
+                | Operator::Le => {
+                    let key = ScalarKey::from_value(&term.literal)?;
+                    return index
+                        .exact_observed_scalar_restricted(&key, term.operator, domain, input)
+                        .map(|set| (set, true));
+                }
+                Operator::Contains | Operator::NotContains if index.kind == LogicalType::String => {
+                    let Value::String(pattern) = &term.literal else {
+                        unreachable!("compatible string literal")
+                    };
+                    let mut result = RoaringBitmap::new();
+                    for (key, slots) in &index.values {
+                        let ScalarKey::String(value) = key else {
+                            return None;
+                        };
+                        let contains = crate::reference::contains_pattern(value, pattern);
+                        if contains == (term.operator == Operator::Contains) {
+                            result |= slots & input;
+                        }
+                    }
+                    return Some((result, true));
+                }
+                _ => {}
+            }
+        }
         if let Some(covered) = self.short_string_coverage.get(&term.path.segments) {
             if structural
                 || term.derived != Derived::None
@@ -291,30 +344,6 @@ impl InferenceState {
             // undergo the ordinary evaluator and retain its error behavior.
             candidate |= input - covered;
             return Some((candidate & input, false));
-        }
-        if structural {
-            return index
-                .exact_set_restricted(term, domain, input)
-                .map(|set| (set, true));
-        }
-        if index.kind == LogicalType::Number
-            && !index.multi
-            && !term.query_path.has_explicit_array_step
-            && self
-                .empty_selections
-                .get(&term.path.segments)
-                .is_some_and(RoaringBitmap::is_empty)
-            && term.derived == Derived::None
-            && matches!(term.literal, Value::Number(_))
-            && matches!(
-                term.operator,
-                Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
-            )
-        {
-            let key = ScalarKey::from_value(&term.literal)?;
-            return index
-                .exact_observed_scalar_restricted(&key, term.operator, domain, input)
-                .map(|set| (set, true));
         }
         if term.derived != Derived::None || matches!(term.literal, Value::Null) {
             return None;

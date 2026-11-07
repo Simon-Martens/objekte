@@ -1257,3 +1257,97 @@ fn numeric_range_keeps_residual_for_empty_ancestor_selections() {
     assert!(repo.explain(&request).unwrap()[0].remaining_verification);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
+    let root = temporary_root("exact-short-bool");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, document) in [
+        ("00", r#"{"code":"A1","flag":true}"#),
+        ("01", r#"{"code":"B2","flag":false}"#),
+        ("02", r#"{"code":"a1","flag":true}"#),
+        ("03", r#"{"code":"","flag":null}"#),
+        ("04", r#"{"other":17}"#),
+        ("05", r#"{"code":"A10","flag":false}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (filter, expected) in [
+        ("code = 'A1'", vec!["path:00.json"]),
+        (
+            "code != 'A1'",
+            vec![
+                "path:01.json",
+                "path:02.json",
+                "path:03.json",
+                "path:05.json",
+            ],
+        ),
+        ("code >= 'A10' && code < 'B2'", vec!["path:05.json"]),
+        ("code ~ 'A1'", vec!["path:00.json", "path:05.json"]),
+        (
+            "code !~ 'A1'",
+            vec!["path:01.json", "path:02.json", "path:03.json"],
+        ),
+        ("flag = true", vec!["path:00.json", "path:02.json"]),
+        ("flag != false", vec!["path:00.json", "path:02.json"]),
+        ("flag > false", vec!["path:00.json", "path:02.json"]),
+        ("flag < true", vec!["path:01.json", "path:05.json"]),
+        (
+            "flag:exists = true",
+            vec![
+                "path:00.json",
+                "path:01.json",
+                "path:02.json",
+                "path:03.json",
+                "path:05.json",
+            ],
+        ),
+        ("flag:null = true", vec!["path:03.json"]),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        request.options.evidence = false;
+        let result = repo.search(&request).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}"
+        );
+        assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
+        assert_eq!(result.count, Some(expected.len()), "{filter}");
+        assert_eq!(result.counters.record_parses, 0, "{filter}");
+        assert!(
+            repo.explain(&request).unwrap()[0]
+                .terms
+                .iter()
+                .all(|term| term.selected.kind == AccessPathKind::InferredPosting
+                    && term.selected.exact),
+            "{filter}"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
