@@ -68,7 +68,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             return Exit::Arguments;
         }
     };
-    let ui = objekte_tui::TuiOptions {
+    let ui = objekte_cli::tui::TuiOptions {
         single_collection: true,
         initial_search,
         initial_filter,
@@ -84,7 +84,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
             .to_owned(),
         ),
     };
-    let result = objekte_tui::run_with_loader(
+    let result = objekte_cli::tui::run_with_loader(
         move || Repository::open_with_snapshot_policy(&root, vec![definition], options, policy),
         ui,
     );

@@ -854,10 +854,13 @@ dependencies = [
  "ctrlc",
  "libc",
  "objekte-search-core",
- "objekte-tui",
+ "ratatui",
+ "regex",
  "serde",
  "serde_json",
  "tempfile",
+ "unicode-casefold",
+ "unicode-width",
 ]
 
 [[package]]

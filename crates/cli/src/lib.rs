@@ -3,3 +3,4 @@
 pub mod arguments;
 pub mod output;
 pub mod query_input;
+pub mod tui;
