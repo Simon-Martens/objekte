@@ -1,20 +1,23 @@
 #[path = "support/musenalm.rs"]
 mod musenalm;
 
-use std::collections::BTreeSet;
+use std::collections::{BTreeMap, BTreeSet};
 use std::path::PathBuf;
 
-use objekte_search_core::query::Query;
 use objekte_search_core::repository::{Repository, RepositoryOptions};
-use objekte_search_core::workload::{BigramAlphabet, ReturnMode, load_manifest};
+use objekte_search_core::workload::{
+    BenchmarkCase, BigramAlphabet, ReturnMode, load_extended_manifest, load_manifest,
+};
 
 fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut alphabet = BigramAlphabet::Ascii;
     let mut selected = None;
+    let mut extended = false;
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
+            "--extended" => extended = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--cases" => {
                 selected = Some(
@@ -36,9 +39,18 @@ fn run() -> Result<(), String> {
         }
     }
     let selected = selected.ok_or("--cases is required")?;
-    let manifest = load_manifest(
-        &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json"),
-    )?;
+    let baseline_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let manifest = if extended {
+        load_extended_manifest(
+            &baseline_path,
+            &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
+        )?
+    } else {
+        load_manifest(&baseline_path)?
+            .into_iter()
+            .map(|request| BenchmarkCase { request, parameters: BTreeMap::new(), clock_unix_seconds: None })
+            .collect()
+    };
     for id in &selected {
         if !manifest.iter().any(|case| &case.id == id) {
             return Err(format!("unknown case {id}"));
@@ -46,7 +58,7 @@ fn run() -> Result<(), String> {
     }
     let repo = Repository::open_with_options(
         &root,
-        musenalm::load_definitions(&root)?,
+        if extended { musenalm::load_extended_definitions(&root)? } else { musenalm::load_definitions(&root)? },
         RepositoryOptions {
             bigram_alphabet: alphabet,
             ..RepositoryOptions::default()
@@ -61,7 +73,7 @@ fn run() -> Result<(), String> {
         .into_iter()
         .filter(|case| selected.contains(&case.id))
     {
-        let mut query = Query::from_workload(&case)?;
+        let mut query = case.query()?;
         query.options.limit = maximum;
         query.options.offset = 0;
         query.options.return_mode = ReturnMode::Locator;

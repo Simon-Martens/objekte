@@ -2,10 +2,12 @@
 mod musenalm;
 
 use std::path::PathBuf;
+use std::collections::BTreeMap;
 
-use objekte_search_core::query::Query;
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
-use objekte_search_core::workload::{BigramAlphabet, load_manifest};
+use objekte_search_core::workload::{
+    BenchmarkCase, BigramAlphabet, load_extended_manifest, load_manifest,
+};
 
 fn main() {
     if let Err(error) = run() {
@@ -49,9 +51,11 @@ fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut alphabet = BigramAlphabet::Ascii;
     let mut selected: Option<Vec<String>> = None;
+    let mut extended = false;
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
+            "--extended" => extended = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs path")?),
             "--alphabet" => {
                 alphabet = match args.next().ok_or("--alphabet needs value")?.as_str() {
@@ -72,7 +76,11 @@ fn run() -> Result<(), String> {
             _ => return Err(format!("unknown option {arg}")),
         }
     }
-    let definitions = musenalm::load_definitions(&root)?;
+    let definitions = if extended {
+        musenalm::load_extended_definitions(&root)?
+    } else {
+        musenalm::load_definitions(&root)?
+    };
     let repo = Repository::open_with_options(
         &root,
         definitions,
@@ -81,15 +89,24 @@ fn run() -> Result<(), String> {
             ..RepositoryOptions::default()
         },
     )?;
-    let cases = load_manifest(
-        &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json"),
-    )?;
+    let baseline_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let cases = if extended {
+        load_extended_manifest(
+            &baseline_path,
+            &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
+        )?
+    } else {
+        load_manifest(&baseline_path)?
+            .into_iter()
+            .map(|request| BenchmarkCase { request, parameters: BTreeMap::new(), clock_unix_seconds: None })
+            .collect()
+    };
     let mut checked = 0;
     for case in cases {
         if selected.as_ref().is_some_and(|ids| !ids.contains(&case.id)) {
             continue;
         }
-        let query = Query::from_workload(&case)?;
+        let query = case.query()?;
         let optimized = repo
             .search(&query)
             .map_err(|e| format!("{} optimized: {e}", case.id))?;

@@ -7,10 +7,10 @@ use std::io::{BufWriter, Write};
 use std::path::{Path, PathBuf};
 use std::time::{Instant, SystemTime};
 
-use objekte_search_core::query::Query;
 use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit, SnapshotMode};
 use objekte_search_core::workload::{
-    BigramAlphabet, Profile, TimingSample, WorkCounters, load_manifest,
+    BenchmarkCase, BigramAlphabet, Profile, TimingSample, WorkCounters, load_extended_manifest,
+    load_manifest,
 };
 use sha2::{Digest, Sha256};
 
@@ -29,6 +29,7 @@ fn run() -> Result<(), String> {
     let mut args = arguments.iter().skip(1);
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut result_dir = None;
+    let mut extended = false;
     let mut case_ids = None;
     let mut profile_names = vec![
         "ascii-off".to_string(),
@@ -41,6 +42,7 @@ fn run() -> Result<(), String> {
     let mut query_workers = RepositoryOptions::default().query_workers;
     while let Some(arg) = args.next() {
         match arg.as_str() {
+            "--extended" => extended = true,
             "--root" => root = PathBuf::from(args.next().ok_or("--root needs a path")?),
             "--result-dir" => {
                 result_dir = Some(PathBuf::from(
@@ -118,8 +120,24 @@ fn run() -> Result<(), String> {
         };
         profiles.push((name.clone(), profile));
     }
-    let manifest_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
-    let all_cases = load_manifest(&manifest_path)?;
+    let baseline_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+    let manifest_path = if extended {
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json")
+    } else {
+        baseline_path.clone()
+    };
+    let all_cases = if extended {
+        load_extended_manifest(&baseline_path, &manifest_path)?
+    } else {
+        load_manifest(&manifest_path)?
+            .into_iter()
+            .map(|request| BenchmarkCase {
+                request,
+                parameters: BTreeMap::new(),
+                clock_unix_seconds: None,
+            })
+            .collect()
+    };
     let cases: Vec<_> = if let Some(ids) = case_ids {
         for id in &ids {
             if !all_cases.iter().any(|case| &case.id == id) {
@@ -133,7 +151,11 @@ fn run() -> Result<(), String> {
     } else {
         all_cases
     };
-    let (definitions, loaded_schemas) = musenalm::load_definitions_with_schemas(&root)?;
+    let (definitions, loaded_schemas) = if extended {
+        musenalm::load_extended_definitions_with_schemas(&root)?
+    } else {
+        musenalm::load_definitions_with_schemas(&root)?
+    };
     let rev = command_output("git", &["rev-parse", "HEAD"])?;
     let compiler = command_output("rustc", &["--version"])?;
     let run_id = format!(
@@ -255,16 +277,17 @@ fn run() -> Result<(), String> {
                             (stores + 1, keys + index.normal.len() + index.skip.len())
                         })
                 });
-        let restore_samples = measure_restore_children(&root, alphabet, 5)?;
+        let restore_samples = measure_restore_children(&root, alphabet, 5, extended)?;
         let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
-        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":repo.startup().snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
+        let relations = repo.collections().iter().flat_map(|collection| &collection.relations).collect::<Vec<_>>();
+        build_results.push(serde_json::json!({"alphabet":alphabet,"build_ns":build_ns,"discovery_ns":repo.startup().build_discovery_ns,"extraction_index_ns":repo.startup().build_extraction_index_ns,"finalization_ns":repo.startup().build_finalization_ns,"snapshot_write_ns":repo.startup().snapshot_write_ns,"total_build_and_snapshot_ns":total_build_and_snapshot_ns,"build_parses":repo.build_parses(),"failed_parses":repo.build_failed_parses(),"inventory_heap_bytes":inventory_heap_bytes,"diagnostic_heap_bytes":diagnostic_heap_bytes,"resident_bytes":memory_bytes,"peak_resident_bytes":peak_resident_bytes,"estimated_index_bytes":estimated_index_bytes,"bigram_store_count":bigram_store_count,"distinct_gram_keys":distinct_gram_keys,"relation_count":relations.len(),"relation_edges":relations.iter().map(|relation| relation.edge_count()).sum::<usize>(),"relation_heap_bytes":relations.iter().map(|relation| relation.estimated_heap_bytes()).sum::<usize>(),"snapshot_bytes":snapshot_bytes,"restore_samples":restore_samples,"restore_status":"ok"}));
         if registrations.is_empty() {
             registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect();
         }
         for (profile_name, profile) in selected_profiles {
             repo.configure_verified_cache(profile.verified_cache_bytes)?;
             for case in &cases {
-                let query = match Query::from_workload(case) {
+                let query = match case.query() {
                     Ok(q) => q,
                     Err(error) => {
                         failures += 1;
@@ -371,7 +394,7 @@ fn run() -> Result<(), String> {
     }
     samples.flush().map_err(|e| e.to_string())?;
     plan_output.flush().map_err(|e| e.to_string())?;
-    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"query_workers":query_workers});
+    let run_manifest = serde_json::json!({"run_id":run_id,"code_revision":rev,"compiler":compiler,"command":arguments,"root":root,"extended":extended,"schema_fingerprint":schema_hash,"schema_manifest_digest":schema_manifest["sha256"],"workload_fingerprint":workload_hash,"corpus_fingerprint":corpus_hash,"repetitions":repetitions,"profiles":profiles,"registrations":registrations,"failures":failures,"source_cache_bytes":0,"decoded_cache_bytes":0,"query_workers":query_workers});
     fs::write(
         result_dir.join("run-manifest.json"),
         serde_json::to_vec_pretty(&run_manifest).map_err(|e| e.to_string())?,
@@ -548,7 +571,11 @@ fn restore_child(args: &[String]) -> Result<(), String> {
         _ => return Err("restore child needs alphabet".into()),
     };
     let started = Instant::now();
-    let definitions = musenalm::load_definitions(&root)?;
+    let definitions = if args.get(4).is_some_and(|mode| mode == "extended") {
+        musenalm::load_extended_definitions(&root)?
+    } else {
+        musenalm::load_definitions(&root)?
+    };
     let repo = Repository::open_with_options(
         &root,
         definitions,
@@ -580,18 +607,21 @@ fn measure_restore_children(
     root: &Path,
     alphabet: BigramAlphabet,
     repetitions: usize,
+    extended: bool,
 ) -> Result<Vec<serde_json::Value>, String> {
     let executable = std::env::current_exe().map_err(|e| e.to_string())?;
     let mut samples = Vec::new();
     for _ in 0..repetitions {
         let started = Instant::now();
-        let output = std::process::Command::new(&executable)
-            .arg("--restore-child")
-            .arg(root)
-            .arg(match alphabet {
+        let mut command = std::process::Command::new(&executable);
+        command.arg("--restore-child").arg(root).arg(match alphabet {
                 BigramAlphabet::Ascii => "ascii",
                 BigramAlphabet::Unicode => "unicode",
-            })
+            });
+        if extended {
+            command.arg("extended");
+        }
+        let output = command
             .output()
             .map_err(|e| e.to_string())?;
         let wall_ns = started.elapsed().as_nanos() as u64;

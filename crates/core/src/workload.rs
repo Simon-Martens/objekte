@@ -1,8 +1,11 @@
 //! Fixed request inputs and measurement envelopes. No execution is performed here.
 
 use serde::{Deserialize, Serialize};
-use std::collections::HashSet;
+use std::collections::{BTreeMap, HashMap, HashSet};
 use std::path::Path;
+use std::ops::Deref;
+
+use crate::model::Value;
 
 
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -45,6 +48,48 @@ pub struct WorkloadCase {
     pub count: bool,
     pub return_mode: ReturnMode,
     pub evidence: bool,
+}
+
+
+/// A benchmark request with separately typed data parameters. The historical
+/// 150 cases remain ordinary `WorkloadCase`s with no parameter field.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct BenchmarkCase {
+    #[serde(flatten)]
+    pub request: WorkloadCase,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub parameters: BTreeMap<String, serde_json::Value>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub clock_unix_seconds: Option<i64>,
+}
+
+
+impl Deref for BenchmarkCase {
+    type Target = WorkloadCase;
+
+    fn deref(&self) -> &Self::Target {
+        &self.request
+    }
+}
+
+
+impl BenchmarkCase {
+    /// Bind values once, before the timed search call.
+    pub fn query(&self) -> Result<crate::query::Query, String> {
+        let mut values = HashMap::<String, Value>::new();
+        for (name, encoded) in &self.parameters {
+            values.insert(
+                name.clone(),
+                crate::parameters::parse_parameter_json(&encoded.to_string())?,
+            );
+        }
+        let query = crate::query::Query::from_workload(&self.request)?.with_parameters(&values)?;
+        if let Some(seconds) = self.clock_unix_seconds {
+            query.with_clock(time::OffsetDateTime::from_unix_timestamp(seconds).map_err(|error| error.to_string())?)
+        } else {
+            Ok(query)
+        }
+    }
 }
 
 
@@ -196,6 +241,43 @@ pub fn load_manifest(path: &Path) -> Result<Vec<WorkloadCase>, String> {
     let bytes = std::fs::read(path).map_err(|e| format!("{}: {e}", path.display()))?;
     let cases: Vec<WorkloadCase> = serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
     validate_manifest(&cases)?;
+    Ok(cases)
+}
+
+
+/// Load a superset of the fixed workload without changing its first 150
+/// requests or their historical benchmark identity.
+pub fn load_extended_manifest(
+    baseline_path: &Path,
+    extended_path: &Path,
+) -> Result<Vec<BenchmarkCase>, String> {
+    let baseline = load_manifest(baseline_path)?;
+    let bytes = std::fs::read(extended_path)
+        .map_err(|error| format!("{}: {error}", extended_path.display()))?;
+    let cases: Vec<BenchmarkCase> =
+        serde_json::from_slice(&bytes).map_err(|error| error.to_string())?;
+    if cases.len() <= baseline.len() {
+        return Err("extended workload has no additional cases".into());
+    }
+    for (original, extended) in baseline.iter().zip(&cases) {
+        if original != &extended.request || !extended.parameters.is_empty() || extended.clock_unix_seconds.is_some() {
+            return Err(format!(
+                "extended workload changed historical case {}",
+                original.id
+            ));
+        }
+    }
+    for (index, case) in cases.iter().enumerate().skip(baseline.len()) {
+        if case.id != format!("Q{:03}", index + 1)
+            || case.collection.is_empty()
+            || (case.fts.is_none() && case.filter.is_none())
+            || case.limit == 0
+        {
+            return Err(format!("invalid extended workload case at {index}"));
+        }
+        case.query()
+            .map_err(|error| format!("{}: {error}", case.id))?;
+    }
     Ok(cases)
 }
 
