@@ -116,6 +116,15 @@ def main() -> None:
                           f"restored={result['snapshot_restored']}", flush=True)
                     if snapshot == "read-write" and not result["snapshot_restored"]:
                         raise RuntimeError(f"{label} unexpectedly rebuilt")
+                if mode == "disabled":
+                    label = "disabled-to-auto"
+                    result = run_case(binary, isolated, result_dir, label, "auto", "read-write",
+                                      args.alphabet, args.build_workers, args.query_workers, 0, True)
+                    results.append((label, result))
+                    print(f"{label}: ready {result['readiness_ns'] / 1e6:.3f} ms; "
+                          f"restored={result['snapshot_restored']}", flush=True)
+                    if result["snapshot_restored"]:
+                        raise RuntimeError("enabling inference restored a Disabled snapshot")
     cold = [value for label, value in results if label.endswith("-cold")]
     fingerprints = {value["corpus_sha256"] for value in cold}
     if len(fingerprints) != 1:
