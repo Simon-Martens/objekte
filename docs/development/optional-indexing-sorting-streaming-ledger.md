@@ -39,7 +39,7 @@ Default source records remain object-valued under current reader validation. Arr
 | TASK-08 | Supervisor | complete | All four exact worker heads accepted and frozen for integration. |
 | TASK-09 | Supervisor | complete | Four-way integration, cross-feature fixtures, resource corrections, 188-query acceptance and six appended computed/related sort cases. |
 | TASK-10 | Supervisor | complete | Final historical 188-query comparison, six new sort cases, compact schema-free, jq and relation oracles, build/restore and full result table in `bench/results/musenalm/optional-integration-20261107/`. |
-| TASK-11 | Supervisor | in progress | Fetch development, verify ancestry and promote the final integration candidate. |
+| TASK-11 | Supervisor | complete | Fetched `development/local-file-search-core` at `f374101b48`, verified ancestry and fast-forward pushed validated integration head `0ad2ecdd9a` to development. The original dirty checkout was left untouched. |
 
 ## Foundation validation
 
@@ -85,3 +85,5 @@ All feature branches forked from `57650298e9`. The anticipated shared-file confl
 The actual merge commits are `50becbf86f`, `9f5ee2ba2d`, `6be8c556d0`, and `08eaf239a4` in the order above. `1dec9792ad` reconciles projected relation target coverage, computed-sort warm-cache streaming, combined target/page resource accounting and terminal progress. `ef44e42e56` removes streaming-only buffer accounting from ordinary collected scans after a paired Q006/Q007 measurement identified avoidable overhead. The benchmark harness was extended in `19241a6d53`, `ca99218530`, and `5f9e221b0f` without changing the measured core after `ef44e42e56`.
 
 Full workspace tests and Clippy pass. The final independent oracles pass 300/300 jq and 18/18 relation complete-ID comparisons. The 188-query optimized/reference acceptance and six appended computed/related sort cases cover both alphabets. The final five-repetition historical-comparison workload has 3,760 successful samples; the six new cases have 120 successful samples. Complete per-query tables and compact schema-free construction/sort/stream results are in [the final report](../../bench/results/musenalm/optional-integration-20261107/FINAL_REPORT.md). On the large `entries` folder the default inference budget declines admission; the small real `places` folder admits three paths. Historical and current source-metadata fingerprints differ, so performance attribution from that baseline remains limited.
+
+Promotion: the remote development branch advanced by ordinary fast-forward from `f374101b48` to `0ad2ecdd9a` on 2026-11-07. That commit contains all four accepted worker heads and the final measured core. The local original checkout remains on its previously checked-out development branch with pre-existing user changes; its working tree was not reset, switched or cleaned.

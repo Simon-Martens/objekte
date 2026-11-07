@@ -4,6 +4,8 @@
 
 The implementation starts at `f374101b4839f28199a99677118ac96869203bb0`. The integrated core measured below is `ef44e42e566abe1a808094cd7933cc798a63f63d`; commit `5f9e221b0f` adds only a folder selector to the benchmark example. The accepted dynamic, inference, sorting, and streaming heads are `0fbf439aa9`, `a34154091a`, `4e3a6f4325`, and `4cb58e0d73`. They were merged in that order. Integration repairs are in `1dec9792ad` and the collected-scan overhead fix is in `ef44e42e56`.
 
+The validated integration candidate `0ad2ecdd9a` was fast-forward pushed to `development/local-file-search-core`. The follow-up ledger update only records that completed promotion; it does not change measured code or workload.
+
 The result includes a recursive schema-free folder definition, conservative bigram restrictions for undeclared string predicates, opt-in inference, computed and related sorting with bounded selection, and progressive streaming with cancellation and resource outcomes. Inference is **Disabled by default**. The Musenalm fixture is read through an isolated hard-linked copy; the user's original checkout and its TUI cache were not modified.
 
 ## Correctness
