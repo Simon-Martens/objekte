@@ -1,0 +1,9 @@
+[package]
+name = "objekte-q5-timing"
+version = "0.0.0"
+edition = "2024"
+
+[workspace]
+
+[dependencies]
+objekte-search-core = { path = "../../../../../crates/core" }

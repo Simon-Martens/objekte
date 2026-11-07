@@ -1248,6 +1248,59 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     assert_eq!(page.hits, counted.hits);
     assert_eq!(counted.counters.exact_posting_matches, 200);
 
+    // A count request keeps its syntactic sort contract, but never constructs
+    // a page or ranks the 200 index-proven members.
+    let mut count_only = query.clone();
+    count_only.options.limit = 0;
+    count_only.options.offset = 7;
+    count_only.options.return_mode = ReturnMode::Logical;
+    let direct_count = repo.search(&count_only).unwrap();
+    assert_eq!(direct_count.count, Some(200));
+    assert!(direct_count.hits.is_empty());
+    assert_eq!(direct_count.counters.exact_posting_matches, 200);
+    assert_eq!(direct_count.counters.files_opened, 0);
+    assert_eq!(direct_count.counters.record_parses, 0);
+    assert_eq!(direct_count.counters.sort_key_evaluations, 0);
+    assert_eq!(direct_count.counters.peak_retained_payload_bytes, 0);
+    assert_eq!(repo.select_exact("a", &count_only).unwrap().len(), 100);
+    let direct_count_query = count_only.clone();
+    let streamed = repo
+        .search_stream(
+            &direct_count_query,
+            crate::streaming::StreamOptions::default(),
+            &crate::streaming::CancellationToken::new(),
+            &mut |event| {
+                assert!(!matches!(
+                    event,
+                    crate::streaming::StreamEvent::OrderedRows { .. }
+                ));
+                Ok(crate::streaming::StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let crate::streaming::StreamOutcome::Complete(streamed) = streamed else {
+        panic!("expected complete stream")
+    };
+    assert_eq!(streamed.count, direct_count.count);
+    assert_eq!(streamed.returned_rows, 0);
+    let mut invalid_sort = count_only.clone();
+    invalid_sort.options.sort[0].field = "[unterminated".into();
+    assert!(repo.search(&invalid_sort).is_err());
+    assert!(repo.select_exact("a", &invalid_sort).is_err());
+
+    count_only.filter = Some(parse_filter("kind = 'yes' && body ~ 'needle'").unwrap());
+    let residual_count = repo.search(&count_only).unwrap();
+    assert_eq!(residual_count.count, Some(200));
+    assert!(residual_count.counters.scanned_records >= 200);
+    assert_eq!(residual_count.counters.sort_key_evaluations, 0);
+    assert_eq!(residual_count.counters.peak_retained_payload_bytes, 0);
+    assert_eq!(repo.select_exact("a", &count_only).unwrap().len(), 100);
+    count_only.filter = Some(parse_filter("kind = 'absent'").unwrap());
+    let empty_count = repo.search(&count_only).unwrap();
+    assert_eq!(empty_count.count, Some(0));
+    assert_eq!(empty_count.counters.files_opened, 0);
+    assert!(repo.select_exact("a", &count_only).unwrap().is_empty());
+
     query.options.count = false;
     for mode in [ReturnMode::Bytes, ReturnMode::Logical] {
         query.options.return_mode = mode.clone();
@@ -1362,11 +1415,124 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     let complete = cached_repo.search(&query).unwrap();
     assert!(!complete.counters.verified_result_hit);
     assert_eq!(complete.count, Some(200));
+    let cached_count = cached_repo.search(&direct_count_query).unwrap();
+    assert_eq!(cached_count.count, Some(200));
+    assert_eq!(
+        cached_count.count,
+        repo.search(&direct_count_query).unwrap().count
+    );
+    assert_eq!(cached_count.counters.sort_key_evaluations, 0);
+    assert_eq!(
+        cached_repo
+            .select_exact("a", &direct_count_query)
+            .unwrap()
+            .len(),
+        repo.select_exact("a", &direct_count_query).unwrap().len()
+    );
     query.options.count = false;
     let cached_page = cached_repo.search(&query).unwrap();
     assert!(cached_page.counters.verified_result_hit);
     assert_eq!(cached_page.count, None);
     assert_eq!(cached_page.hits, first_page.hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn exact_collection_handles_relation_membership_without_ranking() {
+    use crate::relation::{RelationCardinality, RelationDefinition};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-exact-relation-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for name in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+    }
+    for (path, body) in [
+        ("targets/t1.json", r#"{"id":"t1","title":"Needle"}"#),
+        ("targets/t2.json", r#"{"id":"t2","title":"Other"}"#),
+        ("sources/s1.json", r#"{"id":"s1","entry":"t1"}"#),
+        ("sources/s2.json", r#"{"id":"s2","entry":"t2"}"#),
+        ("sources/broken.json", "{broken"),
+    ] {
+        std::fs::write(root.join(path), body).unwrap();
+    }
+    let mut definitions = Vec::new();
+    for name in ["sources", "targets"] {
+        let mut schema = Schema::default();
+        for field in if name == "sources" {
+            &["id", "entry"][..]
+        } else {
+            &["id", "title"][..]
+        } {
+            schema
+                .register_field(FieldDefinition {
+                    path: vec![(*field).into()],
+                    kind: if *field == "title" {
+                        LogicalType::String
+                    } else {
+                        LogicalType::Id
+                    },
+                    required: false,
+                    nullable: true,
+                    indexed: true,
+                    multi: false,
+                    element_nullable: vec![],
+                })
+                .unwrap();
+        }
+        if name == "sources" {
+            schema
+                .register_relation(RelationDefinition {
+                    path: vec!["entry".into()],
+                    target_collection: "targets".into(),
+                    cardinality: RelationCardinality::One,
+                    reverse_alias: None,
+                })
+                .unwrap();
+        }
+        definitions.push(CollectionDefinition {
+            name: name.into(),
+            source_path: name.into(),
+            format: SourceFormat::Json,
+            identity: IdentityPolicy::Intrinsic(vec!["id".into()]),
+            discovery: Default::default(),
+            schema,
+            sort_fields: vec![],
+            sort_locale: "de".into(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        });
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["sources".into()],
+        fts: None,
+        filter: Some(parse_filter("entry.title ?~ 'Needle'").unwrap()),
+        options: QueryOptions {
+            sort: vec![],
+            limit: 0,
+            offset: 2,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let counted = repo.search(&query).unwrap();
+    assert_eq!(counted.count, Some(1));
+    assert_eq!(counted.count, repo.search_reference(&query).unwrap().count);
+    assert_eq!(counted.counters.sort_key_evaluations, 0);
+    assert_eq!(repo.select_exact("sources", &query).unwrap().len(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }
 

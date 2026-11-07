@@ -271,6 +271,24 @@ struct ScannedFile {
     sort_key_evaluations: u64,
     matches: SmallVec<[ScannedMatch; 1]>,
     cache_members: Vec<CachedMember>,
+    exact_members: RoaringBitmap,
+}
+
+
+/// Count-only and exact-selection requests share the normal planner and scanner,
+/// but never retain ranked hits or verified-cache members.
+struct ExactCollector<'a> {
+    members: Option<&'a mut RoaringBitmap>,
+}
+
+
+impl ExactCollector<'_> {
+    fn add_set(&mut self, slots: &RoaringBitmap, counters: &mut WorkCounters) {
+        counters.total_matches += slots.len();
+        if let Some(members) = self.members.as_deref_mut() {
+            *members |= slots;
+        }
+    }
 }
 
 
@@ -795,6 +813,7 @@ fn scan_file(
     mut source_access: Option<&mut SourceAccessSession<'_>>,
     cancellation: Option<&CancellationToken>,
     max_retained_bytes: Option<u64>,
+    collect_exact_members: bool,
 ) -> Result<ScannedFile, String> {
     let collection = &repo.collections[collection_index];
     let path = repo
@@ -1046,6 +1065,9 @@ fn scan_file(
             };
             if fts_match && filter_match {
                 outcome.match_count += 1;
+                if collect_exact_members {
+                    outcome.exact_members.insert(slot);
+                }
                 if let Some(budget) = cache_budget {
                     let mut matched_fields = if query.options.evidence {
                         evidence.iter().cloned().collect::<Vec<_>>()
@@ -1786,6 +1808,26 @@ fn would_enter_page(
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
+    if query.options.count && query.options.limit == 0 {
+        // Sort syntax still belongs to the request contract, although ordering
+        // cannot affect a count. Validate it before omitting ranking work.
+        BoundSort::bind(repo, query)?;
+        let mut count_query = query.clone();
+        count_query.options.sort.clear();
+        count_query.options.return_mode = ReturnMode::Locator;
+        count_query.options.evidence = false;
+        return search_impl_with_collector(
+            repo,
+            &count_query,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(ExactCollector { members: None }),
+        );
+    }
     if inferred_order_index(repo, query).is_some() {
         return search_impl(repo, query, None, None, None, None, None, None);
     }
@@ -2166,6 +2208,7 @@ pub(crate) fn exact_members(
     query: &Query,
     collection_index: usize,
 ) -> Result<RoaringBitmap, String> {
+    BoundSort::bind(repo, query)?;
     let mut scoped = query.clone();
     scoped.collections = vec![repo.collections[collection_index].definition.name.clone()];
     scoped.options.count = true;
@@ -2174,27 +2217,24 @@ pub(crate) fn exact_members(
     scoped.options.sort.clear();
     scoped.options.return_mode = ReturnMode::Locator;
     scoped.options.evidence = false;
-    let mut members = Vec::new();
-    let budget = CacheBudget::new(usize::MAX);
-    let result = search_impl(
+    let mut members = RoaringBitmap::new();
+    let result = search_impl_with_collector(
         repo,
         &scoped,
         None,
-        Some(&mut members),
-        Some(&budget),
         None,
         None,
         None,
+        None,
+        None,
+        Some(ExactCollector {
+            members: Some(&mut members),
+        }),
     )?;
-    if !budget.complete()
-        || result.count != Some(members.len())
-        || members
-            .iter()
-            .any(|member| member.collection_index != collection_index)
-    {
+    if result.count != Some(members.len() as usize) {
         return Err("exact selection is incomplete".into());
     }
-    Ok(members.into_iter().map(|member| member.slot).collect())
+    Ok(members)
 }
 
 fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<CachedMember>) {
@@ -2928,6 +2968,7 @@ fn try_stored_order_page(
                         delivery
                             .as_ref()
                             .map(|delivery| delivery.max_buffered_bytes() as u64),
+                        false,
                     )?;
                     counters.files_opened += scanned.files_opened;
                     counters.bytes_read += scanned.bytes_read;
@@ -3913,12 +3954,36 @@ fn emit_provisional_page(
 fn search_impl<'a>(
     repo: &'a Repository,
     query: &Query,
+    traces: Option<&mut Vec<QueryPlanTrace>>,
+    cache_members: Option<&mut Vec<CachedMember>>,
+    cache_budget: Option<&CacheBudget>,
+    prebound_sort: Option<BoundSort<'a>>,
+    delivery: Option<&mut Delivery<'_>>,
+    all_offset: Option<usize>,
+) -> Result<SearchResult, String> {
+    search_impl_with_collector(
+        repo,
+        query,
+        traces,
+        cache_members,
+        cache_budget,
+        prebound_sort,
+        delivery,
+        all_offset,
+        None,
+    )
+}
+
+fn search_impl_with_collector<'a>(
+    repo: &'a Repository,
+    query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
     prebound_sort: Option<BoundSort<'a>>,
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
+    mut exact_collector: Option<ExactCollector<'_>>,
 ) -> Result<SearchResult, String> {
     if let Some(delivery) = delivery.as_deref_mut() {
         delivery.check()?;
@@ -3939,7 +4004,7 @@ fn search_impl<'a>(
         entries: Vec::new(),
         planning_ns: 0,
     };
-    if cache_members.is_none() {
+    if cache_members.is_none() && exact_collector.is_none() {
         if let Some(result) = try_inferred_order_page(
             repo,
             query,
@@ -4158,6 +4223,14 @@ fn search_impl<'a>(
             });
         }
         if !needs_scan {
+            if let Some(collector) = exact_collector.as_mut() {
+                counters.exact_posting_matches += candidates.len();
+                collector.add_set(&candidates, &mut counters);
+                if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
+                    finish_trace(traces, before, &counters);
+                }
+                continue;
+            }
             for (index, slot) in candidates.iter().enumerate() {
                 if let Some(delivery) = delivery.as_deref_mut() {
                     delivery.check()?;
@@ -4266,25 +4339,30 @@ fn search_impl<'a>(
         }
         if !sort.bound.has_computed && fts.is_none() && !query.options.evidence {
             let proven = &candidates & &plan.proven_hits;
-            for slot in proven.iter() {
-                let record = &collection.generation.records[slot as usize];
-                counters.exact_posting_matches += 1;
-                offer(
-                    repo,
-                    query,
-                    &sort,
-                    collection_index,
-                    record,
-                    HashSet::new(),
-                    None,
-                    None,
-                    &mut winners,
-                    &mut retained_key_bytes,
-                    cap,
-                    &mut counters,
-                    cache_members.as_deref_mut(),
-                    cache_budget,
-                )?;
+            if let Some(collector) = exact_collector.as_mut() {
+                counters.exact_posting_matches += proven.len();
+                collector.add_set(&proven, &mut counters);
+            } else {
+                for slot in proven.iter() {
+                    let record = &collection.generation.records[slot as usize];
+                    counters.exact_posting_matches += 1;
+                    offer(
+                        repo,
+                        query,
+                        &sort,
+                        collection_index,
+                        record,
+                        HashSet::new(),
+                        None,
+                        None,
+                        &mut winners,
+                        &mut retained_key_bytes,
+                        cap,
+                        &mut counters,
+                        cache_members.as_deref_mut(),
+                        cache_budget,
+                    )?;
+                }
             }
             candidates -= &proven;
         }
@@ -4420,6 +4498,9 @@ fn search_impl<'a>(
                                 None,
                                 stream_token.as_ref(),
                                 per_file_budget,
+                                exact_collector
+                                    .as_ref()
+                                    .is_some_and(|collector| collector.members.is_some()),
                             )
                         })
                         .collect()
@@ -4450,6 +4531,9 @@ fn search_impl<'a>(
                             None,
                             stream_token.as_ref(),
                             per_file_budget,
+                            exact_collector
+                                .as_ref()
+                                .is_some_and(|collector| collector.members.is_some()),
                         )
                     })
                     .collect()
@@ -4549,28 +4633,35 @@ fn search_impl<'a>(
                 counters.bytes_read += outcome.relation_work.bytes_read;
                 counters.record_parses +=
                     outcome.relation_work.source_reads + outcome.relation_work.target_reads;
-                counters.total_matches += outcome.match_count - outcome.matches.len() as u64;
-                if let Some(members) = cache_members.as_deref_mut() {
-                    members.extend(outcome.cache_members);
-                }
-                for matched in outcome.matches {
-                    let record = &collection.generation.records[matched.slot as usize];
-                    offer(
-                        repo,
-                        query,
-                        &sort,
-                        collection_index,
-                        record,
-                        matched.evidence,
-                        matched.payload,
-                        matched.key,
-                        &mut winners,
-                        &mut retained_key_bytes,
-                        cap,
-                        &mut counters,
-                        None,
-                        None,
-                    )?;
+                if let Some(collector) = exact_collector.as_mut() {
+                    counters.total_matches += outcome.match_count;
+                    if let Some(members) = collector.members.as_deref_mut() {
+                        *members |= &outcome.exact_members;
+                    }
+                } else {
+                    counters.total_matches += outcome.match_count - outcome.matches.len() as u64;
+                    if let Some(members) = cache_members.as_deref_mut() {
+                        members.extend(outcome.cache_members);
+                    }
+                    for matched in outcome.matches {
+                        let record = &collection.generation.records[matched.slot as usize];
+                        offer(
+                            repo,
+                            query,
+                            &sort,
+                            collection_index,
+                            record,
+                            matched.evidence,
+                            matched.payload,
+                            matched.key,
+                            &mut winners,
+                            &mut retained_key_bytes,
+                            cap,
+                            &mut counters,
+                            None,
+                            None,
+                        )?;
+                    }
                 }
             }
             if let Some(delivery) = delivery.as_deref_mut() {

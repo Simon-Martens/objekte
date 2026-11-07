@@ -1,0 +1,16 @@
+block,case,elapsed_ns,matches,files_opened,record_parses,sort_key_evaluations,peak_payload_bytes
+0,count,100258,12288,0,0,0,0
+0,count_sorted,120231,12288,0,0,0,0
+0,selection,94785,12288,,,,
+1,count,97390,12288,0,0,0,0
+1,count_sorted,111670,12288,0,0,0,0
+1,selection,85552,12288,,,,
+2,count,103664,12288,0,0,0,0
+2,count_sorted,86662,12288,0,0,0,0
+2,selection,66623,12288,,,,
+3,count,124152,12288,0,0,0,0
+3,count_sorted,76233,12288,0,0,0,0
+3,selection,108442,12288,,,,
+4,count,138007,12288,0,0,0,0
+4,count_sorted,74567,12288,0,0,0,0
+4,selection,84082,12288,,,,
