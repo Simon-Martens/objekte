@@ -1,0 +1,18 @@
+{
+  "git_sha": "ef44e42e566abe1a808094cd7933cc798a63f63d",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "platform": "Linux-7.2.13-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "machine": "x86_64",
+  "cpu_count": 32,
+  "root": "/home/simon/source/objekte-optional-indexing-sorting-streaming/examples/musenalm",
+  "binary": "/home/simon/source/objekte-optional-indexing-sorting-streaming/target/release/examples/bench_optional_features",
+  "alphabet": "ascii",
+  "build_workers": "auto",
+  "query_workers": 32,
+  "rustflags": null,
+  "cargo_target_dir": null,
+  "cache_profiles": [
+    0,
+    67108864
+  ]
+}

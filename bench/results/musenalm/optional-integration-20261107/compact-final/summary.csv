@@ -1,0 +1,14 @@
+profile,mode,readiness_ms,build_parses,records,observed_paths,admitted_paths,inferred_index_bytes,snapshot_bytes,rss_mib,peak_rss_mib
+disabled-cold,Disabled,46.012842,4928,4928,,,,,32.92578125,32.93359375
+disabled-warm,Disabled,51.057998,4928,4928,,,,,31.7265625,33.20703125
+report-cold,ReportOnly,52.258789,4928,4928,0,0,0,,34.4375,34.4375
+report-warm,ReportOnly,57.792487,4928,4928,0,0,0,,33.8828125,35.4609375
+auto-cold,AutoIndex,53.166989,4928,4928,0,0,0,,34.8671875,34.8671875
+auto-warm,AutoIndex,78.985016,4928,4928,0,0,0,,34.5859375,34.5859375
+disabled-rebuild,Disabled,81.53432,4928,4928,,,,7236780,33.62890625,36.80078125
+disabled-read-write,Disabled,18.702754,0,4928,,,,7236780,16.33203125,19.3515625
+disabled-to-auto,AutoIndex,61.391354,4928,4928,0,0,0,7236982,34.55859375,38.234375
+report-rebuild,ReportOnly,63.494964,4928,4928,0,0,0,7236982,34.44921875,37.51953125
+report-read-write,ReportOnly,18.664375,0,4928,0,0,0,7236982,16.48828125,19.31640625
+auto-rebuild,AutoIndex,61.69319,4928,4928,0,0,0,7236982,33.625,38.7265625
+auto-read-write,AutoIndex,22.557497,0,4928,0,0,0,7236982,16.2734375,19.0234375

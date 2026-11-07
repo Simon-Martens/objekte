@@ -32,14 +32,14 @@ Default source records remain object-valued under current reader validation. Arr
 | --- | --- | --- | --- |
 | TASK-00 | Supervisor | complete | Base and prior evidence pinned above. |
 | TASK-01 | Supervisor | complete | Folder definition, path identity, example and compiling checkpoint. |
-| TASK-02 | Dynamic FILTER worker | accepted | Pushed clean head `0fbf439aa9` on `feature/dynamic-filter-bigrams`; structural bitmap, sound gram restriction and focused evidence reviewed. Merge awaits TASK-08 gate. |
-| TASK-03/04 | Inference worker | accepted | Clean pushed head `a34154091a`; four review findings corrected, focused/core/workspace checks passed, and final read-only recheck found no blocker. Merge awaits TASK-08 gate. |
-| TASK-05/06 | Sorting worker | accepted | Clean pushed head `4e3a6f4325`; three review gaps corrected, workspace tests/Clippy passed, final read-only review found no blocker. Merge awaits TASK-08 gate. |
-| TASK-07 | Streaming worker | accepted | Clean pushed head `4cb58e0d73`; three review gaps corrected, workspace tests/Clippy passed, final read-only review found no blocker. |
+| TASK-02 | Dynamic FILTER worker | merged | Pushed head `0fbf439aa9`; accepted as merge `50becbf86f`. |
+| TASK-03/04 | Inference worker | merged | Pushed head `a34154091a`; accepted as merge `9f5ee2ba2d`. |
+| TASK-05/06 | Sorting worker | merged | Pushed head `4e3a6f4325`; accepted as merge `6be8c556d0`. |
+| TASK-07 | Streaming worker | merged | Pushed head `4cb58e0d73`; accepted as merge `08eaf239a4`. |
 | TASK-08 | Supervisor | complete | All four exact worker heads accepted and frozen for integration. |
-| TASK-09 | Supervisor | in progress | Four-way integration and cross-feature validation. |
-| TASK-10 | Supervisor | not started | Final measurements. |
-| TASK-11 | Supervisor | not started | Development promotion. |
+| TASK-09 | Supervisor | complete | Four-way integration, cross-feature fixtures, resource corrections, 188-query acceptance and six appended computed/related sort cases. |
+| TASK-10 | Supervisor | complete | Final historical 188-query comparison, six new sort cases, compact schema-free, jq and relation oracles, build/restore and full result table in `bench/results/musenalm/optional-integration-20261107/`. |
+| TASK-11 | Supervisor | in progress | Fetch development, verify ancestry and promote the final integration candidate. |
 
 ## Foundation validation
 
@@ -79,3 +79,9 @@ The correction `4cb58e0d73` tracks the last successful page sequence, classifies
 ## TASK-09 merge map
 
 All feature branches forked from `57650298e9`. The anticipated shared-file conflicts are semantic: `build.rs` must retain both the structural empty-array bitmap and inference observation on the already parsed logical value; `repository.rs` must hold both states and expose streaming; `executor.rs` must keep the dynamic RawBigram/E path and inferred typed postings with their proof guards; `storage.rs` must combine structural, inference and composite restore checks and use a final snapshot version above all worker-local versions (12 planned). Sorting's computed `RankKey`/`BoundSort`/composite cursor is the ranking base in `run.rs`; streaming's optional `Delivery`, early cursor events, cancellation, resource accounting and one completion/cache decision must be grafted into that common execution. Computed warm membership requires delivery during bounded reranking. The streaming CLI help text must be updated for unregistered sorts. Focused compile/tests follow each merge, then Section 9 interaction checks.
+
+## Final integration record
+
+The actual merge commits are `50becbf86f`, `9f5ee2ba2d`, `6be8c556d0`, and `08eaf239a4` in the order above. `1dec9792ad` reconciles projected relation target coverage, computed-sort warm-cache streaming, combined target/page resource accounting and terminal progress. `ef44e42e56` removes streaming-only buffer accounting from ordinary collected scans after a paired Q006/Q007 measurement identified avoidable overhead. The benchmark harness was extended in `19241a6d53`, `ca99218530`, and `5f9e221b0f` without changing the measured core after `ef44e42e56`.
+
+Full workspace tests and Clippy pass. The final independent oracles pass 300/300 jq and 18/18 relation complete-ID comparisons. The 188-query optimized/reference acceptance and six appended computed/related sort cases cover both alphabets. The final five-repetition historical-comparison workload has 3,760 successful samples; the six new cases have 120 successful samples. Complete per-query tables and compact schema-free construction/sort/stream results are in [the final report](../../bench/results/musenalm/optional-integration-20261107/FINAL_REPORT.md). On the large `entries` folder the default inference budget declines admission; the small real `places` folder admits three paths. Historical and current source-metadata fingerprints differ, so performance attribution from that baseline remains limited.

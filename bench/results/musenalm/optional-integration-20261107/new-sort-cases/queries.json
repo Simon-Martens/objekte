@@ -1,0 +1,80 @@
+[
+  {
+    "id": "Q189",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title ~ 'Goethe' SORT BY edit_state ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q190",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year >= 1800 SORT BY MIN(language) ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q191",
+    "collection": "contents",
+    "fts": null,
+    "filter": "entry.year >= 1800 SORT BY entry.preferred_title ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q192",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[0].type = 'Autor:in' SORT BY contributors[0].type ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q193",
+    "collection": "series",
+    "fts": null,
+    "filter": "related_entries[0].entry.preferred_title ~ 'Taschenbuch' SORT BY FIRST(related_entries.entry.year) DESC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q194",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title ~ 'Goethe' SORT BY year DESC, preferred_title ASC",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 25,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

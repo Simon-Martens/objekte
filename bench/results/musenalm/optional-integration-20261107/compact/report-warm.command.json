@@ -1,0 +1,17 @@
+[
+  "/home/simon/source/objekte-optional-indexing-sorting-streaming/target/release/examples/bench_optional_features",
+  "--root",
+  "/home/simon/source/objekte-optional-indexing-sorting-streaming/examples/musenalm",
+  "--alphabet",
+  "ascii",
+  "--inference",
+  "report",
+  "--snapshot-mode",
+  "disabled",
+  "--build-workers",
+  "auto",
+  "--verified-cache-bytes",
+  "67108864",
+  "--query-workers",
+  "32"
+]
