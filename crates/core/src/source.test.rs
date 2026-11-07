@@ -867,6 +867,7 @@ fn discovery_and_intrinsic_ids_share_build_restore_rules() {
         recursive: true,
         include: vec!["**/*.tiny".into(), "*.tiny".into()],
         exclude: vec!["skip/**".into()],
+        exclude_directories: vec![],
         hidden: false,
         symlinks: SymlinkPolicy::Skip,
     };
