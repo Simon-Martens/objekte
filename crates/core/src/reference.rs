@@ -1722,6 +1722,8 @@ pub(crate) fn eval_cross_record_field_term(
     target_ctx: &RecordContext<'_>,
     source_ctx: &RecordContext<'_>,
     target_is_lhs: bool,
+    source_positions: &[u32],
+    source_selectors: &[Option<u32>],
 ) -> Result<bool, String> {
     let Some(target_values) = scoped_values(
         &target.path,
@@ -1745,10 +1747,46 @@ pub(crate) fn eval_cross_record_field_term(
     else {
         return Ok(false);
     };
-    if source.multi || source_values.len() != 1 {
-        return Err("source-dependent comparison requires one source value".into());
-    }
-    let Some(source_value) = source_values[0].1.as_deref() else {
+    let source_value = if source.multi {
+        let scope_depth = explicit_scope(&source.query_path).len();
+        // Fixed selectors occupy edge positions but not source occurrence
+        // scopes. Pair only the wildcard slots shared at binding.
+        let positions = source_selectors
+            .iter()
+            .enumerate()
+            .filter(|(_, selector)| selector.is_none())
+            .take(scope_depth)
+            .map(|(index, _)| {
+                source_positions
+                    .get(index)
+                    .copied()
+                    .ok_or("relation occurrence has fewer positions than the shared source scope")
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        if positions.len() != scope_depth {
+            return Err(
+                "relation occurrence has fewer positions than the shared source scope".into(),
+            );
+        }
+        let mut matching = source_values.iter().filter(|(scope, _)| {
+            scope.len() == scope_depth
+                && scope
+                    .iter()
+                    .zip(&positions)
+                    .all(|(source, relation)| u32::try_from(*source) == Ok(*relation))
+        });
+        let selected = matching.next();
+        if matching.next().is_some() {
+            return Err("ambiguous source field occurrence".into());
+        }
+        selected.and_then(|(_, value)| value.as_deref())
+    } else {
+        if source_values.len() != 1 {
+            return Err("source-dependent comparison requires one source value".into());
+        }
+        source_values[0].1.as_deref()
+    };
+    let Some(source_value) = source_value else {
         return Ok(false);
     };
     let Some(source_value) =

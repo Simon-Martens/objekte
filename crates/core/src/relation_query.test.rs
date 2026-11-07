@@ -436,3 +436,27 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
         );
     }
 }
+
+#[test]
+fn selected_fts_rejects_disagreeing_public_field_and_query_path() {
+    let (root, definitions) = fixture();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (selected, hidden_path) in [("entry.title", "entry.alt_title"), ("title", "local_title")] {
+        let mut request = query("mentions", None, Some("Hymn"), Some(selected), false);
+        request.fts.as_mut().unwrap().fields[0].query_path = Some(hidden_path.into());
+        for result in [repo.search(&request), repo.search_reference(&request)] {
+            assert!(
+                result.unwrap_err().contains("disagrees with its field"),
+                "{selected} and {hidden_path}"
+            );
+        }
+    }
+}
