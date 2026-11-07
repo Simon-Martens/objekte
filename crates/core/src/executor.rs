@@ -605,6 +605,8 @@ fn enumerate_paths(
                     .map_or(1.0, |index| {
                         if term.operator == Operator::Eq {
                             1.0
+                        } else if inference.short_string_coverage.contains_key(&term.path.segments) {
+                            (index.values.len() as f64).log2().max(1.0) + 1.0
                         } else {
                             index.values.len() as f64
                         }

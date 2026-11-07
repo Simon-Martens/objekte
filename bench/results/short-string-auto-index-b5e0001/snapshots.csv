@@ -1,0 +1,17 @@
+dataset,mode,action,build_ms,snapshot_write_ms,snapshot_decode_ms,snapshot_bytes,build_parses,restore_action,peak_rss_mib
+medium,disabled,build,9.153089,10.934008,0.0,300320,512,built_and_written,7.94140625
+medium,disabled,restore,0.0,0.0,1.147758,300320,0,restored,7.44140625
+medium,schema,build,9.791364,4.679877,0.0,358337,512,built_and_written,8.53515625
+medium,schema,restore,0.0,0.0,1.822319,358337,0,restored,7.76953125
+medium,auto,build,13.949103,5.865196,0.0,482734,512,built_and_written,8.62109375
+medium,auto,restore,0.0,0.0,3.828897,482734,0,restored,8.64453125
+medium,both,build,13.562829,6.324567,0.0,481522,512,built_and_written,9.5234375
+medium,both,restore,0.0,0.0,3.272845,481522,0,restored,8.14453125
+musenalm,disabled,build,54.49086,66.184296,0.0,6963092,4928,built_and_written,36.9765625
+musenalm,disabled,restore,0.0,0.0,13.447767,6963092,0,restored,19.89453125
+musenalm,schema,build,66.481611,32.478106,0.0,7024767,4928,built_and_written,37.66796875
+musenalm,schema,restore,0.0,0.0,11.831977,7024767,0,restored,20.4140625
+musenalm,auto,build,106.221116,55.139298,0.0,10826640,4928,built_and_written,70.015625
+musenalm,auto,restore,0.0,0.0,61.255051,10826640,0,restored,35.20703125
+musenalm,both,build,106.665749,98.438901,0.0,10818248,4928,built_and_written,70.34375
+musenalm,both,restore,0.0,0.0,61.144539,10818248,0,restored,35.71484375

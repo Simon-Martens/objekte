@@ -1,0 +1,11 @@
+[
+  "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+  "--path",
+  "/home/simon/source/objekte-short-string-fixtures-567f39b/uuid",
+  "--auto-index",
+  "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/uuid-snapshot",
+  "--limit",
+  "1",
+  "--count",
+  "code = '550e8400-e29b-41d4-a716-00000000c350'"
+]

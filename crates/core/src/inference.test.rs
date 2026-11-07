@@ -36,6 +36,330 @@ fn query(filter: &str) -> Query {
 }
 
 #[test]
+fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let uuid = "550e8400-e29b-41d4-a716-446655440000";
+    let long_between = format!("A{}", "\0".repeat(64));
+    let inputs = vec![
+        serde_json::json!({"code": uuid}),
+        serde_json::json!({"code": "A"}),
+        serde_json::json!({"code": long_between}),
+        serde_json::json!({"code": ["B", "long".repeat(17)]}),
+        serde_json::json!({"code": "ü".repeat(32)}),
+        serde_json::json!({"code": "ü".repeat(33)}),
+        serde_json::json!({"code": null}),
+        serde_json::json!({"other": "A"}),
+        serde_json::json!("root"),
+        serde_json::json!(["x", "x"]),
+    ];
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    for (slot, input) in inputs.into_iter().enumerate() {
+        batch
+            .observe_record(RecordSlot(slot as u32), &Value::from_json(input).unwrap())
+            .unwrap();
+    }
+    let mut coordinator = InferenceBuilder::new(config, false).unwrap();
+    coordinator.merge_shifted(batch, 0).unwrap();
+    let logical: RoaringBitmap = (0..10).collect();
+    let state = coordinator
+        .finish(&logical, 10, &Schema::default())
+        .unwrap();
+    let code = &state.indexes[&vec!["code".into()]];
+    assert_eq!(code.kind, LogicalType::String);
+    for short in [uuid, "A", "B"] {
+        assert!(
+            code.values
+                .contains_key(&crate::posting::ScalarKey::String(short.into()))
+        );
+    }
+    assert!(
+        code.values
+            .contains_key(&crate::posting::ScalarKey::String("ü".repeat(32)))
+    );
+    assert!(
+        !code
+            .values
+            .contains_key(&crate::posting::ScalarKey::String("ü".repeat(33)))
+    );
+    assert_eq!(
+        state.short_string_coverage[&vec!["code".into()]],
+        [0, 1, 4].into_iter().collect()
+    );
+    assert_eq!(
+        state.short_string_coverage[&Vec::<String>::new()],
+        [8, 9].into_iter().collect()
+    );
+    assert_eq!(
+        state.indexes[&Vec::<String>::new()].values[&crate::posting::ScalarKey::String("x".into())]
+            .len(),
+        1
+    );
+    let report = state
+        .report
+        .fields
+        .iter()
+        .find(|field| field.path == ["code"])
+        .unwrap();
+    assert_eq!(report.short_string_covered_records, 3);
+    assert_eq!(report.short_string_unresolved_records, 7);
+    assert_eq!(report.index_status, InferenceIndexStatus::Built);
+}
+
+#[test]
+fn high_cardinality_short_identifiers_do_not_use_enum_threshold() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    for slot in 0..128 {
+        let input = serde_json::json!({"code": format!("550e8400-e29b-41d4-a716-{slot:012}")});
+        batch
+            .observe_record(RecordSlot(slot), &Value::from_json(input).unwrap())
+            .unwrap();
+    }
+    let mut coordinator = InferenceBuilder::new(config, false).unwrap();
+    coordinator.merge_shifted(batch, 0).unwrap();
+    let state = coordinator
+        .finish(&(0..128).collect(), 128, &Schema::default())
+        .unwrap();
+    let code = &state.indexes[&vec!["code".into()]];
+    assert_eq!(code.values.len(), 128);
+    assert_eq!(state.short_string_coverage[&vec!["code".into()]].len(), 128);
+    assert_eq!(
+        state
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == ["code"])
+            .unwrap()
+            .index_status,
+        InferenceIndexStatus::Built
+    );
+}
+
+#[test]
+fn default_batch_budget_keeps_multi_field_short_string_index_complete() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    for slot in 0..512 {
+        let input = serde_json::json!({
+            "code": format!("550e8400-e29b-41d4-a716-{slot:012}"),
+            "name": format!("name-{slot}"),
+            "year": 1800 + slot,
+            "group": format!("g{}", slot % 8),
+            "flag": slot % 2 == 0,
+            "nested": {"label": format!("label-{slot}")},
+        });
+        batch
+            .observe_record(RecordSlot(slot), &Value::from_json(input).unwrap())
+            .unwrap();
+    }
+    let mut coordinator = InferenceBuilder::new(config, false).unwrap();
+    coordinator.merge_shifted(batch, 0).unwrap();
+    let state = coordinator
+        .finish(&(0..512).collect(), 512, &Schema::default())
+        .unwrap();
+    assert!(state.report.complete);
+    assert_eq!(state.indexes[&vec!["code".into()]].values.len(), 512);
+    assert_eq!(state.short_string_coverage[&vec!["code".into()]].len(), 512);
+}
+
+#[test]
+fn selective_short_string_queries_keep_long_and_mixed_remainders() {
+    let root = temporary_root("short-query");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..128 {
+        let text = serde_json::json!({"code": format!("id-{slot:04}")}).to_string();
+        std::fs::write(root.join(format!("data/{slot:03}.json")), text).unwrap();
+    }
+    let long = format!("A{}", "\0".repeat(64));
+    for (name, input) in [
+        ("a", serde_json::json!({"code":"A"})),
+        ("long", serde_json::json!({"code":long})),
+        ("mixed", serde_json::json!({"code":["Z", long]})),
+        ("missing", serde_json::json!({"other":"A"})),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), input.to_string()).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut exact = query("code = \"id-0036\"");
+    exact.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&exact).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["path:036.json"]
+    );
+    assert_eq!(result.hits, repo.search_reference(&exact).unwrap().hits);
+    assert!(result.counters.record_parses < 20);
+    let mut one_character = query("code = \"A\"");
+    one_character.options.return_mode = ReturnMode::Locator;
+    let plan = repo.explain(&one_character).unwrap();
+    assert!(
+        plan.iter()
+            .flat_map(|trace| &trace.terms)
+            .any(|term| term.selected.kind == AccessPathKind::InferredPosting),
+        "{plan:?}"
+    );
+    assert_eq!(
+        repo.search(&one_character).unwrap().hits,
+        repo.search_reference(&one_character).unwrap().hits
+    );
+
+    let mut range = query("code < \"B\"");
+    range.options.return_mode = ReturnMode::Locator;
+    let result = repo.search(&range).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["path:a.json", "path:long.json"]
+    );
+    assert_eq!(result.hits, repo.search_reference(&range).unwrap().hits);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn mixed_short_strings_match_reference_after_snapshot_restore() {
+    use crate::repository::{SnapshotAction, SnapshotOpenPolicy};
+    static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
+    let root = std::env::temp_dir().join(format!(
+        "objekte-inference-matrix-{}-{}",
+        std::process::id(),
+        NEXT.fetch_add(1, std::sync::atomic::Ordering::Relaxed)
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let long_between = format!("A{}", "\0".repeat(64));
+    let inputs = [
+        serde_json::json!({"code":"A"}),
+        serde_json::json!({"code":"B"}),
+        serde_json::json!({"code":"Z".repeat(65)}),
+        serde_json::json!({"code":["A", "Z".repeat(65)]}),
+        serde_json::json!({"code":["A", "A"]}),
+        serde_json::json!({"code":[]}),
+        serde_json::json!({"code":null}),
+        serde_json::json!({"other":"A"}),
+        serde_json::json!({"code":7}),
+        serde_json::json!({"code":long_between}),
+        serde_json::json!({"code":"ü".repeat(32)}),
+        serde_json::json!({"code":"ü".repeat(33)}),
+        serde_json::json!({"code":"urn:uuid:550e8400-e29b-41d4-a716-446655440000"}),
+    ];
+    for (slot, value) in inputs.iter().enumerate() {
+        std::fs::write(root.join(format!("data/{slot:02}.json")), value.to_string()).unwrap();
+    }
+    std::fs::write(root.join("data/bad.json"), "{").unwrap();
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let filters = [
+        "code ?= 'A'",
+        "code = 'A'",
+        "code != 'A'",
+        "code ?!= 'A'",
+        "code > 'A'",
+        "code >= 'A'",
+        "code < 'B'",
+        "code <= 'B'",
+        "code:null = true",
+        "code:exists = false",
+        "!(code ?= 'A')",
+        "code ?= 'A' || code:exists = false",
+        "code ?= 'A' && code > 'A'",
+        "@record.id = 'path:00.json'",
+    ];
+    for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+        let options = RepositoryOptions {
+            bigram_alphabet: alphabet,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        };
+        let snapshot = root.join(format!("cache-{alphabet:?}"));
+        let open = |mode| {
+            Repository::open_with_snapshot_policy(
+                &root,
+                vec![definition.clone()],
+                options.clone(),
+                SnapshotOpenPolicy::new(mode, Some(snapshot.clone())),
+            )
+        };
+        let built = open(SnapshotMode::Rebuild).unwrap();
+        assert_eq!(built.build_parses(), 13);
+        let restored = open(SnapshotMode::ReadOnly).unwrap();
+        assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
+        assert_eq!(restored.build_parses(), 0);
+        for filter in filters {
+            let mut request = query(filter);
+            request.options.return_mode = ReturnMode::Locator;
+            let expected = built.search_reference(&request);
+            let fresh = built.search(&request);
+            let loaded = restored.search(&request);
+            match (expected, fresh, loaded) {
+                (Ok(expected), Ok(fresh), Ok(loaded)) => {
+                    assert_eq!(fresh.hits, expected.hits, "fresh {filter}");
+                    assert_eq!(loaded.hits, expected.hits, "restored {filter}");
+                    assert_eq!(fresh.count, expected.count, "count {filter}");
+                }
+                (Err(_), Err(_), Err(_)) => {}
+                (reference, fresh, loaded) => {
+                    panic!("route disagreement for {filter}: {reference:?}, {fresh:?}, {loaded:?}")
+                }
+            }
+        }
+        let ids = |filter: &str| {
+            built
+                .search(&query(filter))
+                .unwrap()
+                .hits
+                .into_iter()
+                .map(|hit| hit.record_id)
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(
+            ids("code ?= 'A'"),
+            ["path:00.json", "path:03.json", "path:04.json"]
+        );
+        assert!(
+            ids("code > 'A'").contains(&"path:09.json".to_owned()),
+            "long value must survive the residual"
+        );
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn empty_ancestor_reconciles_late_descendant_and_null_statistics() {
     assert_ne!(ObservedStep::Field("0".into()), ObservedStep::ArrayIndex(0));
     let config = InferenceConfig {
@@ -142,7 +466,7 @@ fn inference_batch_admission_does_not_depend_on_worker_count() {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
     };
-    assert_eq!(config.max_build_jobs(128), 64);
+    assert_eq!(config.max_build_jobs(128), 16);
     assert!(
         config.max_build_jobs(128) * config.policy.max_batch_bytes
             <= config.policy.max_repository_bytes - config.policy.max_total_bytes
@@ -510,6 +834,7 @@ fn mixed_shapes_and_explicit_optouts_decline_inferred_postings() {
             })
             .unwrap();
     }
+    schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
     let mut combined = InferenceBuilder::new(config, false).unwrap();
     combined.merge_shifted(batch, 0).unwrap();
     let state = combined.finish(&(0..2).collect(), 2, &schema).unwrap();
@@ -561,14 +886,12 @@ fn high_cardinality_and_long_text_drop_only_their_own_candidates() {
             .index_status
     };
     assert_eq!(status("flag"), InferenceIndexStatus::Built);
-    assert_eq!(status("unique"), InferenceIndexStatus::BelowThreshold);
+    assert_eq!(status("unique"), InferenceIndexStatus::Built);
     assert_eq!(status("long"), InferenceIndexStatus::BudgetExceeded);
-    assert_eq!(state.indexes.len(), 1);
+    assert_eq!(state.indexes.len(), 2);
 }
 
-
 struct PipeReader;
-
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -597,7 +920,6 @@ impl SourceReader for PipeReader {
         })
     }
 }
-
 
 #[test]
 fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {

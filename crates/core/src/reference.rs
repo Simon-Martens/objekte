@@ -21,7 +21,6 @@ use crate::relation::RelationDefinition;
 use crate::source::TextSegment;
 use crate::temporal_query::TemporalBounds;
 
-
 /// Logical type, presence rules, and index policy for one field.
 #[derive(Clone, Debug)]
 pub struct FieldDefinition {
@@ -36,13 +35,11 @@ pub struct FieldDefinition {
     pub element_nullable: Vec<bool>,
 }
 
-
 #[derive(Clone, Debug, Default)]
 struct ValidationNode {
     field: Option<FieldDefinition>,
     children: HashMap<String, ValidationNode>,
 }
-
 
 impl ValidationNode {
     fn requires_presence(&self) -> bool {
@@ -53,13 +50,11 @@ impl ValidationNode {
     }
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Transform {
     Identity,
     CaseFold,
 }
-
 
 /// Named field transformation used by indexing and scanning.
 #[derive(Clone, Debug)]
@@ -69,14 +64,12 @@ pub struct CustomBinding {
     pub transform: Transform,
 }
 
-
 /// Input required by one prepared exact field predicate.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ExactInput {
     SelectedValue,
     OriginalRecordBytes,
 }
-
 
 /// Query-scoped exact evaluator prepared by a registered binding. A byte
 /// evaluator owns missing-field and array semantics for its whole record;
@@ -96,7 +89,6 @@ pub trait PreparedFilterMatcher: Send + Sync + std::fmt::Debug {
     }
 }
 
-
 /// Query-scoped literal substring evaluator over one reader-owned segment.
 pub trait PreparedTextMatcher: Send + Sync + std::fmt::Debug {
     fn matches(&self, text: &str) -> Result<bool, String>;
@@ -104,7 +96,6 @@ pub trait PreparedTextMatcher: Send + Sync + std::fmt::Debug {
         false
     }
 }
-
 
 /// One prepared named operation shared by FILTER, FTS, indexes, and scanners.
 /// Implementations work at value or record boundaries, never per character.
@@ -177,7 +168,6 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
     }
 }
 
-
 /// Stable named binding and semantic/configuration version.
 #[derive(Clone, Debug)]
 pub struct RegisteredBinding {
@@ -186,13 +176,15 @@ pub struct RegisteredBinding {
     pub operation: Arc<dyn BindingOperation>,
 }
 
-
 /// In-memory field definitions and custom query bindings.
 #[derive(Clone, Debug, Default)]
 pub struct Schema {
     /// Explicit resident orders assembled from already configured scalar sort columns.
     pub composite_sorts: Vec<Vec<crate::workload::SortField>>,
     pub(crate) fields: HashMap<Vec<String>, FieldDefinition>,
+    /// Explicit `index: false` paths; absent annotations leave inference free.
+    pub(crate) auto_index_excluded: HashSet<Vec<String>>,
+    pub(crate) source_fingerprint: Option<[u8; 32]>,
     pub(crate) custom: HashMap<(Vec<String>, String), CustomBinding>,
     pub(crate) operations: HashMap<(Vec<String>, String), RegisteredBinding>,
     pub(crate) defaults: HashMap<Vec<String>, String>,
@@ -203,8 +195,25 @@ pub struct Schema {
     conversion_validation: ValidationNode,
 }
 
-
 impl Schema {
+    /// Include the exact selected schema bytes in snapshot compatibility.
+    pub fn set_source_fingerprint(&mut self, bytes: &[u8]) {
+        use sha2::Digest;
+        self.source_fingerprint = Some(sha2::Sha256::digest(bytes).into());
+    }
+
+    pub fn prohibit_auto_index(&mut self, path: Vec<String>) -> Result<(), String> {
+        if self.fields.get(&path).is_some_and(|field| field.indexed) {
+            return Err("automatic index prohibition conflicts with an explicit index".into());
+        }
+        self.auto_index_excluded.insert(path);
+        Ok(())
+    }
+
+    pub fn is_auto_index_prohibited(&self, path: &[String]) -> bool {
+        self.auto_index_excluded.contains(path)
+    }
+
     /// Register an exact composite order over previously configured scalar sort fields.
     pub fn register_composite_sort(
         &mut self,
@@ -249,7 +258,16 @@ impl Schema {
         value: &mut Value,
         selected_top_level: Option<&HashSet<String>>,
     ) -> Result<(), String> {
-        if !matches!(value, Value::Object(_)) {
+        if let Some(root) = self.fields.get(&Vec::<String>::new()) {
+            validate_declared(
+                value,
+                &root.kind,
+                root.nullable,
+                &root.element_nullable,
+                0,
+                &["@root"],
+            )?;
+        } else if !matches!(value, Value::Object(_)) {
             if self.fields.is_empty() {
                 return Ok(());
             }
@@ -268,6 +286,18 @@ impl Schema {
         if !self.converted_fields {
             return Ok(());
         }
+        if let Some(root) = self.fields.get(&Vec::<String>::new())
+            && converted_kind(&root.kind)
+        {
+            validate_declared(
+                value,
+                &root.kind,
+                root.nullable,
+                &root.element_nullable,
+                0,
+                &["@root"],
+            )?;
+        }
         validate_children(
             value,
             &self.conversion_validation,
@@ -281,9 +311,6 @@ impl Schema {
     }
 
     pub fn register_field(&mut self, field: FieldDefinition) -> Result<(), String> {
-        if field.path.is_empty() {
-            return Err("field path is empty".into());
-        }
         if self.fields.contains_key(&field.path) {
             return Err("duplicate field registration".into());
         }
@@ -308,6 +335,9 @@ impl Schema {
             .values()
             .filter(|field| converted_kind(&field.kind))
         {
+            if field.path.is_empty() {
+                root.field = Some(field.clone());
+            }
             let mut node = &mut root;
             for depth in 0..field.path.len() {
                 node = node.children.entry(field.path[depth].clone()).or_default();
@@ -444,7 +474,6 @@ impl Schema {
     }
 }
 
-
 fn converted_kind(kind: &LogicalType) -> bool {
     match kind {
         LogicalType::Id | LogicalType::Date | LogicalType::Datetime | LogicalType::Unixtime => true,
@@ -572,7 +601,6 @@ fn metadata_type(field: MetadataField) -> LogicalType {
     }
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Derived {
     None,
@@ -580,7 +608,6 @@ pub enum Derived {
     Null,
     Exists,
 }
-
 
 /// Typed predicate with its resolved path, literal, and binding.
 #[derive(Clone, Debug)]
@@ -608,7 +635,6 @@ pub struct BoundTerm {
     pub span: (usize, usize),
 }
 
-
 /// Prepared right-hand field for one dynamic scalar comparison.
 #[derive(Clone, Debug)]
 pub struct BoundFieldOperand {
@@ -620,7 +646,6 @@ pub struct BoundFieldOperand {
     pub operation: Option<Arc<dyn BindingOperation>>,
     pub multi: bool,
 }
-
 
 /// Compare the exact semantics of two predicates within one collection plan.
 /// Source spans and gram requests locate/accelerate a predicate; neither is
@@ -682,7 +707,6 @@ pub(crate) fn same_bound_term(a: &BoundTerm, b: &BoundTerm) -> bool {
         && same_related
 }
 
-
 #[derive(Debug)]
 struct MappedFilterMatcher {
     operation: Arc<dyn BindingOperation>,
@@ -690,7 +714,6 @@ struct MappedFilterMatcher {
     operator: Operator,
     text_equivalent: bool,
 }
-
 
 impl PreparedFilterMatcher for MappedFilterMatcher {
     fn matches(&self, value: Option<&Value>, _: Option<&[u8]>) -> Result<bool, String> {
@@ -711,14 +734,12 @@ impl PreparedFilterMatcher for MappedFilterMatcher {
     }
 }
 
-
 #[derive(Debug)]
 struct MappedTextMatcher {
     operation: Arc<dyn BindingOperation>,
     literal: String,
     case_sensitivity: CaseSensitivity,
 }
-
 
 impl PreparedTextMatcher for MappedTextMatcher {
     fn matches(&self, text: &str) -> Result<bool, String> {
@@ -734,7 +755,6 @@ impl PreparedTextMatcher for MappedTextMatcher {
     }
 }
 
-
 /// Regex over a selected registered text representation, one segment at a time.
 #[derive(Debug)]
 struct RegexTextMatcher {
@@ -742,7 +762,6 @@ struct RegexTextMatcher {
     transform: Transform,
     operation: Option<Arc<dyn BindingOperation>>,
 }
-
 
 impl PreparedTextMatcher for RegexTextMatcher {
     fn matches(&self, text: &str) -> Result<bool, String> {
@@ -761,7 +780,6 @@ impl PreparedTextMatcher for RegexTextMatcher {
     }
 }
 
-
 #[derive(Clone, Debug)]
 pub enum BoundExpr {
     Term(BoundTerm),
@@ -769,7 +787,6 @@ pub enum BoundExpr {
     Or(Vec<BoundExpr>),
     Not(Box<BoundExpr>),
 }
-
 
 pub fn bind_filter(expr: &FilterExpr, schema: &Schema) -> Result<BoundExpr, String> {
     bind_filter_with_parameters(expr, schema, &mut HashMap::new())
@@ -1290,7 +1307,6 @@ fn prepare_literal(
     })
 }
 
-
 /// Record data and inventory metadata available during evaluation.
 pub struct RecordContext<'a> {
     pub value: &'a Value,
@@ -1300,7 +1316,6 @@ pub struct RecordContext<'a> {
     pub collection_name: &'a str,
     pub repository_root: &'a Path,
 }
-
 
 pub(crate) fn metadata_value(
     field: MetadataField,
@@ -1906,8 +1921,7 @@ pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, Stri
     }
     if let PathRoot::Metadata(field) = term.path.root {
         if term.derived == Derived::None && !term.multi {
-            let value = if field == MetadataField::RecordId
-                && term.transform == Transform::CaseFold
+            let value = if field == MetadataField::RecordId && term.transform == Transform::CaseFold
             {
                 Value::String(ctx.record.id.0.clone())
             } else {
@@ -2157,7 +2171,6 @@ pub fn eval_fts(
     matched
 }
 
-
 /// One selected FTS target with its literal prepared for the bound operation.
 #[derive(Clone, Debug)]
 pub struct BoundFtsField {
@@ -2173,7 +2186,6 @@ pub struct BoundFtsField {
     pub operation: Option<Arc<dyn BindingOperation>>,
     pub matcher: Option<Arc<dyn PreparedTextMatcher>>,
 }
-
 
 /// Collection-specific FTS bindings, including the configured raw target.
 #[derive(Clone, Debug)]
@@ -2191,7 +2203,6 @@ pub struct BoundFts {
     pub(crate) fallback_regex: Option<CompiledRegex>,
     pub fields: Vec<BoundFtsField>,
 }
-
 
 pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     if let Some(name) = &fts.pattern_parameter {

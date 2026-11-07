@@ -1,0 +1,47 @@
+{
+  "sha": "b5e00011ae",
+  "command": "obj --tui --path FIXTURE --auto-index --limit 10 --fts label",
+  "medium": [
+    {
+      "Building": 0.006431819987483323,
+      "search": 0.006431819987483323,
+      "indexes ready": 0.10950044100172818,
+      "matches": 0.1398967450368218,
+      "display": 0.1398967450368218,
+      "redraw_after_key_s": 2.7753005269914865e-05,
+      "exit": 0,
+      "output_bytes": 4049,
+      "has_terminal_restore": true
+    },
+    {
+      "Building": 0.0012609219993464649,
+      "search": 0.0012609219993464649,
+      "indexes ready": 0.10181187296984717,
+      "matches": 0.13209386297967285,
+      "display": 0.13209386297967285,
+      "redraw_after_key_s": 7.698021363466978e-06,
+      "exit": 0,
+      "output_bytes": 4041,
+      "has_terminal_restore": true
+    },
+    {
+      "Building": 0.0015222869697026908,
+      "search": 0.0015222869697026908,
+      "indexes ready": 0.10209488600958139,
+      "matches": 0.1324002659530379,
+      "display": 0.1324002659530379,
+      "redraw_after_key_s": 4.837987944483757e-06,
+      "exit": 0,
+      "output_bytes": 4041,
+      "has_terminal_restore": true
+    }
+  ],
+  "uuid_cancel": {
+    "Building": 0.0010240580304525793,
+    "search": 0.0010240580304525793,
+    "cancel_exit_s": 0.0010283929877914488,
+    "exit": 0,
+    "output_bytes": 661,
+    "has_terminal_restore": true
+  }
+}

@@ -2,6 +2,35 @@ use super::test_support::{fixture, relation_fixture};
 use super::*;
 
 #[test]
+fn cli_mode_keeps_shortcuts_and_restricts_collection_and_links() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.single_collection = true;
+    app.scope = 1;
+    app.request_search();
+    wait_for_hits(app);
+    key(
+        app,
+        KeyEvent::new(KeyCode::Char('o'), KeyModifiers::CONTROL),
+    );
+    assert_eq!(app.overlay, None);
+    assert_eq!(app.scope_label(), "docs");
+    key(app, KeyEvent::new(KeyCode::Char('s'), KeyModifiers::ALT));
+    assert_eq!(app.overlay, Some(Overlay::Sort));
+    for ch in "title DESC".chars() {
+        key(app, KeyEvent::new(KeyCode::Char(ch), KeyModifiers::NONE));
+    }
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    assert!(app.sort.is_some());
+    wait_for_hits(app);
+    key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
+    app.open_detail();
+    assert!(app.relation_rows.is_empty());
+    key(app, KeyEvent::new(KeyCode::Char('2'), KeyModifiers::NONE));
+    assert!(app.relation_rows.is_empty());
+}
+
+#[test]
 fn keys_switch_inputs_open_detail_and_choose_collection() {
     let mut fixture = fixture(2);
     let app = &mut fixture.app;
@@ -129,7 +158,10 @@ fn tab_cycles_available_record_sections_and_shift_tab_reverses() {
         value: "entry_mentions".into(),
         action: None,
     });
-    let base = app.record.rows(app.current_detail_hit().unwrap(), None).len();
+    let base = app
+        .record
+        .rows(app.current_detail_hit().unwrap(), None)
+        .len();
     let outgoing = base
         + app
             .relation_rows
@@ -159,9 +191,15 @@ fn tab_cycles_available_record_sections_and_shift_tab_reverses() {
 
     app.back_detail();
     select_id(app, "m1");
-    let base = app.record.rows(app.current_detail_hit().unwrap(), None).len();
+    let base = app
+        .record
+        .rows(app.current_detail_hit().unwrap(), None)
+        .len();
     key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
-    assert_eq!(app.relation_rows[app.record.cursor - base].label, "Backlinks");
+    assert_eq!(
+        app.relation_rows[app.record.cursor - base].label,
+        "Backlinks"
+    );
     key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
     assert_eq!(app.record.cursor, 0);
 }

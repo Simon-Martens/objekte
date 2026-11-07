@@ -29,7 +29,12 @@ pub(super) fn elapsed_label(elapsed: Duration) -> String {
     }
 }
 
+#[cfg(test)]
 pub(super) fn draw_loading(frame: &mut Frame<'_>, elapsed: Duration) {
+    draw_loading_with_label(frame, elapsed, "Building search index");
+}
+
+pub(super) fn draw_loading_with_label(frame: &mut Frame<'_>, elapsed: Duration, label: &str) {
     let [header, _gap, status, body, footer] = Layout::vertical([
         Constraint::Length(1),
         Constraint::Length(1),
@@ -43,11 +48,7 @@ pub(super) fn draw_loading(frame: &mut Frame<'_>, elapsed: Duration) {
         header,
     );
     frame.render_widget(
-        Paragraph::new(format!(
-            " Building search index… {}",
-            elapsed_label(elapsed)
-        ))
-        .style(Style::new().fg(DIM)),
+        Paragraph::new(format!(" {label}… {}", elapsed_label(elapsed))).style(Style::new().fg(DIM)),
         status,
     );
     frame.render_widget(
@@ -84,7 +85,14 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 app.scope_label().to_owned(),
                 Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
             ),
-            Span::styled("  ▾  Ctrl+O", Style::new().fg(FAINT)),
+            Span::styled(
+                if app.single_collection {
+                    "  Ctrl+O"
+                } else {
+                    "  ▾  Ctrl+O"
+                },
+                Style::new().fg(FAINT),
+            ),
         ])),
         header,
     );
@@ -140,8 +148,16 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                     .map_or_else(String::new, |elapsed| {
                         format!("  ·  search {}", elapsed_label(elapsed))
                     });
+                let display = if app.single_collection {
+                    app.last_projection_duration
+                        .map_or_else(String::new, |elapsed| {
+                            format!("  ·  display {}", elapsed_label(elapsed))
+                        })
+                } else {
+                    String::new()
+                };
                 format!(
-                    "{} matches  ·  {} loaded{sort}{timing}",
+                    "{} matches  ·  {} loaded{sort}{timing}{display}",
                     app.total,
                     app.hits.len()
                 )
@@ -174,7 +190,9 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
             },
         ),
     }
-    let hint = if app.view == View::Detail && footer.width >= 96 {
+    let hint = if app.single_collection && app.view == View::Detail {
+        " Esc back · ↑↓ fields · Enter fold · Alt+←→ records · / find · y/Y copy · r raw"
+    } else if app.view == View::Detail && footer.width >= 96 {
         " Esc back · Tab sections · ↑↓ fields · Enter open · Alt+←→ records · / find · y/Y copy · r raw"
     } else if app.view == View::Detail {
         " Esc back · Tab sections · ↑↓ fields · Enter open · / find · y/Y copy · r raw"
@@ -320,6 +338,10 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     if area.height == 0 {
         return;
     }
+    if app.single_collection {
+        results_cli(frame, app, area);
+        return;
+    }
     let compact = area.width < 100;
     let collection_width = if compact { 12usize } else { 16 };
     let id_width = if compact { 16usize } else { 24 };
@@ -424,6 +446,100 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     }
 }
 
+fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
+    let width = area.width as usize;
+    let id_width = if width < 80 { 18 } else { 28 };
+    let fixed = 6 + id_width + 2;
+    let field_width = if width < 110 { 14 } else { 22 };
+    let optional = app.visible_columns();
+    let available = width.saturating_sub(fixed + 16);
+    let field_count =
+        (available / (field_width + 2)).min(optional.len().saturating_sub(app.column_offset));
+    let match_width = width.saturating_sub(fixed + field_count * (field_width + 2));
+    let fields = optional
+        .iter()
+        .skip(app.column_offset)
+        .take(field_count)
+        .collect::<Vec<_>>();
+    let mut header = format!("valid {}  ", pad_clip("id", id_width));
+    for field in &fields {
+        header.push_str(&pad_clip(field, field_width));
+        header.push_str("  ");
+    }
+    header.push_str(&pad_clip("match", match_width));
+    frame.render_widget(
+        Paragraph::new(header).style(Style::new().fg(DIM).add_modifier(Modifier::BOLD)),
+        Rect { height: 1, ..area },
+    );
+    if app.hits.is_empty() {
+        let message = if app.searching {
+            "Searching…"
+        } else if app.error.is_some() {
+            "Correct the query and press Enter."
+        } else {
+            "No matches."
+        };
+        frame.render_widget(
+            Paragraph::new(message).style(Style::new().fg(FAINT)),
+            Rect {
+                y: area.y + 1,
+                height: 1,
+                ..area
+            },
+        );
+        return;
+    }
+    for (row, hit) in app
+        .hits
+        .iter()
+        .skip(app.scroll)
+        .take(app.viewport_rows)
+        .enumerate()
+    {
+        let index = app.scroll + row;
+        let selected = index == app.selected;
+        let display = app.display_rows.get(index);
+        let status_color = match hit.file_status {
+            FileStatus::Valid => GREEN,
+            FileStatus::Broken | FileStatus::Unreadable => RED,
+        };
+        let mut spans = vec![
+            Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
+            Span::styled("● ", Style::new().fg(status_color)),
+            Span::raw("  "),
+            Span::styled(pad_clip(&hit.record_id, id_width), Style::new().fg(DIM)),
+            Span::raw("  "),
+        ];
+        for field in &fields {
+            let position = app.column_keys().iter().position(|name| name == *field);
+            let value = position
+                .and_then(|position| display.and_then(|row| row.fields.get(position)))
+                .map_or("", String::as_str);
+            spans.push(Span::styled(
+                pad_clip(value, field_width),
+                Style::new().fg(TEXT),
+            ));
+            spans.push(Span::raw("  "));
+        }
+        spans.push(Span::styled(
+            pad_clip(display.map_or("", |row| row.matched.as_str()), match_width),
+            Style::new().fg(TEXT),
+        ));
+        frame.render_widget(
+            Paragraph::new(Line::from(spans)).style(if selected {
+                Style::new().bg(SELECTED)
+            } else {
+                Style::new()
+            }),
+            Rect {
+                y: area.y + 1 + row as u16,
+                height: 1,
+                ..area
+            },
+        );
+    }
+}
+
 fn record_summary(hit: &SearchHit) -> String {
     let Some(value) = record::json_value(hit) else {
         return String::new();
@@ -469,7 +585,8 @@ fn wrapped_record_value(text: &str, width: usize, max_lines: usize) -> Vec<Strin
         return vec![String::new()];
     }
     let mut lines = Vec::new();
-    let mut paragraphs = text.split('\n').peekable();
+    let safe = safe_terminal_text(text);
+    let mut paragraphs = safe.split('\n').peekable();
     while let Some(paragraph) = paragraphs.next() {
         let mut line = String::new();
         for word in paragraph.split_whitespace() {
@@ -655,13 +772,13 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         .enumerate()
         .take(app.record.cursor + 1)
         .filter_map(|(index, row)| {
-            (index >= field_rows).then_some(row.label.as_str()).and_then(|label| {
-                match label {
+            (index >= field_rows)
+                .then_some(row.label.as_str())
+                .and_then(|label| match label {
                     "Outgoing" => Some(2),
                     "Backlinks" => Some(3),
                     _ => None,
-                }
-            })
+                })
         })
         .last()
         .unwrap_or(1);
@@ -678,15 +795,20 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
             },
         )
     };
-    frame.render_widget(
-        Paragraph::new(Line::from(vec![
+    let tabs = if app.single_collection {
+        vec![Span::raw("   "), tab("Fields".into(), 1)]
+    } else {
+        vec![
             Span::raw("   "),
             tab("1 Fields".into(), 1),
             Span::raw("  "),
             tab("2 Links".into(), 2),
             Span::raw("  "),
             tab("3 Backlinks".into(), 3),
-        ])),
+        ]
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(tabs)),
         Rect {
             y: area.y + 1,
             height: 1,
@@ -733,13 +855,29 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     let mut start = app.record.scroll.min(app.record.cursor);
     let mut needed = (start..=app.record.cursor)
         .map(|index| {
-            detail_row_lines(app, &rows[index], index, field_rows, name_width, width, height)
-                .len()
+            detail_row_lines(
+                app,
+                &rows[index],
+                index,
+                field_rows,
+                name_width,
+                width,
+                height,
+            )
+            .len()
         })
         .sum::<usize>();
     while needed > height && start < app.record.cursor {
-        needed -= detail_row_lines(app, &rows[start], start, field_rows, name_width, width, height)
-            .len();
+        needed -= detail_row_lines(
+            app,
+            &rows[start],
+            start,
+            field_rows,
+            name_width,
+            width,
+            height,
+        )
+        .len();
         start += 1;
     }
     app.record.scroll = start;
@@ -838,8 +976,16 @@ fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     while start < first_match {
         let needed = (start..=first_match)
             .map(|index| {
-                detail_row_lines(app, &rows[index], index, rows.len(), name_width, width, height)
-                    .len()
+                detail_row_lines(
+                    app,
+                    &rows[index],
+                    index,
+                    rows.len(),
+                    name_width,
+                    width,
+                    height,
+                )
+                .len()
             })
             .sum::<usize>();
         if needed <= height {
@@ -879,7 +1025,9 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Collections => {
             (app.collection_names().count() as u16 + 3).min(area.height.saturating_sub(2))
         }
-        Overlay::Sort => (app.sort_choices().len() as u16 + 3).min(area.height.saturating_sub(2)),
+        Overlay::Sort => (app.sort_choices().len() as u16
+            + if app.single_collection { 5 } else { 3 })
+        .min(area.height.saturating_sub(2)),
         Overlay::History => (app.settings.history.len() as u16 + 2)
             .min(20)
             .min(area.height.saturating_sub(2)),
@@ -995,7 +1143,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                     }),
                 ))
             })
-            .collect(),
+            .collect::<Vec<_>>(),
         Overlay::History => app
             .settings
             .history
@@ -1071,7 +1219,11 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
             .into_iter()
             .enumerate()
             .map(|(index, key)| {
-                let visible = !app.settings.hidden(app.scope_name()).contains(&key);
+                let visible = if app.single_collection {
+                    app.visible_columns().contains(&key)
+                } else {
+                    !app.settings.hidden(app.scope_name()).contains(&key)
+                };
                 Line::from(Span::styled(
                     format!(
                         "{} [{}] {key}",
@@ -1090,30 +1242,54 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
                 ))
             })
             .collect(),
-        Overlay::Help => [
-            "Keyboard shortcuts",
-            "",
-            "Ctrl+K            All actions",
-            "Tab / Shift+Tab   Switch input and results",
-            "Enter / Esc       Search, open / return",
-            "↑↓ / PgUp PgDn   Move rows or a page",
-            "Alt+←→           Scroll result columns",
-            "Alt+C / Alt+R     Toggle case / regex",
-            "Ctrl+O            Choose collection",
-            "Ctrl+R / B / S    Recent / saved / save",
-            "Alt+S / L        Sort / select columns",
-            "Alt+E / A        Export record / all",
-            "Ctrl+P / Alt+T   Preview / theme",
-            "",
-            "Detail: 1 2 3   Fields/links/backlinks",
-            "Detail: Tab / Shift+Tab   Next / previous section",
-            "Detail: Enter     Fold or follow link",
-            "Detail: Alt+←→   Previous/next result",
-            "Detail: / n N    Find / next / previous",
-            "Detail: y Y      Copy value / record",
-            "Detail: r        Raw / structured view",
-            "F1 / Ctrl+Q      Help / quit",
-        ]
+        Overlay::Help => (if app.single_collection {
+            vec![
+                "Keyboard shortcuts",
+                "",
+                "Ctrl+K            All actions",
+                "Tab / Shift+Tab   Switch input and results",
+                "Enter / Esc       Search, open / return",
+                "↑↓ / PgUp PgDn   Move rows or a page",
+                "Alt+←→           Scroll columns / adjacent record",
+                "Alt+C / Alt+R     Toggle case / regex",
+                "Ctrl+O            Show current collection",
+                "Ctrl+R / B / S    Recent / saved / save",
+                "Alt+S / L        Sort / select query fields",
+                "Alt+E / A        Export record / all",
+                "Ctrl+P / Alt+T   Preview / theme",
+                "",
+                "Detail: Enter     Fold or expand",
+                "Detail: / n N    Find / next / previous",
+                "Detail: y Y      Copy value / record",
+                "Detail: r        Raw / structured view",
+                "F1 / Ctrl+Q      Help / quit",
+            ]
+        } else {
+            vec![
+                "Keyboard shortcuts",
+                "",
+                "Ctrl+K            All actions",
+                "Tab / Shift+Tab   Switch input and results",
+                "Enter / Esc       Search, open / return",
+                "↑↓ / PgUp PgDn   Move rows or a page",
+                "Alt+←→           Scroll result columns",
+                "Alt+C / Alt+R     Toggle case / regex",
+                "Ctrl+O            Choose collection",
+                "Ctrl+R / B / S    Recent / saved / save",
+                "Alt+S / L        Sort / select columns",
+                "Alt+E / A        Export record / all",
+                "Ctrl+P / Alt+T   Preview / theme",
+                "",
+                "Detail: 1 2 3   Fields/links/backlinks",
+                "Detail: Tab / Shift+Tab   Next / previous section",
+                "Detail: Enter     Fold or follow link",
+                "Detail: Alt+←→   Previous/next result",
+                "Detail: / n N    Find / next / previous",
+                "Detail: y Y      Copy value / record",
+                "Detail: r        Raw / structured view",
+                "F1 / Ctrl+Q      Help / quit",
+            ]
+        })
         .into_iter()
         .map(Line::from)
         .collect(),
@@ -1126,18 +1302,49 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => app.column_picker,
         Overlay::SaveQuery | Overlay::Export { .. } | Overlay::Help => 0,
     };
-    let start = selected.saturating_sub(inner.height.saturating_sub(1) as usize);
+    let list_area = if overlay == Overlay::Sort && app.single_collection {
+        Rect {
+            height: inner.height.saturating_sub(1),
+            ..inner
+        }
+    } else {
+        inner
+    };
+    let start = selected.saturating_sub(list_area.height.saturating_sub(1) as usize);
     frame.render_widget(
         Paragraph::new(
             lines
                 .into_iter()
                 .skip(start)
-                .take(inner.height as usize)
+                .take(list_area.height as usize)
                 .collect::<Vec<_>>(),
         )
         .style(Style::new().bg(PANEL)),
-        inner,
+        list_area,
     );
+    if overlay == Overlay::Sort && app.single_collection && inner.height > 0 {
+        let input_area = Rect {
+            y: inner.bottom() - 1,
+            height: 1,
+            ..inner
+        };
+        frame.render_widget(
+            Paragraph::new(format!("Expression ❯ {}", app.sort_input.text))
+                .style(Style::new().fg(ACCENT).bg(PANEL)),
+            input_area,
+        );
+        let cursor = app
+            .sort_input
+            .text
+            .chars()
+            .take(app.sort_input.cursor)
+            .collect::<String>();
+        frame.set_cursor_position(Position::new(
+            input_area.x
+                + (13 + cursor.width()).min(input_area.width.saturating_sub(1) as usize) as u16,
+            input_area.y,
+        ));
+    }
     if matches!(overlay, Overlay::SaveQuery | Overlay::Export { .. }) && inner.width > 3 {
         let input = if overlay == Overlay::SaveQuery {
             &app.save_input
@@ -1153,6 +1360,8 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
 }
 
 fn clip(text: &str, width: usize) -> String {
+    let safe = safe_terminal_text(text).replace(['\n', '\t'], " ");
+    let text = safe.as_str();
     if text.width() <= width {
         return text.to_owned();
     }
@@ -1165,6 +1374,18 @@ fn clip(text: &str, width: usize) -> String {
     }
     out.push('…');
     out
+}
+
+fn safe_terminal_text(text: &str) -> String {
+    text.chars()
+        .map(|ch| {
+            if ch.is_control() && ch != '\n' && ch != '\t' {
+                '�'
+            } else {
+                ch
+            }
+        })
+        .collect()
 }
 
 fn pad_clip(text: &str, width: usize) -> String {

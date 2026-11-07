@@ -1,0 +1,37 @@
+{
+  "code_sha": "b5e00011ae",
+  "branch": "integration/short-string-auto-index",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "profile": "release",
+  "rustflags": "",
+  "machine": {
+    "system": "Linux",
+    "node": "work",
+    "release": "7.2.13-200.fc44.x86_64",
+    "version": "#1 SMP PREEMPT_DYNAMIC Mon Oct 26 18:54:52 UTC 2026",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "musenalm_entries": {
+    "count": 4928,
+    "content_sha256": "05e65a41de46ce8a944acd33c5511b722c11198fb9bcbfb89d0ab4e38b1ab1e4"
+  },
+  "fixture_manifests": {
+    "medium": {
+      "variant": "medium",
+      "records": 512,
+      "content_sha256": "9f1170cbe3d9569420469e374c6b22eaa4432489bcc777506ccfeaacebad4d9f"
+    },
+    "uuid": {
+      "variant": "uuid",
+      "records": 100000,
+      "content_sha256": "398436a5e1dd28137147de0fdf30ec165194e3e178b5139019b4c1851eed452a"
+    },
+    "paths": {
+      "variant": "paths",
+      "records": 100,
+      "content_sha256": "9de29ccd69020788e358ac2743d65ade3a7009251b8575a11a955e699e0e1d99"
+    }
+  },
+  "raw_search_timing": "query_complete.search_ns; excludes NDJSON sink_ns"
+}

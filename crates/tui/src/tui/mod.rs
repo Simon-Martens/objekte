@@ -12,12 +12,12 @@ mod test_support;
 mod view;
 
 use std::error::Error;
-use std::path::PathBuf;
 use std::sync::mpsc;
 use std::time::{Duration, Instant};
 
 use app::{Action, App, Focus, Overlay, View};
-use objekte_search_core::repository::{CollectionDefinition, Repository};
+use objekte_search_core::repository::{Repository, SnapshotAction};
+use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
         self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, MouseButton, MouseEvent,
@@ -26,21 +26,52 @@ use ratatui::crossterm::{
     execute,
 };
 
-pub(super) fn run(
-    root: PathBuf,
-    definitions: Vec<CollectionDefinition>,
-) -> Result<(), Box<dyn Error>> {
+#[derive(Clone, Default)]
+pub struct TuiOptions {
+    pub single_collection: bool,
+    pub initial_search: String,
+    pub initial_filter: String,
+    pub offset: usize,
+    pub limit: Option<usize>,
+    pub loading_label: Option<String>,
+    pub interruption: Option<CancellationToken>,
+}
+
+pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+where
+    F: FnOnce() -> Result<Repository, String> + Send + 'static,
+{
     let mut terminal = ratatui::try_init()?;
-    execute!(std::io::stdout(), event::EnableMouseCapture)?;
     let result = (|| -> Result<(), Box<dyn Error>> {
+        execute!(std::io::stdout(), event::EnableMouseCapture)?;
+        let interrupted = || {
+            std::io::Error::new(
+                std::io::ErrorKind::Interrupted,
+                "interactive search interrupted",
+            )
+        };
         let started = Instant::now();
         let (sender, receiver) = mpsc::channel();
-        terminal.draw(|frame| view::draw_loading(frame, started.elapsed()))?;
+        let loading_label = options
+            .loading_label
+            .as_deref()
+            .unwrap_or("Building search index")
+            .to_owned();
+        terminal.draw(|frame| {
+            view::draw_loading_with_label(frame, started.elapsed(), &loading_label)
+        })?;
         std::thread::spawn(move || {
-            let result = Repository::open(root, definitions);
+            let result = loader();
             let _ = sender.send(result);
         });
         let repository = loop {
+            if options
+                .interruption
+                .as_ref()
+                .is_some_and(CancellationToken::is_cancelled)
+            {
+                return Err(interrupted().into());
+            }
             match receiver.try_recv() {
                 Ok(Ok(repository)) => break repository,
                 Ok(Err(error)) => return Err(std::io::Error::other(error).into()),
@@ -49,23 +80,38 @@ pub(super) fn run(
                 }
                 Err(mpsc::TryRecvError::Empty) => {}
             }
-            terminal.draw(|frame| view::draw_loading(frame, started.elapsed()))?;
+            terminal.draw(|frame| {
+                view::draw_loading_with_label(frame, started.elapsed(), &loading_label)
+            })?;
             if event::poll(Duration::from_millis(100))? {
                 match event::read()? {
                     Event::Key(pressed)
                         if pressed.kind != KeyEventKind::Release
                             && (pressed.code == KeyCode::Esc
+                                || (pressed.code == KeyCode::Char('c')
+                                    && pressed.modifiers.contains(KeyModifiers::CONTROL))
                                 || (pressed.code == KeyCode::Char('q')
                                     && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
                     {
+                        if pressed.code == KeyCode::Char('c')
+                            && pressed.modifiers.contains(KeyModifiers::CONTROL)
+                        {
+                            return Err(interrupted().into());
+                        }
                         return Ok(());
                     }
                     _ => {}
                 }
             }
         };
-        let mut app = App::new(repository);
-        let ready = format!("Index ready in {}", view::elapsed_label(started.elapsed()));
+        let action = repository.startup().snapshot_action;
+        let mut app = App::with_options(repository, options);
+        let operation = if action == SnapshotAction::Restored {
+            "Index loaded"
+        } else {
+            "Index built"
+        };
+        let ready = format!("{operation} in {}", view::elapsed_label(started.elapsed()));
         app.status = Some(match app.status.take() {
             Some(status) => format!("{status}  ·  {ready}"),
             None => ready,
@@ -79,6 +125,9 @@ pub(super) fn run(
             view::theme::set_light(light);
         }
         while !app.done {
+            if app.interrupted() {
+                return Err(interrupted().into());
+            }
             app.tick(Instant::now());
             terminal.draw(|frame| view::draw(frame, &mut app))?;
             let poll_ms = if app.busy() { 30 } else { 250 };
@@ -88,6 +137,11 @@ pub(super) fn run(
             loop {
                 match event::read()? {
                     Event::Key(pressed) if pressed.kind != KeyEventKind::Release => {
+                        if pressed.code == KeyCode::Char('c')
+                            && pressed.modifiers.contains(KeyModifiers::CONTROL)
+                        {
+                            return Err(interrupted().into());
+                        }
                         key(&mut app, pressed)
                     }
                     Event::Mouse(mouse) => mouse_event(&mut app, mouse),
@@ -137,22 +191,14 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
             }
         }
         MouseEventKind::Down(MouseButton::Left) if app.overlay.is_none() => {
-            if app.view == View::Detail
-                && !app.record.raw
-                && inside(app.detail_area)
-            {
+            if app.view == View::Detail && !app.record.raw && inside(app.detail_area) {
                 let visible = mouse.row.saturating_sub(app.detail_area.y) as usize;
-                let target = app
-                    .record
-                    .visible_rows
-                    .get(visible)
-                    .copied()
-                    .or_else(|| {
-                        app.record
-                            .visible_rows
-                            .is_empty()
-                            .then(|| app.record.scroll.saturating_add(visible))
-                    });
+                let target = app.record.visible_rows.get(visible).copied().or_else(|| {
+                    app.record
+                        .visible_rows
+                        .is_empty()
+                        .then(|| app.record.scroll.saturating_add(visible))
+                });
                 if let Some(target) = target {
                     app.record.cursor = target;
                     app.toggle_detail_branch();
@@ -232,6 +278,9 @@ fn key(app: &mut App, key: KeyEvent) {
                 KeyCode::Up => app.sort_picker = app.sort_picker.saturating_sub(1),
                 KeyCode::Down => {
                     app.sort_picker = (app.sort_picker + 1).min(app.sort_choices().len() - 1);
+                }
+                _ if app.single_collection => {
+                    app.sort_input.key(key);
                 }
                 _ => {}
             }
@@ -417,8 +466,8 @@ fn key(app: &mut App, key: KeyEvent) {
             KeyCode::Char('y') => app.copy_detail(false),
             KeyCode::Char('Y') => app.copy_detail(true),
             KeyCode::Char('1') => app.jump_detail_section(1),
-            KeyCode::Char('2') => app.jump_detail_section(2),
-            KeyCode::Char('3') => app.jump_detail_section(3),
+            KeyCode::Char('2') if !app.single_collection => app.jump_detail_section(2),
+            KeyCode::Char('3') if !app.single_collection => app.jump_detail_section(3),
             _ => {}
         }
         return;
@@ -484,8 +533,12 @@ fn key(app: &mut App, key: KeyEvent) {
 fn run_action(app: &mut App, action: Action) {
     match action {
         Action::Collections => {
-            app.picker = app.scope;
-            app.overlay = Some(Overlay::Collections);
+            if app.single_collection {
+                app.status = Some(format!("Collection: {}", app.scope_label()));
+            } else {
+                app.picker = app.scope;
+                app.overlay = Some(Overlay::Collections);
+            }
         }
         Action::Sort => {
             if app.scope == 0 {
@@ -496,6 +549,7 @@ fn run_action(app: &mut App, action: Action) {
                     .iter()
                     .position(|choice| choice.as_ref() == app.sort.as_ref())
                     .unwrap_or(0);
+                app.sort_input = input::Input::default();
                 app.overlay = Some(Overlay::Sort);
             }
         }

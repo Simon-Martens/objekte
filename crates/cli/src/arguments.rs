@@ -4,14 +4,12 @@ use std::path::{Component, Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
 
-
 /// The alphabet used by the shared bigram index.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
 pub enum Alphabet {
     Ascii,
     Unicode,
 }
-
 
 /// One invocation of the general JSON search command.
 #[derive(Clone, Debug, Parser)]
@@ -29,6 +27,18 @@ pub struct Arguments {
     /// Search only immediate JSON children.
     #[arg(long)]
     pub no_recurse: bool,
+
+    /// Infer fields and build bounded automatic ordered postings.
+    #[arg(long)]
+    pub auto_index: bool,
+
+    /// Apply one explicitly selected JSON Schema to the files collection.
+    #[arg(long, value_name = "FILE")]
+    pub schema: Option<PathBuf>,
+
+    /// Open the interactive terminal screen for this collection.
+    #[arg(long)]
+    pub tui: bool,
 
     /// Search a literal string without JSON quoting.
     #[arg(long, group = "input", value_name = "TEXT")]
@@ -67,22 +77,25 @@ pub struct Arguments {
     pub diagnostic: bool,
 }
 
-
 /// Canonical collection root and one resolved optional snapshot directory.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedPaths {
     pub root: PathBuf,
     pub index_directory: Option<PathBuf>,
+    pub schema_file: Option<PathBuf>,
 }
-
 
 impl Arguments {
     pub fn validate_input(&self) -> Result<(), String> {
+        if self.tui && self.query_file.is_some() {
+            return Err("--tui cannot be combined with --query-file".into());
+        }
         if self.query.is_none()
             && self.fts.is_none()
             && self.query_file.is_none()
             && self.write_index.is_none()
             && self.load_index.is_none()
+            && !self.tui
         {
             return Err("missing query (or --write-index/--load-index for index-only use)".into());
         }
@@ -112,13 +125,31 @@ impl Arguments {
         {
             return Err("--load-index and --write-index must name the same directory".into());
         }
+        let schema_file = self
+            .schema
+            .as_ref()
+            .map(|path| {
+                let path = if path.is_absolute() {
+                    path.clone()
+                } else {
+                    cwd.join(path)
+                };
+                let path = path
+                    .canonicalize()
+                    .map_err(|error| format!("{}: {error}", path.display()))?;
+                if !path.is_file() {
+                    return Err(format!("{} is not a file", path.display()));
+                }
+                Ok(path)
+            })
+            .transpose()?;
         Ok(ResolvedPaths {
             root,
             index_directory: write.or(read),
+            schema_file,
         })
     }
 }
-
 
 fn index_path(input: &str, cwd: &Path, root: &Path) -> Result<PathBuf, String> {
     let path = if input.is_empty() {

@@ -17,8 +17,12 @@ fn main() {
         eprintln!("obj: signal handler: {error}");
         std::process::exit(2);
     }
-    let stdout = io::stdout();
-    let exit = execution::run(&args, stdout.lock(), &token);
+    let exit = if args.tui {
+        execution::run_tui(&args, &token)
+    } else {
+        let stdout = io::stdout();
+        execution::run(&args, stdout.lock(), &token)
+    };
     if args.diagnostic {
         let timestamp_ms = SystemTime::now()
             .duration_since(SystemTime::UNIX_EPOCH)

@@ -19,6 +19,8 @@ pub struct Discovery {
     pub recursive: bool,
     pub include: Vec<String>,
     pub exclude: Vec<String>,
+    /// Exact source-relative files, including names containing glob syntax.
+    pub exclude_files: Vec<PathBuf>,
     /// Exact directories relative to the collection source root to prune before traversal.
     pub exclude_directories: Vec<PathBuf>,
     pub hidden: bool,
@@ -31,6 +33,7 @@ impl Default for Discovery {
             recursive: false,
             include: Vec::new(),
             exclude: Vec::new(),
+            exclude_files: Vec::new(),
             exclude_directories: Vec::new(),
             hidden: false,
             symlinks: SymlinkPolicy::Skip,
@@ -111,6 +114,10 @@ pub fn discover(
                         .is_some_and(|ext| ext == source.extension())
                     && (rules.include.is_empty() || includes.is_match(selected_path))
                     && !excludes.is_match(selected_path)
+                    && !rules
+                        .exclude_files
+                        .iter()
+                        .any(|excluded| selected_path == excluded)
                 {
                     direct_files.push(path);
                 }
@@ -138,6 +145,10 @@ pub fn discover(
                     .is_some_and(|ext| ext == source.extension())
                 && (rules.include.is_empty() || includes.is_match(selected_path))
                 && !excludes.is_match(selected_path)
+                && !rules
+                    .exclude_files
+                    .iter()
+                    .any(|excluded| selected_path == excluded)
             {
                 aliases
                     .entry(physical)

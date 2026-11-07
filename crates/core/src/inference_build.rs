@@ -14,7 +14,6 @@ use super::{
     InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
 
-
 /// Observations retained for one path while construction batches are admitted.
 struct FieldState {
     path: Vec<String>,
@@ -36,12 +35,17 @@ struct FieldState {
     nonblank_occurrences: u64,
     distinct_nonblank: Option<std::collections::HashSet<String>>,
     values: Option<BTreeMap<ScalarKey, RoaringBitmap>>,
+    short_values: Option<BTreeMap<String, RoaringBitmap>>,
+    short_seen: RoaringBitmap,
+    short_uncovered: RoaringBitmap,
+    short_observed_occurrences: u64,
+    short_estimated_bytes: usize,
+    short_dropped: bool,
     lengths: Option<BTreeMap<Number, RoaringBitmap>>,
     dropped: bool,
     #[cfg(test)]
     key_builds: usize,
 }
-
 
 impl FieldState {
     fn new(path: Vec<String>, mode: InferenceMode) -> Self {
@@ -65,6 +69,12 @@ impl FieldState {
             nonblank_occurrences: 0,
             distinct_nonblank: Some(Default::default()),
             values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
+            short_values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
+            short_seen: RoaringBitmap::new(),
+            short_uncovered: RoaringBitmap::new(),
+            short_observed_occurrences: 0,
+            short_estimated_bytes: 0,
+            short_dropped: false,
             lengths: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             dropped: false,
             #[cfg(test)]
@@ -79,6 +89,12 @@ impl FieldState {
     }
 
     fn drop_values(&mut self) {
+        self.drop_general_values();
+        self.short_values = None;
+        self.short_dropped = true;
+    }
+
+    fn drop_general_values(&mut self) {
         self.values = None;
         self.lengths = None;
         self.dropped = true;
@@ -96,7 +112,8 @@ impl FieldState {
             Value::Number(Number::ExactDecimal(_)) => {
                 self.value_occurrences = self.value_occurrences.saturating_add(1);
                 self.kind(LogicalType::Number);
-                self.drop_values();
+                self.short_uncovered.insert(slot.0);
+                self.drop_general_values();
                 return retained;
             }
             Value::String(_) => LogicalType::String,
@@ -106,12 +123,39 @@ impl FieldState {
             Value::Unixtime(_) => LogicalType::Unixtime,
             Value::Null => {
                 self.null_occurrence.insert(slot.0);
+                self.short_uncovered.insert(slot.0);
                 return retained;
             }
             _ => return retained,
         };
         self.value_occurrences = self.value_occurrences.saturating_add(1);
         self.kind(kind);
+        if let Value::String(text) = value {
+            if text.len() <= policy.short_string_max_utf8_bytes {
+                self.short_observed_occurrences = self.short_observed_occurrences.saturating_add(1);
+                self.short_seen.insert(slot.0);
+                if let Some(values) = &mut self.short_values {
+                    let extra = if let Some(slots) = values.get_mut(text.as_str()) {
+                        usize::from(slots.insert(slot.0)) * 8
+                    } else {
+                        let mut slots = RoaringBitmap::new();
+                        slots.insert(slot.0);
+                        values.insert(text.clone(), slots);
+                        136usize.saturating_add(text.len())
+                    };
+                    self.short_estimated_bytes = self.short_estimated_bytes.saturating_add(extra);
+                    retained = retained.saturating_add(extra);
+                    if self.short_estimated_bytes > policy.max_short_string_index_bytes_per_path {
+                        self.short_values = None;
+                        self.short_dropped = true;
+                    }
+                }
+            } else {
+                self.short_uncovered.insert(slot.0);
+            }
+        } else {
+            self.short_uncovered.insert(slot.0);
+        }
         if let Value::String(value) = value
             && !value.trim().is_empty()
         {
@@ -125,11 +169,17 @@ impl FieldState {
                         > policy.max_distinct_string_bytes
                 {
                     self.distinct_nonblank = None;
-                    self.drop_values();
+                    self.drop_general_values();
                 } else if distinct.insert(value.clone()) {
                     retained += value.len() + 48;
                 }
             }
+        }
+        // Short strings use their own ordered map, with borrowed repeated-key
+        // lookup. The low-cardinality provisional map only needs longer strings.
+        if matches!(value, Value::String(text) if text.len() <= policy.short_string_max_utf8_bytes)
+        {
+            return retained;
         }
         // A dropped provisional dictionary must not keep cloning later values.
         // Check the string bound on the borrowed value before making an owned key.
@@ -138,7 +188,7 @@ impl FieldState {
         }
         match value {
             Value::String(text) if text.len() > policy.max_string_bytes => {
-                self.drop_values();
+                self.drop_general_values();
                 return retained;
             }
             Value::Bool(_) | Value::Number(_) | Value::String(_) => {}
@@ -156,7 +206,7 @@ impl FieldState {
             .as_mut()
             .expect("checked provisional dictionary");
         if values.len() >= policy.max_distinct_values_per_path && !values.contains_key(&key) {
-            self.drop_values();
+            self.drop_general_values();
         } else {
             if !values.contains_key(&key) {
                 retained += 128
@@ -194,6 +244,8 @@ impl FieldState {
                 &other.through_array_records,
             ),
             (&mut self.direct_records, &other.direct_records),
+            (&mut self.short_seen, &other.short_seen),
+            (&mut self.short_uncovered, &other.short_uncovered),
         ] {
             append_shifted_bitmap(target, source, base)?;
         }
@@ -207,6 +259,26 @@ impl FieldState {
             .nonblank_occurrences
             .checked_add(other.nonblank_occurrences)
             .ok_or("inference occurrence overflow")?;
+        self.short_estimated_bytes = self
+            .short_estimated_bytes
+            .saturating_add(other.short_estimated_bytes);
+        self.short_observed_occurrences = self
+            .short_observed_occurrences
+            .checked_add(other.short_observed_occurrences)
+            .ok_or("inference occurrence overflow")?;
+        if self.short_dropped
+            || other.short_dropped
+            || self.short_estimated_bytes > policy.max_short_string_index_bytes_per_path
+        {
+            self.short_values = None;
+            self.short_dropped = true;
+        } else if let (Some(existing), Some(incoming)) =
+            (&mut self.short_values, other.short_values)
+        {
+            for (value, bitmap) in incoming {
+                append_shifted_bitmap(existing.entry(value).or_default(), &bitmap, base)?;
+            }
+        }
         match (&mut self.distinct_nonblank, other.distinct_nonblank) {
             (Some(existing), Some(incoming)) => {
                 for value in incoming {
@@ -223,13 +295,13 @@ impl FieldState {
             _ => self.distinct_nonblank = None,
         }
         if self.dropped || other.dropped || self.distinct_nonblank.is_none() {
-            self.drop_values();
+            self.drop_general_values();
         } else if let (Some(existing), Some(incoming)) = (&mut self.values, other.values) {
             for (key, bitmap) in incoming {
                 if existing.len() >= policy.max_distinct_values_per_path
                     && !existing.contains_key(&key)
                 {
-                    self.drop_values();
+                    self.drop_general_values();
                     break;
                 }
                 append_shifted_bitmap(existing.entry(key).or_default(), &bitmap, base)?;
@@ -243,7 +315,6 @@ impl FieldState {
         Ok(())
     }
 }
-
 
 /// One batch or coordinator's bounded construction-only observation state.
 pub(crate) struct InferenceBuilder {
@@ -261,14 +332,12 @@ pub(crate) struct InferenceBuilder {
     coordinator_limit: usize,
 }
 
-
 /// Reused traversal state for one already parsed logical record.
 struct VisitState {
     slot: RecordSlot,
     path: Vec<ObservedStep>,
     contributions: usize,
 }
-
 
 impl InferenceBuilder {
     pub(crate) fn new(config: InferenceConfig, batch: bool) -> Option<Self> {
@@ -326,7 +395,7 @@ impl InferenceBuilder {
     }
 
     fn field(&mut self, path: &[ObservedStep]) -> Option<usize> {
-        if path.is_empty() || !self.complete {
+        if !self.complete {
             return None;
         }
         if let Some(index) = self.paths.get(path) {
@@ -388,10 +457,19 @@ impl InferenceBuilder {
             }
             return;
         }
-        let index = self.field(&state.path);
+        let index = if state.path.is_empty() && matches!(value, Value::Object(_)) {
+            None
+        } else {
+            self.field(&state.path)
+        };
         if let Some(index) = index {
             let field = &mut self.fields[index];
             let mut charge = 0;
+            if matches!(value, Value::Object(_))
+                || matches!(value, Value::Array(array) if array.values.is_empty())
+            {
+                field.short_uncovered.insert(state.slot.0);
+            }
             if matches!(value, Value::Array(_)) {
                 field.array_nesting = field.array_nesting.max(nesting.saturating_add(1));
             }
@@ -424,6 +502,7 @@ impl InferenceBuilder {
                     }
                     Value::Object(_) => {
                         field.object_records.insert(state.slot.0);
+                        field.short_uncovered.insert(state.slot.0);
                     }
                     _ => {
                         field.scalar_records.insert(state.slot.0);
@@ -482,7 +561,7 @@ impl InferenceBuilder {
             path: Vec::new(),
             contributions: 0,
         };
-        self.visit(value, &mut state, false, false, 0);
+        self.visit(value, &mut state, true, false, 0);
         for (index, (count, sole_null)) in self.selected.drain() {
             if count == 1 && sole_null {
                 self.fields[index].exact_null.insert(slot.0);
@@ -538,6 +617,7 @@ impl InferenceBuilder {
         let mut report_fields = Vec::with_capacity(self.fields.len());
         let mut indexes = HashMap::new();
         let mut empty_selections = HashMap::new();
+        let mut short_string_coverage = HashMap::new();
         self.fields.sort_by(|a, b| a.path.cmp(&b.path));
         for mut field in self.fields {
             for depth in 1..field.path.len() {
@@ -576,6 +656,17 @@ impl InferenceBuilder {
             } else {
                 true
             };
+            let has_short_values = field
+                .short_values
+                .as_ref()
+                .is_some_and(|values| !values.is_empty());
+            let short_covered = &field.short_seen - &field.short_uncovered;
+            let short_covered_count = if has_short_values {
+                short_covered.len()
+            } else {
+                0
+            };
+            let short_distinct_count = field.short_values.as_ref().map_or(0, BTreeMap::len);
             let (status, reason) = if !self.complete {
                 (
                     InferenceIndexStatus::Incomplete,
@@ -588,10 +679,20 @@ impl InferenceBuilder {
                     InferenceIndexStatus::Redundant,
                     "declared posting already exists",
                 )
-            } else if declared.is_some() {
+            } else if schema.is_auto_index_prohibited(&field.path) {
                 (
                     InferenceIndexStatus::ExplicitOptOut,
                     "declared field disabled indexing",
+                )
+            } else if has_short_values {
+                (
+                    InferenceIndexStatus::Built,
+                    "ordered short-string postings with residual coverage",
+                )
+            } else if field.short_dropped && field.short_seen.len() > 0 {
+                (
+                    InferenceIndexStatus::BudgetExceeded,
+                    "short-string index exceeded its per-path memory budget",
                 )
             } else if field.dropped || field.values.is_none() {
                 (
@@ -623,8 +724,34 @@ impl InferenceBuilder {
                 )
             };
             let mut index_bytes = 0usize;
+            let published_short_covered = if status == InferenceIndexStatus::Built {
+                short_covered_count
+            } else {
+                0
+            };
             if status == InferenceIndexStatus::Built {
-                let kind = scalar_kind.unwrap();
+                let kind = if has_short_values {
+                    LogicalType::String
+                } else {
+                    scalar_kind.clone().unwrap()
+                };
+                let mut values = if has_short_values {
+                    field
+                        .short_values
+                        .take()
+                        .unwrap_or_default()
+                        .into_iter()
+                        .map(|(key, slots)| (ScalarKey::String(key), slots))
+                        .collect::<BTreeMap<_, _>>()
+                } else {
+                    field.values.take().unwrap_or_default()
+                };
+                if has_short_values && string_admissible && scalar_kind == Some(LogicalType::String)
+                {
+                    for (key, slots) in field.values.take().unwrap_or_default() {
+                        *values.entry(key).or_default() |= slots;
+                    }
+                }
                 let mut index = PostingIndex {
                     path: field.path.clone(),
                     kind,
@@ -632,7 +759,7 @@ impl InferenceBuilder {
                         || !field.through_array_records.is_empty(),
                     presence: field.present.clone(),
                     nulls: field.exact_null.clone(),
-                    values: field.values.take().unwrap_or_default(),
+                    values,
                     lengths: field.lengths.take().unwrap_or_default(),
                     covered_records: self.eligible,
                     stats: PostingStats::default(),
@@ -656,6 +783,9 @@ impl InferenceBuilder {
                         .map(|slots| 64 + slots.serialized_size())
                         .sum::<usize>();
                 empty_selections.insert(field.path.clone(), field.empty_selection.clone());
+                if has_short_values {
+                    short_string_coverage.insert(field.path.clone(), short_covered);
+                }
                 indexes.insert(field.path.clone(), index);
             }
             let summary_bytes_estimate = 256
@@ -691,9 +821,13 @@ impl InferenceBuilder {
                     .distinct_nonblank
                     .as_ref()
                     .map(std::collections::HashSet::len),
+                short_string_observed_occurrences: field.short_observed_occurrences,
+                short_string_distinct_values: short_distinct_count,
+                short_string_covered_records: published_short_covered,
+                short_string_unresolved_records: logical.len() - published_short_covered,
                 index_status: status,
                 reason: reason.into(),
-                complete: self.complete && field.distinct_nonblank.is_some(),
+                complete: self.complete && (has_short_values || field.distinct_nonblank.is_some()),
                 summary_bytes_estimate,
                 index_bytes_estimate: index_bytes,
                 retained_bytes_estimate,
@@ -735,10 +869,10 @@ impl InferenceBuilder {
             report,
             indexes,
             empty_selections,
+            short_string_coverage,
         })
     }
 }
-
 
 #[cfg(test)]
 mod allocation_tests {
@@ -773,6 +907,7 @@ mod allocation_tests {
 
         let mut indexed = FieldState::new(vec!["indexed".into()], InferenceMode::AutoIndex);
         indexed.add_scalar(RecordSlot(0), &Value::String("value".into()), policy);
-        assert_eq!(indexed.key_builds, 1);
+        assert_eq!(indexed.key_builds, 0);
+        assert_eq!(indexed.short_values.as_ref().unwrap().len(), 1);
     }
 }

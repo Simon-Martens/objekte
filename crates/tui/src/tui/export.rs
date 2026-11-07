@@ -69,6 +69,7 @@ pub(super) fn all(
     mut query: Query,
     source: &settings::Query,
     path: &Path,
+    limit: Option<usize>,
 ) -> Result<usize, String> {
     let file = OpenOptions::new()
         .write(true)
@@ -89,10 +90,16 @@ pub(super) fn all(
             "{{\n  \"kind\": \"search\",\n  \"query\": {source},\n  \"hits\": [\n"
         )
         .map_err(|error| error.to_string())?;
-        let mut offset = 0;
+        let mut offset = query.options.offset;
+        let start = offset;
         let mut expected = None;
         loop {
             query.options.offset = offset;
+            query.options.limit =
+                limit.map_or(100, |limit| 100.min(limit.saturating_sub(offset - start)));
+            if query.options.limit == 0 {
+                break;
+            }
             let page = repo.search(&query)?;
             let total = page.count.ok_or("export requires an exact count")?;
             if expected.is_some_and(|count| count != total) {
@@ -103,7 +110,7 @@ pub(super) fn all(
                 return Err("query returned an incomplete export page".into());
             }
             for hit in &page.hits {
-                if offset > 0 {
+                if offset > start {
                     writer
                         .write_all(b",\n")
                         .map_err(|error| error.to_string())?;
@@ -112,13 +119,15 @@ pub(super) fn all(
                     .map_err(|error| error.to_string())?;
                 offset += 1;
             }
-            if offset >= total {
+            if offset >= total || limit.is_some_and(|limit| offset - start >= limit) {
                 break;
             }
         }
-        write!(writer, "\n  ],\n  \"total\": {offset}\n}}\n").map_err(|error| error.to_string())?;
+        let exported = offset - start;
+        write!(writer, "\n  ],\n  \"total\": {exported}\n}}\n")
+            .map_err(|error| error.to_string())?;
         writer.flush().map_err(|error| error.to_string())?;
-        Ok(offset)
+        Ok(exported)
     })();
     drop(writer);
     if outcome.is_err() {

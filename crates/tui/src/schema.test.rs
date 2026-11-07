@@ -1,4 +1,5 @@
 use super::*;
+use objekte_search_core::model::LogicalType;
 use objekte_search_core::query::{CaseSensitivity, FtsMode};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::relation::RelationCardinality;

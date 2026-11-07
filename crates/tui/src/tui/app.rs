@@ -7,18 +7,22 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{
-    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Operand, Query, QueryOptions, RegexOptions,
-    parse_filter,
+    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
+    RegexOptions, parse_filter, parse_structured_filter,
 };
 use objekte_search_core::query_path::QueryPath;
 use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
+use objekte_search_core::streaming::{
+    CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
+};
 use objekte_search_core::workload::{ReturnMode, SortField};
 use ratatui::layout::Rect;
 use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
 
+use super::TuiOptions;
 use super::export;
 use super::input::Input;
-use super::record::{self, RecordState};
+use super::record::{self, DisplayRow, RecordState};
 use super::relations::{self, LinkAction, RelationRow};
 use super::settings::{self, Settings};
 
@@ -30,12 +34,18 @@ fn fold_find(text: &str) -> String {
         .collect()
 }
 
-fn collect_filter_fields(filter: &FilterExpr, fields: &mut BTreeSet<String>) {
+fn push_unique(fields: &mut Vec<String>, name: String) {
+    if !name.is_empty() && !fields.contains(&name) {
+        fields.push(name);
+    }
+}
+
+fn collect_filter_fields(filter: &FilterExpr, fields: &mut Vec<String>) {
     match filter {
         FilterExpr::Term(term) => {
-            fields.insert(term.path.field.display());
+            push_unique(fields, field_label(&term.path.display, &term.modifiers));
             if let Operand::Field(field) = &term.operand {
-                fields.insert(field.path.field.display());
+                push_unique(fields, field_label(&field.path.display, &field.modifiers));
             }
         }
         FilterExpr::And(parts) | FilterExpr::Or(parts) => {
@@ -47,6 +57,31 @@ fn collect_filter_fields(filter: &FilterExpr, fields: &mut BTreeSet<String>) {
     }
 }
 
+fn field_label(path: &str, modifiers: &[Modifier]) -> String {
+    if path == "@record.id" {
+        return String::new();
+    }
+    let mut label = if path == "id" {
+        "@root.id".to_owned()
+    } else if path.starts_with('@') {
+        path.to_owned()
+    } else {
+        path.to_owned()
+    };
+    for modifier in modifiers {
+        let name = match modifier {
+            Modifier::Lower => "lower",
+            Modifier::Length => "length",
+            Modifier::Each => "each",
+            Modifier::Null => "null",
+            Modifier::Exists => "exists",
+            Modifier::Custom(name) => name,
+        };
+        label.push(':');
+        label.push_str(name);
+    }
+    label
+}
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Focus {
@@ -55,13 +90,11 @@ pub(super) enum Focus {
     Results,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
     Detail,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum Overlay {
@@ -75,7 +108,6 @@ pub(super) enum Overlay {
     Export { all: bool },
     Help,
 }
-
 
 /// Commands exposed by the action picker and their keyboard shortcuts.
 #[derive(Clone, Copy, Debug)]
@@ -94,7 +126,6 @@ pub(super) enum Action {
     Theme,
     Help,
 }
-
 
 impl Action {
     pub(super) const ALL: [Self; 13] = [
@@ -132,7 +163,6 @@ impl Action {
     }
 }
 
-
 /// Search response tagged with the input generation and requested page.
 struct Update {
     generation: u64,
@@ -141,10 +171,14 @@ struct Update {
     result: Result<SearchResult, String>,
 }
 
-
 /// Query inputs, page state, and terminal navigation for one repository.
 pub(super) struct App {
     repo: Arc<Repository>,
+    pub(super) single_collection: bool,
+    base_offset: usize,
+    result_limit: Option<usize>,
+    active_columns: Vec<String>,
+    cli_hidden: BTreeSet<String>,
     pub(super) search: Input,
     pub(super) filter: Input,
     pub(super) focus: Focus,
@@ -153,6 +187,7 @@ pub(super) struct App {
     pub(super) scope: usize,
     pub(super) picker: usize,
     pub(super) sort_picker: usize,
+    pub(super) sort_input: Input,
     pub(super) action_picker: usize,
     pub(super) list_picker: usize,
     pub(super) column_picker: usize,
@@ -166,6 +201,9 @@ pub(super) struct App {
     pub(super) regex: bool,
     pub(super) show_preview: bool,
     pub(super) hits: Vec<SearchHit>,
+    pub(super) display_rows: Vec<DisplayRow>,
+    window_start: usize,
+    next_offset: usize,
     pub(super) total: usize,
     pub(super) selected: usize,
     pub(super) scroll: usize,
@@ -182,33 +220,52 @@ pub(super) struct App {
     pub(super) error: Option<String>,
     pub(super) searching: bool,
     pub(super) last_search_duration: Option<Duration>,
+    pub(super) last_projection_duration: Option<Duration>,
     pub(super) done: bool,
     generation: u64,
     pending: Option<Instant>,
     requested_offset: Option<usize>,
+    inflight: usize,
+    queued_offset: Option<usize>,
+    current_token: Option<CancellationToken>,
+    interruption: Option<CancellationToken>,
     sender: mpsc::Sender<Update>,
     receiver: mpsc::Receiver<Update>,
 }
 
-
 impl App {
+    #[cfg(test)]
     pub(super) fn new(repository: Repository) -> Self {
+        Self::with_options(repository, TuiOptions::default())
+    }
+
+    pub(super) fn with_options(repository: Repository, options: TuiOptions) -> Self {
         let (sender, receiver) = mpsc::channel();
-        let settings_path = Settings::path(&repository.files().root);
+        let settings_path = if options.single_collection {
+            repository.files().root.join(".objekte/.cache/obj-tui.json")
+        } else {
+            Settings::path(&repository.files().root)
+        };
         let (settings, status) = match Settings::load(&settings_path) {
             Ok(settings) => (settings, None),
             Err(error) => (Settings::default(), Some(format!("Settings: {error}"))),
         };
         let mut app = Self {
             repo: Arc::new(repository),
-            search: Input::default(),
-            filter: Input::default(),
+            single_collection: options.single_collection,
+            base_offset: options.offset,
+            result_limit: options.limit,
+            active_columns: Vec::new(),
+            cli_hidden: BTreeSet::new(),
+            search: Input::with_text(&options.initial_search),
+            filter: Input::with_text(&options.initial_filter),
             focus: Focus::Search,
             view: View::Results,
             overlay: None,
-            scope: 0,
+            scope: usize::from(options.single_collection),
             picker: 0,
             sort_picker: 0,
+            sort_input: Input::default(),
             action_picker: 0,
             list_picker: 0,
             column_picker: 0,
@@ -222,6 +279,9 @@ impl App {
             regex: false,
             show_preview: true,
             hits: Vec::new(),
+            display_rows: Vec::new(),
+            window_start: 0,
+            next_offset: 0,
             total: 0,
             selected: 0,
             scroll: 0,
@@ -238,10 +298,15 @@ impl App {
             error: None,
             searching: false,
             last_search_duration: None,
+            last_projection_duration: None,
             done: false,
             generation: 0,
             pending: None,
             requested_offset: None,
+            inflight: 0,
+            queued_offset: None,
+            current_token: None,
+            interruption: options.interruption,
             sender,
             receiver,
         };
@@ -281,15 +346,22 @@ impl App {
     pub(super) fn open_detail(&mut self) {
         if let Some(hit) = self.selected_hit().cloned() {
             self.view = View::Detail;
-            self.detail_hit = Some(hit);
             self.detail_history.clear();
             self.record.reset();
+            if self.single_collection {
+                self.record.load(&hit);
+            }
+            self.detail_hit = Some(hit);
             self.detail_scroll = 0;
             self.refresh_relations();
         }
     }
 
     pub(super) fn refresh_relations(&mut self) {
+        if self.single_collection {
+            self.relation_rows.clear();
+            return;
+        }
         self.relation_rows = self
             .current_detail_hit()
             .map_or_else(Vec::new, |hit| relations::rows(&self.repo, hit));
@@ -557,6 +629,12 @@ impl App {
         self.searching || self.pending.is_some()
     }
 
+    pub(super) fn interrupted(&self) -> bool {
+        self.interruption
+            .as_ref()
+            .is_some_and(CancellationToken::is_cancelled)
+    }
+
     pub(super) fn current_query(&self) -> settings::Query {
         settings::Query {
             search: self.search.text.clone(),
@@ -594,7 +672,7 @@ impl App {
                     .iter()
                     .position(|collection| collection.definition.name == name)
             })
-            .map_or(0, |index| index + 1);
+            .map_or(usize::from(self.single_collection), |index| index + 1);
         self.column_offset = 0;
         self.sort = None;
         self.view = View::Results;
@@ -648,6 +726,14 @@ impl App {
         if self.scope == 0 {
             return choices;
         }
+        if self.single_collection {
+            for field in self.column_keys() {
+                for descending in [false, true] {
+                    choices.push(Some(SortField::simple(field.clone(), descending)));
+                }
+            }
+            return choices;
+        }
         let collection = &self.repo.collections()[self.scope - 1];
         for path in &collection.definition.sort_fields {
             if path.root == objekte_search_core::model::PathRoot::Backlinks {
@@ -680,6 +766,9 @@ impl App {
     }
 
     pub(super) fn column_keys(&self) -> Vec<String> {
+        if self.single_collection {
+            return self.active_columns.clone();
+        }
         let mut keys = BTreeSet::new();
         for collection in self.repo.collections() {
             if self.scope == 0 || collection.definition.name == self.scope_label() {
@@ -711,8 +800,17 @@ impl App {
     }
 
     pub(super) fn visible_columns(&self) -> Vec<String> {
+        if self.single_collection {
+            return self
+                .active_columns
+                .iter()
+                .filter(|field| !self.cli_hidden.contains(*field))
+                .cloned()
+                .collect();
+        }
         let hidden = self.settings.hidden(self.scope_name());
-        let mut columns = self.column_keys()
+        let mut columns = self
+            .column_keys()
             .into_iter()
             .filter(|key| !hidden.contains(key))
             .collect::<Vec<_>>();
@@ -727,7 +825,13 @@ impl App {
             }
         }
         if let Ok(filter) = parse_filter(self.filter.text.trim()) {
-            collect_filter_fields(&filter, &mut searched);
+            let mut fields = Vec::new();
+            collect_filter_fields(&filter, &mut fields);
+            searched.extend(fields.into_iter().filter_map(|field| {
+                QueryPath::parse(field.split(':').next().unwrap_or(&field))
+                    .ok()
+                    .map(|path| path.field.display())
+            }));
         }
         columns.sort_by_key(|key| {
             if searched.contains(key) {
@@ -743,6 +847,15 @@ impl App {
 
     pub(super) fn toggle_column(&mut self) {
         if let Some(key) = self.column_keys().get(self.column_picker) {
+            if self.single_collection {
+                if !self.cli_hidden.insert(key.clone()) {
+                    self.cli_hidden.remove(key);
+                }
+                self.column_offset = self
+                    .column_offset
+                    .min(self.visible_columns().len().saturating_sub(1));
+                return;
+            }
             let scope = self.scope_name().map(str::to_owned);
             self.settings.toggle_column(scope.as_deref(), key);
             self.column_offset = self
@@ -762,20 +875,34 @@ impl App {
     }
 
     pub(super) fn changed(&mut self, now: Instant) {
+        if let Some(token) = self.current_token.take() {
+            token.cancel();
+        }
+        self.queued_offset = None;
         self.generation = self.generation.wrapping_add(1);
         self.pending = Some(now + DEBOUNCE);
         self.searching = true;
         self.error = None;
         self.status = None;
         self.last_search_duration = None;
+        self.last_projection_duration = None;
     }
 
     pub(super) fn request_search(&mut self) {
+        if let Some(token) = self.current_token.take() {
+            token.cancel();
+        }
+        self.queued_offset = None;
         self.generation = self.generation.wrapping_add(1);
         self.pending = None;
         self.status = None;
         self.error = None;
         self.hits.clear();
+        self.display_rows.clear();
+        self.window_start = 0;
+        self.next_offset = 0;
+        self.column_offset = 0;
+        self.active_columns.clear();
         self.total = 0;
         self.selected = 0;
         self.scroll = 0;
@@ -785,11 +912,13 @@ impl App {
         self.relation_rows.clear();
         self.requested_offset = None;
         self.last_search_duration = None;
+        self.last_projection_duration = None;
         self.launch(0);
     }
 
     pub(super) fn tick(&mut self, now: Instant) {
         while let Ok(update) = self.receiver.try_recv() {
+            self.inflight = self.inflight.saturating_sub(1);
             if update.generation != self.generation {
                 continue;
             }
@@ -802,20 +931,78 @@ impl App {
                         self.error = Some("search omitted the requested count".into());
                         continue;
                     };
-                    self.total = total;
-                    if update.offset == 0 {
+                    self.total = self
+                        .result_limit
+                        .map_or(total.saturating_sub(self.base_offset), |limit| {
+                            limit.min(total.saturating_sub(self.base_offset))
+                        });
+                    if self.single_collection
+                        && update.offset + result.hits.len() == self.window_start
+                        && !self.hits.is_empty()
+                    {
+                        let added = result.hits.len();
+                        self.hits.splice(0..0, result.hits);
+                        self.window_start = update.offset;
+                        self.selected = added.saturating_sub(1);
+                        self.scroll = self
+                            .selected
+                            .saturating_sub(self.viewport_rows.saturating_sub(1));
+                        self.hits.truncate(3 * PAGE_SIZE);
+                        self.next_offset = self.window_start + self.hits.len();
+                    } else if update.offset == 0 {
                         self.hits = result.hits;
-                    } else if update.offset == self.hits.len() {
+                        self.next_offset = self.hits.len();
+                    } else if update.offset == self.next_offset {
+                        self.next_offset += result.hits.len();
                         self.hits.extend(result.hits);
+                        if self.single_collection && self.hits.len() > 3 * PAGE_SIZE {
+                            let drop = self.hits.len() - 3 * PAGE_SIZE;
+                            self.hits.drain(..drop);
+                            self.window_start += drop;
+                            self.selected = self.selected.saturating_sub(drop);
+                            self.scroll = self.scroll.saturating_sub(drop);
+                        }
+                    }
+                    if self.single_collection {
+                        let projection_started = Instant::now();
+                        self.display_rows = self
+                            .hits
+                            .iter()
+                            .map(|hit| {
+                                record::display_row(
+                                    hit,
+                                    &self.active_columns,
+                                    self.search.text.trim(),
+                                    self.case_sensitive,
+                                    self.regex,
+                                )
+                            })
+                            .collect();
+                        self.last_projection_duration = Some(projection_started.elapsed());
+                        if let Some(hit) = self.selected_hit().cloned() {
+                            self.record.load(&hit);
+                        }
                     }
                     self.error = None;
                 }
-                Err(error) => self.error = Some(error),
+                Err(error) => {
+                    self.active_columns.clear();
+                    self.error = Some(error);
+                }
+            }
+        }
+        if self.inflight < 2 {
+            if let Some(offset) = self.queued_offset.take() {
+                self.launch(offset);
             }
         }
         if self.pending.is_some_and(|at| at <= now) {
             self.pending = None;
             self.hits.clear();
+            self.display_rows.clear();
+            self.window_start = 0;
+            self.next_offset = 0;
+            self.column_offset = 0;
             self.total = 0;
             self.selected = 0;
             self.scroll = 0;
@@ -828,10 +1015,10 @@ impl App {
             && self.requested_offset.is_none()
             && !self.searching
             && self.error.is_none()
-            && self.total > self.hits.len()
+            && self.total > self.next_offset
             && self.selected.saturating_add(30) >= self.hits.len()
         {
-            self.launch(self.hits.len());
+            self.launch(self.next_offset);
         }
     }
 
@@ -844,14 +1031,56 @@ impl App {
                 return;
             }
         };
+        if self.single_collection {
+            let mut fields = Vec::new();
+            if let Some(filter) = &query.filter {
+                collect_filter_fields(filter, &mut fields);
+            }
+            for sort in &query.options.sort {
+                let label = sort_label(sort);
+                push_unique(&mut fields, label);
+            }
+            self.active_columns = fields;
+            self.cli_hidden
+                .retain(|field| self.active_columns.contains(field));
+        }
         let repository = Arc::clone(&self.repo);
         let sender = self.sender.clone();
         let generation = self.generation;
         self.searching = true;
         self.requested_offset = Some(offset);
+        if self.inflight >= 2 {
+            self.queued_offset = Some(offset);
+            return;
+        }
+        self.inflight += 1;
+        let token = CancellationToken::new();
+        self.current_token = Some(token.clone());
+        let single_collection = self.single_collection;
         std::thread::spawn(move || {
             let started = Instant::now();
-            let result = repository.search(&query);
+            let result = if single_collection {
+                let mut page = Vec::new();
+                let mut options = StreamOptions::default();
+                options.mode = StreamMode::PageReplacements;
+                let outcome = repository.search_stream(&query, options, &token, &mut |event| {
+                    if let StreamEvent::PageReplacement { rows, .. } = event {
+                        page = rows.to_vec();
+                    }
+                    Ok(objekte_search_core::streaming::StreamControl::Continue)
+                });
+                match outcome {
+                    Ok(StreamOutcome::Complete(summary)) => Ok(SearchResult {
+                        count: summary.count,
+                        hits: page,
+                        counters: summary.counters,
+                    }),
+                    Ok(StreamOutcome::Cancelled(_)) => Err("search cancelled".into()),
+                    Err(error) => Err(error.to_string()),
+                }
+            } else {
+                repository.search(&query)
+            };
             let _ = sender.send(Update {
                 generation,
                 offset,
@@ -864,6 +1093,12 @@ impl App {
     fn query(&self, offset: usize) -> Result<Query, String> {
         let filter = self.filter.text.trim();
         let search = self.search.text.trim();
+        let parsed = (!filter.is_empty())
+            .then(|| parse_structured_filter(filter))
+            .transpose()?;
+        if parsed.as_ref().is_some_and(|parsed| parsed.sort.is_some()) && self.sort.is_some() {
+            return Err("inline SORT BY conflicts with independent sort options".into());
+        }
         Ok(Query {
             collections: if self.scope == 0 {
                 Vec::new()
@@ -885,13 +1120,15 @@ impl App {
                 literal: search.to_owned(),
                 fields: Vec::new(),
             }),
-            filter: (!filter.is_empty())
-                .then(|| parse_filter(filter))
-                .transpose()?,
+            filter: parsed.as_ref().and_then(|parsed| parsed.filter.clone()),
             options: QueryOptions {
-                sort: self.sort.iter().cloned().collect(),
-                limit: PAGE_SIZE,
-                offset,
+                sort: parsed
+                    .and_then(|parsed| parsed.sort)
+                    .unwrap_or_else(|| self.sort.iter().cloned().collect()),
+                limit: self.result_limit.map_or(PAGE_SIZE, |limit| {
+                    PAGE_SIZE.min(limit.saturating_sub(offset))
+                }),
+                offset: self.base_offset.saturating_add(offset),
                 count: true,
                 return_mode: ReturnMode::Bytes,
                 evidence: true,
@@ -903,6 +1140,15 @@ impl App {
         if self.hits.is_empty() {
             return;
         }
+        if self.single_collection
+            && delta < 0
+            && self.selected == 0
+            && self.window_start > 0
+            && self.requested_offset.is_none()
+        {
+            self.launch(self.window_start.saturating_sub(PAGE_SIZE));
+            return;
+        }
         let previous = self.selected;
         self.selected = self
             .selected
@@ -911,6 +1157,11 @@ impl App {
         if self.selected != previous {
             self.detail_scroll = 0;
             self.record.reset();
+            if self.single_collection {
+                if let Some(hit) = self.selected_hit().cloned() {
+                    self.record.load(&hit);
+                }
+            }
         }
         let rows = self.viewport_rows.max(1);
         if self.selected < self.scroll {
@@ -921,7 +1172,11 @@ impl App {
     }
 
     pub(super) fn choose_scope(&mut self) {
-        self.scope = self.picker.min(self.repo.collections().len());
+        self.scope = if self.single_collection {
+            1
+        } else {
+            self.picker.min(self.repo.collections().len())
+        };
         self.sort = None;
         self.column_offset = 0;
         self.view = View::Results;
@@ -930,6 +1185,18 @@ impl App {
     }
 
     pub(super) fn choose_sort(&mut self) {
+        if self.single_collection && !self.sort_input.text.trim().is_empty() {
+            match parse_structured_filter(&format!("SORT BY {}", self.sort_input.text.trim())) {
+                Ok(parsed) if parsed.sort.as_ref().is_some_and(|sort| sort.len() == 1) => {
+                    self.sort = parsed.sort.and_then(|mut sort| sort.pop());
+                    self.overlay = None;
+                    self.request_search();
+                }
+                Ok(_) => self.status = Some("Enter one sort expression".into()),
+                Err(error) => self.status = Some(error),
+            }
+            return;
+        }
         self.sort = self.sort_choices().get(self.sort_picker).cloned().flatten();
         self.view = View::Results;
         self.overlay = None;
@@ -943,8 +1210,15 @@ impl App {
             return;
         }
         let result = if all {
-            self.query(0)
-                .and_then(|query| export::all(&self.repo, query, &self.current_query(), &path))
+            self.query(0).and_then(|query| {
+                export::all(
+                    &self.repo,
+                    query,
+                    &self.current_query(),
+                    &path,
+                    self.result_limit,
+                )
+            })
         } else {
             self.selected_hit()
                 .ok_or("No record selected".to_owned())
@@ -960,6 +1234,20 @@ impl App {
     }
 }
 
+fn sort_label(sort: &SortField) -> String {
+    let Some(expression) = &sort.expression else {
+        return field_label(&sort.field, &[]);
+    };
+    let mut path = field_label(&expression.path, &[]);
+    if let Some(binding) = &expression.binding {
+        path = format!("{path}:{binding}");
+    }
+    if let Some(reducer) = expression.reducer {
+        format!("{}({path})", format!("{reducer:?}").to_uppercase())
+    } else {
+        path
+    }
+}
 
 #[cfg(test)]
 #[path = "app.test.rs"]

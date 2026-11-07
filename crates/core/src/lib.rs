@@ -4,7 +4,7 @@
 //! workload execution live in the CLI integration layer.
 
 /// Version of the in-memory search model and future snapshot envelope.
-pub const MODEL_VERSION: u32 = 9;
+pub const MODEL_VERSION: u32 = 10;
 
 pub mod bigram;
 mod build;
@@ -33,6 +33,7 @@ mod relation_query;
 mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
+pub mod schema_adapter;
 pub mod run;
 mod sort_binding;
 pub mod sorting;
