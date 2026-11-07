@@ -4,7 +4,7 @@ use std::collections::HashMap;
 
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FieldPath, LogicalType, PathRoot, RecordSlot, Value};
-use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Query, Term};
+use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier, Term};
 use crate::query_path::{PathStep, QueryPath};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, bind_field_probe, bind_filter_with_parameters,
@@ -228,26 +228,6 @@ pub(crate) fn bind_filter_with_relations(
             parameter_types,
         )?))),
     }
-}
-
-pub(crate) fn reject_related_sort(repo: &Repository, query: &Query) -> Result<(), String> {
-    for field in &query.options.sort {
-        let path = QueryPath::parse(&field.field)?;
-        for (index, collection) in repo.collections.iter().enumerate() {
-            if !query.collections.is_empty()
-                && !query.collections.contains(&collection.definition.name)
-            {
-                continue;
-            }
-            if resolve_path(repo, index, &path)?.is_some() {
-                return Err(format!(
-                    "related sort field is not supported: {}",
-                    field.field
-                ));
-            }
-        }
-    }
-    Ok(())
 }
 
 /// Bind selected relation fields against the target collection's schema.
@@ -960,7 +940,11 @@ fn visit_hop(
                 collection_name: &collection.definition.name,
                 repository_root: &repo.files.root,
             };
-            merge_truth(truth, Some(terminal(&ctx, &[], source_positions)?), quantifier);
+            merge_truth(
+                truth,
+                Some(terminal(&ctx, &[], source_positions)?),
+                quantifier,
+            );
             return Ok(());
         }
         let file = &repo.files.files[record.file.0 as usize];

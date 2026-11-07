@@ -4,7 +4,7 @@ use std::collections::{HashMap, VecDeque};
 
 use crate::query::Query;
 use crate::reference::{BoundExpr, BoundFts};
-use crate::repository::{Repository, validate_sort};
+use crate::repository::Repository;
 
 
 /// Bound query terms for the selected collection generations.
@@ -84,12 +84,8 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
     let key = bincode::serialize(&(&query.collections, &query.filter, &query.fts))
         .map_err(|error| format!("prepared query key: {error}"))?;
     if let Some(found) = repo.prepared.lock().map_err(|e| e.to_string())?.get(&key) {
-        crate::relation_query::reject_related_sort(repo, query)?;
-        validate_sort(repo, query)?;
         return Ok((found, true));
     }
-    crate::relation_query::reject_related_sort(repo, query)?;
-    validate_sort(repo, query)?;
     let mut collections = Vec::new();
     let mut parameter_types = HashMap::new();
     for (index, collection) in repo.collections.iter().enumerate() {

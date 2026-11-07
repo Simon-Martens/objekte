@@ -1038,7 +1038,6 @@ impl Repository {
         if bound.is_empty() {
             return Err("unknown or unloaded collection scope".into());
         }
-        crate::relation_query::reject_related_sort(self, query)?;
         validate_sort(self, query)?;
         let mut hits = Vec::new();
         let mut counters = WorkCounters {
@@ -1052,6 +1051,10 @@ impl Repository {
             distinct_files: 0,
             bytes_read: 0,
             peak_retained_payload_bytes: 0,
+            sort_key_evaluations: 0,
+            peak_retained_sort_key_bytes: 0,
+            sort_target_reads: 0,
+            sort_target_reuse: 0,
             record_parses: 0,
             raw_text_verifications: 0,
             residual_evaluations: 0,
@@ -1227,7 +1230,7 @@ impl Repository {
             }
         }
         counters.distinct_files = files_read.len() as u64;
-        sort_rows(self, query, &mut hits);
+        sort_rows(self, query, &mut hits, &mut counters)?;
         let count = hits.len();
         counters.total_matches = count as u64;
         counters.match_count_complete = true;
@@ -1258,54 +1261,115 @@ impl Repository {
 
 
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
-    for field in &query.options.sort {
-        let mut expected = None;
-        for collection in &repo.collections {
-            if !query.collections.is_empty()
-                && !query.collections.contains(&collection.definition.name)
-            {
-                continue;
-            }
-            let column = collection.sorting.column(&field.field)?;
-            let definition = (
-                &column.kind,
-                &column.locale,
-                &column.options,
-                &column.collation_version,
-            );
-            if expected.as_ref().is_some_and(|prior| *prior != definition) {
-                return Err(format!(
-                    "incompatible cross-collection sort: {}",
-                    field.field
-                ));
-            }
-            expected = Some(definition);
-        }
-    }
-    Ok(())
+    crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())
 }
 
-pub(crate) fn sort_rows(repo: &Repository, query: &Query, hits: &mut [(usize, u32, SearchHit)]) {
+pub(crate) fn sort_rows(
+    repo: &Repository,
+    query: &Query,
+    hits: &mut [(usize, u32, SearchHit)],
+    counters: &mut WorkCounters,
+) -> Result<(), String> {
+    let bound = crate::sort_binding::BoundSort::bind(repo, query)?;
+    if bound.has_computed {
+        let target_cache = Mutex::new(crate::sort_binding::SortTargetCache::default());
+        let empty = Value::Object(Default::default());
+        let mut keys = HashMap::with_capacity(hits.len());
+        for (collection_index, slot, hit) in hits.iter() {
+            let collection = &repo.collections[*collection_index];
+            let record = &collection.generation.records[*slot as usize];
+            let projected;
+            let value = if bound.needs_source && record.class == RecordClass::Logical {
+                match &hit.payload {
+                    Some(Payload::Logical(value)) => value,
+                    Some(Payload::Bytes(bytes)) => {
+                        projected = prepare_query_record(
+                            &collection.source,
+                            &collection.definition.schema,
+                            bytes,
+                            &ScanProjection::full(false),
+                            false,
+                        )?;
+                        counters.record_parses += 1;
+                        &projected.value
+                    }
+                    _ => {
+                        let path = repo
+                            .files
+                            .native_path(record.file)
+                            .ok_or("sort source path missing")?;
+                        let bytes = read_record_range(&path, record.revision, record.range)?;
+                        counters.files_opened += 1;
+                        counters.bytes_read += bytes.len() as u64;
+                        projected = prepare_query_record(
+                            &collection.source,
+                            &collection.definition.schema,
+                            &bytes,
+                            &ScanProjection::full(false),
+                            false,
+                        )?;
+                        counters.record_parses += 1;
+                        &projected.value
+                    }
+                }
+            } else {
+                &empty
+            };
+            let ctx = RecordContext {
+                value,
+                source_bytes: None,
+                record,
+                file: &repo.files.files[record.file.0 as usize],
+                collection_name: &collection.definition.name,
+                repository_root: &repo.files.root,
+            };
+            keys.insert(
+                (*collection_index, *slot),
+                bound.keys(repo, *collection_index, &ctx, &target_cache, None)?,
+            );
+            counters.sort_key_evaluations += 1;
+        }
+        hits.sort_by(|a, b| {
+            crate::sort_binding::compare_parts(&keys[&(a.0, a.1)], &keys[&(b.0, b.1)]).then_with(
+                || (&a.2.collection, &a.2.record_id).cmp(&(&b.2.collection, &b.2.record_id)),
+            )
+        });
+        let targets = target_cache.lock().map_err(|error| error.to_string())?;
+        counters.sort_target_reads += targets.reads;
+        counters.sort_target_reuse += targets.reuse;
+        counters.relation_edge_visits += targets.edge_visits;
+        counters.files_opened += targets.reads;
+        counters.record_parses += targets.reads;
+        counters.bytes_read += targets.bytes_read;
+        return Ok(());
+    }
     hits.sort_by(|(a_collection, a_slot, a), (b_collection, b_slot, b)| {
-        for field in &query.options.sort {
-            let a_key = repo.collections[*a_collection]
-                .sorting
-                .key(&field.field, RecordSlot(*a_slot))
-                .expect("sort validated");
-            let b_key = repo.collections[*b_collection]
-                .sorting
-                .key(&field.field, RecordSlot(*b_slot))
-                .expect("sort validated");
-            let options = repo.collections[*a_collection]
-                .sorting
-                .column(&field.field)
-                .expect("sort validated")
-                .options;
-            let order = a_key.compare_with(b_key, field.descending, options);
+        for (a_term, b_term) in bound.terms[*a_collection]
+            .as_ref()
+            .expect("selected collection")
+            .iter()
+            .zip(
+                bound.terms[*b_collection]
+                    .as_ref()
+                    .expect("selected collection"),
+            )
+        {
+            let crate::sort_binding::BoundSortSource::Stored(a_column) = &a_term.source else {
+                unreachable!("all terms resident")
+            };
+            let crate::sort_binding::BoundSortSource::Stored(b_column) = &b_term.source else {
+                unreachable!("all terms resident")
+            };
+            let order = a_column.keys[*a_slot as usize].compare_with(
+                &b_column.keys[*b_slot as usize],
+                a_term.descending,
+                a_term.options,
+            );
             if !order.is_eq() {
                 return order;
             }
         }
         (&a.collection, &a.record_id).cmp(&(&b.collection, &b.record_id))
     });
+    Ok(())
 }

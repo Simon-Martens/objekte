@@ -27,7 +27,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 9;
+pub const SNAPSHOT_VERSION: u32 = 10;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -214,6 +214,9 @@ pub fn configuration_hash(
         }
         for field in &definition.sort_fields {
             feed(&mut hash, field.display().as_bytes());
+        }
+        for composite in &definition.schema.composite_sorts {
+            feed(&mut hash, format!("{composite:?}").as_bytes());
         }
         let mut fields: Vec<_> = definition.schema.fields.values().collect();
         fields.sort_by(|a, b| a.path.cmp(&b.path));
@@ -689,6 +692,50 @@ pub fn load_snapshot(
                 }) {
                     return Err("snapshot sort order mismatch".into());
                 }
+            }
+        }
+        if encoded.sorting.composites.len() != definition.schema.composite_sorts.len() {
+            return Err("snapshot composite sort coverage mismatch".into());
+        }
+        for (index, expected) in definition.schema.composite_sorts.iter().enumerate() {
+            let composite = &encoded.sorting.composites[index];
+            let normalized = expected
+                .iter()
+                .map(crate::sorting::simple_composite_part)
+                .collect::<Option<Vec<_>>>()
+                .ok_or("invalid composite sort definition")?;
+            if composite.fields != normalized || composite.order.len() != generation.records.len() {
+                return Err("snapshot composite sort definition mismatch".into());
+            }
+            let columns = normalized
+                .iter()
+                .map(|field| {
+                    encoded
+                        .sorting
+                        .columns
+                        .get(&field.path)
+                        .map(|column| (column, field.descending))
+                        .ok_or("snapshot composite sort column missing")
+                })
+                .collect::<Result<Vec<_>, &str>>()?;
+            let mut seen = vec![false; generation.records.len()];
+            for slot in &composite.order {
+                let i = slot.0 as usize;
+                if i >= seen.len() || seen[i] {
+                    return Err("snapshot composite sort permutation mismatch".into());
+                }
+                seen[i] = true;
+            }
+            if composite.order.windows(2).any(|pair| {
+                crate::sorting::compare_composite(&columns, pair[0], pair[1])
+                    .then_with(|| {
+                        generation.records[pair[0].0 as usize]
+                            .id
+                            .cmp(&generation.records[pair[1].0 as usize].id)
+                    })
+                    .is_gt()
+            }) {
+                return Err("snapshot composite sort order mismatch".into());
             }
         }
         let id_lookup: HashMap<RecordId, RecordSlot> = generation

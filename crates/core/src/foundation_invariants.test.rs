@@ -154,6 +154,7 @@ fn boolean_truth_evidence_sort_and_restore_use_independent_answers() {
                     sort: vec![SortField {
                         field: "title".into(),
                         descending: false,
+                        expression: None,
                     }],
                     count: true,
                     ..query("title = 'x'").options

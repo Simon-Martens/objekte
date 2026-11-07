@@ -114,6 +114,12 @@ pub trait BindingOperation: Send + Sync + std::fmt::Debug {
     fn map_value(&self, value: &Value) -> Option<Value>;
     fn map_text(&self, text: &str) -> String;
 
+    /// Declare that `map_value` yields a stable scalar ordering representation.
+    /// Opaque matchers and fallible record-dependent operations stay ineligible.
+    fn sort_compatible(&self) -> bool {
+        false
+    }
+
     /// A dynamic field operand may be compared after both values are mapped.
     fn supports_dynamic_comparison(&self) -> bool {
         false
@@ -184,6 +190,8 @@ pub struct RegisteredBinding {
 /// In-memory field definitions and custom query bindings.
 #[derive(Clone, Debug, Default)]
 pub struct Schema {
+    /// Explicit resident orders assembled from already configured scalar sort columns.
+    pub composite_sorts: Vec<Vec<crate::workload::SortField>>,
     pub(crate) fields: HashMap<Vec<String>, FieldDefinition>,
     pub(crate) custom: HashMap<(Vec<String>, String), CustomBinding>,
     pub(crate) operations: HashMap<(Vec<String>, String), RegisteredBinding>,
@@ -197,6 +205,24 @@ pub struct Schema {
 
 
 impl Schema {
+    /// Register an exact composite order over previously configured scalar sort fields.
+    pub fn register_composite_sort(
+        &mut self,
+        fields: Vec<crate::workload::SortField>,
+    ) -> Result<(), String> {
+        if fields.len() < 2 {
+            return Err("composite sort requires at least two fields".into());
+        }
+        if fields.iter().any(|field| field.expression.is_some()) {
+            return Err("composite sort requires resident scalar fields".into());
+        }
+        if self.composite_sorts.contains(&fields) {
+            return Err("duplicate composite sort".into());
+        }
+        self.composite_sorts.push(fields);
+        Ok(())
+    }
+
     pub fn fields(&self) -> &HashMap<Vec<String>, FieldDefinition> {
         &self.fields
     }
@@ -2138,7 +2164,9 @@ pub struct BoundFts {
 
 pub fn bind_fts(fts: &FtsQuery, schema: &Schema) -> Result<BoundFts, String> {
     if let Some(name) = &fts.pattern_parameter {
-        return Err(format!("regex pattern parameter ${name} requires execution bindings"));
+        return Err(format!(
+            "regex pattern parameter ${name} requires execution bindings"
+        ));
     }
     if let FtsMode::Regex(options) = fts.mode {
         return bind_regex_fts(fts, schema, options);

@@ -530,6 +530,7 @@ fn run() -> Result<(), String> {
     range.options.sort = vec![SortField {
         field: "num".into(),
         descending: false,
+        expression: None,
     }];
     range.options.limit = 5;
     range.options.offset = 7;

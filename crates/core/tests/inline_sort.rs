@@ -8,7 +8,7 @@ use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
 use objekte_search_core::source::SourceFormat;
-use objekte_search_core::workload::{ReturnMode, SortField, WorkloadCase};
+use objekte_search_core::workload::{ReturnMode, SortExpression, SortField, WorkloadCase};
 
 fn fixture() -> (PathBuf, Repository) {
     let root = std::env::temp_dir().join(format!(
@@ -105,10 +105,12 @@ fn inline_sort_matches_registered_options_and_reference() {
             SortField {
                 field: "year".into(),
                 descending: true,
+                expression: None,
             },
             SortField {
                 field: "title".into(),
                 descending: false,
+                expression: None,
             },
         ],
     ))
@@ -197,12 +199,310 @@ fn inline_sort_matches_registered_options_and_reference() {
         "stored_order_page"
     );
 
-    let invalid = Query::from_workload(&case(Some("SORT BY absent"), vec![])).unwrap();
+    let missing = Query::from_workload(&case(Some("SORT BY absent"), vec![])).unwrap();
+    assert_eq!(
+        repo.search(&missing)
+            .unwrap()
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["a", "b", "c", "d", "e"]
+    );
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn explicit_composite_order_streams_and_matches_reference() {
+    let (root, mut repo) = fixture();
+    // The fixture constructor is reused below with a separate explicit schema.
+    drop(repo);
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    for (name, kind) in [
+        ("id", LogicalType::String),
+        ("title", LogicalType::String),
+        ("year", LogicalType::Number),
+    ] {
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec![name.into()],
+                kind,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+    }
+    definition.sort_fields = ["year", "title"]
+        .into_iter()
+        .map(|path| FieldPath::parse(path).unwrap())
+        .collect();
+    definition
+        .schema
+        .register_composite_sort(vec![
+            SortField {
+                field: "year".into(),
+                descending: true,
+                expression: None,
+            },
+            SortField {
+                field: "title".into(),
+                descending: false,
+                expression: None,
+            },
+        ])
+        .unwrap();
+    let definitions = vec![definition];
+    repo = Repository::open_with_options(
+        &root,
+        definitions.clone(),
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut query = Query::from_workload(&case(Some("SORT BY year DESC, title"), vec![])).unwrap();
+    query.options.count = false;
+    query.options.limit = 1;
+    assert_eq!(
+        repo.explain(&query).unwrap()[0].sort_strategy,
+        "stored_composite_order_page"
+    );
+    let result = repo.search(&query).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["c"]
+    );
+    assert_eq!(result.hits, repo.search_reference(&query).unwrap().hits);
+    assert!(result.counters.scanned_records < 5);
+    let mut typed = query.clone();
+    typed.options.sort[0] = SortField::computed(
+        SortExpression {
+            path: "year".into(),
+            binding: None,
+            reducer: None,
+        },
+        true,
+    );
+    typed.options.sort[1] = SortField::computed(
+        SortExpression {
+            path: "title".into(),
+            binding: None,
+            reducer: None,
+        },
+        false,
+    );
+    assert_eq!(
+        repo.explain(&typed).unwrap()[0].sort_strategy,
+        "stored_composite_order_page"
+    );
+    assert_eq!(repo.search(&typed).unwrap().hits, result.hits);
+    drop(repo);
+    let restored = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::ReadWrite,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(restored.search(&query).unwrap().hits, result.hits);
+    drop(restored);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn schema_free_sort_reductions_positions_and_late_error() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-computed-sort-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, contents) in [
+        (
+            "a",
+            r#"{"title":"Zulu","prices":[3,1],"contributors":[{"name":"Bea"},{"name":"Ada"}],"mixed":false}"#,
+        ),
+        (
+            "b",
+            r#"{"title":"Alpha","prices":[2,4],"contributors":[{"name":"Cal"}],"mixed":5}"#,
+        ),
+        (
+            "c",
+            r#"{"title":"Middle","prices":[],"contributors":[],"mixed":"x"}"#,
+        ),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), contents).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (expression, expected) in [
+        (
+            "SORT BY title",
+            vec!["path:b.json", "path:c.json", "path:a.json"],
+        ),
+        (
+            "SORT BY prices[0]",
+            vec!["path:b.json", "path:a.json", "path:c.json"],
+        ),
+        (
+            "SORT BY MIN(prices[*])",
+            vec!["path:a.json", "path:b.json", "path:c.json"],
+        ),
+        (
+            "SORT BY MAX(prices[*])",
+            vec!["path:a.json", "path:b.json", "path:c.json"],
+        ),
+        (
+            "SORT BY FIRST(contributors.name)",
+            vec!["path:a.json", "path:b.json", "path:c.json"],
+        ),
+        (
+            "SORT BY LAST(contributors.name)",
+            vec!["path:a.json", "path:b.json", "path:c.json"],
+        ),
+        (
+            "SORT BY mixed",
+            vec!["path:a.json", "path:b.json", "path:c.json"],
+        ),
+        (
+            "SORT BY MIN(prices[*]) DESC, title",
+            vec!["path:b.json", "path:a.json", "path:c.json"],
+        ),
+    ] {
+        let query = Query::from_workload(&case(Some(expression), vec![])).unwrap();
+        let result = repo.search(&query).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{expression}"
+        );
+        assert_eq!(
+            result.hits,
+            repo.search_reference(&query).unwrap().hits,
+            "{expression}"
+        );
+        assert_eq!(result.counters.sort_key_evaluations, 3, "{expression}");
+    }
+    let mut invalid = Query::from_workload(&case(Some("SORT BY contributors"), vec![])).unwrap();
+    invalid.options.count = false;
+    invalid.options.limit = 1;
     assert!(
         repo.search(&invalid)
             .unwrap_err()
-            .contains("sort field is not registered")
+            .contains("multi-valued sort field")
     );
+    std::fs::write(root.join("data/z.json"), r#"{"title":{"bad":"object"}}"#).unwrap();
+    drop(repo);
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut invalid = Query::from_workload(&case(Some("SORT BY title"), vec![])).unwrap();
+    invalid.options.count = false;
+    invalid.options.limit = 1;
+    assert!(
+        repo.search(&invalid)
+            .unwrap_err()
+            .contains("unsupported sort value")
+    );
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn computed_top_k_matches_an_independent_seeded_numeric_order() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sort-topk-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for index in 0..113usize {
+        std::fs::write(
+            root.join(format!("data/{index:03}.json")),
+            format!("{{\"score\":{}}}", (index * 37) % 113),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut expected: Vec<_> = (0..113usize).collect();
+    expected.sort_by_key(|index| std::cmp::Reverse((index * 37) % 113));
+    for (offset, limit) in [(0, 1), (2, 5), (37, 7), (108, 10), (0, 0)] {
+        let mut request = Query::from_workload(&case(Some("SORT BY score DESC"), vec![])).unwrap();
+        request.options.count = false;
+        request.options.offset = offset;
+        request.options.limit = limit;
+        let result = repo.search(&request).unwrap();
+        let ids: Vec<_> = result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect();
+        let oracle: Vec<_> = expected
+            .iter()
+            .skip(offset)
+            .take(limit)
+            .map(|index| format!("path:{index:03}.json"))
+            .collect();
+        assert_eq!(ids, oracle.iter().map(String::as_str).collect::<Vec<_>>());
+        assert_eq!(result.counters.sort_key_evaluations, 113);
+    }
     drop(repo);
     std::fs::remove_dir_all(root).unwrap();
 }

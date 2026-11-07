@@ -342,6 +342,7 @@ fn malformed_jsonl_is_searchable_without_inventing_logical_values() {
         sorted.options.sort = vec![crate::workload::SortField {
             field: "@file.status".into(),
             descending: false,
+            expression: None,
         }];
         let ordered = built.search(&sorted).unwrap();
         assert_eq!(ordered.hits[0].file_status, FileStatus::Valid);
@@ -464,6 +465,7 @@ fn fallback_negation_keeps_unavailable_truth_out_of_matched_fields() {
                                         vec![crate::workload::SortField {
                                             field: "@file.status".into(),
                                             descending: false,
+                                            expression: None,
                                         }]
                                     } else {
                                         vec![]
@@ -954,6 +956,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
             sort: vec![SortField {
                 field: "sequence".into(),
                 descending: false,
+                expression: None,
             }],
             limit: 5,
             offset: 7,
@@ -1051,6 +1054,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     query.options.sort = vec![SortField {
         field: "sequence".into(),
         descending: false,
+        expression: None,
     }];
     query.options.offset = 198;
     let deep = repo.search(&query).unwrap();
@@ -1064,6 +1068,7 @@ fn stored_order_pages_stop_globally_and_count_remains_optional() {
     query.options.sort.push(SortField {
         field: "body".into(),
         descending: false,
+        expression: None,
     });
     let multiple_fields = repo.search(&query).unwrap();
     assert_eq!(multiple_fields.count, None);
@@ -1167,6 +1172,7 @@ fn one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual() {
             sort: vec![SortField {
                 field: "sequence".into(),
                 descending: false,
+                expression: None,
             }],
             limit: 5,
             offset: 1000,
@@ -1286,6 +1292,7 @@ fn interleaved_stored_order_records_keep_bounded_file_handles() {
             sort: vec![SortField {
                 field: "sequence".into(),
                 descending: false,
+                expression: None,
             }],
             limit: 5,
             offset: 7,
@@ -1536,6 +1543,7 @@ fn parallel_file_scan_matches_single_worker_page_and_work() {
     sorted.options.sort = vec![crate::workload::SortField {
         field: "sequence".into(),
         descending: true,
+        expression: None,
     }];
     for query in [&query, &sorted] {
         let single = run(1, query);
@@ -1907,6 +1915,7 @@ fn typed_temporal_fields_survive_postings_payload_cache_and_restore() {
             sort: vec![crate::workload::SortField {
                 field: "day".into(),
                 descending: false,
+                expression: None,
             }],
             limit: 10,
             offset: 0,
@@ -2315,4 +2324,14 @@ fn quoted_data_name_does_not_shadow_metadata() {
             .contains(&"@file.size".to_string())
     );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn computed_sort_combines_payload_key_and_target_budgets() {
+    assert!(super::check_computed_sort_budget(32 << 20, 32 << 20, 32 << 20).is_ok());
+    assert!(
+        super::check_computed_sort_budget(64 << 20, 1, 64 << 20)
+            .unwrap_err()
+            .contains("memory budget")
+    );
 }

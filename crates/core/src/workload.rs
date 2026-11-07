@@ -2,8 +2,8 @@
 
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, HashMap, HashSet};
-use std::path::Path;
 use std::ops::Deref;
+use std::path::Path;
 
 use crate::model::Value;
 
@@ -22,6 +22,50 @@ pub enum ReturnMode {
 pub struct SortField {
     pub field: String,
     pub descending: bool,
+    /// Typed expression for reductions and positional or transformed fields.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub expression: Option<SortExpression>,
+}
+
+
+/// Reduction within one source record's reached sort values.
+#[derive(Clone, Copy, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum SortReducer {
+    Min,
+    Max,
+    First,
+    Last,
+}
+
+
+/// Programmatic sort expression, independent of its display spelling.
+#[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
+pub struct SortExpression {
+    pub path: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub binding: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub reducer: Option<SortReducer>,
+}
+
+
+impl SortField {
+    pub fn simple(field: impl Into<String>, descending: bool) -> Self {
+        Self {
+            field: field.into(),
+            descending,
+            expression: None,
+        }
+    }
+
+    pub fn computed(expression: SortExpression, descending: bool) -> Self {
+        Self {
+            field: expression.path.clone(),
+            descending,
+            expression: Some(expression),
+        }
+    }
 }
 
 
@@ -85,7 +129,10 @@ impl BenchmarkCase {
         }
         let query = crate::query::Query::from_workload(&self.request)?.with_parameters(&values)?;
         if let Some(seconds) = self.clock_unix_seconds {
-            query.with_clock(time::OffsetDateTime::from_unix_timestamp(seconds).map_err(|error| error.to_string())?)
+            query.with_clock(
+                time::OffsetDateTime::from_unix_timestamp(seconds)
+                    .map_err(|error| error.to_string())?,
+            )
         } else {
             Ok(query)
         }
@@ -154,6 +201,17 @@ pub struct WorkCounters {
     /// Peak retained page payload bytes, estimated from source record lengths.
     #[serde(default)]
     pub peak_retained_payload_bytes: u64,
+    /// Number of matching records whose computed ordering keys were evaluated.
+    #[serde(default)]
+    pub sort_key_evaluations: u64,
+    /// Peak variable-size key bytes retained by the bounded page winners.
+    #[serde(default)]
+    pub peak_retained_sort_key_bytes: u64,
+    /// Related logical target reads and cache reuse for sort expressions.
+    #[serde(default)]
+    pub sort_target_reads: u64,
+    #[serde(default)]
+    pub sort_target_reuse: u64,
     pub record_parses: u64,
     /// Raw fallback records checked against the original-text literal.
     #[serde(default)]
@@ -244,7 +302,6 @@ pub fn load_manifest(path: &Path) -> Result<Vec<WorkloadCase>, String> {
     Ok(cases)
 }
 
-
 /// Load a superset of the fixed workload without changing its first 150
 /// requests or their historical benchmark identity.
 pub fn load_extended_manifest(
@@ -260,7 +317,10 @@ pub fn load_extended_manifest(
         return Err("extended workload has no additional cases".into());
     }
     for (original, extended) in baseline.iter().zip(&cases) {
-        if original != &extended.request || !extended.parameters.is_empty() || extended.clock_unix_seconds.is_some() {
+        if original != &extended.request
+            || !extended.parameters.is_empty()
+            || extended.clock_unix_seconds.is_some()
+        {
             return Err(format!(
                 "extended workload changed historical case {}",
                 original.id

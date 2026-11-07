@@ -36,6 +36,7 @@ pub(crate) struct TargetCacheWork {
 pub(crate) struct TargetValueCache {
     values: HashMap<(CollectionId, RecordSlot), Value>,
     pub work: TargetCacheWork,
+    pub retained_bytes: u64,
 }
 
 
@@ -261,7 +262,11 @@ pub(crate) fn prepare(
             }
         }
     }
-    Ok(Some(TargetValueCache { values, work }))
+    Ok(Some(TargetValueCache {
+        values,
+        work,
+        retained_bytes: retained,
+    }))
 }
 
 #[cfg(test)]

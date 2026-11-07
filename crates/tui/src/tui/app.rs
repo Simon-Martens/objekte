@@ -620,6 +620,7 @@ impl App {
                 choices.push(Some(SortField {
                     field: field.clone(),
                     descending,
+                    expression: None,
                 }));
             }
         }
