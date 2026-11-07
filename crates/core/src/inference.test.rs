@@ -680,6 +680,72 @@ fn multiple_collections_share_the_coordinator_budget_deterministically() {
 }
 
 #[test]
+fn bounded_manual_summaries_keep_inferred_indexes_across_workers_and_batches() {
+    let root = temporary_root("bounded-manual-workers");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for index in 0..513 {
+        std::fs::write(
+            root.join(format!("data/{index:04}.json")),
+            format!(r#"{{"manual":"m{index:04}","blocked":"b{index:04}","kind":"a"}}"#),
+        )
+        .unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["manual".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition
+        .schema
+        .prohibit_auto_index(vec!["blocked".into()])
+        .unwrap();
+    let mut config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    config.policy.max_distinct_nonblank_strings = 2;
+    let available = std::thread::available_parallelism().map_or(1, |count| count.get());
+    let mut outcomes = Vec::new();
+    for workers in [1, available] {
+        let repo = Repository::open_with_options(
+            &root,
+            vec![definition.clone()],
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                build_workers: std::num::NonZeroUsize::new(workers),
+                inference: config,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let report = repo.inference_report("data").unwrap();
+        assert!(report.complete);
+        assert_eq!(report.admitted_paths, 1);
+        let stats = &repo.startup().inference_build;
+        assert_eq!(stats.observed_records, 513);
+        assert_eq!(stats.merged_batches, 2);
+        assert_eq!(stats.retained_manual_summary_bytes, 0);
+        let indexes = &repo.collections()[0].inference.as_ref().unwrap().indexes;
+        assert_eq!(indexes.len(), 1);
+        outcomes.push((
+            serde_json::to_value(report).unwrap(),
+            bincode::serialize(&indexes[&vec!["kind".into()]]).unwrap(),
+        ));
+    }
+    assert_eq!(outcomes[0], outcomes[1]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
     let root = temporary_root("modes");
     let _ = std::fs::remove_dir_all(&root);
@@ -732,6 +798,8 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
             assert_eq!(repo.build_failed_parses(), 1);
             if mode == InferenceMode::Disabled {
                 assert!(repo.collections[0].inference.is_none());
+                assert_eq!(repo.startup().inference_build.observed_records, 0);
+                assert_eq!(repo.startup().inference_build.merged_batches, 0);
             } else {
                 let report = repo.inference_report("data").unwrap();
                 assert!(report.complete);

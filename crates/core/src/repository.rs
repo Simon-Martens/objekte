@@ -12,7 +12,8 @@ use std::time::Instant;
 use crate::bigram::{BigramContribution, BigramIndex};
 use crate::discovery::{Discovery, discover};
 use crate::inference::{
-    InferenceBuilder, InferenceConfig, InferencePathDiagnostic, InferenceReport, InferenceState,
+    InferenceBuildStats, InferenceBuilder, InferenceConfig, InferencePathDiagnostic,
+    InferenceReport, InferenceState,
 };
 use crate::inventory::{
     CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
@@ -36,6 +37,7 @@ pub(crate) fn next_repository_instance() -> u64 {
     NEXT_REPOSITORY_INSTANCE.fetch_add(1, Ordering::Relaxed)
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
@@ -44,6 +46,7 @@ pub enum IdentityPolicy {
     Generated,
     Intrinsic(Vec<String>),
 }
+
 
 pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
     if let Value::Array(array) = value {
@@ -77,6 +80,7 @@ pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
     )
 }
 
+
 /// Caller-supplied source, schema, identity, and sort configuration.
 #[derive(Clone, Debug)]
 pub struct CollectionDefinition {
@@ -91,6 +95,7 @@ pub struct CollectionDefinition {
     pub sort_options: SortOptions,
     pub sort_overrides: HashMap<FieldPath, SortConfig>,
 }
+
 
 impl CollectionDefinition {
     /// Define a recursive folder collection with no declared fields or typed indexes.
@@ -127,6 +132,7 @@ impl CollectionDefinition {
     }
 }
 
+
 /// Published generation and indexes for one collection.
 pub struct CollectionState {
     pub definition: CollectionDefinition,
@@ -146,6 +152,7 @@ pub struct CollectionState {
     pub stats: CollectionStats,
     pub relations: Vec<RelationIndex>,
 }
+
 
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
@@ -168,6 +175,7 @@ struct PendingCollection {
     relations: Vec<RelationContribution>,
 }
 
+
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
     Large {
@@ -178,6 +186,7 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
+
 
 impl PendingCollection {
     fn admit(
@@ -202,6 +211,7 @@ impl PendingCollection {
         .admit(batch)
     }
 }
+
 
 /// Built-in identity and case-fold registrations for the same logical field
 /// have identical candidate grams after mandatory index folding.
@@ -240,6 +250,7 @@ pub(crate) fn built_in_field_text_key(
     Some((path.to_vec(), name.to_owned()))
 }
 
+
 /// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct CollectionStats {
@@ -247,6 +258,7 @@ pub struct CollectionStats {
     pub record_count: usize,
     pub total_file_bytes: u64,
 }
+
 
 impl CollectionStats {
     pub fn mean_record_bytes(self) -> f64 {
@@ -265,6 +277,7 @@ impl CollectionStats {
         }
     }
 }
+
 
 /// Resident owner of file inventory, collections, workers, and caches.
 ///
@@ -292,6 +305,7 @@ pub struct Repository {
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
 }
 
+
 /// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
@@ -315,7 +329,10 @@ pub struct StartupStats {
     pub build_job_execution_ns: u64,
     pub build_receive_wait_ns: u64,
     pub build_admission_ns: u64,
+    /// Fresh-build inference counters and retained-state estimates.
+    pub inference_build: InferenceBuildStats,
 }
+
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SnapshotMode {
@@ -327,6 +344,7 @@ pub enum SnapshotMode {
     Required,
 }
 
+
 /// Actual result of the requested snapshot policy.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SnapshotAction {
@@ -334,6 +352,7 @@ pub enum SnapshotAction {
     BuiltInMemory,
     Restored,
 }
+
 
 /// Snapshot load policy and directory for one repository opening.
 #[derive(Clone, Debug)]
@@ -343,11 +362,13 @@ pub struct SnapshotOpenPolicy {
     pub directory: Option<PathBuf>,
 }
 
+
 impl SnapshotOpenPolicy {
     pub fn new(mode: SnapshotMode, directory: Option<PathBuf>) -> Self {
         Self { mode, directory }
     }
 }
+
 
 /// Index alphabet, snapshot, cache, and worker settings.
 #[derive(Clone, Copy, Debug)]
@@ -361,6 +382,7 @@ pub struct RepositoryOptions {
     pub build_workers: Option<NonZeroUsize>,
     pub inference: InferenceConfig,
 }
+
 
 impl Default for RepositoryOptions {
     fn default() -> Self {
@@ -376,6 +398,7 @@ impl Default for RepositoryOptions {
         }
     }
 }
+
 
 /// One page result with locator, evidence, and optional payload.
 #[derive(Clone, Debug, PartialEq)]
@@ -397,12 +420,14 @@ pub struct SearchHit {
     pub payload: Option<Payload>,
 }
 
+
 #[derive(Clone, Debug, PartialEq)]
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
     LogicalUnavailable { diagnostic_ref: DiagnosticRef },
 }
+
 
 /// Requested exact match count, returned page, and measured work.
 #[derive(Clone, Debug)]
@@ -411,6 +436,7 @@ pub struct SearchResult {
     pub hits: Vec<SearchHit>,
     pub counters: WorkCounters,
 }
+
 
 impl Repository {
     pub fn files(&self) -> &FileInventory {
@@ -1062,6 +1088,7 @@ impl Repository {
         extraction_index_ns += extraction_started.elapsed().as_nanos() as u64;
         let mut collections = Vec::new();
         let mut pending_relations = Vec::new();
+        let mut inference_build = InferenceBuildStats::default();
         for state in pending {
             let PendingCollection {
                 definition,
@@ -1136,11 +1163,16 @@ impl Repository {
             let sorting = sort_builder.finish(&generation)?;
             let inference = inference
                 .map(|builder| {
-                    builder.finish(
+                    let mut stats = builder.build_stats();
+                    let started = Instant::now();
+                    let result = builder.finish(
                         &logical_records,
                         generation.records.len(),
                         &definition.schema,
-                    )
+                    );
+                    stats.finish_ns = started.elapsed().as_nanos() as u64;
+                    inference_build.absorb(stats);
+                    result
                 })
                 .transpose()?;
             let id_lookup = generation
@@ -1233,6 +1265,7 @@ impl Repository {
                 build_job_execution_ns: schedule_stats.job_execution_ns,
                 build_receive_wait_ns: schedule_stats.receive_wait_ns,
                 build_admission_ns: schedule_stats.admission_ns,
+                inference_build,
                 ..StartupStats::default()
             },
             workers: Self::create_workers(options.query_workers)?,
@@ -1509,6 +1542,7 @@ impl Repository {
         self.search_reference(&bound)
     }
 }
+
 
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
     crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())

@@ -66,6 +66,122 @@ fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {
 }
 
 #[test]
+fn manual_and_opt_out_short_summaries_stop_at_existing_distinct_bounds() {
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["manual".into()],
+            kind: LogicalType::String,
+            required: false,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
+    let mut config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    config.policy.max_distinct_nonblank_strings = 2;
+    config.policy.max_distinct_string_bytes = 32;
+    let values = ["aa", "aa", "bb", "cc", "dd"];
+    let mut reports = Vec::new();
+    for partitions in [vec![5], vec![3, 2], vec![2, 2, 1]] {
+        let batch_count = partitions.len();
+        let mut coordinator = InferenceBuilder::new(config, false).unwrap();
+        let mut cursor = 0;
+        for size in partitions {
+            let mut batch = InferenceBuilder::new(config, true).unwrap();
+            for (local, value) in values[cursor..cursor + size].iter().enumerate() {
+                let record = Value::from_json(serde_json::json!({
+                    "manual": value,
+                    "blocked": value,
+                    "eligible": "same",
+                }))
+                .unwrap();
+                batch
+                    .observe_record_with_schema(RecordSlot(local as u32), &record, Some(&schema))
+                    .unwrap();
+            }
+            coordinator.merge_shifted(batch, cursor as u32).unwrap();
+            cursor += size;
+        }
+        let stats = coordinator.build_stats();
+        assert_eq!(stats.observed_records, 5);
+        assert_eq!(stats.merged_batches, batch_count as u64);
+        assert_eq!(
+            stats.repeated_batch_path_bytes,
+            stats.unique_path_bytes * batch_count
+        );
+        assert_eq!(stats.retained_manual_summary_bytes, 0);
+        assert!(stats.cumulative_budget_bytes > stats.unique_path_bytes);
+        let state = coordinator
+            .finish(&RoaringBitmap::from_iter(0..5), 5, &schema)
+            .unwrap();
+        assert!(state.report.complete);
+        assert_eq!(state.report.admitted_paths, 1);
+        assert!(state.indexes.contains_key(&vec!["eligible".into()]));
+        for (name, status) in [
+            ("manual", InferenceIndexStatus::Redundant),
+            ("blocked", InferenceIndexStatus::ExplicitOptOut),
+        ] {
+            let report = state
+                .report
+                .fields
+                .iter()
+                .find(|report| report.path == vec![name])
+                .unwrap();
+            assert_eq!(report.index_status, status);
+            assert!(!report.complete);
+            assert_eq!(report.short_string_distinct_values, 0);
+            assert!(report.reason.contains("distinct summary exceeded a bound"));
+        }
+        reports.push(
+            state
+                .report
+                .fields
+                .iter()
+                .map(|report| {
+                    (
+                        report.path.clone(),
+                        report.index_status,
+                        report.complete,
+                        report.short_string_distinct_values,
+                    )
+                })
+                .collect::<Vec<_>>(),
+        );
+    }
+    assert_eq!(reports[0], reports[1]);
+    assert_eq!(reports[1], reports[2]);
+}
+
+#[test]
+fn manual_short_summary_byte_limit_counts_unique_values_across_merge() {
+    let policy = InferencePolicy {
+        max_distinct_nonblank_strings: 100,
+        max_distinct_string_bytes: 5,
+        ..InferencePolicy::default()
+    };
+    let mut first = FieldState::without_provisional_postings(vec!["manual".into()]);
+    first.add_scalar(RecordSlot(0), &Value::String("abc".into()), policy);
+    first.add_scalar(RecordSlot(1), &Value::String("abc".into()), policy);
+    assert_eq!(first.short_distinct_without_postings_bytes, 3);
+    assert!(!first.short_summary_truncated);
+    let mut second = FieldState::without_provisional_postings(vec!["manual".into()]);
+    second.add_scalar(RecordSlot(0), &Value::String("abc".into()), policy);
+    second.add_scalar(RecordSlot(1), &Value::String("xyz".into()), policy);
+    first.merge_shifted(second, 2, policy).unwrap();
+    assert!(first.short_summary_truncated);
+    assert!(first.short_distinct_without_postings.is_none());
+    assert_eq!(first.short_distinct_without_postings_bytes, 0);
+    assert!(first.values.is_none());
+    assert!(first.short_values.is_none());
+}
+
+#[test]
 fn repeated_and_unusual_paths_reuse_names_and_traversal_storage() {
     let mut observer = InferenceBuilder::new(
         InferenceConfig {
