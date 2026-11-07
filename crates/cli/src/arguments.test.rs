@@ -77,3 +77,15 @@ fn diagnostic_aliases_are_equivalent() {
             .diagnostic
     );
 }
+
+#[test]
+fn repository_mode_uses_its_root_and_rejects_single_folder_options() {
+    let cwd = tempfile::tempdir().unwrap();
+    let args = Arguments::try_parse_from(["obj", "--repo", ".", "--tui"]).unwrap();
+    assert_eq!(args.resolve_paths(cwd.path()).unwrap().root, cwd.path());
+    assert!(Arguments::try_parse_from(["obj", "--repo", ".", "--path", ".", "--tui"]).is_err());
+    assert!(
+        Arguments::try_parse_from(["obj", "--repo", ".", "--schema", "one.json", "--tui"]).is_err()
+    );
+    assert!(Arguments::try_parse_from(["obj", "--repo", ".", "--no-recurse", "--tui"]).is_err());
+}

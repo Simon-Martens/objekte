@@ -80,6 +80,156 @@ fn single_folder_schema_ignores_relations_to_unavailable_collections() {
 }
 
 #[test]
+fn repository_mode_loads_collections_and_keeps_available_relations() {
+    let root = tempfile::tempdir().unwrap();
+    for name in ["authors", "books"] {
+        std::fs::create_dir_all(root.path().join(format!("data/{name}"))).unwrap();
+    }
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::write(
+        root.path().join("data/authors/author.json"),
+        br#"{"name":"Ada"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("data/books/book.json"),
+        br#"{"title":"Book","author":"author","missing_link":"orphan"}"#,
+    )
+    .unwrap();
+    for (name, schema) in [
+        (
+            "authors",
+            serde_json::json!({
+                "type":"object",
+                "properties":{"name":{"type":"string"}},
+                "x-objekte":{"name":"authors","path":"data/authors","format":"json","id":"filename"}
+            }),
+        ),
+        (
+            "books",
+            serde_json::json!({
+                "type":"object",
+                "properties":{
+                    "title":{"type":"string"},
+                    "author":{"type":"string","x-relation":{"collection":"authors"}},
+                    "missing_link":{"type":"string","x-relation":{"collection":"missing"}}
+                },
+                "x-objekte":{"name":"books","path":"data/books","format":"json","id":"filename"}
+            }),
+        ),
+    ] {
+        std::fs::write(
+            root.path()
+                .join(format!(".objekte/collections/{name}.schema.json")),
+            schema.to_string(),
+        )
+        .unwrap();
+    }
+    let (status, events) = invoke(root.path(), &["--repo", ".", "--fts", "Ada"]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(
+        events[0]["collections"],
+        serde_json::json!(["authors", "books"])
+    );
+    assert_eq!(events.last().unwrap()["records"], 2);
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(hits(&events)[0]["collection"], "authors");
+    assert!(
+        !root
+            .path()
+            .join(".objekte/search-core-ascii.snapshot")
+            .exists()
+    );
+
+    let (status, events) = invoke(root.path(), &["--repo", ".", "author.name = \"Ada\""]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(hits(&events)[0]["collection"], "books");
+
+    let (status, events) = invoke(root.path(), &["--repo", ".", "missing_link = \"orphan\""]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(hits(&events)[0]["collection"], "books");
+
+    let (status, events) = invoke(
+        root.path(),
+        &[
+            "--repo",
+            ".",
+            "--auto-index",
+            "--diagnostic",
+            "--fts",
+            "Ada",
+        ],
+    );
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    let diagnostics = &events.last().unwrap()["automatic_index_collections"];
+    assert!(diagnostics["authors"]["paths"].is_array());
+    assert!(diagnostics["books"]["paths"].is_array());
+
+    let (status, events) = invoke(root.path(), &["--repo", ".", "--write-index"]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(
+        events.last().unwrap()["snapshot_action"],
+        "built_and_written"
+    );
+    assert!(
+        root.path()
+            .join(".objekte/search-core-ascii.snapshot")
+            .exists()
+    );
+    let (status, events) = invoke(
+        root.path(),
+        &["--repo", ".", "--load-index", "--fts", "Ada"],
+    );
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(events.last().unwrap()["build_parses"], 0);
+    assert_eq!(hits(&events).len(), 1);
+}
+
+#[test]
+fn repository_mode_requires_valid_collection_metadata() {
+    let root = tempfile::tempdir().unwrap();
+    let (status, _) = invoke(root.path(), &["--repo", ".", "--fts", "a"]);
+    assert_eq!(status.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&status.stderr).contains(".objekte/collections"));
+
+    std::fs::create_dir_all(root.path().join(".objekte/collections")).unwrap();
+    std::fs::write(
+        root.path().join(".objekte/collections/bad.schema.json"),
+        br#"{"type":"object","properties":{},"x-objekte":{"name":"bad"}}"#,
+    )
+    .unwrap();
+    let (status, _) = invoke(root.path(), &["--repo", ".", "--fts", "a"]);
+    assert_eq!(status.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&status.stderr).contains("x-objekte.path"));
+}
+
+#[test]
 fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
     let root = tempfile::tempdir().unwrap();
     for slot in 0..80 {

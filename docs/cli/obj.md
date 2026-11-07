@@ -1,6 +1,6 @@
 # `obj`: search a folder of JSON documents
 
-`obj` treats a directory as one collection named `files`. It accepts any valid JSON root as one record per `.json` file, including objects, arrays, strings, numbers, booleans and `null`. It needs no schema, field list or repository configuration. Run it from the directory to search, or use `--path`.
+By default, `obj` treats a directory as one collection named `files`. It accepts any valid JSON root as one record per `.json` file, including objects, arrays, strings, numbers, booleans and `null`. It needs no schema, field list or repository configuration. Run it from the directory to search, or use `--path`. Use `--repo` for a configured multi-collection repository.
 
 ```sh
 cargo build --release -p objekte-cli
@@ -8,6 +8,7 @@ cargo build --release -p objekte-cli
 ./target/release/obj -p ./documents 'title ~ "Goethe"'
 ./target/release/obj -p ./documents '@root[0] = "first"'
 ./target/release/obj -p ./documents 'year >= 1800 && year < 1900 SORT BY year DESC'
+./target/release/obj --repo examples/musenalm --tui
 ```
 
 The positional query is a structured expression unless it is exactly one double-quoted JSON string literal. Thus `obj '"Goethe"'` and `obj --fts Goethe` are equivalent literal full-text searches. A leading `-` in a positional query requires `--` before the query. `obj --help` lists the options without opening a repository.
@@ -17,6 +18,10 @@ The positional query is a structured expression unless it is exactly one double-
 | Option | Behavior |
 | --- | --- |
 | `-p, --path PATH` | Search `PATH`; the current directory is the default. |
+| `--repo PATH` | Open all collections declared in `PATH/.objekte/collections/*.schema.json`. |
+| `--schema FILE` | Apply one schema to the single `files` collection. Unavailable relations are ignored. |
+| `--tui` | Open the interactive screen; repository mode offers collection selection and relation navigation. |
+| `--auto-index` | Infer bounded ordered postings in each opened collection. |
 | `--no-recurse` | Search immediate `.json` children only. |
 | `--fts TEXT` | Search literal scalar text without JSON-string quoting. |
 | `--query-file FILE` | Run one query per physical line; `-` reads stdin. |
@@ -29,6 +34,8 @@ The positional query is a structured expression unless it is exactly one double-
 | `--diagnostic`, `--diagnostics` | Include inferred index paths in the final NDJSON event and emit a pretty JSON operational diagnostic on stderr. |
 
 `QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An index flag permits an index-only invocation with no query. Optional snapshot directories require `=`: `--write-index 'title = "A"'` leaves the query intact, whereas `--write-index=./cache` selects a directory. The implicit directory is `<root>/.objekte`; an explicit relative directory is relative to the invocation's working directory. If both flags name directories, they must resolve to the same destination.
+
+`--repo` is exclusive with `--path`, `--schema`, and `--no-recurse`. It reads collection name, source path, format and ID policy from each schema's `x-objekte` object. Relative source paths must stay inside the repository root. Available `x-relation` targets remain active, so the TUI can show outgoing links and backlinks; declarations pointing to collections absent from the repository are ignored. Repository CLI queries search all collections, while the TUI can select one. Without index flags, `--repo` builds in memory and leaves snapshots untouched. Use `--load-index` to require restore or `--write-index` to save explicitly.
 
 A query file accepts UTF-8, LF or CRLF, and an optional initial BOM. Blank lines are ignored. A nonblank line beginning with `"` must be one complete JSON string literal with no trailing tokens; JSON escapes are decoded once. Every other line is passed unchanged to the core structured-query parser. There is no comment or multiline continuation syntax. An erroneous line gets its own `query_error`, and later lines continue. The process exits nonzero if any line fails. A readable file with no queries is an error unless the invocation also has an index flag.
 
@@ -55,7 +62,7 @@ Whole-document FTS searches each scalar value as a separate segment:
 - Booleans and null contribute `true`, `false`, and `null`.
 - Property names, braces, brackets, commas and colons contribute no text.
 
-An FTS phrase cannot span two scalar values. Duplicate object names use the last occurrence for structured field access; whole-document FTS sees the scalar values of all occurrences. Arrays retain mixed members and order. Explicit schema declarations, when used by another core caller, still validate strictly. This command builds inferred ordered postings only with `--auto-index`.
+An FTS phrase cannot span two scalar values. Duplicate object names use the last occurrence for structured field access; whole-document FTS sees the scalar values of all occurrences. Arrays retain mixed members and order. Explicit schemas validate declared fields. Inferred ordered postings are built only with `--auto-index`.
 
 Malformed JSON follows the core's raw-text fallback behavior. Such a file can match unscoped FTS through recovery text, but its logical fields are unavailable. A syntactically valid document rejected by an explicit declared schema can similarly be a fallback in other core applications; the output distinguishes its source JSON payload from logical availability.
 
@@ -72,6 +79,8 @@ The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or
 Timing fields use a monotonic clock. `preparation_ms` covers input parsing and request construction before core execution. `search_ms` is coordinator wall elapsed outside synchronous output callbacks, including verification, ordering and required reads. `sink_ms` is callback encoding, writes, flushes and downstream backpressure. Worker computation may overlap callbacks, so these fields are not independent CPU costs. `query_wall_ms` spans preparation through the output flush before its terminal event; `first_hit_ms` is null when no hit is delivered. Terminal-line write time itself is outside that query's reported wall interval. Startup, snapshot decode/reconciliation, fresh build and snapshot write are reported separately. Embedded core work counters expose `preparation_ms` and `planning_ms` in this protocol; the library retains nanosecond counters for profiling.
 
 With `--auto-index --diagnostic`, the final event includes `automatic_index_paths`, sorted by path. Each entry reports admission status, reason, observed and indexed kind, multivalue state, B-tree value/length key counts and coverage. The same typed report is available to library callers through `Repository::inference_index_diagnostics(collection)`. A built value dictionary does not imply every query can skip verification; multivalued and partially covered short-string paths retain their coverage rules.
+
+In `--repo` mode, `--auto-index --diagnostic` reports these paths under `automatic_index_collections`, keyed by collection name.
 
 ```sh
 obj --path examples/musenalm --load-index --auto-index --diagnostic |

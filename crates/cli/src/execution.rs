@@ -1,5 +1,6 @@
 //! One repository opening and sequential, ordered query execution.
 
+use std::collections::HashSet;
 use std::io::{self, BufWriter, IsTerminal, Write};
 use std::path::{Path, PathBuf};
 use std::time::Instant;
@@ -9,8 +10,8 @@ use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, Infe
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::path_repr;
 use objekte_search_core::repository::{
-    CollectionDefinition, Repository, RepositoryOptions, SnapshotAction, SnapshotMode,
-    SnapshotOpenPolicy,
+    CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotAction,
+    SnapshotMode, SnapshotOpenPolicy,
 };
 use objekte_search_core::schema_adapter::{CompiledSchema, compile_schema};
 use objekte_search_core::source::SourceFormat;
@@ -38,8 +39,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     let configured = (|| {
         let cwd = std::env::current_dir().map_err(|error| error.to_string())?;
         let paths = args.resolve_paths(&cwd)?;
-        let schema = load_schema_configuration(&paths)?;
-        let definition = make_definition(args, &paths, schema.map(|(compiled, _)| compiled));
+        let configured = configure_definitions(args, &paths)?;
         let options = repository_options(args);
         let policy = snapshot_policy(args, &paths);
         let mut source = QuerySource::open(args)?;
@@ -55,14 +55,14 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         };
         Ok::<_, String>((
             paths.root,
-            definition,
+            configured.definitions,
             options,
             policy,
             initial_search,
             initial_filter,
         ))
     })();
-    let (root, definition, options, policy, initial_search, initial_filter) = match configured {
+    let (root, definitions, options, policy, initial_search, initial_filter) = match configured {
         Ok(configured) => configured,
         Err(error) => {
             eprintln!("obj: {error}");
@@ -70,7 +70,7 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
         }
     };
     let ui = objekte_cli::tui::TuiOptions {
-        single_collection: true,
+        single_collection: args.repo.is_none(),
         initial_search,
         initial_filter,
         offset: args.offset,
@@ -88,7 +88,9 @@ pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
     };
     let write = args.write_index.is_some();
     let result = objekte_cli::tui::run_with_loader(
-        move || open_repository(&root, definition, options, policy, write).map(|(repo, _, _)| repo),
+        move || {
+            open_repository(&root, definitions, options, policy, write).map(|(repo, _, _)| repo)
+        },
         ui,
     );
     match result {
@@ -135,6 +137,161 @@ fn load_schema_configuration(
         .map_err(|error| format!("{}: {error}", path.display()))?;
     compiled.schema.set_source_fingerprint(&bytes);
     Ok(Some((compiled, document.get("x-objekte").is_some())))
+}
+
+struct ConfiguredDefinitions {
+    definitions: Vec<CollectionDefinition>,
+    schema_files: Vec<PathBuf>,
+    schema_fields: usize,
+    ignored_repository_metadata: bool,
+}
+
+fn configure_definitions(
+    args: &Arguments,
+    paths: &ResolvedPaths,
+) -> Result<ConfiguredDefinitions, String> {
+    if args.repo.is_some() {
+        return load_repository_definitions(&paths.root, paths.index_directory.as_deref());
+    }
+    let schema = load_schema_configuration(paths)?;
+    let schema_fields = schema
+        .as_ref()
+        .map_or(0, |(compiled, _)| compiled.schema.fields().len());
+    let ignored_repository_metadata = schema.as_ref().is_some_and(|(_, ignored)| *ignored);
+    Ok(ConfiguredDefinitions {
+        definitions: vec![make_definition(
+            args,
+            paths,
+            schema.map(|(compiled, _)| compiled),
+        )],
+        schema_files: paths.schema_file.iter().cloned().collect(),
+        schema_fields,
+        ignored_repository_metadata,
+    })
+}
+
+fn load_repository_definitions(
+    root: &Path,
+    index_directory: Option<&Path>,
+) -> Result<ConfiguredDefinitions, String> {
+    let directory = root.join(".objekte/collections");
+    let mut schema_files = std::fs::read_dir(&directory)
+        .map_err(|error| format!("{}: {error}", directory.display()))?
+        .map(|entry| {
+            entry
+                .map(|entry| entry.path())
+                .map_err(|error| error.to_string())
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    schema_files.retain(|path| {
+        path.file_name()
+            .and_then(|name| name.to_str())
+            .is_some_and(|name| name.ends_with(".schema.json"))
+    });
+    schema_files.sort();
+    if schema_files.is_empty() {
+        return Err(format!(
+            "{} contains no collection schemas",
+            directory.display()
+        ));
+    }
+    let mut documents = Vec::with_capacity(schema_files.len());
+    let mut names = HashSet::new();
+    for path in &schema_files {
+        let bytes = std::fs::read(path).map_err(|error| format!("{}: {error}", path.display()))?;
+        let document: serde_json::Value = serde_json::from_slice(&bytes)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        let metadata = document
+            .get("x-objekte")
+            .ok_or_else(|| format!("{}: missing x-objekte", path.display()))?;
+        let name = repository_metadata(metadata, "name", path)?.to_owned();
+        if !names.insert(name.clone()) {
+            return Err(format!(
+                "{}: duplicate collection name {name}",
+                path.display()
+            ));
+        }
+        documents.push((path.clone(), bytes, document, name));
+    }
+    let mut definitions = Vec::with_capacity(documents.len());
+    let mut schema_fields = 0usize;
+    for (path, bytes, mut document, name) in documents {
+        omit_unavailable_relations(&mut document, &names);
+        let metadata = document.get("x-objekte").unwrap();
+        let source_path = PathBuf::from(repository_metadata(metadata, "path", &path)?);
+        let format = match repository_metadata(metadata, "format", &path)? {
+            "json" => SourceFormat::Json,
+            "jsonl" => SourceFormat::JsonLines,
+            "json_decoded_scalars" => SourceFormat::JsonDecodedScalars,
+            other => {
+                return Err(format!(
+                    "{}: unsupported source format {other}",
+                    path.display()
+                ));
+            }
+        };
+        let identity = match repository_metadata(metadata, "id", &path)? {
+            "filename" => IdentityPolicy::Filename,
+            "generated" => IdentityPolicy::Generated,
+            "relative_path" => IdentityPolicy::RelativePath,
+            other => {
+                return Err(format!(
+                    "{}: unsupported identity policy {other}",
+                    path.display()
+                ));
+            }
+        };
+        let mut compiled = compile_schema(&document, &name)
+            .map_err(|error| format!("{}: {error}", path.display()))?;
+        compiled.schema.set_source_fingerprint(&bytes);
+        schema_fields = schema_fields.saturating_add(compiled.schema.fields().len());
+        let mut definition = CollectionDefinition {
+            name,
+            source_path,
+            format,
+            identity,
+            discovery: Default::default(),
+            schema: compiled.schema,
+            sort_fields: compiled.sort_fields,
+            sort_locale: document
+                .get("x-language")
+                .and_then(serde_json::Value::as_str)
+                .unwrap_or("und")
+                .to_owned(),
+            sort_options: Default::default(),
+            sort_overrides: Default::default(),
+        };
+        definition.discovery.exclude = vec![".git".into(), "**/.git".into()];
+        definition.discovery.exclude_directories = vec![PathBuf::from(".objekte")];
+        if let Some(index_directory) = index_directory
+            && let Ok(relative) = index_directory.strip_prefix(root.join(&definition.source_path))
+            && !relative.as_os_str().is_empty()
+        {
+            definition
+                .discovery
+                .exclude_directories
+                .push(relative.to_owned());
+        }
+        definitions.push(definition);
+    }
+    Ok(ConfiguredDefinitions {
+        definitions,
+        schema_files,
+        schema_fields,
+        ignored_repository_metadata: false,
+    })
+}
+
+fn repository_metadata<'a>(
+    metadata: &'a serde_json::Value,
+    key: &str,
+    path: &Path,
+) -> Result<&'a str, String> {
+    metadata
+        .get(key)
+        .and_then(serde_json::Value::as_str)
+        .filter(|value| !value.is_empty())
+        .ok_or_else(|| format!("{}: missing x-objekte.{key}", path.display()))
 }
 
 fn omit_unavailable_relations(
@@ -227,7 +384,7 @@ fn snapshot_policy(args: &Arguments, paths: &ResolvedPaths) -> SnapshotOpenPolic
 
 fn open_repository(
     root: &Path,
-    definition: CollectionDefinition,
+    definitions: Vec<CollectionDefinition>,
     options: RepositoryOptions,
     policy: SnapshotOpenPolicy,
     write_requested: bool,
@@ -237,7 +394,7 @@ fn open_repository(
         .clone()
         .unwrap_or_else(|| root.join(".objekte"));
     let open_started = Instant::now();
-    let repo = Repository::open_with_snapshot_policy(root, vec![definition], options, policy)?;
+    let repo = Repository::open_with_snapshot_policy(root, definitions, options, policy)?;
     let open_ns = open_started.elapsed().as_nanos();
     if write_requested && !repo.startup().restored {
         let path =
@@ -270,16 +427,18 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             return Exit::Arguments;
         }
     };
-    let schema_configuration = match load_schema_configuration(&paths) {
+    let configured = match configure_definitions(args, &paths) {
         Ok(configuration) => configuration,
         Err(message) => {
             eprintln!("obj: {message}");
             return Exit::Arguments;
         }
     };
-    let schema_fields = schema_configuration
-        .as_ref()
-        .map_or(0, |(compiled, _)| compiled.schema.fields().len());
+    let collection_names = configured
+        .definitions
+        .iter()
+        .map(|definition| definition.name.clone())
+        .collect::<Vec<_>>();
     let input_mode = if args.query_file.is_some() {
         "query_file"
     } else if args.fts.is_some() {
@@ -294,16 +453,18 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "executable_version": env!("CARGO_PKG_VERSION"),
         "core_model_version": objekte_search_core::MODEL_VERSION,
         "root": path_repr::query_path(&paths.root),
-        "collection": "files",
-        "recursive": !args.no_recurse,
-        "hidden": true,
+        "collection": (args.repo.is_none()).then_some("files"),
+        "collections": collection_names,
+        "recursive": if args.repo.is_some() { false } else { !args.no_recurse },
+        "hidden": args.repo.is_none(),
         "symlinks": "skip",
-        "extension": ".json",
+        "extension": (args.repo.is_none()).then_some(".json"),
         "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
-        "text_policy": "decoded_scalar_values",
-        "schema_fields": schema_fields,
+        "text_policy": if args.repo.is_some() { "configured" } else { "decoded_scalar_values" },
+        "schema_fields": configured.schema_fields,
         "schema_file": paths.schema_file.as_deref().map(path_repr::query_path),
-        "schema_repository_metadata_ignored": schema_configuration.as_ref().is_some_and(|(_, ignored)| *ignored),
+        "schema_files": configured.schema_files.iter().map(|path| path_repr::query_path(path)).collect::<Vec<_>>(),
+        "schema_repository_metadata_ignored": configured.ignored_repository_metadata,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
         "index_operation": index_operation(args),
@@ -311,16 +472,11 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     })) {
         return output_failure(error);
     }
-    let definition = make_definition(
-        args,
-        &paths,
-        schema_configuration.map(|(compiled, _)| compiled),
-    );
     let options = repository_options(args);
     let policy = snapshot_policy(args, &paths);
     let (repo, startup_ns, snapshot_save) = match open_repository(
         &paths.root,
-        definition,
+        configured.definitions,
         options,
         policy,
         args.write_index.is_some(),
@@ -476,6 +632,26 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
     });
     if let Some(paths) = automatic_index_paths {
         event["automatic_index_paths"] = json!(paths);
+    }
+    if args.repo.is_some() && args.diagnostic {
+        let collections = repo
+            .collections()
+            .iter()
+            .filter_map(|collection| {
+                let name = &collection.definition.name;
+                let report = repo.inference_report(name)?;
+                Some((
+                    name.clone(),
+                    json!({
+                        "complete": report.complete,
+                        "observed_paths": report.observed_paths,
+                        "admitted_paths": report.admitted_paths,
+                        "paths": repo.inference_index_diagnostics(name),
+                    }),
+                ))
+            })
+            .collect::<std::collections::BTreeMap<_, _>>();
+        event["automatic_index_collections"] = json!(collections);
     }
     if args.diagnostic
         && let Some(save) = &snapshot_save

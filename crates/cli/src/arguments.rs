@@ -21,8 +21,17 @@ pub struct Arguments {
     pub query: Option<String>,
 
     /// Search this directory instead of the current directory.
-    #[arg(short = 'p', long = "path", value_name = "PATH")]
+    #[arg(
+        short = 'p',
+        long = "path",
+        value_name = "PATH",
+        conflicts_with = "repo"
+    )]
     pub path: Option<PathBuf>,
+
+    /// Open a configured repository containing `.objekte/collections`.
+    #[arg(long, value_name = "PATH", conflicts_with_all = ["path", "schema", "no_recurse"])]
+    pub repo: Option<PathBuf>,
 
     /// Search only immediate JSON children.
     #[arg(long)]
@@ -103,7 +112,12 @@ impl Arguments {
     }
 
     pub fn resolve_paths(&self, cwd: &Path) -> Result<ResolvedPaths, String> {
-        let root = self.path.as_deref().unwrap_or(cwd);
+        let selected = self.repo.as_deref().or(self.path.as_deref()).unwrap_or(cwd);
+        let root = if selected.is_absolute() {
+            selected.to_path_buf()
+        } else {
+            cwd.join(selected)
+        };
         let root = root
             .canonicalize()
             .map_err(|error| format!("{}: {error}", root.display()))?;
