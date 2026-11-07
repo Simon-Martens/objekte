@@ -18,11 +18,12 @@ fn compaction_preserves_tokens_and_string_contents() {
 #[test]
 fn json_string_escaping_has_no_terminal_control_bytes() {
     let mut encoded = Vec::new();
-    write_json_string("red\u{1b}[31m\n\\\"", &mut encoded).unwrap();
+    write_json_string("red\u{1b}[31m\u{9b}\n\\\"", &mut encoded).unwrap();
     assert!(!encoded.contains(&0x1b));
+    assert!(!encoded.contains(&0x9b));
     assert_eq!(
         serde_json::from_slice::<String>(&encoded).unwrap(),
-        "red\u{1b}[31m\n\\\""
+        "red\u{1b}[31m\u{9b}\n\\\""
     );
 }
 

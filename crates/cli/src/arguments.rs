@@ -128,12 +128,23 @@ fn index_path(input: &str, cwd: &Path, root: &Path) -> Result<PathBuf, String> {
     } else {
         cwd.join(input)
     };
-    if path.exists() {
-        return path
-            .canonicalize()
-            .map_err(|error| format!("{}: {error}", path.display()));
+    let path = normalize(&path);
+    let mut ancestor = path.clone();
+    let mut suffix = Vec::new();
+    while !ancestor.exists() {
+        let name = ancestor
+            .file_name()
+            .ok_or_else(|| format!("{} has no existing ancestor", path.display()))?;
+        suffix.push(name.to_os_string());
+        ancestor.pop();
     }
-    Ok(normalize(&path))
+    let mut resolved = ancestor
+        .canonicalize()
+        .map_err(|error| format!("{}: {error}", ancestor.display()))?;
+    for component in suffix.iter().rev() {
+        resolved.push(component);
+    }
+    Ok(resolved)
 }
 
 fn normalize(path: &Path) -> PathBuf {

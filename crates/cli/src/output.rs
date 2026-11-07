@@ -216,7 +216,7 @@ fn write_json_string<W: Write>(text: &str, writer: &mut W) -> io::Result<()> {
             '\t' => Some("\\t"),
             '\u{08}' => Some("\\b"),
             '\u{0c}' => Some("\\f"),
-            c if c < '\u{20}' => None,
+            c if c < '\u{20}' || ('\u{7f}'..='\u{9f}').contains(&c) => None,
             _ => continue,
         };
         if start < index {

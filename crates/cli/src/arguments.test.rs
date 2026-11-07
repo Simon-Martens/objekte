@@ -1,5 +1,3 @@
-use std::path::Path;
-
 use clap::Parser;
 
 use super::Arguments;
@@ -54,11 +52,18 @@ fn bare_command_does_not_open_repository() {
     assert!(args.validate_input().is_err());
     let args = Arguments::try_parse_from(["obj", "--write-index"]).unwrap();
     assert!(args.validate_input().is_ok());
-    assert!(Path::new(".").exists());
 }
 
 #[test]
 fn diagnostic_aliases_are_equivalent() {
-    assert!(Arguments::try_parse_from(["obj", "--diagnostic", "--fts", "x"]).unwrap().diagnostic);
-    assert!(Arguments::try_parse_from(["obj", "--diagnostics", "--fts", "x"]).unwrap().diagnostic);
+    assert!(
+        Arguments::try_parse_from(["obj", "--diagnostic", "--fts", "x"])
+            .unwrap()
+            .diagnostic
+    );
+    assert!(
+        Arguments::try_parse_from(["obj", "--diagnostics", "--fts", "x"])
+            .unwrap()
+            .diagnostic
+    );
 }

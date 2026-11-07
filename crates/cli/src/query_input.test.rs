@@ -49,3 +49,13 @@ fn file_lines_keep_physical_numbers_and_ignore_blank_lines() {
     assert!(source.next_input().unwrap().is_none());
     assert_eq!(source.yielded(), 2);
 }
+
+#[test]
+fn invalid_utf8_in_query_file_is_fatal_input_error() {
+    let folder = tempfile::tempdir().unwrap();
+    let path = folder.path().join("queries.txt");
+    std::fs::write(&path, b"\xff\n").unwrap();
+    let args = Arguments::try_parse_from(["obj", "--query-file", path.to_str().unwrap()]).unwrap();
+    let mut source = QuerySource::open(&args).unwrap();
+    assert!(source.next_input().unwrap_err().contains("line 1"));
+}
