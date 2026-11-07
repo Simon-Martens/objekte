@@ -96,6 +96,30 @@ fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
 }
 
 #[test]
+#[ignore = "full 148,488-file Musenalm acceptance; run explicitly"]
+fn musenalm_auto_index_restricts_year_across_the_whole_folder() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join("../..")
+        .join("examples/musenalm");
+    let (status, events) = invoke(&root, &["--auto-index", "--limit", "1", "year = 1800"]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    let summary = &events.last().unwrap()["automatic_index_summary"];
+    assert_eq!(summary["complete"], true);
+    assert!(summary["admitted_paths"].as_u64().unwrap() > 0);
+    let files = events.last().unwrap()["files"].as_u64().unwrap();
+    let query = events
+        .iter()
+        .find(|event| event["type"] == "query_complete")
+        .unwrap();
+    assert!(query["counters"]["candidates"].as_u64().unwrap() < files / 10);
+    assert_eq!(hits(&events).len(), 1);
+}
+
+#[test]
 fn explicit_schema_and_auto_index_have_independent_cli_modes() {
     let root = tempfile::tempdir().unwrap();
     let schema = serde_json::json!({

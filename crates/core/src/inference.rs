@@ -10,7 +10,7 @@ use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
 
-pub const INFERENCE_POLICY_VERSION: u32 = 3;
+pub const INFERENCE_POLICY_VERSION: u32 = 4;
 
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
@@ -72,9 +72,12 @@ impl Default for InferencePolicy {
             short_string_max_utf8_bytes: 64,
             max_short_string_index_bytes_per_path: 24 * 1024 * 1024,
             max_distinct_string_bytes: 8 * 1024,
-            max_batch_bytes: 4 * 1024 * 1024,
-            max_total_bytes: 64 * 1024 * 1024,
-            max_repository_bytes: 128 * 1024 * 1024,
+            // Dense 512-file batches and large collections can exceed the
+            // smaller observation budgets before useful paths are admitted.
+            // These are bounded estimates, not process-memory limits.
+            max_batch_bytes: 16 * 1024 * 1024,
+            max_total_bytes: 512 * 1024 * 1024,
+            max_repository_bytes: 768 * 1024 * 1024,
             min_nonblank_occurrences: 20,
             min_nonblank_records: 10,
             max_distinct_nonblank_strings: 64,

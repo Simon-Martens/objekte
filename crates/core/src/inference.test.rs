@@ -172,6 +172,49 @@ fn default_batch_budget_keeps_multi_field_short_string_index_complete() {
 }
 
 #[test]
+fn default_batch_budget_keeps_dense_numeric_records_inferred() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let mut fields = serde_json::Map::new();
+    for number in 0..350 {
+        fields.insert(format!("field_{number:03}"), serde_json::json!(number));
+    }
+    fields.insert("year".into(), serde_json::json!(1800));
+    let record = Value::from_json(serde_json::Value::Object(fields)).unwrap();
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    for slot in 0..512 {
+        batch.observe_record(RecordSlot(slot), &record).unwrap();
+    }
+    let mut coordinator = InferenceBuilder::new(config, false).unwrap();
+    coordinator.merge_shifted(batch, 0).unwrap();
+    let state = coordinator
+        .finish(&(0..512).collect(), 512, &Schema::default())
+        .unwrap();
+    assert!(state.report.complete);
+    assert_eq!(
+        state
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == ["year"])
+            .unwrap()
+            .index_status,
+        InferenceIndexStatus::Built
+    );
+    assert_eq!(
+        state.indexes[&vec!["year".into()]]
+            .values
+            .values()
+            .next()
+            .unwrap()
+            .len(),
+        512
+    );
+}
+
+#[test]
 fn selective_short_string_queries_keep_long_and_mixed_remainders() {
     let root = temporary_root("short-query");
     let _ = std::fs::remove_dir_all(&root);
