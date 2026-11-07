@@ -57,6 +57,6 @@ serialized simple entries keep their meaning. Sorting an unregistered
 path computes keys for every match, so a small page still reads and ranks all
 matching records. The executor retains at most `offset + limit` winners and
 enforces a 128 MiB combined budget for computed sort payload estimates, rank
-keys, and related target projections. Configured scalar sort columns and
+keys, related target projections, and warm-cache grouping estimates. Configured scalar sort columns and
 explicit composite orders can avoid per-record key extraction. Case or text
 transformations apply before key construction and do not alter source values.

@@ -55,6 +55,23 @@ enum SortTransform {
 }
 
 
+/// Stable identity required when one order spans several collections.
+#[derive(Clone, Debug, Eq, PartialEq)]
+enum SortTransformIdentity {
+    Identity,
+    CaseFold,
+    Custom {
+        name: String,
+        version: u32,
+        transform: Transform,
+    },
+    Operation {
+        name: String,
+        version: u32,
+    },
+}
+
+
 /// Sort terms for every selected collection, with a flag for source reads.
 pub(crate) struct BoundSort<'a> {
     pub terms: Vec<Option<Vec<BoundSortTerm<'a>>>>,
@@ -105,7 +122,7 @@ fn bind_transform(
     schema: &crate::reference::Schema,
     path: &QueryPath,
     requested: Option<&str>,
-) -> Result<SortTransform, String> {
+) -> Result<(SortTransform, SortTransformIdentity), String> {
     let name = requested.or_else(|| {
         schema
             .defaults
@@ -113,15 +130,22 @@ fn bind_transform(
             .map(String::as_str)
     });
     match name {
-        None | Some("default") => Ok(SortTransform::Identity),
-        Some("lower") => Ok(SortTransform::CaseFold),
+        None | Some("default") => Ok((SortTransform::Identity, SortTransformIdentity::Identity)),
+        Some("lower") => Ok((SortTransform::CaseFold, SortTransformIdentity::CaseFold)),
         Some(name) => {
             let key = (path.field.segments.clone(), name.to_owned());
             if let Some(binding) = schema.custom.get(&key) {
-                return Ok(match binding.transform {
-                    Transform::Identity => SortTransform::Identity,
-                    Transform::CaseFold => SortTransform::CaseFold,
-                });
+                return Ok((
+                    match binding.transform {
+                        Transform::Identity => SortTransform::Identity,
+                        Transform::CaseFold => SortTransform::CaseFold,
+                    },
+                    SortTransformIdentity::Custom {
+                        name: binding.name.clone(),
+                        version: binding.version,
+                        transform: binding.transform,
+                    },
+                ));
             }
             let binding = schema
                 .operations
@@ -132,7 +156,13 @@ fn bind_transform(
                     "sort binding {name} does not produce a stable scalar"
                 ));
             }
-            Ok(SortTransform::Operation(binding.operation.clone()))
+            Ok((
+                SortTransform::Operation(binding.operation.clone()),
+                SortTransformIdentity::Operation {
+                    name: binding.name.clone(),
+                    version: binding.version,
+                },
+            ))
         }
     }
 }
@@ -172,7 +202,7 @@ impl<'a> BoundSort<'a> {
                     .map_or(index, |hop| hop.to.0 as usize);
                 let terminal = related.as_ref().map_or(&path, |(_, terminal)| terminal);
                 let target = &repo.collections[terminal_index];
-                let transform = bind_transform(
+                let (transform, transform_identity) = bind_transform(
                     &target.definition.schema,
                     terminal,
                     expression.binding.as_deref(),
@@ -213,7 +243,7 @@ impl<'a> BoundSort<'a> {
                         config.options,
                     )
                 };
-                let config = (locale, options);
+                let config = (locale, options, transform_identity);
                 if expected_config[position]
                     .as_ref()
                     .is_some_and(|previous| previous != &config)

@@ -191,8 +191,10 @@ selection. Explicit composite orders over configured scalar columns can also
 serve broad ordered pages. Other local, positional, reduced, and finite related
 sort expressions compute keys for every match and retain at most
 `offset + limit` winners. Computed sorting has a combined 128 MiB budget for
-payload estimates, rank keys, and related target projections; exceeding it
-returns an error. Incompatible sort definitions across selected collections are
+payload estimates, rank keys, and related target projections. Warm cached
+membership is reranked using bounded file-group scratch, and its live membership
+and grouping estimate counts toward that limit. Exceeding it returns an error.
+Incompatible sort definitions across selected collections are
 rejected. A hit
 always includes its collection, record ID, generation, file ID/path, size,
 created/modified times, byte range, and requested matched-field evidence.

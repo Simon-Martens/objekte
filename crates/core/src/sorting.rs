@@ -305,7 +305,6 @@ impl SortBuilder {
                 .map(simple_composite_part)
                 .collect::<Option<Vec<_>>>();
             if fields.len() < 2
-                || fields.iter().any(|field| field.expression.is_some())
                 || parts
                     .as_ref()
                     .is_none_or(|parts| parts.iter().any(|part| !columns.contains_key(&part.path)))

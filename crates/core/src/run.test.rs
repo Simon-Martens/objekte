@@ -2334,4 +2334,29 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
             .unwrap_err()
             .contains("memory budget")
     );
+    let cached = CachedResult {
+        members: vec![
+            CachedMember {
+                collection_index: 0,
+                slot: 0,
+                matched_fields: vec!["title".into()],
+            },
+            CachedMember {
+                collection_index: 0,
+                slot: 1,
+                matched_fields: vec![],
+            },
+        ],
+    };
+    let without_reads = super::cached_sort_fixed_bytes(&cached, 0).unwrap();
+    let with_reads = super::cached_sort_fixed_bytes(&cached, 2).unwrap();
+    assert_eq!(
+        with_reads - without_reads,
+        2 * std::mem::size_of::<super::CachedSortRead>() as u64
+    );
+    assert!(
+        super::check_computed_sort_budget_with_limit(with_reads - 1, with_reads, 0, 0,)
+            .unwrap_err()
+            .contains("memory budget")
+    );
 }

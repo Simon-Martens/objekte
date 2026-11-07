@@ -35,14 +35,84 @@ const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
 
 fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
+    check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
+}
+
+fn check_computed_sort_budget_with_limit(
+    limit: u64,
+    payload: u64,
+    keys: u64,
+    targets: u64,
+) -> Result<(), String> {
     let total = payload
         .checked_add(keys)
         .and_then(|used| used.checked_add(targets))
         .ok_or("computed sort memory count overflow")?;
-    if total > MAX_COMPUTED_SORT_BYTES {
+    if total > limit {
         return Err("computed sort memory budget exceeded".into());
     }
     Ok(())
+}
+
+
+/// One cached member that needs a source read to compute its sort key.
+struct CachedSortRead {
+    collection_index: usize,
+    file_id: u32,
+    member_index: u32,
+    range: ByteRange,
+}
+
+
+fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
+    let mut bytes = cached
+        .members
+        .capacity()
+        .checked_mul(std::mem::size_of::<CachedMember>())
+        .and_then(|used| used.checked_add(std::mem::size_of::<CachedResult>()))
+        .ok_or("cached sort memory count overflow")?;
+    for member in &cached.members {
+        bytes = bytes
+            .checked_add(
+                member
+                    .matched_fields
+                    .capacity()
+                    .checked_mul(std::mem::size_of::<String>())
+                    .ok_or("cached sort memory count overflow")?,
+            )
+            .ok_or("cached sort memory count overflow")?;
+        for field in &member.matched_fields {
+            bytes = bytes
+                .checked_add(field.capacity())
+                .ok_or("cached sort memory count overflow")?;
+        }
+    }
+    bytes = bytes
+        .checked_add(
+            reads
+                .checked_mul(std::mem::size_of::<CachedSortRead>())
+                .ok_or("cached sort memory count overflow")?,
+        )
+        .and_then(|used| used.checked_add(128 * std::mem::size_of::<(u32, ByteRange)>()))
+        .ok_or("cached sort memory count overflow")?;
+    u64::try_from(bytes).map_err(|_| "cached sort memory count overflow".into())
+}
+
+fn check_cached_sort_live(
+    sort: &ResolvedSort<'_>,
+    fixed_bytes: u64,
+    key_bytes: u64,
+    has_related_sort: bool,
+) -> Result<(), String> {
+    if !has_related_sort {
+        return check_computed_sort_budget(fixed_bytes, key_bytes, 0);
+    }
+    let target_bytes = sort
+        .target_cache
+        .lock()
+        .map_err(|error| error.to_string())?
+        .retained_bytes();
+    check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
 
@@ -2224,6 +2294,12 @@ fn materialize_computed_cached<'a>(
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let sort = ResolvedSort::from_bound(repo, query, bound_sort);
+    let has_related_sort = sort.bound.terms.iter().flatten().any(|terms| {
+        terms.iter().any(|term| {
+            matches!(&term.source,
+            BoundSortSource::Computed(computed) if computed.related.is_some())
+        })
+    });
     let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
     let cap = query
         .options
@@ -2240,20 +2316,32 @@ fn materialize_computed_cached<'a>(
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     let mut winners = BinaryHeap::new();
     let mut retained_key_bytes = 0u64;
-    let mut groups: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
+    let reads_needed = cached
+        .members
+        .iter()
+        .filter(|member| {
+            sort.bound.needs_source
+                && repo.collections[member.collection_index].generation.records
+                    [member.slot as usize]
+                    .class
+                    == RecordClass::Logical
+        })
+        .count();
+    let fixed_bytes = cached_sort_fixed_bytes(cached, reads_needed)?;
+    check_computed_sort_budget(fixed_bytes, 0, 0)?;
+    let mut reads = Vec::<CachedSortRead>::with_capacity(reads_needed);
     let mut touched_files = HashSet::new();
     let empty = Value::Object(Default::default());
     for (index, member) in cached.members.iter().enumerate() {
         let collection = &repo.collections[member.collection_index];
         let record = &collection.generation.records[member.slot as usize];
         if sort.bound.needs_source && record.class == RecordClass::Logical {
-            groups
-                .entry((member.collection_index, record.file.0))
-                .or_default()
-                .push((
-                    u32::try_from(index).map_err(|_| "cached membership exceeds u32")?,
-                    record.range,
-                ));
+            reads.push(CachedSortRead {
+                collection_index: member.collection_index,
+                file_id: record.file.0,
+                member_index: u32::try_from(index).map_err(|_| "cached membership exceeds u32")?,
+                range: record.range,
+            });
             continue;
         }
         let ctx = RecordContext {
@@ -2276,13 +2364,31 @@ fn materialize_computed_cached<'a>(
             &mut counters.peak_retained_sort_key_bytes,
             cap,
         )?;
+        check_cached_sort_live(&sort, fixed_bytes, retained_key_bytes, has_related_sort)?;
     }
+    reads.sort_unstable_by_key(|read| (read.collection_index, read.file_id, read.range.start));
     let mut source_access = SourceAccessSession::new(&repo.files);
-    for ((collection_index, file_id), ranges) in groups {
+    let mut batch = Vec::<(u32, ByteRange)>::with_capacity(128);
+    let mut start = 0;
+    while start < reads.len() {
+        let collection_index = reads[start].collection_index;
+        let file_id = reads[start].file_id;
         touched_files.insert(file_id);
         let collection = &repo.collections[collection_index];
-        for batch in ranges.chunks(128) {
-            let read = source_access.read(crate::model::FileId(file_id), batch)?;
+        while start < reads.len()
+            && reads[start].collection_index == collection_index
+            && reads[start].file_id == file_id
+        {
+            batch.clear();
+            while start < reads.len()
+                && batch.len() < 128
+                && reads[start].collection_index == collection_index
+                && reads[start].file_id == file_id
+            {
+                batch.push((reads[start].member_index, reads[start].range));
+                start += 1;
+            }
+            let read = source_access.read(crate::model::FileId(file_id), &batch)?;
             counters.files_opened += read.opened;
             counters.bytes_read += read.bytes_read;
             for (index, bytes) in read.records {
@@ -2316,6 +2422,7 @@ fn materialize_computed_cached<'a>(
                     &mut counters.peak_retained_sort_key_bytes,
                     cap,
                 )?;
+                check_cached_sort_live(&sort, fixed_bytes, retained_key_bytes, has_related_sort)?;
             }
         }
     }
@@ -2361,7 +2468,13 @@ fn materialize_computed_cached<'a>(
             total.checked_add(estimate)
         })
         .ok_or("computed sort payload count overflow")?;
-    check_computed_sort_budget(payload_bytes, retained_key_bytes, target_bytes)?;
+    check_computed_sort_budget(
+        payload_bytes
+            .checked_add(fixed_bytes)
+            .ok_or("computed sort memory count overflow")?,
+        retained_key_bytes,
+        target_bytes,
+    )?;
     let mut page_query = query.clone();
     page_query.options.offset = 0;
     page_query.options.limit = page_cache.members.len();

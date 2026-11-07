@@ -1,5 +1,10 @@
 use super::*;
-use crate::model::{ArrayValue, Number};
+use crate::model::{ArrayValue, LogicalType, Number};
+use crate::query::QueryOptions;
+use crate::reference::{FieldDefinition, RegisteredBinding};
+use crate::repository::{CollectionDefinition, RepositoryOptions, SnapshotMode};
+use crate::source::SourceFormat;
+use crate::workload::ReturnMode;
 
 
 #[derive(Debug)]
@@ -55,6 +60,84 @@ fn min_max_transform_null_before_classifying_it() {
             SortKey::Number(expected)
         );
     }
+}
+
+#[test]
+fn cross_collection_sort_rejects_different_binding_versions() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-sort-binding-version-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos(),
+    ));
+    let mut definitions = Vec::new();
+    for (name, version) in [("a", 1), ("b", 2)] {
+        std::fs::create_dir_all(root.join(name)).unwrap();
+        std::fs::write(root.join(name).join("record.json"), r#"{"title":"Alpha"}"#).unwrap();
+        let mut definition = CollectionDefinition::folder(name, name, SourceFormat::Json);
+        definition
+            .schema
+            .register_field(FieldDefinition {
+                path: vec!["title".into()],
+                kind: LogicalType::String,
+                required: true,
+                nullable: false,
+                indexed: false,
+                multi: false,
+                element_nullable: vec![],
+            })
+            .unwrap();
+        definition
+            .schema
+            .register_operation(
+                vec!["title".into()],
+                RegisteredBinding {
+                    name: "normalized".into(),
+                    version,
+                    operation: Arc::new(NullAsZero),
+                },
+            )
+            .unwrap();
+        definitions.push(definition);
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = Query {
+        collections: Vec::new(),
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::computed(
+                SortExpression {
+                    path: "title".into(),
+                    binding: Some("normalized".into()),
+                    reducer: None,
+                },
+                false,
+            )],
+            limit: 10,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert!(
+        repo.search(&query)
+            .unwrap_err()
+            .contains("incompatible cross-collection sort")
+    );
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 fn sorter(path: &str, reducer: Option<SortReducer>) -> ComputedSort {

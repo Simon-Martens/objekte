@@ -213,10 +213,19 @@ impl Schema {
         if fields.len() < 2 {
             return Err("composite sort requires at least two fields".into());
         }
-        if fields.iter().any(|field| field.expression.is_some()) {
-            return Err("composite sort requires resident scalar fields".into());
-        }
-        if self.composite_sorts.contains(&fields) {
+        let normalized = fields
+            .iter()
+            .map(crate::sorting::simple_composite_part)
+            .collect::<Option<Vec<_>>>()
+            .ok_or("composite sort requires resident scalar fields")?;
+        if self.composite_sorts.iter().any(|existing| {
+            existing
+                .iter()
+                .map(crate::sorting::simple_composite_part)
+                .collect::<Option<Vec<_>>>()
+                .as_ref()
+                == Some(&normalized)
+        }) {
             return Err("duplicate composite sort".into());
         }
         self.composite_sorts.push(fields);

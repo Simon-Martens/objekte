@@ -245,11 +245,14 @@ fn explicit_composite_order_streams_and_matches_reference() {
     definition
         .schema
         .register_composite_sort(vec![
-            SortField {
-                field: "year".into(),
-                descending: true,
-                expression: None,
-            },
+            SortField::computed(
+                SortExpression {
+                    path: "year".into(),
+                    binding: None,
+                    reducer: None,
+                },
+                true,
+            ),
             SortField {
                 field: "title".into(),
                 descending: false,
@@ -257,6 +260,16 @@ fn explicit_composite_order_streams_and_matches_reference() {
             },
         ])
         .unwrap();
+    assert!(
+        definition
+            .schema
+            .register_composite_sort(vec![
+                SortField::simple("year", true),
+                SortField::simple("title", false),
+            ])
+            .unwrap_err()
+            .contains("duplicate composite")
+    );
     let definitions = vec![definition];
     repo = Repository::open_with_options(
         &root,
