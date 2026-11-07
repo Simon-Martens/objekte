@@ -12,6 +12,7 @@ use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 
 use crate::bigram::{BIGRAM_VERSION, BigramIndex, FOLDED_REPRESENTATION};
+use crate::inference::{InferenceMode, InferenceState};
 use crate::inventory::{
     CollectionGeneration, FileInventory, FileStatus, SourceDiagnostic, SourceRevision,
 };
@@ -27,7 +28,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 10;
+pub const SNAPSHOT_VERSION: u32 = 12;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -51,6 +52,7 @@ struct EncodedCollection {
     generation: CollectionGeneration,
     identity_order: Vec<RecordSlot>,
     postings: PostingCollection,
+    inference: Option<InferenceState>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramIndex,
     fallback_text: BigramIndex,
@@ -69,6 +71,7 @@ struct EncodedCollectionRef<'a> {
     generation: &'a CollectionGeneration,
     identity_order: &'a Vec<RecordSlot>,
     postings: &'a PostingCollection,
+    inference: &'a Option<InferenceState>,
     custom_postings: &'a HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: &'a BigramIndex,
     fallback_text: &'a BigramIndex,
@@ -190,6 +193,7 @@ pub fn configuration_hash(
         BigramAlphabet::Ascii => 0,
         BigramAlphabet::Unicode => 1,
     }]);
+    feed(&mut hash, format!("{:?}", options.inference).as_bytes());
     for definition in definitions {
         let source = sources.resolve(&definition.format)?;
         feed(&mut hash, definition.name.as_bytes());
@@ -390,6 +394,7 @@ impl Repository {
                     generation: &state.generation,
                     identity_order: &state.identity_order,
                     postings: &state.postings,
+                    inference: &state.inference,
                     custom_postings: &state.custom_postings,
                     raw: &state.raw,
                     fallback_text: &state.fallback_text,
@@ -615,6 +620,18 @@ pub fn load_snapshot(
                 return Err("snapshot posting binding mismatch".into());
             }
         }
+        match (&encoded.inference, options.inference.mode) {
+            (None, InferenceMode::Disabled) => {}
+            (Some(inference), InferenceMode::ReportOnly | InferenceMode::AutoIndex) => {
+                inference.validate(
+                    options.inference,
+                    &encoded.logical_records,
+                    generation.records.len(),
+                    &definition.schema,
+                )?;
+            }
+            _ => return Err("snapshot inference mode mismatch".into()),
+        }
         encoded.raw.validate(generation.records.len())?;
         if encoded.raw.alphabet != options.bigram_alphabet {
             return Err("snapshot alphabet mismatch".into());
@@ -741,6 +758,7 @@ pub fn load_snapshot(
             source,
             generation,
             postings: encoded.postings,
+            inference: encoded.inference,
             custom_postings: encoded.custom_postings,
             raw: encoded.raw,
             fallback_text: encoded.fallback_text,

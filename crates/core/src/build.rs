@@ -14,6 +14,7 @@ use rayon::ThreadPool;
 use roaring::RoaringBitmap;
 
 use crate::bigram::{BigramBuilder, BigramContribution};
+use crate::inference::{InferenceBuilder, InferenceConfig};
 use crate::inventory::{
     ByteRange, CollectionBuilder, DiagnosticRef, FileEntry, FileInventory, FileStatus, RecordClass,
     RecordEntry, SourceDiagnostic, SourceRevision, append_shifted_bitmap,
@@ -35,11 +36,13 @@ use crate::source::{
 };
 use crate::workload::BigramAlphabet;
 
+
 struct BatchFile {
     entry: FileEntry,
     records: Range<usize>,
     first_range: bool,
 }
+
 
 /// Immutable discovery metadata shared by all construction workers. Mutable
 /// statuses and diagnostics stay in the coordinator-owned inventory.
@@ -49,6 +52,7 @@ pub(crate) struct SourceFileInput {
     revision: SourceRevision,
     created_ns: Option<i128>,
 }
+
 
 impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
@@ -73,6 +77,7 @@ impl SourceFileInput {
         }
     }
 }
+
 
 /// Bound each job by both file count and discovered source bytes. A single
 /// oversized source is admitted alone; its framing contract may need that
@@ -105,12 +110,14 @@ pub(crate) fn file_batches<'a>(
     batches
 }
 
+
 /// All expensive per-record projection is complete before this crosses the
 /// worker/coordinator boundary. Slots remain local until ordered admission.
 pub(crate) struct BatchContribution {
     files: Vec<BatchFile>,
     records: Vec<RecordEntry>,
     postings: PostingCollection,
+    inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramContribution,
     fallback_text: BigramContribution,
@@ -123,6 +130,7 @@ pub(crate) struct BatchContribution {
     pub failed_parses: u64,
 }
 
+
 struct BatchBuilder<'a> {
     root: &'a Path,
     definition: &'a CollectionDefinition,
@@ -130,6 +138,7 @@ struct BatchBuilder<'a> {
     source: &'a PreparedSource,
     records: Vec<RecordEntry>,
     postings: PostingCollection,
+    inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramBuilder,
     fallback_text: BigramBuilder,
@@ -140,6 +149,7 @@ struct BatchBuilder<'a> {
     relations: Vec<RelationContribution>,
 }
 
+
 impl<'a> BatchBuilder<'a> {
     fn new(
         root: &'a Path,
@@ -147,6 +157,8 @@ impl<'a> BatchBuilder<'a> {
         collection: CollectionId,
         source: &'a PreparedSource,
         alphabet: BigramAlphabet,
+        inference: InferenceConfig,
+        inference_jobs: usize,
     ) -> Result<Self, String> {
         let schema = &definition.schema;
         let custom_postings = schema
@@ -189,6 +201,7 @@ impl<'a> BatchBuilder<'a> {
             source,
             records: Vec::new(),
             postings: PostingCollection::new(schema),
+            inference: InferenceBuilder::with_job_count(inference, true, inference_jobs),
             custom_postings,
             raw: BigramBuilder::new(alphabet),
             fallback_text: BigramBuilder::new(alphabet),
@@ -298,9 +311,7 @@ impl<'a> BatchBuilder<'a> {
         mut extracted: ExtractedRecord,
         source_bytes: Option<&[u8]>,
     ) -> Result<(), String> {
-        if let Err(error) =
-            finish_build_record(&self.definition.schema, &mut extracted)
-        {
+        if let Err(error) = finish_build_record(&self.definition.schema, &mut extracted) {
             let issue = ReaderDiagnostic::new(
                 DiagnosticCategory::LogicalValidation,
                 "logical.validation",
@@ -363,6 +374,9 @@ impl<'a> BatchBuilder<'a> {
             diagnostic_ref: DiagnosticRef(0),
         });
         self.postings.add(slot, &extracted.value)?;
+        if let Some(inference) = &mut self.inference {
+            inference.observe_record(slot, &extracted.value)?;
+        }
         for relation in &mut self.relations {
             relation.add_logical(slot, &extracted.value)?;
         }
@@ -505,6 +519,7 @@ impl<'a> BatchBuilder<'a> {
             files,
             records: self.records,
             postings: self.postings,
+            inference: self.inference,
             custom_postings: self.custom_postings,
             raw: self.raw.finish_blocks()?,
             fallback_text: self.fallback_text.finish_blocks()?,
@@ -519,6 +534,7 @@ impl<'a> BatchBuilder<'a> {
     }
 }
 
+
 pub(crate) fn process_batch(
     root: &Path,
     definition: &CollectionDefinition,
@@ -527,8 +543,18 @@ pub(crate) fn process_batch(
     file_ids: &[FileId],
     source_files: &[SourceFileInput],
     alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
-    let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
+    let mut builder = BatchBuilder::new(
+        root,
+        definition,
+        collection,
+        source,
+        alphabet,
+        inference,
+        inference_jobs,
+    )?;
     let mut files = Vec::with_capacity(file_ids.len());
     let (mut record_parses, mut failed_parses) = (0, 0);
     for &file_id in file_ids {
@@ -536,9 +562,10 @@ pub(crate) fn process_batch(
         let path = root.join(&original.relative_path);
         let mut file = original.for_collection(collection);
         let start = builder.records.len();
-        let stats = extract_file_build_outcomes(&path, source.reader(), file.revision, |outcome| {
-            builder.outcome(&mut file, &path, outcome, None)
-        })?;
+        let stats =
+            extract_file_build_outcomes(&path, source.reader(), file.revision, |outcome| {
+                builder.outcome(&mut file, &path, outcome, None)
+            })?;
         record_parses += stats.record_parses;
         failed_parses += stats.failed_parses;
         files.push(BatchFile {
@@ -561,11 +588,21 @@ fn process_framed_batch(
     ranges: &[ByteRange],
     first_range: bool,
     alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
 ) -> Result<BatchContribution, String> {
     let original = &source_files[file_id.0 as usize];
     let path = root.join(&original.relative_path);
     let mut file = original.for_collection(collection);
-    let mut builder = BatchBuilder::new(root, definition, collection, source, alphabet)?;
+    let mut builder = BatchBuilder::new(
+        root,
+        definition,
+        collection,
+        source,
+        alphabet,
+        inference,
+        inference_jobs,
+    )?;
     let stats = extract_framed_build_outcomes(&path, source.reader(), bytes, ranges, |outcome| {
         let source_part = match &outcome {
             SourceOutcome::Logical { range, .. } => {
@@ -600,16 +637,20 @@ pub(crate) fn process_framed_file(
     file_id: FileId,
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
+    inference: InferenceConfig,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     const MAX_RANGE_BYTES: u64 = 1024 * 1024;
     const MAX_RANGES: usize = 256;
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
-    let mut stats = BuildScheduleStats { weight_limit_bytes: MAX_ADMITTED_BYTES, ..Default::default() };
+    let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    let mut stats = BuildScheduleStats {
+        weight_limit_bytes: MAX_ADMITTED_BYTES,
+        ..Default::default()
+    };
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
-    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader())?
-    else {
+    let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader())? else {
         let batch = process_batch(
             &root,
             &definition,
@@ -618,6 +659,8 @@ pub(crate) fn process_framed_file(
             &[file_id],
             &source_files,
             alphabet,
+            inference,
+            max_jobs,
         )?;
         let admission_started = Instant::now();
         let outcome = admit(batch);
@@ -655,7 +698,6 @@ pub(crate) fn process_framed_file(
     let mut admitted_bytes = 0u64;
     let mut peak_bytes = 0u64;
     let mut failure = None;
-    let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
     let counters = Arc::new(JobCounters::default());
     while next < chunks.len() && failure.is_none() {
         while dispatched < chunks.len() && dispatched - next < max_jobs {
@@ -674,18 +716,22 @@ pub(crate) fn process_framed_file(
             let ranges = Arc::clone(&ranges);
             let counters = Arc::clone(&counters);
             pool.spawn(move || {
-                let result = counters.run(|| process_framed_batch(
-                    &root,
-                    &definition,
-                    collection,
-                    &source,
-                    file_id,
-                    &source_files,
-                    &bytes,
-                    &ranges[chunk],
-                    index == 0,
-                    alphabet,
-                ));
+                let result = counters.run(|| {
+                    process_framed_batch(
+                        &root,
+                        &definition,
+                        collection,
+                        &source,
+                        file_id,
+                        &source_files,
+                        &bytes,
+                        &ranges[chunk],
+                        index == 0,
+                        alphabet,
+                        inference,
+                        max_jobs,
+                    )
+                });
                 let _ = sender.send((index, result));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
@@ -694,7 +740,9 @@ pub(crate) fn process_framed_file(
         }
         let wait_started = Instant::now();
         let received = receiver.recv();
-        stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(wait_started.elapsed().as_nanos() as u64);
+        stats.receive_wait_ns = stats
+            .receive_wait_ns
+            .saturating_add(wait_started.elapsed().as_nanos() as u64);
         let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
         ready.insert(index, result);
@@ -702,7 +750,9 @@ pub(crate) fn process_framed_file(
             admitted_bytes -= chunks[next].1;
             let admission_started = Instant::now();
             let outcome = result.and_then(&mut admit);
-            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
+            stats.admission_ns = stats
+                .admission_ns
+                .saturating_add(admission_started.elapsed().as_nanos() as u64);
             match outcome {
                 Ok(()) => {
                     counters.admitted.fetch_add(1, Ordering::Relaxed);
@@ -748,7 +798,8 @@ pub(crate) fn resolve_build_workers(
 }
 
 pub(crate) fn normal_batch_allowance(workers: usize) -> u64 {
-    u64::try_from(workers).unwrap_or(u64::MAX)
+    u64::try_from(workers)
+        .unwrap_or(u64::MAX)
         .saturating_mul(16 * 1024 * 1024)
         .clamp(52 * 1024 * 1024, 512 * 1024 * 1024)
 }
@@ -756,6 +807,7 @@ pub(crate) fn normal_batch_allowance(workers: usize) -> u64 {
 fn fits_allowance(current: u64, weight: u64, limit: u64) -> bool {
     current == 0 || (weight <= limit && current.saturating_add(weight) <= limit)
 }
+
 
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct BuildScheduleStats {
@@ -767,6 +819,7 @@ pub(crate) struct BuildScheduleStats {
     pub receive_wait_ns: u64,
     pub admission_ns: u64,
 }
+
 
 impl BuildScheduleStats {
     pub fn absorb(&mut self, other: Self) {
@@ -780,6 +833,7 @@ impl BuildScheduleStats {
     }
 }
 
+
 #[derive(Default)]
 struct JobCounters {
     active: AtomicUsize,
@@ -790,13 +844,15 @@ struct JobCounters {
     execution_ns: AtomicU64,
 }
 
+
 impl JobCounters {
     fn run<T>(&self, job: impl FnOnce() -> T) -> T {
         let active = self.active.fetch_add(1, Ordering::Relaxed) + 1;
         self.peak_active.fetch_max(active, Ordering::Relaxed);
         let started = Instant::now();
         let result = job();
-        self.execution_ns.fetch_add(started.elapsed().as_nanos() as u64, Ordering::Relaxed);
+        self.execution_ns
+            .fetch_add(started.elapsed().as_nanos() as u64, Ordering::Relaxed);
         self.active.fetch_sub(1, Ordering::Relaxed);
         let completed = self.completed.fetch_add(1, Ordering::Relaxed) + 1;
         self.peak_ready.fetch_max(
@@ -813,6 +869,7 @@ impl JobCounters {
     }
 }
 
+
 /// Ordered admission keeps the established slot and diagnostic order even if
 /// later file batches finish first. The window includes completed batches
 /// awaiting admission, so an early slow job cannot queue the whole corpus.
@@ -824,12 +881,14 @@ pub(crate) struct RepositoryFileJob {
     pub files: Vec<FileId>,
 }
 
+
 pub(crate) fn process_repository_file_batches(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
     jobs: &[RepositoryFileJob],
     source_files: Arc<Vec<SourceFileInput>>,
     alphabet: BigramAlphabet,
+    inference: InferenceConfig,
     mut admit: impl FnMut(usize, BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
     const MIN_FILE_BYTES: u64 = 16 * 1024;
@@ -843,7 +902,7 @@ pub(crate) fn process_repository_file_batches(
             })
         })
         .collect::<Vec<_>>();
-    let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let mut future_first_jobs = jobs
         .iter()
         .enumerate()
@@ -893,7 +952,10 @@ pub(crate) fn process_repository_file_batches(
     let mut peak_bytes = 0u64;
     let mut failure = None;
     let counters = Arc::new(JobCounters::default());
-    let mut stats = BuildScheduleStats { weight_limit_bytes: allowance, ..Default::default() };
+    let mut stats = BuildScheduleStats {
+        weight_limit_bytes: allowance,
+        ..Default::default()
+    };
     while next < jobs.len() && failure.is_none() {
         while dispatched < jobs.len() && dispatched - next < max_jobs {
             let index = order[dispatched];
@@ -910,15 +972,19 @@ pub(crate) fn process_repository_file_batches(
             let source_files = Arc::clone(&source_files);
             let counters = Arc::clone(&counters);
             pool.spawn(move || {
-                let result = counters.run(|| process_batch(
-                    &root,
-                    &definition,
-                    collection,
-                    &source,
-                    &file_ids,
-                    &source_files,
-                    alphabet,
-                ));
+                let result = counters.run(|| {
+                    process_batch(
+                        &root,
+                        &definition,
+                        collection,
+                        &source,
+                        &file_ids,
+                        &source_files,
+                        alphabet,
+                        inference,
+                        max_jobs,
+                    )
+                });
                 let _ = sender.send((index, result));
             });
             admitted_bytes = admitted_bytes.saturating_add(weight);
@@ -927,7 +993,9 @@ pub(crate) fn process_repository_file_batches(
         }
         let wait_started = Instant::now();
         let received = receiver.recv();
-        stats.receive_wait_ns = stats.receive_wait_ns.saturating_add(wait_started.elapsed().as_nanos() as u64);
+        stats.receive_wait_ns = stats
+            .receive_wait_ns
+            .saturating_add(wait_started.elapsed().as_nanos() as u64);
         let (index, result) = received.map_err(|error| error.to_string())?;
         completed += 1;
         ready.insert(index, result);
@@ -935,7 +1003,9 @@ pub(crate) fn process_repository_file_batches(
             admitted_bytes -= weights[next];
             let admission_started = Instant::now();
             let outcome = result.and_then(|batch| admit(jobs[next].collection_index, batch));
-            stats.admission_ns = stats.admission_ns.saturating_add(admission_started.elapsed().as_nanos() as u64);
+            stats.admission_ns = stats
+                .admission_ns
+                .saturating_add(admission_started.elapsed().as_nanos() as u64);
             match outcome {
                 Ok(()) => {
                     counters.admitted.fetch_add(1, Ordering::Relaxed);
@@ -984,15 +1054,23 @@ pub(crate) fn process_file_batches(
             files: files.to_vec(),
         })
         .collect::<Vec<_>>();
-    process_repository_file_batches(pool, root, &jobs, source_files, alphabet, |_, batch| {
-        admit(batch)
-    })
+    process_repository_file_batches(
+        pool,
+        root,
+        &jobs,
+        source_files,
+        alphabet,
+        InferenceConfig::default(),
+        |_, batch| admit(batch),
+    )
 }
+
 
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
     pub postings: &'a mut PostingCollection,
+    pub inference: &'a mut Option<InferenceBuilder>,
     pub custom_postings: &'a mut HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: &'a mut BigramContribution,
     pub fallback_text: &'a mut BigramContribution,
@@ -1002,6 +1080,7 @@ pub(crate) struct CollectionAdmission<'a> {
     pub sorting: &'a mut SortBuilder,
     pub relations: &'a mut Vec<RelationContribution>,
 }
+
 
 impl CollectionAdmission<'_> {
     pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
@@ -1073,6 +1152,11 @@ impl CollectionAdmission<'_> {
             return Err("incomplete batch record admission".into());
         }
         self.postings.merge_shifted(batch.postings, base)?;
+        match (self.inference.as_mut(), batch.inference) {
+            (Some(global), Some(local)) => global.merge_shifted(local, base)?,
+            (None, None) => {}
+            _ => return Err("inference batch mode mismatch".into()),
+        }
         if self.relations.len() != batch.relations.len() {
             return Err("relation batch coverage mismatch".into());
         }
@@ -1108,6 +1192,7 @@ impl CollectionAdmission<'_> {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "build.test.rs"]

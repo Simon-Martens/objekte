@@ -12,6 +12,7 @@ mod byte_size_literal;
 pub mod clock_context;
 pub mod discovery;
 pub mod executor;
+pub mod inference;
 pub mod inventory;
 pub mod model;
 pub mod parameters;
