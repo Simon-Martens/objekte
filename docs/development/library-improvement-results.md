@@ -32,4 +32,11 @@ These are first measurements, not speedup claims. Query construction in the harn
 
 ## Integrated work
 
-Pending task handoffs.
+| Finding | Task head | Integration merge | Combined validation |
+| --- | --- | --- | --- |
+| C1 prepared-cache accounting | `3811445dba` | `7c64ddd22d` | Five focused cache tests and workspace tests passed. |
+| C2 JSON parser acceptance | `a9309e6c54` | `e15918792b` | Two focused reader differential tests and workspace tests passed. |
+| C4 distinct-byte inference summary | `2c7da67595` | `aee8ef0bcc` | Six focused allocation/boundary tests and workspace tests passed. |
+| C5 public numeric invariants | `376bf2bcca` | `bc36dfaf08` | Three focused numeric/admission tests and workspace tests passed. |
+
+The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. C3 composite-status ordering and C6 path/binding contract remain pending in Phase 1.
