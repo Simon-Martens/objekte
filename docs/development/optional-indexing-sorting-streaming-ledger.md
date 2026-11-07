@@ -33,10 +33,10 @@ Default source records remain object-valued under current reader validation. Arr
 | TASK-00 | Supervisor | complete | Base and prior evidence pinned above. |
 | TASK-01 | Supervisor | complete | Folder definition, path identity, example and compiling checkpoint. |
 | TASK-02 | Dynamic FILTER worker | accepted | Pushed clean head `0fbf439aa9` on `feature/dynamic-filter-bigrams`; structural bitmap, sound gram restriction and focused evidence reviewed. Merge awaits TASK-08 gate. |
-| TASK-03/04 | Inference worker | correction in progress | `fe282ef41b` passed workspace tests and Clippy but independent review found three contract gaps described below; do not merge this head. |
-| TASK-05/06 | Sorting worker | in progress | `feature/general-sort-expressions` at `/home/simon/source/objekte-general-sort-expressions`; computed and composite sorting. |
-| TASK-07 | Streaming worker | in progress | `feature/progressive-query-results`; delivery, cancellation and NDJSON implementation undergoing final tests. |
-| TASK-08 | Supervisor | in progress | Dynamic branch accepted; independent inference review requires corrections; sorting and streaming review follows. |
+| TASK-03/04 | Inference worker | accepted | Clean pushed head `a34154091a`; four review findings corrected, focused/core/workspace checks passed, and final read-only recheck found no blocker. Merge awaits TASK-08 gate. |
+| TASK-05/06 | Sorting worker | correction in progress | `10f41b8a50` passed tests/Clippy; independent review found three resource/compatibility gaps below. |
+| TASK-07 | Streaming worker | correction in progress | `48adf895ed` passed tests/Clippy and NDJSON smoke; independent review found three sequence/resource gaps below. |
+| TASK-08 | Supervisor | in progress | Dynamic and inference accepted; sorting and streaming require focused corrections and recheck before merge. |
 | TASK-09 | Supervisor | not started | Four-way integration and cross-feature validation. |
 | TASK-10 | Supervisor | not started | Final measurements. |
 | TASK-11 | Supervisor | not started | Development promotion. |
@@ -59,3 +59,15 @@ Accepted branch commits are `7007f8eea1` (structural E construction/admission/sn
 ## TASK-03/04 independent review
 
 The first inference head `fe282ef41b` was pushed and passed full workspace tests and Clippy. A read-only reviewer found three verified gaps, so it remains unaccepted pending a focused correction: (1) the batch observation cap derived from `2 × build_workers` can change admission and reports for identical records; (2) nested arrays such as `{"x":[[1]]}` underreport array depth; (3) inferred exact `:exists`/`:null` paths are unreachable because the candidate gate requires `Unknown` while the binder assigns `Bool`. An exact-proof fix must also reject explicit array selectors where their semantics differ from an implicit path. The reviewer withdrew an initial terminal-array concern after checking that nonterminal recursive visits do not alter the scalar/array shape flags. No ordinary equality/range candidate false negative was found in the inspected code. The correction worker owns fixes and deterministic fixtures; integration awaits its validated head.
+
+The correction `c8362668f9` fixed those three findings, passed 12 focused inference tests, the workspace suite and Clippy, and was pushed. A second independent read-only pass found that `ScalarKey::from_value` still cloned an arbitrarily long string before the optional-index length guard, even after the path was dropped. The 64 MiB policy is an inference-state estimate, not an RSS ceiling; the correction fixes per-batch caps, limits in-flight jobs and shares the coordinator allowance across simultaneously retained collections.
+
+The final inference follow-up `a34154091a` skips owned key construction for overlong, dropped and ReportOnly values. A test-only key-build counter covers 1 MiB nonblank text, overlong blank text, dropped paths and ordinary short values. Focused and core all-target tests and Clippy passed. The final independent read-only review accepted this head and found no candidate-superset blocker. The estimate caveat above remains in the public inference documentation.
+
+## TASK-05/06 independent review
+
+The pushed sorting head `10f41b8a50` implements computed local/related reductions, total scalar order, bounded top-k, resident composite orders and verified-cache reranking. Workspace tests and Clippy passed; focused inline-sort and comparator tests passed. A read-only reviewer verified the transformed-null and one-bind fixes, but found three gaps: warm cached computed sorting materializes all member ranges in an uncharged grouping map; cross-collection sort compatibility omits registered binding/version identity; and composite registration rejects typed simple expressions that lookup normalizes. The owning branch is correcting these before acceptance. Its local snapshot version 10 must be reconciled with dynamic/inference versions.
+
+## TASK-07 independent review
+
+The pushed streaming head `48adf895ed` provides a synchronous sink/cancellation API, ordered rows, replacement pages, warm cached membership streaming and versioned Musenalm NDJSON. Workspace tests and Clippy passed; the CLI smoke produced parseable `ordered_rows` then `complete` records with diagnostics on stderr. A read-only reviewer found three gaps: `final_sequence` can point to a progress event rather than the last page; target-prefetch limit failures can be misclassified as execution errors; and coalesced source reads can allocate a larger window than a small stream byte budget. The owning branch is correcting these. Computed-sort and computed warm-cache delivery remain mandatory integration work.
