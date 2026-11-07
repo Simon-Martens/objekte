@@ -1,6 +1,8 @@
 # Query extension comparison
 
-Before code: `81788174898c27b2c2c367319bad20ecee450562`. After code: `98410748d0b04b0d5d93b2eb36fb85e2e4fb7439`.
+Before measured code: `81788174898c27b2c2c367319bad20ecee450562`. After measured code: `1c64493ab981790de606def56c2b11e0dea1dd3a`.
+After process Git HEAD: `98410748d0b04b0d5d93b2eb36fb85e2e4fb7439`. The later HEAD contains documentation only.
+After binary SHA-256: `ad35b58ff77c60fd95b0e86410ba3a45e001984c02916a18a1666c177f5696be`.
 All resolved queries, corpus/schema fingerprints, compiler, worker and cache settings, profiles, repetitions, counts and page sizes match.
 The raw workload fingerprints differ because they hash the absolute checkout path; the tracked manifest Git blob is identical at both measured revisions.
 Delta is after minus before. Each time is the median of the timed samples in milliseconds.

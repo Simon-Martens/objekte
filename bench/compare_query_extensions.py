@@ -101,7 +101,7 @@ def compare(before_rows, after_rows, queries):
     return output
 
 
-def write_results(output_dir: Path, rows, before, after):
+def write_results(output_dir: Path, rows, before, after, environment=None):
     output_dir.mkdir(parents=True, exist_ok=True)
     with (output_dir / "comparison.csv").open("w", newline="") as destination:
         writer = csv.DictWriter(destination, fieldnames=list(rows[0]), lineterminator="\n")
@@ -110,10 +110,17 @@ def write_results(output_dir: Path, rows, before, after):
     profiles = defaultdict(list)
     for row in rows:
         profiles[row["profile"]].append(row)
+    measured_code = environment["final_measured_code"] if environment else after["code_revision"]
     lines = [
         "# Query extension comparison",
         "",
-        f"Before code: `{before['code_revision']}`. After code: `{after['code_revision']}`.",
+        f"Before measured code: `{before['code_revision']}`. After measured code: `{measured_code}`.",
+        f"After process Git HEAD: `{after['code_revision']}`."
+        + (" The later HEAD contains documentation only." if measured_code != after["code_revision"] else ""),
+    ]
+    if environment:
+        lines.append(f"After binary SHA-256: `{environment['final_binary_sha256']}`.")
+    lines.extend([
         "All resolved queries, corpus/schema fingerprints, compiler, worker and cache settings, profiles, repetitions, counts and page sizes match.",
         "The raw workload fingerprints differ because they hash the absolute checkout path; the tracked manifest Git blob is identical at both measured revisions.",
         "Delta is after minus before. Each time is the median of the timed samples in milliseconds.",
@@ -121,7 +128,7 @@ def write_results(output_dir: Path, rows, before, after):
         "",
         "| Profile | Before sum of medians, ms | After sum of medians, ms | Delta, ms | Queries >= 1 ms slower | Queries > 5% slower |",
         "| --- | ---: | ---: | ---: | ---: | ---: |",
-    ]
+    ])
     for profile, group in sorted(profiles.items()):
         old = sum(int(row["before_ns"]) for row in group) / 1_000_000
         new = sum(int(row["after_ns"]) for row in group) / 1_000_000
@@ -159,12 +166,19 @@ def main():
     parser.add_argument("before", type=Path)
     parser.add_argument("after", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument("--environment", type=Path, help="measured-code and binary metadata JSON")
     arguments = parser.parse_args()
     before, before_queries, before_rows = load_run(arguments.before)
     after, after_queries, after_rows = load_run(arguments.after)
     require_compatible(before, after, before_queries, after_queries)
+    environment = json.loads(arguments.environment.read_text()) if arguments.environment else None
+    if environment and (
+        environment["baseline_code"] != before["code_revision"]
+        or environment["final_process_git_head"] != after["code_revision"]
+    ):
+        raise ValueError("environment revision metadata does not match the recordings")
     rows = compare(before_rows, after_rows, after_queries)
-    write_results(arguments.output, rows, before, after)
+    write_results(arguments.output, rows, before, after, environment)
 
 
 if __name__ == "__main__":
