@@ -449,5 +449,12 @@ fn explain_reports_bound_relation_and_temporal_semantics() {
     assert_eq!(term.relation_hops[0].direction, "Forward");
     let encoded = serde_json::to_value(&trace).unwrap();
     assert!(encoded[0]["bound_terms"][0]["resolved_period"].is_array());
+    let parameterized = query("mentions", "entry = $target", ReturnMode::Locator);
+    let mut parameters = HashMap::new();
+    parameters.insert("target".to_owned(), Value::Id("A".into()));
+    let bound_trace = repo
+        .explain_with_parameters(&parameterized, &parameters)
+        .unwrap();
+    assert_eq!(bound_trace[0].bound_terms[0].bound_value, Some(Value::Id("A".into())));
     std::fs::remove_dir_all(root).unwrap();
 }
