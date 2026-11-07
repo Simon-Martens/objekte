@@ -8,7 +8,8 @@ use crate::query::{FilterExpr, FtsField, FtsQuery, Literal, Operand, Quantifier,
 use crate::query_path::{PathStep, QueryPath};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, bind_field_probe, bind_filter_with_parameters,
-    bind_fts, eval_bound_fts, eval_cross_record_field_term, eval_term,
+    bind_fts, eval_bound_fts, eval_bound_fts_field, eval_bound_fts_membership,
+    eval_cross_record_field_term, eval_term,
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::relation_target_cache::TargetValueCache;
@@ -407,6 +408,50 @@ pub(crate) fn eval_filter_truth(
     }
 }
 
+/// Three-valued membership stops at decisive branches without evidence sets.
+pub(crate) fn eval_filter_truth_membership(
+    repo: &Repository,
+    expr: &BoundExpr,
+    ctx: &RecordContext<'_>,
+    mode: EvaluationMode,
+    work: &mut RelationWork,
+) -> Result<Option<bool>, String> {
+    match expr {
+        BoundExpr::Term(term) => {
+            if term.related.is_some() {
+                eval_related_term_mode(repo, term, ctx, mode, work, None)
+            } else {
+                eval_term(term, ctx).map(Some)
+            }
+        }
+        BoundExpr::And(parts) => {
+            let mut unknown = false;
+            for part in parts {
+                match eval_filter_truth_membership(repo, part, ctx, mode, work)? {
+                    Some(false) => return Ok(Some(false)),
+                    None => unknown = true,
+                    Some(true) => {}
+                }
+            }
+            Ok(if unknown { None } else { Some(true) })
+        }
+        BoundExpr::Or(parts) => {
+            let mut unknown = false;
+            for part in parts {
+                match eval_filter_truth_membership(repo, part, ctx, mode, work)? {
+                    Some(true) => return Ok(Some(true)),
+                    None => unknown = true,
+                    Some(false) => {}
+                }
+            }
+            Ok(if unknown { None } else { Some(false) })
+        }
+        BoundExpr::Not(inner) => {
+            Ok(eval_filter_truth_membership(repo, inner, ctx, mode, work)?.map(|value| !value))
+        }
+    }
+}
+
 /// Evaluate selected local and relation FTS fields with source identity intact.
 pub(crate) fn eval_fts_with_relations(
     repo: &Repository,
@@ -417,13 +462,39 @@ pub(crate) fn eval_fts_with_relations(
     mode: EvaluationMode,
     work: &mut RelationWork,
 ) -> Result<bool, String> {
+    eval_fts_with_relations_inner(repo, fts, segments, ctx, Some(evidence), mode, work)
+}
+
+/// Membership-only route avoids constructing evidence and stops at one match.
+pub(crate) fn eval_fts_with_relations_membership(
+    repo: &Repository,
+    fts: &BoundFts,
+    segments: &[TextSegment],
+    ctx: &RecordContext<'_>,
+    mode: EvaluationMode,
+    work: &mut RelationWork,
+) -> Result<bool, String> {
+    eval_fts_with_relations_inner(repo, fts, segments, ctx, None, mode, work)
+}
+
+fn eval_fts_with_relations_inner(
+    repo: &Repository,
+    fts: &BoundFts,
+    segments: &[TextSegment],
+    ctx: &RecordContext<'_>,
+    mut evidence: Option<&mut std::collections::HashSet<String>>,
+    mode: EvaluationMode,
+    work: &mut RelationWork,
+) -> Result<bool, String> {
     if fts.fields.iter().all(|field| field.related.is_none()) {
-        return eval_bound_fts(fts, segments, ctx, evidence);
+        return if let Some(evidence) = evidence {
+            eval_bound_fts(fts, segments, ctx, evidence)
+        } else {
+            eval_bound_fts_membership(fts, segments, ctx)
+        };
     }
     let mut matched = false;
     for field in &fts.fields {
-        let mut one = fts.clone();
-        one.fields = vec![field.clone()];
         if let Some(hops) = &field.related {
             let source_index = repo
                 .collections
@@ -448,15 +519,28 @@ pub(crate) fn eval_fts_with_relations(
                 work,
                 &[],
                 &mut |target, target_segments, _| {
-                    eval_bound_fts(&one, target_segments, target, &mut Default::default())
+                    eval_bound_fts_field(field, fts.case_sensitivity, target_segments, target, None)
                 },
             )?;
             if truth == Some(true) {
                 matched = true;
-                evidence.insert(field.evidence_path.clone());
+                if let Some(evidence) = evidence.as_deref_mut() {
+                    evidence.insert(field.evidence_path.clone());
+                } else {
+                    return Ok(true);
+                }
             }
-        } else if eval_bound_fts(&one, segments, ctx, evidence)? {
+        } else if eval_bound_fts_field(
+            field,
+            fts.case_sensitivity,
+            segments,
+            ctx,
+            evidence.as_deref_mut(),
+        )? {
             matched = true;
+            if evidence.is_none() {
+                return Ok(true);
+            }
         }
     }
     Ok(matched)

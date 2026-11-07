@@ -2658,57 +2658,111 @@ pub fn eval_bound_fts(
         return Ok(matched);
     }
     for field in &fts.fields {
-        if let PathRoot::Metadata(metadata) = field.path.root {
-            if let Value::String(text) | Value::Id(text) = metadata_value(metadata, ctx)? {
-                if text_contains(
-                    &text,
+        matched |=
+            eval_bound_fts_field(field, fts.case_sensitivity, segments, ctx, Some(evidence))?;
+    }
+    Ok(matched)
+}
+
+/// Evaluate one borrowed selected target, retaining every matched path when requested.
+pub(crate) fn eval_bound_fts_field(
+    field: &BoundFtsField,
+    case_sensitivity: CaseSensitivity,
+    segments: &[TextSegment],
+    ctx: &RecordContext<'_>,
+    mut evidence: Option<&mut HashSet<String>>,
+) -> Result<bool, String> {
+    let mut matched = false;
+    if let PathRoot::Metadata(metadata) = field.path.root {
+        if let Value::String(text) | Value::Id(text) = metadata_value(metadata, ctx)?
+            && text_contains(
+                &text,
+                &field.literal,
+                &field.folded_literal,
+                field.transform,
+                field.matcher.as_ref(),
+                case_sensitivity,
+            )?
+        {
+            matched = true;
+            if let Some(evidence) = evidence.as_deref_mut() {
+                evidence.insert(field.evidence_path.clone());
+            }
+        }
+    } else if let Some(path) = &field.query_path {
+        let mut selected = Vec::new();
+        walk_query_steps(ctx.value, &path.steps, &mut selected);
+        for value in selected {
+            if let Value::String(text) = value
+                && text_contains(
+                    text,
                     &field.literal,
                     &field.folded_literal,
                     field.transform,
                     field.matcher.as_ref(),
-                    fts.case_sensitivity,
-                )? {
-                    matched = true;
+                    case_sensitivity,
+                )?
+            {
+                matched = true;
+                if let Some(evidence) = evidence.as_deref_mut() {
                     evidence.insert(field.evidence_path.clone());
+                } else {
+                    return Ok(true);
                 }
             }
-        } else if let Some(path) = &field.query_path {
-            let mut selected = Vec::new();
-            walk_query_steps(ctx.value, &path.steps, &mut selected);
-            for value in selected {
-                if let Value::String(text) = value
-                    && text_contains(
-                        text,
-                        &field.literal,
-                        &field.folded_literal,
-                        field.transform,
-                        field.matcher.as_ref(),
-                        fts.case_sensitivity,
-                    )?
-                {
-                    matched = true;
+        }
+    } else {
+        for segment in segments
+            .iter()
+            .filter(|segment| field.path.segments.is_empty() || segment.path == field.path.segments)
+        {
+            if text_contains(
+                &segment.text,
+                &field.literal,
+                &field.folded_literal,
+                field.transform,
+                field.matcher.as_ref(),
+                case_sensitivity,
+            )? {
+                matched = true;
+                if let Some(evidence) = evidence.as_deref_mut() {
                     evidence.insert(field.evidence_path.clone());
-                }
-            }
-        } else {
-            for segment in segments.iter().filter(|segment| {
-                field.path.segments.is_empty() || segment.path == field.path.segments
-            }) {
-                if text_contains(
-                    &segment.text,
-                    &field.literal,
-                    &field.folded_literal,
-                    field.transform,
-                    field.matcher.as_ref(),
-                    fts.case_sensitivity,
-                )? {
-                    matched = true;
-                    evidence.insert(field.evidence_path.clone());
+                } else {
+                    return Ok(true);
                 }
             }
         }
     }
     Ok(matched)
+}
+
+/// Membership-only FTS skips path materialization and stops at the first match.
+pub(crate) fn eval_bound_fts_membership(
+    fts: &BoundFts,
+    segments: &[TextSegment],
+    ctx: &RecordContext<'_>,
+) -> Result<bool, String> {
+    if fts.fields.is_empty() {
+        for segment in segments {
+            if text_contains(
+                &segment.text,
+                &fts.literal,
+                &fts.folded_literal,
+                Transform::Identity,
+                fts.raw_matcher.as_ref(),
+                fts.case_sensitivity,
+            )? {
+                return Ok(true);
+            }
+        }
+        return Ok(false);
+    }
+    for field in &fts.fields {
+        if eval_bound_fts_field(field, fts.case_sensitivity, segments, ctx, None)? {
+            return Ok(true);
+        }
+    }
+    Ok(false)
 }
 
 pub fn eval_fts_query(

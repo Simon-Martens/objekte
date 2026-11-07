@@ -931,7 +931,9 @@ fn scan_file(
             let mut evidence = HashSet::new();
             let fts_match = if let Some(proof) = fts_proof {
                 if let Some(fields) = proof.get(&slot) {
-                    evidence.extend(fields.iter().cloned());
+                    if query.options.evidence {
+                        evidence.extend(fields.iter().cloned());
+                    }
                     true
                 } else {
                     false
@@ -944,35 +946,57 @@ fn scan_file(
                             fts,
                             &String::from_utf8_lossy(&bytes),
                         );
-                        if matched {
+                        if matched && query.options.evidence {
                             evidence.insert("@record.raw_text".into());
                         }
                         matched
                     } else {
-                        crate::relation_query::eval_fts_with_relations(
-                            repo,
-                            fts,
-                            &[],
-                            &ctx,
-                            &mut evidence,
-                            crate::relation_query::EvaluationMode::Indexed,
-                            &mut outcome.relation_work,
-                        )?
+                        if query.options.evidence {
+                            crate::relation_query::eval_fts_with_relations(
+                                repo,
+                                fts,
+                                &[],
+                                &ctx,
+                                &mut evidence,
+                                crate::relation_query::EvaluationMode::Indexed,
+                                &mut outcome.relation_work,
+                            )?
+                        } else {
+                            crate::relation_query::eval_fts_with_relations_membership(
+                                repo,
+                                fts,
+                                &[],
+                                &ctx,
+                                crate::relation_query::EvaluationMode::Indexed,
+                                &mut outcome.relation_work,
+                            )?
+                        }
                     }
                 } else {
                     true
                 }
             } else {
                 fts.map(|fts| {
-                    crate::relation_query::eval_fts_with_relations(
-                        repo,
-                        fts,
-                        &extracted.text,
-                        &ctx,
-                        &mut evidence,
-                        crate::relation_query::EvaluationMode::Indexed,
-                        &mut outcome.relation_work,
-                    )
+                    if query.options.evidence {
+                        crate::relation_query::eval_fts_with_relations(
+                            repo,
+                            fts,
+                            &extracted.text,
+                            &ctx,
+                            &mut evidence,
+                            crate::relation_query::EvaluationMode::Indexed,
+                            &mut outcome.relation_work,
+                        )
+                    } else {
+                        crate::relation_query::eval_fts_with_relations_membership(
+                            repo,
+                            fts,
+                            &extracted.text,
+                            &ctx,
+                            crate::relation_query::EvaluationMode::Indexed,
+                            &mut outcome.relation_work,
+                        )
+                    }
                 })
                 .transpose()?
                 .unwrap_or(true)

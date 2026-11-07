@@ -1370,20 +1370,31 @@ impl Repository {
                                 fts,
                                 &String::from_utf8_lossy(&bytes),
                             );
-                            if matched {
+                            if matched && query.options.evidence {
                                 evidence.insert("@record.raw_text".into());
                             }
                             matched
                         } else {
-                            crate::relation_query::eval_fts_with_relations(
-                                self,
-                                fts,
-                                &[],
-                                &ctx,
-                                &mut evidence,
-                                crate::relation_query::EvaluationMode::Reference,
-                                &mut relation_work,
-                            )?
+                            if query.options.evidence {
+                                crate::relation_query::eval_fts_with_relations(
+                                    self,
+                                    fts,
+                                    &[],
+                                    &ctx,
+                                    &mut evidence,
+                                    crate::relation_query::EvaluationMode::Reference,
+                                    &mut relation_work,
+                                )?
+                            } else {
+                                crate::relation_query::eval_fts_with_relations_membership(
+                                    self,
+                                    fts,
+                                    &[],
+                                    &ctx,
+                                    crate::relation_query::EvaluationMode::Reference,
+                                    &mut relation_work,
+                                )?
+                            }
                         }
                     } else {
                         true
@@ -1391,15 +1402,26 @@ impl Repository {
                 } else {
                     fts.as_ref()
                         .map(|fts| {
-                            crate::relation_query::eval_fts_with_relations(
-                                self,
-                                fts,
-                                &extracted.text,
-                                &ctx,
-                                &mut evidence,
-                                crate::relation_query::EvaluationMode::Reference,
-                                &mut relation_work,
-                            )
+                            if query.options.evidence {
+                                crate::relation_query::eval_fts_with_relations(
+                                    self,
+                                    fts,
+                                    &extracted.text,
+                                    &ctx,
+                                    &mut evidence,
+                                    crate::relation_query::EvaluationMode::Reference,
+                                    &mut relation_work,
+                                )
+                            } else {
+                                crate::relation_query::eval_fts_with_relations_membership(
+                                    self,
+                                    fts,
+                                    &extracted.text,
+                                    &ctx,
+                                    crate::relation_query::EvaluationMode::Reference,
+                                    &mut relation_work,
+                                )
+                            }
                         })
                         .transpose()?
                         .unwrap_or(true)
@@ -1407,7 +1429,13 @@ impl Repository {
                 let filter_match = if record.class == RecordClass::RawFallback {
                     filter
                         .as_ref()
-                        .map(|f| eval_unavailable_filter(f, &ctx, &mut evidence))
+                        .map(|f| {
+                            if query.options.evidence {
+                                eval_unavailable_filter(f, &ctx, &mut evidence)
+                            } else {
+                                crate::reference::eval_unavailable_filter_membership(f, &ctx)
+                            }
+                        })
                         .transpose()?
                         .flatten()
                         == Some(true)
@@ -1416,14 +1444,24 @@ impl Repository {
                     filter
                         .as_ref()
                         .map(|f| {
-                            crate::relation_query::eval_filter_truth(
-                                self,
-                                f,
-                                &ctx,
-                                &mut evidence,
-                                crate::relation_query::EvaluationMode::Reference,
-                                &mut relation_work,
-                            )
+                            if query.options.evidence {
+                                crate::relation_query::eval_filter_truth(
+                                    self,
+                                    f,
+                                    &ctx,
+                                    &mut evidence,
+                                    crate::relation_query::EvaluationMode::Reference,
+                                    &mut relation_work,
+                                )
+                            } else {
+                                crate::relation_query::eval_filter_truth_membership(
+                                    self,
+                                    f,
+                                    &ctx,
+                                    crate::relation_query::EvaluationMode::Reference,
+                                    &mut relation_work,
+                                )
+                            }
                             .map(|answer| answer == Some(true))
                         })
                         .transpose()?

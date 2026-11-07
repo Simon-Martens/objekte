@@ -318,6 +318,56 @@ fn fts_exact_modes_preserve_original_and_folded_literals() {
 }
 
 #[test]
+fn fts_membership_stops_after_first_match_but_evidence_checks_every_segment() {
+    #[derive(Debug)]
+    struct CountingMatcher(std::sync::Arc<std::sync::atomic::AtomicUsize>);
+
+
+    impl PreparedTextMatcher for CountingMatcher {
+        fn matches(&self, text: &str) -> Result<bool, String> {
+            self.0.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            Ok(text.contains("hit"))
+        }
+    }
+
+
+    let mut bound = bind_fts(
+        &FtsQuery {
+            pattern_parameter: None,
+            mode: crate::query::FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "hit".into(),
+            fields: vec![crate::query::FtsField {
+                query_path: None,
+                path: FieldPath::parse("name").unwrap(),
+                binding: None,
+            }],
+        },
+        &schema(),
+    )
+    .unwrap();
+    let calls = std::sync::Arc::new(std::sync::atomic::AtomicUsize::new(0));
+    bound.fields[0].matcher = Some(std::sync::Arc::new(CountingMatcher(calls.clone())));
+    let segments = (0..3)
+        .map(|_| TextSegment {
+            path: vec!["name".into()],
+            text: "hit".into(),
+        })
+        .collect::<Vec<_>>();
+    with_record(
+        Value::from_json(serde_json::json!({"name": "hit"})).unwrap(),
+        |ctx| {
+            assert!(eval_bound_fts_membership(&bound, &segments, &ctx).unwrap());
+            assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 1);
+            let mut evidence = HashSet::new();
+            assert!(eval_bound_fts(&bound, &segments, &ctx, &mut evidence).unwrap());
+            assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 4);
+            assert_eq!(evidence, HashSet::from(["name".to_owned()]));
+        },
+    );
+}
+
+#[test]
 fn optional_ancestor_of_required_temporal_child_stays_optional_during_query_conversion() {
     let mut schema = Schema::default();
     schema
