@@ -2,6 +2,45 @@ use super::*;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 #[test]
+fn typed_source_change_requires_a_confirmed_revision_mismatch() {
+    use crate::streaming::{ExecutionContext, ExecutionErrorKind, ExecutionLimits};
+    let root = std::env::temp_dir().join(format!(
+        "objekte-typed-source-change-{}",
+        std::process::id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.json");
+    std::fs::write(&path, b"old").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let range = ByteRange::checked(0, 3, revision.size).unwrap();
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            None,
+        )
+    };
+
+    std::fs::write(&path, b"newer content").unwrap();
+    let mismatch = context();
+    let error = read_record_range_with_execution(&path, revision, range, &mismatch).unwrap_err();
+    assert_eq!(
+        mismatch.recorded_error(error).kind,
+        ExecutionErrorKind::SourceChanged
+    );
+
+    std::fs::remove_file(&path).unwrap();
+    let missing = context();
+    let error = read_record_range_with_execution(&path, revision, range, &missing).unwrap_err();
+    assert_eq!(
+        missing.recorded_error(error).kind,
+        ExecutionErrorKind::Execution
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn schema_free_json_reader_admits_every_root_shape() {
     use crate::reference::Schema;
     let reader = JsonReader;
@@ -278,7 +317,11 @@ fn decoded_scalar_build_and_query_accept_the_same_json_documents() {
             let bytes = format!("{}0{}", open.repeat(depth), close.repeat(depth));
             let built = reader.parse_for_build_outcome(bytes.as_bytes());
             let queried = reader.parse_outcome(bytes.as_bytes());
-            assert_eq!(built.is_ok(), queried.is_ok(), "nesting depth {depth}: {open}");
+            assert_eq!(
+                built.is_ok(),
+                queried.is_ok(),
+                "nesting depth {depth}: {open}"
+            );
         }
     }
     for control in 0..=31 {
@@ -1084,7 +1127,6 @@ fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
     );
     assert_eq!((multiline.line, multiline.column), (Some(3), Some(1)));
 }
-
 
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {

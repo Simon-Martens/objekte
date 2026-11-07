@@ -506,7 +506,7 @@ impl SortTargetCache {
             .records
             .get(slot.0 as usize)
             .ok_or("sort target slot is missing")?;
-        let (cell, cancellation) = {
+        let (cell, cancellation, execution) = {
             let mut state = cache.lock().map_err(|error| error.to_string())?;
             if state
                 .cancellation
@@ -577,7 +577,7 @@ impl SortTargetCache {
                 state.values.insert(id, cell.clone());
                 cell
             };
-            (cell, state.cancellation.clone())
+            (cell, state.cancellation.clone(), state.execution.clone())
         };
         // Only callers for this target wait here; other targets can load in parallel.
         let result = cell.get_or_init(|| {
@@ -585,19 +585,29 @@ impl SortTargetCache {
                 .files
                 .native_path(record.file)
                 .ok_or("sort target path is missing")?;
-            let bytes = crate::source::read_record_range(&path, record.revision, record.range)?;
+            let bytes = if let Some(execution) = execution.as_ref() {
+                crate::source::read_record_range_with_execution(
+                    &path,
+                    record.revision,
+                    record.range,
+                    execution,
+                )?
+            } else {
+                crate::source::read_record_range(&path, record.revision, record.range)?
+            };
             if cancellation
                 .as_ref()
                 .is_some_and(crate::streaming::CancellationToken::is_cancelled)
             {
                 return Err("stream cancelled".into());
             }
-            let extracted = crate::record_preparation::prepare_query_record(
+            let extracted = crate::record_preparation::prepare_query_record_with_execution(
                 &collection.source,
                 &collection.definition.schema,
                 &bytes,
                 &crate::source::ScanProjection::full(false),
                 false,
+                execution.as_ref(),
             )?;
             let mut state = cache.lock().map_err(|error| error.to_string())?;
             state.reads += 1;

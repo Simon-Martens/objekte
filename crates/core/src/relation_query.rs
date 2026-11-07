@@ -14,7 +14,10 @@ use crate::reference::{
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
 use crate::relation_target_cache::TargetValueCache;
 use crate::repository::Repository;
-use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range};
+use crate::source::{
+    ScanProjection, TextDerivation, TextSegment, read_record_range,
+    read_record_range_with_execution,
+};
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;
@@ -1069,14 +1072,19 @@ fn visit_hop(
             ));
         }
         work.before_read(record.range.len(), true)?;
-        let bytes = read_record_range(&path, record.revision, record.range)?;
+        let bytes = if let Some(execution) = work.execution.as_ref() {
+            read_record_range_with_execution(&path, record.revision, record.range, execution)?
+        } else {
+            read_record_range(&path, record.revision, record.range)?
+        };
         work.target_read(bytes.len() as u64)?;
-        let extracted = crate::record_preparation::prepare_query_record(
+        let extracted = crate::record_preparation::prepare_query_record_with_execution(
             &collection.source,
             &collection.definition.schema,
             &bytes,
             &ScanProjection::full(collect_text),
             false,
+            work.execution.as_ref(),
         )?;
         let ctx = RecordContext {
             value: &extracted.value,
@@ -1331,14 +1339,19 @@ fn read_reference_value(
         ));
     }
     work.before_read(record.range.len(), false)?;
-    let bytes = read_record_range(&path, record.revision, record.range)?;
+    let bytes = if let Some(execution) = work.execution.as_ref() {
+        read_record_range_with_execution(&path, record.revision, record.range, execution)?
+    } else {
+        read_record_range(&path, record.revision, record.range)?
+    };
     work.source_read(bytes.len() as u64)?;
-    let extracted = crate::record_preparation::prepare_query_record(
+    let extracted = crate::record_preparation::prepare_query_record_with_execution(
         &collection.source,
         &collection.definition.schema,
         &bytes,
         &ScanProjection::full(false),
         false,
+        work.execution.as_ref(),
     )?;
     Ok(Some(extracted.value))
 }

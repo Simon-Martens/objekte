@@ -11,7 +11,7 @@ use crate::repository::{Payload, SearchHit};
 use crate::workload::WorkCounters;
 
 /// Limits apply to estimated retained query state and source reads, not RSS.
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ExecutionLimits {
     pub relation_edges: u64,
     pub relation_reads: u64,
@@ -21,6 +21,8 @@ pub struct ExecutionLimits {
     pub source_record_bytes: u64,
     pub inferred_order_bytes: usize,
     pub computed_sort_bytes: u64,
+    /// Estimated retained logical value and reader text for one extension record.
+    pub extension_value_bytes: u64,
 }
 
 impl Default for ExecutionLimits {
@@ -34,6 +36,7 @@ impl Default for ExecutionLimits {
             source_record_bytes: u64::MAX,
             inferred_order_bytes: 128 * 1024 * 1024,
             computed_sort_bytes: 128 * 1024 * 1024,
+            extension_value_bytes: 128 * 1024 * 1024,
         }
     }
 }
@@ -69,6 +72,10 @@ struct ExecutionAccounting {
     bytes: AtomicU64,
     first_failure: Mutex<Option<ExecutionError>>,
     started: AtomicBool,
+    #[cfg(test)]
+    checks: AtomicU64,
+    #[cfg(test)]
+    cancel_on_check: AtomicU64,
 }
 
 /// State for exactly one request. Clones share counters and its first typed failure;
@@ -99,6 +106,18 @@ impl ExecutionContext {
         self.cancellation.as_ref()
     }
 
+    #[cfg(test)]
+    pub(crate) fn cancel_on_check_for_test(&self, check: u64) {
+        self.accounting
+            .cancel_on_check
+            .store(check, Ordering::Relaxed);
+    }
+
+    #[cfg(test)]
+    pub(crate) fn checks_for_test(&self) -> u64 {
+        self.accounting.checks.load(Ordering::Relaxed)
+    }
+
     pub(crate) fn enter(&self) -> Result<(), ExecutionError> {
         if self.accounting.started.swap(true, Ordering::AcqRel) {
             return Err(ExecutionError {
@@ -110,6 +129,17 @@ impl ExecutionContext {
     }
 
     pub fn check(&self) -> Result<(), ExecutionError> {
+        #[cfg(test)]
+        {
+            let observed = self.accounting.checks.fetch_add(1, Ordering::Relaxed) + 1;
+            let cancel_on = self.accounting.cancel_on_check.load(Ordering::Relaxed);
+            if cancel_on > 0
+                && observed >= cancel_on
+                && let Some(cancellation) = &self.cancellation
+            {
+                cancellation.cancel();
+            }
+        }
         if self
             .cancellation
             .as_ref()

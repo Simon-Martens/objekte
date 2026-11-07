@@ -6,7 +6,6 @@ use roaring::RoaringBitmap;
 
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
-use crate::record_preparation::prepare_query_record;
 use crate::reference::{BoundExpr, BoundTerm};
 use crate::relation::RelationTarget;
 use crate::relation_query::HopDirection;
@@ -286,10 +285,11 @@ fn prepare_with_limits(
                             execution,
                         ));
                     }
-                    if let RelationTarget::Resolved(target) = edge.target {
-                        if next.insert(target.0) && max_retained_bytes.is_some() {
-                            stream_target_slot_charge(next.len(), max_retained_bytes, execution)?;
-                        }
+                    if let RelationTarget::Resolved(target) = edge.target
+                        && next.insert(target.0)
+                        && max_retained_bytes.is_some()
+                    {
+                        stream_target_slot_charge(next.len(), max_retained_bytes, execution)?;
                     }
                 }
             }
@@ -346,6 +346,9 @@ fn prepare_with_limits(
         0
     };
     let mut access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        access.configure_execution(execution);
+    }
     for (collection_id, (slots, fields)) in targets {
         if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
             return Err("stream cancelled".into());
@@ -447,12 +450,13 @@ fn prepare_with_limits(
                     if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
                         return Err("stream cancelled".into());
                     }
-                    let projected = prepare_query_record(
+                    let projected = crate::record_preparation::prepare_query_record_with_execution(
                         &collection.source,
                         &collection.definition.schema,
                         &bytes,
                         &projection,
                         false,
+                        execution,
                     )?
                     .value;
                     if let Some(execution) = execution {

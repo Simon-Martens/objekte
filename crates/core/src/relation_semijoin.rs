@@ -11,7 +11,6 @@ use crate::executor::{
 use crate::inventory::RecordClass;
 use crate::model::{FileId, RecordSlot};
 use crate::query::Quantifier;
-use crate::record_preparation::prepare_query_record;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
     same_bound_term,
@@ -338,6 +337,9 @@ fn verify_target_records(
         }
     }
     let mut access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        access.configure_execution(execution);
+    }
     let mut matched = RoaringBitmap::new();
     let mut projection = ScanProjection::full(collect_text);
     if let Some(first) = first_field {
@@ -350,13 +352,13 @@ fn verify_target_records(
                 execution.check_string()?;
             }
             let first_bytes = ranges[start].1.len();
-            if let Some(execution) = execution {
-                if first_bytes > execution.limits.target_record_bytes {
-                    return Err(execution.fail(
-                        ExecutionErrorKind::Resource,
-                        "relation target record exceeds source read allowance",
-                    ));
-                }
+            if let Some(execution) = execution
+                && first_bytes > execution.limits.target_record_bytes
+            {
+                return Err(execution.fail(
+                    ExecutionErrorKind::Resource,
+                    "relation target record exceeds source read allowance",
+                ));
             }
             if first_bytes > MAX_TARGET_RECORD_BYTES {
                 return Err(format!(
@@ -384,12 +386,13 @@ fn verify_target_records(
             for (slot, bytes) in batch.records {
                 let record = &collection.generation.records[slot as usize];
                 let file = &repo.files.files[file_id.0 as usize];
-                let prepared = prepare_query_record(
+                let prepared = crate::record_preparation::prepare_query_record_with_execution(
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
                     &projection,
                     false,
+                    execution,
                 )?;
                 let ctx = RecordContext {
                     value: &prepared.value,

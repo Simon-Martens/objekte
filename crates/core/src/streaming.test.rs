@@ -101,6 +101,44 @@ fn invalid_stream_bounds_have_typed_invalid_query_class() {
     assert_eq!(error.kind(), ExecutionErrorKind::InvalidQuery);
 }
 
+#[test]
+fn changed_source_revision_has_ordinary_and_stream_class() {
+    let fixture = fixture();
+    std::fs::write(
+        fixture.root.join("data/000.json"),
+        b"changed source content with a new length",
+    )
+    .unwrap();
+    let request = query("body ~ 'needle'", true, false, ReturnMode::Locator);
+    let ordinary = fixture
+        .repo
+        .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
+        .unwrap_err();
+    assert_eq!(
+        ordinary.kind,
+        ExecutionErrorKind::SourceChanged,
+        "{ordinary:?}"
+    );
+    let stream = fixture
+        .repo
+        .search_stream_scoped_with_context(
+            &request,
+            ResultScope::Page {
+                offset: 0,
+                limit: request.options.limit,
+            },
+            StreamOptions::default(),
+            &limited_context(ExecutionLimits::default(), Some(CancellationToken::new())),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert_eq!(
+        stream.kind(),
+        ExecutionErrorKind::SourceChanged,
+        "{stream:?}"
+    );
+}
+
 /// Temporary repository whose source files are removed after each test.
 struct Fixture {
     root: PathBuf,

@@ -10,7 +10,15 @@ use serde::{Deserialize, Serialize};
 
 use crate::inventory::{ByteRange, SourceRevision};
 use crate::model::Value;
+use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
+fn source_changed(execution: Option<&ExecutionContext>, message: String) -> String {
+    if let Some(execution) = execution {
+        execution.fail(ExecutionErrorKind::SourceChanged, message)
+    } else {
+        message
+    }
+}
 
 #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -20,7 +28,6 @@ pub enum SourceFormat {
     JsonLines,
     Registered(String),
 }
-
 
 impl SourceFormat {
     pub fn registered(id: impl Into<String>) -> Self {
@@ -37,7 +44,6 @@ impl SourceFormat {
     }
 }
 
-
 /// Extracted searchable string with its logical field path.
 #[derive(Clone, Debug)]
 pub struct TextSegment {
@@ -45,14 +51,12 @@ pub struct TextSegment {
     pub text: String,
 }
 
-
 /// Logical value and text produced by a source reader.
 #[derive(Clone, Debug)]
 pub struct ExtractedRecord {
     pub value: Value,
     pub text: Vec<TextSegment>,
 }
-
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
@@ -65,7 +69,6 @@ pub enum DiagnosticCategory {
     Io,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct ReaderDiagnostic {
     pub category: DiagnosticCategory,
@@ -76,7 +79,6 @@ pub struct ReaderDiagnostic {
     pub column: Option<u64>,
     pub field_path: Option<Vec<String>>,
 }
-
 
 impl ReaderDiagnostic {
     pub fn new(
@@ -96,13 +98,11 @@ impl ReaderDiagnostic {
     }
 }
 
-
 #[derive(Clone, Debug)]
 pub enum ReaderFailure {
     Malformed(ReaderDiagnostic),
     Fatal(String),
 }
-
 
 #[derive(Clone)]
 pub enum SourceOutcome {
@@ -120,7 +120,6 @@ pub enum SourceOutcome {
     },
 }
 
-
 /// Fields required to verify a query against one source record. `None` keeps
 /// the complete record; otherwise unrelated top-level members are skipped by
 /// the source reader while JSON syntax is still checked.
@@ -131,7 +130,6 @@ pub struct ScanProjection {
     pub resolved_text_only: bool,
 }
 
-
 /// Whether each logical string field appears as an intact, unchanged text
 /// segment. A custom reader must opt in explicitly; its default segments are
 /// reader-owned and may omit or split fields present in the logical record.
@@ -141,14 +139,12 @@ pub enum LogicalTextCoverage {
     ReaderSelected,
 }
 
-
 /// Owner of searchable segments after logical type conversion.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum TextDerivation {
     ReaderSegments,
     LogicalStringsAfterConversion,
 }
-
 
 pub fn finalize_extracted_text(
     reader: &dyn SourceReader,
@@ -160,7 +156,6 @@ pub fn finalize_extracted_text(
         record.text = text_segments(&record.value);
     }
 }
-
 
 impl ScanProjection {
     pub fn full(collect_text: bool) -> Self {
@@ -180,7 +175,6 @@ impl ScanProjection {
     }
 }
 
-
 pub trait SourceReader: Send + Sync {
     fn name(&self) -> &'static str;
     fn text_derivation(&self) -> TextDerivation {
@@ -193,6 +187,16 @@ pub trait SourceReader: Send + Sync {
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
+
+    /// Optional conservative projection estimate, checked before query parsing.
+    /// Readers without an estimate are checked after parsing their logical value.
+    fn estimate_query_value_bytes(
+        &self,
+        _bytes: &[u8],
+        _projection: &ScanProjection,
+    ) -> Option<u64> {
+        None
+    }
     fn frame_outcome(&self, file: &[u8]) -> Result<Vec<ByteRange>, ReaderFailure> {
         self.frame(file).map_err(ReaderFailure::Fatal)
     }
@@ -242,7 +246,6 @@ pub trait SourceReader: Send + Sync {
     }
 }
 
-
 /// Stable source identity, discovery suffix, and reader implementation.
 #[derive(Clone)]
 pub struct SourceRegistration {
@@ -252,11 +255,9 @@ pub struct SourceRegistration {
     pub reader: Arc<dyn SourceReader>,
 }
 
-
 /// Prepared source handle resolved once per collection.
 #[derive(Clone)]
-pub struct PreparedSource(Arc<SourceRegistration>);
-
+pub struct PreparedSource(Arc<SourceRegistration>, bool);
 
 impl PreparedSource {
     pub fn id(&self) -> &str {
@@ -274,15 +275,18 @@ impl PreparedSource {
     pub fn reader(&self) -> &dyn SourceReader {
         self.0.reader.as_ref()
     }
-}
 
+    pub(crate) fn is_extension(&self) -> bool {
+        !self.1
+    }
+}
 
 /// Repository-local source registrations. The built-ins use this same table.
 #[derive(Clone, Default)]
 pub struct SourceRegistry {
     entries: HashMap<String, Arc<SourceRegistration>>,
+    builtin_ids: HashSet<String>,
 }
-
 
 impl SourceRegistry {
     pub fn builtin() -> Self {
@@ -301,6 +305,9 @@ impl SourceRegistry {
         sources
             .register("jsonl", 1, "jsonl", Arc::new(JsonLinesReader))
             .expect("valid JSON Lines source registration");
+        sources
+            .builtin_ids
+            .extend(["json".into(), "json_decoded_scalars".into(), "jsonl".into()]);
         sources
     }
 
@@ -336,31 +343,25 @@ impl SourceRegistry {
         self.entries
             .get(format.id())
             .cloned()
-            .map(PreparedSource)
+            .map(|source| PreparedSource(source, self.builtin_ids.contains(format.id())))
             .ok_or_else(|| format!("unknown source registration: {}", format.id()))
     }
 }
 
-
 /// Reader for a single standalone JSON record per file.
 pub struct JsonReader;
-
 
 /// Built-in one-document JSON reader with decoded scalar-value FTS text.
 pub struct JsonDecodedScalarsReader;
 
-
 /// Reader for independently parseable JSON Lines records.
 pub struct JsonLinesReader;
-
 
 /// Deserializer seed that retains selected top-level JSON members.
 struct SelectedObject<'a>(&'a HashSet<String>);
 
-
 /// Map visitor that skips JSON members outside a query projection.
 struct SelectedVisitor<'a>(&'a HashSet<String>);
-
 
 impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
@@ -382,7 +383,6 @@ impl<'de> Visitor<'de> for SelectedVisitor<'_> {
     }
 }
 
-
 impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
     type Value = serde_json::Map<String, serde_json::Value>;
 
@@ -393,7 +393,6 @@ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
         deserializer.deserialize_map(SelectedVisitor(self.0))
     }
 }
-
 
 fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
     let invalid_utf8 = std::str::from_utf8(bytes).err();
@@ -488,14 +487,11 @@ fn parse_json_decoded_for_query_diagnosed(
         },
     )?;
     if projection.collect_text {
-        extracted.text = crate::json_scalar_text::scalar_segments(
-            bytes,
-            projection.resolved_text_only,
-            true,
-        )
-        .map_err(|error| {
-            ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
-        })?;
+        extracted.text =
+            crate::json_scalar_text::scalar_segments(bytes, projection.resolved_text_only, true)
+                .map_err(|error| {
+                    ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
+                })?;
     }
     Ok(extracted)
 }
@@ -578,7 +574,6 @@ pub(crate) fn visit_logical_strings_and_empty(value: &Value, emit: &mut dyn FnMu
     }
 }
 
-
 impl SourceReader for JsonReader {
     fn name(&self) -> &'static str {
         "json"
@@ -623,7 +618,6 @@ impl SourceReader for JsonReader {
     }
 }
 
-
 impl SourceReader for JsonDecodedScalarsReader {
     fn name(&self) -> &'static str {
         "json_decoded_scalars"
@@ -652,8 +646,7 @@ impl SourceReader for JsonDecodedScalarsReader {
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-        parse_json_decoded_for_build_diagnosed(bytes)
-            .map_err(json_reader_failure)
+        parse_json_decoded_for_build_diagnosed(bytes).map_err(json_reader_failure)
     }
 
     fn parse_for_query(
@@ -661,11 +654,9 @@ impl SourceReader for JsonDecodedScalarsReader {
         bytes: &[u8],
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
-        parse_json_decoded_for_query_diagnosed(bytes, projection)
-            .map_err(|issue| issue.message)
+        parse_json_decoded_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
     }
 }
-
 
 impl SourceReader for JsonLinesReader {
     fn name(&self) -> &'static str {
@@ -728,7 +719,6 @@ impl SourceReader for JsonLinesReader {
     }
 }
 
-
 /// Framing and parse counts from one source extraction.
 #[derive(Default, Clone, Copy, Debug)]
 pub struct ExtractionCounters {
@@ -736,7 +726,6 @@ pub struct ExtractionCounters {
     pub record_parses: u64,
     pub failed_parses: u64,
 }
-
 
 /// Call `consume` once for every independently parseable record. No index
 /// family rereads or reparses the source; builders share the extracted value.
@@ -885,7 +874,6 @@ thread_local! {
     static FILE_COORDINATE_SCANNED_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
 }
 
-
 /// Running file position for ordered reader ranges, bounded independently of file size.
 #[derive(Default)]
 struct FileCoordinateCursor {
@@ -893,7 +881,6 @@ struct FileCoordinateCursor {
     earlier_lines: u64,
     line_start: usize,
 }
-
 
 fn file_coordinates(
     file: &[u8],
@@ -1044,9 +1031,13 @@ fn check_revision(
     Ok(())
 }
 
-fn check_opened_revision(file: &std::fs::File, expected: SourceRevision) -> Result<(), String> {
+fn opened_revision_matches(file: &std::fs::File, expected: SourceRevision) -> Result<bool, String> {
     let opened = SourceRevision::from_metadata(&file.metadata().map_err(|e| e.to_string())?)?;
-    if opened != expected {
+    Ok(opened == expected)
+}
+
+fn check_opened_revision(file: &std::fs::File, expected: SourceRevision) -> Result<(), String> {
+    if !opened_revision_matches(file, expected)? {
         return Err("stale source revision".into());
     }
     Ok(())
@@ -1060,6 +1051,26 @@ pub fn read_record_range(
 ) -> Result<Vec<u8>, String> {
     let mut file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
     check_opened_revision(&file, revision)?;
+    ByteRange::checked(range.start, range.end, revision.size)?;
+    read_record_range_from_opened(&mut file, range)
+}
+
+/// Query read with an explicit typed source-change channel.
+pub(crate) fn read_record_range_with_execution(
+    path: &Path,
+    revision: SourceRevision,
+    range: ByteRange,
+    execution: &ExecutionContext,
+) -> Result<Vec<u8>, String> {
+    execution.check_string()?;
+    let mut file =
+        std::fs::File::open(path).map_err(|error| format!("{}: {error}", path.display()))?;
+    if !opened_revision_matches(&file, revision)? {
+        return Err(source_changed(
+            Some(execution),
+            "stale source revision".into(),
+        ));
+    }
     ByteRange::checked(range.start, range.end, revision.size)?;
     read_record_range_from_opened(&mut file, range)
 }
@@ -1098,29 +1109,42 @@ pub fn read_record_ranges(
     RecordRangeReader::open(path, revision)?.read(ranges)
 }
 
-
 /// One opened source handle for a bounded sequence of range batches.
 pub struct RecordRangeReader {
     file: std::fs::File,
     revision: SourceRevision,
     first_read: bool,
     position: Option<u64>,
+    execution: Option<ExecutionContext>,
     #[cfg(test)]
     pub(crate) seeks: u64,
     #[cfg(test)]
     pub(crate) max_window_read: usize,
 }
 
-
 impl RecordRangeReader {
     pub fn open(path: &Path, revision: SourceRevision) -> Result<Self, String> {
+        Self::open_with_execution(path, revision, None)
+    }
+
+    pub(crate) fn open_with_execution(
+        path: &Path,
+        revision: SourceRevision,
+        execution: Option<&ExecutionContext>,
+    ) -> Result<Self, String> {
+        if let Some(execution) = execution {
+            execution.check_string()?;
+        }
         let file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
-        check_opened_revision(&file, revision)?;
+        if !opened_revision_matches(&file, revision)? {
+            return Err(source_changed(execution, "stale source revision".into()));
+        }
         Ok(Self {
             file,
             revision,
             first_read: true,
             position: Some(0),
+            execution: execution.cloned(),
             #[cfg(test)]
             seeks: 0,
             #[cfg(test)]
@@ -1156,7 +1180,12 @@ impl RecordRangeReader {
         if self.first_read {
             self.first_read = false;
         } else {
-            check_opened_revision(&self.file, self.revision)?;
+            if !opened_revision_matches(&self.file, self.revision)? {
+                return Err(source_changed(
+                    self.execution.as_ref(),
+                    "stale source revision".into(),
+                ));
+            }
         }
         if let [(slot, range)] = ranges {
             ByteRange::checked(range.start, range.end, self.revision.size)?;
@@ -1219,7 +1248,12 @@ impl RecordRangeReader {
         if self.first_read {
             self.first_read = false;
         } else {
-            check_opened_revision(&self.file, self.revision)?;
+            if !opened_revision_matches(&self.file, self.revision)? {
+                return Err(source_changed(
+                    self.execution.as_ref(),
+                    "stale source revision".into(),
+                ));
+            }
         }
         let mut ordered = ranges.to_vec();
         ordered.sort_by_key(|(_, range)| range.start);
@@ -1249,7 +1283,6 @@ impl RecordRangeReader {
         Ok((output, total as u64))
     }
 }
-
 
 #[cfg(test)]
 #[path = "source.test.rs"]

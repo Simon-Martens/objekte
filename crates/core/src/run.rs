@@ -20,7 +20,9 @@ use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{FieldPath, PathRoot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
-use crate::record_preparation::{materialize, prepare_query_record};
+use crate::record_preparation::{
+    materialize, prepare_query_record, prepare_query_record_with_execution,
+};
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, Derived, ExactInput, RecordContext, eval_bound_fts, eval_term,
     eval_unavailable_filter, same_bound_term,
@@ -59,6 +61,32 @@ fn check_computed_sort_budget_with_limit(
         return Err("computed sort memory budget exceeded".into());
     }
     Ok(())
+}
+
+fn computed_sort_limit(execution: Option<&ExecutionContext>) -> u64 {
+    execution.map_or(MAX_COMPUTED_SORT_BYTES, |execution| {
+        execution
+            .limits
+            .computed_sort_bytes
+            .min(MAX_COMPUTED_SORT_BYTES)
+    })
+}
+
+fn computed_sort_resource(execution: Option<&ExecutionContext>, message: &str) -> String {
+    execution.map_or_else(
+        || message.to_owned(),
+        |execution| execution.fail(ExecutionErrorKind::Resource, message),
+    )
+}
+
+fn check_execution_sort_budget(
+    execution: Option<&ExecutionContext>,
+    payload: u64,
+    keys: u64,
+    targets: u64,
+) -> Result<(), String> {
+    check_computed_sort_budget_with_limit(computed_sort_limit(execution), payload, keys, targets)
+        .map_err(|message| computed_sort_resource(execution, &message))
 }
 
 /// One cached member that needs a source read to compute its sort key.
@@ -815,7 +843,9 @@ fn scan_file(
     let mut reader = if source_access.is_some() {
         None
     } else {
-        Some(RecordRangeReader::open(&path, revision)?)
+        Some(RecordRangeReader::open_with_execution(
+            &path, revision, execution,
+        )?)
     };
     outcome.files_opened = u64::from(reader.is_some());
     let full_projection = ScanProjection::full(projection.collect_text);
@@ -844,21 +874,23 @@ fn scan_file(
             end += 1;
         }
         let batch = &ranges[cursor..end];
-        if let Some(execution) = execution {
-            if batch
+        if let Some(execution) = execution
+            && batch
                 .iter()
                 .any(|(_, range)| range.len() > execution.limits.source_record_bytes)
-            {
-                return Err(execution.fail(
-                    ExecutionErrorKind::Resource,
-                    "source record exceeds read allowance",
-                ));
-            }
+        {
+            return Err(execution.fail(
+                ExecutionErrorKind::Resource,
+                "source record exceeds read allowance",
+            ));
         }
         if max_retained_bytes
             .is_some_and(|limit| batch.iter().any(|(_, range)| range.len() > limit))
         {
-            return Err("stream resource: record exceeds buffered-byte limit".into());
+            return Err(computed_sort_resource(
+                execution,
+                "stream resource: record exceeds buffered-byte limit",
+            ));
         }
         cursor = end;
         let (records, bytes_read) = if let Some(session) = source_access.as_deref_mut() {
@@ -883,6 +915,9 @@ fn scan_file(
         };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
+            if let Some(execution) = execution {
+                execution.check_string()?;
+            }
             if cancellation.is_some_and(CancellationToken::is_cancelled) {
                 return Err("stream cancelled".into());
             }
@@ -924,12 +959,13 @@ fn scan_file(
                         .as_ref()
                         .is_none_or(|fields| !fields.is_empty()));
             let extracted = if decode {
-                let extracted = prepare_query_record(
+                let extracted = prepare_query_record_with_execution(
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
                     record_projection,
                     logical_projection,
+                    execution,
                 )?;
                 outcome.record_parses += 1;
                 extracted
@@ -1125,9 +1161,10 @@ fn scan_file(
                             .saturating_add(retained)
                             > limit
                     }) {
-                        return Err(
-                            "stream resource: file winners exceed buffered-byte limit".into()
-                        );
+                        return Err(computed_sort_resource(
+                            execution,
+                            "stream resource: file winners exceed buffered-byte limit",
+                        ));
                     }
                     let payload = if sort.bound.has_computed {
                         None
@@ -1176,9 +1213,15 @@ fn scan_file(
                             > limit as usize
                     }) {
                         return Err(if sort.bound.has_computed && cancellation.is_none() {
-                            "computed sort memory budget exceeded".into()
+                            computed_sort_resource(
+                                execution,
+                                "computed sort memory budget exceeded",
+                            )
                         } else {
-                            "stream resource: file winners exceed buffered-byte limit".into()
+                            computed_sort_resource(
+                                execution,
+                                "stream resource: file winners exceed buffered-byte limit",
+                            )
                         });
                     }
                     if winners.len() == keep_cap {
@@ -1197,9 +1240,17 @@ fn scan_file(
                             .checked_add(key_bytes)
                             .ok_or("sort key byte count overflow")?;
                         if retained_key_bytes > MAX_SORT_KEY_BYTES {
-                            return Err("sort key memory budget exceeded".into());
+                            return Err(computed_sort_resource(
+                                execution,
+                                "sort key memory budget exceeded",
+                            ));
                         }
-                        check_computed_sort_budget(retained_bytes, retained_key_bytes, 0)?;
+                        check_execution_sort_budget(
+                            execution,
+                            retained_bytes,
+                            retained_key_bytes,
+                            0,
+                        )?;
                         outcome.peak_sort_key_bytes =
                             outcome.peak_sort_key_bytes.max(retained_key_bytes);
                     }
@@ -2022,7 +2073,8 @@ pub(crate) fn search_stream_scoped_with_context(
     let mut members = Vec::new();
     // The ordered cursor can publish its page before COUNT traverses the rest
     // of the domain. Building a membership cache would force the top-k scan.
-    let cache_key = if budget > 0
+    let cache_key = if context.limits == ExecutionLimits::default()
+        && budget > 0
         && !inferred_order
         && execution_query.options.count
         && matches!(scope, ResultScope::Page { .. })
@@ -2949,8 +3001,14 @@ fn try_stored_order_page(
     locator_query.options.limit = 1;
     locator_query.options.offset = 0;
     let mut source_access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        source_access.configure_execution(execution);
+    }
     if cap > 0 || query.options.count {
         loop {
+            if let Some(execution) = execution {
+                execution.check_string()?;
+            }
             if let Some(delivery) = delivery.as_deref_mut() {
                 delivery.check()?;
             }
@@ -4581,13 +4639,15 @@ fn search_impl_with_collector<'a>(
                 let external = target_values
                     .as_ref()
                     .map_or(0, |cache| cache.retained_bytes);
-                let available = MAX_COMPUTED_SORT_BYTES
+                let available = computed_sort_limit(execution)
                     .checked_sub(
                         resident
                             .saturating_add(targets.retained_bytes())
                             .saturating_add(external),
                     )
-                    .ok_or("computed sort memory budget exceeded")?;
+                    .ok_or_else(|| {
+                        computed_sort_resource(execution, "computed sort memory budget exceeded")
+                    })?;
                 let parallel_available = available.saturating_sub(if has_related_sort {
                     targets.reserve_headroom()
                 } else {
@@ -4627,7 +4687,10 @@ fn search_impl_with_collector<'a>(
                 let per_file = delivery.max_buffered_bytes().saturating_sub(resident)
                     / (chunk.len().max(1) * 4);
                 if per_file == 0 {
-                    return Err("stream resource: no room for source scan batch".into());
+                    return Err(computed_sort_resource(
+                        execution,
+                        "stream resource: no room for source scan batch",
+                    ));
                 }
                 Some(per_file as u64)
             } else {
@@ -4652,9 +4715,11 @@ fn search_impl_with_collector<'a>(
                     .checked_add(targets.retained_bytes())
                     .and_then(|used| used.checked_add(external))
                     .ok_or("computed sort memory count overflow")?;
-                let available = MAX_COMPUTED_SORT_BYTES
+                let available = computed_sort_limit(execution)
                     .checked_sub(used)
-                    .ok_or("computed sort memory budget exceeded")?;
+                    .ok_or_else(|| {
+                        computed_sort_resource(execution, "computed sort memory budget exceeded")
+                    })?;
                 // A worker may hold a source batch while retaining its local keys.
                 let share = if chunk.len() == 1 {
                     available
@@ -4667,7 +4732,10 @@ fn search_impl_with_collector<'a>(
                     parallel_available / (chunk.len() as u64 * 2)
                 };
                 if share == 0 {
-                    return Err("computed sort memory budget exceeded".into());
+                    return Err(computed_sort_resource(
+                        execution,
+                        "computed sort memory budget exceeded",
+                    ));
                 }
                 Some(per_file_budget.map_or(share, |stream| stream.min(share)))
             } else {
@@ -4796,7 +4864,10 @@ fn search_impl_with_collector<'a>(
                 )
                 .ok_or("sort key memory count overflow")?;
             if key_upper > MAX_SORT_KEY_BYTES {
-                return Err("sort key memory budget exceeded".into());
+                return Err(computed_sort_resource(
+                    execution,
+                    "sort key memory budget exceeded",
+                ));
             }
             if sort.bound.has_computed {
                 let targets = sort
@@ -4810,7 +4881,7 @@ fn search_impl_with_collector<'a>(
                     .retained_bytes()
                     .checked_add(external_bytes)
                     .ok_or("computed sort target byte count overflow")?;
-                check_computed_sort_budget(payload_upper, key_upper, target_bytes)?;
+                check_execution_sort_budget(execution, payload_upper, key_upper, target_bytes)?;
             }
             counters.peak_retained_sort_key_bytes =
                 counters.peak_retained_sort_key_bytes.max(key_upper);
@@ -4938,7 +5009,12 @@ fn search_impl_with_collector<'a>(
             .target_cache
             .lock()
             .map_err(|error| error.to_string())?;
-        check_computed_sort_budget(page_payload, retained_key_bytes, targets.retained_bytes())?;
+        check_execution_sort_budget(
+            execution,
+            page_payload,
+            retained_key_bytes,
+            targets.retained_bytes(),
+        )?;
     }
     if let Some(delivery) = delivery.as_deref_mut()
         && all_offset.is_none()
