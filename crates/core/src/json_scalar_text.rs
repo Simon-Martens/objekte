@@ -5,6 +5,11 @@ use std::collections::BTreeMap;
 use crate::model::{ArrayValue, Number, Value};
 use crate::source::TextSegment;
 
+/// JSON permits exactly these four bytes between tokens.
+fn json_whitespace(byte: u8) -> bool {
+    matches!(byte, b' ' | b'\t' | b'\n' | b'\r')
+}
+
 
 /// Walks validated JSON bytes and records scalar occurrences in source order.
 struct ScalarWalker<'a> {
@@ -22,7 +27,8 @@ impl ScalarWalker<'_> {
         while self
             .bytes
             .get(self.pos)
-            .is_some_and(u8::is_ascii_whitespace)
+            .copied()
+            .is_some_and(json_whitespace)
         {
             self.pos += 1;
         }
@@ -77,7 +83,8 @@ impl ScalarWalker<'_> {
     /// structural traversal. This path is used only for fresh construction;
     /// query projections still use the field-aware walker below.
     fn build_value(&mut self, depth: usize) -> Result<Value, String> {
-        if depth > 128 {
+        // serde_json rejects the 128th nested container. The root is depth 0.
+        if depth >= 128 {
             return Err("JSON nesting resource limit exceeded".into());
         }
         self.whitespace();
@@ -142,7 +149,7 @@ impl ScalarWalker<'_> {
             Some(b'-' | b'0'..=b'9' | b't' | b'f' | b'n') => {
                 let start = self.pos;
                 while self.bytes.get(self.pos).is_some_and(|byte| {
-                    !byte.is_ascii_whitespace() && !matches!(byte, b',' | b']' | b'}')
+                    !json_whitespace(*byte) && !matches!(byte, b',' | b']' | b'}')
                 }) {
                     self.pos += 1;
                 }
@@ -248,7 +255,7 @@ impl ScalarWalker<'_> {
             Some(b'-' | b'0'..=b'9' | b't' | b'f' | b'n') => {
                 let start = self.pos;
                 while self.bytes.get(self.pos).is_some_and(|byte| {
-                    !byte.is_ascii_whitespace() && !matches!(byte, b',' | b']' | b'}')
+                    !json_whitespace(*byte) && !matches!(byte, b',' | b']' | b'}')
                 }) {
                     self.pos += 1;
                 }

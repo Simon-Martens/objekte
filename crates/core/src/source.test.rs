@@ -251,6 +251,101 @@ fn syntactically_valid_deep_json_reports_resource_limit() {
 }
 
 #[test]
+fn decoded_scalar_build_and_query_accept_the_same_json_documents() {
+    let reader = JsonDecodedScalarsReader;
+    let mut documents: Vec<Vec<u8>> = vec![
+        br#"{"title":"first","title":"last","values":[null,true,1,1.0,1e0,-0,"\u00df","\ud83d\ude80"]}"#.to_vec(),
+        br#"["first",123,false,null,{"nested":"\uD834\uDD1E"}]"#.to_vec(),
+        br#""a root string""#.to_vec(),
+        b"1234567890123456789012345678901234567890".to_vec(),
+        b"true".to_vec(),
+        b"false".to_vec(),
+        b"null".to_vec(),
+        b"[]".to_vec(),
+        b"{}".to_vec(),
+        b"[1,]".to_vec(),
+        b"{\"a\":1,}".to_vec(),
+        b"01".to_vec(),
+        b"1e".to_vec(),
+        b"1e+".to_vec(),
+        b"-".to_vec(),
+        b"\"bad\\q\"".to_vec(),
+        b"\"\\ud800\"".to_vec(),
+        b"\"\\udc00\"".to_vec(),
+    ];
+    for depth in [126, 127, 128, 129, 130] {
+        for (open, close) in [("[", "]"), ("{\"a\":", "}")] {
+            let bytes = format!("{}0{}", open.repeat(depth), close.repeat(depth));
+            let built = reader.parse_for_build_outcome(bytes.as_bytes());
+            let queried = reader.parse_outcome(bytes.as_bytes());
+            assert_eq!(built.is_ok(), queried.is_ok(), "nesting depth {depth}: {open}");
+        }
+    }
+    for control in 0..=31 {
+        documents.push(vec![b'"', b'a', control, b'b', b'"']);
+    }
+    documents.push(vec![b'"', 0xff, b'"']);
+    documents.push(b"\xef\xbb\xbf{}".to_vec());
+    for bytes in documents {
+        let built = reader.parse_for_build_outcome(&bytes);
+        let queried = reader.parse_outcome(&bytes);
+        assert_eq!(
+            built.is_ok(),
+            queried.is_ok(),
+            "fresh/query acceptance differs for {bytes:?}: build={built:?}, query={queried:?}"
+        );
+        if let (Ok(built), Ok(queried)) = (built, queried) {
+            assert_eq!(built.value, queried.value, "{bytes:?}");
+            assert_eq!(
+                built
+                    .text
+                    .iter()
+                    .map(|segment| &segment.text)
+                    .collect::<Vec<_>>(),
+                queried
+                    .text
+                    .iter()
+                    .map(|segment| &segment.text)
+                    .collect::<Vec<_>>(),
+                "{bytes:?}"
+            );
+        }
+    }
+}
+
+#[test]
+fn decoded_scalar_build_uses_exact_json_whitespace() {
+    let reader = JsonDecodedScalarsReader;
+    for control in (0..=31).chain([b' ', 127]) {
+        for (prefix, suffix) in [
+            (b"".as_slice(), b"0".as_slice()),
+            (b"0".as_slice(), b"".as_slice()),
+            (b"[".as_slice(), b"0]".as_slice()),
+            (b"[0".as_slice(), b",1]".as_slice()),
+            (b"{\"a\":".as_slice(), b"0}".as_slice()),
+            (b"{\"a\":0".as_slice(), b"}".as_slice()),
+        ] {
+            let mut bytes = prefix.to_vec();
+            bytes.push(control);
+            bytes.extend_from_slice(suffix);
+            let built = reader.parse_for_build_outcome(&bytes);
+            let queried = reader.parse_outcome(&bytes);
+            let allowed = matches!(control, b' ' | b'\t' | b'\n' | b'\r');
+            assert_eq!(
+                queried.is_ok(),
+                allowed,
+                "query control {control:#04x} in {bytes:?}"
+            );
+            assert_eq!(
+                built.is_ok(),
+                allowed,
+                "build control {control:#04x} in {bytes:?}"
+            );
+        }
+    }
+}
+
+#[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
     use crate::repository::{
