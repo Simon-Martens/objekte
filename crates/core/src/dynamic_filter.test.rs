@@ -195,7 +195,9 @@ fn dynamic_grams_preserve_empty_universal_truth_and_exact_results() {
             let selected = &universal_plan[0].terms[0];
             assert_eq!(selected.selected.kind, AccessPathKind::RawBigram);
             assert_eq!(selected.structural_candidates, Some(3));
-            assert!(selected.actual_output.unwrap() >= 4);
+            assert!(selected.actual_output.is_none());
+            let analyzed = repo.explain_analyze(&query("title ~ 'Goethe'")).unwrap().1;
+            assert!(analyzed[0].terms[0].actual_output.unwrap() >= 4);
             for (expression, structural) in [
                 ("items[0].title = 'Goethe'", None),
                 ("items[*].title = 'Goethe'", Some(3)),
@@ -267,10 +269,12 @@ fn broad_structural_superset_makes_scanning_cheaper() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 /// A reader that may deliberately omit title from its raw text representation.
 struct SelectedTextReader {
     complete: bool,
 }
+
 
 impl crate::source::SourceReader for SelectedTextReader {
     fn name(&self) -> &'static str {
@@ -315,6 +319,7 @@ impl crate::source::SourceReader for SelectedTextReader {
         })
     }
 }
+
 
 #[test]
 fn undeclared_candidate_respects_reader_text_coverage() {
