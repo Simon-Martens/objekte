@@ -7,8 +7,9 @@
 //! target/release/examples/bench_optional_features --root examples/musenalm \
 //!   --inference disabled --snapshot-mode disabled > optional-disabled.json
 //!
-//! For snapshot measurements, use an isolated copy of the corpus. Run once
-//! with `--snapshot-mode rebuild`, then in a new process with `read-write`.
+//! For snapshot measurements, use an isolated copy of the corpus. The
+//! benchmark's legacy `rebuild` spelling explicitly saves after a fresh
+//! build; `read-write` restores if valid and saves only after rebuilding.
 
 use std::num::NonZeroUsize;
 use std::path::PathBuf;
