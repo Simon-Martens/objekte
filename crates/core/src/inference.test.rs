@@ -142,6 +142,36 @@ fn high_cardinality_short_identifiers_do_not_use_enum_threshold() {
 }
 
 #[test]
+fn default_batch_budget_keeps_multi_field_short_string_index_complete() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    for slot in 0..512 {
+        let input = serde_json::json!({
+            "code": format!("550e8400-e29b-41d4-a716-{slot:012}"),
+            "name": format!("name-{slot}"),
+            "year": 1800 + slot,
+            "group": format!("g{}", slot % 8),
+            "flag": slot % 2 == 0,
+            "nested": {"label": format!("label-{slot}")},
+        });
+        batch
+            .observe_record(RecordSlot(slot), &Value::from_json(input).unwrap())
+            .unwrap();
+    }
+    let mut coordinator = InferenceBuilder::new(config, false).unwrap();
+    coordinator.merge_shifted(batch, 0).unwrap();
+    let state = coordinator
+        .finish(&(0..512).collect(), 512, &Schema::default())
+        .unwrap();
+    assert!(state.report.complete);
+    assert_eq!(state.indexes[&vec!["code".into()]].values.len(), 512);
+    assert_eq!(state.short_string_coverage[&vec!["code".into()]].len(), 512);
+}
+
+#[test]
 fn selective_short_string_queries_keep_long_and_mixed_remainders() {
     let root = temporary_root("short-query");
     let _ = std::fs::remove_dir_all(&root);
@@ -436,7 +466,7 @@ fn inference_batch_admission_does_not_depend_on_worker_count() {
         mode: InferenceMode::AutoIndex,
         ..Default::default()
     };
-    assert_eq!(config.max_build_jobs(128), 64);
+    assert_eq!(config.max_build_jobs(128), 16);
     assert!(
         config.max_build_jobs(128) * config.policy.max_batch_bytes
             <= config.policy.max_repository_bytes - config.policy.max_total_bytes
