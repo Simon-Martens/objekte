@@ -3,6 +3,7 @@
 mod app;
 mod export;
 mod input;
+mod record;
 mod settings;
 #[cfg(test)]
 mod test_support;
@@ -295,10 +296,15 @@ fn key(app: &mut App, key: KeyEvent) {
     if app.view == View::Detail {
         match key.code {
             KeyCode::Esc | KeyCode::Left | KeyCode::Backspace => app.view = View::Results,
-            KeyCode::Up => app.detail_scroll = app.detail_scroll.saturating_sub(1),
-            KeyCode::Down => app.detail_scroll = app.detail_scroll.saturating_add(1),
-            KeyCode::PageUp => app.detail_scroll = app.detail_scroll.saturating_sub(10),
-            KeyCode::PageDown => app.detail_scroll = app.detail_scroll.saturating_add(10),
+            KeyCode::Up => app.move_detail(-1),
+            KeyCode::Down => app.move_detail(1),
+            KeyCode::PageUp => app.move_detail(-10),
+            KeyCode::PageDown => app.move_detail(10),
+            KeyCode::Enter | KeyCode::Right => app.toggle_detail_branch(),
+            KeyCode::Char('r') => {
+                app.record.raw = !app.record.raw;
+                app.detail_scroll = 0;
+            }
             _ => {}
         }
         return;
@@ -320,10 +326,7 @@ fn key(app: &mut App, key: KeyEvent) {
         }
         KeyCode::Esc => app.focus = Focus::Search,
         KeyCode::Enter if app.focus == Focus::Results => {
-            if app.selected_hit().is_some() {
-                app.view = View::Detail;
-                app.detail_scroll = 0;
-            }
+            app.open_detail();
         }
         KeyCode::Enter => app.confirm_query(),
         KeyCode::Up => {

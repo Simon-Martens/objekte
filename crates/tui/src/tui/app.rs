@@ -5,12 +5,15 @@ use std::path::PathBuf;
 use std::sync::{Arc, mpsc};
 use std::time::{Duration, Instant};
 
+use objekte_search_core::model::{FieldPath, LogicalType, PathRoot};
 use objekte_search_core::query::{FtsQuery, Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
 use objekte_search_core::workload::{ReturnMode, SortField};
+use ratatui::layout::Rect;
 
 use super::export;
 use super::input::Input;
+use super::record::RecordState;
 use super::settings::{self, Settings};
 
 pub(super) const PAGE_SIZE: usize = 100;
@@ -78,6 +81,9 @@ pub(super) struct App {
     pub(super) selected: usize,
     pub(super) scroll: usize,
     pub(super) detail_scroll: u16,
+    pub(super) record: RecordState,
+    pub(super) detail_area: Rect,
+    pub(super) results_area: Rect,
     pub(super) viewport_rows: usize,
     pub(super) status: Option<String>,
     pub(super) error: Option<String>,
@@ -123,6 +129,9 @@ impl App {
             selected: 0,
             scroll: 0,
             detail_scroll: 0,
+            record: RecordState::default(),
+            detail_area: Rect::default(),
+            results_area: Rect::default(),
             viewport_rows: 1,
             status,
             error: None,
@@ -158,6 +167,49 @@ impl App {
 
     pub(super) fn selected_hit(&self) -> Option<&SearchHit> {
         self.hits.get(self.selected)
+    }
+
+    pub(super) fn open_detail(&mut self) {
+        if self.selected_hit().is_some() {
+            self.view = View::Detail;
+            self.record.reset();
+            self.detail_scroll = 0;
+        }
+    }
+
+    pub(super) fn move_detail(&mut self, delta: isize) {
+        let Some(hit) = self.selected_hit() else {
+            return;
+        };
+        if self.record.raw {
+            self.detail_scroll = self.detail_scroll.saturating_add_signed(delta as i16);
+            return;
+        }
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let count = self.record.rows(hit, diagnostic.as_deref()).len();
+        self.record.cursor = self
+            .record
+            .cursor
+            .saturating_add_signed(delta)
+            .min(count.saturating_sub(1));
+    }
+
+    pub(super) fn toggle_detail_branch(&mut self) {
+        let Some(hit) = self.selected_hit() else {
+            return;
+        };
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let rows = self.record.rows(hit, diagnostic.as_deref());
+        if let Some((path, array)) = rows
+            .get(self.record.cursor)
+            .and_then(|row| row.branch.clone())
+        {
+            self.record.toggle(&path, array);
+        }
     }
 
     pub(super) fn diagnostic(
@@ -279,14 +331,31 @@ impl App {
         let mut keys = BTreeSet::new();
         for collection in self.repo.collections() {
             if self.scope == 0 || collection.definition.name == self.scope_label() {
-                for path in collection.definition.schema.fields().keys() {
-                    if path.len() == 1 {
-                        keys.insert(path[0].clone());
+                for (path, field) in collection.definition.schema.fields() {
+                    if matches!(field.kind, LogicalType::Object) {
+                        continue;
                     }
+                    keys.insert(
+                        FieldPath {
+                            root: PathRoot::Data,
+                            segments: path.clone(),
+                        }
+                        .display(),
+                    );
                 }
             }
         }
-        keys.into_iter().collect()
+        let mut keys = keys.into_iter().collect::<Vec<_>>();
+        keys.sort_by_key(|key| {
+            let leaf = key.rsplit('.').next().unwrap_or(key);
+            let priority = match leaf {
+                "preferred_title" | "title" | "name" | "label" => 0,
+                "year" | "date" | "type" => 1,
+                _ => 2,
+            };
+            (priority, key.matches('.').count(), key.clone())
+        });
+        keys
     }
 
     pub(super) fn visible_columns(&self) -> Vec<String> {
@@ -323,6 +392,7 @@ impl App {
         self.total = 0;
         self.selected = 0;
         self.scroll = 0;
+        self.record.reset();
         self.requested_offset = None;
         self.last_search_duration = None;
         self.launch(0);
@@ -439,6 +509,7 @@ impl App {
             .min(self.hits.len() - 1);
         if self.selected != previous {
             self.detail_scroll = 0;
+            self.record.reset();
         }
         let rows = self.viewport_rows.max(1);
         if self.selected < self.scroll {

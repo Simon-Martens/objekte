@@ -5,7 +5,8 @@ pub(super) mod theme;
 
 use super::app::{App, Focus, Overlay, View};
 use super::input::Input;
-use objekte_search_core::repository::{Payload, SearchHit};
+use super::record;
+use objekte_search_core::repository::SearchHit;
 use ratatui::{
     Frame,
     layout::{Constraint, Layout, Position, Rect},
@@ -157,7 +158,7 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
         ),
     }
     let hint = if app.view == View::Detail {
-        " Esc back  ·  ↑↓ scroll  ·  Ctrl+Q quit"
+        " Esc back  ·  ↑↓ fields  ·  Enter fold/open  ·  r raw/fields  ·  Ctrl+Q quit"
     } else {
         " Tab fields  ·  ↑↓ results  ·  Enter open  ·  Ctrl+O scope  ·  F1 help  ·  Ctrl+Q quit"
     };
@@ -220,25 +221,30 @@ fn query_line(
 }
 
 fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    app.results_area = area;
     app.viewport_rows = area.height.saturating_sub(1).max(1) as usize;
     if area.height == 0 {
         return;
     }
-    let compact = area.width < 90;
+    let compact = area.width < 100;
     let collection_width = if compact { 12usize } else { 16 };
     let id_width = if compact { 16usize } else { 24 };
-    let field_width = 16usize;
-    let min_summary = 16usize;
-    let available =
-        (area.width as usize).saturating_sub(2 + collection_width + 2 + id_width + 2 + min_summary);
+    let field_width = if area.width >= 150 { 24 } else { 16 };
+    let fixed = 2 + collection_width + 2 + id_width + 2;
+    let available = (area.width as usize).saturating_sub(fixed + 16);
     let fields = app
         .visible_columns()
         .into_iter()
-        .take((available / (field_width + 2)).min(2))
+        .take((available / (field_width + 2)).min(4))
         .collect::<Vec<_>>();
-    let mut header = format!("  {:collection_width$}  {:id_width$}  ", "collection", "id");
+    let mut header = format!(
+        "  {}  {}  ",
+        pad_clip("collection", collection_width),
+        pad_clip("id", id_width)
+    );
     for field in &fields {
-        header.push_str(&format!("{:field_width$}  ", clip(field, field_width)));
+        header.push_str(&pad_clip(field, field_width));
+        header.push_str("  ");
     }
     header.push_str("match / record");
     frame.render_widget(
@@ -279,27 +285,19 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         };
         let summary = record_summary(hit);
         let mut content = format!(
-            "{} {:collection_width$}  {:id_width$}  ",
+            "{} {}  {}  ",
             if selected { "▌" } else { " " },
-            clip(&hit.collection, collection_width),
-            clip(&hit.record_id, id_width),
+            pad_clip(&hit.collection, collection_width),
+            pad_clip(&hit.record_id, id_width),
         );
-        let value = match &hit.payload {
-            Some(Payload::Bytes(bytes)) => serde_json::from_slice::<serde_json::Value>(bytes).ok(),
-            _ => None,
-        };
         for field in &fields {
-            let display = value
-                .as_ref()
-                .and_then(|value| value.get(field))
-                .map_or_else(String::new, |value| {
-                    value
-                        .as_str()
-                        .map_or_else(|| value.to_string(), str::to_owned)
-                });
-            content.push_str(&format!("{:field_width$}  ", clip(&display, field_width)));
+            content.push_str(&pad_clip(&record::column_value(hit, field), field_width));
+            content.push_str("  ");
         }
-        content.push_str(&summary);
+        content.push_str(&clip(
+            &summary,
+            (area.width as usize).saturating_sub(content.width()),
+        ));
         frame.render_widget(
             Paragraph::new(content).style(style.fg(if selected { TEXT } else { DIM })),
             Rect {
@@ -312,10 +310,7 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
 }
 
 fn record_summary(hit: &SearchHit) -> String {
-    let Some(Payload::Bytes(bytes)) = &hit.payload else {
-        return String::new();
-    };
-    let Ok(value) = serde_json::from_slice::<serde_json::Value>(bytes) else {
+    let Some(value) = record::json_value(hit) else {
         return String::new();
     };
     for field in &hit.matched_fields {
@@ -345,7 +340,8 @@ fn record_summary(hit: &SearchHit) -> String {
     String::new()
 }
 
-fn detail(frame: &mut Frame<'_>, app: &App, area: Rect) {
+fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    app.detail_area = area;
     let Some(hit) = app.selected_hit() else {
         return;
     };
@@ -355,45 +351,74 @@ fn detail(frame: &mut Frame<'_>, app: &App, area: Rect) {
         hit.record_id,
         hit.file_status.label()
     );
-    let body = match &hit.payload {
-        Some(Payload::Bytes(bytes)) => serde_json::from_slice::<serde_json::Value>(bytes)
-            .ok()
-            .and_then(|value| serde_json::to_string_pretty(&value).ok())
-            .unwrap_or_else(|| String::from_utf8_lossy(bytes).into_owned()),
-        Some(Payload::Logical(value)) => format!("{value:?}"),
-        Some(Payload::LogicalUnavailable { .. }) => {
-            "Logical record unavailable; request bytes to inspect the source.".into()
-        }
-        None => String::new(),
-    };
+    let block = Block::default()
+        .title(title)
+        .borders(Borders::ALL)
+        .border_style(Style::new().fg(ACCENT));
+    if app.record.raw {
+        frame.render_widget(
+            Paragraph::new(record::raw_text(hit))
+                .block(block)
+                .wrap(Wrap { trim: false })
+                .scroll((app.detail_scroll, 0)),
+            area,
+        );
+        return;
+    }
     let diagnostic = app
         .diagnostic(hit)
-        .map(|issue| format!("{}: {}", issue.code, issue.message))
-        .unwrap_or_default();
-    let body = format!(
-        "File: {}\nBytes: {}..{}\nStatus: {} ({})\nRecord class: {}\nDiagnostic: {}\nMatched fields: {}\n\n{}",
-        hit.file_path.display(),
-        hit.byte_start,
-        hit.byte_end,
-        hit.file_status.label(),
-        hit.file_status.code(),
-        hit.record_class.code(),
-        diagnostic,
-        hit.matched_fields.join(", "),
-        body,
-    );
-    frame.render_widget(
-        Paragraph::new(body)
-            .block(
-                Block::default()
-                    .title(title)
-                    .borders(Borders::ALL)
-                    .border_style(Style::new().fg(ACCENT)),
+        .map(|issue| format!("{}: {}", issue.code, issue.message));
+    let rows = app.record.rows(hit, diagnostic.as_deref());
+    let height = area.height.saturating_sub(2) as usize;
+    app.record.cursor = app.record.cursor.min(rows.len().saturating_sub(1));
+    if app.record.cursor < app.record.scroll {
+        app.record.scroll = app.record.cursor;
+    } else if app.record.cursor >= app.record.scroll.saturating_add(height.max(1)) {
+        app.record.scroll = app.record.cursor + 1 - height.max(1);
+    }
+    let name_width = ((area.width as usize) * 2 / 5).clamp(12, 42);
+    let lines = rows
+        .iter()
+        .enumerate()
+        .skip(app.record.scroll)
+        .take(height)
+        .map(|(index, row)| {
+            let indent = "  ".repeat(row.depth.min(12));
+            let marker = match &row.branch {
+                Some((path, array)) if app.record.is_folded(path, *array) => "▸ ",
+                Some(_) => "▾ ",
+                None => "  ",
+            };
+            let label = format!(
+                "{}{}{}",
+                if index == app.record.cursor && app.view == View::Detail {
+                    "❯ "
+                } else {
+                    "  "
+                },
+                indent,
+                marker
+            );
+            let label = format!("{label}{}", row.label);
+            let value_width = (area.width as usize).saturating_sub(name_width + 3);
+            let content = format!(
+                "{} │ {}",
+                pad_clip(&label, name_width),
+                clip(&row.value, value_width)
+            );
+            Line::styled(
+                content,
+                Style::new().fg(if index == app.record.cursor && app.view == View::Detail {
+                    ACCENT
+                } else if row.matched {
+                    TEXT
+                } else {
+                    DIM
+                }),
             )
-            .wrap(Wrap { trim: false })
-            .scroll((app.detail_scroll, 0)),
-        area,
-    );
+        })
+        .collect::<Vec<_>>();
+    frame.render_widget(Paragraph::new(lines).block(block), area);
 }
 
 fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
@@ -643,6 +668,14 @@ fn clip(text: &str, width: usize) -> String {
     }
     out.push('…');
     out
+}
+
+fn pad_clip(text: &str, width: usize) -> String {
+    let clipped = clip(text, width);
+    format!(
+        "{clipped}{}",
+        " ".repeat(width.saturating_sub(clipped.width()))
+    )
 }
 
 #[cfg(test)]
