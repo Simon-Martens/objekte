@@ -957,7 +957,7 @@ fn visit_hop(
                 collection_name: &collection.definition.name,
                 repository_root: &repo.files.root,
             };
-            merge_truth(truth, Some(terminal(&ctx, &[])?), quantifier);
+            merge_truth(truth, Some(terminal(&ctx, &[], source_positions)?), quantifier);
             return Ok(());
         }
         let file = &repo.files.files[record.file.0 as usize];
@@ -1188,6 +1188,7 @@ fn visit_hop(
                                 *source,
                                 truth,
                                 work,
+                                source_positions,
                                 terminal,
                             )?;
                         }
