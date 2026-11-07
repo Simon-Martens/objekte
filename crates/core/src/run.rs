@@ -1065,21 +1065,31 @@ fn scan_file(
                     };
                     let key = computed_key
                         .unwrap_or_else(|| rank_key(sort, repo, collection_index, record));
-                    let measured = std::mem::size_of::<FileWinner>()
-                        .saturating_add(rank_key_bytes(&key) as usize)
-                        .saturating_add(
-                            evidence.iter().map(|field| field.len() + 64).sum::<usize>(),
-                        )
-                        .saturating_add(
-                            payload.as_ref().map_or(0, crate::streaming::payload_bytes),
-                        );
-                    let replaced_buffered = if winners.len() == keep_cap {
-                        winners
-                            .peek()
-                            .map_or(0, |worst| worst.matched.buffered_bytes)
+                    let key_bytes = if sort.bound.has_computed || max_retained_bytes.is_some() {
+                        rank_key_bytes(&key)
                     } else {
                         0
                     };
+                    let measured = if max_retained_bytes.is_some() {
+                        std::mem::size_of::<FileWinner>()
+                            .saturating_add(key_bytes as usize)
+                            .saturating_add(
+                                evidence.iter().map(|field| field.len() + 64).sum::<usize>(),
+                            )
+                            .saturating_add(
+                                payload.as_ref().map_or(0, crate::streaming::payload_bytes),
+                            )
+                    } else {
+                        0
+                    };
+                    let replaced_buffered =
+                        if max_retained_bytes.is_some() && winners.len() == keep_cap {
+                            winners
+                                .peek()
+                                .map_or(0, |worst| worst.matched.buffered_bytes)
+                        } else {
+                            0
+                        };
                     if max_retained_bytes.is_some_and(|limit| {
                         buffered_bytes
                             .saturating_sub(replaced_buffered)
@@ -1093,23 +1103,25 @@ fn scan_file(
                     if winners.len() == keep_cap {
                         let removed = winners.pop().unwrap();
                         retained_bytes -= removed.matched.retained_bytes;
-                        retained_key_bytes -= rank_key_bytes(&removed.key);
+                        if sort.bound.has_computed {
+                            retained_key_bytes -= rank_key_bytes(&removed.key);
+                        }
                         buffered_bytes -= removed.matched.buffered_bytes;
                     }
                     retained_bytes += retained;
                     buffered_bytes += measured;
                     outcome.peak_payload_bytes = outcome.peak_payload_bytes.max(retained_bytes);
-                    retained_key_bytes = retained_key_bytes
-                        .checked_add(rank_key_bytes(&key))
-                        .ok_or("sort key byte count overflow")?;
-                    if retained_key_bytes > MAX_SORT_KEY_BYTES {
-                        return Err("sort key memory budget exceeded".into());
-                    }
                     if sort.bound.has_computed {
+                        retained_key_bytes = retained_key_bytes
+                            .checked_add(key_bytes)
+                            .ok_or("sort key byte count overflow")?;
+                        if retained_key_bytes > MAX_SORT_KEY_BYTES {
+                            return Err("sort key memory budget exceeded".into());
+                        }
                         check_computed_sort_budget(retained_bytes, retained_key_bytes, 0)?;
+                        outcome.peak_sort_key_bytes =
+                            outcome.peak_sort_key_bytes.max(retained_key_bytes);
                     }
-                    outcome.peak_sort_key_bytes =
-                        outcome.peak_sort_key_bytes.max(retained_key_bytes);
                     winners.push(FileWinner {
                         key,
                         matched: ScannedMatch {
