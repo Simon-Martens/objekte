@@ -156,6 +156,9 @@ pub(crate) fn bind_fts_with_relations(
     for selected in &request.fields {
         let syntax = selected.query_path.clone().unwrap_or_else(|| selected.path.display());
         let path = QueryPath::parse(&syntax)?;
+        if path.field != selected.path {
+            return Err("selected FTS query path disagrees with its field".into());
+        }
         if let Some((hops, terminal)) = resolve_path(repo, collection_index, &path)? {
             let target = hops.last().ok_or("relation FTS has no hop")?.to.0 as usize;
             if terminal.has_explicit_array_step
