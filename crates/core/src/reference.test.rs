@@ -1,6 +1,103 @@
 use super::*;
 
 #[test]
+fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
+    for (pattern, cases) in [
+        ("abc", vec![("zabcx", true), ("abxc", false)]),
+        ("a%b", vec![("ab", true), ("axxxb", true), ("ba", false)]),
+        ("a\\%b", vec![("a%b", true), ("axxb", false)]),
+        ("%%", vec![("", true), ("anything", true)]),
+        ("a\\\\%b", vec![("a\\%b", true), ("a%b", false)]),
+    ] {
+        let prepared = PreparedContains::new(pattern);
+        for (text, expected) in cases {
+            assert_eq!(
+                prepared.matches(text, pattern),
+                expected,
+                "{pattern:?} {text:?}"
+            );
+        }
+    }
+    assert!(matches!(
+        PreparedContains::new("abc"),
+        PreparedContains::Literal
+    ));
+    assert!(matches!(
+        PreparedContains::new("a\\%b"),
+        PreparedContains::Unescaped(_)
+    ));
+    assert!(matches!(
+        PreparedContains::new("a%b"),
+        PreparedContains::Wildcards(_)
+    ));
+}
+
+#[test]
+fn bound_contains_reuses_prepared_pattern_across_scalar_and_array_values() {
+    for (filter, document, expected) in [
+        ("name ~ 'a%b'", serde_json::json!({"name":"axxb"}), true),
+        ("name !~ 'a%b'", serde_json::json!({"name":"axxb"}), false),
+        ("name ~ 'a\\%b'", serde_json::json!({"name":"a%b"}), true),
+        (
+            "name:lower ~ 'str%se'",
+            serde_json::json!({"name":"Straße"}),
+            true,
+        ),
+        (
+            "values ?~ 'a%b'",
+            serde_json::json!({"values":["no", "axxb"]}),
+            true,
+        ),
+        ("values ?~ 'a%b'", serde_json::json!({"values":[]}), false),
+    ] {
+        PREPARED_CONTAINS_BUILDS.with(|count| count.set(0));
+        let bound = bind_filter(&parse_filter(filter).unwrap(), &schema()).unwrap();
+        let BoundExpr::Term(term) = &bound else {
+            panic!("one term")
+        };
+        assert!(term.prepared_contains.is_some());
+        assert_eq!(PREPARED_CONTAINS_BUILDS.with(|count| count.get()), 1);
+        let value = Value::from_json(document).unwrap();
+        with_record(value, |ctx| {
+            for _ in 0..32 {
+                assert_eq!(
+                    eval_filter(&bound, &ctx, &mut HashSet::new()).unwrap(),
+                    expected
+                );
+            }
+        });
+        assert_eq!(PREPARED_CONTAINS_BUILDS.with(|count| count.get()), 1);
+    }
+}
+
+#[test]
+fn membership_filter_and_unavailable_truth_match_evidence_evaluation() {
+    let value = Value::from_json(serde_json::json!({
+        "name": "Ada", "values": ["x", "y"], "people": [{"name": "Bob"}]
+    }))
+    .unwrap();
+    with_record(value, |ctx| {
+        for filter in [
+            "name = 'Ada'",
+            "name ~ 'A%a' && values ?= 'x'",
+            "name !~ 'A%a' || people.name ?= 'Bob'",
+            "!(name = 'Ada' && values ?= 'no')",
+            "values ?= 'missing'",
+            "@file.id = 0 || name = 'no'",
+            "@file.id != 0 && name = 'Ada'",
+        ] {
+            let bound = bind_filter(&parse_filter(filter).unwrap(), &schema()).unwrap();
+            let unavailable = eval_unavailable_filter(&bound, &ctx, &mut HashSet::new()).unwrap();
+            assert_eq!(
+                eval_unavailable_filter_membership(&bound, &ctx).unwrap(),
+                unavailable,
+                "{filter}"
+            );
+        }
+    });
+}
+
+#[test]
 fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_order() {
     fn field(path: &[&str], kind: LogicalType, required: bool) -> FieldDefinition {
         FieldDefinition {

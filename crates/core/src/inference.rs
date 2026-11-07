@@ -451,7 +451,10 @@ impl InferenceState {
                         let ScalarKey::String(value) = key else {
                             return None;
                         };
-                        let contains = crate::reference::contains_pattern(value, pattern);
+                        let contains = term.prepared_contains.as_ref().map_or_else(
+                            || crate::reference::contains_pattern(value, pattern),
+                            |prepared| prepared.matches(value, pattern),
+                        );
                         if contains == (term.operator == Operator::Contains) {
                             result |= slots & input;
                         }

@@ -633,6 +633,72 @@ pub enum Derived {
 }
 
 
+/// Substring pattern parsed once for a bound literal.
+#[derive(Clone, Debug)]
+pub(crate) enum PreparedContains {
+    Literal,
+    Unescaped(String),
+    Wildcards(Vec<String>),
+}
+
+
+#[cfg(test)]
+thread_local! {
+    static PREPARED_CONTAINS_BUILDS: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+
+impl PreparedContains {
+    pub(crate) fn new(pattern: &str) -> Self {
+        #[cfg(test)]
+        PREPARED_CONTAINS_BUILDS.with(|count| count.set(count.get() + 1));
+        if !pattern.as_bytes().contains(&b'%') {
+            return Self::Literal;
+        }
+        let mut pieces = Vec::new();
+        let mut current = String::new();
+        let mut chars = pattern.chars().peekable();
+        let mut wildcard = false;
+        while let Some(ch) = chars.next() {
+            if ch == '\\' && chars.peek() == Some(&'%') {
+                current.push(chars.next().unwrap());
+            } else if ch == '%' {
+                pieces.push(std::mem::take(&mut current));
+                wildcard = true;
+            } else {
+                current.push(ch);
+            }
+        }
+        pieces.push(current);
+        if wildcard {
+            Self::Wildcards(pieces)
+        } else {
+            Self::Unescaped(pieces.pop().unwrap())
+        }
+    }
+
+    pub(crate) fn matches(&self, text: &str, literal: &str) -> bool {
+        match self {
+            Self::Literal => text.contains(literal),
+            Self::Unescaped(piece) => text.contains(piece),
+            Self::Wildcards(pieces) => {
+                let mut rest = text;
+                for piece in pieces {
+                    if piece.is_empty() {
+                        continue;
+                    }
+                    let Some(index) = rest.find(piece) else {
+                        return false;
+                    };
+                    rest = &rest[index + piece.len()..];
+                }
+                true
+            }
+        }
+    }
+}
+
+
 /// Typed predicate with its resolved path, literal, and binding.
 #[derive(Clone, Debug)]
 pub struct BoundTerm {
@@ -646,6 +712,7 @@ pub struct BoundTerm {
     pub quantifier: Quantifier,
     pub literal: Value,
     pub period: Option<TemporalBounds>,
+    pub(crate) prepared_contains: Option<PreparedContains>,
     pub(crate) gram_request: Option<BigramRequest>,
     pub derived: Derived,
     pub transform: Transform,
@@ -1200,6 +1267,7 @@ fn bind_literal_term(
             quantifier: term.quantifier,
             literal: Value::Null,
             period: None,
+            prepared_contains: None,
             gram_request: None,
             derived,
             transform,
@@ -1269,6 +1337,16 @@ fn bind_literal_term(
     } else {
         None
     };
+    let prepared_contains = if matcher.is_none()
+        && matches!(term.operator, Operator::Contains | Operator::NotContains)
+    {
+        match &literal {
+            Value::String(pattern) => Some(PreparedContains::new(pattern)),
+            _ => None,
+        }
+    } else {
+        None
+    };
     Ok(BoundTerm {
         path: term.path.field.clone(),
         query_path: term.path.clone(),
@@ -1280,6 +1358,7 @@ fn bind_literal_term(
         quantifier: term.quantifier,
         literal,
         period,
+        prepared_contains,
         gram_request,
         derived,
         transform,
@@ -1549,6 +1628,24 @@ fn compare_bound(lhs: &Value, term: &BoundTerm) -> Result<bool, String> {
     }
     if let Some(matcher) = &term.matcher {
         return matcher.matches(Some(lhs), None);
+    }
+    if let (Some(prepared), Value::String(pattern)) = (&term.prepared_contains, &term.literal) {
+        let Value::String(text) = lhs else {
+            return Ok(false);
+        };
+        let folded;
+        let text = if term.transform == Transform::CaseFold {
+            folded = fold(text);
+            folded.as_str()
+        } else {
+            text.as_str()
+        };
+        let found = prepared.matches(text, pattern);
+        return Ok(if term.operator == Operator::Contains {
+            found
+        } else {
+            !found
+        });
     }
     Ok(compare_scalar(
         lhs,
@@ -1915,35 +2012,7 @@ pub(crate) fn eval_cross_record_field_term(
 
 /// `%` spans any sequence; `\%` means a literal percent. No other wildcard.
 pub(crate) fn contains_pattern(text: &str, pattern: &str) -> bool {
-    let mut pieces = Vec::new();
-    let mut current = String::new();
-    let mut chars = pattern.chars().peekable();
-    let mut wildcard = false;
-    while let Some(ch) = chars.next() {
-        if ch == '\\' && chars.peek() == Some(&'%') {
-            current.push(chars.next().unwrap());
-        } else if ch == '%' {
-            pieces.push(std::mem::take(&mut current));
-            wildcard = true;
-        } else {
-            current.push(ch);
-        }
-    }
-    pieces.push(current);
-    if !wildcard {
-        return text.contains(&pieces[0]);
-    }
-    let mut rest = text;
-    for piece in pieces {
-        if piece.is_empty() {
-            continue;
-        }
-        let Some(index) = rest.find(&piece) else {
-            return false;
-        };
-        rest = &rest[index + piece.len()..];
-    }
-    true
+    PreparedContains::new(pattern).matches(text, pattern)
 }
 
 pub fn eval_term(term: &BoundTerm, ctx: &RecordContext<'_>) -> Result<bool, String> {
@@ -2177,6 +2246,54 @@ pub fn eval_unavailable_filter(
             } else {
                 Ok(Some(false))
             }
+        }
+    }
+}
+
+/// Three-valued membership on raw fallback records without evidence storage.
+pub(crate) fn eval_unavailable_filter_membership(
+    expr: &BoundExpr,
+    ctx: &RecordContext<'_>,
+) -> Result<Option<bool>, String> {
+    match expr {
+        BoundExpr::Term(term) => {
+            if term.related.is_some()
+                || term.path.root == PathRoot::Data
+                || term.path.root == PathRoot::Backlinks
+                || term
+                    .rhs
+                    .as_ref()
+                    .is_some_and(|rhs| rhs.path.root == PathRoot::Data)
+            {
+                Ok(None)
+            } else {
+                eval_term(term, ctx).map(Some)
+            }
+        }
+        BoundExpr::Not(inner) => {
+            Ok(eval_unavailable_filter_membership(inner, ctx)?.map(|value| !value))
+        }
+        BoundExpr::And(parts) => {
+            let mut unknown = false;
+            for part in parts {
+                match eval_unavailable_filter_membership(part, ctx)? {
+                    Some(false) => return Ok(Some(false)),
+                    None => unknown = true,
+                    Some(true) => {}
+                }
+            }
+            Ok(if unknown { None } else { Some(true) })
+        }
+        BoundExpr::Or(parts) => {
+            let mut unknown = false;
+            for part in parts {
+                match eval_unavailable_filter_membership(part, ctx)? {
+                    Some(true) => return Ok(Some(true)),
+                    None => unknown = true,
+                    Some(false) => {}
+                }
+            }
+            Ok(if unknown { None } else { Some(false) })
         }
     }
 }
