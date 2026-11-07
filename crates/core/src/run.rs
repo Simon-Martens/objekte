@@ -910,7 +910,7 @@ fn scan_file(
                     .is_lt()
                 });
             let logical_projection = query.options.return_mode == ReturnMode::Logical
-                && (may_reach_page || sort.bound.has_computed);
+                && may_reach_page;
             let record_projection = if logical_projection {
                 &full_projection
             } else {
@@ -1104,12 +1104,13 @@ fn scan_file(
                     may_reach_page
                 };
                 if enters_page {
-                    let retained = match query.options.return_mode {
-                        ReturnMode::Locator => 0,
-                        ReturnMode::Logical if sort.bound.has_computed => (bytes.len() as u64)
-                            .checked_mul(4)
-                            .ok_or("sort payload byte estimate overflow")?,
-                        _ => bytes.len() as u64,
+                    let retained = if sort.bound.has_computed {
+                        0
+                    } else {
+                        match query.options.return_mode {
+                            ReturnMode::Locator => 0,
+                            _ => bytes.len() as u64,
+                        }
                     };
                     let replaced = if winners.len() == keep_cap {
                         winners
@@ -1128,7 +1129,9 @@ fn scan_file(
                             "stream resource: file winners exceed buffered-byte limit".into()
                         );
                     }
-                    let payload = if record.class == RecordClass::RawFallback
+                    let payload = if sort.bound.has_computed {
+                        None
+                    } else if record.class == RecordClass::RawFallback
                         && query.options.return_mode == ReturnMode::Logical
                     {
                         Some(Payload::LogicalUnavailable {
@@ -1144,7 +1147,7 @@ fn scan_file(
                     } else {
                         0
                     };
-                    let measured = if max_retained_bytes.is_some() {
+                    let measured = if sort.bound.has_computed || max_retained_bytes.is_some() {
                         std::mem::size_of::<FileWinner>()
                             .saturating_add(key_bytes as usize)
                             .saturating_add(
@@ -1157,7 +1160,9 @@ fn scan_file(
                         0
                     };
                     let replaced_buffered =
-                        if max_retained_bytes.is_some() && winners.len() == keep_cap {
+                        if (sort.bound.has_computed || max_retained_bytes.is_some())
+                            && winners.len() == keep_cap
+                        {
                             winners
                                 .peek()
                                 .map_or(0, |worst| worst.matched.buffered_bytes)
@@ -1170,9 +1175,11 @@ fn scan_file(
                             .saturating_add(measured)
                             > limit as usize
                     }) {
-                        return Err(
+                        return Err(if sort.bound.has_computed && cancellation.is_none() {
+                            "computed sort memory budget exceeded".into()
+                        } else {
                             "stream resource: file winners exceed buffered-byte limit".into()
-                        );
+                        });
                     }
                     if winners.len() == keep_cap {
                         let removed = winners.pop().unwrap();
@@ -4415,15 +4422,41 @@ fn search_impl_with_collector<'a>(
             &candidates,
             preverified_evidence.is_some(),
         );
-        if sort.bound.has_computed {
-            projection = ScanProjection::full(projection.collect_text);
+        if let Some(fields) = projection.top_level.as_mut() {
+            let mut needs_root = false;
+            for term in sort.bound.terms[collection_index]
+                .as_ref()
+                .into_iter()
+                .flatten()
+            {
+                if let BoundSortSource::Computed(computed) = &term.source
+                    && computed.path.field.root == PathRoot::Data
+                {
+                    if let Some(first) = computed.path.field.segments.first() {
+                        fields.insert(first.clone());
+                    } else {
+                        needs_root = true;
+                        break;
+                    }
+                }
+            }
+            if needs_root {
+                projection.top_level = None;
+            }
         }
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
         let base_chunk_size = if sort.bound.has_computed {
-            1
+            let has_related = sort.bound.terms.iter().flatten().flatten().any(|term| {
+                matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
+            });
+            if has_related {
+                1
+            } else {
+                repo.options.query_workers.clamp(1, 8)
+            }
         } else if query.options.return_mode == ReturnMode::Locator || query.options.limit == 0 {
             256
         } else {
@@ -4434,7 +4467,41 @@ fn search_impl_with_collector<'a>(
                 .min(delivery.options().checkpoint_files)
                 .max(1)
         });
-        for chunk in files.chunks(chunk_size) {
+        let mut file_cursor = 0;
+        while file_cursor < files.len() {
+            let mut group_size = chunk_size.min(files.len() - file_cursor);
+            if sort.bound.has_computed && delivery.is_none() {
+                let resident = winners
+                    .iter()
+                    .try_fold(0u64, |used, winner| {
+                        used.checked_add(winner.retained_bytes)
+                            .and_then(|used| used.checked_add(rank_key_bytes(&winner.key)))
+                    })
+                    .ok_or("computed sort memory count overflow")?;
+                let targets = sort
+                    .target_cache
+                    .lock()
+                    .map_err(|error| error.to_string())?;
+                let external = target_values.as_ref().map_or(0, |cache| cache.retained_bytes);
+                let available = MAX_COMPUTED_SORT_BYTES
+                    .checked_sub(
+                        resident
+                            .saturating_add(targets.retained_bytes())
+                            .saturating_add(external),
+                    )
+                    .ok_or("computed sort memory budget exceeded")?;
+                while group_size > 1 {
+                    let share = available / (group_size as u64 * 2);
+                    if files[file_cursor..file_cursor + group_size]
+                        .iter()
+                        .all(|(_, ranges)| ranges.iter().all(|(_, range)| range.len() <= share))
+                    {
+                        break;
+                    }
+                    group_size -= 1;
+                }
+            }
+            let chunk = &files[file_cursor..file_cursor + group_size];
             if let Some(delivery) = delivery.as_deref_mut() {
                 delivery.check()?;
             }
@@ -4462,6 +4529,39 @@ fn search_impl_with_collector<'a>(
                 Some(per_file as u64)
             } else {
                 None
+            };
+            let per_file_budget = if sort.bound.has_computed {
+                let resident = winners
+                    .iter()
+                    .try_fold(0u64, |used, winner| {
+                        used.checked_add(winner.retained_bytes)
+                            .and_then(|used| used.checked_add(rank_key_bytes(&winner.key)))
+                    })
+                    .ok_or("computed sort memory count overflow")?;
+                let targets = sort
+                    .target_cache
+                    .lock()
+                    .map_err(|error| error.to_string())?;
+                let external = target_values.as_ref().map_or(0, |cache| cache.retained_bytes);
+                let used = resident
+                    .checked_add(targets.retained_bytes())
+                    .and_then(|used| used.checked_add(external))
+                    .ok_or("computed sort memory count overflow")?;
+                let available = MAX_COMPUTED_SORT_BYTES
+                    .checked_sub(used)
+                    .ok_or("computed sort memory budget exceeded")?;
+                // A worker may hold a source batch while retaining its local keys.
+                let share = if chunk.len() == 1 {
+                    available
+                } else {
+                    available / (chunk.len() as u64 * 2)
+                };
+                if share == 0 {
+                    return Err("computed sort memory budget exceeded".into());
+                }
+                Some(per_file_budget.map_or(share, |stream| stream.min(share)))
+            } else {
+                per_file_budget
             };
             let payload_cutoff = if query.options.return_mode != ReturnMode::Locator
                 && query.options.limit > 0
@@ -4679,6 +4779,7 @@ fn search_impl_with_collector<'a>(
                         .saturating_add(cache_budget.map_or(0, CacheBudget::used)),
                 )?;
             }
+            file_cursor += group_size;
         }
         if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
             finish_trace(traces, before, &counters);
