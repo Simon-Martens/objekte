@@ -371,7 +371,9 @@ impl<'a> BatchBuilder<'a> {
             diagnostic_ref: DiagnosticRef(0),
         });
         self.postings.add(slot, &extracted.value)?;
-        if let Some(inference) = &mut self.inference {
+        if self.source.reader().text_derivation() != TextDerivation::LogicalStringsAfterConversion
+            && let Some(inference) = &mut self.inference
+        {
             inference.observe_record_with_schema(
                 slot,
                 &extracted.value,
@@ -407,19 +409,38 @@ impl<'a> BatchBuilder<'a> {
         if self.source.reader().text_derivation() == TextDerivation::LogicalStringsAfterConversion {
             if let Some(binding) = &self.definition.schema.raw {
                 let mut observed_empty = false;
+                let mut observation = Ok(false);
                 self.raw.add_record_with(slot, |emit| {
-                    observed_empty =
-                        visit_logical_strings_and_empty(&extracted.value, &mut |text| {
-                            emit(&binding.operation.map_text(text));
-                        });
+                    let mut mapped = |text: &str| emit(&binding.operation.map_text(text));
+                    if let Some(inference) = &mut self.inference {
+                        observation = inference.observe_record_with_schema_and_text(
+                            slot,
+                            &extracted.value,
+                            Some(&self.definition.schema),
+                            &mut mapped,
+                        );
+                    } else {
+                        observed_empty =
+                            visit_logical_strings_and_empty(&extracted.value, &mut mapped);
+                    }
                 })?;
-                has_empty_array = observed_empty;
+                has_empty_array = observed_empty || observation?;
             } else {
                 let mut observed_empty = false;
+                let mut observation = Ok(false);
                 self.raw.add_record_with(slot, |emit| {
-                    observed_empty = visit_logical_strings_and_empty(&extracted.value, emit);
+                    if let Some(inference) = &mut self.inference {
+                        observation = inference.observe_record_with_schema_and_text(
+                            slot,
+                            &extracted.value,
+                            Some(&self.definition.schema),
+                            &mut |text| emit(text),
+                        );
+                    } else {
+                        observed_empty = visit_logical_strings_and_empty(&extracted.value, emit);
+                    }
                 })?;
-                has_empty_array = observed_empty;
+                has_empty_array = observed_empty || observation?;
             }
         } else {
             has_empty_array = crate::structural::contains_empty_array(&extracted.value);
