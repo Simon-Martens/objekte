@@ -319,6 +319,18 @@ impl<'a> BatchBuilder<'a> {
                         .ok_or("non-UTF-8 filename identity")?;
                     RecordId::intrinsic(stem)
                 }
+                IdentityPolicy::RelativePath => {
+                    if self.definition.format != crate::source::SourceFormat::Json {
+                        return Err(
+                            "relative-path identity requires a single-record JSON reader".into(),
+                        );
+                    }
+                    let source_dir = self.root.join(&self.definition.source_path);
+                    let relative = path
+                        .strip_prefix(&source_dir)
+                        .map_err(|_| "source path is outside the collection directory")?;
+                    RecordId::intrinsic(format!("path:{}", crate::path_repr::query_path(relative)))
+                }
                 IdentityPolicy::Generated => Ok(RecordId::generated(
                     file.id,
                     revision.modified_ns,

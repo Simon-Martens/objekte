@@ -50,3 +50,7 @@ mod foundation_invariants;
 #[cfg(test)]
 #[path = "id.test.rs"]
 mod id_tests;
+
+#[cfg(test)]
+#[path = "folder.test.rs"]
+mod folder_tests;

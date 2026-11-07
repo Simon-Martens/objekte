@@ -37,6 +37,8 @@ pub(crate) fn next_repository_instance() -> u64 {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
+    /// Repository-native path relative to the collection directory, including its extension.
+    RelativePath,
     Generated,
     Intrinsic(Vec<String>),
 }
@@ -90,6 +92,39 @@ pub struct CollectionDefinition {
     pub sort_locale: String,
     pub sort_options: SortOptions,
     pub sort_overrides: HashMap<FieldPath, SortConfig>,
+}
+
+
+impl CollectionDefinition {
+    /// Define a recursive folder collection with no declared fields or typed indexes.
+    /// JSONL and registered readers use per-record generated identities because a file
+    /// can contain several records. Callers may override any of these defaults.
+    pub fn folder(
+        name: impl Into<String>,
+        source_path: impl Into<PathBuf>,
+        format: SourceFormat,
+    ) -> Self {
+        let identity = if format == SourceFormat::Json {
+            IdentityPolicy::RelativePath
+        } else {
+            IdentityPolicy::Generated
+        };
+        Self {
+            name: name.into(),
+            source_path: source_path.into(),
+            format,
+            identity,
+            discovery: Discovery {
+                recursive: true,
+                ..Discovery::default()
+            },
+            schema: Schema::default(),
+            sort_fields: Vec::new(),
+            sort_locale: "und".into(),
+            sort_options: SortOptions::default(),
+            sort_overrides: HashMap::new(),
+        }
+    }
 }
 
 
