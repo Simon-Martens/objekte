@@ -1,6 +1,7 @@
 //! Bounded construction-only field observation and posting admission.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, HashMap, HashSet};
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 
@@ -319,10 +320,12 @@ impl FieldState {
 /// One batch or coordinator's bounded construction-only observation state.
 pub(crate) struct InferenceBuilder {
     config: InferenceConfig,
+    field_names: HashSet<Arc<str>>,
     paths: HashMap<Vec<ObservedStep>, usize>,
     fields: Vec<FieldState>,
     empty_ancestors: HashMap<Vec<ObservedStep>, RoaringBitmap>,
     selected: HashMap<usize, (u32, bool)>,
+    visit_path: Vec<ObservedStep>,
     eligible: u32,
     omitted_paths: u64,
     complete: bool,
@@ -354,10 +357,12 @@ impl InferenceBuilder {
         let batch_limit = config.policy.max_batch_bytes;
         (config.mode != InferenceMode::Disabled).then(|| Self {
             config,
+            field_names: HashSet::new(),
             paths: HashMap::new(),
             fields: Vec::new(),
             empty_ancestors: HashMap::new(),
             selected: HashMap::new(),
+            visit_path: Vec::new(),
             eligible: 0,
             omitted_paths: 0,
             complete: true,
@@ -386,12 +391,21 @@ impl InferenceBuilder {
 
     fn charge(&mut self, bytes: usize) {
         self.estimated_bytes = self.estimated_bytes.saturating_add(bytes);
-        if self.estimated_bytes > self.limit() {
+        if self.complete && self.estimated_bytes > self.limit() {
             self.complete = false;
             for field in &mut self.fields {
                 field.drop_values();
             }
         }
+    }
+
+    fn intern_name(&mut self, name: &str) -> Arc<str> {
+        if let Some(existing) = self.field_names.get(name) {
+            return Arc::clone(existing);
+        }
+        let owned: Arc<str> = Arc::from(name);
+        self.field_names.insert(Arc::clone(&owned));
+        owned
     }
 
     fn field(&mut self, path: &[ObservedStep]) -> Option<usize> {
@@ -427,7 +441,7 @@ impl InferenceBuilder {
         let fields = path
             .iter()
             .map(|step| match step {
-                ObservedStep::Field(name) => Some(name.clone()),
+                ObservedStep::Field(name) => Some(name.to_string()),
                 ObservedStep::ArrayIndex(_) => None,
             })
             .collect::<Option<Vec<_>>>()?;
@@ -520,7 +534,7 @@ impl InferenceBuilder {
         match value {
             Value::Object(map) => {
                 for (name, child) in map {
-                    state.path.push(ObservedStep::Field(name.clone()));
+                    state.path.push(ObservedStep::Field(self.intern_name(name)));
                     self.visit(child, state, true, through_array, nesting);
                     state.path.pop();
                     if !self.complete {
@@ -530,10 +544,13 @@ impl InferenceBuilder {
             }
             Value::Array(array) => {
                 if array.values.is_empty() && !state.path.is_empty() {
-                    self.empty_ancestors
-                        .entry(state.path.clone())
-                        .or_default()
-                        .insert(state.slot.0);
+                    if let Some(slots) = self.empty_ancestors.get_mut(state.path.as_slice()) {
+                        slots.insert(state.slot.0);
+                    } else {
+                        let mut slots = RoaringBitmap::new();
+                        slots.insert(state.slot.0);
+                        self.empty_ancestors.insert(state.path.clone(), slots);
+                    }
                     self.charge(16);
                 }
                 for child in &array.values {
@@ -558,10 +575,12 @@ impl InferenceBuilder {
         self.selected.clear();
         let mut state = VisitState {
             slot,
-            path: Vec::new(),
+            path: std::mem::take(&mut self.visit_path),
             contributions: 0,
         };
+        state.path.clear();
         self.visit(value, &mut state, true, false, 0);
+        self.visit_path = state.path;
         for (index, (count, sole_null)) in self.selected.drain() {
             if count == 1 && sole_null {
                 self.fields[index].exact_null.insert(slot.0);
@@ -582,11 +601,13 @@ impl InferenceBuilder {
         // Decline before merging a whole batch, while it still occupies the
         // scheduler's separate in-flight allowance.
         self.charge(other.estimated_bytes);
-        self.complete &= other.complete;
-        if !self.complete {
+        if self.complete && !other.complete {
+            self.complete = false;
             for field in &mut self.fields {
                 field.drop_values();
             }
+        }
+        if !self.complete {
             return Ok(());
         }
         for (path, bitmap) in other.empty_ancestors {
@@ -877,6 +898,47 @@ impl InferenceBuilder {
 #[cfg(test)]
 mod allocation_tests {
     use super::*;
+
+    #[test]
+    fn repeated_and_unusual_paths_reuse_names_and_traversal_storage() {
+        let mut observer = InferenceBuilder::new(
+            InferenceConfig {
+                mode: InferenceMode::ReportOnly,
+                ..Default::default()
+            },
+            true,
+        )
+        .unwrap();
+        let first = Value::from_json(serde_json::json!({
+            "unusual.key": {"nested": [null, {"leaf": "a"}]},
+            "other": true
+        }))
+        .unwrap();
+        observer.observe_record(RecordSlot(0), &first).unwrap();
+        let names = observer.field_names.len();
+        let capacity = observer.visit_path.capacity();
+        assert!(capacity > 0);
+        let second = Value::from_json(serde_json::json!({
+            "other": false,
+            "unusual.key": {"nested": [{"leaf": "b"}]}
+        }))
+        .unwrap();
+        observer.observe_record(RecordSlot(1), &second).unwrap();
+        assert_eq!(observer.field_names.len(), names);
+        assert_eq!(observer.visit_path.capacity(), capacity);
+        assert!(observer.visit_path.is_empty());
+        observer
+            .observe_record(RecordSlot(2), &Value::Null)
+            .unwrap();
+        assert!(observer.visit_path.is_empty());
+        assert_eq!(observer.eligible, 3);
+        assert_eq!(
+            observer.fields[observer.paths[&typed_path(&["other".into()])]]
+                .present
+                .len(),
+            2
+        );
+    }
 
     #[test]
     fn long_and_already_dropped_values_never_build_owned_keys() {

@@ -1,6 +1,7 @@
 //! Opt-in observations and complete inferred posting accelerators.
 
 use std::collections::HashMap;
+use std::sync::Arc;
 
 use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
@@ -16,7 +17,7 @@ pub const INFERENCE_POLICY_VERSION: u32 = 4;
 /// positional query steps remain a separate path kind and are never inferred.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
 pub(crate) enum ObservedStep {
-    Field(String),
+    Field(Arc<str>),
     // Automatic inference observes named fields only. Keep the typed key so a
     // future positional observer cannot conflate index 0 with object key "0".
     #[allow(dead_code)]
@@ -24,7 +25,9 @@ pub(crate) enum ObservedStep {
 }
 
 fn typed_path(path: &[String]) -> Vec<ObservedStep> {
-    path.iter().cloned().map(ObservedStep::Field).collect()
+    path.iter()
+        .map(|name| ObservedStep::Field(Arc::from(name.as_str())))
+        .collect()
 }
 
 /// Explicit construction choice. Disabled is the schema-free default.
