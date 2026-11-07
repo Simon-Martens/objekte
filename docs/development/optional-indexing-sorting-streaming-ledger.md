@@ -33,10 +33,10 @@ Default source records remain object-valued under current reader validation. Arr
 | TASK-00 | Supervisor | complete | Base and prior evidence pinned above. |
 | TASK-01 | Supervisor | complete | Folder definition, path identity, example and compiling checkpoint. |
 | TASK-02 | Dynamic FILTER worker | accepted | Pushed clean head `0fbf439aa9` on `feature/dynamic-filter-bigrams`; structural bitmap, sound gram restriction and focused evidence reviewed. Merge awaits TASK-08 gate. |
-| TASK-03/04 | Inference worker | in progress | `feature/optional-field-inference` at `/home/simon/source/objekte-optional-field-inference`; observation, policy, postings and restore. |
+| TASK-03/04 | Inference worker | correction in progress | `fe282ef41b` passed workspace tests and Clippy but independent review found three contract gaps described below; do not merge this head. |
 | TASK-05/06 | Sorting worker | in progress | `feature/general-sort-expressions` at `/home/simon/source/objekte-general-sort-expressions`; computed and composite sorting. |
-| TASK-07 | Streaming worker | not started | Delivery, cancellation and NDJSON. |
-| TASK-08 | Supervisor | not started | Independent branch review. |
+| TASK-07 | Streaming worker | in progress | `feature/progressive-query-results`; delivery, cancellation and NDJSON implementation undergoing final tests. |
+| TASK-08 | Supervisor | in progress | Dynamic branch accepted; independent inference review requires corrections; sorting and streaming review follows. |
 | TASK-09 | Supervisor | not started | Four-way integration and cross-feature validation. |
 | TASK-10 | Supervisor | not started | Final measurements. |
 | TASK-11 | Supervisor | not started | Development promotion. |
@@ -55,3 +55,7 @@ Default source records remain object-valued under current reader validation. Arr
 ## TASK-02 review
 
 Accepted branch commits are `7007f8eea1` (structural E construction/admission/snapshot), `6650aa15b4` (Unknown string candidate path, plans and independent fixtures), and `0fbf439aa9` (proof and validation report). The branch is clean and pushed. Its workspace test and Clippy commands passed, with 79 advisory warnings matching foundation. A previous positional-plan assertion was narrowly updated because the newly proven positive literal path now uses RawBigram with a residual. Read-only supervisor review checked the selector proof, nonfallible matching gate, reader/raw coverage checks, logical-only E, batch slot shift, v10 snapshot rejection and corruption checks, both alphabets, custom-reader coverage, metadata OR fallback, cache parity and structural parse-reduction counters. No blocking finding remains; final cross-feature integration will recheck the combined build and snapshot layout.
+
+## TASK-03/04 independent review
+
+The first inference head `fe282ef41b` was pushed and passed full workspace tests and Clippy. A read-only reviewer found three verified gaps, so it remains unaccepted pending a focused correction: (1) the batch observation cap derived from `2 × build_workers` can change admission and reports for identical records; (2) nested arrays such as `{"x":[[1]]}` underreport array depth; (3) inferred exact `:exists`/`:null` paths are unreachable because the candidate gate requires `Unknown` while the binder assigns `Bool`. An exact-proof fix must also reject explicit array selectors where their semantics differ from an implicit path. The reviewer withdrew an initial terminal-array concern after checking that nonterminal recursive visits do not alter the scalar/array shape flags. No ordinary equality/range candidate false negative was found in the inspected code. The correction worker owns fixes and deterministic fixtures; integration awaits its validated head.
