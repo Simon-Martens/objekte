@@ -85,6 +85,8 @@ pub(crate) struct BoundSort<'a> {
 pub(crate) struct SortTargetCache {
     values: HashMap<(usize, u32), Arc<Value>>,
     retained_bytes: u64,
+    stream_limit: Option<u64>,
+    cancellation: Option<crate::streaming::CancellationToken>,
     pub reads: u64,
     pub reuse: u64,
     pub edge_visits: u64,
@@ -446,6 +448,15 @@ fn select_values<'a>(
 
 
 impl SortTargetCache {
+    pub(crate) fn configure_stream(
+        &mut self,
+        max_buffered_bytes: usize,
+        cancellation: &crate::streaming::CancellationToken,
+    ) {
+        self.stream_limit = Some((max_buffered_bytes / 4) as u64);
+        self.cancellation = Some(cancellation.clone());
+    }
+
     pub(crate) fn retained_bytes(&self) -> u64 {
         self.retained_bytes
     }
@@ -467,6 +478,13 @@ impl SortTargetCache {
         collection_index: usize,
         slot: RecordSlot,
     ) -> Result<Option<Arc<Value>>, String> {
+        if self
+            .cancellation
+            .as_ref()
+            .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+        {
+            return Err("stream cancelled".into());
+        }
         let collection = &repo.collections[collection_index];
         let record = collection
             .generation
@@ -494,11 +512,21 @@ impl SortTargetCache {
         if next > MAX_SORT_TARGET_BYTES {
             return Err("sort target cache budget exceeded".into());
         }
+        if self.stream_limit.is_some_and(|limit| next > limit) {
+            return Err("stream resource: sort target cache exceeds buffered-byte limit".into());
+        }
         let path = repo
             .files
             .native_path(record.file)
             .ok_or("sort target path is missing")?;
         let bytes = crate::source::read_record_range(&path, record.revision, record.range)?;
+        if self
+            .cancellation
+            .as_ref()
+            .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+        {
+            return Err("stream cancelled".into());
+        }
         let extracted = crate::record_preparation::prepare_query_record(
             &collection.source,
             &collection.definition.schema,
@@ -671,13 +699,14 @@ impl ComputedSort {
             return Ok(());
         }
         if depth == hops.len() {
-            let external = source_value
-                .is_none()
-                .then(|| {
-                    external_targets
-                        .and_then(|targets| targets.get(collection.generation.collection, slot))
-                })
-                .flatten();
+            let external = match (source_value, terminal.steps.first()) {
+                (None, Some(PathStep::Field(field))) if terminal.field.root == PathRoot::Data => {
+                    external_targets.and_then(|targets| {
+                        targets.get_projected_field(collection.generation.collection, slot, field)
+                    })
+                }
+                _ => None,
+            };
             if external.is_some() {
                 cache.reuse += 1;
             }
@@ -723,24 +752,14 @@ impl ComputedSort {
         match hop.direction {
             HopDirection::Forward => {
                 if matches!(self.reducer, Some(SortReducer::First | SortReducer::Last)) {
-                    let external = source_value
-                        .is_none()
-                        .then(|| {
-                            external_targets.and_then(|targets| {
-                                targets.get(collection.generation.collection, slot)
-                            })
-                        })
-                        .flatten();
-                    if external.is_some() {
-                        cache.reuse += 1;
-                    }
-                    let owned = if source_value.is_none() && external.is_none() {
+                    // A FILTER projection may omit this intermediate relation
+                    // field. Use the complete source record for occurrence order.
+                    let owned = if source_value.is_none() {
                         cache.load(repo, collection_index, slot)?
                     } else {
                         None
                     };
                     let value = source_value
-                        .or(external)
                         .or(owned.as_deref())
                         .ok_or("sort relation source unavailable")?;
                     let mut positions = Vec::new();

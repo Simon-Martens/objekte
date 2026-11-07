@@ -38,6 +38,7 @@ pub(crate) struct TargetCacheWork {
 /// Immutable projected logical values shared by parallel source scanners.
 pub(crate) struct TargetValueCache {
     values: HashMap<(CollectionId, RecordSlot), Value>,
+    projected_fields: HashMap<CollectionId, HashSet<String>>,
     pub work: TargetCacheWork,
     pub retained_bytes: u64,
 }
@@ -56,6 +57,18 @@ impl TargetValueCache {
 
     pub fn get(&self, collection: CollectionId, slot: RecordSlot) -> Option<&Value> {
         self.values.get(&(collection, slot))
+    }
+
+    pub(crate) fn get_projected_field(
+        &self,
+        collection: CollectionId,
+        slot: RecordSlot,
+        field: &str,
+    ) -> Option<&Value> {
+        self.projected_fields
+            .get(&collection)
+            .filter(|fields| fields.contains(field))
+            .and_then(|_| self.get(collection, slot))
     }
 }
 
@@ -272,6 +285,7 @@ fn prepare_with_limits(
         return Ok(None);
     }
     let mut values = HashMap::new();
+    let mut projected_fields = HashMap::new();
     let mut retained = if max_retained_bytes.is_some() {
         let slots = targets.values().try_fold(0u64, |total, (slots, _)| {
             total
@@ -310,6 +324,7 @@ fn prepare_with_limits(
                 .or_default()
                 .push((slot, record.range));
         }
+        projected_fields.insert(collection_id, fields.clone());
         let projection = ScanProjection {
             top_level: Some(fields),
             collect_text: false,
@@ -392,6 +407,7 @@ fn prepare_with_limits(
     }
     Ok(Some(TargetValueCache {
         values,
+        projected_fields,
         work,
         retained_bytes: retained,
     }))

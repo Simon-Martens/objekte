@@ -8,6 +8,7 @@ use crate::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
 use crate::source::SourceFormat;
+use crate::streaming::{CancellationToken, StreamError, StreamOptions};
 use crate::workload::{ReturnMode, WorkloadCase};
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
@@ -294,6 +295,119 @@ fn related_reducers_preserve_source_reference_occurrences() {
             "{reducer}"
         );
     }
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn related_sort_does_not_reuse_an_incomplete_filter_target_projection() {
+    let (root, definitions) = fixture();
+    std::fs::write(
+        root.join("entries/a.json"),
+        r#"{"id":"A","title":"Hymn","alt_title":"Zulu"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("entries/b.json"),
+        r#"{"id":"B","title":"Festival","alt_title":"Alpha"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("mentions/m8.json"),
+        r#"{"id":"m8","entry":"B","local_title":"Festival"}"#,
+    )
+    .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let sorted = query(
+        "mentions",
+        Some("entry.title = local_title SORT BY entry.alt_title ASC"),
+        None,
+        None,
+        false,
+    );
+    let result = repo.search(&sorted).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m8", "m1"]
+    );
+    assert_eq!(result.hits, repo.search_reference(&sorted).unwrap().hits);
+    assert_eq!(result.counters.sort_target_reads, 2);
+
+    let shared = query(
+        "mentions",
+        Some("entry.title = local_title SORT BY entry.title ASC"),
+        None,
+        None,
+        false,
+    );
+    let result = repo.search(&shared).unwrap();
+    assert_eq!(
+        result
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m8", "m1"]
+    );
+    assert_eq!(result.counters.sort_target_reads, 0);
+    assert!(result.counters.sort_target_reuse >= 2);
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn related_sort_stream_reports_target_budget_as_resource_error() {
+    let (root, definitions) = fixture();
+    std::fs::write(
+        root.join("entries/a.json"),
+        format!(
+            r#"{{"id":"A","title":"Hymn","alt_title":"{}"}}"#,
+            "Z".repeat(3000)
+        ),
+    )
+    .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = query(
+        "mentions",
+        Some("id = 'm1' SORT BY entry.alt_title"),
+        None,
+        None,
+        false,
+    );
+    let error = repo
+        .search_stream(
+            &request,
+            StreamOptions {
+                max_buffered_bytes: 4096,
+                max_event_bytes: 256,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |_| Ok(crate::streaming::StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert!(matches!(error, StreamError::Resource { .. }), "{error:?}");
     drop(repo);
     std::fs::remove_dir_all(root).unwrap();
 }

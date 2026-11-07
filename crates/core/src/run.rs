@@ -58,6 +58,7 @@ fn check_computed_sort_budget_with_limit(
     Ok(())
 }
 
+
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -65,6 +66,7 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
+
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -117,6 +119,7 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
+
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -125,12 +128,14 @@ struct RankKey {
     id: String,
 }
 
+
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
+
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -200,13 +205,16 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
+
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
+
 impl Eq for RankKey {}
+
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -214,12 +222,14 @@ impl PartialOrd for RankKey {
     }
 }
 
+
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
+
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -231,6 +241,7 @@ struct Winner {
     retained_bytes: u64,
 }
 
+
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -240,6 +251,7 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
+
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -259,10 +271,12 @@ struct ScannedFile {
     cache_members: Vec<CachedMember>,
 }
 
+
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
+
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -270,7 +284,9 @@ impl PartialEq for FileWinner {
     }
 }
 
+
 impl Eq for FileWinner {}
+
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -278,11 +294,13 @@ impl PartialOrd for FileWinner {
     }
 }
 
+
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -290,6 +308,7 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
+
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -334,6 +353,7 @@ impl CacheBudget {
         }
     }
 }
+
 
 fn scan_projection(
     query: &Query,
@@ -409,12 +429,14 @@ fn scan_projection(
     }
 }
 
+
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
+
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -459,6 +481,7 @@ fn prepare_residual<'a>(
         ))),
     }
 }
+
 
 impl Residual<'_> {
     fn unavailable(
@@ -724,6 +747,7 @@ impl Residual<'_> {
         })
     }
 }
+
 
 fn scan_file(
     repo: &Repository,
@@ -1112,6 +1136,7 @@ fn scan_file(
     Ok(outcome)
 }
 
+
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1121,6 +1146,7 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
+
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1133,6 +1159,7 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
+
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1196,6 +1223,7 @@ fn bound_term_diagnostics(
     terms
 }
 
+
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1220,6 +1248,7 @@ pub struct QueryPlanTrace {
     pub candidates: u64,
     pub actual: Option<PlanActual>,
 }
+
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1259,6 +1288,7 @@ fn regex_prefilter_reason(
     }
 }
 
+
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1278,6 +1308,7 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
+
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1300,6 +1331,7 @@ impl Default for PlanActual {
         }
     }
 }
+
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -1450,13 +1482,16 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
+
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for Winner {}
+
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -1464,11 +1499,13 @@ impl PartialOrd for Winner {
     }
 }
 
+
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -1829,10 +1866,14 @@ pub fn search_stream(
                 None if cancellation.is_cancelled() => {
                     Ok(StreamOutcome::Cancelled(delivery.progress))
                 }
-                None if message.starts_with("stream resource:") => Err(StreamError::Resource {
-                    message,
-                    progress: delivery.progress,
-                }),
+                None if message.starts_with("stream resource:")
+                    || message.contains("budget exceeded") =>
+                {
+                    Err(StreamError::Resource {
+                        message,
+                        progress: delivery.progress,
+                    })
+                }
                 None => Err(StreamError::Execution {
                     message,
                     progress: delivery.progress,
@@ -1863,6 +1904,7 @@ pub fn search_stream(
             }),
         };
     }
+    delivery.observe(&result.counters);
     let publish_cache =
         tracker.as_ref().is_some_and(CacheBudget::complete) && Some(members.len()) == result.count;
     if publish_cache {
@@ -1970,6 +2012,7 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
+
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -1980,19 +2023,23 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
+
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
+
 impl Eq for StoredCursor<'_> {}
+
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -2012,6 +2059,7 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
+
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -2034,6 +2082,7 @@ fn stored_cursor<'a>(
     })
 }
 
+
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -2041,6 +2090,7 @@ struct OrderedPlan<'a> {
     plan: Plan,
     candidates: RoaringBitmap,
 }
+
 
 fn direct_payload(
     repo: &Repository,
@@ -2086,6 +2136,25 @@ fn direct_payload(
         None
     };
     materialize(&query.options.return_mode, bytes, logical)
+}
+
+fn check_stream_page_read(
+    delivery: &mut Delivery<'_>,
+    query: &Query,
+    page: &[SearchHit],
+    record: &RecordEntry,
+) -> Result<(), String> {
+    let source_bytes = usize::try_from(record.range.len()).unwrap_or(usize::MAX);
+    delivery.check_record_bytes(source_bytes)?;
+    let payload_bytes = match query.options.return_mode {
+        ReturnMode::Locator => 0,
+        ReturnMode::Bytes => source_bytes,
+        ReturnMode::Logical => source_bytes.saturating_mul(4),
+    };
+    let current = page.iter().fold(0usize, |total, hit| {
+        total.saturating_add(crate::streaming::hit_bytes(hit))
+    });
+    delivery.check_buffer(current.saturating_add(payload_bytes))
 }
 
 fn try_stored_order_page(
@@ -2343,7 +2412,7 @@ fn try_stored_order_page(
                         && (counters.total_matches as usize) < cap
                     {
                         if let Some(delivery) = delivery.as_deref_mut() {
-                            delivery.check_record_bytes(cursor.record.range.len() as usize)?;
+                            check_stream_page_read(delivery, query, &page, cursor.record)?;
                         }
                         payload = direct_payload(
                             repo,
@@ -2366,6 +2435,11 @@ fn try_stored_order_page(
                     } else {
                         &locator_query
                     };
+                    if std::ptr::eq(scan_query, query) {
+                        if let Some(delivery) = delivery.as_deref_mut() {
+                            check_stream_page_read(delivery, query, &page, cursor.record)?;
+                        }
+                    }
                     let scanned = scan_file(
                         repo,
                         scan_query,
@@ -2547,6 +2621,21 @@ fn offer_cached_key(
     Ok(())
 }
 
+fn check_cached_stream_sort_budget(
+    delivery: &mut Delivery<'_>,
+    sort: &ResolvedSort<'_>,
+    fixed_bytes: u64,
+    retained_key_bytes: u64,
+) -> Result<usize, String> {
+    delivery.check()?;
+    let resident = fixed_bytes
+        .saturating_add(retained_key_bytes)
+        .saturating_add(sort_target_retained_bytes(sort)? as u64);
+    let resident = usize::try_from(resident).unwrap_or(usize::MAX);
+    delivery.check_buffer(resident)?;
+    Ok(delivery.max_buffered_bytes().saturating_sub(resident))
+}
+
 /// Re-rank complete cached membership with bounded keys; no computed page is cached.
 fn materialize_computed_cached<'a>(
     repo: &'a Repository,
@@ -2557,6 +2646,12 @@ fn materialize_computed_cached<'a>(
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let sort = ResolvedSort::from_bound(repo, query, bound_sort);
+    if let Some(delivery) = delivery.as_deref_mut() {
+        sort.target_cache
+            .lock()
+            .map_err(|error| error.to_string())?
+            .configure_stream(delivery.max_buffered_bytes(), delivery.token());
+    }
     let has_related_sort = sort.bound.terms.iter().flatten().any(|terms| {
         terms.iter().any(|term| {
             matches!(&term.source,
@@ -2628,6 +2723,9 @@ fn materialize_computed_cached<'a>(
             cap,
         )?;
         check_cached_sort_live(&sort, fixed_bytes, retained_key_bytes, has_related_sort)?;
+        if let Some(delivery) = delivery.as_deref_mut() {
+            check_cached_stream_sort_budget(delivery, &sort, fixed_bytes, retained_key_bytes)?;
+        }
     }
     reads.sort_unstable_by_key(|read| (read.collection_index, read.file_id, read.range.start));
     let mut source_access = SourceAccessSession::new(&repo.files);
@@ -2635,8 +2733,7 @@ fn materialize_computed_cached<'a>(
     let mut start = 0;
     while start < reads.len() {
         if let Some(delivery) = delivery.as_deref_mut() {
-            delivery.check()?;
-            delivery.check_buffer(fixed_bytes.saturating_add(retained_key_bytes) as usize)?;
+            check_cached_stream_sort_budget(delivery, &sort, fixed_bytes, retained_key_bytes)?;
         }
         let collection_index = reads[start].collection_index;
         let file_id = reads[start].file_id;
@@ -2656,11 +2753,16 @@ fn materialize_computed_cached<'a>(
                 start += 1;
             }
             let read = if let Some(delivery) = delivery.as_deref_mut() {
-                source_access.read_bounded(
-                    crate::model::FileId(file_id),
-                    &batch,
-                    delivery.max_buffered_bytes(),
-                )?
+                let available = check_cached_stream_sort_budget(
+                    delivery,
+                    &sort,
+                    fixed_bytes,
+                    retained_key_bytes,
+                )? / 4;
+                if available == 0 {
+                    return Err("stream resource: no room for computed sort source read".into());
+                }
+                source_access.read_bounded(crate::model::FileId(file_id), &batch, available)?
             } else {
                 source_access.read(crate::model::FileId(file_id), &batch)?
             };
@@ -2698,6 +2800,14 @@ fn materialize_computed_cached<'a>(
                     cap,
                 )?;
                 check_cached_sort_live(&sort, fixed_bytes, retained_key_bytes, has_related_sort)?;
+                if let Some(delivery) = delivery.as_deref_mut() {
+                    check_cached_stream_sort_budget(
+                        delivery,
+                        &sort,
+                        fixed_bytes,
+                        retained_key_bytes,
+                    )?;
+                }
             }
         }
     }
@@ -2713,6 +2823,9 @@ fn materialize_computed_cached<'a>(
     counters.bytes_read += targets.bytes_read;
     let target_bytes = targets.retained_bytes();
     drop(targets);
+    if let Some(delivery) = delivery.as_deref_mut() {
+        check_cached_stream_sort_budget(delivery, &sort, fixed_bytes, retained_key_bytes)?;
+    }
     let page_members = winners
         .into_sorted_vec()
         .into_iter()
@@ -3206,6 +3319,16 @@ fn winner_bytes(winner: &Winner) -> usize {
         + crate::streaming::hit_bytes(&winner.hit)
 }
 
+fn sort_target_retained_bytes(sort: &ResolvedSort<'_>) -> Result<usize, String> {
+    Ok(usize::try_from(
+        sort.target_cache
+            .lock()
+            .map_err(|error| error.to_string())?
+            .retained_bytes(),
+    )
+    .unwrap_or(usize::MAX))
+}
+
 fn scanned_file_bytes(outcome: &ScannedFile) -> usize {
     let matches = outcome
         .matches
@@ -3332,6 +3455,12 @@ fn search_impl<'a>(
         Some(bound) => ResolvedSort::from_bound(repo, query, bound),
         None => ResolvedSort::new(repo, query)?,
     };
+    if let Some(delivery) = delivery.as_deref_mut() {
+        sort.target_cache
+            .lock()
+            .map_err(|error| error.to_string())?
+            .configure_stream(delivery.max_buffered_bytes(), delivery.token());
+    }
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
     if cache_members.is_none() {
         if let Some(result) = try_stored_order_page(
@@ -3721,6 +3850,7 @@ fn search_impl<'a>(
                     .iter()
                     .map(winner_bytes)
                     .sum::<usize>()
+                    .saturating_add(sort_target_retained_bytes(&sort)?)
                     .saturating_add(
                         target_values
                             .as_ref()
@@ -3818,6 +3948,7 @@ fn search_impl<'a>(
                     .iter()
                     .map(winner_bytes)
                     .sum::<usize>()
+                    .saturating_add(sort_target_retained_bytes(&sort)?)
                     .saturating_add(
                         target_values
                             .as_ref()
@@ -3937,6 +4068,7 @@ fn search_impl<'a>(
                     target_values
                         .as_ref()
                         .map_or(0, |cache| cache.estimated_bytes())
+                        .saturating_add(sort_target_retained_bytes(&sort)?)
                         .saturating_add(cache_budget.map_or(0, CacheBudget::used)),
                 )?;
             }

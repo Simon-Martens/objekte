@@ -12,17 +12,20 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 static NEXT_FIXTURE: AtomicUsize = AtomicUsize::new(0);
 
+
 /// Temporary repository whose source files are removed after each test.
 struct Fixture {
     root: PathBuf,
     repo: Repository,
 }
 
+
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.root).ok();
     }
 }
+
 
 fn fixture() -> Fixture {
     fixture_with_alphabet(BigramAlphabet::Ascii)
@@ -294,6 +297,10 @@ fn computed_sort_stream_reranks_warm_membership_and_preserves_page() {
         assert_eq!(page, expected.hits);
         if warm {
             assert!(summary.counters.verified_result_hit);
+            assert_eq!(
+                summary.progress.observed_matches,
+                expected.count.unwrap() as u64
+            );
         }
     }
 }
