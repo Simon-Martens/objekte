@@ -5,6 +5,98 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
+fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-{tag}-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..records {
+        let content = match slot {
+            0 => r#"{"uuid":null,"label":null,"flag":null}"#.to_owned(),
+            1 => r#"{"other":"missing"}"#.to_owned(),
+            2 => "{".to_owned(),
+            _ => serde_json::json!({
+                "uuid": format!("00000000-0000-0000-0000-{slot:012}"),
+                "label": if slot % 2 == 0 { "Ähre" } else { "Zug" },
+                "flag": slot % 2 == 0,
+            })
+            .to_string(),
+        };
+        std::fs::write(root.join(format!("data/{slot:04}.json")), content).unwrap();
+    }
+    root
+}
+
+#[test]
+fn inferred_order_cache_reuses_pages_and_restores_without_persisting_orders() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::workload::SortField;
+
+    let root = write_inferred_order_fixture("inferred-order-cache", 150);
+    let definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::IfValid,
+        verified_cache_bytes: 0,
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            ..Default::default()
+        },
+        ..Default::default()
+    };
+    let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    let request = |field: &str, descending: bool, offset: usize, count: bool| Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple(field, descending)],
+            limit: 7,
+            offset,
+            count,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for field in ["uuid", "label", "flag"] {
+        for descending in [false, true] {
+            let first = request(field, descending, 0, false);
+            let before = repo.inferred_orders.lock().unwrap().stats();
+            let estimate = repo.explain(&first).unwrap();
+            assert!(estimate[0].sort_strategy_estimated);
+            assert_eq!(repo.inferred_orders.lock().unwrap().stats(), before);
+            for (offset, count) in [(0, false), (17, false), (17, true)] {
+                let query = request(field, descending, offset, count);
+                let result = repo.search(&query).unwrap();
+                let reference = repo.search_reference(&query).unwrap();
+                assert_eq!(
+                    result.hits, reference.hits,
+                    "{field} {descending} {offset} {count}"
+                );
+                assert_eq!(result.count, reference.count);
+                assert_eq!(result.counters.files_opened, 0);
+                assert_eq!(result.counters.record_parses, 0);
+            }
+            let after = repo.inferred_orders.lock().unwrap().stats();
+            assert_eq!(after.builds, before.builds + 1, "{field} {descending}");
+            assert!(after.hits >= before.hits + 2, "{field} {descending}");
+            assert!(after.resident_bytes <= crate::sorting::INFERRED_ORDER_CACHE_BYTES);
+        }
+    }
+    repo.save_default_snapshot_for_test();
+    let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(restored.inferred_orders.lock().unwrap().stats().builds, 0);
+    let query = request("uuid", false, 17, true);
+    let result = restored.search(&query).unwrap();
+    assert_eq!(result.hits, restored.search_reference(&query).unwrap().hits);
+    assert_eq!(restored.inferred_orders.lock().unwrap().stats().builds, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
 #[test]
 fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
     use crate::workload::SortField;

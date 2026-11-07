@@ -1022,6 +1022,9 @@ pub(crate) fn load_snapshot_checked(
         verified: Mutex::new(crate::verified::VerifiedCache::new(
             options.verified_cache_bytes,
         )),
+        inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
+            crate::sorting::INFERRED_ORDER_CACHE_BYTES,
+        )),
     })
 }
 

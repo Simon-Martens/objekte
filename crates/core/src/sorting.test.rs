@@ -1,5 +1,105 @@
 use super::*;
 
+fn inferred_test_column(path: &str) -> SortColumn {
+    SortColumn {
+        path: FieldPath::parse(path).unwrap(),
+        kind: LogicalType::String,
+        keys: vec![SortKey::String(vec![1, 2, 3])],
+        ascending: vec![RecordSlot(0)],
+        descending: Vec::new(),
+        locale: "de".into(),
+        options: SortOptions::default(),
+        collation_version: COLLATION_VERSION.into(),
+    }
+}
+
+#[test]
+fn inferred_order_cache_reuses_keys_and_evicts_least_recently_used() {
+    let first = InferredOrderKey::new(
+        0,
+        7,
+        FieldPath::parse("a").unwrap(),
+        "de",
+        SortOptions::default(),
+        false,
+    );
+    let second = InferredOrderKey::new(
+        0,
+        7,
+        FieldPath::parse("b").unwrap(),
+        "de",
+        SortOptions::default(),
+        false,
+    );
+    let one_bytes = InferredOrderCache::entry_bytes(&first, &inferred_test_column("a"));
+    let mut cache = InferredOrderCache::new(one_bytes);
+    let first_column = cache
+        .get_or_build(first.clone(), || Ok(Some(inferred_test_column("a"))))
+        .unwrap()
+        .unwrap();
+    let reused = cache
+        .get_or_build(first.clone(), || panic!("a cached order was rebuilt"))
+        .unwrap()
+        .unwrap();
+    assert!(Arc::ptr_eq(&first_column, &reused));
+    assert_eq!(cache.stats().builds, 1);
+    assert_eq!(cache.stats().hits, 1);
+    cache
+        .get_or_build(second, || Ok(Some(inferred_test_column("b"))))
+        .unwrap();
+    assert_eq!(cache.stats().entries, 1);
+    assert_eq!(cache.stats().evictions, 1);
+    assert!(cache.stats().resident_bytes <= one_bytes);
+    cache
+        .get_or_build(first, || Ok(Some(inferred_test_column("a"))))
+        .unwrap();
+    assert_eq!(cache.stats().builds, 3);
+    assert_eq!(cache.stats().evictions, 2);
+}
+
+#[test]
+fn inferred_order_cache_key_separates_generation_collation_and_direction() {
+    let mut cache = InferredOrderCache::new(1024 * 1024);
+    let base = InferredOrderKey::new(
+        0,
+        7,
+        FieldPath::parse("a").unwrap(),
+        "de",
+        SortOptions::default(),
+        false,
+    );
+    let variants = [
+        base.clone(),
+        InferredOrderKey::new(0, 8, base.path.clone(), "de", base.options, false),
+        InferredOrderKey::new(0, 7, base.path.clone(), "fr", base.options, false),
+        InferredOrderKey::new(0, 7, base.path.clone(), "de", base.options, true),
+        InferredOrderKey::new(
+            0,
+            7,
+            base.path.clone(),
+            "de",
+            SortOptions {
+                numeric: true,
+                ..base.options
+            },
+            false,
+        ),
+        InferredOrderKey::new(1, 7, base.path.clone(), "de", base.options, false),
+    ];
+    for key in variants {
+        cache
+            .get_or_build(key, || Ok(Some(inferred_test_column("a"))))
+            .unwrap();
+    }
+    assert_eq!(cache.stats().builds, 6);
+    assert_eq!(cache.stats().hits, 0);
+    assert_eq!(cache.stats().entries, 6);
+    cache
+        .get_or_build(base, || panic!("same generation and collation missed"))
+        .unwrap();
+    assert_eq!(cache.stats().hits, 1);
+}
+
 #[test]
 fn mixed_scalar_sort_keys_obey_total_kind_order_and_comparator_laws() {
     use time::Month;

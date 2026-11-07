@@ -290,6 +290,7 @@ pub struct Repository {
     pub(crate) workers: rayon::ThreadPool,
     pub(crate) prepared: Mutex<crate::prepared::PreparedCache>,
     pub(crate) verified: Mutex<crate::verified::VerifiedCache>,
+    pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
 
 /// Time spent restoring, reconciling, building, and writing state.
@@ -1241,6 +1242,9 @@ impl Repository {
             )),
             verified: Mutex::new(crate::verified::VerifiedCache::new(
                 options.verified_cache_bytes,
+            )),
+            inferred_orders: Mutex::new(crate::sorting::InferredOrderCache::new(
+                crate::sorting::INFERRED_ORDER_CACHE_BYTES,
             )),
         })
     }
