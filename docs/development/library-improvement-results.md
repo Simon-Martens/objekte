@@ -38,5 +38,11 @@ These are first measurements, not speedup claims. Query construction in the harn
 | C2 JSON parser acceptance | `a9309e6c54` | `e15918792b` | Two focused reader differential tests and workspace tests passed. |
 | C4 distinct-byte inference summary | `2c7da67595` | `aee8ef0bcc` | Six focused allocation/boundary tests and workspace tests passed. |
 | C5 public numeric invariants | `376bf2bcca` | `bc36dfaf08` | Three focused numeric/admission tests and workspace tests passed. |
+| C3 composite file-status order | `43cb4e2f12` | `d674a64dd9` | Shared-file sort, reference and restore test plus workspace tests passed. |
+| B3 malformed-file coordinates | `449ac02a6d` | `3646f3e84f` | Linear scanned-byte and custom-reader coordinate tests plus workspace tests passed. |
+| B2 relation validation | `6ef87fa10e` | `cef862d15d` | Relation corruption tests, independent oracle and workspace tests passed. |
+| C6 path/binding contract | `46ea35d80c` | `a4ae045cba` | Quoted-colon schema/FILTER/FTS/sort/restore test, workspace tests and Clippy passed. |
 
-The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. C3 composite-status ordering and C6 path/binding contract remain pending in Phase 1.
+The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. Phase 1 correctness is complete at `a4ae045cba2c86622bec755ec4011229608be499`: 270 core unit tests passed, two were ignored, all workspace tests passed, and Clippy exited successfully with warnings. The baseline workspace had 248 core unit tests passed and one ignored. Existing Clippy warnings were present before implementation; this gate did not treat warnings as errors.
+
+B3's deterministic counter observes at most one prefix scan per input byte for malformed frames; no wall-time gain has been claimed from that structural test. B2's one release fanout observation used 2,000 records and 34,000 edges: fresh construction 19.385 ms, separate full relation validation 0.786 ms, and four reverse reconstructions instead of eight at the starting revision. One sample does not establish a speedup. The C6 canonical field rendering quotes additional punctuation; snapshots whose sort/configuration hash changes are invalidated and rebuilt through the ordinary compatibility path. Documentation must describe this compatibility effect with the final API update.
