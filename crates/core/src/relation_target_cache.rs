@@ -40,6 +40,16 @@ pub(crate) struct TargetValueCache {
 
 
 impl TargetValueCache {
+    pub(crate) fn estimated_bytes(&self) -> usize {
+        self.values.iter().fold(0usize, |total, (_, value)| {
+            total.saturating_add(
+                std::mem::size_of::<(CollectionId, RecordSlot, Value)>()
+                    .saturating_add(retained_value_bytes(value) as usize)
+                    .saturating_add(32),
+            )
+        })
+    }
+
     pub fn get(&self, collection: CollectionId, slot: RecordSlot) -> Option<&Value> {
         self.values.get(&(collection, slot))
     }
@@ -116,6 +126,35 @@ pub(crate) fn prepare(
     expr: &BoundExpr,
     candidates: &RoaringBitmap,
 ) -> Result<Option<TargetValueCache>, String> {
+    prepare_with_limits(repo, source_collection, expr, candidates, None, None)
+}
+
+pub(crate) fn prepare_stream(
+    repo: &Repository,
+    source_collection: usize,
+    expr: &BoundExpr,
+    candidates: &RoaringBitmap,
+    cancellation: &crate::streaming::CancellationToken,
+    max_retained_bytes: usize,
+) -> Result<Option<TargetValueCache>, String> {
+    prepare_with_limits(
+        repo,
+        source_collection,
+        expr,
+        candidates,
+        Some(cancellation),
+        Some(max_retained_bytes as u64),
+    )
+}
+
+fn prepare_with_limits(
+    repo: &Repository,
+    source_collection: usize,
+    expr: &BoundExpr,
+    candidates: &RoaringBitmap,
+    cancellation: Option<&crate::streaming::CancellationToken>,
+    max_retained_bytes: Option<u64>,
+) -> Result<Option<TargetValueCache>, String> {
     let mut terms = Vec::new();
     source_dependent_terms(expr, &mut terms);
     let mut targets = BTreeMap::<CollectionId, (RoaringBitmap, HashSet<String>)>::new();
@@ -146,6 +185,9 @@ pub(crate) fn prepare(
                 .ok_or("relation declaration missing")?;
             let mut next = RoaringBitmap::new();
             for slot in current.iter() {
+                if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                    return Err("stream cancelled".into());
+                }
                 if relation.unavailable().contains(slot) {
                     continue;
                 }
@@ -193,6 +235,9 @@ pub(crate) fn prepare(
     let mut retained = 0u64;
     let mut access = SourceAccessSession::new(&repo.files);
     for (collection_id, (slots, fields)) in targets {
+        if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+            return Err("stream cancelled".into());
+        }
         work.target_candidates = work.target_candidates.saturating_add(slots.len());
         if work.target_candidates > MAX_TARGET_SLOTS {
             return Err(format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"));
@@ -218,8 +263,14 @@ pub(crate) fn prepare(
             collect_text: false,
         };
         for (file_id, ranges) in grouped {
+            if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                return Err("stream cancelled".into());
+            }
             let mut start = 0;
             while start < ranges.len() {
+                if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                    return Err("stream cancelled".into());
+                }
                 let first_bytes = ranges[start].1.len();
                 if first_bytes > MAX_RECORD_BYTES {
                     return Err(format!(
@@ -241,6 +292,9 @@ pub(crate) fn prepare(
                 work.target_file_opens += read.opened;
                 work.bytes_read += read.bytes_read;
                 for (slot, bytes) in read.records {
+                    if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
+                        return Err("stream cancelled".into());
+                    }
                     let projected = prepare_query_record(
                         &collection.source,
                         &collection.definition.schema,
@@ -250,6 +304,12 @@ pub(crate) fn prepare(
                     )?
                     .value;
                     retained = retained.saturating_add(retained_value_bytes(&projected));
+                    if max_retained_bytes.is_some_and(|limit| retained > limit) {
+                        return Err(
+                            "stream resource: related target cache exceeds buffered-byte limit"
+                                .into(),
+                        );
+                    }
                     if retained > MAX_RETAINED_VALUE_BYTES {
                         return Err(format!(
                             "target prefetch exceeds {MAX_RETAINED_VALUE_BYTES} retained bytes"

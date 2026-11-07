@@ -495,6 +495,61 @@ impl Repository {
         crate::run::search(self, resolved.as_ref())
     }
 
+    /// Deliver verified requested-page updates while the query is executing.
+    pub fn search_stream<F>(
+        &self,
+        query: &Query,
+        options: crate::streaming::StreamOptions,
+        cancellation: &crate::streaming::CancellationToken,
+        sink: &mut F,
+    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    where
+        F: for<'e> FnMut(
+            crate::streaming::StreamEvent<'e>,
+        ) -> Result<crate::streaming::StreamControl, String>,
+    {
+        if cancellation.is_cancelled() {
+            return Ok(crate::streaming::StreamOutcome::Cancelled(
+                Default::default(),
+            ));
+        }
+        let resolved = query.resolve_current_clock().map_err(|message| {
+            crate::streaming::StreamError::Execution {
+                message,
+                progress: Default::default(),
+            }
+        })?;
+        crate::run::search_stream(self, resolved.as_ref(), options, cancellation, sink)
+    }
+
+    /// Bind typed parameters once, then stream the resulting frozen request.
+    pub fn search_stream_with_parameters<F>(
+        &self,
+        query: &Query,
+        parameters: &HashMap<String, Value>,
+        options: crate::streaming::StreamOptions,
+        cancellation: &crate::streaming::CancellationToken,
+        sink: &mut F,
+    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    where
+        F: for<'e> FnMut(
+            crate::streaming::StreamEvent<'e>,
+        ) -> Result<crate::streaming::StreamControl, String>,
+    {
+        if cancellation.is_cancelled() {
+            return Ok(crate::streaming::StreamOutcome::Cancelled(
+                Default::default(),
+            ));
+        }
+        let bound = query.with_parameters(parameters).map_err(|message| {
+            crate::streaming::StreamError::Execution {
+                message,
+                progress: Default::default(),
+            }
+        })?;
+        self.search_stream(&bound, options, cancellation, sink)
+    }
+
     /// Execute a parsed query with immutable, typed parameter values.
     pub fn search_with_parameters(
         &self,
