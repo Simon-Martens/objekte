@@ -1,6 +1,37 @@
 use super::*;
 
 #[test]
+fn decimal_public_parse_and_deserialization_require_canonical_values() {
+    for invalid in ["", "-", "abc", "01", "1.", ".1", "1e", "1e+", "1a"] {
+        assert!(ExactDecimal::parse(invalid).is_err(), "{invalid:?}");
+    }
+
+    for invalid in [
+        ExactDecimal {
+            negative: true,
+            digits: "0".into(),
+            exponent: 0,
+        },
+        ExactDecimal {
+            negative: false,
+            digits: "10".into(),
+            exponent: 0,
+        },
+        ExactDecimal {
+            negative: false,
+            digits: "abc".into(),
+            exponent: 0,
+        },
+    ] {
+        let bytes = bincode::serialize(&invalid).unwrap();
+        assert!(bincode::deserialize::<ExactDecimal>(&bytes).is_err());
+    }
+    let valid = ExactDecimal::parse("1.00e2").unwrap();
+    let bytes = bincode::serialize(&valid).unwrap();
+    assert_eq!(bincode::deserialize::<ExactDecimal>(&bytes).unwrap(), valid);
+}
+
+#[test]
 fn decimal_comparison_stays_compact_across_large_exponents() {
     let huge = ExactDecimal::parse("1e1000000").unwrap();
     let larger = ExactDecimal::parse("2e1000000").unwrap();

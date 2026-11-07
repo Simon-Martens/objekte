@@ -1,5 +1,74 @@
 use super::*;
 use std::collections::HashSet;
+use std::hash::DefaultHasher;
+
+fn number_hash(number: &Number) -> u64 {
+    let mut hasher = DefaultHasher::new();
+    number.hash(&mut hasher);
+    hasher.finish()
+}
+
+#[test]
+fn direct_float_variants_keep_total_numeric_laws() {
+    let negative_nan = Number::Float(f64::from_bits(0xfff8_0000_0000_0001));
+    let positive_nan = Number::Float(f64::from_bits(0x7ff8_0000_0000_0001));
+    let ordered = [
+        negative_nan,
+        Number::Float(f64::NEG_INFINITY),
+        Number::ExactDecimal(ExactDecimal::parse("-1e1000").unwrap()),
+        Number::integer(i128::MIN),
+        Number::Float(-0.0),
+        Number::integer(0),
+        Number::Float(0.0),
+        Number::integer(i128::MAX),
+        Number::ExactDecimal(ExactDecimal::parse("1e1000").unwrap()),
+        Number::Float(f64::INFINITY),
+        positive_nan,
+    ];
+    for (left_index, left) in ordered.iter().enumerate() {
+        assert_eq!(left, left);
+        for (right_index, right) in ordered.iter().enumerate() {
+            assert_eq!(left.cmp(right), right.cmp(left).reverse());
+            if left_index < right_index {
+                assert!(left <= right, "{left:?} should not exceed {right:?}");
+            }
+            if left == right {
+                assert_eq!(number_hash(left), number_hash(right));
+            }
+        }
+    }
+    for left in &ordered {
+        for middle in &ordered {
+            for right in &ordered {
+                if left <= middle && middle <= right {
+                    assert!(left <= right);
+                }
+            }
+        }
+    }
+    assert_ne!(Number::Float(f64::NAN), Number::integer(0));
+    assert_eq!(
+        Number::ExactDecimal(ExactDecimal::parse("0.5").unwrap()),
+        Number::Float(0.5)
+    );
+    assert_eq!(
+        number_hash(&Number::ExactDecimal(ExactDecimal::parse("0.5").unwrap())),
+        number_hash(&Number::Float(0.5))
+    );
+}
+
+#[test]
+fn number_deserialization_rejects_non_finite_floats() {
+    for float in [f64::NAN, f64::NEG_INFINITY, f64::INFINITY] {
+        let bytes = bincode::serialize(&Number::Float(float)).unwrap();
+        assert!(bincode::deserialize::<Number>(&bytes).is_err());
+    }
+    let bytes = bincode::serialize(&Number::Float(-0.0)).unwrap();
+    assert_eq!(
+        bincode::deserialize::<Number>(&bytes).unwrap(),
+        Number::integer(0)
+    );
+}
 
 #[test]
 fn precise_numbers_and_temporal_distinctions() {
