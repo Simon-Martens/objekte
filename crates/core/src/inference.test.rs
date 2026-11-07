@@ -9,7 +9,7 @@ use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
 use crate::source::{ExtractedRecord, SourceFormat, SourceReader, SourceRegistry};
-use crate::workload::{BigramAlphabet, ReturnMode};
+use crate::workload::{BigramAlphabet, ReturnMode, SortField};
 
 fn value(json: &str) -> Value {
     Value::from_json(serde_json::from_str(json).unwrap()).unwrap()
@@ -1349,5 +1349,151 @@ fn complete_short_strings_and_booleans_prove_predicates_without_source_reads() {
             "{filter}"
         );
     }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
+    let root = temporary_root("inferred-sort-order");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, document) in [
+        ("00", r#"{"year":3,"code":"z","flag":false}"#),
+        ("01", r#"{"year":1,"code":"ä","flag":true}"#),
+        ("02", r#"{"year":3,"code":"a","flag":true}"#),
+        ("03", r#"{"year":null,"code":null,"flag":null}"#),
+        ("04", r#"{"other":"missing"}"#),
+        ("05", "{"),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), document).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for field in ["year", "code", "flag"] {
+        for descending in [false, true] {
+            for count in [false, true] {
+                let request = Query {
+                    collections: vec!["data".into()],
+                    fts: None,
+                    filter: None,
+                    options: QueryOptions {
+                        sort: vec![SortField::simple(field, descending)],
+                        limit: 2,
+                        offset: 1,
+                        count,
+                        return_mode: ReturnMode::Locator,
+                        evidence: false,
+                    },
+                };
+                let result = repo.search(&request).unwrap();
+                let reference = repo.search_reference(&request).unwrap();
+                assert_eq!(result.hits, reference.hits, "{field} {descending} {count}");
+                assert_eq!(
+                    result.count, reference.count,
+                    "{field} {descending} {count}"
+                );
+                assert_eq!(
+                    result.counters.record_parses, 0,
+                    "{field} {descending} {count}"
+                );
+                assert_eq!(
+                    result.counters.files_opened, 0,
+                    "{field} {descending} {count}"
+                );
+                assert_eq!(
+                    repo.explain(&request).unwrap()[0].sort_strategy,
+                    "inferred_posting_order_page",
+                    "{field} {descending} {count}"
+                );
+            }
+        }
+    }
+    let mut filtered = query("year >= 2");
+    filtered.options.sort = vec![SortField::simple("year", true)];
+    filtered.options.limit = 1;
+    filtered.options.return_mode = ReturnMode::Locator;
+    filtered.options.evidence = false;
+    let result = repo.search(&filtered).unwrap();
+    assert_eq!(result.hits, repo.search_reference(&filtered).unwrap().hits);
+    assert_eq!(result.count, Some(2));
+    assert_eq!(result.counters.record_parses, 0);
+    assert_eq!(result.counters.files_opened, 0);
+    repo.configure_verified_cache(1024 * 1024).unwrap();
+    for _ in 0..2 {
+        let warm = repo.search(&filtered).unwrap();
+        assert_eq!(warm.hits, result.hits);
+        assert_eq!(warm.count, result.count);
+        assert_eq!(warm.counters.record_parses, 0);
+        assert_eq!(warm.counters.files_opened, 0);
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn partial_short_string_posting_does_not_claim_complete_sort_order() {
+    let root = temporary_root("partial-short-sort");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, code) in [("short", "A".to_owned()), ("long", "z".repeat(65))] {
+        std::fs::write(
+            root.join(format!("data/{name}.json")),
+            serde_json::json!({"code":code}).to_string(),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("code", false)],
+            limit: 2,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    assert_eq!(
+        repo.search(&request).unwrap().hits,
+        repo.search_reference(&request).unwrap().hits
+    );
+    assert_eq!(
+        repo.explain(&request).unwrap()[0].sort_strategy,
+        "computed_top_k_full_key_evaluation"
+    );
     std::fs::remove_dir_all(root).unwrap();
 }

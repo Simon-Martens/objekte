@@ -205,6 +205,34 @@ pub struct InferenceState {
 }
 
 impl InferenceState {
+    /// A sort may read values from postings only when every logical scalar
+    /// selection has a key or a known null/missing state.
+    pub(crate) fn complete_scalar_index(
+        &self,
+        path: &[String],
+        logical: &RoaringBitmap,
+    ) -> Option<&PostingIndex> {
+        if self.report.mode != InferenceMode::AutoIndex || !self.report.complete {
+            return None;
+        }
+        let index = self.indexes.get(path)?;
+        if index.covered_records as u64 != logical.len()
+            || index.multi
+            || !matches!(
+                index.kind,
+                LogicalType::Number | LogicalType::Bool | LogicalType::String
+            )
+            || !self.empty_selections.get(path)?.is_empty()
+            || self
+                .short_string_coverage
+                .get(path)
+                .is_some_and(|covered| !(&index.presence - &index.nulls).is_subset(covered))
+        {
+            return None;
+        }
+        Some(index)
+    }
+
     /// A complete inferred posting may restrict a dynamic term. Ordinary
     /// comparisons retain their residual: the posting records value membership,
     /// not the term's full selector and universal quantifier semantics.
@@ -244,16 +272,10 @@ impl InferenceState {
                 .exact_set_restricted(term, domain, input)
                 .map(|set| (set, true));
         }
-        let complete_scalar = !index.multi
-            && !term.query_path.has_explicit_array_step
+        let complete_scalar = !term.query_path.has_explicit_array_step
             && self
-                .empty_selections
-                .get(&term.path.segments)
-                .is_some_and(RoaringBitmap::is_empty)
-            && self
-                .short_string_coverage
-                .get(&term.path.segments)
-                .is_none_or(|covered| (&index.presence - &index.nulls).is_subset(covered));
+                .complete_scalar_index(&term.path.segments, domain)
+                .is_some();
         let compatible_literal = matches!(
             (&index.kind, &term.literal),
             (LogicalType::Number, Value::Number(_))

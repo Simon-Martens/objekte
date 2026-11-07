@@ -16,9 +16,7 @@ use objekte_search_core::workload::{ReturnMode, SortField};
 
 static NEXT_ROOT: AtomicUsize = AtomicUsize::new(0);
 
-
 struct Fixture(PathBuf);
-
 
 impl Fixture {
     fn new() -> Self {
@@ -84,13 +82,11 @@ impl Fixture {
     }
 }
 
-
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.0).ok();
     }
 }
-
 
 fn query(filter: &str, sort: Vec<SortField>, return_mode: ReturnMode) -> Query {
     Query {
@@ -187,7 +183,15 @@ fn inference_modes_preserve_parameterized_dynamic_sort_stream() {
         assert_eq!(collected.count, Some(24));
         assert_eq!(ids(&collected), expected);
         assert!(collected.hits.iter().all(|hit| hit.payload.is_some()));
-        assert!(collected.counters.sort_key_evaluations >= 24);
+        if mode == InferenceMode::AutoIndex {
+            assert_eq!(collected.counters.sort_key_evaluations, 0);
+            assert_eq!(
+                collected.counters.record_parses,
+                collected.hits.len() as u64
+            );
+        } else {
+            assert!(collected.counters.sort_key_evaluations >= 24);
+        }
         assert_eq!(final_page, collected.hits);
         mode_pages.push(final_page);
     }

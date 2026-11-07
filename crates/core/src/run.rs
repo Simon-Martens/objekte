@@ -16,7 +16,8 @@ use crate::executor::{
     plan_expr_restricted,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
-use crate::model::{PathRoot, Value};
+use crate::model::{FieldPath, PathRoot, Value};
+use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::reference::{
@@ -24,8 +25,8 @@ use crate::reference::{
     eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
-use crate::sort_binding::{BoundSort, BoundSortSource, SortTargetCache};
-use crate::sorting::{SortColumn, SortKey, SortOptions};
+use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, SortTargetCache};
+use crate::sorting::{SortColumn, SortKey, SortOptions, simple_composite_part};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{
@@ -58,7 +59,6 @@ fn check_computed_sort_budget_with_limit(
     Ok(())
 }
 
-
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -66,7 +66,6 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
-
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -119,7 +118,6 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
-
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -128,14 +126,12 @@ struct RankKey {
     id: String,
 }
 
-
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
-
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -205,16 +201,13 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
-
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for RankKey {}
-
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -222,14 +215,12 @@ impl PartialOrd for RankKey {
     }
 }
 
-
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
-
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -241,7 +232,6 @@ struct Winner {
     retained_bytes: u64,
 }
 
-
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -251,7 +241,6 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
-
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -271,12 +260,10 @@ struct ScannedFile {
     cache_members: Vec<CachedMember>,
 }
 
-
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
-
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -284,9 +271,7 @@ impl PartialEq for FileWinner {
     }
 }
 
-
 impl Eq for FileWinner {}
-
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -294,13 +279,11 @@ impl PartialOrd for FileWinner {
     }
 }
 
-
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -308,7 +291,6 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
-
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -353,7 +335,6 @@ impl CacheBudget {
         }
     }
 }
-
 
 fn scan_projection(
     query: &Query,
@@ -455,14 +436,12 @@ fn scan_projection(
     }
 }
 
-
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
-
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -507,7 +486,6 @@ fn prepare_residual<'a>(
         ))),
     }
 }
-
 
 impl Residual<'_> {
     fn unavailable(
@@ -773,7 +751,6 @@ impl Residual<'_> {
         })
     }
 }
-
 
 fn scan_file(
     repo: &Repository,
@@ -1174,7 +1151,6 @@ fn scan_file(
     Ok(outcome)
 }
 
-
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1184,7 +1160,6 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
-
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1197,7 +1172,6 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
-
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1261,7 +1235,6 @@ fn bound_term_diagnostics(
     terms
 }
 
-
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1286,7 +1259,6 @@ pub struct QueryPlanTrace {
     pub candidates: u64,
     pub actual: Option<PlanActual>,
 }
-
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1326,7 +1298,6 @@ fn regex_prefilter_reason(
     }
 }
 
-
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1346,7 +1317,6 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
-
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1369,7 +1339,6 @@ impl Default for PlanActual {
         }
     }
 }
-
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -1520,16 +1489,13 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
-
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for Winner {}
-
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -1537,13 +1503,11 @@ impl PartialOrd for Winner {
     }
 }
 
-
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -1756,6 +1720,9 @@ fn would_enter_page(
 }
 
 pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> {
+    if inferred_order_index(repo, query).is_some() {
+        return search_impl(repo, query, None, None, None, None, None, None);
+    }
     let budget = {
         let cache = repo.verified.lock().map_err(|e| e.to_string())?;
         if cache.enabled() { cache.budget() } else { 0 }
@@ -1865,6 +1832,7 @@ pub fn search_stream_scoped(
         execution_query.options.count = true;
     }
     let execution_query = &execution_query;
+    let inferred_order = inferred_order_index(repo, execution_query).is_some();
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
             message,
@@ -1886,18 +1854,20 @@ pub fn search_stream_scoped(
     let mut members = Vec::new();
     // The ordered cursor can publish its page before COUNT traverses the rest
     // of the domain. Building a membership cache would force the top-k scan.
-    let cache_key =
-        if budget > 0 && execution_query.options.count && matches!(scope, ResultScope::Page { .. })
-        {
-            Some(crate::verified::key(&membership_query).map_err(|message| {
-                StreamError::Execution {
-                    message,
-                    progress: delivery.progress,
-                }
-            })?)
-        } else {
-            None
-        };
+    let cache_key = if budget > 0
+        && !inferred_order
+        && execution_query.options.count
+        && matches!(scope, ResultScope::Page { .. })
+    {
+        Some(
+            crate::verified::key(&membership_query).map_err(|message| StreamError::Execution {
+                message,
+                progress: delivery.progress,
+            })?,
+        )
+    } else {
+        None
+    };
     let cached = if let Some(key) = &cache_key {
         repo.verified
             .lock()
@@ -2203,7 +2173,6 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
-
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -2214,23 +2183,19 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
-
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for StoredCursor<'_> {}
-
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -2250,7 +2215,6 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
-
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -2273,7 +2237,6 @@ fn stored_cursor<'a>(
     })
 }
 
-
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -2281,7 +2244,6 @@ struct OrderedPlan<'a> {
     plan: Plan,
     candidates: RoaringBitmap,
 }
-
 
 fn direct_payload(
     repo: &Repository,
@@ -2391,6 +2353,124 @@ fn flush_all_batch_if_full(
     Ok(())
 }
 
+fn inferred_order_index<'a>(
+    repo: &'a Repository,
+    query: &Query,
+) -> Option<(usize, FieldPath, &'a PostingIndex)> {
+    if query.options.sort.len() != 1 {
+        return None;
+    }
+    let part = simple_composite_part(&query.options.sort[0])?;
+    if part.path.root != PathRoot::Data {
+        return None;
+    }
+    let mut selected = repo
+        .collections
+        .iter()
+        .enumerate()
+        .filter(|(_, collection)| {
+            query.collections.is_empty() || query.collections.contains(&collection.definition.name)
+        });
+    let (collection_index, collection) = selected.next()?;
+    if selected.next().is_some()
+        || collection.sorting.columns.contains_key(&part.path)
+        || collection
+            .definition
+            .schema
+            .defaults
+            .get(&part.path.segments)
+            .is_some_and(|name| name != "default")
+    {
+        return None;
+    }
+    let index = collection
+        .inference
+        .as_ref()?
+        .complete_scalar_index(&part.path.segments, &collection.logical_records)?;
+    Some((collection_index, part.path, index))
+}
+
+fn inferred_order_column(
+    repo: &Repository,
+    query: &Query,
+    prepared: &crate::prepared::PreparedQuery,
+) -> Result<Option<(usize, SortColumn)>, String> {
+    let Some((collection_index, path, index)) = inferred_order_index(repo, query) else {
+        return Ok(None);
+    };
+    if prepared.collections.len() != 1 || prepared.collections[0].0 != collection_index {
+        return Ok(None);
+    }
+    let collection = &repo.collections[collection_index];
+    SortColumn::from_inferred_posting(
+        index,
+        &collection.generation,
+        path,
+        &collection.definition.sort_locale,
+        collection.definition.sort_options,
+        query.options.sort[0].descending,
+    )
+    .map(|column| column.map(|column| (collection_index, column)))
+}
+
+#[allow(clippy::too_many_arguments)]
+fn try_inferred_order_page(
+    repo: &Repository,
+    query: &Query,
+    prepared: &crate::prepared::PreparedQuery,
+    prepared_plan_hit: bool,
+    preparation_ns: u64,
+    traces: Option<&mut Vec<QueryPlanTrace>>,
+    mut delivery: Option<&mut Delivery<'_>>,
+    all_offset: Option<usize>,
+) -> Result<Option<SearchResult>, String> {
+    let Some((collection_index, column)) = inferred_order_column(repo, query, prepared)? else {
+        return Ok(None);
+    };
+    let terms = (0..repo.collections.len())
+        .map(|position| {
+            (position == collection_index).then(|| {
+                vec![BoundSortTerm {
+                    source: BoundSortSource::Stored(&column),
+                    descending: query.options.sort[0].descending,
+                    options: column.options,
+                }]
+            })
+        })
+        .collect();
+    let sort = ResolvedSort::from_bound(
+        repo,
+        query,
+        BoundSort {
+            terms,
+            has_computed: false,
+            needs_source: false,
+        },
+    );
+    let mut local_traces = Vec::new();
+    let result = try_stored_order_page(
+        repo,
+        query,
+        prepared,
+        &sort,
+        prepared_plan_hit,
+        preparation_ns,
+        traces.as_ref().map(|_| &mut local_traces),
+        delivery.as_deref_mut(),
+        all_offset,
+        true,
+    )?;
+    if result.is_some() {
+        if let Some(traces) = traces {
+            for trace in &mut local_traces {
+                trace.sort_strategy = "inferred_posting_order_page".into();
+            }
+            traces.extend(local_traces);
+        }
+    }
+    Ok(result)
+}
+
 fn try_stored_order_page(
     repo: &Repository,
     query: &Query,
@@ -2401,8 +2481,9 @@ fn try_stored_order_page(
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
+    force_order: bool,
 ) -> Result<Option<SearchResult>, String> {
-    if sort.bound.has_computed || (query.options.count && delivery.is_none()) {
+    if sort.bound.has_computed || (query.options.count && delivery.is_none() && !force_order) {
         return Ok(None);
     }
     if query.options.sort.len() > 1
@@ -2474,7 +2555,8 @@ fn try_stored_order_page(
     }
     // For a selective membership set, ranking the matches is cheaper than
     // traversing the full stored list. Zero matches need no traversal.
-    if delivery.is_none()
+    if !force_order
+        && delivery.is_none()
         && cap > 0
         && candidate_total > 0
         && candidate_total < (cap as u64).saturating_mul(4)
@@ -2608,7 +2690,7 @@ fn try_stored_order_page(
     locator_query.options.limit = 1;
     locator_query.options.offset = 0;
     let mut source_access = SourceAccessSession::new(&repo.files);
-    if cap > 0 || (delivery.is_some() && query.options.count) {
+    if cap > 0 || query.options.count {
         loop {
             if let Some(delivery) = delivery.as_deref_mut() {
                 delivery.check()?;
@@ -3346,6 +3428,12 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             .as_ref()
             .is_some_and(crate::relation_target_cache::has_source_dependent)
     });
+    let inferred_order = !has_source_dependent
+        && !prepared.collections.iter().any(|(_, _, fts)| {
+            fts.as_ref()
+                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+        })
+        && inferred_order_column(repo, query, &prepared)?.is_some();
     let mut traces = Vec::new();
     let mut ordered_candidate_total = 0u64;
     for (collection_index, filter, fts) in prepared.collections {
@@ -3473,7 +3561,9 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             && ordered_candidate_total > 0
             && ordered_candidate_total < (cap as u64).saturating_mul(4));
     for trace in &mut traces {
-        trace.sort_strategy = if stored_order {
+        trace.sort_strategy = if inferred_order {
+            "inferred_posting_order_page"
+        } else if stored_order {
             if query.options.sort.len() > 1 {
                 "stored_composite_order_page"
             } else {
@@ -3730,6 +3820,18 @@ fn search_impl<'a>(
     }
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
     if cache_members.is_none() {
+        if let Some(result) = try_inferred_order_page(
+            repo,
+            query,
+            &prepared,
+            plan_hit,
+            preparation_start.elapsed().as_nanos() as u64,
+            traces.as_deref_mut(),
+            delivery.as_deref_mut(),
+            all_offset,
+        )? {
+            return Ok(result);
+        }
         if let Some(result) = try_stored_order_page(
             repo,
             query,
@@ -3740,6 +3842,7 @@ fn search_impl<'a>(
             traces.as_deref_mut(),
             delivery.as_deref_mut(),
             all_offset,
+            false,
         )? {
             return Ok(result);
         }

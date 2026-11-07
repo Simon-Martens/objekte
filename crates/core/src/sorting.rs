@@ -9,17 +9,18 @@ use icu_collator::{
     preferences::CollationNumericOrdering,
 };
 use icu_locale_core::Locale;
+use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime};
 
-use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordEntry};
+use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordClass, RecordEntry};
 use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
+use crate::posting::{PostingIndex, ScalarKey};
 use crate::reference::{RecordContext, Schema, data_values_small, metadata_value};
 use crate::workload::SortField;
 
 pub const COLLATION_VERSION: &str =
     "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";
-
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub enum CollationStrength {
@@ -32,14 +33,12 @@ pub enum CollationStrength {
     Identical,
 }
 
-
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub enum Placement {
     First,
     #[default]
     Last,
 }
-
 
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct SortOptions {
@@ -49,13 +48,11 @@ pub struct SortOptions {
     pub missing: Placement,
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortConfig {
     pub locale: String,
     pub options: SortOptions,
 }
-
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum SortKey {
@@ -71,7 +68,6 @@ pub enum SortKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
-
 
 impl SortKey {
     fn rank(&self, options: SortOptions) -> i8 {
@@ -125,7 +121,6 @@ impl SortKey {
     }
 }
 
-
 /// Precomputed sort keys for one configured field.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortColumn {
@@ -139,6 +134,186 @@ pub struct SortColumn {
     pub collation_version: String,
 }
 
+impl SortColumn {
+    /// Build only the requested query order from a complete inferred scalar
+    /// dictionary. Numeric and Boolean keys use the B-tree order directly;
+    /// strings use ICU keys because UTF-8 order need not equal locale order.
+    pub(crate) fn from_inferred_posting(
+        index: &PostingIndex,
+        generation: &CollectionGeneration,
+        path: FieldPath,
+        locale: &str,
+        options: SortOptions,
+        descending: bool,
+    ) -> Result<Option<Self>, String> {
+        const MAX_QUERY_ORDER_BYTES: usize = 128 * 1024 * 1024;
+        let count = generation.records.len();
+        let Some(mut estimated_bytes) = count
+            .checked_mul(std::mem::size_of::<SortKey>() + 3 * std::mem::size_of::<RecordSlot>())
+        else {
+            return Ok(None);
+        };
+        if estimated_bytes > MAX_QUERY_ORDER_BYTES {
+            return Ok(None);
+        }
+        let collator = if index.kind == LogicalType::String {
+            Some(make_collator(&SortConfig {
+                locale: locale.to_owned(),
+                options,
+            })?)
+        } else {
+            None
+        };
+        let mut keys = generation
+            .records
+            .iter()
+            .map(|record| {
+                if record.class == RecordClass::RawFallback {
+                    SortKey::Unavailable
+                } else {
+                    SortKey::Missing
+                }
+            })
+            .collect::<Vec<_>>();
+        for slot in &index.nulls {
+            let key = keys
+                .get_mut(slot as usize)
+                .ok_or("inferred sort null slot out of range")?;
+            if !matches!(key, SortKey::Missing) {
+                return Err("inferred sort null overlaps another key".into());
+            }
+            *key = SortKey::Null;
+        }
+        for (value, slots) in &index.values {
+            let key = match value {
+                ScalarKey::Number(number) if index.kind == LogicalType::Number => {
+                    SortKey::Number(number.clone())
+                }
+                ScalarKey::Bool(flag) if index.kind == LogicalType::Bool => SortKey::Bool(*flag),
+                ScalarKey::String(text) if index.kind == LogicalType::String => {
+                    let mut bytes = Vec::new();
+                    collator
+                        .as_ref()
+                        .expect("string collator")
+                        .write_sort_key_to(text, &mut bytes)
+                        .map_err(|error| error.to_string())?;
+                    let memberships = usize::try_from(slots.len())
+                        .map_err(|_| "inferred sort membership count overflow")?;
+                    let key_bytes = bytes
+                        .len()
+                        .checked_mul(memberships)
+                        .ok_or("inferred sort key size overflow")?;
+                    estimated_bytes = estimated_bytes
+                        .checked_add(key_bytes)
+                        .ok_or("inferred sort key size overflow")?;
+                    if estimated_bytes > MAX_QUERY_ORDER_BYTES {
+                        return Ok(None);
+                    }
+                    SortKey::String(bytes)
+                }
+                _ => return Err("inferred sort posting type mismatch".into()),
+            };
+            for slot in slots {
+                let target = keys
+                    .get_mut(slot as usize)
+                    .ok_or("inferred sort value slot out of range")?;
+                if !matches!(target, SortKey::Missing) {
+                    return Err("inferred sort value overlaps another key".into());
+                }
+                *target = key.clone();
+            }
+        }
+        if index.presence.iter().any(|slot| {
+            keys.get(slot as usize)
+                .is_none_or(|key| matches!(key, SortKey::Missing | SortKey::Unavailable))
+        }) {
+            return Err("inferred sort presence lacks a scalar key".into());
+        }
+        let mut order = Vec::with_capacity(count);
+        if index.kind == LogicalType::String {
+            order.extend(generation.records.iter().map(|record| record.slot));
+            order.sort_unstable_by(|a, b| {
+                keys[a.0 as usize]
+                    .compare_with(&keys[b.0 as usize], descending, options)
+                    .then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+            });
+        } else {
+            let mut missing = Vec::new();
+            let mut nulls = Vec::new();
+            for record in &generation.records {
+                match keys[record.slot.0 as usize] {
+                    SortKey::Missing | SortKey::Unavailable => missing.push(record.slot),
+                    SortKey::Null => nulls.push(record.slot),
+                    _ => {}
+                }
+            }
+            let by_id = |a: &RecordSlot, b: &RecordSlot| {
+                generation.records[a.0 as usize]
+                    .id
+                    .cmp(&generation.records[b.0 as usize].id)
+            };
+            missing.sort_unstable_by(by_id);
+            nulls.sort_unstable_by(by_id);
+            if options.nulls == Placement::First {
+                order.extend(&nulls);
+            }
+            if options.missing == Placement::First {
+                order.extend(&missing);
+            }
+            if descending {
+                for (_, slots) in index.values.iter().rev() {
+                    append_inferred_group(&mut order, slots, generation);
+                }
+            } else {
+                for slots in index.values.values() {
+                    append_inferred_group(&mut order, slots, generation);
+                }
+            }
+            if options.nulls == Placement::Last {
+                order.extend(&nulls);
+            }
+            if options.missing == Placement::Last {
+                order.extend(&missing);
+            }
+        }
+        if order.len() != count {
+            return Err("inferred sort order coverage mismatch".into());
+        }
+        let (ascending, descending_order) = if descending {
+            (Vec::new(), order)
+        } else {
+            (order, Vec::new())
+        };
+        Ok(Some(Self {
+            path,
+            kind: index.kind.clone(),
+            keys,
+            ascending,
+            descending: descending_order,
+            locale: locale.to_owned(),
+            options,
+            collation_version: COLLATION_VERSION.into(),
+        }))
+    }
+}
+
+fn append_inferred_group(
+    order: &mut Vec<RecordSlot>,
+    slots: &RoaringBitmap,
+    generation: &CollectionGeneration,
+) {
+    let mut group = slots.iter().map(RecordSlot).collect::<Vec<_>>();
+    group.sort_unstable_by(|a, b| {
+        generation.records[a.0 as usize]
+            .id
+            .cmp(&generation.records[b.0 as usize].id)
+    });
+    order.extend(group);
+}
 
 /// All sort columns available for a collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -147,7 +322,6 @@ pub struct SortCollection {
     pub composites: Vec<CompositeSortOrder>,
 }
 
-
 /// Explicit composite order over compatible resident scalar columns.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CompositeSortOrder {
@@ -155,14 +329,12 @@ pub struct CompositeSortOrder {
     pub order: Vec<RecordSlot>,
 }
 
-
 /// Fixed binary identity for one resident composite constituent.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct CompositeSortPart {
     pub path: FieldPath,
     pub descending: bool,
 }
-
 
 pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
     let expression = field.expression.as_ref();
@@ -176,7 +348,6 @@ pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPa
     })
 }
 
-
 impl SortCollection {
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
         let normalized = fields
@@ -189,14 +360,12 @@ impl SortCollection {
     }
 }
 
-
 /// Mutable keys accumulated during index construction.
 pub struct SortBuilder {
     columns: HashMap<FieldPath, SortColumn>,
     collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
     composites: Vec<Vec<CompositeSortPart>>,
 }
-
 
 /// Construct one ICU collator for a bound sort configuration.
 pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
@@ -221,7 +390,6 @@ pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'sta
     };
     CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
 }
-
 
 impl SortBuilder {
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
@@ -429,7 +597,6 @@ impl SortBuilder {
     }
 }
 
-
 pub(crate) fn compare_composite(
     columns: &[(&SortColumn, bool)],
     a: RecordSlot,
@@ -482,7 +649,6 @@ fn descending_order(
     }
     result
 }
-
 
 impl SortCollection {
     pub fn refresh_file_status(
@@ -541,7 +707,6 @@ impl SortCollection {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 #[path = "sorting.test.rs"]
