@@ -2100,7 +2100,7 @@
     "id": "Q154",
     "collection": "places",
     "fts": null,
-    "filter": "@file.size >= 1KiB SORT BY @file.size DESC",
+    "filter": "@file.size >= 270B SORT BY @file.size DESC",
     "fts_fields": [],
     "sort": [],
     "limit": 50,
@@ -2209,7 +2209,7 @@
     "id": "Q161",
     "collection": "places",
     "fts": null,
-    "filter": "@file.size >= 1KiB",
+    "filter": "@file.size >= 270B",
     "fts_fields": [],
     "sort": [],
     "limit": 50,
@@ -2222,7 +2222,7 @@
     "id": "Q162",
     "collection": "entries",
     "fts": null,
-    "filter": "@file.modified = 2026-11",
+    "filter": "@file.modified = 2026-10",
     "fts_fields": [],
     "sort": [],
     "limit": 50,
@@ -2547,7 +2547,7 @@
     "return_mode": "locator",
     "evidence": true,
     "parameters": {
-      "minimum_size": 1024
+      "minimum_size": 270
     }
   },
   {
