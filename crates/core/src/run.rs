@@ -3,8 +3,8 @@
 use std::cmp::Ordering;
 use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
-use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering as AtomicOrdering};
+use std::sync::{Arc, Mutex};
 use std::time::Instant;
 
 use rayon::prelude::*;
@@ -2492,23 +2492,37 @@ fn inferred_order_column(
         collection.definition.sort_options,
         query.options.sort[0].descending,
     );
-    let column = repo
-        .inferred_orders
+    let column = cached_inferred_order(&repo.inferred_orders, key, || {
+        #[cfg(test)]
+        INFERRED_ORDER_BUILDS.with(|count| count.set(count.get() + 1));
+        SortColumn::from_inferred_posting(
+            index,
+            &collection.generation,
+            path,
+            &collection.definition.sort_locale,
+            collection.definition.sort_options,
+            query.options.sort[0].descending,
+        )
+    })?;
+    Ok(column.map(|column| (collection_index, column)))
+}
+
+fn cached_inferred_order(
+    cache: &Mutex<crate::sorting::InferredOrderCache>,
+    key: InferredOrderKey,
+    build: impl FnOnce() -> Result<Option<SortColumn>, String>,
+) -> Result<Option<Arc<SortColumn>>, String> {
+    if let Some(column) = cache.lock().map_err(|error| error.to_string())?.get(&key) {
+        return Ok(Some(column));
+    }
+    let Some(column) = build()? else {
+        return Ok(None);
+    };
+    let column = cache
         .lock()
         .map_err(|error| error.to_string())?
-        .get_or_build(key, || {
-            #[cfg(test)]
-            INFERRED_ORDER_BUILDS.with(|count| count.set(count.get() + 1));
-            SortColumn::from_inferred_posting(
-                index,
-                &collection.generation,
-                path,
-                &collection.definition.sort_locale,
-                collection.definition.sort_options,
-                query.options.sort[0].descending,
-            )
-        })?;
-    Ok(column.map(|column| (collection_index, column)))
+        .insert_if_absent(key, Arc::new(column));
+    Ok(Some(column))
 }
 
 #[cfg(test)]

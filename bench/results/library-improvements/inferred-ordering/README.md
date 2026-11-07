@@ -22,3 +22,16 @@ bench/results/library-improvements/inferred-ordering/harness/target/release/obje
 The first-use difference is inconclusive given its variability and this small sequential run. The repeated-page difference follows the structural change: the cache builds an order once per field, generation, locale, collation version, options and direction, then reuses the same immutable `SortColumn`. Unit counters verify one build and subsequent hits; eviction tests verify its 128 MiB retained-byte estimate. The existing dictionary already computes one ICU key per distinct string, although the `SortColumn` representation still duplicates keys per record. A dictionary cursor would need a separate paging/comparator route for ICU strings, missing/null placement and stable ID ties, so this experiment retained the existing verified ordering path. Evicted entries may rebuild, and in-flight `Arc` references can temporarily outlive an eviction. The cache is not persisted; fresh build and snapshot restore both start empty.
 
 Raw samples: [`baseline-0b0ea28.csv`](baseline-0b0ea28.csv), [`final-fc9beb2.csv`](final-fc9beb2.csv). Release compiler output: [`baseline-build.stderr.log`](baseline-build.stderr.log), [`final-build.stderr.log`](final-build.stderr.log).
+
+## Cold-build lock follow-up
+
+The original Q3 implementation held the cache mutex while constructing a missing `SortColumn`. Commit `81db11a03a16339b4141713c438690b6e97bdf07` moves construction between a locked lookup and locked insert-if-absent. Two builders for the same key may do duplicate construction, but only one column is retained and charged. Controlled-gate tests verify that distinct-field builds can overlap and same-key builds publish one entry. The full workspace suite passes (core: 280 passed, 2 ignored), as does Clippy; no source or snapshot format changed.
+
+The unchanged harness was rebuilt in release mode and rerun on the same fixture and machine in a separate uncontended window. The fixture SHA-256 remains `1aba864447ae0184f0822bb39ac69af84a95bcd044dc104a10c345cb812aba74`. The new raw sample is [`final-81db11a.csv`](final-81db11a.csv), measured at exact code SHA `81db11a03a16339b4141713c438690b6e97bdf07`. Compiler output is [`final-81db11a-build.stderr.log`](final-81db11a-build.stderr.log).
+
+| Request | Pre-Q3 `0b0ea28` median ms | Original Q3 `fc9beb2` median ms | Cold-lock fix `81db11a` median ms | Cold-lock range ms |
+| --- | ---: | ---: | ---: | ---: |
+| First page, 5 samples | 4.245 | 3.850 | 4.052 | 4.038–4.079 |
+| Reuse, 50 samples | 4.173 | 0.091 | 0.092 | 0.048–0.095 |
+
+Reuse is still 4.082 ms faster per request than the pre-Q3 baseline (about 97.8%). The cold-lock change targets concurrent misses; this single-thread harness cannot measure that benefit. It shows no material reuse change versus the original Q3 code. All 55 new requests returned 20 rows and opened/parsed zero source files.

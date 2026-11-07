@@ -215,8 +215,8 @@ pub(crate) struct InferredOrderCacheStats {
 }
 
 
-/// A lazy, bounded cache owned by one repository. Its lock is acquired only
-/// for inferred-order lookup and construction; no source I/O occurs there.
+/// A lazy, bounded cache owned by one repository. Callers build a missing
+/// column outside its mutex, then publish it with a second short lock.
 pub(crate) struct InferredOrderCache {
     entries: HashMap<InferredOrderKey, InferredOrderEntry>,
     max_bytes: usize,
@@ -237,22 +237,28 @@ impl InferredOrderCache {
         }
     }
 
-    pub(crate) fn get_or_build(
-        &mut self,
-        key: InferredOrderKey,
-        build: impl FnOnce() -> Result<Option<SortColumn>, String>,
-    ) -> Result<Option<Arc<SortColumn>>, String> {
+    pub(crate) fn get(&mut self, key: &InferredOrderKey) -> Option<Arc<SortColumn>> {
         self.clock = self.clock.wrapping_add(1);
-        if let Some(entry) = self.entries.get_mut(&key) {
+        if let Some(entry) = self.entries.get_mut(key) {
             entry.last_used = self.clock;
             self.stats.hits += 1;
-            return Ok(Some(entry.column.clone()));
+            return Some(entry.column.clone());
         }
+        None
+    }
+
+    /// A concurrent builder may already have published this key. Reuse that
+    /// column and charge only one resident entry, while still counting both
+    /// completed constructions in the structural build counter.
+    pub(crate) fn insert_if_absent(
+        &mut self,
+        key: InferredOrderKey,
+        column: Arc<SortColumn>,
+    ) -> Arc<SortColumn> {
         self.stats.builds += 1;
-        let Some(column) = build()? else {
-            return Ok(None);
-        };
-        let column = Arc::new(column);
+        if let Some(existing) = self.get(&key) {
+            return existing;
+        }
         let bytes = Self::entry_bytes(&key, &column);
         if bytes <= self.max_bytes {
             while self.used_bytes.saturating_add(bytes) > self.max_bytes {
@@ -278,7 +284,7 @@ impl InferredOrderCache {
         }
         self.stats.resident_bytes = self.used_bytes;
         self.stats.entries = self.entries.len();
-        Ok(Some(column))
+        column
     }
 
     #[cfg(test)]

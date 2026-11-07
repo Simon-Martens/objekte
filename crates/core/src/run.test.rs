@@ -5,6 +5,101 @@ use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
+fn concurrent_test_inferred_column(path: &str) -> SortColumn {
+    SortColumn {
+        path: FieldPath::parse(path).unwrap(),
+        kind: LogicalType::String,
+        keys: vec![SortKey::String(vec![1])],
+        ascending: vec![crate::model::RecordSlot(0)],
+        descending: Vec::new(),
+        locale: "de".into(),
+        options: SortOptions::default(),
+        collation_version: crate::sorting::COLLATION_VERSION.into(),
+    }
+}
+
+fn assert_concurrent_inferred_builds(same_key: bool) {
+    use std::sync::mpsc;
+    use std::time::Duration;
+
+    let cache = Arc::new(Mutex::new(crate::sorting::InferredOrderCache::new(
+        1024 * 1024,
+    )));
+    let (entered_tx, entered_rx) = mpsc::channel();
+    let (release_first_tx, release_first_rx) = mpsc::channel();
+    let (release_second_tx, release_second_rx) = mpsc::channel();
+    let first_path = "first";
+    let second_path = if same_key { "first" } else { "second" };
+    let first_key = InferredOrderKey::new(
+        0,
+        1,
+        FieldPath::parse(first_path).unwrap(),
+        "de",
+        SortOptions::default(),
+        false,
+    );
+    let second_key = InferredOrderKey::new(
+        0,
+        1,
+        FieldPath::parse(second_path).unwrap(),
+        "de",
+        SortOptions::default(),
+        false,
+    );
+    std::thread::scope(|scope| {
+        let first_cache = cache.clone();
+        let first_entered = entered_tx.clone();
+        let first = scope.spawn(move || {
+            cached_inferred_order(&first_cache, first_key, || {
+                first_entered.send(1).unwrap();
+                release_first_rx.recv().unwrap();
+                Ok(Some(concurrent_test_inferred_column(first_path)))
+            })
+            .unwrap()
+            .unwrap()
+        });
+        assert_eq!(entered_rx.recv_timeout(Duration::from_secs(10)), Ok(1));
+        assert!(
+            cache.try_lock().is_ok(),
+            "the first builder retained the cache lock"
+        );
+        let second_cache = cache.clone();
+        let second = scope.spawn(move || {
+            cached_inferred_order(&second_cache, second_key, || {
+                entered_tx.send(2).unwrap();
+                release_second_rx.recv().unwrap();
+                Ok(Some(concurrent_test_inferred_column(second_path)))
+            })
+            .unwrap()
+            .unwrap()
+        });
+        // Both builders must enter before either is released. A timed receive
+        // bounds test failure without making elapsed time an acceptance gate.
+        let second_entered = entered_rx.recv_timeout(Duration::from_secs(10));
+        release_first_tx.send(()).unwrap();
+        release_second_tx.send(()).unwrap();
+        assert_eq!(second_entered, Ok(2));
+        let first_column = first.join().unwrap();
+        let second_column = second.join().unwrap();
+        assert_eq!(Arc::ptr_eq(&first_column, &second_column), same_key);
+    });
+    let stats = cache.lock().unwrap().stats();
+    assert_eq!(stats.builds, 2);
+    assert_eq!(stats.entries, if same_key { 1 } else { 2 });
+    assert_eq!(stats.hits, if same_key { 1 } else { 0 });
+    assert!(stats.resident_bytes <= 1024 * 1024);
+}
+
+#[test]
+fn distinct_inferred_orders_build_without_holding_one_global_mutex() {
+    assert_concurrent_inferred_builds(false);
+}
+
+#[test]
+fn concurrent_same_key_inferred_builds_publish_one_resident_order() {
+    assert_concurrent_inferred_builds(true);
+}
+
 fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf {
     let root = std::env::temp_dir().join(format!(
         "objekte-{tag}-{}-{:?}",
