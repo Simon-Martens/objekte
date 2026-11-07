@@ -1,8 +1,0 @@
-{
-  "command": [
-    "target/release/bigram-encoding-compare",
-    "utf8_bytes",
-    "examples/musenalm/data/contents"
-  ],
-  "exit_status": 0
-}

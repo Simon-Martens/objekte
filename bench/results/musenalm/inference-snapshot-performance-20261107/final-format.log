@@ -1,0 +1,3647 @@
+Diff in /home/simon/source/objekte/crates/cli/src/query_input.rs:10:
+
+ use crate::arguments::Arguments;
+
+-
+ /// Query spelling, source location, and explicit input kind.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct QueryInput {
+Diff in /home/simon/source/objekte/crates/cli/src/query_input.rs:19:
+     pub kind: QueryKind,
+ }
+
+-
+ /// How one input is parsed before the core request is built.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub enum QueryKind {
+Diff in /home/simon/source/objekte/crates/cli/src/query_input.rs:27:
+     Fts,
+ }
+
+-
+ /// One direct query or a buffered physical-line reader.
+ pub struct QuerySource {
+     direct: Option<QueryInput>,
+Diff in /home/simon/source/objekte/crates/cli/src/query_input.rs:37:
+     yielded: usize,
+ }
+
+-
+ impl QueryInput {
+     pub fn parse(&self, args: &Arguments) -> Result<(Query, Option<String>), String> {
+         let (fts, filter, sort) = match self.kind {
+Diff in /home/simon/source/objekte/crates/cli/src/query_input.rs:82:
+     }
+ }
+
+-
+ impl QuerySource {
+     pub fn open(args: &Arguments) -> Result<Self, String> {
+         let direct = if let Some(text) = &args.fts {
+Diff in /home/simon/source/objekte/crates/cli/src/query_input.rs:158:
+         self.yielded
+     }
+ }
+-
+
+ fn kind_of(text: &str) -> QueryKind {
+     if text.starts_with('"') {
+Diff in /home/simon/source/objekte/crates/core/examples/accept_musenalm.rs:1:
+ #[path = "support/musenalm.rs"]
+ mod musenalm;
+
+-use std::path::PathBuf;
+ use std::collections::BTreeMap;
++use std::path::PathBuf;
+
+ use objekte_search_core::repository::{Repository, RepositoryOptions, SearchHit};
+ use objekte_search_core::workload::{
+Diff in /home/simon/source/objekte/crates/core/examples/accept_musenalm.rs:89:
+             ..RepositoryOptions::default()
+         },
+     )?;
+-    let baseline_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
++    let baseline_path =
++        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+     let cases = if extended {
+         load_extended_manifest(
+             &baseline_path,
+Diff in /home/simon/source/objekte/crates/core/examples/accept_musenalm.rs:96:
+-            &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
++            &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
++                .join("benches/musenalm_queries_extended.json"),
+         )?
+     } else {
+         load_manifest(&baseline_path)?
+Diff in /home/simon/source/objekte/crates/core/examples/accept_musenalm.rs:100:
+             .into_iter()
+-            .map(|request| BenchmarkCase { request, parameters: BTreeMap::new(), clock_unix_seconds: None })
++            .map(|request| BenchmarkCase {
++                request,
++                parameters: BTreeMap::new(),
++                clock_unix_seconds: None,
++            })
+             .collect()
+     };
+     let mut checked = 0;
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/examples/dump_musenalm_ids.rs:39:
+         }
+     }
+     let selected = selected.ok_or("--cases is required")?;
+-    let baseline_path = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
++    let baseline_path =
++        PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");
+     let manifest = if extended {
+         load_extended_manifest(
+             &baseline_path,
+Diff in /home/simon/source/objekte/crates/core/examples/dump_musenalm_ids.rs:46:
+-            &PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries_extended.json"),
++            &PathBuf::from(env!("CARGO_MANIFEST_DIR"))
++                .join("benches/musenalm_queries_extended.json"),
+         )?
+     } else {
+         load_manifest(&baseline_path)?
+Diff in /home/simon/source/objekte/crates/core/examples/dump_musenalm_ids.rs:50:
+             .into_iter()
+-            .map(|request| BenchmarkCase { request, parameters: BTreeMap::new(), clock_unix_seconds: None })
++            .map(|request| BenchmarkCase {
++                request,
++                parameters: BTreeMap::new(),
++                clock_unix_seconds: None,
++            })
+             .collect()
+     };
+     for id in &selected {
+Diff in /home/simon/source/objekte/crates/core/examples/dump_musenalm_ids.rs:58:
+     }
+     let repo = Repository::open_with_options(
+         &root,
+-        if extended { musenalm::load_extended_definitions(&root)? } else { musenalm::load_definitions(&root)? },
++        if extended {
++            musenalm::load_extended_definitions(&root)?
++        } else {
++            musenalm::load_definitions(&root)?
++        },
+         RepositoryOptions {
+             bigram_alphabet: alphabet,
+             ..RepositoryOptions::default()
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:11:
+ use serde::Serialize;
+ use sha2::{Digest, Sha256};
+
+-
+ #[derive(Serialize)]
+ pub struct LoadedSchema {
+     pub collection: String,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:21:
+     pub adapter: Option<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Eq, PartialEq)]
+ enum SchemaMode {
+     Historical,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:28:
+     ExtendedRelations,
+ }
+
+-
+ /// Mutable state shared while registering one collection's schema fields.
+ struct SchemaRegistration<'a> {
+     indexed_paths: &'a HashSet<Vec<String>>,
+Diff in /home/simon/source/objekte/crates/core/examples/support/musenalm.rs:37:
+     source_collection: &'a str,
+     relations: &'a mut Vec<RelationDefinition>,
+ }
+-
+
+ /// The documents returned here are the exact parsed documents used to create
+ /// the benchmark's in-memory definitions, independent of later checkout edits.
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:2:
+
+ use std::collections::{HashMap, HashSet};
+
+-use roaring::RoaringBitmap;
+ use rayon::ThreadPool;
++use roaring::RoaringBitmap;
+ use serde::{Deserialize, Serialize};
+ use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
+
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:10:
+-use crate::model::RecordSlot;
+ #[cfg(test)]
+ use crate::inventory::append_shifted_bitmap;
++use crate::model::RecordSlot;
+ use crate::source::TextSegment;
+ use crate::workload::BigramAlphabet;
+
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:64:
+     }
+ }
+
+-
+ /// Both alphabets' necessary grams for one already prepared representation.
+ /// Exact matching never reads these keys as a literal.
+ #[derive(Clone, Debug)]
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:73:
+     unicode: Vec<(bool, u64)>,
+ }
+
+-
+ impl BigramRequest {
+     pub fn from_folded(folded: &str) -> Self {
+         let collect = |alphabet| {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:107:
+     }
+ }
+
+-
+ /// Record-level bigram postings for one text binding.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct BigramIndex {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:117:
+     pub skip: HashMap<u64, RoaringBitmap>,
+ }
+
+-
+ impl BigramIndex {
+     pub fn validate_domain(&self, allowed: &RoaringBitmap) -> Result<(), String> {
+         if self
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:195:
+         if self.alphabet != batch.alphabet || self.record_count != base {
+             return Err("bigram batch coverage or alphabet mismatch".into());
+         }
+-        let count = base.checked_add(batch.record_count).ok_or("bigram record overflow")?;
++        let count = base
++            .checked_add(batch.record_count)
++            .ok_or("bigram record overflow")?;
+         for (key, posting) in batch.normal {
+             append_shifted_bitmap(self.normal.entry(key).or_default(), &posting, base)?;
+         }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:284:
+     }
+ }
+
+-
+ fn ascii_pair(a: u8, b: u8) -> Option<u64> {
+     if !(32..=126).contains(&a) || !(32..=126).contains(&b) {
+         return None;
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:313:
+
+ impl BigramContribution {
+     pub fn new(alphabet: BigramAlphabet) -> Self {
+-        Self { alphabet, record_count: 0, normal: HashMap::new(), skip: HashMap::new() }
++        Self {
++            alphabet,
++            record_count: 0,
++            normal: HashMap::new(),
++            skip: HashMap::new(),
++        }
+     }
+
+     pub fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:320:
+         if self.alphabet != batch.alphabet || self.record_count != base {
+             return Err("bigram batch coverage or alphabet mismatch".into());
+         }
+-        let count = base.checked_add(batch.record_count).ok_or("bigram record overflow")?;
++        let count = base
++            .checked_add(batch.record_count)
++            .ok_or("bigram record overflow")?;
+         validate_blocks(&batch.normal, batch.record_count)?;
+         validate_blocks(&batch.skip, batch.record_count)?;
+         for (key, mut blocks) in batch.normal {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:327:
+             for block in &mut blocks {
+-                block.first_slot = base.checked_add(block.first_slot).ok_or("bigram slot overflow")?;
++                block.first_slot = base
++                    .checked_add(block.first_slot)
++                    .ok_or("bigram slot overflow")?;
+             }
+             self.normal.entry(key).or_default().append(&mut blocks);
+         }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:332:
+         for (key, mut blocks) in batch.skip {
+             for block in &mut blocks {
+-                block.first_slot = base.checked_add(block.first_slot).ok_or("bigram slot overflow")?;
++                block.first_slot = base
++                    .checked_add(block.first_slot)
++                    .ok_or("bigram slot overflow")?;
+             }
+             self.skip.entry(key).or_default().append(&mut blocks);
+         }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:340:
+     }
+
+     pub fn into_index_in_pool(self, pool: &ThreadPool) -> Result<BigramIndex, String> {
+-        let Self { alphabet, record_count, normal, skip } = self;
++        let Self {
++            alphabet,
++            record_count,
++            normal,
++            skip,
++        } = self;
+         let (normal, skip) = pool.join(
+             move || convert_blocks(normal, record_count),
+             move || convert_blocks(skip, record_count),
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:347:
+         );
+-        Ok(BigramIndex { alphabet, record_count, normal: normal?, skip: skip? })
++        Ok(BigramIndex {
++            alphabet,
++            record_count,
++            normal: normal?,
++            skip: skip?,
++        })
+     }
+
+     #[cfg(test)]
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:352:
+     fn into_index(self) -> Result<BigramIndex, String> {
+-        let Self { alphabet, record_count, normal, skip } = self;
++        let Self {
++            alphabet,
++            record_count,
++            normal,
++            skip,
++        } = self;
+         Ok(BigramIndex {
+-            alphabet, record_count,
++            alphabet,
++            record_count,
+             normal: convert_blocks(normal, record_count)?,
+             skip: convert_blocks(skip, record_count)?,
+         })
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:359:
+     }
+ }
+
+-fn validate_blocks(columns: &HashMap<u64, Vec<GramBlock>>, record_count: u32) -> Result<(), String> {
++fn validate_blocks(
++    columns: &HashMap<u64, Vec<GramBlock>>,
++    record_count: u32,
++) -> Result<(), String> {
+     for blocks in columns.values() {
+         let mut previous_end = None;
+         for block in blocks {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:366:
+             if block.bits == 0 {
+                 return Err("empty bigram block".into());
+             }
+-            let end = block.first_slot.checked_add(63 - block.bits.leading_zeros())
++            let end = block
++                .first_slot
++                .checked_add(63 - block.bits.leading_zeros())
+                 .ok_or("bigram slot overflow")?;
+-            if end >= record_count || previous_end.is_some_and(|previous| block.first_slot <= previous) {
++            if end >= record_count
++                || previous_end.is_some_and(|previous| block.first_slot <= previous)
++            {
+                 return Err("bigram block coverage or order mismatch".into());
+             }
+             previous_end = Some(end);
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:382:
+     record_count: u32,
+ ) -> Result<HashMap<u64, RoaringBitmap>, String> {
+     validate_blocks(&columns, record_count)?;
+-    columns.into_iter().map(|(key, blocks)| {
+-        let slots = blocks.into_iter().flat_map(|block| {
+-            let mut bits = block.bits;
+-            std::iter::from_fn(move || {
+-                if bits == 0 { return None; }
+-                let offset = bits.trailing_zeros();
+-                bits &= bits - 1;
+-                Some(block.first_slot + offset)
+-            })
+-        });
+-        let mut posting = RoaringBitmap::new();
+-        posting.append(slots).map_err(|_| "bigram blocks are not ordered")?;
+-        Ok((key, posting))
+-    }).collect()
++    columns
++        .into_iter()
++        .map(|(key, blocks)| {
++            let slots = blocks.into_iter().flat_map(|block| {
++                let mut bits = block.bits;
++                std::iter::from_fn(move || {
++                    if bits == 0 {
++                        return None;
++                    }
++                    let offset = bits.trailing_zeros();
++                    bits &= bits - 1;
++                    Some(block.first_slot + offset)
++                })
++            });
++            let mut posting = RoaringBitmap::new();
++            posting
++                .append(slots)
++                .map_err(|_| "bigram blocks are not ordered")?;
++            Ok((key, posting))
++        })
++        .collect()
+ }
+
+ /// A reusable 64-slot gram accumulator. ASCII uses its compact 95×95 pair
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:402:
+ /// domain; Unicode keeps only keys touched by the current chunk.
+ enum GramWords {
+-    Ascii { words: Vec<u64>, touched: Vec<usize> },
++    Ascii {
++        words: Vec<u64>,
++        touched: Vec<usize>,
++    },
+     Unicode(HashMap<u64, u64>),
+ }
+
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:491:
+         if slot.0 != self.contribution.record_count {
+             return Err("bigram slots must be added in record order".into());
+         }
+-        let next = self.contribution.record_count.checked_add(1).ok_or("bigram record overflow")?;
++        let next = self
++            .contribution
++            .record_count
++            .checked_add(1)
++            .ok_or("bigram record overflow")?;
+         if self.chunk_len == 0 {
+             self.chunk_start = slot.0;
+         }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.rs:554:
+     fn flush(&mut self) -> Result<(), String> {
+         let start = self.chunk_start;
+         self.normal.drain(|key, word| {
+-            self.contribution.normal.entry(key).or_default().push(GramBlock { first_slot: start, bits: word });
++            self.contribution
++                .normal
++                .entry(key)
++                .or_default()
++                .push(GramBlock {
++                    first_slot: start,
++                    bits: word,
++                });
+         });
+         self.skip.drain(|key, word| {
+-            self.contribution.skip.entry(key).or_default().push(GramBlock { first_slot: start, bits: word });
++            self.contribution
++                .skip
++                .entry(key)
++                .or_default()
++                .push(GramBlock {
++                    first_slot: start,
++                    bits: word,
++                });
+         });
+         self.chunk_len = 0;
+         Ok(())
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:46:
+
+ #[test]
+ fn chunked_builder_matches_independent_complete_posting_maps() {
+-    let patterns = ["ab", "cd", "aßb", "Straße", "İIı", "Σςσ", "aüb", "🙂x🙂", "中文", "aaab"];
++    let patterns = [
++        "ab",
++        "cd",
++        "aßb",
++        "Straße",
++        "İIı",
++        "Σςσ",
++        "aüb",
++        "🙂x🙂",
++        "中文",
++        "aaab",
++    ];
+     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+         for base in [0u32, 3, 65] {
+             for len in [0usize, 1, 63, 64, 65, 127, 128, 129] {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:82:
+                     if segments.is_empty() {
+                         builder.add_empty(slot).unwrap();
+                     } else {
+-                        builder.add_record(slot, segments.iter().map(String::as_str)).unwrap();
++                        builder
++                            .add_record(slot, segments.iter().map(String::as_str))
++                            .unwrap();
+                     }
+                 }
+                 let built = builder.finish().unwrap();
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:89:
+                 let expected = independent_index(&records, alphabet, base);
+                 assert_eq!(built.record_count, expected.record_count);
+-                assert_eq!(built.normal, expected.normal, "normal {alphabet:?} base={base} len={len}");
+-                assert_eq!(built.skip, expected.skip, "skip {alphabet:?} base={base} len={len}");
++                assert_eq!(
++                    built.normal, expected.normal,
++                    "normal {alphabet:?} base={base} len={len}"
++                );
++                assert_eq!(
++                    built.skip, expected.skip,
++                    "skip {alphabet:?} base={base} len={len}"
++                );
+             }
+         }
+     }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:103:
+ #[test]
+ fn chunked_builder_checks_slot_arithmetic_before_publication() {
+     let mut builder = BigramBuilder::new_at(BigramAlphabet::Ascii, u32::MAX - 1);
+-    builder.add_record(RecordSlot(u32::MAX - 1), ["ab"]).unwrap();
++    builder
++        .add_record(RecordSlot(u32::MAX - 1), ["ab"])
++        .unwrap();
+     assert!(builder.add_empty(RecordSlot(u32::MAX)).is_err());
+     let index = builder.finish().unwrap();
+     assert!(index.normal[&ascii_pair(b'a', b'b').unwrap()].contains(u32::MAX - 1));
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:112:
+
+ #[test]
+ fn shifted_blocks_match_incremental_bitmaps_at_chunk_and_container_boundaries() {
+-    let pool = rayon::ThreadPoolBuilder::new().num_threads(2).build().unwrap();
++    let pool = rayon::ThreadPoolBuilder::new()
++        .num_threads(2)
++        .build()
++        .unwrap();
+     let patterns: &[&[&str]] = &[&["ab", "cd"], &["aßb"], &["Straße", "Müller"], &[""], &[]];
+     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+         for base in [0u32, 3, 65_535] {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:128:
+                     let mut reference = BigramBuilder::new(alphabet);
+                     for slot in offset..end {
+                         let segments = patterns[slot % patterns.len()];
+-                        local.add_record(RecordSlot((slot - offset) as u32), segments.iter().copied()).unwrap();
+-                        reference.add_record(RecordSlot((slot - offset) as u32), segments.iter().copied()).unwrap();
++                        local
++                            .add_record(
++                                RecordSlot((slot - offset) as u32),
++                                segments.iter().copied(),
++                            )
++                            .unwrap();
++                        reference
++                            .add_record(
++                                RecordSlot((slot - offset) as u32),
++                                segments.iter().copied(),
++                            )
++                            .unwrap();
+                     }
+                     let at = base + offset as u32;
+-                    blocks.merge_shifted(local.finish_blocks().unwrap(), at).unwrap();
++                    blocks
++                        .merge_shifted(local.finish_blocks().unwrap(), at)
++                        .unwrap();
+                     old.merge_shifted(reference.finish().unwrap(), at).unwrap();
+                     offset = end;
+                 }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:139:
+                 let built = blocks.into_index_in_pool(&pool).unwrap();
+                 assert_eq!(built.record_count, old.record_count);
+-                assert_eq!(built.normal, old.normal, "normal {alphabet:?} base={base} len={length}");
+-                assert_eq!(built.skip, old.skip, "skip {alphabet:?} base={base} len={length}");
++                assert_eq!(
++                    built.normal, old.normal,
++                    "normal {alphabet:?} base={base} len={length}"
++                );
++                assert_eq!(
++                    built.skip, old.skip,
++                    "skip {alphabet:?} base={base} len={length}"
++                );
+                 for literal in ["ab", "bc", "aßb", "STRASSE", "MÜLLER", "missing"] {
+                     assert_eq!(built.candidates(literal), old.candidates(literal));
+                 }
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:153:
+     let mut global = BigramContribution::new(BigramAlphabet::Ascii);
+     let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
+     local.add_record(RecordSlot(0), ["ab"]).unwrap();
+-    assert!(global.merge_shifted(local.finish_blocks().unwrap(), 1).is_err());
++    assert!(
++        global
++            .merge_shifted(local.finish_blocks().unwrap(), 1)
++            .is_err()
++    );
+     let mut unicode = BigramBuilder::new(BigramAlphabet::Unicode);
+     unicode.add_record(RecordSlot(0), ["ab"]).unwrap();
+-    assert!(global.merge_shifted(unicode.finish_blocks().unwrap(), 0).is_err());
++    assert!(
++        global
++            .merge_shifted(unicode.finish_blocks().unwrap(), 0)
++            .is_err()
++    );
+     global.record_count = u32::MAX - 1;
+     let mut local = BigramBuilder::new(BigramAlphabet::Ascii);
+     local.add_record(RecordSlot(0), ["ab"]).unwrap();
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:163:
+     local.add_record(RecordSlot(1), ["cd"]).unwrap();
+-    assert!(global.merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1).is_err());
++    assert!(
++        global
++            .merge_shifted(local.finish_blocks().unwrap(), u32::MAX - 1)
++            .is_err()
++    );
+ }
+
+ #[test]
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:168:
+ fn repository_bulk_path_matches_raw_custom_and_fallback_gram_maps() {
+     use crate::model::LogicalType;
+     use crate::reference::{CustomBinding, FieldDefinition, Schema, Transform};
+-    use crate::repository::{CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode};
++    use crate::repository::{
++        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
++    };
+     use crate::source::SourceFormat;
+     let root = std::env::temp_dir().join(format!("objekte-bulk-gram-maps-{}", std::process::id()));
+     std::fs::create_dir_all(root.join("data")).unwrap();
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:178:
+     )
+     .unwrap();
+     let mut schema = Schema::default();
+-    schema.register_field(FieldDefinition {
+-        path: vec!["title".into()], kind: LogicalType::String, required: false,
+-        nullable: true, indexed: true, multi: false, element_nullable: vec![],
+-    }).unwrap();
+-    schema.register_custom(vec!["title".into()], CustomBinding {
+-        name: "folded".into(), version: 1, transform: Transform::CaseFold,
+-    }).unwrap();
++    schema
++        .register_field(FieldDefinition {
++            path: vec!["title".into()],
++            kind: LogicalType::String,
++            required: false,
++            nullable: true,
++            indexed: true,
++            multi: false,
++            element_nullable: vec![],
++        })
++        .unwrap();
++    schema
++        .register_custom(
++            vec!["title".into()],
++            CustomBinding {
++                name: "folded".into(),
++                version: 1,
++                transform: Transform::CaseFold,
++            },
++        )
++        .unwrap();
+     let definition = CollectionDefinition {
+-        name: "data".into(), source_path: "data".into(), format: SourceFormat::JsonLines,
+-        identity: IdentityPolicy::Generated, discovery: Default::default(), schema,
+-        sort_fields: vec![], sort_locale: "de".into(), sort_options: Default::default(),
++        name: "data".into(),
++        source_path: "data".into(),
++        format: SourceFormat::JsonLines,
++        identity: IdentityPolicy::Generated,
++        discovery: Default::default(),
++        schema,
++        sort_fields: vec![],
++        sort_locale: "de".into(),
++        sort_options: Default::default(),
+         sort_overrides: Default::default(),
+     };
+     let raw_records = vec![vec!["aßb".into()], vec![], vec!["ab".into()], vec![]];
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:195:
+     let fallback_records = vec![vec![], vec!["{\"title\":".into()], vec![], vec![]];
+     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
+-        let repo = Repository::open_with_options(&root, vec![definition.clone()], RepositoryOptions {
+-            bigram_alphabet: alphabet, snapshot_mode: SnapshotMode::Disabled, ..Default::default()
+-        }).unwrap();
++        let repo = Repository::open_with_options(
++            &root,
++            vec![definition.clone()],
++            RepositoryOptions {
++                bigram_alphabet: alphabet,
++                snapshot_mode: SnapshotMode::Disabled,
++                ..Default::default()
++            },
++        )
++        .unwrap();
+         let collection = &repo.collections()[0];
+         assert_eq!(collection.generation.records.len(), 4);
+         let expected_raw = independent_index(&raw_records, alphabet, 0);
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:224:
+         Ok("unicode") => BigramAlphabet::Unicode,
+         _ => BigramAlphabet::Ascii,
+     };
+-    let patterns = ["Straße und Müller", "İΣς aüb", "Goethe Liebe Der", "中文🙂aßb", "ab cd ab"];
++    let patterns = [
++        "Straße und Müller",
++        "İΣς aüb",
++        "Goethe Liebe Der",
++        "中文🙂aßb",
++        "ab cd ab",
++    ];
+     let records = (0..10_000usize)
+-        .map(|index| vec![
+-            TextSegment { path: vec!["body".into()], text: patterns[index % patterns.len()].into() },
+-            TextSegment { path: vec!["title".into()], text: patterns[(index * 3 + 1) % patterns.len()].into() },
+-        ])
++        .map(|index| {
++            vec![
++                TextSegment {
++                    path: vec!["body".into()],
++                    text: patterns[index % patterns.len()].into(),
++                },
++                TextSegment {
++                    path: vec!["title".into()],
++                    text: patterns[(index * 3 + 1) % patterns.len()].into(),
++                },
++            ]
++        })
+         .collect::<Vec<_>>();
+     let started = std::time::Instant::now();
+     let index = if mode == "convenience" {
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:242:
+         assert_eq!(mode, "bulk");
+         let mut builder = BigramBuilder::new(alphabet);
+         for (slot, segments) in records.iter().enumerate() {
+-            builder.add_record(RecordSlot(slot as u32), segments.iter().map(|segment| segment.text.as_str())).unwrap();
++            builder
++                .add_record(
++                    RecordSlot(slot as u32),
++                    segments.iter().map(|segment| segment.text.as_str()),
++                )
++                .unwrap();
+         }
+         builder.finish().unwrap()
+     };
+Diff in /home/simon/source/objekte/crates/core/src/bigram.test.rs:249:
+-    println!("mode={mode} alphabet={alphabet:?} elapsed_ns={} keys={} heap_bytes={}",
+-        started.elapsed().as_nanos(), index.normal.len() + index.skip.len(), index.estimated_heap_bytes());
++    println!(
++        "mode={mode} alphabet={alphabet:?} elapsed_ns={} keys={} heap_bytes={}",
++        started.elapsed().as_nanos(),
++        index.normal.len() + index.skip.len(),
++        index.estimated_heap_bytes()
++    );
+     assert_eq!(index.record_count, 10_000);
+ }
+
+Diff in /home/simon/source/objekte/crates/core/src/decimal.rs:5:
+
+ use serde::{Deserialize, Serialize};
+
+-
+ /// Signed significant digits times ten to a signed exponent.
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ pub struct ExactDecimal {
+Diff in /home/simon/source/objekte/crates/core/src/decimal.rs:14:
+     pub(crate) exponent: i64,
+ }
+
+-
+ impl ExactDecimal {
+     pub fn parse(token: &str) -> Result<Self, String> {
+         const MAX_SIGNIFICAND_DIGITS: usize = 4096;
+Diff in /home/simon/source/objekte/crates/core/src/decimal.rs:212:
+     }
+ }
+
+-
+ impl fmt::Display for ExactDecimal {
+     fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+         if self.negative {
+Diff in /home/simon/source/objekte/crates/core/src/decimal.rs:221:
+         write!(formatter, "{}e{}", self.digits, self.exponent)
+     }
+ }
+-
+
+ fn multiply_digits(digits: &mut Vec<u8>, multiplier: u8) {
+     let mut carry = 0u16;
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:15:
+ use crate::source::LogicalTextCoverage;
+ use serde::Serialize;
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
+ #[serde(rename_all = "snake_case")]
+ pub enum AccessPathKind {
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:31:
+     Scanner,
+ }
+
+-
+ /// Estimated cost and coverage of one physical query path.
+ #[derive(Clone, Debug, Serialize)]
+ pub struct AccessPathEstimate {
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:44:
+     pub estimated_bytes: f64,
+ }
+
+-
+ /// Planner decision and alternatives for one bound term.
+ #[derive(Clone, Debug, Serialize)]
+ pub struct TermChoice {
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:65:
+     pub executed: bool,
+ }
+
+-
+ fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivity> {
+     (matches!(term.kind, LogicalType::String | LogicalType::Unknown)
+         && matches!(term.literal, Value::String(_))
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:110:
+     }
+ }
+
+-
+ /// Known true and false fallback slots; all other slots are unavailable.
+ struct FallbackTruth {
+     yes: RoaringBitmap,
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:119:
+     choices: Vec<TermChoice>,
+ }
+
+-
+ fn fallback_truth(
+     repo: &Repository,
+     collection: &CollectionState,
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:259:
+     })
+ }
+
+-
+ /// Exact membership evidence produced by an index path.
+ pub(crate) struct Proof {
+     pub term: BoundTerm,
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:267:
+     pub matches: RoaringBitmap,
+ }
+
+-
+ /// Candidate set, exactness, and diagnostics for a planned expression.
+ pub(crate) struct Plan {
+     pub candidates: Option<RoaringBitmap>,
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:278:
+     pub semijoin_work: crate::relation_semijoin::SemijoinWork,
+ }
+
+-
+ /// A whole-record raw index is a field superset only when its source reader
+ /// supplies every logical string and the indexed representation is identity.
+ /// Resolve this at planning time, before any record is visited. The source
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:605:
+                     .map_or(1.0, |index| {
+                         if term.operator == Operator::Eq {
+                             1.0
+-                        } else if inference.short_string_coverage.contains_key(&term.path.segments) {
++                        } else if inference
++                            .short_string_coverage
++                            .contains_key(&term.path.segments)
++                        {
+                             (index.values.len() as f64).log2().max(1.0) + 1.0
+                         } else {
+                             index.values.len() as f64
+Diff in /home/simon/source/objekte/crates/core/src/executor.rs:1159:
+                 candidates = match (candidates, child.candidates) {
+                     (Some(mut union), Some(set)) => {
+                         union |= set;
+-
+
+                         Some(union)
+                     }
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:4:
+ use std::path::{Path, PathBuf};
+ use std::time::SystemTime;
+
+-use serde::{Deserialize, Serialize};
+ use roaring::RoaringBitmap;
++use serde::{Deserialize, Serialize};
+
+ use crate::model::{CollectionId, FileId, IdentitySet, RecordId, RecordSlot};
+ use crate::source::{DiagnosticCategory, ReaderDiagnostic};
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:32:
+ pub const MAX_DIAGNOSTIC_PATH_SEGMENTS: usize = 32;
+ pub const MAX_DIAGNOSTIC_SEGMENT_BYTES: usize = 128;
+
+-
+ /// Stable physical-file state codes in snapshots and public results.
+ #[repr(u8)]
+ #[derive(Clone, Copy, Debug, Default, Eq, Ord, PartialEq, PartialOrd)]
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:43:
+     Unreadable = 2,
+ }
+
+-
+ impl FileStatus {
+     pub fn code(self) -> u8 {
+         self as u8
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:58:
+     }
+ }
+
+-
+ impl Serialize for FileStatus {
+     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+         serializer.serialize_u8(self.code())
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:65:
+     }
+ }
+
+-
+ impl<'de> Deserialize<'de> for FileStatus {
+     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+         match u8::deserialize(deserializer)? {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:79:
+     }
+ }
+
+-
+ #[repr(u8)]
+ #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+ pub enum RecordClass {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:88:
+     RawFallback = 1,
+ }
+
+-
+ impl RecordClass {
+     pub fn code(self) -> u8 {
+         self as u8
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:95:
+     }
+ }
+
+-
+ impl Serialize for RecordClass {
+     fn serialize<S: serde::Serializer>(&self, serializer: S) -> Result<S::Ok, S::Error> {
+         serializer.serialize_u8(self.code())
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:102:
+     }
+ }
+
+-
+ impl<'de> Deserialize<'de> for RecordClass {
+     fn deserialize<D: serde::Deserializer<'de>>(deserializer: D) -> Result<Self, D::Error> {
+         match u8::deserialize(deserializer)? {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:115:
+     }
+ }
+
+-
+ /// Zero means no diagnostic, `u32::MAX` means omitted by the per-file cap,
+ /// and other values are one-based indexes into the file diagnostic table.
+ #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:122:
+ pub struct DiagnosticRef(pub u32);
+
+-
+ impl DiagnosticRef {
+     pub fn stored_index(self) -> Option<usize> {
+         (self.0 != 0 && self.0 != u32::MAX).then_some(self.0.saturating_sub(1) as usize)
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:132:
+     }
+ }
+
+-
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct SourceDiagnostic {
+     pub file: FileId,
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:150:
+     pub message: String,
+ }
+
+-
+ impl SourceDiagnostic {
+     pub fn from_reader(
+         file: FileId,
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:181:
+     }
+ }
+
+-
+ fn truncate_message(message: &str) -> String {
+     if message.len() <= MAX_DIAGNOSTIC_MESSAGE_BYTES {
+         return message.into();
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:193:
+     message[..end].into()
+ }
+
+-
+ /// Size and modification time recorded for a source file.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct SourceRevision {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:201:
+     pub size: u64,
+ }
+
+-
+ impl SourceRevision {
+     pub fn from_metadata(metadata: &std::fs::Metadata) -> Result<Self, String> {
+         let modified = metadata.modified().map_err(|e| e.to_string())?;
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:215:
+     }
+ }
+
+-
+ /// Repository-wide identity and metadata for one source file.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct FileEntry {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:264:
+     }
+ }
+
+-
+ /// Authoritative source-file table shared by collections.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct FileInventory {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:274:
+     by_path: HashMap<PathBuf, FileId>,
+ }
+
+-
+ impl FileInventory {
+     /// Approximate heap used by inventory and retained diagnostics, separately.
+     /// Hash-table control bytes and allocator overhead are not included.
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:441:
+     }
+ }
+
+-
+ fn valid_relative_path(path: &Path) -> bool {
+     !path.as_os_str().is_empty()
+         && !path.is_absolute()
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:450:
+             .all(|component| matches!(component, std::path::Component::Normal(_)))
+ }
+
+-
+ /// Standalone byte span of one logical record.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct ByteRange {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:458:
+     pub end: u64,
+ }
+
+-
+ impl ByteRange {
+     pub fn checked(start: u64, end: u64, file_size: u64) -> Result<Self, String> {
+         if start > end || end > file_size {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:474:
+     }
+ }
+
+-
+ /// Collection record identity, slot, file, and source span.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct RecordEntry {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:487:
+     pub diagnostic_ref: DiagnosticRef,
+ }
+
+-
+ /// Compact per-file offset table. `slots[offsets[f]..offsets[f+1]]` belongs
+ /// exactly to file `f`; empty files have equal consecutive offsets.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:496:
+     pub slots: Vec<RecordSlot>,
+ }
+
+-
+ impl FileRecordIndex {
+     pub fn records_for(&self, file: FileId) -> Option<&[RecordSlot]> {
+         let a = *self.offsets.get(file.0 as usize)? as usize;
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:505:
+     }
+ }
+
+-
+ /// Immutable record inventory for one published collection.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct CollectionGeneration {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:517:
+     pub file_records: FileRecordIndex,
+ }
+
+-
+ impl CollectionGeneration {
+     pub fn validate(&self, inventory: &FileInventory) -> Result<(), String> {
+         let mut included = std::collections::HashSet::new();
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:592:
+     }
+ }
+
+-
+ /// Mutable accumulator used to construct a collection generation.
+ pub struct CollectionBuilder {
+     collection: CollectionId,
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:604:
+     ids: IdentitySet,
+ }
+
+-
+ impl CollectionBuilder {
+     pub(crate) fn next_slot(&self) -> Result<RecordSlot, String> {
+-        Ok(RecordSlot(u32::try_from(self.records.len()).map_err(|_| "too many records")?))
++        Ok(RecordSlot(
++            u32::try_from(self.records.len()).map_err(|_| "too many records")?,
++        ))
+     }
+
+     pub fn collection_id(&self) -> CollectionId {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:717:
+         let mut offsets = Vec::with_capacity(cursors.len() + 1);
+         offsets.push(0u32);
+         for count in &cursors {
+-            offsets.push((*offsets.last().unwrap()).checked_add(*count).ok_or("too many records")?);
++            offsets.push(
++                (*offsets.last().unwrap())
++                    .checked_add(*count)
++                    .ok_or("too many records")?,
++            );
+         }
+         let mut slots = vec![RecordSlot(0); self.records.len()];
+         for (file, cursor) in cursors.iter_mut().enumerate() {
+Diff in /home/simon/source/objekte/crates/core/src/inventory.rs:740:
+         Ok(result)
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "inventory.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:5:
+     let mut destination: RoaringBitmap = [0, 1, 65_534].into_iter().collect();
+     let source: RoaringBitmap = [0, 1, 63, 64, 65].into_iter().collect();
+     append_shifted_bitmap(&mut destination, &source, 65_535).unwrap();
+-    assert_eq!(destination.iter().collect::<Vec<_>>(),
+-        [0, 1, 65_534, 65_535, 65_536, 65_598, 65_599, 65_600]);
++    assert_eq!(
++        destination.iter().collect::<Vec<_>>(),
++        [0, 1, 65_534, 65_535, 65_536, 65_598, 65_599, 65_600]
++    );
+     assert!(append_shifted_bitmap(&mut destination, &source, 65_535).is_err());
+     assert!(append_shifted_bitmap(&mut destination, &source, u32::MAX).is_err());
+ }
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:86:
+         .unwrap();
+     let mut builder = CollectionBuilder::new(CollectionId(0), "data".into(), 1, 4);
+     assert!(builder.include_file(FileId(4)).is_err());
+-    assert!(builder
+-        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
+-        .is_err());
+-    assert!(builder
+-        .add_raw_fallback(
+-            &inventory.files[broken.0 as usize],
+-            RecordId::fallback(CollectionId(0), "json", 1, Path::new("broken.json"), broken, 7, 0, 10),
+-            ByteRange { start: 0, end: 10 },
+-            DiagnosticRef(1),
+-        )
+-        .is_err());
++    assert!(
++        builder
++            .add_record(
++                &inventory.files[valid.0 as usize],
++                RecordId::intrinsic("v").unwrap(),
++                0,
++                10
++            )
++            .is_err()
++    );
++    assert!(
++        builder
++            .add_raw_fallback(
++                &inventory.files[broken.0 as usize],
++                RecordId::fallback(
++                    CollectionId(0),
++                    "json",
++                    1,
++                    Path::new("broken.json"),
++                    broken,
++                    7,
++                    0,
++                    10
++                ),
++                ByteRange { start: 0, end: 10 },
++                DiagnosticRef(1),
++            )
++            .is_err()
++    );
+     for file in [empty, valid, broken, empty, valid] {
+         builder.include_file(file).unwrap();
+     }
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:103:
+     let valid_slot = builder
+-        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
++        .add_record(
++            &inventory.files[valid.0 as usize],
++            RecordId::intrinsic("v").unwrap(),
++            0,
++            10,
++        )
+         .unwrap();
+-    assert!(builder
+-        .add_record(&inventory.files[valid.0 as usize], RecordId::intrinsic("v").unwrap(), 0, 10)
+-        .is_err());
+-    assert!(builder
+-        .add_record(&inventory.files[omitted.0 as usize], RecordId::intrinsic("other").unwrap(), 0, 10)
+-        .is_err());
++    assert!(
++        builder
++            .add_record(
++                &inventory.files[valid.0 as usize],
++                RecordId::intrinsic("v").unwrap(),
++                0,
++                10
++            )
++            .is_err()
++    );
++    assert!(
++        builder
++            .add_record(
++                &inventory.files[omitted.0 as usize],
++                RecordId::intrinsic("other").unwrap(),
++                0,
++                10
++            )
++            .is_err()
++    );
+     let diagnostic = SourceDiagnostic {
+         file: broken,
+         collection: CollectionId(0),
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:128:
+     let fallback_slot = builder
+         .add_raw_fallback(
+             &inventory.files[broken.0 as usize],
+-            RecordId::fallback(CollectionId(0), "json", 1, Path::new("broken.json"), broken, 7, 0, 10),
++            RecordId::fallback(
++                CollectionId(0),
++                "json",
++                1,
++                Path::new("broken.json"),
++                broken,
++                7,
++                0,
++                10,
++            ),
+             ByteRange { start: 0, end: 10 },
+             reference,
+         )
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:136:
+     inventory.files[broken.0 as usize].diagnostics[0].record = Some(fallback_slot);
+     let generation = builder.finish(&inventory).unwrap();
+     assert_eq!(generation.files, [empty, valid, broken]);
+-    assert_eq!(generation.file_records.records_for(empty), Some([].as_slice()));
+-    assert_eq!(generation.file_records.records_for(valid), Some([valid_slot].as_slice()));
+-    assert_eq!(generation.file_records.records_for(broken), Some([fallback_slot].as_slice()));
+-    assert_eq!(generation.file_records.records_for(omitted), Some([].as_slice()));
++    assert_eq!(
++        generation.file_records.records_for(empty),
++        Some([].as_slice())
++    );
++    assert_eq!(
++        generation.file_records.records_for(valid),
++        Some([valid_slot].as_slice())
++    );
++    assert_eq!(
++        generation.file_records.records_for(broken),
++        Some([fallback_slot].as_slice())
++    );
++    assert_eq!(
++        generation.file_records.records_for(omitted),
++        Some([].as_slice())
++    );
+     assert_eq!(generation.records[0].class, RecordClass::Logical);
+     assert_eq!(generation.records[1].class, RecordClass::RawFallback);
+ }
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:147:
+ #[test]
+ fn flat_mapping_matches_grouped_reference_for_interleaved_files() {
+     let mut inventory = FileInventory::new(PathBuf::from("/tmp/repo"));
+-    let revision = SourceRevision { modified_ns: 9, size: 20 };
++    let revision = SourceRevision {
++        modified_ns: 9,
++        size: 20,
++    };
+     let files: Vec<_> = (0..4)
+-        .map(|i| inventory.add(format!("{i}.jsonl").into(), revision, None, CollectionId(0)).unwrap())
++        .map(|i| {
++            inventory
++                .add(format!("{i}.jsonl").into(), revision, None, CollectionId(0))
++                .unwrap()
++        })
+         .collect();
+     let empty = CollectionBuilder::new(CollectionId(0), "empty".into(), 1, files.len())
+         .finish(&inventory)
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:161:
+     for &file in &files {
+         builder.include_file(file).unwrap();
+     }
+-    for (n, &file) in [files[2], files[0], files[2], files[1], files[0]].iter().enumerate() {
+-        builder.add_record(&inventory.files[file.0 as usize], RecordId::intrinsic(&format!("r{n}")).unwrap(), 0, 10).unwrap();
++    for (n, &file) in [files[2], files[0], files[2], files[1], files[0]]
++        .iter()
++        .enumerate()
++    {
++        builder
++            .add_record(
++                &inventory.files[file.0 as usize],
++                RecordId::intrinsic(&format!("r{n}")).unwrap(),
++                0,
++                10,
++            )
++            .unwrap();
+     }
+     let generation = builder.finish(&inventory).unwrap();
+     let mut grouped = vec![Vec::new(); files.len()];
+Diff in /home/simon/source/objekte/crates/core/src/inventory.test.rs:178:
+     assert_eq!(generation.file_records.offsets, expected_offsets);
+     assert_eq!(generation.file_records.slots, expected_slots);
+     assert_eq!(generation.file_records.offsets, [0, 2, 3, 5, 5]);
+-    assert_eq!(generation.file_records.slots, [RecordSlot(1), RecordSlot(4), RecordSlot(3), RecordSlot(0), RecordSlot(2)]);
++    assert_eq!(
++        generation.file_records.slots,
++        [
++            RecordSlot(1),
++            RecordSlot(4),
++            RecordSlot(3),
++            RecordSlot(0),
++            RecordSlot(2)
++        ]
++    );
+ }
+
+ #[test]
+Diff in /home/simon/source/objekte/crates/core/src/json_scalar_text.rs:5:
+ use crate::model::{ArrayValue, Number, Value};
+ use crate::source::TextSegment;
+
+-
+ /// Walks validated JSON bytes and records scalar occurrences in source order.
+ struct ScalarWalker<'a> {
+     bytes: &'a [u8],
+Diff in /home/simon/source/objekte/crates/core/src/json_scalar_text.rs:16:
+     paths: bool,
+ }
+
+-
+ impl ScalarWalker<'_> {
+     fn whitespace(&mut self) {
+         while self
+Diff in /home/simon/source/objekte/crates/core/src/json_scalar_text.rs:260:
+         }
+     }
+ }
+-
+
+ /// Parse one complete document once while retaining all scalar occurrences.
+ /// Object fields still resolve to their last occurrence in the logical value.
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:9:
+
+ use crate::decimal::ExactDecimal;
+
+-
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub enum Number {
+     Integer(i128),
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:17:
+     ExactDecimal(ExactDecimal),
+ }
+
+-
+ impl Number {
+     pub fn integer(value: i128) -> Self {
+         Self::Integer(value)
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:70:
+     }
+ }
+
+-
+ impl PartialEq for Number {
+     fn eq(&self, other: &Self) -> bool {
+         self.cmp(other) == Ordering::Equal
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:77:
+     }
+ }
+
+-
+ impl Eq for Number {}
+
+-
+ impl PartialOrd for Number {
+     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+         Some(self.cmp(other))
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:87:
+     }
+ }
+
+-
+ impl Ord for Number {
+     fn cmp(&self, other: &Self) -> Ordering {
+         match (self, other) {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:105:
+     }
+ }
+
+-
+ impl Hash for Number {
+     fn hash<H: Hasher>(&self, state: &mut H) {
+         match self {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:143:
+     }
+ }
+
+-
+ fn compare_int_float(i: i128, f: f64) -> Ordering {
+     // Outside the integer domain, floating-point values have a known order.
+     if f >= 2f64.powi(127) {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:167:
+     }
+ }
+
+-
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ pub enum LogicalType {
+     Unknown,
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:182:
+     Array(Box<LogicalType>),
+ }
+
+-
+ /// Logical array with an optional homogeneous element summary.
+ #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+ pub struct ArrayValue {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:193:
+     pub values: Vec<Value>,
+ }
+
+-
+ impl ArrayValue {
+     pub fn new(
+         values: Vec<Value>,
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:262:
+     }
+ }
+
+-
+ fn merge_array_element_types(left: &LogicalType, right: &LogicalType) -> Option<LogicalType> {
+     match (left, right) {
+         (LogicalType::Unknown, kind) | (kind, LogicalType::Unknown) => Some(kind.clone()),
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:274:
+     }
+ }
+
+-
+ #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+ pub enum Value {
+     Null,
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:289:
+     Array(ArrayValue),
+ }
+
+-
+ impl Value {
+     pub fn logical_type(&self) -> LogicalType {
+         match self {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:347:
+     }
+ }
+
+-
+ /// Compact repository-local collection identifier.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
+ pub struct CollectionId(pub u32);
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:354:
+
+-
+ /// Compact repository-local source-file identifier.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
+ pub struct FileId(pub u32);
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:359:
+
+-
+ /// Dense record position within one collection generation.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
+ pub struct RecordSlot(pub u32);
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:364:
+
+-
+ /// Stable logical identifier within a collection.
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
+ pub struct RecordId(pub String);
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:369:
+
+-
+ /// Collection-scoped identity used outside slot storage.
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, Ord, PartialOrd, Serialize, Deserialize)]
+ pub struct RecordIdentity {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:375:
+     pub record: RecordId,
+ }
+
+-
+ impl RecordId {
+     pub fn intrinsic(text: impl Into<String>) -> Result<Self, String> {
+         let text = text.into();
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:413:
+     }
+ }
+
+-
+ impl std::borrow::Borrow<str> for RecordId {
+     fn borrow(&self) -> &str {
+         &self.0
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:420:
+     }
+ }
+
+-
+ /// Duplicate-detecting set of logical record IDs.
+ #[derive(Default)]
+ pub struct IdentitySet(HashSet<RecordId>);
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:427:
+
+-
+ impl IdentitySet {
+     pub fn insert(&mut self, id: RecordId) -> Result<(), String> {
+         if !self.0.insert(id.clone()) {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:435:
+     }
+ }
+
+-
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ pub enum PathRoot {
+     Data,
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:443:
+     Backlinks,
+ }
+
+-
+ /// Resolved path into record data or reserved metadata.
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ pub struct FieldPath {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:451:
+     pub segments: Vec<String>,
+ }
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ pub enum MetadataField {
+     RecordId,
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:469:
+     RepositoryRoot,
+ }
+
+-
+ impl MetadataField {
+     pub fn as_str(self) -> &'static str {
+         match self {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:509:
+     }
+ }
+
+-
+ impl FieldPath {
+     pub fn display(&self) -> String {
+         match self.root {
+Diff in /home/simon/source/objekte/crates/core/src/model.rs:650:
+         })
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "model.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:14:
+ static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
+ pub const MAX_POSTING_VALUES_PAGE: usize = 4096;
+
+-
+ /// Inclusive or exclusive typed dictionary boundary.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct PostingValueBound {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:22:
+     pub inclusive: bool,
+ }
+
+-
+ /// Complete verified membership for one collection in one repository instance.
+ #[derive(Clone, Debug)]
+ pub struct ExactSelection(Arc<SelectionData>);
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:29:
+
+-
+ #[derive(Debug)]
+ struct SelectionData {
+     id: u64,
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:37:
+     members: RoaringBitmap,
+ }
+
+-
+ impl ExactSelection {
+     pub fn len(&self) -> u64 {
+         self.0.members.len()
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:48:
+     }
+ }
+
+-
+ /// One bounded page over an indexed field's stored value representation.
+ #[derive(Clone, Debug)]
+ pub struct PostingValuesRequest {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:64:
+     pub selection: Option<ExactSelection>,
+ }
+
+-
+ impl PostingValuesRequest {
+     pub fn new(collection: impl Into<String>, field: impl Into<String>, limit: usize) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:82:
+     }
+ }
+
+-
+ /// One typed key and the number of distinct eligible records containing it.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct PostingValueCount {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:90:
+     pub count: u64,
+ }
+
+-
+ /// Domain and special-state totals for the selected posting representation.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct PostingValuesCoverage {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:101:
+     pub explicit_null_records: u64,
+ }
+
+-
+ /// In-process exclusive key that belongs to one repository generation and binding.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct PostingValuesCursor {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:119:
+     last_key: ScalarKey,
+ }
+
+-
+ /// Values in posting-key order, with a cursor only when another key exists.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct PostingValuesPage {
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:129:
+     pub visited_keys: u64,
+ }
+
+-
+ fn resolve<'a>(
+     collection: &'a CollectionState,
+     request: &PostingValuesRequest,
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:274:
+     }
+ }
+
+-
+ impl Repository {
+     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
+         let (collection_index, state) = self
+Diff in /home/simon/source/objekte/crates/core/src/posting_values.rs:477:
+         })
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "posting_values.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/prepared.rs:6:
+ use crate::reference::{BoundExpr, BoundFts};
+ use crate::repository::Repository;
+
+-
+ /// Bound query terms for the selected collection generations.
+ #[derive(Clone)]
+ pub(crate) struct PreparedQuery {
+Diff in /home/simon/source/objekte/crates/core/src/prepared.rs:13:
+     pub collections: Vec<(usize, Option<BoundExpr>, Option<BoundFts>)>,
+ }
+
+-
+ /// One prepared-query cache value and its memory cost.
+ struct Entry {
+     query: PreparedQuery,
+Diff in /home/simon/source/objekte/crates/core/src/prepared.rs:20:
+     bytes: usize,
+ }
+
+-
+ /// Bounded cache of resolved query preparations.
+ pub(crate) struct PreparedCache {
+     budget: usize,
+Diff in /home/simon/source/objekte/crates/core/src/prepared.rs:29:
+     order: VecDeque<Vec<u8>>,
+ }
+
+-
+ impl PreparedCache {
+     pub fn new(budget: usize) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/prepared.rs:75:
+         self.bytes
+     }
+ }
+-
+
+ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery, bool), String> {
+     // The cache is owned by one immutable published repository generation.
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:10:
+ use std::collections::{HashMap, HashSet};
+ use time::OffsetDateTime;
+
+-
+ /// Exact case behavior for a full-text request. The index alphabet is separate.
+ #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
+ #[serde(rename_all = "lowercase")]
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:20:
+     Insensitive,
+ }
+
+-
+ impl CaseSensitivity {
+     pub fn is_sensitive(&self) -> bool {
+         *self == Self::Sensitive
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:27:
+     }
+ }
+
+-
+ /// Explicit FTS interpretation; literal search remains the default.
+ #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
+ #[serde(rename_all = "snake_case")]
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:37:
+     Regex(RegexOptions),
+ }
+
+-
+ impl FtsMode {
+     pub fn is_literal(&self) -> bool {
+         *self == Self::Literal
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:44:
+     }
+ }
+
+-
+ /// Regex flags supported independently of FTS case sensitivity.
+ #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
+ #[serde(default)]
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:53:
+     pub dot_matches_new_line: bool,
+ }
+
+-
+ #[derive(Clone, Debug, PartialEq, serde::Serialize)]
+ pub enum Literal {
+     String(String),
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:63:
+     Typed(Value),
+ }
+
+-
+ /// Field used as a comparison operand, with its original source span.
+ #[derive(Clone, Debug, PartialEq, serde::Serialize)]
+ pub struct FieldExpression {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:72:
+     pub span: (usize, usize),
+ }
+
+-
+ /// Parsed right-hand operand before type checking and execution binding.
+ #[derive(Clone, Debug, PartialEq, serde::Serialize)]
+ pub enum Operand {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:83:
+     Parameter { name: String, bound: Option<Value> },
+ }
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
+ pub enum Operator {
+     Eq,
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:96:
+     NotContains,
+ }
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, serde::Serialize)]
+ pub enum Quantifier {
+     Default,
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:103:
+     Any,
+ }
+
+-
+ #[derive(Clone, Debug, Eq, PartialEq, serde::Serialize)]
+ pub enum Modifier {
+     Lower,
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:114:
+     Custom(String),
+ }
+
+-
+ fn parse_modifier(name: String) -> Modifier {
+     match name.as_str() {
+         "lower" => Modifier::Lower,
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:126:
+     }
+ }
+
+-
+ /// Parsed field predicate before schema binding.
+ #[derive(Clone, Debug, PartialEq, serde::Serialize)]
+ pub struct Term {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:138:
+     pub span: (usize, usize),
+ }
+
+-
+ #[derive(Clone, Debug, PartialEq, serde::Serialize)]
+ pub enum FilterExpr {
+     Term(Term),
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:147:
+     Not(Box<FilterExpr>),
+ }
+
+-
+ /// One selected full-text field and optional binding.
+ #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
+ pub struct FtsField {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:158:
+     pub query_path: Option<String>,
+ }
+
+-
+ /// Full-text literal or regex pattern with its selected fields. A complete
+ /// regex pattern may instead come from one execution parameter.
+ #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:171:
+     pub fields: Vec<FtsField>,
+ }
+
+-
+ /// Count, sort, page, return, and evidence choices for a search.
+ #[derive(Clone, Debug)]
+ pub struct QueryOptions {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:183:
+     pub evidence: bool,
+ }
+
+-
+ /// Parsed search request across selected collections.
+ #[derive(Clone, Debug)]
+ pub struct Query {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:193:
+     pub options: QueryOptions,
+ }
+
+-
+ impl Query {
+     /// Freeze all clock macros at one caller-supplied instant. Reuse the
+     /// returned query for stable pagination across a UTC boundary.
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:347:
+     }
+ }
+
+-
+ fn regex_pattern_parameter(literal: &str) -> Option<&str> {
+     let name = literal.strip_prefix('$')?;
+     if name.is_empty()
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:362:
+     Some(name)
+ }
+
+-
+ #[derive(Clone, Debug, PartialEq)]
+ enum TokenKind {
+     Word(String),
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:378:
+     End,
+ }
+
+-
+ /// Filter token and its source span.
+ #[derive(Clone, Debug)]
+ struct Token {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:387:
+     end: usize,
+ }
+
+-
+ fn lex(input: &str) -> Result<Vec<Token>, String> {
+     let mut out = Vec::new();
+     let mut pos = 0;
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:553:
+     Ok(out)
+ }
+
+-
+ /// Cursor and token stream for the filter grammar.
+ struct Parser {
+     tokens: Vec<Token>,
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:560:
+     pos: usize,
+ }
+
+-
+ impl Parser {
+     fn peek(&self) -> &TokenKind {
+         &self.tokens[self.pos].kind
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:889:
+     }
+ }
+
+-
+ /// Top-level structured request split into membership and registered ordering.
+ #[derive(Clone, Debug, PartialEq)]
+ pub struct StructuredFilter {
+Diff in /home/simon/source/objekte/crates/core/src/query.rs:896:
+     pub filter: Option<FilterExpr>,
+     pub sort: Option<Vec<SortField>>,
+ }
+-
+
+ pub fn parse_structured_filter(input: &str) -> Result<StructuredFilter, String> {
+     let mut parser = Parser {
+Diff in /home/simon/source/objekte/crates/core/src/query_path.rs:2:
+
+ use crate::model::{FieldPath, PathRoot};
+
+-
+ /// One data-field or array occurrence step in a query path.
+ #[derive(Clone, Debug, Eq, PartialEq, Hash, serde::Serialize)]
+ pub enum PathStep {
+Diff in /home/simon/source/objekte/crates/core/src/query_path.rs:11:
+     EachElement,
+ }
+
+-
+ /// Parsed path with its schema lookup key and occurrence-preserving steps.
+ #[derive(Clone, Debug, Eq, PartialEq, serde::Serialize)]
+ pub struct QueryPath {
+Diff in /home/simon/source/objekte/crates/core/src/query_path.rs:22:
+     pub display: String,
+ }
+
+-
+ impl QueryPath {
+     pub fn parse(input: &str) -> Result<Self, String> {
+         if input == "@root" {
+Diff in /home/simon/source/objekte/crates/core/src/query_path.rs:165:
+         })
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "query_path.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/regex_query.rs:18:
+ const EXTRACTION_ALTERNATIVE_LIMIT: usize = 16;
+ const EXTRACTION_LITERAL_LIMIT: usize = 256;
+
+-
+ /// Necessary record-level gram condition; every regex match satisfies it.
+ #[derive(Clone, Debug)]
+ pub(crate) enum RegexCondition {
+Diff in /home/simon/source/objekte/crates/core/src/regex_query.rs:27:
+     Any(Vec<Self>),
+ }
+
+-
+ impl RegexCondition {
+     /// A missing child is unrestricted. Conjunction can retain its other
+     /// restrictions; one unrestricted alternation branch lifts the whole OR.
+Diff in /home/simon/source/objekte/crates/core/src/regex_query.rs:153:
+     }
+ }
+
+-
+ /// A compiled Boolean matcher shared by the selected text representations.
+ #[derive(Clone, Debug)]
+ pub(crate) struct CompiledRegex {
+Diff in /home/simon/source/objekte/crates/core/src/regex_query.rs:161:
+     condition: Option<RegexCondition>,
+ }
+
+-
+ impl CompiledRegex {
+     pub fn compile(
+         pattern: &str,
+Diff in /home/simon/source/objekte/crates/core/src/regex_query.rs:210:
+         self.condition.as_ref()
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "regex_query.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:11:
+ use crate::reference::{FieldDefinition, Schema};
+ use crate::repository::{CollectionDefinition, CollectionState};
+
+-
+ /// Declared cardinality of a source relation field.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub enum RelationCardinality {
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:19:
+     Many,
+ }
+
+-
+ /// Format-independent declaration of one source field's target namespace.
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct RelationDefinition {
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:29:
+     pub reverse_alias: Option<String>,
+ }
+
+-
+ /// Stable relation identity within a repository configuration.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ pub struct RelationId {
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:37:
+     pub ordinal: u32,
+ }
+
+-
+ /// Resolved target slot or an ID that has no target in its declared namespace.
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub enum RelationTarget {
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:45:
+     Unresolved(String),
+ }
+
+-
+ /// One source occurrence of a declared ID, with array indexes from outer to inner.
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct RelationEdge {
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:53:
+     pub positions: Vec<u32>,
+ }
+
+-
+ /// Immutable CSR adjacency for one declaration. A source's file provenance is
+ /// read from its `CollectionGeneration` record; no file ID is duplicated here.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:70:
+     unresolved_count: u64,
+ }
+
+-
+ impl RelationIndex {
+     pub fn edges(&self, source: RecordSlot) -> Option<&[RelationEdge]> {
+         let start = *self.offsets.get(source.0 as usize)? as usize;
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:229:
+     }
+ }
+
+-
+ /// One local ID occurrence before target inventories are available.
+ struct PendingReference {
+     source: RecordSlot,
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:237:
+     positions: Vec<u32>,
+ }
+
+-
+ /// Construction-only relation state, merged in deterministic batch order.
+ pub(crate) struct RelationContribution {
+     declaration: RelationDefinition,
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:249:
+     unavailable: RoaringBitmap,
+ }
+
+-
+ impl RelationContribution {
+     pub(crate) fn for_schema(schema: &Schema) -> Vec<Self> {
+         schema
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:413:
+     }
+ }
+
+-
+ fn visit_reference(
+     value: &Value,
+     path: &[String],
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:462:
+     }
+ }
+
+-
+ impl Schema {
+     pub fn relations(&self) -> &BTreeMap<Vec<String>, RelationDefinition> {
+         &self.relations
+Diff in /home/simon/source/objekte/crates/core/src/relation.rs:516:
+         Ok(())
+     }
+ }
+-
+
+ pub(crate) fn validate_field_against_relations(
+     field: &FieldDefinition,
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:8:
+ /// Maximum number of outgoing occurrences or distinct backlink sources per page.
+ pub const MAX_RELATION_PAGE_SIZE: usize = 1024;
+
+-
+ /// Stable record identity and resident provenance returned by inspection.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct InspectedRecord {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:22:
+     pub diagnostic_ref: DiagnosticRef,
+ }
+
+-
+ /// Availability of one source relation field without reading its logical payload.
+ /// `Present` includes explicit null and empty arrays; the page reports those separately.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:32:
+     Unavailable,
+ }
+
+-
+ /// One source occurrence, including duplicate IDs at different array positions.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct OutgoingReference {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:41:
+     pub resolved: Option<InspectedRecord>,
+ }
+
+-
+ /// Bounded page of source occurrences in immutable adjacency order.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct OutgoingReferencePage {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:57:
+     pub references: Vec<OutgoingReference>,
+ }
+
+-
+ /// Bounded page of distinct sources from an existing typed reverse posting.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct BacklinkPage {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:70:
+     pub sources: Vec<InspectedRecord>,
+ }
+
+-
+ /// One configured collection, including collections that currently have no records.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct CollectionGraphNode {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:82:
+     pub incoming: Vec<RelationId>,
+ }
+
+-
+ /// One declared relation; parallel source-target relations remain distinct.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct CollectionGraphEdge {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:96:
+     pub unresolved_occurrence_count: u64,
+ }
+
+-
+ /// Strongly connected collection IDs; a self-loop is cyclic on its own.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct CollectionComponent {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:104:
+     pub cyclic: bool,
+ }
+
+-
+ /// Resident declaration graph with adjacency and bounded-size cycle summary.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct CollectionGraph {
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:113:
+     pub components: Vec<CollectionComponent>,
+ }
+
+-
+ fn page_limit(limit: usize) -> Result<usize, String> {
+     if !(1..=MAX_RELATION_PAGE_SIZE).contains(&limit) {
+         return Err(format!(
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:159:
+     })
+ }
+
+-
+ impl Repository {
+     /// Page one record's outgoing occurrences without opening source files.
+     pub fn relation_outgoing_page(
+Diff in /home/simon/source/objekte/crates/core/src/relation_inspection.rs:320:
+         })
+     }
+ }
+-
+
+ fn graph_components(node_count: usize, edges: &[CollectionGraphEdge]) -> Vec<CollectionComponent> {
+     let mut forward = vec![Vec::new(); node_count];
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:22:
+ const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
+ const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
+
+-
+ /// Direction of a declared, collection-scoped relation hop.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub enum HopDirection {
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:30:
+     Backlink,
+ }
+
+-
+ /// One resolved hop and its explicit array selectors in source order.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub struct BoundRelationHop {
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:41:
+     pub to: CollectionId,
+ }
+
+-
+ /// A finite path that begins at the matching source and ends at a local term.
+ #[derive(Clone, Debug)]
+ pub struct BoundRelationPath {
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:52:
+     pub evidence_path: String,
+ }
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub(crate) enum EvaluationMode {
+     Indexed,
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:59:
+     Reference,
+ }
+
+-
+ /// Physical work caused by relation traversal, separate from the source scan.
+ #[derive(Clone, Copy, Debug, Default)]
+ pub(crate) struct RelationWork {
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:71:
+     pub bytes_read: u64,
+ }
+
+-
+ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
+     *counter = counter
+         .checked_add(amount)
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:82:
+     Ok(())
+ }
+
+-
+ impl RelationWork {
+     fn edge(&mut self) -> Result<(), String> {
+         charge(
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:133:
+     }
+ }
+
+-
+ /// Combine bounded scanner chunks into one query-wide relation work budget.
+ pub(crate) fn check_query_work_budget(
+     counters: &crate::workload::WorkCounters,
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:172:
+     Ok(())
+ }
+
+-
+ /// Immutable traversal choices shared by every hop of one predicate.
+ #[derive(Clone, Copy)]
+ struct TraverseConfig<'a> {
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:184:
+     target_values: Option<&'a TargetValueCache>,
+ }
+
+-
+ /// Bind a Boolean expression with collection-specific relation declarations.
+ pub(crate) fn bind_filter_with_relations(
+     repo: &Repository,
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:1230:
+     Ok(Some(extracted.value))
+ }
+
+-
+ /// Independent logical ID occurrences and presence/null state.
+ struct LogicalReferences {
+     present: bool,
+Diff in /home/simon/source/objekte/crates/core/src/relation_query.rs:1237:
+     null: bool,
+     values: Vec<(String, Vec<u32>)>,
+ }
+-
+
+ /// An intentionally separate, iterative oracle for declared ID occurrences.
+ /// It walks logical values directly and never consults build-time edge state.
+Diff in /home/simon/source/objekte/crates/core/src/relation_semijoin.rs:28:
+ const MAX_TARGET_RECORD_BYTES: u64 = 64 * 1024 * 1024;
+ const TARGET_BATCH_BYTES: u64 = 1024 * 1024;
+
+-
+ /// Physical strategy chosen for one positive relation term.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub(crate) enum Strategy {
+Diff in /home/simon/source/objekte/crates/core/src/relation_semijoin.rs:36:
+     SourceRestricted,
+ }
+
+-
+ /// Exact source membership and selected-field evidence for relation FTS.
+ pub(crate) struct FtsWitnesses {
+     pub evidence: HashMap<u32, HashSet<String>>,
+Diff in /home/simon/source/objekte/crates/core/src/relation_semijoin.rs:44:
+     pub strategies: Vec<Strategy>,
+ }
+
+-
+ /// Query-local work performed while constructing exact relation witnesses.
+ #[derive(Clone, Copy, Debug, Default)]
+ pub(crate) struct SemijoinWork {
+Diff in /home/simon/source/objekte/crates/core/src/relation_semijoin.rs:58:
+     pub verified_targets_reused: u64,
+ }
+
+-
+ impl SemijoinWork {
+     pub fn add(&mut self, other: Self) {
+         self.target_candidates += other.target_candidates;
+Diff in /home/simon/source/objekte/crates/core/src/relation_semijoin.rs:71:
+         self.verified_targets_reused += other.verified_targets_reused;
+     }
+ }
+-
+
+ fn ensure_slots(count: u64) -> Result<(), String> {
+     if count > MAX_INTERMEDIATE_SLOTS {
+Diff in /home/simon/source/objekte/crates/core/src/relation_target_cache.rs:23:
+ // and map entry while prefetching. It is an estimate, not process RSS.
+ const STREAM_TARGET_SLOT_BYTES: u64 = 128;
+
+-
+ /// Physical preparation work, charged to the query before source scanning.
+ #[derive(Clone, Copy, Debug, Default)]
+ pub(crate) struct TargetCacheWork {
+Diff in /home/simon/source/objekte/crates/core/src/relation_target_cache.rs:34:
+     pub edge_visits: u64,
+ }
+
+-
+ /// Immutable projected logical values shared by parallel source scanners.
+ pub(crate) struct TargetValueCache {
+     values: HashMap<(CollectionId, RecordSlot), Value>,
+Diff in /home/simon/source/objekte/crates/core/src/relation_target_cache.rs:43:
+     pub retained_bytes: u64,
+ }
+
+-
+ impl TargetValueCache {
+     pub(crate) fn estimated_bytes(&self) -> usize {
+         self.values.iter().fold(0usize, |total, (_, value)| {
+Diff in /home/simon/source/objekte/crates/core/src/relation_target_cache.rs:71:
+             .and_then(|_| self.get(collection, slot))
+     }
+ }
+-
+
+ fn source_dependent_terms<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundTerm>) {
+     match expr {
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:21:
+ const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
+ const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
+
+-
+ /// A prepared sort term with no source access in its comparator.
+ pub(crate) struct BoundSortTerm<'a> {
+     pub source: BoundSortSource<'a>,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:29:
+     pub options: SortOptions,
+ }
+
+-
+ /// A resident column or a key that must be read for each matching record.
+ pub(crate) enum BoundSortSource<'a> {
+     Stored(&'a SortColumn),
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:36:
+     Computed(Box<ComputedSort>),
+ }
+
+-
+ /// Query-scoped key extraction for one local or finite related path.
+ pub(crate) struct ComputedSort {
+     pub path: QueryPath,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:46:
+     collator: CollatorBorrowed<'static>,
+ }
+
+-
+ /// A bound, stable scalar transformation rather than an exact matcher.
+ enum SortTransform {
+     Identity,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:54:
+     Operation(Arc<dyn BindingOperation>),
+ }
+
+-
+ /// Stable identity required when one order spans several collections.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ enum SortTransformIdentity {
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:71:
+     },
+ }
+
+-
+ /// Sort terms for every selected collection, with a flag for source reads.
+ pub(crate) struct BoundSort<'a> {
+     pub terms: Vec<Option<Vec<BoundSortTerm<'a>>>>,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:79:
+     pub needs_source: bool,
+ }
+
+-
+ /// Query-local target projections reused when several source links reach one target.
+ #[derive(Default)]
+ pub(crate) struct SortTargetCache {
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:93:
+     pub bytes_read: u64,
+ }
+
+-
+ fn expression(field: &SortField) -> Result<SortExpression, String> {
+     if let Some(expression) = &field.expression {
+         return Ok(expression.clone());
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:169:
+     }
+ }
+
+-
+ impl<'a> BoundSort<'a> {
+     pub fn bind(repo: &'a Repository, query: &Query) -> Result<Self, String> {
+         let mut terms = Vec::with_capacity(repo.collections.len());
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:311:
+     }
+ }
+
+-
+ impl ComputedSort {
+     fn key(
+         &self,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:407:
+     }
+ }
+
+-
+ // Every child must be visited to retain all source occurrences.
+ #[allow(clippy::unnecessary_fold)]
+ fn select_values<'a>(
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:446:
+     }
+ }
+
+-
+ impl SortTargetCache {
+     pub(crate) fn configure_stream(
+         &mut self,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:543:
+     }
+ }
+
+-
+ /// One reduced key and the minimum state needed across relation occurrences.
+ struct SortAccumulator {
+     reducer: Option<SortReducer>,
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:555:
+     expanded: bool,
+ }
+
+-
+ /// Only a scalar candidate or a compact error marker is retained for LAST.
+ enum LastValue {
+     Scalar(Value),
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:563:
+     Unavailable,
+ }
+
+-
+ impl SortAccumulator {
+     fn new(reducer: Option<SortReducer>) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:672:
+     }
+ }
+
+-
+ impl ComputedSort {
+     #[allow(clippy::too_many_arguments)]
+     fn visit_related(
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.rs:874:
+         Ok(())
+     }
+ }
+-
+
+ fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> bool {
+     selectors.len() <= positions.len()
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.test.rs:6:
+ use crate::source::SourceFormat;
+ use crate::workload::ReturnMode;
+
+-
+ #[derive(Debug)]
+ struct NullAsZero;
+
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.test.rs:13:
+-
+ impl BindingOperation for NullAsZero {
+     fn accepts(&self, _: &crate::model::LogicalType, _: crate::query::Operator, _: bool) -> bool {
+         true
+Diff in /home/simon/source/objekte/crates/core/src/sort_binding.test.rs:40:
+         true
+     }
+ }
+-
+
+ #[test]
+ fn min_max_transform_null_before_classifying_it() {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:11:
+ use crate::inventory::{ByteRange, SourceRevision};
+ use crate::model::Value;
+
+-
+ #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
+ #[serde(rename_all = "snake_case")]
+ pub enum SourceFormat {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:21:
+     Registered(String),
+ }
+
+-
+ impl SourceFormat {
+     pub fn registered(id: impl Into<String>) -> Self {
+         Self::Registered(id.into())
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:37:
+     }
+ }
+
+-
+ /// Extracted searchable string with its logical field path.
+ #[derive(Clone, Debug)]
+ pub struct TextSegment {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:45:
+     pub text: String,
+ }
+
+-
+ /// Logical value and text produced by a source reader.
+ #[derive(Clone, Debug)]
+ pub struct ExtractedRecord {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:53:
+     pub text: Vec<TextSegment>,
+ }
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ #[serde(rename_all = "snake_case")]
+ pub enum DiagnosticCategory {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:65:
+     Io,
+ }
+
+-
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct ReaderDiagnostic {
+     pub category: DiagnosticCategory,
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:77:
+     pub field_path: Option<Vec<String>>,
+ }
+
+-
+ impl ReaderDiagnostic {
+     pub fn new(
+         category: DiagnosticCategory,
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:96:
+     }
+ }
+
+-
+ #[derive(Clone, Debug)]
+ pub enum ReaderFailure {
+     Malformed(ReaderDiagnostic),
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:103:
+     Fatal(String),
+ }
+
+-
+ #[derive(Clone)]
+ pub enum SourceOutcome {
+     Logical {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:120:
+     },
+ }
+
+-
+ /// Fields required to verify a query against one source record. `None` keeps
+ /// the complete record; otherwise unrelated top-level members are skipped by
+ /// the source reader while JSON syntax is still checked.
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:131:
+     pub resolved_text_only: bool,
+ }
+
+-
+ /// Whether each logical string field appears as an intact, unchanged text
+ /// segment. A custom reader must opt in explicitly; its default segments are
+ /// reader-owned and may omit or split fields present in the logical record.
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:141:
+     ReaderSelected,
+ }
+
+-
+ /// Owner of searchable segments after logical type conversion.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub enum TextDerivation {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:149:
+     LogicalStringsAfterConversion,
+ }
+
+-
+ pub fn finalize_extracted_text(
+     reader: &dyn SourceReader,
+     record: &mut ExtractedRecord,
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:161:
+     }
+ }
+
+-
+ impl ScanProjection {
+     pub fn full(collect_text: bool) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:180:
+     }
+ }
+
+-
+ pub trait SourceReader: Send + Sync {
+     fn name(&self) -> &'static str;
+     fn text_derivation(&self) -> TextDerivation {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:242:
+     }
+ }
+
+-
+ /// Stable source identity, discovery suffix, and reader implementation.
+ #[derive(Clone)]
+ pub struct SourceRegistration {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:252:
+     pub reader: Arc<dyn SourceReader>,
+ }
+
+-
+ /// Prepared source handle resolved once per collection.
+ #[derive(Clone)]
+ pub struct PreparedSource(Arc<SourceRegistration>);
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:259:
+
+-
+ impl PreparedSource {
+     pub fn id(&self) -> &str {
+         &self.0.id
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:276:
+     }
+ }
+
+-
+ /// Repository-local source registrations. The built-ins use this same table.
+ #[derive(Clone, Default)]
+ pub struct SourceRegistry {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:283:
+     entries: HashMap<String, Arc<SourceRegistration>>,
+ }
+
+-
+ impl SourceRegistry {
+     pub fn builtin() -> Self {
+         let mut sources = Self::default();
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:341:
+     }
+ }
+
+-
+ /// Reader for a single standalone JSON record per file.
+ pub struct JsonReader;
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:348:
+-
+ /// Built-in one-document JSON reader with decoded scalar-value FTS text.
+ pub struct JsonDecodedScalarsReader;
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:352:
+-
+ /// Reader for independently parseable JSON Lines records.
+ pub struct JsonLinesReader;
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:356:
+-
+ /// Deserializer seed that retains selected top-level JSON members.
+ struct SelectedObject<'a>(&'a HashSet<String>);
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:360:
+-
+ /// Map visitor that skips JSON members outside a query projection.
+ struct SelectedVisitor<'a>(&'a HashSet<String>);
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:364:
+-
+ impl<'de> Visitor<'de> for SelectedVisitor<'_> {
+     type Value = serde_json::Map<String, serde_json::Value>;
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:382:
+     }
+ }
+
+-
+ impl<'de> DeserializeSeed<'de> for SelectedObject<'_> {
+     type Value = serde_json::Map<String, serde_json::Value>;
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:394:
+     }
+ }
+
+-
+ fn json_issue(bytes: &[u8], error: serde_json::Error) -> ReaderDiagnostic {
+     let invalid_utf8 = std::str::from_utf8(bytes).err();
+     let category = if error.to_string().contains("recursion limit exceeded") {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:488:
+         },
+     )?;
+     if projection.collect_text {
+-        extracted.text = crate::json_scalar_text::scalar_segments(
+-            bytes,
+-            projection.resolved_text_only,
+-            true,
+-        )
+-        .map_err(|error| {
+-            ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
+-        })?;
++        extracted.text =
++            crate::json_scalar_text::scalar_segments(bytes, projection.resolved_text_only, true)
++                .map_err(|error| {
++                    ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
++                })?;
+     }
+     Ok(extracted)
+ }
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:578:
+     }
+ }
+
+-
+ impl SourceReader for JsonReader {
+     fn name(&self) -> &'static str {
+         "json"
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:623:
+     }
+ }
+
+-
+ impl SourceReader for JsonDecodedScalarsReader {
+     fn name(&self) -> &'static str {
+         "json_decoded_scalars"
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:652:
+     }
+
+     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+-        parse_json_decoded_for_build_diagnosed(bytes)
+-            .map_err(json_reader_failure)
++        parse_json_decoded_for_build_diagnosed(bytes).map_err(json_reader_failure)
+     }
+
+     fn parse_for_query(
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:661:
+         bytes: &[u8],
+         projection: &ScanProjection,
+     ) -> Result<ExtractedRecord, String> {
+-        parse_json_decoded_for_query_diagnosed(bytes, projection)
+-            .map_err(|issue| issue.message)
++        parse_json_decoded_for_query_diagnosed(bytes, projection).map_err(|issue| issue.message)
+     }
+ }
+
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:669:
+-
+ impl SourceReader for JsonLinesReader {
+     fn name(&self) -> &'static str {
+         "jsonl"
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:728:
+     }
+ }
+
+-
+ /// Framing and parse counts from one source extraction.
+ #[derive(Default, Clone, Copy, Debug)]
+ pub struct ExtractionCounters {
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:737:
+     pub failed_parses: u64,
+ }
+
+-
+ /// Call `consume` once for every independently parseable record. No index
+ /// family rereads or reparses the source; builders share the extracted value.
+ pub fn extract_file<F>(
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:1065:
+     RecordRangeReader::open(path, revision)?.read(ranges)
+ }
+
+-
+ /// One opened source handle for a bounded sequence of range batches.
+ pub struct RecordRangeReader {
+     file: std::fs::File,
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:1078:
+     pub(crate) max_window_read: usize,
+ }
+
+-
+ impl RecordRangeReader {
+     pub fn open(path: &Path, revision: SourceRevision) -> Result<Self, String> {
+         let file = std::fs::File::open(path).map_err(|e| format!("{}: {e}", path.display()))?;
+Diff in /home/simon/source/objekte/crates/core/src/source.rs:1216:
+         Ok((output, total as u64))
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "source.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/source_access.rs:9:
+ const MAX_OPEN_HANDLES: usize = 8;
+ const WINDOW_BYTES: u64 = 64 * 1024;
+
+-
+ struct OpenSource {
+     file_id: FileId,
+     revision: SourceRevision,
+Diff in /home/simon/source/objekte/crates/core/src/source_access.rs:19:
+     last_used: u64,
+ }
+
+-
+ pub(crate) struct SourceAccessSession<'a> {
+     files: &'a FileInventory,
+     open: Vec<OpenSource>,
+Diff in /home/simon/source/objekte/crates/core/src/source_access.rs:27:
+     clock: u64,
+ }
+
+-
+ pub(crate) struct RangeBatch {
+     pub records: Vec<(u32, Vec<u8>)>,
+     pub opened: u64,
+Diff in /home/simon/source/objekte/crates/core/src/source_access.rs:34:
+     pub bytes_read: u64,
+ }
+
+-
+ impl<'a> SourceAccessSession<'a> {
+     pub fn new(files: &'a FileInventory) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/source_access.rs:177:
+         })
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "source_access.test.rs"]
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:9:
+ use crate::repository::{Payload, SearchHit};
+ use crate::workload::WorkCounters;
+
+-
+ /// How verified requested-page rows are published during execution.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub enum StreamMode {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:17:
+     PageReplacements,
+ }
+
+-
+ /// Semantic result extent for one streaming execution.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub enum ResultScope {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:25:
+     All { offset: usize },
+ }
+
+-
+ impl ResultScope {
+     pub fn offset(self) -> usize {
+         match self {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:34:
+     }
+ }
+
+-
+ /// Delivery cadence and upper bounds for one streaming execution.
+ #[derive(Clone, Copy, Debug)]
+ pub struct StreamOptions {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:45:
+     pub max_buffered_bytes: usize,
+ }
+
+-
+ impl Default for StreamOptions {
+     fn default() -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:58:
+     }
+ }
+
+-
+ impl StreamOptions {
+     pub(crate) fn validate(self) -> Result<(), String> {
+         if self.batch_rows == 0
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:72:
+     }
+ }
+
+-
+ /// Shareable cooperative cancellation flag for a running request.
+ #[derive(Clone, Default)]
+ pub struct CancellationToken(Arc<AtomicBool>);
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:79:
+
+-
+ impl CancellationToken {
+     pub fn new() -> Self {
+         Self::default()
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:92:
+     }
+ }
+
+-
+ /// Decision returned by a caller's event callback.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq)]
+ pub enum StreamControl {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:100:
+     Cancel,
+ }
+
+-
+ /// Counters visible at an interim delivery or terminal outcome.
+ #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+ pub struct StreamProgress {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:114:
+     pub peak_buffered_bytes: usize,
+ }
+
+-
+ /// Borrowed, nonterminal event. A replacement supersedes the prior page.
+ pub enum StreamEvent<'a> {
+     OrderedRows {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:134:
+     },
+ }
+
+-
+ /// Successful query summary; the last event sequence identifies its final page.
+ #[derive(Clone, Debug)]
+ pub struct StreamSummary {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:145:
+     pub progress: StreamProgress,
+ }
+
+-
+ /// Completion and cancellation have separate terminal outcomes.
+ #[derive(Clone, Debug)]
+ pub enum StreamOutcome {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:153:
+     Cancelled(StreamProgress),
+ }
+
+-
+ /// Execution, callback, and resource failures retain observed progress.
+ #[derive(Clone, Debug, Eq, PartialEq)]
+ pub enum StreamError {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:171:
+     },
+ }
+
+-
+ impl fmt::Display for StreamError {
+     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+         match self {
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:182:
+     }
+ }
+
+-
+ impl std::error::Error for StreamError {}
+
+-
+ pub(crate) enum Abort {
+     Cancelled,
+     Sink(String),
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:192:
+     Resource(String),
+ }
+
+-
+ /// Coordinator-only delivery state; callbacks never run under cache locks.
+ pub(crate) struct Delivery<'a> {
+     options: StreamOptions,
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:205:
+     last_page: Vec<(String, String)>,
+ }
+
+-
+ impl<'a> Delivery<'a> {
+     pub(crate) fn new(
+         options: StreamOptions,
+Diff in /home/simon/source/objekte/crates/core/src/streaming.rs:440:
+         Ok(())
+     }
+ }
+-
+
+ pub(crate) fn hit_bytes(hit: &SearchHit) -> usize {
+     let mut bytes = std::mem::size_of::<SearchHit>()
+Diff in /home/simon/source/objekte/crates/core/src/streaming.test.rs:12:
+
+ static NEXT_FIXTURE: AtomicUsize = AtomicUsize::new(0);
+
+-
+ /// Temporary repository whose source files are removed after each test.
+ struct Fixture {
+     root: PathBuf,
+Diff in /home/simon/source/objekte/crates/core/src/streaming.test.rs:19:
+     repo: Repository,
+ }
+
+-
+ impl Drop for Fixture {
+     fn drop(&mut self) {
+         std::fs::remove_dir_all(&self.root).ok();
+Diff in /home/simon/source/objekte/crates/core/src/streaming.test.rs:26:
+     }
+ }
+-
+
+ fn fixture() -> Fixture {
+     fixture_with_alphabet(BigramAlphabet::Ascii)
+Diff in /home/simon/source/objekte/crates/core/src/temporal_query.rs:18:
+         && bytes[5..7].iter().all(u8::is_ascii_digit)
+ }
+
+-
+ /// One written calendar or timestamp period, before field-type lowering.
+ #[derive(Clone, Debug, PartialEq, serde::Serialize)]
+ pub struct PeriodLiteral {
+Diff in /home/simon/source/objekte/crates/core/src/temporal_query.rs:30:
+     pub macro_instant: bool,
+ }
+
+-
+ /// Period endpoints converted to the indexed field's exact logical type.
+ #[derive(Clone, Debug)]
+ pub struct TemporalBounds {
+Diff in /home/simon/source/objekte/crates/core/src/temporal_query.rs:38:
+     pub end: Value,
+ }
+
+-
+ fn digits(text: &str, start: usize, end: usize) -> Result<u32, String> {
+     let value = text.get(start..end).ok_or("invalid temporal literal")?;
+     if !value.bytes().all(|byte| byte.is_ascii_digit()) {
+Diff in /home/simon/source/objekte/crates/core/src/temporal_query.rs:80:
+     }
+ }
+
+-
+ impl PeriodLiteral {
+     pub fn calendar(start: Date, end: Date) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/temporal_query.rs:278:
+     }
+ }
+
+-
+ impl TemporalBounds {
+     pub fn matches(&self, value: &Value, operator: Operator) -> bool {
+         let (before_start, before_end) = match (value, &self.start, &self.end) {
+Diff in /home/simon/source/objekte/crates/core/src/temporal_query.rs:296:
+         matches_ordering(before_start, before_end, operator)
+     }
+ }
+-
+
+ /// Apply a comparison to two already typed half-open endpoints.
+ pub fn matches_ordering(start: Ordering, end: Ordering, operator: Operator) -> bool {
+Diff in /home/simon/source/objekte/crates/core/src/verified.rs:5:
+
+ use crate::query::{FilterExpr, Operand, Query};
+
+-
+ /// Verified record slot and evidence retained for reuse.
+ #[derive(Clone, Debug)]
+ pub(crate) struct CachedMember {
+Diff in /home/simon/source/objekte/crates/core/src/verified.rs:14:
+     pub matched_fields: Vec<String>,
+ }
+
+-
+ /// Complete membership set held in the result cache.
+ pub(crate) struct CachedResult {
+     pub members: Vec<CachedMember>,
+Diff in /home/simon/source/objekte/crates/core/src/verified.rs:21:
+ }
+
+-
+ /// Result cache value together with its byte cost.
+ struct Entry {
+     result: Arc<CachedResult>,
+Diff in /home/simon/source/objekte/crates/core/src/verified.rs:27:
+     bytes: usize,
+ }
+
+-
+ /// Memory-bounded cache of complete verified results.
+ pub(crate) struct VerifiedCache {
+     budget: usize,
+Diff in /home/simon/source/objekte/crates/core/src/verified.rs:36:
+     order: VecDeque<Vec<u8>>,
+ }
+
+-
+ impl VerifiedCache {
+     pub fn new(budget: usize) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/verified.rs:119:
+         self.bytes
+     }
+ }
+-
+
+ pub(crate) fn key(query: &Query) -> Result<Vec<u8>, String> {
+     // Repository ownership supplies the generation, alphabet, schema and
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:7:
+
+ use crate::model::Value;
+
+-
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ #[serde(rename_all = "lowercase")]
+ pub enum ReturnMode {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:16:
+     Logical,
+ }
+
+-
+ /// Field and direction requested by a workload case.
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct SortField {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:27:
+     pub expression: Option<SortExpression>,
+ }
+
+-
+ /// Reduction within one source record's reached sort values.
+ #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
+ #[serde(rename_all = "snake_case")]
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:38:
+     Last,
+ }
+
+-
+ /// Programmatic sort expression, independent of its display spelling.
+ #[derive(Clone, Debug, Eq, Hash, PartialEq, Serialize, Deserialize)]
+ pub struct SortExpression {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:49:
+     pub reducer: Option<SortReducer>,
+ }
+
+-
+ impl SortField {
+     pub fn simple(field: impl Into<String>, descending: bool) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:68:
+     }
+ }
+
+-
+ /// Fixed benchmark query and expected execution options.
+ #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct WorkloadCase {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:94:
+     pub evidence: bool,
+ }
+
+-
+ /// A benchmark request with separately typed data parameters. The historical
+ /// 150 cases remain ordinary `WorkloadCase`s with no parameter field.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:107:
+     pub clock_unix_seconds: Option<i64>,
+ }
+
+-
+ impl Deref for BenchmarkCase {
+     type Target = WorkloadCase;
+
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:116:
+     }
+ }
+
+-
+ impl BenchmarkCase {
+     /// Bind values once, before the timed search call.
+     pub fn query(&self) -> Result<crate::query::Query, String> {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:139:
+     }
+ }
+
+-
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+ #[serde(rename_all = "lowercase")]
+ pub enum BigramAlphabet {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:147:
+     Unicode,
+ }
+
+-
+ /// Alphabet and cache settings for one benchmark profile.
+ #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
+ pub struct Profile {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:156:
+     pub warm: bool,
+ }
+
+-
+ pub const PROFILES: [Profile; 4] = [
+     Profile {
+         alphabet: BigramAlphabet::Ascii,
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:180:
+     },
+ ];
+
+-
+ /// Observed candidate, source, cache, and result work.
+ #[derive(Clone, Debug, Default, Serialize, Deserialize)]
+ pub struct WorkCounters {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:256:
+     pub verified_result_hit: bool,
+ }
+
+-
+ /// One measured query execution and its counters.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct TimingSample {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:269:
+     pub counters: Option<WorkCounters>,
+ }
+
+-
+ /// Build and fixture fingerprints for a benchmark run.
+ #[derive(Clone, Debug, Serialize, Deserialize)]
+ pub struct RunIdentity {
+Diff in /home/simon/source/objekte/crates/core/src/workload.rs:283:
+     pub repetitions: usize,
+     pub profiles: Vec<Profile>,
+ }
+-
+
+ pub const REPORT_FILES: [&str; 7] = [
+     "run-manifest.json",
+Diff in /home/simon/source/objekte/crates/core/tests/array_positions.rs:13:
+ use objekte_search_core::source::SourceFormat;
+ use objekte_search_core::workload::ReturnMode;
+
+-
+ #[derive(Debug)]
+ struct LiteralOnlyOperation;
+
+Diff in /home/simon/source/objekte/crates/core/tests/array_positions.rs:20:
+-
+ impl BindingOperation for LiteralOnlyOperation {
+     fn accepts(&self, _: &LogicalType, _: Operator, _: bool) -> bool {
+         true
+Diff in /home/simon/source/objekte/crates/core/tests/array_positions.rs:35:
+         text.into()
+     }
+ }
+-
+
+ fn query(filter: &str) -> Query {
+     Query {
+Diff in /home/simon/source/objekte/crates/core/tests/discovery_exclusions.rs:73:
+     );
+ }
+
+-
+ #[cfg(unix)]
+ #[test]
+ fn exact_directory_exclusion_preserves_non_utf8_path_identity() {
+Diff in /home/simon/source/objekte/crates/core/tests/discovery_exclusions.rs:84:
+     let name = PathBuf::from(OsString::from_vec(vec![b'c', 0xff]));
+     std::fs::create_dir(fixture.0.join(&name)).unwrap();
+     std::fs::write(fixture.0.join(&name).join("inside.json"), b"{}\n").unwrap();
+-    let source = SourceRegistry::builtin().resolve(&SourceFormat::Json).unwrap();
++    let source = SourceRegistry::builtin()
++        .resolve(&SourceFormat::Json)
++        .unwrap();
+     let rules = Discovery {
+         recursive: true,
+         hidden: true,
+Diff in /home/simon/source/objekte/crates/core/tests/discovery_exclusions.rs:91:
+         exclude_directories: vec![name],
+         ..Discovery::default()
+     };
+-    assert!(discover(&fixture.0, Path::new(""), &rules, &source)
+-        .unwrap()
+-        .is_empty());
++    assert!(
++        discover(&fixture.0, Path::new(""), &rules, &source)
++            .unwrap()
++            .is_empty()
++    );
+ }
+
+Diff in /home/simon/source/objekte/crates/tui/src/tui/input.rs:2:
+
+ use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
+
+-
+ /// Text and a cursor counted in characters, not bytes.
+ #[derive(Default, Clone)]
+ pub(super) struct Input {
+Diff in /home/simon/source/objekte/crates/tui/src/tui/input.rs:10:
+     pub(super) cursor: usize,
+ }
+
+-
+ impl Input {
+     pub(super) fn with_text(text: &str) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/tui/src/tui/input.rs:152:
+         }
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "input.test.rs"]
+Diff in /home/simon/source/objekte/crates/tui/src/tui/input.test.rs:1:
+ use super::*;
+
+-
+ fn press(input: &mut Input, code: KeyCode, modifiers: KeyModifiers) -> Option<bool> {
+     input.key(KeyEvent::new(code, modifiers))
+ }
+Diff in /home/simon/source/objekte/crates/tui/src/tui/relations.rs:5:
+
+ const PAGE_SIZE: usize = 100;
+
+-
+ #[derive(Clone, Debug)]
+ pub(super) enum LinkAction {
+     Target {
+Diff in /home/simon/source/objekte/crates/tui/src/tui/relations.rs:26:
+     },
+ }
+
+-
+ #[derive(Clone, Debug)]
+ pub(super) struct RelationRow {
+     pub(super) label: String,
+Diff in /home/simon/source/objekte/crates/tui/src/tui/relations.rs:34:
+     pub(super) action: Option<LinkAction>,
+ }
+
+-
+ impl RelationRow {
+     fn plain(label: impl Into<String>, value: impl Into<String>) -> Self {
+         Self {
+Diff in /home/simon/source/objekte/crates/tui/src/tui/relations.rs:52:
+         }
+     }
+ }
+-
+
+ fn collection_name(repo: &Repository, id: objekte_search_core::model::CollectionId) -> String {
+     repo.collections().get(id.0 as usize).map_or_else(
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.rs:17:
+     !value
+ }
+
+-
+ /// The two query lines and the collection they searched.
+ #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+ pub(super) struct Query {
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.rs:35:
+     pub(super) regex: bool,
+ }
+
+-
+ #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+ pub(super) struct SavedQuery {
+     pub(super) name: String,
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.rs:43:
+     pub(super) query: Query,
+ }
+
+-
+ /// Hidden result columns for one collection, or `*` for all collections.
+ #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+ pub(super) struct Columns {
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.rs:51:
+     pub(super) hidden: Vec<String>,
+ }
+
+-
+ #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
+ pub(super) struct Settings {
+     /// `light` or `dark`; unset follows the terminal.
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.rs:66:
+     pub(super) columns: BTreeMap<String, Columns>,
+ }
+
+-
+ impl Settings {
+     pub(super) fn path(root: &Path) -> PathBuf {
+         root.join(".objekte/.cache/tui.json")
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.rs:127:
+         self.columns.retain(|_, columns| !columns.hidden.is_empty());
+     }
+ }
+-
+
+ #[cfg(test)]
+ #[path = "settings.test.rs"]
+Diff in /home/simon/source/objekte/crates/tui/src/tui/settings.test.rs:1:
+ use super::*;
+
+-
+ fn query(search: &str) -> Query {
+     Query {
+         search: search.into(),
+Diff in /home/simon/source/objekte/crates/tui/src/tui/test_support.rs:10:
+
+ use super::app::App;
+
+-
+ /// Fixture owner keeps source files alive while asynchronous queries run.
+ pub(super) struct Fixture {
+     pub(super) _temp: tempfile::TempDir,
+Diff in /home/simon/source/objekte/crates/tui/src/tui/test_support.rs:17:
+     pub(super) app: App,
+ }
+-
+
+ pub(super) fn fixture(count: usize) -> Fixture {
+     let temp = tempfile::tempdir().unwrap();
+Diff in /home/simon/source/objekte/crates/tui/src/tui/view/syntax.rs:8:
+     "SORT", "BY", "ASC", "DESC", "exists", "missing", "true", "false", "null",
+ ];
+
+-
+ /// One style per character of `text`.
+ pub(super) fn filter_styles(text: &str) -> Vec<Style> {
+     let chars = text.chars().collect::<Vec<_>>();
+Diff in /home/simon/source/objekte/crates/tui/src/tui/view/syntax.test.rs:1:
+ use super::*;
+
+-
+ #[test]
+ fn tokens_get_their_colours() {
+     let text = "year >= 1800 && title ~ 'Moon' SORT BY @modified DESC";
+Diff in /home/simon/source/objekte/crates/tui/src/tui/view/theme.rs:47:
+
+ static LIGHT_THEME: AtomicBool = AtomicBool::new(false);
+
+-
+ pub(in super::super) fn set_light(light: bool) {
+     LIGHT_THEME.store(light, Ordering::Relaxed);
+ }

@@ -1,78 +1,61 @@
-//! JSON export of one hit or the complete query result stream.
+//! Stream selected records or a complete search to a new JSON file.
 
-use super::app::Request;
-use super::app::{App, Hit, Overlay, View};
-use objekte_core::Error;
-use serde_json::json;
-use std::{
-    fs::{self, OpenOptions},
-    io::{self, BufWriter, Write},
-    path::{Path, PathBuf},
-};
+use std::fs::{self, OpenOptions};
+use std::io::{BufWriter, Write};
+use std::path::Path;
 
-fn io_error(path: &Path, source: io::Error) -> Error {
-    Error::Io {
-        path: path.to_path_buf(),
-        source,
+use objekte_search_core::query::Query;
+use objekte_search_core::repository::{Payload, Repository, SearchHit};
+use serde_json::{Value, json};
+
+use super::settings;
+
+fn record(hit: &SearchHit) -> Result<Value, String> {
+    match &hit.payload {
+        Some(Payload::Bytes(bytes)) => {
+            if hit.record_class == objekte_search_core::inventory::RecordClass::RawFallback {
+                Ok(Value::String(String::from_utf8_lossy(bytes).into_owned()))
+            } else {
+                serde_json::from_slice(bytes).map_err(|error| error.to_string())
+            }
+        }
+        Some(Payload::Logical(value)) => {
+            serde_json::to_value(value).map_err(|error| error.to_string())
+        }
+        Some(Payload::LogicalUnavailable { .. }) => Ok(Value::Null),
+        None => Err("query did not return record data".into()),
     }
 }
 
-fn append_hit(
-    writer: &mut BufWriter<fs::File>,
-    path: &Path,
-    first: &mut bool,
-    hit: &serde_json::Value,
-) -> objekte_core::Result<()> {
-    if !*first {
-        writer
-            .write_all(b",\n")
-            .map_err(|error| io_error(path, error))?;
-    }
-    *first = false;
-    serde_json::to_writer(writer, hit).map_err(|error| io_error(path, io::Error::other(error)))
+fn hit_value(hit: &SearchHit) -> Result<Value, String> {
+    Ok(json!({
+        "collection": hit.collection,
+        "id": hit.record_id,
+        "file": hit.file_path.to_string_lossy(),
+        "byte_start": hit.byte_start,
+        "byte_end": hit.byte_end,
+        "matched_fields": hit.matched_fields,
+        "file_status": hit.file_status.code(),
+        "file_status_label": hit.file_status.label(),
+        "record_class": hit.record_class.code(),
+        "diagnostic_ref": hit.diagnostic_ref.0,
+        "logical_unavailable": matches!(hit.payload, Some(Payload::LogicalUnavailable { .. })),
+        "record": record(hit)?,
+    }))
 }
 
-fn write_all(
-    app: &mut App<'_>,
-    path: &Path,
-    request: &Request,
-) -> Result<usize, Box<dyn std::error::Error>> {
-    let file = OpenOptions::new().write(true).create_new(true).open(path)?;
+pub(super) fn one(hit: &SearchHit, path: &Path) -> Result<(), String> {
+    let file = OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(path)
+        .map_err(|error| error.to_string())?;
     let mut writer = BufWriter::new(file);
-    let outcome = (|| -> Result<usize, Box<dyn std::error::Error>> {
-        let whole = request.whole_result();
-        let (kind, query) = match &whole {
-            Request::Filter(query) => ("filter", serde_json::to_value(query)?),
-            Request::Text(query) => ("full_text", serde_json::to_value(query)?),
-        };
-        write!(
-            writer,
-            "{{\n  \"kind\": {},\n  \"query\": {},\n  \"hits\": [\n",
-            serde_json::to_string(kind)?,
-            serde_json::to_string(&query)?
-        )?;
-        let mut first = true;
-        let (total, truncated) = match &whole {
-            Request::Filter(query) => {
-                let summary = app.repo.query_json_stream(query, |_, record| {
-                    append_hit(&mut writer, path, &mut first, &json!({"record":record}))
-                })?;
-                (summary.total, summary.truncated)
-            }
-            Request::Text(query) => {
-                let summary = app.repo.search_text_stream(query, |_, hit| {
-                    append_hit(&mut writer, path, &mut first, &json!(hit))
-                })?;
-                (summary.total, summary.truncated)
-            }
-        };
-        let exported = total.unwrap_or(0);
-        write!(
-            writer,
-            "\n  ],\n  \"total\": {exported},\n  \"truncated\": {truncated}\n}}\n"
-        )?;
-        writer.flush()?;
-        Ok(exported)
+    let outcome = (|| -> Result<(), String> {
+        serde_json::to_writer_pretty(&mut writer, &hit_value(hit)?)
+            .map_err(|error| error.to_string())?;
+        writer.write_all(b"\n").map_err(|error| error.to_string())?;
+        writer.flush().map_err(|error| error.to_string())
     })();
     drop(writer);
     if outcome.is_err() {
@@ -81,78 +64,77 @@ fn write_all(
     outcome
 }
 
-fn write_one(
+pub(super) fn all(
+    repo: &Repository,
+    mut query: Query,
+    source: &settings::Query,
     path: &Path,
-    request: Option<&Request>,
-    hit: &Hit,
-) -> Result<(), Box<dyn std::error::Error>> {
-    let file = OpenOptions::new().write(true).create_new(true).open(path)?;
+    limit: Option<usize>,
+) -> Result<usize, String> {
+    let file = OpenOptions::new()
+        .write(true)
+        .create_new(true)
+        .open(path)
+        .map_err(|error| error.to_string())?;
     let mut writer = BufWriter::new(file);
-    let result = (|| -> Result<(), Box<dyn std::error::Error>> {
-        let query = match request {
-            Some(Request::Filter(query)) => serde_json::to_value(query)?,
-            Some(Request::Text(query)) => serde_json::to_value(query)?,
-            None => serde_json::Value::Null,
-        };
-        let value = match (request, hit) {
-            (None, _) => json!({"kind":"record","query":query,"hit":{"record":hit.record()}}),
-            (Some(_), Hit::Filter(record)) => {
-                json!({"kind":"filter","query":query,"hit":{"record":record}})
+    let outcome = (|| -> Result<usize, String> {
+        let source = serde_json::to_string(&json!({
+            "search": source.search,
+            "filter": source.filter,
+            "collection": source.collection,
+            "sort": query.options.sort,
+        }))
+        .map_err(|error| error.to_string())?;
+        write!(
+            writer,
+            "{{\n  \"kind\": \"search\",\n  \"query\": {source},\n  \"hits\": [\n"
+        )
+        .map_err(|error| error.to_string())?;
+        let mut offset = query.options.offset;
+        let start = offset;
+        let mut expected = None;
+        loop {
+            query.options.offset = offset;
+            query.options.limit =
+                limit.map_or(100, |limit| 100.min(limit.saturating_sub(offset - start)));
+            if query.options.limit == 0 {
+                break;
             }
-            (Some(_), Hit::Text(hit)) => json!({"kind":"full_text","query":query,"hit":hit}),
-        };
-        serde_json::to_writer_pretty(&mut writer, &value)?;
-        writer.write_all(b"\n")?;
-        writer.flush()?;
-        Ok(())
+            let page = repo.search(&query)?;
+            let total = page.count.ok_or("export requires an exact count")?;
+            if expected.is_some_and(|count| count != total) {
+                return Err("result count changed during export".into());
+            }
+            expected = Some(total);
+            if page.hits.is_empty() && offset < total {
+                return Err("query returned an incomplete export page".into());
+            }
+            for hit in &page.hits {
+                if offset > start {
+                    writer
+                        .write_all(b",\n")
+                        .map_err(|error| error.to_string())?;
+                }
+                serde_json::to_writer(&mut writer, &hit_value(hit)?)
+                    .map_err(|error| error.to_string())?;
+                offset += 1;
+            }
+            if offset >= total || limit.is_some_and(|limit| offset - start >= limit) {
+                break;
+            }
+        }
+        let exported = offset - start;
+        write!(writer, "\n  ],\n  \"total\": {exported}\n}}\n")
+            .map_err(|error| error.to_string())?;
+        writer.flush().map_err(|error| error.to_string())?;
+        Ok(exported)
     })();
     drop(writer);
-    if result.is_err() {
+    if outcome.is_err() {
         let _ = fs::remove_file(path);
     }
-    result
+    outcome
 }
-
-
-impl App<'_> {
-    /// Write the export chosen in the open export dialog.
-    pub(super) fn finish_export(&mut self) {
-        let Some(Overlay::Export { all, input }) = &self.overlay else {
-            return;
-        };
-        let (all, path) = (*all, PathBuf::from(input.text.trim()));
-        if path.as_os_str().is_empty() {
-            self.notice("Choose a JSON file path");
-            return;
-        }
-        let linked = self.view == View::Detail && self.links.override_hit.is_some();
-        let request = self.last_request.clone();
-        let result = if all {
-            match &request {
-                Some(request) => write_all(self, &path, request)
-                    .map(|count| format!("Exported {count} matches to {}", path.display())),
-                None => Err("Search before exporting matches".into()),
-            }
-        } else {
-            let hit = if self.view == View::Detail {
-                self.current_detail_hit()
-            } else {
-                self.selected_hit()
-            };
-            hit.ok_or_else(|| "No record selected".into())
-                .and_then(|hit| write_one(&path, request.as_ref().filter(|_| !linked), hit))
-                .map(|()| format!("Exported record to {}", path.display()))
-        };
-        match result {
-            Ok(message) => {
-                self.overlay = None;
-                self.notice(message);
-            }
-            Err(error) => self.error(format!("Export failed: {error}")),
-        }
-    }
-}
-
 
 #[cfg(test)]
 #[path = "export.test.rs"]

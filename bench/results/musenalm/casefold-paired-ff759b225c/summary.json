@@ -1,0 +1,282 @@
+[
+  {
+    "case": "Q001",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      11.801849,
+      11.289423
+    ],
+    "after_blocks_ms": [
+      11.616498,
+      11.744106
+    ],
+    "before_median_ms": 11.545636,
+    "after_median_ms": 11.680302000000001,
+    "difference_ms": 0.13466600000000106,
+    "ratio": 1.011663800937428,
+    "candidates_before": 4872,
+    "candidates_after": 4872,
+    "source_opens_before": 4872,
+    "source_opens_after": 4872
+  },
+  {
+    "case": "Q001",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      6.674755,
+      6.73602
+    ],
+    "after_blocks_ms": [
+      11.41609,
+      11.582464
+    ],
+    "before_median_ms": 6.7053875000000005,
+    "after_median_ms": 11.499277,
+    "difference_ms": 4.793889499999999,
+    "ratio": 1.7149310162910045,
+    "candidates_before": 3424,
+    "candidates_after": 4872,
+    "source_opens_before": 3424,
+    "source_opens_after": 4872
+  },
+  {
+    "case": "Q014",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      20.260723,
+      19.140281
+    ],
+    "after_blocks_ms": [
+      21.299143,
+      20.428616
+    ],
+    "before_median_ms": 19.700502,
+    "after_median_ms": 20.863879500000003,
+    "difference_ms": 1.1633775000000028,
+    "ratio": 1.0590531906242797,
+    "candidates_before": 2896,
+    "candidates_after": 2896,
+    "source_opens_before": 2896,
+    "source_opens_after": 2896
+  },
+  {
+    "case": "Q014",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      12.961002,
+      13.312704
+    ],
+    "after_blocks_ms": [
+      20.953306,
+      20.220767
+    ],
+    "before_median_ms": 13.136853,
+    "after_median_ms": 20.5870365,
+    "difference_ms": 7.4501835,
+    "ratio": 1.5671208698156247,
+    "candidates_before": 1744,
+    "candidates_after": 2896,
+    "source_opens_before": 1744,
+    "source_opens_after": 2896
+  },
+  {
+    "case": "Q026",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      122.210205,
+      123.204194
+    ],
+    "after_blocks_ms": [
+      123.670214,
+      115.875051
+    ],
+    "before_median_ms": 122.7071995,
+    "after_median_ms": 119.7726325,
+    "difference_ms": -2.9345670000000013,
+    "ratio": 0.9760848017723687,
+    "candidates_before": 80994,
+    "candidates_after": 80994,
+    "source_opens_before": 80994,
+    "source_opens_after": 80994
+  },
+  {
+    "case": "Q026",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      33.460056,
+      35.729934
+    ],
+    "after_blocks_ms": [
+      131.378935,
+      130.431241
+    ],
+    "before_median_ms": 34.594995,
+    "after_median_ms": 130.905088,
+    "difference_ms": 96.31009300000001,
+    "ratio": 3.7839314039501963,
+    "candidates_before": 19419,
+    "candidates_after": 81159,
+    "source_opens_before": 19419,
+    "source_opens_after": 81159
+  },
+  {
+    "case": "Q078",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      62.694708,
+      68.897372
+    ],
+    "after_blocks_ms": [
+      75.554105,
+      61.91333
+    ],
+    "before_median_ms": 65.79604,
+    "after_median_ms": 68.73371750000001,
+    "difference_ms": 2.9376775000000066,
+    "ratio": 1.0446482417482876,
+    "candidates_before": 80994,
+    "candidates_after": 80994,
+    "source_opens_before": 80994,
+    "source_opens_after": 80994
+  },
+  {
+    "case": "Q078",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      23.140437,
+      21.299998
+    ],
+    "after_blocks_ms": [
+      68.918673,
+      66.5645
+    ],
+    "before_median_ms": 22.220217499999997,
+    "after_median_ms": 67.7415865,
+    "difference_ms": 45.521369,
+    "ratio": 3.0486464185150304,
+    "candidates_before": 19419,
+    "candidates_after": 81159,
+    "source_opens_before": 19419,
+    "source_opens_after": 81159
+  },
+  {
+    "case": "Q099",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      8.750405,
+      2.12096
+    ],
+    "after_blocks_ms": [
+      9.353063,
+      7.690107
+    ],
+    "before_median_ms": 5.4356825,
+    "after_median_ms": 8.521585,
+    "difference_ms": 3.0859024999999995,
+    "ratio": 1.567712058237397,
+    "candidates_before": 59586,
+    "candidates_after": 59586,
+    "source_opens_before": 0,
+    "source_opens_after": 0
+  },
+  {
+    "case": "Q099",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      10.239388,
+      6.506219
+    ],
+    "after_blocks_ms": [
+      2.95264,
+      9.106316
+    ],
+    "before_median_ms": 8.3728035,
+    "after_median_ms": 6.029478,
+    "difference_ms": -2.3433254999999997,
+    "ratio": 0.7201265382616469,
+    "candidates_before": 59586,
+    "candidates_after": 59586,
+    "source_opens_before": 0,
+    "source_opens_after": 0
+  },
+  {
+    "case": "Q113",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      3.468141,
+      3.969586
+    ],
+    "after_blocks_ms": [
+      3.352157,
+      3.581967
+    ],
+    "before_median_ms": 3.7188635000000003,
+    "after_median_ms": 3.4670620000000003,
+    "difference_ms": -0.2518015,
+    "ratio": 0.932290738823837,
+    "candidates_before": 4928,
+    "candidates_after": 4928,
+    "source_opens_before": 4928,
+    "source_opens_after": 4928
+  },
+  {
+    "case": "Q113",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      3.216044,
+      3.859521
+    ],
+    "after_blocks_ms": [
+      4.373948,
+      3.353676
+    ],
+    "before_median_ms": 3.5377825,
+    "after_median_ms": 3.8638120000000002,
+    "difference_ms": 0.3260295000000002,
+    "ratio": 1.0921564567635236,
+    "candidates_before": 4928,
+    "candidates_after": 4928,
+    "source_opens_before": 4928,
+    "source_opens_after": 4928
+  },
+  {
+    "case": "Q114",
+    "profile": "ascii-off",
+    "before_blocks_ms": [
+      3.36701,
+      5.271569
+    ],
+    "after_blocks_ms": [
+      4.94307,
+      3.684421
+    ],
+    "before_median_ms": 4.3192895,
+    "after_median_ms": 4.3137455,
+    "difference_ms": -0.0055440000000004375,
+    "ratio": 0.9987164555652034,
+    "candidates_before": 4928,
+    "candidates_after": 4928,
+    "source_opens_before": 4928,
+    "source_opens_after": 4928
+  },
+  {
+    "case": "Q114",
+    "profile": "unicode-off",
+    "before_blocks_ms": [
+      3.220623,
+      3.305284
+    ],
+    "after_blocks_ms": [
+      7.146392,
+      6.141721
+    ],
+    "before_median_ms": 3.2629535,
+    "after_median_ms": 6.6440565,
+    "difference_ms": 3.3811029999999995,
+    "ratio": 2.0362093728887034,
+    "candidates_before": 4928,
+    "candidates_after": 4928,
+    "source_opens_before": 4928,
+    "source_opens_after": 4928
+  }
+]

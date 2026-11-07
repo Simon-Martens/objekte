@@ -1,0 +1,34 @@
+{
+  "ascii-1": {
+    "median_wall_ms": 6003.696712,
+    "min_wall_ms": 5967.974621,
+    "max_wall_ms": 6055.068144,
+    "median_peak_rss_bytes": 289071104,
+    "resolved_build_workers": 1,
+    "index_signature_sha256": "521402437efd766e5e964cfe5f70443de57d6ad8b5e6e1e61425b9b6dfaa0688"
+  },
+  "ascii-auto": {
+    "median_wall_ms": 1630.944783,
+    "min_wall_ms": 1618.190342,
+    "max_wall_ms": 1693.008495,
+    "median_peak_rss_bytes": 316547072,
+    "resolved_build_workers": 32,
+    "index_signature_sha256": "521402437efd766e5e964cfe5f70443de57d6ad8b5e6e1e61425b9b6dfaa0688"
+  },
+  "unicode-1": {
+    "median_wall_ms": 6776.670786,
+    "min_wall_ms": 6719.01976,
+    "max_wall_ms": 6785.114878,
+    "median_peak_rss_bytes": 294739968,
+    "resolved_build_workers": 1,
+    "index_signature_sha256": "5182e515803bc9334e3e3bf4401ac0dee5bc43e072010324298f661a4389411f"
+  },
+  "unicode-auto": {
+    "median_wall_ms": 1794.659054,
+    "min_wall_ms": 1781.24883,
+    "max_wall_ms": 1821.47465,
+    "median_peak_rss_bytes": 325341184,
+    "resolved_build_workers": 32,
+    "index_signature_sha256": "5182e515803bc9334e3e3bf4401ac0dee5bc43e072010324298f661a4389411f"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "before_sha": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "after_worktree": "fix/core-foundation-performance",
+  "order": "A-B-B-A",
+  "repetitions_per_block": 11,
+  "fixture_sha256": "f61aef8724a3393d40a902137ded32c399999b1fcdd9199abe8c8c64d27be229",
+  "fixture_generator": "bench/generate_mixed_planner_fixture.py --healthy 10000",
+  "query": "title = needle; count true; locator; evidence true",
+  "affinity": "0-31",
+  "governor": "powersave",
+  "verified_cache_bytes": 0,
+  "query_workers": 32
+}

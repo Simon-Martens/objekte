@@ -1,6 +1,5 @@
 use super::*;
 
-
 fn press(input: &mut Input, code: KeyCode, modifiers: KeyModifiers) -> Option<bool> {
     input.key(KeyEvent::new(code, modifiers))
 }
@@ -10,7 +9,6 @@ fn typed(input: &mut Input, text: &str) {
         press(input, KeyCode::Char(ch), KeyModifiers::NONE);
     }
 }
-
 
 #[test]
 fn typing_inserts_at_the_cursor_and_counts_characters() {

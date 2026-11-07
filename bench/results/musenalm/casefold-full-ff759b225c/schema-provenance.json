@@ -1,0 +1,9 @@
+{
+  "conversion_version": 1,
+  "recorded_code_revision": "ff759b225c6bc4bfdd614c542fe38fe017a900b6",
+  "source": "schemas reconstructed from retained Musenalm fixture; both recorded SHA-256 schema fingerprints verified before conversion",
+  "query_path_sensitive_fingerprint": "4941bc3e09e4a6a5837375d0ce0db16f9372b469ee2b2971914d9f9527b0957a",
+  "build_relative_fingerprint": "041a1bb268a932de61e3b3ff26407ac8e02edc25eaf8e7533fd239f8d59efbdf",
+  "canonical_schema_digest": "38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9",
+  "original_manifests_unchanged": true
+}

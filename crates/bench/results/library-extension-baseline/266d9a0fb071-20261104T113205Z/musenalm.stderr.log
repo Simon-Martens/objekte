@@ -1,8 +1,0 @@
-   Compiling objekte-core v0.1.0 (/home/simon/source/objekte/crates/core)
-    Finished `release` profile [optimized] target(s) in 0.89s
-     Running tests/musenalm.rs (target/release/deps/musenalm-94e8cba78a52f890)
-
-thread 'all_musenalm_collections_match_direct_execution' (63) panicked at crates/core/tests/musenalm.rs:38:49:
-called `Result::unwrap()` on an `Err` value: Request("columns must be nonempty and unique")
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-error: test failed, to rerun pass `-p objekte-core --test musenalm`

@@ -1,7 +1,0 @@
-[
-  {
-    "id": 1,
-    "kind": "modified filter and sort",
-    "filter": "@modified >= 2026-10 SORT BY @modified ASC"
-  }
-]

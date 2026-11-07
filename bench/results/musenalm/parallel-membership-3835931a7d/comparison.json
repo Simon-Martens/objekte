@@ -1,0 +1,62 @@
+[
+  {
+    "files": 1000,
+    "old_median_ms": 0.461359,
+    "new_median_ms": 0.136879,
+    "difference_ms": -0.324479,
+    "old_min_ms": 0.293365,
+    "old_max_ms": 0.662514,
+    "new_min_ms": 0.086458,
+    "new_max_ms": 0.239419,
+    "old_samples": 10,
+    "new_samples": 10
+  },
+  {
+    "files": 2000,
+    "old_median_ms": 0.956083,
+    "new_median_ms": 0.252873,
+    "difference_ms": -0.70321,
+    "old_min_ms": 0.932766,
+    "old_max_ms": 1.628377,
+    "new_min_ms": 0.161823,
+    "new_max_ms": 0.484951,
+    "old_samples": 10,
+    "new_samples": 10
+  },
+  {
+    "files": 4000,
+    "old_median_ms": 3.413723,
+    "new_median_ms": 0.364853,
+    "difference_ms": -3.048871,
+    "old_min_ms": 3.295549,
+    "old_max_ms": 3.714832,
+    "new_min_ms": 0.328255,
+    "new_max_ms": 0.605227,
+    "old_samples": 10,
+    "new_samples": 10
+  },
+  {
+    "files": 8000,
+    "old_median_ms": 12.620632,
+    "new_median_ms": 0.67047,
+    "difference_ms": -11.950161,
+    "old_min_ms": 12.427955,
+    "old_max_ms": 12.946189,
+    "new_min_ms": 0.666182,
+    "new_max_ms": 1.205494,
+    "old_samples": 10,
+    "new_samples": 10
+  },
+  {
+    "files": 16000,
+    "old_median_ms": 48.730463,
+    "new_median_ms": 1.429483,
+    "difference_ms": -47.30098,
+    "old_min_ms": 48.340121,
+    "old_max_ms": 52.686865,
+    "new_min_ms": 1.396844,
+    "new_max_ms": 2.405583,
+    "old_samples": 10,
+    "new_samples": 10
+  }
+]

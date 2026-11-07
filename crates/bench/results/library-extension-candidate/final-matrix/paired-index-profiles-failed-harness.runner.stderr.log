@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/home/simon/source/objekte/crates/bench/results/library-extension-candidate/final-matrix/run_paired_index_profiles.py", line 49, in <module>
-    if record["allocation_counting"] is not True or record["stage_timers"] is not True:
-       ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: 'allocation_counting'

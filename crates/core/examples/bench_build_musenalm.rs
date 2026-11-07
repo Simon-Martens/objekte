@@ -1,0 +1,249 @@
+#[path = "support/musenalm.rs"]
+mod musenalm;
+
+use std::num::NonZeroUsize;
+use std::path::PathBuf;
+use std::time::Instant;
+
+use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
+use objekte_search_core::workload::BigramAlphabet;
+use serde::Serialize;
+use sha2::{Digest, Sha256};
+
+fn hash_value<T: Serialize>(hash: &mut Sha256, value: &T) -> Result<(), String> {
+    let bytes = bincode::serialize(value).map_err(|error| error.to_string())?;
+    hash.update((bytes.len() as u64).to_le_bytes());
+    hash.update(bytes);
+    Ok(())
+}
+
+fn index_signature(repo: &Repository) -> Result<String, String> {
+    let mut hash = Sha256::new();
+    hash_value(&mut hash, &repo.files().files)?;
+    for collection in repo.collections() {
+        hash_value(&mut hash, &collection.definition.name)?;
+        hash_value(&mut hash, &collection.generation)?;
+        hash_value(&mut hash, &collection.logical_records)?;
+        let mut posting_paths = collection.postings.fields.keys().collect::<Vec<_>>();
+        posting_paths.sort();
+        for path in posting_paths {
+            hash_value(&mut hash, path)?;
+            hash_value(&mut hash, &collection.postings.fields[path])?;
+        }
+        let mut custom_posting_keys = collection.custom_postings.keys().collect::<Vec<_>>();
+        custom_posting_keys.sort();
+        for key in custom_posting_keys {
+            hash_value(&mut hash, key)?;
+            hash_value(&mut hash, &collection.custom_postings[key])?;
+        }
+        let mut bigrams = vec![
+            ("raw", &collection.raw),
+            ("fallback", &collection.fallback_text),
+        ];
+        let mut custom_keys = collection.custom_text.keys().collect::<Vec<_>>();
+        custom_keys.sort();
+        for key in custom_keys {
+            hash_value(&mut hash, key)?;
+            bigrams.push(("custom", &collection.custom_text[key]));
+        }
+        for (label, index) in bigrams {
+            hash_value(&mut hash, &label)?;
+            hash_value(&mut hash, &index.alphabet)?;
+            hash_value(&mut hash, &index.record_count)?;
+            for (kind, column) in [("normal", &index.normal), ("skip", &index.skip)] {
+                hash_value(&mut hash, &kind)?;
+                let mut keys = column.keys().collect::<Vec<_>>();
+                keys.sort();
+                for key in keys {
+                    hash_value(&mut hash, key)?;
+                    hash_value(&mut hash, &column[key])?;
+                }
+            }
+        }
+        let mut sort_paths = collection.sorting.columns.keys().collect::<Vec<_>>();
+        sort_paths.sort_by_key(|path| path.display());
+        for path in sort_paths {
+            hash_value(&mut hash, &path.display())?;
+            hash_value(&mut hash, &collection.sorting.columns[path])?;
+        }
+    }
+    Ok(format!("{:x}", hash.finalize()))
+}
+
+fn memory_bytes(name: &str) -> Option<u64> {
+    std::fs::read_to_string("/proc/self/status")
+        .ok()?
+        .lines()
+        .find_map(|line| {
+            line.strip_prefix(name)?
+                .trim()
+                .strip_suffix(" kB")?
+                .trim()
+                .parse::<u64>()
+                .ok()
+                .map(|value| value * 1024)
+        })
+}
+
+fn main() {
+    if let Err(error) = run() {
+        eprintln!("build benchmark error: {error}");
+        std::process::exit(1);
+    }
+}
+
+fn run() -> Result<(), String> {
+    let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
+    let mut alphabet = BigramAlphabet::Ascii;
+    let snapshot_mode = SnapshotMode::Disabled;
+    let mut write_snapshot = false;
+    let mut build_workers = None;
+    let mut schema_manifest_path = None;
+    let mut arguments = std::env::args().skip(1);
+    while let Some(argument) = arguments.next() {
+        match argument.as_str() {
+            "--root" => root = PathBuf::from(arguments.next().ok_or("--root needs a path")?),
+            "--schema-manifest-path" => {
+                schema_manifest_path = Some(PathBuf::from(
+                    arguments
+                        .next()
+                        .ok_or("--schema-manifest-path needs a path")?,
+                ));
+            }
+            "--alphabet" => {
+                alphabet = match arguments.next().ok_or("--alphabet needs a value")?.as_str() {
+                    "ascii" => BigramAlphabet::Ascii,
+                    "unicode" => BigramAlphabet::Unicode,
+                    other => return Err(format!("unknown alphabet {other}")),
+                }
+            }
+            "--snapshot-mode" => {
+                write_snapshot = match arguments
+                    .next()
+                    .ok_or("--snapshot-mode needs a value")?
+                    .as_str()
+                {
+                    "rebuild" => true,
+                    "disabled" => false,
+                    other => return Err(format!("unknown snapshot mode {other}")),
+                };
+            }
+            "--build-workers" => {
+                let value = arguments.next().ok_or("--build-workers needs a value")?;
+                build_workers = if value == "auto" {
+                    None
+                } else {
+                    Some(
+                        NonZeroUsize::new(
+                            value.parse::<usize>().map_err(|error| error.to_string())?,
+                        )
+                        .ok_or("build-workers must be positive")?,
+                    )
+                };
+            }
+            other => return Err(format!("unknown argument {other}")),
+        }
+    }
+    let (definitions, loaded_schemas) = musenalm::load_definitions_with_schemas(&root)?;
+    let schema_manifest = musenalm::schema_manifest(&loaded_schemas)?;
+    if let Some(path) = schema_manifest_path {
+        std::fs::write(
+            path,
+            serde_json::to_vec_pretty(&schema_manifest).map_err(|error| error.to_string())?,
+        )
+        .map_err(|error| error.to_string())?;
+    }
+    let query_workers = RepositoryOptions::default().query_workers;
+    let started = Instant::now();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            bigram_alphabet: alphabet,
+            snapshot_mode,
+            build_workers,
+            ..RepositoryOptions::default()
+        },
+    )?;
+    let wall_ns = started.elapsed().as_nanos();
+    let snapshot_started = Instant::now();
+    if write_snapshot {
+        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
+            &root, alphabet,
+        ))?;
+    }
+    let snapshot_write_ns = if write_snapshot {
+        snapshot_started.elapsed().as_nanos() as u64
+    } else {
+        0
+    };
+    let snapshot_bytes = if write_snapshot {
+        Some(
+            std::fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
+                .map_err(|error| error.to_string())?
+                .len(),
+        )
+    } else {
+        None
+    };
+    let (inventory_heap_bytes, diagnostic_heap_bytes) = repo.files().estimated_heap_bytes();
+    let registrations = repo.collections().iter().map(|c| serde_json::json!({"name":c.definition.name,"source_path":c.definition.source_path,"format":c.definition.format,"identity":format!("{:?}",c.definition.identity),"files":c.generation.files.len(),"records":c.generation.records.len(),"type_hints":c.definition.schema.fields().len(),"indexed_paths":c.postings.fields.keys().map(|p|p.join(".")).collect::<Vec<_>>(),"sort_fields":c.definition.sort_fields.iter().map(|p|p.display()).collect::<Vec<_>>(),"custom_bindings":c.definition.schema.custom_bindings().keys().map(|(p,n)|format!("{}:{n}",p.join("."))).collect::<Vec<_>>() })).collect::<Vec<_>>();
+    let (index_stores, distinct_gram_keys, bigram_heap_bytes) =
+        repo.collections()
+            .iter()
+            .fold((0usize, 0usize, 0usize), |total, collection| {
+                std::iter::once(&collection.raw)
+                    .chain(std::iter::once(&collection.fallback_text))
+                    .chain(collection.custom_text.values())
+                    .fold(total, |(stores, keys, bytes), index| {
+                        (
+                            stores + 1,
+                            keys + index.normal.len() + index.skip.len(),
+                            bytes + index.estimated_heap_bytes(),
+                        )
+                    })
+            });
+    let resident_bytes = memory_bytes("VmRSS:");
+    let peak_resident_bytes = memory_bytes("VmHWM:");
+    let index_signature_sha256 = index_signature(&repo)?;
+    println!(
+        "{}",
+        serde_json::json!({
+            "alphabet": alphabet,
+            "snapshot_mode": if write_snapshot { "rebuild" } else { "disabled" },
+            "requested_build_workers": build_workers.map(NonZeroUsize::get),
+            "resolved_build_workers": repo.startup().build_workers,
+            "available_parallelism": std::thread::available_parallelism().map_or(1, NonZeroUsize::get),
+            "query_workers": query_workers,
+            "peak_build_admitted_bytes": repo.startup().peak_build_admitted_bytes,
+            "build_weight_limit_bytes": repo.startup().build_weight_limit_bytes,
+            "build_peak_active_jobs": repo.startup().build_peak_active_jobs,
+            "build_peak_ready_batches": repo.startup().build_peak_ready_batches,
+            "build_job_execution_ns": repo.startup().build_job_execution_ns,
+            "build_receive_wait_ns": repo.startup().build_receive_wait_ns,
+            "build_admission_ns": repo.startup().build_admission_ns,
+            "wall_ns": wall_ns,
+            "build_ns": repo.startup().build_ns,
+            "discovery_ns": repo.startup().build_discovery_ns,
+            "extraction_index_ns": repo.startup().build_extraction_index_ns,
+            "finalization_ns": repo.startup().build_finalization_ns,
+            "snapshot_write_ns": snapshot_write_ns,
+            "build_parses": repo.build_parses(),
+            "failed_parses": repo.build_failed_parses(),
+            "inventory_heap_bytes": inventory_heap_bytes,
+            "diagnostic_heap_bytes": diagnostic_heap_bytes,
+            "index_stores": index_stores,
+            "distinct_gram_keys": distinct_gram_keys,
+            "bigram_heap_bytes": bigram_heap_bytes,
+            "records": repo.collections().iter().map(|collection| collection.generation.records.len()).sum::<usize>(),
+            "resident_bytes": resident_bytes,
+            "peak_resident_bytes": peak_resident_bytes,
+            "index_signature_sha256": index_signature_sha256,
+            "snapshot_bytes": snapshot_bytes,
+            "schema_manifest_digest": schema_manifest["sha256"],
+            "schema_collections": loaded_schemas.iter().map(|schema| &schema.collection).collect::<Vec<_>>(),
+            "registrations": registrations,
+        })
+    );
+    Ok(())
+}

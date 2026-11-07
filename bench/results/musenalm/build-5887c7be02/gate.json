@@ -1,0 +1,47 @@
+{
+  "environment": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "revision": "5887c7be02"
+  },
+  "fingerprints": {
+    "schema": "041a1bb268a932de61e3b3ff26407ac8e02edc25eaf8e7533fd239f8d59efbdf",
+    "source_metadata": "eec50dbfbfd023aad31e9c3609f4a7f14b177ecc1a022c182321ae704c188cf6"
+  },
+  "summary": {
+    "ascii-disabled": {
+      "median_wall_ns": 14221930784,
+      "median_build_ns": 14221870904,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 237850624,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "ascii-rebuild": {
+      "median_wall_ns": 14530457951,
+      "median_build_ns": 14259523872,
+      "median_snapshot_write_ns": 269975290,
+      "median_peak_resident_bytes": 339300352,
+      "snapshot_bytes": 106726293,
+      "samples": 3
+    },
+    "unicode-disabled": {
+      "median_wall_ns": 15446684422,
+      "median_build_ns": 15446627665,
+      "median_snapshot_write_ns": 0,
+      "median_peak_resident_bytes": 260390912,
+      "snapshot_bytes": null,
+      "samples": 3
+    },
+    "unicode-rebuild": {
+      "median_wall_ns": 15839974248,
+      "median_build_ns": 15540528694,
+      "median_snapshot_write_ns": 300440716,
+      "median_peak_resident_bytes": 371642368,
+      "snapshot_bytes": 117932485,
+      "samples": 3
+    }
+  },
+  "baseline": "/home/simon/source/objekte/bench/baselines/musenalm-build.json",
+  "failures": []
+}

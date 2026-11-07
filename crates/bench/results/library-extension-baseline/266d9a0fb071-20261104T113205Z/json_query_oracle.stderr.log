@@ -1,3 +1,0 @@
-   Compiling objekte-core v0.1.0 (/home/simon/source/objekte/crates/core)
-    Finished `release` profile [optimized] target(s) in 0.92s
-     Running tests/json_query_oracle.rs (target/release/deps/json_query_oracle-ebb9ab944fe2d026)

@@ -1,0 +1,73 @@
+profile,id,filter,fts,sort_json,stream_mode,limit,offset,count,page,collected_ms,warm_collected_ms,stream_ms,first_data_ms,first_full_page_ms,callback_ms,events,data_events,source_opens,source_parses,candidates,scanned_records,sort_key_evaluations,sort_target_reads,sort_key_peak_bytes,stream_peak_buffered_bytes
+disabled-cold,selective-title,preferred_title ~ 'Goethe',,[],ordered_rows,10,0,7,7,3.748276,,20.045867,20.033136,,0.004763,1,1,4928,4928,4928,4928,0,0,728,2135
+disabled-cold,broad-title,preferred_title ~ 'Taschen',,[],ordered_rows,10,0,1521,10,3.858682,,19.934889,0.229754,0.262782,0.001256,2,2,4928,4928,4928,4928,0,0,1040,3050
+disabled-cold,enum-state,edit_state = 'Edited',,[],ordered_rows,10,0,2377,10,4.18447,,19.707119,0.235082,0.255,0.001311,2,2,4928,4928,4928,4928,0,0,1040,3050
+disabled-cold,numeric-range,year >= 1800 && year < 1850,,[],ordered_rows,10,0,3308,10,4.513967,,20.904069,0.163814,0.175354,0.001431,2,2,4928,4928,4928,4928,0,0,1040,3050
+disabled-cold,array-empty,items:length = 0,,[],ordered_rows,10,0,1015,10,4.857751,,29.861589,0.331085,0.377448,0.001119,2,2,4928,4928,4928,4928,0,0,1040,3050
+disabled-cold,array-membership,language ?= 'ger',,[],ordered_rows,10,0,4922,10,5.29446,,23.354516,0.169106,0.190976,0.001716,2,2,4924,4924,4924,4924,0,0,1040,3050
+disabled-cold,mixed-fts-filter,year >= 1800,Goethe,[],ordered_rows,10,0,14,10,0.643311,,4.8826,3.287233,3.521359,0.00074,2,2,203,203,203,203,0,0,1040,3050
+disabled-cold,stored-size,,,"[{""descending"":true,""field"":""@file.size""}]",ordered_rows,20,0,4928,20,0.16518,,0.229951,0.04865,0.051988,0.00132,3,3,0,0,4928,0,0,0,3040,6100
+disabled-cold,stored-composite,,,"[{""descending"":true,""field"":""@file.size""},{""descending"":false,""field"":""@file.modified""}]",ordered_rows,20,0,4928,20,0.138925,,0.24129,0.055671,0.058864,0.001218,3,3,0,0,4928,0,0,0,4000,6100
+disabled-cold,dynamic-title,,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,0,4928,20,137.327066,,105.961243,0.496521,1.012,0.151994,122,122,4928,4928,4928,4928,4928,0,8392,43240
+disabled-cold,dynamic-title-deep,year >= 1800,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,200,3821,20,103.828693,,205.953449,7.729085,8.677758,0.659946,625,625,4928,4928,4928,4928,3821,0,86056,252336
+disabled-cold,dynamic-array-min,,,"[{""descending"":false,""expression"":{""path"":""language"",""reducer"":""min""},""field"":""language""}]",page_replacements,20,0,4928,20,102.506017,,139.795904,0.435322,0.866908,0.018089,23,23,4928,4928,4928,4928,4928,0,6384,39720
+disabled-warm,selective-title,preferred_title ~ 'Goethe',,[],ordered_rows,10,0,7,7,3.507279,0.012703,0.007814,0.005348,,0.001173,1,1,4928,4928,4928,4928,0,0,728,4811
+disabled-warm,broad-title,preferred_title ~ 'Taschen',,[],ordered_rows,10,0,1521,10,4.403566,0.008724,0.007913,0.003915,0.006602,0.001889,2,2,4928,4928,4928,4928,0,0,1040,5090
+disabled-warm,enum-state,edit_state = 'Edited',,[],ordered_rows,10,0,2377,10,4.730682,0.011175,0.008662,0.004342,0.007165,0.001993,2,2,4928,4928,4928,4928,0,0,1040,4936
+disabled-warm,numeric-range,year >= 1800 && year < 1850,,[],ordered_rows,10,0,3308,10,4.954394,0.010455,0.008632,0.004743,0.006952,0.001398,2,2,4928,4928,4928,4928,0,0,1040,5003
+disabled-warm,array-empty,items:length = 0,,[],ordered_rows,10,0,1015,10,4.376762,0.008479,0.006866,0.003626,0.00577,0.001453,2,2,4928,4928,4928,4928,0,0,1040,3850
+disabled-warm,array-membership,language ?= 'ger',,[],ordered_rows,10,0,4922,10,4.586659,0.008414,0.007075,0.003682,0.006049,0.001685,2,2,4924,4924,4924,4924,0,0,1040,5170
+disabled-warm,mixed-fts-filter,year >= 1800,Goethe,[],ordered_rows,10,0,14,10,0.56879,0.007075,0.005985,0.003133,0.005161,0.001314,2,2,203,203,203,203,0,0,1040,5582
+disabled-warm,stored-size,,,"[{""descending"":true,""field"":""@file.size""}]",ordered_rows,20,0,4928,20,1.19574,0.006773,0.008808,0.002538,0.007326,0.001999,3,3,0,0,4928,0,0,0,3040,10388
+disabled-warm,stored-composite,,,"[{""descending"":true,""field"":""@file.size""},{""descending"":false,""field"":""@file.modified""}]",ordered_rows,20,0,4928,20,0.796242,0.002747,0.005722,0.001654,0.004777,0.001337,3,3,0,0,4928,0,0,0,4000,10388
+disabled-warm,dynamic-title,,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,0,4928,20,134.134552,79.009039,69.814093,69.797441,69.810017,0.002494,3,3,4928,4928,4928,4928,4928,0,8392,496312
+disabled-warm,dynamic-title-deep,year >= 1800,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,200,3821,20,99.682954,54.890993,70.033095,70.013342,70.028807,0.0028,3,3,4928,4928,4928,4928,3821,0,86056,374840
+disabled-warm,dynamic-array-min,,,"[{""descending"":false,""expression"":{""path"":""language"",""reducer"":""min""},""field"":""language""}]",page_replacements,20,0,4928,20,66.522617,67.136363,65.965753,65.950285,65.962024,0.00281,3,3,4928,4928,0,0,4928,0,6080,494552
+report-cold,selective-title,preferred_title ~ 'Goethe',,[],ordered_rows,10,0,7,7,4.164629,,42.879629,42.868837,,0.001728,1,1,4928,4928,4928,4928,0,0,728,2135
+report-cold,broad-title,preferred_title ~ 'Taschen',,[],ordered_rows,10,0,1521,10,5.330225,,20.245774,0.236428,0.270115,0.001487,2,2,4928,4928,4928,4928,0,0,1040,3050
+report-cold,enum-state,edit_state = 'Edited',,[],ordered_rows,10,0,2377,10,5.366265,,19.74289,0.212517,0.233126,0.001803,2,2,4928,4928,4928,4928,0,0,1040,3050
+report-cold,numeric-range,year >= 1800 && year < 1850,,[],ordered_rows,10,0,3308,10,4.754384,,20.592454,0.167894,0.179733,0.001442,2,2,4928,4928,4928,4928,0,0,1040,3050
+report-cold,array-empty,items:length = 0,,[],ordered_rows,10,0,1015,10,5.288639,,29.637863,0.33091,0.375335,0.001288,2,2,4928,4928,4928,4928,0,0,1040,3050
+report-cold,array-membership,language ?= 'ger',,[],ordered_rows,10,0,4922,10,5.406082,,20.544228,0.119256,0.130503,0.001381,2,2,4924,4924,4924,4924,0,0,1040,3050
+report-cold,mixed-fts-filter,year >= 1800,Goethe,[],ordered_rows,10,0,14,10,0.572422,,4.944952,3.292875,3.532593,0.001187,2,2,203,203,203,203,0,0,1040,3050
+report-cold,stored-size,,,"[{""descending"":true,""field"":""@file.size""}]",ordered_rows,20,0,4928,20,0.204995,,0.236527,0.049754,0.053724,0.001763,3,3,0,0,4928,0,0,0,3040,6100
+report-cold,stored-composite,,,"[{""descending"":true,""field"":""@file.size""},{""descending"":false,""field"":""@file.modified""}]",ordered_rows,20,0,4928,20,0.188532,,0.232672,0.05177,0.055088,0.001258,3,3,0,0,4928,0,0,0,4000,6100
+report-cold,dynamic-title,,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,0,4928,20,106.274128,,146.231379,0.5366,1.032552,0.205244,122,122,4928,4928,4928,4928,4928,0,8392,43240
+report-cold,dynamic-title-deep,year >= 1800,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,200,3821,20,100.084245,,209.835143,9.077716,10.135506,0.686499,625,625,4928,4928,4928,4928,3821,0,86056,252336
+report-cold,dynamic-array-min,,,"[{""descending"":false,""expression"":{""path"":""language"",""reducer"":""min""},""field"":""language""}]",page_replacements,20,0,4928,20,111.302414,,105.431199,0.522113,1.018222,0.020642,23,23,4928,4928,4928,4928,4928,0,6384,39720
+report-warm,selective-title,preferred_title ~ 'Goethe',,[],ordered_rows,10,0,7,7,37.03032,0.013613,0.006504,0.004246,,0.00124,1,1,4928,4928,4928,4928,0,0,728,4811
+report-warm,broad-title,preferred_title ~ 'Taschen',,[],ordered_rows,10,0,1521,10,4.740672,0.009844,0.007455,0.003651,0.006261,0.001928,2,2,4928,4928,4928,4928,0,0,1040,5090
+report-warm,enum-state,edit_state = 'Edited',,[],ordered_rows,10,0,2377,10,4.127638,0.008167,0.007022,0.003558,0.006111,0.001795,2,2,4928,4928,4928,4928,0,0,1040,4936
+report-warm,numeric-range,year >= 1800 && year < 1850,,[],ordered_rows,10,0,3308,10,4.324518,0.009329,0.007575,0.004425,0.006401,0.001364,2,2,4928,4928,4928,4928,0,0,1040,5003
+report-warm,array-empty,items:length = 0,,[],ordered_rows,10,0,1015,10,4.345677,0.008286,0.006635,0.003125,0.005567,0.001641,2,2,4928,4928,4928,4928,0,0,1040,3850
+report-warm,array-membership,language ?= 'ger',,[],ordered_rows,10,0,4922,10,4.587445,0.008571,0.006873,0.003436,0.005873,0.001737,2,2,4924,4924,4924,4924,0,0,1040,5170
+report-warm,mixed-fts-filter,year >= 1800,Goethe,[],ordered_rows,10,0,14,10,0.534023,0.007264,0.005738,0.002834,0.004842,0.001347,2,2,203,203,203,203,0,0,1040,5582
+report-warm,stored-size,,,"[{""descending"":true,""field"":""@file.size""}]",ordered_rows,20,0,4928,20,0.955472,0.004093,0.00613,0.001844,0.005169,0.001337,3,3,0,0,4928,0,0,0,3040,10388
+report-warm,stored-composite,,,"[{""descending"":true,""field"":""@file.size""},{""descending"":false,""field"":""@file.modified""}]",ordered_rows,20,0,4928,20,0.867157,0.003292,0.005839,0.001692,0.004922,0.001274,3,3,0,0,4928,0,0,0,4000,10388
+report-warm,dynamic-title,,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,0,4928,20,111.799937,72.498511,69.920699,69.905127,69.91769,0.002639,3,3,4928,4928,4928,4928,4928,0,8392,496312
+report-warm,dynamic-title-deep,year >= 1800,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,200,3821,20,142.284614,55.055677,54.447118,54.42872,54.443557,0.002967,3,3,4928,4928,4928,4928,3821,0,86056,374840
+report-warm,dynamic-array-min,,,"[{""descending"":false,""expression"":{""path"":""language"",""reducer"":""min""},""field"":""language""}]",page_replacements,20,0,4928,20,68.597819,79.758841,66.1101,66.096423,66.107013,0.002722,3,3,4928,4928,0,0,4928,0,6080,494552
+auto-cold,selective-title,preferred_title ~ 'Goethe',,[],ordered_rows,10,0,7,7,3.147392,,19.710245,19.701665,,0.001132,1,1,4928,4928,4928,4928,0,0,728,2135
+auto-cold,broad-title,preferred_title ~ 'Taschen',,[],ordered_rows,10,0,1521,10,3.739941,,20.145827,0.277469,0.311405,0.001326,2,2,4928,4928,4928,4928,0,0,1040,3050
+auto-cold,enum-state,edit_state = 'Edited',,[],ordered_rows,10,0,2377,10,4.79155,,19.971883,0.239841,0.261702,0.002403,2,2,4928,4928,4928,4928,0,0,1040,3050
+auto-cold,numeric-range,year >= 1800 && year < 1850,,[],ordered_rows,10,0,3308,10,5.448772,,21.423765,0.204177,0.226875,0.001761,2,2,4928,4928,4928,4928,0,0,1040,3050
+auto-cold,array-empty,items:length = 0,,[],ordered_rows,10,0,1015,10,5.488482,,29.492189,0.370211,0.413058,0.000809,2,2,4928,4928,4928,4928,0,0,1040,3050
+auto-cold,array-membership,language ?= 'ger',,[],ordered_rows,10,0,4922,10,15.73781,,50.646104,0.187313,0.209463,0.001913,2,2,4924,4924,4924,4924,0,0,1040,3050
+auto-cold,mixed-fts-filter,year >= 1800,Goethe,[],ordered_rows,10,0,14,10,0.808542,,4.979072,3.370069,3.610038,0.001039,2,2,203,203,203,203,0,0,1040,3050
+auto-cold,stored-size,,,"[{""descending"":true,""field"":""@file.size""}]",ordered_rows,20,0,4928,20,0.158837,,0.27759,0.093639,0.097061,0.001469,3,3,0,0,4928,0,0,0,3040,6100
+auto-cold,stored-composite,,,"[{""descending"":true,""field"":""@file.size""},{""descending"":false,""field"":""@file.modified""}]",ordered_rows,20,0,4928,20,0.188538,,0.233979,0.053994,0.057269,0.001238,3,3,0,0,4928,0,0,0,4000,6100
+auto-cold,dynamic-title,,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,0,4928,20,125.644185,,122.268885,0.393477,0.932155,0.134401,122,122,4928,4928,4928,4928,4928,0,8392,43240
+auto-cold,dynamic-title-deep,year >= 1800,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,200,3821,20,118.641789,,188.620298,8.576916,9.885629,0.638564,625,625,4928,4928,4928,4928,3821,0,86056,252336
+auto-cold,dynamic-array-min,,,"[{""descending"":false,""expression"":{""path"":""language"",""reducer"":""min""},""field"":""language""}]",page_replacements,20,0,4928,20,145.863578,,102.653757,0.49197,0.909841,0.017724,23,23,4928,4928,4928,4928,4928,0,6384,39720
+auto-warm,selective-title,preferred_title ~ 'Goethe',,[],ordered_rows,10,0,7,7,4.404023,0.013669,0.008165,0.005747,,0.001285,1,1,4928,4928,4928,4928,0,0,728,4811
+auto-warm,broad-title,preferred_title ~ 'Taschen',,[],ordered_rows,10,0,1521,10,4.088963,0.010603,0.009245,0.005001,0.007592,0.001736,2,2,4928,4928,4928,4928,0,0,1040,5090
+auto-warm,enum-state,edit_state = 'Edited',,[],ordered_rows,10,0,2377,10,4.22208,0.007795,0.00753,0.003885,0.006356,0.001807,2,2,4928,4928,4928,4928,0,0,1040,4936
+auto-warm,numeric-range,year >= 1800 && year < 1850,,[],ordered_rows,10,0,3308,10,4.24299,0.007776,0.007406,0.004392,0.006367,0.001262,2,2,4928,4928,4928,4928,0,0,1040,5003
+auto-warm,array-empty,items:length = 0,,[],ordered_rows,10,0,1015,10,4.197601,0.009122,0.006709,0.00335,0.005612,0.001663,2,2,4928,4928,4928,4928,0,0,1040,3850
+auto-warm,array-membership,language ?= 'ger',,[],ordered_rows,10,0,4922,10,4.565127,0.007589,0.007071,0.003762,0.006077,0.001572,2,2,4924,4924,4924,4924,0,0,1040,5170
+auto-warm,mixed-fts-filter,year >= 1800,Goethe,[],ordered_rows,10,0,14,10,0.546896,0.005773,0.005416,0.002766,0.004707,0.001146,2,2,203,203,203,203,0,0,1040,5582
+auto-warm,stored-size,,,"[{""descending"":true,""field"":""@file.size""}]",ordered_rows,20,0,4928,20,0.9754,0.004091,0.006294,0.001629,0.005376,0.001836,3,3,0,0,4928,0,0,0,3040,10388
+auto-warm,stored-composite,,,"[{""descending"":true,""field"":""@file.size""},{""descending"":false,""field"":""@file.modified""}]",ordered_rows,20,0,4928,20,0.854243,0.003001,0.005524,0.001503,0.004653,0.001226,3,3,0,0,4928,0,0,0,4000,10388
+auto-warm,dynamic-title,,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,0,4928,20,100.618779,73.303756,71.473117,71.456868,71.470093,0.002695,3,3,4928,4928,4928,4928,4928,0,8392,496312
+auto-warm,dynamic-title-deep,year >= 1800,,"[{""descending"":false,""expression"":{""path"":""preferred_title""},""field"":""preferred_title""}]",page_replacements,20,200,3821,20,136.614579,56.226354,55.644641,55.627938,55.640903,0.002744,3,3,4928,4928,4928,4928,3821,0,86056,374840
+auto-warm,dynamic-array-min,,,"[{""descending"":false,""expression"":{""path"":""language"",""reducer"":""min""},""field"":""language""}]",page_replacements,20,0,4928,20,81.431914,72.300738,68.835643,68.821307,68.83243,0.002806,3,3,4928,4928,0,0,4928,0,6080,494552

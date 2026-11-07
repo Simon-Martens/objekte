@@ -1,44 +1,66 @@
-//! Drawing. The frame keeps one fixed skeleton in every state:
-//! header, a blank row, two query rows, a summary rule, the body, and the
-//! footer. The detail view replaces only the three query rows.
+//! Fixed header, query lines, result list, detail, and small overlays.
 
-pub(super) mod overlay;
-pub(super) mod record;
-pub(super) mod results;
 mod syntax;
 pub(super) mod theme;
 
-use super::app::{App, Line, Representation, View};
+use super::app::{App, Focus, Overlay, View};
 use super::input::Input;
+use super::record;
+use objekte_search_core::diagnostics::milliseconds_3;
+use objekte_search_core::inventory::FileStatus;
+use objekte_search_core::repository::SearchHit;
 use ratatui::{
     Frame,
     layout::{Constraint, Layout, Position, Rect},
     style::{Modifier, Style},
-    text::{Line as TextLine, Span},
-    widgets::Paragraph,
+    text::{Line, Span},
+    widgets::{
+        Block, Borders, Clear, Paragraph, Scrollbar, ScrollbarOrientation, ScrollbarState, Wrap,
+    },
 };
-use std::time::SystemTime;
+use std::time::Duration;
 use theme::*;
-use unicode_width::UnicodeWidthStr;
+use unicode_width::{UnicodeWidthChar, UnicodeWidthStr};
 
-/// Width from which the preview pane is shown beside the results.
-pub(super) const PREVIEW_MIN_WIDTH: u16 = 110;
-/// Width of the label column of the query lines.
-pub(super) const LABEL: u16 = 10;
-
-
-/// The rectangles of the fixed skeleton.
-pub(super) struct Areas {
-    pub(super) header: Rect,
-    pub(super) search: Rect,
-    pub(super) filter: Rect,
-    pub(super) summary: Rect,
-    pub(super) body: Rect,
-    pub(super) footer: Rect,
+pub(super) fn elapsed_label(elapsed: Duration) -> String {
+    format!("{} ms", milliseconds_3(elapsed.as_nanos()))
 }
 
+#[cfg(test)]
+pub(super) fn draw_loading(frame: &mut Frame<'_>, elapsed: Duration) {
+    draw_loading_with_label(frame, elapsed, "Building search index");
+}
 
-pub(super) fn areas(area: Rect) -> Areas {
+pub(super) fn draw_loading_with_label(frame: &mut Frame<'_>, elapsed: Duration, label: &str) {
+    let [header, _gap, status, body, footer] = Layout::vertical([
+        Constraint::Length(1),
+        Constraint::Length(1),
+        Constraint::Length(1),
+        Constraint::Fill(1),
+        Constraint::Length(1),
+    ])
+    .areas(frame.area());
+    frame.render_widget(
+        Paragraph::new(" ◆ objekte").style(Style::new().fg(ACCENT).add_modifier(Modifier::BOLD)),
+        header,
+    );
+    frame.render_widget(
+        Paragraph::new(format!(" {label}… {}", elapsed_label(elapsed))).style(Style::new().fg(DIM)),
+        status,
+    );
+    frame.render_widget(
+        Paragraph::new("Preparing repository; the first run may take longer."),
+        body,
+    );
+    frame.render_widget(
+        Paragraph::new(" Esc or Ctrl+Q quit").style(Style::new().fg(DIM)),
+        footer,
+    );
+}
+
+pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
+    app.detail_area = Rect::default();
+    app.results_area = Rect::default();
     let [header, _gap, search, filter, summary, body, footer] = Layout::vertical([
         Constraint::Length(1),
         Constraint::Length(1),
@@ -48,601 +70,1329 @@ pub(super) fn areas(area: Rect) -> Areas {
         Constraint::Fill(1),
         Constraint::Length(1),
     ])
-    .areas(area);
-    Areas {
+    .areas(frame.area());
+    frame.render_widget(
+        Paragraph::new(Line::from(vec![
+            Span::styled(
+                " ◆ objekte",
+                Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
+            ),
+            Span::styled("   in  ", Style::new().fg(DIM)),
+            Span::styled(
+                app.scope_label().to_owned(),
+                Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
+            ),
+            Span::styled(
+                if app.single_collection {
+                    "  Ctrl+O"
+                } else {
+                    "  ▾  Ctrl+O"
+                },
+                Style::new().fg(FAINT),
+            ),
+        ])),
         header,
-        search,
-        filter,
-        summary,
-        body,
-        footer,
+    );
+    if header.width >= 58 {
+        frame.render_widget(
+            Paragraph::new(Line::from(vec![
+                Span::styled("● ", Style::new().fg(GREEN)),
+                Span::styled("indexes ready ", Style::new().fg(DIM)),
+            ]))
+            .right_aligned(),
+            header,
+        );
     }
-}
-
-
-pub(super) fn draw(frame: &mut Frame<'_>, app: &App<'_>) {
-    let areas = areas(frame.area());
-    header(frame, app, areas.header);
     match app.view {
         View::Results => {
-            query_line(frame, app, Line::Search, areas.search);
-            query_line(frame, app, Line::Filter, areas.filter);
-            summary(frame, app, areas.summary);
-            body(frame, app, areas.body);
+            query_line(
+                frame,
+                "Search",
+                &app.search,
+                app.focus == Focus::Search,
+                search,
+                false,
+                Some((app.case_sensitive, app.regex)),
+            );
+            query_line(
+                frame,
+                "Filter",
+                &app.filter,
+                app.focus == Focus::Filter,
+                filter,
+                true,
+                None,
+            );
+            let status = if app.searching {
+                "Searching…".to_owned()
+            } else if let Some(error) = &app.error {
+                let timing = app
+                    .last_search_duration
+                    .map_or_else(String::new, |elapsed| {
+                        format!("  ·  search {}", elapsed_label(elapsed))
+                    });
+                format!("Error: {error}{timing}")
+            } else {
+                let sort = app.sort.as_ref().map_or_else(String::new, |sort| {
+                    format!(
+                        "  ·  {} {}",
+                        sort.field,
+                        if sort.descending { "↓" } else { "↑" }
+                    )
+                });
+                let timing = app
+                    .last_search_duration
+                    .map_or_else(String::new, |elapsed| {
+                        format!("  ·  search {}", elapsed_label(elapsed))
+                    });
+                let display = if app.single_collection {
+                    app.last_projection_duration
+                        .map_or_else(String::new, |elapsed| {
+                            format!("  ·  display {}", elapsed_label(elapsed))
+                        })
+                } else {
+                    String::new()
+                };
+                format!(
+                    "{} matches  ·  {} loaded{sort}{timing}{display}",
+                    app.total,
+                    app.hits.len()
+                )
+            };
+            frame.render_widget(
+                Paragraph::new(format!(" {status}"))
+                    .style(Style::new().fg(if app.error.is_some() { RED } else { DIM })),
+                summary,
+            );
+            if app.show_preview && body.width >= 110 && !app.hits.is_empty() {
+                let [table, preview_area] = Layout::horizontal([
+                    Constraint::Fill(1),
+                    Constraint::Length((body.width * 2 / 5).clamp(40, 72)),
+                ])
+                .areas(body);
+                results(frame, app, table);
+                preview(frame, app, preview_area);
+            } else {
+                results(frame, app, body);
+            }
         }
-        View::Detail => record::detail(frame, app, &areas),
+        View::Detail => detail(
+            frame,
+            app,
+            Rect {
+                x: body.x,
+                y: search.y,
+                width: body.width,
+                height: body.bottom().saturating_sub(search.y),
+            },
+        ),
     }
-    footer(frame, app, areas.footer);
-    overlay::draw(frame, app, &areas);
+    let hint = if app.single_collection && app.view == View::Detail {
+        " Esc back · ↑↓ fields · Enter fold · Alt+←→ records · / find · y/Y copy · r raw"
+    } else if app.view == View::Detail && footer.width >= 96 {
+        " Esc back · Tab sections · ↑↓ fields · Enter open · Alt+←→ records · / find · y/Y copy · r raw"
+    } else if app.view == View::Detail {
+        " Esc back · Tab sections · ↑↓ fields · Enter open · / find · y/Y copy · r raw"
+    } else if footer.width < 78 {
+        " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · F1 help"
+    } else {
+        " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · Alt+←→ columns · F1 help"
+    };
+    if let Some(input) = &app.record.find_input {
+        frame.render_widget(
+            Paragraph::new(format!(" Find ❯ {}", input.text)).style(Style::new().fg(ACCENT)),
+            footer,
+        );
+        let prefix = input.text.chars().take(input.cursor).collect::<String>();
+        frame.set_cursor_position(Position::new(
+            footer.x + (prefix.width() + 8).min(footer.width.saturating_sub(1) as usize) as u16,
+            footer.y,
+        ));
+    } else {
+        frame.render_widget(
+            Paragraph::new(app.status.as_deref().unwrap_or(hint)).style(Style::new().fg(DIM)),
+            footer,
+        );
+    }
+    if let Some(overlay) = app.overlay {
+        overlay_view(frame, app, overlay);
+    }
     theme::remap(frame.buffer_mut());
 }
 
-
-/// Results with the preview beside them on wide terminals.
-fn body(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
-    if app.hits.is_empty() {
-        app.visible_rows
-            .set(area.height.saturating_sub(1).max(1) as usize);
-        results::empty(frame, app, area);
-        return;
-    }
-    if app.show_preview && area.width >= PREVIEW_MIN_WIDTH {
-        let preview = (area.width * 2 / 5).clamp(40, 72);
-        let [list, pane] =
-            Layout::horizontal([Constraint::Fill(1), Constraint::Length(preview)]).areas(area);
-        results::table(frame, app, list);
-        record::preview(frame, app, pane);
-    } else {
-        results::table(frame, app, area);
-    }
-}
-
-
-fn header(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
-    let mut left = vec![
-        Span::styled(
-            " ◆ objekte",
-            Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
-        ),
-        Span::styled("   ", Style::new()),
-        Span::styled(" ", Style::new()),
-        Span::styled(
-            app.scope_label().to_string(),
-            Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
-        ),
-        Span::styled("  ▾", Style::new().fg(DIM)),
-        Span::styled("  Ctrl+O", Style::new().fg(FAINT)),
-    ];
-    if app.scope == 0 {
-        left.insert(2, Span::styled("in", Style::new().fg(DIM)));
-    } else {
-        left.insert(2, Span::styled("in collection", Style::new().fg(DIM)));
-    }
-    frame.render_widget(Paragraph::new(TextLine::from(left)), area);
-    let right = if let Some(status) = &app.index_status {
-        TextLine::from(vec![
-            Span::styled(format!("{} ", spinner()), Style::new().fg(AMBER)),
-            Span::styled(format!("{status} "), Style::new().fg(DIM)),
-        ])
-    } else {
-        TextLine::from(vec![
-            Span::styled("● ", Style::new().fg(GREEN)),
-            Span::styled("indexes ready ", Style::new().fg(DIM)),
-        ])
-    };
-    frame.render_widget(Paragraph::new(right).right_aligned(), area);
-}
-
-
-/// One query line: a label, the text with a cursor, and option chips.
-fn query_line(frame: &mut Frame<'_>, app: &App<'_>, line: Line, area: Rect) {
-    let active = app.line == line && app.overlay.is_none();
-    let (label, input, hint) = match line {
-        Line::Search => ("Search", &app.search, "words or text in any field"),
-        Line::Filter => (
-            "Filter",
-            &app.filter,
-            "fields, e.g.  year >= 1800 && entry.year < 1820   (suggests as you type)",
-        ),
-    };
-    let error = app.error_confirmed
-        && app
-            .query_error
-            .as_ref()
-            .is_some_and(|(failed, _)| *failed == line);
-    let label_style = if error {
-        Style::new().fg(RED).add_modifier(Modifier::BOLD)
-    } else if active {
-        Style::new().fg(ACCENT).add_modifier(Modifier::BOLD)
-    } else {
-        Style::new().fg(DIM)
-    };
-    let marker = if active { "❯" } else { " " };
-    let [label_area, text_area] =
-        Layout::horizontal([Constraint::Length(LABEL), Constraint::Fill(1)]).areas(area);
+fn query_line(
+    frame: &mut Frame<'_>,
+    label: &str,
+    input: &Input,
+    active: bool,
+    area: Rect,
+    filter: bool,
+    options: Option<(bool, bool)>,
+) {
+    let [label_area, remaining] =
+        Layout::horizontal([Constraint::Length(10), Constraint::Fill(1)]).areas(area);
+    let options = options.filter(|_| remaining.width >= 44);
+    let option_width = if options.is_some() { 27 } else { 0 };
+    let [text_area, option_area] =
+        Layout::horizontal([Constraint::Fill(1), Constraint::Length(option_width)])
+            .areas(remaining);
     frame.render_widget(
-        Paragraph::new(TextLine::from(vec![
-            Span::styled(format!(" {marker} "), Style::new().fg(ACCENT)),
-            Span::styled(label, label_style),
-        ])),
+        Paragraph::new(format!(" {} {label}", if active { "❯" } else { " " }))
+            .style(Style::new().fg(if active { ACCENT } else { DIM })),
         label_area,
     );
-    let chips = if line == Line::Search {
-        chips(app)
-    } else {
-        Vec::new()
-    };
-    let chips_width = chips.iter().map(|span| span.content.width()).sum::<usize>() as u16;
-    let [text_area, chip_area] =
-        Layout::horizontal([Constraint::Fill(1), Constraint::Length(chips_width)]).areas(text_area);
     if input.text.is_empty() {
+        let hint = if filter {
+            "e.g. year >= 1800"
+        } else {
+            "words or text in any field"
+        };
         frame.render_widget(
-            Paragraph::new(Span::styled(
-                hint,
-                Style::new().fg(FAINT).add_modifier(Modifier::ITALIC),
-            )),
+            Paragraph::new(hint).style(Style::new().fg(FAINT).add_modifier(Modifier::ITALIC)),
             text_area,
         );
-        if active {
-            frame.set_cursor_position(Position::new(text_area.x, text_area.y));
-        }
     } else {
-        let styles = if line == Line::Filter {
+        let styles = if filter {
             syntax::filter_styles(&input.text)
         } else {
             vec![Style::new().fg(TEXT); input.len()]
         };
-        // Point at the character a filter error names, once Enter made it
-        // an error; while typing, the line is incomplete most of the time.
-        let mark = app
-            .query_error
-            .as_ref()
-            .filter(|(failed, _)| *failed == line && app.error_confirmed)
-            .and_then(|(_, error)| syntax::error_position(&input.text, error))
-            .map(|at| {
-                (
-                    at,
+        let chars = input.text.chars().collect::<Vec<_>>();
+        let cursor_width = chars
+            .iter()
+            .take(input.cursor)
+            .map(|ch| ch.width().unwrap_or(0))
+            .sum::<usize>();
+        let available = text_area.width as usize;
+        let mut skip_width = cursor_width.saturating_sub(available.saturating_sub(1));
+        let mut skip = 0;
+        while skip < chars.len() && skip_width > 0 {
+            skip_width = skip_width.saturating_sub(chars[skip].width().unwrap_or(0));
+            skip += 1;
+        }
+        let mut used = 0;
+        let spans = chars
+            .into_iter()
+            .zip(styles)
+            .skip(skip)
+            .take_while(|(ch, _)| {
+                let width = ch.width().unwrap_or(0);
+                if used + width > available {
+                    false
+                } else {
+                    used += width;
+                    true
+                }
+            })
+            .map(|(ch, style)| Span::styled(ch.to_string(), style))
+            .collect::<Vec<_>>();
+        frame.render_widget(Paragraph::new(Line::from(spans)), text_area);
+        if active && text_area.width > 0 {
+            let before = input
+                .text
+                .chars()
+                .skip(skip)
+                .take(input.cursor.saturating_sub(skip));
+            let column = before.map(|ch| ch.width().unwrap_or(0)).sum::<usize>();
+            frame.set_cursor_position(Position::new(
+                text_area.x + column.min(available.saturating_sub(1)) as u16,
+                text_area.y,
+            ));
+        }
+    }
+    if active && input.text.is_empty() && text_area.width > 0 {
+        frame.set_cursor_position(Position::new(text_area.x, text_area.y));
+    }
+    if let Some((sensitive, regex)) = options {
+        let chip = |label, on| {
+            Span::styled(
+                label,
+                if on {
                     Style::new()
-                        .add_modifier(Modifier::UNDERLINED)
-                        .underline_color(RED)
-                        .bg(MATCH),
-                )
-            });
-        let ghost = (line == Line::Filter && active)
-            .then(|| app.completion_ghost())
-            .flatten();
-        draw_styled_input(
-            frame,
-            input,
-            text_area,
-            active,
-            &styles,
-            mark,
-            ghost.as_deref(),
-        );
-    }
-    frame.render_widget(Paragraph::new(TextLine::from(chips)), chip_area);
-}
-
-/// Option chips: a lit chip is active.
-fn chips(app: &App<'_>) -> Vec<Span<'static>> {
-    let chip = |text: &'static str, on: bool, key: &'static str| {
-        let style = if on {
-            Style::new()
-                .fg(BACKGROUND_ON)
-                .bg(ACCENT)
-                .add_modifier(Modifier::BOLD)
-        } else {
-            Style::new().fg(DIM)
-        };
-        [
-            Span::styled(format!(" {text} "), style),
-            Span::styled(format!("{key} "), Style::new().fg(FAINT)),
-        ]
-    };
-    // With regex on, case and markup options do not apply: a regex reads
-    // the stored text and sets its own case. Their chips are greyed out.
-    let disabled = |text: &'static str, key: &'static str| {
-        [
-            Span::styled(format!(" {text} "), Style::new().fg(FAINT)),
-            Span::styled(format!("{key} "), Style::new().fg(FAINT)),
-        ]
-    };
-    let mut spans = Vec::new();
-    if app.regex {
-        spans.extend(disabled("Aa", "Alt+C"));
-    } else {
-        spans.extend(chip("Aa", app.case_sensitive, "Alt+C"));
-    }
-    spans.extend(chip(".*", app.regex, "Alt+R"));
-    // The text chip names the current mode, so it is always lit: bold for
-    // the default normalized text, highlighted for the stored text.
-    if app.regex {
-        spans.extend(disabled("txt", "Alt+T"));
-    } else if app.representation == Representation::Full {
-        spans.extend(chip("</>", true, "Alt+T"));
-    } else {
-        spans.extend([
-            Span::styled(" txt ", Style::new().fg(TEXT).add_modifier(Modifier::BOLD)),
-            Span::styled("Alt+T ", Style::new().fg(FAINT)),
-        ]);
-    }
-    spans
-}
-
-/// Draw an input, scrolled so the cursor stays visible.
-pub(super) fn draw_input(
-    frame: &mut Frame<'_>,
-    input: &Input,
-    area: Rect,
-    active: bool,
-    style: Style,
-) {
-    let styles = vec![style; input.len()];
-    draw_styled_input(frame, input, area, active, &styles, None, None);
-}
-
-/// Draw an input with one style per character, scrolled so the cursor
-/// stays visible. `mark` underlines one character, or the end of the text.
-pub(super) fn draw_styled_input(
-    frame: &mut Frame<'_>,
-    input: &Input,
-    area: Rect,
-    active: bool,
-    styles: &[Style],
-    mark: Option<(usize, Style)>,
-    ghost: Option<&str>,
-) {
-    let width = area.width.max(1) as usize;
-    let ghost_span = || ghost.map(|text| Span::styled(text.to_owned(), Style::new().fg(FAINT)));
-    let before = input.text.chars().take(input.cursor).collect::<String>();
-    let cursor_column = before.width();
-    let skip_columns = cursor_column.saturating_sub(width.saturating_sub(1));
-    let mut skipped = 0;
-    let mut spans: Vec<Span<'static>> = Vec::new();
-    let mut count = 0;
-    for (index, ch) in input.text.chars().enumerate() {
-        count = index + 1;
-        let w = unicode_width::UnicodeWidthChar::width(ch).unwrap_or(0);
-        if skipped + w <= skip_columns && spans.is_empty() {
-            skipped += w;
-            continue;
-        }
-        if index == input.cursor
-            && let Some(span) = ghost_span()
-        {
-            spans.push(span);
-        }
-        let mut style = styles.get(index).copied().unwrap_or_default();
-        if let Some((at, marked)) = mark
-            && at == index
-        {
-            style = style.patch(marked);
-        }
-        match spans.last_mut() {
-            Some(last) if last.style == style => last.content.to_mut().push(ch),
-            _ => spans.push(Span::styled(ch.to_string(), style)),
-        }
-    }
-    if input.cursor >= count
-        && let Some(span) = ghost_span()
-    {
-        spans.push(span);
-    }
-    if let Some((at, marked)) = mark
-        && at >= count
-    {
-        spans.push(Span::styled(" ", marked));
-    }
-    frame.render_widget(Paragraph::new(TextLine::from(spans)), area);
-    if active {
-        let x = area.x + (cursor_column - skipped).min(width.saturating_sub(1)) as u16;
-        frame.set_cursor_position(Position::new(x, area.y));
-    }
-}
-
-
-/// The rule below the query lines: counts, timing, sort, or an error.
-fn summary(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
-    let rule = Style::new().fg(FAINT);
-    let mut left = vec![Span::styled(" ", rule)];
-    let hint_hidden = !app.error_confirmed && app.completion.is_some();
-    if let Some((_, error)) = app.query_error.as_ref().filter(|_| !hint_hidden) {
-        if app.error_confirmed {
-            left.push(Span::styled(
-                " ✗ ",
-                Style::new().fg(RED).add_modifier(Modifier::BOLD),
-            ));
-            left.push(Span::styled(compact(error), Style::new().fg(RED)));
-        } else {
-            left.push(Span::styled(" … ", Style::new().fg(AMBER)));
-            left.push(Span::styled(compact(error), Style::new().fg(DIM)));
-        }
-        left.push(Span::styled(" ", rule));
-    } else if app.last_request.is_some() || app.searching {
-        let count = match (app.total, app.searching) {
-            (Some(total), _) => format!(
-                "{total}{} {}",
-                if app.truncated { "+" } else { "" },
-                if total == 1 { "match" } else { "matches" }
-            ),
-            (None, true) => format!("{} searching", spinner()),
-            (None, false) => String::new(),
-        };
-        left.push(Span::styled(
-            format!(" {count} "),
-            Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
-        ));
-        if app.searching && app.total.is_some() {
-            left.push(Span::styled(
-                format!("{} ", spinner()),
-                Style::new().fg(AMBER),
-            ));
-        }
-        if let Some(ms) = app.elapsed_ms {
-            left.push(Span::styled(
-                format!("· {} ", duration(ms)),
-                Style::new().fg(DIM),
-            ));
-        }
-        if let Some(request) = &app.last_request
-            && !request.sort().is_empty()
-        {
-            let sort = request
-                .sort()
-                .iter()
-                .map(|term| {
-                    let arrow = if term.direction == objekte_core::Direction::Desc {
-                        "↓"
-                    } else {
-                        "↑"
-                    };
-                    format!("{}{arrow}", term.field)
-                })
-                .collect::<Vec<_>>()
-                .join(", ");
-            left.push(Span::styled(
-                format!("· sorted by {sort} "),
-                Style::new().fg(DIM),
-            ));
-        }
-    } else if app.queued_search || app.indexes_busy() && app.dirty.is_some() {
-        left.push(Span::styled(
-            " waiting for indexes… ",
-            Style::new().fg(AMBER),
-        ));
-    }
-    let used = left.iter().map(|span| span.content.width()).sum::<usize>();
-    let right = if app.hits.is_empty() {
-        String::new()
-    } else {
-        let rows = app.visible_rows.get();
-        let last = (app.scroll + rows).min(app.hits.len());
-        if app.total == Some(app.hits.len()) {
-            format!(" {}–{} of {} ", app.scroll + 1, last, app.hits.len())
-        } else {
-            format!(" {}–{} · {} loaded ", app.scroll + 1, last, app.hits.len())
-        }
-    };
-    let fill = (area.width as usize).saturating_sub(used + right.width());
-    left.push(Span::styled("─".repeat(fill), rule));
-    left.push(Span::styled(right, Style::new().fg(DIM)));
-    frame.render_widget(Paragraph::new(TextLine::from(left)), area);
-}
-
-/// The first line of an error, shortened.
-fn compact(error: &str) -> String {
-    let line = error.lines().next().unwrap_or("");
-    line.strip_prefix("invalid request: ")
-        .unwrap_or(line)
-        .to_string()
-}
-
-fn duration(ms: f64) -> String {
-    if ms < 10.0 {
-        format!("{ms:.1} ms")
-    } else if ms < 1000.0 {
-        format!("{ms:.0} ms")
-    } else {
-        format!("{:.2} s", ms / 1000.0)
-    }
-}
-
-
-fn footer(frame: &mut Frame<'_>, app: &App<'_>, area: Rect) {
-    if app.view == View::Detail
-        && let Some(input) = &app.record.find_input
-    {
-        let [label, text] =
-            Layout::horizontal([Constraint::Length(8), Constraint::Fill(1)]).areas(area);
-        frame.render_widget(
-            Paragraph::new(Span::styled(
-                " Find ❯ ",
-                Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
-            )),
-            label,
-        );
-        let count = app.record_find_count();
-        let note = format!(" {count} {} ", if count == 1 { "match" } else { "matches" });
-        let [text, note_area] =
-            Layout::horizontal([Constraint::Fill(1), Constraint::Length(note.width() as u16)])
-                .areas(text);
-        draw_input(frame, input, text, true, Style::new().fg(TEXT));
-        frame.render_widget(
-            Paragraph::new(Span::styled(note, Style::new().fg(DIM))),
-            note_area,
-        );
-        return;
-    }
-    if let Some(notice) = &app.notice
-        && notice.at.elapsed() < super::app::NOTICE_TIME
-    {
-        let (icon, color) = if notice.error {
-            ("✗", RED)
-        } else {
-            ("●", ACCENT)
+                        .fg(BACKGROUND_ON)
+                        .bg(ACCENT)
+                        .add_modifier(Modifier::BOLD)
+                } else {
+                    Style::new().fg(DIM)
+                },
+            )
         };
         frame.render_widget(
-            Paragraph::new(TextLine::from(vec![
-                Span::styled(format!(" {icon} "), Style::new().fg(color)),
-                Span::styled(
-                    notice.text.clone(),
-                    Style::new().fg(if notice.error { RED } else { TEXT }),
-                ),
+            Paragraph::new(Line::from(vec![
+                chip(" Aa ", sensitive),
+                Span::styled("Alt+C ", Style::new().fg(FAINT)),
+                chip(" .* ", regex),
+                Span::styled("Alt+R ", Style::new().fg(FAINT)),
             ])),
-            area,
+            option_area,
+        );
+    }
+}
+
+fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    app.results_area = area;
+    app.viewport_rows = area.height.saturating_sub(1).max(1) as usize;
+    if area.height == 0 {
+        return;
+    }
+    if app.single_collection {
+        results_cli(frame, app, area);
+        return;
+    }
+    let compact = area.width < 100;
+    let collection_width = if compact { 12usize } else { 16 };
+    let id_width = if compact { 16usize } else { 24 };
+    let field_width = if area.width >= 150 { 24 } else { 16 };
+    let fixed = 4 + collection_width + 2 + id_width + 2;
+    let minimum_match_width =
+        (if compact { 18 } else { 24 }).min((area.width as usize).saturating_sub(fixed));
+    let available = (area.width as usize).saturating_sub(fixed + minimum_match_width + 2);
+    let columns = app.visible_columns();
+    let field_count = (available / (field_width + 2)).min(4).min(columns.len());
+    let match_width = minimum_match_width + available - field_count * (field_width + 2);
+    let fields = columns
+        .into_iter()
+        .skip(app.column_offset)
+        .take(field_count)
+        .collect::<Vec<_>>();
+    let mut header = format!(
+        "    {}  {}  ",
+        pad_clip("collection", collection_width),
+        pad_clip("id", id_width)
+    );
+    header.push_str(&pad_clip("match / record", match_width));
+    header.push_str("  ");
+    for field in &fields {
+        header.push_str(&pad_clip(field, field_width));
+        header.push_str("  ");
+    }
+    frame.render_widget(
+        Paragraph::new(header).style(Style::new().fg(DIM).add_modifier(Modifier::BOLD)),
+        Rect { height: 1, ..area },
+    );
+    if app.hits.is_empty() {
+        let message = if app.searching {
+            "Searching…"
+        } else if app.error.is_some() {
+            "Correct the query and press Enter."
+        } else {
+            "No matches. Try another query or collection."
+        };
+        frame.render_widget(
+            Paragraph::new(message).style(Style::new().fg(FAINT)),
+            Rect {
+                y: area.y + 1,
+                height: 1,
+                ..area
+            },
         );
         return;
     }
-    let keys = hints(app);
-    let mut spans = vec![Span::raw(" ")];
-    let mut width = 1;
-    for (key, action) in keys {
-        // `key action` plus three spaces before the next hint; the last
-        // hint may end at the edge.
-        let item = key.width() + 1 + action.width();
-        if width + item > area.width as usize {
+    for (row, hit) in app
+        .hits
+        .iter()
+        .skip(app.scroll)
+        .take(app.viewport_rows)
+        .enumerate()
+    {
+        let index = app.scroll + row;
+        let selected = index == app.selected;
+        let base = if selected {
+            Style::new().bg(SELECTED)
+        } else {
+            Style::new()
+        };
+        let summary = record_summary(hit);
+        let status_color = match hit.file_status {
+            FileStatus::Valid => GREEN,
+            FileStatus::Broken | FileStatus::Unreadable => RED,
+        };
+        let mut spans = vec![
+            Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
+            Span::styled("● ", Style::new().fg(status_color)),
+            Span::styled(
+                pad_clip(&hit.collection, collection_width),
+                Style::new().fg(VIOLET),
+            ),
+            Span::raw("  "),
+            Span::styled(pad_clip(&hit.record_id, id_width), Style::new().fg(DIM)),
+            Span::raw("  "),
+            Span::styled(pad_clip(&summary, match_width), Style::new().fg(TEXT)),
+            Span::raw("  "),
+        ];
+        for field in &fields {
+            let value = record::column_value(hit, field);
+            spans.push(Span::styled(
+                pad_clip(&value, field_width),
+                Style::new().fg(if value.starts_with('[') || value.starts_with('{') {
+                    DIM
+                } else {
+                    TEXT
+                }),
+            ));
+            spans.push(Span::raw("  "));
+        }
+        frame.render_widget(
+            Paragraph::new(Line::from(spans)).style(base),
+            Rect {
+                y: area.y + 1 + row as u16,
+                height: 1,
+                ..area
+            },
+        );
+    }
+}
+
+fn results_cli(frame: &mut Frame<'_>, app: &App, area: Rect) {
+    let width = area.width as usize;
+    let id_width = if width < 80 { 18 } else { 28 };
+    let fixed = 6 + id_width + 2;
+    let field_width = if width < 110 { 14 } else { 22 };
+    let optional = app.visible_columns();
+    let available = width.saturating_sub(fixed + 16);
+    let field_count =
+        (available / (field_width + 2)).min(optional.len().saturating_sub(app.column_offset));
+    let match_width = width.saturating_sub(fixed + field_count * (field_width + 2));
+    let fields = optional
+        .iter()
+        .skip(app.column_offset)
+        .take(field_count)
+        .collect::<Vec<_>>();
+    let mut header = format!("valid {}  ", pad_clip("id", id_width));
+    for field in &fields {
+        header.push_str(&pad_clip(field, field_width));
+        header.push_str("  ");
+    }
+    header.push_str(&pad_clip("match", match_width));
+    frame.render_widget(
+        Paragraph::new(header).style(Style::new().fg(DIM).add_modifier(Modifier::BOLD)),
+        Rect { height: 1, ..area },
+    );
+    if app.hits.is_empty() {
+        let message = if app.searching {
+            "Searching…"
+        } else if app.error.is_some() {
+            "Correct the query and press Enter."
+        } else {
+            "No matches."
+        };
+        frame.render_widget(
+            Paragraph::new(message).style(Style::new().fg(FAINT)),
+            Rect {
+                y: area.y + 1,
+                height: 1,
+                ..area
+            },
+        );
+        return;
+    }
+    for (row, hit) in app
+        .hits
+        .iter()
+        .skip(app.scroll)
+        .take(app.viewport_rows)
+        .enumerate()
+    {
+        let index = app.scroll + row;
+        let selected = index == app.selected;
+        let display = app.display_rows.get(index);
+        let status_color = match hit.file_status {
+            FileStatus::Valid => GREEN,
+            FileStatus::Broken | FileStatus::Unreadable => RED,
+        };
+        let mut spans = vec![
+            Span::styled(if selected { "▌ " } else { "  " }, Style::new().fg(ACCENT)),
+            Span::styled("● ", Style::new().fg(status_color)),
+            Span::raw("  "),
+            Span::styled(pad_clip(&hit.record_id, id_width), Style::new().fg(DIM)),
+            Span::raw("  "),
+        ];
+        for field in &fields {
+            let position = app.column_keys().iter().position(|name| name == *field);
+            let value = position
+                .and_then(|position| display.and_then(|row| row.fields.get(position)))
+                .map_or("", String::as_str);
+            spans.push(Span::styled(
+                pad_clip(value, field_width),
+                Style::new().fg(TEXT),
+            ));
+            spans.push(Span::raw("  "));
+        }
+        spans.push(Span::styled(
+            pad_clip(display.map_or("", |row| row.matched.as_str()), match_width),
+            Style::new().fg(TEXT),
+        ));
+        frame.render_widget(
+            Paragraph::new(Line::from(spans)).style(if selected {
+                Style::new().bg(SELECTED)
+            } else {
+                Style::new()
+            }),
+            Rect {
+                y: area.y + 1 + row as u16,
+                height: 1,
+                ..area
+            },
+        );
+    }
+}
+
+fn record_summary(hit: &SearchHit) -> String {
+    let Some(value) = record::json_value(hit) else {
+        return String::new();
+    };
+    for field in &hit.matched_fields {
+        let selected = field
+            .split('.')
+            .try_fold(&value, |current, key| current.as_object()?.get(key));
+        if let Some(selected) = selected {
+            let display = selected
+                .as_str()
+                .map_or_else(|| selected.to_string(), str::to_owned);
+            return format!(
+                "{field}: {}",
+                display.split_whitespace().collect::<Vec<_>>().join(" ")
+            );
+        }
+    }
+    if let Some(map) = value.as_object() {
+        for key in ["preferred_title", "title", "name", "label", "text"] {
+            if let Some(text) = map.get(key).and_then(serde_json::Value::as_str) {
+                return text.split_whitespace().collect::<Vec<_>>().join(" ");
+            }
+        }
+        if let Some((key, value)) = map.iter().find(|(_, value)| value.is_string()) {
+            return format!("{key}: {}", value.as_str().unwrap_or_default());
+        }
+    }
+    String::new()
+}
+
+fn mark_truncated(lines: &mut [String], width: usize) {
+    if let Some(last) = lines.last_mut() {
+        while last.width() + 1 > width {
+            last.pop();
+        }
+        last.push('…');
+    }
+}
+
+fn wrapped_record_value(text: &str, width: usize, max_lines: usize) -> Vec<String> {
+    if width == 0 || max_lines == 0 {
+        return vec![String::new()];
+    }
+    let mut lines = Vec::new();
+    let safe = safe_terminal_text(text);
+    let mut paragraphs = safe.split('\n').peekable();
+    while let Some(paragraph) = paragraphs.next() {
+        let mut line = String::new();
+        for word in paragraph.split_whitespace() {
+            let mut remaining = word;
+            loop {
+                if !line.is_empty() {
+                    if line.width() + 1 + remaining.width() <= width {
+                        line.push(' ');
+                        line.push_str(remaining);
+                        break;
+                    }
+                    lines.push(std::mem::take(&mut line));
+                    if lines.len() == max_lines {
+                        mark_truncated(&mut lines, width);
+                        return lines;
+                    }
+                }
+                let mut split = remaining.len();
+                let mut used = 0;
+                for (offset, ch) in remaining.char_indices() {
+                    let next = used + UnicodeWidthChar::width(ch).unwrap_or(0);
+                    if next > width && offset > 0 {
+                        split = offset;
+                        break;
+                    }
+                    used = next;
+                }
+                let (part, rest) = remaining.split_at(split);
+                line.push_str(part);
+                if rest.is_empty() {
+                    break;
+                }
+                lines.push(std::mem::take(&mut line));
+                if lines.len() == max_lines {
+                    mark_truncated(&mut lines, width);
+                    return lines;
+                }
+                remaining = rest;
+            }
+        }
+        lines.push(line);
+        if lines.len() == max_lines {
+            if paragraphs.peek().is_some() {
+                mark_truncated(&mut lines, width);
+            }
+            return lines;
+        }
+    }
+    lines
+}
+
+fn detail_row_lines(
+    app: &App,
+    row: &record::RecordRow,
+    index: usize,
+    field_rows: usize,
+    name_width: usize,
+    width: usize,
+    height: usize,
+) -> Vec<Line<'static>> {
+    let chosen = app.view == View::Detail && index == app.record.cursor;
+    let base = if chosen {
+        Style::new().bg(SELECTED)
+    } else {
+        Style::new()
+    };
+    let heading = (index < field_rows
+        && row.depth == 0
+        && matches!(row.label.as_str(), "Fields" | "Metadata")
+        && row.value.is_empty())
+        || (index >= field_rows && matches!(row.label.as_str(), "Outgoing" | "Backlinks"));
+    let marker = if chosen {
+        "▌ "
+    } else if row.matched {
+        "▸ "
+    } else {
+        "  "
+    };
+    let label = if heading {
+        row.label.clone()
+    } else {
+        let branch = match &row.branch {
+            Some((path, array)) if app.record.is_folded(path, *array) => "▸ ",
+            Some(_) => "▾ ",
+            None => "  ",
+        };
+        format!("{}{}{}", "  ".repeat(row.depth.min(12)), branch, row.label)
+    };
+    let label_style = if heading || row.matched {
+        base.fg(ACCENT).add_modifier(Modifier::BOLD)
+    } else if chosen {
+        base.fg(TEXT).add_modifier(Modifier::BOLD)
+    } else {
+        base.fg(DIM)
+    };
+    let value_style = if row.value.starts_with("dangling") {
+        base.fg(RED)
+    } else if index >= field_rows && row.matched {
+        base.fg(VIOLET)
+    } else if heading {
+        base.fg(FAINT)
+    } else {
+        base.fg(TEXT)
+    };
+    let value_width = width.saturating_sub(name_width + 4);
+    let value = if index >= field_rows && row.matched {
+        format!("{}  →", row.value)
+    } else {
+        row.value.clone()
+    };
+    wrapped_record_value(&value, value_width, height.max(1))
+        .into_iter()
+        .enumerate()
+        .map(|(line, value)| {
+            let used = 2 + name_width + 2 + value.width();
+            Line::from(vec![
+                Span::styled(if line == 0 { marker } else { "  " }, base.fg(ACCENT)),
+                Span::styled(
+                    if line == 0 {
+                        pad_clip(&label, name_width)
+                    } else {
+                        " ".repeat(name_width)
+                    },
+                    label_style,
+                ),
+                Span::styled("  ", base),
+                Span::styled(value, value_style),
+                Span::styled(" ".repeat(width.saturating_sub(used)), base),
+            ])
+        })
+        .collect()
+}
+
+fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    let Some(hit) = app.current_detail_hit().cloned() else {
+        return;
+    };
+    let position = if app.selected_hit().is_some_and(|selected| {
+        selected.collection == hit.collection && selected.record_id == hit.record_id
+    }) {
+        format!("{} of {} ", app.selected + 1, app.total)
+    } else {
+        "linked record ".to_owned()
+    };
+    let status_color = match hit.file_status {
+        FileStatus::Valid => GREEN,
+        FileStatus::Broken | FileStatus::Unreadable => RED,
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(vec![
+            Span::styled(" ◂ ", Style::new().fg(ACCENT)),
+            Span::styled(hit.collection.clone(), Style::new().fg(VIOLET)),
+            Span::styled(" / ", Style::new().fg(FAINT)),
+            Span::styled(
+                hit.record_id.clone(),
+                Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
+            ),
+            Span::styled("   ● ", Style::new().fg(status_color)),
+            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+        ])),
+        Rect { height: 1, ..area },
+    );
+    frame.render_widget(
+        Paragraph::new(Span::styled(position, Style::new().fg(DIM))).right_aligned(),
+        Rect { height: 1, ..area },
+    );
+
+    let diagnostic = app
+        .diagnostic(&hit)
+        .map(|issue| format!("{}: {}", issue.code, issue.message));
+    let mut rows = app.record.rows(&hit, diagnostic.as_deref());
+    let field_rows = rows.len();
+    rows.extend(app.relation_rows.iter().map(|row| record::RecordRow {
+        label: row.label.clone(),
+        value: row.value.clone(),
+        depth: 0,
+        matched: row.action.is_some(),
+        branch: None,
+    }));
+    app.record.cursor = app.record.cursor.min(rows.len().saturating_sub(1));
+    let section = rows
+        .iter()
+        .enumerate()
+        .take(app.record.cursor + 1)
+        .filter_map(|(index, row)| {
+            (index >= field_rows)
+                .then_some(row.label.as_str())
+                .and_then(|label| match label {
+                    "Outgoing" => Some(2),
+                    "Backlinks" => Some(3),
+                    _ => None,
+                })
+        })
+        .last()
+        .unwrap_or(1);
+    let tab = |label: String, number| {
+        Span::styled(
+            format!(" {label} "),
+            if section == number {
+                Style::new()
+                    .fg(BACKGROUND_ON)
+                    .bg(ACCENT)
+                    .add_modifier(Modifier::BOLD)
+            } else {
+                Style::new().fg(DIM)
+            },
+        )
+    };
+    let tabs = if app.single_collection {
+        vec![Span::raw("   "), tab("Fields".into(), 1)]
+    } else {
+        vec![
+            Span::raw("   "),
+            tab("1 Fields".into(), 1),
+            Span::raw("  "),
+            tab("2 Links".into(), 2),
+            Span::raw("  "),
+            tab("3 Backlinks".into(), 3),
+        ]
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(tabs)),
+        Rect {
+            y: area.y + 1,
+            height: 1,
+            ..area
+        },
+    );
+    frame.render_widget(
+        Paragraph::new(Span::styled(
+            "─".repeat(area.width as usize),
+            Style::new().fg(FAINT),
+        )),
+        Rect {
+            y: area.y + 2,
+            height: 1,
+            ..area
+        },
+    );
+    let body = Rect {
+        x: area.x + 1,
+        y: area.y + 3,
+        width: area.width.saturating_sub(2),
+        height: area.height.saturating_sub(3),
+    };
+    app.detail_area = body;
+    app.record.visible_rows.clear();
+    if app.record.raw {
+        frame.render_widget(
+            Paragraph::new(record::raw_text(&hit))
+                .wrap(Wrap { trim: false })
+                .scroll((app.detail_scroll, 0)),
+            Rect {
+                x: body.x + 1,
+                width: body.width.saturating_sub(1),
+                ..body
+            },
+        );
+        return;
+    }
+    let height = body.height as usize;
+    let name_width = (body.width as usize / 3)
+        .clamp(14, 36)
+        .min((body.width as usize).saturating_sub(6));
+    let width = body.width as usize;
+    let mut start = app.record.scroll.min(app.record.cursor);
+    let mut needed = (start..=app.record.cursor)
+        .map(|index| {
+            detail_row_lines(
+                app,
+                &rows[index],
+                index,
+                field_rows,
+                name_width,
+                width,
+                height,
+            )
+            .len()
+        })
+        .sum::<usize>();
+    while needed > height && start < app.record.cursor {
+        needed -= detail_row_lines(
+            app,
+            &rows[start],
+            start,
+            field_rows,
+            name_width,
+            width,
+            height,
+        )
+        .len();
+        start += 1;
+    }
+    app.record.scroll = start;
+    let mut line = 0;
+    for (index, row) in rows.iter().enumerate().skip(start) {
+        for content in detail_row_lines(app, row, index, field_rows, name_width, width, height) {
+            if line == height {
+                break;
+            }
+            frame.render_widget(
+                Paragraph::new(content),
+                Rect {
+                    y: body.y + line as u16,
+                    height: 1,
+                    ..body
+                },
+            );
+            app.record.visible_rows.push(index);
+            line += 1;
+        }
+        if line == height {
             break;
         }
-        let item = item + 3;
-        width += item;
-        spans.push(Span::styled(
-            key,
-            Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
-        ));
-        spans.push(Span::styled(format!(" {action}   "), Style::new().fg(DIM)));
     }
-    frame.render_widget(Paragraph::new(TextLine::from(spans)), area);
+    let shown_rows = app
+        .record
+        .visible_rows
+        .last()
+        .map_or(0, |last| last + 1 - start);
+    if rows.len() > shown_rows && height > 0 {
+        let mut state = ScrollbarState::new(rows.len() - shown_rows).position(start);
+        frame.render_stateful_widget(
+            Scrollbar::new(ScrollbarOrientation::VerticalRight)
+                .begin_symbol(None)
+                .end_symbol(None)
+                .track_symbol(Some("│"))
+                .track_style(Style::new().fg(FAINT))
+                .thumb_style(Style::new().fg(DIM)),
+            Rect {
+                x: body.right(),
+                width: 1,
+                ..body
+            },
+            &mut state,
+        );
+    }
 }
 
-/// Key hints for the current state, most important first.
-fn hints(app: &App<'_>) -> Vec<(&'static str, &'static str)> {
-    if app.completion.is_some() {
-        let enter = if app.completion_active && !app.completion_is_typed() {
-            "insert"
-        } else {
-            "search"
-        };
-        return vec![
-            ("Tab", "search"),
-            ("↑↓", "choose"),
-            ("Enter", enter),
-            ("Esc", "close"),
-        ];
+fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    app.detail_area = area;
+    let Some(hit) = app.current_detail_hit().cloned() else {
+        return;
+    };
+    for y in area.top()..area.bottom() {
+        frame.render_widget(
+            Paragraph::new(Span::styled("│", Style::new().fg(FAINT))),
+            Rect::new(area.x, y, 1, 1),
+        );
     }
-    match app.view {
-        View::Detail => {
-            let fields = app.links.section == super::navigation::DetailSection::Fields;
-            let mut keys = Vec::new();
-            if fields && !app.record.find.is_empty() {
-                keys.push(("n N", "next / previous match"));
-                keys.push(("Esc", "end find"));
+    let inner = Rect {
+        x: area.x + 2,
+        width: area.width.saturating_sub(3),
+        ..area
+    };
+    let status_color = match hit.file_status {
+        FileStatus::Valid => GREEN,
+        FileStatus::Broken | FileStatus::Unreadable => RED,
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(vec![
+            Span::styled(hit.collection.clone(), Style::new().fg(VIOLET)),
+            Span::styled(" / ", Style::new().fg(FAINT)),
+            Span::styled(hit.record_id.clone(), Style::new().fg(TEXT)),
+            Span::styled("  ● ", Style::new().fg(status_color)),
+            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+        ])),
+        Rect { height: 1, ..inner },
+    );
+    let body = Rect {
+        y: inner.y + 2,
+        height: inner.height.saturating_sub(2),
+        ..inner
+    };
+    let diagnostic = app
+        .diagnostic(&hit)
+        .map(|issue| format!("{}: {}", issue.code, issue.message));
+    let mut rows = app.record.rows(&hit, diagnostic.as_deref());
+    if let Some(metadata) = rows.iter().position(|row| row.label == "Metadata") {
+        rows.truncate(metadata);
+    }
+    let height = body.height as usize;
+    let width = body.width as usize;
+    let name_width = (width / 3).clamp(12, 28).min(width.saturating_sub(6));
+    let first_match = rows.iter().position(|row| row.matched).unwrap_or(0);
+    let mut start = first_match.saturating_sub(2);
+    while start < first_match {
+        let needed = (start..=first_match)
+            .map(|index| {
+                detail_row_lines(
+                    app,
+                    &rows[index],
+                    index,
+                    rows.len(),
+                    name_width,
+                    width,
+                    height,
+                )
+                .len()
+            })
+            .sum::<usize>();
+        if needed <= height {
+            break;
+        }
+        start += 1;
+    }
+    let mut line = 0;
+    for (index, row) in rows.iter().enumerate().skip(start) {
+        for content in detail_row_lines(app, row, index, rows.len(), name_width, width, height) {
+            if line == height {
+                break;
             }
-            keys.push(("←→", "previous / next"));
-            keys.push(("Tab", "fields · links · backlinks"));
-            if fields && app.record.raw {
-                keys.extend([("r", "fields"), ("/", "find"), ("Y", "copy record")]);
-            } else if fields {
-                keys.extend([
-                    ("Enter", "follow link / fold"),
-                    ("f", "filter by value"),
-                    ("y", "copy"),
-                    ("/", "find"),
-                    ("r", "raw JSON"),
-                    ("e", "edit"),
-                ]);
+            frame.render_widget(
+                Paragraph::new(content),
+                Rect {
+                    y: body.y + line as u16,
+                    height: 1,
+                    ..body
+                },
+            );
+            line += 1;
+        }
+        if line == height {
+            break;
+        }
+    }
+}
+
+fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
+    let area = frame.area();
+    let width = area.width.min(70).saturating_sub(4).max(20);
+    let height = match overlay {
+        Overlay::Actions => {
+            (super::app::Action::ALL.len() as u16 + 3).min(area.height.saturating_sub(2))
+        }
+        Overlay::Collections => {
+            (app.collection_names().count() as u16 + 3).min(area.height.saturating_sub(2))
+        }
+        Overlay::Sort => (app.sort_choices().len() as u16
+            + if app.single_collection { 5 } else { 3 })
+        .min(area.height.saturating_sub(2)),
+        Overlay::History => (app.settings.history.len() as u16 + 2)
+            .min(20)
+            .min(area.height.saturating_sub(2)),
+        Overlay::Saved => (app.settings.saved.len() as u16 + 2)
+            .min(20)
+            .min(area.height.saturating_sub(2)),
+        Overlay::SaveQuery => 5.min(area.height.saturating_sub(2)),
+        Overlay::Export { .. } => 5.min(area.height.saturating_sub(2)),
+        Overlay::Columns => (app.column_keys().len() as u16 + 2)
+            .min(20)
+            .min(area.height.saturating_sub(2)),
+        Overlay::Help => 24.min(area.height.saturating_sub(2)),
+    };
+    let panel = Rect {
+        x: area.x + area.width.saturating_sub(width) / 2,
+        y: area.y + area.height.saturating_sub(height) / 2,
+        width,
+        height,
+    };
+    frame.render_widget(Clear, panel);
+    let title = match overlay {
+        Overlay::Actions => " Actions · Ctrl+K ",
+        Overlay::Collections => " Collections ",
+        Overlay::Sort => " Sort by ",
+        Overlay::History => " Recent queries ",
+        Overlay::Saved => " Saved queries ",
+        Overlay::SaveQuery => " Save query ",
+        Overlay::Columns => " Columns ",
+        Overlay::Export { all: true } => " Export all matches ",
+        Overlay::Export { all: false } => " Export record ",
+        Overlay::Help => " Keyboard ",
+    };
+    frame.render_widget(
+        Block::default()
+            .title(Span::styled(
+                title,
+                Style::new().fg(ACCENT).add_modifier(Modifier::BOLD),
+            ))
+            .style(Style::new().bg(PANEL))
+            .borders(Borders::ALL)
+            .border_style(Style::new().fg(ACCENT)),
+        panel,
+    );
+    let inner = Rect {
+        x: panel.x + 2,
+        y: panel.y + 1,
+        width: panel.width.saturating_sub(4),
+        height: panel.height.saturating_sub(2),
+    };
+    let lines = match overlay {
+        Overlay::Actions => super::app::Action::ALL
+            .iter()
+            .enumerate()
+            .map(|(index, action)| {
+                Line::from(vec![
+                    Span::styled(
+                        if index == app.action_picker {
+                            "❯ "
+                        } else {
+                            "  "
+                        },
+                        Style::new().fg(ACCENT),
+                    ),
+                    Span::styled(
+                        action.label(),
+                        Style::new().fg(if index == app.action_picker {
+                            TEXT
+                        } else {
+                            DIM
+                        }),
+                    ),
+                ])
+            })
+            .collect(),
+        Overlay::Collections => std::iter::once("All collections".to_owned())
+            .chain(app.collection_names().map(str::to_owned))
+            .enumerate()
+            .map(|(index, name)| {
+                Line::from(Span::styled(
+                    format!("{} {name}", if index == app.picker { "❯" } else { " " }),
+                    Style::new().fg(if index == app.picker { ACCENT } else { TEXT }),
+                ))
+            })
+            .collect::<Vec<_>>(),
+        Overlay::Sort => app
+            .sort_choices()
+            .into_iter()
+            .enumerate()
+            .map(|(index, choice)| {
+                let label = choice.map_or_else(
+                    || "Default order".to_owned(),
+                    |sort| {
+                        format!(
+                            "{} {}",
+                            sort.field,
+                            if sort.descending {
+                                "descending"
+                            } else {
+                                "ascending"
+                            }
+                        )
+                    },
+                );
+                Line::from(Span::styled(
+                    format!(
+                        "{} {label}",
+                        if index == app.sort_picker { "❯" } else { " " }
+                    ),
+                    Style::new().fg(if index == app.sort_picker {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                ))
+            })
+            .collect::<Vec<_>>(),
+        Overlay::History => app
+            .settings
+            .history
+            .iter()
+            .rev()
+            .enumerate()
+            .map(|(index, query)| {
+                let scope = query.collection.as_deref().unwrap_or("*");
+                let label = format!("{scope}  {}  {}", query.search, query.filter);
+                Line::from(Span::styled(
+                    format!(
+                        "{} {label}",
+                        if index == app.list_picker { "❯" } else { " " }
+                    ),
+                    Style::new().fg(if index == app.list_picker {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                ))
+            })
+            .collect(),
+        Overlay::Saved => app
+            .settings
+            .saved
+            .iter()
+            .enumerate()
+            .map(|(index, saved)| {
+                Line::from(Span::styled(
+                    format!(
+                        "{} {}  {}  {}",
+                        if index == app.list_picker { "❯" } else { " " },
+                        saved.name,
+                        saved.query.search,
+                        saved.query.filter
+                    ),
+                    Style::new().fg(if index == app.list_picker {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                ))
+            })
+            .collect(),
+        Overlay::SaveQuery => vec![
+            Line::from("Save query as:"),
+            Line::from(Span::styled(
+                format!("❯ {}", app.save_input.text),
+                Style::new().fg(ACCENT),
+            )),
+            Line::from(Span::styled(
+                "Enter save  ·  Esc cancel",
+                Style::new().fg(DIM),
+            )),
+        ],
+        Overlay::Export { all } => vec![
+            Line::from(if all {
+                "Export all matches to:"
             } else {
-                keys.push(("Enter", "open"));
-            }
-            if app.history_depth() > 0 {
-                keys.push(("Backspace", "back"));
-            }
-            keys.extend([("Esc", "results"), ("F1", "help")]);
-            keys
+                "Export selected record to:"
+            }),
+            Line::from(Span::styled(
+                format!("❯ {}", app.export_input.text),
+                Style::new().fg(ACCENT),
+            )),
+            Line::from(Span::styled(
+                "Enter write new JSON file  ·  Esc cancel",
+                Style::new().fg(DIM),
+            )),
+        ],
+        Overlay::Columns => app
+            .column_keys()
+            .into_iter()
+            .enumerate()
+            .map(|(index, key)| {
+                let visible = if app.single_collection {
+                    app.visible_columns().contains(&key)
+                } else {
+                    !app.settings.hidden(app.scope_name()).contains(&key)
+                };
+                Line::from(Span::styled(
+                    format!(
+                        "{} [{}] {key}",
+                        if index == app.column_picker {
+                            "❯"
+                        } else {
+                            " "
+                        },
+                        if visible { "x" } else { " " }
+                    ),
+                    Style::new().fg(if index == app.column_picker {
+                        ACCENT
+                    } else {
+                        TEXT
+                    }),
+                ))
+            })
+            .collect(),
+        Overlay::Help => (if app.single_collection {
+            vec![
+                "Keyboard shortcuts",
+                "",
+                "Ctrl+K            All actions",
+                "Tab / Shift+Tab   Switch input and results",
+                "Enter / Esc       Search, open / return",
+                "↑↓ / PgUp PgDn   Move rows or a page",
+                "Alt+←→           Scroll columns / adjacent record",
+                "Alt+C / Alt+R     Toggle case / regex",
+                "Ctrl+O            Show current collection",
+                "Ctrl+R / B / S    Recent / saved / save",
+                "Alt+S / L        Sort / select query fields",
+                "Alt+E / A        Export record / all",
+                "Ctrl+P / Alt+T   Preview / theme",
+                "",
+                "Detail: Enter     Fold or expand",
+                "Detail: / n N    Find / next / previous",
+                "Detail: y Y      Copy value / record",
+                "Detail: r        Raw / structured view",
+                "F1 / Ctrl+Q      Help / quit",
+            ]
+        } else {
+            vec![
+                "Keyboard shortcuts",
+                "",
+                "Ctrl+K            All actions",
+                "Tab / Shift+Tab   Switch input and results",
+                "Enter / Esc       Search, open / return",
+                "↑↓ / PgUp PgDn   Move rows or a page",
+                "Alt+←→           Scroll result columns",
+                "Alt+C / Alt+R     Toggle case / regex",
+                "Ctrl+O            Choose collection",
+                "Ctrl+R / B / S    Recent / saved / save",
+                "Alt+S / L        Sort / select columns",
+                "Alt+E / A        Export record / all",
+                "Ctrl+P / Alt+T   Preview / theme",
+                "",
+                "Detail: 1 2 3   Fields/links/backlinks",
+                "Detail: Tab / Shift+Tab   Next / previous section",
+                "Detail: Enter     Fold or follow link",
+                "Detail: Alt+←→   Previous/next result",
+                "Detail: / n N    Find / next / previous",
+                "Detail: y Y      Copy value / record",
+                "Detail: r        Raw / structured view",
+                "F1 / Ctrl+Q      Help / quit",
+            ]
+        })
+        .into_iter()
+        .map(Line::from)
+        .collect(),
+    };
+    let selected = match overlay {
+        Overlay::Actions => app.action_picker,
+        Overlay::Collections => app.picker,
+        Overlay::Sort => app.sort_picker,
+        Overlay::History | Overlay::Saved => app.list_picker,
+        Overlay::Columns => app.column_picker,
+        Overlay::SaveQuery | Overlay::Export { .. } | Overlay::Help => 0,
+    };
+    let list_area = if overlay == Overlay::Sort && app.single_collection {
+        Rect {
+            height: inner.height.saturating_sub(1),
+            ..inner
         }
-        View::Results => {
-            let mut keys = Vec::new();
-            if !app.hits.is_empty() {
-                keys.push(("↑↓", "move"));
-                keys.push(("Enter", "open"));
-            }
-            keys.push(match app.line {
-                Line::Search => ("Tab", "filter"),
-                Line::Filter => ("Tab", "search"),
-            });
-            if app.line == Line::Filter {
-                keys.push(("⇧Tab", "search"));
-            }
-            if app.columns.len() > app.fixed_columns() + 1 && !app.hits.is_empty() {
-                keys.push(("Alt+←→", "columns"));
-            }
-            keys.extend([
-                ("Ctrl+O", "collection"),
-                ("Ctrl+K", "actions"),
-                ("F1", "help"),
-                ("Ctrl+Q", "quit"),
-            ]);
-            keys
-        }
+    } else {
+        inner
+    };
+    let start = selected.saturating_sub(list_area.height.saturating_sub(1) as usize);
+    frame.render_widget(
+        Paragraph::new(
+            lines
+                .into_iter()
+                .skip(start)
+                .take(list_area.height as usize)
+                .collect::<Vec<_>>(),
+        )
+        .style(Style::new().bg(PANEL)),
+        list_area,
+    );
+    if overlay == Overlay::Sort && app.single_collection && inner.height > 0 {
+        let input_area = Rect {
+            y: inner.bottom() - 1,
+            height: 1,
+            ..inner
+        };
+        frame.render_widget(
+            Paragraph::new(format!("Expression ❯ {}", app.sort_input.text))
+                .style(Style::new().fg(ACCENT).bg(PANEL)),
+            input_area,
+        );
+        let cursor = app
+            .sort_input
+            .text
+            .chars()
+            .take(app.sort_input.cursor)
+            .collect::<String>();
+        frame.set_cursor_position(Position::new(
+            input_area.x
+                + (13 + cursor.width()).min(input_area.width.saturating_sub(1) as usize) as u16,
+            input_area.y,
+        ));
+    }
+    if matches!(overlay, Overlay::SaveQuery | Overlay::Export { .. }) && inner.width > 3 {
+        let input = if overlay == Overlay::SaveQuery {
+            &app.save_input
+        } else {
+            &app.export_input
+        };
+        let cursor = input.text.chars().take(input.cursor).collect::<String>();
+        frame.set_cursor_position(Position::new(
+            inner.x + 2 + cursor.width().min(inner.width.saturating_sub(3) as usize) as u16,
+            inner.y + 1,
+        ));
     }
 }
 
-
-/// `text` in `style`, with every match of `patterns` marked.
-pub(super) fn marked(text: &str, style: Style, patterns: &[&regex::Regex]) -> Vec<Span<'static>> {
-    let mut ranges = patterns
-        .iter()
-        .flat_map(|pattern| pattern.find_iter(text).map(|found| found.range()))
-        .filter(|range| !range.is_empty())
-        .collect::<Vec<_>>();
-    if ranges.is_empty() {
-        return vec![Span::styled(text.to_owned(), style)];
-    }
-    ranges.sort_by_key(|range| range.start);
-    let mark = style.bg(MATCH).fg(TEXT).add_modifier(Modifier::BOLD);
-    let mut spans = Vec::new();
-    let mut at = 0;
-    for range in ranges {
-        if range.end <= at {
-            continue;
-        }
-        let start = range.start.max(at);
-        if start > at {
-            spans.push(Span::styled(text[at..start].to_owned(), style));
-        }
-        spans.push(Span::styled(text[start..range.end].to_owned(), mark));
-        at = range.end;
-    }
-    if at < text.len() {
-        spans.push(Span::styled(text[at..].to_owned(), style));
-    }
-    spans
-}
-
-/// A braille spinner frame derived from the clock.
-pub(super) fn spinner() -> &'static str {
-    const FRAMES: [&str; 10] = ["⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏"];
-    let millis = SystemTime::now()
-        .duration_since(SystemTime::UNIX_EPOCH)
-        .map_or(0, |elapsed| elapsed.as_millis());
-    FRAMES[(millis / 80) as usize % FRAMES.len()]
-}
-
-/// Truncate text to `width` cells, ending with an ellipsis when cut.
-pub(super) fn clip(text: &str, width: usize) -> String {
+fn clip(text: &str, width: usize) -> String {
+    let safe = safe_terminal_text(text).replace(['\n', '\t'], " ");
+    let text = safe.as_str();
     if text.width() <= width {
-        return text.to_string();
+        return text.to_owned();
     }
     let mut out = String::new();
-    let mut used = 0;
-    for ch in text.chars() {
-        let w = unicode_width::UnicodeWidthChar::width(ch).unwrap_or(0);
-        if used + w + 1 > width {
+    for character in text.chars() {
+        if out.width() + UnicodeWidthStr::width(character.to_string().as_str()) + 1 > width {
             break;
         }
-        out.push(ch);
-        used += w;
+        out.push(character);
     }
     out.push('…');
     out
 }
+
+fn safe_terminal_text(text: &str) -> String {
+    text.chars()
+        .map(|ch| {
+            if ch.is_control() && ch != '\n' && ch != '\t' {
+                '�'
+            } else {
+                ch
+            }
+        })
+        .collect()
+}
+
+fn pad_clip(text: &str, width: usize) -> String {
+    let clipped = clip(text, width);
+    format!(
+        "{clipped}{}",
+        " ".repeat(width.saturating_sub(clipped.width()))
+    )
+}
+
+#[cfg(test)]
+#[path = "mod.test.rs"]
+mod tests;

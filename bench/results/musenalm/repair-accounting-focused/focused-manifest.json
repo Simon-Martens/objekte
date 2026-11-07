@@ -1,0 +1,18 @@
+{
+  "before_sha": "c5787c1d80",
+  "after_worktree": "fix/core-foundation-performance",
+  "order": "A-B-B-A",
+  "cases": [
+    "Q006",
+    "Q025",
+    "Q099",
+    "Q116"
+  ],
+  "profile": "ascii-off",
+  "repetitions": 11,
+  "query_workers": 32,
+  "root": "/home/simon/source/objekte/examples/musenalm",
+  "affinity": "0-31",
+  "governor": "powersave",
+  "cache": "OS warm; verified disabled; source/decoded zero"
+}

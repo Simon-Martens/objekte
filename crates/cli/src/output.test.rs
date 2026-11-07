@@ -1,0 +1,57 @@
+use super::*;
+
+#[test]
+fn compaction_preserves_tokens_and_string_contents() {
+    let source = b"{ \"x\" : [1e1000000, -0, \"a \\n b\", {\"x\":1, \"x\":2}] }\n";
+    let mut compacted = Vec::new();
+    compact_json(source, &mut compacted).unwrap();
+    assert_eq!(
+        compacted,
+        b"{\"x\":[1e1000000,-0,\"a \\n b\",{\"x\":1,\"x\":2}]}"
+    );
+    assert_eq!(
+        serde_json::from_slice::<IgnoredAny>(&compacted).is_ok(),
+        serde_json::from_slice::<IgnoredAny>(source).is_ok()
+    );
+}
+
+#[test]
+fn json_string_escaping_has_no_terminal_control_bytes() {
+    let mut encoded = Vec::new();
+    write_json_string("red\u{1b}[31m\u{9b}\n\\\"", &mut encoded).unwrap();
+    assert!(!encoded.contains(&0x1b));
+    assert!(!encoded.contains(&0x9b));
+    assert_eq!(
+        serde_json::from_slice::<String>(&encoded).unwrap(),
+        "red\u{1b}[31m\u{9b}\n\\\""
+    );
+}
+
+#[test]
+fn event_sequence_is_monotonic() {
+    let mut output = EventWriter::new(Vec::new());
+    output.emit(json!({"type": "run_start"})).unwrap();
+    output.emit(json!({"type": "run_complete"})).unwrap();
+    assert_eq!(output.sequence(), 2);
+}
+
+#[test]
+fn diagnostic_timings_are_numeric_milliseconds_with_three_decimals() {
+    assert_eq!(
+        serde_json::to_string(&milliseconds_value(2_000_000)).unwrap(),
+        "2.000"
+    );
+    assert_eq!(
+        serde_json::to_string(&milliseconds_value(1_234_567)).unwrap(),
+        "1.235"
+    );
+    let counters = WorkCounters {
+        preparation_ns: 2_000_000,
+        planning_ns: 1_234_567,
+        ..WorkCounters::default()
+    };
+    let encoded = serde_json::to_string(&counters_with_ms(&counters)).unwrap();
+    assert!(encoded.contains("\"preparation_ms\":2.000"));
+    assert!(encoded.contains("\"planning_ms\":1.235"));
+    assert!(!encoded.contains("_ns"));
+}

@@ -1,0 +1,253 @@
+{
+  "code_revision": "084623a19bf26fc56b470b6548c38382dff4d880",
+  "command": [
+    "target/release/examples/bench_musenalm",
+    "--profiles",
+    "ascii-off,ascii-warm,unicode-off,unicode-warm",
+    "--repetitions",
+    "5",
+    "--result-dir",
+    "bench/results/musenalm/final-084623a19b"
+  ],
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "corpus_fingerprint": "9f93a4ba7fb9249c9c4eb04e03ed911435a6b0493f15b087a5447add32456aa9",
+  "decoded_cache_bytes": 0,
+  "failures": 0,
+  "profiles": [
+    [
+      "ascii-off",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "ascii-warm",
+      {
+        "alphabet": "ascii",
+        "verified_cache_bytes": 67108864,
+        "warm": true
+      }
+    ],
+    [
+      "unicode-off",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 0,
+        "warm": false
+      }
+    ],
+    [
+      "unicode-warm",
+      {
+        "alphabet": "unicode",
+        "verified_cache_bytes": 67108864,
+        "warm": true
+      }
+    ]
+  ],
+  "query_workers": 32,
+  "registrations": [
+    {
+      "custom_bindings": [
+        "name:folded"
+      ],
+      "files": 4010,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [
+        "corporate_body",
+        "data.gnd.languageCode.id",
+        "data.gnd.depiction.license.abbr",
+        "data.gnd_candidate_count",
+        "data.gnd.laterNameOfThePerson.type",
+        "data.gnd.depiction.copyrighted",
+        "data.gnd.describedBy.license.id",
+        "data.gnd.describedBy.descriptionLevel.label",
+        "data.gnd.gndSubjectCategory.id",
+        "data.gnd.familialRelationship.prefix",
+        "data.gnd.broaderTermInstantial.label",
+        "data.gnd.realNameOfThePerson.prefix",
+        "data.gnd.type",
+        "data.gnd.gender.id",
+        "data.gnd.broaderTermInstantial.id",
+        "data.gnd.depiction.license.id",
+        "data.gnd.earlierNameOfThePerson.type",
+        "data.gnd.titleOfNobility.id",
+        "data.gnd.describedBy.descriptionLevel.id",
+        "data.gnd.describedBy.maintainer.id",
+        "data.gnd.depiction.publisher",
+        "data.gnd.depiction.license.name",
+        "data.gnd.preferredNameEntityForThePerson.prefix",
+        "data.gnd.@context",
+        "data.gnd.geographicAreaCode.id",
+        "musenalm_id",
+        "data.gnd.realNameOfThePerson.type",
+        "data.gnd_match_strategy",
+        "data.gnd.gender.label",
+        "profession",
+        "data.gnd.sameAs.collection.id",
+        "fictional",
+        "data.gnd.titleOfNobility.label",
+        "data.gnd.sameAs.collection.abbr",
+        "data.gnd.pseudonymNameOfThePerson.type",
+        "data.gnd.describedBy.license.label",
+        "data.gnd.depiction.license.attributionRequired",
+        "data.gnd.geographicAreaCode.label",
+        "data.gnd.languageCode.label",
+        "edit_state",
+        "data.gnd.describedBy.maintainer.label"
+      ],
+      "name": "agents",
+      "records": 4010,
+      "sort_fields": [
+        "name"
+      ],
+      "source_path": "data/agents",
+      "type_hints": 261
+    },
+    {
+      "custom_bindings": [],
+      "files": 133948,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [
+        "musenalm_id",
+        "contributors.conjecture",
+        "entry",
+        "musenalm_pagination",
+        "musenalm_type",
+        "contributors.type",
+        "year",
+        "editor",
+        "contributors.uncertain",
+        "edit_state",
+        "numbering",
+        "pseudonym"
+      ],
+      "name": "contents",
+      "records": 133948,
+      "sort_fields": [
+        "numbering",
+        "preferred_title"
+      ],
+      "source_path": "data/contents",
+      "type_hints": 37
+    },
+    {
+      "custom_bindings": [],
+      "files": 4928,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [
+        "musenalm_deprecated.biblio",
+        "items.edit_state",
+        "items.condition",
+        "pseudonym",
+        "musenalm_deprecated.erfasst",
+        "edit_state",
+        "carrier_type",
+        "items.basis",
+        "agents.uncertain",
+        "musenalm_deprecated.status",
+        "items.owner",
+        "items.public",
+        "musenalm_deprecated.gesichtet",
+        "agents.conjecture",
+        "editor",
+        "musenalm_id",
+        "year",
+        "agents.type",
+        "items.media",
+        "language",
+        "musenalm_deprecated.bearbeitet_von",
+        "edit_fielddata.places.conjecture",
+        "content_type"
+      ],
+      "name": "entries",
+      "records": 4928,
+      "sort_fields": [
+        "year",
+        "preferred_title"
+      ],
+      "source_path": "data/entries",
+      "type_hints": 65
+    },
+    {
+      "custom_bindings": [],
+      "files": 4180,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [
+        "media",
+        "public",
+        "basis",
+        "owner",
+        "condition",
+        "edit_state"
+      ],
+      "name": "items",
+      "records": 4180,
+      "sort_fields": [],
+      "source_path": "data/items",
+      "type_hints": 15
+    },
+    {
+      "custom_bindings": [],
+      "files": 8,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [],
+      "name": "pages",
+      "records": 8,
+      "sort_fields": [],
+      "source_path": "data/pages",
+      "type_hints": 11
+    },
+    {
+      "custom_bindings": [],
+      "files": 210,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [
+        "edit_state",
+        "musenalm_id",
+        "fictional"
+      ],
+      "name": "places",
+      "records": 210,
+      "sort_fields": [
+        "name",
+        "@file.size"
+      ],
+      "source_path": "data/places",
+      "type_hints": 11
+    },
+    {
+      "custom_bindings": [],
+      "files": 1202,
+      "format": "json",
+      "identity": "Filename",
+      "indexed_paths": [
+        "editor",
+        "musenalm_id",
+        "frequency",
+        "edit_state"
+      ],
+      "name": "series",
+      "records": 1202,
+      "sort_fields": [
+        "title"
+      ],
+      "source_path": "data/series",
+      "type_hints": 18
+    }
+  ],
+  "repetitions": 5,
+  "root": "/home/simon/source/objekte/crates/core/../../examples/musenalm",
+  "run_id": "1793955545-084623a19b",
+  "schema_fingerprint": "4941bc3e09e4a6a5837375d0ce0db16f9372b469ee2b2971914d9f9527b0957a",
+  "source_cache_bytes": 0,
+  "workload_fingerprint": "ca8fe6bb789c3c8bae531c1662d6fe37c9e188a525d1c06b508a85f3209f09f8"
+}

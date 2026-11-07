@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/home/simon/source/objekte/crates/bench/run_paired_library_matrix.py", line 132, in <module>
-    main()
-    ~~~~^^
-  File "/home/simon/source/objekte/crates/bench/run_paired_library_matrix.py", line 108, in main
-    ref_values = [pair["reference"][index + offset][metric] for pair in pairs]
-                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
-KeyError: 'median_ms'

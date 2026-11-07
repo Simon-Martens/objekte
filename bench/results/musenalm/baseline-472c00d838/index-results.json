@@ -1,0 +1,18 @@
+[
+  {
+    "alphabet": "ascii",
+    "build_ns": 13694798929,
+    "build_parses": 148486,
+    "estimated_index_bytes": 68548708,
+    "resident_bytes": 227766272,
+    "restore_status": "pending"
+  },
+  {
+    "alphabet": "unicode",
+    "build_ns": 15038838949,
+    "build_parses": 148486,
+    "estimated_index_bytes": 80763860,
+    "resident_bytes": 255369216,
+    "restore_status": "pending"
+  }
+]

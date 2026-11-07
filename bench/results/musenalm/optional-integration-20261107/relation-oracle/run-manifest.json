@@ -1,0 +1,52 @@
+{
+  "revision": "19241a6d538d6f95161c524d9c2a99a0db48654b",
+  "root": "/home/simon/source/objekte-optional-indexing-sorting-streaming/examples/musenalm",
+  "cases": [
+    "Q157",
+    "Q166",
+    "Q168",
+    "Q169",
+    "Q170",
+    "Q171",
+    "Q172",
+    "Q179",
+    "Q180"
+  ],
+  "comparisons": 18,
+  "failures": [],
+  "membership_sha256": {
+    "oracle": {
+      "Q157": "03afc6c32cd8639a6399c3b749625d20df29416e9ffa9e59c8df4e81144c9b7e",
+      "Q166": "a19d3affe42a6f75e0d2196ebefd607c386f55202f6a10388b69087cfd3915a6",
+      "Q168": "047b4738a88b5deb831be648c114243e5e52a59a2856b47ea69ba6c187dbcc2f",
+      "Q169": "3fcd4f12bd6f1643269e0c139e300994612c28bf5d134b2dacfc421a30b638bf",
+      "Q170": "68554b1d2ccaa3cc4ccb59815a7ffdd7f73057dfe8c3612056e9dae24c14f226",
+      "Q171": "9e3a307da1e2674590e076c4b00f3396e84c4289ac3002f76ccf0fdebc8f2079",
+      "Q172": "744457347373cce7addec082b74a3400b889e9a441cc360b9253e5f1091d7fd2",
+      "Q179": "86386e7cde8bc441a20399ef5b2bded161f126bbd632d19aab8fbd60c24473aa",
+      "Q180": "db72620c3ce122b1eeb34d35bb6163cd4e921e80a7dfced80587c1e72b37e93b"
+    },
+    "ascii": {
+      "Q157": "03afc6c32cd8639a6399c3b749625d20df29416e9ffa9e59c8df4e81144c9b7e",
+      "Q166": "a19d3affe42a6f75e0d2196ebefd607c386f55202f6a10388b69087cfd3915a6",
+      "Q168": "047b4738a88b5deb831be648c114243e5e52a59a2856b47ea69ba6c187dbcc2f",
+      "Q169": "3fcd4f12bd6f1643269e0c139e300994612c28bf5d134b2dacfc421a30b638bf",
+      "Q170": "68554b1d2ccaa3cc4ccb59815a7ffdd7f73057dfe8c3612056e9dae24c14f226",
+      "Q171": "9e3a307da1e2674590e076c4b00f3396e84c4289ac3002f76ccf0fdebc8f2079",
+      "Q172": "744457347373cce7addec082b74a3400b889e9a441cc360b9253e5f1091d7fd2",
+      "Q179": "86386e7cde8bc441a20399ef5b2bded161f126bbd632d19aab8fbd60c24473aa",
+      "Q180": "db72620c3ce122b1eeb34d35bb6163cd4e921e80a7dfced80587c1e72b37e93b"
+    },
+    "unicode": {
+      "Q157": "03afc6c32cd8639a6399c3b749625d20df29416e9ffa9e59c8df4e81144c9b7e",
+      "Q166": "a19d3affe42a6f75e0d2196ebefd607c386f55202f6a10388b69087cfd3915a6",
+      "Q168": "047b4738a88b5deb831be648c114243e5e52a59a2856b47ea69ba6c187dbcc2f",
+      "Q169": "3fcd4f12bd6f1643269e0c139e300994612c28bf5d134b2dacfc421a30b638bf",
+      "Q170": "68554b1d2ccaa3cc4ccb59815a7ffdd7f73057dfe8c3612056e9dae24c14f226",
+      "Q171": "9e3a307da1e2674590e076c4b00f3396e84c4289ac3002f76ccf0fdebc8f2079",
+      "Q172": "744457347373cce7addec082b74a3400b889e9a441cc360b9253e5f1091d7fd2",
+      "Q179": "86386e7cde8bc441a20399ef5b2bded161f126bbd632d19aab8fbd60c24473aa",
+      "Q180": "db72620c3ce122b1eeb34d35bb6163cd4e921e80a7dfced80587c1e72b37e93b"
+    }
+  }
+}

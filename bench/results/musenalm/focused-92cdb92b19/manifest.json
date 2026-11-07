@@ -1,0 +1,18 @@
+{
+  "code_revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "command": "cargo build --release --example bench_corrective_cases && target/release/examples/bench_corrective_cases",
+  "fixture_source": "crates/core/examples/bench_corrective_cases.rs",
+  "fixture_sha256": "dff92aef66306c5c632a3fe332cf837a22404ed03a013dff405dfbb64920d239",
+  "timing_boundary": "repository search/posting-value call after construction; reference checks outside timing",
+  "source_cache_bytes": 0,
+  "decoded_cache_bytes": 0,
+  "verified_cache_bytes": 0,
+  "query_workers": 4,
+  "bigram_alphabet": "ascii",
+  "snapshot_modes": "disabled for legacy corrective cases, read-write for custom and malformed cases",
+  "repetitions": "31 for ordered/range/posting pages; 11 for scans, custom binding, malformed builds and restore queries",
+  "malformed_fraction": "10/400 JSONL records (2.5%); one broken record has 1 MiB padding"
+}

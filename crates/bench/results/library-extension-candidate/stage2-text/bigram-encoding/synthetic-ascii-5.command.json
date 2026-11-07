@@ -1,8 +1,0 @@
-{
-  "command": [
-    "target/release/bigram-encoding-compare",
-    "ascii",
-    "synthetic:24000"
-  ],
-  "exit_status": 0
-}

@@ -1,0 +1,11 @@
+{
+  "snapshots/medium-auto/search-core-ascii.snapshot": 482734,
+  "snapshots/medium-both/search-core-ascii.snapshot": 481522,
+  "snapshots/medium-disabled/search-core-ascii.snapshot": 300320,
+  "snapshots/medium-schema/search-core-ascii.snapshot": 358337,
+  "snapshots/musenalm-auto/search-core-ascii.snapshot": 10826640,
+  "snapshots/musenalm-both/search-core-ascii.snapshot": 10818248,
+  "snapshots/musenalm-disabled/search-core-ascii.snapshot": 6963092,
+  "snapshots/musenalm-schema/search-core-ascii.snapshot": 7024767,
+  "uuid-snapshot/search-core-ascii.snapshot": 27766319
+}

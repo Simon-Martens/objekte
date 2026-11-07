@@ -1,0 +1,332 @@
+[
+  {
+    "case": "Q006",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      229.342,
+      230.096
+    ],
+    "after_block_ms": [
+      229.619,
+      228.074
+    ],
+    "before_median_ms": 229.7189225,
+    "after_median_ms": 228.8464,
+    "ratio": 0.9962017822018994
+  },
+  {
+    "case": "Q006",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      239.56,
+      241.423
+    ],
+    "after_block_ms": [
+      239.806,
+      246.907
+    ],
+    "before_median_ms": 240.491805,
+    "after_median_ms": 243.35669,
+    "ratio": 1.0119126096625206
+  },
+  {
+    "case": "Q025",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      92.028,
+      95.812
+    ],
+    "after_block_ms": [
+      94.759,
+      94.609
+    ],
+    "before_median_ms": 93.9200955,
+    "after_median_ms": 94.683821,
+    "ratio": 1.00813165165489
+  },
+  {
+    "case": "Q025",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      94.568,
+      94.766
+    ],
+    "after_block_ms": [
+      90.022,
+      93.669
+    ],
+    "before_median_ms": 94.667158,
+    "after_median_ms": 91.845729,
+    "ratio": 0.9701963272204707
+  },
+  {
+    "case": "Q028",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      6.197,
+      6.412
+    ],
+    "after_block_ms": [
+      6.08,
+      5.444
+    ],
+    "before_median_ms": 6.304545,
+    "after_median_ms": 5.7623785,
+    "ratio": 0.9140038654653111
+  },
+  {
+    "case": "Q028",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      4.874,
+      4.403
+    ],
+    "after_block_ms": [
+      4.413,
+      4.386
+    ],
+    "before_median_ms": 4.6385785,
+    "after_median_ms": 4.399536,
+    "ratio": 0.9484664321192365
+  },
+  {
+    "case": "Q052",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      5.613,
+      5.596
+    ],
+    "after_block_ms": [
+      6.565,
+      6.081
+    ],
+    "before_median_ms": 5.6043115,
+    "after_median_ms": 6.3231115,
+    "ratio": 1.1282583953443701
+  },
+  {
+    "case": "Q052",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      5.707,
+      4.227
+    ],
+    "after_block_ms": [
+      4.154,
+      4.423
+    ],
+    "before_median_ms": 4.9668745,
+    "after_median_ms": 4.2887445,
+    "ratio": 0.8634694715962725
+  },
+  {
+    "case": "Q055",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      4.108,
+      4.056
+    ],
+    "after_block_ms": [
+      11.431,
+      4.422
+    ],
+    "before_median_ms": 4.0824535,
+    "after_median_ms": 7.9267355,
+    "ratio": 1.9416597151688317
+  },
+  {
+    "case": "Q055",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      10.654,
+      8.764
+    ],
+    "after_block_ms": [
+      9.345,
+      9.046
+    ],
+    "before_median_ms": 9.7090665,
+    "after_median_ms": 9.195591,
+    "ratio": 0.9471138136709641
+  },
+  {
+    "case": "Q069",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      5.902,
+      6.294
+    ],
+    "after_block_ms": [
+      5.582,
+      6.919
+    ],
+    "before_median_ms": 6.097974,
+    "after_median_ms": 6.2505575,
+    "ratio": 1.0250219991098684
+  },
+  {
+    "case": "Q069",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      4.887,
+      5.836
+    ],
+    "after_block_ms": [
+      5.168,
+      6.041
+    ],
+    "before_median_ms": 5.3614945,
+    "after_median_ms": 5.6043295,
+    "ratio": 1.0452924086744844
+  },
+  {
+    "case": "Q071",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      1.749,
+      1.619
+    ],
+    "after_block_ms": [
+      1.611,
+      1.757
+    ],
+    "before_median_ms": 1.6843895,
+    "after_median_ms": 1.684437,
+    "ratio": 1.0000282001282959
+  },
+  {
+    "case": "Q071",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      1.949,
+      1.497
+    ],
+    "after_block_ms": [
+      1.423,
+      2.141
+    ],
+    "before_median_ms": 1.7227985,
+    "after_median_ms": 1.7822395,
+    "ratio": 1.0345025840224495
+  },
+  {
+    "case": "Q099",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      3.794,
+      4.016
+    ],
+    "after_block_ms": [
+      9.546,
+      2.306
+    ],
+    "before_median_ms": 3.905062,
+    "after_median_ms": 5.9260965,
+    "ratio": 1.517542231083655
+  },
+  {
+    "case": "Q099",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      3.305,
+      10.47
+    ],
+    "after_block_ms": [
+      9.926,
+      6.49
+    ],
+    "before_median_ms": 6.8873345,
+    "after_median_ms": 8.2080285,
+    "ratio": 1.1917569126343435
+  },
+  {
+    "case": "Q113",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      5.18,
+      6.902
+    ],
+    "after_block_ms": [
+      3.239,
+      5.231
+    ],
+    "before_median_ms": 6.0410315,
+    "after_median_ms": 4.2348355,
+    "ratio": 0.7010119877706316
+  },
+  {
+    "case": "Q113",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      3.518,
+      3.38
+    ],
+    "after_block_ms": [
+      3.433,
+      3.75
+    ],
+    "before_median_ms": 3.448942,
+    "after_median_ms": 3.5915455,
+    "ratio": 1.0413470275812118
+  },
+  {
+    "case": "Q114",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      3.572,
+      3.227
+    ],
+    "after_block_ms": [
+      4.264,
+      4.607
+    ],
+    "before_median_ms": 3.3996065,
+    "after_median_ms": 4.4357975,
+    "ratio": 1.3047973346326993
+  },
+  {
+    "case": "Q114",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      4.273,
+      3.801
+    ],
+    "after_block_ms": [
+      4.996,
+      6.245
+    ],
+    "before_median_ms": 4.0371,
+    "after_median_ms": 5.620393,
+    "ratio": 1.3921857273785638
+  },
+  {
+    "case": "Q148",
+    "profile": "ascii-off",
+    "before_block_ms": [
+      4.668,
+      5.828
+    ],
+    "after_block_ms": [
+      6.966,
+      4.718
+    ],
+    "before_median_ms": 5.2479585,
+    "after_median_ms": 5.841719,
+    "ratio": 1.113141233872181
+  },
+  {
+    "case": "Q148",
+    "profile": "unicode-off",
+    "before_block_ms": [
+      5.759,
+      7.712
+    ],
+    "after_block_ms": [
+      7.99,
+      8.83
+    ],
+    "before_median_ms": 6.735689,
+    "after_median_ms": 8.4097435,
+    "ratio": 1.2485350051048971
+  }
+]

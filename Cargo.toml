@@ -1,7 +1,8 @@
 [workspace]
-members = ["crates/core", "crates/cli", "crates/bench", "crates/extension-tests"]
-resolver = "2"
+members = ["crates/cli", "crates/core", "crates/tui"]
+resolver = "3"
 
 [workspace.package]
 edition = "2024"
-license = "Unlicense AND MIT"
+license = "Unlicense"
+rust-version = "1.99"

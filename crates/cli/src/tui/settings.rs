@@ -13,6 +13,9 @@ use std::{
 /// Most recent queries kept in the history.
 const HISTORY: usize = 200;
 
+fn is_false(value: &bool) -> bool {
+    !value
+}
 
 /// The two query lines and the collection they searched.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
@@ -24,8 +27,12 @@ pub(super) struct Query {
     /// Collection name; none searches all collections.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub(super) collection: Option<String>,
+    /// The current TUI default is case-sensitive. Older settings omit this.
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub(super) case_insensitive: bool,
+    #[serde(default, skip_serializing_if = "is_false")]
+    pub(super) regex: bool,
 }
-
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct SavedQuery {
@@ -34,14 +41,12 @@ pub(super) struct SavedQuery {
     pub(super) query: Query,
 }
 
-
 /// Hidden result columns for one collection, or `*` for all collections.
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct Columns {
     #[serde(default, skip_serializing_if = "Vec::is_empty")]
     pub(super) hidden: Vec<String>,
 }
-
 
 #[derive(Debug, Clone, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub(super) struct Settings {
@@ -56,7 +61,6 @@ pub(super) struct Settings {
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
     pub(super) columns: BTreeMap<String, Columns>,
 }
-
 
 impl Settings {
     pub(super) fn path(root: &Path) -> PathBuf {
@@ -118,7 +122,6 @@ impl Settings {
         self.columns.retain(|_, columns| !columns.hidden.is_empty());
     }
 }
-
 
 #[cfg(test)]
 #[path = "settings.test.rs"]

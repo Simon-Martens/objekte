@@ -1,0 +1,191 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s
+     Running unittests src/lib.rs (target/debug/deps/objekte_search_core-dd528dcd40adebcb)
+
+running 90 tests
+test model::tests::precise_numbers_and_temporal_distinctions ... ok
+test query::tests::precedence_quantifiers_and_separate_fts ... ok
+test model::tests::unhinted_arrays_keep_actual_or_unresolved_element_types ... ok
+test model::tests::arrays_paths_and_id_namespace ... ok
+test prepared::tests::bounded_lru_evicts_without_exceeding_budget ... ok
+test reference::tests::evidence_excludes_false_boolean_branches ... ok
+test inventory::tests::file_record_mapping_in_both_directions ... ok
+test inventory::tests::status_codes_and_diagnostic_bounds_are_stable ... ok
+test bigram::tests::conservative_ascii_candidates_keep_segments_and_records_separate ... ok
+test reference::tests::declared_types_required_fields_and_array_nullability_are_enforced ... ok
+test path_repr::tests::invalid_bytes_and_literal_percent_remain_distinct ... ok
+test posting::tests::ordered_posting_answers_bounds_and_array_lengths_exactly ... ok
+test bigram::tests::ascii_and_unicode_candidates_are_conservative ... ok
+test query::tests::every_fixed_filter_parses ... ok
+test query::tests::seeded_bounded_filter_inputs_never_panic ... ok
+test posting::tests::presence_null_array_dedup_and_cardinality ... ok
+test reference::tests::explicit_temporal_hints_coerce_values_and_reject_bad_inputs ... ok
+test reference::tests::invalid_branches_rejected_before_evaluation ... ok
+test reference::tests::missing_null_empty_truth_table ... ok
+test reference::tests::truth_table_arrays_null_and_case_folding ... ok
+test posting_values::tests::numeric_and_temporal_keys_keep_their_types_and_order ... ok
+test reference::tests::optional_ancestor_of_required_temporal_child_stays_optional_during_query_conversion ... ok
+test run::tests::physical_file_accounting_deduplicates_shared_collections_and_payload_reads ... ok
+test executor::tests::record_id_lookup_respects_case_fold_binding ... ok
+test run::tests::empty_and_invalid_utf8_json_have_exact_raw_ranges ... ok
+test posting::tests::nested_array_lengths_follow_quantifiers_with_and_without_postings ... ok
+test run::tests::interleaved_stored_order_records_keep_bounded_file_handles ... ok
+test run::tests::exact_membership_materializes_only_page_payload ... ok
+test run::tests::exact_boolean_evidence_tracks_only_true_branches ... ok
+test executor::tests::indexed_restriction_precedes_written_first_scan ... ok
+test run::tests::exact_posting_count_preserves_page_evidence_with_and_without_membership_cache ... ok
+test sorting::tests::stable_icu_keys_and_fixed_null_placement ... ok
+test source::tests::changed_source_rejects_old_ranges_and_incomplete_extraction ... ok
+test run::tests::quoted_data_name_does_not_shadow_metadata ... ok
+test run::tests::multi_record_scan_opens_file_once_and_parses_each_range_once ... ok
+test executor::tests::rare_text_restriction_can_precede_a_broad_posting ... ok
+test source::tests::fused_extraction_parses_once_and_reports_bad_record ... ok
+test source::tests::json_reader_reports_syntax_and_encoding_positions ... ok
+test source::tests::discovery_symlink_policy_confines_sources_and_avoids_cycles ... ok
+test run::tests::selected_folded_and_metadata_fts_match_reference ... ok
+test source::tests::nearby_multi_record_ranges_share_one_read_window ... ok
+test reference::tests::unhinted_paths_use_actual_types_and_collection_specific_bindings ... ok
+test executor::tests::transformed_raw_index_cannot_prune_identity_field_predicates ... ok
+test source::tests::intrinsic_id_rejects_missing_invalid_and_generated_namespace ... ok
+test run::tests::uncovered_posting_unindexed_or_negation_and_empty_conjunct_remain_exact ... ok
+test posting::tests::nullable_arrays_keep_quantifiers_when_postings_are_available ... ok
+test run::tests::residual_proofs_skip_indexed_terms_and_preserve_or_evidence ... ok
+test posting_values::tests::named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage ... ok
+test source::tests::positioned_reader_tracks_coalesced_windows_and_failed_reads ... ok
+test source::tests::positioned_reader_seeks_only_when_the_next_range_is_not_adjacent ... ok
+test source::tests::query_projection_skips_unneeded_fields_and_preserves_selected_values ... ok
+test source::tests::registered_ranges_are_validated_before_slicing_and_outcomes_are_typed ... ok
+test sorting::tests::cross_collection_sort_rejects_different_collation ... ok
+test executor::tests::named_builtin_folded_filter_keeps_its_compatible_bigram_path ... ok
+test source::tests::standalone_jsonl_ranges_preserve_bytes_and_boundaries ... ok
+test source::tests::unavailable_source_read_is_classified_without_fabricating_records ... ok
+test source::tests::seeded_reader_ranges_obey_checked_nonoverlap_contract ... ok
+test tests::root_fixture_is_available_without_archived_workspace_paths ... ok
+test verified::tests::bounded_entries_include_complete_empty_results ... ok
+test source_access::tests::range_windows_are_bounded_and_handles_evict_at_budget ... ok
+test source_access::tests::window_hits_and_misses_keep_the_reader_at_the_actual_read_end ... ok
+test posting_values::tests::bounded_prefix_ranges_and_continuations_visit_only_relevant_keys ... ok
+test workload::tests::fixed_manifest_and_report_round_trip ... ok
+test storage::tests::seeded_snapshot_mutations_and_truncations_are_rejected_without_panics ... ok
+test run::tests::optional_temporal_parent_queries_keep_absent_null_and_present_records ... ok
+test foundation_invariants::boolean_truth_evidence_sort_and_restore_use_independent_answers ... ok
+test storage::tests::checksummed_snapshot_with_invalid_diagnostic_reference_is_rejected ... ok
+test source::tests::body_only_reader_does_not_prune_unindexed_title ... ok
+test run::tests::malformed_jsonl_is_searchable_without_inventing_logical_values ... ok
+test source::tests::registered_non_json_reader_reaches_build_query_payload_and_restore ... ok
+test posting_values::tests::typed_posting_values_count_distinct_records_without_source_reads ... ok
+test sorting::tests::configured_collation_changes_order_and_restore_compatibility ... ok
+test run::tests::typed_temporal_fields_survive_postings_payload_cache_and_restore ... ok
+test reference::tests::numeric_string_is_rejected_before_indexed_or_scanned_inequality ... ok
+test source::tests::registered_recoverable_error_survives_repository_query_and_restore ... ok
+test run::tests::stored_order_pages_stop_globally_and_count_remains_optional ... ok
+test executor::tests::registered_binding_has_identical_filter_fts_and_restore_semantics ... ok
+test storage::tests::round_trip_shared_multi_record_files_and_reject_corruption ... ok
+test source::tests::discovery_and_intrinsic_ids_share_build_restore_rules ... ok
+test executor::tests::malformed_raw_text_uses_original_literal_beside_transformed_valid_text ... ok
+test storage::tests::eligibility_fast_paths_restore_and_reject_checksums_of_invalid_domains ... ok
+test source::tests::temporal_registration_does_not_replace_reader_owned_text ... ok
+test storage::tests::startup_restores_unchanged_and_rebuilds_after_complete_file_changes ... ok
+test posting::tests::narrow_ordered_ranges_visit_only_matching_dictionary_keys ... ok
+test executor::tests::prepared_separator_matcher_uses_index_and_borrowed_scan_paths ... ok
+test run::tests::one_jsonl_stored_order_page_reuses_one_handle_for_deep_residual ... ok
+test run::tests::parallel_file_scan_matches_single_worker_page_and_work ... ok
+test bigram::tests::seeded_substrings_never_escape_declared_bigram_candidates ... ok
+test run::tests::one_fallback_does_not_disable_selective_logical_postings ... ok
+test run::tests::large_multi_record_scans_bound_payloads_and_reuse_file_handles ... ok
+
+test result: ok. 90 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.38s
+
+     Running unittests examples/accept_musenalm.rs (target/debug/examples/accept_musenalm-b939bb4db99839a0)
+
+running 3 tests
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_build_musenalm.rs (target/debug/examples/bench_build_musenalm-cb4cb1a09bef8214)
+
+running 3 tests
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_corrective_cases.rs (target/debug/examples/bench_corrective_cases-49eb2a4332cc810b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_mixed_planner.rs (target/debug/examples/bench_mixed_planner-cba5a02b7606bb73)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/bench_musenalm.rs (target/debug/examples/bench_musenalm-f1bf0f5d42f68df3)
+
+running 3 tests
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests examples/dump_musenalm_ids.rs (target/debug/examples/dump_musenalm_ids-4c0fda496e9c4a82)
+
+running 3 tests
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests examples/musenalm_cli.rs (target/debug/examples/musenalm_cli-c045fc022a468788)
+
+running 3 tests
+test musenalm::tests::schema_adapter_carries_nested_item_nullability ... ok
+test musenalm::tests::fractional_numbering_remains_numeric ... ok
+test musenalm::tests::fixture_schemas_bind_every_fixed_request ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/objekte-cc4fa3afa35ec028)
+
+running 25 tests
+test tui::input::tests::shifted_and_altgr_characters_are_text ... ok
+test tui::input::tests::typing_inserts_at_the_cursor_and_counts_characters ... ok
+test tui::export::tests::raw_fallback_export_keeps_status_and_explicit_unavailable_state ... ok
+test tui::input::tests::replace_puts_the_cursor_after_the_inserted_text ... ok
+test tui::input::tests::edits_report_changes_and_moves_do_not ... ok
+test tui::settings::tests::columns_toggle_per_collection ... ok
+test tui::view::syntax::tests::unterminated_strings_and_escapes_stay_strings ... ok
+test tui::settings::tests::settings_round_trip_and_a_missing_file_gives_defaults ... ok
+test tui::view::syntax::tests::error_positions_count_characters ... ok
+test tui::view::syntax::tests::tokens_get_their_colours ... ok
+test tui::settings::tests::history_moves_repeats_to_the_end_and_skips_empty_queries ... ok
+test tui::input::tests::word_commands_delete_and_move_by_words ... ok
+test tui::settings::tests::a_broken_file_reports_its_path ... ok
+test tui::view::tests::loading_screen_shows_index_progress_before_repository_is_ready ... ok
+test schema::tests::schema_files_remain_an_addon_to_in_memory_definitions ... ok
+test tui::view::tests::match_summary_uses_the_field_value_it_labels ... ok
+test tui::app::tests::sort_choices_apply_only_to_the_selected_collection ... ok
+test schema::tests::musenalm_schemas_load_without_core_specific_vocabulary ... ok
+test tui::tests::keys_switch_inputs_open_detail_and_choose_collection ... ok
+test tui::app::tests::invalid_filter_reports_error_and_stale_result_is_ignored ... ok
+test tui::app::tests::history_saved_queries_and_columns_persist_in_old_settings_format ... ok
+test tui::view::tests::draws_query_results_and_detail_on_small_terminal ... ok
+test tui::app::tests::pages_load_before_selection_reaches_the_end ... ok
+test tui::app::tests::selected_and_complete_exports_write_json_without_overwriting ... ok
+test tui::app::tests::full_text_filter_and_collection_scope_use_new_core ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/cli.rs (target/debug/deps/cli-f7a5427c7ef084b3)
+
+running 1 test
+test diagnostics_are_pretty_json_on_stderr_for_success_and_error ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s

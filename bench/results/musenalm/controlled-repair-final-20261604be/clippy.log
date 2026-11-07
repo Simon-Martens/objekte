@@ -1,0 +1,53 @@
+crates/core/src/bigram.rs:209:24: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `set.serialized_size()`
+crates/core/src/executor.rs:281:9: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:437:40: warning: this `if` has identical blocks
+crates/core/src/executor.rs:519:9: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:524:13: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:539:28: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:540:25: warning: this `if` statement can be collapsed
+crates/core/src/executor.rs:605:17: warning: this `if` statement can be collapsed
+crates/core/src/inventory.rs:446:5: warning: struct `ByteRange` has a public `len` method, but no `is_empty` method
+crates/core/src/model.rs:319:5: warning: this function has too many arguments (8/7)
+crates/core/src/posting_values.rs:395:9: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:458:12: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:662:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:717:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1009:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1058:40: warning: redundant closure: help: replace the closure with the function itself: `compare_length`
+crates/core/src/reference.rs:1214:9: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1253:25: warning: unnecessary closure used with `bool::then`
+crates/core/src/reference.rs:1259:5: warning: this `if` statement can be collapsed
+crates/core/src/reference.rs:1391:13: warning: this `if` statement can be collapsed
+crates/core/src/repository.rs:124:1: warning: this function has too many arguments (13/7)
+crates/core/src/run.rs:263:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:289:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:526:1: warning: this function has too many arguments (13/7)
+crates/core/src/run.rs:784:1: warning: this `impl` can be derived
+crates/core/src/run.rs:957:1: warning: this function has too many arguments (12/7)
+crates/core/src/run.rs:978:5: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:978:45: warning: derefed type is same as origin: help: try: `cache_members`
+crates/core/src/run.rs:1086:67: warning: writing `&mut Vec` instead of `&mut [_]` involves a new object where a slice will do
+crates/core/src/run.rs:1401:9: warning: this loop could be written as a `while let` loop: help: try: `while let Some(Reverse(cursor)) = heap.pop() { .. }`
+crates/core/src/run.rs:1513:27: warning: derefed type is same as origin: help: try: `traces`
+crates/core/src/run.rs:1712:5: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1762:9: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1763:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1783:9: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1784:13: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1785:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1852:17: warning: this `if` statement can be collapsed
+crates/core/src/run.rs:1955:17: warning: clamp-like pattern without using clamp function: help: replace with clamp: `repo.options.query_workers.clamp(1, 64)`
+crates/core/src/run.rs:2100:17: warning: this `if` statement can be collapsed
+crates/core/src/source.rs:184:45: warning: the `Err`-variant returned from this function is very large
+crates/core/src/source.rs:188:46: warning: the `Err`-variant returned from this function is very large
+crates/core/src/source.rs:400:6: warning: the `Err`-variant returned from this function is very large: the `Err`-variant is at least 128 bytes
+crates/core/src/source.rs:788:6: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/source.rs:842:10: warning: very complex type used. Consider factoring parts into `type` definitions
+crates/core/src/storage.rs:205:9: warning: consider using `sort_by_key`
+crates/core/src/storage.rs:483:17: warning: this `if` statement can be collapsed
+warning: `objekte-search-core` (lib) generated 47 warnings (run `cargo clippy --fix --lib -p objekte-search-core -- ` to apply 33 suggestions)
+warning: `objekte-search-core` (lib test) generated 47 warnings (47 duplicates)
+crates/core/examples/bench_musenalm.rs:218:42: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `s.serialized_size()`
+crates/core/examples/bench_musenalm.rs:222:46: warning: casting to the same type is unnecessary (`usize` -> `usize`): help: try: `s.serialized_size()`
+warning: `objekte-search-core` (example "bench_musenalm") generated 2 warnings (run `cargo clippy --fix --example "bench_musenalm" -p objekte-search-core -- ` to apply 2 suggestions)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s

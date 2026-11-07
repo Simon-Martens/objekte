@@ -1,243 +1,169 @@
-//! Interactive search over a warmed repository cache.
-//!
-//! The screen layout is fixed: header, search and filter lines, a summary,
-//! the results (with a preview on wide terminals), and a footer. Typing
-//! searches as you go; nothing moves except the content.
+//! CLI-owned interactive search screen for `obj --tui`.
 
 mod app;
-mod complete;
-mod detail;
+mod clipboard;
 mod export;
-mod files;
 mod input;
-mod keys;
-mod lists;
-mod match_preview;
-mod navigation;
-mod record_view;
+mod record;
 mod relations;
-mod search;
 mod settings;
+#[cfg(test)]
+mod test_support;
 mod view;
-mod warm;
 
-use self::app::App;
-use objekte_core::Repository;
+use std::error::Error;
+use std::sync::mpsc;
+use std::time::{Duration, Instant};
+
+use app::{Action, App, Focus, Overlay, View};
+use objekte_search_core::repository::{Repository, SnapshotAction};
+use objekte_search_core::streaming::CancellationToken;
 use ratatui::crossterm::{
     event::{
-        self, DisableMouseCapture, EnableMouseCapture, Event, KeyboardEnhancementFlags,
-        MouseEventKind, PopKeyboardEnhancementFlags, PushKeyboardEnhancementFlags,
+        self, Event, KeyCode, KeyEvent, KeyEventKind, KeyModifiers, MouseButton, MouseEvent,
+        MouseEventKind,
     },
     execute,
 };
-use std::error::Error;
-use std::{
-    sync::mpsc::TryRecvError,
-    time::{Duration, Instant},
-};
 
-
-fn apply_warm_update(app: &mut App<'_>, update: warm::WarmUpdate) {
-    match update {
-        warm::WarmUpdate::Progress {
-            completed,
-            total,
-            mode,
-            restored,
-        } => {
-            let action = if mode == warm::WarmMode::Reindex {
-                "Reindexing"
-            } else if mode == warm::WarmMode::Save {
-                "Saving"
-            } else if restored > 0 {
-                "Restoring"
-            } else {
-                "Building"
-            };
-            app.index_status = Some(if mode == warm::WarmMode::Warm && restored > 0 {
-                format!(
-                    "{action} indexes · {completed}/{total} collections ready · {restored} from cache"
-                )
-            } else {
-                format!("{action} indexes · {completed}/{total} collections ready")
-            });
-        }
-        warm::WarmUpdate::Ready(mut built, mode) => {
-            app.value_counts.borrow_mut().clear();
-            let restored = built.metrics().secondary_snapshot_loads;
-            let bigram_restored = built.metrics().bigram_snapshot_loads;
-            std::mem::swap(app.repo, &mut *built);
-            app.reconciling = mode == warm::WarmMode::Warm && bigram_restored > 0;
-            app.inventory_complete = false;
-            app.reconciled_files = 0;
-            app.index_status = app
-                .reconciling
-                .then(|| "Checking files in background · search available".into());
-            if app.queued_search {
-                app.search();
-            } else {
-                let text: String = match mode {
-                    warm::WarmMode::Warm if restored > 0 => {
-                        let noun = if restored == 1 {
-                            "snapshot"
-                        } else {
-                            "snapshots"
-                        };
-                        format!("Search ready · {restored} index {noun} restored; checking files.")
-                    }
-                    warm::WarmMode::Warm if bigram_restored > 0 => {
-                        "Search ready from saved bigram index; checking files.".into()
-                    }
-                    warm::WarmMode::Warm => "Search ready. Enter a query to search.".into(),
-                    warm::WarmMode::Save => "Bigram caches saved.".into(),
-                    warm::WarmMode::Reindex => "All indexes rebuilt and saved.".into(),
-                };
-                app.notice(text);
-            }
-        }
-        warm::WarmUpdate::Inventory(inventory) => {
-            app.pending_inventories.push_back(inventory);
-        }
-        warm::WarmUpdate::Checked => {
-            app.inventory_complete = true;
-        }
-        warm::WarmUpdate::Failed(error) => {
-            app.index_status = None;
-            if app.reconciling {
-                app.reconciling = false;
-                app.pending_inventories.clear();
-                app.error(format!("File check failed; search may be stale: {error}"));
-            } else {
-                app.queued_search = false;
-                app.error(format!("Index build failed: {error}"));
-            }
-        }
-    }
+#[derive(Clone, Default)]
+pub struct TuiOptions {
+    pub single_collection: bool,
+    pub initial_search: String,
+    pub initial_filter: String,
+    pub offset: usize,
+    pub limit: Option<usize>,
+    pub loading_label: Option<String>,
+    /// An explicit save was requested at startup.
+    pub snapshot_requested: bool,
+    pub interruption: Option<CancellationToken>,
 }
 
-fn drive_reconciliation(app: &mut App<'_>, searches: &search::SearchWorker) {
-    if !app.reconciling || !searches.is_idle() {
-        return;
-    }
-    if let Some(inventory) = app.pending_inventories.pop_front() {
-        match app.repo.apply_collection_inventory(inventory) {
-            Ok(changed) => {
-                app.reconciled_files += changed;
-                if changed > 0 && app.last_request.is_some() && !app.searching {
-                    app.rerun();
-                }
-            }
-            Err(error) => {
-                app.error(format!("File check failed; search may be stale: {error}"));
-            }
-        }
-    }
-    if app.inventory_complete && app.pending_inventories.is_empty() && searches.is_idle() {
-        app.reconciling = false;
-        app.index_status = None;
-        if app.reconciled_files > 0 {
-            app.notice(format!(
-                "File check complete · {} changed files updated",
-                app.reconciled_files
-            ));
-        }
-    }
-}
-
-/// Leave the screen to the editor, then take it back. Returns whether the
-/// editor exited successfully.
-fn edit_externally(
-    terminal: &mut ratatui::DefaultTerminal,
-    path: &std::path::Path,
-) -> Result<bool, Box<dyn Error>> {
-    let command = files::editor();
-    execute!(
-        std::io::stdout(),
-        DisableMouseCapture,
-        PopKeyboardEnhancementFlags
-    )?;
-    ratatui::try_restore()?;
-    let status = std::process::Command::new(&command[0])
-        .args(&command[1..])
-        .arg(path)
-        .status();
-    *terminal = ratatui::try_init()?;
-    execute!(
-        std::io::stdout(),
-        PushKeyboardEnhancementFlags(
-            KeyboardEnhancementFlags::DISAMBIGUATE_ESCAPE_CODES
-                | KeyboardEnhancementFlags::REPORT_ALTERNATE_KEYS
-        ),
-        EnableMouseCapture
-    )?;
-    terminal.clear()?;
-    Ok(status?.success())
-}
-
-/// Show the UI after configuration loading while indexes warm in a worker.
-pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
+pub fn run_with_loader<F>(loader: F, options: TuiOptions) -> Result<(), Box<dyn Error>>
+where
+    F: FnOnce() -> Result<Repository, String> + Send + 'static,
+{
     let mut terminal = ratatui::try_init()?;
-    // Keep ordinary text as UTF-8; encoding every key without its shifted
-    // character turns Shift+A and layout-specific symbols into base keys.
-    // The support probe waits for a terminal reply and can stall startup for
-    // seconds. Unsupported terminals ignore this CSI sequence harmlessly.
-    if let Err(error) = execute!(
-        std::io::stdout(),
-        PushKeyboardEnhancementFlags(
-            KeyboardEnhancementFlags::DISAMBIGUATE_ESCAPE_CODES
-                | KeyboardEnhancementFlags::REPORT_ALTERNATE_KEYS
-        ),
-        EnableMouseCapture
-    ) {
-        let _ = ratatui::try_restore();
-        return Err(error.into());
-    }
     let result = (|| -> Result<(), Box<dyn Error>> {
-        let startup_status = warm::startup_status(repo);
-        let mut updates = warm::start(repo, warm::WarmMode::Warm);
-        let mut app = App::new(repo);
-        app.load_settings();
-        let mut searches = search::SearchWorker::default();
-        app.async_search = true;
-        app.index_status = Some(startup_status);
-        while !app.done {
-            loop {
-                match updates.try_recv() {
-                    Ok(update) => apply_warm_update(&mut app, update),
-                    Err(TryRecvError::Empty) => break,
-                    Err(TryRecvError::Disconnected) => {
-                        if app.index_status.is_some() && !app.inventory_complete {
-                            app.index_status = None;
-                            app.queued_search = false;
-                            app.error("Index worker stopped unexpectedly.");
+        execute!(std::io::stdout(), event::EnableMouseCapture)?;
+        let interrupted = || {
+            std::io::Error::new(
+                std::io::ErrorKind::Interrupted,
+                "interactive search interrupted",
+            )
+        };
+        let started = Instant::now();
+        let (sender, receiver) = mpsc::channel();
+        let loading_label = options
+            .loading_label
+            .as_deref()
+            .unwrap_or("Building search index")
+            .to_owned();
+        terminal.draw(|frame| {
+            view::draw_loading_with_label(frame, started.elapsed(), &loading_label)
+        })?;
+        std::thread::spawn(move || {
+            let result = loader();
+            let _ = sender.send(result);
+        });
+        let repository = loop {
+            if options
+                .interruption
+                .as_ref()
+                .is_some_and(CancellationToken::is_cancelled)
+            {
+                return Err(interrupted().into());
+            }
+            match receiver.try_recv() {
+                Ok(Ok(repository)) => break repository,
+                Ok(Err(error)) => return Err(std::io::Error::other(error).into()),
+                Err(mpsc::TryRecvError::Disconnected) => {
+                    return Err(std::io::Error::other("repository loader stopped").into());
+                }
+                Err(mpsc::TryRecvError::Empty) => {}
+            }
+            terminal.draw(|frame| {
+                view::draw_loading_with_label(frame, started.elapsed(), &loading_label)
+            })?;
+            if event::poll(Duration::from_millis(100))? {
+                match event::read()? {
+                    Event::Key(pressed)
+                        if pressed.kind != KeyEventKind::Release
+                            && (pressed.code == KeyCode::Esc
+                                || (pressed.code == KeyCode::Char('c')
+                                    && pressed.modifiers.contains(KeyModifiers::CONTROL))
+                                || (pressed.code == KeyCode::Char('q')
+                                    && pressed.modifiers.contains(KeyModifiers::CONTROL))) =>
+                    {
+                        if pressed.code == KeyCode::Char('c')
+                            && pressed.modifiers.contains(KeyModifiers::CONTROL)
+                        {
+                            return Err(interrupted().into());
                         }
-                        break;
+                        return Ok(());
                     }
+                    _ => {}
                 }
             }
-            searches.drive(&mut app);
-            drive_reconciliation(&mut app, &searches);
+        };
+        let action = repository.startup().snapshot_action;
+        let index_ns = if action == SnapshotAction::Restored {
+            repository
+                .startup()
+                .snapshot_decode_ns
+                .saturating_add(repository.startup().reconciliation_ns)
+        } else {
+            repository.startup().build_ns
+        };
+        let snapshot_requested = options.snapshot_requested;
+        let mut app = App::with_options(repository, options);
+        let operation = if action == SnapshotAction::Restored {
+            "Index loaded"
+        } else {
+            "Index built"
+        };
+        let ready = format!(
+            "{operation} in {}",
+            view::elapsed_label(Duration::from_nanos(index_ns))
+        );
+        let ready = if snapshot_requested && action != SnapshotAction::Restored {
+            format!("{ready}  ·  Snapshot saved")
+        } else {
+            ready
+        };
+        app.status = Some(match app.status.take() {
+            Some(status) => format!("{status}  ·  {ready}"),
+            None => ready,
+        });
+        let light = match app.settings.theme.as_deref() {
+            Some("light") => Some(true),
+            Some("dark") => Some(false),
+            _ => view::theme::detect_light(),
+        };
+        if let Some(light) = light {
+            view::theme::set_light(light);
+        }
+        while !app.done {
+            if app.interrupted() {
+                return Err(interrupted().into());
+            }
             app.tick(Instant::now());
-            terminal.draw(|frame| view::draw(frame, &app))?;
-            // Poll quickly while something animates or a typed query waits.
-            let busy = app.searching || app.dirty.is_some() || app.index_status.is_some();
-            let poll_ms = if busy { 30 } else { 250 };
+            terminal.draw(|frame| view::draw(frame, &mut app))?;
+            let poll_ms = if app.busy() { 30 } else { 250 };
             if !event::poll(Duration::from_millis(poll_ms))? {
                 continue;
             }
-            // Handle everything already queued before drawing again, so
-            // fast typing and held keys never lag behind.
             loop {
                 match event::read()? {
-                    Event::Key(pressed) => keys::key(&mut app, pressed),
-                    Event::Mouse(mouse) => match mouse.kind {
-                        MouseEventKind::ScrollDown => keys::wheel(&mut app, 3),
-                        MouseEventKind::ScrollUp => keys::wheel(&mut app, -3),
-                        MouseEventKind::Down(event::MouseButton::Left) => {
-                            keys::click(&mut app, mouse.column, mouse.row, Instant::now());
+                    Event::Key(pressed) if pressed.kind != KeyEventKind::Release => {
+                        if pressed.code == KeyCode::Char('c')
+                            && pressed.modifiers.contains(KeyModifiers::CONTROL)
+                        {
+                            return Err(interrupted().into());
                         }
-                        _ => {}
-                    },
+                        key(&mut app, pressed)
+                    }
+                    Event::Mouse(mouse) => mouse_event(&mut app, mouse),
                     _ => {}
                 }
                 if app.done || !event::poll(Duration::ZERO)? {
@@ -247,43 +173,453 @@ pub(super) fn run(repo: &mut Repository) -> Result<(), Box<dyn Error>> {
             if let Some(text) = app.clipboard.take() {
                 use std::io::Write;
                 let mut stdout = std::io::stdout();
-                stdout.write_all(files::osc52(&text).as_bytes())?;
+                stdout.write_all(clipboard::osc52(&text).as_bytes())?;
                 stdout.flush()?;
-            }
-            // Some work needs the repository, which a running search or
-            // backlink lookup has borrowed; it waits until it is back.
-            if !app.deferred.is_empty()
-                && searches.is_idle()
-                && app.pending_search.is_none()
-                && let Some(path) = app.run_deferred()
-            {
-                match edit_externally(&mut terminal, &path) {
-                    Ok(true) => app.apply_edit(&path),
-                    Ok(false) => app.error("The editor reported an error"),
-                    Err(error) => app.error(format!("Cannot start the editor: {error}")),
-                }
-            }
-            if let Some(mode) = app.pending_cache_action.take() {
-                app.reconciling = false;
-                app.pending_inventories.clear();
-                updates = warm::start(app.repo, mode);
-                app.index_status = Some(if mode == warm::WarmMode::Save {
-                    "Saving indexes · 0 collections ready".into()
-                } else {
-                    "Reindexing indexes · 0 collections ready".into()
-                });
             }
         }
         Ok(())
     })();
-    let pop = execute!(
-        std::io::stdout(),
-        DisableMouseCapture,
-        PopKeyboardEnhancementFlags
-    );
+    let mouse = execute!(std::io::stdout(), event::DisableMouseCapture);
     let restore = ratatui::try_restore();
     result?;
-    pop?;
+    mouse?;
     restore?;
     Ok(())
 }
+
+fn mouse_event(app: &mut App, mouse: MouseEvent) {
+    let inside = |area: ratatui::layout::Rect| {
+        mouse.column >= area.x
+            && mouse.column < area.right()
+            && mouse.row >= area.y
+            && mouse.row < area.bottom()
+    };
+    match mouse.kind {
+        MouseEventKind::ScrollDown => {
+            if app.view == View::Detail {
+                app.move_detail(3);
+            } else {
+                app.move_selection(3);
+            }
+        }
+        MouseEventKind::ScrollUp => {
+            if app.view == View::Detail {
+                app.move_detail(-3);
+            } else {
+                app.move_selection(-3);
+            }
+        }
+        MouseEventKind::Down(MouseButton::Left) if app.overlay.is_none() => {
+            if app.view == View::Detail && !app.record.raw && inside(app.detail_area) {
+                let visible = mouse.row.saturating_sub(app.detail_area.y) as usize;
+                let target = app.record.visible_rows.get(visible).copied().or_else(|| {
+                    app.record
+                        .visible_rows
+                        .is_empty()
+                        .then(|| app.record.scroll.saturating_add(visible))
+                });
+                if let Some(target) = target {
+                    app.record.cursor = target;
+                    app.toggle_detail_branch();
+                }
+            } else if app.view == View::Results && inside(app.results_area) {
+                let visible = mouse.row.saturating_sub(app.results_area.y + 1) as usize;
+                let index = app.scroll.saturating_add(visible);
+                if index < app.hits.len() {
+                    app.move_selection(index as isize - app.selected as isize);
+                    app.open_detail();
+                }
+            } else if app.view == View::Results && inside(app.detail_area) {
+                app.open_detail();
+            }
+        }
+        _ => {}
+    }
+}
+
+fn key(app: &mut App, key: KeyEvent) {
+    let control = key.modifiers.contains(KeyModifiers::CONTROL);
+    if control && key.code == KeyCode::Char('q') {
+        app.done = true;
+        return;
+    }
+    if app.record.find_input.is_some() {
+        match key.code {
+            KeyCode::Esc => app.record.find_input = None,
+            KeyCode::Enter => app.confirm_find(),
+            _ => {
+                if let Some(input) = &mut app.record.find_input {
+                    input.key(key);
+                }
+            }
+        }
+        return;
+    }
+    match app.overlay {
+        Some(Overlay::Actions) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.action_picker = app.action_picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.action_picker = (app.action_picker + 1).min(Action::ALL.len() - 1);
+                }
+                KeyCode::Enter => {
+                    if let Some(action) = app.choose_action() {
+                        run_action(app, action);
+                    }
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::Help) => {
+            if matches!(key.code, KeyCode::Esc | KeyCode::Enter | KeyCode::F(1)) {
+                app.overlay = None;
+            }
+            return;
+        }
+        Some(Overlay::Collections) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Enter => app.choose_scope(),
+                KeyCode::Up => app.picker = app.picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.picker = (app.picker + 1).min(app.collection_names().count());
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::Sort) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Enter => app.choose_sort(),
+                KeyCode::Up => app.sort_picker = app.sort_picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.sort_picker = (app.sort_picker + 1).min(app.sort_choices().len() - 1);
+                }
+                _ if app.single_collection => {
+                    app.sort_input.key(key);
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::History) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.list_picker = app.list_picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.list_picker =
+                        (app.list_picker + 1).min(app.settings.history.len().saturating_sub(1));
+                }
+                KeyCode::Enter => {
+                    if let Some(query) = app
+                        .settings
+                        .history
+                        .iter()
+                        .rev()
+                        .nth(app.list_picker)
+                        .cloned()
+                    {
+                        app.restore_query(query);
+                    }
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::Saved) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.list_picker = app.list_picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.list_picker =
+                        (app.list_picker + 1).min(app.settings.saved.len().saturating_sub(1));
+                }
+                KeyCode::Enter => {
+                    if let Some(saved) = app.settings.saved.get(app.list_picker).cloned() {
+                        app.restore_query(saved.query);
+                    }
+                }
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::SaveQuery) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Enter => app.save_query(),
+                _ => {
+                    app.save_input.key(key);
+                }
+            }
+            return;
+        }
+        Some(Overlay::Columns) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Up => app.column_picker = app.column_picker.saturating_sub(1),
+                KeyCode::Down => {
+                    app.column_picker =
+                        (app.column_picker + 1).min(app.column_keys().len().saturating_sub(1));
+                }
+                KeyCode::Enter => app.toggle_column(),
+                _ => {}
+            }
+            return;
+        }
+        Some(Overlay::Export { all }) => {
+            match key.code {
+                KeyCode::Esc => app.overlay = None,
+                KeyCode::Enter => app.finish_export(all),
+                _ => {
+                    app.export_input.key(key);
+                }
+            }
+            return;
+        }
+        None => {}
+    }
+    if key.code == KeyCode::F(1) {
+        app.overlay = Some(Overlay::Help);
+        return;
+    }
+    if control && key.code == KeyCode::Char('k') && app.view == View::Results {
+        app.action_picker = 0;
+        app.overlay = Some(Overlay::Actions);
+        return;
+    }
+    if control && key.code == KeyCode::Char('o') {
+        run_action(app, Action::Collections);
+        return;
+    }
+    if control && key.code == KeyCode::Char('r') {
+        run_action(app, Action::History);
+        return;
+    }
+    if control && key.code == KeyCode::Char('b') {
+        run_action(app, Action::Saved);
+        return;
+    }
+    if control && key.code == KeyCode::Char('s') {
+        run_action(app, Action::Save);
+        return;
+    }
+    if control && key.code == KeyCode::Char('p') {
+        run_action(app, Action::Preview);
+        return;
+    }
+    if app.view == View::Results && !control && key.modifiers.contains(KeyModifiers::ALT) {
+        match key.code {
+            KeyCode::Char('c') => {
+                run_action(app, Action::Case);
+                return;
+            }
+            KeyCode::Char('r') => {
+                run_action(app, Action::Regex);
+                return;
+            }
+            KeyCode::Left => {
+                app.scroll_columns(false);
+                return;
+            }
+            KeyCode::Right => {
+                app.scroll_columns(true);
+                return;
+            }
+            _ => {}
+        }
+    }
+    if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('s') {
+        run_action(app, Action::Sort);
+        return;
+    }
+    if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('l') {
+        run_action(app, Action::Columns);
+        return;
+    }
+    if key.modifiers.contains(KeyModifiers::ALT) && matches!(key.code, KeyCode::Char('e' | 'a')) {
+        run_action(
+            app,
+            if key.code == KeyCode::Char('a') {
+                Action::ExportAll
+            } else {
+                Action::ExportRecord
+            },
+        );
+        return;
+    }
+    if key.modifiers.contains(KeyModifiers::ALT) && key.code == KeyCode::Char('t') {
+        run_action(app, Action::Theme);
+        return;
+    }
+    if app.view == View::Detail {
+        match key.code {
+            KeyCode::Tab => app.cycle_detail_section(!key.modifiers.contains(KeyModifiers::SHIFT)),
+            KeyCode::BackTab => app.cycle_detail_section(false),
+            KeyCode::Left if key.modifiers.contains(KeyModifiers::ALT) => {
+                app.adjacent_result(false)
+            }
+            KeyCode::Right if key.modifiers.contains(KeyModifiers::ALT) => {
+                app.adjacent_result(true)
+            }
+            KeyCode::Esc | KeyCode::Left | KeyCode::Backspace => app.back_detail(),
+            KeyCode::Up => app.move_detail(-1),
+            KeyCode::Down => app.move_detail(1),
+            KeyCode::PageUp => app.move_detail(-10),
+            KeyCode::PageDown => app.move_detail(10),
+            KeyCode::Enter | KeyCode::Right => app.toggle_detail_branch(),
+            KeyCode::Char('r') => {
+                app.record.raw = !app.record.raw;
+                app.detail_scroll = 0;
+            }
+            KeyCode::Char('/') if !app.record.raw => {
+                app.record.find_input = Some(input::Input::with_text(&app.record.find));
+            }
+            KeyCode::Char('/') => {
+                app.status = Some("Find is available in structured view".into());
+            }
+            KeyCode::Char('n') => app.find_next(true),
+            KeyCode::Char('N') => app.find_next(false),
+            KeyCode::Char('y') => app.copy_detail(false),
+            KeyCode::Char('Y') => app.copy_detail(true),
+            KeyCode::Char('1') => app.jump_detail_section(1),
+            KeyCode::Char('2') if !app.single_collection => app.jump_detail_section(2),
+            KeyCode::Char('3') if !app.single_collection => app.jump_detail_section(3),
+            _ => {}
+        }
+        return;
+    }
+    match key.code {
+        KeyCode::Tab => {
+            app.focus = match app.focus {
+                Focus::Search => Focus::Filter,
+                Focus::Filter => Focus::Results,
+                Focus::Results => Focus::Search,
+            };
+        }
+        KeyCode::BackTab => {
+            app.focus = match app.focus {
+                Focus::Search => Focus::Results,
+                Focus::Filter => Focus::Search,
+                Focus::Results => Focus::Filter,
+            };
+        }
+        KeyCode::Esc => app.focus = Focus::Search,
+        KeyCode::Enter if app.focus == Focus::Results => {
+            app.open_detail();
+        }
+        KeyCode::Enter => app.confirm_query(),
+        KeyCode::Up => {
+            app.focus = Focus::Results;
+            app.move_selection(-1);
+        }
+        KeyCode::Down => {
+            app.focus = Focus::Results;
+            app.move_selection(1);
+        }
+        KeyCode::PageUp => {
+            app.focus = Focus::Results;
+            app.move_selection(-(app.viewport_rows as isize));
+        }
+        KeyCode::PageDown => {
+            app.focus = Focus::Results;
+            app.move_selection(app.viewport_rows as isize);
+        }
+        KeyCode::Home if control || app.focus == Focus::Results => {
+            app.focus = Focus::Results;
+            app.move_selection(-(app.selected as isize));
+        }
+        KeyCode::End if control || app.focus == Focus::Results => {
+            app.focus = Focus::Results;
+            app.move_selection(isize::MAX);
+        }
+        _ if app.focus == Focus::Results => {}
+        _ => {
+            let input = match app.focus {
+                Focus::Search => &mut app.search,
+                Focus::Filter => &mut app.filter,
+                Focus::Results => unreachable!(),
+            };
+            if input.key(key) == Some(true) {
+                app.changed(Instant::now());
+            }
+        }
+    }
+}
+
+fn run_action(app: &mut App, action: Action) {
+    match action {
+        Action::Collections => {
+            if app.single_collection {
+                app.status = Some(format!("Collection: {}", app.scope_label()));
+            } else {
+                app.picker = app.scope;
+                app.overlay = Some(Overlay::Collections);
+            }
+        }
+        Action::Sort => {
+            if app.scope == 0 {
+                app.status = Some("Choose a collection before sorting".into());
+            } else {
+                app.sort_picker = app
+                    .sort_choices()
+                    .iter()
+                    .position(|choice| choice.as_ref() == app.sort.as_ref())
+                    .unwrap_or(0);
+                app.sort_input = input::Input::default();
+                app.overlay = Some(Overlay::Sort);
+            }
+        }
+        Action::Columns => {
+            app.column_picker = 0;
+            app.overlay = Some(Overlay::Columns);
+        }
+        Action::History => {
+            if app.settings.history.is_empty() {
+                app.status = Some("No recent queries".into());
+            } else {
+                app.list_picker = 0;
+                app.overlay = Some(Overlay::History);
+            }
+        }
+        Action::Saved => {
+            if app.settings.saved.is_empty() {
+                app.status = Some("No saved queries".into());
+            } else {
+                app.list_picker = 0;
+                app.overlay = Some(Overlay::Saved);
+            }
+        }
+        Action::Save => {
+            app.save_input = input::Input::default();
+            app.overlay = Some(Overlay::SaveQuery);
+        }
+        Action::ExportRecord | Action::ExportAll => {
+            if app.busy() {
+                app.status = Some("Wait for the search to finish before exporting".into());
+            } else if matches!(action, Action::ExportRecord) && app.selected_hit().is_none() {
+                app.status = Some("Select a record before exporting".into());
+            } else {
+                app.export_input = input::Input::default();
+                app.overlay = Some(Overlay::Export {
+                    all: matches!(action, Action::ExportAll),
+                });
+            }
+        }
+        Action::Case => app.toggle_case(),
+        Action::Regex => app.toggle_regex(),
+        Action::Preview => app.show_preview = !app.show_preview,
+        Action::Theme => {
+            let light = !view::theme::is_light();
+            view::theme::set_light(light);
+            app.set_theme(light);
+        }
+        Action::Help => app.overlay = Some(Overlay::Help),
+    }
+}
+
+#[cfg(test)]
+#[path = "mod.test.rs"]
+mod tests;

@@ -1,1461 +1,1251 @@
-//! Application state: query lines, the live search lifecycle, the result
-//! list with a stable selection and viewport, and the detail view.
+//! Search and selection state shared by the event loop and renderer.
 
-use super::complete::{self, Completion};
+use std::collections::{BTreeSet, HashMap};
+use std::path::PathBuf;
+use std::sync::{Arc, mpsc};
+use std::time::{Duration, Instant};
+
+use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
+use objekte_search_core::query::{
+    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Modifier, Operand, Query, QueryOptions,
+    RegexOptions, parse_filter, parse_structured_filter,
+};
+use objekte_search_core::query_path::QueryPath;
+use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
+use objekte_search_core::streaming::{
+    CancellationToken, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
+};
+use objekte_search_core::workload::{ReturnMode, SortField};
+use ratatui::layout::Rect;
+use unicode_casefold::{Locale, UnicodeCaseFold, Variant};
+
+use super::TuiOptions;
+use super::export;
 use super::input::Input;
-use super::lists::{Breakdown, Deferred, ListKind};
-use super::navigation::DetailLinks;
-use super::record_view::RecordState;
-use super::settings::Settings;
-use super::warm::WarmMode;
-use objekte_core::{
-    CollectionInventory, InferenceReport, JsonFilter, JsonPathStep, JsonQuery, JsonQueryBackend,
-    Record, RecordStatus, Repository, Sort, TextHit, TextMode, TextQuery,
-};
-use std::{
-    cell::Cell,
-    collections::VecDeque,
-    path::PathBuf,
-    time::{Duration, Instant},
-};
-use unicode_width::UnicodeWidthStr;
+use super::record::{self, DisplayRow, RecordState};
+use super::relations::{self, LinkAction, RelationRow};
+use super::settings::{self, Settings};
 
 pub(super) const PAGE_SIZE: usize = 100;
-
-/// Indexed value counts per collection and path.
-pub(super) type ValueCountCache =
-    std::collections::HashMap<(String, String), Option<Vec<objekte_core::ValueCount>>>;
-/// Pause after the last keystroke before a live search starts.
 pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
-/// Load the next page when the selection is this close to the end.
-const LOAD_AHEAD: usize = 30;
-/// How long a notice stays in the footer.
-/// After typing, Enter confirms the query for this long before it opens
-/// the selected record.
-pub(super) const ENTER_GRACE: Duration = Duration::from_millis(1000);
-pub(super) const NOTICE_TIME: Duration = Duration::from_secs(6);
 
-
-/// A displayed row, retaining the match metadata returned by its search mode.
-#[derive(Clone)]
-pub(super) enum Hit {
-    Filter(Record),
-    Text(TextHit),
+fn fold_find(text: &str) -> String {
+    text.case_fold_with(Variant::Full, Locale::NonTurkic)
+        .collect()
 }
 
-
-impl Hit {
-    pub(super) fn record(&self) -> &Record {
-        match self {
-            Self::Filter(record) => record,
-            Self::Text(hit) => &hit.record,
-        }
-    }
-
-    pub(super) fn matched_paths(&self) -> &[String] {
-        match self {
-            Self::Filter(_) => &[],
-            Self::Text(hit) => &hit.matched_paths,
-        }
-    }
-
-    fn identity(&self) -> (String, String) {
-        let record = self.record();
-        (record.collection.clone(), record.id.clone())
+fn push_unique(fields: &mut Vec<String>, name: String) {
+    if !name.is_empty() && !fields.contains(&name) {
+        fields.push(name);
     }
 }
 
-
-/// Request used for a result page and for complete export.
-#[derive(Clone)]
-pub(super) enum Request {
-    Filter(JsonQuery),
-    Text(TextQuery),
-}
-
-
-impl Request {
-    pub(super) fn whole_result(&self) -> Self {
-        self.page(0, i64::MAX as usize)
-    }
-
-    fn page(&self, offset: usize, limit: usize) -> Self {
-        match self {
-            Self::Filter(request) => Self::Filter(JsonQuery {
-                offset,
-                limit,
-                count: true,
-                ..request.clone()
-            }),
-            Self::Text(request) => Self::Text(TextQuery {
-                offset,
-                limit,
-                count: true,
-                ..request.clone()
-            }),
-        }
-    }
-
-    pub(super) fn sort(&self) -> &[Sort] {
-        match self {
-            Self::Filter(query) => &query.sort,
-            Self::Text(query) => &query.sort,
-        }
-    }
-
-    fn is_text(&self) -> bool {
-        matches!(self, Self::Text(_))
-    }
-}
-
-
-fn top_field(path: &[JsonPathStep]) -> Option<String> {
-    match path.first() {
-        Some(JsonPathStep::Key(name)) => Some(name.clone()),
-        Some(JsonPathStep::Index(_) | JsonPathStep::Each) => Some("$value".into()),
-        None => None,
-    }
-}
-
-/// Top-level fields a filter reads, in query order.
-fn queried_fields(request: &Request) -> Vec<String> {
-    let (source, parameters) = match request {
-        Request::Filter(query) => (&query.filter, &query.parameters),
-        Request::Text(query) => match &query.filter {
-            Some(filter) => (filter, &query.parameters),
-            None => return Vec::new(),
-        },
-    };
-    let mut fields = Vec::new();
-    if let Ok(filter) = JsonFilter::compile(source, parameters) {
-        for path in filter.paths_in_query_order() {
-            if let Some(top) = top_field(&path)
-                && !fields.contains(&top)
-            {
-                fields.push(top);
+fn collect_filter_fields(filter: &FilterExpr, fields: &mut Vec<String>) {
+    match filter {
+        FilterExpr::Term(term) => {
+            push_unique(fields, field_label(&term.path.display, &term.modifiers));
+            if let Operand::Field(field) = &term.operand {
+                push_unique(fields, field_label(&field.path.display, &field.modifiers));
             }
         }
+        FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+            for part in parts {
+                collect_filter_fields(part, fields);
+            }
+        }
+        FilterExpr::Not(inner) => collect_filter_fields(inner, fields),
     }
-    fields
 }
 
-/// Top-level fields of the sort terms, skipping system fields.
-fn sorted_fields(request: &Request) -> Vec<String> {
-    let mut fields = Vec::new();
-    for term in request.sort() {
-        if term.field.starts_with('@') {
-            continue;
-        }
-        let field = term.field.strip_suffix(":fts").unwrap_or(&term.field);
-        if let Ok(path) = JsonFilter::parse_path(field)
-            && let Some(top) = top_field(&path)
-            && !fields.contains(&top)
-        {
-            fields.push(top);
-        }
+fn field_label(path: &str, modifiers: &[Modifier]) -> String {
+    if path == "@record.id" {
+        return String::new();
     }
-    fields
+    let mut label = if path == "id" {
+        "@root.id".to_owned()
+    } else if path.starts_with('@') {
+        path.to_owned()
+    } else {
+        path.to_owned()
+    };
+    for modifier in modifiers {
+        let name = match modifier {
+            Modifier::Lower => "lower",
+            Modifier::Length => "length",
+            Modifier::Each => "each",
+            Modifier::Null => "null",
+            Modifier::Exists => "exists",
+            Modifier::Custom(name) => name,
+        };
+        label.push(':');
+        label.push_str(name);
+    }
+    label
 }
 
-
-/// Which query line receives typing.
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub(super) enum Line {
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum Focus {
     Search,
     Filter,
+    Results,
 }
 
-
-/// The main screen below the header.
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(super) enum View {
     Results,
     Detail,
 }
 
-
-/// Which full-text representation a query inspects.
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub(super) enum Representation {
-    Normalized,
-    Full,
-}
-
-
-/// Commands offered by the action palette.
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub(super) enum Action {
-    ChooseCollection,
-    ExportAll,
-    ExportRecord,
-    TogglePreview,
-    ToggleRegex,
-    ToggleCase,
-    ToggleText,
-    InferFields,
-    SaveIndexes,
-    RebuildIndexes,
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub(super) enum Overlay {
+    Actions,
+    Collections,
+    Sort,
     History,
-    SavedQueries,
+    Saved,
     SaveQuery,
-    SortBy,
     Columns,
-    Breakdown,
-    RefreshFiles,
-    EditRecord,
-    ToggleTheme,
+    Export { all: bool },
     Help,
-    Quit,
 }
 
+/// Commands exposed by the action picker and their keyboard shortcuts.
+#[derive(Clone, Copy, Debug)]
+pub(super) enum Action {
+    Collections,
+    Sort,
+    Columns,
+    History,
+    Saved,
+    Save,
+    ExportRecord,
+    ExportAll,
+    Case,
+    Regex,
+    Preview,
+    Theme,
+    Help,
+}
 
 impl Action {
-    pub(super) const ALL: [Self; 21] = [
-        Self::ChooseCollection,
-        Self::History,
-        Self::SavedQueries,
-        Self::SaveQuery,
-        Self::SortBy,
+    pub(super) const ALL: [Self; 13] = [
+        Self::Collections,
+        Self::Sort,
         Self::Columns,
-        Self::Breakdown,
-        Self::ExportAll,
+        Self::History,
+        Self::Saved,
+        Self::Save,
         Self::ExportRecord,
-        Self::TogglePreview,
-        Self::ToggleRegex,
-        Self::ToggleCase,
-        Self::ToggleText,
-        Self::InferFields,
-        Self::SaveIndexes,
-        Self::RebuildIndexes,
-        Self::RefreshFiles,
-        Self::EditRecord,
-        Self::ToggleTheme,
+        Self::ExportAll,
+        Self::Case,
+        Self::Regex,
+        Self::Preview,
+        Self::Theme,
         Self::Help,
-        Self::Quit,
     ];
 
     pub(super) fn label(self) -> &'static str {
         match self {
-            Self::ChooseCollection => "Choose collection…",
-            Self::ExportAll => "Export all matches…",
-            Self::ExportRecord => "Export selected record…",
-            Self::TogglePreview => "Toggle preview pane",
-            Self::ToggleRegex => "Toggle regex search",
-            Self::ToggleCase => "Toggle case-sensitive search",
-            Self::ToggleText => "Toggle normalized / full text",
-            Self::InferFields => "Infer fields and index rules…",
-            Self::SaveIndexes => "Save indexes to disk",
-            Self::RebuildIndexes => "Rebuild all indexes and save",
-            Self::History => "Recent queries…",
-            Self::SavedQueries => "Saved queries…",
-            Self::SaveQuery => "Save this query…",
-            Self::SortBy => "Sort by…",
-            Self::Columns => "Show or hide columns…",
-            Self::Breakdown => "Count values of a field…",
-            Self::RefreshFiles => "Check files for changes",
-            Self::EditRecord => "Open record in editor",
-            Self::ToggleTheme => "Switch light / dark colours",
-            Self::Help => "Keyboard shortcuts",
-            Self::Quit => "Quit",
-        }
-    }
-
-    pub(super) fn shortcut(self) -> &'static str {
-        match self {
-            Self::ChooseCollection => "Ctrl+O",
-            Self::TogglePreview => "Ctrl+P",
-            Self::ToggleRegex => "Alt+R",
-            Self::ToggleCase => "Alt+C",
-            Self::ToggleText => "Alt+T",
-            Self::Help => "F1",
-            Self::RefreshFiles => "F5",
-            Self::History => "Ctrl+R",
-            Self::SavedQueries => "Ctrl+B",
-            Self::SaveQuery => "Ctrl+S",
-            Self::SortBy => "Alt+S",
-            Self::Breakdown => "Alt+B",
-            Self::EditRecord => "Alt+E",
-            Self::Quit => "Ctrl+Q",
-            _ => "",
+            Self::Collections => "Choose collection                Ctrl+O",
+            Self::Sort => "Sort results                     Alt+S",
+            Self::Columns => "Show or hide columns             Alt+L",
+            Self::History => "Recent queries                   Ctrl+R",
+            Self::Saved => "Saved queries                    Ctrl+B",
+            Self::Save => "Save current query               Ctrl+S",
+            Self::ExportRecord => "Export selected record           Alt+E",
+            Self::ExportAll => "Export all matches               Alt+A",
+            Self::Case => "Toggle case sensitivity          Alt+C",
+            Self::Regex => "Toggle regex search              Alt+R",
+            Self::Preview => "Toggle preview                   Ctrl+P",
+            Self::Theme => "Switch light/dark theme          Alt+T",
+            Self::Help => "Keyboard help                    F1",
         }
     }
 }
 
-
-/// A list dialog with a filter line: the collection picker or the palette.
-#[derive(Default)]
-pub(super) struct Chooser {
-    pub(super) input: Input,
-    pub(super) selected: usize,
+/// Search response tagged with the input generation and requested page.
+struct Update {
+    generation: u64,
+    offset: usize,
+    elapsed: Duration,
+    result: Result<SearchResult, String>,
 }
 
-
-/// A dialog drawn over the screen; it receives all keys.
-pub(super) enum Overlay {
-    List(ListKind, Chooser),
-    SaveQuery(Input),
-    Help,
-    Export { all: bool, input: Input },
-    Infer,
-    InferReady,
-}
-
-
-/// A short message in the footer.
-pub(super) struct Notice {
-    pub(super) text: String,
-    pub(super) error: bool,
-    pub(super) at: Instant,
-}
-
-
-/// A result column: its source key and fixed display width.
-#[derive(Clone, PartialEq, Eq, Debug)]
-pub(super) struct Column {
-    pub(super) key: String,
-    pub(super) width: u16,
-}
-
-
-/// Scope and schema choice for an explicit background inference scan.
-pub(super) struct InferRequest {
-    pub(super) collection: Option<String>,
-    pub(super) auto_index: bool,
-}
-
-
-/// Long-lived repository handle and the interactive search.
-pub(super) struct App<'a> {
-    pub(super) repo: &'a mut Repository,
-    pub(super) collections: Vec<String>,
-    /// 0 means every collection; otherwise `collections[scope - 1]`.
-    pub(super) scope: usize,
-    pub(super) regex: bool,
-    pub(super) case_sensitive: bool,
-    pub(super) representation: Representation,
+/// Query inputs, page state, and terminal navigation for one repository.
+pub(super) struct App {
+    repo: Arc<Repository>,
+    pub(super) single_collection: bool,
+    base_offset: usize,
+    result_limit: Option<usize>,
+    active_columns: Vec<String>,
+    cli_hidden: BTreeSet<String>,
     pub(super) search: Input,
     pub(super) filter: Input,
-    pub(super) line: Line,
-    pub(super) completion: Option<Completion>,
-    pub(super) completion_selected: usize,
-    /// A suggestion is highlighted: Enter inserts it, and its rest
-    /// shows as a ghost after the cursor. A list that opened after a space
-    /// or an operator starts without one, so Enter still searches.
-    pub(super) completion_active: bool,
+    pub(super) focus: Focus,
     pub(super) view: View,
     pub(super) overlay: Option<Overlay>,
-    pub(super) show_preview: bool,
-    pub(super) notice: Option<Notice>,
-    /// The line and message of the last query that could not be parsed.
-    pub(super) query_error: Option<(Line, String)>,
-    /// The error came from Enter rather than from pausing while typing, so
-    /// it is shown as an error instead of a quiet hint.
-    pub(super) error_confirmed: bool,
-
-    pub(super) hits: Vec<Hit>,
-    pub(super) columns: Vec<Column>,
+    pub(super) scope: usize,
+    pub(super) picker: usize,
+    pub(super) sort_picker: usize,
+    pub(super) sort_input: Input,
+    pub(super) action_picker: usize,
+    pub(super) list_picker: usize,
+    pub(super) column_picker: usize,
     pub(super) column_offset: usize,
-    pub(super) selected: usize,
-    /// First visible result row.
-    pub(super) scroll: usize,
-    /// Result rows the last frame could show; the renderer updates it.
-    pub(super) visible_rows: Cell<usize>,
-    pub(super) total: Option<usize>,
-    pub(super) truncated: bool,
-    pub(super) elapsed_ms: Option<f64>,
-    /// Base request at offset 0 for the shown results.
-    pub(super) last_request: Option<Request>,
-    pub(super) searching: bool,
-    pub(super) generation: u64,
-    pub(super) pending_search: Option<Request>,
-    /// The next update replaces the shown results.
-    fresh: bool,
-    /// Rows from this index on belong to the page being loaded.
-    append_base: Option<usize>,
-    /// Restore this record and its screen row when results are replaced.
-    restore: Option<((String, String), usize)>,
-    /// Advance the detail view once the next page arrives.
-    pending_next: bool,
-    /// When the query lines last changed without a search.
-    pub(super) dirty: Option<Instant>,
-    pub(super) queued_search: bool,
-    /// Synchronous search for tests; the TUI runs a background worker.
-    pub(super) async_search: bool,
-
-    pub(super) record: RecordState,
-    /// Matches of the shown search, highlighted in cells and records.
-    pub(super) highlight: Option<regex::Regex>,
-    /// Width of the record view's field column in the last frame.
-    pub(super) record_width: Cell<usize>,
-    /// Where the last frame drew the result rows and the record fields,
-    /// for mouse clicks.
-    pub(super) table_area: Cell<ratatui::layout::Rect>,
-    pub(super) record_area: Cell<ratatui::layout::Rect>,
-    pub(super) tabs_area: Cell<ratatui::layout::Rect>,
-    /// The last click, to recognize a double click.
-    pub(super) last_click: Option<(Instant, usize)>,
-    pub(super) links: DetailLinks,
-
-    pub(super) index_status: Option<String>,
-    pub(super) reconciling: bool,
-    pub(super) inventory_complete: bool,
-    pub(super) pending_inventories: VecDeque<CollectionInventory>,
-    pub(super) reconciled_files: usize,
-    pub(super) pending_cache_action: Option<WarmMode>,
-    pub(super) infer_all: bool,
-    pub(super) infer_auto_index: bool,
-    pub(super) pending_inference: Option<InferRequest>,
-    pub(super) last_inference: Option<InferenceReport>,
-    pub(super) pending_schema_write: bool,
-    pub(super) inference_saved: bool,
-    pub(super) done: bool,
+    pub(super) save_input: Input,
+    pub(super) export_input: Input,
     pub(super) settings: Settings,
-    /// Fields and example values from the loaded results, for completion.
-    pub(super) seen: complete::Seen,
-    /// Indexed value counts read for completion, until the next search.
-    pub(super) value_counts: std::cell::RefCell<ValueCountCache>,
-    /// When a query line last changed.
-    pub(super) last_edit: Option<Instant>,
-    /// The selection moved since the query last changed.
-    pub(super) selection_moved: bool,
-    /// Text to put on the clipboard after this frame.
+    settings_path: PathBuf,
+    pub(super) sort: Option<SortField>,
+    pub(super) case_sensitive: bool,
+    pub(super) regex: bool,
+    pub(super) show_preview: bool,
+    pub(super) hits: Vec<SearchHit>,
+    pub(super) display_rows: Vec<DisplayRow>,
+    window_start: usize,
+    next_offset: usize,
+    pub(super) total: usize,
+    pub(super) selected: usize,
+    pub(super) scroll: usize,
+    pub(super) detail_scroll: u16,
+    pub(super) record: RecordState,
+    detail_hit: Option<SearchHit>,
+    detail_history: Vec<SearchHit>,
+    pub(super) relation_rows: Vec<RelationRow>,
+    pub(super) detail_area: Rect,
+    pub(super) results_area: Rect,
+    pub(super) viewport_rows: usize,
+    pub(super) status: Option<String>,
     pub(super) clipboard: Option<String>,
-    /// Work that waits until no worker has borrowed the repository.
-    pub(super) deferred: Vec<Deferred>,
-    /// Value counts shown in the breakdown list.
-    pub(super) breakdown: Option<Breakdown>,
-    /// Matches per collection for the shown query, and whether the count
-    /// reached the result limit.
-    pub(super) collection_counts: Option<(std::collections::BTreeMap<String, usize>, bool)>,
-    /// Where settings are saved; none in tests.
-    pub(super) settings_path: Option<PathBuf>,
+    pub(super) error: Option<String>,
+    pub(super) searching: bool,
+    pub(super) last_search_duration: Option<Duration>,
+    pub(super) last_projection_duration: Option<Duration>,
+    pub(super) done: bool,
+    generation: u64,
+    pending: Option<Instant>,
+    requested_offset: Option<usize>,
+    inflight: usize,
+    queued_offset: Option<usize>,
+    current_token: Option<CancellationToken>,
+    interruption: Option<CancellationToken>,
+    sender: mpsc::Sender<Update>,
+    receiver: mpsc::Receiver<Update>,
 }
 
+impl App {
+    #[cfg(test)]
+    pub(super) fn new(repository: Repository) -> Self {
+        Self::with_options(repository, TuiOptions::default())
+    }
 
-impl<'a> App<'a> {
-    pub(super) fn new(repo: &'a mut Repository) -> Self {
-        Self {
-            collections: repo.model().collections.keys().cloned().collect(),
-            repo,
-            scope: 0,
-            regex: false,
-            case_sensitive: false,
-            representation: Representation::Normalized,
-            search: Input::default(),
-            filter: Input::default(),
-            line: Line::Search,
-            completion: None,
-            completion_selected: 0,
-            completion_active: false,
+    pub(super) fn with_options(repository: Repository, options: TuiOptions) -> Self {
+        let (sender, receiver) = mpsc::channel();
+        let settings_path = if options.single_collection {
+            repository.files().root.join(".objekte/.cache/obj-tui.json")
+        } else {
+            Settings::path(&repository.files().root)
+        };
+        let (settings, status) = match Settings::load(&settings_path) {
+            Ok(settings) => (settings, None),
+            Err(error) => (Settings::default(), Some(format!("Settings: {error}"))),
+        };
+        let mut app = Self {
+            repo: Arc::new(repository),
+            single_collection: options.single_collection,
+            base_offset: options.offset,
+            result_limit: options.limit,
+            active_columns: Vec::new(),
+            cli_hidden: BTreeSet::new(),
+            search: Input::with_text(&options.initial_search),
+            filter: Input::with_text(&options.initial_filter),
+            focus: Focus::Search,
             view: View::Results,
             overlay: None,
-            show_preview: true,
-            notice: None,
-            query_error: None,
-            error_confirmed: false,
-            hits: Vec::new(),
-            columns: Vec::new(),
+            scope: usize::from(options.single_collection),
+            picker: 0,
+            sort_picker: 0,
+            sort_input: Input::default(),
+            action_picker: 0,
+            list_picker: 0,
+            column_picker: 0,
             column_offset: 0,
+            save_input: Input::default(),
+            export_input: Input::default(),
+            settings,
+            settings_path,
+            sort: None,
+            case_sensitive: true,
+            regex: false,
+            show_preview: true,
+            hits: Vec::new(),
+            display_rows: Vec::new(),
+            window_start: 0,
+            next_offset: 0,
+            total: 0,
             selected: 0,
             scroll: 0,
-            visible_rows: Cell::new(20),
-            total: None,
-            truncated: false,
-            elapsed_ms: None,
-            last_request: None,
-            searching: false,
-            generation: 0,
-            pending_search: None,
-            fresh: false,
-            append_base: None,
-            restore: None,
-            pending_next: false,
-            dirty: None,
-            queued_search: false,
-            async_search: false,
+            detail_scroll: 0,
             record: RecordState::default(),
-            highlight: None,
-            record_width: Cell::new(80),
-            table_area: Cell::new(Default::default()),
-            record_area: Cell::new(Default::default()),
-            tabs_area: Cell::new(Default::default()),
-            last_click: None,
-            links: DetailLinks::default(),
-            index_status: None,
-            reconciling: false,
-            inventory_complete: false,
-            pending_inventories: VecDeque::new(),
-            reconciled_files: 0,
-            pending_cache_action: None,
-            infer_all: false,
-            infer_auto_index: true,
-            pending_inference: None,
-            last_inference: None,
-            pending_schema_write: false,
-            inference_saved: false,
-            done: false,
-            settings: Settings::default(),
-            seen: complete::Seen::default(),
-            value_counts: Default::default(),
-            last_edit: None,
-            selection_moved: false,
+            detail_hit: None,
+            detail_history: Vec::new(),
+            relation_rows: Vec::new(),
+            detail_area: Rect::default(),
+            results_area: Rect::default(),
+            viewport_rows: 1,
+            status,
             clipboard: None,
-            deferred: Vec::new(),
-            breakdown: None,
-            collection_counts: None,
-            settings_path: None,
-        }
-    }
-
-    /// Load `.objekte/.cache/tui.json` and apply its theme.
-    pub(super) fn load_settings(&mut self) {
-        let path = Settings::path(&self.repo.model().root);
-        match Settings::load(&path) {
-            Ok(settings) => self.settings = settings,
-            Err(error) => self.error(format!("Settings ignored: {error}")),
-        }
-        let light = match self.settings.theme.as_deref() {
-            Some("light") => true,
-            Some("dark") => false,
-            _ => super::view::theme::detect_light().unwrap_or(false),
+            error: None,
+            searching: false,
+            last_search_duration: None,
+            last_projection_duration: None,
+            done: false,
+            generation: 0,
+            pending: None,
+            requested_offset: None,
+            inflight: 0,
+            queued_offset: None,
+            current_token: None,
+            interruption: options.interruption,
+            sender,
+            receiver,
         };
-        super::view::theme::set_light(light);
-        self.settings_path = Some(path);
+        let startup_status = app.status.take();
+        app.request_search();
+        app.status = startup_status;
+        app
     }
 
-    /// Copy text to the terminal's clipboard.
-    pub(super) fn copy(&mut self, text: Option<String>, what: &str) {
-        match text {
-            Some(text) => {
-                let lines = text.lines().count().max(1);
-                self.clipboard = Some(text);
-                self.notice(if lines == 1 {
-                    format!("Copied the {what}")
-                } else {
-                    format!("Copied the {what} ({lines} lines)")
-                });
-            }
-            None => self.notice("Nothing to copy"),
-        }
-    }
-
-    /// Open the shown record's file in `$VISUAL` or `$EDITOR`.
-    pub(super) fn edit_record(&mut self) {
-        let hit = if self.view == View::Detail {
-            self.current_detail_hit()
-        } else {
-            self.selected_hit()
-        };
-        let Some(hit) = hit else {
-            self.notice("Select a record to edit");
-            return;
-        };
-        let path = std::path::Path::new(&hit.record().path);
-        let path = if path.is_absolute() {
-            path.to_owned()
-        } else {
-            self.repo.model().root.join(path)
-        };
-        self.defer(Deferred::Edit(path));
-    }
-
-    /// Add the current query to the history.
-    pub(super) fn remember_query(&mut self) {
-        let query = self.current_query();
-        if self.settings.history.last() == Some(&query) {
-            return;
-        }
-        self.settings.remember(query);
-        self.save_settings();
-    }
-
-    pub(super) fn current_query(&self) -> super::settings::Query {
-        super::settings::Query {
-            search: self.search.text.clone(),
-            filter: self.filter.text.clone(),
-            collection: self.scope_name().map(str::to_owned),
-        }
-    }
-
-    /// Put a stored query back on the lines and search for it.
-    pub(super) fn restore_query(&mut self, query: &super::settings::Query) {
-        self.search = Input::with_text(&query.search);
-        self.filter = Input::with_text(&query.filter);
-        self.line = if query.search.is_empty() && !query.filter.is_empty() {
-            Line::Filter
-        } else {
-            Line::Search
-        };
-        let scope = match &query.collection {
-            Some(name) => match self.collections.iter().position(|known| known == name) {
-                Some(index) => index + 1,
-                None => {
-                    self.notice(format!("Collection {name} no longer exists; searching all"));
-                    0
-                }
-            },
-            None => 0,
-        };
-        self.scope = scope;
-        self.completion = None;
-        self.search();
-    }
-
-    pub(super) fn save_settings(&mut self) {
-        let Some(path) = &self.settings_path else {
-            return;
-        };
-        if let Err(error) = self.settings.save(path) {
-            self.error(format!("Cannot save settings: {error}"));
-        }
-    }
-
-    pub(super) fn scope_name(&self) -> Option<&str> {
-        (self.scope > 0).then(|| self.collections[self.scope - 1].as_str())
+    pub(super) fn collection_names(&self) -> impl Iterator<Item = &str> {
+        self.repo
+            .collections()
+            .iter()
+            .map(|c| c.definition.name.as_str())
     }
 
     pub(super) fn scope_label(&self) -> &str {
-        self.scope_name().unwrap_or("all collections")
-    }
-
-    pub(super) fn notice(&mut self, text: impl Into<String>) {
-        self.notice = Some(Notice {
-            text: text.into(),
-            error: false,
-            at: Instant::now(),
-        });
-    }
-
-    pub(super) fn error(&mut self, text: impl Into<String>) {
-        self.notice = Some(Notice {
-            text: text.into(),
-            error: true,
-            at: Instant::now(),
-        });
-    }
-
-    pub(super) fn active_input(&mut self) -> &mut Input {
-        match self.line {
-            Line::Search => &mut self.search,
-            Line::Filter => &mut self.filter,
-        }
-    }
-
-    pub(super) fn indexes_busy(&self) -> bool {
-        self.index_status.is_some() && !self.reconciling
-    }
-
-    // ----- query lines ----------------------------------------------------
-
-    /// The query lines changed: search again shortly.
-    pub(super) fn edited(&mut self) {
-        self.dirty = Some(Instant::now());
-        self.last_edit = Some(Instant::now());
-        self.selection_moved = false;
-        self.suggest();
-    }
-
-    /// Show available suggestions whenever the filter line has focus.
-    pub(super) fn suggest(&mut self) {
-        if self.line == Line::Filter {
-            self.refresh_completion();
+        if self.scope == 0 {
+            "All collections"
         } else {
-            self.completion = None;
+            &self.repo.collections()[self.scope - 1].definition.name
         }
     }
 
-    /// Run a debounced search once typing pauses.
+    pub(super) fn selected_hit(&self) -> Option<&SearchHit> {
+        self.hits.get(self.selected)
+    }
+
+    pub(super) fn current_detail_hit(&self) -> Option<&SearchHit> {
+        if self.view == View::Detail {
+            self.detail_hit.as_ref().or_else(|| self.selected_hit())
+        } else {
+            self.selected_hit()
+        }
+    }
+
+    pub(super) fn open_detail(&mut self) {
+        if let Some(hit) = self.selected_hit().cloned() {
+            self.view = View::Detail;
+            self.detail_history.clear();
+            self.record.reset();
+            if self.single_collection {
+                self.record.load(&hit);
+            }
+            self.detail_hit = Some(hit);
+            self.detail_scroll = 0;
+            self.refresh_relations();
+        }
+    }
+
+    pub(super) fn refresh_relations(&mut self) {
+        if self.single_collection {
+            self.relation_rows.clear();
+            return;
+        }
+        self.relation_rows = self
+            .current_detail_hit()
+            .map_or_else(Vec::new, |hit| relations::rows(&self.repo, hit));
+    }
+
+    pub(super) fn back_detail(&mut self) {
+        if let Some(hit) = self.detail_history.pop() {
+            self.detail_hit = Some(hit);
+            self.record.reset();
+            self.detail_scroll = 0;
+            self.refresh_relations();
+        } else {
+            self.detail_hit = None;
+            self.relation_rows.clear();
+            self.view = View::Results;
+        }
+    }
+
+    fn fetch_link(&self, collection: &str, id: &str) -> Result<SearchHit, String> {
+        let query = Query {
+            collections: vec![collection.into()],
+            fts: None,
+            filter: Some(parse_filter("@record.id = $id")?),
+            options: QueryOptions {
+                sort: Vec::new(),
+                limit: 1,
+                offset: 0,
+                count: false,
+                return_mode: ReturnMode::Bytes,
+                evidence: false,
+            },
+        };
+        self.repo
+            .search_with_parameters(
+                &query,
+                &HashMap::from([("id".into(), Value::Id(id.into()))]),
+            )?
+            .hits
+            .into_iter()
+            .next()
+            .ok_or_else(|| format!("linked record {collection}/{id} is unavailable"))
+    }
+
+    pub(super) fn move_detail(&mut self, delta: isize) {
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        if self.record.raw {
+            self.detail_scroll = self.detail_scroll.saturating_add_signed(delta as i16);
+            return;
+        }
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let count = self.record.rows(hit, diagnostic.as_deref()).len() + self.relation_rows.len();
+        self.record.cursor = self
+            .record
+            .cursor
+            .saturating_add_signed(delta)
+            .min(count.saturating_sub(1));
+    }
+
+    pub(super) fn adjacent_result(&mut self, next: bool) {
+        if self.hits.is_empty() || self.view != View::Detail {
+            return;
+        }
+        let previous = self.selected;
+        self.move_selection(if next { 1 } else { -1 });
+        if self.selected != previous {
+            self.detail_hit = self.selected_hit().cloned();
+            self.detail_history.clear();
+            self.detail_scroll = 0;
+            self.refresh_relations();
+        }
+    }
+
+    pub(super) fn jump_detail_section(&mut self, section: u8) {
+        if section == 1 {
+            self.record.cursor = 0;
+            return;
+        }
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let base = self.record.rows(hit, diagnostic.as_deref()).len();
+        let label = if section == 2 {
+            "Outgoing"
+        } else {
+            "Backlinks"
+        };
+        if let Some(index) = self.relation_rows.iter().position(|row| row.label == label) {
+            self.record.cursor = base + index;
+            self.status = None;
+        } else {
+            self.status = Some(format!("No {label} section for this record"));
+        }
+    }
+
+    pub(super) fn cycle_detail_section(&mut self, forward: bool) {
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let base = self.record.rows(hit, diagnostic.as_deref()).len();
+        let mut sections = vec![0];
+        for label in ["Outgoing", "Backlinks"] {
+            if let Some(index) = self.relation_rows.iter().position(|row| row.label == label) {
+                sections.push(base + index);
+            }
+        }
+        sections.sort_unstable();
+        let current = sections
+            .iter()
+            .rposition(|&position| position <= self.record.cursor)
+            .unwrap_or(0);
+        let next = if forward {
+            (current + 1) % sections.len()
+        } else {
+            (current + sections.len() - 1) % sections.len()
+        };
+        self.record.cursor = sections[next];
+        self.record.raw = false;
+        self.status = None;
+    }
+
+    pub(super) fn find_next(&mut self, forward: bool) {
+        if self.record.raw {
+            self.status = Some("Find is available in structured view".into());
+            return;
+        }
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let needle = fold_find(&self.record.find);
+        if needle.is_empty() {
+            return;
+        }
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let rows = self.record.rows(hit, diagnostic.as_deref());
+        let total = rows.len() + self.relation_rows.len();
+        for step in 1..=total {
+            let at = if forward {
+                (self.record.cursor + step) % total
+            } else {
+                (self.record.cursor + total - step % total) % total
+            };
+            let row = if at < rows.len() {
+                &rows[at]
+            } else {
+                let relation = &self.relation_rows[at - rows.len()];
+                if fold_find(&relation.label).contains(&needle)
+                    || fold_find(&relation.value).contains(&needle)
+                {
+                    self.record.cursor = at;
+                    self.status = None;
+                    return;
+                }
+                continue;
+            };
+            if fold_find(&row.label).contains(&needle) || fold_find(&row.value).contains(&needle) {
+                self.record.cursor = at;
+                self.status = None;
+                return;
+            }
+        }
+        self.status = Some(format!("No field contains {}", self.record.find));
+    }
+
+    pub(super) fn confirm_find(&mut self) {
+        if let Some(input) = self.record.find_input.take() {
+            self.record.find = input.text;
+            self.find_next(true);
+        }
+    }
+
+    pub(super) fn copy_detail(&mut self, whole: bool) {
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let text = if whole || self.record.raw {
+            record::raw_text(hit)
+        } else {
+            let diagnostic = self
+                .diagnostic(hit)
+                .map(|issue| format!("{}: {}", issue.code, issue.message));
+            let rows = self.record.rows(hit, diagnostic.as_deref());
+            if let Some(row) = rows.get(self.record.cursor) {
+                row.value.clone()
+            } else {
+                self.relation_rows
+                    .get(self.record.cursor.saturating_sub(rows.len()))
+                    .map_or_else(String::new, |row| row.value.clone())
+            }
+        };
+        self.clipboard = Some(text);
+        self.status = Some(
+            if whole {
+                "Copied record"
+            } else {
+                "Copied value"
+            }
+            .into(),
+        );
+    }
+
+    pub(super) fn toggle_detail_branch(&mut self) {
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let rows = self.record.rows(hit, diagnostic.as_deref());
+        if let Some((path, array)) = rows
+            .get(self.record.cursor)
+            .and_then(|row| row.branch.clone())
+        {
+            self.record.toggle(&path, array);
+        } else if let Some(index) = self.record.cursor.checked_sub(rows.len())
+            && let Some(action) = self
+                .relation_rows
+                .get(index)
+                .and_then(|row| row.action.clone())
+        {
+            match action {
+                LinkAction::Target { collection, id } => match self.fetch_link(&collection, &id) {
+                    Ok(next) => {
+                        if let Some(current) = self.detail_hit.replace(next) {
+                            self.detail_history.push(current);
+                        }
+                        self.record.reset();
+                        self.detail_scroll = 0;
+                        self.refresh_relations();
+                        self.status = None;
+                    }
+                    Err(error) => self.status = Some(error),
+                },
+                more => {
+                    let page = relations::continuation(&self.repo, &more);
+                    self.relation_rows.remove(index);
+                    self.relation_rows.splice(index..index, page);
+                }
+            }
+        }
+    }
+
+    pub(super) fn diagnostic(
+        &self,
+        hit: &SearchHit,
+    ) -> Option<&objekte_search_core::inventory::SourceDiagnostic> {
+        self.repo.files().diagnostic(
+            objekte_search_core::model::FileId(hit.file_id),
+            hit.diagnostic_ref,
+        )
+    }
+
+    pub(super) fn busy(&self) -> bool {
+        self.searching || self.pending.is_some()
+    }
+
+    pub(super) fn interrupted(&self) -> bool {
+        self.interruption
+            .as_ref()
+            .is_some_and(CancellationToken::is_cancelled)
+    }
+
+    pub(super) fn current_query(&self) -> settings::Query {
+        settings::Query {
+            search: self.search.text.clone(),
+            filter: self.filter.text.clone(),
+            collection: (self.scope != 0).then(|| self.scope_label().to_owned()),
+            case_insensitive: !self.case_sensitive,
+            regex: self.regex,
+        }
+    }
+
+    fn persist_settings(&mut self) {
+        if let Err(error) = self.settings.save(&self.settings_path) {
+            self.status = Some(format!("Settings: {error}"));
+        }
+    }
+
+    pub(super) fn confirm_query(&mut self) {
+        let query = self.current_query();
+        self.settings.remember(query);
+        self.request_search();
+        self.persist_settings();
+    }
+
+    pub(super) fn restore_query(&mut self, query: settings::Query) {
+        self.search = Input::with_text(&query.search);
+        self.filter = Input::with_text(&query.filter);
+        self.case_sensitive = !query.case_insensitive;
+        self.regex = query.regex;
+        self.scope = query
+            .collection
+            .as_deref()
+            .and_then(|name| {
+                self.repo
+                    .collections()
+                    .iter()
+                    .position(|collection| collection.definition.name == name)
+            })
+            .map_or(usize::from(self.single_collection), |index| index + 1);
+        self.column_offset = 0;
+        self.sort = None;
+        self.view = View::Results;
+        self.overlay = None;
+        self.confirm_query();
+    }
+
+    pub(super) fn save_query(&mut self) {
+        let name = self.save_input.text.trim();
+        if name.is_empty() {
+            self.status = Some("Enter a name for the saved query".into());
+            return;
+        }
+        let query = self.current_query();
+        if query.search.trim().is_empty() && query.filter.trim().is_empty() {
+            self.status = Some("Enter a search or filter before saving".into());
+            return;
+        }
+        self.settings.saved.retain(|saved| saved.name != name);
+        self.settings.saved.push(settings::SavedQuery {
+            name: name.to_owned(),
+            query,
+        });
+        self.overlay = None;
+        self.status = Some(format!("Saved query {name}"));
+        self.persist_settings();
+    }
+
+    pub(super) fn set_theme(&mut self, light: bool) {
+        self.settings.theme = Some(if light { "light" } else { "dark" }.into());
+        self.persist_settings();
+    }
+
+    pub(super) fn toggle_case(&mut self) {
+        self.case_sensitive = !self.case_sensitive;
+        self.request_search();
+    }
+
+    pub(super) fn toggle_regex(&mut self) {
+        self.regex = !self.regex;
+        self.request_search();
+    }
+
+    pub(super) fn choose_action(&mut self) -> Option<Action> {
+        self.overlay = None;
+        Action::ALL.get(self.action_picker).copied()
+    }
+
+    pub(super) fn sort_choices(&self) -> Vec<Option<SortField>> {
+        let mut choices = vec![None];
+        if self.scope == 0 {
+            return choices;
+        }
+        if self.single_collection {
+            for field in self.column_keys() {
+                for descending in [false, true] {
+                    choices.push(Some(SortField::simple(field.clone(), descending)));
+                }
+            }
+            return choices;
+        }
+        let collection = &self.repo.collections()[self.scope - 1];
+        for path in &collection.definition.sort_fields {
+            if path.root == objekte_search_core::model::PathRoot::Backlinks {
+                continue;
+            }
+            let field = if path.segments.is_empty() {
+                match path.root {
+                    objekte_search_core::model::PathRoot::Metadata(metadata) => {
+                        metadata.as_str().to_owned()
+                    }
+                    objekte_search_core::model::PathRoot::Data => continue,
+                    objekte_search_core::model::PathRoot::Backlinks => continue,
+                }
+            } else {
+                path.segments.join(".")
+            };
+            for descending in [false, true] {
+                choices.push(Some(SortField {
+                    field: field.clone(),
+                    descending,
+                    expression: None,
+                }));
+            }
+        }
+        choices
+    }
+
+    pub(super) fn scope_name(&self) -> Option<&str> {
+        (self.scope != 0).then(|| self.scope_label())
+    }
+
+    pub(super) fn column_keys(&self) -> Vec<String> {
+        if self.single_collection {
+            return self.active_columns.clone();
+        }
+        let mut keys = BTreeSet::new();
+        for collection in self.repo.collections() {
+            if self.scope == 0 || collection.definition.name == self.scope_label() {
+                for (path, field) in collection.definition.schema.fields() {
+                    if matches!(field.kind, LogicalType::Object) {
+                        continue;
+                    }
+                    keys.insert(
+                        FieldPath {
+                            root: PathRoot::Data,
+                            segments: path.clone(),
+                        }
+                        .display(),
+                    );
+                }
+            }
+        }
+        let mut keys = keys.into_iter().collect::<Vec<_>>();
+        keys.sort_by_key(|key| {
+            let leaf = key.rsplit('.').next().unwrap_or(key);
+            let priority = match leaf {
+                "preferred_title" | "title" | "name" | "label" => 0,
+                "year" | "date" | "type" => 1,
+                _ => 2,
+            };
+            (priority, key.matches('.').count(), key.clone())
+        });
+        keys
+    }
+
+    pub(super) fn visible_columns(&self) -> Vec<String> {
+        if self.single_collection {
+            return self
+                .active_columns
+                .iter()
+                .filter(|field| !self.cli_hidden.contains(*field))
+                .cloned()
+                .collect();
+        }
+        let hidden = self.settings.hidden(self.scope_name());
+        let mut columns = self
+            .column_keys()
+            .into_iter()
+            .filter(|key| !hidden.contains(key))
+            .collect::<Vec<_>>();
+        let mut searched = BTreeSet::new();
+        if !self.search.text.trim().is_empty() {
+            for hit in &self.hits {
+                for path in &hit.matched_fields {
+                    if let Ok(path) = QueryPath::parse(path) {
+                        searched.insert(path.field.display());
+                    }
+                }
+            }
+        }
+        if let Ok(filter) = parse_filter(self.filter.text.trim()) {
+            let mut fields = Vec::new();
+            collect_filter_fields(&filter, &mut fields);
+            searched.extend(fields.into_iter().filter_map(|field| {
+                QueryPath::parse(field.split(':').next().unwrap_or(&field))
+                    .ok()
+                    .map(|path| path.field.display())
+            }));
+        }
+        columns.sort_by_key(|key| {
+            if searched.contains(key) {
+                0
+            } else if self.sort.as_ref().is_some_and(|sort| sort.field == *key) {
+                1
+            } else {
+                2
+            }
+        });
+        columns
+    }
+
+    pub(super) fn toggle_column(&mut self) {
+        if let Some(key) = self.column_keys().get(self.column_picker) {
+            if self.single_collection {
+                if !self.cli_hidden.insert(key.clone()) {
+                    self.cli_hidden.remove(key);
+                }
+                self.column_offset = self
+                    .column_offset
+                    .min(self.visible_columns().len().saturating_sub(1));
+                return;
+            }
+            let scope = self.scope_name().map(str::to_owned);
+            self.settings.toggle_column(scope.as_deref(), key);
+            self.column_offset = self
+                .column_offset
+                .min(self.visible_columns().len().saturating_sub(1));
+            self.persist_settings();
+        }
+    }
+
+    pub(super) fn scroll_columns(&mut self, right: bool) {
+        if right {
+            self.column_offset =
+                (self.column_offset + 1).min(self.visible_columns().len().saturating_sub(1));
+        } else {
+            self.column_offset = self.column_offset.saturating_sub(1);
+        }
+    }
+
+    pub(super) fn changed(&mut self, now: Instant) {
+        if let Some(token) = self.current_token.take() {
+            token.cancel();
+        }
+        self.queued_offset = None;
+        self.generation = self.generation.wrapping_add(1);
+        self.pending = Some(now + DEBOUNCE);
+        self.searching = true;
+        self.error = None;
+        self.status = None;
+        self.last_search_duration = None;
+        self.last_projection_duration = None;
+    }
+
+    pub(super) fn request_search(&mut self) {
+        if let Some(token) = self.current_token.take() {
+            token.cancel();
+        }
+        self.queued_offset = None;
+        self.generation = self.generation.wrapping_add(1);
+        self.pending = None;
+        self.status = None;
+        self.error = None;
+        self.hits.clear();
+        self.display_rows.clear();
+        self.window_start = 0;
+        self.next_offset = 0;
+        self.column_offset = 0;
+        self.active_columns.clear();
+        self.total = 0;
+        self.selected = 0;
+        self.scroll = 0;
+        self.record.reset();
+        self.detail_hit = None;
+        self.detail_history.clear();
+        self.relation_rows.clear();
+        self.requested_offset = None;
+        self.last_search_duration = None;
+        self.last_projection_duration = None;
+        self.launch(0);
+    }
+
     pub(super) fn tick(&mut self, now: Instant) {
-        if self
-            .dirty
-            .is_some_and(|at| now.duration_since(at) >= DEBOUNCE)
-        {
-            self.search_as_typed(false);
-        }
-        if self
-            .notice
-            .as_ref()
-            .is_some_and(|notice| now.duration_since(notice.at) >= NOTICE_TIME)
-        {
-            self.notice = None;
-        }
-    }
-
-    /// Open or update completion for the filter line.
-    pub(super) fn refresh_completion(&mut self) {
-        let repo = &*self.repo;
-        let cache = &self.value_counts;
-        let counts = |collection: &str, path: &str| {
-            let key = (collection.to_owned(), path.to_owned());
-            if let Some(known) = cache.borrow().get(&key) {
-                return known.clone();
+        while let Ok(update) = self.receiver.try_recv() {
+            self.inflight = self.inflight.saturating_sub(1);
+            if update.generation != self.generation {
+                continue;
             }
-            // Read once; a large index is not re-read per key. A miss is
-            // not kept: during a search this is the copy without indexes.
-            let found = repo.value_counts(collection, path, 200).ok().flatten();
-            if found.is_some() {
-                cache.borrow_mut().insert(key, found.clone());
+            self.searching = false;
+            self.requested_offset = None;
+            self.last_search_duration = Some(update.elapsed);
+            match update.result {
+                Ok(result) => {
+                    let Some(total) = result.count else {
+                        self.error = Some("search omitted the requested count".into());
+                        continue;
+                    };
+                    self.total = self
+                        .result_limit
+                        .map_or(total.saturating_sub(self.base_offset), |limit| {
+                            limit.min(total.saturating_sub(self.base_offset))
+                        });
+                    if self.single_collection
+                        && update.offset + result.hits.len() == self.window_start
+                        && !self.hits.is_empty()
+                    {
+                        let added = result.hits.len();
+                        self.hits.splice(0..0, result.hits);
+                        self.window_start = update.offset;
+                        self.selected = added.saturating_sub(1);
+                        self.scroll = self
+                            .selected
+                            .saturating_sub(self.viewport_rows.saturating_sub(1));
+                        self.hits.truncate(3 * PAGE_SIZE);
+                        self.next_offset = self.window_start + self.hits.len();
+                    } else if update.offset == 0 {
+                        self.hits = result.hits;
+                        self.next_offset = self.hits.len();
+                    } else if update.offset == self.next_offset {
+                        self.next_offset += result.hits.len();
+                        self.hits.extend(result.hits);
+                        if self.single_collection && self.hits.len() > 3 * PAGE_SIZE {
+                            let drop = self.hits.len() - 3 * PAGE_SIZE;
+                            self.hits.drain(..drop);
+                            self.window_start += drop;
+                            self.selected = self.selected.saturating_sub(drop);
+                            self.scroll = self.scroll.saturating_sub(drop);
+                        }
+                    }
+                    if self.single_collection {
+                        let projection_started = Instant::now();
+                        self.display_rows = self
+                            .hits
+                            .iter()
+                            .map(|hit| {
+                                record::display_row(
+                                    hit,
+                                    &self.active_columns,
+                                    self.search.text.trim(),
+                                    self.case_sensitive,
+                                    self.regex,
+                                )
+                            })
+                            .collect();
+                        self.last_projection_duration = Some(projection_started.elapsed());
+                        if let Some(hit) = self.selected_hit().cloned() {
+                            self.record.load(&hit);
+                        }
+                    }
+                    self.error = None;
+                }
+                Err(error) => {
+                    self.active_columns.clear();
+                    self.error = Some(error);
+                }
             }
-            found
-        };
-        let schema = complete::Schema::new(&self.repo.model().collections, self.scope_name())
-            .with_seen(&self.seen)
-            .with_counts(&counts);
-        let found = complete::complete(&self.filter.text, self.filter.cursor, &schema);
-        let Some(found) = found else {
-            self.completion = None;
-            return;
-        };
-        if self
-            .completion
-            .as_ref()
-            .is_none_or(|open| open.items != found.items)
+        }
+        if self.inflight < 2 {
+            if let Some(offset) = self.queued_offset.take() {
+                self.launch(offset);
+            }
+        }
+        if self.pending.is_some_and(|at| at <= now) {
+            self.pending = None;
+            self.hits.clear();
+            self.display_rows.clear();
+            self.window_start = 0;
+            self.next_offset = 0;
+            self.column_offset = 0;
+            self.total = 0;
+            self.selected = 0;
+            self.scroll = 0;
+            self.detail_hit = None;
+            self.detail_history.clear();
+            self.relation_rows.clear();
+            self.launch(0);
+        }
+        if self.pending.is_none()
+            && self.requested_offset.is_none()
+            && !self.searching
+            && self.error.is_none()
+            && self.total > self.next_offset
+            && self.selected.saturating_add(30) >= self.hits.len()
         {
-            self.completion_selected = 0;
-            // Typing narrows the list and highlights its top entry.
-            self.completion_active = found.start < self.filter.cursor;
-        }
-        self.completion = Some(found);
-    }
-
-    /// The text the highlighted suggestion would replace, and its insert.
-    fn completion_target(&self) -> Option<(String, &str)> {
-        let found = self.completion.as_ref()?;
-        let item = found.items.get(self.completion_selected)?;
-        let typed = self
-            .filter
-            .text
-            .chars()
-            .skip(found.start)
-            .take(found.end.saturating_sub(found.start))
-            .collect::<String>();
-        Some((typed, item.insert.as_str()))
-    }
-
-    /// Whether the highlighted suggestion is what is already typed.
-    pub(super) fn completion_is_typed(&self) -> bool {
-        self.completion_target()
-            .is_some_and(|(typed, insert)| typed == insert.trim_end())
-    }
-
-    /// The rest of the highlighted suggestion after the typed text, shown
-    /// faintly after the cursor. Only for suggestions that start with it.
-    pub(super) fn completion_ghost(&self) -> Option<String> {
-        if !self.completion_active {
-            return None;
-        }
-        let found = self.completion.as_ref()?;
-        // Only at the end of the word being completed.
-        if self.filter.cursor != found.end {
-            return None;
-        }
-        let (typed, insert) = self.completion_target()?;
-        let typed_len = typed.chars().count();
-        let head = insert.chars().take(typed_len).collect::<String>();
-        (head.to_lowercase() == typed.to_lowercase() && insert.chars().count() > typed_len)
-            .then(|| {
-                insert
-                    .chars()
-                    .skip(typed_len)
-                    .collect::<String>()
-                    .trim_end()
-                    .to_owned()
-            })
-            .filter(|ghost| !ghost.is_empty())
-    }
-
-    pub(super) fn accept_completion(&mut self) {
-        let Some(found) = self.completion.take() else {
-            return;
-        };
-        let Some(item) = found.items.get(self.completion_selected) else {
-            return;
-        };
-        let insert = item.insert.clone();
-        self.filter.replace(found.start, found.end, &insert);
-        self.edited();
-        // As in VS Code, the list closes after a name or value; after an
-        // operator, a connective, `.`, or `(` the next list follows.
-        if !insert.ends_with(['.', '(', ' ']) {
-            self.completion = None;
+            self.launch(self.next_offset);
         }
     }
 
-    // ----- requests -------------------------------------------------------
-
-    fn request(&self) -> std::result::Result<Option<Request>, (Line, String)> {
-        let (pattern, text_sort) = objekte_core::split_sort_clause(&self.search.text)
-            .map_err(|error| (Line::Search, error.to_string()))?;
-        let pattern = if !text_sort.is_empty() && pattern.starts_with('"') && pattern.ends_with('"')
-        {
-            serde_json::from_str::<String>(&pattern).map_err(|error| {
-                (
-                    Line::Search,
-                    format!("invalid quoted search pattern: {error}"),
-                )
-            })?
-        } else {
-            pattern
-        };
-        let (filter, filter_sort) = objekte_core::split_sort_clause(&self.filter.text)
-            .map_err(|error| (Line::Filter, error.to_string()))?;
-        if !filter.trim().is_empty()
-            && let Err(error) =
-                JsonFilter::compile_with_fts(&filter, &Default::default(), self.fts_options())
-        {
-            return Err((Line::Filter, error.to_string()));
-        }
-        let sort = if text_sort.is_empty() {
-            filter_sort
-        } else {
-            text_sort
-        };
-        if pattern.trim().is_empty() && filter.trim().is_empty() {
-            return Ok(None);
-        }
-        let collections = self.scope_name().map(|name| vec![name.to_owned()]);
-        Ok(Some(if pattern.trim().is_empty() {
-            Request::Filter(JsonQuery {
-                filter,
-                sort,
-                collections,
-                limit: PAGE_SIZE,
-                count: true,
-                backend: JsonQueryBackend::Auto,
-                fts: self.fts_options(),
-                ..Default::default()
-            })
-        } else {
-            Request::Text(TextQuery {
-                pattern,
-                filter: (!filter.trim().is_empty()).then_some(filter),
-                sort,
-                mode: self.fts_options().mode,
-                case_sensitive: self.case_sensitive,
-                collections,
-                limit: PAGE_SIZE,
-                count: true,
-                ..Default::default()
-            })
-        }))
-    }
-
-    // ----- search lifecycle -----------------------------------------------
-
-    /// Start a new search for the current lines from the first row.
-    pub(super) fn search(&mut self) {
-        self.search_as_typed(true);
-    }
-
-    /// Search for the current lines. Unless `confirmed` (Enter), a query
-    /// that does not compile yet is most likely still being typed.
-    fn search_as_typed(&mut self, confirmed: bool) {
-        self.dirty = None;
-        let request = match self.request() {
-            Ok(request) => request,
+    fn launch(&mut self, offset: usize) {
+        let query = match self.query(offset) {
+            Ok(query) => query,
             Err(error) => {
-                // Keep the previous results; the summary shows the error.
-                self.query_error = Some(error);
-                self.error_confirmed = confirmed;
+                self.error = Some(error);
+                self.searching = false;
                 return;
             }
         };
-        self.query_error = None;
-        let Some(request) = request else {
-            self.clear_results();
-            return;
-        };
-        if self.indexes_busy() {
-            self.queued_search = true;
-            return;
-        }
-        self.queued_search = false;
-        self.restore = None;
-        self.begin(request, true);
-    }
-
-    /// Run the shown search again, keeping the selected record in place.
-    pub(super) fn rerun(&mut self) {
-        let Some(request) = self.last_request.clone() else {
-            return;
-        };
-        self.restore = self
-            .hits
-            .get(self.selected)
-            .map(|hit| (hit.identity(), self.selected.saturating_sub(self.scroll)));
-        self.begin(request, false);
-    }
-
-    fn begin(&mut self, request: Request, reset_view: bool) {
-        self.generation = self.generation.wrapping_add(1);
-        self.append_base = None;
-        self.pending_next = false;
-        if reset_view {
-            self.column_offset = 0;
-        }
-        self.highlight = highlighter(&request);
-        self.collection_counts = None;
-        self.last_request = Some(request.clone());
-        self.links.generation = self.links.generation.wrapping_add(1);
-        // Informational notices are stale once the user searches.
-        if self.notice.as_ref().is_some_and(|notice| !notice.error) {
-            self.notice = None;
-        }
-        if !self.async_search {
-            self.fresh = true;
-            self.run_now(request);
-            return;
-        }
-        self.fresh = true;
-        self.searching = true;
-        self.pending_search = Some(request);
-    }
-
-    fn clear_results(&mut self) {
-        self.generation = self.generation.wrapping_add(1);
-        self.pending_search = None;
-        self.searching = false;
-        self.last_request = None;
-        self.highlight = None;
-        self.hits.clear();
-        self.columns.clear();
-        self.total = None;
-        self.truncated = false;
-        self.elapsed_ms = None;
-        self.selected = 0;
-        self.scroll = 0;
-        self.column_offset = 0;
-        self.append_base = None;
-        self.queued_search = false;
-        if self.view == View::Detail {
-            self.close_detail();
-        }
-    }
-
-    fn run_now(&mut self, request: Request) {
-        let result = match &request {
-            Request::Filter(query) => self.repo.query_json(query).map(|result| {
-                (
-                    result
-                        .records
-                        .into_iter()
-                        .map(Hit::Filter)
-                        .collect::<Vec<_>>(),
-                    result.total,
-                    result.truncated,
-                    result.elapsed_ms,
-                )
-            }),
-            Request::Text(query) => self.repo.search_text(query).map(|result| {
-                (
-                    result.hits.into_iter().map(Hit::Text).collect(),
-                    result.total,
-                    result.truncated,
-                    result.elapsed_ms,
-                )
-            }),
-        };
-        match result {
-            Ok((hits, total, truncated, elapsed_ms)) => {
-                self.receive_page(hits);
-                self.finish_search(Ok((total, truncated, elapsed_ms)));
+        if self.single_collection {
+            let mut fields = Vec::new();
+            if let Some(filter) = &query.filter {
+                collect_filter_fields(filter, &mut fields);
             }
-            Err(error) => self.finish_search(Err(error.to_string())),
-        }
-    }
-
-    /// Load the next page when the selection nears the end of the rows.
-    pub(super) fn load_more(&mut self) {
-        let Some(request) = &self.last_request else {
-            return;
-        };
-        let more = self.total.is_some_and(|total| self.hits.len() < total);
-        if self.searching || !more || self.selected + LOAD_AHEAD < self.hits.len() {
-            return;
-        }
-        let page = request.page(self.hits.len(), PAGE_SIZE);
-        self.generation = self.generation.wrapping_add(1);
-        self.append_base = Some(self.hits.len());
-        self.fresh = false;
-        if !self.async_search {
-            self.run_now(page);
-            return;
-        }
-        self.searching = true;
-        self.pending_search = Some(page);
-    }
-
-    fn take_fresh(&mut self) {
-        if !self.fresh {
-            return;
-        }
-        self.fresh = false;
-        self.hits.clear();
-        self.columns.clear();
-        self.selected = 0;
-        self.scroll = 0;
-    }
-
-    /// One streamed row in result order.
-    pub(super) fn receive_hit(&mut self, hit: Hit) {
-        self.take_fresh();
-        self.hits.push(hit);
-        self.update_columns();
-        self.apply_restore();
-    }
-
-    /// A provisional sorted page that replaces the rows of its request.
-    pub(super) fn receive_page(&mut self, page: Vec<Hit>) {
-        let fresh = self.fresh;
-        self.take_fresh();
-        let anchor = (!fresh)
-            .then(|| self.hits.get(self.selected).map(Hit::identity))
-            .flatten()
-            .map(|identity| (identity, self.selected.saturating_sub(self.scroll)));
-        let base = self.append_base.unwrap_or(0);
-        self.hits.truncate(base);
-        self.hits.extend(page);
-        self.update_columns();
-        if let Some(anchor) = anchor {
-            self.restore = Some(anchor);
-        }
-        self.apply_restore();
-        self.selected = self.selected.min(self.hits.len().saturating_sub(1));
-        self.keep_visible();
-    }
-
-    /// Put a remembered record back at its screen row if it is present.
-    fn apply_restore(&mut self) {
-        let Some((identity, row)) = &self.restore else {
-            return;
-        };
-        if let Some(index) = self.hits.iter().position(|hit| &hit.identity() == identity) {
-            self.selected = index;
-            self.scroll = index.saturating_sub(*row);
-            self.keep_visible();
-        }
-    }
-
-    pub(super) fn finish_search(
-        &mut self,
-        result: std::result::Result<(Option<usize>, bool, f64), String>,
-    ) {
-        self.searching = false;
-        let appending = self.append_base.take().is_some();
-        match result {
-            Ok((total, truncated, elapsed_ms)) => {
-                if self.fresh {
-                    // The search finished without any rows.
-                    self.take_fresh();
-                }
-                self.seen = complete::Seen::from_records(
-                    self.hits.iter().map(Hit::record),
-                    &self.repo.model().collections,
-                );
-                self.restore = None;
-                self.total = total;
-                self.truncated = truncated;
-                if !appending {
-                    self.elapsed_ms = Some(elapsed_ms);
-                }
-                self.selected = self.selected.min(self.hits.len().saturating_sub(1));
-                self.keep_visible();
-                if std::mem::take(&mut self.pending_next) {
-                    self.detail_step(true);
-                }
+            for sort in &query.options.sort {
+                let label = sort_label(sort);
+                push_unique(&mut fields, label);
             }
-            Err(error) => {
-                self.restore = None;
-                self.pending_next = false;
-                if !appending {
-                    // Streamed rows are provisional until the query succeeds.
-                    self.fresh = false;
-                    self.hits.clear();
-                    self.columns.clear();
-                    self.total = None;
-                    self.elapsed_ms = None;
-                    self.last_request = None;
-                    if self.view == View::Detail {
-                        self.close_detail();
+            self.active_columns = fields;
+            self.cli_hidden
+                .retain(|field| self.active_columns.contains(field));
+        }
+        let repository = Arc::clone(&self.repo);
+        let sender = self.sender.clone();
+        let generation = self.generation;
+        self.searching = true;
+        self.requested_offset = Some(offset);
+        if self.inflight >= 2 {
+            self.queued_offset = Some(offset);
+            return;
+        }
+        self.inflight += 1;
+        let token = CancellationToken::new();
+        self.current_token = Some(token.clone());
+        let single_collection = self.single_collection;
+        std::thread::spawn(move || {
+            let started = Instant::now();
+            let result = if single_collection {
+                let mut page = Vec::new();
+                let mut options = StreamOptions::default();
+                options.mode = StreamMode::PageReplacements;
+                let outcome = repository.search_stream(&query, options, &token, &mut |event| {
+                    if let StreamEvent::PageReplacement { rows, .. } = event {
+                        page = rows.to_vec();
                     }
+                    Ok(objekte_search_core::streaming::StreamControl::Continue)
+                });
+                match outcome {
+                    Ok(StreamOutcome::Complete(summary)) => Ok(SearchResult {
+                        count: summary.count,
+                        hits: page,
+                        counters: summary.counters,
+                    }),
+                    Ok(StreamOutcome::Cancelled(_)) => Err("search cancelled".into()),
+                    Err(error) => Err(error.to_string()),
                 }
-                self.error(error);
-            }
-        }
+            } else {
+                repository.search(&query)
+            };
+            let _ = sender.send(Update {
+                generation,
+                offset,
+                elapsed: started.elapsed(),
+                result,
+            });
+        });
     }
 
-    // ----- result columns -------------------------------------------------
-
-    /// Add columns for new keys. Existing columns never move or resize.
-    fn update_columns(&mut self) {
-        let Some(request) = &self.last_request else {
-            return;
-        };
-        let mut wanted = Vec::new();
-        if self.scope == 0 {
-            wanted.push("@collection".to_string());
+    fn query(&self, offset: usize) -> Result<Query, String> {
+        let filter = self.filter.text.trim();
+        let search = self.search.text.trim();
+        let parsed = (!filter.is_empty())
+            .then(|| parse_structured_filter(filter))
+            .transpose()?;
+        if parsed.as_ref().is_some_and(|parsed| parsed.sort.is_some()) && self.sort.is_some() {
+            return Err("inline SORT BY conflicts with independent sort options".into());
         }
-        wanted.push("@id".into());
-        wanted.push("@status".into());
-        if request.is_text() {
-            wanted.push("@match".into());
-        }
-        wanted.extend(queried_fields(request));
-        wanted.extend(sorted_fields(request));
-        for hit in self.hits.iter().take(PAGE_SIZE) {
-            let record = hit.record();
-            match &record.data {
-                serde_json::Value::Object(map) => wanted.extend(map.keys().cloned()),
-                _ if record.raw.is_none() => wanted.push("$value".into()),
-                _ => {}
-            }
-        }
-        for key in wanted {
-            if self.columns.iter().any(|column| column.key == key) {
-                continue;
-            }
-            let width = column_width(&key, &self.hits);
-            self.columns.push(Column { key, width });
-        }
-    }
-
-    // ----- selection and viewport -----------------------------------------
-
-    /// Keep the selection inside the viewport, scrolling as little as possible.
-    pub(super) fn keep_visible(&mut self) {
-        let rows = self.visible_rows.get().max(1);
-        if self.selected < self.scroll {
-            self.scroll = self.selected;
-        } else if self.selected >= self.scroll + rows {
-            self.scroll = self.selected + 1 - rows;
-        }
-        let max_scroll = self.hits.len().saturating_sub(rows);
-        self.scroll = self.scroll.min(max_scroll);
+        Ok(Query {
+            collections: if self.scope == 0 {
+                Vec::new()
+            } else {
+                vec![self.scope_label().to_owned()]
+            },
+            fts: (!search.is_empty()).then(|| FtsQuery {
+                pattern_parameter: None,
+                mode: if self.regex {
+                    FtsMode::Regex(RegexOptions::default())
+                } else {
+                    FtsMode::Literal
+                },
+                case_sensitivity: if self.case_sensitive {
+                    CaseSensitivity::Sensitive
+                } else {
+                    CaseSensitivity::Insensitive
+                },
+                literal: search.to_owned(),
+                fields: Vec::new(),
+            }),
+            filter: parsed.as_ref().and_then(|parsed| parsed.filter.clone()),
+            options: QueryOptions {
+                sort: parsed
+                    .and_then(|parsed| parsed.sort)
+                    .unwrap_or_else(|| self.sort.iter().cloned().collect()),
+                limit: self.result_limit.map_or(PAGE_SIZE, |limit| {
+                    PAGE_SIZE.min(limit.saturating_sub(offset))
+                }),
+                offset: self.base_offset.saturating_add(offset),
+                count: true,
+                return_mode: ReturnMode::Bytes,
+                evidence: true,
+            },
+        })
     }
 
     pub(super) fn move_selection(&mut self, delta: isize) {
         if self.hits.is_empty() {
             return;
         }
-        let last = self.hits.len() - 1;
-        self.selected = self.selected.saturating_add_signed(delta).min(last);
-        self.selection_moved = true;
-        self.keep_visible();
-        self.load_more();
-    }
-
-    /// Whether Enter should open the selected record rather than confirm
-    /// the query: the user moved to a row, or stopped typing a while ago.
-    pub(super) fn enter_opens(&self, now: Instant) -> bool {
-        self.selection_moved
-            || self
-                .last_edit
-                .is_none_or(|at| now.duration_since(at) >= ENTER_GRACE)
-    }
-
-    pub(super) fn select_first(&mut self) {
-        self.selected = 0;
-        self.keep_visible();
-    }
-
-    pub(super) fn select_last(&mut self) {
-        self.selected = self.hits.len().saturating_sub(1);
-        self.keep_visible();
-        self.load_more();
-    }
-
-    pub(super) fn scroll_columns(&mut self, forward: bool) {
-        let fixed = self.fixed_columns();
-        let movable = self.columns.len().saturating_sub(fixed);
-        self.column_offset = if forward {
-            (self.column_offset + 1).min(movable.saturating_sub(1))
-        } else {
-            self.column_offset.saturating_sub(1)
-        };
-    }
-
-    /// Identity columns stay put while the others scroll sideways.
-    pub(super) fn fixed_columns(&self) -> usize {
-        self.columns
-            .iter()
-            .take_while(|column| matches!(column.key.as_str(), "@collection" | "@id" | "@status"))
-            .count()
-    }
-
-    pub(super) fn selected_hit(&self) -> Option<&Hit> {
-        self.hits.get(self.selected)
-    }
-
-    // ----- options --------------------------------------------------------
-
-    fn options_changed(&mut self, text: &str) {
-        self.notice(text);
-        if self.last_request.is_some() || self.dirty.is_some() || self.queued_search {
-            self.search();
-        }
-    }
-
-    pub(super) fn set_scope(&mut self, scope: usize) {
-        if scope == self.scope {
+        if self.single_collection
+            && delta < 0
+            && self.selected == 0
+            && self.window_start > 0
+            && self.requested_offset.is_none()
+        {
+            self.launch(self.window_start.saturating_sub(PAGE_SIZE));
             return;
         }
-        self.scope = scope;
-        let text = format!("Searching {}", self.scope_label());
-        self.options_changed(&text);
-    }
-
-    /// The full-text options, for the search and for every `:fts` field:
-    /// regex on uses the stored text and its own case flags; otherwise the
-    /// case and markup options apply.
-    pub(super) fn fts_options(&self) -> objekte_core::FtsOptions {
-        objekte_core::FtsOptions {
-            mode: match (self.regex, self.representation) {
-                (true, _) => TextMode::Regex,
-                (false, Representation::Normalized) => TextMode::Word,
-                (false, Representation::Full) => TextMode::WordRaw,
-            },
-            case_sensitive: self.case_sensitive,
-            search_options: Default::default(),
-        }
-    }
-
-    pub(super) fn toggle_regex(&mut self) {
-        self.regex = !self.regex;
-        self.options_changed(if self.regex {
-            "Regex on · stored text with markup and punctuation; (?i) ignores case"
-        } else {
-            "Regex off · case and markup options apply"
-        });
-    }
-
-    pub(super) fn toggle_case(&mut self) {
-        if self.regex {
-            self.notice("Regex patterns set case with (?i)");
-            return;
-        }
-        self.case_sensitive = !self.case_sensitive;
-        self.options_changed(if self.case_sensitive {
-            "Case-sensitive search"
-        } else {
-            "Case-insensitive search"
-        });
-    }
-
-    pub(super) fn toggle_representation(&mut self) {
-        if self.regex {
-            self.notice("Regex always searches the stored text, markup included");
-            return;
-        }
-        self.representation = match self.representation {
-            Representation::Normalized => Representation::Full,
-            Representation::Full => Representation::Normalized,
-        };
-        self.options_changed(match self.representation {
-            Representation::Normalized => "Normalized text · markup and punctuation ignored",
-            Representation::Full => "Stored text · markup and punctuation kept",
-        });
-    }
-
-    // ----- detail view ----------------------------------------------------
-
-    pub(super) fn open_detail(&mut self) {
-        if self.hits.is_empty() {
-            return;
-        }
-        self.links.reset();
-        self.view = View::Detail;
-        self.record.reset();
-        self.completion = None;
-        self.prepare_detail_links();
-    }
-
-    pub(super) fn close_detail(&mut self) {
-        self.links.reset();
-        self.view = View::Results;
-        self.pending_next = false;
-    }
-
-    /// Show the previous or next result in the detail view.
-    pub(super) fn detail_step(&mut self, forward: bool) {
-        if self.links.override_hit.is_some() {
-            self.notice("Backspace returns to the previous record");
-            return;
-        }
-        if forward {
-            if self.selected + 1 < self.hits.len() {
-                self.selected += 1;
-            } else if self.searching || self.total.is_some_and(|total| self.hits.len() < total) {
-                self.pending_next = true;
-                self.load_more();
-                return;
-            } else {
-                return;
-            }
-        } else if self.selected > 0 {
-            self.selected -= 1;
-        } else {
-            return;
-        }
-        self.keep_visible();
-        self.load_more();
-        self.record.reset();
-        self.links.reset();
-        self.prepare_detail_links();
-    }
-
-
-    // ----- dialogs --------------------------------------------------------
-
-    pub(super) fn open_export(&mut self, all: bool) {
-        if self.searching && all {
-            self.notice("Wait for the search to finish before exporting");
-            return;
-        }
-        let has_record = self.view == View::Detail || self.selected_hit().is_some();
-        if self.last_request.is_none() && self.links.override_hit.is_none() || !all && !has_record {
-            self.notice("Search and select a record before exporting");
-            return;
-        }
-        let name = if all {
-            "objekte-results.json"
-        } else {
-            "objekte-record.json"
-        };
-        self.overlay = Some(Overlay::Export {
-            all,
-            input: Input::with_text(name),
-        });
-    }
-
-    pub(super) fn open_inference(&mut self) {
-        self.overlay = Some(Overlay::Infer);
-    }
-
-    pub(super) fn queue_inference(&mut self) {
-        self.overlay = None;
-        if self.index_status.is_some() {
-            self.notice("Index work is running; inference starts afterwards");
-        }
-        self.pending_inference = Some(InferRequest {
-            collection: (!self.infer_all)
-                .then(|| self.scope_name().map(str::to_owned))
-                .flatten(),
-            auto_index: self.infer_auto_index,
-        });
-    }
-
-    pub(super) fn queue_cache_action(&mut self, mode: WarmMode) {
-        if self.index_status.is_some() {
-            self.notice("Index work is already running");
-            return;
-        }
-        self.queued_search = self.last_request.is_some() || self.dirty.is_some();
-        self.pending_cache_action = Some(mode);
-    }
-
-    /// Run an action chosen from the palette.
-    pub(super) fn run_action(&mut self, action: Action) {
-        self.overlay = None;
-        match action {
-            Action::ChooseCollection => self.open_list(ListKind::Collections),
-            Action::History => self.open_list(ListKind::History),
-            Action::SavedQueries => self.open_list(ListKind::Saved),
-            Action::SaveQuery => self.open_save_query(),
-            Action::SortBy => self.open_list(ListKind::SortBy),
-            Action::Columns => self.open_list(ListKind::Columns),
-            Action::Breakdown => {
-                if self.last_request.is_some() {
-                    self.open_list(ListKind::BreakdownField);
-                } else {
-                    self.notice("Search first, then count values");
+        let previous = self.selected;
+        self.selected = self
+            .selected
+            .saturating_add_signed(delta)
+            .min(self.hits.len() - 1);
+        if self.selected != previous {
+            self.detail_scroll = 0;
+            self.record.reset();
+            if self.single_collection {
+                if let Some(hit) = self.selected_hit().cloned() {
+                    self.record.load(&hit);
                 }
             }
-            Action::ExportAll => self.open_export(true),
-            Action::ExportRecord => self.open_export(false),
-            Action::TogglePreview => self.show_preview = !self.show_preview,
-            Action::ToggleRegex => self.toggle_regex(),
-            Action::ToggleCase => self.toggle_case(),
-            Action::ToggleText => self.toggle_representation(),
-            Action::InferFields => self.open_inference(),
-            Action::SaveIndexes => self.queue_cache_action(WarmMode::Save),
-            Action::RebuildIndexes => self.queue_cache_action(WarmMode::Reindex),
-            Action::RefreshFiles => self.defer(Deferred::Refresh),
-            Action::EditRecord => self.edit_record(),
-            Action::ToggleTheme => {
-                let light = !super::view::theme::is_light();
-                super::view::theme::set_light(light);
-                self.settings.theme = Some(if light { "light" } else { "dark" }.into());
-                self.save_settings();
+        }
+        let rows = self.viewport_rows.max(1);
+        if self.selected < self.scroll {
+            self.scroll = self.selected;
+        } else if self.selected >= self.scroll + rows {
+            self.scroll = self.selected + 1 - rows;
+        }
+    }
+
+    pub(super) fn choose_scope(&mut self) {
+        self.scope = if self.single_collection {
+            1
+        } else {
+            self.picker.min(self.repo.collections().len())
+        };
+        self.sort = None;
+        self.column_offset = 0;
+        self.view = View::Results;
+        self.overlay = None;
+        self.request_search();
+    }
+
+    pub(super) fn choose_sort(&mut self) {
+        if self.single_collection && !self.sort_input.text.trim().is_empty() {
+            match parse_structured_filter(&format!("SORT BY {}", self.sort_input.text.trim())) {
+                Ok(parsed) if parsed.sort.as_ref().is_some_and(|sort| sort.len() == 1) => {
+                    self.sort = parsed.sort.and_then(|mut sort| sort.pop());
+                    self.overlay = None;
+                    self.request_search();
+                }
+                Ok(_) => self.status = Some("Enter one sort expression".into()),
+                Err(error) => self.status = Some(error),
             }
-            Action::Help => self.overlay = Some(Overlay::Help),
-            Action::Quit => self.done = true,
+            return;
+        }
+        self.sort = self.sort_choices().get(self.sort_picker).cloned().flatten();
+        self.view = View::Results;
+        self.overlay = None;
+        self.request_search();
+    }
+
+    pub(super) fn finish_export(&mut self, all: bool) {
+        let path = PathBuf::from(self.export_input.text.trim());
+        if path.as_os_str().is_empty() {
+            self.status = Some("Enter a JSON file path".into());
+            return;
+        }
+        let result = if all {
+            self.query(0).and_then(|query| {
+                export::all(
+                    &self.repo,
+                    query,
+                    &self.current_query(),
+                    &path,
+                    self.result_limit,
+                )
+            })
+        } else {
+            self.selected_hit()
+                .ok_or("No record selected".to_owned())
+                .and_then(|hit| export::one(hit, &path).map(|()| 1))
+        };
+        match result {
+            Ok(count) => {
+                self.overlay = None;
+                self.status = Some(format!("Exported {count} record(s) to {}", path.display()));
+            }
+            Err(error) => self.status = Some(format!("Export failed: {error}")),
         }
     }
 }
 
-
-/// Width for a new column: its header and the values seen so far.
-fn column_width(key: &str, hits: &[Hit]) -> u16 {
-    let (min, max) = match key {
-        "@status" => return 1,
-        "@match" => (24, 56),
-        "@id" | "@collection" => (6, 24),
-        _ => (6, 26),
+fn sort_label(sort: &SortField) -> String {
+    let Some(expression) = &sort.expression else {
+        return field_label(&sort.field, &[]);
     };
-    let header = key.trim_start_matches('@').width();
-    let content = hits
-        .iter()
-        .take(PAGE_SIZE)
-        .map(|hit| super::view::results::cell_text(hit, key).width())
-        .max()
-        .unwrap_or(0);
-    header.max(content).clamp(min, max) as u16
-}
-
-/// A regex for the text the search matched, if it searched text.
-fn highlighter(request: &Request) -> Option<regex::Regex> {
-    let Request::Text(query) = request else {
-        return None;
-    };
-    let pattern = query.pattern.trim();
-    if pattern.is_empty() {
-        return None;
+    let mut path = field_label(&expression.path, &[]);
+    if let Some(binding) = &expression.binding {
+        path = format!("{path}:{binding}");
     }
-    let source = match query.mode {
-        TextMode::Regex => pattern.to_owned(),
-        // Normalized search ignores punctuation: between the words, any
-        // run of whitespace or Unicode punctuation matches.
-        TextMode::Word => {
-            let separator = regex::Regex::new(r"[\s\p{P}]+").expect("valid separator");
-            let words = separator
-                .split(pattern)
-                .filter(|word| !word.is_empty())
-                .map(regex::escape)
-                .collect::<Vec<_>>();
-            if words.is_empty() {
-                return None;
-            }
-            let joined = words.join(r"[\s\p{P}]+");
-            if query.case_sensitive {
-                joined
-            } else {
-                format!("(?i){joined}")
-            }
-        }
-        _ if query.case_sensitive => regex::escape(pattern),
-        _ => format!("(?i){}", regex::escape(pattern)),
-    };
-    regex::Regex::new(&source).ok()
-}
-
-pub(super) fn status_name(status: RecordStatus) -> &'static str {
-    match status {
-        RecordStatus::Valid => "valid",
-        RecordStatus::Invalid => "invalid",
-        RecordStatus::IncorrectJson => "malformed JSON",
-        RecordStatus::IncorrectFormat => "malformed format",
-        RecordStatus::NoSchema => "no schema",
-        RecordStatus::Pending => "not validated",
+    if let Some(reducer) = expression.reducer {
+        format!("{}({path})", format!("{reducer:?}").to_uppercase())
+    } else {
+        path
     }
 }
 

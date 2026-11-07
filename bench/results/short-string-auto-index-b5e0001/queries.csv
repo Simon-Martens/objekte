@@ -1,0 +1,181 @@
+dataset,mode,repetition,query_id,input,search_ms,query_wall_ms,candidates,files_opened,record_parses,scanned_records,total_matches,page_size
+medium,disabled,1,1,code = '550e8400-e29b-41d4-a716-000000000024',0.163539,0.196913,13,13,13,13,1,1
+medium,disabled,1,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',1.198862,1.243742,512,512,512,512,10,10
+medium,disabled,1,3,year >= 1800 && year < 1805,1.132255,1.169527,512,512,512,512,10,10
+medium,disabled,1,4,group = 'g3',0.187828,0.222134,64,64,64,64,64,10
+medium,disabled,1,5,mixed ?= 'm3',0.180672,0.211497,64,64,64,64,64,10
+medium,disabled,1,6,long65 > 'L',1.048518,1.055327,512,512,512,512,0,0
+medium,disabled,1,7,body ~ 'shared phrase',1.170056,1.203228,512,512,512,512,512,10
+medium,disabled,1,8,"year >= 1800 SORT BY year DESC, code ASC",5.877588,5.932183,512,512,512,512,412,10
+medium,disabled,1,9,"""shared phrase""",2.820274,2.856836,512,512,512,512,512,10
+medium,disabled,2,1,code = '550e8400-e29b-41d4-a716-000000000024',0.125229,0.151333,13,13,13,13,1,1
+medium,disabled,2,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',1.389836,1.436778,512,512,512,512,10,10
+medium,disabled,2,3,year >= 1800 && year < 1805,1.141136,1.181974,512,512,512,512,10,10
+medium,disabled,2,4,group = 'g3',0.190421,0.225307,64,64,64,64,64,10
+medium,disabled,2,5,mixed ?= 'm3',0.188663,0.220734,64,64,64,64,64,10
+medium,disabled,2,6,long65 > 'L',1.022023,1.029189,512,512,512,512,0,0
+medium,disabled,2,7,body ~ 'shared phrase',1.183471,1.219869,512,512,512,512,512,10
+medium,disabled,2,8,"year >= 1800 SORT BY year DESC, code ASC",5.619907,5.690823,512,512,512,512,412,10
+medium,disabled,2,9,"""shared phrase""",3.613565,3.664293,512,512,512,512,512,10
+medium,disabled,3,1,code = '550e8400-e29b-41d4-a716-000000000024',0.197015,0.229331,13,13,13,13,1,1
+medium,disabled,3,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',2.413797,2.484222,512,512,512,512,10,10
+medium,disabled,3,3,year >= 1800 && year < 1805,1.161138,1.205665,512,512,512,512,10,10
+medium,disabled,3,4,group = 'g3',0.185406,0.218981,64,64,64,64,64,10
+medium,disabled,3,5,mixed ?= 'm3',0.178157,0.211248,64,64,64,64,64,10
+medium,disabled,3,6,long65 > 'L',1.050889,1.058642,512,512,512,512,0,0
+medium,disabled,3,7,body ~ 'shared phrase',1.20019,1.234837,512,512,512,512,512,10
+medium,disabled,3,8,"year >= 1800 SORT BY year DESC, code ASC",6.68905,6.757779,512,512,512,512,412,10
+medium,disabled,3,9,"""shared phrase""",4.288932,4.342633,512,512,512,512,512,10
+medium,schema,1,1,code = '550e8400-e29b-41d4-a716-000000000024',0.083095,0.114733,1,1,0,0,1,1
+medium,schema,1,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.267492,0.337909,10,10,0,0,10,10
+medium,schema,1,3,year >= 1800 && year < 1805,0.209231,0.263669,10,10,0,0,10,10
+medium,schema,1,4,group = 'g3',0.205044,0.240921,64,64,64,64,64,10
+medium,schema,1,5,mixed ?= 'm3',0.220461,0.253107,64,64,64,64,64,10
+medium,schema,1,6,long65 > 'L',1.054104,1.062497,512,512,512,512,0,0
+medium,schema,1,7,body ~ 'shared phrase',1.160629,1.196066,512,512,512,512,512,10
+medium,schema,1,8,"year >= 1800 SORT BY year DESC, code ASC",5.507157,5.549484,412,412,412,412,412,10
+medium,schema,1,9,"""shared phrase""",2.733867,2.768032,512,512,512,512,512,10
+medium,schema,2,1,code = '550e8400-e29b-41d4-a716-000000000024',0.107656,0.149793,1,1,0,0,1,1
+medium,schema,2,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.290506,0.360504,10,10,0,0,10,10
+medium,schema,2,3,year >= 1800 && year < 1805,0.223173,0.280815,10,10,0,0,10,10
+medium,schema,2,4,group = 'g3',0.464083,0.522031,64,64,64,64,64,10
+medium,schema,2,5,mixed ?= 'm3',0.441447,0.493665,64,64,64,64,64,10
+medium,schema,2,6,long65 > 'L',1.381917,1.398095,512,512,512,512,0,0
+medium,schema,2,7,body ~ 'shared phrase',1.246433,1.290417,512,512,512,512,512,10
+medium,schema,2,8,"year >= 1800 SORT BY year DESC, code ASC",7.159137,7.228837,412,412,412,412,412,10
+medium,schema,2,9,"""shared phrase""",3.754842,3.804662,512,512,512,512,512,10
+medium,schema,3,1,code = '550e8400-e29b-41d4-a716-000000000024',0.071408,0.09611,1,1,0,0,1,1
+medium,schema,3,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.174277,0.216612,10,10,0,0,10,10
+medium,schema,3,3,year >= 1800 && year < 1805,0.12507,0.160333,10,10,0,0,10,10
+medium,schema,3,4,group = 'g3',0.217701,0.257255,64,64,64,64,64,10
+medium,schema,3,5,mixed ?= 'm3',0.214299,0.258856,64,64,64,64,64,10
+medium,schema,3,6,long65 > 'L',1.036857,1.046396,512,512,512,512,0,0
+medium,schema,3,7,body ~ 'shared phrase',1.228583,1.268982,512,512,512,512,512,10
+medium,schema,3,8,"year >= 1800 SORT BY year DESC, code ASC",6.382226,6.45528,412,412,412,412,412,10
+medium,schema,3,9,"""shared phrase""",5.315385,5.367223,512,512,512,512,512,10
+medium,auto,1,1,code = '550e8400-e29b-41d4-a716-000000000024',0.127281,0.171388,1,1,1,1,1,1
+medium,auto,1,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.713052,0.762189,110,110,110,110,10,10
+medium,auto,1,3,year >= 1800 && year < 1805,0.514944,0.553437,110,110,110,110,10,10
+medium,auto,1,4,group = 'g3',0.209009,0.242761,64,64,64,64,64,10
+medium,auto,1,5,mixed ?= 'm3',0.182602,0.217336,64,64,64,64,64,10
+medium,auto,1,6,long65 > 'L',1.131648,1.139137,512,512,512,512,0,0
+medium,auto,1,7,body ~ 'shared phrase',1.326436,1.375267,512,512,512,512,512,10
+medium,auto,1,8,"year >= 1800 SORT BY year DESC, code ASC",6.982985,7.057001,412,412,412,412,412,10
+medium,auto,1,9,"""shared phrase""",2.863835,2.905376,512,512,512,512,512,10
+medium,auto,2,1,code = '550e8400-e29b-41d4-a716-000000000024',0.112231,0.150825,1,1,1,1,1,1
+medium,auto,2,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',1.334573,1.401767,110,110,110,110,10,10
+medium,auto,2,3,year >= 1800 && year < 1805,1.015979,1.070472,110,110,110,110,10,10
+medium,auto,2,4,group = 'g3',0.446678,0.501496,64,64,64,64,64,10
+medium,auto,2,5,mixed ?= 'm3',0.435773,0.485699,64,64,64,64,64,10
+medium,auto,2,6,long65 > 'L',2.724082,2.738017,512,512,512,512,0,0
+medium,auto,2,7,body ~ 'shared phrase',2.354275,2.408339,512,512,512,512,512,10
+medium,auto,2,8,"year >= 1800 SORT BY year DESC, code ASC",7.776587,7.849066,412,412,412,412,412,10
+medium,auto,2,9,"""shared phrase""",3.590499,3.644147,512,512,512,512,512,10
+medium,auto,3,1,code = '550e8400-e29b-41d4-a716-000000000024',0.096173,0.126594,1,1,1,1,1,1
+medium,auto,3,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.665511,0.71035,110,110,110,110,10,10
+medium,auto,3,3,year >= 1800 && year < 1805,0.489733,0.525447,110,110,110,110,10,10
+medium,auto,3,4,group = 'g3',0.190097,0.226722,64,64,64,64,64,10
+medium,auto,3,5,mixed ?= 'm3',0.190665,0.224047,64,64,64,64,64,10
+medium,auto,3,6,long65 > 'L',1.073819,1.080776,512,512,512,512,0,0
+medium,auto,3,7,body ~ 'shared phrase',1.204534,1.241523,512,512,512,512,512,10
+medium,auto,3,8,"year >= 1800 SORT BY year DESC, code ASC",6.35287,6.424211,412,412,412,412,412,10
+medium,auto,3,9,"""shared phrase""",5.481471,5.537253,512,512,512,512,512,10
+medium,both,1,1,code = '550e8400-e29b-41d4-a716-000000000024',0.10439,0.140328,1,1,0,0,1,1
+medium,both,1,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.275747,0.347421,10,10,0,0,10,10
+medium,both,1,3,year >= 1800 && year < 1805,0.207466,0.263773,10,10,0,0,10,10
+medium,both,1,4,group = 'g3',0.47346,0.529281,64,64,64,64,64,10
+medium,both,1,5,mixed ?= 'm3',0.439556,0.49184,64,64,64,64,64,10
+medium,both,1,6,long65 > 'L',1.355068,1.371332,512,512,512,512,0,0
+medium,both,1,7,body ~ 'shared phrase',1.246148,1.290783,512,512,512,512,512,10
+medium,both,1,8,"year >= 1800 SORT BY year DESC, code ASC",5.809583,5.851538,412,412,412,412,412,10
+medium,both,1,9,"""shared phrase""",2.773626,2.806973,512,512,512,512,512,10
+medium,both,2,1,code = '550e8400-e29b-41d4-a716-000000000024',0.099045,0.126477,1,1,0,0,1,1
+medium,both,2,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.185363,0.234751,10,10,0,0,10,10
+medium,both,2,3,year >= 1800 && year < 1805,0.125111,0.158582,10,10,0,0,10,10
+medium,both,2,4,group = 'g3',0.196987,0.228893,64,64,64,64,64,10
+medium,both,2,5,mixed ?= 'm3',0.184089,0.214347,64,64,64,64,64,10
+medium,both,2,6,long65 > 'L',1.058976,1.066182,512,512,512,512,0,0
+medium,both,2,7,body ~ 'shared phrase',1.155214,1.190119,512,512,512,512,512,10
+medium,both,2,8,"year >= 1800 SORT BY year DESC, code ASC",5.298902,5.371807,412,412,412,412,412,10
+medium,both,2,9,"""shared phrase""",4.374662,4.430568,512,512,512,512,512,10
+medium,both,3,1,code = '550e8400-e29b-41d4-a716-000000000024',0.085722,0.1137,1,1,0,0,1,1
+medium,both,3,2,code >= '550e8400-e29b-41d4-a716-000000000064' && code < '550e8400-e29b-41d4-a716-00000000006e',0.175712,0.219628,10,10,0,0,10,10
+medium,both,3,3,year >= 1800 && year < 1805,0.13094,0.167501,10,10,0,0,10,10
+medium,both,3,4,group = 'g3',0.207448,0.241979,64,64,64,64,64,10
+medium,both,3,5,mixed ?= 'm3',0.204721,0.239305,64,64,64,64,64,10
+medium,both,3,6,long65 > 'L',1.085105,1.094084,512,512,512,512,0,0
+medium,both,3,7,body ~ 'shared phrase',1.175932,1.213559,512,512,512,512,512,10
+medium,both,3,8,"year >= 1800 SORT BY year DESC, code ASC",6.71119,6.774316,412,412,412,412,412,10
+medium,both,3,9,"""shared phrase""",3.222928,3.269198,512,512,512,512,512,10
+musenalm,disabled,1,1,preferred_title ~ 'Goethe',21.08937,21.16962,4928,4928,4928,4928,7,7
+musenalm,disabled,1,2,year >= 1800 && year < 1810,25.987992,26.062212,4928,4928,4928,4928,741,10
+musenalm,disabled,1,3,edit_state = 'Edited',26.187838,26.299743,4928,4928,4928,4928,2377,10
+musenalm,disabled,1,4,pseudonym = true,19.873468,19.950109,4928,4928,4928,4928,226,10
+musenalm,disabled,1,5,year >= 1800 SORT BY year DESC,100.470094,100.57332,4928,4928,4928,4928,3821,10
+musenalm,disabled,1,6,"""Goethe""",9.602326,9.703881,203,203,203,203,21,10
+musenalm,disabled,2,1,preferred_title ~ 'Goethe',25.703316,25.791867,4928,4928,4928,4928,7,7
+musenalm,disabled,2,2,year >= 1800 && year < 1810,20.68239,20.750083,4928,4928,4928,4928,741,10
+musenalm,disabled,2,3,edit_state = 'Edited',20.125684,20.196153,4928,4928,4928,4928,2377,10
+musenalm,disabled,2,4,pseudonym = true,19.460487,19.533128,4928,4928,4928,4928,226,10
+musenalm,disabled,2,5,year >= 1800 SORT BY year DESC,100.333269,100.421853,4928,4928,4928,4928,3821,10
+musenalm,disabled,2,6,"""Goethe""",7.041017,7.112764,203,203,203,203,21,10
+musenalm,disabled,3,1,preferred_title ~ 'Goethe',21.168296,21.261272,4928,4928,4928,4928,7,7
+musenalm,disabled,3,2,year >= 1800 && year < 1810,20.69458,20.766155,4928,4928,4928,4928,741,10
+musenalm,disabled,3,3,edit_state = 'Edited',20.539694,20.613226,4928,4928,4928,4928,2377,10
+musenalm,disabled,3,4,pseudonym = true,21.632141,21.748795,4928,4928,4928,4928,226,10
+musenalm,disabled,3,5,year >= 1800 SORT BY year DESC,103.937726,104.021019,4928,4928,4928,4928,3821,10
+musenalm,disabled,3,6,"""Goethe""",6.829022,6.898097,203,203,203,203,21,10
+musenalm,schema,1,1,preferred_title ~ 'Goethe',1.273189,1.347663,203,203,203,203,7,7
+musenalm,schema,1,2,year >= 1800 && year < 1810,0.938885,0.997592,741,10,0,0,741,10
+musenalm,schema,1,3,edit_state = 'Edited',0.497956,0.551717,2377,10,0,0,2377,10
+musenalm,schema,1,4,pseudonym = true,0.295021,0.355794,226,10,0,0,226,10
+musenalm,schema,1,5,year >= 1800 SORT BY year DESC,81.398421,81.475363,3821,3821,3821,3821,3821,10
+musenalm,schema,1,6,"""Goethe""",7.006912,7.074385,203,203,203,203,21,10
+musenalm,schema,2,1,preferred_title ~ 'Goethe',1.365509,1.44501,203,203,203,203,7,7
+musenalm,schema,2,2,year >= 1800 && year < 1810,0.87805,0.938909,741,10,0,0,741,10
+musenalm,schema,2,3,edit_state = 'Edited',0.53177,0.586033,2377,10,0,0,2377,10
+musenalm,schema,2,4,pseudonym = true,0.261742,0.326116,226,10,0,0,226,10
+musenalm,schema,2,5,year >= 1800 SORT BY year DESC,102.460733,102.581858,3821,3821,3821,3821,3821,10
+musenalm,schema,2,6,"""Goethe""",7.258921,7.337019,203,203,203,203,21,10
+musenalm,schema,3,1,preferred_title ~ 'Goethe',1.325589,1.408486,203,203,203,203,7,7
+musenalm,schema,3,2,year >= 1800 && year < 1810,0.929362,0.989771,741,10,0,0,741,10
+musenalm,schema,3,3,edit_state = 'Edited',0.553,0.606837,2377,10,0,0,2377,10
+musenalm,schema,3,4,pseudonym = true,0.291679,0.34901,226,10,0,0,226,10
+musenalm,schema,3,5,year >= 1800 SORT BY year DESC,113.470093,113.590742,3821,3821,3821,3821,3821,10
+musenalm,schema,3,6,"""Goethe""",9.064628,9.168852,203,203,203,203,21,10
+musenalm,auto,1,1,preferred_title ~ 'Goethe',20.489746,20.566581,4928,4928,4928,4928,7,7
+musenalm,auto,1,2,year >= 1800 && year < 1810,9.741,9.805749,1848,1848,1848,1848,741,10
+musenalm,auto,1,3,edit_state = 'Edited',11.062859,11.12965,2377,2377,2377,2377,2377,10
+musenalm,auto,1,4,pseudonym = true,1.298172,1.364519,226,226,226,226,226,10
+musenalm,auto,1,5,year >= 1800 SORT BY year DESC,104.237471,104.32001,3821,3821,3821,3821,3821,10
+musenalm,auto,1,6,"""Goethe""",6.813892,6.880948,203,203,203,203,21,10
+musenalm,auto,2,1,preferred_title ~ 'Goethe',22.584696,22.687706,4928,4928,4928,4928,7,7
+musenalm,auto,2,2,year >= 1800 && year < 1810,10.07408,10.178872,1848,1848,1848,1848,741,10
+musenalm,auto,2,3,edit_state = 'Edited',11.623133,11.693742,2377,2377,2377,2377,2377,10
+musenalm,auto,2,4,pseudonym = true,1.377537,1.446121,226,226,226,226,226,10
+musenalm,auto,2,5,year >= 1800 SORT BY year DESC,84.445398,84.527885,3821,3821,3821,3821,3821,10
+musenalm,auto,2,6,"""Goethe""",6.961239,7.027284,203,203,203,203,21,10
+musenalm,auto,3,1,preferred_title ~ 'Goethe',20.8003,20.894499,4928,4928,4928,4928,7,7
+musenalm,auto,3,2,year >= 1800 && year < 1810,9.882731,9.951078,1848,1848,1848,1848,741,10
+musenalm,auto,3,3,edit_state = 'Edited',11.317595,11.388195,2377,2377,2377,2377,2377,10
+musenalm,auto,3,4,pseudonym = true,1.339488,1.414922,226,226,226,226,226,10
+musenalm,auto,3,5,year >= 1800 SORT BY year DESC,86.321886,86.406208,3821,3821,3821,3821,3821,10
+musenalm,auto,3,6,"""Goethe""",6.79996,6.872389,203,203,203,203,21,10
+musenalm,both,1,1,preferred_title ~ 'Goethe',1.343422,1.419032,203,203,203,203,7,7
+musenalm,both,1,2,year >= 1800 && year < 1810,0.884362,0.943416,741,10,0,0,741,10
+musenalm,both,1,3,edit_state = 'Edited',0.543201,0.596519,2377,10,0,0,2377,10
+musenalm,both,1,4,pseudonym = true,0.24817,0.302508,226,10,0,0,226,10
+musenalm,both,1,5,year >= 1800 SORT BY year DESC,95.963511,96.076343,3821,3821,3821,3821,3821,10
+musenalm,both,1,6,"""Goethe""",7.424209,7.504832,203,203,203,203,21,10
+musenalm,both,2,1,preferred_title ~ 'Goethe',2.380739,2.497002,203,203,203,203,7,7
+musenalm,both,2,2,year >= 1800 && year < 1810,1.362737,1.460193,741,10,0,0,741,10
+musenalm,both,2,3,edit_state = 'Edited',0.742574,0.831925,2377,10,0,0,2377,10
+musenalm,both,2,4,pseudonym = true,0.343041,0.430977,226,10,0,0,226,10
+musenalm,both,2,5,year >= 1800 SORT BY year DESC,101.486673,101.606057,3821,3821,3821,3821,3821,10
+musenalm,both,2,6,"""Goethe""",7.877235,7.959477,203,203,203,203,21,10
+musenalm,both,3,1,preferred_title ~ 'Goethe',2.281352,2.397849,203,203,203,203,7,7
+musenalm,both,3,2,year >= 1800 && year < 1810,1.350297,1.447331,741,10,0,0,741,10
+musenalm,both,3,3,edit_state = 'Edited',0.73443,0.821542,2377,10,0,0,2377,10
+musenalm,both,3,4,pseudonym = true,0.368553,0.459112,226,10,0,0,226,10
+musenalm,both,3,5,year >= 1800 SORT BY year DESC,104.859758,104.967956,3821,3821,3821,3821,3821,10
+musenalm,both,3,6,"""Goethe""",6.859102,6.929655,203,203,203,203,21,10

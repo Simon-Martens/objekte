@@ -1,0 +1,3 @@
+configuration,workers,median_wall_ms,min_wall_ms,max_wall_ms,median_cpu_seconds,median_busy_cpus,median_peak_rss_bytes,median_peak_admitted_bytes,snapshot_bytes
+ascii-disabled,4,1869.819776,1864.646353,1908.705976,7.078699,3.778787858975852,296677376,53903360,
+unicode-disabled,4,2084.184513,2066.533824,2090.771792,7.919777999999999,3.8059108270196136,302653440,53903360,

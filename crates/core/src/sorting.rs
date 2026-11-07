@@ -1,66 +1,119 @@
-//! Locale-aware sort keys and deterministic scalar ordering.
-//!
-//! Parsing and bounded result retention live in small neighboring modules.
+//! Stored ICU string keys and typed sort columns.
 
-mod buffer;
-mod parser;
+use std::cmp::Ordering;
+use std::collections::HashMap;
 
-pub(crate) use buffer::SortBuffer;
-pub use parser::{parse_sort_terms, split_sort_clause};
-
-use crate::{
-    Collection, Direction, Error, JsonFilter, JsonPath, JsonPathStep, RecordStatus, Result, Sort,
-    TextFormat,
-    json_filter::{
-        MetadataField, RelationContext, decimal_cmp, declared_format, sonic_values, values,
-    },
-    schema::SortReduce,
-};
 use icu_collator::{
-    CollatorBorrowed,
+    CollatorBorrowed, CollatorPreferences,
     options::{CollatorOptions, Strength},
+    preferences::CollationNumericOrdering,
 };
 use icu_locale_core::Locale;
+use roaring::RoaringBitmap;
 use serde::{Deserialize, Serialize};
-use serde_json::Value;
-use sonic_rs::{JsonValueTrait, Value as SonicValue, ValueRef};
-use std::{cmp::Ordering, collections::BTreeMap, path::Path, sync::Arc};
+use time::{Date, OffsetDateTime};
 
+use crate::inventory::{CollectionGeneration, FileEntry, FileInventory, RecordClass, RecordEntry};
+use crate::model::{FieldPath, LogicalType, MetadataField, Number, PathRoot, RecordSlot, Value};
+use crate::posting::{PostingIndex, ScalarKey};
+use crate::reference::{RecordContext, Schema, data_values_small, metadata_value};
+use crate::workload::SortField;
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub(crate) enum SortValue {
-    Bool(bool),
-    Number(String),
-    String(Vec<u8>),
-    Null,
-    Missing,
-    Invalid,
+pub const COLLATION_VERSION: &str =
+    "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub enum CollationStrength {
+    #[default]
+    LocaleDefault,
+    Primary,
+    Secondary,
+    Tertiary,
+    Quaternary,
+    Identical,
 }
 
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub enum Placement {
+    First,
+    #[default]
+    Last,
+}
 
-impl SortValue {
-    pub(crate) fn rank(&self) -> u8 {
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+pub struct SortOptions {
+    pub strength: CollationStrength,
+    pub numeric: bool,
+    pub nulls: Placement,
+    pub missing: Placement,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SortConfig {
+    pub locale: String,
+    pub options: SortOptions,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+pub enum SortKey {
+    Missing,
+    /// A reached value whose logical payload is unavailable, ordered with missing.
+    Unavailable,
+    Null,
+    String(Vec<u8>),
+    Id(String),
+    Number(Number),
+    Bool(bool),
+    Date(Date),
+    Datetime(OffsetDateTime),
+    Unixtime(i64),
+}
+
+impl SortKey {
+    fn rank(&self, options: SortOptions) -> i8 {
         match self {
-            Self::Bool(_) => 0,
-            Self::Number(_) => 1,
-            Self::String(_) => 2,
-            Self::Null => 3,
-            Self::Missing => 4,
-            Self::Invalid => 5,
+            Self::Missing | Self::Unavailable if options.missing == Placement::First => -1,
+            Self::Missing | Self::Unavailable => 2,
+            Self::Null if options.nulls == Placement::First => -2,
+            Self::Null => 1,
+            _ => 0,
         }
     }
 
-    pub(crate) fn compare(&self, other: &Self, direction: Direction) -> Ordering {
-        if self.rank() != other.rank() {
-            return self.rank().cmp(&other.rank());
+    pub fn compare(&self, other: &Self, descending: bool) -> Ordering {
+        self.compare_with(other, descending, SortOptions::default())
+    }
+
+    pub fn compare_with(&self, other: &Self, descending: bool, options: SortOptions) -> Ordering {
+        let rank = self.rank(options).cmp(&other.rank(options));
+        if !rank.is_eq() {
+            return rank;
         }
         let order = match (self, other) {
-            (Self::Bool(a), Self::Bool(b)) => a.cmp(b),
-            (Self::Number(a), Self::Number(b)) => decimal_cmp(a, b),
             (Self::String(a), Self::String(b)) => a.cmp(b),
+            (Self::Id(a), Self::Id(b)) => a.cmp(b),
+            (Self::Number(a), Self::Number(b)) => a.cmp(b),
+            (Self::Bool(a), Self::Bool(b)) => a.cmp(b),
+            (Self::Date(a), Self::Date(b)) => a.cmp(b),
+            (Self::Datetime(a), Self::Datetime(b)) => a.cmp(b),
+            (Self::Unixtime(a), Self::Unixtime(b)) => a.cmp(b),
+            (Self::Bool(_), _) => Ordering::Less,
+            (_, Self::Bool(_)) => Ordering::Greater,
+            (Self::Number(_), _) => Ordering::Less,
+            (_, Self::Number(_)) => Ordering::Greater,
+            (Self::Date(_), _) => Ordering::Less,
+            (_, Self::Date(_)) => Ordering::Greater,
+            (Self::Datetime(_), _) => Ordering::Less,
+            (_, Self::Datetime(_)) => Ordering::Greater,
+            (Self::Unixtime(_), _) => Ordering::Less,
+            (_, Self::Unixtime(_)) => Ordering::Greater,
+            (Self::Id(_), _) => Ordering::Less,
+            (_, Self::Id(_)) => Ordering::Greater,
+            (Self::String(_), _) => Ordering::Greater,
+            (_, Self::String(_)) => Ordering::Less,
             _ => Ordering::Equal,
         };
-        if direction == Direction::Desc && self.rank() < 3 {
+        if descending && self.rank(options) == 0 {
             order.reverse()
         } else {
             order
@@ -68,429 +121,593 @@ impl SortValue {
     }
 }
 
-
-/// A sort field with its resolved source, reduction rule, and ICU collator.
-struct Term {
-    key: TermKey,
-    direction: Direction,
-    reduce: Option<SortReduce>,
-    collator: CollatorBorrowed<'static>,
+/// Precomputed sort keys for one configured field.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct SortColumn {
+    pub path: FieldPath,
+    pub kind: LogicalType,
+    pub keys: Vec<SortKey>,
+    pub ascending: Vec<RecordSlot>,
+    pub descending: Vec<RecordSlot>,
+    pub locale: String,
+    pub options: SortOptions,
+    pub collation_version: String,
 }
 
-
-enum TermKey {
-    /// A JSON path; `rendered` holds a declared `:fts` format.
-    Path {
-        path: JsonPath,
-        rendered: Option<TextFormat>,
-        /// Whether the term asked for `:fts`, resolved again across relations.
-        fts: bool,
-    },
-    System(MetadataField),
-}
-
-
-/// Source-file facts for `@` sort fields. Paths and creation time are
-/// derived only when a sort term asks for them.
-pub(crate) struct SortRecord<'a> {
-    pub id: &'a str,
-    pub collection_path: &'a Path,
-    pub root: &'a Path,
-    pub size: u64,
-    /// Signed Unix nanoseconds as a decimal string.
-    pub modified: &'a str,
-    pub status: RecordStatus,
-    /// Actual provider locator for non-JSON records.
-    pub locator: Option<&'a Path>,
-    pub created: Option<i128>,
-}
-
-
-impl SortRecord<'_> {
-    fn file(&self) -> std::path::PathBuf {
-        self.locator.map_or_else(
-            || self.collection_path.join(format!("{}.json", self.id)),
-            |locator| {
-                if locator.is_absolute() {
-                    locator.to_path_buf()
-                } else {
-                    self.collection_path.join(locator)
-                }
-            },
-        )
-    }
-
-    /// IDs, paths, and status names order bytewise, like the ID tie-break.
-    fn value(&self, field: MetadataField) -> SortValue {
-        match field {
-            MetadataField::Id => SortValue::String(self.id.as_bytes().to_vec()),
-            MetadataField::Filename => SortValue::String(self.file().file_name().map_or_else(
-                || format!("{}.json", self.id).into_bytes(),
-                |name| name.to_string_lossy().as_bytes().to_vec(),
-            )),
-            MetadataField::Path => {
-                let file = self.file();
-                let relative = file.strip_prefix(self.root).unwrap_or(&file);
-                SortValue::String(relative.to_string_lossy().replace('\\', "/").into_bytes())
-            }
-            MetadataField::Size => SortValue::Number(self.size.to_string()),
-            MetadataField::Modified => SortValue::Number(self.modified.to_owned()),
-            // Creation time is not kept in the index; read it only for this sort.
-            MetadataField::Created => self
-                .created
-                .or_else(|| {
-                    self.locator
-                        .is_none()
-                        .then(|| {
-                            std::fs::metadata(self.file())
-                                .ok()
-                                .and_then(|metadata| crate::source::created_timestamp(&metadata))
-                        })
-                        .flatten()
-                })
-                .map_or(SortValue::Null, |nanos| {
-                    SortValue::Number(nanos.to_string())
-                }),
-            MetadataField::Status => SortValue::String(self.status.as_str().as_bytes().to_vec()),
+impl SortColumn {
+    /// Build only the requested query order from a complete inferred scalar
+    /// dictionary. Numeric and Boolean keys use the B-tree order directly;
+    /// strings use ICU keys because UTF-8 order need not equal locale order.
+    pub(crate) fn from_inferred_posting(
+        index: &PostingIndex,
+        generation: &CollectionGeneration,
+        path: FieldPath,
+        locale: &str,
+        options: SortOptions,
+        descending: bool,
+    ) -> Result<Option<Self>, String> {
+        const MAX_QUERY_ORDER_BYTES: usize = 128 * 1024 * 1024;
+        let count = generation.records.len();
+        let Some(mut estimated_bytes) = count
+            .checked_mul(std::mem::size_of::<SortKey>() + 3 * std::mem::size_of::<RecordSlot>())
+        else {
+            return Ok(None);
+        };
+        if estimated_bytes > MAX_QUERY_ORDER_BYTES {
+            return Ok(None);
         }
-    }
-}
-
-
-/// Whether a sort is the default newest-first order with ID tie-breaks.
-pub(crate) fn is_default_order(sorts: &[Sort]) -> bool {
-    matches!(sorts, [sort] if sort.field == "@modified" && sort.direction == Direction::Desc)
-}
-
-
-/// One collection's sort semantics; collections themselves never interleave.
-pub(crate) struct SortPlan {
-    terms: Vec<Term>,
-    /// The collection and linked records for terms that follow relations.
-    relations: Option<(String, Arc<RelationContext>)>,
-}
-
-
-impl SortPlan {
-    pub(crate) fn compile(collection: &Collection, sorts: &[Sort]) -> Result<Self> {
-        let language = collection
-            .schema
-            .as_ref()
-            .and_then(|schema| schema.field.language.as_deref());
-        Self::compile_fields_with_language(&collection.fields, sorts, language)
-    }
-
-    pub(crate) fn compile_fields_with_language(
-        fields: &BTreeMap<String, crate::Field>,
-        sorts: &[Sort],
-        default_language: Option<&str>,
-    ) -> Result<Self> {
-        let mut terms = Vec::with_capacity(sorts.len());
-        for sort in sorts {
-            if let Some(name) = sort.field.strip_prefix('@') {
-                let field = MetadataField::parse(name).ok_or_else(|| {
-                    Error::Request(format!("unknown system sort field {}", sort.field))
-                })?;
-                terms.push(Term {
-                    key: TermKey::System(field),
-                    direction: sort.direction,
-                    reduce: None,
-                    collator: collator(default_language.unwrap_or("en"))?,
-                });
-                continue;
+        let collator = if index.kind == LogicalType::String {
+            Some(make_collator(&SortConfig {
+                locale: locale.to_owned(),
+                options,
+            })?)
+        } else {
+            None
+        };
+        let mut keys = generation
+            .records
+            .iter()
+            .map(|record| {
+                if record.class == RecordClass::RawFallback {
+                    SortKey::Unavailable
+                } else {
+                    SortKey::Missing
+                }
+            })
+            .collect::<Vec<_>>();
+        for slot in &index.nulls {
+            let key = keys
+                .get_mut(slot as usize)
+                .ok_or("inferred sort null slot out of range")?;
+            if !matches!(key, SortKey::Missing) {
+                return Err("inferred sort null overlaps another key".into());
             }
-            let (field, fts) = match sort.field.strip_suffix(":fts") {
-                Some(field) => (field, true),
-                None => (sort.field.as_str(), false),
-            };
-            let path = JsonFilter::parse_path(field)?;
-            // Like a `:fts` filter operand, `:fts` sorts by the full-text
-            // version: rendered when declared, otherwise normalized plain text.
-            let rendered = fts.then(|| declared_format(fields, &path).unwrap_or(TextFormat::Plain));
-            let mut current: Option<&crate::Field> = None;
-            let mut at_root = true;
-            let mut language = default_language.unwrap_or("en");
-            let mut reduce = None;
-            for step in &path {
-                let JsonPathStep::Key(name) = step else {
-                    if let Some(field) = current
-                        && matches!(step, JsonPathStep::Each | JsonPathStep::Index(_))
-                    {
-                        current = field.items.as_deref();
+            *key = SortKey::Null;
+        }
+        for (value, slots) in &index.values {
+            let key = match value {
+                ScalarKey::Number(number) if index.kind == LogicalType::Number => {
+                    SortKey::Number(number.clone())
+                }
+                ScalarKey::Bool(flag) if index.kind == LogicalType::Bool => SortKey::Bool(*flag),
+                ScalarKey::String(text) if index.kind == LogicalType::String => {
+                    let mut bytes = Vec::new();
+                    collator
+                        .as_ref()
+                        .expect("string collator")
+                        .write_sort_key_to(text, &mut bytes)
+                        .map_err(|error| error.to_string())?;
+                    let memberships = usize::try_from(slots.len())
+                        .map_err(|_| "inferred sort membership count overflow")?;
+                    let key_bytes = bytes
+                        .len()
+                        .checked_mul(memberships)
+                        .ok_or("inferred sort key size overflow")?;
+                    estimated_bytes = estimated_bytes
+                        .checked_add(key_bytes)
+                        .ok_or("inferred sort key size overflow")?;
+                    if estimated_bytes > MAX_QUERY_ORDER_BYTES {
+                        return Ok(None);
                     }
-                    continue;
-                };
-                current = if at_root {
-                    fields.get(name)
-                } else {
-                    current.and_then(|field| {
-                        field.properties.get(name).or_else(|| {
-                            field
-                                .items
-                                .as_ref()
-                                .and_then(|item| item.properties.get(name))
-                        })
-                    })
-                };
-                at_root = false;
-                if let Some(field) = current {
-                    language = field.language.as_deref().unwrap_or(language);
-                    reduce = reduce.or(field.sort_reduce);
+                    SortKey::String(bytes)
                 }
-            }
-            terms.push(Term {
-                key: TermKey::Path {
-                    path,
-                    rendered,
-                    fts,
-                },
-                direction: sort.direction,
-                reduce,
-                collator: collator(language)?,
-            });
-        }
-        Ok(Self {
-            terms,
-            relations: None,
-        })
-    }
-
-    /// JSON paths of this plan's terms.
-    pub(crate) fn paths(&self) -> Vec<JsonPath> {
-        self.terms
-            .iter()
-            .filter_map(|term| match &term.key {
-                TermKey::Path { path, .. } => Some(path.clone()),
-                TermKey::System(_) => None,
-            })
-            .collect()
-    }
-
-    pub(crate) fn has_relations(&self) -> bool {
-        self.relations.is_some()
-    }
-
-    /// Read terms that follow relations from `collection` through `context`.
-    pub(crate) fn bind_relations(&mut self, collection: &str, context: Arc<RelationContext>) {
-        for term in &mut self.terms {
-            if let TermKey::Path {
-                path,
-                rendered,
-                fts: true,
-            } = &mut term.key
-                && let Some(format) = context.rendered(collection, path)
-            {
-                *rendered = Some(format.unwrap_or(TextFormat::Plain));
-            }
-        }
-        self.relations = Some((collection.to_owned(), context));
-    }
-
-    fn reached<'a>(&'a self, data: &'a Value, path: &JsonPath) -> Vec<&'a Value> {
-        self.relations
-            .as_ref()
-            .and_then(|(collection, context)| context.values(collection, data, path, true))
-            .unwrap_or_else(|| values(data, path, true))
-    }
-
-    /// Whether projecting needs each record's validated status.
-    pub(crate) fn uses_status(&self) -> bool {
-        self.terms
-            .iter()
-            .any(|term| matches!(term.key, TermKey::System(MetadataField::Status)))
-    }
-
-    pub(crate) fn missing_keys(&self) -> Vec<SortValue> {
-        vec![SortValue::Missing; self.terms.len()]
-    }
-
-    pub(crate) fn term_count(&self) -> usize {
-        self.terms.len()
-    }
-
-    /// Project a declared sort index from serde values, for parity tests.
-    #[cfg(test)]
-    pub(crate) fn project(&self, id: &str, data: &Value) -> Result<Vec<SortValue>> {
-        self.terms
-            .iter()
-            .map(|term| match &term.key {
-                TermKey::System(MetadataField::Id) => Ok(SortValue::String(id.as_bytes().to_vec())),
-                TermKey::System(_) => Err(unindexable()),
-                TermKey::Path { path, .. } => {
-                    term.select(values(data, path, true), |value| Ok(term.value(value)))
-                }
-            })
-            .collect()
-    }
-
-    /// Project a query result, including source-file `@` fields.
-    pub(crate) fn project_record(
-        &self,
-        record: &SortRecord<'_>,
-        data: &Value,
-    ) -> Result<Vec<SortValue>> {
-        self.terms
-            .iter()
-            .map(|term| match &term.key {
-                TermKey::System(field) => Ok(record.value(*field)),
-                TermKey::Path { path, .. } => {
-                    term.select(self.reached(data, path), |value| Ok(term.value(value)))
-                }
-            })
-            .collect()
-    }
-
-    /// Project directly from the tree used by the other index projections.
-    pub(crate) fn project_sonic(&self, id: &str, data: &SonicValue) -> Result<Vec<SortValue>> {
-        let mut output = self.missing_keys();
-        self.project_sonic_into(id, data, &mut output)?;
-        Ok(output)
-    }
-
-    pub(crate) fn project_sonic_into(
-        &self,
-        id: &str,
-        data: &SonicValue,
-        output: &mut [SortValue],
-    ) -> Result<()> {
-        debug_assert_eq!(output.len(), self.terms.len());
-        for (term, target) in self.terms.iter().zip(output) {
-            *target = match &term.key {
-                TermKey::System(MetadataField::Id) => SortValue::String(id.as_bytes().to_vec()),
-                TermKey::System(_) => return Err(unindexable()),
-                TermKey::Path { path, .. } => term
-                    .select(sonic_values(data, path, true), |value| {
-                        term.value_sonic(value)
-                    })?,
+                _ => return Err("inferred sort posting type mismatch".into()),
             };
+            for slot in slots {
+                let target = keys
+                    .get_mut(slot as usize)
+                    .ok_or("inferred sort value slot out of range")?;
+                if !matches!(target, SortKey::Missing) {
+                    return Err("inferred sort value overlaps another key".into());
+                }
+                *target = key.clone();
+            }
+        }
+        if index.presence.iter().any(|slot| {
+            keys.get(slot as usize)
+                .is_none_or(|key| matches!(key, SortKey::Missing | SortKey::Unavailable))
+        }) {
+            return Err("inferred sort presence lacks a scalar key".into());
+        }
+        let mut order = Vec::with_capacity(count);
+        if index.kind == LogicalType::String {
+            order.extend(generation.records.iter().map(|record| record.slot));
+            order.sort_unstable_by(|a, b| {
+                keys[a.0 as usize]
+                    .compare_with(&keys[b.0 as usize], descending, options)
+                    .then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+            });
+        } else {
+            let mut missing = Vec::new();
+            let mut nulls = Vec::new();
+            for record in &generation.records {
+                match keys[record.slot.0 as usize] {
+                    SortKey::Missing | SortKey::Unavailable => missing.push(record.slot),
+                    SortKey::Null => nulls.push(record.slot),
+                    _ => {}
+                }
+            }
+            let by_id = |a: &RecordSlot, b: &RecordSlot| {
+                generation.records[a.0 as usize]
+                    .id
+                    .cmp(&generation.records[b.0 as usize].id)
+            };
+            missing.sort_unstable_by(by_id);
+            nulls.sort_unstable_by(by_id);
+            if options.nulls == Placement::First {
+                order.extend(&nulls);
+            }
+            if options.missing == Placement::First {
+                order.extend(&missing);
+            }
+            if descending {
+                for (_, slots) in index.values.iter().rev() {
+                    append_inferred_group(&mut order, slots, generation);
+                }
+            } else {
+                for slots in index.values.values() {
+                    append_inferred_group(&mut order, slots, generation);
+                }
+            }
+            if options.nulls == Placement::Last {
+                order.extend(&nulls);
+            }
+            if options.missing == Placement::Last {
+                order.extend(&missing);
+            }
+        }
+        if order.len() != count {
+            return Err("inferred sort order coverage mismatch".into());
+        }
+        let (ascending, descending_order) = if descending {
+            (Vec::new(), order)
+        } else {
+            (order, Vec::new())
+        };
+        Ok(Some(Self {
+            path,
+            kind: index.kind.clone(),
+            keys,
+            ascending,
+            descending: descending_order,
+            locale: locale.to_owned(),
+            options,
+            collation_version: COLLATION_VERSION.into(),
+        }))
+    }
+}
+
+fn append_inferred_group(
+    order: &mut Vec<RecordSlot>,
+    slots: &RoaringBitmap,
+    generation: &CollectionGeneration,
+) {
+    let mut group = slots.iter().map(RecordSlot).collect::<Vec<_>>();
+    group.sort_unstable_by(|a, b| {
+        generation.records[a.0 as usize]
+            .id
+            .cmp(&generation.records[b.0 as usize].id)
+    });
+    order.extend(group);
+}
+
+/// All sort columns available for a collection.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct SortCollection {
+    pub columns: HashMap<FieldPath, SortColumn>,
+    pub composites: Vec<CompositeSortOrder>,
+}
+
+/// Explicit composite order over compatible resident scalar columns.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CompositeSortOrder {
+    pub fields: Vec<CompositeSortPart>,
+    pub order: Vec<RecordSlot>,
+}
+
+/// Fixed binary identity for one resident composite constituent.
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct CompositeSortPart {
+    pub path: FieldPath,
+    pub descending: bool,
+}
+
+pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
+    let expression = field.expression.as_ref();
+    if expression.is_some_and(|expr| expr.binding.is_some() || expr.reducer.is_some()) {
+        return None;
+    }
+    Some(CompositeSortPart {
+        path: FieldPath::parse(expression.map_or(field.field.as_str(), |expr| expr.path.as_str()))
+            .ok()?,
+        descending: field.descending,
+    })
+}
+
+impl SortCollection {
+    pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
+        let normalized = fields
+            .iter()
+            .map(simple_composite_part)
+            .collect::<Option<Vec<_>>>()?;
+        self.composites
+            .iter()
+            .find(|entry| entry.fields == normalized)
+    }
+}
+
+/// Mutable keys accumulated during index construction.
+pub struct SortBuilder {
+    columns: HashMap<FieldPath, SortColumn>,
+    collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
+    composites: Vec<Vec<CompositeSortPart>>,
+}
+
+/// Construct one ICU collator for a bound sort configuration.
+pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
+    let parsed: Locale = config
+        .locale
+        .parse()
+        .map_err(|e| format!("invalid sort locale: {e}"))?;
+    let mut prefs: CollatorPreferences = parsed.into();
+    prefs.numeric_ordering = Some(if config.options.numeric {
+        CollationNumericOrdering::True
+    } else {
+        CollationNumericOrdering::False
+    });
+    let mut options = CollatorOptions::default();
+    options.strength = match config.options.strength {
+        CollationStrength::LocaleDefault => None,
+        CollationStrength::Primary => Some(Strength::Primary),
+        CollationStrength::Secondary => Some(Strength::Secondary),
+        CollationStrength::Tertiary => Some(Strength::Tertiary),
+        CollationStrength::Quaternary => Some(Strength::Quaternary),
+        CollationStrength::Identical => Some(Strength::Identical),
+    };
+    CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
+}
+
+impl SortBuilder {
+    pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
+        self.columns
+            .into_iter()
+            .map(|(path, column)| (path, column.keys))
+            .collect()
+    }
+
+    pub(crate) fn append_keys(
+        &mut self,
+        keys: HashMap<FieldPath, Vec<SortKey>>,
+        base: u32,
+        batch_count: u32,
+    ) -> Result<(), String> {
+        if self.columns.len() != keys.len() {
+            return Err("sort batch column coverage mismatch".into());
+        }
+        for (path, mut values) in keys {
+            let column = self
+                .columns
+                .get_mut(&path)
+                .ok_or("sort batch column missing")?;
+            if column.keys.len() != base as usize || values.len() != batch_count as usize {
+                return Err("sort batch key coverage mismatch".into());
+            }
+            column.keys.append(&mut values);
         }
         Ok(())
     }
 
-    pub(crate) fn compare(
-        &self,
-        a: &[SortValue],
-        a_id: &str,
-        b: &[SortValue],
-        b_id: &str,
-    ) -> Ordering {
-        self.terms
-            .iter()
-            .zip(a)
-            .zip(b)
-            .find_map(|((term, a), b)| {
-                let order = a.compare(b, term.direction);
-                (order != Ordering::Equal).then_some(order)
-            })
-            .unwrap_or_else(|| a_id.cmp(b_id))
-    }
-}
-
-
-impl Term {
-    fn select<V>(
-        &self,
-        values: Vec<&V>,
-        convert: impl Fn(&V) -> Result<SortValue>,
-    ) -> Result<SortValue> {
-        match values.len() {
-            0 => return Ok(SortValue::Missing),
-            1 => return convert(values[0]),
-            _ => {}
+    pub fn new(
+        paths: &[FieldPath],
+        schema: &Schema,
+        locale: &str,
+        defaults: SortOptions,
+        overrides: &HashMap<FieldPath, SortConfig>,
+    ) -> Result<Self, String> {
+        let mut columns = HashMap::new();
+        let mut collators = HashMap::new();
+        if overrides.keys().any(|path| !paths.contains(path)) {
+            return Err("sort override is not a configured sort field".into());
         }
-        let Some(reduce) = self.reduce else {
-            return Err(Error::Request(
-                "sorting a multivalued path requires x-sort-reduce in the schema".into(),
-            ));
-        };
-        if reduce == SortReduce::First {
-            return convert(values[0]);
-        }
-        if reduce == SortReduce::Last {
-            return convert(values[values.len() - 1]);
-        }
-        let mut values = values.into_iter();
-        let mut best = convert(values.next().expect("nonempty sort values"))?;
-        for value in values {
-            let next = convert(value)?;
-            let order = next.compare(&best, Direction::Asc);
-            // Iterator::max_by selects the last equal item; min_by keeps
-            // the first. Numeric lexemes may compare equal but serialize
-            // differently, so this tie rule preserves stored keys.
-            if (reduce == SortReduce::Min && order.is_lt())
-                || (reduce == SortReduce::Max && !order.is_lt())
+        for path in paths {
+            let config = overrides.get(path).cloned().unwrap_or_else(|| SortConfig {
+                locale: locale.into(),
+                options: defaults,
+            });
+            let collator = make_collator(&config)?;
+            collators.insert(path.clone(), collator);
+            let field = schema.field(path)?;
+            if field.multi || matches!(field.kind, LogicalType::Object | LogicalType::Array(_)) {
+                return Err(format!(
+                    "array/object sort needs explicit reduction: {}",
+                    path.display()
+                ));
+            }
+            if columns
+                .insert(
+                    path.clone(),
+                    SortColumn {
+                        path: path.clone(),
+                        kind: field.kind,
+                        keys: Vec::new(),
+                        ascending: Vec::new(),
+                        descending: Vec::new(),
+                        locale: config.locale,
+                        options: config.options,
+                        collation_version: COLLATION_VERSION.into(),
+                    },
+                )
+                .is_some()
             {
-                best = next;
+                return Err("duplicate sort field".into());
             }
         }
-        Ok(best)
-    }
-
-    fn value(&self, value: &Value) -> SortValue {
-        match value {
-            Value::Null => SortValue::Null,
-            Value::Bool(value) => SortValue::Bool(*value),
-            Value::Number(value) => SortValue::Number(value.to_string()),
-            Value::String(value) => self.string(value),
-            _ => SortValue::Invalid,
+        let mut composites = Vec::new();
+        for fields in &schema.composite_sorts {
+            let parts = fields
+                .iter()
+                .map(simple_composite_part)
+                .collect::<Option<Vec<_>>>();
+            if fields.len() < 2
+                || parts
+                    .as_ref()
+                    .is_none_or(|parts| parts.iter().any(|part| !columns.contains_key(&part.path)))
+            {
+                return Err("composite sort requires configured resident scalar fields".into());
+            }
+            composites.push(parts.unwrap());
         }
+        Ok(Self {
+            columns,
+            collators,
+            composites,
+        })
     }
 
-    /// Collate a string, after rendering it for a declared `:fts` sort.
-    fn string(&self, value: &str) -> SortValue {
-        let rendered;
-        let value = match self.key {
-            TermKey::Path {
-                rendered: Some(format),
-                ..
-            } => match crate::text::render_text(value, format) {
-                Some(text) => {
-                    rendered = text;
-                    rendered.as_str()
+    pub fn add(
+        &mut self,
+        slot: RecordSlot,
+        record: &Value,
+        entry: &RecordEntry,
+        file: &FileEntry,
+        root: &std::path::Path,
+        collection_name: &str,
+    ) -> Result<(), String> {
+        for column in self.columns.values_mut() {
+            if column.keys.len() != slot.0 as usize {
+                return Err("sort slots out of order".into());
+            }
+            let owned;
+            let selected = match column.path.root {
+                PathRoot::Metadata(field) => {
+                    let ctx = RecordContext {
+                        value: record,
+                        source_bytes: None,
+                        record: entry,
+                        file,
+                        collection_name,
+                        repository_root: root,
+                    };
+                    owned = metadata_value(field, &ctx)?;
+                    Some(smallvec::smallvec![&owned])
                 }
-                // Unparseable markup, such as malformed XML, has no rendered text.
-                None => return SortValue::Invalid,
-            },
-            _ => value,
-        };
-        let mut key = Vec::new();
-        self.collator
-            .write_sort_key_to(value, &mut key)
-            .expect("Vec accepts bytes");
-        SortValue::String(key)
+                PathRoot::Data => data_values_small(record, &column.path.segments),
+                PathRoot::Backlinks => return Err("related sort field is not registered".into()),
+            };
+            let key = match selected {
+                None => SortKey::Missing,
+                Some(values) if values.is_empty() => SortKey::Missing,
+                Some(values) if values.len() > 1 => {
+                    return Err(format!(
+                        "multi-valued sort field: {}",
+                        column.path.display()
+                    ));
+                }
+                Some(values) => match values[0] {
+                    Value::Null => SortKey::Null,
+                    Value::String(text) => {
+                        let mut key = Vec::new();
+                        self.collators[&column.path]
+                            .write_sort_key_to(text, &mut key)
+                            .map_err(|e| e.to_string())?;
+                        SortKey::String(key)
+                    }
+                    Value::Id(id) => SortKey::Id(id.clone()),
+                    Value::Number(n) => SortKey::Number(n.clone()),
+                    Value::Bool(b) => SortKey::Bool(*b),
+                    Value::Date(d) => SortKey::Date(*d),
+                    Value::Datetime(t) => SortKey::Datetime(*t),
+                    Value::Unixtime(t) => SortKey::Unixtime(*t),
+                    _ => return Err(format!("unsupported sort value: {}", column.path.display())),
+                },
+            };
+            column.keys.push(key);
+        }
+        Ok(())
     }
 
-    fn value_sonic(&self, value: &SonicValue) -> Result<SortValue> {
-        if let Some(raw) = value.as_raw_number() {
-            let number: serde_json::Number = raw
-                .as_str()
-                .parse()
-                .map_err(|error| Error::Cache(format!("cannot project sort number: {error}")))?;
-            return Ok(SortValue::Number(number.to_string()));
+    pub fn finish(mut self, generation: &CollectionGeneration) -> Result<SortCollection, String> {
+        for column in self.columns.values_mut() {
+            if column.keys.len() != generation.records.len() {
+                return Err("sort column coverage mismatch".into());
+            }
+            column.ascending = generation.records.iter().map(|r| r.slot).collect();
+            column.ascending.sort_by(|a, b| {
+                column.keys[a.0 as usize]
+                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+                    .then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+            });
+            column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
-        Ok(match value.as_ref() {
-            ValueRef::Null => SortValue::Null,
-            ValueRef::Bool(value) => SortValue::Bool(value),
-            ValueRef::String(value) => self.string(value),
-            ValueRef::Number(_) => unreachable!("raw numbers enabled"),
-            _ => SortValue::Invalid,
+        let composites = self
+            .composites
+            .into_iter()
+            .map(|fields| {
+                let columns: Vec<_> = fields
+                    .iter()
+                    .map(|field| (&self.columns[&field.path], field.descending))
+                    .collect();
+                let mut order: Vec<_> = generation
+                    .records
+                    .iter()
+                    .map(|record| record.slot)
+                    .collect();
+                order.sort_by(|a, b| {
+                    compare_composite(&columns, *a, *b).then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+                });
+                CompositeSortOrder { fields, order }
+            })
+            .collect();
+        Ok(SortCollection {
+            columns: self.columns,
+            composites,
         })
     }
 }
 
-
-fn unindexable() -> Error {
-    Error::Request("system sort fields other than @id cannot be indexed".into())
+pub(crate) fn compare_composite(
+    columns: &[(&SortColumn, bool)],
+    a: RecordSlot,
+    b: RecordSlot,
+) -> Ordering {
+    for (column, descending) in columns {
+        let order = column.keys[a.0 as usize].compare_with(
+            &column.keys[b.0 as usize],
+            *descending,
+            column.options,
+        );
+        if !order.is_eq() {
+            return order;
+        }
+    }
+    Ordering::Equal
 }
 
-fn collator(language: &str) -> Result<CollatorBorrowed<'static>> {
-    let locale: Locale = language
-        .parse()
-        .map_err(|_| Error::Request(format!("invalid sort language {language}")))?;
-    let mut options = CollatorOptions::default();
-    // Secondary strength keeps case variants together while retaining
-    // accent distinctions such as German A and Ä.
-    options.strength = Some(Strength::Secondary);
-    CollatorBorrowed::try_new(locale.into(), options)
-        .map_err(|error| Error::Request(format!("cannot use sort language {language}: {error}")))
+fn descending_order(
+    ascending: &[RecordSlot],
+    keys: &[SortKey],
+    options: SortOptions,
+) -> Vec<RecordSlot> {
+    let mut result = Vec::with_capacity(ascending.len());
+    let mut start = 0;
+    while start < ascending.len() {
+        let rank = keys[ascending[start].0 as usize].rank(options);
+        let mut end = start + 1;
+        while end < ascending.len() && keys[ascending[end].0 as usize].rank(options) == rank {
+            end += 1;
+        }
+        if rank == 0 {
+            let mut group_end = end;
+            while group_end > start {
+                let mut group_start = group_end - 1;
+                while group_start > start
+                    && keys[ascending[group_start - 1].0 as usize]
+                        .compare_with(&keys[ascending[group_end - 1].0 as usize], false, options)
+                        .is_eq()
+                {
+                    group_start -= 1;
+                }
+                result.extend_from_slice(&ascending[group_start..group_end]);
+                group_end = group_start;
+            }
+        } else {
+            result.extend_from_slice(&ascending[start..end]);
+        }
+        start = end;
+    }
+    result
 }
+
+impl SortCollection {
+    pub fn refresh_file_status(
+        &mut self,
+        generation: &CollectionGeneration,
+        inventory: &FileInventory,
+    ) {
+        for column in self.columns.values_mut() {
+            if column.path.root != PathRoot::Metadata(MetadataField::FileStatus) {
+                continue;
+            }
+            for record in &generation.records {
+                let status = inventory.files[record.file.0 as usize].status.code();
+                column.keys[record.slot.0 as usize] =
+                    SortKey::Number(Number::integer(status as i128));
+            }
+            column.ascending = generation.records.iter().map(|r| r.slot).collect();
+            column.ascending.sort_by(|a, b| {
+                column.keys[a.0 as usize]
+                    .compare_with(&column.keys[b.0 as usize], false, column.options)
+                    .then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+            });
+            column.descending = descending_order(&column.ascending, &column.keys, column.options);
+        }
+    }
+
+    pub fn column(&self, field: &str) -> Result<&SortColumn, String> {
+        let path = FieldPath::parse(field)?;
+        self.columns
+            .get(&path)
+            .ok_or_else(|| format!("sort field is not registered: {field}"))
+    }
+
+    pub fn key(&self, field: &str, slot: RecordSlot) -> Result<&SortKey, String> {
+        self.column(field)?
+            .keys
+            .get(slot.0 as usize)
+            .ok_or("sort slot out of bounds".into())
+    }
+
+    pub fn validate_request(&self, fields: &[SortField]) -> Result<(), String> {
+        for field in fields {
+            self.key(&field.field, RecordSlot(0)).or_else(|e| {
+                // An empty collection has no slot zero; the column still exists.
+                if self.columns.contains_key(&FieldPath::parse(&field.field)?) {
+                    Ok(&SortKey::Missing)
+                } else {
+                    Err(e)
+                }
+            })?;
+        }
+        Ok(())
+    }
+}
+
+#[cfg(test)]
+#[path = "sorting.test.rs"]
+mod tests;

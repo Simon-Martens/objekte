@@ -1,0 +1,24 @@
+{
+  "order": [
+    "before",
+    "after",
+    "after",
+    "before"
+  ],
+  "cases": [
+    "Q001",
+    "Q014",
+    "Q026",
+    "Q078",
+    "Q099",
+    "Q113",
+    "Q114"
+  ],
+  "profiles": [
+    "ascii-off",
+    "unicode-off"
+  ],
+  "repetitions": 11,
+  "old_revision": "20261604bebf949131441c8262f1f442bce4207c",
+  "new_revision": "ff759b225c6bc4bfdd614c542fe38fe017a900b6"
+}

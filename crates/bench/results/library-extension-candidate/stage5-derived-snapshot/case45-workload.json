@@ -1,7 +1,0 @@
-[
-  {
-    "id": 1,
-    "kind": "item string AND boolean",
-    "filter": "owner = 'Theodor Springmann Stiftung' && basis = true"
-  }
-]

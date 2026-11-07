@@ -1,0 +1,21 @@
+   Compiling objekte-search-core v0.1.0 (/home/simon/source/objekte/core)
+    Finished `release` profile [optimized] target(s) in 0.45s
+     Running `target/release/examples/measure_custom_musenalm with 1`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm without 1`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm without 2`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm with 2`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm with 3`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm without 3`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm without 4`
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `target/release/examples/measure_custom_musenalm with 4`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm with 5`
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/measure_custom_musenalm without 5`

@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "preferred_title": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer",
+      "index": true
+    },
+    "edit_state": {
+      "type": "string",
+      "index": true
+    },
+    "pseudonym": {
+      "type": "boolean",
+      "index": true
+    }
+  }
+}

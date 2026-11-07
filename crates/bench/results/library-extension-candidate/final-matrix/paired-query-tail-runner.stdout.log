@@ -1,9 +1,0 @@
-sort-original pair 1/1 reference
-sort-original pair 1/1 candidate
-validated sort-original: 50 signatures and 1 pair(s)
-sort-relevant pair 1/1 candidate
-sort-relevant pair 1/1 reference
-validated sort-relevant: 50 signatures and 1 pair(s)
-json-grep pair 1/1 reference
-json-grep pair 1/1 candidate
-validated json-grep: 16 signatures and 1 pair(s)

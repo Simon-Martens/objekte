@@ -1,0 +1,66 @@
+{
+  "observation": "host policy checked before and after the paired runs; individual blocks retain their command and code revision in run-manifest.json",
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "affinity_after": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "governor_after": "performance",
+  "build_flags": {},
+  "configuration": {
+    "order": [
+      "before",
+      "after",
+      "after",
+      "before"
+    ],
+    "cases": [
+      "Q001",
+      "Q014",
+      "Q026",
+      "Q078",
+      "Q099",
+      "Q113",
+      "Q114"
+    ],
+    "profiles": [
+      "ascii-off",
+      "unicode-off"
+    ],
+    "repetitions": 11,
+    "old_revision": "20261604bebf949131441c8262f1f442bce4207c",
+    "new_revision": "ff759b225c6bc4bfdd614c542fe38fe017a900b6"
+  }
+}

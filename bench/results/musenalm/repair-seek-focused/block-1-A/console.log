@@ -1,0 +1,7 @@
+Q006 collection=* FTS=Some("ü") FILTER=None sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 200367.804 / 232486.169 / 240547.647 µs (ok)
+Q025 collection=contents FTS=Some("Lied") FILTER=None sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 84835.691 / 106691.906 / 129883.632 µs (ok)
+Q099 collection=contents FTS=None FILTER=Some("musenalm_type ?~ \"Lied\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 2185.452 / 3432.207 / 6196.794 µs (ok)
+Q116 collection=contents FTS=None FILTER=Some("contributors:length > 0") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 98033.691 / 117603.608 / 132588.171 µs (ok)
+build "ascii": 11.345 s; snapshot_write=0.516 s; parses=148486; resident_bytes=264032256; peak_resident_bytes=357134336; estimated_index_bytes=68548708; snapshot_bytes=111176829; restore_min/median/max=0.598/0.617/0.666 s (5 runs)
+reports: /home/simon/source/objekte/bench/results/musenalm/repair-seek-focused/block-1-A
+reproduce: cargo run --release --example bench_musenalm -- "--root" "/home/simon/source/objekte/examples/musenalm" "--cases" "Q006,Q025,Q116,Q099" "--profiles" "ascii-off" "--repetitions" "11" "--query-workers" "32" "--result-dir" "/home/simon/source/objekte/bench/results/musenalm/repair-seek-focused/block-1-A"

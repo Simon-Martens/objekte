@@ -1,0 +1,3 @@
+alphabet,before_revision,after_revision,before_median_ms,after_median_ms,difference_ms,before_range_ms,after_range_ms,before_extraction_ms,after_extraction_ms,before_peak_rss_mib,after_peak_rss_mib,records,schema_digest
+ascii,bf8790634e,4f2cb8e85b,8241.963,5455.706,-2786.257,8201.124–8248.131,5413.208–5480.294,7866.212,5075.332,237.7,237.7,148486,38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9
+unicode,bf8790634e,4f2cb8e85b,8312.993,6208.42,-2104.573,8305.793–8333.457,6193.517–6298.016,7922.896,5827.198,243.7,243.1,148486,38f2dc5112146aa6ac0514291c76eaeb741421fa8a4624e50fa83c4c0a449bf9

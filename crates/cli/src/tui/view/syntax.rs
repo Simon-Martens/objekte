@@ -8,7 +8,6 @@ const KEYWORDS: [&str; 9] = [
     "SORT", "BY", "ASC", "DESC", "exists", "missing", "true", "false", "null",
 ];
 
-
 /// One style per character of `text`.
 pub(super) fn filter_styles(text: &str) -> Vec<Style> {
     let chars = text.chars().collect::<Vec<_>>();
@@ -75,6 +74,7 @@ pub(super) fn filter_styles(text: &str) -> Vec<Style> {
 }
 
 /// The character an error message points at, from `… at byte N: …`.
+#[cfg(test)]
 pub(super) fn error_position(text: &str, error: &str) -> Option<usize> {
     let rest = &error[error.find("at byte ")? + "at byte ".len()..];
     let digits = rest
@@ -88,7 +88,6 @@ pub(super) fn error_position(text: &str, error: &str) -> Option<usize> {
             .count(),
     )
 }
-
 
 #[cfg(test)]
 #[path = "syntax.test.rs"]

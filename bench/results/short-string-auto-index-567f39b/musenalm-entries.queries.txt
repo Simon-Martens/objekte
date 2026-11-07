@@ -1,0 +1,6 @@
+preferred_title ~ 'Goethe'
+year >= 1800 && year < 1810
+edit_state = 'Edited'
+pseudonym = true
+year >= 1800 SORT BY year DESC
+"Goethe"

@@ -1,0 +1,15 @@
+[
+  {
+    "id": "Q071",
+    "collection": "entries",
+    "fts": null,
+    "filter": "preferred_title ~ \"Almanach\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

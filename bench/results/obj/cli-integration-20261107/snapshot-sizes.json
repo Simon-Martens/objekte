@@ -1,0 +1,20 @@
+{
+  "cli-measurements/snapshot-ascii-general/search-core-ascii.snapshot": 10287,
+  "cli-measurements/snapshot-ascii-large/search-core-ascii.snapshot": 252928,
+  "cli-measurements/snapshot-unicode-general/search-core-unicode.snapshot": 10629,
+  "cli-measurements/snapshot-unicode-large/search-core-unicode.snapshot": 252928,
+  "cli-measurements-singlepass/snapshot-ascii-general/search-core-ascii.snapshot": 10287,
+  "cli-measurements-singlepass/snapshot-ascii-large/search-core-ascii.snapshot": 252928,
+  "cli-measurements-singlepass/snapshot-unicode-general/search-core-unicode.snapshot": 10629,
+  "cli-measurements-singlepass/snapshot-unicode-large/search-core-unicode.snapshot": 252928,
+  "entries-singlepass-snapshot-ascii/search-core-ascii.snapshot": 6963092,
+  "entries-singlepass-snapshot-unicode/search-core-unicode.snapshot": 7130066,
+  "entries-snapshot-ascii/search-core-ascii.snapshot": 6963092,
+  "entries-snapshot-unicode/search-core-unicode.snapshot": 7130066,
+  "cli-measurements-45084cd/snapshot-ascii-general/search-core-ascii.snapshot": 10287,
+  "cli-measurements-45084cd/snapshot-ascii-large/search-core-ascii.snapshot": 252928,
+  "cli-measurements-45084cd/snapshot-unicode-general/search-core-unicode.snapshot": 10629,
+  "cli-measurements-45084cd/snapshot-unicode-large/search-core-unicode.snapshot": 252928,
+  "entries-45084cd-snapshot-ascii/search-core-ascii.snapshot": 6963092,
+  "entries-45084cd-snapshot-unicode/search-core-unicode.snapshot": 7130066
+}

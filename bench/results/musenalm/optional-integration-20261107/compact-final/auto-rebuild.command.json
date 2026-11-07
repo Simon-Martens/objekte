@@ -1,0 +1,18 @@
+[
+  "/home/simon/source/objekte-optional-indexing-sorting-streaming/target/release/examples/bench_optional_features",
+  "--root",
+  "/tmp/objekte-optional-bench-3gfj610l",
+  "--alphabet",
+  "ascii",
+  "--inference",
+  "auto",
+  "--snapshot-mode",
+  "rebuild",
+  "--build-workers",
+  "auto",
+  "--verified-cache-bytes",
+  "0",
+  "--query-workers",
+  "32",
+  "--skip-queries"
+]

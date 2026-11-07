@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+"""Compare obj FTS membership with an independent JSON scalar-value walk."""
+
+import argparse
+import json
+import subprocess
+from dataclasses import dataclass
+from pathlib import Path
+
+
+@dataclass
+class NumberToken:
+    text: str
+
+
+@dataclass
+class ObjectPairs:
+    pairs: list
+
+
+NEEDLES = (
+    "Goethe",
+    "first occurrence",
+    "last occurrence",
+    "Gründe",
+    "true",
+    "null",
+    "123",
+    "1e1000000",
+    "a root string",
+    "punctuation",
+    "title",  # A property name alone must not satisfy whole-file FTS.
+    "text123",  # Adjacent scalar values must not become one segment.
+)
+
+STRUCTURED = (
+    ('@root[0] = "first"', {"array.json"}),
+    ('@root = "a root string"', {"string.json", "empty-array.json"}),
+    ('@root :null', {"null.json"}),
+    ('@root = true', {"boolean.json", "empty-array.json"}),
+    ('@root = 123', {"number.json", "empty-array.json"}),
+    ('@root["a.b"] = "punctuation"', {"nested/punctuation.json", "empty-array.json"}),
+    ('@root[""] = 42', {"nested/punctuation.json", "empty-array.json"}),
+    ('v = "last occurrence"', {"duplicate.json", "empty-array.json"}),
+    ('v = "first occurrence"', {"empty-array.json"}),
+    ('huge = 1e1000000', {"exceptional.json", "empty-array.json"}),
+)
+
+
+def scalar_texts(value):
+    if isinstance(value, ObjectPairs):
+        for _, member in value.pairs:
+            yield from scalar_texts(member)
+    elif isinstance(value, list):
+        for member in value:
+            yield from scalar_texts(member)
+    elif isinstance(value, NumberToken):
+        yield value.text
+    elif isinstance(value, str):
+        yield value
+    elif value is True:
+        yield "true"
+    elif value is False:
+        yield "false"
+    elif value is None:
+        yield "null"
+    else:
+        raise AssertionError(type(value))
+
+
+def expected_membership(root: Path, needle: str) -> set[str]:
+    result = set()
+    for path in root.rglob("*.json"):
+        relative = path.relative_to(root)
+        if any(part in {".git", ".objekte"} for part in relative.parts[:-1]):
+            continue
+        try:
+            value = json.loads(
+                path.read_text(),
+                parse_int=NumberToken,
+                parse_float=NumberToken,
+                object_pairs_hook=ObjectPairs,
+            )
+        except (UnicodeError, json.JSONDecodeError):
+            # The fixture's malformed file follows the raw-fallback contract;
+            # none of these selected needles occur in its raw bytes.
+            assert needle not in path.read_bytes().decode("utf-8", "replace")
+            continue
+        if any(needle in scalar for scalar in scalar_texts(value)):
+            result.add("path:" + relative.as_posix())
+    return result
+
+
+def observed_membership(
+    binary: Path, root: Path, argument: str, alphabet: str, *, fts: bool
+) -> set[str]:
+    query_args = ["--fts", argument] if fts else [argument]
+    process = subprocess.run(
+        [str(binary), "--path", str(root), "--index-alphabet", alphabet, *query_args],
+        capture_output=True,
+        check=False,
+    )
+    if process.returncode:
+        raise AssertionError((argument, process.returncode, process.stderr.decode()))
+    events = [json.loads(line) for line in process.stdout.splitlines()]
+    assert events[-1]["type"] == "run_complete"
+    query = [event for event in events if event["type"] == "query_complete"]
+    assert len(query) == 1 and query[0]["total_exact"] is True
+    hits = [event for event in events if event["type"] == "hit"]
+    assert query[0]["exact_total"] == len(hits)
+    return {event["file"]["record_id"] for event in hits}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--binary", type=Path, required=True)
+    parser.add_argument("--root", type=Path, required=True)
+    args = parser.parse_args()
+    failures = 0
+    for alphabet in ("ascii", "unicode"):
+        for needle in NEEDLES:
+            expected = expected_membership(args.root, needle)
+            observed = observed_membership(
+                args.binary.resolve(), args.root.resolve(), needle, alphabet, fts=True
+            )
+            status = "PASS" if expected == observed else "FAIL"
+            print(
+                f"{status}\t{alphabet}\t{needle!r}\t"
+                f"expected={len(expected)}\tobserved={len(observed)}"
+            )
+            if expected != observed:
+                print(f"  missing={sorted(expected - observed)} extra={sorted(observed - expected)}")
+                failures += 1
+        for expression, expected in STRUCTURED:
+            expected = {"path:" + relative for relative in expected}
+            observed = observed_membership(
+                args.binary.resolve(), args.root.resolve(), expression, alphabet, fts=False
+            )
+            status = "PASS" if expected == observed else "FAIL"
+            print(
+                f"{status}\t{alphabet}\t{expression!r}\t"
+                f"expected={len(expected)}\tobserved={len(observed)}"
+            )
+            if expected != observed:
+                print(f"  missing={sorted(expected - observed)} extra={sorted(observed - expected)}")
+                failures += 1
+    if failures:
+        raise SystemExit(f"{failures} independent scalar oracle mismatches")
+
+
+if __name__ == "__main__":
+    main()

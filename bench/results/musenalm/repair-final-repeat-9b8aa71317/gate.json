@@ -1,0 +1,218 @@
+{
+  "mode": "full",
+  "expected_samples": 3000,
+  "jq_count_baseline": "/home/simon/source/objekte/bench/baselines/musenalm-jq-counts.json",
+  "comparison": "repair",
+  "baseline_code_revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "actual_code_revision": "9b8aa7131705d755c8ccebeefd7b9edf596ce9b2",
+  "build_flags": {},
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
+  ],
+  "actual_samples": 3000,
+  "baseline": "/home/simon/source/objekte/bench/results/musenalm/final-92cdb92b19",
+  "result_dir": "/home/simon/source/objekte/bench/results/musenalm/repair-final-repeat-9b8aa71317",
+  "same_machine": true,
+  "aggregate_latency_ratio": 0.8831372388312855,
+  "thresholds": {
+    "per_case_relative": 1.5,
+    "per_case_absolute_ns": 2000000,
+    "aggregate_relative": 1.25
+  },
+  "confirmations": [],
+  "worst_slowdowns": [
+    {
+      "ratio": 5.5676465980888725,
+      "case": "Q057",
+      "profile": "unicode-warm",
+      "baseline_ns": 19151,
+      "actual_ns": 106626
+    },
+    {
+      "ratio": 3.6340845070422536,
+      "case": "Q059",
+      "profile": "unicode-warm",
+      "baseline_ns": 21300,
+      "actual_ns": 77406
+    },
+    {
+      "ratio": 2.8726219217769193,
+      "case": "Q015",
+      "profile": "ascii-warm",
+      "baseline_ns": 62130,
+      "actual_ns": 178476
+    },
+    {
+      "ratio": 2.8627565223020652,
+      "case": "Q037",
+      "profile": "unicode-warm",
+      "baseline_ns": 15447,
+      "actual_ns": 44221
+    },
+    {
+      "ratio": 2.783398580866161,
+      "case": "Q036",
+      "profile": "unicode-warm",
+      "baseline_ns": 16348,
+      "actual_ns": 45503
+    },
+    {
+      "ratio": 2.3699851411589896,
+      "case": "Q033",
+      "profile": "unicode-off",
+      "baseline_ns": 90855,
+      "actual_ns": 215325
+    },
+    {
+      "ratio": 2.3150326797385623,
+      "case": "Q070",
+      "profile": "unicode-warm",
+      "baseline_ns": 2295,
+      "actual_ns": 5313
+    },
+    {
+      "ratio": 2.2987196665177905,
+      "case": "Q038",
+      "profile": "unicode-warm",
+      "baseline_ns": 13434,
+      "actual_ns": 30881
+    },
+    {
+      "ratio": 2.29009391093608,
+      "case": "Q035",
+      "profile": "unicode-warm",
+      "baseline_ns": 16505,
+      "actual_ns": 37798
+    },
+    {
+      "ratio": 2.2048761305544633,
+      "case": "Q024",
+      "profile": "unicode-warm",
+      "baseline_ns": 22887,
+      "actual_ns": 50463
+    },
+    {
+      "ratio": 2.1727178423236513,
+      "case": "Q067",
+      "profile": "unicode-warm",
+      "baseline_ns": 1928,
+      "actual_ns": 4189
+    },
+    {
+      "ratio": 2.0596732718196944,
+      "case": "Q032",
+      "profile": "unicode-off",
+      "baseline_ns": 13222,
+      "actual_ns": 27233
+    },
+    {
+      "ratio": 2.0338913115094615,
+      "case": "Q096",
+      "profile": "ascii-off",
+      "baseline_ns": 6046712,
+      "actual_ns": 12298355
+    },
+    {
+      "ratio": 1.967912810625904,
+      "case": "Q073",
+      "profile": "ascii-off",
+      "baseline_ns": 1162894,
+      "actual_ns": 2288474
+    },
+    {
+      "ratio": 1.8795923190482768,
+      "case": "Q113",
+      "profile": "ascii-off",
+      "baseline_ns": 3706624,
+      "actual_ns": 6966942
+    },
+    {
+      "ratio": 1.8422971330842972,
+      "case": "Q001",
+      "profile": "unicode-warm",
+      "baseline_ns": 22219,
+      "actual_ns": 40934
+    },
+    {
+      "ratio": 1.8267533673943335,
+      "case": "Q068",
+      "profile": "unicode-warm",
+      "baseline_ns": 2153,
+      "actual_ns": 3933
+    },
+    {
+      "ratio": 1.8239087301587302,
+      "case": "Q039",
+      "profile": "unicode-warm",
+      "baseline_ns": 2016,
+      "actual_ns": 3677
+    },
+    {
+      "ratio": 1.80622247478335,
+      "case": "Q045",
+      "profile": "unicode-warm",
+      "baseline_ns": 7039,
+      "actual_ns": 12714
+    },
+    {
+      "ratio": 1.7234830940250117,
+      "case": "Q062",
+      "profile": "unicode-warm",
+      "baseline_ns": 2159,
+      "actual_ns": 3721
+    }
+  ],
+  "failures": [
+    "('Q055', 'ascii-off'): 10.874 ms exceeds 6.540 ms baseline",
+    "('Q096', 'ascii-off'): 12.298 ms exceeds 6.047 ms baseline",
+    "('Q113', 'ascii-off'): 6.967 ms exceeds 3.707 ms baseline",
+    "('Q119', 'ascii-off'): 15.442 ms exceeds 9.907 ms baseline"
+  ],
+  "command": [
+    "cargo",
+    "run",
+    "--release",
+    "--example",
+    "bench_musenalm",
+    "--",
+    "--profiles",
+    "ascii-off,ascii-warm,unicode-off,unicode-warm",
+    "--repetitions",
+    "5",
+    "--result-dir",
+    "/home/simon/source/objekte/bench/results/musenalm/repair-final-repeat-9b8aa71317"
+  ]
+}

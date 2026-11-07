@@ -1,7 +1,0 @@
-allocation:sequence budget=64 MiB pair=1 passed
-allocation:sequence budget=64 MiB pair=2 passed
-allocation:sequence budget=64 MiB pair=3 passed
-allocation:sequence budget=64 MiB pair=4 passed
-allocation:sequence budget=64 MiB pair=5 passed
-allocation:sequence budget=64 MiB pair=6 passed
-allocation:sequence budget=64 MiB pair=7 passed

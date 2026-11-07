@@ -1,0 +1,30 @@
+{
+  "revision": "92cdb92b19200cb0005af23b66aeb3cd1b514c4b",
+  "samples": 3000,
+  "sample_statuses_ok": true,
+  "query_rows": 600,
+  "plans": 600,
+  "same_corpus_schema_workload_fingerprints": true,
+  "same_resolved_queries": true,
+  "same_registrations": true,
+  "same_compiler_workers_cache_configuration": true,
+  "counts_match_jq_and_page_sizes_match_before": true,
+  "verified_hits_by_profile": {
+    "ascii-warm": 750,
+    "unicode-warm": 750
+  },
+  "build_parses_by_alphabet": {
+    "ascii": 148486,
+    "unicode": 148486
+  },
+  "timing_gate_failures": [
+    "schema_fingerprint differs from baseline",
+    "workload_fingerprint differs from baseline",
+    "('Q014', 'unicode-off'): 18.169 ms exceeds 11.814 ms baseline",
+    "('Q099', 'unicode-off'): 14.712 ms exceeds 8.249 ms baseline",
+    "('Q148', 'ascii-off'): 8.500 ms exceeds 5.395 ms baseline",
+    "('Q148', 'unicode-off'): 9.472 ms exceeds 5.546 ms baseline"
+  ],
+  "correctness_pass": true,
+  "registration_order_note": "indexed_paths originate from a hash map; compared as sets within each collection"
+}

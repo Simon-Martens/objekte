@@ -1,0 +1,6 @@
+{
+  "baseline_revision": "128a7601c2defec3fd9f5dbb851fb2a4303f7f9a",
+  "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900K",
+  "architecture": "x86_64",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)"
+}

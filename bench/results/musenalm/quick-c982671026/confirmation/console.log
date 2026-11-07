@@ -1,0 +1,6 @@
+    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `target/release/examples/bench_musenalm --cases Q071 --profiles ascii-off --repetitions 3 --result-dir /home/simon/source/objekte/bench/results/musenalm/quick-c982671026/confirmation`
+Q071 collection=entries FTS=None FILTER=Some("preferred_title ~ \"Almanach\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 4030.863 / 4170.031 / 5107.379 µs (ok)
+build "ascii": 14.122 s; snapshot_write=0.294 s; parses=148486; resident_bytes=253779968; peak_resident_bytes=340361216; estimated_index_bytes=68548708; snapshot_bytes=106726293; restore_min/median/max=0.542/0.550/0.566 s (5 runs)
+reports: /home/simon/source/objekte/bench/results/musenalm/quick-c982671026/confirmation
+reproduce: cargo run --release --example bench_musenalm -- "--cases" "Q071" "--profiles" "ascii-off" "--repetitions" "3" "--result-dir" "/home/simon/source/objekte/bench/results/musenalm/quick-c982671026/confirmation"
