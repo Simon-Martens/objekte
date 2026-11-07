@@ -4446,17 +4446,13 @@ fn search_impl_with_collector<'a>(
         }
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
+        let has_related_sort = sort.bound.terms.iter().flatten().flatten().any(|term| {
+            matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
+        });
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
         let base_chunk_size = if sort.bound.has_computed {
-            let has_related = sort.bound.terms.iter().flatten().flatten().any(|term| {
-                matches!(&term.source, BoundSortSource::Computed(computed) if computed.related.is_some())
-            });
-            if has_related {
-                1
-            } else {
-                repo.options.query_workers.clamp(1, 8)
-            }
+            repo.options.query_workers.clamp(1, 8)
         } else if query.options.return_mode == ReturnMode::Locator || query.options.limit == 0 {
             256
         } else {
@@ -4490,8 +4486,13 @@ fn search_impl_with_collector<'a>(
                             .saturating_add(external),
                     )
                     .ok_or("computed sort memory budget exceeded")?;
+                let parallel_available = available.saturating_sub(if has_related_sort {
+                    targets.reserve_headroom()
+                } else {
+                    0
+                });
                 while group_size > 1 {
-                    let share = available / (group_size as u64 * 2);
+                    let share = parallel_available / (group_size as u64 * 2);
                     if files[file_cursor..file_cursor + group_size]
                         .iter()
                         .all(|(_, ranges)| ranges.iter().all(|(_, range)| range.len() <= share))
@@ -4554,7 +4555,12 @@ fn search_impl_with_collector<'a>(
                 let share = if chunk.len() == 1 {
                     available
                 } else {
-                    available / (chunk.len() as u64 * 2)
+                    let parallel_available = available.saturating_sub(if has_related_sort {
+                        targets.reserve_headroom()
+                    } else {
+                        0
+                    });
+                    parallel_available / (chunk.len() as u64 * 2)
                 };
                 if share == 0 {
                     return Err("computed sort memory budget exceeded".into());
