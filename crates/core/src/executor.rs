@@ -1,6 +1,6 @@
 //! Exact posting restrictions plus one residual scan over surviving records.
 
-use std::collections::BTreeMap;
+use std::collections::{BTreeMap, HashMap};
 
 use roaring::RoaringBitmap;
 
@@ -66,6 +66,86 @@ pub struct TermChoice {
 }
 
 
+/// Work done to choose and execute access paths for one filter expression.
+#[derive(Clone, Copy, Debug, Default, Serialize)]
+pub struct PlanningCounters {
+    pub term_estimation_calls: u64,
+    pub dictionary_keys_visited: u64,
+    pub candidate_bitmap_builds: u64,
+    pub reused_term_estimates: u64,
+    pub reused_order_plans: u64,
+}
+
+
+#[derive(Default)]
+struct PlanContext {
+    paths: HashMap<usize, Vec<AccessPathEstimate>>,
+    counters: PlanningCounters,
+    diagnostics: bool,
+}
+
+
+impl PlanContext {
+    fn paths(
+        &mut self,
+        collection: &CollectionState,
+        term: &BoundTerm,
+        input_len: u64,
+    ) -> Vec<AccessPathEstimate> {
+        let key = term as *const BoundTerm as usize;
+        if let Some(paths) = self.paths.get(&key) {
+            self.counters.reused_term_estimates += 1;
+            return rescore_paths(collection, term, paths, input_len);
+        }
+        self.counters.term_estimation_calls += 1;
+        let paths = enumerate_paths(
+            collection,
+            term,
+            input_len,
+            &mut self.counters.dictionary_keys_visited,
+        );
+        self.paths.insert(key, paths.clone());
+        paths
+    }
+}
+
+
+fn rescore_paths(
+    collection: &CollectionState,
+    term: &BoundTerm,
+    paths: &[AccessPathEstimate],
+    input_len: u64,
+) -> Vec<AccessPathEstimate> {
+    let stats = collection.stats;
+    let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
+    paths
+        .iter()
+        .map(|original| {
+            let mut path = original.clone();
+            let original_unit = if path.exact { 0.02 } else { source_unit };
+            let lookup = path.estimated_work - path.estimated_output as f64 * original_unit;
+            path.estimated_output = match path.kind {
+                AccessPathKind::Scanner => input_len,
+                AccessPathKind::Dictionary | AccessPathKind::SortColumn => input_len / 4,
+                AccessPathKind::Metadata
+                    if term.path.root == PathRoot::Metadata(MetadataField::RecordId)
+                        && term.operator == Operator::Eq =>
+                {
+                    input_len.min(1)
+                }
+                AccessPathKind::Metadata => input_len / 2,
+                _ => path.estimated_output.min(input_len),
+            };
+            path.estimated_work = lookup + path.estimated_output as f64 * original_unit;
+            path.estimated_files = (path.estimated_output as f64
+                / stats.mean_records_per_file().max(1.0))
+            .min(stats.file_count as f64);
+            path.estimated_bytes = path.estimated_output as f64 * stats.mean_record_bytes();
+            path
+        })
+        .collect()
+}
+
 fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivity> {
     (matches!(term.kind, LogicalType::String | LogicalType::Unknown)
         && matches!(term.literal, Value::String(_))
@@ -80,7 +160,7 @@ fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivi
 fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
     match expr {
         BoundExpr::Term(term) => {
-            let mut paths = enumerate_paths(collection, term, 0);
+            let mut paths = enumerate_paths(collection, term, 0, &mut 0);
             paths.sort_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work));
             let selected = paths.remove(0);
             output.push(TermChoice {
@@ -276,6 +356,7 @@ pub(crate) struct Plan {
     pub proofs: Vec<Proof>,
     pub choices: Vec<TermChoice>,
     pub semijoin_work: crate::relation_semijoin::SemijoinWork,
+    pub planning: PlanningCounters,
 }
 
 
@@ -477,6 +558,7 @@ fn enumerate_paths(
     collection: &CollectionState,
     term: &BoundTerm,
     input_len: u64,
+    dictionary_keys_visited: &mut u64,
 ) -> Vec<AccessPathEstimate> {
     let stats = collection.stats;
     let source_unit = 30.0 + stats.mean_record_bytes() / 128.0;
@@ -571,9 +653,11 @@ fn enumerate_paths(
             collection.postings.fields.get(&term.path.segments)
         };
         if let Some(index) = index.filter(|_| !term.query_path.has_position) {
-            if let Some((lookup, output)) =
-                index.estimate_exact(term, collection.logical_records.len())
-            {
+            if let Some((lookup, output)) = index.estimate_exact_with_visits(
+                term,
+                collection.logical_records.len(),
+                dictionary_keys_visited,
+            ) {
                 add(AccessPathKind::Posting, true, lookup, output);
             }
             if term.kind == LogicalType::String
@@ -594,29 +678,12 @@ fn enumerate_paths(
             }
         }
         if let Some(inference) = &collection.inference {
-            if let Some((candidates, exact)) = inference.candidates(
+            if let Some((lookup, output, exact)) = inference.estimate_candidates(
                 term,
                 &collection.logical_records,
-                &collection.logical_records,
+                dictionary_keys_visited,
             ) {
-                let lookup = inference
-                    .indexes
-                    .get(&term.path.segments)
-                    .map_or(1.0, |index| {
-                        if term.operator == Operator::Eq {
-                            1.0
-                        } else if inference.short_string_coverage.contains_key(&term.path.segments) {
-                            (index.values.len() as f64).log2().max(1.0) + 1.0
-                        } else {
-                            index.values.len() as f64
-                        }
-                    });
-                add(
-                    AccessPathKind::InferredPosting,
-                    exact,
-                    lookup,
-                    candidates.len(),
-                );
+                add(AccessPathKind::InferredPosting, exact, lookup, output);
             }
         }
         if term.derived == Derived::None
@@ -670,12 +737,9 @@ fn enumerate_paths(
                         {
                             let structural_count = empty_selection_preservation(term)
                                 .then_some(collection.empty_array_records.len());
-                            let output = if structural_count.is_some() {
-                                raw_bigram_candidates(collection, term)
-                                    .map_or(input_len, |set| set.len())
-                            } else {
-                                gram_count
-                            };
+                            let output = gram_count
+                                .saturating_add(structural_count.unwrap_or(0))
+                                .min(input_len);
                             add(
                                 AccessPathKind::RawBigram,
                                 false,
@@ -813,21 +877,31 @@ pub(crate) fn estimate_expr(
     expr: &BoundExpr,
     input_len: u64,
 ) -> (f64, u64) {
+    estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
+}
+
+fn estimate_expr_cached(
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    input_len: u64,
+    context: &mut PlanContext,
+) -> (f64, u64) {
     match expr {
-        BoundExpr::Term(term) => enumerate_paths(collection, term, input_len)
+        BoundExpr::Term(term) => context
+            .paths(collection, term, input_len)
             .into_iter()
             .min_by(|a, b| a.estimated_work.total_cmp(&b.estimated_work))
             .map(|p| (p.estimated_work, p.estimated_output))
             .unwrap_or((input_len as f64, input_len)),
         BoundExpr::And(parts) => parts
             .iter()
-            .map(|p| estimate_expr(collection, p, input_len))
+            .map(|p| estimate_expr_cached(collection, p, input_len, context))
             .min_by(|a, b| a.0.total_cmp(&b.0))
             .unwrap_or((0.0, input_len)),
         BoundExpr::Or(parts) => {
             let estimates: Vec<_> = parts
                 .iter()
-                .map(|p| estimate_expr(collection, p, input_len))
+                .map(|p| estimate_expr_cached(collection, p, input_len, context))
                 .collect();
             (
                 estimates.iter().map(|e| e.0).sum(),
@@ -835,7 +909,7 @@ pub(crate) fn estimate_expr(
             )
         }
         BoundExpr::Not(inner) => {
-            let (work, _) = estimate_expr(collection, inner, input_len);
+            let (work, _) = estimate_expr_cached(collection, inner, input_len, context);
             (work, input_len / 2)
         }
     }
@@ -859,6 +933,55 @@ pub(crate) fn plan_expr_restricted(
     input: &RoaringBitmap,
     evidence: bool,
 ) -> Result<Plan, String> {
+    plan_expr_restricted_with_diagnostics(repo, collection, expr, domain, input, evidence, true)
+}
+
+pub(crate) fn plan_expr_restricted_compact(
+    repo: &Repository,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    input: &RoaringBitmap,
+    evidence: bool,
+) -> Result<Plan, String> {
+    plan_expr_restricted_with_diagnostics(repo, collection, expr, domain, input, evidence, false)
+}
+
+fn plan_expr_restricted_with_diagnostics(
+    repo: &Repository,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    input: &RoaringBitmap,
+    evidence: bool,
+    diagnostics: bool,
+) -> Result<Plan, String> {
+    let mut context = PlanContext {
+        diagnostics,
+        ..PlanContext::default()
+    };
+    let mut plan = plan_expr_restricted_inner(
+        repo,
+        collection,
+        expr,
+        domain,
+        input,
+        evidence,
+        &mut context,
+    )?;
+    plan.planning = context.counters;
+    Ok(plan)
+}
+
+fn plan_expr_restricted_inner(
+    repo: &Repository,
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    domain: &RoaringBitmap,
+    input: &RoaringBitmap,
+    evidence: bool,
+    context: &mut PlanContext,
+) -> Result<Plan, String> {
     if input.is_empty() {
         return Ok(Plan {
             candidates: Some(RoaringBitmap::new()),
@@ -867,10 +990,11 @@ pub(crate) fn plan_expr_restricted(
             proofs: Vec::new(),
             choices: Vec::new(),
             semijoin_work: Default::default(),
+            planning: PlanningCounters::default(),
         });
     }
     if collection.logical_records.len() == collection.generation.records.len() as u64 {
-        let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence)?;
+        let mut plan = plan_logical_expr(repo, collection, expr, domain, input, evidence, context)?;
         if !collection.relations.is_empty() {
             crate::relation_semijoin::restrict(repo, expr, input, &mut plan)?;
         }
@@ -886,6 +1010,7 @@ pub(crate) fn plan_expr_restricted(
             proofs: Vec::new(),
             choices: Vec::new(),
             semijoin_work: Default::default(),
+            planning: PlanningCounters::default(),
         }
     } else {
         plan_logical_expr(
@@ -895,6 +1020,7 @@ pub(crate) fn plan_expr_restricted(
             &collection.logical_records,
             &logical_input,
             evidence,
+            context,
         )?
     };
     let mut candidates = logical.candidates.take().unwrap_or(logical_input);
@@ -919,16 +1045,19 @@ fn plan_logical_expr(
     domain: &RoaringBitmap,
     input: &RoaringBitmap,
     evidence: bool,
+    context: &mut PlanContext,
 ) -> Result<Plan, String> {
     Ok(match expr {
         BoundExpr::Term(term) => {
-            let mut paths = enumerate_paths(collection, term, input.len());
+            let mut paths = context.paths(collection, term, input.len());
             paths.sort_by(|a, b| {
                 a.estimated_work
                     .total_cmp(&b.estimated_work)
                     .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
             });
             let selected = paths.remove(0);
+            context.counters.candidate_bitmap_builds +=
+                u64::from(selected.kind != AccessPathKind::Scanner);
             let candidates = execute_path(repo, collection, term, domain, input, selected.kind)?
                 .map(|set| {
                     if matches!(
@@ -955,75 +1084,77 @@ fn plan_logical_expr(
                 })
                 .unwrap_or_default();
             let dynamic_binding = term.kind == LogicalType::Unknown;
-            let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
-                .then(|| {
-                    term.gram_request
-                        .as_ref()
-                        .and_then(|request| collection.raw.estimate_prepared(request))
-                })
-                .flatten();
-            let structural_candidates = (selected.kind == AccessPathKind::RawBigram
-                && empty_selection_preservation(term))
-            .then_some(collection.empty_array_records.len());
-            let reason = if selected.kind == AccessPathKind::InferredPosting {
-                if selected.exact {
-                    "complete inferred posting proves the dynamic presence/null predicate".into()
-                } else {
-                    "complete inferred posting restricts dynamic values; selector and quantifier retain residual verification".into()
-                }
-            } else if selected.kind == AccessPathKind::RawBigram && dynamic_binding {
-                format!(
-                    "undeclared dynamic string-witness restriction via shared raw index {}@{}; empty-selection preservation: {}; exact field residual retained",
-                    collection.source.id(),
-                    collection.source.version(),
-                    structural_candidates.is_some()
-                )
-            } else if selected.kind == AccessPathKind::Scanner
-                && term.kind == LogicalType::Unknown
-                && term.path.root == PathRoot::Data
-            {
-                let inference_reason = if let Some(inference) = &collection.inference {
-                    if inference.report.mode == crate::inference::InferenceMode::ReportOnly {
-                        "inference is report-only; dynamic predicate uses scanner".into()
-                    } else if inference.indexes.contains_key(&term.path.segments) {
-                        "inferred posting exists; this operation or current cost favors scanner"
+            let choices = if context.diagnostics {
+                let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
+                    .then(|| {
+                        term.gram_request
+                            .as_ref()
+                            .and_then(|request| collection.raw.estimate_prepared(request))
+                    })
+                    .flatten();
+                let structural_candidates = (selected.kind == AccessPathKind::RawBigram
+                    && empty_selection_preservation(term))
+                .then_some(collection.empty_array_records.len());
+                let reason = if selected.kind == AccessPathKind::InferredPosting {
+                    if selected.exact {
+                        "complete inferred posting proves the dynamic presence/null predicate"
                             .into()
-                    } else if let Some(field) = inference
-                        .report
-                        .fields
-                        .iter()
-                        .find(|field| field.path == term.path.segments)
-                    {
-                        format!(
-                            "inferred index unavailable ({:?}: {}); scanner selected",
-                            field.index_status, field.reason
-                        )
                     } else {
-                        "no complete inferred index for dynamic field; scanner selected".into()
+                        "complete inferred posting restricts dynamic values; selector and quantifier retain residual verification".into()
                     }
-                } else {
-                    "inference disabled; dynamic predicate uses scanner".into()
-                };
-                if matches!(term.binding_name.as_str(), "default" | "lower")
-                    && term.operation.is_none()
-                    && matches!(term.operator, Operator::Contains | Operator::Eq)
+                } else if selected.kind == AccessPathKind::RawBigram && dynamic_binding {
+                    format!(
+                        "undeclared dynamic string-witness restriction via shared raw index {}@{}; empty-selection preservation: {}; exact field residual retained",
+                        collection.source.id(),
+                        collection.source.version(),
+                        structural_candidates.is_some()
+                    )
+                } else if selected.kind == AccessPathKind::Scanner
+                    && term.kind == LogicalType::Unknown
+                    && term.path.root == PathRoot::Data
                 {
-                    if let Err(coverage) = raw_covers_identity_field(collection) {
-                        format!("raw bigram rejected: {coverage}; {inference_reason}")
+                    let inference_reason = if let Some(inference) = &collection.inference {
+                        if inference.report.mode == crate::inference::InferenceMode::ReportOnly {
+                            "inference is report-only; dynamic predicate uses scanner".into()
+                        } else if inference.indexes.contains_key(&term.path.segments) {
+                            "inferred posting exists; this operation or current cost favors scanner"
+                                .into()
+                        } else if let Some(field) = inference
+                            .report
+                            .fields
+                            .iter()
+                            .find(|field| field.path == term.path.segments)
+                        {
+                            format!(
+                                "inferred index unavailable ({:?}: {}); scanner selected",
+                                field.index_status, field.reason
+                            )
+                        } else {
+                            "no complete inferred index for dynamic field; scanner selected".into()
+                        }
+                    } else {
+                        "inference disabled; dynamic predicate uses scanner".into()
+                    };
+                    if matches!(term.binding_name.as_str(), "default" | "lower")
+                        && term.operation.is_none()
+                        && matches!(term.operator, Operator::Contains | Operator::Eq)
+                    {
+                        if let Err(coverage) = raw_covers_identity_field(collection) {
+                            format!("raw bigram rejected: {coverage}; {inference_reason}")
+                        } else {
+                            inference_reason
+                        }
                     } else {
                         inference_reason
                     }
-                } else {
-                    inference_reason
-                }
-            } else if selected.kind == AccessPathKind::Scanner
-                && term.path.root == PathRoot::Data
-                && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
-                && matches!(term.binding_name.as_str(), "default" | "lower")
-                && term.operation.is_none()
-                && matches!(term.operator, Operator::Contains | Operator::Eq)
-            {
-                raw_covers_identity_field(collection)
+                } else if selected.kind == AccessPathKind::Scanner
+                    && term.path.root == PathRoot::Data
+                    && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
+                    && matches!(term.binding_name.as_str(), "default" | "lower")
+                    && term.operation.is_none()
+                    && matches!(term.operator, Operator::Contains | Operator::Eq)
+                {
+                    raw_covers_identity_field(collection)
                     .err()
                     .map(|reason| {
                         format!(
@@ -1042,26 +1173,29 @@ fn plan_logical_expr(
                                 .into()
                         }
                     })
+                } else {
+                    "lowest estimated lookup plus remaining source work for current input".into()
+                };
+                vec![TermChoice {
+                    span: term.span,
+                    field: term.query_path.display.clone(),
+                    logical_type: format!("{:?}", term.kind),
+                    binding: format!("{}@{}", term.binding_name, term.binding_version),
+                    exact_case_sensitivity: term_case_sensitivity(term),
+                    selected,
+                    alternatives: paths,
+                    actual_input: input.len(),
+                    actual_output: candidates.as_ref().map(RoaringBitmap::len),
+                    reason,
+                    dynamic_binding,
+                    gram_candidates,
+                    structural_candidates,
+                    residual_verification: !exact,
+                    executed: true,
+                }]
             } else {
-                "lowest estimated lookup plus remaining source work for current input".into()
+                Vec::new()
             };
-            let choices = vec![TermChoice {
-                span: term.span,
-                field: term.query_path.display.clone(),
-                logical_type: format!("{:?}", term.kind),
-                binding: format!("{}@{}", term.binding_name, term.binding_version),
-                exact_case_sensitivity: term_case_sensitivity(term),
-                selected,
-                alternatives: paths,
-                actual_input: input.len(),
-                actual_output: candidates.as_ref().map(RoaringBitmap::len),
-                reason,
-                dynamic_binding,
-                gram_candidates,
-                structural_candidates,
-                residual_verification: !exact,
-                executed: true,
-            }];
             Plan {
                 proven_hits: exact_candidates.cloned().unwrap_or_default(),
                 candidates,
@@ -1069,6 +1203,7 @@ fn plan_logical_expr(
                 proofs,
                 choices,
                 semijoin_work: Default::default(),
+                planning: PlanningCounters::default(),
             }
         }
         BoundExpr::And(parts) => {
@@ -1086,7 +1221,8 @@ fn plan_logical_expr(
                     .iter()
                     .enumerate()
                     .map(|(index, part)| {
-                        let (work, output) = estimate_expr(collection, part, current.len());
+                        let (work, output) =
+                            estimate_expr_cached(collection, part, current.len(), context);
                         let score = work + output as f64 * source_unit * 0.1;
                         (index, score)
                     })
@@ -1100,6 +1236,7 @@ fn plan_logical_expr(
                     domain,
                     &current,
                     evidence,
+                    context,
                 )?;
                 if let Some(set) = child.candidates {
                     current &= set;
@@ -1109,8 +1246,10 @@ fn plan_logical_expr(
                 choices.extend(child.choices);
                 if current.is_empty() {
                     exact = true;
-                    for part in remaining {
-                        skipped_choices(collection, part, &mut choices);
+                    if context.diagnostics {
+                        for part in remaining {
+                            skipped_choices(collection, part, &mut choices);
+                        }
                     }
                     break;
                 }
@@ -1126,34 +1265,44 @@ fn plan_logical_expr(
                 proofs,
                 choices,
                 semijoin_work: Default::default(),
+                planning: PlanningCounters::default(),
             }
         }
         BoundExpr::Or(parts) => {
-            let mut ordered: Vec<_> = parts.iter().collect();
-            ordered.sort_by(|a, b| {
-                estimate_expr(collection, a, input.len())
-                    .0
-                    .total_cmp(&estimate_expr(collection, b, input.len()).0)
-            });
+            let mut ordered: Vec<_> = parts
+                .iter()
+                .enumerate()
+                .map(|(position, part)| {
+                    (
+                        position,
+                        estimate_expr_cached(collection, part, input.len(), context).0,
+                        part,
+                    )
+                })
+                .collect();
+            ordered.sort_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)));
             let mut candidates = Some(RoaringBitmap::new());
             let mut proven_hits = RoaringBitmap::new();
             let mut proofs = Vec::new();
             let mut choices = Vec::new();
             let mut all_exact = true;
-            for (position, part) in ordered.iter().enumerate() {
+            for (position, (_, _, part)) in ordered.iter().enumerate() {
                 let remaining = if evidence {
                     input.clone()
                 } else {
                     input - &proven_hits
                 };
                 if remaining.is_empty() {
-                    for skipped in &ordered[position..] {
-                        skipped_choices(collection, skipped, &mut choices);
+                    if context.diagnostics {
+                        for (_, _, skipped) in &ordered[position..] {
+                            skipped_choices(collection, skipped, &mut choices);
+                        }
                     }
                     break;
                 }
-                let child =
-                    plan_logical_expr(repo, collection, part, domain, &remaining, evidence)?;
+                let child = plan_logical_expr(
+                    repo, collection, part, domain, &remaining, evidence, context,
+                )?;
                 all_exact &= child.exact;
                 proven_hits |= &child.proven_hits;
                 candidates = match (candidates, child.candidates) {
@@ -1179,10 +1328,12 @@ fn plan_logical_expr(
                 proofs,
                 choices,
                 semijoin_work: Default::default(),
+                planning: PlanningCounters::default(),
             }
         }
         BoundExpr::Not(inner) => {
-            let child = plan_logical_expr(repo, collection, inner, domain, input, evidence)?;
+            let child =
+                plan_logical_expr(repo, collection, inner, domain, input, evidence, context)?;
             if child.exact {
                 let matches = input - &child.candidates.unwrap();
                 Plan {
@@ -1192,6 +1343,7 @@ fn plan_logical_expr(
                     proofs: child.proofs,
                     choices: child.choices,
                     semijoin_work: Default::default(),
+                    planning: PlanningCounters::default(),
                 }
             } else {
                 Plan {
@@ -1201,6 +1353,7 @@ fn plan_logical_expr(
                     proofs: Vec::new(),
                     choices: child.choices,
                     semijoin_work: Default::default(),
+                    planning: PlanningCounters::default(),
                 }
             }
         }
