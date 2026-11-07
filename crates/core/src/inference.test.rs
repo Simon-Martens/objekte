@@ -36,6 +36,71 @@ fn query(filter: &str) -> Query {
 }
 
 #[test]
+fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
+    let root = temporary_root("planning-conjuncts");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..32 {
+        let object = (0..16)
+            .map(|field| (format!("f{field}"), serde_json::json!(slot % 4)))
+            .collect::<serde_json::Map<_, _>>();
+        std::fs::write(
+            root.join(format!("data/{slot:02}.json")),
+            serde_json::Value::Object(object).to_string(),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for conjuncts in [1, 4, 16] {
+        let filter = (0..conjuncts)
+            .map(|field| format!("f{field} = 0"))
+            .collect::<Vec<_>>()
+            .join(" && ");
+        let request = query(&filter);
+        let trace = &repo.explain(&request).unwrap()[0];
+        assert_eq!(trace.planning.term_estimation_calls, conjuncts);
+        assert_eq!(trace.planning.candidate_bitmap_builds, conjuncts);
+        if conjuncts > 1 {
+            assert!(trace.planning.reused_term_estimates >= conjuncts);
+        }
+        assert!(trace.planning.dictionary_keys_visited <= conjuncts * 2);
+        assert_eq!(
+            repo.search(&request).unwrap().hits,
+            repo.search_reference(&request).unwrap().hits
+        );
+    }
+    let disjunction = (0..16)
+        .map(|field| format!("f{field} = 0"))
+        .collect::<Vec<_>>()
+        .join(" || ");
+    let request = query(&disjunction);
+    let trace = &repo.explain(&request).unwrap()[0];
+    assert_eq!(trace.planning.term_estimation_calls, 16);
+    assert_eq!(trace.planning.candidate_bitmap_builds, 16);
+    assert_eq!(
+        repo.search(&request).unwrap().hits,
+        repo.search_reference(&request).unwrap().hits
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn short_strings_keep_ordered_membership_and_explicit_residual_coverage() {
     let config = InferenceConfig {
         mode: InferenceMode::AutoIndex,
@@ -939,7 +1004,9 @@ fn high_cardinality_and_long_text_drop_only_their_own_candidates() {
     assert_eq!(state.indexes.len(), 2);
 }
 
+
 struct PipeReader;
+
 
 impl SourceReader for PipeReader {
     fn name(&self) -> &'static str {
@@ -968,6 +1035,7 @@ impl SourceReader for PipeReader {
         })
     }
 }
+
 
 #[test]
 fn registered_reader_observations_do_not_depend_on_raw_text_coverage() {

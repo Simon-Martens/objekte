@@ -1,6 +1,65 @@
 use super::*;
 
 #[test]
+fn temporal_period_estimates_probe_bounded_keys_and_ranges_keep_exact_membership() {
+    use crate::query::parse_filter;
+    use crate::reference::{BoundExpr, Schema, bind_filter};
+
+    let field = FieldDefinition {
+        path: vec!["issued".into()],
+        kind: LogicalType::Date,
+        required: true,
+        nullable: false,
+        indexed: true,
+        multi: false,
+        element_nullable: Vec::new(),
+    };
+    let mut schema = Schema::default();
+    schema.register_field(field.clone()).unwrap();
+    let mut index = PostingIndex::new(&field);
+    for ordinal in 1..=366 {
+        let date = time::Date::from_ordinal_date(2024, ordinal).unwrap();
+        let value = Value::Date(date);
+        index
+            .add_values(RecordSlot(u32::from(ordinal - 1)), Some(&[&value]))
+            .unwrap();
+    }
+    index.finish_stats();
+    let domain = RoaringBitmap::from_iter(0..366);
+    for (operator, expected) in [
+        ("=", 29),
+        ("!=", 337),
+        ("<", 31),
+        ("<=", 60),
+        (">", 306),
+        (">=", 335),
+    ] {
+        let filter = format!("issued {operator} 2024-02");
+        let BoundExpr::Term(term) = bind_filter(&parse_filter(&filter).unwrap(), &schema).unwrap()
+        else {
+            panic!("expected bound temporal term")
+        };
+        let mut visited = 0;
+        assert!(
+            index
+                .estimate_exact_with_visits(&term, domain.len(), &mut visited)
+                .is_some()
+        );
+        assert!(visited <= 33, "{filter}: {visited}");
+        let matches = index.exact_set(&term, &domain).unwrap();
+        assert_eq!(matches.len(), expected, "{filter}");
+        let restricted = RoaringBitmap::from_iter([0, 59, 60, 365]);
+        assert_eq!(
+            index
+                .exact_set_restricted(&term, &domain, &restricted)
+                .unwrap(),
+            &matches & &restricted,
+            "{filter}"
+        );
+    }
+}
+
+#[test]
 fn presence_null_array_dedup_and_cardinality() {
     let field = FieldDefinition {
         path: vec!["values".into()],

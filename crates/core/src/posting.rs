@@ -12,7 +12,7 @@ use crate::model::{LogicalType, Number, RecordSlot, Value};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Transform};
 use crate::reference::{FieldDefinition, Schema, data_values_small};
-use crate::temporal_query::matches_ordering;
+
 
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
 pub enum ScalarKey {
@@ -24,6 +24,7 @@ pub enum ScalarKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
+
 
 impl ScalarKey {
     pub fn from_value(value: &Value) -> Option<Self> {
@@ -40,6 +41,7 @@ impl ScalarKey {
     }
 }
 
+
 /// Ordered typed values and their record-slot postings.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingIndex {
@@ -54,12 +56,14 @@ pub struct PostingIndex {
     pub stats: PostingStats,
 }
 
+
 /// Optional named-binding posting and its exact coverage guarantee.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct CustomPostingIndex {
     pub index: PostingIndex,
     pub complete: bool,
 }
+
 
 /// Coverage and cardinality summary for one posting index.
 #[derive(Clone, Debug, Default, Serialize, Deserialize)]
@@ -71,7 +75,51 @@ pub struct PostingStats {
     pub max_key: Option<ScalarKey>,
 }
 
+
 impl PostingIndex {
+    /// Inferred dictionary costing without materializing or unioning postings.
+    pub(crate) fn estimate_observed_scalar(
+        &self,
+        key: &ScalarKey,
+        operator: Operator,
+        domain_len: u64,
+        visits: &mut u64,
+    ) -> Option<(f64, u64)> {
+        if self.covered_records as u64 != domain_len {
+            return None;
+        }
+        let equal = || self.values.get(key).map(RoaringBitmap::len).unwrap_or(0);
+        match operator {
+            Operator::Eq => {
+                *visits += 1;
+                Some((1.0, equal()))
+            }
+            Operator::Ne if !self.multi => {
+                *visits += 1;
+                Some((
+                    2.0,
+                    self.stats.present_count - self.stats.null_count - equal(),
+                ))
+            }
+            Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le => {
+                let keys = scalar_range_key_probe(&self.values, key, operator, 33);
+                *visits += keys as u64;
+                let count = if keys <= 32 {
+                    keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
+                } else {
+                    domain_len / 4
+                };
+                let work = if keys <= 32 {
+                    keys as f64
+                } else {
+                    self.stats.distinct_count as f64 / 8.0
+                };
+                Some((1.0 + work, count))
+            }
+            _ => None,
+        }
+    }
+
     /// An observed scalar field can prove a dynamic comparison even when the
     /// schema-free binder conservatively marks its term as multivalued.
     pub(crate) fn exact_observed_scalar_restricted(
@@ -366,6 +414,15 @@ impl PostingIndex {
 
     /// Cheap cardinality/work estimate; no dictionary traversal or bitmap copy.
     pub fn estimate_exact(&self, term: &BoundTerm, domain_len: u64) -> Option<(f64, u64)> {
+        self.estimate_exact_with_visits(term, domain_len, &mut 0)
+    }
+
+    pub(crate) fn estimate_exact_with_visits(
+        &self,
+        term: &BoundTerm,
+        domain_len: u64,
+        visits: &mut u64,
+    ) -> Option<(f64, u64)> {
         if term
             .matcher
             .as_ref()
@@ -380,8 +437,14 @@ impl PostingIndex {
             if term.multi || term.transform != Transform::Identity {
                 return None;
             }
-            let count = self.temporal_postings(term, None)?.len();
-            return Some((self.values.len() as f64 + 1.0, count));
+            let keys = self.temporal_key_probe(term, 33)?;
+            *visits += keys as u64;
+            let count = if keys <= 32 {
+                keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
+            } else {
+                domain_len / 4
+            };
+            return Some((1.0 + keys as f64, count));
         }
         match term.derived {
             Derived::Exists | Derived::Null => {
@@ -409,6 +472,7 @@ impl PostingIndex {
                 };
                 let range_keys = is_range(term.operator)
                     .then(|| range_key_probe(&self.lengths, number, term.operator, 33));
+                *visits += range_keys.unwrap_or(1) as u64;
                 let count = if term.operator == Operator::Eq {
                     self.lengths
                         .get(number)
@@ -455,18 +519,25 @@ impl PostingIndex {
         }
         let key = ScalarKey::from_value(&term.literal)?;
         match term.operator {
-            Operator::Eq => Some((
-                1.0,
-                self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
-            )),
-            Operator::Ne if !term.multi => Some((
-                2.0,
-                self.stats.present_count
-                    - self.stats.null_count
-                    - self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
-            )),
+            Operator::Eq => {
+                *visits += 1;
+                Some((
+                    1.0,
+                    self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+                ))
+            }
+            Operator::Ne if !term.multi => {
+                *visits += 1;
+                Some((
+                    2.0,
+                    self.stats.present_count
+                        - self.stats.null_count
+                        - self.values.get(&key).map(RoaringBitmap::len).unwrap_or(0),
+                ))
+            }
             Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le if !term.multi => {
                 let keys = scalar_range_key_probe(&self.values, &key, term.operator, 33);
+                *visits += keys as u64;
                 let estimate = if keys <= 32 {
                     keys as u64 * self.stats.present_count / self.stats.distinct_count.max(1) as u64
                 } else {
@@ -584,21 +655,90 @@ impl PostingIndex {
         let start = ScalarKey::from_value(&period.start)?;
         let end = ScalarKey::from_value(&period.end)?;
         let type_tag = std::mem::discriminant(&start);
-        let mut result = RoaringBitmap::new();
-        for (key, slots) in &self.values {
-            if std::mem::discriminant(key) == type_tag
-                && matches_ordering(key.cmp(&start), key.cmp(&end), term.operator)
-            {
-                if let Some(input) = input {
-                    result |= slots & input;
-                } else {
-                    result |= slots;
-                }
-            }
+        if std::mem::discriminant(&end) != type_tag || start >= end {
+            return None;
         }
-        Some(result)
+        let same_type = |key: &ScalarKey| std::mem::discriminant(key) == type_tag;
+        let values = &self.values;
+        let lower = |bound: &ScalarKey| {
+            values
+                .range(..bound.clone())
+                .rev()
+                .take_while(|(key, _)| same_type(key))
+        };
+        let upper = |bound: &ScalarKey| {
+            values
+                .range(bound.clone()..)
+                .take_while(|(key, _)| same_type(key))
+        };
+        Some(match term.operator {
+            Operator::Eq => union_postings(values.range(start..end), input).0,
+            Operator::Ne => {
+                let mut result = union_postings(lower(&start), input).0;
+                result |= union_postings(upper(&end), input).0;
+                result
+            }
+            Operator::Lt => union_postings(lower(&start), input).0,
+            Operator::Le => union_postings(lower(&end), input).0,
+            Operator::Gt => union_postings(upper(&end), input).0,
+            Operator::Ge => union_postings(upper(&start), input).0,
+            _ => return None,
+        })
+    }
+
+    fn temporal_key_probe(&self, term: &BoundTerm, limit: usize) -> Option<usize> {
+        let period = term.period.as_ref()?;
+        let start = ScalarKey::from_value(&period.start)?;
+        let end = ScalarKey::from_value(&period.end)?;
+        let type_tag = std::mem::discriminant(&start);
+        if std::mem::discriminant(&end) != type_tag || start >= end {
+            return None;
+        }
+        let same_type = |key: &ScalarKey| std::mem::discriminant(key) == type_tag;
+        let values = &self.values;
+        Some(match term.operator {
+            Operator::Eq => values.range(start..end).take(limit).count(),
+            Operator::Ne => {
+                let below = values
+                    .range(..start)
+                    .rev()
+                    .take_while(|(key, _)| same_type(key))
+                    .take(limit)
+                    .count();
+                below
+                    + values
+                        .range(end..)
+                        .take_while(|(key, _)| same_type(key))
+                        .take(limit.saturating_sub(below))
+                        .count()
+            }
+            Operator::Lt => values
+                .range(..start)
+                .rev()
+                .take_while(|(key, _)| same_type(key))
+                .take(limit)
+                .count(),
+            Operator::Le => values
+                .range(..end)
+                .rev()
+                .take_while(|(key, _)| same_type(key))
+                .take(limit)
+                .count(),
+            Operator::Gt => values
+                .range(end..)
+                .take_while(|(key, _)| same_type(key))
+                .take(limit)
+                .count(),
+            Operator::Ge => values
+                .range(start..)
+                .take_while(|(key, _)| same_type(key))
+                .take(limit)
+                .count(),
+            _ => return None,
+        })
     }
 }
+
 
 /// A length posting is a union of records containing at least one reached
 /// array of that length. It proves existential comparisons. A one-segment
@@ -749,11 +889,13 @@ fn scalar_range_postings(
     }
 }
 
+
 /// Posting indexes registered for one collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct PostingCollection {
     pub fields: HashMap<Vec<String>, PostingIndex>,
 }
+
 
 impl PostingCollection {
     pub(crate) fn merge_shifted(&mut self, batch: Self, base: u32) -> Result<(), String> {
@@ -814,6 +956,7 @@ impl PostingCollection {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "posting.test.rs"]

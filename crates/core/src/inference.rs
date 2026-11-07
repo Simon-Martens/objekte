@@ -13,6 +13,7 @@ use crate::reference::{BoundTerm, Derived, Schema, Transform};
 
 pub const INFERENCE_POLICY_VERSION: u32 = 5;
 
+
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
@@ -24,11 +25,13 @@ pub(crate) enum ObservedStep {
     ArrayIndex(u32),
 }
 
+
 fn typed_path(path: &[String]) -> Vec<ObservedStep> {
     path.iter()
         .map(|name| ObservedStep::Field(Arc::from(name.as_str())))
         .collect()
 }
+
 
 /// Explicit construction choice. Disabled is the schema-free default.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
@@ -38,6 +41,7 @@ pub enum InferenceMode {
     ReportOnly,
     AutoIndex,
 }
+
 
 /// Bounded, versioned admission thresholds for one repository opening.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
@@ -62,6 +66,7 @@ pub struct InferencePolicy {
     pub max_distinct_nonblank_strings: usize,
     pub minimum_repeated_percent: u8,
 }
+
 
 impl Default for InferencePolicy {
     fn default() -> Self {
@@ -89,12 +94,14 @@ impl Default for InferencePolicy {
     }
 }
 
+
 /// Mode and admission policy frozen for one immutable repository generation.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct InferenceConfig {
     pub mode: InferenceMode,
     pub policy: InferencePolicy,
 }
+
 
 impl InferenceConfig {
     pub fn validate(self) -> Result<(), String> {
@@ -131,6 +138,7 @@ impl InferenceConfig {
     }
 }
 
+
 /// Why an observed field did or did not receive a typed accelerator.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum InferenceIndexStatus {
@@ -143,6 +151,7 @@ pub enum InferenceIndexStatus {
     BudgetExceeded,
     BelowThreshold,
 }
+
 
 /// Complete or explicitly incomplete statistics for one logical field path.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -178,6 +187,7 @@ pub struct InferredFieldReport {
     pub retained_bytes_estimate: usize,
 }
 
+
 /// Per-collection inference report for one source generation.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceReport {
@@ -195,6 +205,7 @@ pub struct InferenceReport {
     pub retained_bytes_estimate: usize,
     pub fields: Vec<InferredFieldReport>,
 }
+
 
 /// One observed path and its ordered posting admission outcome.
 ///
@@ -217,6 +228,7 @@ pub struct InferencePathDiagnostic {
     pub short_string_unresolved_records: u64,
 }
 
+
 /// Published optional indexes and their descriptive report.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceState {
@@ -227,6 +239,7 @@ pub struct InferenceState {
     /// corresponding short-string posting dictionary.
     pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
 }
+
 
 impl InferenceState {
     pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
@@ -272,25 +285,16 @@ impl InferenceState {
                 LogicalType::Number | LogicalType::Bool | LogicalType::String
             )
             || !self.empty_selections.get(path)?.is_empty()
-            || self
-                .short_string_coverage
-                .get(path)
-                .is_some_and(|covered| !(&index.presence - &index.nulls).is_subset(covered))
+            || self.short_string_coverage.get(path).is_some_and(|covered| {
+                index.presence.difference_len(covered) != index.nulls.difference_len(covered)
+            })
         {
             return None;
         }
         Some(index)
     }
 
-    /// A complete inferred posting may restrict a dynamic term. Ordinary
-    /// comparisons retain their residual: the posting records value membership,
-    /// not the term's full selector and universal quantifier semantics.
-    pub(crate) fn candidates(
-        &self,
-        term: &BoundTerm,
-        domain: &RoaringBitmap,
-        input: &RoaringBitmap,
-    ) -> Option<(RoaringBitmap, bool)> {
+    fn compatible_index(&self, term: &BoundTerm, domain: &RoaringBitmap) -> Option<&PostingIndex> {
         let structural = matches!(term.derived, Derived::Exists | Derived::Null);
         if self.report.mode != InferenceMode::AutoIndex
             || !self.report.complete
@@ -307,15 +311,109 @@ impl InferenceState {
             return None;
         }
         let index = self.indexes.get(&term.path.segments)?;
-        if term.kind != LogicalType::Unknown
+        if (term.kind != LogicalType::Unknown
             && term.kind != index.kind
-            && !(structural && term.kind == LogicalType::Bool)
+            && !(structural && term.kind == LogicalType::Bool))
+            || index.covered_records as u64 != domain.len()
         {
             return None;
         }
-        if index.covered_records as u64 != domain.len() {
+        Some(index)
+    }
+
+    /// Cost a compatible inferred path without constructing candidate membership.
+    pub(crate) fn estimate_candidates(
+        &self,
+        term: &BoundTerm,
+        domain: &RoaringBitmap,
+        visits: &mut u64,
+    ) -> Option<(f64, u64, bool)> {
+        let index = self.compatible_index(term, domain)?;
+        let domain_len = domain.len();
+        if matches!(term.derived, Derived::Exists | Derived::Null) {
+            let (work, count) = index.estimate_exact_with_visits(term, domain_len, visits)?;
+            return Some((work, count, true));
+        }
+        let complete_scalar = !term.query_path.has_explicit_array_step
+            && self
+                .complete_scalar_index(&term.path.segments, domain)
+                .is_some();
+        let compatible_literal = matches!(
+            (&index.kind, &term.literal),
+            (LogicalType::Number, Value::Number(_))
+                | (LogicalType::Bool, Value::Bool(_))
+                | (LogicalType::String, Value::String(_))
+        );
+        if complete_scalar && term.derived == Derived::None && compatible_literal {
+            match term.operator {
+                Operator::Eq
+                | Operator::Ne
+                | Operator::Gt
+                | Operator::Ge
+                | Operator::Lt
+                | Operator::Le => {
+                    let key = ScalarKey::from_value(&term.literal)?;
+                    let (work, count) =
+                        index.estimate_observed_scalar(&key, term.operator, domain_len, visits)?;
+                    return Some((work, count, true));
+                }
+                Operator::Contains | Operator::NotContains if index.kind == LogicalType::String => {
+                    return Some((index.values.len() as f64, domain_len / 4, true));
+                }
+                _ => {}
+            }
+        }
+        let key = ScalarKey::from_value(&term.literal)?;
+        if let Some(covered) = self.short_string_coverage.get(&term.path.segments) {
+            if term.derived != Derived::None
+                || !matches!(term.literal, Value::String(_))
+                || !matches!(
+                    term.operator,
+                    Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+                )
+            {
+                return None;
+            }
+            let (work, count) =
+                index.estimate_observed_scalar(&key, term.operator, domain_len, visits)?;
+            return Some((
+                work,
+                count
+                    .saturating_add(domain_len - covered.len())
+                    .min(domain_len),
+                false,
+            ));
+        }
+        if term.derived != Derived::None
+            || matches!(term.literal, Value::Null)
+            || !matches!(
+                term.operator,
+                Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+            )
+        {
             return None;
         }
+        let (work, count) =
+            index.estimate_observed_scalar(&key, term.operator, domain_len, visits)?;
+        let count = if term.quantifier != Quantifier::Any {
+            count.saturating_add(self.empty_selections.get(&term.path.segments)?.len())
+        } else {
+            count
+        };
+        Some((work, count.min(domain_len), false))
+    }
+
+    /// A complete inferred posting may restrict a dynamic term. Ordinary
+    /// comparisons retain their residual: the posting records value membership,
+    /// not the term's full selector and universal quantifier semantics.
+    pub(crate) fn candidates(
+        &self,
+        term: &BoundTerm,
+        domain: &RoaringBitmap,
+        input: &RoaringBitmap,
+    ) -> Option<(RoaringBitmap, bool)> {
+        let structural = matches!(term.derived, Derived::Exists | Derived::Null);
+        let index = self.compatible_index(term, domain)?;
         if structural {
             return index
                 .exact_set_restricted(term, domain, input)
@@ -597,6 +695,7 @@ impl InferenceState {
         Ok(())
     }
 }
+
 
 #[path = "inference_build.rs"]
 mod build;

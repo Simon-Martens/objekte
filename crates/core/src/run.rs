@@ -12,8 +12,8 @@ use serde::Serialize;
 use smallvec::SmallVec;
 
 use crate::executor::{
-    Plan, Proof, TermChoice, estimate_expr, estimate_fts_candidates, fts_candidates,
-    plan_expr_restricted,
+    Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
+    fts_candidates, plan_expr_restricted, plan_expr_restricted_compact,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{FieldPath, PathRoot, Value};
@@ -59,6 +59,7 @@ fn check_computed_sort_budget_with_limit(
     Ok(())
 }
 
+
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -66,6 +67,7 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
+
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -118,6 +120,7 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
+
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -126,12 +129,14 @@ struct RankKey {
     id: String,
 }
 
+
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
+
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -201,13 +206,16 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
+
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
+
 impl Eq for RankKey {}
+
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -215,12 +223,14 @@ impl PartialOrd for RankKey {
     }
 }
 
+
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
+
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -232,6 +242,7 @@ struct Winner {
     retained_bytes: u64,
 }
 
+
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -241,6 +252,7 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
+
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -260,10 +272,12 @@ struct ScannedFile {
     cache_members: Vec<CachedMember>,
 }
 
+
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
+
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -271,7 +285,9 @@ impl PartialEq for FileWinner {
     }
 }
 
+
 impl Eq for FileWinner {}
+
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -279,11 +295,13 @@ impl PartialOrd for FileWinner {
     }
 }
 
+
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -291,6 +309,7 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
+
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -335,6 +354,7 @@ impl CacheBudget {
         }
     }
 }
+
 
 fn scan_projection(
     query: &Query,
@@ -436,12 +456,14 @@ fn scan_projection(
     }
 }
 
+
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
+
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -486,6 +508,7 @@ fn prepare_residual<'a>(
         ))),
     }
 }
+
 
 impl Residual<'_> {
     fn unavailable(
@@ -751,6 +774,7 @@ impl Residual<'_> {
         })
     }
 }
+
 
 fn scan_file(
     repo: &Repository,
@@ -1151,6 +1175,7 @@ fn scan_file(
     Ok(outcome)
 }
 
+
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1160,6 +1185,7 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
+
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1172,6 +1198,7 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
+
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1235,6 +1262,7 @@ fn bound_term_diagnostics(
     terms
 }
 
+
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1255,10 +1283,12 @@ pub struct QueryPlanTrace {
     pub sort_strategy: String,
     pub filter_exact: bool,
     pub terms: Vec<TermChoice>,
+    pub planning: PlanningCounters,
     pub bound_terms: Vec<BoundTermDiagnostic>,
     pub candidates: u64,
     pub actual: Option<PlanActual>,
 }
+
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1298,6 +1328,7 @@ fn regex_prefilter_reason(
     }
 }
 
+
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1317,6 +1348,7 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
+
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1339,6 +1371,7 @@ impl Default for PlanActual {
         }
     }
 }
+
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -1489,13 +1522,16 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
+
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
+
 impl Eq for Winner {}
+
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -1503,11 +1539,13 @@ impl PartialOrd for Winner {
     }
 }
 
+
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
+
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -2173,6 +2211,7 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
+
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -2183,19 +2222,23 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
+
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
+
 impl Eq for StoredCursor<'_> {}
+
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
+
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -2215,6 +2258,7 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
+
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -2237,6 +2281,7 @@ fn stored_cursor<'a>(
     })
 }
 
+
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -2244,6 +2289,15 @@ struct OrderedPlan<'a> {
     plan: Plan,
     candidates: RoaringBitmap,
 }
+
+
+/// Membership already prepared for a stored-order attempt whose selective
+/// result is cheaper to rank with the general top-k collector.
+struct RejectedOrderPlans {
+    entries: Vec<(Plan, RoaringBitmap)>,
+    planning_ns: u64,
+}
+
 
 fn direct_payload(
     repo: &Repository,
@@ -2459,6 +2513,7 @@ fn try_inferred_order_page(
         delivery.as_deref_mut(),
         all_offset,
         true,
+        None,
     )?;
     if result.is_some() {
         if let Some(traces) = traces {
@@ -2482,6 +2537,7 @@ fn try_stored_order_page(
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
     force_order: bool,
+    mut rejected: Option<&mut RejectedOrderPlans>,
 ) -> Result<Option<SearchResult>, String> {
     if sort.bound.has_computed || (query.options.count && delivery.is_none() && !force_order) {
         return Ok(None);
@@ -2514,6 +2570,11 @@ fn try_stored_order_page(
         .checked_add(query.options.offset)
         .ok_or("page size overflow")?;
     let planning_started = Instant::now();
+    let plan_filter = if traces.is_some() {
+        plan_expr_restricted
+    } else {
+        plan_expr_restricted_compact
+    };
     let mut plans = Vec::new();
     let mut candidate_total = 0u64;
     for (collection_index, filter, fts) in &prepared.collections {
@@ -2522,7 +2583,7 @@ fn try_stored_order_page(
         let mut plan = filter
             .as_ref()
             .map(|expr| {
-                plan_expr_restricted(
+                plan_filter(
                     repo,
                     collection,
                     expr,
@@ -2539,6 +2600,7 @@ fn try_stored_order_page(
                 proofs: Vec::new(),
                 choices: Vec::new(),
                 semijoin_work: Default::default(),
+                planning: PlanningCounters::default(),
             });
         let mut candidates = plan.candidates.take().unwrap_or(domain);
         if let Some(fts_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts)) {
@@ -2561,6 +2623,13 @@ fn try_stored_order_page(
         && candidate_total > 0
         && candidate_total < (cap as u64).saturating_mul(4)
     {
+        if let Some(rejected) = rejected.as_deref_mut() {
+            rejected.entries = plans
+                .into_iter()
+                .map(|entry| (entry.plan, entry.candidates))
+                .collect();
+            rejected.planning_ns = planning_started.elapsed().as_nanos() as u64;
+        }
         return Ok(None);
     }
     let residuals = plans
@@ -2619,6 +2688,7 @@ fn try_stored_order_page(
                 .into(),
                 filter_exact: entry.plan.exact,
                 terms: entry.plan.choices.clone(),
+                planning: entry.plan.planning,
                 bound_terms: bound_term_diagnostics(repo, entry.filter),
                 candidates: entry.candidates.len(),
                 actual: None,
@@ -3459,6 +3529,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 proofs: Vec::new(),
                 choices: Vec::new(),
                 semijoin_work: Default::default(),
+                planning: PlanningCounters::default(),
             });
         record_semijoin_work(plan.semijoin_work, &mut relation_work)?;
         let mut ordered_candidates = plan.candidates.clone().unwrap_or_else(|| domain.clone());
@@ -3532,6 +3603,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             sort_strategy: String::new(),
             filter_exact: plan.exact,
             terms: plan.choices,
+            planning: plan.planning,
             bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
             candidates: ordered_candidates.len(),
             actual: None,
@@ -3819,6 +3891,10 @@ fn search_impl<'a>(
             .configure_stream(delivery.max_buffered_bytes(), delivery.token());
     }
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
+    let mut rejected_order = RejectedOrderPlans {
+        entries: Vec::new(),
+        planning_ns: 0,
+    };
     if cache_members.is_none() {
         if let Some(result) = try_inferred_order_page(
             repo,
@@ -3843,6 +3919,7 @@ fn search_impl<'a>(
             delivery.as_deref_mut(),
             all_offset,
             false,
+            Some(&mut rejected_order),
         )? {
             return Ok(result);
         }
@@ -3871,62 +3948,76 @@ fn search_impl<'a>(
     let mut distinct_files = 0u64;
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     counters.prepared_plan_hit = plan_hit;
+    counters.planning_ns += rejected_order.planning_ns;
+    let mut reused_order = rejected_order.entries.into_iter();
     for (collection_index, filter, fts) in prepared.collections {
         if let Some(delivery) = delivery.as_deref_mut() {
             delivery.check()?;
         }
         let planning_start = Instant::now();
+        let plan_filter = if traces.is_some() {
+            plan_expr_restricted
+        } else {
+            plan_expr_restricted_compact
+        };
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
-        let mut input = domain.clone();
         let text_estimate = fts
             .as_ref()
             .and_then(|fts| estimate_fts_candidates(collection, fts));
-        let filter_estimate = filter
-            .as_ref()
-            .map(|f| estimate_expr(collection, f, domain.len()));
         let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
-        let text_first = match (text_estimate, filter_estimate) {
-            (Some((text_count, text_lookup)), Some((filter_work, filter_count))) => {
-                text_lookup + text_count as f64 * source_unit * 0.1
-                    < filter_work + filter_count as f64 * source_unit * 0.1
-            }
-            (Some(_), None) => true,
-            _ => false,
-        };
-        if text_first {
-            if let Some(fts) = &fts {
-                if let Some(text) = fts_candidates(collection, fts) {
-                    input &= text;
+        let (plan, mut candidates, text_first) = if let Some((mut plan, candidates)) =
+            reused_order.next()
+        {
+            plan.planning.reused_order_plans += 1;
+            (plan, candidates, false)
+        } else {
+            let mut input = domain.clone();
+            let filter_estimate = filter
+                .as_ref()
+                .map(|f| estimate_expr(collection, f, domain.len()));
+            let text_first = match (text_estimate, filter_estimate) {
+                (Some((text_count, text_lookup)), Some((filter_work, filter_count))) => {
+                    text_lookup + text_count as f64 * source_unit * 0.1
+                        < filter_work + filter_count as f64 * source_unit * 0.1
                 }
-            }
-        }
-        let plan = filter
-            .as_ref()
-            .map(|f| {
-                plan_expr_restricted(repo, collection, f, &domain, &input, query.options.evidence)
-            })
-            .transpose()?
-            .unwrap_or(Plan {
-                candidates: None,
-                exact: true,
-                proven_hits: RoaringBitmap::new(),
-                proofs: Vec::new(),
-                choices: Vec::new(),
-                semijoin_work: Default::default(),
-            });
-        record_semijoin_work(plan.semijoin_work, &mut counters)?;
-        let mut candidates = plan.candidates.unwrap_or(input);
-        if !text_first {
-            if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
-                if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
-                    if let Some(text_candidates) = fts_candidates(collection, fts) {
-                        candidates &= text_candidates;
+                (Some(_), None) => true,
+                _ => false,
+            };
+            if text_first {
+                if let Some(fts) = &fts {
+                    if let Some(text) = fts_candidates(collection, fts) {
+                        input &= text;
                     }
                 }
             }
-        }
+            let mut plan = filter
+                .as_ref()
+                .map(|f| plan_filter(repo, collection, f, &domain, &input, query.options.evidence))
+                .transpose()?
+                .unwrap_or(Plan {
+                    candidates: None,
+                    exact: true,
+                    proven_hits: RoaringBitmap::new(),
+                    proofs: Vec::new(),
+                    choices: Vec::new(),
+                    semijoin_work: Default::default(),
+                    planning: PlanningCounters::default(),
+                });
+            let mut candidates = plan.candidates.take().unwrap_or(input);
+            if !text_first {
+                if let (Some(fts), Some((estimated, lookup))) = (&fts, text_estimate) {
+                    if lookup + estimated as f64 * 0.05 < candidates.len() as f64 * source_unit {
+                        if let Some(text_candidates) = fts_candidates(collection, fts) {
+                            candidates &= text_candidates;
+                        }
+                    }
+                }
+            }
+            (plan, candidates, text_first)
+        };
+        record_semijoin_work(plan.semijoin_work, &mut counters)?;
         let metadata_only_fts = fts.as_ref().is_some_and(|fts| {
             !fts.fields.is_empty()
                 && fts
@@ -4014,6 +4105,7 @@ fn search_impl<'a>(
                 .into(),
                 filter_exact: plan.exact,
                 terms: plan.choices.clone(),
+                planning: plan.planning,
                 bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
                 candidates: candidates.len(),
                 actual: None,

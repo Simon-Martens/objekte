@@ -6,6 +6,75 @@ use crate::repository::{CollectionDefinition, IdentityPolicy};
 use crate::source::SourceFormat;
 
 #[test]
+fn selective_stored_order_attempt_reuses_filter_membership_for_top_k() {
+    use crate::workload::SortField;
+
+    let root = std::env::temp_dir().join(format!("objekte-plan-reuse-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..12 {
+        let body =
+            serde_json::json!({"rank":slot,"kind":if slot == 7 { "rare" } else { "common" }});
+        std::fs::write(root.join(format!("data/{slot:02}.json")), body.to_string()).unwrap();
+    }
+    let mut schema = Schema::default();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["kind".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    schema
+        .register_field(FieldDefinition {
+            path: vec!["rank".into()],
+            kind: LogicalType::Number,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition.schema = schema;
+    definition.sort_fields = vec![FieldPath::parse("rank").unwrap()];
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: Some(parse_filter("kind = 'rare'").unwrap()),
+        options: QueryOptions {
+            sort: vec![SortField::simple("rank", false)],
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let (result, traces) = repo.explain_analyze(&request).unwrap();
+    assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
+    assert_eq!(result.hits[0].record_id, "path:07.json");
+    assert_eq!(traces[0].sort_strategy, "bounded_top_k");
+    assert_eq!(traces[0].planning.reused_order_plans, 1);
+    assert_eq!(traces[0].planning.candidate_bitmap_builds, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn exact_posting_count_preserves_page_evidence_with_and_without_membership_cache() {
     let root = std::env::temp_dir().join(format!("objekte-proof-page-{}", std::process::id()));
     std::fs::create_dir_all(root.join("data")).unwrap();
