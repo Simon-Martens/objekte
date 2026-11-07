@@ -328,6 +328,7 @@ fn prepare_with_limits(
         let projection = ScanProjection {
             top_level: Some(fields),
             collect_text: false,
+            resolved_text_only: false,
         };
         for (file_id, ranges) in grouped {
             if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {

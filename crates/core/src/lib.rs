@@ -14,6 +14,7 @@ pub mod discovery;
 pub mod executor;
 pub mod inference;
 pub mod inventory;
+mod json_scalar_text;
 pub mod model;
 pub mod parameters;
 pub mod path_repr;

@@ -25,6 +25,26 @@ pub struct QueryPath {
 
 impl QueryPath {
     pub fn parse(input: &str) -> Result<Self, String> {
+        if input == "@root" {
+            return Ok(Self {
+                field: FieldPath {
+                    root: PathRoot::Data,
+                    segments: Vec::new(),
+                },
+                steps: Vec::new(),
+                has_explicit_array_step: false,
+                has_position: false,
+                display: input.into(),
+            });
+        }
+        if let Some(rest) = input.strip_prefix("@root.") {
+            let mut path = Self::parse(rest)?;
+            if path.field.root != PathRoot::Data {
+                return Err("root selector requires a data path".into());
+            }
+            path.display = input.into();
+            return Ok(path);
+        }
         if let Some(rest) = input.strip_prefix("@backlinks.") {
             let mut path = Self::parse(rest)?;
             if path.field.root != PathRoot::Data {
@@ -34,7 +54,7 @@ impl QueryPath {
             path.display = input.into();
             return Ok(path);
         }
-        if input.starts_with('@') {
+        if input.starts_with('@') && !input.starts_with("@root[") {
             let field = FieldPath::parse(input)?;
             return Ok(Self {
                 display: field.display(),
@@ -46,10 +66,11 @@ impl QueryPath {
         }
         let mut steps = Vec::new();
         let mut segments = Vec::new();
-        let mut rest = input;
+        let root_array = input.starts_with("@root[");
+        let mut rest = if root_array { &input[5..] } else { input };
         let mut has_explicit_array_step = false;
         let mut has_position = false;
-        let mut after_step = false;
+        let mut after_step = root_array;
         while !rest.is_empty() {
             if rest.starts_with('.') {
                 if !after_step {
@@ -128,7 +149,7 @@ impl QueryPath {
             rest = &rest[end..];
             after_step = true;
         }
-        if segments.is_empty() {
+        if segments.is_empty() && !root_array {
             return Err("empty field path".into());
         }
         let field = FieldPath {
