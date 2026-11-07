@@ -2,6 +2,7 @@
 
 use std::collections::{BTreeMap, HashMap, HashSet};
 use std::sync::Arc;
+use std::time::Instant;
 
 use roaring::RoaringBitmap;
 
@@ -11,8 +12,8 @@ use crate::posting::{PostingIndex, PostingStats, ScalarKey};
 use crate::reference::Schema;
 
 use super::{
-    InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy, InferenceReport,
-    InferenceState, InferredFieldReport, ObservedStep, typed_path,
+    InferenceBuildStats, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
+    InferenceReport, InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
 
 
@@ -39,7 +40,10 @@ struct FieldState {
     distinct_nonblank_bytes: usize,
     values: Option<BTreeMap<ScalarKey, RoaringBitmap>>,
     short_values: Option<BTreeMap<String, RoaringBitmap>>,
+    no_provisional_postings: bool,
     short_distinct_without_postings: Option<HashSet<String>>,
+    short_distinct_without_postings_bytes: usize,
+    short_summary_truncated: bool,
     short_seen: RoaringBitmap,
     short_uncovered: RoaringBitmap,
     short_observed_occurrences: u64,
@@ -76,7 +80,10 @@ impl FieldState {
             distinct_nonblank_bytes: 0,
             values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             short_values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
+            no_provisional_postings: false,
             short_distinct_without_postings: None,
+            short_distinct_without_postings_bytes: 0,
+            short_summary_truncated: false,
             short_seen: RoaringBitmap::new(),
             short_uncovered: RoaringBitmap::new(),
             short_observed_occurrences: 0,
@@ -91,6 +98,7 @@ impl FieldState {
 
     fn without_provisional_postings(path: Vec<String>) -> Self {
         let mut field = Self::new(path, InferenceMode::ReportOnly);
+        field.no_provisional_postings = true;
         field.short_distinct_without_postings = Some(HashSet::new());
         field
     }
@@ -167,8 +175,22 @@ impl FieldState {
                 if let Some(distinct) = &mut self.short_distinct_without_postings
                     && !distinct.contains(text.as_str())
                 {
-                    distinct.insert(text.clone());
-                    retained = retained.saturating_add(48 + text.len());
+                    if distinct.len() >= policy.max_distinct_nonblank_strings
+                        || self
+                            .short_distinct_without_postings_bytes
+                            .saturating_add(text.len())
+                            > policy.max_distinct_string_bytes
+                    {
+                        self.short_distinct_without_postings = None;
+                        self.short_distinct_without_postings_bytes = 0;
+                        self.short_summary_truncated = true;
+                    } else {
+                        distinct.insert(text.clone());
+                        self.short_distinct_without_postings_bytes = self
+                            .short_distinct_without_postings_bytes
+                            .saturating_add(text.len());
+                        retained = retained.saturating_add(48 + text.len());
+                    }
                 }
             } else {
                 self.short_uncovered.insert(slot.0);
@@ -303,11 +325,34 @@ impl FieldState {
                 append_shifted_bitmap(existing.entry(value).or_default(), &bitmap, base)?;
             }
         }
-        if let (Some(existing), Some(incoming)) = (
+        self.short_summary_truncated |= other.short_summary_truncated;
+        if self.short_summary_truncated {
+            self.short_distinct_without_postings = None;
+            self.short_distinct_without_postings_bytes = 0;
+        } else if let (Some(existing), Some(incoming)) = (
             &mut self.short_distinct_without_postings,
             other.short_distinct_without_postings,
         ) {
-            existing.extend(incoming);
+            for value in incoming {
+                if existing.contains(value.as_str()) {
+                    continue;
+                }
+                if existing.len() >= policy.max_distinct_nonblank_strings
+                    || self
+                        .short_distinct_without_postings_bytes
+                        .saturating_add(value.len())
+                        > policy.max_distinct_string_bytes
+                {
+                    self.short_distinct_without_postings = None;
+                    self.short_distinct_without_postings_bytes = 0;
+                    self.short_summary_truncated = true;
+                    break;
+                }
+                self.short_distinct_without_postings_bytes = self
+                    .short_distinct_without_postings_bytes
+                    .saturating_add(value.len());
+                existing.insert(value);
+            }
         }
         match (&mut self.distinct_nonblank, other.distinct_nonblank) {
             (Some(existing), Some(incoming)) => {
@@ -363,6 +408,11 @@ pub(crate) struct InferenceBuilder {
     omitted_paths: u64,
     complete: bool,
     estimated_bytes: usize,
+    observed_records: u64,
+    merged_batches: u64,
+    merge_ns: u64,
+    unique_path_bytes: usize,
+    repeated_batch_path_bytes: usize,
     batch: bool,
     batch_limit: usize,
     coordinator_limit: usize,
@@ -402,6 +452,11 @@ impl InferenceBuilder {
             omitted_paths: 0,
             complete: true,
             estimated_bytes: 0,
+            observed_records: 0,
+            merged_batches: 0,
+            merge_ns: 0,
+            unique_path_bytes: 0,
+            repeated_batch_path_bytes: 0,
             batch,
             batch_limit,
             coordinator_limit: config.policy.max_total_bytes,
@@ -421,6 +476,29 @@ impl InferenceBuilder {
             self.batch_limit
         } else {
             self.coordinator_limit
+        }
+    }
+
+    pub(crate) fn build_stats(&self) -> InferenceBuildStats {
+        InferenceBuildStats {
+            observed_records: self.observed_records,
+            merged_batches: self.merged_batches,
+            merge_ns: self.merge_ns,
+            cumulative_budget_bytes: self.estimated_bytes,
+            unique_path_bytes: self.unique_path_bytes,
+            repeated_batch_path_bytes: self.repeated_batch_path_bytes,
+            retained_manual_summary_bytes: self.fields.iter().fold(0usize, |total, field| {
+                total.saturating_add(field.short_distinct_without_postings.as_ref().map_or(
+                    0,
+                    |distinct| {
+                        distinct
+                            .len()
+                            .saturating_mul(48)
+                            .saturating_add(field.short_distinct_without_postings_bytes)
+                    },
+                ))
+            }),
+            ..Default::default()
         }
     }
 
@@ -481,6 +559,7 @@ impl InferenceBuilder {
             })
             .collect::<Option<Vec<_>>>()?;
         let index = self.fields.len();
+        self.unique_path_bytes = self.unique_path_bytes.saturating_add(extra);
         let owned = path.to_vec();
         self.paths.insert(owned, index);
         let redundant_or_prohibited = self.config.mode == InferenceMode::AutoIndex
@@ -630,6 +709,7 @@ impl InferenceBuilder {
         if !self.complete {
             return Ok(());
         }
+        self.observed_records = self.observed_records.saturating_add(1);
         self.selected.clear();
         let mut state = VisitState {
             slot,
@@ -648,9 +728,15 @@ impl InferenceBuilder {
     }
 
     pub(crate) fn merge_shifted(&mut self, other: Self, base: u32) -> Result<(), String> {
+        let started = Instant::now();
         if self.config != other.config || self.batch || !other.batch {
             return Err("inference batch policy mismatch".into());
         }
+        self.merged_batches = self.merged_batches.saturating_add(1);
+        self.observed_records = self.observed_records.saturating_add(other.observed_records);
+        self.repeated_batch_path_bytes = self
+            .repeated_batch_path_bytes
+            .saturating_add(other.unique_path_bytes);
         self.eligible = self
             .eligible
             .checked_add(other.eligible)
@@ -666,6 +752,9 @@ impl InferenceBuilder {
             }
         }
         if !self.complete {
+            self.merge_ns = self
+                .merge_ns
+                .saturating_add(started.elapsed().as_nanos() as u64);
             return Ok(());
         }
         for (path, bitmap) in other.empty_ancestors {
@@ -676,7 +765,7 @@ impl InferenceBuilder {
             if let Some(index) = self.paths.get(&typed).copied() {
                 self.fields[index].merge_shifted(incoming, base, self.config.policy)?;
             } else if let Some(index) = self.field(&typed, None) {
-                let mut new = if incoming.short_distinct_without_postings.is_some() {
+                let mut new = if incoming.no_provisional_postings {
                     FieldState::without_provisional_postings(incoming.path.clone())
                 } else {
                     FieldState::new(incoming.path.clone(), self.config.mode)
@@ -685,6 +774,9 @@ impl InferenceBuilder {
                 self.fields[index] = new;
             }
         }
+        self.merge_ns = self
+            .merge_ns
+            .saturating_add(started.elapsed().as_nanos() as u64);
         Ok(())
     }
 
@@ -811,6 +903,19 @@ impl InferenceBuilder {
                     "complete compatible logical coverage",
                 )
             };
+            let reason = if field.short_summary_truncated {
+                match status {
+                    InferenceIndexStatus::Redundant => {
+                        "declared posting already exists; short-string distinct summary exceeded a bound"
+                    }
+                    InferenceIndexStatus::ExplicitOptOut => {
+                        "declared field disabled indexing; short-string distinct summary exceeded a bound"
+                    }
+                    _ => reason,
+                }
+            } else {
+                reason
+            };
             let mut index_bytes = 0usize;
             let published_short_covered = if status == InferenceIndexStatus::Built {
                 short_covered_count
@@ -916,6 +1021,7 @@ impl InferenceBuilder {
                 index_status: status,
                 reason: reason.into(),
                 complete: self.complete
+                    && !field.short_summary_truncated
                     && (has_short_values
                         || field
                             .short_distinct_without_postings

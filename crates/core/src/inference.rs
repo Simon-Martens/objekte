@@ -207,6 +207,43 @@ pub struct InferenceReport {
 }
 
 
+/// Construction-only inference work and retained-state estimates.
+/// Budget charges are policy estimates, not allocator measurements or RSS.
+#[derive(Clone, Copy, Debug, Default)]
+pub struct InferenceBuildStats {
+    pub observed_records: u64,
+    pub merged_batches: u64,
+    pub merge_ns: u64,
+    pub finish_ns: u64,
+    pub cumulative_budget_bytes: usize,
+    pub unique_path_bytes: usize,
+    pub repeated_batch_path_bytes: usize,
+    pub retained_manual_summary_bytes: usize,
+}
+
+
+impl InferenceBuildStats {
+    pub(crate) fn absorb(&mut self, other: Self) {
+        self.observed_records = self.observed_records.saturating_add(other.observed_records);
+        self.merged_batches = self.merged_batches.saturating_add(other.merged_batches);
+        self.merge_ns = self.merge_ns.saturating_add(other.merge_ns);
+        self.finish_ns = self.finish_ns.saturating_add(other.finish_ns);
+        self.cumulative_budget_bytes = self
+            .cumulative_budget_bytes
+            .saturating_add(other.cumulative_budget_bytes);
+        self.unique_path_bytes = self
+            .unique_path_bytes
+            .saturating_add(other.unique_path_bytes);
+        self.repeated_batch_path_bytes = self
+            .repeated_batch_path_bytes
+            .saturating_add(other.repeated_batch_path_bytes);
+        self.retained_manual_summary_bytes = self
+            .retained_manual_summary_bytes
+            .saturating_add(other.retained_manual_summary_bytes);
+    }
+}
+
+
 /// One observed path and its ordered posting admission outcome.
 ///
 /// A built index owns B-tree value and length dictionaries, even when either
