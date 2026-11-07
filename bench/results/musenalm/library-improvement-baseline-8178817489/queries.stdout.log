@@ -1,0 +1,10 @@
+Q035 collection=places FTS=None FILTER=Some("musenalm_id > 100") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 31.542 / 37.286 / 119.674 µs (ok)
+Q045 collection=entries FTS=None FILTER=Some("year < 1800") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 138.228 / 175.659 / 442.564 µs (ok)
+Q084 collection=entries FTS=None FILTER=Some("language ?= \"ger\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 180.195 / 208.782 / 309.637 µs (ok)
+Q127 collection=places FTS=None FILTER=Some("fictional = false") sort=[SortField { field: "@file.size", descending: true, expression: None }, SortField { field: "name", descending: false, expression: None }] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 52.455 / 60.849 / 84.048 µs (ok)
+Q189 collection=entries FTS=None FILTER=Some("preferred_title ~ 'Goethe' SORT BY edit_state ASC") sort=[] limit=25 offset=0 mode=Locator count=true evidence=true | ascii-off: 4416.618 / 6325.927 / 11415.106 µs (ok)
+Q190 collection=entries FTS=None FILTER=Some("year >= 1800 SORT BY MIN(language) ASC") sort=[] limit=25 offset=0 mode=Locator count=true evidence=true | ascii-off: 103131.142 / 114185.788 / 133227.348 µs (ok)
+Q194 collection=entries FTS=None FILTER=Some("preferred_title ~ 'Goethe' SORT BY year DESC, preferred_title ASC") sort=[] limit=25 offset=0 mode=Locator count=true evidence=true | ascii-off: 300.678 / 361.070 / 446.109 µs (ok)
+build "ascii": 1.214 s; snapshot_write=0.681 s; parses=148486; resident_bytes=548290560; peak_resident_bytes=643416064; estimated_index_bytes=68963924; snapshot_bytes=117262305; restore_min/median/max=0.556/0.562/0.632 s (5 runs)
+reports: .task-results/baseline/queries
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--extended" "--cases" "Q035,Q045,Q084,Q127,Q189,Q190,Q194" "--profiles" "ascii-off" "--repetitions" "6" "--result-dir" ".task-results/baseline/queries"
