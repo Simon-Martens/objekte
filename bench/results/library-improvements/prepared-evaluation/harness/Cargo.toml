@@ -1,0 +1,10 @@
+[package]
+name = "objekte-prepared-evaluation-allocation-harness"
+version = "0.1.0"
+edition = "2024"
+
+[workspace]
+
+[dependencies]
+objekte-search-core = { path = "../../../../../crates/core" }
+serde_json = "1.0"
