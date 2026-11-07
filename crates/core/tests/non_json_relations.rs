@@ -156,7 +156,12 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
         };
         let built =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
-        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
+        built
+            .save_snapshot(&objekte_search_core::storage::snapshot_path(
+                &root,
+                options.bigram_alphabet,
+            ))
+            .unwrap();
         let restored =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
         assert!(restored.startup().restored);
@@ -179,8 +184,7 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
                     .verified_result_hit
             );
             let mut positioned = query.clone();
-            positioned.fts.as_mut().unwrap().fields[0].query_path =
-                Some("entry.title[0]".into());
+            positioned.fts.as_mut().unwrap().fields[0].query_path = Some("entry.title[0]".into());
             assert!(
                 repository
                     .search(&positioned)

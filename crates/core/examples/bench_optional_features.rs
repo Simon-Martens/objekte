@@ -34,7 +34,6 @@ use objekte_search_core::workload::{
 use serde_json::{Value, json};
 use sha2::{Digest, Sha256};
 
-
 struct Config {
     root: PathBuf,
     source_path: String,
@@ -47,7 +46,6 @@ struct Config {
     verified_cache_bytes: usize,
     skip_queries: bool,
 }
-
 
 impl Default for Config {
     fn default() -> Self {
@@ -65,7 +63,6 @@ impl Default for Config {
         }
     }
 }
-
 
 fn parse_args() -> Result<Config, String> {
     let mut config = Config::default();
@@ -92,13 +89,13 @@ fn parse_args() -> Result<Config, String> {
                 }
             }
             "--snapshot-mode" => {
-                (config.snapshot, config.write_snapshot) = match args.next().ok_or("--snapshot-mode needs a value")?.as_str()
-                {
-                    "disabled" => (SnapshotMode::Disabled, false),
-                    "rebuild" => (SnapshotMode::Disabled, true),
-                    "read-write" => (SnapshotMode::IfValid, true),
-                    other => return Err(format!("unknown snapshot mode {other}")),
-                }
+                (config.snapshot, config.write_snapshot) =
+                    match args.next().ok_or("--snapshot-mode needs a value")?.as_str() {
+                        "disabled" => (SnapshotMode::Disabled, false),
+                        "rebuild" => (SnapshotMode::Disabled, true),
+                        "read-write" => (SnapshotMode::IfValid, true),
+                        other => return Err(format!("unknown snapshot mode {other}")),
+                    }
             }
             "--build-workers" => {
                 let value = args.next().ok_or("--build-workers needs a value")?;
@@ -174,7 +171,6 @@ fn computed(path: &str, reducer: Option<SortReducer>, descending: bool) -> SortF
     )
 }
 
-
 struct Case {
     id: &'static str,
     filter: Option<&'static str>,
@@ -184,7 +180,6 @@ struct Case {
     offset: usize,
     stream: StreamMode,
 }
-
 
 fn cases() -> Vec<Case> {
     vec![
@@ -488,7 +483,9 @@ fn run() -> Result<(), String> {
     }
     let snapshot_write_ns = if config.write_snapshot && !repo.startup().restored {
         save_started.elapsed().as_nanos() as u64
-    } else { 0 };
+    } else {
+        0
+    };
     let collection = &repo.collections()[0];
     let mut hash = Sha256::new();
     hash.update(bincode::serialize(&repo.files().files).map_err(|error| error.to_string())?);

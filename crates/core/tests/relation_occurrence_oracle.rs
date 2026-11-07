@@ -245,7 +245,12 @@ fn shared_source_occurrences_match_independent_oracle_across_routes_and_restore(
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
+        built
+            .save_snapshot(&objekte_search_core::storage::snapshot_path(
+                &root,
+                options.bigram_alphabet,
+            ))
+            .unwrap();
         let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
         assert!(restored.startup().restored);
         for repo in [&built, &restored] {

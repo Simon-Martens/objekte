@@ -11,7 +11,6 @@ use objekte_search_core::query::{
 use objekte_search_core::repository::{Repository, RepositoryOptions, SnapshotMode};
 use objekte_search_core::workload::{BigramAlphabet, ReturnMode};
 
-
 #[derive(Clone, Copy)]
 struct Case {
     label: &'static str,
@@ -21,7 +20,6 @@ struct Case {
     filter: Option<&'static str>,
     mode: CaseSensitivity,
 }
-
 
 fn cases() -> Vec<Case> {
     let mut cases = Vec::new();
@@ -120,7 +118,10 @@ fn query(case: Case) -> Result<Query, String> {
                     (path, Some(binding.to_owned()))
                 });
             FieldPath::parse(path).map(|path| FtsField {
-                query_path: None, path, binding })
+                query_path: None,
+                path,
+                binding,
+            })
         })
         .transpose()?
         .into_iter()

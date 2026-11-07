@@ -108,7 +108,9 @@ where
         };
         let action = repository.startup().snapshot_action;
         let index_ns = if action == SnapshotAction::Restored {
-            repository.startup().snapshot_decode_ns
+            repository
+                .startup()
+                .snapshot_decode_ns
                 .saturating_add(repository.startup().reconciliation_ns)
         } else {
             repository.startup().build_ns
@@ -120,7 +122,10 @@ where
         } else {
             "Index built"
         };
-        let ready = format!("{operation} in {}", view::elapsed_label(Duration::from_nanos(index_ns)));
+        let ready = format!(
+            "{operation} in {}",
+            view::elapsed_label(Duration::from_nanos(index_ns))
+        );
         let ready = if snapshot_requested && action != SnapshotAction::Restored {
             format!("{ready}  ·  Snapshot saved")
         } else {

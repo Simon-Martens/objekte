@@ -288,7 +288,12 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
-        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
+        built
+            .save_snapshot(&objekte_search_core::storage::snapshot_path(
+                &root,
+                options.bigram_alphabet,
+            ))
+            .unwrap();
         let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
         assert!(restored.startup().restored);
         for repository in [&built, &restored] {
@@ -419,12 +424,11 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[test]
 fn explain_reports_bound_relation_and_temporal_semantics() {
     let (root, _, _) = fixture();
-    let repo = Repository::open_with_options(&root, definitions(), RepositoryOptions::default())
-        .unwrap();
+    let repo =
+        Repository::open_with_options(&root, definitions(), RepositoryOptions::default()).unwrap();
     let mut request = query("mentions", "entry.issued = 2024-02", ReturnMode::Locator);
     request.fts = Some(objekte_search_core::query::FtsQuery {
         pattern_parameter: None,
@@ -456,16 +460,18 @@ fn explain_reports_bound_relation_and_temporal_semantics() {
     let bound_trace = repo
         .explain_with_parameters(&parameterized, &parameters)
         .unwrap();
-    assert_eq!(bound_trace[0].bound_terms[0].bound_value, Some(Value::Id("A".into())));
+    assert_eq!(
+        bound_trace[0].bound_terms[0].bound_value,
+        Some(Value::Id("A".into()))
+    );
     std::fs::remove_dir_all(root).unwrap();
 }
-
 
 #[test]
 fn false_and_branch_skips_expensive_relation_verification_in_reference_route() {
     let (root, _, _) = fixture();
-    let repo = Repository::open_with_options(&root, definitions(), RepositoryOptions::default())
-        .unwrap();
+    let repo =
+        Repository::open_with_options(&root, definitions(), RepositoryOptions::default()).unwrap();
     let request = query(
         "mentions",
         "@record.id = 'm1' && entry.title = 'Hymn'",

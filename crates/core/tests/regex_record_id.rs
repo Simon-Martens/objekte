@@ -108,7 +108,12 @@ fn selected_regex_uses_record_id_text_without_changing_typed_id_equality() {
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
+        built
+            .save_snapshot(&objekte_search_core::storage::snapshot_path(
+                &root,
+                options.bigram_alphabet,
+            ))
+            .unwrap();
         let restored = Repository::open_with_options(&root, vec![definition()], options).unwrap();
         assert!(restored.startup().restored);
         for repo in [&built, &restored] {

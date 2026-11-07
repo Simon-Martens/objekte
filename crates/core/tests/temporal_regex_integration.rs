@@ -106,7 +106,12 @@ fn temporal_regex_size_id_and_sort_keep_answers_across_cache_and_restore() {
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
-        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
+        built
+            .save_snapshot(&objekte_search_core::storage::snapshot_path(
+                &root,
+                options.bigram_alphabet,
+            ))
+            .unwrap();
         let restored = Repository::open_with_options(&root, vec![definition()], options).unwrap();
         assert!(restored.startup().restored);
         for repository in [&built, &restored] {

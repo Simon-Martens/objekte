@@ -168,9 +168,15 @@ fn run() -> Result<(), String> {
     let wall_ns = started.elapsed().as_nanos();
     let snapshot_started = Instant::now();
     if write_snapshot {
-        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, alphabet))?;
+        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
+            &root, alphabet,
+        ))?;
     }
-    let snapshot_write_ns = if write_snapshot { snapshot_started.elapsed().as_nanos() as u64 } else { 0 };
+    let snapshot_write_ns = if write_snapshot {
+        snapshot_started.elapsed().as_nanos() as u64
+    } else {
+        0
+    };
     let snapshot_bytes = if write_snapshot {
         Some(
             std::fs::metadata(objekte_search_core::storage::snapshot_path(&root, alphabet))
