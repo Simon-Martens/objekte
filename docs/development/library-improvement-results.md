@@ -58,6 +58,7 @@ These are first measurements, not speedup claims. Query construction in the harn
 | R1 execution context and typed failures | `9316761d31` | `5f0c32af6b` | Cancellation, resource, source-change and extension tests; combined workspace tests and Clippy passed. |
 | R1 prepared-cache retention | `e2a3945286` | `da0edfb213` | Explicit retained-size tests and warm-regex budget tests; combined workspace tests and Clippy passed. |
 | O1 execution organization | `00024fdf9e` | `92541ef900` | Compatibility re-export tests, workspace tests and Clippy passed. |
+| O2 public library operations | `10fadc3679` | `fe4720ab4a` | Inferred posting, direct ID retrieval and exact count tests; workspace tests and Clippy passed. |
 
 The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. Phase 1 correctness is complete at `a4ae045cba2c86622bec755ec4011229608be499`: 270 core unit tests passed, two were ignored, all workspace tests passed, and Clippy exited successfully with warnings. The baseline workspace had 248 core unit tests passed and one ignored. Existing Clippy warnings were present before implementation; this gate did not treat warnings as errors.
 
@@ -146,3 +147,9 @@ The paired prepared-cache change replaces debug-string sizing with explicit reta
 ## Execution module organization
 
 O1 extracts payload conversion into `materialization.rs` and work-counter accumulation into `measurement.rs`. Runtime result, sort and alphabet options now live in `execution_options.rs`; `workload.rs` retains compatibility re-exports for existing callers. The change preserves query and serialization behavior and makes no speed claim. After integration, the workspace suite passed (312 core tests, two ignored) and Clippy exited successfully with warning-level diagnostics.
+
+## Public library operations
+
+O2 exposes eligible inferred posting dictionaries through the existing bounded value-page API. Listed-key counts remain exact; coverage now reports indexed and unresolved records and marks partial dictionaries as incomplete facet enumerations. A new collection-and-ID lookup returns locator, bytes or logical payload with the usual stale-source and raw-fallback behavior. Exact count also has ordinary and execution-context entry points, using Q5's zero-page count route. Focused tests include mixed short and long array values: a listed short key has an exact count while the overall dictionary remains incomplete. The integrated workspace suite passed (315 core tests, two ignored) and Clippy exited successfully.
+
+An opaque reusable prepared-request handle remains deferred. The current internal prepared tree binds after parameters and clock resolution while the executor accepts `Query`; a public handle needs a clear template, frozen-clock and repository-generation contract before it can safely reuse that state. No O2 query-speed claim is made.
