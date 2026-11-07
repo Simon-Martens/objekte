@@ -72,7 +72,7 @@ pub struct Arguments {
     #[arg(long, value_enum, default_value_t = Alphabet::Ascii)]
     pub index_alphabet: Alphabet,
 
-    /// Emit a pretty JSON command diagnostic on stderr.
+    /// Report inferred index paths in NDJSON and command status on stderr.
     #[arg(long = "diagnostic", visible_alias = "diagnostics")]
     pub diagnostic: bool,
 }

@@ -380,7 +380,37 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         .flat_map(|item| &item.generation.records)
         .filter(|record| record.class == RecordClass::RawFallback)
         .count();
-    let event = json!({
+    let automatic_index_paths = args.diagnostic.then(|| {
+        repo.collections()
+            .iter()
+            .find(|collection| collection.definition.name == "files")
+            .and_then(|collection| collection.inference.as_ref())
+            .map(|inference| {
+                let mut fields = inference.report.fields.iter().collect::<Vec<_>>();
+                fields.sort_unstable_by(|left, right| left.path.cmp(&right.path));
+                fields
+                    .into_iter()
+                    .map(|field| {
+                        let posting = inference.indexes.get(&field.path);
+                        json!({
+                            "path": field.path,
+                            "index_status": field.index_status,
+                            "reason": field.reason,
+                            "observed_kinds": field.observed_kinds,
+                            "kind": posting.map(|index| &index.kind),
+                            "multi": posting.map(|index| index.multi),
+                            "value_keys": posting.map(|index| index.values.len()),
+                            "length_keys": posting.map(|index| index.lengths.len()),
+                            "covered_records": posting.map(|index| index.covered_records),
+                            "present_records": field.present_records,
+                            "short_string_covered_records": field.short_string_covered_records,
+                            "short_string_unresolved_records": field.short_string_unresolved_records,
+                        })
+                    })
+                    .collect::<Vec<_>>()
+            })
+    }).flatten();
+    let mut event = json!({
         "type": terminal,
         "query_successes": successes,
         "query_errors": failures,
@@ -419,6 +449,9 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         })),
         "elapsed_ns": started.elapsed().as_nanos(),
     });
+    if let Some(paths) = automatic_index_paths {
+        event["automatic_index_paths"] = json!(paths);
+    }
     if let Err(error) = output.emit(event).and_then(|_| output.flush()) {
         return output_failure(error);
     }

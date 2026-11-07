@@ -574,6 +574,66 @@ fn diagnostic_flag_keeps_stdout_structured_and_reports_stderr_json() {
 }
 
 #[test]
+fn diagnostic_lists_inferred_btree_paths_after_build_and_restore() {
+    let root = tempfile::tempdir().unwrap();
+    for number in 0..80 {
+        std::fs::write(
+            root.path().join(format!("{number:03}.json")),
+            serde_json::json!({
+                "year": number,
+                "enabled": number % 2 == 0,
+                "code": format!("code-{number:03}"),
+            })
+            .to_string(),
+        )
+        .unwrap();
+    }
+    let (built, events) = invoke(
+        root.path(),
+        &["--write-index", "--auto-index", "--diagnostic"],
+    );
+    assert!(
+        built.status.success(),
+        "{}",
+        String::from_utf8_lossy(&built.stderr)
+    );
+    let paths = events.last().unwrap()["automatic_index_paths"]
+        .as_array()
+        .unwrap();
+    let path_names = paths
+        .iter()
+        .map(|field| field["path"][0].as_str().unwrap())
+        .collect::<Vec<_>>();
+    assert!(path_names.windows(2).all(|pair| pair[0] <= pair[1]));
+    for (path, kind, keys) in [
+        ("year", "Number", 80),
+        ("enabled", "Bool", 2),
+        ("code", "String", 80),
+    ] {
+        let field = paths
+            .iter()
+            .find(|field| field["path"] == serde_json::json!([path]))
+            .unwrap();
+        assert_eq!(field["index_status"], "Built", "{path}");
+        assert_eq!(field["kind"], kind, "{path}");
+        assert_eq!(field["value_keys"], keys, "{path}");
+        assert_eq!(field["covered_records"], 80, "{path}");
+        assert_eq!(field["multi"], false, "{path}");
+    }
+    let (restored, events) = invoke(
+        root.path(),
+        &["--load-index", "--auto-index", "--diagnostic"],
+    );
+    assert!(restored.status.success());
+    assert_eq!(events.last().unwrap()["snapshot_action"], "restored");
+    assert_eq!(events.last().unwrap()["build_parses"], 0);
+    assert_eq!(
+        events.last().unwrap()["automatic_index_paths"],
+        serde_json::json!(paths)
+    );
+}
+
+#[test]
 fn all_results_are_not_cut_at_fifty_and_finite_count_is_exact() {
     let root = tempfile::tempdir().unwrap();
     for index in 0..61 {
