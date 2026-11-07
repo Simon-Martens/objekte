@@ -3,6 +3,7 @@
 use std::cmp::Ordering;
 use std::cmp::Reverse;
 use std::collections::{BTreeMap, BinaryHeap, HashMap, HashSet};
+use std::sync::Arc;
 use std::sync::atomic::{AtomicBool, AtomicUsize, Ordering as AtomicOrdering};
 use std::time::Instant;
 
@@ -26,7 +27,7 @@ use crate::reference::{
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
 use crate::sort_binding::{BoundSort, BoundSortSource, BoundSortTerm, SortTargetCache};
-use crate::sorting::{SortColumn, SortKey, SortOptions, simple_composite_part};
+use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_composite_part};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{
@@ -2451,7 +2452,7 @@ fn inferred_order_column(
     repo: &Repository,
     query: &Query,
     prepared: &crate::prepared::PreparedQuery,
-) -> Result<Option<(usize, SortColumn)>, String> {
+) -> Result<Option<(usize, Arc<SortColumn>)>, String> {
     let Some((collection_index, path, index)) = inferred_order_index(repo, query) else {
         return Ok(None);
     };
@@ -2459,17 +2460,31 @@ fn inferred_order_column(
         return Ok(None);
     }
     let collection = &repo.collections[collection_index];
-    #[cfg(test)]
-    INFERRED_ORDER_BUILDS.with(|count| count.set(count.get() + 1));
-    SortColumn::from_inferred_posting(
-        index,
-        &collection.generation,
-        path,
+    let key = InferredOrderKey::new(
+        collection_index,
+        collection.generation.generation,
+        path.clone(),
         &collection.definition.sort_locale,
         collection.definition.sort_options,
         query.options.sort[0].descending,
-    )
-    .map(|column| column.map(|column| (collection_index, column)))
+    );
+    let column = repo
+        .inferred_orders
+        .lock()
+        .map_err(|error| error.to_string())?
+        .get_or_build(key, || {
+            #[cfg(test)]
+            INFERRED_ORDER_BUILDS.with(|count| count.set(count.get() + 1));
+            SortColumn::from_inferred_posting(
+                index,
+                &collection.generation,
+                path,
+                &collection.definition.sort_locale,
+                collection.definition.sort_options,
+                query.options.sort[0].descending,
+            )
+        })?;
+    Ok(column.map(|column| (collection_index, column)))
 }
 
 #[cfg(test)]
@@ -2500,7 +2515,7 @@ fn try_inferred_order_page(
         .map(|position| {
             (position == collection_index).then(|| {
                 vec![BoundSortTerm {
-                    source: BoundSortSource::Stored(&column),
+                    source: BoundSortSource::Stored(column.as_ref()),
                     descending: query.options.sort[0].descending,
                     options: column.options,
                 }]

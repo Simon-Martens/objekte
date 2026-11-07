@@ -2,6 +2,7 @@
 
 use std::cmp::Ordering;
 use std::collections::HashMap;
+use std::sync::Arc;
 
 use icu_collator::{
     CollatorBorrowed, CollatorPreferences,
@@ -21,8 +22,10 @@ use crate::workload::SortField;
 
 pub const COLLATION_VERSION: &str =
     "icu_collator-2.4.0/icu_collator_data-2.4.0/CLDR-49.0.0/Unicode-18.0.0";
+pub(crate) const INFERRED_ORDER_CACHE_BYTES: usize = 128 * 1024 * 1024;
 
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub enum CollationStrength {
     #[default]
     LocaleDefault,
@@ -33,14 +36,16 @@ pub enum CollationStrength {
     Identical,
 }
 
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub enum Placement {
     First,
     #[default]
     Last,
 }
 
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
+
+#[derive(Clone, Copy, Debug, Default, Eq, Hash, PartialEq, Serialize, Deserialize)]
 pub struct SortOptions {
     pub strength: CollationStrength,
     pub numeric: bool,
@@ -48,11 +53,13 @@ pub struct SortOptions {
     pub missing: Placement,
 }
 
+
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SortConfig {
     pub locale: String,
     pub options: SortOptions,
 }
+
 
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum SortKey {
@@ -68,6 +75,7 @@ pub enum SortKey {
     Datetime(OffsetDateTime),
     Unixtime(i64),
 }
+
 
 impl SortKey {
     fn rank(&self, options: SortOptions) -> i8 {
@@ -121,6 +129,7 @@ impl SortKey {
     }
 }
 
+
 /// Precomputed sort keys for one configured field.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortColumn {
@@ -134,7 +143,208 @@ pub struct SortColumn {
     pub collation_version: String,
 }
 
+
+/// An inferred order is query-created but remains valid for a repository
+/// generation. Cached columns use the same representation as configured
+/// columns, so paging and tie-breaking follow the existing execution path.
+#[derive(Clone, Debug, Eq, Hash, PartialEq)]
+pub(crate) struct InferredOrderKey {
+    collection: usize,
+    generation: u64,
+    path: FieldPath,
+    locale: String,
+    collation_version: &'static str,
+    options: SortOptions,
+    descending: bool,
+}
+
+
+impl InferredOrderKey {
+    pub(crate) fn new(
+        collection: usize,
+        generation: u64,
+        path: FieldPath,
+        locale: &str,
+        options: SortOptions,
+        descending: bool,
+    ) -> Self {
+        Self {
+            collection,
+            generation,
+            path,
+            locale: locale.to_owned(),
+            collation_version: COLLATION_VERSION,
+            options,
+            descending,
+        }
+    }
+
+    fn retained_bytes(&self) -> usize {
+        std::mem::size_of::<Self>()
+            .saturating_add(self.locale.capacity())
+            .saturating_add(
+                self.path
+                    .segments
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<String>()),
+            )
+            .saturating_add(
+                self.path
+                    .segments
+                    .iter()
+                    .fold(0usize, |bytes, name| bytes.saturating_add(name.capacity())),
+            )
+    }
+}
+
+
+struct InferredOrderEntry {
+    column: Arc<SortColumn>,
+    bytes: usize,
+    last_used: u64,
+}
+
+
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub(crate) struct InferredOrderCacheStats {
+    pub builds: u64,
+    pub hits: u64,
+    pub evictions: u64,
+    pub resident_bytes: usize,
+    pub entries: usize,
+}
+
+
+/// A lazy, bounded cache owned by one repository. Its lock is acquired only
+/// for inferred-order lookup and construction; no source I/O occurs there.
+pub(crate) struct InferredOrderCache {
+    entries: HashMap<InferredOrderKey, InferredOrderEntry>,
+    max_bytes: usize,
+    used_bytes: usize,
+    clock: u64,
+    stats: InferredOrderCacheStats,
+}
+
+
+impl InferredOrderCache {
+    pub(crate) fn new(max_bytes: usize) -> Self {
+        Self {
+            entries: HashMap::new(),
+            max_bytes,
+            used_bytes: 0,
+            clock: 0,
+            stats: InferredOrderCacheStats::default(),
+        }
+    }
+
+    pub(crate) fn get_or_build(
+        &mut self,
+        key: InferredOrderKey,
+        build: impl FnOnce() -> Result<Option<SortColumn>, String>,
+    ) -> Result<Option<Arc<SortColumn>>, String> {
+        self.clock = self.clock.wrapping_add(1);
+        if let Some(entry) = self.entries.get_mut(&key) {
+            entry.last_used = self.clock;
+            self.stats.hits += 1;
+            return Ok(Some(entry.column.clone()));
+        }
+        self.stats.builds += 1;
+        let Some(column) = build()? else {
+            return Ok(None);
+        };
+        let column = Arc::new(column);
+        let bytes = Self::entry_bytes(&key, &column);
+        if bytes <= self.max_bytes {
+            while self.used_bytes.saturating_add(bytes) > self.max_bytes {
+                let oldest = self
+                    .entries
+                    .iter()
+                    .min_by_key(|(_, entry)| entry.last_used)
+                    .map(|(key, _)| key.clone())
+                    .expect("cache has an entry to evict");
+                let removed = self.entries.remove(&oldest).expect("oldest cache entry");
+                self.used_bytes -= removed.bytes;
+                self.stats.evictions += 1;
+            }
+            self.used_bytes += bytes;
+            self.entries.insert(
+                key,
+                InferredOrderEntry {
+                    column: column.clone(),
+                    bytes,
+                    last_used: self.clock,
+                },
+            );
+        }
+        self.stats.resident_bytes = self.used_bytes;
+        self.stats.entries = self.entries.len();
+        Ok(Some(column))
+    }
+
+    #[cfg(test)]
+    pub(crate) fn stats(&self) -> InferredOrderCacheStats {
+        self.stats
+    }
+
+    fn entry_bytes(key: &InferredOrderKey, column: &SortColumn) -> usize {
+        // Charge two map buckets per entry to cover spare hash-table capacity,
+        // plus the Arc header. The string and vector capacities are counted by
+        // the key and column themselves.
+        let map_bytes = std::mem::size_of::<InferredOrderKey>()
+            .saturating_add(std::mem::size_of::<InferredOrderEntry>())
+            .saturating_mul(2);
+        key.retained_bytes()
+            .saturating_sub(std::mem::size_of::<InferredOrderKey>())
+            .saturating_add(map_bytes)
+            .saturating_add(column.retained_bytes())
+            .saturating_add(2 * std::mem::size_of::<usize>())
+    }
+}
+
+
 impl SortColumn {
+    fn retained_bytes(&self) -> usize {
+        let mut bytes = std::mem::size_of::<Self>()
+            .saturating_add(
+                self.keys
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<SortKey>()),
+            )
+            .saturating_add(
+                self.ascending
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<RecordSlot>()),
+            )
+            .saturating_add(
+                self.descending
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<RecordSlot>()),
+            )
+            .saturating_add(
+                self.path
+                    .segments
+                    .capacity()
+                    .saturating_mul(std::mem::size_of::<String>()),
+            )
+            .saturating_add(
+                self.path
+                    .segments
+                    .iter()
+                    .fold(0usize, |bytes, name| bytes.saturating_add(name.capacity())),
+            )
+            .saturating_add(self.locale.capacity())
+            .saturating_add(self.collation_version.capacity());
+        for key in &self.keys {
+            bytes = bytes.saturating_add(match key {
+                SortKey::String(value) => value.capacity(),
+                SortKey::Id(value) => value.capacity(),
+                SortKey::Number(Number::ExactDecimal(value)) => value.digits.capacity(),
+                _ => 0,
+            });
+        }
+        bytes
+    }
+
     /// Build only the requested query order from a complete inferred scalar
     /// dictionary. Numeric and Boolean keys use the B-tree order directly;
     /// strings use ICU keys because UTF-8 order need not equal locale order.
@@ -301,6 +511,7 @@ impl SortColumn {
     }
 }
 
+
 fn append_inferred_group(
     order: &mut Vec<RecordSlot>,
     slots: &RoaringBitmap,
@@ -315,12 +526,14 @@ fn append_inferred_group(
     order.extend(group);
 }
 
+
 /// All sort columns available for a collection.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
     pub composites: Vec<CompositeSortOrder>,
 }
+
 
 /// Explicit composite order over compatible resident scalar columns.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -329,12 +542,14 @@ pub struct CompositeSortOrder {
     pub order: Vec<RecordSlot>,
 }
 
+
 /// Fixed binary identity for one resident composite constituent.
 #[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct CompositeSortPart {
     pub path: FieldPath,
     pub descending: bool,
 }
+
 
 pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
     let expression = field.expression.as_ref();
@@ -348,6 +563,7 @@ pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPa
     })
 }
 
+
 impl SortCollection {
     pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
         let normalized = fields
@@ -360,12 +576,14 @@ impl SortCollection {
     }
 }
 
+
 /// Mutable keys accumulated during index construction.
 pub struct SortBuilder {
     columns: HashMap<FieldPath, SortColumn>,
     collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
     composites: Vec<Vec<CompositeSortPart>>,
 }
+
 
 /// Construct one ICU collator for a bound sort configuration.
 pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
@@ -390,6 +608,7 @@ pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'sta
     };
     CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
 }
+
 
 impl SortBuilder {
     pub(crate) fn into_keys(self) -> HashMap<FieldPath, Vec<SortKey>> {
@@ -597,6 +816,7 @@ impl SortBuilder {
     }
 }
 
+
 pub(crate) fn compare_composite(
     columns: &[(&SortColumn, bool)],
     a: RecordSlot,
@@ -649,6 +869,7 @@ fn descending_order(
     }
     result
 }
+
 
 impl SortCollection {
     /// Finalize status-dependent orders after all collections have contributed
@@ -734,6 +955,7 @@ impl SortCollection {
         Ok(())
     }
 }
+
 
 #[cfg(test)]
 #[path = "sorting.test.rs"]
