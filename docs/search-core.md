@@ -39,9 +39,9 @@ such as `a/item.json` and `b/item.json` stay distinct. JSONL and registered
 reader folders use generated per-record IDs because a file may contain more
 than one record. The helper skips hidden files and symlinks by default, and
 reader-specific extensions still decide which files are admitted. Callers may
-override these policies in the returned definition. Existing object-record
-and homogeneous-array validation still applies; invalid records follow the
-diagnosed fallback contract.
+override these policies in the returned definition. The logical value model
+accepts JSON scalar, object, and array roots, including mixed nested arrays.
+Invalid records follow the diagnosed fallback contract.
 
 The benchmark tool provides `--cases`, `--profiles`, `--repetitions`,
 `--result-dir`, `--root`, and `--verified-cache-bytes`. Its four standard
@@ -73,9 +73,11 @@ IDs, original byte ranges, a file-to-record offset table, and reverse
 record-to-file/range entries. Multiple records can share one file, and one
 file can participate in more than one collection. A JSON reader frames one
 standalone object per file; a JSON Lines reader frames independently parseable
-object lines. Source extraction parses each framed record once and feeds the
-postings, text filters, sorting columns, and inventory from that value. A
-shared file is parsed once across its participating collections during build.
+object lines. Source extraction parses each framed record once per participating
+collection and feeds that collection's postings, text filters, sorting columns,
+and inventory from the value. A physical file shared by several collections is
+currently parsed once for each collection.
+
 Built-in and caller-supplied readers are resolved through `SourceRegistry`
 when a collection opens. A registration has a stable ID, semantic version, file
 extension, and reader. The prepared reader handles framing, query verification,
@@ -104,8 +106,8 @@ The fixture adapter registers sort columns for `agents.name`,
 `contents.numbering`/`preferred_title`, `entries.year`/`preferred_title`,
 `places.name`/`@file.size`, and `series.title`. It also registers the test-only
 `agents.name:folded` binding (version 1): query and record strings use the same
-Unicode case fold, a separate folded bigram filter narrows candidates, and
-the scanner verifies them. The generic core has no Musenalm names or
+Unicode case fold, compatible bindings share a folded bigram filter for
+candidates, and the scanner verifies them. The generic core has no Musenalm names or
 `x-objekte` vocabulary. Only JSON is required by this fixture; the core also
 has a JSON Lines reader.
 
@@ -155,8 +157,12 @@ their path/range.
 
 FTS is a separate literal substring input, with optional selected fields and
 bindings. It does not tokenize words or infer a query language from the
-literal. Standard matching is case-sensitive. Built-in `lower` and the
-registered `folded` binding apply their specified transforms to both sides.
+literal. Standard matching is case-sensitive. FTS also accepts a request-level
+case-insensitive mode, including unscoped text, without rebuilding its index.
+Built-in `lower` and the registered `folded` binding transform the selected
+representation before the requested exact case mode is applied; the FTS mode
+does not change an attached FILTER predicate.
+
 FILTER uses the [documented grammar](filter-grammar.md): `&&`, `||`, `!`,
 parentheses; typed comparison and contains operators; `?` existential forms;
 and `lower`, `length`, `each`, `null`, `exists`, or registered modifiers.
@@ -213,9 +219,11 @@ and collation options; configured sort fields can override locale, strength,
 numeric ordering, and null/missing placement. The Musenalm adapter uses `de`
 with the previous defaults. Other scalar values use typed order, and
 collection/record identity breaks ties consistently. Both directions retain
-precomputed single-field order, and broad page-only queries merge those lists
-across collections. Selective and multi-field requests use stored-key top-k
-selection. Explicit composite orders over configured scalar columns can also
+configured single-field order, and broad page-only queries merge those lists
+across collections. Eligible complete inferred scalar postings can construct a
+sort column lazily; repeated pages may reuse it under a bounded cache.
+Selective and multi-field requests use stored-key top-k selection. Explicit
+composite orders over configured scalar columns can also
 serve broad ordered pages. Other local, positional, reduced, and finite related
 sort expressions compute keys for every match and retain at most
 `offset + limit` winners. Computed sorting has a combined 128 MiB budget for
@@ -257,14 +265,16 @@ conservative text candidates or residual scans. Raw text uses record-level
 normal and skip bigrams from the extracted string segments; selected custom
 text has its own index. ASCII mode retains only safe printable ASCII grams,
 including gram subsets inside mixed Unicode literals; Unicode mode indexes
-observed character pairs. A candidate filter is never treated as proof of a
+case-folded character pairs. Both modes construct and request grams from the
+same full Unicode case-folded representation while exact verification retains
+the requested case semantics. A candidate filter is never treated as proof of a
 literal match: the scanner verifies it. Short or unsupported literals fall
 back to scanning.
 
 Raw fallback text has a separate bigram index over the original range decoded
 with UTF-8 replacement. An unscoped FTS literal searches that source text with
-case-sensitive substring semantics, even when a custom raw binding transforms
-valid logical text. Its evidence is `@record.raw_text`. Selected logical-field
+its requested exact case mode, even when a custom raw binding transforms valid
+logical text. Its evidence is `@record.raw_text`. Selected logical-field
 FTS does not infer fields from failed source text. A logical predicate on a
 fallback is indeterminate: negation remains indeterminate, false AND
 indeterminate is false, and true OR indeterminate is true. Only true matches.
@@ -287,8 +297,10 @@ estimates, actual input/output, adaptive decisions, candidates, reads, bytes,
 parses, and proof counts. The saved final benchmark plans are from separate
 uncached diagnostic executions, outside latency samples.
 
-Prepared typed bindings have a repository-local 4 MiB default budget. Verified
-result reuse is disabled by default, or configurable through
+Prepared typed bindings have a repository-local 16 MiB default estimated
+retention budget. The compiled-regex charge uses conservative configured
+ceilings; this budget does not reserve memory up front or cap process RSS.
+Verified result reuse is disabled by default, or configurable through
 `RepositoryOptions.verified_cache_bytes` and
 `Repository::configure_verified_cache`. It stores complete ordered membership
 and evidence under its byte budget, including empty results, but no record
@@ -299,11 +311,16 @@ its raw samples report prepared-plan and verified-result hits independently.
 ## Posting values
 
 `Repository::posting_values` reads a registered field's typed B-tree posting
-dictionary. It returns the stored keys, distinct record counts, structured
-eligible and unavailable record totals, and separate field-presence and
+dictionary or an admitted inferred dictionary. It returns the stored keys,
+distinct record counts, structured eligible and unavailable record totals, and
+separate field-presence and
 explicit-null totals. A named default binding returns its mapped posting keys;
-incomplete custom coverage is an error. Pages use posting-key order, which is
-separate from ICU record sorting. The in-process exclusive continuation is
+incomplete custom coverage is an error. An inferred short-string dictionary may
+cover only part of the eligible records. Listed-key counts remain exact, while
+`coverage.indexed_records`, `unresolved_records`, and
+`value_counts_complete` disclose that other keys may exist. A partial dictionary
+is not a complete facet enumeration or ordering source. Pages use posting-key
+order, which is separate from ICU record sorting. The in-process exclusive continuation is
 bound to the repository instance, collection generation, field, binding,
 direction, typed bounds, prefix and exact selection. An empty limit returns an
 empty page with no continuation. Prefixes apply to the stored string key and
@@ -313,6 +330,20 @@ the regular executor, independent of the query page and COUNT setting. Scoped
 value counts use bitmap intersection cardinality; unavailable fallback records
 are reported separately and never counted as missing or null. Posting-value
 pages perform no source reads, and expose how many dictionary keys were visited.
+
+`Repository::get_record(collection, id, mode)` retrieves one record by its
+collection-local ID, returning `None` for an absent ID. Locator mode uses the
+published inventory; byte and logical modes use the normal revision-checked
+source and decoding path. Raw fallback logical payloads remain unavailable.
+`Repository::count_exact(query)` returns an exact count without ranking or
+materializing a page; `count_exact_with_context` uses a caller-supplied frozen
+clock, cancellation, and limits. `search_with_context` and
+`search_stream_scoped_with_context` use that same request-scoped execution
+context. Context failures identify cancellation, resource exhaustion, a
+confirmed source revision change, invalid queries, or extension failures by
+type. Limits bound specified estimates and work, not total process RSS; an
+extension without a preparse size estimate may allocate during parsing before
+its result is rejected. Use a new context for each request.
 
 ## Persistence and freshness
 
