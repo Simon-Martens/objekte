@@ -21,6 +21,7 @@ use serde::Serialize;
 pub enum AccessPathKind {
     Metadata,
     Posting,
+    InferredPosting,
     SortColumn,
     Dictionary,
     CustomBigram,
@@ -465,6 +466,7 @@ fn enumerate_paths(
             coverage: if matches!(
                 kind,
                 AccessPathKind::Posting
+                    | AccessPathKind::InferredPosting
                     | AccessPathKind::Dictionary
                     | AccessPathKind::SortColumn
                     | AccessPathKind::RawBigram
@@ -563,6 +565,30 @@ fn enumerate_paths(
                     true,
                     index.stats.distinct_count as f64 * 2.0,
                     input_len / 4,
+                );
+            }
+        }
+        if let Some(inference) = &collection.inference {
+            if let Some((candidates, exact)) = inference.candidates(
+                term,
+                &collection.logical_records,
+                &collection.logical_records,
+            ) {
+                let lookup = inference
+                    .indexes
+                    .get(&term.path.segments)
+                    .map_or(1.0, |index| {
+                        if term.operator == Operator::Eq {
+                            1.0
+                        } else {
+                            index.values.len() as f64
+                        }
+                    });
+                add(
+                    AccessPathKind::InferredPosting,
+                    exact,
+                    lookup,
+                    candidates.len(),
                 );
             }
         }
@@ -675,6 +701,11 @@ fn execute_path(
                     .and_then(|index| index.exact_set_restricted(term, domain, input))
             }
         }
+        AccessPathKind::InferredPosting => collection
+            .inference
+            .as_ref()
+            .and_then(|inference| inference.candidates(term, domain, input))
+            .map(|(set, _)| set),
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
         AccessPathKind::RawBigram => term
             .gram_request
@@ -887,7 +918,39 @@ fn plan_logical_expr(
                     }]
                 })
                 .unwrap_or_default();
-            let reason = if selected.kind == AccessPathKind::Scanner
+            let reason = if selected.kind == AccessPathKind::InferredPosting {
+                if selected.exact {
+                    "complete inferred posting proves the dynamic presence/null predicate".into()
+                } else {
+                    "complete inferred posting restricts dynamic values; selector and quantifier retain residual verification".into()
+                }
+            } else if selected.kind == AccessPathKind::Scanner
+                && term.kind == LogicalType::Unknown
+                && term.path.root == PathRoot::Data
+            {
+                if let Some(inference) = &collection.inference {
+                    if inference.report.mode == crate::inference::InferenceMode::ReportOnly {
+                        "inference is report-only; dynamic predicate uses scanner".into()
+                    } else if inference.indexes.contains_key(&term.path.segments) {
+                        "inferred posting exists; this operation or current cost favors scanner"
+                            .into()
+                    } else if let Some(field) = inference
+                        .report
+                        .fields
+                        .iter()
+                        .find(|field| field.path == term.path.segments)
+                    {
+                        format!(
+                            "inferred index unavailable ({:?}: {}); scanner selected",
+                            field.index_status, field.reason
+                        )
+                    } else {
+                        "no complete inferred index for dynamic field; scanner selected".into()
+                    }
+                } else {
+                    "inference disabled; dynamic predicate uses scanner".into()
+                }
+            } else if selected.kind == AccessPathKind::Scanner
                 && term.path.root == PathRoot::Data
                 && term.kind == LogicalType::String
                 && term.binding_name == "default"

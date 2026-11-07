@@ -11,6 +11,7 @@ use std::time::Instant;
 
 use crate::bigram::{BigramContribution, BigramIndex};
 use crate::discovery::{Discovery, discover};
+use crate::inference::{InferenceBuilder, InferenceConfig, InferenceReport, InferenceState};
 use crate::inventory::{
     CollectionBuilder, CollectionGeneration, DiagnosticRef, FileInventory, FileStatus, RecordClass,
     SourceRevision,
@@ -134,6 +135,7 @@ pub struct CollectionState {
     pub(crate) source: PreparedSource,
     pub generation: CollectionGeneration,
     pub postings: PostingCollection,
+    pub inference: Option<InferenceState>,
     pub custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     pub raw: BigramIndex,
     pub fallback_text: BigramIndex,
@@ -157,6 +159,7 @@ struct PendingCollection {
     member_files: Vec<crate::model::FileId>,
     builder: CollectionBuilder,
     postings: PostingCollection,
+    inference: Option<InferenceBuilder>,
     custom_postings: HashMap<(Vec<String>, String), CustomPostingIndex>,
     raw: BigramContribution,
     fallback_text: BigramContribution,
@@ -189,6 +192,7 @@ impl PendingCollection {
             inventory,
             builder: &mut self.builder,
             postings: &mut self.postings,
+            inference: &mut self.inference,
             custom_postings: &mut self.custom_postings,
             raw: &mut self.raw,
             fallback_text: &mut self.fallback_text,
@@ -335,6 +339,7 @@ pub struct RepositoryOptions {
     pub query_workers: usize,
     /// `None` uses the parallelism available to this process at build time.
     pub build_workers: Option<NonZeroUsize>,
+    pub inference: InferenceConfig,
 }
 
 
@@ -348,6 +353,7 @@ impl Default for RepositoryOptions {
             query_workers: std::thread::available_parallelism()
                 .map_or(1, |workers| workers.get().min(32)),
             build_workers: None,
+            inference: InferenceConfig::default(),
         }
     }
 }
@@ -471,6 +477,15 @@ impl Repository {
         self.options
     }
 
+    /// Completed observations for a collection; absent when inference was disabled.
+    pub fn inference_report(&self, collection: &str) -> Option<&InferenceReport> {
+        self.collections
+            .iter()
+            .find(|state| state.definition.name == collection)
+            .and_then(|state| state.inference.as_ref())
+            .map(|state| &state.report)
+    }
+
     pub fn verified_cache_budget(&self) -> Result<usize, String> {
         Ok(self.verified.lock().map_err(|e| e.to_string())?.budget())
     }
@@ -555,6 +570,7 @@ impl Repository {
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, String> {
+        options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
         let started = Instant::now();
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
@@ -686,6 +702,7 @@ impl Repository {
         for (definition, id, source, member_files) in selected {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let postings = PostingCollection::new(&definition.schema);
+            let inference = InferenceBuilder::new(options.inference, false);
             let custom_postings: HashMap<_, _> = definition
                 .schema
                 .operations
@@ -741,6 +758,7 @@ impl Repository {
                 member_files,
                 builder,
                 postings,
+                inference,
                 custom_postings,
                 raw,
                 fallback_text,
@@ -797,6 +815,7 @@ impl Repository {
                             &normal,
                             Arc::clone(&source_files),
                             options.bigram_alphabet,
+                            options.inference,
                             &mut admit,
                         )?;
                         schedule_stats.absorb(stats);
@@ -811,6 +830,7 @@ impl Repository {
                         file,
                         Arc::clone(&source_files),
                         options.bigram_alphabet,
+                        options.inference,
                         |batch| admit(collection_index, batch),
                     )?;
                     schedule_stats.absorb(stats);
@@ -824,6 +844,7 @@ impl Repository {
                 &normal,
                 Arc::clone(&source_files),
                 options.bigram_alphabet,
+                options.inference,
                 &mut admit,
             )?;
             schedule_stats.absorb(stats);
@@ -841,6 +862,7 @@ impl Repository {
                 member_files: _,
                 builder,
                 mut postings,
+                inference,
                 mut custom_postings,
                 raw,
                 fallback_text,
@@ -899,6 +921,15 @@ impl Repository {
                 }
             }
             let sorting = sort_builder.finish(&generation)?;
+            let inference = inference
+                .map(|builder| {
+                    builder.finish(
+                        &logical_records,
+                        generation.records.len(),
+                        &definition.schema,
+                    )
+                })
+                .transpose()?;
             let id_lookup = generation
                 .records
                 .iter()
@@ -928,6 +959,7 @@ impl Repository {
                 source,
                 generation,
                 postings,
+                inference,
                 custom_postings,
                 raw,
                 fallback_text,

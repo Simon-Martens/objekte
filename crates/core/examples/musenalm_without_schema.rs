@@ -6,6 +6,7 @@
 
 use std::path::PathBuf;
 
+use objekte_search_core::inference::{InferenceConfig, InferenceMode};
 use objekte_search_core::query::{CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions};
 use objekte_search_core::repository::{
     CollectionDefinition, Repository, RepositoryOptions, SnapshotMode,
@@ -24,11 +25,24 @@ fn run() -> Result<(), String> {
     let mut root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../examples/musenalm");
     let mut folders = Vec::<(String, PathBuf)>::new();
     let mut literal = "Goethe".to_owned();
+    let mut inference = InferenceMode::Disabled;
     let mut args = std::env::args().skip(1);
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "--root" => root = args.next().ok_or("--root needs a path")?.into(),
             "--query" => literal = args.next().ok_or("--query needs text")?,
+            "--inference" => {
+                inference = match args
+                    .next()
+                    .ok_or("--inference needs disabled|report|auto")?
+                    .as_str()
+                {
+                    "disabled" => InferenceMode::Disabled,
+                    "report" => InferenceMode::ReportOnly,
+                    "auto" => InferenceMode::AutoIndex,
+                    other => return Err(format!("unknown inference mode: {other}")),
+                };
+            }
             "--folder" => {
                 let value = args.next().ok_or("--folder needs NAME=RELATIVE_PATH")?;
                 let (name, path) = value
@@ -38,7 +52,7 @@ fn run() -> Result<(), String> {
             }
             "--help" | "-h" => {
                 println!(
-                    "Usage: musenalm_without_schema [--root PATH] [--folder NAME=RELATIVE_PATH]... [--query TEXT]"
+                    "Usage: musenalm_without_schema [--root PATH] [--folder NAME=RELATIVE_PATH]... [--query TEXT] [--inference disabled|report|auto]"
                 );
                 return Ok(());
             }
@@ -72,6 +86,10 @@ fn run() -> Result<(), String> {
         definitions,
         RepositoryOptions {
             snapshot_mode: SnapshotMode::Disabled,
+            inference: InferenceConfig {
+                mode: inference,
+                ..Default::default()
+            },
             ..Default::default()
         },
     )?;
@@ -97,6 +115,23 @@ fn run() -> Result<(), String> {
     println!("{} matches", result.counters.total_matches);
     for hit in result.hits {
         println!("{}: {}", hit.collection, hit.record_id);
+    }
+    if inference != InferenceMode::Disabled {
+        for state in repo.collections() {
+            let report = repo
+                .inference_report(&state.definition.name)
+                .expect("enabled inference has a report");
+            eprintln!(
+                "{}: {} observed paths, {} inferred indexes, {} dropped, {} summary bytes, {} index bytes, complete={}",
+                state.definition.name,
+                report.observed_paths,
+                report.admitted_paths,
+                report.dropped_paths,
+                report.summary_bytes_estimate,
+                report.index_bytes_estimate,
+                report.complete
+            );
+        }
     }
     Ok(())
 }
