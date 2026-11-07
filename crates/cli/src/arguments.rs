@@ -36,6 +36,10 @@ pub struct Arguments {
     #[arg(long, value_name = "FILE")]
     pub schema: Option<PathBuf>,
 
+    /// Open the interactive terminal screen for this collection.
+    #[arg(long)]
+    pub tui: bool,
+
     /// Search a literal string without JSON quoting.
     #[arg(long, group = "input", value_name = "TEXT")]
     pub fts: Option<String>,
@@ -83,11 +87,15 @@ pub struct ResolvedPaths {
 
 impl Arguments {
     pub fn validate_input(&self) -> Result<(), String> {
+        if self.tui && self.query_file.is_some() {
+            return Err("--tui cannot be combined with --query-file".into());
+        }
         if self.query.is_none()
             && self.fts.is_none()
             && self.query_file.is_none()
             && self.write_index.is_none()
             && self.load_index.is_none()
+            && !self.tui
         {
             return Err("missing query (or --write-index/--load-index for index-only use)".into());
         }

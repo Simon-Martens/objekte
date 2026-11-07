@@ -10,6 +10,7 @@ path = "src/main.rs"
 
 [dependencies]
 objekte-search-core = { path = "../core" }
+objekte-tui = { path = "../tui" }
 clap = { version = "4.5", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["arbitrary_precision"] }

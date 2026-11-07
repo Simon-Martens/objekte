@@ -26,6 +26,30 @@ fn hits(events: &[Value]) -> Vec<&Value> {
 }
 
 #[test]
+fn tui_requires_terminal_and_rejects_query_file_before_building() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"title":"one"}"#).unwrap();
+    let output = Command::new(env!("CARGO_BIN_EXE_obj"))
+        .current_dir(root.path())
+        .arg("--tui")
+        .output()
+        .unwrap();
+    assert_eq!(output.status.code(), Some(2));
+    assert!(
+        String::from_utf8_lossy(&output.stderr).contains("interactive input and output terminal")
+    );
+    assert!(output.stdout.is_empty());
+    assert!(!root.path().join(".objekte").exists());
+    let output = Command::new(env!("CARGO_BIN_EXE_obj"))
+        .current_dir(root.path())
+        .args(["--tui", "--query-file", "queries.txt"])
+        .output()
+        .unwrap();
+    assert_eq!(output.status.code(), Some(2));
+    assert!(String::from_utf8_lossy(&output.stderr).contains("--query-file"));
+}
+
+#[test]
 fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
     let root = tempfile::tempdir().unwrap();
     for slot in 0..80 {
