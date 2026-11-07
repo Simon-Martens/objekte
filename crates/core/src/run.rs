@@ -12,13 +12,14 @@ use roaring::RoaringBitmap;
 use serde::Serialize;
 use smallvec::SmallVec;
 
+use crate::execution_options::{BigramAlphabet, ReturnMode, SortField};
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
     estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::materialization::payload_from_bytes;
-use crate::measurement::ScanWork;
+use crate::measurement::{ScanWork, WorkCounters};
 use crate::model::{FieldPath, PathRoot, Value};
 use crate::posting::PostingIndex;
 use crate::query::{CaseSensitivity, FtsMode, Operator, Quantifier, Query};
@@ -40,7 +41,6 @@ use crate::streaming::{
     StreamSummary,
 };
 use crate::verified::{CachedMember, CachedResult};
-use crate::workload::{ReturnMode, SortField, WorkCounters};
 
 const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
@@ -1385,7 +1385,7 @@ fn bound_term_diagnostics(
 pub struct QueryPlanTrace {
     pub collection: String,
     pub generation: u64,
-    pub bigram_alphabet: crate::workload::BigramAlphabet,
+    pub bigram_alphabet: BigramAlphabet,
     pub folded_representation: &'static str,
     pub fts_case_sensitivity: Option<CaseSensitivity>,
     pub fts_mode: Option<FtsMode>,
@@ -2289,11 +2289,13 @@ fn deliver_ranked_all(
                 result.counters.files_opened += read.opened;
                 result.counters.bytes_read += read.bytes_read;
                 let bytes = read.records.pop().ok_or("source record missing")?.1;
-                let collection = repo
-                    .collections
-                    .iter()
-                    .find(|collection| collection.definition.name == hit.collection)
-                    .ok_or("result collection missing")?;
+                let collection = if query.options.return_mode == ReturnMode::Logical {
+                    repo.collections
+                        .iter()
+                        .find(|collection| collection.definition.name == hit.collection)
+                } else {
+                    None
+                };
                 let (payload, parses) =
                     payload_from_bytes(collection, &query.options.return_mode, bytes)?;
                 result.counters.record_parses += parses;
@@ -2501,7 +2503,8 @@ fn direct_payload(
     counters.bytes_read += read.bytes_read;
     actual.files_opened += read.opened;
     actual.bytes_read += read.bytes_read;
-    let (payload, parses) = payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+    let (payload, parses) =
+        payload_from_bytes(Some(collection), &query.options.return_mode, bytes)?;
     counters.record_parses += parses;
     actual.record_parses += parses;
     Ok(payload)
@@ -3669,7 +3672,7 @@ fn materialize_cached(
             counters.bytes_read += read.bytes_read;
             for (index, bytes) in read.records {
                 let (payload, parses) =
-                    payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+                    payload_from_bytes(Some(collection), &query.options.return_mode, bytes)?;
                 counters.record_parses += parses;
                 hits[index as usize].payload = payload;
             }
@@ -3896,7 +3899,7 @@ fn materialize_winner_page(
                         return Err("stream cancelled".into());
                     }
                     let (payload, parses) =
-                        payload_from_bytes(collection, &query.options.return_mode, bytes)?;
+                        payload_from_bytes(Some(collection), &query.options.return_mode, bytes)?;
                     counters.record_parses += parses;
                     page[index as usize].hit.payload = payload;
                 }

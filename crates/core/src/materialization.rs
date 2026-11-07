@@ -1,19 +1,21 @@
 //! Conversion of source bytes into a requested page payload.
 
+use crate::execution_options::ReturnMode;
 use crate::record_preparation::{materialize, prepare_query_record};
 use crate::repository::{CollectionState, Payload};
 use crate::source::ScanProjection;
-use crate::workload::ReturnMode;
 
 /// Returns the payload and the number of logical record parses to account for.
 /// Source access remains with each caller so grouped and bounded reads keep
-/// their distinct access patterns.
+/// their distinct access patterns. The collection is only needed for logical
+/// payloads; bytes results avoid an otherwise unnecessary collection lookup.
 pub(crate) fn payload_from_bytes(
-    collection: &CollectionState,
+    collection: Option<&CollectionState>,
     return_mode: &ReturnMode,
     bytes: Vec<u8>,
 ) -> Result<(Option<Payload>, u64), String> {
     let logical = if *return_mode == ReturnMode::Logical {
+        let collection = collection.ok_or("result collection missing")?;
         Some(prepare_query_record(
             &collection.source,
             &collection.definition.schema,
