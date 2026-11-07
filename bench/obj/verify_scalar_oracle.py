@@ -33,6 +33,19 @@ NEEDLES = (
     "text123",  # Adjacent scalar values must not become one segment.
 )
 
+STRUCTURED = (
+    ('@root[0] = "first"', {"array.json"}),
+    ('@root = "a root string"', {"string.json"}),
+    ('@root :null', {"null.json"}),
+    ('@root = true', {"boolean.json"}),
+    ('@root = 123', {"number.json"}),
+    ('@root["a.b"] = "punctuation"', {"nested/punctuation.json"}),
+    ('@root[""] = 42', {"nested/punctuation.json"}),
+    ('v = "last occurrence"', {"duplicate.json"}),
+    ('v = "first occurrence"', set()),
+    ('huge = 1e1000000', {"exceptional.json"}),
+)
+
 
 def scalar_texts(value):
     if isinstance(value, ObjectPairs):
@@ -78,14 +91,17 @@ def expected_membership(root: Path, needle: str) -> set[str]:
     return result
 
 
-def observed_membership(binary: Path, root: Path, needle: str, alphabet: str) -> set[str]:
+def observed_membership(
+    binary: Path, root: Path, argument: str, alphabet: str, *, fts: bool
+) -> set[str]:
+    query_args = ["--fts", argument] if fts else [argument]
     process = subprocess.run(
-        [str(binary), "--path", str(root), "--index-alphabet", alphabet, "--fts", needle],
+        [str(binary), "--path", str(root), "--index-alphabet", alphabet, *query_args],
         capture_output=True,
         check=False,
     )
     if process.returncode:
-        raise AssertionError((needle, process.returncode, process.stderr.decode()))
+        raise AssertionError((argument, process.returncode, process.stderr.decode()))
     events = [json.loads(line) for line in process.stdout.splitlines()]
     assert events[-1]["type"] == "run_complete"
     query = [event for event in events if event["type"] == "query_complete"]
@@ -104,10 +120,24 @@ def main() -> None:
     for alphabet in ("ascii", "unicode"):
         for needle in NEEDLES:
             expected = expected_membership(args.root, needle)
-            observed = observed_membership(args.binary.resolve(), args.root.resolve(), needle, alphabet)
+            observed = observed_membership(
+                args.binary.resolve(), args.root.resolve(), needle, alphabet, fts=True
+            )
             status = "PASS" if expected == observed else "FAIL"
             print(
                 f"{status}\t{alphabet}\t{needle!r}\t"
+                f"expected={len(expected)}\tobserved={len(observed)}"
+            )
+            if expected != observed:
+                print(f"  missing={sorted(expected - observed)} extra={sorted(observed - expected)}")
+                failures += 1
+        for expression, expected in STRUCTURED:
+            observed = observed_membership(
+                args.binary.resolve(), args.root.resolve(), expression, alphabet, fts=False
+            )
+            status = "PASS" if expected == observed else "FAIL"
+            print(
+                f"{status}\t{alphabet}\t{expression!r}\t"
                 f"expected={len(expected)}\tobserved={len(observed)}"
             )
             if expected != observed:
