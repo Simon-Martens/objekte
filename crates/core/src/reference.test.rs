@@ -1,6 +1,103 @@
 use super::*;
 
 #[test]
+fn prepared_contains_preserves_plain_wildcard_and_escaped_percent_semantics() {
+    for (pattern, cases) in [
+        ("abc", vec![("zabcx", true), ("abxc", false)]),
+        ("a%b", vec![("ab", true), ("axxxb", true), ("ba", false)]),
+        ("a\\%b", vec![("a%b", true), ("axxb", false)]),
+        ("%%", vec![("", true), ("anything", true)]),
+        ("a\\\\%b", vec![("a\\%b", true), ("a%b", false)]),
+    ] {
+        let prepared = PreparedContains::new(pattern);
+        for (text, expected) in cases {
+            assert_eq!(
+                prepared.matches(text, pattern),
+                expected,
+                "{pattern:?} {text:?}"
+            );
+        }
+    }
+    assert!(matches!(
+        PreparedContains::new("abc"),
+        PreparedContains::Literal
+    ));
+    assert!(matches!(
+        PreparedContains::new("a\\%b"),
+        PreparedContains::Unescaped(_)
+    ));
+    assert!(matches!(
+        PreparedContains::new("a%b"),
+        PreparedContains::Wildcards(_)
+    ));
+}
+
+#[test]
+fn bound_contains_reuses_prepared_pattern_across_scalar_and_array_values() {
+    for (filter, document, expected) in [
+        ("name ~ 'a%b'", serde_json::json!({"name":"axxb"}), true),
+        ("name !~ 'a%b'", serde_json::json!({"name":"axxb"}), false),
+        ("name ~ 'a\\%b'", serde_json::json!({"name":"a%b"}), true),
+        (
+            "name:lower ~ 'str%se'",
+            serde_json::json!({"name":"Straße"}),
+            true,
+        ),
+        (
+            "values ?~ 'a%b'",
+            serde_json::json!({"values":["no", "axxb"]}),
+            true,
+        ),
+        ("values ?~ 'a%b'", serde_json::json!({"values":[]}), false),
+    ] {
+        PREPARED_CONTAINS_BUILDS.with(|count| count.set(0));
+        let bound = bind_filter(&parse_filter(filter).unwrap(), &schema()).unwrap();
+        let BoundExpr::Term(term) = &bound else {
+            panic!("one term")
+        };
+        assert!(term.prepared_contains.is_some());
+        assert_eq!(PREPARED_CONTAINS_BUILDS.with(|count| count.get()), 1);
+        let value = Value::from_json(document).unwrap();
+        with_record(value, |ctx| {
+            for _ in 0..32 {
+                assert_eq!(
+                    eval_filter(&bound, &ctx, &mut HashSet::new()).unwrap(),
+                    expected
+                );
+            }
+        });
+        assert_eq!(PREPARED_CONTAINS_BUILDS.with(|count| count.get()), 1);
+    }
+}
+
+#[test]
+fn membership_filter_and_unavailable_truth_match_evidence_evaluation() {
+    let value = Value::from_json(serde_json::json!({
+        "name": "Ada", "values": ["x", "y"], "people": [{"name": "Bob"}]
+    }))
+    .unwrap();
+    with_record(value, |ctx| {
+        for filter in [
+            "name = 'Ada'",
+            "name ~ 'A%a' && values ?= 'x'",
+            "name !~ 'A%a' || people.name ?= 'Bob'",
+            "!(name = 'Ada' && values ?= 'no')",
+            "values ?= 'missing'",
+            "@file.id = 0 || name = 'no'",
+            "@file.id != 0 && name = 'Ada'",
+        ] {
+            let bound = bind_filter(&parse_filter(filter).unwrap(), &schema()).unwrap();
+            let unavailable = eval_unavailable_filter(&bound, &ctx, &mut HashSet::new()).unwrap();
+            assert_eq!(
+                eval_unavailable_filter_membership(&bound, &ctx).unwrap(),
+                unavailable,
+                "{filter}"
+            );
+        }
+    });
+}
+
+#[test]
 fn incremental_conversion_tree_matches_complete_rebuild_in_any_registration_order() {
     fn field(path: &[&str], kind: LogicalType, required: bool) -> FieldDefinition {
         FieldDefinition {
@@ -218,6 +315,56 @@ fn fts_exact_modes_preserve_original_and_folded_literals() {
             }
         }
     }
+}
+
+#[test]
+fn fts_membership_stops_after_first_match_but_evidence_checks_every_segment() {
+    #[derive(Debug)]
+    struct CountingMatcher(std::sync::Arc<std::sync::atomic::AtomicUsize>);
+
+
+    impl PreparedTextMatcher for CountingMatcher {
+        fn matches(&self, text: &str) -> Result<bool, String> {
+            self.0.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
+            Ok(text.contains("hit"))
+        }
+    }
+
+
+    let mut bound = bind_fts(
+        &FtsQuery {
+            pattern_parameter: None,
+            mode: crate::query::FtsMode::Literal,
+            case_sensitivity: CaseSensitivity::Sensitive,
+            literal: "hit".into(),
+            fields: vec![crate::query::FtsField {
+                query_path: None,
+                path: FieldPath::parse("name").unwrap(),
+                binding: None,
+            }],
+        },
+        &schema(),
+    )
+    .unwrap();
+    let calls = std::sync::Arc::new(std::sync::atomic::AtomicUsize::new(0));
+    bound.fields[0].matcher = Some(std::sync::Arc::new(CountingMatcher(calls.clone())));
+    let segments = (0..3)
+        .map(|_| TextSegment {
+            path: vec!["name".into()],
+            text: "hit".into(),
+        })
+        .collect::<Vec<_>>();
+    with_record(
+        Value::from_json(serde_json::json!({"name": "hit"})).unwrap(),
+        |ctx| {
+            assert!(eval_bound_fts_membership(&bound, &segments, &ctx).unwrap());
+            assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 1);
+            let mut evidence = HashSet::new();
+            assert!(eval_bound_fts(&bound, &segments, &ctx, &mut evidence).unwrap());
+            assert_eq!(calls.load(std::sync::atomic::Ordering::Relaxed), 4);
+            assert_eq!(evidence, HashSet::from(["name".to_owned()]));
+        },
+    );
 }
 
 #[test]

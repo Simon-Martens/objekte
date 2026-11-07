@@ -218,7 +218,10 @@ fn query(
             FtsMode::Literal
         },
         filter: filter.map(str::to_owned),
-        fts_fields: field.map(str::to_owned).into_iter().collect(),
+        fts_fields: field
+            .into_iter()
+            .flat_map(|fields| fields.split(',').map(str::to_owned))
+            .collect(),
         sort: vec![],
         limit: 50,
         offset: 0,
@@ -734,6 +737,70 @@ fn relation_answers_and_evidence_survive_cache_and_snapshot_restore() {
             restored.search_reference(&request).unwrap().hits
         );
     }
+}
+
+#[test]
+fn membership_only_matches_complete_evidence_for_local_relation_and_fts_routes() {
+    let (root, definitions) = fixture();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for request in [
+        query(
+            "mentions",
+            Some("entry.title = 'Hymn' || local_title = 'Hymn'"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            Some("items[0].entry.title = 'Hymn'"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            Some("!(entry.title = 'Hymn')"),
+            None,
+            None,
+            false,
+        ),
+        query(
+            "mentions",
+            None,
+            Some("Hymn"),
+            Some("local_title,entry.title"),
+            false,
+        ),
+        query("mentions", None, Some("^Hymn$"), Some("entry.title"), true),
+        query("mentions", None, Some("Hymn"), None, false),
+    ] {
+        let with_evidence = repo.search(&request).unwrap();
+        assert_eq!(
+            with_evidence.hits,
+            repo.search_reference(&request).unwrap().hits
+        );
+        let mut membership_request = request.clone();
+        membership_request.options.evidence = false;
+        let actual = repo.search(&membership_request).unwrap();
+        let reference = repo.search_reference(&membership_request).unwrap();
+        assert_eq!(actual.count, with_evidence.count);
+        assert_eq!(actual.hits, reference.hits);
+        let mut expected = with_evidence.hits;
+        for hit in &mut expected {
+            hit.matched_fields.clear();
+        }
+        assert_eq!(actual.hits, expected);
+    }
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

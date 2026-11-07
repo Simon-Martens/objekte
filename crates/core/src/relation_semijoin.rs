@@ -13,7 +13,8 @@ use crate::model::{FileId, RecordSlot};
 use crate::query::Quantifier;
 use crate::record_preparation::prepare_query_record;
 use crate::reference::{
-    BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts, eval_term, same_bound_term,
+    BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
+    same_bound_term,
 };
 use crate::relation::{RelationCardinality, RelationTarget};
 use crate::relation_query::{BoundRelationHop, HopDirection};
@@ -514,7 +515,7 @@ pub(crate) fn fts_witnesses(
             field.path.segments.first().map(String::as_str),
             true,
             &mut work,
-            &mut |ctx, segments| eval_bound_fts(&local, segments, ctx, &mut HashSet::new()),
+            &mut |ctx, segments| eval_bound_fts_membership(&local, segments, ctx),
         )?;
         work.target_matches += matched.len();
         let sources = reverse_sources(repo, hops, &matched, input, &mut work)?;
