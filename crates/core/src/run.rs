@@ -28,6 +28,10 @@ use crate::sort_binding::{BoundSort, BoundSortSource, SortTargetCache};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
+use crate::streaming::{
+    Abort, CancellationToken, Delivery, StreamControl, StreamError, StreamEvent, StreamMode,
+    StreamOptions, StreamOutcome, StreamSummary,
+};
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, SortField, WorkCounters};
 
@@ -54,7 +58,6 @@ fn check_computed_sort_budget_with_limit(
     Ok(())
 }
 
-
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -62,7 +65,6 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
-
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -115,7 +117,6 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
-
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -124,14 +125,12 @@ struct RankKey {
     id: String,
 }
 
-
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
-
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -201,23 +200,19 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
-
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for RankKey {}
-
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -226,8 +221,8 @@ impl Ord for RankKey {
     }
 }
 
-
 /// Bounded page candidate and its materialized result.
+#[derive(Clone)]
 struct Winner {
     key: RankKey,
     collection_index: usize,
@@ -236,7 +231,6 @@ struct Winner {
     retained_bytes: u64,
 }
 
-
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -244,8 +238,8 @@ struct ScannedMatch {
     evidence: HashSet<String>,
     payload: Option<Payload>,
     retained_bytes: u64,
+    buffered_bytes: usize,
 }
-
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -265,12 +259,10 @@ struct ScannedFile {
     cache_members: Vec<CachedMember>,
 }
 
-
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
-
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -278,9 +270,7 @@ impl PartialEq for FileWinner {
     }
 }
 
-
 impl Eq for FileWinner {}
-
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -288,24 +278,23 @@ impl PartialOrd for FileWinner {
     }
 }
 
-
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
 
-
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
+    initial: usize,
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
 
-
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
         Self {
+            initial: bytes,
             remaining: AtomicUsize::new(bytes),
             complete: AtomicBool::new(true),
         }
@@ -313,6 +302,11 @@ impl CacheBudget {
 
     fn complete(&self) -> bool {
         self.complete.load(AtomicOrdering::Relaxed)
+    }
+
+    fn used(&self) -> usize {
+        self.initial
+            .saturating_sub(self.remaining.load(AtomicOrdering::Relaxed))
     }
 
     fn reserve(&self, fields: &[String]) -> bool {
@@ -340,7 +334,6 @@ impl CacheBudget {
         }
     }
 }
-
 
 fn scan_projection(
     query: &Query,
@@ -416,14 +409,12 @@ fn scan_projection(
     }
 }
 
-
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
-
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -468,7 +459,6 @@ fn prepare_residual<'a>(
         ))),
     }
 }
-
 
 impl Residual<'_> {
     fn unavailable(
@@ -735,7 +725,6 @@ impl Residual<'_> {
     }
 }
 
-
 fn scan_file(
     repo: &Repository,
     query: &Query,
@@ -752,6 +741,8 @@ fn scan_file(
     file_id: u32,
     ranges: &[(u32, ByteRange)],
     mut source_access: Option<&mut SourceAccessSession<'_>>,
+    cancellation: Option<&CancellationToken>,
+    max_retained_bytes: Option<u64>,
 ) -> Result<ScannedFile, String> {
     let collection = &repo.collections[collection_index];
     let path = repo
@@ -769,6 +760,7 @@ fn scan_file(
     let mut winners = BinaryHeap::<FileWinner>::new();
     let mut retained_bytes = 0u64;
     let mut retained_key_bytes = 0u64;
+    let mut buffered_bytes = 0usize;
     let mut reader = if source_access.is_some() {
         None
     } else {
@@ -778,29 +770,51 @@ fn scan_file(
     let full_projection = ScanProjection::full(projection.collect_text);
     let mut cursor = 0;
     while cursor < ranges.len() {
+        if cancellation.is_some_and(CancellationToken::is_cancelled) {
+            return Err("stream cancelled".into());
+        }
         let mut end = cursor + 1;
         let mut batch_bytes = ranges[cursor].1.len();
+        let batch_limit = max_retained_bytes.unwrap_or(1024 * 1024).min(1024 * 1024);
         while end < ranges.len()
             && end - cursor < 128
-            && batch_bytes.saturating_add(ranges[end].1.len()) <= 1024 * 1024
+            && batch_bytes.saturating_add(ranges[end].1.len()) <= batch_limit
         {
             batch_bytes += ranges[end].1.len();
             end += 1;
         }
         let batch = &ranges[cursor..end];
+        if max_retained_bytes
+            .is_some_and(|limit| batch.iter().any(|(_, range)| range.len() > limit))
+        {
+            return Err("stream resource: record exceeds buffered-byte limit".into());
+        }
         cursor = end;
         let (records, bytes_read) = if let Some(session) = source_access.as_deref_mut() {
-            let read = session.read(crate::model::FileId(file_id), batch)?;
+            let read = if let Some(limit) = max_retained_bytes {
+                session.read_bounded(
+                    crate::model::FileId(file_id),
+                    batch,
+                    usize::try_from(limit).unwrap_or(usize::MAX),
+                )?
+            } else {
+                session.read(crate::model::FileId(file_id), batch)?
+            };
             outcome.files_opened += read.opened;
             (read.records, read.bytes_read)
         } else {
-            reader
-                .as_mut()
-                .ok_or("missing source reader")?
-                .read(batch)?
+            let reader = reader.as_mut().ok_or("missing source reader")?;
+            if let Some(limit) = max_retained_bytes {
+                reader.read_bounded(batch, usize::try_from(limit).unwrap_or(usize::MAX))?
+            } else {
+                reader.read(batch)?
+            }
         };
         outcome.bytes_read += bytes_read;
         for (slot, bytes) in records {
+            if cancellation.is_some_and(CancellationToken::is_cancelled) {
+                return Err("stream cancelled".into());
+            }
             let record = &collection.generation.records[slot as usize];
             let file = &repo.files.files[file_id as usize];
             let may_reach_page = !sort.bound.has_computed
@@ -999,6 +1013,23 @@ fn scan_file(
                             .ok_or("sort payload byte estimate overflow")?,
                         _ => bytes.len() as u64,
                     };
+                    let replaced = if winners.len() == keep_cap {
+                        winners
+                            .peek()
+                            .map_or(0, |worst| worst.matched.retained_bytes)
+                    } else {
+                        0
+                    };
+                    if max_retained_bytes.is_some_and(|limit| {
+                        retained_bytes
+                            .saturating_sub(replaced)
+                            .saturating_add(retained)
+                            > limit
+                    }) {
+                        return Err(
+                            "stream resource: file winners exceed buffered-byte limit".into()
+                        );
+                    }
                     let payload = if record.class == RecordClass::RawFallback
                         && query.options.return_mode == ReturnMode::Logical
                     {
@@ -1008,15 +1039,42 @@ fn scan_file(
                     } else {
                         materialize(&query.options.return_mode, bytes, Some(extracted))?
                     };
-                    if winners.len() == keep_cap {
-                        let old = winners.pop().unwrap();
-                        retained_bytes -= old.matched.retained_bytes;
-                        retained_key_bytes -= rank_key_bytes(&old.key);
-                    }
-                    retained_bytes += retained;
-                    outcome.peak_payload_bytes = outcome.peak_payload_bytes.max(retained_bytes);
                     let key = computed_key
                         .unwrap_or_else(|| rank_key(sort, repo, collection_index, record));
+                    let measured = std::mem::size_of::<FileWinner>()
+                        .saturating_add(rank_key_bytes(&key) as usize)
+                        .saturating_add(
+                            evidence.iter().map(|field| field.len() + 64).sum::<usize>(),
+                        )
+                        .saturating_add(
+                            payload.as_ref().map_or(0, crate::streaming::payload_bytes),
+                        );
+                    let replaced_buffered = if winners.len() == keep_cap {
+                        winners
+                            .peek()
+                            .map_or(0, |worst| worst.matched.buffered_bytes)
+                    } else {
+                        0
+                    };
+                    if max_retained_bytes.is_some_and(|limit| {
+                        buffered_bytes
+                            .saturating_sub(replaced_buffered)
+                            .saturating_add(measured)
+                            > limit as usize
+                    }) {
+                        return Err(
+                            "stream resource: file winners exceed buffered-byte limit".into()
+                        );
+                    }
+                    if winners.len() == keep_cap {
+                        let removed = winners.pop().unwrap();
+                        retained_bytes -= removed.matched.retained_bytes;
+                        retained_key_bytes -= rank_key_bytes(&removed.key);
+                        buffered_bytes -= removed.matched.buffered_bytes;
+                    }
+                    retained_bytes += retained;
+                    buffered_bytes += measured;
+                    outcome.peak_payload_bytes = outcome.peak_payload_bytes.max(retained_bytes);
                     retained_key_bytes = retained_key_bytes
                         .checked_add(rank_key_bytes(&key))
                         .ok_or("sort key byte count overflow")?;
@@ -1036,6 +1094,7 @@ fn scan_file(
                             evidence,
                             payload,
                             retained_bytes: retained,
+                            buffered_bytes: measured,
                         },
                     });
                 }
@@ -1053,7 +1112,6 @@ fn scan_file(
     Ok(outcome)
 }
 
-
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1063,7 +1121,6 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
-
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1076,7 +1133,6 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
-
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1140,7 +1196,6 @@ fn bound_term_diagnostics(
     terms
 }
 
-
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1165,7 +1220,6 @@ pub struct QueryPlanTrace {
     pub candidates: u64,
     pub actual: Option<PlanActual>,
 }
-
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1205,7 +1259,6 @@ fn regex_prefilter_reason(
     }
 }
 
-
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1225,7 +1278,6 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
-
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1248,7 +1300,6 @@ impl Default for PlanActual {
         }
     }
 }
-
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -1399,16 +1450,13 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
-
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for Winner {}
-
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -1416,13 +1464,11 @@ impl PartialOrd for Winner {
     }
 }
 
-
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -1640,7 +1686,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         if cache.enabled() { cache.budget() } else { 0 }
     };
     if budget == 0 {
-        return search_impl(repo, query, None, None, None, None);
+        return search_impl(repo, query, None, None, None, None, None);
     }
     let bound_sort = BoundSort::bind(repo, query)?;
     let computed_sort = bound_sort.has_computed;
@@ -1652,13 +1698,13 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
         return if computed_sort {
-            materialize_computed_cached(repo, query, &cached, bound_sort)
+            materialize_computed_cached(repo, query, &cached, bound_sort, None)
         } else {
             materialize_cached(repo, query, &cached)
         };
     }
     if !query.options.count {
-        return search_impl(repo, query, None, None, None, Some(bound_sort));
+        return search_impl(repo, query, None, None, None, Some(bound_sort), None);
     }
     let mut members = Vec::new();
     let tracker = CacheBudget::new(budget.saturating_sub(key.len() + 128));
@@ -1669,6 +1715,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         Some(&mut members),
         Some(&tracker),
         Some(bound_sort),
+        None,
     )?;
     if tracker.complete() && Some(members.len()) == result.count {
         sort_cached_members(repo, &membership_query, &mut members);
@@ -1678,6 +1725,172 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             .insert(key, members);
     }
     Ok(result)
+}
+
+/// Execute and publish from the shared scan/ranking path before completion.
+pub fn search_stream(
+    repo: &Repository,
+    query: &Query,
+    options: StreamOptions,
+    cancellation: &CancellationToken,
+    sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
+) -> Result<StreamOutcome, StreamError> {
+    options
+        .validate()
+        .map_err(|message| StreamError::Execution {
+            message,
+            progress: Default::default(),
+        })?;
+    let mut delivery = Delivery::new(options, cancellation, sink);
+    if delivery.check().is_err() {
+        return Ok(StreamOutcome::Cancelled(delivery.progress));
+    }
+    let bound_sort = BoundSort::bind(repo, query).map_err(|message| StreamError::Execution {
+        message,
+        progress: delivery.progress,
+    })?;
+    let computed_sort = bound_sort.has_computed;
+    let mut membership_query = query.clone();
+    if computed_sort {
+        membership_query.options.sort.clear();
+    }
+    let budget = repo
+        .verified
+        .lock()
+        .map_err(|error| StreamError::Execution {
+            message: error.to_string(),
+            progress: delivery.progress,
+        })?
+        .budget();
+    let mut members = Vec::new();
+    // The ordered cursor can publish its page before COUNT traverses the rest
+    // of the domain. Building a membership cache would force the top-k scan.
+    let cache_key = if budget > 0 && query.options.count {
+        Some(
+            crate::verified::key(&membership_query).map_err(|message| StreamError::Execution {
+                message,
+                progress: delivery.progress,
+            })?,
+        )
+    } else {
+        None
+    };
+    let cached = if let Some(key) = &cache_key {
+        repo.verified
+            .lock()
+            .map_err(|error| StreamError::Execution {
+                message: error.to_string(),
+                progress: delivery.progress,
+            })?
+            .get(key)
+    } else {
+        None
+    };
+    let tracker = cache_key
+        .as_ref()
+        .filter(|_| cached.is_none() && options.mode != StreamMode::OrderedRows)
+        .map(|key| {
+            CacheBudget::new(
+                budget
+                    .saturating_sub(key.len() + 128)
+                    .min(options.max_buffered_bytes / 4),
+            )
+        });
+    let result = if let Some(cached) = cached {
+        if computed_sort {
+            materialize_computed_cached(repo, query, &cached, bound_sort, Some(&mut delivery))
+        } else {
+            materialize_cached_stream(repo, query, &cached, &mut delivery)
+        }
+    } else {
+        search_impl(
+            repo,
+            query,
+            None,
+            tracker.as_ref().map(|_| &mut members),
+            tracker.as_ref(),
+            Some(bound_sort),
+            Some(&mut delivery),
+        )
+    };
+    let result = match result {
+        Ok(result) => result,
+        Err(message) => {
+            return match delivery.abort.take() {
+                Some(Abort::Cancelled) => Ok(StreamOutcome::Cancelled(delivery.progress)),
+                Some(Abort::Sink(message)) => Err(StreamError::Sink {
+                    message,
+                    progress: delivery.progress,
+                }),
+                Some(Abort::Resource(message)) => Err(StreamError::Resource {
+                    message,
+                    progress: delivery.progress,
+                }),
+                None if cancellation.is_cancelled() => {
+                    Ok(StreamOutcome::Cancelled(delivery.progress))
+                }
+                None if message.starts_with("stream resource:") => Err(StreamError::Resource {
+                    message,
+                    progress: delivery.progress,
+                }),
+                None => Err(StreamError::Execution {
+                    message,
+                    progress: delivery.progress,
+                }),
+            };
+        }
+    };
+    let final_delivery = delivery
+        .check_buffer(result.hits.iter().map(crate::streaming::hit_bytes).sum())
+        .and_then(|_| match options.mode {
+            StreamMode::OrderedRows => delivery.ordered_rows(&result.hits, &result.counters, true),
+            StreamMode::PageReplacements => delivery.replacement(&result.hits, &result.counters, 0),
+        });
+    if let Err(message) = final_delivery.and_then(|_| delivery.check()) {
+        return match delivery.abort.take() {
+            Some(Abort::Cancelled) => Ok(StreamOutcome::Cancelled(delivery.progress)),
+            Some(Abort::Sink(message)) => Err(StreamError::Sink {
+                message,
+                progress: delivery.progress,
+            }),
+            Some(Abort::Resource(message)) => Err(StreamError::Resource {
+                message,
+                progress: delivery.progress,
+            }),
+            None => Err(StreamError::Execution {
+                message,
+                progress: delivery.progress,
+            }),
+        };
+    }
+    let publish_cache =
+        tracker.as_ref().is_some_and(CacheBudget::complete) && Some(members.len()) == result.count;
+    if publish_cache {
+        sort_cached_members(repo, &membership_query, &mut members);
+    }
+    // This check is the completion decision. Cancellation observed afterwards
+    // cannot undo a successfully delivered page or a committed cache entry.
+    if delivery.check().is_err() {
+        return Ok(StreamOutcome::Cancelled(delivery.progress));
+    }
+    if publish_cache {
+        if let Some(key) = cache_key {
+            repo.verified
+                .lock()
+                .map_err(|error| StreamError::Execution {
+                    message: error.to_string(),
+                    progress: delivery.progress,
+                })?
+                .insert(key, members);
+        }
+    }
+    Ok(StreamOutcome::Complete(Box::new(StreamSummary {
+        count: result.count,
+        returned_rows: result.hits.len(),
+        final_sequence: delivery.last_page_sequence(),
+        counters: result.counters,
+        progress: delivery.progress,
+    })))
 }
 
 pub(crate) fn exact_members(
@@ -1695,7 +1908,15 @@ pub(crate) fn exact_members(
     scoped.options.evidence = false;
     let mut members = Vec::new();
     let budget = CacheBudget::new(usize::MAX);
-    let result = search_impl(repo, &scoped, None, Some(&mut members), Some(&budget), None)?;
+    let result = search_impl(
+        repo,
+        &scoped,
+        None,
+        Some(&mut members),
+        Some(&budget),
+        None,
+        None,
+    )?;
     if !budget.complete()
         || result.count != Some(members.len())
         || members
@@ -1749,7 +1970,6 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
-
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -1760,23 +1980,19 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
-
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for StoredCursor<'_> {}
-
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -1796,7 +2012,6 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
-
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -1819,7 +2034,6 @@ fn stored_cursor<'a>(
     })
 }
 
-
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -1827,7 +2041,6 @@ struct OrderedPlan<'a> {
     plan: Plan,
     candidates: RoaringBitmap,
 }
-
 
 fn direct_payload(
     repo: &Repository,
@@ -1837,6 +2050,7 @@ fn direct_payload(
     counters: &mut WorkCounters,
     actual: &mut PlanActual,
     source_access: &mut SourceAccessSession<'_>,
+    stream_limit: Option<usize>,
 ) -> Result<Option<Payload>, String> {
     if query.options.return_mode == ReturnMode::Locator {
         return Ok(None);
@@ -1848,7 +2062,11 @@ fn direct_payload(
         }));
     }
     let collection = &repo.collections[collection_index];
-    let mut read = source_access.read(record.file, &[(0, record.range)])?;
+    let mut read = if let Some(limit) = stream_limit {
+        source_access.read_bounded(record.file, &[(0, record.range)], limit)?
+    } else {
+        source_access.read(record.file, &[(0, record.range)])?
+    };
     let bytes = read.records.pop().ok_or("source record missing")?.1;
     counters.files_opened += read.opened;
     counters.bytes_read += read.bytes_read;
@@ -1878,8 +2096,9 @@ fn try_stored_order_page(
     prepared_plan_hit: bool,
     preparation_ns: u64,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
+    mut delivery: Option<&mut Delivery<'_>>,
 ) -> Result<Option<SearchResult>, String> {
-    if sort.bound.has_computed || query.options.count {
+    if sort.bound.has_computed || (query.options.count && delivery.is_none()) {
         return Ok(None);
     }
     if query.options.sort.len() > 1
@@ -1952,7 +2171,11 @@ fn try_stored_order_page(
     }
     // For a selective membership set, ranking the matches is cheaper than
     // traversing the full stored list. Zero matches need no traversal.
-    if cap > 0 && candidate_total > 0 && candidate_total < (cap as u64).saturating_mul(4) {
+    if delivery.is_none()
+        && cap > 0
+        && candidate_total > 0
+        && candidate_total < (cap as u64).saturating_mul(4)
+    {
         return Ok(None);
     }
     let residuals = plans
@@ -2078,8 +2301,11 @@ fn try_stored_order_page(
     let mut locator_query = query.clone();
     locator_query.options.return_mode = ReturnMode::Locator;
     let mut source_access = SourceAccessSession::new(&repo.files);
-    if cap > 0 {
+    if cap > 0 || (delivery.is_some() && query.options.count) {
         loop {
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.check()?;
+            }
             let Some(Reverse(cursor)) = heap.pop() else {
                 break;
             };
@@ -2113,7 +2339,12 @@ fn try_stored_order_page(
                             .transpose()?
                             .unwrap_or_default();
                     }
-                    if counters.total_matches as usize >= query.options.offset {
+                    if (counters.total_matches as usize) >= query.options.offset
+                        && (counters.total_matches as usize) < cap
+                    {
+                        if let Some(delivery) = delivery.as_deref_mut() {
+                            delivery.check_record_bytes(cursor.record.range.len() as usize)?;
+                        }
                         payload = direct_payload(
                             repo,
                             query,
@@ -2122,10 +2353,15 @@ fn try_stored_order_page(
                             &mut counters,
                             actual,
                             &mut source_access,
+                            delivery
+                                .as_ref()
+                                .map(|delivery| delivery.max_buffered_bytes()),
                         )?;
                     }
                 } else {
-                    let scan_query = if counters.total_matches as usize >= query.options.offset {
+                    let scan_query = if (counters.total_matches as usize) >= query.options.offset
+                        && (counters.total_matches as usize) < cap
+                    {
                         query
                     } else {
                         &locator_query
@@ -2146,6 +2382,10 @@ fn try_stored_order_page(
                         cursor.record.file.0,
                         &[(slot, cursor.record.range)],
                         Some(&mut source_access),
+                        delivery.as_ref().map(|delivery| delivery.token()),
+                        delivery
+                            .as_ref()
+                            .map(|delivery| delivery.max_buffered_bytes() as u64),
                     )?;
                     counters.files_opened += scanned.files_opened;
                     counters.bytes_read += scanned.bytes_read;
@@ -2193,7 +2433,9 @@ fn try_stored_order_page(
                     }
                 }
                 if matched {
-                    if counters.total_matches as usize >= query.options.offset {
+                    if (counters.total_matches as usize) >= query.options.offset
+                        && (counters.total_matches as usize) < cap
+                    {
                         let matched_fields = if query.options.evidence {
                             evidence.into_iter().collect()
                         } else {
@@ -2208,7 +2450,21 @@ fn try_stored_order_page(
                         ));
                     }
                     counters.total_matches += 1;
-                    if counters.total_matches as usize >= cap {
+                    if let Some(delivery) = delivery.as_deref_mut() {
+                        delivery
+                            .check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
+                        delivery.ordered_rows(
+                            &page,
+                            &counters,
+                            page.len() == query.options.limit,
+                        )?;
+                        if delivery.options().mode == StreamMode::PageReplacements
+                            && page.len() % delivery.options().batch_rows == 0
+                        {
+                            delivery.replacement(&page, &counters, 0)?;
+                        }
+                    }
+                    if !query.options.count && counters.total_matches as usize >= cap {
                         stopped_early = true;
                         break;
                     }
@@ -2228,14 +2484,20 @@ fn try_stored_order_page(
     }
     counters.returned_records = page.len() as u64;
     counters.distinct_files = source_access.distinct_files();
-    counters.match_count_complete = !stopped_early && cap > 0;
+    counters.match_count_complete = !stopped_early && (cap > 0 || query.options.count);
+    if let Some(delivery) = delivery.as_deref_mut() {
+        delivery.ordered_rows(&page, &counters, true)?;
+    }
     if let Some(traces) = traces.as_deref_mut() {
         for (trace, actual) in traces.iter_mut().zip(actuals) {
             trace.actual = Some(actual);
         }
     }
     Ok(Some(SearchResult {
-        count: None,
+        count: query
+            .options
+            .count
+            .then_some(counters.total_matches as usize),
         hits: page,
         counters,
     }))
@@ -2291,6 +2553,7 @@ fn materialize_computed_cached<'a>(
     query: &Query,
     cached: &CachedResult,
     bound_sort: BoundSort<'a>,
+    mut delivery: Option<&mut Delivery<'_>>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
     let sort = ResolvedSort::from_bound(repo, query, bound_sort);
@@ -2371,6 +2634,10 @@ fn materialize_computed_cached<'a>(
     let mut batch = Vec::<(u32, ByteRange)>::with_capacity(128);
     let mut start = 0;
     while start < reads.len() {
+        if let Some(delivery) = delivery.as_deref_mut() {
+            delivery.check()?;
+            delivery.check_buffer(fixed_bytes.saturating_add(retained_key_bytes) as usize)?;
+        }
         let collection_index = reads[start].collection_index;
         let file_id = reads[start].file_id;
         touched_files.insert(file_id);
@@ -2388,7 +2655,15 @@ fn materialize_computed_cached<'a>(
                 batch.push((reads[start].member_index, reads[start].range));
                 start += 1;
             }
-            let read = source_access.read(crate::model::FileId(file_id), &batch)?;
+            let read = if let Some(delivery) = delivery.as_deref_mut() {
+                source_access.read_bounded(
+                    crate::model::FileId(file_id),
+                    &batch,
+                    delivery.max_buffered_bytes(),
+                )?
+            } else {
+                source_access.read(crate::model::FileId(file_id), &batch)?
+            };
             counters.files_opened += read.opened;
             counters.bytes_read += read.bytes_read;
             for (index, bytes) in read.records {
@@ -2478,7 +2753,11 @@ fn materialize_computed_cached<'a>(
     let mut page_query = query.clone();
     page_query.options.offset = 0;
     page_query.options.limit = page_cache.members.len();
-    let mut result = materialize_cached(repo, &page_query, &page_cache)?;
+    let mut result = if let Some(delivery) = delivery.as_deref_mut() {
+        materialize_cached_stream(repo, &page_query, &page_cache, delivery)?
+    } else {
+        materialize_cached(repo, &page_query, &page_cache)?
+    };
     for member in &page_cache.members {
         let record =
             &repo.collections[member.collection_index].generation.records[member.slot as usize];
@@ -2497,6 +2776,73 @@ fn materialize_computed_cached<'a>(
     result.count = query.options.count.then_some(cached.members.len());
     result.counters = counters;
     Ok(result)
+}
+
+fn materialize_cached_stream(
+    repo: &Repository,
+    query: &Query,
+    cached: &CachedResult,
+    delivery: &mut Delivery<'_>,
+) -> Result<SearchResult, String> {
+    delivery.check()?;
+    let started = Instant::now();
+    let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
+    let mut counters = WorkCounters {
+        total_matches: cached.members.len() as u64,
+        match_count_complete: true,
+        verified_result_hit: true,
+        prepared_plan_hit: plan_hit,
+        ..WorkCounters::default()
+    };
+    counters.preparation_ns = started.elapsed().as_nanos() as u64;
+    let mut page = Vec::new();
+    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut actual = PlanActual::default();
+    for member in cached
+        .members
+        .iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+    {
+        delivery.check()?;
+        let record =
+            &repo.collections[member.collection_index].generation.records[member.slot as usize];
+        let existing = page.iter().map(crate::streaming::hit_bytes).sum::<usize>();
+        delivery.check_record_bytes(record.range.len() as usize)?;
+        delivery.check_buffer(existing.saturating_add(record.range.len() as usize))?;
+        let payload = direct_payload(
+            repo,
+            query,
+            member.collection_index,
+            record,
+            &mut counters,
+            &mut actual,
+            &mut source_access,
+            Some(delivery.max_buffered_bytes()),
+        )?;
+        page.push(make_hit(
+            repo,
+            member.collection_index,
+            record,
+            member.matched_fields.clone(),
+            payload,
+        ));
+        delivery.check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
+        match delivery.options().mode {
+            StreamMode::OrderedRows => delivery.ordered_rows(&page, &counters, false)?,
+            StreamMode::PageReplacements if page.len() % delivery.options().batch_rows == 0 => {
+                delivery.replacement(&page, &counters, 0)?;
+            }
+            StreamMode::PageReplacements => {}
+        }
+    }
+    counters.returned_records = page.len() as u64;
+    counters.distinct_files = source_access.distinct_files();
+    Ok(SearchResult {
+        count: Some(cached.members.len()),
+        hits: page,
+        counters,
+    })
 }
 
 fn materialize_cached(
@@ -2608,7 +2954,7 @@ pub fn search_analyze(
     query: &Query,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
-    let result = search_impl(repo, query, Some(&mut traces), None, None, None)?;
+    let result = search_impl(repo, query, Some(&mut traces), None, None, None, None)?;
     Ok((result, traces))
 }
 
@@ -2764,6 +3110,211 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
     Ok(traces)
 }
 
+/// Load only payloads needed by the currently visible requested page.
+fn materialize_winner_page(
+    repo: &Repository,
+    query: &Query,
+    page: &mut [Winner],
+    counters: &mut WorkCounters,
+    files_read: &mut Option<RoaringBitmap>,
+    mut traces: Option<&mut Vec<QueryPlanTrace>>,
+    cancellation: Option<&CancellationToken>,
+    stream_limit: Option<usize>,
+) -> Result<(), String> {
+    // Exact index membership may need a page payload. Read only those ranges.
+    if query.options.return_mode != ReturnMode::Locator {
+        let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
+        for (index, winner) in page.iter_mut().enumerate() {
+            if winner.hit.payload.is_none() {
+                let record = &repo.collections[winner.collection_index].generation.records
+                    [winner.slot as usize];
+                if query.options.return_mode == ReturnMode::Logical
+                    && record.class == RecordClass::RawFallback
+                {
+                    winner.hit.payload = Some(Payload::LogicalUnavailable {
+                        diagnostic_ref: record.diagnostic_ref,
+                    });
+                    continue;
+                }
+                files
+                    .entry((winner.collection_index, record.file.0))
+                    .or_default()
+                    .push((index as u32, record.range));
+            }
+        }
+        let mut source_access = SourceAccessSession::new(&repo.files);
+        for ((collection_index, file_id), ranges) in files {
+            if cancellation.is_some_and(CancellationToken::is_cancelled) {
+                return Err("stream cancelled".into());
+            }
+            let collection = &repo.collections[collection_index];
+            for batch in ranges.chunks(if stream_limit.is_some() { 1 } else { 128 }) {
+                if cancellation.is_some_and(CancellationToken::is_cancelled) {
+                    return Err("stream cancelled".into());
+                }
+                let read = if let Some(limit) = stream_limit {
+                    source_access.read_bounded(crate::model::FileId(file_id), batch, limit)?
+                } else {
+                    source_access.read(crate::model::FileId(file_id), batch)?
+                };
+                counters.files_opened += read.opened;
+                counters.bytes_read += read.bytes_read;
+                if let Some(traces) = traces.as_deref_mut() {
+                    if let Some(actual) = traces
+                        .iter_mut()
+                        .find(|trace| trace.collection == collection.definition.name)
+                        .and_then(|trace| trace.actual.as_mut())
+                    {
+                        actual.files_opened += read.opened;
+                        actual.bytes_read += read.bytes_read;
+                        if query.options.return_mode == ReturnMode::Logical {
+                            actual.record_parses += read.records.len() as u64;
+                        }
+                    }
+                }
+                for (index, bytes) in read.records {
+                    if cancellation.is_some_and(CancellationToken::is_cancelled) {
+                        return Err("stream cancelled".into());
+                    }
+                    let logical = if query.options.return_mode == ReturnMode::Logical {
+                        counters.record_parses += 1;
+                        Some(prepare_query_record(
+                            &collection.source,
+                            &collection.definition.schema,
+                            &bytes,
+                            &ScanProjection::full(false),
+                            true,
+                        )?)
+                    } else {
+                        None
+                    };
+                    page[index as usize].hit.payload =
+                        materialize(&query.options.return_mode, bytes, logical)?;
+                }
+            }
+        }
+        *files_read
+            .as_mut()
+            .expect("payload access needs file union") |= source_access.accessed_files();
+    }
+    Ok(())
+}
+
+fn winner_bytes(winner: &Winner) -> usize {
+    std::mem::size_of::<Winner>()
+        + rank_key_bytes(&winner.key) as usize
+        + crate::streaming::hit_bytes(&winner.hit)
+}
+
+fn scanned_file_bytes(outcome: &ScannedFile) -> usize {
+    let matches = outcome
+        .matches
+        .iter()
+        .map(|matched| matched.buffered_bytes)
+        .sum::<usize>();
+    let cache = outcome
+        .cache_members
+        .iter()
+        .map(|member| {
+            std::mem::size_of::<CachedMember>()
+                + member
+                    .matched_fields
+                    .iter()
+                    .map(|field| field.len() + std::mem::size_of::<String>())
+                    .sum::<usize>()
+        })
+        .sum::<usize>();
+    std::mem::size_of::<ScannedFile>()
+        .saturating_add(matches)
+        .saturating_add(cache)
+}
+
+/// Publish a bounded provisional top-k page after a completed source batch.
+fn emit_provisional_page(
+    repo: &Repository,
+    query: &Query,
+    winners: &BinaryHeap<Winner>,
+    counters: &mut WorkCounters,
+    files_read: &mut Option<RoaringBitmap>,
+    delivery: &mut Delivery<'_>,
+    extra_retained: usize,
+) -> Result<(), String> {
+    delivery.check()?;
+    let retained = winners.iter().map(winner_bytes).sum::<usize>();
+    delivery.check_buffer(retained.saturating_add(extra_retained))?;
+    if query.options.limit == 0 {
+        return delivery.progress_event(counters);
+    }
+    if delivery.options().mode != StreamMode::PageReplacements {
+        return Ok(());
+    }
+    let mut ranked = winners.iter().collect::<Vec<_>>();
+    ranked.sort_by(|a, b| a.key.cmp(&b.key));
+    let visible = ranked
+        .into_iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .collect::<Vec<_>>();
+    if visible.is_empty() {
+        return Ok(());
+    }
+    let identities = visible
+        .iter()
+        .map(|winner| (winner.hit.collection.clone(), winner.hit.record_id.clone()))
+        .collect::<Vec<_>>();
+    if !delivery.page_changed(&identities) {
+        return Ok(());
+    }
+    let projected_copy = visible.iter().fold(0usize, |total, winner| {
+        let missing_body =
+            if winner.hit.payload.is_none() && query.options.return_mode != ReturnMode::Locator {
+                repo.collections[winner.collection_index].generation.records[winner.slot as usize]
+                    .range
+                    .len() as usize
+            } else {
+                0
+            };
+        total.saturating_add(winner_bytes(winner).saturating_add(missing_body))
+    });
+    let scratch = winners
+        .len()
+        .saturating_add(visible.len())
+        .saturating_mul(std::mem::size_of::<&Winner>())
+        .saturating_add(
+            identities
+                .iter()
+                .map(|(collection, id)| {
+                    collection
+                        .len()
+                        .saturating_add(id.len())
+                        .saturating_add(2 * std::mem::size_of::<String>())
+                })
+                .sum::<usize>(),
+        );
+    delivery.check_buffer(
+        retained
+            .saturating_add(extra_retained)
+            .saturating_add(projected_copy)
+            .saturating_add(scratch),
+    )?;
+    let mut page = visible.into_iter().cloned().collect::<Vec<Winner>>();
+    materialize_winner_page(
+        repo,
+        query,
+        &mut page,
+        counters,
+        files_read,
+        None,
+        Some(delivery.token()),
+        Some(delivery.max_buffered_bytes()),
+    )?;
+    let hits = page
+        .into_iter()
+        .map(|winner| winner.hit)
+        .collect::<Vec<_>>();
+    delivery.replacement(&hits, counters, retained.saturating_add(extra_retained))
+}
+
 fn search_impl<'a>(
     repo: &'a Repository,
     query: &Query,
@@ -2771,7 +3322,11 @@ fn search_impl<'a>(
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
     prebound_sort: Option<BoundSort<'a>>,
+    mut delivery: Option<&mut Delivery<'_>>,
 ) -> Result<SearchResult, String> {
+    if let Some(delivery) = delivery.as_deref_mut() {
+        delivery.check()?;
+    }
     let preparation_start = Instant::now();
     let sort = match prebound_sort {
         Some(bound) => ResolvedSort::from_bound(repo, query, bound),
@@ -2787,6 +3342,7 @@ fn search_impl<'a>(
             plan_hit,
             preparation_start.elapsed().as_nanos() as u64,
             traces.as_deref_mut(),
+            delivery.as_deref_mut(),
         )? {
             return Ok(result);
         }
@@ -2809,6 +3365,9 @@ fn search_impl<'a>(
     counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
     counters.prepared_plan_hit = plan_hit;
     for (collection_index, filter, fts) in prepared.collections {
+        if let Some(delivery) = delivery.as_deref_mut() {
+            delivery.check()?;
+        }
         let planning_start = Instant::now();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
@@ -2954,7 +3513,10 @@ fn search_impl<'a>(
             });
         }
         if !needs_scan {
-            for slot in candidates.iter() {
+            for (index, slot) in candidates.iter().enumerate() {
+                if let Some(delivery) = delivery.as_deref_mut() {
+                    delivery.check()?;
+                }
                 let record = &collection.generation.records[slot as usize];
                 let needs_evidence = query.options.evidence
                     && (cache_members.is_some()
@@ -2991,6 +3553,30 @@ fn search_impl<'a>(
                     &mut counters,
                     cache_members.as_deref_mut(),
                     cache_budget,
+                )?;
+                if let Some(delivery) = delivery.as_deref_mut()
+                    && (index + 1) % delivery.options().checkpoint_files == 0
+                {
+                    emit_provisional_page(
+                        repo,
+                        query,
+                        &winners,
+                        &mut counters,
+                        &mut files_read,
+                        delivery,
+                        cache_budget.map_or(0, CacheBudget::used),
+                    )?;
+                }
+            }
+            if let Some(delivery) = delivery.as_deref_mut() {
+                emit_provisional_page(
+                    repo,
+                    query,
+                    &winners,
+                    &mut counters,
+                    &mut files_read,
+                    delivery,
+                    cache_budget.map_or(0, CacheBudget::used),
                 )?;
             }
             if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
@@ -3063,7 +3649,18 @@ fn search_impl<'a>(
         let target_values = filter
             .as_ref()
             .map(|expr| {
-                crate::relation_target_cache::prepare(repo, collection_index, expr, &candidates)
+                if let Some(delivery) = delivery.as_ref() {
+                    crate::relation_target_cache::prepare_stream(
+                        repo,
+                        collection_index,
+                        expr,
+                        &candidates,
+                        delivery.token(),
+                        delivery.max_buffered_bytes() / 4,
+                    )
+                } else {
+                    crate::relation_target_cache::prepare(repo, collection_index, expr, &candidates)
+                }
             })
             .transpose()?
             .flatten();
@@ -3102,14 +3699,46 @@ fn search_impl<'a>(
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
-        let chunk_size = if sort.bound.has_computed {
+        let base_chunk_size = if sort.bound.has_computed {
             1
         } else if query.options.return_mode == ReturnMode::Locator || query.options.limit == 0 {
             256
         } else {
             repo.options.query_workers.min(64).max(1)
         };
+        let chunk_size = delivery.as_ref().map_or(base_chunk_size, |delivery| {
+            base_chunk_size
+                .min(delivery.options().checkpoint_files)
+                .max(1)
+        });
         for chunk in files.chunks(chunk_size) {
+            if let Some(delivery) = delivery.as_deref_mut() {
+                delivery.check()?;
+            }
+            let stream_token = delivery.as_ref().map(|delivery| delivery.token().clone());
+            let per_file_budget = if let Some(delivery) = delivery.as_deref_mut() {
+                let resident = winners
+                    .iter()
+                    .map(winner_bytes)
+                    .sum::<usize>()
+                    .saturating_add(
+                        target_values
+                            .as_ref()
+                            .map_or(0, |cache| cache.estimated_bytes()),
+                    )
+                    // Reserve the complete potential membership allocation while
+                    // workers run; their atomic reservations can grow concurrently.
+                    .saturating_add(cache_budget.map_or(0, |budget| budget.initial));
+                delivery.check_buffer(resident)?;
+                let per_file = delivery.max_buffered_bytes().saturating_sub(resident)
+                    / (chunk.len().max(1) * 4);
+                if per_file == 0 {
+                    return Err("stream resource: no room for source scan batch".into());
+                }
+                Some(per_file as u64)
+            } else {
+                None
+            };
             let payload_cutoff = if query.options.return_mode != ReturnMode::Locator
                 && query.options.limit > 0
                 && winners.len() == cap
@@ -3143,6 +3772,8 @@ fn search_impl<'a>(
                                 *file_id,
                                 ranges,
                                 None,
+                                stream_token.as_ref(),
+                                per_file_budget,
                             )
                         })
                         .collect()
@@ -3171,10 +3802,31 @@ fn search_impl<'a>(
                             *file_id,
                             ranges,
                             None,
+                            stream_token.as_ref(),
+                            per_file_budget,
                         )
                     })
                     .collect()
             };
+            if let Some(delivery) = delivery.as_deref_mut() {
+                let pending = scanned
+                    .iter()
+                    .filter_map(|item| item.as_ref().ok())
+                    .map(scanned_file_bytes)
+                    .sum::<usize>();
+                let retained = winners
+                    .iter()
+                    .map(winner_bytes)
+                    .sum::<usize>()
+                    .saturating_add(
+                        target_values
+                            .as_ref()
+                            .map_or(0, |cache| cache.estimated_bytes()),
+                    )
+                    .saturating_add(cache_budget.map_or(0, CacheBudget::used))
+                    .saturating_add(pending);
+                delivery.check_buffer(retained)?;
+            }
             let payload_upper = scanned
                 .iter()
                 .filter_map(|result| result.as_ref().ok())
@@ -3274,6 +3926,20 @@ fn search_impl<'a>(
                     )?;
                 }
             }
+            if let Some(delivery) = delivery.as_deref_mut() {
+                emit_provisional_page(
+                    repo,
+                    query,
+                    &winners,
+                    &mut counters,
+                    &mut files_read,
+                    delivery,
+                    target_values
+                        .as_ref()
+                        .map_or(0, |cache| cache.estimated_bytes())
+                        .saturating_add(cache_budget.map_or(0, CacheBudget::used)),
+                )?;
+            }
         }
         if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
             finish_trace(traces, before, &counters);
@@ -3320,69 +3986,38 @@ fn search_impl<'a>(
             .map_err(|error| error.to_string())?;
         check_computed_sort_budget(page_payload, retained_key_bytes, targets.retained_bytes())?;
     }
-    // Exact index membership may need a page payload. Read only those ranges.
-    if query.options.return_mode != ReturnMode::Locator {
-        let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();
-        for (index, winner) in page.iter_mut().enumerate() {
-            if winner.hit.payload.is_none() {
-                let record = &repo.collections[winner.collection_index].generation.records
-                    [winner.slot as usize];
-                if query.options.return_mode == ReturnMode::Logical
-                    && record.class == RecordClass::RawFallback
-                {
-                    winner.hit.payload = Some(Payload::LogicalUnavailable {
-                        diagnostic_ref: record.diagnostic_ref,
-                    });
-                    continue;
-                }
-                files
-                    .entry((winner.collection_index, record.file.0))
-                    .or_default()
-                    .push((index as u32, record.range));
-            }
-        }
-        let mut source_access = SourceAccessSession::new(&repo.files);
-        for ((collection_index, file_id), ranges) in files {
-            let collection = &repo.collections[collection_index];
-            for batch in ranges.chunks(128) {
-                let read = source_access.read(crate::model::FileId(file_id), batch)?;
-                counters.files_opened += read.opened;
-                counters.bytes_read += read.bytes_read;
-                if let Some(traces) = traces.as_deref_mut() {
-                    if let Some(actual) = traces
-                        .iter_mut()
-                        .find(|trace| trace.collection == collection.definition.name)
-                        .and_then(|trace| trace.actual.as_mut())
+    if let Some(delivery) = delivery.as_deref_mut() {
+        let anticipated = page
+            .iter()
+            .map(|winner| {
+                winner_bytes(winner).saturating_add(
+                    if winner.hit.payload.is_none()
+                        && query.options.return_mode != ReturnMode::Locator
                     {
-                        actual.files_opened += read.opened;
-                        actual.bytes_read += read.bytes_read;
-                        if query.options.return_mode == ReturnMode::Logical {
-                            actual.record_parses += read.records.len() as u64;
-                        }
-                    }
-                }
-                for (index, bytes) in read.records {
-                    let logical = if query.options.return_mode == ReturnMode::Logical {
-                        counters.record_parses += 1;
-                        Some(prepare_query_record(
-                            &collection.source,
-                            &collection.definition.schema,
-                            &bytes,
-                            &ScanProjection::full(false),
-                            true,
-                        )?)
+                        repo.collections[winner.collection_index].generation.records
+                            [winner.slot as usize]
+                            .range
+                            .len() as usize
                     } else {
-                        None
-                    };
-                    page[index as usize].hit.payload =
-                        materialize(&query.options.return_mode, bytes, logical)?;
-                }
-            }
-        }
-        *files_read
-            .as_mut()
-            .expect("payload access needs file union") |= source_access.accessed_files();
+                        0
+                    },
+                )
+            })
+            .sum();
+        delivery.check_buffer(anticipated)?;
     }
+    materialize_winner_page(
+        repo,
+        query,
+        &mut page,
+        &mut counters,
+        &mut files_read,
+        traces.as_deref_mut(),
+        delivery.as_ref().map(|delivery| delivery.token()),
+        delivery
+            .as_ref()
+            .map(|delivery| delivery.max_buffered_bytes()),
+    )?;
     counters.returned_records = page.len() as u64;
     counters.distinct_files = files_read.map_or(distinct_files, |seen| seen.len());
     Ok(SearchResult {

@@ -953,6 +953,8 @@ pub struct RecordRangeReader {
     position: Option<u64>,
     #[cfg(test)]
     pub(crate) seeks: u64,
+    #[cfg(test)]
+    pub(crate) max_window_read: usize,
 }
 
 
@@ -967,6 +969,8 @@ impl RecordRangeReader {
             position: Some(0),
             #[cfg(test)]
             seeks: 0,
+            #[cfg(test)]
+            max_window_read: 0,
         })
     }
 
@@ -1003,6 +1007,10 @@ impl RecordRangeReader {
         if let [(slot, range)] = ranges {
             ByteRange::checked(range.start, range.end, self.revision.size)?;
             let len = usize::try_from(range.len()).map_err(|_| "record range too large")?;
+            #[cfg(test)]
+            {
+                self.max_window_read = self.max_window_read.max(len);
+            }
             let mut bytes = vec![0; len];
             self.read_at(range.start, &mut bytes)?;
             return Ok((vec![(*slot, bytes)], len as u64));
@@ -1030,6 +1038,10 @@ impl RecordRangeReader {
                 next += 1;
             }
             let len = usize::try_from(end - start).map_err(|_| "read window too large")?;
+            #[cfg(test)]
+            {
+                self.max_window_read = self.max_window_read.max(len);
+            }
             let mut buffer = vec![0; len];
             self.read_at(start, &mut buffer)?;
             bytes_read += len as u64;
@@ -1041,6 +1053,46 @@ impl RecordRangeReader {
             cursor = next;
         }
         Ok((output, bytes_read))
+    }
+
+    /// Stream-specific direct range reads. The checked sum bounds all returned
+    /// byte vectors; no gap window or second copy of any record is allocated.
+    pub(crate) fn read_bounded(
+        &mut self,
+        ranges: &[(u32, ByteRange)],
+        max_total_bytes: usize,
+    ) -> Result<(Vec<(u32, Vec<u8>)>, u64), String> {
+        if self.first_read {
+            self.first_read = false;
+        } else {
+            check_opened_revision(&self.file, self.revision)?;
+        }
+        let mut ordered = ranges.to_vec();
+        ordered.sort_by_key(|(_, range)| range.start);
+        let mut total = 0usize;
+        for (_, range) in &ordered {
+            ByteRange::checked(range.start, range.end, self.revision.size)?;
+            let len = usize::try_from(range.len())
+                .map_err(|_| "stream resource: record range too large")?;
+            total = total
+                .checked_add(len)
+                .ok_or("stream resource: source range budget overflow")?;
+            if total > max_total_bytes {
+                return Err("stream resource: source ranges exceed read allowance".into());
+            }
+        }
+        let mut output = Vec::with_capacity(ordered.len());
+        for (slot, range) in ordered {
+            let len = range.len() as usize;
+            #[cfg(test)]
+            {
+                self.max_window_read = self.max_window_read.max(len);
+            }
+            let mut bytes = vec![0; len];
+            self.read_at(range.start, &mut bytes)?;
+            output.push((slot, bytes));
+        }
+        Ok((output, total as u64))
     }
 }
 

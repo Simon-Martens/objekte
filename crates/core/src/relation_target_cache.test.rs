@@ -1,3 +1,4 @@
+use super::*;
 use crate::model::LogicalType;
 use crate::query::{Query, QueryOptions, parse_filter};
 use crate::reference::{FieldDefinition, Schema};
@@ -6,7 +7,28 @@ use crate::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
 use crate::source::SourceFormat;
+use crate::streaming::{CancellationToken, StreamControl, StreamError, StreamMode, StreamOptions};
 use crate::workload::{BigramAlphabet, ReturnMode};
+
+#[test]
+fn prefetch_limits_keep_stream_resource_classification() {
+    for message in [
+        "target prefetch edge count overflow",
+        "target prefetch exceeds edge visits",
+        "target prefetch exceeds target slots",
+        "target prefetch record exceeds size limit",
+        "target prefetch exceeds retained bytes",
+    ] {
+        assert_eq!(limit_error(message.into(), false), message);
+        assert!(limit_error(message.into(), true).starts_with("stream resource:"));
+    }
+    assert!(
+        stream_target_slot_charge(100, Some(1024))
+            .err()
+            .unwrap()
+            .starts_with("stream resource:")
+    );
+}
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
@@ -229,4 +251,107 @@ fn unpositioned_backlinks_visit_reverse_hits_while_positions_keep_identity_rank(
         }
         std::fs::remove_dir_all(root).unwrap();
     }
+}
+
+#[test]
+fn high_fanout_stream_prefetch_reports_resource_limit_before_grouping() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-target-stream-limit-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("sources")).unwrap();
+    std::fs::create_dir_all(root.join("targets")).unwrap();
+    let mut targets = String::new();
+    let mut links = Vec::new();
+    for index in 0..100 {
+        let id = format!("T{index:03}");
+        targets.push_str(&format!("{{\"id\":\"{id}\",\"title\":\"Hymn\"}}\n"));
+        links.push(id);
+    }
+    std::fs::write(root.join("targets/records.jsonl"), targets).unwrap();
+    std::fs::write(
+        root.join("sources/one.json"),
+        serde_json::json!({"id":"S0","local_title":"Hymn","links":links}).to_string(),
+    )
+    .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = query("local_title ?= links.title", true, 1);
+    assert_eq!(repo.search(&request).unwrap().count, Some(1));
+    let result = repo.search_stream(
+        &request,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            max_event_bytes: 1024,
+            max_buffered_bytes: 4096,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(matches!(result, Err(StreamError::Resource { .. })));
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn stream_prefetch_checks_remaining_allowance_before_later_file_read() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-target-stream-remaining-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    std::fs::create_dir_all(root.join("sources")).unwrap();
+    std::fs::create_dir_all(root.join("targets")).unwrap();
+    let target = |id: &str| {
+        serde_json::json!({
+            "id": id, "title": "Hymn", "filler": "x".repeat(600)
+        })
+        .to_string()
+            + "\n"
+    };
+    let first = target("T0");
+    std::fs::write(root.join("targets/A.jsonl"), &first).unwrap();
+    std::fs::write(root.join("targets/B.jsonl"), target("T1")).unwrap();
+    std::fs::write(
+        root.join("sources/one.json"),
+        r#"{"id":"S0","local_title":"Hymn","links":["T0","T1"]}"#,
+    )
+    .unwrap();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions(),
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = query("local_title ?= links.title", true, 1);
+    assert_eq!(repo.search(&request).unwrap().count, Some(1));
+    std::fs::remove_file(root.join("targets/B.jsonl")).unwrap();
+    let prefetch_allowance = 2 * STREAM_TARGET_SLOT_BYTES as usize + first.len() + 100;
+    let result = repo.search_stream(
+        &request,
+        StreamOptions {
+            mode: StreamMode::PageReplacements,
+            max_event_bytes: 1024,
+            max_buffered_bytes: prefetch_allowance * 4,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(matches!(result, Err(StreamError::Resource { message, .. })
+        if message.contains("target record exceeds read allowance")));
+    std::fs::remove_dir_all(root).unwrap();
 }

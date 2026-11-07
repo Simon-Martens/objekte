@@ -38,6 +38,7 @@ pub mod source;
 mod source_access;
 mod structural;
 pub mod storage;
+pub mod streaming;
 pub mod temporal_query;
 mod verified;
 pub mod workload;
