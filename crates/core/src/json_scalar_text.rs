@@ -2,6 +2,7 @@
 
 use std::collections::BTreeMap;
 
+use crate::model::{ArrayValue, Number, Value};
 use crate::source::TextSegment;
 
 
@@ -69,6 +70,99 @@ impl ScalarWalker<'_> {
             vec![index]
         } else {
             Vec::new()
+        }
+    }
+
+    /// Build the logical value and its source-order scalar corpus in one
+    /// structural traversal. This path is used only for fresh construction;
+    /// query projections still use the field-aware walker below.
+    fn build_value(&mut self, depth: usize) -> Result<Value, String> {
+        if depth > 128 {
+            return Err("JSON nesting resource limit exceeded".into());
+        }
+        self.whitespace();
+        match self.bytes.get(self.pos).copied() {
+            Some(b'"') => {
+                let text = self.quoted()?;
+                self.push(text.clone());
+                Ok(Value::String(text))
+            }
+            Some(b'{') => {
+                self.pos += 1;
+                self.whitespace();
+                let mut fields = BTreeMap::new();
+                if self.bytes.get(self.pos) == Some(&b'}') {
+                    self.pos += 1;
+                    return Ok(Value::Object(fields));
+                }
+                loop {
+                    let name = self.quoted()?;
+                    self.whitespace();
+                    if self.bytes.get(self.pos) != Some(&b':') {
+                        return Err("expected JSON member separator".into());
+                    }
+                    self.pos += 1;
+                    fields.insert(name, self.build_value(depth + 1)?);
+                    self.whitespace();
+                    match self.bytes.get(self.pos) {
+                        Some(b',') => self.pos += 1,
+                        Some(b'}') => {
+                            self.pos += 1;
+                            break;
+                        }
+                        _ => return Err("expected JSON object terminator".into()),
+                    }
+                    self.whitespace();
+                }
+                Ok(Value::Object(fields))
+            }
+            Some(b'[') => {
+                self.pos += 1;
+                self.whitespace();
+                let mut values = Vec::new();
+                if self.bytes.get(self.pos) == Some(&b']') {
+                    self.pos += 1;
+                    return Ok(Value::Array(ArrayValue::from_unrestricted(values)));
+                }
+                loop {
+                    values.push(self.build_value(depth + 1)?);
+                    self.whitespace();
+                    match self.bytes.get(self.pos) {
+                        Some(b',') => self.pos += 1,
+                        Some(b']') => {
+                            self.pos += 1;
+                            break;
+                        }
+                        _ => return Err("expected JSON array terminator".into()),
+                    }
+                    self.whitespace();
+                }
+                Ok(Value::Array(ArrayValue::from_unrestricted(values)))
+            }
+            Some(b'-' | b'0'..=b'9' | b't' | b'f' | b'n') => {
+                let start = self.pos;
+                while self.bytes.get(self.pos).is_some_and(|byte| {
+                    !byte.is_ascii_whitespace() && !matches!(byte, b',' | b']' | b'}')
+                }) {
+                    self.pos += 1;
+                }
+                let token = std::str::from_utf8(&self.bytes[start..self.pos])
+                    .map_err(|error| error.to_string())?;
+                let value = match token {
+                    "true" => Value::Bool(true),
+                    "false" => Value::Bool(false),
+                    "null" => Value::Null,
+                    _ => {
+                        let number = token
+                            .parse::<serde_json::Number>()
+                            .map_err(|error| error.to_string())?;
+                        Value::Number(Number::from_json(&number)?)
+                    }
+                };
+                self.push(token.to_owned());
+                Ok(value)
+            }
+            _ => Err("expected JSON value".into()),
         }
     }
 
@@ -167,6 +261,25 @@ impl ScalarWalker<'_> {
     }
 }
 
+
+/// Parse one complete document once while retaining all scalar occurrences.
+/// Object fields still resolve to their last occurrence in the logical value.
+pub(crate) fn build_record(bytes: &[u8]) -> Result<(Value, Vec<TextSegment>), String> {
+    let mut walker = ScalarWalker {
+        bytes,
+        pos: 0,
+        path: Vec::new(),
+        segments: Vec::new(),
+        resolved_only: false,
+        paths: false,
+    };
+    let value = walker.build_value(0)?;
+    walker.whitespace();
+    if walker.pos != bytes.len() {
+        return Err("unexpected JSON text after root".into());
+    }
+    Ok((value, walker.segments.into_iter().flatten().collect()))
+}
 
 /// Extract decoded scalar values from a previously validated document.
 /// Unscoped search sees all duplicate-name occurrences; field search sees

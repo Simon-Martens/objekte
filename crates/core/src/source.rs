@@ -478,7 +478,6 @@ fn parse_json_for_query(
 fn parse_json_decoded_for_query_diagnosed(
     bytes: &[u8],
     projection: &ScanProjection,
-    for_build: bool,
 ) -> Result<ExtractedRecord, ReaderDiagnostic> {
     let mut extracted = parse_json_for_query_diagnosed(
         bytes,
@@ -492,13 +491,28 @@ fn parse_json_decoded_for_query_diagnosed(
         extracted.text = crate::json_scalar_text::scalar_segments(
             bytes,
             projection.resolved_text_only,
-            !for_build,
+            true,
         )
         .map_err(|error| {
             ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error)
         })?;
     }
     Ok(extracted)
+}
+
+fn parse_json_decoded_for_build_diagnosed(
+    bytes: &[u8],
+) -> Result<ExtractedRecord, ReaderDiagnostic> {
+    let (value, text) = crate::json_scalar_text::build_record(bytes).map_err(|error| {
+        if error.contains("resource limit") {
+            return ReaderDiagnostic::new(DiagnosticCategory::ResourceLimit, "json.value", error);
+        }
+        match serde_json::from_slice::<serde_json::Value>(bytes) {
+            Err(syntax) => json_issue(bytes, syntax),
+            Ok(_) => ReaderDiagnostic::new(DiagnosticCategory::Syntax, "json.scalar_text", error),
+        }
+    })?;
+    Ok(ExtractedRecord { value, text })
 }
 
 fn parse_json(bytes: &[u8]) -> Result<ExtractedRecord, String> {
@@ -628,17 +642,17 @@ impl SourceReader for JsonDecodedScalarsReader {
     }
 
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
-        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true), false)
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
             .map_err(|issue| issue.message)
     }
 
     fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true), false)
+        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true))
             .map_err(json_reader_failure)
     }
 
     fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
-        parse_json_decoded_for_query_diagnosed(bytes, &ScanProjection::full(true), true)
+        parse_json_decoded_for_build_diagnosed(bytes)
             .map_err(json_reader_failure)
     }
 
@@ -647,7 +661,7 @@ impl SourceReader for JsonDecodedScalarsReader {
         bytes: &[u8],
         projection: &ScanProjection,
     ) -> Result<ExtractedRecord, String> {
-        parse_json_decoded_for_query_diagnosed(bytes, projection, false)
+        parse_json_decoded_for_query_diagnosed(bytes, projection)
             .map_err(|issue| issue.message)
     }
 }
