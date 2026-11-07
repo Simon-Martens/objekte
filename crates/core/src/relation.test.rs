@@ -356,13 +356,17 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
         snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
+    REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
     let built = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
+    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 4);
     assert!(!built.startup().restored);
     assert_eq!(built.build_parses(), 8);
     assert_eq!(built.build_failed_parses(), 1);
     check(&built);
     built.save_default_snapshot_for_test();
+    REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
     let restored = Repository::open_with_options(&root, definitions("entries"), options).unwrap();
+    assert_eq!(REVERSE_RECONSTRUCTIONS.with(|count| count.get()), 4);
     assert!(restored.startup().restored);
     assert_eq!(restored.build_parses(), 0);
     check(&restored);
@@ -379,6 +383,126 @@ fn declared_links_resolve_once_and_survive_snapshot_restore() {
             .target_collection,
         changed.collections()[1].generation.collection
     );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn publication_validation_still_rejects_broken_relation_state() {
+    let root = fixture("invalid-index");
+    let mut repo = Repository::open_with_options(
+        &root,
+        definitions("entries"),
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let original = repo
+        .relation_index("mentions", &["entry".into()])
+        .unwrap()
+        .clone();
+    let (target, source) = (&repo.collections[0], &repo.collections[2]);
+
+    let mut bad_offsets = original.clone();
+    bad_offsets.offsets[1] = u32::MAX;
+    assert!(
+        bad_offsets
+            .validate(source, target)
+            .unwrap_err()
+            .contains("offsets")
+    );
+
+    let mut bad_target = original.clone();
+    bad_target.edges[0].target = RelationTarget::Resolved(RecordSlot(u32::MAX));
+    assert!(
+        bad_target
+            .validate(source, target)
+            .unwrap_err()
+            .contains("target slot")
+    );
+
+    let mut known_id_marked_unresolved = original.clone();
+    known_id_marked_unresolved.edges[0].target = RelationTarget::Unresolved("A".into());
+    assert!(
+        known_id_marked_unresolved
+            .validate(source, target)
+            .unwrap_err()
+            .contains("unresolved target exists")
+    );
+
+    let mut wrong_reverse = original.clone();
+    wrong_reverse.edges[0].target = RelationTarget::Resolved(target.id_lookup["B"]);
+    assert!(
+        wrong_reverse
+            .validate(source, target)
+            .unwrap_err()
+            .contains("forward/reverse")
+    );
+
+    let target_slot = target.id_lookup["A"].0 as usize;
+    repo.collections[0].generation.records[target_slot].slot = RecordSlot(u32::MAX);
+    assert!(
+        original
+            .validate(&repo.collections[2], &repo.collections[0])
+            .unwrap_err()
+            .contains("target slot mismatch")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+#[ignore = "manual large-fanout construction measurement"]
+fn profile_large_fanout_relation_publication() {
+    let root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+        .join("../../target/relation-validation-fanout");
+    let _ = std::fs::remove_dir_all(&root);
+    for collection in ["entries", "people", "mentions"] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+    }
+    std::fs::write(root.join("entries/a.json"), r#"{"id":"A"}"#).unwrap();
+    std::fs::write(root.join("people/p.json"), r#"{"id":"P"}"#).unwrap();
+    let repeated = vec![r#""P""#; 16].join(",");
+    let mut jsonl = String::new();
+    for index in 0..2_000 {
+        jsonl.push_str(&format!(
+            "{{\"id\":\"m{index}\",\"entry\":\"A\",\"contributors\":[{repeated}]}}\n"
+        ));
+    }
+    let input_bytes = jsonl.len();
+    std::fs::write(root.join("mentions/fanout.jsonl"), jsonl).unwrap();
+    let mut definitions = definitions("entries");
+    definitions[2].format = SourceFormat::JsonLines;
+    REVERSE_RECONSTRUCTIONS.with(|count| count.set(0));
+    let started = std::time::Instant::now();
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let wall_ms = started.elapsed().as_secs_f64() * 1_000.0;
+    let reconstructions = REVERSE_RECONSTRUCTIONS.with(|count| count.get());
+    let validation_started = std::time::Instant::now();
+    validate_indexes(repo.collections()).unwrap();
+    let validation_ms = validation_started.elapsed().as_secs_f64() * 1_000.0;
+    let edge_count: usize = repo
+        .collections()
+        .iter()
+        .flat_map(|collection| &collection.relations)
+        .map(RelationIndex::edge_count)
+        .sum();
+    eprintln!(
+        "relation fanout: input_bytes={input_bytes} records={} edges={edge_count} fresh_reconstructions={reconstructions} wall_ms={wall_ms:.3} build_ms={:.3} extraction_ms={:.3} finalization_ms={:.3} one_validation_ms={validation_ms:.3}",
+        repo.collections()[2].generation.records.len(),
+        repo.startup().build_ns as f64 / 1_000_000.0,
+        repo.startup().build_extraction_index_ns as f64 / 1_000_000.0,
+        repo.startup().build_finalization_ns as f64 / 1_000_000.0,
+    );
+    assert_eq!(reconstructions, 4);
     std::fs::remove_dir_all(root).unwrap();
 }
 
