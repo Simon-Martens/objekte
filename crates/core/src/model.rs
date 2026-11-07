@@ -4,17 +4,43 @@ use std::cmp::Ordering;
 use std::collections::{BTreeMap, HashSet};
 use std::hash::{Hash, Hasher};
 
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize, de};
 use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
 use crate::decimal::ExactDecimal;
 
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+/// Exact numeric value; finite floats may be compared across representations.
+/// Direct non-finite `Float` variants have IEEE total order and are rejected
+/// by deserialization and repository build admission.
+#[derive(Clone, Debug, Serialize)]
 pub enum Number {
     Integer(i128),
     Float(f64),
     ExactDecimal(ExactDecimal),
+}
+
+
+#[derive(Deserialize)]
+enum NumberRepresentation {
+    Integer(i128),
+    Float(f64),
+    ExactDecimal(ExactDecimal),
+}
+
+
+impl<'de> Deserialize<'de> for Number {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        Ok(match NumberRepresentation::deserialize(deserializer)? {
+            NumberRepresentation::Integer(value) => Self::Integer(value),
+            NumberRepresentation::Float(value) if value.is_finite() => Self::Float(value),
+            NumberRepresentation::Float(_) => return Err(de::Error::custom("non-finite number")),
+            NumberRepresentation::ExactDecimal(value) => Self::ExactDecimal(value),
+        })
+    }
 }
 
 
@@ -99,6 +125,10 @@ impl Ord for Number {
             (Self::ExactDecimal(a), Self::ExactDecimal(b)) => a.cmp_value(b),
             (Self::ExactDecimal(a), Self::Integer(b)) => a.cmp_value(&ExactDecimal::from_i128(*b)),
             (Self::Integer(a), Self::ExactDecimal(b)) => ExactDecimal::from_i128(*a).cmp_value(b),
+            (Self::ExactDecimal(a), Self::Float(b)) if !b.is_finite() => 0.0f64.total_cmp(b),
+            (Self::Float(a), Self::ExactDecimal(_)) if !a.is_finite() => {
+                0.0f64.total_cmp(a).reverse()
+            }
             (Self::ExactDecimal(a), Self::Float(b)) => a.cmp_value(&ExactDecimal::from_f64(*b)),
             (Self::Float(a), Self::ExactDecimal(b)) => ExactDecimal::from_f64(*a).cmp_value(b),
         }
@@ -145,6 +175,9 @@ impl Hash for Number {
 
 
 fn compare_int_float(i: i128, f: f64) -> Ordering {
+    if !f.is_finite() {
+        return 0.0f64.total_cmp(&f);
+    }
     // Outside the integer domain, floating-point values have a known order.
     if f >= 2f64.powi(127) {
         return Ordering::Less;
@@ -291,6 +324,32 @@ pub enum Value {
 
 
 impl Value {
+    /// Reject non-finite values supplied by custom readers before indexing.
+    pub(crate) fn validate_finite_numbers(&self) -> Result<(), String> {
+        match self {
+            Self::Number(Number::Float(value)) if !value.is_finite() => {
+                Err("non-finite number".into())
+            }
+            Self::Object(fields) => {
+                for (field, value) in fields {
+                    value
+                        .validate_finite_numbers()
+                        .map_err(|error| format!("{field}: {error}"))?;
+                }
+                Ok(())
+            }
+            Self::Array(array) => {
+                for (index, value) in array.values.iter().enumerate() {
+                    value
+                        .validate_finite_numbers()
+                        .map_err(|error| format!("[{index}]: {error}"))?;
+                }
+                Ok(())
+            }
+            _ => Ok(()),
+        }
+    }
+
     pub fn logical_type(&self) -> LogicalType {
         match self {
             Self::Null => panic!("null has no non-null logical type"),

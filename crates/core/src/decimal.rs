@@ -3,11 +3,11 @@
 use std::cmp::Ordering;
 use std::fmt;
 
-use serde::{Deserialize, Serialize};
+use serde::{Deserialize, Deserializer, Serialize, de};
 
 
 /// Signed significant digits times ten to a signed exponent.
-#[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
+#[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize)]
 pub struct ExactDecimal {
     pub(crate) negative: bool,
     pub(crate) digits: String,
@@ -15,10 +15,47 @@ pub struct ExactDecimal {
 }
 
 
+/// Wire-compatible fields checked before constructing a public decimal.
+#[derive(Deserialize)]
+struct DecimalRepresentation {
+    negative: bool,
+    digits: String,
+    exponent: i64,
+}
+
+
+impl<'de> Deserialize<'de> for ExactDecimal {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        let decimal = DecimalRepresentation::deserialize(deserializer)?;
+        let digits = decimal.digits.as_bytes();
+        let canonical_zero = digits == b"0" && !decimal.negative && decimal.exponent == 0;
+        let canonical_nonzero = !digits.is_empty()
+            && digits.len() <= 4096
+            && digits[0] != b'0'
+            && digits[digits.len() - 1] != b'0'
+            && digits.iter().all(u8::is_ascii_digit);
+        if !canonical_zero && !canonical_nonzero {
+            return Err(de::Error::custom("invalid exact decimal representation"));
+        }
+        Ok(Self {
+            negative: decimal.negative,
+            digits: decimal.digits,
+            exponent: decimal.exponent,
+        })
+    }
+}
+
+
 impl ExactDecimal {
     pub fn parse(token: &str) -> Result<Self, String> {
         const MAX_SIGNIFICAND_DIGITS: usize = 4096;
         let bytes = token.as_bytes();
+        if !valid_json_number_token(bytes) {
+            return Err("invalid decimal number".into());
+        }
         let mut start = 0;
         let negative = bytes.first() == Some(&b'-');
         if negative {
@@ -210,6 +247,45 @@ impl ExactDecimal {
         let value = text.parse::<f64>().ok().filter(|value| value.is_finite())?;
         (self.cmp_value(&Self::from_f64(value)) == Ordering::Equal).then_some(value)
     }
+}
+
+
+fn valid_json_number_token(bytes: &[u8]) -> bool {
+    let mut position = usize::from(bytes.first() == Some(&b'-'));
+    match bytes.get(position).copied() {
+        Some(b'0') => position += 1,
+        Some(b'1'..=b'9') => {
+            position += 1;
+            while bytes.get(position).is_some_and(u8::is_ascii_digit) {
+                position += 1;
+            }
+        }
+        _ => return false,
+    }
+    if bytes.get(position) == Some(&b'.') {
+        position += 1;
+        let first_fraction = position;
+        while bytes.get(position).is_some_and(u8::is_ascii_digit) {
+            position += 1;
+        }
+        if position == first_fraction {
+            return false;
+        }
+    }
+    if matches!(bytes.get(position), Some(b'e' | b'E')) {
+        position += 1;
+        if matches!(bytes.get(position), Some(b'+' | b'-')) {
+            position += 1;
+        }
+        let first_exponent = position;
+        while bytes.get(position).is_some_and(u8::is_ascii_digit) {
+            position += 1;
+        }
+        if position == first_exponent {
+            return false;
+        }
+    }
+    position == bytes.len()
 }
 
 

@@ -10,6 +10,7 @@ pub(crate) fn finish_build_record(
     record: &mut ExtractedRecord,
 ) -> Result<(), String> {
     schema.coerce_record(&mut record.value)?;
+    record.value.validate_finite_numbers()?;
     Ok(())
 }
 
@@ -48,3 +49,7 @@ pub(crate) fn materialize(
         )),
     })
 }
+
+#[cfg(test)]
+#[path = "record_preparation.test.rs"]
+mod tests;
