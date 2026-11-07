@@ -1714,7 +1714,7 @@ fn rank_key_bytes(key: &RankKey) -> u64 {
             .sum::<usize>()) as u64
 }
 
-fn make_hit(
+pub(crate) fn make_hit(
     repo: &Repository,
     collection_index: usize,
     record: &RecordEntry,

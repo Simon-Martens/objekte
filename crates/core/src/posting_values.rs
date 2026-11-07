@@ -6,6 +6,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use roaring::RoaringBitmap;
 
+use crate::inference::InferenceMode;
 use crate::model::{FieldPath, LogicalType, PathRoot};
 use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::Query;
@@ -14,7 +15,6 @@ use crate::repository::{CollectionState, Repository};
 static NEXT_SELECTION_ID: AtomicU64 = AtomicU64::new(1);
 pub const MAX_POSTING_VALUES_PAGE: usize = 4096;
 
-
 /// Inclusive or exclusive typed dictionary boundary.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueBound {
@@ -22,11 +22,9 @@ pub struct PostingValueBound {
     pub inclusive: bool,
 }
 
-
 /// Complete verified membership for one collection in one repository instance.
 #[derive(Clone, Debug)]
 pub struct ExactSelection(Arc<SelectionData>);
-
 
 #[derive(Debug)]
 struct SelectionData {
@@ -37,7 +35,6 @@ struct SelectionData {
     members: RoaringBitmap,
 }
 
-
 impl ExactSelection {
     pub fn len(&self) -> u64 {
         self.0.members.len()
@@ -47,7 +44,6 @@ impl ExactSelection {
         self.0.members.is_empty()
     }
 }
-
 
 /// One bounded page over an indexed field's stored value representation.
 #[derive(Clone, Debug)]
@@ -63,7 +59,6 @@ pub struct PostingValuesRequest {
     pub prefix: Option<String>,
     pub selection: Option<ExactSelection>,
 }
-
 
 impl PostingValuesRequest {
     pub fn new(collection: impl Into<String>, field: impl Into<String>, limit: usize) -> Self {
@@ -82,14 +77,12 @@ impl PostingValuesRequest {
     }
 }
 
-
 /// One typed key and the number of distinct eligible records containing it.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValueCount {
     pub value: ScalarKey,
     pub count: u64,
 }
-
 
 /// Domain and special-state totals for the selected posting representation.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -99,8 +92,15 @@ pub struct PostingValuesCoverage {
     pub selected_records: Option<u64>,
     pub present_records: u64,
     pub explicit_null_records: u64,
+    /// Eligible records whose entire selected value stream is represented by
+    /// this dictionary. For an inferred short-string path this can be partial.
+    pub indexed_records: u64,
+    /// Eligible records that may contain values absent from the dictionary.
+    pub unresolved_records: u64,
+    /// False means the dictionary is not a complete facet enumeration, even
+    /// when no continuation is returned. Counts for listed keys remain exact.
+    pub value_counts_complete: bool,
 }
-
 
 /// In-process exclusive key that belongs to one repository generation and binding.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -119,31 +119,34 @@ pub struct PostingValuesCursor {
     last_key: ScalarKey,
 }
 
-
 /// Values in posting-key order, with a cursor only when another key exists.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PostingValuesPage {
+    /// Listed-key counts are exact. When `coverage.value_counts_complete` is
+    /// false, other values may exist outside this dictionary.
     pub values: Vec<PostingValueCount>,
     pub continuation: Option<PostingValuesCursor>,
     pub coverage: PostingValuesCoverage,
     pub visited_keys: u64,
 }
 
+struct ResolvedPosting<'a> {
+    index: &'a PostingIndex,
+    binding: String,
+    binding_version: u32,
+    indexed_records: Option<&'a RoaringBitmap>,
+    native_prefix: bool,
+}
 
 fn resolve<'a>(
     collection: &'a CollectionState,
     request: &PostingValuesRequest,
     path: &FieldPath,
-) -> Result<(&'a PostingIndex, String, u32), String> {
+) -> Result<ResolvedPosting<'a>, String> {
     if path.root != PathRoot::Data {
         return Err("posting values require a logical data field".into());
     }
-    let field = collection
-        .definition
-        .schema
-        .fields
-        .get(&path.segments)
-        .ok_or("posting values require a registered field")?;
+    let field = collection.definition.schema.fields.get(&path.segments);
     let binding = request
         .binding
         .clone()
@@ -156,16 +159,42 @@ fn resolve<'a>(
                 .cloned()
         })
         .unwrap_or_else(|| "default".into());
-    if binding == "default" {
-        if !field.indexed {
-            return Err("field has no complete posting index".into());
+    if binding == "default" && !field.is_some_and(|field| field.indexed) {
+        let inference = collection
+            .inference
+            .as_ref()
+            .filter(|state| state.report.mode == InferenceMode::AutoIndex && state.report.complete)
+            .ok_or("field has no admitted inferred posting index")?;
+        let index = inference
+            .indexes
+            .get(&path.segments)
+            .ok_or("field has no admitted inferred posting index")?;
+        if index.covered_records as u64 != collection.logical_records.len() {
+            return Err("incomplete inferred posting logical coverage".into());
         }
+        return Ok(ResolvedPosting {
+            index,
+            binding: "inferred".into(),
+            binding_version: inference.report.policy.version,
+            indexed_records: inference.short_string_coverage.get(&path.segments),
+            native_prefix: true,
+        });
+    }
+    let field = field.ok_or("posting values require a registered field")?;
+    if binding == "default" {
+        debug_assert!(field.indexed);
         let index = collection
             .postings
             .fields
             .get(&path.segments)
             .ok_or("posting index missing")?;
-        return Ok((index, binding, 0));
+        return Ok(ResolvedPosting {
+            index,
+            binding,
+            binding_version: 0,
+            indexed_records: None,
+            native_prefix: true,
+        });
     }
     let key = (path.segments.clone(), binding.clone());
     let registration = collection
@@ -181,7 +210,13 @@ fn resolve<'a>(
     if !custom.complete {
         return Err("incomplete custom posting coverage".into());
     }
-    Ok((&custom.index, binding, registration.version))
+    Ok(ResolvedPosting {
+        index: &custom.index,
+        binding,
+        binding_version: registration.version,
+        indexed_records: None,
+        native_prefix: false,
+    })
 }
 
 fn key_kind(kind: &LogicalType) -> &LogicalType {
@@ -274,7 +309,6 @@ fn empty_range(lower: &Bound<ScalarKey>, upper: &Bound<ScalarKey>) -> bool {
     }
 }
 
-
 impl Repository {
     pub fn select_exact(&self, collection: &str, query: &Query) -> Result<ExactSelection, String> {
         let (collection_index, state) = self
@@ -312,7 +346,14 @@ impl Repository {
         if request.limit > MAX_POSTING_VALUES_PAGE {
             return Err("posting value page limit exceeds maximum".into());
         }
-        let (index, binding, binding_version) = resolve(collection, request, &path)?;
+        let resolved = resolve(collection, request, &path)?;
+        let ResolvedPosting {
+            index,
+            binding,
+            binding_version,
+            indexed_records,
+            native_prefix,
+        } = resolved;
         if index.covered_records as u64 != collection.logical_records.len() {
             return Err("incomplete posting logical coverage".into());
         }
@@ -333,7 +374,7 @@ impl Repository {
             if key_kind(&index.kind) != &LogicalType::String {
                 return Err("posting prefix requires a string field".into());
             }
-            if binding == "default" {
+            if native_prefix {
                 Some(prefix.clone())
             } else {
                 let key = (path.segments.clone(), binding.clone());
@@ -354,6 +395,10 @@ impl Repository {
         });
         let unavailable =
             selected_total.unwrap_or(collection.generation.records.len() as u64) - eligible;
+        let indexed = indexed_records.map_or(eligible, |covered| {
+            selected_domain.map_or(covered.len(), |selected| selected.intersection_len(covered))
+        });
+        let unresolved = eligible.saturating_sub(indexed);
         let coverage = PostingValuesCoverage {
             eligible_records: eligible,
             unavailable_records: unavailable,
@@ -364,6 +409,9 @@ impl Repository {
             explicit_null_records: selected_domain.map_or(index.nulls.len(), |selected| {
                 selected.intersection_len(&index.nulls)
             }),
+            indexed_records: indexed,
+            unresolved_records: unresolved,
+            value_counts_complete: unresolved == 0,
         };
         let last = if let Some(cursor) = &request.continuation {
             if cursor.instance_id != self.instance_id
@@ -478,7 +526,6 @@ impl Repository {
         })
     }
 }
-
 
 #[cfg(test)]
 #[path = "posting_values.test.rs"]

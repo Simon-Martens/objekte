@@ -29,7 +29,8 @@ use crate::sorting::{SortBuilder, SortCollection, SortConfig, SortOptions};
 use crate::source::{
     PreparedSource, ScanProjection, SourceFormat, SourceRegistry, read_record_range,
 };
-use crate::workload::{BigramAlphabet, WorkCounters};
+use crate::source_access::SourceAccessSession;
+use crate::workload::{BigramAlphabet, ReturnMode, WorkCounters};
 
 static NEXT_REPOSITORY_INSTANCE: AtomicU64 = AtomicU64::new(1);
 
@@ -419,6 +420,52 @@ pub struct SearchResult {
 }
 
 impl Repository {
+    /// Retrieve one record by its collection-local ID. Locator access uses the
+    /// published generation only; payload access verifies the source revision
+    /// with the same reader and decoding path used by search results.
+    pub fn get_record(
+        &self,
+        collection_name: &str,
+        record_id: &str,
+        return_mode: ReturnMode,
+    ) -> Result<Option<SearchHit>, String> {
+        let collection_index = self
+            .collections
+            .iter()
+            .position(|collection| collection.definition.name == collection_name)
+            .ok_or("unknown collection")?;
+        let collection = &self.collections[collection_index];
+        let Some(slot) = collection.id_lookup.get(&RecordId(record_id.into())) else {
+            return Ok(None);
+        };
+        let record = collection
+            .generation
+            .records
+            .get(slot.0 as usize)
+            .ok_or("record ID points outside generation")?;
+        let payload = match return_mode {
+            ReturnMode::Locator => None,
+            ReturnMode::Logical if record.class == RecordClass::RawFallback => {
+                Some(Payload::LogicalUnavailable {
+                    diagnostic_ref: record.diagnostic_ref,
+                })
+            }
+            ReturnMode::Bytes | ReturnMode::Logical => {
+                let mut access = SourceAccessSession::new(&self.files);
+                let mut read = access.read(record.file, &[(slot.0, record.range)])?;
+                let bytes = read.records.pop().ok_or("source record missing")?.1;
+                crate::materialization::payload_from_bytes(Some(collection), &return_mode, bytes)?.0
+            }
+        };
+        Ok(Some(crate::run::make_hit(
+            self,
+            collection_index,
+            record,
+            Vec::new(),
+            payload,
+        )))
+    }
+
     pub fn files(&self) -> &FileInventory {
         &self.files
     }
@@ -542,6 +589,36 @@ impl Repository {
     pub fn search(&self, query: &Query) -> Result<SearchResult, String> {
         let resolved = query.resolve_current_clock()?;
         crate::run::search(self, resolved.as_ref())
+    }
+
+    /// Count exact matches without constructing a result page or sort keys.
+    /// Query parameters must already be bound; unresolved clock macros use
+    /// the current clock, as in `search`.
+    pub fn count_exact(&self, query: &Query) -> Result<usize, String> {
+        let mut request = query.clone();
+        request.options.count = true;
+        request.options.limit = 0;
+        request.options.offset = 0;
+        self.search(&request)?.count.ok_or("count result missing".into())
+    }
+
+    /// Count with the same frozen clock, cancellation, and limits as
+    /// `search_with_context`. The context belongs to this one invocation.
+    pub fn count_exact_with_context(
+        &self,
+        query: &Query,
+        context: &crate::streaming::ExecutionContext,
+    ) -> Result<usize, crate::streaming::ExecutionError> {
+        let mut request = query.clone();
+        request.options.count = true;
+        request.options.limit = 0;
+        request.options.offset = 0;
+        self.search_with_context(&request, context)?
+            .count
+            .ok_or_else(|| crate::streaming::ExecutionError {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
+                message: "count result missing".into(),
+            })
     }
 
     /// Search using one frozen clock and shared cancellation/resource limits.

@@ -1,10 +1,120 @@
 use super::*;
 
+use crate::inference::{InferenceConfig, InferenceMode, InferencePolicy};
 use crate::model::LogicalType;
 use crate::reference::{FieldDefinition, Schema};
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
 use crate::source::SourceFormat;
 use crate::workload::BigramAlphabet;
+
+#[test]
+fn inferred_values_expose_partial_coverage_across_pages_and_selections() {
+    let root = std::env::temp_dir().join(format!("objekte-inferred-values-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for (name, content) in [
+        ("00", r#"{"code":"A1","flag":true}"#),
+        ("01", r#"{"code":"B2","flag":false}"#),
+        ("02", r#"{"code":"Long","flag":true}"#),
+        ("03", r#"{"code":null}"#),
+        ("04", r#"{"flag":false}"#),
+        ("05", "{"),
+        ("06", r#"{"code":["A1","Long"]}"#),
+    ] {
+        std::fs::write(root.join(format!("data/{name}.json")), content).unwrap();
+    }
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["flag".into()],
+            kind: LogicalType::Bool,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+    let options = RepositoryOptions {
+        snapshot_mode: SnapshotMode::IfValid,
+        inference: InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            policy: InferencePolicy {
+                short_string_max_utf8_bytes: 2,
+                ..Default::default()
+            },
+        },
+        ..Default::default()
+    };
+    let check = |repo: &Repository| {
+        let mut request = PostingValuesRequest::new("data", "code", 1);
+        let first = repo.posting_values(&request).unwrap();
+        assert_eq!(first.values[0].value, ScalarKey::String("A1".into()));
+        assert!(first.continuation.is_some());
+        assert_eq!(first.values[0].count, 2);
+        assert_eq!(first.coverage.eligible_records, 6);
+        assert_eq!(first.coverage.unavailable_records, 1);
+        assert_eq!(first.coverage.indexed_records, 2);
+        assert_eq!(first.coverage.unresolved_records, 4);
+        assert!(!first.coverage.value_counts_complete);
+        request.continuation = first.continuation;
+        let second = repo.posting_values(&request).unwrap();
+        assert_eq!(second.values[0].value, ScalarKey::String("B2".into()));
+        assert!(second.continuation.is_none());
+        assert_eq!(second.coverage, first.coverage);
+
+        let query = |filter: &str| crate::query::Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(crate::query::parse_filter(filter).unwrap()),
+            options: crate::query::QueryOptions {
+                sort: vec![],
+                limit: 10,
+                offset: 0,
+                count: false,
+                return_mode: crate::workload::ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        request.continuation = None;
+        request.selection = Some(repo.select_exact("data", &query("code = 'A1'")).unwrap());
+        let short = repo.posting_values(&request).unwrap();
+        assert_eq!(short.coverage.indexed_records, 1);
+        assert_eq!(short.coverage.unresolved_records, 0);
+        assert!(short.coverage.value_counts_complete);
+        assert_eq!(short.values[0].count, 1);
+        request.selection = Some(repo.select_exact("data", &query("code = 'Long'")).unwrap());
+        let long = repo.posting_values(&request).unwrap();
+        assert_eq!(long.coverage.indexed_records, 0);
+        assert_eq!(long.coverage.unresolved_records, 1);
+        assert!(long.values.is_empty());
+        assert!(!long.coverage.value_counts_complete);
+        request.selection = Some(
+            repo.select_exact("data", &query("@record.class = 1"))
+                .unwrap(),
+        );
+        let fallback = repo.posting_values(&request).unwrap();
+        assert_eq!(fallback.coverage.unavailable_records, 1);
+        assert_eq!(fallback.coverage.eligible_records, 0);
+        assert!(fallback.coverage.value_counts_complete);
+        let flag = repo
+            .posting_values(&PostingValuesRequest::new("data", "flag", 10))
+            .unwrap();
+        assert!(flag.coverage.value_counts_complete);
+        assert_eq!(flag.coverage.unresolved_records, 0);
+        let mut unsupported = PostingValuesRequest::new("data", "code", 10);
+        unsupported.binding = Some("other".into());
+        assert!(repo.posting_values(&unsupported).is_err());
+    };
+    let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
+    check(&repo);
+    repo.save_default_snapshot_for_test();
+    let restored = Repository::open_with_options(&root, vec![definition], options).unwrap();
+    assert!(restored.startup().restored);
+    check(&restored);
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn typed_posting_values_count_distinct_records_without_source_reads() {
@@ -65,7 +175,10 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 unavailable_records: 1,
                 selected_records: None,
                 present_records: 3,
-                explicit_null_records: 1
+                explicit_null_records: 1,
+                indexed_records: 4,
+                unresolved_records: 0,
+                value_counts_complete: true,
             }
         );
         assert_eq!(first.visited_keys, 3);
@@ -166,7 +279,10 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 unavailable_records: 0,
                 selected_records: Some(1),
                 present_records: 1,
-                explicit_null_records: 0
+                explicit_null_records: 0,
+                indexed_records: 1,
+                unresolved_records: 0,
+                value_counts_complete: true,
             }
         );
         selected_request.continuation = first_selected.continuation;
@@ -203,7 +319,10 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 unavailable_records: 1,
                 selected_records: Some(1),
                 present_records: 0,
-                explicit_null_records: 0
+                explicit_null_records: 0,
+                indexed_records: 0,
+                unresolved_records: 0,
+                value_counts_complete: true,
             }
         );
         assert!(
@@ -342,12 +461,10 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[derive(Debug)]
 struct FoldPosting {
     complete: bool,
 }
-
 
 impl crate::reference::BindingOperation for FoldPosting {
     fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
@@ -392,7 +509,6 @@ impl crate::reference::BindingOperation for FoldPosting {
         self.complete
     }
 }
-
 
 #[test]
 fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {
