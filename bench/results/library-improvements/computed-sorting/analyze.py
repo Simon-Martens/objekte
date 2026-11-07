@@ -28,8 +28,8 @@ def load(path: Path):
 
 
 def main():
-    if len(sys.argv) != 5:
-        raise SystemExit("usage: analyze.py baseline-local final-local baseline-related final-related")
+    if len(sys.argv) < 3 or len(sys.argv) % 2 != 1:
+        raise SystemExit("usage: analyze.py BASELINE.jsonl FINAL.jsonl [BASELINE FINAL ...]")
     for left_path, right_path in zip(map(Path, sys.argv[1::2]), map(Path, sys.argv[2::2])):
         before, before_builds, before_queries = load(left_path)
         after, after_builds, after_queries = load(right_path)

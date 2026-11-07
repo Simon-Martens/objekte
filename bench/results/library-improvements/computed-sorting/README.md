@@ -54,3 +54,20 @@ The official comparison is immutable base `ca54a873f97efa3aea23a16b4d52bb0f02745
 The 2-worker many-file samples overlap substantially: base 1.494–2.178 ms, final 1.448–2.660 ms. This case is inconclusive. The one-JSONL differences are small absolute changes on submillisecond queries and do not show a file-concurrency gain. Related sorts still use one file per group in commit 1, so the mixed related timings in `summary.txt` do not support a target-lock claim. High target reuse remained 8 reads and 248 reuses; low reuse remained 256 reads and no reuse.
 
 The scan-retained payload estimate fell from at most 203,056 bytes to zero because page payloads are loaded after ranking. This counter excludes the source read batch and final page materialization, so it is not process peak memory. For the many-file, eight-worker local case, source bytes read rose from 1,060,864 to 1,193,504 as selected page payloads were read again. Median repository-open time across local cases was 22.433 ms at base and 21.101 ms at commit 1; these build times are separate from query timing.
+
+## Commit-2 result
+
+The separate cache comparison is commit-1 evidence head `773e26fe4573427406ce9a31288fd4fc0b2949f8` against code commit `2b6fd5b7bdc506674783082215c6f2f82f6165b3`. Both use the same source harness and 256-record fixtures. Run `analyze.py commit1-related.jsonl commit2-related.jsonl` to validate all 16 paired cases and reproduce `summary-commit2.txt`.
+
+| Related source layout | Reuse | Workers | Commit-1 repeat median (ms) | Commit-2 repeat median (ms) | Ratio |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Many files | High | 1 | 0.918 | 0.897 | 1.02× |
+| Many files | High | 2 | 1.589 | 0.890 | 1.79× |
+| Many files | High | 4 | 2.531 | 0.602 | 4.20× |
+| Many files | High | 8 | 2.144 | 0.871 | 2.46× |
+| Many files | Low | 1 | 1.397 | 1.361 | 1.03× |
+| Many files | Low | 2 | 2.618 | 1.198 | 2.18× |
+| Many files | Low | 4 | 3.204 | 1.340 | 2.39× |
+| Many files | Low | 8 | 2.687 | 1.161 | 2.31× |
+
+One JSONL file cannot be split between these file workers; its paired ratios ranged from 0.97× to 1.04×. High reuse retained exactly eight target reads and 248 reuses; low reuse retained 256 reads and zero reuses. The cache reserves each target's estimated bytes before loading and retains a 64 MiB target-cache cap. Worker reservations leave target-cache headroom within the 128 MiB computed-sort budget. These estimates and benchmark counters do not measure process peak RSS. Median repository-open time was 22.308 ms for commit 1 and 21.968 ms for commit 2; query times exclude opening and fixture generation.
