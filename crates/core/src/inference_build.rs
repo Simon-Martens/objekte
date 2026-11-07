@@ -35,6 +35,7 @@ struct FieldState {
     value_occurrences: u64,
     nonblank_occurrences: u64,
     distinct_nonblank: Option<std::collections::HashSet<String>>,
+    distinct_nonblank_bytes: usize,
     values: Option<BTreeMap<ScalarKey, RoaringBitmap>>,
     short_values: Option<BTreeMap<String, RoaringBitmap>>,
     short_seen: RoaringBitmap,
@@ -69,6 +70,7 @@ impl FieldState {
             value_occurrences: 0,
             nonblank_occurrences: 0,
             distinct_nonblank: Some(Default::default()),
+            distinct_nonblank_bytes: 0,
             values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             short_values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             short_seen: RoaringBitmap::new(),
@@ -163,15 +165,18 @@ impl FieldState {
             self.nonblank_occurrences = self.nonblank_occurrences.saturating_add(1);
             self.nonblank_records.insert(slot.0);
             if let Some(distinct) = &mut self.distinct_nonblank {
+                let known = distinct.contains(value);
                 if value.len() > policy.max_string_bytes
-                    || distinct.len() >= policy.max_distinct_nonblank_strings
-                        && !distinct.contains(value)
-                    || distinct.iter().map(String::len).sum::<usize>() + value.len()
+                    || distinct.len() >= policy.max_distinct_nonblank_strings && !known
+                    || self.distinct_nonblank_bytes.saturating_add(value.len())
                         > policy.max_distinct_string_bytes
                 {
                     self.distinct_nonblank = None;
                     self.drop_general_values();
-                } else if distinct.insert(value.clone()) {
+                } else if !known {
+                    distinct.insert(value.clone());
+                    self.distinct_nonblank_bytes =
+                        self.distinct_nonblank_bytes.saturating_add(value.len());
                     retained += value.len() + 48;
                 }
             }
@@ -283,10 +288,13 @@ impl FieldState {
         match (&mut self.distinct_nonblank, other.distinct_nonblank) {
             (Some(existing), Some(incoming)) => {
                 for value in incoming {
-                    existing.insert(value);
+                    let bytes = value.len();
+                    if existing.insert(value) {
+                        self.distinct_nonblank_bytes =
+                            self.distinct_nonblank_bytes.saturating_add(bytes);
+                    }
                     if existing.len() > policy.max_distinct_nonblank_strings
-                        || existing.iter().map(String::len).sum::<usize>()
-                            > policy.max_distinct_string_bytes
+                        || self.distinct_nonblank_bytes > policy.max_distinct_string_bytes
                     {
                         self.distinct_nonblank = None;
                         break;
@@ -938,6 +946,23 @@ mod allocation_tests {
                 .len(),
             2
         );
+    }
+
+    #[test]
+    fn distinct_bytes_track_unique_strings_through_observation_and_merge() {
+        let policy = InferencePolicy::default();
+        let mut left = FieldState::new(vec!["name".into()], InferenceMode::ReportOnly);
+        for slot in 0..4 {
+            left.add_scalar(RecordSlot(slot), &Value::String("abc".into()), policy);
+        }
+        assert_eq!(left.distinct_nonblank_bytes, 3);
+        assert_eq!(left.distinct_nonblank.as_ref().unwrap().len(), 1);
+        let mut right = FieldState::new(vec!["name".into()], InferenceMode::ReportOnly);
+        right.add_scalar(RecordSlot(0), &Value::String("abc".into()), policy);
+        right.add_scalar(RecordSlot(1), &Value::String("é".into()), policy);
+        left.merge_shifted(right, 4, policy).unwrap();
+        assert_eq!(left.distinct_nonblank_bytes, 5);
+        assert_eq!(left.distinct_nonblank.as_ref().unwrap().len(), 2);
     }
 
     #[test]
