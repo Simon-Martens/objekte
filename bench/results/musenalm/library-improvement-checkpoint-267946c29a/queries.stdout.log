@@ -1,0 +1,10 @@
+Q035 collection=places FTS=None FILTER=Some("musenalm_id > 100") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 30.280 / 32.887 / 118.341 µs (ok)
+Q045 collection=entries FTS=None FILTER=Some("year < 1800") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 140.749 / 191.030 / 321.111 µs (ok)
+Q084 collection=entries FTS=None FILTER=Some("language ?= \"ger\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 159.841 / 200.642 / 234.577 µs (ok)
+Q127 collection=places FTS=None FILTER=Some("fictional = false") sort=[SortField { field: "@file.size", descending: true, expression: None }, SortField { field: "name", descending: false, expression: None }] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 52.004 / 59.447 / 80.266 µs (ok)
+Q189 collection=entries FTS=None FILTER=Some("preferred_title ~ 'Goethe' SORT BY edit_state ASC") sort=[] limit=25 offset=0 mode=Locator count=true evidence=true | ascii-off: 5122.137 / 5384.503 / 15814.126 µs (ok)
+Q190 collection=entries FTS=None FILTER=Some("year >= 1800 SORT BY MIN(language) ASC") sort=[] limit=25 offset=0 mode=Locator count=true evidence=true | ascii-off: 73261.704 / 77606.524 / 86426.573 µs (ok)
+Q194 collection=entries FTS=None FILTER=Some("preferred_title ~ 'Goethe' SORT BY year DESC, preferred_title ASC") sort=[] limit=25 offset=0 mode=Locator count=true evidence=true | ascii-off: 280.504 / 372.916 / 855.006 µs (ok)
+build "ascii": 1.160 s; snapshot_write=0.235 s; parses=148486; resident_bytes=538267648; peak_resident_bytes=634331136; estimated_index_bytes=68963924; snapshot_bytes=117262305; restore_min/median/max=0.547/0.554/0.563 s (5 runs)
+reports: bench/results/musenalm/library-improvement-checkpoint-267946c29a/queries
+reproduce: cargo run --release --example bench_musenalm -- "--root" "examples/musenalm" "--extended" "--cases" "Q035,Q045,Q084,Q127,Q189,Q190,Q194" "--profiles" "ascii-off" "--repetitions" "6" "--result-dir" "bench/results/musenalm/library-improvement-checkpoint-267946c29a/queries"

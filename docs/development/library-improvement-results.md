@@ -60,3 +60,19 @@ The same focused review measured B4 shared-source reuse and R5 sparse mapping wi
 Q1 estimates inferred postings and temporal ranges without constructing their candidate bitmaps, and it reuses a filter plan when a selective stored-order attempt falls back to top-k execution. The focused 1/4/16-conjunct tests verify one estimate and one executed candidate construction per inferred term, bounded temporal dictionary probes, and exact result parity. The combined integration tests and Clippy passed after the no-ff merge.
 
 The [matched release timing and raw samples](../../bench/results/library-improvements/query-planning/README.md) compare `a4ae045cba` with Q1 code commit `dfeb1123ee` on the same 8,192-record, 16-field fixture. Five blocks of 200 searches used one loaded repository per revision. Median query times were 0.121560→0.115416 ms for one conjunct (−0.006144 ms, −5.1%), 0.191679→0.139473 ms for four (−0.052206 ms, −27.2%), and 0.720725→0.219449 ms for sixteen (−0.501276 ms, −69.6%). These measurements show the intended planning improvement on this fixture; they do not quantify the full Musenalm workload or mixed access paths.
+
+## First integration checkpoint
+
+The Phase 1 plus Q1 checkpoint uses merge `267946c29a` (with report-only descendant `d78e6ef0f0`). The same release Musenalm commands, ASCII build settings, and seven `ascii-off` queries as the starting baseline ran without concurrent compilation. The [raw checkpoint evidence](../../bench/results/musenalm/library-improvement-checkpoint-267946c29a/) preserves the schema manifest, build JSON, six query samples, plans, and run manifest. Corpus, schema, and workload fingerprints match the baseline, as do the fresh-build semantic index signature and all seven query answers, candidate counts, page sizes, source opens and record parses.
+
+| Case | Baseline median ms | Checkpoint median ms | Delta ms | Source parses, both |
+| --- | ---: | ---: | ---: | ---: |
+| Q035 | 0.037 | 0.033 | −0.004 | 0 |
+| Q045 | 0.176 | 0.191 | +0.015 | 0 |
+| Q084 | 0.209 | 0.201 | −0.008 | 0 |
+| Q127 | 0.061 | 0.059 | −0.001 | 0 |
+| Q189 | 6.326 | 5.385 | −0.941 | 203 |
+| Q190 | 114.186 | 77.607 | −36.579 | 3,821 |
+| Q194 | 0.361 | 0.373 | +0.012 | 203 |
+
+The fresh ASCII build measured 1,233.968→1,191.029 ms (−42.940 ms, −3.5%) and peak RSS 490.215→516.641 MiB (+26.426 MiB). The build interval has one observation per revision; the query interval has six samples per case. The checkpoint contains several integrated changes, so it cannot isolate their costs. Q190's large measured difference is much greater than its planning-time change and cannot be credited to Q1 without further controlled evidence. Small changes such as Q045 and Q194 are inconclusive at these sample counts.
