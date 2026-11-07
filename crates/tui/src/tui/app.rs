@@ -220,6 +220,7 @@ pub(super) struct App {
     pub(super) error: Option<String>,
     pub(super) searching: bool,
     pub(super) last_search_duration: Option<Duration>,
+    pub(super) last_projection_duration: Option<Duration>,
     pub(super) done: bool,
     generation: u64,
     pending: Option<Instant>,
@@ -297,6 +298,7 @@ impl App {
             error: None,
             searching: false,
             last_search_duration: None,
+            last_projection_duration: None,
             done: false,
             generation: 0,
             pending: None,
@@ -883,6 +885,7 @@ impl App {
         self.error = None;
         self.status = None;
         self.last_search_duration = None;
+        self.last_projection_duration = None;
     }
 
     pub(super) fn request_search(&mut self) {
@@ -909,6 +912,7 @@ impl App {
         self.relation_rows.clear();
         self.requested_offset = None;
         self.last_search_duration = None;
+        self.last_projection_duration = None;
         self.launch(0);
     }
 
@@ -960,6 +964,7 @@ impl App {
                         }
                     }
                     if self.single_collection {
+                        let projection_started = Instant::now();
                         self.display_rows = self
                             .hits
                             .iter()
@@ -973,6 +978,7 @@ impl App {
                                 )
                             })
                             .collect();
+                        self.last_projection_duration = Some(projection_started.elapsed());
                         if let Some(hit) = self.selected_hit().cloned() {
                             self.record.load(&hit);
                         }

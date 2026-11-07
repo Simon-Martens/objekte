@@ -148,8 +148,16 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                     .map_or_else(String::new, |elapsed| {
                         format!("  ·  search {}", elapsed_label(elapsed))
                     });
+                let display = if app.single_collection {
+                    app.last_projection_duration
+                        .map_or_else(String::new, |elapsed| {
+                            format!("  ·  display {}", elapsed_label(elapsed))
+                        })
+                } else {
+                    String::new()
+                };
                 format!(
-                    "{} matches  ·  {} loaded{sort}{timing}",
+                    "{} matches  ·  {} loaded{sort}{timing}{display}",
                     app.total,
                     app.hits.len()
                 )
