@@ -32,7 +32,7 @@ impl ScalarKey {
         Some(match value {
             Value::String(s) => Self::String(s.clone()),
             Value::Id(s) => Self::Id(s.clone()),
-            Value::Number(n) => Self::Number(*n),
+            Value::Number(n) => Self::Number(n.clone()),
             Value::Bool(b) => Self::Bool(*b),
             Value::Date(d) => Self::Date(*d),
             Value::Datetime(t) => Self::Datetime(*t),
@@ -155,30 +155,30 @@ impl PostingIndex {
             }
             Derived::Length if !length_posting_is_exact(term) => return None,
             Derived::Length if term.operator == Operator::Eq => {
-                let Value::Number(number) = term.literal else {
+                let Value::Number(number) = &term.literal else {
                     return None;
                 };
                 return Some(
                     self.lengths
-                        .get(&number)
+                        .get(number)
                         .map(|set| input & set)
                         .unwrap_or_default(),
                 );
             }
             Derived::Length if is_range(term.operator) => {
-                let Value::Number(number) = term.literal else {
+                let Value::Number(number) = &term.literal else {
                     return None;
                 };
                 let restriction = (input.len() < domain.len()).then_some(input);
-                return Some(range_postings(&self.lengths, &number, term.operator, restriction).0);
+                return Some(range_postings(&self.lengths, number, term.operator, restriction).0);
             }
             Derived::Length if term.operator == Operator::Ne => {
-                let Value::Number(number) = term.literal else {
+                let Value::Number(number) = &term.literal else {
                     return None;
                 };
                 return Some(
                     union_postings(
-                        self.lengths.iter().filter(|(key, _)| *key != &number),
+                        self.lengths.iter().filter(|(key, _)| *key != number),
                         Some(input),
                     )
                     .0,
@@ -376,14 +376,14 @@ impl PostingIndex {
                 if !length_posting_is_exact(term) {
                     return None;
                 }
-                let Value::Number(number) = term.literal else {
+                let Value::Number(number) = &term.literal else {
                     return None;
                 };
                 let range_keys = is_range(term.operator)
-                    .then(|| range_key_probe(&self.lengths, &number, term.operator, 33));
+                    .then(|| range_key_probe(&self.lengths, number, term.operator, 33));
                 let count = if term.operator == Operator::Eq {
                     self.lengths
-                        .get(&number)
+                        .get(number)
                         .map(RoaringBitmap::len)
                         .unwrap_or(0)
                 } else if let Some(keys) = range_keys {
@@ -496,17 +496,14 @@ impl PostingIndex {
                 if !length_posting_is_exact(term) {
                     return None;
                 }
-                let Value::Number(number) = term.literal else {
+                let Value::Number(number) = &term.literal else {
                     return None;
                 };
                 return match term.operator {
-                    Operator::Eq => Some(self.lengths.get(&number).cloned().unwrap_or_default()),
+                    Operator::Eq => Some(self.lengths.get(number).cloned().unwrap_or_default()),
                     Operator::Ne => Some(
-                        union_postings(
-                            self.lengths.iter().filter(|(key, _)| *key != &number),
-                            None,
-                        )
-                        .0,
+                        union_postings(self.lengths.iter().filter(|(key, _)| *key != number), None)
+                            .0,
                     ),
                     op if is_range(op) => Some(range_postings(&self.lengths, &number, op, None).0),
                     _ => None,

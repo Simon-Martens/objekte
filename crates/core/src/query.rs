@@ -640,6 +640,7 @@ impl Parser {
         }
         let path = QueryPath::parse(path_name)?;
         let mut modifiers = Vec::new();
+        let mut modifier_end = path_token.end;
         while matches!(self.peek(), TokenKind::Colon) {
             self.take();
             let token = self.take();
@@ -654,6 +655,23 @@ impl Parser {
                 ));
             }
             modifiers.push(parse_modifier(name));
+            modifier_end = token.end;
+        }
+        if path_name == "@root"
+            && modifiers.last() == Some(&Modifier::Null)
+            && matches!(
+                self.peek(),
+                TokenKind::End | TokenKind::And | TokenKind::Or | TokenKind::RParen
+            )
+        {
+            return Ok(Term {
+                path,
+                modifiers,
+                quantifier: Quantifier::Default,
+                operator: Operator::Eq,
+                operand: Operand::Literal(Literal::Bool(true)),
+                span: (path_token.start, modifier_end),
+            });
         }
         let op = self.take();
         let (operator, quantifier) = match op.kind {
@@ -689,7 +707,10 @@ impl Parser {
                         PeriodLiteral::parse(&s)
                             .map_err(|error| format!("{error} at byte {}", value.start))?,
                     )
-                } else if let Some(name) = s.strip_prefix('@').filter(|_| !s.contains('.')) {
+                } else if let Some(name) = s
+                    .strip_prefix('@')
+                    .filter(|_| !s.contains('.') && !s.starts_with("@root"))
+                {
                     Operand::Macro {
                         name: name.to_owned(),
                         span: (value.start, value.end),
@@ -698,10 +719,14 @@ impl Parser {
                     .map_err(|error| format!("{error} at byte {}", value.start))?
                 {
                     Operand::Literal(Literal::Number(Number::integer(bytes)))
-                } else if let Ok(n) = s.parse::<i128>() {
-                    Operand::Literal(Literal::Number(Number::integer(n)))
-                } else if let Ok(n) = s.parse::<f64>() {
-                    Operand::Literal(Literal::Number(Number::float(n)?))
+                } else if s
+                    .as_bytes()
+                    .first()
+                    .is_some_and(|byte| *byte == b'-' || byte.is_ascii_digit())
+                    && s.bytes()
+                        .all(|byte| matches!(byte, b'0'..=b'9' | b'-' | b'+' | b'.' | b'e' | b'E'))
+                {
+                    Operand::Literal(Literal::Number(Number::parse_json_literal(&s)?))
                 } else {
                     let path = QueryPath::parse(&s).map_err(|error| {
                         format!("invalid field operand at byte {}: {error}", value.start)

@@ -362,6 +362,30 @@ fn scan_projection(
     fts_proven: bool,
 ) -> ScanProjection {
     let collect_text = query.fts.is_some() && !fts_proven;
+    fn uses_root(expr: &Residual<'_>) -> bool {
+        match expr {
+            Residual::Term(term, _) => {
+                (term.path.root == PathRoot::Data && term.path.segments.is_empty())
+                    || term.rhs.as_ref().is_some_and(|rhs| {
+                        rhs.path.root == PathRoot::Data && rhs.path.segments.is_empty()
+                    })
+            }
+            Residual::And(parts) | Residual::Or(parts) => parts.iter().any(uses_root),
+            Residual::Not(inner) => uses_root(inner),
+        }
+    }
+    if residual.is_some_and(uses_root)
+        || query.fts.as_ref().is_some_and(|fts| {
+            fts.fields
+                .iter()
+                .any(|field| field.path.root == PathRoot::Data && field.path.segments.is_empty())
+        })
+    {
+        let mut projection = ScanProjection::full(collect_text);
+        projection.resolved_text_only =
+            collect_text && query.fts.as_ref().is_some_and(|fts| !fts.fields.is_empty());
+        return projection;
+    }
     if !fts_proven && query.fts.as_ref().is_some_and(|fts| fts.fields.is_empty()) {
         return ScanProjection::full(true);
     }
@@ -426,6 +450,8 @@ fn scan_projection(
     ScanProjection {
         top_level: Some(fields),
         collect_text,
+        resolved_text_only: collect_text
+            && query.fts.as_ref().is_some_and(|fts| !fts.fields.is_empty()),
     }
 }
 

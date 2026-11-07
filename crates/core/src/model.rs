@@ -7,11 +7,14 @@ use std::hash::{Hash, Hasher};
 use serde::{Deserialize, Serialize};
 use time::{Date, OffsetDateTime, format_description::well_known::Rfc3339};
 
+use crate::decimal::ExactDecimal;
 
-#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub enum Number {
     Integer(i128),
     Float(f64),
+    ExactDecimal(ExactDecimal),
 }
 
 
@@ -42,15 +45,28 @@ impl Number {
         }
         let text = value.to_string();
         if !text.contains(['.', 'e', 'E']) {
-            return text
-                .parse::<i128>()
-                .map(Self::Integer)
-                .map_err(|_| "JSON integer is outside i128 range".into());
+            return Ok(match text.parse::<i128>() {
+                Ok(integer) => Self::Integer(integer),
+                Err(_) => Self::ExactDecimal(ExactDecimal::parse(&text)?),
+            });
         }
-        value
+        let exact = ExactDecimal::parse(&text)?;
+        if let Some(float) = value
             .as_f64()
-            .ok_or_else(|| "unsupported JSON number".into())
-            .and_then(Self::float)
+            .filter(|float| float.is_finite() && *float != 0.0)
+        {
+            Self::float(float)
+        } else if exact.digits == "0" {
+            Ok(Self::Integer(0))
+        } else {
+            Ok(Self::ExactDecimal(exact))
+        }
+    }
+
+    pub fn parse_json_literal(text: &str) -> Result<Self, String> {
+        let parsed = serde_json::from_str::<serde_json::Number>(text)
+            .map_err(|error| format!("invalid numeric literal: {error}"))?;
+        Self::from_json(&parsed)
     }
 }
 
@@ -74,11 +90,17 @@ impl PartialOrd for Number {
 
 impl Ord for Number {
     fn cmp(&self, other: &Self) -> Ordering {
-        match (*self, *other) {
-            (Self::Integer(a), Self::Integer(b)) => a.cmp(&b),
-            (Self::Float(a), Self::Float(b)) => a.total_cmp(&b),
-            (Self::Integer(i), Self::Float(f)) => compare_int_float(i, f),
-            (Self::Float(f), Self::Integer(i)) => compare_int_float(i, f).reverse(),
+        match (self, other) {
+            (Self::Integer(a), Self::Integer(b)) => a.cmp(b),
+            (Self::Float(a), Self::Float(b)) if *a == 0.0 && *b == 0.0 => Ordering::Equal,
+            (Self::Float(a), Self::Float(b)) => a.total_cmp(b),
+            (Self::Integer(i), Self::Float(f)) => compare_int_float(*i, *f),
+            (Self::Float(f), Self::Integer(i)) => compare_int_float(*i, *f).reverse(),
+            (Self::ExactDecimal(a), Self::ExactDecimal(b)) => a.cmp_value(b),
+            (Self::ExactDecimal(a), Self::Integer(b)) => a.cmp_value(&ExactDecimal::from_i128(*b)),
+            (Self::Integer(a), Self::ExactDecimal(b)) => ExactDecimal::from_i128(*a).cmp_value(b),
+            (Self::ExactDecimal(a), Self::Float(b)) => a.cmp_value(&ExactDecimal::from_f64(*b)),
+            (Self::Float(a), Self::ExactDecimal(b)) => ExactDecimal::from_f64(*a).cmp_value(b),
         }
     }
 }
@@ -104,6 +126,17 @@ impl Hash for Number {
                 } else {
                     1u8.hash(state);
                     f.to_bits().hash(state);
+                }
+            }
+            Self::ExactDecimal(decimal) => {
+                if let Some(integer) = decimal.as_i128() {
+                    0u8.hash(state);
+                    integer.hash(state);
+                } else if let Some(float) = decimal.as_exact_f64() {
+                    Self::Float(float).hash(state);
+                } else {
+                    2u8.hash(state);
+                    decimal.hash(state);
                 }
             }
         }
@@ -150,10 +183,12 @@ pub enum LogicalType {
 }
 
 
-/// Homogeneous logical array with its resolved element type.
+/// Logical array with an optional homogeneous element summary.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ArrayValue {
     pub element_type: Option<LogicalType>,
+    /// A conflict between non-null element types is sticky, including nested arrays.
+    pub mixed_elements: bool,
     pub nullable_elements: bool,
     pub values: Vec<Value>,
 }
@@ -185,9 +220,45 @@ impl ArrayValue {
         }
         Ok(Self {
             element_type,
+            mixed_elements: false,
             nullable_elements,
             values,
         })
+    }
+
+    /// Preserve every parsed JSON member without imposing a declared element type.
+    pub fn from_unrestricted(values: Vec<Value>) -> Self {
+        let mut element_type: Option<LogicalType> = None;
+        let mut mixed_elements = false;
+        let mut nullable_elements = false;
+        for value in &values {
+            if matches!(value, Value::Null) {
+                nullable_elements = true;
+                continue;
+            }
+            if matches!(value, Value::Array(array) if array.mixed_elements) {
+                mixed_elements = true;
+                element_type = None;
+                continue;
+            }
+            if mixed_elements {
+                continue;
+            }
+            let kind = value.logical_type();
+            element_type = match element_type.take() {
+                None => Some(kind),
+                Some(previous) => merge_array_element_types(&previous, &kind),
+            };
+            if element_type.is_none() {
+                mixed_elements = true;
+            }
+        }
+        Self {
+            element_type,
+            mixed_elements,
+            nullable_elements,
+            values,
+        }
     }
 }
 
@@ -243,13 +314,11 @@ impl Value {
             serde_json::Value::String(s) => Self::String(s),
             serde_json::Value::Number(n) => Self::Number(Number::from_json(&n)?),
             serde_json::Value::Bool(b) => Self::Bool(b),
-            serde_json::Value::Array(a) => Self::Array(ArrayValue::new(
+            serde_json::Value::Array(a) => Self::Array(ArrayValue::from_unrestricted(
                 a.into_iter()
                     .map(Self::from_json)
                     .collect::<Result<_, _>>()?,
-                None,
-                true,
-            )?),
+            )),
             serde_json::Value::Object(o) => Self::Object(
                 o.into_iter()
                     .map(|(k, v)| {
@@ -454,6 +523,9 @@ impl FieldPath {
                 .display()
             ),
             PathRoot::Data => {
+                if self.segments.is_empty() {
+                    return "@root".into();
+                }
                 let mut output = String::new();
                 for (index, segment) in self.segments.iter().enumerate() {
                     let quoted = segment.is_empty()
@@ -480,6 +552,18 @@ impl FieldPath {
     }
 
     pub fn parse(input: &str) -> Result<Self, String> {
+        if input == "@root" {
+            return Ok(Self {
+                root: PathRoot::Data,
+                segments: Vec::new(),
+            });
+        }
+        if let Some(rest) = input.strip_prefix("@root.") {
+            return Self::parse(rest);
+        }
+        if input.starts_with("@root[") {
+            return crate::query_path::QueryPath::parse(input).map(|path| path.field);
+        }
         if let Some(rest) = input.strip_prefix("@backlinks.") {
             let mut path = Self::parse(rest)?;
             if path.segments.is_empty() || path.root != PathRoot::Data {

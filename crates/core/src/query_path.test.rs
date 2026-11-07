@@ -1,6 +1,33 @@
 use super::*;
 
 #[test]
+fn explicit_root_paths_keep_zero_or_more_steps() {
+    let root = QueryPath::parse("@root").unwrap();
+    assert_eq!(root.field.root, PathRoot::Data);
+    assert!(root.field.segments.is_empty());
+    assert!(root.steps.is_empty());
+
+    let position = QueryPath::parse("@root[0]").unwrap();
+    assert_eq!(position.steps, [PathStep::ArrayIndex(0)]);
+    assert!(position.has_position);
+
+    let nested = QueryPath::parse("@root[*].title").unwrap();
+    assert_eq!(
+        nested.steps,
+        [PathStep::EachElement, PathStep::Field("title".into())]
+    );
+    assert_eq!(nested.field.segments, ["title"]);
+    assert_eq!(
+        QueryPath::parse("@root.title").unwrap().field,
+        QueryPath::parse("title").unwrap().field
+    );
+    assert_eq!(
+        QueryPath::parse("@root[\"\"]").unwrap().field.segments,
+        [""]
+    );
+}
+
+#[test]
 fn explicit_array_steps_are_distinct_from_quoted_object_keys() {
     let path = QueryPath::parse("items[0].name").unwrap();
     assert_eq!(path.field.segments, ["items", "name"]);

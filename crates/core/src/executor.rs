@@ -786,7 +786,7 @@ fn execute_path(
 
 fn sort_key(value: &Value) -> Option<SortKey> {
     Some(match value {
-        Value::Number(n) => SortKey::Number(*n),
+        Value::Number(n) => SortKey::Number(n.clone()),
         Value::Date(d) => SortKey::Date(*d),
         Value::Datetime(d) => SortKey::Datetime(*d),
         Value::Unixtime(t) => SortKey::Unixtime(*t),

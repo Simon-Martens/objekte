@@ -1,4 +1,5 @@
 use super::*;
+use std::collections::HashSet;
 
 #[test]
 fn precise_numbers_and_temporal_distinctions() {
@@ -29,7 +30,70 @@ fn precise_numbers_and_temporal_distinctions() {
 }
 
 #[test]
+fn exceptional_json_numbers_remain_numeric_and_ordered() {
+    let huge = Number::parse_json_literal("1e1000000").unwrap();
+    let tiny = Number::parse_json_literal("1e-1000000").unwrap();
+    let boundary = Number::parse_json_literal("170141183460469231731687303715884105728").unwrap();
+    assert!(matches!(huge, Number::ExactDecimal(_)));
+    assert!(matches!(tiny, Number::ExactDecimal(_)));
+    assert!(matches!(boundary, Number::ExactDecimal(_)));
+    assert!(huge > boundary);
+    assert!(boundary > Number::integer(i128::MAX));
+    assert!(tiny > Number::integer(0));
+    assert!(tiny < Number::float(0.1).unwrap());
+    assert_eq!(
+        Number::parse_json_literal("-0").unwrap(),
+        Number::integer(0)
+    );
+    assert_eq!(Number::Float(-0.0), Number::Float(0.0));
+    assert_eq!(Number::Float(-0.0), Number::integer(0));
+    assert_eq!(
+        ExactDecimal::parse(&i128::MIN.to_string())
+            .unwrap()
+            .as_i128(),
+        Some(i128::MIN)
+    );
+    assert_eq!(
+        Number::ExactDecimal(ExactDecimal::parse(&i128::MIN.to_string()).unwrap()),
+        Number::integer(i128::MIN)
+    );
+    let mut equivalent = HashSet::new();
+    equivalent.insert(Number::integer(i128::MIN));
+    assert!(equivalent.contains(&Number::ExactDecimal(
+        ExactDecimal::parse(&i128::MIN.to_string()).unwrap()
+    )));
+    equivalent.insert(Number::Float(-0.0));
+    assert!(equivalent.contains(&Number::Float(0.0)));
+    let mut keys = HashSet::new();
+    keys.insert(boundary.clone());
+    assert!(keys.contains(&Number::float(2f64.powi(127)).unwrap()));
+    assert_eq!(
+        Number::parse_json_literal("1.0").unwrap(),
+        Number::integer(1)
+    );
+    assert!(
+        Number::parse_json_literal("1e99999999999999999999")
+            .unwrap_err()
+            .contains("resource limit")
+    );
+}
+
+#[test]
 fn arrays_paths_and_id_namespace() {
+    assert_eq!(FieldPath::parse("@root").unwrap().display(), "@root");
+    assert_eq!(
+        FieldPath::parse("@root.title").unwrap(),
+        FieldPath::parse("title").unwrap()
+    );
+    assert_eq!(
+        FieldPath::parse("@root[\"a.b\"]").unwrap().segments,
+        ["a.b"]
+    );
+    assert!(FieldPath::parse("@root[0]").unwrap().segments.is_empty());
+    assert_eq!(
+        FieldPath::parse("@root[*].title").unwrap().segments,
+        ["title"]
+    );
     assert!(
         ArrayValue::new(
             vec![Value::String("x".into()), Value::Bool(true)],
@@ -104,4 +168,31 @@ fn unhinted_arrays_keep_actual_or_unresolved_element_types() {
         objects.logical_type(),
         LogicalType::Array(Box::new(LogicalType::Object))
     );
+}
+
+#[test]
+fn parsed_json_arrays_preserve_mixed_members_and_sticky_conflicts() {
+    let parsed = Value::from_json(serde_json::json!(["a", 1, null, {}, [], true])).unwrap();
+    let Value::Array(array) = parsed else {
+        panic!("array root")
+    };
+    assert_eq!(array.values.len(), 6);
+    assert!(array.mixed_elements);
+    assert_eq!(array.element_type, None);
+    assert!(array.nullable_elements);
+
+    let nested = Value::from_json(serde_json::json!([["a", 1], [2, 3]])).unwrap();
+    let Value::Array(array) = nested else {
+        panic!("array root")
+    };
+    assert!(array.mixed_elements);
+    assert_eq!(array.element_type, None);
+
+    let all_null = Value::from_json(serde_json::json!([null, null])).unwrap();
+    let Value::Array(array) = all_null else {
+        panic!("array root")
+    };
+    assert!(!array.mixed_elements);
+    assert_eq!(array.element_type, None);
+    assert!(array.nullable_elements);
 }
