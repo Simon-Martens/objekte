@@ -55,6 +55,8 @@ These are first measurements, not speedup claims. Query construction in the harn
 | Q4 related target load coordination | `1a074d746a` | `c06cf1eeda` | Related reuse/occurrence/dangling tests, workspace tests and Clippy passed. |
 | R3 snapshot section assessment | `924abf3fd8` | `71b1b58397` | Diagnostic example compiled; workspace tests and Clippy passed; versioned format deferred. |
 | O3 inference documentation | `5352c1d8aa` | `68469cb702` | Exported-default test, workspace tests and Clippy passed. |
+| R1 execution context and typed failures | `9316761d31` | `5f0c32af6b` | Cancellation, resource, source-change and extension tests; combined workspace tests and Clippy passed. |
+| R1 prepared-cache retention | `e2a3945286` | `da0edfb213` | Explicit retained-size tests and warm-regex budget tests; combined workspace tests and Clippy passed. |
 
 The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. Phase 1 correctness is complete at `a4ae045cba2c86622bec755ec4011229608be499`: 270 core unit tests passed, two were ignored, all workspace tests passed, and Clippy exited successfully with warnings. The baseline workspace had 248 core unit tests passed and one ignored. Existing Clippy warnings were present before implementation; this gate did not treat warnings as errors.
 
@@ -133,3 +135,9 @@ R3 adds explicit save-phase fields to the Musenalm build example; the snapshot w
 ## Inference documentation contract
 
 O3 updates the inference guide to match the exported policy: 16 MiB per batch, 512 MiB coordinator and 768 MiB repository allowances, a 64-byte ordered short-string limit, and a 24 MiB per-path cap. It explains partial short-string coverage, bounded reporting for manual and opted-out paths, lazy inferred ordering, and the accepted JSON value model. A test asserts the documented defaults and 16-job allowance against `InferencePolicy::default()`. The no-ff merge passed the workspace suite and Clippy. No production behavior or benchmark result changed.
+
+## Request execution context
+
+R1 adds a per-request context with a frozen clock, cancellation token, typed failure classification and shared accounting for relation work, source reads, inferred ordering and computed sorting. Ordinary and streamed execution can use the same context; the existing API remains available. Tests exercise cancellation during relation and computed-sort work, stale-source and extension failure classes, and bounded source/extension values. The limits are estimates of selected retained state and reads, not a process RSS ceiling. A reader without a preparse estimate can allocate while parsing before its expanded value is rejected. No matched R1 timing was recorded.
+
+The paired prepared-cache change replaces debug-string sizing with explicit retained-state estimates, including bound literals, gram requests, matchers and compiled regex. The regex charge uses configured compile/cache ceilings because the pinned regex API does not expose precise compiled allocation size. The default prepared-cache allowance rises from 4 to 16 MiB so a normal prepared regex query is reusable under that conservative charge; it allocates no cache memory up front. The combined integration tree passed `cargo test --workspace` (311 core tests passed, two ignored) and `cargo clippy --workspace --all-targets` with existing warning-level diagnostics.
