@@ -54,6 +54,7 @@ These are first measurements, not speedup claims. Query construction in the harn
 | Q4 local computed-sort scheduling | `773e26fe45` | `a1100d3828` | Worker/layout parity and large-record tests, workspace tests and Clippy passed. |
 | Q4 related target load coordination | `1a074d746a` | `c06cf1eeda` | Related reuse/occurrence/dangling tests, workspace tests and Clippy passed. |
 | R3 snapshot section assessment | `924abf3fd8` | `71b1b58397` | Diagnostic example compiled; workspace tests and Clippy passed; versioned format deferred. |
+| O3 inference documentation | `5352c1d8aa` | `68469cb702` | Exported-default test, workspace tests and Clippy passed. |
 
 The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. Phase 1 correctness is complete at `a4ae045cba2c86622bec755ec4011229608be499`: 270 core unit tests passed, two were ignored, all workspace tests passed, and Clippy exited successfully with warnings. The baseline workspace had 248 core unit tests passed and one ignored. Existing Clippy warnings were present before implementation; this gate did not treat warnings as errors.
 
@@ -128,3 +129,7 @@ The [paired commit-2 result](../../bench/results/library-improvements/computed-s
 ## Snapshot section scale decision
 
 R3 adds explicit save-phase fields to the Musenalm build example; the snapshot writer and format are unchanged. The [single copied-corpus measurement](../../bench/results/library-improvements/snapshot-sections/README.md) built 148,486 ASCII records with snapshots disabled during opening, then explicitly saved 106.101 MiB in 488.892 ms. The largest collection section was 67.933 MiB, 13.3% of the existing 512 MiB section cap. Summed serialization/checksum/write/sync phases were 97.898/41.843/248.154/81.899 ms. A fresh-process restore took 469.271 ms with zero build parses. The measured corpus has ample section headroom, so a versioned chunked format is deferred. The current writer still buffers a section before its size check and cannot save a section above 512 MiB; no large-section acceptance claim is made. After integration, the diagnostic example compiled, workspace tests (293 core unit tests passed, two ignored), and Clippy passed.
+
+## Inference documentation contract
+
+O3 updates the inference guide to match the exported policy: 16 MiB per batch, 512 MiB coordinator and 768 MiB repository allowances, a 64-byte ordered short-string limit, and a 24 MiB per-path cap. It explains partial short-string coverage, bounded reporting for manual and opted-out paths, lazy inferred ordering, and the accepted JSON value model. A test asserts the documented defaults and 16-job allowance against `InferencePolicy::default()`. The no-ff merge passed the workspace suite and Clippy. No production behavior or benchmark result changed.
