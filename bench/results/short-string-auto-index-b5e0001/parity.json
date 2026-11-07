@@ -1,0 +1,26 @@
+{
+  "medium": {
+    "memory": {
+      "all_equal": true,
+      "runs": 12,
+      "queries": 9
+    },
+    "snapshots": {
+      "all_equal": true,
+      "runs": 8,
+      "queries": 9
+    }
+  },
+  "musenalm": {
+    "memory": {
+      "all_equal": true,
+      "runs": 12,
+      "queries": 6
+    },
+    "snapshots": {
+      "all_equal": true,
+      "runs": 8,
+      "queries": 6
+    }
+  }
+}

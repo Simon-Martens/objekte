@@ -1,0 +1,298 @@
+[
+  {
+    "dataset": "medium",
+    "mode": "disabled",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-disabled",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "disabled",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-disabled",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "schema",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-schema",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "schema",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-schema",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "auto",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--auto-index",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-auto",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "auto",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--auto-index",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-auto",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "both",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--auto-index",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-both",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "both",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--auto-index",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/medium-both",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 2
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "disabled",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-disabled",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "disabled",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-disabled",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "schema",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--schema",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.schema.json",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-schema",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "schema",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--schema",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.schema.json",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-schema",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "auto",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--auto-index",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-auto",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "auto",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--auto-index",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-auto",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "both",
+    "action": "build",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--schema",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.schema.json",
+      "--auto-index",
+      "--write-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-both",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "musenalm",
+    "mode": "both",
+    "action": "restore",
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-auto-index/examples/musenalm/data/entries",
+      "--schema",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.schema.json",
+      "--auto-index",
+      "--load-index=/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/snapshots/musenalm-both",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-auto-index/bench/results/short-string-auto-index-7c9ac08/musenalm-entries.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 2
+  }
+]

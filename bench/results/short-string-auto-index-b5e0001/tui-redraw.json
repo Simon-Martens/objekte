@@ -1,0 +1,32 @@
+{
+  "sha": "b5e00011ae",
+  "runs": [
+    {
+      "ready_s": 0.10214893001830205,
+      "first_visible_s": 0.13250223401701078,
+      "redraw_first_bytes_s": 0.00018087599892169237,
+      "redraw_output_bytes": 365,
+      "terminal_restored": true,
+      "exit": 0,
+      "display_labels": []
+    },
+    {
+      "ready_s": 0.10228880803333595,
+      "first_visible_s": 0.13271546200849116,
+      "redraw_first_bytes_s": 0.0005397839704528451,
+      "redraw_output_bytes": 365,
+      "terminal_restored": true,
+      "exit": 0,
+      "display_labels": []
+    },
+    {
+      "ready_s": 0.10239140898920596,
+      "first_visible_s": 0.13284828199539334,
+      "redraw_first_bytes_s": 0.0040800010319799185,
+      "redraw_output_bytes": 365,
+      "terminal_restored": true,
+      "exit": 0,
+      "display_labels": []
+    }
+  ]
+}

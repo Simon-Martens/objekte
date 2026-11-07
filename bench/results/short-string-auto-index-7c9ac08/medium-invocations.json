@@ -1,0 +1,212 @@
+[
+  {
+    "dataset": "medium",
+    "mode": "disabled",
+    "repetition": 1,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "schema",
+    "repetition": 1,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "auto",
+    "repetition": 1,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--auto-index",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "both",
+    "repetition": 1,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--auto-index",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "both",
+    "repetition": 2,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--auto-index",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "auto",
+    "repetition": 2,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--auto-index",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "schema",
+    "repetition": 2,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "disabled",
+    "repetition": 2,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "schema",
+    "repetition": 3,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "disabled",
+    "repetition": 3,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "both",
+    "repetition": 3,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--schema",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.schema.json",
+      "--auto-index",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  },
+  {
+    "dataset": "medium",
+    "mode": "auto",
+    "repetition": 3,
+    "command": [
+      "/home/simon/source/objekte-short-string-auto-index/target/release/obj",
+      "--path",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium",
+      "--auto-index",
+      "--query-file",
+      "/home/simon/source/objekte-short-string-fixtures-567f39b/medium.queries.txt",
+      "--limit",
+      "10",
+      "--count"
+    ],
+    "exit": 0
+  }
+]
