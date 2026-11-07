@@ -167,11 +167,15 @@ fn run() -> Result<(), String> {
     )?;
     let wall_ns = started.elapsed().as_nanos();
     let snapshot_started = Instant::now();
-    if write_snapshot {
-        repo.save_snapshot(&objekte_search_core::storage::snapshot_path(
-            &root, alphabet,
-        ))?;
-    }
+    let snapshot_save_stats = if write_snapshot {
+        Some(
+            repo.save_snapshot_with_stats(&objekte_search_core::storage::snapshot_path(
+                &root, alphabet,
+            ))?,
+        )
+    } else {
+        None
+    };
     let snapshot_write_ns = if write_snapshot {
         snapshot_started.elapsed().as_nanos() as u64
     } else {
@@ -228,6 +232,23 @@ fn run() -> Result<(), String> {
             "extraction_index_ns": repo.startup().build_extraction_index_ns,
             "finalization_ns": repo.startup().build_finalization_ns,
             "snapshot_write_ns": snapshot_write_ns,
+            "snapshot_save_stats": snapshot_save_stats.as_ref().map(|stats| serde_json::json!({
+                "total_ns": stats.total_ns,
+                "directory_ns": stats.directory_ns,
+                "header_ns": stats.header_ns,
+                "inventory_ns": stats.inventory_ns,
+                "write_ns": stats.write_ns,
+                "sync_ns": stats.sync_ns,
+                "rename_ns": stats.rename_ns,
+                "bytes_written": stats.bytes_written,
+                "sections": stats.sections.iter().map(|section| serde_json::json!({
+                    "id": section.id,
+                    "serialize_ns": section.serialize_ns,
+                    "checksum_ns": section.checksum_ns,
+                    "write_ns": section.write_ns,
+                    "payload_bytes": section.payload_bytes,
+                })).collect::<Vec<_>>(),
+            })),
             "build_parses": repo.build_parses(),
             "failed_parses": repo.build_failed_parses(),
             "inventory_heap_bytes": inventory_heap_bytes,
