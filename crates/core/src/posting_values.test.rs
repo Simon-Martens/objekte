@@ -108,6 +108,21 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
         };
         let selection = repo.select_exact("data", &selected_query).unwrap();
         assert_eq!(selection.len(), 1);
+        let parameter_query = crate::query::Query {
+            filter: Some(crate::query::parse_filter("tags ?= $chosen_tag").unwrap()),
+            ..selected_query.clone()
+        };
+        assert!(repo.select_exact("data", &parameter_query).is_err());
+        let parameter_query = parameter_query
+            .with_parameters(&std::collections::HashMap::from([(
+                "chosen_tag".into(),
+                crate::model::Value::String("a".into()),
+            )]))
+            .unwrap();
+        assert_eq!(
+            repo.select_exact("data", &parameter_query).unwrap().len(),
+            2
+        );
         let text_query = crate::query::Query {
             filter: None,
             fts: Some(crate::query::FtsQuery {
@@ -172,6 +187,13 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
         };
         let fallback_selection = repo.select_exact("data", &fallback_query).unwrap();
         assert_eq!(fallback_selection.len(), 1);
+        let mut fallback_count = fallback_query.clone();
+        fallback_count.options.count = true;
+        fallback_count.options.limit = 0;
+        fallback_count.options.offset = 3;
+        let fallback_count = repo.search(&fallback_count).unwrap();
+        assert_eq!(fallback_count.count, Some(1));
+        assert_eq!(fallback_count.counters.files_opened, 0);
         selected_request.selection = Some(fallback_selection);
         selected_request.continuation = None;
         assert_eq!(
@@ -192,6 +214,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
         );
         let held = root.join("held.jsonl");
         std::fs::rename(&path, &held).unwrap();
+        assert_eq!(repo.select_exact("data", &selected_query).unwrap().len(), 1);
         assert_eq!(
             repo.posting_values(&request).unwrap().values,
             reverse.values
@@ -319,10 +342,12 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
+
 #[derive(Debug)]
 struct FoldPosting {
     complete: bool,
 }
+
 
 impl crate::reference::BindingOperation for FoldPosting {
     fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
@@ -367,6 +392,7 @@ impl crate::reference::BindingOperation for FoldPosting {
         self.complete
     }
 }
+
 
 #[test]
 fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {

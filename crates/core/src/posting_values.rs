@@ -287,7 +287,8 @@ impl Repository {
         {
             return Err("selection query excludes requested collection".into());
         }
-        let members = crate::run::exact_members(self, query, collection_index)?;
+        let resolved = query.resolve_current_clock()?;
+        let members = crate::run::exact_members(self, resolved.as_ref(), collection_index)?;
         Ok(ExactSelection(Arc::new(SelectionData {
             id: NEXT_SELECTION_ID.fetch_add(1, Ordering::Relaxed),
             instance_id: self.instance_id,
