@@ -32,16 +32,23 @@ fn fixture() -> Fixture {
 }
 
 fn fixture_with_alphabet(alphabet: BigramAlphabet) -> Fixture {
+    fixture_with_count(alphabet, 12)
+}
+
+fn fixture_with_count(alphabet: BigramAlphabet, count: usize) -> Fixture {
     let root = std::env::temp_dir().join(format!(
         "objekte-stream-{}-{}",
         std::process::id(),
         NEXT_FIXTURE.fetch_add(1, Ordering::Relaxed)
     ));
     std::fs::create_dir_all(root.join("data")).unwrap();
-    for n in 0..12 {
+    for n in 0..count {
         std::fs::write(
             root.join(format!("data/{n:03}.json")),
-            format!(r#"{{"kind":"yes","body":"needle {n}","score":{}}}"#, 11 - n,),
+            format!(
+                r#"{{"kind":"yes","body":"needle {n}","score":{}}}"#,
+                11 - n as isize,
+            ),
         )
         .unwrap();
     }
@@ -91,6 +98,219 @@ fn fixture_with_alphabet(alphabet: BigramAlphabet) -> Fixture {
     )
     .unwrap();
     Fixture { root, repo }
+}
+
+#[test]
+fn all_scope_streams_more_than_fifty_rows_once_in_bounded_batches() {
+    let fixture = fixture_with_count(BigramAlphabet::Ascii, 73);
+    let mut request = query("body ~ 'needle'", false, false, ReturnMode::Bytes);
+    request.options.limit = 2;
+    let mut rows = Vec::new();
+    let mut first_seen = None;
+    let outcome = fixture
+        .repo
+        .search_stream_scoped(
+            &request,
+            ResultScope::All { offset: 3 },
+            StreamOptions {
+                batch_rows: 7,
+                max_event_bytes: 8 * 1024,
+                max_buffered_bytes: 16 * 1024,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows {
+                    start,
+                    rows: batch,
+                    progress,
+                    ..
+                } = event
+                {
+                    assert_eq!(start, rows.len());
+                    assert!(batch.len() <= 7);
+                    first_seen.get_or_insert(progress.observed_matches);
+                    rows.extend(batch.iter().cloned());
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("expected complete")
+    };
+    assert_eq!(summary.count, Some(73));
+    assert_eq!(summary.returned_rows, 70);
+    assert_eq!(rows.len(), 70);
+    assert_eq!(rows[0].record_id, "003");
+    assert!(
+        rows.iter()
+            .all(|row| matches!(row.payload, Some(crate::repository::Payload::Bytes(_))))
+    );
+    assert!(first_seen.unwrap() < 73);
+    assert_eq!(summary.counters.scanned_records, 73);
+    assert!(summary.progress.peak_buffered_bytes <= 16 * 1024);
+}
+
+#[test]
+fn all_scope_computed_order_materializes_after_key_barrier() {
+    let fixture = fixture_with_count(BigramAlphabet::Ascii, 65);
+    let mut request = query("kind = 'yes'", false, false, ReturnMode::Bytes);
+    request.options.sort = vec![SortField {
+        field: "body".into(),
+        descending: true,
+        expression: None,
+    }];
+    let expected = {
+        let mut finite = request.clone();
+        finite.options.limit = 65;
+        finite.options.count = true;
+        fixture.repo.search(&finite).unwrap()
+    };
+    let mut ids = Vec::new();
+    let outcome = fixture
+        .repo
+        .search_stream_scoped(
+            &request,
+            ResultScope::All { offset: 0 },
+            StreamOptions {
+                batch_rows: 5,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { start, rows, .. } = event {
+                    assert_eq!(start, ids.len());
+                    ids.extend(rows.iter().map(|row| row.record_id.clone()));
+                    assert!(rows.iter().all(|row| row.payload.is_some()));
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("expected complete")
+    };
+    assert_eq!(summary.count, Some(65));
+    assert_eq!(summary.returned_rows, 65);
+    assert_eq!(
+        ids,
+        expected
+            .hits
+            .iter()
+            .map(|hit| hit.record_id.clone())
+            .collect::<Vec<_>>()
+    );
+}
+
+#[test]
+fn scoped_page_zero_count_and_all_cancellation_are_distinct() {
+    let fixture = fixture_with_count(BigramAlphabet::Ascii, 61);
+    let mut request = query("kind = 'yes'", false, true, ReturnMode::Locator);
+    request.options.limit = 4;
+    let page = fixture
+        .repo
+        .search_stream_scoped(
+            &request,
+            ResultScope::Page {
+                offset: 7,
+                limit: 0,
+            },
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                assert!(!matches!(event, StreamEvent::OrderedRows { .. }));
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(page) = page else {
+        panic!("expected complete")
+    };
+    assert_eq!(page.count, Some(61));
+    assert_eq!(page.returned_rows, 0);
+
+    let mut without_count = request.clone();
+    without_count.options.count = false;
+    let zero = fixture
+        .repo
+        .search_stream_scoped(
+            &without_count,
+            ResultScope::Page {
+                offset: 7,
+                limit: 0,
+            },
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap();
+    let StreamOutcome::Complete(zero) = zero else {
+        panic!("expected complete")
+    };
+    assert_eq!(zero.count, None);
+    assert_eq!(zero.returned_rows, 0);
+
+    let beyond = fixture
+        .repo
+        .search_stream_scoped(
+            &request,
+            ResultScope::All { offset: 100 },
+            StreamOptions::default(),
+            &CancellationToken::new(),
+            &mut |event| {
+                assert!(!matches!(event, StreamEvent::OrderedRows { .. }));
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(beyond) = beyond else {
+        panic!("expected complete")
+    };
+    assert_eq!(beyond.count, Some(61));
+    assert_eq!(beyond.returned_rows, 0);
+
+    let mut delivered = 0;
+    let cancelled = fixture
+        .repo
+        .search_stream_scoped(
+            &request,
+            ResultScope::All { offset: 0 },
+            StreamOptions {
+                batch_rows: 4,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    delivered += rows.len();
+                    return Ok(StreamControl::Cancel);
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    assert!(matches!(cancelled, StreamOutcome::Cancelled(_)));
+    assert_eq!(delivered, 4);
+    assert!(fixture.repo.search(&request).unwrap().count.is_some());
+
+    let failed = fixture.repo.search_stream_scoped(
+        &request,
+        ResultScope::All { offset: 0 },
+        StreamOptions {
+            batch_rows: 4,
+            ..Default::default()
+        },
+        &CancellationToken::new(),
+        &mut |event| {
+            if matches!(event, StreamEvent::OrderedRows { .. }) {
+                Err("sink stopped".into())
+            } else {
+                Ok(StreamControl::Continue)
+            }
+        },
+    );
+    assert!(matches!(failed, Err(StreamError::Sink { .. })));
 }
 
 #[test]
