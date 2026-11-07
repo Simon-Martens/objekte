@@ -204,6 +204,7 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         sorted.options.sort = vec![SortField {
             field: "entry".into(),
             descending: false,
+            expression: None,
         }];
         assert_eq!(
             repo.search(&sorted)

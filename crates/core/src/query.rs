@@ -5,7 +5,7 @@ use crate::clock_context::ClockContext;
 use crate::model::{FieldPath, Number, Value};
 use crate::query_path::QueryPath;
 use crate::temporal_query::{PeriodLiteral, looks_like_temporal};
-use crate::workload::{ReturnMode, SortField, WorkloadCase};
+use crate::workload::{ReturnMode, SortExpression, SortField, SortReducer, WorkloadCase};
 use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use time::OffsetDateTime;
@@ -346,6 +346,7 @@ impl Query {
         Ok(query)
     }
 }
+
 
 fn regex_pattern_parameter(literal: &str) -> Option<&str> {
     let name = literal.strip_prefix('$')?;
@@ -761,26 +762,65 @@ impl Parser {
         let mut seen = HashSet::new();
         loop {
             let token = self.take();
-            let name = match token.kind {
+            let first = match token.kind {
                 TokenKind::Word(name) => name,
                 _ => return Err(format!("expected sort field at byte {}", token.start)),
+            };
+            let reducer = if matches!(self.peek(), TokenKind::LParen) {
+                let reducer = match first.to_ascii_uppercase().as_str() {
+                    "MIN" => SortReducer::Min,
+                    "MAX" => SortReducer::Max,
+                    "FIRST" => SortReducer::First,
+                    "LAST" => SortReducer::Last,
+                    _ => return Err(format!("unknown sort reduction at byte {}", token.start)),
+                };
+                self.take();
+                Some(reducer)
+            } else {
+                None
+            };
+            let name = if reducer.is_some() {
+                let path = self.take();
+                match path.kind {
+                    TokenKind::Word(value) => value,
+                    _ => return Err(format!("expected sort field at byte {}", path.start)),
+                }
+            } else {
+                first
             };
             if name.bytes().any(|byte| byte == b'$') {
                 return Err(format!("unsupported sort field at byte {}", token.start));
             }
             let parsed = QueryPath::parse(&name)
                 .map_err(|error| format!("invalid sort field at byte {}: {error}", token.start))?;
-            if parsed.has_explicit_array_step {
+            let binding = if matches!(self.peek(), TokenKind::Colon) {
+                self.take();
+                let modifier = self.take();
+                match modifier.kind {
+                    TokenKind::Word(value) if !value.is_empty() => Some(value),
+                    _ => return Err(format!("expected sort binding at byte {}", modifier.start)),
+                }
+            } else {
+                None
+            };
+            if reducer.is_some() && !matches!(self.peek(), TokenKind::RParen) {
                 return Err(format!(
-                    "array selectors cannot be sort fields at byte {}",
-                    token.start
+                    "expected ')' at byte {}",
+                    self.tokens[self.pos].start
                 ));
             }
-            let field = parsed.field.display();
-            if !seen.insert(field.clone()) {
+            if reducer.is_some() {
+                self.take();
+            }
+            let expression = SortExpression {
+                path: parsed.display.clone(),
+                binding,
+                reducer,
+            };
+            if !seen.insert(expression.clone()) {
                 return Err(format!(
-                    "duplicate sort field at byte {}: {field}",
-                    token.start
+                    "duplicate sort field at byte {}: {}",
+                    token.start, expression.path
                 ));
             }
             let descending = if self.keyword("ASC") {
@@ -792,7 +832,22 @@ impl Parser {
             } else {
                 false
             };
-            fields.push(SortField { field, descending });
+            let field = if expression.reducer.is_some() {
+                format!("{:?}({})", expression.reducer.unwrap(), expression.path)
+            } else if let Some(binding) = &expression.binding {
+                format!("{}:{binding}", expression.path)
+            } else {
+                expression.path.clone()
+            };
+            let expression = (expression.reducer.is_some()
+                || expression.binding.is_some()
+                || parsed.has_explicit_array_step)
+                .then_some(expression);
+            fields.push(SortField {
+                field,
+                descending,
+                expression,
+            });
             match self.peek() {
                 TokenKind::Comma => {
                     self.take();

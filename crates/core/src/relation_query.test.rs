@@ -238,6 +238,67 @@ fn ids(repo: &Repository, request: Query) -> Vec<String> {
 }
 
 #[test]
+fn related_reducers_preserve_source_reference_occurrences() {
+    let (root, definitions) = fixture();
+    std::fs::write(root.join("entries/a.json"), r#"{"id":"A","title":"Alpha"}"#).unwrap();
+    std::fs::write(root.join("entries/b.json"), r#"{"id":"B","title":"Zulu"}"#).unwrap();
+    std::fs::write(
+        root.join("entries/c.json"),
+        r#"{"id":"C","title":"Middle"}"#,
+    )
+    .unwrap();
+    for (name, values) in [
+        ("order_bab", "[\"B\",\"A\",\"B\"]"),
+        ("order_a", "[\"A\"]"),
+        ("order_b", "[\"B\"]"),
+        ("order_m", "[\"C\"]"),
+    ] {
+        std::fs::write(
+            root.join(format!("mentions/{name}.json")),
+            format!(r#"{{"id":"{name}","contributors":{values}}}"#),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (reducer, expected) in [
+        ("FIRST", vec!["order_a", "order_m", "order_b", "order_bab"]),
+        ("LAST", vec!["order_a", "order_m", "order_b", "order_bab"]),
+        ("MIN", vec!["order_a", "order_bab", "order_m", "order_b"]),
+        ("MAX", vec!["order_a", "order_m", "order_b", "order_bab"]),
+    ] {
+        let expression = format!(
+            "(id = 'order_a' || id = 'order_b' || id = 'order_m' || id = 'order_bab') SORT BY {reducer}(contributors.title)"
+        );
+        let query = query("mentions", Some(&expression), None, None, false);
+        let result = repo.search(&query).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{reducer}"
+        );
+        assert_eq!(
+            result.hits,
+            repo.search_reference(&query).unwrap().hits,
+            "{reducer}"
+        );
+    }
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn finite_relation_paths_have_independent_reference_answers() {
     let (root, definitions) = fixture();
     let repo = Repository::open_with_options(
@@ -342,11 +403,19 @@ fn finite_relation_paths_have_independent_reference_answers() {
     sort.options.sort.push(crate::workload::SortField {
         field: "entry.title".into(),
         descending: false,
+        expression: None,
     });
-    assert!(
-        repo.search(&sort)
-            .unwrap_err()
-            .contains("related sort field")
+    let optimized = repo.search(&sort).unwrap();
+    let reference = repo.search_reference(&sort).unwrap();
+    assert_eq!(optimized.hits, reference.hits);
+    assert_eq!(
+        optimized
+            .hits
+            .iter()
+            .take(7)
+            .map(|hit| hit.record_id.as_str())
+            .collect::<Vec<_>>(),
+        ["m2", "m1", "m4", "m3", "m5", "m6", "m7"]
     );
 }
 

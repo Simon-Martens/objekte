@@ -32,6 +32,7 @@ mod relation_semijoin;
 mod relation_target_cache;
 pub mod repository;
 pub mod run;
+mod sort_binding;
 pub mod sorting;
 pub mod source;
 mod source_access;

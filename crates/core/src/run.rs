@@ -24,11 +24,96 @@ use crate::reference::{
     eval_unavailable_filter, same_bound_term,
 };
 use crate::repository::{Payload, Repository, SearchHit, SearchResult};
+use crate::sort_binding::{BoundSort, BoundSortSource, SortTargetCache};
 use crate::sorting::{SortColumn, SortKey, SortOptions};
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, SortField, WorkCounters};
+
+const MAX_SORT_KEY_BYTES: u64 = 64 * 1024 * 1024;
+const MAX_COMPUTED_SORT_BYTES: u64 = 128 * 1024 * 1024;
+
+fn check_computed_sort_budget(payload: u64, keys: u64, targets: u64) -> Result<(), String> {
+    check_computed_sort_budget_with_limit(MAX_COMPUTED_SORT_BYTES, payload, keys, targets)
+}
+
+fn check_computed_sort_budget_with_limit(
+    limit: u64,
+    payload: u64,
+    keys: u64,
+    targets: u64,
+) -> Result<(), String> {
+    let total = payload
+        .checked_add(keys)
+        .and_then(|used| used.checked_add(targets))
+        .ok_or("computed sort memory count overflow")?;
+    if total > limit {
+        return Err("computed sort memory budget exceeded".into());
+    }
+    Ok(())
+}
+
+
+/// One cached member that needs a source read to compute its sort key.
+struct CachedSortRead {
+    collection_index: usize,
+    file_id: u32,
+    member_index: u32,
+    range: ByteRange,
+}
+
+
+fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
+    let mut bytes = cached
+        .members
+        .capacity()
+        .checked_mul(std::mem::size_of::<CachedMember>())
+        .and_then(|used| used.checked_add(std::mem::size_of::<CachedResult>()))
+        .ok_or("cached sort memory count overflow")?;
+    for member in &cached.members {
+        bytes = bytes
+            .checked_add(
+                member
+                    .matched_fields
+                    .capacity()
+                    .checked_mul(std::mem::size_of::<String>())
+                    .ok_or("cached sort memory count overflow")?,
+            )
+            .ok_or("cached sort memory count overflow")?;
+        for field in &member.matched_fields {
+            bytes = bytes
+                .checked_add(field.capacity())
+                .ok_or("cached sort memory count overflow")?;
+        }
+    }
+    bytes = bytes
+        .checked_add(
+            reads
+                .checked_mul(std::mem::size_of::<CachedSortRead>())
+                .ok_or("cached sort memory count overflow")?,
+        )
+        .and_then(|used| used.checked_add(128 * std::mem::size_of::<(u32, ByteRange)>()))
+        .ok_or("cached sort memory count overflow")?;
+    u64::try_from(bytes).map_err(|_| "cached sort memory count overflow".into())
+}
+
+fn check_cached_sort_live(
+    sort: &ResolvedSort<'_>,
+    fixed_bytes: u64,
+    key_bytes: u64,
+    has_related_sort: bool,
+) -> Result<(), String> {
+    if !has_related_sort {
+        return check_computed_sort_budget(fixed_bytes, key_bytes, 0);
+    }
+    let target_bytes = sort
+        .target_cache
+        .lock()
+        .map_err(|error| error.to_string())?
+        .retained_bytes();
+    check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
+}
 
 
 /// Comparable sort key with collection and ID tie breakers.
@@ -43,39 +128,51 @@ struct RankKey {
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
+    bound: BoundSort<'a>,
+    target_cache: std::sync::Mutex<SortTargetCache>,
 }
 
 
 impl<'a> ResolvedSort<'a> {
-    fn new(repo: &'a Repository, query: &Query) -> Self {
+    fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
+        let bound = BoundSort::bind(repo, query)?;
+        Ok(Self::from_bound(repo, query, bound))
+    }
+
+    fn from_bound(repo: &'a Repository, query: &Query, bound: BoundSort<'a>) -> Self {
         let columns = repo
             .collections
             .iter()
-            .map(|collection| {
+            .enumerate()
+            .map(|(index, collection)| {
+                if bound.has_computed {
+                    return None;
+                }
                 if !query.collections.is_empty()
                     && !query.collections.contains(&collection.definition.name)
                 {
                     return None;
                 }
                 Some(
-                    query
-                        .options
-                        .sort
+                    bound.terms[index]
+                        .as_ref()
+                        .expect("selected collection")
                         .iter()
-                        .map(|field| {
-                            (
-                                collection
-                                    .sorting
-                                    .column(&field.field)
-                                    .expect("sort validated"),
-                                field.descending,
-                            )
+                        .map(|term| {
+                            let BoundSortSource::Stored(column) = &term.source else {
+                                unreachable!("all terms resident")
+                            };
+                            (*column, term.descending)
                         })
                         .collect(),
                 )
             })
             .collect();
-        Self { columns }
+        Self {
+            columns,
+            bound,
+            target_cache: std::sync::Mutex::new(SortTargetCache::default()),
+        }
     }
 
     fn compare_to_rank(
@@ -85,6 +182,9 @@ impl<'a> ResolvedSort<'a> {
         collection_name: &str,
         worst: &RankKey,
     ) -> Ordering {
+        if self.bound.has_computed {
+            return Ordering::Less;
+        }
         for ((column, descending), (other, _, _)) in self.columns[collection_index]
             .as_ref()
             .expect("selected collection")
@@ -121,13 +221,8 @@ impl PartialOrd for RankKey {
 
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
-        for ((a, descending, options), (b, _, _)) in self.parts.iter().zip(&other.parts) {
-            let order = a.compare_with(b, *descending, *options);
-            if !order.is_eq() {
-                return order;
-            }
-        }
-        (&self.collection, &self.id).cmp(&(&other.collection, &other.id))
+        crate::sort_binding::compare_parts(&self.parts, &other.parts)
+            .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
 
@@ -145,6 +240,7 @@ struct Winner {
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
+    key: Option<RankKey>,
     evidence: HashSet<String>,
     payload: Option<Payload>,
     retained_bytes: u64,
@@ -163,6 +259,8 @@ struct ScannedFile {
     relation_work: crate::relation_query::RelationWork,
     match_count: u64,
     peak_payload_bytes: u64,
+    peak_sort_key_bytes: u64,
+    sort_key_evaluations: u64,
     matches: SmallVec<[ScannedMatch; 1]>,
     cache_members: Vec<CachedMember>,
 }
@@ -670,6 +768,7 @@ fn scan_file(
     let keep_cap = if query.options.limit == 0 { 0 } else { cap };
     let mut winners = BinaryHeap::<FileWinner>::new();
     let mut retained_bytes = 0u64;
+    let mut retained_key_bytes = 0u64;
     let mut reader = if source_access.is_some() {
         None
     } else {
@@ -704,7 +803,8 @@ fn scan_file(
         for (slot, bytes) in records {
             let record = &collection.generation.records[slot as usize];
             let file = &repo.files.files[file_id as usize];
-            let may_reach_page = keep_cap > 0
+            let may_reach_page = !sort.bound.has_computed
+                && keep_cap > 0
                 && (winners.len() < keep_cap
                     || winners.peek().is_some_and(|worst| {
                         sort.compare_to_rank(
@@ -724,14 +824,15 @@ fn scan_file(
                     )
                     .is_lt()
                 });
-            let record_projection =
-                if query.options.return_mode == ReturnMode::Logical && may_reach_page {
-                    &full_projection
-                } else {
-                    projection
-                };
+            let logical_projection = query.options.return_mode == ReturnMode::Logical
+                && (may_reach_page || sort.bound.has_computed);
+            let record_projection = if logical_projection {
+                &full_projection
+            } else {
+                projection
+            };
             let decode = record.class == RecordClass::Logical
-                && ((query.options.return_mode == ReturnMode::Logical && may_reach_page)
+                && (logical_projection
                     || record_projection.collect_text
                     || record_projection
                         .top_level
@@ -743,7 +844,7 @@ fn scan_file(
                     &collection.definition.schema,
                     &bytes,
                     record_projection,
-                    query.options.return_mode == ReturnMode::Logical && may_reach_page,
+                    logical_projection,
                 )?;
                 outcome.record_parses += 1;
                 extracted
@@ -824,7 +925,8 @@ fn scan_file(
                         if query.options.evidence
                             && ((retain_all_evidence
                                 && cache_budget.is_some_and(CacheBudget::complete))
-                                || may_reach_page)
+                                || may_reach_page
+                                || sort.bound.has_computed)
                         {
                             f.with_evidence(
                                 repo,
@@ -869,11 +971,33 @@ fn scan_file(
                         });
                     }
                 }
-                if may_reach_page {
-                    let retained = if query.options.return_mode == ReturnMode::Locator {
-                        0
-                    } else {
-                        bytes.len() as u64
+                let computed_key = if sort.bound.has_computed {
+                    outcome.sort_key_evaluations += 1;
+                    Some(rank_key_from_context(
+                        sort,
+                        repo,
+                        collection_index,
+                        &ctx,
+                        target_values,
+                    )?)
+                } else {
+                    None
+                };
+                let enters_page = if let Some(key) = &computed_key {
+                    keep_cap > 0
+                        && (winners.len() < keep_cap
+                            || winners.peek().is_some_and(|worst| key < &worst.key))
+                        && payload_cutoff.is_none_or(|worst| key < worst)
+                } else {
+                    may_reach_page
+                };
+                if enters_page {
+                    let retained = match query.options.return_mode {
+                        ReturnMode::Locator => 0,
+                        ReturnMode::Logical if sort.bound.has_computed => (bytes.len() as u64)
+                            .checked_mul(4)
+                            .ok_or("sort payload byte estimate overflow")?,
+                        _ => bytes.len() as u64,
                     };
                     let payload = if record.class == RecordClass::RawFallback
                         && query.options.return_mode == ReturnMode::Logical
@@ -885,14 +1009,30 @@ fn scan_file(
                         materialize(&query.options.return_mode, bytes, Some(extracted))?
                     };
                     if winners.len() == keep_cap {
-                        retained_bytes -= winners.pop().unwrap().matched.retained_bytes;
+                        let old = winners.pop().unwrap();
+                        retained_bytes -= old.matched.retained_bytes;
+                        retained_key_bytes -= rank_key_bytes(&old.key);
                     }
                     retained_bytes += retained;
                     outcome.peak_payload_bytes = outcome.peak_payload_bytes.max(retained_bytes);
+                    let key = computed_key
+                        .unwrap_or_else(|| rank_key(sort, repo, collection_index, record));
+                    retained_key_bytes = retained_key_bytes
+                        .checked_add(rank_key_bytes(&key))
+                        .ok_or("sort key byte count overflow")?;
+                    if retained_key_bytes > MAX_SORT_KEY_BYTES {
+                        return Err("sort key memory budget exceeded".into());
+                    }
+                    if sort.bound.has_computed {
+                        check_computed_sort_budget(retained_bytes, retained_key_bytes, 0)?;
+                    }
+                    outcome.peak_sort_key_bytes =
+                        outcome.peak_sort_key_bytes.max(retained_key_bytes);
                     winners.push(FileWinner {
-                        key: rank_key(sort, repo, collection_index, record),
+                        key,
                         matched: ScannedMatch {
                             slot,
+                            key: None,
                             evidence,
                             payload,
                             retained_bytes: retained,
@@ -905,7 +1045,10 @@ fn scan_file(
     outcome.matches = winners
         .into_sorted_vec()
         .into_iter()
-        .map(|winner| winner.matched)
+        .map(|mut winner| {
+            winner.matched.key = Some(winner.key);
+            winner.matched
+        })
         .collect();
     Ok(outcome)
 }
@@ -935,7 +1078,10 @@ pub struct BoundTermDiagnostic {
 }
 
 
-fn bound_term_diagnostics(repo: &Repository, filter: Option<&BoundExpr>) -> Vec<BoundTermDiagnostic> {
+fn bound_term_diagnostics(
+    repo: &Repository,
+    filter: Option<&BoundExpr>,
+) -> Vec<BoundTermDiagnostic> {
     fn visit(repo: &Repository, expr: &BoundExpr, output: &mut Vec<BoundTermDiagnostic>) {
         match expr {
             BoundExpr::Term(term) => {
@@ -944,7 +1090,11 @@ fn bound_term_diagnostics(repo: &Repository, filter: Option<&BoundExpr>) -> Vec<
                 let rhs_field = related
                     .and_then(|path| path.source_operand.as_ref())
                     .map(|field| field.query_path.display.clone())
-                    .or_else(|| term.rhs.as_ref().map(|field| field.query_path.display.clone()));
+                    .or_else(|| {
+                        term.rhs
+                            .as_ref()
+                            .map(|field| field.query_path.display.clone())
+                    });
                 output.push(BoundTermDiagnostic {
                     field: term.query_path.display.clone(),
                     operator: term.operator,
@@ -1297,6 +1447,57 @@ fn rank_key(
     }
 }
 
+fn rank_key_from_context(
+    sort: &ResolvedSort<'_>,
+    repo: &Repository,
+    collection_index: usize,
+    ctx: &RecordContext<'_>,
+    target_values: Option<&crate::relation_target_cache::TargetValueCache>,
+) -> Result<RankKey, String> {
+    Ok(RankKey {
+        parts: sort.bound.keys(
+            repo,
+            collection_index,
+            ctx,
+            &sort.target_cache,
+            target_values,
+        )?,
+        collection: repo.collections[collection_index].definition.name.clone(),
+        id: ctx.record.id.0.clone(),
+    })
+}
+
+fn rank_key_without_source(
+    sort: &ResolvedSort<'_>,
+    repo: &Repository,
+    collection_index: usize,
+    record: &RecordEntry,
+) -> Result<RankKey, String> {
+    let empty = Value::Object(Default::default());
+    let collection = &repo.collections[collection_index];
+    let ctx = RecordContext {
+        value: &empty,
+        source_bytes: None,
+        record,
+        file: &repo.files.files[record.file.0 as usize],
+        collection_name: &collection.definition.name,
+        repository_root: &repo.files.root,
+    };
+    rank_key_from_context(sort, repo, collection_index, &ctx, None)
+}
+
+fn rank_key_bytes(key: &RankKey) -> u64 {
+    (std::mem::size_of::<RankKey>()
+        + key.parts.capacity() * std::mem::size_of::<(SortKey, bool, SortOptions)>()
+        + key.collection.capacity()
+        + key.id.capacity()
+        + key
+            .parts
+            .iter()
+            .map(|(part, _, _)| crate::sort_binding::key_bytes(part))
+            .sum::<usize>()) as u64
+}
+
 fn make_hit(
     repo: &Repository,
     collection_index: usize,
@@ -1333,12 +1534,14 @@ fn offer(
     record: &RecordEntry,
     evidence: HashSet<String>,
     payload: Option<Payload>,
+    key_override: Option<RankKey>,
     winners: &mut BinaryHeap<Winner>,
+    retained_key_bytes: &mut u64,
     cap: usize,
     counters: &mut WorkCounters,
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
-) {
+) -> Result<(), String> {
     counters.total_matches += 1;
     let mut matched_fields: Vec<_> = if query.options.evidence {
         evidence.into_iter().collect()
@@ -1355,15 +1558,47 @@ fn offer(
             });
         }
     }
-    if !would_enter_page(repo, sort, collection_index, record, winners, cap) {
-        return;
+    let enters = if let Some(key) = &key_override {
+        cap > 0 && (winners.len() < cap || winners.peek().is_some_and(|worst| key < &worst.key))
+    } else {
+        would_enter_page(repo, sort, collection_index, record, winners, cap)
+    };
+    if !enters {
+        return Ok(());
     }
-    let key = rank_key(sort, repo, collection_index, record);
+    let key = if let Some(key) = key_override {
+        key
+    } else if sort.bound.has_computed {
+        if sort.bound.needs_source {
+            return Err("computed sort key needs source evaluation".into());
+        }
+        rank_key_without_source(sort, repo, collection_index, record)?
+    } else {
+        rank_key(sort, repo, collection_index, record)
+    };
     if winners.len() == cap {
-        winners.pop();
+        let old = winners.pop().unwrap();
+        *retained_key_bytes -= rank_key_bytes(&old.key);
     }
+    *retained_key_bytes = retained_key_bytes
+        .checked_add(rank_key_bytes(&key))
+        .ok_or("sort key byte count overflow")?;
+    if *retained_key_bytes > MAX_SORT_KEY_BYTES {
+        return Err("sort key memory budget exceeded".into());
+    }
+    counters.peak_retained_sort_key_bytes = counters
+        .peak_retained_sort_key_bytes
+        .max(*retained_key_bytes);
     let retained_bytes = if payload.is_some() {
-        record.range.len()
+        if sort.bound.has_computed && query.options.return_mode == ReturnMode::Logical {
+            record
+                .range
+                .len()
+                .checked_mul(4)
+                .ok_or("sort payload byte estimate overflow")?
+        } else {
+            record.range.len()
+        }
     } else {
         0
     };
@@ -1375,6 +1610,7 @@ fn offer(
         hit,
         retained_bytes,
     });
+    Ok(())
 }
 
 fn would_enter_page(
@@ -1404,21 +1640,38 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
         if cache.enabled() { cache.budget() } else { 0 }
     };
     if budget == 0 {
-        return search_impl(repo, query, None, None, None);
+        return search_impl(repo, query, None, None, None, None);
     }
-    let key = crate::verified::key(query)?;
+    let bound_sort = BoundSort::bind(repo, query)?;
+    let computed_sort = bound_sort.has_computed;
+    let mut membership_query = query.clone();
+    if computed_sort {
+        membership_query.options.sort.clear();
+    }
+    let key = crate::verified::key(&membership_query)?;
     let cached = repo.verified.lock().map_err(|e| e.to_string())?.get(&key);
     if let Some(cached) = cached {
-        return materialize_cached(repo, query, &cached);
+        return if computed_sort {
+            materialize_computed_cached(repo, query, &cached, bound_sort)
+        } else {
+            materialize_cached(repo, query, &cached)
+        };
     }
     if !query.options.count {
-        return search_impl(repo, query, None, None, None);
+        return search_impl(repo, query, None, None, None, Some(bound_sort));
     }
     let mut members = Vec::new();
     let tracker = CacheBudget::new(budget.saturating_sub(key.len() + 128));
-    let result = search_impl(repo, query, None, Some(&mut members), Some(&tracker))?;
+    let result = search_impl(
+        repo,
+        query,
+        None,
+        Some(&mut members),
+        Some(&tracker),
+        Some(bound_sort),
+    )?;
     if tracker.complete() && Some(members.len()) == result.count {
-        sort_cached_members(repo, query, &mut members);
+        sort_cached_members(repo, &membership_query, &mut members);
         repo.verified
             .lock()
             .map_err(|e| e.to_string())?
@@ -1442,7 +1695,7 @@ pub(crate) fn exact_members(
     scoped.options.evidence = false;
     let mut members = Vec::new();
     let budget = CacheBudget::new(usize::MAX);
-    let result = search_impl(repo, &scoped, None, Some(&mut members), Some(&budget))?;
+    let result = search_impl(repo, &scoped, None, Some(&mut members), Some(&budget), None)?;
     if !budget.complete()
         || result.count != Some(members.len())
         || members
@@ -1455,7 +1708,7 @@ pub(crate) fn exact_members(
 }
 
 fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<CachedMember>) {
-    let sort = ResolvedSort::new(repo, query);
+    let sort = ResolvedSort::new(repo, query).expect("sort validated");
     if query.options.sort.is_empty() {
         members.sort_by(|a, b| {
             let a_collection = &repo.collections[a.collection_index];
@@ -1498,14 +1751,13 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
 
 
 struct StoredCursor<'a> {
-    column: Option<&'a SortColumn>,
+    columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
     record: &'a RecordEntry,
     collection_name: &'a str,
     collection_index: usize,
     plan_index: usize,
     position: usize,
-    descending: bool,
 }
 
 
@@ -1528,14 +1780,17 @@ impl PartialOrd for StoredCursor<'_> {
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
-        let keys = match (self.column, other.column) {
-            (Some(a), Some(b)) => a.keys[self.record.slot.0 as usize].compare_with(
+        let mut keys = Ordering::Equal;
+        for ((a, descending), (b, _)) in self.columns.iter().zip(other.columns) {
+            keys = a.keys[self.record.slot.0 as usize].compare_with(
                 &b.keys[other.record.slot.0 as usize],
-                self.descending,
+                *descending,
                 a.options,
-            ),
-            _ => Ordering::Equal,
-        };
+            );
+            if !keys.is_eq() {
+                break;
+            }
+        }
         keys.then_with(|| {
             (self.collection_name, &self.record.id).cmp(&(other.collection_name, &other.record.id))
         })
@@ -1545,24 +1800,22 @@ impl Ord for StoredCursor<'_> {
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
-    column: Option<&'a SortColumn>,
+    columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
     collection_index: usize,
     plan_index: usize,
     position: usize,
-    descending: bool,
 ) -> Option<StoredCursor<'a>> {
     let slot = order.get(position)?;
     let collection = &repo.collections[collection_index];
     Some(StoredCursor {
-        column,
+        columns,
         order,
         record: &collection.generation.records[slot.0 as usize],
         collection_name: &collection.definition.name,
         collection_index,
         plan_index,
         position,
-        descending,
     })
 }
 
@@ -1626,7 +1879,17 @@ fn try_stored_order_page(
     preparation_ns: u64,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
 ) -> Result<Option<SearchResult>, String> {
-    if query.options.count || query.options.sort.len() > 1 {
+    if sort.bound.has_computed || query.options.count {
+        return Ok(None);
+    }
+    if query.options.sort.len() > 1
+        && prepared.collections.iter().any(|(index, _, _)| {
+            repo.collections[*index]
+                .sorting
+                .composite(&query.options.sort)
+                .is_none()
+        })
+    {
         return Ok(None);
     }
     if prepared.collections.iter().any(|(_, _, fts)| {
@@ -1740,7 +2003,12 @@ fn try_stored_order_page(
                 }
                 .into(),
                 normalized_sort: query.options.sort.clone(),
-                sort_strategy: "stored_order_page".into(),
+                sort_strategy: if query.options.sort.len() > 1 {
+                    "stored_composite_order_page"
+                } else {
+                    "stored_order_page"
+                }
+                .into(),
                 filter_exact: entry.plan.exact,
                 terms: entry.plan.choices.clone(),
                 bound_terms: bound_term_diagnostics(repo, entry.filter),
@@ -1775,34 +2043,32 @@ fn try_stored_order_page(
     }
     let mut heap = BinaryHeap::new();
     for (plan_index, entry) in plans.iter().enumerate() {
-        let (column, order, descending) = if let Some(field) = query.options.sort.first() {
-            let column = sort.columns[entry.collection_index]
-                .as_ref()
-                .expect("selected collection")[0]
-                .0;
-            let order = if field.descending {
+        let columns = sort.columns[entry.collection_index]
+            .as_ref()
+            .expect("selected collection");
+        let order = if query.options.sort.len() > 1 {
+            &repo.collections[entry.collection_index]
+                .sorting
+                .composite(&query.options.sort)
+                .expect("composite checked")
+                .order
+        } else if let Some(field) = query.options.sort.first() {
+            let column = columns[0].0;
+            if field.descending {
                 &column.descending
             } else {
                 &column.ascending
-            };
-            (Some(column), order.as_slice(), field.descending)
+            }
         } else {
-            (
-                None,
-                repo.collections[entry.collection_index]
-                    .identity_order
-                    .as_slice(),
-                false,
-            )
+            &repo.collections[entry.collection_index].identity_order
         };
         if let Some(cursor) = stored_cursor(
             repo,
-            column,
-            order,
+            columns,
+            order.as_slice(),
             entry.collection_index,
             plan_index,
             0,
-            descending,
         ) {
             heap.push(Reverse(cursor));
         }
@@ -1950,12 +2216,11 @@ fn try_stored_order_page(
             }
             if let Some(next) = stored_cursor(
                 repo,
-                cursor.column,
+                cursor.columns,
                 cursor.order,
                 cursor.collection_index,
                 cursor.plan_index,
                 cursor.position + 1,
-                cursor.descending,
             ) {
                 heap.push(Reverse(next));
             }
@@ -1974,6 +2239,264 @@ fn try_stored_order_page(
         hits: page,
         counters,
     }))
+}
+
+#[allow(clippy::too_many_arguments)]
+fn offer_cached_key(
+    repo: &Repository,
+    cached: &CachedResult,
+    member_index: usize,
+    key: RankKey,
+    winners: &mut BinaryHeap<Winner>,
+    retained_key_bytes: &mut u64,
+    peak_key_bytes: &mut u64,
+    cap: usize,
+) -> Result<(), String> {
+    if cap == 0 || (winners.len() == cap && winners.peek().is_some_and(|worst| key >= worst.key)) {
+        return Ok(());
+    }
+    if winners.len() == cap {
+        let old = winners.pop().unwrap();
+        *retained_key_bytes -= rank_key_bytes(&old.key);
+    }
+    *retained_key_bytes = retained_key_bytes
+        .checked_add(rank_key_bytes(&key))
+        .ok_or("sort key byte count overflow")?;
+    if *retained_key_bytes > MAX_SORT_KEY_BYTES {
+        return Err("sort key memory budget exceeded".into());
+    }
+    *peak_key_bytes = (*peak_key_bytes).max(*retained_key_bytes);
+    let member = &cached.members[member_index];
+    let record =
+        &repo.collections[member.collection_index].generation.records[member.slot as usize];
+    winners.push(Winner {
+        key,
+        collection_index: member.collection_index,
+        slot: member.slot,
+        hit: make_hit(
+            repo,
+            member.collection_index,
+            record,
+            member.matched_fields.clone(),
+            None,
+        ),
+        retained_bytes: 0,
+    });
+    Ok(())
+}
+
+/// Re-rank complete cached membership with bounded keys; no computed page is cached.
+fn materialize_computed_cached<'a>(
+    repo: &'a Repository,
+    query: &Query,
+    cached: &CachedResult,
+    bound_sort: BoundSort<'a>,
+) -> Result<SearchResult, String> {
+    let preparation_start = Instant::now();
+    let sort = ResolvedSort::from_bound(repo, query, bound_sort);
+    let has_related_sort = sort.bound.terms.iter().flatten().any(|terms| {
+        terms.iter().any(|term| {
+            matches!(&term.source,
+            BoundSortSource::Computed(computed) if computed.related.is_some())
+        })
+    });
+    let (_, plan_hit) = crate::prepared::prepare(repo, query)?;
+    let cap = query
+        .options
+        .limit
+        .checked_add(query.options.offset)
+        .ok_or("page size overflow")?;
+    let mut counters = WorkCounters {
+        total_matches: cached.members.len() as u64,
+        match_count_complete: true,
+        verified_result_hit: true,
+        prepared_plan_hit: plan_hit,
+        ..WorkCounters::default()
+    };
+    counters.preparation_ns = preparation_start.elapsed().as_nanos() as u64;
+    let mut winners = BinaryHeap::new();
+    let mut retained_key_bytes = 0u64;
+    let reads_needed = cached
+        .members
+        .iter()
+        .filter(|member| {
+            sort.bound.needs_source
+                && repo.collections[member.collection_index].generation.records
+                    [member.slot as usize]
+                    .class
+                    == RecordClass::Logical
+        })
+        .count();
+    let fixed_bytes = cached_sort_fixed_bytes(cached, reads_needed)?;
+    check_computed_sort_budget(fixed_bytes, 0, 0)?;
+    let mut reads = Vec::<CachedSortRead>::with_capacity(reads_needed);
+    let mut touched_files = HashSet::new();
+    let empty = Value::Object(Default::default());
+    for (index, member) in cached.members.iter().enumerate() {
+        let collection = &repo.collections[member.collection_index];
+        let record = &collection.generation.records[member.slot as usize];
+        if sort.bound.needs_source && record.class == RecordClass::Logical {
+            reads.push(CachedSortRead {
+                collection_index: member.collection_index,
+                file_id: record.file.0,
+                member_index: u32::try_from(index).map_err(|_| "cached membership exceeds u32")?,
+                range: record.range,
+            });
+            continue;
+        }
+        let ctx = RecordContext {
+            value: &empty,
+            source_bytes: None,
+            record,
+            file: &repo.files.files[record.file.0 as usize],
+            collection_name: &collection.definition.name,
+            repository_root: &repo.files.root,
+        };
+        let key = rank_key_from_context(&sort, repo, member.collection_index, &ctx, None)?;
+        counters.sort_key_evaluations += 1;
+        offer_cached_key(
+            repo,
+            cached,
+            index,
+            key,
+            &mut winners,
+            &mut retained_key_bytes,
+            &mut counters.peak_retained_sort_key_bytes,
+            cap,
+        )?;
+        check_cached_sort_live(&sort, fixed_bytes, retained_key_bytes, has_related_sort)?;
+    }
+    reads.sort_unstable_by_key(|read| (read.collection_index, read.file_id, read.range.start));
+    let mut source_access = SourceAccessSession::new(&repo.files);
+    let mut batch = Vec::<(u32, ByteRange)>::with_capacity(128);
+    let mut start = 0;
+    while start < reads.len() {
+        let collection_index = reads[start].collection_index;
+        let file_id = reads[start].file_id;
+        touched_files.insert(file_id);
+        let collection = &repo.collections[collection_index];
+        while start < reads.len()
+            && reads[start].collection_index == collection_index
+            && reads[start].file_id == file_id
+        {
+            batch.clear();
+            while start < reads.len()
+                && batch.len() < 128
+                && reads[start].collection_index == collection_index
+                && reads[start].file_id == file_id
+            {
+                batch.push((reads[start].member_index, reads[start].range));
+                start += 1;
+            }
+            let read = source_access.read(crate::model::FileId(file_id), &batch)?;
+            counters.files_opened += read.opened;
+            counters.bytes_read += read.bytes_read;
+            for (index, bytes) in read.records {
+                let member = &cached.members[index as usize];
+                let record = &collection.generation.records[member.slot as usize];
+                let extracted = prepare_query_record(
+                    &collection.source,
+                    &collection.definition.schema,
+                    &bytes,
+                    &ScanProjection::full(false),
+                    false,
+                )?;
+                counters.record_parses += 1;
+                counters.sort_key_evaluations += 1;
+                let ctx = RecordContext {
+                    value: &extracted.value,
+                    source_bytes: Some(&bytes),
+                    record,
+                    file: &repo.files.files[file_id as usize],
+                    collection_name: &collection.definition.name,
+                    repository_root: &repo.files.root,
+                };
+                let key = rank_key_from_context(&sort, repo, collection_index, &ctx, None)?;
+                offer_cached_key(
+                    repo,
+                    cached,
+                    index as usize,
+                    key,
+                    &mut winners,
+                    &mut retained_key_bytes,
+                    &mut counters.peak_retained_sort_key_bytes,
+                    cap,
+                )?;
+                check_cached_sort_live(&sort, fixed_bytes, retained_key_bytes, has_related_sort)?;
+            }
+        }
+    }
+    let targets = sort
+        .target_cache
+        .lock()
+        .map_err(|error| error.to_string())?;
+    counters.sort_target_reads += targets.reads;
+    counters.sort_target_reuse += targets.reuse;
+    counters.relation_edge_visits += targets.edge_visits;
+    counters.files_opened += targets.reads;
+    counters.record_parses += targets.reads;
+    counters.bytes_read += targets.bytes_read;
+    let target_bytes = targets.retained_bytes();
+    drop(targets);
+    let page_members = winners
+        .into_sorted_vec()
+        .into_iter()
+        .skip(query.options.offset)
+        .take(query.options.limit)
+        .map(|winner| CachedMember {
+            collection_index: winner.collection_index,
+            slot: winner.slot,
+            matched_fields: winner.hit.matched_fields,
+        })
+        .collect();
+    let page_cache = CachedResult {
+        members: page_members,
+    };
+    let payload_bytes = page_cache
+        .members
+        .iter()
+        .try_fold(0u64, |total, member| {
+            let record =
+                &repo.collections[member.collection_index].generation.records[member.slot as usize];
+            let estimate = if query.options.return_mode == ReturnMode::Logical {
+                record.range.len().checked_mul(4)?
+            } else if query.options.return_mode == ReturnMode::Bytes {
+                record.range.len()
+            } else {
+                0
+            };
+            total.checked_add(estimate)
+        })
+        .ok_or("computed sort payload count overflow")?;
+    check_computed_sort_budget(
+        payload_bytes
+            .checked_add(fixed_bytes)
+            .ok_or("computed sort memory count overflow")?,
+        retained_key_bytes,
+        target_bytes,
+    )?;
+    let mut page_query = query.clone();
+    page_query.options.offset = 0;
+    page_query.options.limit = page_cache.members.len();
+    let mut result = materialize_cached(repo, &page_query, &page_cache)?;
+    for member in &page_cache.members {
+        let record =
+            &repo.collections[member.collection_index].generation.records[member.slot as usize];
+        if query.options.return_mode != ReturnMode::Locator
+            && !(query.options.return_mode == ReturnMode::Logical
+                && record.class == RecordClass::RawFallback)
+        {
+            touched_files.insert(record.file.0);
+        }
+    }
+    counters.files_opened += result.counters.files_opened;
+    counters.bytes_read += result.counters.bytes_read;
+    counters.record_parses += result.counters.record_parses;
+    counters.distinct_files = touched_files.len() as u64;
+    counters.returned_records = result.hits.len() as u64;
+    result.count = query.options.count.then_some(cached.members.len());
+    result.counters = counters;
+    Ok(result)
 }
 
 fn materialize_cached(
@@ -2085,11 +2608,12 @@ pub fn search_analyze(
     query: &Query,
 ) -> Result<(SearchResult, Vec<QueryPlanTrace>), String> {
     let mut traces = Vec::new();
-    let result = search_impl(repo, query, Some(&mut traces), None, None)?;
+    let result = search_impl(repo, query, Some(&mut traces), None, None, None)?;
     Ok((result, traces))
 }
 
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
+    let bound_sort = BoundSort::bind(repo, query)?;
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
     let mut relation_work = WorkCounters::default();
     let has_source_dependent = prepared.collections.iter().any(|(_, filter, _)| {
@@ -2205,8 +2729,17 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
         .limit
         .checked_add(query.options.offset)
         .ok_or("page size overflow")?;
-    let stored_order = !query.options.count
-        && query.options.sort.len() <= 1
+    let stored_order = !bound_sort.has_computed
+        && !query.options.count
+        && (query.options.sort.len() <= 1
+            || repo
+                .collections
+                .iter()
+                .filter(|collection| {
+                    query.collections.is_empty()
+                        || query.collections.contains(&collection.definition.name)
+                })
+                .all(|collection| collection.sorting.composite(&query.options.sort).is_some()))
         && !has_source_dependent
         && !traces
             .iter()
@@ -2216,7 +2749,13 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             && ordered_candidate_total < (cap as u64).saturating_mul(4));
     for trace in &mut traces {
         trace.sort_strategy = if stored_order {
-            "stored_order_page"
+            if query.options.sort.len() > 1 {
+                "stored_composite_order_page"
+            } else {
+                "stored_order_page"
+            }
+        } else if bound_sort.has_computed {
+            "computed_top_k_full_key_evaluation"
         } else {
             "bounded_top_k"
         }
@@ -2225,16 +2764,20 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
     Ok(traces)
 }
 
-fn search_impl(
-    repo: &Repository,
+fn search_impl<'a>(
+    repo: &'a Repository,
     query: &Query,
     mut traces: Option<&mut Vec<QueryPlanTrace>>,
     mut cache_members: Option<&mut Vec<CachedMember>>,
     cache_budget: Option<&CacheBudget>,
+    prebound_sort: Option<BoundSort<'a>>,
 ) -> Result<SearchResult, String> {
     let preparation_start = Instant::now();
+    let sort = match prebound_sort {
+        Some(bound) => ResolvedSort::from_bound(repo, query, bound),
+        None => ResolvedSort::new(repo, query)?,
+    };
     let (prepared, plan_hit) = crate::prepared::prepare(repo, query)?;
-    let sort = ResolvedSort::new(repo, query);
     if cache_members.is_none() {
         if let Some(result) = try_stored_order_page(
             repo,
@@ -2254,6 +2797,7 @@ fn search_impl(
         .checked_add(query.options.offset)
         .ok_or("page size overflow")?;
     let mut winners = BinaryHeap::new();
+    let mut retained_key_bytes = 0u64;
     let mut counters = WorkCounters::default();
     // One collection with locator output scans each grouped physical file at
     // most once. Other routes may revisit files for page payloads or share a
@@ -2359,7 +2903,9 @@ fn search_impl(
         };
         counters.planning_ns += planning_start.elapsed().as_nanos() as u64;
         counters.candidates += candidates.len();
-        let needs_scan = !plan.exact || (fts.is_some() && preverified_evidence.is_none());
+        let needs_scan = sort.bound.needs_source
+            || !plan.exact
+            || (fts.is_some() && preverified_evidence.is_none());
         if let Some(traces) = traces.as_deref_mut() {
             traces.push(QueryPlanTrace {
                 collection: collection.definition.name.clone(),
@@ -2394,7 +2940,12 @@ fn search_impl(
                 }
                 .into(),
                 normalized_sort: query.options.sort.clone(),
-                sort_strategy: "bounded_top_k".into(),
+                sort_strategy: if sort.bound.has_computed {
+                    "computed_top_k_full_key_evaluation"
+                } else {
+                    "bounded_top_k"
+                }
+                .into(),
                 filter_exact: plan.exact,
                 terms: plan.choices.clone(),
                 bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
@@ -2433,19 +2984,22 @@ fn search_impl(
                     record,
                     evidence,
                     None,
+                    None,
                     &mut winners,
+                    &mut retained_key_bytes,
                     cap,
                     &mut counters,
                     cache_members.as_deref_mut(),
                     cache_budget,
-                );
+                )?;
             }
             if let (Some(traces), Some(before)) = (traces.as_deref_mut(), before.as_ref()) {
                 finish_trace(traces, before, &counters);
             }
             continue;
         }
-        if fts.is_none()
+        if !sort.bound.has_computed
+            && fts.is_none()
             && query.options.evidence
             && collection.logical_records.len() != collection.generation.records.len() as u64
         {
@@ -2468,16 +3022,18 @@ fn search_impl(
                     record,
                     evidence,
                     None,
+                    None,
                     &mut winners,
+                    &mut retained_key_bytes,
                     cap,
                     &mut counters,
                     cache_members.as_deref_mut(),
                     cache_budget,
-                );
+                )?;
             }
             candidates -= &fallback_proven;
         }
-        if fts.is_none() && !query.options.evidence {
+        if !sort.bound.has_computed && fts.is_none() && !query.options.evidence {
             let proven = &candidates & &plan.proven_hits;
             for slot in proven.iter() {
                 let record = &collection.generation.records[slot as usize];
@@ -2490,12 +3046,14 @@ fn search_impl(
                     record,
                     HashSet::new(),
                     None,
+                    None,
                     &mut winners,
+                    &mut retained_key_bytes,
                     cap,
                     &mut counters,
                     cache_members.as_deref_mut(),
                     cache_budget,
-                );
+                )?;
             }
             candidates -= &proven;
         }
@@ -2531,22 +3089,26 @@ fn search_impl(
                 .push((slot, record.range));
         }
         let files: Vec<_> = files.into_iter().collect();
-        let projection = scan_projection(
+        let mut projection = scan_projection(
             query,
             residual.as_ref(),
             &candidates,
             preverified_evidence.is_some(),
         );
+        if sort.bound.has_computed {
+            projection = ScanProjection::full(projection.collect_text);
+        }
         let retain_all_evidence = cache_budget.is_some_and(CacheBudget::complete);
         let parallel = repo.options.query_workers > 1 && files.len() > 1;
         // Bound in-flight parsed records while workers scan independent files.
         // Applying offers in file order preserves deterministic tie handling.
-        let chunk_size =
-            if query.options.return_mode == ReturnMode::Locator || query.options.limit == 0 {
-                256
-            } else {
-                repo.options.query_workers.min(64).max(1)
-            };
+        let chunk_size = if sort.bound.has_computed {
+            1
+        } else if query.options.return_mode == ReturnMode::Locator || query.options.limit == 0 {
+            256
+        } else {
+            repo.options.query_workers.min(64).max(1)
+        };
         for chunk in files.chunks(chunk_size) {
             let payload_cutoff = if query.options.return_mode != ReturnMode::Locator
                 && query.options.limit > 0
@@ -2616,14 +3178,47 @@ fn search_impl(
             let payload_upper = scanned
                 .iter()
                 .filter_map(|result| result.as_ref().ok())
-                .map(|outcome| outcome.peak_payload_bytes)
-                .sum::<u64>()
-                + winners
-                    .iter()
-                    .map(|winner: &Winner| winner.retained_bytes)
-                    .sum::<u64>();
+                .try_fold(0u64, |total, outcome| {
+                    total.checked_add(outcome.peak_payload_bytes)
+                })
+                .and_then(|used| {
+                    winners.iter().try_fold(used, |total, winner: &Winner| {
+                        total.checked_add(winner.retained_bytes)
+                    })
+                })
+                .ok_or("sort payload memory count overflow")?;
             counters.peak_retained_payload_bytes =
                 counters.peak_retained_payload_bytes.max(payload_upper);
+            let key_upper = retained_key_bytes
+                .checked_add(
+                    scanned
+                        .iter()
+                        .filter_map(|result| result.as_ref().ok())
+                        .try_fold(0u64, |total, outcome| {
+                            total.checked_add(outcome.peak_sort_key_bytes)
+                        })
+                        .ok_or("sort key memory count overflow")?,
+                )
+                .ok_or("sort key memory count overflow")?;
+            if key_upper > MAX_SORT_KEY_BYTES {
+                return Err("sort key memory budget exceeded".into());
+            }
+            if sort.bound.has_computed {
+                let targets = sort
+                    .target_cache
+                    .lock()
+                    .map_err(|error| error.to_string())?;
+                let external_bytes = target_values
+                    .as_ref()
+                    .map_or(0, |values| values.retained_bytes);
+                let target_bytes = targets
+                    .retained_bytes()
+                    .checked_add(external_bytes)
+                    .ok_or("computed sort target byte count overflow")?;
+                check_computed_sort_budget(payload_upper, key_upper, target_bytes)?;
+            }
+            counters.peak_retained_sort_key_bytes =
+                counters.peak_retained_sort_key_bytes.max(key_upper);
             for ((file_id, _), outcome) in chunk.iter().zip(scanned) {
                 let outcome = outcome?;
                 if outcome.files_opened > 0 || outcome.bytes_read > 0 {
@@ -2638,6 +3233,7 @@ fn search_impl(
                 counters.record_parses += outcome.record_parses;
                 counters.raw_text_verifications += outcome.raw_text_verifications;
                 counters.scanned_records += outcome.scanned_records;
+                counters.sort_key_evaluations += outcome.sort_key_evaluations;
                 counters.residual_evaluations += outcome.residual_evaluations;
                 counters.relation_source_reads += outcome.relation_work.source_reads;
                 counters.relation_target_reads += outcome.relation_work.target_reads;
@@ -2668,12 +3264,14 @@ fn search_impl(
                         record,
                         matched.evidence,
                         matched.payload,
+                        matched.key,
                         &mut winners,
+                        &mut retained_key_bytes,
                         cap,
                         &mut counters,
                         None,
                         None,
-                    );
+                    )?;
                 }
             }
         }
@@ -2681,6 +3279,17 @@ fn search_impl(
             finish_trace(traces, before, &counters);
         }
     }
+    let sort_targets = sort
+        .target_cache
+        .lock()
+        .map_err(|error| error.to_string())?;
+    counters.sort_target_reads += sort_targets.reads;
+    counters.sort_target_reuse += sort_targets.reuse;
+    counters.relation_edge_visits += sort_targets.edge_visits;
+    counters.files_opened += sort_targets.reads;
+    counters.record_parses += sort_targets.reads;
+    counters.bytes_read += sort_targets.bytes_read;
+    drop(sort_targets);
     let count = counters.total_matches as usize;
     counters.match_count_complete = true;
     let ordered = winners.into_sorted_vec();
@@ -2689,6 +3298,28 @@ fn search_impl(
         .skip(query.options.offset)
         .take(query.options.limit)
         .collect();
+    if sort.bound.has_computed {
+        let page_payload = page
+            .iter()
+            .try_fold(0u64, |total, winner: &Winner| {
+                let record = &repo.collections[winner.collection_index].generation.records
+                    [winner.slot as usize];
+                let estimate = if query.options.return_mode == ReturnMode::Logical {
+                    record.range.len().checked_mul(4)?
+                } else if query.options.return_mode == ReturnMode::Bytes {
+                    record.range.len()
+                } else {
+                    0
+                };
+                total.checked_add(estimate)
+            })
+            .ok_or("computed sort payload count overflow")?;
+        let targets = sort
+            .target_cache
+            .lock()
+            .map_err(|error| error.to_string())?;
+        check_computed_sort_budget(page_payload, retained_key_bytes, targets.retained_bytes())?;
+    }
     // Exact index membership may need a page payload. Read only those ranges.
     if query.options.return_mode != ReturnMode::Locator {
         let mut files: BTreeMap<(usize, u32), Vec<(u32, ByteRange)>> = BTreeMap::new();

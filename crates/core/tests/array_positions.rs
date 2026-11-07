@@ -205,7 +205,16 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
             .unwrap_err()
             .contains("array selector on scalar")
     );
-    assert!(parse_structured_filter("SORT BY items[0].price").is_err());
+    assert!(parse_structured_filter("SORT BY items[0].price").is_ok());
+    let mut positioned_sort = query("items[0].price:exists = true");
+    positioned_sort.filter = None;
+    positioned_sort.options.sort = parse_structured_filter("SORT BY items[0].price")
+        .unwrap()
+        .sort
+        .unwrap();
+    let optimized = repo.search(&positioned_sort).unwrap();
+    let reference = repo.search_reference(&positioned_sort).unwrap();
+    assert_eq!(optimized.hits, reference.hits);
     assert!(
         repo.search(&query("items[*].price <= matrix[*][0]"))
             .unwrap_err()

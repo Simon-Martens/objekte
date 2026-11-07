@@ -50,6 +50,7 @@ fn structural_key_distinguishes_bound_values_sort_and_fts_mode() {
     sorted.options.sort.push(SortField {
         field: "title".into(),
         descending: true,
+        expression: None,
     });
     assert_ne!(key(&string).unwrap(), key(&sorted).unwrap());
     let mut fts = string.clone();

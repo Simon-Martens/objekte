@@ -204,9 +204,15 @@ with the previous defaults. Other scalar values use typed order, and
 collection/record identity breaks ties consistently. Both directions retain
 precomputed single-field order, and broad page-only queries merge those lists
 across collections. Selective and multi-field requests use stored-key top-k
-selection. Incompatible sort definitions across selected collections are
-rejected. The
-executor retains at most `offset + limit` page winners while counting. A hit
+selection. Explicit composite orders over configured scalar columns can also
+serve broad ordered pages. Other local, positional, reduced, and finite related
+sort expressions compute keys for every match and retain at most
+`offset + limit` winners. Computed sorting has a combined 128 MiB budget for
+payload estimates, rank keys, and related target projections. Warm cached
+membership is reranked using bounded file-group scratch, and its live membership
+and grouping estimate counts toward that limit. Exceeding it returns an error.
+Incompatible sort definitions across selected collections are
+rejected. A hit
 always includes its collection, record ID, generation, file ID/path, size,
 created/modified times, byte range, and requested matched-field evidence.
 It also carries file status (`0` valid, `1` broken, `2` unreadable), record

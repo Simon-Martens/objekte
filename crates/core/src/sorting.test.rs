@@ -1,6 +1,58 @@
 use super::*;
 
 #[test]
+fn mixed_scalar_sort_keys_obey_total_kind_order_and_comparator_laws() {
+    use time::Month;
+
+    let date = Date::from_calendar_date(2026, Month::January, 1).unwrap();
+    let instant = date.midnight().assume_utc();
+    let keys = [
+        SortKey::Bool(false),
+        SortKey::Bool(true),
+        SortKey::Number(Number::integer(-1)),
+        SortKey::Number(Number::integer(1)),
+        SortKey::Date(date),
+        SortKey::Datetime(instant),
+        SortKey::Unixtime(1),
+        SortKey::Id("A".into()),
+        SortKey::String(b"a".to_vec()),
+    ];
+    for (i, left) in keys.iter().enumerate() {
+        for (j, right) in keys.iter().enumerate() {
+            let order = left.compare(right, false);
+            assert_eq!(order, i.cmp(&j), "{left:?} vs {right:?}");
+            assert_eq!(order, right.compare(left, false).reverse());
+            assert_eq!(order.reverse(), left.compare(right, true));
+        }
+    }
+    for left in &keys {
+        for middle in &keys {
+            for right in &keys {
+                if left.compare(middle, false).is_le() && middle.compare(right, false).is_le() {
+                    assert!(left.compare(right, false).is_le());
+                }
+            }
+        }
+    }
+    for exceptional in [SortKey::Missing, SortKey::Unavailable, SortKey::Null] {
+        assert!(exceptional.compare(&keys[0], true).is_gt());
+        assert!(
+            exceptional
+                .compare_with(
+                    &keys[0],
+                    true,
+                    SortOptions {
+                        missing: Placement::First,
+                        nulls: Placement::First,
+                        ..Default::default()
+                    },
+                )
+                .is_lt()
+        );
+    }
+}
+
+#[test]
 fn stable_icu_keys_and_fixed_null_placement() {
     let locale: Locale = "de".parse().unwrap();
     let collator = CollatorBorrowed::try_new(locale.into(), CollatorOptions::default()).unwrap();
@@ -79,6 +131,7 @@ fn configured_collation_changes_order_and_restore_compatibility() {
             sort: vec![SortField {
                 field: "name".into(),
                 descending: false,
+                expression: None,
             }],
             limit: 8,
             offset: 0,
@@ -256,6 +309,7 @@ fn cross_collection_sort_rejects_different_collation() {
             sort: vec![SortField {
                 field: "name".into(),
                 descending: false,
+                expression: None,
             }],
             limit: 10,
             offset: 0,

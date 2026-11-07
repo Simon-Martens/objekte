@@ -1,6 +1,36 @@
 use super::*;
 
 #[test]
+fn sort_grammar_preserves_typed_reductions_positions_and_bindings() {
+    let parsed = parse_structured_filter(
+        "SORT BY min(prices[*]) DESC, contributors[0].name, body:normalized ASC, LAST(@backlinks.mentions.year)",
+    )
+    .unwrap();
+    let fields = parsed.sort.unwrap();
+    assert_eq!(fields.len(), 4);
+    assert_eq!(
+        fields[0].expression.as_ref().unwrap().reducer,
+        Some(SortReducer::Min)
+    );
+    assert_eq!(fields[0].expression.as_ref().unwrap().path, "prices[*]");
+    assert!(fields[0].descending);
+    assert_eq!(
+        fields[1].expression.as_ref().unwrap().path,
+        "contributors[0].name"
+    );
+    assert_eq!(
+        fields[2].expression.as_ref().unwrap().binding.as_deref(),
+        Some("normalized")
+    );
+    assert_eq!(
+        fields[3].expression.as_ref().unwrap().reducer,
+        Some(SortReducer::Last)
+    );
+    assert!(parse_structured_filter("SORT BY MIN(title").is_err());
+    assert!(parse_structured_filter("SORT BY MIN(title), MIN(title)").is_err());
+}
+
+#[test]
 fn precedence_quantifiers_and_separate_fts() {
     let ast = parse_filter("a = 1 || b = 2 && !(c ?!= 'x')").unwrap();
     assert!(matches!(ast, FilterExpr::Or(parts) if parts.len() == 2));
@@ -135,11 +165,13 @@ fn inline_sort_uses_only_top_level_keywords() {
         Some(vec![
             SortField {
                 field: "preferred_title".into(),
-                descending: true
+                descending: true,
+                expression: None,
             },
             SortField {
                 field: "year".into(),
-                descending: false
+                descending: false,
+                expression: None,
             },
         ])
     );
@@ -170,11 +202,15 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
         "SORT BY year SORT BY title",
         "year >= 1 SORT BY year, year",
         "SORT BY $parameter",
+    ] {
+        assert!(parse_structured_filter(input).is_err(), "{input}");
+    }
+    for input in [
         "SORT BY items[*].price",
         "SORT BY items[0].price",
         "SORT BY matrix[1][2]",
     ] {
-        assert!(parse_structured_filter(input).is_err(), "{input}");
+        assert!(parse_structured_filter(input).is_ok(), "{input}");
     }
     let mut case = WorkloadCase {
         fts_case_sensitivity: CaseSensitivity::Sensitive,
@@ -198,7 +234,8 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
         query.options.sort,
         vec![SortField {
             field: "year".into(),
-            descending: true
+            descending: true,
+            expression: None,
         }]
     );
     assert_eq!(query.options.limit, 3);
@@ -206,6 +243,7 @@ fn inline_sort_rejects_bad_or_conflicting_clauses() {
     case.sort.push(SortField {
         field: "year".into(),
         descending: true,
+        expression: None,
     });
     assert!(
         Query::from_workload(&case)

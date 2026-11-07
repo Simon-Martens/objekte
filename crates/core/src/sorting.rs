@@ -60,6 +60,8 @@ pub struct SortConfig {
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum SortKey {
     Missing,
+    /// A reached value whose logical payload is unavailable, ordered with missing.
+    Unavailable,
     Null,
     String(Vec<u8>),
     Id(String),
@@ -74,8 +76,8 @@ pub enum SortKey {
 impl SortKey {
     fn rank(&self, options: SortOptions) -> i8 {
         match self {
-            Self::Missing if options.missing == Placement::First => -1,
-            Self::Missing => 2,
+            Self::Missing | Self::Unavailable if options.missing == Placement::First => -1,
+            Self::Missing | Self::Unavailable => 2,
             Self::Null if options.nulls == Placement::First => -2,
             Self::Null => 1,
             _ => 0,
@@ -99,6 +101,20 @@ impl SortKey {
             (Self::Date(a), Self::Date(b)) => a.cmp(b),
             (Self::Datetime(a), Self::Datetime(b)) => a.cmp(b),
             (Self::Unixtime(a), Self::Unixtime(b)) => a.cmp(b),
+            (Self::Bool(_), _) => Ordering::Less,
+            (_, Self::Bool(_)) => Ordering::Greater,
+            (Self::Number(_), _) => Ordering::Less,
+            (_, Self::Number(_)) => Ordering::Greater,
+            (Self::Date(_), _) => Ordering::Less,
+            (_, Self::Date(_)) => Ordering::Greater,
+            (Self::Datetime(_), _) => Ordering::Less,
+            (_, Self::Datetime(_)) => Ordering::Greater,
+            (Self::Unixtime(_), _) => Ordering::Less,
+            (_, Self::Unixtime(_)) => Ordering::Greater,
+            (Self::Id(_), _) => Ordering::Less,
+            (_, Self::Id(_)) => Ordering::Greater,
+            (Self::String(_), _) => Ordering::Greater,
+            (_, Self::String(_)) => Ordering::Less,
             _ => Ordering::Equal,
         };
         if descending && self.rank(options) == 0 {
@@ -128,6 +144,49 @@ pub struct SortColumn {
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct SortCollection {
     pub columns: HashMap<FieldPath, SortColumn>,
+    pub composites: Vec<CompositeSortOrder>,
+}
+
+
+/// Explicit composite order over compatible resident scalar columns.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CompositeSortOrder {
+    pub fields: Vec<CompositeSortPart>,
+    pub order: Vec<RecordSlot>,
+}
+
+
+/// Fixed binary identity for one resident composite constituent.
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct CompositeSortPart {
+    pub path: FieldPath,
+    pub descending: bool,
+}
+
+
+pub(crate) fn simple_composite_part(field: &SortField) -> Option<CompositeSortPart> {
+    let expression = field.expression.as_ref();
+    if expression.is_some_and(|expr| expr.binding.is_some() || expr.reducer.is_some()) {
+        return None;
+    }
+    Some(CompositeSortPart {
+        path: FieldPath::parse(expression.map_or(field.field.as_str(), |expr| expr.path.as_str()))
+            .ok()?,
+        descending: field.descending,
+    })
+}
+
+
+impl SortCollection {
+    pub fn composite(&self, fields: &[SortField]) -> Option<&CompositeSortOrder> {
+        let normalized = fields
+            .iter()
+            .map(simple_composite_part)
+            .collect::<Option<Vec<_>>>()?;
+        self.composites
+            .iter()
+            .find(|entry| entry.fields == normalized)
+    }
 }
 
 
@@ -135,6 +194,32 @@ pub struct SortCollection {
 pub struct SortBuilder {
     columns: HashMap<FieldPath, SortColumn>,
     collators: HashMap<FieldPath, CollatorBorrowed<'static>>,
+    composites: Vec<Vec<CompositeSortPart>>,
+}
+
+
+/// Construct one ICU collator for a bound sort configuration.
+pub(crate) fn make_collator(config: &SortConfig) -> Result<CollatorBorrowed<'static>, String> {
+    let parsed: Locale = config
+        .locale
+        .parse()
+        .map_err(|e| format!("invalid sort locale: {e}"))?;
+    let mut prefs: CollatorPreferences = parsed.into();
+    prefs.numeric_ordering = Some(if config.options.numeric {
+        CollationNumericOrdering::True
+    } else {
+        CollationNumericOrdering::False
+    });
+    let mut options = CollatorOptions::default();
+    options.strength = match config.options.strength {
+        CollationStrength::LocaleDefault => None,
+        CollationStrength::Primary => Some(Strength::Primary),
+        CollationStrength::Secondary => Some(Strength::Secondary),
+        CollationStrength::Tertiary => Some(Strength::Tertiary),
+        CollationStrength::Quaternary => Some(Strength::Quaternary),
+        CollationStrength::Identical => Some(Strength::Identical),
+    };
+    CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())
 }
 
 
@@ -185,26 +270,7 @@ impl SortBuilder {
                 locale: locale.into(),
                 options: defaults,
             });
-            let parsed: Locale = config
-                .locale
-                .parse()
-                .map_err(|e| format!("invalid sort locale: {e}"))?;
-            let mut prefs: CollatorPreferences = parsed.into();
-            prefs.numeric_ordering = Some(if config.options.numeric {
-                CollationNumericOrdering::True
-            } else {
-                CollationNumericOrdering::False
-            });
-            let mut options = CollatorOptions::default();
-            options.strength = match config.options.strength {
-                CollationStrength::LocaleDefault => None,
-                CollationStrength::Primary => Some(Strength::Primary),
-                CollationStrength::Secondary => Some(Strength::Secondary),
-                CollationStrength::Tertiary => Some(Strength::Tertiary),
-                CollationStrength::Quaternary => Some(Strength::Quaternary),
-                CollationStrength::Identical => Some(Strength::Identical),
-            };
-            let collator = CollatorBorrowed::try_new(prefs, options).map_err(|e| e.to_string())?;
+            let collator = make_collator(&config)?;
             collators.insert(path.clone(), collator);
             let field = schema.field(path)?;
             if field.multi || matches!(field.kind, LogicalType::Object | LogicalType::Array(_)) {
@@ -232,7 +298,26 @@ impl SortBuilder {
                 return Err("duplicate sort field".into());
             }
         }
-        Ok(Self { columns, collators })
+        let mut composites = Vec::new();
+        for fields in &schema.composite_sorts {
+            let parts = fields
+                .iter()
+                .map(simple_composite_part)
+                .collect::<Option<Vec<_>>>();
+            if fields.len() < 2
+                || parts
+                    .as_ref()
+                    .is_none_or(|parts| parts.iter().any(|part| !columns.contains_key(&part.path)))
+            {
+                return Err("composite sort requires configured resident scalar fields".into());
+            }
+            composites.push(parts.unwrap());
+        }
+        Ok(Self {
+            columns,
+            collators,
+            composites,
+        })
     }
 
     pub fn add(
@@ -314,12 +399,54 @@ impl SortBuilder {
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
         }
+        let composites = self
+            .composites
+            .into_iter()
+            .map(|fields| {
+                let columns: Vec<_> = fields
+                    .iter()
+                    .map(|field| (&self.columns[&field.path], field.descending))
+                    .collect();
+                let mut order: Vec<_> = generation
+                    .records
+                    .iter()
+                    .map(|record| record.slot)
+                    .collect();
+                order.sort_by(|a, b| {
+                    compare_composite(&columns, *a, *b).then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+                });
+                CompositeSortOrder { fields, order }
+            })
+            .collect();
         Ok(SortCollection {
             columns: self.columns,
+            composites,
         })
     }
 }
 
+
+pub(crate) fn compare_composite(
+    columns: &[(&SortColumn, bool)],
+    a: RecordSlot,
+    b: RecordSlot,
+) -> Ordering {
+    for (column, descending) in columns {
+        let order = column.keys[a.0 as usize].compare_with(
+            &column.keys[b.0 as usize],
+            *descending,
+            column.options,
+        );
+        if !order.is_eq() {
+            return order;
+        }
+    }
+    Ordering::Equal
+}
 
 fn descending_order(
     ascending: &[RecordSlot],
