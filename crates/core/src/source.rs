@@ -845,6 +845,7 @@ where
     F: FnMut(SourceOutcome) -> Result<(), String>,
 {
     let mut counters = ExtractionCounters::default();
+    let mut coordinate_cursor = FileCoordinateCursor::default();
     for &range in ranges {
         let part = &bytes[range.start as usize..range.end as usize];
         counters.framed_records += 1;
@@ -859,7 +860,7 @@ where
             }
             Err(ReaderFailure::Malformed(mut diagnostic)) => {
                 counters.failed_parses += 1;
-                file_coordinates(bytes, range, &mut diagnostic);
+                file_coordinates(bytes, range, &mut diagnostic, &mut coordinate_cursor);
                 consume(SourceOutcome::Malformed {
                     range,
                     diagnostic,
@@ -879,19 +880,46 @@ where
     Ok(counters)
 }
 
-fn file_coordinates(file: &[u8], range: ByteRange, diagnostic: &mut ReaderDiagnostic) {
-    let prefix = &file[..range.start as usize];
-    let earlier_lines = prefix.iter().filter(|byte| **byte == b'\n').count() as u64;
+#[cfg(test)]
+thread_local! {
+    static FILE_COORDINATE_SCANNED_BYTES: std::cell::Cell<usize> = const { std::cell::Cell::new(0) };
+}
+
+
+/// Running file position for ordered reader ranges, bounded independently of file size.
+#[derive(Default)]
+struct FileCoordinateCursor {
+    scanned_to: usize,
+    earlier_lines: u64,
+    line_start: usize,
+}
+
+
+fn file_coordinates(
+    file: &[u8],
+    range: ByteRange,
+    diagnostic: &mut ReaderDiagnostic,
+    cursor: &mut FileCoordinateCursor,
+) {
+    let start = range.start as usize;
+    // Reader ranges are validated as ordered and non-overlapping before this
+    // loop. Scan the intervening bytes once, including gaps between records.
+    let prefix = &file[cursor.scanned_to..start];
+    #[cfg(test)]
+    FILE_COORDINATE_SCANNED_BYTES.with(|scanned| scanned.set(scanned.get() + prefix.len()));
+    for (index, byte) in prefix.iter().enumerate() {
+        if *byte == b'\n' {
+            cursor.earlier_lines += 1;
+            cursor.line_start = cursor.scanned_to + index + 1;
+        }
+    }
+    cursor.scanned_to = start;
     if let Some(line) = diagnostic.line {
-        diagnostic.line = line.checked_add(earlier_lines);
+        diagnostic.line = line.checked_add(cursor.earlier_lines);
         if line == 1 {
-            let line_start = prefix
-                .iter()
-                .rposition(|byte| *byte == b'\n')
-                .map_or(0, |index| index + 1);
             diagnostic.column = diagnostic
                 .column
-                .and_then(|column| column.checked_add((prefix.len() - line_start) as u64));
+                .and_then(|column| column.checked_add((start - cursor.line_start) as u64));
         }
     }
 }
@@ -968,7 +996,12 @@ where
         Err(ReaderFailure::Malformed(mut diagnostic)) => {
             let size = u64::try_from(bytes.len()).map_err(|_| "source size overflow")?;
             let range = ByteRange::checked(0, size, size)?;
-            file_coordinates(&bytes, range, &mut diagnostic);
+            file_coordinates(
+                &bytes,
+                range,
+                &mut diagnostic,
+                &mut FileCoordinateCursor::default(),
+            );
             consume(SourceOutcome::Malformed {
                 range,
                 diagnostic,
