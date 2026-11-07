@@ -49,12 +49,21 @@ impl PreparedCache {
         Some(query)
     }
 
-    fn insert(&mut self, key: Vec<u8>, query: PreparedQuery) {
+    fn entry_bytes(key: &[u8], query: &PreparedQuery) -> usize {
         // Debug formatting is an upper-bound-oriented charge for the small
         // bound tree; the cache never stores source records or bitmap sets.
-        let bytes = key.len() + format!("{:?}", query.collections).len() * 2 + 128;
+        key.len() + format!("{:?}", query.collections).len() * 2 + 128
+    }
+
+    fn insert(&mut self, key: Vec<u8>, query: PreparedQuery, bytes: usize) {
         if bytes > self.budget {
             return;
+        }
+        if let Some(old) = self.entries.remove(&key) {
+            self.bytes -= old.bytes;
+        }
+        if let Some(index) = self.order.iter().position(|old| old == &key) {
+            self.order.remove(index);
         }
         while self.bytes.saturating_add(bytes) > self.budget {
             if let Some(old) = self.order.pop_front() {
@@ -116,10 +125,12 @@ pub(crate) fn prepare(repo: &Repository, query: &Query) -> Result<(PreparedQuery
         return Err("unknown or unloaded collection scope".into());
     }
     let prepared = PreparedQuery { collections };
+    let bytes = PreparedCache::entry_bytes(&key, &prepared);
+    let cached = prepared.clone();
     repo.prepared
         .lock()
         .map_err(|e| e.to_string())?
-        .insert(key, prepared.clone());
+        .insert(key, cached, bytes);
     Ok((prepared, false))
 }
 
