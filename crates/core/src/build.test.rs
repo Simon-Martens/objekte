@@ -527,6 +527,53 @@ fn one_large_framed_file_uses_parallel_ranges_with_identical_indexes() {
 
 #[test]
 fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
+    use crate::source::{
+        JsonLinesReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceReader,
+        SourceRegistry, TextDerivation,
+    };
+
+    // Keep a reader on the pre-existing whole-buffer route for an independent
+    // build-path comparison against the built-in bounded JSONL route.
+    struct WholeJsonLines;
+
+    impl SourceReader for WholeJsonLines {
+        fn name(&self) -> &'static str {
+            "jsonl"
+        }
+
+        fn logical_text_coverage(&self) -> LogicalTextCoverage {
+            LogicalTextCoverage::AllStringFields
+        }
+
+        fn text_derivation(&self) -> TextDerivation {
+            TextDerivation::LogicalStringsAfterConversion
+        }
+
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            JsonLinesReader.frame(bytes)
+        }
+
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse(bytes)
+        }
+
+        fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+            JsonLinesReader.parse_outcome(bytes)
+        }
+
+        fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+            JsonLinesReader.parse_for_build_outcome(bytes)
+        }
+
+        fn parse_for_query(
+            &self,
+            bytes: &[u8],
+            projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            JsonLinesReader.parse_for_query(bytes, projection)
+        }
+    }
+
     let root = std::env::temp_dir().join(format!(
         "objekte-build-oversized-jsonl-{}-{}",
         std::process::id(),
@@ -584,6 +631,21 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     };
     let one = build(1);
     let parallel = build(available.min(2));
+    let mut whole_sources = SourceRegistry::default();
+    whole_sources
+        .register("jsonl", 1, "jsonl", std::sync::Arc::new(WholeJsonLines))
+        .unwrap();
+    let whole = Repository::open_with_sources(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            build_workers: NonZeroUsize::new(1),
+            ..Default::default()
+        },
+        whole_sources,
+    )
+    .unwrap();
     assert_eq!(one.build_parses(), 2);
     assert_eq!(one.build_failed_parses(), 2);
     for repo in [&one, &parallel] {
@@ -616,8 +678,16 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         serde_json::to_value(&parallel.collections()[0].generation).unwrap()
     );
     assert_eq!(
+        serde_json::to_value(&one.collections()[0].generation).unwrap(),
+        serde_json::to_value(&whole.collections()[0].generation).unwrap()
+    );
+    assert_eq!(
         serde_json::to_value(&one.files().files[0].diagnostics).unwrap(),
         serde_json::to_value(&parallel.files().files[0].diagnostics).unwrap()
+    );
+    assert_eq!(
+        serde_json::to_value(&one.files().files[0].diagnostics).unwrap(),
+        serde_json::to_value(&whole.files().files[0].diagnostics).unwrap()
     );
     assert_eq!(
         one.collections()[0].raw.normal,
@@ -634,6 +704,26 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
     assert_eq!(
         one.collections()[0].fallback_text.skip,
         parallel.collections()[0].fallback_text.skip
+    );
+    assert_eq!(
+        one.collections()[0].raw.normal,
+        whole.collections()[0].raw.normal
+    );
+    assert_eq!(
+        one.collections()[0].raw.skip,
+        whole.collections()[0].raw.skip
+    );
+    assert_eq!(
+        one.collections()[0].fallback_text.normal,
+        whole.collections()[0].fallback_text.normal
+    );
+    assert_eq!(
+        one.collections()[0].fallback_text.skip,
+        whole.collections()[0].fallback_text.skip
+    );
+    assert_eq!(
+        one.collections()[0].postings.fields[&vec!["title".into()]].values,
+        whole.collections()[0].postings.fields[&vec!["title".into()]].values
     );
     for filter in ["title = 'healthy'", "@record.class = 1"] {
         let query = Query {
@@ -653,7 +743,243 @@ fn oversized_jsonl_preserves_malformed_siblings_and_fallback_grams() {
         let b = parallel.search(&query).unwrap();
         assert_eq!((a.count, a.hits), (b.count, b.hits), "{filter}");
     }
+    one.save_default_snapshot_for_test();
+    let restored = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Required,
+            build_workers: NonZeroUsize::new(1),
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(
+        serde_json::to_value(&one.collections()[0].generation).unwrap(),
+        serde_json::to_value(&restored.collections()[0].generation).unwrap()
+    );
+    assert_eq!(
+        one.collections()[0].raw.normal,
+        restored.collections()[0].raw.normal
+    );
+    assert_eq!(
+        one.collections()[0].fallback_text.normal,
+        restored.collections()[0].fallback_text.normal
+    );
     std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn large_jsonl_many_chunks_keep_order_and_bounded_source_reservations() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-build-many-jsonl-chunks-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    let mut bytes = Vec::new();
+    for _ in 0..12 {
+        bytes.extend(std::iter::repeat_n(b' ', 1024 * 1024));
+        bytes.push(b'\n');
+    }
+    let first_record_start = bytes.len() as u64;
+    for index in 0..300 {
+        bytes.extend_from_slice(format!("{{\"title\":\"item-{index:03}\"}}\n").as_bytes());
+    }
+    let source_size = bytes.len() as u64;
+    std::fs::write(root.join("data/large.jsonl"), bytes).unwrap();
+    let definition = CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema: Schema::default(),
+        sort_fields: Vec::new(),
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    };
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            build_workers: NonZeroUsize::new(1),
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert_eq!(repo.build_parses(), 300);
+    assert_eq!(repo.build_failed_parses(), 0);
+    assert_eq!(repo.files().files[0].status, FileStatus::Valid);
+    let records = &repo.collections()[0].generation.records;
+    assert_eq!(records.len(), 300);
+    assert_eq!(records[0].range.start, first_record_start);
+    assert!(
+        records
+            .windows(2)
+            .all(|pair| pair[0].range.end < pair[1].range.start)
+    );
+    assert!(
+        repo.startup().peak_build_admitted_bytes < source_size / 2,
+        "bounded source reservations should not scale with the full file"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn bounded_jsonl_read_failure_before_or_after_admission_has_distinct_outcomes() {
+    use std::io::{BufReader, Read};
+
+    use crate::inference::{InferenceMode, InferencePolicy};
+    use crate::source::{BoundedJsonLines, SourceRegistry};
+
+    struct FailingRead {
+        bytes: std::io::Cursor<Vec<u8>>,
+        limit: u64,
+    }
+
+    impl Read for FailingRead {
+        fn read(&mut self, output: &mut [u8]) -> std::io::Result<usize> {
+            if self.bytes.position() >= self.limit {
+                return Err(std::io::Error::other("injected read failure"));
+            }
+            let count = output
+                .len()
+                .min((self.limit - self.bytes.position()) as usize);
+            self.bytes.read(&mut output[..count])
+        }
+    }
+
+    let bytes = b"{}\n".repeat(513);
+    let root = std::env::temp_dir().join(format!(
+        "objekte-missing-bounded-file-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    let definition = Arc::new(CollectionDefinition {
+        name: "data".into(),
+        source_path: "data".into(),
+        format: SourceFormat::JsonLines,
+        identity: IdentityPolicy::Generated,
+        discovery: Default::default(),
+        schema: Schema::default(),
+        sort_fields: Vec::new(),
+        sort_locale: "de".into(),
+        sort_options: Default::default(),
+        sort_overrides: Default::default(),
+    });
+    let source_files = Arc::new(vec![SourceFileInput {
+        id: FileId(0),
+        relative_path: "missing.jsonl".into(),
+        revision: SourceRevision {
+            modified_ns: 0,
+            size: bytes.len() as u64,
+        },
+        created_ns: None,
+    }]);
+    let source = SourceRegistry::builtin()
+        .resolve(&SourceFormat::JsonLines)
+        .unwrap();
+    let pool = rayon::ThreadPoolBuilder::new()
+        .num_threads(1)
+        .build()
+        .unwrap();
+    let inference = InferenceConfig {
+        mode: InferenceMode::Disabled,
+        policy: InferencePolicy::default(),
+    };
+    let make = |limit| {
+        BoundedJsonLines::from_reader(BufReader::with_capacity(
+            1,
+            FailingRead {
+                bytes: std::io::Cursor::new(bytes.clone()),
+                limit,
+            },
+        ))
+    };
+    let mut before = Vec::new();
+    process_bounded_json_lines_reader(
+        &pool,
+        Arc::new(root.clone()),
+        Arc::clone(&definition),
+        CollectionId(0),
+        source.clone(),
+        FileId(0),
+        Arc::clone(&source_files),
+        BigramAlphabet::Ascii,
+        inference,
+        make(0),
+        BoundedBuildLimits::default(),
+        |batch| {
+            before.push((batch.records.len(), batch.files[0].entry.status));
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(before, [(0, FileStatus::Unreadable)]);
+
+    let mut blank_lines = vec![b' '; 40 * 1024];
+    blank_lines.push(b'\n');
+    blank_lines.extend(std::iter::repeat_n(b' ', 40 * 1024));
+    blank_lines.push(b'\n');
+    let mut admitted_chunks = 0;
+    let stats = process_bounded_json_lines_reader(
+        &pool,
+        Arc::new(root.clone()),
+        Arc::clone(&definition),
+        CollectionId(0),
+        source.clone(),
+        FileId(0),
+        Arc::clone(&source_files),
+        BigramAlphabet::Ascii,
+        inference,
+        BoundedJsonLines::from_reader(BufReader::new(std::io::Cursor::new(blank_lines))),
+        BoundedBuildLimits {
+            chunk_bytes: 1024,
+            ranges: 256,
+            admitted_bytes: 64 * 1024,
+        },
+        |batch| {
+            assert!(batch.records.is_empty());
+            admitted_chunks += 1;
+            Ok(())
+        },
+    )
+    .unwrap();
+    assert_eq!(admitted_chunks, 2);
+    assert_eq!(stats.peak_weight_bytes, 64 * 1024);
+
+    let mut admitted_records = 0;
+    let error = process_bounded_json_lines_reader(
+        &pool,
+        Arc::new(root),
+        definition,
+        CollectionId(0),
+        source,
+        FileId(0),
+        source_files,
+        BigramAlphabet::Ascii,
+        inference,
+        make(512 * 3),
+        BoundedBuildLimits::default(),
+        |batch| {
+            admitted_records += batch.records.len();
+            Ok(())
+        },
+    )
+    .err()
+    .unwrap();
+    assert!(error.contains("bounded framing read"), "{error}");
+    assert_eq!(admitted_records, 256);
 }
 
 #[test]
