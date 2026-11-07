@@ -1,6 +1,9 @@
 use roaring::RoaringBitmap;
 
-use super::{InferenceBuilder, InferenceConfig, InferenceIndexStatus, InferenceMode, ObservedStep};
+use super::{
+    InferenceBuilder, InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy,
+    ObservedStep,
+};
 use crate::executor::AccessPathKind;
 use crate::inventory::ByteRange;
 use crate::model::LogicalType;
@@ -33,6 +36,27 @@ fn query(filter: &str) -> Query {
             evidence: true,
         },
     }
+}
+
+#[test]
+fn documented_inference_defaults_match_the_exported_policy() {
+    let policy = InferencePolicy::default();
+    assert_eq!(policy.max_batch_bytes, 16 * 1024 * 1024);
+    assert_eq!(policy.max_total_bytes, 512 * 1024 * 1024);
+    assert_eq!(policy.max_repository_bytes, 768 * 1024 * 1024);
+    assert_eq!(policy.short_string_max_utf8_bytes, 64);
+    assert_eq!(
+        policy.max_short_string_index_bytes_per_path,
+        24 * 1024 * 1024
+    );
+    assert_eq!(
+        InferenceConfig {
+            mode: InferenceMode::AutoIndex,
+            policy,
+        }
+        .max_build_jobs(32),
+        16
+    );
 }
 
 #[test]
