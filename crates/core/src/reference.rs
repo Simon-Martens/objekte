@@ -1978,6 +1978,9 @@ pub fn eval_filter(
             let mut result = true;
             let mut branch_evidence = HashSet::new();
             for p in parts {
+                if !result {
+                    break;
+                }
                 result &= eval_filter(p, ctx, &mut branch_evidence)?;
             }
             if result {

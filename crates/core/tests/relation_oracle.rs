@@ -458,3 +458,20 @@ fn explain_reports_bound_relation_and_temporal_semantics() {
     assert_eq!(bound_trace[0].bound_terms[0].bound_value, Some(Value::Id("A".into())));
     std::fs::remove_dir_all(root).unwrap();
 }
+
+
+#[test]
+fn false_and_branch_skips_expensive_relation_verification_in_reference_route() {
+    let (root, _, _) = fixture();
+    let repo = Repository::open_with_options(&root, definitions(), RepositoryOptions::default())
+        .unwrap();
+    let request = query(
+        "mentions",
+        "@record.id = 'm1' && entry.title = 'Hymn'",
+        ReturnMode::Locator,
+    );
+    let answer = repo.search_reference(&request).unwrap();
+    assert_eq!(sorted_ids(&answer), ["m1"]);
+    assert_eq!(answer.counters.relation_target_reads, 1);
+    std::fs::remove_dir_all(root).unwrap();
+}

@@ -387,6 +387,9 @@ pub(crate) fn eval_filter_truth(
             let mut answer = Some(true);
             let mut fields = std::collections::HashSet::new();
             for part in parts {
+                if answer == Some(false) {
+                    break;
+                }
                 let next = eval_filter_truth(repo, part, ctx, &mut fields, mode, work)?;
                 answer = match (answer, next) {
                     (Some(false), _) | (_, Some(false)) => Some(false),
