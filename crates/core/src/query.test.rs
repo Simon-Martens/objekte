@@ -90,6 +90,156 @@ fn precedence_quantifiers_and_separate_fts() {
 }
 
 #[test]
+fn workload_fts_binding_colon_stays_outside_quoted_path_properties() {
+    let case = WorkloadCase {
+        id: "quoted-fts-fields".into(),
+        collection: "data".into(),
+        fts: Some("needle".into()),
+        fts_case_sensitivity: CaseSensitivity::Sensitive,
+        fts_mode: FtsMode::Literal,
+        filter: None,
+        fts_fields: vec![
+            "[\"a:b\"]".into(),
+            "['a:b']".into(),
+            "items[0][\"a:b\"]:lower".into(),
+            "x:lower".into(),
+            "[\"a b\"]".into(),
+            "[\"@root\"]".into(),
+            "[\"\"]".into(),
+            "items['0']".into(),
+            "items[*].name".into(),
+        ],
+        sort: vec![],
+        limit: 10,
+        offset: 0,
+        count: false,
+        return_mode: ReturnMode::Locator,
+        evidence: false,
+    };
+    let fields = Query::from_workload(&case).unwrap().fts.unwrap().fields;
+    assert_eq!(fields[0].path.segments, ["a:b"]);
+    assert_eq!(fields[0].binding, None);
+    assert_eq!(fields[1].path.segments, ["a:b"]);
+    assert_eq!(fields[1].binding, None);
+    assert_eq!(fields[2].path.segments, ["items", "a:b"]);
+    assert_eq!(fields[2].binding.as_deref(), Some("lower"));
+    assert_eq!(fields[2].query_path.as_deref(), Some("items[0][\"a:b\"]"));
+    assert_eq!(fields[3].path.segments, ["x"]);
+    assert_eq!(fields[3].binding.as_deref(), Some("lower"));
+    assert_eq!(fields[4].path.segments, ["a b"]);
+    assert_eq!(fields[5].path.segments, ["@root"]);
+    assert_eq!(fields[6].path.segments, [""]);
+    assert_eq!(fields[7].path.segments, ["items", "0"]);
+    assert_eq!(fields[8].path.segments, ["items", "name"]);
+    assert_eq!(fields[8].query_path.as_deref(), Some("items[*].name"));
+}
+
+#[test]
+fn quoted_colon_field_has_one_schema_filter_fts_and_sort_address() {
+    use crate::model::{FieldPath, LogicalType};
+    use crate::reference::FieldDefinition;
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::source::SourceFormat;
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-colon-path-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/one.json"), r#"{"a:b":"Zulu"}"#).unwrap();
+    std::fs::write(root.join("data/two.json"), r#"{"a:b":"Alpha"}"#).unwrap();
+    let mut definition = CollectionDefinition::folder("data", "data", SourceFormat::Json);
+    definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["a:b".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: true,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    definition.sort_fields = vec![FieldPath::parse("[\"a:b\"]").unwrap()];
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition.clone()],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let mut case = WorkloadCase {
+        id: "colon-path".into(),
+        collection: "data".into(),
+        fts: None,
+        fts_case_sensitivity: CaseSensitivity::Sensitive,
+        fts_mode: FtsMode::Literal,
+        filter: Some("[\"a:b\"] = 'Alpha'".into()),
+        fts_fields: vec![],
+        sort: vec![],
+        limit: 10,
+        offset: 0,
+        count: true,
+        return_mode: ReturnMode::Locator,
+        evidence: false,
+    };
+    let ids = |repo: &Repository, query: &Query| {
+        let optimized = repo.search(query).unwrap();
+        assert_eq!(optimized.hits, repo.search_reference(query).unwrap().hits);
+        optimized
+            .hits
+            .into_iter()
+            .map(|hit| hit.record_id)
+            .collect::<Vec<_>>()
+    };
+    assert_eq!(
+        ids(&repo, &Query::from_workload(&case).unwrap()),
+        ["path:two.json"]
+    );
+
+    case.filter = None;
+    case.fts = Some("Alpha".into());
+    case.fts_fields = vec!["[\"a:b\"]".into()];
+    assert_eq!(
+        ids(&repo, &Query::from_workload(&case).unwrap()),
+        ["path:two.json"]
+    );
+
+    case.fts = None;
+    case.fts_fields.clear();
+    case.filter = Some("SORT BY [\"a:b\"]".into());
+    assert_eq!(
+        ids(&repo, &Query::from_workload(&case).unwrap()),
+        ["path:two.json", "path:one.json"]
+    );
+    repo.save_default_snapshot_for_test();
+    drop(repo);
+    let restored = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Required,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(
+        ids(&restored, &Query::from_workload(&case).unwrap()),
+        ["path:two.json", "path:one.json"]
+    );
+    drop(restored);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn every_fixed_filter_parses() {
     let path =
         std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("benches/musenalm_queries.json");

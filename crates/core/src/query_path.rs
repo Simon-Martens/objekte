@@ -23,6 +23,38 @@ pub struct QueryPath {
 }
 
 
+/// Split a legacy path-plus-binding spelling at its last top-level colon.
+/// Colons inside bracket-quoted property names belong to the path.
+pub(crate) fn split_path_binding(input: &str) -> (&str, Option<&str>) {
+    let mut bracket_depth = 0usize;
+    let mut quote = None;
+    let mut escaped = false;
+    let mut separator = None;
+    for (index, ch) in input.char_indices() {
+        if let Some(delimiter) = quote {
+            if escaped {
+                escaped = false;
+            } else if ch == '\\' {
+                escaped = true;
+            } else if ch == delimiter {
+                quote = None;
+            }
+            continue;
+        }
+        match ch {
+            '[' => bracket_depth += 1,
+            ']' => bracket_depth = bracket_depth.saturating_sub(1),
+            '\'' | '"' if bracket_depth > 0 => quote = Some(ch),
+            ':' if bracket_depth == 0 => separator = Some(index),
+            _ => {}
+        }
+    }
+    separator.map_or((input, None), |index| {
+        (&input[..index], Some(&input[index + 1..]))
+    })
+}
+
+
 impl QueryPath {
     pub fn parse(input: &str) -> Result<Self, String> {
         if input == "@root" {

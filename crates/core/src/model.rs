@@ -503,7 +503,8 @@ pub enum PathRoot {
 }
 
 
-/// Resolved path into record data or reserved metadata.
+/// Schema/index field address into data or reserved metadata. Occurrence
+/// selectors belong to `QueryPath` and are not retained here.
 #[derive(Clone, Debug, Eq, PartialEq, Hash, Serialize, Deserialize)]
 pub struct FieldPath {
     pub root: PathRoot,
@@ -591,7 +592,7 @@ impl FieldPath {
                         || segment.starts_with('@')
                         || segment
                             .chars()
-                            .any(|ch| matches!(ch, '.' | '[' | ']' | '"' | '\'' | '\\'));
+                            .any(|ch| ch.is_whitespace() || ".[]\"'\\:,()!<>=~?&|".contains(ch));
                     if quoted {
                         output.push('[');
                         output.push_str(
@@ -696,6 +697,9 @@ impl FieldPath {
             }
             if rest.starts_with('.') {
                 rest = &rest[1..];
+                if rest.is_empty() {
+                    return Err("trailing path separator".into());
+                }
             } else if !rest.is_empty() && !rest.starts_with('[') {
                 return Err("invalid path separator".into());
             }

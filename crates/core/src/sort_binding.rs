@@ -10,7 +10,7 @@ use unicode_casefold::UnicodeCaseFold;
 use crate::inventory::RecordClass;
 use crate::model::{PathRoot, RecordSlot, Value};
 use crate::query::Query;
-use crate::query_path::{PathStep, QueryPath};
+use crate::query_path::{PathStep, QueryPath, split_path_binding};
 use crate::reference::{BindingOperation, RecordContext, Transform, metadata_value};
 use crate::relation::RelationTarget;
 use crate::relation_query::{BoundRelationHop, HopDirection, resolve_path};
@@ -98,6 +98,8 @@ fn expression(field: &SortField) -> Result<SortExpression, String> {
     if let Some(expression) = &field.expression {
         return Ok(expression.clone());
     }
+    // Keep legacy untyped strings as literal paths when they parse. A typed
+    // SortExpression is the unambiguous programmatic way to request a binding.
     if QueryPath::parse(&field.field).is_ok() {
         return Ok(SortExpression {
             path: field.field.clone(),
@@ -105,10 +107,8 @@ fn expression(field: &SortField) -> Result<SortExpression, String> {
             reducer: None,
         });
     }
-    let (path, binding) = field
-        .field
-        .rsplit_once(':')
-        .ok_or_else(|| format!("invalid sort field: {}", field.field))?;
+    let (path, binding) = split_path_binding(&field.field);
+    let binding = binding.ok_or_else(|| format!("invalid sort field: {}", field.field))?;
     QueryPath::parse(path)?;
     if binding.is_empty() {
         return Err("empty sort binding".into());

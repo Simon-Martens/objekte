@@ -3,7 +3,7 @@
 use crate::byte_size_literal::parse_size_literal;
 use crate::clock_context::ClockContext;
 use crate::model::{FieldPath, Number, Value};
-use crate::query_path::QueryPath;
+use crate::query_path::{QueryPath, split_path_binding};
 use crate::temporal_query::{PeriodLiteral, looks_like_temporal};
 use crate::workload::{ReturnMode, SortExpression, SortField, SortReducer, WorkloadCase};
 use std::borrow::Cow;
@@ -257,13 +257,11 @@ impl Query {
                     .fts_fields
                     .iter()
                     .map(|name| {
-                        let (path, binding) = name
-                            .rsplit_once(':')
-                            .map_or((name.as_str(), None), |(a, b)| (a, Some(b.to_owned())));
+                        let (path, binding) = split_path_binding(name);
                         let parsed = QueryPath::parse(path)?;
                         Ok(FtsField {
                             path: parsed.field,
-                            binding,
+                            binding: binding.map(str::to_owned),
                             query_path: parsed.has_explicit_array_step.then(|| path.to_owned()),
                         })
                     })

@@ -248,3 +248,30 @@ fn empty_ancestor_is_missing_but_nonempty_missing_child_is_absent() {
         SortKey::Missing
     );
 }
+
+#[test]
+fn untyped_sort_names_remain_literal_and_typed_expressions_select_bindings() {
+    let untyped = expression(&SortField::simple("x:lower", false)).unwrap();
+    assert_eq!(untyped.path, "x:lower");
+    assert_eq!(untyped.binding, None);
+
+    let typed = expression(&SortField::computed(
+        SortExpression {
+            path: "x".into(),
+            binding: Some("lower".into()),
+            reducer: None,
+        },
+        false,
+    ))
+    .unwrap();
+    assert_eq!(typed.path, "x");
+    assert_eq!(typed.binding.as_deref(), Some("lower"));
+
+    let legacy_positional = expression(&SortField::simple("items[0]:lower", false)).unwrap();
+    assert_eq!(legacy_positional.path, "items[0]");
+    assert_eq!(legacy_positional.binding.as_deref(), Some("lower"));
+
+    let quoted = expression(&SortField::simple("[\"a:b\"]", false)).unwrap();
+    assert_eq!(quoted.path, "[\"a:b\"]");
+    assert_eq!(quoted.binding, None);
+}

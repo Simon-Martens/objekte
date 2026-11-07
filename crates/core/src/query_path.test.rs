@@ -98,3 +98,51 @@ fn backlink_root_is_reserved_and_keeps_explicit_positions() {
     assert!(QueryPath::parse("@backlinks").is_err());
     assert!(QueryPath::parse("@backlinks.").is_err());
 }
+
+#[test]
+fn binding_split_skips_quoted_colons_and_array_selectors() {
+    for (input, path, binding) in [
+        ("x:lower", "x", Some("lower")),
+        ("[\"a:b\"]", "[\"a:b\"]", None),
+        ("['a:b']", "['a:b']", None),
+        (
+            "items[0][\"a:b\"]:lower",
+            "items[0][\"a:b\"]",
+            Some("lower"),
+        ),
+        ("[\"a\\\"b:c\"]:lower", "[\"a\\\"b:c\"]", Some("lower")),
+        ("[\"a]b:c\"]", "[\"a]b:c\"]", None),
+        ("items[*].name", "items[*].name", None),
+    ] {
+        assert_eq!(split_path_binding(input), (path, binding), "{input}");
+    }
+}
+
+#[test]
+fn query_steps_and_schema_addresses_round_trip_through_their_own_rendering() {
+    for input in [
+        "@root",
+        "@root[0]",
+        "@root[*].title",
+        "@file.status",
+        "@backlinks.mentions[0].title",
+        "['@file'].size",
+        "['']",
+        "items['0'].name",
+        "items[0][\"a:b\"]",
+        "items[*]['a b']",
+        "['a>=b']",
+        "['a\\'b']",
+        "[\"a]b\"]",
+    ] {
+        let parsed = QueryPath::parse(input).unwrap();
+        let again = QueryPath::parse(&parsed.display).unwrap();
+        assert_eq!(again.field, parsed.field, "{input}");
+        assert_eq!(again.steps, parsed.steps, "{input}");
+        assert_eq!(
+            FieldPath::parse(&parsed.field.display()).unwrap(),
+            parsed.field,
+            "{input}"
+        );
+    }
+}
