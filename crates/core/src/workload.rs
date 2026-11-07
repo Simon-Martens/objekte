@@ -127,6 +127,12 @@ pub struct WorkCounters {
     /// Relation occurrences visited after positional selection.
     #[serde(default)]
     pub relation_edge_visits: u64,
+    /// Reverse posting entries or identity-order candidates examined by backlinks.
+    #[serde(default)]
+    pub relation_backlink_probe_visits: u64,
+    /// Bytes read for relation target/source verification and prefetch.
+    #[serde(default)]
+    pub relation_bytes_read: u64,
     /// Distinct terminal candidates inspected by relation semijoins.
     #[serde(default)]
     pub relation_target_candidates: u64,
@@ -136,7 +142,7 @@ pub struct WorkCounters {
     /// Typed reverse posting lists visited during relation semijoins.
     #[serde(default)]
     pub relation_reverse_postings_visited: u64,
-    /// Confirmed targets reused by reverse mapping without another decode.
+    /// Target values reused by reverse mapping or source-dependent comparisons.
     #[serde(default)]
     pub relation_verified_targets_reused: u64,
     #[serde(default)]

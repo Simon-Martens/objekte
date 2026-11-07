@@ -1024,6 +1024,8 @@ impl Repository {
             relation_target_reads: 0,
             relation_target_file_opens: 0,
             relation_edge_visits: 0,
+            relation_backlink_probe_visits: 0,
+            relation_bytes_read: 0,
             relation_target_candidates: 0,
             relation_target_matches: 0,
             relation_reverse_postings_visited: 0,
@@ -1143,6 +1145,9 @@ impl Repository {
                 counters.relation_target_reads += relation_work.target_reads;
                 counters.relation_target_file_opens += relation_work.target_reads;
                 counters.relation_edge_visits += relation_work.edge_visits;
+                counters.relation_backlink_probe_visits += relation_work.backlink_probe_visits;
+                counters.relation_bytes_read += relation_work.bytes_read;
+                crate::relation_query::check_query_work_budget(&counters)?;
                 counters.files_opened += relation_work.source_reads + relation_work.target_reads;
                 counters.bytes_read += relation_work.bytes_read;
                 counters.record_parses += relation_work.source_reads + relation_work.target_reads;

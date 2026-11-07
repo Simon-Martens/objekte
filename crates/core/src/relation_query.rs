@@ -11,11 +11,16 @@ use crate::reference::{
     bind_fts, eval_bound_fts, eval_cross_record_field_term, eval_term,
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
+use crate::relation_target_cache::TargetValueCache;
 use crate::repository::Repository;
 use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range};
 
 const MAX_RELATION_HOPS: usize = 8;
 const MAX_PATH_STEPS: usize = 64;
+const MAX_QUERY_EDGE_VISITS: u64 = 32_000_000;
+const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
+const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
+const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
 
 
 /// Direction of a declared, collection-scoped relation hop.
@@ -60,8 +65,111 @@ pub(crate) enum EvaluationMode {
 pub(crate) struct RelationWork {
     pub source_reads: u64,
     pub target_reads: u64,
+    pub target_cache_hits: u64,
     pub edge_visits: u64,
+    pub backlink_probe_visits: u64,
     pub bytes_read: u64,
+}
+
+
+fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
+    *counter = counter
+        .checked_add(amount)
+        .ok_or_else(|| format!("relation {name} overflow"))?;
+    if *counter > limit {
+        return Err(format!("relation query exceeds {limit} {name}"));
+    }
+    Ok(())
+}
+
+
+impl RelationWork {
+    fn edge(&mut self) -> Result<(), String> {
+        charge(
+            &mut self.edge_visits,
+            1,
+            MAX_QUERY_EDGE_VISITS,
+            "edge visits",
+        )
+    }
+
+    fn backlink_probe(&mut self) -> Result<(), String> {
+        charge(
+            &mut self.backlink_probe_visits,
+            1,
+            MAX_QUERY_BACKLINK_PROBES,
+            "backlink probes",
+        )
+    }
+
+    fn target_read(&mut self, bytes: u64) -> Result<(), String> {
+        charge(
+            &mut self.target_reads,
+            1,
+            MAX_QUERY_RECORD_READS,
+            "target reads",
+        )?;
+        charge(
+            &mut self.bytes_read,
+            bytes,
+            MAX_QUERY_RELATION_BYTES,
+            "source bytes",
+        )
+    }
+
+    fn source_read(&mut self, bytes: u64) -> Result<(), String> {
+        charge(
+            &mut self.source_reads,
+            1,
+            MAX_QUERY_RECORD_READS,
+            "source reads",
+        )?;
+        charge(
+            &mut self.bytes_read,
+            bytes,
+            MAX_QUERY_RELATION_BYTES,
+            "source bytes",
+        )
+    }
+}
+
+
+/// Combine bounded scanner chunks into one query-wide relation work budget.
+pub(crate) fn check_query_work_budget(
+    counters: &crate::workload::WorkCounters,
+) -> Result<(), String> {
+    for (actual, limit, name) in [
+        (
+            counters.relation_edge_visits,
+            MAX_QUERY_EDGE_VISITS,
+            "edge visits",
+        ),
+        (
+            counters.relation_backlink_probe_visits,
+            MAX_QUERY_BACKLINK_PROBES,
+            "backlink probes",
+        ),
+        (
+            counters.relation_target_reads,
+            MAX_QUERY_RECORD_READS,
+            "target reads",
+        ),
+        (
+            counters.relation_source_reads,
+            MAX_QUERY_RECORD_READS,
+            "source reads",
+        ),
+        (
+            counters.relation_bytes_read,
+            MAX_QUERY_RELATION_BYTES,
+            "source bytes",
+        ),
+    ] {
+        if actual > limit {
+            return Err(format!("relation query exceeds {limit} {name}"));
+        }
+    }
+    Ok(())
 }
 
 
@@ -73,6 +181,7 @@ struct TraverseConfig<'a> {
     quantifier: Quantifier,
     collect_text: bool,
     mode: EvaluationMode,
+    target_values: Option<&'a TargetValueCache>,
 }
 
 
@@ -154,7 +263,10 @@ pub(crate) fn bind_fts_with_relations(
     let mut related_base = None;
     let mut local_positions = Vec::new();
     for selected in &request.fields {
-        let syntax = selected.query_path.clone().unwrap_or_else(|| selected.path.display());
+        let syntax = selected
+            .query_path
+            .clone()
+            .unwrap_or_else(|| selected.path.display());
         let path = QueryPath::parse(&syntax)?;
         if path.field != selected.path {
             return Err("selected FTS query path disagrees with its field".into());
@@ -165,7 +277,9 @@ pub(crate) fn bind_fts_with_relations(
                 && repo.collections[target].source.reader().text_derivation()
                     != TextDerivation::LogicalStringsAfterConversion
             {
-                return Err("selected FTS array positions require logical-string text derivation".into());
+                return Err(
+                    "selected FTS array positions require logical-string text derivation".into(),
+                );
             }
             let target_request = FtsQuery {
                 fields: vec![FtsField {
@@ -194,10 +308,16 @@ pub(crate) fn bind_fts_with_relations(
             direct.query_path = None;
             local.fields.push(direct);
             if path.has_explicit_array_step {
-                if repo.collections[collection_index].source.reader().text_derivation()
+                if repo.collections[collection_index]
+                    .source
+                    .reader()
+                    .text_derivation()
                     != TextDerivation::LogicalStringsAfterConversion
                 {
-                    return Err("selected FTS array positions require logical-string text derivation".into());
+                    return Err(
+                        "selected FTS array positions require logical-string text derivation"
+                            .into(),
+                    );
                 }
                 local_positions.push((local.fields.len() - 1, path, syntax));
             }
@@ -213,7 +333,10 @@ pub(crate) fn bind_fts_with_relations(
         &repo.collections[collection_index].definition.schema,
     )?;
     for (index, path, syntax) in local_positions {
-        let field = bound.fields.get_mut(index).ok_or("selected FTS field is missing")?;
+        let field = bound
+            .fields
+            .get_mut(index)
+            .ok_or("selected FTS field is missing")?;
         field.query_path = Some(path);
         field.evidence_path = syntax;
     }
@@ -239,7 +362,7 @@ pub(crate) fn eval_filter_truth(
     match expr {
         BoundExpr::Term(term) => {
             let result = if term.related.is_some() {
-                eval_related_term_mode(repo, term, ctx, mode, work)?
+                eval_related_term_mode(repo, term, ctx, mode, work, None)?
             } else {
                 Some(eval_term(term, ctx)?)
             };
@@ -331,6 +454,7 @@ pub(crate) fn eval_fts_with_relations(
                 quantifier: Quantifier::Any,
                 collect_text: true,
                 mode,
+                target_values: None,
             };
             visit_hop(
                 &config,
@@ -704,8 +828,16 @@ pub(crate) fn eval_related_term(
     term: &BoundTerm,
     source: &RecordContext<'_>,
     work: &mut RelationWork,
+    target_values: Option<&TargetValueCache>,
 ) -> Result<Option<bool>, String> {
-    eval_related_term_mode(repo, term, source, EvaluationMode::Indexed, work)
+    eval_related_term_mode(
+        repo,
+        term,
+        source,
+        EvaluationMode::Indexed,
+        work,
+        target_values,
+    )
 }
 
 fn eval_related_term_mode(
@@ -714,6 +846,7 @@ fn eval_related_term_mode(
     source: &RecordContext<'_>,
     mode: EvaluationMode,
     work: &mut RelationWork,
+    target_values: Option<&TargetValueCache>,
 ) -> Result<Option<bool>, String> {
     let related = term.related.as_ref().ok_or("relation term is not bound")?;
     let start = repo
@@ -732,6 +865,9 @@ fn eval_related_term_mode(
         quantifier: term.quantifier,
         collect_text: false,
         mode,
+        target_values: target_values.filter(|_| {
+            related.source_operand.is_some() && related.terminal.path.root == PathRoot::Data
+        }),
     };
     visit_hop(
         &config,
@@ -796,6 +932,7 @@ fn visit_hop(
         quantifier,
         collect_text,
         mode,
+        target_values,
     } = *config;
     if decisive(*truth, quantifier) {
         return Ok(());
@@ -807,14 +944,34 @@ fn visit_hop(
             merge_truth(truth, None, quantifier);
             return Ok(());
         }
+        if let Some(value) =
+            target_values.and_then(|cache| cache.get(collection.generation.collection, source_slot))
+        {
+            work.target_cache_hits += 1;
+            let file = &repo.files.files[record.file.0 as usize];
+            let ctx = RecordContext {
+                value,
+                source_bytes: None,
+                record,
+                file,
+                collection_name: &collection.definition.name,
+                repository_root: &repo.files.root,
+            };
+            merge_truth(truth, Some(terminal(&ctx, &[])?), quantifier);
+            return Ok(());
+        }
         let file = &repo.files.files[record.file.0 as usize];
         let path = repo
             .files
             .native_path(record.file)
             .ok_or("missing target source path")?;
+        if record.range.len() > MAX_QUERY_RELATION_BYTES {
+            return Err(format!(
+                "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
+            ));
+        }
         let bytes = read_record_range(&path, record.revision, record.range)?;
-        work.target_reads += 1;
-        work.bytes_read += bytes.len() as u64;
+        work.target_read(bytes.len() as u64)?;
         let extracted = crate::record_preparation::prepare_query_record(
             &collection.source,
             &collection.definition.schema,
@@ -863,7 +1020,7 @@ fn visit_hop(
                     if !positions_match(&hop.selectors, &positions) {
                         continue;
                     }
-                    work.edge_visits += 1;
+                    work.edge()?;
                     selected += 1;
                     if let Some(target) = targets.iter().find(|record| record.id.0 == id) {
                         visit_hop(
@@ -898,6 +1055,7 @@ fn visit_hop(
                 let mut seen = 0usize;
                 let mut selected = 0usize;
                 for candidate in &source_collection.identity_order {
+                    work.backlink_probe()?;
                     let Some(value) =
                         read_reference_value(repo, hop.to.0 as usize, *candidate, work)?
                     else {
@@ -907,7 +1065,7 @@ fn visit_hop(
                     if !references.values.iter().any(|(id, _)| id == &target.id.0) {
                         continue;
                     }
-                    work.edge_visits += 1;
+                    work.edge()?;
                     if hop
                         .selectors
                         .first()
@@ -951,7 +1109,7 @@ fn visit_hop(
                 if !positions_match(&hop.selectors, &edge.positions) {
                     continue;
                 }
-                work.edge_visits += 1;
+                work.edge()?;
                 selected += 1;
                 match edge.target {
                     RelationTarget::Resolved(target) => visit_hop(
@@ -989,31 +1147,54 @@ fn visit_hop(
             let mut seen = 0usize;
             let mut selected = 0usize;
             if let Some(sources) = sources {
-                for source in &source_collection.identity_order {
-                    if !sources.contains(source.0) {
-                        continue;
-                    }
-                    work.edge_visits += 1;
-                    if hop
-                        .selectors
-                        .first()
-                        .is_none_or(|selector| selector.is_none_or(|index| index as usize == seen))
-                    {
+                if hop.selectors.iter().all(Option::is_none) {
+                    // Without a numeric selector, Boolean truth is independent
+                    // of identity-order rank. Visit only actual reverse hits.
+                    for source in sources.iter() {
+                        work.backlink_probe()?;
+                        work.edge()?;
                         selected += 1;
                         visit_hop(
                             config,
                             depth + 1,
                             hop.to.0 as usize,
-                            *source,
+                            RecordSlot(source),
                             truth,
                             work,
                             source_positions,
                             terminal,
                         )?;
+                        if decisive(*truth, quantifier) {
+                            break;
+                        }
                     }
-                    seen += 1;
-                    if decisive(*truth, quantifier) {
-                        break;
+                } else {
+                    // A positional backlink means rank among sources in
+                    // identity order, so retain that ordering here.
+                    for source in &source_collection.identity_order {
+                        work.backlink_probe()?;
+                        if !sources.contains(source.0) {
+                            continue;
+                        }
+                        work.edge()?;
+                        if hop.selectors.first().is_none_or(|selector| {
+                            selector.is_none_or(|index| index as usize == seen)
+                        }) {
+                            selected += 1;
+                            visit_hop(
+                                config,
+                                depth + 1,
+                                hop.to.0 as usize,
+                                *source,
+                                truth,
+                                work,
+                                terminal,
+                            )?;
+                        }
+                        seen += 1;
+                        if decisive(*truth, quantifier) {
+                            break;
+                        }
                     }
                 }
             }
@@ -1044,9 +1225,13 @@ fn read_reference_value(
         .files
         .native_path(record.file)
         .ok_or("reference relation path is missing")?;
+    if record.range.len() > MAX_QUERY_RELATION_BYTES {
+        return Err(format!(
+            "relation source record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
+        ));
+    }
     let bytes = read_record_range(&path, record.revision, record.range)?;
-    work.source_reads += 1;
-    work.bytes_read += bytes.len() as u64;
+    work.source_read(bytes.len() as u64)?;
     let extracted = crate::record_preparation::prepare_query_record(
         &collection.source,
         &collection.definition.schema,
