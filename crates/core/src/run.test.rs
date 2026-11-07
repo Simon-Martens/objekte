@@ -2789,3 +2789,142 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
             .contains("memory budget")
     );
 }
+
+#[test]
+fn computed_sort_pages_match_reference_across_workers_and_file_layouts() {
+    let expression = crate::workload::SortExpression {
+        path: "title".into(),
+        binding: Some("lower".into()),
+        reducer: None,
+    };
+    for split_files in [false, true] {
+        let root = std::env::temp_dir().join(format!(
+            "objekte-computed-sort-workers-{}-{split_files}",
+            std::process::id()
+        ));
+        let source = root.join("items");
+        std::fs::create_dir_all(&source).unwrap();
+        let rows = (0..48)
+            .map(|index| {
+                format!(
+                    "{{\"title\":\"{}\",\"payload\":\"{}\"}}\n",
+                    ["Zulu", "alpha", "ALPHA", "Äpfel", "beta"][index % 5],
+                    "x".repeat(4096)
+                )
+            })
+            .collect::<Vec<_>>();
+        if split_files {
+            for (index, row) in rows.iter().enumerate() {
+                std::fs::write(source.join(format!("{index:03}.jsonl")), row).unwrap();
+            }
+        } else {
+            std::fs::write(source.join("all.jsonl"), rows.concat()).unwrap();
+        }
+        for workers in [1, 2, 4, 8] {
+            let repo = Repository::open_with_options(
+                &root,
+                vec![CollectionDefinition::folder(
+                    "items",
+                    "items",
+                    SourceFormat::JsonLines,
+                )],
+                crate::repository::RepositoryOptions {
+                    query_workers: workers,
+                    snapshot_mode: crate::repository::SnapshotMode::Disabled,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            for return_mode in [ReturnMode::Locator, ReturnMode::Bytes, ReturnMode::Logical] {
+                let query = Query {
+                    collections: vec!["items".into()],
+                    filter: None,
+                    fts: None,
+                    options: QueryOptions {
+                        sort: vec![SortField::computed(expression.clone(), false)],
+                        limit: 11,
+                        offset: 7,
+                        count: true,
+                        return_mode,
+                        evidence: false,
+                    },
+                };
+                let expected = repo.search_reference(&query).unwrap();
+                let actual = repo.search(&query).unwrap();
+                assert_eq!(
+                    actual.count, expected.count,
+                    "split={split_files} workers={workers}"
+                );
+                assert_eq!(
+                    actual.hits, expected.hits,
+                    "split={split_files} workers={workers}"
+                );
+                assert_eq!(actual.counters.peak_retained_payload_bytes, 0);
+            }
+        }
+        std::fs::remove_dir_all(root).unwrap();
+    }
+}
+
+#[test]
+fn computed_sort_large_record_uses_single_worker_reservation() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-computed-sort-large-{}",
+        std::process::id()
+    ));
+    let source = root.join("items");
+    std::fs::create_dir_all(&source).unwrap();
+    for index in 0..8 {
+        let payload = if index == 7 {
+            "x".repeat(18 * 1024 * 1024)
+        } else {
+            "x".into()
+        };
+        let title = if index == 7 { "A" } else { "Z" };
+        std::fs::write(
+            source.join(format!("{index:03}.json")),
+            format!("{{\"title\":\"{title}\",\"payload\":\"{payload}\"}}"),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "items",
+            SourceFormat::Json,
+        )],
+        crate::repository::RepositoryOptions {
+            query_workers: 8,
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["items".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::computed(
+                crate::workload::SortExpression {
+                    path: "title".into(),
+                    binding: Some("lower".into()),
+                    reducer: None,
+                },
+                false,
+            )],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Logical,
+            evidence: false,
+        },
+    };
+    assert_eq!(
+        repo.search(&query).unwrap().hits,
+        repo.search_reference(&query).unwrap().hits
+    );
+    drop(repo);
+    std::fs::remove_dir_all(root).unwrap();
+}
