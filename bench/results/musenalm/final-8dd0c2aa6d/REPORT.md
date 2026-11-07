@@ -771,4 +771,4 @@ additional historical query suite. Source freshness checks rely on path,
 size, and modified time; same-size edits with a restored timestamp cannot be
 detected. Runtime updates, watchers, and partial repository rebuilds remain
 deferred. The project branch's pushed commits and checks are mapped in the
-[progress ledger](../../../../docs/core-implementation-progress.md).
+[progress ledger](https://github.com/Simon-Martens/objekte/blob/0edd50292a/docs/core-implementation-progress.md).

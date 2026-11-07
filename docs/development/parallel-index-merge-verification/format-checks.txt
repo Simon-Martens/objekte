@@ -1,2 +1,0 @@
-rustfmt --edition 2024 --check crates/core/src/build.rs crates/core/src/build.test.rs: PASS
-cargo fmt --all --check: FAIL (workspace-wide formatting drift; see workspace-fmt.log.gz)

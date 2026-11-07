@@ -1,9 +1,0 @@
-# Resident relation inspection
-
-`Repository::relation_outgoing_page` pages stored reference occurrences in source order. Duplicate IDs remain separate occurrences with their array positions. The page distinguishes missing, present and raw-fallback-unavailable relation state; explicit null and empty-array flags can coexist with other nested occurrences. A resolved reference includes its target record class and diagnostic reference. An unresolved reference retains its ID without changing the source record's parse status.
-
-`Repository::relation_backlink_page` uses the existing typed reverse posting and returns **distinct source records** in record-slot order. It does not build another reverse index. Both page methods require a limit from 1 through `MAX_RELATION_PAGE_SIZE` (1024), use zero-based offsets, report the total and next offset, and return an empty page when the offset is past the end. Repository generations are immutable, so repeating a request on the same repository yields the same page. Callers must start a new sequence after opening another generation.
-
-`Repository::collection_graph` returns all configured collection nodes, including empty collections, and one edge per declared relation. Edges retain relation IDs, field paths, cardinality, reverse aliases, occurrence counts and unresolved occurrence counts. Nodes list incoming and outgoing relation IDs. Strongly connected components report finite collection cycles without enumerating possible paths. Graph work and storage are proportional to configured collections and relation declarations; it does not traverse record payloads.
-
-The methods inspect resident inventories, CSR relation edges and existing postings. They do not decode records, read source files, or change query/index persistence. The focused fixture removes its source directories after both fresh build and snapshot restore, then checks identical pages and graphs from both repositories.
