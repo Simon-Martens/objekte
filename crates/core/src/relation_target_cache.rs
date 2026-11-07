@@ -6,13 +6,13 @@ use roaring::RoaringBitmap;
 
 use crate::inventory::RecordClass;
 use crate::model::{CollectionId, FileId, PathRoot, RecordSlot, Value};
-use crate::record_preparation::prepare_query_record;
 use crate::reference::{BoundExpr, BoundTerm};
 use crate::relation::RelationTarget;
 use crate::relation_query::HopDirection;
 use crate::repository::Repository;
 use crate::source::ScanProjection;
 use crate::source_access::SourceAccessSession;
+use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 const MAX_TARGET_SLOTS: u64 = 5_000_000;
 const MAX_EDGE_VISITS: u64 = 32_000_000;
@@ -22,7 +22,6 @@ const BATCH_BYTES: u64 = 1024 * 1024;
 // Conservative stream charge for a target's bitmap membership, grouped range,
 // and map entry while prefetching. It is an estimate, not process RSS.
 const STREAM_TARGET_SLOT_BYTES: u64 = 128;
-
 
 /// Physical preparation work, charged to the query before source scanning.
 #[derive(Clone, Copy, Debug, Default)]
@@ -34,7 +33,6 @@ pub(crate) struct TargetCacheWork {
     pub edge_visits: u64,
 }
 
-
 /// Immutable projected logical values shared by parallel source scanners.
 pub(crate) struct TargetValueCache {
     values: HashMap<(CollectionId, RecordSlot), Value>,
@@ -42,7 +40,6 @@ pub(crate) struct TargetValueCache {
     pub work: TargetCacheWork,
     pub retained_bytes: u64,
 }
-
 
 impl TargetValueCache {
     pub(crate) fn estimated_bytes(&self) -> usize {
@@ -71,7 +68,6 @@ impl TargetValueCache {
             .and_then(|_| self.get(collection, slot))
     }
 }
-
 
 fn source_dependent_terms<'a>(expr: &'a BoundExpr, output: &mut Vec<&'a BoundTerm>) {
     match expr {
@@ -142,8 +138,17 @@ pub(crate) fn prepare(
     source_collection: usize,
     expr: &BoundExpr,
     candidates: &RoaringBitmap,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<TargetValueCache>, String> {
-    prepare_with_limits(repo, source_collection, expr, candidates, None, None)
+    prepare_with_limits(
+        repo,
+        source_collection,
+        expr,
+        candidates,
+        None,
+        None,
+        execution,
+    )
 }
 
 pub(crate) fn prepare_stream(
@@ -153,6 +158,7 @@ pub(crate) fn prepare_stream(
     candidates: &RoaringBitmap,
     cancellation: &crate::streaming::CancellationToken,
     max_retained_bytes: usize,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<TargetValueCache>, String> {
     prepare_with_limits(
         repo,
@@ -161,25 +167,45 @@ pub(crate) fn prepare_stream(
         candidates,
         Some(cancellation),
         Some(max_retained_bytes as u64),
+        execution,
     )
 }
 
-fn limit_error(message: String, streaming: bool) -> String {
-    if streaming {
-        format!("stream resource: {message}")
+fn mark_resource(message: String, execution: Option<&ExecutionContext>) -> String {
+    if let Some(execution) = execution {
+        execution.fail(ExecutionErrorKind::Resource, message)
     } else {
         message
     }
 }
 
-fn stream_target_slot_charge(slots: u64, limit: Option<u64>) -> Result<u64, String> {
-    let bytes = slots
-        .checked_mul(STREAM_TARGET_SLOT_BYTES)
-        .ok_or("stream resource: target slot accounting overflow")?;
+fn limit_error(message: String, streaming: bool, execution: Option<&ExecutionContext>) -> String {
+    mark_resource(
+        if streaming {
+            format!("stream resource: {message}")
+        } else {
+            message
+        },
+        execution,
+    )
+}
+
+fn stream_target_slot_charge(
+    slots: u64,
+    limit: Option<u64>,
+    execution: Option<&ExecutionContext>,
+) -> Result<u64, String> {
+    let bytes = slots.checked_mul(STREAM_TARGET_SLOT_BYTES).ok_or_else(|| {
+        mark_resource(
+            "stream resource: target slot accounting overflow".into(),
+            execution,
+        )
+    })?;
     if limit.is_some_and(|limit| bytes > limit) {
-        return Err(
+        return Err(mark_resource(
             "stream resource: related target bookkeeping exceeds buffered-byte limit".into(),
-        );
+            execution,
+        ));
     }
     Ok(bytes)
 }
@@ -191,7 +217,11 @@ fn prepare_with_limits(
     candidates: &RoaringBitmap,
     cancellation: Option<&crate::streaming::CancellationToken>,
     max_retained_bytes: Option<u64>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<TargetValueCache>, String> {
+    if let Some(execution) = execution {
+        execution.check_slots(candidates.len())?;
+    }
     let mut terms = Vec::new();
     source_dependent_terms(expr, &mut terms);
     let mut targets = BTreeMap::<CollectionId, (RoaringBitmap, HashSet<String>)>::new();
@@ -222,6 +252,9 @@ fn prepare_with_limits(
                 .ok_or("relation declaration missing")?;
             let mut next = RoaringBitmap::new();
             for slot in current.iter() {
+                if let Some(execution) = execution {
+                    execution.check_string()?;
+                }
                 if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
                     return Err("stream cancelled".into());
                 }
@@ -232,6 +265,9 @@ fn prepare_with_limits(
                     .edges(RecordSlot(slot))
                     .ok_or("relation source slot missing")?
                 {
+                    if let Some(execution) = execution {
+                        execution.charge_edges(1)?;
+                    }
                     if !positions_match(&hop.selectors, &edge.positions) {
                         continue;
                     }
@@ -239,18 +275,21 @@ fn prepare_with_limits(
                         limit_error(
                             "target prefetch edge count overflow".into(),
                             max_retained_bytes.is_some(),
+                            execution,
                         )
                     })?;
                     if work.edge_visits > MAX_EDGE_VISITS {
                         return Err(limit_error(
                             format!("target prefetch exceeds {MAX_EDGE_VISITS} edge visits"),
                             max_retained_bytes.is_some(),
+                            execution,
                         ));
                     }
-                    if let RelationTarget::Resolved(target) = edge.target {
-                        if next.insert(target.0) && max_retained_bytes.is_some() {
-                            stream_target_slot_charge(next.len(), max_retained_bytes)?;
-                        }
+                    if let RelationTarget::Resolved(target) = edge.target
+                        && next.insert(target.0)
+                        && max_retained_bytes.is_some()
+                    {
+                        stream_target_slot_charge(next.len(), max_retained_bytes, execution)?;
                     }
                 }
             }
@@ -258,7 +297,11 @@ fn prepare_with_limits(
                 return Err(limit_error(
                     format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"),
                     max_retained_bytes.is_some(),
+                    execution,
                 ));
+            }
+            if let Some(execution) = execution {
+                execution.check_slots(next.len())?;
             }
             current = next;
         }
@@ -274,11 +317,14 @@ fn prepare_with_limits(
         entry.1.insert(first.clone());
         if max_retained_bytes.is_some() {
             let slots = targets.values().try_fold(0u64, |total, (slots, _)| {
-                total
-                    .checked_add(slots.len())
-                    .ok_or("stream resource: target slot count overflow")
+                total.checked_add(slots.len()).ok_or_else(|| {
+                    mark_resource(
+                        "stream resource: target slot count overflow".into(),
+                        execution,
+                    )
+                })
             })?;
-            stream_target_slot_charge(slots, max_retained_bytes)?;
+            stream_target_slot_charge(slots, max_retained_bytes, execution)?;
         }
     }
     if targets.is_empty() {
@@ -288,24 +334,34 @@ fn prepare_with_limits(
     let mut projected_fields = HashMap::new();
     let mut retained = if max_retained_bytes.is_some() {
         let slots = targets.values().try_fold(0u64, |total, (slots, _)| {
-            total
-                .checked_add(slots.len())
-                .ok_or("stream resource: target slot count overflow")
+            total.checked_add(slots.len()).ok_or_else(|| {
+                mark_resource(
+                    "stream resource: target slot count overflow".into(),
+                    execution,
+                )
+            })
         })?;
-        stream_target_slot_charge(slots, max_retained_bytes)?
+        stream_target_slot_charge(slots, max_retained_bytes, execution)?
     } else {
         0
     };
     let mut access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        access.configure_execution(execution);
+    }
     for (collection_id, (slots, fields)) in targets {
         if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
             return Err("stream cancelled".into());
         }
         work.target_candidates = work.target_candidates.saturating_add(slots.len());
+        if let Some(execution) = execution {
+            execution.check_slots(work.target_candidates)?;
+        }
         if work.target_candidates > MAX_TARGET_SLOTS {
             return Err(limit_error(
                 format!("target prefetch exceeds {MAX_TARGET_SLOTS} slots"),
                 max_retained_bytes.is_some(),
+                execution,
             ));
         }
         let collection = &repo.collections[collection_id.0 as usize];
@@ -341,14 +397,27 @@ fn prepare_with_limits(
                 }
                 let remaining = max_retained_bytes.map(|limit| limit.saturating_sub(retained));
                 let first_bytes = ranges[start].1.len();
+                if let Some(execution) = execution {
+                    execution.check_string()?;
+                    if first_bytes > execution.limits.target_record_bytes {
+                        return Err(execution.fail(
+                            ExecutionErrorKind::Resource,
+                            "target prefetch record exceeds source read allowance",
+                        ));
+                    }
+                }
                 if first_bytes > MAX_RECORD_BYTES {
                     return Err(limit_error(
                         format!("target prefetch record exceeds {MAX_RECORD_BYTES} bytes"),
                         max_retained_bytes.is_some(),
+                        execution,
                     ));
                 }
                 if remaining.is_some_and(|limit| first_bytes > limit) {
-                    return Err("stream resource: target record exceeds read allowance".into());
+                    return Err(mark_resource(
+                        "stream resource: target record exceeds read allowance".into(),
+                        execution,
+                    ));
                 }
                 let mut end = start + 1;
                 let mut batch_bytes = first_bytes;
@@ -362,6 +431,10 @@ fn prepare_with_limits(
                 }
                 let chunk = &ranges[start..end];
                 start = end;
+                if let Some(execution) = execution {
+                    execution.charge_reads(chunk.len() as u64)?;
+                    execution.charge_bytes(batch_bytes)?;
+                }
                 let read = if let Some(limit) = remaining {
                     access.read_bounded(
                         file_id,
@@ -377,20 +450,25 @@ fn prepare_with_limits(
                     if cancellation.is_some_and(crate::streaming::CancellationToken::is_cancelled) {
                         return Err("stream cancelled".into());
                     }
-                    let projected = prepare_query_record(
+                    let projected = crate::record_preparation::prepare_query_record_with_execution(
                         &collection.source,
                         &collection.definition.schema,
                         &bytes,
                         &projection,
                         false,
+                        execution,
                     )?
                     .value;
+                    if let Some(execution) = execution {
+                        execution.check_string()?;
+                    }
                     retained = retained.saturating_add(retained_value_bytes(&projected));
                     if max_retained_bytes.is_some_and(|limit| retained > limit) {
-                        return Err(
+                        return Err(mark_resource(
                             "stream resource: related target cache exceeds buffered-byte limit"
                                 .into(),
-                        );
+                            execution,
+                        ));
                     }
                     if retained > MAX_RETAINED_VALUE_BYTES {
                         return Err(limit_error(
@@ -398,6 +476,7 @@ fn prepare_with_limits(
                                 "target prefetch exceeds {MAX_RETAINED_VALUE_BYTES} retained bytes"
                             ),
                             max_retained_bytes.is_some(),
+                            execution,
                         ));
                     }
                     work.target_reads += 1;

@@ -126,6 +126,137 @@ fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf
 }
 
 #[test]
+fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
+        StreamError, StreamOptions,
+    };
+    use crate::workload::SortField;
+
+    let root = write_inferred_order_fixture("inferred-order-limit", 32);
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("label", false)],
+            limit: 3,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                inferred_order_bytes: 1,
+                ..Default::default()
+            },
+            None,
+        )
+    };
+    assert_eq!(
+        repo.search_with_context(&request, &context())
+            .unwrap_err()
+            .kind,
+        ExecutionErrorKind::Resource
+    );
+    let outcome = repo.search_stream_scoped_with_context(
+        &request,
+        ResultScope::Page {
+            offset: 0,
+            limit: 3,
+        },
+        StreamOptions::default(),
+        &context(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(outcome, Err(StreamError::Resource { .. })),
+        "{outcome:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn inferred_order_construction_observes_mid_build_cancellation() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::streaming::{
+        CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
+    let root = write_inferred_order_fixture("inferred-order-cancel", 32);
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        crate::repository::RepositoryOptions {
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let collection = &repo.collections[0];
+    let index = collection
+        .inference
+        .as_ref()
+        .unwrap()
+        .complete_scalar_index(&["label".into()], &collection.logical_records)
+        .unwrap();
+    let token = CancellationToken::new();
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(token.clone()),
+    );
+    context.cancel_on_check_for_test(3);
+    let error = SortColumn::from_inferred_posting(
+        index,
+        &collection.generation,
+        FieldPath::parse("label").unwrap(),
+        &collection.definition.sort_locale,
+        collection.definition.sort_options,
+        false,
+        Some(&context),
+    )
+    .unwrap_err();
+    assert!(token.is_cancelled());
+    assert!(context.checks_for_test() >= 3);
+    assert_eq!(
+        context.recorded_error(error).kind,
+        ExecutionErrorKind::Cancelled
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn inferred_order_cache_reuses_pages_and_restores_without_persisting_orders() {
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::{RepositoryOptions, SnapshotMode};
@@ -2788,6 +2919,300 @@ fn computed_sort_combines_payload_key_and_target_budgets() {
             .unwrap_err()
             .contains("memory budget")
     );
+}
+
+#[test]
+fn computed_sort_request_limit_rejects_before_source_batch_in_both_modes() {
+    use crate::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
+        StreamError, StreamOptions,
+    };
+    let root = std::env::temp_dir().join(format!(
+        "objekte-computed-context-limit-{}",
+        std::process::id()
+    ));
+    let source = root.join("items");
+    std::fs::create_dir_all(&source).unwrap();
+    for index in 0..4 {
+        std::fs::write(
+            source.join(format!("{index}.json")),
+            format!(r#"{{"title":"Title {index}"}}"#),
+        )
+        .unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "items",
+            SourceFormat::Json,
+        )],
+        crate::repository::RepositoryOptions {
+            query_workers: 4,
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["items".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::computed(
+                crate::workload::SortExpression {
+                    path: "title".into(),
+                    binding: Some("lower".into()),
+                    reducer: None,
+                },
+                false,
+            )],
+            limit: 2,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                computed_sort_bytes: 1,
+                ..Default::default()
+            },
+            None,
+        )
+    };
+    let ordinary = repo.search_with_context(&query, &context()).unwrap_err();
+    assert_eq!(ordinary.kind, ExecutionErrorKind::Resource, "{ordinary:?}");
+    let result = repo.search_stream_scoped_with_context(
+        &query,
+        ResultScope::Page {
+            offset: 0,
+            limit: 2,
+        },
+        StreamOptions::default(),
+        &context(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(result, Err(StreamError::Resource { .. })),
+        "{result:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn computed_sort_cancels_after_worker_has_parsed_source_records() {
+    use crate::source::{
+        ExtractedRecord, JsonReader, ScanProjection, SourceReader, SourceRegistry,
+    };
+    use crate::streaming::{
+        CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    struct CancellingReader {
+        token: CancellationToken,
+        query_reads: Arc<AtomicUsize>,
+    }
+    impl SourceReader for CancellingReader {
+        fn name(&self) -> &'static str {
+            "cancelling_json"
+        }
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            JsonReader.frame(bytes)
+        }
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonReader.parse(bytes)
+        }
+        fn parse_for_query(
+            &self,
+            bytes: &[u8],
+            projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            let record = JsonReader.parse_for_query(bytes, projection)?;
+            if self.query_reads.fetch_add(1, Ordering::Relaxed) + 1 == 3 {
+                self.token.cancel();
+            }
+            Ok(record)
+        }
+    }
+    let root = std::env::temp_dir().join(format!(
+        "objekte-computed-context-cancel-{}",
+        std::process::id()
+    ));
+    let source = root.join("items");
+    std::fs::create_dir_all(&source).unwrap();
+    for index in 0..16 {
+        std::fs::write(
+            source.join(format!("{index:03}.tiny")),
+            format!(r#"{{"title":"Title {index}"}}"#),
+        )
+        .unwrap();
+    }
+    let token = CancellationToken::new();
+    let reads = Arc::new(AtomicUsize::new(0));
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register(
+            "cancelling_json",
+            1,
+            "tiny",
+            Arc::new(CancellingReader {
+                token: token.clone(),
+                query_reads: reads.clone(),
+            }),
+        )
+        .unwrap();
+    let repo = Repository::open_with_sources(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "items",
+            SourceFormat::registered("cancelling_json"),
+        )],
+        crate::repository::RepositoryOptions {
+            query_workers: 1,
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+        sources,
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["items".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::computed(
+                crate::workload::SortExpression {
+                    path: "title".into(),
+                    binding: Some("lower".into()),
+                    reducer: None,
+                },
+                false,
+            )],
+            limit: 1,
+            offset: 0,
+            count: true,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(token.clone()),
+    );
+    let error = repo.search_with_context(&query, &context).unwrap_err();
+    assert_eq!(error.kind, ExecutionErrorKind::Cancelled, "{error:?}");
+    assert!(token.is_cancelled());
+    assert_eq!(reads.load(Ordering::Relaxed), 3);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn extension_query_failure_has_ordinary_and_stream_class() {
+    use crate::source::{
+        ExtractedRecord, JsonReader, ScanProjection, SourceReader, SourceRegistry,
+    };
+    use crate::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
+        StreamOptions,
+    };
+    struct FailingReader;
+    impl SourceReader for FailingReader {
+        fn name(&self) -> &'static str {
+            "failing_query_reader"
+        }
+        fn frame(&self, bytes: &[u8]) -> Result<Vec<ByteRange>, String> {
+            JsonReader.frame(bytes)
+        }
+        fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+            JsonReader.parse(bytes)
+        }
+        fn parse_for_query(
+            &self,
+            _bytes: &[u8],
+            _projection: &ScanProjection,
+        ) -> Result<ExtractedRecord, String> {
+            Err("query extension failed".into())
+        }
+    }
+    let root = std::env::temp_dir().join(format!(
+        "objekte-extension-query-error-{}",
+        std::process::id()
+    ));
+    let source = root.join("items");
+    std::fs::create_dir_all(&source).unwrap();
+    std::fs::write(source.join("item.tiny"), r#"{"title":"Example"}"#).unwrap();
+    let mut sources = SourceRegistry::builtin();
+    sources
+        .register("failing_query_reader", 1, "tiny", Arc::new(FailingReader))
+        .unwrap();
+    let repo = Repository::open_with_sources(
+        &root,
+        vec![CollectionDefinition::folder(
+            "items",
+            "items",
+            SourceFormat::registered("failing_query_reader"),
+        )],
+        crate::repository::RepositoryOptions {
+            snapshot_mode: crate::repository::SnapshotMode::Disabled,
+            ..Default::default()
+        },
+        sources,
+    )
+    .unwrap();
+    let query = Query {
+        collections: vec!["items".into()],
+        filter: None,
+        fts: None,
+        options: QueryOptions {
+            sort: vec![SortField::computed(
+                crate::workload::SortExpression {
+                    path: "title".into(),
+                    binding: Some("lower".into()),
+                    reducer: None,
+                },
+                false,
+            )],
+            limit: 1,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            None,
+        )
+    };
+    assert_eq!(
+        repo.search_with_context(&query, &context())
+            .unwrap_err()
+            .kind,
+        ExecutionErrorKind::Extension
+    );
+    let stream = repo
+        .search_stream_scoped_with_context(
+            &query,
+            ResultScope::Page {
+                offset: 0,
+                limit: 1,
+            },
+            StreamOptions::default(),
+            &context(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert_eq!(stream.kind(), ExecutionErrorKind::Extension, "{stream:?}");
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 #[test]

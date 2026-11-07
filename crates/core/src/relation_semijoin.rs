@@ -11,7 +11,6 @@ use crate::executor::{
 use crate::inventory::RecordClass;
 use crate::model::{FileId, RecordSlot};
 use crate::query::Quantifier;
-use crate::record_preparation::prepare_query_record;
 use crate::reference::{
     BoundExpr, BoundFts, BoundTerm, RecordContext, eval_bound_fts_membership, eval_term,
     same_bound_term,
@@ -21,6 +20,7 @@ use crate::relation_query::{BoundRelationHop, HopDirection};
 use crate::repository::Repository;
 use crate::source::{ScanProjection, TextSegment};
 use crate::source_access::SourceAccessSession;
+use crate::streaming::{ExecutionContext, ExecutionErrorKind};
 
 // These are query-local limits. Hitting one is an explicit error, never a
 // silently truncated candidate set or count.
@@ -29,7 +29,6 @@ const MAX_VISITED_EDGES: u64 = 32_000_000;
 const MAX_TARGET_RECORD_BYTES: u64 = 64 * 1024 * 1024;
 const TARGET_BATCH_BYTES: u64 = 1024 * 1024;
 
-
 /// Physical strategy chosen for one positive relation term.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum Strategy {
@@ -37,14 +36,12 @@ pub(crate) enum Strategy {
     SourceRestricted,
 }
 
-
 /// Exact source membership and selected-field evidence for relation FTS.
 pub(crate) struct FtsWitnesses {
     pub evidence: HashMap<u32, HashSet<String>>,
     pub work: SemijoinWork,
     pub strategies: Vec<Strategy>,
 }
-
 
 /// Query-local work performed while constructing exact relation witnesses.
 #[derive(Clone, Copy, Debug, Default)]
@@ -59,7 +56,6 @@ pub(crate) struct SemijoinWork {
     pub verified_targets_reused: u64,
 }
 
-
 impl SemijoinWork {
     pub fn add(&mut self, other: Self) {
         self.target_candidates += other.target_candidates;
@@ -73,8 +69,10 @@ impl SemijoinWork {
     }
 }
 
-
-fn ensure_slots(count: u64) -> Result<(), String> {
+fn ensure_slots(count: u64, execution: Option<&ExecutionContext>) -> Result<(), String> {
+    if let Some(execution) = execution {
+        return execution.check_slots(count);
+    }
     if count > MAX_INTERMEDIATE_SLOTS {
         Err(format!(
             "relation semijoin intermediate exceeds {MAX_INTERMEDIATE_SLOTS} slots"
@@ -84,7 +82,10 @@ fn ensure_slots(count: u64) -> Result<(), String> {
     }
 }
 
-fn visit_edge(work: &mut SemijoinWork) -> Result<(), String> {
+fn visit_edge(work: &mut SemijoinWork, execution: Option<&ExecutionContext>) -> Result<(), String> {
+    if let Some(execution) = execution {
+        execution.charge_edges(1)?;
+    }
     work.edge_visits = work
         .edge_visits
         .checked_add(1)
@@ -235,7 +236,11 @@ fn reachable_targets(
     hops: &[BoundRelationHop],
     input: &RoaringBitmap,
     work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
 ) -> Result<RoaringBitmap, String> {
+    if let Some(execution) = execution {
+        execution.check_slots(input.len())?;
+    }
     let mut current = input.clone();
     for hop in hops {
         let index = relation(repo, hop)?;
@@ -248,13 +253,13 @@ fn reachable_targets(
                 .edges(RecordSlot(slot))
                 .ok_or("relation source slot missing")?
             {
-                visit_edge(work)?;
+                visit_edge(work, execution)?;
                 if let RelationTarget::Resolved(target) = edge.target {
                     next.insert(target.0);
                 }
             }
         }
-        ensure_slots(next.len())?;
+        ensure_slots(next.len(), execution)?;
         current = next;
     }
     Ok(current)
@@ -266,13 +271,17 @@ fn verified_targets(
     terminal: &BoundTerm,
     restricted: Option<&RoaringBitmap>,
     work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
 ) -> Result<RoaringBitmap, String> {
     let collection = &repo.collections[target_index];
     let domain = &collection.logical_records;
+    if restricted.is_none() {
+        ensure_slots(domain.len(), execution)?;
+    }
     let input = restricted
         .map(|set| set & domain)
         .unwrap_or_else(|| domain.clone());
-    ensure_slots(input.len())?;
+    ensure_slots(input.len(), execution)?;
     let expr = BoundExpr::Term(terminal.clone());
     let plan = plan_expr_restricted(repo, collection, &expr, domain, &input, false)?;
     let candidates = plan.candidates.unwrap_or(input);
@@ -292,6 +301,7 @@ fn verified_targets(
         },
         false,
         work,
+        execution,
         &mut |ctx, _| eval_term(terminal, ctx),
     )?;
     work.target_matches += matched.len();
@@ -305,8 +315,12 @@ fn verify_target_records(
     first_field: Option<&str>,
     collect_text: bool,
     work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
     evaluate: &mut impl FnMut(&RecordContext<'_>, &[TextSegment]) -> Result<bool, String>,
 ) -> Result<RoaringBitmap, String> {
+    if let Some(execution) = execution {
+        execution.check_slots(candidates.len())?;
+    }
     let collection = &repo.collections[target_index];
     let mut grouped = BTreeMap::<FileId, Vec<(u32, crate::inventory::ByteRange)>>::new();
     for slot in candidates.iter() {
@@ -323,6 +337,9 @@ fn verify_target_records(
         }
     }
     let mut access = SourceAccessSession::new(&repo.files);
+    if let Some(execution) = execution {
+        access.configure_execution(execution);
+    }
     let mut matched = RoaringBitmap::new();
     let mut projection = ScanProjection::full(collect_text);
     if let Some(first) = first_field {
@@ -331,7 +348,18 @@ fn verify_target_records(
     for (file_id, ranges) in grouped {
         let mut start = 0;
         while start < ranges.len() {
+            if let Some(execution) = execution {
+                execution.check_string()?;
+            }
             let first_bytes = ranges[start].1.len();
+            if let Some(execution) = execution
+                && first_bytes > execution.limits.target_record_bytes
+            {
+                return Err(execution.fail(
+                    ExecutionErrorKind::Resource,
+                    "relation target record exceeds source read allowance",
+                ));
+            }
             if first_bytes > MAX_TARGET_RECORD_BYTES {
                 return Err(format!(
                     "relation target record exceeds {MAX_TARGET_RECORD_BYTES} bytes"
@@ -348,18 +376,23 @@ fn verify_target_records(
             }
             let chunk = &ranges[start..end];
             start = end;
+            if let Some(execution) = execution {
+                execution.charge_reads(chunk.len() as u64)?;
+                execution.charge_bytes(batch_bytes)?;
+            }
             let batch = access.read(file_id, chunk)?;
             work.target_file_opens += batch.opened;
             work.target_bytes_read += batch.bytes_read;
             for (slot, bytes) in batch.records {
                 let record = &collection.generation.records[slot as usize];
                 let file = &repo.files.files[file_id.0 as usize];
-                let prepared = prepare_query_record(
+                let prepared = crate::record_preparation::prepare_query_record_with_execution(
                     &collection.source,
                     &collection.definition.schema,
                     &bytes,
                     &projection,
                     false,
+                    execution,
                 )?;
                 let ctx = RecordContext {
                     value: &prepared.value,
@@ -385,7 +418,9 @@ fn reverse_sources(
     terminal: &RoaringBitmap,
     input: &RoaringBitmap,
     work: &mut SemijoinWork,
+    execution: Option<&ExecutionContext>,
 ) -> Result<RoaringBitmap, String> {
+    ensure_slots(terminal.len(), execution)?;
     let mut current = terminal.clone();
     for hop in hops.iter().rev() {
         let index = relation(repo, hop)?;
@@ -401,7 +436,7 @@ fn reverse_sources(
             if let Some(sources) = repo.relation_reverse_sources(index, &record.id.0) {
                 next |= sources;
             }
-            ensure_slots(next.len())?;
+            ensure_slots(next.len(), execution)?;
         }
         current = next;
     }
@@ -409,18 +444,29 @@ fn reverse_sources(
     Ok(current)
 }
 
+#[cfg(test)]
 pub(crate) fn candidates_with_strategy(
     repo: &Repository,
     term: &BoundTerm,
     input: &RoaringBitmap,
     strategy: Strategy,
 ) -> Result<(RoaringBitmap, SemijoinWork), String> {
+    candidates_with_strategy_with_execution(repo, term, input, strategy, None)
+}
+
+fn candidates_with_strategy_with_execution(
+    repo: &Repository,
+    term: &BoundTerm,
+    input: &RoaringBitmap,
+    strategy: Strategy,
+    execution: Option<&ExecutionContext>,
+) -> Result<(RoaringBitmap, SemijoinWork), String> {
     let hops = eligible(repo, term).ok_or("relation term is not semijoin eligible")?;
-    ensure_slots(input.len())?;
+    ensure_slots(input.len(), execution)?;
     let target_index = hops.last().ok_or("missing relation hop")?.to.0 as usize;
     let mut work = SemijoinWork::default();
     let restricted = if strategy == Strategy::SourceRestricted {
-        Some(reachable_targets(repo, hops, input, &mut work)?)
+        Some(reachable_targets(repo, hops, input, &mut work, execution)?)
     } else {
         None
     };
@@ -434,8 +480,9 @@ pub(crate) fn candidates_with_strategy(
             .terminal,
         restricted.as_ref(),
         &mut work,
+        execution,
     )?;
-    let sources = reverse_sources(repo, hops, &true_targets, input, &mut work)?;
+    let sources = reverse_sources(repo, hops, &true_targets, input, &mut work, execution)?;
     if work.target_reads > 0 {
         work.verified_targets_reused = sources.len().saturating_sub(work.target_reads);
     }
@@ -449,6 +496,7 @@ pub(crate) fn fts_witnesses(
     repo: &Repository,
     fts: &BoundFts,
     input: &RoaringBitmap,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<FtsWitnesses>, String> {
     if fts.fields.is_empty()
         || fts.fields.iter().any(|field| {
@@ -463,7 +511,7 @@ pub(crate) fn fts_witnesses(
     {
         return Ok(None);
     }
-    ensure_slots(input.len())?;
+    ensure_slots(input.len(), execution)?;
     let mut evidence = HashMap::<u32, HashSet<String>>::new();
     let mut all_work = SemijoinWork::default();
     let mut strategies = Vec::new();
@@ -499,14 +547,15 @@ pub(crate) fn fts_witnesses(
         };
         let mut work = SemijoinWork::default();
         let domain = if strategy == Strategy::SourceRestricted {
-            reachable_targets(repo, hops, input, &mut work)?
+            reachable_targets(repo, hops, input, &mut work, execution)?
         } else {
+            ensure_slots(target.logical_records.len(), execution)?;
             target.logical_records.clone()
         };
         let candidates = fts_candidates(target, &local)
             .map(|set| &set & &domain)
             .unwrap_or(domain);
-        ensure_slots(candidates.len())?;
+        ensure_slots(candidates.len(), execution)?;
         work.target_candidates += candidates.len();
         let matched = verify_target_records(
             repo,
@@ -515,10 +564,11 @@ pub(crate) fn fts_witnesses(
             field.path.segments.first().map(String::as_str),
             true,
             &mut work,
+            execution,
             &mut |ctx, segments| eval_bound_fts_membership(&local, segments, ctx),
         )?;
         work.target_matches += matched.len();
-        let sources = reverse_sources(repo, hops, &matched, input, &mut work)?;
+        let sources = reverse_sources(repo, hops, &matched, input, &mut work, execution)?;
         if work.target_reads > 0 {
             work.verified_targets_reused = sources.len().saturating_sub(work.target_reads);
         }
@@ -528,7 +578,7 @@ pub(crate) fn fts_witnesses(
                 .or_default()
                 .insert(field.evidence_path.clone());
         }
-        ensure_slots(evidence.len() as u64)?;
+        ensure_slots(evidence.len() as u64, execution)?;
         all_work.add(work);
         strategies.push(strategy);
     }
@@ -547,18 +597,23 @@ pub(crate) fn restrict(
     expr: &BoundExpr,
     input: &RoaringBitmap,
     plan: &mut Plan,
+    execution: Option<&ExecutionContext>,
 ) -> Result<(), String> {
     let mut terms = Vec::new();
     positive_terms(expr, &mut terms);
     let mut current = plan.candidates.take().unwrap_or_else(|| input.clone());
     for term in terms {
+        if let Some(execution) = execution {
+            execution.check_string()?;
+        }
         if eligible(repo, term).is_none() || current.is_empty() {
             continue;
         }
         let (strategy, selected, alternatives) = estimate(repo, term, current.len())?;
         let before = current.clone();
         let actual_input = before.len();
-        let (matches, work) = candidates_with_strategy(repo, term, &current, strategy)?;
+        let (matches, work) =
+            candidates_with_strategy_with_execution(repo, term, &current, strategy, execution)?;
         current &= matches;
         plan.semijoin_work.add(work);
         plan.proofs.push(Proof {

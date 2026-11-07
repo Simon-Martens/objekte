@@ -37,7 +37,6 @@ pub(crate) fn next_repository_instance() -> u64 {
     NEXT_REPOSITORY_INSTANCE.fetch_add(1, Ordering::Relaxed)
 }
 
-
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum IdentityPolicy {
     Filename,
@@ -46,7 +45,6 @@ pub enum IdentityPolicy {
     Generated,
     Intrinsic(Vec<String>),
 }
-
 
 pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value) -> Option<Value> {
     if let Value::Array(array) = value {
@@ -80,7 +78,6 @@ pub(crate) fn string_values(value: &Value) -> impl Iterator<Item = &str> {
     )
 }
 
-
 /// Caller-supplied source, schema, identity, and sort configuration.
 #[derive(Clone, Debug)]
 pub struct CollectionDefinition {
@@ -95,7 +92,6 @@ pub struct CollectionDefinition {
     pub sort_options: SortOptions,
     pub sort_overrides: HashMap<FieldPath, SortConfig>,
 }
-
 
 impl CollectionDefinition {
     /// Define a recursive folder collection with no declared fields or typed indexes.
@@ -132,7 +128,6 @@ impl CollectionDefinition {
     }
 }
 
-
 /// Published generation and indexes for one collection.
 pub struct CollectionState {
     pub definition: CollectionDefinition,
@@ -152,7 +147,6 @@ pub struct CollectionState {
     pub stats: CollectionStats,
     pub relations: Vec<RelationIndex>,
 }
-
 
 /// Coordinator-owned mutable output for one collection. Construction jobs
 /// only receive immutable definitions and discovered source metadata.
@@ -175,7 +169,6 @@ struct PendingCollection {
     relations: Vec<RelationContribution>,
 }
 
-
 enum ScheduledBuildJob {
     Files(crate::build::RepositoryFileJob),
     Large {
@@ -186,7 +179,6 @@ enum ScheduledBuildJob {
         file: crate::model::FileId,
     },
 }
-
 
 impl PendingCollection {
     fn admit(
@@ -211,7 +203,6 @@ impl PendingCollection {
         .admit(batch)
     }
 }
-
 
 /// Built-in identity and case-fold registrations for the same logical field
 /// have identical candidate grams after mandatory index folding.
@@ -250,7 +241,6 @@ pub(crate) fn built_in_field_text_key(
     Some((path.to_vec(), name.to_owned()))
 }
 
-
 /// Collection size summary used by query planning.
 #[derive(Clone, Copy, Debug, serde::Serialize, serde::Deserialize)]
 pub struct CollectionStats {
@@ -258,7 +248,6 @@ pub struct CollectionStats {
     pub record_count: usize,
     pub total_file_bytes: u64,
 }
-
 
 impl CollectionStats {
     pub fn mean_record_bytes(self) -> f64 {
@@ -277,7 +266,6 @@ impl CollectionStats {
         }
     }
 }
-
 
 /// Resident owner of file inventory, collections, workers, and caches.
 ///
@@ -306,7 +294,6 @@ pub struct Repository {
     pub(crate) inferred_orders: Mutex<crate::sorting::InferredOrderCache>,
 }
 
-
 /// Time spent restoring, reconciling, building, and writing state.
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
@@ -334,7 +321,6 @@ pub struct StartupStats {
     pub inference_build: InferenceBuildStats,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SnapshotMode {
     /// Build from source without inspecting a snapshot.
@@ -345,7 +331,6 @@ pub enum SnapshotMode {
     Required,
 }
 
-
 /// Actual result of the requested snapshot policy.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub enum SnapshotAction {
@@ -353,7 +338,6 @@ pub enum SnapshotAction {
     BuiltInMemory,
     Restored,
 }
-
 
 /// Snapshot load policy and directory for one repository opening.
 #[derive(Clone, Debug)]
@@ -363,18 +347,18 @@ pub struct SnapshotOpenPolicy {
     pub directory: Option<PathBuf>,
 }
 
-
 impl SnapshotOpenPolicy {
     pub fn new(mode: SnapshotMode, directory: Option<PathBuf>) -> Self {
         Self { mode, directory }
     }
 }
 
-
 /// Index alphabet, snapshot, cache, and worker settings.
 #[derive(Clone, Copy, Debug)]
 pub struct RepositoryOptions {
     pub bigram_alphabet: BigramAlphabet,
+    /// Estimated retained prepared-plan state; no memory is allocated up front.
+    /// This is not a process RSS limit.
     pub prepared_cache_bytes: usize,
     pub verified_cache_bytes: usize,
     pub snapshot_mode: SnapshotMode,
@@ -384,12 +368,11 @@ pub struct RepositoryOptions {
     pub inference: InferenceConfig,
 }
 
-
 impl Default for RepositoryOptions {
     fn default() -> Self {
         Self {
             bigram_alphabet: BigramAlphabet::Ascii,
-            prepared_cache_bytes: 4 * 1024 * 1024,
+            prepared_cache_bytes: 16 * 1024 * 1024,
             verified_cache_bytes: 0,
             snapshot_mode: SnapshotMode::IfValid,
             query_workers: std::thread::available_parallelism()
@@ -399,7 +382,6 @@ impl Default for RepositoryOptions {
         }
     }
 }
-
 
 /// One page result with locator, evidence, and optional payload.
 #[derive(Clone, Debug, PartialEq)]
@@ -421,14 +403,12 @@ pub struct SearchHit {
     pub payload: Option<Payload>,
 }
 
-
 #[derive(Clone, Debug, PartialEq)]
 pub enum Payload {
     Bytes(Vec<u8>),
     Logical(crate::model::Value),
     LogicalUnavailable { diagnostic_ref: DiagnosticRef },
 }
-
 
 /// Requested exact match count, returned page, and measured work.
 #[derive(Clone, Debug)]
@@ -437,7 +417,6 @@ pub struct SearchResult {
     pub hits: Vec<SearchHit>,
     pub counters: WorkCounters,
 }
-
 
 impl Repository {
     pub fn files(&self) -> &FileInventory {
@@ -565,6 +544,19 @@ impl Repository {
         crate::run::search(self, resolved.as_ref())
     }
 
+    /// Search using one frozen clock and shared cancellation/resource limits.
+    pub fn search_with_context(
+        &self,
+        query: &Query,
+        context: &crate::streaming::ExecutionContext,
+    ) -> Result<SearchResult, crate::streaming::ExecutionError> {
+        context.enter()?;
+        let resolved = query.with_clock(context.clock.now).map_err(|message| {
+            context.error(crate::streaming::ExecutionErrorKind::InvalidQuery, message)
+        })?;
+        crate::run::search_with_context(self, &resolved, context)
+    }
+
     /// Deliver verified requested-page updates while the query is executing.
     pub fn search_stream<F>(
         &self,
@@ -604,18 +596,49 @@ impl Repository {
             crate::streaming::StreamEvent<'e>,
         ) -> Result<crate::streaming::StreamControl, String>,
     {
-        if cancellation.is_cancelled() {
-            return Ok(crate::streaming::StreamOutcome::Cancelled(
-                Default::default(),
-            ));
+        let context = crate::streaming::ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            crate::streaming::ExecutionLimits::default(),
+            Some(cancellation.clone()),
+        );
+        self.search_stream_scoped_with_context(query, scope, options, &context, sink)
+    }
+
+    /// Stream with a caller-supplied frozen clock and shared request limits.
+    pub fn search_stream_scoped_with_context<F>(
+        &self,
+        query: &Query,
+        scope: crate::streaming::ResultScope,
+        options: crate::streaming::StreamOptions,
+        context: &crate::streaming::ExecutionContext,
+        sink: &mut F,
+    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    where
+        F: for<'e> FnMut(
+            crate::streaming::StreamEvent<'e>,
+        ) -> Result<crate::streaming::StreamControl, String>,
+    {
+        let cancellation = context.cancellation().cloned().unwrap_or_default();
+        if let Err(error) = context.enter() {
+            if error.kind == crate::streaming::ExecutionErrorKind::Cancelled {
+                return Ok(crate::streaming::StreamOutcome::Cancelled(
+                    Default::default(),
+                ));
+            }
+            return Err(crate::streaming::StreamError::Execution {
+                kind: error.kind,
+                message: error.message,
+                progress: Default::default(),
+            });
         }
-        let resolved = query.resolve_current_clock().map_err(|message| {
+        let resolved = query.with_clock(context.clock.now).map_err(|message| {
             crate::streaming::StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::InvalidQuery,
                 message,
                 progress: Default::default(),
             }
         })?;
-        let mut request = resolved.into_owned();
+        let mut request = resolved;
         request.options.offset = scope.offset();
         match scope {
             crate::streaming::ResultScope::Page { limit, .. } => request.options.limit = limit,
@@ -626,7 +649,15 @@ impl Repository {
                 request.options.count = true;
             }
         }
-        crate::run::search_stream_scoped(self, &request, scope, options, cancellation, sink)
+        crate::run::search_stream_scoped_with_context(
+            self,
+            &request,
+            scope,
+            options,
+            &cancellation,
+            context,
+            sink,
+        )
     }
 
     /// Bind typed parameters once, then stream the resulting frozen request.
@@ -650,6 +681,7 @@ impl Repository {
         }
         let bound = query.with_parameters(parameters).map_err(|message| {
             crate::streaming::StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
                 message,
                 progress: Default::default(),
             }
@@ -1585,7 +1617,6 @@ impl Repository {
     }
 }
 
-
 pub(crate) fn validate_sort(repo: &Repository, query: &Query) -> Result<(), String> {
     crate::sort_binding::BoundSort::bind(repo, query).map(|_| ())
 }
@@ -1699,3 +1730,7 @@ pub(crate) fn sort_rows(
     });
     Ok(())
 }
+
+#[cfg(test)]
+#[path = "repository.test.rs"]
+mod tests;

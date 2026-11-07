@@ -17,9 +17,7 @@ use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
 use super::{Strategy, candidates_with_strategy};
 
-
 struct CountedJsonReader(Arc<AtomicUsize>);
-
 
 impl SourceReader for CountedJsonReader {
     fn name(&self) -> &'static str {
@@ -62,7 +60,6 @@ impl SourceReader for CountedJsonReader {
         JsonReader.parse_for_query(bytes, projection)
     }
 }
-
 
 #[test]
 fn estimate_only_explain_never_opens_or_parses_related_sources() {
@@ -156,12 +153,132 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
 
 #[test]
 fn intermediate_limits_report_errors_instead_of_truncating_membership() {
-    assert!(super::ensure_slots(super::MAX_INTERMEDIATE_SLOTS + 1).is_err());
+    assert!(super::ensure_slots(super::MAX_INTERMEDIATE_SLOTS + 1, None).is_err());
     let mut work = super::SemijoinWork {
         edge_visits: super::MAX_VISITED_EDGES,
         ..Default::default()
     };
-    assert!(super::visit_edge(&mut work).is_err());
+    assert!(super::visit_edge(&mut work, None).is_err());
+}
+
+#[test]
+fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
+    use crate::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
+        StreamError, StreamOptions,
+    };
+    let (root, repo) = fixture(BigramAlphabet::Ascii);
+    let request = query("entry.title ?~ 'Hymn'");
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                intermediate_slots: 0,
+                ..Default::default()
+            },
+            None,
+        )
+    };
+    assert_eq!(
+        repo.search_with_context(&request, &context())
+            .unwrap_err()
+            .kind,
+        ExecutionErrorKind::Resource
+    );
+    let stream = repo.search_stream_scoped_with_context(
+        &request,
+        ResultScope::Page {
+            offset: 0,
+            limit: request.options.limit,
+        },
+        StreamOptions::default(),
+        &context(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(stream, Err(StreamError::Resource { .. })),
+        "{stream:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn relation_edge_planning_and_target_verification_cancel_mid_work() {
+    use crate::streaming::{
+        CancellationToken, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    };
+    let (root, repo) = fixture(BigramAlphabet::Ascii);
+    let source_index = repo
+        .collections
+        .iter()
+        .position(|item| item.definition.name == "sources")
+        .unwrap();
+    let target_index = repo
+        .collections
+        .iter()
+        .position(|item| item.definition.name == "targets")
+        .unwrap();
+    let request = query("entry.title ?~ 'Hymn'");
+    let bound = crate::relation_query::bind_filter_with_relations(
+        &repo,
+        source_index,
+        request.filter.as_ref().unwrap(),
+        &mut HashMap::new(),
+    )
+    .unwrap();
+    let BoundExpr::Term(term) = bound else {
+        panic!("expected relation term")
+    };
+    let hops = super::eligible(&repo, &term).unwrap();
+    let context = |token: CancellationToken| {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits::default(),
+            Some(token),
+        )
+    };
+
+    let edge_token = CancellationToken::new();
+    let edge_context = context(edge_token.clone());
+    edge_context.cancel_on_check_for_test(3);
+    let mut edge_work = super::SemijoinWork::default();
+    let error = super::reachable_targets(
+        &repo,
+        hops,
+        &repo.collections[source_index].logical_records,
+        &mut edge_work,
+        Some(&edge_context),
+    )
+    .unwrap_err();
+    assert!(edge_work.edge_visits > 0);
+    assert!(edge_token.is_cancelled());
+    assert_eq!(
+        edge_context.recorded_error(error).kind,
+        ExecutionErrorKind::Cancelled
+    );
+
+    let verify_token = CancellationToken::new();
+    let verify_context = context(verify_token.clone());
+    verify_context.cancel_on_check_for_test(15);
+    let mut verify_work = super::SemijoinWork::default();
+    let error = super::verify_target_records(
+        &repo,
+        target_index,
+        &repo.collections[target_index].logical_records,
+        Some("title"),
+        false,
+        &mut verify_work,
+        Some(&verify_context),
+        &mut |_, _| Ok(true),
+    )
+    .unwrap_err();
+    assert!(verify_work.target_reads > 0);
+    assert!(verify_token.is_cancelled());
+    assert_eq!(
+        verify_context.recorded_error(error).kind,
+        ExecutionErrorKind::Cancelled
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType) {

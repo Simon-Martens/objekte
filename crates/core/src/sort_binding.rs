@@ -23,7 +23,6 @@ const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
 
 type SortTargetCell = OnceLock<Result<Arc<Value>, String>>;
 
-
 /// A prepared sort term with no source access in its comparator.
 pub(crate) struct BoundSortTerm<'a> {
     pub source: BoundSortSource<'a>,
@@ -31,13 +30,11 @@ pub(crate) struct BoundSortTerm<'a> {
     pub options: SortOptions,
 }
 
-
 /// A resident column or a key that must be read for each matching record.
 pub(crate) enum BoundSortSource<'a> {
     Stored(&'a SortColumn),
     Computed(Box<ComputedSort>),
 }
-
 
 /// Query-scoped key extraction for one local or finite related path.
 pub(crate) struct ComputedSort {
@@ -48,14 +45,12 @@ pub(crate) struct ComputedSort {
     collator: CollatorBorrowed<'static>,
 }
 
-
 /// A bound, stable scalar transformation rather than an exact matcher.
 enum SortTransform {
     Identity,
     CaseFold,
     Operation(Arc<dyn BindingOperation>),
 }
-
 
 /// Stable identity required when one order spans several collections.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -73,14 +68,12 @@ enum SortTransformIdentity {
     },
 }
 
-
 /// Sort terms for every selected collection, with a flag for source reads.
 pub(crate) struct BoundSort<'a> {
     pub terms: Vec<Option<Vec<BoundSortTerm<'a>>>>,
     pub has_computed: bool,
     pub needs_source: bool,
 }
-
 
 /// Query-local target projections reused when several source links reach one target.
 #[derive(Default)]
@@ -89,12 +82,12 @@ pub(crate) struct SortTargetCache {
     retained_bytes: u64,
     stream_limit: Option<u64>,
     cancellation: Option<crate::streaming::CancellationToken>,
+    execution: Option<crate::streaming::ExecutionContext>,
     pub reads: u64,
     pub reuse: u64,
     pub edge_visits: u64,
     pub bytes_read: u64,
 }
-
 
 fn expression(field: &SortField) -> Result<SortExpression, String> {
     if let Some(expression) = &field.expression {
@@ -170,7 +163,6 @@ fn bind_transform(
         }
     }
 }
-
 
 impl<'a> BoundSort<'a> {
     pub fn bind(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -311,7 +303,6 @@ impl<'a> BoundSort<'a> {
     }
 }
 
-
 impl ComputedSort {
     fn key(
         &self,
@@ -407,7 +398,6 @@ impl ComputedSort {
     }
 }
 
-
 // Every child must be visited to retain all source occurrences.
 #[allow(clippy::unnecessary_fold)]
 fn select_values<'a>(
@@ -446,8 +436,11 @@ fn select_values<'a>(
     }
 }
 
-
 impl SortTargetCache {
+    pub(crate) fn configure_execution(&mut self, execution: &crate::streaming::ExecutionContext) {
+        self.execution = Some(execution.clone());
+    }
+
     pub(crate) fn configure_stream(
         &mut self,
         max_buffered_bytes: usize,
@@ -467,6 +460,9 @@ impl SortTargetCache {
 
     fn edge(cache: &Mutex<Self>) -> Result<(), String> {
         let mut state = cache.lock().map_err(|error| error.to_string())?;
+        if let Some(execution) = &state.execution {
+            execution.charge_edges(1)?;
+        }
         if state
             .cancellation
             .as_ref()
@@ -479,7 +475,15 @@ impl SortTargetCache {
             .checked_add(1)
             .ok_or("sort edge counter overflow")?;
         if state.edge_visits > MAX_SORT_EDGE_VISITS {
-            return Err("sort relation edge budget exceeded".into());
+            return Err(state.execution.as_ref().map_or_else(
+                || "sort relation edge budget exceeded".to_owned(),
+                |execution| {
+                    execution.fail(
+                        crate::streaming::ExecutionErrorKind::Resource,
+                        "sort relation edge budget exceeded",
+                    )
+                },
+            ));
         }
         Ok(())
     }
@@ -502,7 +506,7 @@ impl SortTargetCache {
             .records
             .get(slot.0 as usize)
             .ok_or("sort target slot is missing")?;
-        let (cell, cancellation) = {
+        let (cell, cancellation, execution) = {
             let mut state = cache.lock().map_err(|error| error.to_string())?;
             if state
                 .cancellation
@@ -513,6 +517,15 @@ impl SortTargetCache {
             }
             if record.class == RecordClass::RawFallback {
                 return Ok(None);
+            }
+            if let Some(execution) = &state.execution {
+                execution.check_string()?;
+                if record.range.len() > execution.limits.target_record_bytes {
+                    return Err(execution.fail(
+                        crate::streaming::ExecutionErrorKind::Resource,
+                        "sort target record exceeds source read allowance",
+                    ));
+                }
             }
             let id = (collection_index, slot.0);
             let cell = if let Some(cell) = state.values.get(&id).cloned() {
@@ -530,12 +543,33 @@ impl SortTargetCache {
                     .checked_add(estimated)
                     .ok_or("sort target byte budget overflow")?;
                 if next > MAX_SORT_TARGET_BYTES {
-                    return Err("sort target cache budget exceeded".into());
+                    return Err(state.execution.as_ref().map_or_else(
+                        || "sort target cache budget exceeded".to_owned(),
+                        |execution| {
+                            execution.fail(
+                                crate::streaming::ExecutionErrorKind::Resource,
+                                "sort target cache budget exceeded",
+                            )
+                        },
+                    ));
                 }
                 if state.stream_limit.is_some_and(|limit| next > limit) {
-                    return Err(
-                        "stream resource: sort target cache exceeds buffered-byte limit".into(),
-                    );
+                    return Err(state.execution.as_ref().map_or_else(
+                        || {
+                            "stream resource: sort target cache exceeds buffered-byte limit"
+                                .to_owned()
+                        },
+                        |execution| {
+                            execution.fail(
+                                crate::streaming::ExecutionErrorKind::Resource,
+                                "stream resource: sort target cache exceeds buffered-byte limit",
+                            )
+                        },
+                    ));
+                }
+                if let Some(execution) = &state.execution {
+                    execution.charge_reads(1)?;
+                    execution.charge_bytes(record.range.len())?;
                 }
                 // Reserve pending loads too, before any worker leaves the lock.
                 state.retained_bytes = next;
@@ -543,7 +577,7 @@ impl SortTargetCache {
                 state.values.insert(id, cell.clone());
                 cell
             };
-            (cell, state.cancellation.clone())
+            (cell, state.cancellation.clone(), state.execution.clone())
         };
         // Only callers for this target wait here; other targets can load in parallel.
         let result = cell.get_or_init(|| {
@@ -551,19 +585,29 @@ impl SortTargetCache {
                 .files
                 .native_path(record.file)
                 .ok_or("sort target path is missing")?;
-            let bytes = crate::source::read_record_range(&path, record.revision, record.range)?;
+            let bytes = if let Some(execution) = execution.as_ref() {
+                crate::source::read_record_range_with_execution(
+                    &path,
+                    record.revision,
+                    record.range,
+                    execution,
+                )?
+            } else {
+                crate::source::read_record_range(&path, record.revision, record.range)?
+            };
             if cancellation
                 .as_ref()
                 .is_some_and(crate::streaming::CancellationToken::is_cancelled)
             {
                 return Err("stream cancelled".into());
             }
-            let extracted = crate::record_preparation::prepare_query_record(
+            let extracted = crate::record_preparation::prepare_query_record_with_execution(
                 &collection.source,
                 &collection.definition.schema,
                 &bytes,
                 &crate::source::ScanProjection::full(false),
                 false,
+                execution.as_ref(),
             )?;
             let mut state = cache.lock().map_err(|error| error.to_string())?;
             state.reads += 1;
@@ -580,7 +624,6 @@ impl SortTargetCache {
     }
 }
 
-
 /// One reduced key and the minimum state needed across relation occurrences.
 struct SortAccumulator {
     reducer: Option<SortReducer>,
@@ -592,14 +635,12 @@ struct SortAccumulator {
     expanded: bool,
 }
 
-
 /// Only a scalar candidate or a compact error marker is retained for LAST.
 enum LastValue {
     Scalar(Value),
     InvalidObject,
     Unavailable,
 }
-
 
 impl SortAccumulator {
     fn new(reducer: Option<SortReducer>) -> Self {
@@ -708,7 +749,6 @@ impl SortAccumulator {
         Ok(self.best.unwrap_or(SortKey::Missing))
     }
 }
-
 
 impl ComputedSort {
     #[allow(clippy::too_many_arguments)]
@@ -911,7 +951,6 @@ impl ComputedSort {
         Ok(())
     }
 }
-
 
 fn positions_match(selectors: &[Option<u32>], positions: &[u32]) -> bool {
     selectors.len() <= positions.len()

@@ -12,6 +12,132 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 
 static NEXT_FIXTURE: AtomicUsize = AtomicUsize::new(0);
 
+fn limited_context(
+    limits: ExecutionLimits,
+    cancellation: Option<CancellationToken>,
+) -> ExecutionContext {
+    ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        limits,
+        cancellation,
+    )
+}
+
+#[test]
+fn execution_context_shares_accounting_and_preserves_failure_kind() {
+    let context = limited_context(
+        ExecutionLimits {
+            relation_edges: 2,
+            ..Default::default()
+        },
+        None,
+    );
+    context.charge_edges(1).unwrap();
+    context.clone().charge_edges(1).unwrap();
+    let message = context.charge_edges(1).unwrap_err();
+    assert_eq!(
+        context.recorded_error(message).kind,
+        ExecutionErrorKind::Resource
+    );
+    let other = limited_context(ExecutionLimits::default(), None);
+    other.error(ExecutionErrorKind::Extension, "same message");
+    other.error(ExecutionErrorKind::Resource, "same message");
+    assert_eq!(
+        other.recorded_error("unrelated".into()).kind,
+        ExecutionErrorKind::Extension
+    );
+    other.enter().unwrap();
+    assert_eq!(
+        other.enter().unwrap_err().kind,
+        ExecutionErrorKind::InvalidQuery
+    );
+}
+
+#[test]
+fn source_read_limit_has_ordinary_and_stream_resource_class() {
+    let fixture = fixture();
+    let request = query("body ~ 'needle'", true, false, ReturnMode::Locator);
+    let limits = ExecutionLimits {
+        source_record_bytes: 1,
+        ..Default::default()
+    };
+    let ordinary = fixture
+        .repo
+        .search_with_context(&request, &limited_context(limits, None))
+        .unwrap_err();
+    assert_eq!(ordinary.kind, ExecutionErrorKind::Resource);
+    let stream = fixture.repo.search_stream_scoped_with_context(
+        &request,
+        ResultScope::Page {
+            offset: 0,
+            limit: request.options.limit,
+        },
+        StreamOptions::default(),
+        &limited_context(limits, Some(CancellationToken::new())),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(stream, Err(StreamError::Resource { .. })),
+        "{stream:?}"
+    );
+}
+
+#[test]
+fn invalid_stream_bounds_have_typed_invalid_query_class() {
+    let fixture = fixture();
+    let request = query("body ~ 'needle'", false, false, ReturnMode::Locator);
+    let error = fixture
+        .repo
+        .search_stream(
+            &request,
+            StreamOptions {
+                max_event_bytes: 0,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert_eq!(error.kind(), ExecutionErrorKind::InvalidQuery);
+}
+
+#[test]
+fn changed_source_revision_has_ordinary_and_stream_class() {
+    let fixture = fixture();
+    std::fs::write(
+        fixture.root.join("data/000.json"),
+        b"changed source content with a new length",
+    )
+    .unwrap();
+    let request = query("body ~ 'needle'", true, false, ReturnMode::Locator);
+    let ordinary = fixture
+        .repo
+        .search_with_context(&request, &limited_context(ExecutionLimits::default(), None))
+        .unwrap_err();
+    assert_eq!(
+        ordinary.kind,
+        ExecutionErrorKind::SourceChanged,
+        "{ordinary:?}"
+    );
+    let stream = fixture
+        .repo
+        .search_stream_scoped_with_context(
+            &request,
+            ResultScope::Page {
+                offset: 0,
+                limit: request.options.limit,
+            },
+            StreamOptions::default(),
+            &limited_context(ExecutionLimits::default(), Some(CancellationToken::new())),
+            &mut |_| Ok(StreamControl::Continue),
+        )
+        .unwrap_err();
+    assert_eq!(
+        stream.kind(),
+        ExecutionErrorKind::SourceChanged,
+        "{stream:?}"
+    );
+}
 
 /// Temporary repository whose source files are removed after each test.
 struct Fixture {
@@ -19,13 +145,11 @@ struct Fixture {
     repo: Repository,
 }
 
-
 impl Drop for Fixture {
     fn drop(&mut self) {
         std::fs::remove_dir_all(&self.root).ok();
     }
 }
-
 
 fn fixture() -> Fixture {
     fixture_with_alphabet(BigramAlphabet::Ascii)
