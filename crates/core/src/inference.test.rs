@@ -111,6 +111,133 @@ fn terminal_array_null_observation_is_not_exact_null() {
 }
 
 #[test]
+fn nested_array_depth_counts_arrays_below_the_terminal_path() {
+    let config = InferenceConfig {
+        mode: InferenceMode::ReportOnly,
+        ..Default::default()
+    };
+    let mut batch = InferenceBuilder::new(config, true).unwrap();
+    batch
+        .observe_record(RecordSlot(0), &value(r#"{"two":[[1]],"three":[[[1]]]}"#))
+        .unwrap();
+    let mut combined = InferenceBuilder::new(config, false).unwrap();
+    combined.merge_shifted(batch, 0).unwrap();
+    let state = combined
+        .finish(&[0].into_iter().collect(), 1, &Schema::default())
+        .unwrap();
+    for (name, depth) in [("two", 2), ("three", 3)] {
+        let field = state
+            .report
+            .fields
+            .iter()
+            .find(|field| field.path == [name])
+            .unwrap();
+        assert_eq!(field.array_nesting, depth);
+    }
+}
+
+#[test]
+fn inference_batch_admission_does_not_depend_on_worker_count() {
+    let config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    assert_eq!(config.max_build_jobs(128), 64);
+    assert!(
+        config.max_build_jobs(128) * config.policy.max_batch_bytes
+            <= config.policy.max_repository_bytes - config.policy.max_total_bytes
+    );
+    let array = (0..1000)
+        .map(|value| value.to_string())
+        .collect::<Vec<_>>()
+        .join(",");
+    let record = value(&format!(r#"{{"numbers":[{array}]}}"#));
+    let mut reports = Vec::new();
+    for jobs in [2, 128] {
+        let mut batch = InferenceBuilder::with_job_count(config, true, jobs).unwrap();
+        batch.observe_record(RecordSlot(0), &record).unwrap();
+        let mut combined = InferenceBuilder::new(config, false).unwrap();
+        combined.merge_shifted(batch, 0).unwrap();
+        let state = combined
+            .finish(&[0].into_iter().collect(), 1, &Schema::default())
+            .unwrap();
+        assert!(state.report.complete);
+        assert_eq!(
+            state.report.fields[0].index_status,
+            InferenceIndexStatus::Built
+        );
+        reports.push(serde_json::to_value(state.report).unwrap());
+    }
+    assert_eq!(reports[0], reports[1]);
+}
+
+#[test]
+fn multiple_collections_share_the_coordinator_budget_deterministically() {
+    let root = temporary_root("collection-budget");
+    let _ = std::fs::remove_dir_all(&root);
+    for collection in ["one", "many"] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+        for slot in 0..10 {
+            let json = if collection == "one" {
+                r#"{"flag":true}"#
+            } else {
+                r#"{"a":true,"b":true,"c":true}"#
+            };
+            std::fs::write(root.join(format!("{collection}/{slot:02}.json")), json).unwrap();
+        }
+    }
+    let mut config = InferenceConfig {
+        mode: InferenceMode::AutoIndex,
+        ..Default::default()
+    };
+    config.policy.max_batch_bytes = 1024;
+    config.policy.max_total_bytes = 2048;
+    config.policy.max_repository_bytes = 4096;
+    assert_eq!(config.max_build_jobs(128), 2);
+    let definitions = vec![
+        CollectionDefinition::folder("one", "one", SourceFormat::Json),
+        CollectionDefinition::folder("many", "many", SourceFormat::Json),
+    ];
+    let mut observed = Vec::new();
+    let available = std::thread::available_parallelism().map_or(1, |count| count.get());
+    for workers in [1, available] {
+        let repo = Repository::open_with_options(
+            &root,
+            definitions.clone(),
+            RepositoryOptions {
+                snapshot_mode: SnapshotMode::Disabled,
+                build_workers: std::num::NonZeroUsize::new(workers),
+                inference: config,
+                ..Default::default()
+            },
+        )
+        .unwrap();
+        let one = repo.inference_report("one").unwrap();
+        let many = repo.inference_report("many").unwrap();
+        assert!(one.complete);
+        assert!(!many.complete);
+        assert_eq!(one.admitted_paths, 1);
+        assert_eq!(many.admitted_paths, 0);
+        assert!(
+            one.retained_bytes_estimate + many.retained_bytes_estimate
+                <= config.policy.max_total_bytes
+        );
+        let mut request = query("flag = true");
+        request.collections = vec!["one".into()];
+        assert_eq!(
+            repo.search(&request).unwrap().hits,
+            repo.search_reference(&request).unwrap().hits
+        );
+        observed.push((
+            serde_json::to_value(one).unwrap(),
+            serde_json::to_value(many).unwrap(),
+        ));
+    }
+    assert_eq!(observed[0], observed[1]);
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
     let root = temporary_root("modes");
     let _ = std::fs::remove_dir_all(&root);
@@ -576,5 +703,84 @@ fn inferred_multivalue_candidates_preserve_universal_empty_selection() {
                 .any(|term| term.selected.kind == AccessPathKind::InferredPosting)
         );
     }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn derived_existence_and_null_use_exact_inferred_postings() {
+    let root = temporary_root("derived");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    for slot in 0..24 {
+        let json = match slot {
+            3 => r#"{"flag":true}"#,
+            5 => r#"{"nullable":null}"#,
+            6 => r#"{"nullable":false}"#,
+            7 => r#"{"items":{"flag":true}}"#,
+            _ => r#"{"other":false}"#,
+        };
+        std::fs::write(root.join(format!("data/{slot:02}.json")), json).unwrap();
+    }
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    for (filter, expected) in [
+        ("flag:exists = true", vec!["path:03.json"]),
+        ("nullable:null = true", vec!["path:05.json"]),
+        ("items.flag:exists = true", vec!["path:07.json"]),
+    ] {
+        let mut request = query(filter);
+        request.options.return_mode = ReturnMode::Locator;
+        let result = repo.search(&request).unwrap();
+        assert_eq!(
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.as_str())
+                .collect::<Vec<_>>(),
+            expected,
+            "{filter}",
+        );
+        assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
+        assert_eq!(result.counters.record_parses, 0, "{filter}");
+        assert!(
+            repo.explain(&request)
+                .unwrap()
+                .iter()
+                .flat_map(|trace| &trace.terms)
+                .any(|term| term.selected.kind == AccessPathKind::InferredPosting),
+            "{filter}"
+        );
+    }
+    let mut explicit = query("items[*].flag:exists = true");
+    explicit.options.return_mode = ReturnMode::Locator;
+    assert!(repo.search(&explicit).unwrap().hits.is_empty());
+    assert_eq!(
+        repo.search(&explicit).unwrap().hits,
+        repo.search_reference(&explicit).unwrap().hits
+    );
+    assert!(
+        !repo
+            .explain(&explicit)
+            .unwrap()
+            .iter()
+            .flat_map(|trace| &trace.terms)
+            .any(|term| term.selected.kind == AccessPathKind::InferredPosting)
+    );
     std::fs::remove_dir_all(root).unwrap();
 }

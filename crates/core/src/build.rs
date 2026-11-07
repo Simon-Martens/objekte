@@ -626,7 +626,7 @@ pub(crate) fn process_framed_file(
     const MAX_RANGE_BYTES: u64 = 1024 * 1024;
     const MAX_RANGES: usize = 256;
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
-    let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let mut stats = BuildScheduleStats {
         weight_limit_bytes: MAX_ADMITTED_BYTES,
         ..Default::default()
@@ -885,7 +885,7 @@ pub(crate) fn process_repository_file_batches(
             })
         })
         .collect::<Vec<_>>();
-    let max_jobs = pool.current_num_threads().saturating_mul(2).max(1);
+    let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
     let mut future_first_jobs = jobs
         .iter()
         .enumerate()

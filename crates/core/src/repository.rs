@@ -699,10 +699,11 @@ impl Repository {
         let mut extraction_index_ns = 0u64;
         let mut finalization_ns = 0u64;
         let mut schedule_stats = crate::build::BuildScheduleStats::default();
+        let collection_count = selected.len();
         for (definition, id, source, member_files) in selected {
             let builder = CollectionBuilder::new(id, definition.name.clone(), 1, files.files.len());
             let postings = PostingCollection::new(&definition.schema);
-            let inference = InferenceBuilder::new(options.inference, false);
+            let inference = InferenceBuilder::for_collection(options.inference, collection_count);
             let custom_postings: HashMap<_, _> = definition
                 .schema
                 .operations

@@ -10,8 +10,8 @@ use crate::posting::{PostingIndex, PostingStats, ScalarKey};
 use crate::reference::Schema;
 
 use super::{
-    InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy, InferenceReport, InferenceState,
-    InferredFieldReport, ObservedStep, typed_path,
+    InferenceConfig, InferenceIndexStatus, InferenceMode, InferencePolicy, InferenceReport,
+    InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
 
 
@@ -228,6 +228,7 @@ pub(crate) struct InferenceBuilder {
     estimated_bytes: usize,
     batch: bool,
     batch_limit: usize,
+    coordinator_limit: usize,
 }
 
 
@@ -247,15 +248,11 @@ impl InferenceBuilder {
     pub(crate) fn with_job_count(
         config: InferenceConfig,
         batch: bool,
-        max_jobs: usize,
+        _max_jobs: usize,
     ) -> Option<Self> {
-        let batch_limit = config.policy.max_batch_bytes.min(
-            config
-                .policy
-                .max_repository_bytes
-                .saturating_sub(config.policy.max_total_bytes)
-                / max_jobs.max(1),
-        );
+        // A batch's drop decision depends on its contents, not worker count.
+        // The scheduler limits simultaneous batches to the repository slack.
+        let batch_limit = config.policy.max_batch_bytes;
         (config.mode != InferenceMode::Disabled).then(|| Self {
             config,
             paths: HashMap::new(),
@@ -268,14 +265,23 @@ impl InferenceBuilder {
             estimated_bytes: 0,
             batch,
             batch_limit,
+            coordinator_limit: config.policy.max_total_bytes,
         })
+    }
+
+    pub(crate) fn for_collection(config: InferenceConfig, collections: usize) -> Option<Self> {
+        let mut builder = Self::new(config, false)?;
+        // All collection builders coexist until finalization. Give each the
+        // same deterministic share of the coordinator's retained allowance.
+        builder.coordinator_limit = config.policy.max_total_bytes / collections.max(1);
+        Some(builder)
     }
 
     fn limit(&self) -> usize {
         if self.batch {
             self.batch_limit
         } else {
-            self.config.policy.max_total_bytes
+            self.coordinator_limit
         }
     }
 
@@ -356,6 +362,9 @@ impl InferenceBuilder {
         if let Some(index) = index {
             let field = &mut self.fields[index];
             let mut charge = 0;
+            if matches!(value, Value::Array(_)) {
+                field.array_nesting = field.array_nesting.max(nesting.saturating_add(1));
+            }
             if terminal {
                 field.present.insert(state.slot.0);
                 charge += 16;
@@ -371,7 +380,6 @@ impl InferenceBuilder {
                 match value {
                     Value::Array(array) => {
                         field.array_records.insert(state.slot.0);
-                        field.array_nesting = field.array_nesting.max(nesting + 1);
                         if array.values.is_empty() {
                             field.empty_array.insert(state.slot.0);
                             field.empty_selection.insert(state.slot.0);
@@ -462,6 +470,9 @@ impl InferenceBuilder {
             .checked_add(other.eligible)
             .ok_or("inference coverage overflow")?;
         self.omitted_paths = self.omitted_paths.saturating_add(other.omitted_paths);
+        // Decline before merging a whole batch, while it still occupies the
+        // scheduler's separate in-flight allowance.
+        self.charge(other.estimated_bytes);
         self.complete &= other.complete;
         if !self.complete {
             for field in &mut self.fields {
@@ -482,7 +493,6 @@ impl InferenceBuilder {
                 self.fields[index] = new;
             }
         }
-        self.charge(other.estimated_bytes);
         Ok(())
     }
 

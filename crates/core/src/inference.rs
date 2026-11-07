@@ -104,11 +104,23 @@ impl InferenceConfig {
             || policy.max_batch_bytes == 0
             || policy.max_total_bytes < policy.max_batch_bytes
             || policy.max_repository_bytes < policy.max_total_bytes
+            || (self.mode != InferenceMode::Disabled
+                && policy.max_repository_bytes - policy.max_total_bytes < policy.max_batch_bytes)
             || policy.minimum_repeated_percent > 100
         {
             return Err("invalid inference policy".into());
         }
         Ok(())
+    }
+
+    /// Reserve room for every admitted worker batch in the repository-wide
+    /// inference estimate. The per-batch admission threshold stays fixed.
+    pub(crate) fn max_build_jobs(self, requested: usize) -> usize {
+        if self.mode == InferenceMode::Disabled {
+            return requested;
+        }
+        let slack = self.policy.max_repository_bytes - self.policy.max_total_bytes;
+        requested.min(slack / self.policy.max_batch_bytes).max(1)
     }
 }
 
@@ -196,13 +208,16 @@ impl InferenceState {
         domain: &RoaringBitmap,
         input: &RoaringBitmap,
     ) -> Option<(RoaringBitmap, bool)> {
+        let structural = matches!(term.derived, Derived::Exists | Derived::Null);
         if self.report.mode != InferenceMode::AutoIndex
             || !self.report.complete
             || term.path.root != crate::model::PathRoot::Data
-            || term.kind != LogicalType::Unknown
+            || (term.kind != LogicalType::Unknown
+                && !(structural && term.kind == LogicalType::Bool))
             || term.related.is_some()
             || term.rhs.is_some()
             || term.query_path.has_position
+            || (structural && term.query_path.has_explicit_array_step)
             || term.operation.is_some()
             || term.matcher.is_some()
             || term.transform != Transform::Identity
@@ -214,7 +229,7 @@ impl InferenceState {
         if index.covered_records as u64 != domain.len() {
             return None;
         }
-        if matches!(term.derived, Derived::Exists | Derived::Null) {
+        if structural {
             return index
                 .exact_set_restricted(term, domain, input)
                 .map(|set| (set, true));
