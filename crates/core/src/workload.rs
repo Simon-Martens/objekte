@@ -136,7 +136,7 @@ pub struct WorkCounters {
     /// Typed reverse posting lists visited during relation semijoins.
     #[serde(default)]
     pub relation_reverse_postings_visited: u64,
-    /// Confirmed targets reused by reverse mapping without another decode.
+    /// Target values reused by reverse mapping or source-dependent comparisons.
     #[serde(default)]
     pub relation_verified_targets_reused: u64,
     #[serde(default)]

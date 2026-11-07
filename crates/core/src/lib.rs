@@ -28,6 +28,7 @@ pub mod relation;
 pub mod relation_inspection;
 mod relation_query;
 mod relation_semijoin;
+mod relation_target_cache;
 pub mod repository;
 pub mod run;
 pub mod sorting;

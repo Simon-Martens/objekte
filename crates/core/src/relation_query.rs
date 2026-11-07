@@ -11,6 +11,7 @@ use crate::reference::{
     bind_fts, eval_bound_fts, eval_cross_record_field_term, eval_term,
 };
 use crate::relation::{RelationCardinality, RelationId, RelationTarget};
+use crate::relation_target_cache::TargetValueCache;
 use crate::repository::Repository;
 use crate::source::{ScanProjection, TextDerivation, TextSegment, read_record_range};
 
@@ -60,6 +61,7 @@ pub(crate) enum EvaluationMode {
 pub(crate) struct RelationWork {
     pub source_reads: u64,
     pub target_reads: u64,
+    pub target_cache_hits: u64,
     pub edge_visits: u64,
     pub bytes_read: u64,
 }
@@ -73,6 +75,7 @@ struct TraverseConfig<'a> {
     quantifier: Quantifier,
     collect_text: bool,
     mode: EvaluationMode,
+    target_values: Option<&'a TargetValueCache>,
 }
 
 
@@ -154,7 +157,10 @@ pub(crate) fn bind_fts_with_relations(
     let mut related_base = None;
     let mut local_positions = Vec::new();
     for selected in &request.fields {
-        let syntax = selected.query_path.clone().unwrap_or_else(|| selected.path.display());
+        let syntax = selected
+            .query_path
+            .clone()
+            .unwrap_or_else(|| selected.path.display());
         let path = QueryPath::parse(&syntax)?;
         if let Some((hops, terminal)) = resolve_path(repo, collection_index, &path)? {
             let target = hops.last().ok_or("relation FTS has no hop")?.to.0 as usize;
@@ -162,7 +168,9 @@ pub(crate) fn bind_fts_with_relations(
                 && repo.collections[target].source.reader().text_derivation()
                     != TextDerivation::LogicalStringsAfterConversion
             {
-                return Err("selected FTS array positions require logical-string text derivation".into());
+                return Err(
+                    "selected FTS array positions require logical-string text derivation".into(),
+                );
             }
             let target_request = FtsQuery {
                 fields: vec![FtsField {
@@ -191,10 +199,16 @@ pub(crate) fn bind_fts_with_relations(
             direct.query_path = None;
             local.fields.push(direct);
             if path.has_explicit_array_step {
-                if repo.collections[collection_index].source.reader().text_derivation()
+                if repo.collections[collection_index]
+                    .source
+                    .reader()
+                    .text_derivation()
                     != TextDerivation::LogicalStringsAfterConversion
                 {
-                    return Err("selected FTS array positions require logical-string text derivation".into());
+                    return Err(
+                        "selected FTS array positions require logical-string text derivation"
+                            .into(),
+                    );
                 }
                 local_positions.push((local.fields.len() - 1, path, syntax));
             }
@@ -210,7 +224,10 @@ pub(crate) fn bind_fts_with_relations(
         &repo.collections[collection_index].definition.schema,
     )?;
     for (index, path, syntax) in local_positions {
-        let field = bound.fields.get_mut(index).ok_or("selected FTS field is missing")?;
+        let field = bound
+            .fields
+            .get_mut(index)
+            .ok_or("selected FTS field is missing")?;
         field.query_path = Some(path);
         field.evidence_path = syntax;
     }
@@ -236,7 +253,7 @@ pub(crate) fn eval_filter_truth(
     match expr {
         BoundExpr::Term(term) => {
             let result = if term.related.is_some() {
-                eval_related_term_mode(repo, term, ctx, mode, work)?
+                eval_related_term_mode(repo, term, ctx, mode, work, None)?
             } else {
                 Some(eval_term(term, ctx)?)
             };
@@ -328,6 +345,7 @@ pub(crate) fn eval_fts_with_relations(
                 quantifier: Quantifier::Any,
                 collect_text: true,
                 mode,
+                target_values: None,
             };
             visit_hop(
                 &config,
@@ -646,8 +664,16 @@ pub(crate) fn eval_related_term(
     term: &BoundTerm,
     source: &RecordContext<'_>,
     work: &mut RelationWork,
+    target_values: Option<&TargetValueCache>,
 ) -> Result<Option<bool>, String> {
-    eval_related_term_mode(repo, term, source, EvaluationMode::Indexed, work)
+    eval_related_term_mode(
+        repo,
+        term,
+        source,
+        EvaluationMode::Indexed,
+        work,
+        target_values,
+    )
 }
 
 fn eval_related_term_mode(
@@ -656,6 +682,7 @@ fn eval_related_term_mode(
     source: &RecordContext<'_>,
     mode: EvaluationMode,
     work: &mut RelationWork,
+    target_values: Option<&TargetValueCache>,
 ) -> Result<Option<bool>, String> {
     let related = term.related.as_ref().ok_or("relation term is not bound")?;
     let start = repo
@@ -674,6 +701,9 @@ fn eval_related_term_mode(
         quantifier: term.quantifier,
         collect_text: false,
         mode,
+        target_values: target_values.filter(|_| {
+            related.source_operand.is_some() && related.terminal.path.root == PathRoot::Data
+        }),
     };
     visit_hop(
         &config,
@@ -734,6 +764,7 @@ fn visit_hop(
         quantifier,
         collect_text,
         mode,
+        target_values,
     } = *config;
     if decisive(*truth, quantifier) {
         return Ok(());
@@ -743,6 +774,22 @@ fn visit_hop(
         let record = &collection.generation.records[source_slot.0 as usize];
         if record.class == RecordClass::RawFallback {
             merge_truth(truth, None, quantifier);
+            return Ok(());
+        }
+        if let Some(value) =
+            target_values.and_then(|cache| cache.get(collection.generation.collection, source_slot))
+        {
+            work.target_cache_hits += 1;
+            let file = &repo.files.files[record.file.0 as usize];
+            let ctx = RecordContext {
+                value,
+                source_bytes: None,
+                record,
+                file,
+                collection_name: &collection.definition.name,
+                repository_root: &repo.files.root,
+            };
+            merge_truth(truth, Some(terminal(&ctx, &[])?), quantifier);
             return Ok(());
         }
         let file = &repo.files.files[record.file.0 as usize];
