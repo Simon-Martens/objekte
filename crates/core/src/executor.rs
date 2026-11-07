@@ -56,6 +56,8 @@ pub struct TermChoice {
     pub selected: AccessPathEstimate,
     pub alternatives: Vec<AccessPathEstimate>,
     pub actual_input: u64,
+    /// Set only by estimate-only EXPLAIN; `actual_input` is then unavailable.
+    pub estimated_input: Option<u64>,
     pub actual_output: Option<u64>,
     pub reason: String,
     pub dynamic_binding: bool,
@@ -172,6 +174,7 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
                 selected,
                 alternatives: paths,
                 actual_input: 0,
+                estimated_input: None,
                 actual_output: Some(0),
                 reason: "skipped after an exact empty conjunct".into(),
                 dynamic_binding: term.kind == LogicalType::Unknown,
@@ -269,6 +272,7 @@ fn fallback_truth(
                 },
                 alternatives: Vec::new(),
                 actual_input: input.len(),
+                estimated_input: None,
                 actual_output: Some(yes.len()),
                 reason: if metadata {
                     "fallback metadata evaluated from inventory"
@@ -880,6 +884,185 @@ pub(crate) fn estimate_expr(
     estimate_expr_cached(collection, expr, input_len, &mut PlanContext::default())
 }
 
+
+/// An estimate-only physical decision. It has no candidate membership or
+/// exact proof and is safe to use for non-analyzing EXPLAIN.
+pub(crate) struct EstimatedPlan {
+    pub candidates: u64,
+    pub exact: bool,
+    pub choices: Vec<TermChoice>,
+    pub planning: PlanningCounters,
+}
+
+
+struct EstimatedNode {
+    candidates: u64,
+    exact: bool,
+    work: f64,
+    choices: Vec<TermChoice>,
+}
+
+
+pub(crate) fn estimate_plan_expr(
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    input_len: u64,
+) -> EstimatedPlan {
+    let mut context = PlanContext {
+        diagnostics: true,
+        ..PlanContext::default()
+    };
+    let node = estimate_plan_node(collection, expr, input_len, &mut context);
+    EstimatedPlan {
+        candidates: node.candidates,
+        exact: node.exact,
+        choices: node.choices,
+        planning: context.counters,
+    }
+}
+
+fn estimate_plan_node(
+    collection: &CollectionState,
+    expr: &BoundExpr,
+    input_len: u64,
+    context: &mut PlanContext,
+) -> EstimatedNode {
+    match expr {
+        BoundExpr::Term(term) => {
+            let mut paths = context.paths(collection, term, input_len);
+            paths.sort_by(|a, b| {
+                a.estimated_work
+                    .total_cmp(&b.estimated_work)
+                    .then_with(|| (a.kind as u8).cmp(&(b.kind as u8)))
+            });
+            let selected = paths.remove(0);
+            let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
+                .then(|| {
+                    term.gram_request
+                        .as_ref()
+                        .and_then(|request| collection.raw.estimate_prepared(request))
+                })
+                .flatten();
+            let structural_candidates = (selected.kind == AccessPathKind::RawBigram
+                && empty_selection_preservation(term))
+            .then_some(collection.empty_array_records.len());
+            let reason = if selected.kind == AccessPathKind::Scanner
+                && term.path.root == PathRoot::Data
+                && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
+                && matches!(term.binding_name.as_str(), "default" | "lower")
+                && term.operation.is_none()
+                && matches!(term.operator, Operator::Contains | Operator::Eq)
+            {
+                raw_covers_identity_field(collection)
+                    .err()
+                    .map(|coverage| format!("raw bigram rejected: {coverage}; estimate only"))
+                    .unwrap_or_else(|| "estimate only; scanner selected".into())
+            } else {
+                "estimate only; selected path and candidates were not executed".into()
+            };
+            EstimatedNode {
+                candidates: selected.estimated_output,
+                exact: selected.exact,
+                work: selected.estimated_work,
+                choices: vec![TermChoice {
+                    span: term.span,
+                    field: term.query_path.display.clone(),
+                    logical_type: format!("{:?}", term.kind),
+                    binding: format!("{}@{}", term.binding_name, term.binding_version),
+                    exact_case_sensitivity: term_case_sensitivity(term),
+                    residual_verification: !selected.exact,
+                    selected,
+                    alternatives: paths,
+                    actual_input: 0,
+                    estimated_input: Some(input_len),
+                    actual_output: None,
+                    reason,
+                    dynamic_binding: term.kind == LogicalType::Unknown,
+                    gram_candidates,
+                    structural_candidates,
+                    executed: false,
+                }],
+            }
+        }
+        BoundExpr::And(parts) => {
+            let mut remaining = Vec::new();
+            for part in parts {
+                flatten_and(part, &mut remaining);
+            }
+            let mut current = input_len;
+            let mut exact = true;
+            let mut work = 0.0;
+            let mut choices = Vec::new();
+            while !remaining.is_empty() {
+                let source_unit = 30.0 + collection.stats.mean_record_bytes() / 128.0;
+                let next = remaining
+                    .iter()
+                    .enumerate()
+                    .map(|(index, part)| {
+                        let (estimated_work, output) =
+                            estimate_expr_cached(collection, part, current, context);
+                        (index, estimated_work + output as f64 * source_unit * 0.1)
+                    })
+                    .min_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)))
+                    .unwrap()
+                    .0;
+                let child =
+                    estimate_plan_node(collection, remaining.remove(next), current, context);
+                current = current.min(child.candidates);
+                exact &= child.exact;
+                work += child.work;
+                choices.extend(child.choices);
+            }
+            EstimatedNode {
+                candidates: current,
+                exact,
+                work,
+                choices,
+            }
+        }
+        BoundExpr::Or(parts) => {
+            let mut ordered = parts
+                .iter()
+                .enumerate()
+                .map(|(position, part)| {
+                    (
+                        position,
+                        estimate_expr_cached(collection, part, input_len, context).0,
+                        part,
+                    )
+                })
+                .collect::<Vec<_>>();
+            ordered.sort_by(|a, b| a.1.total_cmp(&b.1).then_with(|| a.0.cmp(&b.0)));
+            let mut candidates = 0u64;
+            let mut exact = true;
+            let mut work = 0.0;
+            let mut choices = Vec::new();
+            for (_, _, part) in ordered {
+                let child = estimate_plan_node(collection, part, input_len, context);
+                candidates = candidates.saturating_add(child.candidates).min(input_len);
+                exact &= child.exact;
+                work += child.work;
+                choices.extend(child.choices);
+            }
+            EstimatedNode {
+                candidates,
+                exact,
+                work,
+                choices,
+            }
+        }
+        BoundExpr::Not(inner) => {
+            let mut child = estimate_plan_node(collection, inner, input_len, context);
+            child.candidates = if child.exact {
+                input_len.saturating_sub(child.candidates)
+            } else {
+                input_len
+            };
+            child
+        }
+    }
+}
+
 fn estimate_expr_cached(
     collection: &CollectionState,
     expr: &BoundExpr,
@@ -1185,6 +1368,7 @@ fn plan_logical_expr(
                     selected,
                     alternatives: paths,
                     actual_input: input.len(),
+                    estimated_input: None,
                     actual_output: candidates.as_ref().map(RoaringBitmap::len),
                     reason,
                     dynamic_binding,

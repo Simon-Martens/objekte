@@ -73,7 +73,11 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
             .collect::<Vec<_>>()
             .join(" && ");
         let request = query(&filter);
-        let trace = &repo.explain(&request).unwrap()[0];
+        let estimate = &repo.explain(&request).unwrap()[0];
+        assert!(estimate.candidates_estimated);
+        assert_eq!(estimate.planning.candidate_bitmap_builds, 0);
+        let analyzed = repo.explain_analyze(&request).unwrap().1;
+        let trace = &analyzed[0];
         assert_eq!(trace.planning.term_estimation_calls, conjuncts);
         assert_eq!(trace.planning.candidate_bitmap_builds, conjuncts);
         if conjuncts > 1 {
@@ -90,7 +94,10 @@ fn conjunct_costing_reuses_inferred_term_estimates_without_candidate_builds() {
         .collect::<Vec<_>>()
         .join(" || ");
     let request = query(&disjunction);
-    let trace = &repo.explain(&request).unwrap()[0];
+    let estimate = &repo.explain(&request).unwrap()[0];
+    assert_eq!(estimate.planning.candidate_bitmap_builds, 0);
+    let analyzed = repo.explain_analyze(&request).unwrap().1;
+    let trace = &analyzed[0];
     assert_eq!(trace.planning.term_estimation_calls, 16);
     assert_eq!(trace.planning.candidate_bitmap_builds, 16);
     assert_eq!(
@@ -1282,7 +1289,7 @@ fn complete_scalar_numeric_ranges_use_exact_ordered_inferred_postings() {
         assert_eq!(result.hits, repo.search_reference(&request).unwrap().hits);
         assert_eq!(result.count, Some(expected.len()), "{filter}");
         assert_eq!(result.counters.record_parses, 0, "{filter}");
-        let trace = repo.explain(&request).unwrap();
+        let trace = repo.explain_analyze(&request).unwrap().1;
         assert!(trace[0].filter_exact, "{filter}");
         assert_eq!(trace[0].candidates, expected.len() as u64, "{filter}");
         assert!(
@@ -1489,11 +1496,14 @@ fn inferred_scalar_order_matches_reference_without_sort_source_reads() {
                     result.counters.files_opened, 0,
                     "{field} {descending} {count}"
                 );
+                let before_builds = crate::run::inferred_order_builds_for_test();
+                let estimate = repo.explain(&request).unwrap();
                 assert_eq!(
-                    repo.explain(&request).unwrap()[0].sort_strategy,
-                    "inferred_posting_order_page",
+                    estimate[0].sort_strategy, "inferred_posting_order_page",
                     "{field} {descending} {count}"
                 );
+                assert!(estimate[0].sort_strategy_estimated);
+                assert_eq!(crate::run::inferred_order_builds_for_test(), before_builds);
             }
         }
     }

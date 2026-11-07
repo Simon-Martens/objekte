@@ -1,4 +1,6 @@
 use std::collections::{HashMap, HashSet};
+use std::sync::Arc;
+use std::sync::atomic::{AtomicUsize, Ordering};
 
 use crate::model::{LogicalType, Value};
 use crate::query::{CaseSensitivity, FtsMode, Query, QueryOptions, RegexOptions, parse_filter};
@@ -7,10 +9,150 @@ use crate::relation::{RelationCardinality, RelationDefinition};
 use crate::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
 };
-use crate::source::SourceFormat;
+use crate::source::{
+    ExtractedRecord, JsonReader, LogicalTextCoverage, ReaderFailure, ScanProjection, SourceFormat,
+    SourceReader, SourceRegistry, TextDerivation,
+};
 use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
 use super::{Strategy, candidates_with_strategy};
+
+
+struct CountedJsonReader(Arc<AtomicUsize>);
+
+
+impl SourceReader for CountedJsonReader {
+    fn name(&self) -> &'static str {
+        "counted_json"
+    }
+
+    fn text_derivation(&self) -> TextDerivation {
+        JsonReader.text_derivation()
+    }
+
+    fn logical_text_coverage(&self) -> LogicalTextCoverage {
+        JsonReader.logical_text_coverage()
+    }
+
+    fn frame(&self, bytes: &[u8]) -> Result<Vec<crate::inventory::ByteRange>, String> {
+        JsonReader.frame(bytes)
+    }
+
+    fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String> {
+        self.0.fetch_add(1, Ordering::Relaxed);
+        JsonReader.parse(bytes)
+    }
+
+    fn parse_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        self.0.fetch_add(1, Ordering::Relaxed);
+        JsonReader.parse_outcome(bytes)
+    }
+
+    fn parse_for_build_outcome(&self, bytes: &[u8]) -> Result<ExtractedRecord, ReaderFailure> {
+        self.0.fetch_add(1, Ordering::Relaxed);
+        JsonReader.parse_for_build_outcome(bytes)
+    }
+
+    fn parse_for_query(
+        &self,
+        bytes: &[u8],
+        projection: &ScanProjection,
+    ) -> Result<ExtractedRecord, String> {
+        self.0.fetch_add(1, Ordering::Relaxed);
+        JsonReader.parse_for_query(bytes, projection)
+    }
+}
+
+
+#[test]
+fn estimate_only_explain_never_opens_or_parses_related_sources() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-explain-no-source-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    let _ = std::fs::remove_dir_all(&root);
+    for collection in ["sources", "targets"] {
+        std::fs::create_dir_all(root.join(collection)).unwrap();
+    }
+    std::fs::write(
+        root.join("sources/S.json"),
+        r#"{"id":"S","entry":"T","title":"Local"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.join("targets/T.json"),
+        r#"{"id":"T","title":"Needle"}"#,
+    )
+    .unwrap();
+    let parses = Arc::new(AtomicUsize::new(0));
+    let mut registry = SourceRegistry::builtin();
+    registry
+        .register(
+            "counted_json",
+            1,
+            "json",
+            Arc::new(CountedJsonReader(parses.clone())),
+        )
+        .unwrap();
+    let mut definitions = definitions();
+    let title_path = vec!["title".to_owned()];
+    definitions[1]
+        .schema
+        .fields
+        .get_mut(&title_path)
+        .unwrap()
+        .indexed = false;
+    definitions[1]
+        .schema
+        .prohibit_auto_index(title_path)
+        .unwrap();
+    let definitions = definitions
+        .into_iter()
+        .map(|mut definition| {
+            definition.format = SourceFormat::registered("counted_json");
+            definition
+        })
+        .collect();
+    let repo = Repository::open_with_sources(
+        &root,
+        definitions,
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            verified_cache_bytes: 0,
+            ..Default::default()
+        },
+        registry,
+    )
+    .unwrap();
+    let relation = query("entry.title ?~ 'Needle'");
+    let related_fts = selected_fts(None, "Needle", false);
+    // Any attempted source open now fails, even if the reader would skip parsing.
+    std::fs::rename(root.join("sources/S.json"), root.join("sources/S.hidden")).unwrap();
+    std::fs::rename(root.join("targets/T.json"), root.join("targets/T.hidden")).unwrap();
+    let before_explain = parses.load(Ordering::Relaxed);
+    for request in [&relation, &related_fts] {
+        let traces = repo.explain(request).unwrap();
+        assert_eq!(traces.len(), 1);
+        assert!(traces[0].candidates_estimated);
+        assert!(traces[0].sort_strategy_estimated);
+        assert!(traces[0].actual.is_none());
+        assert!(
+            traces[0]
+                .terms
+                .iter()
+                .all(|term| !term.executed && term.actual_output.is_none())
+        );
+    }
+    assert_eq!(parses.load(Ordering::Relaxed), before_explain);
+    std::fs::rename(root.join("sources/S.hidden"), root.join("sources/S.json")).unwrap();
+    std::fs::rename(root.join("targets/T.hidden"), root.join("targets/T.json")).unwrap();
+    let before_analyze = parses.load(Ordering::Relaxed);
+    let (_, analyzed) = repo.explain_analyze(&relation).unwrap();
+    assert!(analyzed[0].actual.as_ref().unwrap().relation_target_reads > 0);
+    assert!(parses.load(Ordering::Relaxed) > before_analyze);
+    std::fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn intermediate_limits_report_errors_instead_of_truncating_membership() {
@@ -355,7 +497,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         assert_eq!(actual.counters.relation_target_candidates, 1);
         assert_eq!(actual.counters.relation_reverse_postings_visited, 1);
         assert_eq!(actual.counters.scanned_records, 0);
-        let trace = repo.explain(&request).unwrap();
+        let trace = repo.explain_analyze(&request).unwrap().1;
         assert!(
             trace[0].terms.iter().any(|choice| choice.selected.kind
                 == crate::executor::AccessPathKind::RelationTargetFirst)
@@ -363,7 +505,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
 
         let selective = query("title = 'rare' && entry.title ?~ 'H'");
         assert_eq!(ids(&repo, &selective), ["S00"]);
-        let trace = repo.explain(&selective).unwrap();
+        let trace = repo.explain_analyze(&selective).unwrap().1;
         assert!(trace[0].terms.iter().any(|choice| choice.selected.kind
             == crate::executor::AccessPathKind::RelationSourceRestricted));
         let selective_work = repo.search(&selective).unwrap().counters;
@@ -376,7 +518,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             (0..59).map(|n| format!("S{n:02}")).collect::<Vec<_>>()
         );
         assert!(
-            repo.explain(&multi).unwrap()[0]
+            repo.explain_analyze(&multi).unwrap().1[0]
                 .terms
                 .iter()
                 .any(|choice| matches!(
@@ -402,7 +544,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         let universal = query("entry.title = 'Hymn Parade'");
         assert_eq!(ids(&repo, &universal), expected);
         assert!(
-            repo.explain(&universal).unwrap()[0]
+            repo.explain_analyze(&universal).unwrap().1[0]
                 .terms
                 .iter()
                 .any(|choice| matches!(
@@ -431,14 +573,14 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
             assert_eq!(result.counters.relation_reverse_postings_visited, 1);
             assert_eq!(result.counters.scanned_records, 0);
             assert!(
-                repo.explain(&request).unwrap()[0]
+                repo.explain_analyze(&request).unwrap().1[0]
                     .fts_strategy
                     .starts_with("relation target-first")
             );
         }
         let selected = selected_fts(Some("title = 'rare'"), "H", false);
         assert_eq!(ids(&repo, &selected), ["S00"]);
-        let trace = repo.explain(&selected).unwrap();
+        let trace = repo.explain_analyze(&selected).unwrap().1;
         assert!(
             trace[0]
                 .fts_strategy
@@ -450,7 +592,7 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         assert_eq!(regex_work.relation_edge_visits, 1);
         assert_eq!(regex_work.relation_target_candidates, 1);
         assert!(
-            repo.explain(&selected_regex).unwrap()[0]
+            repo.explain_analyze(&selected_regex).unwrap().1[0]
                 .fts_strategy
                 .starts_with("relation source-restricted")
         );

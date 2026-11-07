@@ -13,7 +13,7 @@ use smallvec::SmallVec;
 
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
-    fts_candidates, plan_expr_restricted, plan_expr_restricted_compact,
+    estimate_plan_expr, fts_candidates, plan_expr_restricted, plan_expr_restricted_compact,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{FieldPath, PathRoot, Value};
@@ -1281,11 +1281,14 @@ pub struct QueryPlanTrace {
     pub fts_strategy: String,
     pub normalized_sort: Vec<SortField>,
     pub sort_strategy: String,
+    pub sort_strategy_estimated: bool,
     pub filter_exact: bool,
     pub terms: Vec<TermChoice>,
     pub planning: PlanningCounters,
     pub bound_terms: Vec<BoundTermDiagnostic>,
     pub candidates: u64,
+    /// True when `candidates` and the selected paths are estimates only.
+    pub candidates_estimated: bool,
     pub actual: Option<PlanActual>,
 }
 
@@ -2456,6 +2459,8 @@ fn inferred_order_column(
         return Ok(None);
     }
     let collection = &repo.collections[collection_index];
+    #[cfg(test)]
+    INFERRED_ORDER_BUILDS.with(|count| count.set(count.get() + 1));
     SortColumn::from_inferred_posting(
         index,
         &collection.generation,
@@ -2465,6 +2470,16 @@ fn inferred_order_column(
         query.options.sort[0].descending,
     )
     .map(|column| column.map(|column| (collection_index, column)))
+}
+
+#[cfg(test)]
+thread_local! {
+    static INFERRED_ORDER_BUILDS: std::cell::Cell<u64> = const { std::cell::Cell::new(0) };
+}
+
+#[cfg(test)]
+pub(crate) fn inferred_order_builds_for_test() -> u64 {
+    INFERRED_ORDER_BUILDS.with(std::cell::Cell::get)
 }
 
 #[allow(clippy::too_many_arguments)]
@@ -2686,11 +2701,13 @@ fn try_stored_order_page(
                     "stored_order_page"
                 }
                 .into(),
+                sort_strategy_estimated: false,
                 filter_exact: entry.plan.exact,
                 terms: entry.plan.choices.clone(),
                 planning: entry.plan.planning,
                 bound_terms: bound_term_diagnostics(repo, entry.filter),
                 candidates: entry.candidates.len(),
+                candidates_estimated: false,
                 actual: None,
             });
         }
@@ -3492,63 +3509,42 @@ pub fn search_analyze(
 pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, String> {
     let bound_sort = BoundSort::bind(repo, query)?;
     let (prepared, _) = crate::prepared::prepare(repo, query)?;
-    let mut relation_work = WorkCounters::default();
     let has_source_dependent = prepared.collections.iter().any(|(_, filter, _)| {
         filter
             .as_ref()
             .is_some_and(crate::relation_target_cache::has_source_dependent)
     });
+    let has_related_fts = prepared.collections.iter().any(|(_, _, fts)| {
+        fts.as_ref()
+            .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
+    });
     let inferred_order = !has_source_dependent
-        && !prepared.collections.iter().any(|(_, _, fts)| {
-            fts.as_ref()
-                .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()))
-        })
-        && inferred_order_column(repo, query, &prepared)?.is_some();
+        && !has_related_fts
+        && prepared.collections.len() == 1
+        && inferred_order_index(repo, query)
+            .is_some_and(|(index, _, _)| prepared.collections[0].0 == index);
     let mut traces = Vec::new();
     let mut ordered_candidate_total = 0u64;
     for (collection_index, filter, fts) in prepared.collections {
         let collection = &repo.collections[collection_index];
-        let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
-        let plan = filter
+        let domain_len = collection.generation.records.len() as u64;
+        let estimated = filter
             .as_ref()
-            .map(|f| {
-                plan_expr_restricted(
-                    repo,
-                    collection,
-                    f,
-                    &domain,
-                    &domain,
-                    query.options.evidence,
-                )
-            })
-            .transpose()?
-            .unwrap_or(Plan {
-                candidates: None,
-                exact: true,
-                proven_hits: RoaringBitmap::new(),
-                proofs: Vec::new(),
-                choices: Vec::new(),
-                semijoin_work: Default::default(),
-                planning: PlanningCounters::default(),
-            });
-        record_semijoin_work(plan.semijoin_work, &mut relation_work)?;
-        let mut ordered_candidates = plan.candidates.clone().unwrap_or_else(|| domain.clone());
-        if let Some(text_candidates) = fts.as_ref().and_then(|fts| fts_candidates(collection, fts))
-        {
-            ordered_candidates &= text_candidates;
-        }
-        let relation_fts = fts
+            .map(|expr| estimate_plan_expr(collection, expr, domain_len));
+        let fts_estimate = fts
             .as_ref()
-            .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &ordered_candidates))
-            .transpose()?
-            .flatten();
-        if let Some(proof) = &relation_fts {
-            record_semijoin_work(proof.work, &mut relation_work)?;
-        }
-        if let Some(proof) = &relation_fts {
-            ordered_candidates = proof.evidence.keys().copied().collect();
-        }
-        ordered_candidate_total += ordered_candidates.len();
+            .and_then(|fts| estimate_fts_candidates(collection, fts));
+        let candidates = estimated
+            .as_ref()
+            .map_or(domain_len, |plan| plan.candidates)
+            .min(fts_estimate.map_or(domain_len, |estimate| estimate.0));
+        let related_fts = fts
+            .as_ref()
+            .is_some_and(|fts| fts.fields.iter().any(|field| field.related.is_some()));
+        let filter_exact = estimated.as_ref().is_none_or(|plan| plan.exact)
+            && (filter.is_none()
+                || collection.logical_records.len() == collection.generation.records.len() as u64);
+        ordered_candidate_total = ordered_candidate_total.saturating_add(candidates);
         traces.push(QueryPlanTrace {
             collection: collection.definition.name.clone(),
             generation: collection.generation.generation,
@@ -3559,28 +3555,21 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             fts_exact_literal: fts.as_ref().map(|fts| fts.source_literal.clone()),
             fts_prefilter_reason: regex_prefilter_reason(collection, fts.as_ref()),
             fts_covered_target: fts_covered_target(fts.as_ref()),
-            fts_estimated_candidates: fts.as_ref().and_then(|fts| {
-                estimate_fts_candidates(collection, fts).map(|estimate| estimate.0)
-            }),
-            remaining_verification: (fts.is_some() && relation_fts.is_none()) || !plan.exact,
-            input_records: domain.len(),
+            fts_estimated_candidates: fts_estimate.map(|estimate| estimate.0),
+            remaining_verification: fts.is_some() || !filter_exact,
+            input_records: domain_len,
             fts_strategy: if fts.as_ref().is_some_and(|fts| fts.fields.is_empty())
                 && collection.logical_records.len() != collection.generation.records.len() as u64
             {
                 "logical text plus fallback source text"
-            } else if let Some(proof) = &relation_fts {
-                if proof
-                    .strategies
-                    .iter()
-                    .all(|strategy| *strategy == crate::relation_semijoin::Strategy::TargetFirst)
+            } else if related_fts {
+                if fts
+                    .as_ref()
+                    .is_some_and(|fts| fts.fields.iter().all(|field| field.related.is_some()))
                 {
-                    "relation target-first semijoin"
-                } else if proof.strategies.iter().all(|strategy| {
-                    *strategy == crate::relation_semijoin::Strategy::SourceRestricted
-                }) {
-                    "relation source-restricted semijoin"
+                    "relation semijoin strategy undecided (estimate only)"
                 } else {
-                    "relation mixed semijoin"
+                    "mixed local and relation FTS (estimate only)"
                 }
             } else if let Some(fts) = &fts {
                 if !fts.fields.is_empty()
@@ -3590,7 +3579,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                         .all(|field| matches!(field.path.root, PathRoot::Metadata(_)))
                 {
                     "metadata inventory"
-                } else if estimate_fts_candidates(collection, fts).is_some() {
+                } else if fts_estimate.is_some() {
                     "compatible bigram candidate or restricted scanner"
                 } else {
                     "restricted scanner"
@@ -3601,11 +3590,15 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
             .into(),
             normalized_sort: query.options.sort.clone(),
             sort_strategy: String::new(),
-            filter_exact: plan.exact,
-            terms: plan.choices,
-            planning: plan.planning,
+            sort_strategy_estimated: true,
+            filter_exact,
+            terms: estimated
+                .as_ref()
+                .map_or_else(Vec::new, |plan| plan.choices.clone()),
+            planning: estimated.map_or_else(PlanningCounters::default, |plan| plan.planning),
             bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
-            candidates: ordered_candidates.len(),
+            candidates,
+            candidates_estimated: true,
             actual: None,
         });
     }
@@ -3626,9 +3619,7 @@ pub fn explain(repo: &Repository, query: &Query) -> Result<Vec<QueryPlanTrace>, 
                 })
                 .all(|collection| collection.sorting.composite(&query.options.sort).is_some()))
         && !has_source_dependent
-        && !traces
-            .iter()
-            .any(|trace| trace.fts_strategy.starts_with("relation "))
+        && !has_related_fts
         && !(cap > 0
             && ordered_candidate_total > 0
             && ordered_candidate_total < (cap as u64).saturating_mul(4));
@@ -4096,6 +4087,7 @@ fn search_impl<'a>(
                     "text verification scan"
                 }
                 .into(),
+                sort_strategy_estimated: false,
                 normalized_sort: query.options.sort.clone(),
                 sort_strategy: if sort.bound.has_computed {
                     "computed_top_k_full_key_evaluation"
@@ -4108,6 +4100,7 @@ fn search_impl<'a>(
                 planning: plan.planning,
                 bound_terms: bound_term_diagnostics(repo, filter.as_ref()),
                 candidates: candidates.len(),
+                candidates_estimated: false,
                 actual: None,
             });
         }
