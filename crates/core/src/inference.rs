@@ -10,8 +10,7 @@ use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
 
-pub const INFERENCE_POLICY_VERSION: u32 = 1;
-
+pub const INFERENCE_POLICY_VERSION: u32 = 2;
 
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
@@ -24,11 +23,9 @@ pub(crate) enum ObservedStep {
     ArrayIndex(u32),
 }
 
-
 fn typed_path(path: &[String]) -> Vec<ObservedStep> {
     path.iter().cloned().map(ObservedStep::Field).collect()
 }
-
 
 /// Explicit construction choice. Disabled is the schema-free default.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
@@ -39,7 +36,6 @@ pub enum InferenceMode {
     AutoIndex,
 }
 
-
 /// Bounded, versioned admission thresholds for one repository opening.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct InferencePolicy {
@@ -49,6 +45,10 @@ pub struct InferencePolicy {
     pub max_record_contributions: usize,
     pub max_distinct_values_per_path: usize,
     pub max_string_bytes: usize,
+    /// Inclusive decoded UTF-8 byte limit for automatic ordered string keys.
+    pub short_string_max_utf8_bytes: usize,
+    /// Retained per-path short-string key and membership estimate.
+    pub max_short_string_index_bytes_per_path: usize,
     pub max_distinct_string_bytes: usize,
     pub max_batch_bytes: usize,
     /// Coordinator retained budget; the repository cap also covers live batches.
@@ -60,7 +60,6 @@ pub struct InferencePolicy {
     pub minimum_repeated_percent: u8,
 }
 
-
 impl Default for InferencePolicy {
     fn default() -> Self {
         Self {
@@ -70,6 +69,8 @@ impl Default for InferencePolicy {
             max_record_contributions: 4096,
             max_distinct_values_per_path: 4096,
             max_string_bytes: 64,
+            short_string_max_utf8_bytes: 64,
+            max_short_string_index_bytes_per_path: 24 * 1024 * 1024,
             max_distinct_string_bytes: 8 * 1024,
             max_batch_bytes: 256 * 1024,
             max_total_bytes: 48 * 1024 * 1024,
@@ -82,14 +83,12 @@ impl Default for InferencePolicy {
     }
 }
 
-
 /// Mode and admission policy frozen for one immutable repository generation.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq, Serialize, Deserialize)]
 pub struct InferenceConfig {
     pub mode: InferenceMode,
     pub policy: InferencePolicy,
 }
-
 
 impl InferenceConfig {
     pub fn validate(self) -> Result<(), String> {
@@ -100,6 +99,8 @@ impl InferenceConfig {
             || policy.max_record_contributions == 0
             || policy.max_distinct_values_per_path == 0
             || policy.max_string_bytes == 0
+            || policy.short_string_max_utf8_bytes == 0
+            || policy.max_short_string_index_bytes_per_path == 0
             || policy.max_distinct_string_bytes == 0
             || policy.max_batch_bytes == 0
             || policy.max_total_bytes < policy.max_batch_bytes
@@ -124,7 +125,6 @@ impl InferenceConfig {
     }
 }
 
-
 /// Why an observed field did or did not receive a typed accelerator.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub enum InferenceIndexStatus {
@@ -137,7 +137,6 @@ pub enum InferenceIndexStatus {
     BudgetExceeded,
     BelowThreshold,
 }
-
 
 /// Complete or explicitly incomplete statistics for one logical field path.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -161,6 +160,10 @@ pub struct InferredFieldReport {
     pub nonblank_occurrences: u64,
     pub nonblank_records: u64,
     pub distinct_nonblank_strings: Option<usize>,
+    pub short_string_observed_occurrences: u64,
+    pub short_string_distinct_values: usize,
+    pub short_string_covered_records: u64,
+    pub short_string_unresolved_records: u64,
     pub index_status: InferenceIndexStatus,
     pub reason: String,
     pub complete: bool,
@@ -168,7 +171,6 @@ pub struct InferredFieldReport {
     pub index_bytes_estimate: usize,
     pub retained_bytes_estimate: usize,
 }
-
 
 /// Per-collection inference report for one source generation.
 #[derive(Clone, Debug, Serialize, Deserialize)]
@@ -188,15 +190,16 @@ pub struct InferenceReport {
     pub fields: Vec<InferredFieldReport>,
 }
 
-
 /// Published optional indexes and their descriptive report.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceState {
     pub report: InferenceReport,
     pub indexes: HashMap<Vec<String>, PostingIndex>,
     pub empty_selections: HashMap<Vec<String>, RoaringBitmap>,
+    /// Records whose entire selected value stream is represented by the
+    /// corresponding short-string posting dictionary.
+    pub short_string_coverage: HashMap<Vec<String>, RoaringBitmap>,
 }
-
 
 impl InferenceState {
     /// A complete inferred posting may restrict a dynamic term. Ordinary
@@ -228,6 +231,59 @@ impl InferenceState {
         let index = self.indexes.get(&term.path.segments)?;
         if index.covered_records as u64 != domain.len() {
             return None;
+        }
+        if let Some(covered) = self.short_string_coverage.get(&term.path.segments) {
+            if structural
+                || term.derived != Derived::None
+                || !matches!(&term.literal, Value::String(_))
+                || !matches!(
+                    term.operator,
+                    Operator::Eq | Operator::Gt | Operator::Ge | Operator::Lt | Operator::Le
+                )
+            {
+                return None;
+            }
+            let key = ScalarKey::from_value(&term.literal)?;
+            let mut candidate = RoaringBitmap::new();
+            let values = &index.values;
+            match term.operator {
+                Operator::Eq => {
+                    if let Some(slots) = values.get(&key) {
+                        candidate |= slots;
+                    }
+                }
+                Operator::Gt => {
+                    for (_, slots) in values
+                        .range((std::ops::Bound::Excluded(key), std::ops::Bound::Unbounded))
+                        .take_while(|(value, _)| matches!(value, ScalarKey::String(_)))
+                    {
+                        candidate |= slots;
+                    }
+                }
+                Operator::Ge => {
+                    for (_, slots) in values
+                        .range(key..)
+                        .take_while(|(value, _)| matches!(value, ScalarKey::String(_)))
+                    {
+                        candidate |= slots;
+                    }
+                }
+                Operator::Lt => {
+                    for (_, slots) in values.range(..key) {
+                        candidate |= slots;
+                    }
+                }
+                Operator::Le => {
+                    for (_, slots) in values.range(..=key) {
+                        candidate |= slots;
+                    }
+                }
+                _ => unreachable!(),
+            }
+            // Incomplete selections, including missing and empty paths, must
+            // undergo the ordinary evaluator and retain its error behavior.
+            candidate |= input - covered;
+            return Some((candidate & input, false));
         }
         if structural {
             return index
@@ -324,6 +380,13 @@ impl InferenceState {
         if self.empty_selections.len() != self.indexes.len() {
             return Err("snapshot inferred empty-selection coverage mismatch".into());
         }
+        if self
+            .short_string_coverage
+            .keys()
+            .any(|path| !self.indexes.contains_key(path))
+        {
+            return Err("snapshot inferred short-string coverage without posting".into());
+        }
         let mut paths = std::collections::HashSet::new();
         for field in &self.report.fields {
             if !paths.insert(&field.path)
@@ -352,6 +415,36 @@ impl InferenceState {
             {
                 return Err("snapshot inferred empty selection mismatch".into());
             }
+            match self.short_string_coverage.get(&field.path) {
+                Some(covered) => {
+                    if !covered.is_subset(logical)
+                        || covered.len() != field.short_string_covered_records
+                        || field.short_string_unresolved_records != logical.len() - covered.len()
+                        || field.short_string_distinct_values == 0
+                    {
+                        return Err("snapshot inferred short-string coverage mismatch".into());
+                    }
+                    let index = &self.indexes[&field.path];
+                    let represented =
+                        index
+                            .values
+                            .values()
+                            .fold(RoaringBitmap::new(), |mut all, slots| {
+                                all |= slots;
+                                all
+                            });
+                    if !covered.is_subset(&represented) {
+                        return Err("snapshot inferred short-string coverage lacks values".into());
+                    }
+                }
+                None if field.short_string_covered_records != 0
+                    || field.short_string_distinct_values != 0
+                    || field.short_string_unresolved_records != logical.len() =>
+                {
+                    return Err("snapshot inferred short-string coverage missing".into());
+                }
+                None => {}
+            }
         }
         for (path, index) in &self.indexes {
             if path != &index.path || schema.fields.contains_key(path) || !self.report.complete {
@@ -375,7 +468,6 @@ impl InferenceState {
         Ok(())
     }
 }
-
 
 #[path = "inference_build.rs"]
 mod build;
