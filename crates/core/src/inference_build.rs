@@ -724,6 +724,11 @@ impl InferenceBuilder {
                 )
             };
             let mut index_bytes = 0usize;
+            let published_short_covered = if status == InferenceIndexStatus::Built {
+                short_covered_count
+            } else {
+                0
+            };
             if status == InferenceIndexStatus::Built {
                 let kind = if has_short_values {
                     LogicalType::String
@@ -818,8 +823,8 @@ impl InferenceBuilder {
                     .map(std::collections::HashSet::len),
                 short_string_observed_occurrences: field.short_observed_occurrences,
                 short_string_distinct_values: short_distinct_count,
-                short_string_covered_records: short_covered_count,
-                short_string_unresolved_records: logical.len() - short_covered_count,
+                short_string_covered_records: published_short_covered,
+                short_string_unresolved_records: logical.len() - published_short_covered,
                 index_status: status,
                 reason: reason.into(),
                 complete: self.complete && (has_short_values || field.distinct_nonblank.is_some()),

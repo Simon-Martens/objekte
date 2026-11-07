@@ -222,6 +222,70 @@ fn schema_bytes_and_inference_mode_own_snapshot_compatibility() {
 }
 
 #[test]
+fn manual_and_automatic_postings_restore_together() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(
+        root.path().join("schema.json"),
+        serde_json::json!({
+            "type":"object", "properties":{
+                "code":{"type":"string","index":true},
+                "group":{"type":"string"}
+            }
+        })
+        .to_string(),
+    )
+    .unwrap();
+    for index in 0..4 {
+        std::fs::write(
+            root.path().join(format!("{index}.json")),
+            serde_json::json!({"code":format!("c{index}"),"group":format!("g{index}")}).to_string(),
+        )
+        .unwrap();
+    }
+    let (built_status, built) = invoke(
+        root.path(),
+        &[
+            "--schema",
+            "schema.json",
+            "--auto-index",
+            "--write-index",
+            "group = 'g2'",
+        ],
+    );
+    assert!(
+        built_status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&built_status.stderr)
+    );
+    assert_eq!(
+        built.last().unwrap()["automatic_index_summary"]["admitted_paths"],
+        1
+    );
+    let (loaded_status, loaded) = invoke(
+        root.path(),
+        &[
+            "--schema",
+            "schema.json",
+            "--auto-index",
+            "--load-index",
+            "group = 'g2'",
+        ],
+    );
+    assert!(
+        loaded_status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&loaded_status.stderr)
+    );
+    assert_eq!(loaded.last().unwrap()["snapshot_action"], "restored");
+    assert_eq!(loaded.last().unwrap()["build_parses"], 0);
+    assert_eq!(hits(&built).len(), 1);
+    assert_eq!(
+        hits(&built)[0]["file"]["record_id"],
+        hits(&loaded)[0]["file"]["record_id"]
+    );
+}
+
+#[test]
 fn default_folder_admits_root_shapes_and_hidden_json() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("object.json"), br#"{"title":"needle"}"#).unwrap();

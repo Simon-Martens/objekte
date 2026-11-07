@@ -442,7 +442,6 @@ impl InferenceState {
                     }
                 }
                 None if field.short_string_covered_records != 0
-                    || field.short_string_distinct_values != 0
                     || field.short_string_unresolved_records != logical.len() =>
                 {
                     return Err("snapshot inferred short-string coverage missing".into());
