@@ -651,15 +651,19 @@ fn descending_order(
 }
 
 impl SortCollection {
+    /// Finalize status-dependent orders after all collections have contributed
+    /// diagnostics to the shared file inventory.
     pub fn refresh_file_status(
         &mut self,
         generation: &CollectionGeneration,
         inventory: &FileInventory,
     ) {
+        let mut refreshed = false;
         for column in self.columns.values_mut() {
             if column.path.root != PathRoot::Metadata(MetadataField::FileStatus) {
                 continue;
             }
+            refreshed = true;
             for record in &generation.records {
                 let status = inventory.files[record.file.0 as usize].status.code();
                 column.keys[record.slot.0 as usize] =
@@ -676,6 +680,29 @@ impl SortCollection {
                     })
             });
             column.descending = descending_order(&column.ascending, &column.keys, column.options);
+        }
+        if refreshed {
+            for composite in &mut self.composites {
+                if !composite
+                    .fields
+                    .iter()
+                    .any(|field| field.path.root == PathRoot::Metadata(MetadataField::FileStatus))
+                {
+                    continue;
+                }
+                let columns = composite
+                    .fields
+                    .iter()
+                    .map(|field| (&self.columns[&field.path], field.descending))
+                    .collect::<Vec<_>>();
+                composite.order.sort_by(|a, b| {
+                    compare_composite(&columns, *a, *b).then_with(|| {
+                        generation.records[a.0 as usize]
+                            .id
+                            .cmp(&generation.records[b.0 as usize].id)
+                    })
+                });
+            }
         }
     }
 

@@ -330,3 +330,165 @@ fn cross_collection_sort_rejects_different_collation() {
     assert_eq!(repo.search(&scoped).unwrap().count.unwrap(), 1);
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn shared_file_status_refreshes_composite_orders_before_publication() {
+    use crate::inventory::FileStatus;
+    use crate::query::{Query, QueryOptions};
+    use crate::reference::FieldDefinition;
+    use crate::repository::{CollectionDefinition, Repository, RepositoryOptions, SnapshotMode};
+    use crate::source::SourceFormat;
+    use crate::workload::{BigramAlphabet, ReturnMode, SortField};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-shared-status-sort-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(root.join("data/a.json"), r#"{"name":"A"}"#).unwrap();
+    std::fs::write(root.join("data/b.json"), r#"{"name":"Z","required":true}"#).unwrap();
+    for (id, name) in [("c", "C"), ("d", "D")] {
+        std::fs::write(
+            root.join(format!("data/{id}.json")),
+            format!(r#"{{"name":"{name}","required":true}}"#),
+        )
+        .unwrap();
+    }
+
+    let mut lenient = CollectionDefinition::folder("lenient", "data", SourceFormat::Json);
+    lenient
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["name".into()],
+            kind: LogicalType::String,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+    lenient.sort_fields = ["@file.status", "name"]
+        .into_iter()
+        .map(|path| FieldPath::parse(path).unwrap())
+        .collect();
+    for descending in [false, true] {
+        lenient
+            .schema
+            .register_composite_sort(vec![
+                SortField::simple("@file.status", descending),
+                SortField::simple("name", descending),
+            ])
+            .unwrap();
+    }
+    let mut strict = CollectionDefinition::folder("strict", "data", SourceFormat::Json);
+    strict
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["required".into()],
+            kind: LogicalType::Bool,
+            required: true,
+            nullable: false,
+            indexed: false,
+            multi: false,
+            element_nullable: Vec::new(),
+        })
+        .unwrap();
+
+    let query = |descending, offset| Query {
+        collections: vec!["lenient".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![
+                SortField::simple("@file.status", descending),
+                SortField::simple("name", descending),
+            ],
+            limit: 1,
+            offset,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    for strict_first in [false, true] {
+        let definitions = if strict_first {
+            vec![strict.clone(), lenient.clone()]
+        } else {
+            vec![lenient.clone(), strict.clone()]
+        };
+        let options = RepositoryOptions {
+            snapshot_mode: SnapshotMode::IfValid,
+            ..Default::default()
+        };
+        let repo = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
+        let status = |name: &str| {
+            repo.files
+                .files
+                .iter()
+                .find(|file| {
+                    file.relative_path == std::path::PathBuf::from(format!("data/{name}.json"))
+                })
+                .unwrap()
+                .status
+        };
+        assert_eq!(status("a"), FileStatus::Broken);
+        assert_eq!(status("b"), FileStatus::Valid);
+        assert_eq!(status("c"), FileStatus::Valid);
+        assert_eq!(status("d"), FileStatus::Valid);
+
+        for (descending, expected) in [
+            (
+                false,
+                ["path:c.json", "path:d.json", "path:b.json", "path:a.json"],
+            ),
+            (
+                true,
+                ["path:a.json", "path:b.json", "path:d.json", "path:c.json"],
+            ),
+        ] {
+            for offset in 0..4 {
+                let query = query(descending, offset);
+                if offset == 0 {
+                    assert_eq!(
+                        repo.explain(&query).unwrap()[0].sort_strategy,
+                        "stored_composite_order_page"
+                    );
+                }
+                let actual = repo.search(&query).unwrap();
+                assert_eq!(
+                    actual
+                        .hits
+                        .iter()
+                        .map(|hit| hit.record_id.as_str())
+                        .collect::<Vec<_>>(),
+                    [expected[offset]],
+                    "strict_first={strict_first}, descending={descending}, offset={offset}"
+                );
+                assert_eq!(actual.hits, repo.search_reference(&query).unwrap().hits);
+            }
+        }
+
+        let snapshot = crate::storage::snapshot_path(&root, BigramAlphabet::Ascii);
+        repo.save_snapshot(&snapshot).unwrap();
+        drop(repo);
+        let restored = Repository::open_with_options(&root, definitions, options).unwrap();
+        assert!(restored.startup().restored);
+        for descending in [false, true] {
+            for offset in 0..4 {
+                let query = query(descending, offset);
+                assert_eq!(
+                    restored.search(&query).unwrap().hits,
+                    restored.search_reference(&query).unwrap().hits
+                );
+            }
+        }
+        drop(restored);
+        std::fs::remove_file(snapshot).unwrap();
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
