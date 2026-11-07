@@ -6,6 +6,7 @@ use std::fs::{self, File, OpenOptions};
 use std::io::{Read, Write};
 use std::path::{Path, PathBuf};
 use std::sync::Mutex;
+use std::time::Instant;
 
 use bincode::Options;
 use serde::{Deserialize, Serialize};
@@ -30,6 +31,30 @@ use crate::workload::BigramAlphabet;
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
 pub const SNAPSHOT_VERSION: u32 = 14;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
+
+/// Phase timings for one explicit, durable snapshot save. Opening does not
+/// modify these values or perform a save.
+#[derive(Clone, Debug, Default)]
+pub struct SnapshotSaveStats {
+    pub total_ns: u64,
+    pub directory_ns: u64,
+    pub header_ns: u64,
+    pub inventory_ns: u64,
+    pub write_ns: u64,
+    pub sync_ns: u64,
+    pub rename_ns: u64,
+    pub bytes_written: u64,
+    pub sections: Vec<SnapshotSectionSaveStats>,
+}
+
+#[derive(Clone, Debug)]
+pub struct SnapshotSectionSaveStats {
+    pub id: u32,
+    pub serialize_ns: u64,
+    pub checksum_ns: u64,
+    pub write_ns: u64,
+    pub payload_bytes: u64,
+}
 
 /// Restore failures distinguish unreadable storage from invalid snapshot data.
 #[derive(Debug)]
@@ -341,18 +366,44 @@ pub fn configuration_hash(
     Ok(hash.finalize().into())
 }
 
+#[cfg(test)]
 fn write_section(file: &mut impl Write, id: u32, value: &impl Serialize) -> Result<(), String> {
-    let bytes = codec().serialize(value).map_err(|e| e.to_string())?;
+    write_section_measured(file, id, value).map(|_| ())
+}
+
+fn write_section_measured(
+    file: &mut impl Write,
+    id: u32,
+    value: &impl Serialize,
+) -> Result<SnapshotSectionSaveStats, String> {
+    let started = Instant::now();
+    // `bincode::serialize` traverses the value once to calculate its size and
+    // again to encode it. A growable buffer makes this construction pass once.
+    let mut bytes = Vec::new();
+    codec()
+        .serialize_into(&mut bytes, value)
+        .map_err(|e| e.to_string())?;
+    let serialize_ns = started.elapsed().as_nanos() as u64;
     if bytes.len() as u64 > MAX_SECTION_BYTES {
         return Err("snapshot section too large".into());
     }
+    let started = Instant::now();
+    let checksum = Sha256::digest(&bytes);
+    let checksum_ns = started.elapsed().as_nanos() as u64;
+    let started = Instant::now();
     file.write_all(&id.to_le_bytes())
         .map_err(|e| e.to_string())?;
     file.write_all(&(bytes.len() as u64).to_le_bytes())
         .map_err(|e| e.to_string())?;
-    file.write_all(&Sha256::digest(&bytes))
-        .map_err(|e| e.to_string())?;
-    file.write_all(&bytes).map_err(|e| e.to_string())
+    file.write_all(&checksum).map_err(|e| e.to_string())?;
+    file.write_all(&bytes).map_err(|e| e.to_string())?;
+    Ok(SnapshotSectionSaveStats {
+        id,
+        serialize_ns,
+        checksum_ns,
+        write_ns: started.elapsed().as_nanos() as u64,
+        payload_bytes: bytes.len() as u64,
+    })
 }
 
 fn read_section<T: for<'de> Deserialize<'de>>(
@@ -389,8 +440,25 @@ fn read_section<T: for<'de> Deserialize<'de>>(
 
 impl Repository {
     pub fn save_snapshot(&self, path: &Path) -> Result<(), String> {
+        self.save_snapshot_with_stats(path).map(|_| ())
+    }
+
+    /// Explicitly save and return section-level timing and byte diagnostics.
+    pub fn save_snapshot_with_stats(&self, path: &Path) -> Result<SnapshotSaveStats, String> {
+        self.save_snapshot_before_publish(path, || Ok(()))
+    }
+
+    fn save_snapshot_before_publish(
+        &self,
+        path: &Path,
+        before_publish: impl FnOnce() -> Result<(), String>,
+    ) -> Result<SnapshotSaveStats, String> {
+        let total_started = Instant::now();
+        let mut stats = SnapshotSaveStats::default();
         let parent = path.parent().ok_or("snapshot needs a parent directory")?;
+        let started = Instant::now();
         fs::create_dir_all(parent).map_err(|e| e.to_string())?;
+        stats.directory_ns = started.elapsed().as_nanos() as u64;
         let nonce = std::time::SystemTime::now()
             .duration_since(std::time::SystemTime::UNIX_EPOCH)
             .map_err(|e| e.to_string())?
@@ -399,29 +467,32 @@ impl Repository {
             ".objekte-snapshot-{}-{nonce}.tmp",
             std::process::id()
         ));
-        let outcome = (|| {
+        let outcome: Result<(), String> = (|| {
             let mut file = OpenOptions::new()
                 .create_new(true)
                 .write(true)
                 .open(&temporary)
                 .map_err(|e| e.to_string())?;
+            let started = Instant::now();
+            let definitions = self
+                .collections
+                .iter()
+                .map(|c| c.definition.clone())
+                .collect::<Vec<_>>();
+            let configuration = configuration_hash(&definitions, self.options, &self.sources)?;
+            stats.header_ns = started.elapsed().as_nanos() as u64;
+            let started = Instant::now();
             file.write_all(MAGIC).map_err(|e| e.to_string())?;
             file.write_all(&SNAPSHOT_VERSION.to_le_bytes())
                 .map_err(|e| e.to_string())?;
             file.write_all(&crate::MODEL_VERSION.to_le_bytes())
                 .map_err(|e| e.to_string())?;
-            file.write_all(&configuration_hash(
-                &self
-                    .collections
-                    .iter()
-                    .map(|c| c.definition.clone())
-                    .collect::<Vec<_>>(),
-                self.options,
-                &self.sources,
-            )?)
-            .map_err(|e| e.to_string())?;
+            file.write_all(&configuration).map_err(|e| e.to_string())?;
             file.write_all(&(self.collections.len() as u32).to_le_bytes())
                 .map_err(|e| e.to_string())?;
+            stats.write_ns = started.elapsed().as_nanos() as u64;
+            stats.bytes_written = 52;
+            let started = Instant::now();
             let files: Vec<_> = self
                 .files
                 .files
@@ -437,7 +508,13 @@ impl Repository {
                     omitted_diagnostics: entry.omitted_diagnostics,
                 })
                 .collect();
-            write_section(&mut file, 0, &files)?;
+            stats.inventory_ns = started.elapsed().as_nanos() as u64;
+            let section = write_section_measured(&mut file, 0, &files)?;
+            stats.write_ns = stats.write_ns.saturating_add(section.write_ns);
+            stats.bytes_written = stats
+                .bytes_written
+                .saturating_add(section.payload_bytes + 44);
+            stats.sections.push(section);
             for (index, state) in self.collections.iter().enumerate() {
                 let encoded = EncodedCollectionRef {
                     generation: &state.generation,
@@ -454,16 +531,39 @@ impl Repository {
                     stats: state.stats,
                     relations: &state.relations,
                 };
-                write_section(&mut file, index as u32 + 1, &encoded)?;
+                let section = write_section_measured(&mut file, index as u32 + 1, &encoded)?;
+                stats.write_ns = stats.write_ns.saturating_add(section.write_ns);
+                stats.bytes_written = stats
+                    .bytes_written
+                    .saturating_add(section.payload_bytes + 44);
+                stats.sections.push(section);
             }
+            let started = Instant::now();
             file.sync_all().map_err(|e| e.to_string())?;
+            stats.sync_ns = started.elapsed().as_nanos() as u64;
+            before_publish()?;
+            let started = Instant::now();
             fs::rename(&temporary, path).map_err(|e| e.to_string())?;
+            stats.rename_ns = started.elapsed().as_nanos() as u64;
             Ok(())
         })();
         if outcome.is_err() {
             let _ = fs::remove_file(&temporary);
         }
-        outcome
+        outcome?;
+        stats.total_ns = total_started.elapsed().as_nanos() as u64;
+        Ok(stats)
+    }
+}
+
+#[cfg(test)]
+impl Repository {
+    pub(crate) fn save_default_snapshot_for_test(&self) {
+        self.save_snapshot(&snapshot_path(
+            &self.files.root,
+            self.options.bigram_alphabet,
+        ))
+        .unwrap();
     }
 }
 

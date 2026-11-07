@@ -34,6 +34,8 @@ pub struct TuiOptions {
     pub offset: usize,
     pub limit: Option<usize>,
     pub loading_label: Option<String>,
+    /// An explicit save was requested at startup.
+    pub snapshot_requested: bool,
     pub interruption: Option<CancellationToken>,
 }
 
@@ -105,13 +107,25 @@ where
             }
         };
         let action = repository.startup().snapshot_action;
+        let index_ns = if action == SnapshotAction::Restored {
+            repository.startup().snapshot_decode_ns
+                .saturating_add(repository.startup().reconciliation_ns)
+        } else {
+            repository.startup().build_ns
+        };
+        let snapshot_requested = options.snapshot_requested;
         let mut app = App::with_options(repository, options);
         let operation = if action == SnapshotAction::Restored {
             "Index loaded"
         } else {
             "Index built"
         };
-        let ready = format!("{operation} in {}", view::elapsed_label(started.elapsed()));
+        let ready = format!("{operation} in {}", view::elapsed_label(Duration::from_nanos(index_ns)));
+        let ready = if snapshot_requested && action != SnapshotAction::Restored {
+            format!("{ready}  ·  Snapshot saved")
+        } else {
+            ready
+        };
         app.status = Some(match app.status.take() {
             Some(status) => format!("{status}  ·  {ready}"),
             None => ready,

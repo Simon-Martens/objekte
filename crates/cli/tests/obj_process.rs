@@ -484,6 +484,21 @@ fn bare_obj_errors_before_build_but_index_only_writes() {
 }
 
 #[test]
+fn diagnostic_snapshot_phases_are_emitted_only_for_an_explicit_save() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("data.json"), br#"{"text":"needle"}"#).unwrap();
+    let (written, events) = invoke(root.path(), &["--write-index", "--diagnostic"]);
+    assert!(written.status.success());
+    let phases = &events.last().unwrap()["snapshot_save_phases"];
+    assert_eq!(phases["sections"].as_array().unwrap().len(), 2);
+    assert!(phases["bytes_written"].as_u64().unwrap() > 0);
+    assert_eq!(phases["total_ms"], events.last().unwrap()["snapshot_write_ms"]);
+    let (restored, events) = invoke(root.path(), &["--load-index", "--diagnostic"]);
+    assert!(restored.status.success());
+    assert!(events.last().unwrap().get("snapshot_save_phases").is_none());
+}
+
+#[test]
 fn help_and_version_do_not_open_the_collection() {
     let root = tempfile::tempdir().unwrap();
     for flag in ["--help", "--version"] {
@@ -867,6 +882,18 @@ fn explicit_snapshot_flags_do_not_silently_rebuild_load_only() {
         String::from_utf8_lossy(&written.stderr)
     );
     assert_eq!(hits(&written_events).len(), 1);
+    let snapshot = root.path().join(".objekte/search-core-ascii.snapshot");
+    let saved = std::fs::read(&snapshot).unwrap();
+    let saved_modified = std::fs::metadata(&snapshot).unwrap().modified().unwrap();
+    let (unchanged, unchanged_events) = invoke(
+        root.path(),
+        &["--load-index", "--write-index", "--fts", "needle"],
+    );
+    assert!(unchanged.status.success());
+    assert_eq!(unchanged_events.last().unwrap()["snapshot_action"], "restored");
+    assert_eq!(unchanged_events.last().unwrap()["snapshot_write_ms"], 0.0);
+    assert_eq!(std::fs::read(&snapshot).unwrap(), saved);
+    assert_eq!(std::fs::metadata(&snapshot).unwrap().modified().unwrap(), saved_modified);
     let (loaded, loaded_events) = invoke(root.path(), &["--load-index", "--fts", "needle"]);
     assert!(
         loaded.status.success(),
@@ -881,6 +908,7 @@ fn explicit_snapshot_flags_do_not_silently_rebuild_load_only() {
     .unwrap();
     let (stale, _) = invoke(root.path(), &["--load-index", "--fts", "needle"]);
     assert_eq!(stale.status.code(), Some(2));
+    assert_eq!(std::fs::read(&snapshot).unwrap(), saved);
     let (rebuilt, events) = invoke(
         root.path(),
         &["--load-index", "--write-index", "--fts", "other"],
@@ -891,6 +919,8 @@ fn explicit_snapshot_flags_do_not_silently_rebuild_load_only() {
         String::from_utf8_lossy(&rebuilt.stderr)
     );
     assert_eq!(hits(&events).len(), 1);
+    assert_eq!(events.last().unwrap()["snapshot_action"], "rebuilt_and_written");
+    assert_ne!(std::fs::read(&snapshot).unwrap(), saved);
 }
 
 #[test]

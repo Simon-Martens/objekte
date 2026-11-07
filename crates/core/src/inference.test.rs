@@ -358,9 +358,12 @@ fn mixed_short_strings_match_reference_after_snapshot_restore() {
                 SnapshotOpenPolicy::new(mode, Some(snapshot.clone())),
             )
         };
-        let built = open(SnapshotMode::Rebuild).unwrap();
+        let built = open(SnapshotMode::Disabled).unwrap();
         assert_eq!(built.build_parses(), 13);
-        let restored = open(SnapshotMode::ReadOnly).unwrap();
+        built
+            .save_snapshot(&crate::storage::snapshot_path_in(&snapshot, alphabet))
+            .unwrap();
+        let restored = open(SnapshotMode::Required).unwrap();
         assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
         assert_eq!(restored.build_parses(), 0);
         for filter in filters {
@@ -643,7 +646,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
         ] {
             let options = RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::ReadWrite,
+                snapshot_mode: SnapshotMode::IfValid,
                 verified_cache_bytes: 0,
                 inference: InferenceConfig {
                     mode,
@@ -697,6 +700,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
             assert_eq!(repo.search(&request).unwrap().hits, result.hits);
             assert_eq!(repo.search(&request).unwrap().hits, result.hits);
             if mode == InferenceMode::ReportOnly {
+                repo.save_default_snapshot_for_test();
                 let reopened =
                     Repository::open_with_options(&root, vec![definition.clone()], options)
                         .unwrap();
@@ -777,6 +781,7 @@ fn modes_preserve_answers_and_autoindex_reduces_source_parses() {
                             .hits
                     );
                 }
+                repo.save_default_snapshot_for_test();
                 let reopened =
                     Repository::open_with_options(&root, vec![definition.clone()], options)
                         .unwrap();

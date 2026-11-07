@@ -113,7 +113,7 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::ReadWrite,
+                snapshot_mode: SnapshotMode::IfValid,
                 verified_cache_bytes: 1024 * 1024,
                 ..Default::default()
             },
@@ -320,13 +320,14 @@ fn regex_fts_is_segment_scoped_mode_aware_and_cache_safe() {
             RegexOptions::default(),
         );
         assert!(repo.search(&invalid).unwrap_err().contains("invalid regex"));
+        repo.save_default_snapshot_for_test();
         drop(repo);
         let restored = Repository::open_with_options(
             &root,
             vec![definition.clone()],
             RepositoryOptions {
                 bigram_alphabet: alphabet,
-                snapshot_mode: SnapshotMode::ReadWrite,
+                snapshot_mode: SnapshotMode::IfValid,
                 ..Default::default()
             },
         )
@@ -448,12 +449,10 @@ fn generated_regex_matches_remain_inside_conservative_gram_candidates() {
     }
 }
 
-
 #[derive(Debug)]
 struct RegexMapping {
     compatible: bool,
 }
-
 
 impl BindingOperation for RegexMapping {
     fn accepts(
@@ -485,7 +484,6 @@ impl BindingOperation for RegexMapping {
         self.compatible
     }
 }
-
 
 #[test]
 fn custom_regex_binding_requires_explicit_representation_contract() {
@@ -576,7 +574,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
@@ -590,6 +588,7 @@ fn custom_raw_regex_uses_mapped_index_and_original_fallback_after_restore() {
             built.search(&built_query).unwrap().hits,
             built.search_reference(&built_query).unwrap().hits
         );
+        built.save_default_snapshot_for_test();
         drop(built);
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();

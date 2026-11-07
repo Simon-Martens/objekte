@@ -86,13 +86,16 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     ] {
         let options = crate::repository::RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: crate::repository::SnapshotMode::ReadWrite,
+            snapshot_mode: crate::repository::SnapshotMode::IfValid,
             ..Default::default()
         };
         for opening in 0..2 {
             let repo =
                 Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
             assert_eq!(repo.startup().restored, opening == 1);
+            if opening == 0 {
+                repo.save_default_snapshot_for_test();
+            }
             assert_eq!(repo.collections[0].custom_text.len(), 1);
             let result = repo.search(&query).unwrap();
             assert_eq!(result.count, Some(2));
@@ -212,7 +215,6 @@ fn named_builtin_folded_filter_keeps_its_compatible_bigram_path() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[derive(Debug)]
 struct SeparatorOperation {
     preparations: Arc<AtomicUsize>,
@@ -222,7 +224,6 @@ struct SeparatorOperation {
     bigram: bool,
     complete: bool,
 }
-
 
 fn normalized_equal(input: &[u8], needle: &[u8]) -> bool {
     let mut mapped = input
@@ -249,14 +250,12 @@ fn normalized_contains(input: &[u8], needle: &[u8]) -> bool {
     })
 }
 
-
 #[derive(Debug)]
 struct SeparatorFilter {
     needle: Vec<u8>,
     operator: Operator,
     callbacks: Arc<AtomicUsize>,
 }
-
 
 impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
     fn input(&self) -> crate::reference::ExactInput {
@@ -289,13 +288,11 @@ impl crate::reference::PreparedFilterMatcher for SeparatorFilter {
     }
 }
 
-
 #[derive(Debug)]
 struct SeparatorText {
     needle: Vec<u8>,
     callbacks: Arc<AtomicUsize>,
 }
-
 
 impl crate::reference::PreparedTextMatcher for SeparatorText {
     fn matches(&self, text: &str) -> Result<bool, String> {
@@ -307,7 +304,6 @@ impl crate::reference::PreparedTextMatcher for SeparatorText {
         true
     }
 }
-
 
 impl crate::reference::BindingOperation for SeparatorOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _: bool) -> bool {
@@ -389,9 +385,7 @@ impl crate::reference::BindingOperation for SeparatorOperation {
     }
 }
 
-
 struct SeparatorReader(Arc<AtomicUsize>);
-
 
 impl crate::source::SourceReader for SeparatorReader {
     fn name(&self) -> &'static str {
@@ -445,7 +439,6 @@ impl crate::source::SourceReader for SeparatorReader {
         })
     }
 }
-
 
 #[test]
 fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
@@ -681,7 +674,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
         }
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_sources(
@@ -692,6 +685,7 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     )
     .unwrap();
     assert!(!built.startup().restored);
+    built.save_default_snapshot_for_test();
     drop(built);
     let restored = Repository::open_with_sources(
         &root,
@@ -712,10 +706,8 @@ fn prepared_separator_matcher_uses_index_and_borrowed_scan_paths() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[derive(Debug)]
 struct RemoveSpaces;
-
 
 impl crate::reference::BindingOperation for RemoveSpaces {
     fn accepts(&self, kind: &LogicalType, op: Operator, _: bool) -> bool {
@@ -752,7 +744,6 @@ impl crate::reference::BindingOperation for RemoveSpaces {
         true
     }
 }
-
 
 #[test]
 fn transformed_raw_index_cannot_prune_identity_field_predicates() {
@@ -801,12 +792,15 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         for open in 0..2 {
             let repo = Repository::open_with_options(&root, vec![definition()], options).unwrap();
             assert_eq!(repo.startup().restored, open == 1);
+            if open == 0 {
+                repo.save_default_snapshot_for_test();
+            }
             for filter in [
                 Some("title ~ 'hello world'"),
                 Some("title = 'hello world'"),
@@ -849,14 +843,12 @@ fn transformed_raw_index_cannot_prune_identity_field_predicates() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[derive(Debug)]
 struct KeyedOperation {
     posting: bool,
     bigram: bool,
     complete: bool,
 }
-
 
 #[test]
 fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
@@ -911,7 +903,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     ] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let built =
@@ -957,6 +949,7 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
                         .any(|hit| hit.matched_fields == ["@record.raw_text"])
                 );
             }
+            built.save_default_snapshot_for_test();
             let restored =
                 Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
             assert!(restored.startup().restored);
@@ -965,7 +958,6 @@ fn malformed_raw_text_uses_original_literal_beside_transformed_valid_text() {
     }
     std::fs::remove_dir_all(root).unwrap();
 }
-
 
 impl crate::reference::BindingOperation for KeyedOperation {
     fn accepts(&self, kind: &LogicalType, operator: Operator, _multi: bool) -> bool {
@@ -1016,7 +1008,6 @@ impl crate::reference::BindingOperation for KeyedOperation {
         self.complete
     }
 }
-
 
 #[test]
 fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
@@ -1241,13 +1232,14 @@ fn registered_binding_has_identical_filter_fts_and_restore_semantics() {
         let _ = Literal::Null;
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built =
         Repository::open_with_options(&root, vec![definition(true, true, true, 1)], options)
             .unwrap();
     assert!(!built.startup().restored);
+    built.save_default_snapshot_for_test();
     drop(built);
     let restored =
         Repository::open_with_options(&root, vec![definition(true, true, true, 1)], options)

@@ -468,11 +468,12 @@ fn both_physical_strategies_keep_independent_witnesses_and_reuse_targets() {
         );
         let snapshot_options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 0,
             ..Default::default()
         };
         let fresh = Repository::open_with_options(&root, definitions(), snapshot_options).unwrap();
+        fresh.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, definitions(), snapshot_options).unwrap();
         assert!(restored.startup().restored);

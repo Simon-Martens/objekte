@@ -39,7 +39,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             ..Default::default()
         };
         let repo = Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
@@ -203,6 +203,7 @@ fn typed_posting_values_count_distinct_records_without_source_reads() {
                 .is_empty()
         );
         std::fs::rename(&held, &path).unwrap();
+        repo.save_default_snapshot_for_test();
         let restored =
             Repository::open_with_options(&root, vec![definition.clone()], options).unwrap();
         assert!(restored.startup().restored);
@@ -318,12 +319,10 @@ fn numeric_and_temporal_keys_keep_their_types_and_order() {
     std::fs::remove_dir_all(root).unwrap();
 }
 
-
 #[derive(Debug)]
 struct FoldPosting {
     complete: bool,
 }
-
 
 impl crate::reference::BindingOperation for FoldPosting {
     fn accepts(&self, kind: &LogicalType, operator: crate::query::Operator, _: bool) -> bool {
@@ -368,7 +367,6 @@ impl crate::reference::BindingOperation for FoldPosting {
         self.complete
     }
 }
-
 
 #[test]
 fn named_default_posting_returns_stored_keys_and_rejects_incomplete_coverage() {

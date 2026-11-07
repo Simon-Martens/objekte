@@ -74,12 +74,13 @@ fn typed_ids_remain_distinct_from_strings_through_postings_text_and_restore() {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         verified_cache_bytes: 1024 * 1024,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, vec![definition()], options).unwrap();
     assert!(!built.startup().restored);
+    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, vec![definition()], options).unwrap();
     assert!(restored.startup().restored);
     for repo in [&built, &restored] {

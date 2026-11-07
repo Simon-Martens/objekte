@@ -150,12 +150,13 @@ fn registered_non_json_reader_supports_typed_relation_temporal_and_regex_request
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
         let built =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
+        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
         let restored =
             Repository::open_with_sources(&root, definitions(), options, sources.clone()).unwrap();
         assert!(restored.startup().restored);

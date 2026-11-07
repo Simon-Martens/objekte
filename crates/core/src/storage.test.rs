@@ -7,6 +7,94 @@ use crate::repository::{SnapshotAction, SnapshotMode, SnapshotOpenPolicy};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
+#[test]
+fn one_pass_section_encoding_matches_the_existing_codec_bytes() {
+    let value = vec!["alpha".to_owned(), "ßeta".to_owned(), "".to_owned()];
+    let expected = codec().serialize(&value).unwrap();
+    let mut encoded = Vec::new();
+    codec().serialize_into(&mut encoded, &value).unwrap();
+    assert_eq!(encoded, expected);
+    let mut section = Vec::new();
+    write_section(&mut section, 7, &value).unwrap();
+    assert_eq!(&section[44..], expected);
+}
+
+#[test]
+fn default_open_never_persists_and_stale_snapshot_is_left_untouched() {
+    let root =
+        std::env::temp_dir().join(format!("objekte-no-implicit-save-{}", std::process::id()));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);
+
+    let first = Repository::open(&root, vec![definition.clone()]).unwrap();
+    assert!(!first.startup().restored);
+    assert_eq!(first.startup().snapshot_write_ns, 0);
+    assert!(!snapshot.exists());
+    drop(first);
+    let second = Repository::open(&root, vec![definition.clone()]).unwrap();
+    assert!(!second.startup().restored);
+    assert!(!snapshot.exists());
+    second.save_snapshot(&snapshot).unwrap();
+    let saved = fs::read(&snapshot).unwrap();
+    let modified = fs::metadata(&snapshot).unwrap().modified().unwrap();
+
+    let restored = Repository::open(&root, vec![definition.clone()]).unwrap();
+    assert!(restored.startup().restored);
+    assert_eq!(restored.startup().snapshot_write_ns, 0);
+    assert_eq!(restored.build_parses(), 0);
+    drop(restored);
+
+    fs::write(root.join("data/b.json"), br#"{"title":"B"}"#).unwrap();
+    let rebuilt = Repository::open(&root, vec![definition]).unwrap();
+    assert!(!rebuilt.startup().restored);
+    assert_eq!(rebuilt.startup().snapshot_write_ns, 0);
+    assert_eq!(fs::read(&snapshot).unwrap(), saved);
+    assert_eq!(
+        fs::metadata(&snapshot).unwrap().modified().unwrap(),
+        modified
+    );
+    drop(rebuilt);
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn failed_explicit_save_preserves_previous_snapshot_and_removes_owned_temp() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-save-before-publish-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    let repository = Repository::open(&root, vec![definition]).unwrap();
+    let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);
+    repository.save_snapshot(&snapshot).unwrap();
+    let previous = fs::read(&snapshot).unwrap();
+    let modified = fs::metadata(&snapshot).unwrap().modified().unwrap();
+
+    let error = repository
+        .save_snapshot_before_publish(&snapshot, || Err("injected publication failure".into()))
+        .unwrap_err();
+    assert_eq!(error, "injected publication failure");
+    assert_eq!(fs::read(&snapshot).unwrap(), previous);
+    assert_eq!(
+        fs::metadata(&snapshot).unwrap().modified().unwrap(),
+        modified
+    );
+    let temporary = fs::read_dir(snapshot.parent().unwrap())
+        .unwrap()
+        .map(|entry| entry.unwrap().file_name().to_string_lossy().into_owned())
+        .filter(|name| name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp"))
+        .collect::<Vec<_>>();
+    assert!(
+        temporary.is_empty(),
+        "leftover temporary snapshots: {temporary:?}"
+    );
+    fs::remove_dir_all(root).unwrap();
+}
 
 #[test]
 fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
@@ -36,52 +124,60 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     );
     assert!(!snapshot.exists());
     assert!(
-        open(SnapshotMode::ReadOnly)
+        open(SnapshotMode::Required)
             .err()
             .unwrap()
             .contains("snapshot missing")
     );
 
-    let written = open(SnapshotMode::Rebuild).unwrap();
+    let written = open(SnapshotMode::Disabled).unwrap();
     assert_eq!(
         written.startup().snapshot_action,
-        SnapshotAction::BuiltAndWritten
+        SnapshotAction::BuiltInMemory
     );
     assert_eq!(written.build_parses(), 1);
+    assert!(!snapshot.exists());
+    let save = written.save_snapshot_with_stats(&snapshot).unwrap();
+    assert_eq!(save.sections.len(), 2);
+    assert_eq!(save.bytes_written, fs::metadata(&snapshot).unwrap().len());
+    assert!(save.total_ns >= save.sync_ns);
+    assert_eq!(save.sections[0].id, 0);
+    assert_eq!(save.sections[1].id, 1);
     let original = fs::read(&snapshot).unwrap();
-    let restored = open(SnapshotMode::ReadOnly).unwrap();
+    let restored = open(SnapshotMode::Required).unwrap();
     assert_eq!(restored.startup().snapshot_action, SnapshotAction::Restored);
     assert_eq!(restored.build_parses(), 0);
     assert_eq!(fs::read(&snapshot).unwrap(), original);
-    let load_and_write = open(SnapshotMode::ReadWrite).unwrap();
+    let load_and_write = open(SnapshotMode::IfValid).unwrap();
     assert_eq!(
         load_and_write.startup().snapshot_action,
         SnapshotAction::Restored
     );
     assert_eq!(load_and_write.startup().snapshot_write_ns, 0);
     assert_eq!(fs::read(&snapshot).unwrap(), original);
-    let write_only = open(SnapshotMode::Rebuild).unwrap();
+    let write_only = open(SnapshotMode::Disabled).unwrap();
     assert_eq!(
         write_only.startup().snapshot_action,
-        SnapshotAction::BuiltAndWritten
+        SnapshotAction::BuiltInMemory
     );
     assert_eq!(write_only.build_parses(), 1);
+    assert_eq!(fs::read(&snapshot).unwrap(), original);
     let ignored = open(SnapshotMode::Disabled).unwrap();
     assert_eq!(ignored.build_parses(), 1);
     assert_eq!(fs::read(&snapshot).unwrap(), original);
 
     fs::write(root.join("data/b.json"), br#"{"title":"B"}"#).unwrap();
     assert!(
-        open(SnapshotMode::ReadOnly)
+        open(SnapshotMode::Required)
             .err()
             .unwrap()
             .contains("stale")
     );
     assert_eq!(fs::read(&snapshot).unwrap(), original);
-    let rebuilt = open(SnapshotMode::ReadWrite).unwrap();
+    let rebuilt = open(SnapshotMode::IfValid).unwrap();
     assert_eq!(
         rebuilt.startup().snapshot_action,
-        SnapshotAction::RebuiltAndWritten
+        SnapshotAction::BuiltInMemory
     );
     assert_eq!(rebuilt.build_parses(), 2);
     let phases = rebuilt.startup();
@@ -94,23 +190,26 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
                 .saturating_add(phases.build_extraction_index_ns)
                 .saturating_add(phases.build_finalization_ns)
     );
+    assert_eq!(fs::read(&snapshot).unwrap(), original);
+    rebuilt.save_snapshot(&snapshot).unwrap();
     assert_ne!(fs::read(&snapshot).unwrap(), original);
 
     fs::write(&snapshot, b"corrupt").unwrap();
-    assert!(open(SnapshotMode::ReadOnly).is_err());
-    let repaired = open(SnapshotMode::ReadWrite).unwrap();
+    assert!(open(SnapshotMode::Required).is_err());
+    let repaired = open(SnapshotMode::IfValid).unwrap();
     assert_eq!(
         repaired.startup().snapshot_action,
-        SnapshotAction::RebuiltAndWritten
+        SnapshotAction::BuiltInMemory
     );
     assert!(repaired.startup().snapshot_restore_error.is_some());
+    assert_eq!(fs::read(&snapshot).unwrap(), b"corrupt");
     fs::write(root.join("not-a-directory"), b"blocked").unwrap();
     let inaccessible = Repository::open_with_snapshot_policy(
         &root,
         vec![definition],
         RepositoryOptions::default(),
         SnapshotOpenPolicy::new(
-            SnapshotMode::ReadWrite,
+            SnapshotMode::IfValid,
             Some(root.join("not-a-directory/child")),
         ),
     );
@@ -646,6 +745,7 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
     let fresh = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
     assert!(!fresh.startup.restored);
     assert_eq!(fresh.build_parses, 2);
+    fresh.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
     assert!(restored.startup.restored);
     assert_eq!(restored.build_parses, 0);
@@ -659,6 +759,7 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
         changed.collections[0].generation.file_records.slots.len(),
         3
     );
+    changed.save_default_snapshot_for_test();
     assert!(
         Repository::open_with_options(&root, definitions.clone(), options)
             .unwrap()
@@ -669,11 +770,13 @@ fn startup_restores_unchanged_and_rebuilds_after_complete_file_changes() {
     let added = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
     assert_eq!(added.collections[0].generation.generation, 3);
     assert_eq!(added.collections[0].generation.records.len(), 4);
+    added.save_default_snapshot_for_test();
     fs::remove_file(multi).unwrap();
     let deleted = Repository::open_with_options(&root, definitions.clone(), options).unwrap();
     assert_eq!(deleted.collections[0].generation.generation, 4);
     assert_eq!(deleted.collections[0].generation.records.len(), 1);
     assert_eq!(deleted.files.files.len(), 1);
+    deleted.save_default_snapshot_for_test();
     let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);
     let mut bytes = fs::read(&snapshot).unwrap();
     // A previous bigram representation has a different configuration hash.

@@ -283,11 +283,12 @@ fn independent_json_relation_oracle_covers_quantifiers_negation_periods_and_rest
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1 << 20,
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, definitions(), options).unwrap();
+        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
         let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
         assert!(restored.startup().restored);
         for repository in [&built, &restored] {

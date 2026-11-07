@@ -77,11 +77,12 @@ fn regex_fts_id_parameter_and_inline_sort_share_exact_result_identity() {
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let options = RepositoryOptions {
             bigram_alphabet: alphabet,
-            snapshot_mode: SnapshotMode::ReadWrite,
+            snapshot_mode: SnapshotMode::IfValid,
             verified_cache_bytes: 1024 * 1024,
             ..Default::default()
         };
         let built = Repository::open_with_options(&root, vec![collection()], options).unwrap();
+        built.save_snapshot(&objekte_search_core::storage::snapshot_path(&root, options.bigram_alphabet)).unwrap();
         let restored = Repository::open_with_options(&root, vec![collection()], options).unwrap();
         assert!(restored.startup().restored);
         for repository in [&built, &restored] {

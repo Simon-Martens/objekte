@@ -5,7 +5,6 @@ use crate::relation::RelationDefinition;
 use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
 use crate::source::SourceFormat;
 
-
 fn field(schema: &mut Schema, name: &str, kind: LogicalType, multi: bool) {
     schema
         .register_field(FieldDefinition {
@@ -259,11 +258,12 @@ fn inspect(
 fn resident_inspection_paginates_and_restores_without_source_files() {
     let root = fixture();
     let options = RepositoryOptions {
-        snapshot_mode: SnapshotMode::ReadWrite,
+        snapshot_mode: SnapshotMode::IfValid,
         ..Default::default()
     };
     let built = Repository::open_with_options(&root, definitions(), options).unwrap();
     assert!(!built.startup().restored);
+    built.save_default_snapshot_for_test();
     let restored = Repository::open_with_options(&root, definitions(), options).unwrap();
     assert!(restored.startup().restored);
     for name in ["entries", "mentions", "empty"] {

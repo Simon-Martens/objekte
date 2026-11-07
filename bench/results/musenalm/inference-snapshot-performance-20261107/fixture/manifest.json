@@ -1,0 +1,6 @@
+{
+  "records": 100000,
+  "sha256": "0a3c614d3226c9bdcc964d4523949d292ef666077b18dee54124ea45ebe59373",
+  "bytes": 42100353,
+  "source": "bench/results/musenalm/inference-snapshot-performance-20261107/fixture/data/records.jsonl"
+}
