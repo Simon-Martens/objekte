@@ -83,9 +83,11 @@ def compare(before_rows, after_rows, queries):
             "case_id": case_id,
             "profile": profile,
             "query_json": json.dumps(by_id[case_id], ensure_ascii=False, sort_keys=True),
-            "before_ms": f"{before_ms:.6f}",
-            "after_ms": f"{after_ms:.6f}",
-            "delta_ms": f"{delta_ms:+.6f}",
+            "before_ns": before["median_ns"],
+            "after_ns": after["median_ns"],
+            "before_ms": f"{before_ms:.3f}",
+            "after_ms": f"{after_ms:.3f}",
+            "delta_ms": f"{delta_ms:+.3f}",
             "delta_percent": f"{delta_ms / before_ms * 100:+.2f}" if before_ms else "n/a",
             "before_candidates": before["candidates"],
             "after_candidates": after["candidates"],
@@ -121,9 +123,9 @@ def write_results(output_dir: Path, rows, before, after):
         "| --- | ---: | ---: | ---: | ---: | ---: |",
     ]
     for profile, group in sorted(profiles.items()):
-        old = sum(float(row["before_ms"]) for row in group)
-        new = sum(float(row["after_ms"]) for row in group)
-        slower_ms = sum(float(row["delta_ms"]) >= 1 for row in group)
+        old = sum(int(row["before_ns"]) for row in group) / 1_000_000
+        new = sum(int(row["after_ns"]) for row in group) / 1_000_000
+        slower_ms = sum(int(row["after_ns"]) - int(row["before_ns"]) >= 1_000_000 for row in group)
         slower_pct = sum(
             row["delta_percent"] != "n/a" and float(row["delta_percent"]) > 5
             for row in group

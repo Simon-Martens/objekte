@@ -1,0 +1,118 @@
+{
+  "baseline_code": "81788174898c27b2c2c367319bad20ecee450562",
+  "final_code": "1c64493ab981790de606def56c2b11e0dea1dd3a",
+  "root": "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+  "cases": [
+    "Q151",
+    "Q152",
+    "Q153",
+    "Q154",
+    "Q155",
+    "Q156",
+    "Q157",
+    "Q158",
+    "Q159",
+    "Q160",
+    "Q161",
+    "Q162",
+    "Q163",
+    "Q164",
+    "Q165",
+    "Q166",
+    "Q167",
+    "Q168",
+    "Q169",
+    "Q170",
+    "Q171",
+    "Q172",
+    "Q173",
+    "Q174",
+    "Q175",
+    "Q176",
+    "Q177",
+    "Q178",
+    "Q179",
+    "Q180",
+    "Q181",
+    "Q182",
+    "Q183",
+    "Q184",
+    "Q185",
+    "Q186",
+    "Q187",
+    "Q188",
+    "Q189",
+    "Q190",
+    "Q191",
+    "Q192",
+    "Q193",
+    "Q194"
+  ],
+  "comparisons": 88,
+  "commands": [
+    {
+      "label": "baseline",
+      "alphabet": "ascii",
+      "cwd": "/home/simon/source/objekte-library-final-baseline-20261107",
+      "command": [
+        "/home/simon/source/objekte-library-final-baseline-20261107/target/release/examples/dump_musenalm_ids",
+        "--extended",
+        "--root",
+        "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+        "--alphabet",
+        "ascii",
+        "--cases",
+        "Q151,Q152,Q153,Q154,Q155,Q156,Q157,Q158,Q159,Q160,Q161,Q162,Q163,Q164,Q165,Q166,Q167,Q168,Q169,Q170,Q171,Q172,Q173,Q174,Q175,Q176,Q177,Q178,Q179,Q180,Q181,Q182,Q183,Q184,Q185,Q186,Q187,Q188,Q189,Q190,Q191,Q192,Q193,Q194"
+      ],
+      "sha256": "db37cf87b56567b37fd36ed9b073aa5063b1a48a563c2c7d4bdcee3e1253ff41"
+    },
+    {
+      "label": "baseline",
+      "alphabet": "unicode",
+      "cwd": "/home/simon/source/objekte-library-final-baseline-20261107",
+      "command": [
+        "/home/simon/source/objekte-library-final-baseline-20261107/target/release/examples/dump_musenalm_ids",
+        "--extended",
+        "--root",
+        "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+        "--alphabet",
+        "unicode",
+        "--cases",
+        "Q151,Q152,Q153,Q154,Q155,Q156,Q157,Q158,Q159,Q160,Q161,Q162,Q163,Q164,Q165,Q166,Q167,Q168,Q169,Q170,Q171,Q172,Q173,Q174,Q175,Q176,Q177,Q178,Q179,Q180,Q181,Q182,Q183,Q184,Q185,Q186,Q187,Q188,Q189,Q190,Q191,Q192,Q193,Q194"
+      ],
+      "sha256": "db37cf87b56567b37fd36ed9b073aa5063b1a48a563c2c7d4bdcee3e1253ff41"
+    },
+    {
+      "label": "final",
+      "alphabet": "ascii",
+      "cwd": "/home/simon/source/objekte-library-integration-20261107",
+      "command": [
+        "/home/simon/source/objekte-library-integration-20261107/target/release/examples/dump_musenalm_ids",
+        "--extended",
+        "--root",
+        "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+        "--alphabet",
+        "ascii",
+        "--cases",
+        "Q151,Q152,Q153,Q154,Q155,Q156,Q157,Q158,Q159,Q160,Q161,Q162,Q163,Q164,Q165,Q166,Q167,Q168,Q169,Q170,Q171,Q172,Q173,Q174,Q175,Q176,Q177,Q178,Q179,Q180,Q181,Q182,Q183,Q184,Q185,Q186,Q187,Q188,Q189,Q190,Q191,Q192,Q193,Q194"
+      ],
+      "sha256": "db37cf87b56567b37fd36ed9b073aa5063b1a48a563c2c7d4bdcee3e1253ff41"
+    },
+    {
+      "label": "final",
+      "alphabet": "unicode",
+      "cwd": "/home/simon/source/objekte-library-integration-20261107",
+      "command": [
+        "/home/simon/source/objekte-library-integration-20261107/target/release/examples/dump_musenalm_ids",
+        "--extended",
+        "--root",
+        "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+        "--alphabet",
+        "unicode",
+        "--cases",
+        "Q151,Q152,Q153,Q154,Q155,Q156,Q157,Q158,Q159,Q160,Q161,Q162,Q163,Q164,Q165,Q166,Q167,Q168,Q169,Q170,Q171,Q172,Q173,Q174,Q175,Q176,Q177,Q178,Q179,Q180,Q181,Q182,Q183,Q184,Q185,Q186,Q187,Q188,Q189,Q190,Q191,Q192,Q193,Q194"
+      ],
+      "sha256": "db37cf87b56567b37fd36ed9b073aa5063b1a48a563c2c7d4bdcee3e1253ff41"
+    }
+  ]
+}

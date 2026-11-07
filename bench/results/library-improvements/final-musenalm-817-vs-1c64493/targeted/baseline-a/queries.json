@@ -1,0 +1,67 @@
+[
+  {
+    "id": "Q074",
+    "collection": "entries",
+    "fts": null,
+    "filter": "annotation !~ \"Beschädigung\"",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q116",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length > 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q117",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors:length = 0",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q158",
+    "collection": "entries",
+    "fts": null,
+    "filter": "year <= musenalm_id",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  },
+  {
+    "id": "Q187",
+    "collection": "contents",
+    "fts": null,
+    "filter": "contributors[*].type = contributors[*].type",
+    "fts_fields": [],
+    "sort": [],
+    "limit": 50,
+    "offset": 0,
+    "count": true,
+    "return_mode": "locator",
+    "evidence": true
+  }
+]

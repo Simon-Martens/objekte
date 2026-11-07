@@ -1,0 +1,82 @@
+[
+  {
+    "label": "baseline-a",
+    "cwd": "/home/simon/source/objekte-library-final-baseline-20261107",
+    "command": [
+      "/home/simon/source/objekte-library-final-baseline-20261107/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+      "--extended",
+      "--cases",
+      "Q074,Q116,Q117,Q158,Q187",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "10",
+      "--query-workers",
+      "32",
+      "--result-dir",
+      "/home/simon/source/objekte-library-integration-20261107/bench/results/library-improvements/final-musenalm-817-vs-1c64493/targeted/baseline-a"
+    ]
+  },
+  {
+    "label": "final-a",
+    "cwd": "/home/simon/source/objekte-library-integration-20261107",
+    "command": [
+      "/home/simon/source/objekte-library-integration-20261107/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+      "--extended",
+      "--cases",
+      "Q074,Q116,Q117,Q158,Q187",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "10",
+      "--query-workers",
+      "32",
+      "--result-dir",
+      "/home/simon/source/objekte-library-integration-20261107/bench/results/library-improvements/final-musenalm-817-vs-1c64493/targeted/final-a"
+    ]
+  },
+  {
+    "label": "baseline-b",
+    "cwd": "/home/simon/source/objekte-library-final-baseline-20261107",
+    "command": [
+      "/home/simon/source/objekte-library-final-baseline-20261107/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+      "--extended",
+      "--cases",
+      "Q074,Q116,Q117,Q158,Q187",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "10",
+      "--query-workers",
+      "32",
+      "--result-dir",
+      "/home/simon/source/objekte-library-integration-20261107/bench/results/library-improvements/final-musenalm-817-vs-1c64493/targeted/baseline-b"
+    ]
+  },
+  {
+    "label": "final-b",
+    "cwd": "/home/simon/source/objekte-library-integration-20261107",
+    "command": [
+      "/home/simon/source/objekte-library-integration-20261107/target/release/examples/bench_musenalm",
+      "--root",
+      "/home/simon/source/objekte-library-integration-20261107/target/library-final-fixture",
+      "--extended",
+      "--cases",
+      "Q074,Q116,Q117,Q158,Q187",
+      "--profiles",
+      "ascii-off,unicode-off",
+      "--repetitions",
+      "10",
+      "--query-workers",
+      "32",
+      "--result-dir",
+      "/home/simon/source/objekte-library-integration-20261107/bench/results/library-improvements/final-musenalm-817-vs-1c64493/targeted/final-b"
+    ]
+  }
+]
