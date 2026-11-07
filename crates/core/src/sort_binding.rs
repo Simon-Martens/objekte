@@ -2,7 +2,7 @@
 
 use std::cmp::Ordering;
 use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, Mutex, OnceLock};
 
 use icu_collator::CollatorBorrowed;
 use unicode_casefold::UnicodeCaseFold;
@@ -20,6 +20,8 @@ use crate::workload::{SortExpression, SortField, SortReducer};
 
 const MAX_SORT_TARGET_BYTES: u64 = 64 * 1024 * 1024;
 const MAX_SORT_EDGE_VISITS: u64 = 32_000_000;
+
+type SortTargetCell = OnceLock<Result<Arc<Value>, String>>;
 
 
 /// A prepared sort term with no source access in its comparator.
@@ -83,7 +85,7 @@ pub(crate) struct BoundSort<'a> {
 /// Query-local target projections reused when several source links reach one target.
 #[derive(Default)]
 pub(crate) struct SortTargetCache {
-    values: HashMap<(usize, u32), Arc<Value>>,
+    values: HashMap<(usize, u32), Arc<SortTargetCell>>,
     retained_bytes: u64,
     stream_limit: Option<u64>,
     cancellation: Option<crate::streaming::CancellationToken>,
@@ -291,13 +293,11 @@ impl<'a> BoundSort<'a> {
                     }
                     BoundSortSource::Computed(computed) => {
                         if computed.related.is_some() {
-                            let mut cache =
-                                target_cache.lock().map_err(|error| error.to_string())?;
                             computed.key(
                                 repo,
                                 collection_index,
                                 ctx,
-                                Some(&mut cache),
+                                Some(target_cache),
                                 external_targets,
                             )?
                         } else {
@@ -318,7 +318,7 @@ impl ComputedSort {
         repo: &Repository,
         collection_index: usize,
         ctx: &RecordContext<'_>,
-        target_cache: Option<&mut SortTargetCache>,
+        target_cache: Option<&Mutex<SortTargetCache>>,
         external_targets: Option<&crate::relation_target_cache::TargetValueCache>,
     ) -> Result<SortKey, String> {
         if let Some((hops, terminal)) = &self.related {
@@ -461,85 +461,122 @@ impl SortTargetCache {
         self.retained_bytes
     }
 
-    fn edge(&mut self) -> Result<(), String> {
-        self.edge_visits = self
-            .edge_visits
-            .checked_add(1)
-            .ok_or("sort edge counter overflow")?;
-        if self.edge_visits > MAX_SORT_EDGE_VISITS {
-            return Err("sort relation edge budget exceeded".into());
-        }
-        Ok(())
+    pub(crate) fn reserve_headroom(&self) -> u64 {
+        MAX_SORT_TARGET_BYTES.saturating_sub(self.retained_bytes)
     }
 
-    fn load(
-        &mut self,
-        repo: &Repository,
-        collection_index: usize,
-        slot: RecordSlot,
-    ) -> Result<Option<Arc<Value>>, String> {
-        if self
+    fn edge(cache: &Mutex<Self>) -> Result<(), String> {
+        let mut state = cache.lock().map_err(|error| error.to_string())?;
+        if state
             .cancellation
             .as_ref()
             .is_some_and(crate::streaming::CancellationToken::is_cancelled)
         {
             return Err("stream cancelled".into());
         }
+        state.edge_visits = state
+            .edge_visits
+            .checked_add(1)
+            .ok_or("sort edge counter overflow")?;
+        if state.edge_visits > MAX_SORT_EDGE_VISITS {
+            return Err("sort relation edge budget exceeded".into());
+        }
+        Ok(())
+    }
+
+    fn external_reuse(cache: &Mutex<Self>) -> Result<(), String> {
+        let mut state = cache.lock().map_err(|error| error.to_string())?;
+        state.reuse += 1;
+        Ok(())
+    }
+
+    fn load(
+        cache: &Mutex<Self>,
+        repo: &Repository,
+        collection_index: usize,
+        slot: RecordSlot,
+    ) -> Result<Option<Arc<Value>>, String> {
         let collection = &repo.collections[collection_index];
         let record = collection
             .generation
             .records
             .get(slot.0 as usize)
             .ok_or("sort target slot is missing")?;
-        if record.class == RecordClass::RawFallback {
-            return Ok(None);
-        }
-        let id = (collection_index, slot.0);
-        if let Some(value) = self.values.get(&id) {
-            self.reuse += 1;
-            return Ok(Some(value.clone()));
-        }
-        let estimated = record
-            .range
-            .len()
-            .checked_mul(4)
-            .and_then(|bytes| bytes.checked_add(128))
-            .ok_or("sort target byte estimate overflow")?;
-        let next = self
-            .retained_bytes
-            .checked_add(estimated)
-            .ok_or("sort target byte budget overflow")?;
-        if next > MAX_SORT_TARGET_BYTES {
-            return Err("sort target cache budget exceeded".into());
-        }
-        if self.stream_limit.is_some_and(|limit| next > limit) {
-            return Err("stream resource: sort target cache exceeds buffered-byte limit".into());
-        }
-        let path = repo
-            .files
-            .native_path(record.file)
-            .ok_or("sort target path is missing")?;
-        let bytes = crate::source::read_record_range(&path, record.revision, record.range)?;
-        if self
-            .cancellation
+        let (cell, cancellation) = {
+            let mut state = cache.lock().map_err(|error| error.to_string())?;
+            if state
+                .cancellation
+                .as_ref()
+                .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+            {
+                return Err("stream cancelled".into());
+            }
+            if record.class == RecordClass::RawFallback {
+                return Ok(None);
+            }
+            let id = (collection_index, slot.0);
+            let cell = if let Some(cell) = state.values.get(&id).cloned() {
+                state.reuse += 1;
+                cell
+            } else {
+                let estimated = record
+                    .range
+                    .len()
+                    .checked_mul(4)
+                    .and_then(|bytes| bytes.checked_add(128))
+                    .ok_or("sort target byte estimate overflow")?;
+                let next = state
+                    .retained_bytes
+                    .checked_add(estimated)
+                    .ok_or("sort target byte budget overflow")?;
+                if next > MAX_SORT_TARGET_BYTES {
+                    return Err("sort target cache budget exceeded".into());
+                }
+                if state.stream_limit.is_some_and(|limit| next > limit) {
+                    return Err(
+                        "stream resource: sort target cache exceeds buffered-byte limit".into(),
+                    );
+                }
+                // Reserve pending loads too, before any worker leaves the lock.
+                state.retained_bytes = next;
+                let cell = Arc::new(OnceLock::new());
+                state.values.insert(id, cell.clone());
+                cell
+            };
+            (cell, state.cancellation.clone())
+        };
+        // Only callers for this target wait here; other targets can load in parallel.
+        let result = cell.get_or_init(|| {
+            let path = repo
+                .files
+                .native_path(record.file)
+                .ok_or("sort target path is missing")?;
+            let bytes = crate::source::read_record_range(&path, record.revision, record.range)?;
+            if cancellation
+                .as_ref()
+                .is_some_and(crate::streaming::CancellationToken::is_cancelled)
+            {
+                return Err("stream cancelled".into());
+            }
+            let extracted = crate::record_preparation::prepare_query_record(
+                &collection.source,
+                &collection.definition.schema,
+                &bytes,
+                &crate::source::ScanProjection::full(false),
+                false,
+            )?;
+            let mut state = cache.lock().map_err(|error| error.to_string())?;
+            state.reads += 1;
+            state.bytes_read += bytes.len() as u64;
+            Ok(Arc::new(extracted.value))
+        });
+        if cancellation
             .as_ref()
             .is_some_and(crate::streaming::CancellationToken::is_cancelled)
         {
             return Err("stream cancelled".into());
         }
-        let extracted = crate::record_preparation::prepare_query_record(
-            &collection.source,
-            &collection.definition.schema,
-            &bytes,
-            &crate::source::ScanProjection::full(false),
-            false,
-        )?;
-        self.reads += 1;
-        self.bytes_read += bytes.len() as u64;
-        self.retained_bytes = next;
-        let value = Arc::new(extracted.value);
-        self.values.insert(id, value.clone());
-        Ok(Some(value))
+        result.clone().map(Some)
     }
 }
 
@@ -684,7 +721,7 @@ impl ComputedSort {
         collection_index: usize,
         slot: RecordSlot,
         source_value: Option<&Value>,
-        cache: &mut SortTargetCache,
+        cache: &Mutex<SortTargetCache>,
         external_targets: Option<&crate::relation_target_cache::TargetValueCache>,
         reduced: &mut SortAccumulator,
     ) -> Result<(), String> {
@@ -708,10 +745,10 @@ impl ComputedSort {
                 _ => None,
             };
             if external.is_some() {
-                cache.reuse += 1;
+                SortTargetCache::external_reuse(cache)?;
             }
             let owned = if source_value.is_none() && external.is_none() {
-                cache.load(repo, collection_index, slot)?
+                SortTargetCache::load(cache, repo, collection_index, slot)?
             } else {
                 None
             };
@@ -755,7 +792,7 @@ impl ComputedSort {
                     // A FILTER projection may omit this intermediate relation
                     // field. Use the complete source record for occurrence order.
                     let owned = if source_value.is_none() {
-                        cache.load(repo, collection_index, slot)?
+                        SortTargetCache::load(cache, repo, collection_index, slot)?
                     } else {
                         None
                     };
@@ -771,7 +808,7 @@ impl ComputedSort {
                             if !positions_match(&hop.selectors, positions) {
                                 return Ok(());
                             }
-                            cache.edge()?;
+                            SortTargetCache::edge(cache)?;
                             if let Some(id) = id {
                                 if let Some(target) =
                                     repo.collections[hop.to.0 as usize].id_lookup.get(id)
@@ -801,7 +838,7 @@ impl ComputedSort {
                         if !positions_match(&hop.selectors, &edge.positions) {
                             continue;
                         }
-                        cache.edge()?;
+                        SortTargetCache::edge(cache)?;
                         match edge.target {
                             RelationTarget::Resolved(target) => self.visit_related(
                                 repo,
@@ -832,7 +869,7 @@ impl ComputedSort {
                             if !sources.contains(source.0) {
                                 continue;
                             }
-                            cache.edge()?;
+                            SortTargetCache::edge(cache)?;
                             if hop.selectors.first().is_none_or(|selector| {
                                 selector.is_none_or(|index| index as usize == seen)
                             }) {
@@ -853,7 +890,7 @@ impl ComputedSort {
                         }
                     } else {
                         for source in sources.iter() {
-                            cache.edge()?;
+                            SortTargetCache::edge(cache)?;
                             self.visit_related(
                                 repo,
                                 hops,

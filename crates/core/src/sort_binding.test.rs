@@ -2,7 +2,8 @@ use super::*;
 use crate::model::{ArrayValue, LogicalType, Number};
 use crate::query::QueryOptions;
 use crate::reference::{FieldDefinition, RegisteredBinding};
-use crate::repository::{CollectionDefinition, RepositoryOptions, SnapshotMode};
+use crate::relation::{RelationCardinality, RelationDefinition};
+use crate::repository::{CollectionDefinition, IdentityPolicy, RepositoryOptions, SnapshotMode};
 use crate::source::SourceFormat;
 use crate::workload::ReturnMode;
 
@@ -274,4 +275,220 @@ fn untyped_sort_names_remain_literal_and_typed_expressions_select_bindings() {
     let quoted = expression(&SortField::simple("[\"a:b\"]", false)).unwrap();
     assert_eq!(quoted.path, "[\"a:b\"]");
     assert_eq!(quoted.binding, None);
+}
+
+fn q4_field(schema: &mut crate::reference::Schema, name: &str, kind: LogicalType) {
+    schema
+        .register_field(FieldDefinition {
+            path: vec![name.into()],
+            kind,
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: false,
+            element_nullable: vec![],
+        })
+        .unwrap();
+}
+
+#[test]
+fn related_sort_reuses_targets_across_worker_counts_and_source_layouts() {
+    for split_files in [false, true] {
+        for high_reuse in [false, true] {
+            let root = std::env::temp_dir().join(format!(
+                "objekte-sort-target-workers-{}-{split_files}-{high_reuse}",
+                std::process::id()
+            ));
+            let source = root.join("sources");
+            let target = root.join("targets");
+            std::fs::create_dir_all(&source).unwrap();
+            std::fs::create_dir_all(&target).unwrap();
+            let target_count = if high_reuse { 4 } else { 47 };
+            for index in 0..target_count {
+                std::fs::write(
+                    target.join(format!("{index:03}.json")),
+                    format!(
+                        "{{\"id\":\"T{index:03}\",\"title\":\"Title-{:03}\"}}",
+                        (index * 13) % target_count
+                    ),
+                )
+                .unwrap();
+            }
+            let rows = (0..48)
+                .map(|index| {
+                    let entry = if index == 47 {
+                        "dangling".to_string()
+                    } else {
+                        format!("T{:03}", index % target_count)
+                    };
+                    format!("{{\"id\":\"S{index:03}\",\"entry\":\"{entry}\"}}\n")
+                })
+                .collect::<Vec<_>>();
+            if split_files {
+                for (index, row) in rows.iter().enumerate() {
+                    std::fs::write(source.join(format!("{index:03}.jsonl")), row).unwrap();
+                }
+            } else {
+                std::fs::write(source.join("all.jsonl"), rows.concat()).unwrap();
+            }
+            let mut source_definition =
+                CollectionDefinition::folder("sources", "sources", SourceFormat::JsonLines);
+            source_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+            q4_field(&mut source_definition.schema, "id", LogicalType::Id);
+            q4_field(&mut source_definition.schema, "entry", LogicalType::Id);
+            source_definition
+                .schema
+                .register_relation(RelationDefinition {
+                    path: vec!["entry".into()],
+                    target_collection: "targets".into(),
+                    cardinality: RelationCardinality::One,
+                    reverse_alias: None,
+                })
+                .unwrap();
+            let mut target_definition =
+                CollectionDefinition::folder("targets", "targets", SourceFormat::Json);
+            target_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+            q4_field(&mut target_definition.schema, "id", LogicalType::Id);
+            q4_field(&mut target_definition.schema, "title", LogicalType::String);
+            let query = Query {
+                collections: vec!["sources".into()],
+                filter: None,
+                fts: None,
+                options: QueryOptions {
+                    sort: vec![SortField::computed(
+                        SortExpression {
+                            path: "entry.title".into(),
+                            binding: None,
+                            reducer: None,
+                        },
+                        false,
+                    )],
+                    limit: 15,
+                    offset: 5,
+                    count: true,
+                    return_mode: ReturnMode::Logical,
+                    evidence: false,
+                },
+            };
+            for workers in [1, 2, 4, 8] {
+                let repo = Repository::open_with_options(
+                    &root,
+                    vec![source_definition.clone(), target_definition.clone()],
+                    RepositoryOptions {
+                        query_workers: workers,
+                        snapshot_mode: SnapshotMode::Disabled,
+                        ..Default::default()
+                    },
+                )
+                .unwrap();
+                let actual = repo.search(&query).unwrap();
+                let expected = repo.search_reference(&query).unwrap();
+                assert_eq!(actual.count, Some(48));
+                assert_eq!(actual.hits, expected.hits);
+                assert_eq!(actual.counters.sort_target_reads, target_count as u64);
+                assert_eq!(actual.counters.sort_target_reuse, (47 - target_count) as u64);
+            }
+            std::fs::remove_dir_all(root).unwrap();
+        }
+    }
+}
+
+#[test]
+fn related_first_last_keep_occurrence_and_dangling_order_in_parallel() {
+    let root =
+        std::env::temp_dir().join(format!("objekte-sort-target-order-{}", std::process::id()));
+    std::fs::create_dir_all(root.join("sources")).unwrap();
+    std::fs::create_dir_all(root.join("targets")).unwrap();
+    for (id, title) in [("T1", "Alpha"), ("T2", "Zulu"), ("T3", "Beta")] {
+        std::fs::write(
+            root.join("targets").join(format!("{id}.json")),
+            format!("{{\"id\":\"{id}\",\"title\":\"{title}\"}}"),
+        )
+        .unwrap();
+    }
+    let links = [
+        "[\"T2\",\"T1\"]",
+        "[\"dangling\",\"T1\"]",
+        "[\"T1\",\"dangling\"]",
+        "[\"T3\"]",
+        "[]",
+    ];
+    for index in 0..20 {
+        std::fs::write(
+            root.join("sources").join(format!("{index:03}.jsonl")),
+            format!(
+                "{{\"id\":\"S{index:03}\",\"links\":{}}}\n",
+                links[index % links.len()]
+            ),
+        )
+        .unwrap();
+    }
+    let mut source_definition =
+        CollectionDefinition::folder("sources", "sources", SourceFormat::JsonLines);
+    source_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    q4_field(&mut source_definition.schema, "id", LogicalType::Id);
+    source_definition
+        .schema
+        .register_field(FieldDefinition {
+            path: vec!["links".into()],
+            kind: LogicalType::Array(Box::new(LogicalType::Id)),
+            required: false,
+            nullable: true,
+            indexed: false,
+            multi: true,
+            element_nullable: vec![false],
+        })
+        .unwrap();
+    source_definition
+        .schema
+        .register_relation(RelationDefinition {
+            path: vec!["links".into()],
+            target_collection: "targets".into(),
+            cardinality: RelationCardinality::Many,
+            reverse_alias: None,
+        })
+        .unwrap();
+    let mut target_definition =
+        CollectionDefinition::folder("targets", "targets", SourceFormat::Json);
+    target_definition.identity = IdentityPolicy::Intrinsic(vec!["id".into()]);
+    q4_field(&mut target_definition.schema, "id", LogicalType::Id);
+    q4_field(&mut target_definition.schema, "title", LogicalType::String);
+    for reducer in [SortReducer::First, SortReducer::Last] {
+        let query = Query {
+            collections: vec!["sources".into()],
+            filter: None,
+            fts: None,
+            options: QueryOptions {
+                sort: vec![SortField::computed(
+                    SortExpression {
+                        path: "links.title".into(),
+                        binding: None,
+                        reducer: Some(reducer),
+                    },
+                    false,
+                )],
+                limit: 12,
+                offset: 3,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        for workers in [1, 2, 4, 8] {
+            let repo = Repository::open_with_options(
+                &root,
+                vec![source_definition.clone(), target_definition.clone()],
+                RepositoryOptions {
+                    query_workers: workers,
+                    snapshot_mode: SnapshotMode::Disabled,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            let actual = repo.search(&query).unwrap();
+            assert_eq!(actual.count, Some(20));
+            assert_eq!(actual.hits, repo.search_reference(&query).unwrap().hits);
+        }
+    }
+    std::fs::remove_dir_all(root).unwrap();
 }

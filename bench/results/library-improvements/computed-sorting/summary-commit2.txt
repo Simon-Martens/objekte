@@ -1,0 +1,17 @@
+related: 773e26fe4573 -> 2b6fd5b7bdc5
+  many high workers=1 base=0.918 [0.860,0.937] final=0.897 [0.884,0.953] ratio=1.02x target_reads=8 reuse=248
+  many high workers=2 base=1.589 [1.550,1.761] final=0.890 [0.882,0.932] ratio=1.79x target_reads=8 reuse=248
+  many high workers=4 base=2.531 [1.766,3.527] final=0.602 [0.581,0.967] ratio=4.20x target_reads=8 reuse=248
+  many high workers=8 base=2.144 [1.776,4.003] final=0.871 [0.641,0.919] ratio=2.46x target_reads=8 reuse=248
+  many low  workers=1 base=1.397 [1.382,1.399] final=1.361 [1.349,1.398] ratio=1.03x target_reads=256 reuse=0
+  many low  workers=2 base=2.618 [2.486,3.934] final=1.198 [1.192,1.254] ratio=2.18x target_reads=256 reuse=0
+  many low  workers=4 base=3.204 [2.486,4.879] final=1.340 [1.295,1.551] ratio=2.39x target_reads=256 reuse=0
+  many low  workers=8 base=2.687 [2.578,3.080] final=1.161 [0.992,1.218] ratio=2.31x target_reads=256 reuse=0
+  one  high workers=1 base=0.455 [0.451,0.692] final=0.440 [0.432,0.465] ratio=1.04x target_reads=8 reuse=248
+  one  high workers=2 base=0.476 [0.447,0.888] final=0.456 [0.438,0.474] ratio=1.04x target_reads=8 reuse=248
+  one  high workers=4 base=0.442 [0.439,0.471] final=0.454 [0.440,0.458] ratio=0.97x target_reads=8 reuse=248
+  one  high workers=8 base=0.458 [0.455,0.506] final=0.452 [0.436,0.483] ratio=1.01x target_reads=8 reuse=248
+  one  low  workers=1 base=0.959 [0.940,0.998] final=0.949 [0.914,0.981] ratio=1.01x target_reads=256 reuse=0
+  one  low  workers=2 base=0.970 [0.944,1.073] final=0.963 [0.950,0.968] ratio=1.01x target_reads=256 reuse=0
+  one  low  workers=4 base=0.951 [0.939,1.167] final=0.980 [0.937,1.012] ratio=0.97x target_reads=256 reuse=0
+  one  low  workers=8 base=0.957 [0.942,1.031] final=0.959 [0.926,0.993] ratio=1.00x target_reads=256 reuse=0
