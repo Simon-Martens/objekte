@@ -2,6 +2,8 @@
 
 `docs/ai/` contains specifications, working notes, issue reports, completion records, and user-requested generated documents for AI-assisted work on Objekte.
 
+For native GUI work over SSH, see the maintained [GUI environment guide](../development/gui_environment.md).
+
 Follow this workflow for repository tasks. Explicit user instructions may authorize exceptions. A document's existence, an issue report, or an agent's own recommendation does not authorize additional work.
 
 ## Directory purposes

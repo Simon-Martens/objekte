@@ -115,7 +115,8 @@ fn record_find_copy_and_adjacent_result_shortcuts_work() {
     key(app, KeyEvent::new(KeyCode::Char('/'), KeyModifiers::NONE));
     app.record.find_input = Some(input::Input::with_text("ordinary"));
     key(app, KeyEvent::new(KeyCode::Enter, KeyModifiers::NONE));
-    assert!(app.record.cursor > 0);
+    let rows = app.record.rows(app.current_detail_hit().unwrap(), None);
+    assert_eq!(rows[app.record.cursor].value, "ordinary title");
     key(app, KeyEvent::new(KeyCode::Char('y'), KeyModifiers::NONE));
     assert_eq!(app.clipboard.as_deref(), Some("ordinary title"));
     key(app, KeyEvent::new(KeyCode::Char('Y'), KeyModifiers::NONE));
