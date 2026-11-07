@@ -78,9 +78,9 @@ def expected_membership(root: Path, needle: str) -> set[str]:
     return result
 
 
-def observed_membership(binary: Path, root: Path, needle: str) -> set[str]:
+def observed_membership(binary: Path, root: Path, needle: str, alphabet: str) -> set[str]:
     process = subprocess.run(
-        [str(binary), "--path", str(root), "--fts", needle],
+        [str(binary), "--path", str(root), "--index-alphabet", alphabet, "--fts", needle],
         capture_output=True,
         check=False,
     )
@@ -101,14 +101,18 @@ def main() -> None:
     parser.add_argument("--root", type=Path, required=True)
     args = parser.parse_args()
     failures = 0
-    for needle in NEEDLES:
-        expected = expected_membership(args.root, needle)
-        observed = observed_membership(args.binary.resolve(), args.root.resolve(), needle)
-        status = "PASS" if expected == observed else "FAIL"
-        print(f"{status}\t{needle!r}\texpected={len(expected)}\tobserved={len(observed)}")
-        if expected != observed:
-            print(f"  missing={sorted(expected - observed)} extra={sorted(observed - expected)}")
-            failures += 1
+    for alphabet in ("ascii", "unicode"):
+        for needle in NEEDLES:
+            expected = expected_membership(args.root, needle)
+            observed = observed_membership(args.binary.resolve(), args.root.resolve(), needle, alphabet)
+            status = "PASS" if expected == observed else "FAIL"
+            print(
+                f"{status}\t{alphabet}\t{needle!r}\t"
+                f"expected={len(expected)}\tobserved={len(observed)}"
+            )
+            if expected != observed:
+                print(f"  missing={sorted(expected - observed)} extra={sorted(observed - expected)}")
+                failures += 1
     if failures:
         raise SystemExit(f"{failures} independent scalar oracle mismatches")
 
