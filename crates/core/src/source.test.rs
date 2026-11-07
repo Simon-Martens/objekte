@@ -999,6 +999,93 @@ fn json_reader_reports_syntax_and_encoding_positions() {
     assert_eq!(encoding.relative_byte, Some(10));
 }
 
+#[test]
+fn malformed_jsonl_coordinate_work_grows_with_file_size() {
+    fn scan_work(frames: usize) -> (usize, usize) {
+        let bytes = b"{oops}\n".repeat(frames);
+        let ranges = JsonLinesReader.frame(&bytes).unwrap();
+        FILE_COORDINATE_SCANNED_BYTES.with(|scanned| scanned.set(0));
+        let mut malformed = 0;
+        let counters = extract_framed_outcomes_impl(
+            Path::new("malformed.jsonl"),
+            &JsonLinesReader,
+            &bytes,
+            &ranges,
+            true,
+            |outcome| {
+                let SourceOutcome::Malformed { diagnostic, .. } = outcome else {
+                    panic!("invalid JSONL frame was accepted")
+                };
+                malformed += 1;
+                assert_eq!(diagnostic.line, Some(malformed));
+                Ok(())
+            },
+        )
+        .unwrap();
+        assert_eq!(counters.failed_parses, frames as u64);
+        assert_eq!(malformed, frames as u64);
+        let scanned = FILE_COORDINATE_SCANNED_BYTES.with(|scanned| scanned.get());
+        (scanned, bytes.len())
+    }
+
+    let (small_work, small_size) = scan_work(128);
+    let (large_work, large_size) = scan_work(256);
+    assert!(small_work <= small_size, "{small_work} > {small_size}");
+    assert!(large_work <= large_size, "{large_work} > {large_size}");
+    assert!(large_work <= small_work * 2 + 8);
+}
+
+#[test]
+fn file_coordinates_preserve_custom_reader_line_and_column_meaning() {
+    let file = b"aa\r\nbb_cc\nmm\nnn";
+    let mut cursor = FileCoordinateCursor::default();
+    let mut diagnostic = ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+    diagnostic.line = Some(1);
+    diagnostic.column = Some(2);
+    diagnostic.relative_byte = Some(1);
+    file_coordinates(
+        file,
+        ByteRange { start: 6, end: 9 },
+        &mut diagnostic,
+        &mut cursor,
+    );
+    assert_eq!((diagnostic.line, diagnostic.column), (Some(2), Some(4)));
+    assert_eq!(diagnostic.relative_byte, Some(1));
+
+    let mut at_boundary = ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+    at_boundary.line = Some(1);
+    at_boundary.column = Some(1);
+    file_coordinates(
+        file,
+        ByteRange { start: 13, end: 15 },
+        &mut at_boundary,
+        &mut cursor,
+    );
+    assert_eq!((at_boundary.line, at_boundary.column), (Some(4), Some(1)));
+
+    let mut without_line = ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+    without_line.column = Some(7);
+    file_coordinates(
+        file,
+        ByteRange { start: 15, end: 15 },
+        &mut without_line,
+        &mut cursor,
+    );
+    assert_eq!((without_line.line, without_line.column), (None, Some(7)));
+
+    let mut multiline = ReaderDiagnostic::new(DiagnosticCategory::Syntax, "custom", "bad");
+    multiline.line = Some(2);
+    multiline.column = Some(1);
+    file_coordinates(
+        b"prefix\n{\n}\n",
+        ByteRange { start: 7, end: 10 },
+        &mut multiline,
+        &mut FileCoordinateCursor::default(),
+    );
+    assert_eq!((multiline.line, multiline.column), (Some(3), Some(1)));
+}
+
+
 impl SourceReader for TinyReader {
     fn name(&self) -> &'static str {
         "tiny"
