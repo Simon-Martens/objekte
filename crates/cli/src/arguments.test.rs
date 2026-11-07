@@ -55,6 +55,16 @@ fn bare_command_does_not_open_repository() {
 }
 
 #[test]
+fn automatic_indexing_requires_no_value_but_not_a_query() {
+    let args = Arguments::try_parse_from(["obj", "--auto-index", "code = \"A\""]).unwrap();
+    assert!(args.auto_index);
+    assert!(args.validate_input().is_ok());
+    let args = Arguments::try_parse_from(["obj", "--auto-index"]).unwrap();
+    assert!(args.validate_input().is_err());
+    assert!(Arguments::try_parse_from(["obj", "--auto-index=true", "code = \"A\""]).is_err());
+}
+
+#[test]
 fn diagnostic_aliases_are_equivalent() {
     assert!(
         Arguments::try_parse_from(["obj", "--diagnostic", "--fts", "x"])

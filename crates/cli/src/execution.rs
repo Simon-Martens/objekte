@@ -5,6 +5,7 @@ use std::path::PathBuf;
 use std::time::Instant;
 
 use objekte_search_core::discovery::SymlinkPolicy;
+use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
 use objekte_search_core::inventory::RecordClass;
 use objekte_search_core::path_repr;
 use objekte_search_core::repository::{
@@ -23,7 +24,6 @@ use objekte_cli::arguments::{Alphabet, Arguments};
 use objekte_cli::output::EventWriter;
 use objekte_cli::query_input::{QueryInput, QueryKind, QuerySource};
 
-
 /// Exit classifications specified by the `obj` command protocol.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum Exit {
@@ -34,7 +34,6 @@ pub enum Exit {
     PipeClosed = 254,
     OutputError = 255,
 }
-
 
 /// Run one command using the supplied output sink and cancellation flag.
 pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> Exit {
@@ -86,7 +85,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "alphabet": match args.index_alphabet { Alphabet::Ascii => "ascii", Alphabet::Unicode => "unicode" },
         "text_policy": "decoded_scalar_values",
         "schema_fields": 0,
-        "inference": "disabled",
+        "inference": if args.auto_index { "auto_index" } else { "disabled" },
         "input_mode": input_mode,
         "index_operation": index_operation(args),
         "index_directory": paths.index_directory.as_deref().map(path_repr::query_path),
@@ -113,6 +112,14 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         bigram_alphabet: match args.index_alphabet {
             Alphabet::Ascii => BigramAlphabet::Ascii,
             Alphabet::Unicode => BigramAlphabet::Unicode,
+        },
+        inference: InferenceConfig {
+            mode: if args.auto_index {
+                InferenceMode::AutoIndex
+            } else {
+                InferenceMode::Disabled
+            },
+            ..Default::default()
         },
         ..RepositoryOptions::default()
     };
@@ -246,6 +253,16 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "snapshot_write_ns": stats.snapshot_write_ns,
         "snapshot_action": snapshot_action(stats.snapshot_action),
         "snapshot_restore_error": stats.snapshot_restore_error,
+        "inference": if args.auto_index { "auto_index" } else { "disabled" },
+        "automatic_index_summary": repo.inference_report("files").map(|report| json!({
+            "admitted_paths": report.admitted_paths,
+            "short_string_fields": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::Built && field.short_string_distinct_values > 0).count(),
+            "short_string_complete_fields": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::Built && field.short_string_distinct_values > 0 && field.short_string_unresolved_records == 0).count(),
+            "short_string_partial_fields": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::Built && field.short_string_distinct_values > 0 && field.short_string_unresolved_records > 0).count(),
+            "budget_rejections": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::BudgetExceeded).count(),
+            "incompatible_fields": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::Incompatible).count(),
+            "retained_bytes_estimate": report.retained_bytes_estimate,
+        })),
         "elapsed_ns": started.elapsed().as_nanos(),
     });
     if let Err(error) = output.emit(event).and_then(|_| output.flush()) {

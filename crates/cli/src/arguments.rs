@@ -4,14 +4,12 @@ use std::path::{Component, Path, PathBuf};
 
 use clap::{ArgGroup, Parser, ValueEnum};
 
-
 /// The alphabet used by the shared bigram index.
 #[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
 pub enum Alphabet {
     Ascii,
     Unicode,
 }
-
 
 /// One invocation of the general JSON search command.
 #[derive(Clone, Debug, Parser)]
@@ -29,6 +27,10 @@ pub struct Arguments {
     /// Search only immediate JSON children.
     #[arg(long)]
     pub no_recurse: bool,
+
+    /// Infer fields and build bounded automatic ordered postings.
+    #[arg(long)]
+    pub auto_index: bool,
 
     /// Search a literal string without JSON quoting.
     #[arg(long, group = "input", value_name = "TEXT")]
@@ -67,14 +69,12 @@ pub struct Arguments {
     pub diagnostic: bool,
 }
 
-
 /// Canonical collection root and one resolved optional snapshot directory.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ResolvedPaths {
     pub root: PathBuf,
     pub index_directory: Option<PathBuf>,
 }
-
 
 impl Arguments {
     pub fn validate_input(&self) -> Result<(), String> {
@@ -118,7 +118,6 @@ impl Arguments {
         })
     }
 }
-
 
 fn index_path(input: &str, cwd: &Path, root: &Path) -> Result<PathBuf, String> {
     let path = if input.is_empty() {

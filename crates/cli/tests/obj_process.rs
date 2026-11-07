@@ -26,6 +26,52 @@ fn hits(events: &[Value]) -> Vec<&Value> {
 }
 
 #[test]
+fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
+    let root = tempfile::tempdir().unwrap();
+    for slot in 0..80 {
+        let code = format!("550e8400-e29b-41d4-a716-{slot:012}");
+        std::fs::write(
+            root.path().join(format!("{slot:03}.json")),
+            serde_json::json!({"code":code}).to_string(),
+        )
+        .unwrap();
+    }
+    let (plain_status, plain) = invoke(
+        root.path(),
+        &["code = \"550e8400-e29b-41d4-a716-000000000036\""],
+    );
+    let (auto_status, auto) = invoke(
+        root.path(),
+        &[
+            "--auto-index",
+            "code = \"550e8400-e29b-41d4-a716-000000000036\"",
+        ],
+    );
+    assert!(plain_status.status.success());
+    assert!(
+        auto_status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&auto_status.stderr)
+    );
+    assert_eq!(hits(&plain).len(), 1);
+    assert_eq!(
+        hits(&plain)[0]["file"]["record_id"],
+        hits(&auto)[0]["file"]["record_id"]
+    );
+    assert_eq!(auto[0]["inference"], "auto_index");
+    assert_eq!(
+        auto.last().unwrap()["automatic_index_summary"]["short_string_fields"],
+        1
+    );
+    assert_eq!(
+        auto.last().unwrap()["automatic_index_summary"]["short_string_complete_fields"],
+        1
+    );
+    assert_eq!(auto.last().unwrap()["build_parses"], 80);
+    assert!(!root.path().join(".objekte").exists());
+}
+
+#[test]
 fn default_folder_admits_root_shapes_and_hidden_json() {
     let root = tempfile::tempdir().unwrap();
     std::fs::write(root.path().join("object.json"), br#"{"title":"needle"}"#).unwrap();
