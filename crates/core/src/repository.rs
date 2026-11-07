@@ -306,6 +306,10 @@ pub struct Repository {
 #[derive(Clone, Debug, Default)]
 pub struct StartupStats {
     pub restored: bool,
+    /// What the open operation actually did with the snapshot.
+    pub snapshot_action: SnapshotAction,
+    /// A recoverable restore failure that caused a read/write rebuild.
+    pub snapshot_restore_error: Option<String>,
     pub snapshot_decode_ns: u64,
     pub reconciliation_ns: u64,
     pub build_ns: u64,
@@ -327,8 +331,38 @@ pub struct StartupStats {
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum SnapshotMode {
     Disabled,
+    /// Require a compatible snapshot; never rebuild or write.
+    ReadOnly,
     ReadWrite,
+    /// Build from source and write, ignoring an existing snapshot.
     Rebuild,
+}
+
+
+/// Actual result of the requested snapshot policy.
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub enum SnapshotAction {
+    #[default]
+    BuiltInMemory,
+    BuiltAndWritten,
+    Restored,
+    RebuiltAndWritten,
+}
+
+
+/// Explicit snapshot operation and directory for one repository opening.
+#[derive(Clone, Debug)]
+pub struct SnapshotOpenPolicy {
+    pub mode: SnapshotMode,
+    /// `None` selects `<root>/.objekte`; a relative path uses the process cwd.
+    pub directory: Option<PathBuf>,
+}
+
+
+impl SnapshotOpenPolicy {
+    pub fn new(mode: SnapshotMode, directory: Option<PathBuf>) -> Self {
+        Self { mode, directory }
+    }
 }
 
 
@@ -526,6 +560,32 @@ impl Repository {
             crate::streaming::StreamEvent<'e>,
         ) -> Result<crate::streaming::StreamControl, String>,
     {
+        self.search_stream_scoped(
+            query,
+            crate::streaming::ResultScope::Page {
+                offset: query.options.offset,
+                limit: query.options.limit,
+            },
+            options,
+            cancellation,
+            sink,
+        )
+    }
+
+    /// Stream a finite page or every match from one frozen execution.
+    pub fn search_stream_scoped<F>(
+        &self,
+        query: &Query,
+        scope: crate::streaming::ResultScope,
+        options: crate::streaming::StreamOptions,
+        cancellation: &crate::streaming::CancellationToken,
+        sink: &mut F,
+    ) -> Result<crate::streaming::StreamOutcome, crate::streaming::StreamError>
+    where
+        F: for<'e> FnMut(
+            crate::streaming::StreamEvent<'e>,
+        ) -> Result<crate::streaming::StreamControl, String>,
+    {
         if cancellation.is_cancelled() {
             return Ok(crate::streaming::StreamOutcome::Cancelled(
                 Default::default(),
@@ -537,7 +597,18 @@ impl Repository {
                 progress: Default::default(),
             }
         })?;
-        crate::run::search_stream(self, resolved.as_ref(), options, cancellation, sink)
+        let mut request = resolved.into_owned();
+        request.options.offset = scope.offset();
+        match scope {
+            crate::streaming::ResultScope::Page { limit, .. } => request.options.limit = limit,
+            crate::streaming::ResultScope::All { .. } => {
+                // Per-record residual verification needs one retained match.
+                // The scope, not this local page size, controls delivery.
+                request.options.limit = 1;
+                request.options.count = true;
+            }
+        }
+        crate::run::search_stream_scoped(self, &request, scope, options, cancellation, sink)
     }
 
     /// Bind typed parameters once, then stream the resulting frozen request.
@@ -622,23 +693,99 @@ impl Repository {
         Self::open_with_sources(root, definitions, options, SourceRegistry::builtin())
     }
 
+    /// Open with an independent load/write policy and an optional snapshot directory.
+    pub fn open_with_snapshot_policy(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        options: RepositoryOptions,
+        policy: SnapshotOpenPolicy,
+    ) -> Result<Self, String> {
+        Self::open_with_sources_and_snapshot_policy(
+            root,
+            definitions,
+            options,
+            SourceRegistry::builtin(),
+            policy,
+        )
+    }
+
     pub fn open_with_sources(
         root: impl Into<PathBuf>,
         definitions: Vec<CollectionDefinition>,
         options: RepositoryOptions,
         sources: SourceRegistry,
     ) -> Result<Self, String> {
+        Self::open_with_sources_and_snapshot_policy(
+            root,
+            definitions,
+            options,
+            sources,
+            SnapshotOpenPolicy::new(options.snapshot_mode, None),
+        )
+    }
+
+    /// Registered-reader equivalent of `open_with_snapshot_policy`.
+    pub fn open_with_sources_and_snapshot_policy(
+        root: impl Into<PathBuf>,
+        definitions: Vec<CollectionDefinition>,
+        mut options: RepositoryOptions,
+        sources: SourceRegistry,
+        policy: SnapshotOpenPolicy,
+    ) -> Result<Self, String> {
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
+        options.snapshot_mode = policy.mode;
         let started = Instant::now();
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
-        let snapshot = crate::storage::snapshot_path(&root, options.bigram_alphabet);
+        let snapshot_directory = policy
+            .directory
+            .as_ref()
+            .map(|directory| {
+                if directory.is_absolute() {
+                    Ok(directory.clone())
+                } else {
+                    std::env::current_dir()
+                        .map(|cwd| cwd.join(directory))
+                        .map_err(|error| error.to_string())
+                }
+            })
+            .transpose()?
+            .unwrap_or_else(|| root.join(".objekte"));
+        let snapshot =
+            crate::storage::snapshot_path_in(&snapshot_directory, options.bigram_alphabet);
         let mut decode_ns = 0;
         let mut reconciliation_ns = 0;
         let mut previous_generations = HashMap::new();
-        if options.snapshot_mode == SnapshotMode::ReadWrite && snapshot.is_file() {
+        let mut restore_error = None;
+        let mut rebuilt = false;
+        let mut snapshot_exists = false;
+        if matches!(
+            options.snapshot_mode,
+            SnapshotMode::ReadOnly | SnapshotMode::ReadWrite
+        ) {
+            match std::fs::metadata(&snapshot) {
+                Ok(metadata) if metadata.is_file() => snapshot_exists = true,
+                Ok(_) => return Err(format!("snapshot is not a file: {}", snapshot.display())),
+                Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+                    if options.snapshot_mode == SnapshotMode::ReadOnly {
+                        return Err(format!(
+                            "snapshot missing: {}; use --load-index with --write-index to rebuild",
+                            snapshot.display()
+                        ));
+                    }
+                }
+                Err(error) => {
+                    return Err(format!("snapshot access: {}: {error}", snapshot.display()));
+                }
+            }
+        }
+        if matches!(
+            options.snapshot_mode,
+            SnapshotMode::ReadOnly | SnapshotMode::ReadWrite
+        ) && snapshot_exists
+        {
             let decode_started = Instant::now();
-            let loaded = crate::storage::load_snapshot(
+            let loaded = crate::storage::load_snapshot_checked(
                 root.clone(),
                 definitions.clone(),
                 options,
@@ -646,26 +793,41 @@ impl Repository {
                 &snapshot,
             );
             decode_ns = decode_started.elapsed().as_nanos() as u64;
-            if let Ok(mut repo) = loaded {
-                let reconciliation_started = Instant::now();
-                let current = crate::storage::sources_match(&repo)?;
-                reconciliation_ns = reconciliation_started.elapsed().as_nanos() as u64;
-                if current {
-                    repo.startup = StartupStats {
-                        restored: true,
-                        snapshot_decode_ns: decode_ns,
-                        reconciliation_ns,
-                        build_ns: 0,
-                        snapshot_write_ns: 0,
-                        ..StartupStats::default()
-                    };
-                    return Ok(repo);
+            match loaded {
+                Ok(mut repo) => {
+                    let reconciliation_started = Instant::now();
+                    let current = crate::storage::sources_match(&repo)?;
+                    reconciliation_ns = reconciliation_started.elapsed().as_nanos() as u64;
+                    if current {
+                        repo.startup = StartupStats {
+                            restored: true,
+                            snapshot_action: SnapshotAction::Restored,
+                            snapshot_decode_ns: decode_ns,
+                            reconciliation_ns,
+                            ..StartupStats::default()
+                        };
+                        return Ok(repo);
+                    }
+                    restore_error = Some("snapshot source inventory is stale".into());
+                    for collection in repo.collections {
+                        previous_generations
+                            .insert(collection.definition.name, collection.generation.generation);
+                    }
                 }
-                for collection in repo.collections {
-                    previous_generations
-                        .insert(collection.definition.name, collection.generation.generation);
+                Err(crate::storage::SnapshotLoadError::Access(message)) => return Err(message),
+                Err(crate::storage::SnapshotLoadError::Invalid(message)) => {
+                    restore_error = Some(message);
                 }
             }
+            if options.snapshot_mode == SnapshotMode::ReadOnly {
+                return Err(format!(
+                    "snapshot cannot be loaded: {}; use --load-index with --write-index to rebuild",
+                    restore_error
+                        .as_deref()
+                        .unwrap_or("unknown incompatibility")
+                ));
+            }
+            rebuilt = true;
         }
         let mut repo = Self::build_fresh(root, definitions, options, &sources)?;
         for collection in &mut repo.collections {
@@ -676,11 +838,20 @@ impl Repository {
         }
         repo.startup.snapshot_decode_ns = decode_ns;
         repo.startup.reconciliation_ns = reconciliation_ns;
+        repo.startup.snapshot_restore_error = restore_error;
         repo.startup.build_ns = started.elapsed().as_nanos() as u64;
-        if options.snapshot_mode != SnapshotMode::Disabled {
+        if matches!(
+            options.snapshot_mode,
+            SnapshotMode::ReadWrite | SnapshotMode::Rebuild
+        ) {
             let write_started = Instant::now();
             repo.save_snapshot(&snapshot)?;
             repo.startup.snapshot_write_ns = write_started.elapsed().as_nanos() as u64;
+            repo.startup.snapshot_action = if rebuilt {
+                SnapshotAction::RebuiltAndWritten
+            } else {
+                SnapshotAction::BuiltAndWritten
+            };
         }
         Ok(repo)
     }

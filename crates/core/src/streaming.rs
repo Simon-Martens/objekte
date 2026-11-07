@@ -18,6 +18,23 @@ pub enum StreamMode {
 }
 
 
+/// Semantic result extent for one streaming execution.
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ResultScope {
+    Page { offset: usize, limit: usize },
+    All { offset: usize },
+}
+
+
+impl ResultScope {
+    pub fn offset(self) -> usize {
+        match self {
+            Self::Page { offset, .. } | Self::All { offset } => offset,
+        }
+    }
+}
+
+
 /// Delivery cadence and upper bounds for one streaming execution.
 #[derive(Clone, Copy, Debug)]
 pub struct StreamOptions {
@@ -316,6 +333,38 @@ impl<'a> Delivery<'a> {
             progress,
         )?;
         self.ordered_delivered = page.len();
+        self.last_page_sequence = progress.sequence;
+        Ok(())
+    }
+
+    /// Publish one independent bounded batch from an all-results traversal.
+    pub(crate) fn ordered_batch(
+        &mut self,
+        rows: &[SearchHit],
+        counters: &WorkCounters,
+    ) -> Result<(), String> {
+        if rows.is_empty() {
+            return Ok(());
+        }
+        let bytes = rows
+            .iter()
+            .fold(0usize, |total, row| total.saturating_add(hit_bytes(row)));
+        self.check_event(bytes)?;
+        self.observe(counters);
+        let mut progress = self.progress;
+        progress.sequence = progress.sequence.saturating_add(1);
+        let start = usize::try_from(progress.emitted_rows)
+            .map_err(|_| "stream result position overflow")?;
+        progress.emitted_rows = progress.emitted_rows.saturating_add(rows.len() as u64);
+        self.call(
+            StreamEvent::OrderedRows {
+                sequence: progress.sequence,
+                start,
+                rows,
+                progress,
+            },
+            progress,
+        )?;
         self.last_page_sequence = progress.sequence;
         Ok(())
     }
