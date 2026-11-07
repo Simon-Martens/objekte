@@ -125,21 +125,43 @@ fn load_schema_configuration(
         return Ok(None);
     };
     let bytes = std::fs::read(path).map_err(|error| format!("{}: {error}", path.display()))?;
-    let document: serde_json::Value =
+    let mut document: serde_json::Value =
         serde_json::from_slice(&bytes).map_err(|error| format!("{}: {error}", path.display()))?;
+    omit_unavailable_relations(
+        &mut document,
+        &std::collections::HashSet::from(["files".to_owned()]),
+    );
     let mut compiled = compile_schema(&document, "files")
         .map_err(|error| format!("{}: {error}", path.display()))?;
-    for relation in compiled.schema.relations().values() {
-        if relation.target_collection != "files" {
-            return Err(format!(
-                "{}: relation target {} is unavailable in the single-collection CLI",
-                path.display(),
-                relation.target_collection
-            ));
-        }
-    }
     compiled.schema.set_source_fingerprint(&bytes);
     Ok(Some((compiled, document.get("x-objekte").is_some())))
+}
+
+fn omit_unavailable_relations(
+    document: &mut serde_json::Value,
+    collections: &std::collections::HashSet<String>,
+) {
+    match document {
+        serde_json::Value::Object(fields) => {
+            if fields
+                .get("x-relation")
+                .and_then(|relation| relation.get("collection"))
+                .and_then(serde_json::Value::as_str)
+                .is_some_and(|target| !collections.contains(target))
+            {
+                fields.remove("x-relation");
+            }
+            for value in fields.values_mut() {
+                omit_unavailable_relations(value, collections);
+            }
+        }
+        serde_json::Value::Array(values) => {
+            for value in values {
+                omit_unavailable_relations(value, collections);
+            }
+        }
+        _ => {}
+    }
 }
 
 fn make_definition(

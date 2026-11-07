@@ -50,6 +50,36 @@ fn tui_requires_terminal_and_rejects_query_file_before_building() {
 }
 
 #[test]
+fn single_folder_schema_ignores_relations_to_unavailable_collections() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(
+        root.path().join("one.json"),
+        br#"{"agent":"a","title":"One"}"#,
+    )
+    .unwrap();
+    std::fs::write(
+        root.path().join("schema.json"),
+        serde_json::json!({
+            "type":"object",
+            "properties":{
+                "agent":{"type":"string","index":true,"x-relation":{"collection":"agents"}},
+                "title":{"type":"string"}
+            }
+        })
+        .to_string(),
+    )
+    .unwrap();
+    let (status, events) = invoke(root.path(), &["--schema", "schema.json", "agent = \"a\""]);
+    assert!(
+        status.status.success(),
+        "{}",
+        String::from_utf8_lossy(&status.stderr)
+    );
+    assert_eq!(hits(&events).len(), 1);
+    assert_eq!(events.last().unwrap()["records"], 1);
+}
+
+#[test]
 fn auto_index_flag_preserves_answers_and_reports_short_string_capability() {
     let root = tempfile::tempdir().unwrap();
     for slot in 0..80 {
