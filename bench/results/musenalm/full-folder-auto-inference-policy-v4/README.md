@@ -45,8 +45,8 @@ The earlier *entries-only* benchmark is a different comparison: its six-query
 batch took 112.76 ms with manual schema indexes and 137.07 ms with AutoIndex.
 The 137.07 ms AutoIndex result was faster than the 194.80 ms disabled result,
 not faster than manual indexing. Manual `year` postings can prove exact
-membership without source parses; inferred numeric postings still retain
-residual verification.
+membership without source parses; at the measured `4319910` revision, inferred
+numeric postings still retained residual verification.
 
 Verification: `cargo test --workspace` passed. The full-folder CLI acceptance
 test was run explicitly and passed; it is ignored in routine test runs because
@@ -54,3 +54,32 @@ the debug build takes about two minutes on this fixture. The smaller dense
 numeric batch regression runs normally. `cargo clippy --workspace --all-targets`
 completed with pre-existing warnings, and the changed Rust files passed
 `rustfmt --check`.
+
+## Exact numeric range follow-up
+
+Measured code: `cf481490bdf5f3cd2a5cb34db3fbcb5364021534`. A complete
+observed scalar numeric field now uses the same ordered B-tree range operation
+as a declared posting. Dynamic binding conservatively labels an undeclared
+field multivalued; the observed index can prove its actual scalar shape.
+Nested empty-array selections and other non-scalar cases retain verification.
+The snapshot representation did not change.
+
+With the same corpus, query file and release configuration, the
+`--auto-index --count --limit 1` run produced:
+
+| Query | Exact matches | Candidates | Record parses | Source files opened | Search ms |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `year = 1800` | 2,989 | 2,989 | 0 | 1 | 6.28 |
+| `year >= 1800 && year < 1810` | 24,756 | 24,756 | 0 | 1 | 11.15 |
+
+The single source open per query materializes the one returned record. With
+`--count --limit 0`, both counts and candidate sets were identical, and both
+queries opened **zero** source files. Raw events are in `exact-auto.ndjson` and
+`exact-count-only.ndjson`; `exact-auto.time` records peak RSS. Construction was
+1,926.48 ms with a 576.19 MiB peak in this single follow-up run. These single
+build/RSS samples do not establish a construction speed change.
+
+`cargo test --workspace` passed, including independent reference-answer and
+zero-parse fixtures for each comparison operator and an empty-ancestor
+regression. `cargo clippy --workspace --all-targets` completed with existing
+warnings. Changed Rust files passed targeted `rustfmt --check`.
