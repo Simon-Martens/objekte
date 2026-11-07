@@ -191,7 +191,11 @@ fn positional_paths_select_only_the_requested_array_occurrence() {
         if filter.contains("[0]") || filter.contains("[1]") || filter.contains("[2]") {
             assert_eq!(
                 repo.explain(&query).unwrap()[0].terms[0].selected.kind,
-                objekte_search_core::executor::AccessPathKind::Scanner,
+                if filter == "['literal.key'][0] = 'value'" {
+                    objekte_search_core::executor::AccessPathKind::RawBigram
+                } else {
+                    objekte_search_core::executor::AccessPathKind::Scanner
+                },
                 "{filter}"
             );
         }

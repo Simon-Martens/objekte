@@ -469,20 +469,34 @@ pub fn text_segments(value: &Value) -> Vec<TextSegment> {
     output
 }
 
+#[cfg(test)]
 pub(crate) fn visit_logical_strings(value: &Value, emit: &mut dyn FnMut(&str)) {
+    let _ = visit_logical_strings_and_empty(value, emit);
+}
+
+/// Visit every logical string segment while observing empty arrays in the
+/// same traversal. The Boolean is a conservative record-wide structural fact.
+pub(crate) fn visit_logical_strings_and_empty(value: &Value, emit: &mut dyn FnMut(&str)) -> bool {
     match value {
-        Value::String(text) | Value::Id(text) => emit(text),
+        Value::String(text) | Value::Id(text) => {
+            emit(text);
+            false
+        }
         Value::Object(fields) => {
+            let mut empty = false;
             for value in fields.values() {
-                visit_logical_strings(value, emit);
+                empty |= visit_logical_strings_and_empty(value, emit);
             }
+            empty
         }
         Value::Array(array) => {
+            let mut empty = array.values.is_empty();
             for value in &array.values {
-                visit_logical_strings(value, emit);
+                empty |= visit_logical_strings_and_empty(value, emit);
             }
+            empty
         }
-        _ => {}
+        _ => false,
     }
 }
 

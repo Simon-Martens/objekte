@@ -715,12 +715,20 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
     for number in 0..512 {
         std::fs::write(
             root.join(format!("data/{number:04}.jsonl")),
-            b"{\"title\":\"x\"}",
+            if number == 511 {
+                b"{\"title\":\"x\",\"noise\":[]}".as_slice()
+            } else {
+                b"{\"title\":\"x\"}".as_slice()
+            },
         )
         .unwrap();
     }
     std::fs::write(root.join("data/0512.jsonl"), b"{\"title\":").unwrap();
-    std::fs::write(root.join("data/0513.jsonl"), b"{\"title\":\"y\"}").unwrap();
+    std::fs::write(
+        root.join("data/0513.jsonl"),
+        b"{\"title\":\"y\",\"noise\":[]}",
+    )
+    .unwrap();
     std::fs::write(root.join("data/0514.jsonl"), b"").unwrap();
     let mut schema = Schema::default();
     schema
@@ -790,6 +798,10 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             let collection = &repo.collections()[0];
             assert_eq!(collection.generation.files.len(), 515);
             assert_eq!(collection.generation.records.len(), 514);
+            assert_eq!(
+                collection.empty_array_records.iter().collect::<Vec<_>>(),
+                [511, 513]
+            );
             assert_eq!(
                 collection.generation.file_records.records_for(FileId(514)),
                 Some([].as_slice())
@@ -871,6 +883,7 @@ fn bounded_batch_admission_keeps_slots_diagnostics_and_complete_gram_maps() {
             serde_json::to_value(&parallel.files().files).unwrap()
         );
         assert_eq!(a.logical_records, b.logical_records);
+        assert_eq!(a.empty_array_records, b.empty_array_records);
         assert_eq!(a.raw.normal, b.raw.normal);
         assert_eq!(a.raw.skip, b.raw.skip);
         assert_eq!(a.fallback_text.normal, b.fallback_text.normal);

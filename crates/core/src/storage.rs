@@ -27,7 +27,7 @@ use crate::source::SourceRegistry;
 use crate::workload::BigramAlphabet;
 
 const MAGIC: &[u8; 8] = b"OBJSNAP1";
-pub const SNAPSHOT_VERSION: u32 = 9;
+pub const SNAPSHOT_VERSION: u32 = 10;
 const MAX_SECTION_BYTES: u64 = 512 * 1024 * 1024;
 
 
@@ -55,6 +55,7 @@ struct EncodedCollection {
     raw: BigramIndex,
     fallback_text: BigramIndex,
     logical_records: RoaringBitmap,
+    empty_array_records: RoaringBitmap,
     custom_text: HashMap<(Vec<String>, String), BigramIndex>,
     sorting: SortCollection,
     stats: CollectionStats,
@@ -72,6 +73,7 @@ struct EncodedCollectionRef<'a> {
     raw: &'a BigramIndex,
     fallback_text: &'a BigramIndex,
     logical_records: &'a RoaringBitmap,
+    empty_array_records: &'a RoaringBitmap,
     custom_text: &'a HashMap<(Vec<String>, String), BigramIndex>,
     sorting: &'a SortCollection,
     stats: CollectionStats,
@@ -392,6 +394,7 @@ impl Repository {
                     raw: &state.raw,
                     fallback_text: &state.fallback_text,
                     logical_records: &state.logical_records,
+                    empty_array_records: &state.empty_array_records,
                     custom_text: &state.custom_text,
                     sorting: &state.sorting,
                     stats: state.stats,
@@ -536,6 +539,9 @@ pub fn load_snapshot(
             for index in encoded.custom_text.values() {
                 index.validate_domain(&encoded.logical_records)?;
             }
+        }
+        if !(&encoded.empty_array_records - &encoded.logical_records).is_empty() {
+            return Err("snapshot empty-array structural domain mismatch".into());
         }
         if all_logical {
             encoded
@@ -739,6 +745,7 @@ pub fn load_snapshot(
             raw: encoded.raw,
             fallback_text: encoded.fallback_text,
             logical_records: encoded.logical_records,
+            empty_array_records: encoded.empty_array_records,
             custom_text: encoded.custom_text,
             sorting: encoded.sorting,
             id_lookup,

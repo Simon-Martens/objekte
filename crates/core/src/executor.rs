@@ -57,19 +57,23 @@ pub struct TermChoice {
     pub actual_input: u64,
     pub actual_output: Option<u64>,
     pub reason: String,
+    pub dynamic_binding: bool,
+    pub gram_candidates: Option<u64>,
+    pub structural_candidates: Option<u64>,
     pub residual_verification: bool,
     pub executed: bool,
 }
 
 
 fn term_case_sensitivity(term: &BoundTerm) -> Option<crate::query::CaseSensitivity> {
-    (term.kind == LogicalType::String && term.operation.is_none()).then_some(
-        if term.transform == Transform::CaseFold {
-            crate::query::CaseSensitivity::Insensitive
-        } else {
-            crate::query::CaseSensitivity::Sensitive
-        },
-    )
+    (matches!(term.kind, LogicalType::String | LogicalType::Unknown)
+        && matches!(term.literal, Value::String(_))
+        && term.operation.is_none())
+    .then_some(if term.transform == Transform::CaseFold {
+        crate::query::CaseSensitivity::Insensitive
+    } else {
+        crate::query::CaseSensitivity::Sensitive
+    })
 }
 
 fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut Vec<TermChoice>) {
@@ -89,6 +93,9 @@ fn skipped_choices(collection: &CollectionState, expr: &BoundExpr, output: &mut 
                 actual_input: 0,
                 actual_output: Some(0),
                 reason: "skipped after an exact empty conjunct".into(),
+                dynamic_binding: term.kind == LogicalType::Unknown,
+                gram_candidates: None,
+                structural_candidates: None,
                 residual_verification: false,
                 executed: false,
             });
@@ -188,6 +195,9 @@ fn fallback_truth(
                     "logical value unavailable on raw fallback"
                 }
                 .into(),
+                dynamic_binding: term.kind == LogicalType::Unknown,
+                gram_candidates: None,
+                structural_candidates: None,
                 residual_verification: false,
                 executed: metadata,
             }];
@@ -291,6 +301,21 @@ fn raw_covers_identity_field(collection: &CollectionState) -> Result<(), String>
         return Err("raw index has incomplete record coverage".into());
     }
     Ok(())
+}
+
+fn empty_selection_preservation(term: &BoundTerm) -> bool {
+    term.multi && term.quantifier != Quantifier::Any
+}
+
+fn raw_bigram_candidates(collection: &CollectionState, term: &BoundTerm) -> Option<RoaringBitmap> {
+    let request = term.gram_request.as_ref()?;
+    let mut grams = collection.raw.candidates_prepared(request)?;
+    if empty_selection_preservation(term) {
+        // The universal comparison may be true on a present empty array with
+        // no string witness. This bitmap is deliberately collection-wide.
+        grams |= &collection.empty_array_records;
+    }
+    Some(grams)
 }
 
 fn term_set(
@@ -504,7 +529,7 @@ fn enumerate_paths(
         );
         return paths;
     }
-    if term.query_path.has_position || term.rhs.is_some() {
+    if term.rhs.is_some() {
         // Ordinary postings have record membership, not array occurrence
         // positions. A positional predicate always keeps a residual scan.
         add(AccessPathKind::Scanner, false, 0.0, input_len);
@@ -543,7 +568,7 @@ fn enumerate_paths(
         } else {
             collection.postings.fields.get(&term.path.segments)
         };
-        if let Some(index) = index {
+        if let Some(index) = index.filter(|_| !term.query_path.has_position) {
             if let Some((lookup, output)) =
                 index.estimate_exact(term, collection.logical_records.len())
             {
@@ -569,6 +594,7 @@ fn enumerate_paths(
         if term.derived == Derived::None
             && term.period.is_none()
             && !term.multi
+            && !term.query_path.has_position
             && term.transform == Transform::Identity
             && term.operation.is_none()
             && matches!(
@@ -599,21 +625,29 @@ fn enumerate_paths(
         }
         if term.derived == Derived::None
             && matches!(term.operator, Operator::Contains | Operator::Eq)
-            && term.kind == LogicalType::String
-            && (!term.multi || term.quantifier == Quantifier::Any)
+            && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
         {
             if let Value::String(literal) = &term.literal {
                 if !literal.contains(['%', '\\']) {
                     if matches!(term.binding_name.as_str(), "default" | "lower")
                         && matches!(term.transform, Transform::Identity | Transform::CaseFold)
                         && term.operation.is_none()
+                        && term.matcher.is_none()
                         && raw_covers_identity_field(collection).is_ok()
                     {
-                        if let Some(output) = term
+                        if let Some(gram_count) = term
                             .gram_request
                             .as_ref()
                             .and_then(|request| collection.raw.estimate_prepared(request))
                         {
+                            let structural_count = empty_selection_preservation(term)
+                                .then_some(collection.empty_array_records.len());
+                            let output = if structural_count.is_some() {
+                                raw_bigram_candidates(collection, term)
+                                    .map_or(input_len, |set| set.len())
+                            } else {
+                                gram_count
+                            };
                             add(
                                 AccessPathKind::RawBigram,
                                 false,
@@ -622,7 +656,10 @@ fn enumerate_paths(
                             );
                         }
                     }
-                    if custom_bigram_compatible(term) {
+                    if !term.query_path.has_position
+                        && (!term.multi || term.quantifier == Quantifier::Any)
+                        && custom_bigram_compatible(term)
+                    {
                         if let Some(index) =
                             custom_text_index(collection, &term.path.segments, &term.binding_name)
                         {
@@ -676,10 +713,7 @@ fn execute_path(
             }
         }
         AccessPathKind::CustomBigram => custom_candidates(collection, term),
-        AccessPathKind::RawBigram => term
-            .gram_request
-            .as_ref()
-            .and_then(|request| collection.raw.candidates_prepared(request)),
+        AccessPathKind::RawBigram => raw_bigram_candidates(collection, term),
         AccessPathKind::Dictionary => {
             let index = collection
                 .postings
@@ -887,18 +921,49 @@ fn plan_logical_expr(
                     }]
                 })
                 .unwrap_or_default();
-            let reason = if selected.kind == AccessPathKind::Scanner
+            let dynamic_binding = term.kind == LogicalType::Unknown;
+            let gram_candidates = (selected.kind == AccessPathKind::RawBigram)
+                .then(|| {
+                    term.gram_request
+                        .as_ref()
+                        .and_then(|request| collection.raw.estimate_prepared(request))
+                })
+                .flatten();
+            let structural_candidates = (selected.kind == AccessPathKind::RawBigram
+                && empty_selection_preservation(term))
+            .then_some(collection.empty_array_records.len());
+            let reason = if selected.kind == AccessPathKind::RawBigram && dynamic_binding {
+                format!(
+                    "undeclared dynamic string-witness restriction via shared raw index {}@{}; empty-selection preservation: {}; exact field residual retained",
+                    collection.source.id(),
+                    collection.source.version(),
+                    structural_candidates.is_some()
+                )
+            } else if selected.kind == AccessPathKind::Scanner
                 && term.path.root == PathRoot::Data
-                && term.kind == LogicalType::String
-                && term.binding_name == "default"
+                && matches!(term.kind, LogicalType::String | LogicalType::Unknown)
+                && matches!(term.binding_name.as_str(), "default" | "lower")
+                && term.operation.is_none()
                 && matches!(term.operator, Operator::Contains | Operator::Eq)
             {
                 raw_covers_identity_field(collection)
                     .err()
-                    .map(|reason| format!("raw bigram rejected: {reason}; scanner selected"))
+                    .map(|reason| {
+                        format!(
+                            "raw bigram rejected: {reason}; dynamic binding: {dynamic_binding}; scanner selected"
+                        )
+                    })
                     .unwrap_or_else(|| {
-                        "lowest estimated lookup plus remaining source work for current input"
-                            .into()
+                        if term.gram_request.is_none()
+                            || term.gram_request.as_ref().is_some_and(|request| {
+                                collection.raw.estimate_prepared(request).is_none()
+                            })
+                        {
+                            "raw bigram has no usable necessary grams; scanner selected".into()
+                        } else {
+                            "lowest estimated lookup plus remaining source work for current input"
+                                .into()
+                        }
                     })
             } else {
                 "lowest estimated lookup plus remaining source work for current input".into()
@@ -914,6 +979,9 @@ fn plan_logical_expr(
                 actual_input: input.len(),
                 actual_output: candidates.as_ref().map(RoaringBitmap::len),
                 reason,
+                dynamic_binding,
+                gram_candidates,
+                structural_candidates,
                 residual_verification: !exact,
                 executed: true,
             }];
@@ -1264,3 +1332,7 @@ fn fts_field_index<'a>(
 #[cfg(test)]
 #[path = "executor.test.rs"]
 mod tests;
+
+#[cfg(test)]
+#[path = "dynamic_filter.test.rs"]
+mod dynamic_filter_tests;
