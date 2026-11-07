@@ -35,15 +35,15 @@ NEEDLES = (
 
 STRUCTURED = (
     ('@root[0] = "first"', {"array.json"}),
-    ('@root = "a root string"', {"string.json"}),
+    ('@root = "a root string"', {"string.json", "empty-array.json"}),
     ('@root :null', {"null.json"}),
-    ('@root = true', {"boolean.json"}),
-    ('@root = 123', {"number.json"}),
-    ('@root["a.b"] = "punctuation"', {"nested/punctuation.json"}),
-    ('@root[""] = 42', {"nested/punctuation.json"}),
-    ('v = "last occurrence"', {"duplicate.json"}),
-    ('v = "first occurrence"', set()),
-    ('huge = 1e1000000', {"exceptional.json"}),
+    ('@root = true', {"boolean.json", "empty-array.json"}),
+    ('@root = 123', {"number.json", "empty-array.json"}),
+    ('@root["a.b"] = "punctuation"', {"nested/punctuation.json", "empty-array.json"}),
+    ('@root[""] = 42', {"nested/punctuation.json", "empty-array.json"}),
+    ('v = "last occurrence"', {"duplicate.json", "empty-array.json"}),
+    ('v = "first occurrence"', {"empty-array.json"}),
+    ('huge = 1e1000000', {"exceptional.json", "empty-array.json"}),
 )
 
 
@@ -87,7 +87,7 @@ def expected_membership(root: Path, needle: str) -> set[str]:
             assert needle not in path.read_bytes().decode("utf-8", "replace")
             continue
         if any(needle in scalar for scalar in scalar_texts(value)):
-            result.add(relative.as_posix())
+            result.add("path:" + relative.as_posix())
     return result
 
 
@@ -132,6 +132,7 @@ def main() -> None:
                 print(f"  missing={sorted(expected - observed)} extra={sorted(observed - expected)}")
                 failures += 1
         for expression, expected in STRUCTURED:
+            expected = {"path:" + relative for relative in expected}
             observed = observed_membership(
                 args.binary.resolve(), args.root.resolve(), expression, alphabet, fts=False
             )

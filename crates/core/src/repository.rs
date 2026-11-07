@@ -52,9 +52,7 @@ pub(crate) fn map_binding_value(operation: &dyn BindingOperation, value: &Value)
             .iter()
             .map(|item| map_binding_value(operation, item))
             .collect::<Option<Vec<_>>>()?;
-        return Some(Value::Array(
-            ArrayValue::new(values, None, array.nullable_elements).ok()?,
-        ));
+        return Some(Value::Array(ArrayValue::from_unrestricted(values)));
     }
     operation.map_value(value)
 }
@@ -105,7 +103,7 @@ impl CollectionDefinition {
         source_path: impl Into<PathBuf>,
         format: SourceFormat,
     ) -> Self {
-        let identity = if format == SourceFormat::Json {
+        let identity = if matches!(&format, SourceFormat::Json | SourceFormat::JsonDecodedScalars) {
             IdentityPolicy::RelativePath
         } else {
             IdentityPolicy::Generated
@@ -1358,11 +1356,16 @@ impl Repository {
                 counters.record_parses += u64::from(record.class == RecordClass::Logical);
                 counters.scanned_records += 1;
                 let extracted = if record.class == RecordClass::Logical {
+                    let projection = if fts.as_ref().is_some_and(|fts| !fts.fields.is_empty()) {
+                        ScanProjection::full_resolved_text()
+                    } else {
+                        ScanProjection::full(true)
+                    };
                     prepare_query_record(
                         &collection.source,
                         &collection.definition.schema,
                         &bytes,
-                        &ScanProjection::full(true),
+                        &projection,
                         true,
                     )?
                 } else {

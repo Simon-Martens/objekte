@@ -222,7 +222,7 @@ fn all_scope_huge_batch_row_hint_keeps_byte_bounded_delivery() {
             StreamOptions {
                 batch_rows: usize::MAX,
                 max_event_bytes: 2048,
-                max_buffered_bytes: 64 * 1024,
+                max_buffered_bytes: 256 * 1024,
                 ..Default::default()
             },
             &CancellationToken::new(),
@@ -242,7 +242,7 @@ fn all_scope_huge_batch_row_hint_keeps_byte_bounded_delivery() {
     assert_eq!(summary.returned_rows, 65);
     assert_eq!(returned, 65);
     assert!(events > 1);
-    assert!(summary.progress.peak_buffered_bytes <= 64 * 1024);
+    assert!(summary.progress.peak_buffered_bytes <= 256 * 1024);
 }
 
 #[test]

@@ -229,6 +229,8 @@ fn logical_json(value: &Value) -> serde_json::Value {
         Value::Number(Number::Float(number)) => {
             serde_json::from_str(&number.to_string()).unwrap_or(Json::Null)
         }
+        Value::Number(Number::ExactDecimal(number)) => serde_json::from_str(&number.to_string())
+            .unwrap_or_else(|_| Json::String(number.to_string())),
         Value::Bool(value) => Json::Bool(*value),
         Value::Date(value) => Json::String(value.to_string()),
         Value::Datetime(value) => Json::String(value.to_string()),

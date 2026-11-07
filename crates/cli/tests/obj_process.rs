@@ -93,16 +93,27 @@ fn default_folder_admits_root_shapes_and_hidden_json() {
         "{}",
         String::from_utf8_lossy(&result.stderr)
     );
-    assert_eq!(hits(&events).len(), 1);
-    assert_eq!(hits(&events)[0]["data"], true);
+    assert_eq!(hits(&events).len(), 2);
+    assert!(hits(&events).iter().any(|hit| hit["data"] == true));
+    // Default universal array comparison preserves the empty-array witness.
+    assert!(
+        hits(&events)
+            .iter()
+            .any(|hit| hit["data"] == serde_json::json!([]))
+    );
     let (result, events) = invoke(root.path(), &["@root = 7"]);
     assert!(
         result.status.success(),
         "{}",
         String::from_utf8_lossy(&result.stderr)
     );
-    assert_eq!(hits(&events).len(), 1);
-    assert_eq!(hits(&events)[0]["data"], 7);
+    assert_eq!(hits(&events).len(), 2);
+    assert!(hits(&events).iter().any(|hit| hit["data"] == 7));
+    assert!(
+        hits(&events)
+            .iter()
+            .any(|hit| hit["data"] == serde_json::json!([]))
+    );
 }
 
 #[test]
@@ -132,7 +143,7 @@ fn relative_file_identity_distinguishes_duplicate_basenames() {
     ids.sort();
     assert_eq!(
         ids,
-        vec!["a/001.json".to_string(), "b/001.json".to_string()]
+        vec!["path:a/001.json".to_string(), "path:b/001.json".to_string()]
     );
 }
 
