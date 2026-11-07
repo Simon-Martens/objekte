@@ -14,6 +14,7 @@ cargo fmt --all --check
 cargo test --workspace --all-targets
 cargo run --release --example musenalm_cli -- --case Q031 --explain-analyze
 cargo run --release --example musenalm_cli -- --collection contents --fts Frühling --alphabet ascii --quiet-hits
+cargo run --release --example musenalm_without_schema -- --root examples/musenalm --folder places=data/places --query Berlin
 cargo run --release --example accept_musenalm -- --alphabet ascii
 cargo run --release --example accept_musenalm -- --alphabet unicode
 ```
@@ -26,6 +27,21 @@ runs the independent scanner. `--alphabet` chooses `ascii` or `unicode`;
 override the page. `--quiet-hits` prints counts and work without every locator.
 The fixed cases and their options are in
 [`musenalm_queries.json`](../crates/core/benches/musenalm_queries.json).
+
+`CollectionDefinition::folder(name, relative_directory, format)` is a small
+schema-free constructor. It enables recursive discovery, starts with an empty
+in-memory `Schema`, and creates no typed posting or sort columns. The example
+accepts repeated `--folder NAME=RELATIVE_PATH` arguments; without them it
+enumerates directories under `data/` at runtime. It never loads nearby
+`.objekte` schema files. JSON folders use stable `path:`-prefixed IDs from the
+native path relative to the collection directory, including `.json`; files
+such as `a/item.json` and `b/item.json` stay distinct. JSONL and registered
+reader folders use generated per-record IDs because a file may contain more
+than one record. The helper skips hidden files and symlinks by default, and
+reader-specific extensions still decide which files are admitted. Callers may
+override these policies in the returned definition. Existing object-record
+and homogeneous-array validation still applies; invalid records follow the
+diagnosed fallback contract.
 
 The benchmark tool provides `--cases`, `--profiles`, `--repetitions`,
 `--result-dir`, `--root`, and `--verified-cache-bytes`. Its four standard
