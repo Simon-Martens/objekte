@@ -45,6 +45,7 @@ These are first measurements, not speedup claims. Query construction in the harn
 | B4 schema conversion validation | `b8b2d3f93d` | `a62cc384b9` | Incremental/full-tree equivalence test and workspace tests passed. |
 | Q1 access-path planning | `407a55ed23` | `267946c29a` | Three focused estimate/reuse tests, workspace tests and Clippy passed. |
 | Q2 estimate-only EXPLAIN | `a556422932` | `0b0ea28f8f` | Relation/related-FTS no-read test, workspace tests and Clippy passed. |
+| B1 bounded inference summaries | `debf099560` | `de8ad6a9d4` | Manual/opt-out partition and worker tests, workspace tests and Clippy passed. |
 
 The C4 task's second commit moved its allocation tests into a separate test file to match the repository code convention. No integration conflicts occurred in these merges. Phase 1 correctness is complete at `a4ae045cba2c86622bec755ec4011229608be499`: 270 core unit tests passed, two were ignored, all workspace tests passed, and Clippy exited successfully with warnings. The baseline workspace had 248 core unit tests passed and one ignored. Existing Clippy warnings were present before implementation; this gate did not treat warnings as errors.
 
@@ -81,3 +82,9 @@ The fresh ASCII build measured 1,233.968→1,191.029 ms (−42.940 ms, −3.5%) 
 ## Estimate-only EXPLAIN contract
 
 Q2 changes `explain()` to report physical path and candidate estimates without executing a candidate bitmap, relation witness, or inferred sort column. The trace marks candidate and sort figures as estimated and does not populate actual term output. `explain_analyze()` retains executable diagnostics and actual work counters. A counted-reader regression renames both source and target files after building the repository: relation and related-FTS `explain()` still succeed with no parser calls, while `explain_analyze()` reads the target. After the no-ff merge, that focused test, workspace tests (275 core unit tests passed, two ignored), and Clippy passed. This is structural correctness evidence; no Q2 timing was measured.
+
+## Bounded inference summaries
+
+B1 bounds short-string distinct summaries for declared and automatic-index-excluded paths using the existing distinct count and byte limits. When a summary exceeds either bound, its report states that the count is incomplete; the field's declared/opt-out status and inferred posting coverage remain unchanged. Fresh-build startup statistics now distinguish observed records, merge/finalization time, cumulative policy charges, repeated batch path charges, and retained manual-summary estimates. These estimates are not allocator measurements or a process RSS limit. Worker early-stop on a collection-wide failed inference result remains deferred because a safe deterministic cancellation boundary needs separate scheduler work.
+
+The [matched synthetic build evidence](../../bench/results/library-improvements/inference-retention/README.md) compares `267946c29a` with B1 code commit `183d96ffad` on 1,024 JSONL files and 32,768 records, four build workers, ASCII, and snapshots disabled. One release sample per revision measured repository opening at 66.078→53.037 ms (−13.041 ms) and peak RSS 36,352→30,280 KiB. The fixture and inferred-index signatures, parsed record counts, and one admitted index match. This focused observation does not establish a repeatable speedup. After integration, the two focused bounds/worker tests, workspace tests (278 core unit tests passed, two ignored), and Clippy passed.
