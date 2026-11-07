@@ -15,6 +15,7 @@ use super::{
     InferenceState, InferredFieldReport, ObservedStep, typed_path,
 };
 
+
 /// Observations retained for one path while construction batches are admitted.
 struct FieldState {
     path: Vec<String>,
@@ -49,6 +50,7 @@ struct FieldState {
     #[cfg(test)]
     key_builds: usize,
 }
+
 
 impl FieldState {
     fn new(path: Vec<String>, mode: InferenceMode) -> Self {
@@ -182,9 +184,10 @@ impl FieldState {
             if let Some(distinct) = &mut self.distinct_nonblank {
                 let known = distinct.contains(value);
                 if value.len() > policy.max_string_bytes
-                    || distinct.len() >= policy.max_distinct_nonblank_strings && !known
-                    || self.distinct_nonblank_bytes.saturating_add(value.len())
-                        > policy.max_distinct_string_bytes
+                    || !known
+                        && (distinct.len() >= policy.max_distinct_nonblank_strings
+                            || self.distinct_nonblank_bytes.saturating_add(value.len())
+                                > policy.max_distinct_string_bytes)
                 {
                     self.distinct_nonblank = None;
                     self.drop_general_values();
@@ -346,6 +349,7 @@ impl FieldState {
     }
 }
 
+
 /// One batch or coordinator's bounded construction-only observation state.
 pub(crate) struct InferenceBuilder {
     config: InferenceConfig,
@@ -364,12 +368,14 @@ pub(crate) struct InferenceBuilder {
     coordinator_limit: usize,
 }
 
+
 /// Reused traversal state for one already parsed logical record.
 struct VisitState {
     slot: RecordSlot,
     path: Vec<ObservedStep>,
     contributions: usize,
 }
+
 
 impl InferenceBuilder {
     pub(crate) fn new(config: InferenceConfig, batch: bool) -> Option<Self> {
@@ -962,6 +968,7 @@ impl InferenceBuilder {
     }
 }
 
+
 #[cfg(test)]
 mod allocation_tests {
     use super::*;
@@ -1087,6 +1094,64 @@ mod allocation_tests {
         left.merge_shifted(right, 4, policy).unwrap();
         assert_eq!(left.distinct_nonblank_bytes, 5);
         assert_eq!(left.distinct_nonblank.as_ref().unwrap().len(), 2);
+    }
+
+    #[test]
+    fn repeated_string_at_distinct_byte_limit_keeps_summary() {
+        let policy = InferencePolicy {
+            max_distinct_string_bytes: 3,
+            max_distinct_nonblank_strings: 1,
+            ..InferencePolicy::default()
+        };
+        let mut field = FieldState::new(vec!["name".into()], InferenceMode::AutoIndex);
+        field.add_scalar(RecordSlot(0), &Value::String("abc".into()), policy);
+        assert_eq!(field.distinct_nonblank_bytes, 3);
+        assert_eq!(field.distinct_nonblank.as_ref().unwrap().len(), 1);
+
+        field.add_scalar(RecordSlot(1), &Value::String("abc".into()), policy);
+        assert_eq!(field.distinct_nonblank_bytes, 3);
+        assert_eq!(field.distinct_nonblank.as_ref().unwrap().len(), 1);
+        assert!(!field.dropped);
+        assert_eq!(field.nonblank_occurrences, 2);
+        assert_eq!(field.short_values.as_ref().unwrap().len(), 1);
+    }
+
+    #[test]
+    fn multibyte_distinct_boundary_and_partitioned_merge_agree() {
+        let policy = InferencePolicy {
+            max_distinct_string_bytes: 3,
+            max_distinct_nonblank_strings: 2,
+            ..InferencePolicy::default()
+        };
+        let mut direct = FieldState::new(vec!["name".into()], InferenceMode::ReportOnly);
+        for (slot, text) in ["é", "a", "é"].into_iter().enumerate() {
+            direct.add_scalar(RecordSlot(slot as u32), &Value::String(text.into()), policy);
+        }
+        assert_eq!(direct.distinct_nonblank_bytes, 3);
+        assert_eq!(direct.distinct_nonblank.as_ref().unwrap().len(), 2);
+        assert!(!direct.dropped);
+
+        let mut first = FieldState::new(vec!["name".into()], InferenceMode::ReportOnly);
+        first.add_scalar(RecordSlot(0), &Value::String("é".into()), policy);
+        let mut second = FieldState::new(vec!["name".into()], InferenceMode::ReportOnly);
+        second.add_scalar(RecordSlot(0), &Value::String("a".into()), policy);
+        second.add_scalar(RecordSlot(1), &Value::String("é".into()), policy);
+        first.merge_shifted(second, 1, policy).unwrap();
+        assert_eq!(first.distinct_nonblank, direct.distinct_nonblank);
+        assert_eq!(
+            first.distinct_nonblank_bytes,
+            direct.distinct_nonblank_bytes
+        );
+        assert_eq!(first.nonblank_occurrences, direct.nonblank_occurrences);
+        assert_eq!(first.nonblank_records, direct.nonblank_records);
+
+        direct.add_scalar(RecordSlot(3), &Value::String("b".into()), policy);
+        assert!(direct.distinct_nonblank.is_none());
+        let mut crossing = FieldState::new(vec!["name".into()], InferenceMode::ReportOnly);
+        crossing.add_scalar(RecordSlot(0), &Value::String("b".into()), policy);
+        first.merge_shifted(crossing, 3, policy).unwrap();
+        assert_eq!(first.distinct_nonblank, direct.distinct_nonblank);
+        assert_eq!(first.dropped, direct.dropped);
     }
 
     #[test]
