@@ -32,7 +32,7 @@ Default source records remain object-valued under current reader validation. Arr
 | --- | --- | --- | --- |
 | TASK-00 | Supervisor | complete | Base and prior evidence pinned above. |
 | TASK-01 | Supervisor | complete | Folder definition, path identity, example and compiling checkpoint. |
-| TASK-02 | Dynamic FILTER worker | in progress | `feature/dynamic-filter-bigrams` at `/home/simon/source/objekte-dynamic-filter-bigrams`; structural bitmap and conservative gram restriction. |
+| TASK-02 | Dynamic FILTER worker | accepted | Pushed clean head `0fbf439aa9` on `feature/dynamic-filter-bigrams`; structural bitmap, sound gram restriction and focused evidence reviewed. Merge awaits TASK-08 gate. |
 | TASK-03/04 | Inference worker | in progress | `feature/optional-field-inference` at `/home/simon/source/objekte-optional-field-inference`; observation, policy, postings and restore. |
 | TASK-05/06 | Sorting worker | in progress | `feature/general-sort-expressions` at `/home/simon/source/objekte-general-sort-expressions`; computed and composite sorting. |
 | TASK-07 | Streaming worker | not started | Delivery, cancellation and NDJSON. |
@@ -51,3 +51,7 @@ Default source records remain object-valued under current reader validation. Arr
 - Sorting will retain legacy `SortField.field` and add a serde-defaulted typed `expression: Option<SortExpression>`. Inline reducers and paths normalize to this expression. Streaming must consume the common bound key/rank path rather than assume resident columns.
 - Dynamic FILTER adds a persisted collection-level empty-array bitmap and locally bumps `SNAPSHOT_VERSION` 9→10. Inference and sorting snapshot changes must be reconciled after merging, not by independently assuming that version 10 is final.
 - Selector review at the checkpoint found that `walk_path`/`walk_query_steps` can report a present empty selection only when an empty array is traversed implicitly or via `[*]`; direct out-of-range `[n]` is missing. The final dynamic path must still retain the residual, honor reader coverage, and avoid skipping fallible operations.
+
+## TASK-02 review
+
+Accepted branch commits are `7007f8eea1` (structural E construction/admission/snapshot), `6650aa15b4` (Unknown string candidate path, plans and independent fixtures), and `0fbf439aa9` (proof and validation report). The branch is clean and pushed. Its workspace test and Clippy commands passed, with 79 advisory warnings matching foundation. A previous positional-plan assertion was narrowly updated because the newly proven positive literal path now uses RawBigram with a residual. Read-only supervisor review checked the selector proof, nonfallible matching gate, reader/raw coverage checks, logical-only E, batch slot shift, v10 snapshot rejection and corruption checks, both alphabets, custom-reader coverage, metadata OR fallback, cache parity and structural parse-reduction counters. No blocking finding remains; final cross-feature integration will recheck the combined build and snapshot layout.
