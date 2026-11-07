@@ -1,6 +1,7 @@
 //! Bounded file-batch contributions and deterministic index admission.
 
-use std::collections::{BTreeMap, HashMap};
+use std::collections::{BTreeMap, HashMap, VecDeque};
+use std::io::BufRead;
 use std::num::NonZeroUsize;
 use std::ops::Range;
 use std::path::Path;
@@ -30,9 +31,10 @@ use crate::repository::{
 };
 use crate::sorting::{SortBuilder, SortKey};
 use crate::source::{
-    DiagnosticCategory, ExtractedRecord, PreparedSource, ReaderDiagnostic, SourceOutcome,
-    TextDerivation, extract_file_build_outcomes, extract_framed_build_outcomes,
-    frame_file_for_build, read_record_range_for_build, visit_logical_strings_and_empty,
+    BoundedBuildChunk, BoundedJsonLines, DiagnosticCategory, ExtractedRecord, PreparedSource,
+    ReaderDiagnostic, SourceOutcome, TextDerivation, extract_file_build_outcomes,
+    extract_framed_build_outcomes, frame_file_for_build, read_record_range_for_build,
+    visit_logical_strings_and_empty,
 };
 use crate::workload::BigramAlphabet;
 
@@ -586,6 +588,8 @@ fn process_framed_batch(
     source_files: &[SourceFileInput],
     bytes: &[u8],
     ranges: &[ByteRange],
+    file_offset: u64,
+    preceding_lines: u64,
     first_range: bool,
     alphabet: BigramAlphabet,
     inference: InferenceConfig,
@@ -604,13 +608,54 @@ fn process_framed_batch(
         inference_jobs,
     )?;
     let stats = extract_framed_build_outcomes(&path, source.reader(), bytes, ranges, |outcome| {
-        let source_part = match &outcome {
-            SourceOutcome::Logical { range, .. } => {
-                Some(&bytes[range.start as usize..range.end as usize])
-            }
-            _ => None,
+        let revision_size = file.revision.size;
+        let absolute = |range: ByteRange| -> Result<ByteRange, String> {
+            let start = file_offset
+                .checked_add(range.start)
+                .ok_or("record range offset overflow")?;
+            let end = file_offset
+                .checked_add(range.end)
+                .ok_or("record range offset overflow")?;
+            ByteRange::checked(start, end, revision_size)
         };
-        builder.outcome(&mut file, &path, outcome, source_part)
+        match outcome {
+            SourceOutcome::Logical { range, record } => {
+                let source_part = &bytes[range.start as usize..range.end as usize];
+                let range = absolute(range)?;
+                builder.outcome(
+                    &mut file,
+                    &path,
+                    SourceOutcome::Logical { range, record },
+                    Some(source_part),
+                )
+            }
+            SourceOutcome::Malformed {
+                range,
+                mut diagnostic,
+                bytes,
+            } => {
+                diagnostic.line = diagnostic
+                    .line
+                    .and_then(|line| line.checked_add(preceding_lines));
+                let range = absolute(range)?;
+                builder.outcome(
+                    &mut file,
+                    &path,
+                    SourceOutcome::Malformed {
+                        range,
+                        diagnostic,
+                        bytes,
+                    },
+                    None,
+                )
+            }
+            SourceOutcome::Unreadable { diagnostic } => builder.outcome(
+                &mut file,
+                &path,
+                SourceOutcome::Unreadable { diagnostic },
+                None,
+            ),
+        }
     })?;
     let count = builder.records.len();
     builder.finish(
@@ -624,10 +669,42 @@ fn process_framed_batch(
     )
 }
 
-/// One oversized source buffer is shared by disjoint range jobs. Caller
-/// schedules oversized files one at a time; no worker copies or reopens the
-/// complete source. A framing failure follows the ordinary source outcome
-/// path so unreadable/malformed file semantics stay unchanged.
+fn process_unframed_large_file(
+    root: &Path,
+    definition: &CollectionDefinition,
+    collection: CollectionId,
+    source: &PreparedSource,
+    file_id: FileId,
+    source_files: &[SourceFileInput],
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    inference_jobs: usize,
+    admit: &mut impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    let batch = process_batch(
+        root,
+        definition,
+        collection,
+        source,
+        &[file_id],
+        source_files,
+        alphabet,
+        inference,
+        inference_jobs,
+    )?;
+    let started = Instant::now();
+    admit(batch)?;
+    Ok(BuildScheduleStats {
+        weight_limit_bytes: 64 * 1024 * 1024,
+        peak_weight_bytes: source_files[file_id.0 as usize].revision.size,
+        admission_ns: started.elapsed().as_nanos() as u64,
+        ..Default::default()
+    })
+}
+
+/// Built-in JSONL uses bounded build chunks. Other readers retain the
+/// whole-buffer framing route, sharing one source buffer across range jobs.
+/// Caller schedules oversized files one at a time.
 pub(crate) fn process_framed_file(
     pool: &ThreadPool,
     root: Arc<PathBuf>,
@@ -640,6 +717,20 @@ pub(crate) fn process_framed_file(
     inference: InferenceConfig,
     mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
 ) -> Result<BuildScheduleStats, String> {
+    if source.reader().supports_bounded_json_lines_build() {
+        return process_bounded_json_lines_file(
+            pool,
+            root,
+            definition,
+            collection,
+            source,
+            file_id,
+            source_files,
+            alphabet,
+            inference,
+            admit,
+        );
+    }
     const MAX_RANGE_BYTES: u64 = 1024 * 1024;
     const MAX_RANGES: usize = 256;
     const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
@@ -651,23 +742,18 @@ pub(crate) fn process_framed_file(
     let input = &source_files[file_id.0 as usize];
     let path = root.join(&input.relative_path);
     let Some((bytes, ranges)) = frame_file_for_build(&path, source.reader())? else {
-        let batch = process_batch(
+        return process_unframed_large_file(
             &root,
             &definition,
             collection,
             &source,
-            &[file_id],
+            file_id,
             &source_files,
             alphabet,
             inference,
             max_jobs,
-        )?;
-        let admission_started = Instant::now();
-        let outcome = admit(batch);
-        stats.admission_ns = admission_started.elapsed().as_nanos() as u64;
-        outcome?;
-        stats.peak_weight_bytes = input.revision.size;
-        return Ok(stats);
+            &mut admit,
+        );
     };
     let source_bytes = bytes.len() as u64;
     let mut chunks = Vec::new();
@@ -726,6 +812,8 @@ pub(crate) fn process_framed_file(
                         &source_files,
                         &bytes,
                         &ranges[chunk],
+                        0,
+                        0,
                         index == 0,
                         alphabet,
                         inference,
@@ -773,6 +861,236 @@ pub(crate) fn process_framed_file(
         return Err(error);
     }
     stats.peak_weight_bytes = source_bytes.saturating_add(peak_bytes);
+    counters.add_to(&mut stats);
+    Ok(stats)
+}
+
+/// JSONL construction keeps only bounded line chunks and admitted worker
+/// contributions alive. A single line larger than the normal chunk size is a
+/// singleton job; memory therefore scales with the largest record, not the
+/// whole file. Parsing remains parallel and admission remains file-order.
+fn process_bounded_json_lines_file(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    let path = root.join(&source_files[file_id.0 as usize].relative_path);
+    let reader = match BoundedJsonLines::open(&path) {
+        Ok(reader) => reader,
+        Err(_) => {
+            return process_unframed_large_file(
+                &root,
+                &definition,
+                collection,
+                &source,
+                file_id,
+                &source_files,
+                alphabet,
+                inference,
+                max_jobs,
+                &mut admit,
+            );
+        }
+    };
+    process_bounded_json_lines_reader(
+        pool,
+        root,
+        definition,
+        collection,
+        source,
+        file_id,
+        source_files,
+        alphabet,
+        inference,
+        reader,
+        admit,
+    )
+}
+
+fn process_bounded_json_lines_reader<R: BufRead + Send>(
+    pool: &ThreadPool,
+    root: Arc<PathBuf>,
+    definition: Arc<CollectionDefinition>,
+    collection: CollectionId,
+    source: PreparedSource,
+    file_id: FileId,
+    source_files: Arc<Vec<SourceFileInput>>,
+    alphabet: BigramAlphabet,
+    inference: InferenceConfig,
+    mut reader: BoundedJsonLines<R>,
+    mut admit: impl FnMut(BatchContribution) -> Result<(), String>,
+) -> Result<BuildScheduleStats, String> {
+    const MAX_CHUNK_BYTES: usize = 1024 * 1024;
+    const MAX_RANGES: usize = 256;
+    const MAX_ADMITTED_BYTES: u64 = 64 * 1024 * 1024;
+    let max_jobs = inference.max_build_jobs(pool.current_num_threads().saturating_mul(2).max(1));
+    let path = root.join(&source_files[file_id.0 as usize].relative_path);
+    // A failure before any contribution can still use the ordinary unreadable
+    // outcome. Once a chunk is admitted, an I/O failure aborts this private
+    // generation instead of publishing a partially indexed file.
+    let first = match reader.next_chunk(MAX_CHUNK_BYTES, MAX_RANGES) {
+        Ok(Some(chunk)) => chunk,
+        Ok(None) => BoundedBuildChunk {
+            bytes: Vec::new(),
+            ranges: Vec::new(),
+            file_offset: 0,
+            preceding_lines: 0,
+        },
+        Err(_) => {
+            return process_unframed_large_file(
+                &root,
+                &definition,
+                collection,
+                &source,
+                file_id,
+                &source_files,
+                alphabet,
+                inference,
+                max_jobs,
+                &mut admit,
+            );
+        }
+    };
+    let mut pending = Some(first);
+    let mut eof = false;
+    let mut stats = BuildScheduleStats {
+        weight_limit_bytes: MAX_ADMITTED_BYTES,
+        ..Default::default()
+    };
+    let (sender, receiver) = mpsc::channel();
+    let counters = Arc::new(JobCounters::default());
+    let mut ready = BTreeMap::new();
+    let mut reservations = VecDeque::new();
+    let (mut dispatched, mut completed, mut next) = (0usize, 0usize, 0usize);
+    let (mut admitted_bytes, mut peak_bytes) = (0u64, 0u64);
+    let mut failure = None;
+    let mut read_failure = false;
+    while failure.is_none() {
+        while dispatched - next < max_jobs {
+            if pending.is_none() && !eof {
+                match reader.next_chunk(MAX_CHUNK_BYTES, MAX_RANGES) {
+                    Ok(Some(chunk)) => pending = Some(chunk),
+                    Ok(None) => eof = true,
+                    Err(error) => {
+                        failure =
+                            Some(format!("{}: bounded framing read: {error}", path.display()));
+                        read_failure = true;
+                        break;
+                    }
+                }
+            }
+            let Some(chunk) = pending.as_ref() else {
+                break;
+            };
+            let weight = (chunk.bytes.capacity() as u64).max(64 * 1024);
+            peak_bytes = peak_bytes.max(admitted_bytes.saturating_add(weight));
+            if !fits_allowance(admitted_bytes, weight, MAX_ADMITTED_BYTES) {
+                break;
+            }
+            let chunk = pending.take().expect("checked pending chunk");
+            let index = dispatched;
+            let sender = sender.clone();
+            let root = Arc::clone(&root);
+            let definition = Arc::clone(&definition);
+            let source = source.clone();
+            let source_files = Arc::clone(&source_files);
+            let counters = Arc::clone(&counters);
+            pool.spawn(move || {
+                let result = counters.run(|| {
+                    process_framed_batch(
+                        &root,
+                        &definition,
+                        collection,
+                        &source,
+                        file_id,
+                        &source_files,
+                        &chunk.bytes,
+                        &chunk.ranges,
+                        chunk.file_offset,
+                        chunk.preceding_lines,
+                        index == 0,
+                        alphabet,
+                        inference,
+                        max_jobs,
+                    )
+                });
+                let _ = sender.send((index, result));
+            });
+            reservations.push_back(weight);
+            admitted_bytes = admitted_bytes.saturating_add(weight);
+            peak_bytes = peak_bytes.max(admitted_bytes);
+            dispatched += 1;
+        }
+        if failure.is_some() {
+            break;
+        }
+        if next == dispatched {
+            if eof {
+                break;
+            }
+            continue;
+        }
+        let wait_started = Instant::now();
+        let (index, result) = receiver.recv().map_err(|error| error.to_string())?;
+        stats.receive_wait_ns = stats
+            .receive_wait_ns
+            .saturating_add(wait_started.elapsed().as_nanos() as u64);
+        completed += 1;
+        ready.insert(index, result);
+        while let Some(result) = ready.remove(&next) {
+            let weight = reservations
+                .pop_front()
+                .ok_or("missing chunk reservation")?;
+            admitted_bytes = admitted_bytes
+                .checked_sub(weight)
+                .ok_or("chunk reservation underflow")?;
+            let started = Instant::now();
+            let outcome = result.and_then(&mut admit);
+            stats.admission_ns = stats
+                .admission_ns
+                .saturating_add(started.elapsed().as_nanos() as u64);
+            match outcome {
+                Ok(()) => {
+                    counters.admitted.fetch_add(1, Ordering::Relaxed);
+                    next += 1;
+                }
+                Err(error) => {
+                    failure = Some(error);
+                    break;
+                }
+            }
+        }
+    }
+    while completed < dispatched {
+        let _ = receiver.recv().map_err(|error| error.to_string())?;
+        completed += 1;
+    }
+    if read_failure && next == 0 {
+        return process_unframed_large_file(
+            &root,
+            &definition,
+            collection,
+            &source,
+            file_id,
+            &source_files,
+            alphabet,
+            inference,
+            max_jobs,
+            &mut admit,
+        );
+    }
+    if let Some(error) = failure {
+        return Err(error);
+    }
+    stats.peak_weight_bytes = peak_bytes;
     counters.add_to(&mut stats);
     Ok(stats)
 }

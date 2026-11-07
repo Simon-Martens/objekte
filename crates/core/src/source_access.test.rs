@@ -145,3 +145,97 @@ fn bounded_stream_reads_skip_lookahead_and_cap_spaced_range_windows() {
     );
     std::fs::remove_dir_all(root).unwrap();
 }
+
+#[test]
+fn buffered_hits_reuse_bytes_but_a_new_read_checks_the_opened_revision() {
+    use std::io::{Seek, SeekFrom, Write};
+    use std::time::{Duration, UNIX_EPOCH};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-source-freshness-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.txt");
+    std::fs::write(&path, vec![b'a'; 128 * 1024]).unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut files = FileInventory::new(root.clone());
+    files
+        .add("source.txt".into(), revision, None, CollectionId(0))
+        .unwrap();
+    let mut session = SourceAccessSession::new(&files);
+    let range = |start| ByteRange {
+        start,
+        end: start + 1,
+    };
+    assert_eq!(
+        session
+            .read(FileId(0), &[(0, range(0))])
+            .unwrap()
+            .bytes_read,
+        WINDOW_BYTES
+    );
+
+    // Same-size content replacement with a changed mtime is detectable at the
+    // next actual source read, while an already-buffered window is reused.
+    let mut file = std::fs::OpenOptions::new().write(true).open(&path).unwrap();
+    file.seek(SeekFrom::Start(10)).unwrap();
+    file.write_all(b"b").unwrap();
+    file.set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(10)))
+        .unwrap();
+    assert_ne!(
+        SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap(),
+        revision
+    );
+    let cached = session.read(FileId(0), &[(0, range(10))]).unwrap();
+    assert_eq!(cached.bytes_read, 0);
+    assert_eq!(cached.records[0].1, b"a");
+    assert!(
+        session
+            .read(FileId(0), &[(0, range(70_000))])
+            .err()
+            .unwrap()
+            .contains("stale source revision")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn renamed_source_keeps_opened_handle_but_new_open_checks_replacement() {
+    use std::time::{Duration, UNIX_EPOCH};
+
+    let root = std::env::temp_dir().join(format!(
+        "objekte-source-replacement-{}-{}",
+        std::process::id(),
+        std::time::SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .unwrap()
+            .as_nanos()
+    ));
+    std::fs::create_dir_all(&root).unwrap();
+    let path = root.join("source.txt");
+    std::fs::write(&path, b"old value").unwrap();
+    let revision = SourceRevision::from_metadata(&std::fs::metadata(&path).unwrap()).unwrap();
+    let mut reader = RecordRangeReader::open(&path, revision).unwrap();
+    std::fs::rename(&path, root.join("moved.txt")).unwrap();
+    std::fs::write(&path, b"new value").unwrap();
+    std::fs::File::open(&path)
+        .unwrap()
+        .set_times(std::fs::FileTimes::new().set_modified(UNIX_EPOCH + Duration::from_secs(10)))
+        .unwrap();
+    let old = reader.read(&[(0, ByteRange { start: 0, end: 3 })]).unwrap();
+    assert_eq!(old.0[0].1, b"old");
+    let old_again = reader.read(&[(0, ByteRange { start: 4, end: 9 })]).unwrap();
+    assert_eq!(old_again.0[0].1, b"value");
+    assert!(
+        RecordRangeReader::open(&path, revision)
+            .err()
+            .unwrap()
+            .contains("stale source revision")
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}

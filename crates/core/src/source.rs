@@ -1,7 +1,7 @@
 //! Source framing is format-specific; indexing consumes one extracted record at a time.
 
 use std::collections::{HashMap, HashSet};
-use std::io::{Read, Seek, SeekFrom};
+use std::io::{BufRead, BufReader, Read, Seek, SeekFrom};
 use std::path::Path;
 use std::sync::Arc;
 
@@ -187,6 +187,13 @@ pub trait SourceReader: Send + Sync {
 
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String>;
     fn parse(&self, bytes: &[u8]) -> Result<ExtractedRecord, String>;
+
+    /// Opt in only when `frame` treats each nonblank newline-delimited span as
+    /// one record, excluding the LF byte and retaining any preceding CR.
+    /// The default keeps third-party readers on whole-file framing.
+    fn supports_bounded_json_lines_build(&self) -> bool {
+        false
+    }
 
     /// Optional conservative projection estimate, checked before query parsing.
     /// Readers without an estimate are checked after parsing their logical value.
@@ -671,6 +678,10 @@ impl SourceReader for JsonLinesReader {
         TextDerivation::LogicalStringsAfterConversion
     }
 
+    fn supports_bounded_json_lines_build(&self) -> bool {
+        true
+    }
+
     fn frame(&self, file: &[u8]) -> Result<Vec<ByteRange>, String> {
         let mut result = Vec::new();
         let mut start = 0usize;
@@ -807,6 +818,137 @@ pub(crate) fn frame_file_for_build(
     };
     validate_reader_ranges(&ranges, bytes.len())?;
     Ok(Some((Arc::new(bytes), ranges)))
+}
+
+/// One bounded piece of a newline-framed source. Ranges address `bytes`;
+/// `file_offset` translates them into the repository's absolute file ranges.
+pub(crate) struct BoundedBuildChunk {
+    pub bytes: Vec<u8>,
+    pub ranges: Vec<ByteRange>,
+    pub file_offset: u64,
+    pub preceding_lines: u64,
+}
+
+struct PendingBuildLine {
+    bytes: Vec<u8>,
+    file_offset: u64,
+    preceding_lines: u64,
+}
+
+/// Build-only line framing. It holds one chunk and, when a boundary is
+/// reached, at most one pending line. A single oversized line is admitted as
+/// its own chunk rather than retaining the complete source file.
+pub(crate) struct BoundedJsonLines<R: BufRead = BufReader<std::fs::File>> {
+    reader: R,
+    file_offset: u64,
+    preceding_lines: u64,
+    scratch: Vec<u8>,
+    pending: Option<PendingBuildLine>,
+    eof: bool,
+}
+
+impl BoundedJsonLines<BufReader<std::fs::File>> {
+    pub fn open(path: &Path) -> Result<Self, String> {
+        let file = std::fs::File::open(path).map_err(|error| error.to_string())?;
+        Ok(Self::from_reader(BufReader::new(file)))
+    }
+}
+
+impl<R: BufRead> BoundedJsonLines<R> {
+    pub(crate) fn from_reader(reader: R) -> Self {
+        Self {
+            reader,
+            file_offset: 0,
+            preceding_lines: 0,
+            scratch: Vec::new(),
+            pending: None,
+            eof: false,
+        }
+    }
+
+    pub fn next_chunk(
+        &mut self,
+        max_bytes: usize,
+        max_ranges: usize,
+    ) -> Result<Option<BoundedBuildChunk>, String> {
+        if max_bytes == 0 || max_ranges == 0 {
+            return Err("bounded framing requires positive limits".into());
+        }
+        let mut chunk: Option<BoundedBuildChunk> = None;
+        loop {
+            let line = if let Some(line) = self.pending.take() {
+                line
+            } else if self.eof {
+                break;
+            } else {
+                self.scratch.clear();
+                let size = self
+                    .reader
+                    .read_until(b'\n', &mut self.scratch)
+                    .map_err(|error| error.to_string())?;
+                if size == 0 {
+                    self.eof = true;
+                    break;
+                }
+                let start = self.file_offset;
+                let preceding = self.preceding_lines;
+                self.file_offset = self
+                    .file_offset
+                    .checked_add(size as u64)
+                    .ok_or("source offset overflow")?;
+                if self.scratch.last() == Some(&b'\n') {
+                    self.preceding_lines = self
+                        .preceding_lines
+                        .checked_add(1)
+                        .ok_or("source line count overflow")?;
+                }
+                PendingBuildLine {
+                    bytes: std::mem::take(&mut self.scratch),
+                    file_offset: start,
+                    preceding_lines: preceding,
+                }
+            };
+            let content_len = line.bytes.len() - usize::from(line.bytes.last() == Some(&b'\n'));
+            let record = !line.bytes[..content_len]
+                .iter()
+                .all(u8::is_ascii_whitespace);
+            let full = chunk.as_ref().is_some_and(|chunk| {
+                chunk.bytes.len().saturating_add(line.bytes.len()) > max_bytes
+                    || (record && chunk.ranges.len() == max_ranges)
+            });
+            if full {
+                self.pending = Some(line);
+                break;
+            }
+            let current = chunk.get_or_insert_with(|| BoundedBuildChunk {
+                bytes: Vec::new(),
+                ranges: Vec::new(),
+                file_offset: line.file_offset,
+                preceding_lines: line.preceding_lines,
+            });
+            let local_start = current.bytes.len();
+            let local_end = local_start
+                .checked_add(content_len)
+                .ok_or("chunk offset overflow")?;
+            if current.bytes.is_empty() {
+                current.bytes = line.bytes;
+            } else {
+                current.bytes.extend_from_slice(&line.bytes);
+                self.scratch = line.bytes;
+            }
+            if record {
+                current.ranges.push(ByteRange::checked(
+                    local_start as u64,
+                    local_end as u64,
+                    current.bytes.len() as u64,
+                )?);
+            }
+            if current.bytes.len() >= max_bytes || current.ranges.len() == max_ranges {
+                break;
+            }
+        }
+        Ok(chunk)
+    }
 }
 
 pub(crate) fn extract_framed_build_outcomes<F>(
