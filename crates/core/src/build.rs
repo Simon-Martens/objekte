@@ -36,13 +36,11 @@ use crate::source::{
 };
 use crate::workload::BigramAlphabet;
 
-
 struct BatchFile {
     entry: FileEntry,
     records: Range<usize>,
     first_range: bool,
 }
-
 
 /// Immutable discovery metadata shared by all construction workers. Mutable
 /// statuses and diagnostics stay in the coordinator-owned inventory.
@@ -52,7 +50,6 @@ pub(crate) struct SourceFileInput {
     revision: SourceRevision,
     created_ns: Option<i128>,
 }
-
 
 impl SourceFileInput {
     pub(crate) fn from_entry(entry: &FileEntry) -> Self {
@@ -77,7 +74,6 @@ impl SourceFileInput {
         }
     }
 }
-
 
 /// Bound each job by both file count and discovered source bytes. A single
 /// oversized source is admitted alone; its framing contract may need that
@@ -110,7 +106,6 @@ pub(crate) fn file_batches<'a>(
     batches
 }
 
-
 /// All expensive per-record projection is complete before this crosses the
 /// worker/coordinator boundary. Slots remain local until ordered admission.
 pub(crate) struct BatchContribution {
@@ -130,7 +125,6 @@ pub(crate) struct BatchContribution {
     pub failed_parses: u64,
 }
 
-
 struct BatchBuilder<'a> {
     root: &'a Path,
     definition: &'a CollectionDefinition,
@@ -148,7 +142,6 @@ struct BatchBuilder<'a> {
     sorting: SortBuilder,
     relations: Vec<RelationContribution>,
 }
-
 
 impl<'a> BatchBuilder<'a> {
     fn new(
@@ -379,7 +372,11 @@ impl<'a> BatchBuilder<'a> {
         });
         self.postings.add(slot, &extracted.value)?;
         if let Some(inference) = &mut self.inference {
-            inference.observe_record(slot, &extracted.value)?;
+            inference.observe_record_with_schema(
+                slot,
+                &extracted.value,
+                Some(&self.definition.schema),
+            )?;
         }
         for relation in &mut self.relations {
             relation.add_logical(slot, &extracted.value)?;
@@ -537,7 +534,6 @@ impl<'a> BatchBuilder<'a> {
         })
     }
 }
-
 
 pub(crate) fn process_batch(
     root: &Path,
@@ -812,7 +808,6 @@ fn fits_allowance(current: u64, weight: u64, limit: u64) -> bool {
     current == 0 || (weight <= limit && current.saturating_add(weight) <= limit)
 }
 
-
 #[derive(Clone, Copy, Debug, Default)]
 pub(crate) struct BuildScheduleStats {
     pub weight_limit_bytes: u64,
@@ -823,7 +818,6 @@ pub(crate) struct BuildScheduleStats {
     pub receive_wait_ns: u64,
     pub admission_ns: u64,
 }
-
 
 impl BuildScheduleStats {
     pub fn absorb(&mut self, other: Self) {
@@ -837,7 +831,6 @@ impl BuildScheduleStats {
     }
 }
 
-
 #[derive(Default)]
 struct JobCounters {
     active: AtomicUsize,
@@ -847,7 +840,6 @@ struct JobCounters {
     peak_ready: AtomicUsize,
     execution_ns: AtomicU64,
 }
-
 
 impl JobCounters {
     fn run<T>(&self, job: impl FnOnce() -> T) -> T {
@@ -873,7 +865,6 @@ impl JobCounters {
     }
 }
 
-
 /// Ordered admission keeps the established slot and diagnostic order even if
 /// later file batches finish first. The window includes completed batches
 /// awaiting admission, so an early slow job cannot queue the whole corpus.
@@ -884,7 +875,6 @@ pub(crate) struct RepositoryFileJob {
     pub source: PreparedSource,
     pub files: Vec<FileId>,
 }
-
 
 pub(crate) fn process_repository_file_batches(
     pool: &ThreadPool,
@@ -1069,7 +1059,6 @@ pub(crate) fn process_file_batches(
     )
 }
 
-
 pub(crate) struct CollectionAdmission<'a> {
     pub inventory: &'a mut FileInventory,
     pub builder: &'a mut CollectionBuilder,
@@ -1084,7 +1073,6 @@ pub(crate) struct CollectionAdmission<'a> {
     pub sorting: &'a mut SortBuilder,
     pub relations: &'a mut Vec<RelationContribution>,
 }
-
 
 impl CollectionAdmission<'_> {
     pub fn admit(&mut self, batch: BatchContribution) -> Result<(), String> {
@@ -1196,7 +1184,6 @@ impl CollectionAdmission<'_> {
         Ok(())
     }
 }
-
 
 #[cfg(test)]
 #[path = "build.test.rs"]

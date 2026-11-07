@@ -38,6 +38,7 @@ struct FieldState {
     distinct_nonblank_bytes: usize,
     values: Option<BTreeMap<ScalarKey, RoaringBitmap>>,
     short_values: Option<BTreeMap<String, RoaringBitmap>>,
+    short_distinct_without_postings: Option<HashSet<String>>,
     short_seen: RoaringBitmap,
     short_uncovered: RoaringBitmap,
     short_observed_occurrences: u64,
@@ -73,6 +74,7 @@ impl FieldState {
             distinct_nonblank_bytes: 0,
             values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
             short_values: (mode == InferenceMode::AutoIndex).then(BTreeMap::new),
+            short_distinct_without_postings: None,
             short_seen: RoaringBitmap::new(),
             short_uncovered: RoaringBitmap::new(),
             short_observed_occurrences: 0,
@@ -85,6 +87,12 @@ impl FieldState {
         }
     }
 
+    fn without_provisional_postings(path: Vec<String>) -> Self {
+        let mut field = Self::new(path, InferenceMode::ReportOnly);
+        field.short_distinct_without_postings = Some(HashSet::new());
+        field
+    }
+
     fn kind(&mut self, kind: LogicalType) {
         if !self.kinds.contains(&kind) {
             self.kinds.push(kind);
@@ -94,6 +102,7 @@ impl FieldState {
     fn drop_values(&mut self) {
         self.drop_general_values();
         self.short_values = None;
+        self.short_distinct_without_postings = None;
         self.short_dropped = true;
     }
 
@@ -152,6 +161,12 @@ impl FieldState {
                         self.short_values = None;
                         self.short_dropped = true;
                     }
+                }
+                if let Some(distinct) = &mut self.short_distinct_without_postings
+                    && !distinct.contains(text.as_str())
+                {
+                    distinct.insert(text.clone());
+                    retained = retained.saturating_add(48 + text.len());
                 }
             } else {
                 self.short_uncovered.insert(slot.0);
@@ -285,6 +300,12 @@ impl FieldState {
                 append_shifted_bitmap(existing.entry(value).or_default(), &bitmap, base)?;
             }
         }
+        if let (Some(existing), Some(incoming)) = (
+            &mut self.short_distinct_without_postings,
+            other.short_distinct_without_postings,
+        ) {
+            existing.extend(incoming);
+        }
         match (&mut self.distinct_nonblank, other.distinct_nonblank) {
             (Some(existing), Some(incoming)) => {
                 for value in incoming {
@@ -416,7 +437,7 @@ impl InferenceBuilder {
         owned
     }
 
-    fn field(&mut self, path: &[ObservedStep]) -> Option<usize> {
+    fn field(&mut self, path: &[ObservedStep], schema: Option<&Schema>) -> Option<usize> {
         if !self.complete {
             return None;
         }
@@ -456,7 +477,19 @@ impl InferenceBuilder {
         let index = self.fields.len();
         let owned = path.to_vec();
         self.paths.insert(owned, index);
-        self.fields.push(FieldState::new(fields, self.config.mode));
+        let redundant_or_prohibited = self.config.mode == InferenceMode::AutoIndex
+            && schema.is_some_and(|schema| {
+                schema
+                    .fields
+                    .get(&fields)
+                    .is_some_and(|field| field.indexed)
+                    || schema.is_auto_index_prohibited(&fields)
+            });
+        self.fields.push(if redundant_or_prohibited {
+            FieldState::without_provisional_postings(fields)
+        } else {
+            FieldState::new(fields, self.config.mode)
+        });
         Some(index)
     }
 
@@ -467,6 +500,7 @@ impl InferenceBuilder {
         terminal: bool,
         through_array: bool,
         nesting: u8,
+        schema: Option<&Schema>,
     ) {
         if !self.complete {
             return;
@@ -482,7 +516,7 @@ impl InferenceBuilder {
         let index = if state.path.is_empty() && matches!(value, Value::Object(_)) {
             None
         } else {
-            self.field(&state.path)
+            self.field(&state.path, schema)
         };
         if let Some(index) = index {
             let field = &mut self.fields[index];
@@ -543,7 +577,7 @@ impl InferenceBuilder {
             Value::Object(map) => {
                 for (name, child) in map {
                     state.path.push(ObservedStep::Field(self.intern_name(name)));
-                    self.visit(child, state, true, through_array, nesting);
+                    self.visit(child, state, true, through_array, nesting, schema);
                     state.path.pop();
                     if !self.complete {
                         break;
@@ -562,7 +596,7 @@ impl InferenceBuilder {
                     self.charge(16);
                 }
                 for child in &array.values {
-                    self.visit(child, state, false, true, nesting.saturating_add(1));
+                    self.visit(child, state, false, true, nesting.saturating_add(1), schema);
                     if !self.complete {
                         break;
                     }
@@ -572,7 +606,17 @@ impl InferenceBuilder {
         }
     }
 
+    #[cfg(test)]
     pub(crate) fn observe_record(&mut self, slot: RecordSlot, value: &Value) -> Result<(), String> {
+        self.observe_record_with_schema(slot, value, None)
+    }
+
+    pub(crate) fn observe_record_with_schema(
+        &mut self,
+        slot: RecordSlot,
+        value: &Value,
+        schema: Option<&Schema>,
+    ) -> Result<(), String> {
         self.eligible = self
             .eligible
             .checked_add(1)
@@ -587,7 +631,7 @@ impl InferenceBuilder {
             contributions: 0,
         };
         state.path.clear();
-        self.visit(value, &mut state, true, false, 0);
+        self.visit(value, &mut state, true, false, 0, schema);
         self.visit_path = state.path;
         for (index, (count, sole_null)) in self.selected.drain() {
             if count == 1 && sole_null {
@@ -625,8 +669,12 @@ impl InferenceBuilder {
             let typed = typed_path(&incoming.path);
             if let Some(index) = self.paths.get(&typed).copied() {
                 self.fields[index].merge_shifted(incoming, base, self.config.policy)?;
-            } else if let Some(index) = self.field(&typed) {
-                let mut new = FieldState::new(incoming.path.clone(), self.config.mode);
+            } else if let Some(index) = self.field(&typed, None) {
+                let mut new = if incoming.short_distinct_without_postings.is_some() {
+                    FieldState::without_provisional_postings(incoming.path.clone())
+                } else {
+                    FieldState::new(incoming.path.clone(), self.config.mode)
+                };
                 new.merge_shifted(incoming, base, self.config.policy)?;
                 self.fields[index] = new;
             }
@@ -695,7 +743,12 @@ impl InferenceBuilder {
             } else {
                 0
             };
-            let short_distinct_count = field.short_values.as_ref().map_or(0, BTreeMap::len);
+            let short_distinct_count = field.short_values.as_ref().map_or(0, BTreeMap::len).max(
+                field
+                    .short_distinct_without_postings
+                    .as_ref()
+                    .map_or(0, HashSet::len),
+            );
             let (status, reason) = if !self.complete {
                 (
                     InferenceIndexStatus::Incomplete,
@@ -906,6 +959,58 @@ impl InferenceBuilder {
 #[cfg(test)]
 mod allocation_tests {
     use super::*;
+    use crate::reference::FieldDefinition;
+
+    #[test]
+    fn declared_and_prohibited_paths_keep_observations_without_posting_maps() {
+        let mut schema = Schema::default();
+        schema
+            .register_field(FieldDefinition {
+                path: vec!["manual".into()],
+                kind: LogicalType::String,
+                required: false,
+                nullable: false,
+                indexed: true,
+                multi: false,
+                element_nullable: Vec::new(),
+            })
+            .unwrap();
+        schema.prohibit_auto_index(vec!["blocked".into()]).unwrap();
+        let mut observer = InferenceBuilder::new(
+            InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            true,
+        )
+        .unwrap();
+        for (slot, text) in ["one", "two", "one"].into_iter().enumerate() {
+            let value = Value::from_json(serde_json::json!({
+                "manual": text, "blocked": text, "eligible": text
+            }))
+            .unwrap();
+            observer
+                .observe_record_with_schema(RecordSlot(slot as u32), &value, Some(&schema))
+                .unwrap();
+        }
+        for name in ["manual", "blocked"] {
+            let index = observer.paths[&typed_path(&[name.into()])];
+            let field = &observer.fields[index];
+            assert!(field.values.is_none());
+            assert!(field.short_values.is_none());
+            assert_eq!(
+                field
+                    .short_distinct_without_postings
+                    .as_ref()
+                    .unwrap()
+                    .len(),
+                2
+            );
+            assert_eq!(field.present.len(), 3);
+        }
+        let eligible = &observer.fields[observer.paths[&typed_path(&["eligible".into()])]];
+        assert_eq!(eligible.short_values.as_ref().unwrap().len(), 2);
+    }
 
     #[test]
     fn repeated_and_unusual_paths_reuse_names_and_traversal_storage() {

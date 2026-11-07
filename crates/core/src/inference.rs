@@ -11,7 +11,7 @@ use crate::posting::{PostingIndex, ScalarKey};
 use crate::query::{Operator, Quantifier};
 use crate::reference::{BoundTerm, Derived, Schema, Transform};
 
-pub const INFERENCE_POLICY_VERSION: u32 = 4;
+pub const INFERENCE_POLICY_VERSION: u32 = 5;
 
 /// Typed intern key; automatic observation visits field steps only, while
 /// positional query steps remain a separate path kind and are never inferred.
