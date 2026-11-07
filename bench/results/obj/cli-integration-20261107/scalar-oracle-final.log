@@ -1,0 +1,44 @@
+PASS	ascii	'Goethe'	expected=1	observed=1
+PASS	ascii	'first occurrence'	expected=1	observed=1
+PASS	ascii	'last occurrence'	expected=1	observed=1
+PASS	ascii	'Gründe'	expected=1	observed=1
+PASS	ascii	'true'	expected=3	observed=3
+PASS	ascii	'null'	expected=3	observed=3
+PASS	ascii	'123'	expected=4	observed=4
+PASS	ascii	'1e1000000'	expected=1	observed=1
+PASS	ascii	'a root string'	expected=1	observed=1
+PASS	ascii	'punctuation'	expected=1	observed=1
+PASS	ascii	'title'	expected=0	observed=0
+PASS	ascii	'text123'	expected=0	observed=0
+PASS	ascii	'@root[0] = "first"'	expected=1	observed=1
+PASS	ascii	'@root = "a root string"'	expected=2	observed=2
+PASS	ascii	'@root :null'	expected=1	observed=1
+PASS	ascii	'@root = true'	expected=2	observed=2
+PASS	ascii	'@root = 123'	expected=2	observed=2
+PASS	ascii	'@root["a.b"] = "punctuation"'	expected=2	observed=2
+PASS	ascii	'@root[""] = 42'	expected=2	observed=2
+PASS	ascii	'v = "last occurrence"'	expected=2	observed=2
+PASS	ascii	'v = "first occurrence"'	expected=1	observed=1
+PASS	ascii	'huge = 1e1000000'	expected=2	observed=2
+PASS	unicode	'Goethe'	expected=1	observed=1
+PASS	unicode	'first occurrence'	expected=1	observed=1
+PASS	unicode	'last occurrence'	expected=1	observed=1
+PASS	unicode	'Gründe'	expected=1	observed=1
+PASS	unicode	'true'	expected=3	observed=3
+PASS	unicode	'null'	expected=3	observed=3
+PASS	unicode	'123'	expected=4	observed=4
+PASS	unicode	'1e1000000'	expected=1	observed=1
+PASS	unicode	'a root string'	expected=1	observed=1
+PASS	unicode	'punctuation'	expected=1	observed=1
+PASS	unicode	'title'	expected=0	observed=0
+PASS	unicode	'text123'	expected=0	observed=0
+PASS	unicode	'@root[0] = "first"'	expected=1	observed=1
+PASS	unicode	'@root = "a root string"'	expected=2	observed=2
+PASS	unicode	'@root :null'	expected=1	observed=1
+PASS	unicode	'@root = true'	expected=2	observed=2
+PASS	unicode	'@root = 123'	expected=2	observed=2
+PASS	unicode	'@root["a.b"] = "punctuation"'	expected=2	observed=2
+PASS	unicode	'@root[""] = 42'	expected=2	observed=2
+PASS	unicode	'v = "last occurrence"'	expected=2	observed=2
+PASS	unicode	'v = "first occurrence"'	expected=1	observed=1
+PASS	unicode	'huge = 1e1000000'	expected=2	observed=2

@@ -1,0 +1,4 @@
+Q119 collection=contents FTS=None FILTER=Some("@file.modified >= \"2026-01-01T00:00:00Z\"") sort=[] limit=50 offset=0 mode=Locator count=true evidence=true | ascii-off: 7410.887 / 8105.342 / 9937.810 µs (ok)
+build "ascii": 1.181 s; snapshot_write=0.254 s; parses=148486; resident_bytes=564523008; peak_resident_bytes=659013632; estimated_index_bytes=68963924; snapshot_bytes=117262305; restore_min/median/max=0.515/0.531/0.551 s (5 runs)
+reports: /home/simon/source/objekte-obj-integration/bench/results/obj/cli-integration-20261107/q119-paired/new-a
+reproduce: cargo run --release --example bench_musenalm -- "--root" "/home/simon/source/objekte-optional-musenalm-fixture-20261107" "--result-dir" "/home/simon/source/objekte-obj-integration/bench/results/obj/cli-integration-20261107/q119-paired/new-a" "--extended" "--cases" "Q119" "--profiles" "ascii-off" "--repetitions" "20" "--query-workers" "32"
