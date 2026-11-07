@@ -17,9 +17,7 @@ use crate::workload::{BigramAlphabet, ReturnMode, WorkloadCase};
 
 use super::{Strategy, candidates_with_strategy};
 
-
 struct CountedJsonReader(Arc<AtomicUsize>);
-
 
 impl SourceReader for CountedJsonReader {
     fn name(&self) -> &'static str {
@@ -62,7 +60,6 @@ impl SourceReader for CountedJsonReader {
         JsonReader.parse_for_query(bytes, projection)
     }
 }
-
 
 #[test]
 fn estimate_only_explain_never_opens_or_parses_related_sources() {
@@ -156,12 +153,53 @@ fn estimate_only_explain_never_opens_or_parses_related_sources() {
 
 #[test]
 fn intermediate_limits_report_errors_instead_of_truncating_membership() {
-    assert!(super::ensure_slots(super::MAX_INTERMEDIATE_SLOTS + 1).is_err());
+    assert!(super::ensure_slots(super::MAX_INTERMEDIATE_SLOTS + 1, None).is_err());
     let mut work = super::SemijoinWork {
         edge_visits: super::MAX_VISITED_EDGES,
         ..Default::default()
     };
-    assert!(super::visit_edge(&mut work).is_err());
+    assert!(super::visit_edge(&mut work, None).is_err());
+}
+
+#[test]
+fn relation_planning_limit_has_ordinary_and_stream_resource_class() {
+    use crate::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
+        StreamError, StreamOptions,
+    };
+    let (root, repo) = fixture(BigramAlphabet::Ascii);
+    let request = query("entry.title ?~ 'Hymn'");
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                intermediate_slots: 0,
+                ..Default::default()
+            },
+            None,
+        )
+    };
+    assert_eq!(
+        repo.search_with_context(&request, &context())
+            .unwrap_err()
+            .kind,
+        ExecutionErrorKind::Resource
+    );
+    let stream = repo.search_stream_scoped_with_context(
+        &request,
+        ResultScope::Page {
+            offset: 0,
+            limit: request.options.limit,
+        },
+        StreamOptions::default(),
+        &context(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(stream, Err(StreamError::Resource { .. })),
+        "{stream:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
 }
 
 fn field(schema: &mut Schema, name: &str, kind: LogicalType) {

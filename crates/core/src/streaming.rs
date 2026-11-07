@@ -2,13 +2,226 @@
 
 use std::fmt;
 use std::sync::{
-    Arc,
-    atomic::{AtomicBool, Ordering},
+    Arc, Mutex,
+    atomic::{AtomicBool, AtomicU64, Ordering},
 };
 
+use crate::clock_context::ClockContext;
 use crate::repository::{Payload, SearchHit};
 use crate::workload::WorkCounters;
 
+/// Limits apply to estimated retained query state and source reads, not RSS.
+#[derive(Clone, Copy, Debug)]
+pub struct ExecutionLimits {
+    pub relation_edges: u64,
+    pub relation_reads: u64,
+    pub relation_bytes: u64,
+    pub intermediate_slots: u64,
+    pub target_record_bytes: u64,
+    pub source_record_bytes: u64,
+    pub inferred_order_bytes: usize,
+    pub computed_sort_bytes: u64,
+}
+
+impl Default for ExecutionLimits {
+    fn default() -> Self {
+        Self {
+            relation_edges: 32_000_000,
+            relation_reads: 5_000_000,
+            relation_bytes: 1024 * 1024 * 1024,
+            intermediate_slots: 5_000_000,
+            target_record_bytes: 64 * 1024 * 1024,
+            source_record_bytes: u64::MAX,
+            inferred_order_bytes: 128 * 1024 * 1024,
+            computed_sort_bytes: 128 * 1024 * 1024,
+        }
+    }
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub enum ExecutionErrorKind {
+    Cancelled,
+    Resource,
+    SourceChanged,
+    InvalidQuery,
+    Extension,
+    Execution,
+}
+
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ExecutionError {
+    pub kind: ExecutionErrorKind,
+    pub message: String,
+}
+
+impl fmt::Display for ExecutionError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.message)
+    }
+}
+
+impl std::error::Error for ExecutionError {}
+
+#[derive(Default)]
+struct ExecutionAccounting {
+    edges: AtomicU64,
+    reads: AtomicU64,
+    bytes: AtomicU64,
+    first_failure: Mutex<Option<ExecutionError>>,
+    started: AtomicBool,
+}
+
+/// State for exactly one request. Clones share counters and its first typed failure;
+/// create a fresh context for another search, including another page request.
+#[derive(Clone)]
+pub struct ExecutionContext {
+    pub clock: ClockContext,
+    pub limits: ExecutionLimits,
+    cancellation: Option<CancellationToken>,
+    accounting: Arc<ExecutionAccounting>,
+}
+
+impl ExecutionContext {
+    pub fn new(
+        clock: ClockContext,
+        limits: ExecutionLimits,
+        cancellation: Option<CancellationToken>,
+    ) -> Self {
+        Self {
+            clock,
+            limits,
+            cancellation,
+            accounting: Arc::new(ExecutionAccounting::default()),
+        }
+    }
+
+    pub fn cancellation(&self) -> Option<&CancellationToken> {
+        self.cancellation.as_ref()
+    }
+
+    pub(crate) fn enter(&self) -> Result<(), ExecutionError> {
+        if self.accounting.started.swap(true, Ordering::AcqRel) {
+            return Err(ExecutionError {
+                kind: ExecutionErrorKind::InvalidQuery,
+                message: "execution context already used".into(),
+            });
+        }
+        self.check()
+    }
+
+    pub fn check(&self) -> Result<(), ExecutionError> {
+        if self
+            .cancellation
+            .as_ref()
+            .is_some_and(CancellationToken::is_cancelled)
+        {
+            return Err(self.error(ExecutionErrorKind::Cancelled, "execution cancelled"));
+        }
+        Ok(())
+    }
+
+    pub(crate) fn check_string(&self) -> Result<(), String> {
+        self.check().map_err(|e| e.message)
+    }
+
+    pub(crate) fn error(
+        &self,
+        kind: ExecutionErrorKind,
+        message: impl Into<String>,
+    ) -> ExecutionError {
+        let error = ExecutionError {
+            kind,
+            message: message.into(),
+        };
+        if let Ok(mut first_failure) = self.accounting.first_failure.lock()
+            && first_failure.is_none()
+        {
+            *first_failure = Some(error.clone());
+        }
+        error
+    }
+
+    pub(crate) fn fail(&self, kind: ExecutionErrorKind, message: impl Into<String>) -> String {
+        self.error(kind, message).message
+    }
+
+    pub(crate) fn recorded_error(&self, fallback: String) -> ExecutionError {
+        self.accounting
+            .first_failure
+            .lock()
+            .ok()
+            .and_then(|error| error.clone())
+            .unwrap_or(ExecutionError {
+                kind: ExecutionErrorKind::Execution,
+                message: fallback,
+            })
+    }
+
+    fn charge(
+        &self,
+        counter: &AtomicU64,
+        amount: u64,
+        limit: u64,
+        name: &str,
+    ) -> Result<(), String> {
+        let result = counter.try_update(Ordering::Relaxed, Ordering::Relaxed, |used| {
+            used.checked_add(amount)
+        });
+        let prior = result.map_err(|_| {
+            self.fail(
+                ExecutionErrorKind::Resource,
+                format!("{name} accounting overflow"),
+            )
+        })?;
+        if prior.saturating_add(amount) > limit {
+            return Err(self.fail(
+                ExecutionErrorKind::Resource,
+                format!("{name} exceeds {limit}"),
+            ));
+        }
+        self.check_string()
+    }
+
+    pub(crate) fn charge_edges(&self, amount: u64) -> Result<(), String> {
+        self.charge(
+            &self.accounting.edges,
+            amount,
+            self.limits.relation_edges,
+            "relation edge visits",
+        )
+    }
+
+    pub(crate) fn charge_reads(&self, amount: u64) -> Result<(), String> {
+        self.charge(
+            &self.accounting.reads,
+            amount,
+            self.limits.relation_reads,
+            "relation reads",
+        )
+    }
+
+    pub(crate) fn charge_bytes(&self, amount: u64) -> Result<(), String> {
+        self.charge(
+            &self.accounting.bytes,
+            amount,
+            self.limits.relation_bytes,
+            "relation source bytes",
+        )
+    }
+
+    pub(crate) fn check_slots(&self, slots: u64) -> Result<(), String> {
+        if slots > self.limits.intermediate_slots {
+            return Err(self.fail(
+                ExecutionErrorKind::Resource,
+                format!(
+                    "relation intermediate exceeds {} slots",
+                    self.limits.intermediate_slots
+                ),
+            ));
+        }
+        self.check_string()
+    }
+}
 
 /// How verified requested-page rows are published during execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -17,14 +230,12 @@ pub enum StreamMode {
     PageReplacements,
 }
 
-
 /// Semantic result extent for one streaming execution.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum ResultScope {
     Page { offset: usize, limit: usize },
     All { offset: usize },
 }
-
 
 impl ResultScope {
     pub fn offset(self) -> usize {
@@ -33,7 +244,6 @@ impl ResultScope {
         }
     }
 }
-
 
 /// Delivery cadence and upper bounds for one streaming execution.
 #[derive(Clone, Copy, Debug)]
@@ -44,7 +254,6 @@ pub struct StreamOptions {
     pub max_event_bytes: usize,
     pub max_buffered_bytes: usize,
 }
-
 
 impl Default for StreamOptions {
     fn default() -> Self {
@@ -57,7 +266,6 @@ impl Default for StreamOptions {
         }
     }
 }
-
 
 impl StreamOptions {
     pub(crate) fn validate(self) -> Result<(), String> {
@@ -72,11 +280,9 @@ impl StreamOptions {
     }
 }
 
-
 /// Shareable cooperative cancellation flag for a running request.
 #[derive(Clone, Default)]
 pub struct CancellationToken(Arc<AtomicBool>);
-
 
 impl CancellationToken {
     pub fn new() -> Self {
@@ -92,14 +298,12 @@ impl CancellationToken {
     }
 }
 
-
 /// Decision returned by a caller's event callback.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum StreamControl {
     Continue,
     Cancel,
 }
-
 
 /// Counters visible at an interim delivery or terminal outcome.
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -113,7 +317,6 @@ pub struct StreamProgress {
     pub emitted_rows: u64,
     pub peak_buffered_bytes: usize,
 }
-
 
 /// Borrowed, nonterminal event. A replacement supersedes the prior page.
 pub enum StreamEvent<'a> {
@@ -134,7 +337,6 @@ pub enum StreamEvent<'a> {
     },
 }
 
-
 /// Successful query summary; the last event sequence identifies its final page.
 #[derive(Clone, Debug)]
 pub struct StreamSummary {
@@ -145,7 +347,6 @@ pub struct StreamSummary {
     pub progress: StreamProgress,
 }
 
-
 /// Completion and cancellation have separate terminal outcomes.
 #[derive(Clone, Debug)]
 pub enum StreamOutcome {
@@ -153,11 +354,11 @@ pub enum StreamOutcome {
     Cancelled(StreamProgress),
 }
 
-
 /// Execution, callback, and resource failures retain observed progress.
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub enum StreamError {
     Execution {
+        kind: ExecutionErrorKind,
         message: String,
         progress: StreamProgress,
     },
@@ -171,7 +372,6 @@ pub enum StreamError {
     },
 }
 
-
 impl fmt::Display for StreamError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
@@ -182,16 +382,23 @@ impl fmt::Display for StreamError {
     }
 }
 
+impl StreamError {
+    pub fn kind(&self) -> ExecutionErrorKind {
+        match self {
+            Self::Execution { kind, .. } => *kind,
+            Self::Resource { .. } => ExecutionErrorKind::Resource,
+            Self::Sink { .. } => ExecutionErrorKind::Execution,
+        }
+    }
+}
 
 impl std::error::Error for StreamError {}
-
 
 pub(crate) enum Abort {
     Cancelled,
     Sink(String),
     Resource(String),
 }
-
 
 /// Coordinator-only delivery state; callbacks never run under cache locks.
 pub(crate) struct Delivery<'a> {
@@ -204,7 +411,6 @@ pub(crate) struct Delivery<'a> {
     last_page_sequence: u64,
     last_page: Vec<(String, String)>,
 }
-
 
 impl<'a> Delivery<'a> {
     pub(crate) fn new(
@@ -440,7 +646,6 @@ impl<'a> Delivery<'a> {
         Ok(())
     }
 }
-
 
 pub(crate) fn hit_bytes(hit: &SearchHit) -> usize {
     let mut bytes = std::mem::size_of::<SearchHit>()

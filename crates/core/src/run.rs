@@ -14,7 +14,7 @@ use smallvec::SmallVec;
 
 use crate::executor::{
     Plan, PlanningCounters, Proof, TermChoice, estimate_expr, estimate_fts_candidates,
-    estimate_plan_expr, fts_candidates, plan_expr_restricted, plan_expr_restricted_compact,
+    estimate_plan_expr, fts_candidates, plan_expr_restricted_with_execution,
 };
 use crate::inventory::{ByteRange, RecordClass, RecordEntry};
 use crate::model::{FieldPath, PathRoot, Value};
@@ -31,8 +31,9 @@ use crate::sorting::{InferredOrderKey, SortColumn, SortKey, SortOptions, simple_
 use crate::source::{ExtractedRecord, RecordRangeReader, ScanProjection};
 use crate::source_access::SourceAccessSession;
 use crate::streaming::{
-    Abort, CancellationToken, Delivery, ResultScope, StreamControl, StreamError, StreamEvent,
-    StreamMode, StreamOptions, StreamOutcome, StreamSummary,
+    Abort, CancellationToken, Delivery, ExecutionContext, ExecutionErrorKind, ExecutionLimits,
+    ResultScope, StreamControl, StreamError, StreamEvent, StreamMode, StreamOptions, StreamOutcome,
+    StreamSummary,
 };
 use crate::verified::{CachedMember, CachedResult};
 use crate::workload::{ReturnMode, SortField, WorkCounters};
@@ -60,7 +61,6 @@ fn check_computed_sort_budget_with_limit(
     Ok(())
 }
 
-
 /// One cached member that needs a source read to compute its sort key.
 struct CachedSortRead {
     collection_index: usize,
@@ -68,7 +68,6 @@ struct CachedSortRead {
     member_index: u32,
     range: ByteRange,
 }
-
 
 fn cached_sort_fixed_bytes(cached: &CachedResult, reads: usize) -> Result<u64, String> {
     let mut bytes = cached
@@ -121,7 +120,6 @@ fn check_cached_sort_live(
     check_computed_sort_budget(fixed_bytes, key_bytes, target_bytes)
 }
 
-
 /// Comparable sort key with collection and ID tie breakers.
 #[derive(Clone)]
 struct RankKey {
@@ -130,14 +128,12 @@ struct RankKey {
     id: String,
 }
 
-
 /// Sort paths are parsed and columns resolved once per query.
 struct ResolvedSort<'a> {
     columns: Vec<Option<Vec<(&'a SortColumn, bool)>>>,
     bound: BoundSort<'a>,
     target_cache: std::sync::Mutex<SortTargetCache>,
 }
-
 
 impl<'a> ResolvedSort<'a> {
     fn new(repo: &'a Repository, query: &Query) -> Result<Self, String> {
@@ -207,16 +203,13 @@ impl<'a> ResolvedSort<'a> {
     }
 }
 
-
 impl PartialEq for RankKey {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for RankKey {}
-
 
 impl PartialOrd for RankKey {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -224,14 +217,12 @@ impl PartialOrd for RankKey {
     }
 }
 
-
 impl Ord for RankKey {
     fn cmp(&self, other: &Self) -> Ordering {
         crate::sort_binding::compare_parts(&self.parts, &other.parts)
             .then_with(|| (&self.collection, &self.id).cmp(&(&other.collection, &other.id)))
     }
 }
-
 
 /// Bounded page candidate and its materialized result.
 #[derive(Clone)]
@@ -243,7 +234,6 @@ struct Winner {
     retained_bytes: u64,
 }
 
-
 /// Verified record and any evidence or retained payload.
 struct ScannedMatch {
     slot: u32,
@@ -253,7 +243,6 @@ struct ScannedMatch {
     retained_bytes: u64,
     buffered_bytes: usize,
 }
-
 
 /// Per-file scan work and verified matches returned by a worker.
 #[derive(Default)]
@@ -274,13 +263,11 @@ struct ScannedFile {
     exact_members: RoaringBitmap,
 }
 
-
 /// Count-only and exact-selection requests share the normal planner and scanner,
 /// but never retain ranked hits or verified-cache members.
 struct ExactCollector<'a> {
     members: Option<&'a mut RoaringBitmap>,
 }
-
 
 impl ExactCollector<'_> {
     fn add_set(&mut self, slots: &RoaringBitmap, counters: &mut WorkCounters) {
@@ -291,12 +278,10 @@ impl ExactCollector<'_> {
     }
 }
 
-
 struct FileWinner {
     key: RankKey,
     matched: ScannedMatch,
 }
-
 
 impl PartialEq for FileWinner {
     fn eq(&self, other: &Self) -> bool {
@@ -304,9 +289,7 @@ impl PartialEq for FileWinner {
     }
 }
 
-
 impl Eq for FileWinner {}
-
 
 impl PartialOrd for FileWinner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -314,13 +297,11 @@ impl PartialOrd for FileWinner {
     }
 }
 
-
 impl Ord for FileWinner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 /// Compact cache membership is budgeted independently of page payloads.
 struct CacheBudget {
@@ -328,7 +309,6 @@ struct CacheBudget {
     remaining: AtomicUsize,
     complete: AtomicBool,
 }
-
 
 impl CacheBudget {
     fn new(bytes: usize) -> Self {
@@ -373,7 +353,6 @@ impl CacheBudget {
         }
     }
 }
-
 
 fn scan_projection(
     query: &Query,
@@ -475,14 +454,12 @@ fn scan_projection(
     }
 }
 
-
 enum Residual<'a> {
     Term(&'a BoundTerm, Option<&'a Proof>),
     And(Vec<Residual<'a>>),
     Or(Vec<Residual<'a>>),
     Not(Box<Residual<'a>>),
 }
-
 
 fn prepare_residual<'a>(
     expr: &'a BoundExpr,
@@ -527,7 +504,6 @@ fn prepare_residual<'a>(
         ))),
     }
 }
-
 
 impl Residual<'_> {
     fn unavailable(
@@ -794,7 +770,6 @@ impl Residual<'_> {
     }
 }
 
-
 fn scan_file(
     repo: &Repository,
     query: &Query,
@@ -814,7 +789,11 @@ fn scan_file(
     cancellation: Option<&CancellationToken>,
     max_retained_bytes: Option<u64>,
     collect_exact_members: bool,
+    execution: Option<&ExecutionContext>,
 ) -> Result<ScannedFile, String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
     let collection = &repo.collections[collection_index];
     let path = repo
         .files
@@ -822,6 +801,7 @@ fn scan_file(
         .ok_or("missing source path")?;
     let revision = repo.files.files[file_id as usize].revision;
     let mut outcome = ScannedFile::default();
+    outcome.relation_work.attach(execution);
     let cap = query
         .options
         .limit
@@ -841,6 +821,15 @@ fn scan_file(
     let full_projection = ScanProjection::full(projection.collect_text);
     let mut cursor = 0;
     while cursor < ranges.len() {
+        if let Some(execution) = execution {
+            execution.check_string()?;
+            if ranges[cursor].1.len() > execution.limits.source_record_bytes {
+                return Err(execution.fail(
+                    ExecutionErrorKind::Resource,
+                    "source record exceeds read allowance",
+                ));
+            }
+        }
         if cancellation.is_some_and(CancellationToken::is_cancelled) {
             return Err("stream cancelled".into());
         }
@@ -855,6 +844,17 @@ fn scan_file(
             end += 1;
         }
         let batch = &ranges[cursor..end];
+        if let Some(execution) = execution {
+            if batch
+                .iter()
+                .any(|(_, range)| range.len() > execution.limits.source_record_bytes)
+            {
+                return Err(execution.fail(
+                    ExecutionErrorKind::Resource,
+                    "source record exceeds read allowance",
+                ));
+            }
+        }
         if max_retained_bytes
             .is_some_and(|limit| batch.iter().any(|(_, range)| range.len() > limit))
         {
@@ -909,8 +909,8 @@ fn scan_file(
                     )
                     .is_lt()
                 });
-            let logical_projection = query.options.return_mode == ReturnMode::Logical
-                && may_reach_page;
+            let logical_projection =
+                query.options.return_mode == ReturnMode::Logical && may_reach_page;
             let record_projection = if logical_projection {
                 &full_projection
             } else {
@@ -1159,16 +1159,16 @@ fn scan_file(
                     } else {
                         0
                     };
-                    let replaced_buffered =
-                        if (sort.bound.has_computed || max_retained_bytes.is_some())
-                            && winners.len() == keep_cap
-                        {
-                            winners
-                                .peek()
-                                .map_or(0, |worst| worst.matched.buffered_bytes)
-                        } else {
-                            0
-                        };
+                    let replaced_buffered = if (sort.bound.has_computed
+                        || max_retained_bytes.is_some())
+                        && winners.len() == keep_cap
+                    {
+                        winners
+                            .peek()
+                            .map_or(0, |worst| worst.matched.buffered_bytes)
+                    } else {
+                        0
+                    };
                     if max_retained_bytes.is_some_and(|limit| {
                         buffered_bytes
                             .saturating_sub(replaced_buffered)
@@ -1229,7 +1229,6 @@ fn scan_file(
     Ok(outcome)
 }
 
-
 /// One resolved relation hop shown only in diagnostic EXPLAIN output.
 #[derive(Clone, Debug, Serialize)]
 pub struct RelationHopDiagnostic {
@@ -1239,7 +1238,6 @@ pub struct RelationHopDiagnostic {
     pub to_collection: String,
     pub selectors: Vec<Option<u32>>,
 }
-
 
 /// Exact predicate semantics shown outside the primary timed search path.
 #[derive(Clone, Debug, Serialize)]
@@ -1252,7 +1250,6 @@ pub struct BoundTermDiagnostic {
     pub resolved_period: Option<(Value, Value)>,
     pub relation_hops: Vec<RelationHopDiagnostic>,
 }
-
 
 fn bound_term_diagnostics(
     repo: &Repository,
@@ -1316,7 +1313,6 @@ fn bound_term_diagnostics(
     terms
 }
 
-
 /// Explain output for a collection plan and its actual work.
 #[derive(Clone, Debug, Serialize)]
 pub struct QueryPlanTrace {
@@ -1345,7 +1341,6 @@ pub struct QueryPlanTrace {
     pub candidates_estimated: bool,
     pub actual: Option<PlanActual>,
 }
-
 
 fn fts_covered_target(fts: Option<&BoundFts>) -> String {
     match fts {
@@ -1385,7 +1380,6 @@ fn regex_prefilter_reason(
     }
 }
 
-
 /// Observed source and predicate work for one plan.
 #[derive(Clone, Debug, Serialize)]
 pub struct PlanActual {
@@ -1405,7 +1399,6 @@ pub struct PlanActual {
     pub relation_reverse_postings_visited: u64,
     pub relation_verified_targets_reused: u64,
 }
-
 
 impl Default for PlanActual {
     fn default() -> Self {
@@ -1428,7 +1421,6 @@ impl Default for PlanActual {
         }
     }
 }
-
 
 fn finish_trace(traces: &mut [QueryPlanTrace], before: &WorkCounters, after: &WorkCounters) {
     if let Some(trace) = traces.last_mut() {
@@ -1579,16 +1571,13 @@ fn inventory_fts_evidence(
     Ok(matches)
 }
 
-
 impl PartialEq for Winner {
     fn eq(&self, other: &Self) -> bool {
         self.key == other.key
     }
 }
 
-
 impl Eq for Winner {}
-
 
 impl PartialOrd for Winner {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
@@ -1596,13 +1585,11 @@ impl PartialOrd for Winner {
     }
 }
 
-
 impl Ord for Winner {
     fn cmp(&self, other: &Self) -> Ordering {
         self.key.cmp(&other.key)
     }
 }
-
 
 fn rank_key(
     sort: &ResolvedSort<'_>,
@@ -1833,6 +1820,7 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
             None,
             None,
             Some(ExactCollector { members: None }),
+            None,
         );
     }
     if inferred_order_index(repo, query).is_some() {
@@ -1885,6 +1873,50 @@ pub fn search(repo: &Repository, query: &Query) -> Result<SearchResult, String> 
     Ok(result)
 }
 
+/// Execute with caller-supplied clock, cancellation and request limits.
+/// The ordinary `search` path keeps its existing allocation-free context fast path.
+pub(crate) fn search_with_context(
+    repo: &Repository,
+    query: &Query,
+    context: &ExecutionContext,
+) -> Result<SearchResult, crate::streaming::ExecutionError> {
+    context.check()?;
+    let result = if query.options.count && query.options.limit == 0 {
+        BoundSort::bind(repo, query)
+            .map_err(|message| context.error(ExecutionErrorKind::InvalidQuery, message))?;
+        let mut count_query = query.clone();
+        count_query.options.sort.clear();
+        count_query.options.return_mode = ReturnMode::Locator;
+        count_query.options.evidence = false;
+        search_impl_with_collector(
+            repo,
+            &count_query,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(ExactCollector { members: None }),
+            Some(context),
+        )
+    } else {
+        search_impl_with_collector(
+            repo,
+            query,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(context),
+        )
+    };
+    result.map_err(|message| context.recorded_error(message))
+}
+
 /// Execute and publish from the shared scan/ranking path before completion.
 pub fn search_stream(
     repo: &Repository,
@@ -1915,14 +1947,33 @@ pub fn search_stream_scoped(
     cancellation: &CancellationToken,
     sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
 ) -> Result<StreamOutcome, StreamError> {
+    let context = ExecutionContext::new(
+        crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+        ExecutionLimits::default(),
+        Some(cancellation.clone()),
+    );
+    search_stream_scoped_with_context(repo, query, scope, options, cancellation, &context, sink)
+}
+
+pub(crate) fn search_stream_scoped_with_context(
+    repo: &Repository,
+    query: &Query,
+    scope: ResultScope,
+    options: StreamOptions,
+    cancellation: &CancellationToken,
+    context: &ExecutionContext,
+    sink: &mut dyn for<'e> FnMut(StreamEvent<'e>) -> Result<StreamControl, String>,
+) -> Result<StreamOutcome, StreamError> {
     options
         .validate()
         .map_err(|message| StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
             message,
             progress: Default::default(),
         })?;
     if matches!(scope, ResultScope::All { .. }) && options.mode != StreamMode::OrderedRows {
         return Err(StreamError::Execution {
+            kind: ExecutionErrorKind::InvalidQuery,
             message: "all-results scope requires ordered rows".into(),
             progress: Default::default(),
         });
@@ -1950,6 +2001,7 @@ pub fn search_stream_scoped(
     let inferred_order = inferred_order_index(repo, execution_query).is_some();
     let bound_sort =
         BoundSort::bind(repo, execution_query).map_err(|message| StreamError::Execution {
+            kind: crate::streaming::ExecutionErrorKind::Execution,
             message,
             progress: delivery.progress,
         })?;
@@ -1962,6 +2014,7 @@ pub fn search_stream_scoped(
         .verified
         .lock()
         .map_err(|error| StreamError::Execution {
+            kind: crate::streaming::ExecutionErrorKind::Execution,
             message: error.to_string(),
             progress: delivery.progress,
         })?
@@ -1976,6 +2029,7 @@ pub fn search_stream_scoped(
     {
         Some(
             crate::verified::key(&membership_query).map_err(|message| StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
                 message,
                 progress: delivery.progress,
             })?,
@@ -1987,6 +2041,7 @@ pub fn search_stream_scoped(
         repo.verified
             .lock()
             .map_err(|error| StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
                 message: error.to_string(),
                 progress: delivery.progress,
             })?
@@ -2017,7 +2072,7 @@ pub fn search_stream_scoped(
             materialize_cached_stream(repo, execution_query, &cached, &mut delivery)
         }
     } else {
-        search_impl(
+        search_impl_with_collector(
             repo,
             execution_query,
             None,
@@ -2029,6 +2084,8 @@ pub fn search_stream_scoped(
                 ResultScope::Page { .. } => None,
                 ResultScope::All { offset } => Some(offset),
             },
+            None,
+            Some(context),
         )
     };
     let result = result.and_then(|mut result| {
@@ -2053,18 +2110,23 @@ pub fn search_stream_scoped(
                 None if cancellation.is_cancelled() => {
                     Ok(StreamOutcome::Cancelled(delivery.progress))
                 }
-                None if message.starts_with("stream resource:")
-                    || message.contains("budget exceeded") =>
-                {
-                    Err(StreamError::Resource {
-                        message,
-                        progress: delivery.progress,
-                    })
+                None => {
+                    let error = context.recorded_error(message);
+                    match error.kind {
+                        ExecutionErrorKind::Cancelled => {
+                            Ok(StreamOutcome::Cancelled(delivery.progress))
+                        }
+                        ExecutionErrorKind::Resource => Err(StreamError::Resource {
+                            message: error.message,
+                            progress: delivery.progress,
+                        }),
+                        kind => Err(StreamError::Execution {
+                            kind,
+                            message: error.message,
+                            progress: delivery.progress,
+                        }),
+                    }
                 }
-                None => Err(StreamError::Execution {
-                    message,
-                    progress: delivery.progress,
-                }),
             };
         }
     };
@@ -2086,6 +2148,7 @@ pub fn search_stream_scoped(
                 progress: delivery.progress,
             }),
             None => Err(StreamError::Execution {
+                kind: crate::streaming::ExecutionErrorKind::Execution,
                 message,
                 progress: delivery.progress,
             }),
@@ -2107,6 +2170,7 @@ pub fn search_stream_scoped(
             repo.verified
                 .lock()
                 .map_err(|error| StreamError::Execution {
+                    kind: crate::streaming::ExecutionErrorKind::Execution,
                     message: error.to_string(),
                     progress: delivery.progress,
                 })?
@@ -2237,6 +2301,7 @@ pub(crate) fn exact_members(
         Some(ExactCollector {
             members: Some(&mut members),
         }),
+        None,
     )?;
     if result.count != Some(members.len() as usize) {
         return Err("exact selection is incomplete".into());
@@ -2286,7 +2351,6 @@ fn sort_cached_members(repo: &Repository, query: &Query, members: &mut Vec<Cache
     }
 }
 
-
 struct StoredCursor<'a> {
     columns: &'a [(&'a SortColumn, bool)],
     order: &'a [crate::model::RecordSlot],
@@ -2297,23 +2361,19 @@ struct StoredCursor<'a> {
     position: usize,
 }
 
-
 impl PartialEq for StoredCursor<'_> {
     fn eq(&self, other: &Self) -> bool {
         self.cmp(other).is_eq()
     }
 }
 
-
 impl Eq for StoredCursor<'_> {}
-
 
 impl PartialOrd for StoredCursor<'_> {
     fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
         Some(self.cmp(other))
     }
 }
-
 
 impl Ord for StoredCursor<'_> {
     fn cmp(&self, other: &Self) -> Ordering {
@@ -2333,7 +2393,6 @@ impl Ord for StoredCursor<'_> {
         })
     }
 }
-
 
 fn stored_cursor<'a>(
     repo: &'a Repository,
@@ -2356,7 +2415,6 @@ fn stored_cursor<'a>(
     })
 }
 
-
 struct OrderedPlan<'a> {
     collection_index: usize,
     filter: Option<&'a BoundExpr>,
@@ -2365,14 +2423,12 @@ struct OrderedPlan<'a> {
     candidates: RoaringBitmap,
 }
 
-
 /// Membership already prepared for a stored-order attempt whose selective
 /// result is cheaper to rank with the general top-k collector.
 struct RejectedOrderPlans {
     entries: Vec<(Plan, RoaringBitmap)>,
     planning_ns: u64,
 }
-
 
 fn direct_payload(
     repo: &Repository,
@@ -2523,6 +2579,7 @@ fn inferred_order_column(
     repo: &Repository,
     query: &Query,
     prepared: &crate::prepared::PreparedQuery,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<(usize, Arc<SortColumn>)>, String> {
     let Some((collection_index, path, index)) = inferred_order_index(repo, query) else {
         return Ok(None);
@@ -2549,8 +2606,18 @@ fn inferred_order_column(
             &collection.definition.sort_locale,
             collection.definition.sort_options,
             query.options.sort[0].descending,
+            execution,
         )
     })?;
+    if let (Some(column), Some(execution)) = (&column, execution) {
+        execution.check_string()?;
+        if column.retained_bytes() > execution.limits.inferred_order_bytes {
+            return Err(execution.fail(
+                ExecutionErrorKind::Resource,
+                "inferred order exceeds retained-byte limit",
+            ));
+        }
+    }
     Ok(column.map(|column| (collection_index, column)))
 }
 
@@ -2592,8 +2659,10 @@ fn try_inferred_order_page(
     traces: Option<&mut Vec<QueryPlanTrace>>,
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<SearchResult>, String> {
-    let Some((collection_index, column)) = inferred_order_column(repo, query, prepared)? else {
+    let Some((collection_index, column)) = inferred_order_column(repo, query, prepared, execution)?
+    else {
         return Ok(None);
     };
     let terms = (0..repo.collections.len())
@@ -2629,6 +2698,7 @@ fn try_inferred_order_page(
         all_offset,
         true,
         None,
+        execution,
     )?;
     if result.is_some() {
         if let Some(traces) = traces {
@@ -2653,7 +2723,11 @@ fn try_stored_order_page(
     all_offset: Option<usize>,
     force_order: bool,
     mut rejected: Option<&mut RejectedOrderPlans>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<Option<SearchResult>, String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
     if sort.bound.has_computed || (query.options.count && delivery.is_none() && !force_order) {
         return Ok(None);
     }
@@ -2685,11 +2759,7 @@ fn try_stored_order_page(
         .checked_add(query.options.offset)
         .ok_or("page size overflow")?;
     let planning_started = Instant::now();
-    let plan_filter = if traces.is_some() {
-        plan_expr_restricted
-    } else {
-        plan_expr_restricted_compact
-    };
+    let diagnostics = traces.is_some();
     let mut plans = Vec::new();
     let mut candidate_total = 0u64;
     for (collection_index, filter, fts) in &prepared.collections {
@@ -2698,13 +2768,15 @@ fn try_stored_order_page(
         let mut plan = filter
             .as_ref()
             .map(|expr| {
-                plan_filter(
+                plan_expr_restricted_with_execution(
                     repo,
                     collection,
                     expr,
                     &domain,
                     &domain,
                     query.options.evidence,
+                    diagnostics,
+                    execution,
                 )
             })
             .transpose()?
@@ -2976,6 +3048,7 @@ fn try_stored_order_page(
                             .as_ref()
                             .map(|delivery| delivery.max_buffered_bytes() as u64),
                         false,
+                        execution,
                     )?;
                     counters.files_opened += scanned.files_opened;
                     counters.bytes_read += scanned.bytes_read;
@@ -3978,6 +4051,7 @@ fn search_impl<'a>(
         delivery,
         all_offset,
         None,
+        None,
     )
 }
 
@@ -3991,7 +4065,11 @@ fn search_impl_with_collector<'a>(
     mut delivery: Option<&mut Delivery<'_>>,
     all_offset: Option<usize>,
     mut exact_collector: Option<ExactCollector<'_>>,
+    execution: Option<&ExecutionContext>,
 ) -> Result<SearchResult, String> {
+    if let Some(execution) = execution {
+        execution.check_string()?;
+    }
     if let Some(delivery) = delivery.as_deref_mut() {
         delivery.check()?;
     }
@@ -4000,6 +4078,12 @@ fn search_impl_with_collector<'a>(
         Some(bound) => ResolvedSort::from_bound(repo, query, bound),
         None => ResolvedSort::new(repo, query)?,
     };
+    if let Some(execution) = execution {
+        sort.target_cache
+            .lock()
+            .map_err(|error| error.to_string())?
+            .configure_execution(execution);
+    }
     if let Some(delivery) = delivery.as_deref_mut() {
         sort.target_cache
             .lock()
@@ -4021,6 +4105,7 @@ fn search_impl_with_collector<'a>(
             traces.as_deref_mut(),
             delivery.as_deref_mut(),
             all_offset,
+            execution,
         )? {
             return Ok(result);
         }
@@ -4036,6 +4121,7 @@ fn search_impl_with_collector<'a>(
             all_offset,
             false,
             Some(&mut rejected_order),
+            execution,
         )? {
             return Ok(result);
         }
@@ -4071,11 +4157,7 @@ fn search_impl_with_collector<'a>(
             delivery.check()?;
         }
         let planning_start = Instant::now();
-        let plan_filter = if traces.is_some() {
-            plan_expr_restricted
-        } else {
-            plan_expr_restricted_compact
-        };
+        let diagnostics = traces.is_some();
         let before = traces.as_ref().map(|_| counters.clone());
         let collection = &repo.collections[collection_index];
         let domain: RoaringBitmap = (0..collection.generation.records.len() as u32).collect();
@@ -4110,7 +4192,18 @@ fn search_impl_with_collector<'a>(
             }
             let mut plan = filter
                 .as_ref()
-                .map(|f| plan_filter(repo, collection, f, &domain, &input, query.options.evidence))
+                .map(|f| {
+                    plan_expr_restricted_with_execution(
+                        repo,
+                        collection,
+                        f,
+                        &domain,
+                        &input,
+                        query.options.evidence,
+                        diagnostics,
+                        execution,
+                    )
+                })
                 .transpose()?
                 .unwrap_or(Plan {
                     candidates: None,
@@ -4143,7 +4236,7 @@ fn search_impl_with_collector<'a>(
         });
         let relation_fts = fts
             .as_ref()
-            .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &candidates))
+            .map(|fts| crate::relation_semijoin::fts_witnesses(repo, fts, &candidates, execution))
             .transpose()?
             .flatten();
         let relation_fts_strategy =
@@ -4387,9 +4480,16 @@ fn search_impl_with_collector<'a>(
                         &candidates,
                         delivery.token(),
                         delivery.max_buffered_bytes() / 4,
+                        execution,
                     )
                 } else {
-                    crate::relation_target_cache::prepare(repo, collection_index, expr, &candidates)
+                    crate::relation_target_cache::prepare(
+                        repo,
+                        collection_index,
+                        expr,
+                        &candidates,
+                        execution,
+                    )
                 }
             })
             .transpose()?
@@ -4478,7 +4578,9 @@ fn search_impl_with_collector<'a>(
                     .target_cache
                     .lock()
                     .map_err(|error| error.to_string())?;
-                let external = target_values.as_ref().map_or(0, |cache| cache.retained_bytes);
+                let external = target_values
+                    .as_ref()
+                    .map_or(0, |cache| cache.retained_bytes);
                 let available = MAX_COMPUTED_SORT_BYTES
                     .checked_sub(
                         resident
@@ -4543,7 +4645,9 @@ fn search_impl_with_collector<'a>(
                     .target_cache
                     .lock()
                     .map_err(|error| error.to_string())?;
-                let external = target_values.as_ref().map_or(0, |cache| cache.retained_bytes);
+                let external = target_values
+                    .as_ref()
+                    .map_or(0, |cache| cache.retained_bytes);
                 let used = resident
                     .checked_add(targets.retained_bytes())
                     .and_then(|used| used.checked_add(external))
@@ -4607,6 +4711,7 @@ fn search_impl_with_collector<'a>(
                                 exact_collector
                                     .as_ref()
                                     .is_some_and(|collector| collector.members.is_some()),
+                                execution,
                             )
                         })
                         .collect()
@@ -4640,6 +4745,7 @@ fn search_impl_with_collector<'a>(
                             exact_collector
                                 .as_ref()
                                 .is_some_and(|collector| collector.members.is_some()),
+                            execution,
                         )
                     })
                     .collect()

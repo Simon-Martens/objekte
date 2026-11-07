@@ -126,6 +126,80 @@ fn write_inferred_order_fixture(tag: &str, records: usize) -> std::path::PathBuf
 }
 
 #[test]
+fn inferred_order_limit_rejects_before_key_vector_in_both_modes() {
+    use crate::inference::{InferenceConfig, InferenceMode};
+    use crate::repository::{RepositoryOptions, SnapshotMode};
+    use crate::streaming::{
+        ExecutionContext, ExecutionErrorKind, ExecutionLimits, ResultScope, StreamControl,
+        StreamError, StreamOptions,
+    };
+    use crate::workload::SortField;
+
+    let root = write_inferred_order_fixture("inferred-order-limit", 32);
+    let repo = Repository::open_with_options(
+        &root,
+        vec![CollectionDefinition::folder(
+            "data",
+            "data",
+            SourceFormat::Json,
+        )],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            inference: InferenceConfig {
+                mode: InferenceMode::AutoIndex,
+                ..Default::default()
+            },
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    let request = Query {
+        collections: vec!["data".into()],
+        fts: None,
+        filter: None,
+        options: QueryOptions {
+            sort: vec![SortField::simple("label", false)],
+            limit: 3,
+            offset: 0,
+            count: false,
+            return_mode: ReturnMode::Locator,
+            evidence: false,
+        },
+    };
+    let context = || {
+        ExecutionContext::new(
+            crate::clock_context::ClockContext::new(time::OffsetDateTime::now_utc()),
+            ExecutionLimits {
+                inferred_order_bytes: 1,
+                ..Default::default()
+            },
+            None,
+        )
+    };
+    assert_eq!(
+        repo.search_with_context(&request, &context())
+            .unwrap_err()
+            .kind,
+        ExecutionErrorKind::Resource
+    );
+    let outcome = repo.search_stream_scoped_with_context(
+        &request,
+        ResultScope::Page {
+            offset: 0,
+            limit: 3,
+        },
+        StreamOptions::default(),
+        &context(),
+        &mut |_| Ok(StreamControl::Continue),
+    );
+    assert!(
+        matches!(outcome, Err(StreamError::Resource { .. })),
+        "{outcome:?}"
+    );
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn inferred_order_cache_reuses_pages_and_restores_without_persisting_orders() {
     use crate::inference::{InferenceConfig, InferenceMode};
     use crate::repository::{RepositoryOptions, SnapshotMode};

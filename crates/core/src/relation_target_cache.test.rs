@@ -19,11 +19,11 @@ fn prefetch_limits_keep_stream_resource_classification() {
         "target prefetch record exceeds size limit",
         "target prefetch exceeds retained bytes",
     ] {
-        assert_eq!(limit_error(message.into(), false), message);
-        assert!(limit_error(message.into(), true).starts_with("stream resource:"));
+        assert_eq!(limit_error(message.into(), false, None), message);
+        assert!(limit_error(message.into(), true, None).starts_with("stream resource:"));
     }
     assert!(
-        stream_target_slot_charge(100, Some(1024))
+        stream_target_slot_charge(100, Some(1024), None)
             .err()
             .unwrap()
             .starts_with("stream resource:")

@@ -23,14 +23,12 @@ const MAX_QUERY_BACKLINK_PROBES: u64 = 32_000_000;
 const MAX_QUERY_RECORD_READS: u64 = 5_000_000;
 const MAX_QUERY_RELATION_BYTES: u64 = 1024 * 1024 * 1024;
 
-
 /// Direction of a declared, collection-scoped relation hop.
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub enum HopDirection {
     Forward,
     Backlink,
 }
-
 
 /// One resolved hop and its explicit array selectors in source order.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -42,7 +40,6 @@ pub struct BoundRelationHop {
     pub to: CollectionId,
 }
 
-
 /// A finite path that begins at the matching source and ends at a local term.
 #[derive(Clone, Debug)]
 pub struct BoundRelationPath {
@@ -53,16 +50,14 @@ pub struct BoundRelationPath {
     pub evidence_path: String,
 }
 
-
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub(crate) enum EvaluationMode {
     Indexed,
     Reference,
 }
 
-
 /// Physical work caused by relation traversal, separate from the source scan.
-#[derive(Clone, Copy, Debug, Default)]
+#[derive(Clone, Default)]
 pub(crate) struct RelationWork {
     pub source_reads: u64,
     pub target_reads: u64,
@@ -70,8 +65,8 @@ pub(crate) struct RelationWork {
     pub edge_visits: u64,
     pub backlink_probe_visits: u64,
     pub bytes_read: u64,
+    execution: Option<crate::streaming::ExecutionContext>,
 }
-
 
 fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), String> {
     *counter = counter
@@ -83,9 +78,33 @@ fn charge(counter: &mut u64, amount: u64, limit: u64, name: &str) -> Result<(), 
     Ok(())
 }
 
-
 impl RelationWork {
+    pub(crate) fn attach(&mut self, execution: Option<&crate::streaming::ExecutionContext>) {
+        self.execution = execution.cloned();
+    }
+
+    fn before_read(&self, bytes: u64, target: bool) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.check_string()?;
+            let limit = if target {
+                execution.limits.target_record_bytes
+            } else {
+                execution.limits.source_record_bytes
+            };
+            if bytes > limit {
+                return Err(execution.fail(
+                    crate::streaming::ExecutionErrorKind::Resource,
+                    "relation record exceeds source read allowance",
+                ));
+            }
+        }
+        Ok(())
+    }
+
     fn edge(&mut self) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.charge_edges(1)?;
+        }
         charge(
             &mut self.edge_visits,
             1,
@@ -95,6 +114,9 @@ impl RelationWork {
     }
 
     fn backlink_probe(&mut self) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.charge_edges(1)?;
+        }
         charge(
             &mut self.backlink_probe_visits,
             1,
@@ -104,6 +126,10 @@ impl RelationWork {
     }
 
     fn target_read(&mut self, bytes: u64) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.charge_reads(1)?;
+            execution.charge_bytes(bytes)?;
+        }
         charge(
             &mut self.target_reads,
             1,
@@ -119,6 +145,10 @@ impl RelationWork {
     }
 
     fn source_read(&mut self, bytes: u64) -> Result<(), String> {
+        if let Some(execution) = &self.execution {
+            execution.charge_reads(1)?;
+            execution.charge_bytes(bytes)?;
+        }
         charge(
             &mut self.source_reads,
             1,
@@ -133,7 +163,6 @@ impl RelationWork {
         )
     }
 }
-
 
 /// Combine bounded scanner chunks into one query-wide relation work budget.
 pub(crate) fn check_query_work_budget(
@@ -173,7 +202,6 @@ pub(crate) fn check_query_work_budget(
     Ok(())
 }
 
-
 /// Immutable traversal choices shared by every hop of one predicate.
 #[derive(Clone, Copy)]
 struct TraverseConfig<'a> {
@@ -184,7 +212,6 @@ struct TraverseConfig<'a> {
     mode: EvaluationMode,
     target_values: Option<&'a TargetValueCache>,
 }
-
 
 /// Bind a Boolean expression with collection-specific relation declarations.
 pub(crate) fn bind_filter_with_relations(
@@ -1041,6 +1068,7 @@ fn visit_hop(
                 "relation target record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
             ));
         }
+        work.before_read(record.range.len(), true)?;
         let bytes = read_record_range(&path, record.revision, record.range)?;
         work.target_read(bytes.len() as u64)?;
         let extracted = crate::record_preparation::prepare_query_record(
@@ -1302,6 +1330,7 @@ fn read_reference_value(
             "relation source record exceeds {MAX_QUERY_RELATION_BYTES} source bytes"
         ));
     }
+    work.before_read(record.range.len(), false)?;
     let bytes = read_record_range(&path, record.revision, record.range)?;
     work.source_read(bytes.len() as u64)?;
     let extracted = crate::record_preparation::prepare_query_record(
@@ -1314,14 +1343,12 @@ fn read_reference_value(
     Ok(Some(extracted.value))
 }
 
-
 /// Independent logical ID occurrences and presence/null state.
 struct LogicalReferences {
     present: bool,
     null: bool,
     values: Vec<(String, Vec<u32>)>,
 }
-
 
 /// An intentionally separate, iterative oracle for declared ID occurrences.
 /// It walks logical values directly and never consults build-time edge state.
