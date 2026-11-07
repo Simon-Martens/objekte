@@ -33,26 +33,16 @@ fn inferred_order_cache_reuses_keys_and_evicts_least_recently_used() {
     );
     let one_bytes = InferredOrderCache::entry_bytes(&first, &inferred_test_column("a"));
     let mut cache = InferredOrderCache::new(one_bytes);
-    let first_column = cache
-        .get_or_build(first.clone(), || Ok(Some(inferred_test_column("a"))))
-        .unwrap()
-        .unwrap();
-    let reused = cache
-        .get_or_build(first.clone(), || panic!("a cached order was rebuilt"))
-        .unwrap()
-        .unwrap();
+    let first_column = cache.insert_if_absent(first.clone(), Arc::new(inferred_test_column("a")));
+    let reused = cache.get(&first).unwrap();
     assert!(Arc::ptr_eq(&first_column, &reused));
     assert_eq!(cache.stats().builds, 1);
     assert_eq!(cache.stats().hits, 1);
-    cache
-        .get_or_build(second, || Ok(Some(inferred_test_column("b"))))
-        .unwrap();
+    cache.insert_if_absent(second, Arc::new(inferred_test_column("b")));
     assert_eq!(cache.stats().entries, 1);
     assert_eq!(cache.stats().evictions, 1);
     assert!(cache.stats().resident_bytes <= one_bytes);
-    cache
-        .get_or_build(first, || Ok(Some(inferred_test_column("a"))))
-        .unwrap();
+    cache.insert_if_absent(first, Arc::new(inferred_test_column("a")));
     assert_eq!(cache.stats().builds, 3);
     assert_eq!(cache.stats().evictions, 2);
 }
@@ -87,16 +77,14 @@ fn inferred_order_cache_key_separates_generation_collation_and_direction() {
         InferredOrderKey::new(1, 7, base.path.clone(), "de", base.options, false),
     ];
     for key in variants {
-        cache
-            .get_or_build(key, || Ok(Some(inferred_test_column("a"))))
-            .unwrap();
+        cache.insert_if_absent(key, Arc::new(inferred_test_column("a")));
     }
     assert_eq!(cache.stats().builds, 6);
     assert_eq!(cache.stats().hits, 0);
     assert_eq!(cache.stats().entries, 6);
     cache
-        .get_or_build(base, || panic!("same generation and collation missed"))
-        .unwrap();
+        .get(&base)
+        .expect("same generation and collation missed");
     assert_eq!(cache.stats().hits, 1);
 }
 
