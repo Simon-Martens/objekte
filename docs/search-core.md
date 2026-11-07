@@ -128,6 +128,17 @@ raw bigrams can restrict an ordinary field predicate only when the reader
 declares intact coverage of every logical string and the indexed representation
 matches the predicate.
 
+For oversized built-in JSONL files, fresh construction frames bounded line
+chunks and admits their records in file order. Ordinary chunks hold at most
+1 MiB and 256 records; a single longer line is processed as one chunk, so
+additional source-buffer memory is bounded by the largest line and admitted
+chunks rather than the full file size. The built-in reader preserves absolute
+byte ranges, CRLF and empty-line behavior, and malformed sibling records.
+Custom readers use the established whole-buffer framing path unless they
+explicitly opt in to the newline framing contract.
+Query scanning still groups work by source file; record-batch query
+parallelism remains a separate scheduling decision.
+
 Collection discovery has explicit recursion, include/exclude globs, hidden-file,
 and symlink settings. Its defaults select regular files directly in the
 declared directory with the registered reader's extension. Following links is
@@ -305,22 +316,38 @@ pages perform no source reads, and expose how many dictionary keys were visited.
 
 ## Persistence and freshness
 
-The ASCII and Unicode snapshot files are under the fixture's `.objekte/`
-directory and excluded from version control. Each snapshot has a versioned
-header and independently checksummed binary sections for the file inventory,
-collection generations, postings, text indexes, sort columns, and statistics.
-A configuration hash binds model, schema/registrations, alphabet, ICU version,
-and platform. Loading validates section bounds/checksums, paths, mappings,
-coverage, and sorted state before publication. Startup reconciles every
-selected file's path, size, and modified time. A changed file set or revision
-causes a fresh private repository build and atomic snapshot replacement. A
-full repository rebuild is used today even if one collection changed.
+The ASCII and Unicode snapshot files are under the repository's `.objekte/`
+directory. Saving a snapshot is explicit; opening and searching do not write
+one. Each snapshot has a versioned header, a checksummed file-inventory
+section, and one checksummed section per collection containing its generation
+and indexes. A configuration hash binds model, schema and registrations,
+alphabet, ICU version, and platform. Loading validates section bounds and
+checksums, paths, mappings, coverage, and sorted state before publication.
+When restore is requested, startup reconciles the selected file set and each
+path's recorded size and modified time. A stale optional snapshot causes a
+fresh private build; a required snapshot reports an error. The rebuilt state
+is saved only by a later explicit save request. Rebuild currently covers the
+whole repository even when one collection changed.
 
-Source extraction and later range reads compare the opened handle and named
-path with the recorded size and modified time before and after access. This
-rejects ordinary stale reads; a same-size edit with a restored modification
-time is not detectable without content hashing. No runtime updater, watcher,
-overlay, or partial rebuild is implemented. The
+Fresh construction assumes sources remain stable while it reads them. It uses
+metadata gathered during discovery and does not repeatedly probe revisions
+before and after build reads. A read failure before any bounded JSONL chunk
+is admitted follows the ordinary extraction outcome path; a read error after
+admission aborts the private build so no partial generation is published.
+Concurrent edits during construction have no coherent-snapshot guarantee.
+
+Query-time whole-file extraction checks the opened handle and named path
+against the recorded size and modified time around extraction. Ordinary
+record-range and bounded-stream reads check the opened handle on open and
+before later physical read batches; they do not recheck the named path or
+perform a post-read revision check. A query-scoped buffered-window hit can
+reuse bytes without another metadata check. A renamed source may still be
+read through an already-open handle, while a newly opened replacement is
+checked against the recorded revision. These checks detect ordinary size or
+modification-time changes, including same-size edits whose modification time
+changes. A same-size edit with its modification time restored is not detected
+by the revision check. No runtime updater, watcher, overlay, or partial rebuild
+is implemented. The
 [future complete-file replacement design](future-whole-file-replacement.md)
 describes how the file-to-record map would locate all old records, rebuild
 affected generations, and publish them atomically after successful extraction.
