@@ -1,15 +1,54 @@
 //! Versioned NDJSON transport and token-preserving JSON payload compaction.
 
 use std::io::{self, Write};
+use std::str::FromStr;
 use std::time::Instant;
 
+use objekte_search_core::diagnostics::{milliseconds_3, signed_milliseconds_3};
 use objekte_search_core::inventory::{FileStatus, RecordClass};
 use objekte_search_core::model::FileId;
 use objekte_search_core::path_repr;
 use objekte_search_core::repository::{Payload, Repository, SearchHit};
+use objekte_search_core::workload::WorkCounters;
 use serde::de::IgnoredAny;
-use serde_json::{Value, json};
+use serde_json::{Number, Value, json};
 
+/// Version 2 publishes diagnostic durations in milliseconds.
+pub const PROTOCOL_VERSION: u32 = 2;
+
+/// JSON number with exactly three decimal places, including trailing zeros.
+pub fn milliseconds_value(nanoseconds: u128) -> Value {
+    Value::Number(
+        Number::from_str(&milliseconds_3(nanoseconds))
+            .expect("core millisecond formatter produces a JSON number"),
+    )
+}
+
+fn signed_milliseconds_value(nanoseconds: i128) -> Value {
+    Value::Number(
+        Number::from_str(&signed_milliseconds_3(nanoseconds))
+            .expect("core timestamp formatter produces a JSON number"),
+    )
+}
+
+/// Preserve work counters while presenting their timing members in milliseconds.
+pub fn counters_with_ms(counters: &WorkCounters) -> Value {
+    let mut value = json!(counters);
+    let fields = value
+        .as_object_mut()
+        .expect("work counters serialize as an object");
+    fields.remove("preparation_ns");
+    fields.remove("planning_ns");
+    fields.insert(
+        "preparation_ms".into(),
+        milliseconds_value(counters.preparation_ns as u128),
+    );
+    fields.insert(
+        "planning_ms".into(),
+        milliseconds_value(counters.planning_ns as u128),
+    );
+    value
+}
 
 /// Ordered event writer whose sequence belongs to the transport, not query rank.
 pub struct EventWriter<W: Write> {
@@ -17,7 +56,6 @@ pub struct EventWriter<W: Write> {
     sequence: u64,
     sink_ns: u128,
 }
-
 
 impl<W: Write> EventWriter<W> {
     pub fn new(writer: W) -> Self {
@@ -45,7 +83,7 @@ impl<W: Write> EventWriter<W> {
         let map = object
             .as_object_mut()
             .ok_or_else(|| io::Error::other("event is not an object"))?;
-        map.insert("protocol_version".into(), json!(1));
+        map.insert("protocol_version".into(), json!(PROTOCOL_VERSION));
         map.insert("sequence".into(), json!(sequence));
         let encoded = serde_json::to_vec(&object).map_err(io::Error::other)?;
         self.writer.write_all(&encoded)?;
@@ -85,7 +123,7 @@ impl<W: Write> EventWriter<W> {
             .files()
             .diagnostic(FileId(hit.file_id), hit.diagnostic_ref);
         let mut event = json!({
-            "protocol_version": 1,
+            "protocol_version": PROTOCOL_VERSION,
             "type": "hit",
             "sequence": sequence,
             "query_id": query_id,
@@ -97,8 +135,8 @@ impl<W: Write> EventWriter<W> {
                 "record_id": hit.record_id,
                 "file_id": hit.file_id,
                 "size_bytes": hit.file_size,
-                "created_ns": hit.file_created_ns,
-                "modified_ns": hit.modified_ns,
+                "created_ms": hit.file_created_ns.map(signed_milliseconds_value),
+                "modified_ms": signed_milliseconds_value(hit.modified_ns),
             },
             "record": {
                 "generation": hit.generation,
@@ -159,7 +197,6 @@ impl<W: Write> EventWriter<W> {
         Ok(())
     }
 }
-
 
 fn record_class(class: RecordClass) -> &'static str {
     match class {

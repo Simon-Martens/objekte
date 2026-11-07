@@ -26,7 +26,7 @@ The positional query is a structured expression unless it is exactly one double-
 | `--index-alphabet ascii\|unicode` | Select bigram alphabet; default `ascii`. Exact case behavior is a query property. |
 | `--write-index[=DIR]` | Build fresh and atomically save a snapshot. |
 | `--load-index[=DIR]` | Require a valid snapshot; combine with `--write-index` to rebuild if absent or stale. |
-| `--diagnostic`, `--diagnostics` | Emit a pretty JSON operational diagnostic on stderr. |
+| `--diagnostic`, `--diagnostics` | Include inferred index paths in the final NDJSON event and emit a pretty JSON operational diagnostic on stderr. |
 
 `QUERY`, `--fts`, and `--query-file` are mutually exclusive. Bare `obj` reports a missing query and does not build an index. An index flag permits an index-only invocation with no query. Optional snapshot directories require `=`: `--write-index 'title = "A"'` leaves the query intact, whereas `--write-index=./cache` selects a directory. The implicit directory is `<root>/.objekte`; an explicit relative directory is relative to the invocation's working directory. If both flags name directories, they must resolve to the same destination.
 
@@ -55,21 +55,40 @@ Whole-document FTS searches each scalar value as a separate segment:
 - Booleans and null contribute `true`, `false`, and `null`.
 - Property names, braces, brackets, commas and colons contribute no text.
 
-An FTS phrase cannot span two scalar values. Duplicate object names use the last occurrence for structured field access; whole-document FTS sees the scalar values of all occurrences. Arrays retain mixed members and order. Explicit schema declarations, when used by another core caller, still validate strictly; this schema-free command does not infer field postings automatically.
+An FTS phrase cannot span two scalar values. Duplicate object names use the last occurrence for structured field access; whole-document FTS sees the scalar values of all occurrences. Arrays retain mixed members and order. Explicit schema declarations, when used by another core caller, still validate strictly. This command builds inferred ordered postings only with `--auto-index`.
 
 Malformed JSON follows the core's raw-text fallback behavior. Such a file can match unscoped FTS through recovery text, but its logical fields are unavailable. A syntactically valid document rejected by an explicit declared schema can similarly be a fallback in other core applications; the output distinguishes its source JSON payload from logical availability.
 
 ## NDJSON output
 
-Stdout contains one UTF-8 JSON object per line, with `protocol_version: 1`, a monotonic `sequence`, and a `type`. A normal run emits `run_start`, then for each query `query_start`, zero or more ordered `hit` events, exactly one `query_complete`, and finally `run_complete`. Query and run errors or cancellation use the corresponding `query_error`, `query_cancelled`, `run_error`, or `run_cancelled` terminal type. An index-only run has only run events. Stderr carries operational messages and optional diagnostics; it never shares stdout's event stream.
+Stdout contains one UTF-8 JSON object per line, with `protocol_version: 2`, a monotonic `sequence`, and a `type`. A normal run emits `run_start`, then for each query `query_start`, zero or more ordered `hit` events, exactly one `query_complete`, and finally `run_complete`. Query and run errors or cancellation use the corresponding `query_error`, `query_cancelled`, `run_error`, or `run_cancelled` terminal type. An index-only run has only run events. Stderr carries operational messages and optional diagnostics; it never shares stdout's event stream.
 
 `query_start` includes a monotonic `query_id`, original input, `structured` or `fts` kind, optional physical query-file line, requested scope and count policy. A `hit` includes the query ID, zero-based emitted position and requested offset; collection and stable record ID; generation and file ID; relative path, size and available created/modified metadata; record byte range, class and status; diagnostic reference/details when available; and matched-field evidence when the core provides it. Unscoped FTS does not invent an exact field list.
 
 `data` is the complete original source JSON value, not a projection or a serialization of the core's typed model. Its insignificant outer and inter-token whitespace is removed so the event stays on one line; string escapes, number spelling, member order and duplicate names are preserved. `data_available: true` distinguishes a genuine JSON `null` from unavailable source JSON. For malformed raw fallback, `data_available` is false, `data` is null, and the event carries `raw_text` with `raw_encoding: "utf8"` or `raw_base64` with `raw_encoding: "base64"`.
 
-The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or null, `total_exact`, core work counters, and nanosecond timings. A failed or cancelled query never claims an exact final total. The run terminal reports files, records, fallback records, build parses, startup phase timings, snapshot action, query success/error counts, and total wall time.
+The query terminal includes `emitted_rows`, `observed_matches`, `exact_total` or null, `total_exact`, core work counters, and millisecond timings rounded to three decimals. A failed or cancelled query never claims an exact final total. The run terminal reports files, records, fallback records, build parses, startup phase timings, snapshot action, query success/error counts, and total wall time. File creation and modification timestamps in hit events are Unix-epoch milliseconds with three decimals.
 
-Timing fields use a monotonic clock. `preparation_ns` covers input parsing and request construction before core execution. `search_ns` is coordinator wall elapsed outside synchronous output callbacks, including verification, ordering and required reads. `sink_ns` is callback encoding, writes, flushes and downstream backpressure. Worker computation may overlap callbacks, so these fields are not independent CPU costs. `query_wall_ns` spans preparation through the output flush before its terminal event; `first_hit_ns` is null when no hit is delivered. Terminal-line write time itself is outside that query's reported wall interval. Startup, snapshot decode/reconciliation, fresh build and snapshot write are reported separately.
+Timing fields use a monotonic clock. `preparation_ms` covers input parsing and request construction before core execution. `search_ms` is coordinator wall elapsed outside synchronous output callbacks, including verification, ordering and required reads. `sink_ms` is callback encoding, writes, flushes and downstream backpressure. Worker computation may overlap callbacks, so these fields are not independent CPU costs. `query_wall_ms` spans preparation through the output flush before its terminal event; `first_hit_ms` is null when no hit is delivered. Terminal-line write time itself is outside that query's reported wall interval. Startup, snapshot decode/reconciliation, fresh build and snapshot write are reported separately. Embedded core work counters expose `preparation_ms` and `planning_ms` in this protocol; the library retains nanosecond counters for profiling.
+
+With `--auto-index --diagnostic`, the final event includes `automatic_index_paths`, sorted by path. Each entry reports admission status, reason, observed and indexed kind, multivalue state, B-tree value/length key counts and coverage. The same typed report is available to library callers through `Repository::inference_index_diagnostics(collection)`. A built value dictionary does not imply every query can skip verification; multivalued and partially covered short-string paths retain their coverage rules.
+
+```sh
+obj --path examples/musenalm --load-index --auto-index --diagnostic |
+  jq -r 'select(.type=="run_complete") | .automatic_index_paths[] |
+    select(.index_status=="Built" and .value_keys>0) |
+    "\(.path|join("."))\t\(.kind)\tkeys=\(.value_keys)\tmulti=\(.multi)"'
+```
+
+Library callers can inspect the same report without creating a CLI process:
+
+```rust
+for path in repository.inference_index_diagnostics("files").unwrap_or_default() {
+    if path.value_keys.unwrap_or(0) > 0 {
+        println!("{:?}: {:?} value keys", path.path, path.value_keys);
+    }
+}
+```
 
 ## Snapshot policy
 

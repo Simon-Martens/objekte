@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use std::sync::atomic::{AtomicUsize, Ordering};
 
 use objekte_search_core::inference::{InferenceConfig, InferenceIndexStatus, InferenceMode};
-use objekte_search_core::model::{Number, Value};
+use objekte_search_core::model::{LogicalType, Number, Value};
 use objekte_search_core::query::{Query, QueryOptions, parse_filter};
 use objekte_search_core::repository::{
     CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
@@ -251,4 +251,29 @@ fn reopening_without_inference_does_not_restore_inferred_postings() {
         .search(&query("score = 7", vec![], ReturnMode::Locator))
         .unwrap();
     assert_eq!(ids(&restored_answers), ids(&baseline));
+}
+
+#[test]
+fn library_diagnostics_list_ordered_postings_without_source_access() {
+    let fixture = Fixture::new();
+    let repo = fixture.open(InferenceMode::AutoIndex, SnapshotMode::Disabled);
+    let diagnostics = repo.inference_index_diagnostics("data").unwrap();
+    assert!(
+        diagnostics
+            .windows(2)
+            .all(|pair| pair[0].path <= pair[1].path)
+    );
+    for (path, keys) in [("rank", 32), ("score", 2)] {
+        let field = diagnostics
+            .iter()
+            .find(|field| field.path == [path])
+            .unwrap();
+        assert_eq!(field.index_status, InferenceIndexStatus::Built);
+        assert_eq!(field.kind, Some(LogicalType::Number));
+        assert_eq!(field.value_keys, Some(keys));
+        assert_eq!(field.multi, Some(false));
+        assert_eq!(field.covered_records, Some(32));
+    }
+    let disabled = fixture.open(InferenceMode::Disabled, SnapshotMode::Disabled);
+    assert!(disabled.inference_index_diagnostics("data").is_none());
 }

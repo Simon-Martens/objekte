@@ -2,6 +2,7 @@
 
 use std::collections::BTreeSet;
 
+use objekte_search_core::diagnostics::signed_milliseconds_3;
 use objekte_search_core::model::{Number, Value};
 use objekte_search_core::query_path::{PathStep, QueryPath};
 use objekte_search_core::repository::{Payload, SearchHit};
@@ -388,11 +389,10 @@ fn project(hit: &SearchHit, value: Option<&serde_json::Value>, label: &str) -> S
         "@file.path" => Some(hit.file_path.display().to_string()),
         "@file.size" => Some(hit.file_size.to_string()),
         "@file.status" => Some(hit.file_status.code().to_string()),
-        "@file.created" => Some(
-            hit.file_created_ns
-                .map_or("null".into(), |value| value.to_string()),
-        ),
-        "@file.modified" => Some(hit.modified_ns.to_string()),
+        "@file.created" => Some(hit.file_created_ns.map_or("null".into(), |value| {
+            format!("{} ms", signed_milliseconds_3(value))
+        })),
+        "@file.modified" => Some(format!("{} ms", signed_milliseconds_3(hit.modified_ns))),
         "@collection.name" => Some(hit.collection.clone()),
         _ => None,
     };

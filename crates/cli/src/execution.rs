@@ -22,7 +22,7 @@ use objekte_search_core::workload::BigramAlphabet;
 use serde_json::json;
 
 use objekte_cli::arguments::{Alphabet, Arguments, ResolvedPaths};
-use objekte_cli::output::EventWriter;
+use objekte_cli::output::{EventWriter, counters_with_ms, milliseconds_value as ms};
 use objekte_cli::query_input::{QueryInput, QueryKind, QuerySource};
 
 pub fn run_tui(args: &Arguments, token: &CancellationToken) -> Exit {
@@ -280,7 +280,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
                 if let Err(error) = output
                     .emit(
                         json!({"type":"run_error", "stage":"startup", "error":message,
-                "elapsed_ns":started.elapsed().as_nanos()}),
+                "elapsed_ms":ms(started.elapsed().as_nanos())}),
                     )
                     .and_then(|_| output.flush())
                 {
@@ -297,7 +297,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             if let Err(error) = output
                 .emit(
                     json!({"type":"run_error", "stage":"query_input", "error":message,
-                "elapsed_ns":started.elapsed().as_nanos()}),
+                "elapsed_ms":ms(started.elapsed().as_nanos())}),
                 )
                 .and_then(|_| output.flush())
             {
@@ -321,7 +321,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
                 if let Err(error) = output
                     .emit(json!({"type":"run_error", "stage":"query_input",
                     "error":message, "query_successes":successes, "query_errors":failures,
-                    "elapsed_ns":started.elapsed().as_nanos()}))
+                    "elapsed_ms":ms(started.elapsed().as_nanos())}))
                     .and_then(|_| output.flush())
                 {
                     return output_failure(error);
@@ -355,7 +355,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         if let Err(error) = output
             .emit(
                 json!({"type":"run_error", "stage":"query_input", "error":message,
-            "elapsed_ns":started.elapsed().as_nanos()}),
+            "elapsed_ms":ms(started.elapsed().as_nanos())}),
             )
             .and_then(|_| output.flush())
         {
@@ -380,36 +380,11 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         .flat_map(|item| &item.generation.records)
         .filter(|record| record.class == RecordClass::RawFallback)
         .count();
-    let automatic_index_paths = args.diagnostic.then(|| {
-        repo.collections()
-            .iter()
-            .find(|collection| collection.definition.name == "files")
-            .and_then(|collection| collection.inference.as_ref())
-            .map(|inference| {
-                let mut fields = inference.report.fields.iter().collect::<Vec<_>>();
-                fields.sort_unstable_by(|left, right| left.path.cmp(&right.path));
-                fields
-                    .into_iter()
-                    .map(|field| {
-                        let posting = inference.indexes.get(&field.path);
-                        json!({
-                            "path": field.path,
-                            "index_status": field.index_status,
-                            "reason": field.reason,
-                            "observed_kinds": field.observed_kinds,
-                            "kind": posting.map(|index| &index.kind),
-                            "multi": posting.map(|index| index.multi),
-                            "value_keys": posting.map(|index| index.values.len()),
-                            "length_keys": posting.map(|index| index.lengths.len()),
-                            "covered_records": posting.map(|index| index.covered_records),
-                            "present_records": field.present_records,
-                            "short_string_covered_records": field.short_string_covered_records,
-                            "short_string_unresolved_records": field.short_string_unresolved_records,
-                        })
-                    })
-                    .collect::<Vec<_>>()
-            })
-    }).flatten();
+    let automatic_index_paths = if args.diagnostic {
+        repo.inference_index_diagnostics("files")
+    } else {
+        None
+    };
     let mut event = json!({
         "type": terminal,
         "query_successes": successes,
@@ -419,14 +394,14 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
         "fallback_records": fallback,
         "build_parses": repo.build_parses(),
         "build_failed_parses": repo.build_failed_parses(),
-        "startup_ns": startup_ns,
-        "build_ns": stats.build_ns,
-        "discovery_ns": stats.build_discovery_ns,
-        "extraction_index_ns": stats.build_extraction_index_ns,
-        "finalization_ns": stats.build_finalization_ns,
-        "snapshot_decode_ns": stats.snapshot_decode_ns,
-        "reconciliation_ns": stats.reconciliation_ns,
-        "snapshot_write_ns": stats.snapshot_write_ns,
+        "startup_ms": ms(startup_ns),
+        "build_ms": ms(stats.build_ns as u128),
+        "discovery_ms": ms(stats.build_discovery_ns as u128),
+        "extraction_index_ms": ms(stats.build_extraction_index_ns as u128),
+        "finalization_ms": ms(stats.build_finalization_ns as u128),
+        "snapshot_decode_ms": ms(stats.snapshot_decode_ns as u128),
+        "reconciliation_ms": ms(stats.reconciliation_ns as u128),
+        "snapshot_write_ms": ms(stats.snapshot_write_ns as u128),
         "snapshot_action": snapshot_action(stats.snapshot_action),
         "snapshot_restore_error": stats.snapshot_restore_error,
         "inference": if args.auto_index { "auto_index" } else { "disabled" },
@@ -447,7 +422,7 @@ pub fn run<W: Write>(args: &Arguments, writer: W, token: &CancellationToken) -> 
             "incompatible_fields": report.fields.iter().filter(|field| field.index_status == InferenceIndexStatus::Incompatible).count(),
             "retained_bytes_estimate": report.retained_bytes_estimate,
         })),
-        "elapsed_ns": started.elapsed().as_nanos(),
+        "elapsed_ms": ms(started.elapsed().as_nanos()),
     });
     if let Some(paths) = automatic_index_paths {
         event["automatic_index_paths"] = json!(paths);
@@ -470,7 +445,7 @@ fn cancel_run<W: Write>(
 ) -> Exit {
     match output
         .emit(json!({"type":"run_cancelled", "query_successes":successes,
-            "query_errors":failures, "elapsed_ns":started.elapsed().as_nanos()}))
+            "query_errors":failures, "elapsed_ms":ms(started.elapsed().as_nanos())}))
         .and_then(|_| output.flush())
     {
         Ok(()) => Exit::Cancelled,
@@ -516,7 +491,7 @@ fn execute_query<W: Write>(
                 .emit(json!({"type":"query_error", "query_id":query_id,
                 "line":input.line, "error":message, "stage":"input",
                 "emitted_rows":0, "observed_matches":0, "exact_total":null,
-                "total_exact":false, "query_wall_ns":started.elapsed().as_nanos()}))
+                "total_exact":false, "query_wall_ms":ms(started.elapsed().as_nanos())}))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -586,9 +561,9 @@ fn execute_query<W: Write>(
                 "decoded_fts":decoded_fts, "complete":true,
                 "emitted_rows":emitted, "observed_matches":summary.progress.observed_matches,
                 "exact_total":summary.count, "total_exact":summary.count.is_some(),
-                "counters":summary.counters, "preparation_ns":preparation_ns,
-                "search_ns":search_ns, "sink_ns":sink_ns,
-                "query_wall_ns":started.elapsed().as_nanos(), "first_hit_ns":first_hit_ns,
+                "counters":counters_with_ms(&summary.counters), "preparation_ms":ms(preparation_ns),
+                "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
+                "query_wall_ms":ms(started.elapsed().as_nanos()), "first_hit_ms":first_hit_ns.map(ms),
             });
             if let Err(error) = output.emit(event).and_then(|_| output.flush()) {
                 return output_failure(error);
@@ -600,9 +575,9 @@ fn execute_query<W: Write>(
                 .emit(json!({"type":"query_cancelled", "query_id":query_id,
                 "line":input.line, "emitted_rows":emitted,
                 "observed_matches":progress.observed_matches, "exact_total":null,
-                "total_exact":false, "preparation_ns":preparation_ns,
-                "search_ns":search_ns, "sink_ns":sink_ns,
-                "query_wall_ns":started.elapsed().as_nanos()}))
+                "total_exact":false, "preparation_ms":ms(preparation_ns),
+                "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
+                "query_wall_ms":ms(started.elapsed().as_nanos())}))
                 .and_then(|_| output.flush())
             {
                 return output_failure(error);
@@ -624,8 +599,8 @@ fn execute_query<W: Write>(
                 "emitted_rows":emitted, "observed_matches":progress.observed_matches,
                 "processed_candidates":progress.processed_candidates,
                 "progress_final":false, "exact_total":null, "total_exact":false,
-                "preparation_ns":preparation_ns, "search_ns":search_ns, "sink_ns":sink_ns,
-                "query_wall_ns":started.elapsed().as_nanos()}))
+                "preparation_ms":ms(preparation_ns), "search_ms":ms(search_ns), "sink_ms":ms(sink_ns),
+                "query_wall_ms":ms(started.elapsed().as_nanos())}))
                 .and_then(|_| output.flush())
             {
                 return output_failure(write_error);

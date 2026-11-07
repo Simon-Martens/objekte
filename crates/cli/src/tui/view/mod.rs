@@ -6,6 +6,7 @@ pub(super) mod theme;
 use super::app::{App, Focus, Overlay, View};
 use super::input::Input;
 use super::record;
+use objekte_search_core::diagnostics::milliseconds_3;
 use objekte_search_core::inventory::FileStatus;
 use objekte_search_core::repository::SearchHit;
 use ratatui::{
@@ -22,11 +23,7 @@ use theme::*;
 use unicode_width::{UnicodeWidthChar, UnicodeWidthStr};
 
 pub(super) fn elapsed_label(elapsed: Duration) -> String {
-    if elapsed.as_secs() > 0 {
-        format!("{:.1} s", elapsed.as_secs_f64())
-    } else {
-        format!("{:.3} ms", elapsed.as_secs_f64() * 1_000.0)
-    }
+    format!("{} ms", milliseconds_3(elapsed.as_nanos()))
 }
 
 #[cfg(test)]

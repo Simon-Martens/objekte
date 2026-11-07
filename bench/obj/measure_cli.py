@@ -51,7 +51,7 @@ def measure(binary: Path, output: Path, command: list[str], keep_output: bool) -
     return {
         "command": [str(binary), *command],
         "exit_code": result.returncode,
-        "process_wall_ns": elapsed_ns,
+        "process_wall_ms": round(elapsed_ns / 1e6, 3),
         "peak_rss_kib": peak,
         "stderr": result.stderr,
         "query": next((event for event in events if event["type"] == "query_complete"), None),
@@ -104,9 +104,10 @@ def main() -> None:
                         raise RuntimeError(f"{alphabet}/{dataset}/{name}/{index}: {sample['stderr']} {sample['terminal_events']}")
                     samples.append(sample)
                 results.append({"alphabet": alphabet, "dataset": dataset, "scenario": name, "samples": samples})
-                wall = statistics.median(sample["process_wall_ns"] / 1e6 for sample in samples)
-                query = statistics.median(sample["query"]["query_wall_ns"] / 1e6 for sample in samples if sample["query"]) if samples[0]["query"] else None
-                print(f"{alphabet:7} {dataset:7} {name:19} process={wall:.3f} ms query={query}", flush=True)
+                wall = statistics.median(sample["process_wall_ms"] for sample in samples)
+                query = statistics.median(sample["query"]["query_wall_ms"] for sample in samples if sample["query"]) if samples[0]["query"] else None
+                query_label = f"{query:.3f} ms" if query is not None else "—"
+                print(f"{alphabet:7} {dataset:7} {name:19} process={wall:.3f} ms query={query_label}", flush=True)
     manifest = {
         "code_revision": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
         "binary": str(binary),

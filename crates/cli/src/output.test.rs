@@ -34,3 +34,24 @@ fn event_sequence_is_monotonic() {
     output.emit(json!({"type": "run_complete"})).unwrap();
     assert_eq!(output.sequence(), 2);
 }
+
+#[test]
+fn diagnostic_timings_are_numeric_milliseconds_with_three_decimals() {
+    assert_eq!(
+        serde_json::to_string(&milliseconds_value(2_000_000)).unwrap(),
+        "2.000"
+    );
+    assert_eq!(
+        serde_json::to_string(&milliseconds_value(1_234_567)).unwrap(),
+        "1.235"
+    );
+    let counters = WorkCounters {
+        preparation_ns: 2_000_000,
+        planning_ns: 1_234_567,
+        ..WorkCounters::default()
+    };
+    let encoded = serde_json::to_string(&counters_with_ms(&counters)).unwrap();
+    assert!(encoded.contains("\"preparation_ms\":2.000"));
+    assert!(encoded.contains("\"planning_ms\":1.235"));
+    assert!(!encoded.contains("_ns"));
+}

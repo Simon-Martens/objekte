@@ -71,7 +71,7 @@ fn loading_screen_shows_index_progress_before_repository_is_ready() {
         .unwrap();
     let screen = format!("{:?}", terminal.backend().buffer());
     assert!(screen.contains("Building search index"));
-    assert!(screen.contains("12.0 s"));
+    assert!(screen.contains("12000.000 ms"));
     assert!(screen.contains("Ctrl+Q quit"));
 }
 

@@ -193,6 +193,27 @@ pub struct InferenceReport {
     pub fields: Vec<InferredFieldReport>,
 }
 
+/// One observed path and its ordered posting admission outcome.
+///
+/// A built index owns B-tree value and length dictionaries, even when either
+/// dictionary has no keys. Multivalued and partially covered strings can
+/// still require source verification for particular queries.
+#[derive(Clone, Debug, Eq, PartialEq, Serialize, Deserialize)]
+pub struct InferencePathDiagnostic {
+    pub path: Vec<String>,
+    pub index_status: InferenceIndexStatus,
+    pub reason: String,
+    pub observed_kinds: Vec<LogicalType>,
+    pub kind: Option<LogicalType>,
+    pub multi: Option<bool>,
+    pub value_keys: Option<usize>,
+    pub length_keys: Option<usize>,
+    pub covered_records: Option<u32>,
+    pub present_records: u64,
+    pub short_string_covered_records: u64,
+    pub short_string_unresolved_records: u64,
+}
+
 /// Published optional indexes and their descriptive report.
 #[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct InferenceState {
@@ -205,6 +226,31 @@ pub struct InferenceState {
 }
 
 impl InferenceState {
+    pub(crate) fn path_diagnostics(&self) -> Vec<InferencePathDiagnostic> {
+        let mut fields = self.report.fields.iter().collect::<Vec<_>>();
+        fields.sort_unstable_by(|left, right| left.path.cmp(&right.path));
+        fields
+            .into_iter()
+            .map(|field| {
+                let posting = self.indexes.get(&field.path);
+                InferencePathDiagnostic {
+                    path: field.path.clone(),
+                    index_status: field.index_status,
+                    reason: field.reason.clone(),
+                    observed_kinds: field.observed_kinds.clone(),
+                    kind: posting.map(|index| index.kind.clone()),
+                    multi: posting.map(|index| index.multi),
+                    value_keys: posting.map(|index| index.values.len()),
+                    length_keys: posting.map(|index| index.lengths.len()),
+                    covered_records: posting.map(|index| index.covered_records),
+                    present_records: field.present_records,
+                    short_string_covered_records: field.short_string_covered_records,
+                    short_string_unresolved_records: field.short_string_unresolved_records,
+                }
+            })
+            .collect()
+    }
+
     /// A sort may read values from postings only when every logical scalar
     /// selection has a key or a known null/missing state.
     pub(crate) fn complete_scalar_index(

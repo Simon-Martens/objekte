@@ -7,6 +7,7 @@ use clap::Parser;
 use objekte_search_core::streaming::CancellationToken;
 
 use objekte_cli::arguments::Arguments;
+use objekte_cli::output::milliseconds_value;
 
 fn main() {
     let args = Arguments::parse();
@@ -26,11 +27,14 @@ fn main() {
     if args.diagnostic {
         let timestamp_ms = SystemTime::now()
             .duration_since(SystemTime::UNIX_EPOCH)
-            .map_or(0, |duration| duration.as_millis());
+            .map_or_else(
+                |_| milliseconds_value(0),
+                |duration| milliseconds_value(duration.as_nanos()),
+            );
         let success = matches!(exit, execution::Exit::Success | execution::Exit::PipeClosed);
         let diagnostic = serde_json::json!({
             "timestamp_ms": timestamp_ms,
-            "elapsed_ms": started.elapsed().as_millis(),
+            "elapsed_ms": milliseconds_value(started.elapsed().as_nanos()),
             "level": if success { "info" } else { "error" },
             "message": if success { "obj command completed" } else { "obj command failed" },
         });

@@ -357,7 +357,7 @@ fn default_folder_admits_root_shapes_and_hidden_json() {
     assert_eq!(events[0]["inference"], "disabled");
     for (index, event) in events.iter().enumerate() {
         assert_eq!(event["sequence"], (index + 1) as u64);
-        assert_eq!(event["protocol_version"], 1);
+        assert_eq!(event["protocol_version"], 2);
     }
     let (result, events) = invoke(root.path(), &["--no-recurse", "--fts", "needle"]);
     assert!(result.status.success());
@@ -570,7 +570,68 @@ fn diagnostic_flag_keeps_stdout_structured_and_reports_stderr_json() {
     assert_eq!(hits(&events).len(), 1);
     let diagnostic: Value = serde_json::from_slice(&result.stderr).unwrap();
     assert_eq!(diagnostic["level"], "info");
-    assert!(diagnostic["timestamp_ms"].as_u64().is_some());
+    assert!(diagnostic["timestamp_ms"].as_f64().is_some());
+    for field in ["timestamp_ms", "elapsed_ms"] {
+        let text = diagnostic[field].as_number().unwrap().to_string();
+        assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
+    }
+}
+
+#[test]
+fn protocol_timings_and_file_timestamps_are_milliseconds_with_three_decimals() {
+    let root = tempfile::tempdir().unwrap();
+    std::fs::write(root.path().join("one.json"), br#"{"text":"needle"}"#).unwrap();
+    let (result, events) = invoke(root.path(), &["--fts", "needle"]);
+    assert!(result.status.success());
+    let three_decimals = |value: &Value| {
+        let text = value.as_number().expect("numeric milliseconds").to_string();
+        assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
+    };
+    for event in &events {
+        assert_eq!(event["protocol_version"], 2);
+        assert!(
+            !event
+                .as_object()
+                .unwrap()
+                .keys()
+                .any(|key| key.ends_with("_ns"))
+        );
+    }
+    let hit = hits(&events)[0];
+    three_decimals(&hit["file"]["modified_ms"]);
+    if !hit["file"]["created_ms"].is_null() {
+        three_decimals(&hit["file"]["created_ms"]);
+    }
+    let query = events
+        .iter()
+        .find(|event| event["type"] == "query_complete")
+        .unwrap();
+    for field in [
+        "preparation_ms",
+        "search_ms",
+        "sink_ms",
+        "query_wall_ms",
+        "first_hit_ms",
+    ] {
+        three_decimals(&query[field]);
+    }
+    for field in ["preparation_ms", "planning_ms"] {
+        three_decimals(&query["counters"][field]);
+    }
+    let run = events.last().unwrap();
+    for field in [
+        "startup_ms",
+        "build_ms",
+        "discovery_ms",
+        "extraction_index_ms",
+        "finalization_ms",
+        "snapshot_decode_ms",
+        "reconciliation_ms",
+        "snapshot_write_ms",
+        "elapsed_ms",
+    ] {
+        three_decimals(&run[field]);
+    }
 }
 
 #[test]
@@ -761,6 +822,17 @@ fn malformed_query_line_is_terminal_but_later_lines_execute() {
         2
     );
     assert_eq!(events.last().unwrap()["type"], "run_error");
+    let error = events
+        .iter()
+        .find(|event| event["type"] == "query_error")
+        .unwrap();
+    for value in [
+        &error["query_wall_ms"],
+        &events.last().unwrap()["elapsed_ms"],
+    ] {
+        let text = value.as_number().unwrap().to_string();
+        assert_eq!(text.split_once('.').unwrap().1.len(), 3, "{text}");
+    }
 }
 
 #[test]
