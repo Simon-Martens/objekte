@@ -379,7 +379,7 @@ impl ComputedSort {
                 Ok(SortKey::String(key))
             }
             Value::Id(text) => Ok(SortKey::Id(text.clone())),
-            Value::Number(number) => Ok(SortKey::Number(*number)),
+            Value::Number(number) => Ok(SortKey::Number(number.clone())),
             Value::Bool(value) => Ok(SortKey::Bool(*value)),
             Value::Date(value) => Ok(SortKey::Date(*value)),
             Value::Datetime(value) => Ok(SortKey::Datetime(*value)),

@@ -93,6 +93,12 @@ impl FieldState {
                 self.fractional_number = true;
                 LogicalType::Number
             }
+            Value::Number(Number::ExactDecimal(_)) => {
+                self.value_occurrences = self.value_occurrences.saturating_add(1);
+                self.kind(LogicalType::Number);
+                self.drop_values();
+                return retained;
+            }
             Value::String(_) => LogicalType::String,
             Value::Id(_) => LogicalType::Id,
             Value::Date(_) => LogicalType::Date,

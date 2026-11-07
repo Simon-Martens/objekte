@@ -49,6 +49,7 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         ("number", "123"),
         ("null", "null"),
         ("object", r#"{"title":"Goethe","values":["first",123]}"#),
+        ("quoted", r#"{"@root":"real","a.b":"dot","":"empty"}"#),
     ] {
         std::fs::write(root.join(format!("data/{name}.json")), json).unwrap();
     }
@@ -65,16 +66,25 @@ fn root_queries_match_reference_over_mixed_json_documents() {
         },
     )
     .unwrap();
-    assert_eq!(repo.collections[0].generation.records.len(), 5);
+    assert_eq!(repo.collections[0].generation.records.len(), 6);
     for (filter, expected) in [
         ("@root = 'first'", vec!["path:string.json"]),
         ("@root = 123", vec!["path:number.json"]),
+        ("@root :null", vec!["path:null.json"]),
         ("@root[0] = 'first'", vec!["path:array.json"]),
+        ("@root[0] = @root[0]", vec!["path:array.json"]),
+        (
+            "@root ?= 'first'",
+            vec!["path:array.json", "path:string.json"],
+        ),
         ("@root[*].title ~ 'Goethe'", vec!["path:array.json"]),
         (
             "@root.title ~ 'Goethe'",
             vec!["path:array.json", "path:object.json"],
         ),
+        ("@root[\"a.b\"] = 'dot'", vec!["path:quoted.json"]),
+        ("@root[\"\"] = 'empty'", vec!["path:quoted.json"]),
+        ("[\"@root\"] = 'real'", vec!["path:quoted.json"]),
     ] {
         let query = Query {
             collections: vec!["data".into()],
@@ -150,6 +160,97 @@ fn declared_schema_keeps_scalar_root_as_diagnosed_fallback() {
 }
 
 #[test]
+fn exceptional_numbers_do_not_demote_array_roots_or_dynamic_predicates() {
+    use crate::inventory::RecordClass;
+    use crate::query::{Query, QueryOptions, parse_filter};
+    use crate::repository::{
+        CollectionDefinition, IdentityPolicy, Repository, RepositoryOptions, SnapshotMode,
+    };
+    use crate::workload::ReturnMode;
+
+    let root =
+        std::env::temp_dir().join(format!("objekte-exact-json-numbers-{}", std::process::id()));
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(root.join("data")).unwrap();
+    std::fs::write(
+        root.join("data/array.json"),
+        b" [ \"first\", 1e1000000, true ] \n",
+    )
+    .unwrap();
+    std::fs::write(root.join("data/object.json"), br#"{"n":-1e-1000000}"#).unwrap();
+    let mut definition =
+        CollectionDefinition::folder("data", "data", SourceFormat::JsonDecodedScalars);
+    definition.identity = IdentityPolicy::RelativePath;
+    let repo = Repository::open_with_options(
+        &root,
+        vec![definition],
+        RepositoryOptions {
+            snapshot_mode: SnapshotMode::Disabled,
+            ..Default::default()
+        },
+    )
+    .unwrap();
+    assert!(
+        repo.collections[0]
+            .generation
+            .records
+            .iter()
+            .all(|record| record.class == RecordClass::Logical)
+    );
+    for (filter, expected) in [
+        ("@root[0] = 'first'", vec!["path:array.json"]),
+        ("@root[1] = 1e1000000", vec!["path:array.json"]),
+        ("n < 0", vec!["path:object.json"]),
+        ("n = -1e-1000000", vec!["path:object.json"]),
+    ] {
+        let query = Query {
+            collections: vec!["data".into()],
+            fts: None,
+            filter: Some(parse_filter(filter).unwrap()),
+            options: QueryOptions {
+                sort: vec![],
+                limit: 20,
+                offset: 0,
+                count: true,
+                return_mode: ReturnMode::Locator,
+                evidence: false,
+            },
+        };
+        let optimized = repo.search(&query).unwrap();
+        let reference = repo.search_reference(&query).unwrap();
+        let ids = |result: &crate::repository::SearchResult| {
+            result
+                .hits
+                .iter()
+                .map(|hit| hit.record_id.clone())
+                .collect::<Vec<_>>()
+        };
+        assert_eq!(ids(&optimized), expected, "{filter}");
+        assert_eq!(ids(&optimized), ids(&reference), "{filter}");
+    }
+    std::fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
+fn valid_json_beyond_numeric_resource_limit_is_fatal_not_malformed_fallback() {
+    let reader = JsonDecodedScalarsReader;
+    let result = reader.parse_outcome(br#"{"n":1e99999999999999999999}"#);
+    assert!(
+        matches!(result, Err(ReaderFailure::Fatal(message)) if message.contains("resource limit"))
+    );
+}
+
+#[test]
+fn syntactically_valid_deep_json_reports_resource_limit() {
+    let reader = JsonDecodedScalarsReader;
+    let nested = format!("{}0{}", "[".repeat(130), "]".repeat(130));
+    let result = reader.parse_outcome(nested.as_bytes());
+    assert!(
+        matches!(result, Err(ReaderFailure::Fatal(message)) if message.contains("recursion limit"))
+    );
+}
+
+#[test]
 fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
     use crate::query::{CaseSensitivity, FtsField, FtsMode, FtsQuery, Query, QueryOptions};
     use crate::repository::{
@@ -181,6 +282,7 @@ fn decoded_scalar_fts_matches_tokens_and_preserves_duplicate_name_rules() {
         ("old", None, &["path:one.json"]),
         ("old", Some("title"), &[]),
         ("new", Some("title"), &["path:one.json"]),
+        ("1e0", Some("@root"), &["path:two.json"]),
     ];
     for alphabet in [BigramAlphabet::Ascii, BigramAlphabet::Unicode] {
         let mut definition =
