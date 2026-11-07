@@ -735,7 +735,6 @@ impl Repository {
         options.inference.validate()?;
         crate::relation::validate_definitions(&definitions)?;
         options.snapshot_mode = policy.mode;
-        let started = Instant::now();
         let root = root.into().canonicalize().map_err(|e| e.to_string())?;
         let snapshot_directory = policy
             .directory
@@ -829,6 +828,8 @@ impl Repository {
             }
             rebuilt = true;
         }
+        // Keep source construction separate from the optional restore attempt.
+        let build_started = Instant::now();
         let mut repo = Self::build_fresh(root, definitions, options, &sources)?;
         for collection in &mut repo.collections {
             if let Some(previous) = previous_generations.get(&collection.definition.name) {
@@ -839,7 +840,7 @@ impl Repository {
         repo.startup.snapshot_decode_ns = decode_ns;
         repo.startup.reconciliation_ns = reconciliation_ns;
         repo.startup.snapshot_restore_error = restore_error;
-        repo.startup.build_ns = started.elapsed().as_nanos() as u64;
+        repo.startup.build_ns = build_started.elapsed().as_nanos() as u64;
         if matches!(
             options.snapshot_mode,
             SnapshotMode::ReadWrite | SnapshotMode::Rebuild

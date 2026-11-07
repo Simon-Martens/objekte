@@ -84,6 +84,16 @@ fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
         SnapshotAction::RebuiltAndWritten
     );
     assert_eq!(rebuilt.build_parses(), 2);
+    let phases = rebuilt.startup();
+    assert!(phases.snapshot_decode_ns > 0);
+    assert!(phases.reconciliation_ns > 0);
+    assert!(
+        phases.build_ns
+            >= phases
+                .build_discovery_ns
+                .saturating_add(phases.build_extraction_index_ns)
+                .saturating_add(phases.build_finalization_ns)
+    );
     assert_ne!(fs::read(&snapshot).unwrap(), original);
 
     fs::write(&snapshot, b"corrupt").unwrap();

@@ -204,6 +204,48 @@ fn all_scope_computed_order_materializes_after_key_barrier() {
 }
 
 #[test]
+fn all_scope_huge_batch_row_hint_keeps_byte_bounded_delivery() {
+    let fixture = fixture_with_count(BigramAlphabet::Ascii, 65);
+    let mut request = query("kind = 'yes'", false, true, ReturnMode::Bytes);
+    request.options.sort = vec![SortField {
+        field: "body".into(),
+        descending: false,
+        expression: None,
+    }];
+    let mut events = 0;
+    let mut returned = 0;
+    let outcome = fixture
+        .repo
+        .search_stream_scoped(
+            &request,
+            ResultScope::All { offset: 0 },
+            StreamOptions {
+                batch_rows: usize::MAX,
+                max_event_bytes: 2048,
+                max_buffered_bytes: 64 * 1024,
+                ..Default::default()
+            },
+            &CancellationToken::new(),
+            &mut |event| {
+                if let StreamEvent::OrderedRows { rows, .. } = event {
+                    events += 1;
+                    returned += rows.len();
+                }
+                Ok(StreamControl::Continue)
+            },
+        )
+        .unwrap();
+    let StreamOutcome::Complete(summary) = outcome else {
+        panic!("expected complete")
+    };
+    assert_eq!(summary.count, Some(65));
+    assert_eq!(summary.returned_rows, 65);
+    assert_eq!(returned, 65);
+    assert!(events > 1);
+    assert!(summary.progress.peak_buffered_bytes <= 64 * 1024);
+}
+
+#[test]
 fn scoped_page_zero_count_and_all_cancellation_are_distinct() {
     let fixture = fixture_with_count(BigramAlphabet::Ascii, 61);
     let mut request = query("kind = 'yes'", false, true, ReturnMode::Locator);

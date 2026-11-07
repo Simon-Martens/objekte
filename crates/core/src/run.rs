@@ -2026,7 +2026,8 @@ fn deliver_ranked_all(
         return Ok(());
     }
     let mut source_access = SourceAccessSession::new(&repo.files);
-    let mut batch = Vec::with_capacity(delivery.options().batch_rows);
+    // `batch_rows` is caller-controlled; byte limits govern allocation growth.
+    let mut batch = Vec::new();
     for mut hit in std::mem::take(&mut result.hits).into_iter().skip(offset) {
         delivery.check()?;
         let source_bytes =
@@ -2087,10 +2088,7 @@ fn deliver_ranked_all(
         delivery.check_buffer(batch.iter().fold(0usize, |total, row| {
             total.saturating_add(crate::streaming::hit_bytes(row))
         }))?;
-        if batch.len() >= delivery.options().batch_rows {
-            delivery.ordered_batch(&batch, &result.counters)?;
-            batch.clear();
-        }
+        flush_all_batch_if_full(delivery, &mut batch, &result.counters)?;
     }
     delivery.ordered_batch(&batch, &result.counters)?;
     result.counters.returned_records = delivery.progress.emitted_rows;
@@ -2341,6 +2339,28 @@ fn prepare_all_batch(
     {
         delivery.ordered_batch(page, counters)?;
         page.clear();
+    }
+    Ok(())
+}
+
+fn flush_all_batch_if_full(
+    delivery: &mut Delivery<'_>,
+    batch: &mut Vec<SearchHit>,
+    counters: &WorkCounters,
+) -> Result<(), String> {
+    let mut bytes = batch.iter().fold(0usize, |total, hit| {
+        total.saturating_add(crate::streaming::hit_bytes(hit))
+    });
+    if bytes > delivery.options().max_event_bytes && batch.len() > 1 {
+        let last = batch.pop().ok_or("all-results batch missing final row")?;
+        delivery.ordered_batch(batch, counters)?;
+        batch.clear();
+        bytes = crate::streaming::hit_bytes(&last);
+        batch.push(last);
+    }
+    if batch.len() >= delivery.options().batch_rows || bytes > delivery.options().max_event_bytes {
+        delivery.ordered_batch(batch, counters)?;
+        batch.clear();
     }
     Ok(())
 }
@@ -2729,10 +2749,7 @@ fn try_stored_order_page(
                         delivery
                             .check_buffer(page.iter().map(crate::streaming::hit_bytes).sum())?;
                         if all_offset.is_some() {
-                            if page.len() >= delivery.options().batch_rows {
-                                delivery.ordered_batch(&page, &counters)?;
-                                page.clear();
-                            }
+                            flush_all_batch_if_full(delivery, &mut page, &counters)?;
                         } else {
                             delivery.ordered_rows(
                                 &page,
