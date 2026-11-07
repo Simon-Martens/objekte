@@ -140,12 +140,23 @@ fn mouse_event(app: &mut App, mouse: MouseEvent) {
             if app.view == View::Detail
                 && !app.record.raw
                 && inside(app.detail_area)
-                && mouse.row > app.detail_area.y
-                && mouse.row + 1 < app.detail_area.bottom()
             {
-                let visible = mouse.row.saturating_sub(app.detail_area.y + 1) as usize;
-                app.record.cursor = app.record.scroll.saturating_add(visible);
-                app.toggle_detail_branch();
+                let visible = mouse.row.saturating_sub(app.detail_area.y) as usize;
+                let target = app
+                    .record
+                    .visible_rows
+                    .get(visible)
+                    .copied()
+                    .or_else(|| {
+                        app.record
+                            .visible_rows
+                            .is_empty()
+                            .then(|| app.record.scroll.saturating_add(visible))
+                    });
+                if let Some(target) = target {
+                    app.record.cursor = target;
+                    app.toggle_detail_branch();
+                }
             } else if app.view == View::Results && inside(app.results_area) {
                 let visible = mouse.row.saturating_sub(app.results_area.y + 1) as usize;
                 let index = app.scroll.saturating_add(visible);
@@ -377,6 +388,8 @@ fn key(app: &mut App, key: KeyEvent) {
     }
     if app.view == View::Detail {
         match key.code {
+            KeyCode::Tab => app.cycle_detail_section(!key.modifiers.contains(KeyModifiers::SHIFT)),
+            KeyCode::BackTab => app.cycle_detail_section(false),
             KeyCode::Left if key.modifiers.contains(KeyModifiers::ALT) => {
                 app.adjacent_result(false)
             }

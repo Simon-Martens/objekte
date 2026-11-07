@@ -66,13 +66,14 @@ pub(super) fn rows(repo: &Repository, hit: &SearchHit) -> Vec<RelationRow> {
         Ok(graph) => graph,
         Err(error) => return vec![RelationRow::plain("Relation inspection error", error)],
     };
-    let mut rows = Vec::new();
+    let mut outgoing_rows = Vec::new();
+    let mut backlink_rows = Vec::new();
     for edge in &graph.edges {
         if collection_name(repo, edge.source) == hit.collection {
             let target = collection_name(repo, edge.target);
             let label = format!("{} → {target}", edge.path.join("."));
-            rows.push(RelationRow::plain("Outgoing", label));
-            rows.extend(outgoing(
+            outgoing_rows.push(RelationRow::plain("Outgoing", label));
+            outgoing_rows.extend(outgoing(
                 repo,
                 &hit.collection,
                 &edge.path,
@@ -84,14 +85,15 @@ pub(super) fn rows(repo: &Repository, hit: &SearchHit) -> Vec<RelationRow> {
             && let Some(alias) = &edge.reverse_alias
         {
             let source = collection_name(repo, edge.source);
-            rows.push(RelationRow::plain(
+            backlink_rows.push(RelationRow::plain(
                 "Backlinks",
                 format!("{alias} ← {source}"),
             ));
-            rows.extend(backlinks(repo, &hit.collection, alias, &hit.record_id, 0));
+            backlink_rows.extend(backlinks(repo, &hit.collection, alias, &hit.record_id, 0));
         }
     }
-    rows
+    outgoing_rows.extend(backlink_rows);
+    outgoing_rows
 }
 
 fn outgoing(

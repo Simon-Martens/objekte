@@ -107,6 +107,30 @@ fn sort_choices_apply_only_to_the_selected_collection() {
 }
 
 #[test]
+fn result_columns_prioritize_matches_filters_and_sort() {
+    let mut fixture = fixture(3);
+    let app = &mut fixture.app;
+    app.picker = 1;
+    app.choose_scope();
+    settled(app);
+    app.sort = Some(SortField {
+        field: "number".into(),
+        descending: false,
+    });
+    assert_eq!(app.visible_columns(), ["number", "title"]);
+
+    app.search = Input::with_text("needle");
+    app.request_search();
+    settled(app);
+    assert_eq!(app.visible_columns(), ["title", "number"]);
+
+    app.search.clear();
+    app.filter = Input::with_text("number >= 0");
+    app.sort = None;
+    assert_eq!(app.visible_columns(), ["number", "title"]);
+}
+
+#[test]
 fn history_saved_queries_and_columns_persist_in_old_settings_format() {
     let mut fixture = fixture(3);
     let app = &mut fixture.app;

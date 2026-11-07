@@ -13,7 +13,9 @@ use ratatui::{
     layout::{Constraint, Layout, Position, Rect},
     style::{Modifier, Style},
     text::{Line, Span},
-    widgets::{Block, Borders, Clear, Paragraph, Wrap},
+    widgets::{
+        Block, Borders, Clear, Paragraph, Scrollbar, ScrollbarOrientation, ScrollbarState, Wrap,
+    },
 };
 use std::time::Duration;
 use theme::*;
@@ -150,13 +152,13 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
                 summary,
             );
             if app.show_preview && body.width >= 110 && !app.hits.is_empty() {
-                let [table, preview] = Layout::horizontal([
+                let [table, preview_area] = Layout::horizontal([
                     Constraint::Fill(1),
                     Constraint::Length((body.width * 2 / 5).clamp(40, 72)),
                 ])
                 .areas(body);
                 results(frame, app, table);
-                detail(frame, app, preview);
+                preview(frame, app, preview_area);
             } else {
                 results(frame, app, body);
             }
@@ -173,9 +175,9 @@ pub(super) fn draw(frame: &mut Frame<'_>, app: &mut App) {
         ),
     }
     let hint = if app.view == View::Detail && footer.width >= 96 {
-        " Esc back · ↑↓ fields · Enter fold/open · Alt+←→ records · / find · y/Y copy · r raw"
+        " Esc back · Tab sections · ↑↓ fields · Enter open · Alt+←→ records · / find · y/Y copy · r raw"
     } else if app.view == View::Detail {
-        " Esc back · ↑↓ fields · Enter fold/open · / find · y/Y copy · r raw"
+        " Esc back · Tab sections · ↑↓ fields · Enter open · / find · y/Y copy · r raw"
     } else if footer.width < 78 {
         " Tab fields · ↑↓ rows · Enter open · Ctrl+K actions · F1 help"
     } else {
@@ -323,23 +325,28 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
     let id_width = if compact { 16usize } else { 24 };
     let field_width = if area.width >= 150 { 24 } else { 16 };
     let fixed = 4 + collection_width + 2 + id_width + 2;
-    let available = (area.width as usize).saturating_sub(fixed + 16);
-    let fields = app
-        .visible_columns()
+    let minimum_match_width =
+        (if compact { 18 } else { 24 }).min((area.width as usize).saturating_sub(fixed));
+    let available = (area.width as usize).saturating_sub(fixed + minimum_match_width + 2);
+    let columns = app.visible_columns();
+    let field_count = (available / (field_width + 2)).min(4).min(columns.len());
+    let match_width = minimum_match_width + available - field_count * (field_width + 2);
+    let fields = columns
         .into_iter()
         .skip(app.column_offset)
-        .take((available / (field_width + 2)).min(4))
+        .take(field_count)
         .collect::<Vec<_>>();
     let mut header = format!(
         "    {}  {}  ",
         pad_clip("collection", collection_width),
         pad_clip("id", id_width)
     );
+    header.push_str(&pad_clip("match / record", match_width));
+    header.push_str("  ");
     for field in &fields {
         header.push_str(&pad_clip(field, field_width));
         header.push_str("  ");
     }
-    header.push_str("match / record");
     frame.render_widget(
         Paragraph::new(header).style(Style::new().fg(DIM).add_modifier(Modifier::BOLD)),
         Rect { height: 1, ..area },
@@ -391,8 +398,9 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
             Span::raw("  "),
             Span::styled(pad_clip(&hit.record_id, id_width), Style::new().fg(DIM)),
             Span::raw("  "),
+            Span::styled(pad_clip(&summary, match_width), Style::new().fg(TEXT)),
+            Span::raw("  "),
         ];
-        let mut used = fixed;
         for field in &fields {
             let value = record::column_value(hit, field);
             spans.push(Span::styled(
@@ -404,20 +412,6 @@ fn results(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
                 }),
             ));
             spans.push(Span::raw("  "));
-            used += field_width + 2;
-        }
-        let remaining = (area.width as usize).saturating_sub(used);
-        if let Some((path, value)) = summary.split_once(": ") {
-            let label = clip(path, (remaining / 3).max(8));
-            let rest = remaining.saturating_sub(label.width() + 2);
-            spans.push(Span::styled(label, Style::new().fg(FAINT)));
-            spans.push(Span::styled(": ", Style::new().fg(FAINT)));
-            spans.push(Span::styled(clip(value, rest), Style::new().fg(TEXT)));
-        } else {
-            spans.push(Span::styled(
-                clip(&summary, remaining),
-                Style::new().fg(TEXT),
-            ));
         }
         frame.render_widget(
             Paragraph::new(Line::from(spans)).style(base),
@@ -461,35 +455,193 @@ fn record_summary(hit: &SearchHit) -> String {
     String::new()
 }
 
+fn mark_truncated(lines: &mut [String], width: usize) {
+    if let Some(last) = lines.last_mut() {
+        while last.width() + 1 > width {
+            last.pop();
+        }
+        last.push('…');
+    }
+}
+
+fn wrapped_record_value(text: &str, width: usize, max_lines: usize) -> Vec<String> {
+    if width == 0 || max_lines == 0 {
+        return vec![String::new()];
+    }
+    let mut lines = Vec::new();
+    let mut paragraphs = text.split('\n').peekable();
+    while let Some(paragraph) = paragraphs.next() {
+        let mut line = String::new();
+        for word in paragraph.split_whitespace() {
+            let mut remaining = word;
+            loop {
+                if !line.is_empty() {
+                    if line.width() + 1 + remaining.width() <= width {
+                        line.push(' ');
+                        line.push_str(remaining);
+                        break;
+                    }
+                    lines.push(std::mem::take(&mut line));
+                    if lines.len() == max_lines {
+                        mark_truncated(&mut lines, width);
+                        return lines;
+                    }
+                }
+                let mut split = remaining.len();
+                let mut used = 0;
+                for (offset, ch) in remaining.char_indices() {
+                    let next = used + UnicodeWidthChar::width(ch).unwrap_or(0);
+                    if next > width && offset > 0 {
+                        split = offset;
+                        break;
+                    }
+                    used = next;
+                }
+                let (part, rest) = remaining.split_at(split);
+                line.push_str(part);
+                if rest.is_empty() {
+                    break;
+                }
+                lines.push(std::mem::take(&mut line));
+                if lines.len() == max_lines {
+                    mark_truncated(&mut lines, width);
+                    return lines;
+                }
+                remaining = rest;
+            }
+        }
+        lines.push(line);
+        if lines.len() == max_lines {
+            if paragraphs.peek().is_some() {
+                mark_truncated(&mut lines, width);
+            }
+            return lines;
+        }
+    }
+    lines
+}
+
+fn detail_row_lines(
+    app: &App,
+    row: &record::RecordRow,
+    index: usize,
+    field_rows: usize,
+    name_width: usize,
+    width: usize,
+    height: usize,
+) -> Vec<Line<'static>> {
+    let chosen = app.view == View::Detail && index == app.record.cursor;
+    let base = if chosen {
+        Style::new().bg(SELECTED)
+    } else {
+        Style::new()
+    };
+    let heading = (index < field_rows
+        && row.depth == 0
+        && matches!(row.label.as_str(), "Fields" | "Metadata")
+        && row.value.is_empty())
+        || (index >= field_rows && matches!(row.label.as_str(), "Outgoing" | "Backlinks"));
+    let marker = if chosen {
+        "▌ "
+    } else if row.matched {
+        "▸ "
+    } else {
+        "  "
+    };
+    let label = if heading {
+        row.label.clone()
+    } else {
+        let branch = match &row.branch {
+            Some((path, array)) if app.record.is_folded(path, *array) => "▸ ",
+            Some(_) => "▾ ",
+            None => "  ",
+        };
+        format!("{}{}{}", "  ".repeat(row.depth.min(12)), branch, row.label)
+    };
+    let label_style = if heading || row.matched {
+        base.fg(ACCENT).add_modifier(Modifier::BOLD)
+    } else if chosen {
+        base.fg(TEXT).add_modifier(Modifier::BOLD)
+    } else {
+        base.fg(DIM)
+    };
+    let value_style = if row.value.starts_with("dangling") {
+        base.fg(RED)
+    } else if index >= field_rows && row.matched {
+        base.fg(VIOLET)
+    } else if heading {
+        base.fg(FAINT)
+    } else {
+        base.fg(TEXT)
+    };
+    let value_width = width.saturating_sub(name_width + 4);
+    let value = if index >= field_rows && row.matched {
+        format!("{}  →", row.value)
+    } else {
+        row.value.clone()
+    };
+    wrapped_record_value(&value, value_width, height.max(1))
+        .into_iter()
+        .enumerate()
+        .map(|(line, value)| {
+            let used = 2 + name_width + 2 + value.width();
+            Line::from(vec![
+                Span::styled(if line == 0 { marker } else { "  " }, base.fg(ACCENT)),
+                Span::styled(
+                    if line == 0 {
+                        pad_clip(&label, name_width)
+                    } else {
+                        " ".repeat(name_width)
+                    },
+                    label_style,
+                ),
+                Span::styled("  ", base),
+                Span::styled(value, value_style),
+                Span::styled(" ".repeat(width.saturating_sub(used)), base),
+            ])
+        })
+        .collect()
+}
+
 fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
-    app.detail_area = area;
     let Some(hit) = app.current_detail_hit().cloned() else {
         return;
     };
-    let title = format!(
-        " {} / {} [{}] ",
-        hit.collection,
-        hit.record_id,
-        hit.file_status.label()
+    let position = if app.selected_hit().is_some_and(|selected| {
+        selected.collection == hit.collection && selected.record_id == hit.record_id
+    }) {
+        format!("{} of {} ", app.selected + 1, app.total)
+    } else {
+        "linked record ".to_owned()
+    };
+    let status_color = match hit.file_status {
+        FileStatus::Valid => GREEN,
+        FileStatus::Broken | FileStatus::Unreadable => RED,
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(vec![
+            Span::styled(" ◂ ", Style::new().fg(ACCENT)),
+            Span::styled(hit.collection.clone(), Style::new().fg(VIOLET)),
+            Span::styled(" / ", Style::new().fg(FAINT)),
+            Span::styled(
+                hit.record_id.clone(),
+                Style::new().fg(TEXT).add_modifier(Modifier::BOLD),
+            ),
+            Span::styled("   ● ", Style::new().fg(status_color)),
+            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+        ])),
+        Rect { height: 1, ..area },
     );
-    let block = Block::default()
-        .title(title)
-        .borders(Borders::ALL)
-        .border_style(Style::new().fg(ACCENT));
-    if app.record.raw {
-        frame.render_widget(
-            Paragraph::new(record::raw_text(&hit))
-                .block(block)
-                .wrap(Wrap { trim: false })
-                .scroll((app.detail_scroll, 0)),
-            area,
-        );
-        return;
-    }
+    frame.render_widget(
+        Paragraph::new(Span::styled(position, Style::new().fg(DIM))).right_aligned(),
+        Rect { height: 1, ..area },
+    );
+
     let diagnostic = app
         .diagnostic(&hit)
         .map(|issue| format!("{}: {}", issue.code, issue.message));
     let mut rows = app.record.rows(&hit, diagnostic.as_deref());
+    let field_rows = rows.len();
     rows.extend(app.relation_rows.iter().map(|row| record::RecordRow {
         label: row.label.clone(),
         value: row.value.clone(),
@@ -497,56 +649,224 @@ fn detail(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
         matched: row.action.is_some(),
         branch: None,
     }));
-    let height = area.height.saturating_sub(2) as usize;
     app.record.cursor = app.record.cursor.min(rows.len().saturating_sub(1));
-    if app.record.cursor < app.record.scroll {
-        app.record.scroll = app.record.cursor;
-    } else if app.record.cursor >= app.record.scroll.saturating_add(height.max(1)) {
-        app.record.scroll = app.record.cursor + 1 - height.max(1);
-    }
-    let name_width = ((area.width as usize) * 2 / 5).clamp(12, 42);
-    let lines = rows
+    let section = rows
         .iter()
         .enumerate()
-        .skip(app.record.scroll)
-        .take(height)
-        .map(|(index, row)| {
-            let indent = "  ".repeat(row.depth.min(12));
-            let marker = match &row.branch {
-                Some((path, array)) if app.record.is_folded(path, *array) => "▸ ",
-                Some(_) => "▾ ",
-                None => "  ",
-            };
-            let label = format!(
-                "{}{}{}",
-                if index == app.record.cursor && app.view == View::Detail {
-                    "❯ "
-                } else {
-                    "  "
-                },
-                indent,
-                marker
-            );
-            let label = format!("{label}{}", row.label);
-            let value_width = (area.width as usize).saturating_sub(name_width + 3);
-            let content = format!(
-                "{} │ {}",
-                pad_clip(&label, name_width),
-                clip(&row.value, value_width)
-            );
-            Line::styled(
-                content,
-                Style::new().fg(if index == app.record.cursor && app.view == View::Detail {
-                    ACCENT
-                } else if row.matched {
-                    TEXT
-                } else {
-                    DIM
-                }),
-            )
+        .take(app.record.cursor + 1)
+        .filter_map(|(index, row)| {
+            (index >= field_rows).then_some(row.label.as_str()).and_then(|label| {
+                match label {
+                    "Outgoing" => Some(2),
+                    "Backlinks" => Some(3),
+                    _ => None,
+                }
+            })
         })
-        .collect::<Vec<_>>();
-    frame.render_widget(Paragraph::new(lines).block(block), area);
+        .last()
+        .unwrap_or(1);
+    let tab = |label: String, number| {
+        Span::styled(
+            format!(" {label} "),
+            if section == number {
+                Style::new()
+                    .fg(BACKGROUND_ON)
+                    .bg(ACCENT)
+                    .add_modifier(Modifier::BOLD)
+            } else {
+                Style::new().fg(DIM)
+            },
+        )
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(vec![
+            Span::raw("   "),
+            tab("1 Fields".into(), 1),
+            Span::raw("  "),
+            tab("2 Links".into(), 2),
+            Span::raw("  "),
+            tab("3 Backlinks".into(), 3),
+        ])),
+        Rect {
+            y: area.y + 1,
+            height: 1,
+            ..area
+        },
+    );
+    frame.render_widget(
+        Paragraph::new(Span::styled(
+            "─".repeat(area.width as usize),
+            Style::new().fg(FAINT),
+        )),
+        Rect {
+            y: area.y + 2,
+            height: 1,
+            ..area
+        },
+    );
+    let body = Rect {
+        x: area.x + 1,
+        y: area.y + 3,
+        width: area.width.saturating_sub(2),
+        height: area.height.saturating_sub(3),
+    };
+    app.detail_area = body;
+    app.record.visible_rows.clear();
+    if app.record.raw {
+        frame.render_widget(
+            Paragraph::new(record::raw_text(&hit))
+                .wrap(Wrap { trim: false })
+                .scroll((app.detail_scroll, 0)),
+            Rect {
+                x: body.x + 1,
+                width: body.width.saturating_sub(1),
+                ..body
+            },
+        );
+        return;
+    }
+    let height = body.height as usize;
+    let name_width = (body.width as usize / 3)
+        .clamp(14, 36)
+        .min((body.width as usize).saturating_sub(6));
+    let width = body.width as usize;
+    let mut start = app.record.scroll.min(app.record.cursor);
+    let mut needed = (start..=app.record.cursor)
+        .map(|index| {
+            detail_row_lines(app, &rows[index], index, field_rows, name_width, width, height)
+                .len()
+        })
+        .sum::<usize>();
+    while needed > height && start < app.record.cursor {
+        needed -= detail_row_lines(app, &rows[start], start, field_rows, name_width, width, height)
+            .len();
+        start += 1;
+    }
+    app.record.scroll = start;
+    let mut line = 0;
+    for (index, row) in rows.iter().enumerate().skip(start) {
+        for content in detail_row_lines(app, row, index, field_rows, name_width, width, height) {
+            if line == height {
+                break;
+            }
+            frame.render_widget(
+                Paragraph::new(content),
+                Rect {
+                    y: body.y + line as u16,
+                    height: 1,
+                    ..body
+                },
+            );
+            app.record.visible_rows.push(index);
+            line += 1;
+        }
+        if line == height {
+            break;
+        }
+    }
+    let shown_rows = app
+        .record
+        .visible_rows
+        .last()
+        .map_or(0, |last| last + 1 - start);
+    if rows.len() > shown_rows && height > 0 {
+        let mut state = ScrollbarState::new(rows.len() - shown_rows).position(start);
+        frame.render_stateful_widget(
+            Scrollbar::new(ScrollbarOrientation::VerticalRight)
+                .begin_symbol(None)
+                .end_symbol(None)
+                .track_symbol(Some("│"))
+                .track_style(Style::new().fg(FAINT))
+                .thumb_style(Style::new().fg(DIM)),
+            Rect {
+                x: body.right(),
+                width: 1,
+                ..body
+            },
+            &mut state,
+        );
+    }
+}
+
+fn preview(frame: &mut Frame<'_>, app: &mut App, area: Rect) {
+    app.detail_area = area;
+    let Some(hit) = app.current_detail_hit().cloned() else {
+        return;
+    };
+    for y in area.top()..area.bottom() {
+        frame.render_widget(
+            Paragraph::new(Span::styled("│", Style::new().fg(FAINT))),
+            Rect::new(area.x, y, 1, 1),
+        );
+    }
+    let inner = Rect {
+        x: area.x + 2,
+        width: area.width.saturating_sub(3),
+        ..area
+    };
+    let status_color = match hit.file_status {
+        FileStatus::Valid => GREEN,
+        FileStatus::Broken | FileStatus::Unreadable => RED,
+    };
+    frame.render_widget(
+        Paragraph::new(Line::from(vec![
+            Span::styled(hit.collection.clone(), Style::new().fg(VIOLET)),
+            Span::styled(" / ", Style::new().fg(FAINT)),
+            Span::styled(hit.record_id.clone(), Style::new().fg(TEXT)),
+            Span::styled("  ● ", Style::new().fg(status_color)),
+            Span::styled(hit.file_status.label(), Style::new().fg(DIM)),
+        ])),
+        Rect { height: 1, ..inner },
+    );
+    let body = Rect {
+        y: inner.y + 2,
+        height: inner.height.saturating_sub(2),
+        ..inner
+    };
+    let diagnostic = app
+        .diagnostic(&hit)
+        .map(|issue| format!("{}: {}", issue.code, issue.message));
+    let mut rows = app.record.rows(&hit, diagnostic.as_deref());
+    if let Some(metadata) = rows.iter().position(|row| row.label == "Metadata") {
+        rows.truncate(metadata);
+    }
+    let height = body.height as usize;
+    let width = body.width as usize;
+    let name_width = (width / 3).clamp(12, 28).min(width.saturating_sub(6));
+    let first_match = rows.iter().position(|row| row.matched).unwrap_or(0);
+    let mut start = first_match.saturating_sub(2);
+    while start < first_match {
+        let needed = (start..=first_match)
+            .map(|index| {
+                detail_row_lines(app, &rows[index], index, rows.len(), name_width, width, height)
+                    .len()
+            })
+            .sum::<usize>();
+        if needed <= height {
+            break;
+        }
+        start += 1;
+    }
+    let mut line = 0;
+    for (index, row) in rows.iter().enumerate().skip(start) {
+        for content in detail_row_lines(app, row, index, rows.len(), name_width, width, height) {
+            if line == height {
+                break;
+            }
+            frame.render_widget(
+                Paragraph::new(content),
+                Rect {
+                    y: body.y + line as u16,
+                    height: 1,
+                    ..body
+                },
+            );
+            line += 1;
+        }
+        if line == height {
+            break;
+        }
+    }
 }
 
 fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
@@ -571,7 +891,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
         Overlay::Columns => (app.column_keys().len() as u16 + 2)
             .min(20)
             .min(area.height.saturating_sub(2)),
-        Overlay::Help => 23.min(area.height.saturating_sub(2)),
+        Overlay::Help => 24.min(area.height.saturating_sub(2)),
     };
     let panel = Rect {
         x: area.x + area.width.saturating_sub(width) / 2,
@@ -786,6 +1106,7 @@ fn overlay_view(frame: &mut Frame<'_>, app: &App, overlay: Overlay) {
             "Ctrl+P / Alt+T   Preview / theme",
             "",
             "Detail: 1 2 3   Fields/links/backlinks",
+            "Detail: Tab / Shift+Tab   Next / previous section",
             "Detail: Enter     Fold or follow link",
             "Detail: Alt+←→   Previous/next result",
             "Detail: / n N    Find / next / previous",

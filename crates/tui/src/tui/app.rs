@@ -7,8 +7,10 @@ use std::time::{Duration, Instant};
 
 use objekte_search_core::model::{FieldPath, LogicalType, PathRoot, Value};
 use objekte_search_core::query::{
-    CaseSensitivity, FtsMode, FtsQuery, Query, QueryOptions, RegexOptions, parse_filter,
+    CaseSensitivity, FilterExpr, FtsMode, FtsQuery, Operand, Query, QueryOptions, RegexOptions,
+    parse_filter,
 };
+use objekte_search_core::query_path::QueryPath;
 use objekte_search_core::repository::{Repository, SearchHit, SearchResult};
 use objekte_search_core::workload::{ReturnMode, SortField};
 use ratatui::layout::Rect;
@@ -26,6 +28,23 @@ pub(super) const DEBOUNCE: Duration = Duration::from_millis(180);
 fn fold_find(text: &str) -> String {
     text.case_fold_with(Variant::Full, Locale::NonTurkic)
         .collect()
+}
+
+fn collect_filter_fields(filter: &FilterExpr, fields: &mut BTreeSet<String>) {
+    match filter {
+        FilterExpr::Term(term) => {
+            fields.insert(term.path.field.display());
+            if let Operand::Field(field) = &term.operand {
+                fields.insert(field.path.field.display());
+            }
+        }
+        FilterExpr::And(parts) | FilterExpr::Or(parts) => {
+            for part in parts {
+                collect_filter_fields(part, fields);
+            }
+        }
+        FilterExpr::Not(inner) => collect_filter_fields(inner, fields),
+    }
 }
 
 
@@ -372,6 +391,35 @@ impl App {
         }
     }
 
+    pub(super) fn cycle_detail_section(&mut self, forward: bool) {
+        let Some(hit) = self.current_detail_hit() else {
+            return;
+        };
+        let diagnostic = self
+            .diagnostic(hit)
+            .map(|issue| format!("{}: {}", issue.code, issue.message));
+        let base = self.record.rows(hit, diagnostic.as_deref()).len();
+        let mut sections = vec![0];
+        for label in ["Outgoing", "Backlinks"] {
+            if let Some(index) = self.relation_rows.iter().position(|row| row.label == label) {
+                sections.push(base + index);
+            }
+        }
+        sections.sort_unstable();
+        let current = sections
+            .iter()
+            .rposition(|&position| position <= self.record.cursor)
+            .unwrap_or(0);
+        let next = if forward {
+            (current + 1) % sections.len()
+        } else {
+            (current + sections.len() - 1) % sections.len()
+        };
+        self.record.cursor = sections[next];
+        self.record.raw = false;
+        self.status = None;
+    }
+
     pub(super) fn find_next(&mut self, forward: bool) {
         if self.record.raw {
             self.status = Some("Find is available in structured view".into());
@@ -664,10 +712,33 @@ impl App {
 
     pub(super) fn visible_columns(&self) -> Vec<String> {
         let hidden = self.settings.hidden(self.scope_name());
-        self.column_keys()
+        let mut columns = self.column_keys()
             .into_iter()
             .filter(|key| !hidden.contains(key))
-            .collect()
+            .collect::<Vec<_>>();
+        let mut searched = BTreeSet::new();
+        if !self.search.text.trim().is_empty() {
+            for hit in &self.hits {
+                for path in &hit.matched_fields {
+                    if let Ok(path) = QueryPath::parse(path) {
+                        searched.insert(path.field.display());
+                    }
+                }
+            }
+        }
+        if let Ok(filter) = parse_filter(self.filter.text.trim()) {
+            collect_filter_fields(&filter, &mut searched);
+        }
+        columns.sort_by_key(|key| {
+            if searched.contains(key) {
+                0
+            } else if self.sort.as_ref().is_some_and(|sort| sort.field == *key) {
+                1
+            } else {
+                2
+            }
+        });
+        columns
     }
 
     pub(super) fn toggle_column(&mut self) {

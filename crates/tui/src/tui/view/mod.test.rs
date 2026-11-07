@@ -37,10 +37,53 @@ fn draws_query_results_and_detail_on_small_terminal() {
     terminal.draw(|frame| draw(frame, app)).unwrap();
     let screen = format!("{:?}", terminal.backend().buffer());
     assert!(screen.contains("needle title") || screen.contains("ordinary title"));
+    assert!(screen.contains("1 Fields"));
+    assert!(screen.contains("2 Links"));
+    assert!(screen.contains("3 Backlinks"));
+    assert!(screen.contains("Metadata"));
+    let selected = &terminal.backend().buffer()[(1, 5)];
+    assert_eq!(selected.symbol(), "▌");
+    assert_eq!(selected.bg, SELECTED);
     app.overlay = Some(Overlay::Export { all: true });
     terminal.draw(|frame| draw(frame, app)).unwrap();
     let screen = format!("{:?}", terminal.backend().buffer());
     assert!(screen.contains("Export all matches"));
+}
+
+#[test]
+fn long_record_values_wrap_and_keep_screen_lines_on_the_same_field() {
+    let mut fixture = fixture(1);
+    let app = &mut fixture.app;
+    for _ in 0..1000 {
+        app.tick(std::time::Instant::now());
+        if !app.searching {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+    let title = "A long title with several words ".repeat(5);
+    app.hits[0].payload = Some(objekte_search_core::repository::Payload::Bytes(
+        format!(r#"{{"title":"{title}","number":0}}"#).into_bytes(),
+    ));
+    app.open_detail();
+    let backend = ratatui::backend::TestBackend::new(80, 20);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let hit = app.current_detail_hit().unwrap();
+    let title_row = app
+        .record
+        .rows(hit, None)
+        .iter()
+        .position(|row| row.label == "title")
+        .unwrap();
+    assert!(
+        app.record
+            .visible_rows
+            .iter()
+            .filter(|&&row| row == title_row)
+            .count()
+            > 1
+    );
 }
 
 #[test]
@@ -58,6 +101,39 @@ fn match_summary_uses_the_field_value_it_labels() {
     let summary = record_summary(&fixture.app.hits[0]);
     assert!(summary.contains("needle title"));
     assert!(!summary.contains("number: needle"));
+}
+
+#[test]
+fn match_column_stays_after_ids_when_result_fields_scroll() {
+    let mut fixture = fixture(2);
+    let app = &mut fixture.app;
+    app.search = Input::with_text("needle");
+    app.request_search();
+    for _ in 0..1000 {
+        app.tick(std::time::Instant::now());
+        if !app.searching {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+    app.column_offset = 1;
+    let backend = ratatui::backend::TestBackend::new(110, 5);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal
+        .draw(|frame| results(frame, app, Rect::new(0, 0, 110, 5)))
+        .unwrap();
+    let buffer = terminal.backend().buffer();
+    let mut header = String::new();
+    for x in 0..110 {
+        header.push_str(buffer[(x, 0)].symbol());
+    }
+    let collection = header.find("collection").unwrap();
+    let id = header.find("id").unwrap();
+    let matched = header.find("match / record").unwrap();
+    let number = header.find("number").unwrap();
+    assert!(collection < id && id < matched && matched < number);
+    assert!(!header.contains("title"));
+    assert_eq!(buffer[(matched as u16, 1)].symbol(), "t");
 }
 
 #[test]

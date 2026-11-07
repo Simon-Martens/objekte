@@ -27,6 +27,8 @@ pub(super) struct RecordRow {
 pub(super) struct RecordState {
     pub(super) cursor: usize,
     pub(super) scroll: usize,
+    /// Record row under each rendered line of the full detail view.
+    pub(super) visible_rows: Vec<usize>,
     pub(super) raw: bool,
     pub(super) find: String,
     pub(super) find_input: Option<Input>,
@@ -39,6 +41,7 @@ impl RecordState {
     pub(super) fn reset(&mut self) {
         self.cursor = 0;
         self.scroll = 0;
+        self.visible_rows.clear();
         self.raw = false;
         self.find.clear();
         self.find_input = None;
@@ -67,7 +70,6 @@ impl RecordState {
 
     pub(super) fn rows(&self, hit: &SearchHit, diagnostic: Option<&str>) -> Vec<RecordRow> {
         let mut rows = Vec::new();
-        plain(&mut rows, "Fields", String::new());
         if let Some(value) = json_value(hit) {
             match &value {
                 serde_json::Value::Object(fields) => {
@@ -100,6 +102,7 @@ impl RecordState {
                 "No structured JSON; press r for raw bytes".into(),
             );
         }
+        plain(&mut rows, "Metadata", String::new());
         plain(&mut rows, "File", hit.file_path.display().to_string());
         plain(
             &mut rows,

@@ -118,6 +118,54 @@ fn section_keys_jump_to_outgoing_and_backlinks() {
     assert_eq!(app.record.cursor, 0);
 }
 
+#[test]
+fn tab_cycles_available_record_sections_and_shift_tab_reverses() {
+    let mut fixture = relation_fixture();
+    let app = &mut fixture.app;
+    wait_for_hits(app);
+    select_id(app, "A");
+    app.relation_rows.push(relations::RelationRow {
+        label: "Backlinks".into(),
+        value: "entry_mentions".into(),
+        action: None,
+    });
+    let base = app.record.rows(app.current_detail_hit().unwrap(), None).len();
+    let outgoing = base
+        + app
+            .relation_rows
+            .iter()
+            .position(|row| row.label == "Outgoing")
+            .unwrap();
+    let backlinks = base
+        + app
+            .relation_rows
+            .iter()
+            .position(|row| row.label == "Backlinks")
+            .unwrap();
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
+    assert_eq!(app.record.cursor, outgoing);
+    let backend = ratatui::backend::TestBackend::new(80, 10);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| view::draw(frame, app)).unwrap();
+    assert!(app.record.visible_rows.contains(&outgoing));
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
+    assert_eq!(app.record.cursor, backlinks);
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
+    assert_eq!(app.record.cursor, 0);
+    key(app, KeyEvent::new(KeyCode::BackTab, KeyModifiers::SHIFT));
+    assert_eq!(app.record.cursor, backlinks);
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::SHIFT));
+    assert_eq!(app.record.cursor, outgoing);
+
+    app.back_detail();
+    select_id(app, "m1");
+    let base = app.record.rows(app.current_detail_hit().unwrap(), None).len();
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
+    assert_eq!(app.relation_rows[app.record.cursor - base].label, "Backlinks");
+    key(app, KeyEvent::new(KeyCode::Tab, KeyModifiers::NONE));
+    assert_eq!(app.record.cursor, 0);
+}
+
 fn wait_for_hits(app: &mut App) {
     for _ in 0..1_000 {
         app.tick(Instant::now());
@@ -209,7 +257,7 @@ fn mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_fil
         MouseEvent {
             kind: MouseEventKind::Down(MouseButton::Left),
             column: 4,
-            row: (record_rows + index + 1) as u16,
+            row: (record_rows + index) as u16,
             modifiers: KeyModifiers::NONE,
         },
     );
@@ -229,7 +277,7 @@ fn mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_fil
         MouseEvent {
             kind: MouseEventKind::Down(MouseButton::Left),
             column: 4,
-            row: (record_rows + index + 1) as u16,
+            row: (record_rows + index) as u16,
             modifiers: KeyModifiers::NONE,
         },
     );
@@ -237,4 +285,41 @@ fn mouse_click_opens_references_and_backlinks_and_inspection_needs_no_source_fil
     std::fs::remove_file(fixture._temp.path().join(source)).unwrap();
     app.refresh_relations();
     assert!(app.relation_rows.iter().any(|row| row.label.trim() == "m1"));
+}
+
+#[test]
+fn mouse_click_on_wrapped_value_selects_its_record_field() {
+    let mut fixture = fixture(1);
+    let app = &mut fixture.app;
+    wait_for_hits(app);
+    let title = "wrapped record value ".repeat(7);
+    app.hits[0].payload = Some(objekte_search_core::repository::Payload::Bytes(
+        format!(r#"{{"title":"{title}","number":0}}"#).into_bytes(),
+    ));
+    app.open_detail();
+    let backend = ratatui::backend::TestBackend::new(80, 20);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| view::draw(frame, app)).unwrap();
+    let row = app
+        .record
+        .rows(app.current_detail_hit().unwrap(), None)
+        .iter()
+        .position(|row| row.label == "title")
+        .unwrap();
+    let line = app
+        .record
+        .visible_rows
+        .iter()
+        .rposition(|&visible| visible == row)
+        .unwrap();
+    mouse_event(
+        app,
+        MouseEvent {
+            kind: MouseEventKind::Down(MouseButton::Left),
+            column: app.detail_area.x + 4,
+            row: app.detail_area.y + line as u16,
+            modifiers: KeyModifiers::NONE,
+        },
+    );
+    assert_eq!(app.record.cursor, row);
 }
