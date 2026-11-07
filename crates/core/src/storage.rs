@@ -445,6 +445,14 @@ impl Repository {
 
     /// Explicitly save and return section-level timing and byte diagnostics.
     pub fn save_snapshot_with_stats(&self, path: &Path) -> Result<SnapshotSaveStats, String> {
+        self.save_snapshot_before_publish(path, || Ok(()))
+    }
+
+    fn save_snapshot_before_publish(
+        &self,
+        path: &Path,
+        before_publish: impl FnOnce() -> Result<(), String>,
+    ) -> Result<SnapshotSaveStats, String> {
         let total_started = Instant::now();
         let mut stats = SnapshotSaveStats::default();
         let parent = path.parent().ok_or("snapshot needs a parent directory")?;
@@ -533,6 +541,7 @@ impl Repository {
             let started = Instant::now();
             file.sync_all().map_err(|e| e.to_string())?;
             stats.sync_ns = started.elapsed().as_nanos() as u64;
+            before_publish()?;
             let started = Instant::now();
             fs::rename(&temporary, path).map_err(|e| e.to_string())?;
             stats.rename_ns = started.elapsed().as_nanos() as u64;

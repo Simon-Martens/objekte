@@ -60,6 +60,43 @@ fn default_open_never_persists_and_stale_snapshot_is_left_untouched() {
 }
 
 #[test]
+fn failed_explicit_save_preserves_previous_snapshot_and_removes_owned_temp() {
+    let root = std::env::temp_dir().join(format!(
+        "objekte-save-before-publish-{}-{:?}",
+        std::process::id(),
+        std::thread::current().id()
+    ));
+    fs::create_dir_all(root.join("data")).unwrap();
+    fs::write(root.join("data/a.json"), br#"{"title":"A"}"#).unwrap();
+    let definition = CollectionDefinition::folder("files", "data", SourceFormat::Json);
+    let repository = Repository::open(&root, vec![definition]).unwrap();
+    let snapshot = snapshot_path(&root, BigramAlphabet::Ascii);
+    repository.save_snapshot(&snapshot).unwrap();
+    let previous = fs::read(&snapshot).unwrap();
+    let modified = fs::metadata(&snapshot).unwrap().modified().unwrap();
+
+    let error = repository
+        .save_snapshot_before_publish(&snapshot, || Err("injected publication failure".into()))
+        .unwrap_err();
+    assert_eq!(error, "injected publication failure");
+    assert_eq!(fs::read(&snapshot).unwrap(), previous);
+    assert_eq!(
+        fs::metadata(&snapshot).unwrap().modified().unwrap(),
+        modified
+    );
+    let temporary = fs::read_dir(snapshot.parent().unwrap())
+        .unwrap()
+        .map(|entry| entry.unwrap().file_name().to_string_lossy().into_owned())
+        .filter(|name| name.starts_with(".objekte-snapshot-") && name.ends_with(".tmp"))
+        .collect::<Vec<_>>();
+    assert!(
+        temporary.is_empty(),
+        "leftover temporary snapshots: {temporary:?}"
+    );
+    fs::remove_dir_all(root).unwrap();
+}
+
+#[test]
 fn explicit_snapshot_policy_preserves_load_and_write_boundaries() {
     static NEXT: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
     let root = std::env::temp_dir().join(format!(
