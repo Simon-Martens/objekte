@@ -1,5 +1,5 @@
 use super::*;
-use crate::tui::test_support::fixture;
+use crate::tui::test_support::{fixture, relation_fixture};
 
 #[test]
 fn loading_screen_shows_index_progress_before_repository_is_ready() {
@@ -58,4 +58,41 @@ fn match_summary_uses_the_field_value_it_labels() {
     let summary = record_summary(&fixture.app.hits[0]);
     assert!(summary.contains("needle title"));
     assert!(!summary.contains("number: needle"));
+}
+
+#[test]
+fn detail_renders_structured_fields_and_relation_states() {
+    let mut fixture = relation_fixture();
+    let app = &mut fixture.app;
+    for _ in 0..1_000 {
+        app.tick(std::time::Instant::now());
+        if !app.searching {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+    app.selected = app
+        .hits
+        .iter()
+        .position(|hit| hit.record_id == "B")
+        .unwrap();
+    app.open_detail();
+    let backend = ratatui::backend::TestBackend::new(100, 40);
+    let mut terminal = ratatui::Terminal::new(backend).unwrap();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("Dangling"));
+    assert!(screen.contains("Outgoing"));
+    assert!(screen.contains("dangling"));
+    app.back_detail();
+    app.selected = app
+        .hits
+        .iter()
+        .position(|hit| hit.record_id == "m1")
+        .unwrap();
+    app.open_detail();
+    terminal.draw(|frame| draw(frame, app)).unwrap();
+    let screen = format!("{:?}", terminal.backend().buffer());
+    assert!(screen.contains("Backlinks"));
+    assert!(screen.contains("entry_mentions"));
 }
