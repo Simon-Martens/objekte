@@ -383,15 +383,6 @@ impl Default for RepositoryOptions {
     }
 }
 
-#[cfg(test)]
-mod repository_option_tests {
-    #[test]
-    fn exported_default_prepared_cache_budget_is_sixteen_mib() {
-        let options = super::RepositoryOptions::default();
-        assert_eq!(options.prepared_cache_bytes, 16 * 1024 * 1024);
-    }
-}
-
 /// One page result with locator, evidence, and optional payload.
 #[derive(Clone, Debug, PartialEq)]
 pub struct SearchHit {
@@ -1739,3 +1730,7 @@ pub(crate) fn sort_rows(
     });
     Ok(())
 }
+
+#[cfg(test)]
+#[path = "repository.test.rs"]
+mod tests;
